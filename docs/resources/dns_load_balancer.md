@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_load_balancer la
 
 # xcsh_dns_load_balancer landing
 
-<a id="canonical-0fcdaf880e64bfc375d92833e3901f826bf9b25df73e37402ea88ec899069baf"></a>
+<a id="canonical-0033303122332020-0032121023333003-1311312102200303-3203210001332002-1223332123021131-3313033203131000-0232222020323020-2121001221232233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2853be8249c89f7d71a36c2d9c01baca45ac3055f3bddf554e37e9dd00f9388f"></a>
+<a id="canonical-0220110323322002-1021302021331331-1301220312300231-2130000123223022-1011223003001111-3303233131331111-1032031332213131-0000332103202033"></a>
 
-## xcsh_dns_load_balancer — xcsh_dns_load_balancer / 51f900ef6841 / 2
+## xcsh_dns_load_balancer — xcsh_dns_load_balancer / 323312201001 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-<a id="canonical-7025ddb915451b2d6d05e178cde191c0379681fe55abd0619c14b2e254f60642"></a>
+<a id="canonical-1300021131312321-0111101101230231-1231001132011320-3031320121013000-0313211220013332-1111222331001201-2130011023023202-1110331200121002"></a>
 
-## Prerequisites — xcsh_dns_load_balancer / 51f900ef6841 / 3
+## Prerequisites — xcsh_dns_load_balancer / 323312201001 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Required dependencies: `dns_zone`.
 
 - dns_zone: Parent zone for DNS records
 
-<a id="canonical-16db2a78c88ca51a5d995d4835577898a4fa6ae7ab92ccb07449164217580b09"></a>
+<a id="canonical-0112312302221320-3020203022110122-1131212111311020-0311111313202120-2210332212223213-2223210230302300-1310102101121002-0113112000230021"></a>
 
-## Minimal configuration — xcsh_dns_load_balancer / 51f900ef6841 / 4
+## Minimal configuration — xcsh_dns_load_balancer / 323312201001 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -63,17 +63,17 @@ resource "xcsh_dns_load_balancer" "example" {
 }
 ```
 
-<a id="canonical-1c1efa0f752afa359424011d081f080e60607619d4b6b1fa44defcdd98eb792b"></a>
+<a id="canonical-0130013233220033-1311022233220311-2110021000010131-0020013300200032-1200120013120121-3110231223013322-1010313233303131-2120322313210223"></a>
 
-## Root configuration — xcsh_dns_load_balancer / 51f900ef6841 / 5
+## Root configuration — xcsh_dns_load_balancer / 323312201001 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-861a00a0cb79b10091ec97fda64c9d5c68bae1d2fa255dcf7fe7a08cf2bbf44e"></a>
+<a id="canonical-2012012200002200-3023132123010000-2101323021133331-2212103021311130-1220232232013102-3322021111313033-1333321322002030-3302232333101032"></a>
 
-## Next pages — xcsh_dns_load_balancer / 51f900ef6841 / 6
+## Next pages — xcsh_dns_load_balancer / 323312201001 / 6
 
-- [Property reference](../guides/resources--dns_load_balancer--reference--group-001.md#canonical-f932e202054f58f09900a6d1e9d671ba4fcf260d4501fc9af69356d4abde8d0d)
-- [Examples](../guides/resources--dns_load_balancer--examples--group-001.md#canonical-83e1b17aff65a9e2ed9945ff957d160b0ea3e62f4fd6603efb706dea85eabc21)
-- [Import](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-1c9044ea645e38eddb76684426b45cc8354e794f52cb6e7d8dc67edb7b738314)
-- [Timeouts](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-8bfb142fed7a9c4bf590de06eeb9feacfe35c24b13ab118dcdc8f758cc06ae63)
+- [Property reference](../guides/resources--dns_load_balancer--reference--group-001.md#canonical-3321030232020002-0011103311203300-2121000022123101-3221311213012322-1033303302120031-1011000133302122-3312210311123110-2223313220310031)
+- [Examples](../guides/resources--dns_load_balancer--examples--group-001.md#canonical-2003320123011322-3333121122213202-3231212110113333-2111133101120023-0032220332120233-1033311212000332-3323130012313222-2011322223300201)
+- [Import](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-0130210010103222-1210113203203231-3123131212201010-0212231011303020-0311103213211033-1102302312321331-2031301213323123-1323130320030110)
+- [Timeouts](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-2023332301100233-3231132221301023-3311210031320012-3232232133322230-3332031130021023-0103222301012031-3031302033131120-3030001222321203)

@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_registration referen
 
 # xcsh_registration reference
 
-<a id="canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6"></a>
+<a id="canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b6e84446356b18b6f6b11637b399f6dc31c0789c53639840c8189f82c796965a"></a>
+<a id="canonical-2312322010101012-0311122301202312-3312230101120313-2303212133123130-0301300013202130-1103120321201000-3020012021332002-3013211221121122"></a>
 
-## Property reference — Property reference / 55a850ce7617 / 2
+## Property reference — Property reference / 303213120113 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 - Property reference
 
-<a id="canonical-3bbf37b4acc02d800f641ddfe6c95b3c88bf0f16a159a17efd40b67be43a7569"></a>
+<a id="canonical-0323233303132310-2230300002312000-0033121001313133-3212302111230330-2020233300330112-2201112122011332-3331100023121323-3210032213111221"></a>
 
-## Direct properties — Property reference / 55a850ce7617 / 3
+## Direct properties — Property reference / 303213120113 / 3
 
-<a id="canonical-0d8b034f819323c1a25d2e03ce3f4944bb6ce89f9bc82901bf0a92d528703516"></a>
+<a id="canonical-0031202300031033-2001210302033001-2202113102320003-3032033310211010-2323123032202133-2123302002210001-2333002221023111-0220130003110112"></a>
 
-<a id="canonical-2efbc59ca720bd475adda5af704132341f0e3f3cea6f07f9d0aa11ff4af803cd"></a>
+<a id="canonical-0232332330112130-2213020023311013-1122313122112233-1300100103020310-0133003203330330-3222123300133321-3100222201013333-1022332000033031"></a>
 
-## annotations property — Property reference / 55a850ce7617 / 4
+## annotations property — Property reference / 303213120113 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3a690b4db2bde307334f2ea4d77531e7aafde3d4b5160c09bf9b3a84f873eb92"></a>
+<a id="canonical-0322122100231031-2302233132030013-0303103302322210-3113131103013213-2222333132033110-2311011200300021-2333212303222010-3320130332232102"></a>
 
-<a id="canonical-84d0bebdd1b53cdc3ad3a293bc3f07208ec39558780e85350c3f4069df5d2d76"></a>
+<a id="canonical-2010310023322331-3101231103303130-0322310322022103-2330033300130200-2032300321111120-1320003220110311-0030033310001221-3133113102311312"></a>
 
-## description property — Property reference / 55a850ce7617 / 5
+## description property — Property reference / 303213120113 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,23 +118,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c4f42698bcd6aa1e14c13c4ce356efe99c317d1fd999c2cd88860cfae49a7bb8"></a>
+<a id="canonical-3010331002122120-2330311222220132-0110300103301030-3203111232333221-2130030113310133-3121212130023031-2020201200303322-3210212213232320"></a>
 
-<a id="canonical-35f63ff3ce23655a143365185805848ee13f703ee2c9cf6438a3782ae0144c80"></a>
+<a id="canonical-0311331203333303-3032020312111122-0110030312110120-1120001120102032-3201033313000332-3202302130331210-0320220313200222-3200011010302000"></a>
 
-## id property — Property reference / 55a850ce7617 / 6
+## ID property — Property reference / 303213120113 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251): complete subsection reference.
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101): complete subsection reference.
 
-<a id="canonical-ab21e67e1e3f18f5e85f844e8a974b8379e70eb3148f405b04908965f11c887b"></a>
+<a id="canonical-2223020132121332-0132033301203311-3220113320101032-2022211310232003-1321321300322303-0110203310001123-0010210020211211-3301013020201323"></a>
 
-<a id="canonical-25936e3e8f5440cf2ad6f14ee4b6d2d1050a8ccf4ea887f4c385c65efbc17cab"></a>
+<a id="canonical-0211210312320332-2033111010003033-0222311233011032-3210231231023101-0011002220303033-1032222020133310-3003201130121132-3323300113302223"></a>
 
-## labels property — Property reference / 55a850ce7617 / 7
+## labels property — Property reference / 303213120113 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -158,11 +158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86e991b70142cefb27991dec48bea1cdf66cd9c0ef695e87a990f5febb0de47f"></a>
+<a id="canonical-2012322121012313-0001100230323323-0213212101313230-1020233222013031-3312123031213000-3233122111322013-2221210033113332-2323003132101333"></a>
 
-<a id="canonical-c5d591580abfb0851cec9649b9f799196405acb403f7a0dd4f108c33669a996e"></a>
+<a id="canonical-3011311121011120-0022233323002011-0130323021121021-2321331321210121-1210001122302310-0003331322003131-1033010020300303-1212212221211232"></a>
 
-## name property — Property reference / 55a850ce7617 / 8
+## name property — Property reference / 303213120113 / 8
 
 Type: `"string"`. Required.
 
@@ -218,11 +218,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0451ba7180ca4ae64678d6ee9540eeab05c9e74a5f8b314887b21761cd8ccba2"></a>
+<a id="canonical-0010110123221301-2000302210223212-1012132031123232-2111100032322223-0011302132131022-1133202303011020-2013230201131201-3031203030232202"></a>
 
-<a id="canonical-322b1d3fbe7b7ffc911a7cf5a58c32d73118113f83646167c1d05c886f135ae1"></a>
+<a id="canonical-0302022301310333-2332132313333330-2101012213303311-2211203003023113-0301012001010333-2003121012011213-3001310011302020-1233010311223201"></a>
 
-## namespace property — Property reference / 55a850ce7617 / 9
+## namespace property — Property reference / 303213120113 / 9
 
 Type: `"string"`. Required.
 
@@ -271,13 +271,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5): complete subsection reference.
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211): complete subsection reference.
 
-<a id="canonical-f2e23b317e188987a2066e88ea128e91802fd38660a572937d855dd2b21c49f5"></a>
+<a id="canonical-3302320203230301-1332012020212013-2202001212322020-3222010220322101-2000023331032012-1200221113022103-1331201111313102-2302013010213311"></a>
 
-<a id="canonical-3b9737d8fac3ea5651ea36a60fd4558a04d24024095f0931aed242a26b6483b8"></a>
+<a id="canonical-0323211303133120-3322300332221112-1101322203122212-0033311011112022-0010310210000210-0021113300210301-2232310210022202-1223121020032320"></a>
 
-## token property — Property reference / 55a850ce7617 / 10
+## token property — Property reference / 303213120113 / 10
 
 Type: `"string"`. Computed.
 
@@ -313,173 +313,173 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-067b6c07e09ed7945d62c41d1d08472a7d243c49ff0b262ec6592745417c41a2"></a>
+<a id="canonical-0012132312300013-3200213231132110-1131120230100131-0131002010130222-1331021003301021-3333002302120232-3012112102131011-1001133010012202"></a>
 
-## All schema paths — Property reference / 55a850ce7617 / 11
+## All schema paths — Property reference / 303213120113 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--registration--reference--group-001.md#canonical-0d8b034f819323c1a25d2e03ce3f4944bb6ce89f9bc82901bf0a92d528703516) |
-| `description` | [description](data-sources--registration--reference--group-001.md#canonical-3a690b4db2bde307334f2ea4d77531e7aafde3d4b5160c09bf9b3a84f873eb92) |
-| `id` | [id](data-sources--registration--reference--group-001.md#canonical-c4f42698bcd6aa1e14c13c4ce356efe99c317d1fd999c2cd88860cfae49a7bb8) |
-| `infra` | [infra](data-sources--registration--reference--group-001.md#canonical-d6aa00385557f0cabda8d4e6a87649ead136e7d9962a60756cf65628cb25feae) |
-| `infra.availability_zone` | [infra.availability_zone](data-sources--registration--reference--group-001.md#canonical-d2339daaf652b79f88f403c3963349828bdf2497f89289a9e8a182d3f1e692af) |
-| `infra.bond_config` | [infra.bond_config](data-sources--registration--reference--group-001.md#canonical-856b55a0ac73d1f2bde0447fe5350dd861a7561d57d307bd6b37419cf97c7cb7) |
-| `infra.bond_config.interfaces` | [infra.bond_config.interfaces](data-sources--registration--reference--group-001.md#canonical-f74856cc1675346a8da2264d108b29d2d4045b00210826ca709e0376655ef612) |
-| `infra.bond_config.mode` | [infra.bond_config.mode](data-sources--registration--reference--group-001.md#canonical-e1b5cb8aa00ed55afd4309b418e3fc3986431a37dc8aa2bf5ba43a98567bc70b) |
-| `infra.bond_config.name` | [infra.bond_config.name](data-sources--registration--reference--group-001.md#canonical-b96897b0af62a6c65068f4cb680f56e344ddbd76d90cf6816e90da53b34e20b7) |
-| `infra.certified_hw` | [infra.certified_hw](data-sources--registration--reference--group-001.md#canonical-1eed2376602876afb0d3169d40ce65dc64756adf97b190abf8ef17b85856a148) |
-| `infra.domain` | [infra.domain](data-sources--registration--reference--group-001.md#canonical-965ebc7b99947f28930165ebf1f6040e9d100acb58b04c087dcc5ac8dd50abad) |
-| `infra.hostname` | [infra.hostname](data-sources--registration--reference--group-001.md#canonical-252d1d38e7e98d718c6473b027502dd249ab950294eb28600f4289d0f7120198) |
-| `infra.hugepages` | [infra.hugepages](data-sources--registration--reference--group-001.md#canonical-cb87cb5a30dec946d6f992db740a233b00389ee73c11121643751f3857190f12) |
-| `infra.hugepages.free` | [infra.hugepages.free](data-sources--registration--reference--group-001.md#canonical-51aa84b7c464d23af72dc85b3261e91cd1210126ca1c56a3e43655b08c8768be) |
-| `infra.hugepages.page_size` | [infra.hugepages.page_size](data-sources--registration--reference--group-001.md#canonical-0575c14cd7a7e997bc1e06ce88f4c5fdfaf3dc0f045ecf7e5697fd20d187ae8f) |
-| `infra.hugepages.total` | [infra.hugepages.total](data-sources--registration--reference--group-001.md#canonical-fcb41ea3a17b3cbbb2a8306b23867841938e1fc63e585ad1e255235c150a2f85) |
-| `infra.hw_info` | [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-b2dfbc22aa5aa18c5b4b1ce255ef13745006c9d9558aaec8f98f49549988119f) |
-| `infra.hw_info.bios` | [infra.hw_info.bios](data-sources--registration--reference--group-001.md#canonical-25e2cea9aac7727a1acd5601d41c78c369e928e992ae2f624ebf611d68b5d4da) |
-| `infra.hw_info.bios.date` | [infra.hw_info.bios.date](data-sources--registration--reference--group-001.md#canonical-5c00f25eda66394f2953add04a91a8ebdc83181f643a37debf00d38248497250) |
-| `infra.hw_info.bios.vendor` | [infra.hw_info.bios.vendor](data-sources--registration--reference--group-001.md#canonical-05c0fae09bfe7492087c3f5d82f5d6932676bf6e57b39d44ad5a73f817a7b753) |
-| `infra.hw_info.bios.version` | [infra.hw_info.bios.version](data-sources--registration--reference--group-001.md#canonical-33e62923885b0139969ef55b62acf9fea0757a4a4173587a55ae26e8bbc7ad14) |
-| `infra.hw_info.board` | [infra.hw_info.board](data-sources--registration--reference--group-001.md#canonical-92842c11c11e9c61ba4dc29145a8c7021a7da13cf2eeb6749a8d7a9c51ac338d) |
-| `infra.hw_info.board.asset_tag` | [infra.hw_info.board.asset_tag](data-sources--registration--reference--group-001.md#canonical-8fa043ea8a73781a5904ee7aded79ce5f8607631256a9d937396bf7b56084088) |
-| `infra.hw_info.board.name` | [infra.hw_info.board.name](data-sources--registration--reference--group-001.md#canonical-ae78efaf4464e74d85c9030e5579848bbdcc7137f99c30b66ded0ca3f0e9d215) |
-| `infra.hw_info.board.serial` | [infra.hw_info.board.serial](data-sources--registration--reference--group-001.md#canonical-b1e605730ef31538839bd2c2bf34c189b3eb3c02da1c1a5c548d187089719afc) |
-| `infra.hw_info.board.vendor` | [infra.hw_info.board.vendor](data-sources--registration--reference--group-001.md#canonical-0303bb642b498d19463d93b5d817572a0ad07a01f67b47cd75389865c4542663) |
-| `infra.hw_info.board.version` | [infra.hw_info.board.version](data-sources--registration--reference--group-001.md#canonical-971d1e802caef39fc5013172555cf04c522c0a1dcbacc8ab74202e66c5566319) |
-| `infra.hw_info.chassis` | [infra.hw_info.chassis](data-sources--registration--reference--group-001.md#canonical-bd2cea604c3adad46692715e3fb84be8f68b0f820cb69a184c20076584646811) |
-| `infra.hw_info.chassis.asset_tag` | [infra.hw_info.chassis.asset_tag](data-sources--registration--reference--group-001.md#canonical-3a2d1d7f8c7a8515774b22d63ca89c836ad9b209f342c7dc66df74e50fac7a01) |
-| `infra.hw_info.chassis.serial` | [infra.hw_info.chassis.serial](data-sources--registration--reference--group-001.md#canonical-9c61611eed59edfe15d0f3c7adbd782e48e3187441e1e10b700d8a675862c568) |
-| `infra.hw_info.chassis.type` | [infra.hw_info.chassis.type](data-sources--registration--reference--group-001.md#canonical-5012e862b0cc32091b68aa1f32b6748c81e9370905832773eeed2865acc32142) |
-| `infra.hw_info.chassis.vendor` | [infra.hw_info.chassis.vendor](data-sources--registration--reference--group-001.md#canonical-b9c497d3c92aa1de78dd58411523c9f4a4952098010d4865c4cefb9059546c55) |
-| `infra.hw_info.chassis.version` | [infra.hw_info.chassis.version](data-sources--registration--reference--group-001.md#canonical-238babd77520c0e04cf15dd11c6838304e5e0bd3b49dca57307c3e1b70acf1c7) |
-| `infra.hw_info.cpu` | [infra.hw_info.cpu](data-sources--registration--reference--group-001.md#canonical-80098b0065f5f696339b7393ec10eb533aa8cc3fa2f24e0b3f7f5bcf2ccf3007) |
-| `infra.hw_info.cpu.cache` | [infra.hw_info.cpu.cache](data-sources--registration--reference--group-001.md#canonical-fcc8e6055acbea8ee12534c0c7f9215c12513e7fd2845586645af89725acd296) |
-| `infra.hw_info.cpu.cores` | [infra.hw_info.cpu.cores](data-sources--registration--reference--group-001.md#canonical-362e4e9c3e21b4bf7fb5720222d4285bb7f5f9f1e4c35f5509fdf9dfd38a5704) |
-| `infra.hw_info.cpu.cpus` | [infra.hw_info.cpu.cpus](data-sources--registration--reference--group-001.md#canonical-ff2e2bcd64e4b2f543abe0959767a99e0be8b207ec4a2f29952e2528177c0008) |
-| `infra.hw_info.cpu.model` | [infra.hw_info.cpu.model](data-sources--registration--reference--group-001.md#canonical-49dc542a6c52186f8383ad511a78ef82f41fac88aad856788ca2a2c93a1196d9) |
-| `infra.hw_info.cpu.speed` | [infra.hw_info.cpu.speed](data-sources--registration--reference--group-001.md#canonical-321452b7326f07388ffce1ca4b33766ffa50dabb4e002eeb6ceb36d3f070f153) |
-| `infra.hw_info.cpu.threads` | [infra.hw_info.cpu.threads](data-sources--registration--reference--group-001.md#canonical-07fd5607758550961175b3fe368c5581c9b98bd6449bc72f42c60b6ae4822b6e) |
-| `infra.hw_info.cpu.vendor` | [infra.hw_info.cpu.vendor](data-sources--registration--reference--group-001.md#canonical-35c56c97eca26f451f70001af450b05d03d21f551e232ed2dc063ed44ed902db) |
-| `infra.hw_info.gpu` | [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-c0b726570e47e146e616a0de6d2ee35390042345c603f10042ac3cd1f8e03a9c) |
-| `infra.hw_info.gpu.cuda_version` | [infra.hw_info.gpu.cuda_version](data-sources--registration--reference--group-001.md#canonical-9077d869f49f37bb1ba51a668ca293e8256e72718864fefe034e60fc96fad118) |
-| `infra.hw_info.gpu.driver_version` | [infra.hw_info.gpu.driver_version](data-sources--registration--reference--group-001.md#canonical-6a7c2324a7590f6d2b10afbac966023c0a609af2763f3979062e8f713c393b45) |
-| `infra.hw_info.gpu.gpu_device` | [infra.hw_info.gpu.gpu_device](data-sources--registration--reference--group-001.md#canonical-b5c4c33c56dd0b7e6208af67ddbbc19a1d9505b0ad4e234aa805088e303ad87f) |
-| `infra.hw_info.gpu.gpu_device.id` | [infra.hw_info.gpu.gpu_device.id](data-sources--registration--reference--group-001.md#canonical-b6392d2308c986dd21a1483741e9431340a33d7a84cdeab5b5671faa8acc8603) |
-| `infra.hw_info.gpu.gpu_device.processes` | [infra.hw_info.gpu.gpu_device.processes](data-sources--registration--reference--group-001.md#canonical-f60635c2b7b143af084618f97048f4b05eeaf1a9f392bf120baf0119a943a5d1) |
-| `infra.hw_info.gpu.gpu_device.product_name` | [infra.hw_info.gpu.gpu_device.product_name](data-sources--registration--reference--group-001.md#canonical-d400a7dfd493c4408106da0872785d7e377c168665491e648f23c8c69900a6d0) |
-| `infra.hw_info.kernel` | [infra.hw_info.kernel](data-sources--registration--reference--group-001.md#canonical-01c6feed763af81f81ed315517d22fd0dab1025aae71c58c308018fe97b3dff7) |
-| `infra.hw_info.kernel.architecture` | [infra.hw_info.kernel.architecture](data-sources--registration--reference--group-001.md#canonical-0d7b937a84946686f0cb6f25123f6f7e61eae8556644da650ffde38142fda775) |
-| `infra.hw_info.kernel.release` | [infra.hw_info.kernel.release](data-sources--registration--reference--group-001.md#canonical-f2eb1bf197e129ec6734dea416c4a9a76596b2274f76fb6e23b050c71e51bc19) |
-| `infra.hw_info.kernel.version` | [infra.hw_info.kernel.version](data-sources--registration--reference--group-001.md#canonical-8ca4d13fb5611eb64af3548a815a3bfac95efea8258c947a747844e3b66af260) |
-| `infra.hw_info.memory` | [infra.hw_info.memory](data-sources--registration--reference--group-001.md#canonical-9d21295a158b1e882cccaade22deb31b90c4d5949b3ede8506022eeff2cd8013) |
-| `infra.hw_info.memory.size_mb` | [infra.hw_info.memory.size_mb](data-sources--registration--reference--group-001.md#canonical-23b9ed00f9b0857d8300b0470ba0d9da9a37217902f9508b9055968c5ebf760d) |
-| `infra.hw_info.memory.speed` | [infra.hw_info.memory.speed](data-sources--registration--reference--group-001.md#canonical-dc40017ab764925ace9addedb36de16bf17939b0d1c7d61e18cc286870803af4) |
-| `infra.hw_info.memory.type` | [infra.hw_info.memory.type](data-sources--registration--reference--group-001.md#canonical-93e7ebdbd605199e6135215a9484edcdac4615368062cc646564c26172042944) |
-| `infra.hw_info.network` | [infra.hw_info.network](data-sources--registration--reference--group-001.md#canonical-5a8f3ea4c380f801a5b8b1e3061c2076523239a4345287142b75aac13ec0d546) |
-| `infra.hw_info.network.driver` | [infra.hw_info.network.driver](data-sources--registration--reference--group-001.md#canonical-152120246033b39a842e843ae63de2b10edd2a80f773fe1c04fbcc4d85d70e37) |
-| `infra.hw_info.network.ip_address` | [infra.hw_info.network.ip_address](data-sources--registration--reference--group-001.md#canonical-47a74c1555448891ed7634a850db7ed4b3113ff86c3d7b7c8cec27000e1a4887) |
-| `infra.hw_info.network.link_quality` | [infra.hw_info.network.link_quality](data-sources--registration--reference--group-001.md#canonical-b300aa4c50290b00ebf108cd134d0b621ec0342dc084585d07cd5245506fe0f3) |
-| `infra.hw_info.network.link_type` | [infra.hw_info.network.link_type](data-sources--registration--reference--group-001.md#canonical-2f68f06443b41f97fa8162afb54cf0f1d3def77e58482c340ec7fe46809d96b0) |
-| `infra.hw_info.network.mac_address` | [infra.hw_info.network.mac_address](data-sources--registration--reference--group-001.md#canonical-151fa0746dda4bed7c9feb36d62b4072ae9efced55295ac057b146fc46b4a769) |
-| `infra.hw_info.network.name` | [infra.hw_info.network.name](data-sources--registration--reference--group-001.md#canonical-a9b0908cee823ffd57db6ce4743d9195b192e793f8baaf87cadae13c2d4556a4) |
-| `infra.hw_info.network.port` | [infra.hw_info.network.port](data-sources--registration--reference--group-001.md#canonical-8fac2d641d1e5b4ed61629a7c9dbfba98d356067f9097dce0682489dbad45080) |
-| `infra.hw_info.network.speed` | [infra.hw_info.network.speed](data-sources--registration--reference--group-001.md#canonical-7d93d488c4f26ad530d2ca586d592fbd582755a9b0aef674cdaa6c41886d9f83) |
-| `infra.hw_info.numa_nodes` | [infra.hw_info.numa_nodes](data-sources--registration--reference--group-001.md#canonical-210a77c6eb3796b1d7bd28a29b6535a5acf40653775af4d49c82cf60f2353c7e) |
-| `infra.hw_info.os` | [infra.hw_info.os](data-sources--registration--reference--group-001.md#canonical-d2890a2e03daa3522ac7d7502356bf2972c20128c6a2cf5acbd1e2826e26bdad) |
-| `infra.hw_info.os.architecture` | [infra.hw_info.os.architecture](data-sources--registration--reference--group-001.md#canonical-7b79cd287fc76c7917e4414b2638b1e5156ba51c8774da3c29750e651c982bce) |
-| `infra.hw_info.os.name` | [infra.hw_info.os.name](data-sources--registration--reference--group-001.md#canonical-ad04f6535672b0fb4fd32dde5f1a02c4ffbd8e4e161db6ef14487722a2ad2f0a) |
-| `infra.hw_info.os.release` | [infra.hw_info.os.release](data-sources--registration--reference--group-001.md#canonical-e6e6926d320c95adaa2c83f69d8094c3d49b26c3d96edad7ce82a42db8c1e466) |
-| `infra.hw_info.os.vendor` | [infra.hw_info.os.vendor](data-sources--registration--reference--group-001.md#canonical-841c64929fd5968c9845050d3833e8e470a82d8c4a45d94316b957ff544ff4ee) |
-| `infra.hw_info.os.version` | [infra.hw_info.os.version](data-sources--registration--reference--group-001.md#canonical-fba7d5af0ef9f7d612b897f9db891b8d2ce406ff9eb7c42dde3b94f29a5b201d) |
-| `infra.hw_info.product` | [infra.hw_info.product](data-sources--registration--reference--group-001.md#canonical-01f5ce00011b541227ad6cc0b4767f4347cbbfc629e971f13440d96cc9245661) |
-| `infra.hw_info.product.name` | [infra.hw_info.product.name](data-sources--registration--reference--group-001.md#canonical-e01342aad605978eca8f3bcf9fcbb7b3b2fc85028ff3e0e97cbee1b58efb77cb) |
-| `infra.hw_info.product.serial` | [infra.hw_info.product.serial](data-sources--registration--reference--group-001.md#canonical-cf7a5cd1ff019a238809bb68179098be186b3fd497f955e23521a4b1d7f33f95) |
-| `infra.hw_info.product.vendor` | [infra.hw_info.product.vendor](data-sources--registration--reference--group-001.md#canonical-f493c823b6ad2a390201978488cefa2a3e62964853942d59bb4d73781a80f8e8) |
-| `infra.hw_info.product.version` | [infra.hw_info.product.version](data-sources--registration--reference--group-001.md#canonical-f2c6b857bb6b1011ebf24f742898556b7d5d6c57b5a18c71a9e49942eb3b32ae) |
-| `infra.hw_info.storage` | [infra.hw_info.storage](data-sources--registration--reference--group-001.md#canonical-13af4265aa1b701288082f18907a01c7e7716c4c008b11a03bb9c1f749d622f5) |
-| `infra.hw_info.storage.driver` | [infra.hw_info.storage.driver](data-sources--registration--reference--group-001.md#canonical-9bed739cc0bea1358741b592678e776e48026e5ab93f911a00d90f3b3032742a) |
-| `infra.hw_info.storage.model` | [infra.hw_info.storage.model](data-sources--registration--reference--group-001.md#canonical-be99188b2e9e2dd736950b24824554eaf134aad77d76f707f4719b49495aee6d) |
-| `infra.hw_info.storage.name` | [infra.hw_info.storage.name](data-sources--registration--reference--group-001.md#canonical-75540bfb81eee9729e2caf3200960f40484310302bbcb18b02dfac0390083a52) |
-| `infra.hw_info.storage.serial` | [infra.hw_info.storage.serial](data-sources--registration--reference--group-001.md#canonical-11a4c9023dfd4cafadf40ce965e21bac81e4b02da103d0e756400202d0bb3e42) |
-| `infra.hw_info.storage.size_gb` | [infra.hw_info.storage.size_gb](data-sources--registration--reference--group-001.md#canonical-3b9ec393e2f7801aabee1ac914bcebce8b79c8ba839db6ea30a1d44b71df8bd2) |
-| `infra.hw_info.storage.vendor` | [infra.hw_info.storage.vendor](data-sources--registration--reference--group-001.md#canonical-bea58b6f2b8dbdd28b3512e14ae8035a4d8cf05f31f53c2952ba7a05ac00d920) |
-| `infra.hw_info.usb` | [infra.hw_info.usb](data-sources--registration--reference--group-001.md#canonical-61cecb10c88e6fe786fe81d4d87c18458f820d627857688381e8265c5887c3f2) |
-| `infra.hw_info.usb.address` | [infra.hw_info.usb.address](data-sources--registration--reference--group-001.md#canonical-5fdd6997b2b0eac64c008e2a6ba461fd6e7fc9219bb308533a74fe1b81da1171) |
-| `infra.hw_info.usb.b_device_class` | [infra.hw_info.usb.b_device_class](data-sources--registration--reference--group-001.md#canonical-96aa255e4448dbc5a1bc85c733b1b8c8b82ed118786318d8fd1af1b1935ba943) |
-| `infra.hw_info.usb.b_device_protocol` | [infra.hw_info.usb.b_device_protocol](data-sources--registration--reference--group-001.md#canonical-c913a09218aa68ff12363aacb3361d44e822ec1634b384d0751ff0543f3e61fb) |
-| `infra.hw_info.usb.b_device_sub_class` | [infra.hw_info.usb.b_device_sub_class](data-sources--registration--reference--group-001.md#canonical-bdc69450e46b26cb29d3753c1a68afac6a0ecd2a9a02e61a9c6701d2cf8d4036) |
-| `infra.hw_info.usb.b_max_packet_size` | [infra.hw_info.usb.b_max_packet_size](data-sources--registration--reference--group-001.md#canonical-306311b6133b1b9dc494ca9838ed4a462ecddab4c977d8ac5831acb52ec14164) |
-| `infra.hw_info.usb.bcd_device` | [infra.hw_info.usb.bcd_device](data-sources--registration--reference--group-001.md#canonical-789197a203a2f0ece7b6919432fe6b1c5642e973ef45e14f1e6b399c6bb64f2f) |
-| `infra.hw_info.usb.bcd_usb` | [infra.hw_info.usb.bcd_usb](data-sources--registration--reference--group-001.md#canonical-ee1bb48a34b54d63c9c840253d7d430dddec7f2e1c53bfc6272b50f67caedb5b) |
-| `infra.hw_info.usb.bus` | [infra.hw_info.usb.bus](data-sources--registration--reference--group-001.md#canonical-64dacdef66b6986fa581a67b34726f243c2ededb686210243fb54eaca1f55c0b) |
-| `infra.hw_info.usb.description_spec` | [infra.hw_info.usb.description_spec](data-sources--registration--reference--group-001.md#canonical-6193bbf8d42e11147e5eac2b3881cd93545ed86174514d2b73e3d34d4b5faea6) |
-| `infra.hw_info.usb.i_manufacturer` | [infra.hw_info.usb.i_manufacturer](data-sources--registration--reference--group-001.md#canonical-0e94491e5288737232042fc2e8c12f03936502bcbca8c571e811357274e5a9f4) |
-| `infra.hw_info.usb.i_product` | [infra.hw_info.usb.i_product](data-sources--registration--reference--group-001.md#canonical-d6f1283505b477f56c38d721c835cc75ec7f476c2e61e138c5da466f967b45d9) |
-| `infra.hw_info.usb.i_serial` | [infra.hw_info.usb.i_serial](data-sources--registration--reference--group-001.md#canonical-5fb9e28656ab99422836e876608c051e18cbcf7007818bbec5964e5909851331) |
-| `infra.hw_info.usb.id_product` | [infra.hw_info.usb.id_product](data-sources--registration--reference--group-001.md#canonical-4fd647f1b068835ddfe591dc0ec2ea3f39bddc1bf2d827acc047ea5e78ca87ac) |
-| `infra.hw_info.usb.id_vendor` | [infra.hw_info.usb.id_vendor](data-sources--registration--reference--group-001.md#canonical-f6651f4d154e60c4d50f54a88b17ebb72245c21365c645fd3caa3f017f700ffe) |
-| `infra.hw_info.usb.port` | [infra.hw_info.usb.port](data-sources--registration--reference--group-001.md#canonical-b777ede2990f42c748101d076ec99dc7a524ac2156db51296f55def0db2df339) |
-| `infra.hw_info.usb.product_name` | [infra.hw_info.usb.product_name](data-sources--registration--reference--group-001.md#canonical-0919dbc918d4ea98352697b8190479027a59fd0f33498f3facaa9fdeacfbad6a) |
-| `infra.hw_info.usb.speed` | [infra.hw_info.usb.speed](data-sources--registration--reference--group-001.md#canonical-a145f97d57f574ea9876d8ec6f899ff1fc963087e5ad80a50ecbc5b534aabb44) |
-| `infra.hw_info.usb.usb_type` | [infra.hw_info.usb.usb_type](data-sources--registration--reference--group-001.md#canonical-05390abad848080e7ae2c829f69edd6302ce1605ce3c173e0d3b6c599dae03e8) |
-| `infra.hw_info.usb.vendor_name` | [infra.hw_info.usb.vendor_name](data-sources--registration--reference--group-001.md#canonical-ff897000262d59ec8ee0848773ac4c220865541ea07cc59d92d772265ae0cdaf) |
-| `infra.instance_id` | [infra.instance_id](data-sources--registration--reference--group-001.md#canonical-0d8985889d9450eed805c9f4283de05aeaa8d0a192f8593256464a82d7570f86) |
-| `infra.interfaces` | [infra.interfaces](data-sources--registration--reference--group-001.md#canonical-cc176c11d0ed98583899474f02130f872dd7be318f058aa564620735b54ac56f) |
-| `infra.internet_proxy` | [infra.internet_proxy](data-sources--registration--reference--group-001.md#canonical-7049e6f2d7d90e37a3d0812d70ad82ef248843da0d2288cd25d70ad191e61de6) |
-| `infra.internet_proxy.http_proxy` | [infra.internet_proxy.http_proxy](data-sources--registration--reference--group-001.md#canonical-34c1a7845752198b925e2fb8e2b36c6fcc09c84b7f407b4ea80c3cbddff7c921) |
-| `infra.internet_proxy.https_proxy` | [infra.internet_proxy.https_proxy](data-sources--registration--reference--group-001.md#canonical-12599a84ffb4dbc4f2da290685c68a8f926896113b25f4e783cb8e2623e11926) |
-| `infra.internet_proxy.no_proxy` | [infra.internet_proxy.no_proxy](data-sources--registration--reference--group-001.md#canonical-087c6453087d26821db98825a356da83631b4e41cdb6c5711bb10f54bfa33df8) |
-| `infra.internet_proxy.proxy_cacert_url` | [infra.internet_proxy.proxy_cacert_url](data-sources--registration--reference--group-001.md#canonical-0dfaf03d195bd17bc39c6318a22d1d173d5c39d98e0be4906bb7e21f1cf70b0e) |
-| `infra.is_slo_static` | [infra.is_slo_static](data-sources--registration--reference--group-001.md#canonical-0b4494d0ec753a7782d96ae69d7c84dd3b8c335edcbfbccf21c44f45a9d7a361) |
-| `infra.machine_id` | [infra.machine_id](data-sources--registration--reference--group-001.md#canonical-3fc8295a6016ea89a3f3723fec1294bcb258c72705c7d4e9485ed44e311c8bc6) |
-| `infra.provider_ref` | [infra.provider_ref](data-sources--registration--reference--group-001.md#canonical-d0d44cb39e7530be55ba8662129c27be1ea9256ce2cf4bc11f1e422795207539) |
-| `infra.sw_info` | [infra.sw_info](data-sources--registration--reference--group-001.md#canonical-031d3b5037360d922c55b5daf24317d6e7b1822b4871c64df862c84dd254f96d) |
-| `infra.sw_info.sw_version` | [infra.sw_info.sw_version](data-sources--registration--reference--group-001.md#canonical-cfce203206f6e802e1ee679524cdac4667b96aa3784998d58ce5a4ae1ca09e94) |
-| `infra.timestamp` | [infra.timestamp](data-sources--registration--reference--group-001.md#canonical-04d75bad395ae5e48575a37d5ae78bee65e851e56f5df7675616a1750817a876) |
-| `infra.zone` | [infra.zone](data-sources--registration--reference--group-001.md#canonical-066bf3bf63ea67001fb3ad67ccf5d2e3916b1810722893104c50ba79fbec6e0f) |
-| `labels` | [labels](data-sources--registration--reference--group-001.md#canonical-ab21e67e1e3f18f5e85f844e8a974b8379e70eb3148f405b04908965f11c887b) |
-| `name` | [name](data-sources--registration--reference--group-001.md#canonical-86e991b70142cefb27991dec48bea1cdf66cd9c0ef695e87a990f5febb0de47f) |
-| `namespace` | [namespace](data-sources--registration--reference--group-001.md#canonical-0451ba7180ca4ae64678d6ee9540eeab05c9e74a5f8b314887b21761cd8ccba2) |
-| `passport` | [passport](data-sources--registration--reference--group-001.md#canonical-a56dab5f7a353a4caef5e774a989f31214a11e309edf4baa760ad1a85d540da4) |
-| `passport.cluster_name` | [passport.cluster_name](data-sources--registration--reference--group-001.md#canonical-50de270cda18adce9a38b906bbc50d1ec284863326768adb35bed7b3d09631fb) |
-| `passport.cluster_size` | [passport.cluster_size](data-sources--registration--reference--group-001.md#canonical-042836eafe92a9cf2d08a70e2f69399b6b192556fdbe103abb6f18e4c4a9fce4) |
-| `passport.cluster_type` | [passport.cluster_type](data-sources--registration--reference--group-001.md#canonical-6c0e49d49f85cc2f03048bbc054b2ebd422d1f1dfeffa1a5f5d7f30422863bb9) |
-| `passport.default_os_version` | [passport.default_os_version](data-sources--registration--reference--group-001.md#canonical-89b724215a31292ee4898fd234e4d0fad59ed2f383310b2eb6173f04c5268f12) |
-| `passport.default_sw_version` | [passport.default_sw_version](data-sources--registration--reference--group-001.md#canonical-833fe530a0c541863bd4b92f5a9a98ed988dd4b80bd4c25b2d06460cdcf8c197) |
-| `passport.latitude` | [passport.latitude](data-sources--registration--reference--group-001.md#canonical-533bdddd825426963cc0b937e55698abc17753010201b326a527b715680cca31) |
-| `passport.longitude` | [passport.longitude](data-sources--registration--reference--group-001.md#canonical-d4126dbdd48ba1e553b18aea9d57cf4dae8b5d1b0018a040091541fefeb000e5) |
-| `passport.operating_system_version` | [passport.operating_system_version](data-sources--registration--reference--group-001.md#canonical-a7e92f460ecfc8a59c9798c6233c3f332ac815df1319233a3e3f1225bba1bf06) |
-| `passport.private_network_name` | [passport.private_network_name](data-sources--registration--reference--group-001.md#canonical-e5299d5a774c8ee43d037817a69f5af86d0fe7f61a644da4ae51cb46799cd8b0) |
-| `passport.volterra_software_version` | [passport.volterra_software_version](data-sources--registration--reference--group-001.md#canonical-55cc1eb104b02d9bf76ea5507241bcaee426d82ec9bce7e0396680a40e926a29) |
-| `token` | [token](data-sources--registration--reference--group-001.md#canonical-f2e23b317e188987a2066e88ea128e91802fd38660a572937d855dd2b21c49f5) |
+| `annotations` | [annotations](data-sources--registration--reference--group-001.md#canonical-0031202300031033-2001210302033001-2202113102320003-3032033310211010-2323123032202133-2123302002210001-2333002221023111-0220130003110112) |
+| `description` | [description](data-sources--registration--reference--group-001.md#canonical-0322122100231031-2302233132030013-0303103302322210-3113131103013213-2222333132033110-2311011200300021-2333212303222010-3320130332232102) |
+| `id` | [id](data-sources--registration--reference--group-001.md#canonical-3010331002122120-2330311222220132-0110300103301030-3203111232333221-2130030113310133-3121212130023031-2020201200303322-3210212213232320) |
+| `infra` | [infra](data-sources--registration--reference--group-001.md#canonical-3112222200000320-1111111333003022-2331222031103212-2220131210213222-3101031232133121-2112022212001311-1230331211120220-3023021133322232) |
+| `infra.availability_zone` | [infra.availability_zone](data-sources--registration--reference--group-001.md#canonical-3102030321312222-3312110223132133-2020331000033003-2112030310212002-2023313302102113-3320210220212221-3220220120023103-3301321221022233) |
+| `infra.bond_config` | [infra.bond_config](data-sources--registration--reference--group-001.md#canonical-2011122311112200-2230130331013302-2331320010101333-3211031100313120-1201221311120131-1113310300132331-1223031310012130-3321133013302313) |
+| `infra.bond_config.interfaces` | [infra.bond_config.interfaces](data-sources--registration--reference--group-001.md#canonical-3313102011123030-0112131103101222-2031220202121031-0100202302213102-3110001011230000-0201002002123022-1300213200031312-1211113233120102) |
+| `infra.bond_config.mode` | [infra.bond_config.mode](data-sources--registration--reference--group-001.md#canonical-3201231130232022-2200003231111122-3331100300212310-0120320333300321-2012100301220313-3130202222022333-1123221003222120-1112132330130023) |
+| `infra.bond_config.name` | [infra.bond_config.name](data-sources--registration--reference--group-001.md#canonical-2321122021132300-2233120222123012-1100122033103023-1220003311123203-1010313123311312-3121003033122001-1232210031221103-2303103202002313) |
+| `infra.certified_hw` | [infra.certified_hw](data-sources--registration--reference--group-001.md#canonical-0132323102031312-1200022013122233-2300310301122131-1000303212113130-1210131112223133-2113230121002223-3320323301132320-1120111222011020) |
+| `infra.domain` | [infra.domain](data-sources--registration--reference--group-001.md#canonical-2112113223301323-2121211013330220-2103000112113223-3301331200100032-2131010000223023-1120230010300020-1331303011223020-3131110022232231) |
+| `infra.hostname` | [infra.hostname](data-sources--registration--reference--group-001.md#canonical-0211023101310320-3213322120311301-2030121013032300-0213110002313102-1021222321110002-2110322302201200-0033100220213100-3313010200012120) |
+| `infra.hugepages` | [infra.hugepages](data-sources--registration--reference--group-001.md#canonical-3023201330231122-0300313230211012-3112332121023123-1310002202030323-0000032021323213-0330010101020112-1003131101330320-1113012100330102) |
+| `infra.hugepages.free` | [infra.hugepages.free](data-sources--registration--reference--group-001.md#canonical-1101222220102313-3010121031020322-3313023130201123-0302120132210130-3101020100010212-3022013011122203-3210031211112300-2030201312202332) |
+| `infra.hugepages.page_size` | [infra.hugepages.page_size](data-sources--registration--reference--group-001.md#canonical-0011131130011030-3113221332212113-2330013200123032-2020331030113331-3322330331300033-0010113230331332-1112211333310200-3101201322322033) |
+| `infra.hugepages.total` | [infra.hugepages.total](data-sources--registration--reference--group-001.md#canonical-3330231001322203-2201132303302323-2302222003001223-0203201213201001-2103203201333012-0332112011223101-3202111102031130-0111002202332011) |
+| `infra.hw_info` | [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-2302313323300202-2222112222012030-1123102301303202-1111323301031310-1100001230213121-1111202222323020-3321203310211110-2121202001012133) |
+| `infra.hw_info.bios` | [infra.hw_info.bios](data-sources--registration--reference--group-001.md#canonical-0211320230322221-2222301313021322-0122303111120001-3110013013203003-1221322102203221-2102223202331202-1032233312010131-1220231131103122) |
+| `infra.hw_info.bios.date` | [infra.hw_info.bios.date](data-sources--registration--reference--group-001.md#canonical-1130000033021132-3122121203211033-0221110322313100-1022210122203223-3130200301200133-1210032203133132-2333000031032002-1020102113021100) |
+| `infra.hw_info.bios.vendor` | [infra.hw_info.bios.vendor](data-sources--registration--reference--group-001.md#canonical-0011300033223200-2123333213102102-0020133003331131-2002331131122103-0212131223331232-1113230321311010-2231112213033320-0113221323131103) |
+| `infra.hw_info.bios.version` | [infra.hw_info.bios.version](data-sources--registration--reference--group-001.md#canonical-0303321202210203-2020112300010321-2112213233111123-1202223033213332-2200131113221022-1001130311201322-1111223202123220-2323301322310110) |
+| `infra.hw_info.board` | [infra.hw_info.board](data-sources--registration--reference--group-001.md#canonical-2102201002300101-3001013221301201-2322103130022101-1011222030130002-0122133122010330-3302323223121310-2122203113222130-1101223003032031) |
+| `infra.hw_info.board.asset_tag` | [infra.hw_info.board.asset_tag](data-sources--registration--reference--group-001.md#canonical-2033220010033222-2022130313200122-1121001032321322-3132311321303211-3320120013120301-0211122221312103-1303211223331323-1112002010002020) |
+| `infra.hw_info.board.name` | [infra.hw_info.board.name](data-sources--registration--reference--group-001.md#canonical-2232132032332233-1010121032131031-2011302100030032-1111132120102023-2331303013010313-3321213003002312-1231323100302203-3300322131020111) |
+| `infra.hw_info.board.serial` | [infra.hw_info.board.serial](data-sources--registration--reference--group-001.md#canonical-2301321200111303-0032330301110320-2003212331023002-2333031030012021-2303322303300002-3122013001221130-1110203101201300-2021130121223330) |
+| `infra.hw_info.board.vendor` | [infra.hw_info.board.vendor](data-sources--registration--reference--group-001.md#canonical-0003000323231210-0223102120310121-1012033121032311-3120011311130222-0022310013220001-3312132310133031-1311032021201211-3010111002121203) |
+| `infra.hw_info.board.version` | [infra.hw_info.board.version](data-sources--registration--reference--group-001.md#canonical-2113013101322000-0230223233032133-3011000103011302-1111113033001030-1102023000220131-3023223030202223-1310020002321212-3011111212030121) |
+| `infra.hw_info.chassis` | [infra.hw_info.chassis](data-sources--registration--reference--group-001.md#canonical-2331023032221200-1030032231223110-1212210213011132-0333232010233220-3312202300332002-0030231221220120-1030020000131211-2010121012200101) |
+| `infra.hw_info.chassis.asset_tag` | [infra.hw_info.chassis.asset_tag](data-sources--registration--reference--group-001.md#canonical-0322023101311333-2030132220110111-1313102302023112-0330222021302003-1222312123020021-3303100230133130-1212313313103211-0033223013220001) |
+| `infra.hw_info.chassis.serial` | [infra.hw_info.chassis.serial](data-sources--registration--reference--group-001.md#canonical-2130120112010132-3231112132313332-0111310033033013-2231233113200232-1020320301201310-1001320132010023-1300003120221213-1120120230111220) |
+| `infra.hw_info.chassis.type` | [infra.hw_info.chassis.type](data-sources--registration--reference--group-001.md#canonical-1100010232201202-2300303003020021-0123122022220133-0302231213102030-2001322103130021-0011200302131303-3232323102201211-2230300302011002) |
+| `infra.hw_info.chassis.vendor` | [infra.hw_info.chassis.vendor](data-sources--registration--reference--group-001.md#canonical-2321301021133103-3021022222013132-1320313111201001-0111020330213310-2210211102002120-0001003110201211-3010303233232100-1121111012301111) |
+| `infra.hw_info.chassis.version` | [infra.hw_info.chassis.version](data-sources--registration--reference--group-001.md#canonical-0203202322233113-1311020030003200-1030330111313101-0130122003200300-1032113200233103-2310213130221113-0300133003320123-1300223033013013) |
+| `infra.hw_info.cpu` | [infra.hw_info.cpu](data-sources--registration--reference--group-001.md#canonical-2000002120230000-1211331133122112-0303212313032103-3230010032231103-0322222030300333-2202330210320023-0333133311233033-0230303303000013) |
+| `infra.hw_info.cpu.cache` | [infra.hw_info.cpu.cache](data-sources--registration--reference--group-001.md#canonical-3330302032120011-1122302332222032-3201021103103000-3013332102011130-0102110103321333-3102201011112012-1210112233202113-0211223031022112) |
+| `infra.hw_info.cpu.cores` | [infra.hw_info.cpu.cores](data-sources--registration--reference--group-001.md#canonical-0312023210322130-0332020123102333-1333231113020002-0202311002201123-2313331133213301-3210300311331111-0021333133213133-3103202211130010) |
+| `infra.hw_info.cpu.cpus` | [infra.hw_info.cpu.cpus](data-sources--registration--reference--group-001.md#canonical-3333023202233031-1210321023023311-1003222332002111-2113121322212132-0023322023020013-3230102202330221-2111023202110220-0113133000000020) |
+| `infra.hw_info.cpu.model` | [infra.hw_info.cpu.model](data-sources--registration--reference--group-001.md#canonical-1021313011100222-1230110201201233-2003200322311101-0122132032332002-3310013322302020-2222312011121320-2030220222023021-0322010121123121) |
+| `infra.hw_info.cpu.speed` | [infra.hw_info.cpu.speed](data-sources--registration--reference--group-001.md#canonical-0302011011022313-0302123300130320-2033333032013022-1023030313121233-3322110031222323-1032000002323223-1230322303123103-3300130033011103) |
+| `infra.hw_info.cpu.threads` | [infra.hw_info.cpu.threads](data-sources--registration--reference--group-001.md#canonical-0013333111120013-1311201111002112-0101131123033332-0312203011112001-3021232120233112-1010212330130233-1002301200231222-3210200202231232) |
+| `infra.hw_info.cpu.vendor` | [infra.hw_info.cpu.vendor](data-sources--registration--reference--group-001.md#canonical-0311301112302113-3230220212331011-0133130000000122-3310110023001131-0003310201331111-0132020302323102-3130001203323110-1032312100023123) |
+| `infra.hw_info.gpu` | [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-3000231302121113-0032101332011012-3212011222003132-1231023232031103-2100001002031011-3012000333010000-1002223003303101-3320320003222130) |
+| `infra.hw_info.gpu.cuda_version` | [infra.hw_info.gpu.cuda_version](data-sources--registration--reference--group-001.md#canonical-2100131331201221-3310213303132323-0123221101221212-2030220221033220-0211123213021301-2020121033323332-0003103212003330-2112332231010120) |
+| `infra.hw_info.gpu.driver_version` | [infra.hw_info.gpu.driver_version](data-sources--registration--reference--group-001.md#canonical-1222133002030210-2213112100331231-0223010022332322-3021121200020330-0022120021223302-1312033303211321-0012023220331301-0330032103231011) |
+| `infra.hw_info.gpu.gpu_device` | [infra.hw_info.gpu.gpu_device](data-sources--registration--reference--group-001.md#canonical-2311301030030330-1112313100231332-1202002022331213-3131232330012122-0131211100112300-2231103202031022-2220001100202032-0300032231201333) |
+| `infra.hw_info.gpu.gpu_device.id` | [infra.hw_info.gpu.gpu_device.id](data-sources--registration--reference--group-001.md#canonical-2312032102310203-0020302120123131-0201220110200313-1001322110030103-1000220303311322-2010303132222311-2311121301332222-2022303020120003) |
+| `infra.hw_info.gpu.gpu_device.processes` | [infra.hw_info.gpu.gpu_device.processes](data-sources--registration--reference--group-001.md#canonical-3312001203113002-2313230110032233-0020101201203321-1300102033102300-1132322233012221-3303210223330102-0023223300010121-2221100322113101) |
+| `infra.hw_info.gpu.gpu_device.product_name` | [infra.hw_info.gpu.gpu_device.product_name](data-sources--registration--reference--group-001.md#canonical-3110000022133133-3110210330101000-2001001231220020-1302132011311332-0313133001122012-1211102101321210-2033020330203012-2121000022123100) |
+| `infra.hw_info.kernel` | [infra.hw_info.kernel](data-sources--registration--reference--group-001.md#canonical-0001301233323231-1312032233200133-2001323103011111-0113310202333100-3122230100021122-2232130130112030-0300200001203332-2113230331333313) |
+| `infra.hw_info.kernel.architecture` | [infra.hw_info.kernel.architecture](data-sources--registration--reference--group-001.md#canonical-0031132321031322-2010211012122012-3300302312330211-0102033312331332-1201322232201111-1212101031221211-0033333132032001-1002333122131311) |
+| `infra.hw_info.kernel.release` | [infra.hw_info.kernel.release](data-sources--registration--reference--group-001.md#canonical-3302322301233301-2113320102213230-1213031031322210-0112301022212213-1211211223020213-1033131233231232-0203230011003013-0132110123300121) |
+| `infra.hw_info.kernel.version` | [infra.hw_info.kernel.version](data-sources--registration--reference--group-001.md#canonical-2030221031010333-2311120101322312-1022330311102022-2001112203233322-3021113233322220-0211203021101322-1310132010103203-2312122233021200) |
+| `infra.hw_info.memory` | [infra.hw_info.memory](data-sources--registration--reference--group-001.md#canonical-2131020102211122-0111202301322020-0230303022223132-0202313223030123-2100301031112110-2123033231322011-0012000202323233-3302303120000103) |
+| `infra.hw_info.memory.size_mb` | [infra.hw_info.memory.size_mb](data-sources--registration--reference--group-001.md#canonical-0203232132310000-3321230020111331-2003000023001013-0023220031213122-2122031302011321-0002332111002023-2100111121122030-1132233313120031) |
+| `infra.hw_info.memory.speed` | [infra.hw_info.memory.speed](data-sources--registration--reference--group-001.md#canonical-3130100000011322-2313121021021122-3032212231313231-2303123132011223-3301132103212300-3101301331120132-0120303002201220-1300200003223310) |
+| `infra.hw_info.memory.type` | [infra.hw_info.memory.type](data-sources--registration--reference--group-001.md#canonical-2103321332233123-3112001101212132-1201031102011122-2110201032313031-2230101201110312-2000120230301210-1211121030021201-1302001002211010) |
+| `infra.hw_info.network` | [infra.hw_info.network](data-sources--registration--reference--group-001.md#canonical-1122203303322210-3003200033200001-2211232023013203-0012013002001312-1102030203212210-0310110220130110-0223131122223001-0332300031111012) |
+| `infra.hw_info.network.driver` | [infra.hw_info.network.driver](data-sources--registration--reference--group-001.md#canonical-0111020102000210-1200030323032122-2010023220100322-3212033132022301-0032313102222000-3313130333320130-0010332330301031-2011311300320313) |
+| `infra.hw_info.network.ip_address` | [infra.hw_info.network.ip_address](data-sources--registration--reference--group-001.md#canonical-1013221310300111-1111101020202101-3231131203102220-1100312313323110-2303010103333320-1230033113231330-2030323002130000-0032012210202013) |
+| `infra.hw_info.network.link_quality` | [infra.hw_info.network.link_quality](data-sources--registration--reference--group-001.md#canonical-2303000022221030-1100022100230000-3223330100203031-0103103100231202-0132300003100231-3000201011201131-0013303111021011-1100123332003303) |
+| `infra.hw_info.network.link_type` | [infra.hw_info.network.link_type](data-sources--registration--reference--group-001.md#canonical-0233122033001210-1003231001332113-3322200112022233-2311103033003301-3103313233131332-1120102002300310-0032301333321012-2000213121122300) |
+| `infra.hw_info.network.mac_address` | [infra.hw_info.network.mac_address](data-sources--registration--reference--group-001.md#canonical-0111013322001310-1231312210233231-1330213332230312-3112022310001302-2232213233303231-1111022111223000-1113230110123330-1012231022131221) |
+| `infra.hw_info.network.name` | [infra.hw_info.network.name](data-sources--registration--reference--group-001.md#canonical-2221230021002030-3232200203333331-1113312312303210-1310033121012111-2301210232132103-3320232222332013-3022312232010330-0231101111122210) |
+| `infra.hw_info.network.port` | [infra.hw_info.network.port](data-sources--registration--reference--group-001.md#canonical-2033223002311210-0131013211231032-3112011202212213-3021312333232221-2031031112001213-3321002113313032-0012200210202131-2322311011002000) |
+| `infra.hw_info.network.speed` | [infra.hw_info.network.speed](data-sources--registration--reference--group-001.md#canonical-1331210331102020-3010330212223111-0300310230221120-1231112102332331-1120021311112221-2300223233121310-3031222212301001-2020123121332003) |
+| `infra.hw_info.numa_nodes` | [infra.hw_info.numa_nodes](data-sources--registration--reference--group-001.md#canonical-0201002213133012-3223031321122301-3113233102202202-2123121103112211-2230331000121103-1313112233103110-2130200230331200-3302031103301332) |
+| `infra.hw_info.os` | [infra.hw_info.os](data-sources--registration--reference--group-001.md#canonical-3102202100220232-0003312222031102-0222301331131100-0203111223330221-1302300200010220-3012220230331122-3023310132022002-1232021223312231) |
+| `infra.hw_info.os.architecture` | [infra.hw_info.os.architecture](data-sources--registration--reference--group-001.md#canonical-1323132130310220-1333301312301321-0113321010011023-0212032023013211-0111122322110130-2013131031220330-0221131100321211-0130212002233032) |
+| `infra.hw_info.os.name` | [infra.hw_info.os.name](data-sources--registration--reference--group-001.md#canonical-2231001033121103-1112130223003323-1033310302313132-1133012200023010-3333233120321032-0112013123123233-0110102013130202-2202223102330022) |
+| `infra.hw_info.os.release` | [infra.hw_info.os.release](data-sources--registration--reference--group-001.md#canonical-3212321221021231-0302003021112231-2222023020033312-2131200021103003-3110212302123003-3121123231223113-3032200222100231-2320300132101212) |
+| `infra.hw_info.os.vendor` | [infra.hw_info.os.vendor](data-sources--registration--reference--group-001.md#canonical-2010013012102102-2133311121122030-2120101100110031-0320030332203210-1300222002312030-1022101131211003-0112232111133333-1110103333103232) |
+| `infra.hw_info.os.version` | [infra.hw_info.os.version](data-sources--registration--reference--group-001.md#canonical-3323221331112233-0032332133133112-0102232021133321-3123202101232031-0230321000123333-2132231330100231-3132032321103302-2122112302000131) |
+| `infra.hw_info.product` | [infra.hw_info.product](data-sources--registration--reference--group-001.md#canonical-0001331130320000-0001012311100102-0213223112303000-2310131213331003-1013302323333012-0221322113013301-0310100031211230-3021021011121201) |
+| `infra.hw_info.product.name` | [infra.hw_info.product.name](data-sources--registration--reference--group-001.md#canonical-3200010310022222-3112001121132032-3022203303233033-2133302323132303-2302333020110002-2033330332003221-1330233232012311-2032332313133023) |
+| `infra.hw_info.product.serial` | [infra.hw_info.product.serial](data-sources--registration--reference--group-001.md#canonical-3033132211303101-3333000121220203-2020002123231220-0113210021202332-0120122303333110-2113332111113202-0311020122102301-3113330303332111) |
+| `infra.hw_info.product.vendor` | [infra.hw_info.product.vendor](data-sources--registration--reference--group-001.md#canonical-3310210330200203-2312223102220321-0002000121132010-2020303233220222-0332120221121020-1103211002311121-2323103113031320-0122200033203220) |
+| `infra.hw_info.product.version` | [infra.hw_info.product.version](data-sources--registration--reference--group-001.md#canonical-3302301223201113-2323122301000101-3223330210331310-0220212011111223-1331113112301113-2311220120301301-2221321021211002-3223032303022232) |
+| `infra.hw_info.storage` | [infra.hw_info.storage](data-sources--registration--reference--group-001.md#canonical-0103223310021211-2222012313000102-2020002002330120-2100132200013013-3213130112301030-0000202301012200-0323232130013313-1021311202023311) |
+| `infra.hw_info.storage.driver` | [infra.hw_info.storage.driver](data-sources--registration--reference--group-001.md#canonical-2123323113032130-3000233222010311-2013100123112102-1213203213131232-1020000212321122-2321033321010122-0000312100330323-0300030213100222) |
+| `infra.hw_info.storage.model` | [infra.hw_info.storage.model](data-sources--registration--reference--group-001.md#canonical-2332212101202023-0232213202313113-0312211100230210-2002101111103222-3301031022223113-1331131233130013-3310130121231021-1021112232321231) |
+| `infra.hw_info.storage.name` | [infra.hw_info.storage.name](data-sources--registration--reference--group-001.md#canonical-1311111000233323-2001323232211302-2132023022330302-0000211200331000-1020100301000300-0223233023012023-0002313322300003-2100002003221102) |
+| `infra.hw_info.storage.serial` | [infra.hw_info.storage.serial](data-sources--registration--reference--group-001.md#canonical-0101221030210002-0331333110302233-2231331000303221-1211320201232230-2001321023000231-2201000331003213-1112100000020002-3100232303321002) |
+| `infra.hw_info.storage.size_gb` | [infra.hw_info.storage.size_gb](data-sources--registration--reference--group-001.md#canonical-0323213230032103-3202331320000122-2223323201223021-0110233032233032-2023132130202322-2003213123123222-0300220131101023-1301313320233102) |
+| `infra.hw_info.storage.vendor` | [infra.hw_info.storage.vendor](data-sources--registration--reference--group-001.md#canonical-2332221120231233-0223203123313102-2023031101023201-1022322000031122-1031203033001133-0301331103300221-1102232213220011-2230000031210200) |
+| `infra.hw_info.usb` | [infra.hw_info.usb](data-sources--registration--reference--group-001.md#canonical-1201303230230100-3020203212333213-2012333220013110-3120133001201011-2033200200311202-1320111312202003-2001322002121130-1120201330033302) |
+| `infra.hw_info.usb.address` | [infra.hw_info.usb.address](data-sources--registration--reference--group-001.md#canonical-1133313112212113-2302230032223012-1030000020320222-1223221012013331-1232133330210201-2123230300201103-0322131033320123-2001312201011301) |
+| `infra.hw_info.usb.b_device_class` | [infra.hw_info.usb.b_device_class](data-sources--registration--reference--group-001.md#canonical-2112222202111132-1010102031233011-2201233020113013-0303230123203020-2320023231010120-1320120301203120-3331012233012301-2103112322211003) |
+| `infra.hw_info.usb.b_device_protocol` | [infra.hw_info.usb.b_device_protocol](data-sources--registration--reference--group-001.md#canonical-3021010322002102-0120222212203333-0102031203222230-2303031201311010-3220020232300112-0310230320103100-1311013333001110-0333033212013323) |
+| `infra.hw_info.usb.b_device_sub_class` | [infra.hw_info.usb.b_device_sub_class](data-sources--registration--reference--group-001.md#canonical-2331301221101100-3210122302123023-0221310313110330-0122122022332230-1222003230310222-2122000232120122-2130121300013102-3033203110000312) |
+| `infra.hw_info.usb.b_max_packet_size` | [infra.hw_info.usb.b_max_packet_size](data-sources--registration--reference--group-001.md#canonical-0300120301012312-0103032301232131-3010211030222120-0320323110221012-0232303131222310-3021131331202230-1120030122302311-0232300110011210) |
+| `infra.hw_info.usb.bcd_device` | [infra.hw_info.usb.bcd_device](data-sources--registration--reference--group-001.md#canonical-1320210121132202-0003220233003230-3213231221012110-0302333212230130-1112100232211303-3233101132011033-0132122303212130-1223231210330233) |
+| `infra.hw_info.usb.bcd_usb` | [infra.hw_info.usb.bcd_usb](data-sources--registration--reference--group-001.md#canonical-3232012323102022-0310231110311203-3021302010000211-0331133110030031-3131323013330232-0130110323333012-0213022311003312-1330223231231123) |
+| `infra.hw_info.usb.bus` | [infra.hw_info.usb.bus](data-sources--registration--reference--group-001.md#canonical-1210312230313233-1212231221201233-2211200122121323-0310130212330210-0330023231323123-1220120201000210-0333231110322230-2201331111300023) |
+| `infra.hw_info.usb.description_spec` | [infra.hw_info.usb.description_spec](data-sources--registration--reference--group-001.md#canonical-1201210323233320-3110023201010110-1332113222300223-0320200130312103-1110113231201201-1310110110310223-1303320331031031-1023113322322212) |
+| `infra.hw_info.usb.i_manufacturer` | [infra.hw_info.usb.i_manufacturer](data-sources--registration--reference--group-001.md#canonical-0032211010210132-1102202013031302-0302001002333002-3220300102330003-2103121100022330-2330222030111301-3220010103111302-1310321122213310) |
+| `infra.hw_info.usb.i_product` | [infra.hw_info.usb.i_product](data-sources--registration--reference--group-001.md#canonical-3112330102200311-0011231013133311-1230032031130201-3020031130301311-3230133310131230-0232120132010320-3011312210121233-2112132310113121) |
+| `infra.hw_info.usb.i_serial` | [infra.hw_info.usb.i_serial](data-sources--registration--reference--group-001.md#canonical-1133232132022012-1112222321211002-0220031232201312-1200203000110132-0120302330331300-0013200120232332-3011211210321121-0021201101030301) |
+| `infra.hw_info.usb.id_product` | [infra.hw_info.usb.id_product](data-sources--registration--reference--group-001.md#canonical-1033311210133301-2300122020031131-3133321121013130-0032300232220333-0321233131300123-3302312002132230-3000101332221132-1320302220132230) |
+| `infra.hw_info.usb.id_vendor` | [infra.hw_info.usb.id_vendor](data-sources--registration--reference--group-001.md#canonical-3312121101331031-0111103212003010-3111003311102220-2023011332232313-0202101130020103-1211301210113331-0330222203330001-1333130000333332) |
+| `infra.hw_info.usb.port` | [infra.hw_info.usb.port](data-sources--registration--reference--group-001.md#canonical-2313131332313202-2121003310023013-1020010001310013-1232302121313013-2211021022300201-1112312311010221-1233111131323300-3123023133030321) |
+| `infra.hw_info.usb.product_name` | [infra.hw_info.usb.product_name](data-sources--registration--reference--group-001.md#canonical-0021012131233021-0120311032222120-0311021221132320-0121001013210002-1322112133310033-0303102120330333-2230222221333132-2230332322311222) |
+| `infra.hw_info.usb.speed` | [infra.hw_info.usb.speed](data-sources--registration--reference--group-001.md#canonical-2201101133211331-1113331113103222-2120131231203230-1233202121333301-3330211203002013-3211223120002211-0032302330112311-0310222223231010) |
+| `infra.hw_info.usb.usb_type` | [infra.hw_info.usb.usb_type](data-sources--registration--reference--group-001.md#canonical-0011032100222322-3120102000200032-1322320230200221-3312213231311203-0002303201120011-3032033001130332-0031032312301121-2131223200033220) |
+| `infra.hw_info.usb.vendor_name` | [infra.hw_info.usb.vendor_name](data-sources--registration--reference--group-001.md#canonical-3333202113000000-0212023111213230-2032320020102013-1303223010300202-0020121111100132-2200133030112131-2102311313020212-1122320030312233) |
+| `infra.instance_id` | [infra.instance_id](data-sources--registration--reference--group-001.md#canonical-0031202120112020-2131211011003232-3120001130213310-0220033132001122-3222222031002201-2102332011210302-1112101210222002-3113111300332012) |
+| `infra.interfaces` | [infra.interfaces](data-sources--registration--reference--group-001.md#canonical-3030011312300101-3100323121201120-0320212110131033-0002010300332013-0231311323320301-2033001120222211-1210120200130311-2311102230111233) |
+| `infra.internet_proxy` | [infra.internet_proxy](data-sources--registration--reference--group-001.md#canonical-1300102132123302-3113312100320313-2203310020010231-1300223120023233-0210202010033122-0031020220203031-0211311300223101-2101321201313212) |
+| `infra.internet_proxy.http_proxy` | [infra.internet_proxy.http_proxy](data-sources--registration--reference--group-001.md#canonical-0310300122132010-1113110201212023-2102113202332320-3202230312301233-3030002130201023-1333100013231032-2220003003302331-3133331330210201) |
+| `infra.internet_proxy.https_proxy` | [infra.internet_proxy.https_proxy](data-sources--registration--reference--group-001.md#canonical-0102112121222010-3333231031233010-3302312202210012-2011301220222033-2102122021120101-0323021133103213-2003302320320212-0203320101210212) |
+| `infra.internet_proxy.no_proxy` | [infra.internet_proxy.no_proxy](data-sources--registration--reference--group-001.md#canonical-0020133012101103-0020133102122002-0131232120200211-2203111231222003-1203012310321001-3031231230111301-0123230100331110-2333220303313320) |
+| `infra.internet_proxy.proxy_cacert_url` | [infra.internet_proxy.proxy_cacert_url](data-sources--registration--reference--group-001.md#canonical-0031332233000331-0121112331011323-3003213012030120-2202023101310113-0331113003213121-2032002332102100-1223231332020133-0130331300230032) |
+| `infra.is_slo_static` | [infra.is_slo_static](data-sources--registration--reference--group-001.md#canonical-0023101021103100-3230131103221313-2002312112223212-2131133020103131-0323203003031132-3130233323303033-0201301010331011-2221311322031201) |
+| `infra.machine_id` | [infra.machine_id](data-sources--registration--reference--group-001.md#canonical-0333302002211122-1200011232222021-2203330313020333-3230010221102330-2302112030130213-0011301331103221-1020113231101032-0301013020233012) |
+| `infra.provider_ref` | [infra.provider_ref](data-sources--registration--reference--group-001.md#canonical-3100311010302303-2132131103002332-1111232220121202-0102213002132332-0132222102111230-3202303310233001-0133013210020213-2111020013110321) |
+| `infra.sw_info` | [infra.sw_info](data-sources--registration--reference--group-001.md#canonical-0003013103231100-0313031200312102-0230111123113122-3302100301133112-3213230120020223-1020130130121031-3320120230201031-3102111033211231) |
+| `infra.sw_info.sw_version` | [infra.sw_info.sw_version](data-sources--registration--reference--group-001.md#canonical-3033303202000302-0012331232200002-3201323212132111-0210303122301012-1213232112222203-1320102121203111-2030321122102232-0130220021322110) |
+| `infra.timestamp` | [infra.timestamp](data-sources--registration--reference--group-001.md#canonical-0010311311232231-0321112232113210-2011131122031331-1122321320233232-1211322011013211-1233113133131213-1112011222011311-0020011322201312) |
+| `infra.zone` | [infra.zone](data-sources--registration--reference--group-001.md#canonical-0012122333032333-1203322212130000-0133230322311213-3030331131023203-2101122301200100-1302022021030100-1030110023221321-3323323012320033) |
+| `labels` | [labels](data-sources--registration--reference--group-001.md#canonical-2223020132121332-0132033301203311-3220113320101032-2022211310232003-1321321300322303-0110203310001123-0010210020211211-3301013020201323) |
+| `name` | [name](data-sources--registration--reference--group-001.md#canonical-2012322121012313-0001100230323323-0213212101313230-1020233222013031-3312123031213000-3233122111322013-2221210033113332-2323003132101333) |
+| `namespace` | [namespace](data-sources--registration--reference--group-001.md#canonical-0010110123221301-2000302210223212-1012132031123232-2111100032322223-0011302132131022-1133202303011020-2013230201131201-3031203030232202) |
+| `passport` | [passport](data-sources--registration--reference--group-001.md#canonical-2211123122231133-1322031103221030-2232331132131310-2221202133030102-0110220101320300-2132313310232222-1312002231012220-1131111000312210) |
+| `passport.cluster_name` | [passport.cluster_name](data-sources--registration--reference--group-001.md#canonical-1100313202130030-3122012022313032-2122032023210012-2323301100310132-3002201020120303-0212131220223123-0311233231132303-3100211203013323) |
+| `passport.cluster_size` | [passport.cluster_size](data-sources--registration--reference--group-001.md#canonical-0010022003123222-3332210222213033-0231002022130032-0233122103212123-1223012102111112-3331233201000322-2323123301203210-3010222133303210) |
+| `passport.cluster_type` | [passport.cluster_type](data-sources--registration--reference--group-001.md#canonical-1230003210213110-2133201130300233-0003001020232330-0011102302322331-1002023101330131-3332333322012211-3311311333030010-0202201203232321) |
+| `passport.default_os_version` | [passport.default_os_version](data-sources--registration--reference--group-001.md#canonical-2021231302100201-1122030102210232-3210202120333102-0310321031003322-3111213231023303-2003030100230232-2312011303330010-3011021220330102) |
+| `passport.default_sw_version` | [passport.default_sw_version](data-sources--registration--reference--group-001.md#canonical-2003033332110300-2200301110012012-0323311023210233-1122212221203231-2120203131102320-0023311030021123-0231001210120030-3130332030012113) |
+| `passport.latitude` | [passport.latitude](data-sources--registration--reference--group-001.md#canonical-1103032331313131-2002111002122112-0330300023210313-3211111221202223-3001131311030001-0002000123030212-2211021323130111-1220003030220301) |
+| `passport.longitude` | [passport.longitude](data-sources--registration--reference--group-001.md#canonical-3110010212312331-3110202322013211-1103230120223222-2131111330331031-2232202311310123-0000012022001000-0021011110013332-3332230000003211) |
+| `passport.operating_system_version` | [passport.operating_system_version](data-sources--registration--reference--group-001.md#canonical-2213322102331012-0032303330202211-2130211321203012-0203033003330303-0222302001113133-0103012102030322-0332033301020211-2323220123330012) |
+| `passport.private_network_name` | [passport.private_network_name](data-sources--registration--reference--group-001.md#canonical-3211022121311122-1313103020323210-0331000313200113-2212213311223320-1231003332133312-0122121010312210-2232110130231012-1321213031202300) |
+| `passport.volterra_software_version` | [passport.volterra_software_version](data-sources--registration--reference--group-001.md#canonical-1111303001322301-0010230002312123-3313123222111100-1302100123302232-3210021231200232-3021233032133200-0321121220002210-0032210212220221) |
+| `token` | [token](data-sources--registration--reference--group-001.md#canonical-3302320203230301-1332012020212013-2202001212322020-3222010220322101-2000023331032012-1200221113022103-1331201111313102-2302013010213311) |
 
-<a id="canonical-cbfeb76a0022d38b3bad9b6745847d730bcd1ce4e8d32ea0ac2fcfd7e5188345"></a>
+<a id="canonical-3023333223131222-0000020231032023-0323223121231213-1011201013311303-0023303101303210-3220310302322200-2230023330333113-3211012020031011"></a>
 
-## Next pages — Property reference / 55a850ce7617 / 12
+## Next pages — Property reference / 303213120113 / 12
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251"></a>
+<a id="canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd844fdb5d1424fbb60cd81592db63901e5ddcd0a23a4c8af5f83c0aac770000"></a>
+<a id="canonical-3131201010333123-1131011002103323-2312003031200111-2102312312032100-0132113131303100-2202032210302022-3311332003300022-2230131300000000"></a>
 
-## infra — infra / f880ec804e55 / 2
+## infra — infra / 200010321111 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
 - infra
 
-<a id="canonical-d6aa00385557f0cabda8d4e6a87649ead136e7d9962a60756cf65628cb25feae"></a>
+<a id="canonical-3112222200000320-1111111333003022-2331222031103212-2220131210213222-3101031232133121-2112022212001311-1230331211120220-3023021133322232"></a>
 
 Type: `"single"`. Computed.
 
@@ -498,15 +498,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac281dababa2eb38b667b7bb225ecf71097a30052abe694f76dcb98164014429"></a>
+<a id="canonical-2230022001312223-2223220232230320-2312121323132323-0202113230331301-0021132203000011-0222233212211033-1312313023212001-1210000110100221"></a>
 
-## Direct properties — infra / f880ec804e55 / 3
+## Direct properties — infra / 200010321111 / 3
 
-<a id="canonical-d2339daaf652b79f88f403c3963349828bdf2497f89289a9e8a182d3f1e692af"></a>
+<a id="canonical-3102030321312222-3312110223132133-2020331000033003-2112030310212002-2023313302102113-3320210220212221-3220220120023103-3301321221022233"></a>
 
-<a id="canonical-5cb71277f450209f87a77e1df312b8f9350c784954924dc72c03de9a5f83fdca"></a>
+<a id="canonical-1130231301021313-3310110002002133-2013221313320131-3303010223203321-0311003013201021-1110210210313013-0230000331322122-1133200333313022"></a>
 
-## availability_zone property — infra / f880ec804e55 / 4
+## availability_zone property — infra / 200010321111 / 4
 
 Type: `"string"`. Computed.
 
@@ -541,13 +541,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [bond_config](data-sources--registration--reference--group-001.md#canonical-a4430190a55aa93a53b54484946dcd3bf4d709a3d804f2afd0a63b9363274b04): complete subsection reference.
+- [bond_config](data-sources--registration--reference--group-001.md#canonical-2210100300012100-2211112222210322-1103231110102010-2110123130310323-3310311300212203-3120001033022233-3100221203232103-1203021310230010): complete subsection reference.
 
-<a id="canonical-1eed2376602876afb0d3169d40ce65dc64756adf97b190abf8ef17b85856a148"></a>
+<a id="canonical-0132323102031312-1200022013122233-2300310301122131-1000303212113130-1210131112223133-2113230121002223-3320323301132320-1120111222011020"></a>
 
-<a id="canonical-85b8ec419a663cafa5f7d412491b78e6cd8d0ab75a0b162eee992e020abfc527"></a>
+<a id="canonical-2011232032301001-2122121203302233-2211331331100102-1021012313203212-3031203100222313-1122002301120232-3232212102320002-0022233330110213"></a>
 
-## certified_hw property — infra / f880ec804e55 / 5
+## certified_hw property — infra / 200010321111 / 5
 
 Type: `"string"`. Computed.
 
@@ -576,11 +576,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-965ebc7b99947f28930165ebf1f6040e9d100acb58b04c087dcc5ac8dd50abad"></a>
+<a id="canonical-2112113223301323-2121211013330220-2103000112113223-3301331200100032-2131010000223023-1120230010300020-1331303011223020-3131110022232231"></a>
 
-<a id="canonical-70b45fd0bb15f5d0d42856a8ab10813c5750b71572876d11560bb56c97390050"></a>
+<a id="canonical-1300231011333100-2323011133113100-3110022011122220-2223010020010330-1113110023130111-1302201312310101-1112002323111230-2113032100001100"></a>
 
-## domain property — infra / f880ec804e55 / 6
+## domain property — infra / 200010321111 / 6
 
 Type: `"string"`. Computed.
 
@@ -615,11 +615,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-252d1d38e7e98d718c6473b027502dd249ab950294eb28600f4289d0f7120198"></a>
+<a id="canonical-0211023101310320-3213322120311301-2030121013032300-0213110002313102-1021222321110002-2110322302201200-0033100220213100-3313010200012120"></a>
 
-<a id="canonical-42f3887bbfc1de553cbfdee0fe1a8506c4d0cdd24d2158cd7b4ece42f35309e3"></a>
+<a id="canonical-1002330320201323-2333300131321111-0330233331323200-3332012220110012-3010310030313102-1031020111203031-1323103230321002-3303110300213203"></a>
 
-## hostname property — infra / f880ec804e55 / 7
+## hostname property — infra / 200010321111 / 7
 
 Type: `"string"`. Computed.
 
@@ -665,15 +665,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [hugepages](data-sources--registration--reference--group-001.md#canonical-983535f1dda3f78ee763b6d731cf15b162b6da119cef30d71f0e25891bf7aef0): complete subsection reference.
+- [hugepages](data-sources--registration--reference--group-001.md#canonical-2120031103113301-3131220333132032-3213120323123113-0301303301112301-1202231231220101-2130323303003113-0133003202112021-0123331322323300): complete subsection reference.
 
-- [hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4): complete subsection reference.
+- [hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110): complete subsection reference.
 
-<a id="canonical-0d8985889d9450eed805c9f4283de05aeaa8d0a192f8593256464a82d7570f86"></a>
+<a id="canonical-0031202120112020-2131211011003232-3120001130213310-0220033132001122-3222222031002201-2102332011210302-1112101210222002-3113111300332012"></a>
 
-<a id="canonical-b968292b425771005f10505436bc8ac2f81e183190f3b5d2d825d0313555d337"></a>
+<a id="canonical-2321122002210223-1002111313010000-1133010011001110-0312233020223002-3320013201200301-2100330323113102-3120021131000301-0311111131030313"></a>
 
-## instance_id property — infra / f880ec804e55 / 8
+## instance_id property — infra / 200010321111 / 8
 
 Type: `"string"`. Computed.
 
@@ -706,15 +706,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interfaces](data-sources--registration--reference--group-001.md#canonical-66e79b237f37efd5879541c286d9c104de02734a72db584f56cabcfc76bf017d): complete subsection reference.
+- [interfaces](data-sources--registration--reference--group-001.md#canonical-1212321321230203-1333031332333111-2013211110013002-2012312130010010-3132000213031022-1302312311201033-1112302223303330-1312233300011331): complete subsection reference.
 
-- [internet_proxy](data-sources--registration--reference--group-001.md#canonical-8a5def9df187ad5173d54e74d358a2239e37981290fd63c52a9a3057a477131b): complete subsection reference.
+- [internet_proxy](data-sources--registration--reference--group-001.md#canonical-2022113132332131-3301201322311101-1303311110321310-3103112022020203-2132031321200102-2100333112033011-0222212203001113-2210131301030123): complete subsection reference.
 
-<a id="canonical-0b4494d0ec753a7782d96ae69d7c84dd3b8c335edcbfbccf21c44f45a9d7a361"></a>
+<a id="canonical-0023101021103100-3230131103221313-2002312112223212-2131133020103131-0323203003031132-3130233323303033-0201301010331011-2221311322031201"></a>
 
-<a id="canonical-d6cb4235bbb21f6de570d1505c025b35b4f5f3fd770c3c2e3f0f36e277460090"></a>
+<a id="canonical-3112302310020311-2323230201331231-3211130031011100-1130000211230311-2310331133033331-1313003003300232-0333003303123202-1313101200002100"></a>
 
-## is_slo_static property — infra / f880ec804e55 / 9
+## is_slo_static property — infra / 200010321111 / 9
 
 Type: `"bool"`. Computed.
 
@@ -737,11 +737,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3fc8295a6016ea89a3f3723fec1294bcb258c72705c7d4e9485ed44e311c8bc6"></a>
+<a id="canonical-0333302002211122-1200011232222021-2203330313020333-3230010221102330-2302112030130213-0011301331103221-1020113231101032-0301013020233012"></a>
 
-<a id="canonical-280d345721269dd51c5764ce80445cd5a6320c8f7bb9b7396472e33b3b8124b0"></a>
+<a id="canonical-0220003103101113-0201021221313111-0130111312103032-2000101011303111-2212030200302033-1323232123130321-1210130232030323-0323200102102300"></a>
 
-## machine_id property — infra / f880ec804e55 / 10
+## machine_id property — infra / 200010321111 / 10
 
 Type: `"string"`. Computed.
 
@@ -770,11 +770,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d0d44cb39e7530be55ba8662129c27be1ea9256ce2cf4bc11f1e422795207539"></a>
+<a id="canonical-3100311010302303-2132131103002332-1111232220121202-0102213002132332-0132222102111230-3202303310233001-0133013210020213-2111020013110321"></a>
 
-<a id="canonical-0969fb3e76123907f832582891738da748b5cb82bcf10b9ac123aba59b8df84a"></a>
+<a id="canonical-0021122133230332-1312010203210013-3320030211200220-2101130320312213-1020231130232002-2330330100232122-3001020322232211-2123203133201022"></a>
 
-## provider_ref property — infra / f880ec804e55 / 11
+## provider_ref property — infra / 200010321111 / 11
 
 Type: `"string"`. Computed.
 
@@ -788,13 +788,13 @@ provider, which was not identified by system. Possible values are \`UNKNOWN\`, \
 \`VOLTERRA\_K8S\`, \`IBMCLOUD\_K8S\`, \`F5OS\`, \`RSERIES\`, \`OCI\`, \`NUTANIX\`, \`OPENSTACK\`,
 \`EQUINIX\`, \`OPENSHIFT\_VIRTUALIZATION\`, \`KUBERNETES\`.
 
-- [sw_info](data-sources--registration--reference--group-001.md#canonical-6dd402088ad909db8bc33ca16006763d6574c8e94ebcf113e42c2bc20d5edbf3): complete subsection reference.
+- [sw_info](data-sources--registration--reference--group-001.md#canonical-1231311000020020-2022312100213123-2023300303302201-1200001213120331-1211131030203221-1032233033010103-3210023002233002-0031113231233303): complete subsection reference.
 
-<a id="canonical-04d75bad395ae5e48575a37d5ae78bee65e851e56f5df7675616a1750817a876"></a>
+<a id="canonical-0010311311232231-0321112232113210-2011131122031331-1122321320233232-1211322011013211-1233113133131213-1112011222011311-0020011322201312"></a>
 
-<a id="canonical-d24ff08ca9bff01a1e9ded29f115da7bd0f70a2f44853891c4b6454a7537a31a"></a>
+<a id="canonical-3102103333002030-2221233333000122-0132213132310221-3301011131221323-3100331300220233-1010201103202101-3010231210111022-1311031322030122"></a>
 
-## timestamp property — infra / f880ec804e55 / 12
+## timestamp property — infra / 200010321111 / 12
 
 Type: `"string"`. Computed.
 
@@ -831,11 +831,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-066bf3bf63ea67001fb3ad67ccf5d2e3916b1810722893104c50ba79fbec6e0f"></a>
+<a id="canonical-0012122333032333-1203322212130000-0133230322311213-3030331131023203-2101122301200100-1302022021030100-1030110023221321-3323323012320033"></a>
 
-<a id="canonical-223a92ec1fbf4e628564600ff541402044d91d8fcc86b5c024ee0fc76b89d7b1"></a>
+<a id="canonical-0202032221023230-0133233310321202-2011121012000033-3311100110000200-1010312101312033-3030201223113000-0210323200333013-1223202131132301"></a>
 
-## zone property — infra / f880ec804e55 / 13
+## zone property — infra / 200010321111 / 13
 
 Type: `"string"`. Computed.
 
@@ -864,37 +864,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7ed45a8aaf21d1ccf6b994b4d377bc11dd7c4ff03dc30d9230c93499b232b529"></a>
+<a id="canonical-1332311011222022-2233020131013030-3312232121102310-3103131323300101-3131133010333300-0331300300312102-0300302103102121-2302030223110221"></a>
 
-## Next pages — infra / f880ec804e55 / 14
+## Next pages — infra / 200010321111 / 14
 
-- [infra.bond_config](data-sources--registration--reference--group-001.md#canonical-a4430190a55aa93a53b54484946dcd3bf4d709a3d804f2afd0a63b9363274b04)
-- [infra.hugepages](data-sources--registration--reference--group-001.md#canonical-983535f1dda3f78ee763b6d731cf15b162b6da119cef30d71f0e25891bf7aef0)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [infra.interfaces](data-sources--registration--reference--group-001.md#canonical-66e79b237f37efd5879541c286d9c104de02734a72db584f56cabcfc76bf017d)
-- [infra.internet_proxy](data-sources--registration--reference--group-001.md#canonical-8a5def9df187ad5173d54e74d358a2239e37981290fd63c52a9a3057a477131b)
-- [infra.sw_info](data-sources--registration--reference--group-001.md#canonical-6dd402088ad909db8bc33ca16006763d6574c8e94ebcf113e42c2bc20d5edbf3)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.bond_config](data-sources--registration--reference--group-001.md#canonical-2210100300012100-2211112222210322-1103231110102010-2110123130310323-3310311300212203-3120001033022233-3100221203232103-1203021310230010)
+- [infra.hugepages](data-sources--registration--reference--group-001.md#canonical-2120031103113301-3131220333132032-3213120323123113-0301303301112301-1202231231220101-2130323303003113-0133003202112021-0123331322323300)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [infra.interfaces](data-sources--registration--reference--group-001.md#canonical-1212321321230203-1333031332333111-2013211110013002-2012312130010010-3132000213031022-1302312311201033-1112302223303330-1312233300011331)
+- [infra.internet_proxy](data-sources--registration--reference--group-001.md#canonical-2022113132332131-3301201322311101-1303311110321310-3103112022020203-2132031321200102-2100333112033011-0222212203001113-2210131301030123)
+- [infra.sw_info](data-sources--registration--reference--group-001.md#canonical-1231311000020020-2022312100213123-2023300303302201-1200001213120331-1211131030203221-1032233033010103-3210023002233002-0031113231233303)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-a4430190a55aa93a53b54484946dcd3bf4d709a3d804f2afd0a63b9363274b04"></a>
+<a id="canonical-2210100300012100-2211112222210322-1103231110102010-2110123130310323-3310311300212203-3120001033022233-3100221203232103-1203021310230010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-98083107f0a472f6c4cd8d0075e2b2448be4b60004f68a76798a541a21c3a8bd"></a>
+<a id="canonical-2120002003010013-3300221013023312-3010303120310000-1311320223021010-2023321023120000-0010331220221312-1321202211100122-0201300322202331"></a>
 
-## infra.bond_config — infra.bond_config / 8ff69ee600cf / 2
+## infra.bond_config — bond_config / 321200003033 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.bond_config
 
-<a id="canonical-856b55a0ac73d1f2bde0447fe5350dd861a7561d57d307bd6b37419cf97c7cb7"></a>
+<a id="canonical-2011122311112200-2230130331013302-2331320010101333-3211031100313120-1201221311120131-1113310300132331-1223031310012130-3321133013302313"></a>
 
 Type: `"single"`. Computed.
 
@@ -913,15 +913,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef1c8abc88711ea070dde514545493fc73f93dddcd5cabe0379893aab0393c8c"></a>
+<a id="canonical-3233013020222330-2020130101322200-1300313132110110-1110111021033330-1303332103313131-3031113022233200-0313212021032222-2300032103302030"></a>
 
-## Direct properties — infra.bond_config / 8ff69ee600cf / 3
+## Direct properties — bond_config / 321200003033 / 3
 
-<a id="canonical-f74856cc1675346a8da2264d108b29d2d4045b00210826ca709e0376655ef612"></a>
+<a id="canonical-3313102011123030-0112131103101222-2031220202121031-0100202302213102-3110001011230000-0201002002123022-1300213200031312-1211113233120102"></a>
 
-<a id="canonical-270c1dbf4f9bbd80b0676ceefda0859feeee390541da1193f0e2f6764874bcf4"></a>
+<a id="canonical-0213003001312333-1033212323312000-2300121312303232-3331220020112133-3232323203210011-1001312201012103-3300320233121312-1020131023303310"></a>
 
-## interfaces property — infra.bond_config / 8ff69ee600cf / 4
+## interfaces property — bond_config / 321200003033 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -973,11 +973,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e1b5cb8aa00ed55afd4309b418e3fc3986431a37dc8aa2bf5ba43a98567bc70b"></a>
+<a id="canonical-3201231130232022-2200003231111122-3331100300212310-0120320333300321-2012100301220313-3130202222022333-1123221003222120-1112132330130023"></a>
 
-<a id="canonical-5ae0a4567e44701f23656b0c6786faf807b47af882f3c2c6c6d0e60277cd71fc"></a>
+<a id="canonical-1122320022101112-1332101013000133-0203121112230030-1213201233223320-0013231013223320-2002330330023012-3012310032120002-1313303113013330"></a>
 
-## mode property — infra.bond_config / 8ff69ee600cf / 5
+## mode property — bond_config / 321200003033 / 5
 
 Type: `"string"`. Computed.
 
@@ -1013,11 +1013,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b96897b0af62a6c65068f4cb680f56e344ddbd76d90cf6816e90da53b34e20b7"></a>
+<a id="canonical-2321122021132300-2233120222123012-1100122033103023-1220003311123203-1010313123311312-3121003033122001-1232210031221103-2303103202002313"></a>
 
-<a id="canonical-de7a09ef5a0a3a5f97f0c45cad22bd7e4531ba1f0237c7e5305fa250278b9aef"></a>
+<a id="canonical-3132132200213233-1122002203221133-2113330030101130-2231020223311332-1011030123220133-0002031330133211-0300113322021100-0213202321223233"></a>
 
-## name property — infra.bond_config / 8ff69ee600cf / 6
+## name property — bond_config / 321200003033 / 6
 
 Type: `"string"`. Computed.
 
@@ -1074,31 +1074,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b083dfa93a050adde1cb1f9901c99e9882dfcec2d178070759ebb2fb9ca6ad6b"></a>
+<a id="canonical-2300200331332221-0322001100223131-3201302301332121-0001302121322120-2002313330323002-3101132000130013-1121322323023323-2130221222311223"></a>
 
-## Next pages — infra.bond_config / 8ff69ee600cf / 7
+## Next pages — bond_config / 321200003033 / 7
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-983535f1dda3f78ee763b6d731cf15b162b6da119cef30d71f0e25891bf7aef0"></a>
+<a id="canonical-2120031103113301-3131220333132032-3213120323123113-0301303301112301-1202231231220101-2130323303003113-0133003202112021-0123331322323300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f9a6bb724dd915d809b6db69bf760a46fa9008852ea2385f6204da0f590f5f60"></a>
+<a id="canonical-3321221223231302-1031312101113120-0021231231231221-2333131200221012-3322210000202011-0232220203201133-1202001031220033-1121003311331200"></a>
 
-## infra.hugepages — infra.hugepages / bad897618372 / 2
+## infra.hugepages — hugepages / 120120031302 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.hugepages
 
-<a id="canonical-cb87cb5a30dec946d6f992db740a233b00389ee73c11121643751f3857190f12"></a>
+<a id="canonical-3023201330231122-0300313230211012-3112332121023123-1310002202030323-0000032021323213-0330010101020112-1003131101330320-1113012100330102"></a>
 
 Type: `"list"`. Computed.
 
@@ -1117,15 +1117,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e460504e8b3bdc91de3187565be1e417385ee7027b0c7479aad45b34d88d6361"></a>
+<a id="canonical-3210120011001032-2023032331302101-3132030120131112-1123320132100113-0320113232130002-1323003013101321-2222311011230310-3120203112031201"></a>
 
-## Direct properties — infra.hugepages / bad897618372 / 3
+## Direct properties — hugepages / 120120031302 / 3
 
-<a id="canonical-51aa84b7c464d23af72dc85b3261e91cd1210126ca1c56a3e43655b08c8768be"></a>
+<a id="canonical-1101222220102313-3010121031020322-3313023130201123-0302120132210130-3101020100010212-3022013011122203-3210031211112300-2030201312202332"></a>
 
-<a id="canonical-9743c21882170beddce8cef5dadf69e07bc6b840f27566391cf870686ef78b27"></a>
+<a id="canonical-2113100330020120-2002011300233231-3130322030323311-3122313312213200-1323301223201000-3302131112120321-0130332013001220-1232331320230213"></a>
 
-## free property — infra.hugepages / bad897618372 / 4
+## free property — hugepages / 120120031302 / 4
 
 Type: `"number"`. Computed.
 
@@ -1148,11 +1148,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0575c14cd7a7e997bc1e06ce88f4c5fdfaf3dc0f045ecf7e5697fd20d187ae8f"></a>
+<a id="canonical-0011131130011030-3113221332212113-2330013200123032-2020331030113331-3322330331300033-0010113230331332-1112211333310200-3101201322322033"></a>
 
-<a id="canonical-c6726a8f213bb2a640d11e29e3807a1f213d8f7e6c156068a37e49dfb9cbb8e3"></a>
+<a id="canonical-3012130212222033-0201032323022212-1000310101320221-3203200013220133-0201033120331332-1230011112001220-2203133210213133-2321302323203203"></a>
 
-## page_size property — infra.hugepages / bad897618372 / 5
+## page_size property — hugepages / 120120031302 / 5
 
 Type: `"number"`. Computed.
 
@@ -1175,11 +1175,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fcb41ea3a17b3cbbb2a8306b23867841938e1fc63e585ad1e255235c150a2f85"></a>
+<a id="canonical-3330231001322203-2201132303302323-2302222003001223-0203201213201001-2103203201333012-0332112011223101-3202111102031130-0111002202332011"></a>
 
-<a id="canonical-e526fe954a813cfd757a623ad8e3dd86e076eb1538b7ffee87e56c78d44cfdec"></a>
+<a id="canonical-3211021233322111-1022200103303331-1311132212020322-3120320331312012-3200131232230111-0320231333333232-2013321112301320-3110103033313230"></a>
 
-## total property — infra.hugepages / bad897618372 / 6
+## total property — hugepages / 120120031302 / 6
 
 Type: `"number"`. Computed.
 
@@ -1202,31 +1202,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1c52fa0560a32037531d589c98922753b2935ff87caa51c98bcff7a99637324f"></a>
+<a id="canonical-0130110233220011-1200220302000313-1103013111202130-2120210202131103-2302210311333320-1330222211013021-2023303333132221-2112031303021033"></a>
 
-## Next pages — infra.hugepages / bad897618372 / 7
+## Next pages — hugepages / 120120031302 / 7
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4"></a>
+<a id="canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd322441352abbc99857df1c74a03b634b1587ed702915d822efc738f36e7daf"></a>
+<a id="canonical-3131030202101001-0311022223233021-2120111331330130-1310220003231203-1023011120133231-1300022101113120-0202323330130320-3303123213312233"></a>
 
-## infra.hw_info — infra.hw_info / 92143c6871ed / 2
+## infra.hw_info — hw_info / 122013013231 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.hw_info
 
-<a id="canonical-b2dfbc22aa5aa18c5b4b1ce255ef13745006c9d9558aaec8f98f49549988119f"></a>
+<a id="canonical-2302313323300202-2222112222012030-1123102301303202-1111323301031310-1100001230213121-1111202222323020-3321203310211110-2121202001012133"></a>
 
 Type: `"single"`. Computed.
 
@@ -1245,31 +1245,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c44a4c3de71c99f598fd8766396edbcbc019faede531d4fa95a38517b31f285c"></a>
+<a id="canonical-3010102210300331-3213013021213311-2120333120131212-0321123231233023-3000012133223231-3211030131103322-2111220320110113-2303013302201130"></a>
 
-## Direct properties — infra.hw_info / 92143c6871ed / 3
+## Direct properties — hw_info / 122013013231 / 3
 
-- [bios](data-sources--registration--reference--group-001.md#canonical-0049c2de62c5c2869ec7ecbb337428745bb10a1abdd99c7a03d298a98fb7dc26): complete subsection reference.
+- [bios](data-sources--registration--reference--group-001.md#canonical-0000102130023132-1202301130022012-2132301332302323-0303131002201310-1123230100220122-2331312121301322-0003310221202221-2033231331300212): complete subsection reference.
 
-- [board](data-sources--registration--reference--group-001.md#canonical-303fe47badcc2391b6a5dbcfa0257ac8b41cb1a6c8c5678cdccc9d978783779e): complete subsection reference.
+- [board](data-sources--registration--reference--group-001.md#canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132): complete subsection reference.
 
-- [chassis](data-sources--registration--reference--group-001.md#canonical-41d8831cde6b958eecff88a99eee41756b33b0ed02ffc794d2649326394085be): complete subsection reference.
+- [chassis](data-sources--registration--reference--group-001.md#canonical-1001312020030130-3132122321112032-3230333320202221-2132323210011311-1223030323003231-0002333330132110-3102121021030212-0321100020112332): complete subsection reference.
 
-- [cpu](data-sources--registration--reference--group-001.md#canonical-b489cef08fc7374e2103578f6a57c27e3623956e4788b2758c9881abdf190e8b): complete subsection reference.
+- [cpu](data-sources--registration--reference--group-001.md#canonical-2310202130323300-2033301303131032-0201000311132033-1222111330021332-0312020321111232-1013202023021311-2030212020012223-3133012100322023): complete subsection reference.
 
-- [gpu](data-sources--registration--reference--group-001.md#canonical-18b728ff653601cfc02eb75dc3762a3e51502ab8882dc313a79c4849a55f8a34): complete subsection reference.
+- [gpu](data-sources--registration--reference--group-001.md#canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310): complete subsection reference.
 
-- [kernel](data-sources--registration--reference--group-001.md#canonical-e9411e953ab23e15aadccc3395f3df6adfb9f5a64b4f185ea2607e2adfab317a): complete subsection reference.
+- [kernel](data-sources--registration--reference--group-001.md#canonical-3221100101322111-0322230203320111-2222313030300303-2111330331331222-3133232133112212-1023103301201132-2202120013320222-3133222303011322): complete subsection reference.
 
-- [memory](data-sources--registration--reference--group-001.md#canonical-3b03cfa26c33c61bb43fdf5473a0e964162fd45461daf983d7069d000a398fc5): complete subsection reference.
+- [memory](data-sources--registration--reference--group-001.md#canonical-0323000330332202-1230030330120123-2310033331331110-1303220032211210-0112023331101110-1201312233212003-3113001221310000-0022032120333011): complete subsection reference.
 
-- [network](data-sources--registration--reference--group-001.md#canonical-820c5be99108b8f517fbf7b22318d3e3729ace16af7100f3038c1fdd4ae5b065): complete subsection reference.
+- [network](data-sources--registration--reference--group-001.md#canonical-2002003011233221-2101002023203311-0113332333132302-0203012031033203-1302212230320112-2233130100003303-0003203001333131-1022321123001211): complete subsection reference.
 
-<a id="canonical-210a77c6eb3796b1d7bd28a29b6535a5acf40653775af4d49c82cf60f2353c7e"></a>
+<a id="canonical-0201002213133012-3223031321122301-3113233102202202-2123121103112211-2230331000121103-1313112233103110-2130200230331200-3302031103301332"></a>
 
-<a id="canonical-90e2a4cb91e8db9b1d34ab31cdc79cc8e162c45d14125b2308804722ec42fcee"></a>
+<a id="canonical-2100320222103023-2101322031232123-0131031022230301-3031301321303020-3201120230101131-0110010211230203-0020200010130202-3230100233303232"></a>
 
-## numa_nodes property — infra.hw_info / 92143c6871ed / 4
+## numa_nodes property — hw_info / 122013013231 / 4
 
 Type: `"number"`. Computed.
 
@@ -1305,52 +1305,52 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [os](data-sources--registration--reference--group-001.md#canonical-8bcbb6bac391159990da9202be8fed6f04f430ad1886e198be1cc0cb11bac1fd): complete subsection reference.
+- [os](data-sources--registration--reference--group-001.md#canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331): complete subsection reference.
 
-- [product](data-sources--registration--reference--group-001.md#canonical-5cd2a5f5f07aec658752a5088ccdd898ebe9fd093a1f2413b6a637b7c0f8a46b): complete subsection reference.
+- [product](data-sources--registration--reference--group-001.md#canonical-1130310222113311-3300132232301211-2013110222110020-2030303131202120-3223322133310021-0322013302100103-2312221203132313-3000332022101223): complete subsection reference.
 
-- [storage](data-sources--registration--reference--group-001.md#canonical-db1e154b948c3d7a4bdf736a72b0b6c1dac635f96835094b06de205af71cadbd): complete subsection reference.
+- [storage](data-sources--registration--reference--group-001.md#canonical-3123013201111023-2110203003311322-1023313313031222-1302230023123001-3122301203113321-1220031100211023-0012313202001122-3313013022312331): complete subsection reference.
 
-- [usb](data-sources--registration--reference--group-001.md#canonical-542fdb8614ec2c371d6ee65c34fdcc803998f066bcbaac2bb79cdee1119d16b9): complete subsection reference.
+- [usb](data-sources--registration--reference--group-001.md#canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321): complete subsection reference.
 
-<a id="canonical-a6ab940df1c3c9a90c2ec1c2ce4c01451761daf4d0c800acdf9bb379a9c2e610"></a>
+<a id="canonical-2212222321100031-3301300330212221-0030023230013002-3032103000011011-0113120131223310-3100302000002230-3133212323031321-2221300232120100"></a>
 
-## Next pages — infra.hw_info / 92143c6871ed / 5
+## Next pages — hw_info / 122013013231 / 5
 
-- [infra.hw_info.bios](data-sources--registration--reference--group-001.md#canonical-0049c2de62c5c2869ec7ecbb337428745bb10a1abdd99c7a03d298a98fb7dc26)
-- [infra.hw_info.board](data-sources--registration--reference--group-001.md#canonical-303fe47badcc2391b6a5dbcfa0257ac8b41cb1a6c8c5678cdccc9d978783779e)
-- [infra.hw_info.chassis](data-sources--registration--reference--group-001.md#canonical-41d8831cde6b958eecff88a99eee41756b33b0ed02ffc794d2649326394085be)
-- [infra.hw_info.cpu](data-sources--registration--reference--group-001.md#canonical-b489cef08fc7374e2103578f6a57c27e3623956e4788b2758c9881abdf190e8b)
-- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-18b728ff653601cfc02eb75dc3762a3e51502ab8882dc313a79c4849a55f8a34)
-- [infra.hw_info.kernel](data-sources--registration--reference--group-001.md#canonical-e9411e953ab23e15aadccc3395f3df6adfb9f5a64b4f185ea2607e2adfab317a)
-- [infra.hw_info.memory](data-sources--registration--reference--group-001.md#canonical-3b03cfa26c33c61bb43fdf5473a0e964162fd45461daf983d7069d000a398fc5)
-- [infra.hw_info.network](data-sources--registration--reference--group-001.md#canonical-820c5be99108b8f517fbf7b22318d3e3729ace16af7100f3038c1fdd4ae5b065)
-- [infra.hw_info.os](data-sources--registration--reference--group-001.md#canonical-8bcbb6bac391159990da9202be8fed6f04f430ad1886e198be1cc0cb11bac1fd)
-- [infra.hw_info.product](data-sources--registration--reference--group-001.md#canonical-5cd2a5f5f07aec658752a5088ccdd898ebe9fd093a1f2413b6a637b7c0f8a46b)
-- [infra.hw_info.storage](data-sources--registration--reference--group-001.md#canonical-db1e154b948c3d7a4bdf736a72b0b6c1dac635f96835094b06de205af71cadbd)
-- [infra.hw_info.usb](data-sources--registration--reference--group-001.md#canonical-542fdb8614ec2c371d6ee65c34fdcc803998f066bcbaac2bb79cdee1119d16b9)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info.bios](data-sources--registration--reference--group-001.md#canonical-0000102130023132-1202301130022012-2132301332302323-0303131002201310-1123230100220122-2331312121301322-0003310221202221-2033231331300212)
+- [infra.hw_info.board](data-sources--registration--reference--group-001.md#canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132)
+- [infra.hw_info.chassis](data-sources--registration--reference--group-001.md#canonical-1001312020030130-3132122321112032-3230333320202221-2132323210011311-1223030323003231-0002333330132110-3102121021030212-0321100020112332)
+- [infra.hw_info.cpu](data-sources--registration--reference--group-001.md#canonical-2310202130323300-2033301303131032-0201000311132033-1222111330021332-0312020321111232-1013202023021311-2030212020012223-3133012100322023)
+- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310)
+- [infra.hw_info.kernel](data-sources--registration--reference--group-001.md#canonical-3221100101322111-0322230203320111-2222313030300303-2111330331331222-3133232133112212-1023103301201132-2202120013320222-3133222303011322)
+- [infra.hw_info.memory](data-sources--registration--reference--group-001.md#canonical-0323000330332202-1230030330120123-2310033331331110-1303220032211210-0112023331101110-1201312233212003-3113001221310000-0022032120333011)
+- [infra.hw_info.network](data-sources--registration--reference--group-001.md#canonical-2002003011233221-2101002023203311-0113332333132302-0203012031033203-1302212230320112-2233130100003303-0003203001333131-1022321123001211)
+- [infra.hw_info.os](data-sources--registration--reference--group-001.md#canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331)
+- [infra.hw_info.product](data-sources--registration--reference--group-001.md#canonical-1130310222113311-3300132232301211-2013110222110020-2030303131202120-3223322133310021-0322013302100103-2312221203132313-3000332022101223)
+- [infra.hw_info.storage](data-sources--registration--reference--group-001.md#canonical-3123013201111023-2110203003311322-1023313313031222-1302230023123001-3122301203113321-1220031100211023-0012313202001122-3313013022312331)
+- [infra.hw_info.usb](data-sources--registration--reference--group-001.md#canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-0049c2de62c5c2869ec7ecbb337428745bb10a1abdd99c7a03d298a98fb7dc26"></a>
+<a id="canonical-0000102130023132-1202301130022012-2132301332302323-0303131002201310-1123230100220122-2331312121301322-0003310221202221-2033231331300212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c2c74f1dd7c5f25469137d0fa4b9a508f7d82b3ebc23159e8514e74babc7b9f"></a>
+<a id="canonical-0030023013103301-3131133011330211-1012210103133100-3322102321221100-2033133120022303-3223300203011121-3220110110321310-2322233013232133"></a>
 
-## infra.hw_info.bios — infra.hw_info.bios / 7c2615a9aa27 / 2
+## infra.hw_info.bios — bios / 222122220213 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.bios
 
-<a id="canonical-25e2cea9aac7727a1acd5601d41c78c369e928e992ae2f624ebf611d68b5d4da"></a>
+<a id="canonical-0211320230322221-2222301313021322-0122303111120001-3110013013203003-1221322102203221-2102223202331202-1032233312010131-1220231131103122"></a>
 
 Type: `"single"`. Computed.
 
@@ -1373,15 +1373,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7bb44bbedc5dac4621082e9e2bc94e2acd16827111c6f502f2d9adbe937733b1"></a>
+<a id="canonical-1323231010232332-3130113122301012-0201002002322132-0223302110320222-3031011220021301-0101301233110002-3302312122312332-2103131303032301"></a>
 
-## Direct properties — infra.hw_info.bios / 7c2615a9aa27 / 3
+## Direct properties — bios / 222122220213 / 3
 
-<a id="canonical-5c00f25eda66394f2953add04a91a8ebdc83181f643a37debf00d38248497250"></a>
+<a id="canonical-1130000033021132-3122121203211033-0221110322313100-1022210122203223-3130200301200133-1210032203133132-2333000031032002-1020102113021100"></a>
 
-<a id="canonical-930e5e54d2ae7cfdd35b95a5d2eb0562b46f5cf568354ff5801b33821ba851bc"></a>
+<a id="canonical-2103003211321110-3102223213303331-3103112321112211-3102322300111202-2310123311303311-1220031110333311-2000012303032002-0123222011012330"></a>
 
-## date property — infra.hw_info.bios / 7c2615a9aa27 / 4
+## date property — bios / 222122220213 / 4
 
 Type: `"string"`. Computed.
 
@@ -1418,11 +1418,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05c0fae09bfe7492087c3f5d82f5d6932676bf6e57b39d44ad5a73f817a7b753"></a>
+<a id="canonical-0011300033223200-2123333213102102-0020133003331131-2002331131122103-0212131223331232-1113230321311010-2231112213033320-0113221323131103"></a>
 
-<a id="canonical-6d481843922edf72f5aad5f60cf46a94b160ff39f863807502a8ac9256db8f59"></a>
+<a id="canonical-1231102001201003-2102023231331302-3311222231113312-0030331012222110-2301120033330321-3320120320001311-0002222022302102-1112312320331121"></a>
 
-## vendor property — infra.hw_info.bios / 7c2615a9aa27 / 5
+## vendor property — bios / 222122220213 / 5
 
 Type: `"string"`. Computed.
 
@@ -1451,11 +1451,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-33e62923885b0139969ef55b62acf9fea0757a4a4173587a55ae26e8bbc7ad14"></a>
+<a id="canonical-0303321202210203-2020112300010321-2112213233111123-1202223033213332-2200131113221022-1001130311201322-1111223202123220-2323301322310110"></a>
 
-<a id="canonical-ca7cfd667ed5b7c6b29ea135e8a11acf0e2eba93b706c092a5d1dfc437b4abe4"></a>
+<a id="canonical-3022133033311212-1332311123133012-2302213222010311-3220220101223033-0032023223222103-2313001230002102-2211310131333010-0313231022233210"></a>
 
-## version property — infra.hw_info.bios / 7c2615a9aa27 / 6
+## version property — bios / 222122220213 / 6
 
 Type: `"string"`. Computed.
 
@@ -1484,32 +1484,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad4c23b1d8121b854489239347bfd5942c34cdf0f9b4d29bccbc82d551a3fb21"></a>
+<a id="canonical-2231103002032301-3120010201232011-1010202102032103-1013233331112110-0230031030313300-3321231031022123-3030233020023111-1101220333230201"></a>
 
-## Next pages — infra.hw_info.bios / 7c2615a9aa27 / 7
+## Next pages — bios / 222122220213 / 7
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-303fe47badcc2391b6a5dbcfa0257ac8b41cb1a6c8c5678cdccc9d978783779e"></a>
+<a id="canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-288ee201a615c17503ba3efae62b2d8c583e3b4c5b3ba0e0a20a102c4c62b55c"></a>
+<a id="canonical-0220203232020001-2212011130011311-0003232203323322-3212022302312030-1120033203231030-1123032322003200-2202002201000230-1030120223111130"></a>
 
-## infra.hw_info.board — infra.hw_info.board / 3744564e58c5 / 2
+## infra.hw_info.board — board / 103211203011 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.board
 
-<a id="canonical-92842c11c11e9c61ba4dc29145a8c7021a7da13cf2eeb6749a8d7a9c51ac338d"></a>
+<a id="canonical-2102201002300101-3001013221301201-2322103130022101-1011222030130002-0122133122010330-3302323223121310-2122203113222130-1101223003032031"></a>
 
 Type: `"single"`. Computed.
 
@@ -1532,15 +1532,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-190193c543c8e84f6c675f7d970dff31f478b6232b325aad5eef69768e23ea24"></a>
+<a id="canonical-0121000121033011-1003302032201033-1230121311331331-2113003133330301-3310132023120203-0223030211222231-1132323312211312-2032020332220210"></a>
 
-## Direct properties — infra.hw_info.board / 3744564e58c5 / 3
+## Direct properties — board / 103211203011 / 3
 
-<a id="canonical-8fa043ea8a73781a5904ee7aded79ce5f8607631256a9d937396bf7b56084088"></a>
+<a id="canonical-2033220010033222-2022130313200122-1121001032321322-3132311321303211-3320120013120301-0211122221312103-1303211223331323-1112002010002020"></a>
 
-<a id="canonical-34b197aecab221bacb7ce1af826b49f3b37d1621ecdb69a0fedffd7356e89cbd"></a>
+<a id="canonical-0310230121132232-3022230202012322-3023133032012233-2002122310213303-2303133101120201-3230312312212200-3332313333311303-1112322021302331"></a>
 
-## asset_tag property — infra.hw_info.board / 3744564e58c5 / 4
+## asset_tag property — board / 103211203011 / 4
 
 Type: `"string"`. Computed.
 
@@ -1569,11 +1569,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ae78efaf4464e74d85c9030e5579848bbdcc7137f99c30b66ded0ca3f0e9d215"></a>
+<a id="canonical-2232132032332233-1010121032131031-2011302100030032-1111132120102023-2331303013010313-3321213003002312-1231323100302203-3300322131020111"></a>
 
-<a id="canonical-70f50d7ca751b90754e391d66f3928c9b06a2a7c3b4138be75255b3e67db5b65"></a>
+<a id="canonical-1300331100311330-2213110123210013-1110320321013112-1233032102203021-2300122202221330-0323100103202332-1311021111230332-1213312311231211"></a>
 
-## name property — infra.hw_info.board / 3744564e58c5 / 5
+## name property — board / 103211203011 / 5
 
 Type: `"string"`. Computed.
 
@@ -1617,11 +1617,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b1e605730ef31538839bd2c2bf34c189b3eb3c02da1c1a5c548d187089719afc"></a>
+<a id="canonical-2301321200111303-0032330301110320-2003212331023002-2333031030012021-2303322303300002-3122013001221130-1110203101201300-2021130121223330"></a>
 
-<a id="canonical-0a33731bb5a497b1ec736b151cb4c58dc29eba6943936bfb8ea341c4a996b407"></a>
+<a id="canonical-0022030313030123-2311221021132301-3230130312230111-0130231030112031-3002213223221221-1003210312233323-2032220310013010-2221211223100013"></a>
 
-## serial property — infra.hw_info.board / 3744564e58c5 / 6
+## serial property — board / 103211203011 / 6
 
 Type: `"string"`. Computed.
 
@@ -1650,11 +1650,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0303bb642b498d19463d93b5d817572a0ad07a01f67b47cd75389865c4542663"></a>
+<a id="canonical-0003000323231210-0223102120310121-1012033121032311-3120011311130222-0022310013220001-3312132310133031-1311032021201211-3010111002121203"></a>
 
-<a id="canonical-0c7dd016490f9512f79690545926968c2a2e89a6e71c213b9a9df84a72f29373"></a>
+<a id="canonical-0030133131000112-1021003321110102-3313211221001110-1121021221122030-0222023220212212-3213013002010323-2122213133201022-1302330221031303"></a>
 
-## vendor property — infra.hw_info.board / 3744564e58c5 / 7
+## vendor property — board / 103211203011 / 7
 
 Type: `"string"`. Computed.
 
@@ -1683,11 +1683,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-971d1e802caef39fc5013172555cf04c522c0a1dcbacc8ab74202e66c5566319"></a>
+<a id="canonical-2113013101322000-0230223233032133-3011000103011302-1111113033001030-1102023000220131-3023223030202223-1310020002321212-3011111212030121"></a>
 
-<a id="canonical-22d12b0ae4cb46fc3bab4fdb208d3edfc4a8576dab936d420f51fb14bc214877"></a>
+<a id="canonical-0202310102230022-3210302310123330-0323222310333123-0200203103323133-3010222011131231-2223210312311002-0033110133230110-2330020110201313"></a>
 
-## version property — infra.hw_info.board / 3744564e58c5 / 8
+## version property — board / 103211203011 / 8
 
 Type: `"string"`. Computed.
 
@@ -1716,32 +1716,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-635a2a3d1c5d835097ffbd6fe2ab757a3b472b0cb55fa6f2a3e6522bc9aaf3f6"></a>
+<a id="canonical-1203112202220331-0130113120031100-2113333323311233-3202222313111322-0323101302230030-2311113322123302-2203321211020223-3021222233033312"></a>
 
-## Next pages — infra.hw_info.board / 3744564e58c5 / 9
+## Next pages — board / 103211203011 / 9
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-41d8831cde6b958eecff88a99eee41756b33b0ed02ffc794d2649326394085be"></a>
+<a id="canonical-1001312020030130-3132122321112032-3230333320202221-2132323210011311-1223030323003231-0002333330132110-3102121021030212-0321100020112332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f4d8ea8df4809e62389d4acd599d84cada9da70fd042322c539cfdbf861ebcdf"></a>
+<a id="canonical-3310312032222031-3310200021321202-0320213110223031-1121213120103022-3122213122130033-3100100203020230-1103213033312333-2012013223303133"></a>
 
-## infra.hw_info.chassis — infra.hw_info.chassis / c334d2c70e62 / 2
+## infra.hw_info.chassis — chassis / 301300321202 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.chassis
 
-<a id="canonical-bd2cea604c3adad46692715e3fb84be8f68b0f820cb69a184c20076584646811"></a>
+<a id="canonical-2331023032221200-1030032231223110-1212210213011132-0333232010233220-3312202300332002-0030231221220120-1030020000131211-2010121012200101"></a>
 
 Type: `"single"`. Computed.
 
@@ -1764,15 +1764,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6057008a0649700ae93adb81be3b5b774ecadbc3008a8513981438fe279f977a"></a>
+<a id="canonical-1200111300002022-0012102113000022-3221032231232001-2332032311231313-1032302231233003-0000202220110103-2120011003203332-0213213321131322"></a>
 
-## Direct properties — infra.hw_info.chassis / c334d2c70e62 / 3
+## Direct properties — chassis / 301300321202 / 3
 
-<a id="canonical-3a2d1d7f8c7a8515774b22d63ca89c836ad9b209f342c7dc66df74e50fac7a01"></a>
+<a id="canonical-0322023101311333-2030132220110111-1313102302023112-0330222021302003-1222312123020021-3303100230133130-1212313313103211-0033223013220001"></a>
 
-<a id="canonical-5cddcd409a1f41e0a6e65a85cfb2c0c98f41a6a3b5acb096bfce5cde946a2cbb"></a>
+<a id="canonical-1130313130311000-2122013310013200-2212321211222011-3033230230003021-2033100122122203-2311223023002112-2333303211303132-2110122202302323"></a>
 
-## asset_tag property — infra.hw_info.chassis / c334d2c70e62 / 4
+## asset_tag property — chassis / 301300321202 / 4
 
 Type: `"string"`. Computed.
 
@@ -1801,11 +1801,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c61611eed59edfe15d0f3c7adbd782e48e3187441e1e10b700d8a675862c568"></a>
+<a id="canonical-2130120112010132-3231112132313332-0111310033033013-2231233113200232-1020320301201310-1001320132010023-1300003120221213-1120120230111220"></a>
 
-<a id="canonical-a07b67f7042bcb9160cf28186687b3560ff13be6ac1f634b5d8a9528dfdef78d"></a>
+<a id="canonical-2200132312133313-0010022330232101-1200303302200120-1212201323031112-0033330103233212-2230013312031023-1131202221110220-3133313233132031"></a>
 
-## serial property — infra.hw_info.chassis / c334d2c70e62 / 5
+## serial property — chassis / 301300321202 / 5
 
 Type: `"string"`. Computed.
 
@@ -1834,11 +1834,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5012e862b0cc32091b68aa1f32b6748c81e9370905832773eeed2865acc32142"></a>
+<a id="canonical-1100010232201202-2300303003020021-0123122022220133-0302231213102030-2001322103130021-0011200302131303-3232323102201211-2230300302011002"></a>
 
-<a id="canonical-7302a9746e33d6a5d6f303c0e6b330a22620007bb72ffea15d1fbe5d22db473e"></a>
+<a id="canonical-1303000222211310-1232030331122211-3112330300033000-3212230303002202-0212020000001323-2313023333322201-1131013323321131-0202312310130332"></a>
 
-## type property — infra.hw_info.chassis / c334d2c70e62 / 6
+## type property — chassis / 301300321202 / 6
 
 Type: `"number"`. Computed.
 
@@ -1857,11 +1857,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b9c497d3c92aa1de78dd58411523c9f4a4952098010d4865c4cefb9059546c55"></a>
+<a id="canonical-2321301021133103-3021022222013132-1320313111201001-0111020330213310-2210211102002120-0001003110201211-3010303233232100-1121111012301111"></a>
 
-<a id="canonical-f830d62e946cf2b19cb1f76de54202b6d8df5e92a1ab6dccb42e8a64e7d07296"></a>
+<a id="canonical-3320030031120232-2110123033022301-2130230133131231-3211100200022312-3120313311322102-2201222312313030-2310023220221210-3213310013022112"></a>
 
-## vendor property — infra.hw_info.chassis / c334d2c70e62 / 7
+## vendor property — chassis / 301300321202 / 7
 
 Type: `"string"`. Computed.
 
@@ -1890,11 +1890,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-238babd77520c0e04cf15dd11c6838304e5e0bd3b49dca57307c3e1b70acf1c7"></a>
+<a id="canonical-0203202322233113-1311020030003200-1030330111313101-0130122003200300-1032113200233103-2310213130221113-0300133003320123-1300223033013013"></a>
 
-<a id="canonical-0e680ee3bb0aa3e9bebad98f7ac160915a2f33eea5596a9e0adc890c3f0239bf"></a>
+<a id="canonical-0032122000323203-2323002222033221-2332232231212033-1322300112002101-1122023303033232-2211112112222132-0022313020210030-0333000203212333"></a>
 
-## version property — infra.hw_info.chassis / c334d2c70e62 / 8
+## version property — chassis / 301300321202 / 8
 
 Type: `"string"`. Computed.
 
@@ -1923,32 +1923,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3264e4997a0bb643de6988722d56a905b91ade4996833e76284ac5a6aaa79093"></a>
+<a id="canonical-0302121032102121-1322002323121003-3132122120201302-0231111222210011-2321012231321021-2112200303321312-0220102230112212-2222221321002103"></a>
 
-## Next pages — infra.hw_info.chassis / c334d2c70e62 / 9
+## Next pages — chassis / 301300321202 / 9
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-b489cef08fc7374e2103578f6a57c27e3623956e4788b2758c9881abdf190e8b"></a>
+<a id="canonical-2310202130323300-2033301303131032-0201000311132033-1222111330021332-0312020321111232-1013202023021311-2030212020012223-3133012100322023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-de900fbeddc9a97f87e313e4b35d7f8ff74874e55e84ba89b002f78f1ab64cba"></a>
+<a id="canonical-3132210000332332-3131302122211333-2013320301033210-2303113113332033-3313102013103211-1132201023222021-2300000233132033-0122231210302322"></a>
 
-## infra.hw_info.cpu — infra.hw_info.cpu / ffec3b70ea64 / 2
+## infra.hw_info.cpu — cpu / 130032221210 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.cpu
 
-<a id="canonical-80098b0065f5f696339b7393ec10eb533aa8cc3fa2f24e0b3f7f5bcf2ccf3007"></a>
+<a id="canonical-2000002120230000-1211331133122112-0303212313032103-3230010032231103-0322222030300333-2202330210320023-0333133311233033-0230303303000013"></a>
 
 Type: `"single"`. Computed.
 
@@ -1971,15 +1971,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4064102dd8048303bebe1ea6217a0fe5cf17d764c78cf0d42c9ac5d54e2e7f70"></a>
+<a id="canonical-1000121001000231-3120001020030003-2332233201322212-0201132200333211-3033011331131210-3013203033003110-0230212230113111-1032023213331300"></a>
 
-## Direct properties — infra.hw_info.cpu / ffec3b70ea64 / 3
+## Direct properties — cpu / 130032221210 / 3
 
-<a id="canonical-fcc8e6055acbea8ee12534c0c7f9215c12513e7fd2845586645af89725acd296"></a>
+<a id="canonical-3330302032120011-1122302332222032-3201021103103000-3013332102011130-0102110103321333-3102201011112012-1210112233202113-0211223031022112"></a>
 
-<a id="canonical-eb575b9abc6ae11ebf73ccedd3a7d113bb93f74edeee67cbbe9b03b861f1c8d4"></a>
+<a id="canonical-3223111311232122-2330122232010132-2333130330303231-3103221331010103-2323210333131032-3132323212133023-2332212300032320-1201330130203110"></a>
 
-## cache property — infra.hw_info.cpu / ffec3b70ea64 / 4
+## cache property — cpu / 130032221210 / 4
 
 Type: `"number"`. Computed.
 
@@ -2002,11 +2002,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-362e4e9c3e21b4bf7fb5720222d4285bb7f5f9f1e4c35f5509fdf9dfd38a5704"></a>
+<a id="canonical-0312023210322130-0332020123102333-1333231113020002-0202311002201123-2313331133213301-3210300311331111-0021333133213133-3103202211130010"></a>
 
-<a id="canonical-534309acde3208fa3d9b8c45f56fcfe4077321784f711d48ab3590edea5ef073"></a>
+<a id="canonical-1103100300212230-3132030200203322-0331212320301011-3311123330333210-0013130302011320-1033130101311020-2223031121003231-3222113233001303"></a>
 
-## cores property — infra.hw_info.cpu / ffec3b70ea64 / 5
+## cores property — cpu / 130032221210 / 5
 
 Type: `"number"`. Computed.
 
@@ -2029,11 +2029,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ff2e2bcd64e4b2f543abe0959767a99e0be8b207ec4a2f29952e2528177c0008"></a>
+<a id="canonical-3333023202233031-1210321023023311-1003222332002111-2113121322212132-0023322023020013-3230102202330221-2111023202110220-0113133000000020"></a>
 
-<a id="canonical-8c1b0be5aea3239f8199349abe6f633a7c1559a11d4fc21a0a9494c675ade498"></a>
+<a id="canonical-2030012300233211-2232220302032133-2001212103102122-2332123312030322-1330011111212201-0131103330020122-0022211021103012-1311223132102120"></a>
 
-## cpus property — infra.hw_info.cpu / ffec3b70ea64 / 6
+## cpus property — cpu / 130032221210 / 6
 
 Type: `"number"`. Computed.
 
@@ -2056,11 +2056,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-49dc542a6c52186f8383ad511a78ef82f41fac88aad856788ca2a2c93a1196d9"></a>
+<a id="canonical-1021313011100222-1230110201201233-2003200322311101-0122132032332002-3310013322302020-2222312011121320-2030220222023021-0322010121123121"></a>
 
-<a id="canonical-d61add795ab4baec00672fac9e4429d460c4e03322758763e2a4714ab2d5c818"></a>
+<a id="canonical-3112012231311321-1122231023223230-0000121302332230-2132101002213110-1200301032000303-0202131120131203-3202221013011022-2302311130200120"></a>
 
-## model property — infra.hw_info.cpu / ffec3b70ea64 / 7
+## model property — cpu / 130032221210 / 7
 
 Type: `"string"`. Computed.
 
@@ -2093,11 +2093,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-321452b7326f07388ffce1ca4b33766ffa50dabb4e002eeb6ceb36d3f070f153"></a>
+<a id="canonical-0302011011022313-0302123300130320-2033333032013022-1023030313121233-3322110031222323-1032000002323223-1230322303123103-3300130033011103"></a>
 
-<a id="canonical-a342aeb37d918b7936d3623cc1cc574a6138086711deb073ff604b4bb2f50649"></a>
+<a id="canonical-2203100222322303-1331210120231321-0312310312020330-3001303011131022-1201032000201213-0101313223001303-3333120010231023-2302331100121021"></a>
 
-## speed property — infra.hw_info.cpu / ffec3b70ea64 / 8
+## speed property — cpu / 130032221210 / 8
 
 Type: `"number"`. Computed.
 
@@ -2120,11 +2120,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-07fd5607758550961175b3fe368c5581c9b98bd6449bc72f42c60b6ae4822b6e"></a>
+<a id="canonical-0013333111120013-1311201111002112-0101131123033332-0312203011112001-3021232120233112-1010212330130233-1002301200231222-3210200202231232"></a>
 
-<a id="canonical-c1f13c49da0514c11b2ba291c4956f2548a6a92df54917000e33329fc9e07d83"></a>
+<a id="canonical-3001330103301021-3122001101103001-0123022322022101-3010211112330211-1020221222210231-3311102101130000-0032030303022133-3021320013312003"></a>
 
-## threads property — infra.hw_info.cpu / ffec3b70ea64 / 9
+## threads property — cpu / 130032221210 / 9
 
 Type: `"number"`. Computed.
 
@@ -2147,11 +2147,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-35c56c97eca26f451f70001af450b05d03d21f551e232ed2dc063ed44ed902db"></a>
+<a id="canonical-0311301112302113-3230220212331011-0133130000000122-3310110023001131-0003310201331111-0132020302323102-3130001203323110-1032312100023123"></a>
 
-<a id="canonical-be00ca6172b210d24c60a06df3b71bb93691340229852d8c7b64416d0842c47f"></a>
+<a id="canonical-2332000030221201-1302230201003102-1030120022001231-3303231301232321-0312210103100002-0221201102312030-1323121010011231-0020100230101333"></a>
 
-## vendor property — infra.hw_info.cpu / ffec3b70ea64 / 10
+## vendor property — cpu / 130032221210 / 10
 
 Type: `"string"`. Computed.
 
@@ -2184,32 +2184,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef4e5e812d686256491656c61759b2a9a7c3992d7e2d46d593a3b45cc4ee2b91"></a>
+<a id="canonical-3233103211322001-0231122012021112-1021011211123012-0113112123022221-2213300321210231-1332023110123111-2103220323101130-3010323202232101"></a>
 
-## Next pages — infra.hw_info.cpu / ffec3b70ea64 / 11
+## Next pages — cpu / 130032221210 / 11
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-18b728ff653601cfc02eb75dc3762a3e51502ab8882dc313a79c4849a55f8a34"></a>
+<a id="canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7c07a7544e994911ed151f0e6c962ad5cd37cb23e147a9a91bcf00bb2eaad4cd"></a>
+<a id="canonical-1330001322131110-1032212110210101-3231011101330032-1230211202223111-3031031330230203-3201101322212221-0123303300002323-0232222231103031"></a>
 
-## infra.hw_info.gpu — infra.hw_info.gpu / d40cb3e508cd / 2
+## infra.hw_info.gpu — gpu / 321100203031 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.gpu
 
-<a id="canonical-c0b726570e47e146e616a0de6d2ee35390042345c603f10042ac3cd1f8e03a9c"></a>
+<a id="canonical-3000231302121113-0032101332011012-3212011222003132-1231023232031103-2100001002031011-3012000333010000-1002223003303101-3320320003222130"></a>
 
 Type: `"single"`. Computed.
 
@@ -2232,15 +2232,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-39926d94cb0b3bf7dd49c793b0805c1816feaa38b094313f9de849503918ca13"></a>
+<a id="canonical-0321210212312110-3023002303233313-3131102130132103-2300200011300120-0112333222220320-2300211003010333-2131322010211100-0321012030220103"></a>
 
-## Direct properties — infra.hw_info.gpu / d40cb3e508cd / 3
+## Direct properties — gpu / 321100203031 / 3
 
-<a id="canonical-9077d869f49f37bb1ba51a668ca293e8256e72718864fefe034e60fc96fad118"></a>
+<a id="canonical-2100131331201221-3310213303132323-0123221101221212-2030220221033220-0211123213021301-2020121033323332-0003103212003330-2112332231010120"></a>
 
-<a id="canonical-2f3cb81f234953e3db8de8e6e2b05ed3a0e7aa5ec36fed9c6973319475a91b74"></a>
+<a id="canonical-0233033023200133-0203102111033203-3123203132203212-3202230011323103-2200321322221132-3003123332312130-1221130303012110-1311222101231310"></a>
 
-## cuda_version property — infra.hw_info.gpu / d40cb3e508cd / 4
+## cuda_version property — gpu / 321100203031 / 4
 
 Type: `"string"`. Computed.
 
@@ -2273,11 +2273,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6a7c2324a7590f6d2b10afbac966023c0a609af2763f3979062e8f713c393b45"></a>
+<a id="canonical-1222133002030210-2213112100331231-0223010022332322-3021121200020330-0022120021223302-1312033303211321-0012023220331301-0330032103231011"></a>
 
-<a id="canonical-107347010e6a2224f91795dc383068e264406504b3d850606fd2255ad99381a9"></a>
+<a id="canonical-0100130310130001-0032122202020210-3321011321113130-0320030012203202-1210100012110010-2303312011001200-1233310202111122-3121210320012221"></a>
 
-## driver_version property — infra.hw_info.gpu / d40cb3e508cd / 5
+## driver_version property — gpu / 321100203031 / 5
 
 Type: `"string"`. Computed.
 
@@ -2310,36 +2310,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [gpu_device](data-sources--registration--reference--group-001.md#canonical-8819b1b710bb4a42dbcdecd72147fe99f6bac6e0b34aef6ac7bcc09b63f767c6): complete subsection reference.
+- [gpu_device](data-sources--registration--reference--group-001.md#canonical-2020012123012313-0100232310221002-3123303132303113-0201101333322121-3312232230123200-2303102232331222-3013233030002123-1203331312133012): complete subsection reference.
 
-<a id="canonical-5bd8860736bf594511c2c23f7f735c46531b02155e93fc724b7d43e682081052"></a>
+<a id="canonical-1123312020120013-0312233311211011-0101300230020333-1333130311301012-1103012300020111-1132210333301302-1023133110033212-2002002001001102"></a>
 
-## Next pages — infra.hw_info.gpu / d40cb3e508cd / 6
+## Next pages — gpu / 321100203031 / 6
 
-- [infra.hw_info.gpu.gpu_device](data-sources--registration--reference--group-001.md#canonical-8819b1b710bb4a42dbcdecd72147fe99f6bac6e0b34aef6ac7bcc09b63f767c6)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info.gpu.gpu_device](data-sources--registration--reference--group-001.md#canonical-2020012123012313-0100232310221002-3123303132303113-0201101333322121-3312232230123200-2303102232331222-3013233030002123-1203331312133012)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-8819b1b710bb4a42dbcdecd72147fe99f6bac6e0b34aef6ac7bcc09b63f767c6"></a>
+<a id="canonical-2020012123012313-0100232310221002-3123303132303113-0201101333322121-3312232230123200-2303102232331222-3013233030002123-1203331312133012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a8c6f0018a9cf399ff05ced017a90b614c7e6b704f74abb3a1e4917250e6fd05"></a>
+<a id="canonical-2220301233000001-2022213033032121-3333001130323100-0113222100231201-1030133212231300-1033131022232303-2201321021011302-1100321233310011"></a>
 
-## infra.hw_info.gpu.gpu_device — infra.hw_info.gpu.gpu_device / 803779798dc9 / 2
+## infra.hw_info.gpu.gpu_device — gpu_device / 132120313021 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-18b728ff653601cfc02eb75dc3762a3e51502ab8882dc313a79c4849a55f8a34)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310)
 - infra.hw_info.gpu.gpu_device
 
-<a id="canonical-b5c4c33c56dd0b7e6208af67ddbbc19a1d9505b0ad4e234aa805088e303ad87f"></a>
+<a id="canonical-2311301030030330-1112313100231332-1202002022331213-3131232330012122-0131211100112300-2231103202031022-2220001100202032-0300032231201333"></a>
 
 Type: `"list"`. Computed.
 
@@ -2362,15 +2362,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc0b92eaf206c7bb64591ccf07fb254869f83cda0fda871a1140a7bdf0ac5d38"></a>
+<a id="canonical-3130002321023222-3302001230132323-1210112101303033-0013332302111020-1221332003303122-0033312220130122-0101100022132331-3300223011310320"></a>
 
-## Direct properties — infra.hw_info.gpu.gpu_device / 803779798dc9 / 3
+## Direct properties — gpu_device / 132120313021 / 3
 
-<a id="canonical-b6392d2308c986dd21a1483741e9431340a33d7a84cdeab5b5671faa8acc8603"></a>
+<a id="canonical-2312032102310203-0020302120123131-0201220110200313-1001322110030103-1000220303311322-2010303132222311-2311121301332222-2022303020120003"></a>
 
-<a id="canonical-8cbd1d9a61459a2a4bf0c233046b1c9a06e3683f44fe279b79b2d888a324ca6b"></a>
+<a id="canonical-2030233101312122-1201101121220222-1023330030020303-0010122301302122-0012320312200333-1010333202132123-1321230231202020-2203021030221223"></a>
 
-## id property — infra.hw_info.gpu.gpu_device / 803779798dc9 / 4
+## ID property — gpu_device / 132120313021 / 4
 
 Type: `"string"`. Computed.
 
@@ -2403,11 +2403,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f60635c2b7b143af084618f97048f4b05eeaf1a9f392bf120baf0119a943a5d1"></a>
+<a id="canonical-3312001203113002-2313230110032233-0020101201203321-1300102033102300-1132322233012221-3303210223330102-0023223300010121-2221100322113101"></a>
 
-<a id="canonical-f74344c367aa95ef0014d66582dfb1d758905f570386dc7605512dce495bc345"></a>
+<a id="canonical-3313100310103003-1213222221113233-0000011031121211-2002313323013113-1120210011331113-0003201231301312-0011110102313032-1021112330031011"></a>
 
-## processes property — infra.hw_info.gpu.gpu_device / 803779798dc9 / 5
+## processes property — gpu_device / 132120313021 / 5
 
 Type: `"string"`. Computed.
 
@@ -2440,11 +2440,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d400a7dfd493c4408106da0872785d7e377c168665491e648f23c8c69900a6d0"></a>
+<a id="canonical-3110000022133133-3110210330101000-2001001231220020-1302132011311332-0313133001122012-1211102101321210-2033020330203012-2121000022123100"></a>
 
-<a id="canonical-aa5668e9b1d92c443d94f4be1bda906a1ba1c5c742046dc6c8a4f4264ccf5a4f"></a>
+<a id="canonical-2222111212203221-2301312102301010-0331211033102332-0123312221001222-0123220130113013-1002001012313012-3020221033100212-1030303311221033"></a>
 
-## product_name property — infra.hw_info.gpu.gpu_device / 803779798dc9 / 6
+## product_name property — gpu_device / 132120313021 / 6
 
 Type: `"string"`. Computed.
 
@@ -2477,32 +2477,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-119277f64b9dca5d6a601649c0f5d4d38473accd8f353f5c909ca74a1599889a"></a>
+<a id="canonical-0101210213133312-1023213130221131-1222120001121021-3000331131103103-2010130322303031-2033031103331130-2100213022131022-0111212120202122"></a>
 
-## Next pages — infra.hw_info.gpu.gpu_device / 803779798dc9 / 7
+## Next pages — gpu_device / 132120313021 / 7
 
-- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-18b728ff653601cfc02eb75dc3762a3e51502ab8882dc313a79c4849a55f8a34)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info.gpu](data-sources--registration--reference--group-001.md#canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-e9411e953ab23e15aadccc3395f3df6adfb9f5a64b4f185ea2607e2adfab317a"></a>
+<a id="canonical-3221100101322111-0322230203320111-2222313030300303-2111330331331222-3133232133112212-1023103301201132-2202120013320222-3133222303011322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a17e2417d567d4dab6bb11562810a8e3f468c1108785481e56b1ccd86d142e16"></a>
+<a id="canonical-2201133202100113-3111121331103122-2312232301011112-0220010022203203-3310122030010100-2013201110200132-1112230130303120-1231011002320112"></a>
 
-## infra.hw_info.kernel — infra.hw_info.kernel / 3cacf974948b / 2
+## infra.hw_info.kernel — kernel / 131021102023 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.kernel
 
-<a id="canonical-01c6feed763af81f81ed315517d22fd0dab1025aae71c58c308018fe97b3dff7"></a>
+<a id="canonical-0001301233323231-1312032233200133-2001323103011111-0113310202333100-3122230100021122-2232130130112030-0300200001203332-2113230331333313"></a>
 
 Type: `"single"`. Computed.
 
@@ -2525,15 +2525,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-36776295b8622f8591f36b3be2c141700860c5e807a1473ce94cb9fbae4ceb67"></a>
+<a id="canonical-0312131312022111-2320120202332011-2101330312230323-3202300110011300-0020120030113220-0013220110130330-3221103023213323-2232103032231213"></a>
 
-## Direct properties — infra.hw_info.kernel / 3cacf974948b / 3
+## Direct properties — kernel / 131021102023 / 3
 
-<a id="canonical-0d7b937a84946686f0cb6f25123f6f7e61eae8556644da650ffde38142fda775"></a>
+<a id="canonical-0031132321031322-2010211012122012-3300302312330211-0102033312331332-1201322232201111-1212101031221211-0033333132032001-1002333122131311"></a>
 
-<a id="canonical-19be6ae9c8af1c5cbeeefe0befdb545ddd3e0bcbfb33ee3de3bdc62503350fbc"></a>
+<a id="canonical-0121233212223221-3020223301301130-2332323233320023-3233312311101131-3131033200233023-3323030332320331-3203233130120211-0003031100332330"></a>
 
-## architecture property — infra.hw_info.kernel / 3cacf974948b / 4
+## architecture property — kernel / 131021102023 / 4
 
 Type: `"string"`. Computed.
 
@@ -2566,11 +2566,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2eb1bf197e129ec6734dea416c4a9a76596b2274f76fb6e23b050c71e51bc19"></a>
+<a id="canonical-3302322301233301-2113320102213230-1213031031322210-0112301022212213-1211211223020213-1033131233231232-0203230011003013-0132110123300121"></a>
 
-<a id="canonical-ad9dfb58d1b619668229cf6fa50c9b0deb86d7e6cdc8ee3eec00300b1023d307"></a>
+<a id="canonical-2231213133231120-3101231201211212-2002022130331233-2211003021230031-3223201231133212-3031302032320332-3230000003000023-0100020331030013"></a>
 
-## release property — infra.hw_info.kernel / 3cacf974948b / 5
+## release property — kernel / 131021102023 / 5
 
 Type: `"string"`. Computed.
 
@@ -2603,11 +2603,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ca4d13fb5611eb64af3548a815a3bfac95efea8258c947a747844e3b66af260"></a>
+<a id="canonical-2030221031010333-2311120101322312-1022330311102022-2001112203233322-3021113233322220-0211203021101322-1310132010103203-2312122233021200"></a>
 
-<a id="canonical-6593637eca43aa6b64b9d763b01268afa69262d84b97b9fa5eda2d8ac91574b7"></a>
+<a id="canonical-1211210312031332-3022100322221223-1210232131131203-2300010212202233-2212210212023120-1023211323213322-1132312202312022-3021011113102313"></a>
 
-## version property — infra.hw_info.kernel / 3cacf974948b / 6
+## version property — kernel / 131021102023 / 6
 
 Type: `"string"`. Computed.
 
@@ -2640,32 +2640,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6d25782f19e08066cffce7a6bcfa2719f516f20f01640e9bd7ea12622ae1e243"></a>
+<a id="canonical-1231021113200233-0121320020001212-3033333032132212-2330332202130121-3311011233020033-0001121000322123-3113322201021202-0222320132021003"></a>
 
-## Next pages — infra.hw_info.kernel / 3cacf974948b / 7
+## Next pages — kernel / 131021102023 / 7
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-3b03cfa26c33c61bb43fdf5473a0e964162fd45461daf983d7069d000a398fc5"></a>
+<a id="canonical-0323000330332202-1230030330120123-2310033331331110-1303220032211210-0112023331101110-1201312233212003-3113001221310000-0022032120333011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8db53502081a0f74b3acf38a5e4c4b4e60e780247d1be9e77969ab23a48a9377"></a>
+<a id="canonical-2031231103110002-0020012200331310-2303223033032022-1132103010231032-1200321320000210-1331012332213213-1321122122230203-2210202221031313"></a>
 
-## infra.hw_info.memory — infra.hw_info.memory / 401fce50cb0b / 2
+## infra.hw_info.memory — memory / 110030230023 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.memory
 
-<a id="canonical-9d21295a158b1e882cccaade22deb31b90c4d5949b3ede8506022eeff2cd8013"></a>
+<a id="canonical-2131020102211122-0111202301322020-0230303022223132-0202313223030123-2100301031112110-2123033231322011-0012000202323233-3302303120000103"></a>
 
 Type: `"single"`. Computed.
 
@@ -2688,15 +2688,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1ce3ccb8079793de97158b14dc86a5248223593e904e9adedd94cd6072271150"></a>
+<a id="canonical-0130320330302320-0013211321033132-2113011120230110-3130201222110210-2002020311210332-2100103221223132-3131211030311200-1302021301011100"></a>
 
-## Direct properties — infra.hw_info.memory / 401fce50cb0b / 3
+## Direct properties — memory / 110030230023 / 3
 
-<a id="canonical-23b9ed00f9b0857d8300b0470ba0d9da9a37217902f9508b9055968c5ebf760d"></a>
+<a id="canonical-0203232132310000-3321230020111331-2003000023001013-0023220031213122-2122031302011321-0002332111002023-2100111121122030-1132233313120031"></a>
 
-<a id="canonical-f1ba699b292aa3d483aa1171c38d7e01becba0727622eb4ceb61b5f0b944fa20"></a>
+<a id="canonical-3301232212212123-0221022222033110-2003222201011301-3003203113320001-2332302322001302-1312020232231030-3223120123113300-2321101033220200"></a>
 
-## size_mb property — infra.hw_info.memory / 401fce50cb0b / 4
+## size_mb property — memory / 110030230023 / 4
 
 Type: `"number"`. Computed.
 
@@ -2719,11 +2719,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc40017ab764925ace9addedb36de16bf17939b0d1c7d61e18cc286870803af4"></a>
+<a id="canonical-3130100000011322-2313121021021122-3032212231313231-2303123132011223-3301132103212300-3101301331120132-0120303002201220-1300200003223310"></a>
 
-<a id="canonical-55e9d79065f906f802978475f55c5f2595c4feb5ae342695cdedb5a54828fdb1"></a>
+<a id="canonical-1111322131132100-1211332100123320-0002211320101311-3311113011330211-2111301033322311-2232031002122111-3031323123112211-1020022033312301"></a>
 
-## speed property — infra.hw_info.memory / 401fce50cb0b / 5
+## speed property — memory / 110030230023 / 5
 
 Type: `"number"`. Computed.
 
@@ -2746,11 +2746,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93e7ebdbd605199e6135215a9484edcdac4615368062cc646564c26172042944"></a>
+<a id="canonical-2103321332233123-3112001101212132-1201031102011122-2110201032313031-2230101201110312-2000120230301210-1211121030021201-1302001002211010"></a>
 
-<a id="canonical-7b494df5f15e1acdbb73e3d607e43f742e3fb7f5557b10bc292e7aea11f49ce5"></a>
+<a id="canonical-1323102110313311-3301113201223031-2323130332033112-0013321003331310-0232033323133311-1111132301002330-0221023213223222-0101331021303211"></a>
 
-## type property — infra.hw_info.memory / 401fce50cb0b / 6
+## type property — memory / 110030230023 / 6
 
 Type: `"string"`. Computed.
 
@@ -2783,32 +2783,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9df5fe0ab85e0e03673d19d6f5e1df67876fe1d32ef2e0bd40e98ad6b9e7b624"></a>
+<a id="canonical-2131331133320022-2320113200320003-1213033101213112-3311320131331213-2013123332013103-0232330232002331-1000322120223112-2321321323120210"></a>
 
-## Next pages — infra.hw_info.memory / 401fce50cb0b / 7
+## Next pages — memory / 110030230023 / 7
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-820c5be99108b8f517fbf7b22318d3e3729ace16af7100f3038c1fdd4ae5b065"></a>
+<a id="canonical-2002003011233221-2101002023203311-0113332333132302-0203012031033203-1302212230320112-2233130100003303-0003203001333131-1022321123001211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae6a3d5b2d5a6fa09aa64403d90241b7af2f22e9169c12885b6133603787ec46"></a>
+<a id="canonical-2232122203311123-0231112212332200-2122221210100003-3121000210012313-2233023302023221-0112213001022020-1123120103031200-0313201332301012"></a>
 
-## infra.hw_info.network — infra.hw_info.network / e1fc6bb9569a / 2
+## infra.hw_info.network — network / 232111122122 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.network
 
-<a id="canonical-5a8f3ea4c380f801a5b8b1e3061c2076523239a4345287142b75aac13ec0d546"></a>
+<a id="canonical-1122203303322210-3003200033200001-2211232023013203-0012013002001312-1102030203212210-0310110220130110-0223131122223001-0332300031111012"></a>
 
 Type: `"list"`. Computed.
 
@@ -2843,15 +2843,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-13fc17940ec154bf3acfef10f71bb89d77a752d55f6e94a2841973ea41ee7381"></a>
+<a id="canonical-0103333001132110-0032300111102333-0322303332330100-3313012323202131-1313221311023111-1133123221102202-2010012113033222-1001323213032001"></a>
 
-## Direct properties — infra.hw_info.network / e1fc6bb9569a / 3
+## Direct properties — network / 232111122122 / 3
 
-<a id="canonical-152120246033b39a842e843ae63de2b10edd2a80f773fe1c04fbcc4d85d70e37"></a>
+<a id="canonical-0111020102000210-1200030323032122-2010023220100322-3212033132022301-0032313102222000-3313130333320130-0010332330301031-2011311300320313"></a>
 
-<a id="canonical-f09994bd91925cff0f565a37443a342829636d2cd1c785019f3dc06ba8dc9352"></a>
+<a id="canonical-3300212121102331-2101210211303333-0033111211220313-1010032203100220-0221120312310230-3101301320110001-2133033130001223-2220313021031102"></a>
 
-## driver property — infra.hw_info.network / e1fc6bb9569a / 4
+## driver property — network / 232111122122 / 4
 
 Type: `"string"`. Computed.
 
@@ -2884,11 +2884,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47a74c1555448891ed7634a850db7ed4b3113ff86c3d7b7c8cec27000e1a4887"></a>
+<a id="canonical-1013221310300111-1111101020202101-3231131203102220-1100312313323110-2303010103333320-1230033113231330-2030323002130000-0032012210202013"></a>
 
-<a id="canonical-89ab99231fff5df14142e99cde71d7f73279fc406eaa5226a0589a79c200e1e4"></a>
+<a id="canonical-2021222321210203-0133333311313301-1001100232212130-3132130131133313-0302132133301000-1232222211020212-2200112021221321-3002000032013210"></a>
 
-## ip_address property — infra.hw_info.network / e1fc6bb9569a / 5
+## ip_address property — network / 232111122122 / 5
 
 Type: `["list", "string"]`. Computed.
 
@@ -2911,11 +2911,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b300aa4c50290b00ebf108cd134d0b621ec0342dc084585d07cd5245506fe0f3"></a>
+<a id="canonical-2303000022221030-1100022100230000-3223330100203031-0103103100231202-0132300003100231-3000201011201131-0013303111021011-1100123332003303"></a>
 
-<a id="canonical-d7f29e73bab211bcded0e07d79d0486eff26db1372cd8a4a295687cfdf5ecc54"></a>
+<a id="canonical-3113330221321303-2322230201012330-3132310032001331-1321310010201232-3333021231230103-1302303120221022-0221111220133033-3133113230301110"></a>
 
-## link_quality property — infra.hw_info.network / e1fc6bb9569a / 6
+## link_quality property — network / 232111122122 / 6
 
 Type: `"string"`. Computed.
 
@@ -2950,11 +2950,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f68f06443b41f97fa8162afb54cf0f1d3def77e58482c340ec7fe46809d96b0"></a>
+<a id="canonical-0233122033001210-1003231001332113-3322200112022233-2311103033003301-3103313233131332-1120102002300310-0032301333321012-2000213121122300"></a>
 
-<a id="canonical-d191dbaf6f185afafbda3dcaef7cc039feb93802de70f0424887dc4c3b7529bb"></a>
+<a id="canonical-3101210131232233-1233012011223322-3323312203313022-3233133030000321-3332232103200002-3132130033001002-1020201331301030-0323131102212323"></a>
 
-## link_type property — infra.hw_info.network / e1fc6bb9569a / 7
+## link_type property — network / 232111122122 / 7
 
 Type: `"string"`. Computed.
 
@@ -2996,11 +2996,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-151fa0746dda4bed7c9feb36d62b4072ae9efced55295ac057b146fc46b4a769"></a>
+<a id="canonical-0111013322001310-1231312210233231-1330213332230312-3112022310001302-2232213233303231-1111022111223000-1113230110123330-1012231022131221"></a>
 
-<a id="canonical-6af2842ea7903ff0bbec2a34c9df59c389157fb101e385e35a366d5ecf599476"></a>
+<a id="canonical-1222330220100232-2213210003333300-2323323002220310-3021313311213003-2021011113332301-0001320320113203-1122031212311132-3033112121101312"></a>
 
-## mac_address property — infra.hw_info.network / e1fc6bb9569a / 8
+## mac_address property — network / 232111122122 / 8
 
 Type: `"string"`. Computed.
 
@@ -3038,11 +3038,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a9b0908cee823ffd57db6ce4743d9195b192e793f8baaf87cadae13c2d4556a4"></a>
+<a id="canonical-2221230021002030-3232200203333331-1113312312303210-1310033121012111-2301210232132103-3320232222332013-3022312232010330-0231101111122210"></a>
 
-<a id="canonical-af91927d0d5cb5f2294fafd2aed435b865daeb1ed14b462689cad88349055fdc"></a>
+<a id="canonical-2233210121021331-0031113023113302-0221103322333102-2232311003112320-1211312232230132-3101102310120212-2021302231202003-1021001111333130"></a>
 
-## name property — infra.hw_info.network / e1fc6bb9569a / 9
+## name property — network / 232111122122 / 9
 
 Type: `"string"`. Computed.
 
@@ -3090,11 +3090,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8fac2d641d1e5b4ed61629a7c9dbfba98d356067f9097dce0682489dbad45080"></a>
+<a id="canonical-2033223002311210-0131013211231032-3112011202212213-3021312333232221-2031031112001213-3321002113313032-0012200210202131-2322311011002000"></a>
 
-<a id="canonical-79164b2778de109855a3a9dc70340ce90bc767d0159e68428f2cc16048814390"></a>
+<a id="canonical-1321011210230213-1320313201002120-1111220322213130-1300031000303221-0023301312133100-0111213212201002-2033023030011200-1020200110032100"></a>
 
-## port property — infra.hw_info.network / e1fc6bb9569a / 10
+## port property — network / 232111122122 / 10
 
 Type: `"string"`. Computed.
 
@@ -3127,11 +3127,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d93d488c4f26ad530d2ca586d592fbd582755a9b0aef674cdaa6c41886d9f83"></a>
+<a id="canonical-1331210331102020-3010330212223111-0300310230221120-1231112102332331-1120021311112221-2300223233121310-3031222212301001-2020123121332003"></a>
 
-<a id="canonical-71b54bd4dc653f6dd580776c2f94ff6c8c3a44ef094fae5f2c1abe79b287af74"></a>
+<a id="canonical-1301231110233110-3130121103331231-3111200013131230-0233211033331230-2030032210103233-0021103322321133-0230012223321321-2302201322331310"></a>
 
-## speed property — infra.hw_info.network / e1fc6bb9569a / 11
+## speed property — network / 232111122122 / 11
 
 Type: `"number"`. Computed.
 
@@ -3154,32 +3154,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ce22c192504ca5dfd7c3549e38c59863c9080b37238777286a729a8f083aae62"></a>
+<a id="canonical-3032020230012102-1100103022113133-3113300311102132-0320301121201203-3021002000230313-0203201313130220-1222130221222033-0020032222321202"></a>
 
-## Next pages — infra.hw_info.network / e1fc6bb9569a / 12
+## Next pages — network / 232111122122 / 12
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-8bcbb6bac391159990da9202be8fed6f04f430ad1886e198be1cc0cb11bac1fd"></a>
+<a id="canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1d67204ed4b6869a19a9502439fb7fc86d7743d8fbc41631640b53a983d4b4d"></a>
+<a id="canonical-2301311213020010-3231102312201221-2201212221110002-1003213323133330-2012311313100331-2033233010011203-0112100023110322-2120033110231031"></a>
 
-## infra.hw_info.os — infra.hw_info.os / b489084c71a9 / 2
+## infra.hw_info.os — os / 103013012221 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.os
 
-<a id="canonical-d2890a2e03daa3522ac7d7502356bf2972c20128c6a2cf5acbd1e2826e26bdad"></a>
+<a id="canonical-3102202100220232-0003312222031102-0222301331131100-0203111223330221-1302300200010220-3012220230331122-3023310132022002-1232021223312231"></a>
 
 Type: `"single"`. Computed.
 
@@ -3202,15 +3202,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1d888d83a3f5fde024bb01565ebf45257aa0a1094e595aeb527a5f6c7b35e6de"></a>
+<a id="canonical-0131202020312003-2203331133313200-0210232300011112-1132233310110211-1322220022010021-1032112111223223-1102132211331230-1323031132123132"></a>
 
-## Direct properties — infra.hw_info.os / b489084c71a9 / 3
+## Direct properties — os / 103013012221 / 3
 
-<a id="canonical-7b79cd287fc76c7917e4414b2638b1e5156ba51c8774da3c29750e651c982bce"></a>
+<a id="canonical-1323132130310220-1333301312301321-0113321010011023-0212032023013211-0111122322110130-2013131031220330-0221131100321211-0130212002233032"></a>
 
-<a id="canonical-ae57304965749f3f10e2efa88f37e3c0857694bcf0d66695136449ddf68a9212"></a>
+<a id="canonical-2232111303001021-1211131021330333-0100320232332220-2033031332033000-2011131221102330-3300311212122111-0103121010213131-3312202221020102"></a>
 
-## architecture property — infra.hw_info.os / b489084c71a9 / 4
+## architecture property — os / 103013012221 / 4
 
 Type: `"string"`. Computed.
 
@@ -3243,11 +3243,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad04f6535672b0fb4fd32dde5f1a02c4ffbd8e4e161db6ef14487722a2ad2f0a"></a>
+<a id="canonical-2231001033121103-1112130223003323-1033310302313132-1133012200023010-3333233120321032-0112013123123233-0110102013130202-2202223102330022"></a>
 
-<a id="canonical-86f5b5373af92a1a42876065c7ad85dbfbc272576308976f30aabbeca0b25531"></a>
+<a id="canonical-2012331123110313-0322332102220122-1002201312001211-3013223120113123-3323300213021113-1203002021131233-0300222223233230-2200230211110301"></a>
 
-## name property — infra.hw_info.os / b489084c71a9 / 5
+## name property — os / 103013012221 / 5
 
 Type: `"string"`. Computed.
 
@@ -3295,11 +3295,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e6e6926d320c95adaa2c83f69d8094c3d49b26c3d96edad7ce82a42db8c1e466"></a>
+<a id="canonical-3212321221021231-0302003021112231-2222023020033312-2131200021103003-3110212302123003-3121123231223113-3032200222100231-2320300132101212"></a>
 
-<a id="canonical-5761447a6adbd29d8dfbe9b930b17ad54b6c1d10f545606aa85a22388f117104"></a>
+<a id="canonical-1113120110101322-1222312331022131-2031332332212321-0300230113223111-1023123001310100-3311101112001222-2220112202020320-2033010113010010"></a>
 
-## release property — infra.hw_info.os / b489084c71a9 / 6
+## release property — os / 103013012221 / 6
 
 Type: `"string"`. Computed.
 
@@ -3332,11 +3332,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-841c64929fd5968c9845050d3833e8e470a82d8c4a45d94316b957ff544ff4ee"></a>
+<a id="canonical-2010013012102102-2133311121122030-2120101100110031-0320030332203210-1300222002312030-1022101131211003-0112232111133333-1110103333103232"></a>
 
-<a id="canonical-6e9b71f517086dd57f6531023317974939ea366f65a4c4aaf307db9b1bcdb474"></a>
+<a id="canonical-1232212313013311-0113002012313111-1333121103010002-0303011321131021-0321322203121233-1211221030102222-3303001331232123-0123303123101310"></a>
 
-## vendor property — infra.hw_info.os / b489084c71a9 / 7
+## vendor property — os / 103013012221 / 7
 
 Type: `"string"`. Computed.
 
@@ -3369,11 +3369,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fba7d5af0ef9f7d612b897f9db891b8d2ce406ff9eb7c42dde3b94f29a5b201d"></a>
+<a id="canonical-3323221331112233-0032332133133112-0102232021133321-3123202101232031-0230321000123333-2132231330100231-3132032321103302-2122112302000131"></a>
 
-<a id="canonical-9ce8cac1e6c88c00c67b238316b258aed3915d2ce21429601ffc68bb38e89bca"></a>
+<a id="canonical-2130322030223001-3212302020300000-3012132302032003-0112230211202232-3103210111310230-3202011002211200-0133333012202323-0320322021233022"></a>
 
-## version property — infra.hw_info.os / b489084c71a9 / 8
+## version property — os / 103013012221 / 8
 
 Type: `"string"`. Computed.
 
@@ -3406,32 +3406,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e52a676713fb90145338de37d10ec993c442fb641b3169fa04c0fa24f6df5d75"></a>
+<a id="canonical-3211022212131213-0103332321000110-1103032031320313-3101003230212103-3010100233231210-0123030112213322-0010300033220210-3312313311311311"></a>
 
-## Next pages — infra.hw_info.os / b489084c71a9 / 9
+## Next pages — os / 103013012221 / 9
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-5cd2a5f5f07aec658752a5088ccdd898ebe9fd093a1f2413b6a637b7c0f8a46b"></a>
+<a id="canonical-1130310222113311-3300132232301211-2013110222110020-2030303131202120-3223322133310021-0322013302100103-2312221203132313-3000332022101223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-631b10e426f143e15d493e61875c68ed767744d9f4678fdc1643b1d4e94bfd39"></a>
+<a id="canonical-1203012301003210-0212330110033201-1131102103321201-2013113012203231-1312131310103121-3310121320333130-0112100323013110-3221102333310321"></a>
 
-## infra.hw_info.product — infra.hw_info.product / a2f73a559ffa / 2
+## infra.hw_info.product — product / 111121333322 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.product
 
-<a id="canonical-01f5ce00011b541227ad6cc0b4767f4347cbbfc629e971f13440d96cc9245661"></a>
+<a id="canonical-0001331130320000-0001012311100102-0213223112303000-2310131213331003-1013302323333012-0221322113013301-0310100031211230-3021021011121201"></a>
 
 Type: `"single"`. Computed.
 
@@ -3454,15 +3454,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-64b774ba0397e725a9316d7ebfbe9ea0ec9c502bec806c4122f009e3ae7f63a2"></a>
+<a id="canonical-1210231313102322-0003211332130211-2221030112311332-2333233221322200-3230213011000223-3230200012301001-0202330000213203-2232133312032202"></a>
 
-## Direct properties — infra.hw_info.product / a2f73a559ffa / 3
+## Direct properties — product / 111121333322 / 3
 
-<a id="canonical-e01342aad605978eca8f3bcf9fcbb7b3b2fc85028ff3e0e97cbee1b58efb77cb"></a>
+<a id="canonical-3200010310022222-3112001121132032-3022203303233033-2133302323132303-2302333020110002-2033330332003221-1330233232012311-2032332313133023"></a>
 
-<a id="canonical-893fca213ede96a7227576cf36c69f2b02f088a59174954011adea45cbc33ae2"></a>
+<a id="canonical-2021033330220201-0332313221122213-0202131113123033-0312301221330223-0002330020202211-2101131021111000-0101223132221011-3023300303223202"></a>
 
-## name property — infra.hw_info.product / a2f73a559ffa / 4
+## name property — product / 111121333322 / 4
 
 Type: `"string"`. Computed.
 
@@ -3510,11 +3510,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cf7a5cd1ff019a238809bb68179098be186b3fd497f955e23521a4b1d7f33f95"></a>
+<a id="canonical-3033132211303101-3333000121220203-2020002123231220-0113210021202332-0120122303333110-2113332111113202-0311020122102301-3113330303332111"></a>
 
-<a id="canonical-4a43099dbdff5baffea3f1b64e07a9bf85c373630823de1f7801ba1669064159"></a>
+<a id="canonical-1022100300212131-2331333311232233-3332220333012312-1032001322212333-2011300313031203-0020020331320133-1320000123220112-1221001210011121"></a>
 
-## serial property — infra.hw_info.product / a2f73a559ffa / 5
+## serial property — product / 111121333322 / 5
 
 Type: `"string"`. Computed.
 
@@ -3544,11 +3544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f493c823b6ad2a390201978488cefa2a3e62964853942d59bb4d73781a80f8e8"></a>
+<a id="canonical-3310210330200203-2312223102220321-0002000121132010-2020303233220222-0332120221121020-1103211002311121-2323103113031320-0122200033203220"></a>
 
-<a id="canonical-311ff3aa38f4b57f97c555d9f7c7ae7bcdaa7f35d4736565198f854c80edbd44"></a>
+<a id="canonical-0301013333032222-0320331023111333-2113301111113121-3313301322321323-3031222213330311-3110130312111211-0121203320111030-2000323123311010"></a>
 
-## vendor property — infra.hw_info.product / a2f73a559ffa / 6
+## vendor property — product / 111121333322 / 6
 
 Type: `"string"`. Computed.
 
@@ -3581,11 +3581,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2c6b857bb6b1011ebf24f742898556b7d5d6c57b5a18c71a9e49942eb3b32ae"></a>
+<a id="canonical-3302301223201113-2323122301000101-3223330210331310-0220212011111223-1331113112301113-2311220120301301-2221321021211002-3223032303022232"></a>
 
-<a id="canonical-966b26d64160920a7148244cce19ab260cb5ebec2c538b39066740b3b0164d12"></a>
+<a id="canonical-2112122302123112-1001120021020022-1301102002101030-3032012122230212-0030231132233230-0230110320230321-0012121310002303-2300011210310102"></a>
 
-## version property — infra.hw_info.product / a2f73a559ffa / 7
+## version property — product / 111121333322 / 7
 
 Type: `"string"`. Computed.
 
@@ -3614,32 +3614,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4b7afd2311d0d01dc3d6a2a6cc657b1b22ba40e7ae2ac815eb9a40cfa07f91f"></a>
+<a id="canonical-2210231322333102-0301013100310001-3130033112220222-1230301211132301-2302022322100032-1322320222302001-1132232122100030-3322001333210133"></a>
 
-## Next pages — infra.hw_info.product / a2f73a559ffa / 8
+## Next pages — product / 111121333322 / 8
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-db1e154b948c3d7a4bdf736a72b0b6c1dac635f96835094b06de205af71cadbd"></a>
+<a id="canonical-3123013201111023-2110203003311322-1023313313031222-1302230023123001-3122301203113321-1220031100211023-0012313202001122-3313013022312331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c48f4e7dfbaa92b44a9e0adde5af1f4e259681e2dbbddb44e614de6369ef0ebe"></a>
+<a id="canonical-3010203310321331-3323222221022310-1022213200223131-3211223301331032-0211211220013202-3123233131231010-3212011031321203-1221323300322332"></a>
 
-## infra.hw_info.storage — infra.hw_info.storage / c3bf08db5597 / 2
+## infra.hw_info.storage — storage / 312311112113 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.storage
 
-<a id="canonical-13af4265aa1b701288082f18907a01c7e7716c4c008b11a03bb9c1f749d622f5"></a>
+<a id="canonical-0103223310021211-2222012313000102-2020002002330120-2100132200013013-3213130112301030-0000202301012200-0323232130013313-1021311202023311"></a>
 
 Type: `"list"`. Computed.
 
@@ -3662,15 +3662,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8911df33d92aa4fe8a7ae44853f5e40c1be35fa1109088d0ed046fcca163cce5"></a>
+<a id="canonical-2021010131330303-3121022222103332-2022132232101020-1103331132100030-0123320311332201-0100210020203100-3231001012333030-2201120330303211"></a>
 
-## Direct properties — infra.hw_info.storage / c3bf08db5597 / 3
+## Direct properties — storage / 312311112113 / 3
 
-<a id="canonical-9bed739cc0bea1358741b592678e776e48026e5ab93f911a00d90f3b3032742a"></a>
+<a id="canonical-2123323113032130-3000233222010311-2013100123112102-1213203213131232-1020000212321122-2321033321010122-0000312100330323-0300030213100222"></a>
 
-<a id="canonical-3a1155f539ac06e99cfbc290e27dcb28dee7a0449dffe20f3a1b32c08b3d8dad"></a>
+<a id="canonical-0322010111113311-0321223000123221-2130332330022100-3202133130230220-3132321322001010-2131333332020033-0322012303023000-2023033120312231"></a>
 
-## driver property — infra.hw_info.storage / c3bf08db5597 / 4
+## driver property — storage / 312311112113 / 4
 
 Type: `"string"`. Computed.
 
@@ -3703,11 +3703,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-be99188b2e9e2dd736950b24824554eaf134aad77d76f707f4719b49495aee6d"></a>
+<a id="canonical-2332212101202023-0232213202313113-0312211100230210-2002101111103222-3301031022223113-1331131233130013-3310130121231021-1021112232321231"></a>
 
-<a id="canonical-930a7afa886308d487d52b7ff9398bdbe62fd54188c2c85ce92b35de1058e39b"></a>
+<a id="canonical-2103002213223322-2020120300203110-2013311102231333-3321032120233123-3212023331111001-2020300230201130-3221022303113132-0100112032032123"></a>
 
-## model property — infra.hw_info.storage / c3bf08db5597 / 5
+## model property — storage / 312311112113 / 5
 
 Type: `"string"`. Computed.
 
@@ -3740,11 +3740,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-75540bfb81eee9729e2caf3200960f40484310302bbcb18b02dfac0390083a52"></a>
+<a id="canonical-1311111000233323-2001323232211302-2132023022330302-0000211200331000-1020100301000300-0223233023012023-0002313322300003-2100002003221102"></a>
 
-<a id="canonical-0430927fdfee0d7f8bb03cce33ec9dd58e0acdf720d1f6c79c98119a3404cdc0"></a>
+<a id="canonical-0010030021021333-3133323200311333-2023230003303032-0303323021313111-2032002230313313-0200310133123013-2130212001012122-0310001030313000"></a>
 
-## name property — infra.hw_info.storage / c3bf08db5597 / 6
+## name property — storage / 312311112113 / 6
 
 Type: `"string"`. Computed.
 
@@ -3792,11 +3792,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-11a4c9023dfd4cafadf40ce965e21bac81e4b02da103d0e756400202d0bb3e42"></a>
+<a id="canonical-0101221030210002-0331333110302233-2231331000303221-1211320201232230-2001321023000231-2201000331003213-1112100000020002-3100232303321002"></a>
 
-<a id="canonical-8541fd3fc7a4428468f116c19332d83313765f3318b34f04c96a93aba0542598"></a>
+<a id="canonical-2011100133310333-3013221010022010-1220330101123001-2103030231200303-0103131211330303-0120230310330010-3021122221032223-2200111002112120"></a>
 
-## serial property — infra.hw_info.storage / c3bf08db5597 / 7
+## serial property — storage / 312311112113 / 7
 
 Type: `"string"`. Computed.
 
@@ -3829,11 +3829,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3b9ec393e2f7801aabee1ac914bcebce8b79c8ba839db6ea30a1d44b71df8bd2"></a>
+<a id="canonical-0323213230032103-3202331320000122-2223323201223021-0110233032233032-2023132130202322-2003213123123222-0300220131101023-1301313320233102"></a>
 
-<a id="canonical-312560dc39b2062b961ce2221a66cafc7564528eb8e9e01a95a333249dc982a0"></a>
+<a id="canonical-0301021112003130-0321230200120223-2112013032020202-0122121230223330-1311121011022032-2320322132000122-2111220303030210-2131302120022200"></a>
 
-## size_gb property — infra.hw_info.storage / c3bf08db5597 / 8
+## size_gb property — storage / 312311112113 / 8
 
 Type: `"number"`. Computed.
 
@@ -3856,11 +3856,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bea58b6f2b8dbdd28b3512e14ae8035a4d8cf05f31f53c2952ba7a05ac00d920"></a>
+<a id="canonical-2332221120231233-0223203123313102-2023031101023201-1022322000031122-1031203033001133-0301331103300221-1102232213220011-2230000031210200"></a>
 
-<a id="canonical-3bd401235af664530823a08ed85ff6f24667eec4de5426bcd4d9165b412e1e90"></a>
+<a id="canonical-0323311000010203-1122331212101103-0020020322002032-3120113333123302-1012121332323010-3132111002122330-3110312101121123-1001023201322100"></a>
 
-## vendor property — infra.hw_info.storage / c3bf08db5597 / 9
+## vendor property — storage / 312311112113 / 9
 
 Type: `"string"`. Computed.
 
@@ -3893,32 +3893,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef8f2d2bce11eafc1d523afc197d47e5f13f3c16dfbffee6394dc950fa6fa670"></a>
+<a id="canonical-3233203302310223-3032010132223330-0131110203223330-0121133110133211-3301033303300112-3133233333323212-0321103130211100-3322123322121300"></a>
 
-## Next pages — infra.hw_info.storage / c3bf08db5597 / 10
+## Next pages — storage / 312311112113 / 10
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-542fdb8614ec2c371d6ee65c34fdcc803998f066bcbaac2bb79cdee1119d16b9"></a>
+<a id="canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fcc5307756e76c7f2a7beaf8e424f3c293fee62154af4eea9e92d34836908bf2"></a>
+<a id="canonical-3330301103001313-1112321312301333-0222132332223320-3210021033033002-2103333232120201-1110223310323222-2132210231031020-0312210020233302"></a>
 
-## infra.hw_info.usb — infra.hw_info.usb / ab5ddbf2b93f / 2
+## infra.hw_info.usb — usb / 330223210333 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
 - infra.hw_info.usb
 
-<a id="canonical-61cecb10c88e6fe786fe81d4d87c18458f820d627857688381e8265c5887c3f2"></a>
+<a id="canonical-1201303230230100-3020203212333213-2012333220013110-3120133001201011-2033200200311202-1320111312202003-2001322002121130-1120201330033302"></a>
 
 Type: `"list"`. Computed.
 
@@ -3941,15 +3941,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-adad24cecef829f92f0ac45e351c97db8a40451f988c599e9ddd131573475eb4"></a>
+<a id="canonical-2231223102103032-3032332002213321-0233002230101132-0311013021133123-2022100010110133-2120203011212132-2131313101030111-1303101311322310"></a>
 
-## Direct properties — infra.hw_info.usb / ab5ddbf2b93f / 3
+## Direct properties — usb / 330223210333 / 3
 
-<a id="canonical-5fdd6997b2b0eac64c008e2a6ba461fd6e7fc9219bb308533a74fe1b81da1171"></a>
+<a id="canonical-1133313112212113-2302230032223012-1030000020320222-1223221012013331-1232133330210201-2123230300201103-0322131033320123-2001312201011301"></a>
 
-<a id="canonical-bdb890e05f580b8776fe44920db18d37e69569e68f70d4158002e6f82b1dad8e"></a>
+<a id="canonical-2331232021003200-1133112000232013-1312333210102102-0031230120310313-3212211112213212-2033130031100111-2000000232123320-0223013122312032"></a>
 
-## address property — infra.hw_info.usb / ab5ddbf2b93f / 4
+## address property — usb / 330223210333 / 4
 
 Type: `"number"`. Computed.
 
@@ -3968,11 +3968,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-96aa255e4448dbc5a1bc85c733b1b8c8b82ed118786318d8fd1af1b1935ba943"></a>
+<a id="canonical-2112222202111132-1010102031233011-2201233020113013-0303230123203020-2320023231010120-1320120301203120-3331012233012301-2103112322211003"></a>
 
-<a id="canonical-48a30aaa047bc120dd52c7bc49c3694e286f522b9f418a01a2a0b28a5e4ba765"></a>
+<a id="canonical-1020220300222222-0010132330010200-3131110230132330-1021300312211032-0220123311020223-2133100120220001-2202220023022022-1132102322131211"></a>
 
-## b_device_class property — infra.hw_info.usb / ab5ddbf2b93f / 5
+## b_device_class property — usb / 330223210333 / 5
 
 Type: `"string"`. Computed.
 
@@ -4005,11 +4005,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c913a09218aa68ff12363aacb3361d44e822ec1634b384d0751ff0543f3e61fb"></a>
+<a id="canonical-3021010322002102-0120222212203333-0102031203222230-2303031201311010-3220020232300112-0310230320103100-1311013333001110-0333033212013323"></a>
 
-<a id="canonical-0eb4e427bf95fb74a6c7160e5894fbf8d6327f10a718cbb376789d10da1c7a24"></a>
+<a id="canonical-0032231032100213-2333211133231310-2212301301120032-1120211033233320-3112030213330100-2213012030232303-1312132021310100-3122013013220210"></a>
 
-## b_device_protocol property — infra.hw_info.usb / ab5ddbf2b93f / 6
+## b_device_protocol property — usb / 330223210333 / 6
 
 Type: `"string"`. Computed.
 
@@ -4038,11 +4038,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bdc69450e46b26cb29d3753c1a68afac6a0ecd2a9a02e61a9c6701d2cf8d4036"></a>
+<a id="canonical-2331301221101100-3210122302123023-0221310313110330-0122122022332230-1222003230310222-2122000232120122-2130121300013102-3033203110000312"></a>
 
-<a id="canonical-bb4f231d764d5d3011e3bdd8f3407bf7397d09ef62d9a5f04f1ca2a0bae754dc"></a>
+<a id="canonical-2323103302030131-1312103111310300-0101320323313120-3303100013233313-0321133100213233-1202312122113300-1033013022022200-2322321311103130"></a>
 
-## b_device_sub_class property — infra.hw_info.usb / ab5ddbf2b93f / 7
+## b_device_sub_class property — usb / 330223210333 / 7
 
 Type: `"string"`. Computed.
 
@@ -4071,11 +4071,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-306311b6133b1b9dc494ca9838ed4a462ecddab4c977d8ac5831acb52ec14164"></a>
+<a id="canonical-0300120301012312-0103032301232131-3010211030222120-0320323110221012-0232303131222310-3021131331202230-1120030122302311-0232300110011210"></a>
 
-<a id="canonical-3c2c4218b93a65c235f925cb078d2c148c72c5aa2e5364b7322b5d077bae505b"></a>
+<a id="canonical-0330023010020120-2321032212113002-0311332102113023-0013203102300110-2030130230112222-0232110312102313-0302022311310013-1323223211001123"></a>
 
-## b_max_packet_size property — infra.hw_info.usb / ab5ddbf2b93f / 8
+## b_max_packet_size property — usb / 330223210333 / 8
 
 Type: `"number"`. Computed.
 
@@ -4098,11 +4098,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-789197a203a2f0ece7b6919432fe6b1c5642e973ef45e14f1e6b399c6bb64f2f"></a>
+<a id="canonical-1320210121132202-0003220233003230-3213231221012110-0302333212230130-1112100232211303-3233101132011033-0132122303212130-1223231210330233"></a>
 
-<a id="canonical-1253413f85719f68a5e438422b8a5b16f83c37491c8b3c50f3651c7cdfa40c2d"></a>
+<a id="canonical-0102110310010333-2011130121331220-2211321003201002-0223202211230112-3320033003131021-0130202303301100-3303121101301330-3133221000300231"></a>
 
-## bcd_device property — infra.hw_info.usb / ab5ddbf2b93f / 9
+## bcd_device property — usb / 330223210333 / 9
 
 Type: `"string"`. Computed.
 
@@ -4135,11 +4135,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ee1bb48a34b54d63c9c840253d7d430dddec7f2e1c53bfc6272b50f67caedb5b"></a>
+<a id="canonical-3232012323102022-0310231110311203-3021302010000211-0331133110030031-3131323013330232-0130110323333012-0213022311003312-1330223231231123"></a>
 
-<a id="canonical-5ad0988f4b7557793d9c54296057eab9de3e9bc0b81d998104c0ce5d58b87913"></a>
+<a id="canonical-1122310021202033-1023131111131321-0331213011100221-1200111332222321-3132033221233000-2320013121212001-0010300030321131-1120232013210103"></a>
 
-## bcd_usb property — infra.hw_info.usb / ab5ddbf2b93f / 10
+## bcd_usb property — usb / 330223210333 / 10
 
 Type: `"string"`. Computed.
 
@@ -4172,11 +4172,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-64dacdef66b6986fa581a67b34726f243c2ededb686210243fb54eaca1f55c0b"></a>
+<a id="canonical-1210312230313233-1212231221201233-2211200122121323-0310130212330210-0330023231323123-1220120201000210-0333231110322230-2201331111300023"></a>
 
-<a id="canonical-5139499080c5722687ce1c68d27d7a4879970860f114edaaba989f4d50c6a9cf"></a>
+<a id="canonical-1101032110212100-2000301113020212-2013303201301220-3102133113221020-1321211300201200-3301011032312222-2322212021331031-1100301222213033"></a>
 
-## bus property — infra.hw_info.usb / ab5ddbf2b93f / 11
+## bus property — usb / 330223210333 / 11
 
 Type: `"number"`. Computed.
 
@@ -4195,21 +4195,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6193bbf8d42e11147e5eac2b3881cd93545ed86174514d2b73e3d34d4b5faea6"></a>
+<a id="canonical-1201210323233320-3110023201010110-1332113222300223-0320200130312103-1110113231201201-1310110110310223-1303320331031031-1023113322322212"></a>
 
-<a id="canonical-d010899c50908a8b88f79f885e44e0cb100170746242df106c1029c2c96bf6bd"></a>
+<a id="canonical-3100010020212130-1100210020222023-2020331321332020-1132101032003023-0100000113001310-1202100231330100-1230010002213002-3021122333122331"></a>
 
-## description_spec property — infra.hw_info.usb / ab5ddbf2b93f / 12
+## description_spec property — usb / 330223210333 / 12
 
 Type: `"string"`. Computed.
 
 Description. Device description.
 
-<a id="canonical-0e94491e5288737232042fc2e8c12f03936502bcbca8c571e811357274e5a9f4"></a>
+<a id="canonical-0032211010210132-1102202013031302-0302001002333002-3220300102330003-2103121100022330-2330222030111301-3220010103111302-1310321122213310"></a>
 
-<a id="canonical-ee2f5f58caff7d22dc0027b206f3f1337c0902b35b653acdc7628d5811809556"></a>
+<a id="canonical-3232023311331120-3022333313310202-3130000002132302-0012330333010303-1330002100022303-1123121103223031-3013120220311120-0101200021111112"></a>
 
-## i_manufacturer property — infra.hw_info.usb / ab5ddbf2b93f / 13
+## i_manufacturer property — usb / 330223210333 / 13
 
 Type: `"string"`. Computed.
 
@@ -4242,11 +4242,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d6f1283505b477f56c38d721c835cc75ec7f476c2e61e138c5da466f967b45d9"></a>
+<a id="canonical-3112330102200311-0011231013133311-1230032031130201-3020031130301311-3230133310131230-0232120132010320-3011312210121233-2112132310113121"></a>
 
-<a id="canonical-756dbedd1c1ddab804c8027ea23eca92efb221c32046c5f9142dd8909cf3e4c0"></a>
+<a id="canonical-1311123123323131-0130013131222320-0010302000021332-2202033230222102-3233230202013003-0200101230113321-0110023131202100-2130330332103000"></a>
 
-## i_product property — infra.hw_info.usb / ab5ddbf2b93f / 14
+## i_product property — usb / 330223210333 / 14
 
 Type: `"string"`. Computed.
 
@@ -4279,11 +4279,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5fb9e28656ab99422836e876608c051e18cbcf7007818bbec5964e5909851331"></a>
+<a id="canonical-1133232132022012-1112222321211002-0220031232201312-1200203000110132-0120302330331300-0013200120232332-3011211210321121-0021201101030301"></a>
 
-<a id="canonical-67e8ea54418a6582ce1dfdc872dddd8acffe84b4636b1336aae12d17bd353db6"></a>
+<a id="canonical-1213322032221110-1001202212112002-3032013133313020-1302313131312022-3033333220102310-1203122301030312-2222320102310113-2331031103312312"></a>
 
-## i_serial property — infra.hw_info.usb / ab5ddbf2b93f / 15
+## i_serial property — usb / 330223210333 / 15
 
 Type: `"string"`. Computed.
 
@@ -4312,11 +4312,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4fd647f1b068835ddfe591dc0ec2ea3f39bddc1bf2d827acc047ea5e78ca87ac"></a>
+<a id="canonical-1033311210133301-2300122020031131-3133321121013130-0032300232220333-0321233131300123-3302312002132230-3000101332221132-1320302220132230"></a>
 
-<a id="canonical-13a08a1426547b137648a1ae14423bda973bf9dd160fe60c99b869f54319a608"></a>
+<a id="canonical-0103220020220110-0212111013230103-1312102022012232-0110100203233122-2113032333213131-0112003332120030-2121232012213311-1003012122120020"></a>
 
-## id_product property — infra.hw_info.usb / ab5ddbf2b93f / 16
+## id_product property — usb / 330223210333 / 16
 
 Type: `"string"`. Computed.
 
@@ -4345,11 +4345,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f6651f4d154e60c4d50f54a88b17ebb72245c21365c645fd3caa3f017f700ffe"></a>
+<a id="canonical-3312121101331031-0111103212003010-3111003311102220-2023011332232313-0202101130020103-1211301210113331-0330222203330001-1333130000333332"></a>
 
-<a id="canonical-ad8df8e56ae352d92f2e3df35c680eaea2b609d5315d009f416806bc5a199544"></a>
+<a id="canonical-2231203133203211-1222320311023121-0233023203313303-1130122000322232-2202231200213111-0301113100002133-1001122000122330-1122012121111010"></a>
 
-## id_vendor property — infra.hw_info.usb / ab5ddbf2b93f / 17
+## id_vendor property — usb / 330223210333 / 17
 
 Type: `"string"`. Computed.
 
@@ -4382,11 +4382,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b777ede2990f42c748101d076ec99dc7a524ac2156db51296f55def0db2df339"></a>
+<a id="canonical-2313131332313202-2121003310023013-1020010001310013-1232302121313013-2211021022300201-1112312311010221-1233111131323300-3123023133030321"></a>
 
-<a id="canonical-99d6bc61fb9389566d09eff9119647c654e6c91738cac9dd967c0306e5f89580"></a>
+<a id="canonical-2121311223301201-3323210320211112-1231002132333321-0101211210133012-1110321230210113-0320302230213131-2112133000030012-3211332021112000"></a>
 
-## port property — infra.hw_info.usb / ab5ddbf2b93f / 18
+## port property — usb / 330223210333 / 18
 
 Type: `"number"`. Computed.
 
@@ -4418,11 +4418,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0919dbc918d4ea98352697b8190479027a59fd0f33498f3facaa9fdeacfbad6a"></a>
+<a id="canonical-0021012131233021-0120311032222120-0311021221132320-0121001013210002-1322112133310033-0303102120330333-2230222221333132-2230332322311222"></a>
 
-<a id="canonical-f98f01cbf977da0af958ca97cb14f0ed617f762ee5e3bc2e719f358e695514be"></a>
+<a id="canonical-3321203300013023-3321131331220022-3321112030222113-3023011033003231-1201133313120232-3211320323300232-1301213303112032-1221111101102332"></a>
 
-## product_name property — infra.hw_info.usb / ab5ddbf2b93f / 19
+## product_name property — usb / 330223210333 / 19
 
 Type: `"string"`. Computed.
 
@@ -4455,11 +4455,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a145f97d57f574ea9876d8ec6f899ff1fc963087e5ad80a50ecbc5b534aabb44"></a>
+<a id="canonical-2201101133211331-1113331113103222-2120131231203230-1233202121333301-3330211203002013-3211223120002211-0032302330112311-0310222223231010"></a>
 
-<a id="canonical-4a2535f42c6efbd1ab7060280c73e66fecbe0f476ac50d66304d1fdafc0b4a38"></a>
+<a id="canonical-1022021103113310-0230123233233101-2223130012000220-0030130332121233-3230233200331013-1222301100311212-0300103101333122-3330002310220320"></a>
 
-## speed property — infra.hw_info.usb / ab5ddbf2b93f / 20
+## speed property — usb / 330223210333 / 20
 
 Type: `"string"`. Computed.
 
@@ -4488,11 +4488,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05390abad848080e7ae2c829f69edd6302ce1605ce3c173e0d3b6c599dae03e8"></a>
+<a id="canonical-0011032100222322-3120102000200032-1322320230200221-3312213231311203-0002303201120011-3032033001130332-0031032312301121-2131223200033220"></a>
 
-<a id="canonical-de627d5cf4ad55d0bff43a42019ad2205f4f068fb33cee6b230aeb8f2002ddff"></a>
+<a id="canonical-3132120213311130-3310223111113100-2333331003221002-0001212231020200-1133103300122033-2303033032321223-0203002232232033-0200000231313333"></a>
 
-## usb_type property — infra.hw_info.usb / ab5ddbf2b93f / 21
+## usb_type property — usb / 330223210333 / 21
 
 Type: `"string"`. Computed.
 
@@ -4528,11 +4528,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ff897000262d59ec8ee0848773ac4c220865541ea07cc59d92d772265ae0cdaf"></a>
+<a id="canonical-3333202113000000-0212023111213230-2032320020102013-1303223010300202-0020121111100132-2200133030112131-2102311313020212-1122320030312233"></a>
 
-<a id="canonical-860c923c2f11a5a010436c77e43c6d7ed849f4a8ba6281849e3aace96e4ea6e1"></a>
+<a id="canonical-2012003021020330-0233010122112200-0100100312301313-3210033012311332-3120102133102220-2322120220012010-2132032222303221-1232103222123201"></a>
 
-## vendor_name property — infra.hw_info.usb / ab5ddbf2b93f / 22
+## vendor_name property — usb / 330223210333 / 22
 
 Type: `"string"`. Computed.
 
@@ -4565,31 +4565,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0ce505552739b458eaa7dd92fc2e838a2fee7ec8eb1000d69d22d3c97c525e12"></a>
+<a id="canonical-0030321100111111-0213032123101120-3222221331312102-3330023220032022-0233323213323020-3223010000003112-2131020231033021-1330110211320102"></a>
 
-## Next pages — infra.hw_info.usb / ab5ddbf2b93f / 23
+## Next pages — usb / 330223210333 / 23
 
-- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-03d094c4da89d5f13def9527b667d4dad3891cd1bb70c71bb3ce32634fc0e4d4)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra.hw_info](data-sources--registration--reference--group-001.md#canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-66e79b237f37efd5879541c286d9c104de02734a72db584f56cabcfc76bf017d"></a>
+<a id="canonical-1212321321230203-1333031332333111-2013211110013002-2012312130010010-3132000213031022-1302312311201033-1112302223303330-1312233300011331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3482e66e14d30a27f2b0b879c2302e9970b1ac25ef801590563e6e9eba0bba53"></a>
+<a id="canonical-0310200232121232-0110310300220213-3302230023201321-3002030002322121-1300230122300211-3233200001112100-1112033212322132-2322002323221103"></a>
 
-## infra.interfaces — infra.interfaces / 055c4a269853 / 2
+## infra.interfaces — interfaces / 021221201103 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.interfaces
 
-<a id="canonical-cc176c11d0ed98583899474f02130f872dd7be318f058aa564620735b54ac56f"></a>
+<a id="canonical-3030011312300101-3100323121201120-0320212110131033-0002010300332013-0231311323320301-2033001120222211-1210120200130311-2311102230111233"></a>
 
 Type: `"single"`. Computed.
 
@@ -4614,37 +4614,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5b1776f7445b2926bbdd94ffabfd6294f16d3d8830e67025258fdce4a2b58787"></a>
+<a id="canonical-1123011313123313-1010112302210212-2323313121103333-2223333112022110-3301123103312020-0300321213000211-0211203331303210-2202231120132013"></a>
 
-## Direct properties — infra.interfaces / 055c4a269853 / 3
+## Direct properties — interfaces / 021221201103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-26214c0e60cb06b44aba789940058b57540eca8eb76bb710b7d2dc45b7e5a8f3"></a>
+<a id="canonical-0212020110300032-1200302300122310-1022232213202121-1000001120231113-1110003230222032-2313122323130100-2313310231301011-2313321122203303"></a>
 
-## Next pages — infra.interfaces / 055c4a269853 / 4
+## Next pages — interfaces / 021221201103 / 4
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-8a5def9df187ad5173d54e74d358a2239e37981290fd63c52a9a3057a477131b"></a>
+<a id="canonical-2022113132332131-3301201322311101-1303311110321310-3103112022020203-2132031321200102-2100333112033011-0222212203001113-2210131301030123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9e0ac8bbe54da28675e218e2cc14aaf96099970592f016b9d62f685db445df51"></a>
+<a id="canonical-2132002230202323-3211103122022012-1311320201203202-3030011022223321-1200212121130011-2102330001122321-3112023312201131-2310101131331101"></a>
 
-## infra.internet_proxy — infra.internet_proxy / 927fb9d4f123 / 2
+## infra.internet_proxy — internet_proxy / 311033010203 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.internet_proxy
 
-<a id="canonical-7049e6f2d7d90e37a3d0812d70ad82ef248843da0d2288cd25d70ad191e61de6"></a>
+<a id="canonical-1300102132123302-3113312100320313-2203310020010231-1300223120023233-0210202010033122-0031020220203031-0211311300223101-2101321201313212"></a>
 
 Type: `"single"`. Computed.
 
@@ -4663,15 +4663,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a7f5e86ac57061eb6d0d624ee7721599e1bb4940d4e169be625e320a3976556"></a>
+<a id="canonical-1122133311322012-2230111300120132-2312310031120210-3232131302011121-2132012323102110-0031103201122123-3212021132030200-2203211312111112"></a>
 
-## Direct properties — infra.internet_proxy / 927fb9d4f123 / 3
+## Direct properties — internet_proxy / 311033010203 / 3
 
-<a id="canonical-34c1a7845752198b925e2fb8e2b36c6fcc09c84b7f407b4ea80c3cbddff7c921"></a>
+<a id="canonical-0310300122132010-1113110201212023-2102113202332320-3202230312301233-3030002130201023-1333100013231032-2220003003302331-3133331330210201"></a>
 
-<a id="canonical-2f0cf7509eb3d67dca166ee7a2ef644112287f77f48cd95cf91cac1ea2029a18"></a>
+<a id="canonical-0233003033131100-2132230331121331-3022011212323213-2202323312101001-0102022013331313-3310203031211130-3321013022300132-2202000221220120"></a>
 
-## http_proxy property — infra.internet_proxy / 927fb9d4f123 / 4
+## http_proxy property — internet_proxy / 311033010203 / 4
 
 Type: `"string"`. Computed.
 
@@ -4701,11 +4701,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-12599a84ffb4dbc4f2da290685c68a8f926896113b25f4e783cb8e2623e11926"></a>
+<a id="canonical-0102112121222010-3333231031233010-3302312202210012-2011301220222033-2102122021120101-0323021133103213-2003302320320212-0203320101210212"></a>
 
-<a id="canonical-571b034610a7748a0d80a1b14bcbaa83062b51a1930e14302f5a4c43f78affe4"></a>
+<a id="canonical-1113012300031012-0100221313102022-0031200022012301-1023302322222003-0012022311012201-2103003201100300-0233112210301003-3313202233333210"></a>
 
-## https_proxy property — infra.internet_proxy / 927fb9d4f123 / 5
+## https_proxy property — internet_proxy / 311033010203 / 5
 
 Type: `"string"`. Computed.
 
@@ -4734,11 +4734,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-087c6453087d26821db98825a356da83631b4e41cdb6c5711bb10f54bfa33df8"></a>
+<a id="canonical-0020133012101103-0020133102122002-0131232120200211-2203111231222003-1203012310321001-3031231230111301-0123230100331110-2333220303313320"></a>
 
-<a id="canonical-82788b452620d73f2504973d72650f10a092c5bd1814e91fd49ba188c8678efd"></a>
+<a id="canonical-2002132020231011-0212020031130333-0211001021130331-1302121100330100-2200210230112331-0120011032210133-3110212322012020-3020121320323331"></a>
 
-## no_proxy property — infra.internet_proxy / 927fb9d4f123 / 6
+## no_proxy property — internet_proxy / 311033010203 / 6
 
 Type: `"string"`. Computed.
 
@@ -4779,11 +4779,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0dfaf03d195bd17bc39c6318a22d1d173d5c39d98e0be4906bb7e21f1cf70b0e"></a>
+<a id="canonical-0031332233000331-0121112331011323-3003213012030120-2202023101310113-0331113003213121-2032002332102100-1223231332020133-0130331300230032"></a>
 
-<a id="canonical-45950dbea7480c5e27143d320a9f9c7a0bc013d6ef583a6cf6fa17d47569064d"></a>
+<a id="canonical-1011211100312332-2213102000301132-0213011003310302-0022213321301322-0023300001033112-3233112003221230-3312332201133110-1311122100121031"></a>
 
-## proxy_cacert_url property — infra.internet_proxy / 927fb9d4f123 / 7
+## proxy_cacert_url property — internet_proxy / 311033010203 / 7
 
 Type: `"string"`. Computed.
 
@@ -4818,31 +4818,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6196487b91b66c66f3dd96d7c20a523ab2e3d510f90f0f49760781fb959ea07f"></a>
+<a id="canonical-1201211210201323-2101231212301212-3303313121123113-3002002211020322-2302320331110100-3321003300331021-1312001320013323-2111213222001333"></a>
 
-## Next pages — infra.internet_proxy / 927fb9d4f123 / 8
+## Next pages — internet_proxy / 311033010203 / 8
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-6dd402088ad909db8bc33ca16006763d6574c8e94ebcf113e42c2bc20d5edbf3"></a>
+<a id="canonical-1231311000020020-2022312100213123-2023300303302201-1200001213120331-1211131030203221-1032233033010103-3210023002233002-0031113231233303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-094ae6e332738e305c1e0e8640fee438ef6e4370a895e641f6859900cd6f1fd2"></a>
+<a id="canonical-0021102232123203-0302130320320300-1130013200322012-1000333232100320-3233123210031300-2220211132121001-3312201121210000-3031123301333102"></a>
 
-## infra.sw_info — infra.sw_info / dd1858e43640 / 2
+## infra.sw_info — sw_info / 321003121000 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
 - infra.sw_info
 
-<a id="canonical-031d3b5037360d922c55b5daf24317d6e7b1822b4871c64df862c84dd254f96d"></a>
+<a id="canonical-0003013103231100-0313031200312102-0230111123113122-3302100301133112-3213230120020223-1020130130121031-3320120230201031-3102111033211231"></a>
 
 Type: `"single"`. Computed.
 
@@ -4861,15 +4861,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d97da9b9a734b4eb61cdbf181289befc82f777663269cb20d2bdaed7b7e9ded5"></a>
+<a id="canonical-3121133122212321-2213031023103223-1201303123330120-0102202123323330-2002331313131212-0302122130230200-3102233122323113-2313322131323111"></a>
 
-## Direct properties — infra.sw_info / dd1858e43640 / 3
+## Direct properties — sw_info / 321003121000 / 3
 
-<a id="canonical-cfce203206f6e802e1ee679524cdac4667b96aa3784998d58ce5a4ae1ca09e94"></a>
+<a id="canonical-3033303202000302-0012331232200002-3201323212132111-0210303122301012-1213232112222203-1320102121203111-2030321122102232-0130220021322110"></a>
 
-<a id="canonical-2e5cef309fb76501131543eadb80614024865a280f6f0d0eb7d55ff66f8b99d8"></a>
+<a id="canonical-0232113032330300-2133231312110001-0103011110033222-3123200012011000-0210201211220220-0033123300310032-2313311111333312-1233202321213120"></a>
 
-## sw_version property — infra.sw_info / dd1858e43640 / 4
+## sw_version property — sw_info / 321003121000 / 4
 
 Type: `"string"`. Computed.
 
@@ -4902,30 +4902,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5b9e9e42790f76ac87d9daf51679ff3959c2caa6556019b5882e2aff03924e9b"></a>
+<a id="canonical-1123213221321002-1321003313122230-2013312131223311-0112132133330321-1121300230222212-1111120001212311-2020023202223333-0003210210322123"></a>
 
-## Next pages — infra.sw_info / dd1858e43640 / 5
+## Next pages — sw_info / 321003121000 / 5
 
-- [infra](data-sources--registration--reference--group-001.md#canonical-7aa07ccd59a9d38f3083c54865ad44476af276e2b74a2c9d2a70c80954695251)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [infra](data-sources--registration--reference--group-001.md#canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5"></a>
+<a id="canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6dd7cd6445cd1b5bbd8e3c27c2bf1c39c5ec5c67f9a2ab47858a9822fefb5784"></a>
+<a id="canonical-1231311330311210-1011303101231123-2331203203300213-3002233301300321-3011323011301213-3321220222231013-2011202221200202-3332332311132010"></a>
 
-## passport — passport / 6bb165dc659a / 2
+## passport — passport / 313012112122 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
 - passport
 
-<a id="canonical-a56dab5f7a353a4caef5e774a989f31214a11e309edf4baa760ad1a85d540da4"></a>
+<a id="canonical-2211123122231133-1322031103221030-2232331132131310-2221202133030102-0110220101320300-2132313310232222-1312002231012220-1131111000312210"></a>
 
 Type: `"single"`. Computed.
 
@@ -4947,15 +4947,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4aabcd3602bfa0a230d0b409049c9bed179379c6451d4af8ca361d7fde9932eb"></a>
+<a id="canonical-1022222330310312-0002233322002202-0300310023100021-0010213021233231-0113210313213012-1011013110223320-3022031201311333-3132212103023223"></a>
 
-## Direct properties — passport / 6bb165dc659a / 3
+## Direct properties — passport / 313012112122 / 3
 
-<a id="canonical-50de270cda18adce9a38b906bbc50d1ec284863326768adb35bed7b3d09631fb"></a>
+<a id="canonical-1100313202130030-3122012022313032-2122032023210012-2323301100310132-3002201020120303-0212131220223123-0311233231132303-3100211203013323"></a>
 
-<a id="canonical-27129a4213dfb3810ba31de4dc30b3236e5482062d350181c6c76690a67fe02d"></a>
+<a id="canonical-0213010221221002-0103313323032001-0023220301313210-3130030023030203-1232111020020012-0231031100012001-3012301312122100-2212133332000231"></a>
 
-## cluster_name property — passport / 6bb165dc659a / 4
+## cluster_name property — passport / 313012112122 / 4
 
 Type: `"string"`. Computed.
 
@@ -4994,11 +4994,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-042836eafe92a9cf2d08a70e2f69399b6b192556fdbe103abb6f18e4c4a9fce4"></a>
+<a id="canonical-0010022003123222-3332210222213033-0231002022130032-0233122103212123-1223012102111112-3331233201000322-2323123301203210-3010222133303210"></a>
 
-<a id="canonical-8fa623363782c3853c0573664c135e28abdfed1c92d9714fde651249be9138cb"></a>
+<a id="canonical-2033221202030312-0313200230032011-0330001113031212-1030010311320220-2223313332310130-2102312113011033-3132121101021021-2332210103203023"></a>
 
-## cluster_size property — passport / 6bb165dc659a / 5
+## cluster_size property — passport / 313012112122 / 5
 
 Type: `"number"`. Computed.
 
@@ -5032,11 +5032,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6c0e49d49f85cc2f03048bbc054b2ebd422d1f1dfeffa1a5f5d7f30422863bb9"></a>
+<a id="canonical-1230003210213110-2133201130300233-0003001020232330-0011102302322331-1002023101330131-3332333322012211-3311311333030010-0202201203232321"></a>
 
-<a id="canonical-b629d9c6405852a8d31ea11b415c311c23b19f417ee9e80dea6df0bdd53331b4"></a>
+<a id="canonical-2312022131213012-1000112011022220-3103013222010123-1001113003010130-0203230121331001-1332322132200031-3222123133002331-3111030303012310"></a>
 
-## cluster_type property — passport / 6bb165dc659a / 6
+## cluster_type property — passport / 313012112122 / 6
 
 Type: `"string"`. Computed.
 
@@ -5075,15 +5075,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_os_version](data-sources--registration--reference--group-001.md#canonical-7174da0146bed552b61b530e823e582d300395b65a5384f5f6365234b97f48f4): complete subsection reference.
+- [default_os_version](data-sources--registration--reference--group-001.md#canonical-1301131031220001-1012233231111102-2312012311030032-2002033211200231-0300000321112312-1122110320103311-3312031211020310-2321133310203310): complete subsection reference.
 
-- [default_sw_version](data-sources--registration--reference--group-001.md#canonical-c5be527e8c6acdd4559846c6fcb016b06caa3cd29d93508df4ea2c76bd9a677d): complete subsection reference.
+- [default_sw_version](data-sources--registration--reference--group-001.md#canonical-3011233211021332-2030122230313110-1111212010123012-3330230001122300-1230222203303102-2131210311002031-3310322202301312-2331212212131331): complete subsection reference.
 
-<a id="canonical-533bdddd825426963cc0b937e55698abc17753010201b326a527b715680cca31"></a>
+<a id="canonical-1103032331313131-2002111002122112-0330300023210313-3211111221202223-3001131311030001-0002000123030212-2211021323130111-1220003030220301"></a>
 
-<a id="canonical-4744a2d711f7821ab0bac336c1693b5c394e01bcd05b89edf472d9c4bd6b436e"></a>
+<a id="canonical-1013101022023113-0101331320020122-2300232230030312-3001122103231130-0321103200012330-3100112320213231-3310130231213010-2331122310031232"></a>
 
-## latitude property — passport / 6bb165dc659a / 7
+## latitude property — passport / 313012112122 / 7
 
 Type: `"number"`. Computed.
 
@@ -5116,11 +5116,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d4126dbdd48ba1e553b18aea9d57cf4dae8b5d1b0018a040091541fefeb000e5"></a>
+<a id="canonical-3110010212312331-3110202322013211-1103230120223222-2131111330331031-2232202311310123-0000012022001000-0021011110013332-3332230000003211"></a>
 
-<a id="canonical-b678ef7dc3b1b47e336e594b55d43ee7b87a6db7efb17ea76616098b5290d8ad"></a>
+<a id="canonical-2312132032331331-3003230123101332-0303123211211023-1111311003323213-2320132212312313-3233230113322213-1212011200212023-1102210031202231"></a>
 
-## longitude property — passport / 6bb165dc659a / 8
+## longitude property — passport / 313012112122 / 8
 
 Type: `"number"`. Computed.
 
@@ -5153,11 +5153,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a7e92f460ecfc8a59c9798c6233c3f332ac815df1319233a3e3f1225bba1bf06"></a>
+<a id="canonical-2213322102331012-0032303330202211-2130211321203012-0203033003330303-0222302001113133-0103012102030322-0332033301020211-2323220123330012"></a>
 
-<a id="canonical-691be627cac943f31622624b8fb21233a987491787897fc939e101caad90d086"></a>
+<a id="canonical-1221012332120213-3022302110033303-0112020212021023-2033230201020303-2221201310210113-2013202113333021-0321320100013022-2231210031002012"></a>
 
-## operating_system_version property — passport / 6bb165dc659a / 9
+## operating_system_version property — passport / 313012112122 / 9
 
 Type: `"string"`. Computed.
 
@@ -5200,11 +5200,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e5299d5a774c8ee43d037817a69f5af86d0fe7f61a644da4ae51cb46799cd8b0"></a>
+<a id="canonical-3211022121311122-1313103020323210-0331000313200113-2212213311223320-1231003332133312-0122121010312210-2232110130231012-1321213031202300"></a>
 
-<a id="canonical-55f51876a64ed39e483cdf8996de7d4677c0af01df0c277974320dfdd9a87d57"></a>
+<a id="canonical-1111331101201312-2212103231032132-1020033031332021-2112313213311012-1313300022330001-3133003002131321-1310030200313331-3121222013311113"></a>
 
-## private_network_name property — passport / 6bb165dc659a / 10
+## private_network_name property — passport / 313012112122 / 10
 
 Type: `"string"`. Computed.
 
@@ -5250,11 +5250,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-55cc1eb104b02d9bf76ea5507241bcaee426d82ec9bce7e0396680a40e926a29"></a>
+<a id="canonical-1111303001322301-0010230002312123-3313123222111100-1302100123302232-3210021231200232-3021233032133200-0321121220002210-0032210212220221"></a>
 
-<a id="canonical-2384a88aed845479359d7601dd57bc29208e21b82c54ca6ceb0e883b8583c22f"></a>
+<a id="canonical-0203201022202022-3231201011101321-0311213113120001-3131111323300221-0200203202012320-0230111030221230-3223003220200323-2011200330020233"></a>
 
-## volterra_software_version property — passport / 6bb165dc659a / 11
+## volterra_software_version property — passport / 313012112122 / 11
 
 Type: `"string"`. Computed.
 
@@ -5297,33 +5297,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5947e215a503eb40e39085529a01d9b60611a23fe2862808b59e390a2e236e5d"></a>
+<a id="canonical-1121101332020111-2211000332231000-3203210020111102-2122000131212312-0012010122020333-3202201202200020-2311213203210022-0232020312321131"></a>
 
-## Next pages — passport / 6bb165dc659a / 12
+## Next pages — passport / 313012112122 / 12
 
-- [passport.default_os_version](data-sources--registration--reference--group-001.md#canonical-7174da0146bed552b61b530e823e582d300395b65a5384f5f6365234b97f48f4)
-- [passport.default_sw_version](data-sources--registration--reference--group-001.md#canonical-c5be527e8c6acdd4559846c6fcb016b06caa3cd29d93508df4ea2c76bd9a677d)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [passport.default_os_version](data-sources--registration--reference--group-001.md#canonical-1301131031220001-1012233231111102-2312012311030032-2002033211200231-0300000321112312-1122110320103311-3312031211020310-2321133310203310)
+- [passport.default_sw_version](data-sources--registration--reference--group-001.md#canonical-3011233211021332-2030122230313110-1111212010123012-3330230001122300-1230222203303102-2131210311002031-3310322202301312-2331212212131331)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-7174da0146bed552b61b530e823e582d300395b65a5384f5f6365234b97f48f4"></a>
+<a id="canonical-1301131031220001-1012233231111102-2312012311030032-2002033211200231-0300000321112312-1122110320103311-3312031211020310-2321133310203310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa87e89b933f85382cf72be5a7a7d666f9535320fec424e55da53f5d24f625e4"></a>
+<a id="canonical-3322201332202123-2103033320110320-0230331302233211-2213221331121212-3321110311030200-3332301002103211-1131221103331131-0210331202113210"></a>
 
-## passport.default_os_version — passport.default_os_version / 38ef96ab49cf / 2
+## passport.default_os_version — default_os_version / 222310213033 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211)
 - passport.default_os_version
 
-<a id="canonical-89b724215a31292ee4898fd234e4d0fad59ed2f383310b2eb6173f04c5268f12"></a>
+<a id="canonical-2021231302100201-1122030102210232-3210202120333102-0310321031003322-3111213231023303-2003030100230232-2312011303330010-3011021220330102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5346,37 +5346,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-528e9dd4d6e33a3235811022f02998a708cd4010ceabad0ba01cadc646985e67"></a>
+<a id="canonical-1102203221313110-3112320303220302-0311200101000202-3300022121202213-0020303110000100-3032222322310023-2200013022313012-1012212011321213"></a>
 
-## Direct properties — passport.default_os_version / 38ef96ab49cf / 3
+## Direct properties — default_os_version / 222310213033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-aaf8663356d1acee212f217885a4b548e83f80bda9964b879690f73ee54db93c"></a>
+<a id="canonical-2222332012120303-1112310122303232-0201023302011320-2011221023111020-3220033320002331-2221211210232013-2112210033130332-3211103123210330"></a>
 
-## Next pages — passport.default_os_version / 38ef96ab49cf / 4
+## Next pages — default_os_version / 222310213033 / 4
 
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
 
-<a id="canonical-c5be527e8c6acdd4559846c6fcb016b06caa3cd29d93508df4ea2c76bd9a677d"></a>
+<a id="canonical-3011233211021332-2030122230313110-1111212010123012-3330230001122300-1230222203303102-2131210311002031-3310322202301312-2331212212131331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32144598711004b81b24434494042759d45d758f91f907906ca68957c8f5836c"></a>
+<a id="canonical-0302011010112120-1301010000102320-0123021010031010-2110001002131121-3110113113112033-2101332100132100-1230221220211113-3020331120031230"></a>
 
-## passport.default_sw_version — passport.default_sw_version / 8abea8c73932 / 2
+## passport.default_sw_version — default_sw_version / 301303210302 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
-- [Property reference](data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)
+- [Property reference](data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211)
 - passport.default_sw_version
 
-<a id="canonical-833fe530a0c541863bd4b92f5a9a98ed988dd4b80bd4c25b2d06460cdcf8c197"></a>
+<a id="canonical-2003033332110300-2200301110012012-0323311023210233-1122212221203231-2120203131102320-0023311030021123-0231001210120030-3130332030012113"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5399,15 +5399,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb1dd8e7d8e77dbfbbc9b6151405cbdc0938ad5f1dc9dedebbc3ad39b5503c94"></a>
+<a id="canonical-3023013131203213-3120321313312333-2323302123120111-0110001130233130-0021032022311133-0131302131323132-2323300322310321-2311110003302110"></a>
 
-## Direct properties — passport.default_sw_version / 8abea8c73932 / 3
+## Direct properties — default_sw_version / 301303210302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-19bc5984d445ed27b59f444866f4aae2f230b8b9535c6260e331840c64a1dc6c"></a>
+<a id="canonical-0121233011212010-3110101132310213-2311213310101020-1212331022223202-3302030023202321-1103113012021200-3203030120100030-1210220131301230"></a>
 
-## Next pages — passport.default_sw_version / 8abea8c73932 / 4
+## Next pages — default_sw_version / 301303210302 / 4
 
-- [passport](data-sources--registration--reference--group-001.md#canonical-2bb99d2d6317422b03cc3b89a4cc4e42278c4b94e5f3a453f7c72c70228ebba5)
-- [xcsh_registration](../data-sources/registration.md#canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1)
+- [passport](data-sources--registration--reference--group-001.md#canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211)
+- [xcsh_registration](../data-sources/registration.md#canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301)

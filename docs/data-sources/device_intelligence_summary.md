@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_summary landing
 
-<a id="canonical-713f059bbd4c71f5f978f47874a8258e6f5fed5f744224aa8b9189615842fff9"></a>
+<a id="canonical-1301033300112123-2331103013013311-3321132033101320-1310222002112032-1233113332311133-1310100202102222-2023210120211201-1120100233333321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a7b2c5365e7266142fce0f7137b55b108510880da757ad6596b957d955cd7273"></a>
+<a id="canonical-2213230230110312-1132130212120110-0233303200331301-0313231111230100-2011010020200031-2213111322311211-2112232111133121-1111303113021303"></a>
 
-## xcsh_device_intelligence_summary — xcsh_device_intelligence_summary / 3f3fe450c7d3 / 2
+## xcsh_device_intelligence_summary — xcsh_device_intelligence_summary / 110030133103 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-96db13bbb93694dd54dc9c2b244d42c625ae2d199079d3cd35dea2f38f8267d5"></a>
+<a id="canonical-2112312301032323-2321031221103131-1110313021300223-0210103110023012-0211223202310121-2100132131033031-0311313222023303-2033200212133111"></a>
 
-## Prerequisites — xcsh_device_intelligence_summary / 3f3fe450c7d3 / 3
+## Prerequisites — xcsh_device_intelligence_summary / 110030133103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-4ec2d3d309edfc167d616f9a79e3e52cb23a6053b741ef1e0412ad91d63bf50d"></a>
+<a id="canonical-1032300231033103-0021323133300112-1331120112332122-1321320332110230-2302032212001103-2313100132330132-0010010222312101-3112032333110031"></a>
 
-## Minimal configuration — xcsh_device_intelligence_summary / 3f3fe450c7d3 / 4
+## Minimal configuration — xcsh_device_intelligence_summary / 110030133103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "device_intelligence_summary_result" {
 }
 ```
 
-<a id="canonical-83fd355cc873f019f67a4fece5033aff14793ab1f0a8ed643fa9d892d7416bf8"></a>
+<a id="canonical-2003333103111130-3020130333000121-3312132210333230-3211000303223333-0110132103222301-3300222032311210-0333222131202102-3113100112233320"></a>
 
-## Root configuration — xcsh_device_intelligence_summary / 3f3fe450c7d3 / 5
+## Root configuration — xcsh_device_intelligence_summary / 110030133103 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-dc2016264d48b1f9833e29cccb655ab83f0fac98f226611ac2769bc4a908642a"></a>
+<a id="canonical-3130020001120212-1031102023013321-2003033202213030-3023121111222320-0333003322302120-3302021212010122-3002131221233010-2221002012100222"></a>
 
-## Next pages — xcsh_device_intelligence_summary / 3f3fe450c7d3 / 6
+## Next pages — xcsh_device_intelligence_summary / 110030133103 / 6
 
-- [Property reference](../guides/data-sources--device_intelligence_summary--reference--group-001.md#canonical-1c701a3bcd569781ea4b09b023243540a7da6f24b4b2c73c27e1755ab7ac2705)
-- [Examples](../guides/data-sources--device_intelligence_summary--examples--group-001.md#canonical-f97a8f9c74d388e7b38af72d6e8c5345b93515d764c0d104c74440b774b7228c)
+- [Property reference](../guides/data-sources--device_intelligence_summary--reference--group-001.md#canonical-0130130001220323-3031111221132001-3222102300212300-0203021003111000-2213312212330210-2310230230130330-0213320113111122-2313223002130011)
+- [Examples](../guides/data-sources--device_intelligence_summary--examples--group-001.md#canonical-3321132220332130-1310310320203213-2303202233130231-1232203011031011-2321031101113113-1210300031010010-3013101010002313-1310231302022030)

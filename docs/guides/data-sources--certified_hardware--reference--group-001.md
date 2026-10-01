@@ -6,40 +6,40 @@ description: "Complete grouped canonical reference for xcsh_certified_hardware r
 
 # xcsh_certified_hardware reference
 
-<a id="canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1"></a>
+<a id="canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-07d285d0dbbe41c3543a07d4c2066177349f178fbd19cfd4452c6047d34b31d5"></a>
+<a id="canonical-0013310220113100-3123233210013003-1110032200133110-3002001212011313-0310213301132033-2331012130333110-1011023012001013-3103102303013111"></a>
 
-## Property reference — Property reference / c22b4a524092 / 2
+## Property reference — Property reference / 110210002102 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 - Property reference
 
-<a id="canonical-d9bb2b2daa9943fcf443e0c564e10afedf30278733274ac7294163cd80382119"></a>
+<a id="canonical-3121232302230231-2222212110033330-3310100332003011-1210320100223332-3133030002132013-0303021310223013-0221100112033031-2000032002010121"></a>
 
-## Direct properties — Property reference / c22b4a524092 / 3
+## Direct properties — Property reference / 110210002102 / 3
 
-<a id="canonical-4d08f3e105e21129a0f84c48563515ab3d62c207500e5ac91c4bab01afaf896c"></a>
+<a id="canonical-1031002033033201-0011320201010221-2200332010301020-1112031101112223-0331120230020013-1100003211223021-0130102322230001-2233223320211230"></a>
 
-<a id="canonical-c4c5db98950cf47ff42e1879ec112b1642080b7cec8bac6bb899b33bf82edf01"></a>
+<a id="canonical-3010301131232120-2111003033101333-3310023201201321-3230010102230112-1002002000231330-3230202322301223-2320212123030323-3320023231330001"></a>
 
-## annotations property — Property reference / c22b4a524092 / 4
+## annotations property — Property reference / 110210002102 / 4
 
 Type: `["map", "string"]`. Computed.
 
 Annotations.
 
-<a id="canonical-69ab633e59cb7fbf31f5070a52c1f02b98cfb4853f7ff659c4970470c73d8a3d"></a>
+<a id="canonical-1221222312030332-1121302313332333-0301331100130022-1102300133000223-2120303323102011-0333133333121121-3010211300101300-3013033120220331"></a>
 
-<a id="canonical-6ab4be149674f58000e5ca4593f7de67779cab4a98ac2c2365544c6c81fa5e4c"></a>
+<a id="canonical-1222231023320110-2112131033112000-0000321130221011-2103331331321213-1313213022231022-2120223002300203-1211111010301230-2001332211321030"></a>
 
-## certified_hardware_type property — Property reference / c22b4a524092 / 5
+## certified_hardware_type property — Property reference / 110210002102 / 5
 
 Type: `"string"`. Computed.
 
@@ -47,58 +47,58 @@ Type: `"string"`. Computed.
 rate. Possible values are \`VOLTMESH\`, \`VOLTSTACK\_COMBO\`, \`CLOUD\_MARKET\_PLACE\`. Defaults to
 \`VOLTMESH\`.
 
-<a id="canonical-33cfc4da8e0923d72699b1db5c4fb31a02a628c672d62b7885d1ddaab97a3aa2"></a>
+<a id="canonical-0303303330103122-2032002102033113-0212212123013123-1130103323030122-0002221202203012-1302311202231320-2011310131312222-2321132203222202"></a>
 
-<a id="canonical-5663d9824f4cfa931597251b665c75d88f1498cb2f656c5f2d1642188b28398d"></a>
+<a id="canonical-1112120331212002-1033103033222103-0111211302110123-1212113013113120-2033011021203023-0233121112301133-0231011210020120-2023022003212031"></a>
 
-## description property — Property reference / c22b4a524092 / 6
+## description property — Property reference / 110210002102 / 6
 
 Type: `"string"`. Computed.
 
 Description.
 
-- [devices](data-sources--certified_hardware--reference--group-001.md#canonical-7baeee33e4cc827f25c28ea2cf048f2e5a55ee70814751ca0d455142d3b53c6d): complete subsection reference.
+- [devices](data-sources--certified_hardware--reference--group-001.md#canonical-1323223232320303-3210303020021333-0211300220322202-3033001020330232-1122111132321300-2001101311013022-0031101111011002-3103231103301231): complete subsection reference.
 
-<a id="canonical-35bb162bbbe4ec187239f0a8f478d3e2da5edcbb2a6b55dc2e354f60fa8cc73e"></a>
+<a id="canonical-0311232301120223-2323321032300120-1302032133002220-3310132031033202-3122113231302323-0222122311113130-0232031110331200-3322203030130332"></a>
 
-<a id="canonical-7e853e4b33d1a4b0d4c6b578bacc2965cb4de4aacb3e3b19b2ab19933f6ee015"></a>
+<a id="canonical-1332201103321023-0303310122102300-3110301223111320-2322303002211211-3023103132102222-3023033203230121-2302222301212103-0333123232000111"></a>
 
-## id property — Property reference / c22b4a524092 / 7
+## ID property — Property reference / 110210002102 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier.
 
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68): complete subsection reference.
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220): complete subsection reference.
 
-- [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-c1df81866f89c2e466059b8c6e253fbf26f763f348e456896453d33dde5d5b04): complete subsection reference.
+- [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-3001313320012012-1233202130023210-1212001121232030-1232021103332333-0212331312033303-1020321011122021-1210110331030331-3132113111230010): complete subsection reference.
 
-<a id="canonical-465c586364d09cb5f89eb53168246c7c414799c37d37772a92b1eb45f23445cc"></a>
+<a id="canonical-1012113011201203-1210310021302311-3320213223110301-1220021012301330-1001101321213003-1331031313130222-2102230132231011-3302031010113030"></a>
 
-<a id="canonical-8b5e8394bf220286d56dc3227fce9aaaca3193cbad63ae9296850d3cddac1dde"></a>
+<a id="canonical-2023113220032110-2333020200022012-3111123130030202-1333303221222222-3022030121033023-2231120322322102-2112201100310330-3131223001313132"></a>
 
-## labels property — Property reference / c22b4a524092 / 8
+## labels property — Property reference / 110210002102 / 8
 
 Type: `["map", "string"]`. Computed.
 
 Labels.
 
-<a id="canonical-e61c39571a3c97d9582ecf5841c9809b92c7ca7a6b63cac9e3abe582cec5851e"></a>
+<a id="canonical-3212013003211113-0122033021133121-1120023230331120-1001302120002123-2102301330221322-1223120330223021-3203222332112002-3032301120110132"></a>
 
-<a id="canonical-726716ee375f43c6635796699cd902146aa7494ba2a3a30a644b222c9c09b8c2"></a>
+<a id="canonical-1302121301123232-0313113310033012-1203111321121221-2130312100020110-1222221310211023-2202220322030022-1210102302020230-2130002123203002"></a>
 
-## mem_page_number property — Property reference / c22b4a524092 / 9
+## mem_page_number property — Property reference / 110210002102 / 9
 
 Type: `"number"`. Computed.
 
 Number of pages allocated in this certified hardware for Hugepages. Each page size is defined above
 in 'mem\_page\_size' Total memory reserved for Hugepages is 'mem\_page\_size \* mem\_page\_number'.
 
-<a id="canonical-a124d00edeac4738facadd1b9fd2e9ded2dc32df4e3b9af54dc081d01addb8bf"></a>
+<a id="canonical-2201021031000032-3132223010130320-3322302231310123-2133310232213132-3102313003023133-1032032321223311-1031300020013100-0122313123202333"></a>
 
-<a id="canonical-1689e28bfbd23c4532b59232c31b7b0700716f3ad408ca8227716289c8dec12f"></a>
+<a id="canonical-0112202132022023-3323310203301011-0302231121020302-3003012313230013-0000130112330322-3110002030222002-0213130112022021-3020313230010233"></a>
 
-## mem_page_size property — Property reference / c22b4a524092 / 10
+## mem_page_size property — Property reference / 110210002102 / 10
 
 Type: `"string"`. Computed.
 
@@ -110,180 +110,180 @@ here. Invalid Page size Page size of 4KB Page size of 2MB Page size of 1GB. Poss
 \`HARDWARE\_MEM\_PAGE\_SIZE\_2MB\`, \`HARDWARE\_MEM\_PAGE\_SIZE\_1GB\`. Defaults to
 \`HARDWARE\_MEM\_PAGE\_SIZE\_INVALID\`.
 
-<a id="canonical-d5a493ef97baa01c54811f9f0275291605e3e229ecfeb7474ff87a3c70b72533"></a>
+<a id="canonical-3111221021033233-2113232222000130-1110200101332133-0002131102210112-0011320332020221-3230333223131013-1033332013220330-1300231302110303"></a>
 
-<a id="canonical-78a3b88ab7718dc764cec422a6e69cfdf5e6e30d489f86c93db3dbd3bfb9db3e"></a>
+<a id="canonical-1320220323202022-2313130120313013-1210303230100202-2212321221303331-3311321232030031-1020213320123021-0331230331233103-2333232131230332"></a>
 
-## name property — Property reference / c22b4a524092 / 11
+## name property — Property reference / 110210002102 / 11
 
 Type: `"string"`. Required.
 
 Name of the CertifiedHardware to look up.
 
-<a id="canonical-d152ddaaeeb5b019087cd8f6d81a4f26fc5df8bd2fa0408acf174e7972c86b50"></a>
+<a id="canonical-3101110231312222-3232231123000121-0020133031203312-3120012210330212-3330113133202331-0233220010002022-3033011310321321-1302302012231100"></a>
 
-<a id="canonical-135b83550edaf71f209b16da332183a572955cec351473a385b508a577332914"></a>
+<a id="canonical-0103112320031111-0032312233130133-0200212301123122-0303020120032211-1302211111303230-0311011013032203-2011231100202211-1313030302210110"></a>
 
-## namespace property — Property reference / c22b4a524092 / 12
+## namespace property — Property reference / 110210002102 / 12
 
 Type: `"string"`. Required.
 
 Namespace of the CertifiedHardware.
 
-- [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-bcbeeb01b8644d593914c435c9f52c801c39b5740fd9ea3ec09fe5e115c7f893): complete subsection reference.
+- [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-2330233232230001-2320121010311121-0321011030100311-3021331102302000-0130032123111310-0033312132220332-3000213332113201-0111301333202103): complete subsection reference.
 
-<a id="canonical-d76ba09e071b2e765f07b7768819eeae1a29c2a8e342de3a73a19cc6b044dff2"></a>
+<a id="canonical-3113122322002132-0013012302321312-1133001323131312-2020012132322232-0122022130022220-3203100231320322-1303220121303012-2300101031333302"></a>
 
-<a id="canonical-409929e95be951e0bfdb84616b534673553b162ffc758e5f17bf65ae17ec1fe5"></a>
+<a id="canonical-1000212102213221-1123322111013200-2333312320101201-1223110310121303-1111032301120233-3330131120321133-0113233312112232-0113323001333211"></a>
 
-## numa_nodes property — Property reference / c22b4a524092 / 13
+## numa_nodes property — Property reference / 110210002102 / 13
 
 Type: `"number"`. Computed.
 
 The number of host NUMA nodes used in certified hardware.
 
-- [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-64519123e849fbc61f12441e0a23a510716d560f280e463dc8d63f16132a1f4d): complete subsection reference.
+- [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-1210110121010203-3220102133233012-0133010210100132-0022020322110100-1301123111120033-0220003210120331-3020311203330112-0103022201331031): complete subsection reference.
 
-<a id="canonical-9624ac9ad11c50d6734d8821fb9c349a539d87daf4b0830196eadaebc3920d75"></a>
+<a id="canonical-2112021022302122-3101013011003112-1303103120200201-3323213003102122-1103213120133122-3310230020030001-2112322231223223-3003210200311311"></a>
 
-## All schema paths — Property reference / c22b4a524092 / 14
+## All schema paths — Property reference / 110210002102 / 14
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--certified_hardware--reference--group-001.md#canonical-4d08f3e105e21129a0f84c48563515ab3d62c207500e5ac91c4bab01afaf896c) |
-| `certified_hardware_type` | [certified_hardware_type](data-sources--certified_hardware--reference--group-001.md#canonical-69ab633e59cb7fbf31f5070a52c1f02b98cfb4853f7ff659c4970470c73d8a3d) |
-| `description` | [description](data-sources--certified_hardware--reference--group-001.md#canonical-33cfc4da8e0923d72699b1db5c4fb31a02a628c672d62b7885d1ddaab97a3aa2) |
-| `devices` | [devices](data-sources--certified_hardware--reference--group-001.md#canonical-6215d1286b2bf797eaa214adde91ee3bdb7b5cad13737f10ddff93c4de357c5b) |
-| `devices.device_list` | [devices.device_list](data-sources--certified_hardware--reference--group-001.md#canonical-e07b8fb590a6b09344ed33cc7b2ba99acb0d4b231ac79f2b1f34d8dd4f58e5ff) |
-| `devices.max_unit` | [devices.max_unit](data-sources--certified_hardware--reference--group-001.md#canonical-a626a9fcc73ddad23f1f88850347b9148e24b296a6244b257de87d51d28c19d0) |
-| `devices.min_unit` | [devices.min_unit](data-sources--certified_hardware--reference--group-001.md#canonical-82fe0457244ca936a3db7dd84da41b4b389133a35ecafe22289318416b2ea06a) |
-| `devices.name` | [devices.name](data-sources--certified_hardware--reference--group-001.md#canonical-54ef46599a0d7a8cde39a01f6e3d62ac2c3a9e6f2633d6be211b3a5a52641479) |
-| `devices.type` | [devices.type](data-sources--certified_hardware--reference--group-001.md#canonical-7bce2bc7af67d85cdc894056920bda3da3b91b9bd332202efc5a951ddf774eaa) |
-| `devices.use` | [devices.use](data-sources--certified_hardware--reference--group-001.md#canonical-a6d61c1109ccf7361829e443ab650c1551467dbda9f51140622172c2a6b772e3) |
-| `id` | [id](data-sources--certified_hardware--reference--group-001.md#canonical-35bb162bbbe4ec187239f0a8f478d3e2da5edcbb2a6b55dc2e354f60fa8cc73e) |
-| `image_list` | [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-97152f757484b900c37cd1225eead55199886749af0a5ba68d11d96a6e6c8860) |
-| `image_list.aws` | [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-659ea93b0c8cea8d6d31e2c615eb14b0364fbc449a62f9beab9c0d7625c1231c) |
-| `image_list.aws.image_id` | [image_list.aws.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-075e3b678057f956d9994c343cbca0fb3f572808759d0a4e3626955eee471f4b) |
-| `image_list.aws.image_id.image_id` | [image_list.aws.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0b118ce1841c8672d3a1e4561712ace727649ca1c5ef5a9c8399189c8c655abd) |
-| `image_list.aws.image_id.region` | [image_list.aws.image_id.region](data-sources--certified_hardware--reference--group-001.md#canonical-e71d6bb810de1f25ea29684703e103636b919e1f636f3a29870803b081aed755) |
-| `image_list.azure` | [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-7b67940caaa4b793c97b36192436c6b8f78d4a766a671f4c66b53278cf91381c) |
-| `image_list.azure.image_id` | [image_list.azure.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-31393b10813fb744a2fa17d63340f89af8697c9da2912e9e1e270efc49966dae) |
-| `image_list.azure.image_id.image_id` | [image_list.azure.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-ab983bcd941742d120008055ac280511b2a718765f8552b1d0d042f762deffe2) |
-| `image_list.azure.marketplace` | [image_list.azure.marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-be75a72ecee2c6a6bfcbb25898f6e13d235dc92d922387cfd8b789dd4105ac83) |
-| `image_list.azure.marketplace.name` | [image_list.azure.marketplace.name](data-sources--certified_hardware--reference--group-001.md#canonical-f3b07ff1333b23d62277d5dd9c44c9d5429a15acf697da5c5d950dbf6c95053a) |
-| `image_list.azure.marketplace.offer` | [image_list.azure.marketplace.offer](data-sources--certified_hardware--reference--group-001.md#canonical-8a4c1e8de0e23df67276465bb29e538017f0e317f9743773833a586661e15518) |
-| `image_list.azure.marketplace.publisher` | [image_list.azure.marketplace.publisher](data-sources--certified_hardware--reference--group-001.md#canonical-bbe8de719f3d63083de89c6688e1bdaedac8765f0a5167ec33ffc904fce72aad) |
-| `image_list.azure.marketplace.sku` | [image_list.azure.marketplace.sku](data-sources--certified_hardware--reference--group-001.md#canonical-02957541b165a13d4aa7b35bd82836a2882d77e3a85258b4f1c73e3e901fc11f) |
-| `image_list.azure.marketplace.version` | [image_list.azure.marketplace.version](data-sources--certified_hardware--reference--group-001.md#canonical-2bd5435c9c38fe25d439353a4984263fc0e29447e7a53d1815b60dff4d313d85) |
-| `image_list.gcp` | [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-e8e464d280054295151f6bc1bac4d6145d7d61282ded6a2fd2865883350e2e26) |
-| `image_list.gcp.image_id` | [image_list.gcp.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-7a8abefd4f48deb7069dca9c2bac3b58107376674f95f8309f538fa38eb4d472) |
-| `image_list.gcp.image_id.image_id` | [image_list.gcp.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-df5d4c4c1dd176525394e3eaf07e067227075745d8b75c032cedfda40ab60ec5) |
-| `image_list.name` | [image_list.name](data-sources--certified_hardware--reference--group-001.md#canonical-a9a16b8c4a60ed80440595a77de6f3575ca19f1c091343f6f7d75b9b3b7dd49a) |
-| `image_list.provider_ref` | [image_list.provider_ref](data-sources--certified_hardware--reference--group-001.md#canonical-1451b2906ab3f446831005c91df89c023a5fe5d310a695af4ca8b9ec6afd06a2) |
-| `internal_usb_device_rule` | [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-4ff16b98172b0c4d1ed4002782f2cbd09dbf7675e0bd0d5d353975a4f24eab83) |
-| `internal_usb_device_rule.b_device_class` | [internal_usb_device_rule.b_device_class](data-sources--certified_hardware--reference--group-001.md#canonical-f647bc0fbcc121989d13f89fe250ccb2e67622168fda6b14039842914ffda9cb) |
-| `internal_usb_device_rule.b_device_protocol` | [internal_usb_device_rule.b_device_protocol](data-sources--certified_hardware--reference--group-001.md#canonical-7be8ceafc553ed2de656381696d7b53ecba2fafd4dade34ed8842b2f8cdc4cf0) |
-| `internal_usb_device_rule.b_device_sub_class` | [internal_usb_device_rule.b_device_sub_class](data-sources--certified_hardware--reference--group-001.md#canonical-7bd40ad9f863332fc9f958176216fcc085b789d9cc149037f559943473f51aba) |
-| `internal_usb_device_rule.i_serial` | [internal_usb_device_rule.i_serial](data-sources--certified_hardware--reference--group-001.md#canonical-4d0bacd2cb82d1ec950219da3c08b3c74b3eb08659f25c46acc7a11960342970) |
-| `internal_usb_device_rule.id_product` | [internal_usb_device_rule.id_product](data-sources--certified_hardware--reference--group-001.md#canonical-d003c1105033e4b1aa814bdb0e739585780f8e4977a1c401fc00b241868a1444) |
-| `internal_usb_device_rule.id_vendor` | [internal_usb_device_rule.id_vendor](data-sources--certified_hardware--reference--group-001.md#canonical-168afb7c688492c411b878087fe734420c1ac2dc312c8b9f266c607111b78512) |
-| `labels` | [labels](data-sources--certified_hardware--reference--group-001.md#canonical-465c586364d09cb5f89eb53168246c7c414799c37d37772a92b1eb45f23445cc) |
-| `mem_page_number` | [mem_page_number](data-sources--certified_hardware--reference--group-001.md#canonical-e61c39571a3c97d9582ecf5841c9809b92c7ca7a6b63cac9e3abe582cec5851e) |
-| `mem_page_size` | [mem_page_size](data-sources--certified_hardware--reference--group-001.md#canonical-a124d00edeac4738facadd1b9fd2e9ded2dc32df4e3b9af54dc081d01addb8bf) |
-| `name` | [name](data-sources--certified_hardware--reference--group-001.md#canonical-d5a493ef97baa01c54811f9f0275291605e3e229ecfeb7474ff87a3c70b72533) |
-| `namespace` | [namespace](data-sources--certified_hardware--reference--group-001.md#canonical-d152ddaaeeb5b019087cd8f6d81a4f26fc5df8bd2fa0408acf174e7972c86b50) |
-| `numa_mem` | [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-34c69447c6622c4fc7466b2d309d668391f08a792c790ba6ddccf4b829ad7b23) |
-| `numa_mem.memory` | [numa_mem.memory](data-sources--certified_hardware--reference--group-001.md#canonical-d0bb4fcb46a8fad0a36d2a376de1b889746e7f5c8189e5f6680b351b2d91db4c) |
-| `numa_mem.node` | [numa_mem.node](data-sources--certified_hardware--reference--group-001.md#canonical-5a999149527e25c95ab281fe6b7b87d5c0377e37c598a241861b47207bc5cf0e) |
-| `numa_nodes` | [numa_nodes](data-sources--certified_hardware--reference--group-001.md#canonical-d76ba09e071b2e765f07b7768819eeae1a29c2a8e342de3a73a19cc6b044dff2) |
-| `vendor_model_list` | [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-13dc07330e648eca7218d58d42ac422f4f1ab7262910fbf41b1eb3d553947a2c) |
-| `vendor_model_list.model` | [vendor_model_list.model](data-sources--certified_hardware--reference--group-001.md#canonical-bc2f307329047f45a9f35fdae12b94898a30db5c0dc02d39c066ac34d608b449) |
-| `vendor_model_list.vendor` | [vendor_model_list.vendor](data-sources--certified_hardware--reference--group-001.md#canonical-318277bd5075e0a985c701d7dc6896b83b715b9fafb5f50c050c0f89ad4a66c5) |
+| `annotations` | [annotations](data-sources--certified_hardware--reference--group-001.md#canonical-1031002033033201-0011320201010221-2200332010301020-1112031101112223-0331120230020013-1100003211223021-0130102322230001-2233223320211230) |
+| `certified_hardware_type` | [certified_hardware_type](data-sources--certified_hardware--reference--group-001.md#canonical-1221222312030332-1121302313332333-0301331100130022-1102300133000223-2120303323102011-0333133333121121-3010211300101300-3013033120220331) |
+| `description` | [description](data-sources--certified_hardware--reference--group-001.md#canonical-0303303330103122-2032002102033113-0212212123013123-1130103323030122-0002221202203012-1302311202231320-2011310131312222-2321132203222202) |
+| `devices` | [devices](data-sources--certified_hardware--reference--group-001.md#canonical-1202011131010220-1223022333132113-3222220201102231-3132210132320323-3123132311302231-0103130313330100-3131333321033010-3132031113301123) |
+| `devices.device_list` | [devices.device_list](data-sources--certified_hardware--reference--group-001.md#canonical-3200132320332311-2100221223002103-1010323103033030-1323022322212122-3023003110230203-0122301321330223-0133031031203131-1033112032113333) |
+| `devices.max_unit` | [devices.max_unit](data-sources--certified_hardware--reference--group-001.md#canonical-2212021222213330-3013033131223102-0333013320202011-0003101323210110-2032021023022112-2212021010230211-1331322013311101-3102203001213100) |
+| `devices.min_unit` | [devices.min_unit](data-sources--certified_hardware--reference--group-001.md#canonical-2002333200101113-0210103022210312-2203312313313120-1031221001231023-0320210103032203-1132302233320202-0220210301201001-1223023222001222) |
+| `devices.name` | [devices.name](data-sources--certified_hardware--reference--group-001.md#canonical-1110323310121121-2122003113222030-3132032122000133-1232033112022230-0230032221321233-0212030331122332-0201012303221122-1102121001101321) |
+| `devices.type` | [devices.type](data-sources--certified_hardware--reference--group-001.md#canonical-1323303202233013-2233121331201130-3130202110001112-2102002331220331-2203232101232123-3103030202000232-3330112221110131-3133131310322222) |
+| `devices.use` | [devices.use](data-sources--certified_hardware--reference--group-001.md#canonical-2212311201300101-0021303033130312-0120022132101003-2223121100300111-1101101213312331-2221331101011000-1202020113023002-2212231313023203) |
+| `id` | [id](data-sources--certified_hardware--reference--group-001.md#canonical-0311232301120223-2323321032300120-1302032133002220-3310132031033202-3122113231302323-0222122311113130-0232031110331200-3322203030130332) |
+| `image_list` | [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-2113011102331311-1310201023210000-3003133031010202-1132322231111101-2121202012131021-2233002211232212-2031010131211222-1232123020201200) |
+| `image_list.aws` | [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-1211213222210323-0030203032222031-1231030132023012-0111322301102300-0312103323301010-2122120233212332-2223213000311312-0211300102030130) |
+| `image_list.aws.image_id` | [image_list.aws.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0013113203231213-2000111333211112-3121212110300310-0330233022003323-0333111302200020-1311213100221032-0312021221111132-3232101301331023) |
+| `image_list.aws.image_id.image_id` | [image_list.aws.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0023010120303201-2010013020121302-3103220132101112-0113010222303213-0213121021302201-3011323311222130-2003212101202130-2030121111222331) |
+| `image_list.aws.image_id.region` | [image_list.aws.image_id.region](data-sources--certified_hardware--reference--group-001.md#canonical-3213013112232320-0100313201330211-3222022112201013-0003320100031203-1223210121320133-1203123303220221-2013002000032300-2001223231131111) |
+| `image_list.azure` | [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-1323121321100030-2222221023132103-3021132303120121-0210031230122320-3313203110221312-1222121301331030-1212231103021320-3033210103200130) |
+| `image_list.azure.image_id` | [image_list.azure.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0301032103230100-2001033323131010-2202332201133112-0303100033202122-3320122113302131-2202210102322132-0132021300323330-1021211212312232) |
+| `image_list.azure.image_id.image_id` | [image_list.azure.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-2223212003233031-2110011310023101-0200000020001111-2230022000110101-2302221301201312-1133201111022301-3100310010023313-1202313233333202) |
+| `image_list.azure.marketplace` | [image_list.azure.marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-2332131122130232-3032320230122212-2333302323021120-2120331232010331-0203113130210231-2102020320133033-3120231320213131-1001001122302003) |
+| `image_list.azure.marketplace.name` | [image_list.azure.marketplace.name](data-sources--certified_hardware--reference--group-001.md#canonical-3303230013333301-0303032302033112-0202131331113131-2130101030213111-1002212201112230-3312211331221130-1131211100312333-1230211100110322) |
+| `image_list.azure.marketplace.offer` | [image_list.azure.marketplace.offer](data-sources--certified_hardware--reference--group-001.md#canonical-2022103001322031-3200320203313312-1302131210121123-2302213211032000-0113330032030113-3321131003131303-2003032211201212-1201320111110120) |
+| `image_list.azure.marketplace.publisher` | [image_list.azure.marketplace.publisher](data-sources--certified_hardware--reference--group-001.md#canonical-2323322031321301-2133033112030020-0331322021301212-2020320123312232-3122302013121133-0022110112133230-0303333330210010-3330321302222231) |
+| `image_list.azure.marketplace.sku` | [image_list.azure.marketplace.sku](data-sources--certified_hardware--reference--group-001.md#canonical-0002211113111001-2301121122010331-1022221323031123-3120022003122202-2020023113133203-2220110211202310-3301301303320332-2100013330010133) |
+| `image_list.azure.marketplace.version` | [image_list.azure.marketplace.version](data-sources--certified_hardware--reference--group-001.md#canonical-0223311110031130-2130032033320211-3110032103110322-1021201002120333-3000320221101013-3213221103310120-0111231200313333-1031030103312011) |
+| `image_list.gcp` | [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-3220321012103102-2000001110022111-0111013312233001-2322301031120110-1131133112010220-0231323112220233-3102201211202003-0311003202320212) |
+| `image_list.gcp.image_id` | [image_list.gcp.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-1322202223323331-1033102031322313-0012213130222130-0223223003231120-0100130313121213-1033211133200300-2133110320332203-2032231031101302) |
+| `image_list.gcp.image_id.image_id` | [image_list.gcp.image_id.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-3133113110301030-0131310113121102-1103211032033222-3300133200121302-0213001311131011-3120231311300003-0230323133312210-0022231200323011) |
+| `image_list.name` | [image_list.name](data-sources--certified_hardware--reference--group-001.md#canonical-2221220112232030-1022120032312000-1010001121112213-1331321233031113-1130220121330130-0021010310033312-3313311311232123-0323133131102122) |
+| `image_list.provider_ref` | [image_list.provider_ref](data-sources--certified_hardware--reference--group-001.md#canonical-0110110123022100-1222230333101012-2003010000113021-0131332021300002-0322113332113103-0100221221112233-1030222023213230-1222333100122202) |
+| `internal_usb_device_rule` | [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-1033330112232120-0113022300301031-0132311000000213-2002330230233100-2131233313121311-3200233100311131-0311032113112210-3302103222232003) |
+| `internal_usb_device_rule.b_device_class` | [internal_usb_device_rule.b_device_class](data-sources--certified_hardware--reference--group-001.md#canonical-3312101323300033-2330300102012120-2131010333202133-3202110030302302-3212131202020112-2033312212230110-0003212010022101-1033333122213023) |
+| `internal_usb_device_rule.b_device_protocol` | [internal_usb_device_rule.b_device_protocol](data-sources--certified_hardware--reference--group-001.md#canonical-1323322030322233-3011110332310231-3212111203200112-2112311323110332-3023220233223331-1031223132031032-3120201002230233-2030313010303300) |
+| `internal_usb_device_rule.b_device_sub_class` | [internal_usb_device_rule.b_device_sub_class](data-sources--certified_hardware--reference--group-001.md#canonical-1323311000223121-3320120303030233-3021332111200113-1202011233303000-2011231320213121-3030011021000313-3311112121100310-1303331101222322) |
+| `internal_usb_device_rule.i_serial` | [internal_usb_device_rule.i_serial](data-sources--certified_hardware--reference--group-001.md#canonical-1031002322303102-3023200231013230-2111000201213122-0330002023033013-1023033223002012-1121330211301012-2230301322010121-1200031002211300) |
+| `internal_usb_device_rule.id_product` | [internal_usb_device_rule.id_product](data-sources--certified_hardware--reference--group-001.md#canonical-3100000330010100-1100030332102301-2222200110233123-0032130321112011-1320003320321021-1313220130100001-3330000023021001-2012202201101010) |
+| `internal_usb_device_rule.id_vendor` | [internal_usb_device_rule.id_vendor](data-sources--certified_hardware--reference--group-001.md#canonical-0112202233231330-1220201021023010-0101232013200020-1333321303101002-0030012230023130-0301023020232133-0212123012001301-0101231320110102) |
+| `labels` | [labels](data-sources--certified_hardware--reference--group-001.md#canonical-1012113011201203-1210310021302311-3320213223110301-1220021012301330-1001101321213003-1331031313130222-2102230132231011-3302031010113030) |
+| `mem_page_number` | [mem_page_number](data-sources--certified_hardware--reference--group-001.md#canonical-3212013003211113-0122033021133121-1120023230331120-1001302120002123-2102301330221322-1223120330223021-3203222332112002-3032301120110132) |
+| `mem_page_size` | [mem_page_size](data-sources--certified_hardware--reference--group-001.md#canonical-2201021031000032-3132223010130320-3322302231310123-2133310232213132-3102313003023133-1032032321223311-1031300020013100-0122313123202333) |
+| `name` | [name](data-sources--certified_hardware--reference--group-001.md#canonical-3111221021033233-2113232222000130-1110200101332133-0002131102210112-0011320332020221-3230333223131013-1033332013220330-1300231302110303) |
+| `namespace` | [namespace](data-sources--certified_hardware--reference--group-001.md#canonical-3101110231312222-3232231123000121-0020133031203312-3120012210330212-3330113133202331-0233220010002022-3033011310321321-1302302012231100) |
+| `numa_mem` | [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-0310301221101013-3012120202301033-3013101212230231-0300213112122003-2101330020221321-0230132100232212-3131303033102320-0221223113230203) |
+| `numa_mem.memory` | [numa_mem.memory](data-sources--certified_hardware--reference--group-001.md#canonical-3100232310333023-1012222033223100-2203123102220313-1231320123202021-1310123213331130-2001202132113312-1220002303110123-0231210131231030) |
+| `numa_mem.node` | [numa_mem.node](data-sources--certified_hardware--reference--group-001.md#canonical-1122212121011021-1102133202113021-1122230220013332-1223132320133111-3000031313320313-3011212022021001-2012012310130200-1323301130330032) |
+| `numa_nodes` | [numa_nodes](data-sources--certified_hardware--reference--group-001.md#canonical-3113122322002132-0013012302321312-1133001323131312-2020012132322232-0122022130022220-3203100231320322-1303220121303012-2300101031333302) |
+| `vendor_model_list` | [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-0103313000130303-0032121020323022-1302012031112031-1002223010020233-1033012223130212-0221010033233310-0123013223033111-1103211013220230) |
+| `vendor_model_list.model` | [vendor_model_list.model](data-sources--certified_hardware--reference--group-001.md#canonical-2330023303001303-0221001013331011-2221330311333122-3201022321102021-2022030031231130-0031300002310321-3000121222300310-3112002023101021) |
+| `vendor_model_list.vendor` | [vendor_model_list.vendor](data-sources--certified_hardware--reference--group-001.md#canonical-0301200213132331-1100131132002221-2011301300013113-3130122021122320-0323130111232133-2233231133110030-0011003000332021-2231102212123011) |
 
-<a id="canonical-9164de2f1f95c66e3e368de5653f663edf8c22e526b6567fc84f11e6e7a81a4f"></a>
+<a id="canonical-2101121031320233-0133211130121232-0332031220313211-1211033312120332-3133203002023211-0212231211121333-3020103301013212-3213222001221033"></a>
 
-## Next pages — Property reference / c22b4a524092 / 15
+## Next pages — Property reference / 110210002102 / 15
 
-- [devices](data-sources--certified_hardware--reference--group-001.md#canonical-7baeee33e4cc827f25c28ea2cf048f2e5a55ee70814751ca0d455142d3b53c6d)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-c1df81866f89c2e466059b8c6e253fbf26f763f348e456896453d33dde5d5b04)
-- [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-bcbeeb01b8644d593914c435c9f52c801c39b5740fd9ea3ec09fe5e115c7f893)
-- [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-64519123e849fbc61f12441e0a23a510716d560f280e463dc8d63f16132a1f4d)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [devices](data-sources--certified_hardware--reference--group-001.md#canonical-1323223232320303-3210303020021333-0211300220322202-3033001020330232-1122111132321300-2001101311013022-0031101111011002-3103231103301231)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [internal_usb_device_rule](data-sources--certified_hardware--reference--group-001.md#canonical-3001313320012012-1233202130023210-1212001121232030-1232021103332333-0212331312033303-1020321011122021-1210110331030331-3132113111230010)
+- [numa_mem](data-sources--certified_hardware--reference--group-001.md#canonical-2330233232230001-2320121010311121-0321011030100311-3021331102302000-0130032123111310-0033312132220332-3000213332113201-0111301333202103)
+- [vendor_model_list](data-sources--certified_hardware--reference--group-001.md#canonical-1210110121010203-3220102133233012-0133010210100132-0022020322110100-1301123111120033-0220003210120331-3020311203330112-0103022201331031)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-7baeee33e4cc827f25c28ea2cf048f2e5a55ee70814751ca0d455142d3b53c6d"></a>
+<a id="canonical-1323223232320303-3210303020021333-0211300220322202-3033001020330232-1122111132321300-2001101311013022-0031101111011002-3103231103301231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-616d4d650f178d6b3418f17e637c80ea2d057f1c4008989dac256815a90d2c5f"></a>
+<a id="canonical-1201123110311211-0033011320311223-0310012033011332-1203133020003222-0231001113330130-1000002021202131-2230021112200111-2221003102301133"></a>
 
-## devices — devices / 2b4ea207163d / 2
+## devices — devices / 001301120331 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
 - devices
 
-<a id="canonical-6215d1286b2bf797eaa214adde91ee3bdb7b5cad13737f10ddff93c4de357c5b"></a>
+<a id="canonical-1202011131010220-1223022333132113-3222220201102231-3132210132320323-3123132311302231-0103130313330100-3131333321033010-3132031113301123"></a>
 
 Type: `"list"`. Computed.
 
 List of supported devices in this model.
 
-<a id="canonical-78250ea2ffeceb430ea6cea6cc08b89c2bb596e43dc71126bdb6463fa889e495"></a>
+<a id="canonical-1320021100322202-3333323032231003-0032221230322212-3030002023202130-0223231121123210-0331301301010212-2331231210120333-2220202132102111"></a>
 
-## Direct properties — devices / 2b4ea207163d / 3
+## Direct properties — devices / 001301120331 / 3
 
-<a id="canonical-e07b8fb590a6b09344ed33cc7b2ba99acb0d4b231ac79f2b1f34d8dd4f58e5ff"></a>
+<a id="canonical-3200132320332311-2100221223002103-1010323103033030-1323022322212122-3023003110230203-0122301321330223-0133031031203131-1033112032113333"></a>
 
-<a id="canonical-ced9e11c3f11c0d71112e32812a60cace6709f9285f6fe83f60146c13139498f"></a>
+<a id="canonical-3032312132010130-0333010130003113-0101010232030220-0102221200302230-3212130021332102-2011331233322003-3312000110123001-0301032110212033"></a>
 
-## device_list property — devices / 2b4ea207163d / 4
+## device_list property — devices / 001301120331 / 4
 
 Type: `["list", "string"]`. Computed.
 
 In case of logical boot strap devices like LACP Link aggregation or RAID.
 
-<a id="canonical-a626a9fcc73ddad23f1f88850347b9148e24b296a6244b257de87d51d28c19d0"></a>
+<a id="canonical-2212021222213330-3013033131223102-0333013320202011-0003101323210110-2032021023022112-2212021010230211-1331322013311101-3102203001213100"></a>
 
-<a id="canonical-6c757b9fd671c63c65319092166323a20f97e37f49f21a696c39e08dfcb3f5b0"></a>
+<a id="canonical-1230131113232133-3112130130120330-1211030121002102-0112120302032202-0033211332031333-1021330201221221-1230032132002031-3330230333112300"></a>
 
-## max_unit property — devices / 2b4ea207163d / 5
+## max_unit property — devices / 001301120331 / 5
 
 Type: `"number"`. Computed.
 
 Last unit number of the device supported in this certified hardware.
 
-<a id="canonical-82fe0457244ca936a3db7dd84da41b4b389133a35ecafe22289318416b2ea06a"></a>
+<a id="canonical-2002333200101113-0210103022210312-2203312313313120-1031221001231023-0320210103032203-1132302233320202-0220210301201001-1223023222001222"></a>
 
-<a id="canonical-5035d02c3028f92fc50c5d5386149341862fe23d0f1b3fa0d3648d3ad7f521c1"></a>
+<a id="canonical-1100031131000230-0300022033210233-3011003011311103-2012011021031001-2012023332020331-0033012303332200-3103121020310322-3113331102013001"></a>
 
-## min_unit property — devices / 2b4ea207163d / 6
+## min_unit property — devices / 001301120331 / 6
 
 Type: `"number"`. Computed.
 
 First unit number of the device supported in this certified hardware.
 
-<a id="canonical-54ef46599a0d7a8cde39a01f6e3d62ac2c3a9e6f2633d6be211b3a5a52641479"></a>
+<a id="canonical-1110323310121121-2122003113222030-3132032122000133-1232033112022230-0230032221321233-0212030331122332-0201012303221122-1102121001101321"></a>
 
-<a id="canonical-163cd499a1a690925195de88eb7823330d126d037419b427938b6f51572575eb"></a>
+<a id="canonical-0112033031102121-2201221221002102-1101211131322020-3223132002030303-0031010212310003-1310012123100213-2103202312331101-1113021113113223"></a>
 
-## name property — devices / 2b4ea207163d / 7
+## name property — devices / 001301120331 / 7
 
 Type: `"string"`. Computed.
 
 Device. Name of the device.
 
-<a id="canonical-7bce2bc7af67d85cdc894056920bda3da3b91b9bd332202efc5a951ddf774eaa"></a>
+<a id="canonical-1323303202233013-2233121331201130-3130202110001112-2102002331220331-2203232101232123-3103030202000232-3330112221110131-3133131310322222"></a>
 
-<a id="canonical-1aabb4afc1a0372aebbb219d9fa386e7c8b7e6eb9a244adeaf84fb1dffe2bf06"></a>
+<a id="canonical-0122222323102233-3001220003130222-3223232302012131-2133220320123213-3020231332123223-2122021010223132-2233201033230131-3333320223330012"></a>
 
-## type property — devices / 2b4ea207163d / 8
+## type property — devices / 001301120331 / 8
 
 Type: `"string"`. Computed.
 
@@ -296,11 +296,11 @@ device used for machine learning. Possible values are \`HARDWARE\_DEVICE\_INVALI
 \`HARDWARE\_DEVICE\_BOND\`, \`HARDWARE\_DEVICE\_EXTERNAL\_ISCSI\_STORTAGE\`,
 \`HARDWARE\_DEVICE\_NVIDIA\_GPU\`. Defaults to \`HARDWARE\_DEVICE\_INVALID\`.
 
-<a id="canonical-a6d61c1109ccf7361829e443ab650c1551467dbda9f51140622172c2a6b772e3"></a>
+<a id="canonical-2212311201300101-0021303033130312-0120022132101003-2223121100300111-1101101213312331-2221331101011000-1202020113023002-2212231313023203"></a>
 
-<a id="canonical-a4ecc79075cc9293ff0112f3a556d5c4f325b538bfcb41f88af4e84fe349b5c6"></a>
+<a id="canonical-2210323030132100-1311303021022103-3333000101023303-2211111231113010-3303021123110320-2333302310013320-2022331032201033-3203102123113012"></a>
 
-## use property — devices / 2b4ea207163d / 9
+## use property — devices / 001301120331 / 9
 
 Type: `"string"`. Computed.
 
@@ -318,615 +318,615 @@ as.. Possible values are \`HARDWARE\_DEVICE\_USE\_REGULAR\`, \`HARDWARE\_DEVICE\
 \`HARDWARE\_NETWORK\_DEVICE\_USE\_FALLBACK\_MANAGEMENT\`. Defaults to
 \`HARDWARE\_DEVICE\_USE\_REGULAR\`.
 
-<a id="canonical-247e41a963a1e884abf8fd46b338ed7908cabad4e1090703774d83d720a19147"></a>
+<a id="canonical-0210133210012221-1203220132202010-2223332033311012-2303032032311321-0020302223223110-3201002100130003-1313103120033113-0200220121011013"></a>
 
-## Next pages — devices / 2b4ea207163d / 10
+## Next pages — devices / 001301120331 / 10
 
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68"></a>
+<a id="canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-244344446088721c6c6de99a9be264812448ab9f6075548823e52528c19dcb7e"></a>
+<a id="canonical-0210100310101010-1200202013020130-1230123132212122-2123320212102001-0210102022232133-1200131111102020-0203321102110220-3001213130231332"></a>
 
-## image_list — image_list / 1d324b72ff87 / 2
+## image_list — image_list / 130233332013 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
 - image_list
 
-<a id="canonical-97152f757484b900c37cd1225eead55199886749af0a5ba68d11d96a6e6c8860"></a>
+<a id="canonical-2113011102331311-1310201023210000-3003133031010202-1132322231111101-2121202012131021-2233002211232212-2031010131211222-1232123020201200"></a>
 
 Type: `"list"`. Computed.
 
 List of image names with providers for this certified hardware, e.g. AWS ami-0f99d090261d2acd5.
 
-<a id="canonical-3b8fe5736f3394e49711fd4cf0b37898b29d5d0ec01364dc9268a406e279a10b"></a>
+<a id="canonical-0323203332111303-1233030321103210-2113010133311030-3300230313202120-2302213111310032-3000010312103130-2102122022100012-3202132122010023"></a>
 
-## Direct properties — image_list / 1d324b72ff87 / 3
+## Direct properties — image_list / 130233332013 / 3
 
-- [aws](data-sources--certified_hardware--reference--group-001.md#canonical-5bf2a2ab44350101d18716a0acb19b55744c0f73717128836926626bd96bb36e): complete subsection reference.
+- [aws](data-sources--certified_hardware--reference--group-001.md#canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232): complete subsection reference.
 
-- [azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839): complete subsection reference.
+- [azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321): complete subsection reference.
 
-- [gcp](data-sources--certified_hardware--reference--group-001.md#canonical-68b29cb40c6337ed5d97842ee83dfa9f492c8c37cb7c0d106dae375eb11539f4): complete subsection reference.
+- [gcp](data-sources--certified_hardware--reference--group-001.md#canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310): complete subsection reference.
 
-<a id="canonical-a9a16b8c4a60ed80440595a77de6f3575ca19f1c091343f6f7d75b9b3b7dd49a"></a>
+<a id="canonical-2221220112232030-1022120032312000-1010001121112213-1331321233031113-1130220121330130-0021010310033312-3313311311232123-0323133131102122"></a>
 
-<a id="canonical-0b8de5e643f69a569f84c6c806fcaa36287ba2083bf96d9563750d3edc7327c2"></a>
+<a id="canonical-0023203132113212-1003331221221112-2133201030123020-0012333022220312-0220132322020020-0323332112312111-1203131100310332-3130130302133002"></a>
 
-## name property — image_list / 1d324b72ff87 / 4
+## name property — image_list / 130233332013 / 4
 
 Type: `"string"`. Computed.
 
 Name. Image name to use for this hardware.
 
-<a id="canonical-1451b2906ab3f446831005c91df89c023a5fe5d310a695af4ca8b9ec6afd06a2"></a>
+<a id="canonical-0110110123022100-1222230333101012-2003010000113021-0131332021300002-0322113332113103-0100221221112233-1030222023213230-1222333100122202"></a>
 
-<a id="canonical-19be280d565b3492d4583f60a98a867716fc68148d51a42d2e1e2a69831c51f5"></a>
+<a id="canonical-0121233202200031-1112112303102102-3110112003331200-2221202220121313-0112333012200110-2031110122100231-0232013202221221-2003013011013311"></a>
 
-## provider_ref property — image_list / 1d324b72ff87 / 5
+## provider_ref property — image_list / 130233332013 / 5
 
 Type: `"string"`. Computed.
 
 Image provider F5 Distributed Cloud, Cloud provider like AWS or Azure.
 
-<a id="canonical-6d6f9707ac8bbfbbd8e2800353668c1edaa6dbd4f41e0e95e54ff646a837cd0e"></a>
+<a id="canonical-1231123321130013-2230202323332323-3120320220000003-1103121220300132-3122221231233110-3310013200322111-3211103333121012-2220031330310032"></a>
 
-## Next pages — image_list / 1d324b72ff87 / 6
+## Next pages — image_list / 130233332013 / 6
 
-- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-5bf2a2ab44350101d18716a0acb19b55744c0f73717128836926626bd96bb36e)
-- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839)
-- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-68b29cb40c6337ed5d97842ee83dfa9f492c8c37cb7c0d106dae375eb11539f4)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232)
+- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321)
+- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-5bf2a2ab44350101d18716a0acb19b55744c0f73717128836926626bd96bb36e"></a>
+<a id="canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0195bad3464bd3d9f3d616f41978b9bdaa442b50a2f1be4a67c1b81738ac101c"></a>
+<a id="canonical-0001211123223103-1012102331033121-3303311201123310-0121132023212331-2222101002231100-2202330123321022-1213300123200113-0320223001000130"></a>
 
-## image_list.aws — image_list.aws / de915ea75214 / 2
+## image_list.aws — aws / 221311020110 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
 - image_list.aws
 
-<a id="canonical-659ea93b0c8cea8d6d31e2c615eb14b0364fbc449a62f9beab9c0d7625c1231c"></a>
+<a id="canonical-1211213222210323-0030203032222031-1231030132023012-0111322301102300-0312103323301010-2122120233212332-2223213000311312-0211300102030130"></a>
 
 Type: `"single"`. Computed.
 
 AWS. AWS specific information.
 
-<a id="canonical-b82816367ab6dd2965aa687cd30f37b0ce0a12c5c2fcd7ab97a9ae4a8acf7e04"></a>
+<a id="canonical-2320022001120312-1322231231310221-1211222212201330-3103003303132300-3032002201023011-3002333031132223-2113222122321022-2022303313320010"></a>
 
-## Direct properties — image_list.aws / de915ea75214 / 3
+## Direct properties — aws / 221311020110 / 3
 
-- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-72fe32b425befc46c1919ac5638bf8665dab139284f935068a5b4bb59bf12072): complete subsection reference.
+- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-1302333203022310-0211233233301012-3001210121223011-1203202333201212-1131222301032102-2010332103110012-2022112310232311-2123330102001302): complete subsection reference.
 
-<a id="canonical-976c3a50d6dfaaa8ae51fe5281810d96c1ac337448f7d0b25e974ebfdf7e1731"></a>
+<a id="canonical-2113123003221100-3112313322222220-2232110133321102-2001200100312112-3001223003031310-1020331331002302-1132211310322333-3133133201130301"></a>
 
-## Next pages — image_list.aws / de915ea75214 / 4
+## Next pages — aws / 221311020110 / 4
 
-- [image_list.aws.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-72fe32b425befc46c1919ac5638bf8665dab139284f935068a5b4bb59bf12072)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.aws.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-1302333203022310-0211233233301012-3001210121223011-1203202333201212-1131222301032102-2010332103110012-2022112310232311-2123330102001302)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-72fe32b425befc46c1919ac5638bf8665dab139284f935068a5b4bb59bf12072"></a>
+<a id="canonical-1302333203022310-0211233233301012-3001210121223011-1203202333201212-1131222301032102-2010332103110012-2022112310232311-2123330102001302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f460da240dc787ea815f01f65fdaee4b9e1789a0b5b384acbc91436c5d374a2a"></a>
+<a id="canonical-3310120031220210-0031301320133222-2001113300013312-1133312232321023-2132011320212200-2311230320102230-2330210110031230-1131031310220222"></a>
 
-## image_list.aws.image_id — image_list.aws.image_id / b5a8b302c662 / 2
+## image_list.aws.image_id — image_id / 000230121202 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-5bf2a2ab44350101d18716a0acb19b55744c0f73717128836926626bd96bb36e)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232)
 - image_list.aws.image_id
 
-<a id="canonical-075e3b678057f956d9994c343cbca0fb3f572808759d0a4e3626955eee471f4b"></a>
+<a id="canonical-0013113203231213-2000111333211112-3121212110300310-0330233022003323-0333111302200020-1311213100221032-0312021221111132-3232101301331023"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for image\_id.
 
-<a id="canonical-14520145ce77a74ef8a6f0b36535d4aa64dccec7d6670677d3865797f0231794"></a>
+<a id="canonical-0110110200011011-3032131322131032-3320221233002303-1211031131102222-1210313030323013-3112121300121313-3103201211132113-3300020301132110"></a>
 
-## Direct properties — image_list.aws.image_id / b5a8b302c662 / 3
+## Direct properties — image_id / 000230121202 / 3
 
-<a id="canonical-0b118ce1841c8672d3a1e4561712ace727649ca1c5ef5a9c8399189c8c655abd"></a>
+<a id="canonical-0023010120303201-2010013020121302-3103220132101112-0113010222303213-0213121021302201-3011323311222130-2003212101202130-2030121111222331"></a>
 
-<a id="canonical-1c803b8e6b1d9b12caaf04c2303443c5da4dcda1c9ba1d63b215b81ee21179bd"></a>
+<a id="canonical-0130200003232032-1223013121230102-3022223300103002-0300031010033011-3122103130312201-3021232201311203-2302011123200132-3202010113212331"></a>
 
-## image_id property — image_list.aws.image_id / b5a8b302c662 / 4
+## image_id property — image_id / 000230121202 / 4
 
 Type: `"string"`. Computed.
 
 AWS ami image name. AWS ami image.
 
-<a id="canonical-e71d6bb810de1f25ea29684703e103636b919e1f636f3a29870803b081aed755"></a>
+<a id="canonical-3213013112232320-0100313201330211-3222022112201013-0003320100031203-1223210121320133-1203123303220221-2013002000032300-2001223231131111"></a>
 
-<a id="canonical-28f49d73e69524987f11f858e02d3a42973652c789769dec741d18291fa3d691"></a>
+<a id="canonical-0220331021311303-3212211102102120-1333010133201120-3200023103221002-2113031211023013-2021131221313230-1310013101200221-0133220331122101"></a>
 
-## region property — image_list.aws.image_id / b5a8b302c662 / 5
+## region property — image_id / 000230121202 / 5
 
 Type: `"string"`. Computed.
 
 AWS ami image region. AWS ami image region.
 
-<a id="canonical-3b84e56e3012d706b776e849cba494e8804d2983592b2c513d26432d08a10cf6"></a>
+<a id="canonical-0323201032111232-0300010231130012-2313131232201021-3023221021103220-2000103102212003-1121022302301101-0331021210030231-0020220100303312"></a>
 
-## Next pages — image_list.aws.image_id / b5a8b302c662 / 6
+## Next pages — image_id / 000230121202 / 6
 
-- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-5bf2a2ab44350101d18716a0acb19b55744c0f73717128836926626bd96bb36e)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.aws](data-sources--certified_hardware--reference--group-001.md#canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839"></a>
+<a id="canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eed6dc4cb5b82135fdb4cc007c382c6ee5f8c2333940d3514eea64987ee9dd7c"></a>
+<a id="canonical-3232311231301030-2311232002010311-3331231030300000-1330032002301232-3211332030020303-0321100031031101-1032322212102120-1332322131311330"></a>
 
-## image_list.azure — image_list.azure / a1d40ba7c21a / 2
+## image_list.Azure — Azure / 221330020122 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- image_list.azure
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- image_list.Azure
 
-<a id="canonical-7b67940caaa4b793c97b36192436c6b8f78d4a766a671f4c66b53278cf91381c"></a>
+<a id="canonical-1323121321100030-2222221023132103-3021132303120121-0210031230122320-3313203110221312-1222121301331030-1212231103021320-3033210103200130"></a>
 
 Type: `"single"`. Computed.
 
 Azure. Azure specific information.
 
-<a id="canonical-baf3a2d2eb0353813d217d9fb178bd4354d732dc2525a556e0862fd494930626"></a>
+<a id="canonical-2322330322023102-3223000311032001-0331020113312133-2301132023311003-1110311303023130-0211021122111112-3200201202333110-2110210300120212"></a>
 
-## Direct properties — image_list.azure / a1d40ba7c21a / 3
+## Direct properties — Azure / 221330020122 / 3
 
-- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-33d37ec4d48ace1e54686790ca54b17bebb8be15be02bb773310be7972e08e0b): complete subsection reference.
+- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0303310313323010-3110202230320132-1110122012132100-3022111023011323-3223232023320111-2332000223231313-0303010023321321-1302320020320023): complete subsection reference.
 
-- [marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-13617fc919fc6e08edf2dc1de01eb73c38cbded805f56bc0366da9d51ea3a73d): complete subsection reference.
+- [marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-0103120113333021-0121333012320020-3231330231300131-3200013223130330-0320302331323120-0011331112233000-0312123122213111-0132220322130331): complete subsection reference.
 
-<a id="canonical-569a0d9101a01cd77a2ea399886e3fa3875138c0f320acf9f5b1325373befd25"></a>
+<a id="canonical-1112212200312101-0001220001303113-1322023222032121-2020123203332203-2013110103203000-3303020022303321-3311230103021103-1303233233310211"></a>
 
-## Next pages — image_list.azure / a1d40ba7c21a / 4
+## Next pages — Azure / 221330020122 / 4
 
-- [image_list.azure.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-33d37ec4d48ace1e54686790ca54b17bebb8be15be02bb773310be7972e08e0b)
-- [image_list.azure.marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-13617fc919fc6e08edf2dc1de01eb73c38cbded805f56bc0366da9d51ea3a73d)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.azure.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-0303310313323010-3110202230320132-1110122012132100-3022111023011323-3223232023320111-2332000223231313-0303010023321321-1302320020320023)
+- [image_list.azure.marketplace](data-sources--certified_hardware--reference--group-001.md#canonical-0103120113333021-0121333012320020-3231330231300131-3200013223130330-0320302331323120-0011331112233000-0312123122213111-0132220322130331)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-33d37ec4d48ace1e54686790ca54b17bebb8be15be02bb773310be7972e08e0b"></a>
+<a id="canonical-0303310313323010-3110202230320132-1110122012132100-3022111023011323-3223232023320111-2332000223231313-0303010023321321-1302320020320023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8a73bc297eb88c55a953c22e60dfa5a8e236f3b8e28ea1c01209c7c34dbd78f"></a>
+<a id="canonical-3020221303233002-2113322320203011-1122211103300202-3212003133221122-2032020312330323-2032022032220130-0001020021301330-0310312331132033"></a>
 
-## image_list.azure.image_id — image_list.azure.image_id / 6435d2261c87 / 2
+## image_list.Azure.image_id — image_id / 021201302013 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839)
-- image_list.azure.image_id
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321)
+- image_list.Azure.image_id
 
-<a id="canonical-31393b10813fb744a2fa17d63340f89af8697c9da2912e9e1e270efc49966dae"></a>
+<a id="canonical-0301032103230100-2001033323131010-2202332201133112-0303100033202122-3320122113302131-2202210102322132-0132021300323330-1021211212312232"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for image\_id.
 
-<a id="canonical-ad87e5634a5d4b524225620297ba0f0347eb07bd98f467c1949b64ef15b37ce8"></a>
+<a id="canonical-2231201332111203-1022113110231102-1002021112020002-2113232200330003-1013322300132331-2120331012133001-2110212312103233-0111230313303220"></a>
 
-## Direct properties — image_list.azure.image_id / 6435d2261c87 / 3
+## Direct properties — image_id / 021201302013 / 3
 
-<a id="canonical-ab983bcd941742d120008055ac280511b2a718765f8552b1d0d042f762deffe2"></a>
+<a id="canonical-2223212003233031-2110011310023101-0200000020001111-2230022000110101-2302221301201312-1133201111022301-3100310010023313-1202313233333202"></a>
 
-<a id="canonical-034a764fc576bcd067be073a1b84b7f53ee02474823cf3843686ecabf5a12c1f"></a>
+<a id="canonical-0003102213121033-3011131223303100-1213233200130322-0123201023133311-0332320002101310-2002033033032010-0312201232302223-3311220102300133"></a>
 
-## image_id property — image_list.azure.image_id / 6435d2261c87 / 4
+## image_id property — image_id / 021201302013 / 4
 
 Type: `"string"`. Computed.
 
 Azure image ID info. Azure image ID.
 
-<a id="canonical-3fffd95a2dbbbcfa1bde14afed293f041537b9886c543e0391b88eb11e51ba91"></a>
+<a id="canonical-0333333331211122-0231232323303322-0123313201102233-3231022103330010-0111031323212020-1230111003320003-2101232020322301-0132110123222101"></a>
 
-## Next pages — image_list.azure.image_id / 6435d2261c87 / 5
+## Next pages — image_id / 021201302013 / 5
 
-- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-13617fc919fc6e08edf2dc1de01eb73c38cbded805f56bc0366da9d51ea3a73d"></a>
+<a id="canonical-0103120113333021-0121333012320020-3231330231300131-3200013223130330-0320302331323120-0011331112233000-0312123122213111-0132220322130331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b47a78817a0717dc244302e6d85ac9b63a8852fb2cebeb487b246a6d0a1b1f8"></a>
+<a id="canonical-1323101322132020-0113220013011331-3002101003000232-1231201122302123-1203222020110233-2302303223322310-2013230210122212-3100220123013320"></a>
 
-## image_list.azure.marketplace — image_list.azure.marketplace / b4d8785ad7eb / 2
+## image_list.Azure.marketplace — marketplace / 112231133223 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839)
-- image_list.azure.marketplace
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321)
+- image_list.Azure.marketplace
 
-<a id="canonical-be75a72ecee2c6a6bfcbb25898f6e13d235dc92d922387cfd8b789dd4105ac83"></a>
+<a id="canonical-2332131122130232-3032320230122212-2333302323021120-2120331232010331-0203113130210231-2102020320133033-3120231320213131-1001001122302003"></a>
 
 Type: `"single"`. Computed.
 
 Configuration parameter for marketplace.
 
-<a id="canonical-f499f79ae4a34d540127412e8951cac482c2f081fcc1c1581f5132c8329e3546"></a>
+<a id="canonical-3310212133132122-3210220310311110-0001021310010232-2021110130223010-2002300233002001-3330300130011120-0133110103023020-0302213203111012"></a>
 
-## Direct properties — image_list.azure.marketplace / b4d8785ad7eb / 3
+## Direct properties — marketplace / 112231133223 / 3
 
-<a id="canonical-f3b07ff1333b23d62277d5dd9c44c9d5429a15acf697da5c5d950dbf6c95053a"></a>
+<a id="canonical-3303230013333301-0303032302033112-0202131331113131-2130101030213111-1002212201112230-3312211331221130-1131211100312333-1230211100110322"></a>
 
-<a id="canonical-abdda16a5dcc659550a041e6a5874bbdd92d446997919fc2dc6b58075a7e8ba4"></a>
+<a id="canonical-2223313122011222-1131303012112111-1100220010013212-2211201310232331-3121023110101221-2113210121333002-3130122311200013-1122133220232210"></a>
 
-## name property — image_list.azure.marketplace / b4d8785ad7eb / 4
+## name property — marketplace / 112231133223 / 4
 
 Type: `"string"`. Computed.
 
 Azure Marketplace Name. Azure Marketplace Name.
 
-<a id="canonical-8a4c1e8de0e23df67276465bb29e538017f0e317f9743773833a586661e15518"></a>
+<a id="canonical-2022103001322031-3200320203313312-1302131210121123-2302213211032000-0113330032030113-3321131003131303-2003032211201212-1201320111110120"></a>
 
-<a id="canonical-0ce731727c4a7d6a3179681cb4d1db8a1ca627ef50b9dd495e2a588ed8a68071"></a>
+<a id="canonical-0030321303011302-1330102213311222-0301132112200130-2310310131232022-0130221202133233-1100232131311021-1132022211202032-3120221220001301"></a>
 
-## offer property — image_list.azure.marketplace / b4d8785ad7eb / 5
+## offer property — marketplace / 112231133223 / 5
 
 Type: `"string"`. Computed.
 
 Azure Marketplace offer. Azure Marketplace offer.
 
-<a id="canonical-bbe8de719f3d63083de89c6688e1bdaedac8765f0a5167ec33ffc904fce72aad"></a>
+<a id="canonical-2323322031321301-2133033112030020-0331322021301212-2020320123312232-3122302013121133-0022110112133230-0303333330210010-3330321302222231"></a>
 
-<a id="canonical-ae0e0428c89a61e09ff4479a1c580f1aa2f4dcc6d1b0f33b73ac1a85a8318f4f"></a>
+<a id="canonical-2232003200100220-3020212212013200-2133331010132122-0130112000330122-2202331031303012-3101230033030323-1303223001222011-2220030120331033"></a>
 
-## publisher property — image_list.azure.marketplace / b4d8785ad7eb / 6
+## publisher property — marketplace / 112231133223 / 6
 
 Type: `"string"`. Computed.
 
 Azure Marketplace Publisher. Azure Marketplace Publisher.
 
-<a id="canonical-02957541b165a13d4aa7b35bd82836a2882d77e3a85258b4f1c73e3e901fc11f"></a>
+<a id="canonical-0002211113111001-2301121122010331-1022221323031123-3120022003122202-2020023113133203-2220110211202310-3301301303320332-2100013330010133"></a>
 
-<a id="canonical-efc07dbeb291c819a73257c9b90049a01964b769577b721e16ece588148dc10a"></a>
+<a id="canonical-3233300013312332-2302210130200121-2213030211133021-2321000010212200-0121121023131221-1113132313020132-0112323032112020-0110203130010022"></a>
 
-## sku property — image_list.azure.marketplace / b4d8785ad7eb / 7
+## sku property — marketplace / 112231133223 / 7
 
 Type: `"string"`. Computed.
 
 Azure Marketplace SKU. Azure Marketplace SKU.
 
-<a id="canonical-2bd5435c9c38fe25d439353a4984263fc0e29447e7a53d1815b60dff4d313d85"></a>
+<a id="canonical-0223311110031130-2130032033320211-3110032103110322-1021201002120333-3000320221101013-3213221103310120-0111231200313333-1031030103312011"></a>
 
-<a id="canonical-ff664283ce38db3af73df766ea7e1442ede90908a7f76aed822d65707dc8ebb1"></a>
+<a id="canonical-3333121210022003-3032032031230322-3313033133131212-3222133201101002-3231322100210020-2213331312223231-2002023112111300-1331302032232301"></a>
 
-## version property — image_list.azure.marketplace / b4d8785ad7eb / 8
+## version property — marketplace / 112231133223 / 8
 
 Type: `"string"`. Computed.
 
 Azure Marketplace Version. Azure Marketplace Version.
 
-<a id="canonical-a22b17dfb6252d5e4365d5f2a68e096f10d85ebd9c3157818c0fa7b4590ad4c1"></a>
+<a id="canonical-2202022301133133-2312021102311132-1003121131113302-2212203200211233-0100312011322331-2130030111132001-2030003322132310-1121002231103001"></a>
 
-## Next pages — image_list.azure.marketplace / b4d8785ad7eb / 9
+## Next pages — marketplace / 112231133223 / 9
 
-- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-fbe93ad3745a72536da6e8032314cc4ab003b96dba1bb2931b0572ddcf766839)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.azure](data-sources--certified_hardware--reference--group-001.md#canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-68b29cb40c6337ed5d97842ee83dfa9f492c8c37cb7c0d106dae375eb11539f4"></a>
+<a id="canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-59a91692829ef7b5db4c1aedeac9c42b75a4c87074179a952d9214a7db1ac0ed"></a>
+<a id="canonical-1121222101122102-2002213233132311-3123103001223231-3222302130100223-1311221030201300-1310011321222111-0231210201102213-3123012230003231"></a>
 
-## image_list.gcp — image_list.gcp / 4bea4df63329 / 2
+## image_list.gcp — gcp / 331203030221 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
 - image_list.gcp
 
-<a id="canonical-e8e464d280054295151f6bc1bac4d6145d7d61282ded6a2fd2865883350e2e26"></a>
+<a id="canonical-3220321012103102-2000001110022111-0111013312233001-2322301031120110-1131133112010220-0231323112220233-3102201211202003-0311003202320212"></a>
 
 Type: `"single"`. Computed.
 
 GCP. GCP specific information.
 
-<a id="canonical-e346a4a2d682f826e421dd4ae6299bbcda7f9c710bcd28c999ce710c4fc44c4b"></a>
+<a id="canonical-3203101222102202-3112200233200212-3210020131311022-3212022121232330-3122133321301301-0023303102203021-2121303213010030-1033301010301023"></a>
 
-## Direct properties — image_list.gcp / 4bea4df63329 / 3
+## Direct properties — gcp / 331203030221 / 3
 
-- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-cf8880e4c48b04d945de8e0ba8be1a530f0cacec72ccbe7eb8dd69193a523a34): complete subsection reference.
+- [image_id](data-sources--certified_hardware--reference--group-001.md#canonical-3033202020003210-3010202300103121-1011313220320023-2220233201221103-0033003022303230-1302303023321332-2320313112210121-0322110203220310): complete subsection reference.
 
-<a id="canonical-e0782196de631de574bcb00a7c2eee1da4404429d1514ba83886deaf9d3a75d8"></a>
+<a id="canonical-3200132002012112-3132120301313211-1310233023000022-1330023232320131-2210100010100221-3101110110232220-0320201231322233-2131032213113120"></a>
 
-## Next pages — image_list.gcp / 4bea4df63329 / 4
+## Next pages — gcp / 331203030221 / 4
 
-- [image_list.gcp.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-cf8880e4c48b04d945de8e0ba8be1a530f0cacec72ccbe7eb8dd69193a523a34)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.gcp.image_id](data-sources--certified_hardware--reference--group-001.md#canonical-3033202020003210-3010202300103121-1011313220320023-2220233201221103-0033003022303230-1302303023321332-2320313112210121-0322110203220310)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-cf8880e4c48b04d945de8e0ba8be1a530f0cacec72ccbe7eb8dd69193a523a34"></a>
+<a id="canonical-3033202020003210-3010202300103121-1011313220320023-2220233201221103-0033003022303230-1302303023321332-2320313112210121-0322110203220310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-48287707d3cf7ab8cf48b9ed41fb6e89413528db9635d1705560e5edce7bfe66"></a>
+<a id="canonical-1020022013130013-3103303313222320-3033102023213231-1001332312322021-1001031102203123-2112031131011300-1111120032113231-3032132333321212"></a>
 
-## image_list.gcp.image_id — image_list.gcp.image_id / b0d70b85d16e / 2
+## image_list.gcp.image_id — image_id / 201131011232 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-f186d891158e4bf4c4e5365f5476155bf448d25819982cf76886e337b1701c68)
-- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-68b29cb40c6337ed5d97842ee83dfa9f492c8c37cb7c0d106dae375eb11539f4)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [image_list](data-sources--certified_hardware--reference--group-001.md#canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220)
+- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310)
 - image_list.gcp.image_id
 
-<a id="canonical-7a8abefd4f48deb7069dca9c2bac3b58107376674f95f8309f538fa38eb4d472"></a>
+<a id="canonical-1322202223323331-1033102031322313-0012213130222130-0223223003231120-0100130313121213-1033211133200300-2133110320332203-2032231031101302"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for image\_id.
 
-<a id="canonical-f043420341d435f2eaf5165f98849dfd62762ee4ba6fc943b28fb80c4865654d"></a>
+<a id="canonical-3300100310020003-1001311003113302-3222331101121133-2120201021313331-1202131202323210-2322123330211003-2302203323200030-1020121112111031"></a>
 
-## Direct properties — image_list.gcp.image_id / b0d70b85d16e / 3
+## Direct properties — image_id / 201131011232 / 3
 
-<a id="canonical-df5d4c4c1dd176525394e3eaf07e067227075745d8b75c032cedfda40ab60ec5"></a>
+<a id="canonical-3133113110301030-0131310113121102-1103211032033222-3300133200121302-0213001311131011-3120231311300003-0230323133312210-0022231200323011"></a>
 
-<a id="canonical-c1c2427e196c91600e7af2f61e4e8998a884e4ae6fce960df721ad6358df99e7"></a>
+<a id="canonical-3001300210021332-0121123021011200-0032132233023312-0132103220212120-2220201032102232-1233303221120031-3313020122311203-1120313321213213"></a>
 
-## image_id property — image_list.gcp.image_id / b0d70b85d16e / 4
+## image_id property — image_id / 201131011232 / 4
 
 Type: `"string"`. Computed.
 
 GCP image name. GCP image
 
-<a id="canonical-56a07ee2fa73d0b83b54a8062fcb88f0942123ea5827f44b81d75ebb90e7b2d1"></a>
+<a id="canonical-1112220013323202-3322130331002320-0323111022200012-0233302320203300-2110020102033222-1120021333101023-2001311311322323-2100321323023101"></a>
 
-## Next pages — image_list.gcp.image_id / b0d70b85d16e / 5
+## Next pages — image_id / 201131011232 / 5
 
-- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-68b29cb40c6337ed5d97842ee83dfa9f492c8c37cb7c0d106dae375eb11539f4)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [image_list.gcp](data-sources--certified_hardware--reference--group-001.md#canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-c1df81866f89c2e466059b8c6e253fbf26f763f348e456896453d33dde5d5b04"></a>
+<a id="canonical-3001313320012012-1233202130023210-1212001121232030-1232021103332333-0212331312033303-1020321011122021-1210110331030331-3132113111230010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-03659e52f5b2e24e93e7172f44680120eb530730f689f130e9bdcce74c0ab201"></a>
+<a id="canonical-0003121121321102-3311230232021032-2103321301130233-1010122000010200-3223110300130300-3312202133010300-3221233130303213-1030002223020001"></a>
 
-## internal_usb_device_rule — internal_usb_device_rule / 5f9e2d1e961c / 2
+## internal_usb_device_rule — internal_usb_device_rule / 013221120130 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
 - internal_usb_device_rule
 
-<a id="canonical-4ff16b98172b0c4d1ed4002782f2cbd09dbf7675e0bd0d5d353975a4f24eab83"></a>
+<a id="canonical-1033330112232120-0113022300301031-0132311000000213-2002330230233100-2131233313121311-3200233100311131-0311032113112210-3302103222232003"></a>
 
 Type: `"list"`. Computed.
 
 List of internal USB device rules for server.
 
-<a id="canonical-f86d0af9307f3c497d2c082764ae646af3782fce0455953b7e9bcd7586c9e3a1"></a>
+<a id="canonical-3320123100223321-0300133303301021-1331023000200213-1210223212101222-3303132002333032-0010111121110323-1332212330311311-2012302132032201"></a>
 
-## Direct properties — internal_usb_device_rule / 5f9e2d1e961c / 3
+## Direct properties — internal_usb_device_rule / 013221120130 / 3
 
-<a id="canonical-f647bc0fbcc121989d13f89fe250ccb2e67622168fda6b14039842914ffda9cb"></a>
+<a id="canonical-3312101323300033-2330300102012120-2131010333202133-3202110030302302-3212131202020112-2033312212230110-0003212010022101-1033333122213023"></a>
 
-<a id="canonical-4110dfb20dfb311ff69885ba28409e7af350c45bbaf8473b79e83f83d5011d4d"></a>
+<a id="canonical-1001010031332302-0031332303010133-3312212020112322-0220100021321322-3303110030101123-2322332010130323-1321322003332003-3111000101311031"></a>
 
-## b_device_class property — internal_usb_device_rule / 5f9e2d1e961c / 4
+## b_device_class property — internal_usb_device_rule / 013221120130 / 4
 
 Type: `"string"`. Computed.
 
 Class. The class of this device.
 
-<a id="canonical-7be8ceafc553ed2de656381696d7b53ecba2fafd4dade34ed8842b2f8cdc4cf0"></a>
+<a id="canonical-1323322030322233-3011110332310231-3212111203200112-2112311323110332-3023220233223331-1031223132031032-3120201002230233-2030313010303300"></a>
 
-<a id="canonical-a592220d292a1f008fd42d0d695b9c89ebe057ca57ccb2a5a964b447dc7c993b"></a>
+<a id="canonical-2211210202020031-0221022201330000-2033311002310031-1221112321302021-3223320011133022-1113303023022211-2221121023101013-3130133021210323"></a>
 
-## b_device_protocol property — internal_usb_device_rule / 5f9e2d1e961c / 5
+## b_device_protocol property — internal_usb_device_rule / 013221120130 / 5
 
 Type: `"string"`. Computed.
 
 The protocol (within the sub-class) of this device.
 
-<a id="canonical-7bd40ad9f863332fc9f958176216fcc085b789d9cc149037f559943473f51aba"></a>
+<a id="canonical-1323311000223121-3320120303030233-3021332111200113-1202011233303000-2011231320213121-3030011021000313-3311112121100310-1303331101222322"></a>
 
-<a id="canonical-d37bf6ff2022a88237217dd8c83fba2352faf0717e86e90d4bbeeab90802382c"></a>
+<a id="canonical-3103132333123333-0200020222202002-0313020113313120-3020033323220203-1102332233001301-1332201232210031-1023233232222321-0020000203200230"></a>
 
-## b_device_sub_class property — internal_usb_device_rule / 5f9e2d1e961c / 6
+## b_device_sub_class property — internal_usb_device_rule / 013221120130 / 6
 
 Type: `"string"`. Computed.
 
 The sub-class (within the class) of this device.
 
-<a id="canonical-4d0bacd2cb82d1ec950219da3c08b3c74b3eb08659f25c46acc7a11960342970"></a>
+<a id="canonical-1031002322303102-3023200231013230-2111000201213122-0330002023033013-1023033223002012-1121330211301012-2230301322010121-1200031002211300"></a>
 
-<a id="canonical-aa5253a996f333eab3ba733c07edadba1b3d0e4149095e8a3fadc9b484dd51d0"></a>
+<a id="canonical-2222110211032221-2112330303033222-2303232213030330-0013323122312322-0123033100321001-1021002111322022-0333223130212310-2010313111013100"></a>
 
-## i_serial property — internal_usb_device_rule / 5f9e2d1e961c / 7
+## i_serial property — internal_usb_device_rule / 013221120130 / 7
 
 Type: `"string"`. Computed.
 
 Index of Serial Number String Descriptor.
 
-<a id="canonical-d003c1105033e4b1aa814bdb0e739585780f8e4977a1c401fc00b241868a1444"></a>
+<a id="canonical-3100000330010100-1100030332102301-2222200110233123-0032130321112011-1320003320321021-1313220130100001-3330000023021001-2012202201101010"></a>
 
-<a id="canonical-499f846416b7284e8cb98bbb27e4c4b7d71fa22b8a7ef0bc46d4c9fde9b1a747"></a>
+<a id="canonical-1021213320101210-0112231302201032-2030232120232323-0213321030102313-3113013322020223-2022133233002330-1012311030213331-3221230122131013"></a>
 
-## id_product property — internal_usb_device_rule / 5f9e2d1e961c / 8
+## id_product property — internal_usb_device_rule / 013221120130 / 8
 
 Type: `"string"`. Computed.
 
 Product ID (Assigned by Manufacturer) in hex.
 
-<a id="canonical-168afb7c688492c411b878087fe734420c1ac2dc312c8b9f266c607111b78512"></a>
+<a id="canonical-0112202233231330-1220201021023010-0101232013200020-1333321303101002-0030012230023130-0301023020232133-0212123012001301-0101231320110102"></a>
 
-<a id="canonical-f8e6c7cdb98c5ce99475e8e6cbf1ac2010a48e9d6f837e14618d212b133abf8d"></a>
+<a id="canonical-3320321230133031-2321203011303221-2110131132203212-3023330122300200-0100221020322131-1233200313320110-1201203102010223-0103032223332031"></a>
 
-## id_vendor property — internal_usb_device_rule / 5f9e2d1e961c / 9
+## id_vendor property — internal_usb_device_rule / 013221120130 / 9
 
 Type: `"string"`. Computed.
 
 Vendor ID. Vendor ID (Assigned by USB Org) in hex.
 
-<a id="canonical-b8cb1405a2381c6f2e7ee793ba86b2c219dbe57951f4439edbef3711ad1d4977"></a>
+<a id="canonical-2320302301100011-2202032001301233-0232133232132103-2322201223023002-0121312332111321-1101331010032132-3123323303130101-2231013110211313"></a>
 
-## Next pages — internal_usb_device_rule / 5f9e2d1e961c / 10
+## Next pages — internal_usb_device_rule / 013221120130 / 10
 
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-bcbeeb01b8644d593914c435c9f52c801c39b5740fd9ea3ec09fe5e115c7f893"></a>
+<a id="canonical-2330233232230001-2320121010311121-0321011030100311-3021331102302000-0130032123111310-0033312132220332-3000213332113201-0111301333202103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd0c92fa1f0bbbeac05aef87f65334dade9dc4e0ea3be943e1e0c20c8e2fb1e5"></a>
+<a id="canonical-3031003021023322-0133002323233222-3000112232332013-3312110303103122-3132213130103200-3222032332211003-3201320030020030-2032023323013211"></a>
 
-## numa_mem — numa_mem / 75e34d6b115c / 2
+## numa_mem — numa_mem / 122301011130 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
 - numa_mem
 
-<a id="canonical-34c69447c6622c4fc7466b2d309d668391f08a792c790ba6ddccf4b829ad7b23"></a>
+<a id="canonical-0310301221101013-3012120202301033-3013101212230231-0300213112122003-2101330020221321-0230132100232212-3131303033102320-0221223113230203"></a>
 
 Type: `"list"`. Computed.
 
 List of Numa nodes with the number of MB of instance memory to map to node instance If not
 specified, memory is evenly divided among available NUMA nodes.
 
-<a id="canonical-cce98329519f22620be796f8f7e3455d4b7cea5b91416051cb7e531fd5a4176c"></a>
+<a id="canonical-3030322120030221-1101213302021202-0023321321123320-3313320310111131-1023133032221123-2101100112001101-3023133211030133-3111221001131230"></a>
 
-## Direct properties — numa_mem / 75e34d6b115c / 3
+## Direct properties — numa_mem / 122301011130 / 3
 
-<a id="canonical-d0bb4fcb46a8fad0a36d2a376de1b889746e7f5c8189e5f6680b351b2d91db4c"></a>
+<a id="canonical-3100232310333023-1012222033223100-2203123102220313-1231320123202021-1310123213331130-2001202132113312-1220002303110123-0231210131231030"></a>
 
-<a id="canonical-d3b865c59328e67206a29bbb5da6f04f59aca601ef5ba5d2c5e84483bfb786bf"></a>
+<a id="canonical-3103232012113011-2103022032121302-0012220221232323-1131221233001033-1121223022120001-3233112322113102-3011322010102003-2333231320122333"></a>
 
-## memory property — numa_mem / 75e34d6b115c / 4
+## memory property — numa_mem / 122301011130 / 4
 
 Type: `"number"`. Computed.
 
 The number of MB of instance memory to map to instance NUMA node N.
 
-<a id="canonical-5a999149527e25c95ab281fe6b7b87d5c0377e37c598a241861b47207bc5cf0e"></a>
+<a id="canonical-1122212121011021-1102133202113021-1122230220013332-1223132320133111-3000031313320313-3011212022021001-2012012310130200-1323301130330032"></a>
 
-<a id="canonical-0405ed4a3463a02e769abfda072946a8a5a5372791a743d16ef768f75005fc6f"></a>
+<a id="canonical-0010001132311022-0310120322000232-1312212223333122-0013022110122220-2211221103130213-2101221310033101-1232331312203313-1100001133301233"></a>
 
-## node property — numa_mem / 75e34d6b115c / 5
+## node property — numa_mem / 122301011130 / 5
 
 Type: `"number"`. Computed.
 
 Node. NUMA node instance with mapped memory.
 
-<a id="canonical-f1599e98628cac8122c02546924eefa68b65580147d3a6566de8eb05415a9829"></a>
+<a id="canonical-3301112121322120-1202203022302001-0202300002111012-2102103232332212-2023121111200001-1013310322121112-1231322032230011-1001112221200221"></a>
 
-## Next pages — numa_mem / 75e34d6b115c / 6
+## Next pages — numa_mem / 122301011130 / 6
 
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
 
-<a id="canonical-64519123e849fbc61f12441e0a23a510716d560f280e463dc8d63f16132a1f4d"></a>
+<a id="canonical-1210110121010203-3220102133233012-0133010210100132-0022020322110100-1301123111120033-0220003210120331-3020311203330112-0103022201331031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-45a3a541a6811f9d3f05f5b5e78479a28792bc2cc400e7bc44662949970aab44"></a>
+<a id="canonical-1011220322111001-2212200101332131-0333001133112311-3213201013212202-2013210223300230-3010000032132330-1010121202211021-2113002222231010"></a>
 
-## vendor_model_list — vendor_model_list / 72fa7711d301 / 2
+## vendor_model_list — vendor_model_list / 010131030001 / 2
 
 Breadcrumbs:
 
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
 - vendor_model_list
 
-<a id="canonical-13dc07330e648eca7218d58d42ac422f4f1ab7262910fbf41b1eb3d553947a2c"></a>
+<a id="canonical-0103313000130303-0032121020323022-1302012031112031-1002223010020233-1033012223130212-0221010033233310-0123013223033111-1103211013220230"></a>
 
 Type: `"list"`. Computed.
 
 List of supported hardware vendor and model for this certified hardware.
 
-<a id="canonical-db5f22aea98c95ce2bc8059b30976a35e1f75a9b5320952a048b368bb535c42d"></a>
+<a id="canonical-3123113302022232-2221203021113032-0223302000112123-0300211312220311-3201331311222123-1103020021110222-0010202303122023-2311031130100231"></a>
 
-## Direct properties — vendor_model_list / 72fa7711d301 / 3
+## Direct properties — vendor_model_list / 010131030001 / 3
 
-<a id="canonical-bc2f307329047f45a9f35fdae12b94898a30db5c0dc02d39c066ac34d608b449"></a>
+<a id="canonical-2330023303001303-0221001013331011-2221330311333122-3201022321102021-2022030031231130-0031300002310321-3000121222300310-3112002023101021"></a>
 
-<a id="canonical-c75c5489da2b8d995190ec66e9e03d83533c4d243e766621ab45d9ad35eee55f"></a>
+<a id="canonical-3013113011102021-3122022320312121-1101210032301212-3221320003312003-1103033010310210-0332131212120201-2223101131212231-0311323232111133"></a>
 
-## model property — vendor_model_list / 72fa7711d301 / 4
+## model property — vendor_model_list / 010131030001 / 4
 
 Type: `"string"`. Computed.
 
 Hw Model or instance type from cloud provider like number of interfaces, vCPUs, memory.
 
-<a id="canonical-318277bd5075e0a985c701d7dc6896b83b715b9fafb5f50c050c0f89ad4a66c5"></a>
+<a id="canonical-0301200213132331-1100131132002221-2011301300013113-3130122021122320-0323130111232133-2233231133110030-0011003000332021-2231102212123011"></a>
 
-<a id="canonical-25641900fa50ad920c4aa44362c237facb8035a6e2588ac6b8a0cd06b15a3bd3"></a>
+<a id="canonical-0211121001210000-3322110022312102-0030102222101003-1202300203133322-3023200003112212-3202112020223012-2320220030310012-2301112203233103"></a>
 
-## vendor property — vendor_model_list / 72fa7711d301 / 5
+## vendor property — vendor_model_list / 010131030001 / 5
 
 Type: `"string"`. Computed.
 
 Vendor could be F5 Distributed Cloud, Dell, Cloud provider like AWS or Azure.
 
-<a id="canonical-d7636d3ffc54f85c541ccc81f24c0e045b200c916455b3613f2473106adac320"></a>
+<a id="canonical-3113120312310333-3330111033201130-1110013030302001-3302103000320010-1123020000302101-1210111123031201-0333021013030100-1222312230030200"></a>
 
-## Next pages — vendor_model_list / 72fa7711d301 / 6
+## Next pages — vendor_model_list / 010131030001 / 6
 
-- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a)
+- [Property reference](data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [xcsh_certified_hardware](../data-sources/certified_hardware.md#canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122)

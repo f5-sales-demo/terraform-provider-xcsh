@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_lb_pool landing.
 
 # xcsh_dns_lb_pool landing
 
-<a id="canonical-cbd8be9979f5969a414be1fc8eba160acc05faa80445e78a41e1ae2fed10b6be"></a>
+<a id="canonical-3023312023322121-1321331121122122-1001102332013330-2032232201120022-3030001133222220-0010101132132022-1001320122320233-3231010023122332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8440b6f529ed73a6297550d178f111dbe31456a1796f9ef3b72369127a5c3738"></a>
+<a id="canonical-2010100023123311-0221323113032212-0221131111003101-1320330101013123-3203011011122201-1321123321323303-2313020312210102-1322113003130320"></a>
 
-## xcsh_dns_lb_pool — xcsh_dns_lb_pool / 1e975d067e95 / 2
+## xcsh_dns_lb_pool — xcsh_dns_lb_pool / 001213322111 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages DNS Load Balancer Pool in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-<a id="canonical-016df376c42d6cb2139672b1ad3272408b461b7ccc9a133894a11ba3cc918cd4"></a>
+<a id="canonical-0001123133031312-3010023112302302-0103211213022301-2231030213021000-2023101201231330-3030212201030320-2110220101232203-3030210120303110"></a>
 
-## Prerequisites — xcsh_dns_lb_pool / 1e975d067e95 / 3
+## Prerequisites — xcsh_dns_lb_pool / 001213322111 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-28f9b66fde69bcd3679369cbb63ef4cb425bf17d4c4c1126538d979158e796e7"></a>
+<a id="canonical-0220332123121233-3132122123303103-1213210312213023-2312033233103023-1002112333011331-1030103001010212-1103203121132101-1120321321123213"></a>
 
-## Minimal configuration — xcsh_dns_lb_pool / 1e975d067e95 / 4
+## Minimal configuration — xcsh_dns_lb_pool / 001213322111 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_dns_lb_pool" "example" {
 }
 ```
 
-<a id="canonical-e46bdbbf802b04f8038af228c86b358e7f32bbbcdcfd02369be42bf2a852c70a"></a>
+<a id="canonical-3210122331232333-2000022300103320-0003202233020220-3020122303112032-1333030223232330-3130333100020312-2123321002233302-2220110230130022"></a>
 
-## Root configuration — xcsh_dns_lb_pool / 1e975d067e95 / 5
+## Root configuration — xcsh_dns_lb_pool / 001213322111 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-e04665f6fe9e6a0ce226d4221b4e05aa0e78cf611d5191c2054c4bd819ad17d9"></a>
+<a id="canonical-3200101212113312-3332213212220030-3202021231100202-0123103200112222-0032132030331201-0131110121013002-0011103010233120-0121223101133121"></a>
 
-## Next pages — xcsh_dns_lb_pool / 1e975d067e95 / 6
+## Next pages — xcsh_dns_lb_pool / 001213322111 / 6
 
-- [Property reference](../guides/resources--dns_lb_pool--reference--group-001.md#canonical-e051d8e0ad04bf7bfa8ec8011b77167797a43be3ca460d8599a26eb6434b48cd)
-- [Examples](../guides/resources--dns_lb_pool--examples--group-001.md#canonical-c9d179e71810ad3d046c54203f75de777a65f82b4e362f3fcb56fc10b8a6fcc0)
-- [Import](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-422811f1450679f47c551f868d9fbc36708b742963fa95d6a12847e7432ac153)
-- [Timeouts](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-a6da6af97ce085b8e29bb920e35e05fd69771cc396acba71fb9a9290ae7648ea)
+- [Property reference](../guides/resources--dns_lb_pool--reference--group-001.md#canonical-3200110131203200-2231001023331323-3322203230200001-0123131301121313-2113221003233203-3022101200312011-2121220212322312-1003102310203031)
+- [Examples](../guides/resources--dns_lb_pool--examples--group-001.md#canonical-3021310113213213-0120010022310331-0010123011100200-0333131131321313-1322121133200223-1032031202330333-3023111233300100-2320221233303000)
+- [Import](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-1002022001013301-1011001213213310-1330111101332012-2031213323300312-1300202313100221-1203332221113112-2201022010133213-1003022230011103)
+- [Timeouts](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-2212312212223321-1330320020112320-3202212323210200-3203113200113331-1221131301303003-2112223023221301-3323212221022100-2232131210203222)

@@ -6,32 +6,32 @@ description: "Complete grouped canonical reference for xcsh_address_allocator re
 
 # xcsh_address_allocator reference
 
-<a id="canonical-06d6ef2a4ebffe9fba2c3fad1b3c86d8113e071f5d1178e3a4362816a6103b09"></a>
+<a id="canonical-0012311232330222-1032233333322133-2322023003332231-0123033020123120-0101033200130133-1131010113203203-2210031202200112-2212010003230021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f173eb4f0f33f77fdfd606e92cfcd6022227ac5c75de0f717af55fe951002e9"></a>
+<a id="canonical-2033011303322310-3300330303331313-3331333112001232-2102303330311200-0202020213223011-3013113132003313-0113223311113332-2111010000023221"></a>
 
-## Property reference — Property reference / ce6d0f86c283 / 2
+## Property reference — Property reference / 201230022003 / 2
 
 Breadcrumbs:
 
-- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-b37f5189fa71c353983be346c78099ee10d1935bec31c657e73fc56ee3cc9d4b)
+- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-2303133311012021-3322130130031103-2120032332031012-3013200021213232-0100310121031123-3230030130121113-3213033330111232-3203303021311023)
 - Property reference
 
-<a id="canonical-1c6e2513f58cb738ea40398c2fb224ac956639bbb38d3199b82d96bb31720908"></a>
+<a id="canonical-0130123202110103-3311203023130320-3222100003212030-0233230202102230-2111121203212323-2303203103012121-2320023121122323-0301130200210020"></a>
 
-## Direct properties — Property reference / ce6d0f86c283 / 3
+## Direct properties — Property reference / 201230022003 / 3
 
-- [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-95e50f3bc2e669e33cdc651c7959c4af78684a0a0072835ebc93773e6b5903b9): complete subsection reference.
+- [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-2111321100330323-3002321212213203-0330313012110130-1321112130102233-1320122010220022-0000130220031132-2330210313130332-1223112100032321): complete subsection reference.
 
-<a id="canonical-05edcf3d8facc077148ba413c8e02adbc3d3e7372f1bc2209071e15334e63eff"></a>
+<a id="canonical-0011323130330331-2033223030001313-0110202322100103-3020320002223123-3003310332130313-0233012330020200-2100130132011103-0310321203323333"></a>
 
-<a id="canonical-94d7073e87c1c9ffa777f498ae7c721259f69c740d36b6c295fcfb7ceb489e3c"></a>
+<a id="canonical-2110311300130332-2013300130213333-2213131333102120-2232133013020102-1121331221301310-0031031223123002-2111333033231330-3223102021320330"></a>
 
-## address_pool property — Property reference / ce6d0f86c283 / 4
+## address_pool property — Property reference / 201230022003 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -76,11 +76,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-92f962838aecee6021d0b906956007f30d0ffec92b01b62a6f471accd23aaa6f"></a>
+<a id="canonical-2102332112022003-2022323032321200-0201310023210012-2111120000133303-0031003333323021-0223000123120222-1233101301223030-3102032222221233"></a>
 
-<a id="canonical-32c2363012576fe3912a6bfc6a87bd93fcaf5d6f3fff4d2a4e5917e7a37d22ca"></a>
+<a id="canonical-0302300203120300-0102111312333203-2101022212233330-1222201323312103-3330223311311233-0333333310310222-1032112101133213-2203133102023022"></a>
 
-## annotations property — Property reference / ce6d0f86c283 / 5
+## annotations property — Property reference / 201230022003 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -88,7 +88,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -117,11 +117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-edcf5ea4ff8d93d8c51e3091e7e4052827f0c28d022d01ec6571ac9c370f3e8b"></a>
+<a id="canonical-3231303311322210-3333203121033120-3011013203002101-3213321000110220-0213330030022031-0002023100013230-1211130122302130-0313003303322023"></a>
 
-<a id="canonical-99c3efe6e57673eb6b65c850677853ae5193e9fcabef5c3c29c3f54af1b38a89"></a>
+<a id="canonical-2121300332333212-3211131213033223-1223121130201100-1213132011032232-1101210332213330-2223323311300330-0221300333111022-3301230320222021"></a>
 
-## description property — Property reference / ce6d0f86c283 / 6
+## description property — Property reference / 201230022003 / 6
 
 Type: `"string"`. Computed.
 
@@ -169,21 +169,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6573bc47de2edc6b3760ec023475deed8a48839999a3b1cdd054b11939bd0d8"></a>
+<a id="canonical-3012111303233010-1331320232313012-2303131200323000-0203101311313232-3120221020200321-2121212203230130-3131001110230101-2103212331003120"></a>
 
-<a id="canonical-fe4b69a058a202948e2fbd3de1f43621fae1f5db09636f5101b640b6ccecca00"></a>
+<a id="canonical-3332102312212200-1120220200022110-2032023323310331-3201331003120201-3322320133113123-0021120312331101-0001231210002312-3030323030220000"></a>
 
-## id property — Property reference / ce6d0f86c283 / 7
+## ID property — Property reference / 201230022003 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-d8cb98f2ee2b5400662e6092460a0afe789365dad4648ddbc4f94b48fdfebdb6"></a>
+<a id="canonical-3120302321203302-3232022311100000-1212023212002102-1012002200223332-1320210312113122-3110121020313123-3010332110231020-3331333223312312"></a>
 
-<a id="canonical-c3bc52195849a62520af332b47cf827c724dbcc5549c89960034a47e81e3665c"></a>
+<a id="canonical-3003233011020121-1120102122120211-0200223303030223-1013303320021330-1302103123303011-1110213020212112-0000031022101332-2001320312121130"></a>
 
-## labels property — Property reference / ce6d0f86c283 / 8
+## labels property — Property reference / 201230022003 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -207,11 +207,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e97d96ad033b4d9a118afa0de23fb29c460c1bf99a72da18793510e1ce9f648"></a>
+<a id="canonical-1232211331211222-3100030323103121-2201012022332200-3132020333230221-3010120030012333-2121221302312201-2013210311010032-0130322133121020"></a>
 
-<a id="canonical-9ea074ef813edf2b4a9e19a219a059324957940c57dc829e9beba768a31cd5c7"></a>
+<a id="canonical-2132220013103233-2001033231330223-1022213201212202-0121220011210302-1021111321100030-1113313020022132-2123322322131220-2203013031113013"></a>
 
-## mode property — Property reference / ce6d0f86c283 / 9
+## mode property — Property reference / 201230022003 / 9
 
 Type: `"string"`. Computed.
 
@@ -244,11 +244,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-55bf60cd82ef8ccd79f795adc2c66ba94103951a44d215a0c3bfa8f15d950e13"></a>
+<a id="canonical-1111233312003031-2002323320303031-1321331321112231-3002301212232221-1001000321110122-1010310201112200-3003233322203301-1131211100320103"></a>
 
-<a id="canonical-b886c7366c9ec86ae4b63e398b9463c5b6a79a6bc2b8e123d5b50221d4c91bfc"></a>
+<a id="canonical-2320201230130312-1230213230201222-3210231203320321-2023211012033011-2312221321221223-3002232032010203-3111231100020201-3110302101233330"></a>
 
-## name property — Property reference / ce6d0f86c283 / 10
+## name property — Property reference / 201230022003 / 10
 
 Type: `"string"`. Required.
 
@@ -304,11 +304,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef14e414f39d3b110b5ca196af1c32c8d7faf8efa074643bcab621cc26168a8a"></a>
+<a id="canonical-3233011032100110-3303213103230101-0023113022012112-2233013003023020-3113332233203233-2200131012100323-3022231202013030-0212011220222022"></a>
 
-<a id="canonical-92f1cf914d6e9b2c1f2838d5674822dfd29902e433a017b90e512d8beb578f37"></a>
+<a id="canonical-2102330130332101-1031123221230230-0133022003203111-1213102002023133-3102212100023210-0303220001132321-0032110102312023-3223111320330313"></a>
 
-## namespace property — Property reference / ce6d0f86c283 / 11
+## namespace property — Property reference / 201230022003 / 11
 
 Type: `"string"`. Required.
 
@@ -357,51 +357,51 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-436793f57cb64d244d5f20d90287d47562f629e83926bd15577bc88e593e9528"></a>
+<a id="canonical-1003121321033311-1330231210310210-1031113302003121-0002201331101311-1202331202213220-0321021223310111-1113132330202032-1121033221110220"></a>
 
-## All schema paths — Property reference / ce6d0f86c283 / 12
+## All schema paths — Property reference / 201230022003 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `address_allocation_scheme` | [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-dfabadf05af8bd98122d2896241dc738bbe4e686d1551f4f6e8ece7a6281886a) |
-| `address_allocation_scheme.allocation_unit` | [address_allocation_scheme.allocation_unit](data-sources--address_allocator--reference--group-001.md#canonical-d816ab797958bfe79c1620ef6d511ec724a52827371ff2110dea88db0f121b6e) |
-| `address_allocation_scheme.local_interface_address_offset` | [address_allocation_scheme.local_interface_address_offset](data-sources--address_allocator--reference--group-001.md#canonical-183b8df57817c2eda30acf17c6d74206e3d800c1fbc8470309258944dd6297eb) |
-| `address_allocation_scheme.local_interface_address_type` | [address_allocation_scheme.local_interface_address_type](data-sources--address_allocator--reference--group-001.md#canonical-2541aff0792e93bfce778d93f29a613403d15bcac2cdeb4897dbe9156d8322fb) |
-| `address_pool` | [address_pool](data-sources--address_allocator--reference--group-001.md#canonical-05edcf3d8facc077148ba413c8e02adbc3d3e7372f1bc2209071e15334e63eff) |
-| `annotations` | [annotations](data-sources--address_allocator--reference--group-001.md#canonical-92f962838aecee6021d0b906956007f30d0ffec92b01b62a6f471accd23aaa6f) |
-| `description` | [description](data-sources--address_allocator--reference--group-001.md#canonical-edcf5ea4ff8d93d8c51e3091e7e4052827f0c28d022d01ec6571ac9c370f3e8b) |
-| `id` | [id](data-sources--address_allocator--reference--group-001.md#canonical-c6573bc47de2edc6b3760ec023475deed8a48839999a3b1cdd054b11939bd0d8) |
-| `labels` | [labels](data-sources--address_allocator--reference--group-001.md#canonical-d8cb98f2ee2b5400662e6092460a0afe789365dad4648ddbc4f94b48fdfebdb6) |
-| `mode` | [mode](data-sources--address_allocator--reference--group-001.md#canonical-6e97d96ad033b4d9a118afa0de23fb29c460c1bf99a72da18793510e1ce9f648) |
-| `name` | [name](data-sources--address_allocator--reference--group-001.md#canonical-55bf60cd82ef8ccd79f795adc2c66ba94103951a44d215a0c3bfa8f15d950e13) |
-| `namespace` | [namespace](data-sources--address_allocator--reference--group-001.md#canonical-ef14e414f39d3b110b5ca196af1c32c8d7faf8efa074643bcab621cc26168a8a) |
+| `address_allocation_scheme` | [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-3133222322313300-1122332023312120-0102023102202112-0210013130130320-2323321032122012-3101111101331033-1232203230321322-1202200120201222) |
+| `address_allocation_scheme.allocation_unit` | [address_allocation_scheme.allocation_unit](data-sources--address_allocator--reference--group-001.md#canonical-3120011222231321-1321112023333213-2130011202003233-1231110101323013-0210221102200213-0313013333020101-0031322220203123-0033010201231232) |
+| `address_allocation_scheme.local_interface_address_offset` | [address_allocation_scheme.local_interface_address_offset](data-sources--address_allocator--reference--group-001.md#canonical-0120032320313311-1320011330023231-2203002230330113-3012311310020012-3203312000003001-3323302010130003-0021021120211010-3131120221133223) |
+| `address_allocation_scheme.local_interface_address_type` | [address_allocation_scheme.local_interface_address_type](data-sources--address_allocator--reference--group-001.md#canonical-0211100122333300-1321023221032333-3032131320312103-3302212212010310-0003310111233022-3002303132231020-2113312332210111-1231200302023323) |
+| `address_pool` | [address_pool](data-sources--address_allocator--reference--group-001.md#canonical-0011323130330331-2033223030001313-0110202322100103-3020320002223123-3003310332130313-0233012330020200-2100130132011103-0310321203323333) |
+| `annotations` | [annotations](data-sources--address_allocator--reference--group-001.md#canonical-2102332112022003-2022323032321200-0201310023210012-2111120000133303-0031003333323021-0223000123120222-1233101301223030-3102032222221233) |
+| `description` | [description](data-sources--address_allocator--reference--group-001.md#canonical-3231303311322210-3333203121033120-3011013203002101-3213321000110220-0213330030022031-0002023100013230-1211130122302130-0313003303322023) |
+| `id` | [id](data-sources--address_allocator--reference--group-001.md#canonical-3012111303233010-1331320232313012-2303131200323000-0203101311313232-3120221020200321-2121212203230130-3131001110230101-2103212331003120) |
+| `labels` | [labels](data-sources--address_allocator--reference--group-001.md#canonical-3120302321203302-3232022311100000-1212023212002102-1012002200223332-1320210312113122-3110121020313123-3010332110231020-3331333223312312) |
+| `mode` | [mode](data-sources--address_allocator--reference--group-001.md#canonical-1232211331211222-3100030323103121-2201012022332200-3132020333230221-3010120030012333-2121221302312201-2013210311010032-0130322133121020) |
+| `name` | [name](data-sources--address_allocator--reference--group-001.md#canonical-1111233312003031-2002323320303031-1321331321112231-3002301212232221-1001000321110122-1010310201112200-3003233322203301-1131211100320103) |
+| `namespace` | [namespace](data-sources--address_allocator--reference--group-001.md#canonical-3233011032100110-3303213103230101-0023113022012112-2233013003023020-3113332233203233-2200131012100323-3022231202013030-0212011220222022) |
 
-<a id="canonical-20e733acfbaa6e2ac9be0dae04b83c658363c45a6232ba03174913e84b76991c"></a>
+<a id="canonical-0200321303032230-3323222212320222-3021233200312232-0010232003301211-2003120330101122-1202030223220003-0113102101033220-1023131221210130"></a>
 
-## Next pages — Property reference / ce6d0f86c283 / 13
+## Next pages — Property reference / 201230022003 / 13
 
-- [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-95e50f3bc2e669e33cdc651c7959c4af78684a0a0072835ebc93773e6b5903b9)
-- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-b37f5189fa71c353983be346c78099ee10d1935bec31c657e73fc56ee3cc9d4b)
+- [address_allocation_scheme](data-sources--address_allocator--reference--group-001.md#canonical-2111321100330323-3002321212213203-0330313012110130-1321112130102233-1320122010220022-0000130220031132-2330210313130332-1223112100032321)
+- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-2303133311012021-3322130130031103-2120032332031012-3013200021213232-0100310121031123-3230030130121113-3213033330111232-3203303021311023)
 
-<a id="canonical-95e50f3bc2e669e33cdc651c7959c4af78684a0a0072835ebc93773e6b5903b9"></a>
+<a id="canonical-2111321100330323-3002321212213203-0330313012110130-1321112130102233-1320122010220022-0000130220031132-2330210313130332-1223112100032321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93ca886281fb088991afcb9796df884593340c0effbaeb87ad46a351a61b3b69"></a>
+<a id="canonical-2103302220201202-2001332300202021-2101223330232113-2112313320201011-2103031000300032-3333232232232013-2231101222031101-2212012303231221"></a>
 
-## address_allocation_scheme — address_allocation_scheme / 91bd8a7d147d / 2
+## address_allocation_scheme — address_allocation_scheme / 133101101331 / 2
 
 Breadcrumbs:
 
-- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-b37f5189fa71c353983be346c78099ee10d1935bec31c657e73fc56ee3cc9d4b)
-- [Property reference](data-sources--address_allocator--reference--group-001.md#canonical-06d6ef2a4ebffe9fba2c3fad1b3c86d8113e071f5d1178e3a4362816a6103b09)
+- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-2303133311012021-3322130130031103-2120032332031012-3013200021213232-0100310121031123-3230030130121113-3213033330111232-3203303021311023)
+- [Property reference](data-sources--address_allocator--reference--group-001.md#canonical-0012311232330222-1032233333322133-2322023003332231-0123033020123120-0101033200130133-1131010113203203-2210031202200112-2212010003230021)
 - address_allocation_scheme
 
-<a id="canonical-dfabadf05af8bd98122d2896241dc738bbe4e686d1551f4f6e8ece7a6281886a"></a>
+<a id="canonical-3133222322313300-1122332023312120-0102023102202112-0210013130130320-2323321032122012-3101111101331033-1232203230321322-1202200120201222"></a>
 
 Type: `"single"`. Computed.
 
@@ -420,15 +420,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b985fad335b2282f062f9dd0277703c45d921c128b0c7b88def61d3e151efa11"></a>
+<a id="canonical-2321201133223103-0311230202200233-0012023321313100-0213131300033010-1131210201300102-2023003013232020-3132331201310332-0111013233220101"></a>
 
-## Direct properties — address_allocation_scheme / 91bd8a7d147d / 3
+## Direct properties — address_allocation_scheme / 133101101331 / 3
 
-<a id="canonical-d816ab797958bfe79c1620ef6d511ec724a52827371ff2110dea88db0f121b6e"></a>
+<a id="canonical-3120011222231321-1321112023333213-2130011202003233-1231110101323013-0210221102200213-0313013333020101-0031322220203123-0033010201231232"></a>
 
-<a id="canonical-998d94e707879ece0bf1a3c1b8e5c70c8fde4241f1df16ec893721caeb344a22"></a>
+<a id="canonical-2121203121103213-0013201321323032-0023330122033001-2320321130130030-2033313210021001-3301313301123230-2021031302013022-3223031010220202"></a>
 
-## allocation_unit property — address_allocation_scheme / 91bd8a7d147d / 4
+## allocation_unit property — address_allocation_scheme / 133101101331 / 4
 
 Type: `"number"`. Computed.
 
@@ -475,11 +475,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-183b8df57817c2eda30acf17c6d74206e3d800c1fbc8470309258944dd6297eb"></a>
+<a id="canonical-0120032320313311-1320011330023231-2203002230330113-3012311310020012-3203312000003001-3323302010130003-0021021120211010-3131120221133223"></a>
 
-<a id="canonical-e2c0d68465ea1f6e4ac944287a45db800546054e87fd636e379e3dacdb1bffb0"></a>
+<a id="canonical-3202300031122010-1211322201331232-1022302110100220-1322101131232000-0011101200111032-2013333112031232-0313213203312230-3123012333332300"></a>
 
-## local_interface_address_offset property — address_allocation_scheme / 91bd8a7d147d / 5
+## local_interface_address_offset property — address_allocation_scheme / 133101101331 / 5
 
 Type: `"number"`. Computed.
 
@@ -534,11 +534,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2541aff0792e93bfce778d93f29a613403d15bcac2cdeb4897dbe9156d8322fb"></a>
+<a id="canonical-0211100122333300-1321023221032333-3032131320312103-3302212212010310-0003310111233022-3002303132231020-2113312332210111-1231200302023323"></a>
 
-<a id="canonical-ca2f94537d7a044a17925f458e397746d6fd792c2473e53fe113ae02c1d61a7d"></a>
+<a id="canonical-3022023321101103-1331132200101022-0113210211331011-2032032113131012-3112333113210230-0210130332110333-3201010322320002-3001311201221331"></a>
 
-## local_interface_address_type property — address_allocation_scheme / 91bd8a7d147d / 6
+## local_interface_address_type property — address_allocation_scheme / 133101101331 / 6
 
 Type: `"string"`. Computed.
 
@@ -587,9 +587,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3306f42a2386c748215699c5a1280b9bb837e0832471481026a07432460a5377"></a>
+<a id="canonical-0303001233100222-0203201230131020-0201111221213011-2201022000232123-2320031332002003-0210130110200100-0212220013100302-1012002211031313"></a>
 
-## Next pages — address_allocation_scheme / 91bd8a7d147d / 7
+## Next pages — address_allocation_scheme / 133101101331 / 7
 
-- [Property reference](data-sources--address_allocator--reference--group-001.md#canonical-06d6ef2a4ebffe9fba2c3fad1b3c86d8113e071f5d1178e3a4362816a6103b09)
-- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-b37f5189fa71c353983be346c78099ee10d1935bec31c657e73fc56ee3cc9d4b)
+- [Property reference](data-sources--address_allocator--reference--group-001.md#canonical-0012311232330222-1032233333322133-2322023003332231-0123033020123120-0101033200130133-1131010113203203-2210031202200112-2212010003230021)
+- [xcsh_address_allocator](../data-sources/address_allocator.md#canonical-2303133311012021-3322130130031103-2120032332031012-3013200021213232-0100310121031123-3230030130121113-3213033330111232-3203303021311023)

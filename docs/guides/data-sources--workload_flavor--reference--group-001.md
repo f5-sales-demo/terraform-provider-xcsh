@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_workload_flavor refe
 
 # xcsh_workload_flavor reference
 
-<a id="canonical-9193b6067e4e8e493c8d2e08f2541bfa4d5b090c7074a32eae1dc6e93462dee9"></a>
+<a id="canonical-2101210323120012-1332103220321021-0330203102320020-3302111001233322-1031112300210030-1300131022030232-2232013130123221-0310120231323221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9d40a01888106cf793d8c5bbf00a03b0594bd0276b870dfa82f3342c28ad9669"></a>
+<a id="canonical-2131100022000120-2020010012303313-2103312030112323-3300002200032300-1121102331000213-1223201300313322-2002330303100230-0220223121121221"></a>
 
-## Property reference — Property reference / cde2debddf59 / 2
+## Property reference — Property reference / 233131331121 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload_flavor](../data-sources/workload_flavor.md#canonical-8c8c0ecc2e6ee25fc807e107477b515e49f3e31343c02d3b3fb96b576dfd8acc)
+- [xcsh_workload_flavor](../data-sources/workload_flavor.md#canonical-2030203000323030-0232123232021133-3020001332010013-1013132311011132-1021330332030103-1003300002310323-0333232112231113-1231333120223030)
 - Property reference
 
-<a id="canonical-2af589003cbd186f557c0c08f7881e199ff268a1cac0becf7f6a19825204948e"></a>
+<a id="canonical-0222331120210000-0330233101201233-1111133000300020-3313202001320121-2133330212202201-3022300023323033-1333122201212002-1102001021102032"></a>
 
-## Direct properties — Property reference / cde2debddf59 / 3
+## Direct properties — Property reference / 233131331121 / 3
 
-<a id="canonical-8124638f794b435ca9e047d5a9ca035fee7c97d26a4aeac8a5ba5b6767b112e9"></a>
+<a id="canonical-2001021012032033-1321102310031130-2221320010133111-2221302200031133-3232133021133102-1222102232223020-2211232211231213-1213230101023221"></a>
 
-<a id="canonical-2ec67854f55265e917666521d018e386689e03c38b243b8661bd0edcc173e261"></a>
+<a id="canonical-0232301213201110-3311110212113221-0113121212110201-3100012032032012-1220213200033003-2023021003232012-1201233100323130-3001130332021201"></a>
 
-## annotations property — Property reference / cde2debddf59 / 4
+## annotations property — Property reference / 233131331121 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1449561cc82925dc45a9927d047aa5cd4912a967ae9177a663dcf6ffbf36d229"></a>
+<a id="canonical-0110102111120130-3020022102113130-1011222121021331-0010132222113031-1021010222211213-2232210113132212-1203313033123333-2333031231020221"></a>
 
-<a id="canonical-ce9a5b4a2acde15dc38505d524912d71a89f98399221e77efed797960c5f73b0"></a>
+<a id="canonical-3032212211231022-0222303132011131-3003201100113111-0210210102311301-2220213321200321-2102020132131332-3332311321132112-0030113313032300"></a>
 
-## description property — Property reference / cde2debddf59 / 5
+## description property — Property reference / 233131331121 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,11 +118,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c524eb7aecc0cbb7fc3aa6eff6be9ae6f2470fd2fdb8f371e31ad565489ea1fb"></a>
+<a id="canonical-3011021032231322-3230300030232313-3330032222123233-3312233221223212-3302101300333102-3331232033031301-3203012231111211-1020213222013323"></a>
 
-<a id="canonical-3c4b8f0cbd4a738158338c793d06145a76c8921337e290fb5811d62b651e0374"></a>
+<a id="canonical-0330102320330030-2331102213032001-1120030320301321-0331001201101122-1312302021020103-0313320221003323-1120010131120223-1211013200031310"></a>
 
-## ephemeral_storage property — Property reference / cde2debddf59 / 6
+## ephemeral_storage property — Property reference / 233131331121 / 6
 
 Type: `"string"`. Computed.
 
@@ -158,21 +158,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e964ffd646fbfb59be9a98584f0b99b3b3823cb498eec78e957fd92766ceb71"></a>
+<a id="canonical-1232211210333331-1210123323332311-2123322122212011-2010330023212123-0323032002033023-1021203232301320-3221111333312102-1312123032231301"></a>
 
-<a id="canonical-2b84e66eaf7e93d49f911a733bc7db8de7aaf7403197af38b02a64eefad24303"></a>
+<a id="canonical-0223201032121232-2233133221033110-2133210101221303-0323301331232031-3213222233131000-0301211322330320-2300022212103232-3322310210030003"></a>
 
-## id property — Property reference / cde2debddf59 / 7
+## ID property — Property reference / 233131331121 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-d81e9d4ba69c92e779662cdd8c5e57c2a94cf4b764b7c31f9c242fcd980f7458"></a>
+<a id="canonical-3120013221311023-2212213021023213-1321121202303131-2030113211133002-2221103033102313-1210231330030133-2130021002333031-2120003313101120"></a>
 
-<a id="canonical-9fd08b734ee49fd70b32c52b7ad6bc516d5024d97f90b9d1e642bf76ecb651be"></a>
+<a id="canonical-2133310020231303-1032321021333113-0023030230110223-1322311223301101-1231110002103121-1333210023213101-3212100223331312-3230231211012332"></a>
 
-## labels property — Property reference / cde2debddf59 / 8
+## labels property — Property reference / 233131331121 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -196,11 +196,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-04c0280da3dbbbc6220c202a62c7d79c9c78f781aeaf1ef3adf58c4d1df922f5"></a>
+<a id="canonical-0010300002200031-2203312323233012-0202003002000222-1202301331132130-2130132033132001-2232223301323303-2231331120301031-0131332102023311"></a>
 
-<a id="canonical-aea65405c926218d26e8461ac785d9815133415f93b399daa081155dae549665"></a>
+<a id="canonical-2232221211100011-3021021202012031-0212322010120122-3013201131212001-1101030310011133-2103230321213122-2200200101111131-2232111021121211"></a>
 
-## memory property — Property reference / cde2debddf59 / 9
+## memory property — Property reference / 233131331121 / 9
 
 Type: `"string"`. Computed.
 
@@ -236,11 +236,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e9e29da6fb721d928c28ad23781e78854841fd5391ef2eebf01f57e1de2f00e2"></a>
+<a id="canonical-3221320221312212-3323130201312102-2030022022310203-1320013213202011-1020100133311103-2101323302323223-3300013311133201-3132023300003202"></a>
 
-<a id="canonical-6533fcb75ed55e524339a0a68f2efe019c880235f114dba6b97b49d7526af0c7"></a>
+<a id="canonical-1211030333302313-1132311111321102-1003032122002212-2033023233320001-2130202000020311-3301011031232212-2321132310213113-1102122233003013"></a>
 
-## name property — Property reference / cde2debddf59 / 10
+## name property — Property reference / 233131331121 / 10
 
 Type: `"string"`. Required.
 
@@ -296,11 +296,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fd946b67c23978db991b2dc0938cada3ef1dfe4f4edfb873324ef307c88f6222"></a>
+<a id="canonical-3331211012231213-3002032113203123-2121012302313000-2103203022312203-3233013133321033-1032313323201303-0302103233030013-3020203312020202"></a>
 
-<a id="canonical-1a61727f3c35f4964d7707ac6d5966ece11ef452fd4f7b697bca5e30520f7b28"></a>
+<a id="canonical-0122120113021333-0330031133102112-1031131300132230-1231112112123230-3201013233101102-3331103313231221-1323302211320300-1102003313230220"></a>
 
-## namespace property — Property reference / cde2debddf59 / 11
+## namespace property — Property reference / 233131331121 / 11
 
 Type: `"string"`. Optional, Computed.
 
@@ -349,11 +349,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0156958071eba80c5632b7a479d2fe14b2d4d49de50f3bab3a607123bacd123f"></a>
+<a id="canonical-0001111221112000-1301322322200030-1112030223132210-1321310233320110-2302311031102131-3211003303232223-0322120013010203-2322303101020333"></a>
 
-<a id="canonical-2bda2056f773402b4d9a08519fbc30f1fdfcd78828d1e150f5b1b1b9ef400892"></a>
+<a id="canonical-0223312202001112-3313130310000223-1031212200201101-2133233003003301-3331333031132020-0220310132011100-3311230123012321-3233100000202102"></a>
 
-## vcpus property — Property reference / cde2debddf59 / 12
+## vcpus property — Property reference / 233131331121 / 12
 
 Type: `"number"`. Computed.
 
@@ -380,26 +380,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c785e30a6f9b9cbc3a9496c6bcb34d93575b3fa4cb13c30914ab4bff43a8dad"></a>
+<a id="canonical-0030132011320300-2212332123213023-3003222110211230-1223302303103121-0311131123033322-1030230103300300-2101102223102333-3310032220312231"></a>
 
-## All schema paths — Property reference / cde2debddf59 / 13
+## All schema paths — Property reference / 233131331121 / 13
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--workload_flavor--reference--group-001.md#canonical-8124638f794b435ca9e047d5a9ca035fee7c97d26a4aeac8a5ba5b6767b112e9) |
-| `description` | [description](data-sources--workload_flavor--reference--group-001.md#canonical-1449561cc82925dc45a9927d047aa5cd4912a967ae9177a663dcf6ffbf36d229) |
-| `ephemeral_storage` | [ephemeral_storage](data-sources--workload_flavor--reference--group-001.md#canonical-c524eb7aecc0cbb7fc3aa6eff6be9ae6f2470fd2fdb8f371e31ad565489ea1fb) |
-| `id` | [id](data-sources--workload_flavor--reference--group-001.md#canonical-6e964ffd646fbfb59be9a98584f0b99b3b3823cb498eec78e957fd92766ceb71) |
-| `labels` | [labels](data-sources--workload_flavor--reference--group-001.md#canonical-d81e9d4ba69c92e779662cdd8c5e57c2a94cf4b764b7c31f9c242fcd980f7458) |
-| `memory` | [memory](data-sources--workload_flavor--reference--group-001.md#canonical-04c0280da3dbbbc6220c202a62c7d79c9c78f781aeaf1ef3adf58c4d1df922f5) |
-| `name` | [name](data-sources--workload_flavor--reference--group-001.md#canonical-e9e29da6fb721d928c28ad23781e78854841fd5391ef2eebf01f57e1de2f00e2) |
-| `namespace` | [namespace](data-sources--workload_flavor--reference--group-001.md#canonical-fd946b67c23978db991b2dc0938cada3ef1dfe4f4edfb873324ef307c88f6222) |
-| `vcpus` | [vcpus](data-sources--workload_flavor--reference--group-001.md#canonical-0156958071eba80c5632b7a479d2fe14b2d4d49de50f3bab3a607123bacd123f) |
+| `annotations` | [annotations](data-sources--workload_flavor--reference--group-001.md#canonical-2001021012032033-1321102310031130-2221320010133111-2221302200031133-3232133021133102-1222102232223020-2211232211231213-1213230101023221) |
+| `description` | [description](data-sources--workload_flavor--reference--group-001.md#canonical-0110102111120130-3020022102113130-1011222121021331-0010132222113031-1021010222211213-2232210113132212-1203313033123333-2333031231020221) |
+| `ephemeral_storage` | [ephemeral_storage](data-sources--workload_flavor--reference--group-001.md#canonical-3011021032231322-3230300030232313-3330032222123233-3312233221223212-3302101300333102-3331232033031301-3203012231111211-1020213222013323) |
+| `id` | [id](data-sources--workload_flavor--reference--group-001.md#canonical-1232211210333331-1210123323332311-2123322122212011-2010330023212123-0323032002033023-1021203232301320-3221111333312102-1312123032231301) |
+| `labels` | [labels](data-sources--workload_flavor--reference--group-001.md#canonical-3120013221311023-2212213021023213-1321121202303131-2030113211133002-2221103033102313-1210231330030133-2130021002333031-2120003313101120) |
+| `memory` | [memory](data-sources--workload_flavor--reference--group-001.md#canonical-0010300002200031-2203312323233012-0202003002000222-1202301331132130-2130132033132001-2232223301323303-2231331120301031-0131332102023311) |
+| `name` | [name](data-sources--workload_flavor--reference--group-001.md#canonical-3221320221312212-3323130201312102-2030022022310203-1320013213202011-1020100133311103-2101323302323223-3300013311133201-3132023300003202) |
+| `namespace` | [namespace](data-sources--workload_flavor--reference--group-001.md#canonical-3331211012231213-3002032113203123-2121012302313000-2103203022312203-3233013133321033-1032313323201303-0302103233030013-3020203312020202) |
+| `vcpus` | [vcpus](data-sources--workload_flavor--reference--group-001.md#canonical-0001111221112000-1301322322200030-1112030223132210-1321310233320110-2302311031102131-3211003303232223-0322120013010203-2322303101020333) |
 
-<a id="canonical-d1fba6ebfe89c69e60578b94e8b6776fd2464bec2e87a5b5b01c475b05c111d5"></a>
+<a id="canonical-3101332322123223-3332202130122132-1200111320232110-3220231213131233-3102101210233230-0232201322112311-2300013010131123-0011300101013111"></a>
 
-## Next pages — Property reference / cde2debddf59 / 14
+## Next pages — Property reference / 233131331121 / 14
 
-- [xcsh_workload_flavor](../data-sources/workload_flavor.md#canonical-8c8c0ecc2e6ee25fc807e107477b515e49f3e31343c02d3b3fb96b576dfd8acc)
+- [xcsh_workload_flavor](../data-sources/workload_flavor.md#canonical-2030203000323030-0232123232021133-3020001332010013-1013132311011132-1021330332030103-1003300002310323-0333232112231113-1231333120223030)

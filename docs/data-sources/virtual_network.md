@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_virtual_network land
 
 # xcsh_virtual_network landing
 
-<a id="canonical-962f424f866ca39a0c5bda80d1dc95f430dbcfd7d44fc7a1bcd04ae7c7db361a"></a>
+<a id="canonical-2112023310021033-2012123022032122-0030112331222000-3101313021113310-0300312330333113-3110103330132201-2330310010223213-3013312303120122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a1cbe4ffaf33181399f1a918b4aa64c3cfd8d3e2a2ed2014ce286f34d43be14"></a>
+<a id="canonical-1322013023321033-3322330303012001-0321213301222101-2023102222121030-0330333120310332-0222023231020001-1030320220123303-1031100323320110"></a>
 
-## xcsh_virtual_network — xcsh_virtual_network / e753cd0e252d / 2
+## xcsh_virtual_network — xcsh_virtual_network / 003202110231 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages virtual network in given namespace in F5 Distributed Cloud.
 
-<a id="canonical-a4483751c196ada9bfbf52c22516f5ac1df57dd03ac88a7fb617636bedb0f8c8"></a>
+<a id="canonical-2210102003131101-3001211222312221-2333233311023002-0211011233112230-0131331113313100-0322302020221333-2312011312031223-3231230033203020"></a>
 
-## Prerequisites — xcsh_virtual_network / e753cd0e252d / 3
+## Prerequisites — xcsh_virtual_network / 003202110231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Optional integrations: `network_connector`.
 
 - network_connector: Connect to external networks
 
-<a id="canonical-3275144567b94ec0c00e333172c4e86c78c56f83e560ec71963540c61c6e5ed6"></a>
+<a id="canonical-0302131101101011-1213232110323000-3000003203030301-1302301032201230-1320301112332003-3211120032301301-2112031110003012-0130123211323112"></a>
 
-## Minimal configuration — xcsh_virtual_network / e753cd0e252d / 4
+## Minimal configuration — xcsh_virtual_network / 003202110231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -65,15 +65,15 @@ output "virtual_network_id" {
 }
 ```
 
-<a id="canonical-7db938fc4743c6f114e08a74a4292a721eebe43d93628a305be0eec22ecff589"></a>
+<a id="canonical-1331232103203330-1013100330123301-0110320020221310-2210022102221302-0132322332100331-2103120220220300-1123320032323002-0232303333112021"></a>
 
-## Root configuration — xcsh_virtual_network / e753cd0e252d / 5
+## Root configuration — xcsh_virtual_network / 003202110231 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2060129f3714adfb8591db24962711acae76ba987b40d595bcde7fbae4715c5d"></a>
+<a id="canonical-0200120001022133-0313011022313323-2011210131230210-2112021301012230-2232131223222120-1323100031112111-2330313213332322-3210130111301131"></a>
 
-## Next pages — xcsh_virtual_network / e753cd0e252d / 6
+## Next pages — xcsh_virtual_network / 003202110231 / 6
 
-- [Property reference](../guides/data-sources--virtual_network--reference--group-001.md#canonical-9c449ec5c2f1fe76d44c1c939fe391b4c4e3c20e4e3572d7fc09ce3420ccce57)
-- [Examples](../guides/data-sources--virtual_network--examples--group-001.md#canonical-aa858708777a299dd1c665fa01fe06408adadb5fbc8ee42c3fe6ede1ba508ff7)
+- [Property reference](../guides/data-sources--virtual_network--reference--group-001.md#canonical-2130101021323011-3002330133321312-3110103001302103-2133320321012310-3010320330020032-1032031113023113-3330002130320310-0200303030321113)
+- [Examples](../guides/data-sources--virtual_network--examples--group-001.md#canonical-2222201120130020-1313132202212131-3101301212113322-0001333200121000-2022312231231133-2330203232100230-0333321232313201-2322110020333313)

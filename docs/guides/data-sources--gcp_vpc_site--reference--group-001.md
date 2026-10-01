@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_gcp_vpc_site referen
 
 # xcsh_gcp_vpc_site reference
 
-<a id="canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1"></a>
+<a id="canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7dcd738114935b0ce059fd8b787e394dc77db4356313808f461f714b0a5996ce"></a>
+<a id="canonical-1331303113032001-0110210311230030-3200112133312023-1320133203211031-3013133123100311-1203010320002033-1012013313011023-0022112121123032"></a>
 
-## Property reference — Property reference / b4c55688522f / 2
+## Property reference — Property reference / 202011020233 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 - Property reference
 
-<a id="canonical-e7512f8b743b81460d95f82896b251cc7eb7ff38892a20aba1cafa1ebac1646c"></a>
+<a id="canonical-3213110102332023-1310032320011012-0031211133200220-2112230211013030-1332231333330320-2021022202002223-2201302233220132-2322300112101230"></a>
 
-## Direct properties — Property reference / b4c55688522f / 3
+## Direct properties — Property reference / 202011020233 / 3
 
-<a id="canonical-b85f1d5502c006fc3bcc6602e8c3b3101feeb0e81a65671870f0cde4963b610e"></a>
+<a id="canonical-2320113301311111-0002300000123330-0323303012120002-3220300323030100-0133323223003220-0122121112130120-1300330030313210-2112032312010032"></a>
 
-<a id="canonical-eacbc2cb9994251ec1befe4d473d6c9e5f67363f3cda13bf8f797bcddbff2bc0"></a>
+<a id="canonical-3222302330023023-2121211002110132-3001233233321031-1013033112302132-1133121303120333-0330312201032333-2033132113233031-3123333302233000"></a>
 
-## address property — Property reference / b4c55688522f / 4
+## address property — Property reference / 202011020233 / 4
 
 Type: `"string"`. Computed.
 
@@ -66,13 +66,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385): complete subsection reference.
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011): complete subsection reference.
 
-<a id="canonical-5b6bdb08bcd3e53f9542148cb807dcee7b9ad1b20a98f7aa0af3b5fde2a63a47"></a>
+<a id="canonical-1123122331230020-2330310332110333-2111100201102030-2320001331303232-1323212231012302-0022212033132222-0022330323113331-3202221203221013"></a>
 
-<a id="canonical-e8db1f1e174c5a4ba6faf223388ee127b3d422e643df6714e07bdcaf0f12b7d3"></a>
+<a id="canonical-3220312301330132-0113103011221023-2212332233020203-0320203232010213-2303311002023212-1003313312130110-3200132331302233-0033010223133103"></a>
 
-## annotations property — Property reference / b4c55688522f / 5
+## annotations property — Property reference / 202011020233 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -80,7 +80,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -109,23 +109,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1743bcd73450bc3dd30cbb6bf994b8c8c48c540ffbb2872e321b0ff1a581a1c6): complete subsection reference.
+- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0113100323303113-0310110023300331-3103003023231223-3321211023203020-3010203011100033-3323230220130232-0302012300333301-2211200122013012): complete subsection reference.
 
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1): complete subsection reference.
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301): complete subsection reference.
 
-- [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-95e08173bb2b66246ba892a158913465bb1a3e1f3e73312b25bb569b581e7f01): complete subsection reference.
+- [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2111320020011303-2323022312120210-1223222021022201-1120210103101211-2323012203320133-0332130303010223-0211232311122123-1120013213330001): complete subsection reference.
 
-- [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3a09fef7692d7d176ee26a7f5e0dfa507c1426702ad0dee764975478e642e824): complete subsection reference.
+- [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0322002133323313-1221023113310113-1232320212221333-1132003133221100-1330011002121300-0222310031323213-1210211311101320-3212100232200210): complete subsection reference.
 
-- [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-664e363d354ecd5b80118961ededf199212a347905ced87272319db78cdae8c8): complete subsection reference.
+- [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1212103203120331-0311103230311123-2000010120211201-3231323133012121-0201022203101321-0011303231201302-1302030121312313-2030312232203020): complete subsection reference.
 
-- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-39ab1e4957001d2198ac5bcd38c773bd46dd67c9cc4a1d35fd047a526a137431): complete subsection reference.
+- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0321222301321021-1113000001310201-2120223011233031-0320301313032331-1012313112133021-3030102201310311-3331001013221102-1222010313100301): complete subsection reference.
 
-<a id="canonical-e3d4bce2f2fc911af6c6767aacbfbfd4512eed8db212ff60ed969e0c508d8515"></a>
+<a id="canonical-3203311023303202-3302333021010122-3312301213121322-2230233323333110-1101023232312031-2302010233331200-3231211221320030-1100203120110111"></a>
 
-<a id="canonical-2ab2c151c16fa91d3b3ab9743ac76a9e172638e76206b880d644b0a1cf0807d6"></a>
+<a id="canonical-0222230230011101-3001123322210131-0323032223211310-0322301312222132-0113021203203213-1202001223202000-3112101023002201-3033002000133112"></a>
 
-## description property — Property reference / b4c55688522f / 6
+## description property — Property reference / 202011020233 / 6
 
 Type: `"string"`. Computed.
 
@@ -173,13 +173,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-d0da01367080452c3a1b1fd1766dfd2520c59e731ace4092876fedfada95b872): complete subsection reference.
+- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3100312200010312-1300200010110230-0322012301333101-1312123133310211-0200301121321303-0122303210002102-2013123332313322-3122211123201302): complete subsection reference.
 
-<a id="canonical-4c9ef34221aa70b906e201b03cb2bb7ce5f29748ac4a6427825e3e96742c3f7e"></a>
+<a id="canonical-1030213233031002-0201222213002321-0012320200012300-0330230223231330-3211330221131020-2230102212100213-2002113203322112-1310023003331332"></a>
 
-<a id="canonical-8ca50bd430fa18b70e16cf2902ba714d9e44e481c9be87cecc000798de78afd3"></a>
+<a id="canonical-2030221100233110-0300332201202313-0032011230330221-0002232213011031-2132101032102001-3021233220133032-3030000000132120-3132132022333103"></a>
 
-## disk_size property — Property reference / b4c55688522f / 7
+## disk_size property — Property reference / 202011020233 / 7
 
 Type: `"number"`. Computed.
 
@@ -215,13 +215,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-acd4c983a00cc6d63f7585e07639826ad2c3037b5203a366d2ac239abb58430f): complete subsection reference.
+- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2230311030212003-2200003030123112-0333131120113200-1312032120021222-3102300300031323-1102000322031212-3102223002032122-2323112010030033): complete subsection reference.
 
-<a id="canonical-8e76137af5a74e6b8761ae3d0047e8f0345f03d99bd9cc2fe43347ff28ce0a69"></a>
+<a id="canonical-2032131201031322-3311221310321223-2013120122320331-0000101332203300-0310113300033121-2123312130300233-3210030310133333-0220303200221221"></a>
 
-<a id="canonical-87178e433182c879e979fb9e29660cef29f706d9e7df1bbdd4f3593a5c068b3d"></a>
+<a id="canonical-2013011320321003-0301200230201321-3221132133232132-0221121200303233-0221331300123121-3213313301232331-3110330311210322-1130001220230331"></a>
 
-## gcp_labels property — Property reference / b4c55688522f / 8
+## gcp_labels property — Property reference / 202011020233 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -256,11 +256,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3fa109a82c117f073f7571ba0930034d9f6d2ba3de2e3bd99d1e34b1323d02e5"></a>
+<a id="canonical-0333220100212220-0230010113330013-0333131113012322-0021030000031031-2133123102232203-3132023203233121-2131013203102301-0302033100023211"></a>
 
-<a id="canonical-91bafe9278214fdf64a66c712bef1d656085056e75d56495c4875feaa826a904"></a>
+<a id="canonical-2101232233322102-1320020110333133-1210221212301301-0223323301311211-1200201100111232-1311311112102111-3010201311333222-2220021222210010"></a>
 
-## gcp_region property — Property reference / b4c55688522f / 9
+## gcp_region property — Property reference / 202011020233 / 9
 
 Type: `"string"`. Computed.
 
@@ -303,25 +303,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fd6ff81733cb9fb325a89accb2224fb0b5921b2231c1d0ed67d1f6f06eda8634"></a>
+<a id="canonical-3331123333200113-0303302321332303-0211222021223030-2302020210332300-2311210201230202-0301300131003231-1213310133123300-1232312220120310"></a>
 
-<a id="canonical-6dfcf7714bd7f383aa01dffb34285debb11fc71a29984c60df1633857b3437ef"></a>
+<a id="canonical-1231333033131301-1023311333032003-2222000131333323-0310022011313223-2301013330130122-0221212010301200-3133011203032011-1323031003133233"></a>
 
-## id property — Property reference / b4c55688522f / 10
+## ID property — Property reference / 202011020233 / 10
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5bdfc213a88a3b5597f3d2bf1f9c923933afd2c4787d3747babb76e0bca0414d): complete subsection reference.
+- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1123313330020103-2220202203231111-2113330331022333-0133213021020321-0303223331023010-1320133103131013-2322232313123200-2330220010011031): complete subsection reference.
 
-- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-63c61e3d6c8d338e0f96c9d653534784b5ade2085751330ca6e32dd4d52485ea): complete subsection reference.
+- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203301201320331-1230203103032032-0033211230213112-1103110310132010-2311223132020020-1113110103030030-2212320302313110-3111021020113222): complete subsection reference.
 
-<a id="canonical-a7a106cad60291550dfe5e7cc079185b62bf0431163a4586080a277ab46143ab"></a>
+<a id="canonical-2213220100123022-3112000221011111-0031333211321330-3000132101201123-1202233300100301-0112032210112012-0020002202131322-2310120110032223"></a>
 
-<a id="canonical-3e9825598d841ffc5f0a6f29c297388f8007afe0b27c69cf514edeb1dba6e359"></a>
+<a id="canonical-0332212002111121-2031201001333330-1133002212330221-3002211303202033-2000001322333200-2302133012213033-1101103231322301-3123221232031121"></a>
 
-## instance_type property — Property reference / b4c55688522f / 11
+## instance_type property — Property reference / 202011020233 / 11
 
 Type: `"string"`. Computed.
 
@@ -360,13 +360,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4a5d7773bbd1b78fbff21ae8236013e3de266b7fd703d86ac213753afc5d6638): complete subsection reference.
+- [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1022113113131303-2323310123132033-2333330201223220-0203120001033203-3132021212231333-3113000331201222-3002010313110322-3330113112120320): complete subsection reference.
 
-<a id="canonical-0c5cb37017a00519b24c360fe76f0c2bceabc0fefb24a09754eb06a572b83f9e"></a>
+<a id="canonical-0030113023031300-0113220000110121-2302103003120033-3213123300300223-3032222330003332-3323021022002113-1110322300122211-1302232003332132"></a>
 
-<a id="canonical-756ee9e19c833fcaadc0fe834fe414b20fe88ef36e4ee7c9eec69ab8752e5a94"></a>
+<a id="canonical-1311123232213201-2130200303333022-2231300033322003-1033321001102302-0033322020323303-1232103232133021-3232301221222320-1311023211222110"></a>
 
-## labels property — Property reference / b4c55688522f / 12
+## labels property — Property reference / 202011020233 / 12
 
 Type: `["map", "string"]`. Computed.
 
@@ -390,15 +390,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c62c46141ea3c05a0ddfe9ee1c3e3f5236aacb95d035b7d2379729dc9adaad66): complete subsection reference.
+- [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3012023010120110-0132220330001122-0031313332213232-0130033203331102-0312222230232111-3100031123133102-0313211302213130-2122312222311212): complete subsection reference.
 
-- [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a22274d6f2b4e4aa01fd0485ae5fec471b2949c4b413dae12f16e8d498728f73): complete subsection reference.
+- [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2202020213103112-3302231032102222-0001333100102011-2232113332301013-0123022110213010-2310010331223201-0233011232203110-2120130220331303): complete subsection reference.
 
-<a id="canonical-a5a69745334a5f4c62a72e1e2c525fddba3292bf7df727d2488d6edd02b27e9e"></a>
+<a id="canonical-2211221221131011-0303102211331030-1202221302320132-0230110211333131-2322030221022333-1331331302133102-1020203112323131-0002230213322132"></a>
 
-<a id="canonical-b6be871bbbcdaadf061f2aa83b8837d09c3821790e88c7b4870ec1ed2e36a736"></a>
+<a id="canonical-2312233220130123-2323303122223133-0012013302222220-0323202003133100-2130032002011321-0032202030132310-2013003230013231-0232031222130312"></a>
 
-## name property — Property reference / b4c55688522f / 13
+## name property — Property reference / 202011020233 / 13
 
 Type: `"string"`. Required.
 
@@ -454,11 +454,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6c7008256eb62217b2725dfa7cf24321655387da00ff2a7c6fceb3f5cf961aea"></a>
+<a id="canonical-1230130000200211-1232231202020113-2302130211313322-1330330210030201-1211110320133122-0000333302221330-1233303223033311-3033211201223222"></a>
 
-<a id="canonical-cde74303f8ae57c570cb1bea80c4e5feefe591d89e6d34dd9855377fb48190b1"></a>
+<a id="canonical-3031321310030003-3320223211133011-1300302301233222-2000301032113332-3233321121013120-2132123103103131-2120111103131333-2310200121002301"></a>
 
-## namespace property — Property reference / b4c55688522f / 14
+## namespace property — Property reference / 202011020233 / 14
 
 Type: `"string"`. Required.
 
@@ -507,19 +507,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-5407bdb8e6094e8c680518737f50555632401ffb1ef121d722e03c9a5d6c4536): complete subsection reference.
+- [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1110001323312320-3212002110322030-1220001101201303-1333110011111112-0302100001333323-0132330102013113-0202320003302122-1131123010110312): complete subsection reference.
 
-- [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-b663f6aa7a1c6c99cd1a7670e652cfc36d3df002f9b7a3b57049db2b9312d25e): complete subsection reference.
+- [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2312120333122222-1322013012302121-3031012213121300-3212110230333003-1231033133000002-3321231322032311-1300102131230223-2103010231021132): complete subsection reference.
 
-- [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a78509fd22231425759d40c893af69315775e0ffd8a5bc1c8ec9250f2acb496b): complete subsection reference.
+- [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2213201100213331-0202020301100211-1311213110003020-2103223312210301-1113131132003333-3120221123300130-2032302102110033-0222302310211223): complete subsection reference.
 
-- [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-630f9c052b3a52854049dda1da13fd44492ebaa15d266601ef878f649412091a): complete subsection reference.
+- [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203003321300011-0223032211022011-1000102131312201-3122010333311010-1021023223222201-1131021212120001-3233201320331210-2110010200210122): complete subsection reference.
 
-<a id="canonical-5d8399261041a098b5277e427f4424231c39ff0567b62011ea1cddce05231782"></a>
+<a id="canonical-1131200321210212-0100100122002120-2311021313321002-1333101002100203-0130032133330011-1213231202000101-3222013031313032-0011020301132002"></a>
 
-<a id="canonical-146bea7035e1a8c9cf0dfe7f0e24678833c834f3f53b28d367fbc8b0be254039"></a>
+<a id="canonical-0110122332221300-0311320122203021-3033003133321333-0032021012132020-0303302003103303-3311032302203103-1213332330202300-2332021110000321"></a>
 
-## ssh_key property — Property reference / b4c55688522f / 15
+## ssh_key property — Property reference / 202011020233 / 15
 
 Type: `"string"`. Computed.
 
@@ -566,400 +566,400 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-34f2626bf35417bf94a0af238c2fe36603d4617d24af28174e43297681a6aa08): complete subsection reference.
+- [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0310330212021223-3303111001132333-2110220022330203-2030023332031212-0003311012011331-0210223302200113-1032100302211312-2001221222220020): complete subsection reference.
 
-- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a7dfede66c6f88c6d8649f57e4468a404b29ff1dcbfc30fbb50f7fbfa3cd54a8): complete subsection reference.
+- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2213313332313212-1230123320203012-3120121021331113-3210101220221000-1023022133330131-3023333003003323-2311003313332333-2203303111102220): complete subsection reference.
 
-- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0618f370940a8adff38a4bf27dd14fd5cd43884d9c0c76971bf3a53a4537d31a): complete subsection reference.
+- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122): complete subsection reference.
 
-<a id="canonical-76f24fd71cb1f9ec5fc1260140be0cb714b7d82bd887fa7224e405201118c2ef"></a>
+<a id="canonical-1312330210333113-0130230133213230-1133300102120001-1000233200302313-0110231331200223-3120201333221302-0210321000110200-0101012030023233"></a>
 
-## All schema paths — Property reference / b4c55688522f / 16
+## All schema paths — Property reference / 202011020233 / 16
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `address` | [address](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b85f1d5502c006fc3bcc6602e8c3b3101feeb0e81a65671870f0cde4963b610e) |
-| `admin_password` | [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-cfec52c430194d1ffa6620690099aa3b1d74e704ebba7d2267d263f15ca50f12) |
-| `admin_password.blindfold_secret_info` | [admin_password.blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1b8df325c33c1f572ec001fbec798770c46c8613993954135e78ed5d3578664b) |
-| `admin_password.blindfold_secret_info.decryption_provider` | [admin_password.blindfold_secret_info.decryption_provider](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5fe5ec1db47ccf36d96ccb9724f2ff50fc9252b8d84d7c342283ab2bb1d6c00e) |
-| `admin_password.blindfold_secret_info.location` | [admin_password.blindfold_secret_info.location](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1a05edc385bf0ee4d01c3e86aebdfee23f1e884727f7ddefe6b5d013b069d1ed) |
-| `admin_password.blindfold_secret_info.store_provider` | [admin_password.blindfold_secret_info.store_provider](data-sources--gcp_vpc_site--reference--group-001.md#canonical-dd7de4b0da578506454d16c90a57c44e4f116e202564afcfe88f92d2ff5dc29e) |
-| `admin_password.clear_secret_info` | [admin_password.clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-ecdd36e50f734f26c3dea6d6d8a2553e7d4baef4da41a26e8a2cb17b97cfe6f5) |
-| `admin_password.clear_secret_info.provider_ref` | [admin_password.clear_secret_info.provider_ref](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b33eef66db46c5b6618cf3d2c78be03442c7264cb4c8c55b70f0088286cf5825) |
-| `admin_password.clear_secret_info.url` | [admin_password.clear_secret_info.url](data-sources--gcp_vpc_site--reference--group-001.md#canonical-75aa40bf66007a9f7b80545a0ae08ae4c7cef206ebb5c181d0a15c409328db1d) |
-| `annotations` | [annotations](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5b6bdb08bcd3e53f9542148cb807dcee7b9ad1b20a98f7aa0af3b5fde2a63a47) |
-| `block_all_services` | [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b97b0749d84ed8431ebb47d4fe461f3875a3dadb7b8f37398bc246b852ce4397) |
-| `blocked_services` | [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b05c226b6e8dc0e4c9a6e98613eafc9ea661945336f3154dae6264a33214ecca) |
-| `blocked_services.blocked_service` | [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a8f66547b5f643c159d718cd607cdd8a068a9aba2d054558f81cd572c3f1f4d6) |
-| `blocked_services.blocked_service.dns` | [blocked_services.blocked_service.dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-92fd2350efab52c10b664154e5b6f6eb5dc3e8810da3b5518b386e7a09c61338) |
-| `blocked_services.blocked_service.network_type` | [blocked_services.blocked_service.network_type](data-sources--gcp_vpc_site--reference--group-001.md#canonical-e97986549006948ea0d633d153706bd0c2bd131487f4bc86f6a1de3494ca1b9a) |
-| `blocked_services.blocked_service.ssh` | [blocked_services.blocked_service.ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-c5ac66f15a51e35566af2c5fa7edaf244803ec08f8a80d6c2983ce2c794e70bf) |
-| `blocked_services.blocked_service.web_user_interface` | [blocked_services.blocked_service.web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-213f54b831d2132d0a23e680d372a10623efe2f49ac2897f0d6dafcae0e041ce) |
-| `cloud_credentials` | [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-4d973002981b2f9fc5c86a7a880f1dd02a48f2c6327ceef9603d02bf2897d638) |
-| `cloud_credentials.name` | [cloud_credentials.name](data-sources--gcp_vpc_site--reference--group-001.md#canonical-447b17a081109fed6397aec6979270bae14792ba61a5afca767a62cebfc2c579) |
-| `cloud_credentials.namespace` | [cloud_credentials.namespace](data-sources--gcp_vpc_site--reference--group-001.md#canonical-47dd0304547e0bb825b699a3e65220b38434ae5083db4813bf7d38b0f1f6698a) |
-| `cloud_credentials.tenant` | [cloud_credentials.tenant](data-sources--gcp_vpc_site--reference--group-001.md#canonical-e4c89512032e31fddca57183d17a761bdfd0c3276178355ffcc1c55bad92d9fa) |
-| `coordinates` | [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-28b4e170b6113670af0a8a8c36e8256374f9d4a7ae5844dce632545554d02773) |
-| `coordinates.latitude` | [coordinates.latitude](data-sources--gcp_vpc_site--reference--group-001.md#canonical-38b3f37b1f6c0bf864b01f3e287c581fb466d4c6e215ad00d6460fdf2b93e8c7) |
-| `coordinates.longitude` | [coordinates.longitude](data-sources--gcp_vpc_site--reference--group-001.md#canonical-54c0a70d00576ad1c638b64c3f320937bd1b440085f045862191bd09ffae1e2f) |
-| `custom_dns` | [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0fa6367a2f6fb11a43df2a1de90fb4ba172f25bc5bdd63d6d5689cec45f80bac) |
-| `custom_dns.inside_nameserver` | [custom_dns.inside_nameserver](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a9e5ebbd1e605c9329e2c34396e00d4d090496fe61c79cd06c27560f73200ae1) |
-| `custom_dns.outside_nameserver` | [custom_dns.outside_nameserver](data-sources--gcp_vpc_site--reference--group-001.md#canonical-86a9c8f0a2fb45cf15842fcefdc7d0a0e62cce606795304e276bb30b92f3c6e3) |
-| `default_blocked_services` | [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b197e4112f2b9172d1f211f632e6913450da6eee35c2c1008adb3e70c6ab6b7a) |
-| `description` | [description](data-sources--gcp_vpc_site--reference--group-001.md#canonical-e3d4bce2f2fc911af6c6767aacbfbfd4512eed8db212ff60ed969e0c508d8515) |
-| `disable_encryption` | [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-4f58efe14f9f6273695bd62fbc1e53bff00356d47d9d071ed6166e7a66528810) |
-| `disk_size` | [disk_size](data-sources--gcp_vpc_site--reference--group-001.md#canonical-4c9ef34221aa70b906e201b03cb2bb7ce5f29748ac4a6427825e3e96742c3f7e) |
-| `enable_encryption` | [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-419df70af1c1534230d6063fc16381b8c7979a951e7f2b7461019bd1627483ef) |
-| `enable_encryption.kms_key_resource_id` | [enable_encryption.kms_key_resource_id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-99043520f92d62fbbafe369c5a02b07faddfd459b586cf7111ddd2933a2478f7) |
-| `enable_encryption.kms_key_ring_id` | [enable_encryption.kms_key_ring_id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-44f69e75cffa229e69201b9c81ae9e9475cf003e0dcbe91b1d5af5945b8874ff) |
-| `gcp_labels` | [gcp_labels](data-sources--gcp_vpc_site--reference--group-001.md#canonical-8e76137af5a74e6b8761ae3d0047e8f0345f03d99bd9cc2fe43347ff28ce0a69) |
-| `gcp_region` | [gcp_region](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3fa109a82c117f073f7571ba0930034d9f6d2ba3de2e3bd99d1e34b1323d02e5) |
-| `id` | [id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-fd6ff81733cb9fb325a89accb2224fb0b5921b2231c1d0ed67d1f6f06eda8634) |
-| `ingress_egress_gw` | [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-371abe320a34379892077e9edd66cc32a98bd0311ff10c7da30dc8a2d3898231) |
-| `ingress_egress_gw.active_enhanced_firewall_policies` | [ingress_egress_gw.active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-05a03994966a32ee8aa9c7b81fbf0ec21fa55f42d28d73b366c6750f88832777) |
-| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e21fd247a492f42298a6afd78d35d8f016aa6d9cdf1d3704b47906d822c961fb) |
-| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-86342c248dcf07948bc47ed681ea61381d6e329dd318546fa67bb852ea9bdf0e) |
-| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-90591bd37bb949f1d8f8d5d19659b42abca2739f8396f2a8ee467f03174fca08) |
-| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a834d3db9a9ffdf29f9a502148bc8e5bb0fa1c10d45dacd0387ced148b3eb5a2) |
-| `ingress_egress_gw.active_forward_proxy_policies` | [ingress_egress_gw.active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-695079c894bbd6c096c9a4e636809aaffa2a05792859392000fa545f0c19060b) |
-| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b45bc352d8ca781cd1d3517ff19ee983c7ae152b17490331c0592537b3f82e8a) |
-| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.name` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-de48f7fc82bd5c0829593d6c83af95f03d9fa2853d3067dbce386600ecdb6ea5) |
-| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.namespace` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-94403ec8e661a0993c488309b39738744da2fbfd0d7f727206ecfb55d8728140) |
-| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.tenant` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a377c3f8309cbe6b06d94f7159b4d143cd645ee3797eccd0bd05427d384d93fc) |
-| `ingress_egress_gw.active_network_policies` | [ingress_egress_gw.active_network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-ad550dfbb72183a60f769d7c1b4a1465b72cf3aa83fd5fa56bb93405d429a67a) |
-| `ingress_egress_gw.active_network_policies.network_policies` | [ingress_egress_gw.active_network_policies.network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-67082a3e1d68f19d456ceca3940c8bfc4e83bdc5f85c708b5b304c2a24d8e78f) |
-| `ingress_egress_gw.active_network_policies.network_policies.name` | [ingress_egress_gw.active_network_policies.network_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-ebb5dc688acbe752bab5eb942f33d6c80afcf7cd93e82052d3f1ab2b8310035e) |
-| `ingress_egress_gw.active_network_policies.network_policies.namespace` | [ingress_egress_gw.active_network_policies.network_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b92870c991ef97a7c1105c86a5dbc6080110293423eb9948ff91c24c27d35d9e) |
-| `ingress_egress_gw.active_network_policies.network_policies.tenant` | [ingress_egress_gw.active_network_policies.network_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4aa1df16e37a4d4c16990a2f5d560c7747b137f285036bb61f0bc71f5287ba45) |
-| `ingress_egress_gw.dc_cluster_group_inside_vn` | [ingress_egress_gw.dc_cluster_group_inside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1a924c5234dca1bc77e14a93e9367829381bb2ce3e8a4cfa248a7142c4bac920) |
-| `ingress_egress_gw.dc_cluster_group_inside_vn.name` | [ingress_egress_gw.dc_cluster_group_inside_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-c52e2ece37a1a6f49bc86a90974c2b4ee9c7a9ab27f126ce7736e4238a2d2690) |
-| `ingress_egress_gw.dc_cluster_group_inside_vn.namespace` | [ingress_egress_gw.dc_cluster_group_inside_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-528523e6ebac663e77681aa893e904e2276c39ff3d165facf07c008852f9deff) |
-| `ingress_egress_gw.dc_cluster_group_inside_vn.tenant` | [ingress_egress_gw.dc_cluster_group_inside_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-bfa15e3b7f4782d4000f0d2712af9e1b9e21d8c79e29ac5bbfc0353e7a731290) |
-| `ingress_egress_gw.dc_cluster_group_outside_vn` | [ingress_egress_gw.dc_cluster_group_outside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-8e321be65fd21a8b50d3bb935f74aebe5f06667fa6a68e55a2d30a370a8d1f95) |
-| `ingress_egress_gw.dc_cluster_group_outside_vn.name` | [ingress_egress_gw.dc_cluster_group_outside_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2d7951f19297b7d69e4a330949714d90592e32ffc9b2bd6f461e92b4cc9243a4) |
-| `ingress_egress_gw.dc_cluster_group_outside_vn.namespace` | [ingress_egress_gw.dc_cluster_group_outside_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-ab981348fbdd21b6083bef7e9e762692eed5605445bb69e2dc267a566401e8e2) |
-| `ingress_egress_gw.dc_cluster_group_outside_vn.tenant` | [ingress_egress_gw.dc_cluster_group_outside_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-7e7058607a5320fb11b75ec4fd5524c7f2d1ec567deb4f8a5cdc29210b056380) |
-| `ingress_egress_gw.forward_proxy_allow_all` | [ingress_egress_gw.forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-002.md#canonical-46ac9fc7cf1e1531ef6b3a73d486fa5153d07fdbfb0201cdaad68f656b930e1e) |
-| `ingress_egress_gw.gcp_certified_hw` | [ingress_egress_gw.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-275f2fc528afae81c7cc474ec21f6846f4433a733f5fc0fd481139d80dcc1dcb) |
-| `ingress_egress_gw.gcp_zone_names` | [ingress_egress_gw.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1334c4be72ad9d685fdddad85b7d421c3f92d6429e21625f8b92d1898602242b) |
-| `ingress_egress_gw.global_network_list` | [ingress_egress_gw.global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1e34f1280a3660785e0a7e879f23b074e71a3aa8df3b64f16be695a2746d621e) |
-| `ingress_egress_gw.global_network_list.global_network_connections` | [ingress_egress_gw.global_network_list.global_network_connections](data-sources--gcp_vpc_site--reference--group-002.md#canonical-ea69a499b17b889d4569dcdb05922e63500d41e554bd5e1150b689354d495103) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-bd0dc4bfb1ebd0e1169c4fafe374c0d5e4ba4c75145961cd2128a5a009ab0c69) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f24d788c8f0f1022f296e6cbb8339f3f35125eba0d55ed7aa7f10d248028a995) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-10cb41e8451dc8e2f8c2cd2a827592fc8c411759b42efc56cc0058181081623f) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a2d61c0c189a88493783cb8367fa61d39c9736ba7c9b0462eb2ded4428221be4) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-00317e50e47910f1b376ccda2359f28eed541de4daa9e540d5068682d47a17cd) |
-| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-79c39b69e191c2259c8026f3766f56f28170d67a0798cf6ff54fda960eb7441b) |
-| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-772c6457054cee60eb2aa4be010d069b4f1bd72e18fa9f5b1fecd0db121f8a75) |
-| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-9ee42a0d162c55151f1b783f050ea034cb42a1bcc1c7e2c8477a24995224547c) |
-| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f7b3c8e147ad819282494130d1bdb4bd603a22b96cd63e4729ad4c7164288e94) |
-| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5f3d48c9286cf0026862a05bcd405cb2b2b558d67065852bfcb03414b9a1ce6a) |
-| `ingress_egress_gw.inside_network` | [ingress_egress_gw.inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1095eb74f4381e5b47493a55e9a210bccd81b177eab98cac730cd02e29237ecd) |
-| `ingress_egress_gw.inside_network.existing_network` | [ingress_egress_gw.inside_network.existing_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-68653692d3671744ed2c5b11f377396e979f0cb64c41686ebf994994dc92b923) |
-| `ingress_egress_gw.inside_network.existing_network.name` | [ingress_egress_gw.inside_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-508fc0f2639d4a9253025f1ece25e3ec760a6eedb7a912f3994afae93db0c9dc) |
-| `ingress_egress_gw.inside_network.new_network` | [ingress_egress_gw.inside_network.new_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a4c15ca1215f2a5e1e0025bd75dd4552bb7a7350f4b4266e4f363d398a4a3664) |
-| `ingress_egress_gw.inside_network.new_network.name` | [ingress_egress_gw.inside_network.new_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4a0b386c12e9036dc5ed4966b27cc6e3f61ff3feda9e8dec91fb94084caa24a2) |
-| `ingress_egress_gw.inside_network.new_network_autogenerate` | [ingress_egress_gw.inside_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a9474624d3111b8d738d98365d5aa3f421f1aa98d8b203bddf09a7adc0f67f28) |
-| `ingress_egress_gw.inside_static_routes` | [ingress_egress_gw.inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3cc81644002ebf0b75e9e942d4f2b7c3e4c9b8641db116604f03de9d8ff0f397) |
-| `ingress_egress_gw.inside_static_routes.static_route_list` | [ingress_egress_gw.inside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5f526675a65834d200d9559925d1e472e3ba8791cc8d581a0551865899931964) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-050d4f240974661669494c8eff01f5dccb3f3b0b8fda2682a92e959b5a7251bd) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-002.md#canonical-59946752ce1b15bc22e6f0acaece02c9b522640f5590e2c0f2765d8ea5d0bc30) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-002.md#canonical-15ec07705e35d9d2b3f2149442d2b4fd9858014d0b35ea121c798ef9a1fc3123) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a43f7130957498f5dfd7bda305b2578dd8fa70ca326bf0cdad8fbc19050de83b) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-002.md#canonical-910a363a14ed8c22131ea8c21dc7aab36e5dcd5bae0e2279c8adf7f590b57e48) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4bdf8a89d33792fc15b3dadedec0c102c140b70f7903916cf92f2c1ed8ac39d0) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-8868d99f49132191a4658172ac07734cb8e9912f67d29a0c794f0dd518717d54) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1dabe761431a8e81c8500281effa66ef517dc1471fbfc9d24366cb6c4878bf4d) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5ee468ff3be71dc6081b15aa1d6d2ebb06dbaa6c6c035bc6494cc21dcfd437b5) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-002.md#canonical-54664304f118e9ffbbec3944ea486610585635ec5dd9439d5d2ba60d36d91f28) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-002.md#canonical-91cb23b20bfec404512cdf2ed963792ddb4de0d3bbd0801a5da683aa6039a51a) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4f160074ff1ac8f5c611ed19f3a9db05f0a193a44f75c713dc069983aa08ea71) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f3698bcefa1e3f1b3bc7630ada04a3eecde193123ba2632af16e82c84edba57f) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-54291a2acfd9228bae798fb2fbf37d553a4af6714e967367f961805077ce4043) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f93147a9bbe02754b0c13abc2bca0815d8b8824874b71f030ba76c82e3f5e1ba) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1b78f94f929e144a4f4497320b07779226c5b2fb9540ded7070410b25e0e1f47) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-9af6efd871227dcec0d80b805179e832e81bfaf15a6435f39a684295d76a32d7) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b912a6e7df06a628174187c6a21209dc7010dd9a67082becce5d6ff02e736778) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-332d9623dfc2975a668d30f66d68e24664d555085e5b771be0a37628f0316a1e) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f82134761559ae1674d67d286758a788ae1b8bd1cc92c46128493b64e0451943) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.type` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3f2c36e49ff6d1236056a28a0a20fdbd533ee41272b3531c54847fc7ecd92bd5) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-002.md#canonical-9c68edb0aec394c24945a10ac9f177503c164d9a70048d85377803b4c7c8113c) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3ce8d84e63cb24dfd9646cd20ab2630f90fcc5399dc5b1fb862b68a6a25f958a) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-002.md#canonical-388c92d57ceaea7544d8b35a26bf1e70fb08990cc5f2a69f08038c0fdbb01ecf) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a1babbec8a27eb2de16fb4515688368c4b91760b1e3c15b81262fd5057c5d43b) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a7bbbc9331fbbb6531b213084400b16df162d13eca14e20dce69cc89f2dda0be) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-002.md#canonical-86e8e329cb53565c93f8888912678694405b312adff97bd59f54d6d4d3c910a4) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5fe78c8733b567110b5427f4c4bfc7289ca5c0ba475119266c43a8cca9516f85) |
-| `ingress_egress_gw.inside_static_routes.static_route_list.simple_static_route` | [ingress_egress_gw.inside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-417248f611466b45355441e8a84728eeaf494b28ae25f8febfb690748fa552a5) |
-| `ingress_egress_gw.inside_subnet` | [ingress_egress_gw.inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-edf3cff42f3a00883878eaeea6692e69291f3d06287009d8023c92e8380a7e0f) |
-| `ingress_egress_gw.inside_subnet.existing_subnet` | [ingress_egress_gw.inside_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b1129518208d91f6a9766dcdc64c99f6546c6a1405e3db2e1b51e3fdf7711281) |
-| `ingress_egress_gw.inside_subnet.existing_subnet.subnet_name` | [ingress_egress_gw.inside_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4a2f22c68eb1b4c4866e323d5b29e32f3746e84c612e1e125d37f4393ce8fee2) |
-| `ingress_egress_gw.inside_subnet.new_subnet` | [ingress_egress_gw.inside_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1ef9f3ba39e15136ba507e45b9df8e70bb5d17ccac6cce32d5e54e7c4434d6be) |
-| `ingress_egress_gw.inside_subnet.new_subnet.primary_ipv4` | [ingress_egress_gw.inside_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1fdb77363b45a85d9359ace84a08c86182eec1f8d6eee49aa7417dcf601faf44) |
-| `ingress_egress_gw.inside_subnet.new_subnet.subnet_name` | [ingress_egress_gw.inside_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a86fb737bf9acf78894e3abd533c65b516a1b42297d361f946ba0087ea3399a0) |
-| `ingress_egress_gw.no_dc_cluster_group` | [ingress_egress_gw.no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e7505cdef5ba384fb3ac127911ad7f6b8108948552c17478334803d8b5e9e723) |
-| `ingress_egress_gw.no_forward_proxy` | [ingress_egress_gw.no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4c57c00d474b52b6639c6a59c4822a3603614af89b02b9f98497c50e44266734) |
-| `ingress_egress_gw.no_global_network` | [ingress_egress_gw.no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e36b964c3d923758b486d24f172b1c4cc4b5b6bdfb64dfaa3cc7237eb89837e7) |
-| `ingress_egress_gw.no_inside_static_routes` | [ingress_egress_gw.no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e9f823778476916c6cb62176221d84d27f29761807e360a5d203797280f506cb) |
-| `ingress_egress_gw.no_network_policy` | [ingress_egress_gw.no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1e6a245d8879b514970c06d2aba373a6347f730f10d77c54037ff051dfc59cf2) |
-| `ingress_egress_gw.no_outside_static_routes` | [ingress_egress_gw.no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3f8d4e3c5e6345d4fe1b03e0673ce591a5e1b6aa6cc5cfe5ac534ac76744b3b0) |
-| `ingress_egress_gw.node_number` | [ingress_egress_gw.node_number](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2fac4443ae821e9585781dad2d8094f27954b69957df0d55ea606dc94c5b1b68) |
-| `ingress_egress_gw.outside_network` | [ingress_egress_gw.outside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-378b14164134bb2dff46a192e27e5ca4f37f8ffe166bb4bd5246fe0f191fcd76) |
-| `ingress_egress_gw.outside_network.existing_network` | [ingress_egress_gw.outside_network.existing_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-94294a61b82bc3f9d4c1437e181d4a2960fb8890113790186515eaa33460aae2) |
-| `ingress_egress_gw.outside_network.existing_network.name` | [ingress_egress_gw.outside_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5b8aafc0098fad4ed2c884bb4c540a03c4cad9f50ea44639ac77e11c216a9616) |
-| `ingress_egress_gw.outside_network.new_network` | [ingress_egress_gw.outside_network.new_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-d4c8e92bdff247cda25b933181122fe9e408fab4fdcbccc1530e7106f6ad8fd6) |
-| `ingress_egress_gw.outside_network.new_network.name` | [ingress_egress_gw.outside_network.new_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-75958271c7a2c55b23bbe9e406d41701c7390f8b8c2347ddab1798d7beaea358) |
-| `ingress_egress_gw.outside_network.new_network_autogenerate` | [ingress_egress_gw.outside_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0d5675c71310cb85030e2e53de10c15e2d1a9e163dc283a99891648c3f3173bd) |
-| `ingress_egress_gw.outside_static_routes` | [ingress_egress_gw.outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3b2eeceb9996429df03cad504e77ececc160ea2279d99216624ae35536026151) |
-| `ingress_egress_gw.outside_static_routes.static_route_list` | [ingress_egress_gw.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-4e201a63e54caf395571852da5c60749406459f5ea1ad203d37510347afeb8ac) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-93837faa5d2f3ed9aade6e38b35fd70d7034eceb96985767cdc5bed2a047d7c4) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5725fa9e2fabc6602a2ea74533467b2e96e381800ee34ebfa2e828ce8008ec4e) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-002.md#canonical-a35656c172d451a332cd127fc70d76952834df45bfbcbaa3d5fa640c2cc1cad7) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-002.md#canonical-f6326f9a12642d58313240a8409e6af66728ad6b443cfddb5a4c631520a8dccd) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-003.md#canonical-cc4443798a349f1e548b8c703e5bde762fa33032f232fdd59876298c2a345373) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a098bb8421eae256fdbe283076069ef8ee6df65a0abee7ba5a26cf91c2e34c21) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-24aaa55969e8714d13c0f9be262ea01c4f29bbaf2c1dd2c9b5017f134ff6e42b) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1357929b2f1a0a98c8b67066d7846497e8659247a94eeb044f404089f15e6b57) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-dfa26edc92420f21404a4f51896695d0d1e6afcb6b70ed1a60a2ddc898036390) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-003.md#canonical-f0d25a826ca744a7fc279b7e6ea9d70cf4b0b51a24f33aa0ec7c5acaab43f942) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-003.md#canonical-98f63b7663675cc67c4095d6324b0b7a1bc7f08f359c905271e26b237cc929e0) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-003.md#canonical-532479bb3b78e08dee2fd35f54bd4bc3486fcacc034bd8f5cf7933d04d6653f9) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e595ac628b1b066ed2fb2d02a1b2583258a6995392bbdd6ea5753c90cb4195b5) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-f1660ecaf116c77ac2163d30b07470880720bba037a729c386240de8124dd1e0) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-20c91dd3c0a30d5bca734fe8119f34af51a03583cdeec41e1806b35c72d7e84c) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-5d49670ae98a5110c82b751219d3b85d876e82171c088053a6d0955fae9b3ad5) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-400e187c21a9f3f8ca85da9e39bf433115d897c373b4d62b5060283087ea8f82) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1f3c45ba1d2c8ec8febeb9f0413ee126b2e969395caf87f80723bf49c75aebd4) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-482dfa21a591c0f15d9bcedd5fe8799b119464862fcca4ef7639fbe51b0ee417) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-368a1944df5047a9f961020b4d56bca54434c762a130cacf5fd21ce5d72e411c) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b55a2a59414b74165fc8d4fce5b95d1aa584408706d6ddaa54c711c4bec6d073) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4b7abb8186e32a0e625819ae39950addc60585b04a250492dd5a1239de3d5a21) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-6408d232945f1227213dcc82c1e6dceb9394b830f7597d72ed81ab58fd58b89a) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2b36ee5f56beba20d8e2731a89b40677e18ae8c79b67f9c9f9bb193d04a9d696) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a5c51127f2d6a58c9522bb14379f2e825f5b2951b84ff49482a14ab1f5b6ef5a) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0f3c5531a7991a5129f7691bbef199e59eff8db9a7e6ff24069659fd67d710c1) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-003.md#canonical-b816fbcbc551dd01bc15e87094c9739570f695db9045116b1f89134ffa290ab1) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-003.md#canonical-fa7ed146e7908f04ce5eb09648c789f9baf18fdaf49a4d95c28951803df814da) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.simple_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-be3319687ed05d04383ab02399da3e3347c1829512ca4af852831a8990d72c1f) |
-| `ingress_egress_gw.outside_subnet` | [ingress_egress_gw.outside_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-f8cd88576dd543f6e6c4635eec228efab99d1fe1e00133dd6d9ac53cc015f164) |
-| `ingress_egress_gw.outside_subnet.existing_subnet` | [ingress_egress_gw.outside_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2e590eb4c0b9a99d53d427f12f43a990fdfaf2c317e74ef2a4f9bb5ec2fe439a) |
-| `ingress_egress_gw.outside_subnet.existing_subnet.subnet_name` | [ingress_egress_gw.outside_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-8575e574ac51d637ba5eafceb2953770f71c69f51f4c000f202ee8335950ae0c) |
-| `ingress_egress_gw.outside_subnet.new_subnet` | [ingress_egress_gw.outside_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-63c30f2a5257aa53764f388468b82d885bdef7b154dbfee063bdae593ad3b120) |
-| `ingress_egress_gw.outside_subnet.new_subnet.primary_ipv4` | [ingress_egress_gw.outside_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-51f8c2d20891b9172f8cec6ebb67d09a744570d48d806fe6a77d2bc6de65c8b0) |
-| `ingress_egress_gw.outside_subnet.new_subnet.subnet_name` | [ingress_egress_gw.outside_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-00ee8bcfd545c7c7fb1016886ab0018cf89875a1ad9b32e58a9a46e27646e689) |
-| `ingress_egress_gw.performance_enhancement_mode` | [ingress_egress_gw.performance_enhancement_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e2dd85b81d5ea2aa318efca5076e763ee383a0d30b324d42cfc738f5a9dc90f4) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-385cd85551365076c4afd174713bbe375dd44f887c52c7fa9c809e4da4d2bdfa) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-96cfe6d2ff2be8a0192c64f01b122efabd421d9d02d17635aefafdacd7edfdaf) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e1626ec32003f9c77147036a69112cb126d027da9357a9e86f34c1c70b953002) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0df98a05d13cf6e16b6b1b290efb96e2a8c20ee6e83ab51ce5827fdee57f70e6) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-793e6bbdc9a8f4dbfb53752d393b830adf9f637da98f63f57c2f9912a77b7dd8) |
-| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1471b51cee8f9bd043a7157daa97c12b14e8cb9e32a1e37c6320e7123a9f2aef) |
-| `ingress_egress_gw.sm_connection_public_ip` | [ingress_egress_gw.sm_connection_public_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-495f375688a6c5b31a9672585e65b2262cf4989e12c71c3f1891ed570e5fe520) |
-| `ingress_egress_gw.sm_connection_pvt_ip` | [ingress_egress_gw.sm_connection_pvt_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c7e967a8c5731a941213c6e7b2b5406eab34c033fec9d9d3ecc151c328aeed15) |
-| `ingress_gw` | [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-aabb0996e5fa997bf2ff3a50da2ecedf568fefa97b3dfc132843c1eefe4bc0dc) |
-| `ingress_gw.gcp_certified_hw` | [ingress_gw.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4ca378f5cc102c5d5eb3e2769f111e397f76449a2e4f07aff46258668df58cd4) |
-| `ingress_gw.gcp_zone_names` | [ingress_gw.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-003.md#canonical-18b44f50ba201e42d866cf1ac629e82305911431b2017fc995aa3ed6019ce17a) |
-| `ingress_gw.local_network` | [ingress_gw.local_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-b025cdbf474731cd9ba166b29cd99553722a0d7260bbe247c24e52a655f5929f) |
-| `ingress_gw.local_network.existing_network` | [ingress_gw.local_network.existing_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4ab8c1fd4888c773bcf535b66259a1868d2d1bb72fad4420a514fb997fd2444a) |
-| `ingress_gw.local_network.existing_network.name` | [ingress_gw.local_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-534b9d23c7eb7db66df8d672533ab22911c9d19f7c236f28363d9cf2126c5b37) |
-| `ingress_gw.local_network.new_network` | [ingress_gw.local_network.new_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4b7e1c8124d8ec4fa29192d47a25f4248266b7be3d24a2f59255c64d5ebaa241) |
-| `ingress_gw.local_network.new_network.name` | [ingress_gw.local_network.new_network.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c5f131d442b44b489f95f2ee24e92c52233849511846b8f3f1388cc645af546a) |
-| `ingress_gw.local_network.new_network_autogenerate` | [ingress_gw.local_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-003.md#canonical-564b9cc8c81b6e2693d91afe2c7ce4f4a0aef152b0d28cf1c35326ba0e8cd97a) |
-| `ingress_gw.local_subnet` | [ingress_gw.local_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-69fe675f863b2c9706dc2dc1e81a0c909db1bfceb5fb4771bbf3b23635a4022d) |
-| `ingress_gw.local_subnet.existing_subnet` | [ingress_gw.local_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-652bf7196b5762a019a27c826fda740cb24210d768ce384b4147511380e331b9) |
-| `ingress_gw.local_subnet.existing_subnet.subnet_name` | [ingress_gw.local_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c242c72be6af2f8fa94148a4ce554cbd8177ac694218e0f854cbf945572d7325) |
-| `ingress_gw.local_subnet.new_subnet` | [ingress_gw.local_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1193621c01047293f2c50ad9eb6485619935f0423054050fc805f37cf9416faf) |
-| `ingress_gw.local_subnet.new_subnet.primary_ipv4` | [ingress_gw.local_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-da43d4368b225a9b835f1155f5e2ce0f251f1baa11faa130262bb86de4e4c86d) |
-| `ingress_gw.local_subnet.new_subnet.subnet_name` | [ingress_gw.local_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-8f7daf3074b1c812b866a26850c233a6fe2d137192dd37161cd0cd3d30b65b8a) |
-| `ingress_gw.node_number` | [ingress_gw.node_number](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c90b4e62337c696962c069c38f1a68cd5521dda9b2fd100b0e5fefd11b8c05f5) |
-| `ingress_gw.performance_enhancement_mode` | [ingress_gw.performance_enhancement_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4784c4b989e0feec8b060049ea862eaf9d3383da8ec72eee744e1578082e6a91) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4066cdbc71961c565ee75a558ed7189ed2af27656ba89da06a089ca0d4cd067b) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c50a382c4cf8027d1cf5060ccb70c52f361f0e33e078d83d32dd390347e44ca1) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-924dd473405c42b6fa8415572ad42742f032dd5ab40802a34f5422c3a1815ed1) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3783daa7c50d7b9be1a08bb5fb6426a6b32781d544732f9fc6d48d98dd3cc0dc) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c4482003092e40fc90ba0d777308ea875138be775fa8034e9bd965895d12cd61) |
-| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-adc78edef91a1e59df0b398c03a709fe80ffaf17fc7d78bb3a3689e8a31fec4c) |
-| `instance_type` | [instance_type](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a7a106cad60291550dfe5e7cc079185b62bf0431163a4586080a277ab46143ab) |
-| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0268e772a08896abca785d965a1fd0d7d6a1eb88536dcbe6988097065a964f34) |
-| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-f159937ac70275d80158bfe5807991339f3ae51fc4a495674bcd50beb14f7bab) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-342fe8ee401299b451d973348f86b8b1ec97ab448830d5ff62d302029b356a85) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-5d4a035171a30a1c5dfc3d58dd7ec5d5c66ac73cdb6fe89f55edf7f1c0f0be8b) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](data-sources--gcp_vpc_site--reference--group-003.md#canonical-9a9461b1a3fb747c8ec94a179e6a2c9d3958edf9d39b9d25767bd2d1168f6a81) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](data-sources--gcp_vpc_site--reference--group-003.md#canonical-96e7b67e87ab5ea93261a30ca2d2a4a4eff9d87449c9e56e0a53bfcbf64eab63) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](data-sources--gcp_vpc_site--reference--group-003.md#canonical-40d830e91e3e58daf4b3b66d90363bcfabf4bcd28441f235b1017c29915d6eb6) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-ee928bd26fbe59cf2300eeff39543e8469959772a8c5a889d19ec7c2f4426283) |
-| `labels` | [labels](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0c5cb37017a00519b24c360fe76f0c2bceabc0fefb24a09754eb06a572b83f9e) |
-| `log_receiver` | [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-fdee6744d558d4e71fe3e34712018c2f7c35dcc1f9574e2c207e17cd9ef7943b) |
-| `log_receiver.name` | [log_receiver.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-ec1c479950b739d137fe786a1fa3e6f6a9336e624d2723574e5d7efad1369c70) |
-| `log_receiver.namespace` | [log_receiver.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-6960d7beb0e2596a51c671730654f8d789faac138d9d0bc913fe06e79c23623e) |
-| `log_receiver.tenant` | [log_receiver.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-d116bc4137e040463ae11fb35d3251c01b7a13fe9b0caa1e15d7fda06488a27a) |
-| `logs_streaming_disabled` | [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1548d29124796eb96edf7e8c04c533c717c5f95b4cbf3898d0d80d3ba00c0cc1) |
-| `name` | [name](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a5a69745334a5f4c62a72e1e2c525fddba3292bf7df727d2488d6edd02b27e9e) |
-| `namespace` | [namespace](data-sources--gcp_vpc_site--reference--group-001.md#canonical-6c7008256eb62217b2725dfa7cf24321655387da00ff2a7c6fceb3f5cf961aea) |
-| `offline_survivability_mode` | [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-6de2af680f24fe7199319dfc3a733cc421376ba82a48b7fa0473c5758b4ea04d) |
-| `offline_survivability_mode.enable_offline_survivability_mode` | [offline_survivability_mode.enable_offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-efb7a9580421794aa919fe6bb3975a662c68b6267a222abcec69762734158b70) |
-| `offline_survivability_mode.no_offline_survivability_mode` | [offline_survivability_mode.no_offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e9781e3460c28bd8d66fac4c8af31c886de8825d6bcbe2f96b9173b505c6949d) |
-| `os` | [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-022c88b9af45074655f9cbda2b60a4e804068f95b48ae7f759da2a1bb98cfd1e) |
-| `os.default_os_version` | [os.default_os_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4448d6b432dec4648caeafd7fb34b2b265aba59658bf1a840984ad29efe4e601) |
-| `os.operating_system_version` | [os.operating_system_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-73dc8ae8ceb28857e0a535c823d66b28ae7fba5a464e78ca932c37c0e3a05b1a) |
-| `private_connect_disabled` | [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-ed8be2ab70fa1176e184fddc1a39b746916aae75e68558a2ec04589ad34ee73f) |
-| `private_connectivity` | [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-d14b31de9b35e994d69a640b2e408bbd04ccafcf3ce9143cf4858355c9ae3f9f) |
-| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](data-sources--gcp_vpc_site--reference--group-003.md#canonical-6b1adc8c43e25f15d237b16aeafecf46e49104839df0d9f760ee13048c56be42) |
-| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-09ec659c7daa34d7722eb8467c2396b139751456e5754b8ec18f069b5d9b9851) |
-| `private_connectivity.cloud_link.namespace` | [private_connectivity.cloud_link.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e8fbd459fbaad54b4c21c5de821b0a6525831c7abb60c3ba28e2db289fc05e61) |
-| `private_connectivity.cloud_link.tenant` | [private_connectivity.cloud_link.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1d802fe6c857c31fb3e3d4f6f2f62dc387ea260e362af02621cea6399b7f6fa1) |
-| `private_connectivity.inside` | [private_connectivity.inside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c1901975a1a05b8599634952b603530ba72302db7fe8f7c3306f47b66664e78c) |
-| `private_connectivity.outside` | [private_connectivity.outside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-e038781147b5823e39e40b0db7dd6817328b1ede39d224923b0a8f3b23e49b86) |
-| `ssh_key` | [ssh_key](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5d8399261041a098b5277e427f4424231c39ff0567b62011ea1cddce05231782) |
-| `sw` | [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2d11c7b1ecae586c5d9a973c05d5a34a18633255a86052b4454efe063ceb9f65) |
-| `sw.default_sw_version` | [sw.default_sw_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1ebcfee274f7425599b968996267fae3813db4272088c7cbd192cf0f3f9b5d32) |
-| `sw.volterra_software_version` | [sw.volterra_software_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a3b6eb8b63e4cd0cd39084c8fa2a6f17ab89a426ad486386231507414a836a82) |
-| `voltstack_cluster` | [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-003.md#canonical-237e3ceae77303258b3ff82422e1aa07d05f60ce403476754ef00c324a4d28d1) |
-| `voltstack_cluster.active_enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-71d1e790d858fac38911f3a66e0df589b2419c1398e07ae895d31dd41c983726) |
-| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bffa9723a4e692ac767f684e0684d6c2ebdf0e2f1a60ff785af97ec879a9d445) |
-| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-5d7d6ffabdcbb88feae95daa7ca98c0b74ade4cd32cbc557e29394dbbc1985fa) |
-| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-cb8b3716803709c418f39ede5022b3b6f6d0afaba48b2ebb9045105f4af781c6) |
-| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bd27545a1e5585d61eaed41bec74872995957555a863ff986cb3b2adf58d6dd8) |
-| `voltstack_cluster.active_forward_proxy_policies` | [voltstack_cluster.active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-409bcfc1bf91ef9800349c6a2ffec1285057b927bee87f471dae1127f32dba0e) |
-| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-aa8233eb19f3b5e19437c609dadf633331b4f17d490c4ea0521f0da459f71906) |
-| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.name` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-d9fda8ab41a221cbb74f1d48b7ec2818f9c41413f63bd49c5e71789f1c4053cd) |
-| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.namespace` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-e7257b6665347375cab1b0fca9d7b55c1b9d403a998128807b5fdb39f5e2ab9c) |
-| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.tenant` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-06d113de096352d5a3d74e863ea577b103ee94457269bc136be9f3f2e6e3d4b7) |
-| `voltstack_cluster.active_network_policies` | [voltstack_cluster.active_network_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-42255d6dceb316748439d5f0eb7a7226aaf52baefd6a49be58ae32abded8dbb0) |
-| `voltstack_cluster.active_network_policies.network_policies` | [voltstack_cluster.active_network_policies.network_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-42e94722c1cd8ae5d6e48fd31037513824e8dcc5dd7f988a243f88ac2e58d253) |
-| `voltstack_cluster.active_network_policies.network_policies.name` | [voltstack_cluster.active_network_policies.network_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-6773d1302ddb84160d5229ba99518346f74698f4fed1ddfac6f69ea3debe6245) |
-| `voltstack_cluster.active_network_policies.network_policies.namespace` | [voltstack_cluster.active_network_policies.network_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-5216b6ac6a153786ca6cfa2a6cd2c92d2a8a08b5e10477a0ebe97b27b28cafb4) |
-| `voltstack_cluster.active_network_policies.network_policies.tenant` | [voltstack_cluster.active_network_policies.network_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-b85b460c213ea2e705a6c6141cd0c6669ed8758ae6c4e9c0aabc1f5b690c5d2f) |
-| `voltstack_cluster.dc_cluster_group` | [voltstack_cluster.dc_cluster_group](data-sources--gcp_vpc_site--reference--group-004.md#canonical-8418173cee498a6c0c962d4b2f88c336cb91f29b0c7f01b1dcf6f214a57a434a) |
-| `voltstack_cluster.dc_cluster_group.name` | [voltstack_cluster.dc_cluster_group.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-53eba679b91c4ac387d239c9db5243996070d22630f72c3b2fb4f14aecede78f) |
-| `voltstack_cluster.dc_cluster_group.namespace` | [voltstack_cluster.dc_cluster_group.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-b08401a48d073162b6214c4ba94abc62b90f4c5fc233d14f8c43665a6050ea6c) |
-| `voltstack_cluster.dc_cluster_group.tenant` | [voltstack_cluster.dc_cluster_group.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0f7dee6ca366a982ae8eba36d22bd533579690d925312a9b7fd2266fd1b3cc55) |
-| `voltstack_cluster.default_storage` | [voltstack_cluster.default_storage](data-sources--gcp_vpc_site--reference--group-004.md#canonical-32d09ffb7908e93c60725040fdb07ac7b4fbb4b336aa15a81942e391b7f4b3c0) |
-| `voltstack_cluster.forward_proxy_allow_all` | [voltstack_cluster.forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-004.md#canonical-f0b1fbed0617293d56779102cc1966b87664b2f5a97a655e52db6e4b51cb5c90) |
-| `voltstack_cluster.gcp_certified_hw` | [voltstack_cluster.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-fcb47aaef9dec15c0ee7ef6d678d2a101157b556ca6f197bc2d83a2d01559c87) |
-| `voltstack_cluster.gcp_zone_names` | [voltstack_cluster.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-003.md#canonical-126757094d19ebc76dc55516f6711b7a76e35af16a3ab8f722ed64ecc88f6c49) |
-| `voltstack_cluster.global_network_list` | [voltstack_cluster.global_network_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bb948fd1bd46e853cdb62be9118bf53bf5fec9b3ec3817794527086d6807bc19) |
-| `voltstack_cluster.global_network_list.global_network_connections` | [voltstack_cluster.global_network_list.global_network_connections](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bb260699566d9f1d87ba824fb7090a465208069d2dce318c491b29b95aa82487) |
-| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c5992c2efea95d6a7d3dd1d3e0039d3ac7569486b915992848f65d78f586c490) |
-| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-004.md#canonical-9b6da37224b6741edac36bb35555ea018e25657f110154effde8706524e3606e) |
-| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-17eb64729954fe4cb0851a3a80134cc08f7ab93adf32e1be49f9477db53205c2) |
-| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bde0a295ed81890a60dd9273ce5c7cf785d690d82330215961d5d84df0d2b3cf) |
-| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-603e46bf76a1084d1e7b985d60430b60206d4c7514ec2f7a2d88b6e28592ce03) |
-| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bf1a9f6f78f61ab98a70f51b27892fd29304f9df24a8b7cd1e42fc2f3a643253) |
-| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-004.md#canonical-9292922b6c80b3c5ba99c24809d42ef2958f01afb2fe46fc1086105eb2bc7b37) |
-| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-a8a64611f9e66fc17cbaa36d67ecb71deb50e89e8207985a84d40f21d0cc679c) |
-| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-d1687523a80920238df5b0f028d180c3751f39d1741ceeeed40c8ac449523555) |
-| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-066c5f1a9320c418e58866db99dcb3999c2b660ff3594d66bab2a1357c764176) |
-| `voltstack_cluster.k8s_cluster` | [voltstack_cluster.k8s_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c6ff6096fef5e7be601ace773095cf66aedab5763847292897beac312abdb7f6) |
-| `voltstack_cluster.k8s_cluster.name` | [voltstack_cluster.k8s_cluster.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-6d05afe89c0013f8a2405ccc8effb71904bba823c7bc8e07f31e2aa0e356451b) |
-| `voltstack_cluster.k8s_cluster.namespace` | [voltstack_cluster.k8s_cluster.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-ba04609b24a4d5dfc2a97af5fbec642980117c1da093965afcc470090b26461f) |
-| `voltstack_cluster.k8s_cluster.tenant` | [voltstack_cluster.k8s_cluster.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-14ec8994054ecf2009f6576edd630bb7711806b04bcd56b9346c936cbe96304c) |
-| `voltstack_cluster.no_dc_cluster_group` | [voltstack_cluster.no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-004.md#canonical-bd55948660557d981fac93e599b4564adbdc13c080c3acd1f676cb60213534a4) |
-| `voltstack_cluster.no_forward_proxy` | [voltstack_cluster.no_forward_proxy](data-sources--gcp_vpc_site--reference--group-004.md#canonical-21cfe78a22285ecf0ae5551f58fb4bd3a47175dd676661403071fbd1e86257b3) |
-| `voltstack_cluster.no_global_network` | [voltstack_cluster.no_global_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-47c593da3f38dac84324e871d18fb3d597ff1db67bf24ee3cd88242af235a4ff) |
-| `voltstack_cluster.no_k8s_cluster` | [voltstack_cluster.no_k8s_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-e4f454c5141b9aae5c5a9674c572dc0e811259b07870d94cd97266279226ce79) |
-| `voltstack_cluster.no_network_policy` | [voltstack_cluster.no_network_policy](data-sources--gcp_vpc_site--reference--group-004.md#canonical-953fef9187bd2259a74e81db15617f670091b386b2a4e586e6033c55e4b39997) |
-| `voltstack_cluster.no_outside_static_routes` | [voltstack_cluster.no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-a487ca88b1506ee22cb2c83197f7778b3a2c9e58cde173855dec5b2f559b7315) |
-| `voltstack_cluster.node_number` | [voltstack_cluster.node_number](data-sources--gcp_vpc_site--reference--group-003.md#canonical-d70324685a22392dd31d1ba2ad760eb91ee8da1e465ed73b3ebd834168d4d687) |
-| `voltstack_cluster.outside_static_routes` | [voltstack_cluster.outside_static_routes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c986a471ee76ade54afe6fdcb7087863e0952690f5bb5ba67fa2c26600c394e3) |
-| `voltstack_cluster.outside_static_routes.static_route_list` | [voltstack_cluster.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1e8fa133c81d849259ecfa1ebe0548a867ed2ced7977839c4be4d07704acfb25) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-004.md#canonical-ba2d89acdd32557a5dc1cd7e0d2efa1ceb5ca2d38a8ce6cbdb09183c317bca9c) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.attrs` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-004.md#canonical-40497016d72b5fa1c09d83514811c7fae0fe838a3ad6665dc154410d6a674ba6) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c5b4dbd922ead2105e2a4c084da269d2b760d7dd84c3f2977d3b479ae1cb354e) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-004.md#canonical-6292a78de288880a5d112b09387d130a768989582c023f4ac508ea4c7c20bc03) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c6caf5849f161c8ebc8820b3f65b84e3504f8b4da61367bdbebad61fdf68d371) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-004.md#canonical-27d8324e701c5d8dad38e343f71f710b6b451e3c79ac3f70d312dc150275657b) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-58f992abb1b94f413c6098bffe996044881dc469916ade54479b920e9000de9d) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-965adf13840a02343667b93083507802b19a45e5b808d70d18e917af0a7611d1) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-4cd78c1abce66f4258fa87acb5282146cad0c3395cb1a0295d1c5ac48eb7f9ff) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c824b535e2c130c74a77f2aceb68c3fd621e27056e70713702e2af45366ba3ad) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-004.md#canonical-759d1b70cf2e5d040f7b9c4a3a83713cd440447db769b5c5f6f78796e6c38331) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0de2231757646d68648aacb74f8d481495cc045fb0dda826a9b337ab8656ea09) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-4181fe6f50d415bd8602f8f8ad5283645e8470ef70ebf8718d9549d3b3f9db37) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1c3975a086b6ca7d878e7e1c6bcca2781fa60a83b78e2a24a5ba1c8f4e86334e) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-fea1211c351343f00d9398281b6219c6dd92d92353e886bb831337278d5141a8) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-ee0712011e7fee49e755a37308284e418fe0cf81e0027c78cdce4a128bce2800) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0ca1e09d7d0b0e08967471dd83efd9815cbff103cea03ae672a98f9253343d69) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-19af68a368bbfe54fdc90b30ab471113661b6b06f9e881058e81667f8bbd0f07) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-06e66031145223c2d0162e120c4cd6248c9059fdaecf495402d2d0ab671b0895) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-9f0d42bdbc8b1ff1d562318763604badc85926ef3d69545b6745c604565d2a55) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-004.md#canonical-e6801fb35c6e22040999098c045db36a261fe4c5e9adfc3da8291f2b1075310a) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-004.md#canonical-f137532331ca4af31b3445c6ba9719623a81e8b17b4f5b3618ac8f3dac86a63f) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-c38fbbd76a5ebbc025a221bc6efa615234e4176d622014b5fbf39d6ed3255835) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-004.md#canonical-f59687a562a74e45772be0a53e2627b575933b57b5600968d59df7411ff67bfb) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-004.md#canonical-7b734309fb06ce4d87b9b97c81365eafcf66b7c31671d1af7ba89ca74ccaabf8) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-b934a5ec0d87181aa30dca916eedceef237c0210ecfdaae581761de596b53570) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-004.md#canonical-f3b99c41da25c5fdbf441a375598b0765b4c7dd236426306403175baee7e62c3) |
-| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-004.md#canonical-e44e49bf9c6a4a219865e42df6de59e62c48de7e042d79a23c62604e9d0b8755) |
-| `voltstack_cluster.outside_static_routes.static_route_list.simple_static_route` | [voltstack_cluster.outside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-004.md#canonical-a09d383a48f957f78ea8e25937cf06c6fa6acf16ecd3b216587d7e0e0579e623) |
-| `voltstack_cluster.site_local_network` | [voltstack_cluster.site_local_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0d75a74e2a9fa87f73e6810603a053e9b11118d2d00cb71e93cb6fe4332c62c8) |
-| `voltstack_cluster.site_local_network.existing_network` | [voltstack_cluster.site_local_network.existing_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2cbe9fb0660f5fa9384b203f8aad30c87147cfbea245920aa3910d934391af88) |
-| `voltstack_cluster.site_local_network.existing_network.name` | [voltstack_cluster.site_local_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-b8e755082d59bf7f76b4fc1544f4b68a8787e00b75d9f1df9c2bf45702ea6986) |
-| `voltstack_cluster.site_local_network.new_network` | [voltstack_cluster.site_local_network.new_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-a18c42a0b56bf8c1f19efba0a22fa696ffa322ca27b3c2e8807b1dc31d431439) |
-| `voltstack_cluster.site_local_network.new_network.name` | [voltstack_cluster.site_local_network.new_network.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-33f0ce13c9088d9c248cd2a6701addaf55e80a56752a32355d8533f2a99d31e9) |
-| `voltstack_cluster.site_local_network.new_network_autogenerate` | [voltstack_cluster.site_local_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-004.md#canonical-8af6e840c804ca22b33c5a5cc14dcabc3a2468212b475d321883e4f15a62d942) |
-| `voltstack_cluster.site_local_subnet` | [voltstack_cluster.site_local_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-950a96446963dc41f6ba30fd145dc82aa607860dede00000f5aff3f72eb9e0eb) |
-| `voltstack_cluster.site_local_subnet.existing_subnet` | [voltstack_cluster.site_local_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-40f8cc9f383f273c3b397b2522fb90cd17ed33716cf5df3d237f130142cea6a5) |
-| `voltstack_cluster.site_local_subnet.existing_subnet.subnet_name` | [voltstack_cluster.site_local_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-722bd6c0d3aff8991fac96447376a873d1f82e2790ca178d6737b323aa70bb15) |
-| `voltstack_cluster.site_local_subnet.new_subnet` | [voltstack_cluster.site_local_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-9771b0a43ae32b497fa38df9d1fb586a034cd1fda10be661ca6dcc00a8771b7f) |
-| `voltstack_cluster.site_local_subnet.new_subnet.primary_ipv4` | [voltstack_cluster.site_local_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-e8c4564d365ffda15a890e02fd8b83f3564ad44c469ebf709c9098bfd4377441) |
-| `voltstack_cluster.site_local_subnet.new_subnet.subnet_name` | [voltstack_cluster.site_local_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-4226b83ec56ce2eb083551b8479b785e0fa1e0d22a3ba182ae5b75691befdaf5) |
-| `voltstack_cluster.sm_connection_public_ip` | [voltstack_cluster.sm_connection_public_ip](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1ff04572c4387bcc8066168ad72465d566bb50a0adee6242989e9d5d91f78c24) |
-| `voltstack_cluster.sm_connection_pvt_ip` | [voltstack_cluster.sm_connection_pvt_ip](data-sources--gcp_vpc_site--reference--group-004.md#canonical-85b5935ab640aae1c6976ba50de01864c7112a63a87a41454c13a78e2b6374bf) |
-| `voltstack_cluster.storage_class_list` | [voltstack_cluster.storage_class_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-9100b1735650a07faa29af34dc0aa2b37fc18416f426a7a28d6975a23c811c61) |
-| `voltstack_cluster.storage_class_list.storage_classes` | [voltstack_cluster.storage_class_list.storage_classes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-35cc5b1ff6da1144ab206ab037a4863b75dbcd97ec436b8cf7348d9bb739e89f) |
-| `voltstack_cluster.storage_class_list.storage_classes.default_storage_class` | [voltstack_cluster.storage_class_list.storage_classes.default_storage_class](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2a46c857191708ee7cd315ac9a05b1553bb66239758def03f9d38bbd46a2adbc) |
-| `voltstack_cluster.storage_class_list.storage_classes.storage_class_name` | [voltstack_cluster.storage_class_list.storage_classes.storage_class_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3254100e4adff776f98597d2abe498aa6295438802f11eeee64cd5408c317b1f) |
-| `waf_signatures` | [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-7e82e8e9097c7d7e32c8dd20ad82317e982094a178ac708c722b7477cbfc0eb3) |
-| `waf_signatures.automatic` | [waf_signatures.automatic](data-sources--gcp_vpc_site--reference--group-004.md#canonical-5fdb73e1600c6075c808512d51d56c6f7c2e75ddba2db82b964e1d2663918a1a) |
-| `waf_signatures.manual` | [waf_signatures.manual](data-sources--gcp_vpc_site--reference--group-004.md#canonical-84c2fddc4b125b35c705e8fa458087b23283cd159b83b352f1c63977e12946a6) |
+| `address` | [address](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2320113301311111-0002300000123330-0323303012120002-3220300323030100-0133323223003220-0122121112130120-1300330030313210-2112032312010032) |
+| `admin_password` | [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3033323011023010-0300012110310133-3322121202001221-0000212122220323-0131131032130010-3223232213310202-1213310212033301-1130221100330102) |
+| `admin_password.blindfold_secret_info` | [admin_password.blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0123203133030211-3003033001331113-0232300000013323-3230132120131300-3010123020120103-2121032111100103-1132132032311131-0311132012121023) |
+| `admin_password.blindfold_secret_info.decryption_provider` | [admin_password.blindfold_secret_info.decryption_provider](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1133321132300131-2310133030330312-3121123030232113-0210330233331100-3330210211022320-3120103113300310-0202200322230223-2301311230000032) |
+| `admin_password.blindfold_secret_info.location` | [admin_password.blindfold_secret_info.location](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0122001132313003-2011233300323210-3100013003322012-2232233133323202-0333013220201013-0213331331313233-3212231131000103-2300122131013231) |
+| `admin_password.blindfold_secret_info.store_provider` | [admin_password.blindfold_secret_info.store_provider](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3131133132102300-3122111320110012-1011103101123021-0022111330101032-1033010112320200-0211121022333033-3220203321023102-3333113130022132) |
+| `admin_password.clear_secret_info` | [admin_password.clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3230313103123211-0033130310330212-3003313222123112-3120220211110332-1331102322323310-3122100122021232-2022023023011323-2113303332123311) |
+| `admin_password.clear_secret_info.provider_ref` | [admin_password.clear_secret_info.provider_ref](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2303033232331212-3123101230112312-1201203033033102-3013202332000310-1002301302121030-2310302030111123-1300330000202002-2012303311200211) |
+| `admin_password.clear_secret_info.url` | [admin_password.clear_secret_info.url](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1311222210002333-1212000013222133-1323200011101122-0022320020223210-3013303233020012-3223231130012001-3100220111301000-2103022031230131) |
+| `annotations` | [annotations](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1123122331230020-2330310332110333-2111100201102030-2320001331303232-1323212231012302-0022212033132222-0022330323113331-3202221203221013) |
+| `block_all_services` | [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2321132300131021-3120103231201003-0132232310133110-3332101201330320-1311220331223123-1323203303130321-2023300210122320-1102303210032113) |
+| `blocked_services` | [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2300113002021223-1232203130003210-3021221232212012-0103322233302132-2212120121101103-0312330301111031-2232120212102203-0302011032303022) |
+| `blocked_services.blocked_service` | [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2220331212111013-2311331210033001-1121311301203031-1200133031312022-0012202221222322-0231001110111120-3320013031111302-3003330133103112) |
+| `blocked_services.blocked_service.dns` | [blocked_services.blocked_service.dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2102333102031100-3233222311023001-0023121210011110-3211231233123223-1131300332202001-0031220323111101-2023032012321322-0021301201030320) |
+| `blocked_services.blocked_service.network_type` | [blocked_services.blocked_service.network_type](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3221132120121110-2100001221102032-2200311203033101-1103130012233100-3002233101030110-2013331023302012-3312220131320310-2110302201232122) |
+| `blocked_services.blocked_service.ssh` | [blocked_services.blocked_service.ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3011223012123301-1122110132031111-1212223302301133-2213323122330210-1020000332300020-3320222000311230-0221200330320230-1321103213002333) |
+| `blocked_services.blocked_service.web_user_interface` | [blocked_services.blocked_service.web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0201033311102320-0301310201030231-0022020332122000-3103130222010012-0203323332023310-2122300220211333-0031123122333022-3200320010013032) |
+| `cloud_credentials` | [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1031211303000002-2120012302332133-3011302012221322-2020003301313100-0222102033023012-0302133032323321-1200033100022333-0220211331120320) |
+| `cloud_credentials.name` | [cloud_credentials.name](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1010132301132200-2001010021333231-1203211322323012-2113210213002322-3201101321022322-1201221122333022-1312132212023032-2333300230111321) |
+| `cloud_credentials.namespace` | [cloud_credentials.namespace](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1013313100030010-1110133200232320-0211231221212203-3212110202002303-2010031022321100-2003312310200103-2333133103202300-3301331212212022) |
+| `cloud_credentials.tenant` | [cloud_credentials.tenant](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3210302021110102-0003023203013331-3130221113012003-3101132213120123-3133310030030213-1201132003111133-3330300130111123-2231210231213322) |
+| `coordinates` | [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0220231032011300-2312010103121300-2233002220222030-0312322002111203-1310332131102213-2232112010103130-3212030211101111-1110310002131303) |
+| `coordinates.latitude` | [coordinates.latitude](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0320230333031323-0133123000233320-1210230001330332-0220133011200133-2310121231103012-3202011122310000-3112101200333133-0223210332203013) |
+| `coordinates.longitude` | [coordinates.longitude](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1110300022130031-0000111312223101-3012032023121030-0333030200210313-2331012310100000-2011330010112012-0201210123310021-3333223201320233) |
+| `custom_dns` | [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0033221203121322-0233123323010122-1003313302220131-3221003323102322-0113023302112330-1123313112033112-3111122021303230-1011332000232230) |
+| `custom_dns.inside_nameserver` | [custom_dns.inside_nameserver](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2221321132232331-0132120011302103-0221320230031003-2112320000311031-0021001021123332-1201301321303100-1230021311120033-1303020000223201) |
+| `custom_dns.outside_nameserver` | [custom_dns.outside_nameserver](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2012222130203300-2202332310113033-0111201002333032-3331301331002200-3212023030321200-1213211103001032-0213122323030023-2102330330123203) |
+| `default_blocked_services` | [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2301211332100101-0233022321011302-3101330201013312-0302321221010310-1100312212323232-0311300230010000-2022312303321300-3012222312231322) |
+| `description` | [description](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3203311023303202-3302333021010122-3312301213121322-2230233323333110-1101023232312031-2302010233331200-3231211221320030-1100203120110111) |
+| `disable_encryption` | [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1033112032333201-1033213312021303-1221112331120233-2330013211032333-3300000311123110-1331213100130132-3112011212321322-1212110220200100) |
+| `disk_size` | [disk_size](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1030213233031002-0201222213002321-0012320200012300-0330230223231330-3211330221131020-2230102212100213-2002113203322112-1310023003331332) |
+| `enable_encryption` | [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1001213133130022-3301300111031002-0300311200120333-3001120320012320-3013211321222111-0132133302231310-1201000121233101-1202131020033233) |
+| `enable_encryption.kms_key_resource_id` | [enable_encryption.kms_key_resource_id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2121001003110200-3321023112023323-2322333203122130-1122000223001333-2231313331101121-2311201230331301-0101313131022103-0322021013203313) |
+| `enable_encryption.kms_key_ring_id` | [enable_encryption.kms_key_ring_id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1010331221321311-3033332202022132-1221020001232130-2001223221322110-1311303300000332-0031302332210123-0131112233112110-1123202013103333) |
+| `gcp_labels` | [gcp_labels](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2032131201031322-3311221310321223-2013120122320331-0000101332203300-0310113300033121-2123312130300233-3210030310133333-0220303200221221) |
+| `gcp_region` | [gcp_region](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0333220100212220-0230010113330013-0333131113012322-0021030000031031-2133123102232203-3132023203233121-2131013203102301-0302033100023211) |
+| `id` | [id](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3331123333200113-0303302321332303-0211222021223030-2302020210332300-2311210201230202-0301300131003231-1213310133123300-1232312220120310) |
+| `ingress_egress_gw` | [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0313012223320302-0022031003132120-2102001313322132-3131121230300302-2221202331000301-0133330100301331-2203003130202202-3103202120020301) |
+| `ingress_egress_gw.active_enhanced_firewall_policies` | [ingress_egress_gw.active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0011220003212110-2112122203023232-2022222130132320-0133233300323002-0133221111331002-3102203113032303-1212301213110033-2020200302131313) |
+| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3202013331021013-2210210233100202-2120221222333113-2031031131203300-0112222212312130-3133013103130010-2310132100123120-0202302112013323) |
+| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2012031002300210-2031303300132110-2023301013323112-2001322212010320-0131123203022131-3103012011101233-2212132323201102-3222212331330032) |
+| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2100112101233103-1323232110213301-3120332031113101-2112112123100222-2330220213032133-2003211233022220-3232101213330003-0113103330220020) |
+| `ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [ingress_egress_gw.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2220031031033123-2122213333313302-2133212211000201-1020233020321123-2300332201300100-3110113122303100-0320133032310110-2023033223112202) |
+| `ingress_egress_gw.active_forward_proxy_policies` | [ingress_egress_gw.active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1221110013213020-2110232331123000-2112302122103212-0312200021222233-3322022200111321-0220112103210200-0000332211101133-0030012100120023) |
+| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2310112330031102-3120302213200130-3101310311011333-3301213232212003-3013223201110223-0113102100030301-3000112102110313-2303332002322022) |
+| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.name` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3132102033133330-2002233111300020-0221112103311230-2003223321113300-0331213322022011-0331030012133123-3032032012120000-3230312312322211) |
+| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.namespace` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2110100003323020-3212120122002121-0330102020030021-2303211303201310-1031220233233331-0031133313021302-0012323033231111-3120130220011000) |
+| `ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.tenant` | [ingress_egress_gw.active_forward_proxy_policies.forward_proxy_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2203131330033320-0300213023321223-0012312110331301-1121231031011003-3031121011323203-1321133230303100-2331001110021331-0320103121033330) |
+| `ingress_egress_gw.active_network_policies` | [ingress_egress_gw.active_network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2231111100313323-2313020120032212-0033131221311330-0123102201101211-2313023033032222-2003333111332211-1223232103100011-3110022122121322) |
+| `ingress_egress_gw.active_network_policies.network_policies` | [ingress_egress_gw.active_network_policies.network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1213002002220332-0131122033012131-1011123032302203-2110003020233330-1032200323313011-3320113013002023-1123030010300222-0210312032132033) |
+| `ingress_egress_gw.active_network_policies.network_policies.name` | [ingress_egress_gw.active_network_policies.network_policies.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3223231131301220-2022302332131102-2322231132232110-0233030331123020-0022333033133031-2103322002001102-3103330122230223-2003010000031132) |
+| `ingress_egress_gw.active_network_policies.network_policies.namespace` | [ingress_egress_gw.active_network_policies.network_policies.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2321022013003021-2101323321132213-3001010011302012-2211312330120020-0001010002210310-0203322321211020-3333210130021030-0213310311312132) |
+| `ingress_egress_gw.active_network_policies.network_policies.tenant` | [ingress_egress_gw.active_network_policies.network_policies.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1022220131330112-3203132210311030-0112212100220233-1131111200301313-1013230103133302-2011000312232312-0133002330130133-1102201323221011) |
+| `ingress_egress_gw.dc_cluster_group_inside_vn` | [ingress_egress_gw.dc_cluster_group_inside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0122210210301102-0310313022012330-1313320110222103-3221031213200221-0320012323023032-0332202210303322-0210202213011002-3010232230210200) |
+| `ingress_egress_gw.dc_cluster_group_inside_vn.name` | [ingress_egress_gw.dc_cluster_group_inside_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3011023202323032-0313220122123310-2123302012222100-2113103002231032-3221301322212223-0213330102123032-1313031232100203-2022023102122100) |
+| `ingress_egress_gw.dc_cluster_group_inside_vn.namespace` | [ingress_egress_gw.dc_cluster_group_inside_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1102201102033212-3223223012120332-1313122001222220-2103322100103202-0213123003213333-0331011211332230-3300133000002020-1102332131323333) |
+| `ingress_egress_gw.dc_cluster_group_inside_vn.tenant` | [ingress_egress_gw.dc_cluster_group_inside_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2333220111320323-1333101320023110-0000003300310213-0102223321320123-2132020131203013-2132022122301123-2333300003110332-1322130301022100) |
+| `ingress_egress_gw.dc_cluster_group_outside_vn` | [ingress_egress_gw.dc_cluster_group_outside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2032030201233212-1133310201222023-1100310323232103-1133131022322332-1133001212121333-2212221220321111-2202310300220313-0022203101332111) |
+| `ingress_egress_gw.dc_cluster_group_outside_vn.name` | [ingress_egress_gw.dc_cluster_group_outside_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0231132111013301-2102211323133112-2132102203030021-1021130110312100-1121023203023333-3021230223311233-1012013221022310-3030210210032210) |
+| `ingress_egress_gw.dc_cluster_group_outside_vn.namespace` | [ingress_egress_gw.dc_cluster_group_outside_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2223212001031020-3323313102012312-0020032332331332-2132131202122102-3232311112001110-1011232312213202-3130021213221112-1210000132203202) |
+| `ingress_egress_gw.dc_cluster_group_outside_vn.tenant` | [ingress_egress_gw.dc_cluster_group_outside_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1332130011201200-1322110302003323-0101231311323010-3331111102103013-3302310132301112-1331322310332022-1130313002210201-0023001112032000) |
+| `ingress_egress_gw.forward_proxy_allow_all` | [ingress_egress_gw.forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1012223021333013-3033013201110301-3233122303221303-3110201233221101-1103310013333123-3323000200013031-2222311220331211-1223210300320132) |
+| `ingress_egress_gw.gcp_certified_hw` | [ingress_egress_gw.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0213113302333011-0220223322322001-3013303010131032-3002013312201012-3310100303221303-0333113330003331-1020010103213120-0031303001313023) |
+| `ingress_egress_gw.gcp_zone_names` | [ingress_egress_gw.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0103031030102332-1302223121311220-1133313131223120-1123133110020130-0333210231121002-2132020112021133-2023210231012021-2012000202100223) |
+| `ingress_egress_gw.global_network_list` | [ingress_egress_gw.global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0132031033010220-0022031212001320-1132002213322013-2133020323001310-3213012203222220-3133032312103301-1223321221112202-1310123112020132) |
+| `ingress_egress_gw.global_network_list.global_network_connections` | [ingress_egress_gw.global_network_list.global_network_connections](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3222122122102121-2301132320202131-1011122131303123-0011210202321203-1100003110013211-1110233111320101-1100231220210311-1031102111010003) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2331003130102333-2301322331003201-0112213010332233-3203131030003111-3210232210301311-0110112112013031-0201022022112200-0021222300301221) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3302103113202030-2033003301000202-3302211232123023-2320030321330333-0311010211322322-0031111132311322-2213330100310210-2000022022212111) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0100302310013220-1011013130203202-3320300230310222-2002131121023330-2030100101131121-2310023233301112-3030000011200120-0100200112020333) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2202311201300030-0120212220201021-0313200330232003-1213332212013103-2130211303122322-1330212300101202-3223023132311010-0220020201233210) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0000030113321100-3210132101003301-2303131230303122-0203112133022032-3231111001313210-3122222132111000-3111001220122002-3110132201133031) |
+| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1321300321231221-3201210130020211-2130200002123303-1312123311123302-2001130031121322-0013212030331233-3311103331222112-0032231310100123) |
+| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1313023012101113-0011103032321200-3223022222102332-0001003100122123-1033012331130232-0120332221331123-0133323031003123-0102013320221311) |
+| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2132321002220031-0112023011110111-0133012313200333-0011003222000310-3023100222012330-3001301332023020-1013132202102121-1102021011101330) |
+| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3313230330203201-1013223120012102-2002102110010300-3101233123102331-1200032202022321-1230311203321013-0221223110301301-1210022020322110) |
+| `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1133033110203021-0220123033000002-1220120222001123-3031100011302302-2302231111203112-1300121120110223-3330230003100110-2321220130321222) |
+| `ingress_egress_gw.inside_network` | [ingress_egress_gw.inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0100211132231310-3310032001321123-1013102103221111-3221220201002330-3031200123011313-3222232120302230-1303003031000232-0221020313323031) |
+| `ingress_egress_gw.inside_network.existing_network` | [ingress_egress_gw.inside_network.existing_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1220121103122102-3103121301131010-3231023011230101-3303131303211232-2113213300302312-1030100112201232-2333212110212110-3130210223210203) |
+| `ingress_egress_gw.inside_network.existing_network.name` | [ingress_egress_gw.inside_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1100203330003302-1203213110222102-1103000211330132-3032021132033230-1312002212323231-2313222101023303-2121102233223221-0331230030213130) |
+| `ingress_egress_gw.inside_network.new_network` | [ingress_egress_gw.inside_network.new_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2210300111302201-0201113302221132-0132000002112331-1311313110111102-2323132213031100-3310231002121232-1033031203310321-2022102203121210) |
+| `ingress_egress_gw.inside_network.new_network.name` | [ingress_egress_gw.inside_network.new_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1022002303201230-0102322100031231-3011323110211212-2302133030123203-3312013333033332-3122213220313230-2101332321100020-1030222202102202) |
+| `ingress_egress_gw.inside_network.new_network_autogenerate` | [ingress_egress_gw.inside_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2221101310120210-3103010101232031-1303203121200312-1131112222033310-0201330122222120-3120230200032331-3133002122132231-3000331213330220) |
+| `ingress_egress_gw.inside_static_routes` | [ingress_egress_gw.inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0330302001121010-0000023223330023-1311322132211002-3110330223133003-3210302123201210-0131230101121200-1033000331322131-2033330033032113) |
+| `ingress_egress_gw.inside_static_routes.static_route_list` | [ingress_egress_gw.inside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1133110212121311-2212112003103102-0000312111112121-0211310132101302-3203232220132101-3030203111200122-0011110120121120-2121210301211210) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0011003110330210-0021131012120112-1221102110302032-3333000133113130-3023033303230023-2033312202122002-2221023221112123-1122130211012331) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1121211012131102-3032012301112330-0202321233002230-2232303200023021-2311020212100033-1111210032023000-3302131211312032-2211310023300300) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0111323000131300-1132031131213102-2303330201102110-1002310223103331-2120112000011031-0023031132220102-0130132120323321-2201333003010203) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2210033313010300-2111131021203311-3133311323312203-0011230211132031-3120332213003022-0302122333003031-2231203323300121-0011003132200323) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2101002203120322-0110323120300202-0103013222203002-0131301322222303-1232113130311123-2232003202021321-3020223133133311-2100231113321020) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1023313320222021-3103031321023330-0111230331223132-3132300030010002-3001100023130033-1321000321011230-3321023302300132-3120223003213100) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2020122031212133-1021010302012101-2210121120011302-2230001313031030-2320322121010233-1213310221220030-1321103300313111-0120130113311110) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0131222332131201-1003012220322001-3020110000022001-3233332212123233-1101133130011013-0133233330213102-1003121230231230-1020132023331031) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1132321012203333-0323321301313012-0020012301112222-0131123102322323-0012312322221230-1230000311233012-1021103030020131-3033311003132311) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1110121210030010-3301012032213333-2323323003211010-3222102012120100-1120111203113230-1131312110032131-1131022322120031-0312312101330220) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2101302302032302-0023333230100010-1101023031330232-3121120313210231-3123103132003103-2323310020000122-1131221220032222-1200032122110122) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1033011200001310-3333012230203311-3012010132310121-3303222131230011-3300220121032210-1033131130130103-3130001221212003-2222002032221301) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3303122120233032-3322013203330123-0323301312030022-3122001022033232-3031320121030102-0323220212030222-3301123220023020-1032312322111333) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1110022101220222-3033312102022023-2232132120332302-3323330313311111-0322102233121301-1032211213031213-3321120120001100-1313303210001003) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3321030110132221-2323320002131110-2300300103222330-0223302200200111-3120232020021020-1310231301330003-0023221312302002-3203331132012322) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0123132033211033-2102213201101022-1033101021130302-0023001313132102-0212301123023323-2111100031323113-0013001001002302-1132003201331013) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2122331232333120-1301020213313032-3000312000232000-1101132132200302-3220012333223301-1122121003113303-2122122010022111-3113122203023113) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2321010222123213-3133001222120220-0113100120133012-2202010200213130-1300010031312122-1213002002233230-3032113112333300-0232130312131320) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0303023121120203-3133300221131122-1212203103003312-1231122032021012-1210311111110020-1132112313130123-3200220313120220-3300030112220132) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3320020103101312-0111112122320112-1310311213310220-1213112022132020-2232012320233101-3030210230101201-0220102103231210-3200101101211003) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.type` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0333023003123210-2133331231010203-1200111222022022-0022020033312331-1103033232100102-1302230311030130-1110201013333013-3230312102233111) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2130122032312300-2232300321103002-1021101122010022-3021330113131100-0330011210312122-1300001020312011-0313132000032310-3013302001010330) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0330322031201032-1203302302103133-3121121012303102-0022230212030033-2100333030110321-2131301123013323-2012022312202212-2202113321112022) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0320203021023111-1330322232221311-1010312023031122-0212233301321300-3323002021210030-3011330222122133-0020000320300033-3123230001323033) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2201232223233230-2022021332230231-3201123323101101-1112202003122030-1023210113120023-0132033001112320-0102120233311100-1113301131100323) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2213232323302103-0301332323231211-0301230201030020-1010000023011231-3301120231010332-3022011032020031-3032122130302021-3302313122002332) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2012322032030221-3023110311121130-2103332020202021-0102121320122110-1000112303010222-3133332113233111-2133111031123110-3103302101002210) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1133321320302013-0303231112130101-0023111002133310-3010233330130220-2130221130002322-1013110101210212-1230100322203030-2221110112332011) |
+| `ingress_egress_gw.inside_static_routes.static_route_list.simple_static_route` | [ingress_egress_gw.inside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1001130210203312-0101101212231011-0311111010013220-2220101302203232-2233102110230220-2232021133203332-2333231221001310-2033221111022211) |
+| `ingress_egress_gw.inside_subnet` | [ingress_egress_gw.inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3231330330333310-0233032200002020-0320132032223232-2212122102321221-0221013303310012-0220130000213120-0002033021023220-0320002213320033) |
+| `ingress_egress_gw.inside_subnet.existing_subnet` | [ingress_egress_gw.inside_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2301010221110120-0200203121013312-2221131212313031-3012103021213312-1110123012220110-0011320331230232-0123110132033331-3313130101022001) |
+| `ingress_egress_gw.inside_subnet.existing_subnet.subnet_name` | [ingress_egress_gw.inside_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1022023302023012-2032230123103010-2012123203020331-1123022132030233-0313101232201030-1201023201320102-1131031333100321-0330322033323202) |
+| `ingress_egress_gw.inside_subnet.new_subnet` | [ingress_egress_gw.inside_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0132332133032322-0321320111010312-2322110013321011-2321313320321300-2323113101133030-2230123030320302-3111321110321330-1010031031122332) |
+| `ingress_egress_gw.inside_subnet.new_subnet.primary_ipv4` | [ingress_egress_gw.inside_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0133312313130312-0323101122201131-2103112122303220-1022002030201201-2002323230013320-3112323232102122-2213100113313033-1200013322331010) |
+| `ingress_egress_gw.inside_subnet.new_subnet.subnet_name` | [ingress_egress_gw.inside_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2220123323130313-2333212230331320-2021103203222331-1103033012112311-0112220123100202-2113310312013321-1012232200002013-3222030321212200) |
+| `ingress_egress_gw.no_dc_cluster_group` | [ingress_egress_gw.no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3213110011303132-3311232203201033-2303223001021321-0101223113331223-2001002021102011-1102300113101320-0303102000033120-2311322132130203) |
+| `ingress_egress_gw.no_forward_proxy` | [ingress_egress_gw.no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1030111330000031-1013102311022312-1203213012221121-3010200202220312-0003120110223320-2123000223213321-2010211330110032-1010021212130310) |
+| `ingress_egress_gw.no_global_network` | [ingress_egress_gw.no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3203122321121030-0331210203131120-2310201231021033-0113022301301030-3010231123122331-3323121031332222-0330301302031332-2320212003133213) |
+| `ingress_egress_gw.no_inside_static_routes` | [ingress_egress_gw.no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3221332002031313-2010131221011230-1230231202011312-0202013120103102-1333022113120120-0013320312002211-3102000313211302-2000331100123023) |
+| `ingress_egress_gw.no_network_policy` | [ingress_egress_gw.no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0132122202101131-2020132123110110-2113003000123102-2223220313032212-0310133313030033-0100311313301110-0003133333001101-3133301121303302) |
+| `ingress_egress_gw.no_outside_static_routes` | [ingress_egress_gw.no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0333203110320330-1132120310113110-3332012300033200-1213033032112101-2211320123122222-1230301130333211-2230110310223013-1213101023032300) |
+| `ingress_egress_gw.node_number` | [ingress_egress_gw.node_number](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220) |
+| `ingress_egress_gw.outside_network` | [ingress_egress_gw.outside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0313202301100112-1001031023230231-3333101222012102-3202133211302210-3303133320333332-0112122323102331-1102101233320033-0121013330311312) |
+| `ingress_egress_gw.outside_network.existing_network` | [ingress_egress_gw.outside_network.existing_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2110022110221201-2320022330033321-3110300110031332-0120013110220221-1200332320202100-0101031321000120-1211011132222203-0310120022223202) |
+| `ingress_egress_gw.outside_network.existing_network.name` | [ingress_egress_gw.outside_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1123202222333000-0021203322311032-3102302020102323-1030111000220003-3010302231213311-0032221010120321-2230131332010130-0201122221120112) |
+| `ingress_egress_gw.outside_network.new_network` | [ingress_egress_gw.outside_network.new_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3110302032210223-3133330210133031-2202112321030301-2001010202333221-3210002033222310-3331302330303001-1103003213010012-3312223120333112) |
+| `ingress_egress_gw.outside_network.new_network.name` | [ingress_egress_gw.outside_network.new_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1311211120021301-3013220230111123-0203232332213210-0012311001130001-3013032100332023-2030020310133131-2223011321203113-2332223222031120) |
+| `ingress_egress_gw.outside_network.new_network_autogenerate` | [ingress_egress_gw.outside_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0031111213113013-0103010030232011-0003003202321103-3132010030011132-0231012221320112-0331300220032221-2120210112102030-0333030113032331) |
+| `ingress_egress_gw.outside_static_routes` | [ingress_egress_gw.outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0323023232303223-2121211210022131-3300033022311100-1032131332303230-3001120032220202-1321312121020112-1202102232031111-0312000212011101) |
+| `ingress_egress_gw.outside_static_routes.static_route_list` | [ingress_egress_gw.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1032020001221203-3211103022330321-1111130120110231-2211301200131021-1000121011213311-3222012231020003-3103131101000310-1322333223202230) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2103200313332222-1131023303323121-2222313212320320-2303113331130031-1300031032303223-2112212011131213-3031301123323102-2200101331133010) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1113021133222132-0233222330121200-0222023222131011-0303101213230232-2112320320012000-0032320310322333-2202322002203032-2000002032301032) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2203111211123001-1302311011012203-0302303101021333-3013003113122111-0220031031331011-2333233023222203-3111332212100030-0230300130223113) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3312030212332122-0102121002311120-0301030210002220-1000213212223312-1213022022311223-1010033033313123-1122103012030111-0200222031303031) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3030101010031321-2022031021330132-1110202320301300-0332112331321312-0233220303000302-3302030233313111-2120131202212030-0222031011031303) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2200212023232010-0201322232021112-3331233202200300-1312001221323320-3232123133121122-0022233232132322-1122021230332101-3002320310300201) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0210222222111121-1221322013011031-0103300033212332-0212023222000130-1033022123232233-0230013131023021-2311000113330103-1033331232100223) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0103111321022123-0233012200222120-3020231213001212-3113201012102113-3220121121021013-2221103232230010-1033100010002021-3301113212231113) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3133220212323130-2102100200330201-1000102210331101-2021121221113100-3101321222333023-1223130032310122-1200220231313020-2120000312032100) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3300310211222002-1230221310102213-3330021321231332-1232222131130030-3310230023110122-0210330303222200-3230133011223022-2223100333211002) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2120331203231312-1203121311303012-1330100021113112-0302102300231322-0123301333002033-0311213021001102-1301320212230203-1330302102213200) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1103021013212323-0323132032002031-3232023331031133-1110233110233003-1020123330223030-0003102331203311-3033132103033100-1031121211033321) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3211211122301202-2023012300121232-3102332302310002-2201230211200302-1120221221211103-2102232331311232-2211131103302100-3023100121112311) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3301121200323022-3301011230131322-3002011203310300-2300131013002020-0013020023232200-0313221302213003-2012021000313220-0102103131013200) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0200302101313103-3000220300311123-3022130310333220-0101213303102233-1101220003112003-3031323230100132-0120001223031130-1302311332201030) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1131102112130022-3221202211010100-3020022313110102-0121310323201131-2013123220020113-0130002020001103-2212310021111133-2232212303223111) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1000003201201330-0201222133033320-3022201131222132-0321233310030301-0111312021133003-1303231031120223-1100120002200300-2013322220332002) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0133033010112322-0131023020323020-3332233223213300-1001033232010212-2302322112210321-1130223320133320-0013020323331021-3013112232233110) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1020023133220201-2211210130003301-1131212330323131-1133322013212123-0101211012102012-0233303022103233-1312032133233211-0123003232100113) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0312202201211010-3133110010132221-3321120100020023-1031111223302211-1010031030131202-2201030030223033-1133310201303211-3113023210010130) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2311112202221121-1001102313100112-1133302031103330-3211232111310122-2211201010002013-0012311231312222-1110301301013010-2332301231001303) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1023132223232001-2012320302220032-1202112001212232-0321211100223131-3012001120112300-1022021100102102-3131112201020321-3132033111220201) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1210002031020302-2110113301020213-0201033130302002-3001321231303223-2103211023200300-3313112113311302-3231200122231120-3331112023202122) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0223031232321133-1112233223220200-3120320213030122-2021231000121313-3201202232203013-2123121333213021-3321232301210331-0010222131122112) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2211301101010213-3302311222112030-2111020223230110-0313213302322002-1133112302211101-2320103333102110-2002220110222301-3311231232331122) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0033033011110301-2213212101221101-0221331312210123-2332330121213211-2132333320312321-2213321233330210-0012211211213331-1213311301003001) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2320011233233023-3011110131310001-2330011132201300-2110302113032111-1300331221113123-2100101101011223-0133202101031033-3322022100222301) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3322133231011012-3213210020330010-3032113223002112-1020301320213321-2322330120333122-3310212210312111-3002202111012000-0331332001103122) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.simple_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2332030301211220-1332310011310010-0320032223000203-2121312203320303-1013300120022111-0102302210223320-1102200301222021-2100311302300133) |
+| `ingress_egress_gw.outside_subnet` | [ingress_egress_gw.outside_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3320303120201113-1231311110033312-3212301012031132-3230020220323322-2321213101333201-3200000103033131-1231212230110330-3000011133011210) |
+| `ingress_egress_gw.outside_subnet.existing_subnet` | [ingress_egress_gw.outside_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0232112100322310-3000232122212131-1103311002133301-0233100322212100-3331332233023003-0113321310323302-2210332123231132-3002333210032122) |
+| `ingress_egress_gw.outside_subnet.existing_subnet.subnet_name` | [ingress_egress_gw.outside_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2011131132111310-2230110131120313-2322113222333032-2302211103131300-3313013012213311-0133103000000033-0200023232200303-1121110022320030) |
+| `ingress_egress_gw.outside_subnet.new_subnet` | [ingress_egress_gw.outside_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203300300330222-1102111322221103-1312103303202010-1220232002312020-1123313233132301-1110312333323200-1203233122321121-0322310323010200) |
+| `ingress_egress_gw.outside_subnet.new_subnet.primary_ipv4` | [ingress_egress_gw.outside_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1101332030023102-0020210123210113-0233203032301232-2323121331002122-1310101113003110-2031200012333212-2213133102233012-3132121130202300) |
+| `ingress_egress_gw.outside_subnet.new_subnet.subnet_name` | [ingress_egress_gw.outside_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0000323220233033-3111101130133013-3323010001122020-1222230000012030-3320212013112201-2231212303023211-2022212210123202-1312101232122021) |
+| `ingress_egress_gw.performance_enhancement_mode` | [ingress_egress_gw.performance_enhancement_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3202313120112320-0131113222022222-0301203233302211-0013123213120332-3203200322003103-0023030210311002-3033301303203311-2221313021003310) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0320113031201111-1101031211001312-3010223331011310-1301032323320313-1131311010332020-1330110230133322-2130200021321031-2210310223313322) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2112303332123102-3333022332202200-0121023012103300-0123010202323322-2331100201312131-0002310113120311-2232332233312230-3113323133312233) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3201120212323003-0200000333213013-1301101300031222-1221010102302301-0212310002133122-2103111322213220-1233031030013013-0023211103000002) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0031332120220011-3101033033123201-1223122301230221-0032332321123202-2220300200323212-3220032223110130-3211200213333132-3211133313003212) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1321033212232331-3021222033103123-3323110313110231-0321032320030022-3133213312031331-2221203312033311-1330023321210102-2213132313313120) |
+| `ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0110130123110130-3232203321233100-1003221301111331-2222211330010223-0110322030232132-0302220132031330-1203020032130102-0322213302223233) |
+| `ingress_egress_gw.sm_connection_public_ip` | [ingress_egress_gw.sm_connection_public_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1021113303131112-2020221230112303-0122211213021120-1132121123020212-0230331021202132-0102301301300333-0120210132311113-0032113332110200) |
+| `ingress_egress_gw.sm_connection_pvt_ip` | [ingress_egress_gw.sm_connection_pvt_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3013322112132220-3011130301222110-0102010330123213-2302231110001232-2223031030000303-3332302131213103-3230300111013003-0220223232310111) |
+| `ingress_gw` | [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2222232300212112-3211332221211323-3302333303221100-3122023230323133-1112203332332221-1323033133300103-0220100330013232-3332102330003130) |
+| `ingress_gw.gcp_certified_hw` | [ingress_gw.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1030220313203311-3030010002301131-1132230332021312-2133010101320321-1333131210102122-0232103300132233-3310120211201212-2031331120303110) |
+| `ingress_gw.gcp_zone_names` | [ingress_gw.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0120231010331100-2322020001321002-3120121230330122-3012022132200203-0011210101100301-2302000113333021-2111222203323112-0001213032011322) |
+| `ingress_gw.local_network` | [ingress_gw.local_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2300021130312333-1013101303013031-2123220112122302-2130312121111103-1302022200311302-1200232332021013-3002103211022212-1111331121022133) |
+| `ingress_gw.local_network.existing_network` | [ingress_gw.local_network.existing_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1022232030013331-1020202030131303-2330331103112312-1202112122012012-2031023101232313-0233223110100200-2211011033232121-1333310210101022) |
+| `ingress_gw.local_network.existing_network.name` | [ingress_gw.local_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1103102321310203-3013322313312312-1231332031121302-1103032223020221-0101302131012133-1330020312330220-0312033121303302-0102123011230313) |
+| `ingress_gw.local_network.new_network` | [ingress_gw.local_network.new_network](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1023133201302001-0210312032301033-2202210121023110-1322021133100210-2002121223132332-0331021022023311-2102111130121031-1132232222021001) |
+| `ingress_gw.local_network.new_network.name` | [ingress_gw.local_network.new_network.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3011330103013110-1002231010231020-2133211133023232-0210322102301102-0203032010211101-0120101223203303-3301032020303012-1011223311101222) |
+| `ingress_gw.local_network.new_network_autogenerate` | [ingress_gw.local_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1112102321303020-3020012312320212-2103312101223332-0230133032103310-2200223233011102-2300310220303301-3003110302122322-0032203031211322) |
+| `ingress_gw.local_subnet` | [ingress_gw.local_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1221333212131133-2012032302302113-0012313002313001-3220012200302100-2131230123333032-2311332310131301-2323330323020312-0311221000020231) |
+| `ingress_gw.local_subnet.existing_subnet` | [ingress_gw.local_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1211022333130121-1223111312022200-0121220213302002-1233312213100030-2302100201003113-1220303203201023-1001101311010103-2000320303012321) |
+| `ingress_gw.local_subnet.existing_subnet.subnet_name` | [ingress_gw.local_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3002100230130223-3212223302332033-2221100110202210-3032111110302331-2001131322301221-1002012032003320-1110302333211011-1113023113030211) |
+| `ingress_gw.local_subnet.new_subnet` | [ingress_gw.local_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0101210312020130-0001001013022103-3302301100223121-3223121020111201-2121031133001002-0300111000110033-3020001133031330-3321100112332233) |
+| `ingress_gw.local_subnet.new_subnet.primary_ipv4` | [ingress_gw.local_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3122100331100312-2023020211222123-2003113301011111-3311320230320033-0211013301232222-0101332222010300-0212022323201231-3210321030201231) |
+| `ingress_gw.local_subnet.new_subnet.subnet_name` | [ingress_gw.local_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2033133122330300-1310230130200102-2320121222021220-1100300203032212-3332023101031301-2102313103130112-0130310030310331-0300231211232022) |
+| `ingress_gw.node_number` | [ingress_gw.node_number](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3021002310321202-0303133012211221-1202300012213003-2033012212203031-1111020131312221-2302333101000023-0032113332333101-0123203000113311) |
+| `ingress_gw.performance_enhancement_mode` | [ingress_gw.performance_enhancement_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1013201030102321-2021320033323230-2023001200001021-3222201202322233-2131030320033122-2032301302323232-1310103201111320-0020023212222101) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1000121230312330-1301211201301112-1132321311221111-2032311301202132-3102223302131211-1223222021312200-1222002021302200-3110303100121323) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3011002203200230-1030332000021331-0130331100120030-3023130030110233-0312013300320303-3200132031200331-0302313103210003-1013321010302201) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2102103131101303-1000113010022312-3322201001111113-0222311002131002-3300030231311122-2310002000022203-1033111002023003-2201200111323101) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0313200331222213-3011003113232123-3201220020232311-3323121002122212-2303021320013111-1010130302332133-3012311020312120-3131033030003130) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3010102002000003-0021023210003330-2100232200311313-1303002032222013-1101032023321313-1133222000031032-2123312112112021-1131010230311201) |
+| `ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2231301320323132-3321012201321121-3133002303212030-0003221300213332-2000333322330113-3330133113202323-0322031220213220-2203013332301030) |
+| `instance_type` | [instance_type](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2213220100123022-3112000221011111-0031333211321330-3000132101201123-1202233300100301-0112032210112012-0020002202131322-2310120110032223) |
+| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0002122032131302-2200202021122223-3022132011312112-1122013331003113-3112220132232020-1103123130233212-2120200021130012-1122211210330310) |
+| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3301112121031322-3013000213113120-0001112023333211-2000132121010303-2133032232110133-3010221021111213-1023303111002332-2301103313232223) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0310023332203232-1000010221212310-1101312113030310-2033201223202301-3230211322231010-2020030031113333-1202310300020002-2123031112222011) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1131102200031101-1301220300220130-1131333003311120-3131133230113111-3012122230130330-3123123332202133-1111323133133301-3000330023322023) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2122211012012301-2203332313101330-2032302110220113-2132122202302131-0321112032313321-3103212321310211-1312132331023101-0112203312222001) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2112321323121332-2013222311322221-0302120122030030-2202310222102210-3233332131201310-1021302132111232-0022110323333023-3312103222231203) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1000312003003221-0132033211203122-3310230323121231-2100031203233033-2223331023303102-2010100133020311-2301000113300221-2101113112322312) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3232210220233102-1233233211213033-0203000032323333-0321111003322010-1221211121131302-2220301122202021-3101213230133002-3310100212022003) |
+| `labels` | [labels](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0030113023031300-0113220000110121-2302103003120033-3213123300300223-3032222330003332-3323021022002113-1110322300122211-1302232003332132) |
+| `log_receiver` | [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3331323212131010-3111112031103213-0133320332031013-0102000120300233-1330031131303001-3321111310320230-0200133201133031-2132331321100323) |
+| `log_receiver.name` | [log_receiver.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3230013010132121-1100231303213101-0313333213201222-0133220332123312-2221030312321202-1031021302031113-1032113113323322-3101031221301300) |
+| `log_receiver.namespace` | [log_receiver.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1221120031132332-2300320211211222-1101301213011303-0012111033203113-2021332222300103-2031213100233021-0103333200123213-2130020312020332) |
+| `log_receiver.tenant` | [log_receiver.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3101011223301001-0313320010001012-0322320101332303-1131030211013000-0123132201033332-2123003022220132-0111311333312200-1210202022021322) |
+| `logs_streaming_disabled` | [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0111102031022101-0210132112322321-1232313313322030-0010301103033013-0113301133211123-1030233303202120-3100312000310323-2200003000303001) |
+| `name` | [name](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2211221221131011-0303102211331030-1202221302320132-0230110211333131-2322030221022333-1331331302133102-1020203112323131-0002230213322132) |
+| `namespace` | [namespace](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1230130000200211-1232231202020113-2302130211313322-1330330210030201-1211110320133122-0000333302221330-1233303223033311-3033211201223222) |
+| `offline_survivability_mode` | [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1231320222331220-0033021033321301-2121030121313330-0322130303303010-0201031312232220-0222102023133322-0010130330111311-2023103222001031) |
+| `offline_survivability_mode.enable_offline_survivability_mode` | [offline_survivability_mode.enable_offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3233231322211120-0010020113211022-2221012133321223-2303211311221212-0230122023120212-1322020202222330-3230122113120213-0310011120231300) |
+| `offline_survivability_mode.no_offline_survivability_mode` | [offline_survivability_mode.no_offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3221132001320310-1200300220233120-3112123322301030-2022330301302020-1231322020021131-1223302332023321-1223210113032311-0011301221102131) |
+| `os` | [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0002023020202321-2233101100131012-1111332130233122-0223120022103220-0010001220332111-2310202232133313-1121312202220123-2321203033310132) |
+| `os.default_os_version` | [os.default_os_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1010102031122310-0302313230101210-2030223222333113-3323031023022302-1211222322112112-1120233301222010-0021201022310221-3233321032120001) |
+| `os.operating_system_version` | [os.operating_system_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1303313020223220-3032230220201113-3200221103113020-0203311212230220-2232133323221122-1012103213203022-2103023003133000-3203220011230122) |
+| `private_connect_disabled` | [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3231202332022223-1300332201011312-3201201033313130-0122032123131012-2101122222321311-3212201111202202-3230001011202122-3103103232130333) |
+| `private_connectivity` | [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3101102303013132-2123031132212110-3112212212100023-0232100020232331-0010303022333033-0330322101100330-3310201120031111-3021223203332133) |
+| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1223012231302030-1003320211330111-3102031323011222-3222333230331012-3210210100102003-2131330031213313-1200323201030010-2030111223321002) |
+| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0021323012112130-1331222203103113-1302023223201012-1330020321122301-0321131101101112-3211131110232032-3001203300122123-1131212321201101) |
+| `private_connectivity.cloud_link.namespace` | [private_connectivity.cloud_link.namespace](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3220332331101121-3323222231111023-1030020130113132-2002012300221211-0211200301301322-2323120030032322-0220320231230220-2133300011321201) |
+| `private_connectivity.cloud_link.tenant` | [private_connectivity.cloud_link.tenant](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0131200002333212-3020111330030133-2303320331103312-3302331202313003-2013322202120032-0312022233000212-0201303222120321-2123133312332201) |
+| `private_connectivity.inside` | [private_connectivity.inside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3001210001211311-2201220011232011-2121120310211102-2312000311030023-2213020300023123-1333322033133003-0300123310132312-1212121032132030) |
+| `private_connectivity.outside` | [private_connectivity.outside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3200032013200101-1013231120020332-0321321000230031-2313313112200113-0302202301323132-0321310202102102-0323002220330323-0203321021232012) |
+| `ssh_key` | [ssh_key](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1131200321210212-0100100122002120-2311021313321002-1333101002100203-0130032133330011-1213231202000101-3222013031313032-0011020301132002) |
+| `sw` | [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0231010130132301-3230223211201230-1131212221130330-0011311122031022-0120120303021111-2220120011022310-1011103233320012-0330322321331211) |
+| `sw.default_sw_version` | [sw.default_sw_version](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0132233033323202-1310331310021111-2121232112202121-1202121333223203-2001033123100213-0200202030133023-3101210230330033-0333212311310302) |
+| `sw.volterra_software_version` | [sw.volterra_software_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2203231232232023-1203321030310030-3103210020103020-3322022212330113-2223202122100212-2231102012032012-0203011100131001-1022200312222002) |
+| `voltstack_cluster` | [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0203133203303222-3213130300030211-2023033333200210-0202320122220013-3100113312003032-1000031013121311-1032330000300302-1022103102203101) |
+| `voltstack_cluster.active_enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1301310132132100-3120112033223003-2021010133032212-1232003133112021-2302100121300103-2120320013223220-2111310301313110-0130212003130212) |
+| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2333332221130203-2210321221022230-1312133312201032-0012201031123002-3223313300320233-0122120033331320-1122332113323020-1321222131101011) |
+| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1131133112333322-2331302323202033-3222322111312222-1330222120300023-1310223132103031-0302302330111113-3202210321103123-2330012120113322) |
+| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3023202303130112-2000031300213010-0120330321323132-1100020223032312-3312310022332223-2210202302322323-2100101101001133-1022331320013012) |
+| `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2331021311101122-0132111120113112-0132223231100123-3230131020130221-2111211113111111-2220120333332120-1230230323022231-3311203112313120) |
+| `voltstack_cluster.active_forward_proxy_policies` | [voltstack_cluster.active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1000212330333001-2333210132332120-0000031021301222-0233333230010220-1100111323210213-2332322013331013-0131223201010213-3303023123220032) |
+| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2222200203033223-0121330323113201-2110031330120021-3122313312030303-0301231033011331-1021003010322200-1102013300312210-1121331301210012) |
+| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.name` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3121333122202223-1001220202013023-2313103301311020-2313323002200120-3321301001100103-3312032331102130-1132130113202133-0130100011033031) |
+| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.namespace` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3213021113231212-1211031013031311-3022230123003330-2221311323111130-0123213110000322-2121200102202000-1323113331230321-3311320222232130) |
+| `voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.tenant` | [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012310101033132-0021120311023111-2203311310322012-0332221113132301-0003323221101011-1302122123300103-1223322133033302-3212320331102313) |
+| `voltstack_cluster.active_network_policies` | [voltstack_cluster.active_network_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1002021111311231-3032230301121310-2010032131113300-3223132213020212-2222331102232232-3331122210212332-1120223203022223-3132312031232300) |
+| `voltstack_cluster.active_network_policies.network_policies` | [voltstack_cluster.active_network_policies.network_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1002322110130202-3001303120223211-3112321020333103-0100031311010320-0210322031303011-3131133321202022-0210033320202230-0232112031021103) |
+| `voltstack_cluster.active_network_policies.network_policies.name` | [voltstack_cluster.active_network_policies.network_policies.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1213130331010300-0231312320100112-0031110202212322-2121110120031012-3313101221203310-3332310131313322-3012331221322203-3132233212021011) |
+| `voltstack_cluster.active_network_policies.network_policies.namespace` | [voltstack_cluster.active_network_policies.network_policies.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1102011223122230-1222011103132012-3022123033220222-1230310230210231-0222202200202311-3201001013132200-3223322113230213-2302203022332310) |
+| `voltstack_cluster.active_network_policies.network_policies.tenant` | [voltstack_cluster.active_network_policies.network_policies.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2320112310120030-0201033222023213-0011221230120110-0130310030121212-2132312013112022-3212301032213000-2222233001331123-1221003011310233) |
+| `voltstack_cluster.dc_cluster_group` | [voltstack_cluster.dc_cluster_group](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2010012001130330-3232102120221230-0030211202311023-0233202030030312-3023210133022123-0030133300012301-3130331233020110-2211132210031022) |
+| `voltstack_cluster.dc_cluster_group.name` | [voltstack_cluster.dc_cluster_group.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1103322322121321-2321013010223003-2013310203213021-3123110210032121-1200130031020212-0300331302300323-0233231033011022-3230323132132033) |
+| `voltstack_cluster.dc_cluster_group.namespace` | [voltstack_cluster.dc_cluster_group.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2300201000012210-2031001303011202-2312020110301023-2221102223301202-2321003310301133-3002030331011033-2030100312121122-1200110032221230) |
+| `voltstack_cluster.dc_cluster_group.tenant` | [voltstack_cluster.dc_cluster_group.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0033133132321230-2203121222212002-2232203223220312-3102022331110303-1113211221003121-0211030102222123-1333310202121233-3101230330301111) |
+| `voltstack_cluster.default_storage` | [voltstack_cluster.default_storage](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0302310021333323-1321002032210330-1200130211001000-3331230013223013-2310332323102303-0312222201112220-0121100232032101-2313331023033000) |
+| `voltstack_cluster.forward_proxy_allow_all` | [voltstack_cluster.forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3300230133233231-0012011302210331-1112131321010002-3030012112122320-1312121023023311-2221132212111132-1102312312321023-1101302311302100) |
+| `voltstack_cluster.gcp_certified_hw` | [voltstack_cluster.gcp_certified_hw](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3330231013222232-3321313230011130-0032321332331231-1213203102220100-0101111323111112-3022123301211323-3002312003220231-0001111121302013) |
+| `voltstack_cluster.gcp_zone_names` | [voltstack_cluster.gcp_zone_names](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0102121311130021-1031012132233013-1231301111110112-3312130101231322-1312320311223301-1222032223203313-0202323112103230-3020203312301021) |
+| `voltstack_cluster.global_network_list` | [voltstack_cluster.global_network_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2323211020333101-2331101232201103-3031231202233221-0101202333110323-3311333230212303-3230032001131321-1011021300201231-1220001323300121) |
+| `voltstack_cluster.global_network_list.global_network_connections` | [voltstack_cluster.global_network_list.global_network_connections](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2323021200122121-1112123121330131-2013232220021033-2313002100221012-1102002000122131-0231303203012030-1021012302212321-1122222002102013) |
+| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3011212102300232-3332222111311222-1331033131013103-3200000321310322-3013111221102012-2321011121210220-1020331211311320-3311201230102100) |
+| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2123123122031302-0210231213100132-3122300312232303-1111111132220001-2032021112111333-0101000111103233-3331322013001211-0210320312001232) |
+| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0113322312101302-2121111033321030-2300201101220322-2000010310303000-2033132223210322-3133030232012332-1021332110131331-2311030200113002) |
+| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2331320022022111-3231200120210022-1200313121021303-3032113013303313-2011311221003120-0203030002011121-1201311131201031-3300310223033033) |
+| `voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1200033210122333-1312220100201031-0132132321201131-1200100300231200-0200123110301311-0110323002331322-0231202023123202-2011210230320003) |
+| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2333012221331233-1320331201222321-2022130033110123-0213202102333102-2103001033213133-0210222023133031-0132100233300233-0322121003021103) |
+| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2102210221020223-1230200023033011-2322212130021020-0021311002323302-2111203300012233-2302333210123330-0100201201001132-2302233013230313) |
+| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2220221210120101-3321321212333001-1330232222031231-1213323023130131-3223110032202132-2002001321201122-2010311000330201-3100303012132130) |
+| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3101122013110203-2220002102000203-2031331123003300-0220310120003003-1311013303213101-1310013032323232-3110003020223010-1021110203111111) |
+| `voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012123011330122-2103020030100120-3211202012123123-2121313023032121-2130022312120033-3303112110311212-2322230222010311-1330131210011312) |
+| `voltstack_cluster.k8s_cluster` | [voltstack_cluster.k8s_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3012333312002112-3332331132132332-1200012230321313-0300211130331212-2232312223111312-0320101302210220-2113233222300301-0222233123133312) |
+| `voltstack_cluster.k8s_cluster.name` | [voltstack_cluster.k8s_cluster.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1231001122333220-2130000001033320-2202100011303030-2032333323130121-0010232322200203-3013233020320013-3303013202222200-3203111210110123) |
+| `voltstack_cluster.k8s_cluster.namespace` | [voltstack_cluster.k8s_cluster.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2322001012002123-0210221031113133-3002222113223311-3323323012100221-2000010113300131-2200210321121122-3330301013000021-0023021210120133) |
+| `voltstack_cluster.k8s_cluster.tenant` | [voltstack_cluster.k8s_cluster.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0110323020212110-0011103230330200-0021331211131232-3131120300232313-1301012000122300-1023303111122321-0310123021031230-2332211203001030) |
+| `voltstack_cluster.no_dc_cluster_group` | [voltstack_cluster.no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2331111121102012-1200111113312120-0133223021033211-2121231011121022-3123313001033000-2000300322303101-3312131230231200-0201031103102210) |
+| `voltstack_cluster.no_forward_proxy` | [voltstack_cluster.no_forward_proxy](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0201303332132022-0202022011323033-0022321111110133-1120332310233103-2210130113113131-1213121212011000-0300130133233101-3220120211132303) |
+| `voltstack_cluster.no_global_network` | [voltstack_cluster.no_global_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1013301121033122-0333032031223020-1003021032201301-3101203323033111-2113333301312312-1323330210323203-3031202002100222-3302031122103333) |
+| `voltstack_cluster.no_k8s_cluster` | [voltstack_cluster.no_k8s_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3210331011103011-0110012321222232-1130112221121310-3011130231300032-2001010211212300-1320130031211030-3121130212120213-2102021230321321) |
+| `voltstack_cluster.no_network_policy` | [voltstack_cluster.no_network_policy](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2111033332332101-2013233102021121-2213103220013123-0111120113331213-0000210123032012-2302221032112012-3212000303301111-3210230321212113) |
+| `voltstack_cluster.no_outside_static_routes` | [voltstack_cluster.no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2210201330222020-2301110012323202-0230230230200301-2113331313132023-0322023021321120-3031320113032011-1131323011230233-1111212313030111) |
+| `voltstack_cluster.node_number` | [voltstack_cluster.node_number](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3113000302101220-1122020203210231-3103013101232202-2231131200322321-0132322031220132-1012113231130323-0332233120031001-1220311031122013) |
+| `voltstack_cluster.outside_static_routes` | [voltstack_cluster.outside_static_routes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3021201222101301-3232131222313211-1022333212333130-2313002013201203-3200211102122100-3311232311232212-1333220230021212-0000300321103203) |
+| `voltstack_cluster.outside_static_routes.static_route_list` | [voltstack_cluster.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0132203322010303-3020013120102102-1121323033220132-2332001110202220-1213323102303231-1321131320032130-1023321031001313-0010223033230211) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2322023120212230-3131030211111322-1131300130311332-0031023233220130-3223113022023103-2022203032123023-3123002101200330-0301132330222130) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.attrs` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1000102113000112-3113022311332201-3000213120031101-1020010130133322-3200333220032022-0322311212121131-3001111010010031-1222121310232212) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3011231031233121-0202322231020100-1132022210300020-1031220212213102-2313120031133131-2010300333022113-1331032310132122-3201302303111032) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1202210222132031-3202202020200022-1131010102230021-0320133101030022-1312202120211120-0230000203331022-3011002032221030-1330020023300003) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3012302233112010-2133011201302032-2330202002002303-3312112320103203-1100103320231031-2212010312132331-2332232231120133-3133122031031301) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0213312003021032-1300013011312031-2231032032031003-3313013313010023-1223101101320330-1321223003331300-3103010231300111-0002131112111323) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1120332121022223-2301232110331001-0330120021202333-3332212112001010-2020013130101221-2101122231321110-1013212321020032-2100000031322131) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2112112231330103-2010002200020310-0312121323210300-2003110013200002-2301212210113211-2320002031130031-0120322101132233-0022131201013101) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1030311320300122-2330321212331002-1120332220132230-2311022002011012-3022310030030321-1130230122000221-1131013011223010-2032231333213333) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3020021023110311-3202300103003013-1022131333022230-3223122030033331-1202013202130011-1232130013010313-0002320222331011-0312122322032231) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1311213101231300-3033023211310010-0033132321301022-0322200313010330-3110100010101331-2313122123113011-3312331320132112-3212300320030301) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0031320202030113-1113121012311220-1210202222302313-1033203110200110-2111303000101133-2300313122200212-2221230303132223-2012111232220021) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1001200133321233-1100311001112331-2012000233203320-2231110220031210-1132201013003233-1300322333201301-2031211110213103-2303332131230313) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0130032113112200-2012231230221331-2013203213320130-1223303022021320-0133221200222003-2313203202220210-2211232201302033-1032201203031032) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3332220102010130-0311010310033300-0031210321200220-0123120201213012-3131210231210203-1103322020122323-2003010303130213-2031110110012220) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3232001301020001-0132133332321021-3213111122031303-0020022010321001-2033320030332001-3200000213301320-3031303210220102-2023303202200000) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0030220132002131-1331002300320020-2112131013013131-2003323331212001-1130233333010003-3032220003223212-1302222120332102-1103031003311221) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0121223312202203-1220232333321110-3331302100230300-2223101301010103-1212012312230012-3321322020010011-2032200112121333-2023233100330013) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012321212000301-0110110202033002-3100011202320102-0030103031120210-2030210011213331-2232303310211110-0002310231002223-1213012300202111) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2133003110022331-2330202301333301-3111120203012013-1203120010232231-3020112102123233-0331122111101123-1213101130120010-1112113102221111) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.type](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3212200001332303-1130123202020010-0021212100212030-0010113123031222-0212013332103011-3221223133300331-2220022101330223-0100131103010022) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3301031311030203-0301302210223303-0123031010113012-2322211301211202-0322200132202301-1323103311230312-0120223020330331-2230201222120333) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3003203323233113-1222113223233000-0211220202012330-1232332212011102-0310321001131231-1202020001102311-3323330321311232-3103021111200311) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3311211220132211-1202221310321011-1313022332002211-0332021202132311-1311210303231113-2311120000211220-3111213133131001-0133331213233323) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1323130310030021-3323001230321031-2013232123211330-2001031211322233-3033121223133003-0112130131012233-1323222021302213-1030302222233320) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2321031022113230-0031201301200122-2203003130222101-1232323130323233-0203133000020100-3230333122223211-2001131201313211-2112231103111300) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3303232121301001-3122021130113331-2333101001220313-1111212023001312-1123103013313102-0312100212030012-1000030113112322-3232133212023003) |
+| `voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3210103210212333-2130122210220201-2120121132100231-3312313211213212-0230102031321332-0010023113212202-0330120212001032-2131002320131111) |
+| `voltstack_cluster.outside_static_routes.static_route_list.simple_static_route` | [voltstack_cluster.outside_static_routes.static_route_list.simple_static_route](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2200213103200322-1020332111133313-2032222032021121-0313303300123012-3322122230330112-3230310323020112-1120133113320032-0011132132120203) |
+| `voltstack_cluster.site_local_network` | [voltstack_cluster.site_local_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0031131122131032-0222213322201333-1303321220010012-0003220011033221-2301010101203102-3100003023130132-2103302312333210-0303023012023020) |
+| `voltstack_cluster.site_local_network.existing_network` | [voltstack_cluster.site_local_network.existing_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0230233221332300-1212003311332221-0320102302000333-2022223103003020-1301101330332332-2202101121020022-2203210100312103-1003210122332020) |
+| `voltstack_cluster.site_local_network.existing_network.name` | [voltstack_cluster.site_local_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2320321311110020-0231112123331333-1312231033300111-1010331023122022-2013201332000023-1311312133013133-2130022333101113-0002322212212012) |
+| `voltstack_cluster.site_local_network.new_network` | [voltstack_cluster.site_local_network.new_network](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2201203010022200-2311122333203001-3301213233232200-2202023322122112-3333220302023022-0213230330023220-2000132301313003-0131100301100321) |
+| `voltstack_cluster.site_local_network.new_network.name` | [voltstack_cluster.site_local_network.new_network.name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0303330030320103-3021002020312130-0210203031022212-1300012231312233-1111322000221112-1311022203020311-1131201103033302-2221213103013221) |
+| `voltstack_cluster.site_local_network.new_network_autogenerate` | [voltstack_cluster.site_local_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2022331232201000-3020001030220202-2303033011221130-3001103130222330-0322021012200201-0223101311310302-0120200332103301-1122120231211002) |
+| `voltstack_cluster.site_local_subnet` | [voltstack_cluster.site_local_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2111002221121010-1221120331301001-3312232203003331-0110113130200222-2212001320120031-3231320000000000-3311223333033313-0232232132003223) |
+| `voltstack_cluster.site_local_subnet.existing_subnet` | [voltstack_cluster.site_local_subnet.existing_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1000332030302133-0320033302130330-0323032113230211-0202332321003031-0113323103031301-1230331131330331-0203133301030001-1002303222122211) |
+| `voltstack_cluster.site_local_subnet.existing_subnet.subnet_name` | [voltstack_cluster.site_local_subnet.existing_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1302022331123000-3103223333202121-0133223021121010-1303131222201303-3101332002320213-2100302201132031-1213031323030203-2222130023230111) |
+| `voltstack_cluster.site_local_subnet.new_subnet` | [voltstack_cluster.site_local_subnet.new_subnet](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2113130123002210-0322320302231021-1333220320313321-3101332311201222-0003103031013331-2201002332121201-3022123130300000-2220131301231333) |
+| `voltstack_cluster.site_local_subnet.new_subnet.primary_ipv4` | [voltstack_cluster.site_local_subnet.new_subnet.primary_ipv4](data-sources--gcp_vpc_site--reference--group-004.md#canonical-3220301011121031-0312113333312201-1122202100320002-3331202320033303-1112102231101030-1012213223331300-2130210021202333-3110031313101001) |
+| `voltstack_cluster.site_local_subnet.new_subnet.subnet_name` | [voltstack_cluster.site_local_subnet.new_subnet.subnet_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1002021223200332-3011123032023223-0020031111012320-1013212313201132-0033220132003102-0222032322012002-2232112313111221-0123323331223311) |
+| `voltstack_cluster.sm_connection_public_ip` | [voltstack_cluster.sm_connection_public_ip](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0133330010111302-3010032013233030-2000121201122022-3113021012113111-1212232311002200-2231323212021002-2120213221311131-2101331320300210) |
+| `voltstack_cluster.sm_connection_pvt_ip` | [voltstack_cluster.sm_connection_pvt_ip](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2011231121031122-2312100022223201-3012211312232211-0031320001201210-3013010102221203-2220132210011011-1030010322132032-0223120313102333) |
+| `voltstack_cluster.storage_class_list` | [voltstack_cluster.storage_class_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2101000023011303-1112110022001333-2222022122330310-3130002222022303-1333300120100112-3310021222132202-2031122113112202-0330200101301201) |
+| `voltstack_cluster.storage_class_list.storage_classes` | [voltstack_cluster.storage_class_list.storage_classes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0311303011230133-3312312201011010-2223020012222300-0313221020120323-1311312330312113-3230100312232030-3313031020312123-2313032132202133) |
+| `voltstack_cluster.storage_class_list.storage_classes.default_storage_class` | [voltstack_cluster.storage_class_list.storage_classes.default_storage_class](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0222101230201113-0121011300203232-1330310301112230-2122001123011111-0323231212020321-1311203132330003-3321310320232331-1012220222312330) |
+| `voltstack_cluster.storage_class_list.storage_classes.storage_class_name` | [voltstack_cluster.storage_class_list.storage_classes.storage_class_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0302111001000032-1022313333131312-3321201121133102-2223321021202222-1202211110032020-0002330101323232-3212103031111000-2030030113230133) |
+| `waf_signatures` | [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1332200232203221-0021133013311332-0302302031310200-2231200203011332-2120020021102201-1320223013002030-1302022313101313-3023333000322303) |
+| `waf_signatures.automatic` | [waf_signatures.automatic](data-sources--gcp_vpc_site--reference--group-005.md#canonical-1133312313033201-1200003012001311-3020002011010231-1101311112301233-1330023213113131-2322023123200223-2112103201310212-1203210120220122) |
+| `waf_signatures.manual` | [waf_signatures.manual](data-sources--gcp_vpc_site--reference--group-005.md#canonical-2010300233313130-1023010211230311-3013001132203322-1011200020132302-0302200330310111-2123200323031102-3301301203211313-3201022110122212) |
 
-<a id="canonical-266fe342975d6d65df39d728a179f43e2f6eba804fbbf27f04174dff574293fa"></a>
+<a id="canonical-0212123332031002-2113113112311211-3133032131130220-2201132133100332-0233123223222000-1033232333021333-0010011310313333-1113100221033322"></a>
 
-## Next pages — Property reference / b4c55688522f / 17
+## Next pages — Property reference / 202011020233 / 17
 
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385)
-- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1743bcd73450bc3dd30cbb6bf994b8c8c48c540ffbb2872e321b0ff1a581a1c6)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
-- [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-95e08173bb2b66246ba892a158913465bb1a3e1f3e73312b25bb569b581e7f01)
-- [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3a09fef7692d7d176ee26a7f5e0dfa507c1426702ad0dee764975478e642e824)
-- [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-664e363d354ecd5b80118961ededf199212a347905ced87272319db78cdae8c8)
-- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-39ab1e4957001d2198ac5bcd38c773bd46dd67c9cc4a1d35fd047a526a137431)
-- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-d0da01367080452c3a1b1fd1766dfd2520c59e731ace4092876fedfada95b872)
-- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-acd4c983a00cc6d63f7585e07639826ad2c3037b5203a366d2ac239abb58430f)
-- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5bdfc213a88a3b5597f3d2bf1f9c923933afd2c4787d3747babb76e0bca0414d)
-- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-63c61e3d6c8d338e0f96c9d653534784b5ade2085751330ca6e32dd4d52485ea)
-- [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-4a5d7773bbd1b78fbff21ae8236013e3de266b7fd703d86ac213753afc5d6638)
-- [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-c62c46141ea3c05a0ddfe9ee1c3e3f5236aacb95d035b7d2379729dc9adaad66)
-- [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a22274d6f2b4e4aa01fd0485ae5fec471b2949c4b413dae12f16e8d498728f73)
-- [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-5407bdb8e6094e8c680518737f50555632401ffb1ef121d722e03c9a5d6c4536)
-- [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-b663f6aa7a1c6c99cd1a7670e652cfc36d3df002f9b7a3b57049db2b9312d25e)
-- [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a78509fd22231425759d40c893af69315775e0ffd8a5bc1c8ec9250f2acb496b)
-- [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-630f9c052b3a52854049dda1da13fd44492ebaa15d266601ef878f649412091a)
-- [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-34f2626bf35417bf94a0af238c2fe36603d4617d24af28174e43297681a6aa08)
-- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a7dfede66c6f88c6d8649f57e4468a404b29ff1dcbfc30fbb50f7fbfa3cd54a8)
-- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0618f370940a8adff38a4bf27dd14fd5cd43884d9c0c76971bf3a53a4537d31a)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011)
+- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0113100323303113-0310110023300331-3103003023231223-3321211023203020-3010203011100033-3323230220130232-0302012300333301-2211200122013012)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
+- [cloud_credentials](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2111320020011303-2323022312120210-1223222021022201-1120210103101211-2323012203320133-0332130303010223-0211232311122123-1120013213330001)
+- [coordinates](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0322002133323313-1221023113310113-1232320212221333-1132003133221100-1330011002121300-0222310031323213-1210211311101320-3212100232200210)
+- [custom_dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1212103203120331-0311103230311123-2000010120211201-3231323133012121-0201022203101321-0011303231201302-1302030121312313-2030312232203020)
+- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0321222301321021-1113000001310201-2120223011233031-0320301313032331-1012313112133021-3030102201310311-3331001013221102-1222010313100301)
+- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3100312200010312-1300200010110230-0322012301333101-1312123133310211-0200301121321303-0122303210002102-2013123332313322-3122211123201302)
+- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2230311030212003-2200003030123112-0333131120113200-1312032120021222-3102300300031323-1102000322031212-3102223002032122-2323112010030033)
+- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1123313330020103-2220202203231111-2113330331022333-0133213021020321-0303223331023010-1320133103131013-2322232313123200-2330220010011031)
+- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203301201320331-1230203103032032-0033211230213112-1103110310132010-2311223132020020-1113110103030030-2212320302313110-3111021020113222)
+- [kubernetes_upgrade_drain](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1022113113131303-2323310123132033-2333330201223220-0203120001033203-3132021212231333-3113000331201222-3002010313110322-3330113112120320)
+- [log_receiver](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3012023010120110-0132220330001122-0031313332213232-0130033203331102-0312222230232111-3100031123133102-0313211302213130-2122312222311212)
+- [logs_streaming_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2202020213103112-3302231032102222-0001333100102011-2232113332301013-0123022110213010-2310010331223201-0233011232203110-2120130220331303)
+- [offline_survivability_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1110001323312320-3212002110322030-1220001101201303-1333110011111112-0302100001333323-0132330102013113-0202320003302122-1131123010110312)
+- [os](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2312120333122222-1322013012302121-3031012213121300-3212110230333003-1231033133000002-3321231322032311-1300102131230223-2103010231021132)
+- [private_connect_disabled](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2213201100213331-0202020301100211-1311213110003020-2103223312210301-1113131132003333-3120221123300130-2032302102110033-0222302310211223)
+- [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203003321300011-0223032211022011-1000102131312201-3122010333311010-1021023223222201-1131021212120001-3233201320331210-2110010200210122)
+- [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0310330212021223-3303111001132333-2110220022330203-2030023332031212-0003311012011331-0210223302200113-1032100302211312-2001221222220020)
+- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2213313332313212-1230123320203012-3120121021331113-3210101220221000-1023022133330131-3023333003003323-2311003313332333-2203303111102220)
+- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385"></a>
+<a id="canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c98e75642b6be517f28cef127e79e99cbb0cce2eb299a5bc9b2fd0bf60351fb"></a>
+<a id="canonical-0330212032131112-1002231223321101-1333022030323301-0213321321322121-3023230030303202-3223022121221123-3021230233310023-3312000311013323"></a>
 
-## admin_password — admin_password / 78abccabb70a / 2
+## admin_password — admin_password / 222323130022 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - admin_password
 
-<a id="canonical-cfec52c430194d1ffa6620690099aa3b1d74e704ebba7d2267d263f15ca50f12"></a>
+<a id="canonical-3033323011023010-0300012110310133-3322121202001221-0000212122220323-0131131032130010-3223232213310202-1213310212033301-1130221100330102"></a>
 
 Type: `"single"`. Computed.
 
@@ -979,41 +979,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af15b8f3e9702206f929ab8775559ca20a26c3c0d380017492e1d74486829534"></a>
+<a id="canonical-2233011123203303-3221130002020012-3321022122232013-1311111121302202-0022021230033000-3103200000011310-2102320131131010-2012200221110310"></a>
 
-## Direct properties — admin_password / 78abccabb70a / 3
+## Direct properties — admin_password / 222323130022 / 3
 
-- [blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-57fb3a5564b8b3edb941dfde1e969edea5f3d881c43690b7658b868ff155cff7): complete subsection reference.
+- [blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1113332303221111-1210232023033231-2321100131333132-0132211221323132-2211330331202001-3010031221002313-1211202320122033-3301111130333313): complete subsection reference.
 
-- [clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-d09cae00d78081c0df2f1c3939dff2af14fd0e257b5e1266f48b722e49f86d92): complete subsection reference.
+- [clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3100213022320000-3113200020013000-3133023301300321-0321313333022233-0110333100320211-1323113201021212-3310202313020232-1021332012312102): complete subsection reference.
 
-<a id="canonical-17d4af2da8c0a931857e34285e8f9b892e00416aaf9d3826a1fb4559d3b928d2"></a>
+<a id="canonical-0113311022330231-2220300022210301-2011133203100220-1132203321232021-0232000010011222-2233213103200212-2201332310111121-3103232102203102"></a>
 
-## Next pages — admin_password / 78abccabb70a / 4
+## Next pages — admin_password / 222323130022 / 4
 
-- [admin_password.blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-57fb3a5564b8b3edb941dfde1e969edea5f3d881c43690b7658b868ff155cff7)
-- [admin_password.clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-d09cae00d78081c0df2f1c3939dff2af14fd0e257b5e1266f48b722e49f86d92)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [admin_password.blindfold_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1113332303221111-1210232023033231-2321100131333132-0132211221323132-2211330331202001-3010031221002313-1211202320122033-3301111130333313)
+- [admin_password.clear_secret_info](data-sources--gcp_vpc_site--reference--group-001.md#canonical-3100213022320000-3113200020013000-3133023301300321-0321313333022233-0110333100320211-1323113201021212-3310202313020232-1021332012312102)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-57fb3a5564b8b3edb941dfde1e969edea5f3d881c43690b7658b868ff155cff7"></a>
+<a id="canonical-1113332303221111-1210232023033231-2321100131333132-0132211221323132-2211330331202001-3010031221002313-1211202320122033-3301111130333313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b2c1e5ea68312145dbc3709a88b5f9cf831d9aa34f8984e40b4136a7a223ff39"></a>
+<a id="canonical-2302300132113222-1220030102011011-3123300313002122-2020231133213033-2003013121222203-1033202120103210-0023100103122213-2202020333330321"></a>
 
-## admin_password.blindfold_secret_info — admin_password.blindfold_secret_info / 4e9116ee143e / 2
+## admin_password.blindfold_secret_info — blindfold_secret_info / 323201100332 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011)
 - admin_password.blindfold_secret_info
 
-<a id="canonical-1b8df325c33c1f572ec001fbec798770c46c8613993954135e78ed5d3578664b"></a>
+<a id="canonical-0123203133030211-3003033001331113-0232300000013323-3230132120131300-3010123020120103-2121032111100103-1132132032311131-0311132012121023"></a>
 
 Type: `"single"`. Computed.
 
@@ -1032,15 +1032,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-41cceae193b1ccb829c2165252c9383a7f7d4ad409c2af6a04ab9efc9b82934d"></a>
+<a id="canonical-1001303032223201-2103230130302320-0221300201121102-1102302103200322-1333133110223110-0021300222331222-0010222321323330-2123200221031031"></a>
 
-## Direct properties — admin_password.blindfold_secret_info / 4e9116ee143e / 3
+## Direct properties — blindfold_secret_info / 323201100332 / 3
 
-<a id="canonical-5fe5ec1db47ccf36d96ccb9724f2ff50fc9252b8d84d7c342283ab2bb1d6c00e"></a>
+<a id="canonical-1133321132300131-2310133030330312-3121123030232113-0210330233331100-3330210211022320-3120103113300310-0202200322230223-2301311230000032"></a>
 
-<a id="canonical-173d0340c4fe2419dcb13a226463a3d0dc29660190d5b3f9a7a33b5afe0e2bd2"></a>
+<a id="canonical-0113033100031000-3010333202100121-3130230103220202-1210120322033100-3130022112120001-2100311123033321-2213220303231122-3332003202233102"></a>
 
-## decryption_provider property — admin_password.blindfold_secret_info / 4e9116ee143e / 4
+## decryption_provider property — blindfold_secret_info / 323201100332 / 4
 
 Type: `"string"`. Computed.
 
@@ -1070,11 +1070,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1a05edc385bf0ee4d01c3e86aebdfee23f1e884727f7ddefe6b5d013b069d1ed"></a>
+<a id="canonical-0122001132313003-2011233300323210-3100013003322012-2232233133323202-0333013220201013-0213331331313233-3212231131000103-2300122131013231"></a>
 
-<a id="canonical-5c4e31c62fa77fa5c5063a1d56718b19c57a1c8c351d1c206eb8707a0b402121"></a>
+<a id="canonical-1130103203013012-0233221313332211-3011001203220131-1112130120230121-3011132201302030-0311013101300200-1232232013001322-0023100002010201"></a>
 
-## location property — admin_password.blindfold_secret_info / 4e9116ee143e / 5
+## location property — blindfold_secret_info / 323201100332 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -1123,11 +1123,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dd7de4b0da578506454d16c90a57c44e4f116e202564afcfe88f92d2ff5dc29e"></a>
+<a id="canonical-3131133132102300-3122111320110012-1011103101123021-0022111330101032-1033010112320200-0211121022333033-3220203321023102-3333113130022132"></a>
 
-<a id="canonical-9d883ccad6c69425cf4f2e646861477c7286630327bb132879db766878a03e6e"></a>
+<a id="canonical-2131202003303022-3112301221100211-3033103302321210-1220120110131330-1302201212030003-0213232301030220-1321312313121220-1320220003321232"></a>
 
-## store_provider property — admin_password.blindfold_secret_info / 4e9116ee143e / 6
+## store_provider property — blindfold_secret_info / 323201100332 / 6
 
 Type: `"string"`. Computed.
 
@@ -1162,31 +1162,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5b820a221dab2d696d631f6339c975c44b61c3556af41353e8278eff821d7d7f"></a>
+<a id="canonical-1123200200220202-0131222302311221-1231120301331203-0321302113113010-1023120130031111-1222331001031103-3220021320323333-2002013113311333"></a>
 
-## Next pages — admin_password.blindfold_secret_info / 4e9116ee143e / 7
+## Next pages — blindfold_secret_info / 323201100332 / 7
 
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-d09cae00d78081c0df2f1c3939dff2af14fd0e257b5e1266f48b722e49f86d92"></a>
+<a id="canonical-3100213022320000-3113200020013000-3133023301300321-0321313333022233-0110333100320211-1323113201021212-3310202313020232-1021332012312102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fd411631f8293417a4a0a64e5c929ea3285df8371476b16806f9eedf06e80814"></a>
+<a id="canonical-3331100101120301-3320022103100113-2210220022121032-1130210221322203-0220113133200313-0110131223011220-0012332132323133-0012322000200110"></a>
 
-## admin_password.clear_secret_info — admin_password.clear_secret_info / a29fcc79e01f / 2
+## admin_password.clear_secret_info — clear_secret_info / 132132000133 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011)
 - admin_password.clear_secret_info
 
-<a id="canonical-ecdd36e50f734f26c3dea6d6d8a2553e7d4baef4da41a26e8a2cb17b97cfe6f5"></a>
+<a id="canonical-3230313103123211-0033130310330212-3003313222123112-3120220211110332-1331102322323310-3122100122021232-2022023023011323-2113303332123311"></a>
 
 Type: `"single"`. Computed.
 
@@ -1205,26 +1205,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a34c82b5b1ebfe4047e9f1c7908246fe2e9172ffff20c12591b1fc296a837fda"></a>
+<a id="canonical-2203103020022311-2301322333321000-1013322133013013-2100200210123332-0232210113023333-3333020030010211-2101230133300221-1222200313333122"></a>
 
-## Direct properties — admin_password.clear_secret_info / a29fcc79e01f / 3
+## Direct properties — clear_secret_info / 132132000133 / 3
 
-<a id="canonical-b33eef66db46c5b6618cf3d2c78be03442c7264cb4c8c55b70f0088286cf5825"></a>
+<a id="canonical-2303033232331212-3123101230112312-1201203033033102-3013202332000310-1002301302121030-2310302030111123-1300330000202002-2012303311200211"></a>
 
-<a id="canonical-3af66b0cc3ae161d3e61db3a67620c0860cf5888c281729510c84a40389d9d38"></a>
+<a id="canonical-0322331212230030-3003223201120131-0332120131230322-1213120200300020-1200303311202020-3002200113022111-0100302010221000-0320213121310320"></a>
 
-## provider_ref property — admin_password.clear_secret_info / a29fcc79e01f / 4
+## provider_ref property — clear_secret_info / 132132000133 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-75aa40bf66007a9f7b80545a0ae08ae4c7cef206ebb5c181d0a15c409328db1d"></a>
+<a id="canonical-1311222210002333-1212000013222133-1323200011101122-0022320020223210-3013303233020012-3223231130012001-3100220111301000-2103022031230131"></a>
 
-<a id="canonical-8fef85cf981d5a900ea5fd99f16f67212cac74d60416d4b95955b0e1619b9127"></a>
+<a id="canonical-2033323320113033-2120013111222100-0032221133312121-3301123312130201-0230223013103112-0010011231102321-1121111123003201-1201212321010213"></a>
 
-## url property — admin_password.clear_secret_info / a29fcc79e01f / 5
+## URL property — clear_secret_info / 132132000133 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -1284,30 +1284,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bb635a64af7e43197d6fa9c210cf3c82bb42bde18a226df32f4c157bd32fcd5a"></a>
+<a id="canonical-2323120311221210-2233133210030121-1331123322213002-0100303303302002-2323100223313201-2022020212313303-0233103001111323-3103023330311122"></a>
 
-## Next pages — admin_password.clear_secret_info / a29fcc79e01f / 6
+## Next pages — clear_secret_info / 132132000133 / 6
 
-- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-5a14f5870b3035dae459cdb64efb6ed9926a55eb75a13deb3148f3381938d385)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [admin_password](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-1743bcd73450bc3dd30cbb6bf994b8c8c48c540ffbb2872e321b0ff1a581a1c6"></a>
+<a id="canonical-0113100323303113-0310110023300331-3103003023231223-3321211023203020-3010203011100033-3323230220130232-0302012300333301-2211200122013012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4c0d23abd520b8113100d33fae7229a47302477ce8ab23c4e2503c2476d2ce58"></a>
+<a id="canonical-1030003102032223-3111020023200101-0301000031030333-2232130202212210-1303000210131330-3220222302033010-3202110003300210-1312310230321120"></a>
 
-## block_all_services — block_all_services / d0ae3f966b34 / 2
+## block_all_services — block_all_services / 211212230310 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - block_all_services
 
-<a id="canonical-b97b0749d84ed8431ebb47d4fe461f3875a3dadb7b8f37398bc246b852ce4397"></a>
+<a id="canonical-2321132300131021-3120103231201003-0132232310133110-3332101201330320-1311220331223123-1323203303130321-2023300210122320-1102303210032113"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1333,42 +1333,42 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b97b0749d84ed8431ebb47d4fe461f3875a3dadb7b8f37398bc246b852ce4397)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b05c226b6e8dc0e4c9a6e98613eafc9ea661945336f3154dae6264a33214ecca)
-- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-b197e4112f2b9172d1f211f632e6913450da6eee35c2c1008adb3e70c6ab6b7a)
+- [block_all_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2321132300131021-3120103231201003-0132232310133110-3332101201330320-1311220331223123-1323203303130321-2023300210122320-1102303210032113)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2300113002021223-1232203130003210-3021221232212012-0103322233302132-2212120121101103-0312330301111031-2232120212102203-0302011032303022)
+- [default_blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2301211332100101-0233022321011302-3101330201013312-0302321221010310-1100312212323232-0311300230010000-2022312303321300-3012222312231322)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-79f795f84e0072193e34b466e8bf6a5df6305032437e4894150d25450c5b6263"></a>
+<a id="canonical-1321331321113320-1032000013020121-0332031023101212-3220233312221131-3312030011000302-1003133210202110-0111003102111011-0030112312021203"></a>
 
-## Direct properties — block_all_services / d0ae3f966b34 / 3
+## Direct properties — block_all_services / 211212230310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-dd4f035a5914c7f525f57d8a1899090333cfea99e6a6b972422f1218998498f6"></a>
+<a id="canonical-3131103300031122-1121011030133311-0211331113312022-0120212100210003-0303303332222121-3212221223211302-1002023301020120-2121201021203312"></a>
 
-## Next pages — block_all_services / d0ae3f966b34 / 4
+## Next pages — block_all_services / 211212230310 / 4
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1"></a>
+<a id="canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4384569dfc5dbce2b2ee4c058290f8dc61abf6673e28f478191e5ec992a46ff9"></a>
+<a id="canonical-1003201011122131-3330113123303202-2302323210300011-2002210033203130-1201222333121213-0332022033101320-0121013211323021-2102221012333321"></a>
 
-## blocked_services — blocked_services / c592b297c9db / 2
+## blocked_services — blocked_services / 211330213123 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - blocked_services
 
-<a id="canonical-b05c226b6e8dc0e4c9a6e98613eafc9ea661945336f3154dae6264a33214ecca"></a>
+<a id="canonical-2300113002021223-1232203130003210-3021221232212012-0103322233302132-2212120121101103-0312330301111031-2232120212102203-0302011032303022"></a>
 
 Type: `"single"`. Computed.
 
@@ -1392,38 +1392,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b7e64542b5f625d20f59edf0179d5552ed52f746b06b7813905e38c8f850bd99"></a>
+<a id="canonical-2313321210111002-2311331202113102-0033112132313300-0113213111111102-3231110233131012-2300122313200103-2100113203203020-3320110023312121"></a>
 
-## Direct properties — blocked_services / c592b297c9db / 3
+## Direct properties — blocked_services / 211330213123 / 3
 
-- [blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119): complete subsection reference.
+- [blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121): complete subsection reference.
 
-<a id="canonical-67152eef7eaaef56508c40b7132e05130f2719004ec6f499e45dc363803884b7"></a>
+<a id="canonical-1213011102323233-1332222232331112-1100203010002313-0103023200110103-0033021301210000-1032301233102121-3210113130031203-2000032020102313"></a>
 
-## Next pages — blocked_services / c592b297c9db / 4
+## Next pages — blocked_services / 211330213123 / 4
 
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119"></a>
+<a id="canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0e77e9ca9b8a9f8e09d91f88b865c7c6dd4a1ed659d8c21a93a1e1d1a8e7e0bc"></a>
+<a id="canonical-0032131332213022-2123202221332032-0021312101332020-2320121130133012-3131102201323112-1121312030020122-2103220132013101-2220321332002330"></a>
 
-## blocked_services.blocked_service — blocked_services.blocked_service / 87ff71b9db42 / 2
+## blocked_services.blocked_service — blocked_service / 232131231002 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
 - blocked_services.blocked_service
 
-<a id="canonical-a8f66547b5f643c159d718cd607cdd8a068a9aba2d054558f81cd572c3f1f4d6"></a>
+<a id="canonical-2220331212111013-2311331210033001-1121311301203031-1200133031312022-0012202221222322-0231001110111120-3320013031111302-3003330133103112"></a>
 
 Type: `"list"`. Computed.
 
@@ -1463,17 +1463,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3f4302f4de06b541526422f3b680d64569d6037420a021195fc0a49f9aec3e67"></a>
+<a id="canonical-0333100300023310-3132001223111001-1102121002023303-2312200031121011-1221311200031310-0200220002010121-1133300022102133-2122323003321213"></a>
 
-## Direct properties — blocked_services.blocked_service / 87ff71b9db42 / 3
+## Direct properties — blocked_service / 232131231002 / 3
 
-- [dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0408fe91cfda85902adef4bd2430c4226c60f9e9a90dabdc3894ee6e34da529a): complete subsection reference.
+- [dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0010002033322101-3033312220112100-0222313233102331-0210030030100202-1230120033213221-2221003122233130-0320211032321232-0310312211022122): complete subsection reference.
 
-<a id="canonical-e97986549006948ea0d633d153706bd0c2bd131487f4bc86f6a1de3494ca1b9a"></a>
+<a id="canonical-3221132120121110-2100001221102032-2200311203033101-1103130012233100-3002233101030110-2013331023302012-3312220131320310-2110302201232122"></a>
 
-<a id="canonical-6482ba58ca597a96788fcaac41cf6f3d64c194c942e94aee77a85338fc9f8557"></a>
+<a id="canonical-1210200223221120-3022112113222112-1320203330222230-1001303312330331-1210300121103021-1002322110223232-1313222011030320-3330213320111113"></a>
 
-## network_type property — blocked_services.blocked_service / 87ff71b9db42 / 4
+## network_type property — blocked_service / 232131231002 / 4
 
 Type: `"string"`. Computed.
 
@@ -1571,39 +1571,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-7c656ac476a78863bf8d9e23017bdf49b118630a7a7a34869ce8df354ca6db11): complete subsection reference.
+- [ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1330121112223010-1312221320201203-2333203121320203-0001132331331021-2301012012030022-1322132203102012-2130322031330311-1030221231230101): complete subsection reference.
 
-- [web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-475c0c61d85d4847077e24f84d4a31258c04ec2007ac3ea590c62366aa8f27ec): complete subsection reference.
+- [web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1013113000301201-3120113110201013-0013133202103320-1031102203010211-2030001032300200-0013223003322211-2100301202031212-2222203302133230): complete subsection reference.
 
-<a id="canonical-16b96ec150d039b4dd6409d915e98eee73e746122b1406233eb09f9b8673912a"></a>
+<a id="canonical-0112232112323001-1100310003212310-3131121000213121-0111322120323232-1303321310120102-0223011000120203-0332230021332123-2012130321010222"></a>
 
-## Next pages — blocked_services.blocked_service / 87ff71b9db42 / 5
+## Next pages — blocked_service / 232131231002 / 5
 
-- [blocked_services.blocked_service.dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0408fe91cfda85902adef4bd2430c4226c60f9e9a90dabdc3894ee6e34da529a)
-- [blocked_services.blocked_service.ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-7c656ac476a78863bf8d9e23017bdf49b118630a7a7a34869ce8df354ca6db11)
-- [blocked_services.blocked_service.web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-475c0c61d85d4847077e24f84d4a31258c04ec2007ac3ea590c62366aa8f27ec)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [blocked_services.blocked_service.dns](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0010002033322101-3033312220112100-0222313233102331-0210030030100202-1230120033213221-2221003122233130-0320211032321232-0310312211022122)
+- [blocked_services.blocked_service.ssh](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1330121112223010-1312221320201203-2333203121320203-0001132331331021-2301012012030022-1322132203102012-2130322031330311-1030221231230101)
+- [blocked_services.blocked_service.web_user_interface](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1013113000301201-3120113110201013-0013133202103320-1031102203010211-2030001032300200-0013223003322211-2100301202031212-2222203302133230)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-0408fe91cfda85902adef4bd2430c4226c60f9e9a90dabdc3894ee6e34da529a"></a>
+<a id="canonical-0010002033322101-3033312220112100-0222313233102331-0210030030100202-1230120033213221-2221003122233130-0320211032321232-0310312211022122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3595d8dd0f6a17e02ae49b95dc7a2f3fe9ad4d3b5ddb09a19395020f4bcf3ea6"></a>
+<a id="canonical-0311211131203131-0033122201133200-0222321021232111-3130132202330333-3221223110310323-1131312300212201-2103211100020033-1023303303322212"></a>
 
-## blocked_services.blocked_service.dns — blocked_services.blocked_service.dns / bdbf6e347828 / 2
+## blocked_services.blocked_service.dns — dns / 031013200220 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
 - blocked_services.blocked_service.dns
 
-<a id="canonical-92fd2350efab52c10b664154e5b6f6eb5dc3e8810da3b5518b386e7a09c61338"></a>
+<a id="canonical-2102333102031100-3233222311023001-0023121210011110-3211231233123223-1131300332202001-0031220323111101-2023032012321322-0021301201030320"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1626,38 +1626,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-296ca4de476c892574baf44ea5a2ed89b7aa20e7d9a7cac6e6f21d328823749c"></a>
+<a id="canonical-0221123022103132-1013123020210211-1310232233101032-2211220232312021-2313222202003213-3121221330223012-3212330201310302-2020020313102130"></a>
 
-## Direct properties — blocked_services.blocked_service.dns / bdbf6e347828 / 3
+## Direct properties — dns / 031013200220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fd442ab4910982bd7ded54b21f378471e61f40c5a36373ebb2f931b9b04888cd"></a>
+<a id="canonical-3331101002222310-2101002120022331-1331323111102302-0133031320101301-3212013310003011-2203120313033223-2302332103012321-2300102020203031"></a>
 
-## Next pages — blocked_services.blocked_service.dns / bdbf6e347828 / 4
+## Next pages — dns / 031013200220 / 4
 
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-7c656ac476a78863bf8d9e23017bdf49b118630a7a7a34869ce8df354ca6db11"></a>
+<a id="canonical-1330121112223010-1312221320201203-2333203121320203-0001132331331021-2301012012030022-1322132203102012-2130322031330311-1030221231230101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5291809cafef17ec620918b6832ffbbe9e8a79a958d5576c0389ece4b643ab09"></a>
+<a id="canonical-1102210120002130-2233323301133230-1202002101202312-2003023333232332-2132202213212221-1120311111131230-0003202132303210-2312100322230021"></a>
 
-## blocked_services.blocked_service.ssh — blocked_services.blocked_service.ssh / 7094e4fff99c / 2
+## blocked_services.blocked_service.ssh — ssh / 333333212130 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
 - blocked_services.blocked_service.ssh
 
-<a id="canonical-c5ac66f15a51e35566af2c5fa7edaf244803ec08f8a80d6c2983ce2c794e70bf"></a>
+<a id="canonical-3011223012123301-1122110132031111-1212223302301133-2213323122330210-1020000332300020-3320222000311230-0221200330320230-1321103213002333"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1680,38 +1680,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5cc05bf99ccfd1a98a02ca4185435529b2f71a260f497bc39cc1f01eeb96fefc"></a>
+<a id="canonical-1130300011233321-2130303331012221-2022000230221001-2011100311110221-2302331301220212-0033102113233003-2130300133000132-3223211233323330"></a>
 
-## Direct properties — blocked_services.blocked_service.ssh / 7094e4fff99c / 3
+## Direct properties — ssh / 333333212130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a7c6e6eabce34b39784dafdb1369aa37bbac4c428196a9e179375f5ea108b905"></a>
+<a id="canonical-2213301232123222-2330320310230321-1320103122333123-0103122122220313-2323223010301002-2001211222213201-1321031311331132-2201002023210011"></a>
 
-## Next pages — blocked_services.blocked_service.ssh / 7094e4fff99c / 4
+## Next pages — ssh / 333333212130 / 4
 
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-475c0c61d85d4847077e24f84d4a31258c04ec2007ac3ea590c62366aa8f27ec"></a>
+<a id="canonical-1013113000301201-3120113110201013-0013133202103320-1031102203010211-2030001032300200-0013223003322211-2100301202031212-2222203302133230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-88869003ee3f004c5be669bb1108f95bfef9d82077312a0661b66783408facfe"></a>
+<a id="canonical-2020201221000003-3232033300001030-1123321212212323-0101002033211123-3332332131200200-1313030102220012-1201231212132003-1000203322303332"></a>
 
-## blocked_services.blocked_service.web_user_interface — blocked_services.blocked_service.web_user_interface / 9ec35a247323 / 2
+## blocked_services.blocked_service.web_user_interface — web_user_interface / 021013030203 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-167e8ab000edb075a7e395fcf0e7b911b05439d69ce2b78ec25a808ae1153bf1)
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [blocked_services](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
 - blocked_services.blocked_service.web_user_interface
 
-<a id="canonical-213f54b831d2132d0a23e680d372a10623efe2f49ac2897f0d6dafcae0e041ce"></a>
+<a id="canonical-0201033311102320-0301310201030231-0022020332122000-3103130222010012-0203323332023310-2122300220211333-0031123122333022-3200320010013032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1734,36 +1734,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df68f5807fa87f6b360e2dbeaa3f3b5a07e86c18c0f013af5c6542d2c6dd5273"></a>
+<a id="canonical-3133122033112000-1333222013331223-0312003202312332-2222033303231122-0013322012300120-3000330001032233-1130121110023102-3012313111021303"></a>
 
-## Direct properties — blocked_services.blocked_service.web_user_interface / 9ec35a247323 / 3
+## Direct properties — web_user_interface / 021013030203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c5549836b08c2f1ac43630607d30ca91fd0865fc1c32b31b4a6497273bf6558e"></a>
+<a id="canonical-3011111021200312-2300203002330122-3010031203001200-1331030030222101-3331002012113330-0130030223030123-1022121021130213-0323331211112032"></a>
 
-## Next pages — blocked_services.blocked_service.web_user_interface / 9ec35a247323 / 4
+## Next pages — web_user_interface / 021013030203 / 4
 
-- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-a2286abe290b2e0a63df5e9e79f29ca24bc24d90082a007b7c2c51c09d75f119)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [blocked_services.blocked_service](data-sources--gcp_vpc_site--reference--group-001.md#canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-95e08173bb2b66246ba892a158913465bb1a3e1f3e73312b25bb569b581e7f01"></a>
+<a id="canonical-2111320020011303-2323022312120210-1223222021022201-1120210103101211-2323012203320133-0332130303010223-0211232311122123-1120013213330001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ecade2d445c73abe6115ac9d1206e8464fb362f0c2611d9cf1790deaea386ac"></a>
+<a id="canonical-0332302231320231-1010113013032223-3212010111223021-3101020012322010-1210332303120233-0030021201013121-3033011321003132-2232220320122230"></a>
 
-## cloud_credentials — cloud_credentials / 5ec73c2e2ebc / 2
+## cloud_credentials — cloud_credentials / 023202322330 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - cloud_credentials
 
-<a id="canonical-4d973002981b2f9fc5c86a7a880f1dd02a48f2c6327ceef9603d02bf2897d638"></a>
+<a id="canonical-1031211303000002-2120012302332133-3011302012221322-2020003301313100-0222102033023012-0302133032323321-1200033100022333-0220211331120320"></a>
 
 Type: `"single"`. Computed.
 
@@ -1788,15 +1788,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6b2074ec91bcf004c0f4a2b7f0d7b387b273a6c2be33baf7e706f01a264efab3"></a>
+<a id="canonical-1223020013103230-2101233033000010-3000331022022313-3300311323032013-2302130322123002-2332030323223313-3213001233000122-0212103233222303"></a>
 
-## Direct properties — cloud_credentials / 5ec73c2e2ebc / 3
+## Direct properties — cloud_credentials / 023202322330 / 3
 
-<a id="canonical-447b17a081109fed6397aec6979270bae14792ba61a5afca767a62cebfc2c579"></a>
+<a id="canonical-1010132301132200-2001010021333231-1203211322323012-2113210213002322-3201101321022322-1201221122333022-1312132212023032-2333300230111321"></a>
 
-<a id="canonical-3e3014f01329b2fe11d68a0d3265267edbaa6fac83957cae9c36ade477bb3955"></a>
+<a id="canonical-0332030001103300-0103022123023332-0101311220220031-0302121102121332-3123222212332230-2003211113302232-2130031222313210-1313232303211111"></a>
 
-## name property — cloud_credentials / 5ec73c2e2ebc / 4
+## name property — cloud_credentials / 023202322330 / 4
 
 Type: `"string"`. Computed.
 
@@ -1849,11 +1849,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47dd0304547e0bb825b699a3e65220b38434ae5083db4813bf7d38b0f1f6698a"></a>
+<a id="canonical-1013313100030010-1110133200232320-0211231221212203-3212110202002303-2010031022321100-2003312310200103-2333133103202300-3301331212212022"></a>
 
-<a id="canonical-2b5ff7177e0499b87f364160cb3c9a1192178bfd5cec2ef3776d3714a9fa589c"></a>
+<a id="canonical-0223113333130113-1332001021212320-1333031210011200-3023033021220101-2102011320233331-1130323002323303-1313123103130110-2221332211202130"></a>
 
-## namespace property — cloud_credentials / 5ec73c2e2ebc / 5
+## namespace property — cloud_credentials / 023202322330 / 5
 
 Type: `"string"`. Computed.
 
@@ -1913,11 +1913,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4c89512032e31fddca57183d17a761bdfd0c3276178355ffcc1c55bad92d9fa"></a>
+<a id="canonical-3210302021110102-0003023203013331-3130221113012003-3101132213120123-3133310030030213-1201132003111133-3330300130111123-2231210231213322"></a>
 
-<a id="canonical-ea71b70f7064c39c272887cfb0533e369721ebc40dc9dcea45a70b85cd2a5d83"></a>
+<a id="canonical-3222130123130033-1300121030032130-0213022020133033-2300110303320312-2113020132233010-0031302131303222-1011221300232011-3031022211312003"></a>
 
-## tenant property — cloud_credentials / 5ec73c2e2ebc / 6
+## tenant property — cloud_credentials / 023202322330 / 6
 
 Type: `"string"`. Computed.
 
@@ -1963,30 +1963,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b3963e5160f739c7c0543ab4f43717a08e6855b67f5dad30db36562d49e18f3c"></a>
+<a id="canonical-2303211203321101-1200331303213013-3000111003222310-3310031301132200-2032122011112312-1333113122310300-3123031211120231-1021320120330330"></a>
 
-## Next pages — cloud_credentials / 5ec73c2e2ebc / 7
+## Next pages — cloud_credentials / 023202322330 / 7
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-3a09fef7692d7d176ee26a7f5e0dfa507c1426702ad0dee764975478e642e824"></a>
+<a id="canonical-0322002133323313-1221023113310113-1232320212221333-1132003133221100-1330011002121300-0222310031323213-1210211311101320-3212100232200210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a82d96e1665c1d12b4183755bc8f2785182d90512546a97a196940a36ea86452"></a>
+<a id="canonical-2220023121123201-1212113001310102-2310012003131111-2330203302132011-0120023121001101-0211101222211322-0121122110002203-1232222012101102"></a>
 
-## coordinates — coordinates / 0be3ce9db06f / 2
+## coordinates — coordinates / 213123001233 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - coordinates
 
-<a id="canonical-28b4e170b6113670af0a8a8c36e8256374f9d4a7ae5844dce632545554d02773"></a>
+<a id="canonical-0220231032011300-2312010103121300-2233002220222030-0312322002111203-1310332131102213-2232112010103130-3212030211101111-1110310002131303"></a>
 
 Type: `"single"`. Computed.
 
@@ -2005,15 +2005,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c88cf863c370b63142c1fcd67d9a0830d527f2ada54c14b7644cfc89206b1ed3"></a>
+<a id="canonical-3020203033201203-3003130023120301-1002300133303112-1331212200200300-3111021333022231-2211103001102313-1210103033302021-0200122301323103"></a>
 
-## Direct properties — coordinates / 0be3ce9db06f / 3
+## Direct properties — coordinates / 213123001233 / 3
 
-<a id="canonical-38b3f37b1f6c0bf864b01f3e287c581fb466d4c6e215ad00d6460fdf2b93e8c7"></a>
+<a id="canonical-0320230333031323-0133123000233320-1210230001330332-0220133011200133-2310121231103012-3202011122310000-3112101200333133-0223210332203013"></a>
 
-<a id="canonical-b8a361aacbfb588454dd39000a992216ab0fd675707637bad796de82cf271376"></a>
+<a id="canonical-2320220312012222-3023332311202010-1110313103210000-0022212102020112-2223003331121311-1300131203132322-3113211231322002-3033021301031312"></a>
 
-## latitude property — coordinates / 0be3ce9db06f / 4
+## latitude property — coordinates / 213123001233 / 4
 
 Type: `"number"`. Computed.
 
@@ -2044,11 +2044,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-54c0a70d00576ad1c638b64c3f320937bd1b440085f045862191bd09ffae1e2f"></a>
+<a id="canonical-1110300022130031-0000111312223101-3012032023121030-0333030200210313-2331012310100000-2011330010112012-0201210123310021-3333223201320233"></a>
 
-<a id="canonical-61f456b020e9bd2ce75eac8373e1f716bbd4339d701e6e2312b3c30899a1e360"></a>
+<a id="canonical-1201331011122300-0200322123310230-3213113222302003-1303320133130112-2323311003032131-1300013212320203-0102230330030020-2121220132031200"></a>
 
-## longitude property — coordinates / 0be3ce9db06f / 5
+## longitude property — coordinates / 213123001233 / 5
 
 Type: `"number"`. Computed.
 
@@ -2079,30 +2079,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f71b55f7097b9d3232f0d55b8f394eb670eb302ef6f6e36caf9548515b4dc51e"></a>
+<a id="canonical-3313012311113313-0021132321310302-0302330031111123-2033032110322312-1300322303000232-3312331232031230-2233211110201101-1123103130110132"></a>
 
-## Next pages — coordinates / 0be3ce9db06f / 6
+## Next pages — coordinates / 213123001233 / 6
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-664e363d354ecd5b80118961ededf199212a347905ced87272319db78cdae8c8"></a>
+<a id="canonical-1212103203120331-0311103230311123-2000010120211201-3231323133012121-0201022203101321-0011303231201302-1302030121312313-2030312232203020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c845b3c7d38f1b630b26f88fd7c78c149dd440c39d3fe64583c5ece67fc43a55"></a>
+<a id="canonical-3020101123033013-3103203301231203-0023021233202033-3113301320300110-2131311010003003-2131033332121011-2003301132303212-1333301003221111"></a>
 
-## custom_dns — custom_dns / a280b889b00c / 2
+## custom_dns — custom_dns / 202123000030 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - custom_dns
 
-<a id="canonical-0fa6367a2f6fb11a43df2a1de90fb4ba172f25bc5bdd63d6d5689cec45f80bac"></a>
+<a id="canonical-0033221203121322-0233123323010122-1003313302220131-3221003323102322-0113023302112330-1123313112033112-3111122021303230-1011332000232230"></a>
 
 Type: `"single"`. Computed.
 
@@ -2121,15 +2121,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-74c1e0d16caf6c3a6fea3e88ff6e93fe3636fd702dbc4d546ff33a24303d8295"></a>
+<a id="canonical-1310300132003101-1230223312300322-1233322203322020-3333123221033332-0312031233311300-0231233010311110-1233330303220210-0300033120022111"></a>
 
-## Direct properties — custom_dns / a280b889b00c / 3
+## Direct properties — custom_dns / 202123000030 / 3
 
-<a id="canonical-a9e5ebbd1e605c9329e2c34396e00d4d090496fe61c79cd06c27560f73200ae1"></a>
+<a id="canonical-2221321132232331-0132120011302103-0221320230031003-2112320000311031-0021001021123332-1201301321303100-1230021311120033-1303020000223201"></a>
 
-<a id="canonical-7bde376a7d1d85a46fb724328f2397e368db1cb7bf65415cd337789089c0efc6"></a>
+<a id="canonical-1323313203131222-1331013120112210-1233231302100302-2033020321133203-1220312301302313-2333121110011130-3103031313202100-2021300032333012"></a>
 
-## inside_nameserver property — custom_dns / a280b889b00c / 4
+## inside_nameserver property — custom_dns / 202123000030 / 4
 
 Type: `"string"`. Computed.
 
@@ -2166,11 +2166,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86a9c8f0a2fb45cf15842fcefdc7d0a0e62cce606795304e276bb30b92f3c6e3"></a>
+<a id="canonical-2012222130203300-2202332310113033-0111201002333032-3331301331002200-3212023030321200-1213211103001032-0213122323030023-2102330330123203"></a>
 
-<a id="canonical-6d6d2e6e9b2b4ac0c7af3f1e845bbf1bcb8501bf91509231f7edb7ea999de00c"></a>
+<a id="canonical-1231123102321232-2123022310223000-3013223303330132-2010112323330123-3023201100012333-2101110021020301-3313323123133222-2121213132000030"></a>
 
-## outside_nameserver property — custom_dns / a280b889b00c / 5
+## outside_nameserver property — custom_dns / 202123000030 / 5
 
 Type: `"string"`. Computed.
 
@@ -2207,30 +2207,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-de16befc644e3712314a75f0a7b5a4096bc187b3e111f91cdf8ea6f3563ecfbb"></a>
+<a id="canonical-3132011223323330-1210103203130102-0301102213113300-2213231122100021-1223300120132303-3201010133210130-3133203222123303-1112033230332323"></a>
 
-## Next pages — custom_dns / a280b889b00c / 6
+## Next pages — custom_dns / 202123000030 / 6
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-39ab1e4957001d2198ac5bcd38c773bd46dd67c9cc4a1d35fd047a526a137431"></a>
+<a id="canonical-0321222301321021-1113000001310201-2120223011233031-0320301313032331-1012313112133021-3030102201310311-3331001013221102-1222010313100301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5a64c13deb6dd33072be0f76458f32638bd2248d21e84cca7fd4d1447da580ad"></a>
+<a id="canonical-1122121030010331-3223123131030300-1302233200331312-1011203303021203-2023310202102031-0201322010303022-1333311031011010-1331221120002231"></a>
 
-## default_blocked_services — default_blocked_services / 5231f90214bc / 2
+## default_blocked_services — default_blocked_services / 000201102330 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - default_blocked_services
 
-<a id="canonical-b197e4112f2b9172d1f211f632e6913450da6eee35c2c1008adb3e70c6ab6b7a"></a>
+<a id="canonical-2301211332100101-0233022321011302-3101330201013312-0302321221010310-1100312212323232-0311300230010000-2022312303321300-3012222312231322"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2253,36 +2253,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a7d2e19beb246164caf61e2057f84e8cb4dff80d9cf1a6427c0e8f4c55cd718f"></a>
+<a id="canonical-2213310232012123-3223021012011210-3022331201320200-1113332010322030-2310313333200031-2130330122121002-1330003220331030-1111303113012033"></a>
 
-## Direct properties — default_blocked_services / 5231f90214bc / 3
+## Direct properties — default_blocked_services / 000201102330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d5aa7c0241ea15c3abecb29f194515ffce72cc78f5f90ee4cf2678d72a035a99"></a>
+<a id="canonical-3111222213300002-1001322201113003-2223323023022133-0121101101113333-3032130230301320-3311332100323210-3033021213203113-0222000311222121"></a>
 
-## Next pages — default_blocked_services / 5231f90214bc / 4
+## Next pages — default_blocked_services / 000201102330 / 4
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-d0da01367080452c3a1b1fd1766dfd2520c59e731ace4092876fedfada95b872"></a>
+<a id="canonical-3100312200010312-1300200010110230-0322012301333101-1312123133310211-0200301121321303-0122303210002102-2013123332313322-3122211123201302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c6fd85b3d64c72919690cae7ad7e65f0bf32c70d1490f33319b7576d01b3a739"></a>
+<a id="canonical-3012333120112303-3112103013022101-2112210030223213-2231133212113300-2333030230130031-0110210033030303-0121231311131231-0001230322130321"></a>
 
-## disable_encryption — disable_encryption / 21549d6d8449 / 2
+## disable_encryption — disable_encryption / 123120101021 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - disable_encryption
 
-<a id="canonical-4f58efe14f9f6273695bd62fbc1e53bff00356d47d9d071ed6166e7a66528810"></a>
+<a id="canonical-1033112032333201-1033213312021303-1221112331120233-2330013211032333-3300000311123110-1331213100130132-3112011212321322-1212110220200100"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2308,41 +2308,41 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-4f58efe14f9f6273695bd62fbc1e53bff00356d47d9d071ed6166e7a66528810)
-- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-419df70af1c1534230d6063fc16381b8c7979a951e7f2b7461019bd1627483ef)
+- [disable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1033112032333201-1033213312021303-1221112331120233-2330013211032333-3300000311123110-1331213100130132-3112011212321322-1212110220200100)
+- [enable_encryption](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1001213133130022-3301300111031002-0300311200120333-3001120320012320-3013211321222111-0132133302231310-1201000121233101-1202131020033233)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-42c0e4c426b13a55007be136e5852239b010247fbb305c4e5922810b0b6acc48"></a>
+<a id="canonical-1002300032103010-0212230103221111-0000132332010312-3211201102020321-2300010002101333-2323030011301032-1121020220010023-0023122230301020"></a>
 
-## Direct properties — disable_encryption / 21549d6d8449 / 3
+## Direct properties — disable_encryption / 123120101021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-146e054d59631918625dd93e4ef54de59178a8261ff8dd75a802badb1c90088c"></a>
+<a id="canonical-0110123200111031-1121120301210120-1202113131210332-1032331110313211-2101132022200212-0133332031311311-2220000223223123-0130210000202030"></a>
 
-## Next pages — disable_encryption / 21549d6d8449 / 4
+## Next pages — disable_encryption / 123120101021 / 4
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-acd4c983a00cc6d63f7585e07639826ad2c3037b5203a366d2ac239abb58430f"></a>
+<a id="canonical-2230311030212003-2200003030123112-0333131120113200-1312032120021222-3102300300031323-1102000322031212-3102223002032122-2323112010030033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8e5eb6ee526ba8c245e865101e1f9649cb61a6f4e50e4971936c59c81d32cf5"></a>
+<a id="canonical-3020321132231232-3211021223222030-0210113220121101-0001320133211210-2130231201221233-1032110032102113-0121031230112130-2001310302303311"></a>
 
-## enable_encryption — enable_encryption / 014bbeb08af5 / 2
+## enable_encryption — enable_encryption / 230020223311 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - enable_encryption
 
-<a id="canonical-419df70af1c1534230d6063fc16381b8c7979a951e7f2b7461019bd1627483ef"></a>
+<a id="canonical-1001213133130022-3301300111031002-0300311200120333-3001120320012320-3013211321222111-0132133302231310-1201000121233101-1202131020033233"></a>
 
 Type: `"single"`. Computed.
 
@@ -2365,15 +2365,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b5d8c541d0e11caf27bc575d04e269ac68c2144dd3edd53dff17ffd3660c6a59"></a>
+<a id="canonical-2311312030111001-3100320101302233-0213233011131131-0010320212212230-1220300201101031-3103323131110331-3333011333333103-1212003012221121"></a>
 
-## Direct properties — enable_encryption / 014bbeb08af5 / 3
+## Direct properties — enable_encryption / 230020223311 / 3
 
-<a id="canonical-99043520f92d62fbbafe369c5a02b07faddfd459b586cf7111ddd2933a2478f7"></a>
+<a id="canonical-2121001003110200-3321023112023323-2322333203122130-1122000223001333-2231313331101121-2311201230331301-0101313131022103-0322021013203313"></a>
 
-<a id="canonical-ba9316f05d9b0088e22e28d2a4faabbd276e5fc06eb3dd7f18863d76d16a8cba"></a>
+<a id="canonical-2322210301123300-1131212300002020-3202023202203102-2210332222232331-0213123211333000-1232230331311333-0120201203311312-3101122220302322"></a>
 
-## kms_key_resource_id property — enable_encryption / 014bbeb08af5 / 4
+## kms_key_resource_id property — enable_encryption / 230020223311 / 4
 
 Type: `"string"`. Computed.
 
@@ -2408,11 +2408,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-44f69e75cffa229e69201b9c81ae9e9475cf003e0dcbe91b1d5af5945b8874ff"></a>
+<a id="canonical-1010331221321311-3033332202022132-1221020001232130-2001223221322110-1311303300000332-0031302332210123-0131112233112110-1123202013103333"></a>
 
-<a id="canonical-8c76323b9b60678e46c57e86ac7c7b38989581295dc14000a65fdd5185fa8a31"></a>
+<a id="canonical-2030131203020323-2123120012132032-1012301113322012-2230133013230320-2120211120010221-1131300110000000-2212113331311101-2011332220220301"></a>
 
-## kms_key_ring_id property — enable_encryption / 014bbeb08af5 / 5
+## kms_key_ring_id property — enable_encryption / 230020223311 / 5
 
 Type: `"string"`. Computed.
 
@@ -2447,30 +2447,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0155375dcec18e4aaf9a460ce27cc6280a07370209dd45b29b4cdef0eca9d92d"></a>
+<a id="canonical-0001111103131131-3032300120321022-2233212210120030-3202133030120220-0022001303130002-0021313110112302-2123103031323300-3230222131210231"></a>
 
-## Next pages — enable_encryption / 014bbeb08af5 / 6
+## Next pages — enable_encryption / 230020223311 / 6
 
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
-<a id="canonical-5bdfc213a88a3b5597f3d2bf1f9c923933afd2c4787d3747babb76e0bca0414d"></a>
+<a id="canonical-1123313330020103-2220202203231111-2113330331022333-0133213021020321-0303223331023010-1320133103131013-2322232313123200-2330220010011031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a2c1c36d7317eb688503603a8764a364d2bc4e8dfce624926394a0e7dae991a1"></a>
+<a id="canonical-2202300130031231-1303011332231220-2011000312000322-2013121022031210-3102233010322031-3330321202102102-1203211022003213-3122322121012201"></a>
 
-## ingress_egress_gw — ingress_egress_gw / d0da8695e028 / 2
+## ingress_egress_gw — ingress_egress_gw / 211132000220 / 2
 
 Breadcrumbs:
 
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
 - ingress_egress_gw
 
-<a id="canonical-371abe320a34379892077e9edd66cc32a98bd0311ff10c7da30dc8a2d3898231"></a>
+<a id="canonical-0313012223320302-0022031003132120-2102001313322132-3131121230300302-2221202331000301-0133330100301331-2203003130202202-3103202120020301"></a>
 
 Type: `"single"`. Computed.
 
@@ -2503,33 +2503,33 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-371abe320a34379892077e9edd66cc32a98bd0311ff10c7da30dc8a2d3898231)
-- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-aabb0996e5fa997bf2ff3a50da2ecedf568fefa97b3dfc132843c1eefe4bc0dc)
-- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-003.md#canonical-237e3ceae77303258b3ff82422e1aa07d05f60ce403476754ef00c324a4d28d1)
+- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0313012223320302-0022031003132120-2102001313322132-3131121230300302-2221202331000301-0133330100301331-2203003130202202-3103202120020301)
+- [ingress_gw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2222232300212112-3211332221211323-3302333303221100-3122023230323133-1112203332332221-1323033133300103-0220100330013232-3332102330003130)
+- [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0203133203303222-3213130300030211-2023033333200210-0202320122220013-3100113312003032-1000031013121311-1032330000300302-1022103102203101)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-a31218ec567770096eb6c80b4836d1818a38766db9b0d301838d9fe3f0032351"></a>
+<a id="canonical-2203010201203230-1112131313000021-1232231230200023-1020031231012001-2022032013121231-2321230031030001-2003203121333203-3300000302031101"></a>
 
-## Direct properties — ingress_egress_gw / d0da8695e028 / 3
+## Direct properties — ingress_egress_gw / 211132000220 / 3
 
-- [active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-efc2a86054f64a35677656e7fc4511da231db396e8ec6036cb32d0adccbd1b20): complete subsection reference.
+- [active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3233300222201200-1110331210220311-1213131211123213-3330101101013122-0203013123032112-3220323012000312-3023030231002231-3030233101230200): complete subsection reference.
 
-- [active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e6193631fbded0892f775713582f87e4f4f92a0afc9506e8f6bd69fdcc233fb3): complete subsection reference.
+- [active_forward_proxy_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3212012103120301-3323313231002021-0233131311130103-1120023320133210-3310332102220022-3330211100123220-3312233112213331-3030020303332303): complete subsection reference.
 
-- [active_network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-ead75b4735c4c4d1ccb3f2d4272d4cdb4437fa10dc14414b53d9e00328df5ab5): complete subsection reference.
+- [active_network_policies](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3222311311231013-0311301030103101-3030230333023110-0213023110303123-1010031333220100-3130011010011023-1103312132000003-0220313311222311): complete subsection reference.
 
-- [dc_cluster_group_inside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-8d296cd3a4b0a3dd01ad6e193c79922aa508f5e0085aa50b8ebb49da5bef1c41): complete subsection reference.
+- [dc_cluster_group_inside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2031022112303103-2210230022033131-0001223112320121-0330132121020222-2211002033113200-0020112222110023-2032232310213122-1123323301301001): complete subsection reference.
 
-- [dc_cluster_group_outside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b389184d68f963f28b88c5d20c75047db5ac5a10d81c341fb052e0764dabcc8a): complete subsection reference.
+- [dc_cluster_group_outside_vn](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2303202101201031-1220332112033302-2023202030113102-0030131100101331-2311223011220100-3120013003100133-2300110232001312-1031222330302022): complete subsection reference.
 
-- [forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0e7a7fa48e7f4a61d9d39f303af18f67da980e12340944bd25f56abe0387fd6e): complete subsection reference.
+- [forward_proxy_allow_all](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0032132213332210-2032133310221201-3121310321330300-0322330120331213-3122212000320102-0310002110102331-0211331112222332-0003201333311232): complete subsection reference.
 
-<a id="canonical-275f2fc528afae81c7cc474ec21f6846f4433a733f5fc0fd481139d80dcc1dcb"></a>
+<a id="canonical-0213113302333011-0220223322322001-3013303010131032-3002013312201012-3310100303221303-0333113330003331-1020010103213120-0031303001313023"></a>
 
-<a id="canonical-fbc74150917f33f225b4cc15961b3bba94e6a0c8740fe729a96cbe51a8a35878"></a>
+<a id="canonical-3323301310011100-2101133303033302-0211231030300111-2112012303232322-2110321222003020-1310003332130221-2221123023321101-2220220311201320"></a>
 
-## gcp_certified_hw property — ingress_egress_gw / d0da8695e028 / 4
+## gcp_certified_hw property — ingress_egress_gw / 211132000220 / 4
 
 Type: `"string"`. Computed.
 
@@ -2578,11 +2578,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1334c4be72ad9d685fdddad85b7d421c3f92d6429e21625f8b92d1898602242b"></a>
+<a id="canonical-0103031030102332-1302223121311220-1133313131223120-1123133110020130-0333210231121002-2132020112021133-2023210231012021-2012000202100223"></a>
 
-<a id="canonical-22fd5778b3cc12feb65a803f767e8a214c21badb85f6451fc924d42093fcc2b5"></a>
+<a id="canonical-0202333111131320-2303303001023332-2312112220000333-1312133220220201-1030020123223123-2011331210110133-3021021031100200-2103333030022311"></a>
 
-## gcp_zone_names property — ingress_egress_gw / d0da8695e028 / 5
+## gcp_zone_names property — ingress_egress_gw / 211132000220 / 5
 
 Type: `["list", "string"]`. Computed.
 
@@ -2630,63 +2630,24 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5cd988d29a53be3052bd3c168a710c189428b1761bef49ee16b5b771d1dc8fa9): complete subsection reference.
+- [global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1130312120203102-2122110323320300-1102233103300112-2022130100300120-2110022023011312-0123323310213232-0112231123131301-3101313020332221): complete subsection reference.
 
-- [inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-5313e1755a61b9423761a49166595bbb829f161d8d2d4738be2005c5918dd40b): complete subsection reference.
+- [inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1103010332011311-1122120123211002-0313120122102101-1212112111232323-2002213301120131-2031023110130320-2332020000113011-2101203131100023): complete subsection reference.
 
-- [inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e0df476e2452247689da449856486f73cbe5fe0ff99df824d89bedf66faeff32): complete subsection reference.
+- [inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3200313310131232-0210110202101312-2021312210102120-1112102012331303-3023321133320033-3321213133200210-3120212332313312-1233223233330302): complete subsection reference.
 
-- [inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-e30eac2c9637444ff3739a6aedd40d8f7c6d96386ab2f6a39ea912ec4be9fc95): complete subsection reference.
+- [inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3203003222300230-2112031310101033-3303130321221222-3231311000312033-1330123121120320-1222230233122203-2132222101023230-1023322133302111): complete subsection reference.
 
-- [no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-223b4c6ee2e40200248995849832753ffee9c86c9dc87018fda2c5396ee2d86d): complete subsection reference.
+- [no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0202032310301232-3202321000020000-0210202121112010-2120030213110333-3332322130201230-2131302013000120-3331220230110321-1232320231201231): complete subsection reference.
 
-- [no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0ec5a58c2c48917a7da61be2b47d1dc1f04eb405913c388dd7af42e80bf96886): complete subsection reference.
+- [no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0032301122112030-0230102021011322-1331221201233202-2310133101313001-3300103223100011-2101033003202031-3113223310023220-0023332112202012): complete subsection reference.
 
-- [no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-68d5da7018c8d7bd5cf21710075ae517e46d160ab6af6bf1673a62ff41882716): complete subsection reference.
+- [no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1220311131221300-0120302031132331-1130330201130100-0013112232110113-3210123101120022-2312223312233301-1213032212023333-1001202002130112): complete subsection reference.
 
-- [no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-fb46fba0591415559af77dfe530544dae32a7e7bf32ae45df8de3b9501866c55): complete subsection reference.
+- [no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3323101233232200-1121011001111111-2122331313313332-1103001110103122-3203022213321323-3303022232101131-3320313203232111-0001201212301111): complete subsection reference.
 
-- [no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-b9b388cb8608d6e8258f2c383d10cbc61754ac095dbebb0a235c994b398ddf2b): complete subsection reference.
+- [no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2321230320203023-2012002031123220-0211203302300320-0331010030233012-0113111022300021-1131233223230022-0203113021211023-0321203131330223): complete subsection reference.
 
-- [no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-996ab0f8550bc922577f6cd9fd87e03a64433e0dc6f34e2495971689dcd2059f): complete subsection reference.
+- [no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2121122223003320-1111002330210202-1113133312303121-3331201332000322-1210100303320031-3012330310320210-2111211301122021-3130310200112133): complete subsection reference.
 
-<a id="canonical-2fac4443ae821e9585781dad2d8094f27954b69957df0d55ea606dc94c5b1b68"></a>
-
-<a id="canonical-9db0a06bdf566e662db3f8eb7f8de0d80c24dcf16612bc01ec2e550057c4b5ba"></a>
-
-## node_number property — ingress_egress_gw / d0da8695e028 / 6
-
-Type: `"number"`. Computed.
-
-Number of main nodes to create, either 1 or 3.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.in": "[1,3]"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.in": "[1,3]"
-  }
-}
-```
-
-- [outside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-14e07dadda9dcb215aa04b56160b05f8413817df23514c6b36bd611e75ce8dfe): complete subsection reference.
-
-- [outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-aa9a31421a4023e843ca9d13ca73facf79a8c7062588f2573cd865c49a32c160): complete subsection reference.
-
-- [outside_subnet](data-sources--gcp_vpc_site--reference--group-003.md#canonical-53753b916e13f7c3bd7e73fca5e5c65bc9fe70864890e28c9ebefd14a67900c4): complete subsection reference.
-
-- [performance_enhancement_mode](data-sources--gcp_vpc_site--reference--group-003.md#canonical-ac213ade1ab480150edaf039160afd20cf3644175777c503f38aad3679d02688): complete subsection reference.
-
-- [sm_connection_public_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-a77b1430d70c66150cc8dd053e3b84d88666df8becf3e78c28282070d1905aaf): complete subsection reference.
-
-- [sm_connection_pvt_ip](data-sources--gcp_vpc_site--reference--group-003.md#canonical-6c2d5083214b37795bbea7501148b070fa5c5a5a70763d4879ba4cf47cdad721): complete subsection reference.
+<a id="canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220"></a>

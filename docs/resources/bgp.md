@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bgp landing."
 
 # xcsh_bgp landing
 
-<a id="canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0"></a>
+<a id="canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-65f0c5ac6d6a3853466b00b51a5ca46e4124d37d45bf9bf51f320571e0faddfb"></a>
+<a id="canonical-1211330030112230-1231122203201103-1012122300002311-0122113022101232-1001021031031331-1011233321233311-0133030200111301-3200332231313323"></a>
 
-## xcsh_bgp — xcsh_bgp / a7858fe9b415 / 2
+## xcsh_bgp — xcsh_bgp / 322123100111 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with
 external bgp servers. it is created by users in system namespace. configuration.
 
-<a id="canonical-0c8a25398fcd4dd61e930cd2b1666c8c66b77fcb28533d2ff2f967dac7e95f53"></a>
+<a id="canonical-0030202202110321-2033303110313112-0132210300303102-2301121212302030-1212231313333023-0220110303310233-3302332112133122-3013322111331103"></a>
 
-## Prerequisites — xcsh_bgp / a7858fe9b415 / 3
+## Prerequisites — xcsh_bgp / 322123100111 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-ed2017665ecbfc8d8b8e0c1bb207737edb1d5bdf9cb5d8fcba2972ec076e75d6"></a>
+<a id="canonical-3231020001131212-1132302333302031-2023203200300123-2302001313031332-3123013111233133-2130231131203330-2322022113023230-0013123213113112"></a>
 
-## Minimal configuration — xcsh_bgp / a7858fe9b415 / 4
+## Minimal configuration — xcsh_bgp / 322123100111 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_bgp" "example" {
 }
 ```
 
-<a id="canonical-67afb1afccc316dfba93d4ded4df18d860146ce60b3d06b65f2495e791ae83ef"></a>
+<a id="canonical-1213223323012233-3030300301123133-2322210331103132-3110313301203120-1200011012303212-0023033100122312-1133021021113213-2101223220033233"></a>
 
-## Root configuration — xcsh_bgp / a7858fe9b415 / 5
+## Root configuration — xcsh_bgp / 322123100111 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-686b85466a8894113c3f4a222b737990c21bb7a0be71edbb6d1288d2cefcd4e6"></a>
+<a id="canonical-1220122320111012-1222202021100101-0330033310220202-0223130313212100-3002012323132200-2332130132312323-1231010220203102-3032333031103212"></a>
 
-## Next pages — xcsh_bgp / a7858fe9b415 / 6
+## Next pages — xcsh_bgp / 322123100111 / 6
 
-- [Property reference](../guides/resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [Examples](../guides/resources--bgp--examples--group-001.md#canonical-0b5fe495434f4ae93528ca40a2c382856380185f9580f1f16c5b072a7d6a2bca)
-- [Import](../guides/resources--bgp--lifecycle--group-001.md#canonical-1078d0e498358790f7493c65620697323658a43741ab40880d6be54d64c31acc)
-- [Timeouts](../guides/resources--bgp--lifecycle--group-001.md#canonical-cf0f94b8f0be554446522de77d0c4d87aa513342e488240aa49c6eae45d697f2)
+- [Property reference](../guides/resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [Examples](../guides/resources--bgp--examples--group-001.md#canonical-0023113332102111-1003103310223221-0311022030221000-2202300320022011-1203200001201133-2111200033013301-1230112300130222-1331122202233022)
+- [Import](../guides/resources--bgp--lifecycle--group-001.md#canonical-0100132031003210-2120031120132100-3313102103301211-1202001221130302-0312112022100313-1001222310002020-0031122332111031-1210300301223030)
+- [Timeouts](../guides/resources--bgp--lifecycle--group-001.md#canonical-3033003321102320-3300233211111010-1012110202313213-1331003010312013-2222110103031002-3210202002100022-2210213012322232-1011311221133302)

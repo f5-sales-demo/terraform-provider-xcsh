@@ -6,365 +6,365 @@ description: "Complete grouped canonical reference for xcsh_nginx_server referen
 
 # xcsh_nginx_server reference
 
-<a id="canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084"></a>
+<a id="canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-064f5d21da8e858dfe1df82f39cfc3a1e8fe012debb221afabf129c78325fec5"></a>
+<a id="canonical-0012103311310201-3122203220112031-3332013133200233-0321303330032201-3220333200010231-3223230202012233-2223330102213013-2003021133323011"></a>
 
-## Property reference — Property reference / b6ff9f6f9d5c / 2
+## Property reference — Property reference / 123321311130 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 - Property reference
 
-<a id="canonical-b3d34856c4edfe6dd274022549731d16753268ff97260ce081249693f15dfe30"></a>
+<a id="canonical-2303310310201112-3010323133321231-3102131000020211-1021130301310112-1311030212203333-2113021200303200-2001021021122103-3301113133320300"></a>
 
-## Direct properties — Property reference / b6ff9f6f9d5c / 3
+## Direct properties — Property reference / 123321311130 / 3
 
-<a id="canonical-fa408ceeb2cc57418954519dc2b7766f049cc7131d1853c7c53612fea7c12100"></a>
+<a id="canonical-3322100020303232-2302303011131001-2021111011012131-3002231313121233-0010213030130103-0131012011033013-3011031201023332-2213300102010000"></a>
 
-<a id="canonical-f846f5a24ccd52aa11254a643aa6be9d8847fe99069ee0601150898851762b52"></a>
+<a id="canonical-3320101233112202-1030303111022222-0101021110221210-0322221223322131-2020101333322121-0012213232001200-0101110020212020-1101131202231102"></a>
 
-## annotations property — Property reference / b6ff9f6f9d5c / 4
+## annotations property — Property reference / 123321311130 / 4
 
 Type: `["map", "string"]`. Computed.
 
 Annotations.
 
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed): complete subsection reference.
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231): complete subsection reference.
 
-<a id="canonical-bf71598a7b826ec78ac99b53c6c128a110055583096f4a99dfd706cf14315d2a"></a>
+<a id="canonical-2333130111212022-1323200212323013-2022302121231103-3012300102202201-0100001111112003-0021123310222121-3133311300123033-0110030111310222"></a>
 
-<a id="canonical-cf3073b17f472237a423124f5d18772b71b1f1e5261440f9d74e027f3607d0e0"></a>
+<a id="canonical-3033030013032301-1333101302020313-2210020301021033-1131012013130223-1301230133013211-0212011010003321-3113103200021333-0312001331003200"></a>
 
-## description property — Property reference / b6ff9f6f9d5c / 5
+## description property — Property reference / 123321311130 / 5
 
 Type: `"string"`. Computed.
 
 Description.
 
-<a id="canonical-4f2938089fbac9fc76bb70012e5211eef9271d540fe87e4183cdb92666316240"></a>
+<a id="canonical-1033022103200020-2133232230213330-1312232313000001-0232110201013232-3321021301311110-0033322013321001-2003303123210212-1212030112021000"></a>
 
-<a id="canonical-719b503fd267a042a2fb168e9dcdf0ad8ca82872b3b47fccc9b63413d6237e5d"></a>
+<a id="canonical-1301212311000333-3102121322001002-2202332301122032-2131303133002231-2030222002201302-2303231013333030-3021231203100103-3112020313321131"></a>
 
-## id property — Property reference / b6ff9f6f9d5c / 6
+## ID property — Property reference / 123321311130 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier.
 
-<a id="canonical-a6640aca4726cf498b7315ab9b51def6aafc4b53a3d36cead17a761ef2a0b43d"></a>
+<a id="canonical-2212121000223022-1013021230331021-2023130301112223-2123110131323312-2222333010231103-2203310312303222-3101132213120132-3302220023100331"></a>
 
-<a id="canonical-23b83646b9084ad15c3d5fcacb02d32e97c4a0abee1393ac03f200d069930a2e"></a>
+<a id="canonical-0203232003121012-2321002010223101-1130033111333022-3023000231030232-2113301022002223-3232010321032230-0003330200003100-1221210300220232"></a>
 
-## labels property — Property reference / b6ff9f6f9d5c / 7
+## labels property — Property reference / 123321311130 / 7
 
 Type: `["map", "string"]`. Computed.
 
 Labels.
 
-<a id="canonical-f9349e4daf099371e3c193cbc1e72daa7da9bfcdf1a3b981a94994080b2708e9"></a>
+<a id="canonical-3321031021321031-2233002121031301-3203300121033023-3001321302312222-1331222123333031-3301220323212001-2221102121100020-0023021300203221"></a>
 
-<a id="canonical-f6510ec9478043bcb065f2f2976e4c709fa34da96d4a31357768fe69d9c4e231"></a>
+<a id="canonical-3312110100323021-1013200010032330-2300121133023302-2113123210301300-2133220310312221-1231102203010311-1313122033321221-3121301032020301"></a>
 
-## name property — Property reference / b6ff9f6f9d5c / 8
+## name property — Property reference / 123321311130 / 8
 
 Type: `"string"`. Required.
 
 Name of the NginxServer to look up.
 
-<a id="canonical-f73e7590060bc36820f8d831b7441dcc1c229e52f1133af6b2e94c57f54f189b"></a>
+<a id="canonical-3313033213112100-0012002330031220-0200332031200301-2313101001313030-0130020221321102-3301010303223312-2302322110301113-3311103301202123"></a>
 
-<a id="canonical-0feddae92e09b20b2ef453f0d80429374d359c4f329c47cbd5281b8ea2af19d9"></a>
+<a id="canonical-0033323131223221-0232002123020023-0232331011033300-3120001002210313-1031031121301033-0302213010133023-3111022001232032-2202223301213121"></a>
 
-## namespace property — Property reference / b6ff9f6f9d5c / 9
+## namespace property — Property reference / 123321311130 / 9
 
 Type: `"string"`. Required.
 
 Namespace of the NginxServer.
 
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d): complete subsection reference.
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331): complete subsection reference.
 
-<a id="canonical-cad2bb602ee4aa9a3dcd1f87f8ac927a74bdc523801703a802890d65ce08527a"></a>
+<a id="canonical-3022310223231200-0232321022222122-0331303101332013-3320223021021322-1310233130110203-2000011300032220-0002202100311211-3032002011021322"></a>
 
-## All schema paths — Property reference / b6ff9f6f9d5c / 10
+## All schema paths — Property reference / 123321311130 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--nginx_server--reference--group-001.md#canonical-fa408ceeb2cc57418954519dc2b7766f049cc7131d1853c7c53612fea7c12100) |
-| `dataplane_ref` | [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-59fd5c9357a918df7bb93c6909bef8ffb15834de4b33f91ad0c650538ec614c9) |
-| `dataplane_ref.nginx_csg` | [dataplane_ref.nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-6f104a15e1dd52ec5eff013bad60bf6443353dab118004eeaf6447b711e706e9) |
-| `dataplane_ref.nginx_csg.name` | [dataplane_ref.nginx_csg.name](data-sources--nginx_server--reference--group-001.md#canonical-837b052cf749efb45b7ccd0d240a3245bfa9a554ec5fdbd5cd00cb87c0d7d873) |
-| `dataplane_ref.nginx_csg.namespace` | [dataplane_ref.nginx_csg.namespace](data-sources--nginx_server--reference--group-001.md#canonical-7cb1da10a40c10ef40c464947eff87a63836bbd97365d2052dee981d83cdce30) |
-| `dataplane_ref.nginx_csg.tenant` | [dataplane_ref.nginx_csg.tenant](data-sources--nginx_server--reference--group-001.md#canonical-bf4605bcb15ff8288ad93c6291551272bf9ee00a099c77c7797fcf19f419075f) |
-| `dataplane_ref.nginx_instance` | [dataplane_ref.nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-be403bb879ec65960f5441ca5081dcfcfe77db3bd0cf68c7907ca8f1138b4143) |
-| `dataplane_ref.nginx_instance.name` | [dataplane_ref.nginx_instance.name](data-sources--nginx_server--reference--group-001.md#canonical-1a870ebb6a343572f50618d685448e6ecc2434812375ed92276d0a16ee2367ad) |
-| `dataplane_ref.nginx_instance.namespace` | [dataplane_ref.nginx_instance.namespace](data-sources--nginx_server--reference--group-001.md#canonical-d62af18b9db0cef12b76edb3c468f3cf9e6a5ab14a69082b142fded8dda2b9a3) |
-| `dataplane_ref.nginx_instance.tenant` | [dataplane_ref.nginx_instance.tenant](data-sources--nginx_server--reference--group-001.md#canonical-0566541b6d1856e3b477d3aa8c3d16e2c30d9b53178b14a10abab8228ffdb4c0) |
-| `description` | [description](data-sources--nginx_server--reference--group-001.md#canonical-bf71598a7b826ec78ac99b53c6c128a110055583096f4a99dfd706cf14315d2a) |
-| `id` | [id](data-sources--nginx_server--reference--group-001.md#canonical-4f2938089fbac9fc76bb70012e5211eef9271d540fe87e4183cdb92666316240) |
-| `labels` | [labels](data-sources--nginx_server--reference--group-001.md#canonical-a6640aca4726cf498b7315ab9b51def6aafc4b53a3d36cead17a761ef2a0b43d) |
-| `name` | [name](data-sources--nginx_server--reference--group-001.md#canonical-f9349e4daf099371e3c193cbc1e72daa7da9bfcdf1a3b981a94994080b2708e9) |
-| `namespace` | [namespace](data-sources--nginx_server--reference--group-001.md#canonical-f73e7590060bc36820f8d831b7441dcc1c229e52f1133af6b2e94c57f54f189b) |
-| `server_spec` | [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-652bca6236c3e6111a75ae4c72eace0bc834992fa32e51661fb9fb9bc225cef6) |
-| `server_spec.api_discovery_spec` | [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-5bbc463c344595ec971aec203bb05bbd9f5313f05cc78a17450b3c263bdebd8c) |
-| `server_spec.api_discovery_spec.disabled` | [server_spec.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-7667d5a9296b270a332c7489860dfeb248213ca787b43384dff421924d64a628) |
-| `server_spec.api_discovery_spec.enabled` | [server_spec.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-aac571d1a4c208d7c956485186a34cfa0c81da3187da80ea1186ac726ce46b3c) |
-| `server_spec.domains` | [server_spec.domains](data-sources--nginx_server--reference--group-001.md#canonical-83d4a09d77ff9c0d9728ba7ec89f636f247dc1d77472897fdb552a8d87ab2285) |
-| `server_spec.locations` | [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a0f3ea1105ba1add42285cc1c517e79531cb2d12f4d246b15888a732e22e6b91) |
-| `server_spec.locations.api_discovery_spec` | [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d9941d0b8e4b1765d9c647e0cb20e40f26fdf8d1e07f84a874655ddb55abd9e3) |
-| `server_spec.locations.api_discovery_spec.disabled` | [server_spec.locations.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-44ff3c4bdb34817a8a5b36b5366fe7c25adf743c727337f3706b102d5ed11b09) |
-| `server_spec.locations.api_discovery_spec.enabled` | [server_spec.locations.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-38432fcfd8878e15110fdb53067f766737af9e7d96855c6846cb846803dc1585) |
-| `server_spec.locations.definition` | [server_spec.locations.definition](data-sources--nginx_server--reference--group-001.md#canonical-afbf823d98ecc27eeaa5b4340103e9b38e6ed32062c4245aae6e76a9633fe77a) |
-| `server_spec.locations.name` | [server_spec.locations.name](data-sources--nginx_server--reference--group-001.md#canonical-ea64337daf7be396a78c8f1de4beadf002934dcda62bd6d987b60ec5053e838a) |
-| `server_spec.locations.waf_spec` | [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-70d6ae10e3ef2d93bbd5a7520b4ffeb1754b9a122ed07b102ece0347ee83dafb) |
-| `server_spec.locations.waf_spec.blocking_waf_mode` | [server_spec.locations.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-06fe7a573eebd3f04a4c9777365670c2897e739b4a50835ad6b060b2e4e5861e) |
-| `server_spec.locations.waf_spec.distributed_cloud_policy_management` | [server_spec.locations.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-431f50eef6ad14fe2400ce12b3941f4c88f6c5c252d67f2f36ef151c0c89f353) |
-| `server_spec.locations.waf_spec.monitoring_waf_mode` | [server_spec.locations.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-51820a84a88c52271591c80376d5ab82caae1b60b10905171efca2b059156940) |
-| `server_spec.locations.waf_spec.nginx_policy_management` | [server_spec.locations.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-e82b778ebce2bc4f0317274434627eb82b5b9f97b34959b2c9bd49a52da29a0d) |
-| `server_spec.locations.waf_spec.none_waf_mode` | [server_spec.locations.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-38379bb9be093ba27cbab3c6f872c97b7e1f271131d76252b8e807c31a629c6f) |
-| `server_spec.locations.waf_spec.policy_file_name` | [server_spec.locations.waf_spec.policy_file_name](data-sources--nginx_server--reference--group-001.md#canonical-043b0138fb2e67b9e21b5049e63e294c3e65d9e24e05902005edfc45038f06a0) |
-| `server_spec.locations.waf_spec.policy_name` | [server_spec.locations.waf_spec.policy_name](data-sources--nginx_server--reference--group-001.md#canonical-ae1b0218f260c34a0680e19625c5981dcf0464b3f542893325eaae54025fa768) |
-| `server_spec.locations.waf_spec.security_log_enabled` | [server_spec.locations.waf_spec.security_log_enabled](data-sources--nginx_server--reference--group-001.md#canonical-e0a52aa1db5ee3a971a6bf2df2e10b6fc9bf9d553cac94111cd44cb603c68592) |
-| `server_spec.locations.waf_spec.security_log_file_names` | [server_spec.locations.waf_spec.security_log_file_names](data-sources--nginx_server--reference--group-001.md#canonical-4a6213297c2b79bdff9964caeb458fe7ea2d09d0b43c6d769588e5a61f2343e3) |
-| `server_spec.nginx_one_object_id` | [server_spec.nginx_one_object_id](data-sources--nginx_server--reference--group-001.md#canonical-0bbb0a4f5707e02b55e0bea70a060640efd68bd205f43a0d957ad59b4879b203) |
-| `server_spec.nginx_one_object_name` | [server_spec.nginx_one_object_name](data-sources--nginx_server--reference--group-001.md#canonical-6c031e0be051c03822e7fc04f73798c397360d64dba1f15029c13d1b7798bcfc) |
-| `server_spec.port` | [server_spec.port](data-sources--nginx_server--reference--group-001.md#canonical-ed67278fb87d270d55df3bccbd7fac85b90ef9747140217051f67ab8de05a08e) |
-| `server_spec.server_name` | [server_spec.server_name](data-sources--nginx_server--reference--group-001.md#canonical-ae8aadbe812c15401a50620482e2f31b154d5ac8a0673ddafe6435f932fd658c) |
-| `server_spec.total_routes` | [server_spec.total_routes](data-sources--nginx_server--reference--group-001.md#canonical-f0c53299950268c58e522895cc8603a50bd6e1c1048f40049dd6d6fcda0d8e36) |
-| `server_spec.waf_spec` | [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3c19225c51d0b6daccb2e377c4676fefa0f44828f84c5dea951465776b64e529) |
-| `server_spec.waf_spec.blocking_waf_mode` | [server_spec.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-94b2189b032bdd9ab3615f8e5affa3f7df0c5a0483d1176a9c8b184b6b1b5aa8) |
-| `server_spec.waf_spec.distributed_cloud_policy_management` | [server_spec.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-ae6885d05917e503ca34899083e8b88132d6e74590fd2bbe58d8362c3cc21505) |
-| `server_spec.waf_spec.monitoring_waf_mode` | [server_spec.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-65ca80fb697f9ae4370154d1b2db63bcc2544a92e664f39a717fbad105716e42) |
-| `server_spec.waf_spec.nginx_policy_management` | [server_spec.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-f9d99c3a120d9c671b692df6ee12e9e8327c826593638e5a8561208b9e9bda51) |
-| `server_spec.waf_spec.none_waf_mode` | [server_spec.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-41b71fdcaa4951d525b1a8328f988c3c45b9a5f324cc8721cfb808d6ed9cd1ff) |
-| `server_spec.waf_spec.policy_file_name` | [server_spec.waf_spec.policy_file_name](data-sources--nginx_server--reference--group-001.md#canonical-ada9cf03ce47f71d52ff16a0c286207c21db9a98c36f69402b7d8cffb537e4f1) |
-| `server_spec.waf_spec.policy_name` | [server_spec.waf_spec.policy_name](data-sources--nginx_server--reference--group-001.md#canonical-43646c1a88d2cec12f473fcccd439380cfb9d7b3b92ba9d5f68cf5ba7e958b16) |
-| `server_spec.waf_spec.security_log_enabled` | [server_spec.waf_spec.security_log_enabled](data-sources--nginx_server--reference--group-001.md#canonical-ae0143e666d7d17ed3e32bf10467c514fb99d47c9d575ff2e9dbeba8566b99c6) |
-| `server_spec.waf_spec.security_log_file_names` | [server_spec.waf_spec.security_log_file_names](data-sources--nginx_server--reference--group-001.md#canonical-2c0762836e69a962e3eb066891b003d5ec003fc372cd0133f33d341d0511d48e) |
+| `annotations` | [annotations](data-sources--nginx_server--reference--group-001.md#canonical-3322100020303232-2302303011131001-2021111011012131-3002231313121233-0010213030130103-0131012011033013-3011031201023332-2213300102010000) |
+| `dataplane_ref` | [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-1121333111302103-1113222101203133-1323232103301221-0021233233203333-2301112003103132-1023030333210122-3100301211001103-2032301201103021) |
+| `dataplane_ref.nginx_csg` | [dataplane_ref.nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-1233010010220111-3201313111023230-1132333300010323-2231120023331210-1003031103312223-0101200000103232-2233121010132313-0101321300123221) |
+| `dataplane_ref.nginx_csg.name` | [dataplane_ref.nginx_csg.name](data-sources--nginx_server--reference--group-001.md#canonical-2003132300110230-3313102132332310-1123133030310031-0210002203021011-2333222122111110-3230113331233111-3031000030232013-3000311331201303) |
+| `dataplane_ref.nginx_csg.namespace` | [dataplane_ref.nginx_csg.namespace](data-sources--nginx_server--reference--group-001.md#canonical-1330230131220100-2210003001003233-1000301012102110-1332333320132212-0320031223233121-1303121131020011-0231323221200131-2003303130320300) |
+| `dataplane_ref.nginx_csg.tenant` | [dataplane_ref.nginx_csg.tenant](data-sources--nginx_server--reference--group-001.md#canonical-2333101200112330-2301113333200220-2022312103301202-2101111101021302-2333213232000022-0021213013133013-1321133330330121-3310012100131133) |
+| `dataplane_ref.nginx_instance` | [dataplane_ref.nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-2332100003232320-1321323012112112-0033111010013022-1100200131303330-3332131331230323-3100303312203013-2100133022203301-0103202310011003) |
+| `dataplane_ref.nginx_instance.name` | [dataplane_ref.nginx_instance.name](data-sources--nginx_server--reference--group-001.md#canonical-0122201300322323-1222031003111302-3311001201203112-2011101020321232-3030021003102001-0203131132312102-0213123100220112-3232020312132231) |
+| `dataplane_ref.nginx_instance.namespace` | [dataplane_ref.nginx_instance.namespace](data-sources--nginx_server--reference--group-001.md#canonical-3112022233012023-2131230030323301-0223131232312303-3010122033033033-2132122211222301-1022122100200223-0110023331323120-3131220223212203) |
+| `dataplane_ref.nginx_instance.tenant` | [dataplane_ref.nginx_instance.tenant](data-sources--nginx_server--reference--group-001.md#canonical-0011121211100123-1231012011123203-2310131331032222-2030033101123202-3003003121231103-0113202301102201-0022232223200202-2033333123103000) |
+| `description` | [description](data-sources--nginx_server--reference--group-001.md#canonical-2333130111212022-1323200212323013-2022302121231103-3012300102202201-0100001111112003-0021123310222121-3133311300123033-0110030111310222) |
+| `id` | [id](data-sources--nginx_server--reference--group-001.md#canonical-1033022103200020-2133232230213330-1312232313000001-0232110201013232-3321021301311110-0033322013321001-2003303123210212-1212030112021000) |
+| `labels` | [labels](data-sources--nginx_server--reference--group-001.md#canonical-2212121000223022-1013021230331021-2023130301112223-2123110131323312-2222333010231103-2203310312303222-3101132213120132-3302220023100331) |
+| `name` | [name](data-sources--nginx_server--reference--group-001.md#canonical-3321031021321031-2233002121031301-3203300121033023-3001321302312222-1331222123333031-3301220323212001-2221102121100020-0023021300203221) |
+| `namespace` | [namespace](data-sources--nginx_server--reference--group-001.md#canonical-3313033213112100-0012002330031220-0200332031200301-2313101001313030-0130020221321102-3301010303223312-2302322110301113-3311103301202123) |
+| `server_spec` | [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1211022330221202-0312300332120101-0122131122321030-1302322230320023-3020031021210233-2203023211011212-0133232133232123-3002021130323312) |
+| `server_spec.api_discovery_spec` | [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1123233010120330-0310101121113230-2113012232300200-0323230011232331-2133110301033300-1130301320220113-1011002303300212-0323313223312030) |
+| `server_spec.api_discovery_spec.disabled` | [server_spec.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-1312121331112221-0221122302130022-0303023013102021-2012003133322302-1020020103302213-2013231003032010-3133331002012102-1031121022120220) |
+| `server_spec.api_discovery_spec.enabled` | [server_spec.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-2222301113013101-2210300200203113-3021111210201101-2012220310303322-0030200131220301-2013312220003222-0101201222301302-1230321012230330) |
+| `server_spec.domains` | [server_spec.domains](data-sources--nginx_server--reference--group-001.md#canonical-2003311022002131-1313333321300031-2113022023221332-3020213312031233-0210133130013113-1310130220211333-3123111102222031-2013222302022011) |
+| `server_spec.locations` | [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2200330332220101-0011232201223131-1002022011303001-3011011332132111-0301302302310102-3310310210122301-1120202022130302-3202023212232101) |
+| `server_spec.locations.api_discovery_spec` | [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3121211001310023-2032102301131211-3121301210133200-3023020032100033-0212333133203101-3200133320102220-1310121111313123-1111222331213203) |
+| `server_spec.locations.api_discovery_spec.disabled` | [server_spec.locations.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-1010333303301023-3123031020011322-2022112303122311-0312123332133002-1122313313100330-1302130303133303-1300122301000231-1132310101230021) |
+| `server_spec.locations.api_discovery_spec.enabled` | [server_spec.locations.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-0320100302333033-3120201320320111-0101003331231103-0012133313121213-0313223321321331-2112201111301220-1012302320101220-0003313001112011) |
+| `server_spec.locations.definition` | [server_spec.locations.definition](data-sources--nginx_server--reference--group-001.md#canonical-2233233320020331-2120323030021332-3222221123100310-0001000332212303-2032123231030200-1202301002101122-2232123213122221-1203033332131322) |
+| `server_spec.locations.name` | [server_spec.locations.name](data-sources--nginx_server--reference--group-001.md#canonical-3222121003031331-2233132332032112-2213203020330131-3210233222313300-0002210310313031-2212022331123121-2013231200323011-0011033220032022) |
+| `server_spec.locations.waf_spec` | [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-1300311222320100-3203323302312103-2323311122131102-0023103333322301-1311102321220102-0232310013230100-0232303200031013-3232200331223323) |
+| `server_spec.locations.waf_spec.blocking_waf_mode` | [server_spec.locations.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0012333213221113-0332322331033300-1022103021131313-0312111213003002-2021133213032123-1022110020031122-3112230012002302-3210321120120132) |
+| `server_spec.locations.waf_spec.distributed_cloud_policy_management` | [server_spec.locations.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-1003013311003232-3312223101103332-0210000030320102-2303211001331030-2020331230113002-1102311213330233-0312323301110130-0030202133031103) |
+| `server_spec.locations.waf_spec.monitoring_waf_mode` | [server_spec.locations.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1101200200222010-2220203011020213-0111210130200003-1312311122232002-3022223201231200-2301002100110113-0132333022022300-1121011112211000) |
+| `server_spec.locations.waf_spec.nginx_policy_management` | [server_spec.locations.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-3220022313132032-2330320223301033-0003011302131010-0310120213322320-0223112321332113-2303102111212302-3021233110212211-0231220221220031) |
+| `server_spec.locations.waf_spec.none_waf_mode` | [server_spec.locations.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0320031321232321-2332002103232202-1330232223033012-3320130230211323-1332013302130101-0301311312021102-2320322000133003-0122120221301233) |
+| `server_spec.locations.waf_spec.policy_file_name` | [server_spec.locations.waf_spec.policy_file_name](data-sources--nginx_server--reference--group-001.md#canonical-0010032300010320-3323023212132321-3202012311001021-3212033202211030-0332121131213202-1032001121000200-0011323133301011-0003203300122200) |
+| `server_spec.locations.waf_spec.policy_name` | [server_spec.locations.waf_spec.policy_name](data-sources--nginx_server--reference--group-001.md#canonical-2232012300020120-3302120030031022-0012200032012112-0211301121200131-3033001012102303-3311100220210303-0211322222321110-0002113322131220) |
+| `server_spec.locations.waf_spec.security_log_enabled` | [server_spec.locations.waf_spec.security_log_enabled](data-sources--nginx_server--reference--group-001.md#canonical-3200221102222201-3123113232032221-1301221223330231-3302320100231233-3021233321311111-0330223021100101-0130311010302312-0003301220112102) |
+| `server_spec.locations.waf_spec.security_log_file_names` | [server_spec.locations.waf_spec.security_log_file_names](data-sources--nginx_server--reference--group-001.md#canonical-1022120201030221-1330022313212331-3333212112103022-3223101120333213-3222023100213100-2310033012311312-2111202032112212-0133020310033203) |
+| `server_spec.nginx_one_object_id` | [server_spec.nginx_one_object_id](data-sources--nginx_server--reference--group-001.md#canonical-0023232300221033-1113001332000223-1111320023322213-0022001200121000-3233311220233102-0011331003220031-2111132231112123-1020132123020003) |
+| `server_spec.nginx_one_object_name` | [server_spec.nginx_one_object_name](data-sources--nginx_server--reference--group-001.md#canonical-1230000301320023-3200110130000320-0202321333300010-3313031321203003-2113031200311210-3123220133011100-0221300103310123-1313212023303330) |
+| `server_spec.port` | [server_spec.port](data-sources--nginx_server--reference--group-001.md#canonical-3231121302132033-2320133102130031-1111313303233030-2331133322302011-2321003233211310-1301100002011300-1101331213222320-3132001122002032) |
+| `server_spec.server_name` | [server_spec.server_name](data-sources--nginx_server--reference--group-001.md#canonical-2232202222312332-2001023001111000-0122110012020010-2002320233030123-0111103111223020-2200121303313122-3332121003113321-0302333112112030) |
+| `server_spec.total_routes` | [server_spec.total_routes](data-sources--nginx_server--reference--group-001.md#canonical-3300301103022121-2111000212203011-2032110202202111-3030201200032211-0023311232013001-0010203310000010-2131311231123330-3122003120320312) |
+| `server_spec.waf_spec` | [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-0330012102021130-1101310023123122-3030230232031313-3010121312333233-2200331010200220-3320103011313222-2111011012111313-1223121032110221) |
+| `server_spec.waf_spec.blocking_waf_mode` | [server_spec.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-2110230201202123-0003022331312122-2303120111332032-1122333322033313-3133003011220010-2003310101131222-2130202301201023-1223012311222220) |
+| `server_spec.waf_spec.distributed_cloud_policy_management` | [server_spec.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2232122020113100-1121011332110003-3022031020212100-2003322023202001-0302311232131011-2100333102232332-1120312003120230-0330300201110011) |
+| `server_spec.waf_spec.monitoring_waf_mode` | [server_spec.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1211302220003323-1221133321223210-0313000111103101-2302312312032330-3002111010222102-3212121033032122-1301133323223101-0011130112321002) |
+| `server_spec.waf_spec.nginx_policy_management` | [server_spec.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-3321312121300322-0102003121301213-0123122102313312-3232010232213220-0302133020021211-2103120320321122-2011120102002023-2132212331221101) |
+| `server_spec.waf_spec.none_waf_mode` | [server_spec.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1001231301333130-2222102111013111-0211230122200302-2033212020300330-1011232122113303-0210303020130201-3033232000203112-3231213031013333) |
+| `server_spec.waf_spec.policy_file_name` | [server_spec.waf_spec.policy_file_name](data-sources--nginx_server--reference--group-001.md#canonical-2231222130330003-3032101333130131-1102333301122200-3002201202001330-0201312321222120-3003123312211000-0223133120303333-2311031332103301) |
+| `server_spec.waf_spec.policy_name` | [server_spec.waf_spec.policy_name](data-sources--nginx_server--reference--group-001.md#canonical-1003121012300122-2020310230323001-0233101303333030-3031100321032000-3033232131132303-2321022322213111-3312203033112322-1332211120230112) |
+| `server_spec.waf_spec.security_log_enabled` | [server_spec.waf_spec.security_log_enabled](data-sources--nginx_server--reference--group-001.md#canonical-2232000110033212-1212311331011332-3103320302233301-0010121330110110-3323212131101330-2131111311333302-3221312332232220-1112122321213012) |
+| `server_spec.waf_spec.security_log_file_names` | [server_spec.waf_spec.security_log_file_names](data-sources--nginx_server--reference--group-001.md#canonical-0230001312022003-1232122122211202-3203322300121220-2101230000033111-3230000003333003-1302303100010303-3303033103100131-0011010131102032) |
 
-<a id="canonical-f7e3474b74875ac9822603614496c91380327fe50c5cc9860cf44f68bebbbf0a"></a>
+<a id="canonical-3313320310131023-1310201311223021-2002021200031201-1010211230210103-2000030213333211-0030113030212012-0030331010331220-2332232323330022"></a>
 
-## Next pages — Property reference / b6ff9f6f9d5c / 11
+## Next pages — Property reference / 123321311130 / 11
 
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed"></a>
+<a id="canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-59309565fb2c81966ff92c5c5a12b9fbcf94d31c35f5b8e0300baa30a2556d7e"></a>
+<a id="canonical-1121030021111211-3323023020012112-1233332102301130-1122010223213323-3033211031030130-0311331123203200-0300002322220300-2202111112311332"></a>
 
-## dataplane_ref — dataplane_ref / 22933fad279a / 2
+## dataplane_ref — dataplane_ref / 223102132122 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
 - dataplane_ref
 
-<a id="canonical-59fd5c9357a918df7bb93c6909bef8ffb15834de4b33f91ad0c650538ec614c9"></a>
+<a id="canonical-1121333111302103-1113222101203133-1323232103301221-0021233233203333-2301112003103132-1023030333210122-3100301211001103-2032301201103021"></a>
 
 Type: `"single"`. Computed.
 
 DataplaneReference.
 
-<a id="canonical-aa9f17cecc0cc513ba7fda41df3337ad33b1414caa44da3a9de65d0a7b646c9d"></a>
+<a id="canonical-2222213301133032-3030003030110103-2322133331221001-3133030303132231-0303230110011030-2222101031220322-2131321211310022-1323121012302131"></a>
 
-## Direct properties — dataplane_ref / 22933fad279a / 3
+## Direct properties — dataplane_ref / 223102132122 / 3
 
-- [nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-7ad685117718496c5d8f5d431940e2312aa5ae9809177a898ba4d5fa7d65b566): complete subsection reference.
+- [nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-1322311220110101-1313012010211230-1131203311311003-0121100032020301-0222221122322120-0021011313222021-2023221031113322-1331121123111212): complete subsection reference.
 
-- [nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-26d3376c10655c1d740402e4d5c940da80e238bcce99c16f81c04fefbafe0517): complete subsection reference.
+- [nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-0212310303131230-0100121111300131-1310001000023210-3111302110003122-2000320203202330-3032212130011233-2001300010333233-2322333200110113): complete subsection reference.
 
-<a id="canonical-748c12fecd1a6407521f23e5f7f04db2a1ee12abf4663d0162bdb530bb5a8c4b"></a>
+<a id="canonical-1310203001023332-3031012212100013-1102013302033211-3313330010312302-2201323201022223-3310121203310001-1202233123110300-2323112220301023"></a>
 
-## Next pages — dataplane_ref / 22933fad279a / 4
+## Next pages — dataplane_ref / 223102132122 / 4
 
-- [dataplane_ref.nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-7ad685117718496c5d8f5d431940e2312aa5ae9809177a898ba4d5fa7d65b566)
-- [dataplane_ref.nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-26d3376c10655c1d740402e4d5c940da80e238bcce99c16f81c04fefbafe0517)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [dataplane_ref.nginx_csg](data-sources--nginx_server--reference--group-001.md#canonical-1322311220110101-1313012010211230-1131203311311003-0121100032020301-0222221122322120-0021011313222021-2023221031113322-1331121123111212)
+- [dataplane_ref.nginx_instance](data-sources--nginx_server--reference--group-001.md#canonical-0212310303131230-0100121111300131-1310001000023210-3111302110003122-2000320203202330-3032212130011233-2001300010333233-2322333200110113)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-7ad685117718496c5d8f5d431940e2312aa5ae9809177a898ba4d5fa7d65b566"></a>
+<a id="canonical-1322311220110101-1313012010211230-1131203311311003-0121100032020301-0222221122322120-0021011313222021-2023221031113322-1331121123111212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9e328d41559e1226816aba0fdfe09444c1d2bc7447ddedfaf33b9fb6222c92f"></a>
+<a id="canonical-3121320302203110-0111112132010202-1220011222232200-3331333200211010-1030013102233013-1010133131323133-2233030323213323-1202020230210233"></a>
 
-## dataplane_ref.nginx_csg — dataplane_ref.nginx_csg / e6e7cfae45d1 / 2
+## dataplane_ref.nginx_csg — nginx_csg / 223210113101 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231)
 - dataplane_ref.nginx_csg
 
-<a id="canonical-6f104a15e1dd52ec5eff013bad60bf6443353dab118004eeaf6447b711e706e9"></a>
+<a id="canonical-1233010010220111-3201313111023230-1132333300010323-2231120023331210-1003031103312223-0101200000103232-2233121010132313-0101321300123221"></a>
 
 Type: `"single"`. Computed.
 
 Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
 reference is in form of tenant/namespace/name.
 
-<a id="canonical-d94adb2a8775edec70c56cac09f66c801153b16b923ce3e82c7b35171e9c101c"></a>
+<a id="canonical-3121102231230222-2013131132313230-1300301112302230-0021331212302000-0101110323011223-2102033032033220-0230132303110113-0132213001000130"></a>
 
-## Direct properties — dataplane_ref.nginx_csg / e6e7cfae45d1 / 3
+## Direct properties — nginx_csg / 223210113101 / 3
 
-<a id="canonical-837b052cf749efb45b7ccd0d240a3245bfa9a554ec5fdbd5cd00cb87c0d7d873"></a>
+<a id="canonical-2003132300110230-3313102132332310-1123133030310031-0210002203021011-2333222122111110-3230113331233111-3031000030232013-3000311331201303"></a>
 
-<a id="canonical-c71f21f65a66cb044f66bd64c41d425432e99c17d16f814bbc230842b390f55d"></a>
+<a id="canonical-3013013302013312-1122121230230010-1033121223311210-3010013110021110-0302322121300113-3101123320011023-2330020300201002-2303210033111131"></a>
 
-## name property — dataplane_ref.nginx_csg / e6e7cfae45d1 / 4
+## name property — nginx_csg / 223210113101 / 4
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-<a id="canonical-7cb1da10a40c10ef40c464947eff87a63836bbd97365d2052dee981d83cdce30"></a>
+<a id="canonical-1330230131220100-2210003001003233-1000301012102110-1332333320132212-0320031223233121-1303121131020011-0231323221200131-2003303130320300"></a>
 
-<a id="canonical-2ef2a773813e2fd5f28c553bb20e44165400646f4d750cdec0c9a4ab9703b7f3"></a>
+<a id="canonical-0232330222131303-2001033202333111-3302203011110323-2302003210100112-1110000012101233-1031131100303132-3000302122102223-2113000323133303"></a>
 
-## namespace property — dataplane_ref.nginx_csg / e6e7cfae45d1 / 5
+## namespace property — nginx_csg / 223210113101 / 5
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-<a id="canonical-bf4605bcb15ff8288ad93c6291551272bf9ee00a099c77c7797fcf19f419075f"></a>
+<a id="canonical-2333101200112330-2301113333200220-2022312103301202-2101111101021302-2333213232000022-0021213013133013-1321133330330121-3310012100131133"></a>
 
-<a id="canonical-b2af8080c535b6f296c0a56c71c07764e39e39627a2c628df2c1be9dd50db1c5"></a>
+<a id="canonical-2302223320002000-3011031123123302-2112300022111230-1301300013131210-3203213203211202-1322023012022031-3302300123322131-3111003123013011"></a>
 
-## tenant property — dataplane_ref.nginx_csg / e6e7cfae45d1 / 6
+## tenant property — nginx_csg / 223210113101 / 6
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-<a id="canonical-98fef430ce07f63e3996892a6f61048be7e39fe817e1130c1b231e1d45893cc3"></a>
+<a id="canonical-2120333233100300-3032001333120332-0321211220210222-1233120100102023-3213320321333220-0113320101030030-0123020301320131-1011202103303003"></a>
 
-## Next pages — dataplane_ref.nginx_csg / e6e7cfae45d1 / 7
+## Next pages — nginx_csg / 223210113101 / 7
 
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-26d3376c10655c1d740402e4d5c940da80e238bcce99c16f81c04fefbafe0517"></a>
+<a id="canonical-0212310303131230-0100121111300131-1310001000023210-3111302110003122-2000320203202330-3032212130011233-2001300010333233-2322333200110113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a0b91505b129e9aa34128371f036cc0cd5841acfed390c09acd28ccca1e2d25"></a>
+<a id="canonical-0322002321011100-1123010221322122-2203100102200313-0133000312303000-3031112010012230-3332310321003000-2122303102203030-3022013202310211"></a>
 
-## dataplane_ref.nginx_instance — dataplane_ref.nginx_instance / 503fc219dc2f / 2
+## dataplane_ref.nginx_instance — nginx_instance / 012131300233 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231)
 - dataplane_ref.nginx_instance
 
-<a id="canonical-be403bb879ec65960f5441ca5081dcfcfe77db3bd0cf68c7907ca8f1138b4143"></a>
+<a id="canonical-2332100003232320-1321323012112112-0033111010013022-1100200131303330-3332131331230323-3100303312203013-2100133022203301-0103202310011003"></a>
 
 Type: `"single"`. Computed.
 
 Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
 reference is in form of tenant/namespace/name.
 
-<a id="canonical-10a0778f91acf180b034c184149df1ddcd21f92482d47d6ed48cd0aaedd19254"></a>
+<a id="canonical-0100220013132033-2101223033012000-2300031030012010-0110213133013131-3031020133210210-2002311013311232-3110203031002222-3231310121021110"></a>
 
-## Direct properties — dataplane_ref.nginx_instance / 503fc219dc2f / 3
+## Direct properties — nginx_instance / 012131300233 / 3
 
-<a id="canonical-1a870ebb6a343572f50618d685448e6ecc2434812375ed92276d0a16ee2367ad"></a>
+<a id="canonical-0122201300322323-1222031003111302-3311001201203112-2011101020321232-3030021003102001-0203131132312102-0213123100220112-3232020312132231"></a>
 
-<a id="canonical-95cd38a559a7ed4c309b0618a44f8b409f64372eb38034b3a7481f1e2dc24b25"></a>
+<a id="canonical-2111303103202211-1121221332311030-0300212300120120-2210103320231000-2133121003130232-2303200003102303-2213102001330132-0231300210230211"></a>
 
-## name property — dataplane_ref.nginx_instance / 503fc219dc2f / 4
+## name property — nginx_instance / 012131300233 / 4
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-<a id="canonical-d62af18b9db0cef12b76edb3c468f3cf9e6a5ab14a69082b142fded8dda2b9a3"></a>
+<a id="canonical-3112022233012023-2131230030323301-0223131232312303-3010122033033033-2132122211222301-1022122100200223-0110023331323120-3131220223212203"></a>
 
-<a id="canonical-51a0e69c78a95944d893268102cb06f55148be0f229164e485a9d27a6c2c9afa"></a>
+<a id="canonical-1101220032122130-1320222111211010-3120210302122001-0002302300123311-1101102023320033-0202210112103210-2011222131021322-1230023021223322"></a>
 
-## namespace property — dataplane_ref.nginx_instance / 503fc219dc2f / 5
+## namespace property — nginx_instance / 012131300233 / 5
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-<a id="canonical-0566541b6d1856e3b477d3aa8c3d16e2c30d9b53178b14a10abab8228ffdb4c0"></a>
+<a id="canonical-0011121211100123-1231012011123203-2310131331032222-2030033101123202-3003003121231103-0113202301102201-0022232223200202-2033333123103000"></a>
 
-<a id="canonical-e220d6790900e2417a810533fb4653d60b6ef6b67c74f00cb0b5e7d26c738a17"></a>
+<a id="canonical-3202020031121321-0021000032021001-1322200100110303-3323101211033112-0023123233122312-1330131033000030-2300231132133102-1230130320220113"></a>
 
-## tenant property — dataplane_ref.nginx_instance / 503fc219dc2f / 6
+## tenant property — nginx_instance / 012131300233 / 6
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-<a id="canonical-758db491745f4b1dd53a47dcb122e9a43e2cdaf1784da330810f52a2fb10d56d"></a>
+<a id="canonical-1311203123102101-1310113310230131-3111032210133130-2301020232212210-0332023031223301-1320103122030300-2001003311022202-3323010031111231"></a>
 
-## Next pages — dataplane_ref.nginx_instance / 503fc219dc2f / 7
+## Next pages — nginx_instance / 012131300233 / 7
 
-- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-28c982205935f107691e31cef2e9ad66f30ccc98e799f7436fe49c16ffc73bed)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [dataplane_ref](data-sources--nginx_server--reference--group-001.md#canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d"></a>
+<a id="canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c354ffff3f100cfc010d5fa4dd74d3b6e77cc57a76a64f8c4b34e83c85b2f388"></a>
+<a id="canonical-3003111033333333-0333010000303330-0001003111332210-3131131031032312-3213133030111322-1312221210332030-1023031032200330-2011230233032020"></a>
 
-## server_spec — server_spec / b2d226bffa1a / 2
+## server_spec — server_spec / 233333220122 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
 - server_spec
 
-<a id="canonical-652bca6236c3e6111a75ae4c72eace0bc834992fa32e51661fb9fb9bc225cef6"></a>
+<a id="canonical-1211022330221202-0312300332120101-0122131122321030-1302322230320023-3020031021210233-2203023211011212-0133232133232123-3002021130323312"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for server\_spec.
 
-<a id="canonical-bab721679b38c8c35b55231498c49b15a4aafec269b5e5b7bf071c66b8209b5c"></a>
+<a id="canonical-2322231302011213-2123032030203003-1123111102030110-2120301021230111-2210222233323002-1221231132112313-2333001301301212-2320020021231130"></a>
 
-## Direct properties — server_spec / b2d226bffa1a / 3
+## Direct properties — server_spec / 233333220122 / 3
 
-- [api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb): complete subsection reference.
+- [api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223): complete subsection reference.
 
-<a id="canonical-83d4a09d77ff9c0d9728ba7ec89f636f247dc1d77472897fdb552a8d87ab2285"></a>
+<a id="canonical-2003311022002131-1313333321300031-2113022023221332-3020213312031233-0210133130013113-1310130220211333-3123111102222031-2013222302022011"></a>
 
-<a id="canonical-4f0c6ab695dce686198230c2be0073d7540b35d99b082bb53bba8a1ee3af7121"></a>
+<a id="canonical-1033003012222312-2111313032122012-0121200203003002-2332000013033113-1110002303113121-2123002002232311-0323232220220132-3203223313010201"></a>
 
-## domains property — server_spec / b2d226bffa1a / 4
+## domains property — server_spec / 233333220122 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -372,219 +372,219 @@ Server name list specified as $\{server\_name\} in NGINX config. If no value is 
 corresponding to this variable, 'default' is used Reference:
 https&#58;//nginx.org/en/docs/HTTP/ngx\_http\_core\_module.html\#server.
 
-- [locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863): complete subsection reference.
+- [locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203): complete subsection reference.
 
-<a id="canonical-0bbb0a4f5707e02b55e0bea70a060640efd68bd205f43a0d957ad59b4879b203"></a>
+<a id="canonical-0023232300221033-1113001332000223-1111320023322213-0022001200121000-3233311220233102-0011331003220031-2111132231112123-1020132123020003"></a>
 
-<a id="canonical-e0cf81f990ada9bfa51d034439c9277ed38d32bd8808880879a072ecd7ee8934"></a>
+<a id="canonical-3200303320013321-2100223122212333-2211013100031010-0321302102131332-3103203103022331-2020002020200020-1321220013023230-3113323220210310"></a>
 
-## nginx_one_object_id property — server_spec / b2d226bffa1a / 5
+## nginx_one_object_id property — server_spec / 233333220122 / 5
 
 Type: `"string"`. Computed.
 
 Signifies the uniqueness identifier for NGINX One representation of this NGINX server.
 
-<a id="canonical-6c031e0be051c03822e7fc04f73798c397360d64dba1f15029c13d1b7798bcfc"></a>
+<a id="canonical-1230000301320023-3200110130000320-0202321333300010-3313031321203003-2113031200311210-3123220133011100-0221300103310123-1313212023303330"></a>
 
-<a id="canonical-6178f405ffae1df02683c2cdf645b6d525cf4817b6b79dd490d0ce33156c5174"></a>
+<a id="canonical-1201132033100011-3333223201313300-0212200330023031-3312101123123111-0211303310200113-2312231321313110-2100310030320303-0111123011011310"></a>
 
-## nginx_one_object_name property — server_spec / b2d226bffa1a / 6
+## nginx_one_object_name property — server_spec / 233333220122 / 6
 
 Type: `"string"`. Computed.
 
 Hostname value set for Instance or Name for a Config Sync Group in NGINX One.
 
-<a id="canonical-ed67278fb87d270d55df3bccbd7fac85b90ef9747140217051f67ab8de05a08e"></a>
+<a id="canonical-3231121302132033-2320133102130031-1111313303233030-2331133322302011-2321003233211310-1301100002011300-1101331213222320-3132001122002032"></a>
 
-<a id="canonical-ef550660d2b1d0f6a54025485c456d0206fe1c769937c729462210e10554ef02"></a>
+<a id="canonical-3233111100121200-3102230131003312-2211100002111020-1130101112310002-0012333201301312-2121031330130221-1012020201003201-0011111032330002"></a>
 
-## port property — server_spec / b2d226bffa1a / 7
+## port property — server_spec / 233333220122 / 7
 
 Type: `"number"`. Computed.
 
 Signifies the port configured for the NGINX server.
 
-<a id="canonical-ae8aadbe812c15401a50620482e2f31b154d5ac8a0673ddafe6435f932fd658c"></a>
+<a id="canonical-2232202222312332-2001023001111000-0122110012020010-2002320233030123-0111103111223020-2200121303313122-3332121003113321-0302333112112030"></a>
 
-<a id="canonical-ff37498f10e69341a7738077179fb60f8fbc676664282b6dcdb25d971d039a6f"></a>
+<a id="canonical-3333031310212033-0100321221031001-2213130320001313-0113213323120033-2033233012131212-1210022002231231-3031230211312113-0131000321221233"></a>
 
-## server_name property — server_spec / b2d226bffa1a / 8
+## server_name property — server_spec / 233333220122 / 8
 
 Type: `"string"`. Computed.
 
 Signifies the combination of first element in domains array and the port configured for the NGINX
 server.
 
-<a id="canonical-f0c53299950268c58e522895cc8603a50bd6e1c1048f40049dd6d6fcda0d8e36"></a>
+<a id="canonical-3300301103022121-2111000212203011-2032110202202111-3030201200032211-0023311232013001-0010203310000010-2131311231123330-3122003120320312"></a>
 
-<a id="canonical-b3828349aaadab4ac4f6669eb633dc241233a869009a2c6ef2bbdc8ba9d5608d"></a>
+<a id="canonical-2303200220031021-2222223122231022-3010331212122132-2312030331300210-0102030322201221-0000212202301232-3302232331302023-2221311112002031"></a>
 
-## total_routes property — server_spec / b2d226bffa1a / 9
+## total_routes property — server_spec / 233333220122 / 9
 
 Type: `"number"`. Computed.
 
 Total locations configured in the NGINX Server.
 
-- [waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee): complete subsection reference.
+- [waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232): complete subsection reference.
 
-<a id="canonical-670cdb0aafe8d8bab2370ecaf8a2784de20f513ad8ee5539ab6613d7d11ad3e0"></a>
+<a id="canonical-1213003031230022-2233322031202322-2302031300323022-3320220213201031-3202003311010322-3120323211110321-2223121201033113-3101012231033200"></a>
 
-## Next pages — server_spec / b2d226bffa1a / 10
+## Next pages — server_spec / 233333220122 / 10
 
-- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb"></a>
+<a id="canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5c03e35bee86427693d7cb1ca04a019bd23b818ea8820d2a78d187579a095693"></a>
+<a id="canonical-1130000332031123-3232201210021312-2103311330230130-2200102200012123-3102032320012032-2220200200310222-1320310120131113-2122002111122103"></a>
 
-## server_spec.api_discovery_spec — server_spec.api_discovery_spec / cb928c48c2be / 2
+## server_spec.api_discovery_spec — api_discovery_spec / 102030022332 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
 - server_spec.api_discovery_spec
 
-<a id="canonical-5bbc463c344595ec971aec203bb05bbd9f5313f05cc78a17450b3c263bdebd8c"></a>
+<a id="canonical-1123233010120330-0310101121113230-2113012232300200-0323230011232331-2133110301033300-1130301320220113-1011002303300212-0323313223312030"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for api\_discovery\_spec.
 
-<a id="canonical-18dd0c43e42a6891bbae5650947adc4f0ae578ec6dbac6a4eecbdd9f567696f4"></a>
+<a id="canonical-0120313100301003-3210022212202101-2323223211121100-2110132231301033-0022321113203230-1231232230122210-3232302331312133-1112131221123310"></a>
 
-## Direct properties — server_spec.api_discovery_spec / cb928c48c2be / 3
+## Direct properties — api_discovery_spec / 102030022332 / 3
 
-- [disabled](data-sources--nginx_server--reference--group-001.md#canonical-da17a06343102eef8a93e982437abb4297a78df1c790e916494e08658aa8800e): complete subsection reference.
+- [disabled](data-sources--nginx_server--reference--group-001.md#canonical-3122011322001203-1003010002323233-2022210332212002-1003132223231002-2113221320313301-3013210032210112-1021103200201211-2022222020000032): complete subsection reference.
 
-- [enabled](data-sources--nginx_server--reference--group-001.md#canonical-e39013bff8106c1ca76cda8c96ee63f1baa3361f82090cd5860e5abd0c7e8ed6): complete subsection reference.
+- [enabled](data-sources--nginx_server--reference--group-001.md#canonical-3203210001032333-3320010012300130-2213123031222030-2112323212033301-2322220303120133-2002002100303111-2012003211222331-0030133220323112): complete subsection reference.
 
-<a id="canonical-67f3fe7a5e6627646cc17e590860677b01f8efd72986fd4726511146aef10426"></a>
+<a id="canonical-1213330333321322-1132121202131210-1230300113321121-0020120012131323-0001332032333113-0221201233311013-0212110101011012-2232330100100212"></a>
 
-## Next pages — server_spec.api_discovery_spec / cb928c48c2be / 4
+## Next pages — api_discovery_spec / 102030022332 / 4
 
-- [server_spec.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-da17a06343102eef8a93e982437abb4297a78df1c790e916494e08658aa8800e)
-- [server_spec.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-e39013bff8106c1ca76cda8c96ee63f1baa3361f82090cd5860e5abd0c7e8ed6)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-3122011322001203-1003010002323233-2022210332212002-1003132223231002-2113221320313301-3013210032210112-1021103200201211-2022222020000032)
+- [server_spec.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-3203210001032333-3320010012300130-2213123031222030-2112323212033301-2322220303120133-2002002100303111-2012003211222331-0030133220323112)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-da17a06343102eef8a93e982437abb4297a78df1c790e916494e08658aa8800e"></a>
+<a id="canonical-3122011322001203-1003010002323233-2022210332212002-1003132223231002-2113221320313301-3013210032210112-1021103200201211-2022222020000032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e30cfba1b414a28cc93149b59330b38e2623460cc4b6db7172a6ff458f24d4e9"></a>
+<a id="canonical-3203003033232201-2310011022022030-3021030110212311-2103030023032032-0212020310120030-3010231231231301-1302221233331011-2033021031103221"></a>
 
-## server_spec.api_discovery_spec.disabled — server_spec.api_discovery_spec.disabled / 91ba4e271a26 / 2
+## server_spec.api_discovery_spec.disabled — disabled / 021301220212 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223)
 - server_spec.api_discovery_spec.disabled
 
-<a id="canonical-7667d5a9296b270a332c7489860dfeb248213ca787b43384dff421924d64a628"></a>
+<a id="canonical-1312121331112221-0221122302130022-0303023013102021-2012003133322302-1020020103302213-2013231003032010-3133331002012102-1031121022120220"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-4905a1cebb7fcf6476ca94e15ba5d25a5993869807e3e025394a7f1a66965b95"></a>
+<a id="canonical-1021001122013032-2323133330331210-1312302221103201-1123221131021122-1121210320122120-0013320332000211-0321102213330122-1212211211232111"></a>
 
-## Direct properties — server_spec.api_discovery_spec.disabled / 91ba4e271a26 / 3
+## Direct properties — disabled / 021301220212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4fea4e3b10208832a17b3ffb48beb8f5ec204ede9aa3602942353e13d3d0e7bd"></a>
+<a id="canonical-1033322210320323-0100020020200302-2201132303333323-1020233223203311-3230020010323132-2122220312000221-1002031103320103-3103310032132331"></a>
 
-## Next pages — server_spec.api_discovery_spec.disabled / 91ba4e271a26 / 4
+## Next pages — disabled / 021301220212 / 4
 
-- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-e39013bff8106c1ca76cda8c96ee63f1baa3361f82090cd5860e5abd0c7e8ed6"></a>
+<a id="canonical-3203210001032333-3320010012300130-2213123031222030-2112323212033301-2322220303120133-2002002100303111-2012003211222331-0030133220323112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6c1ca5e2e522adc93a0380ba730ceae6a05c6916ae0b02e838fff29645543c94"></a>
+<a id="canonical-1230013022113202-3211020222313021-0322000320002322-1303003032223212-2200113012210112-2232002300023220-0320333333022112-1011111003302110"></a>
 
-## server_spec.api_discovery_spec.enabled — server_spec.api_discovery_spec.enabled / 21c18d600bc6 / 2
+## server_spec.api_discovery_spec.enabled — enabled / 120000233012 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223)
 - server_spec.api_discovery_spec.enabled
 
-<a id="canonical-aac571d1a4c208d7c956485186a34cfa0c81da3187da80ea1186ac726ce46b3c"></a>
+<a id="canonical-2222301113013101-2210300200203113-3021111210201101-2012220310303322-0030200131220301-2013312220003222-0101201222301302-1230321012230330"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-2497964e7f002175c685f1308871233e48516a5b66a09edcb2b272023fdfdf76"></a>
+<a id="canonical-0210211321121032-1333000002011311-3012201133010300-2020130102030332-1020110112221123-1212220021323130-2302230213020002-0333313331331312"></a>
 
-## Direct properties — server_spec.api_discovery_spec.enabled / 21c18d600bc6 / 3
+## Direct properties — enabled / 120000233012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-03430fdec9439ed2c77b16b64f7da37df3e3bf9d0a52876dec7fb1fa7e839108"></a>
+<a id="canonical-0003100300333132-3021100321323102-3013132301122312-1033133122031331-3303320323332131-0022110220131231-3230133323013322-1332200321010020"></a>
 
-## Next pages — server_spec.api_discovery_spec.enabled / 21c18d600bc6 / 4
+## Next pages — enabled / 120000233012 / 4
 
-- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-d2514125884ff776c605f4533037937287c00a1bdf2afba64820b1a0bbbbc8eb)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863"></a>
+<a id="canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-23ac484ad1e6464013ffd0877d40095b1a4dd80940a092879152a89580611daf"></a>
+<a id="canonical-0203223010201022-3101321210121000-0103333331002013-1331100000211123-0122103131200021-1000220021022013-2101110222202111-2000120101312233"></a>
 
-## server_spec.locations — server_spec.locations / 9e12e034dbc2 / 2
+## server_spec.locations — locations / 031031233002 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
 - server_spec.locations
 
-<a id="canonical-a0f3ea1105ba1add42285cc1c517e79531cb2d12f4d246b15888a732e22e6b91"></a>
+<a id="canonical-2200330332220101-0011232201223131-1002022011303001-3011011332132111-0301302302310102-3310310210122301-1120202022130302-3202023212232101"></a>
 
 Type: `"list"`. Computed.
 
 Configuration of the set of locations corresponding to this server.
 
-<a id="canonical-73eca2ad6516660031462708f4de6024efc7ec8e527236818f26e5c433c836d9"></a>
+<a id="canonical-1303323022022231-1211011212120000-0301101202130020-3310313212000210-3233301332302032-1102130203122001-2033021232113010-0303302003123121"></a>
 
-## Direct properties — server_spec.locations / 9e12e034dbc2 / 3
+## Direct properties — locations / 031031233002 / 3
 
-- [api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28): complete subsection reference.
+- [api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220): complete subsection reference.
 
-<a id="canonical-afbf823d98ecc27eeaa5b4340103e9b38e6ed32062c4245aae6e76a9633fe77a"></a>
+<a id="canonical-2233233320020331-2120323030021332-3222221123100310-0001000332212303-2032123231030200-1202301002101122-2232123213122221-1203033332131322"></a>
 
-<a id="canonical-17e96cb00c9cc4c307ae06b6ce77e9a053a4bf4e57f9ce0264b2048e13245691"></a>
+<a id="canonical-0113322112302300-0030213030103003-0013223200122312-3032131332212200-1103221023331032-1113332130320002-1210230200102032-0103021011122101"></a>
 
-## definition property — server_spec.locations / 9e12e034dbc2 / 4
+## definition property — locations / 031031233002 / 4
 
 Type: `"string"`. Computed.
 
@@ -592,694 +592,694 @@ Location definition specified as the attributes of $\{location\} block in NGINX 
 includes both the optional\_modifier and the location\_match combined. A location can either be
 defined by a prefix string, or by a regular expression.
 
-<a id="canonical-ea64337daf7be396a78c8f1de4beadf002934dcda62bd6d987b60ec5053e838a"></a>
+<a id="canonical-3222121003031331-2233132332032112-2213203020330131-3210233222313300-0002210310313031-2212022331123121-2013231200323011-0011033220032022"></a>
 
-<a id="canonical-d0bd91e8a95c6dfef77e179c17e99e81edf9469b9b914de2761f1cd89a35ea84"></a>
+<a id="canonical-3100233121013220-2221113012313332-3313133201132130-0113322121322001-3231332110122123-2123210110313202-1312013301303120-2122031132222010"></a>
 
-## name property — server_spec.locations / 9e12e034dbc2 / 5
+## name property — locations / 031031233002 / 5
 
 Type: `"string"`. Computed.
 
 Uniqueness identifier for a location definition.
 
-- [waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160): complete subsection reference.
+- [waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200): complete subsection reference.
 
-<a id="canonical-bc8a70ec610521dff7c89e6ca8feca0dc68c1c8804b02aa43577fa5a8bcd61ac"></a>
+<a id="canonical-2330202213003230-1201001102013133-3313302021321230-2220333230220031-3012203001302020-0010230002222210-0311131333221122-2023303112012230"></a>
 
-## Next pages — server_spec.locations / 9e12e034dbc2 / 6
+## Next pages — locations / 031031233002 / 6
 
-- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28"></a>
+<a id="canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e8bf846b6989c0b1fd9f0c99f1a46a51f48ed337bd8a2578e8c0ff0497cf1c6f"></a>
+<a id="canonical-3220233320101223-1221202130002301-3331213300302121-3301221012221101-3310203231030313-2331202202111320-3220300033330010-2113303301301233"></a>
 
-## server_spec.locations.api_discovery_spec — server_spec.locations.api_discovery_spec / 5fd3761f83bc / 2
+## server_spec.locations.api_discovery_spec — api_discovery_spec / 013320032330 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
 - server_spec.locations.api_discovery_spec
 
-<a id="canonical-d9941d0b8e4b1765d9c647e0cb20e40f26fdf8d1e07f84a874655ddb55abd9e3"></a>
+<a id="canonical-3121211001310023-2032102301131211-3121301210133200-3023020032100033-0212333133203101-3200133320102220-1310121111313123-1111222331213203"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for api\_discovery\_spec.
 
-<a id="canonical-d830041247767cf1e62c39238078e7cdc0871c4d45d0f0a2de1334e81c1ee478"></a>
+<a id="canonical-3120030000100102-1013131213303301-3212023003210203-2000132032133031-3000201301301031-1011310033002202-3132010303103220-0130013232101320"></a>
 
-## Direct properties — server_spec.locations.api_discovery_spec / 5fd3761f83bc / 3
+## Direct properties — api_discovery_spec / 013320032330 / 3
 
-- [disabled](data-sources--nginx_server--reference--group-001.md#canonical-0f4d14567fc784c218ea8a46e4b859f59700847358fb8f0bb5f414548bdb7cf3): complete subsection reference.
+- [disabled](data-sources--nginx_server--reference--group-001.md#canonical-0033103101101112-1333301320103002-0120322220221012-3210232011213311-2113000020101303-1120332320330023-2311331001101110-2023312313303303): complete subsection reference.
 
-- [enabled](data-sources--nginx_server--reference--group-001.md#canonical-e08df24bafdc8d9455b0c8b00da0f9a59e96085220426f8e150d843fc78d40cf): complete subsection reference.
+- [enabled](data-sources--nginx_server--reference--group-001.md#canonical-3200203133021023-2233313020312110-1111230030202300-0031220033212211-2132211200201102-0200100212332032-0111003120100333-3013203110003033): complete subsection reference.
 
-<a id="canonical-9cc10842ffad928d0949c003bb6349a88e4634cca00bc4d47bfea2d311cec122"></a>
+<a id="canonical-2130300100201002-3333223121022031-0021102130000003-2323120310212220-2032101203103030-2200002330103110-1323333222023103-0101303230010202"></a>
 
-## Next pages — server_spec.locations.api_discovery_spec / 5fd3761f83bc / 4
+## Next pages — api_discovery_spec / 013320032330 / 4
 
-- [server_spec.locations.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-0f4d14567fc784c218ea8a46e4b859f59700847358fb8f0bb5f414548bdb7cf3)
-- [server_spec.locations.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-e08df24bafdc8d9455b0c8b00da0f9a59e96085220426f8e150d843fc78d40cf)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.api_discovery_spec.disabled](data-sources--nginx_server--reference--group-001.md#canonical-0033103101101112-1333301320103002-0120322220221012-3210232011213311-2113000020101303-1120332320330023-2311331001101110-2023312313303303)
+- [server_spec.locations.api_discovery_spec.enabled](data-sources--nginx_server--reference--group-001.md#canonical-3200203133021023-2233313020312110-1111230030202300-0031220033212211-2132211200201102-0200100212332032-0111003120100333-3013203110003033)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-0f4d14567fc784c218ea8a46e4b859f59700847358fb8f0bb5f414548bdb7cf3"></a>
+<a id="canonical-0033103101101112-1333301320103002-0120322220221012-3210232011213311-2113000020101303-1120332320330023-2311331001101110-2023312313303303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a13491813293b452ee78a06bc62d62775e87fa1d561c69511da60cdb0b70a3cd"></a>
+<a id="canonical-2201031021012001-0302210323101102-3232132022001223-3012023112021313-1132201333220131-1112013012211101-0131221200303123-0023130022033031"></a>
 
-## server_spec.locations.api_discovery_spec.disabled — server_spec.locations.api_discovery_spec.disabled / f2945d052cc5 / 2
+## server_spec.locations.api_discovery_spec.disabled — disabled / 001102303011 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220)
 - server_spec.locations.api_discovery_spec.disabled
 
-<a id="canonical-44ff3c4bdb34817a8a5b36b5366fe7c25adf743c727337f3706b102d5ed11b09"></a>
+<a id="canonical-1010333303301023-3123031020011322-2022112303122311-0312123332133002-1122313313100330-1302130303133303-1300122301000231-1132310101230021"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-fde4597c5f486ac07d7ca2ff3a317385bffd40ee493e927bcb1624bb15c5b952"></a>
+<a id="canonical-3331321011211330-1133102012223000-1331133022023333-0322030113032011-2333333110003232-1021033221021323-3023011202102323-0111301123211102"></a>
 
-## Direct properties — server_spec.locations.api_discovery_spec.disabled / f2945d052cc5 / 3
+## Direct properties — disabled / 001102303011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-eabab92796fd90864c556a52afac5a6ed1d5198371c2ed6821ede0f163c5b032"></a>
+<a id="canonical-3222232223210213-2112333121002012-1030111112221102-2233223011221232-3101311101212003-1301300232311220-0201323132003301-1203301123000302"></a>
 
-## Next pages — server_spec.locations.api_discovery_spec.disabled / f2945d052cc5 / 4
+## Next pages — disabled / 001102303011 / 4
 
-- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-e08df24bafdc8d9455b0c8b00da0f9a59e96085220426f8e150d843fc78d40cf"></a>
+<a id="canonical-3200203133021023-2233313020312110-1111230030202300-0031220033212211-2132211200201102-0200100212332032-0111003120100333-3013203110003033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e5054bb6b014273e32f1cab8c19a0202e809389aa6917b5f346d60e7df76abdc"></a>
+<a id="canonical-3211001110232312-2300011002130332-0302330130222320-3001212200020002-3220002103202122-2212210113231133-0310123112003213-3133131222233130"></a>
 
-## server_spec.locations.api_discovery_spec.enabled — server_spec.locations.api_discovery_spec.enabled / 9e68f213e5b4 / 2
+## server_spec.locations.api_discovery_spec.enabled — enabled / 010332112310 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220)
 - server_spec.locations.api_discovery_spec.enabled
 
-<a id="canonical-38432fcfd8878e15110fdb53067f766737af9e7d96855c6846cb846803dc1585"></a>
+<a id="canonical-0320100302333033-3120201320320111-0101003331231103-0012133313121213-0313223321321331-2112201111301220-1012302320101220-0003313001112011"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-bf398b12a25d6e9d31e1b3833aed6b8c05f7ffaf46f1f37745d351952cbe3bd4"></a>
+<a id="canonical-2333032120230102-2202113112322131-0301320123032003-0322323112232030-0011331333332233-1012330133031313-1011310311012111-0230233203233110"></a>
 
-## Direct properties — server_spec.locations.api_discovery_spec.enabled / 9e68f213e5b4 / 3
+## Direct properties — enabled / 010332112310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ed4ef25dcbc069c8aa9d13493fcab8c545be4bfc5626c2e784f3f9bcaf0d6cf2"></a>
+<a id="canonical-3231103233021131-3023300012213020-2222213101031021-0333302223203011-1011233210233330-1112021230023213-2010330333212330-2233003112303302"></a>
 
-## Next pages — server_spec.locations.api_discovery_spec.enabled / 9e68f213e5b4 / 4
+## Next pages — enabled / 010332112310 / 4
 
-- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-4fa002ffe3708b4301e1298bccb263d925b53a7b23f6752ad131f06c76ba4e28)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.api_discovery_spec](data-sources--nginx_server--reference--group-001.md#canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160"></a>
+<a id="canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3e51a61780b32ecbd5fa864bb365ffed982c379ad4a0be40486b591d470bf6a2"></a>
+<a id="canonical-0332110122120113-2000230302323023-3111332220121023-2303121133333231-2120023003132122-3110220023321000-1020122311210131-1013002333122202"></a>
 
-## server_spec.locations.waf_spec — server_spec.locations.waf_spec / fa2f3369cb99 / 2
+## server_spec.locations.waf_spec — waf_spec / 122130232121 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
 - server_spec.locations.waf_spec
 
-<a id="canonical-70d6ae10e3ef2d93bbd5a7520b4ffeb1754b9a122ed07b102ece0347ee83dafb"></a>
+<a id="canonical-1300311222320100-3203323302312103-2323311122131102-0023103333322301-1311102321220102-0232310013230100-0232303200031013-3232200331223323"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for waf\_spec.
 
-<a id="canonical-814998fd68ac8781c086e4b231380d2e0fc7475a676263278e0e746e450810d9"></a>
+<a id="canonical-2001102121203331-1220223020132001-3000201232102302-0301032000310232-0033301310131122-1213120212030213-2032003213101232-1011002001003121"></a>
 
-## Direct properties — server_spec.locations.waf_spec / fa2f3369cb99 / 3
+## Direct properties — waf_spec / 122130232121 / 3
 
-- [blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-b6262430946203b9c68f080890c607df232664c2ca173e57b5142cb034bec738): complete subsection reference.
+- [blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-2312021202100300-2110120200032321-3012203300200020-2100301200133133-0203021212103002-3022011303321113-2311011002302300-0310233230130320): complete subsection reference.
 
-- [distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-affb442d8b80cb67670cf07cbfe92e5a60cd5a6f0dd889a8657123744d06b8d4): complete subsection reference.
+- [distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2233332310100231-2023200030231213-1213003033001330-2333322102321122-1200303111221233-0031312020212220-1211130102031310-1031001223203110): complete subsection reference.
 
-- [monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-b6a8ebd0e6ddd6344f58b1816c0f028dc74f6fc523c7a8ec012016f9ccebf6f9): complete subsection reference.
+- [monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-2312222032233100-3212313131120310-1033112023012001-1230003300022031-3013103312333011-0203301322203230-0001020001123321-3030322333123321): complete subsection reference.
 
-- [nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-bb5910a6ba93cfab29f5508c144616c8d1c7293cbec84753c744f8732058fdd6): complete subsection reference.
+- [nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2323112101002212-2322210330332223-0221331111002030-0110101201123020-3101301302210330-2332302010131103-3013101033201303-0200112033313112): complete subsection reference.
 
-- [none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1e669e8b32a4b0361d4976977ac69402da98348015e5bf03b86dbf3fdd757b3b): complete subsection reference.
+- [none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0132121221322023-0302221023000312-0131102113122113-1322301221100002-3122212003102000-0111321123330003-2320123123330333-3131131113230323): complete subsection reference.
 
-<a id="canonical-043b0138fb2e67b9e21b5049e63e294c3e65d9e24e05902005edfc45038f06a0"></a>
+<a id="canonical-0010032300010320-3323023212132321-3202012311001021-3212033202211030-0332121131213202-1032001121000200-0011323133301011-0003203300122200"></a>
 
-<a id="canonical-4a220c004cbc617b3a79de456ec82ab99d01f36fe1d0372a25932b4eb0bb2627"></a>
+<a id="canonical-1022020200300000-1030233012011323-0322132131321011-1232302002222321-2131000133031233-3201310003130222-0211210302231032-2300232302120213"></a>
 
-## policy_file_name property — server_spec.locations.waf_spec / fa2f3369cb99 / 4
+## policy_file_name property — waf_spec / 122130232121 / 4
 
 Type: `"string"`. Computed.
 
 WAF Policy File Name. Policy file name for WAF.
 
-<a id="canonical-ae1b0218f260c34a0680e19625c5981dcf0464b3f542893325eaae54025fa768"></a>
+<a id="canonical-2232012300020120-3302120030031022-0012200032012112-0211301121200131-3033001012102303-3311100220210303-0211322222321110-0002113322131220"></a>
 
-<a id="canonical-592231014f4c35301c5441a138c540d420a71c9eb510feb44f2d868a2eed01e8"></a>
+<a id="canonical-1121020203010001-1033103003110300-0130111010012201-0320301110003110-0200221301302132-2311010033322310-1033023120122022-0232323100013220"></a>
 
-## policy_name property — server_spec.locations.waf_spec / fa2f3369cb99 / 5
+## policy_name property — waf_spec / 122130232121 / 5
 
 Type: `"string"`. Computed.
 
 WAF Policy Name. Policy name configured for WAF.
 
-<a id="canonical-e0a52aa1db5ee3a971a6bf2df2e10b6fc9bf9d553cac94111cd44cb603c68592"></a>
+<a id="canonical-3200221102222201-3123113232032221-1301221223330231-3302320100231233-3021233321311111-0330223021100101-0130311010302312-0003301220112102"></a>
 
-<a id="canonical-993218f14ebe7f304d9115c9b318ebc74219782d47c2c1e93304024b42722533"></a>
+<a id="canonical-2121030201203301-1032233213330300-1031210101113021-2303012032233013-1002012113200231-1013300230013221-0303001000021023-1002130202110303"></a>
 
-## security_log_enabled property — server_spec.locations.waf_spec / fa2f3369cb99 / 6
+## security_log_enabled property — waf_spec / 122130232121 / 6
 
 Type: `"bool"`. Computed.
 
 Specifies if security logging is enabled.
 
-<a id="canonical-4a6213297c2b79bdff9964caeb458fe7ea2d09d0b43c6d769588e5a61f2343e3"></a>
+<a id="canonical-1022120201030221-1330022313212331-3333212112103022-3223101120333213-3222023100213100-2310033012311312-2111202032112212-0133020310033203"></a>
 
-<a id="canonical-62b64e50a450c809e5de7bc1cdbaffb4192cadacaa83b3603b052c208731e46e"></a>
+<a id="canonical-1202231210321100-2210110030200021-3211313213233001-3031232233332310-0121023022312230-2222200323031200-0323001102300200-2013030132101232"></a>
 
-## security_log_file_names property — server_spec.locations.waf_spec / fa2f3369cb99 / 7
+## security_log_file_names property — waf_spec / 122130232121 / 7
 
 Type: `["list", "string"]`. Computed.
 
 Specifies the list of security log files specification.
 
-<a id="canonical-76d6dcb9d7d2b639097529e4352bf48f07b4587a5de0b23df4912d887f783ae5"></a>
+<a id="canonical-1312311231302321-3113310223120321-0021131102213210-0311022333102033-0013231011201322-1131320023020331-3310210102312020-1333132003223211"></a>
 
-## Next pages — server_spec.locations.waf_spec / fa2f3369cb99 / 8
+## Next pages — waf_spec / 122130232121 / 8
 
-- [server_spec.locations.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-b6262430946203b9c68f080890c607df232664c2ca173e57b5142cb034bec738)
-- [server_spec.locations.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-affb442d8b80cb67670cf07cbfe92e5a60cd5a6f0dd889a8657123744d06b8d4)
-- [server_spec.locations.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-b6a8ebd0e6ddd6344f58b1816c0f028dc74f6fc523c7a8ec012016f9ccebf6f9)
-- [server_spec.locations.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-bb5910a6ba93cfab29f5508c144616c8d1c7293cbec84753c744f8732058fdd6)
-- [server_spec.locations.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1e669e8b32a4b0361d4976977ac69402da98348015e5bf03b86dbf3fdd757b3b)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-2312021202100300-2110120200032321-3012203300200020-2100301200133133-0203021212103002-3022011303321113-2311011002302300-0310233230130320)
+- [server_spec.locations.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2233332310100231-2023200030231213-1213003033001330-2333322102321122-1200303111221233-0031312020212220-1211130102031310-1031001223203110)
+- [server_spec.locations.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-2312222032233100-3212313131120310-1033112023012001-1230003300022031-3013103312333011-0203301322203230-0001020001123321-3030322333123321)
+- [server_spec.locations.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2323112101002212-2322210330332223-0221331111002030-0110101201123020-3101301302210330-2332302010131103-3013101033201303-0200112033313112)
+- [server_spec.locations.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0132121221322023-0302221023000312-0131102113122113-1322301221100002-3122212003102000-0111321123330003-2320123123330333-3131131113230323)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-b6262430946203b9c68f080890c607df232664c2ca173e57b5142cb034bec738"></a>
+<a id="canonical-2312021202100300-2110120200032321-3012203300200020-2100301200133133-0203021212103002-3022011303321113-2311011002302300-0310233230130320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d391298eed03a97f66377eef77afc897ab6e4d19f21a7e65552b990c222b04b1"></a>
+<a id="canonical-3103210102212032-3231000322211333-1212031313323233-1313223330202113-2223123210310121-3302012213321211-1111022321210030-0202022300102301"></a>
 
-## server_spec.locations.waf_spec.blocking_waf_mode — server_spec.locations.waf_spec.blocking_waf_mode / 2ad333c6afe2 / 2
+## server_spec.locations.waf_spec.blocking_waf_mode — blocking_waf_mode / 301222333202 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
 - server_spec.locations.waf_spec.blocking_waf_mode
 
-<a id="canonical-06fe7a573eebd3f04a4c9777365670c2897e739b4a50835ad6b060b2e4e5861e"></a>
+<a id="canonical-0012333213221113-0332322331033300-1022103021131313-0312111213003002-2021133213032123-1022110020031122-3112230012002302-3210321120120132"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-e705e0e62f422d44d19d218498bd9689977464c314626d9841638220c6ea3c84"></a>
+<a id="canonical-3213001132003212-0233100202311010-3101213102012010-2120233121122021-2113131012103003-0110120212312120-1001120320020200-3012322203302010"></a>
 
-## Direct properties — server_spec.locations.waf_spec.blocking_waf_mode / 2ad333c6afe2 / 3
+## Direct properties — blocking_waf_mode / 301222333202 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5a020b6985ca45f04f66c7353c4bb39479b537a3f45d0e743b81712414eefdf5"></a>
+<a id="canonical-1122000200231221-2011302210113300-1033121230130311-0330102323032110-1321231103132203-3310113100321310-0323200113010210-0110323233313311"></a>
 
-## Next pages — server_spec.locations.waf_spec.blocking_waf_mode / 2ad333c6afe2 / 4
+## Next pages — blocking_waf_mode / 301222333202 / 4
 
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-affb442d8b80cb67670cf07cbfe92e5a60cd5a6f0dd889a8657123744d06b8d4"></a>
+<a id="canonical-2233332310100231-2023200030231213-1213003033001330-2333322102321122-1200303111221233-0031312020212220-1211130102031310-1031001223203110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-793e432e1ee68ac24b8b0beb88188504044e67acf667aa21abec262cf1587065"></a>
+<a id="canonical-1321033210030232-0132321220223002-1023202300233223-2020012020110010-0010103212132230-3312121322220201-2223323002120230-3301112013001211"></a>
 
-## server_spec.locations.waf_spec.distributed_cloud_policy_management — server_spec.locations.waf_spec.distributed_cloud_policy_management / e893d737b965 / 2
+## server_spec.locations.waf_spec.distributed_cloud_policy_management — distributed_cloud_policy_management / 031323211211 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
 - server_spec.locations.waf_spec.distributed_cloud_policy_management
 
-<a id="canonical-431f50eef6ad14fe2400ce12b3941f4c88f6c5c252d67f2f36ef151c0c89f353"></a>
+<a id="canonical-1003013311003232-3312223101103332-0210000030320102-2303211001331030-2020331230113002-1102311213330233-0312323301110130-0030202133031103"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for distributed cloud policy management.
 
-<a id="canonical-1c91addbc5d1c790dbe7837e9299bf3ef3f85e839ca089d72d479076be35a962"></a>
+<a id="canonical-0130210122313123-3011310130132100-3123321320031332-2102212123330332-3303332011322003-2130220020213113-0231101321001312-2332031122211202"></a>
 
-## Direct properties — server_spec.locations.waf_spec.distributed_cloud_policy_management / e893d737b965 / 3
+## Direct properties — distributed_cloud_policy_management / 031323211211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3190874fd4d31bb607a92c45c9419a148dd8bcd36d2b1e5b79898e4a26331101"></a>
+<a id="canonical-0301210020131033-3110310301232312-0013222102301011-3021100121220110-2031312023303103-1231022301321123-1321202120321022-0212030301010001"></a>
 
-## Next pages — server_spec.locations.waf_spec.distributed_cloud_policy_management / e893d737b965 / 4
+## Next pages — distributed_cloud_policy_management / 031323211211 / 4
 
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-b6a8ebd0e6ddd6344f58b1816c0f028dc74f6fc523c7a8ec012016f9ccebf6f9"></a>
+<a id="canonical-2312222032233100-3212313131120310-1033112023012001-1230003300022031-3013103312333011-0203301322203230-0001020001123321-3030322333123321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bb9519bea087748f0b4391f12d67bf6cbcb97a890ed64361a88dec642343a25e"></a>
+<a id="canonical-2323211101212332-2200201313102033-0023100321013301-0231121323331230-2330232113222021-0032311210031201-2220203132301210-0203100322021132"></a>
 
-## server_spec.locations.waf_spec.monitoring_waf_mode — server_spec.locations.waf_spec.monitoring_waf_mode / 3d443692e3fd / 2
+## server_spec.locations.waf_spec.monitoring_waf_mode — monitoring_waf_mode / 210232033331 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
 - server_spec.locations.waf_spec.monitoring_waf_mode
 
-<a id="canonical-51820a84a88c52271591c80376d5ab82caae1b60b10905171efca2b059156940"></a>
+<a id="canonical-1101200200222010-2220203011020213-0111210130200003-1312311122232002-3022223201231200-2301002100110113-0132333022022300-1121011112211000"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for monitoring waf mode.
 
-<a id="canonical-7fa6b62b44a61db8b1a10fc45b910852286aab47d64db76fe709613b960b1a48"></a>
+<a id="canonical-1333221223120223-1010221201312320-2301220100333010-1123210100201102-0220122222231013-3112103123131233-3213002112010323-2112002301221020"></a>
 
-## Direct properties — server_spec.locations.waf_spec.monitoring_waf_mode / 3d443692e3fd / 3
+## Direct properties — monitoring_waf_mode / 210232033331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b462816a4ec0f90b0093bf7b9ec4e9f14621bf69c92b25a9c0e46cf6af0120de"></a>
+<a id="canonical-2310120220011222-1032300033210023-0000210323331323-2132301032213301-1012020123331221-3021022302112221-3000321012303312-2233000102003132"></a>
 
-## Next pages — server_spec.locations.waf_spec.monitoring_waf_mode / 3d443692e3fd / 4
+## Next pages — monitoring_waf_mode / 210232033331 / 4
 
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-bb5910a6ba93cfab29f5508c144616c8d1c7293cbec84753c744f8732058fdd6"></a>
+<a id="canonical-2323112101002212-2322210330332223-0221331111002030-0110101201123020-3101301302210330-2332302010131103-3013101033201303-0200112033313112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-525a383e5e049e1d62a5787ef1e1a0f96d7a3547695fb7be057b89d3cc1e0e68"></a>
+<a id="canonical-1102112203200332-1132001021320131-1202221113201332-3301320122003321-1231132203111013-1221113323132332-0011132320213103-3030013200321220"></a>
 
-## server_spec.locations.waf_spec.nginx_policy_management — server_spec.locations.waf_spec.nginx_policy_management / 4fc4fd2ad352 / 2
+## server_spec.locations.waf_spec.nginx_policy_management — nginx_policy_management / 022231031102 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
 - server_spec.locations.waf_spec.nginx_policy_management
 
-<a id="canonical-e82b778ebce2bc4f0317274434627eb82b5b9f97b34959b2c9bd49a52da29a0d"></a>
+<a id="canonical-3220022313132032-2330320223301033-0003011302131010-0310120213322320-0223112321332113-2303102111212302-3021233110212211-0231220221220031"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for nginx policy management.
 
-<a id="canonical-524f1b540ff7ad5932cbd5bdf4fc9abf8a7abc2a6511960e98c98a6d0ec28bf3"></a>
+<a id="canonical-1102103301231110-0033331322311121-0302302331112331-3310333021222333-2022132223300222-1211010121120032-2120302120221231-0032300220233303"></a>
 
-## Direct properties — server_spec.locations.waf_spec.nginx_policy_management / 4fc4fd2ad352 / 3
+## Direct properties — nginx_policy_management / 022231031102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e3caf027ea0b4b9f2da05182345e60937b58109e0415a4566e5f45232f287386"></a>
+<a id="canonical-3203302233000213-3222002310232133-0231220011012002-0310113212002103-1323112001002132-0010011122101112-1232113310110203-0233022013032012"></a>
 
-## Next pages — server_spec.locations.waf_spec.nginx_policy_management / 4fc4fd2ad352 / 4
+## Next pages — nginx_policy_management / 022231031102 / 4
 
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-1e669e8b32a4b0361d4976977ac69402da98348015e5bf03b86dbf3fdd757b3b"></a>
+<a id="canonical-0132121221322023-0302221023000312-0131102113122113-1322301221100002-3122212003102000-0111321123330003-2320123123330333-3131131113230323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-612e7114ebfd5fd9805a98b5f2ad619a2f28d8f89dd618f4dac74f3ec12917a2"></a>
+<a id="canonical-1201023213010110-3223333111333121-2000112221202311-3302223112012122-0233022031203320-2131311201203310-3122301310330332-3001022101132202"></a>
 
-## server_spec.locations.waf_spec.none_waf_mode — server_spec.locations.waf_spec.none_waf_mode / 624c78887a87 / 2
+## server_spec.locations.waf_spec.none_waf_mode — none_waf_mode / 202013222013 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-a3075c28b19fe347eb6616776efadc26f2853d35beb3a759a400c0e4a88eb863)
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
 - server_spec.locations.waf_spec.none_waf_mode
 
-<a id="canonical-38379bb9be093ba27cbab3c6f872c97b7e1f271131d76252b8e807c31a629c6f"></a>
+<a id="canonical-0320031321232321-2332002103232202-1330232223033012-3320130230211323-1332013302130101-0301311312021102-2320322000133003-0122120221301233"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for none waf mode.
 
-<a id="canonical-4aa08f87a580ec02ac90f02a72cea6f1499fd588f1777827db063f558812e833"></a>
+<a id="canonical-1022220020332013-2211200032300002-2230210033000222-1302303222123301-1021213331112020-3301131313200213-3123001203331111-2020010232200303"></a>
 
-## Direct properties — server_spec.locations.waf_spec.none_waf_mode / 624c78887a87 / 3
+## Direct properties — none_waf_mode / 202013222013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bac28d08f12bc88a343974105397e590cbc3c1d7ab65e2e47cf856c18d4acb31"></a>
+<a id="canonical-2322300220310020-3301022330202022-0310032113100100-1103211332112100-3023300330013113-2223121132023210-1330332011123001-2031102230230301"></a>
 
-## Next pages — server_spec.locations.waf_spec.none_waf_mode / 624c78887a87 / 4
+## Next pages — none_waf_mode / 202013222013 / 4
 
-- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-d0edde0c350edb5d8a6f57a5c2df4ad9052be13c19b1f666aa631b246c1f6160)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.locations.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee"></a>
+<a id="canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-994722a040cbab979f458a41da7f5461205a3621121bb15962ec1ca109c65e0c"></a>
+<a id="canonical-2121101302022200-1000302322232113-2133101120221001-3122133311101201-0200112203120201-0102012323011121-1202323001302201-0021301211320030"></a>
 
-## server_spec.waf_spec — server_spec.waf_spec / e83a96ba5bd3 / 2
+## server_spec.waf_spec — waf_spec / 232211233103 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
 - server_spec.waf_spec
 
-<a id="canonical-3c19225c51d0b6daccb2e377c4676fefa0f44828f84c5dea951465776b64e529"></a>
+<a id="canonical-0330012102021130-1101310023123122-3030230232031313-3010121312333233-2200331010200220-3320103011313222-2111011012111313-1223121032110221"></a>
 
 Type: `"single"`. Computed.
 
 Configuration for waf\_spec.
 
-<a id="canonical-8585f51d27f69113dc60a93f459ad7cfdc4f07f6762fd673c569d1dd3179b451"></a>
+<a id="canonical-2011201133110131-0213331221010103-3130120022210333-1011212231133033-3130103300133312-1312023331121303-3011122131013131-0301132123101101"></a>
 
-## Direct properties — server_spec.waf_spec / e83a96ba5bd3 / 3
+## Direct properties — waf_spec / 232211233103 / 3
 
-- [blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-254976d0c00c977ee869e54e329da08eadbddf15d01aecf26e7fd2c10473c5e1): complete subsection reference.
+- [blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0211102113123100-3000003021131332-3220122132111032-0302213122002032-2231233131330111-3100012232303302-1232133331023001-0010130330113201): complete subsection reference.
 
-- [distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-34698be7e157b9b9e82b92c03bf71f965f34a0f647d4f0f329e683fdfa1edf95): complete subsection reference.
+- [distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-0310122120233213-3201111323212321-3220022321023000-0323331301332112-1133031022003312-1013311033003303-0221321220033331-3322013231332111): complete subsection reference.
 
-- [monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-7b9d0f41a0d43eedd6b7cdd1e6e52061337297d95dea152d61c6444567ca3cb0): complete subsection reference.
+- [monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1323213100331001-2200311003323231-3112231330313101-3212321102001201-0303130221133121-1131322201110231-1201301210101011-1213302203302300): complete subsection reference.
 
-- [nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-83dd907df3b2c4e3254113db4a0a77436eb068c64e5af28787e6e43f17fb724a): complete subsection reference.
+- [nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2003313121001331-3303230230103203-0211100101033123-1022002213131003-1232230012203012-1032112233022013-2013321232100333-0113332313021022): complete subsection reference.
 
-- [none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-54e015aec5cc07be1d2264d695ebf32903083bf0eecdf3cdd60541f3d1fde574): complete subsection reference.
+- [none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1110320001112232-3011303000132332-0131020212103112-2111322333030221-0003002003233300-3232303133033031-3112001110013303-3101333132111310): complete subsection reference.
 
-<a id="canonical-ada9cf03ce47f71d52ff16a0c286207c21db9a98c36f69402b7d8cffb537e4f1"></a>
+<a id="canonical-2231222130330003-3032101333130131-1102333301122200-3002201202001330-0201312321222120-3003123312211000-0223133120303333-2311031332103301"></a>
 
-<a id="canonical-74775f0fc9fc3be9c6eeb82e78f348f725edab0033f3062dfce0fb25fbb4057e"></a>
+<a id="canonical-1310131311330033-3021333003233221-3012323223200232-1320330310203313-0211323122230000-0303330300120231-3330320033230211-3323231000111332"></a>
 
-## policy_file_name property — server_spec.waf_spec / e83a96ba5bd3 / 4
+## policy_file_name property — waf_spec / 232211233103 / 4
 
 Type: `"string"`. Computed.
 
 WAF Policy File Name. Policy file name for WAF.
 
-<a id="canonical-43646c1a88d2cec12f473fcccd439380cfb9d7b3b92ba9d5f68cf5ba7e958b16"></a>
+<a id="canonical-1003121012300122-2020310230323001-0233101303333030-3031100321032000-3033232131132303-2321022322213111-3312203033112322-1332211120230112"></a>
 
-<a id="canonical-a857f6872c715d6eaf968c142de9fd4eee2a8a022fbbeb7fe545e169d9a8baa2"></a>
+<a id="canonical-2220111333122013-0230130111311232-2233211220300110-0231322133311032-3232022220220002-0233232332231333-3211101132011221-3121222023222202"></a>
 
-## policy_name property — server_spec.waf_spec / e83a96ba5bd3 / 5
+## policy_name property — waf_spec / 232211233103 / 5
 
 Type: `"string"`. Computed.
 
 WAF Policy Name. Policy name configured for WAF.
 
-<a id="canonical-ae0143e666d7d17ed3e32bf10467c514fb99d47c9d575ff2e9dbeba8566b99c6"></a>
+<a id="canonical-2232000110033212-1212311331011332-3103320302233301-0010121330110110-3323212131101330-2131111311333302-3221312332232220-1112122321213012"></a>
 
-<a id="canonical-a495cd0238584fe12ccda6c46e3477e9f5e0c0849e9c87c217732e7eae22a721"></a>
+<a id="canonical-2210211130310002-0320112010333201-0230303122123010-1232031013133221-3311320030002010-2132213020133002-0113130302321332-2232020222130201"></a>
 
-## security_log_enabled property — server_spec.waf_spec / e83a96ba5bd3 / 6
+## security_log_enabled property — waf_spec / 232211233103 / 6
 
 Type: `"bool"`. Computed.
 
 Specifies if security logging is enabled.
 
-<a id="canonical-2c0762836e69a962e3eb066891b003d5ec003fc372cd0133f33d341d0511d48e"></a>
+<a id="canonical-0230001312022003-1232122122211202-3203322300121220-2101230000033111-3230000003333003-1302303100010303-3303033103100131-0011010131102032"></a>
 
-<a id="canonical-26bf7f4121b9338c342be943e4bf54f83efe68ba99bdbc6b0321986fa5496885"></a>
+<a id="canonical-0212233313331001-0201232103032030-0310022332211003-3210233311103320-0332333212202322-2121233123301223-0003020121201233-2211102112202011"></a>
 
-## security_log_file_names property — server_spec.waf_spec / e83a96ba5bd3 / 7
+## security_log_file_names property — waf_spec / 232211233103 / 7
 
 Type: `["list", "string"]`. Computed.
 
 Specifies the list of security log files specification.
 
-<a id="canonical-a521f838f1761c93178a710bf6ab1e33b2712eb4125fc9e26ace0670903098ad"></a>
+<a id="canonical-2211020133200320-3301131201302103-0113202213010023-3312222301320303-2302130102322310-0102113330213202-1222303200121300-2100030021202231"></a>
 
-## Next pages — server_spec.waf_spec / e83a96ba5bd3 / 8
+## Next pages — waf_spec / 232211233103 / 8
 
-- [server_spec.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-254976d0c00c977ee869e54e329da08eadbddf15d01aecf26e7fd2c10473c5e1)
-- [server_spec.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-34698be7e157b9b9e82b92c03bf71f965f34a0f647d4f0f329e683fdfa1edf95)
-- [server_spec.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-7b9d0f41a0d43eedd6b7cdd1e6e52061337297d95dea152d61c6444567ca3cb0)
-- [server_spec.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-83dd907df3b2c4e3254113db4a0a77436eb068c64e5af28787e6e43f17fb724a)
-- [server_spec.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-54e015aec5cc07be1d2264d695ebf32903083bf0eecdf3cdd60541f3d1fde574)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec.blocking_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-0211102113123100-3000003021131332-3220122132111032-0302213122002032-2231233131330111-3100012232303302-1232133331023001-0010130330113201)
+- [server_spec.waf_spec.distributed_cloud_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-0310122120233213-3201111323212321-3220022321023000-0323331301332112-1133031022003312-1013311033003303-0221321220033331-3322013231332111)
+- [server_spec.waf_spec.monitoring_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1323213100331001-2200311003323231-3112231330313101-3212321102001201-0303130221133121-1131322201110231-1201301210101011-1213302203302300)
+- [server_spec.waf_spec.nginx_policy_management](data-sources--nginx_server--reference--group-001.md#canonical-2003313121001331-3303230230103203-0211100101033123-1022002213131003-1232230012203012-1032112233022013-2013321232100333-0113332313021022)
+- [server_spec.waf_spec.none_waf_mode](data-sources--nginx_server--reference--group-001.md#canonical-1110320001112232-3011303000132332-0131020212103112-2111322333030221-0003002003233300-3232303133033031-3112001110013303-3101333132111310)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-254976d0c00c977ee869e54e329da08eadbddf15d01aecf26e7fd2c10473c5e1"></a>
+<a id="canonical-0211102113123100-3000003021131332-3220122132111032-0302213122002032-2231233131330111-3100012232303302-1232133331023001-0010130330113201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4b7bf2dfaa92230c8a2641b2f0a58eff51ae4dbb43e08edadb842c2eb218763d"></a>
+<a id="canonical-1023132333023133-2222210202030030-2022021210012302-3300221120323333-1101223210312323-1003320020323122-3123201002300232-2302012013120331"></a>
 
-## server_spec.waf_spec.blocking_waf_mode — server_spec.waf_spec.blocking_waf_mode / b03af2a0cc07 / 2
+## server_spec.waf_spec.blocking_waf_mode — blocking_waf_mode / 220030300013 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
 - server_spec.waf_spec.blocking_waf_mode
 
-<a id="canonical-94b2189b032bdd9ab3615f8e5affa3f7df0c5a0483d1176a9c8b184b6b1b5aa8"></a>
+<a id="canonical-2110230201202123-0003022331312122-2303120111332032-1122333322033313-3133003011220010-2003310101131222-2130202301201023-1223012311222220"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-42f8987fe47f297998b9443ac1966364c407085b0aa3a500c95ef4f7e269c913"></a>
+<a id="canonical-1002332021201333-3210133302211321-2120232110100322-3001211212031210-3010001300201123-0022220322110000-3021113233103313-3202122130210103"></a>
 
-## Direct properties — server_spec.waf_spec.blocking_waf_mode / b03af2a0cc07 / 3
+## Direct properties — blocking_waf_mode / 220030300013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-802cbac9516ead3a2540aa9ee7f50bd626fc2b6e7cb22e0b56fdfbb02f492767"></a>
+<a id="canonical-2000023023223021-1101123222310322-0211100022222132-3213331100233112-0212333002231232-1330230202320023-1112333133232300-0233102102131213"></a>
 
-## Next pages — server_spec.waf_spec.blocking_waf_mode / b03af2a0cc07 / 4
+## Next pages — blocking_waf_mode / 220030300013 / 4
 
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-34698be7e157b9b9e82b92c03bf71f965f34a0f647d4f0f329e683fdfa1edf95"></a>
+<a id="canonical-0310122120233213-3201111323212321-3220022321023000-0323331301332112-1133031022003312-1013311033003303-0221321220033331-3322013231332111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d83d40e2a5a0becf2ded128335fdbf969a8db911dcbcc29040e8a00ed3549315"></a>
+<a id="canonical-3120033110003202-2211220023323033-0231323101022003-0311333123332112-2122203123210101-3130233030022100-1000322022000032-3103111021030111"></a>
 
-## server_spec.waf_spec.distributed_cloud_policy_management — server_spec.waf_spec.distributed_cloud_policy_management / 33352b34c835 / 2
+## server_spec.waf_spec.distributed_cloud_policy_management — distributed_cloud_policy_management / 031030200311 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
 - server_spec.waf_spec.distributed_cloud_policy_management
 
-<a id="canonical-ae6885d05917e503ca34899083e8b88132d6e74590fd2bbe58d8362c3cc21505"></a>
+<a id="canonical-2232122020113100-1121011332110003-3022031020212100-2003322023202001-0302311232131011-2100333102232332-1120312003120230-0330300201110011"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for distributed cloud policy management.
 
-<a id="canonical-e6e7ce39ec3be4179bf530b1a2c181359ac1839cc56910b964d8a29cb8134e03"></a>
+<a id="canonical-3212321330320321-3230032332100113-2123331103002301-2202300120010311-2122300120032130-3011122101002321-1210312022022130-2320010310320003"></a>
 
-## Direct properties — server_spec.waf_spec.distributed_cloud_policy_management / 33352b34c835 / 3
+## Direct properties — distributed_cloud_policy_management / 031030200311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d6e5ba47848cd7bbe219d4a076df3c364e7aeb648a91a3b4e96f8d2ca61aa956"></a>
+<a id="canonical-3112321123221013-2010203031132323-3202012131102200-1312313303300312-1032132232231210-2022210122032310-3221123320310230-2212012222211112"></a>
 
-## Next pages — server_spec.waf_spec.distributed_cloud_policy_management / 33352b34c835 / 4
+## Next pages — distributed_cloud_policy_management / 031030200311 / 4
 
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-7b9d0f41a0d43eedd6b7cdd1e6e52061337297d95dea152d61c6444567ca3cb0"></a>
+<a id="canonical-1323213100331001-2200311003323231-3112231330313101-3212321102001201-0303130221133121-1131322201110231-1201301210101011-1213302203302300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f6c1fa55ce90f298b2bf1750c1e8c492e7b6d02bd5f5a9f081714410f1c0563"></a>
+<a id="canonical-2033123001332211-1130322100330221-2023022333011311-0030013220301021-0232132312310002-2331113311222133-0020011301101001-0033013000111203"></a>
 
-## server_spec.waf_spec.monitoring_waf_mode — server_spec.waf_spec.monitoring_waf_mode / 5743bd463348 / 2
+## server_spec.waf_spec.monitoring_waf_mode — monitoring_waf_mode / 101203031020 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
 - server_spec.waf_spec.monitoring_waf_mode
 
-<a id="canonical-65ca80fb697f9ae4370154d1b2db63bcc2544a92e664f39a717fbad105716e42"></a>
+<a id="canonical-1211302220003323-1221133321223210-0313000111103101-2302312312032330-3002111010222102-3212121033032122-1301133323223101-0011130112321002"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for monitoring waf mode.
 
-<a id="canonical-ac9bfe420c93144fe05fe8ca78d0e097f00aad30babbc1101405720b16beac93"></a>
+<a id="canonical-2230212333321002-0030210301101033-3200113332203022-1320310032002113-3300002222310300-2322232330010100-0110001113020023-0112233222302103"></a>
 
-## Direct properties — server_spec.waf_spec.monitoring_waf_mode / 5743bd463348 / 3
+## Direct properties — monitoring_waf_mode / 101203031020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1edc875eb36da1c8313285479283bdf612638922fccea5a87d40f65f1a7092a2"></a>
+<a id="canonical-0132313020131132-2303123122013020-0301030220111013-2102200323313312-0102120320210202-3330303222112220-1331100033121133-0122130021022202"></a>
 
-## Next pages — server_spec.waf_spec.monitoring_waf_mode / 5743bd463348 / 4
+## Next pages — monitoring_waf_mode / 101203031020 / 4
 
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-83dd907df3b2c4e3254113db4a0a77436eb068c64e5af28787e6e43f17fb724a"></a>
+<a id="canonical-2003313121001331-3303230230103203-0211100101033123-1022002213131003-1232230012203012-1032112233022013-2013321232100333-0113332313021022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c1bd554c622b5225c6f0b50af67ad98d6d71d24557a5547d3cb0358133ff6f3"></a>
+<a id="canonical-0230012331111110-3012020223110202-1130123300231100-2233121322312120-3112311301310210-1111132211111013-3103302300031120-0103033333123303"></a>
 
-## server_spec.waf_spec.nginx_policy_management — server_spec.waf_spec.nginx_policy_management / aa6c8176979b / 2
+## server_spec.waf_spec.nginx_policy_management — nginx_policy_management / 131221132123 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
 - server_spec.waf_spec.nginx_policy_management
 
-<a id="canonical-f9d99c3a120d9c671b692df6ee12e9e8327c826593638e5a8561208b9e9bda51"></a>
+<a id="canonical-3321312121300322-0102003121301213-0123122102313312-3232010232213220-0302133020021211-2103120320321122-2011120102002023-2132212331221101"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for nginx policy management.
 
-<a id="canonical-c961d0eaa718f48ebce7e764ac8dd00baab504a68540e310cd161c48d8a2bc46"></a>
+<a id="canonical-3021120131003222-2213012033102032-2330321332131210-2230203131000023-2222231100102212-2011100032030100-3031011201301020-3120220223301012"></a>
 
-## Direct properties — server_spec.waf_spec.nginx_policy_management / aa6c8176979b / 3
+## Direct properties — nginx_policy_management / 131221132123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c73539a8b08759907dbcc4a27b10cda93821b19ad1f58d4bf2261627c2386a18"></a>
+<a id="canonical-3013031103212220-2300201311212100-1331233030102202-1323010030312221-0320020123012122-3101331120311023-3302021201120213-3002032012220120"></a>
 
-## Next pages — server_spec.waf_spec.nginx_policy_management / aa6c8176979b / 4
+## Next pages — nginx_policy_management / 131221132123 / 4
 
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
 
-<a id="canonical-54e015aec5cc07be1d2264d695ebf32903083bf0eecdf3cdd60541f3d1fde574"></a>
+<a id="canonical-1110320001112232-3011303000132332-0131020212103112-2111322333030221-0003002003233300-3232303133033031-3112001110013303-3101333132111310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8946faba8757182401fcbc128cbfd3afc7d94c2ea124c651be714e53c9f12c56"></a>
+<a id="canonical-2021101233222322-2013111301200210-0001333023300102-2030233331032233-3013312110300232-2201021030121101-2332130110321103-3021330102301112"></a>
 
-## server_spec.waf_spec.none_waf_mode — server_spec.waf_spec.none_waf_mode / d95efd06bc24 / 2
+## server_spec.waf_spec.none_waf_mode — none_waf_mode / 001223300210 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
-- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-4beef9df327d559710a9ea2ff0a10f025a18a9e27f5211c9c423685fdb688084)
-- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-1acb410979a4cd5f50d26e5cba9a63aee3ae9293b2af2eda8907309a7b896c7d)
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)
+- [Property reference](data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [server_spec](data-sources--nginx_server--reference--group-001.md#canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
 - server_spec.waf_spec.none_waf_mode
 
-<a id="canonical-41b71fdcaa4951d525b1a8328f988c3c45b9a5f324cc8721cfb808d6ed9cd1ff"></a>
+<a id="canonical-1001231301333130-2222102111013111-0211230122200302-2033212020300330-1011232122113303-0210303020130201-3033232000203112-3231213031013333"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for none waf mode.
 
-<a id="canonical-f4a4c96819b7038a68a61326b5a4f19e77b5b6e4bda25908a7cc1ca979ef2fe0"></a>
+<a id="canonical-3310221030211220-0121231300032022-1220221201030212-2311221033012132-1313231123123210-2331220211210020-2213303001302221-1321323302333200"></a>
 
-## Direct properties — server_spec.waf_spec.none_waf_mode / d95efd06bc24 / 3
+## Direct properties — none_waf_mode / 001223300210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e321101891499ac45c2913a04ae4e1bc1b0ed745a40ee8d1abf95ad266c30c19"></a>
+<a id="canonical-3203020101000120-2101102121223010-1130022101032200-1022321032012330-0123003231131011-2210003232203101-2223332111223102-1212300300300121"></a>
 
-## Next pages — server_spec.waf_spec.none_waf_mode / d95efd06bc24 / 4
+## Next pages — none_waf_mode / 001223300210 / 4
 
-- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-9fbef0bdb99940bdecb01dceadd3fee3b29c1a905ac9508f01827cb3aafc12ee)
-- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-81ac0adffbfbb989fac7fac7321455b46042e5aa76bf6fb2f8ad3b6e9b4a4792)
+- [server_spec.waf_spec](data-sources--nginx_server--reference--group-001.md#canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232)
+- [xcsh_nginx_server](../data-sources/nginx_server.md#canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102)

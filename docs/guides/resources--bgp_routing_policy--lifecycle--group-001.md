@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_bgp_routing_policy l
 
 # xcsh_bgp_routing_policy lifecycle
 
-<a id="canonical-b2f9ec3ffd9acc7a047dc67ff0281d3c0724379f46ced7f487adae92a12e8fda"></a>
+<a id="canonical-2302332132300333-3331212230301322-0010133130121333-3300022001310330-0013021003132133-1012303231133310-2013223122322102-2201023220333122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f3cc04eadac2365a592492e4314616aa8f75a109b6b46436bd284248b8a83dd9"></a>
+<a id="canonical-3303303000103222-3122300203121122-1121021021023210-0301101201122222-2033131122010021-2312231012100312-2331022010021020-2320222003313121"></a>
 
-## Import — Import / 6f2ebbaaac3f / 2
+## Import — Import / 222222300333 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_bgp_routing_policy.example system/example
 ```
 
-<a id="canonical-b80814919ccb97b6e7064ab2f9465467f997e41a292931a825abf8b17a75b6c4"></a>
+<a id="canonical-2320002001102101-2130302321132312-3213001210222302-3321101211101213-3321211332100122-0221022103012220-0211222333202301-1322131123123010"></a>
 
-## Next pages — Import / 6f2ebbaaac3f / 3
+## Next pages — Import / 222222300333 / 3
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-c592839e358ee317aef5197bc9cacf91cb685e2d3189e737879ab44366916b75"></a>
+<a id="canonical-3011210220032132-0311203232030113-2232331101211323-3021302230332101-3023122011320231-0301202132130313-2013212223101003-1212210112231311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9c14bce4c267c4f47273e3c4e6ee2381b3f4647b4ea1ca96572817054b0ef9b5"></a>
+<a id="canonical-2130011023303210-3002121330103310-1302130332033010-3212323202032001-2303331012101323-1032220130222112-1113022001130011-1023003233212311"></a>
 
-## Timeouts — Timeouts / 60f1dfc560bb / 2
+## Timeouts — Timeouts / 301112002323 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-c9a860ff79fefdf349a65cfb4f7a31c8f86b3cac9cc17e7425d6754034b3424b). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-3021222012003333-1321333233313303-1021221211303323-1033132203013020-3320122303302230-2130300113321310-0211311213111000-0310230310021023). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-beb3f4bce6a340561341910bd58d3e515f409cf81ab71a2d8c28b14cfdc16310"></a>
+<a id="canonical-2332230333102330-3212220310001112-0103100121010023-3111203103321101-1133100021303320-0122231301220231-2030022023011030-3331300112030100"></a>
 
-## Next pages — Timeouts / 60f1dfc560bb / 3
+## Next pages — Timeouts / 301112002323 / 3
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)

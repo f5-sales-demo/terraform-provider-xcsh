@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_regional_edg
 
 # xcsh_network_regional_edges landing
 
-<a id="canonical-4b07492253f8f10e61287f15adccadbfc866bfc8be3823bb27bb4e02b5d71089"></a>
+<a id="canonical-1023001310210202-1103332033010032-1201022013330111-2231303022312333-3020121223333020-2332032002032323-0213232310320002-2311311301002021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c1edf1ee0faebe63598a2a904bf75c94a4fe3770d3dd323548e571e1d2de1ae1"></a>
+<a id="canonical-3001323133013232-0033223223321203-1121202202222100-1023331311302110-2210333203131300-3103313103020311-1020321113013201-3102313201223201"></a>
 
-## xcsh_network_regional_edges — xcsh_network_regional_edges / cb3f6efa55b0 / 2
+## xcsh_network_regional_edges — xcsh_network_regional_edges / 332211112300 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Regional Edge IPv4 networks for origin ingress allowlists. Values are bundled fr
 OpenAPI release; this data source performs no network request. Ports and traffic direction are not
 encoded in the manifest.
 
-<a id="canonical-2470c00d83d24b1374ce8256fda2593b079cf1d6bb4235a87fda103109f0efa5"></a>
+<a id="canonical-0210130030000031-2003310210230103-1310303220021112-3331220211210323-0013213033013112-2323100203112220-1333312201000301-0021330032332211"></a>
 
-## Prerequisites — xcsh_network_regional_edges / cb3f6efa55b0 / 3
+## Prerequisites — xcsh_network_regional_edges / 332211112300 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-e33a8f7968d3c58ca269d1f642aaecd85bb1f0654d8eb3167ccde063b0713f47"></a>
+<a id="canonical-3203032220331321-1220310330112030-2202122131013312-1002222232303120-1123230133001211-1031203223030112-1330303132001203-2300130103331013"></a>
 
-## Minimal configuration — xcsh_network_regional_edges / cb3f6efa55b0 / 4
+## Minimal configuration — xcsh_network_regional_edges / 332211112300 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -64,15 +64,15 @@ output "https_origin_ingress" {
 }
 ```
 
-<a id="canonical-a495768c1432d374005b527bb11e03b49d1d85b06af962d3e310054e8c0b1eb2"></a>
+<a id="canonical-2210211113122030-0110030231031310-0000112311021323-2301013200032310-2131013120112300-1222332112023103-3203010000111032-2030002301322302"></a>
 
-## Root configuration — xcsh_network_regional_edges / cb3f6efa55b0 / 5
+## Root configuration — xcsh_network_regional_edges / 332211112300 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a0575e19c19107bde05fa6626bdc24b8ee2b6ca380be24b5168124b3155f6be2"></a>
+<a id="canonical-2200111311320121-3001210100132331-3200113322121202-1223313002102320-3232022312302203-2000233202102311-0112200102102303-0111113312233202"></a>
 
-## Next pages — xcsh_network_regional_edges / cb3f6efa55b0 / 6
+## Next pages — xcsh_network_regional_edges / 332211112300 / 6
 
-- [Property reference](../guides/data-sources--network_regional_edges--reference--group-001.md#canonical-e079a6e575809cb77caea1bfb1f018d98eced62e8e5590c688ca25690a4e079a)
-- [Examples](../guides/data-sources--network_regional_edges--examples--group-001.md#canonical-69cbc256fdb601aea7a5046bc5c1d7e5f6bd51f16032486f663d435c93baf01e)
+- [Property reference](../guides/data-sources--network_regional_edges--reference--group-001.md#canonical-3200132122123211-1311200021302313-1330223222012333-2301330001203121-2032303231120232-2032111121003012-2020302202111221-0022103200132122)
+- [Examples](../guides/data-sources--network_regional_edges--examples--group-001.md#canonical-1221302330021112-3331231200012232-2213221100101223-3011300131133211-3312233111013301-1200030210201233-1212033110031130-2103232233000132)

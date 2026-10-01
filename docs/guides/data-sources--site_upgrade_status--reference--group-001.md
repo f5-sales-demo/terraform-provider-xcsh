@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_site_upgrade_status 
 
 # xcsh_site_upgrade_status reference
 
-<a id="canonical-026e1aecd2a970e096dc9476e95faa6d85dfc2ee51f7bdce20b6431348fda126"></a>
+<a id="canonical-0002123201223230-3102222113003200-2112313021101312-3221113322221231-2011313330023232-1101331323313032-0200231210030103-1020333122010212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b418747a6419b61cf00e4234e2765dac6868ab850e128aa272830db1f649baba"></a>
+<a id="canonical-2310012013101322-1210012123120130-3300003210020310-3202131211312230-1220122022232011-0032010220222202-1302200300312301-3312102123222322"></a>
 
-## Property reference — Property reference / 5849348f5c39 / 2
+## Property reference — Property reference / 203311300321 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-354cc1e18b1eae705be66b9b6e4a44fd8152a2aa13c69db8d19d96b451ff6445)
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)
 - Property reference
 
-<a id="canonical-e4de8e0f482a5df2c9c2031dc3b827f1af5703a075c4d1764c2cdb7a2dd61807"></a>
+<a id="canonical-3210313220320033-1020022211313302-3021300200030131-3003232002133301-2233111300032200-1311301031011312-1030023031231322-0231311201200013"></a>
 
-## Direct properties — Property reference / 5849348f5c39 / 3
+## Direct properties — Property reference / 203311300321 / 3
 
-<a id="canonical-fb9c9a68440575af916f4020eb17961f42448186c017f2acdb8d25bff2ff196b"></a>
+<a id="canonical-3323213021221220-1010001113112233-2101123310000200-3223011321120133-1002101020012012-3000011333022230-3123203102112333-3302333301211223"></a>
 
-<a id="canonical-cd6e88c30d83293b02beab114ebb4f6e6b854051282bbed918bfdcce9ed4b32b"></a>
+<a id="canonical-3031123220203003-0031200302210323-0002233222230101-1032232310331232-1223201110001101-0220022323323121-0120233331303032-2132311023030223"></a>
 
-## eligible property — Property reference / 5849348f5c39 / 4
+## eligible property — Property reference / 203311300321 / 4
 
 Type: `"bool"`. Computed.
 
@@ -37,25 +37,11 @@ Whether the site is ONLINE and each selected target is installed or advertised f
 prechecks must pass when software would change; an unchanged paired version does not block a serial
 software or OS upgrade.
 
-<a id="canonical-1919ec64635de5373555e78bb38c649a927fd7ffc0e7d46368cc13aeadb987f9"></a>
+<a id="canonical-0121012132301210-1203113132110313-0311111132132023-2303203012102122-2102133331133333-3000321331101203-1220303001032232-2231232120133321"></a>
 
-<a id="canonical-f9e90b76c99c1b9ce012392802d36a15b2643ce2c9ad942d42ad2efa3ad00ee5"></a>
+<a id="canonical-3321322100231312-3021213001232130-3200010203210220-0002310312220111-2302121003303202-3021223121100231-1002223102323322-0322310000323211"></a>
 
-## expected_os_version property — Property reference / 5849348f5c39 / 5
-
-Type: `"string"`. Optional.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
-```
-
-<a id="canonical-dd2c376a9a2a70f00baa07a08768beaa2e1442a2b5cc3a102fd0cdefa745358b"></a>
-
-<a id="canonical-7e8b7c8b4c81d89f1413c190b75255b518b6cfbda2da87bdbddffde58be3eddb"></a>
-
-## expected_software_version property — Property reference / 5849348f5c39 / 6
+## expected_os_version property — Property reference / 203311300321 / 5
 
 Type: `"string"`. Optional.
 
@@ -65,62 +51,76 @@ Provider validators and defaults (from schema source):
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
-<a id="canonical-7b12643dc0431e45ce90263d64fcd62355b1033ce90b78f1a63145015b388d0b"></a>
+<a id="canonical-3131023003131222-2122022213003300-0023222200132200-2013122023322222-0232011010022202-2311303003220100-0233310030313233-2213101103112023"></a>
 
-<a id="canonical-95eaa8e789c706639c21778ccf908108c203ef0081643e05c23aed4d659a6a5e"></a>
+<a id="canonical-1332202313302023-1030200131202133-0110010330012100-2313110211112311-0120231230332331-2202312220132331-2331313333313211-2023320332313123"></a>
 
-## failed_precheck_names property — Property reference / 5849348f5c39 / 7
+## expected_software_version property — Property reference / 203311300321 / 6
+
+Type: `"string"`. Optional.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
+```
+
+<a id="canonical-1323010212100331-3000100301321011-3032210002120331-1210333031120203-1111230100030330-3221002313203301-2212030110110001-1123032020310023"></a>
+
+<a id="canonical-2111322222203213-2021301300121203-2130020113132030-3033210020010020-3002000332330000-2001121003320011-3002032232311031-1211212212221132"></a>
+
+## failed_precheck_names property — Property reference / 203311300321 / 7
 
 Type: `["list", "string"]`. Computed.
 
 Failed software prechecks for a newer software target; empty when the selected software version is
 already installed.
 
-<a id="canonical-0c8781c31090f526f9e73f74a261d596da4eceeac83742b0147d21d3573a718d"></a>
+<a id="canonical-0030201320013003-0100210033110212-3321321303331310-2202120131112112-3122103230323222-3020031310022300-0110133102013103-1113032213012031"></a>
 
-<a id="canonical-6019671f54a310b6ea309f6d24d12ac90e4b026b4acda975856e6a2a0abb9736"></a>
+<a id="canonical-1200012112130133-1110220301002312-3222030021331231-0210310102223021-0032102300021223-1022303122211311-2011123212220222-0022232321130312"></a>
 
-## id property — Property reference / 5849348f5c39 / 8
-
-Type: `"string"`. Computed.
-
-<a id="canonical-f61ce58be63d5c08f0dd417339fa333f6222dbe7fcb984c192fdfecf87c8eb4a"></a>
-
-<a id="canonical-4f416643635e6be6e2a67b6c215b4f7f6cde2aebc13c001f0df7a540c1bc2a91"></a>
-
-## os_available_version property — Property reference / 5849348f5c39 / 9
+## ID property — Property reference / 203311300321 / 8
 
 Type: `"string"`. Computed.
 
-<a id="canonical-9fd3363545b95b6b7ecd54adc5bf4e89dbc5bb28bbf9c625da0f7bdf655f2ffa"></a>
+<a id="canonical-3312013032112023-3212033111300020-3300313110011303-0321332203030333-1202020231233213-3330232120103001-2102333133323033-2013302032231022"></a>
 
-<a id="canonical-b163fc80b0e7e39a120666e0670cfd5e282621368a473c82a6c4e1661917c349"></a>
+<a id="canonical-1033100112121003-1203113212233212-3202221213231230-0201112310331333-1230313202223223-3001033000000133-0031331322111000-3001233002222101"></a>
 
-## os_deployment_phase property — Property reference / 5849348f5c39 / 10
-
-Type: `"string"`. Computed.
-
-<a id="canonical-0f2a8f6e04297773f9792b8083b4a43fc52828e2e0c3b104541765d28989bc2c"></a>
-
-<a id="canonical-732d46c427e71f3ac4021a9c5dafa740247c61d6144dffc580ca2aab0af63041"></a>
-
-## os_deployment_result property — Property reference / 5849348f5c39 / 11
+## os_available_version property — Property reference / 203311300321 / 9
 
 Type: `"string"`. Computed.
 
-<a id="canonical-36d9b56fbd0bfb312340d34382602a14dd0db7ffc299292b83c30c1288058e08"></a>
+<a id="canonical-2133310303120311-1011232111231223-1332303111102231-3011233310322021-3123301123230220-2323332130120211-3122003313233133-1211113302333322"></a>
 
-<a id="canonical-136fa736c7432151b61187b395e7fcd4ed8a256c0baad2c16e4da8af21246cfe"></a>
+<a id="canonical-2301120333302000-2300321332032122-0102001212123200-1213003033311132-0220021202010312-2022101303302002-2212301032011212-0121011330031021"></a>
 
-## os_installed_version property — Property reference / 5849348f5c39 / 12
+## os_deployment_phase property — Property reference / 203311300321 / 10
 
 Type: `"string"`. Computed.
 
-<a id="canonical-660de612e892e2dcfe6f5f19e5e7690f1136ff11c973401cf0d988db459173f3"></a>
+<a id="canonical-0033022220331232-0010022113131303-3321132102232000-2003231022100333-3011022002203202-3200300323010010-1110011312113102-2021202123300230"></a>
 
-<a id="canonical-2cd74bdfb8da64ebd9cdab1bb0c174a35a53d475cf18a994239a1962bc35d63a"></a>
+<a id="canonical-1303023110123010-0213321301330322-3010000201222130-1131223322131000-0210133012013112-0110103133333011-2000302202222223-0022331203001001"></a>
 
-## poll_interval_seconds property — Property reference / 5849348f5c39 / 13
+## os_deployment_result property — Property reference / 203311300321 / 11
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0312312123111233-2331002333230301-0203100031031003-2002120002220110-3131003123133333-3002212102210223-2003300300300102-2020001120320020"></a>
+
+<a id="canonical-0103123322130312-3013100302011101-2312010120132303-2111321333303110-3231202202111230-0023222231023001-1232103122202233-0201021012303332"></a>
+
+## os_installed_version property — Property reference / 203311300321 / 12
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1212003132120102-3220210232023130-3332123311330121-3211321312210033-0101031233330101-3021130310000130-3300312120203123-1011210113033303"></a>
+
+<a id="canonical-0230311310233133-2320312212103223-3121303122230123-2300300113102203-1122110331101311-3033012022212110-0203212201211202-2330031131120322"></a>
+
+## poll_interval_seconds property — Property reference / 203311300321 / 13
 
 Type: `"number"`. Optional, Computed.
 
@@ -130,21 +130,21 @@ Provider validators and defaults (from schema source):
 Validators: []validator.Int64{int64validator.Between(1, 300)}
 ```
 
-<a id="canonical-f08647ec409cf455908494c37008204821d1f0427d12ca0b5733d97012c4b27f"></a>
+<a id="canonical-3300201210133230-1000213033101111-2100201021103003-1300002002001020-0201310133001002-1331010230220023-1113030331211300-0102301023021333"></a>
 
-<a id="canonical-77a3397ac8072f84dbb3e09c6664786110e6252d41b7f187f517384e006d727f"></a>
+<a id="canonical-1313220303211322-3020001302332010-3123230332002130-1212121013201201-0100321202110231-1001231333012013-3311011303201032-0000123113021333"></a>
 
-## ready property — Property reference / 5849348f5c39 / 14
+## ready property — Property reference / 203311300321 / 14
 
 Type: `"bool"`. Computed.
 
 Whether the site is operationally ready (\`ONLINE\`), independent of target eligibility.
 
-<a id="canonical-b91bd1fb0c609b110cfe9d6fb3310911e60274961e4ab431285c96e925db2017"></a>
+<a id="canonical-2321012331013323-0030120021230101-0030333221311233-2303030100210101-3212000213102112-0132102223100301-0220113021123221-0211312302000113"></a>
 
-<a id="canonical-5232c453527ae69b3257ad91cfde62da8f5656b7586ee6a9115d3f21d4dc24f6"></a>
+<a id="canonical-1102030230101103-1102132232122123-0302111322312101-3033313212023122-2033111211122313-1120123232122221-0101113103330201-3110313002103312"></a>
 
-## site property — Property reference / 5849348f5c39 / 15
+## site property — Property reference / 203311300321 / 15
 
 Type: `"string"`. Required.
 
@@ -154,59 +154,59 @@ Provider validators and defaults (from schema source):
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
-<a id="canonical-9841fbd176d2d3b54d390f6bb6bd1509843c0d78264e9ef5f5346815dda5fd76"></a>
+<a id="canonical-2120100133233101-1312310231032311-1031032100331223-2312233101110021-2010033000311320-0212103221323311-3311031012200111-3131221133311312"></a>
 
-<a id="canonical-0e6b6dedca794e8d2ba08536f78dd614d6fc75861678df965b2803a5b4bb06a4"></a>
+<a id="canonical-0032122312313231-3022132110322031-0223220020110312-3313203131120110-3112333013112012-0112132031332112-1123022000032211-2310232300122210"></a>
 
-## site_state property — Property reference / 5849348f5c39 / 16
-
-Type: `"string"`. Computed.
-
-<a id="canonical-460357a71ae26a77b78e0f872e707598915bc2ceb91bd19b42b9a895b3dfcbcd"></a>
-
-<a id="canonical-30051ed38019ee00871cd656599d494a0088f2edecaa7456a7050eeeb4462ed8"></a>
-
-## software_available_version property — Property reference / 5849348f5c39 / 17
+## site_state property — Property reference / 203311300321 / 16
 
 Type: `"string"`. Computed.
 
-<a id="canonical-4793e1129387f2fff42a0d25f0c34da97ae3b8e34733e34d7ee1fb0e8363ce23"></a>
+<a id="canonical-1012000311132213-0122320212221313-2313203200332013-0232130013112120-2101112330023032-2321012331012123-1002232122202111-2303313330233031"></a>
 
-<a id="canonical-69325adc5a5cbd0763a242941722b9e7fd8fb677bcc3b22630e52f6598167e25"></a>
+<a id="canonical-0300001101323103-2000012132320000-2013013031121112-1121213110211022-0000202033023231-3230222213101112-2213001100323232-2310101202323120"></a>
 
-## software_deployment_phase property — Property reference / 5849348f5c39 / 18
-
-Type: `"string"`. Computed.
-
-<a id="canonical-baddb73c79589ffdf31498163dfd3ab0763bcfd6f9f79ed21021a8a5d1ba94fc"></a>
-
-<a id="canonical-c8100fee5ff27cddbb0e3a43be1ea4d51b7b350d2a0d3b72e9deda124006482e"></a>
-
-## software_deployment_result property — Property reference / 5849348f5c39 / 19
+## software_available_version property — Property reference / 203311300321 / 17
 
 Type: `"string"`. Computed.
 
-<a id="canonical-c0f5a0710cba64703a3c9bcbfd89d44f79a0849dad6a4cb0aa4c356a8b32d5de"></a>
+<a id="canonical-1013210332010102-2103201333023333-3310022200310211-3300300310312221-1322320323203203-1013030332031031-1332320133230032-2003120330320203"></a>
 
-<a id="canonical-e78a0224ecfaafeef61fccdcddaedca81e4d1ab5b43b3cd82c0304fff56e018a"></a>
+<a id="canonical-1221030211223130-1122113023310013-1203220210022110-0113020223213213-3331203323121313-2330300323020212-0300321102331211-2120011213320211"></a>
 
-## software_installed_version property — Property reference / 5849348f5c39 / 20
+## software_deployment_phase property — Property reference / 203311300321 / 18
 
 Type: `"string"`. Computed.
 
-<a id="canonical-40594fd2efe9813ce65ba124205e1eb2fa3b182cf0ec3597f5b375a07b28d88d"></a>
+<a id="canonical-2322313123130330-1321112021333331-3303011021200112-0331333103222300-1312032330333112-3321331321323102-0100020122202211-3101232221103330"></a>
 
-<a id="canonical-56d6f506e8378fd30db2453f04380ed8137483d76f22b1278d31733825cf6879"></a>
+<a id="canonical-3020010000333232-1133330213303131-2323003203221003-2332013222103111-0123132303110031-0222003103231302-3221313231220102-1000001210200232"></a>
 
-## target_converged property — Property reference / 5849348f5c39 / 21
+## software_deployment_result property — Property reference / 203311300321 / 19
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3000331122001301-0030232212101300-0322033021233023-3331202131101033-1321220020102131-2231122210302300-2222103003111222-2023030231113132"></a>
+
+<a id="canonical-3213202200020210-3230332222333232-3312013330303130-3131223231302220-0132103101222311-2310032303303120-0230000300103333-3311123200012022"></a>
+
+## software_installed_version property — Property reference / 203311300321 / 20
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1000112110333102-3233322120010330-3212112322010210-0200113201322302-3322032301200230-3300323003112113-3311230313112200-1323022031202031"></a>
+
+<a id="canonical-1112311233110012-3220031320333103-0031230210110333-0010032000323120-0103131020033113-1233020223010213-2031030113030320-0211303312201321"></a>
+
+## target_converged property — Property reference / 203311300321 / 21
 
 Type: `"bool"`. Computed.
 
-<a id="canonical-3c836eb8fccdced53e2a23b98b00c56217973149caf63d1829b120e48d05d84d"></a>
+<a id="canonical-0330200312322320-3330303130323111-0332022202032321-2023000030111202-0113211303011021-3022331203310120-0221230102003210-2031001131201031"></a>
 
-<a id="canonical-e01bfe10775defb6e5a48ad2895190bbd93bd15140c7fd73624bf92f98ccddd5"></a>
+<a id="canonical-3200012333320100-1313113132332312-3211221020223102-2021110121002323-3121032331011101-1000301333311303-1202102333210233-2120303031313111"></a>
 
-## timeout_seconds property — Property reference / 5849348f5c39 / 22
+## timeout_seconds property — Property reference / 203311300321 / 22
 
 Type: `"number"`. Optional, Computed.
 
@@ -216,54 +216,54 @@ Provider validators and defaults (from schema source):
 Validators: []validator.Int64{int64validator.Between(1, 7200)}
 ```
 
-<a id="canonical-0f38d9d1cb01e016f10d9ee31fdf6dbaf5d59f4ed1cf50db20b9f36a2881bf84"></a>
+<a id="canonical-0033032031213101-3023000132000112-3301003121323203-0133313312312322-3311311121331032-3101303311003123-0200232133031222-0220200123332010"></a>
 
-<a id="canonical-cfd1cb315e4d5c95832af5347011ec3cab4cf6ab5ddadba807e370c86a66cc83"></a>
+<a id="canonical-3033310130230301-1132103111302111-2003022233110310-1300010132300330-2223103033122223-1131312231232220-0013320313003020-1222121230302003"></a>
 
-## upgradable_software_versions property — Property reference / 5849348f5c39 / 23
+## upgradable_software_versions property — Property reference / 203311300321 / 23
 
 Type: `["list", "string"]`. Computed.
 
-<a id="canonical-0cb2676acc07d96bc51550a70cf18660a95954c0ba6c16d5210608b1d61ef486"></a>
+<a id="canonical-0030230212131222-3030001331211223-3011011111002213-0030330120121200-2221112111103000-2322123001123111-0201001200202301-3112013233102012"></a>
 
-<a id="canonical-fa43a8abe817e550dcdeba142da5ef0c8cf2bd46c77db913bbaa09c398378e9c"></a>
+<a id="canonical-3322100322202223-3220011332111100-3130313223220110-0231221132330030-2030330223311012-3013133123210103-2323222200213003-2120031320322130"></a>
 
-## wait property — Property reference / 5849348f5c39 / 24
+## wait property — Property reference / 203311300321 / 24
 
 Type: `"bool"`. Optional, Computed.
 
-<a id="canonical-00bc5edd70b406962cfa010fd8a222c97fabd7ddee7885b29663155ac30df31a"></a>
+<a id="canonical-0000233011323131-1300231000122112-0230332200010033-3120220202023021-1333222331133131-3232132020112302-2112120301111122-3003003133030122"></a>
 
-## All schema paths — Property reference / 5849348f5c39 / 25
+## All schema paths — Property reference / 203311300321 / 25
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `eligible` | [eligible](data-sources--site_upgrade_status--reference--group-001.md#canonical-fb9c9a68440575af916f4020eb17961f42448186c017f2acdb8d25bff2ff196b) |
-| `expected_os_version` | [expected_os_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-1919ec64635de5373555e78bb38c649a927fd7ffc0e7d46368cc13aeadb987f9) |
-| `expected_software_version` | [expected_software_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-dd2c376a9a2a70f00baa07a08768beaa2e1442a2b5cc3a102fd0cdefa745358b) |
-| `failed_precheck_names` | [failed_precheck_names](data-sources--site_upgrade_status--reference--group-001.md#canonical-7b12643dc0431e45ce90263d64fcd62355b1033ce90b78f1a63145015b388d0b) |
-| `id` | [id](data-sources--site_upgrade_status--reference--group-001.md#canonical-0c8781c31090f526f9e73f74a261d596da4eceeac83742b0147d21d3573a718d) |
-| `os_available_version` | [os_available_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-f61ce58be63d5c08f0dd417339fa333f6222dbe7fcb984c192fdfecf87c8eb4a) |
-| `os_deployment_phase` | [os_deployment_phase](data-sources--site_upgrade_status--reference--group-001.md#canonical-9fd3363545b95b6b7ecd54adc5bf4e89dbc5bb28bbf9c625da0f7bdf655f2ffa) |
-| `os_deployment_result` | [os_deployment_result](data-sources--site_upgrade_status--reference--group-001.md#canonical-0f2a8f6e04297773f9792b8083b4a43fc52828e2e0c3b104541765d28989bc2c) |
-| `os_installed_version` | [os_installed_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-36d9b56fbd0bfb312340d34382602a14dd0db7ffc299292b83c30c1288058e08) |
-| `poll_interval_seconds` | [poll_interval_seconds](data-sources--site_upgrade_status--reference--group-001.md#canonical-660de612e892e2dcfe6f5f19e5e7690f1136ff11c973401cf0d988db459173f3) |
-| `ready` | [ready](data-sources--site_upgrade_status--reference--group-001.md#canonical-f08647ec409cf455908494c37008204821d1f0427d12ca0b5733d97012c4b27f) |
-| `site` | [site](data-sources--site_upgrade_status--reference--group-001.md#canonical-b91bd1fb0c609b110cfe9d6fb3310911e60274961e4ab431285c96e925db2017) |
-| `site_state` | [site_state](data-sources--site_upgrade_status--reference--group-001.md#canonical-9841fbd176d2d3b54d390f6bb6bd1509843c0d78264e9ef5f5346815dda5fd76) |
-| `software_available_version` | [software_available_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-460357a71ae26a77b78e0f872e707598915bc2ceb91bd19b42b9a895b3dfcbcd) |
-| `software_deployment_phase` | [software_deployment_phase](data-sources--site_upgrade_status--reference--group-001.md#canonical-4793e1129387f2fff42a0d25f0c34da97ae3b8e34733e34d7ee1fb0e8363ce23) |
-| `software_deployment_result` | [software_deployment_result](data-sources--site_upgrade_status--reference--group-001.md#canonical-baddb73c79589ffdf31498163dfd3ab0763bcfd6f9f79ed21021a8a5d1ba94fc) |
-| `software_installed_version` | [software_installed_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-c0f5a0710cba64703a3c9bcbfd89d44f79a0849dad6a4cb0aa4c356a8b32d5de) |
-| `target_converged` | [target_converged](data-sources--site_upgrade_status--reference--group-001.md#canonical-40594fd2efe9813ce65ba124205e1eb2fa3b182cf0ec3597f5b375a07b28d88d) |
-| `timeout_seconds` | [timeout_seconds](data-sources--site_upgrade_status--reference--group-001.md#canonical-3c836eb8fccdced53e2a23b98b00c56217973149caf63d1829b120e48d05d84d) |
-| `upgradable_software_versions` | [upgradable_software_versions](data-sources--site_upgrade_status--reference--group-001.md#canonical-0f38d9d1cb01e016f10d9ee31fdf6dbaf5d59f4ed1cf50db20b9f36a2881bf84) |
-| `wait` | [wait](data-sources--site_upgrade_status--reference--group-001.md#canonical-0cb2676acc07d96bc51550a70cf18660a95954c0ba6c16d5210608b1d61ef486) |
+| `eligible` | [eligible](data-sources--site_upgrade_status--reference--group-001.md#canonical-3323213021221220-1010001113112233-2101123310000200-3223011321120133-1002101020012012-3000011333022230-3123203102112333-3302333301211223) |
+| `expected_os_version` | [expected_os_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-0121012132301210-1203113132110313-0311111132132023-2303203012102122-2102133331133333-3000321331101203-1220303001032232-2231232120133321) |
+| `expected_software_version` | [expected_software_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-3131023003131222-2122022213003300-0023222200132200-2013122023322222-0232011010022202-2311303003220100-0233310030313233-2213101103112023) |
+| `failed_precheck_names` | [failed_precheck_names](data-sources--site_upgrade_status--reference--group-001.md#canonical-1323010212100331-3000100301321011-3032210002120331-1210333031120203-1111230100030330-3221002313203301-2212030110110001-1123032020310023) |
+| `id` | [id](data-sources--site_upgrade_status--reference--group-001.md#canonical-0030201320013003-0100210033110212-3321321303331310-2202120131112112-3122103230323222-3020031310022300-0110133102013103-1113032213012031) |
+| `os_available_version` | [os_available_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-3312013032112023-3212033111300020-3300313110011303-0321332203030333-1202020231233213-3330232120103001-2102333133323033-2013302032231022) |
+| `os_deployment_phase` | [os_deployment_phase](data-sources--site_upgrade_status--reference--group-001.md#canonical-2133310303120311-1011232111231223-1332303111102231-3011233310322021-3123301123230220-2323332130120211-3122003313233133-1211113302333322) |
+| `os_deployment_result` | [os_deployment_result](data-sources--site_upgrade_status--reference--group-001.md#canonical-0033022220331232-0010022113131303-3321132102232000-2003231022100333-3011022002203202-3200300323010010-1110011312113102-2021202123300230) |
+| `os_installed_version` | [os_installed_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-0312312123111233-2331002333230301-0203100031031003-2002120002220110-3131003123133333-3002212102210223-2003300300300102-2020001120320020) |
+| `poll_interval_seconds` | [poll_interval_seconds](data-sources--site_upgrade_status--reference--group-001.md#canonical-1212003132120102-3220210232023130-3332123311330121-3211321312210033-0101031233330101-3021130310000130-3300312120203123-1011210113033303) |
+| `ready` | [ready](data-sources--site_upgrade_status--reference--group-001.md#canonical-3300201210133230-1000213033101111-2100201021103003-1300002002001020-0201310133001002-1331010230220023-1113030331211300-0102301023021333) |
+| `site` | [site](data-sources--site_upgrade_status--reference--group-001.md#canonical-2321012331013323-0030120021230101-0030333221311233-2303030100210101-3212000213102112-0132102223100301-0220113021123221-0211312302000113) |
+| `site_state` | [site_state](data-sources--site_upgrade_status--reference--group-001.md#canonical-2120100133233101-1312310231032311-1031032100331223-2312233101110021-2010033000311320-0212103221323311-3311031012200111-3131221133311312) |
+| `software_available_version` | [software_available_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-1012000311132213-0122320212221313-2313203200332013-0232130013112120-2101112330023032-2321012331012123-1002232122202111-2303313330233031) |
+| `software_deployment_phase` | [software_deployment_phase](data-sources--site_upgrade_status--reference--group-001.md#canonical-1013210332010102-2103201333023333-3310022200310211-3300300310312221-1322320323203203-1013030332031031-1332320133230032-2003120330320203) |
+| `software_deployment_result` | [software_deployment_result](data-sources--site_upgrade_status--reference--group-001.md#canonical-2322313123130330-1321112021333331-3303011021200112-0331333103222300-1312032330333112-3321331321323102-0100020122202211-3101232221103330) |
+| `software_installed_version` | [software_installed_version](data-sources--site_upgrade_status--reference--group-001.md#canonical-3000331122001301-0030232212101300-0322033021233023-3331202131101033-1321220020102131-2231122210302300-2222103003111222-2023030231113132) |
+| `target_converged` | [target_converged](data-sources--site_upgrade_status--reference--group-001.md#canonical-1000112110333102-3233322120010330-3212112322010210-0200113201322302-3322032301200230-3300323003112113-3311230313112200-1323022031202031) |
+| `timeout_seconds` | [timeout_seconds](data-sources--site_upgrade_status--reference--group-001.md#canonical-0330200312322320-3330303130323111-0332022202032321-2023000030111202-0113211303011021-3022331203310120-0221230102003210-2031001131201031) |
+| `upgradable_software_versions` | [upgradable_software_versions](data-sources--site_upgrade_status--reference--group-001.md#canonical-0033032031213101-3023000132000112-3301003121323203-0133313312312322-3311311121331032-3101303311003123-0200232133031222-0220200123332010) |
+| `wait` | [wait](data-sources--site_upgrade_status--reference--group-001.md#canonical-0030230212131222-3030001331211223-3011011111002213-0030330120121200-2221112111103000-2322123001123111-0201001200202301-3112013233102012) |
 
-<a id="canonical-12996f4f92152dbd922d978ba8d57a1d30b7af4e13163a78a18841194eba773c"></a>
+<a id="canonical-0102212112331033-2102011102312331-2102023121132023-2220311113220131-0300231322331032-0103011203221320-2201202010010121-1032232213130330"></a>
 
-## Next pages — Property reference / 5849348f5c39 / 26
+## Next pages — Property reference / 203311300321 / 26
 
-- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-354cc1e18b1eae705be66b9b6e4a44fd8152a2aa13c69db8d19d96b451ff6445)
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)

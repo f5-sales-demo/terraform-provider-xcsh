@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_azure_vnet_site refe
 
 # xcsh_azure_vnet_site reference
 
-<a id="canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17"></a>
+<a id="canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf129cadece97320d596eebcbf9336a943b586cead7ad7990741b322002db9c2"></a>
+<a id="canonical-2333010221302231-3230322113030200-3111211232322330-2333210303122221-1003231120123032-2231132231132121-0013100123030202-0000023123213002"></a>
 
-## Property reference — Property reference / 2181621047d8 / 2
+## Property reference — Property reference / 010010133120 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 - Property reference
 
-<a id="canonical-33f89c29cf78cd790fabd6ec18befd456a49569af0f6994a94040edd5d55fa66"></a>
+<a id="canonical-0303332021300221-3033132030311321-0033222331123230-0120233233311011-1222102111122122-3300331221211022-2110001000323131-1131111133221212"></a>
 
-## Direct properties — Property reference / 2181621047d8 / 3
+## Direct properties — Property reference / 010010133120 / 3
 
-<a id="canonical-dab7241d40d9c5f2d7775736fed85dbee8dd369f8d5904c0b61350de51a49908"></a>
+<a id="canonical-3122231302100131-1000312130113302-3113131311130312-3332312011312332-3220313103122133-2031112100103000-2312010311003132-1101221021210020"></a>
 
-<a id="canonical-be5689a8f6f0d3df2abc2a28a061eaf221b7dccefdfa42a9f81ee0cdead45e00"></a>
+<a id="canonical-2332111220212220-3312330031033133-0222233002220220-2200120132223302-0201231331303032-3331332210022221-3320013232003031-3222311011320000"></a>
 
-## address property — Property reference / 2181621047d8 / 4
+## address property — Property reference / 010010133120 / 4
 
 Type: `"string"`. Computed.
 
@@ -66,22 +66,22 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [admin_password](data-sources--azure_vnet_site--reference--group-003.md#canonical-1a89f0e7e6b9bcfe5177d50035410a8c6e2c9fa52534c2a498b911ab328e9f9e): complete subsection reference.
+- [admin_password](data-sources--azure_vnet_site--reference--group-003.md#canonical-0122202133003213-3212232123303332-1101131331110000-0311100100222030-1232023021332211-0211031030022210-2120232101012223-0302203221332132): complete subsection reference.
 
-<a id="canonical-127257e5489363f188ed2392a950f786be6e2ddcce1aa0b77ab3231542015fcd"></a>
+<a id="canonical-0102130211133211-1020210312033301-2020323102032102-2221110033132012-2332123202313130-3032012222002313-1322230302030111-1002000111333031"></a>
 
-<a id="canonical-f34c5a99bdc9e4962d415eed2c3c2f6693daa1e2067359bdac9627985c18ea87"></a>
+<a id="canonical-3303103011222121-2331302132102112-0231100111323231-0230033002331212-2103312222013202-0012130311212331-2230211202132120-1130012032222013"></a>
 
-## alternate_region property — Property reference / 2181621047d8 / 5
+## alternate_region property — Property reference / 010010133120 / 5
 
 Type: `"string"`. Computed.
 
-\[OneOf: alternate\_region, azure\_region\] Exclusive with \[azure\_region\] Name of the Azure
+\[OneOf: alternate\_region, Azure\_region\] Exclusive with \[Azure\_region\] Name of the Azure
 region which does not support availability zones.
 
 Upstream description:
 
-Exclusive with \[azure\_region\] Name of the Azure region which does not support availability zones.
+Exclusive with \[Azure\_region\] Name of the Azure region which does not support availability zones.
 
 Receipt-pinned upstream constraints:
 
@@ -116,16 +116,16 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [alternate_region](data-sources--azure_vnet_site--reference--group-001.md#canonical-127257e5489363f188ed2392a950f786be6e2ddcce1aa0b77ab3231542015fcd)
-- [azure_region](data-sources--azure_vnet_site--reference--group-001.md#canonical-3133b9405001a497e9eca1ae6b88fb071f611616ec6c482bd18a6e1764200953)
+- [alternate_region](data-sources--azure_vnet_site--reference--group-001.md#canonical-0102130211133211-1020210312033301-2020323102032102-2221110033132012-2332123202313130-3032012222002313-1322230302030111-1002000111333031)
+- [azure_region](data-sources--azure_vnet_site--reference--group-001.md#canonical-0301030323211000-1100000122102113-3221323022012232-1223202033230013-0133120101120112-3230123010200223-3101202212320113-1210020000211103)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-7e418b1e8ff8301b737f3cef46faca8f86ebd37026c7ccf4d512776ddafd06c9"></a>
+<a id="canonical-1332100120230132-2033332003000123-1303133303303233-1012332230222033-2012322331031300-0212301330303310-3111010213131231-3122333100123021"></a>
 
-<a id="canonical-87dc5285ee7176a6b0a8994cad819c25ce5e0ffee048db9cbd5355699961b63c"></a>
+<a id="canonical-2013313011022011-3232130113122212-2300222021211030-2231200121300211-3032113200333332-3200102031232130-2331110311111221-2121120123120330"></a>
 
-## annotations property — Property reference / 2181621047d8 / 6
+## annotations property — Property reference / 010010133120 / 6
 
 Type: `["map", "string"]`. Computed.
 
@@ -133,7 +133,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -162,13 +162,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [azure_cred](data-sources--azure_vnet_site--reference--group-003.md#canonical-b21bed6e8628c7216a487fd4a5e375f59520eaba89cfd1018754ce10830eebdb): complete subsection reference.
+- [azure_cred](data-sources--azure_vnet_site--reference--group-003.md#canonical-2302012332311232-2012022030130201-1222102013333110-2211320313113311-2111020032222322-2021303331010001-2013111030320100-2003003232233123): complete subsection reference.
 
-<a id="canonical-3133b9405001a497e9eca1ae6b88fb071f611616ec6c482bd18a6e1764200953"></a>
+<a id="canonical-0301030323211000-1100000122102113-3221323022012232-1223202033230013-0133120101120112-3230123010200223-3101202212320113-1210020000211103"></a>
 
-<a id="canonical-eec5759fa06cb8502af2daa16f5546f9e97d7ad32c5b221a22cc36f781bef49b"></a>
+<a id="canonical-3232301113112133-2200123023201100-0222330231222201-1233111110123321-3221133113223103-0230112302020122-0202303003123313-2001233233102123"></a>
 
-## azure_region property — Property reference / 2181621047d8 / 7
+## azure_region property — Property reference / 010010133120 / 7
 
 Type: `"string"`. Computed.
 
@@ -209,21 +209,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [block_all_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-09b38e222f95d396a200ee40392cfbfd45374863bfdfa2d7b3bd8970497cb810): complete subsection reference.
+- [block_all_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-0021230320320202-0233211131032112-2202000032321000-0321023033233331-1011031310201203-2333313322023113-2303233120211300-1021133023200100): complete subsection reference.
 
-- [blocked_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-67325104c94d07874d8339b4c13ff70d60796dada4353dc8e17f7a394b4fef06): complete subsection reference.
+- [blocked_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-1213030211010010-3021103100132013-1031200303212310-3001033333130031-1200132112312231-2210031103313020-3201133313220321-1023103332330012): complete subsection reference.
 
-- [coordinates](data-sources--azure_vnet_site--reference--group-003.md#canonical-a9317ff5fda9cec68c5760219234cab9edcfec3147cff76b51fab7e3a955e7d7): complete subsection reference.
+- [coordinates](data-sources--azure_vnet_site--reference--group-003.md#canonical-2221030113333311-3331222130323012-2030111312000201-2102031030222321-3231303332300301-1013303333131223-1101332223133203-2221111132133113): complete subsection reference.
 
-- [custom_dns](data-sources--azure_vnet_site--reference--group-003.md#canonical-e2e793591316e3081ad55c1aefe5796e694efe21a578d575d8fd1ff0e8fbf03c): complete subsection reference.
+- [custom_dns](data-sources--azure_vnet_site--reference--group-003.md#canonical-3202321321031121-0103011232030020-0122311111300122-3233321113211232-1221103233320201-2211132031111311-3120333101333300-3220332333000330): complete subsection reference.
 
-- [default_blocked_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-7d24bf85a14ffb122c47f20beb266f6d8de90059cc37f27b7da319c335333c96): complete subsection reference.
+- [default_blocked_services](data-sources--azure_vnet_site--reference--group-003.md#canonical-1331021023332011-2201103333230102-0230101333020023-3223021212331231-2031322100001121-3030031333021323-1331220301213003-0311030303302112): complete subsection reference.
 
-<a id="canonical-7ef107904742a5616aae869f9683434943f626a1ec12f7e40974547f8d6b0d38"></a>
+<a id="canonical-1332330100132100-1013100222111201-1222223220122133-2112200310031021-1003331202122201-3230010233133210-0021131011101333-2031122300310320"></a>
 
-<a id="canonical-171b84c61442d35fb9c37bc542165838bdf12e20ae2cb9cd88e99355eac84108"></a>
+<a id="canonical-0113012320103012-0110100231031133-2321300313233011-1002011211200320-2331330102320200-2232023023213031-2020322121031111-3222302010010020"></a>
 
-## description property — Property reference / 2181621047d8 / 8
+## description property — Property reference / 010010133120 / 8
 
 Type: `"string"`. Computed.
 
@@ -271,13 +271,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_encryption](data-sources--azure_vnet_site--reference--group-003.md#canonical-548427ec503920ebc5bd16b9ed510eaafbd0bb6630fa283762152162e7c10917): complete subsection reference.
+- [disable_encryption](data-sources--azure_vnet_site--reference--group-003.md#canonical-1110201002133230-1100032102003223-3011233101122321-3231110100322222-3323310023231212-0300332202200313-1202011102011202-3213300100210113): complete subsection reference.
 
-<a id="canonical-a5ffc41b58388cc04a09183820dbb2935ff6df6e1876702b15e42db7576d3c51"></a>
+<a id="canonical-2211333330100123-1120032020303000-1022002101200320-0200312323022103-1133331231331232-0120131213000223-0111321002312313-1113123103301101"></a>
 
-<a id="canonical-f7298bb29af8b749af830d1bef86531923872611873469c25277f339cfb9881d"></a>
+<a id="canonical-3313022120232302-2122332023131021-2233200300310123-3233201211030121-0203201302120101-2013031012213002-1102131333030321-3033232120200131"></a>
 
-## disk_size property — Property reference / 2181621047d8 / 9
+## disk_size property — Property reference / 010010133120 / 9
 
 Type: `"number"`. Computed.
 
@@ -317,33 +317,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_encryption](data-sources--azure_vnet_site--reference--group-003.md#canonical-d99609a79b5132232d0bf4fc94b99b930299e9135bc8cad67fb8cf7c3df65297): complete subsection reference.
+- [enable_encryption](data-sources--azure_vnet_site--reference--group-003.md#canonical-3121211200212213-2123110103020203-0231002333103330-2110232121232103-0002212132210103-1123302030223112-1333232030331330-0331331211022113): complete subsection reference.
 
-<a id="canonical-3b9c44831d5c9898a2fb11d89f2cb28df1f27be9c511d6212fb5e2f9fdb63fd2"></a>
+<a id="canonical-0323213010102003-0131113021202120-2202332301013120-2133023023022031-3301330213233221-3011010131120201-0233231132023321-3331231203333102"></a>
 
-<a id="canonical-295e85c93e644b740a997d8c0fd4f91f1a4c324d1c87e8cf848c1ff2f60d7acd"></a>
+<a id="canonical-0221113220113021-0332121010231310-0022212113312030-0033311033210133-0122103003021031-0130201332203033-2010203001333302-3312003113223031"></a>
 
-## id property — Property reference / 2181621047d8 / 10
+## ID property — Property reference / 010010133120 / 10
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [ingress_egress_gw](data-sources--azure_vnet_site--reference--group-003.md#canonical-62bd839d85e58a58fd242f704ee2ebdffdbab208160d824c7aba98fb9a0caf16): complete subsection reference.
+- [ingress_egress_gw](data-sources--azure_vnet_site--reference--group-003.md#canonical-1202233120032131-2011321120221120-3331021002331300-1032320232233133-3331232223020020-0112003120021030-1322232221203323-2122003022330112): complete subsection reference.
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5): complete subsection reference.
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111): complete subsection reference.
 
-- [ingress_gw](data-sources--azure_vnet_site--reference--group-007.md#canonical-dd08dca1dd832961f9cb82aa1953d8dd272fdd8d597cb1b22d06d4ce23d8a901): complete subsection reference.
+- [ingress_gw](data-sources--azure_vnet_site--reference--group-007.md#canonical-3131002031302201-3131200302211201-3321302320022222-0121110331203131-0213023331312031-1121133023012302-0231001231103032-0203312022210001): complete subsection reference.
 
-- [ingress_gw_ar](data-sources--azure_vnet_site--reference--group-007.md#canonical-9c0501d24be91d8ead0aff7cd66024d0a1b0773dd2a304d184993697820fbe3a): complete subsection reference.
+- [ingress_gw_ar](data-sources--azure_vnet_site--reference--group-007.md#canonical-2130001100013102-1023322101312032-2231002233331330-3112120002103100-2201230013130331-3102220300103101-2010212103122113-2002003323320322): complete subsection reference.
 
-- [kubernetes_upgrade_drain](data-sources--azure_vnet_site--reference--group-008.md#canonical-9d91b4d3269c468f37e5b1c26a807d4e08c4d28f8020f29879ec6f29f6fd447d): complete subsection reference.
+- [kubernetes_upgrade_drain](data-sources--azure_vnet_site--reference--group-008.md#canonical-2131210123103103-0212213010122033-0313321123013002-1222200013311032-0020301031022033-2000020033022120-1321323012330221-3312333110101331): complete subsection reference.
 
-<a id="canonical-09375c4ddd02b63249077dc69f4bd0adbd6036c3b08d8adb678a95a541ac3b7f"></a>
+<a id="canonical-0021031311301031-3131000223120302-1021001313313012-2133102331002231-2331120003123003-2300203120223123-1213202221112211-1001223003231333"></a>
 
-<a id="canonical-ab1b998759e9c24a3879b3ded21281dd35e572bb56ed61c4d5459022a7858746"></a>
+<a id="canonical-2223012321212013-1121322130021022-0320132123033132-3102010220013131-0311321113022323-1112323112013010-3111101121000202-2213201120131012"></a>
 
-## labels property — Property reference / 2181621047d8 / 11
+## labels property — Property reference / 010010133120 / 11
 
 Type: `["map", "string"]`. Computed.
 
@@ -367,15 +367,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [log_receiver](data-sources--azure_vnet_site--reference--group-008.md#canonical-b99b8524e1a013a6a72d3a9f7661fed1c7864e36e3eea957a9dd57c77fbba74a): complete subsection reference.
+- [log_receiver](data-sources--azure_vnet_site--reference--group-008.md#canonical-2321212320110210-3201220001032212-2213023103222133-1312120133323101-3013201210320312-3203323222211113-2221313111133013-1333232322131022): complete subsection reference.
 
-- [logs_streaming_disabled](data-sources--azure_vnet_site--reference--group-008.md#canonical-50ddbe15a0b4f8cc869258011a291f265fb6150a389032ac6a5688aa0c3150cc): complete subsection reference.
+- [logs_streaming_disabled](data-sources--azure_vnet_site--reference--group-008.md#canonical-1100313123320111-2200231033203030-2012210211200001-0122022101330212-1133231201110022-0320210003022230-1222111220202222-0030030111003030): complete subsection reference.
 
-<a id="canonical-c997d7228e8d665ff1164308c3e433bba07c33b728bde325bd71283e75cb26dc"></a>
+<a id="canonical-3021211331130202-2032203112121133-3301011210030020-3003321003032323-2200133003032313-0220233132030211-2331130102200332-1311302302123130"></a>
 
-<a id="canonical-4e1829eba87a932b81fc3e3962e8e05dc26bb7c246d151e37229e70274f04026"></a>
+<a id="canonical-1032012002213223-2220132221030223-2001333003320321-1202322032001131-3002122323133002-1012310111013203-1302022132130002-1310330010000212"></a>
 
-## machine_type property — Property reference / 2181621047d8 / 12
+## machine_type property — Property reference / 010010133120 / 12
 
 Type: `"string"`. Computed.
 
@@ -422,11 +422,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22e5c50a466294bb79c6d712f766f184652bae948e8d6eb636ecc1e6bacb6eb5"></a>
+<a id="canonical-0202321130110022-1012120221102323-1321301231130102-3313121233012010-1211022322322110-2032203112322312-0312323030013212-2322302312322311"></a>
 
-<a id="canonical-e69781dc45e5ae084a21ca0af0308f9cd0814d1db5cbf814c329885c8a207ceb"></a>
+<a id="canonical-3212211320013130-1011321122320020-1022020130220022-3300030020332130-3100200110310131-2311302333200110-3003022120201130-2022020013303223"></a>
 
-## name property — Property reference / 2181621047d8 / 13
+## name property — Property reference / 010010133120 / 13
 
 Type: `"string"`. Required.
 
@@ -482,11 +482,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb2a20a9e6f997d9461277b3cb8601c6f3f48b9a48eeda1ccc54665dda4add8e"></a>
+<a id="canonical-3023022202002221-3212332121133121-1012010213132303-3023201200013012-3303331020232122-1020323231220130-3030111012121131-3122102231312032"></a>
 
-<a id="canonical-ef27ab9da276ed9a617f1aaaa63b8dff2c2d456484422a2f059895fb1d0ca9a6"></a>
+<a id="canonical-3233021322232131-2202131232312122-1201133301222222-2212032320313333-0230023110111210-2010100202220233-0011212021113323-0131003022212212"></a>
 
-## namespace property — Property reference / 2181621047d8 / 14
+## namespace property — Property reference / 010010133120 / 14
 
 Type: `"string"`. Optional, Computed.
 
@@ -535,13 +535,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_worker_nodes](data-sources--azure_vnet_site--reference--group-008.md#canonical-3dde6c9991cabec13fc09da9b97b5e4b5c4b8c57f696f860679ba7ba45452227): complete subsection reference.
+- [no_worker_nodes](data-sources--azure_vnet_site--reference--group-008.md#canonical-0331313212302121-2101302223323001-0333300021312221-2321132311321023-1130102320301113-3312211233201200-1213212322132322-1011101102020213): complete subsection reference.
 
-<a id="canonical-7ece710b97abfc4379f02edc9ed52bc729ac4a083599346d19bb2b0bcaa76c78"></a>
+<a id="canonical-1332303213010023-2113222333301003-1321330002323130-2132311102233013-0221223010220020-0311212103101231-0121232302230023-3022221312301320"></a>
 
-<a id="canonical-f66b18c55aff3f6c7acfadf21a58f3718f12bea800f92c8f8176622e689f6e82"></a>
+<a id="canonical-3312122301203011-1122333303331230-1322303322313302-0122112033031301-2033010223322220-0000332102302033-2001131212020232-1220213312322002"></a>
 
-## nodes_per_az property — Property reference / 2181621047d8 / 15
+## nodes_per_az property — Property reference / 010010133120 / 15
 
 Type: `"number"`. Computed.
 
@@ -586,15 +586,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [offline_survivability_mode](data-sources--azure_vnet_site--reference--group-008.md#canonical-505af7c60d9977df112766d44d329998bfd8676f72709f37807c8a30d3beb8dd): complete subsection reference.
+- [offline_survivability_mode](data-sources--azure_vnet_site--reference--group-008.md#canonical-1100112233133012-0031212113133133-0101021312123110-1031030221212120-2333312012131233-1302130021330313-2000133020220300-3103233223203131): complete subsection reference.
 
-- [os](data-sources--azure_vnet_site--reference--group-008.md#canonical-ad91ef1a8c575ad8a704453f901a847cca12446e9b798a946f001a6b78ae9f43): complete subsection reference.
+- [os](data-sources--azure_vnet_site--reference--group-008.md#canonical-2231210132330122-2030111311223120-2213001010110333-2100012220101330-3022010210101232-2123132120222110-1233000001221223-1320223221331003): complete subsection reference.
 
-<a id="canonical-c50574a78c32a51c24535b998c3c4d6ffd2395e07c8c556cedf6171788722029"></a>
+<a id="canonical-3011001113102213-2030030222110130-0210110311232121-2030033010311233-3331020321113200-1330203011111230-3231331201130113-2020130202000221"></a>
 
-<a id="canonical-1eb6fc3f46740170a24c2ba3a1a9a4ed72880b968dbeb004e81fd12ec1bfc315"></a>
+<a id="canonical-0132231233300333-1012131000011300-2202103002232203-2201222122103231-1302202000232112-2031233223000010-3220013331010232-3001233330030111"></a>
 
-## resource_group property — Property reference / 2181621047d8 / 16
+## resource_group property — Property reference / 010010133120 / 16
 
 Type: `"string"`. Computed.
 
@@ -637,11 +637,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d29cb8a584b3ff3e79f38247edabbe600240b26125c21eaa6305ee6994d36a2a"></a>
+<a id="canonical-3102213023202211-2010230333330332-1321330320021013-3231222323321200-0002100023021201-0211300201322222-1203001132321221-2110310312220222"></a>
 
-<a id="canonical-94b4197d8b6e6f31363c5ca4feb85fbf861a322be0a199f5f59c7816e103223a"></a>
+<a id="canonical-2110231001211331-2023123212330301-0312033011302210-3332232011332333-2012012203020223-3200220121213311-3311213013200112-3201000302020322"></a>
 
-## ssh_key property — Property reference / 2181621047d8 / 17
+## ssh_key property — Property reference / 010010133120 / 17
 
 Type: `"string"`. Computed.
 
@@ -688,13 +688,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [sw](data-sources--azure_vnet_site--reference--group-008.md#canonical-d758a0c910bf13db8ddd772fbbacefc572ecd33de2a09929b0f08904f1ea8116): complete subsection reference.
+- [sw](data-sources--azure_vnet_site--reference--group-008.md#canonical-3113112022003021-0100233301033123-2031313113130233-2323223032333011-1302323031030331-3202220021210221-2300330020210010-3301322220010112): complete subsection reference.
 
-<a id="canonical-73c8b565edd1311f04cb2045dfb020d60e02d67739e86df738fd23f13f275ce2"></a>
+<a id="canonical-1303302023111211-3231310103010133-0010302302001011-3133230002003112-0032000231121313-0321322012313313-0320333102033301-0333021311303202"></a>
 
-<a id="canonical-04d748ea47c8e27436e427d1782f028891d7926b3bfaed6e16b34df4a2a81296"></a>
+<a id="canonical-0010311310203222-1013302032021310-0312321002133101-1320023300022020-2101311321021223-0323332232311232-0112230310313310-2202222001022112"></a>
 
-## tags property — Property reference / 2181621047d8 / 18
+## tags property — Property reference / 010010133120 / 18
 
 Type: `["map", "string"]`. Computed.
 
@@ -730,11 +730,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6744264082a13fd5eb9e4a545a0887d9a23b73fefa85f23f734800095ba47b17"></a>
+<a id="canonical-1213101002121000-2002220103333111-3223213210221110-1122002020133121-2202032313033332-3322201133020333-1303102000000021-1123221013230113"></a>
 
-<a id="canonical-1ea48262918625a3ae26d3f0b3b3a5a781153591f52e95308ece4d282fd169ec"></a>
+<a id="canonical-0132221020021202-2101201202112203-2232021231033300-2303230322112213-2001011103112101-3311023221110300-2032303210310220-0233310112213230"></a>
 
-## total_nodes property — Property reference / 2181621047d8 / 19
+## total_nodes property — Property reference / 010010133120 / 19
 
 Type: `"number"`. Computed.
 
@@ -779,10 +779,10 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet](data-sources--azure_vnet_site--reference--group-008.md#canonical-65c989ffc21754741fafe57c771fc79f8a91db922463bf8a0b699799d04e4a5a): complete subsection reference.
+- [vnet](data-sources--azure_vnet_site--reference--group-008.md#canonical-1211302120213333-3002011311101310-0133223332111330-1313013330132133-2022210131232102-0210120323332022-0023122121132121-3100103210221122): complete subsection reference.
 
-- [voltstack_cluster](data-sources--azure_vnet_site--reference--group-008.md#canonical-0be67d2d7b5bbccba8043c7cc827083a7accdc2484c337bdd8b596fe11dde700): complete subsection reference.
+- [voltstack_cluster](data-sources--azure_vnet_site--reference--group-008.md#canonical-0023321213310231-1323112323303023-2220001003301330-3020021300200322-1322303031300210-2010300303132331-3120231121123332-0101313132130000): complete subsection reference.
 
-- [voltstack_cluster_ar](data-sources--azure_vnet_site--reference--group-009.md#canonical-07f7cbdbcc30193eb1eca8a3acc6cf23b4fc6c1b14d5c89d19158bd01a5f0197): complete subsection reference.
+- [voltstack_cluster_ar](data-sources--azure_vnet_site--reference--group-009.md#canonical-0013331330233123-3030030001210332-2301323022202203-2230301230330203-2310333012300123-0110311130202131-0121011120233100-0122113300012113): complete subsection reference.
 
-- [waf_signatures](data-sources--azure_vnet_site--reference--group-010.md#canonical-16645207c364e82299693024e80142d2a5ca8e82de875ea58d822f036f12778d): complete subsection reference.
+- [waf_signatures](data-sources--azure_vnet_site--reference--group-010.md#canonical-0112121011020013-3003121032200202-2121122103000210-3220000110023102-2211302220322002-3132201311322211-2031200202330003-1233010213132031): complete subsection reference.

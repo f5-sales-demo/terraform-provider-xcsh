@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_log_receiver referen
 
 # xcsh_log_receiver reference
 
-<a id="canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1"></a>
+<a id="canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2223f8eff5b6a3438404b418e74375ae0c26778d4251dc68e001f1fc63d0c4dd"></a>
+<a id="canonical-0202020333203233-3311231222031003-2010001023100120-3213100313112232-0030021213132031-1002110131301220-3200000133013330-1203310030103131"></a>
 
-## Property reference — Property reference / 2860a3b8db11 / 2
+## Property reference — Property reference / 232031230101 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 - Property reference
 
-<a id="canonical-addbb16a5c1a45d54ab30e7a6cdd6bac96de7dc4adea4282e7eaf689a1ab8c61"></a>
+<a id="canonical-2231312323011222-1130012210113111-1022230300321322-1230313112232230-2112313213313010-2231322210022002-3213322233122021-2201222320301201"></a>
 
-## Direct properties — Property reference / 2860a3b8db11 / 3
+## Direct properties — Property reference / 232031230101 / 3
 
-<a id="canonical-a7854974e6e91b91b772f86d69a7b0107c6f9349e3f35ef24a276f339f090b02"></a>
+<a id="canonical-2213201110211310-3212322101232101-2313130233201231-1221221323000100-1330123321031021-3203330311323302-1022021312330303-2133002100230002"></a>
 
-<a id="canonical-192bbb568358d78fd63a62f597ee195ee7a5ba9681616770b3558adfdaef7865"></a>
+<a id="canonical-0121022323231112-2003112031132033-3112032212023311-2113323201211132-3213221123222112-2001120112131300-2303111120223133-3122323313201211"></a>
 
-## annotations property — Property reference / 2860a3b8db11 / 4
+## annotations property — Property reference / 232031230101 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89dba7208acf0d38c8e6a872e5ba95f2e366ecc890539958453dd64a5ebc2a35"></a>
+<a id="canonical-2021312322130200-2022303300310320-3020321222201302-3211232221113302-3203121232303020-2100110321211120-1011033131121022-1132233002220311"></a>
 
-<a id="canonical-295e35107a56d226622f8cbca9c863295bd47b71f1d5481bc1f01aeeb547e27c"></a>
+<a id="canonical-0221113203110100-1322111231020212-1202023320302330-2221302012030221-1123311013231301-3301311110200123-3001330001223232-2311101332021330"></a>
 
-## description property — Property reference / 2860a3b8db11 / 5
+## description property — Property reference / 232031230101 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-820905da4722252944b3e9ddc3d4ffc03ce4e885cb470fa983cdac69278c056a"></a>
+<a id="canonical-2002002100113122-1013020202110221-1010230332213131-3003311033333000-0330321032202011-3023101300332221-2003303122301221-0213203000111222"></a>
 
-<a id="canonical-179d0e5dc921044f185d5ae9c1358970d5dc78fd06425be0b58f4a499cc54935"></a>
+<a id="canonical-0113213100321131-3021020100101033-0120113111223221-3001031120211300-3111313013203331-0012100211233200-2311203310221021-2130301110210311"></a>
 
-## disable property — Property reference / 2860a3b8db11 / 6
+## disable property — Property reference / 232031230101 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,25 +142,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1a83b9f883cd742928eed494b1885e1fedf18d9dc61763f6ba1cca59f3d47e22"></a>
+<a id="canonical-0122200323213320-2003303113100221-0220323231102110-2301202011320133-3231330120312131-3012011312033312-2322013030221121-3303311013320202"></a>
 
-<a id="canonical-c790e204102b376775b3f6d436eab39b7a0c017691ee9051746c9c79c552851a"></a>
+<a id="canonical-3013210032020010-0100022303131213-1311230333123110-0312322223032123-1322003000011312-2101323221001101-1310123021301321-3011110220110122"></a>
 
-## id property — Property reference / 2860a3b8db11 / 7
+## ID property — Property reference / 232031230101 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-dedca48af0b999cd3657628949cda9ae1d19839136f41be383d8be9b2e0c268b"></a>
+<a id="canonical-3132313022102022-3300232121213031-0312111312022021-1021303122212232-0131012120032101-0312331001233203-2003312023322123-0232003002122023"></a>
 
-<a id="canonical-a7d8ce438cb5fba7979c48d236179124d9c7e1c417c8e2a9e5add35ad2233bde"></a>
+<a id="canonical-2213312030321003-2030231133232213-2113213010203102-0312011321010210-3121301332013010-0113302032022221-3211223131031122-3102020303233132"></a>
 
-## labels property — Property reference / 2860a3b8db11 / 8
+## labels property — Property reference / 232031230101 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -181,11 +181,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e3cedaa86fa410ba4751ff7304588542608c66a92bfec4d397e185860609b313"></a>
+<a id="canonical-3203303231222220-1233221001002322-1013110133331303-0010112020111002-1200203012122221-0223333230103103-2113320120112012-0012002123030103"></a>
 
-<a id="canonical-48520f67bec8c4d2162ac32d3cde78083dc1b7c34834a01e937b16bf888dca2b"></a>
+<a id="canonical-1020110200331213-2332302030103102-0112022230030231-0330313213200020-0331300123133003-1020031022000132-2103132301122333-2020203130220223"></a>
 
-## name property — Property reference / 2860a3b8db11 / 9
+## name property — Property reference / 232031230101 / 9
 
 Type: `"string"`. Required.
 
@@ -249,11 +249,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d04b7dfea3edb4eefea89e7fba09e712372c2c88e37ccf1ca1cd0b26bf1666c6"></a>
+<a id="canonical-3100102313313332-2203323123103232-3332222021321333-2322002132130102-0313023002302020-3203133030330130-2201303100230212-2333011212123012"></a>
 
-<a id="canonical-bd2e5426d9bce4363f7f58411b61f8056d290a27b00b8722ddb0ecaedde89c71"></a>
+<a id="canonical-2331023211100212-3121233032100312-0333133311201001-0123120133200011-1231022100220213-2300002320130202-3131230032302232-3131322021301301"></a>
 
-## namespace property — Property reference / 2860a3b8db11 / 10
+## namespace property — Property reference / 232031230101 / 10
 
 Type: `"string"`. Required.
 
@@ -310,86 +310,86 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_local](resources--log_receiver--reference--group-001.md#canonical-9bfdd8780bc26e228d2dc526f5e469b82286b25af21d5dd772989264232a6e4d): complete subsection reference.
+- [site_local](resources--log_receiver--reference--group-001.md#canonical-2123333131201320-0023300212320202-2031023130110212-3311321012212320-0202201223021122-3302013111313113-1302212021021210-0203022212321031): complete subsection reference.
 
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d): complete subsection reference.
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231): complete subsection reference.
 
-- [timeouts](resources--log_receiver--reference--group-001.md#canonical-9c77ae414286862fafbb9218e1483a458a6c06d4bf7bf5ec8aaca80a4ee18cb9): complete subsection reference.
+- [timeouts](resources--log_receiver--reference--group-001.md#canonical-2130131322321001-1002201220120233-2233232321020120-3201102003221011-2022123000123110-2333132333113230-2022223022200022-1032320120302321): complete subsection reference.
 
-<a id="canonical-20e3c0f379107444dc85276e909616a62527d75d456da569f1eb176ada070d43"></a>
+<a id="canonical-0200320330003303-1321010013101010-3130201102131232-2100211201122212-0211021331131131-1011123122111221-3301322301131222-3122001300311003"></a>
 
-## All schema paths — Property reference / 2860a3b8db11 / 11
+## All schema paths — Property reference / 232031230101 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--log_receiver--reference--group-001.md#canonical-a7854974e6e91b91b772f86d69a7b0107c6f9349e3f35ef24a276f339f090b02) |
-| `description` | [description](resources--log_receiver--reference--group-001.md#canonical-89dba7208acf0d38c8e6a872e5ba95f2e366ecc890539958453dd64a5ebc2a35) |
-| `disable` | [disable](resources--log_receiver--reference--group-001.md#canonical-820905da4722252944b3e9ddc3d4ffc03ce4e885cb470fa983cdac69278c056a) |
-| `id` | [id](resources--log_receiver--reference--group-001.md#canonical-1a83b9f883cd742928eed494b1885e1fedf18d9dc61763f6ba1cca59f3d47e22) |
-| `labels` | [labels](resources--log_receiver--reference--group-001.md#canonical-dedca48af0b999cd3657628949cda9ae1d19839136f41be383d8be9b2e0c268b) |
-| `name` | [name](resources--log_receiver--reference--group-001.md#canonical-e3cedaa86fa410ba4751ff7304588542608c66a92bfec4d397e185860609b313) |
-| `namespace` | [namespace](resources--log_receiver--reference--group-001.md#canonical-d04b7dfea3edb4eefea89e7fba09e712372c2c88e37ccf1ca1cd0b26bf1666c6) |
-| `site_local` | [site_local](resources--log_receiver--reference--group-001.md#canonical-e3afd9e56fbc82cf400955cbf5e9649f808bf1fd035368f16416b954911e8e2b) |
-| `syslog` | [syslog](resources--log_receiver--reference--group-001.md#canonical-db5e9ea7503adddea3048dca908d006175559295ff23adade808f4a6cb1fb7e1) |
-| `syslog.syslog_rfc5424` | [syslog.syslog_rfc5424](resources--log_receiver--reference--group-001.md#canonical-5d19a9898ef241aab6654f9f369217cd1dea7dae6d8562354e9b4fac229baf13) |
-| `syslog.tcp_server` | [syslog.tcp_server](resources--log_receiver--reference--group-001.md#canonical-65be102e91aa7944f2ad6a69d18f15b09532b319a77b8ba410a14d3271267f47) |
-| `syslog.tcp_server.port` | [syslog.tcp_server.port](resources--log_receiver--reference--group-001.md#canonical-d4a266e4291fc04ed01d2aab76775c9882c86fca0f59144fce0315f5147d10f3) |
-| `syslog.tcp_server.server_name` | [syslog.tcp_server.server_name](resources--log_receiver--reference--group-001.md#canonical-07b2b55c310407d050961706c1fda8fbcae6d60b175ac7ba24cb96608ab57088) |
-| `syslog.tls_server` | [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-082f2063afc7494afb601ccb275061342f3791c2018cb8eea6bda9ed017352f8) |
-| `syslog.tls_server.default_https_port` | [syslog.tls_server.default_https_port](resources--log_receiver--reference--group-001.md#canonical-46d87970e939247743adedabdb7a860900149999b5806bedfe912b0bf767847b) |
-| `syslog.tls_server.default_syslog_tls_port` | [syslog.tls_server.default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-eadc4cc0ce99e78827fc5cc58dbf31c500ade1585ae1691e127306ac9a139c37) |
-| `syslog.tls_server.mtls_disabled` | [syslog.tls_server.mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-fd71c0b248c6c2d1eec25279b9dc948b5c40490f16089b922583ffcbeb7e4b3d) |
-| `syslog.tls_server.mtls_enable` | [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3e2f31f1ca1538e82161cdc827168bab8671eb560ffce14c48d6ea86eeac94d3) |
-| `syslog.tls_server.mtls_enable.certificate` | [syslog.tls_server.mtls_enable.certificate](resources--log_receiver--reference--group-001.md#canonical-d445c177864bdae92658faf55e6e2382b988dee5f7647c8a7eb16b131d96f5e2) |
-| `syslog.tls_server.mtls_enable.key_url` | [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-896e5015d97e3b9337e616c2b43b78877f3e986b97bdd89e219a44d2b12fe143) |
-| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-cc68d6314df0795772f1265497f9ed5c84ac1bdad6380b2997cf03f4270fb895) |
-| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.decryption_provider](resources--log_receiver--reference--group-001.md#canonical-53508740443ad1be1db735325cd2d524beb37884ca20b57d8d076924d099f901) |
-| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.location` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.location](resources--log_receiver--reference--group-001.md#canonical-9b6130d37b921ab933d9ba2f5b91ae06d40ccd6127680eb1723138b59ded6809) |
-| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.store_provider` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.store_provider](resources--log_receiver--reference--group-001.md#canonical-d89491e1f3943a07d4e21a712728196b70fb63a2e2a53d7e883ad4f544fb6f30) |
-| `syslog.tls_server.mtls_enable.key_url.clear_secret_info` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-134f5d15abf06ef95f50688e83bf41b1811d439a7b764d32e13a2cbc0b207567) |
-| `syslog.tls_server.mtls_enable.key_url.clear_secret_info.provider_ref` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info.provider_ref](resources--log_receiver--reference--group-001.md#canonical-a131c324b0b59e9976656575d152dde47761b9fde7fa53aef2ea0c0c86c54f99) |
-| `syslog.tls_server.mtls_enable.key_url.clear_secret_info.url` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info.url](resources--log_receiver--reference--group-001.md#canonical-b8c936579dcbad63e2663818236d8cd3ecb3dcf6c5dd20d8060473c7f2ec37fc) |
-| `syslog.tls_server.port` | [syslog.tls_server.port](resources--log_receiver--reference--group-001.md#canonical-69ce0298762f495a23aa41d050db5717d86d366976da1be8c9f81c316661aeac) |
-| `syslog.tls_server.server_name` | [syslog.tls_server.server_name](resources--log_receiver--reference--group-001.md#canonical-875e6e04560840e4d5cbba51df59878959c4e151c693760f211ded63c30988f1) |
-| `syslog.tls_server.trusted_ca_url` | [syslog.tls_server.trusted_ca_url](resources--log_receiver--reference--group-001.md#canonical-131f25b5211ac181009ef5c9e71e5a11c7e45ef482de74ecac724db600b82793) |
-| `syslog.tls_server.volterra_ca` | [syslog.tls_server.volterra_ca](resources--log_receiver--reference--group-001.md#canonical-3c8a84303f93f7f43a191405328472c6d77a3468fdae55a0dff504750fc94a30) |
-| `syslog.udp_server` | [syslog.udp_server](resources--log_receiver--reference--group-001.md#canonical-eab9d957b67babd671ef574024676442b9f5d6e61679e7d36e7a74ce4f493737) |
-| `syslog.udp_server.port` | [syslog.udp_server.port](resources--log_receiver--reference--group-001.md#canonical-2f3658cd8e9c440a14438b363b75c2a9970fd4e5bd680f94e2afa6f28120be32) |
-| `syslog.udp_server.server_name` | [syslog.udp_server.server_name](resources--log_receiver--reference--group-001.md#canonical-5c65539356b12f6069d38c47a905c2c1a44676b4dc53ab8dc61e696d71238dd9) |
-| `timeouts` | [timeouts](resources--log_receiver--reference--group-001.md#canonical-82593a3b8255332a63e32f5f39afa82adfc2c4418387f48a92595cc0cffbdee3) |
-| `timeouts.create` | [timeouts.create](resources--log_receiver--reference--group-001.md#canonical-4cd0a9e655e22cfd7e13bc1213ea13e307f2faad193edc4a2fc92e97ecb2b6b2) |
-| `timeouts.delete` | [timeouts.delete](resources--log_receiver--reference--group-001.md#canonical-8cec0affb97d41c592d02d95a0b3f049a4a232b229be74df6a0033fbb115171b) |
-| `timeouts.read` | [timeouts.read](resources--log_receiver--reference--group-001.md#canonical-9b466b7c8a0a2c26b86febad03bc1dacb40d812c56af7a91f8e218e3c3ecf902) |
-| `timeouts.update` | [timeouts.update](resources--log_receiver--reference--group-001.md#canonical-3f76d9edbc1c568a3905009a82e3183dee1edf62bac76b3a17781b881256a423) |
+| `annotations` | [annotations](resources--log_receiver--reference--group-001.md#canonical-2213201110211310-3212322101232101-2313130233201231-1221221323000100-1330123321031021-3203330311323302-1022021312330303-2133002100230002) |
+| `description` | [description](resources--log_receiver--reference--group-001.md#canonical-2021312322130200-2022303300310320-3020321222201302-3211232221113302-3203121232303020-2100110321211120-1011033131121022-1132233002220311) |
+| `disable` | [disable](resources--log_receiver--reference--group-001.md#canonical-2002002100113122-1013020202110221-1010230332213131-3003311033333000-0330321032202011-3023101300332221-2003303122301221-0213203000111222) |
+| `id` | [id](resources--log_receiver--reference--group-001.md#canonical-0122200323213320-2003303113100221-0220323231102110-2301202011320133-3231330120312131-3012011312033312-2322013030221121-3303311013320202) |
+| `labels` | [labels](resources--log_receiver--reference--group-001.md#canonical-3132313022102022-3300232121213031-0312111312022021-1021303122212232-0131012120032101-0312331001233203-2003312023322123-0232003002122023) |
+| `name` | [name](resources--log_receiver--reference--group-001.md#canonical-3203303231222220-1233221001002322-1013110133331303-0010112020111002-1200203012122221-0223333230103103-2113320120112012-0012002123030103) |
+| `namespace` | [namespace](resources--log_receiver--reference--group-001.md#canonical-3100102313313332-2203323123103232-3332222021321333-2322002132130102-0313023002302020-3203133030330130-2201303100230212-2333011212123012) |
+| `site_local` | [site_local](resources--log_receiver--reference--group-001.md#canonical-3203223331213211-1233233020023033-1000002111113023-3311322112102133-2000202333013331-0003110312203301-1210011223211110-2101013220320223) |
+| `syslog` | [syslog](resources--log_receiver--reference--group-001.md#canonical-3123113221322213-1100032231313132-2203001020313022-2100203100001201-1311111121022111-3333020322312231-3220002033102212-3023013323133201) |
+| `syslog.syslog_rfc5424` | [syslog.syslog_rfc5424](resources--log_receiver--reference--group-001.md#canonical-1131012122212021-2032330210012222-2312121110332133-0312210201133031-0131322213312232-1231201112020311-1032212310332230-0202212322330103) |
+| `syslog.tcp_server` | [syslog.tcp_server](resources--log_receiver--reference--group-001.md#canonical-1211233201000232-2101222213211010-3302223112221221-3101203301112300-2111030223030121-2213132320232210-0100220110310302-1301021213331013) |
+| `syslog.tcp_server.port` | [syslog.tcp_server.port](resources--log_receiver--reference--group-001.md#canonical-3110220212123210-0221013330001032-3100013102222223-1312131311302120-2002302012333022-0033112101101033-3032000301113311-0110133101003303) |
+| `syslog.tcp_server.server_name` | [syslog.tcp_server.server_name](resources--log_receiver--reference--group-001.md#canonical-0013230223111130-0301001000133100-1100211201130012-3001333122203323-3022321231120023-0113112230132322-0210302321121200-2022231113002020) |
+| `syslog.tls_server` | [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-0020023302001203-2233301310211022-3323120001303023-0213110012010310-0233031321013002-0001203023203232-2212233122213231-0001130311023320) |
+| `syslog.tls_server.default_https_port` | [syslog.tls_server.default_https_port](resources--log_receiver--reference--group-001.md#canonical-1012312013211300-3221032102101313-1003223132312223-3123132220120021-0000011021212121-2311200012233231-3332210102230023-3313121320101323) |
+| `syslog.tls_server.default_syslog_tls_port` | [syslog.tls_server.default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-3222313010303000-3032212132132020-0213333011303011-2031233303013011-0000223132011120-1122320112210132-0102130300122230-2122010321300313) |
+| `syslog.tls_server.mtls_disabled` | [syslog.tls_server.mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-3331130130002302-1020301230023101-3232300211021321-2321313021102023-1130100010210033-0112002021232102-0211200333333023-3223133210230331) |
+| `syslog.tls_server.mtls_enable` | [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-0332023303013301-3022011103203220-0201120130313020-0213011220232223-2012130132231112-0033333032011030-1020311232222012-3232223021103103) |
+| `syslog.tls_server.mtls_enable.certificate` | [syslog.tls_server.mtls_enable.certificate](resources--log_receiver--reference--group-001.md#canonical-3110101130011313-2012102331223221-0212112033223311-1132123202032002-2321202031323211-3313121013302022-1332230112230103-0131211233113202) |
+| `syslog.tls_server.mtls_enable.key_url` | [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-2021123211000111-3121133203232103-0313321201123002-2310032313202013-1333033221201223-2113233131202132-0201212210103102-2301023332011003) |
+| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-3030122031120301-1031330013211113-1302330102121110-2113332132311130-2010223001233122-3112032000230221-2113303300033310-0213003323202111) |
+| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.decryption_provider](resources--log_receiver--reference--group-001.md#canonical-1103110020131000-1010032231012332-0131231303110302-1130310231110210-2332230313202010-3022020023111331-2031001312210210-3100212133210001) |
+| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.location` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.location](resources--log_receiver--reference--group-001.md#canonical-2123120103003103-1323210201222321-0303312123220233-1123210122320012-3110003030311201-0213122000322301-1302030103202311-2131323112200021) |
+| `syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.store_provider` | [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.store_provider](resources--log_receiver--reference--group-001.md#canonical-3120211021013201-3303211003220013-3110320201221301-0213022001211223-1300332312032202-3202221103311332-2020032231103311-1010332312330300) |
+| `syslog.tls_server.mtls_enable.key_url.clear_secret_info` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-0103103311310111-2223330012323321-1133110012202032-2003233310012301-2001013110032122-1323131210310302-3201032202302330-0023020013111213) |
+| `syslog.tls_server.mtls_enable.key_url.clear_secret_info.provider_ref` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info.provider_ref](resources--log_receiver--reference--group-001.md#canonical-2201030130030210-2300231121322121-1312121112111311-3101110231313210-1313120123213331-3213332211032232-3302322200300030-2012301110332121) |
+| `syslog.tls_server.mtls_enable.key_url.clear_secret_info.url` | [syslog.tls_server.mtls_enable.key_url.clear_secret_info.url](resources--log_receiver--reference--group-001.md#canonical-2320302103121113-2131302322311203-3202121203200120-0203123120303103-3230230331303312-3011313102003120-0012001013033013-3302323003133330) |
+| `syslog.tls_server.port` | [syslog.tls_server.port](resources--log_receiver--reference--group-001.md#canonical-1221303200022120-1312023310211122-0203222210013100-1100312311130113-3120123103121221-1312312201233220-3021332001300301-1212120122322230) |
+| `syslog.tls_server.server_name` | [syslog.tls_server.server_name](resources--log_receiver--reference--group-001.md#canonical-2013113212320010-1112002010003210-3111302323221101-3133112120132021-1121301032011101-3012210313120033-0201013132311203-3003002120203301) |
+| `syslog.tls_server.trusted_ca_url` | [syslog.tls_server.trusted_ca_url](resources--log_receiver--reference--group-001.md#canonical-0103013302112311-0201012230012001-0000213233113021-3213013211220101-3013321011323310-2002313213103230-2230130210312312-0000232002132103) |
+| `syslog.tls_server.volterra_ca` | [syslog.tls_server.volterra_ca](resources--log_receiver--reference--group-001.md#canonical-0330202220100300-0333210333133310-0322012101100011-0302201013023012-3113132203101220-3331223211112200-3133331100101311-0033302110220300) |
+| `syslog.udp_server` | [syslog.udp_server](resources--log_receiver--reference--group-001.md#canonical-3222232131211113-2312132322233112-1301323311131000-0210121312101002-2321331131123212-0112132132133103-1232132213103032-1033102103130313) |
+| `syslog.udp_server.port` | [syslog.udp_server.port](resources--log_receiver--reference--group-001.md#canonical-0233031211203031-2032213010100022-0110100320230312-0323131130022221-2113003331103211-2331122000332110-3202223322123302-2001020023320302) |
+| `syslog.udp_server.server_name` | [syslog.udp_server.server_name](resources--log_receiver--reference--group-001.md#canonical-1130121111032103-1112230102331200-1221310320301013-2221001130023001-2210101213122310-3130110322232031-3012013212211231-1301020320313121) |
+| `timeouts` | [timeouts](resources--log_receiver--reference--group-001.md#canonical-2002112103220323-2002111103030222-1203320302331133-0321223322200222-3133300230101001-2003201333102022-2102112111303000-3033332331323203) |
+| `timeouts.create` | [timeouts.create](resources--log_receiver--reference--group-001.md#canonical-1030310022213212-1111320202303331-1332010323300102-0103322201033203-0013330233222231-0121033231301022-0233302102322113-3230230223122302) |
+| `timeouts.delete` | [timeouts.delete](resources--log_receiver--reference--group-001.md#canonical-2030323000223333-2321133110013011-2102310002312111-2200230333001021-2210220203022302-0221233213103133-1222000003033323-2301011101130123) |
+| `timeouts.read` | [timeouts.read](resources--log_receiver--reference--group-001.md#canonical-2123101212231330-2022002202300212-2320123332232231-0003233001312230-2310003120010230-1112223313222101-3320320201203203-3003323033210002) |
+| `timeouts.update` | [timeouts.update](resources--log_receiver--reference--group-001.md#canonical-0333131231213231-2330013011122022-0321001100002122-2002320301200331-3232013231331202-2322301312230322-0113132001232020-0102111222100203) |
 
-<a id="canonical-57c9221f49c7711c11cbcb4747a6d3b6d261b14e63ab075ac8740886d964d4a2"></a>
+<a id="canonical-1113302102020133-1021301313010130-0101302330231013-1013221231032312-3102120123011032-1203222300131122-3020131000202012-3121121031102202"></a>
 
-## Next pages — Property reference / 2860a3b8db11 / 12
+## Next pages — Property reference / 232031230101 / 12
 
-- [site_local](resources--log_receiver--reference--group-001.md#canonical-9bfdd8780bc26e228d2dc526f5e469b82286b25af21d5dd772989264232a6e4d)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [timeouts](resources--log_receiver--reference--group-001.md#canonical-9c77ae414286862fafbb9218e1483a458a6c06d4bf7bf5ec8aaca80a4ee18cb9)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [site_local](resources--log_receiver--reference--group-001.md#canonical-2123333131201320-0023300212320202-2031023130110212-3311321012212320-0202201223021122-3302013111313113-1302212021021210-0203022212321031)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [timeouts](resources--log_receiver--reference--group-001.md#canonical-2130131322321001-1002201220120233-2233232321020120-3201102003221011-2022123000123110-2333132333113230-2022223022200022-1032320120302321)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-9bfdd8780bc26e228d2dc526f5e469b82286b25af21d5dd772989264232a6e4d"></a>
+<a id="canonical-2123333131201320-0023300212320202-2031023130110212-3311321012212320-0202201223021122-3302013111313113-1302212021021210-0203022212321031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-180e0222735a5e1bf779b9993e6fe9d63f4c5d04dd3def1e58ffad78eb25e153"></a>
+<a id="canonical-0120003200020202-1303112211320123-3313132123212121-0332123332213112-0333103011310010-3131033132330132-1120333322311320-3223021132011103"></a>
 
-## site_local — site_local / ddfab18c0a29 / 2
+## site_local — site_local / 203000220221 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
 - site_local
 
-<a id="canonical-e3afd9e56fbc82cf400955cbf5e9649f808bf1fd035368f16416b954911e8e2b"></a>
+<a id="canonical-3203223331213211-1233233020023033-1000002111113023-3311322112102133-2000202333013331-0003110312203301-1210011223211110-2101013220320223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -418,36 +418,36 @@ Terraform syntax:
 site_local {}
 ```
 
-<a id="canonical-0d0823e4fa96434a1c8d099d5315c52681e02c93d086b857f3004c1a4c0e8e6f"></a>
+<a id="canonical-0031002002033210-3322211210031022-0130203100212131-1103011130110212-2001320002302103-3100201223201113-3303000010300122-1030003220321233"></a>
 
-## Direct properties — site_local / ddfab18c0a29 / 3
+## Direct properties — site_local / 203000220221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cb3b9b1def3ea380d778f6a563acb640c2f08f8afe094de55123637fd40903c7"></a>
+<a id="canonical-3023032321230131-3233033222032000-3113132033122211-1203223023121000-3002330020332022-3332002110313211-1101020312031333-3110002100033013"></a>
 
-## Next pages — site_local / ddfab18c0a29 / 4
+## Next pages — site_local / 203000220221 / 4
 
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d"></a>
+<a id="canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a43e6b6582e20b0d54970d64a596e1ee9d363fa7e359f3c763ec88f2d80c021"></a>
+<a id="canonical-1322100332122312-1120023202002300-3111102113003112-1022112112320132-3221310312033322-1332031121330330-1312033230202033-0231200030000201"></a>
 
-## syslog — syslog / e536f3468ed6 / 2
+## syslog — syslog / 101220323112 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
 - syslog
 
-<a id="canonical-db5e9ea7503adddea3048dca908d006175559295ff23adade808f4a6cb1fb7e1"></a>
+<a id="canonical-3123113221322213-1100032231313132-2203001020313022-2100203100001201-1311111121022111-3333020322312231-3220002033102212-3023013323133201"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -491,15 +491,15 @@ syslog {
 }
 ```
 
-<a id="canonical-f74020771e5746d061ac551ef10ab94dcf0f8c7aa07d38e69a856e0cfaf8340b"></a>
+<a id="canonical-3313100002001313-0132111310123100-1201223011110132-3301002223211031-3033003320301322-2200133103203212-2122201112320030-3322332003100023"></a>
 
-## Direct properties — syslog / e536f3468ed6 / 3
+## Direct properties — syslog / 101220323112 / 3
 
-<a id="canonical-5d19a9898ef241aab6654f9f369217cd1dea7dae6d8562354e9b4fac229baf13"></a>
+<a id="canonical-1131012122212021-2032330210012222-2312121110332133-0312210201133031-0131322213312232-1231201112020311-1032212310332230-0202212322330103"></a>
 
-<a id="canonical-f449a7316240df1667a5fd5cdf00fa04b2fba37b1c23a4c0616b90b37009b500"></a>
+<a id="canonical-3310102122130301-1202100031330112-1213221133311130-3133000033220010-2302332322031323-0130020322103000-1201122321002303-1300002123110000"></a>
 
-## syslog_rfc5424 property — syslog / e536f3468ed6 / 4
+## syslog_rfc5424 property — syslog / 101220323112 / 4
 
 Type: `"number"`. Optional.
 
@@ -550,40 +550,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tcp_server](resources--log_receiver--reference--group-001.md#canonical-11c698ef4cfce6841a17ddfa62d4f5dd677611998dcd878e735ad0c3200f68b6): complete subsection reference.
+- [tcp_server](resources--log_receiver--reference--group-001.md#canonical-0101301221203233-1030333032122010-0122011331313322-1202311033113131-1213131201012121-2031303120132032-1303112231003003-0200003312202312): complete subsection reference.
 
-- [tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e): complete subsection reference.
+- [tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132): complete subsection reference.
 
-- [udp_server](resources--log_receiver--reference--group-001.md#canonical-0faaaea294d489614a46833d43b29836faa8c574d45e6c71e7f52dadc8160c78): complete subsection reference.
+- [udp_server](resources--log_receiver--reference--group-001.md#canonical-0033222222322202-2110311020211201-1022101220030331-1003230221200312-3322222030111310-3110113212301301-3213331102312231-3020011200301320): complete subsection reference.
 
-<a id="canonical-8c510e5b42f114f536d066272d28694ef4cbf3d5726ada3d1466b7b16561df94"></a>
+<a id="canonical-2030110100321123-1002330101103311-0312310012120213-0231022012211032-3310302333033111-1302122231220331-0110121223132301-1211120131332110"></a>
 
-## Next pages — syslog / e536f3468ed6 / 5
+## Next pages — syslog / 101220323112 / 5
 
-- [syslog.tcp_server](resources--log_receiver--reference--group-001.md#canonical-11c698ef4cfce6841a17ddfa62d4f5dd677611998dcd878e735ad0c3200f68b6)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [syslog.udp_server](resources--log_receiver--reference--group-001.md#canonical-0faaaea294d489614a46833d43b29836faa8c574d45e6c71e7f52dadc8160c78)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tcp_server](resources--log_receiver--reference--group-001.md#canonical-0101301221203233-1030333032122010-0122011331313322-1202311033113131-1213131201012121-2031303120132032-1303112231003003-0200003312202312)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [syslog.udp_server](resources--log_receiver--reference--group-001.md#canonical-0033222222322202-2110311020211201-1022101220030331-1003230221200312-3322222030111310-3110113212301301-3213331102312231-3020011200301320)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-11c698ef4cfce6841a17ddfa62d4f5dd677611998dcd878e735ad0c3200f68b6"></a>
+<a id="canonical-0101301221203233-1030333032122010-0122011331313322-1202311033113131-1213131201012121-2031303120132032-1303112231003003-0200003312202312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1848db5c810e8b103b9f503cc7dfc1acd26783070c1a8698c6b2146ab9bbecdc"></a>
+<a id="canonical-0120102031231130-2001003220230100-0323213311000330-3013313330012230-3102121320030013-0030012220122120-3012230201101222-2321232332303130"></a>
 
-## syslog.tcp_server — syslog.tcp_server / 0c91cdb1742e / 2
+## syslog.tcp_server — tcp_server / 230113100232 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
 - syslog.tcp_server
 
-<a id="canonical-65be102e91aa7944f2ad6a69d18f15b09532b319a77b8ba410a14d3271267f47"></a>
+<a id="canonical-1211233201000232-2101222213211010-3302223112221221-3101203301112300-2111030223030121-2213132320232210-0100220110310302-1301021213331013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -621,15 +621,15 @@ tcp_server {
 }
 ```
 
-<a id="canonical-28e5142728479cd510da7836c116167a80fe18f84f48ba0175316be3731df30b"></a>
+<a id="canonical-0220321101100213-0220101321303111-0100312213200312-3001011201121322-2000333201203320-1033102023220001-1311030112233203-1303013133030023"></a>
 
-## Direct properties — syslog.tcp_server / 0c91cdb1742e / 3
+## Direct properties — tcp_server / 230113100232 / 3
 
-<a id="canonical-d4a266e4291fc04ed01d2aab76775c9882c86fca0f59144fce0315f5147d10f3"></a>
+<a id="canonical-3110220212123210-0221013330001032-3100013102222223-1312131311302120-2002302012333022-0033112101101033-3032000301113311-0110133101003303"></a>
 
-<a id="canonical-94b59adb4df7ee6f679c90dae42966c473f23b4017574bf2d9d693229d7a54fc"></a>
+<a id="canonical-2110231121223123-1031331332321233-1213213021003122-3210022112123010-1303330203231000-0113111310233302-3121311221030202-2131132211103330"></a>
 
-## port property — syslog.tcp_server / 0c91cdb1742e / 4
+## port property — tcp_server / 230113100232 / 4
 
 Type: `"number"`. Optional.
 
@@ -683,11 +683,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-07b2b55c310407d050961706c1fda8fbcae6d60b175ac7ba24cb96608ab57088"></a>
+<a id="canonical-0013230223111130-0301001000133100-1100211201130012-3001333122203323-3022321231120023-0113112230132322-0210302321121200-2022231113002020"></a>
 
-<a id="canonical-e450b17cd62798b5338bddb3fe58a073e0bddeb8d847b14cc83514fae62784c5"></a>
+<a id="canonical-3210110023011330-3112021321202311-0303202331312303-3332112022001303-3200233131322320-3120101323011030-3020031101103322-3212021320103011"></a>
 
-## server_name property — syslog.tcp_server / 0c91cdb1742e / 5
+## server_name property — tcp_server / 230113100232 / 5
 
 Type: `"string"`. Optional.
 
@@ -736,31 +736,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-29440b8400bed155f631cd581261fdc0cd6a5fa8e77c957a3a0e444f2b3e04ef"></a>
+<a id="canonical-0221101000232010-0000233231011111-3312030130311120-0102120133313000-3031122211332220-3213133021111322-0322003210101033-0223033200103233"></a>
 
-## Next pages — syslog.tcp_server / 0c91cdb1742e / 6
+## Next pages — tcp_server / 230113100232 / 6
 
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e"></a>
+<a id="canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5401f5f560b1c84fbcb06f121e05051da70b8ff481691e86805f3e22a691d83"></a>
+<a id="canonical-2211100001331133-1112002301302010-3323302300123301-0201320011001101-3122130023203333-1020011221013220-1220001133033202-0222122101312003"></a>
 
-## syslog.tls_server — syslog.tls_server / 0c776ac16175 / 2
+## syslog.tls_server — tls_server / 300112011311 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
 - syslog.tls_server
 
-<a id="canonical-082f2063afc7494afb601ccb275061342f3791c2018cb8eea6bda9ed017352f8"></a>
+<a id="canonical-0020023302001203-2233301310211022-3323120001303023-0213110012010310-0233031321013002-0001203023203232-2212233122213231-0001130311023320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -806,23 +806,23 @@ tls_server {
 }
 ```
 
-<a id="canonical-e3c3e7bb997ff34b50f1865cfa66705fa003e39b9a3296d46450138d4b09f25e"></a>
+<a id="canonical-3203300332132323-2121133333031023-1100330120121130-3322121213001133-2200000332032123-2122030221123110-1210110001032031-1023002133021132"></a>
 
-## Direct properties — syslog.tls_server / 0c776ac16175 / 3
+## Direct properties — tls_server / 300112011311 / 3
 
-- [default_https_port](resources--log_receiver--reference--group-001.md#canonical-2ebacabed412ae5ce841fd4f8398e00d9785b0ed54c2a2b0d61ca005025e087b): complete subsection reference.
+- [default_https_port](resources--log_receiver--reference--group-001.md#canonical-0232232230222332-3110010222321130-3220100133311033-2003212032000031-2113201123003231-1110300222022300-3112013022000011-0002113200201323): complete subsection reference.
 
-- [default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-979cc51d6cbf9db9dea81fac45534d6a6b617b56f76a8f35c772ece5e5cacacb): complete subsection reference.
+- [default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-2113213030110131-1230233321312321-3132222001332230-1011110310311222-1223120113231112-3313122220330311-3013130232303211-3211302230223023): complete subsection reference.
 
-- [mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-9de1e8c0460c53c63d8185ddb70cc148b23336e5c88ae28e55ffa90e97fff9f4): complete subsection reference.
+- [mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-2131320132203000-1012003011033012-0331200120113131-2313003030011020-2302030303123211-3020202232022032-1111333322210032-2113333333213310): complete subsection reference.
 
-- [mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496): complete subsection reference.
+- [mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112): complete subsection reference.
 
-<a id="canonical-69ce0298762f495a23aa41d050db5717d86d366976da1be8c9f81c316661aeac"></a>
+<a id="canonical-1221303200022120-1312023310211122-0203222210013100-1100312311130113-3120123103121221-1312312201233220-3021332001300301-1212120122322230"></a>
 
-<a id="canonical-f1e10bd8618d8e19a0d8e14058fa32754c2e9e5b14b4312c0e89ebbe444e2c17"></a>
+<a id="canonical-3301320100233120-1201203120320121-2200312032011000-1120332203021311-1030023221321123-0110231003010230-0032202132232332-1010103202300113"></a>
 
-## port property — syslog.tls_server / 0c776ac16175 / 4
+## port property — tls_server / 300112011311 / 4
 
 Type: `"number"`. Optional.
 
@@ -876,11 +876,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-875e6e04560840e4d5cbba51df59878959c4e151c693760f211ded63c30988f1"></a>
+<a id="canonical-2013113212320010-1112002010003210-3111302323221101-3133112120132021-1121301032011101-3012210313120033-0201013132311203-3003002120203301"></a>
 
-<a id="canonical-e6e2be3416fdb5d7cb6ace61e2ce57fdc67fd0f82bdda2711ff5f1678b02d15c"></a>
+<a id="canonical-3212320223320310-0112333123113113-3023122230321201-3202303211133331-3012133331003320-0223313122021301-0133331133011213-2023000231011130"></a>
 
-## server_name property — syslog.tls_server / 0c776ac16175 / 5
+## server_name property — tls_server / 300112011311 / 5
 
 Type: `"string"`. Optional.
 
@@ -936,11 +936,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-131f25b5211ac181009ef5c9e71e5a11c7e45ef482de74ecac724db600b82793"></a>
+<a id="canonical-0103013302112311-0201012230012001-0000213233113021-3213013211220101-3013321011323310-2002313213103230-2230130210312312-0000232002132103"></a>
 
-<a id="canonical-b7dda2adf082d97ac9872308b68a678d111515566fcaa42cf8d93f0f0877833f"></a>
+<a id="canonical-2313313122022231-3300200231211322-3021201302030020-2312202212132031-0101011101111112-1233302222100230-3320312103330033-0020131320030333"></a>
 
-## trusted_ca_url property — syslog.tls_server / 0c776ac16175 / 6
+## trusted_ca_url property — tls_server / 300112011311 / 6
 
 Type: `"string"`. Optional.
 
@@ -997,39 +997,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [volterra_ca](resources--log_receiver--reference--group-001.md#canonical-9d22ae2a30e391644727ba133bac83bbe67a8d6c3357ba44814ad521b9c8cdd8): complete subsection reference.
+- [volterra_ca](resources--log_receiver--reference--group-001.md#canonical-2131020222320222-0300320321011210-1013021323220103-0323223020032323-3212132220311230-0303111323221010-2001102231110201-2321302030313120): complete subsection reference.
 
-<a id="canonical-9694bcadbb33f973a146c6295d28762c378e0bf7521013b46e05f753342665a2"></a>
+<a id="canonical-2112211023302231-2323030333211303-2201101230120221-1131022013120230-0313203200233313-1102010001032310-1232001133131103-0310021212112202"></a>
 
-## Next pages — syslog.tls_server / 0c776ac16175 / 7
+## Next pages — tls_server / 300112011311 / 7
 
-- [syslog.tls_server.default_https_port](resources--log_receiver--reference--group-001.md#canonical-2ebacabed412ae5ce841fd4f8398e00d9785b0ed54c2a2b0d61ca005025e087b)
-- [syslog.tls_server.default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-979cc51d6cbf9db9dea81fac45534d6a6b617b56f76a8f35c772ece5e5cacacb)
-- [syslog.tls_server.mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-9de1e8c0460c53c63d8185ddb70cc148b23336e5c88ae28e55ffa90e97fff9f4)
-- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496)
-- [syslog.tls_server.volterra_ca](resources--log_receiver--reference--group-001.md#canonical-9d22ae2a30e391644727ba133bac83bbe67a8d6c3357ba44814ad521b9c8cdd8)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server.default_https_port](resources--log_receiver--reference--group-001.md#canonical-0232232230222332-3110010222321130-3220100133311033-2003212032000031-2113201123003231-1110300222022300-3112013022000011-0002113200201323)
+- [syslog.tls_server.default_syslog_tls_port](resources--log_receiver--reference--group-001.md#canonical-2113213030110131-1230233321312321-3132222001332230-1011110310311222-1223120113231112-3313122220330311-3013130232303211-3211302230223023)
+- [syslog.tls_server.mtls_disabled](resources--log_receiver--reference--group-001.md#canonical-2131320132203000-1012003011033012-0331200120113131-2313003030011020-2302030303123211-3020202232022032-1111333322210032-2113333333213310)
+- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112)
+- [syslog.tls_server.volterra_ca](resources--log_receiver--reference--group-001.md#canonical-2131020222320222-0300320321011210-1013021323220103-0323223020032323-3212132220311230-0303111323221010-2001102231110201-2321302030313120)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-2ebacabed412ae5ce841fd4f8398e00d9785b0ed54c2a2b0d61ca005025e087b"></a>
+<a id="canonical-0232232230222332-3110010222321130-3220100133311033-2003212032000031-2113201123003231-1110300222022300-3112013022000011-0002113200201323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddf08a1a14675b8dede83cb61ffe60fc8d128e3add277cd932e044d80f3a5e97"></a>
+<a id="canonical-3131330020220122-0110121311232031-3231322003302312-0133333212003330-2031010220320322-3131021313303121-0302320010103120-0033032211322113"></a>
 
-## syslog.tls_server.default_https_port — syslog.tls_server.default_https_port / 708805ac2133 / 2
+## syslog.tls_server.default_https_port — default_https_port / 223002010303 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
 - syslog.tls_server.default_https_port
 
-<a id="canonical-46d87970e939247743adedabdb7a860900149999b5806bedfe912b0bf767847b"></a>
+<a id="canonical-1012312013211300-3221032102101313-1003223132312223-3123132220120021-0000011021212121-2311200012233231-3332210102230023-3313121320101323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1058,38 +1058,38 @@ Terraform syntax:
 default_https_port = {}
 ```
 
-<a id="canonical-0a0335db387a63c6f990bcc9d2825859cd8594a316af52055b6d8d50f12042ce"></a>
+<a id="canonical-0022000303113123-0320132212033012-3321210023303021-3102200211201121-3031201121102203-0112223311020011-1123123120311100-3301020010023032"></a>
 
-## Direct properties — syslog.tls_server.default_https_port / 708805ac2133 / 3
+## Direct properties — default_https_port / 223002010303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bdf1a394c0bb772209e68b04e0e9c5710a59416af12331efcdadf16f9f4ad186"></a>
+<a id="canonical-2331330122032110-3000232313130202-0021321220230010-3200322130111301-0022112110011222-3301020303013233-3031223133011233-2133102231012012"></a>
 
-## Next pages — syslog.tls_server.default_https_port / 708805ac2133 / 4
+## Next pages — default_https_port / 223002010303 / 4
 
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-979cc51d6cbf9db9dea81fac45534d6a6b617b56f76a8f35c772ece5e5cacacb"></a>
+<a id="canonical-2113213030110131-1230233321312321-3132222001332230-1011110310311222-1223120113231112-3313122220330311-3013130232303211-3211302230223023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-383673793980b0230700e7759ce11045b16ea73db959a8da60665d45ffb85bce"></a>
+<a id="canonical-0320031213031321-0321200023000203-0013000032131311-2130320101001011-2301123222130331-2321112122203122-1200121211311011-3333232011233032"></a>
 
-## syslog.tls_server.default_syslog_tls_port — syslog.tls_server.default_syslog_tls_port / 534c2dc0259a / 2
+## syslog.tls_server.default_syslog_tls_port — default_syslog_tls_port / 300002112122 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
 - syslog.tls_server.default_syslog_tls_port
 
-<a id="canonical-eadc4cc0ce99e78827fc5cc58dbf31c500ade1585ae1691e127306ac9a139c37"></a>
+<a id="canonical-3222313010303000-3032212132132020-0213333011303011-2031233303013011-0000223132011120-1122320112210132-0102130300122230-2122010321300313"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1118,38 +1118,38 @@ Terraform syntax:
 default_syslog_tls_port = {}
 ```
 
-<a id="canonical-d90d62ef5a835b98ca0b33d60bc983cad41ae367417498adfcf192a4b80534a7"></a>
+<a id="canonical-3121003112023233-1122200311232120-3022002303033112-0023302120033022-3110012232031213-1001131021202231-3330330121022210-2320001103102213"></a>
 
-## Direct properties — syslog.tls_server.default_syslog_tls_port / 534c2dc0259a / 3
+## Direct properties — default_syslog_tls_port / 300002112122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-99d3704056f668a672eec9a551909583714c97df0cac359331642da038e9b5ce"></a>
+<a id="canonical-2121310313001000-1112331212202212-1302323230212211-1101210021112003-1301103021133133-0030223003112103-0301121002312200-0320322123113032"></a>
 
-## Next pages — syslog.tls_server.default_syslog_tls_port / 534c2dc0259a / 4
+## Next pages — default_syslog_tls_port / 300002112122 / 4
 
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-9de1e8c0460c53c63d8185ddb70cc148b23336e5c88ae28e55ffa90e97fff9f4"></a>
+<a id="canonical-2131320132203000-1012003011033012-0331200120113131-2313003030011020-2302030303123211-3020202232022032-1111333322210032-2113333333213310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-196b4eeb24435728774311f5deef241329ea3159bc4d54e0f6a3c6146d3b1fc5"></a>
+<a id="canonical-0121122310323223-0210100311130220-1313100301013311-3132323302100103-0221322203011121-2330103111103200-3312220330120110-1231032301333011"></a>
 
-## syslog.tls_server.mtls_disabled — syslog.tls_server.mtls_disabled / 5219aab16ef5 / 2
+## syslog.tls_server.mtls_disabled — mtls_disabled / 230112323311 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
 - syslog.tls_server.mtls_disabled
 
-<a id="canonical-fd71c0b248c6c2d1eec25279b9dc948b5c40490f16089b922583ffcbeb7e4b3d"></a>
+<a id="canonical-3331130130002302-1020301230023101-3232300211021321-2321313021102023-1130100010210033-0112002021232102-0211200333333023-3223133210230331"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1178,38 +1178,38 @@ Terraform syntax:
 mtls_disabled = {}
 ```
 
-<a id="canonical-599dcda33202fa42c6502a1bc04af9663d3bdca840ea1d5f42029d4024f88934"></a>
+<a id="canonical-1121213130312203-0302000233221002-3012110002220123-3000102233211212-0331032331302220-1000322201311133-1002000221311000-0210332020210310"></a>
 
-## Direct properties — syslog.tls_server.mtls_disabled / 5219aab16ef5 / 3
+## Direct properties — mtls_disabled / 230112323311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-464ee4d00ab7be056068fe2016366773515f2f7680d3e074ef43091039cc9dbb"></a>
+<a id="canonical-1012103232103100-0022231323320011-1200122033320200-0112031212131303-1101113302331312-2000310332001310-3233100300210100-0321303021312323"></a>
 
-## Next pages — syslog.tls_server.mtls_disabled / 5219aab16ef5 / 4
+## Next pages — mtls_disabled / 230112323311 / 4
 
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496"></a>
+<a id="canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad7fe9a3845cf756a5fab77d5f1782d75a6b41b6942ae981c6558e999300e4e1"></a>
+<a id="canonical-2231133332212203-2010113033131112-2211332223131331-1133011320023113-1122122310012312-2110022232212001-3012111120322121-2103000032103201"></a>
 
-## syslog.tls_server.mtls_enable — syslog.tls_server.mtls_enable / d18020990906 / 2
+## syslog.tls_server.mtls_enable — mtls_enable / 212100210012 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
 - syslog.tls_server.mtls_enable
 
-<a id="canonical-3e2f31f1ca1538e82161cdc827168bab8671eb560ffce14c48d6ea86eeac94d3"></a>
+<a id="canonical-0332023303013301-3022011103203220-0201120130313020-0213011220232223-2012130132231112-0033333032011030-1020311232222012-3232223021103103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1240,15 +1240,15 @@ mtls_enable {
 }
 ```
 
-<a id="canonical-dd8860195dbc70e582652f0199f4d4dc23044402a51f1c32cbeb2548df0201f8"></a>
+<a id="canonical-3131202012000121-1131233013003211-2002121102330001-2121331031103130-0203001010100002-2211013301300302-3023322302111020-3133000200013320"></a>
 
-## Direct properties — syslog.tls_server.mtls_enable / d18020990906 / 3
+## Direct properties — mtls_enable / 212100210012 / 3
 
-<a id="canonical-d445c177864bdae92658faf55e6e2382b988dee5f7647c8a7eb16b131d96f5e2"></a>
+<a id="canonical-3110101130011313-2012102331223221-0212112033223311-1132123202032002-2321202031323211-3313121013302022-1332230112230103-0131211233113202"></a>
 
-<a id="canonical-606029091b253486cf88355d05ff50836fd61769d37f688ca9e6654f245a539e"></a>
+<a id="canonical-1200120002210021-0123021103102012-3033202003111131-0011333311002003-1233311201131221-3103133312202030-2221321212111033-0210112211032132"></a>
 
-## certificate property — syslog.tls_server.mtls_enable / d18020990906 / 4
+## certificate property — mtls_enable / 212100210012 / 4
 
 Type: `"string"`. Optional.
 
@@ -1305,36 +1305,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974): complete subsection reference.
+- [key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310): complete subsection reference.
 
-<a id="canonical-16e844f19c8bb4c07e21f775f2b6320f20d86a42a0209a1f6f4cfa92a1227fde"></a>
+<a id="canonical-0112322010103301-2130202323103000-1332020133131311-3302231203020033-0200312012221002-2200020021220133-1233103033222102-2201020213333132"></a>
 
-## Next pages — syslog.tls_server.mtls_enable / d18020990906 / 5
+## Next pages — mtls_enable / 212100210012 / 5
 
-- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974"></a>
+<a id="canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-db9e92c48c65cb64db6e53f36c66d52bbb6e4d720dff15127cf3b8dbf0ee9c90"></a>
+<a id="canonical-3123213221023010-2030121130231210-3123123211033303-1230121231110223-2323123210311302-0031333301110102-1330330323203123-3300323221302100"></a>
 
-## syslog.tls_server.mtls_enable.key_url — syslog.tls_server.mtls_enable.key_url / 3edc045afef6 / 2
+## syslog.tls_server.mtls_enable.key_url — key_url / 112233323312 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112)
 - syslog.tls_server.mtls_enable.key_url
 
-<a id="canonical-896e5015d97e3b9337e616c2b43b78877f3e986b97bdd89e219a44d2b12fe143"></a>
+<a id="canonical-2021123211000111-3121133203232103-0313321201123002-2310032313202013-1333033221201223-2113233131202132-0201212210103102-2301023332011003"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1369,44 +1369,44 @@ key_url {
 }
 ```
 
-<a id="canonical-28a285ef582471c77fb60ae667d094c4eeb5146d7d6439b6173f59cd9de50b04"></a>
+<a id="canonical-0220220220113233-1120021013013013-1333231200223212-1213310021103010-3232231101101231-1331121003212312-0113033311213031-2131321100230010"></a>
 
-## Direct properties — syslog.tls_server.mtls_enable.key_url / 3edc045afef6 / 3
+## Direct properties — key_url / 112233323312 / 3
 
-- [blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-70190e1b64feb69f528df23d7f12d32082d4fd6b3642cf31f71a4f94d0aab166): complete subsection reference.
+- [blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-1300012100320123-1210333223122133-1102203133020331-1333010231030200-2002311033311223-0312100230330301-3313012210332110-3100222223011212): complete subsection reference.
 
-- [clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-e9fc446e871e0d739d8e3e2fddca17b9fcf9f2d46f82c4704f7e3b224492acd4): complete subsection reference.
+- [clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-3221333010101232-2013013200311303-2131203203320233-3131302201132321-3330332133023110-1233200230101300-1033133203230202-1010210222303110): complete subsection reference.
 
-<a id="canonical-1e1468448ceadd30bc722985ded90cd11b80d38a2474aac417309e5e72fda7b0"></a>
+<a id="canonical-0132011012201010-2030322231310300-2330130202212011-3132312100303101-0123200031032022-0210131022223010-0113030021321132-1302333122132300"></a>
 
-## Next pages — syslog.tls_server.mtls_enable.key_url / 3edc045afef6 / 4
+## Next pages — key_url / 112233323312 / 4
 
-- [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-70190e1b64feb69f528df23d7f12d32082d4fd6b3642cf31f71a4f94d0aab166)
-- [syslog.tls_server.mtls_enable.key_url.clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-e9fc446e871e0d739d8e3e2fddca17b9fcf9f2d46f82c4704f7e3b224492acd4)
-- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server.mtls_enable.key_url.blindfold_secret_info](resources--log_receiver--reference--group-001.md#canonical-1300012100320123-1210333223122133-1102203133020331-1333010231030200-2002311033311223-0312100230330301-3313012210332110-3100222223011212)
+- [syslog.tls_server.mtls_enable.key_url.clear_secret_info](resources--log_receiver--reference--group-001.md#canonical-3221333010101232-2013013200311303-2131203203320233-3131302201132321-3330332133023110-1233200230101300-1033133203230202-1010210222303110)
+- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-70190e1b64feb69f528df23d7f12d32082d4fd6b3642cf31f71a4f94d0aab166"></a>
+<a id="canonical-1300012100320123-1210333223122133-1102203133020331-1333010231030200-2002311033311223-0312100230330301-3313012210332110-3100222223011212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7033c677c1c1a48cb8229a8080cd36a83130e8e8afe987c0993dc87179ff0deb"></a>
+<a id="canonical-1300030330121313-3001300122102030-2320020221222000-2000303103122220-0301030032203220-2233322120133000-2121033130201301-1321333300313223"></a>
 
-## syslog.tls_server.mtls_enable.key_url.blindfold_secret_info — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 2
+## syslog.tls_server.mtls_enable.key_url.blindfold_secret_info — blindfold_secret_info / 112022130321 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496)
-- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112)
+- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310)
 - syslog.tls_server.mtls_enable.key_url.blindfold_secret_info
 
-<a id="canonical-cc68d6314df0795772f1265497f9ed5c84ac1bdad6380b2997cf03f4270fb895"></a>
+<a id="canonical-3030122031120301-1031330013211113-1302330102121110-2113332132311130-2010223001233122-3112032000230221-2113303300033310-0213003323202111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1439,15 +1439,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-00bbabc057e661ac64146503983261d6c46ab8701e1f6b224d59172dab5510ae"></a>
+<a id="canonical-0000232322233000-1113321212012230-1210011012110003-2120030212013112-3010122223201300-0132013312230202-1031112101130231-2223111101002232"></a>
 
-## Direct properties — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 3
+## Direct properties — blindfold_secret_info / 112022130321 / 3
 
-<a id="canonical-53508740443ad1be1db735325cd2d524beb37884ca20b57d8d076924d099f901"></a>
+<a id="canonical-1103110020131000-1010032231012332-0131231303110302-1130310231110210-2332230313202010-3022020023111331-2031001312210210-3100212133210001"></a>
 
-<a id="canonical-ccfe344dae77093592514eedaa7285430f5d5ae0680797a0ece49d9c0f9c547d"></a>
+<a id="canonical-3030333203101031-2232131300210311-2102110110323231-2222130220111003-0033113111223200-1220001321132200-3230321021312130-0033213011101331"></a>
 
-## decryption_provider property — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 4
+## decryption_provider property — blindfold_secret_info / 112022130321 / 4
 
 Type: `"string"`. Optional.
 
@@ -1477,11 +1477,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9b6130d37b921ab933d9ba2f5b91ae06d40ccd6127680eb1723138b59ded6809"></a>
+<a id="canonical-2123120103003103-1323210201222321-0303312123220233-1123210122320012-3110003030311201-0213122000322301-1302030103202311-2131323112200021"></a>
 
-<a id="canonical-cfb466797c4032c0c1774ca132d3c72cf8b3ac10e49e0488237171eb24076c83"></a>
+<a id="canonical-3033231012121321-1330100003023000-3001131310302201-0302310330130230-3320230322300100-3210213200102020-0203130113013223-0210001312302003"></a>
 
-## location property — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 5
+## location property — blindfold_secret_info / 112022130321 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1538,11 +1538,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d89491e1f3943a07d4e21a712728196b70fb63a2e2a53d7e883ad4f544fb6f30"></a>
+<a id="canonical-3120211021013201-3303211003220013-3110320201221301-0213022001211223-1300332312032202-3202221103311332-2020032231103311-1010332312330300"></a>
 
-<a id="canonical-de626a02aac33f3d6f4efaceb6d602ffdf5428d973bb3eeed8d85023a4f39623"></a>
+<a id="canonical-3132120212220002-2222300303330331-1233103233223032-2312311200023333-3133111002203121-1303232303323232-3120312011000203-2210330321120203"></a>
 
-## store_provider property — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 6
+## store_provider property — blindfold_secret_info / 112022130321 / 6
 
 Type: `"string"`. Optional.
 
@@ -1577,34 +1577,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c314bc0e81a6d3e0204237d5d140d088fcb49cf32757120bf968a8fa1be74b4"></a>
+<a id="canonical-0030030110233000-3220012212310332-0002001002031331-1131011000310020-2033302310213033-0302131113010200-2333211220222033-2201233213102310"></a>
 
-## Next pages — syslog.tls_server.mtls_enable.key_url.blindfold_secret_info / ef298d58a739 / 7
+## Next pages — blindfold_secret_info / 112022130321 / 7
 
-- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-e9fc446e871e0d739d8e3e2fddca17b9fcf9f2d46f82c4704f7e3b224492acd4"></a>
+<a id="canonical-3221333010101232-2013013200311303-2131203203320233-3131302201132321-3330332133023110-1233200230101300-1033133203230202-1010210222303110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ec89740f028a72e11464655d5a44547917a9d5707ccb65a4c8ba02d6b25702a"></a>
+<a id="canonical-0332302021131000-3300022022130232-0101101210121111-3111221010111013-2101132221311113-0013303023121122-1030202322000231-1223021113000222"></a>
 
-## syslog.tls_server.mtls_enable.key_url.clear_secret_info — syslog.tls_server.mtls_enable.key_url.clear_secret_info / f54e030466da / 2
+## syslog.tls_server.mtls_enable.key_url.clear_secret_info — clear_secret_info / 001012123122 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-e327963cd48210663b691b7632b7ae92705aeb4a777db0401b883d3ef6cfa496)
-- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [syslog.tls_server.mtls_enable](resources--log_receiver--reference--group-001.md#canonical-3203021321120330-3110200201001212-0323122101231312-0302231322322102-1300112232231022-1313133123001000-0123202003310332-3312303322102112)
+- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310)
 - syslog.tls_server.mtls_enable.key_url.clear_secret_info
 
-<a id="canonical-134f5d15abf06ef95f50688e83bf41b1811d439a7b764d32e13a2cbc0b207567"></a>
+<a id="canonical-0103103311310111-2223330012323321-1133110012202032-2003233310012301-2001013110032122-1323131210310302-3201032202302330-0023020013111213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1637,26 +1637,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-e12548ae3b8e956a36a94d92f185de1933736a15e7a40c16a93669495928edcc"></a>
+<a id="canonical-3201021110202232-0323203221111222-0312222110312102-3301201131320121-0303130312220111-3213221000300112-2221031212211021-1121022032313030"></a>
 
-## Direct properties — syslog.tls_server.mtls_enable.key_url.clear_secret_info / f54e030466da / 3
+## Direct properties — clear_secret_info / 001012123122 / 3
 
-<a id="canonical-a131c324b0b59e9976656575d152dde47761b9fde7fa53aef2ea0c0c86c54f99"></a>
+<a id="canonical-2201030130030210-2300231121322121-1312121112111311-3101110231313210-1313120123213331-3213332211032232-3302322200300030-2012301110332121"></a>
 
-<a id="canonical-f40f2109c3869c3da5f9c556f5ceabf383437bc6b37de5f90b502c2fe254224b"></a>
+<a id="canonical-3310003302010021-3003201221300331-2211332130111112-3311303222233303-2003100313233012-2303133132113321-0023110002300233-3202111002021023"></a>
 
-## provider_ref property — syslog.tls_server.mtls_enable.key_url.clear_secret_info / f54e030466da / 4
+## provider_ref property — clear_secret_info / 001012123122 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-b8c936579dcbad63e2663818236d8cd3ecb3dcf6c5dd20d8060473c7f2ec37fc"></a>
+<a id="canonical-2320302103121113-2131302322311203-3202121203200120-0203123120303103-3230230331303312-3011313102003120-0012001013033013-3302323003133330"></a>
 
-<a id="canonical-9a868d93e40f0924e9c3c177c028d5050de7666b106d551fc20e6883d7091d65"></a>
+<a id="canonical-2122201220312103-3210003300210210-3221300330011313-3000022031110011-0031321312121223-0100123111110133-3002003212202003-3113002101311211"></a>
 
-## url property — syslog.tls_server.mtls_enable.key_url.clear_secret_info / f54e030466da / 5
+## URL property — clear_secret_info / 001012123122 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1724,32 +1724,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fecb9efa4f0a56d94cf212b58f67f790613920c4ef3b4e85640bd9d0b268cce0"></a>
+<a id="canonical-3332302321323322-1033002211123121-1030330201022311-2033121333132100-1201032102003010-3233032310322011-1210002331213100-2302122030303200"></a>
 
-## Next pages — syslog.tls_server.mtls_enable.key_url.clear_secret_info / f54e030466da / 6
+## Next pages — clear_secret_info / 001012123122 / 6
 
-- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-fa9111f776a3ef2581494ff7a28957f172fb8f562da898a4b7ea15cb67c15974)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server.mtls_enable.key_url](resources--log_receiver--reference--group-001.md#canonical-3322210101013313-1312220332330211-2001102110333313-2202202111133301-1302332320331112-0231222021202210-2313322201113023-1213300111211310)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-9d22ae2a30e391644727ba133bac83bbe67a8d6c3357ba44814ad521b9c8cdd8"></a>
+<a id="canonical-2131020222320222-0300320321011210-1013021323220103-0323223020032323-3212132220311230-0303111323221010-2001102231110201-2321302030313120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aa7e800e33621026ccca7240fca42babb0ced0f1684392f5d1ed07cc34b58d74"></a>
+<a id="canonical-2222133220000032-0303120201000212-3030302213021000-3330221002232223-2300303231003301-1220100321023311-3101323100133030-0310231120311310"></a>
 
-## syslog.tls_server.volterra_ca — syslog.tls_server.volterra_ca / 997b45b9f9a4 / 2
+## syslog.tls_server.volterra_ca — volterra_ca / 232133212210 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
 - syslog.tls_server.volterra_ca
 
-<a id="canonical-3c8a84303f93f7f43a191405328472c6d77a3468fdae55a0dff504750fc94a30"></a>
+<a id="canonical-0330202220100300-0333210333133310-0322012101100011-0302201013023012-3113132203101220-3331223211112200-3133331100101311-0033302110220300"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1778,37 +1778,37 @@ Terraform syntax:
 volterra_ca = {}
 ```
 
-<a id="canonical-b87576e4e77b965f2691c04d53015bb02ab0ffa0760f364d604d84de280c62c3"></a>
+<a id="canonical-2320131113123210-3213132321121133-0212210130001031-1103000111232300-0222230033332200-1312003303121031-1200103120103132-0220003012023003"></a>
 
-## Direct properties — syslog.tls_server.volterra_ca / 997b45b9f9a4 / 3
+## Direct properties — volterra_ca / 232133212210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4ffe54f0a2f1afa474e23a036cc1ac63b3564cb9eb41782738d9024f41cd57db"></a>
+<a id="canonical-1033333211103300-2202330122332210-1310320203220003-1230300122301203-2303111210302321-3223100113200213-0320312100021033-1001303111133123"></a>
 
-## Next pages — syslog.tls_server.volterra_ca / 997b45b9f9a4 / 4
+## Next pages — volterra_ca / 232133212210 / 4
 
-- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-e04115abcd19df912fb601a0f0928efbc4a740cb9dfe730db2e3b5eaa7b81f1e)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog.tls_server](resources--log_receiver--reference--group-001.md#canonical-3200100101112223-3031012131332101-0233231200012200-3300210220323323-3010221310003023-2131333213030031-2302320323113222-2213232001330132)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-0faaaea294d489614a46833d43b29836faa8c574d45e6c71e7f52dadc8160c78"></a>
+<a id="canonical-0033222222322202-2110311020211201-1022101220030331-1003230221200312-3322222030111310-3110113212301301-3213331102312231-3020011200301320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b544837c583e698af9736ab2c3039e2b2e43e8417edc0bb9906e61c63387def8"></a>
+<a id="canonical-2311101020031330-1120033212212022-3321130312222302-3003000321320223-0232100332201001-1332313000232321-2100123212013012-0303201331323320"></a>
 
-## syslog.udp_server — syslog.udp_server / 84b6c578745a / 2
+## syslog.udp_server — udp_server / 132013101122 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
 - syslog.udp_server
 
-<a id="canonical-eab9d957b67babd671ef574024676442b9f5d6e61679e7d36e7a74ce4f493737"></a>
+<a id="canonical-3222232131211113-2312132322233112-1301323311131000-0210121312101002-2321331131123212-0112132132133103-1232132213103032-1033102103130313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1846,15 +1846,15 @@ udp_server {
 }
 ```
 
-<a id="canonical-1cc661e2ecfbb6b6e50534f24b87fcd577f4c5281981b278d884dccb9478eb26"></a>
+<a id="canonical-0130301212013202-3230332323122312-3211001103103302-1023201333303111-1313331030110220-0121200123021320-3120201031303023-2110132032230212"></a>
 
-## Direct properties — syslog.udp_server / 84b6c578745a / 3
+## Direct properties — udp_server / 132013101122 / 3
 
-<a id="canonical-2f3658cd8e9c440a14438b363b75c2a9970fd4e5bd680f94e2afa6f28120be32"></a>
+<a id="canonical-0233031211203031-2032213010100022-0110100320230312-0323131130022221-2113003331103211-2331122000332110-3202223322123302-2001020023320302"></a>
 
-<a id="canonical-2656422c925c7c0d36fa8d5bc496e8ac72c9845efcbe150a2db3f12aedfd6d41"></a>
+<a id="canonical-0212111210020230-2102113013300031-0312332220311123-3010211232202230-1302302120101132-3330233201110022-0231230333010222-3231333112311001"></a>
 
-## port property — syslog.udp_server / 84b6c578745a / 4
+## port property — udp_server / 132013101122 / 4
 
 Type: `"number"`. Optional.
 
@@ -1908,11 +1908,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5c65539356b12f6069d38c47a905c2c1a44676b4dc53ab8dc61e696d71238dd9"></a>
+<a id="canonical-1130121111032103-1112230102331200-1221310320301013-2221001130023001-2210101213122310-3130110322232031-3012013212211231-1301020320313121"></a>
 
-<a id="canonical-1bad9918745b8c399cc04fb5a5c6d8f90ea92b15a41b6d94d7ee11b4d12f81db"></a>
+<a id="canonical-0123223121210120-1310112320300321-2130300010332311-2211301231203321-0032222102230111-2210012312312110-3113323201012310-3101023320013123"></a>
 
-## server_name property — syslog.udp_server / 84b6c578745a / 5
+## server_name property — udp_server / 132013101122 / 5
 
 Type: `"string"`. Optional.
 
@@ -1961,30 +1961,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-854d9bf426c9d4174cf5fe3b44346412338483c8a163810a3082747bbf167fc6"></a>
+<a id="canonical-2011103121233310-0212302131100113-1030331133320323-1010031012100102-0303201020033020-2201120320010022-0300200213101323-2333011213333012"></a>
 
-## Next pages — syslog.udp_server / 84b6c578745a / 6
+## Next pages — udp_server / 132013101122 / 6
 
-- [syslog](resources--log_receiver--reference--group-001.md#canonical-238a4fb5c929043bd6111b3f52ebb4d83281b91492c688ac149bbfc23554692d)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [syslog](resources--log_receiver--reference--group-001.md#canonical-0203202210332311-3021022100100323-3112010101230333-1102322323103120-0302200123210110-2102301220202230-0110212323333002-0311111012210231)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
 
-<a id="canonical-9c77ae414286862fafbb9218e1483a458a6c06d4bf7bf5ec8aaca80a4ee18cb9"></a>
+<a id="canonical-2130131322321001-1002201220120233-2233232321020120-3201102003221011-2022123000123110-2333132333113230-2022223022200022-1032320120302321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4124febd266b229c97d438e3cf1b6e3069de0b8772159b22dfda752a633221d0"></a>
+<a id="canonical-1001021033322331-0212122302022130-2113311003203203-3033012312320300-1221313200232013-1302011121230202-3133312213110222-1203030202013100"></a>
 
-## timeouts — timeouts / 0b623fc22e5a / 2
+## timeouts — timeouts / 300202321122 / 2
 
 Breadcrumbs:
 
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
 - timeouts
 
-<a id="canonical-82593a3b8255332a63e32f5f39afa82adfc2c4418387f48a92595cc0cffbdee3"></a>
+<a id="canonical-2002112103220323-2002111103030222-1203320302331133-0321223322200222-3133300230101001-2003201333102022-2102112111303000-3033332331323203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1996,15 +1996,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-2f59a8100d6b71d923cad561cdbf3f8c34bee7a4c61854356244ce5eb7d00c2c"></a>
+<a id="canonical-0233112122200100-0031122313013121-0203302231111201-3031233303332030-0310233232132210-3012012011100311-1202101030321132-2313310000300230"></a>
 
-## Direct properties — timeouts / 0b623fc22e5a / 3
+## Direct properties — timeouts / 300202321122 / 3
 
-<a id="canonical-4cd0a9e655e22cfd7e13bc1213ea13e307f2faad193edc4a2fc92e97ecb2b6b2"></a>
+<a id="canonical-1030310022213212-1111320202303331-1332010323300102-0103322201033203-0013330233222231-0121033231301022-0233302102322113-3230230223122302"></a>
 
-<a id="canonical-1b8644682e2a64b2c526f97fde9b75edaf929f8baab1e656f4fadad0975d3f48"></a>
+<a id="canonical-0123201210101220-0232022212102302-3011021233211333-3132212313113231-2233210221332023-2222230132121112-3310332231223100-2113113103331020"></a>
 
-## create property — timeouts / 0b623fc22e5a / 4
+## create property — timeouts / 300202321122 / 4
 
 Type: `"string"`. Optional.
 
@@ -2012,11 +2012,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-8cec0affb97d41c592d02d95a0b3f049a4a232b229be74df6a0033fbb115171b"></a>
+<a id="canonical-2030323000223333-2321133110013011-2102310002312111-2200230333001021-2210220203022302-0221233213103133-1222000003033323-2301011101130123"></a>
 
-<a id="canonical-2898f183f8b5cda23446e0945591eb2fd37ef21ca64958727948d7d9b377bf4e"></a>
+<a id="canonical-0220212033012003-3320231130312202-0310101232002110-1111210132230233-3103133233020130-2212102111201302-1321102031133121-2303131323331032"></a>
 
-## delete property — timeouts / 0b623fc22e5a / 5
+## delete property — timeouts / 300202321122 / 5
 
 Type: `"string"`. Optional.
 
@@ -2025,11 +2025,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-9b466b7c8a0a2c26b86febad03bc1dacb40d812c56af7a91f8e218e3c3ecf902"></a>
+<a id="canonical-2123101212231330-2022002202300212-2320123332232231-0003233001312230-2310003120010230-1112223313222101-3320320201203203-3003323033210002"></a>
 
-<a id="canonical-b0c633de5574251bb8a11228bce944dec1a0ec4c1762c2c6142f26b2e61ef877"></a>
+<a id="canonical-2300301203033132-1111131002110123-2320220101020220-2330322110103132-3001220032301030-0113120230023012-0110023302122302-3212013233201313"></a>
 
-## read property — timeouts / 0b623fc22e5a / 6
+## read property — timeouts / 300202321122 / 6
 
 Type: `"string"`. Optional.
 
@@ -2038,11 +2038,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-3f76d9edbc1c568a3905009a82e3183dee1edf62bac76b3a17781b881256a423"></a>
+<a id="canonical-0333131231213231-2330013011122022-0321001100002122-2002320301200331-3232013231331202-2322301312230322-0113132001232020-0102111222100203"></a>
 
-<a id="canonical-31b016fcdd14f0269f40d3fcce794d463fd0fbe8b7c1423efff468516e6f351d"></a>
+<a id="canonical-0301230001123330-3131011033000212-2133100031033330-3032132110311012-0333310033233220-2313300110020332-3333331012201101-1232123303110131"></a>
 
-## update property — timeouts / 0b623fc22e5a / 7
+## update property — timeouts / 300202321122 / 7
 
 Type: `"string"`. Optional.
 
@@ -2050,9 +2050,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-6ed398517b0b20a350ea7cb3d808dffb8649425029e001f71cfad238990e0827"></a>
+<a id="canonical-1232310321201101-1323002302002203-1100322213302303-3120002031333323-2012102110021100-0221320000013313-0130332231020320-2121003200200213"></a>
 
-## Next pages — timeouts / 0b623fc22e5a / 8
+## Next pages — timeouts / 300202321122 / 8
 
-- [Property reference](resources--log_receiver--reference--group-001.md#canonical-ef02783c49c50c98ba0aaaf5e5b83465c290bcf3f2f090952d79c6692f4536e1)
-- [xcsh_log_receiver](../resources/log_receiver.md#canonical-375d2736af6e65bedaf1d43b754773d707d996cab5ebd55470571936157cd683)
+- [Property reference](resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [xcsh_log_receiver](../resources/log_receiver.md#canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003)

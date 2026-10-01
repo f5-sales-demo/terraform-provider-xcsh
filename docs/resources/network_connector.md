@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_connector la
 
 # xcsh_network_connector landing
 
-<a id="canonical-0cb56818b44775bd16a78d7c4430851038331e4d21680537b2f6be63dce8e010"></a>
+<a id="canonical-0030231112200120-2310101313112331-0112221320311330-1010030020110100-0320030301321031-0201122000110313-2302331223321203-3130322032000100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c872e68322ce1b859e1facfb4266c2c171e9b8cc15d3accda8784bd4bff90e4d"></a>
+<a id="canonical-3020130232122003-0202303201232011-2132013322303323-1002121230023001-1301322123203030-0111310322303031-2220132010233110-2333332100321031"></a>
 
-## xcsh_network_connector — xcsh_network_connector / 21cee089d396 / 2
+## xcsh_network_connector — xcsh_network_connector / 202131032112 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by
 users in system namespace. configuration.
 
-<a id="canonical-d4f719351158e916e905cbd659c72e428ced335d7842dc12ba3d1540b02e5e07"></a>
+<a id="canonical-3110331301210311-0101112032210112-3221001130233112-1121301302321002-2030323103031131-1320100231300102-2322033101111000-2300023211320013"></a>
 
-## Prerequisites — xcsh_network_connector / 21cee089d396 / 3
+## Prerequisites — xcsh_network_connector / 202131032112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Required dependencies: `virtual_network`.
 
 - virtual_network: Network to connect
 
-<a id="canonical-b5df403e1b02801dd3c4817a7d4c26cc422a9ee1a8327a386c0d3f29ddab5962"></a>
+<a id="canonical-2311313310000332-0123000220000131-3103301020011322-1331103002123030-1002022221323201-2220030213220320-1230003103330221-3131222311211202"></a>
 
-## Minimal configuration — xcsh_network_connector / 21cee089d396 / 4
+## Minimal configuration — xcsh_network_connector / 202131032112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -63,17 +63,17 @@ resource "xcsh_network_connector" "example" {
 }
 ```
 
-<a id="canonical-dbbe2425b661ee799ecc65f99c2646470567ae2e6cdf1e3e635b90626764d4f2"></a>
+<a id="canonical-3123233202100211-2312120132321321-2132303012113321-2130021210121013-0011121322320232-1230313301320332-1203112321001202-1213121031103302"></a>
 
-## Root configuration — xcsh_network_connector / 21cee089d396 / 5
+## Root configuration — xcsh_network_connector / 202131032112 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0bb130aabb7f75cce809a4d8a3e80f2e61c144438c1d00779bab3f0e39472e48"></a>
+<a id="canonical-0023230103002222-2323133313113030-3220002122103120-2203322000330232-1201300110101003-2030013100001313-2123222303330032-0321101302321020"></a>
 
-## Next pages — xcsh_network_connector / 21cee089d396 / 6
+## Next pages — xcsh_network_connector / 202131032112 / 6
 
-- [Property reference](../guides/resources--network_connector--reference--group-001.md#canonical-ec878df0d04ea9f1eac68f80926f55ca939df9125352efce9b144b7bb4ad30fd)
-- [Examples](../guides/resources--network_connector--examples--group-001.md#canonical-da5d1aadf602caf35fa642617b8652781dcdfdb9c4b01054e2e6ee1d216efbff)
-- [Import](../guides/resources--network_connector--lifecycle--group-001.md#canonical-99266101de64536830d8356e1a4262545ec691de5a88830c5007df5b7700e727)
-- [Timeouts](../guides/resources--network_connector--lifecycle--group-001.md#canonical-c6eaac6ffbfdc7cfe36e41f8d49435aa9468b5a55d119910f009f70a8135e916)
+- [Property reference](../guides/resources--network_connector--reference--group-001.md#canonical-3230201320313300-3100103222213301-3222301220332000-2102123311113022-2103213133210102-1103110232333032-2123011010231323-2310223103003331)
+- [Examples](../guides/resources--network_connector--examples--group-001.md#canonical-3122113101222231-3312000230223303-1133221210021201-1323201211021320-0131303133312321-3010230001001110-3202321232320131-0201123233233333)
+- [Import](../guides/resources--network_connector--lifecycle--group-001.md#canonical-2121021212010001-3132121011031220-0300312003111232-0122100212021110-1132301221013132-1122202020030030-1100001331331123-1313000032130213)
+- [Timeouts](../guides/resources--network_connector--lifecycle--group-001.md#canonical-3012322222301233-3323333130133033-3203123210013320-3110211003112222-2110122023112211-1131010121210100-3300002133130022-2001031132210112)

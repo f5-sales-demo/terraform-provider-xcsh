@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_sensitive_data_polic
 
 # xcsh_sensitive_data_policy reference
 
-<a id="canonical-86a29b3194d50ff67495d3075172b43382c2563aef377018db9add9b0f5caf8f"></a>
+<a id="canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f223013e2c4ac7f5c8fa38e6b9cb5666db9cb7e93d0e47e643e37bcae399e1a1"></a>
+<a id="canonical-3302020300010332-0230102230133311-3020332203203212-2321302311121212-3123213023133221-0331003210133212-1003320313233022-3203212132012201"></a>
 
-## Property reference — Property reference / bf3b7bb52959 / 2
+## Property reference — Property reference / 231102211121 / 2
 
 Breadcrumbs:
 
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)
 - Property reference
 
-<a id="canonical-f2a70a613ce32eb8f796cbdaba31e05419e1d0061e01d9890c7510a8b660a277"></a>
+<a id="canonical-3302221300221201-0330320302322320-3313211230233122-2322030132001110-0121320131000012-0132000131212021-0030131101002220-2312120022021313"></a>
 
-## Direct properties — Property reference / bf3b7bb52959 / 3
+## Direct properties — Property reference / 231102211121 / 3
 
-<a id="canonical-39311ab26048b056fa105a7b44b30f0412fbad238bfa5632ed1cba4a5febca11"></a>
+<a id="canonical-0321030101222302-1200102023001112-3322010011221323-1010230300330010-0102332322310203-2023332211120302-3231013023221022-1133322330220101"></a>
 
-<a id="canonical-37b0f4ec529fd1debd3f8e5daa0ce39eb76b2eedb2f08da700d083043a5b25ab"></a>
+<a id="canonical-0313230033103230-1102213331013132-2331033320321131-2222003032032132-2313122302323231-2302330020312213-0000310020030010-0322112302112223"></a>
 
-## annotations property — Property reference / bf3b7bb52959 / 4
+## annotations property — Property reference / 231102211121 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-41f5bbf268656c9b651daad22bc39389c4bbf4bc247c46c255274fc8e9701545"></a>
+<a id="canonical-1001331123233302-1220121112302123-1211013122223102-0223300321032021-3010232333102330-0210133010123002-1111021310333020-3221130001111011"></a>
 
-<a id="canonical-5aa0a8fc784a5a8a53c95019f4f2c38c2d6d321aeab74140296db0c5c354df3e"></a>
+<a id="canonical-1122220022203330-1320102211222022-1103302111000121-3310330230032030-0231123103020122-3222231310011000-0221123123003011-3003111031330332"></a>
 
-## compliances property — Property reference / bf3b7bb52959 / 5
+## compliances property — Property reference / 231102211121 / 5
 
 Type: `["list", "string"]`. Computed.
 
@@ -125,13 +125,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-a7f7a7d237b7d31824e7c600e33a923f895c17509e2e63925b8d3eb86c184cd6): complete subsection reference.
+- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112): complete subsection reference.
 
-<a id="canonical-855faf59417629a6465d94fa712456f85e2338cdc480a0a30d96160246db2934"></a>
+<a id="canonical-2011113322331121-1001131202212212-1012113121103322-1301021011123320-1132020303203031-3010200022002203-0031211201120002-1012312302210310"></a>
 
-<a id="canonical-26ea07a6f633d5346e9b0e283db4b93652543c3b53b06cddff4667968b23ec3b"></a>
+<a id="canonical-0212322200132212-3312030331110310-1232212300320220-0331231023210312-1102111003300323-1103230012303131-3333101212132112-2023020332300323"></a>
 
-## description property — Property reference / bf3b7bb52959 / 6
+## description property — Property reference / 231102211121 / 6
 
 Type: `"string"`. Computed.
 
@@ -179,11 +179,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7ad9ac2ad29ae55670c66abfffca2c54f484685231942fd476ae03702883dc3e"></a>
+<a id="canonical-1322312122300222-3102212232111112-1300301212222333-3333302202301110-3310201012201102-0301211002333110-1312223200031300-0220200331300332"></a>
 
-<a id="canonical-82bf5cbca45ae1bb6581ee83e35abbe085c2a63712be5dd96a00302b769f2dd6"></a>
+<a id="canonical-2002233311302330-2210112232012323-1211200132322003-3203112223233200-2011300222120313-0102233211313121-1222000003000223-1312213302313112"></a>
 
-## disabled_predefined_data_types property — Property reference / bf3b7bb52959 / 7
+## disabled_predefined_data_types property — Property reference / 231102211121 / 7
 
 Type: `["list", "string"]`. Computed.
 
@@ -231,21 +231,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1534dc013fa4267876374b9b0d3cdd3fcfb60d82036caaf813a5176d64a544e"></a>
+<a id="canonical-3301110310313000-0103332210021213-2013120313102321-2300310330313103-3330332312003120-0200031230222233-2001032211011312-3112102211101032"></a>
 
-<a id="canonical-3e40d06efe0722fb870d38f31b300a8ca1758b0481766d3b955c18f99eefa65c"></a>
+<a id="canonical-0332100031001232-3332001302023323-2013003103203303-0123030000222030-2201131120230010-2001131212310323-2111113001203321-2132323322121130"></a>
 
-## id property — Property reference / bf3b7bb52959 / 8
+## ID property — Property reference / 231102211121 / 8
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-12e94636b93871c2da9876330d82b922e82d76cf9ec650ffb2a3afdae28b0843"></a>
+<a id="canonical-0102322110120312-2321032013013002-3122212013120303-0031200223210202-3220023113123033-2132301211003333-2302220322333122-3202202300201003"></a>
 
-<a id="canonical-7cb5a344626f76a9fa98e73a859a6cf02797048fb3bbbe38e3554b3f7b6dfbec"></a>
+<a id="canonical-1330231122031010-1202123313122221-3322212032130322-2011212212303300-0213211300102033-2303232323320320-3203111110230333-1323123133233230"></a>
 
-## labels property — Property reference / bf3b7bb52959 / 9
+## labels property — Property reference / 231102211121 / 9
 
 Type: `["map", "string"]`. Computed.
 
@@ -269,11 +269,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cf358b91196570f9ca26cee6e0ba7728dc3f5c450d3959ed708ce39b72aebaa6"></a>
+<a id="canonical-3033031120232101-0121121113003321-3022021230323212-3200232213130220-3130033311301011-0031032111213231-1300203032032123-1302223223222212"></a>
 
-<a id="canonical-f957e16a84e100190c66d8fd59f7257e363996889208c2af990845920a8210d1"></a>
+<a id="canonical-3321111332011222-2010320100000121-0030121231203331-1121331302111332-0312032121122020-2102002030022233-2121002010112102-0022200201003101"></a>
 
-## name property — Property reference / bf3b7bb52959 / 10
+## name property — Property reference / 231102211121 / 10
 
 Type: `"string"`. Required.
 
@@ -329,11 +329,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2fd0b7e8b846cb5424c21ce6c9a07eba7b24ff56b5446ecf5332b94bf90e36ee"></a>
+<a id="canonical-0233310023133220-2320101230231110-0210300201303212-3021220013322322-1323021033331112-2311101012323033-1103030223211023-3321003203123232"></a>
 
-<a id="canonical-84137561aeed5b58c8138ff5f2723b3dfae3a982b520a44ca4b51453d4e86e1b"></a>
+<a id="canonical-2010010313111201-2232323111231120-3020010320333311-3302130203230331-3322320322212002-2311020022101030-2210231101101103-3110322012320123"></a>
 
-## namespace property — Property reference / bf3b7bb52959 / 11
+## namespace property — Property reference / 231102211121 / 11
 
 Type: `"string"`. Required.
 
@@ -382,52 +382,52 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-081a673b4a5ee2ec5d03740d659d18fb8550e8d99e460754897f10f9ffe1c53c"></a>
+<a id="canonical-0020012212130323-1022113232023230-1131000313100031-1211213101203323-2011110032203121-2132101200131110-2021133301003321-3333320130110330"></a>
 
-## All schema paths — Property reference / bf3b7bb52959 / 12
+## All schema paths — Property reference / 231102211121 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--sensitive_data_policy--reference--group-001.md#canonical-39311ab26048b056fa105a7b44b30f0412fbad238bfa5632ed1cba4a5febca11) |
-| `compliances` | [compliances](data-sources--sensitive_data_policy--reference--group-001.md#canonical-41f5bbf268656c9b651daad22bc39389c4bbf4bc247c46c255274fc8e9701545) |
-| `custom_data_types` | [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-c3b500dbddacac92dde89fa221da3d977dee2e78d6bc7e5c86573122cf51ebff) |
-| `custom_data_types.custom_data_type_ref` | [custom_data_types.custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2bf4843e3210173f122cd9624a1f766636b2325713b1c890f8aff1dbadc585b8) |
-| `custom_data_types.custom_data_type_ref.name` | [custom_data_types.custom_data_type_ref.name](data-sources--sensitive_data_policy--reference--group-001.md#canonical-604c35873ca69246f981e27cccc623bdb7ae2804c0369723ee6f0060dbf7f4d6) |
-| `custom_data_types.custom_data_type_ref.namespace` | [custom_data_types.custom_data_type_ref.namespace](data-sources--sensitive_data_policy--reference--group-001.md#canonical-9195f19eabd5feece66c512c8e46f9baef2e4415099f2c479be528ebd4e7da12) |
-| `custom_data_types.custom_data_type_ref.tenant` | [custom_data_types.custom_data_type_ref.tenant](data-sources--sensitive_data_policy--reference--group-001.md#canonical-320971a6f4c657b59673e44d632a4fcd05d63da97e44d1a716fcdd4657d0ab7a) |
-| `description` | [description](data-sources--sensitive_data_policy--reference--group-001.md#canonical-855faf59417629a6465d94fa712456f85e2338cdc480a0a30d96160246db2934) |
-| `disabled_predefined_data_types` | [disabled_predefined_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-7ad9ac2ad29ae55670c66abfffca2c54f484685231942fd476ae03702883dc3e) |
-| `id` | [id](data-sources--sensitive_data_policy--reference--group-001.md#canonical-f1534dc013fa4267876374b9b0d3cdd3fcfb60d82036caaf813a5176d64a544e) |
-| `labels` | [labels](data-sources--sensitive_data_policy--reference--group-001.md#canonical-12e94636b93871c2da9876330d82b922e82d76cf9ec650ffb2a3afdae28b0843) |
-| `name` | [name](data-sources--sensitive_data_policy--reference--group-001.md#canonical-cf358b91196570f9ca26cee6e0ba7728dc3f5c450d3959ed708ce39b72aebaa6) |
-| `namespace` | [namespace](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2fd0b7e8b846cb5424c21ce6c9a07eba7b24ff56b5446ecf5332b94bf90e36ee) |
+| `annotations` | [annotations](data-sources--sensitive_data_policy--reference--group-001.md#canonical-0321030101222302-1200102023001112-3322010011221323-1010230300330010-0102332322310203-2023332211120302-3231013023221022-1133322330220101) |
+| `compliances` | [compliances](data-sources--sensitive_data_policy--reference--group-001.md#canonical-1001331123233302-1220121112302123-1211013122223102-0223300321032021-3010232333102330-0210133010123002-1111021310333020-3221130001111011) |
+| `custom_data_types` | [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-3003231100003123-3131223022302102-3131322021332202-0201312203312113-1331323202321320-3112233013321130-2012111303010202-3033110132233333) |
+| `custom_data_types.custom_data_type_ref` | [custom_data_types.custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-0223331020100332-0302010001130333-0102023031211202-1022013313121212-0312230203021113-0103230130202100-3320223333013123-2231301120112320) |
+| `custom_data_types.custom_data_type_ref.name` | [custom_data_types.custom_data_type_ref.name](data-sources--sensitive_data_policy--reference--group-001.md#canonical-1200103003112013-0330221221021012-3321200132021330-3030301202032331-2313223202200010-3000031221130203-3232123300001200-3123331333103112) |
+| `custom_data_types.custom_data_type_ref.namespace` | [custom_data_types.custom_data_type_ref.namespace](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2101211133012132-2223311133323230-3212123011010230-2032101233212322-3233023210100111-0021213302301013-2123321102203223-3110321331220102) |
+| `custom_data_types.custom_data_type_ref.tenant` | [custom_data_types.custom_data_type_ref.tenant](data-sources--sensitive_data_policy--reference--group-001.md#canonical-0302002113012212-3310301211132311-2112130332101031-1203022210333031-0011311203312221-1332101031012213-0112333031311012-1113310022231322) |
+| `description` | [description](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2011113322331121-1001131202212212-1012113121103322-1301021011123320-1132020303203031-3010200022002203-0031211201120002-1012312302210310) |
+| `disabled_predefined_data_types` | [disabled_predefined_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-1322312122300222-3102212232111112-1300301212222333-3333302202301110-3310201012201102-0301211002333110-1312223200031300-0220200331300332) |
+| `id` | [id](data-sources--sensitive_data_policy--reference--group-001.md#canonical-3301110310313000-0103332210021213-2013120313102321-2300310330313103-3330332312003120-0200031230222233-2001032211011312-3112102211101032) |
+| `labels` | [labels](data-sources--sensitive_data_policy--reference--group-001.md#canonical-0102322110120312-2321032013013002-3122212013120303-0031200223210202-3220023113123033-2132301211003333-2302220322333122-3202202300201003) |
+| `name` | [name](data-sources--sensitive_data_policy--reference--group-001.md#canonical-3033031120232101-0121121113003321-3022021230323212-3200232213130220-3130033311301011-0031032111213231-1300203032032123-1302223223222212) |
+| `namespace` | [namespace](data-sources--sensitive_data_policy--reference--group-001.md#canonical-0233310023133220-2320101230231110-0210300201303212-3021220013322322-1323021033331112-2311101012323033-1103030223211023-3321003203123232) |
 
-<a id="canonical-40e33c00695da0f347ce26b5a913fa2a8cbaddbb52c047d961b2ea62859cc695"></a>
+<a id="canonical-1000320303300000-1221113122003303-1013303202122311-2221010333220222-2030232231312323-1102300010133121-1201230232221202-2011213030122111"></a>
 
-## Next pages — Property reference / bf3b7bb52959 / 13
+## Next pages — Property reference / 231102211121 / 13
 
-- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-a7f7a7d237b7d31824e7c600e33a923f895c17509e2e63925b8d3eb86c184cd6)
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
+- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)
 
-<a id="canonical-a7f7a7d237b7d31824e7c600e33a923f895c17509e2e63925b8d3eb86c184cd6"></a>
+<a id="canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1d2d3550371dc056546528b1b1cf5206023a3fe111bba912824467defbc98217"></a>
+<a id="canonical-0131023103111100-0313013130001112-1110121102202301-2301303311020012-0002032203333201-0101232322210102-2002101012133132-3323302120020113"></a>
 
-## custom_data_types — custom_data_types / 42f8c7b87415 / 2
+## custom_data_types — custom_data_types / 232013100111 / 2
 
 Breadcrumbs:
 
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
-- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-86a29b3194d50ff67495d3075172b43382c2563aef377018db9add9b0f5caf8f)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)
+- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033)
 - custom_data_types
 
-<a id="canonical-c3b500dbddacac92dde89fa221da3d977dee2e78d6bc7e5c86573122cf51ebff"></a>
+<a id="canonical-3003231100003123-3131223022302102-3131322021332202-0201312203312113-1331323202321320-3112233013321130-2012111303010202-3033110132233333"></a>
 
 Type: `"list"`. Computed.
 
@@ -468,38 +468,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e345879dfac18391a879d890bcb286007cb83b4ddff0125d6ef3e619f5d50c07"></a>
+<a id="canonical-3203101120132131-3322300120032101-2220132131202100-2330230220120000-1330232003231031-3133330001021131-1232330332120121-3311311100300013"></a>
 
-## Direct properties — custom_data_types / 42f8c7b87415 / 3
+## Direct properties — custom_data_types / 232013100111 / 3
 
-- [custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-7603a1a30ba822ecd2f0058e15b6cc221c07c15967101be30db90625f2545a10): complete subsection reference.
+- [custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-1312000322012203-0023222002023230-3102330000112032-0111231230300202-0130001330011121-1213010001233203-0031232100120211-3302111011220100): complete subsection reference.
 
-<a id="canonical-5e0938503f4df874aa0b4de71289705652ae3367be298d729cb60412d59016c1"></a>
+<a id="canonical-1132002103201100-0333103133201310-2222002310313213-0102202113001112-1102223203031213-2332022120311302-2130231200100102-3111210001123001"></a>
 
-## Next pages — custom_data_types / 42f8c7b87415 / 4
+## Next pages — custom_data_types / 232013100111 / 4
 
-- [custom_data_types.custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-7603a1a30ba822ecd2f0058e15b6cc221c07c15967101be30db90625f2545a10)
-- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-86a29b3194d50ff67495d3075172b43382c2563aef377018db9add9b0f5caf8f)
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
+- [custom_data_types.custom_data_type_ref](data-sources--sensitive_data_policy--reference--group-001.md#canonical-1312000322012203-0023222002023230-3102330000112032-0111231230300202-0130001330011121-1213010001233203-0031232100120211-3302111011220100)
+- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)
 
-<a id="canonical-7603a1a30ba822ecd2f0058e15b6cc221c07c15967101be30db90625f2545a10"></a>
+<a id="canonical-1312000322012203-0023222002023230-3102330000112032-0111231230300202-0130001330011121-1213010001233203-0031232100120211-3302111011220100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ef530977e51cf19734e4f852b6a3ba267cb24a427623c702bda533760f7758c7"></a>
+<a id="canonical-3233110300211313-3211013033012113-0310321033201102-2312220323220212-1330230210221002-1312020330130002-2331221103031312-0033131311203013"></a>
 
-## custom_data_types.custom_data_type_ref — custom_data_types.custom_data_type_ref / fe92342f70e9 / 2
+## custom_data_types.custom_data_type_ref — custom_data_type_ref / 023313003221 / 2
 
 Breadcrumbs:
 
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
-- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-86a29b3194d50ff67495d3075172b43382c2563aef377018db9add9b0f5caf8f)
-- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-a7f7a7d237b7d31824e7c600e33a923f895c17509e2e63925b8d3eb86c184cd6)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)
+- [Property reference](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033)
+- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112)
 - custom_data_types.custom_data_type_ref
 
-<a id="canonical-2bf4843e3210173f122cd9624a1f766636b2325713b1c890f8aff1dbadc585b8"></a>
+<a id="canonical-0223331020100332-0302010001130333-0102023031211202-1022013313121212-0312230203021113-0103230130202100-3320223333013123-2231301120112320"></a>
 
 Type: `"single"`. Computed.
 
@@ -524,15 +524,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89a4ffa94e8891d319df5ada919f0a840247e23d57b61a3059b1044fa0dc2aec"></a>
+<a id="canonical-2021221033332221-1032202021013103-0121313311223122-2101213300222010-0002101332020331-1113231201220300-1121230100101033-2200313002223230"></a>
 
-## Direct properties — custom_data_types.custom_data_type_ref / fe92342f70e9 / 3
+## Direct properties — custom_data_type_ref / 023313003221 / 3
 
-<a id="canonical-604c35873ca69246f981e27cccc623bdb7ae2804c0369723ee6f0060dbf7f4d6"></a>
+<a id="canonical-1200103003112013-0330221221021012-3321200132021330-3030301202032331-2313223202200010-3000031221130203-3232123300001200-3123331333103112"></a>
 
-<a id="canonical-9b8f48973bd79abf59a6efe47295dda16b4b3e4cc3d5c67280a8e1daf5bc955d"></a>
+<a id="canonical-2123203310202113-0323311321222333-1121221232333210-1302211131312201-1223102303321030-3003311130121302-2000222032013122-3311233021111131"></a>
 
-## name property — custom_data_types.custom_data_type_ref / fe92342f70e9 / 4
+## name property — custom_data_type_ref / 023313003221 / 4
 
 Type: `"string"`. Computed.
 
@@ -585,11 +585,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9195f19eabd5feece66c512c8e46f9baef2e4415099f2c479be528ebd4e7da12"></a>
+<a id="canonical-2101211133012132-2223311133323230-3212123011010230-2032101233212322-3233023210100111-0021213302301013-2123321102203223-3110321331220102"></a>
 
-<a id="canonical-3d7131904d62c76b358dd586c73426cb581bce56e441dd1bf7468c8f1d682b03"></a>
+<a id="canonical-0331130103012100-1031120230131223-0311203131112012-3013031002123023-1120012330321112-3210100131310123-3313101220302033-0131122002230003"></a>
 
-## namespace property — custom_data_types.custom_data_type_ref / fe92342f70e9 / 5
+## namespace property — custom_data_type_ref / 023313003221 / 5
 
 Type: `"string"`. Computed.
 
@@ -649,11 +649,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-320971a6f4c657b59673e44d632a4fcd05d63da97e44d1a716fcdd4657d0ab7a"></a>
+<a id="canonical-0302002113012212-3310301211132311-2112130332101031-1203022210333031-0011311203312221-1332101031012213-0112333031311012-1113310022231322"></a>
 
-<a id="canonical-65375dc104045134a0049b648d27fd0c596afddc2ef708749436fe7a7127a189"></a>
+<a id="canonical-1211031311313001-0010001011010310-2200001021231210-2031021333310030-1121122233313130-0232331300201310-2110031233321322-1301021322012021"></a>
 
-## tenant property — custom_data_types.custom_data_type_ref / fe92342f70e9 / 6
+## tenant property — custom_data_type_ref / 023313003221 / 6
 
 Type: `"string"`. Computed.
 
@@ -699,9 +699,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c68144085a9ed7a832438cab64270c11fbf5f1735ee64d80bae5ddc26a9e431"></a>
+<a id="canonical-0030122001101000-2011222132311322-2003021003203022-2312100213003001-0133233311330113-0311323212103120-0023223211313130-0212222132100301"></a>
 
-## Next pages — custom_data_types.custom_data_type_ref / fe92342f70e9 / 7
+## Next pages — custom_data_type_ref / 023313003221 / 7
 
-- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-a7f7a7d237b7d31824e7c600e33a923f895c17509e2e63925b8d3eb86c184cd6)
-- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20)
+- [custom_data_types](data-sources--sensitive_data_policy--reference--group-001.md#canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112)
+- [xcsh_sensitive_data_policy](../data-sources/sensitive_data_policy.md#canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200)

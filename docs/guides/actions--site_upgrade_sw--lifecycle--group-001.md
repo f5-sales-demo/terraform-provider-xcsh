@@ -6,25 +6,25 @@ description: "Complete grouped canonical reference for xcsh_site_upgrade_sw life
 
 # xcsh_site_upgrade_sw lifecycle
 
-<a id="canonical-23a990217858f0772fd3794724ea67680f0ad99f8f1529d4d949476ca1a8332f"></a>
+<a id="canonical-0203222121000201-1320112033001313-0233310313211013-0210322212131220-0033002231212133-2033011102213110-3121102110131230-2201222003030233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a3624dde14bf3821cb9239b9441603e56101ebc705c16aec2d98ad6bde0e3a21"></a>
+<a id="canonical-2203120210313132-0110233303200201-3023210203212321-1010011200033211-1201000132233013-0011300112223230-0231212022311223-3132003203220201"></a>
 
-## Lifecycle — Lifecycle / b8cd8600429a / 2
+## Lifecycle — Lifecycle / 000010022122 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565)
+- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-0120130312312320-0223010000032113-2233123110100201-3130110122132200-2323212123211333-3120313220122233-0023002110221112-0320032112111211)
 - Lifecycle
 
 Invoke this action using Terraform action triggers or `terraform apply -invoke`. The action executes its documented operation; it does not maintain a resource lifecycle. Inspect asynchronous operations separately where described by the API.
 
-<a id="canonical-791b5879d9080b43ad4dfd2ec2ca7bf7301f174d159f54bc4ef141bd82ae751c"></a>
+<a id="canonical-1321012311201321-3121002000231003-2231103133310232-3002302213233313-0300013301131031-0111213311102330-1032330110012331-2002223213110130"></a>
 
-## Next pages — Lifecycle / b8cd8600429a / 3
+## Next pages — Lifecycle / 000010022122 / 3
 
-- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565)
+- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-0120130312312320-0223010000032113-2233123110100201-3130110122132200-2323212123211333-3120313220122233-0023002110221112-0320032112111211)

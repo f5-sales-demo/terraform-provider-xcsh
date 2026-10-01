@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy
 
 # xcsh_waf_exclusion_policy landing
 
-<a id="canonical-00d01dd131d2721a36f10a4902fffb30f51636069e4609e56a6fd98293061663"></a>
+<a id="canonical-0000310001313101-0301310213020122-0312330100221021-0002333333230300-3311011203120012-2132101200213211-1222123331212002-2103001201121203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c0a8bda19d70d0e6cae8178e7fb7c2f24b3503c244d1a5e3480f8877c9f8fd87"></a>
+<a id="canonical-3000222023312201-2131130031003212-3022322001132032-1333231330023302-1023031100033002-1010310122113203-1020003320201313-3021332033312013"></a>
 
-## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / f59c1bdfc10a / 2
+## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / 313330010022 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages WAF exclusion policy in F5 Distributed Cloud.
 
-<a id="canonical-51bccff38509a2aa4d5829e2477da4f54b798ca42efe7640bb68d1059b9a1af3"></a>
+<a id="canonical-1101233030333303-2011002122022222-1031112002213202-1013133122103311-1023132120302210-0232333213121000-2323122031010011-2123212201223303"></a>
 
-## Prerequisites — xcsh_waf_exclusion_policy / f59c1bdfc10a / 3
+## Prerequisites — xcsh_waf_exclusion_policy / 313330010022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3ef6f21a7f1abba94795e6c3ce78933c094df475a66914825c53284c2447a635"></a>
+<a id="canonical-0332331233020122-1333012223232221-1013211132123003-3032132021030330-0021103133101311-2212122101102002-1130110302201030-0210101322120311"></a>
 
-## Minimal configuration — xcsh_waf_exclusion_policy / f59c1bdfc10a / 4
+## Minimal configuration — xcsh_waf_exclusion_policy / 313330010022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "waf_exclusion_policy_id" {
 }
 ```
 
-<a id="canonical-4feeb0926dae84922724d64dc37978389b22b8043bf72c49e69c14800e378f74"></a>
+<a id="canonical-1033323223002102-1231223220102102-0213021031121031-3003132113200320-2123020223200010-0323331302301021-3212213001102000-0032031320331310"></a>
 
-## Root configuration — xcsh_waf_exclusion_policy / f59c1bdfc10a / 5
+## Root configuration — xcsh_waf_exclusion_policy / 313330010022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-148dd10523c6c231b7c34c8806b7237f963e5d952b7962ec2e45209dc13b71b0"></a>
+<a id="canonical-0110203131010011-0203301230020301-2313300310302020-0012231302031333-2112033211312111-0223132112023230-0232101102002131-3001032313012300"></a>
 
-## Next pages — xcsh_waf_exclusion_policy / f59c1bdfc10a / 6
+## Next pages — xcsh_waf_exclusion_policy / 313330010022 / 6
 
-- [Property reference](../guides/data-sources--waf_exclusion_policy--reference--group-001.md#canonical-c8d4b20bee0ece317a8f58e588ade2d1ade2e19613853ed5cfdb026a232d1c56)
-- [Examples](../guides/data-sources--waf_exclusion_policy--examples--group-001.md#canonical-c81efcf5a52a4fc6a6d88f4e932312fe4a94dd7084d183754fbb93bf646c0abf)
+- [Property reference](../guides/data-sources--waf_exclusion_policy--reference--group-001.md#canonical-3020311023020023-3232003230320301-1322203311203211-2020223132023101-2231320232012112-0103201103323111-3033312300021222-0203023101301112)
+- [Examples](../guides/data-sources--waf_exclusion_policy--examples--group-001.md#canonical-3020013233303311-2211022210333012-2212312020331032-2103020301023332-1022211031311300-2010310120031311-1033232321032333-1210123000222333)

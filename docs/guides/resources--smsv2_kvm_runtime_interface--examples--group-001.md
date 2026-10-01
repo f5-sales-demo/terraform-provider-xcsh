@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_smsv2_kvm_runtime_in
 
 # xcsh_smsv2_kvm_runtime_interface examples
 
-<a id="canonical-c509cd984ffc370cab24b54c647c3de108332d63fff3a31baacfaacd3e5f847d"></a>
+<a id="canonical-3011002130312120-1033333003130030-2223021023111030-1210133003313201-0020030302311203-3333330322030123-2222303322223031-0332113320101331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50670bca8ed00fd82e56a1e604a26fa7ba19516b8b0587bcd824a8e4377141ec"></a>
+<a id="canonical-1100121300233022-2032310000333120-0232111222013212-0010220212332213-2322012111011223-2023001120132330-3120021022203210-0313130110013230"></a>
 
-## Examples — Examples / 5fa2d49a5b05 / 2
+## Examples — Examples / 212211230011 / 2
 
 Breadcrumbs:
 
-- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-2f0c16a5489e111182e91669fdd8243ae8c574bdb1fc5fc1e4ab1808527039b3)
+- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303)
 - Examples
 
-<a id="canonical-ca219b431377fa0c0cfac3ce7b5a8c3f3c7a43873095a53aadc49e2b7ad6203b"></a>
+<a id="canonical-3022020121231003-0103131333220030-0030332230033032-1323112220300333-0330132210032013-0300211122110322-2231301021320223-1322311202000323"></a>
 
-## Complete configurations — Examples / 5fa2d49a5b05 / 3
+## Complete configurations — Examples / 212211230011 / 3
 
-- [Resource](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-91b0cc65513bb3d04cd4ce2b7c0584ab17f549043bb2ee020af8cbade8aef977): valid configuration.
+- [Resource](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-2101230030301211-1101032323033100-1030311030320223-1330001120102223-0113331110210010-0323230232320002-0022332030232231-3220223233211313): valid configuration.
 
-<a id="canonical-a8cd5033ae78948985e006d28d9503733bf59264877ce007c85a8460cfdcf896"></a>
+<a id="canonical-2220303111000303-2232132021102021-2011320000123102-2031211100031303-0323331121021210-2013133032000013-3020112220101200-3033313033202112"></a>
 
-## Next pages — Examples / 5fa2d49a5b05 / 4
+## Next pages — Examples / 212211230011 / 4
 
-- [Resource](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-91b0cc65513bb3d04cd4ce2b7c0584ab17f549043bb2ee020af8cbade8aef977)
-- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-2f0c16a5489e111182e91669fdd8243ae8c574bdb1fc5fc1e4ab1808527039b3)
+- [Resource](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-2101230030301211-1101032323033100-1030311030320223-1330001120102223-0113331110210010-0323230232320002-0022332030232231-3220223233211313)
+- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303)
 
-<a id="canonical-91b0cc65513bb3d04cd4ce2b7c0584ab17f549043bb2ee020af8cbade8aef977"></a>
+<a id="canonical-2101230030301211-1101032323033100-1030311030320223-1330001120102223-0113331110210010-0323230232320002-0022332030232231-3220223233211313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c36241a1e1a627c8da67226a970ca1e684b818e6373d44560562ee2071a7f5aa"></a>
+<a id="canonical-3003120210012201-3201221202133020-3122121302021222-2113003022013212-2010232001203212-0313033110101112-0011120232320200-1301221333112222"></a>
 
-## Resource — Resource / 1ad4cdd0a99e / 2
+## Resource — Resource / 310022212132 / 2
 
 Breadcrumbs:
 
-- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-2f0c16a5489e111182e91669fdd8243ae8c574bdb1fc5fc1e4ab1808527039b3)
-- [Examples](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-c509cd984ffc370cab24b54c647c3de108332d63fff3a31baacfaacd3e5f847d)
+- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303)
+- [Examples](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-3011002130312120-1033333003130030-2223021023111030-1210133003313201-0020030302311203-3333330322030123-2222303322223031-0332113320101331)
 - Resource
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -78,9 +78,9 @@ resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
 }
 ```
 
-<a id="canonical-11d797c441dacc78ccd0df27f78e325f90c2751097a40bd14bb06e2c0a0ec927"></a>
+<a id="canonical-0101311321133010-1001312230301320-3030310031330213-3313203203021133-2100300213110100-2113221000233101-1023230012320230-0022003230210213"></a>
 
-## Next pages — Resource / 1ad4cdd0a99e / 3
+## Next pages — Resource / 310022212132 / 3
 
-- [Examples](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-c509cd984ffc370cab24b54c647c3de108332d63fff3a31baacfaacd3e5f847d)
-- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-2f0c16a5489e111182e91669fdd8243ae8c574bdb1fc5fc1e4ab1808527039b3)
+- [Examples](resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-3011002130312120-1033333003130030-2223021023111030-1210133003313201-0020030302311203-3333330322030123-2222303322223031-0332113320101331)
+- [xcsh_smsv2_kvm_runtime_interface](../resources/smsv2_kvm_runtime_interface.md#canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_discovery landing."
 
 # xcsh_discovery landing
 
-<a id="canonical-a1ba1cd74df843e69061f566e3d6b3bf2ffdbb044874803148f03446cc9ffbea"></a>
+<a id="canonical-2201232201303113-1031332010033212-2100120133111212-3203311223032333-0233333123230010-1020131020000301-1020330003101012-3030213333233222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a1a93f8feeb074538e27cb7606fed60de97dc5ec636b7e038e250cbc95ee51d5"></a>
+<a id="canonical-2201222103332033-3232230013101103-2032021330231312-0012333231120031-3221133130113230-1203122313320003-2032021100302330-2111323211013111"></a>
 
-## xcsh_discovery — xcsh_discovery / 33de663a3ad8 / 2
+## xcsh_discovery — xcsh_discovery / 032203223120 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site
 or virtual site in system namespace. configuration.
 
-<a id="canonical-49b6f1cdd0056d3aeb0056b6789cd7aa2be5eaf81bedfbc2ae53a6768244a8da"></a>
+<a id="canonical-1021231233013031-3100001112310322-3223000011122312-1320213031132222-0223321132223320-0123323133233002-2232110322121312-2002101022203122"></a>
 
-## Prerequisites — xcsh_discovery / 33de663a3ad8 / 3
+## Prerequisites — xcsh_discovery / 032203223120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b369f0803e5b329bf7720c63be04d6513af23c57cec015bc3eba39135df05b74"></a>
+<a id="canonical-2303122133002000-0332112303022123-3313130200301203-2332001031121101-0322330203301113-3032300001112330-0332232203210103-1131330011231310"></a>
 
-## Minimal configuration — xcsh_discovery / 33de663a3ad8 / 4
+## Minimal configuration — xcsh_discovery / 032203223120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "discovery_id" {
 }
 ```
 
-<a id="canonical-751e88136324a64a2fd0c93558a5e19f0d7d5f4ea4c2492750be5ae6592d03e5"></a>
+<a id="canonical-1311013220200103-1203021022121022-0233310030210311-1120221132012133-0031133111331032-2210300210210213-1100233211223212-1121023100033211"></a>
 
-## Root configuration — xcsh_discovery / 33de663a3ad8 / 5
+## Root configuration — xcsh_discovery / 032203223120 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0d87496774937d2f196b6ba9a022566845551041ac97d1e20c64e3c4721d5933"></a>
+<a id="canonical-0031201310211213-1310210313310233-0121122312232221-2200020211121220-1011111101001001-2230211331013202-0030121032033010-1302013111210303"></a>
 
-## Next pages — xcsh_discovery / 33de663a3ad8 / 6
+## Next pages — xcsh_discovery / 032203223120 / 6
 
-- [Property reference](../guides/data-sources--discovery--reference--group-001.md#canonical-89b3e09314ef5fec837c9034f68d6bb66048b1e8e127c21bebfbd751a57f9668)
-- [Examples](../guides/data-sources--discovery--examples--group-001.md#canonical-af5f4883c598ee98395114fc54a3127f97b306ab0e56ee5dcd42b30eefd63773)
+- [Property reference](../guides/data-sources--discovery--reference--group-001.md#canonical-2021230332002103-0110323311333230-2003133021000310-3312203112232312-1200102023013220-3201021330020123-3223332331131101-2211133321121220)
+- [Examples](../guides/data-sources--discovery--examples--group-001.md#canonical-2233113310202003-3011212032322120-0321110101103330-1110220301021333-2113230300122223-0032111232321131-3031100223030032-3233311203131303)

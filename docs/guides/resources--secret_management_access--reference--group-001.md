@@ -6,41 +6,41 @@ description: "Complete grouped canonical reference for xcsh_secret_management_ac
 
 # xcsh_secret_management_access reference
 
-<a id="canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b"></a>
+<a id="canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-28912d4b4722b9dcda778a569e427095cca21f34322a8c7caf4a2b411a0e6697"></a>
+<a id="canonical-0220210102311023-1013020223213130-3122131320221112-2132100213002111-3030220201330310-0302022220301330-2233102202231001-0122003212122113"></a>
 
-## Property reference — Property reference / 97ff103600cb / 2
+## Property reference — Property reference / 031200003023 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 - Property reference
 
-<a id="canonical-17644dc144a89368692b14c7171a2c01e3404fff0ecc7aa2fb69c0a0eabdae8b"></a>
+<a id="canonical-0113121010313001-1010222021031220-1221022301103013-0113012202300001-3203100010333333-0032303013222202-3323122130002200-3222233122322023"></a>
 
-## Direct properties — Property reference / 97ff103600cb / 3
+## Direct properties — Property reference / 031200003023 / 3
 
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810): complete subsection reference.
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100): complete subsection reference.
 
-<a id="canonical-2bde1a7647158898d46f83fdac72960b7cbb19cc5bd4a2e036d5c9b63979397b"></a>
+<a id="canonical-0223313201221312-1013011120202120-3110123320033331-2230130221120023-1330232301213030-1123311022023200-0312311130212312-0321132103211323"></a>
 
-<a id="canonical-4ce480c3b0bb40d99c63c6752ca532ea5a8a8f78b5a273b1177bfddf5d0c6c96"></a>
+<a id="canonical-1030321020003003-2300232310003121-2130120330121311-0230221103023222-1122202220331320-2311220213032301-0113132333313133-1131003012302112"></a>
 
-## annotations property — Property reference / 97ff103600cb / 4
+## annotations property — Property reference / 031200003023 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -69,11 +69,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bd42a00915d1892bcc3678a2bf425468d505cd2af10cecfdeede4fdcd0ad2348"></a>
+<a id="canonical-2331100222000021-0111310120210223-3030031213202202-2333100211101220-3111001130310222-3301003032303331-3232313210333130-3100223102031020"></a>
 
-<a id="canonical-7e5b2ccf03a2d00ceb416b2dde1ac7263df3a1220733bbc73defae45fe57bc3f"></a>
+<a id="canonical-1332112302303033-0003220231000030-3223100112230231-3132012230130212-0331330322010202-0013030323233013-0331323322321011-3332111323300333"></a>
 
-## description property — Property reference / 97ff103600cb / 5
+## description property — Property reference / 031200003023 / 5
 
 Type: `"string"`. Optional.
 
@@ -117,11 +117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7bb1570ce56022dfde45b20c60cde7e6a339a8a0b60a9c0cad8fa4cfa3347497"></a>
+<a id="canonical-1323230111130030-3211120002023133-3132101123020030-1200303132133212-2203032122202200-2312002221300030-2231203322103033-2203031013102113"></a>
 
-<a id="canonical-10983852bf1eda29b67d6843b8bcd820f1989539c4acb174893b93a59388ea76"></a>
+<a id="canonical-0100212003201102-2333013231220221-2312133112201003-2320233031200200-3301212021110321-3010223023011310-2021032321032211-2103202032221312"></a>
 
-## disable property — Property reference / 97ff103600cb / 6
+## disable property — Property reference / 031200003023 / 6
 
 Type: `"bool"`. Optional.
 
@@ -144,25 +144,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4d87e6d9e54ad2bf0306203f26d3430410d34edaaaa968ae16149799bcfa626b"></a>
+<a id="canonical-1031201332123121-3211102231022333-0003001202000333-0212310310030010-0100310310323122-2222222112202232-0112011021132121-2330332212021223"></a>
 
-<a id="canonical-52e208e4fa67d917287f68a3d7fda94136966b162847fe6d4ba9f29596055491"></a>
+<a id="canonical-1102320200203210-3322121331210113-0220133312202203-3113333122211001-0312211212230112-0220101333321231-1023222133022111-2112001111102101"></a>
 
-## id property — Property reference / 97ff103600cb / 7
+## ID property — Property reference / 031200003023 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-281b2e3a325df63df4b03a922c29566b1734df0931f4d77e50f17a6098fe023d"></a>
+<a id="canonical-0220012302320322-0302113133120331-3310230003222102-0230022111121223-0113031031330021-0301331031131332-1100330113221200-2120333200020331"></a>
 
-<a id="canonical-0a6256500e703fbd706bf29c92606b6ae2d9c9933dae9179376c336ac315142b"></a>
+<a id="canonical-0022120211121100-0032130003332331-1300122333022130-2102120012231222-3202312130212103-0331223221011321-0313123003031222-3003011101100223"></a>
 
-## labels property — Property reference / 97ff103600cb / 8
+## labels property — Property reference / 031200003023 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aaed34e9206ac81683cc71c605f214dc47393d76e529d7c9b20f98f2bb1b5844"></a>
+<a id="canonical-2222323103103221-0200122230200112-2003303013013012-0011330201103130-1013032103311312-3211022131133021-2302003321203302-2323012311201010"></a>
 
-<a id="canonical-2572cac83f8fd828cbb7ef99205b86149d390c9f234be5bb0b18cf78f79da7f9"></a>
+<a id="canonical-0211130230223020-0333203331200220-3023231332332121-0200112320120110-2131032100302133-0203102332112323-0023012030331320-3313213122133321"></a>
 
-## name property — Property reference / 97ff103600cb / 9
+## name property — Property reference / 031200003023 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df3740add5dc38eae19e33c8a805645884daff8247c7e5b41e4a9c9f16d84008"></a>
+<a id="canonical-3133031310002231-3111313003203222-3201213203033020-2220001112101120-2010312233332002-1013301332112310-0132102221302133-0112312010000020"></a>
 
-<a id="canonical-d567e04afc7b7014063703ff7aaf932e1051897bb64e41573292ce7b12ef67c3"></a>
+<a id="canonical-3111121332001022-3330132313000110-0012031300033333-1322223321030232-0100110120211323-2312103210011113-0302210230321323-0102323312133003"></a>
 
-## namespace property — Property reference / 97ff103600cb / 10
+## namespace property — Property reference / 031200003023 / 10
 
 Type: `"string"`. Required.
 
@@ -312,11 +312,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-450d360b22bac39cbb20f3bc0eaaca050381df6127b30f1e1c4af74e4d57e733"></a>
+<a id="canonical-1011003103120023-0202232230032130-2323020033032330-0032222230220011-0003200131331201-0213230300330132-0130102233131032-1031111332130303"></a>
 
-<a id="canonical-d512ffb5ec1c3b3ece75db0a4b1085333a5f8b3688596e9e169a52b6b91f643b"></a>
+<a id="canonical-3111010233332311-3230013003230332-3032131131230022-1023010020110303-0322113320230312-2020112112322132-0112212211022312-2321013312100323"></a>
 
-## provider_name property — Property reference / 97ff103600cb / 11
+## provider_name property — Property reference / 031200003023 / 11
 
 Type: `"string"`. Required.
 
@@ -368,183 +368,183 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--secret_management_access--reference--group-002.md#canonical-fb1d71681608bb290a6f1b56353da27906bf45ff58b32d0cf25c35930489c6f0): complete subsection reference.
+- [timeouts](resources--secret_management_access--reference--group-002.md#canonical-3323013113011220-0112002023230221-0022123301231112-0311033122021321-0012233310113333-1120230302310030-3302113003112103-0010202130123300): complete subsection reference.
 
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5): complete subsection reference.
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211): complete subsection reference.
 
-<a id="canonical-39d113bf5db6ce47759e47f5b2dd714a2185111d0b4bb85e9f893b8e7fe91862"></a>
+<a id="canonical-0321310101032333-1131231230321013-1311213210133311-2302313113011022-0201201101010131-0023102323201132-2133202103232032-1333322101201202"></a>
 
-## All schema paths — Property reference / 97ff103600cb / 12
+## All schema paths — Property reference / 031200003023 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `access_info` | [access_info](resources--secret_management_access--reference--group-001.md#canonical-6a386163f4ba8ab64d8b981f0adb49fc06c155f218c7a205541ccf1b07dd20a3) |
-| `access_info.rest_auth_info` | [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-4d3fec29c58a6e835e039d0788717403e7f50c4b525f19c28c6e4ef6951f91fc) |
-| `access_info.rest_auth_info.basic_auth` | [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-b65a0e7b5a06f0f6a1b0a6893e7889a9a149031bd2a4fd724cd580c5823c33aa) |
-| `access_info.rest_auth_info.basic_auth.password` | [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-02d62886dc13ef1b772d5bc7ef54d7ee86faf45fdcd81855308d58b1a86aefc9) |
-| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-8f82f2b7b25989e6f2fc5a292a18b0a3b1ef54f82ab3468b11f2a14a657bfc45) |
-| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.decryption_provider` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-001.md#canonical-7f23d842bcc093b98930be04e2861745c075288affcf0e0800a3e2c992dbc0df) |
-| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.location` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.location](resources--secret_management_access--reference--group-001.md#canonical-edd5a1ad25b6a7437518befff59ff0aa4c8cac51b8314efa75cb91a74234b2da) |
-| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.store_provider` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-001.md#canonical-0277cb424aecc160756430b967e5f9e6e03ca0040c411a8f4734b959e0b33a25) |
-| `access_info.rest_auth_info.basic_auth.password.clear_secret_info` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-53c3480ad121422b58a1acac10789ac32944c9f1499f3885fabe9059339839c7) |
-| `access_info.rest_auth_info.basic_auth.password.clear_secret_info.provider_ref` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-001.md#canonical-74054866fd7ba945d5765d9fc1db6177214c146f9be1cb27f42c9b4524e44d0b) |
-| `access_info.rest_auth_info.basic_auth.password.clear_secret_info.url` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info.url](resources--secret_management_access--reference--group-001.md#canonical-111e9d41689846b3e69bfcfd3bc05c5ef82620adaf64449a3c9142d12108cb52) |
-| `access_info.rest_auth_info.basic_auth.username` | [access_info.rest_auth_info.basic_auth.username](resources--secret_management_access--reference--group-001.md#canonical-affccdce193a4004c611f1252bd973adfd76d88c91ce6e29edb64fc467d1df83) |
-| `access_info.rest_auth_info.headers_auth` | [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-a8614693e0c9254e160eae872446907ea4a1d8fdb4a7daecb0cc8fb5f8657247) |
-| `access_info.rest_auth_info.headers_auth.headers` | [access_info.rest_auth_info.headers_auth.headers](resources--secret_management_access--reference--group-001.md#canonical-4028bfdc77a8552e86d71babf15cccb3697d656b0544c17d339e68292a31d2b8) |
-| `access_info.rest_auth_info.query_params_auth` | [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-ea223748a8617a0355131584af9f25a287f8c5e91dc29ed0af4b3bed8c87e612) |
-| `access_info.rest_auth_info.query_params_auth.query_params` | [access_info.rest_auth_info.query_params_auth.query_params](resources--secret_management_access--reference--group-001.md#canonical-3cd8a9090d53fd0e0fe65f18bca2a7f7a779583429b72c6fb92311f1ec5fa6f2) |
-| `access_info.scheme` | [access_info.scheme](resources--secret_management_access--reference--group-001.md#canonical-1659908f09ba394053ce3de5650c61e7a05f99ec3d33edf4fbd8144bc33633d2) |
-| `access_info.server_endpoint` | [access_info.server_endpoint](resources--secret_management_access--reference--group-001.md#canonical-7cd0fe591f4d10c96d8a8bf13742e228cb2ece69b06979598174c15b015e76a6) |
-| `access_info.tls_config` | [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-428b2c6b28bb1296cdb61db3a046d733f0662e24c6d960a895082cb585f58394) |
-| `access_info.tls_config.cert_params` | [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-377302607e854b35f29fbafc8c2634cbc2ae62b289a39e0fc75649c43a70be33) |
-| `access_info.tls_config.cert_params.certificates` | [access_info.tls_config.cert_params.certificates](resources--secret_management_access--reference--group-001.md#canonical-dec92ff55d4e043cb8496ec2bac6de8e2b1295bf1f09ea4dd5a33ee2affed711) |
-| `access_info.tls_config.cert_params.certificates.kind` | [access_info.tls_config.cert_params.certificates.kind](resources--secret_management_access--reference--group-001.md#canonical-14fb8b18845b0da54e2fdd2716d9e8394371c2a9151ce111d400e43a39c4b577) |
-| `access_info.tls_config.cert_params.certificates.name` | [access_info.tls_config.cert_params.certificates.name](resources--secret_management_access--reference--group-001.md#canonical-594b959d8daf9e1ce564f9aefa604d04ff12a17295ea84912d96c9736fe7ae4d) |
-| `access_info.tls_config.cert_params.certificates.namespace` | [access_info.tls_config.cert_params.certificates.namespace](resources--secret_management_access--reference--group-001.md#canonical-16de07d482f4232aeff1637acce93c9ec623baf2dc905cd429df94200eb8cc05) |
-| `access_info.tls_config.cert_params.certificates.tenant` | [access_info.tls_config.cert_params.certificates.tenant](resources--secret_management_access--reference--group-001.md#canonical-b726e7c7784cb6da6a18c60e5090f01551adf26d645f5ca448256f89d37b6fe4) |
-| `access_info.tls_config.cert_params.certificates.uid` | [access_info.tls_config.cert_params.certificates.uid](resources--secret_management_access--reference--group-001.md#canonical-0da8906ee8db07ca070369899d09476ec366618e88f74bcb5559bb56d54821f6) |
-| `access_info.tls_config.cert_params.cipher_suites` | [access_info.tls_config.cert_params.cipher_suites](resources--secret_management_access--reference--group-001.md#canonical-d32a7f716f46a80a7c0fc83cce45c2c2bb86f0a958b2a5fe9041113fa2d5208c) |
-| `access_info.tls_config.cert_params.maximum_protocol_version` | [access_info.tls_config.cert_params.maximum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-65a64a67ddb216b92ca4fb48f9c388245f11434c97ec33327b353f008408df5f) |
-| `access_info.tls_config.cert_params.minimum_protocol_version` | [access_info.tls_config.cert_params.minimum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-50da1e53e6ebc1b3eadd812d3ea50f2bf4370ae5e24b1e22bf9f73a758030d4d) |
-| `access_info.tls_config.cert_params.skip_server_verification` | [access_info.tls_config.cert_params.skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-2ab8f23209c0d1d7e2de4d27f4624fc435387befc542d1c2fd1183dbc0b03b53) |
-| `access_info.tls_config.cert_params.tls_validation_params` | [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-50a1f1f904f38843fe108668a17de2e6f0c399e646efc6d6e5eb0993d3fd62a7) |
-| `access_info.tls_config.cert_params.tls_validation_params.skip_hostname_verification` | [access_info.tls_config.cert_params.tls_validation_params.skip_hostname_verification](resources--secret_management_access--reference--group-001.md#canonical-87e20cac3be9040de5b0e45796dcdc03e524696241388853b5ab566a6d6c07d5) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-44ceb21986223670a34cb222b9f53b4b77e3e94c5691fb7b08e3a81395e89740) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-650c1ac0beabe451b603d80a307941efcedd75f96329a768cce70e9d2da2173a) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind](resources--secret_management_access--reference--group-001.md#canonical-35f011c3f6859ac20dce523ab8af420a47d7be200c788ac0cc640f2ffe1bc39c) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name](resources--secret_management_access--reference--group-001.md#canonical-93bd711c6001e0a8a3551c97b650894e7b1a931c0271b27531cb9c6ee6117771) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace](resources--secret_management_access--reference--group-001.md#canonical-d4ff2d671b39df16ee985546189b888f021df35e33da31df7c976070c51476b8) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant](resources--secret_management_access--reference--group-001.md#canonical-ad6bafea2bc40847d31891473fa8a41bc37dbaae04db2a2468ccd72847264b79) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid](resources--secret_management_access--reference--group-001.md#canonical-620938001305c73abbfcfc9e58ce4eb397126bfd1f570e904fedd3a5c730f57a) |
-| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca_url` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca_url](resources--secret_management_access--reference--group-001.md#canonical-61902c5c4c10a987461fb1c9beff249669f9ccfd776e511b717a274536e4f530) |
-| `access_info.tls_config.cert_params.tls_validation_params.verify_subject_alt_names` | [access_info.tls_config.cert_params.tls_validation_params.verify_subject_alt_names](resources--secret_management_access--reference--group-001.md#canonical-f1a59447b5fd9ebb50787190fd7854ee90b02e15ae7a85e4777b37f2e5c88a79) |
-| `access_info.tls_config.cert_params.volterra_trusted_ca` | [access_info.tls_config.cert_params.volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-05adb79ad8d2f365365644d34b04523b1e954d723601af3ebbbad0027400cadb) |
-| `access_info.tls_config.common_params` | [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-49dddf179dac50d8f56967ff6c2a5c67a5bd48bd058ab62d7cf401f03522934d) |
-| `access_info.tls_config.common_params.cipher_suites` | [access_info.tls_config.common_params.cipher_suites](resources--secret_management_access--reference--group-001.md#canonical-0a0e216b74e3dea2adce8d039db332b8bad386add2e5dac2ac44c236bddc0211) |
-| `access_info.tls_config.common_params.maximum_protocol_version` | [access_info.tls_config.common_params.maximum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-54540493f1e8b2c3adcc9691f8e5abbea3d6352956d7e3b4eae6c8f8dd4c9ecc) |
-| `access_info.tls_config.common_params.minimum_protocol_version` | [access_info.tls_config.common_params.minimum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-285074ecda796b731bc49ffb9fe6d87d8838c2da35d29eab57c6959c028b6398) |
-| `access_info.tls_config.common_params.tls_certificates` | [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-00e836629bc900bc614716e6424c39eeb96ab06050d70ecee38f07818cae8d8f) |
-| `access_info.tls_config.common_params.tls_certificates.certificate_url` | [access_info.tls_config.common_params.tls_certificates.certificate_url](resources--secret_management_access--reference--group-001.md#canonical-c71b92c8f122ecf3320a80831c8ba259e9fb464f53cbc2e0e8d59264c946759a) |
-| `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-474ebb1c837fbb93d3e8c8356f001b2d50dc105392aa8a7eec74480abee74f66) |
-| `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-42e2bedeaad2807331ab5f23748d500a79bb67a383b6219f0f68e27b1dc02bc0) |
-| `access_info.tls_config.common_params.tls_certificates.description_spec` | [access_info.tls_config.common_params.tls_certificates.description_spec](resources--secret_management_access--reference--group-001.md#canonical-82331335243df1069932ec10f2de15d4377872a6a7d9af225217a70f6c2acd57) |
-| `access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling` | [access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-1a5f4b125204d3f2dd24409eff898b54a6a10824a350a3c18459cfd125e13832) |
-| `access_info.tls_config.common_params.tls_certificates.private_key` | [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-f3d4ada5d1c348cfa949143382aa597fe46d90abb33123950b60425eaa893a6a) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-1e78b2bcadc0d93ebda6cc1754217fa07b22abdcc8e8bb4bcaec00e34dabaf25) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-001.md#canonical-269dab41634736e89d518ae07424b5bcf3e7a277f246a12cc5e760ae45ea63ec) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.location](resources--secret_management_access--reference--group-001.md#canonical-76ea84f19295c5298f1f592ecf21622c59b4ca85d429628ea9a6484842b99802) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-001.md#canonical-e3317b6fc4a667ebbda0255acc1c723e8dcd0e1e794cc312cf4f2481d15a5fa9) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-1dbd4247a9733899a87902ddf100f4e9549eb7ae391c344763e31a280f1e0ac0) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-001.md#canonical-5c17f45603b3aeb62c45c8f4cfae180b01ba58cbc66559f28326fb4b00dc1774) |
-| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.url` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.url](resources--secret_management_access--reference--group-001.md#canonical-6bf8bcdef495a879615ad2dfea094259155df7c90f2640e6744c5f1f07d50b72) |
-| `access_info.tls_config.common_params.tls_certificates.use_system_defaults` | [access_info.tls_config.common_params.tls_certificates.use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-2e764bef99485ae4759ff5bcb6a37987113ae0bee1b8de714641dcab22ab96d3) |
-| `access_info.tls_config.common_params.validation_params` | [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-c9c42d7f9ddfdc3e660d19b60b29244383e3686dbc01be67c7fc57b640307ab8) |
-| `access_info.tls_config.common_params.validation_params.skip_hostname_verification` | [access_info.tls_config.common_params.validation_params.skip_hostname_verification](resources--secret_management_access--reference--group-001.md#canonical-64296554df5cb8164538a42f19ccbe1ed882768e15c3a38edf568c54ccacbdfa) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca` | [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2ee1fd55ed3759eb1b61760ef1936e05d4e3975a518125fa6bf27ef33dee02f6) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-9d5bf2ad50aa24c5b187e4335447058f7a0324a9859247083e2eb91308957cf0) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.kind` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.kind](resources--secret_management_access--reference--group-001.md#canonical-43b3ff77cfd7798769e44ee7da36ee4ab5bf05b3298bbf864407dd5573188b95) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.name` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.name](resources--secret_management_access--reference--group-001.md#canonical-e0c69bcc8cd99e905054eee655b2879388d0c8cbe511aa5271486435f54a6b93) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.namespace](resources--secret_management_access--reference--group-001.md#canonical-0a8b5a064951670d206a67b693cb7ed20169bf23805ac4bc4e924e68100f189d) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.tenant](resources--secret_management_access--reference--group-001.md#canonical-5bb03d03e187c576bb184cce0db5e3ad690ae10bacb0196cc8d10f5600f4001c) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.uid` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.uid](resources--secret_management_access--reference--group-001.md#canonical-e6b2759ec771bd27539b1c98936876c3146ad193862e675b5eebc9cdb258f9c5) |
-| `access_info.tls_config.common_params.validation_params.trusted_ca_url` | [access_info.tls_config.common_params.validation_params.trusted_ca_url](resources--secret_management_access--reference--group-001.md#canonical-2b19523f5414a7f3f8bf41f05b274b116da89a3a80523bf98d0fde4dc5bb7320) |
-| `access_info.tls_config.common_params.validation_params.verify_subject_alt_names` | [access_info.tls_config.common_params.validation_params.verify_subject_alt_names](resources--secret_management_access--reference--group-001.md#canonical-d2d93d26429a521bc80d226bf92e65727fb7685f2b4dc61deca63948d3d8c045) |
-| `access_info.tls_config.default_session_key_caching` | [access_info.tls_config.default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-14125f8f0a1bcdc41349cac3899c0fc2920145a6b9a6fe286e50186c36304702) |
-| `access_info.tls_config.disable_session_key_caching` | [access_info.tls_config.disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-4b465b869fa6f8a83f734d26dbd938e40a009c63c59ab9dc567d1248df58c89b) |
-| `access_info.tls_config.disable_sni` | [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-001.md#canonical-e84590d96434e90bf5f058e49941df67347553b51686a8b2c08645d6b88093df) |
-| `access_info.tls_config.max_session_keys` | [access_info.tls_config.max_session_keys](resources--secret_management_access--reference--group-001.md#canonical-82d136719e1f0b0006652978fefa37cb1b54826430ffb548728f12835a36cf2d) |
-| `access_info.tls_config.sni` | [access_info.tls_config.sni](resources--secret_management_access--reference--group-001.md#canonical-5f49f00ca20abb181c9b871b8759f61eff7d7fedac85c152e9962e2ea1a8a6d6) |
-| `access_info.tls_config.use_host_header_as_sni` | [access_info.tls_config.use_host_header_as_sni](resources--secret_management_access--reference--group-001.md#canonical-62459b1e52a190bcfa1a73fb2b3bfcf3f627de91eb438d8124c54bfd44a3704a) |
-| `access_info.vault_auth_info` | [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-06b5c70b89f1ed821b425a12b8dd3d4e102f09fc18943e9ec8cae91976f8f748) |
-| `access_info.vault_auth_info.app_role_auth` | [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-fb3ead27a67aacb3b0c34726b9acfc595c1f56efd8df8c65f47474ddb8f959bc) |
-| `access_info.vault_auth_info.app_role_auth.role_id` | [access_info.vault_auth_info.app_role_auth.role_id](resources--secret_management_access--reference--group-002.md#canonical-85b6bcb752bc7104ceee9e7458358ec887a8f617f99c42880b7213af01c84e28) |
-| `access_info.vault_auth_info.app_role_auth.secret_id` | [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-e9c33f4f50d30f02575861665eae5ddd457063888e4b7a78f47b21840288e053) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-aacfe2c02732ef1123fa273595f3ae58e4672a6e34830287a9cdf8d5b053f020) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.decryption_provider` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-002.md#canonical-538657ea8ae7497acb1a678931c0bfc69767046d5aeabd3fd1868e3dba4dc188) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.location` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.location](resources--secret_management_access--reference--group-002.md#canonical-10ad5833b6b9f6d9153c2040872b362e24ff147f44d52e35654e0a721caef6af) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.store_provider` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-002.md#canonical-c04c03f4b68928ea71ad06b1398cfb48dbb1b2287e4320bb3144be30e8ea76a1) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-f19bcb05cc33222b41cf1ee07f8440cfe69a51a14e0ebd6ebaa57bb2f9c70af4) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.provider_ref` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-002.md#canonical-8546c5faaaf62dd3b434b095352da960fab9e410e96b338578c4b66d8c2a721a) |
-| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.url` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.url](resources--secret_management_access--reference--group-002.md#canonical-6805217a6507363df82fcb5ab041655aa4b8189500d0252f1d8ef6aef018b884) |
-| `access_info.vault_auth_info.token` | [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-d8e82bc326f4510bf3290e45954a4547faaaebb36a346c30d11e344867b5f48a) |
-| `access_info.vault_auth_info.token.blindfold_secret_info` | [access_info.vault_auth_info.token.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-0a3efc6d4d122e1fdc7ccae9683f73ca8e441e0c986d45bf0296490c657dd93a) |
-| `access_info.vault_auth_info.token.blindfold_secret_info.decryption_provider` | [access_info.vault_auth_info.token.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-002.md#canonical-a00536a4e7c9f02917f1c021cdfa04b5834da3391d7a9962958757c131496858) |
-| `access_info.vault_auth_info.token.blindfold_secret_info.location` | [access_info.vault_auth_info.token.blindfold_secret_info.location](resources--secret_management_access--reference--group-002.md#canonical-82a124d87f4b6522b4847ef4ee70c8334c8a1ff74738019c15b07d29d5604244) |
-| `access_info.vault_auth_info.token.blindfold_secret_info.store_provider` | [access_info.vault_auth_info.token.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-002.md#canonical-8e362a17e552e114780c7295409684f0909a677645b9f5f55cdec4e6d0edf2d3) |
-| `access_info.vault_auth_info.token.clear_secret_info` | [access_info.vault_auth_info.token.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-eae2c87414c22374b521d9f6defee758cdcb8e31a008e9d3a51c35de3c4ca447) |
-| `access_info.vault_auth_info.token.clear_secret_info.provider_ref` | [access_info.vault_auth_info.token.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-002.md#canonical-4d7ef84491e3ef2270afa80ba1371b2863a1184d168033a7353b076d1df93a03) |
-| `access_info.vault_auth_info.token.clear_secret_info.url` | [access_info.vault_auth_info.token.clear_secret_info.url](resources--secret_management_access--reference--group-002.md#canonical-d2c4e1409d0add568c498d0889eeb248799a6e14c7f43eca4307264a77371d4a) |
-| `annotations` | [annotations](resources--secret_management_access--reference--group-001.md#canonical-2bde1a7647158898d46f83fdac72960b7cbb19cc5bd4a2e036d5c9b63979397b) |
-| `description` | [description](resources--secret_management_access--reference--group-001.md#canonical-bd42a00915d1892bcc3678a2bf425468d505cd2af10cecfdeede4fdcd0ad2348) |
-| `disable` | [disable](resources--secret_management_access--reference--group-001.md#canonical-7bb1570ce56022dfde45b20c60cde7e6a339a8a0b60a9c0cad8fa4cfa3347497) |
-| `id` | [id](resources--secret_management_access--reference--group-001.md#canonical-4d87e6d9e54ad2bf0306203f26d3430410d34edaaaa968ae16149799bcfa626b) |
-| `labels` | [labels](resources--secret_management_access--reference--group-001.md#canonical-281b2e3a325df63df4b03a922c29566b1734df0931f4d77e50f17a6098fe023d) |
-| `name` | [name](resources--secret_management_access--reference--group-001.md#canonical-aaed34e9206ac81683cc71c605f214dc47393d76e529d7c9b20f98f2bb1b5844) |
-| `namespace` | [namespace](resources--secret_management_access--reference--group-001.md#canonical-df3740add5dc38eae19e33c8a805645884daff8247c7e5b41e4a9c9f16d84008) |
-| `provider_name` | [provider_name](resources--secret_management_access--reference--group-001.md#canonical-450d360b22bac39cbb20f3bc0eaaca050381df6127b30f1e1c4af74e4d57e733) |
-| `timeouts` | [timeouts](resources--secret_management_access--reference--group-002.md#canonical-ef69aa41b68a9ca1441273379d94edb35f6ca400b9dd4678bfab5efaa9272e0e) |
-| `timeouts.create` | [timeouts.create](resources--secret_management_access--reference--group-002.md#canonical-97998da037a0860825a4d16d8398dba4b9a0f490073824ab4c96e0085c894a4e) |
-| `timeouts.delete` | [timeouts.delete](resources--secret_management_access--reference--group-002.md#canonical-5b75b6826f6f6b4f250546b62c364cfd50a2d754c8c27b822d00e326eacdf755) |
-| `timeouts.read` | [timeouts.read](resources--secret_management_access--reference--group-002.md#canonical-421d70ecc20ac1a050cf9da3b212ea80aa12e29cd8368f89daff3dbb932349ad) |
-| `timeouts.update` | [timeouts.update](resources--secret_management_access--reference--group-002.md#canonical-4ed5ba7cfc689cb36676cc70132b19dd220d9f901c2b769aa1ce891d21b77f40) |
-| `where` | [where](resources--secret_management_access--reference--group-002.md#canonical-aa22c1ca5e2ea26d49e03389a142c04d8cf47423488e4259b50904237a3821e9) |
-| `where.site` | [where.site](resources--secret_management_access--reference--group-002.md#canonical-a91c31a37e1617dbb3b8c3f85dc683c5355e51e011d7f46635ff64e730708d70) |
-| `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-65ad50e31a8a5d63611bb82eb2a3a4d3bd6fbe30b6b31e8316c159016486b008) |
-| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-90d4b9a452bacae9a408edc49d766f0692b955b6ff96feeaf40f778355ede91a) |
-| `where.site.network_type` | [where.site.network_type](resources--secret_management_access--reference--group-002.md#canonical-9f1e7cb7b86518ae26b1fb8e2280d3752343d67f9bc7879a96c7b15654e53bd4) |
-| `where.site.ref` | [where.site.ref](resources--secret_management_access--reference--group-002.md#canonical-781de395688e6ea87d58da1430e2d24d6314196af79947f05ab54fbb7e8e3eab) |
-| `where.site.ref.kind` | [where.site.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-a5205831a5bb57a998304ef0346d9a987ee789eef80f2050b3b0731aa9d2ca86) |
-| `where.site.ref.name` | [where.site.ref.name](resources--secret_management_access--reference--group-002.md#canonical-ba97ecbc4c4b3e5423302d54832a9cd3361bcd972626b3666002e298ba18cf04) |
-| `where.site.ref.namespace` | [where.site.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-456cb3738c69680cbae04767549c5f9ec460a78c531cd0e8d744c6dc47aa0d11) |
-| `where.site.ref.tenant` | [where.site.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-055c56cda9fbaf752a0d8c93b4675ec2719b9141f47a400790a74330dda19d28) |
-| `where.site.ref.uid` | [where.site.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-ec508bed7c6581375fd763033992674d525d95ab12d0d3b79ed882aa61e0cdb6) |
-| `where.virtual_network` | [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-7cfeab1ec7b549a6591ff824c08cbdcb2e70c5ec7bbfdf328ffde63fed41d6a7) |
-| `where.virtual_network.ref` | [where.virtual_network.ref](resources--secret_management_access--reference--group-002.md#canonical-a1e04129c99788db43360efa4d0d0ee086aab7de20f5b6bee6204b93f2e254ee) |
-| `where.virtual_network.ref.kind` | [where.virtual_network.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-37fdea1cb03d29401e0527e4a9b8a4292f7f635f7ac79eff0575aea492b37b27) |
-| `where.virtual_network.ref.name` | [where.virtual_network.ref.name](resources--secret_management_access--reference--group-002.md#canonical-e84aac6c4ef7d9e6ef9e0346b398b59b0db2a735687b63e0c055bacf90c12a58) |
-| `where.virtual_network.ref.namespace` | [where.virtual_network.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-8ed0f4e57cbdde7438800c364643bd467366d89223d0af7d17621d9c407afcf9) |
-| `where.virtual_network.ref.tenant` | [where.virtual_network.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-a7f9d0891a5f490cf7209ab9dd53710c9fb7cd2acdc2ff72e81ea7edf3620aea) |
-| `where.virtual_network.ref.uid` | [where.virtual_network.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-560f10c7ddbdfe437cbe7832ca59f4bd791974a5659f1f0094152df2d83ae3ce) |
-| `where.virtual_site` | [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-dc5c57afbd23d619fd55105573448b74aa46a5e6aab529b71fd3e4cd346c7419) |
-| `where.virtual_site.disable_internet_vip` | [where.virtual_site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0c43e402f2667359ac97fe6b56aa56da32f2f81372946a51f50a27871d3c94fa) |
-| `where.virtual_site.enable_internet_vip` | [where.virtual_site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-77a7c5e3800f0688a8707a1ec1d219a517d8dd6725ed1a365e99a0dc1b0b38f3) |
-| `where.virtual_site.network_type` | [where.virtual_site.network_type](resources--secret_management_access--reference--group-002.md#canonical-49054d9f1ae56e265831169149b9619a2eb355024fd48d6e1b916871d06aeb6f) |
-| `where.virtual_site.ref` | [where.virtual_site.ref](resources--secret_management_access--reference--group-002.md#canonical-2ba82298eb47ed20fd17458f3d1a54689dd8d1944eb81efa4729fd3d3a1eb9e3) |
-| `where.virtual_site.ref.kind` | [where.virtual_site.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-22e223960b110165d6cdadff9ad29405d4df000479d48942dbc036c692bd7b08) |
-| `where.virtual_site.ref.name` | [where.virtual_site.ref.name](resources--secret_management_access--reference--group-002.md#canonical-cb1efbad658971c542efeb7a52dfe4dd141a7d58ecc5d13e5f3ac559423886a4) |
-| `where.virtual_site.ref.namespace` | [where.virtual_site.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-ce099a80cac9ebe68a3f786648301f722775087f9c364abd5eea78dddc06c3a3) |
-| `where.virtual_site.ref.tenant` | [where.virtual_site.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-23c49f598afbca47a0a43aca08709aaeaa2ee07fbf35432606560eeb9a1b4155) |
-| `where.virtual_site.ref.uid` | [where.virtual_site.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-6e3627b4f479d2a8d458e3f34f353aba0b07538ea3e78f8ff07f4ce7bdff5cb3) |
+| `access_info` | [access_info](resources--secret_management_access--reference--group-001.md#canonical-1222032012011203-3310232220222312-1031202321200133-0022312310213330-0012300111113302-0120301322020011-1110013030330123-0013313102002203) |
+| `access_info.rest_auth_info` | [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-1031033332300221-3011202212322003-1132000321310013-2020130113100003-3213331100301023-1102113301213002-2030123210323312-2111013321013330) |
+| `access_info.rest_auth_info.basic_auth` | [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-2312112200321323-1122001233003312-2201230022122021-0332132020212221-2201102100030123-3102221033311302-1030311120003011-2002033003032222) |
+| `access_info.rest_auth_info.basic_auth.password` | [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0002311202202012-3130010332330123-1313023111233013-3233111031133232-2012332233101133-3130312001201111-0300203111202301-2220122232333021) |
+| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-2033200233022313-2302112120213212-3302333011220221-0222012023002203-2301323311103320-0222230310122023-0101330222011022-1211132333301011) |
+| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.decryption_provider` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-001.md#canonical-1333020331201002-2330300021032321-2021030023320010-3202201201131011-3000131102202022-3333303300320020-0000220332023021-2102312330003133) |
+| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.location` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.location](resources--secret_management_access--reference--group-001.md#canonical-3231311122012231-0211231222131003-1311012023323333-3311213333002222-1030203022301101-2320030110323322-1311302321012213-1002031023023122) |
+| `access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.store_provider` | [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-001.md#canonical-0002131330231002-1022323030011200-1311121003002321-1213321133213212-3200033022000010-0030100101222033-1013031023211121-3200230303220211) |
+| `access_info.rest_auth_info.basic_auth.password.clear_secret_info` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-1103300310200022-3101020110020223-1120220122302230-0100132021223003-0221101030213301-1021213303202011-3322233221001121-0303212003213013) |
+| `access_info.rest_auth_info.basic_auth.password.clear_secret_info.provider_ref` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-001.md#canonical-1310001110201212-3331132322211011-3111131211312133-3001312312011313-0201103001101233-2123320130230213-3310023021231011-0210321010310023) |
+| `access_info.rest_auth_info.basic_auth.password.clear_secret_info.url` | [access_info.rest_auth_info.basic_auth.password.clear_secret_info.url](resources--secret_management_access--reference--group-001.md#canonical-0101013221311001-1220212010122303-3212212333303331-0323300011301132-3320021202002231-2233121010102122-0330210110023101-0201002030231102) |
+| `access_info.rest_auth_info.basic_auth.username` | [access_info.rest_auth_info.basic_auth.username](resources--secret_management_access--reference--group-001.md#canonical-2233333030313032-0121032210000010-3012010133010211-0223312113032231-3331131231202030-2101303212320221-3231231210333010-1213310131332003) |
+| `access_info.rest_auth_info.headers_auth` | [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-2220120110122103-3200302102111032-0112003222322013-0210101221001332-2210220131203331-2310221331223230-2300303020332311-3320121113021013) |
+| `access_info.rest_auth_info.headers_auth.headers` | [access_info.rest_auth_info.headers_auth.headers](resources--secret_management_access--reference--group-001.md#canonical-1000022023333130-1313222011110232-2012311301232223-3301113030302303-1221133112111223-0011101030011331-0303213212200221-0222030131022320) |
+| `access_info.rest_auth_info.query_params_auth` | [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-3222020203131020-2220120113220003-1111010301112010-2233213302112202-2013332030113221-0131300221323100-2233102303233231-2030201332120102) |
+| `access_info.rest_auth_info.query_params_auth.query_params` | [access_info.rest_auth_info.query_params_auth.query_params](resources--secret_management_access--reference--group-001.md#canonical-0330312022210021-0031110333310032-0033321211330120-2330220222133313-2213132111200310-0221231302301233-2321020301013301-3230113322123302) |
+| `access_info.scheme` | [access_info.scheme](resources--secret_management_access--reference--group-001.md#canonical-0112112121002033-0021232203211000-1103303203313211-1211003012013213-2200113321213230-0331030332313310-3323312001101023-3003031203033102) |
+| `access_info.server_endpoint` | [access_info.server_endpoint](resources--secret_management_access--reference--group-001.md#canonical-1330310033321121-0133103101003021-1231202220233301-0313100232020220-3023023230321221-2300122113211121-2001131030011123-0001113213122212) |
+| `access_info.tls_config` | [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-1002202302301223-0220232301022112-3031231201312303-2200101231130303-3300121202320210-3012312112002220-2111002002302311-2011331120032110) |
+| `access_info.tls_config.cert_params` | [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-0313130300021200-1332201110230311-3302213323223330-2030021203103023-3002223212022302-2021220321320033-3013111210213010-0322130023320303) |
+| `access_info.tls_config.cert_params.certificates` | [access_info.tls_config.cert_params.certificates](resources--secret_management_access--reference--group-001.md#canonical-3132302102333311-1131103200100330-2320102112323002-2322301231322032-0223010221112333-0133002132221031-3111220303323202-2233333231130101) |
+| `access_info.tls_config.cert_params.certificates.kind` | [access_info.tls_config.cert_params.certificates.kind](resources--secret_management_access--reference--group-001.md#canonical-0110332320230120-2010112300312211-1032023331310213-0112312132200321-1003130130022221-0111013032010101-3110000032100322-0321301023111313) |
+| `access_info.tls_config.cert_params.certificates.name` | [access_info.tls_config.cert_params.certificates.name](resources--secret_management_access--reference--group-001.md#canonical-1121102321112131-2031223321320130-3211121033212232-3322120010310010-3333010222011302-2111322220102101-0231211230211303-1233321322321031) |
+| `access_info.tls_config.cert_params.certificates.namespace` | [access_info.tls_config.cert_params.certificates.namespace](resources--secret_management_access--reference--group-001.md#canonical-0112313200133110-2002331002030222-3233330112031322-3030322103302132-3012020323223302-3130210011303110-0221313321100200-0032232030300011) |
+| `access_info.tls_config.cert_params.certificates.tenant` | [access_info.tls_config.cert_params.certificates.tenant](resources--secret_management_access--reference--group-001.md#canonical-2313021232133013-1320103023123122-1222012030120032-1100210033000111-1101223133021231-1210113311302210-1020021112332021-3103132312333210) |
+| `access_info.tls_config.cert_params.certificates.uid` | [access_info.tls_config.cert_params.certificates.uid](resources--secret_management_access--reference--group-001.md#canonical-0031222021001232-3220312300133022-0013000312212021-2131002110131232-3003121212012032-2020331310233023-1111112123231112-3111102002013312) |
+| `access_info.tls_config.cert_params.cipher_suites` | [access_info.tls_config.cert_params.cipher_suites](resources--secret_management_access--reference--group-001.md#canonical-3103022213331301-1233101222200022-1330003330200330-3032101130023002-2323201233002221-1120230222113332-2100100101010333-2202311102002030) |
+| `access_info.tls_config.cert_params.maximum_protocol_version` | [access_info.tls_config.cert_params.maximum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-1211221210221213-3131230201122321-0230221033231020-3321300320200210-1133010110031030-2113323003030302-1323031103330000-2010002031331133) |
+| `access_info.tls_config.cert_params.minimum_protocol_version` | [access_info.tls_config.cert_params.minimum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-1100312201321103-3212322330012303-3222313120010231-0332221100330223-3310031300223211-3202102301320202-2333213313032213-1120000300311031) |
+| `access_info.tls_config.cert_params.skip_server_verification` | [access_info.tls_config.cert_params.skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-0222232033020302-0021300031013113-3202313210310213-3310120210333010-0311032013233233-3011100231013002-3331010120033123-3000230003231103) |
+| `access_info.tls_config.cert_params.tls_validation_params` | [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-1100220133013321-0010330320201003-3332010020121220-2201133132023212-3300300321213212-1012323330123112-3211322300212103-3103333112022213) |
+| `access_info.tls_config.cert_params.tls_validation_params.skip_hostname_verification` | [access_info.tls_config.cert_params.tls_validation_params.skip_hostname_verification](resources--secret_management_access--reference--group-001.md#canonical-2013320200302230-0323322100100031-3211230032101113-2112313031300003-3211021012211202-1001032020201103-2311222311121222-1231123000133111) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-1010303223020121-2012020203121300-2203103023020202-2321331103231023-1313320332211030-1112210133231323-0020320322200103-2111322021131000) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-1211003001223000-2332222332101101-2312000331200022-0300132110013233-3032313113113321-1203022122131220-3030321300322131-0231220201130322) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind](resources--secret_management_access--reference--group-001.md#canonical-0311330001013003-3312201121223002-0031303211020322-2320223310020022-1013311323320200-0030132020223000-3030121000330233-3332012330032130) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name](resources--secret_management_access--reference--group-001.md#canonical-2103233113010130-1200000132002220-2203111101302113-2312110020211032-1323012221030130-0002130123021311-0301302321301232-3212010113131301) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace](resources--secret_management_access--reference--group-001.md#canonical-3110333302311213-0123032131330112-3232212011111012-0120212320202033-0002013133031132-0303312203013133-1330211312001300-3011011013122320) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant](resources--secret_management_access--reference--group-001.md#canonical-2231122322333222-0223301000201013-3103012021011013-0333222022100123-3003133123222232-0010312302220210-1220303031130220-1013021210231321) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid](resources--secret_management_access--reference--group-001.md#canonical-1202002103200000-0103001130130322-2323333033302132-1120303210322303-2113010212233331-0133111300322100-1033323131032211-3013030033111322) |
+| `access_info.tls_config.cert_params.tls_validation_params.trusted_ca_url` | [access_info.tls_config.cert_params.tls_validation_params.trusted_ca_url](resources--secret_management_access--reference--group-001.md#canonical-1201210002301130-1030010022212013-1012013323013021-2332333302102112-1221332130303331-1313123211010123-1301132202131011-0312321033110300) |
+| `access_info.tls_config.cert_params.tls_validation_params.verify_subject_alt_names` | [access_info.tls_config.cert_params.tls_validation_params.verify_subject_alt_names](resources--secret_management_access--reference--group-001.md#canonical-3301221121101013-2311333121322323-1100132013012100-3331132011103232-2100230002320111-2232132220113210-1313132303133302-3211302020221321) |
+| `access_info.tls_config.cert_params.volterra_trusted_ca` | [access_info.tls_config.cert_params.volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-0011223123132122-3120310233031211-0312111210103103-1023001011020323-0132211110311302-0312000122330332-2323232231000002-1310000030223123) |
+| `access_info.tls_config.common_params` | [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1021313131330113-2131223011003120-3311122112133333-1230022211301213-2211233110202331-0011202223120231-1330331000013300-0311020221031031) |
+| `access_info.tls_config.common_params.cipher_suites` | [access_info.tls_config.common_params.cipher_suites](resources--secret_management_access--reference--group-001.md#canonical-0022003202011223-1310320331322202-2231303220310003-2131230303022320-2322310320122231-3102321131223002-2230101030020312-2331313000020101) |
+| `access_info.tls_config.common_params.maximum_protocol_version` | [access_info.tls_config.common_params.maximum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-1110111000102103-3301322023023003-2231303021122101-3320321122232332-2203311203110221-1112311332032310-3222321230203320-3131103021323030) |
+| `access_info.tls_config.common_params.minimum_protocol_version` | [access_info.tls_config.common_params.minimum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-0220110013103230-3122132112231303-0123301021333323-2133321231201331-2020032030023122-0311310221322223-1113301221112130-0002202312032120) |
+| `access_info.tls_config.common_params.tls_certificates` | [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-0000322003121202-2123302100002330-1201101301123212-1002103003213232-2321122223001200-1100311300323032-3203203300132001-2030223220312033) |
+| `access_info.tls_config.common_params.tls_certificates.certificate_url` | [access_info.tls_config.common_params.tls_certificates.certificate_url](resources--secret_management_access--reference--group-001.md#canonical-3013012321023020-3301020232303303-0302002220002003-0130202322021121-3221332310121033-1103302330023200-3220311121021210-3021101213112122) |
+| `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-1013103223230130-2003133323232103-3103322030200311-1233000001230231-1100313001001103-2102222220221332-3230131010200022-2332321310331212) |
+| `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-1002320223323132-2222310220001303-0301222311330203-1310203111000022-1321232312132203-2003231202012133-0033122032021323-0131300002233000) |
+| `access_info.tls_config.common_params.tls_certificates.description_spec` | [access_info.tls_config.common_params.tls_certificates.description_spec](resources--secret_management_access--reference--group-001.md#canonical-2002030301030311-0210033133010012-2121030232300100-3302313201113110-0313132013022212-2213312122330202-1102011322130033-1230022230311113) |
+| `access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling` | [access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-0122113310230102-1102001031033302-3131021010002132-3333202120231110-2212220100200210-2203110022033001-2010112130333101-0211320103200302) |
+| `access_info.tls_config.common_params.tls_certificates.private_key` | [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-3303311022312211-3101300310203033-2221102101100303-2002222211211333-3210123121002223-2303030102032111-0023120010021132-2222202103221222) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0132132023022330-2231300031210332-2331221230300113-1110020113332200-1323020222233130-3020322023231023-3022323000003203-1031222322330211) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-001.md#canonical-0212213122231001-1203101303123220-2131110120223200-1310021023112330-3303321322021313-3302101222010230-3011321312002232-1011322212033230) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.location](resources--secret_management_access--reference--group-001.md#canonical-1312322220103301-2102211130110221-2033013311210232-3033020112020230-1121231030222011-3110022112022032-2221221210201020-1002232121200002) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-001.md#canonical-3203030113231233-3010221212133223-2331220002111122-3030013013020332-2031303100320132-1321103030030102-3033103302102001-3101112211332221) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0131233110021013-2221130303202121-2220132100023131-3301000033103221-1110213223132232-0321013003101013-1203320301220220-0033013200223000) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-001.md#canonical-1130011333101112-0003230322322312-0230101130203310-3033223201200023-0001232211203023-3012121111213302-2003021233231023-0000313001131310) |
+| `access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.url` | [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.url](resources--secret_management_access--reference--group-001.md#canonical-1223332023303132-3310211122201321-1201112231023133-3222002110021121-0111113133133021-0033021210003212-1310103011330133-0013311100231302) |
+| `access_info.tls_config.common_params.tls_certificates.use_system_defaults` | [access_info.tls_config.common_params.tls_certificates.use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-0232131210233233-2121102011223210-1311213333112330-2312220313212013-0101032232002332-3201232031321301-1012100131302223-0202222321123103) |
+| `access_info.tls_config.common_params.validation_params` | [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-3021301002311333-2131313331300332-1212003101212312-0023022102101003-2003320312201231-2330000123321213-3013333011132312-1000030013222320) |
+| `access_info.tls_config.common_params.validation_params.skip_hostname_verification` | [access_info.tls_config.common_params.validation_params.skip_hostname_verification](resources--secret_management_access--reference--group-001.md#canonical-1210022112111110-3133113023200112-1011032022100233-0121303023320132-3120200213122032-0111300322032032-3133111220301110-3030223023313322) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca` | [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-0232320133311111-3231031311213223-0123120113120032-3301210312320011-3110320321131122-1101200102113322-1223330213323303-0331323200023312) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-2131112333022231-1100222202103011-2301201332100303-1110101300112033-1322000302102221-2011210210130020-0332023223210103-0020211113303300) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.kind` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.kind](resources--secret_management_access--reference--group-001.md#canonical-1003230333331313-3033311313212013-1221321010323213-3122031232321022-2311233300112303-0221202323332012-1010001331311111-1303012020232111) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.name` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.name](resources--secret_management_access--reference--group-001.md#canonical-3200301221233030-2030312121322100-1100111032323212-1111230220132103-2020310030203023-3211010122221102-1301102012100311-3311102212232103) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.namespace](resources--secret_management_access--reference--group-001.md#canonical-0022202311220012-1021110112130031-0200122212132312-2103302313323102-0001122123330203-2000112230102330-1032210210321220-0100003301202131) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.tenant](resources--secret_management_access--reference--group-001.md#canonical-1123230003310003-3201201330111312-2323012010303032-0031231132032231-1221002232010023-2230230001211230-3020310100331112-0000331000000130) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.uid` | [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.uid](resources--secret_management_access--reference--group-001.md#canonical-3212230213112132-3013130123310213-1103212301302120-2103122013123003-0110122231012103-2012023212131123-1132322330213031-2302112033213011) |
+| `access_info.tls_config.common_params.validation_params.trusted_ca_url` | [access_info.tls_config.common_params.validation_params.trusted_ca_url](resources--secret_management_access--reference--group-001.md#canonical-0223012111020333-1110011022133303-3320233310013300-1123021310230101-1231222021220322-2000110203233321-2031003331321031-3011232313030200) |
+| `access_info.tls_config.common_params.validation_params.verify_subject_alt_names` | [access_info.tls_config.common_params.validation_params.verify_subject_alt_names](resources--secret_management_access--reference--group-001.md#canonical-3102312103310212-1002212211020123-3020003102021223-3321023212111302-1333231312201133-0223103130120131-3230221203211020-3103312030001011) |
+| `access_info.tls_config.default_session_key_caching` | [access_info.tls_config.default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-0110010211332033-0022012330313010-0103102130223003-2021213000333002-2102000110112212-2321221233320220-1232110001201230-0312030010130002) |
+| `access_info.tls_config.disable_session_key_caching` | [access_info.tls_config.disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-1023101211232012-2133221233202220-0333130310310212-3123312103203210-0022000021301203-3011212223213130-1112133101021020-3133112030202123) |
+| `access_info.tls_config.disable_sni` | [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-002.md#canonical-3220101121003121-1210031032210023-3311330011203210-2121100131331213-0310131111032311-0112201222202302-3000201210113112-2320200021033133) |
+| `access_info.tls_config.max_session_keys` | [access_info.tls_config.max_session_keys](resources--secret_management_access--reference--group-001.md#canonical-2002310103121301-2132013300230000-0012121102211320-3332332203133023-0123111020021210-0300333323111020-1302203301022003-1122031230330231) |
+| `access_info.tls_config.sni` | [access_info.tls_config.sni](resources--secret_management_access--reference--group-001.md#canonical-1133102133000030-2202002223230120-0130212320130123-2013112133120132-3333133113333231-2230201130011102-3221211202320232-2201222022123112) |
+| `access_info.tls_config.use_host_header_as_sni` | [access_info.tls_config.use_host_header_as_sni](resources--secret_management_access--reference--group-002.md#canonical-1202101121230132-1102220121002330-3322012213033323-0223032333303303-3312021331322101-3223100320312001-0210301110233331-1010220313001022) |
+| `access_info.vault_auth_info` | [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-0012231130130023-2021330132312002-0123100211220102-2320313103311032-0100023300213330-0120211003322132-3020302232210121-1312332033131020) |
+| `access_info.vault_auth_info.app_role_auth` | [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-3323033222310213-2212132222302303-2300300310130212-2321223033301121-1130013311123233-3120313320301211-3310131013103131-2320332111212330) |
+| `access_info.vault_auth_info.app_role_auth.role_id` | [access_info.vault_auth_info.app_role_auth.role_id](resources--secret_management_access--reference--group-002.md#canonical-2011231223302313-1102233013010010-3032323221321310-1120031120323020-2013222033120113-3321213010022020-0023130201032233-0001302010320220) |
+| `access_info.vault_auth_info.app_role_auth.secret_id` | [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-3221300303331033-1100310300330002-1113112012011212-1132223211313131-1011130012032020-2032102313221320-3310132302012010-0002202032001103) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-2222303332023000-0213030232330101-0203332202130311-2111330322321120-3210121302221232-0310200300022013-2221303133203111-2300110333000200) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.decryption_provider` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-002.md#canonical-1103201211133222-2022321310211322-3023012212132021-0301300023333012-2113121300101231-1122322223310333-3101201220320331-2322103130012020) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.location` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.location](resources--secret_management_access--reference--group-002.md#canonical-0100223111200303-2312232133123121-0111033002001000-2013022303120232-0210333301101333-1010311102320311-1211103200221302-0130223233122233) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.store_provider` | [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-002.md#canonical-3000103000033310-2312202102203222-1301223100122301-0321203033231020-3123230123020220-1332100302002323-0301101023320300-3220322213122201) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3301212330230011-3030030302020223-1001303301323200-1333201010003033-3212212211012201-1032003223311232-2322221113232302-3321301300223310) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.provider_ref` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-002.md#canonical-2011101230113322-2222331202313103-2310031023002111-0311023122211200-3322232132100100-3221122303032011-1320301023121231-2030022213020122) |
+| `access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.url` | [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.url](resources--secret_management_access--reference--group-002.md#canonical-1220001102011322-1211001303120331-3320023330231122-2300100112111122-2210232001202111-0000310002110233-0131203233122232-3300012023202010) |
+| `access_info.vault_auth_info.token` | [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3120322002233003-0212331011010023-3303022100321011-2111102210111013-3322222232232303-1222031012300300-3101013203101020-1213231133102022) |
+| `access_info.vault_auth_info.token.blindfold_secret_info` | [access_info.vault_auth_info.token.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-0022033233301231-1031010202320133-3130133030223221-1220033313033022-2032101001320030-2120123110112333-0002211210210030-1211133131210322) |
+| `access_info.vault_auth_info.token.blindfold_secret_info.decryption_provider` | [access_info.vault_auth_info.token.blindfold_secret_info.decryption_provider](resources--secret_management_access--reference--group-002.md#canonical-2200001103122210-3213302133000221-0113330130000201-3031332200102311-2003103122030321-0131132221211202-2111201311133001-0301102112201120) |
+| `access_info.vault_auth_info.token.blindfold_secret_info.location` | [access_info.vault_auth_info.token.blindfold_secret_info.location](resources--secret_management_access--reference--group-002.md#canonical-2002220102103120-1333102312110202-2310201013323310-3232130030200303-1030202201333313-1013032000012130-0111230013310221-3111120010021010) |
+| `access_info.vault_auth_info.token.blindfold_secret_info.store_provider` | [access_info.vault_auth_info.token.blindfold_secret_info.store_provider](resources--secret_management_access--reference--group-002.md#canonical-2032031202220113-3211110232010110-1320003013022111-1000211220103300-2100212212131312-1011232133113311-1130313230103212-3100323133023103) |
+| `access_info.vault_auth_info.token.clear_secret_info` | [access_info.vault_auth_info.token.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3222320230201310-0110300202031310-2311020131213312-3132333232131120-3031302320320301-2200002032213103-2211013003113132-0330103022101013) |
+| `access_info.vault_auth_info.token.clear_secret_info.provider_ref` | [access_info.vault_auth_info.token.clear_secret_info.provider_ref](resources--secret_management_access--reference--group-002.md#canonical-1031133233201010-2101320332330202-1300223322200023-2201031301230220-1203220101201031-0112200003032213-0311032300131231-0131332103220003) |
+| `access_info.vault_auth_info.token.clear_secret_info.url` | [access_info.vault_auth_info.token.clear_secret_info.url](resources--secret_management_access--reference--group-002.md#canonical-3102301032011000-2131002231311112-2030102120310020-2021323223021020-1321212212320110-3013331003323022-1003001302121022-1313031301311022) |
+| `annotations` | [annotations](resources--secret_management_access--reference--group-001.md#canonical-0223313201221312-1013011120202120-3110123320033331-2230130221120023-1330232301213030-1123311022023200-0312311130212312-0321132103211323) |
+| `description` | [description](resources--secret_management_access--reference--group-001.md#canonical-2331100222000021-0111310120210223-3030031213202202-2333100211101220-3111001130310222-3301003032303331-3232313210333130-3100223102031020) |
+| `disable` | [disable](resources--secret_management_access--reference--group-001.md#canonical-1323230111130030-3211120002023133-3132101123020030-1200303132133212-2203032122202200-2312002221300030-2231203322103033-2203031013102113) |
+| `id` | [id](resources--secret_management_access--reference--group-001.md#canonical-1031201332123121-3211102231022333-0003001202000333-0212310310030010-0100310310323122-2222222112202232-0112011021132121-2330332212021223) |
+| `labels` | [labels](resources--secret_management_access--reference--group-001.md#canonical-0220012302320322-0302113133120331-3310230003222102-0230022111121223-0113031031330021-0301331031131332-1100330113221200-2120333200020331) |
+| `name` | [name](resources--secret_management_access--reference--group-001.md#canonical-2222323103103221-0200122230200112-2003303013013012-0011330201103130-1013032103311312-3211022131133021-2302003321203302-2323012311201010) |
+| `namespace` | [namespace](resources--secret_management_access--reference--group-001.md#canonical-3133031310002231-3111313003203222-3201213203033020-2220001112101120-2010312233332002-1013301332112310-0132102221302133-0112312010000020) |
+| `provider_name` | [provider_name](resources--secret_management_access--reference--group-001.md#canonical-1011003103120023-0202232230032130-2323020033032330-0032222230220011-0003200131331201-0213230300330132-0130102233131032-1031111332130303) |
+| `timeouts` | [timeouts](resources--secret_management_access--reference--group-002.md#canonical-3233122122221001-2312202221302201-1010010213030313-2131211032312303-1133123022100000-2321313110121320-2333222311323322-2221021302320032) |
+| `timeouts.create` | [timeouts.create](resources--secret_management_access--reference--group-002.md#canonical-2113212120312200-0313220020120020-0211221031011231-2003212031232210-2321220033102100-0013032002102223-1030211232000020-1130202110221032) |
+| `timeouts.delete` | [timeouts.delete](resources--secret_management_access--reference--group-002.md#canonical-1123131123122002-1233123312231033-0211001110122312-0230031210303331-1100220231131110-3020300213232002-0231000032030212-3222303133131111) |
+| `timeouts.read` | [timeouts.read](resources--secret_management_access--reference--group-002.md#canonical-1002013113003230-3002002230012200-1100303321312203-2302010232222000-2222010232022130-3120031220332021-3122333303312323-2103020310212231) |
+| `timeouts.update` | [timeouts.update](resources--secret_management_access--reference--group-002.md#canonical-1032311123221330-3330122021302303-1212131230301300-0103022301213131-0202003121332100-0130022313122122-2201303220210131-0201231313331000) |
+| `where` | [where](resources--secret_management_access--reference--group-002.md#canonical-2222020230013022-1132023222021231-1021320003032021-2201100230001031-2030331013100203-1020203210021121-2311002100100203-1322032002013221) |
+| `where.site` | [where.site](resources--secret_management_access--reference--group-002.md#canonical-2221013003012203-1332011201133123-2303232030033320-1131301220033011-0311113211013200-0101311333101212-0311333312103213-0300130020311300) |
+| `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1211223111003203-0122202211311203-1201012323200232-2302220322103103-2331123323320300-2312230301322003-0112300111210001-1210201223000020) |
+| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-2100311023212210-1102232230223221-2210002032313010-2131131212330012-2102232111112312-3333211233323222-3310003313132003-1111323132210122) |
+| `where.site.network_type` | [where.site.network_type](resources--secret_management_access--reference--group-002.md#canonical-2133013213302313-2320121101202232-0212230133232032-0202200031031311-0203100331121333-2123301320132122-2112301323011112-1110321103233110) |
+| `where.site.ref` | [where.site.ref](resources--secret_management_access--reference--group-002.md#canonical-1320013132032111-1220203212322220-1331112031220110-0300320231021031-1203011001211222-3313212110133300-1122231110332323-1332203203322223) |
+| `where.site.ref.kind` | [where.site.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-2211020011200301-2211232311132221-2120030010323300-0310123121222120-1332321320213232-3320003302001100-2303230013030122-2221310230222012) |
+| `where.site.ref.name` | [where.site.ref.name](resources--secret_management_access--reference--group-002.md#canonical-2322211332302330-1030102303321110-0203030002311110-2003022221303103-0312012330312113-0212021223031212-1200000232022120-2322012030330010) |
+| `where.site.ref.namespace` | [where.site.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-1011123023031303-2030122112200030-2322320010131213-1110213011332132-3010120022132030-1103013031003220-3113101030123130-1013222200310101) |
+| `where.site.ref.tenant` | [where.site.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-0011113011123031-2221332322331311-0222003120302103-2310121311323002-1301212321011001-3310132210000013-2100221310030300-3131220121310220) |
+| `where.site.ref.uid` | [where.site.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-3230110020233231-1330121120010313-1133311312030003-0321210212131031-1102113121112223-0102310031032313-2132312020022222-1201320030312312) |
+| `where.virtual_network` | [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-1330333222230132-3013231110212212-1121013333200210-3000203023313023-0232130030113230-1323233331330302-2033333132120333-3231100131122213) |
+| `where.virtual_network.ref` | [where.virtual_network.ref](resources--secret_management_access--reference--group-002.md#canonical-2201320010010221-3021211320203123-1003031200323322-1031003100323200-2012222223133132-0200331123122332-3212020010232103-3302320211103232) |
+| `where.virtual_network.ref.kind` | [where.virtual_network.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-0313333132220130-2300033102211000-0132001102133210-2221232022100221-0233133312031133-1322301321323333-0011131122322210-2102230313230213) |
+| `where.virtual_network.ref.name` | [where.virtual_network.ref.name](resources--secret_management_access--reference--group-002.md#canonical-3220102222301230-1032331331213212-3233213200031012-2303212023112123-0031230222130311-1220132312033200-3000111123223033-2100300102221120) |
+| `where.virtual_network.ref.namespace` | [where.virtual_network.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-2032310033103211-1330233131321310-0320200000300312-1012100323311012-1303121231202102-0203310022331331-0113120201312130-1000132233303321) |
+| `where.virtual_network.ref.tenant` | [where.virtual_network.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-2213332131002021-0122113310210030-3313020021222321-3131110313010030-2133231330310222-3031300233331302-3220013222133231-3303120200223222) |
+| `where.virtual_network.ref.uid` | [where.virtual_network.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-1112003301003013-3131233133321003-1330233213200302-3022112133102331-1321012113102211-1211213301330000-2110011102313302-3120032232033032) |
+| `where.virtual_site` | [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-3130113011132233-2331020331120121-3331111101001111-1303101020231310-2222101222113212-2222231102212313-0133310332103031-0310123013100121) |
+| `where.virtual_site.disable_internet_vip` | [where.virtual_site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0030100332100002-3302121213031121-2230211333321223-1112222211123122-0302330233200103-1302211012221101-3311002202132013-0131033021103322) |
+| `where.virtual_site.enable_internet_vip` | [where.virtual_site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1313221330113203-2000003300122020-2220130013220132-3001310201212211-0113312031311213-0211323101220312-1132212122003130-0123002303203303) |
+| `where.virtual_site.network_type` | [where.virtual_site.network_type](resources--secret_management_access--reference--group-002.md#canonical-1021001110312133-0122321112320212-1120030101122101-1021232112012122-0232230311110002-1033311020311232-0123210112201301-3100122232231233) |
+| `where.virtual_site.ref` | [where.virtual_site.ref](resources--secret_management_access--reference--group-002.md#canonical-0223222002022120-3223101332310200-3331011310112033-0331012211101220-2131312031012110-1032232001323322-1013022133310331-0322013223213203) |
+| `where.virtual_site.ref.kind` | [where.virtual_site.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-0202320202032112-0023010100011211-3112303122313333-2122310221100011-3110313300000010-1321311020211002-3123300003123012-2102233113230020) |
+| `where.virtual_site.ref.name` | [where.virtual_site.ref.name](resources--secret_management_access--reference--group-002.md#canonical-3023013233232231-1211202113013011-1002323332231322-1102313332103131-0110012213311120-3230301131010332-1133032230111121-1002032020122210) |
+| `where.virtual_site.ref.namespace` | [where.virtual_site.ref.namespace](resources--secret_management_access--reference--group-002.md#canonical-3032002121222000-3022302132233212-2022033313201212-1020030001331302-0213131100201333-2130031210222331-1132322213203131-3130001230032203) |
+| `where.virtual_site.ref.tenant` | [where.virtual_site.ref.tenant](resources--secret_management_access--reference--group-002.md#canonical-0203301021331121-2022332330221013-2200221003223022-0020130021222232-2222023232001333-2333031110030212-0012111200323223-2122012310011111) |
+| `where.virtual_site.ref.uid` | [where.virtual_site.ref.uid](resources--secret_management_access--reference--group-002.md#canonical-1232031202132310-3310132131022220-3110112032033303-1033031103222322-0023001311032032-2203321320332033-3300133310303213-2331333311302303) |
 
-<a id="canonical-9ceec4a91e115d4202f9d3be18d97da1f0bece5a46656090d5a61f44f75e5950"></a>
+<a id="canonical-2130323230102221-0132010111311002-0002332131032332-0120312113312201-3300233230321122-1012121112002100-3111221201331010-3313113211211100"></a>
 
-## Next pages — Property reference / 97ff103600cb / 13
+## Next pages — Property reference / 031200003023 / 13
 
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [timeouts](resources--secret_management_access--reference--group-002.md#canonical-fb1d71681608bb290a6f1b56353da27906bf45ff58b32d0cf25c35930489c6f0)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [timeouts](resources--secret_management_access--reference--group-002.md#canonical-3323013113011220-0112002023230221-0022123301231112-0311033122021321-0012233310113333-1120230302310030-3302113003112103-0010202130123300)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810"></a>
+<a id="canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a647db15736c49212d17774511b470dcb504973b9d975db381a1b27fdfac9c00"></a>
+<a id="canonical-2212101331230111-1303123010210201-0231011313131011-0101231013003130-2311001021130323-2131211311312303-2001220123021333-3133223021300000"></a>
 
-## access_info — access_info / 40a30c226f54 / 2
+## access_info — access_info / 020212331110 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
 - access_info
 
-<a id="canonical-6a386163f4ba8ab64d8b981f0adb49fc06c155f218c7a205541ccf1b07dd20a3"></a>
+<a id="canonical-1222032012011203-3310232220222312-1031202321200133-0022312310213330-0012300111113302-0120301322020011-1110013030330123-0013313102002203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -580,17 +580,17 @@ access_info {
 }
 ```
 
-<a id="canonical-bf9c1efffc1174ee357b3834d19d94289b59b9182dbff47ef6c2688114c77a9d"></a>
+<a id="canonical-2333213001323333-3330010113103232-0311132303200310-3101213121100220-2123112123210120-0231233333101332-3312300212202001-0110301313222131"></a>
 
-## Direct properties — access_info / 40a30c226f54 / 3
+## Direct properties — access_info / 020212331110 / 3
 
-- [rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4): complete subsection reference.
+- [rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310): complete subsection reference.
 
-<a id="canonical-1659908f09ba394053ce3de5650c61e7a05f99ec3d33edf4fbd8144bc33633d2"></a>
+<a id="canonical-0112112121002033-0021232203211000-1103303203313211-1211003012013213-2200113321213230-0331030332313310-3323312001101023-3003031203033102"></a>
 
-<a id="canonical-28a56f1ca751e248813291ab1355af768978a026dcb68b7bd72559f8738c035b"></a>
+<a id="canonical-0220221112330130-2213110132021020-2001030221012223-0103111122331312-2021132022000212-3130231220231323-3113021111213320-1303203000031123"></a>
 
-## scheme property — access_info / 40a30c226f54 / 4
+## scheme property — access_info / 020212331110 / 4
 
 Type: `"string"`. Optional.
 
@@ -630,11 +630,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7cd0fe591f4d10c96d8a8bf13742e228cb2ece69b06979598174c15b015e76a6"></a>
+<a id="canonical-1330310033321121-0133103101003021-1231202220233301-0313100232020220-3023023230321221-2300122113211121-2001131030011123-0001113213122212"></a>
 
-<a id="canonical-75e1a332ce9e4c381f29ec899dd8975508d98bfed58d5022a1c0eba002a81396"></a>
+<a id="canonical-1311320122030302-3032213210300320-0133022132302021-2131312021131111-0020312120233332-3111203111000202-2201300032232200-0002222001032112"></a>
 
-## server_endpoint property — access_info / 40a30c226f54 / 5
+## server_endpoint property — access_info / 020212331110 / 5
 
 Type: `"string"`. Optional.
 
@@ -685,38 +685,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99): complete subsection reference.
+- [tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121): complete subsection reference.
 
-- [vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036): complete subsection reference.
+- [vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312): complete subsection reference.
 
-<a id="canonical-9e4798420e3f5c4ee41558f56658c2f124e0d5146cda2a632b97b8c55ec727ec"></a>
+<a id="canonical-2132101321201002-0032033311301032-3210011111203311-1212112030023301-0210320031110110-1230312202221203-0223211323203011-1132301302133230"></a>
 
-## Next pages — access_info / 40a30c226f54 / 6
+## Next pages — access_info / 020212331110 / 6
 
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4"></a>
+<a id="canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-41014e11f5a0516a3e7e7378581b3454d85d630f2c85e1089213e09c44f8bbd9"></a>
+<a id="canonical-1001000110320101-3311220011011222-0332133213031320-1120012303101110-3120113112030033-0230201132010020-2102010332002130-1010332023233121"></a>
 
-## access_info.rest_auth_info — access_info.rest_auth_info / 9be9ae285e95 / 2
+## access_info.rest_auth_info — rest_auth_info / 022011322111 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
 - access_info.rest_auth_info
 
-<a id="canonical-4d3fec29c58a6e835e039d0788717403e7f50c4b525f19c28c6e4ef6951f91fc"></a>
+<a id="canonical-1031033332300221-3011202212322003-1132000321310013-2020130113100003-3213331100301023-1102113301213002-2030123210323312-2111013321013330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -755,45 +755,45 @@ rest_auth_info {
 }
 ```
 
-<a id="canonical-10582a8e79f2ade44cf738a0af24f3a7e41be85f68a95092155aa18ac2b2658c"></a>
+<a id="canonical-0100112002222032-1321330222313210-1030331303202200-2233021033032213-3210012332201133-1220222111002102-0111112222012022-3002230212112030"></a>
 
-## Direct properties — access_info.rest_auth_info / 9be9ae285e95 / 3
+## Direct properties — rest_auth_info / 022011322111 / 3
 
-- [basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764): complete subsection reference.
+- [basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210): complete subsection reference.
 
-- [headers_auth](resources--secret_management_access--reference--group-001.md#canonical-2e621acbfde59af1897d75dd561c5d277d664286a424c26ed45a30cdd39e12f6): complete subsection reference.
+- [headers_auth](resources--secret_management_access--reference--group-001.md#canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312): complete subsection reference.
 
-- [query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-4e2f08c9527b8503b328d8bf4d40c193ac3538ef2a18daa556ff4b194cfa725c): complete subsection reference.
+- [query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130): complete subsection reference.
 
-<a id="canonical-b99cde297e9b884a503f36270bee056c0dc6ef281b19a6d494b3dba74938516d"></a>
+<a id="canonical-2321213031320221-1332212320201022-1100033303120213-0023323200111230-0031301232330220-0123012122123110-2110230331232213-1021032011011231"></a>
 
-## Next pages — access_info.rest_auth_info / 9be9ae285e95 / 4
+## Next pages — rest_auth_info / 022011322111 / 4
 
-- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764)
-- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-2e621acbfde59af1897d75dd561c5d277d664286a424c26ed45a30cdd39e12f6)
-- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-4e2f08c9527b8503b328d8bf4d40c193ac3538ef2a18daa556ff4b194cfa725c)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210)
+- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312)
+- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764"></a>
+<a id="canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b43b941dbb1e845534ce34769e19840b88832c3d55f1c69eb2460bffb396cb6c"></a>
+<a id="canonical-2310032321100131-2323013220101111-0310303203101312-2132012120100023-2020200302300331-1111330130122132-2302101200233333-2303211230231230"></a>
 
-## access_info.rest_auth_info.basic_auth — access_info.rest_auth_info.basic_auth / 2031834c9bce / 2
+## access_info.rest_auth_info.basic_auth — basic_auth / 103021233032 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
 - access_info.rest_auth_info.basic_auth
 
-<a id="canonical-b65a0e7b5a06f0f6a1b0a6893e7889a9a149031bd2a4fd724cd580c5823c33aa"></a>
+<a id="canonical-2312112200321323-1122001233003312-2201230022122021-0332132020212221-2201102100030123-3102221033311302-1030311120003011-2002033003032222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -820,17 +820,17 @@ basic_auth {
 }
 ```
 
-<a id="canonical-ad17b6d206c197ba501b59531ea7c020c890ef2028794dadc7d690a28bbd548b"></a>
+<a id="canonical-2231011323123102-0012300121132322-1100012311211103-0132221330000200-3020210032330200-0220132110312231-3013311221002202-2023233111102023"></a>
 
-## Direct properties — access_info.rest_auth_info.basic_auth / 2031834c9bce / 3
+## Direct properties — basic_auth / 103021233032 / 3
 
-- [password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461): complete subsection reference.
+- [password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201): complete subsection reference.
 
-<a id="canonical-affccdce193a4004c611f1252bd973adfd76d88c91ce6e29edb64fc467d1df83"></a>
+<a id="canonical-2233333030313032-0121032210000010-3012010133010211-0223312113032231-3331131231202030-2101303212320221-3231231210333010-1213310131332003"></a>
 
-<a id="canonical-2b227e6e599afd42995d067b29a7cfd9872273cc59389a7061e330fb3dc39958"></a>
+<a id="canonical-0223020213321232-1121212233311002-2121113100121323-0221221330333121-2013020213033030-1121032021221300-1201320303003323-0331300321211120"></a>
 
-## username property — access_info.rest_auth_info.basic_auth / 2031834c9bce / 4
+## username property — basic_auth / 103021233032 / 4
 
 Type: `"string"`. Optional.
 
@@ -865,34 +865,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e33e0e04188314b9f38f67ca99c0009c5672299587ef5f5292fae3da2c4d1554"></a>
+<a id="canonical-3203033200320010-0120200301102321-3303203312133022-2121300000002130-1112130202212111-2013323311331102-2102332232033122-0230103101111110"></a>
 
-## Next pages — access_info.rest_auth_info.basic_auth / 2031834c9bce / 5
+## Next pages — basic_auth / 103021233032 / 5
 
-- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461"></a>
+<a id="canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff35fac7a233b2e5001d20f6219f726d1e45181a8e7f70e47aa11fb674daddd2"></a>
+<a id="canonical-3333031133223013-2202030323023211-0000013102003312-0201213313021231-0132101101200122-2032133313003210-1322220101332312-1310312231313102"></a>
 
-## access_info.rest_auth_info.basic_auth.password — access_info.rest_auth_info.basic_auth.password / 264d47f787df / 2
+## access_info.rest_auth_info.basic_auth.password — password / 331320133133 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210)
 - access_info.rest_auth_info.basic_auth.password
 
-<a id="canonical-02d62886dc13ef1b772d5bc7ef54d7ee86faf45fdcd81855308d58b1a86aefc9"></a>
+<a id="canonical-0002311202202012-3130010332330123-1313023111233013-3233111031133232-2012332233101133-3130312001201111-0300203111202301-2220122232333021"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -927,44 +927,44 @@ password {
 }
 ```
 
-<a id="canonical-eeaa72a48e66d26ee631c946f5aea2722858dc4b9d631ca77964325a7bd87e55"></a>
+<a id="canonical-3232222213022210-2032121231021232-3212030130211012-3311223222021302-0220112031301023-2131120301302213-1321121003021122-1323312013321111"></a>
 
-## Direct properties — access_info.rest_auth_info.basic_auth.password / 264d47f787df / 3
+## Direct properties — password / 331320133133 / 3
 
-- [blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-c52515eaf6d9c6735fc6743b9321ef59acb8894b58845aaefbea5f0a07ca3faf): complete subsection reference.
+- [blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-3011021101113222-3312312130121303-1133301213100323-2103020132331121-2230232020211023-1120201011222232-3323322211330022-0013302203332233): complete subsection reference.
 
-- [clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-187c1d8525cc621d2c412c709d8eea7022ce966d5f852ef5e542add6ea8466a5): complete subsection reference.
+- [clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0120133001312011-0211303012020131-0230100102301300-2131203232221300-0202303221121231-1133201102323311-3211100222313112-3222201012122211): complete subsection reference.
 
-<a id="canonical-3add183aa32537cdc1594e31ba1b31366458948c2564e8f558773dd2b3d9262d"></a>
+<a id="canonical-0322313101200322-2203021103133031-3001112110320301-2322012303010312-1210112021102030-0211121032203311-1120131303313102-2303312102120231"></a>
 
-## Next pages — access_info.rest_auth_info.basic_auth.password / 264d47f787df / 4
+## Next pages — password / 331320133133 / 4
 
-- [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-c52515eaf6d9c6735fc6743b9321ef59acb8894b58845aaefbea5f0a07ca3faf)
-- [access_info.rest_auth_info.basic_auth.password.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-187c1d8525cc621d2c412c709d8eea7022ce966d5f852ef5e542add6ea8466a5)
-- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.basic_auth.password.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-3011021101113222-3312312130121303-1133301213100323-2103020132331121-2230232020211023-1120201011222232-3323322211330022-0013302203332233)
+- [access_info.rest_auth_info.basic_auth.password.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0120133001312011-0211303012020131-0230100102301300-2131203232221300-0202303221121231-1133201102323311-3211100222313112-3222201012122211)
+- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-c52515eaf6d9c6735fc6743b9321ef59acb8894b58845aaefbea5f0a07ca3faf"></a>
+<a id="canonical-3011021101113222-3312312130121303-1133301213100323-2103020132331121-2230232020211023-1120201011222232-3323322211330022-0013302203332233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-881c7a0f4ec7851ff371cec99ed41863171e42c4557930a083689a994df1f18a"></a>
+<a id="canonical-2020013013220033-1032301320110133-3303130130323021-2132311001201203-0113013210023010-1111132103002200-2003122021222121-1031330133012022"></a>
 
-## access_info.rest_auth_info.basic_auth.password.blindfold_secret_info — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 2
+## access_info.rest_auth_info.basic_auth.password.blindfold_secret_info — blindfold_secret_info / 010333133010 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764)
-- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210)
+- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201)
 - access_info.rest_auth_info.basic_auth.password.blindfold_secret_info
 
-<a id="canonical-8f82f2b7b25989e6f2fc5a292a18b0a3b1ef54f82ab3468b11f2a14a657bfc45"></a>
+<a id="canonical-2033200233022313-2302112120213212-3302333011220221-0222012023002203-2301323311103320-0222230310122023-0101330222011022-1211132333301011"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -997,15 +997,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-5522dcbd22a2f84898f995cbaf0bf62d8cefdf4d469614675a12e1fb8b6b005a"></a>
+<a id="canonical-1111020231302331-0202220233201020-2120332121113023-2233002333120231-2030323331331031-1012211201101213-1122010232013323-2023122300001122"></a>
 
-## Direct properties — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 3
+## Direct properties — blindfold_secret_info / 010333133010 / 3
 
-<a id="canonical-7f23d842bcc093b98930be04e2861745c075288affcf0e0800a3e2c992dbc0df"></a>
+<a id="canonical-1333020331201002-2330300021032321-2021030023320010-3202201201131011-3000131102202022-3333303300320020-0000220332023021-2102312330003133"></a>
 
-<a id="canonical-b68ee810ca0b693e8fe0259ea59f6fd6610607a3ad5555338f81f8a7c53d9e6c"></a>
+<a id="canonical-2312203232200100-3022002312210332-2033320002112132-2211213312333112-1201001200132203-2231111111110303-2033200133202213-3011033121321230"></a>
 
-## decryption_provider property — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 4
+## decryption_provider property — blindfold_secret_info / 010333133010 / 4
 
 Type: `"string"`. Optional.
 
@@ -1035,11 +1035,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-edd5a1ad25b6a7437518befff59ff0aa4c8cac51b8314efa75cb91a74234b2da"></a>
+<a id="canonical-3231311122012231-0211231222131003-1311012023323333-3311213333002222-1030203022301101-2320030110323322-1311302321012213-1002031023023122"></a>
 
-<a id="canonical-750e2eed412a5be412844ce6c964b765dc39c5dcc653dc25ea7de135918cb602"></a>
+<a id="canonical-1311003202323231-1001022211233210-0102201010303212-3021121023131211-3130032130113130-3012110331300211-3222133132010311-2101203023120002"></a>
 
-## location property — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 5
+## location property — blindfold_secret_info / 010333133010 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1096,11 +1096,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0277cb424aecc160756430b967e5f9e6e03ca0040c411a8f4734b959e0b33a25"></a>
+<a id="canonical-0002131330231002-1022323030011200-1311121003002321-1213321133213212-3200033022000010-0030100101222033-1013031023211121-3200230303220211"></a>
 
-<a id="canonical-33f1282219a68849a3499d45e742eb508eab609d815aefe0a0cae3b3ebb11119"></a>
+<a id="canonical-0303330102200202-0121221220201021-2203102121311011-3213100232231100-2032222312002131-2001112232333200-2200302232032303-3223230101010121"></a>
 
-## store_provider property — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 6
+## store_provider property — blindfold_secret_info / 010333133010 / 6
 
 Type: `"string"`. Optional.
 
@@ -1135,34 +1135,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9372e970f70ab8b3b3d00d20f419d8ced40d65a17850e049733e2638abed861b"></a>
+<a id="canonical-2103130232211300-3313002223202303-2303310000310200-3310012131203032-3110003112112201-1320110032001021-1303033202120320-2223323120120123"></a>
 
-## Next pages — access_info.rest_auth_info.basic_auth.password.blindfold_secret_info / fd99a713f7c4 / 7
+## Next pages — blindfold_secret_info / 010333133010 / 7
 
-- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-187c1d8525cc621d2c412c709d8eea7022ce966d5f852ef5e542add6ea8466a5"></a>
+<a id="canonical-0120133001312011-0211303012020131-0230100102301300-2131203232221300-0202303221121231-1133201102323311-3211100222313112-3222201012122211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8edcdffc7896474ddc8e7b24bcea2a4a681e55341938463572ff9e7ae092a2f5"></a>
+<a id="canonical-2032313031333330-1320211210131031-3130203213230210-2330322202221022-1220013211110310-0121032010120311-1302333321321322-3200210222023311"></a>
 
-## access_info.rest_auth_info.basic_auth.password.clear_secret_info — access_info.rest_auth_info.basic_auth.password.clear_secret_info / f844ceca1e2c / 2
+## access_info.rest_auth_info.basic_auth.password.clear_secret_info — clear_secret_info / 302201320230 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-01e78c62cf8438625a41afb5d2d0a36b91176c639e66a185b2cc0d51a6f8b764)
-- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.rest_auth_info.basic_auth](resources--secret_management_access--reference--group-001.md#canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210)
+- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201)
 - access_info.rest_auth_info.basic_auth.password.clear_secret_info
 
-<a id="canonical-53c3480ad121422b58a1acac10789ac32944c9f1499f3885fabe9059339839c7"></a>
+<a id="canonical-1103300310200022-3101020110020223-1120220122302230-0100132021223003-0221101030213301-1021213303202011-3322233221001121-0303212003213013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1195,26 +1195,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-baa6ae370f1ae5c4d3b39ca5388969bf1bc33cf6671cefcfc52285e871161076"></a>
+<a id="canonical-2322221222320313-0033012232113010-3103230321302211-0320202112212333-0123300303303312-1213013032333033-3011020220113220-1301011201001312"></a>
 
-## Direct properties — access_info.rest_auth_info.basic_auth.password.clear_secret_info / f844ceca1e2c / 3
+## Direct properties — clear_secret_info / 302201320230 / 3
 
-<a id="canonical-74054866fd7ba945d5765d9fc1db6177214c146f9be1cb27f42c9b4524e44d0b"></a>
+<a id="canonical-1310001110201212-3331132322211011-3111131211312133-3001312312011313-0201103001101233-2123320130230213-3310023021231011-0210321010310023"></a>
 
-<a id="canonical-d83f1a75156b001a0a1657d913257f41cc5909cd38725b3a384aa15d073fe31b"></a>
+<a id="canonical-3120033301221311-0111122300000122-0022011211133121-0103021113331001-3030112100213031-0320130211230322-0320102222011131-0013033332030123"></a>
 
-## provider_ref property — access_info.rest_auth_info.basic_auth.password.clear_secret_info / f844ceca1e2c / 4
+## provider_ref property — clear_secret_info / 302201320230 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-111e9d41689846b3e69bfcfd3bc05c5ef82620adaf64449a3c9142d12108cb52"></a>
+<a id="canonical-0101013221311001-1220212010122303-3212212333303331-0323300011301132-3320021202002231-2233121010102122-0330210110023101-0201002030231102"></a>
 
-<a id="canonical-9001589b08e48c6d0e62889228d74232ab6bd53fa69fc2bfdf628c9ec75b36f8"></a>
+<a id="canonical-2100000111202123-0020321020301231-0032120220202102-0220311310020302-2223122331110333-2212213330022333-3133120220302132-3013112303123320"></a>
 
-## url property — access_info.rest_auth_info.basic_auth.password.clear_secret_info / f844ceca1e2c / 5
+## URL property — clear_secret_info / 302201320230 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1282,32 +1282,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8457fdab40a2d5347c1f2cd0c6f58c49fb41851f188598ebaf9d42c0d5888724"></a>
+<a id="canonical-2010111333312223-1000220231110310-1330013302303100-3012331120301021-3323100120110133-0120201121203223-2233213110023000-3111202020130210"></a>
 
-## Next pages — access_info.rest_auth_info.basic_auth.password.clear_secret_info / f844ceca1e2c / 6
+## Next pages — clear_secret_info / 302201320230 / 6
 
-- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-06feac9b2faaad5e15461f6618420dd3713c10c09c9cbc7480e98b496f2ab461)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.basic_auth.password](resources--secret_management_access--reference--group-001.md#canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-2e621acbfde59af1897d75dd561c5d277d664286a424c26ed45a30cdd39e12f6"></a>
+<a id="canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a3d3a42abc3716b9b0631d56d4ac21cfbb8e7b4e09841f60b22c9f8e1fd046ca"></a>
+<a id="canonical-2203310322100222-2330031301122321-2300120301311112-3110223002013033-2323203213231032-0021201001331200-2302023021332032-0133310010123022"></a>
 
-## access_info.rest_auth_info.headers_auth — access_info.rest_auth_info.headers_auth / 8ccc20bfe31e / 2
+## access_info.rest_auth_info.headers_auth — headers_auth / 233332030132 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
 - access_info.rest_auth_info.headers_auth
 
-<a id="canonical-a8614693e0c9254e160eae872446907ea4a1d8fdb4a7daecb0cc8fb5f8657247"></a>
+<a id="canonical-2220120110122103-3200302102111032-0112003222322013-0210101221001332-2210220131203331-2310221331223230-2300303020332311-3320121113021013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1334,40 +1334,40 @@ headers_auth {
 }
 ```
 
-<a id="canonical-0d58717eb20848885fd342589c1dd96a60d2d50978f810301757853556ed8c69"></a>
+<a id="canonical-0031112013011332-2302002010202020-1133310310021120-2130013131211222-1200310231110021-1320332001000300-0113111320110311-1112323120301221"></a>
 
-## Direct properties — access_info.rest_auth_info.headers_auth / 8ccc20bfe31e / 3
+## Direct properties — headers_auth / 233332030132 / 3
 
-- [headers](resources--secret_management_access--reference--group-001.md#canonical-e666fa8785b39e61cea21b0d0a432f04c68dc4cf7fcb2ecaa6e4554a59ad854e): complete subsection reference.
+- [headers](resources--secret_management_access--reference--group-001.md#canonical-3212121233222013-2011230321321201-3032220201230031-0022100302330010-3012203130103033-1333302302323022-2212321011111022-1121223120111032): complete subsection reference.
 
-<a id="canonical-be4e591441f39cac51d1142921bf751a5c56c3928d7d762abbd61d32fb3ace08"></a>
+<a id="canonical-2332103211210110-1001330321302230-1101310101100221-0201233313110122-1130111230032102-2031133113120222-2323311201310302-3323032230320020"></a>
 
-## Next pages — access_info.rest_auth_info.headers_auth / 8ccc20bfe31e / 4
+## Next pages — headers_auth / 233332030132 / 4
 
-- [access_info.rest_auth_info.headers_auth.headers](resources--secret_management_access--reference--group-001.md#canonical-e666fa8785b39e61cea21b0d0a432f04c68dc4cf7fcb2ecaa6e4554a59ad854e)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.headers_auth.headers](resources--secret_management_access--reference--group-001.md#canonical-3212121233222013-2011230321321201-3032220201230031-0022100302330010-3012203130103033-1333302302323022-2212321011111022-1121223120111032)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-e666fa8785b39e61cea21b0d0a432f04c68dc4cf7fcb2ecaa6e4554a59ad854e"></a>
+<a id="canonical-3212121233222013-2011230321321201-3032220201230031-0022100302330010-3012203130103033-1333302302323022-2212321011111022-1121223120111032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ee0075c6813e0ae3e03040788c9e64844738bb1f0fed113608377c9a4582bdf"></a>
+<a id="canonical-1132320000131130-1220010332002232-0332000300100013-2020302132121020-1010130320232301-3300333231010103-1200200313133021-2210112002233133"></a>
 
-## access_info.rest_auth_info.headers_auth.headers — access_info.rest_auth_info.headers_auth.headers / 4e0875c4283d / 2
+## access_info.rest_auth_info.headers_auth.headers — headers / 301002200331 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-2e621acbfde59af1897d75dd561c5d277d664286a424c26ed45a30cdd39e12f6)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312)
 - access_info.rest_auth_info.headers_auth.headers
 
-<a id="canonical-4028bfdc77a8552e86d71babf15cccb3697d656b0544c17d339e68292a31d2b8"></a>
+<a id="canonical-1000022023333130-1313222011110232-2012311301232223-3301113030302303-1221133112111223-0011101030011331-0303213212200221-0222030131022320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1402,38 +1402,38 @@ Terraform syntax:
 headers {}
 ```
 
-<a id="canonical-d7c33392480b4a8234b17e9d7ebf0f48b0d2505c6ac124961a3bde573fcc70de"></a>
+<a id="canonical-3113300303032102-1020002310222002-0310230113322131-1332233300331020-2300310211001130-1222300102102112-0122032331321113-0333303013003132"></a>
 
-## Direct properties — access_info.rest_auth_info.headers_auth.headers / 4e0875c4283d / 3
+## Direct properties — headers / 301002200331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-511eadf6dd056cea3bbcb5e32d9325737f18433022eea85724ea76ebc9e0c558"></a>
+<a id="canonical-1101013222313312-3131001112303222-0323233023113203-0231210302111303-1333012010030300-0202323222201113-0210322213123223-3021320030111120"></a>
 
-## Next pages — access_info.rest_auth_info.headers_auth.headers / 4e0875c4283d / 4
+## Next pages — headers / 301002200331 / 4
 
-- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-2e621acbfde59af1897d75dd561c5d277d664286a424c26ed45a30cdd39e12f6)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.headers_auth](resources--secret_management_access--reference--group-001.md#canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-4e2f08c9527b8503b328d8bf4d40c193ac3538ef2a18daa556ff4b194cfa725c"></a>
+<a id="canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7912bcf129691e587adc5ce0fbb25f210df14244404e8165b092244401ba5245"></a>
+<a id="canonical-1321010223303301-0221122101321120-1322313011303200-3323230211330201-0031330110021010-1000103220011211-2300210202101010-0001232211021011"></a>
 
-## access_info.rest_auth_info.query_params_auth — access_info.rest_auth_info.query_params_auth / a571c2abdaea / 2
+## access_info.rest_auth_info.query_params_auth — query_params_auth / 222331223222 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
 - access_info.rest_auth_info.query_params_auth
 
-<a id="canonical-ea223748a8617a0355131584af9f25a287f8c5e91dc29ed0af4b3bed8c87e612"></a>
+<a id="canonical-3222020203131020-2220120113220003-1111010301112010-2233213302112202-2013332030113221-0131300221323100-2233102303233231-2030201332120102"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1460,40 +1460,40 @@ query_params_auth {
 }
 ```
 
-<a id="canonical-4c4cb0c32a2d974deed9bed260589c59f4daa0c3afd2e6a2d975505e6b436dbf"></a>
+<a id="canonical-1030103023003003-0222023121131031-3232312123323102-1200112021301121-3310312222003003-2233310232122202-3121131111001132-1223100312312333"></a>
 
-## Direct properties — access_info.rest_auth_info.query_params_auth / a571c2abdaea / 3
+## Direct properties — query_params_auth / 222331223222 / 3
 
-- [query_params](resources--secret_management_access--reference--group-001.md#canonical-101a5c03969e60a0c5b390b2d2f250d3c87080d702e976aa8611bbdada24e800): complete subsection reference.
+- [query_params](resources--secret_management_access--reference--group-001.md#canonical-0100012211300003-2112213212002200-3011230321002302-3102330211003103-3020130020003113-0002322113122222-2012010123233122-3122021032200000): complete subsection reference.
 
-<a id="canonical-5c54fb18646781e81bdba446aae7abd20d94ced41461dca7c4fdf66cb3c565c8"></a>
+<a id="canonical-1130111033230120-1210121320013220-0123312322101012-2222321322233102-0031211030323110-0110120131302213-3010333133121230-2303301112113020"></a>
 
-## Next pages — access_info.rest_auth_info.query_params_auth / a571c2abdaea / 4
+## Next pages — query_params_auth / 222331223222 / 4
 
-- [access_info.rest_auth_info.query_params_auth.query_params](resources--secret_management_access--reference--group-001.md#canonical-101a5c03969e60a0c5b390b2d2f250d3c87080d702e976aa8611bbdada24e800)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.query_params_auth.query_params](resources--secret_management_access--reference--group-001.md#canonical-0100012211300003-2112213212002200-3011230321002302-3102330211003103-3020130020003113-0002322113122222-2012010123233122-3122021032200000)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-101a5c03969e60a0c5b390b2d2f250d3c87080d702e976aa8611bbdada24e800"></a>
+<a id="canonical-0100012211300003-2112213212002200-3011230321002302-3102330211003103-3020130020003113-0002322113122222-2012010123233122-3122021032200000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f299c61351f83436669b7b7cff0513ce0e6504d17c58bb012922d349a37349a5"></a>
+<a id="canonical-3302212130120103-1101332003100312-1212212313231330-3333001101033032-0032121100103101-1330112023230001-0221020231031021-2203130310212211"></a>
 
-## access_info.rest_auth_info.query_params_auth.query_params — access_info.rest_auth_info.query_params_auth.query_params / e33ce31d47e4 / 2
+## access_info.rest_auth_info.query_params_auth.query_params — query_params / 013110133210 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-f9094db902be9aaeddc83619008d0e588b91c27778101b64dbd80d4010d082b4)
-- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-4e2f08c9527b8503b328d8bf4d40c193ac3538ef2a18daa556ff4b194cfa725c)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.rest_auth_info](resources--secret_management_access--reference--group-001.md#canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310)
+- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130)
 - access_info.rest_auth_info.query_params_auth.query_params
 
-<a id="canonical-3cd8a9090d53fd0e0fe65f18bca2a7f7a779583429b72c6fb92311f1ec5fa6f2"></a>
+<a id="canonical-0330312022210021-0031110333310032-0033321211330120-2330220222133313-2213132111200310-0221231302301233-2321020301013301-3230113322123302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1528,37 +1528,37 @@ Terraform syntax:
 query_params {}
 ```
 
-<a id="canonical-a9948f0683c542cbe396ed6897bc078a16468b71859fe5f90173164409854675"></a>
+<a id="canonical-2221211020330012-2003301110023023-3203211232311220-2113233000132022-0112101220231301-2011213332113321-0001130301121010-0021201110121311"></a>
 
-## Direct properties — access_info.rest_auth_info.query_params_auth.query_params / e33ce31d47e4 / 3
+## Direct properties — query_params / 013110133210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b7aa0edca63f405d1790f5735484a4683da9467603e9900767593439253dd0f3"></a>
+<a id="canonical-2313222200323130-2212033310001131-0113210033111303-1110201022101220-0331222110121312-0003322121000013-1213112103100321-0211033131003303"></a>
 
-## Next pages — access_info.rest_auth_info.query_params_auth.query_params / e33ce31d47e4 / 4
+## Next pages — query_params / 013110133210 / 4
 
-- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-4e2f08c9527b8503b328d8bf4d40c193ac3538ef2a18daa556ff4b194cfa725c)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.rest_auth_info.query_params_auth](resources--secret_management_access--reference--group-001.md#canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99"></a>
+<a id="canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-61502e2c8c6e49dc96c4bece1e32575eacdd6346b7fecc275c05c0025888895f"></a>
+<a id="canonical-1201110002320230-2030123210213130-2112301023323032-0132030211131132-2230313112031012-2313333230300213-1130001130000002-1120202020211133"></a>
 
-## access_info.tls_config — access_info.tls_config / 3a20d5206528 / 2
+## access_info.tls_config — tls_config / 020012110220 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
 - access_info.tls_config
 
-<a id="canonical-428b2c6b28bb1296cdb61db3a046d733f0662e24c6d960a895082cb585f58394"></a>
+<a id="canonical-1002202302301223-0220232301022112-3031231201312303-2200101231130303-3300121202320210-3012312112002220-2111002002302311-2011331120032110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1607,25 +1607,25 @@ tls_config {
 }
 ```
 
-<a id="canonical-331985d068dc16be10128f7a1a538b53df79d6431099c842dbfb4cd2cee7f0da"></a>
+<a id="canonical-0303012120113100-1220313001122332-0100010220331322-0122110320231103-3133132131121003-0100212130201002-3123332310303102-3032321333003122"></a>
 
-## Direct properties — access_info.tls_config / 3a20d5206528 / 3
+## Direct properties — tls_config / 020012110220 / 3
 
-- [cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8): complete subsection reference.
+- [cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220): complete subsection reference.
 
-- [common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18): complete subsection reference.
+- [common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120): complete subsection reference.
 
-- [default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-440b457ffd5761009c001add194635315bfd28ae6cb75045bd324238a6943c66): complete subsection reference.
+- [default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-1010002310111333-3331111312010000-2130000001223131-0121101203110301-1123333102202232-1230231311001011-2331030210020320-2212211003301212): complete subsection reference.
 
-- [disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-a30b8903d6e255c86d65f1356f61d1f7c1d6818eea1162139ac18d81d71145f6): complete subsection reference.
+- [disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312): complete subsection reference.
 
-- [disable_sni](resources--secret_management_access--reference--group-001.md#canonical-3e601b97c72f8db5926f38ccc8081213cf665e0c33f6b9256dcf2f9ea8896626): complete subsection reference.
+- [disable_sni](resources--secret_management_access--reference--group-001.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212): complete subsection reference.
 
-<a id="canonical-82d136719e1f0b0006652978fefa37cb1b54826430ffb548728f12835a36cf2d"></a>
+<a id="canonical-2002310103121301-2132013300230000-0012121102211320-3332332203133023-0123111020021210-0300333323111020-1302203301022003-1122031230330231"></a>
 
-<a id="canonical-747dd366d8fd37b20e1f294664cfc54a4c66b9d112d43464ae82bca46e83221e"></a>
+<a id="canonical-1310133131031212-3120333103132302-0032013302211012-1210303330111022-1030121223213101-0102311003101210-2232200223302210-1232200302020132"></a>
 
-## max_session_keys property — access_info.tls_config / 3a20d5206528 / 4
+## max_session_keys property — tls_config / 020012110220 / 4
 
 Type: `"number"`. Optional.
 
@@ -1679,11 +1679,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5f49f00ca20abb181c9b871b8759f61eff7d7fedac85c152e9962e2ea1a8a6d6"></a>
+<a id="canonical-1133102133000030-2202002223230120-0130212320130123-2013112133120132-3333133113333231-2230201130011102-3221211202320232-2201222022123112"></a>
 
-<a id="canonical-231c956ce01a35c2fff050c1a77329b96f4461b0381472b126dee37c85ed2723"></a>
+<a id="canonical-0203013021111230-3200012203113002-3333330011003001-2213130302212321-1233101012012300-0320011013022301-0212313232031330-2011323102130203"></a>
 
-## sni property — access_info.tls_config / 3a20d5206528 / 5
+## sni property — tls_config / 020012110220 / 5
 
 Type: `"string"`. Optional.
 
@@ -1735,40 +1735,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [use_host_header_as_sni](resources--secret_management_access--reference--group-001.md#canonical-1d7b65d90256b43a6b7ecf321605c56e4aba082e85f7b94ac31daa293ea2d7af): complete subsection reference.
+- [use_host_header_as_sni](resources--secret_management_access--reference--group-002.md#canonical-0131132312113121-0002111223100322-1223133230330302-0112001130111232-1022232200200232-2011331323211022-3003013122220221-0332220231132233): complete subsection reference.
 
-<a id="canonical-66269ff23ee0f1628d18aefe2e16befaa57e45441d578b29a7247d0df2157381"></a>
+<a id="canonical-1212021221333302-0332320033011202-2031012022323332-0232011223323322-2211133210111010-0131111320230221-2213021013310031-3302011113032001"></a>
 
-## Next pages — access_info.tls_config / 3a20d5206528 / 6
+## Next pages — tls_config / 020012110220 / 6
 
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-440b457ffd5761009c001add194635315bfd28ae6cb75045bd324238a6943c66)
-- [access_info.tls_config.disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-a30b8903d6e255c86d65f1356f61d1f7c1d6818eea1162139ac18d81d71145f6)
-- [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-001.md#canonical-3e601b97c72f8db5926f38ccc8081213cf665e0c33f6b9256dcf2f9ea8896626)
-- [access_info.tls_config.use_host_header_as_sni](resources--secret_management_access--reference--group-001.md#canonical-1d7b65d90256b43a6b7ecf321605c56e4aba082e85f7b94ac31daa293ea2d7af)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-1010002310111333-3331111312010000-2130000001223131-0121101203110301-1123333102202232-1230231311001011-2331030210020320-2212211003301212)
+- [access_info.tls_config.disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312)
+- [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-001.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212)
+- [access_info.tls_config.use_host_header_as_sni](resources--secret_management_access--reference--group-002.md#canonical-0131132312113121-0002111223100322-1223133230330302-0112001130111232-1022232200200232-2011331323211022-3003013122220221-0332220231132233)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8"></a>
+<a id="canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b28cb1d6637840edcd1933dd5f631ac8b8fc1f7f62ef94a928c949ea47702ae"></a>
+<a id="canonical-1323022030230131-1212031320100032-3130310121030331-3111331203012230-2023203330013313-3312023233211022-2102203021102132-2210131300022232"></a>
 
-## access_info.tls_config.cert_params — access_info.tls_config.cert_params / 1fb1dfe77036 / 2
+## access_info.tls_config.cert_params — cert_params / 321313000312 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
 - access_info.tls_config.cert_params
 
-<a id="canonical-377302607e854b35f29fbafc8c2634cbc2ae62b289a39e0fc75649c43a70be33"></a>
+<a id="canonical-0313130300021200-1332201110230311-3302213323223330-2030021203103023-3002223212022302-2021220321320033-3013111210213010-0322130023320303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1808,17 +1808,17 @@ cert_params {
 }
 ```
 
-<a id="canonical-3273b21e1e84731b576037d1d8efc72676d7e4ee214fe1130df4e5459570ddac"></a>
+<a id="canonical-0302130323020132-0132201013030123-1113120003133101-3120323330130212-1312311332103232-0201103332010103-0031331032111011-2111130031312230"></a>
 
-## Direct properties — access_info.tls_config.cert_params / 1fb1dfe77036 / 3
+## Direct properties — cert_params / 321313000312 / 3
 
-- [certificates](resources--secret_management_access--reference--group-001.md#canonical-f6fb0f60fd52830dd3599c53ed72f1d7b0e0f258bde4feb574b2237465d47d5f): complete subsection reference.
+- [certificates](resources--secret_management_access--reference--group-001.md#canonical-3312332300331200-3331110220030031-3103112121301103-3231130233013113-2300320033021120-2331321033322311-1310230202031310-1211311013311133): complete subsection reference.
 
-<a id="canonical-d32a7f716f46a80a7c0fc83cce45c2c2bb86f0a958b2a5fe9041113fa2d5208c"></a>
+<a id="canonical-3103022213331301-1233101222200022-1330003330200330-3032101130023002-2323201233002221-1120230222113332-2100100101010333-2202311102002030"></a>
 
-<a id="canonical-f98984249f8fd86472c6902509dd6ea9374e877c64ae3faaaba30dfe06d65910"></a>
+<a id="canonical-3321202120100210-2133203331201210-1302301221000211-0021313112322221-0313103220131330-1210223203332222-2223220300313332-0012311211210100"></a>
 
-## cipher_suites property — access_info.tls_config.cert_params / 1fb1dfe77036 / 4
+## cipher_suites property — cert_params / 321313000312 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1876,62 +1876,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-65a64a67ddb216b92ca4fb48f9c388245f11434c97ec33327b353f008408df5f"></a>
+<a id="canonical-1211221210221213-3131230201122321-0230221033231020-3321300320200210-1133010110031030-2113323003030302-1323031103330000-2010002031331133"></a>
 
-<a id="canonical-a167af0764701f55ad81f1f4c56508ceab0d3ae81ab84c6a677b1b6ca7495d24"></a>
+<a id="canonical-2201121322330013-1210130001331111-2231200133013310-3011121100203032-2223003103223220-0122232010301222-1213132301231230-2213102111310210"></a>
 
-## maximum_protocol_version property — access_info.tls_config.cert_params / 1fb1dfe77036 / 5
-
-Type: `"string"`. Optional.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-50da1e53e6ebc1b3eadd812d3ea50f2bf4370ae5e24b1e22bf9f73a758030d4d"></a>
-
-<a id="canonical-dfb9a90ec316b4f27f01b32b439f1c24ef8b5ed150ea2e89a14cbed25186421c"></a>
-
-## minimum_protocol_version property — access_info.tls_config.cert_params / 1fb1dfe77036 / 6
+## maximum_protocol_version property — cert_params / 321313000312 / 5
 
 Type: `"string"`. Optional.
 
@@ -1978,43 +1927,94 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-77e7600f896295158f4a9e7ad268f8be08485d4b99ed59579cb34c09b373ca80): complete subsection reference.
+<a id="canonical-1100312201321103-3212322330012303-3222313120010231-0332221100330223-3310031300223211-3202102301320202-2333213313032213-1120000300311031"></a>
 
-- [tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0): complete subsection reference.
+<a id="canonical-3133232122210032-3003011223103302-1333000123030223-1003213301300210-3233202311323101-1100322202322021-2201103023323102-1101201210020130"></a>
 
-- [volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-41b69f775bfb542ee5f49a8bf1fde08fcc19a9f4023f93c34ecd493c751b7669): complete subsection reference.
+## minimum_protocol_version property — cert_params / 321313000312 / 6
 
-<a id="canonical-65ad44b82d72cec53d46ce040418547c6997d5aa639b9f722336c0e4406d7fc6"></a>
+Type: `"string"`. Optional.
 
-## Next pages — access_info.tls_config.cert_params / 1fb1dfe77036 / 7
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-- [access_info.tls_config.cert_params.certificates](resources--secret_management_access--reference--group-001.md#canonical-f6fb0f60fd52830dd3599c53ed72f1d7b0e0f258bde4feb574b2237465d47d5f)
-- [access_info.tls_config.cert_params.skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-77e7600f896295158f4a9e7ad268f8be08485d4b99ed59579cb34c09b373ca80)
-- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0)
-- [access_info.tls_config.cert_params.volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-41b69f775bfb542ee5f49a8bf1fde08fcc19a9f4023f93c34ecd493c751b7669)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+Upstream description:
 
-<a id="canonical-f6fb0f60fd52830dd3599c53ed72f1d7b0e0f258bde4feb574b2237465d47d5f"></a>
+TlsProtocol is enumeration of supported TLS versions
+
+F5 Distributed Cloud will choose the optimal TLS version.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-1313321312000033-2021120221110111-2033102221321322-3102122033202332-0020102011311023-2121323111211113-2130230310300021-2303130330222000): complete subsection reference.
+
+- [tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200): complete subsection reference.
+
+- [volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-1001231221331313-1123332311100232-3211331021222023-3301333132002033-3030012122213310-0002033321033003-1032303110210330-1311012313121221): complete subsection reference.
+
+<a id="canonical-1211223110102320-0231130230323011-0331101230320010-0010012011101330-1221211331112222-1203212321331302-0203031230003210-1000123113333012"></a>
+
+## Next pages — cert_params / 321313000312 / 7
+
+- [access_info.tls_config.cert_params.certificates](resources--secret_management_access--reference--group-001.md#canonical-3312332300331200-3331110220030031-3103112121301103-3231130233013113-2300320033021120-2331321033322311-1310230202031310-1211311013311133)
+- [access_info.tls_config.cert_params.skip_server_verification](resources--secret_management_access--reference--group-001.md#canonical-1313321312000033-2021120221110111-2033102221321322-3102122033202332-0020102011311023-2121323111211113-2130230310300021-2303130330222000)
+- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200)
+- [access_info.tls_config.cert_params.volterra_trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-1001231221331313-1123332311100232-3211331021222023-3301333132002033-3030012122213310-0002033321033003-1032303110210330-1311012313121221)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+
+<a id="canonical-3312332300331200-3331110220030031-3103112121301103-3231130233013113-2300320033021120-2331321033322311-1310230202031310-1211311013311133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06f6a5f01813a8567710d03680c0378e225660c5884c3ac89c6f8fa070527993"></a>
+<a id="canonical-0012331222113300-0120010322201112-1313010031000312-2000300003132032-0202111212003011-2020103003223020-2130123320332200-1300110213212103"></a>
 
-## access_info.tls_config.cert_params.certificates — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 2
+## access_info.tls_config.cert_params.certificates — certificates / 301023011321 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
 - access_info.tls_config.cert_params.certificates
 
-<a id="canonical-dec92ff55d4e043cb8496ec2bac6de8e2b1295bf1f09ea4dd5a33ee2affed711"></a>
+<a id="canonical-3132302102333311-1131103200100330-2320102112323002-2322301231322032-0223010221112333-0133002132221031-3111220303323202-2233333231130101"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2051,15 +2051,15 @@ certificates {
 }
 ```
 
-<a id="canonical-3b4df77a7163a4814674db8c543b621426bb89ce286a9b209c9f57b56ae5155f"></a>
+<a id="canonical-0323103133131322-1301120322102001-1012131031232030-1110032312020110-0212232320213032-0220122221230200-2130213311132311-1222321101111133"></a>
 
-## Direct properties — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 3
+## Direct properties — certificates / 301023011321 / 3
 
-<a id="canonical-14fb8b18845b0da54e2fdd2716d9e8394371c2a9151ce111d400e43a39c4b577"></a>
+<a id="canonical-0110332320230120-2010112300312211-1032023331310213-0112312132200321-1003130130022221-0111013032010101-3110000032100322-0321301023111313"></a>
 
-<a id="canonical-6c83b35a5c40c67e0c42c2787b5fa34be0986640af6e1f7b31e1c31d549540d6"></a>
+<a id="canonical-1230200323031122-1130100030121332-0030100230021320-1323113322031023-3200212012121000-2233123201331323-0301320130030131-1110211110003112"></a>
 
-## kind property — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 4
+## kind property — certificates / 301023011321 / 4
 
 Type: `"string"`. Computed.
 
@@ -2094,11 +2094,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-594b959d8daf9e1ce564f9aefa604d04ff12a17295ea84912d96c9736fe7ae4d"></a>
+<a id="canonical-1121102321112131-2031223321320130-3211121033212232-3322120010310010-3333010222011302-2111322220102101-0231211230211303-1233321322321031"></a>
 
-<a id="canonical-e6b99391fd59a912f71d436a3d68c4ce0e2b9e043d0e8e7750e446f83c425af2"></a>
+<a id="canonical-3212232121032101-3331112122210102-3313013110031222-0331122030103032-0032022321320010-0331003220321313-1100321010123320-0330100211223302"></a>
 
-## name property — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 5
+## name property — certificates / 301023011321 / 5
 
 Type: `"string"`. Optional.
 
@@ -2133,11 +2133,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-16de07d482f4232aeff1637acce93c9ec623baf2dc905cd429df94200eb8cc05"></a>
+<a id="canonical-0112313200133110-2002331002030222-3233330112031322-3030322103302132-3012020323223302-3130210011303110-0221313321100200-0032232030300011"></a>
 
-<a id="canonical-fb18f59cc308c4da273bca39dd92933576029bbb5c7263f7e0f36d2d1eab0599"></a>
+<a id="canonical-3323012033112130-3003002030103122-0213032330220321-3131210221030311-1312000221232323-1130130212033313-3200330312310231-0132222300112121"></a>
 
-## namespace property — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 6
+## namespace property — certificates / 301023011321 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2197,11 +2197,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b726e7c7784cb6da6a18c60e5090f01551adf26d645f5ca448256f89d37b6fe4"></a>
+<a id="canonical-2313021232133013-1320103023123122-1222012030120032-1100210033000111-1101223133021231-1210113311302210-1020021112332021-3103132312333210"></a>
 
-<a id="canonical-e2fee36df80d7187373d92c9ab84bbcba7f4f383dbd744d4f636ec56e34c61c7"></a>
+<a id="canonical-3202333232031231-3320003113012013-0313033121023021-2223201023233023-2213331033032003-3123311310103110-3312031232301112-3203103012013013"></a>
 
-## tenant property — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 7
+## tenant property — certificates / 301023011321 / 7
 
 Type: `"string"`. Computed.
 
@@ -2236,11 +2236,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0da8906ee8db07ca070369899d09476ec366618e88f74bcb5559bb56d54821f6"></a>
+<a id="canonical-0031222021001232-3220312300133022-0013000312212021-2131002110131232-3003121212012032-2020331310233023-1111112123231112-3111102002013312"></a>
 
-<a id="canonical-ac200f9a0287fd40d03b92c6fda19fe48f50bb140e0fa628171b7c415f252b71"></a>
+<a id="canonical-2230020000332122-0002201333311000-3100032321023012-3331220121333210-2033110023230110-0032003322120220-0113012313301001-1133021102231301"></a>
 
-## uid property — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 8
+## uid property — certificates / 301023011321 / 8
 
 Type: `"string"`. Computed.
 
@@ -2275,33 +2275,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c126fb8c51ca2ad48408c9b141d18be3a0399ce31c5c6fa8e10c050e1e486756"></a>
+<a id="canonical-3001021233232030-1101302202223110-2010002030212301-1001310120233203-2200032121303203-0130113012332220-3201003000110032-0132102012131112"></a>
 
-## Next pages — access_info.tls_config.cert_params.certificates / a08d56c4b179 / 9
+## Next pages — certificates / 301023011321 / 9
 
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-77e7600f896295158f4a9e7ad268f8be08485d4b99ed59579cb34c09b373ca80"></a>
+<a id="canonical-1313321312000033-2021120221110111-2033102221321322-3102122033202332-0020102011311023-2121323111211113-2130230310300021-2303130330222000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-590b31986cc3243dbe0e71b9f0152795c8910dba0de7c62f10a4df5837f92892"></a>
+<a id="canonical-1121002303012120-1230300302100331-2332003213012321-3300011102132111-3020210100312322-0031321330120233-0100221031331120-0313332102202102"></a>
 
-## access_info.tls_config.cert_params.skip_server_verification — access_info.tls_config.cert_params.skip_server_verification / c683e47fa8e0 / 2
+## access_info.tls_config.cert_params.skip_server_verification — skip_server_verification / 133322203200 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
 - access_info.tls_config.cert_params.skip_server_verification
 
-<a id="canonical-2ab8f23209c0d1d7e2de4d27f4624fc435387befc542d1c2fd1183dbc0b03b53"></a>
+<a id="canonical-0222232033020302-0021300031013113-3202313210310213-3310120210333010-0311032013233233-3011100231013002-3331010120033123-3000230003231103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2330,39 +2330,39 @@ Terraform syntax:
 skip_server_verification = {}
 ```
 
-<a id="canonical-9b105d4ba28519dd883d5d6d4fb0a836b4020bca80c66e009d764ee949cc94ad"></a>
+<a id="canonical-2123010011311023-2202201101213131-2020033111311231-1033230022200312-2310000200233022-2000301212320000-2131131210323221-1021303021102231"></a>
 
-## Direct properties — access_info.tls_config.cert_params.skip_server_verification / c683e47fa8e0 / 3
+## Direct properties — skip_server_verification / 133322203200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-23e343207f15750903a1b260699ff1f1bdbd6b3ac9ab97e06862a40dffacc964"></a>
+<a id="canonical-0203320310030200-1333011113110021-0003220123021200-1221213333013301-2331233112230322-3021222321133200-1220120222100031-3333223030211210"></a>
 
-## Next pages — access_info.tls_config.cert_params.skip_server_verification / c683e47fa8e0 / 4
+## Next pages — skip_server_verification / 133322203200 / 4
 
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0"></a>
+<a id="canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0179386c53976a4a12726bb08e6a57a114ca037127ba37ff374af3c3076622b3"></a>
+<a id="canonical-0001132103201230-1103211312221022-0102130212232300-2032122211132201-0110302200031301-0213232203133333-0313102233033003-0013121202022303"></a>
 
-## access_info.tls_config.cert_params.tls_validation_params — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 2
+## access_info.tls_config.cert_params.tls_validation_params — tls_validation_params / 230132230122 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
 - access_info.tls_config.cert_params.tls_validation_params
 
-<a id="canonical-50a1f1f904f38843fe108668a17de2e6f0c399e646efc6d6e5eb0993d3fd62a7"></a>
+<a id="canonical-1100220133013321-0010330320201003-3332010020121220-2201133132023212-3300300321213212-1012323330123112-3211322300212103-3103333112022213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2403,15 +2403,15 @@ tls_validation_params {
 }
 ```
 
-<a id="canonical-97ecbef5e8d3ed2bc08d7b2323fdc956aa3be1ae43f5b64e8c139778c582d7d8"></a>
+<a id="canonical-2113323023323311-3220310332310223-3000203113230203-0203333130211112-2222032332012232-1003331123121032-2030010321131320-3011200231133120"></a>
 
-## Direct properties — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 3
+## Direct properties — tls_validation_params / 230132230122 / 3
 
-<a id="canonical-87e20cac3be9040de5b0e45796dcdc03e524696241388853b5ab566a6d6c07d5"></a>
+<a id="canonical-2013320200302230-0323322100100031-3211230032101113-2112313031300003-3211021012211202-1001032020201103-2311222311121222-1231123000133111"></a>
 
-<a id="canonical-845cbd3a6f0537fef2b6e0a5279e16d9847004219f984fbd25d015344ddb5909"></a>
+<a id="canonical-2010113023310322-1233001103133332-3302231232002211-0213213201123121-2010130000100201-2133212010332331-0211310001110310-1031312311210021"></a>
 
-## skip_hostname_verification property — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 4
+## skip_hostname_verification property — tls_validation_params / 230132230122 / 4
 
 Type: `"bool"`. Optional.
 
@@ -2436,13 +2436,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8d327e2a0107f7d41cfae6e10a8c2a40a0da8dda131c61cc77c90c492f534079): complete subsection reference.
+- [trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321): complete subsection reference.
 
-<a id="canonical-61902c5c4c10a987461fb1c9beff249669f9ccfd776e511b717a274536e4f530"></a>
+<a id="canonical-1201210002301130-1030010022212013-1012013323013021-2332333302102112-1221332130303331-1313123211010123-1301132202131011-0312321033110300"></a>
 
-<a id="canonical-d9cd90b88471d0ae9471a05d1f9949df0eedfab3158cb0d08a3f956abcd6d7ce"></a>
+<a id="canonical-3121303121002320-2010130131002232-2110130122001131-0133212110213133-0032323133222303-0111203023003100-2022033321111222-2330311231133032"></a>
 
-## trusted_ca_url property — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 5
+## trusted_ca_url property — tls_validation_params / 230132230122 / 5
 
 Type: `"string"`. Optional.
 
@@ -2496,11 +2496,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1a59447b5fd9ebb50787190fd7854ee90b02e15ae7a85e4777b37f2e5c88a79"></a>
+<a id="canonical-3301221121101013-2311333121322323-1100132013012100-3331132011103232-2100230002320111-2232132220113210-1313132303133302-3211302020221321"></a>
 
-<a id="canonical-4590ccd52aa4a3f4269a8457bddd9e20e8b3907d4493a84c5443f7cd305cee3e"></a>
+<a id="canonical-1011210030303111-0222221022033310-0212212220101113-2331313121320200-3220230321001331-1010210322201030-1110100333133031-0300113032320332"></a>
 
-## verify_subject_alt_names property — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 6
+## verify_subject_alt_names property — tls_validation_params / 230132230122 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -2527,35 +2527,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-70584be3dd683f0610795117272808f29891322ccb6b8782892d0cc528061500"></a>
+<a id="canonical-1300112010233203-3131122003330012-0100132111010113-0213022000203302-2120210103020230-3023122320132002-2021023100303011-0220001201110000"></a>
 
-## Next pages — access_info.tls_config.cert_params.tls_validation_params / 33e344b1eb1a / 7
+## Next pages — tls_validation_params / 230132230122 / 7
 
-- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8d327e2a0107f7d41cfae6e10a8c2a40a0da8dda131c61cc77c90c492f534079)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-8d327e2a0107f7d41cfae6e10a8c2a40a0da8dda131c61cc77c90c492f534079"></a>
+<a id="canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7ab7a668417c4aaad81b5f6879c7031f71e6f8e21a94acb6420c67da7513969e"></a>
+<a id="canonical-1322231322121220-1001133010222222-3120012311331220-1321301300030133-1301321233203202-0122211022302312-1002003012133122-1311010321122132"></a>
 
-## access_info.tls_config.cert_params.tls_validation_params.trusted_ca — access_info.tls_config.cert_params.tls_validation_params.trusted_ca / 3570147d2c15 / 2
+## access_info.tls_config.cert_params.tls_validation_params.trusted_ca — trusted_ca / 133102300111 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200)
 - access_info.tls_config.cert_params.tls_validation_params.trusted_ca
 
-<a id="canonical-44ceb21986223670a34cb222b9f53b4b77e3e94c5691fb7b08e3a81395e89740"></a>
+<a id="canonical-1010303223020121-2012020203121300-2203103023020202-2321331103231023-1313320332211030-1112210133231323-0020320322200103-2111322021131000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2586,42 +2586,42 @@ trusted_ca {
 }
 ```
 
-<a id="canonical-9ce72880066bee3b6c1436ca50bde86ddc24f22e24c30cecb6d761d2f774823b"></a>
+<a id="canonical-2130321302202000-0012122332320323-1230011003123022-1100233132201231-3130021033020232-0210300300303230-2312311312013102-3313131020020323"></a>
 
-## Direct properties — access_info.tls_config.cert_params.tls_validation_params.trusted_ca / 3570147d2c15 / 3
+## Direct properties — trusted_ca / 133102300111 / 3
 
-- [trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-0087e9f5d9a52a84138eabe81097ab227b44571cfe7c5de7b5f8acb34c1e61e4): complete subsection reference.
+- [trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-0000201332213311-3121221102222010-0103203222233220-0100211322230202-1323101011130130-3332133011313213-2311332022302303-1030013212013210): complete subsection reference.
 
-<a id="canonical-6d81e835eef2506b7939d0d035b3248a974c581337b10521fe01acc13bafbb80"></a>
+<a id="canonical-1231200132200311-3232330211001223-1321032131003100-0311230302102022-2113103011200103-0313230100110201-3332000122303001-0323223323232000"></a>
 
-## Next pages — access_info.tls_config.cert_params.tls_validation_params.trusted_ca / 3570147d2c15 / 4
+## Next pages — trusted_ca / 133102300111 / 4
 
-- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-0087e9f5d9a52a84138eabe81097ab227b44571cfe7c5de7b5f8acb34c1e61e4)
-- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-0000201332213311-3121221102222010-0103203222233220-0100211322230202-1323101011130130-3332133011313213-2311332022302303-1030013212013210)
+- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-0087e9f5d9a52a84138eabe81097ab227b44571cfe7c5de7b5f8acb34c1e61e4"></a>
+<a id="canonical-0000201332213311-3121221102222010-0103203222233220-0100211322230202-1323101011130130-3332133011313213-2311332022302303-1030013212013210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90655b1817dbd5d2cf1370773a7e3cfd56c5d300fc183f72ae62b0ef2ab7dc9a"></a>
+<a id="canonical-2100121111230120-0113312331113102-3033010313001313-0322133203303331-1112301131030000-3330012003331302-2232120223003233-0222231331302122"></a>
 
-## access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 2
+## access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list — trusted_ca_list / 110103301210 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-193785a55b9220aaaabb294c8c94f62da5413d1a54177cc56f75f8a79e6f0ea0)
-- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8d327e2a0107f7d41cfae6e10a8c2a40a0da8dda131c61cc77c90c492f534079)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [access_info.tls_config.cert_params.tls_validation_params](resources--secret_management_access--reference--group-001.md#canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200)
+- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321)
 - access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list
 
-<a id="canonical-650c1ac0beabe451b603d80a307941efcedd75f96329a768cce70e9d2da2173a"></a>
+<a id="canonical-1211003001223000-2332222332101101-2312000331200022-0300132110013233-3032313113113321-1203022122131220-3030321300322131-0231220201130322"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2670,15 +2670,15 @@ trusted_ca_list {
 }
 ```
 
-<a id="canonical-453e17c3b2ed3427a0bd4019ab7592e5b109fe1f530f3d4614de51b7394fa29a"></a>
+<a id="canonical-1011033201133003-2302323103100213-2200233110000121-2223131121023211-2301002133320133-1103003303311012-0110313211012313-0321103322022122"></a>
 
-## Direct properties — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 3
+## Direct properties — trusted_ca_list / 110103301210 / 3
 
-<a id="canonical-35f011c3f6859ac20dce523ab8af420a47d7be200c788ac0cc640f2ffe1bc39c"></a>
+<a id="canonical-0311330001013003-3312201121223002-0031303211020322-2320223310020022-1013311323320200-0030132020223000-3030121000330233-3332012330032130"></a>
 
-<a id="canonical-d6848221e9882925bba159a119d3c870f3b9d620a283932f14f2288b11dc1bfd"></a>
+<a id="canonical-3112201020020201-3221202002210211-2323220111212201-0121310330201300-3303232131120200-2202200321030233-0110330202202023-0101313001233331"></a>
 
-## kind property — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 4
+## kind property — trusted_ca_list / 110103301210 / 4
 
 Type: `"string"`. Computed.
 
@@ -2713,11 +2713,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93bd711c6001e0a8a3551c97b650894e7b1a931c0271b27531cb9c6ee6117771"></a>
+<a id="canonical-2103233113010130-1200000132002220-2203111101302113-2312110020211032-1323012221030130-0002130123021311-0301302321301232-3212010113131301"></a>
 
-<a id="canonical-08fd44efe26d45eea226dc3022461c21c206db393a089e2ac92e86e77fce9983"></a>
+<a id="canonical-0020333110103233-3202123110113232-2202021231300300-0202101201300201-3002001231230321-0322002021320222-3021023220123213-1333303221212003"></a>
 
-## name property — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 5
+## name property — trusted_ca_list / 110103301210 / 5
 
 Type: `"string"`. Optional.
 
@@ -2752,11 +2752,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d4ff2d671b39df16ee985546189b888f021df35e33da31df7c976070c51476b8"></a>
+<a id="canonical-3110333302311213-0123032131330112-3232212011111012-0120212320202033-0002013133031132-0303312203013133-1330211312001300-3011011013122320"></a>
 
-<a id="canonical-13c496a52335c2d6177ddb08c6fc9bbb040951c815f93eddd8a5c0686b6e444b"></a>
+<a id="canonical-0103301021122211-0203031130023112-0113133131230020-3012333021232323-0010002111013020-0111332103323131-3120221130001220-1223123210101023"></a>
 
-## namespace property — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 6
+## namespace property — trusted_ca_list / 110103301210 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2816,11 +2816,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad6bafea2bc40847d31891473fa8a41bc37dbaae04db2a2468ccd72847264b79"></a>
+<a id="canonical-2231122322333222-0223301000201013-3103012021011013-0333222022100123-3003133123222232-0010312302220210-1220303031130220-1013021210231321"></a>
 
-<a id="canonical-8a4069ae3f8a0bb830426b83878982d1af9a5042c147a2e236aa4a7d78dc517a"></a>
+<a id="canonical-2022100012212232-0333202200232320-0300100212232003-2013202120023101-2233212211001002-3001101322023202-0312222210221331-1320313011011322"></a>
 
-## tenant property — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 7
+## tenant property — trusted_ca_list / 110103301210 / 7
 
 Type: `"string"`. Computed.
 
@@ -2855,11 +2855,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-620938001305c73abbfcfc9e58ce4eb397126bfd1f570e904fedd3a5c730f57a"></a>
+<a id="canonical-1202002103200000-0103001130130322-2323333033302132-1120303210322303-2113010212233331-0133111300322100-1033323131032211-3013030033111322"></a>
 
-<a id="canonical-a075be85e5f0bd012e0b2e82bff42e18d40bab2ddd876539cc462e2a15e15c0f"></a>
+<a id="canonical-2200131123322011-3211330023310001-0232002302322002-2333331002320120-3110002322230231-3131201312110321-3030101202320222-0111320111300033"></a>
 
-## uid property — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 8
+## uid property — trusted_ca_list / 110103301210 / 8
 
 Type: `"string"`. Computed.
 
@@ -2894,33 +2894,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-162d6641ff73d8a0c5f248c963eb3616a9b301f47660591a2062fdc7187e5eca"></a>
+<a id="canonical-0112023112121001-3333130331202200-3011330210203021-1203322303120112-2221230300013310-1312120011210122-0200120233313013-0120133211323022"></a>
 
-## Next pages — access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_l / 60ad9e513c64 / 9
+## Next pages — trusted_ca_list / 110103301210 / 9
 
-- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8d327e2a0107f7d41cfae6e10a8c2a40a0da8dda131c61cc77c90c492f534079)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params.tls_validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-41b69f775bfb542ee5f49a8bf1fde08fcc19a9f4023f93c34ecd493c751b7669"></a>
+<a id="canonical-1001231221331313-1123332311100232-3211331021222023-3301333132002033-3030012122213310-0002033321033003-1032303110210330-1311012313121221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c34c11fbf25ebf1ccaed3abe3f79d26544fd46e3bd5ff6f640d9f9c8a90c9978"></a>
+<a id="canonical-3003103001013323-3302113223330130-3022323103222332-0333132131021211-1010333110123203-2331113333123312-1000312133213020-2221003021211320"></a>
 
-## access_info.tls_config.cert_params.volterra_trusted_ca — access_info.tls_config.cert_params.volterra_trusted_ca / 059053aa0fe1 / 2
+## access_info.tls_config.cert_params.volterra_trusted_ca — volterra_trusted_ca / 222200333201 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
 - access_info.tls_config.cert_params.volterra_trusted_ca
 
-<a id="canonical-05adb79ad8d2f365365644d34b04523b1e954d723601af3ebbbad0027400cadb"></a>
+<a id="canonical-0011223123132122-3120310233031211-0312111210103103-1023001011020323-0132211110311302-0312000122330332-2323232231000002-1310000030223123"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2949,38 +2949,38 @@ Terraform syntax:
 volterra_trusted_ca = {}
 ```
 
-<a id="canonical-744ca9afffae927666cf1ac026dba4ea5226458e2478f6936ed5f474939faea0"></a>
+<a id="canonical-1310103022212233-3333223221021312-1212303301223000-0212312322103222-1102021210112032-0210132033122103-1232311133101310-2103213322322200"></a>
 
-## Direct properties — access_info.tls_config.cert_params.volterra_trusted_ca / 059053aa0fe1 / 3
+## Direct properties — volterra_trusted_ca / 222200333201 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0fa31da729f9b4a893240d3e665c214ecac2997d76ece56682b679300eca70e8"></a>
+<a id="canonical-0033220301312213-0221332123102220-2103021000310332-1212113002011032-3022300221211331-1312323032111212-2002231213210300-0032302213003220"></a>
 
-## Next pages — access_info.tls_config.cert_params.volterra_trusted_ca / 059053aa0fe1 / 4
+## Next pages — volterra_trusted_ca / 222200333201 / 4
 
-- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-c1280095a15af9806685342f12d12a7df15f25717d6575cff5b174a92563f1a8)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.cert_params](resources--secret_management_access--reference--group-001.md#canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18"></a>
+<a id="canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2d9083cb340ae0b54e8782c1e22d28ce9406aae06ab49c1791e02b20c8556590"></a>
+<a id="canonical-0231210020033023-0310002232002311-1032201320023001-3202023102203032-2110001222223200-1222231021300113-2101320002230200-3020111112112100"></a>
 
-## access_info.tls_config.common_params — access_info.tls_config.common_params / 381865855112 / 2
+## access_info.tls_config.common_params — common_params / 201111010102 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
 - access_info.tls_config.common_params
 
-<a id="canonical-49dddf179dac50d8f56967ff6c2a5c67a5bd48bd058ab62d7cf401f03522934d"></a>
+<a id="canonical-1021313131330113-2131223011003120-3311122112133333-1230022211301213-2211233110202331-0011202223120231-1330331000013300-0311020221031031"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3013,15 +3013,15 @@ common_params {
 }
 ```
 
-<a id="canonical-7072959b838e1550a54efa7c48dfb80a49d6b03674438d348ff22a7e0caf61ba"></a>
+<a id="canonical-1300130221112123-2003203201111100-2211103233221330-1020313323200022-1021311223000312-1310100320310310-2033330202221332-0030223312012322"></a>
 
-## Direct properties — access_info.tls_config.common_params / 381865855112 / 3
+## Direct properties — common_params / 201111010102 / 3
 
-<a id="canonical-0a0e216b74e3dea2adce8d039db332b8bad386add2e5dac2ac44c236bddc0211"></a>
+<a id="canonical-0022003202011223-1310320331322202-2231303220310003-2131230303022320-2322310320122231-3102321131223002-2230101030020312-2331313000020101"></a>
 
-<a id="canonical-dfb9aeb264d62a16751219c1570fb3c2e2b56a81ac2b2b5ea8495a3eca20b351"></a>
+<a id="canonical-3133232122322302-1210311202220112-1311010201213001-1113003323033002-3202231112222001-2230022302231132-2220102111220332-3022020023031101"></a>
 
-## cipher_suites property — access_info.tls_config.common_params / 381865855112 / 4
+## cipher_suites property — common_params / 201111010102 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3079,62 +3079,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-54540493f1e8b2c3adcc9691f8e5abbea3d6352956d7e3b4eae6c8f8dd4c9ecc"></a>
+<a id="canonical-1110111000102103-3301322023023003-2231303021122101-3320321122232332-2203311203110221-1112311332032310-3222321230203320-3131103021323030"></a>
 
-<a id="canonical-353c0b31230e3a4f4f8db9bba49ba87c9af48677e12ab9d5e285d715274ffb6c"></a>
+<a id="canonical-0311033000230301-0203003203221033-1033203123212323-2210212322201330-2122331020121313-3201022223213111-3202201131130111-0213103333231230"></a>
 
-## maximum_protocol_version property — access_info.tls_config.common_params / 381865855112 / 5
-
-Type: `"string"`. Optional.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-285074ecda796b731bc49ffb9fe6d87d8838c2da35d29eab57c6959c028b6398"></a>
-
-<a id="canonical-19694608db6d90a0a40e5c558e85d35d50963a74b8ca2f5cba82419ba1181399"></a>
-
-## minimum_protocol_version property — access_info.tls_config.common_params / 381865855112 / 6
+## maximum_protocol_version property — common_params / 201111010102 / 5
 
 Type: `"string"`. Optional.
 
@@ -3181,39 +3130,90 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4): complete subsection reference.
+<a id="canonical-0220110013103230-3122132112231303-0123301021333323-2133321231201331-2020032030023122-0311310221322223-1113301221112130-0002202312032120"></a>
 
-- [validation_params](resources--secret_management_access--reference--group-001.md#canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f): complete subsection reference.
+<a id="canonical-0121122110120020-3123123121002200-2210003211301111-2032201131031131-1100211203221310-2320302202331130-2322200210012123-2201012001032121"></a>
 
-<a id="canonical-b4c15300c92849eba1092d51d8203171869d1f9fad6e201b5282bc4e6d61bfda"></a>
+## minimum_protocol_version property — common_params / 201111010102 / 6
 
-## Next pages — access_info.tls_config.common_params / 381865855112 / 7
+Type: `"string"`. Optional.
 
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-<a id="canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4"></a>
+Upstream description:
+
+TlsProtocol is enumeration of supported TLS versions
+
+F5 Distributed Cloud will choose the optimal TLS version.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310): complete subsection reference.
+
+- [validation_params](resources--secret_management_access--reference--group-001.md#canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333): complete subsection reference.
+
+<a id="canonical-2310300111030000-3021022010213223-2201002102311101-3120020003011301-2012213101332133-2231123202000123-1102200223301032-1231120123333122"></a>
+
+## Next pages — common_params / 201111010102 / 7
+
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+
+<a id="canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ad7f468ffab60eebe1e48b36584b556ca37ee7475fdc047a59bb4005745312e"></a>
+<a id="canonical-1122311333101220-3333222312003232-2332013210202303-1211201023111112-3022031332321310-1311333130001013-2211212323100000-1113101103010232"></a>
 
-## access_info.tls_config.common_params.tls_certificates — access_info.tls_config.common_params.tls_certificates / 334f61406f18 / 2
+## access_info.tls_config.common_params.tls_certificates — tls_certificates / 100012330120 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
 - access_info.tls_config.common_params.tls_certificates
 
-<a id="canonical-00e836629bc900bc614716e6424c39eeb96ab06050d70ecee38f07818cae8d8f"></a>
+<a id="canonical-0000322003121202-2123302100002330-1201101301123212-1002103003213232-2321122223001200-1100311300323032-3203203300132001-2030223220312033"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3256,15 +3256,15 @@ tls_certificates {
 }
 ```
 
-<a id="canonical-8c7fed74611224921266d251bd79cad3f541f4893e36bc31f65184b0e0658fae"></a>
+<a id="canonical-2030133332311310-1201010202102102-0102121231021101-2331132130223103-3311100133102021-0332031223300301-3312110120102300-3200121120332232"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates / 334f61406f18 / 3
+## Direct properties — tls_certificates / 100012330120 / 3
 
-<a id="canonical-c71b92c8f122ecf3320a80831c8ba259e9fb464f53cbc2e0e8d59264c946759a"></a>
+<a id="canonical-3013012321023020-3301020232303303-0302002220002003-0130202322021121-3221332310121033-1103302330023200-3220311121021210-3021101213112122"></a>
 
-<a id="canonical-986fcca2f07b392e330fa4e933565f2d0d0f53f47f1465f4152a1aaa963a1dae"></a>
+<a id="canonical-2120123330302202-3300132303210232-0303003322103221-0303111211330231-0031003311033310-1333011012113310-0111022201222222-2112032201312232"></a>
 
-## certificate_url property — access_info.tls_config.common_params.tls_certificates / 334f61406f18 / 4
+## certificate_url property — tls_certificates / 100012330120 / 4
 
 Type: `"string"`. Optional.
 
@@ -3325,56 +3325,56 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-f1a40eaa9d38a3815cdd266426e00835e670496621ab9513cebe211422db5cb4): complete subsection reference.
+- [custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-3301221000322222-2131032022032001-1130313102121210-0212320000200311-3212130010211212-0201222321110103-3032233202010110-0202312311302310): complete subsection reference.
 
-<a id="canonical-82331335243df1069932ec10f2de15d4377872a6a7d9af225217a70f6c2acd57"></a>
+<a id="canonical-2002030301030311-0210033133010012-2121030232300100-3302313201113110-0313132013022212-2213312122330202-1102011322130033-1230022230311113"></a>
 
-<a id="canonical-a0d0155f9785a1b89d4fb400b57a67f8d7c83277be11216b8382baadaa260a4e"></a>
+<a id="canonical-2200310001111133-2113201122012320-2131103323100000-2311132212133320-3113302003021313-2332010102011223-2003200223222231-2222021200221032"></a>
 
-## description_spec property — access_info.tls_config.common_params.tls_certificates / 334f61406f18 / 5
+## description_spec property — tls_certificates / 100012330120 / 5
 
 Type: `"string"`. Optional.
 
 Description. Description for the certificate.
 
-- [disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-a5fb19a271c7067788f825b97a777fb37cde544d8305f320c82dce2689763d5e): complete subsection reference.
+- [disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-2211332301212202-1301301300121313-2020332002112321-1322131313332303-1330313211101031-2003001133030200-3020023130320212-2021131203311132): complete subsection reference.
 
-- [private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7): complete subsection reference.
+- [private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013): complete subsection reference.
 
-- [use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-beaf92f6d28b88523edebf22906fb8c6e3ac4f65c4f2d47c1d697e965dc076ed): complete subsection reference.
+- [use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-2332223321023312-3102202320201102-0332313223330202-2100123323203012-3203223010331211-3010330231101330-0131122113322112-1131300013123231): complete subsection reference.
 
-<a id="canonical-6760421b39a0889b68b0bb7031dd6996e6e6a68fb62d270ee43b25d810b538b9"></a>
+<a id="canonical-1213120010020123-0321220020202123-1220230023231300-0301313112212112-3212321222122033-2312023102130032-3210032302113120-0100231103202321"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates / 334f61406f18 / 6
+## Next pages — tls_certificates / 100012330120 / 6
 
-- [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-f1a40eaa9d38a3815cdd266426e00835e670496621ab9513cebe211422db5cb4)
-- [access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-a5fb19a271c7067788f825b97a777fb37cde544d8305f320c82dce2689763d5e)
-- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7)
-- [access_info.tls_config.common_params.tls_certificates.use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-beaf92f6d28b88523edebf22906fb8c6e3ac4f65c4f2d47c1d697e965dc076ed)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-3301221000322222-2131032022032001-1130313102121210-0212320000200311-3212130010211212-0201222321110103-3032233202010110-0202312311302310)
+- [access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling](resources--secret_management_access--reference--group-001.md#canonical-2211332301212202-1301301300121313-2020332002112321-1322131313332303-1330313211101031-2003001133030200-3020023130320212-2021131203311132)
+- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013)
+- [access_info.tls_config.common_params.tls_certificates.use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-2332223321023312-3102202320201102-0332313223330202-2100123323203012-3203223010331211-3010330231101330-0131122113322112-1131300013123231)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-f1a40eaa9d38a3815cdd266426e00835e670496621ab9513cebe211422db5cb4"></a>
+<a id="canonical-3301221000322222-2131032022032001-1130313102121210-0212320000200311-3212130010211212-0201222321110103-3032233202010110-0202312311302310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89ac7b3fa5383b5fe6e07d84df3b2741e9ff94542c184db512aecd2f6c452e0f"></a>
+<a id="canonical-2021223013230333-2211032003231133-3212320013312010-3133032302131001-3221333321101110-0230012010312311-0102223230310233-1230101102320033"></a>
 
-## access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms — access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms / dbdc2f72419a / 2
+## access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms — custom_hash_algorithms / 130210012122 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
 - access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms
 
-<a id="canonical-474ebb1c837fbb93d3e8c8356f001b2d50dc105392aa8a7eec74480abee74f66"></a>
+<a id="canonical-1013103223230130-2003133323232103-3103322030200311-1233000001230231-1100313001001103-2102222220221332-3230131010200022-2332321310331212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3407,15 +3407,15 @@ custom_hash_algorithms {
 }
 ```
 
-<a id="canonical-16d381ee310a2f2f04d2b217a72b9d08d28f06c2dafc806b2633419f28a8a697"></a>
+<a id="canonical-0112310320013232-0301002202330233-0010310223020113-2213022321310020-3102203300123002-3122333020001223-0212030310012133-0220222022122113"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms / dbdc2f72419a / 3
+## Direct properties — custom_hash_algorithms / 130210012122 / 3
 
-<a id="canonical-42e2bedeaad2807331ab5f23748d500a79bb67a383b6219f0f68e27b1dc02bc0"></a>
+<a id="canonical-1002320223323132-2222310220001303-0301222311330203-1310203111000022-1321232312132203-2003231202012133-0033122032021323-0131300002233000"></a>
 
-<a id="canonical-e3728310abea68dd0b3f90bae6d5706da7d870f39a850e8fe96a58c32c294a30"></a>
+<a id="canonical-3203130220030100-2223322212203131-0023033321002322-3212311113001231-2213312013003303-2122201100322033-3221122211203003-0230022110220300"></a>
 
-## hash_algorithms property — access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms / dbdc2f72419a / 4
+## hash_algorithms property — custom_hash_algorithms / 130210012122 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3475,34 +3475,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89aab0359a8312f5021df290f3701749944197d33383f5be0c8a0f7b08aa9f23"></a>
+<a id="canonical-2021222223000311-2122200301023311-0002013133022100-3303130001131021-2110100121133103-0303200333112332-0030202200331323-0020222221330203"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms / dbdc2f72419a / 5
+## Next pages — custom_hash_algorithms / 130210012122 / 5
 
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-a5fb19a271c7067788f825b97a777fb37cde544d8305f320c82dce2689763d5e"></a>
+<a id="canonical-2211332301212202-1301301300121313-2020332002112321-1322131313332303-1330313211101031-2003001133030200-3020023130320212-2021131203311132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-18a29b7a9029ffa7c0a536d8ea74d4d844076894ff342460d1cfae1900bba62b"></a>
+<a id="canonical-0120220221231322-2100022133332213-3000221103123120-3222131031103120-1010001312202110-3333031002101200-3101303322320121-0000232322120223"></a>
 
-## access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling — access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling / da610494c681 / 2
+## access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling — disable_ocsp_stapling / 211030122001 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
 - access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling
 
-<a id="canonical-1a5f4b125204d3f2dd24409eff898b54a6a10824a350a3c18459cfd125e13832"></a>
+<a id="canonical-0122113310230102-1102001031033302-3131021010002132-3333202120231110-2212220100200210-2203110022033001-2010112130333101-0211320103200302"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3531,40 +3531,40 @@ Terraform syntax:
 disable_ocsp_stapling = {}
 ```
 
-<a id="canonical-47cfa6570b916ec56f47f1958c921d216579fcb53912d4eb07f0e7b3235e1c1c"></a>
+<a id="canonical-1013303322121113-0023210112323011-1233101333012111-2030210201310201-1211132133302311-0321010231103223-0013330032132303-0203113201300130"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling / da610494c681 / 3
+## Direct properties — disable_ocsp_stapling / 211030122001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9cd4cbd1f3234d2d491628795514caf40c2ba86f265ffffc38fc300152bb318b"></a>
+<a id="canonical-2130311030233101-3303020310310231-1021011202201321-1111011030223310-0030022322201233-0212113333333330-0320333003000001-1102232303012023"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling / da610494c681 / 4
+## Next pages — disable_ocsp_stapling / 211030122001 / 4
 
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7"></a>
+<a id="canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-227b46d9546ecbb071f6410049c7c772d1c5a7b6dde73843539eac1fb38ab9ba"></a>
+<a id="canonical-0202132310123121-1110123230232300-1301331210010000-1021301330131302-3101301122132312-3131321303201003-1103213222300133-2303202223212322"></a>
 
-## access_info.tls_config.common_params.tls_certificates.private_key — access_info.tls_config.common_params.tls_certificates.private_key / 6174beb85bae / 2
+## access_info.tls_config.common_params.tls_certificates.private_key — private_key / 232011232232 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
 - access_info.tls_config.common_params.tls_certificates.private_key
 
-<a id="canonical-f3d4ada5d1c348cfa949143382aa597fe46d90abb33123950b60425eaa893a6a"></a>
+<a id="canonical-3303311022312211-3101300310203033-2221102101100303-2002222211211333-3210123121002223-2303030102032111-0023120010021132-2222202103221222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3599,45 +3599,45 @@ private_key {
 }
 ```
 
-<a id="canonical-da9417f9db50da774205b1ce29fa778f2ac69518a6bf95a905b773c1a8b74c7f"></a>
+<a id="canonical-3122211001133321-3123110031221313-1002001123013032-0221332213132033-0222301221110120-2212233321112221-0011231313033001-2220231310301333"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.private_key / 6174beb85bae / 3
+## Direct properties — private_key / 232011232232 / 3
 
-- [blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-a1ac536244e31ef040f4b3cb04090bca3ccc15b730bcd272ec3b597874533964): complete subsection reference.
+- [blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-2201223011031202-1010320301323300-1000331023033023-0010002100233022-0330303001112313-0300233031021302-3230032311211320-1310110303211210): complete subsection reference.
 
-- [clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-24670bb96ef1fa58d63cd9863c2a942eea09d524181ad14f55b553c6dd5bea7d): complete subsection reference.
+- [clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0210121300232321-1232330133221120-3112033031212012-0330022221100232-3222002131110210-0120012231011033-1111231111033012-3131112332221331): complete subsection reference.
 
-<a id="canonical-9cf1f24ef90c221c3b5b8fac43a2ff4e52f9c401e4edc0527a957c1715f22a1d"></a>
+<a id="canonical-2130330133021032-3321003002020130-0323112320332230-1003220233331032-1102332130100001-3210323130001102-1322211113300113-0111330202220131"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.private_key / 6174beb85bae / 4
+## Next pages — private_key / 232011232232 / 4
 
-- [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-a1ac536244e31ef040f4b3cb04090bca3ccc15b730bcd272ec3b597874533964)
-- [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-24670bb96ef1fa58d63cd9863c2a942eea09d524181ad14f55b553c6dd5bea7d)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info](resources--secret_management_access--reference--group-001.md#canonical-2201223011031202-1010320301323300-1000331023033023-0010002100233022-0330303001112313-0300233031021302-3230032311211320-1310110303211210)
+- [access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info](resources--secret_management_access--reference--group-001.md#canonical-0210121300232321-1232330133221120-3112033031212012-0330022221100232-3222002131110210-0120012231011033-1111231111033012-3131112332221331)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-a1ac536244e31ef040f4b3cb04090bca3ccc15b730bcd272ec3b597874533964"></a>
+<a id="canonical-2201223011031202-1010320301323300-1000331023033023-0010002100233022-0330303001112313-0300233031021302-3230032311211320-1310110303211210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da022ac30b659ee2be074af78a10ed14084ce0c2579a6b543e4c8bc2594302bd"></a>
+<a id="canonical-3122000202223003-0023121121323202-2332001310223313-2022010032310110-0020103032003002-1113212212231110-0332103020233002-1121100300022331"></a>
 
-## access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 2
+## access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info — blindfold_secret_info / 110232031032 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013)
 - access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info
 
-<a id="canonical-1e78b2bcadc0d93ebda6cc1754217fa07b22abdcc8e8bb4bcaec00e34dabaf25"></a>
+<a id="canonical-0132132023022330-2231300031210332-2331221230300113-1110020113332200-1323020222233130-3020322023231023-3022323000003203-1031222322330211"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3670,15 +3670,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-4802b07a1b89cfdd1f546ba6276fea13e777a4351db844f3ffcc4900b13f5355"></a>
+<a id="canonical-1020000223001322-0123202130333131-0133111012232212-0213123332220103-3213131322100311-0131232010103303-3333303010210000-2301033311031111"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 3
+## Direct properties — blindfold_secret_info / 110232031032 / 3
 
-<a id="canonical-269dab41634736e89d518ae07424b5bcf3e7a277f246a12cc5e760ae45ea63ec"></a>
+<a id="canonical-0212213122231001-1203101303123220-2131110120223200-1310021023112330-3303321322021313-3302101222010230-3011321312002232-1011322212033230"></a>
 
-<a id="canonical-9152020ffbf69491efa29724d2d175483e5009bd623433ef1c47e6bcd3914566"></a>
+<a id="canonical-2101110200020033-3323331221102101-3233220221130210-3102310113111020-0332110000212331-1202031003033233-0130101332122330-3103210110111212"></a>
 
-## decryption_provider property — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 4
+## decryption_provider property — blindfold_secret_info / 110232031032 / 4
 
 Type: `"string"`. Optional.
 
@@ -3708,11 +3708,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-76ea84f19295c5298f1f592ecf21622c59b4ca85d429628ea9a6484842b99802"></a>
+<a id="canonical-1312322220103301-2102211130110221-2033013311210232-3033020112020230-1121231030222011-3110022112022032-2221221210201020-1002232121200002"></a>
 
-<a id="canonical-7f66fd5d65832f70b1ca1c1a6d0b1ead25c1d15bfd8c77ed503304bcfbb1c9e6"></a>
+<a id="canonical-1333121233311131-1211200302331300-2301302201300122-1231002301322231-0211300131011123-3331203013133231-1100030300102330-3323230130213212"></a>
 
-## location property — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 5
+## location property — blindfold_secret_info / 110232031032 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3769,11 +3769,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e3317b6fc4a667ebbda0255acc1c723e8dcd0e1e794cc312cf4f2481d15a5fa9"></a>
+<a id="canonical-3203030113231233-3010221212133223-2331220002111122-3030013013020332-2031303100320132-1321103030030102-3033103302102001-3101112211332221"></a>
 
-<a id="canonical-822b6d65cc4f985f11bbc983b5912fda293fe7844d5a24525e63e2b5990a87fd"></a>
+<a id="canonical-2002022312311211-3030103321201133-0101232330212003-2311210102333122-0221033332132010-1031112202101102-1132120332022311-2121002220133331"></a>
 
-## store_provider property — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 6
+## store_provider property — blindfold_secret_info / 110232031032 / 6
 
 Type: `"string"`. Optional.
 
@@ -3808,35 +3808,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8e76f5cf09574cc67a1caacd6c3a9bba2ea19af1c21e7ac0cdcd571cee704b1e"></a>
+<a id="canonical-2032131233113033-0021111310303012-1322013022223031-1230032221232322-0232220121223301-3002013213223000-3031303111130130-3232130010230132"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secr / 07732e52e34e / 7
+## Next pages — blindfold_secret_info / 110232031032 / 7
 
-- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-24670bb96ef1fa58d63cd9863c2a942eea09d524181ad14f55b553c6dd5bea7d"></a>
+<a id="canonical-0210121300232321-1232330133221120-3112033031212012-0330022221100232-3222002131110210-0120012231011033-1111231111033012-3131112332221331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-558cb221d815f51e4231ca662e2931aa54d4d5c0b3da2b5951bea0d467aa1dad"></a>
+<a id="canonical-1111203023020201-3120011133110132-1002030130221212-0232022103012222-1110311031113000-2303312202231121-1101233222003110-1213222201312231"></a>
 
-## access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info — access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_i / f18b648af350 / 2
+## access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info — clear_secret_info / 202233031100 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013)
 - access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info
 
-<a id="canonical-1dbd4247a9733899a87902ddf100f4e9549eb7ae391c344763e31a280f1e0ac0"></a>
+<a id="canonical-0131233110021013-2221130303202121-2220132100023131-3301000033103221-1110213223132232-0321013003101013-1203320301220220-0033013200223000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3869,26 +3869,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-30a268c560b8ab1a166c648d908c255cefb25d3db5ba48f458bb931933f06d9a"></a>
+<a id="canonical-0300220212203011-1200232022230122-0112123012102031-2100203002111130-3233230211310331-2311232210203310-1120232321030121-0303330012312122"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_i / f18b648af350 / 3
+## Direct properties — clear_secret_info / 202233031100 / 3
 
-<a id="canonical-5c17f45603b3aeb62c45c8f4cfae180b01ba58cbc66559f28326fb4b00dc1774"></a>
+<a id="canonical-1130011333101112-0003230322322312-0230101130203310-3033223201200023-0001232211203023-3012121111213302-2003021233231023-0000313001131310"></a>
 
-<a id="canonical-64a01baa708b30b1ff4fcf8903e9b18ee13596035ff96df587d6c6a3699198e5"></a>
+<a id="canonical-1210220001232222-1300202303002301-3333103330332021-0003322123012032-3201031121120003-1133332112313311-2013311230122203-1221210121203211"></a>
 
-## provider_ref property — access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_i / f18b648af350 / 4
+## provider_ref property — clear_secret_info / 202233031100 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-6bf8bcdef495a879615ad2dfea094259155df7c90f2640e6744c5f1f07d50b72"></a>
+<a id="canonical-1223332023303132-3310211122201321-1201112231023133-3222002110021121-0111113133133021-0033021210003212-1310103011330133-0013311100231302"></a>
 
-<a id="canonical-55df15b96295edcd9c7fccceb0206ca1d4c287ba9b1d4f6070e25b975375e903"></a>
+<a id="canonical-1111313301112321-1202211132313031-2130133330303032-2300020012302201-3110300220132322-2123013110331200-1300320211232113-1103131132210003"></a>
 
-## url property — access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_i / f18b648af350 / 5
+## URL property — clear_secret_info / 202233031100 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3956,34 +3956,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb99eb6c114a4fe4a11d342b240ab45df6327d2322047eb238acab81439cf9de"></a>
+<a id="canonical-3023212132231230-0101102210333210-2201013103100223-0210002223101131-3312030213310203-0202001013322302-0320223022232001-1003213033213132"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_i / f18b648af350 / 6
+## Next pages — clear_secret_info / 202233031100 / 6
 
-- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-14771f6498f980105348197c89a4e648cb626303e87d76a92b7653298e6e54c7)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates.private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-beaf92f6d28b88523edebf22906fb8c6e3ac4f65c4f2d47c1d697e965dc076ed"></a>
+<a id="canonical-2332223321023312-3102202320201102-0332313223330202-2100123323203012-3203223010331211-3010330231101330-0131122113322112-1131300013123231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6e93818ed12dcac32050df56ac172d21d53e312272d3683dd29d36ccb23d8f18"></a>
+<a id="canonical-1232210320012032-3101023130223003-0200110031331112-2230011302310201-3111033203010202-1302310312200331-3102213103123030-2302033120330120"></a>
 
-## access_info.tls_config.common_params.tls_certificates.use_system_defaults — access_info.tls_config.common_params.tls_certificates.use_system_defaults / eca05a7dfea3 / 2
+## access_info.tls_config.common_params.tls_certificates.use_system_defaults — use_system_defaults / 133133322203 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
 - access_info.tls_config.common_params.tls_certificates.use_system_defaults
 
-<a id="canonical-2e764bef99485ae4759ff5bcb6a37987113ae0bee1b8de714641dcab22ab96d3"></a>
+<a id="canonical-0232131210233233-2121102011223210-1311213333112330-2312220313212013-0101032232002332-3201232031321301-1012100131302223-0202222321123103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4012,39 +4012,39 @@ Terraform syntax:
 use_system_defaults = {}
 ```
 
-<a id="canonical-fadde75a05957470abfea88b62a48d078f1c46169857189bce23c38ef1fa1227"></a>
+<a id="canonical-3322313132131122-0011211113101300-2223333222202023-1202221020310013-2033013010120112-2120111301202123-3032020330032032-3301332201020213"></a>
 
-## Direct properties — access_info.tls_config.common_params.tls_certificates.use_system_defaults / eca05a7dfea3 / 3
+## Direct properties — use_system_defaults / 133133322203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-797a5558f1eea3b6441f334637376d645289f98097175f5ca6211127c5b15344"></a>
+<a id="canonical-1321132211111120-3301323222032312-1010013303031012-0313031312311210-1102202133212000-2113011311331130-2212020101010213-3011230111031010"></a>
 
-## Next pages — access_info.tls_config.common_params.tls_certificates.use_system_defaults / eca05a7dfea3 / 4
+## Next pages — use_system_defaults / 133133322203 / 4
 
-- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-6ab0dc5943f4ae964a80baacbf603b4c6db33281fa8d50d9ef645ec7ea7b34b4)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f"></a>
+<a id="canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8bb57822976a2cb08b9b8521a2a629b8fea6a848ca23e3d770d05a37bfcf06d9"></a>
+<a id="canonical-2023231113200202-2113122202302300-2023212320110201-2202221202212320-3332221222201020-3022020332033113-1300310011220313-2333303300123121"></a>
 
-## access_info.tls_config.common_params.validation_params — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 2
+## access_info.tls_config.common_params.validation_params — validation_params / 123320010203 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
 - access_info.tls_config.common_params.validation_params
 
-<a id="canonical-c9c42d7f9ddfdc3e660d19b60b29244383e3686dbc01be67c7fc57b640307ab8"></a>
+<a id="canonical-3021301002311333-2131313331300332-1212003101212312-0023022102101003-2003320312201231-2330000123321213-3013333011132312-1000030013222320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4085,15 +4085,15 @@ validation_params {
 }
 ```
 
-<a id="canonical-ddb35fa3004b2ca6350ef56f1ee76e7a07776b8f10e3cea326a3690d434784f6"></a>
+<a id="canonical-3131230311332203-0000102302302212-0311003233111233-0132321312321322-0013131312232033-0100320330322203-0212220312210031-1003101320103312"></a>
 
-## Direct properties — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 3
+## Direct properties — validation_params / 123320010203 / 3
 
-<a id="canonical-64296554df5cb8164538a42f19ccbe1ed882768e15c3a38edf568c54ccacbdfa"></a>
+<a id="canonical-1210022112111110-3133113023200112-1011032022100233-0121303023320132-3120200213122032-0111300322032032-3133111220301110-3030223023313322"></a>
 
-<a id="canonical-85bc1e3e52636fdd1a7a22156cc54c6f0464b48e1bd8d083a0878b4a1730d58f"></a>
+<a id="canonical-2011233001320332-1102120312333131-0122132202020111-1230301110301233-0010121023102032-0123312031002003-2200201320231022-0113030031112033"></a>
 
-## skip_hostname_verification property — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 4
+## skip_hostname_verification property — validation_params / 123320010203 / 4
 
 Type: `"bool"`. Optional.
 
@@ -4118,13 +4118,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8632b568854e9052a284d5cf1af91dc3c132cb42cba1191c7255cd5c5a6f511d): complete subsection reference.
+- [trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131): complete subsection reference.
 
-<a id="canonical-2b19523f5414a7f3f8bf41f05b274b116da89a3a80523bf98d0fde4dc5bb7320"></a>
+<a id="canonical-0223012111020333-1110011022133303-3320233310013300-1123021310230101-1231222021220322-2000110203233321-2031003331321031-3011232313030200"></a>
 
-<a id="canonical-328a22cb0eb9f24ddb3b3ff332e1353c5637b1d404194f3c743078993743d265"></a>
+<a id="canonical-0302202202023023-0032232133021031-3123032303333303-0302320103110330-1112031323013110-0010012110330330-1310030013202121-0313100331021211"></a>
 
-## trusted_ca_url property — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 5
+## trusted_ca_url property — validation_params / 123320010203 / 5
 
 Type: `"string"`. Optional.
 
@@ -4178,11 +4178,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2d93d26429a521bc80d226bf92e65727fb7685f2b4dc61deca63948d3d8c045"></a>
+<a id="canonical-3102312103310212-1002212211020123-3020003102021223-3321023212111302-1333231312201133-0223103130120131-3230221203211020-3103312030001011"></a>
 
-<a id="canonical-8499e223b9f90d369c351feead35e5e2af652f0da9225b886bec8005c37572db"></a>
+<a id="canonical-2010212132020203-2321332100310312-2130031101333232-2231031132113202-2233121102330031-2221020211232020-1223323020000011-3003131113023123"></a>
 
-## verify_subject_alt_names property — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 6
+## verify_subject_alt_names property — validation_params / 123320010203 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -4209,35 +4209,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-412fdcec4edf3bcb68109e7b25a492657be71e0207a41cff2811fd1064365f81"></a>
+<a id="canonical-1001023331303230-1032313303233023-1220010021321323-0211221021021211-1323321301320002-0013221001303333-0220010133310100-1210031211332001"></a>
 
-## Next pages — access_info.tls_config.common_params.validation_params / 232c8d6f8123 / 7
+## Next pages — validation_params / 123320010203 / 7
 
-- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8632b568854e9052a284d5cf1af91dc3c132cb42cba1191c7255cd5c5a6f511d)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-8632b568854e9052a284d5cf1af91dc3c132cb42cba1191c7255cd5c5a6f511d"></a>
+<a id="canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15d04b4614df1ad67db377a0039f11eff272381ef27f6c843ccf0669c4445789"></a>
+<a id="canonical-0111310010231012-0110313301223112-1331230313132200-0003213301013233-3302130203200132-3302133312302010-0330303300121221-3010101011132021"></a>
 
-## access_info.tls_config.common_params.validation_params.trusted_ca — access_info.tls_config.common_params.validation_params.trusted_ca / 81dea0b834fd / 2
+## access_info.tls_config.common_params.validation_params.trusted_ca — trusted_ca / 232003103331 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333)
 - access_info.tls_config.common_params.validation_params.trusted_ca
 
-<a id="canonical-2ee1fd55ed3759eb1b61760ef1936e05d4e3975a518125fa6bf27ef33dee02f6"></a>
+<a id="canonical-0232320133311111-3231031311213223-0123120113120032-3301210312320011-3110320321131122-1101200102113322-1223330213323303-0331323200023312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4268,42 +4268,42 @@ trusted_ca {
 }
 ```
 
-<a id="canonical-0d528794aaef5ccb6e72c733690f50cad8f88fabf4dfd88e97c5a42fef73fc43"></a>
+<a id="canonical-0031110220132110-2222323311303023-1232130230130303-1221003311003022-3120332020332223-3310313331202032-2113301122100233-3233130333301003"></a>
 
-## Direct properties — access_info.tls_config.common_params.validation_params.trusted_ca / 81dea0b834fd / 3
+## Direct properties — trusted_ca / 232003103331 / 3
 
-- [trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-a237a5e9e5dfd70adc07550db1eb9d8459e57c81e3499a3f5235abde8258f1c7): complete subsection reference.
+- [trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-2202031322113221-3211313331130022-3130001311110031-2301322321312010-1121321113302001-3203102121220333-1102031122233132-2002112033013013): complete subsection reference.
 
-<a id="canonical-379c2421ac4698bff0e8cc76cdbe8a998353954c38b77a7008bc2427e826104e"></a>
+<a id="canonical-0313213002100201-2230101221202333-3300322030301312-3031233220222121-2003110321111030-0320231313221300-0020233002100213-3220021201001032"></a>
 
-## Next pages — access_info.tls_config.common_params.validation_params.trusted_ca / 81dea0b834fd / 4
+## Next pages — trusted_ca / 232003103331 / 4
 
-- [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-a237a5e9e5dfd70adc07550db1eb9d8459e57c81e3499a3f5235abde8258f1c7)
-- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list](resources--secret_management_access--reference--group-001.md#canonical-2202031322113221-3211313331130022-3130001311110031-2301322321312010-1121321113302001-3203102121220333-1102031122233132-2002112033013013)
+- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-a237a5e9e5dfd70adc07550db1eb9d8459e57c81e3499a3f5235abde8258f1c7"></a>
+<a id="canonical-2202031322113221-3211313331130022-3130001311110031-2301322321312010-1121321113302001-3203102121220333-1102031122233132-2002112033013013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b7a2ba71c4644d14d866e6099934ddb91d035670a4d80ea279508aa7e6b569da"></a>
+<a id="canonical-2313220223221301-3010121010310110-3120121232120021-2121031031312321-0131000311121300-2210312000322202-1321110020222213-3212231112213122"></a>
 
-## access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 2
+## access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list — trusted_ca_list / 300331203012 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-6ea5052328e6c22c643654628db6133cb0b84af6331fc2bee14e884db0e9ac18)
-- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-902b4d12d094f784797e44fa83b40207d338b61676af569af6f8f6819768173f)
-- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8632b568854e9052a284d5cf1af91dc3c132cb42cba1191c7255cd5c5a6f511d)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.validation_params](resources--secret_management_access--reference--group-001.md#canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333)
+- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131)
 - access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list
 
-<a id="canonical-9d5bf2ad50aa24c5b187e4335447058f7a0324a9859247083e2eb91308957cf0"></a>
+<a id="canonical-2131112333022231-1100222202103011-2301201332100303-1110101300112033-1322000302102221-2011210210130020-0332023223210103-0020211113303300"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4352,15 +4352,15 @@ trusted_ca_list {
 }
 ```
 
-<a id="canonical-356a4e28a747e427951381788d05a734890ba32a53a827a44bfdc4972a44dbe6"></a>
+<a id="canonical-0311122210320220-2213101332100213-2111010320011320-2031001122130310-2021002322030222-1103222002132210-1023333130102113-0222101031233212"></a>
 
-## Direct properties — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 3
+## Direct properties — trusted_ca_list / 300331203012 / 3
 
-<a id="canonical-43b3ff77cfd7798769e44ee7da36ee4ab5bf05b3298bbf864407dd5573188b95"></a>
+<a id="canonical-1003230333331313-3033311313212013-1221321010323213-3122031232321022-2311233300112303-0221202323332012-1010001331311111-1303012020232111"></a>
 
-<a id="canonical-b2979e7b10f751f893310cabae93f34325c0926de7aabf124200ec1e7ba7ec4b"></a>
+<a id="canonical-2302211321321323-0100331311013320-2103030100302223-2232210333031003-0211300021021231-3213222223330102-1002000032300132-1323221332301023"></a>
 
-## kind property — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 4
+## kind property — trusted_ca_list / 300331203012 / 4
 
 Type: `"string"`. Computed.
 
@@ -4395,11 +4395,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0c69bcc8cd99e905054eee655b2879388d0c8cbe511aa5271486435f54a6b93"></a>
+<a id="canonical-3200301221233030-2030312121322100-1100111032323212-1111230220132103-2020310030203023-3211010122221102-1301102012100311-3311102212232103"></a>
 
-<a id="canonical-593ae1c2b6e472f56171e5e5abf981110680918119ae223af7285afd18a1ec52"></a>
+<a id="canonical-1121032232013002-2312321013023311-1201130132113211-2223332120010101-0012200021012001-0121223202020322-3313022011223331-0120220132301102"></a>
 
-## name property — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 5
+## name property — trusted_ca_list / 300331203012 / 5
 
 Type: `"string"`. Optional.
 
@@ -4434,11 +4434,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a8b5a064951670d206a67b693cb7ed20169bf23805ac4bc4e924e68100f189d"></a>
+<a id="canonical-0022202311220012-1021110112130031-0200122212132312-2103302313323102-0001122123330203-2000112230102330-1032210210321220-0100003301202131"></a>
 
-<a id="canonical-27d35b448eed6e7cf81a8b6f66cc3c6ef9b2c904dbc452b90d93eae153f1305a"></a>
+<a id="canonical-0213310311231010-2032323112321330-3320012220231233-1212303003301232-3321230230210010-3123301011022321-0031210332223201-1103330103001122"></a>
 
-## namespace property — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 6
+## namespace property — trusted_ca_list / 300331203012 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -4498,11 +4498,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5bb03d03e187c576bb184cce0db5e3ad690ae10bacb0196cc8d10f5600f4001c"></a>
+<a id="canonical-1123230003310003-3201201330111312-2323012010303032-0031231132032231-1221002232010023-2230230001211230-3020310100331112-0000331000000130"></a>
 
-<a id="canonical-0097e986b537ff19f8e75150fa4f6a9365b49bf207897f57adb5baed0e714bcf"></a>
+<a id="canonical-0000211332212012-2311031333330121-3320321311011100-3322103312222103-1211231021233302-0013202113331113-2231231123223231-0032130110233033"></a>
 
-## tenant property — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 7
+## tenant property — trusted_ca_list / 300331203012 / 7
 
 Type: `"string"`. Computed.
 
@@ -4537,11 +4537,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e6b2759ec771bd27539b1c98936876c3146ad193862e675b5eebc9cdb258f9c5"></a>
+<a id="canonical-3212230213112132-3013130123310213-1103212301302120-2103122013123003-0110122231012103-2012023212131123-1132322330213031-2302112033213011"></a>
 
-<a id="canonical-553f8de4cde93041b91403111153593080fb59569caf41658879844611ff004b"></a>
+<a id="canonical-1111033320313210-3031322103001001-2321011000030101-0101110311210300-2000332311211112-2130223310011211-2020132120101012-0101333300001023"></a>
 
-## uid property — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 8
+## uid property — trusted_ca_list / 300331203012 / 8
 
 Type: `"string"`. Computed.
 
@@ -4576,32 +4576,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4d201f5c0aead78756025c52379c5010719f0e1028956e5546ddaea63a8a5c18"></a>
+<a id="canonical-1031020001331130-0022322231132013-1112000211301102-0313213011000100-1301213300320100-0220211112321111-1012313122322212-0322202211300120"></a>
 
-## Next pages — access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_lis / c96459c3d8c6 / 9
+## Next pages — trusted_ca_list / 300331203012 / 9
 
-- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-8632b568854e9052a284d5cf1af91dc3c132cb42cba1191c7255cd5c5a6f511d)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config.common_params.validation_params.trusted_ca](resources--secret_management_access--reference--group-001.md#canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-440b457ffd5761009c001add194635315bfd28ae6cb75045bd324238a6943c66"></a>
+<a id="canonical-1010002310111333-3331111312010000-2130000001223131-0121101203110301-1123333102202232-1230231311001011-2331030210020320-2212211003301212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d89df047cab13bf1c1bbaa6fe7915bb4b45bc3e5975271b88fa8323319e54d64"></a>
+<a id="canonical-3120213133001013-3022230103233301-3001232322221233-3213210111232310-2310112330033211-2113110213012320-2033222003020303-0121321110311210"></a>
 
-## access_info.tls_config.default_session_key_caching — access_info.tls_config.default_session_key_caching / 4af7d14f1bfc / 2
+## access_info.tls_config.default_session_key_caching — default_session_key_caching / 103301233330 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
 - access_info.tls_config.default_session_key_caching
 
-<a id="canonical-14125f8f0a1bcdc41349cac3899c0fc2920145a6b9a6fe286e50186c36304702"></a>
+<a id="canonical-0110010211332033-0022012330313010-0103102130223003-2021213000333002-2102000110112212-2321221233320220-1232110001201230-0312030010130002"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4630,38 +4630,38 @@ Terraform syntax:
 default_session_key_caching = {}
 ```
 
-<a id="canonical-216beb10175f26edf498b049f169348608ed8229d8864cefab27532631345f20"></a>
+<a id="canonical-0201122332230100-0113113302123231-3310212023001021-3301122103102012-0020323120020221-3120201210303233-2223021311030212-0301031011330200"></a>
 
-## Direct properties — access_info.tls_config.default_session_key_caching / 4af7d14f1bfc / 3
+## Direct properties — default_session_key_caching / 103301233330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5e7f1d36619172fbb34a3c5266fd2cfbc8aa2654a4e2c44fe3a08d92600a9351"></a>
+<a id="canonical-1132133301310312-1201210113023323-2303102203301102-1212333102303323-3020222202121110-2210320230101033-3203220020312102-1200002221031101"></a>
 
-## Next pages — access_info.tls_config.default_session_key_caching / 4af7d14f1bfc / 4
+## Next pages — default_session_key_caching / 103301233330 / 4
 
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-a30b8903d6e255c86d65f1356f61d1f7c1d6818eea1162139ac18d81d71145f6"></a>
+<a id="canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-afebdbd4eaa4c6de3a896f0a97063b6f74b73904985a9f4936a395d210405744"></a>
+<a id="canonical-2233322331233110-3222221030123132-0322202112330022-2113001203231233-1310231303210010-2120112221331021-0312220321113102-0100100011131010"></a>
 
-## access_info.tls_config.disable_session_key_caching — access_info.tls_config.disable_session_key_caching / cc1be34542d6 / 2
+## access_info.tls_config.disable_session_key_caching — disable_session_key_caching / 101110023112 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
 - access_info.tls_config.disable_session_key_caching
 
-<a id="canonical-4b465b869fa6f8a83f734d26dbd938e40a009c63c59ab9dc567d1248df58c89b"></a>
+<a id="canonical-1023101211232012-2133221233202220-0333130310310212-3123312103203210-0022000021301203-3011212223213130-1112133101021020-3133112030202123"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4690,187 +4690,21 @@ Terraform syntax:
 disable_session_key_caching = {}
 ```
 
-<a id="canonical-a0ef254ca7025ab541984830c731042ae8c124e51d464310797439473d2c10b2"></a>
+<a id="canonical-2200323302111030-2213000211222311-1001212010200300-3013030100100222-3220300102103211-0131101210030100-1321131003211013-0331023001002302"></a>
 
-## Direct properties — access_info.tls_config.disable_session_key_caching / cc1be34542d6 / 3
+## Direct properties — disable_session_key_caching / 101110023112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5dad36c26f1257c245c2cb6f7d79076f75ccc9a138cc9fd7e9f52b137bf59f25"></a>
+<a id="canonical-1131223103123002-1233010211133002-1011300230231233-1331132100131233-1311303030212201-0320303021333113-3221331102230103-1323331121330211"></a>
 
-## Next pages — access_info.tls_config.disable_session_key_caching / cc1be34542d6 / 4
+## Next pages — disable_session_key_caching / 101110023112 / 4
 
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-3e601b97c72f8db5926f38ccc8081213cf665e0c33f6b9256dcf2f9ea8896626"></a>
+<a id="canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-e5035826ff9d24b8486c2809ebf7445aa10c882eb69420ba5a76790adc5c3f69"></a>
-
-## access_info.tls_config.disable_sni — access_info.tls_config.disable_sni / 20e87817858f / 2
-
-Breadcrumbs:
-
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- access_info.tls_config.disable_sni
-
-<a id="canonical-e84590d96434e90bf5f058e49941df67347553b51686a8b2c08645d6b88093df"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for disable sni.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_sni = {}
-```
-
-<a id="canonical-6151d16f8d4fab4de40f4efdd7ef9414c3a1e6714302325c2320fbb2eb075f22"></a>
-
-## Direct properties — access_info.tls_config.disable_sni / 20e87817858f / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-587fc13ac0299288840f2dd2cbee8ac38f327c8ebbd14b571008e49e9fae1174"></a>
-
-## Next pages — access_info.tls_config.disable_sni / 20e87817858f / 4
-
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-
-<a id="canonical-1d7b65d90256b43a6b7ecf321605c56e4aba082e85f7b94ac31daa293ea2d7af"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d4656669992eec42191249b9070dd46c0231e0f19db715f0feba49dc0226b562"></a>
-
-## access_info.tls_config.use_host_header_as_sni — access_info.tls_config.use_host_header_as_sni / 0285c1af8142 / 2
-
-Breadcrumbs:
-
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- access_info.tls_config.use_host_header_as_sni
-
-<a id="canonical-62459b1e52a190bcfa1a73fb2b3bfcf3f627de91eb438d8124c54bfd44a3704a"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-use_host_header_as_sni = {}
-```
-
-<a id="canonical-5f4bbae7c5607b49d3c3d5eb8a13a91670b6d4d11c6f43346f29907c665e7caf"></a>
-
-## Direct properties — access_info.tls_config.use_host_header_as_sni / 0285c1af8142 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-75e4c9d30f6d04a803f18245b4413875b5d77435bbc256863d9a455e97f72dd8"></a>
-
-## Next pages — access_info.tls_config.use_host_header_as_sni / 0285c1af8142 / 4
-
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-33dfe3eb515df9351eed33646d22e0fb7d9e1c20799988deb0717c8a05b81e99)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-
-<a id="canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b72bebcf0c6395b0087f155f4ba0def7f3f818a95ae022a9643f077a038bb667"></a>
-
-## access_info.vault_auth_info — access_info.vault_auth_info / 9d354a40a6e0 / 2
-
-Breadcrumbs:
-
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- access_info.vault_auth_info
-
-<a id="canonical-06b5c70b89f1ed821b425a12b8dd3d4e102f09fc18943e9ec8cae91976f8f748"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Authentication parameters for Hashicorp Vault hosts.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("app_role_auth",
-    "token")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-auth_params": "[\"app_role_auth\",\"token\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-vault_auth_info {
-  # Configure direct properties listed below.
-}
-```

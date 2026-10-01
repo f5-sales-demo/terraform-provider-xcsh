@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_route landing."
 
 # xcsh_route landing
 
-<a id="canonical-8e20ffe65a1c536995f3a9b20e795999cb3ba46e6df8a20b897c10159c22e936"></a>
+<a id="canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2413735406552bf337f0c56fe47d9c3dcc4e492007b9b9c0e598150b1d89c4bf"></a>
+<a id="canonical-0210010313031110-0012111102233303-0313330030111233-3210133121300331-3030103210210200-0013232123213000-3211212001110023-0131202130102333"></a>
 
-## xcsh_route — xcsh_route / 87eaa604d9ad / 2
+## xcsh_route — xcsh_route / 001031212231 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Manages route object in a given namespace. Route object is list of route rules. 
 condition to match incoming requests and actions to take on matching requests in F5 Distributed
 Cloud.
 
-<a id="canonical-a543ff0ea95bb0537963f2365981abb10924ab06032ca563865252a7925a5d27"></a>
+<a id="canonical-2211100333330032-2221112323001103-1321120333020312-1121200122232301-0021021022230012-0003023022111203-2012110211022213-2102112211310213"></a>
 
-## Prerequisites — xcsh_route / 87eaa604d9ad / 3
+## Prerequisites — xcsh_route / 001031212231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-d793bfbdbc58c33a5bb846445b4eb13ca585431d1c996d007e4c9c0128d7a391"></a>
+<a id="canonical-3113210323332331-2330112030030322-1123232010121010-1123103223010330-2211201110030131-0130212112310000-1332103021300001-0220311322032101"></a>
 
-## Minimal configuration — xcsh_route / 87eaa604d9ad / 4
+## Minimal configuration — xcsh_route / 001031212231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,17 +58,17 @@ resource "xcsh_route" "example" {
 }
 ```
 
-<a id="canonical-9e53fe87305b357e4cdb2d52badb11442cbbc8c0d5894557cbf603abc1bb0e74"></a>
+<a id="canonical-2132110333322013-0300112303111332-1030312302311102-2322312301011010-0230232330203000-3111202110111113-3023331200032223-3001232300321310"></a>
 
-## Root configuration — xcsh_route / 87eaa604d9ad / 5
+## Root configuration — xcsh_route / 001031212231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-8b2b6527f65e0ff84182f38ae2d1ad6d33c42553d37971c8a484179be82a0c98"></a>
+<a id="canonical-2023022312110213-3312113200333320-1001200233032022-3202310122311231-0303301002111103-3103132113013020-2210201001132123-3220022200302120"></a>
 
-## Next pages — xcsh_route / 87eaa604d9ad / 6
+## Next pages — xcsh_route / 001031212231 / 6
 
-- [Property reference](../guides/resources--route--reference--group-001.md#canonical-ea4cc975dcd01d0e8a8ede1dd2ddf7fda96d13581cd5a17a04a3cb134c98e22e)
-- [Examples](../guides/resources--route--examples--group-001.md#canonical-6aded232f88506504f0ff82eecce407706fca028a2976781dc43e66282e9d3c3)
-- [Import](../guides/resources--route--lifecycle--group-001.md#canonical-418303b3d2b1bb887f69b7a33104bb194baaa5f45c8ea5fb6f18f7344e587431)
-- [Timeouts](../guides/resources--route--lifecycle--group-001.md#canonical-f3991ef03c10951752c0411c3d95b493e64685b6e6af4a2a11bb43b7e3d06283)
+- [Property reference](../guides/resources--route--reference--group-001.md#canonical-3222103030211311-3130310001310032-2022203231320131-3102313133133331-2221123101031120-0130311122011322-0010220330230103-1030212032020232)
+- [Examples](../guides/resources--route--examples--group-001.md#canonical-1222313231020302-3320201100121100-1033003333200232-3230303210001313-0012333022000220-2202211312132001-3130100332121202-2002322131033003)
+- [Import](../guides/resources--route--lifecycle--group-001.md#canonical-1001200300032303-3102230123232020-1333122123132203-0301001023230121-1023222222113310-1130203222113323-1233012033130310-1032112013100301)
+- [Timeouts](../guides/resources--route--lifecycle--group-001.md#canonical-3303212101323300-0330010021110113-1102300010010130-0331211123102103-3212101220112312-3212223310220222-0101232310032313-3203310012022003)

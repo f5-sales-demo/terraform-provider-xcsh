@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_workload landing."
 
 # xcsh_workload landing
 
-<a id="canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50"></a>
+<a id="canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-78efd7b8d765195d54ada22dbeace47c72c40d00728c4572ea75b6bd204695bf"></a>
+<a id="canonical-1320323331132320-3113121101211131-1110223122020231-2332223032101330-1302301000310000-1302203010111302-3222131123122331-0200101221112333"></a>
 
-## xcsh_workload — xcsh_workload / e13edaef8d35 / 2
+## xcsh_workload — xcsh_workload / 323320310311 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
 
-<a id="canonical-8ba98ea690a7f5572068556ed49c3b8f9f8f17e19b3fb8477f45a630e3dab97d"></a>
+<a id="canonical-2023222120322212-2100221333111113-0200122011111232-3110213003232033-2133203301133201-2123033323201013-1333101122120300-3203312223211331"></a>
 
-## Prerequisites — xcsh_workload / e13edaef8d35 / 3
+## Prerequisites — xcsh_workload / 323320310311 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Required dependencies: `virtual_k8s`.
 
 - virtual_k8s: Namespace for workload deployment
 
-<a id="canonical-c597474ef94018211d0ad9394abd59ab6f4fd3febe3c2cc36061b2899f597233"></a>
+<a id="canonical-3011211310131032-3321100001200201-0131002231210321-1022233111212223-1233103331033332-2332033002303003-1200120123022021-2133112113020303"></a>
 
-## Minimal configuration — xcsh_workload / e13edaef8d35 / 4
+## Minimal configuration — xcsh_workload / 323320310311 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -65,15 +65,15 @@ output "workload_id" {
 }
 ```
 
-<a id="canonical-69122af91978b3369949100ac4bd554fbcf40c514e5f53c2fdfc65e06f03fac7"></a>
+<a id="canonical-1221010202223321-0121132023030312-2121102101000022-3010233111111033-2330331000301101-1032113311033002-3331333012113200-1233000333223013"></a>
 
-## Root configuration — xcsh_workload / e13edaef8d35 / 5
+## Root configuration — xcsh_workload / 323320310311 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-fd9f1d2cb095e736a58fb8fa57feac2a8f9af25ac4b26aaaae38f0bc2a885d26"></a>
+<a id="canonical-3331213301310230-2300211132130312-2211203323203322-1113333222300222-2033212233021122-3010230212222222-2232032033002330-0222202011310212"></a>
 
-## Next pages — xcsh_workload / e13edaef8d35 / 6
+## Next pages — xcsh_workload / 323320310311 / 6
 
-- [Property reference](../guides/data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [Examples](../guides/data-sources--workload--examples--group-001.md#canonical-d495c5379762ac477e71189db6d070866bf97284034ec2aa67a79b9d27182312)
+- [Property reference](../guides/data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [Examples](../guides/data-sources--workload--examples--group-001.md#canonical-3110211130110313-2113120222301013-1332130101202131-2312310013002012-1223332113022010-0003103230022222-1213221321232131-0213012002030102)

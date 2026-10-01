@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_site_bgp_status land
 
 # xcsh_site_bgp_status landing
 
-<a id="canonical-e2748d411a0ce0890ae363c44505ececdca5700e631692a6a67cd6b16ab5132d"></a>
+<a id="canonical-3202131020311001-0122003032002021-0022320312033010-1011001132303230-3130221113000032-1203011221022212-2212133031122301-1222231101030231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5f065403f584840574ab569b8bc51b084f18ac84c8e7ddefb46677b634f6c0bb"></a>
+<a id="canonical-1133001211100003-3311201020100011-1310222311122123-2023301101230020-1033012022302010-3020321331313233-2310121213132312-0310331230002323"></a>
 
-## xcsh_site_bgp_status — xcsh_site_bgp_status / 604ca8b5d5d8 / 2
+## xcsh_site_bgp_status — xcsh_site_bgp_status / 231131113120 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Polls authoritative F5 XC BGP and route observations until they agree with MAC-bound AWS
 expectations.
 
-<a id="canonical-a4cacbe896318f25313b79c2a33a2c39ed3cd47cb605bad78a39b2709d5fc867"></a>
+<a id="canonical-2210302230233220-2112030120330211-0301032313213002-2203032202300321-3231033031101330-2312001123223113-2022032123021300-2131113330201213"></a>
 
-## Prerequisites — xcsh_site_bgp_status / 604ca8b5d5d8 / 3
+## Prerequisites — xcsh_site_bgp_status / 231131113120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-0ed140d384a8cd8c6f7bcfdd5b5249d26f3e6f15a2bf62f7abaf566f59fdd0ec"></a>
+<a id="canonical-0032310110003103-2010222030312030-1233132330333131-1123110210213102-1233033212330111-2202233312023313-2223223311121233-1121333131003230"></a>
 
-## Minimal configuration — xcsh_site_bgp_status / 604ca8b5d5d8 / 4
+## Minimal configuration — xcsh_site_bgp_status / 231131113120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -87,15 +87,15 @@ output "bgp_peers" {
 }
 ```
 
-<a id="canonical-1f7c5d9cdf8e3bce195aad7be39f83b19583af752990d15e11238b7fd5087d01"></a>
+<a id="canonical-0133133011312130-3133203203233032-0121112222311323-3203213320032301-2111200322331311-0221210031011132-0101020320231333-3111002013310001"></a>
 
-## Root configuration — xcsh_site_bgp_status / 604ca8b5d5d8 / 5
+## Root configuration — xcsh_site_bgp_status / 231131113120 / 5
 
 Required root properties: `expected_exported_routes`, `expected_peers`, `namespace`, `site`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-7def36d6523bb2fec5af4e6b93e80cb7ab69d06bf12f5e0e05b267e199f977d5"></a>
+<a id="canonical-1331323303123112-1102032323023332-3011223310321223-2103322000302313-2223122131001223-3301023311320032-0011230212133201-2121332113133111"></a>
 
-## Next pages — xcsh_site_bgp_status / 604ca8b5d5d8 / 6
+## Next pages — xcsh_site_bgp_status / 231131113120 / 6
 
-- [Property reference](../guides/data-sources--site_bgp_status--reference--group-001.md#canonical-b3d7a08e010462cf8b9e36f2952a57bc79b1f43a2d6740a60d4ab1649bb5cb27)
-- [Examples](../guides/data-sources--site_bgp_status--examples--group-001.md#canonical-2285a7d280f3f9856f43ceebf42040f58085458e3c003570355cba1aa26f96d6)
+- [Property reference](../guides/data-sources--site_bgp_status--reference--group-001.md#canonical-2303311322002032-0001001012023033-2023213203123302-2111022211132330-1321230133100322-0231121310002212-0031102223011210-2123231130230213)
+- [Examples](../guides/data-sources--site_bgp_status--examples--group-001.md#canonical-0202201122133102-2000330333212011-1233100330323223-3310020010003311-2000201110112032-0330000003111300-0311113023220122-2202123321123112)

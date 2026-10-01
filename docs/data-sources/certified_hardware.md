@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_certified_hardware l
 
 # xcsh_certified_hardware landing
 
-<a id="canonical-e340f494600d5d419c7e2255805bd0fc2bffe87429d681d8808df8cce9af569a"></a>
+<a id="canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-270ed927c198a135931266b18bc634385372a634a8943f6338539608dbd6d196"></a>
+<a id="canonical-0213003231210213-3001212022010311-2103010212122301-2023301203100320-1103130222120310-2220211003331203-0320110321120020-3123311231012112"></a>
 
-## xcsh_certified_hardware — xcsh_certified_hardware / 2761b7d47baa / 2
+## xcsh_certified_hardware — xcsh_certified_hardware / 311013232222 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Certified Hardware resource in F5 Distributed Cloud for get certified hardware object.
 configuration. (read-only data source)
 
-<a id="canonical-38c737ed10006860f679159eb187360c36c4cc95c6bd1c33439d6b0466de2044"></a>
+<a id="canonical-0320301303133231-0100000012201200-3312132101112132-2301201303120030-0312301030302111-3012233101300303-1003213112230010-1212313202001010"></a>
 
-## Prerequisites — xcsh_certified_hardware / 2761b7d47baa / 3
+## Prerequisites — xcsh_certified_hardware / 311013232222 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b1934c8b8c30fb95e82e0c68e76d0d6e9632a7419f935d2575f8170b5f388c28"></a>
+<a id="canonical-2301210310302023-2030030033232111-3220023200301220-3213123100311232-2112030222131001-2133210311310211-1311332001130023-1133032020300220"></a>
 
-## Minimal configuration — xcsh_certified_hardware / 2761b7d47baa / 4
+## Minimal configuration — xcsh_certified_hardware / 311013232222 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "certified_hardware_id" {
 }
 ```
 
-<a id="canonical-6b9857ca5d201217ab5819a0be56734e9d55c3c9910d32d65a8f15ebe718b48c"></a>
+<a id="canonical-1223212011133022-1131020001020113-2223112001212200-2332111213031032-2131111130033021-2101003103023112-1122203301113223-3213012023102030"></a>
 
-## Root configuration — xcsh_certified_hardware / 2761b7d47baa / 5
+## Root configuration — xcsh_certified_hardware / 311013232222 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0975cf9c938d0ad49baa852ca38082d59a6503b4d5b05505194838ae0bdf4319"></a>
+<a id="canonical-0021131130332130-2103203100223110-2123222220110230-2203200020023111-2122121100032310-3111230011110011-0121102003202232-0023313310030121"></a>
 
-## Next pages — xcsh_certified_hardware / 2761b7d47baa / 6
+## Next pages — xcsh_certified_hardware / 311013232222 / 6
 
-- [Property reference](../guides/data-sources--certified_hardware--reference--group-001.md#canonical-3272d898a352fe1b58f8ad58c53ac9f593ec14e32669bfca47c3dd9511d464e1)
-- [Examples](../guides/data-sources--certified_hardware--examples--group-001.md#canonical-e51fc21fa808e165a7bb85e9397b7fac5dc3c42b5021e497581f5bd091f4a837)
+- [Property reference](../guides/data-sources--certified_hardware--reference--group-001.md#canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201)
+- [Examples](../guides/data-sources--certified_hardware--examples--group-001.md#canonical-3211013330020133-2220002032011211-2213232320113221-0321132313332230-1131300330100223-1100020132102113-1120013311233100-2101331022200313)

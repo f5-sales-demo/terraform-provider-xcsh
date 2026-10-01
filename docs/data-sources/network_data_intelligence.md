@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_data_intelli
 
 # xcsh_network_data_intelligence landing
 
-<a id="canonical-db1c6e7c4254880692807159269c6d76d21575ca6575b838319cf6c66703a647"></a>
+<a id="canonical-3123013012321330-1002111020200012-2102200013011121-0212213012311312-3102011113113022-1211131123200320-0301213033123012-1213000322121013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-59e126ba9b135ea80cbda0c0529eced68485382e62b4c15306b9533d2933da85"></a>
+<a id="canonical-1121320102122322-2123010311322220-0030233122003000-1102213230323112-2010201103200232-1202231030011103-0012232111030331-0221030331222011"></a>
 
-## xcsh_network_data_intelligence — xcsh_network_data_intelligence / fd62344ac446 / 2
+## xcsh_network_data_intelligence — xcsh_network_data_intelligence / 102230101012 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Regional Data Intelligence IPv4 destinations. Values are bundled from the pinned
 this data source performs no network request. Ports and traffic direction are not encoded in the
 manifest.
 
-<a id="canonical-e511a3d17540fe8c1f3856025adf9162b0753eb7bf63e2f3d3a2b3fd57ba4a53"></a>
+<a id="canonical-3211010122033101-1311100033322030-0133032011120002-1122313321011202-2300131103322313-2333120332023303-3103220223033331-1113232210221103"></a>
 
-## Prerequisites — xcsh_network_data_intelligence / fd62344ac446 / 3
+## Prerequisites — xcsh_network_data_intelligence / 102230101012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-f3f06f22277a5d882e256aaccde30c436b22888c2140db8cc91dc2091e340b3d"></a>
+<a id="canonical-3303330012330202-0213132211312020-0232021112222230-3031320300301003-1223020220202030-0201100031232030-3021013130020021-0132031000230331"></a>
 
-## Minimal configuration — xcsh_network_data_intelligence / fd62344ac446 / 4
+## Minimal configuration — xcsh_network_data_intelligence / 102230101012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "data_intelligence_https_egress" {
 }
 ```
 
-<a id="canonical-9690c14b478d056ae81009fe947567f4d787c49cf8fd72c7056701e11efd0716"></a>
+<a id="canonical-2112210030011023-1013203100111222-3220010000213332-2110131112133310-3113201330102130-3320333113023013-0011121300013201-0132333100130112"></a>
 
-## Root configuration — xcsh_network_data_intelligence / fd62344ac446 / 5
+## Root configuration — xcsh_network_data_intelligence / 102230101012 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a6526b2d1f4e5ad87f66273768eca1067b0f291db7234763b9c86cb36d6523bc"></a>
+<a id="canonical-2212110212230231-0133103211223120-1333121202130313-1220323022010012-1323003302210131-2313020310131203-2321302012302303-1231121102032330"></a>
 
-## Next pages — xcsh_network_data_intelligence / fd62344ac446 / 6
+## Next pages — xcsh_network_data_intelligence / 102230101012 / 6
 
-- [Property reference](../guides/data-sources--network_data_intelligence--reference--group-001.md#canonical-c658a6fbfe8dbbe5fd2dab0eb03fbfc881b85553026886291a106a251c844753)
-- [Examples](../guides/data-sources--network_data_intelligence--examples--group-001.md#canonical-3b7b4a98c89d8243a85c0a9412ae43f816de2f4deca4d3e685794d6ea3227e8b)
+- [Property reference](../guides/data-sources--network_data_intelligence--reference--group-001.md#canonical-3012112022123323-3332203123233211-3331023122230032-2300033323333020-2001232011111103-0002122020120221-0122010012220211-0130201010131103)
+- [Examples](../guides/data-sources--network_data_intelligence--examples--group-001.md#canonical-0323132310222120-3020213120021003-2220113000222110-0102223210033320-0112313202331031-3230221031033212-2011132110311232-2203020213322023)

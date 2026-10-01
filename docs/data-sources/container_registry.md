@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_container_registry l
 
 # xcsh_container_registry landing
 
-<a id="canonical-17f6d44ebd4531a50d36aec8be1db646843481c3c17219cc6a239a366b16525f"></a>
+<a id="canonical-0113331231101032-2331101103012211-0031031222323020-2332013123121012-2010031020013003-3001130201213030-1222020321220312-1223011211021133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-610abdbd7ba5b544723e4741c36f322897cf2eefd50ccc819234d69fa72c3968"></a>
+<a id="canonical-1201002223312331-1323221123111010-1302033210131001-3003123303020220-2113303302323233-3111003030302001-2102031031122133-2213023003211220"></a>
 
-## xcsh_container_registry — xcsh_container_registry / 3599c75f8a2f / 2
+## xcsh_container_registry — xcsh_container_registry / 113320220233 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry
 configuration.
 
-<a id="canonical-4b6e867be66dc87d02ed4b1a2c2fa147656cd67d851cac80496cbd3ec9f1c4bd"></a>
+<a id="canonical-1023123220121323-3212123130201331-0002323110230122-0230023322011013-1211123031121331-2011013022302000-1021123023310332-3021330130102331"></a>
 
-## Prerequisites — xcsh_container_registry / 3599c75f8a2f / 3
+## Prerequisites — xcsh_container_registry / 113320220233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-dac9e9c99a6cddfa8fe2b936a1410e401dcf976c963cfe82e9d38a51dd0c5b56"></a>
+<a id="canonical-3122302132213021-2122123031313322-2033320223210312-2201100100321000-0131303321131230-2112033033322002-3221310320221101-3131003011231112"></a>
 
-## Minimal configuration — xcsh_container_registry / 3599c75f8a2f / 4
+## Minimal configuration — xcsh_container_registry / 113320220233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "container_registry_id" {
 }
 ```
 
-<a id="canonical-faa2ad6a34b6b020f710b2d529c9b0dd0b0488dc283b6645815f734c66a9e8ca"></a>
+<a id="canonical-3322220222311222-0310231223000200-3313010023023111-0221302123003131-0023001020203130-0220032312121011-2001113313031030-1212222132203022"></a>
 
-## Root configuration — xcsh_container_registry / 3599c75f8a2f / 5
+## Root configuration — xcsh_container_registry / 113320220233 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-33a9972a96ed6626852a124a0938b56f03556708ed3590665fccd371c3a166fd"></a>
+<a id="canonical-0303222121130222-2112323112120212-2011022201021022-0021032023111233-0003111112130020-3231031121001212-1133303031031301-3003220112123331"></a>
 
-## Next pages — xcsh_container_registry / 3599c75f8a2f / 6
+## Next pages — xcsh_container_registry / 113320220233 / 6
 
-- [Property reference](../guides/data-sources--container_registry--reference--group-001.md#canonical-e58992eaf4724a8cf0c7f0fa641dc1f519eedb53d24397f6ae8cf4129ef62c19)
-- [Examples](../guides/data-sources--container_registry--examples--group-001.md#canonical-b02af979eb8bc9023d2ac42c427813e22c4f214bd2b8b65871fb12f69dd19488)
+- [Property reference](../guides/data-sources--container_registry--reference--group-001.md#canonical-3211202121023222-3310130210222030-3300301333003322-1210013130013311-0121323231231103-3102100321133312-2232203033100102-2132331202300121)
+- [Examples](../guides/data-sources--container_registry--examples--group-001.md#canonical-2300022233211321-3223202330210002-0331022230100230-1002132001033202-0230103302011023-3102232023121120-1301332301023312-2131310121102020)

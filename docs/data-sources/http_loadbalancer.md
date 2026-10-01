@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer la
 
 # xcsh_http_loadbalancer landing
 
-<a id="canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80"></a>
+<a id="canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-46e0b4d089461c7c5277cd695b38dda7eba54cc9a71c543666d0ae3b42e9172c"></a>
+<a id="canonical-1012320023103100-2021101201301330-1102131330311221-1123032031312213-3223221110303021-2213013011100312-1212310022320323-1002322101130230"></a>
 
-## xcsh_http_loadbalancer — xcsh_http_loadbalancer / 4da6e2b99b16 / 2
+## xcsh_http_loadbalancer — xcsh_http_loadbalancer / 232121230112 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic
 with routing and security controls.
 
-<a id="canonical-89da182d8c7ad828db61cc72d918128390d29f2329dd909d165d3f717e1892f1"></a>
+<a id="canonical-2021312201200231-2030132231200220-3123120130301302-3121012001022003-2100310221330203-0221313121002131-0112113103331301-1332012021023301"></a>
 
-## Prerequisites — xcsh_http_loadbalancer / 4da6e2b99b16 / 3
+## Prerequisites — xcsh_http_loadbalancer / 232121230112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -45,9 +45,9 @@ Optional integrations: `healthcheck`, `app_firewall`, `certificate`, `rate_limit
 
 - rate_limiter: Protect against traffic spikes
 
-<a id="canonical-0d317c4b25f4b943ee7607c4561f97ce755aa20a4750ef4a75db40b730a6e373"></a>
+<a id="canonical-0031030113301023-0211331023211003-3232131200133010-1112013321133032-1311112222020022-1013110032331022-1311312310002313-0300221232031303"></a>
 
-## Minimal configuration — xcsh_http_loadbalancer / 4da6e2b99b16 / 4
+## Minimal configuration — xcsh_http_loadbalancer / 232121230112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -76,15 +76,15 @@ output "http_loadbalancer_id" {
 }
 ```
 
-<a id="canonical-865d5c8fe91660beaf0504f85fa0b0cd79eb3a9d9c8e227d5055244adabd195f"></a>
+<a id="canonical-2012113111302033-3221011212002332-2233001100103320-1133220023003031-1321322303222131-2130203202021331-1100111102101022-3122233101211133"></a>
 
-## Root configuration — xcsh_http_loadbalancer / 4da6e2b99b16 / 5
+## Root configuration — xcsh_http_loadbalancer / 232121230112 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3a70b113dc44c1da562faf50a3f16de29e5fc6b49bac386719d7e16ee3f2ce1c"></a>
+<a id="canonical-0322130023010103-3130101030013122-1112023322331100-2203330112313202-2132113330122310-2123223003201213-0121311332011232-3203330230320130"></a>
 
-## Next pages — xcsh_http_loadbalancer / 4da6e2b99b16 / 6
+## Next pages — xcsh_http_loadbalancer / 232121230112 / 6
 
-- [Property reference](../guides/data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [Examples](../guides/data-sources--http_loadbalancer--examples--group-001.md#canonical-864faaea9ccf4e93d6c60b5343dae9fe756da6f5fa5779fee9023c494681a6d4)
+- [Property reference](../guides/data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [Examples](../guides/data-sources--http_loadbalancer--examples--group-001.md#canonical-2012103322223222-2130303310322103-3112301200231103-1003312232213332-1311123122123311-3322111313213332-3221000203301021-1012200122123110)

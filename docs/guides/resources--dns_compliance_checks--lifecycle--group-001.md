@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_dns_compliance_check
 
 # xcsh_dns_compliance_checks lifecycle
 
-<a id="canonical-3e8c45883cd1a3948b530d5d66eb509661ed3222c493c43b4a23e42b133d76b1"></a>
+<a id="canonical-0332203010112020-0330310122032110-2023110300311131-1212322311002112-1201323103020202-3010210330100323-1022020332100223-0103033113122301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-342e223a86df77e6b9ffb4f98a3819276eeb9466ca567b9f7f544c16b0f79e3e"></a>
+<a id="canonical-0310023202020322-2012313313133212-2321333323103321-2022032001210213-1232322321101212-3022111213232133-1333111010300112-2300331321320332"></a>
 
-## Import — Import / 317e3e3b8d03 / 2
+## Import — Import / 032320310003 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924)
+- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_dns_compliance_checks.example system/example
 ```
 
-<a id="canonical-e84404290aefe8d4ffa904895158337b5bf77557a53f3cddc1206ff76bcdaaf2"></a>
+<a id="canonical-3220101000100221-0022323332203110-3333222100102021-1101112003031323-1123331313111113-2211033303303131-3001020012333313-1223303122223302"></a>
 
-## Next pages — Import / 317e3e3b8d03 / 3
+## Next pages — Import / 032320310003 / 3
 
-- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924)
+- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210)
 
-<a id="canonical-b6648163dc46cf44b575809fa12f03e825820f2f5bcaf9ac5820452ffa5bfc13"></a>
+<a id="canonical-2312121020011203-3130101230331010-2311131120002133-2201023300033220-0211200200330233-1123302233212230-1120020010110233-3322112333300103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-013c9b563e488a7fbd607a98bea640cfd10d83c1bf3db678e0efd4f5cacd72b1"></a>
+<a id="canonical-0001033021231112-0332102020221333-2331120013222120-2332221210003033-3101003120033001-2333033123121320-3200323331103311-3022303113022301"></a>
 
-## Timeouts — Timeouts / 4e95ba0456bb / 2
+## Timeouts — Timeouts / 001011122323 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924)
+- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--dns_compliance_checks--reference--group-001.md#canonical-199d8bdf76f2f46e7a37feea668199530aa885f9d9764fdec7c86e3e6068ba1a). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--dns_compliance_checks--reference--group-001.md#canonical-0121213120233133-1312330233101232-1322031333323222-1212200121211103-0022222020113321-3121131210333132-3013302012320332-1200122023220122). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-cabce86809c8ae0e6963f41b94dc4b55fced9d10afd620c2da876b79c8114201"></a>
+<a id="canonical-3022233032201220-0021302022320032-1221120333100123-2110313010231111-3330323121310100-2233311202003002-3122201312231321-3020010110020001"></a>
 
-## Next pages — Timeouts / 4e95ba0456bb / 3
+## Next pages — Timeouts / 001011122323 / 3
 
-- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924)
+- [xcsh_dns_compliance_checks](../resources/dns_compliance_checks.md#canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210)

@@ -6,297 +6,297 @@ description: "Complete grouped canonical reference for xcsh_smsv2_contract refer
 
 # xcsh_smsv2_contract reference
 
-<a id="canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419"></a>
+<a id="canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9ed89b27118b34d1ec20009341fef2b99a25a2f215ba1c5d8ac48769b2ab2cb9"></a>
+<a id="canonical-2132312021230213-0101202303103101-3230020000002103-1001333233022321-2122021122023302-0111232201301131-2022301020131221-2302222302302321"></a>
 
-## Property reference — Property reference / 6dbf86d66594 / 2
+## Property reference — Property reference / 311212112110 / 2
 
 Breadcrumbs:
 
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)
 - Property reference
 
-<a id="canonical-965eb8f35cb78c01a31077baeeff326850f8ac02d4138070567ff0d50f087bf2"></a>
+<a id="canonical-2112113223203303-1130231320300001-2203010013132322-3232333303021220-1100332022300002-3110010320001300-1112133333003111-0033002013233302"></a>
 
-## Direct properties — Property reference / 6dbf86d66594 / 3
+## Direct properties — Property reference / 311212112110 / 3
 
-<a id="canonical-73468f3c187b447082a751b039f01958c03e4bd4d19a6247a9fc3ab4b55ea61b"></a>
+<a id="canonical-1303101220330330-0120132310101300-2002221311012300-0321330001211120-3000033210233110-3101212212021013-2221333003222310-2311113222120123"></a>
 
-<a id="canonical-0b5633c2093b74a9f02e7f74c6b6abbed724a18aa3b8e783a9c661c16b950cc6"></a>
+<a id="canonical-0023111203033002-0021032313102221-3300023213331310-3012231222232332-3113021022012022-2203232032132003-2221301212013001-1223211100303012"></a>
 
-## api_release_commit property — Property reference / 6dbf86d66594 / 4
-
-Type: `"string"`. Computed.
-
-<a id="canonical-97e1d5b34b4b11e49d65d30934880f5f8b3b377cb97d0e71aed9730331b7e503"></a>
-
-<a id="canonical-21d0b0a7f3e38e7861373517c0abb8439220a29e912f8fe4a7b2a1bbb3ac8a88"></a>
-
-## api_release_tag property — Property reference / 6dbf86d66594 / 5
+## api_release_commit property — Property reference / 311212112110 / 4
 
 Type: `"string"`. Computed.
 
-<a id="canonical-340c8ee9e9155c207571f2731d153873d9be6d9b397634a8518a334b2432de45"></a>
+<a id="canonical-2113320131112303-1023102301013210-2131121131030021-0310202000331133-2023032303131330-2321133100321301-2232312113030003-0301231332110003"></a>
 
-<a id="canonical-9621685307114c8d2426a16151c6a0c3de16c0b9f2f8e8d76fba3de2f2897f07"></a>
+<a id="canonical-0201310023002213-3303320320321320-1201031303110113-3000222323201003-2102020022022132-2101023320333210-2213230222012323-2303223020222020"></a>
 
-## aws_authorities property — Property reference / 6dbf86d66594 / 6
+## api_release_tag property — Property reference / 311212112110 / 5
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0310003020323221-3221011111300200-1311130133021303-0131011103201303-3121233212312123-0321131203102220-1101202203031023-0210030231321011"></a>
+
+<a id="canonical-2112020112201103-0013010110302031-0210021222011201-1101301222003003-3132011230002321-3302332032203113-1233232203313202-3302202113330013"></a>
+
+## aws_authorities property — Property reference / 311212112110 / 6
 
 Type: `["list", "string"]`. Computed.
 
-<a id="canonical-0399e47fd8b515c6120f1ea361624dbeb2461e23937f0de495015741fdc7221b"></a>
+<a id="canonical-0003212132101333-3120231101113012-0102003301322203-1201120210312332-2302101201320203-2103133300313210-2111000111131001-3331301302020123"></a>
 
-<a id="canonical-3849a248ef656d776d7f9c68d034e9269b3ada1b970190cd29d1b096b8ebfef0"></a>
+<a id="canonical-0320102122021020-3233121112311313-1231133321301220-3100031032210212-2123032231220123-2113000121003031-0221310123002112-2320322333323300"></a>
 
-## aws_node_configuration property — Property reference / 6dbf86d66594 / 7
+## aws_node_configuration property — Property reference / 311212112110 / 7
 
 Type: `"string"`. Computed.
 
 Canonical immutable AWS node-configuration contract JSON from the pinned API release.
 
-- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-e32495bdf4fc5019ba547f75edf2ca4a6d24a25f3ec0c72282a941b92a03e372): complete subsection reference.
+- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-3203021021112331-3310333011000121-2322111013331311-3231330230221022-1231021022021133-0332300030130202-2002222110012321-0222000332031302): complete subsection reference.
 
-<a id="canonical-077a8c8ee5c4dae6f69cea3dcfb1b4885e0b2ecfb186cd326d0608cecc7e1074"></a>
+<a id="canonical-0013132220302032-3211301031223212-3312213032220331-3033230123102020-1132002302323033-2301201230310302-1231001200203032-3030133201001310"></a>
 
-<a id="canonical-6b8146dda5f84955fcc741511b2957e31630981736d09f8409811f08ae4c0bd4"></a>
+<a id="canonical-1223200110123131-2211332010211111-3330301310011101-0123022111133203-0112030021200113-0312310021332010-0021200101330020-2232103000233110"></a>
 
-## capabilities property — Property reference / 6dbf86d66594 / 8
+## capabilities property — Property reference / 311212112110 / 8
 
 Type: `["map", "string"]`. Computed.
 
-<a id="canonical-d209dbb63dba2e1c5afcc715bccfe0f566b5110ad6cf0cf4f3b408fb18ccec72"></a>
+<a id="canonical-3102002131232312-0331232202320130-1122333030130111-2330303332003311-1212231101010022-3112303300303310-3303231000203323-0120303032301302"></a>
 
-<a id="canonical-f4d595b2ab406b5c4119ed6c727c947ad48115e5b9dba08e118f4477a1e7f51e"></a>
+<a id="canonical-3310311121112302-2223100012231130-1001012132311230-1302133021101322-3110200101113211-2321312322002032-0101203310101313-2201321333110132"></a>
 
-## contract_id property — Property reference / 6dbf86d66594 / 9
-
-Type: `"string"`. Computed.
-
-<a id="canonical-f87d4f3ac8c07f6862c1b781b07c88ce5d3d3bf6a64411a255160bc59cb0d2ac"></a>
-
-<a id="canonical-3933b844dddaac2157e77e74b28e2ec8871540516a69ef397945b881d87feaf2"></a>
-
-## contract_version property — Property reference / 6dbf86d66594 / 10
+## contract_id property — Property reference / 311212112110 / 9
 
 Type: `"string"`. Computed.
 
-<a id="canonical-e1152ca7cba2650c040d0ffa5d57211c589e246eae75bb5c8833f9864167f1aa"></a>
+<a id="canonical-3320133110330322-3020300013331220-1202300123132001-2300133020203032-1131033103233312-2212101001012202-1111011200233011-2130230031022230"></a>
 
-<a id="canonical-03206f28d37c477ed3968dd5c2f26878b4cd058f87f86002390bc22060df1327"></a>
+<a id="canonical-0321030323201010-3131312222300201-1113321313321310-2302203202323020-2013011110001101-1222122132330321-1321101123202001-3120133332223302"></a>
 
-## f5xc_authorities property — Property reference / 6dbf86d66594 / 11
+## contract_version property — Property reference / 311212112110 / 10
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3201011102302213-3023220212110030-0010003100333322-1131111302010130-1120213202101232-2232131123231130-2020030333212012-1001121333012222"></a>
+
+<a id="canonical-0003020012330220-3103133010131332-3103211220313111-3002330212201320-2310303100112033-2013332012000002-0321002330020200-1200313301030213"></a>
+
+## f5xc_authorities property — Property reference / 311212112110 / 11
 
 Type: `["list", "string"]`. Computed.
 
-<a id="canonical-eb1dd94b3f128f82bf84d5a11fc5f0f5dc1e989b7d8f4e8e62e237b958a73ed6"></a>
+<a id="canonical-3223013131211023-0333010220332002-2333201031112201-0133301133003311-3130013221202123-1331203310322032-1202320203132321-1120221303323112"></a>
 
-<a id="canonical-44daf1b006ed833bfd72a99c4f299ca7fa3e1e738a838627aef168d6b32319cb"></a>
+<a id="canonical-1010312233012300-0012323120030323-3331130222212130-1033022121302213-3322033201321303-2022200320120213-2232330112203112-2303020301213023"></a>
 
-## id property — Property reference / 6dbf86d66594 / 12
+## ID property — Property reference / 311212112110 / 12
 
 Type: `"string"`. Computed.
 
-<a id="canonical-32958cda9f72c28899cbdaa765554fcef62a6d269d99f4407ec258dfc7c2548a"></a>
+<a id="canonical-0302211120303122-2133130230022020-2121302331222213-1211111110333032-3312022212310212-2131212133101000-1332300211203133-3013300211102022"></a>
 
-<a id="canonical-f9b28290182a84ec4f5397128dbad36c79bef4fa118b8ef27a68ade37f72799e"></a>
+<a id="canonical-3321230220022100-0120022220103230-1033110321130102-2031232231031230-1321233233103322-0101202320323302-1322122022313203-1333130213212132"></a>
 
-## kvm_image_resolution property — Property reference / 6dbf86d66594 / 13
+## kvm_image_resolution property — Property reference / 311212112110 / 13
 
 Type: `"string"`. Computed.
 
 Complete canonical KVM image-resolution contract JSON, including ownership, validation, and evidence
 provenance, from the pinned API release.
 
-<a id="canonical-e57fc8f063b6563eb3db2f818bce4222305082b1670ef8885d37203c6349a506"></a>
+<a id="canonical-3211133330203300-1203231211120332-2303312302332001-2023303210020202-0300110020022301-1213003233202020-1131031302000330-1203102122110012"></a>
 
-<a id="canonical-c6c51c9996641d9aa2b2bd417f280f0bb575cda939646513792360ce684f7f7c"></a>
+<a id="canonical-3012301101302121-2112121001312122-2202230223311001-1333022000330023-2311131130312221-0321121012110103-1321020312003032-1220103313331330"></a>
 
-## required_capabilities property — Property reference / 6dbf86d66594 / 14
+## required_capabilities property — Property reference / 311212112110 / 14
 
 Type: `["set", "string"]`. Optional.
 
 Capabilities that must be available. A known unavailable capability produces a planning diagnostic
 before any F5 API request.
 
-<a id="canonical-2793caa5c0bb8e2d07fac679736461dede720b299f460acc1f77dc38eab95063"></a>
+<a id="canonical-0213210330222211-3000232320320231-0013332230121321-1303121012013132-3132130200230221-2133101200223030-0133131331300320-3222232111001203"></a>
 
-<a id="canonical-d5cdf86dc398887e9de2dc2f3e13489da8aa5a09a12e38e21f2806f607fcdc69"></a>
+<a id="canonical-3111303133201231-3003212020201332-2131320231300233-0332010310202131-2220222211220021-2201023203203202-0133022000123312-0013333031301221"></a>
 
-## telemetry_schema_id property — Property reference / 6dbf86d66594 / 15
+## telemetry_schema_id property — Property reference / 311212112110 / 15
 
 Type: `"string"`. Computed.
 
-<a id="canonical-a5aed2aba50f61a33f1752a51bbc0cdf99f4b9342caa40d1dff427d604a9ff1a"></a>
+<a id="canonical-2211223231022223-2211003312012203-0333011311022211-0123233000303133-2121331023210310-0230222210003101-3133331002133112-0010222133330122"></a>
 
-## All schema paths — Property reference / 6dbf86d66594 / 16
+## All schema paths — Property reference / 311212112110 / 16
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `api_release_commit` | [api_release_commit](data-sources--smsv2_contract--reference--group-001.md#canonical-73468f3c187b447082a751b039f01958c03e4bd4d19a6247a9fc3ab4b55ea61b) |
-| `api_release_tag` | [api_release_tag](data-sources--smsv2_contract--reference--group-001.md#canonical-97e1d5b34b4b11e49d65d30934880f5f8b3b377cb97d0e71aed9730331b7e503) |
-| `aws_authorities` | [aws_authorities](data-sources--smsv2_contract--reference--group-001.md#canonical-340c8ee9e9155c207571f2731d153873d9be6d9b397634a8518a334b2432de45) |
-| `aws_node_configuration` | [aws_node_configuration](data-sources--smsv2_contract--reference--group-001.md#canonical-0399e47fd8b515c6120f1ea361624dbeb2461e23937f0de495015741fdc7221b) |
-| `azure_route_server_ebgp_multihop` | [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-ae9123517a47d5d6d817f9fb3aaa88171b8354e004d9253bb1d94e685fb7f8e2) |
-| `azure_route_server_ebgp_multihop.availability` | [azure_route_server_ebgp_multihop.availability](data-sources--smsv2_contract--reference--group-001.md#canonical-ef8f06ed6812edc0659377fe026e180cf540be37a21484f91e6fdfc57fe636af) |
-| `azure_route_server_ebgp_multihop.enforcement` | [azure_route_server_ebgp_multihop.enforcement](data-sources--smsv2_contract--reference--group-001.md#canonical-f3488a7ec7f4a44523e6feddbdaffc9e93cd8fe593e0cf8b794b86f4c3572e44) |
-| `azure_route_server_ebgp_multihop.reason` | [azure_route_server_ebgp_multihop.reason](data-sources--smsv2_contract--reference--group-001.md#canonical-6cf0ea67e5a39b073424c2aaaf188e8364f9c0cc49d53bc01852c34ded966aad) |
-| `azure_route_server_ebgp_multihop.source` | [azure_route_server_ebgp_multihop.source](data-sources--smsv2_contract--reference--group-001.md#canonical-8fce030947edf7f5f551a130f44564d3655958de96183e5a6a95200f81386828) |
-| `azure_route_server_ebgp_multihop.source.asset_path` | [azure_route_server_ebgp_multihop.source.asset_path](data-sources--smsv2_contract--reference--group-001.md#canonical-e15f66769af8a7c94755e458267f9adc619b706b1cc760048be306d84637d1c9) |
-| `azure_route_server_ebgp_multihop.source.asset_sha256` | [azure_route_server_ebgp_multihop.source.asset_sha256](data-sources--smsv2_contract--reference--group-001.md#canonical-389384930dfee0a3e0bc2a8085b3b17f8022c1c8be704c7cf0627870f46321d6) |
-| `azure_route_server_ebgp_multihop.source.commit` | [azure_route_server_ebgp_multihop.source.commit](data-sources--smsv2_contract--reference--group-001.md#canonical-baa43db5046c5ff43f8268361d9d1bcb25ea4287cadcd47b6ded4ac1c5cd9d83) |
-| `azure_route_server_ebgp_multihop.source.repository` | [azure_route_server_ebgp_multihop.source.repository](data-sources--smsv2_contract--reference--group-001.md#canonical-743895eb7a971a1beff6b71c506e0f20b2f609c7163b664b5aacec840603e3ea) |
-| `azure_route_server_ebgp_multihop.source.schema_paths` | [azure_route_server_ebgp_multihop.source.schema_paths](data-sources--smsv2_contract--reference--group-001.md#canonical-577224a694c60569ceb1cad605e31b0cc4419f08864604aab8a8d8e5c010dffe) |
-| `capabilities` | [capabilities](data-sources--smsv2_contract--reference--group-001.md#canonical-077a8c8ee5c4dae6f69cea3dcfb1b4885e0b2ecfb186cd326d0608cecc7e1074) |
-| `contract_id` | [contract_id](data-sources--smsv2_contract--reference--group-001.md#canonical-d209dbb63dba2e1c5afcc715bccfe0f566b5110ad6cf0cf4f3b408fb18ccec72) |
-| `contract_version` | [contract_version](data-sources--smsv2_contract--reference--group-001.md#canonical-f87d4f3ac8c07f6862c1b781b07c88ce5d3d3bf6a64411a255160bc59cb0d2ac) |
-| `f5xc_authorities` | [f5xc_authorities](data-sources--smsv2_contract--reference--group-001.md#canonical-e1152ca7cba2650c040d0ffa5d57211c589e246eae75bb5c8833f9864167f1aa) |
-| `id` | [id](data-sources--smsv2_contract--reference--group-001.md#canonical-eb1dd94b3f128f82bf84d5a11fc5f0f5dc1e989b7d8f4e8e62e237b958a73ed6) |
-| `kvm_image_resolution` | [kvm_image_resolution](data-sources--smsv2_contract--reference--group-001.md#canonical-32958cda9f72c28899cbdaa765554fcef62a6d269d99f4407ec258dfc7c2548a) |
-| `required_capabilities` | [required_capabilities](data-sources--smsv2_contract--reference--group-001.md#canonical-e57fc8f063b6563eb3db2f818bce4222305082b1670ef8885d37203c6349a506) |
-| `telemetry_schema_id` | [telemetry_schema_id](data-sources--smsv2_contract--reference--group-001.md#canonical-2793caa5c0bb8e2d07fac679736461dede720b299f460acc1f77dc38eab95063) |
+| `api_release_commit` | [api_release_commit](data-sources--smsv2_contract--reference--group-001.md#canonical-1303101220330330-0120132310101300-2002221311012300-0321330001211120-3000033210233110-3101212212021013-2221333003222310-2311113222120123) |
+| `api_release_tag` | [api_release_tag](data-sources--smsv2_contract--reference--group-001.md#canonical-2113320131112303-1023102301013210-2131121131030021-0310202000331133-2023032303131330-2321133100321301-2232312113030003-0301231332110003) |
+| `aws_authorities` | [aws_authorities](data-sources--smsv2_contract--reference--group-001.md#canonical-0310003020323221-3221011111300200-1311130133021303-0131011103201303-3121233212312123-0321131203102220-1101202203031023-0210030231321011) |
+| `aws_node_configuration` | [aws_node_configuration](data-sources--smsv2_contract--reference--group-001.md#canonical-0003212132101333-3120231101113012-0102003301322203-1201120210312332-2302101201320203-2103133300313210-2111000111131001-3331301302020123) |
+| `azure_route_server_ebgp_multihop` | [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-2232210102031101-1322101331113112-3120011333213323-0322222220200113-0123200311103200-0010312102110323-2301312110321220-1133231333203202) |
+| `azure_route_server_ebgp_multihop.availability` | [azure_route_server_ebgp_multihop.availability](data-sources--smsv2_contract--reference--group-001.md#canonical-3233203300123231-1220010232313000-1211210313133332-0002123201200030-3311100023320313-2202011020103321-0132123331333011-1333321203122233) |
+| `azure_route_server_ebgp_multihop.enforcement` | [azure_route_server_ebgp_multihop.enforcement](data-sources--smsv2_contract--reference--group-001.md#canonical-3303102020221332-3013331022101011-0203321233323131-2331223333302132-2103303120333211-2103320030332023-1321102320123310-3003111302321010) |
+| `azure_route_server_ebgp_multihop.reason` | [azure_route_server_ebgp_multihop.reason](data-sources--smsv2_contract--reference--group-001.md#canonical-1230330032221213-3211220321230013-0310021030022222-2233012020322003-1210332130003030-1021311103233000-0120110230031031-3231211212222231) |
+| `azure_route_server_ebgp_multihop.source` | [azure_route_server_ebgp_multihop.source](data-sources--smsv2_contract--reference--group-001.md#canonical-2033303200030021-1013323133133311-3311110122010300-3310101112103103-1211112111203132-2112012003321122-1222211102000033-2001032012200220) |
+| `azure_route_server_ebgp_multihop.source.asset_path` | [azure_route_server_ebgp_multihop.source.asset_path](data-sources--smsv2_contract--reference--group-001.md#canonical-3201113312121312-2122332022133021-1013111132101120-0212133321223130-1201212313001223-0130301312000010-2023320300123120-1012031331013021) |
+| `azure_route_server_ebgp_multihop.source.asset_sha256` | [azure_route_server_ebgp_multihop.source.asset_sha256](data-sources--smsv2_contract--reference--group-001.md#canonical-0320210320102103-0031333232002203-3200233002222000-2011230323011333-2000020230013020-2332130010301330-3300120213201300-3310120302013112) |
+| `azure_route_server_ebgp_multihop.source.commit` | [azure_route_server_ebgp_multihop.source.commit](data-sources--smsv2_contract--reference--group-001.md#canonical-2322221003312311-0010123011333310-0333200212200312-0131213101233023-0211322210022013-3022313031101323-1231323110223001-3011303121312003) |
+| `azure_route_server_ebgp_multihop.source.repository` | [azure_route_server_ebgp_multihop.source.repository](data-sources--smsv2_contract--reference--group-001.md#canonical-1310032021113223-1322211301220123-3233331223130130-1100123200330200-2302331200213013-0112032312121023-1122223032302010-0012000332033222) |
+| `azure_route_server_ebgp_multihop.source.schema_paths` | [azure_route_server_ebgp_multihop.source.schema_paths](data-sources--smsv2_contract--reference--group-001.md#canonical-1113130202102212-2110301200111221-3032230130223112-0011320301230030-3010100121330020-2012101200102222-2320222031203211-3000010031333332) |
+| `capabilities` | [capabilities](data-sources--smsv2_contract--reference--group-001.md#canonical-0013132220302032-3211301031223212-3312213032220331-3033230123102020-1132002302323033-2301201230310302-1231001200203032-3030133201001310) |
+| `contract_id` | [contract_id](data-sources--smsv2_contract--reference--group-001.md#canonical-3102002131232312-0331232202320130-1122333030130111-2330303332003311-1212231101010022-3112303300303310-3303231000203323-0120303032301302) |
+| `contract_version` | [contract_version](data-sources--smsv2_contract--reference--group-001.md#canonical-3320133110330322-3020300013331220-1202300123132001-2300133020203032-1131033103233312-2212101001012202-1111011200233011-2130230031022230) |
+| `f5xc_authorities` | [f5xc_authorities](data-sources--smsv2_contract--reference--group-001.md#canonical-3201011102302213-3023220212110030-0010003100333322-1131111302010130-1120213202101232-2232131123231130-2020030333212012-1001121333012222) |
+| `id` | [id](data-sources--smsv2_contract--reference--group-001.md#canonical-3223013131211023-0333010220332002-2333201031112201-0133301133003311-3130013221202123-1331203310322032-1202320203132321-1120221303323112) |
+| `kvm_image_resolution` | [kvm_image_resolution](data-sources--smsv2_contract--reference--group-001.md#canonical-0302211120303122-2133130230022020-2121302331222213-1211111110333032-3312022212310212-2131212133101000-1332300211203133-3013300211102022) |
+| `required_capabilities` | [required_capabilities](data-sources--smsv2_contract--reference--group-001.md#canonical-3211133330203300-1203231211120332-2303312302332001-2023303210020202-0300110020022301-1213003233202020-1131031302000330-1203102122110012) |
+| `telemetry_schema_id` | [telemetry_schema_id](data-sources--smsv2_contract--reference--group-001.md#canonical-0213210330222211-3000232320320231-0013332230121321-1303121012013132-3132130200230221-2133101200223030-0133131331300320-3222232111001203) |
 
-<a id="canonical-a760ce5ad8b2af6d4ed71f39b149820e3350fdea14f7c691f832b043168a0529"></a>
+<a id="canonical-2213120030321122-3120230222331231-1032311301330321-2301102120020032-0303110033313222-0110331330122101-3320030223001003-0112202200110221"></a>
 
-## Next pages — Property reference / 6dbf86d66594 / 17
+## Next pages — Property reference / 311212112110 / 17
 
-- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-e32495bdf4fc5019ba547f75edf2ca4a6d24a25f3ec0c72282a941b92a03e372)
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
+- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-3203021021112331-3310333011000121-2322111013331311-3231330230221022-1231021022021133-0332300030130202-2002222110012321-0222000332031302)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)
 
-<a id="canonical-e32495bdf4fc5019ba547f75edf2ca4a6d24a25f3ec0c72282a941b92a03e372"></a>
+<a id="canonical-3203021021112331-3310333011000121-2322111013331311-3231330230221022-1231021022021133-0332300030130202-2002222110012321-0222000332031302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-219360aa259bdb3e0cb36af5c08bc1aff3117fcf583407937e25417e9104ad48"></a>
+<a id="canonical-0201210312002222-0211212331230332-0030230312223311-3000202330012233-3303010113333033-1120031000132103-1332021110011332-2101001022311020"></a>
 
-## azure_route_server_ebgp_multihop — azure_route_server_ebgp_multihop / cafc67ae437b / 2
+## azure_route_server_ebgp_multihop — azure_route_server_ebgp_multihop / 223210031323 / 2
 
 Breadcrumbs:
 
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
-- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)
+- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121)
 - azure_route_server_ebgp_multihop
 
-<a id="canonical-ae9123517a47d5d6d817f9fb3aaa88171b8354e004d9253bb1d94e685fb7f8e2"></a>
+<a id="canonical-2232210102031101-1322101331113112-3120011333213323-0322222220200113-0123200311103200-0010312102110323-2301312110321220-1133231333203202"></a>
 
 Type: `"single"`. Computed.
 
 Authoritative Azure Route Server eBGP multihop availability and immutable source provenance.
 
-<a id="canonical-cc36d55e09ba1825627bfbd3f0249acdc97de5cad618c8dcd927d325ccc89a42"></a>
+<a id="canonical-3030031231111132-0021232201200211-1202132333233103-3300021021223031-3021133132113022-3112012030203130-3121021331030211-3030302021221002"></a>
 
-## Direct properties — azure_route_server_ebgp_multihop / cafc67ae437b / 3
+## Direct properties — azure_route_server_ebgp_multihop / 223210031323 / 3
 
-<a id="canonical-ef8f06ed6812edc0659377fe026e180cf540be37a21484f91e6fdfc57fe636af"></a>
+<a id="canonical-3233203300123231-1220010232313000-1211210313133332-0002123201200030-3311100023320313-2202011020103321-0132123331333011-1333321203122233"></a>
 
-<a id="canonical-9db3b1d95fb85520d8e5a4a16a6b7e7ad23a1bdcecd3933a65c7223381b2efc4"></a>
+<a id="canonical-2131230323013121-1133232011110200-3120321122102201-1222122313321322-3102032201233130-3230310321030322-1211301302020303-2001230232333010"></a>
 
-## availability property — azure_route_server_ebgp_multihop / cafc67ae437b / 4
-
-Type: `"string"`. Computed.
-
-<a id="canonical-f3488a7ec7f4a44523e6feddbdaffc9e93cd8fe593e0cf8b794b86f4c3572e44"></a>
-
-<a id="canonical-e1290520ca68b6c3eaa081875e64cb912a1e3dfe87aafb1c23b2a9eca01c2343"></a>
-
-## enforcement property — azure_route_server_ebgp_multihop / cafc67ae437b / 5
+## availability property — azure_route_server_ebgp_multihop / 223210031323 / 4
 
 Type: `"string"`. Computed.
 
-<a id="canonical-6cf0ea67e5a39b073424c2aaaf188e8364f9c0cc49d53bc01852c34ded966aad"></a>
+<a id="canonical-3303102020221332-3013331022101011-0203321233323131-2331223333302132-2103303120333211-2103320030332023-1321102320123310-3003111302321010"></a>
 
-<a id="canonical-93bbcc304194cefe19a0887734ec03de64f60c8471615c84b1a15b61143e8b80"></a>
+<a id="canonical-3201022100110200-3022122023123003-3222220020012013-1132121030232101-0222013203313332-2013222233230130-0203230222213230-2200013002031003"></a>
 
-## reason property — azure_route_server_ebgp_multihop / cafc67ae437b / 6
+## enforcement property — azure_route_server_ebgp_multihop / 223210031323 / 5
 
 Type: `"string"`. Computed.
 
-- [source](data-sources--smsv2_contract--reference--group-001.md#canonical-aef6d3d894971b7edc71d6a422f5545449c35ebd61f7c44c40d5f61d66cf2944): complete subsection reference.
+<a id="canonical-1230330032221213-3211220321230013-0310021030022222-2233012020322003-1210332130003030-1021311103233000-0120110230031031-3231211212222231"></a>
 
-<a id="canonical-b78caab79a371c05e56cb5cd3e2d8c7ac3aab4472c37dec836e5c8e2135313c7"></a>
+<a id="canonical-2103232330300300-1001211030323332-0121220020201313-0310323000033132-1210331200302010-1301120111302010-2301220111231201-0110033220232000"></a>
 
-## Next pages — azure_route_server_ebgp_multihop / cafc67ae437b / 7
+## reason property — azure_route_server_ebgp_multihop / 223210031323 / 6
 
-- [azure_route_server_ebgp_multihop.source](data-sources--smsv2_contract--reference--group-001.md#canonical-aef6d3d894971b7edc71d6a422f5545449c35ebd61f7c44c40d5f61d66cf2944)
-- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419)
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
+Type: `"string"`. Computed.
 
-<a id="canonical-aef6d3d894971b7edc71d6a422f5545449c35ebd61f7c44c40d5f61d66cf2944"></a>
+- [source](data-sources--smsv2_contract--reference--group-001.md#canonical-2232331231033120-2110211301231332-3130130131122210-0202331111101110-1021300311322331-1201331330101030-1000311133120131-1212303302211010): complete subsection reference.
+
+<a id="canonical-2313203022222313-2122031301300011-3211123023113031-0332023120301322-3003222223101013-0230031331323020-0312321130203202-0103110301033013"></a>
+
+## Next pages — azure_route_server_ebgp_multihop / 223210031323 / 7
+
+- [azure_route_server_ebgp_multihop.source](data-sources--smsv2_contract--reference--group-001.md#canonical-2232331231033120-2110211301231332-3130130131122210-0202331111101110-1021300311322331-1201331330101030-1000311133120131-1212303302211010)
+- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)
+
+<a id="canonical-2232331231033120-2110211301231332-3130130131122210-0202331111101110-1021300311322331-1201331330101030-1000311133120131-1212303302211010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9f954154cfb0e356e0973904f338a75ccd32507e4927aee12587bba3a434db3f"></a>
+<a id="canonical-2133211110011110-3033230032031112-3200211303210010-3303032022131130-3031030211001332-1021021322323201-0211201323232203-2210031031230333"></a>
 
-## azure_route_server_ebgp_multihop.source — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 2
+## azure_route_server_ebgp_multihop.source — source / 131131102200 / 2
 
 Breadcrumbs:
 
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
-- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419)
-- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-e32495bdf4fc5019ba547f75edf2ca4a6d24a25f3ec0c72282a941b92a03e372)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)
+- [Property reference](data-sources--smsv2_contract--reference--group-001.md#canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121)
+- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-3203021021112331-3310333011000121-2322111013331311-3231330230221022-1231021022021133-0332300030130202-2002222110012321-0222000332031302)
 - azure_route_server_ebgp_multihop.source
 
-<a id="canonical-8fce030947edf7f5f551a130f44564d3655958de96183e5a6a95200f81386828"></a>
+<a id="canonical-2033303200030021-1013323133133311-3311110122010300-3310101112103103-1211112111203132-2112012003321122-1222211102000033-2001032012200220"></a>
 
 Type: `"single"`. Computed.
 
-<a id="canonical-c72e69f8d18017b9d9658ced4c19f9ddc94858282ee0c2155b2ff55c2680d9c2"></a>
+<a id="canonical-3013023212213320-3101200001132321-3121121120303231-1030012133213131-3021102011200220-0232320030020111-1123023333111130-0212200031213002"></a>
 
-## Direct properties — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 3
+## Direct properties — source / 131131102200 / 3
 
-<a id="canonical-e15f66769af8a7c94755e458267f9adc619b706b1cc760048be306d84637d1c9"></a>
+<a id="canonical-3201113312121312-2122332022133021-1013111132101120-0212133321223130-1201212313001223-0130301312000010-2023320300123120-1012031331013021"></a>
 
-<a id="canonical-0d15a1af3094b8f07e6a33c12c99ddde42601f62963f103fd9b2c724766c9a27"></a>
+<a id="canonical-0031011122012233-0300211023203300-1332122203033001-0230212131313132-1002120001331202-2112033301000333-3121230230130210-1312123021220213"></a>
 
-## asset_path property — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 4
-
-Type: `"string"`. Computed.
-
-<a id="canonical-389384930dfee0a3e0bc2a8085b3b17f8022c1c8be704c7cf0627870f46321d6"></a>
-
-<a id="canonical-7f5bbcf44b25c2c369fbc65171643884c91485b11c42583322287af71a29abd3"></a>
-
-## asset_sha256 property — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 5
+## asset_path property — source / 131131102200 / 4
 
 Type: `"string"`. Computed.
 
-<a id="canonical-baa43db5046c5ff43f8268361d9d1bcb25ea4287cadcd47b6ded4ac1c5cd9d83"></a>
+<a id="canonical-0320210320102103-0031333232002203-3200233002222000-2011230323011333-2000020230013020-2332130010301330-3300120213201300-3310120302013112"></a>
 
-<a id="canonical-030fbd66f9d11e87dc6961cbe8f367264d5393af8524d1d5c739bae5503ee627"></a>
+<a id="canonical-1333112323303310-1023021130023003-1221332330121101-1301121003202010-3021011020112301-0130100211200303-0202022013223313-0122022122233103"></a>
 
-## commit property — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 6
-
-Type: `"string"`. Computed.
-
-<a id="canonical-743895eb7a971a1beff6b71c506e0f20b2f609c7163b664b5aacec840603e3ea"></a>
-
-<a id="canonical-27e23d303912279c9464a9d17d96cb548b9c20a20f8f851cd06f3164ce235561"></a>
-
-## repository property — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 7
+## asset_sha256 property — source / 131131102200 / 5
 
 Type: `"string"`. Computed.
 
-<a id="canonical-577224a694c60569ceb1cad605e31b0cc4419f08864604aab8a8d8e5c010dffe"></a>
+<a id="canonical-2322221003312311-0010123011333310-0333200212200312-0131213101233023-0211322210022013-3022313031101323-1231323110223001-3011303121312003"></a>
 
-<a id="canonical-58a146843030d1b61d4dd661f2b3de0314f6d10083e84e57d8fad51a3f59a7b5"></a>
+<a id="canonical-0003003323311212-3321310101322013-3130122112013023-3220330312130212-1031110321032233-2011021031013111-3013032123223211-1100033232120213"></a>
 
-## schema_paths property — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 8
+## commit property — source / 131131102200 / 6
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1310032021113223-1322211301220123-3233331223130130-1100123200330200-2302331200213013-0112032312121023-1122223032302010-0012000332033222"></a>
+
+<a id="canonical-0213320203310300-0321010202132130-2110121022213101-1331211230231110-2023213002002202-0033203320110130-3100123303011210-3032020311111201"></a>
+
+## repository property — source / 131131102200 / 7
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1113130202102212-2110301200111221-3032230130223112-0011320301230030-3010100121330020-2012101200102222-2320222031203211-3000010031333332"></a>
+
+<a id="canonical-1120220110122010-0300030031012312-0131103131121201-3302230331320003-0110331231010000-2003322010321113-3120332231110122-0333112122132311"></a>
+
+## schema_paths property — source / 131131102200 / 8
 
 Type: `["list", "string"]`. Computed.
 
-<a id="canonical-113925f97467ce4dab9cafeba4e26b18c6edb0da77bc2c3dd63659690423ac66"></a>
+<a id="canonical-0101032102113321-1310121330321031-2223213022333223-2210320212230120-3012323123003122-1313233002300331-3112031211211221-0010020322301212"></a>
 
-## Next pages — azure_route_server_ebgp_multihop.source / 558ed375d4a0 / 9
+## Next pages — source / 131131102200 / 9
 
-- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-e32495bdf4fc5019ba547f75edf2ca4a6d24a25f3ec0c72282a941b92a03e372)
-- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d)
+- [azure_route_server_ebgp_multihop](data-sources--smsv2_contract--reference--group-001.md#canonical-3203021021112331-3310333011000121-2322111013331311-3231330230221022-1231021022021133-0332300030130202-2002222110012321-0222000332031302)
+- [xcsh_smsv2_contract](../data-sources/smsv2_contract.md#canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131)

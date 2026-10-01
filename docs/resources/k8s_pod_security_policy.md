@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_k8s_pod_security_pol
 
 # xcsh_k8s_pod_security_policy landing
 
-<a id="canonical-d1cf0037a1c7ad187d001a831cd0b85ab39532f9e1564acd0d0a64fb31870e96"></a>
+<a id="canonical-3101303300000313-2201301322310120-1331000001222003-0130310023201122-2303211103023321-3201111210223031-0031002212103323-0301201300322112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4046dc4c6d18458deada5d991762cd9b23a614ce2d72dea8ccc981745194631c"></a>
+<a id="canonical-1000101231301030-1231012010112031-3222312211312121-0113120230312123-0203221201103032-0231130231322220-3030302120011310-1101211012030130"></a>
 
-## xcsh_k8s_pod_security_policy — xcsh_k8s_pod_security_policy / 3474840c213b / 2
+## xcsh_k8s_pod_security_policy — xcsh_k8s_pod_security_policy / 003002010323 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_policy will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-<a id="canonical-5954035eb55f8b6228e5f28de5b9c0fd496a46bd5f604bc4d04d6ce84b4f765d"></a>
+<a id="canonical-1121111000031132-2311113320231202-0220321133022031-3211232130003331-1021122210122331-1133120010233010-3100103112303220-1023103313121131"></a>
 
-## Prerequisites — xcsh_k8s_pod_security_policy / 3474840c213b / 3
+## Prerequisites — xcsh_k8s_pod_security_policy / 003002010323 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8d2daca0bec2319aaaaaf546e2319d07b16af950fc9124ab94f0458e9e1b25f8"></a>
+<a id="canonical-2031023122302200-2332300203012122-2222222233111012-3202030121310013-2301122233211100-3330210102102223-2110330010112032-2132012302113320"></a>
 
-## Minimal configuration — xcsh_k8s_pod_security_policy / 3474840c213b / 4
+## Minimal configuration — xcsh_k8s_pod_security_policy / 003002010323 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_k8s_pod_security_policy" "example" {
 }
 ```
 
-<a id="canonical-e584d663f20e640599d0e26563c7ce6fb2a304d0e423841ad95fc33c87bcc492"></a>
+<a id="canonical-3211201031121203-3302003212100011-2121310032021211-1203301330321233-2302220300103100-3210020320100122-3121113330030330-2013233030102102"></a>
 
-## Root configuration — xcsh_k8s_pod_security_policy / 3474840c213b / 5
+## Root configuration — xcsh_k8s_pod_security_policy / 003002010323 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-719d48c038ec6099120bf94cdca71c591a6e23867fc36343214518b42bf6db6b"></a>
+<a id="canonical-1301213110203000-0320323012002121-0102002333211030-3130221301301121-0122123202032012-1333300312031003-0201101101202310-0223331231231223"></a>
 
-## Next pages — xcsh_k8s_pod_security_policy / 3474840c213b / 6
+## Next pages — xcsh_k8s_pod_security_policy / 003002010323 / 6
 
-- [Property reference](../guides/resources--k8s_pod_security_policy--reference--group-001.md#canonical-3ca2e681586afce0edce8cbc8836a556f7345a01b126e0b7a741a4a76865647f)
-- [Examples](../guides/resources--k8s_pod_security_policy--examples--group-001.md#canonical-ffe90ec21ce5cd40a9ee9e2ea88847034ff59a568bd6d1da400ed3e4c87cde08)
-- [Import](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-73770d1cf2d9ebfb256664f3d351accf0de191b389d3cd05b36d2b72cc9c7ec8)
-- [Timeouts](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-bca9fcb9957fd2fd221b0100c0036fe5c4d3efe82e46b18ccfeeec0c2333daee)
+- [Property reference](../guides/resources--k8s_pod_security_policy--reference--group-001.md#canonical-0330220232122001-1120122233303200-3231303220302330-2020031222111112-3313031011220001-2301021232002313-2213100122102213-1220121112101333)
+- [Examples](../guides/resources--k8s_pod_security_policy--examples--group-001.md#canonical-3333322100323002-0130321130311000-2221323221320232-2220202010130003-1033331121221112-2023311231013122-1000003231033210-3020133031320020)
+- [Import](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-1303131300310130-3302312132233323-0211121212103303-3103110122303033-0031320121012303-2021310330310011-2303123102231302-3030213013323020)
+- [Timeouts](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-2330222133302321-2111133331023331-0202012300010000-3000000312333211-3010310332333220-0232101223012030-3033323232300030-0203030331223232)

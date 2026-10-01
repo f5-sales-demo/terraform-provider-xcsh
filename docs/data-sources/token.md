@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_token landing."
 
 # xcsh_token landing
 
-<a id="canonical-807087d4571bee22ab642d9c81935b55fbfa12fbb563a3245dda111f3a3e04a2"></a>
+<a id="canonical-2000130020133110-1113012332320202-2223121002312130-2001210311231111-3323332201023323-2311120322030210-1131312201010133-0322033200102202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a43789e8a93e168a2d293493a0fac597c787a2ee4ef47ba0eaebbc2081a9cecf"></a>
+<a id="canonical-2210031320213220-2221033201122022-0231022103102103-2200332230112113-3013201322023232-1032331013232200-3222322323300200-2001222130323033"></a>
 
-## xcsh_token — xcsh_token / 1b0d4da1c5a3 / 2
+## xcsh_token — xcsh_token / 220130112203 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages new token. Token object is used to manage site admission. User must generate token before
 provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 
-<a id="canonical-057aa478537dd9c277d470b1d1f07cb7c3cc48c03c2993b3a8b6b20b69546ade"></a>
+<a id="canonical-0011132222101320-1103133131213002-1313311013002301-3101330013302313-3003303010203000-0330022121032303-2220231223020023-1221111012223132"></a>
 
-## Prerequisites — xcsh_token / 1b0d4da1c5a3 / 3
+## Prerequisites — xcsh_token / 220130112203 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-f92b0a2734b555f7bd1351041835f4454a4a7a1c76e3fe4a5ad87702ff98b6a1"></a>
+<a id="canonical-3321022300220213-0310231111113313-2331010311010010-0120031133101011-1022102213220130-1312320333321022-1122312013130002-3333212023122201"></a>
 
-## Minimal configuration — xcsh_token / 1b0d4da1c5a3 / 4
+## Minimal configuration — xcsh_token / 220130112203 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "token_id" {
 }
 ```
 
-<a id="canonical-50fad55f8b8fc8d5579a31437f6557cf8c4b5dfded1934a72e1e0281c9eff561"></a>
+<a id="canonical-1100332231111133-2023203330203111-1113212203011003-1333121111133033-2030102311313331-3231012103102213-0232013200022001-3021323333111201"></a>
 
-## Root configuration — xcsh_token / 1b0d4da1c5a3 / 5
+## Root configuration — xcsh_token / 220130112203 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2df63e046f0e99e9e12a051271e5423370f06d4f269639a96e8dc9bd7877b0b3"></a>
+<a id="canonical-0231331203320010-1233003221213221-3201022200110102-1301321110020303-1300330012311033-0212211203212221-1232203130212331-1320131323002303"></a>
 
-## Next pages — xcsh_token / 1b0d4da1c5a3 / 6
+## Next pages — xcsh_token / 220130112203 / 6
 
-- [Property reference](../guides/data-sources--token--reference--group-001.md#canonical-722430f94f35b0d2e9c17930c6fab80d7093f146d88e1f310120119163a9f05a)
-- [Examples](../guides/data-sources--token--examples--group-001.md#canonical-48e55ab18f6d9f5efd96fc6d6200ed21e196eeca9c0b4d74d36b64f40d067778)
+- [Property reference](../guides/data-sources--token--reference--group-001.md#canonical-1302021003003321-1033031123003102-3221300113210300-3012332223200031-1300210333011012-3120203201330301-0001020001012101-1203222133001122)
+- [Examples](../guides/data-sources--token--examples--group-001.md#canonical-1020321111222301-2033123121331132-3331211233301231-1202000032310201-3201211232323022-2130002310311310-3103122312103310-0031001213131320)

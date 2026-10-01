@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_protocol_inspection 
 
 # xcsh_protocol_inspection reference
 
-<a id="canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb"></a>
+<a id="canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-60016d7e0d08e604ac5ad4bcfe25954f716674dba7ea1d896308a948b556f1a1"></a>
+<a id="canonical-1200000112311332-0031002032120010-2230112231102330-3332021121111033-1301121213103123-2213322201312021-1203002022211020-2311111233012201"></a>
 
-## Property reference — Property reference / 84df3bdea478 / 2
+## Property reference — Property reference / 313222101320 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 - Property reference
 
-<a id="canonical-3880dd701fbe0a45a6732376be5d225a5e97711dd13f0fa19ae47af6da7c98e7"></a>
+<a id="canonical-0320200031311300-0133233200221011-2212130302031312-2332113102021122-1132211313010131-3101033300332201-2122321013223312-3122133021203213"></a>
 
-## Direct properties — Property reference / 84df3bdea478 / 3
+## Direct properties — Property reference / 313222101320 / 3
 
-<a id="canonical-9339e1abd5f92aa550737ae7aecf9317bbea0e2688d7758cc4bc46261eaccc43"></a>
+<a id="canonical-2103032132012223-3111332102222211-1100130313223213-2232303321030113-2323322200320212-2020311313112030-3010233010120212-0132223030301003"></a>
 
-<a id="canonical-c73587899dc908393666ec516bbbef56619ccf6b71ad389a6c6f11a75b67096a"></a>
+<a id="canonical-3013031120132021-2131302100200321-0312121232301101-1223232332331112-1201213030331223-1301223103202122-1230123301012213-1123121300211222"></a>
 
-## action property — Property reference / 84df3bdea478 / 4
+## action property — Property reference / 313222101320 / 4
 
 Type: `"string"`. Computed.
 
@@ -68,11 +68,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-02740a947d83de36ef90b7bf3648c7f485b533d58390ae7d16d841b79741cc4f"></a>
+<a id="canonical-0002131000222110-1331200331320312-3233210023132333-0312102030133310-2011231103033111-2003210022321331-0112312010012313-2113100130301033"></a>
 
-<a id="canonical-8dea9d733913168dba98a4193a0920bc731142cfe5bb81cf6757fcb05fa12ac3"></a>
+<a id="canonical-2031322221311303-0321010301122031-2322212022100121-0322002102002330-1303010110023033-3211232320013033-1213111333302300-1133220102223003"></a>
 
-## annotations property — Property reference / 84df3bdea478 / 5
+## annotations property — Property reference / 313222101320 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -80,7 +80,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -109,11 +109,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-916494966b846c458eddcada4e7be8198f57529ec47ae8a331ae98133db28f47"></a>
+<a id="canonical-2101121021102112-1223201012301011-2032313130223122-1032132332200121-2033111311022132-3010132232202203-0301223221200103-0331230220331013"></a>
 
-<a id="canonical-838cd1ec2aeed08d892f9cbdeeb96499373e49a35ab33650396615c6a456d807"></a>
+<a id="canonical-2003203031013230-0222323231002031-2021023321302331-3232232112102121-0313033210212203-1122230303121100-0321121201113012-2210111231200013"></a>
 
-## description property — Property reference / 84df3bdea478 / 6
+## description property — Property reference / 313222101320 / 6
 
 Type: `"string"`. Computed.
 
@@ -161,25 +161,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f): complete subsection reference.
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133): complete subsection reference.
 
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328): complete subsection reference.
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220): complete subsection reference.
 
-<a id="canonical-cb9c9a6195ad3603368197e558566b232a09bdf0e546cb13e6ecf5dd13878844"></a>
+<a id="canonical-3023213021221201-2111223103120003-0312200121133211-1120111212230203-0222002123313300-3211101230230103-3212323033113131-0103201320201010"></a>
 
-<a id="canonical-f7c162a0e57f4c882b2411ce8e5e9b04356ef491b9613b09af9b74a4afc21dc1"></a>
+<a id="canonical-3313300112022200-3211133310302020-0223021001013032-2032113221230010-0311123233102101-2321120103230021-2233212313102210-2233300201313001"></a>
 
-## id property — Property reference / 84df3bdea478 / 7
+## ID property — Property reference / 313222101320 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-c05c7593991d9e8f66031b02e1830a13e0d140dfbc74aaee5a4a0deefad3358e"></a>
+<a id="canonical-3000113013112103-2121013121322033-1212000301230002-3201200300220103-3200310110003133-2330131022223232-1122102200313232-3322310303112032"></a>
 
-<a id="canonical-8bc2e03e37f8369b4cfd7e46bbb8367d13d08ceb1f612662e40408bcd2fb98c1"></a>
+<a id="canonical-2023300232000332-0313332003122123-1030333113321012-2323232003121331-0103310020303223-0133120102121202-3210001000202330-3102332321203001"></a>
 
-## labels property — Property reference / 84df3bdea478 / 8
+## labels property — Property reference / 313222101320 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -203,11 +203,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ae73257b2a25c1c46b3d4ec10d21100e0c877935ebcb3bf3987f1dca350294a2"></a>
+<a id="canonical-2232130302111323-0222021130013010-1223033110323001-0031020101000032-0030201313210311-3223302303233303-2120133301313022-0311000221102202"></a>
 
-<a id="canonical-e2a6f6750dcab05005543ed645747ecbc37cdd7fe9ee525fa5f2efa0a2257095"></a>
+<a id="canonical-3202221233121311-0031302223001100-0011111003323112-1011131013323023-3003133031311333-3221323211021133-2211330232332200-2202021113002111"></a>
 
-## name property — Property reference / 84df3bdea478 / 9
+## name property — Property reference / 313222101320 / 9
 
 Type: `"string"`. Required.
 
@@ -263,11 +263,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-46dadbe77e9b16e2f18de7756ce242337379cc2a89b107777ffa05e7d13538e7"></a>
+<a id="canonical-1012312231233213-1332212301123202-3301203132131311-1230320210020303-1303132130300222-2021230100131313-1333332200113213-3101031103203213"></a>
 
-<a id="canonical-7beead420b1fa8c1c8acfbe79a51fdabcb7dbccd01055b62555af54c1882bdb3"></a>
+<a id="canonical-1323323222311002-0023013322203001-3020223033233213-2122110133312223-3023133123303031-0001001111231202-1111112233111030-0120200223312303"></a>
 
-## namespace property — Property reference / 84df3bdea478 / 10
+## namespace property — Property reference / 313222101320 / 10
 
 Type: `"string"`. Required.
 
@@ -316,56 +316,56 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aac6a310cd012be78ead8b530ed4c9043ddb19b34df64314c745159982be2ca7"></a>
+<a id="canonical-2222301222030100-3031000102233213-2032223120231103-0032311030210010-0331312301212303-1031331210030110-3013101101112121-2002233202302213"></a>
 
-## All schema paths — Property reference / 84df3bdea478 / 11
+## All schema paths — Property reference / 313222101320 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `action` | [action](data-sources--protocol_inspection--reference--group-001.md#canonical-9339e1abd5f92aa550737ae7aecf9317bbea0e2688d7758cc4bc46261eaccc43) |
-| `annotations` | [annotations](data-sources--protocol_inspection--reference--group-001.md#canonical-02740a947d83de36ef90b7bf3648c7f485b533d58390ae7d16d841b79741cc4f) |
-| `description` | [description](data-sources--protocol_inspection--reference--group-001.md#canonical-916494966b846c458eddcada4e7be8198f57529ec47ae8a331ae98133db28f47) |
-| `enable_disable_compliance_checks` | [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-9776b6c59fdd47da17ba4d5a4354dd7368a84afbd225c6828bfdb1eed11c6c38) |
-| `enable_disable_compliance_checks.disable_compliance_checks` | [enable_disable_compliance_checks.disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2b3b24b15f8f6919341c349220236a9e834b401bc8dc5f6da1bca7761f2a6ac0) |
-| `enable_disable_compliance_checks.enable_compliance_checks` | [enable_disable_compliance_checks.enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-dba8b911d72a03bac1766992bbb3958fa4f31d581083a57a7a8ee3fdaa207fbb) |
-| `enable_disable_compliance_checks.enable_compliance_checks.name` | [enable_disable_compliance_checks.enable_compliance_checks.name](data-sources--protocol_inspection--reference--group-001.md#canonical-bf96d2a0bde954c7975899089c6fd4f67150b0ab16a7b7b675058b2d55a5ea2e) |
-| `enable_disable_compliance_checks.enable_compliance_checks.namespace` | [enable_disable_compliance_checks.enable_compliance_checks.namespace](data-sources--protocol_inspection--reference--group-001.md#canonical-ac615fc7293000851427e1839071645323f157eefbcd52db982a8fd5587aeb57) |
-| `enable_disable_compliance_checks.enable_compliance_checks.tenant` | [enable_disable_compliance_checks.enable_compliance_checks.tenant](data-sources--protocol_inspection--reference--group-001.md#canonical-b02289c16798b107f23c37edd9273452ef3a296815e46f49197d0f5b0a32b6d6) |
-| `enable_disable_signatures` | [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0d77b3bf7086f968b7ec8bef58c9d84adfff8f4ea1bf15fa66ea0f64140ddd41) |
-| `enable_disable_signatures.disable_signature` | [enable_disable_signatures.disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-168c03655b94656071623c591986df8fb3f056611aba69acb095b0a36946bb8d) |
-| `enable_disable_signatures.enable_signature` | [enable_disable_signatures.enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-aef16fd6bdcd9bd5492082fcdf5e69f09ed326092f42be2120c01b9f8001fe52) |
-| `id` | [id](data-sources--protocol_inspection--reference--group-001.md#canonical-cb9c9a6195ad3603368197e558566b232a09bdf0e546cb13e6ecf5dd13878844) |
-| `labels` | [labels](data-sources--protocol_inspection--reference--group-001.md#canonical-c05c7593991d9e8f66031b02e1830a13e0d140dfbc74aaee5a4a0deefad3358e) |
-| `name` | [name](data-sources--protocol_inspection--reference--group-001.md#canonical-ae73257b2a25c1c46b3d4ec10d21100e0c877935ebcb3bf3987f1dca350294a2) |
-| `namespace` | [namespace](data-sources--protocol_inspection--reference--group-001.md#canonical-46dadbe77e9b16e2f18de7756ce242337379cc2a89b107777ffa05e7d13538e7) |
+| `action` | [action](data-sources--protocol_inspection--reference--group-001.md#canonical-2103032132012223-3111332102222211-1100130313223213-2232303321030113-2323322200320212-2020311313112030-3010233010120212-0132223030301003) |
+| `annotations` | [annotations](data-sources--protocol_inspection--reference--group-001.md#canonical-0002131000222110-1331200331320312-3233210023132333-0312102030133310-2011231103033111-2003210022321331-0112312010012313-2113100130301033) |
+| `description` | [description](data-sources--protocol_inspection--reference--group-001.md#canonical-2101121021102112-1223201012301011-2032313130223122-1032132332200121-2033111311022132-3010132232202203-0301223221200103-0331230220331013) |
+| `enable_disable_compliance_checks` | [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2113131223123011-2133313110133122-0113232210311122-1003111031311303-1220222010223323-3102021130122002-2023333123013232-3101013012300320) |
+| `enable_disable_compliance_checks.disable_compliance_checks` | [enable_disable_compliance_checks.disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-0223032302102301-1133203312210121-0310013003102102-0200020312222132-2003102310000123-3020313011331231-2201233022131312-0133022212223000) |
+| `enable_disable_compliance_checks.enable_compliance_checks` | [enable_disable_compliance_checks.enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-3123222023210101-3113022200032322-3001131212212102-2323230321112033-2210330301311120-0100200322111322-1322203232033331-2222020013332323) |
+| `enable_disable_compliance_checks.enable_compliance_checks.name` | [enable_disable_compliance_checks.enable_compliance_checks.name](data-sources--protocol_inspection--reference--group-001.md#canonical-2333211231022200-2331322111103013-2113112021210020-2130123331103312-1301110023002223-0112221323132312-1311001120230231-1111221132220232) |
+| `enable_disable_compliance_checks.enable_compliance_checks.namespace` | [enable_disable_compliance_checks.enable_compliance_checks.namespace](data-sources--protocol_inspection--reference--group-001.md#canonical-2230120111333013-0221030000002011-0110021332012003-2100130112101103-0203330111133232-3323303111023123-2120022220333111-1120132232231113) |
+| `enable_disable_compliance_checks.enable_compliance_checks.tenant` | [enable_disable_compliance_checks.enable_compliance_checks.tenant](data-sources--protocol_inspection--reference--group-001.md#canonical-2300020220213001-1213212023010013-3302033003133231-3121021303101102-3233032202211220-0111321012331021-0121133100331123-0022030223123112) |
+| `enable_disable_signatures` | [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0031131323032333-1300201233211220-2313323020233233-1120302131201022-3133333320331032-2201233301113322-1212322200331210-0110003131311001) |
+| `enable_disable_signatures.disable_signature` | [enable_disable_signatures.disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-0112203000031211-1123211012111200-1301120203301121-0121201231332033-2303330011121201-0122232212212230-2300211123002203-1221101223232031) |
+| `enable_disable_signatures.enable_signature` | [enable_disable_signatures.enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-2232330112333112-2331303121233111-1021020020023330-3133113212213300-2132310302120021-0233100223320201-0200300001232133-2000000133321102) |
+| `id` | [id](data-sources--protocol_inspection--reference--group-001.md#canonical-3023213021221201-2111223103120003-0312200121133211-1120111212230203-0222002123313300-3211101230230103-3212323033113131-0103201320201010) |
+| `labels` | [labels](data-sources--protocol_inspection--reference--group-001.md#canonical-3000113013112103-2121013121322033-1212000301230002-3201200300220103-3200310110003133-2330131022223232-1122102200313232-3322310303112032) |
+| `name` | [name](data-sources--protocol_inspection--reference--group-001.md#canonical-2232130302111323-0222021130013010-1223033110323001-0031020101000032-0030201313210311-3223302303233303-2120133301313022-0311000221102202) |
+| `namespace` | [namespace](data-sources--protocol_inspection--reference--group-001.md#canonical-1012312231233213-1332212301123202-3301203132131311-1230320210020303-1303132130300222-2021230100131313-1333332200113213-3101031103203213) |
 
-<a id="canonical-e80f769c54f23508958f2f8ba2e0b0fba4c11f52f88ba19c543e558b9f7c1162"></a>
+<a id="canonical-3220003313122130-1110330203110020-2111203302332023-2202320023003323-2210300101331102-3320202322012130-1110033211112023-2133133001011202"></a>
 
-## Next pages — Property reference / 84df3bdea478 / 12
+## Next pages — Property reference / 313222101320 / 12
 
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f)
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133)
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f"></a>
+<a id="canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47647b6e94088e1d240d9814fe2005435775131afec377ee8d35f17bab21f09a"></a>
+<a id="canonical-1013121013231232-2110002020320131-0210003121200110-3332020000111003-1113131101030122-3332300313133232-2031031133011323-2223020133002122"></a>
 
-## enable_disable_compliance_checks — enable_disable_compliance_checks / 04a629745b5b / 2
+## enable_disable_compliance_checks — enable_disable_compliance_checks / 131011231123 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
 - enable_disable_compliance_checks
 
-<a id="canonical-9776b6c59fdd47da17ba4d5a4354dd7368a84afbd225c6828bfdb1eed11c6c38"></a>
+<a id="canonical-2113131223123011-2133313110133122-0113232210311122-1003111031311303-1220222010223323-3102021130122002-2023333123013232-3101013012300320"></a>
 
 Type: `"single"`. Computed.
 
@@ -385,41 +385,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d230dd74974bea1891e5ee58aca94c4163760ec39e029624ef39fcce3e851985"></a>
+<a id="canonical-3102030031311310-2113102332220120-2101321132321120-2230222110301001-1203131200323003-2132000221120210-3233032133303032-0332201101212011"></a>
 
-## Direct properties — enable_disable_compliance_checks / 04a629745b5b / 3
+## Direct properties — enable_disable_compliance_checks / 131011231123 / 3
 
-- [disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-ab66187914f1fa7c45e1b001ce91a88b3dd71eb8a9308c53a403a03e638fdd0c): complete subsection reference.
+- [disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2223121201201321-0110330133221330-1011320123000001-3032210122202023-0331311301322320-2221030020301103-2210000322000332-1203203331310030): complete subsection reference.
 
-- [enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-851ea412956ebddf36eb47a0999010f5ed8b0cd2af149e5368e2596aee5d0f76): complete subsection reference.
+- [enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2011013222100102-2111123223313133-0312322310132200-2121210001003311-3231202300303102-2233011021321103-1220320211211222-3232113100331312): complete subsection reference.
 
-<a id="canonical-c31eaf14c995d72cec7ef86253b4f0580aeb6a1980a2f7973f736cead5225676"></a>
+<a id="canonical-3003013222330110-3021211131130230-3230133233201202-1103231033001120-0022322312220121-2000220233132113-0333130312303222-3111020211121312"></a>
 
-## Next pages — enable_disable_compliance_checks / 04a629745b5b / 4
+## Next pages — enable_disable_compliance_checks / 131011231123 / 4
 
-- [enable_disable_compliance_checks.disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-ab66187914f1fa7c45e1b001ce91a88b3dd71eb8a9308c53a403a03e638fdd0c)
-- [enable_disable_compliance_checks.enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-851ea412956ebddf36eb47a0999010f5ed8b0cd2af149e5368e2596aee5d0f76)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_compliance_checks.disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2223121201201321-0110330133221330-1011320123000001-3032210122202023-0331311301322320-2221030020301103-2210000322000332-1203203331310030)
+- [enable_disable_compliance_checks.enable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-2011013222100102-2111123223313133-0312322310132200-2121210001003311-3231202300303102-2233011021321103-1220320211211222-3232113100331312)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-ab66187914f1fa7c45e1b001ce91a88b3dd71eb8a9308c53a403a03e638fdd0c"></a>
+<a id="canonical-2223121201201321-0110330133221330-1011320123000001-3032210122202023-0331311301322320-2221030020301103-2210000322000332-1203203331310030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8a021a3ffa3651a05518dc630ec82171c5dcaf768e9b4dee08ce7977645f32a3"></a>
+<a id="canonical-2022000201220333-3322031211012200-1111012031301203-0032302002011301-3011313022331312-2032212310313232-0020303213211313-1210113303022203"></a>
 
-## enable_disable_compliance_checks.disable_compliance_checks — enable_disable_compliance_checks.disable_compliance_checks / 3774bc622bb9 / 2
+## enable_disable_compliance_checks.disable_compliance_checks — disable_compliance_checks / 120202232321 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133)
 - enable_disable_compliance_checks.disable_compliance_checks
 
-<a id="canonical-2b3b24b15f8f6919341c349220236a9e834b401bc8dc5f6da1bca7761f2a6ac0"></a>
+<a id="canonical-0223032302102301-1133203312210121-0310013003102102-0200020312222132-2003102310000123-3020313011331231-2201233022131312-0133022212223000"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -442,37 +442,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-742b930c00617c561a3ecf0f82341d594ed3eb9860589424f22f1f6dca9daa5a"></a>
+<a id="canonical-1310022321030030-0000120113301112-0122033230330033-2002031001311121-1032310332232120-1200112021100210-3302023301331231-3022213122221122"></a>
 
-## Direct properties — enable_disable_compliance_checks.disable_compliance_checks / 3774bc622bb9 / 3
+## Direct properties — disable_compliance_checks / 120202232321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-676d0b4a4f7eb482183454ed6f004fbc498f95ff209d7917b51d6a3e1be9cffc"></a>
+<a id="canonical-1213123100231022-1033133223102002-0120031011103231-1233000010332330-1021203321113333-0200213113210113-2311013112220332-0123322130333330"></a>
 
-## Next pages — enable_disable_compliance_checks.disable_compliance_checks / 3774bc622bb9 / 4
+## Next pages — disable_compliance_checks / 120202232321 / 4
 
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-851ea412956ebddf36eb47a0999010f5ed8b0cd2af149e5368e2596aee5d0f76"></a>
+<a id="canonical-2011013222100102-2111123223313133-0312322310132200-2121210001003311-3231202300303102-2233011021321103-1220320211211222-3232113100331312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b2377b98827b70839d86c5a92fd87396bb71df81682c34cf29b55115dae6fb47"></a>
+<a id="canonical-2302031313232120-2002132313002003-2131201230112221-0233312013032112-2323130131332001-1220023003103033-0221231111010111-3122321233231013"></a>
 
-## enable_disable_compliance_checks.enable_compliance_checks — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 2
+## enable_disable_compliance_checks.enable_compliance_checks — enable_compliance_checks / 200122113033 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133)
 - enable_disable_compliance_checks.enable_compliance_checks
 
-<a id="canonical-dba8b911d72a03bac1766992bbb3958fa4f31d581083a57a7a8ee3fdaa207fbb"></a>
+<a id="canonical-3123222023210101-3113022200032322-3001131212212102-2323230321112033-2210330301311120-0100200322111322-1322203232033331-2222020013332323"></a>
 
 Type: `"single"`. Computed.
 
@@ -497,15 +497,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0be18b7ba61baa6c3f45aa6eaf6ce1c4ed221a8f3199a280d016ba76e4a34602"></a>
+<a id="canonical-0023320120231323-2212012322221230-0333101122221232-2233123032013010-3231020201222033-0301212122022000-3100011223221312-3210220310120002"></a>
 
-## Direct properties — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 3
+## Direct properties — enable_compliance_checks / 200122113033 / 3
 
-<a id="canonical-bf96d2a0bde954c7975899089c6fd4f67150b0ab16a7b7b675058b2d55a5ea2e"></a>
+<a id="canonical-2333211231022200-2331322111103013-2113112021210020-2130123331103312-1301110023002223-0112221323132312-1311001120230231-1111221132220232"></a>
 
-<a id="canonical-063f4e76f496384d0dfc44c0085244451177cfb32767507107a4a52706c6e46d"></a>
+<a id="canonical-0012033310321312-3310211203201031-0031333010103000-0020110210101011-0101131330332303-0213121311001301-0013221022110213-0012301232101231"></a>
 
-## name property — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 4
+## name property — enable_compliance_checks / 200122113033 / 4
 
 Type: `"string"`. Computed.
 
@@ -558,11 +558,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac615fc7293000851427e1839071645323f157eefbcd52db982a8fd5587aeb57"></a>
+<a id="canonical-2230120111333013-0221030000002011-0110021332012003-2100130112101103-0203330111133232-3323303111023123-2120022220333111-1120132232231113"></a>
 
-<a id="canonical-ca1aee134a02eadac5ffe5a03ffaa6abae58c1e82caabea9cbd6118b824119ed"></a>
+<a id="canonical-3022012232320103-1022000232223122-3011333332112200-0333332222122223-2232112030013220-0230222223322221-3023311201012023-2002100101213231"></a>
 
-## namespace property — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 5
+## namespace property — enable_compliance_checks / 200122113033 / 5
 
 Type: `"string"`. Computed.
 
@@ -622,11 +622,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b02289c16798b107f23c37edd9273452ef3a296815e46f49197d0f5b0a32b6d6"></a>
+<a id="canonical-2300020220213001-1213212023010013-3302033003133231-3121021303101102-3233032202211220-0111321012331021-0121133100331123-0022030223123112"></a>
 
-<a id="canonical-eb7b14a0ae5e19cd0cc6dc2a9b00522ba23c603dd91f9a1ee358ad1c6d8a4e9a"></a>
+<a id="canonical-3223132301102200-2232113201213031-0030301231300222-2123000011020223-2202033012000331-3121013321220132-3203112022310130-1231202210322122"></a>
 
-## tenant property — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 6
+## tenant property — enable_compliance_checks / 200122113033 / 6
 
 Type: `"string"`. Computed.
 
@@ -672,30 +672,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b85780581d23ccc94dcd39963a8515068799278b7a0b3db898b467b4b59a56ef"></a>
+<a id="canonical-2320111320001120-0131020330303021-1031303103212112-0322201101110012-2013212102132023-1322002303312320-2120231012132310-2311212211123233"></a>
 
-## Next pages — enable_disable_compliance_checks.enable_compliance_checks / 79ba4881a5cf / 7
+## Next pages — enable_compliance_checks / 200122113033 / 7
 
-- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-6b239633331aad186c765c0999395a86d4499fc49ef59e4f24dad20c3bab205f)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_compliance_checks](data-sources--protocol_inspection--reference--group-001.md#canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328"></a>
+<a id="canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ac396637ec66840e4b237cedf71c287f51932899c22bfdebeead6c676f37cc9a"></a>
+<a id="canonical-2230032112120313-3230121220100032-1023020313303231-3313013002201333-1101210302202121-3002022333313223-3232223112301213-1233031330302122"></a>
 
-## enable_disable_signatures — enable_disable_signatures / a023113079dc / 2
+## enable_disable_signatures — enable_disable_signatures / 030013213130 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
 - enable_disable_signatures
 
-<a id="canonical-0d77b3bf7086f968b7ec8bef58c9d84adfff8f4ea1bf15fa66ea0f64140ddd41"></a>
+<a id="canonical-0031131323032333-1300201233211220-2313323020233233-1120302131201022-3133333320331032-2201233301113322-1212322200331210-0110003131311001"></a>
 
 Type: `"single"`. Computed.
 
@@ -719,41 +719,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7603cc25a1670d543f0350195c704569137c5f0d4ba61c8d050b77c904a101f2"></a>
+<a id="canonical-1312000330300211-2201121300311110-0333000311000121-1130130010111221-0103133011330031-1023221201302031-0011002313133021-0010220100013302"></a>
 
-## Direct properties — enable_disable_signatures / a023113079dc / 3
+## Direct properties — enable_disable_signatures / 030013213130 / 3
 
-- [disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-71e644301628c27e6998bce41008b697d628379d0d52569a3f21106f074b5560): complete subsection reference.
+- [disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-1301321210100300-0112022030021332-1221212023303210-0100002023122113-3112022003132131-0031110211122122-0333020101001233-0013102311111200): complete subsection reference.
 
-- [enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-f4c69e84220f66c8f1db2e10bd2a3257e66dd93b8c7def264401079b00727ff9): complete subsection reference.
+- [enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-3310301221322010-0202003312123020-3301312302320100-2331022203021113-3212123131210323-2030133132330212-1010000100132123-0000130213333321): complete subsection reference.
 
-<a id="canonical-8564fefb009277fda2816ccad5423ed03e21d90ab6258824f0a22fc506f8ec95"></a>
+<a id="canonical-2011121033323323-0000210213133331-2202200112303022-3111100203323100-0332020131210022-2312021120200210-3300220202333011-0012332032302111"></a>
 
-## Next pages — enable_disable_signatures / a023113079dc / 4
+## Next pages — enable_disable_signatures / 030013213130 / 4
 
-- [enable_disable_signatures.disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-71e644301628c27e6998bce41008b697d628379d0d52569a3f21106f074b5560)
-- [enable_disable_signatures.enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-f4c69e84220f66c8f1db2e10bd2a3257e66dd93b8c7def264401079b00727ff9)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_signatures.disable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-1301321210100300-0112022030021332-1221212023303210-0100002023122113-3112022003132131-0031110211122122-0333020101001233-0013102311111200)
+- [enable_disable_signatures.enable_signature](data-sources--protocol_inspection--reference--group-001.md#canonical-3310301221322010-0202003312123020-3301312302320100-2331022203021113-3212123131210323-2030133132330212-1010000100132123-0000130213333321)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-71e644301628c27e6998bce41008b697d628379d0d52569a3f21106f074b5560"></a>
+<a id="canonical-1301321210100300-0112022030021332-1221212023303210-0100002023122113-3112022003132131-0031110211122122-0333020101001233-0013102311111200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8de80aa72201365b1f4d5fa2ad82096e7393fcf83a545631cc31e9dcff9f507e"></a>
+<a id="canonical-2031322000222213-0202000103121123-0133103111332202-2231200200211232-1303210333303320-0322111011120301-3030030132213130-3333213311001332"></a>
 
-## enable_disable_signatures.disable_signature — enable_disable_signatures.disable_signature / 65624c37eff1 / 2
+## enable_disable_signatures.disable_signature — disable_signature / 031332333301 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220)
 - enable_disable_signatures.disable_signature
 
-<a id="canonical-168c03655b94656071623c591986df8fb3f056611aba69acb095b0a36946bb8d"></a>
+<a id="canonical-0112203000031211-1123211012111200-1301120203301121-0121201231332033-2303330011121201-0122232212212230-2300211123002203-1221101223232031"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -776,37 +776,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5700f4f7b26dbaf490938e682d6ac588b0aa9663e5cd4cd6108a8b8fe052d9aa"></a>
+<a id="canonical-1113000033103313-2302123123223310-2100210320321220-0231122230112020-2300222221121203-3211303110303112-0100202220232033-3200110231212222"></a>
 
-## Direct properties — enable_disable_signatures.disable_signature / 65624c37eff1 / 3
+## Direct properties — disable_signature / 031332333301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-40e68a56682267de2476dafd1ac487b05cc4101a9105b7ba1bea70f7187522bc"></a>
+<a id="canonical-1000321220221112-1220020212133132-0210131231223331-0122301020132300-1130301001000122-2101001123132322-0123322213003313-0120131102022330"></a>
 
-## Next pages — enable_disable_signatures.disable_signature / 65624c37eff1 / 4
+## Next pages — disable_signature / 031332333301 / 4
 
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
 
-<a id="canonical-f4c69e84220f66c8f1db2e10bd2a3257e66dd93b8c7def264401079b00727ff9"></a>
+<a id="canonical-3310301221322010-0202003312123020-3301312302320100-2331022203021113-3212123131210323-2030133132330212-1010000100132123-0000130213333321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4432b9fb2965cd8ea43577b3299634288edd4e84596fd552a3628bbc3956ac0e"></a>
+<a id="canonical-1010030223213323-0221121130312032-2210031113132303-0221211203100220-2032313110322010-1121123331111102-2203120220232330-0321111222300032"></a>
 
-## enable_disable_signatures.enable_signature — enable_disable_signatures.enable_signature / 98bc8c42c1e9 / 2
+## enable_disable_signatures.enable_signature — enable_signature / 100230013221 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
-- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)
+- [Property reference](data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220)
 - enable_disable_signatures.enable_signature
 
-<a id="canonical-aef16fd6bdcd9bd5492082fcdf5e69f09ed326092f42be2120c01b9f8001fe52"></a>
+<a id="canonical-2232330112333112-2331303121233111-1021020020023330-3133113212213300-2132310302120021-0233100223320201-0200300001232133-2000000133321102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -829,15 +829,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d17f21f482166f31b6f581abc3553ccca568a4438ac2c4c988f2fb3819e33176"></a>
+<a id="canonical-3101133302013310-2002011212330301-2312331120012223-3003111103303030-2211122022101003-2022300230103021-2020330233230320-0121320303011312"></a>
 
-## Direct properties — enable_disable_signatures.enable_signature / 98bc8c42c1e9 / 3
+## Direct properties — enable_signature / 100230013221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-66c1ff13aff917e8bedd0c8666600ae8fb9ad14b28a9b32f644e6b2f8427b339"></a>
+<a id="canonical-1212300133330103-2233332101133220-2332313100302012-1212120000223220-3323212231011023-0220222123030233-1210103212230233-2010021323030321"></a>
 
-## Next pages — enable_disable_signatures.enable_signature / 98bc8c42c1e9 / 4
+## Next pages — enable_signature / 100230013221 / 4
 
-- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-12bd750e4ba08c97d1fd09b490943d2855cc4b18a9ac2b25bf3c9a2c6d273328)
-- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634)
+- [enable_disable_signatures](data-sources--protocol_inspection--reference--group-001.md#canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220)
+- [xcsh_protocol_inspection](../data-sources/protocol_inspection.md#canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310)

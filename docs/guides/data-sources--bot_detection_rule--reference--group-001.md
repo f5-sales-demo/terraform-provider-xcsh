@@ -6,152 +6,152 @@ description: "Complete grouped canonical reference for xcsh_bot_detection_rule r
 
 # xcsh_bot_detection_rule reference
 
-<a id="canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277"></a>
+<a id="canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eaba69164f25d63d98e7feed001d2f80c579390e870d95532e2ed035d2eba06f"></a>
+<a id="canonical-3222232212210112-1033021131120331-2120321333323231-0000013102332000-3011132103210032-2013003121111103-0232023231000311-3102322322001233"></a>
 
-## Property reference — Property reference / a29d0b0383e4 / 2
+## Property reference — Property reference / 000320033210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 - Property reference
 
-<a id="canonical-c5c7019a8c48e83ef411f50d08f65e3e01baaa3cc69d043b2ef221098eeca5b6"></a>
+<a id="canonical-3011301300012122-2030102032200332-3310010133110031-0020331211320332-0001232222220330-3012213100100323-0232330202010021-2032323022112312"></a>
 
-## Direct properties — Property reference / a29d0b0383e4 / 3
+## Direct properties — Property reference / 000320033210 / 3
 
-<a id="canonical-ad3a26277cb67e778a2d28c38ba7eebc88fe7b830ae75ac9041f58c7ddbaafb7"></a>
+<a id="canonical-2231032202120213-1330231213321313-2022023102203003-2023221332322330-2020333213232003-0022321311223021-0010013311203013-3131232222332313"></a>
 
-<a id="canonical-0fc0db02446204d70d19f62049e189f0af5c6ef95b9f1ded74aac475729c96f8"></a>
+<a id="canonical-0033300031230002-1010120200103113-0031012133120200-1021320120213300-2233113012323321-1123213301313231-1310222230101311-1302213021123320"></a>
 
-## annotations property — Property reference / a29d0b0383e4 / 4
+## annotations property — Property reference / 000320033210 / 4
 
 Type: `["map", "string"]`. Computed.
 
 Annotations.
 
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9): complete subsection reference.
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221): complete subsection reference.
 
-<a id="canonical-136f9cbc7063bebc243b1a454647b389888d9b36c19bb7cb3a459f1223240302"></a>
+<a id="canonical-0103123321302330-1300120323322330-0210032301221011-1012101323032021-2020203121230312-3001212323133023-0322101121330102-0203021000030002"></a>
 
-<a id="canonical-0317f78d2b1989f38e1b7231f1e9da58ec7f17683ae521d65335d4bfc49cf70f"></a>
+<a id="canonical-0003011333132031-0223012120213303-2032012313020301-3301322131221120-3230133301131220-0322321102013112-1103031131102333-3010213033130033"></a>
 
-## classification property — Property reference / a29d0b0383e4 / 5
+## classification property — Property reference / 000320033210 / 5
 
 Type: `["list", "string"]`. Computed.
 
 Classification. Classification or category data
 
-<a id="canonical-b40af7e508b5eaef164c0c9ad37eca1dfda5648071663abdcceff423751e11ba"></a>
+<a id="canonical-2310002233133211-0020231132223233-0112103000302122-3103133230220131-3331221112102000-1301121203222331-3030323333100203-1311013201012322"></a>
 
-<a id="canonical-c69e5b01ef36a2838b0e5a9cf6d419fee365307ccd7f1d81264343650f81c949"></a>
+<a id="canonical-3012213211230001-3233031222022003-2023003211222130-3312311001213332-3203121103001330-3031133301312001-0212100310031211-0033200130211021"></a>
 
-## cluster_groups property — Property reference / a29d0b0383e4 / 6
+## cluster_groups property — Property reference / 000320033210 / 6
 
 Type: `["list", "string"]`. Computed.
 
 Cluster Groups. Cluster or grouping configuration
 
-<a id="canonical-8bc37f8e57b4b40e1ebd528d601f7cf76a4e71a41e4a7b266bb0692ad7d0ae9c"></a>
+<a id="canonical-2023300313332032-1113231023100032-0132233111022031-1200013313303313-1222103213012210-0132102213230212-1223230012210222-3113310022322130"></a>
 
-<a id="canonical-8a49957fa46e5576648587034fb739efbcbc1e89f02e4e317f427aa1c7a639f3"></a>
+<a id="canonical-2022102121111333-2210123211111312-1210201120130003-1033231303213233-2330233001322021-3300023210320301-1333100213222201-3013221203213303"></a>
 
-## created_at property — Property reference / a29d0b0383e4 / 7
+## created_at property — Property reference / 000320033210 / 7
 
 Type: `"string"`. Computed.
 
 Created At. Created at as per SAPI's database.
 
-<a id="canonical-2e2d4ef9c6ca1945ed68d91c6cacd87551310a2471af5bf1d8562af523d18a8d"></a>
+<a id="canonical-0232023110323321-3012302201211011-3231122031210130-1230223031201311-1101030100220210-1301223311233301-3120111202223311-0203310120222031"></a>
 
-<a id="canonical-c5411ab1acc9bb151c860e909bed2fc7c243f4b6da094f391d45cb3b035ed9f6"></a>
+<a id="canonical-3011100101222301-2230302123230111-0130201200322100-2123323102333013-3002100333102312-3122002110330321-0131101130230323-0003113231213312"></a>
 
-## description property — Property reference / a29d0b0383e4 / 8
+## description property — Property reference / 000320033210 / 8
 
 Type: `"string"`. Computed.
 
 Description.
 
-<a id="canonical-05e9f270791483e2210b7674506fccbedfefd2e1a6833e8728540f0c38a90842"></a>
+<a id="canonical-0011322133021300-1321011020033202-0201002313121310-1100123330302332-3133323331023201-2212200303322013-0220111000330030-0320222100201002"></a>
 
-<a id="canonical-24a481ab85343054fc6e6bf7a390b268ac0c1e10b7f62bae281e0bb2d614d4e7"></a>
+<a id="canonical-0210221020012223-2011031003001110-3330123212233313-2203210023021220-2230003001320100-2313331202232232-0220013200232302-3112011031103213"></a>
 
-## id property — Property reference / a29d0b0383e4 / 9
+## ID property — Property reference / 000320033210 / 9
 
 Type: `"string"`. Computed.
 
 Unique identifier.
 
-<a id="canonical-89883f02069c87f08857ce7712b77c233e7aa82d64d1767cb0776843c7d646a7"></a>
+<a id="canonical-2021202003330002-0012213020133300-2020111330321313-0102231313300203-0332132222200231-1210310113121330-2300131312201003-3013311210122213"></a>
 
-<a id="canonical-cf513260e5ee14666493f151475d820a1bf617c5afc4b0e8dd2630d568d60327"></a>
+<a id="canonical-3033110103021200-3211323201101212-1210210333011101-1013113120020022-0123331201133011-2233301023003220-3131021203003111-1220311200030213"></a>
 
-## labels property — Property reference / a29d0b0383e4 / 10
+## labels property — Property reference / 000320033210 / 10
 
 Type: `["map", "string"]`. Computed.
 
 Labels.
 
-<a id="canonical-de69a02a5a630a96f88966d4d4e2874d0aa8d998cd75e35091f0fdce7e3c50c5"></a>
+<a id="canonical-3132122122000222-1122120300222112-3320202112123110-3110320220131031-0022222031212120-3031131132031100-2101330033313032-1332033011003011"></a>
 
-<a id="canonical-88c61773e1396d194b33de41b8ca9f96c1dbfba2e0d023618f71dc04066a5e7c"></a>
+<a id="canonical-2020301201131303-3201032112310121-1023030331321001-2320302221332112-3001312333232202-3200310002031201-2033130131300010-0012122211321330"></a>
 
-## last_modified_at property — Property reference / a29d0b0383e4 / 11
+## last_modified_at property — Property reference / 000320033210 / 11
 
 Type: `"string"`. Computed.
 
 Last modified at as per SAPI's database.
 
-<a id="canonical-0f374ad1c4bb6b5b091ceae53f7c0c5e2d14a2fa9079dbc024996ebb19c98622"></a>
+<a id="canonical-0033031310223101-3010232312231123-0021013032223211-0333133000301132-0231011022023322-2100132131233000-0210212112322323-0121302120120202"></a>
 
-<a id="canonical-e91b674725949b6c20cac32883bd58498d4c0b7de87ce5a6d0da9bbb826a713f"></a>
+<a id="canonical-3221012312131013-0211211021231230-0200302230030220-2003233111201021-2031103000231331-3220133032112212-3100312221232323-2002122213010333"></a>
 
-## last_modified_by property — Property reference / a29d0b0383e4 / 12
+## last_modified_by property — Property reference / 000320033210 / 12
 
 Type: `"string"`. Computed.
 
 Last Modified By as per SAPI's database.
 
-<a id="canonical-977472a081c3b2c8a53d87f594d97bad62ae982c6ebecae602c93b232c3ed934"></a>
+<a id="canonical-2113131013022200-2001300323023020-2211033120133311-2110312113232231-1202223221200230-1232233230223212-0002302103230203-0230033231210310"></a>
 
-<a id="canonical-53c08b7828897a47dc90b5bd9122a7b61f6b94c37056ca6e4fc8092243a6d963"></a>
+<a id="canonical-1103300020231320-0220202113221013-3130210023112331-2101020222132312-0133122321103003-1300111230221232-1033302000210202-1003221231211203"></a>
 
-## name property — Property reference / a29d0b0383e4 / 13
+## name property — Property reference / 000320033210 / 13
 
 Type: `"string"`. Required.
 
 Name of the BotDetectionRule to look up.
 
-<a id="canonical-5e7dbda09f1ed11ec1602de3546cac87203a0a9faf98fcd52c223ebc7d08e831"></a>
+<a id="canonical-1132133123312200-2133013231010132-3001120002313203-1110123022302013-0200032200222133-2233212033303111-0230020203322330-1331002032200301"></a>
 
-<a id="canonical-fb7438ab26ab8de1f0eda4c1147ecbb9d9b596c7de5839f8aad67d3399b1bc77"></a>
+<a id="canonical-3323131003202223-0212222320313201-3300323122103001-0110133230232321-3121231121123013-3132112003213320-2222311213310303-2121230123301313"></a>
 
-## namespace property — Property reference / a29d0b0383e4 / 14
+## namespace property — Property reference / 000320033210 / 14
 
 Type: `"string"`. Required.
 
 Namespace of the BotDetectionRule.
 
-<a id="canonical-d2759acdd0ded9f9db4de9d1d874f94439befff78f672b28a378dfd48b804673"></a>
+<a id="canonical-3102131121223031-3100313231213321-3123103132213101-3120131033211010-0321233233333313-2033121302230220-2203132031333110-2023200010121303"></a>
 
-<a id="canonical-aa19329f32f37999cc8ab01f7c23fe429c129f32a0bb155875314229ad1f0328"></a>
+<a id="canonical-2222012103022133-0302330313212121-3030202223000133-1330020333321002-2130010221330302-2200232301111120-1311030110020221-2231013300030220"></a>
 
-## rule_name property — Property reference / a29d0b0383e4 / 15
+## rule_name property — Property reference / 000320033210 / 15
 
 Type: `"string"`. Computed.
 
 Rule Name. Human-readable name for the resource
 
-<a id="canonical-ec06a7a554290fb789e0b5fbabdc034b8590cf99bfcae64dab0e905b9238b184"></a>
+<a id="canonical-3230001222132211-1110022100332313-2021320023113323-2223313000031023-2011210030332121-2333302232121031-2223003221001123-2102032023012010"></a>
 
-<a id="canonical-df54acd4df08ca67b13bba9e403619ea09f5669a166f1bb6fdac4ea4896179d3"></a>
+<a id="canonical-3133111022303110-3133002030221213-2301032323222132-1000031201213222-0021331112122122-0112123301232312-3331223010322210-2021120113213103"></a>
 
-## rule_type property — Property reference / a29d0b0383e4 / 16
+## rule_type property — Property reference / 000320033210 / 16
 
 Type: `"string"`. Computed.
 
@@ -162,11 +162,11 @@ Bot Detection Rule Type. Possible values are \`BOT\_DETECTION\_RULE\_TYPE\_UNKNO
 \`BOT\_DETECTION\_RULE\_TYPE\_CONTROL\_BLOCKING\`. Defaults to
 \`BOT\_DETECTION\_RULE\_TYPE\_UNKNOWN\`.
 
-<a id="canonical-0583b3a6ed1bf6d1daf2b18bd08023fa4d6b9e68951741d8ae4fd0309fda28c5"></a>
+<a id="canonical-0011200323032212-3231012333123101-3122330223012023-3100200002033322-1031122321321220-2111011310013120-2232103331000300-2133312202203011"></a>
 
-<a id="canonical-05dcc679a1890240ddcf8488a97f7efe553ca2d7eda4927f85c5221e4b3d2a61"></a>
+<a id="canonical-0011313030121321-2201202100021000-3131303320102020-2221133313323332-1111033022023113-3231221021021333-2011301102020132-1023033102221201"></a>
 
-## traffic_type property — Property reference / a29d0b0383e4 / 17
+## traffic_type property — Property reference / 000320033210 / 17
 
 Type: `"string"`. Computed.
 
@@ -175,113 +175,113 @@ or Mobile). Only web traffic, including browser-based traffic from mobile device
 this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense
 SDK are routed.. Possible values are \`WEB\`, \`MOBILE\`. Defaults to \`WEB\`.
 
-<a id="canonical-6ad2466c651587c7a58c34f76ad264aab0e04097d773a66a6516cc69fd86624d"></a>
+<a id="canonical-1222310210121230-1211011120133013-2211203003103313-1222310212102222-2300320010002113-3113130322121222-1211011230301221-3331201212021031"></a>
 
-<a id="canonical-8d699084afc48526debef2073b831db77f3143987e2d3ca36661cd9d9d6beaed"></a>
+<a id="canonical-2031122121002010-2233301020110212-3132233233020013-0323200301312313-1333030110032120-1332023103302203-1212120130312131-2131122332223231"></a>
 
-## version property — Property reference / a29d0b0383e4 / 18
+## version property — Property reference / 000320033210 / 18
 
 Type: `"number"`. Computed.
 
 Version. Version number or identifier
 
-<a id="canonical-2ea0c02418ca4e578d8715f650434dd2872eff5cfbbd1c21c2c2ef83c68dad59"></a>
+<a id="canonical-0232220030000210-0120302210321113-2031201301113312-1100100310313102-2013023233331130-3323233101300201-3002300232332003-3012203122311121"></a>
 
-## All schema paths — Property reference / a29d0b0383e4 / 19
+## All schema paths — Property reference / 000320033210 / 19
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--bot_detection_rule--reference--group-001.md#canonical-ad3a26277cb67e778a2d28c38ba7eebc88fe7b830ae75ac9041f58c7ddbaafb7) |
-| `bot_detection_rule_configs_per_bot_infras` | [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-39f41e6bfbb8c973bd30ba4a3485d19f91d58fe43fa1cb7ee0a114462270d2e1) |
-| `bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config` | [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-6864687ed712ed130f81039dc6fc3eab2567a46ec18ba8dd80a5c4c91d443471) |
-| `bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config.mitigation` | [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config.mitigation](data-sources--bot_detection_rule--reference--group-001.md#canonical-f97e6dbcc6682c0f4f3b0ce644f8b8849f0880d6f529899f0a5291a5f93a038b) |
-| `bot_detection_rule_configs_per_bot_infras.bot_infra_id` | [bot_detection_rule_configs_per_bot_infras.bot_infra_id](data-sources--bot_detection_rule--reference--group-001.md#canonical-5c07e960b934037f3bf4e484905678015c5409ef4cfa7ebdc41fbcd9ae9fd92a) |
-| `bot_detection_rule_configs_per_bot_infras.bot_infra_name` | [bot_detection_rule_configs_per_bot_infras.bot_infra_name](data-sources--bot_detection_rule--reference--group-001.md#canonical-572d9175d01d6b59603253aa02a4bb0ef041123463fbc4dc08dcfb143301167c) |
-| `bot_detection_rule_configs_per_bot_infras.bot_infrastructure_type` | [bot_detection_rule_configs_per_bot_infras.bot_infrastructure_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-04ff3f603c12e956b20eca471960f15b36393bc7eb8e47a620478435fe07c62a) |
-| `bot_detection_rule_configs_per_bot_infras.environment_type` | [bot_detection_rule_configs_per_bot_infras.environment_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-18af4b7e8b34ea31a64b619d410cc3deedfae9b5a9c41ba6b40c98e3d9e6b503) |
-| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-6bb200f506638d0ab2d46057eae734f08332b31c0a79824091763320f396315b) |
-| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-8a5d666be4cedcc861444c97e116ab829f43e411ea07cea0af285111eb8ef9d5) |
-| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-93d77ecbd920723ad2dc17fb8929e1a6626bb9cad7bada570770009b2489d39d) |
-| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-d95f59a198076e8f0dcc50dc486bd83b97f34a5a1340f391b32826d46f3adb4c) |
-| `bot_detection_rule_configs_per_bot_infras.region_rule_config` | [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-8c87a4ede458e5f1ecaca320598839fa9cc4aae6e50fb0c1b66592b9b2765939) |
-| `bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config` | [bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-dab43a879ba682a6587ee1949f3f54964c4a028f6f60bf006eff22abb902d7c2) |
-| `classification` | [classification](data-sources--bot_detection_rule--reference--group-001.md#canonical-136f9cbc7063bebc243b1a454647b389888d9b36c19bb7cb3a459f1223240302) |
-| `cluster_groups` | [cluster_groups](data-sources--bot_detection_rule--reference--group-001.md#canonical-b40af7e508b5eaef164c0c9ad37eca1dfda5648071663abdcceff423751e11ba) |
-| `created_at` | [created_at](data-sources--bot_detection_rule--reference--group-001.md#canonical-8bc37f8e57b4b40e1ebd528d601f7cf76a4e71a41e4a7b266bb0692ad7d0ae9c) |
-| `description` | [description](data-sources--bot_detection_rule--reference--group-001.md#canonical-2e2d4ef9c6ca1945ed68d91c6cacd87551310a2471af5bf1d8562af523d18a8d) |
-| `id` | [id](data-sources--bot_detection_rule--reference--group-001.md#canonical-05e9f270791483e2210b7674506fccbedfefd2e1a6833e8728540f0c38a90842) |
-| `labels` | [labels](data-sources--bot_detection_rule--reference--group-001.md#canonical-89883f02069c87f08857ce7712b77c233e7aa82d64d1767cb0776843c7d646a7) |
-| `last_modified_at` | [last_modified_at](data-sources--bot_detection_rule--reference--group-001.md#canonical-de69a02a5a630a96f88966d4d4e2874d0aa8d998cd75e35091f0fdce7e3c50c5) |
-| `last_modified_by` | [last_modified_by](data-sources--bot_detection_rule--reference--group-001.md#canonical-0f374ad1c4bb6b5b091ceae53f7c0c5e2d14a2fa9079dbc024996ebb19c98622) |
-| `name` | [name](data-sources--bot_detection_rule--reference--group-001.md#canonical-977472a081c3b2c8a53d87f594d97bad62ae982c6ebecae602c93b232c3ed934) |
-| `namespace` | [namespace](data-sources--bot_detection_rule--reference--group-001.md#canonical-5e7dbda09f1ed11ec1602de3546cac87203a0a9faf98fcd52c223ebc7d08e831) |
-| `rule_name` | [rule_name](data-sources--bot_detection_rule--reference--group-001.md#canonical-d2759acdd0ded9f9db4de9d1d874f94439befff78f672b28a378dfd48b804673) |
-| `rule_type` | [rule_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-ec06a7a554290fb789e0b5fbabdc034b8590cf99bfcae64dab0e905b9238b184) |
-| `traffic_type` | [traffic_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-0583b3a6ed1bf6d1daf2b18bd08023fa4d6b9e68951741d8ae4fd0309fda28c5) |
-| `version` | [version](data-sources--bot_detection_rule--reference--group-001.md#canonical-6ad2466c651587c7a58c34f76ad264aab0e04097d773a66a6516cc69fd86624d) |
+| `annotations` | [annotations](data-sources--bot_detection_rule--reference--group-001.md#canonical-2231032202120213-1330231213321313-2022023102203003-2023221332322330-2020333213232003-0022321311223021-0010013311203013-3131232222332313) |
+| `bot_detection_rule_configs_per_bot_infras` | [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-0321331001321223-3323232030211303-2331030023221022-0310201131012133-2101311120333210-0333220130231332-3200220101101012-0202130031023201) |
+| `bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config` | [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1220121012201332-3113010232310103-0033200100032131-3012333003322223-0211121322101232-3001202322203131-2000221130103021-0131101003101301) |
+| `bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config.mitigation` | [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config.mitigation](data-sources--bot_detection_rule--reference--group-001.md#canonical-3321133212312330-3012122002300033-1033032300303212-1010332023202010-2133002020003112-3311022120212133-0022110221012211-3321032200032023) |
+| `bot_detection_rule_configs_per_bot_infras.bot_infra_id` | [bot_detection_rule_configs_per_bot_infras.bot_infra_id](data-sources--bot_detection_rule--reference--group-001.md#canonical-1130001332211200-2321031000031333-0323331032102010-2100111213200001-1130111000213233-1030332213322331-3010013323303121-2232213331210222) |
+| `bot_detection_rule_configs_per_bot_infras.bot_infra_name` | [bot_detection_rule_configs_per_bot_infras.bot_infra_name](data-sources--bot_detection_rule--reference--group-001.md#canonical-1113023121011311-3100013112231121-1200030211032222-0002221023230032-3300100101020310-1203332330103130-0020313033230110-0303000101121330) |
+| `bot_detection_rule_configs_per_bot_infras.bot_infrastructure_type` | [bot_detection_rule_configs_per_bot_infras.bot_infrastructure_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-0010333303331200-0330010232211112-2302003230221013-0121120033011123-0312032103233013-3223203210132212-0200101320100311-3332001330120222) |
+| `bot_detection_rule_configs_per_bot_infras.environment_type` | [bot_detection_rule_configs_per_bot_infras.environment_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-0120223310231332-2023031032220301-2212102312012131-1001003030033132-3231332232212311-2221301001232212-2310003021203203-3121321223110003) |
+| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1223230200003311-0012120320310022-2302311012001113-3222321303103300-2003030223030130-0022132120021000-2101131203030200-3303211203011123) |
+| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-2022113112121223-3210303231303020-1201101010302113-3201011222232002-2133100332100101-3222001330322200-2233022011010101-3223203233213111) |
+| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-2103311313323023-3121020013020322-3102313001133323-2021022132012212-1202122323213022-3113232231221113-0013130000002123-0210202131032131) |
+| `bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config` | [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3121113311212201-2120001312322033-0031303011003130-1020122331200323-2113330310221122-0103100033032101-2303022002123110-1233032231231030) |
+| `bot_detection_rule_configs_per_bot_infras.region_rule_config` | [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-2030201322103231-3210112032113301-3230223022030200-1121202003213322-2130301022223212-3211003323003001-2312121121022321-2302131211210321) |
+| `bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config` | [bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3122231003222013-2123221220022212-1120133232012110-2133033311102112-1030102200022033-1233120023330000-1232333302022223-2321000231133002) |
+| `classification` | [classification](data-sources--bot_detection_rule--reference--group-001.md#canonical-0103123321302330-1300120323322330-0210032301221011-1012101323032021-2020203121230312-3001212323133023-0322101121330102-0203021000030002) |
+| `cluster_groups` | [cluster_groups](data-sources--bot_detection_rule--reference--group-001.md#canonical-2310002233133211-0020231132223233-0112103000302122-3103133230220131-3331221112102000-1301121203222331-3030323333100203-1311013201012322) |
+| `created_at` | [created_at](data-sources--bot_detection_rule--reference--group-001.md#canonical-2023300313332032-1113231023100032-0132233111022031-1200013313303313-1222103213012210-0132102213230212-1223230012210222-3113310022322130) |
+| `description` | [description](data-sources--bot_detection_rule--reference--group-001.md#canonical-0232023110323321-3012302201211011-3231122031210130-1230223031201311-1101030100220210-1301223311233301-3120111202223311-0203310120222031) |
+| `id` | [id](data-sources--bot_detection_rule--reference--group-001.md#canonical-0011322133021300-1321011020033202-0201002313121310-1100123330302332-3133323331023201-2212200303322013-0220111000330030-0320222100201002) |
+| `labels` | [labels](data-sources--bot_detection_rule--reference--group-001.md#canonical-2021202003330002-0012213020133300-2020111330321313-0102231313300203-0332132222200231-1210310113121330-2300131312201003-3013311210122213) |
+| `last_modified_at` | [last_modified_at](data-sources--bot_detection_rule--reference--group-001.md#canonical-3132122122000222-1122120300222112-3320202112123110-3110320220131031-0022222031212120-3031131132031100-2101330033313032-1332033011003011) |
+| `last_modified_by` | [last_modified_by](data-sources--bot_detection_rule--reference--group-001.md#canonical-0033031310223101-3010232312231123-0021013032223211-0333133000301132-0231011022023322-2100132131233000-0210212112322323-0121302120120202) |
+| `name` | [name](data-sources--bot_detection_rule--reference--group-001.md#canonical-2113131013022200-2001300323023020-2211033120133311-2110312113232231-1202223221200230-1232233230223212-0002302103230203-0230033231210310) |
+| `namespace` | [namespace](data-sources--bot_detection_rule--reference--group-001.md#canonical-1132133123312200-2133013231010132-3001120002313203-1110123022302013-0200032200222133-2233212033303111-0230020203322330-1331002032200301) |
+| `rule_name` | [rule_name](data-sources--bot_detection_rule--reference--group-001.md#canonical-3102131121223031-3100313231213321-3123103132213101-3120131033211010-0321233233333313-2033121302230220-2203132031333110-2023200010121303) |
+| `rule_type` | [rule_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-3230001222132211-1110022100332313-2021320023113323-2223313000031023-2011210030332121-2333302232121031-2223003221001123-2102032023012010) |
+| `traffic_type` | [traffic_type](data-sources--bot_detection_rule--reference--group-001.md#canonical-0011200323032212-3231012333123101-3122330223012023-3100200002033322-1031122321321220-2111011310013120-2232103331000300-2133312202203011) |
+| `version` | [version](data-sources--bot_detection_rule--reference--group-001.md#canonical-1222310210121230-1211011120133013-2211203003103313-1222310212102222-2300320010002113-3113130322121222-1211011230301221-3331201212021031) |
 
-<a id="canonical-00ae4e8c2614aae7c18482e3e0646a3759dd151ce8d1ee794861de066c6a2b26"></a>
+<a id="canonical-0000223210322030-0212011022223213-3001201020023203-3200121012220313-1121313101110130-3220310132321321-1020120131320012-1230122202230212"></a>
 
-## Next pages — Property reference / a29d0b0383e4 / 20
+## Next pages — Property reference / 000320033210 / 20
 
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9"></a>
+<a id="canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-124e135b4db14496aa4de3e3709a8f57734ca965ae62d001a97fee9ef8193072"></a>
+<a id="canonical-0102103201031123-1031230110102112-2222103132033203-1300212220331113-1303103022211211-2232120231000001-2221133332322132-3320012103001302"></a>
 
-## bot_detection_rule_configs_per_bot_infras — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 2
+## bot_detection_rule_configs_per_bot_infras — bot_detection_rule_configs_per_bot_infras / 231110322132 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
 - bot_detection_rule_configs_per_bot_infras
 
-<a id="canonical-39f41e6bfbb8c973bd30ba4a3485d19f91d58fe43fa1cb7ee0a114462270d2e1"></a>
+<a id="canonical-0321331001321223-3323232030211303-2331030023221022-0310201131012133-2101311120333210-0333220130231332-3200220101101012-0202130031023201"></a>
 
 Type: `"list"`. Computed.
 
 Rule configurations per Bot-Infras. Rule or policy definition
 
-<a id="canonical-10cecc25d28bb7da3a2f32f3e743fb7cfeb1e8971cdb4d233cf2f669b0dd1d12"></a>
+<a id="canonical-0100303230300211-3102202323133122-0322023303023303-3213100333231330-3332230132202113-0130312310310203-0330330233121221-2300313101310102"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 3
+## Direct properties — bot_detection_rule_configs_per_bot_infras / 231110322132 / 3
 
-- [bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-214537d272318fbaee2e5bf974088002162d9ca2afb807cfc80ef329beead2cc): complete subsection reference.
+- [bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0201101103133102-1302030120332322-3232023211233321-1310002020000002-0112023121302202-2233232000133033-3020003233030221-2332322231023030): complete subsection reference.
 
-<a id="canonical-5c07e960b934037f3bf4e484905678015c5409ef4cfa7ebdc41fbcd9ae9fd92a"></a>
+<a id="canonical-1130001332211200-2321031000031333-0323331032102010-2100111213200001-1130111000213233-1030332213322331-3010013323303121-2232213331210222"></a>
 
-<a id="canonical-0a9250b6a6c825bf09a5d74abe666e36bddc5117643b2fc03dacef21c68a4ab1"></a>
+<a id="canonical-0022210211002312-2212302002112333-0021221131131022-2332121212320312-2331313011010113-1210032302333000-0331223032330201-3012202210222301"></a>
 
-## bot_infra_id property — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 4
+## bot_infra_id property — bot_detection_rule_configs_per_bot_infras / 231110322132 / 4
 
 Type: `"string"`. Computed.
 
 Bot Infrastructure ID as per SAPI's database.
 
-<a id="canonical-572d9175d01d6b59603253aa02a4bb0ef041123463fbc4dc08dcfb143301167c"></a>
+<a id="canonical-1113023121011311-3100013112231121-1200030211032222-0002221023230032-3300100101020310-1203332330103130-0020313033230110-0303000101121330"></a>
 
-<a id="canonical-214e25e967b92c6309560efa8d015972617e03dc139771f50e05ed5e01b6cd5c"></a>
+<a id="canonical-0201103202113221-1213232102301203-0021111200323322-2031000111211302-1201133200033130-0103211313013311-0032001132311132-0001231230311130"></a>
 
-## bot_infra_name property — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 5
+## bot_infra_name property — bot_detection_rule_configs_per_bot_infras / 231110322132 / 5
 
 Type: `"string"`. Computed.
 
 Name of the bot infrastructure as per SAPI's database.
 
-<a id="canonical-04ff3f603c12e956b20eca471960f15b36393bc7eb8e47a620478435fe07c62a"></a>
+<a id="canonical-0010333303331200-0330010232211112-2302003230221013-0121120033011123-0312032103233013-3223203210132212-0200101320100311-3332001330120222"></a>
 
-<a id="canonical-084d9bb6659f1218d8eb6cd399f4d32497df15c2889004709a8b9c430a3279a4"></a>
+<a id="canonical-0020103121232312-1211213301020120-3120322312303103-2121331031030210-2113313301113002-2020210000101300-2122202321301003-0022030213212210"></a>
 
-## bot_infrastructure_type property — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 6
+## bot_infrastructure_type property — bot_detection_rule_configs_per_bot_infras / 231110322132 / 6
 
 Type: `"string"`. Computed.
 
@@ -294,11 +294,11 @@ Possible values are \`BOT\_INFRA\_TYPE\_UNKNOWN\`, \`BOT\_INFRA\_TYPE\_CLOUD\_HO
 \`BOT\_INFRA\_TYPE\_HOSTED\`, \`BOT\_INFRA\_TYPE\_ON\_PREM\`, \`BOT\_INFRA\_TYPE\_K8S\_CLUSTER\`.
 Defaults to \`BOT\_INFRA\_TYPE\_UNKNOWN\`.
 
-<a id="canonical-18af4b7e8b34ea31a64b619d410cc3deedfae9b5a9c41ba6b40c98e3d9e6b503"></a>
+<a id="canonical-0120223310231332-2023031032220301-2212102312012131-1001003030033132-3231332232212311-2221301001232212-2310003021203203-3121321223110003"></a>
 
-<a id="canonical-650745f0bfed10723dd02bc919a66839c4208bafd8419c70ee422fbc314f3cac"></a>
+<a id="canonical-1211001310113300-2333323101001302-0331310002233021-0121221212200321-3010020020232233-3120100121301300-3232100202332330-0301103303302230"></a>
 
-## environment_type property — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 7
+## environment_type property — bot_detection_rule_configs_per_bot_infras / 231110322132 / 7
 
 Type: `"string"`. Computed.
 
@@ -307,288 +307,288 @@ environments have two infrastructure regions in an Active-Active configuration w
 routed equally between the two regions. Test environments have a single infrastructure region.
 Possible values are \`PRODUCTION\`, \`TESTING\`. Defaults to \`PRODUCTION\`.
 
-- [k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39): complete subsection reference.
+- [k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321): complete subsection reference.
 
-- [region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-54e53efe14151c002427d6672a8c5355fb788df8a17695e6ffca6d4df7ef2256): complete subsection reference.
+- [region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1110321103323332-0110011101300000-0210021331121213-0222203011031111-3323132020313320-2201131221113212-3333302212311031-3313323302021112): complete subsection reference.
 
-<a id="canonical-c5ce6f0ce1b371404aa89d99bcc5ac1eca41b62aa2113666de1c5be385e75ce0"></a>
+<a id="canonical-3011303212330030-3201230313011000-1022222021312121-2330301122300132-3022100123120222-2202010103121212-3132013011233203-2011321311303200"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras / e690eeb54e9e / 8
+## Next pages — bot_detection_rule_configs_per_bot_infras / 231110322132 / 8
 
-- [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-214537d272318fbaee2e5bf974088002162d9ca2afb807cfc80ef329beead2cc)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
-- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-54e53efe14151c002427d6672a8c5355fb788df8a17695e6ffca6d4df7ef2256)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0201101103133102-1302030120332322-3232023211233321-1310002020000002-0112023121302202-2233232000133033-3020003233030221-2332322231023030)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
+- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1110321103323332-0110011101300000-0210021331121213-0222203011031111-3323132020313320-2201131221113212-3333302212311031-3313323302021112)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-214537d272318fbaee2e5bf974088002162d9ca2afb807cfc80ef329beead2cc"></a>
+<a id="canonical-0201101103133102-1302030120332322-3232023211233321-1310002020000002-0112023121302202-2233232000133033-3020003233030221-2332322231023030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b3ab069c80b5dc38b21392210bc941338944f5a4684d31f15e1ca84511a93d1"></a>
+<a id="canonical-2023032223001221-3020002311313003-2023020103210202-0100233021100103-0320211010331122-1012201031030133-0111320130222010-1101012221033101"></a>
 
-## bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config — bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config / 7cda2722918b / 2
+## bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config — bot_detection_rule_config / 020221012023 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
 - bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config
 
-<a id="canonical-6864687ed712ed130f81039dc6fc3eab2567a46ec18ba8dd80a5c4c91d443471"></a>
+<a id="canonical-1220121012201332-3113010232310103-0033200100032131-3012333003322223-0211121322101232-3001202322203131-2000221130103021-0131101003101301"></a>
 
 Type: `"single"`. Computed.
 
 Rule configuration. Rule configuration.
 
-<a id="canonical-0756c76959c70f11a763b0e9a7b995440df136f6678563163ad6446adacc90ac"></a>
+<a id="canonical-0013111230131221-1121301300330101-2213120323003221-2213232121111010-0031330103123312-1213201112030112-0322311210101222-3122303021002230"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config / 7cda2722918b / 3
+## Direct properties — bot_detection_rule_config / 020221012023 / 3
 
-<a id="canonical-f97e6dbcc6682c0f4f3b0ce644f8b8849f0880d6f529899f0a5291a5f93a038b"></a>
+<a id="canonical-3321133212312330-3012122002300033-1033032300303212-1010332023202010-2133002020003112-3311022120212133-0022110221012211-3321032200032023"></a>
 
-<a id="canonical-100f08b9b940f60e6caea5362d7e8796472d995aeb0d2c5d802b06e0ab281d83"></a>
+<a id="canonical-0100003300202321-2321100033120032-1230223222110312-0231133220132112-1013023121211122-3223003102301131-2000022300123200-2223022001312003"></a>
 
-## mitigation property — bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config / 7cda2722918b / 4
+## mitigation property — bot_detection_rule_config / 020221012023 / 4
 
 Type: `"bool"`. Computed.
 
 Mitigation. Mitigation - true(ON) / false(OFF)
 
-<a id="canonical-bca4a06d9de5e4b94841dd88035d876a37ff45964c20cec2c295791503988e78"></a>
+<a id="canonical-2330221022001231-2131321132102321-1020100131312020-0003113120131222-0313333310112112-1030020030323002-3002211113210111-0003212020321320"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config / 7cda2722918b / 5
+## Next pages — bot_detection_rule_config / 020221012023 / 5
 
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39"></a>
+<a id="canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-823fa1a6409d2384af53de83a88519ef6b5ffd8dff116636192a6410ef77d84c"></a>
+<a id="canonical-2002033322012212-1000213102032010-2233110331322003-2220201101213233-1223113333312031-3333010112120312-0121022212100100-3233131331201030"></a>
 
-## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config / 3205d72f4dec / 2
+## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config — k8s_cluster_rule_config / 023310313230 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
 - bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config
 
-<a id="canonical-6bb200f506638d0ab2d46057eae734f08332b31c0a79824091763320f396315b"></a>
+<a id="canonical-1223230200003311-0012120320310022-2302311012001113-3222321303103300-2003030223030130-0022132120021000-2101131203030200-3303211203011123"></a>
 
 Type: `"single"`. Computed.
 
 Kubernetes Cluster Rule Config. Kubernetes cluster rule config.
 
-<a id="canonical-b48d571e5cbaf90771f227e59876b28a288022f2030e792ee47d70c75a349b18"></a>
+<a id="canonical-2310203111130132-1130232233210013-1301330202133211-2120131223022022-0220200002023302-0003003213210232-3210133113003013-1122031021230120"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config / 3205d72f4dec / 3
+## Direct properties — k8s_cluster_rule_config / 023310313230 / 3
 
-- [in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-c0664da492336d9b2d1d04bff37397d656577fe7aa8a7a81cd180c19c13069ef): complete subsection reference.
+- [in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3000121210312210-2102030312312123-0231013100102333-3303130321133112-1112111313333213-2222202213222001-3031012000300121-3001030012213233): complete subsection reference.
 
-- [sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-181ec1a137dc59ac2c6ab456410d6676bfa8c45d5a2c4c767275338b35f380c2): complete subsection reference.
+- [sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-0120013230012201-0313313011212230-0230122223101112-1001003112121312-2333222030101131-1122023010301312-1302131103032023-0311330320003002): complete subsection reference.
 
-- [target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3b41af8204df222a2b47778b5e51d23288bb389272e12f8bcd3e2e05fde0e118): complete subsection reference.
+- [target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0323100122332002-0010313302020222-0223101313132023-1132110131020302-2020232303202102-1302320102332023-3031033202320011-3331320032010120): complete subsection reference.
 
-<a id="canonical-7d7389de267e325e5f833ad65326d70dedda236fac4b3b72a4141936615fad9a"></a>
+<a id="canonical-1331130320213132-0212133203021132-1133200303223112-1103021231130031-3231312202031233-2230102303231302-2210011001210312-1201113322312122"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config / 3205d72f4dec / 4
+## Next pages — k8s_cluster_rule_config / 023310313230 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-c0664da492336d9b2d1d04bff37397d656577fe7aa8a7a81cd180c19c13069ef)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-181ec1a137dc59ac2c6ab456410d6676bfa8c45d5a2c4c767275338b35f380c2)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3b41af8204df222a2b47778b5e51d23288bb389272e12f8bcd3e2e05fde0e118)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3000121210312210-2102030312312123-0231013100102333-3303130321133112-1112111313333213-2222202213222001-3031012000300121-3001030012213233)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster](data-sources--bot_detection_rule--reference--group-001.md#canonical-0120013230012201-0313313011212230-0230122223101112-1001003112121312-2333222030101131-1122023010301312-1302131103032023-0311330320003002)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0323100122332002-0010313302020222-0223101313132023-1132110131020302-2020232303202102-1302320102332023-3031033202320011-3331320032010120)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-c0664da492336d9b2d1d04bff37397d656577fe7aa8a7a81cd180c19c13069ef"></a>
+<a id="canonical-3000121210312210-2102030312312123-0231013100102333-3303130321133112-1112111313333213-2222202213222001-3031012000300121-3001030012213233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0f134c24aefbf2f41b20010579daf5bef472e94dba7334821e128c383af80f6e"></a>
+<a id="canonical-0033010310300210-2232332333023310-0123020000010011-1321312233112332-3310130232211031-2322130303102002-0132010220300320-0322332000331232"></a>
 
-## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cl / e59873a8c2e3 / 2
+## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config — in_used_k8s_cluster_rule_config / 222030023203 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
 - bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config
 
-<a id="canonical-8a5d666be4cedcc861444c97e116ab829f43e411ea07cea0af285111eb8ef9d5"></a>
+<a id="canonical-2022113112121223-3210303231303020-1201101010302113-3201011222232002-2133100332100101-3222001330322200-2233022011010101-3223203233213111"></a>
 
 Type: `"single"`. Computed.
 
 In-Used Kubernetes Cluster Rule Config. Cluster or grouping configuration
 
-<a id="canonical-031d44c399e935f867d4f85d4369e256ba607dded01ff476f520c43332a067cb"></a>
+<a id="canonical-0003013110103003-2121322103113320-1213311033201131-1003122132021112-2322120013313132-3100013333101312-3311020030100303-0302220012133023"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cl / e59873a8c2e3 / 3
+## Direct properties — in_used_k8s_cluster_rule_config / 222030023203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-50ce65e58c1126cbf928abc09bbd1588786ed4bf474eda024d9ff9790c85bd60"></a>
+<a id="canonical-1100303212113211-2030010102123023-3321022022233000-2123233101112020-1320123231102333-1013103231220002-1031213333211321-0030201123311200"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cl / e59873a8c2e3 / 4
+## Next pages — in_used_k8s_cluster_rule_config / 222030023203 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-181ec1a137dc59ac2c6ab456410d6676bfa8c45d5a2c4c767275338b35f380c2"></a>
+<a id="canonical-0120013230012201-0313313011212230-0230122223101112-1001003112121312-2333222030101131-1122023010301312-1302131103032023-0311330320003002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-928ed9e829ac6c215d6337a14c2878552551a4f3fbc874b99657aeb5db712c27"></a>
+<a id="canonical-2102203231213220-0221223012300201-1131120303132201-1030022013201111-0211110122103303-3323302013102321-2112111322322311-3123130102300213"></a>
 
-## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_pe / a5ac58912f77 / 2
+## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster — sync_status_per_k8s_cluster / 210102331313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
 - bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster
 
-<a id="canonical-93d77ecbd920723ad2dc17fb8929e1a6626bb9cad7bada570770009b2489d39d"></a>
+<a id="canonical-2103311313323023-3121020013020322-3102313001133323-2021022132012212-1202122323213022-3113232231221113-0013130000002123-0210202131032131"></a>
 
 Type: `"single"`. Computed.
 
 Sync Status. Cluster or grouping configuration
 
-<a id="canonical-aac32d958ad5e8d5d98c5d85b39a583f7573f633f19f5af34a7bc95cf14c86ec"></a>
+<a id="canonical-2222300302312111-2022311132203111-3121203011312011-2303212211200333-1311130333120303-3301213311223303-1022132330211130-3301103020123230"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_pe / a5ac58912f77 / 3
+## Direct properties — sync_status_per_k8s_cluster / 210102331313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8270b39217b03d7b2d98915e95adceecef75d4bcaa927a124d337cf4939cfc99"></a>
+<a id="canonical-2002130023032102-0113230003311323-0231212021011132-2111223130323230-3233131131102330-2222210213220102-1031030313303310-2103213033302121"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_pe / a5ac58912f77 / 4
+## Next pages — sync_status_per_k8s_cluster / 210102331313 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-3b41af8204df222a2b47778b5e51d23288bb389272e12f8bcd3e2e05fde0e118"></a>
+<a id="canonical-0323100122332002-0010313302020222-0223101313132023-1132110131020302-2020232303202102-1302320102332023-3031033202320011-3331320032010120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0ecb3e4f3c59cb4ecdc8eaad43291495553fa7e0e50fbc597ad914c089e12a2f"></a>
+<a id="canonical-0032302303321033-0330112130231032-3031302032222231-1003022101102111-1111033322133200-3211003323301121-1322312101103000-2021320102220233"></a>
 
-## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_clu / dd3ba5622489 / 2
+## bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config — target_k8s_cluster_rule_config / 120202102021 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
 - bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config
 
-<a id="canonical-d95f59a198076e8f0dcc50dc486bd83b97f34a5a1340f391b32826d46f3adb4c"></a>
+<a id="canonical-3121113311212201-2120001312322033-0031303011003130-1020122331200323-2113330310221122-0103100033032101-2303022002123110-1233032231231030"></a>
 
 Type: `"single"`. Computed.
 
 Target Kubernetes Cluster Rule Config. Cluster or grouping configuration
 
-<a id="canonical-c84d1762e67b94025ed7ef567192954d7fe0868ae8cad8d023797b2fa31aec7c"></a>
+<a id="canonical-3020103101131202-3212132321100002-1132311332331112-1301210221111031-1333320020122022-3220302231203100-0203132113230233-2203012232301330"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_clu / dd3ba5622489 / 3
+## Direct properties — target_k8s_cluster_rule_config / 120202102021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1b478a4cb7ae6fcb0ac75a896870dd06766cbb6818a6375096bcdeb16b0c3ea5"></a>
+<a id="canonical-0123101320221030-2313223212333023-0022301311222021-1220130031310012-1312123023231220-0120221203131100-2112233031322301-1223003003322211"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_clu / dd3ba5622489 / 4
+## Next pages — target_k8s_cluster_rule_config / 120202102021 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-3eedd4890893a75ace23e44b7d9a682d8e06d9062366e310626ffc89b133ec39)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0332323131102021-0020210322131122-3032020332101023-1331212212200231-2032001231210012-0203121232030100-1202123333302021-2301030332300321)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-54e53efe14151c002427d6672a8c5355fb788df8a17695e6ffca6d4df7ef2256"></a>
+<a id="canonical-1110321103323332-0110011101300000-0210021331121213-0222203011031111-3323132020313320-2201131221113212-3333302212311031-3313323302021112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-916ba7020f867721c8cbd88812ed491af8ef2ce18a23ca2bf0ce9cad877cf2a0"></a>
+<a id="canonical-2101122322130002-0033201213130201-3020302331202020-0102323110210122-3320323302303201-2022020330220223-3300303221302231-2013133033022200"></a>
 
-## bot_detection_rule_configs_per_bot_infras.region_rule_config — bot_detection_rule_configs_per_bot_infras.region_rule_config / 8063e6b9e7a1 / 2
+## bot_detection_rule_configs_per_bot_infras.region_rule_config — region_rule_config / 232132132201 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
 - bot_detection_rule_configs_per_bot_infras.region_rule_config
 
-<a id="canonical-8c87a4ede458e5f1ecaca320598839fa9cc4aae6e50fb0c1b66592b9b2765939"></a>
+<a id="canonical-2030201322103231-3210112032113301-3230223022030200-1121202003213322-2130301022223212-3211003323003001-2312121121022321-2302131211210321"></a>
 
 Type: `"single"`. Computed.
 
 Rule Config Per Region. Rule config per region.
 
-<a id="canonical-aa1b30a3f8b563324c0251e0553336ded9d493b8cc6a4b0d705a96b1442b4d7b"></a>
+<a id="canonical-2222012303002203-3320231112030302-1030000211013200-1111030303123132-3121311021032320-3030122210230031-1300112221122301-1010022310311323"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.region_rule_config / 8063e6b9e7a1 / 3
+## Direct properties — region_rule_config / 232132132201 / 3
 
-- [region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-187e3dd9882f851af65379d4b568ed97550567cf0db75798bf5a8175d01d8eec): complete subsection reference.
+- [region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0120133203313121-2020023320110122-3312110313213110-2311122032312113-1111001112133033-0031231311132120-2333112220011311-3100013120323230): complete subsection reference.
 
-<a id="canonical-1cde4d9ea352235349edfbccebfed7f004e7304213047dccde375d812bb3f69b"></a>
+<a id="canonical-0130313210312132-2203110202031103-1021323133233030-3223333231133300-0010321303001002-0103001013313030-3132031311312001-0223230333122123"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.region_rule_config / 8063e6b9e7a1 / 4
+## Next pages — region_rule_config / 232132132201 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-187e3dd9882f851af65379d4b568ed97550567cf0db75798bf5a8175d01d8eec)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-0120133203313121-2020023320110122-3312110313213110-2311122032312113-1111001112133033-0031231311132120-2333112220011311-3100013120323230)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
 
-<a id="canonical-187e3dd9882f851af65379d4b568ed97550567cf0db75798bf5a8175d01d8eec"></a>
+<a id="canonical-0120133203313121-2020023320110122-3312110313213110-2311122032312113-1111001112133033-0031231311132120-2333112220011311-3100013120323230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9fa7cf1156b6bbfc58f4fad3a53f2e190ffa7e3e245a5a9c31e02f1b993676eb"></a>
+<a id="canonical-2133221330330101-1112231223233330-1120331033223103-2211033302320121-0033332213320332-0210112211222130-0301320002330123-2121031213123223"></a>
 
-## bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config — bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config / 63b6cc3fe309 / 2
+## bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config — region_config / 033332030021 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
-- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-f146c3e1a3915dc77cb030dd698f0a220a638fc82ada930adfcb8d54315c5da9)
-- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-54e53efe14151c002427d6672a8c5355fb788df8a17695e6ffca6d4df7ef2256)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)
+- [Property reference](data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [bot_detection_rule_configs_per_bot_infras](data-sources--bot_detection_rule--reference--group-001.md#canonical-3301101230033201-2203210111313013-1330230003003131-1221203300220202-0022120320333020-0222312221030022-3133302320311110-0301113011312221)
+- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1110321103323332-0110011101300000-0210021331121213-0222203011031111-3323132020313320-2201131221113212-3333302212311031-3313323302021112)
 - bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config
 
-<a id="canonical-dab43a879ba682a6587ee1949f3f54964c4a028f6f60bf006eff22abb902d7c2"></a>
+<a id="canonical-3122231003222013-2123221220022212-1120133232012110-2133033311102112-1030102200022033-1233120023330000-1232333302022223-2321000231133002"></a>
 
 Type: `"single"`. Computed.
 
 Rule Config Per Region. Configuration settings and parameters
 
-<a id="canonical-33eaa5cdbdf0461acaa6d79377ad4ce754dd4aa3d32ef6f10765e4835b226bb4"></a>
+<a id="canonical-0303322222113031-2331330010120122-3022221231132103-1313223110303213-1110313110222203-3103023233123301-0013121132102003-1123020212232310"></a>
 
-## Direct properties — bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config / 63b6cc3fe309 / 3
+## Direct properties — region_config / 033332030021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-53982a3811ea30b4098b0118d689a53fd89efcee8418e7b5636160d15dc6f37c"></a>
+<a id="canonical-1103212002220320-0101322203002310-0021202300010120-3112202122110333-3120213233303232-2010012032132311-1203120112003101-1131301233031330"></a>
 
-## Next pages — bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config / 63b6cc3fe309 / 4
+## Next pages — region_config / 033332030021 / 4
 
-- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-54e53efe14151c002427d6672a8c5355fb788df8a17695e6ffca6d4df7ef2256)
-- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052)
+- [bot_detection_rule_configs_per_bot_infras.region_rule_config](data-sources--bot_detection_rule--reference--group-001.md#canonical-1110321103323332-0110011101300000-0210021331121213-0222203011031111-3323132020313320-2201131221113212-3333302212311031-3313323302021112)
+- [xcsh_bot_detection_rule](../data-sources/bot_detection_rule.md#canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102)

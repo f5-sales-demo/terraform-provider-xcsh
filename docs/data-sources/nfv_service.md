@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_nfv_service landing.
 
 # xcsh_nfv_service landing
 
-<a id="canonical-a6e13d1ea9c2aa4e6f35b818ca53ad6df10cbcafdfb9884a3a265a277ed400f0"></a>
+<a id="canonical-2212320103310132-2221300222221032-1233031123200120-3022110322311231-3301003023302233-3133232120201022-0322021211220213-1332311000003300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b334db1446c63ce2100aa7c5e9bb852421adbd5552158780542718dc8edca75"></a>
+<a id="canonical-0023030310312301-1010123012033032-0201000022221330-1132212323201102-1002012231233111-1111020111201320-0011100213012031-3020323130221311"></a>
 
-## xcsh_nfv_service — xcsh_nfv_service / f588a2816730 / 2
+## xcsh_nfv_service — xcsh_nfv_service / 200112130300 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages new NFV service with configured parameters in F5 Distributed Cloud.
 
-<a id="canonical-2b0c8250bf0c15057b3d5240dcbf3131a7633fd9faa7d6976d3e505b48aa7b64"></a>
+<a id="canonical-0223003020021100-2333003001110011-1323033111021000-3130233303010301-2213120303333121-3322221331122113-1231033211001123-1020222213231210"></a>
 
-## Prerequisites — xcsh_nfv_service / f588a2816730 / 3
+## Prerequisites — xcsh_nfv_service / 200112130300 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c85d26543d7c8ebf94f54550543ae6895b39cc3e0666f6b2753dfd5d098f17ee"></a>
+<a id="canonical-3020113102121110-0331133020322333-2110331110111100-1110032232122021-1123032130300332-0012121233122302-1311033133311131-0021203301133232"></a>
 
-## Minimal configuration — xcsh_nfv_service / f588a2816730 / 4
+## Minimal configuration — xcsh_nfv_service / 200112130300 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "nfv_service_id" {
 }
 ```
 
-<a id="canonical-b11f594507eb30f64ba0dd74de6d0df4366a43f45e57d7e6ba75609468f4eff3"></a>
+<a id="canonical-2301013311211011-0013322303003312-1023220031311310-3132123100313310-0312122210033310-1132111331133212-2322131112002110-1220331032333303"></a>
 
-## Root configuration — xcsh_nfv_service / f588a2816730 / 5
+## Root configuration — xcsh_nfv_service / 200112130300 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-8d3af14e42b2f8bb07c20ecc5250298d0dfef1b27fa55aac0e4dce7ae054b823"></a>
+<a id="canonical-2031032233011032-1002230233202323-0013300200323030-1102110002212031-0031333233012302-1333221111222230-0032103130321322-3200111023200203"></a>
 
-## Next pages — xcsh_nfv_service / f588a2816730 / 6
+## Next pages — xcsh_nfv_service / 200112130300 / 6
 
-- [Property reference](../guides/data-sources--nfv_service--reference--group-001.md#canonical-b713feddc432dd59b1ed8c061ae4887dc8ae5a0a106502c5bbe75c3b1a41e0c8)
-- [Examples](../guides/data-sources--nfv_service--examples--group-001.md#canonical-17846793b391435f50864456d6d6124f1ec9432c80f12fa51c56820307807d96)
+- [Property reference](../guides/data-sources--nfv_service--reference--group-001.md#canonical-2313010333323131-3010030231311121-2301323120300012-0122321020201331-3020223211220022-0100121100023011-2323321311300323-0122100132003020)
+- [Examples](../guides/data-sources--nfv_service--examples--group-001.md#canonical-0113201012132103-2303210110031133-1100201210101112-3112311201021033-0132302110030230-2000330102332211-0130111220020003-0013200013312112)

@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_api_discovery refere
 
 # xcsh_api_discovery reference
 
-<a id="canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4"></a>
+<a id="canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1ee4cfce0492eabc25e21b28f9664aff732fcc5b727656ddfc4298b829b27cfa"></a>
+<a id="canonical-0132321030333032-0010210232222330-0211320201230220-3321121210223333-1303023330301123-1302131211123131-3330100221202320-0221230213303322"></a>
 
-## Property reference — Property reference / 97b9f7c33aba / 2
+## Property reference — Property reference / 300303222322 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 - Property reference
 
-<a id="canonical-b36a1214eaef1809687d9a381ead2aa3b5f2be502d76c04271f370592a5cb873"></a>
+<a id="canonical-2303122201020110-3222323301200021-1220133121220320-0132223102222203-2311330223321100-0231131230001002-1301330313001121-0222113023201303"></a>
 
-## Direct properties — Property reference / 97b9f7c33aba / 3
+## Direct properties — Property reference / 300303222322 / 3
 
-<a id="canonical-9550d929d2279c518d0bfdbe183d187a0fc84334bf55cd42a5f1807c8a14300b"></a>
+<a id="canonical-2111110031210221-3102021321301101-2031002333312332-0120033101201322-0033302010030310-2333111130311002-2211330120001330-2022011003000023"></a>
 
-<a id="canonical-ded955a3db0c176c6c828975ebfa240f137a64a04a13ef9c0c4442cce02296aa"></a>
+<a id="canonical-3132312111112203-3123003001131230-1230200220211311-3223332202100033-0103132212102200-1022010332332130-0030101010023030-3200020221122222"></a>
 
-## annotations property — Property reference / 97b9f7c33aba / 4
+## annotations property — Property reference / 300303222322 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,13 +66,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-0c1417b41c2d178afa90ca3239194e2337a08fbc1044143f4747b3e0dfc62bc5): complete subsection reference.
+- [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-0030011001132310-0130023101132022-3322210030220302-0321012110320203-0313220020332330-0100101001100333-1013101323033200-3133301202233011): complete subsection reference.
 
-<a id="canonical-267a24731331927a5f2c8eae5776b1d99723fb672269a94dfbf6a3b0b798fd32"></a>
+<a id="canonical-0212132202101303-0103030121021322-1133023020322232-1113131223013121-2113020333231213-0202122122211031-3323331222032300-2313212033310302"></a>
 
-<a id="canonical-58b6fc0dbb9756907a999309ee4b89e9e314b5bdce7c8721d644863b2110e782"></a>
+<a id="canonical-1120231233300031-2323211311122100-1322212121030021-3232102320213221-3203011023112331-3032133020130201-3112101020120323-0201010032132002"></a>
 
-## description property — Property reference / 97b9f7c33aba / 5
+## description property — Property reference / 300303222322 / 5
 
 Type: `"string"`. Computed.
 
@@ -120,21 +120,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ecaf97851fc64c9522a3dd3eb0eaae9f6fc13695dfdf343d3bb33063f159315a"></a>
+<a id="canonical-3230223321132011-0133301210302111-0202220331310332-2300322222322133-1233300103122111-3133313303100331-0323230303001203-3301112103011122"></a>
 
-<a id="canonical-ae920681f3e75335997fe19b2ffb0f7b95292b612a943eda016a5b4d46a2b42f"></a>
+<a id="canonical-2232210200122001-3303321311030311-2121133332012123-0233332300331323-2111022102231201-0222211003323122-0001122211231031-1012220223100233"></a>
 
-## id property — Property reference / 97b9f7c33aba / 6
+## ID property — Property reference / 300303222322 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-5d328231dd8e08ff1fdce66b01aa306b71ab23e46c52544dd5efbbb2544ca015"></a>
+<a id="canonical-1131030220020301-3131203200203333-0133313032121223-0001222203001223-1301222302033210-1230110211101031-3111323323232302-1110103022000111"></a>
 
-<a id="canonical-d4e8e7d04ff7a92a6bcf2f3df1a582ba1f5cf2d2d4087ae59778677af1f37bca"></a>
+<a id="canonical-3110322032133100-1033331322210222-1223303302330331-3301221120022322-0133113033023102-3110002013223211-2113132012131322-3301330313233022"></a>
 
-## labels property — Property reference / 97b9f7c33aba / 7
+## labels property — Property reference / 300303222322 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -158,11 +158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4aaea1af6dae86d01d1b58af306946f01d63d7392cef0093c33746e52d5e4c5"></a>
+<a id="canonical-2210222232220122-3312312232201231-0001310123112022-3303001221101233-0001311203311303-2102303233000021-0330030313101232-1102311132103011"></a>
 
-<a id="canonical-0c5183e75a322a7d652a54843fc0cff3e15d970422e03d6983711020ff654838"></a>
+<a id="canonical-0030110120033213-1122030202221331-1211022211102010-0333300030333303-3201113121130010-0202320003311221-2003130101000200-3333121110200320"></a>
 
-## name property — Property reference / 97b9f7c33aba / 8
+## name property — Property reference / 300303222322 / 8
 
 Type: `"string"`. Required.
 
@@ -218,11 +218,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-003ebc4f042252de1e8a0fe148e3208befbd1ed543f24a287389f5d70cac4391"></a>
+<a id="canonical-0000033223301033-0010020211023132-0132202200333201-1020320302002023-3233233101323111-1003330210220220-1303202133113113-0030223010032101"></a>
 
-<a id="canonical-92b9d07058d5e86329adbac74d6705c76c38136c7384a06cb87620922ebde271"></a>
+<a id="canonical-2102232131001300-1120311132201203-0221223123223013-1031121300113013-1230032001031230-1303201022001230-2320131202002102-0232233132021301"></a>
 
-## namespace property — Property reference / 97b9f7c33aba / 9
+## namespace property — Property reference / 300303222322 / 9
 
 Type: `"string"`. Required.
 
@@ -271,72 +271,72 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f): complete subsection reference.
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133): complete subsection reference.
 
-<a id="canonical-20cf4c5172b0b2f920bfb04788590b59e592d2f723f3a5d65a6e8ca073acf8be"></a>
+<a id="canonical-0200303310301101-1302230023023321-0200233323001013-2020112100231121-3211210231023313-0203330322113112-1122123220302200-1303223033202332"></a>
 
-## All schema paths — Property reference / 97b9f7c33aba / 10
+## All schema paths — Property reference / 300303222322 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--api_discovery--reference--group-001.md#canonical-9550d929d2279c518d0bfdbe183d187a0fc84334bf55cd42a5f1807c8a14300b) |
-| `custom_auth_types` | [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-030d886b996c56b328eb9fc9373e96be1aef6d539b6ee27972915786e137485d) |
-| `custom_auth_types.parameter_name` | [custom_auth_types.parameter_name](data-sources--api_discovery--reference--group-001.md#canonical-e72c2aca4c39193224f404e84b812a0681ea1bc995d9df10dc5fe98e0c95275b) |
-| `custom_auth_types.parameter_type` | [custom_auth_types.parameter_type](data-sources--api_discovery--reference--group-001.md#canonical-ebe630b92879be45657da88b4fe50bc186d9e4e185d9f8a27f9be76df5ce3f10) |
-| `description` | [description](data-sources--api_discovery--reference--group-001.md#canonical-267a24731331927a5f2c8eae5776b1d99723fb672269a94dfbf6a3b0b798fd32) |
-| `id` | [id](data-sources--api_discovery--reference--group-001.md#canonical-ecaf97851fc64c9522a3dd3eb0eaae9f6fc13695dfdf343d3bb33063f159315a) |
-| `labels` | [labels](data-sources--api_discovery--reference--group-001.md#canonical-5d328231dd8e08ff1fdce66b01aa306b71ab23e46c52544dd5efbbb2544ca015) |
-| `name` | [name](data-sources--api_discovery--reference--group-001.md#canonical-a4aaea1af6dae86d01d1b58af306946f01d63d7392cef0093c33746e52d5e4c5) |
-| `namespace` | [namespace](data-sources--api_discovery--reference--group-001.md#canonical-003ebc4f042252de1e8a0fe148e3208befbd1ed543f24a287389f5d70cac4391) |
-| `user_defined_api_discovery_policy` | [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-a1daaf4759d2eecf4e4a26b30c2c8fdfb5b25eed1345f20c4d8330ede7d6f6bd) |
-| `user_defined_api_discovery_policy.discovery_rules` | [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-cebe1ecc3966ac40908956a54e7e7683523a492b60d49fad9e1ab72a3c416f29) |
-| `user_defined_api_discovery_policy.discovery_rules.labels` | [user_defined_api_discovery_policy.discovery_rules.labels](data-sources--api_discovery--reference--group-001.md#canonical-fe6d05b54da95948a3306780db1a605a27d56bd603590b204a3fe9281711ee12) |
-| `user_defined_api_discovery_policy.discovery_rules.metadata` | [user_defined_api_discovery_policy.discovery_rules.metadata](data-sources--api_discovery--reference--group-001.md#canonical-49cdf0310f6cb1ac4a588a3cc319f552a444ce296b42d3cc9aa89b92def3ab16) |
-| `user_defined_api_discovery_policy.discovery_rules.metadata.description_spec` | [user_defined_api_discovery_policy.discovery_rules.metadata.description_spec](data-sources--api_discovery--reference--group-001.md#canonical-cca9603d1b8b2d9babd9c524b20993a7a10bf402ef22bd370d9bd85bf614edb1) |
-| `user_defined_api_discovery_policy.discovery_rules.metadata.name` | [user_defined_api_discovery_policy.discovery_rules.metadata.name](data-sources--api_discovery--reference--group-001.md#canonical-57b65dd893f1a040d4c77aa552f7987d7fee5c314db42e9a1db5c47594c48606) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties` | [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-b9ddf479f034861952d33b90b12063bce59c036342b6043005a3a1bc520b78c2) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-55db5bd2a8c67182207db72968e901ffb54762358a509aa253c04e2da839098b) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive](data-sources--api_discovery--reference--group-001.md#canonical-49048d9014d4b917ffa6c73094020827fa97441752ccac511096733bbddae843) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore](data-sources--api_discovery--reference--group-001.md#canonical-d2c44bef0cac43c056d7b3f01d35616b82d77517b16dbc73e154ba8d1fe52f7f) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-f75e87e22e9fdd21812092a41f0d0de97e80e97431a45ac190cee2d14b928d2a) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.field_name` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.field_name](data-sources--api_discovery--reference--group-001.md#canonical-72b5f6a67b6083f9a61629c03532a0c09f540634417dc60dced10093b368838a) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.location` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.location](data-sources--api_discovery--reference--group-001.md#canonical-916c54b2798a0453d87b6e380224e233d12f5efd4205e7109c8c6049d469715e) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.match_type` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.match_type](data-sources--api_discovery--reference--group-001.md#canonical-f38942eb939f94c5b718aa3f785f464e120aab68c49d8649860fc3f80cdef1aa) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.value` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.value](data-sources--api_discovery--reference--group-001.md#canonical-a529e017e2a61670e2eeda41c322676149ec45c71369923598056a5f2a72dc47) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion](data-sources--api_discovery--reference--group-001.md#canonical-fcbacfbdb299034beb04e4ad819fb69effa6688115de6a5df375dd59c3e05c4a) |
-| `user_defined_api_discovery_policy.discovery_rules.rule_properties.pattern` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.pattern](data-sources--api_discovery--reference--group-001.md#canonical-f930dbf319779eb7c6e5b6481c8b0b7705ab476c209f893d768904bdb1121392) |
-| `user_defined_api_discovery_policy.exclusive` | [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b63035187bf70e0ec907d80e1555b4074fa922161fea9799b6aea43731bc5194) |
-| `user_defined_api_discovery_policy.exclusive.archive` | [user_defined_api_discovery_policy.exclusive.archive](data-sources--api_discovery--reference--group-001.md#canonical-d95f3acaf0e55473d8c68e9b91687ea02418b33899184ab1e183581daa39ede2) |
-| `user_defined_api_discovery_policy.exclusive.ignore` | [user_defined_api_discovery_policy.exclusive.ignore](data-sources--api_discovery--reference--group-001.md#canonical-bf15e05cbf45a7fc74ef3d6a5cb7c28d5cec97112f4fbbda9d5a93b4bc371c99) |
-| `user_defined_api_discovery_policy.inclusive` | [user_defined_api_discovery_policy.inclusive](data-sources--api_discovery--reference--group-001.md#canonical-78a9c420c6cd63e788e70962e0b1772a6c4697326d148fbbdd69aaf0001455f7) |
+| `annotations` | [annotations](data-sources--api_discovery--reference--group-001.md#canonical-2111110031210221-3102021321301101-2031002333312332-0120033101201322-0033302010030310-2333111130311002-2211330120001330-2022011003000023) |
+| `custom_auth_types` | [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-0003003120201223-2121123011122303-0220322321333021-0313033221122332-0122323312311103-2123123232021321-1302210111132012-3201031310201131) |
+| `custom_auth_types.parameter_name` | [custom_auth_types.parameter_name](data-sources--api_discovery--reference--group-001.md#canonical-3213023002223022-1030032101210302-0210331000103220-1023200102220012-2001322201233021-2111312131330100-3130113332212032-0030211102131123) |
+| `custom_auth_types.parameter_type` | [custom_auth_types.parameter_type](data-sources--api_discovery--reference--group-001.md#canonical-3223321203002321-0220132123321011-1211133122202023-1033321100233001-2012312132103201-2011312133202202-1333212332131231-3311303203330100) |
+| `description` | [description](data-sources--api_discovery--reference--group-001.md#canonical-0212132202101303-0103030121021322-1133023020322232-1113131223013121-2113020333231213-0202122122211031-3323331222032300-2313212033310302) |
+| `id` | [id](data-sources--api_discovery--reference--group-001.md#canonical-3230223321132011-0133301210302111-0202220331310332-2300322222322133-1233300103122111-3133313303100331-0323230303001203-3301112103011122) |
+| `labels` | [labels](data-sources--api_discovery--reference--group-001.md#canonical-1131030220020301-3131203200203333-0133313032121223-0001222203001223-1301222302033210-1230110211101031-3111323323232302-1110103022000111) |
+| `name` | [name](data-sources--api_discovery--reference--group-001.md#canonical-2210222232220122-3312312232201231-0001310123112022-3303001221101233-0001311203311303-2102303233000021-0330030313101232-1102311132103011) |
+| `namespace` | [namespace](data-sources--api_discovery--reference--group-001.md#canonical-0000033223301033-0010020211023132-0132202200333201-1020320302002023-3233233101323111-1003330210220220-1303202133113113-0030223010032101) |
+| `user_defined_api_discovery_policy` | [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-2201312222331013-1121310232323033-1032102202122303-0030023020333133-2311230211323231-0103101133020030-1031200303003231-3213311233122331) |
+| `user_defined_api_discovery_policy.discovery_rules` | [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-3032233201323030-0321121222301000-2100202111122211-1032133213122003-1102032210210223-1200311021332231-2132012223130222-0330100112330221) |
+| `user_defined_api_discovery_policy.discovery_rules.labels` | [user_defined_api_discovery_policy.discovery_rules.labels](data-sources--api_discovery--reference--group-001.md#canonical-3332123100112311-1031222111211020-2203030012132000-3123012212001122-0213311112233112-0003112100230200-1022033332210220-0113010132320102) |
+| `user_defined_api_discovery_policy.discovery_rules.metadata` | [user_defined_api_discovery_policy.discovery_rules.metadata](data-sources--api_discovery--reference--group-001.md#canonical-1021303133000301-0033123023012230-1022112020220330-3003012133111102-2210101030320221-1223100231033030-2122222021232102-3132330322230112) |
+| `user_defined_api_discovery_policy.discovery_rules.metadata.description_spec` | [user_defined_api_discovery_policy.discovery_rules.metadata.description_spec](data-sources--api_discovery--reference--group-001.md#canonical-3030222112000331-0123202302312123-2223312130110210-2302002121032213-2201002333100002-3233020223310313-0031212331201123-3312011032312301) |
+| `user_defined_api_discovery_policy.discovery_rules.metadata.name` | [user_defined_api_discovery_policy.discovery_rules.metadata.name](data-sources--api_discovery--reference--group-001.md#canonical-1113231211313120-2103330122001000-3110301313222211-1102331321201331-1333323211300301-1031231002322122-0131231130101311-2110301020120012) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties` | [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-2321313133101321-3300031020120121-1102310303232100-2301020012032330-3211213000031203-1002231200100300-0011220322012330-1102002313203002) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-1111312311233102-2220301213012002-0200133123130221-1220322100013333-2311101312020311-2022110021222202-1103300010320231-2220032100212023) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive](data-sources--api_discovery--reference--group-001.md#canonical-1021001020312100-0110311023210113-3333221230130300-2110000200200213-3322211310100113-1102303022301101-0100211213030323-2331312232201003) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore](data-sources--api_discovery--reference--group-001.md#canonical-3102301010233233-0030223010033000-1112311323033300-0131031112011223-2002311313110113-2301123123301303-3201111023222031-0133321102331333) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-3313113220133202-0232213331310201-2001020021022210-0133003100313221-1332200032211310-0301221011223001-2100303232023101-1023210220310222) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.field_name` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.field_name](data-sources--api_discovery--reference--group-001.md#canonical-1302231133122212-1323120020033321-2212011202213000-0311030222003000-2133111000120310-1001133130120031-3032310100002103-2303122020032022) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.location` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.location](data-sources--api_discovery--reference--group-001.md#canonical-2101123011102302-1321202200101103-3120132312320320-0002021032020303-3101023311323331-1002001132130100-2130203012001021-3110122113011132) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.match_type` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.match_type](data-sources--api_discovery--reference--group-001.md#canonical-3303202110023223-2103213321103011-2313012022220333-1320113310121032-0102002222231220-3010213120121021-2012003330033320-0030313233012222) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.value` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.value](data-sources--api_discovery--reference--group-001.md#canonical-2211022132000113-3202221201121300-3202323231221001-3003020212131201-1021323010113013-0103122121020311-2120001112221133-0222130231301013) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion](data-sources--api_discovery--reference--group-001.md#canonical-3330232230332331-2302212100031023-3223001032102231-2001213323122132-3333221212202001-0111313212221131-3303131131311121-3003320011301022) |
+| `user_defined_api_discovery_policy.discovery_rules.rule_properties.pattern` | [user_defined_api_discovery_policy.discovery_rules.rule_properties.pattern](data-sources--api_discovery--reference--group-001.md#canonical-3321030031233303-0121131321322313-3012321123121020-0130202300231313-0011222310131230-0200213320210331-1312202100102331-2301010201032102) |
+| `user_defined_api_discovery_policy.exclusive` | [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2312030003110120-1323331300320032-3021001331200032-0111111123100013-1033222102020112-0133322221132121-2312223222100313-0301233011012110) |
+| `user_defined_api_discovery_policy.exclusive.archive` | [user_defined_api_discovery_policy.exclusive.archive](data-sources--api_discovery--reference--group-001.md#canonical-3121113303223022-3300321111101303-3120301220322123-2101122013322200-0210012023030320-2121012010222301-3201200311200131-2222032132313202) |
+| `user_defined_api_discovery_policy.exclusive.ignore` | [user_defined_api_discovery_policy.exclusive.ignore](data-sources--api_discovery--reference--group-001.md#canonical-2333011132001130-2333101122133330-1310323303311222-1130231330022031-1130323021130101-0233103323233122-2131112221032310-2330031301302121) |
+| `user_defined_api_discovery_policy.inclusive` | [user_defined_api_discovery_policy.inclusive](data-sources--api_discovery--reference--group-001.md#canonical-1320222130100200-3012303112033213-2020321300211202-3200230113130222-1230101221130302-1231011020332323-3131122122223300-0000011011113313) |
 
-<a id="canonical-33a3839dcacfd951cbfef8f13aa54e156a7eb541a256bbc1ef64ad1dcc9d6b7c"></a>
+<a id="canonical-0303220320032131-3022303331211101-3023333233203301-0322221110320111-1222133223111001-2202111223233001-3233121022310131-3030213112231330"></a>
 
-## Next pages — Property reference / 97b9f7c33aba / 11
+## Next pages — Property reference / 300303222322 / 11
 
-- [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-0c1417b41c2d178afa90ca3239194e2337a08fbc1044143f4747b3e0dfc62bc5)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [custom_auth_types](data-sources--api_discovery--reference--group-001.md#canonical-0030011001132310-0130023101132022-3322210030220302-0321012110320203-0313220020332330-0100101001100333-1013101323033200-3133301202233011)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-0c1417b41c2d178afa90ca3239194e2337a08fbc1044143f4747b3e0dfc62bc5"></a>
+<a id="canonical-0030011001132310-0130023101132022-3322210030220302-0321012110320203-0313220020332330-0100101001100333-1013101323033200-3133301202233011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-303a46dc2f5bc9f682abc2bfa185e35d9605f57f7e4027981e6768d62e4093c8"></a>
+<a id="canonical-0300032210123130-0233112330213312-2002222330022333-2201201132031131-2112001133111333-1332100002132120-0132121312203112-0232100021033020"></a>
 
-## custom_auth_types — custom_auth_types / dca934492cba / 2
+## custom_auth_types — custom_auth_types / 102102302322 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
 - custom_auth_types
 
-<a id="canonical-030d886b996c56b328eb9fc9373e96be1aef6d539b6ee27972915786e137485d"></a>
+<a id="canonical-0003003120201223-2121123011122303-0220322321333021-0313033221122332-0122323312311103-2123123232021321-1302210111132012-3201031310201131"></a>
 
 Type: `"list"`. Computed.
 
@@ -378,15 +378,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0dbd0b6df3098c3b2fd0abc28032923e6f74f0a13ee67959172ff34a3f43800"></a>
+<a id="canonical-3200312331002312-3133030021203003-2302333100222330-0220000302210203-3212331310330022-0103323212132111-2101130233330310-2203331003200000"></a>
 
-## Direct properties — custom_auth_types / dca934492cba / 3
+## Direct properties — custom_auth_types / 102102302322 / 3
 
-<a id="canonical-e72c2aca4c39193224f404e84b812a0681ea1bc995d9df10dc5fe98e0c95275b"></a>
+<a id="canonical-3213023002223022-1030032101210302-0210331000103220-1023200102220012-2001322201233021-2111312131330100-3130113332212032-0030211102131123"></a>
 
-<a id="canonical-3afb50b745f7d405a6bbdd1839adc234258b4b72c3d1dafcd86f2903deada762"></a>
+<a id="canonical-0322332311002313-1011331331100011-2212232331310120-0321223130020310-0211202310231302-3003310131223330-3120123302210003-3132223122131202"></a>
 
-## parameter_name property — custom_auth_types / dca934492cba / 4
+## parameter_name property — custom_auth_types / 102102302322 / 4
 
 Type: `"string"`. Computed.
 
@@ -437,11 +437,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ebe630b92879be45657da88b4fe50bc186d9e4e185d9f8a27f9be76df5ce3f10"></a>
+<a id="canonical-3223321203002321-0220132123321011-1211133122202023-1033321100233001-2012312132103201-2011312133202202-1333212332131231-3311303203330100"></a>
 
-<a id="canonical-8c475b8d34efc6fce45f48c55226b67baff9c3b8a75c7c759b941bf0016622d0"></a>
+<a id="canonical-2030101311232031-0310323330123330-3210113310203011-1102021223121323-2233332130032320-2213113013301311-2123211001233300-0001121202023100"></a>
 
-## parameter_type property — custom_auth_types / dca934492cba / 5
+## parameter_type property — custom_auth_types / 102102302322 / 5
 
 Type: `"string"`. Computed.
 
@@ -471,30 +471,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aa5469ca9b1dc9ab55b499391729f206dd57878bdf86a0a8b1ea5820c929f49b"></a>
+<a id="canonical-2222111012213022-2123013130212223-1111231021210321-0113022133020012-3131111320132023-3133201222002220-2301322211200200-3021022133102123"></a>
 
-## Next pages — custom_auth_types / dca934492cba / 6
+## Next pages — custom_auth_types / 102102302322 / 6
 
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f"></a>
+<a id="canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-044c4ec59e90132172e954c34d01a62d3cdee53648e0f7d46c570175d3f9089e"></a>
+<a id="canonical-0010103010323011-2132210001030201-1302322111103003-1031000122120231-0330313232110312-1020320033133110-1230111300011311-3103332100202132"></a>
 
-## user_defined_api_discovery_policy — user_defined_api_discovery_policy / 1e773e2559aa / 2
+## user_defined_api_discovery_policy — user_defined_api_discovery_policy / 021111212222 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
 - user_defined_api_discovery_policy
 
-<a id="canonical-a1daaf4759d2eecf4e4a26b30c2c8fdfb5b25eed1345f20c4d8330ede7d6f6bd"></a>
+<a id="canonical-2201312222331013-1121310232323033-1032102202122303-0030023020333133-2311230211323231-0103101133020030-1031200303003231-3213311233122331"></a>
 
 Type: `"single"`. Computed.
 
@@ -515,44 +515,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3a83dba3be17835394c640a115dfc1e69713b5e48f44c2f0f418e9a867554a66"></a>
+<a id="canonical-0322200331232203-2332011320031103-2110301210002201-0111313330013212-2113010323113210-2033101030023300-3310012032212220-1213111110221212"></a>
 
-## Direct properties — user_defined_api_discovery_policy / 1e773e2559aa / 3
+## Direct properties — user_defined_api_discovery_policy / 021111212222 / 3
 
-- [discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff): complete subsection reference.
+- [discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333): complete subsection reference.
 
-- [exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7): complete subsection reference.
+- [exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313): complete subsection reference.
 
-- [inclusive](data-sources--api_discovery--reference--group-001.md#canonical-3ce833875c4473db0ce0956084f54f6b79efdfb1debe8621cbe9001b71e7b948): complete subsection reference.
+- [inclusive](data-sources--api_discovery--reference--group-001.md#canonical-0330322003032013-1130101013033123-0030320021111200-2010331110331223-1321323331332301-3132233220120201-3023322100000123-1301321323211020): complete subsection reference.
 
-<a id="canonical-240b6440fab9436e06cae325f1b8fc69f883838dd69745f81053a6dd6e5f652b"></a>
+<a id="canonical-0210002312101000-3322232110031232-0012302232030211-3301232033301221-3320200320032031-3112211310113320-0100110322123131-1232113312110223"></a>
 
-## Next pages — user_defined_api_discovery_policy / 1e773e2559aa / 4
+## Next pages — user_defined_api_discovery_policy / 021111212222 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7)
-- [user_defined_api_discovery_policy.inclusive](data-sources--api_discovery--reference--group-001.md#canonical-3ce833875c4473db0ce0956084f54f6b79efdfb1debe8621cbe9001b71e7b948)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313)
+- [user_defined_api_discovery_policy.inclusive](data-sources--api_discovery--reference--group-001.md#canonical-0330322003032013-1130101013033123-0030320021111200-2010331110331223-1321323331332301-3132233220120201-3023322100000123-1301321323211020)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff"></a>
+<a id="canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a283e6337c692f933f57df25e741aaf0c06e1809415bcd6cbf631061b660ad49"></a>
+<a id="canonical-2202200332120303-1330122102332103-0333111331330211-3213100122223300-3000123201200021-1001112330311230-2333120301001201-2312120022311021"></a>
 
-## user_defined_api_discovery_policy.discovery_rules — user_defined_api_discovery_policy.discovery_rules / 11cc3635d71b / 2
+## user_defined_api_discovery_policy.discovery_rules — discovery_rules / 031131130123 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
 - user_defined_api_discovery_policy.discovery_rules
 
-<a id="canonical-cebe1ecc3966ac40908956a54e7e7683523a492b60d49fad9e1ab72a3c416f29"></a>
+<a id="canonical-3032233201323030-0321121222301000-2100202111122211-1032133213122003-1102032210210223-1200311021332231-2132012223130222-0330100112330221"></a>
 
 Type: `"list"`. Computed.
 
@@ -599,45 +599,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cfeb6e02043e588c8a7a2719031ffd5f56ac1c8db322e5d56746c50123f75488"></a>
+<a id="canonical-3033322312320002-0010033211202030-2022132202130121-0003013333311133-1112223001302031-2303020232113111-1213101230110001-0203331311102020"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules / 11cc3635d71b / 3
+## Direct properties — discovery_rules / 031131130123 / 3
 
-- [labels](data-sources--api_discovery--reference--group-001.md#canonical-5d2b192bc63579d3878f6e402a554262d10d42b4a758d0d727569791b88c2354): complete subsection reference.
+- [labels](data-sources--api_discovery--reference--group-001.md#canonical-1131022301210223-3012031113213103-2013203312321000-0222111110021202-3101003110022310-2213112031003113-0213111221132101-2320203002031110): complete subsection reference.
 
-- [metadata](data-sources--api_discovery--reference--group-001.md#canonical-dab6594c5eb0f02a1d0e7b6bcc5d1664219716c03d655f6727f0140ef4bcbc02): complete subsection reference.
+- [metadata](data-sources--api_discovery--reference--group-001.md#canonical-3122231211211030-1132230033000222-0131003213231223-3030113101121210-0201211301123000-0331121111331213-0213330001100032-3310233023300002): complete subsection reference.
 
-- [rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6): complete subsection reference.
+- [rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312): complete subsection reference.
 
-<a id="canonical-810b4cbebb61be9e84b2350f865313bcee0cad542b358c5cf239e6ec7cf64d2c"></a>
+<a id="canonical-2001002310302332-2323120123322132-2010230203110033-2012110301032330-3232003022311110-0223031120301130-3302032132123230-1330331210310230"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules / 11cc3635d71b / 4
+## Next pages — discovery_rules / 031131130123 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules.labels](data-sources--api_discovery--reference--group-001.md#canonical-5d2b192bc63579d3878f6e402a554262d10d42b4a758d0d727569791b88c2354)
-- [user_defined_api_discovery_policy.discovery_rules.metadata](data-sources--api_discovery--reference--group-001.md#canonical-dab6594c5eb0f02a1d0e7b6bcc5d1664219716c03d655f6727f0140ef4bcbc02)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.labels](data-sources--api_discovery--reference--group-001.md#canonical-1131022301210223-3012031113213103-2013203312321000-0222111110021202-3101003110022310-2213112031003113-0213111221132101-2320203002031110)
+- [user_defined_api_discovery_policy.discovery_rules.metadata](data-sources--api_discovery--reference--group-001.md#canonical-3122231211211030-1132230033000222-0131003213231223-3030113101121210-0201211301123000-0331121111331213-0213330001100032-3310233023300002)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-5d2b192bc63579d3878f6e402a554262d10d42b4a758d0d727569791b88c2354"></a>
+<a id="canonical-1131022301210223-3012031113213103-2013203312321000-0222111110021202-3101003110022310-2213112031003113-0213111221132101-2320203002031110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7f59e346581d12aa04c84fc0ad471d4bbe4d250022426e75b2be62b2e110502c"></a>
+<a id="canonical-1333112132031012-1120013101022222-0010302010333000-2231101301311023-2332103102110000-0202100212321311-2302233212022302-3201010011000230"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.labels — user_defined_api_discovery_policy.discovery_rules.labels / 48f8a9383b14 / 2
+## user_defined_api_discovery_policy.discovery_rules.labels — labels / 032003230110 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
 - user_defined_api_discovery_policy.discovery_rules.labels
 
-<a id="canonical-fe6d05b54da95948a3306780db1a605a27d56bd603590b204a3fe9281711ee12"></a>
+<a id="canonical-3332123100112311-1031222111211020-2203030012132000-3123012212001122-0213311112233112-0003112100230200-1022033332210220-0113010132320102"></a>
 
 Type: `"single"`. Computed.
 
@@ -656,38 +656,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-62fcbe17e35c9a1e9c604e02a0bc8e484a8c0051c2b45aeaeafdde81e5162462"></a>
+<a id="canonical-1202333023320113-3203113021220132-2130120010320002-2200233020321020-1022203000001101-3002231011223222-3222333131322001-3211011202101202"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.labels / 48f8a9383b14 / 3
+## Direct properties — labels / 032003230110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-64d944fb3bc0ba1d03c711317a753910eda475fd028623e82d0e70f6d4851699"></a>
+<a id="canonical-1210312110103323-0323300023220131-0003301301010301-1322131103210100-3231221013113331-0002201202033220-0231003213003312-3110201101122121"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.labels / 48f8a9383b14 / 4
+## Next pages — labels / 032003230110 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-dab6594c5eb0f02a1d0e7b6bcc5d1664219716c03d655f6727f0140ef4bcbc02"></a>
+<a id="canonical-3122231211211030-1132230033000222-0131003213231223-3030113101121210-0201211301123000-0331121111331213-0213330001100032-3310233023300002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-871e482134a5887d327ee77918120aaa21eb41bcc3f445fc6899855a7ca1232d"></a>
+<a id="canonical-2013013210200201-0310221120201331-0302133232131321-0120010200222222-0201322310012330-3003331010113330-1220212120111122-1330220102030231"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.metadata — user_defined_api_discovery_policy.discovery_rules.metadata / 57343a3db9df / 2
+## user_defined_api_discovery_policy.discovery_rules.metadata — metadata / 033123213133 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
 - user_defined_api_discovery_policy.discovery_rules.metadata
 
-<a id="canonical-49cdf0310f6cb1ac4a588a3cc319f552a444ce296b42d3cc9aa89b92def3ab16"></a>
+<a id="canonical-1021303133000301-0033123023012230-1022112020220330-3003012133111102-2210101030320221-1223100231033030-2122222021232102-3132330322230112"></a>
 
 Type: `"single"`. Computed.
 
@@ -716,25 +716,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-100cdaeea61b00f81d7dfbf9e3ec14b02f374c6231563e17518448e08c1a354c"></a>
+<a id="canonical-0100003031223232-2212012300003320-0131133133233321-3203323001102300-0233031310301202-0301111203320113-1101201010203200-2030012203111030"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.metadata / 57343a3db9df / 3
+## Direct properties — metadata / 033123213133 / 3
 
-<a id="canonical-cca9603d1b8b2d9babd9c524b20993a7a10bf402ef22bd370d9bd85bf614edb1"></a>
+<a id="canonical-3030222112000331-0123202302312123-2223312130110210-2302002121032213-2201002333100002-3233020223310313-0031212331201123-3312011032312301"></a>
 
-<a id="canonical-16db01d5d03b2434032eec0b09461e8c1b1f35b14ad994d2fe31aaefcf81bd2a"></a>
+<a id="canonical-0112312300013111-3100032302100310-0003023232300023-0021101201322030-0123013303112301-1022312121103102-3332030122223233-3033200123310222"></a>
 
-## description_spec property — user_defined_api_discovery_policy.discovery_rules.metadata / 57343a3db9df / 4
+## description_spec property — metadata / 033123213133 / 4
 
 Type: `"string"`. Computed.
 
 Description. Human readable description.
 
-<a id="canonical-57b65dd893f1a040d4c77aa552f7987d7fee5c314db42e9a1db5c47594c48606"></a>
+<a id="canonical-1113231211313120-2103330122001000-3110301313222211-1102331321201331-1333323211300301-1031231002322122-0131231130101311-2110301020120012"></a>
 
-<a id="canonical-b580b582a015f766cce861497e1c470e600e81cec490303f00ae6089105a423b"></a>
+<a id="canonical-2311200023112002-2200011133131212-3030322012011021-1332013010130032-1200003220013032-3010210003000333-0000223212002021-0100112210020323"></a>
 
-## name property — user_defined_api_discovery_policy.discovery_rules.metadata / 57343a3db9df / 5
+## name property — metadata / 033123213133 / 5
 
 Type: `"string"`. Computed.
 
@@ -793,32 +793,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3a9d0598773fb8082147f3823f626d47578426cc211559291cb2ec669cd2617d"></a>
+<a id="canonical-0322213100112120-1313033323200020-0201101333032002-0333120212311013-1113201002123030-0201011111210221-0130230232301212-2130310212011331"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.metadata / 57343a3db9df / 6
+## Next pages — metadata / 033123213133 / 6
 
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6"></a>
+<a id="canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f4ea615a39972ca3347239d2bc7c1e5636cc99b84c30f9864069db7442c0a962"></a>
+<a id="canonical-3310322212011122-0321211302302203-0310130203213102-2330133001321112-0312303021212320-1030030033212012-1000122131231310-1002300022211202"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties — user_defined_api_discovery_policy.discovery_rules.rule_properties / 9111e53cdf74 / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties — rule_properties / 033031331310 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties
 
-<a id="canonical-b9ddf479f034861952d33b90b12063bce59c036342b6043005a3a1bc520b78c2"></a>
+<a id="canonical-2321313133101321-3300031020120121-1102310303232100-2301020012032330-3211213000031203-1002231200100300-0011220322012330-1102002313203002"></a>
 
 Type: `"single"`. Computed.
 
@@ -839,21 +839,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-14ddba266abd0cad6ba9068ab115aa61cfd63f626aa624493e5fe7665af88bea"></a>
+<a id="canonical-0110313123220212-1222233100302231-1223222100122022-2301011122221201-3033311203331202-1222221202101021-0332113332131212-1122332020233222"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties / 9111e53cdf74 / 3
+## Direct properties — rule_properties / 033031331310 / 3
 
-- [exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9): complete subsection reference.
+- [exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221): complete subsection reference.
 
-- [http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-2a22f2cfcbf71953e9a3b999a299b96b8b8068152460d6788cd09f55af0f5059): complete subsection reference.
+- [http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-0222020233023033-3023331301211103-3221220323212121-2202212123211223-2023200012200111-0210120031121320-2030310021331111-2233003311001121): complete subsection reference.
 
-- [inclusion](data-sources--api_discovery--reference--group-001.md#canonical-a20b9742fc4b0e67494e59440d65f8d480e29ad40133d592f83922e45f68317d): complete subsection reference.
+- [inclusion](data-sources--api_discovery--reference--group-001.md#canonical-2202002321131002-3330102300321213-1021103211211010-0031121133203110-2000320221223110-0001030331112102-3320032102023210-1133122003011331): complete subsection reference.
 
-<a id="canonical-f930dbf319779eb7c6e5b6481c8b0b7705ab476c209f893d768904bdb1121392"></a>
+<a id="canonical-3321030031233303-0121131321322313-3012321123121020-0130202300231313-0011222310131230-0200213320210331-1312202100102331-2301010201032102"></a>
 
-<a id="canonical-0fc06d489333a7b0cf0ffee41c1b7d5f6421e6bafb917b8b503f0fdd005f2fa8"></a>
+<a id="canonical-0033300012311020-2103030322132300-3033003333323210-0130012313311133-1210020132122322-3323210113232023-1100033300333131-0000113302332220"></a>
 
-## pattern property — user_defined_api_discovery_policy.discovery_rules.rule_properties / 9111e53cdf74 / 4
+## pattern property — rule_properties / 033031331310 / 4
 
 Type: `"string"`. Computed.
 
@@ -905,36 +905,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c12fc9117c15e28cf2f13b422bc11732f652c8e7ee7ab101cf6660e89ec27bc4"></a>
+<a id="canonical-3001023330210101-1330011132022030-3302330103231002-0223300101130302-3312110230203213-3232132223010001-3033121212003220-2132300213233010"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties / 9111e53cdf74 / 5
+## Next pages — rule_properties / 033031331310 / 5
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-2a22f2cfcbf71953e9a3b999a299b96b8b8068152460d6788cd09f55af0f5059)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion](data-sources--api_discovery--reference--group-001.md#canonical-a20b9742fc4b0e67494e59440d65f8d480e29ad40133d592f83922e45f68317d)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria](data-sources--api_discovery--reference--group-001.md#canonical-0222020233023033-3023331301211103-3221220323212121-2202212123211223-2023200012200111-0210120031121320-2030310021331111-2233003311001121)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion](data-sources--api_discovery--reference--group-001.md#canonical-2202002321131002-3330102300321213-1021103211211010-0031121133203110-2000320221223110-0001030331112102-3320032102023210-1133122003011331)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9"></a>
+<a id="canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-abdd475932d47b1c6cb20ff704d0175215cb8b259a2e8a9be8fcb11a20f63ade"></a>
+<a id="canonical-2223313110131121-0302311013230130-1230230200333313-0010310001131102-0111302320230211-2122023220222123-3220333023010122-0200331203223132"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion / 14ea1fe3c5be / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion — exclusion / 320330112332 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion
 
-<a id="canonical-55db5bd2a8c67182207db72968e901ffb54762358a509aa253c04e2da839098b"></a>
+<a id="canonical-1111312311233102-2220301213012002-0200133123130221-1220322100013333-2311101312020311-2022110021222202-1103300010320231-2220032100212023"></a>
 
 Type: `"single"`. Computed.
 
@@ -958,44 +958,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-248f5f9603ae4d3bc73eee97ca8fa0e96667304e06a8d28626d84f9b60b4473a"></a>
+<a id="canonical-0210203311332112-0003223210310323-3013033232322113-3022203322003221-1212121303001032-0012222031022012-0212312010332123-1200231010130322"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion / 14ea1fe3c5be / 3
+## Direct properties — exclusion / 320330112332 / 3
 
-- [archive](data-sources--api_discovery--reference--group-001.md#canonical-65339affc5ecbb4b985eb93dc00f7a8f10154e2a5b3c77b7728ba8e6e83e308e): complete subsection reference.
+- [archive](data-sources--api_discovery--reference--group-001.md#canonical-1211030321223333-3011323023231023-2120113223210331-3000003313222033-0100011110320222-1123033013132313-1302202322203212-3220033203002032): complete subsection reference.
 
-- [ignore](data-sources--api_discovery--reference--group-001.md#canonical-ab8a911448c4f81cf5b9af22e138abacae15db3667793eaef45825979c99e666): complete subsection reference.
+- [ignore](data-sources--api_discovery--reference--group-001.md#canonical-2223202221010110-1020301033200130-3311232122330202-3201032022232230-2232011131230312-1213132103322232-3310112002112113-2130212132121212): complete subsection reference.
 
-<a id="canonical-35e65110748e3b4e907c8cfeda0accd8771ba80c509bc748e0a26757de358e8a"></a>
+<a id="canonical-0311321211010100-1310203203231032-2100133020303332-3122002230303120-1313012322200030-1100212330131020-3200220212131113-3132031120322022"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion / 14ea1fe3c5be / 4
+## Next pages — exclusion / 320330112332 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive](data-sources--api_discovery--reference--group-001.md#canonical-65339affc5ecbb4b985eb93dc00f7a8f10154e2a5b3c77b7728ba8e6e83e308e)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore](data-sources--api_discovery--reference--group-001.md#canonical-ab8a911448c4f81cf5b9af22e138abacae15db3667793eaef45825979c99e666)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive](data-sources--api_discovery--reference--group-001.md#canonical-1211030321223333-3011323023231023-2120113223210331-3000003313222033-0100011110320222-1123033013132313-1302202322203212-3220033203002032)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore](data-sources--api_discovery--reference--group-001.md#canonical-2223202221010110-1020301033200130-3311232122330202-3201032022232230-2232011131230312-1213132103322232-3310112002112113-2130212132121212)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-65339affc5ecbb4b985eb93dc00f7a8f10154e2a5b3c77b7728ba8e6e83e308e"></a>
+<a id="canonical-1211030321223333-3011323023231023-2120113223210331-3000003313222033-0100011110320222-1123033013132313-1302202322203212-3220033203002032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5e2e94090c345daa223209af0058bc46b22d6710545c845861b80bbeddf4d99"></a>
+<a id="canonical-3011320232211000-2100300310113122-2202020302002122-3300001120233010-1223020231121301-0011101130201011-2012012320002323-3231313310312121"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.arch / cbf60f7f6ab5 / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive — archive / 133312222311 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive
 
-<a id="canonical-49048d9014d4b917ffa6c73094020827fa97441752ccac511096733bbddae843"></a>
+<a id="canonical-1021001020312100-0110311023210113-3333221230130300-2110000200200213-3322211310100113-1102303022301101-0100211213030323-2331312232201003"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1018,40 +1018,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-81dbd1c79c8a1c51d2bcdea874655e2cb41d6039358d2ebd6b22ee44f909dd1f"></a>
+<a id="canonical-2001312331013013-2130202201301101-3102233031322220-1310121111320230-2310013112000321-0311203102322331-1223020232321010-3321002131310133"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.arch / cbf60f7f6ab5 / 3
+## Direct properties — archive / 133312222311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-07f9163ae2b7fa150c97beccb0bb67d481e6050deca03ac2ab03e95ab65291f5"></a>
+<a id="canonical-0013332101120322-3202231333220111-0030211323323030-2300232312133110-2001321200110031-3230220003223002-2223000332211122-2312110221013311"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.arch / cbf60f7f6ab5 / 4
+## Next pages — archive / 133312222311 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-ab8a911448c4f81cf5b9af22e138abacae15db3667793eaef45825979c99e666"></a>
+<a id="canonical-2223202221010110-1020301033200130-3311232122330202-3201032022232230-2232011131230312-1213132103322232-3310112002112113-2130212132121212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8d65b1741c6c4a443d001dbc5a84e2c698df8fdd556ebd82b3165f4f996fcfcf"></a>
+<a id="canonical-2031121123011310-0130123010221010-0331000001312330-1122201032023012-2120313320333131-1111123223312002-2303011211331033-2121123330333033"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.igno / 9f28455d3c0e / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore — ignore / 113103300032 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore
 
-<a id="canonical-d2c44bef0cac43c056d7b3f01d35616b82d77517b16dbc73e154ba8d1fe52f7f"></a>
+<a id="canonical-3102301010233233-0030223010033000-1112311323033300-0131031112011223-2002311313110113-2301123123301303-3201111023222031-0133321102331333"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1074,39 +1074,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2799e9c2c373de16630c32d61e7fbc07b08e888b5120c8d0c5d3097e1885c130"></a>
+<a id="canonical-0213212132213002-3003130331320112-1203003003023112-0132133323300013-2300203220202023-1101020030203100-3011310300211332-0120201130010300"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.igno / 9f28455d3c0e / 3
+## Direct properties — ignore / 113103300032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a58e1b2ca14d65dd10fcc5bebcd15baaed88f304f27f184e108470eada75f459"></a>
+<a id="canonical-2211203201230230-2201103112113131-0100333030112332-2330310111232222-3231202033030010-3302133301201032-0100201013003222-3122131133101121"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.igno / 9f28455d3c0e / 4
+## Next pages — ignore / 113103300032 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-e9d3a8bf69b199db56deef60be86878bfe6df60e357b89f21a10f205151057a9)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion](data-sources--api_discovery--reference--group-001.md#canonical-3221310322202333-1221230121213123-1112313232331200-2332201220132023-3332123133120032-0311132320213302-0122010033020011-0111010011132221)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-2a22f2cfcbf71953e9a3b999a299b96b8b8068152460d6788cd09f55af0f5059"></a>
+<a id="canonical-0222020233023033-3023331301211103-3221220323212121-2202212123211223-2023200012200111-0210120031121320-2030310021331111-2233003311001121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-736c72350ce1163145218bdc49ab7379fd227aa52f6ddb56fd994e811f188fca"></a>
+<a id="canonical-1303123013020311-0030320101120301-1011020120233130-1021222313031321-3331020213222211-0233123131231112-3331212110322001-0133012020333022"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria — http_header_criteria / 300220300133 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria
 
-<a id="canonical-f75e87e22e9fdd21812092a41f0d0de97e80e97431a45ac190cee2d14b928d2a"></a>
+<a id="canonical-3313113220133202-0232213331310201-2001020021022210-0133003100313221-1332200032211310-0301221011223001-2100303232023101-1023210220310222"></a>
 
 Type: `"single"`. Computed.
 
@@ -1129,15 +1129,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-361dd0aa09ac0565aa8d6877cf078176c039643b8ebed641c0616fa07444bafb"></a>
+<a id="canonical-0312013131002222-0021223000111211-2222203112201313-3033001320011312-3000032112100323-2032233231121001-3000120112332200-1310101023223323"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 3
+## Direct properties — http_header_criteria / 300220300133 / 3
 
-<a id="canonical-72b5f6a67b6083f9a61629c03532a0c09f540634417dc60dced10093b368838a"></a>
+<a id="canonical-1302231133122212-1323120020033321-2212011202213000-0311030222003000-2133111000120310-1001133130120031-3032310100002103-2303122020032022"></a>
 
-<a id="canonical-1fbaa4b7ebc1ff5d90847580924d2b43a83440c3ce14981fbd7310c8f1e1275e"></a>
+<a id="canonical-0133232222102313-3223300133331131-2100201013112000-2102103102231003-2220031010003003-3032011021200133-2331130301003020-3301320102131132"></a>
 
-## field_name property — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 4
+## field_name property — http_header_criteria / 300220300133 / 4
 
 Type: `"string"`. Computed.
 
@@ -1185,11 +1185,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-916c54b2798a0453d87b6e380224e233d12f5efd4205e7109c8c6049d469715e"></a>
+<a id="canonical-2101123011102302-1321202200101103-3120132312320320-0002021032020303-3101023311323331-1002001132130100-2130203012001021-3110122113011132"></a>
 
-<a id="canonical-bae47555c23952dc13f0e843d4e82e4d518abaee568bb86ed3e74fabbfc7c2cf"></a>
+<a id="canonical-2322321013111111-3002032111023130-0103330032201003-3110322002321031-1101202223223232-1112202323201232-3103321310332223-2333301330023033"></a>
 
-## location property — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 5
+## location property — http_header_criteria / 300220300133 / 5
 
 Type: `"string"`. Computed.
 
@@ -1223,11 +1223,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f38942eb939f94c5b718aa3f785f464e120aab68c49d8649860fc3f80cdef1aa"></a>
+<a id="canonical-3303202110023223-2103213321103011-2313012022220333-1320113310121032-0102002222231220-3010213120121021-2012003330033320-0030313233012222"></a>
 
-<a id="canonical-88f1012a1870c95ab19e1b46e94321949c2f88f638be4da09a056529099bfb58"></a>
+<a id="canonical-2020330100010222-0120130030211122-2301213201231012-3221100302012110-2130023320203312-0320233210312200-2122001112110221-0021212333231120"></a>
 
-## match_type property — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 6
+## match_type property — http_header_criteria / 300220300133 / 6
 
 Type: `"string"`. Computed.
 
@@ -1257,11 +1257,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a529e017e2a61670e2eeda41c322676149ec45c71369923598056a5f2a72dc47"></a>
+<a id="canonical-2211022132000113-3202221201121300-3202323231221001-3003020212131201-1021323010113013-0103122121020311-2120001112221133-0222130231301013"></a>
 
-<a id="canonical-6ce76495c2d96ef93ba45b1b928a7476f9e512a5e995280e06cd75c8a9488af9"></a>
+<a id="canonical-1230321312102111-3002312112323321-0323221011230123-2102202213101312-3321321101022211-3221211102200032-0012303113113020-2221102020223321"></a>
 
-## value property — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 7
+## value property — http_header_criteria / 300220300133 / 7
 
 Type: `"string"`. Computed.
 
@@ -1309,33 +1309,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e5c56002742f0a9650563d45a3b7d26596862de9188915c64a8d19937b7396b"></a>
+<a id="canonical-1232113011120000-0213100233002221-1211001112033110-1122032313310212-1121122012023132-2101202021011130-1210222031012121-0313231303211223"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_cr / 5830e7c28c1f / 8
+## Next pages — http_header_criteria / 300220300133 / 8
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-a20b9742fc4b0e67494e59440d65f8d480e29ad40133d592f83922e45f68317d"></a>
+<a id="canonical-2202002321131002-3330102300321213-1021103211211010-0031121133203110-2000320221223110-0001030331112102-3320032102023210-1133122003011331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-045e44ce0708a7665c1d531bc9a2ceaecab95202c9459ed6bd9eb1e5183816ca"></a>
+<a id="canonical-0010113210103032-0013002022131212-1130013111030123-3021220230322232-3022232111020002-3021101121323112-2331213223013211-0120032001123022"></a>
 
-## user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion — user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion / 1ddb7c5e95fc / 2
+## user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion — inclusion / 113221113330 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-783e29ef30d911ce42db5c00200d0b8b9a5012a39522f11d16d29ee491fc3aff)
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.discovery_rules](data-sources--api_discovery--reference--group-001.md#canonical-1320033202213233-0300312101013032-1002312311300000-0200003100232023-2122110001022203-2111020233010131-0112310221323210-2101333003223333)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
 - user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion
 
-<a id="canonical-fcbacfbdb299034beb04e4ad819fb69effa6688115de6a5df375dd59c3e05c4a"></a>
+<a id="canonical-3330232230332331-2302212100031023-3223001032102231-2001213323122132-3333221212202001-0111313212221131-3303131131311121-3003320011301022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1358,37 +1358,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-26dedb2b37bcf17efdccbd9c9172616214f8258d9658c1401720855adb3df005"></a>
+<a id="canonical-0212313231230223-0313233033011332-3331303023312130-2101130212011202-0110332002112031-2112112030011000-0113020020111122-3123033133000011"></a>
 
-## Direct properties — user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion / 1ddb7c5e95fc / 3
+## Direct properties — inclusion / 113221113330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-694d1c50159326322ec143892ef2b51dfa3dc7a549a7e423a9898f0084758c57"></a>
+<a id="canonical-1221103101301100-0111210302120302-0232300110032021-0232330223110131-3322033130132211-1021221332100203-2221202120330000-2010131120301113"></a>
 
-## Next pages — user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion / 1ddb7c5e95fc / 4
+## Next pages — inclusion / 113221113330 / 4
 
-- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-fbcc5acef872b8584b26ef657449999f5c1a520cc8601c3baeb0a4f91d6324b6)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.discovery_rules.rule_properties](data-sources--api_discovery--reference--group-001.md#canonical-3323303011223032-3320130223201120-1023021232331211-1310102121212133-1130012211020030-3020120001300323-2232230022103321-0131120302102312)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7"></a>
+<a id="canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f2f06595c7b087b16415c807e098451ffb0c0f013217c15293089bf33259c40"></a>
+<a id="canonical-0233023300121121-1130132300201323-0112100111302000-1332002120101101-3333230030003300-0103020113300111-0221030020212333-0303021121301000"></a>
 
-## user_defined_api_discovery_policy.exclusive — user_defined_api_discovery_policy.exclusive / e6d0cd0fdb99 / 2
+## user_defined_api_discovery_policy.exclusive — exclusive / 003331232121 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
 - user_defined_api_discovery_policy.exclusive
 
-<a id="canonical-b63035187bf70e0ec907d80e1555b4074fa922161fea9799b6aea43731bc5194"></a>
+<a id="canonical-2312030003110120-1323331300320032-3021001331200032-0111111123100013-1033222102020112-0133322221132121-2312223222100313-0301233011012110"></a>
 
 Type: `"single"`. Computed.
 
@@ -1412,42 +1412,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2265891cdf67ec43c2069f7a50601421eeec36eda2cdf51d43fb51237c0c2aff"></a>
+<a id="canonical-0202121120210130-3133121332301003-3002001221331322-1100120001100201-3232323003123231-2202303133110131-1003332311010203-1330003002223333"></a>
 
-## Direct properties — user_defined_api_discovery_policy.exclusive / e6d0cd0fdb99 / 3
+## Direct properties — exclusive / 003331232121 / 3
 
-- [archive](data-sources--api_discovery--reference--group-001.md#canonical-4d3b9087dd1fd2a0e60b0af2a53a8669e7a3cdf8c56e331f9824f79ce7f7ea17): complete subsection reference.
+- [archive](data-sources--api_discovery--reference--group-001.md#canonical-1031032321002013-3131013331022200-3212002300223302-2211032220121221-3213220330313320-3011123203030133-2120021033132130-3213331332220113): complete subsection reference.
 
-- [ignore](data-sources--api_discovery--reference--group-001.md#canonical-20cd638f789ce8b12a363dc62cefe987416c07f599bd566db6b9db91a9eecda9): complete subsection reference.
+- [ignore](data-sources--api_discovery--reference--group-001.md#canonical-0200303112032033-1320213032202301-0222031203313012-0230323332212013-1001123000133311-2121233111121231-2312232131232101-2221323230312221): complete subsection reference.
 
-<a id="canonical-fceda958aecf4013b049c5aaac323e5e98d21a37ded49cb4c24f21511415e3d4"></a>
+<a id="canonical-3330323122211120-2232303310000103-2300102130112222-2230030203321132-2120310201220313-3132311021302310-3002103302011101-0110011132033110"></a>
 
-## Next pages — user_defined_api_discovery_policy.exclusive / e6d0cd0fdb99 / 4
+## Next pages — exclusive / 003331232121 / 4
 
-- [user_defined_api_discovery_policy.exclusive.archive](data-sources--api_discovery--reference--group-001.md#canonical-4d3b9087dd1fd2a0e60b0af2a53a8669e7a3cdf8c56e331f9824f79ce7f7ea17)
-- [user_defined_api_discovery_policy.exclusive.ignore](data-sources--api_discovery--reference--group-001.md#canonical-20cd638f789ce8b12a363dc62cefe987416c07f599bd566db6b9db91a9eecda9)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.exclusive.archive](data-sources--api_discovery--reference--group-001.md#canonical-1031032321002013-3131013331022200-3212002300223302-2211032220121221-3213220330313320-3011123203030133-2120021033132130-3213331332220113)
+- [user_defined_api_discovery_policy.exclusive.ignore](data-sources--api_discovery--reference--group-001.md#canonical-0200303112032033-1320213032202301-0222031203313012-0230323332212013-1001123000133311-2121233111121231-2312232131232101-2221323230312221)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-4d3b9087dd1fd2a0e60b0af2a53a8669e7a3cdf8c56e331f9824f79ce7f7ea17"></a>
+<a id="canonical-1031032321002013-3131013331022200-3212002300223302-2211032220121221-3213220330313320-3011123203030133-2120021033132130-3213331332220113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5a380c99b4b59b4dc3e090b32ebef1566fc2b70926f23d464f3ef3cceb80c3e"></a>
+<a id="canonical-2311220320003021-2123102311212310-3130033200210023-0302322332330111-1212333002231300-2102123302033110-1210330332330330-3032232000300332"></a>
 
-## user_defined_api_discovery_policy.exclusive.archive — user_defined_api_discovery_policy.exclusive.archive / e33d59e902dd / 2
+## user_defined_api_discovery_policy.exclusive.archive — archive / 322100023131 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313)
 - user_defined_api_discovery_policy.exclusive.archive
 
-<a id="canonical-d95f3acaf0e55473d8c68e9b91687ea02418b33899184ab1e183581daa39ede2"></a>
+<a id="canonical-3121113303223022-3300321111101303-3120301220322123-2101122013322200-0210012023030320-2121012010222301-3201200311200131-2222032132313202"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1470,38 +1470,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-98a54b6ebd7ec1f3cac017ba51b142a07ed1a424e097dc1e0bf8edc34d3cb290"></a>
+<a id="canonical-2120221110231232-2331133230013303-3022300001132322-1101230110022200-1332310122100210-3200211331300132-0023332032313003-1031033023022100"></a>
 
-## Direct properties — user_defined_api_discovery_policy.exclusive.archive / e33d59e902dd / 3
+## Direct properties — archive / 322100023131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9fcfcf6afc4db5f4f9719fb9103b9d3c037d71668f013cd604263fed6219e26d"></a>
+<a id="canonical-2133303330331222-3330103123113310-3321130121332321-0100032321310330-0003133113011212-2033000103303112-0010021203333231-1202012132021231"></a>
 
-## Next pages — user_defined_api_discovery_policy.exclusive.archive / e33d59e902dd / 4
+## Next pages — archive / 322100023131 / 4
 
-- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-20cd638f789ce8b12a363dc62cefe987416c07f599bd566db6b9db91a9eecda9"></a>
+<a id="canonical-0200303112032033-1320213032202301-0222031203313012-0230323332212013-1001123000133311-2121233111121231-2312232131232101-2221323230312221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-60e8629bb6ddeb76708bc994b3e93f1b24ac9a5d9de7116aae1ab3ae39aaf31c"></a>
+<a id="canonical-1200322012022123-2312313132231312-1300202330212110-2303322103330123-0210223021221131-2131321301011222-2232012223032232-0321222233030130"></a>
 
-## user_defined_api_discovery_policy.exclusive.ignore — user_defined_api_discovery_policy.exclusive.ignore / e57a5ae4f827 / 2
+## user_defined_api_discovery_policy.exclusive.ignore — ignore / 321033200213 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313)
 - user_defined_api_discovery_policy.exclusive.ignore
 
-<a id="canonical-bf15e05cbf45a7fc74ef3d6a5cb7c28d5cec97112f4fbbda9d5a93b4bc371c99"></a>
+<a id="canonical-2333011132001130-2333101122133330-1310323303311222-1130231330022031-1130323021130101-0233103323233122-2131112221032310-2330031301302121"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1524,37 +1524,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d0c48ddb349170e7ce8266d0f9bc2ef449e90871ff1335c0e521e7b5262839f"></a>
+<a id="canonical-2031003010203131-2303102101130032-1330322002121231-0033212330023233-1010213221002013-0133330103031130-0032110201321323-1102120220032133"></a>
 
-## Direct properties — user_defined_api_discovery_policy.exclusive.ignore / e57a5ae4f827 / 3
+## Direct properties — ignore / 321033200213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-095cef639294cf14a704e85001a64c1ebff395bfbd8227bca2733b397fd4f181"></a>
+<a id="canonical-0021113032331203-2102211030330110-2213001032201100-0001221210300132-2333330321112333-2331200202132330-2202130303230321-1333311033012001"></a>
 
-## Next pages — user_defined_api_discovery_policy.exclusive.ignore / e57a5ae4f827 / 4
+## Next pages — ignore / 321033200213 / 4
 
-- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-b0e8660221ba99a49b969245a004a469bdf69216047532d1c30b7df4cc486cb7)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy.exclusive](data-sources--api_discovery--reference--group-001.md#canonical-2300322012120002-0201232221212210-2123211221021011-2200001022101221-2331331221020112-0010131103023101-3003002313313310-3030102012302313)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
 
-<a id="canonical-3ce833875c4473db0ce0956084f54f6b79efdfb1debe8621cbe9001b71e7b948"></a>
+<a id="canonical-0330322003032013-1130101013033123-0030320021111200-2010331110331223-1321323331332301-3132233220120201-3023322100000123-1301321323211020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a1a21f20cce8ad5f2e06456f335d56e244688f9d5d5694b1cc72207856d59e8a"></a>
+<a id="canonical-2201220201330200-3030322022311133-0232001210111233-0303113111123202-1010122020332131-1131111221102301-3030130202001320-1112311121322022"></a>
 
-## user_defined_api_discovery_policy.inclusive — user_defined_api_discovery_policy.inclusive / 28a8a1501d34 / 2
+## user_defined_api_discovery_policy.inclusive — inclusive / 110001310310 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
-- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)
+- [Property reference](data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
 - user_defined_api_discovery_policy.inclusive
 
-<a id="canonical-78a9c420c6cd63e788e70962e0b1772a6c4697326d148fbbdd69aaf0001455f7"></a>
+<a id="canonical-1320222130100200-3012303112033213-2020321300211202-3200230113130222-1230101221130302-1231011020332323-3131122122223300-0000011011113313"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1577,15 +1577,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5c0eb4322c2b9548129f56835484669482a665970e56f590f23bc4994cd89965"></a>
+<a id="canonical-1130003223100302-0230022321111020-0102213311122003-1110201012122110-2002221212112113-0032111233112100-3302032330102121-1030312021211211"></a>
 
-## Direct properties — user_defined_api_discovery_policy.inclusive / 28a8a1501d34 / 3
+## Direct properties — inclusive / 110001310310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-72f611d179021c6684972bfbcef30ef5ffabf3201525b35c9909ce4253270fe1"></a>
+<a id="canonical-1302331201013101-1321000201301212-2010211302233323-3032330300323311-3333222333030200-0111021123031130-2121002130321002-1103021300333201"></a>
 
-## Next pages — user_defined_api_discovery_policy.inclusive / 28a8a1501d34 / 4
+## Next pages — inclusive / 110001310310 / 4
 
-- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-3abef7bd02e08d9a5e69bca4ccced59ccd3bca8006fcb46fc445bea42cae609f)
-- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8)
+- [user_defined_api_discovery_policy](data-sources--api_discovery--reference--group-001.md#canonical-0322233233132331-0002320020312122-1132122123302210-3030303231112130-3031032330222000-0012333023101233-3010101123322210-0230223212002133)
+- [xcsh_api_discovery](../data-sources/api_discovery.md#canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220)

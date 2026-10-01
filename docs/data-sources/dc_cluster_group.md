@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dc_cluster_group lan
 
 # xcsh_dc_cluster_group landing
 
-<a id="canonical-a0240865dc3b4d8fc779d80a3fc0926a687cf9901210cdea3e46d6b423dc41b7"></a>
+<a id="canonical-2200021000201211-3130032310312033-3013132131200022-0333300021021222-1220133033212100-0102010030313222-0332101231122310-0203313010012313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-97f486d5e0a447d654f602e6c14c252931052ec4e1d6d551730584efc7722366"></a>
+<a id="canonical-2113331020123111-3200221010133112-1110331200023212-3001103002110221-0301001102323010-3201311231111101-1303001120103233-3013130202031212"></a>
 
-## xcsh_dc_cluster_group — xcsh_dc_cluster_group / 68f0e1ee928b / 2
+## xcsh_dc_cluster_group — xcsh_dc_cluster_group / 323221022023 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
-<a id="canonical-e77299dcd6b47582d98a756db054d787ff04c90f4110a8afc110c15b4f7b0aba"></a>
+<a id="canonical-3213130221213130-3112231013112002-3121202213111231-2300111031132013-3333001030210033-1001010022202233-3001010030011123-1033132300222322"></a>
 
-## Prerequisites — xcsh_dc_cluster_group / 68f0e1ee928b / 3
+## Prerequisites — xcsh_dc_cluster_group / 323221022023 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-a3cc852ded47d5216e390b7696aab80754bbf7c4308bf2694c68d63982cff9af"></a>
+<a id="canonical-2203303020110231-3231101331110201-1232032100231312-2112222223200013-1110232333133010-0300202333021221-1030122031120321-2002303333212233"></a>
 
-## Minimal configuration — xcsh_dc_cluster_group / 68f0e1ee928b / 4
+## Minimal configuration — xcsh_dc_cluster_group / 323221022023 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "dc_cluster_group_id" {
 }
 ```
 
-<a id="canonical-eb852915e38b6f3504efb3f5504bd4cfaceab0618c388bdc8272da340d3a3795"></a>
+<a id="canonical-3223201102210111-3203202312330311-0010323323033311-1100102331103033-2230322223001201-2030032020233130-2002130231220310-0031032203132111"></a>
 
-## Root configuration — xcsh_dc_cluster_group / 68f0e1ee928b / 5
+## Root configuration — xcsh_dc_cluster_group / 323221022023 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-581abc4ae02681e62786bf4cb6505f933accbce3218cb8c7aee22b8efec5d421"></a>
+<a id="canonical-1120012223301022-3200021220013212-0213201223331030-2312110011332103-0322303023303203-0201203023203013-2232320202232032-3332301131100201"></a>
 
-## Next pages — xcsh_dc_cluster_group / 68f0e1ee928b / 6
+## Next pages — xcsh_dc_cluster_group / 323221022023 / 6
 
-- [Property reference](../guides/data-sources--dc_cluster_group--reference--group-001.md#canonical-44fdcb354fbb0d410aa13e0c7edd48a9c9ad808c808a37edef7204a79b332e4b)
-- [Examples](../guides/data-sources--dc_cluster_group--examples--group-001.md#canonical-4a9ea2aeea2342c033a4b640f81a52986acdf9e373a1343b192be86253d100c9)
+- [Property reference](../guides/data-sources--dc_cluster_group--reference--group-001.md#canonical-1010333130230311-1033232300311001-0022220103320030-1332313110202221-3021223120002030-2000202203133231-3233130200102213-2123030302321023)
+- [Examples](../guides/data-sources--dc_cluster_group--examples--group-001.md#canonical-1022213222022232-3222020310023000-0303221023121000-3320012211022120-1222303133213203-1303220103100323-0121022332201202-1103310100003021)

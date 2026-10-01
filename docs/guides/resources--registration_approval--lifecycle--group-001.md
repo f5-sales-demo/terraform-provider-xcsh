@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_registration_approva
 
 # xcsh_registration_approval lifecycle
 
-<a id="canonical-b650ee81672cb726831c9981d7c0a90bd9a72f19657f487688db316d183e0a33"></a>
+<a id="canonical-2312110032322001-1213023023130212-2003013021212001-3113300022210023-3121221302330121-1211133310201312-2020312303011231-0120033200220303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-77dcc9178480e75d329c675ae8c6c186103680ad96b35ea42557a8294584ee66"></a>
+<a id="canonical-1313313030210113-2010200032131131-0302213012131122-3220301230012012-0100031220002231-2112230311322210-0211111322200221-1011201032321212"></a>
 
-## Import — Import / d131f0ee6e71 / 2
+## Import — Import / 323212321301 / 2
 
 Breadcrumbs:
 
-- [xcsh_registration_approval](../resources/registration_approval.md#canonical-7d4fb674027240378875a2202f657eddfb167f6c0f01b29cddfd793bc70315ba)
+- [xcsh_registration_approval](../resources/registration_approval.md#canonical-1331103323121310-0002130210000313-2020131122020200-0233121113323131-3323011213331230-0033000123022130-3131333113210323-3013000301112322)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,8 +27,8 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_registration_approval.example system/example
 ```
 
-<a id="canonical-52defe31f8bd7bcecf1890409660e751f8d0ca94731be65f52f3f7aae79f5faa"></a>
+<a id="canonical-1102313233320301-3320233113233032-3033012021001000-2112120032131101-3320310030222110-1303012332121133-1102330333132222-3213213311332222"></a>
 
-## Next pages — Import / d131f0ee6e71 / 3
+## Next pages — Import / 323212321301 / 3
 
-- [xcsh_registration_approval](../resources/registration_approval.md#canonical-7d4fb674027240378875a2202f657eddfb167f6c0f01b29cddfd793bc70315ba)
+- [xcsh_registration_approval](../resources/registration_approval.md#canonical-1331103323121310-0002130210000313-2020131122020200-0233121113323131-3323011213331230-0033000123022130-3131333113210323-3013000301112322)

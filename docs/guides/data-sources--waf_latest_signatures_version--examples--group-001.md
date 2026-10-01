@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_waf_latest_signature
 
 # xcsh_waf_latest_signatures_version examples
 
-<a id="canonical-9dfaa27c323ff0ee73075c8652c72ac3d5ff126248800053866038ab4e0686d4"></a>
+<a id="canonical-2131332222021330-0302033333003232-1303001311302012-1102301302223003-3111333301021202-1020200000001103-2012120003202223-1032001220123110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b45a0f4af724bf182d990952ada2757131f6da532af1b3bb04a9326686c6d785"></a>
+<a id="canonical-2310112200331022-3313021023330120-0231212100211102-2231220213111301-0301331231221103-0222330123032323-0010222103021212-2012301231132011"></a>
 
-## Examples — Examples / 98a49412892e / 2
+## Examples — Examples / 010220210232 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)
 - Examples
 
-<a id="canonical-177e2a1fbb9266c3b9c6865080356e4a873d25e297c6f4eece8be71d2da23c2c"></a>
+<a id="canonical-0113133202220133-2323210212123003-2321301220121100-2000031112321022-2013033102113202-2113301233103232-3032202332130131-0231220203300230"></a>
 
-## Complete configurations — Examples / 98a49412892e / 3
+## Complete configurations — Examples / 010220210232 / 3
 
-- [Data source](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-facbb24541ce9194427b933d14a868a6f6bda491aa85ea664d413f1f3cc3d2d1): valid configuration.
+- [Data source](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-3322302323021011-1001303221012110-1002132321030331-0110222012202212-3312233122102101-2222201132221212-1031100103330133-0330300331023101): valid configuration.
 
-<a id="canonical-68ab5726e306969d14ef28f4df3256b864cb8ccdd5a1c4d6f109530a13521f98"></a>
+<a id="canonical-1220222311130212-3203001221122131-0110323302203310-3133030211122320-1210302320303031-3111220130103112-3301002111030022-0103110201332120"></a>
 
-## Next pages — Examples / 98a49412892e / 4
+## Next pages — Examples / 010220210232 / 4
 
-- [Data source](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-facbb24541ce9194427b933d14a868a6f6bda491aa85ea664d413f1f3cc3d2d1)
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
+- [Data source](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-3322302323021011-1001303221012110-1002132321030331-0110222012202212-3312233122102101-2222201132221212-1031100103330133-0330300331023101)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)
 
-<a id="canonical-facbb24541ce9194427b933d14a868a6f6bda491aa85ea664d413f1f3cc3d2d1"></a>
+<a id="canonical-3322302323021011-1001303221012110-1002132321030331-0110222012202212-3312233122102101-2222201132221212-1031100103330133-0330300331023101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-07bba6e4cbe8b99e11b6d3fa4befc38b1273469875bf4ac7ad215c5914ea4a51"></a>
+<a id="canonical-0013232322123210-3023322023212132-0101231231033322-1023323330032023-0102130310122120-1311233310223013-2231020111301121-0110322210221101"></a>
 
-## Data source — Data source / 8fa001c0fd3c / 2
+## Data source — Data source / 300033310330 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
-- [Examples](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-9dfaa27c323ff0ee73075c8652c72ac3d5ff126248800053866038ab4e0686d4)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)
+- [Examples](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-2131332222021330-0302033333003232-1303001311302012-1102301302223003-3111333301021202-1020200000001103-2012120003202223-1032001220123110)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -78,9 +78,9 @@ output "waf_latest_signatures_version_result" {
 }
 ```
 
-<a id="canonical-354404c380e7e9062e7c7640d7ce79e6ff11e59dd65380ee2a561a60d5fe180c"></a>
+<a id="canonical-0311101000103003-2000321332210012-0232133013121000-3113303213213212-3333010132112131-3112110320003232-0222111201221200-3111333201200030"></a>
 
-## Next pages — Data source / 8fa001c0fd3c / 3
+## Next pages — Data source / 300033310330 / 3
 
-- [Examples](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-9dfaa27c323ff0ee73075c8652c72ac3d5ff126248800053866038ab4e0686d4)
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
+- [Examples](data-sources--waf_latest_signatures_version--examples--group-001.md#canonical-2131332222021330-0302033333003232-1303001311302012-1102301302223003-3111333301021202-1020200000001103-2012120003202223-1032001220123110)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)

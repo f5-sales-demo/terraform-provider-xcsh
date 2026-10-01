@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_policy_based_routing
 
 # xcsh_policy_based_routing landing
 
-<a id="canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22"></a>
+<a id="canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6cb03e5b205caa27e409c0654733a7e7853cdd342891b38915faedf805221b81"></a>
+<a id="canonical-1230230003321123-0200113022220213-3210002130001211-1013030322133213-2011033031310310-0220210123032021-0111332232313320-0011020201232001"></a>
 
-## xcsh_policy_based_routing — xcsh_policy_based_routing / dad85e9ab155 / 2
+## xcsh_policy_based_routing — xcsh_policy_based_routing / 212223011111 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing
 create specification. configuration.
 
-<a id="canonical-14d724a01d32613610c0dd08f7a568d92fa4efdaaa707e2ecb7c8a5168368631"></a>
+<a id="canonical-0110311302102200-0131030212010312-0100300031310020-3313221112203121-0233221032333122-2222130013320232-3023133020221101-1220031220120301"></a>
 
-## Prerequisites — xcsh_policy_based_routing / dad85e9ab155 / 3
+## Prerequisites — xcsh_policy_based_routing / 212223011111 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-968340ca600f4466718d3caaa76d39980db39e2c907c13958e88551c7d0838c3"></a>
+<a id="canonical-2112200310003022-1200003310101212-1301203103302222-2213123103212120-0031230321320230-2100133001032111-2032202011110130-1331002003203003"></a>
 
-## Minimal configuration — xcsh_policy_based_routing / dad85e9ab155 / 4
+## Minimal configuration — xcsh_policy_based_routing / 212223011111 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "policy_based_routing_id" {
 }
 ```
 
-<a id="canonical-85e1515f13495be23bc35c931f7ad22287e260f9b2d3036fdc6d02b728615499"></a>
+<a id="canonical-2011320111011133-0103102111233202-0323300311302103-0133132231020202-2013320212003321-2302310300031233-3130123100022313-0220120111102121"></a>
 
-## Root configuration — xcsh_policy_based_routing / dad85e9ab155 / 5
+## Root configuration — xcsh_policy_based_routing / 212223011111 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-692d2faded383211d58f2825e441832511dc45d708c344df71eb4529df6ecfe7"></a>
+<a id="canonical-1221023102332231-3231032003020101-3111203302200211-3210100120030211-0101313010113113-0020300310103133-1301322310110221-3133123230333213"></a>
 
-## Next pages — xcsh_policy_based_routing / dad85e9ab155 / 6
+## Next pages — xcsh_policy_based_routing / 212223011111 / 6
 
-- [Property reference](../guides/data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [Examples](../guides/data-sources--policy_based_routing--examples--group-001.md#canonical-815b5acc1617054d1c4c6e24d1ebd4641bd0adb8f150bb7e456ec4289bb2c40d)
+- [Property reference](../guides/data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [Examples](../guides/data-sources--policy_based_routing--examples--group-001.md#canonical-2001112311223030-0112011300111031-0130103012320210-3101322331101210-0123310022312320-3301110023231332-1011123230100220-2123230230100031)

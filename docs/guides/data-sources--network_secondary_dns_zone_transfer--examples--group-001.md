@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_network_secondary_dn
 
 # xcsh_network_secondary_dns_zone_transfer examples
 
-<a id="canonical-bc67719214c86f2fffbd605245afc762550a9ca52160a01d1c861afb2aaf5d2f"></a>
+<a id="canonical-2330121313012102-0110302012330233-3333233112001102-1011223330131202-1111002221302211-0201120022000131-0130201201223323-0222223311310233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bb8ec401c0e56561c14f54afd333cde62db1bfe72ef6b95e07fbf1553cbba98e"></a>
+<a id="canonical-2323203230100001-3000321112111201-3001103311102233-3103030330313212-0231230123333213-0232331223211132-0013332333011111-0330232322212032"></a>
 
-## Examples — Examples / 36c08be6b576 / 2
+## Examples — Examples / 321223111312 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32)
+- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-0211000112320000-3032222023300022-3233300332112210-3202010232211322-0100212322311011-2201301123313213-3323022110111321-3110203223320302)
 - Examples
 
-<a id="canonical-2b2722428a8144b1dd4418549ef59bc9056eca38c0756e4cd0f42c2c8cb869ea"></a>
+<a id="canonical-0223021302021002-2022200110102301-3131101001201110-2132331121233021-0011123230220320-3000131112321030-3100331002300230-2030232012213222"></a>
 
-## Complete configurations — Examples / 36c08be6b576 / 3
+## Complete configurations — Examples / 321223111312 / 3
 
-- [Data source](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-b4bbc49b71a5fffcdc5f6800ac8682ba065f7a1e2c897644927e6787cba5f2f1): valid configuration.
+- [Data source](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-2310232330102123-1301221133333330-3130113312200000-2230201220022322-0012113313220132-0230202113121010-2102133212132013-3023221133023301): valid configuration.
 
-<a id="canonical-910d695d5b3db7a8b4a57c6a0625e9379326f146ff2110b78408dd0356cede7a"></a>
+<a id="canonical-2101003112211131-1123033123132220-2310221113301222-0012021132210313-2103021233011012-3333020101002313-2010002031310003-1112303231321322"></a>
 
-## Next pages — Examples / 36c08be6b576 / 4
+## Next pages — Examples / 321223111312 / 4
 
-- [Data source](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-b4bbc49b71a5fffcdc5f6800ac8682ba065f7a1e2c897644927e6787cba5f2f1)
-- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32)
+- [Data source](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-2310232330102123-1301221133333330-3130113312200000-2230201220022322-0012113313220132-0230202113121010-2102133212132013-3023221133023301)
+- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-0211000112320000-3032222023300022-3233300332112210-3202010232211322-0100212322311011-2201301123313213-3323022110111321-3110203223320302)
 
-<a id="canonical-b4bbc49b71a5fffcdc5f6800ac8682ba065f7a1e2c897644927e6787cba5f2f1"></a>
+<a id="canonical-2310232330102123-1301221133333330-3130113312200000-2230201220022322-0012113313220132-0230202113121010-2102133212132013-3023221133023301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-87226733109530ddb07b5eb028bd7ae69d2fce9ee9cac79df70b4f3082a13963"></a>
+<a id="canonical-2013020212130303-0100211103003131-2300132311322300-0220233113223212-2131023330322132-3221302230132131-3313002310330300-2002220103211203"></a>
 
-## Data source — Data source / e62c506ebcf5 / 2
+## Data source — Data source / 123223303311 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32)
-- [Examples](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-bc67719214c86f2fffbd605245afc762550a9ca52160a01d1c861afb2aaf5d2f)
+- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-0211000112320000-3032222023300022-3233300332112210-3202010232211322-0100212322311011-2201301123313213-3323022110111321-3110203223320302)
+- [Examples](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-2330121313012102-0110302012330233-3333233112001102-1011223330131202-1111002221302211-0201120022000131-0130201201223323-0222223311310233)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -90,9 +90,9 @@ output "secondary_dns_rules" {
 }
 ```
 
-<a id="canonical-b0a398e7451b55a68532dec672acb86a49fad1c34b9e800be200f7cca3a77c67"></a>
+<a id="canonical-2300220321203213-1011012311112212-2011030231323012-1302223023201222-1021332231013003-1023213220000023-3202000033133030-2203221313301213"></a>
 
-## Next pages — Data source / e62c506ebcf5 / 3
+## Next pages — Data source / 123223303311 / 3
 
-- [Examples](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-bc67719214c86f2fffbd605245afc762550a9ca52160a01d1c861afb2aaf5d2f)
-- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32)
+- [Examples](data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-2330121313012102-0110302012330233-3333233112001102-1011223330131202-1111002221302211-0201120022000131-0130201201223323-0222223311310233)
+- [xcsh_network_secondary_dns_zone_transfer](../data-sources/network_secondary_dns_zone_transfer.md#canonical-0211000112320000-3032222023300022-3233300332112210-3202010232211322-0100212322311011-2201301123313213-3323022110111321-3110203223320302)

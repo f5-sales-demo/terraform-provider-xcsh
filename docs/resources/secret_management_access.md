@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_secret_management_ac
 
 # xcsh_secret_management_access landing
 
-<a id="canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8"></a>
+<a id="canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-931ff2d141fffb6df62f36a04df013ef38658fb2bf98f3d60c99ae6c13bcd0cd"></a>
+<a id="canonical-2103013333023101-1001333333231231-3312023303122200-1031330001033233-0320121120332302-2333212033033112-0030212122321230-0103233031003031"></a>
 
-## xcsh_secret_management_access — xcsh_secret_management_access / 5784fb68f524 / 2
+## xcsh_secret_management_access — xcsh_secret_management_access / 122033110210 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages secret\_management\_access creates a new object in storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-<a id="canonical-e2ca7ca89e5e8fd14135d0530a96b154b89738b17dc1dacd1813277d2bfa165a"></a>
+<a id="canonical-3202302213302220-2132113220333101-1001031131001103-0022211223011110-2320211303202301-1331300131223031-0120010302131331-0223332201121122"></a>
 
-## Prerequisites — xcsh_secret_management_access / 5784fb68f524 / 3
+## Prerequisites — xcsh_secret_management_access / 122033110210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-799d9be9641a62c426898005e36571ce4d3f67eedc2c3ee4a4713ac918dd1cbe"></a>
+<a id="canonical-1321213121233221-1210012212023010-0212202120000011-3203121113013032-1031033312133232-3130023003323210-2210130103223021-0120313101302332"></a>
 
-## Minimal configuration — xcsh_secret_management_access / 5784fb68f524 / 4
+## Minimal configuration — xcsh_secret_management_access / 122033110210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_secret_management_access" "example" {
 }
 ```
 
-<a id="canonical-772f36c22dd61a649f4624f95b9137a2269e33f43ce2950df6e4caa4a2b8cafa"></a>
+<a id="canonical-1313023303123002-0231311201221210-2133101202103321-1123210103132202-0212213203033310-0330320221110031-3312321030222210-2202232030223322"></a>
 
-## Root configuration — xcsh_secret_management_access / 5784fb68f524 / 5
+## Root configuration — xcsh_secret_management_access / 122033110210 / 5
 
 Required root properties: `name`, `namespace`, `provider_name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ca0f02b9b929fc5b6c32e82d5359f13b3da308621121b1da103a421e3df3f888"></a>
+<a id="canonical-3022003300022321-2321022133301123-1230030232200231-1103112133010323-0331220300201202-0101020123013122-0100032210020132-0331330333202020"></a>
 
-## Next pages — xcsh_secret_management_access / 5784fb68f524 / 6
+## Next pages — xcsh_secret_management_access / 122033110210 / 6
 
-- [Property reference](../guides/resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [Examples](../guides/resources--secret_management_access--examples--group-001.md#canonical-958b1534377812bddb2136dcb193677d4717b4eb90874cc67fbfb236ca549673)
-- [Import](../guides/resources--secret_management_access--lifecycle--group-001.md#canonical-752fa880cd8b5458063a3d87f20a3eba3db97f52747797d68c805a93d1750fec)
-- [Timeouts](../guides/resources--secret_management_access--lifecycle--group-001.md#canonical-c8bb39ba32845092f3e9acc7dc0664a707bcb217c29d0e5238061bd3e7bd54f8)
+- [Property reference](../guides/resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [Examples](../guides/resources--secret_management_access--examples--group-001.md#canonical-2111202301110310-0313132001022331-3123020103123130-2301210312131331-1013011323103223-2100201310303012-1333233323020312-3022111021121303)
+- [Import](../guides/resources--secret_management_access--lifecycle--group-001.md#canonical-1311023322202000-3031202311101120-0012032203312013-3302002203322322-0331232113331102-1310131321133112-2030200011222103-3101131100333230)
+- [Timeouts](../guides/resources--secret_management_access--lifecycle--group-001.md#canonical-3020232303212322-0302201011002102-3303322122303013-3130001212102213-0013233023020113-3002213100321102-0320001201233103-3213233111103320)

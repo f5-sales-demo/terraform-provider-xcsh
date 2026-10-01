@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_artifact_registry_to
 
 # xcsh_artifact_registry_token examples
 
-<a id="canonical-05ded51d3e607a3e15c2af840b498c3b1b531de1ea66c354eea7a579d3523c57"></a>
+<a id="canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0168abe57e7fc07f2429b83036e8e59b7797acb1f187ff942b27a25db1299b7a"></a>
+<a id="canonical-0001122022233211-1332133330001333-0210022123200300-0312322032112123-1313211322302301-3301201333332110-0223021322021131-2301022121231322"></a>
 
-## Examples — Examples / 0d23821f12af / 2
+## Examples — Examples / 013301022233 / 2
 
 Breadcrumbs:
 
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)
 - Examples
 
-<a id="canonical-25015010eb15ca327c4ecc9ec023b63f0aa888f82c63b8ae87539357cce495ae"></a>
+<a id="canonical-0211000111000100-3223011130220302-1330103230302132-3000020323120333-0022222020203320-0230120323202232-2013110321031113-3030321021112232"></a>
 
-## Complete configurations — Examples / 0d23821f12af / 3
+## Complete configurations — Examples / 013301022233 / 3
 
-- [Ephemeral](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-3d010c39560ceeb9f90293543567eba18d37d260ffb27f048dc69a0a1b4a7751): valid configuration.
+- [Ephemeral](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0331000100300321-1112003032322321-3321000221031110-0311121332232201-2031031331021200-3333230213330010-2031301221220022-0123102213131101): valid configuration.
 
-<a id="canonical-092eddc119722b194bb4dd90475df7e92fad5beefeb0efc1105c32249e0c3873"></a>
+<a id="canonical-0021023231313001-0121130202230121-1023231031312100-1013113133133221-0233223111233232-3332230032333001-0100113003020210-2132003003201303"></a>
 
-## Next pages — Examples / 0d23821f12af / 4
+## Next pages — Examples / 013301022233 / 4
 
-- [Ephemeral](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-3d010c39560ceeb9f90293543567eba18d37d260ffb27f048dc69a0a1b4a7751)
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
+- [Ephemeral](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0331000100300321-1112003032322321-3321000221031110-0311121332232201-2031031331021200-3333230213330010-2031301221220022-0123102213131101)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)
 
-<a id="canonical-3d010c39560ceeb9f90293543567eba18d37d260ffb27f048dc69a0a1b4a7751"></a>
+<a id="canonical-0331000100300321-1112003032322321-3321000221031110-0311121332232201-2031031331021200-3333230213330010-2031301221220022-0123102213131101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-02ff508dff587a7dfcb21c11c53bc08235a08977b1163c2e4be5a1df39f259c3"></a>
+<a id="canonical-0002333311002031-3333112013221331-3330230201300101-3011032330002002-0311220020211313-2301011203300232-1023321122013133-0321330211213003"></a>
 
-## Ephemeral — Ephemeral / 47d6db7ef9b9 / 2
+## Ephemeral — Ephemeral / 133233212321 / 2
 
 Breadcrumbs:
 
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
-- [Examples](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-05ded51d3e607a3e15c2af840b498c3b1b531de1ea66c354eea7a579d3523c57)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)
+- [Examples](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113)
 - Ephemeral
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -75,9 +75,9 @@ ephemeral "xcsh_artifact_registry_token" "example" {
 }
 ```
 
-<a id="canonical-8adbfa994449f88931c7c74451ec5236eabc5e84edf8d5916161e5b53a84c264"></a>
+<a id="canonical-2022312333222121-1010102133202021-0301301330131010-1101323011020312-3222233011322010-3231332031112101-1201120132112311-0322201030021210"></a>
 
-## Next pages — Ephemeral / 47d6db7ef9b9 / 3
+## Next pages — Ephemeral / 133233212321 / 3
 
-- [Examples](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-05ded51d3e607a3e15c2af840b498c3b1b531de1ea66c354eea7a579d3523c57)
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
+- [Examples](ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_protected_domain lan
 
 # xcsh_protected_domain landing
 
-<a id="canonical-3e543fadedff8ca807776d33c9261ab932e9a9940a7f7de944cf323d9229140f"></a>
+<a id="canonical-0332111003332231-3231333320302220-0013131312310303-3021021201222321-0302322122212110-0022133313313221-1010303303020331-2102022101100033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c2d8ff489a88fd564a3cb09865386466c6d2c62fafc5677a4d45a9857d2f4c3"></a>
+<a id="canonical-0230023120333310-2021222020333111-1210220330230021-2012110320121012-1230123102301202-3322333011121313-2210311011222120-1113310233103003"></a>
 
-## xcsh_protected_domain — xcsh_protected_domain / de3d71f633ed / 2
+## xcsh_protected_domain — xcsh_protected_domain / 331203033231 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-<a id="canonical-1e05065aaeb33dfa7fea65c52f27af08462873e576677e190c6a312e84dcce3b"></a>
+<a id="canonical-0132001100121122-2232230303313322-1333322212113011-0233021322330020-1012022013033211-1312121313320121-0030122203010232-2010313030320323"></a>
 
-## Prerequisites — xcsh_protected_domain / de3d71f633ed / 3
+## Prerequisites — xcsh_protected_domain / 331203033231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c696a392e16c0902292f940418722205813f0decf9d449feeb245ee23c79bef5"></a>
+<a id="canonical-3012211222032102-3201123000210002-0221023321100010-0120130202020011-2001033300313230-3321311010213332-3223021011323202-0330132123323311"></a>
 
-## Minimal configuration — xcsh_protected_domain / de3d71f633ed / 4
+## Minimal configuration — xcsh_protected_domain / 331203033231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "protected_domain_id" {
 }
 ```
 
-<a id="canonical-7de40e4a7c372748f4334392030436892c9f722fc65b23a7fa1ae56f72e1fa06"></a>
+<a id="canonical-1331321000321022-1330031302131020-3310030310032102-0003001003122021-0230213313020233-3012112302032213-3322012232111233-1302320133220012"></a>
 
-## Root configuration — xcsh_protected_domain / de3d71f633ed / 5
+## Root configuration — xcsh_protected_domain / 331203033231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-435f0135e999e7b611de783a188d7f71d983f1a6db7ce815b1cade70144007e0"></a>
+<a id="canonical-1003113300010311-3221212132132312-0101313213200322-0120203113331301-3121200333012212-3123133032200111-2301302231321300-0110100000133200"></a>
 
-## Next pages — xcsh_protected_domain / de3d71f633ed / 6
+## Next pages — xcsh_protected_domain / 331203033231 / 6
 
-- [Property reference](../guides/data-sources--protected_domain--reference--group-001.md#canonical-109a5c5b1d87fd443e19544e636c3a201e0ebb9189d96c51395f44228e3d7f1b)
-- [Examples](../guides/data-sources--protected_domain--examples--group-001.md#canonical-ccaed106fa00aabd26132c08c45e92c5d9ddd15523136c4c1aa8a1d0612d5b06)
+- [Property reference](../guides/data-sources--protected_domain--reference--group-001.md#canonical-0100212211301123-0131201333311010-0332012111101032-1203123003220200-0132003223232101-2021312112301101-0321113310100202-2032033113330123)
+- [Examples](../guides/data-sources--protected_domain--examples--group-001.md#canonical-3030223231010012-3322000022222331-0212010302300020-3010113221023011-3121313131011111-0203010312301030-0122222022013100-1201023111230012)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_virtual_host landing
 
 # xcsh_virtual_host landing
 
-<a id="canonical-eb75e57432f67b77c490109880d93dfba9aae6a7a35dd3e7936370ecd6ba3e2a"></a>
+<a id="canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-08bae49741579226b8de02ebe189923a9e82fe8701affc9a30e36f9c383aab1a"></a>
+<a id="canonical-0020232232102113-1001111321020212-2320313200023223-3201202121020322-2132200233322013-0001223333302122-0300320312332130-0320032222230122"></a>
 
-## xcsh_virtual_host — xcsh_virtual_host / 2b79f807777d / 2
+## xcsh_virtual_host — xcsh_virtual_host / 001313131331 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages virtual host in a given namespace in F5 Distributed Cloud.
 
-<a id="canonical-e58e256fc530ce819b044eeff433d27569b6b7a2356c7d9cc34961b1fdca0fc4"></a>
+<a id="canonical-3211203202111233-3011030030322001-2123001010323233-3310030331021311-1221231223132202-0311123013312130-3003102112012301-3331302200333010"></a>
 
-## Prerequisites — xcsh_virtual_host / 2b79f807777d / 3
+## Prerequisites — xcsh_virtual_host / 001313131331 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b6233299dd5294cac474df008746ba2fb41ad2d3905521e229b5f8d40293c126"></a>
+<a id="canonical-2312020303022121-3131110221103022-3010131031330000-2013101223220233-2310012231023103-2100111102013202-0221231133203110-0002210330010212"></a>
 
-## Minimal configuration — xcsh_virtual_host / 2b79f807777d / 4
+## Minimal configuration — xcsh_virtual_host / 001313131331 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_virtual_host" "example" {
 }
 ```
 
-<a id="canonical-1368bf05ba6062814432e9bc723bfd53265b8beab11919869bb6967a35f35f7e"></a>
+<a id="canonical-0103122023330011-2322120012022001-1010030232212330-1302032333311103-0212112320233222-2301012101212012-2123231221121322-0311330311331332"></a>
 
-## Root configuration — xcsh_virtual_host / 2b79f807777d / 5
+## Root configuration — xcsh_virtual_host / 001313131331 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-31064daf90086da4a46eea24b0a503ab253b7044f8b31fbace2706483bf50ebd"></a>
+<a id="canonical-0301001210312233-2100002012312210-2210123232220210-2300221100032223-0211032313001010-3320230301332322-3032021300121020-0323331100322331"></a>
 
-## Next pages — xcsh_virtual_host / 2b79f807777d / 6
+## Next pages — xcsh_virtual_host / 001313131331 / 6
 
-- [Property reference](../guides/resources--virtual_host--reference--group-001.md#canonical-27ae1f7eddbb41243c64362e9882a8363bf5158e484ca5ea4bae281e3b7113a8)
-- [Examples](../guides/resources--virtual_host--examples--group-001.md#canonical-6478e4ef8c92ee0e5eeebc8e11c97ab12ee08c898ee8603da8ef3f11720a52eb)
-- [Import](../guides/resources--virtual_host--lifecycle--group-001.md#canonical-c46b530bf177650e4368bfadcda25ab5045d3743d483cbcd4b2b1333f0adb531)
-- [Timeouts](../guides/resources--virtual_host--lifecycle--group-001.md#canonical-9c1c11b4fe1638102f14ce07ac3a0ecf892e9ee349802099ce01b7a934a5d344)
+- [Property reference](../guides/resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- [Examples](../guides/resources--virtual_host--examples--group-001.md#canonical-1210132032103233-2030210232320032-1132323223302032-0101302113222301-0232320020302021-2032322012000331-2220323303330101-1302002211023223)
+- [Import](../guides/resources--virtual_host--lifecycle--group-001.md#canonical-3010122311030023-3301131312110032-1003122023332231-3031220211222311-0010113103131003-3110200330233031-1023022301030303-3300223123110301)
+- [Timeouts](../guides/resources--virtual_host--lifecycle--group-001.md#canonical-2130013001012310-3332011203200100-0233011030320013-2230032200323033-2021023221323203-1021200002002121-3032000123132221-0310221131031010)

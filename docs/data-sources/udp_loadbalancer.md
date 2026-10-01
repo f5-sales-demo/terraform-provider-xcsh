@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_udp_loadbalancer lan
 
 # xcsh_udp_loadbalancer landing
 
-<a id="canonical-156fae62fee7cb9e0e712d30277f9f65b8ba96c3336177b95c39c819598c5ba3"></a>
+<a id="canonical-0111123322321202-3332321330232132-0032130102310300-0213133321331211-2320232221123003-0303120113132321-1130032130200121-1121203011232203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1cc91f6d1cca3309759e6f662651ae628c78443072cecd8c7974f27b638b528"></a>
+<a id="canonical-2301303021013312-3101303022030300-2113112132123312-1202121101223212-0220301320101003-0013023032303120-3013211310330213-2312032023110220"></a>
 
-## xcsh_udp_loadbalancer — xcsh_udp_loadbalancer / 6102c82f6c9f / 2
+## xcsh_udp_loadbalancer — xcsh_udp_loadbalancer / 023312302133 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across
 origin pools.
 
-<a id="canonical-7ee6a7a1238ad775ca1ccddcd02143f02e0c8f46fc7986bfe3035202f1a13128"></a>
+<a id="canonical-1332321222132201-0203202231131311-3022013030313130-3100020110033300-0232003020331012-3330132120122333-3203000311020002-3301220103010220"></a>
 
-## Prerequisites — xcsh_udp_loadbalancer / 6102c82f6c9f / 3
+## Prerequisites — xcsh_udp_loadbalancer / 023312302133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-4ba6533e4c88b91a1b07bcdef25aff36c4f8113ed3b89f26af2ca088b3902148"></a>
+<a id="canonical-1023221211030332-1030202023210122-0123001323303132-3302112233330312-3010332001010332-3103232021330212-2233023022002020-2303210002011020"></a>
 
-## Minimal configuration — xcsh_udp_loadbalancer / 6102c82f6c9f / 4
+## Minimal configuration — xcsh_udp_loadbalancer / 023312302133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "udp_loadbalancer_id" {
 }
 ```
 
-<a id="canonical-a159c981ea0daaebcb5adca2cdbdd66bd80edd79b9e8bcffca34e6a292765b60"></a>
+<a id="canonical-2201112130212001-3222003122223223-3023112231302202-3031233131121223-3120003231311321-2321322023303333-3022031032122202-2102131211231200"></a>
 
-## Root configuration — xcsh_udp_loadbalancer / 6102c82f6c9f / 5
+## Root configuration — xcsh_udp_loadbalancer / 023312302133 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-e8dbcc55f621ac598e241d3bf870108bf60c6ea16909412b5fb4f9b11543cd6e"></a>
+<a id="canonical-3220312330301111-3312020122301121-2032021001310323-3320130001002023-3312003012322201-1221002110010223-1133231033212301-0111100330311232"></a>
 
-## Next pages — xcsh_udp_loadbalancer / 6102c82f6c9f / 6
+## Next pages — xcsh_udp_loadbalancer / 023312302133 / 6
 
-- [Property reference](../guides/data-sources--udp_loadbalancer--reference--group-001.md#canonical-90bfc5c745211e4757205cd8fe220a2b5c2c1103253488671914bb68c847c39c)
-- [Examples](../guides/data-sources--udp_loadbalancer--examples--group-001.md#canonical-f833d9606febec82d58db6db4015687e7ba0a4ad447343f297ba85f5f428ae9e)
+- [Property reference](../guides/data-sources--udp_loadbalancer--reference--group-001.md#canonical-2100233330113013-1011020101321013-1113020011303120-3332020200220223-1130023001010003-0211031020201213-0121011023231220-3020101330032130)
+- [Examples](../guides/data-sources--udp_loadbalancer--examples--group-001.md#canonical-3320030331211200-1233322332302002-3111203123123123-1000011112201332-1323220022102231-1010130310033302-2113232220113311-3310022022322132)

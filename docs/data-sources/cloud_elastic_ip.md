@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip lan
 
 # xcsh_cloud_elastic_ip landing
 
-<a id="canonical-2b2f30e89bfb277ce22595cc89aff6edb2de7c5d6f5d72c5d631bef5fa2ab292"></a>
+<a id="canonical-0223023303003220-2123332302131330-3202021121113030-2021223333123231-2302313213301131-1233113113023011-3112030123323311-3322022223022102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d5ca3ac65dca6952e10fed01b5d019996af39157084fbf53a76dd8c9d617df95"></a>
+<a id="canonical-3111302203223012-1131302212211102-3201003332310001-2311310001212121-1222330321011113-0020103323331103-2213123131203021-3112011331332111"></a>
 
-## xcsh_cloud_elastic_ip — xcsh_cloud_elastic_ip / 03abe8e0e00d / 2
+## xcsh_cloud_elastic_ip — xcsh_cloud_elastic_ip / 320032000031 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5
 Distributed Cloud.
 
-<a id="canonical-a4fa942f1ceed1082d66481a66d382c9298ce453221eab7b5a30897bc1d0b5f3"></a>
+<a id="canonical-2210332221100233-0130323231010020-0231121210200122-1212310320023021-0221203032101103-0202013222231323-1122030020211323-3001310023113303"></a>
 
-## Prerequisites — xcsh_cloud_elastic_ip / 03abe8e0e00d / 3
+## Prerequisites — xcsh_cloud_elastic_ip / 320032000031 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-4e09f931cce60539e469c22d7d0b6adb7c1b02e6ea1b19d69c174a867717b99c"></a>
+<a id="canonical-1032002133210301-3030321200110321-3210122130020231-1331002312223123-1330012300023212-3222012301213112-2130011310222012-1313011323212130"></a>
 
-## Minimal configuration — xcsh_cloud_elastic_ip / 03abe8e0e00d / 4
+## Minimal configuration — xcsh_cloud_elastic_ip / 320032000031 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "cloud_elastic_ip_id" {
 }
 ```
 
-<a id="canonical-6e021f7285826b78c46e5f60a61c3ad20aac7d536e770c980098a86cb2c4b99d"></a>
+<a id="canonical-1232000201331302-2011200212231320-3010123211331200-2212013003223102-0022223013311103-1232131300302120-0000212022201230-2302301023212131"></a>
 
-## Root configuration — xcsh_cloud_elastic_ip / 03abe8e0e00d / 5
+## Root configuration — xcsh_cloud_elastic_ip / 320032000031 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4933436a8e191e1bce8c827d61c179c654ff14ddcec826737b0f4d116106477f"></a>
+<a id="canonical-1021030310031222-2032012101320123-3032203020021331-1201300113213012-1110333301103131-3032302002121303-1323003310310101-1201001210131333"></a>
 
-## Next pages — xcsh_cloud_elastic_ip / 03abe8e0e00d / 6
+## Next pages — xcsh_cloud_elastic_ip / 320032000031 / 6
 
-- [Property reference](../guides/data-sources--cloud_elastic_ip--reference--group-001.md#canonical-ef15d26eed8ba06029d76ff217be5d95cee1296437e2bcdfc5add660013e8dcb)
-- [Examples](../guides/data-sources--cloud_elastic_ip--examples--group-001.md#canonical-076152532c256f4736b20a7aad09ccaa23aa6c26028f74c80e32ace794cb1a1e)
+- [Property reference](../guides/data-sources--cloud_elastic_ip--reference--group-001.md#canonical-3233011131021232-3231202322001200-0221311312333302-0113233211312111-3032320102211210-0313320223303133-3011223131121200-0001033220313023)
+- [Examples](../guides/data-sources--cloud_elastic_ip--examples--group-001.md#canonical-0013120111021103-0230021112331013-0312230200221322-2231002130302222-0203222212300212-0002203313103020-0032030222303213-2110302301220132)

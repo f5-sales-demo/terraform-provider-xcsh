@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_tcp_loadbalancer lan
 
 # xcsh_tcp_loadbalancer landing
 
-<a id="canonical-fb94223e49831946b5aabbca528416a54beaec1c30ef8f16492bd411e45c6481"></a>
+<a id="canonical-3323211002020332-1021200301211012-2311222223233022-1102201001122211-1023322232300130-0300323320330112-1021022331100101-3210113012102001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c6cdcb3caa044d72ca2fa421444bdcf68bc7faf7ddf7eafdc53a0d2c85389cd7"></a>
+<a id="canonical-3012303130230330-2222001010311302-3022023322100201-1010102331303312-2023301333223313-3131331332223331-3011032200310230-2011032021303113"></a>
 
-## xcsh_tcp_loadbalancer — xcsh_tcp_loadbalancer / a6963a294f66 / 2
+## xcsh_tcp_loadbalancer — xcsh_tcp_loadbalancer / 022110331212 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across
 origin pools.
 
-<a id="canonical-4322dd661721ad904d6ba737b4771ea72c9103c2bc32c9ef6bd1683a87aa6edb"></a>
+<a id="canonical-1003020231311212-0113020122312100-1031122322130313-2310131301322213-0230210100033002-2330030230213233-1223310112200322-2013222212323123"></a>
 
-## Prerequisites — xcsh_tcp_loadbalancer / a6963a294f66 / 3
+## Prerequisites — xcsh_tcp_loadbalancer / 022110331212 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -39,9 +39,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-<a id="canonical-5517a3e68b3573252921facf1abefd14268693f2997d2c5351445444257809a3"></a>
+<a id="canonical-1111011322033212-2023031113030211-0221020133223033-0122233233310110-0212201221033302-2121133102301103-1101101011101010-0211132000212203"></a>
 
-## Minimal configuration — xcsh_tcp_loadbalancer / a6963a294f66 / 4
+## Minimal configuration — xcsh_tcp_loadbalancer / 022110331212 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -67,17 +67,17 @@ resource "xcsh_tcp_loadbalancer" "example" {
 }
 ```
 
-<a id="canonical-eec8a056e1bfec557105b8691fe8f664c47ed1fcb8c3568c394eba040b69c4b0"></a>
+<a id="canonical-3232302022001112-3201233332301111-1301001123201221-0133322033121210-3010133231013330-2320300311122030-0321103223220010-0023122130102300"></a>
 
-## Root configuration — xcsh_tcp_loadbalancer / a6963a294f66 / 5
+## Root configuration — xcsh_tcp_loadbalancer / 022110331212 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a51c44209d71fd229373bcedc85e12686c9c0d3788b4317360c964d82c3a8eb8"></a>
+<a id="canonical-2211013010100200-2131130133310202-2103130323303231-3020113201021220-1230213000310313-2020231003011303-1200302112103120-0230032220322320"></a>
 
-## Next pages — xcsh_tcp_loadbalancer / a6963a294f66 / 6
+## Next pages — xcsh_tcp_loadbalancer / 022110331212 / 6
 
-- [Property reference](../guides/resources--tcp_loadbalancer--reference--group-001.md#canonical-869f7b6ed7a9bd4c762d24a87f33328ade5a5db7347f7a3df79a7dfc9e69d541)
-- [Examples](../guides/resources--tcp_loadbalancer--examples--group-001.md#canonical-3bd67a6917d0d36a7c665af6631f42b190e281d8f2b716721ecbfede0547adc0)
-- [Import](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-044dcf01f9fc47c41b13129a078444dd9340bbd7f0691fec9285325c81677869)
-- [Timeouts](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-17b3f0b6d9e50dccbe92c9d4418e3ca18c62555b80225148baf8b177e68fb9eb)
+- [Property reference](../guides/resources--tcp_loadbalancer--reference--group-001.md#canonical-2012213313231232-3113222123311030-1312023102102220-1333030303022022-3132112211312313-0310133313220331-3313212213313330-2132122131111001)
+- [Examples](../guides/resources--tcp_loadbalancer--examples--group-001.md#canonical-0323311213221221-0113310031031222-1330121211223312-1203013310022301-2100320220013120-3302231301121302-0132302333323132-0011101322313000)
+- [Import](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-0010103130330001-3321333010133010-0123010301022122-0013201010103131-2103100023233113-3300122101333230-2102201103021130-2001121313201221)
+- [Timeouts](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-0113230333002312-3121321100313030-2332210230213110-1001203203302201-2030120211111123-2000020211011020-2322332023011313-3212203323213223)

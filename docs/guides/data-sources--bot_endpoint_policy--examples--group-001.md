@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy 
 
 # xcsh_bot_endpoint_policy examples
 
-<a id="canonical-f3fc9b8121eec2ea862c71afcbe8dda2f435d39b3bb58aa7280c10002e0e5d34"></a>
+<a id="canonical-3303333021232001-0201323230023222-2012023013012233-3023322031312202-3310031131032123-0323231120222213-0220003001000000-0232003211310310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ea857b1d7606c2c83003edb2fa0725045f6bfc3d52d4520d971200de3785484"></a>
+<a id="canonical-1132222011132301-3113120012300230-2003000003323123-0233220013021100-1011331223333003-3111023110110200-3121130102000031-3203132011102010"></a>
 
-## Examples — Examples / eebbbe11dd93 / 2
+## Examples — Examples / 010131312103 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 - Examples
 
-<a id="canonical-c4481076ac953e4882fa617dc7f52fa4fd2c0d4c161a99fe257429b898758ddc"></a>
+<a id="canonical-3010102001001312-2230211103321020-2002332212011331-3013331102332210-3331023000311030-0112012221213332-0211131002212320-2120131120313130"></a>
 
-## Complete configurations — Examples / eebbbe11dd93 / 3
+## Complete configurations — Examples / 010131312103 / 3
 
-- [Data source](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-87f8a0c65be07eb385ddc517d4afd5272bc0c12110e9cd5d7994cc892ecd1c5e): valid configuration.
+- [Data source](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-2013332022003012-1123320013322303-2011313130110113-3110223331110213-0223300030010201-0100322130311131-1321211030302021-0232303101301132): valid configuration.
 
-<a id="canonical-03e4390b85ed4246bba617b2b8e8418ed0ce39423185e5cc96a37817745aa141"></a>
+<a id="canonical-0003321003210023-2011323110021012-2323221201132302-2320322010012032-3100303203211002-0301201132113030-2112220313200113-1310112222011001"></a>
 
-## Next pages — Examples / eebbbe11dd93 / 4
+## Next pages — Examples / 010131312103 / 4
 
-- [Data source](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-87f8a0c65be07eb385ddc517d4afd5272bc0c12110e9cd5d7994cc892ecd1c5e)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [Data source](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-2013332022003012-1123320013322303-2011313130110113-3110223331110213-0223300030010201-0100322130311131-1321211030302021-0232303101301132)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-87f8a0c65be07eb385ddc517d4afd5272bc0c12110e9cd5d7994cc892ecd1c5e"></a>
+<a id="canonical-2013332022003012-1123320013322303-2011313130110113-3110223331110213-0223300030010201-0100322130311131-1321211030302021-0232303101301132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c18cee63fa84abda841b811d891fe05860058d1e9bb183cb77000f6b5da814ca"></a>
+<a id="canonical-3001203032321203-3322201022233122-2010012320010131-2021013332001120-1200001120310132-2123230120033023-1313000000331223-1131222001103022"></a>
 
-## Data source — Data source / ee10ba285f29 / 2
+## Data source — Data source / 022011330221 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Examples](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-f3fc9b8121eec2ea862c71afcbe8dda2f435d39b3bb58aa7280c10002e0e5d34)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Examples](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-3303333021232001-0201323230023222-2012023013012233-3023322031312202-3310031131032123-0323231120222213-0220003001000000-0232003211310310)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -81,9 +81,9 @@ output "bot_endpoint_policy_id" {
 }
 ```
 
-<a id="canonical-19a1f62437c534645728e70a2526d7b61edca0410eace7b7f46e59cb05edf9db"></a>
+<a id="canonical-0121220133120210-0313301103101210-1113022032130022-0211021231132312-0132313022001001-0032223032132313-3310123211213023-0011323133213123"></a>
 
-## Next pages — Data source / ee10ba285f29 / 3
+## Next pages — Data source / 022011330221 / 3
 
-- [Examples](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-f3fc9b8121eec2ea862c71afcbe8dda2f435d39b3bb58aa7280c10002e0e5d34)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [Examples](data-sources--bot_endpoint_policy--examples--group-001.md#canonical-3303333021232001-0201323230023222-2012023013012233-3023322031312202-3310031131032123-0323231120222213-0220003001000000-0232003211310310)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)

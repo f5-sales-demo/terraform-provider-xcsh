@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_certificate_chain la
 
 # xcsh_certificate_chain landing
 
-<a id="canonical-ce3d2afc41637e97fe322a943a0e26b7ffd06d1052a2a27eea5dfed15f9134f9"></a>
+<a id="canonical-3032033102223330-1001120313322113-3332030202222110-0322003202122313-3333310012310100-1102220222021332-3222113133323101-1133210103103321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7beea005ac7df0d00e02a8ce3d69d85f62fb295177dc6658827fb508470ca810"></a>
+<a id="canonical-1323323222000011-2230133133003100-0032000222203032-0331122131201133-1202332302211101-1313313012121120-2002133323110020-1013003022200100"></a>
 
-## xcsh_certificate_chain — xcsh_certificate_chain / 825752767c51 / 2
+## xcsh_certificate_chain — xcsh_certificate_chain / 131213301101 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for
 TLS.
 
-<a id="canonical-55418a360d7d54c1ccd91bba62726f927b7650fa99ab69ce5f23dc09f2d9a5db"></a>
+<a id="canonical-1111100120220312-0031133111103001-3030312101232322-1202130212332102-1323131211003322-2121222312213032-1133020331300021-3302312122113123"></a>
 
-## Prerequisites — xcsh_certificate_chain / 825752767c51 / 3
+## Prerequisites — xcsh_certificate_chain / 131213301101 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-14558076b79cf78abe24c489d4f7bd565462bb0d68434c6ab6250ea341ce6f08"></a>
+<a id="canonical-0110111120001312-2313213033132022-2332021030102021-3110331323311112-1110120223230031-1220100310301222-2312021100322203-1001303212330020"></a>
 
-## Minimal configuration — xcsh_certificate_chain / 825752767c51 / 4
+## Minimal configuration — xcsh_certificate_chain / 131213301101 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "certificate_chain_id" {
 }
 ```
 
-<a id="canonical-6088a247a03064d8b630f132a78323f132950a4133721a15b0129ff1d26c85f5"></a>
+<a id="canonical-1200202022021013-2200030012103120-2312030033010302-2213200302033301-0302211100221001-0303130201220111-2300010221333301-3102123020113311"></a>
 
-## Root configuration — xcsh_certificate_chain / 825752767c51 / 5
+## Root configuration — xcsh_certificate_chain / 131213301101 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-6198c970660795bf6d7d40b241021f95c7a3d06c74190ab53473cc37c7aea681"></a>
+<a id="canonical-1201212030211300-1212001321112333-1231133110002302-1001000201332111-3013220331001230-1310012100222311-0310130330300313-3013223222122001"></a>
 
-## Next pages — xcsh_certificate_chain / 825752767c51 / 6
+## Next pages — xcsh_certificate_chain / 131213301101 / 6
 
-- [Property reference](../guides/data-sources--certificate_chain--reference--group-001.md#canonical-d9436ba22d8301c6a0f02ff16a4d8396e3f87a177d590cb144774d33852ac5b8)
-- [Examples](../guides/data-sources--certificate_chain--examples--group-001.md#canonical-f4afd07874bc514a268ecf295767366e70decfe868e724cc487b9b5f454ea748)
+- [Property reference](../guides/data-sources--certificate_chain--reference--group-001.md#canonical-3121100312232202-0231200300013012-2200330002333301-1222103120032112-3203332013220113-1331112100302301-1010131310310303-2011022230112320)
+- [Examples](../guides/data-sources--certificate_chain--examples--group-001.md#canonical-3310223331001320-1310233011011022-0212203230330221-1113121303121232-1300313230333220-1220321302103030-1020132321231133-1011103222131020)

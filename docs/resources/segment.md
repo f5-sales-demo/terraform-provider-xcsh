@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_segment landing."
 
 # xcsh_segment landing
 
-<a id="canonical-115b348cc2da26907c0d3a2200fee1c45353481468d739f4370fd6bf8ca9a410"></a>
+<a id="canonical-0101112303102030-3002312202122100-1330003103220202-0000333232013010-1103110310200110-1220311303213310-0313003331122333-2030222122100100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1b87d34d642c93f734ccd643d108ec1c1b3a7a59acf4351f8e76823614deaf6f"></a>
+<a id="canonical-0123201331031031-1210023021033313-0310303031121003-3101002032300130-0123032213221121-2230331003110133-2032131220020312-0110313222331233"></a>
 
-## xcsh_segment — xcsh_segment / fbb84e0c6676 / 2
+## xcsh_segment — xcsh_segment / 003012121312 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
-<a id="canonical-5c6bef26a3dd8a4b6fc01fcf64d822fe8b267856d1105d07ce42fa18cfdf47a6"></a>
+<a id="canonical-1130122332330212-2203313120221023-1233300001333033-1210312002023332-2023021213201112-3101010011310013-3032100233220120-3033313310132212"></a>
 
-## Prerequisites — xcsh_segment / fbb84e0c6676 / 3
+## Prerequisites — xcsh_segment / 003012121312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-36af67194e07fa7355c5ff2c1f6dd8f74725c7cbf6721143e24ce93ea8a50311"></a>
+<a id="canonical-0312223312130121-1032001333221303-1111301133330230-0133123131203313-1013021130133023-3312130201011003-3202103032210332-2220221100030101"></a>
 
-## Minimal configuration — xcsh_segment / fbb84e0c6676 / 4
+## Minimal configuration — xcsh_segment / 003012121312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_segment" "example" {
 }
 ```
 
-<a id="canonical-3ee7b26f82bd808da5ee4f56ce1d3a7ace1bed4b10dc80b9fe8df9614218ccde"></a>
+<a id="canonical-0332321323021233-2002233120002031-2211323210331112-3032013103221322-3032012332311023-0100313020002321-3332203133211201-1002012030303132"></a>
 
-## Root configuration — xcsh_segment / fbb84e0c6676 / 5
+## Root configuration — xcsh_segment / 003012121312 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-66facd3ba25d7df72ee9e3805390b5f6a5e085ee007cd11acc7241d9457628f5"></a>
+<a id="canonical-1212332230310323-2202113113313313-0232322132032000-1103210023113312-2211320020113232-0000133031010122-3030130210013121-1011131202203311"></a>
 
-## Next pages — xcsh_segment / fbb84e0c6676 / 6
+## Next pages — xcsh_segment / 003012121312 / 6
 
-- [Property reference](../guides/resources--segment--reference--group-001.md#canonical-3fd2ddf918ccce02c13c05b12c882f76272305dd050891bce28f013df6b7f704)
-- [Examples](../guides/resources--segment--examples--group-001.md#canonical-0418839d33d311e131d6c8096eb96c74b36716c6c6f8f95cbcf0cdbf37919cff)
-- [Import](../guides/resources--segment--lifecycle--group-001.md#canonical-41092275632d3f0289dab80de7bc6fb98dec83c9ace3e6df0234a4718e97b503)
-- [Timeouts](../guides/resources--segment--lifecycle--group-001.md#canonical-22318fba13a82551dbeb74f91235b2cd9207b08cbdd54a072a3325d7ab102927)
+- [Property reference](../guides/resources--segment--reference--group-001.md#canonical-0333310231313321-0120303030320002-3001033000112301-0230202002331312-0213020300113131-0011002021012330-3202203300010331-3312231333130010)
+- [Examples](../guides/resources--segment--examples--group-001.md#canonical-0010012020032131-0303310301013201-0301311230200021-1232232112301310-2303121301123012-3012332033211130-2330330030312333-0313210121303333)
+- [Import](../guides/resources--segment--lifecycle--group-001.md#canonical-1001002102021311-1203023103330002-2021312223200031-3213233012332321-2031323020033021-2230320332123133-0002031022101301-2032211323110003)
+- [Timeouts](../guides/resources--segment--lifecycle--group-001.md#canonical-0202030120332322-0103222002111101-3123322313103321-0102031123023031-2102001323002030-2331311110220013-0222030302113113-2223010002210213)

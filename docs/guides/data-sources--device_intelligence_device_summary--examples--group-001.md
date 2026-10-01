@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_device_summary examples
 
-<a id="canonical-f15d9ca0379e4fc7bac628f18fdc6e1e7930d4b49dbab055002e7b17b00a53d7"></a>
+<a id="canonical-3301113121302200-0313213210333013-2322301202203301-2033313012320132-1321030031102310-2131232223001111-0000023213230113-2300002211033113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7271ea98faf158fb2bd9ea079e22fdf03c57b7da83209d3f872e7c396280c370"></a>
+<a id="canonical-1302130132222120-3322330111203323-0223312132220013-2132020233313300-0330111323133122-2003020021310333-2013023213300321-1202200030031300"></a>
 
-## Examples — Examples / 4a8d599c7743 / 2
+## Examples — Examples / 213013131003 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
 - Examples
 
-<a id="canonical-1332e308964f00c41025366eac027b50309212ab6e64d3027b743d402438ea27"></a>
+<a id="canonical-0103030232030020-2112103300003010-0100021103121232-2230000213231100-0300210201022223-1232121031030002-1323131003311000-0210032032220213"></a>
 
-## Complete configurations — Examples / 4a8d599c7743 / 3
+## Complete configurations — Examples / 213013131003 / 3
 
-- [Data source](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-6f3e90309b3d49c8e8f3cfe7fa898bc5afe0dc3594ab814a6bddab1f28acf3bb): valid configuration.
+- [Data source](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-1233033221000300-2123033110213020-3220330330333213-3322202120233011-2233320031300311-2110222320011022-1223313122230133-0220223033032323): valid configuration.
 
-<a id="canonical-58d44d1f3ef5fa36cd5d3ee1baa531786aad0b0196edd6c70771b915fa62c23b"></a>
+<a id="canonical-1120311010310133-0332331133220312-3031113103323201-2322221103011320-1222223100230001-2112323131123013-0013130123210111-3322120230020323"></a>
 
-## Next pages — Examples / 4a8d599c7743 / 4
+## Next pages — Examples / 213013131003 / 4
 
-- [Data source](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-6f3e90309b3d49c8e8f3cfe7fa898bc5afe0dc3594ab814a6bddab1f28acf3bb)
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [Data source](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-1233033221000300-2123033110213020-3220330330333213-3322202120233011-2233320031300311-2110222320011022-1223313122230133-0220223033032323)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
 
-<a id="canonical-6f3e90309b3d49c8e8f3cfe7fa898bc5afe0dc3594ab814a6bddab1f28acf3bb"></a>
+<a id="canonical-1233033221000300-2123033110213020-3220330330333213-3322202120233011-2233320031300311-2110222320011022-1223313122230133-0220223033032323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8c39ff479f4c736e6a8812c4ab644e03bc11e757f9732709f54eef426144741"></a>
+<a id="canonical-3320300321333310-1321331030130312-3212222020010230-1022231210103200-0323300101321311-1333211303021300-2133111032323310-0212011010131001"></a>
 
-## Data source — Data source / 0e3dc12409a4 / 2
+## Data source — Data source / 021000212210 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
-- [Examples](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-f15d9ca0379e4fc7bac628f18fdc6e1e7930d4b49dbab055002e7b17b00a53d7)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
+- [Examples](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-3301113121302200-0313213210333013-2322301202203301-2033313012320132-1321030031102310-2131232223001111-0000023213230113-2300002211033113)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -80,9 +80,9 @@ output "device_intelligence_device_summary_result" {
 }
 ```
 
-<a id="canonical-2fa4ff9731bdd3077821789da58b3342593deef3b0bc578799ea74749dac4943"></a>
+<a id="canonical-0233221033332113-0301233131030013-1320020113202131-2211202303031002-1121033132323303-2300233011132013-2121322213101310-2131223010211003"></a>
 
-## Next pages — Data source / 0e3dc12409a4 / 3
+## Next pages — Data source / 021000212210 / 3
 
-- [Examples](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-f15d9ca0379e4fc7bac628f18fdc6e1e7930d4b49dbab055002e7b17b00a53d7)
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [Examples](data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-3301113121302200-0313213210333013-2322301202203301-2033313012320132-1321030031102310-2131232223001111-0000023213230113-2300002211033113)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)

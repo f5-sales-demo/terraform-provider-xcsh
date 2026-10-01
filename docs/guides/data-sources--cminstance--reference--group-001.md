@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_cminstance reference
 
 # xcsh_cminstance reference
 
-<a id="canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2"></a>
+<a id="canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-54917e46cf9c7f2d8c221574e8bbb8ec152befea658239cdd1a418eb6fb77cca"></a>
+<a id="canonical-1110210113321012-3033213013330231-2030020201111310-3220232323203230-0111022332333222-1211200203213031-3101221001203223-1233231313303022"></a>
 
-## Property reference — Property reference / fe44b091156a / 2
+## Property reference — Property reference / 210101111222 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 - Property reference
 
-<a id="canonical-9642f213055bf55ed09af6d81d74e5dc9045e911a60927fc0d0e2b128271ed13"></a>
+<a id="canonical-2112100233020103-0011112333111132-3100212233123120-0131131032113130-2100101132210101-2212002102133330-0031003202230102-2002130132310103"></a>
 
-## Direct properties — Property reference / fe44b091156a / 3
+## Direct properties — Property reference / 210101111222 / 3
 
-<a id="canonical-e874bc016b54c4639fcb5cd537e668cbd29f733f48357fd6bac3bd0d86b135d7"></a>
+<a id="canonical-3220131023300001-1223111030101203-2133302311303111-0313321212203023-3102213313030333-1020031113333112-2322300323310031-2012230103113113"></a>
 
-<a id="canonical-06e72e7c83595aca67e4f1ad2eecb6fa1bb39abe98b50c4a88ae26ab7d1d4942"></a>
+<a id="canonical-0012321302321330-2003112111223022-1213321033012231-0232323023123322-0123230321222332-2120231100301022-2020223202122223-1331013110211002"></a>
 
-## annotations property — Property reference / fe44b091156a / 4
+## annotations property — Property reference / 210101111222 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,13 +66,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d): complete subsection reference.
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031): complete subsection reference.
 
-<a id="canonical-e7e710409030a8df0f542caf11cd3082efd6b165cfd8baf8ac10a66f74e459e4"></a>
+<a id="canonical-3213321301001000-2100030022203133-0033111002302233-0101303103002002-3233311223011211-3033312023223320-2230010022121233-1310321011213210"></a>
 
-<a id="canonical-0c587e8bfa7529552cc10266dc092f0b38c4033d132d778432fea365b9ccf85a"></a>
+<a id="canonical-0030112013322023-3322131102211111-0230300100021212-3130002102330023-0320301000030331-0103023113132010-0302333222031211-2321303033201122"></a>
 
-## description property — Property reference / fe44b091156a / 5
+## description property — Property reference / 210101111222 / 5
 
 Type: `"string"`. Computed.
 
@@ -120,23 +120,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f3298d2708433f8496429fd3780e3fc885c698ad4de4d6c1322a15f495409cce"></a>
+<a id="canonical-3303022120310213-0020100303332010-2112100221333103-1320003203333020-2011301221202231-1031321031123001-0302022201113310-2111100021303032"></a>
 
-<a id="canonical-655f966ec1a4e387eb33166b692dee1c73cb247adf488f19c3583cab8498ee35"></a>
+<a id="canonical-1211113321121232-3001221032032013-3223030301121223-1221023132320130-1303302302101322-3133102020330121-3003112003302223-2010212032320311"></a>
 
-## id property — Property reference / fe44b091156a / 6
+## ID property — Property reference / 210101111222 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [ip](data-sources--cminstance--reference--group-001.md#canonical-3c6339205e271a123677ab965f68ca38a30fdfe92908accda8a304262e0a1455): complete subsection reference.
+- [ip](data-sources--cminstance--reference--group-001.md#canonical-0330120303210200-1132021301220102-0312131322232112-1133122030220320-2203003331333221-0221002022303031-2220220300100212-0232002201101111): complete subsection reference.
 
-<a id="canonical-185b7954d27c5dc16558c217c78254222c883df669e60f85ab55f82377285245"></a>
+<a id="canonical-0120112313211110-3102133011313001-1211112030020113-3013200211100202-0230202003313312-1221321200332011-2223111133200203-1313022011021011"></a>
 
-<a id="canonical-c0001409f59df84f981a9da445e9678fdba2dc8d4a8f823dc75e0e5e7c58fe1d"></a>
+<a id="canonical-3000000001100021-3311213133201033-2120012221312210-1011322112132033-3123220231302031-1022203320020331-3013113200321132-1330112033320131"></a>
 
-## labels property — Property reference / fe44b091156a / 7
+## labels property — Property reference / 210101111222 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -160,11 +160,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e6e920d1ce6393486cddf58fb4c054ae6444e39e46dbcac4be2743e0faebba2"></a>
+<a id="canonical-0232123221020031-0130321203210310-2012303131331120-3323103000111022-3212101010320321-3210123123302230-1023320213100332-0033223223232202"></a>
 
-<a id="canonical-87564e0df19e725b1f9d94561c773b13f92fd2785ed4279115b6f72f31a1543f"></a>
+<a id="canonical-2013111210320031-3301213213021123-0133213121101112-0130131303230103-3321023331021320-1132311002132101-0111231233130233-0301220111100333"></a>
 
-## name property — Property reference / fe44b091156a / 8
+## name property — Property reference / 210101111222 / 8
 
 Type: `"string"`. Required.
 
@@ -220,11 +220,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-939a187beb3e26556089434159625b45866d351be1d4bc50f2d6dd128baf589c"></a>
+<a id="canonical-2103212201201323-3223033202121111-1200202110031001-1121120211231011-2012123103110123-3201311023301100-3302311231310102-2023223311202130"></a>
 
-<a id="canonical-f3727b9725b2270448f7b935480c08373195d15fddeebecdcb1a8edfb98498db"></a>
+<a id="canonical-3303130213232113-0211230202130010-1020331323210311-1020003000200313-0301211131011133-3131323223323031-3023012220323133-2321201021203123"></a>
 
-## namespace property — Property reference / fe44b091156a / 9
+## namespace property — Property reference / 210101111222 / 9
 
 Type: `"string"`. Required.
 
@@ -273,13 +273,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9): complete subsection reference.
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121): complete subsection reference.
 
-<a id="canonical-580529ad6d5f728e3db0c8e98acc8e44a0f562b7817a5ceb710aed9b36bf8ed1"></a>
+<a id="canonical-1120001102212231-1231113313022032-0331230030203221-2022303020321010-2200331112022313-2001132211303223-1301002232312123-0312233320323101"></a>
 
-<a id="canonical-80e8e735905749f4756f6129a6bdd33358035e3422aa6ac98fa5a1a9774a60fc"></a>
+<a id="canonical-2000322032130311-2100111310213310-1311123312010221-2212233131030303-1120000311320310-0202222212223021-2033221122012221-1313102212003330"></a>
 
-## port property — Property reference / fe44b091156a / 10
+## port property — Property reference / 210101111222 / 10
 
 Type: `"number"`. Computed.
 
@@ -321,11 +321,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-edd357773ac61c7be50b5d683fcf4e7eaabf1252a708a4f7c1d34d16bee91b1b"></a>
+<a id="canonical-3231310311131313-0322301201301323-3211002311311220-0333303310321332-2222233301021102-2213002022103313-3001310310310112-2332322101230123"></a>
 
-<a id="canonical-0bf10e7a6043342b786720f73b2d39cd5674ae3f7f3f5a89853f90b33aeba1ce"></a>
+<a id="canonical-0023330100321322-1200100303100223-1320121302003313-0323023103213031-1112131022320333-1333033311222021-2011033321002303-0322322322013032"></a>
 
-## username property — Property reference / fe44b091156a / 11
+## username property — Property reference / 210101111222 / 11
 
 Type: `"string"`. Computed.
 
@@ -373,67 +373,67 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-29613cffc6401490974272fb7583ce0856f4a407603b31e0a3078a55ed4d4ccc"></a>
+<a id="canonical-0221120103303333-3012100001102100-2113100213023323-1311200330320020-1112331022100013-1200032303013200-2203001320221111-3231103110303030"></a>
 
-## All schema paths — Property reference / fe44b091156a / 12
+## All schema paths — Property reference / 210101111222 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--cminstance--reference--group-001.md#canonical-e874bc016b54c4639fcb5cd537e668cbd29f733f48357fd6bac3bd0d86b135d7) |
-| `api_token` | [api_token](data-sources--cminstance--reference--group-001.md#canonical-6f544b3a044dd606c2826f9f21c4b28d9996326ad5633249ae07440c6a2fc704) |
-| `api_token.blindfold_secret_info` | [api_token.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-ca3736c6bd5086dfee3d26c3e2aa51da63e2c3d7ad8e010d8abd56d00e7b0a1a) |
-| `api_token.blindfold_secret_info.decryption_provider` | [api_token.blindfold_secret_info.decryption_provider](data-sources--cminstance--reference--group-001.md#canonical-4ade364d2fe9364e88b11418e8f629c630cfb134d2fb0076871f830861643185) |
-| `api_token.blindfold_secret_info.location` | [api_token.blindfold_secret_info.location](data-sources--cminstance--reference--group-001.md#canonical-c8e1bcd03b3c4d6dcc9b7e062b69260983941593c5ceebc5f8c5f6a303c69890) |
-| `api_token.blindfold_secret_info.store_provider` | [api_token.blindfold_secret_info.store_provider](data-sources--cminstance--reference--group-001.md#canonical-2bac30fc85cbcfae4c64c21a61629e4f83cc3a7b86f1c76d10261c78df1352b2) |
-| `api_token.clear_secret_info` | [api_token.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-7a11c48e475f7f1f4a1a349ec27d757896cab5afeec13aaed0e3e785583843b4) |
-| `api_token.clear_secret_info.provider_ref` | [api_token.clear_secret_info.provider_ref](data-sources--cminstance--reference--group-001.md#canonical-4addf483c354bec45d8d5dd41a94068319d93d88cdd8f58efd6b7a854d518026) |
-| `api_token.clear_secret_info.url` | [api_token.clear_secret_info.url](data-sources--cminstance--reference--group-001.md#canonical-623093d6f4ac2a68b08bc3ee5d1488e731d23a96f614c1ed7d3498947e00db50) |
-| `description` | [description](data-sources--cminstance--reference--group-001.md#canonical-e7e710409030a8df0f542caf11cd3082efd6b165cfd8baf8ac10a66f74e459e4) |
-| `id` | [id](data-sources--cminstance--reference--group-001.md#canonical-f3298d2708433f8496429fd3780e3fc885c698ad4de4d6c1322a15f495409cce) |
-| `ip` | [ip](data-sources--cminstance--reference--group-001.md#canonical-dabe639ec17c62500a4d7e03fbc18362ec202f49484ef0eaff518f3a66e078e8) |
-| `ip.addr` | [ip.addr](data-sources--cminstance--reference--group-001.md#canonical-8d86873aae7619b7789106d38166893f0465e17417c3fd3c7ac652422f80f22d) |
-| `labels` | [labels](data-sources--cminstance--reference--group-001.md#canonical-185b7954d27c5dc16558c217c78254222c883df669e60f85ab55f82377285245) |
-| `name` | [name](data-sources--cminstance--reference--group-001.md#canonical-2e6e920d1ce6393486cddf58fb4c054ae6444e39e46dbcac4be2743e0faebba2) |
-| `namespace` | [namespace](data-sources--cminstance--reference--group-001.md#canonical-939a187beb3e26556089434159625b45866d351be1d4bc50f2d6dd128baf589c) |
-| `password` | [password](data-sources--cminstance--reference--group-001.md#canonical-b8ad4060eb3dcc8640eeec174993a559d7911942fd7e01421ba7f3930199e0ff) |
-| `password.blindfold_secret_info` | [password.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-94b435540e17097ac1f44fe06b257f32b7b2c3b331dfe5072aeeaee26aa06054) |
-| `password.blindfold_secret_info.decryption_provider` | [password.blindfold_secret_info.decryption_provider](data-sources--cminstance--reference--group-001.md#canonical-008a826e6aab8bd718274d742bd4cf4b0006ffebf6b837b958ee29f12e34d10f) |
-| `password.blindfold_secret_info.location` | [password.blindfold_secret_info.location](data-sources--cminstance--reference--group-001.md#canonical-8fc7e35c35934d370a6bf4212db5354df5a08a2a31495425b79f257031b8a8dd) |
-| `password.blindfold_secret_info.store_provider` | [password.blindfold_secret_info.store_provider](data-sources--cminstance--reference--group-001.md#canonical-598949b28bea46354cd42b4fbb845030957d4593a3a086a60706b83618c9481f) |
-| `password.clear_secret_info` | [password.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-d3f2eb1ea2dfd1c9675ec79d27e49c2f507140a2c4a8a33114e4e0e52eb7981b) |
-| `password.clear_secret_info.provider_ref` | [password.clear_secret_info.provider_ref](data-sources--cminstance--reference--group-001.md#canonical-f22ea42f855dc53f73d004d7150c1291dfe78abaccb613df1dc0accb177abcf5) |
-| `password.clear_secret_info.url` | [password.clear_secret_info.url](data-sources--cminstance--reference--group-001.md#canonical-c42973aff656d041fe367c8a9c812e7c08fd808bc7aefe0f026df181972bcc96) |
-| `port` | [port](data-sources--cminstance--reference--group-001.md#canonical-580529ad6d5f728e3db0c8e98acc8e44a0f562b7817a5ceb710aed9b36bf8ed1) |
-| `username` | [username](data-sources--cminstance--reference--group-001.md#canonical-edd357773ac61c7be50b5d683fcf4e7eaabf1252a708a4f7c1d34d16bee91b1b) |
+| `annotations` | [annotations](data-sources--cminstance--reference--group-001.md#canonical-3220131023300001-1223111030101203-2133302311303111-0313321212203023-3102213313030333-1020031113333112-2322300323310031-2012230103113113) |
+| `api_token` | [api_token](data-sources--cminstance--reference--group-001.md#canonical-1233111010230322-0010103131120012-3002200212332133-0201301023022031-2121211203021222-3111120303021021-2232001310100030-1222023330130010) |
+| `api_token.blindfold_secret_info` | [api_token.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-3022031303123012-2331110020123133-3232033102123003-3202222211013122-1203320230033113-2231203200010031-2022233111123100-0032132300220122) |
+| `api_token.blindfold_secret_info.decryption_provider` | [api_token.blindfold_secret_info.decryption_provider](data-sources--cminstance--reference--group-001.md#canonical-1022313203121031-0233322103121032-2020230101100120-3220331202213012-0300303323010310-3102332300001312-2013013320030020-1201121003012011) |
+| `api_token.blindfold_secret_info.location` | [api_token.blindfold_secret_info.location](data-sources--cminstance--reference--group-001.md#canonical-3020320123303100-0323033010311231-3030212313320012-0223122102120021-2003211001112103-3011303232233011-3320301133122203-0003301221202100) |
+| `api_token.blindfold_secret_info.store_provider` | [api_token.blindfold_secret_info.store_provider](data-sources--cminstance--reference--group-001.md#canonical-0223223003003330-2011302330332232-1030121030020122-1201120221321033-2003303003221323-2012330130131231-0100021201301320-3133010311022302) |
+| `api_token.clear_secret_info` | [api_token.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-1322010130102032-1013113313330133-1022012203102132-3002133113111320-2112302223112233-3232300103222232-3100320332132011-1120032010032310) |
+| `api_token.clear_secret_info.provider_ref` | [api_token.clear_secret_info.provider_ref](data-sources--cminstance--reference--group-001.md#canonical-1022313133102003-3003111023323010-1131203111313110-0122211000122003-0121312103312020-3031312033112032-3331122313222011-1031110120000212) |
+| `api_token.clear_secret_info.url` | [api_token.clear_secret_info.url](data-sources--cminstance--reference--group-001.md#canonical-1202030021033112-3310223002221220-2300202330033232-1131011020203213-0301310203222112-3312011030013231-1331031021202110-1332000031231100) |
+| `description` | [description](data-sources--cminstance--reference--group-001.md#canonical-3213321301001000-2100030022203133-0033111002302233-0101303103002002-3233311223011211-3033312023223320-2230010022121233-1310321011213210) |
+| `id` | [id](data-sources--cminstance--reference--group-001.md#canonical-3303022120310213-0020100303332010-2112100221333103-1320003203333020-2011301221202231-1031321031123001-0302022201113310-2111100021303032) |
+| `ip` | [ip](data-sources--cminstance--reference--group-001.md#canonical-3122233212032132-3001133012021100-0022103113320003-3323300120031202-3230020002331021-1020103233003222-3333110120330322-1212320013203220) |
+| `ip.addr` | [ip.addr](data-sources--cminstance--reference--group-001.md#canonical-2031201220130322-2232131201212313-1320210100123103-2001121220210333-0010121132011310-0113300333310330-1322301211021002-0233200033020231) |
+| `labels` | [labels](data-sources--cminstance--reference--group-001.md#canonical-0120112313211110-3102133011313001-1211112030020113-3013200211100202-0230202003313312-1221321200332011-2223111133200203-1313022011021011) |
+| `name` | [name](data-sources--cminstance--reference--group-001.md#canonical-0232123221020031-0130321203210310-2012303131331120-3323103000111022-3212101010320321-3210123123302230-1023320213100332-0033223223232202) |
+| `namespace` | [namespace](data-sources--cminstance--reference--group-001.md#canonical-2103212201201323-3223033202121111-1200202110031001-1121120211231011-2012123103110123-3201311023301100-3302311231310102-2023223311202130) |
+| `password` | [password](data-sources--cminstance--reference--group-001.md#canonical-2320223110001200-3223033130302012-1000323232300113-1021210322111121-3113210101211002-3331133200011002-0123221333032103-0001212132003333) |
+| `password.blindfold_secret_info` | [password.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-2110231003111110-0032011300211322-3001331010333200-1223021113330302-2313230230032303-0301313332110013-0222323222323202-1222220012001110) |
+| `password.blindfold_secret_info.decryption_provider` | [password.blindfold_secret_info.decryption_provider](data-sources--cminstance--reference--group-001.md#canonical-0000202220021232-1222222320233113-0120021310311310-0223311030331023-0000001233333223-3312232003132321-1120323202213301-0232031031010033) |
+| `password.blindfold_secret_info.location` | [password.blindfold_secret_info.location](data-sources--cminstance--reference--group-001.md#canonical-2033301332031130-0311210310310313-0022122333100201-0231231103111031-3311220020220222-0301102111100211-2313213302111300-0301232022203131) |
+| `password.blindfold_secret_info.store_provider` | [password.blindfold_secret_info.store_provider](data-sources--cminstance--reference--group-001.md#canonical-1121202110212302-2023322210120311-1030311002231033-2323201011000300-2111133110112103-2203220020122212-0013001223200312-0120302110200133) |
+| `password.clear_secret_info` | [password.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-3103330232230132-2202313331013021-1213113230132131-0213321021300233-1100130110002202-3010222022030301-0110321032003211-0232231321200123) |
+| `password.clear_secret_info.provider_ref` | [password.clear_secret_info.provider_ref](data-sources--cminstance--reference--group-001.md#canonical-3302023222100233-2011113130110333-1303310000103113-0111003001022101-3133321320222322-3030231201033133-0131300022303023-0113132223303311) |
+| `password.clear_secret_info.url` | [password.clear_secret_info.url](data-sources--cminstance--reference--group-001.md#canonical-3010022113032233-3312111231001001-3332031213302022-2130200102321330-0020333120002023-3013223233320033-0002123133012001-2113022330302112) |
+| `port` | [port](data-sources--cminstance--reference--group-001.md#canonical-1120001102212231-1231113313022032-0331230030203221-2022303020321010-2200331112022313-2001132211303223-1301002232312123-0312233320323101) |
+| `username` | [username](data-sources--cminstance--reference--group-001.md#canonical-3231310311131313-0322301201301323-3211002311311220-0333303310321332-2222233301021102-2213002022103313-3001310310310112-2332322101230123) |
 
-<a id="canonical-7129229f582405aa17c73ea3817ff7d7dbabc52f4eb97ef1ea1fc3ca268142c4"></a>
+<a id="canonical-1301022102022133-1120021000112222-0113301303322203-2001133333133113-3123222330110233-1032232113323301-3222013330033022-0212200110023010"></a>
 
-## Next pages — Property reference / fe44b091156a / 13
+## Next pages — Property reference / 210101111222 / 13
 
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d)
-- [ip](data-sources--cminstance--reference--group-001.md#canonical-3c6339205e271a123677ab965f68ca38a30fdfe92908accda8a304262e0a1455)
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031)
+- [ip](data-sources--cminstance--reference--group-001.md#canonical-0330120303210200-1132021301220102-0312131322232112-1133122030220320-2203003331333221-0221002022303031-2220220300100212-0232002201101111)
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d"></a>
+<a id="canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dae82b6a83c58c1bb69a6affcb55e466d2e60782d58a8c52f3bfed842604d0bd"></a>
+<a id="canonical-3122322002231222-2003301120300123-2312212212223333-3023111132101212-3102321200132002-3111202220301102-3303233332312010-0212001031002331"></a>
 
-## api_token — api_token / 93d19ee28119 / 2
+## api_token — api_token / 320220010121 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
 - api_token
 
-<a id="canonical-6f544b3a044dd606c2826f9f21c4b28d9996326ad5633249ae07440c6a2fc704"></a>
+<a id="canonical-1233111010230322-0010103131120012-3002200212332133-0201301023022031-2121211203021222-3111120303021021-2232001310100030-1222023330130010"></a>
 
 Type: `"single"`. Computed.
 
@@ -453,41 +453,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24d644aea0c4919b155d8d89e4a180aac99834ca57218b1db08150d153ccf402"></a>
+<a id="canonical-0210311210102232-2200301021012123-0111113120312021-3210220120002222-3021212003103022-1113020120230131-2300200111003101-1103303033100002"></a>
 
-## Direct properties — api_token / 93d19ee28119 / 3
+## Direct properties — api_token / 320220010121 / 3
 
-- [blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0cda3c7f959ee0e0385e6975b901bc45cf8ff01d33fa5f14a3d417fea2cd4ca9): complete subsection reference.
+- [blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0030312203301333-2111213232003200-0320113212211311-2321000123301011-3033203333000131-0303332211330110-2203311001133332-2202303110302221): complete subsection reference.
 
-- [clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-cf29c528bfe2852f37fe27d25fc84f04c6d0412ee6d4840049af826bafcf6438): complete subsection reference.
+- [clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-3033022130110220-2333320220110233-0313333202133102-1133302010330010-3012310010010232-3212311020100000-1021223320021223-2233303312100320): complete subsection reference.
 
-<a id="canonical-c58c8b6323d0b79017beb31b3220468e926d09e3a587c120f500ad65122395e8"></a>
+<a id="canonical-3011203020231203-0203310023132100-0113233223030123-0302020010122032-2102123100213203-2211201330010200-3311000022311211-0102020321113220"></a>
 
-## Next pages — api_token / 93d19ee28119 / 4
+## Next pages — api_token / 320220010121 / 4
 
-- [api_token.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0cda3c7f959ee0e0385e6975b901bc45cf8ff01d33fa5f14a3d417fea2cd4ca9)
-- [api_token.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-cf29c528bfe2852f37fe27d25fc84f04c6d0412ee6d4840049af826bafcf6438)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [api_token.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0030312203301333-2111213232003200-0320113212211311-2321000123301011-3033203333000131-0303332211330110-2203311001133332-2202303110302221)
+- [api_token.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-3033022130110220-2333320220110233-0313333202133102-1133302010330010-3012310010010232-3212311020100000-1021223320021223-2233303312100320)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-0cda3c7f959ee0e0385e6975b901bc45cf8ff01d33fa5f14a3d417fea2cd4ca9"></a>
+<a id="canonical-0030312203301333-2111213232003200-0320113212211311-2321000123301011-3033203333000131-0303332211330110-2203311001133332-2202303110302221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8253db4598145ba1f44a52cbd74347e291d7d9ada951e03bb21497a7fec0583"></a>
+<a id="canonical-3320021103312310-1121200110112322-0133101022110230-2331131003101332-0221013113312122-3122211101320003-2323020110211322-1333323000112003"></a>
 
-## api_token.blindfold_secret_info — api_token.blindfold_secret_info / 80f8bcb30d4b / 2
+## api_token.blindfold_secret_info — blindfold_secret_info / 230300311023 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031)
 - api_token.blindfold_secret_info
 
-<a id="canonical-ca3736c6bd5086dfee3d26c3e2aa51da63e2c3d7ad8e010d8abd56d00e7b0a1a"></a>
+<a id="canonical-3022031303123012-2331110020123133-3232033102123003-3202222211013122-1203320230033113-2231203200010031-2022233111123100-0032132300220122"></a>
 
 Type: `"single"`. Computed.
 
@@ -506,15 +506,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9a82ff1aa95a05300eac515a26bc2550ac6ffe4981308c3877f4257092e07da5"></a>
+<a id="canonical-2122200233330122-2221112200110300-0032223011011122-0212233002111100-2230123333321021-2001030020300320-1313331002111300-2102320013312211"></a>
 
-## Direct properties — api_token.blindfold_secret_info / 80f8bcb30d4b / 3
+## Direct properties — blindfold_secret_info / 230300311023 / 3
 
-<a id="canonical-4ade364d2fe9364e88b11418e8f629c630cfb134d2fb0076871f830861643185"></a>
+<a id="canonical-1022313203121031-0233322103121032-2020230101100120-3220331202213012-0300303323010310-3102332300001312-2013013320030020-1201121003012011"></a>
 
-<a id="canonical-2c14d71128bb8395e35ae19ba19d3a214105ab56afb9d6b5d59d6e6edc5488b9"></a>
+<a id="canonical-0230011031130101-0220232320032111-3203112232012123-2201213103220201-1001001122231112-2233232131122311-3111213112321232-3130111020202321"></a>
 
-## decryption_provider property — api_token.blindfold_secret_info / 80f8bcb30d4b / 4
+## decryption_provider property — blindfold_secret_info / 230300311023 / 4
 
 Type: `"string"`. Computed.
 
@@ -544,11 +544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c8e1bcd03b3c4d6dcc9b7e062b69260983941593c5ceebc5f8c5f6a303c69890"></a>
+<a id="canonical-3020320123303100-0323033010311231-3030212313320012-0223122102120021-2003211001112103-3011303232233011-3320301133122203-0003301221202100"></a>
 
-<a id="canonical-1cbb4fe578f3a5598afca4dc11f3768ee02420fe7e50170f36cc7f8db6f793ff"></a>
+<a id="canonical-0130232310333211-1320330322111121-2022333022103130-0101330313122032-3200021002003332-1332110001130033-0312303013332031-2312331321033333"></a>
 
-## location property — api_token.blindfold_secret_info / 80f8bcb30d4b / 5
+## location property — blindfold_secret_info / 230300311023 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -597,11 +597,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2bac30fc85cbcfae4c64c21a61629e4f83cc3a7b86f1c76d10261c78df1352b2"></a>
+<a id="canonical-0223223003003330-2011302330332232-1030121030020122-1201120221321033-2003303003221323-2012330130131231-0100021201301320-3133010311022302"></a>
 
-<a id="canonical-611be60830e0709806939890915b3fb99ffa11d5ae020ecf836db7e8a6f33b62"></a>
+<a id="canonical-1201012332120020-0300320013002120-0012210321202100-2101112303332321-2133332201013111-2232000200323033-2003123123133220-2212330303231202"></a>
 
-## store_provider property — api_token.blindfold_secret_info / 80f8bcb30d4b / 6
+## store_provider property — blindfold_secret_info / 230300311023 / 6
 
 Type: `"string"`. Computed.
 
@@ -636,31 +636,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0fad6724c7b995c59867d3a47dc0288c758587797e6c42814b53a3df2f1dd4b8"></a>
+<a id="canonical-0033223112130210-3013232121113011-2120121331032210-1331300002202030-1311201120131321-1332123010022001-1023110322033133-0233013131102320"></a>
 
-## Next pages — api_token.blindfold_secret_info / 80f8bcb30d4b / 7
+## Next pages — blindfold_secret_info / 230300311023 / 7
 
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-cf29c528bfe2852f37fe27d25fc84f04c6d0412ee6d4840049af826bafcf6438"></a>
+<a id="canonical-3033022130110220-2333320220110233-0313333202133102-1133302010330010-3012310010010232-3212311020100000-1021223320021223-2233303312100320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-99f3b159d4d0756a5d04be659a1761b1ebfa98ba901b8708e008d22fd882a281"></a>
+<a id="canonical-2121330323011121-3110310013111222-1131001023321211-2122011312012301-3223332221202322-2100012320130020-3200002031020233-3120200222022001"></a>
 
-## api_token.clear_secret_info — api_token.clear_secret_info / 638b4ca8c62d / 2
+## api_token.clear_secret_info — clear_secret_info / 222030120231 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031)
 - api_token.clear_secret_info
 
-<a id="canonical-7a11c48e475f7f1f4a1a349ec27d757896cab5afeec13aaed0e3e785583843b4"></a>
+<a id="canonical-1322010130102032-1013113313330133-1022012203102132-3002133113111320-2112302223112233-3232300103222232-3100320332132011-1120032010032310"></a>
 
 Type: `"single"`. Computed.
 
@@ -679,26 +679,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-70b65956d730de4bbd21bfcc7e5b6910b70a25668e19d48eafee19865625c482"></a>
+<a id="canonical-1300231211211112-3113030031321023-2331020123333030-1332112312210100-2313002202111212-2032012131102032-2233323201212012-1112021130102002"></a>
 
-## Direct properties — api_token.clear_secret_info / 638b4ca8c62d / 3
+## Direct properties — clear_secret_info / 222030120231 / 3
 
-<a id="canonical-4addf483c354bec45d8d5dd41a94068319d93d88cdd8f58efd6b7a854d518026"></a>
+<a id="canonical-1022313133102003-3003111023323010-1131203111313110-0122211000122003-0121312103312020-3031312033112032-3331122313222011-1031110120000212"></a>
 
-<a id="canonical-183400ddca228e68a325eaf32bf7b09746486797193fe55905c323c8fb8ed7ac"></a>
+<a id="canonical-0120031000003131-3022020220321220-2203021132223303-0223331323002113-1012102012132113-0121033332111121-0011300302033020-3323203231132230"></a>
 
-## provider_ref property — api_token.clear_secret_info / 638b4ca8c62d / 4
+## provider_ref property — clear_secret_info / 222030120231 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-623093d6f4ac2a68b08bc3ee5d1488e731d23a96f614c1ed7d3498947e00db50"></a>
+<a id="canonical-1202030021033112-3310223002221220-2300202330033232-1131011020203213-0301310203222112-3312011030013231-1331031021202110-1332000031231100"></a>
 
-<a id="canonical-3e88d36bd010b8e490d845eb176276256fc4b9b993fc2ee7a458347c51570202"></a>
+<a id="canonical-0332202031031223-3100010023203210-2100312010113223-0113120213120211-1233301023212321-2103333002323213-2210112003101330-1101111300020002"></a>
 
-## url property — api_token.clear_secret_info / 638b4ca8c62d / 5
+## URL property — clear_secret_info / 222030120231 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -758,30 +758,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-12ed45c908535438b089bce70431c9aeea190d627bf101ba7746ecc84fda59a9"></a>
+<a id="canonical-0102323110113021-0020110311100320-2300202123303213-0010030130212232-3222012100311202-1323330100012322-1313101232303020-1033312211212221"></a>
 
-## Next pages — api_token.clear_secret_info / 638b4ca8c62d / 6
+## Next pages — clear_secret_info / 222030120231 / 6
 
-- [api_token](data-sources--cminstance--reference--group-001.md#canonical-9a17ed398623aea6931d85b571015840e4143eed629ba2b501d96fd345f64b4d)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [api_token](data-sources--cminstance--reference--group-001.md#canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-3c6339205e271a123677ab965f68ca38a30fdfe92908accda8a304262e0a1455"></a>
+<a id="canonical-0330120303210200-1132021301220102-0312131322232112-1133122030220320-2203003331333221-0221002022303031-2220220300100212-0232002201101111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd95f7e9e3e72349b271e6e6b831ac645e0dc4a4744ab172a2f0ee11c8ca902e"></a>
+<a id="canonical-3031211133133221-3203321302031021-2302130132123212-2320030122301210-1132003130102210-1310102223011302-2202330032320101-3020302221000232"></a>
 
-## ip — ip / 47eb7651f09a / 2
+## ip — ip / 110133002122 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
 - ip
 
-<a id="canonical-dabe639ec17c62500a4d7e03fbc18362ec202f49484ef0eaff518f3a66e078e8"></a>
+<a id="canonical-3122233212032132-3001133012021100-0022103113320003-3323300120031202-3230020002331021-1020103233003222-3333110120330322-1212320013203220"></a>
 
 Type: `"single"`. Computed.
 
@@ -804,15 +804,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-983af264fb2e54a6ed3ab6c68217fa9b9eb9120794ad254a31b2b5f37fc6c422"></a>
+<a id="canonical-2120032233021210-3323023211102212-3231032223123012-2002011333222123-2132232101020013-2110223102111022-0301230223113303-1333301230100202"></a>
 
-## Direct properties — ip / 47eb7651f09a / 3
+## Direct properties — ip / 110133002122 / 3
 
-<a id="canonical-8d86873aae7619b7789106d38166893f0465e17417c3fd3c7ac652422f80f22d"></a>
+<a id="canonical-2031201220130322-2232131201212313-1320210100123103-2001121220210333-0010121132011310-0113300333310330-1322301211021002-0233200033020231"></a>
 
-<a id="canonical-e1e12281ec18d670d89adcdbff868bbd345d1a71b0aaedbba827609dab6bda9b"></a>
+<a id="canonical-3201320102022001-3230012031121300-3120212231303123-3333201220232331-0310113101221301-2300222232312323-2220021312002131-2223122331222123"></a>
 
-## addr property — ip / 47eb7651f09a / 4
+## addr property — ip / 110133002122 / 4
 
 Type: `"string"`. Computed.
 
@@ -849,30 +849,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-675427ff35d562d24e0236bfeff7bc8393c39456b604ce32fe05a8b1de5c3315"></a>
+<a id="canonical-1213111002133333-0311311112023102-1032000203122333-3233331323302003-2103300321101112-2312001030320302-3332001122202301-3132113003030111"></a>
 
-## Next pages — ip / 47eb7651f09a / 5
+## Next pages — ip / 110133002122 / 5
 
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9"></a>
+<a id="canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-99e241f9b6366bdce50cda81b8e4d665a8d3f5f2b1b34e6e06f150026ef801c0"></a>
+<a id="canonical-2121320210013321-2312031212233130-3211003031222001-2320321031121211-2220310333113302-2301230310321232-0012330111000002-1232332000013000"></a>
 
-## password — password / 8bce5cf5c098 / 2
+## password — password / 331130002120 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
 - password
 
-<a id="canonical-b8ad4060eb3dcc8640eeec174993a559d7911942fd7e01421ba7f3930199e0ff"></a>
+<a id="canonical-2320223110001200-3223033130302012-1000323232300113-1021210322111121-3113210101211002-3331133200011002-0123221333032103-0001212132003333"></a>
 
 Type: `"single"`. Computed.
 
@@ -892,41 +892,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-300179fc43109113166b089da03d0f3be88ed6c24b478ba280e777553c5653d6"></a>
+<a id="canonical-0300000113213330-1003010021010103-0112122300202131-2200033100330323-3220203231123002-1023101320232202-2000321313131111-0330111211033112"></a>
 
-## Direct properties — password / 8bce5cf5c098 / 3
+## Direct properties — password / 331130002120 / 3
 
-- [blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-4457a30bb379a23a6929fe8f1ed86462a5604f27c79c403ce4380a1a3b9775d3): complete subsection reference.
+- [blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-1010111322030023-2303132122020322-1221022133322033-0132312012101202-2211120010330213-3013213010000330-3210032000220122-0323211313113103): complete subsection reference.
 
-- [clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0e5c1d627300c0dcd2e4700614d0c0abddfb563e9de319c8e75dfaf84167c070): complete subsection reference.
+- [clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0032113001311202-1303000030003130-3102321013000012-0110310030002223-3131332311120332-2131320301213020-3213113133223320-1001121330001300): complete subsection reference.
 
-<a id="canonical-e2b3918f6de441bd9e8a4b28fff39f538fb5df9d44f9c472db3a534eb867ed7e"></a>
+<a id="canonical-3202230321012033-1231321010012331-2132202210230220-3333330321331103-2033231131332131-1010332130101302-3123032211031032-2320121332311332"></a>
 
-## Next pages — password / 8bce5cf5c098 / 4
+## Next pages — password / 331130002120 / 4
 
-- [password.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-4457a30bb379a23a6929fe8f1ed86462a5604f27c79c403ce4380a1a3b9775d3)
-- [password.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0e5c1d627300c0dcd2e4700614d0c0abddfb563e9de319c8e75dfaf84167c070)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [password.blindfold_secret_info](data-sources--cminstance--reference--group-001.md#canonical-1010111322030023-2303132122020322-1221022133322033-0132312012101202-2211120010330213-3013213010000330-3210032000220122-0323211313113103)
+- [password.clear_secret_info](data-sources--cminstance--reference--group-001.md#canonical-0032113001311202-1303000030003130-3102321013000012-0110310030002223-3131332311120332-2131320301213020-3213113133223320-1001121330001300)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-4457a30bb379a23a6929fe8f1ed86462a5604f27c79c403ce4380a1a3b9775d3"></a>
+<a id="canonical-1010111322030023-2303132122020322-1221022133322033-0132312012101202-2211120010330213-3013213010000330-3210032000220122-0323211313113103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-08b44fc1513082cda7c3c974889342805fe0db1632926b480353a1e8d4322cda"></a>
+<a id="canonical-0020231010333001-1101030020023031-2213300330211310-2020210310022000-1133320031230112-0302210212231020-0003110322013220-3110030202303122"></a>
 
-## password.blindfold_secret_info — password.blindfold_secret_info / e4a73c2eeffd / 2
+## password.blindfold_secret_info — blindfold_secret_info / 023232333331 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121)
 - password.blindfold_secret_info
 
-<a id="canonical-94b435540e17097ac1f44fe06b257f32b7b2c3b331dfe5072aeeaee26aa06054"></a>
+<a id="canonical-2110231003111110-0032011300211322-3001331010333200-1223021113330302-2313230230032303-0301313332110013-0222323222323202-1222220012001110"></a>
 
 Type: `"single"`. Computed.
 
@@ -945,15 +945,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f74f539d662498f596944928d4bf5ab4a8973effe3b98567e406d4f5d96385e5"></a>
+<a id="canonical-3313103311032131-1212021021203311-2112211010210220-3110233311222310-2220211303323333-3203232120111213-3210001231103311-3121120320113211"></a>
 
-## Direct properties — password.blindfold_secret_info / e4a73c2eeffd / 3
+## Direct properties — blindfold_secret_info / 023232333331 / 3
 
-<a id="canonical-008a826e6aab8bd718274d742bd4cf4b0006ffebf6b837b958ee29f12e34d10f"></a>
+<a id="canonical-0000202220021232-1222222320233113-0120021310311310-0223311030331023-0000001233333223-3312232003132321-1120323202213301-0232031031010033"></a>
 
-<a id="canonical-895f04327017a9e9bba364151e8cb3b5bdd546af8bc8af80440d31171ad18c51"></a>
+<a id="canonical-2021113300100302-1300011322213221-2323220312100111-0132203023032311-2331311110122233-2023302022332000-1010003103010113-0122310120301101"></a>
 
-## decryption_provider property — password.blindfold_secret_info / e4a73c2eeffd / 4
+## decryption_provider property — blindfold_secret_info / 023232333331 / 4
 
 Type: `"string"`. Computed.
 
@@ -983,11 +983,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8fc7e35c35934d370a6bf4212db5354df5a08a2a31495425b79f257031b8a8dd"></a>
+<a id="canonical-2033301332031130-0311210310310313-0022122333100201-0231231103111031-3311220020220222-0301102111100211-2313213302111300-0301232022203131"></a>
 
-<a id="canonical-d39799bc12b5601eb46d054835eddea1a6a26c3a3fc7b4a6313dacf4378ec763"></a>
+<a id="canonical-3103211321212330-0102231112000132-2310123100111020-0311323131322201-2212220212300322-0333301323102212-0301033122303310-0313203230131203"></a>
 
-## location property — password.blindfold_secret_info / e4a73c2eeffd / 5
+## location property — blindfold_secret_info / 023232333331 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -1036,11 +1036,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-598949b28bea46354cd42b4fbb845030957d4593a3a086a60706b83618c9481f"></a>
+<a id="canonical-1121202110212302-2023322210120311-1030311002231033-2323201011000300-2111133110112103-2203220020122212-0013001223200312-0120302110200133"></a>
 
-<a id="canonical-0b7fb8432499d695db72a943e332c80da4af7601da917a6ee909e5d14c681e69"></a>
+<a id="canonical-0023133323201003-0210212131122111-3123130222211003-3203030230200031-2210223313120001-3122210113221232-3221002132113101-1030122001321221"></a>
 
-## store_provider property — password.blindfold_secret_info / e4a73c2eeffd / 6
+## store_provider property — blindfold_secret_info / 023232333331 / 6
 
 Type: `"string"`. Computed.
 
@@ -1075,31 +1075,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b72c2e36f9aa764dca73eda78652a1e3d57d8af55786082acf3d20523cc6b2a4"></a>
+<a id="canonical-2313023002320312-3321222213121031-3022130332312213-2012110222013203-3111133120223311-1113201200200222-3033033102001102-0330301223022210"></a>
 
-## Next pages — password.blindfold_secret_info / e4a73c2eeffd / 7
+## Next pages — blindfold_secret_info / 023232333331 / 7
 
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
 
-<a id="canonical-0e5c1d627300c0dcd2e4700614d0c0abddfb563e9de319c8e75dfaf84167c070"></a>
+<a id="canonical-0032113001311202-1303000030003130-3102321013000012-0110310030002223-3131332311120332-2131320301213020-3213113133223320-1001121330001300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5aa0442c6a2470c5cefa645aae8f537a337b1048454d81201874e2fe465f6a3d"></a>
+<a id="canonical-1122220010100230-1222021013003011-3032332212101122-2232203311031322-0303132301001020-1011103120010200-0120131032023332-1012113312220331"></a>
 
-## password.clear_secret_info — password.clear_secret_info / fa35fb609e09 / 2
+## password.clear_secret_info — clear_secret_info / 120021320021 / 2
 
 Breadcrumbs:
 
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
-- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)
+- [Property reference](data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121)
 - password.clear_secret_info
 
-<a id="canonical-d3f2eb1ea2dfd1c9675ec79d27e49c2f507140a2c4a8a33114e4e0e52eb7981b"></a>
+<a id="canonical-3103330232230132-2202313331013021-1213113230132131-0213321021300233-1100130110002202-3010222022030301-0110321032003211-0232231321200123"></a>
 
 Type: `"single"`. Computed.
 
@@ -1118,26 +1118,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c09acc3e050e54561fac4b121445b7b84260f9beb04f0e8cb24b77891d56559c"></a>
+<a id="canonical-3000212230300332-0011003211101112-0133223010230102-0110101123132320-1002120033212332-2300103300322030-2302102313132021-0131111211112130"></a>
 
-## Direct properties — password.clear_secret_info / fa35fb609e09 / 3
+## Direct properties — clear_secret_info / 120021320021 / 3
 
-<a id="canonical-f22ea42f855dc53f73d004d7150c1291dfe78abaccb613df1dc0accb177abcf5"></a>
+<a id="canonical-3302023222100233-2011113130110333-1303310000103113-0111003001022101-3133321320222322-3030231201033133-0131300022303023-0113132223303311"></a>
 
-<a id="canonical-142639be5352304d6afcadd4ac43b84fb17baae70dd43f95c558bce2caa82af0"></a>
+<a id="canonical-0110021203212332-1103110203001031-1222333022313110-2230100323201033-2301132322223213-0031311003332111-3011112023303202-3022222002223300"></a>
 
-## provider_ref property — password.clear_secret_info / fa35fb609e09 / 4
+## provider_ref property — clear_secret_info / 120021320021 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-c42973aff656d041fe367c8a9c812e7c08fd808bc7aefe0f026df181972bcc96"></a>
+<a id="canonical-3010022113032233-3312111231001001-3332031213302022-2130200102321330-0020333120002023-3013223233320033-0002123133012001-2113022330302112"></a>
 
-<a id="canonical-ca2ad5e668c32bf146dedc0d5051be51db63b77f7e399d4e4731a06c5494f3e5"></a>
+<a id="canonical-3022022231113212-1220300302233301-1012313231300031-1100110123321101-3123120323131333-1332032121311032-1013030122001230-1110211033033211"></a>
 
-## url property — password.clear_secret_info / fa35fb609e09 / 5
+## URL property — clear_secret_info / 120021320021 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -1197,9 +1197,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a8f10759d6386fa56511250eae821016e6f94ae02e037eac0590325bd3ce17be"></a>
+<a id="canonical-2220330100131121-3112032012332211-1211010102110032-2232200201000112-3212332110223200-0232000313322230-0011210003021123-3103303201132332"></a>
 
-## Next pages — password.clear_secret_info / fa35fb609e09 / 6
+## Next pages — clear_secret_info / 120021320021 / 6
 
-- [password](data-sources--cminstance--reference--group-001.md#canonical-7a57d86ff7cc215f8bda1c753c142ff62b525be0049e23794b698a0d27e0c4d9)
-- [xcsh_cminstance](../data-sources/cminstance.md#canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248)
+- [password](data-sources--cminstance--reference--group-001.md#canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121)
+- [xcsh_cminstance](../data-sources/cminstance.md#canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020)

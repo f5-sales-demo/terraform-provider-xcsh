@@ -6,42 +6,208 @@ description: "Complete grouped canonical reference for xcsh_secret_management_ac
 
 # xcsh_secret_management_access reference
 
-<a id="canonical-3ffc03f97d600f4a4fc71be74fa45e147e36be525ef32d45111184b16479662e"></a>
+<a id="canonical-3211000311200212-3333213102102320-1020123002200021-3223331310101122-2201003020200232-2312211002002322-1122131213210022-3130113003331221"></a>
 
-## Direct properties — access_info.vault_auth_info / 9d354a40a6e0 / 3
+## access_info.tls_config.disable_sni — disable_sni / 011320112033 / 2
 
-- [app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad): complete subsection reference.
+Breadcrumbs:
 
-- [token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11): complete subsection reference.
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- access_info.tls_config.disable_sni
 
-<a id="canonical-1d877c777217449d1d00f28e6c6da53ddb598c3a87d1f695ae4995ba42980bb7"></a>
+<a id="canonical-3220101121003121-1210031032210023-3311330011203210-2121100131331213-0310131111032311-0112201222202302-3000201210113112-2320200021033133"></a>
 
-## Next pages — access_info.vault_auth_info / 9d354a40a6e0 / 4
+Type: `["object", {}]`. Optional.
 
-- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad)
-- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+Configuration parameter for disable sni.
 
-<a id="canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad"></a>
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_sni = {}
+```
+
+<a id="canonical-1201110131011233-2031103322231031-3210003310323331-3113323321100110-3003220132121301-1003000203021130-0203020033232302-3223001311330202"></a>
+
+## Direct properties — disable_sni / 011320112033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1120133330010322-3000022121022020-2010003302313102-3023323220223003-2033030213302032-2323310110231113-0100002032102132-2133223201011310"></a>
+
+## Next pages — disable_sni / 011320112033 / 4
+
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+
+<a id="canonical-0131132312113121-0002111223100322-1223133230330302-0112001130111232-1022232200200232-2011331323211022-3003013122220221-0332220231132233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd60d9bca768102529070822cb482822e46601a1ecb4c08e84309f729d4ed5fe"></a>
+<a id="canonical-3110121112121221-2121023232301002-0121010210212321-0013003131101230-0002030132003301-2131231301113300-3332232210213130-0002021223111202"></a>
 
-## access_info.vault_auth_info.app_role_auth — access_info.vault_auth_info.app_role_auth / ec29f5a040c8 / 2
+## access_info.tls_config.use_host_header_as_sni — use_host_header_as_sni / 223320011002 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- access_info.tls_config.use_host_header_as_sni
+
+<a id="canonical-1202101121230132-1102220121002330-3322012213033323-0223032333303303-3312021331322101-3223100320312001-0210301110233331-1010220313001022"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+use_host_header_as_sni = {}
+```
+
+<a id="canonical-1133102323223213-3011120013231021-3103300331113223-2022010322210112-1300231231103101-0130123310030310-1233022121001330-1212113213302233"></a>
+
+## Direct properties — use_host_header_as_sni / 223320011002 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1311321030213103-0033123100102220-0003330120021011-2310100103201311-2311311313100311-2323300211122012-0331212210111132-2113331302313120"></a>
+
+## Next pages — use_host_header_as_sni / 223320011002 / 4
+
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+
+<a id="canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2313022332233033-0030120321112300-0020133301111133-1023220031323313-3303332001202221-1122320002022221-1210033300131322-0003202323121213"></a>
+
+## access_info.vault_auth_info — vault_auth_info / 100022123200 / 2
+
+Breadcrumbs:
+
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- access_info.vault_auth_info
+
+<a id="canonical-0012231130130023-2021330132312002-0123100211220102-2320313103311032-0100023300213330-0120211003322132-3020302232210121-1312332033131020"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Authentication parameters for Hashicorp Vault hosts.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("app_role_auth",
+    "token")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-auth_params": "[\"app_role_auth\",\"token\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+vault_auth_info {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0333333000033321-1331120000331022-1033301301233213-1033221011320110-1332031223321102-1132330302311011-0101010120102301-1210132112120232"></a>
+
+## Direct properties — vault_auth_info / 100022123200 / 3
+
+- [app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231): complete subsection reference.
+
+- [token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101): complete subsection reference.
+
+<a id="canonical-0131201313301313-1302011310102131-0131000033022032-1230123122110331-3123112120300322-2013310133122111-2232102121112322-1002212000232313"></a>
+
+## Next pages — vault_auth_info / 100022123200 / 4
+
+- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231)
+- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+
+<a id="canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3031120031212330-2213122001000211-0221001300200202-3023102002200202-3210121200012201-3230231030002032-2010030021331302-2131103231113332"></a>
+
+## access_info.vault_auth_info.app_role_auth — app_role_auth / 220010003020 / 2
+
+Breadcrumbs:
+
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
 - access_info.vault_auth_info.app_role_auth
 
-<a id="canonical-fb3ead27a67aacb3b0c34726b9acfc595c1f56efd8df8c65f47474ddb8f959bc"></a>
+<a id="canonical-3323033222310213-2212132222302303-2300300310130212-2321223033301121-1130013311123233-3120313320301211-3310131013103131-2320332111212330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -68,15 +234,15 @@ app_role_auth {
 }
 ```
 
-<a id="canonical-3e2915c75349af8e3c26aa7c3bf2e3469453a6d56f0462f1a4dcaca21e698b36"></a>
+<a id="canonical-0332022101113013-1103102122332032-0330021222221330-0323330232031012-2110110322123111-1233001012023301-2210313022302202-0132122120230312"></a>
 
-## Direct properties — access_info.vault_auth_info.app_role_auth / ec29f5a040c8 / 3
+## Direct properties — app_role_auth / 220010003020 / 3
 
-<a id="canonical-85b6bcb752bc7104ceee9e7458358ec887a8f617f99c42880b7213af01c84e28"></a>
+<a id="canonical-2011231223302313-1102233013010010-3032323221321310-1120031120323020-2013222033120113-3321213010022020-0023130201032233-0001302010320220"></a>
 
-<a id="canonical-ace458e492bde28e602c4c67ac424b91eb1938f1a3c8a710202997d6e8aaa42c"></a>
+<a id="canonical-2230321011203210-2102233132022032-1200023010301213-2230100210232101-3223012103203301-2203302022130100-0200022121133112-3220222222100230"></a>
 
-## role_id property — access_info.vault_auth_info.app_role_auth / ec29f5a040c8 / 4
+## role_id property — app_role_auth / 220010003020 / 4
 
 Type: `"string"`. Optional.
 
@@ -109,36 +275,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6): complete subsection reference.
+- [secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212): complete subsection reference.
 
-<a id="canonical-fa08b78686c7e8369af9b2ca906ae1a60f5ad67e2e60ba3a900c21f55d72337d"></a>
+<a id="canonical-3322002023132012-2012301332200312-2122332123023022-2100122232012212-0033112231121332-0232120023220322-2100003002013311-1131130203031331"></a>
 
-## Next pages — access_info.vault_auth_info.app_role_auth / ec29f5a040c8 / 5
+## Next pages — app_role_auth / 220010003020 / 5
 
-- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6"></a>
+<a id="canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-03ea67da79390029576a2756fc484a20aa8ed25a0152a9c20e8d39d8d422171b"></a>
+<a id="canonical-0003322212133122-1321032100000221-1113122202131112-3330102010220200-2222203231021122-0001110222213002-0032203103213120-3110020201130123"></a>
 
-## access_info.vault_auth_info.app_role_auth.secret_id — access_info.vault_auth_info.app_role_auth.secret_id / 032e408cbc3e / 2
+## access_info.vault_auth_info.app_role_auth.secret_id — secret_id / 203023300332 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231)
 - access_info.vault_auth_info.app_role_auth.secret_id
 
-<a id="canonical-e9c33f4f50d30f02575861665eae5ddd457063888e4b7a78f47b21840288e053"></a>
+<a id="canonical-3221300303331033-1100310300330002-1113112012011212-1132223211313131-1011130012032020-2032102313221320-3310132302012010-0002202032001103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -173,44 +339,44 @@ secret_id {
 }
 ```
 
-<a id="canonical-021571141c9ac0e4b81ce2c062262267936a44b6fcb508b86a30ef99dc3158e7"></a>
+<a id="canonical-0002011113010110-0130212230003210-2320013032023000-1202021202021213-2103122210102312-3330231100202320-1222030032332121-3130030111203213"></a>
 
-## Direct properties — access_info.vault_auth_info.app_role_auth.secret_id / 032e408cbc3e / 3
+## Direct properties — secret_id / 203023300332 / 3
 
-- [blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-c61132937135530f1dc4b7c7aa47a70d097a61029c6280fce5dc9b9c26eaa394): complete subsection reference.
+- [blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3012010103022103-1301031111030033-0131301023133013-2222101322130031-0021132212010002-2130120220003330-3211313021232130-0212322222032110): complete subsection reference.
 
-- [clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-cbb865a8e60d0156db5e9810815e5ef0c889535297ed1941414866e18b813d53): complete subsection reference.
+- [clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3023232012112220-3212003100011112-3123113221200100-2001113211323300-3020202111031102-2113323101211001-1001102012123201-2023200103311103): complete subsection reference.
 
-<a id="canonical-86df938abe495ba283b7a12873970a9009ef97f58b68cbe9200084e40b826ea1"></a>
+<a id="canonical-2012313321032022-2332102111232202-2003231322010220-1303211300222100-0021323321133311-2023122030233221-0200000020103210-0023200212322201"></a>
 
-## Next pages — access_info.vault_auth_info.app_role_auth.secret_id / 032e408cbc3e / 4
+## Next pages — secret_id / 203023300332 / 4
 
-- [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-c61132937135530f1dc4b7c7aa47a70d097a61029c6280fce5dc9b9c26eaa394)
-- [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-cbb865a8e60d0156db5e9810815e5ef0c889535297ed1941414866e18b813d53)
-- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3012010103022103-1301031111030033-0131301023133013-2222101322130031-0021132212010002-2130120220003330-3211313021232130-0212322222032110)
+- [access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3023232012112220-3212003100011112-3123113221200100-2001113211323300-3020202111031102-2113323101211001-1001102012123201-2023200103311103)
+- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-c61132937135530f1dc4b7c7aa47a70d097a61029c6280fce5dc9b9c26eaa394"></a>
+<a id="canonical-3012010103022103-1301031111030033-0131301023133013-2222101322130031-0021132212010002-2130120220003330-3211313021232130-0212322222032110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fb3471a36f2b6eed74a1da770e10b6f51ce2d2055394333934cfa8c044919b8c"></a>
+<a id="canonical-3323031013012203-1233022312323231-1310220131221313-0032010023123311-0130320231020011-1103211003030321-0310303322203000-1010210121232030"></a>
 
-## access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 2
+## access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info — blindfold_secret_info / 102001131303 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad)
-- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231)
+- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212)
 - access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info
 
-<a id="canonical-aacfe2c02732ef1123fa273595f3ae58e4672a6e34830287a9cdf8d5b053f020"></a>
+<a id="canonical-2222303332023000-0213030232330101-0203332202130311-2111330322321120-3210121302221232-0310200300022013-2221303133203111-2300110333000200"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -243,15 +409,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-7b69d1ddb18dfc919f2a455795f53483a929901b4e7557414cd44632b530a74a"></a>
+<a id="canonical-1323122131013131-2301203133302101-2133022210111113-2111331103102003-2221022121000123-1032131111131001-1030311010120302-2311030022131022"></a>
 
-## Direct properties — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 3
+## Direct properties — blindfold_secret_info / 102001131303 / 3
 
-<a id="canonical-538657ea8ae7497acb1a678931c0bfc69767046d5aeabd3fd1868e3dba4dc188"></a>
+<a id="canonical-1103201211133222-2022321310211322-3023012212132021-0301300023333012-2113121300101231-1122322223310333-3101201220320331-2322103130012020"></a>
 
-<a id="canonical-a653ed5af9f8564118038592d85f36ddbce8d60d5876ed5c432fb88c844f8cd6"></a>
+<a id="canonical-2212110332311122-3321332011121001-0120000320112102-3120113303123131-2330322031120031-1120131232311130-1003023323202030-2010103320303112"></a>
 
-## decryption_provider property — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 4
+## decryption_provider property — blindfold_secret_info / 102001131303 / 4
 
 Type: `"string"`. Optional.
 
@@ -281,11 +447,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10ad5833b6b9f6d9153c2040872b362e24ff147f44d52e35654e0a721caef6af"></a>
+<a id="canonical-0100223111200303-2312232133123121-0111033002001000-2013022303120232-0210333301101333-1010311102320311-1211103200221302-0130223233122233"></a>
 
-<a id="canonical-e9c186c128b884b0606994ecd3cfec0a1043bf699e3f61d87822db3de13469c1"></a>
+<a id="canonical-3221300120123001-0220232020102300-1200122121103230-3103303332300022-0100100323331221-2132033312013120-1320020231230331-3201031012213001"></a>
 
-## location property — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 5
+## location property — blindfold_secret_info / 102001131303 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -342,11 +508,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c04c03f4b68928ea71ad06b1398cfb48dbb1b2287e4320bb3144be30e8ea76a1"></a>
+<a id="canonical-3000103000033310-2312202102203222-1301223100122301-0321203033231020-3123230123020220-1332100302002323-0301101023320300-3220322213122201"></a>
 
-<a id="canonical-dda07182a1bdef5cdc9bb48044d05b33de51489ff223af859754789829e917b4"></a>
+<a id="canonical-3131220013012002-2201233132331130-3130212323102000-1010310011230303-3132110110202133-3302020322332011-2113111013202120-0221322101132310"></a>
 
-## store_provider property — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 6
+## store_provider property — blindfold_secret_info / 102001131303 / 6
 
 Type: `"string"`. Optional.
 
@@ -381,34 +547,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f607bdbb6a43693ca602f993b008d96ad4d974ffb4a3f320e5fc4c8b8d25701"></a>
+<a id="canonical-0233120013233123-2312221003122103-3022120002332121-0323000020312112-2231103121131033-3323102203330302-0032113330103020-2320310211130001"></a>
 
-## Next pages — access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info / 578990481773 / 7
+## Next pages — blindfold_secret_info / 102001131303 / 7
 
-- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-cbb865a8e60d0156db5e9810815e5ef0c889535297ed1941414866e18b813d53"></a>
+<a id="canonical-3023232012112220-3212003100011112-3123113221200100-2001113211323300-3020202111031102-2113323101211001-1001102012123201-2023200103311103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d860e6991f961e7e02bf05f894ada6b2f0cdb3505adc41d94a7051fab9bcaf1b"></a>
+<a id="canonical-3120120032122121-0133211201321332-0002233300113320-2110223122122302-3300303123031100-1122313010013121-1022130011013322-2321233022330123"></a>
 
-## access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info — access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info / ecd6f80e0528 / 2
+## access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info — clear_secret_info / 003200110220 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0c399bcedfa9c28fc8b3bf62e5a0c54f106d7a9abd4ef28580642bc37f31e3ad)
-- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [access_info.vault_auth_info.app_role_auth](resources--secret_management_access--reference--group-002.md#canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231)
+- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212)
 - access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info
 
-<a id="canonical-f19bcb05cc33222b41cf1ee07f8440cfe69a51a14e0ebd6ebaa57bb2f9c70af4"></a>
+<a id="canonical-3301212330230011-3030030302020223-1001303301323200-1333201010003033-3212212211012201-1032003223311232-2322221113232302-3321301300223310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -441,26 +607,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-ca28cee5751e02dcdd71281fc03e66ed043ca884ebf888272ac9fabc4dac5486"></a>
+<a id="canonical-3022022030323211-1311013200023130-3131130102200133-3000033212123231-0010033022202010-3223332020200213-0222302133222330-1031223011102012"></a>
 
-## Direct properties — access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info / ecd6f80e0528 / 3
+## Direct properties — clear_secret_info / 003200110220 / 3
 
-<a id="canonical-8546c5faaaf62dd3b434b095352da960fab9e410e96b338578c4b66d8c2a721a"></a>
+<a id="canonical-2011101230113322-2222331202313103-2310031023002111-0311023122211200-3322232132100100-3221122303032011-1320301023121231-2030022213020122"></a>
 
-<a id="canonical-438de27617cec204289958d806adaa84e400324ce913241af432fe5f2a270786"></a>
+<a id="canonical-1003203132021312-0113303230020010-0220212111203120-0012223122222010-3210000003021030-3221010302100122-3310030233321133-0222021300132012"></a>
 
-## provider_ref property — access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info / ecd6f80e0528 / 4
+## provider_ref property — clear_secret_info / 003200110220 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-6805217a6507363df82fcb5ab041655aa4b8189500d0252f1d8ef6aef018b884"></a>
+<a id="canonical-1220001102011322-1211001303120331-3320023330231122-2300100112111122-2210232001202111-0000310002110233-0131203233122232-3300012023202010"></a>
 
-<a id="canonical-688ef102274d262c62e065cfbfd3dcef61d0f358b87f3422d87728605a036af7"></a>
+<a id="canonical-1220203233010002-0213103102120230-1202320012113033-2333310331303233-1201310033031120-2320133303100202-3120131302201200-1122000312223313"></a>
 
-## url property — access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info / ecd6f80e0528 / 5
+## URL property — clear_secret_info / 003200110220 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -528,32 +694,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2c5ef055bb815c32de35cd3ab811dec2f032830c3be8b13ed2d0f5edb1183d71"></a>
+<a id="canonical-0230113233001111-2323200111300302-3132031130310322-2320010131323002-3300030220030030-0323322023010332-3102310033113231-2301012003311301"></a>
 
-## Next pages — access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info / ecd6f80e0528 / 6
+## Next pages — clear_secret_info / 003200110220 / 6
 
-- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-a3605f516b489aa07f97aeec043d1408c9958aa21d6d7b9810b5757f50db59a6)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.app_role_auth.secret_id](resources--secret_management_access--reference--group-002.md#canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11"></a>
+<a id="canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fd10b4bc599b8b75c75b3fe30e0ba0039ff11f46b863c347c482ea3d1809049a"></a>
+<a id="canonical-3331010023102330-1121212320231311-3013112303333203-0032002322000003-2133330101331012-2320120330031013-3010200232220331-0120002100102122"></a>
 
-## access_info.vault_auth_info.token — access_info.vault_auth_info.token / b1f85395014f / 2
+## access_info.vault_auth_info.token — token / 211100011033 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
 - access_info.vault_auth_info.token
 
-<a id="canonical-d8e82bc326f4510bf3290e45954a4547faaaebb36a346c30d11e344867b5f48a"></a>
+<a id="canonical-3120322002233003-0212331011010023-3303022100321011-2111102210111013-3322222232232303-1222031012300300-3101013203101020-1213231133102022"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -588,43 +754,43 @@ token {
 }
 ```
 
-<a id="canonical-43ba957451cc29dffe5fc7d21f576de914734f4f499a1ff52e8f74a5daeaf487"></a>
+<a id="canonical-1003232221111310-1101303002213133-3332113330133102-0133111312313221-0110130310331033-1021212201333311-0232203313102211-3122322233102013"></a>
 
-## Direct properties — access_info.vault_auth_info.token / b1f85395014f / 3
+## Direct properties — token / 211100011033 / 3
 
-- [blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-7c8891d71b5918e918e219349b14b1122e0d8f467605c2f822fffdab99dbdeb2): complete subsection reference.
+- [blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-1330202021013113-0123112101203221-0120320201210310-2123011023010102-0232003120331012-1312001130023320-0202333333312223-2121312331322302): complete subsection reference.
 
-- [clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-e458f684ee4f266bb2068c7b5f5337689eb766b45a2e6c4075753ec49311a26d): complete subsection reference.
+- [clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3210112033122010-3232103302121223-2302001220301323-1133110303131220-2132231312122310-1122023212301000-1311131103323010-2103010122021231): complete subsection reference.
 
-<a id="canonical-2db141f106ba6735b351a1f659f1abc9e1871015e3925152a83f576d84f5f178"></a>
+<a id="canonical-0231230110013301-0012232212130311-2303110122013312-1121330122233021-3201201301000111-3203210211011102-2220033311131231-2010331133011320"></a>
 
-## Next pages — access_info.vault_auth_info.token / b1f85395014f / 4
+## Next pages — token / 211100011033 / 4
 
-- [access_info.vault_auth_info.token.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-7c8891d71b5918e918e219349b14b1122e0d8f467605c2f822fffdab99dbdeb2)
-- [access_info.vault_auth_info.token.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-e458f684ee4f266bb2068c7b5f5337689eb766b45a2e6c4075753ec49311a26d)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.token.blindfold_secret_info](resources--secret_management_access--reference--group-002.md#canonical-1330202021013113-0123112101203221-0120320201210310-2123011023010102-0232003120331012-1312001130023320-0202333333312223-2121312331322302)
+- [access_info.vault_auth_info.token.clear_secret_info](resources--secret_management_access--reference--group-002.md#canonical-3210112033122010-3232103302121223-2302001220301323-1133110303131220-2132231312122310-1122023212301000-1311131103323010-2103010122021231)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-7c8891d71b5918e918e219349b14b1122e0d8f467605c2f822fffdab99dbdeb2"></a>
+<a id="canonical-1330202021013113-0123112101203221-0120320201210310-2123011023010102-0232003120331012-1312001130023320-0202333333312223-2121312331322302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-beae6aacf256fe7a08eae2309db61c69439df2965e248fcc54c844b7c4f0fb16"></a>
+<a id="canonical-2332223212222230-3302111233321322-0020322232020300-2131231201301221-1003213133022112-1132021020333030-1110302010102313-3010330033230112"></a>
 
-## access_info.vault_auth_info.token.blindfold_secret_info — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 2
+## access_info.vault_auth_info.token.blindfold_secret_info — blindfold_secret_info / 210032200131 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101)
 - access_info.vault_auth_info.token.blindfold_secret_info
 
-<a id="canonical-0a3efc6d4d122e1fdc7ccae9683f73ca8e441e0c986d45bf0296490c657dd93a"></a>
+<a id="canonical-0022033233301231-1031010202320133-3130133030223221-1220033313033022-2032101001320030-2120123110112333-0002211210210030-1211133131210322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -657,15 +823,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-2ed39bc85dd754059768f95bfa77f4baa7948c138b3515d6717c4f409e1ae74c"></a>
+<a id="canonical-0232310321233020-1131311311100011-2113122033211123-3322131333102322-2213211020300103-2023031101113112-1301133010331000-2132012232131030"></a>
 
-## Direct properties — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 3
+## Direct properties — blindfold_secret_info / 210032200131 / 3
 
-<a id="canonical-a00536a4e7c9f02917f1c021cdfa04b5834da3391d7a9962958757c131496858"></a>
+<a id="canonical-2200001103122210-3213302133000221-0113330130000201-3031332200102311-2003103122030321-0131132221211202-2111201311133001-0301102112201120"></a>
 
-<a id="canonical-df03b11f365a114ae6bda9d44faee005ba8d54b9a439185ec5054cd160b08ff5"></a>
+<a id="canonical-3133000323010133-0312112201011022-3212233122213110-1033223232000011-2322203111102321-2210032101201132-3011001110303101-1200230020333311"></a>
 
-## decryption_provider property — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 4
+## decryption_provider property — blindfold_secret_info / 210032200131 / 4
 
 Type: `"string"`. Optional.
 
@@ -695,11 +861,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-82a124d87f4b6522b4847ef4ee70c8334c8a1ff74738019c15b07d29d5604244"></a>
+<a id="canonical-2002220102103120-1333102312110202-2310201013323310-3232130030200303-1030202201333313-1013032000012130-0111230013310221-3111120010021010"></a>
 
-<a id="canonical-41555528e79276ca435f1d67e9e905f8fa83351395079596909fb896174f3815"></a>
+<a id="canonical-1001111111110220-3213210213123022-1003113301311213-3221322100113320-3322200303110103-2111001321112112-2100213323202112-0113103303200111"></a>
 
-## location property — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 5
+## location property — blindfold_secret_info / 210032200131 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -756,11 +922,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8e362a17e552e114780c7295409684f0909a677645b9f5f55cdec4e6d0edf2d3"></a>
+<a id="canonical-2032031202220113-3211110232010110-1320003013022111-1000211220103300-2100212212131312-1011232133113311-1130313230103212-3100323133023103"></a>
 
-<a id="canonical-2c08c76a0a839d70e85608e2ac39e75ce5a3452c6e6e02f48c11a68ddc48cc12"></a>
+<a id="canonical-0230002030131222-0022200321311300-3220111200203202-2230032132131130-3211220310110230-1232123200023310-2030010122122031-3130102030300102"></a>
 
-## store_provider property — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 6
+## store_provider property — blindfold_secret_info / 210032200131 / 6
 
 Type: `"string"`. Optional.
 
@@ -795,33 +961,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f508ea4cfabcfccad4d6e0faae4e5e7d302040e985d16bce839f8d23ed452c65"></a>
+<a id="canonical-3311002032221030-3322233033303022-3110311232003322-2232103211321331-0300020010003221-2011310112233032-2003213320310203-3231101102301211"></a>
 
-## Next pages — access_info.vault_auth_info.token.blindfold_secret_info / 471cc090e81d / 7
+## Next pages — blindfold_secret_info / 210032200131 / 7
 
-- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-e458f684ee4f266bb2068c7b5f5337689eb766b45a2e6c4075753ec49311a26d"></a>
+<a id="canonical-3210112033122010-3232103302121223-2302001220301323-1133110303131220-2132231312122310-1122023212301000-1311131103323010-2103010122021231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-67eddfd08c846cb8bdebe5e6b8296a810f7d5256a6587cf6c1b0a177aa2193fd"></a>
+<a id="canonical-1213323131333100-2030201012302320-2331322332113212-2320022112222001-0033133111021112-2212112013303312-3001230022011313-2222020121033331"></a>
 
-## access_info.vault_auth_info.token.clear_secret_info — access_info.vault_auth_info.token.clear_secret_info / ff6cd6cd0b04 / 2
+## access_info.vault_auth_info.token.clear_secret_info — clear_secret_info / 303100230010 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [access_info](resources--secret_management_access--reference--group-001.md#canonical-b230284dcd12752087416741bf1b886d6e4f1996fde152460def8a29652cd810)
-- [access_info.vault_auth_info](resources--secret_management_access--reference--group-001.md#canonical-b0918fbb2da2dea4ce096b94bf3e5be045867e7018c64c823efb2cddcebd7036)
-- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.vault_auth_info](resources--secret_management_access--reference--group-002.md#canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312)
+- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101)
 - access_info.vault_auth_info.token.clear_secret_info
 
-<a id="canonical-eae2c87414c22374b521d9f6defee758cdcb8e31a008e9d3a51c35de3c4ca447"></a>
+<a id="canonical-3222320230201310-0110300202031310-2311020131213312-3132333232131120-3031302320320301-2200002032213103-2211013003113132-0330103022101013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -854,26 +1020,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-3d105396c8de2585d31786f65857f25154ceb97848d1ed60f7902c1352c54cfa"></a>
+<a id="canonical-0331010011032112-3020313202112011-3103011320123312-1120111333021101-1110303223211320-1020310132311200-3313210002300103-1102301110303322"></a>
 
-## Direct properties — access_info.vault_auth_info.token.clear_secret_info / ff6cd6cd0b04 / 3
+## Direct properties — clear_secret_info / 303100230010 / 3
 
-<a id="canonical-4d7ef84491e3ef2270afa80ba1371b2863a1184d168033a7353b076d1df93a03"></a>
+<a id="canonical-1031133233201010-2101320332330202-1300223322200023-2201031301230220-1203220101201031-0112200003032213-0311032300131231-0131332103220003"></a>
 
-<a id="canonical-fc29b95f5f0476fd547f5fff4b86761ce7b327d34e6cba6922971be875bf11cc"></a>
+<a id="canonical-3330022123211133-1133001013123331-1110133311333333-1023201213120130-3213230302133103-1032123023221221-0202211301233220-1311233301013030"></a>
 
-## provider_ref property — access_info.vault_auth_info.token.clear_secret_info / ff6cd6cd0b04 / 4
+## provider_ref property — clear_secret_info / 303100230010 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-d2c4e1409d0add568c498d0889eeb248799a6e14c7f43eca4307264a77371d4a"></a>
+<a id="canonical-3102301032011000-2131002231311112-2030102120310020-2021323223021020-1321212212320110-3013331003323022-1003001302121022-1313031301311022"></a>
 
-<a id="canonical-f96cebe9b95825e2aace236fe667241cf2aa66939ca641b936ad1397fa5f9fb3"></a>
+<a id="canonical-3321123032233221-2321112002113202-2222303202031233-3212121302100130-3302222212122103-2130221210012321-0312223101032113-3322113321332303"></a>
 
-## url property — access_info.vault_auth_info.token.clear_secret_info / ff6cd6cd0b04 / 5
+## URL property — clear_secret_info / 303100230010 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -941,30 +1107,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7eeebb74e061c6f5eb38d42cfb715df9b43700883164b6faf36989203f669301"></a>
+<a id="canonical-1332323223231310-3200120130123311-3223032031100230-3323130111313321-2310031300002020-0301121023123322-3303122120210200-0333121221030001"></a>
 
-## Next pages — access_info.vault_auth_info.token.clear_secret_info / ff6cd6cd0b04 / 6
+## Next pages — clear_secret_info / 303100230010 / 6
 
-- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-ed3248dc3b3a53b6488a7625991f7bf44d4f1f8ebd78e95a0b73869048702e11)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [access_info.vault_auth_info.token](resources--secret_management_access--reference--group-002.md#canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-fb1d71681608bb290a6f1b56353da27906bf45ff58b32d0cf25c35930489c6f0"></a>
+<a id="canonical-3323013113011220-0112002023230221-0022123301231112-0311033122021321-0012233310113333-1120230302310030-3302113003112103-0010202130123300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9552b0162f5dfceb702894a8c0fa1a8cd222a5307839d636d6fe6eb918db6a07"></a>
+<a id="canonical-2111110223000112-0233113133303223-1300022021102220-3000332201222030-3102020222110300-1320032131120312-3112333212322321-0120312312220013"></a>
 
-## timeouts — timeouts / 91f12adbab1e / 2
+## timeouts — timeouts / 312322230132 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
 - timeouts
 
-<a id="canonical-ef69aa41b68a9ca1441273379d94edb35f6ca400b9dd4678bfab5efaa9272e0e"></a>
+<a id="canonical-3233122122221001-2312202221302201-1010010213030313-2131211032312303-1133123022100000-2321313110121320-2333222311323322-2221021302320032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -976,15 +1142,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-9ecf512b620f6d15682710faa3646259a2f49aaca2724f0e74187868c25ba26c"></a>
+<a id="canonical-2132303311010223-1202003312310111-1220021301003322-2203121012021121-2202331021222230-2202130210330032-1310012013201220-3002112322021230"></a>
 
-## Direct properties — timeouts / 91f12adbab1e / 3
+## Direct properties — timeouts / 312322230132 / 3
 
-<a id="canonical-97998da037a0860825a4d16d8398dba4b9a0f490073824ab4c96e0085c894a4e"></a>
+<a id="canonical-2113212120312200-0313220020120020-0211221031011231-2003212031232210-2321220033102100-0013032002102223-1030211232000020-1130202110221032"></a>
 
-<a id="canonical-460df7e1aca3144918f15c58cf35ec0f788c4b979dc54e67a82d59501f6e86a9"></a>
+<a id="canonical-1012003133133201-2230220301101021-0120330111301120-3033031132300033-1320203010232113-2131301110321213-2220023111211100-0133123220122221"></a>
 
-## create property — timeouts / 91f12adbab1e / 4
+## create property — timeouts / 312322230132 / 4
 
 Type: `"string"`. Optional.
 
@@ -992,11 +1158,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-5b75b6826f6f6b4f250546b62c364cfd50a2d754c8c27b822d00e326eacdf755"></a>
+<a id="canonical-1123131123122002-1233123312231033-0211001110122312-0230031210303331-1100220231131110-3020300213232002-0231000032030212-3222303133131111"></a>
 
-<a id="canonical-3975431431b889a2a2ec725f990dc73d05be8d96715e68287095604bd4e7a1a2"></a>
+<a id="canonical-0321131110030110-0301232020212202-2202323013021133-2121003130130331-0011233220312112-1301113212200220-1300211112001023-3110321322012202"></a>
 
-## delete property — timeouts / 91f12adbab1e / 5
+## delete property — timeouts / 312322230132 / 5
 
 Type: `"string"`. Optional.
 
@@ -1005,11 +1171,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-421d70ecc20ac1a050cf9da3b212ea80aa12e29cd8368f89daff3dbb932349ad"></a>
+<a id="canonical-1002013113003230-3002002230012200-1100303321312203-2302010232222000-2222010232022130-3120031220332021-3122333303312323-2103020310212231"></a>
 
-<a id="canonical-42d278c61bc0851121fba59fcfbc075fa879852cb20f2d5ad135577a431e5a65"></a>
+<a id="canonical-1002310213203012-0123300020110101-0201332322112133-3033233000131133-2220132120110230-2302003302311122-3101031111131322-1003013211221211"></a>
 
-## read property — timeouts / 91f12adbab1e / 6
+## read property — timeouts / 312322230132 / 6
 
 Type: `"string"`. Optional.
 
@@ -1018,11 +1184,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-4ed5ba7cfc689cb36676cc70132b19dd220d9f901c2b769aa1ce891d21b77f40"></a>
+<a id="canonical-1032311123221330-3330122021302303-1212131230301300-0103022301213131-0202003121332100-0130022313122122-2201303220210131-0201231313331000"></a>
 
-<a id="canonical-15507e9a9efc1d6396d091dd9d9b247d63140a728f4bc20f74cf1046f108668f"></a>
+<a id="canonical-0111110013322122-2132333001311203-2112310021013131-2131212302101331-1203011000221302-2033102330020033-1310303301001012-3301002012122033"></a>
 
-## update property — timeouts / 91f12adbab1e / 7
+## update property — timeouts / 312322230132 / 7
 
 Type: `"string"`. Optional.
 
@@ -1030,30 +1196,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-3bcc6d177098e34d4c90d58f81f83701b901727af8fa8319091b76255987e5d2"></a>
+<a id="canonical-0323303012310113-1300212032031031-1030210031112033-2001332003130001-2321000113021322-3320332220030121-0021012313120211-1121201332113102"></a>
 
-## Next pages — timeouts / 91f12adbab1e / 8
+## Next pages — timeouts / 312322230132 / 8
 
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5"></a>
+<a id="canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1855cd0d61fcfb1966e852fba7e541a6539ea14ab6e8fefa6aa432b58561d09b"></a>
+<a id="canonical-0120111130310031-1201333033230121-1212322011023323-2213321110012212-1103213222011022-2312322033323322-1222221003022311-2011120131002123"></a>
 
-## where — where / 6c9fb4526f1b / 2
+## where — where / 110212330123 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
 - where
 
-<a id="canonical-aa22c1ca5e2ea26d49e03389a142c04d8cf47423488e4259b50904237a3821e9"></a>
+<a id="canonical-2222020230013022-1132023222021231-1021320003032021-2201100230001031-2030331013100203-1020203210021121-2311002100100203-1322032002013221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1102,44 +1268,44 @@ where {
 }
 ```
 
-<a id="canonical-0cf08c7ac0b94c77db826d55487510f32b09c9cae286f9bffce392ba98e75342"></a>
+<a id="canonical-0030330020301322-3000232110301313-3123200212311111-1020131101003303-0223002130213022-3202201233212333-3330320321022322-2120321311031002"></a>
 
-## Direct properties — where / 6c9fb4526f1b / 3
+## Direct properties — where / 110212330123 / 3
 
-- [site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3): complete subsection reference.
+- [site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303): complete subsection reference.
 
-- [virtual_network](resources--secret_management_access--reference--group-002.md#canonical-26537b26dd4d680f415020d60d64d9ae473329585f3fb9d5e42d216f825d18dc): complete subsection reference.
+- [virtual_network](resources--secret_management_access--reference--group-002.md#canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130): complete subsection reference.
 
-- [virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c): complete subsection reference.
+- [virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330): complete subsection reference.
 
-<a id="canonical-8da2f5c0c8597ee1bea84b1c301696aa4f67ca540131eb4f3869536742253d75"></a>
+<a id="canonical-2031220233113000-3020112113323201-2332222010230130-0300011221122222-1033121330221110-0001030132231033-0320122111031213-1002021103311311"></a>
 
-## Next pages — where / 6c9fb4526f1b / 4
+## Next pages — where / 110212330123 / 4
 
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
-- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-26537b26dd4d680f415020d60d64d9ae473329585f3fb9d5e42d216f825d18dc)
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
+- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3"></a>
+<a id="canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-05c674c60d73b097321ed11feacee71bdc41555e69b1fab4332cedff564fa0af"></a>
+<a id="canonical-0011301213103012-0031130323002113-0302013231010133-3222303232130123-3130100111111132-1221230133222310-0303023032313333-1112103322002233"></a>
 
-## where.site — where.site / b720136a015f / 2
+## where.site — site / 122200011133 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
 - where.site
 
-<a id="canonical-a91c31a37e1617dbb3b8c3f85dc683c5355e51e011d7f46635ff64e730708d70"></a>
+<a id="canonical-2221013003012203-1332011201133123-2303232030033320-1131301220033011-0311113211013200-0101311333101212-0311333312103213-0300130020311300"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1179,19 +1345,19 @@ site {
 }
 ```
 
-<a id="canonical-7e1817ef1e0065b3da64164d1dbc4e2fe055283cdb4657c65fadb3c3dffb7b80"></a>
+<a id="canonical-1332012001133233-0132000012112303-3122121001121031-0131233010320233-3200111102200330-3123101211133012-1133223123033003-3133332313232000"></a>
 
-## Direct properties — where.site / b720136a015f / 3
+## Direct properties — site / 122200011133 / 3
 
-- [disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-fa25b6587d47990311a7d5b73b7d9a3d464944ac450922891205a4d6764edcd0): complete subsection reference.
+- [disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100): complete subsection reference.
 
-- [enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1c39014fcd98a29c027ceda599305e450c698172ca517723c012b66a2a6ba109): complete subsection reference.
+- [enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021): complete subsection reference.
 
-<a id="canonical-9f1e7cb7b86518ae26b1fb8e2280d3752343d67f9bc7879a96c7b15654e53bd4"></a>
+<a id="canonical-2133013213302313-2320121101202232-0212230133232032-0202200031031311-0203100331121333-2123301320132122-2112301323011112-1110321103233110"></a>
 
-<a id="canonical-9868141892898ea5b357c9cc0b53af155190f8e7af52dd101fe5c286f34e4dc8"></a>
+<a id="canonical-2120122001100120-2102202120322211-2303111330213030-0023110322330111-1101210033203213-2233110231310100-0133321130022012-3303103210313020"></a>
 
-## network_type property — where.site / b720136a015f / 4
+## network_type property — site / 122200011133 / 4
 
 Type: `"string"`. Optional.
 
@@ -1310,37 +1476,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ref](resources--secret_management_access--reference--group-002.md#canonical-d1102b8971071c52ddb35c7f7966abab034eb7f192669342d8749e83138b9839): complete subsection reference.
+- [ref](resources--secret_management_access--reference--group-002.md#canonical-3101010002232021-1301001301301102-3131230311301333-1321121222232223-0003103223133301-2102121221031002-3120131021322003-0103202321200321): complete subsection reference.
 
-<a id="canonical-33e8592dc34e410b69df7ceeec395d4cd07170032548f956bd57f01b5fa08982"></a>
+<a id="canonical-0303322011210231-3003103210010023-1221313313303232-3230032111311030-3100130113000003-0211102033211112-2331111333000123-1133220020212002"></a>
 
-## Next pages — where.site / b720136a015f / 5
+## Next pages — site / 122200011133 / 5
 
-- [where.site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-fa25b6587d47990311a7d5b73b7d9a3d464944ac450922891205a4d6764edcd0)
-- [where.site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1c39014fcd98a29c027ceda599305e450c698172ca517723c012b66a2a6ba109)
-- [where.site.ref](resources--secret_management_access--reference--group-002.md#canonical-d1102b8971071c52ddb35c7f7966abab034eb7f192669342d8749e83138b9839)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100)
+- [where.site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021)
+- [where.site.ref](resources--secret_management_access--reference--group-002.md#canonical-3101010002232021-1301001301301102-3131230311301333-1321121222232223-0003103223133301-2102121221031002-3120131021322003-0103202321200321)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-fa25b6587d47990311a7d5b73b7d9a3d464944ac450922891205a4d6764edcd0"></a>
+<a id="canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf62e7a41843a5c49ad5193cd83706f9870ec30cd6a8ee5e2535399855751543"></a>
+<a id="canonical-2333120232132210-0120100322113010-2122311101210330-3120031300123321-2013003230030030-3112222032321132-0211031103212120-1111131101111003"></a>
 
-## where.site.disable_internet_vip — where.site.disable_internet_vip / 1cbfdbcc7d51 / 2
+## where.site.disable_internet_vip — disable_internet_vip / 303013311101 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
 - where.site.disable_internet_vip
 
-<a id="canonical-65ad50e31a8a5d63611bb82eb2a3a4d3bd6fbe30b6b31e8316c159016486b008"></a>
+<a id="canonical-1211223111003203-0122202211311203-1201012323200232-2302220322103103-2331123323320300-2312230301322003-0112300111210001-1210201223000020"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1369,38 +1535,38 @@ Terraform syntax:
 disable_internet_vip = {}
 ```
 
-<a id="canonical-ee8bb7af5030bba1e4d109a429b9e96c81e7eb38556e98f0ee4d6cf574d93614"></a>
+<a id="canonical-3232202323132233-1100030023232201-3210310100212210-0221232132211230-2001321332230320-1111123221203300-3232103112303311-1310312103120110"></a>
 
-## Direct properties — where.site.disable_internet_vip / 1cbfdbcc7d51 / 3
+## Direct properties — disable_internet_vip / 303013311101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b09ecb47d4592265eb1c58fd72e4f434856df9abd57c07be43704ce781ffdc81"></a>
+<a id="canonical-2300213230231013-3110112102021211-3223013011203331-1302321033100310-2011123133212223-3111133000132332-1003130010303213-2001333331302001"></a>
 
-## Next pages — where.site.disable_internet_vip / 1cbfdbcc7d51 / 4
+## Next pages — disable_internet_vip / 303013311101 / 4
 
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-1c39014fcd98a29c027ceda599305e450c698172ca517723c012b66a2a6ba109"></a>
+<a id="canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7aa80646224c32e9753c86a9adc3458fcce205b4728eda1e0b3e5d676ef396db"></a>
+<a id="canonical-1322222000121012-0202103003023221-1311033020122221-2231300310112033-3030320200112310-1302203231220132-0023033211311213-1232330321123123"></a>
 
-## where.site.enable_internet_vip — where.site.enable_internet_vip / b70715230228 / 2
+## where.site.enable_internet_vip — enable_internet_vip / 020300020220 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
 - where.site.enable_internet_vip
 
-<a id="canonical-90d4b9a452bacae9a408edc49d766f0692b955b6ff96feeaf40f778355ede91a"></a>
+<a id="canonical-2100311023212210-1102232230223221-2210002032313010-2131131212330012-2102232111112312-3333211233323222-3310003313132003-1111323132210122"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1429,38 +1595,38 @@ Terraform syntax:
 enable_internet_vip = {}
 ```
 
-<a id="canonical-aca08f98856fbf0df9c0a9f787f3642512fc723842af28cc458d6115435e7c87"></a>
+<a id="canonical-2230220020332120-2011123323330031-3321300022213313-2013330312100211-0102333013020320-1002223302203030-1011203112010111-1003113213302013"></a>
 
-## Direct properties — where.site.enable_internet_vip / b70715230228 / 3
+## Direct properties — enable_internet_vip / 020300020220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e1b081ea62d5a809028da776a6c984f8cac686c3a9cd33b80dc1c82cc08c4f9e"></a>
+<a id="canonical-3201230020013222-1202311122200021-0002203122131312-2212302120103320-3022301220123003-2221303103032320-0031300130200230-3000203010332132"></a>
 
-## Next pages — where.site.enable_internet_vip / b70715230228 / 4
+## Next pages — enable_internet_vip / 020300020220 / 4
 
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-d1102b8971071c52ddb35c7f7966abab034eb7f192669342d8749e83138b9839"></a>
+<a id="canonical-3101010002232021-1301001301301102-3131230311301333-1321121222232223-0003103223133301-2102121221031002-3120131021322003-0103202321200321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-408de787862ff34c2cc34fb884924b49ee18bcec24b99206cecaa04682085cb7"></a>
+<a id="canonical-1000203132132013-2012023333031030-0230300310332320-2010210210231021-3232012023303230-0210232121020012-3032302222001012-2002002011302313"></a>
 
-## where.site.ref — where.site.ref / 7f5d378a9b16 / 2
+## where.site.ref — ref / 202221230112 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
 - where.site.ref
 
-<a id="canonical-781de395688e6ea87d58da1430e2d24d6314196af79947f05ab54fbb7e8e3eab"></a>
+<a id="canonical-1320013132032111-1220203212322220-1331112031220110-0300320231021031-1203011001211222-3313212110133300-1122231110332323-1332203203322223"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1511,15 +1677,15 @@ ref {
 }
 ```
 
-<a id="canonical-d7725820a64e0c2027893ee2060eb53691c2955a2e6f91de23dd7c10cd048859"></a>
+<a id="canonical-3113130211200200-2212103200300200-0213202103323202-0012003223110312-2101300221111122-0232123321013132-0203313113300100-3031001020201121"></a>
 
-## Direct properties — where.site.ref / 7f5d378a9b16 / 3
+## Direct properties — ref / 202221230112 / 3
 
-<a id="canonical-a5205831a5bb57a998304ef0346d9a987ee789eef80f2050b3b0731aa9d2ca86"></a>
+<a id="canonical-2211020011200301-2211232311132221-2120030010323300-0310123121222120-1332321320213232-3320003302001100-2303230013030122-2221310230222012"></a>
 
-<a id="canonical-540afd893f4d8711e12fd2c0f34a6693e30801524cf0652eee1fbb4188df7c59"></a>
+<a id="canonical-1110002233312021-0333103120130101-3201023331023000-3303102212122103-3203002000011102-1030330012110232-3232013323231001-2020313313301121"></a>
 
-## kind property — where.site.ref / 7f5d378a9b16 / 4
+## kind property — ref / 202221230112 / 4
 
 Type: `"string"`. Computed.
 
@@ -1554,11 +1720,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ba97ecbc4c4b3e5423302d54832a9cd3361bcd972626b3666002e298ba18cf04"></a>
+<a id="canonical-2322211332302330-1030102303321110-0203030002311110-2003022221303103-0312012330312113-0212021223031212-1200000232022120-2322012030330010"></a>
 
-<a id="canonical-702b8d235da05e0ae39b149dc0a976efe2a0ca635967e2374c2a561e0ea29df6"></a>
+<a id="canonical-1300022320310203-1131220011320022-3203212301102131-3000222113123233-3202220030221203-1121121332020313-1030022211120132-0032220221313312"></a>
 
-## name property — where.site.ref / 7f5d378a9b16 / 5
+## name property — ref / 202221230112 / 5
 
 Type: `"string"`. Optional.
 
@@ -1593,11 +1759,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-456cb3738c69680cbae04767549c5f9ec460a78c531cd0e8d744c6dc47aa0d11"></a>
+<a id="canonical-1011123023031303-2030122112200030-2322320010131213-1110213011332132-3010120022132030-1103013031003220-3113101030123130-1013222200310101"></a>
 
-<a id="canonical-fde7a50a8ca44c7384315e7ec007d19770ddb72b23e245feac4cf37042feb56c"></a>
+<a id="canonical-3331321322110022-2030221010301303-2010030111321332-3000001331012113-1300313123130223-0203320210113332-2230103033031300-1002333223111230"></a>
 
-## namespace property — where.site.ref / 7f5d378a9b16 / 6
+## namespace property — ref / 202221230112 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -1657,11 +1823,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-055c56cda9fbaf752a0d8c93b4675ec2719b9141f47a400790a74330dda19d28"></a>
+<a id="canonical-0011113011123031-2221332322331311-0222003120302103-2310121311323002-1301212321011001-3310132210000013-2100221310030300-3131220121310220"></a>
 
-<a id="canonical-c64774109d115e244bd44a436ec63f14c1acf066108c95db0f5fb0ec5dabd442"></a>
+<a id="canonical-3012101313100100-2131010111320210-1023311010221003-1232301203330110-3001223033001212-0100203021113123-0033113323003230-1131222331101002"></a>
 
-## tenant property — where.site.ref / 7f5d378a9b16 / 7
+## tenant property — ref / 202221230112 / 7
 
 Type: `"string"`. Computed.
 
@@ -1696,11 +1862,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec508bed7c6581375fd763033992674d525d95ab12d0d3b79ed882aa61e0cdb6"></a>
+<a id="canonical-3230110020233231-1330121120010313-1133311312030003-0321210212131031-1102113121112223-0102310031032313-2132312020022222-1201320030312312"></a>
 
-<a id="canonical-eee390e5766629dcf08f8ea64744b660e0e4821ac90eb5df39fd3fbf15ac76a2"></a>
+<a id="canonical-3232320321003211-1312121202213130-3300203320322212-1013101023121200-3200321020020122-3021003223113133-0321333103332333-0111223013122202"></a>
 
-## uid property — where.site.ref / 7f5d378a9b16 / 8
+## uid property — ref / 202221230112 / 8
 
 Type: `"string"`. Computed.
 
@@ -1735,31 +1901,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c7be2ef5d5c715a4ca440132057d2afb0ffee103f98acf505347a72ab727f8d4"></a>
+<a id="canonical-3013233202323311-3111301301112210-3022101000010302-0011133102223323-0033333232010003-3321202230331100-1103101322130222-2313021333203110"></a>
 
-## Next pages — where.site.ref / 7f5d378a9b16 / 9
+## Next pages — ref / 202221230112 / 9
 
-- [where.site](resources--secret_management_access--reference--group-002.md#canonical-cf7474552b182d794f8efe76684c67465a25d74024974c5857381e3847fadef3)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.site](resources--secret_management_access--reference--group-002.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-26537b26dd4d680f415020d60d64d9ae473329585f3fb9d5e42d216f825d18dc"></a>
+<a id="canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5952395fe49582d1029994a0aaf7b9e73a8861f3e186764f6b81df6acfd793f"></a>
+<a id="canonical-2211211102032111-3332102111200231-0100022121211022-0022223313232132-1303222020120133-0332012012131210-3312232001313312-2230333113210333"></a>
 
-## where.virtual_network — where.virtual_network / f4c3a6c0d342 / 2
+## where.virtual_network — virtual_network / 300031031002 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
 - where.virtual_network
 
-<a id="canonical-7cfeab1ec7b549a6591ff824c08cbdcb2e70c5ec7bbfdf328ffde63fed41d6a7"></a>
+<a id="canonical-1330333222230132-3013231110212212-1121013333200210-3000203023313023-0232130030113230-1323233331330302-2033333132120333-3231100131122213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1796,39 +1962,39 @@ virtual_network {
 }
 ```
 
-<a id="canonical-187869b2e0f89d1b46d697d58a6982245ea100bc3ca7cd34292bb533caff879c"></a>
+<a id="canonical-0120132012212302-3200332021310123-1012311221133111-2022122120020210-1132220100002330-0330221330310310-0221022323110303-3022333320132130"></a>
 
-## Direct properties — where.virtual_network / f4c3a6c0d342 / 3
+## Direct properties — virtual_network / 300031031002 / 3
 
-- [ref](resources--secret_management_access--reference--group-002.md#canonical-7ae2eb39a940bdd63a13e6b09ed2eac17bcbe90c58e9c024e6c56d208aa0c839): complete subsection reference.
+- [ref](resources--secret_management_access--reference--group-002.md#canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321): complete subsection reference.
 
-<a id="canonical-5d3dfa19352f3f7a46ec7776021a7fc7254ff37aceded76be12a4259c1f415a0"></a>
+<a id="canonical-1131033133220121-0311023303331322-1012323013131312-0002012213333013-0211103333031322-3032313231131223-3201022210021121-3001331001112200"></a>
 
-## Next pages — where.virtual_network / f4c3a6c0d342 / 4
+## Next pages — virtual_network / 300031031002 / 4
 
-- [where.virtual_network.ref](resources--secret_management_access--reference--group-002.md#canonical-7ae2eb39a940bdd63a13e6b09ed2eac17bcbe90c58e9c024e6c56d208aa0c839)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_network.ref](resources--secret_management_access--reference--group-002.md#canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-7ae2eb39a940bdd63a13e6b09ed2eac17bcbe90c58e9c024e6c56d208aa0c839"></a>
+<a id="canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a9a9256f030141217ff5b5bb687b0fa69ffedfebd0e2a121ff25c0cc5dd807a0"></a>
+<a id="canonical-2221222102111233-0003000110010201-1333331123112323-1220132300332212-2133333231333223-3100320222010201-3333021130003030-1131312000132200"></a>
 
-## where.virtual_network.ref — where.virtual_network.ref / 4c59148b71ad / 2
+## where.virtual_network.ref — ref / 202313012231 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-26537b26dd4d680f415020d60d64d9ae473329585f3fb9d5e42d216f825d18dc)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130)
 - where.virtual_network.ref
 
-<a id="canonical-a1e04129c99788db43360efa4d0d0ee086aab7de20f5b6bee6204b93f2e254ee"></a>
+<a id="canonical-2201320010010221-3021211320203123-1003031200323322-1031003100323200-2012222223133132-0200331123122332-3212020010232103-3302320211103232"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1879,15 +2045,15 @@ ref {
 }
 ```
 
-<a id="canonical-728820b4d5b3fcdcd585f7a4056f9be980e962fd813d870b793dbb3098637ba3"></a>
+<a id="canonical-1302202002002310-3111230333303130-3111201133132210-0011123321233221-2000322112023331-2001033120130023-1321033123230300-2120120313232203"></a>
 
-## Direct properties — where.virtual_network.ref / 4c59148b71ad / 3
+## Direct properties — ref / 202313012231 / 3
 
-<a id="canonical-37fdea1cb03d29401e0527e4a9b8a4292f7f635f7ac79eff0575aea492b37b27"></a>
+<a id="canonical-0313333132220130-2300033102211000-0132001102133210-2221232022100221-0233133312031133-1322301321323333-0011131122322210-2102230313230213"></a>
 
-<a id="canonical-7d5dc640efee171bd116c4c62cef3309a11b247a0f4e5f7806931e62e8b20c81"></a>
+<a id="canonical-1331113130121000-3233323201130123-3101011230103012-0230323303030021-2201012302101322-0033103211331320-0012210301321202-3220230200302001"></a>
 
-## kind property — where.virtual_network.ref / 4c59148b71ad / 4
+## kind property — ref / 202313012231 / 4
 
 Type: `"string"`. Computed.
 
@@ -1922,11 +2088,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e84aac6c4ef7d9e6ef9e0346b398b59b0db2a735687b63e0c055bacf90c12a58"></a>
+<a id="canonical-3220102222301230-1032331331213212-3233213200031012-2303212023112123-0031230222130311-1220132312033200-3000111123223033-2100300102221120"></a>
 
-<a id="canonical-cf55f4a85e592604920421c77a9c0cba723b050912d8fe6cae9ff6e8c481924f"></a>
+<a id="canonical-3033111133102220-1132112102120010-2102001002013013-1322213000302322-1302032300110021-0102312033321230-2232213333123220-3010200121021033"></a>
 
-## name property — where.virtual_network.ref / 4c59148b71ad / 5
+## name property — ref / 202313012231 / 5
 
 Type: `"string"`. Optional.
 
@@ -1961,11 +2127,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ed0f4e57cbdde7438800c364643bd467366d89223d0af7d17621d9c407afcf9"></a>
+<a id="canonical-2032310033103211-1330233131321310-0320200000300312-1012100323311012-1303121231202102-0203310022331331-0113120201312130-1000132233303321"></a>
 
-<a id="canonical-d34fe7e695d60d671a125b884769bc7519c8ae6d347b8c4fa88058b609b300eb"></a>
+<a id="canonical-3103103332133212-2111311200311213-0122010211232020-1013122123301311-0121302022321231-0310132320301033-2220200011202312-0021230300003223"></a>
 
-## namespace property — where.virtual_network.ref / 4c59148b71ad / 6
+## namespace property — ref / 202313012231 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2025,11 +2191,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a7f9d0891a5f490cf7209ab9dd53710c9fb7cd2acdc2ff72e81ea7edf3620aea"></a>
+<a id="canonical-2213332131002021-0122113310210030-3313020021222321-3131110313010030-2133231330310222-3031300233331302-3220013222133231-3303120200223222"></a>
 
-<a id="canonical-8ade3b884ddcad2b2823309a8deb0cb8c5ec05168f9c1ac23b6ce818a80097fc"></a>
+<a id="canonical-2022313203232020-1031313022310223-0220020303002122-2031322300302320-3011323000110112-2033213001223002-0323123032200120-2220000021133330"></a>
 
-## tenant property — where.virtual_network.ref / 4c59148b71ad / 7
+## tenant property — ref / 202313012231 / 7
 
 Type: `"string"`. Computed.
 
@@ -2064,11 +2230,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-560f10c7ddbdfe437cbe7832ca59f4bd791974a5659f1f0094152df2d83ae3ce"></a>
+<a id="canonical-1112003301003013-3131233133321003-1330233213200302-3022112133102331-1321012113102211-1211213301330000-2110011102313302-3120032232033032"></a>
 
-<a id="canonical-1d08e63c4a87f1772724a14593db8d71250f6ddc4f0c4e7d92b7c9d097939a3b"></a>
+<a id="canonical-0131002032120330-1022201333011313-0213021022011011-2103312320311301-0211003312313130-1033003010321331-2102231330213100-2113210321220323"></a>
 
-## uid property — where.virtual_network.ref / 4c59148b71ad / 8
+## uid property — ref / 202313012231 / 8
 
 Type: `"string"`. Computed.
 
@@ -2103,31 +2269,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0d9888943454593e3c8036ce24182500413d2d362e915c5c1a034ff9e0966559"></a>
+<a id="canonical-0031212020202110-0310111011210332-0330200003123032-0210012002110000-1001033102310312-0232210111301130-0122000310333321-3200211212111121"></a>
 
-## Next pages — where.virtual_network.ref / 4c59148b71ad / 9
+## Next pages — ref / 202313012231 / 9
 
-- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-26537b26dd4d680f415020d60d64d9ae473329585f3fb9d5e42d216f825d18dc)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_network](resources--secret_management_access--reference--group-002.md#canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c"></a>
+<a id="canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b3f339e17419bb5afcc23efc8726bd3850e94cfbf1b2a515e87979455a20a028"></a>
+<a id="canonical-2303330303213201-1310012123231122-3330300203323330-2013021223310320-1100322110303323-3301230222110111-3220132113211011-1122020022000220"></a>
 
-## where.virtual_site — where.virtual_site / 15bd7dc8a58a / 2
+## where.virtual_site — virtual_site / 302022112022 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
 - where.virtual_site
 
-<a id="canonical-dc5c57afbd23d619fd55105573448b74aa46a5e6aab529b71fd3e4cd346c7419"></a>
+<a id="canonical-3130113011132233-2331020331120121-3331111101001111-1303101020231310-2222101222113212-2222231102212313-0133310332103031-0310123013100121"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2167,19 +2333,19 @@ virtual_site {
 }
 ```
 
-<a id="canonical-78e705468ce506254d44b6dfd168d74019395715866bbe4aa9ddb8a4242d6bda"></a>
+<a id="canonical-1320321300111012-2030321100120211-1031101023123133-3101122031131000-0121032111130111-2012122323321022-2221313123202210-0210023112233122"></a>
 
-## Direct properties — where.virtual_site / 15bd7dc8a58a / 3
+## Direct properties — virtual_site / 302022112022 / 3
 
-- [disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1495da0c76a9ffd12d17b24841392aec7d88ca2abc80c08dc0fe6a9d4b6e4b42): complete subsection reference.
+- [disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0110211131220030-1312222133333101-0231011323021020-1001032102223230-1331202030220222-2330200030002031-3000333212222131-1023123210231002): complete subsection reference.
 
-- [enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-481df73eece0e3ab0b67d64f3cc42366dff5a8e23d52ba3c469b834ba9380afe): complete subsection reference.
+- [enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1020013133130332-3230320032032223-0023121331121033-0330301002031212-3133331122203202-0331110223220330-1012212320031023-2221032000223332): complete subsection reference.
 
-<a id="canonical-49054d9f1ae56e265831169149b9619a2eb355024fd48d6e1b916871d06aeb6f"></a>
+<a id="canonical-1021001110312133-0122321112320212-1120030101122101-1021232112012122-0232230311110002-1033311020311232-0123210112201301-3100122232231233"></a>
 
-<a id="canonical-9d344feebc0bc6a07e9d94425958caf99b54735ea540e3736011ea78faa6bf7a"></a>
+<a id="canonical-2131031010333232-2330002330122200-1332213121101002-1121112030223321-2123111013031132-2211100032031303-1200010132221320-3322221223331322"></a>
 
-## network_type property — where.virtual_site / 15bd7dc8a58a / 4
+## network_type property — virtual_site / 302022112022 / 4
 
 Type: `"string"`. Optional.
 
@@ -2298,37 +2464,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ref](resources--secret_management_access--reference--group-002.md#canonical-8147ea3979e4900be6e640e63ac3ef46cdb07ae396fb944fb9f66d4914354e70): complete subsection reference.
+- [ref](resources--secret_management_access--reference--group-002.md#canonical-2001101332220321-1321321021000023-3212321210003212-0322300332331012-3031230013223203-2112332321101033-2321331212311021-0110031110321300): complete subsection reference.
 
-<a id="canonical-f301839b4de4e10d09df070e6378f7e1498111675a120952d8530e011544b1e5"></a>
+<a id="canonical-3303000120032123-1031321032010031-0021313300130032-1203132033133201-1021200101011213-1122010200211102-3120110300320001-0111101023013211"></a>
 
-## Next pages — where.virtual_site / 15bd7dc8a58a / 5
+## Next pages — virtual_site / 302022112022 / 5
 
-- [where.virtual_site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1495da0c76a9ffd12d17b24841392aec7d88ca2abc80c08dc0fe6a9d4b6e4b42)
-- [where.virtual_site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-481df73eece0e3ab0b67d64f3cc42366dff5a8e23d52ba3c469b834ba9380afe)
-- [where.virtual_site.ref](resources--secret_management_access--reference--group-002.md#canonical-8147ea3979e4900be6e640e63ac3ef46cdb07ae396fb944fb9f66d4914354e70)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0110211131220030-1312222133333101-0231011323021020-1001032102223230-1331202030220222-2330200030002031-3000333212222131-1023123210231002)
+- [where.virtual_site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1020013133130332-3230320032032223-0023121331121033-0330301002031212-3133331122203202-0331110223220330-1012212320031023-2221032000223332)
+- [where.virtual_site.ref](resources--secret_management_access--reference--group-002.md#canonical-2001101332220321-1321321021000023-3212321210003212-0322300332331012-3031230013223203-2112332321101033-2321331212311021-0110031110321300)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-1495da0c76a9ffd12d17b24841392aec7d88ca2abc80c08dc0fe6a9d4b6e4b42"></a>
+<a id="canonical-0110211131220030-1312222133333101-0231011323021020-1001032102223230-1331202030220222-2330200030002031-3000333212222131-1023123210231002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-145232929e28d8fbfaa57afbc860f37c3a61637b7acdc3c8570df17c9e8677d0"></a>
+<a id="canonical-0110110203022102-2132022031203323-3322221113223323-3020120033031330-0322120112031323-1322303130033020-1113003133011330-2132201213133100"></a>
 
-## where.virtual_site.disable_internet_vip — where.virtual_site.disable_internet_vip / 678c490a4dac / 2
+## where.virtual_site.disable_internet_vip — disable_internet_vip / 002210312230 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
 - where.virtual_site.disable_internet_vip
 
-<a id="canonical-0c43e402f2667359ac97fe6b56aa56da32f2f81372946a51f50a27871d3c94fa"></a>
+<a id="canonical-0030100332100002-3302121213031121-2230211333321223-1112222211123122-0302330233200103-1302211012221101-3311002202132013-0131033021103322"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2357,38 +2523,38 @@ Terraform syntax:
 disable_internet_vip = {}
 ```
 
-<a id="canonical-18e46fd0bd1c1cab2dd949ba83ed7ec68da6b23c5e17d71b2224205ec72694b2"></a>
+<a id="canonical-0120321012333100-2331013001302223-0231312110212322-2003323113323012-2031221223020330-1132011331130123-0202021002001132-3013021221102302"></a>
 
-## Direct properties — where.virtual_site.disable_internet_vip / 678c490a4dac / 3
+## Direct properties — disable_internet_vip / 002210312230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4fbbdf1c09724081d37866eeb6ae0f0f3a05eddabd3e05becd8088e771dcb7dc"></a>
+<a id="canonical-1033232331330130-0021130210002001-3103132012123232-2312223200330033-0322001132313122-2331033200112332-3031200020203213-1301313023133130"></a>
 
-## Next pages — where.virtual_site.disable_internet_vip / 678c490a4dac / 4
+## Next pages — disable_internet_vip / 002210312230 / 4
 
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-481df73eece0e3ab0b67d64f3cc42366dff5a8e23d52ba3c469b834ba9380afe"></a>
+<a id="canonical-1020013133130332-3230320032032223-0023121331121033-0330301002031212-3133331122203202-0331110223220330-1012212320031023-2221032000223332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b0532efc70a3183c3a19d00dd019209e12c2bd8a4bffbcfa7f3d8698a951055"></a>
+<a id="canonical-0323001103023233-3013002203012003-3003220121310000-3131000121020021-3201023002233120-2210233333233033-2213330331201221-2022211101001111"></a>
 
-## where.virtual_site.enable_internet_vip — where.virtual_site.enable_internet_vip / abd56735fe73 / 2
+## where.virtual_site.enable_internet_vip — enable_internet_vip / 031133321303 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
 - where.virtual_site.enable_internet_vip
 
-<a id="canonical-77a7c5e3800f0688a8707a1ec1d219a517d8dd6725ed1a365e99a0dc1b0b38f3"></a>
+<a id="canonical-1313221330113203-2000003300122020-2220130013220132-3001310201212211-0113312031311213-0211323101220312-1132212122003130-0123002303203303"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2417,38 +2583,38 @@ Terraform syntax:
 enable_internet_vip = {}
 ```
 
-<a id="canonical-8470415725158155c181240374fdffe5f318fb686661193eb983b369a92c3087"></a>
+<a id="canonical-2010130010011113-0211011120011111-3001200102100003-1310333133333211-3303012033231220-1212120101210332-2321200323031221-2221023003002013"></a>
 
-## Direct properties — where.virtual_site.enable_internet_vip / abd56735fe73 / 3
+## Direct properties — enable_internet_vip / 031133321303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-743e4b0ae2f83b4db62811d5ae8d60ccb81c35a43cb44fed7023b8c9eb78dae7"></a>
+<a id="canonical-1310033210230022-3202332003231031-2312022001013111-2232203112003030-2320013003112210-0330231010333231-1300020323203021-3223132031223213"></a>
 
-## Next pages — where.virtual_site.enable_internet_vip / abd56735fe73 / 4
+## Next pages — enable_internet_vip / 031133321303 / 4
 
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
 
-<a id="canonical-8147ea3979e4900be6e640e63ac3ef46cdb07ae396fb944fb9f66d4914354e70"></a>
+<a id="canonical-2001101332220321-1321321021000023-3212321210003212-0322300332331012-3031230013223203-2112332321101033-2321331212311021-0110031110321300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3951dd7cf296930254d23130b45c8f96aed316ebdaf7784558247757d7e931fd"></a>
+<a id="canonical-0321110131311330-3302211221030002-1110310203010300-2310113020332112-2232310301123223-3122331313201011-1120021013131113-3113322103013331"></a>
 
-## where.virtual_site.ref — where.virtual_site.ref / 198a629c1218 / 2
+## where.virtual_site.ref — ref / 213001020120 / 2
 
 Breadcrumbs:
 
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0e23e078c4f840b4addb6fd267dbf9e580ec8235242861dc0cc540ed30d8d09b)
-- [where](resources--secret_management_access--reference--group-002.md#canonical-c4087d0e67a27ee79be7055e4721f539676ce06f807dbea1aea339f3cc0006a5)
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
 - where.virtual_site.ref
 
-<a id="canonical-2ba82298eb47ed20fd17458f3d1a54689dd8d1944eb81efa4729fd3d3a1eb9e3"></a>
+<a id="canonical-0223222002022120-3223101332310200-3331011310112033-0331012211101220-2131312031012110-1032232001323322-1013022133310331-0322013223213203"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2499,15 +2665,15 @@ ref {
 }
 ```
 
-<a id="canonical-39710864acdeb65eba52e7b414e9f12ed051368e9a3a56727cdb03b2abc7b6ac"></a>
+<a id="canonical-0321130100201210-2230313223121132-2322110232132310-0110322133010232-3100110103122032-2122032211121302-1330312300032302-2223301323122230"></a>
 
-## Direct properties — where.virtual_site.ref / 198a629c1218 / 3
+## Direct properties — ref / 213001020120 / 3
 
-<a id="canonical-22e223960b110165d6cdadff9ad29405d4df000479d48942dbc036c692bd7b08"></a>
+<a id="canonical-0202320202032112-0023010100011211-3112303122313333-2122310221100011-3110313300000010-1321311020211002-3123300003123012-2102233113230020"></a>
 
-<a id="canonical-178c605c6b8cb7db4fbd24423125945d66e3509a95b7d14523de2e65647e70f7"></a>
+<a id="canonical-0113203012001130-1223203023133123-1033233102101002-0301021121101131-1212320311002122-2111231331011011-0203313202321211-1210133213003313"></a>
 
-## kind property — where.virtual_site.ref / 198a629c1218 / 4
+## kind property — ref / 213001020120 / 4
 
 Type: `"string"`. Computed.
 
@@ -2542,11 +2708,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb1efbad658971c542efeb7a52dfe4dd141a7d58ecc5d13e5f3ac559423886a4"></a>
+<a id="canonical-3023013233232231-1211202113013011-1002323332231322-1102313332103131-0110012213311120-3230301131010332-1133032230111121-1002032020122210"></a>
 
-<a id="canonical-504168d9d7dd4954e6075fa8ddb43bff62e5fc6b71c31c7c87424cf15616d6ee"></a>
+<a id="canonical-1100100112203121-3113313110211110-3212001311332220-3131231003233333-1202321133301223-1301300301301330-2013100210303301-1112011231123232"></a>
 
-## name property — where.virtual_site.ref / 198a629c1218 / 5
+## name property — ref / 213001020120 / 5
 
 Type: `"string"`. Optional.
 
@@ -2581,11 +2747,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ce099a80cac9ebe68a3f786648301f722775087f9c364abd5eea78dddc06c3a3"></a>
+<a id="canonical-3032002121222000-3022302132233212-2022033313201212-1020030001331302-0213131100201333-2130031210222331-1132322213203131-3130001230032203"></a>
 
-<a id="canonical-a99a0daf62609010c812533bf15831976ec014660aa2dbbe3d198de6f782bcce"></a>
+<a id="canonical-2221212200312233-1202120021000100-3020010211030323-3301112003012113-1232300001101212-0022220231232332-0331012120313212-3313200223303032"></a>
 
-## namespace property — where.virtual_site.ref / 198a629c1218 / 6
+## namespace property — ref / 213001020120 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2645,11 +2811,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23c49f598afbca47a0a43aca08709aaeaa2ee07fbf35432606560eeb9a1b4155"></a>
+<a id="canonical-0203301021331121-2022332330221013-2200221003223022-0020130021222232-2222023232001333-2333031110030212-0012111200323223-2122012310011111"></a>
 
-<a id="canonical-cd1fbd4c774c4cdb710195b8340d034f1ff95911b2a2c638fff6743a8b46f9f0"></a>
+<a id="canonical-3031013323311030-1313103010303123-1301000121112320-0310003100031033-0133332111210101-2302220230120320-3333331213100322-2023101233213300"></a>
 
-## tenant property — where.virtual_site.ref / 198a629c1218 / 7
+## tenant property — ref / 213001020120 / 7
 
 Type: `"string"`. Computed.
 
@@ -2684,11 +2850,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e3627b4f479d2a8d458e3f34f353aba0b07538ea3e78f8ff07f4ce7bdff5cb3"></a>
+<a id="canonical-1232031202132310-3310132131022220-3110112032033303-1033031103222322-0023001311032032-2203321320332033-3300133310303213-2331333311302303"></a>
 
-<a id="canonical-9b8aa15e143d371080a00e59604454b4101bce93f4e733ce20f24ecbc96f5e04"></a>
+<a id="canonical-2123202222011132-0110033103130100-2000220000321121-1200101011102310-0100012330322103-3310321303033032-0200330210323023-3021123311320010"></a>
 
-## uid property — where.virtual_site.ref / 198a629c1218 / 8
+## uid property — ref / 213001020120 / 8
 
 Type: `"string"`. Computed.
 
@@ -2723,9 +2889,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3cd4bd0da4439829d9ea670bead30f815113ee1eda4053780ed5edcc44fa2971"></a>
+<a id="canonical-0330311023310031-2210100321200221-3121322212130023-3222310300332001-1101010332320132-3122100011031320-0032311132313030-1010332202211301"></a>
 
-## Next pages — where.virtual_site.ref / 198a629c1218 / 9
+## Next pages — ref / 213001020120 / 9
 
-- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-b3a44f1ec541d360e42ab4b0fc76e3d51f113b1a64fe42ef7e943b97fe75d27c)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-6be9f80a3a7a0206a0d3b04c5f1b83e522746b76ffdaf726eacb4ae910005ac8)
+- [where.virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330)
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)

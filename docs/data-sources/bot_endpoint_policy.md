@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy 
 
 # xcsh_bot_endpoint_policy landing
 
-<a id="canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed"></a>
+<a id="canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a081323c1b57b750d178d4f4cc2e5abd89319e2f16275c10b070eb59048f7c1c"></a>
+<a id="canonical-2200200103020330-0123111323131100-3101132031103310-3030023211222331-2021030121320233-0112021311300100-2300130032231121-0010203313300130"></a>
 
-## xcsh_bot_endpoint_policy — xcsh_bot_endpoint_policy / 82e9bb8a1208 / 2
+## xcsh_bot_endpoint_policy — xcsh_bot_endpoint_policy / 202201020020 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Bot Endpoint Policy resource in F5 Distributed Cloud for get bot endpoint policy.
 configuration. (read-only data source)
 
-<a id="canonical-00f0049ab1d5737fe492f1a94e175f168af93e46fdae2adf01e224aec73d9ada"></a>
+<a id="canonical-0000330000102122-2301311113031333-3210210233012221-1032011311330112-2022332103321012-3331223202223133-0001320202102232-3013033121223122"></a>
 
-## Prerequisites — xcsh_bot_endpoint_policy / 82e9bb8a1208 / 3
+## Prerequisites — xcsh_bot_endpoint_policy / 202201020020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-be5031fd931c53cf48b20f33590eb0a9b6e95b52a2bb229b8f0c362a36298210"></a>
+<a id="canonical-2332110003013331-2103013011033033-1020230200330303-1121003223002221-2312322111231102-2202232302022123-2033003003120222-0312022120020100"></a>
 
-## Minimal configuration — xcsh_bot_endpoint_policy / 82e9bb8a1208 / 4
+## Minimal configuration — xcsh_bot_endpoint_policy / 202201020020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "bot_endpoint_policy_id" {
 }
 ```
 
-<a id="canonical-ea3f8cecb958876b9f7ba4e18ae0f8fa9b586199316cd0153dfaae14b3f5045c"></a>
+<a id="canonical-3222033320303230-2321112020131223-2133132322103201-2022320033203322-2123112012012121-0301123031000111-0331332222320110-2303331100101130"></a>
 
-## Root configuration — xcsh_bot_endpoint_policy / 82e9bb8a1208 / 5
+## Root configuration — xcsh_bot_endpoint_policy / 202201020020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-53862e96d2e955c82f93d661f1dcbca3fcbb4b5ab52ee11884e6c92b8309d74d"></a>
+<a id="canonical-1103201202322112-3102322111113020-0233210331121201-3301313023302203-3330232310231122-2311023232010120-2010321230210223-2003002131131031"></a>
 
-## Next pages — xcsh_bot_endpoint_policy / 82e9bb8a1208 / 6
+## Next pages — xcsh_bot_endpoint_policy / 202201020020 / 6
 
-- [Property reference](../guides/data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [Examples](../guides/data-sources--bot_endpoint_policy--examples--group-001.md#canonical-f3fc9b8121eec2ea862c71afcbe8dda2f435d39b3bb58aa7280c10002e0e5d34)
+- [Property reference](../guides/data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [Examples](../guides/data-sources--bot_endpoint_policy--examples--group-001.md#canonical-3303333021232001-0201323230023222-2012023013012233-3023322031312202-3310031131032123-0323231120222213-0220003001000000-0232003211310310)

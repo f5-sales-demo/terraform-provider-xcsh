@@ -6,35 +6,874 @@ description: "Complete grouped canonical reference for xcsh_azure_vnet_site refe
 
 # xcsh_azure_vnet_site reference
 
-<a id="canonical-a515da2f61734d10fed07e7007359bcf3405dc332f39f56427a7e79057a6acb2"></a>
+<a id="canonical-1213321032321322-3212110022210110-3303013133221010-0233202000122233-2000210201203000-2101031133001331-0113033313311123-3012102001120213"></a>
 
-## Next pages — ingress_gw_ar.node.local_subnet / 6f38c925dfdc / 4
+## Next pages — jumbo / 211002101222 / 4
 
-- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-589e6304a3b881158b62acb9f1ffbda5e070f464ca55ad8236f02c18a58964a8)
-- [ingress_gw_ar.node.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-5278ceccd573239486fadf316b56502fac6d8825a9f4cea180295e9fc41d4c75)
-- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-007.md#canonical-87b70f7d188d23ff41722d94e8837588c63ec02ab72058e0fcb45f7d81e73a69)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-007.md#canonical-3100323223120223-2203120201312121-1310220303232121-3221023323212020-2220030000012221-2031121122023020-1212200303222020-3221311111002103)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-589e6304a3b881158b62acb9f1ffbda5e070f464ca55ad8236f02c18a58964a8"></a>
+<a id="canonical-3213130230020313-0331020033022222-1122213121320310-1322233020322303-1000330030322001-1100112001002103-2120010232010000-0023101221230212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47487497443356d7e8ba5790d678b0ab94d2df50b5f054062b61a937efe38828"></a>
+<a id="canonical-2022100020122320-0131212311103320-3331232020023210-0022301012323222-0100100202332333-2232133211323333-1023103122122330-0130101003322332"></a>
 
-## ingress_gw_ar.node.local_subnet.subnet — ingress_gw_ar.node.local_subnet.subnet / 512f426231aa / 2
+## ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — no_jumbo / 221231103123 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-007.md#canonical-87b70f7d188d23ff41722d94e8837588c63ec02ab72058e0fcb45f7d81e73a69)
-- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-007.md#canonical-c40a230559356b8bdb345774131fdd36f2125524a601a66842dee698de5a0873)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw](resources--azure_vnet_site--reference--group-007.md#canonical-1200122201231222-2333130201131133-2113103023310000-2213221203001333-2113320112011303-3300011003101011-0002313330212230-0130220110020220)
+- [ingress_gw.performance_enhancement_mode](resources--azure_vnet_site--reference--group-007.md#canonical-1333211010132022-0031302333131201-1300202012331203-2322121022221122-1122103331112201-1320012020113002-2311131132332112-1220121001020213)
+- [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-007.md#canonical-3100323223120223-2203120201312121-1310220303232121-3221023323212020-2220030000012221-2031121122023020-1212200303222020-3221311111002103)
+- ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo
+
+<a id="canonical-2311211022231012-2033101300131130-0232132322032112-1110330011202333-2033020311220033-2331232013110120-2210002231322021-0133230231122133"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_jumbo = {}
+```
+
+<a id="canonical-1023321212031000-1213000333222331-1122202030330233-0311330310303030-2333212020211111-2013023213220310-2023112003331312-1212012210233110"></a>
+
+## Direct properties — no_jumbo / 221231103123 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3312023201120123-3013023312133323-0301321121213232-3202223330232023-2323031000323010-2133333312010222-2033113120001001-3332202013113302"></a>
+
+## Next pages — no_jumbo / 221231103123 / 4
+
+- [ingress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-007.md#canonical-3100323223120223-2203120201312121-1310220303232121-3221023323212020-2220030000012221-2031121122023020-1212200303222020-3221311111002103)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2132233103112012-2222110332232113-1300103101321333-1033100122023201-2230011222321010-0320300111021312-2122103010233230-0321322011302132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0333213333120202-2112331123100312-2212300332002012-2112231230032322-2023222232133101-3310031032120310-1333000331123133-1332303333131031"></a>
+
+## ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced — perf_mode_l7_enhanced / 210212022222 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw](resources--azure_vnet_site--reference--group-007.md#canonical-1200122201231222-2333130201131133-2113103023310000-2213221203001333-2113320112011303-3300011003101011-0002313330212230-0130220110020220)
+- [ingress_gw.performance_enhancement_mode](resources--azure_vnet_site--reference--group-007.md#canonical-1333211010132022-0031302333131201-1300202012331203-2322121022221122-1122103331112201-1320012020113002-2311131132332112-1220121001020213)
+- ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced
+
+<a id="canonical-0232110313033113-1322211232322223-0211102232022211-1021101233102013-2223212332223130-2213210013232020-1032210100330222-0111311031110112"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for perf mode l7 enhanced.
+
+Upstream description:
+
+L7 enhanced performance mode OPTIONS.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled",
+    "jumbo_enabled")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-perf_mode_choice": "[\"jumbo_disabled\",\"jumbo_enabled\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+perf_mode_l7_enhanced {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3123020121300331-0121131102130232-2010023200002122-0311231230120330-1121200032121032-3210321300111210-0120012030301222-3021032222310000"></a>
+
+## Direct properties — perf_mode_l7_enhanced / 210212022222 / 3
+
+- [jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-0021032312302000-1233210223031120-1013310000203313-1231031322311121-0222213322202112-1202020110320312-3230212221032000-1120002021221321): complete subsection reference.
+
+- [jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-2220130111020130-2020100311203303-0100121233200020-1010110002210102-1213112120221021-0111233231201000-3110213000200302-1013101202120331): complete subsection reference.
+
+<a id="canonical-0013000023000023-0212122112223131-2222000311301112-0330222311021332-0222321113012211-0132022312331001-1121103003322130-2212331212123301"></a>
+
+## Next pages — perf_mode_l7_enhanced / 210212022222 / 4
+
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-0021032312302000-1233210223031120-1013310000203313-1231031322311121-0222213322202112-1202020110320312-3230212221032000-1120002021221321)
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-2220130111020130-2020100311203303-0100121233200020-1010110002210102-1213112120221021-0111233231201000-3110213000200302-1013101202120331)
+- [ingress_gw.performance_enhancement_mode](resources--azure_vnet_site--reference--group-007.md#canonical-1333211010132022-0031302333131201-1300202012331203-2322121022221122-1122103331112201-1320012020113002-2311131132332112-1220121001020213)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-0021032312302000-1233210223031120-1013310000203313-1231031322311121-0222213322202112-1202020110320312-3230212221032000-1120002021221321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3111032313322232-1012232311210202-0130133310303333-1110032112321201-1222233120212012-3123201222312323-2322000011133333-3100133233230311"></a>
+
+## ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — jumbo_disabled / 130200123230 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw](resources--azure_vnet_site--reference--group-007.md#canonical-1200122201231222-2333130201131133-2113103023310000-2213221203001333-2113320112011303-3300011003101011-0002313330212230-0130220110020220)
+- [ingress_gw.performance_enhancement_mode](resources--azure_vnet_site--reference--group-007.md#canonical-1333211010132022-0031302333131201-1300202012331203-2322121022221122-1122103331112201-1320012020113002-2311131132332112-1220121001020213)
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2132233103112012-2222110332232113-1300103101321333-1033100122023201-2230011222321010-0320300111021312-2122103010233230-0321322011302132)
+- ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled
+
+<a id="canonical-3211321321000011-3210300023201310-2221300203210302-2331120311113313-1321100332331303-0031102221000002-2232211012201323-3022321102100013"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+jumbo_disabled = {}
+```
+
+<a id="canonical-2122020230110223-3221202220333012-0001312223303012-0123301030303023-1202230302131302-1110120322312322-0030331101203312-1002003323020200"></a>
+
+## Direct properties — jumbo_disabled / 130200123230 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2310113213213030-2212232021113332-1032012112203232-2013103120222222-1231011222033010-3313333230032330-2312220013323311-3103210003312012"></a>
+
+## Next pages — jumbo_disabled / 130200123230 / 4
+
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2132233103112012-2222110332232113-1300103101321333-1033100122023201-2230011222321010-0320300111021312-2122103010233230-0321322011302132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2220130111020130-2020100311203303-0100121233200020-1010110002210102-1213112120221021-0111233231201000-3110213000200302-1013101202120331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1112132221232323-3023120130010331-2011212101333002-3303212030301003-1332030131210133-3332232001322322-3221001103332100-2023222221313110"></a>
+
+## ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — jumbo_enabled / 322012201230 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw](resources--azure_vnet_site--reference--group-007.md#canonical-1200122201231222-2333130201131133-2113103023310000-2213221203001333-2113320112011303-3300011003101011-0002313330212230-0130220110020220)
+- [ingress_gw.performance_enhancement_mode](resources--azure_vnet_site--reference--group-007.md#canonical-1333211010132022-0031302333131201-1300202012331203-2322121022221122-1122103331112201-1320012020113002-2311131132332112-1220121001020213)
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2132233103112012-2222110332232113-1300103101321333-1033100122023201-2230011222321010-0320300111021312-2122103010233230-0321322011302132)
+- ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled
+
+<a id="canonical-1032123132303313-2333021002232012-2133120301101111-2310223030020000-2122233130022321-3101110021300300-1123132123001011-0110213013020021"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+jumbo_enabled = {}
+```
+
+<a id="canonical-1123331020313003-3123220032130012-0313320010122321-0021003203000002-1103101022031002-2130213200310210-0203332030300330-0121123233000230"></a>
+
+## Direct properties — jumbo_enabled / 322012201230 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0012320022103231-2221110002130021-2312313101311123-3210230202203133-3021013222031020-0300333133313330-0333301323001112-0331130331203112"></a>
+
+## Next pages — jumbo_enabled / 322012201230 / 4
+
+- [ingress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2132233103112012-2222110332232113-1300103101321333-1033100122023201-2230011222321010-0320300111021312-2122103010233230-0321322011302132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3312222130120333-3010312100313300-2101320102303313-2112203130121313-3001202100200130-3203110011102013-0011120300323331-1111231021111220"></a>
+
+## ingress_gw_ar — ingress_gw_ar / 122200221311 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- ingress_gw_ar
+
+<a id="canonical-2310013320103133-1333110003113022-0211211331121233-1321003323021103-3200213110210012-0330233110110333-3232200210012012-0313033333230223"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for ingress gw ar.
+
+Upstream description:
+
+Single interface Azure ingress site.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ingress_gw_ar {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3100223020100311-3130331321132020-3022131323003002-1232031032102323-1312100213231321-3022023003122312-2213303200222303-2201220320003202"></a>
+
+## Direct properties — ingress_gw_ar / 122200221311 / 3
+
+- [accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132): complete subsection reference.
+
+<a id="canonical-2200233022001031-2333300031012110-1102030120012031-3321230101203110-3010032320331233-2223112313320033-0102320323310230-2303100230232000"></a>
+
+<a id="canonical-3230033310202022-2313121213303023-3312123132232110-1231323333102102-2221112213032311-2021321311132032-0201020131221032-1101130131310012"></a>
+
+## azure_certified_hw property — ingress_gw_ar / 122200221311 / 4
+
+Type: `"string"`. Optional.
+
+\[Enum: Azure-byol-voltmesh\] Azure Certified Hardware. Name for Azure certified hardware. The only
+possible value is \`azure-byol-voltmesh\`.
+
+Upstream description:
+
+Name for Azure certified hardware.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+  stringvalidator.OneOf("azure-byol-voltmesh"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "azure-byol-voltmesh"
+  ],
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.in": "[\\\"azure-byol-voltmesh\\\"]",
+    "ves.io.schema.rules.string.max_len": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.in": "[\\\"azure-byol-voltmesh\\\"]",
+    "ves.io.schema.rules.string.max_len": "64"
+  }
+}
+```
+
+- [node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221): complete subsection reference.
+
+- [performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102): complete subsection reference.
+
+<a id="canonical-3230322003223000-2130021201331203-2102123011023022-1210302303123230-2002203111301131-2200331021211302-0233200013311032-1332020230121103"></a>
+
+## Next pages — ingress_gw_ar / 122200221311 / 5
+
+- [ingress_gw_ar.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3022101023221223-0321210011220233-1211332332322213-1032132022220103-3302233220001032-0112002330230210-3133310312123012-2023011311321332"></a>
+
+## ingress_gw_ar.accelerated_networking — accelerated_networking / 323032132001 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- ingress_gw_ar.accelerated_networking
+
+<a id="canonical-1212210122211222-3200230031323132-0012133323011232-2022012230331033-1122312212021222-1131103121322331-1213113233323303-2113213311122010"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.
+
+Upstream description:
+
+Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
+    "enable")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-accelerated_networking": "[\"disable\",\"enable\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+accelerated_networking {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1020112212333123-3121230331233201-1231320323221110-3123031201203323-1223330022323013-1003111331232132-3321120003013230-0301002323012123"></a>
+
+## Direct properties — accelerated_networking / 323032132001 / 3
+
+- [disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-2320202120111200-2300101021101131-0322230031110033-3213203211013021-2030230212100200-3203320200001020-3313210320331121-1233021003003022): complete subsection reference.
+
+- [enable](resources--azure_vnet_site--reference--group-008.md#canonical-3333120321010003-1303232002212133-3313122132203213-0102300000013000-1211032122210313-1213003012311333-1013031102002102-0303322123220030): complete subsection reference.
+
+<a id="canonical-2232201213302100-1231101101021233-1301231003001023-1211211311123303-2223123222122222-2020231100110021-3212202203302213-2130013230020120"></a>
+
+## Next pages — accelerated_networking / 323032132001 / 4
+
+- [ingress_gw_ar.accelerated_networking.disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-2320202120111200-2300101021101131-0322230031110033-3213203211013021-2030230212100200-3203320200001020-3313210320331121-1233021003003022)
+- [ingress_gw_ar.accelerated_networking.enable](resources--azure_vnet_site--reference--group-008.md#canonical-3333120321010003-1303232002212133-3313122132203213-0102300000013000-1211032122210313-1213003012311333-1013031102002102-0303322123220030)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2320202120111200-2300101021101131-0322230031110033-3213203211013021-2030230212100200-3203320200001020-3313210320331121-1233021003003022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3310130210312012-2101201331101212-3113112200000230-3232222301001201-2112002231130302-3100210202030003-1330030122301012-3012321013300323"></a>
+
+## ingress_gw_ar.accelerated_networking.disable_spec — disable_spec / 032220223200 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132)
+- ingress_gw_ar.accelerated_networking.disable_spec
+
+<a id="canonical-3012002213030113-2032211020222032-3021211001033133-2023022333233310-3203230011200212-1211210222203312-1312331333103001-3112323002301113"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Terraform syntax:
+
+```terraform
+disable_spec = {}
+```
+
+<a id="canonical-3022011321110222-0123202301231032-1133003102033002-1213201312020203-3213321130032232-1101232310002010-1001312033101313-1131003232110300"></a>
+
+## Direct properties — disable_spec / 032220223200 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0000101203210003-2233311230000310-2130032120233321-2210022011031220-0321203223330010-2002312012201001-3232303233320233-2103211212001013"></a>
+
+## Next pages — disable_spec / 032220223200 / 4
+
+- [ingress_gw_ar.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3333120321010003-1303232002212133-3313122132203213-0102300000013000-1211032122210313-1213003012311333-1013031102002102-0303322123220030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3000310302201300-1100012011101013-2230112011002103-1002003101311211-1022201202311131-1301212230123013-2001301320112013-1233211003223121"></a>
+
+## ingress_gw_ar.accelerated_networking.enable — enable / 123221030110 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132)
+- ingress_gw_ar.accelerated_networking.enable
+
+<a id="canonical-3133130113210212-2232331122202313-1310221103312231-3333123123320020-2233013310133033-3320100213320231-2223222032013200-1031311113223001"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+enable = {}
+```
+
+<a id="canonical-2100101002221002-2000001000233131-2200101313223113-1130210221232132-3213103332003122-1111202022302002-1010103303003030-0221221321210213"></a>
+
+## Direct properties — enable / 123221030110 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1322320221123223-2102113303032302-0001322312220103-0131122101133203-2112131022120011-0201013203230331-2231102130232002-3231300332010313"></a>
+
+## Next pages — enable / 123221030110 / 4
+
+- [ingress_gw_ar.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-2200003022200020-3321101331013131-3231222121120031-0230130103103200-3213023223323122-0122232103232303-3023103103121130-2122203210113132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2222230103122121-2000002203321132-0203322103231010-3030213321320133-2331333221212332-1010000232301010-1312313302101220-2221122100221231"></a>
+
+## ingress_gw_ar.node — node / 131223113003 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- ingress_gw_ar.node
+
+<a id="canonical-1313101233323020-3013030133121231-2003112111201222-3231122102222312-2033112220321231-1203022233000321-0311111011210303-3011212230031111"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Parameters for creating Single interface Node for Alternate Region.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("fault_domain",
+    "node_number",
+    "update_domain")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2021303233232123-1031132332111100-0010322213222032-1222321010031202-1220101231320310-1202321102110230-1210231113302232-1032113212021132"></a>
+
+## Direct properties — node / 131223113003 / 3
+
+<a id="canonical-0221012002111130-2122220001033010-3223033323320313-2012210220122030-2102222202233130-1301120201211330-2232101213132130-2020231020023113"></a>
+
+<a id="canonical-2121031313323033-0012311100231231-2222103121313321-3322323212001303-1320223123132321-0111221000303310-0211003322333132-1101322212313321"></a>
+
+## fault_domain property — node / 131223113003 / 4
+
+Type: `"number"`. Optional.
+
+Namuber of fault domains to be used while creating the availability set.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 3),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 3,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "3"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "3"
+  }
+}
+```
+
+- [local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303): complete subsection reference.
+
+<a id="canonical-0223232132203302-0033122121301210-2123301333232312-0020023321203321-1112000033013100-3223130103003113-3030302103002211-3200203022102232"></a>
+
+<a id="canonical-3323310002133010-0122213201320232-2132302200131023-2010003321231302-2201302222131010-0121330110331210-1311211123023013-0333022101213021"></a>
+
+## node_number property — node / 131223113003 / 5
+
+Type: `"number"`. Optional.
+
+Number of main nodes to create, either 1 or 3.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.in": "[1,3]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.in": "[1,3]"
+  }
+}
+```
+
+<a id="canonical-1332112221130112-0002101212003022-1102001001302312-3331322123021230-1032113303011333-2013002230111323-3300031113301303-1102302121001301"></a>
+
+<a id="canonical-1213130333002211-1020101022223031-1010013031111132-3022302001312102-1330003111211120-3013112203331200-0231203120123132-3211302201130032"></a>
+
+## update_domain property — node / 131223113003 / 6
+
+Type: `"number"`. Optional.
+
+Namuber of update domains to be used while creating the availability set.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 20),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 20,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "20"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "20"
+  }
+}
+```
+
+<a id="canonical-0100011132030311-2110322321130022-1303210133220031-0130210320011232-0320210120030130-0310123221222213-2032302222202231-3221321122220302"></a>
+
+## Next pages — node / 131223113003 / 7
+
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3203002223200030-0121103221121321-1012212102312221-3111010102102110-1322011033321202-0333331202002300-3213233230002331-2113112201323232"></a>
+
+## ingress_gw_ar.node.local_subnet — local_subnet / 021131333130 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- ingress_gw_ar.node.local_subnet
+
+<a id="canonical-3211002230320210-3111110332203302-3000011133031320-2002301211320311-3321232001223332-3031301222300013-0010320300333123-1333201101300120"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for local subnet.
+
+Upstream description:
+
+Parameters for Azure subnet.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("subnet",
+    "subnet_param")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"subnet\",\"subnet_param\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+local_subnet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0033000010011103-3303003111122211-1030001211311003-0313332122221132-2301222230213303-1101302032231102-1322223202200022-1023300333012202"></a>
+
+## Direct properties — local_subnet / 021131333130 / 3
+
+- [subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1120213212030010-2203232020010111-2023120222302321-3301333323312211-3200130033101210-3022111122312002-0312330002300120-2211202112102220): complete subsection reference.
+
+- [subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-1102132030323030-3111130302032110-2012332231330301-1223111211000233-2230123120200211-2221331030322201-2000022111322133-3010013110301311): complete subsection reference.
+
+<a id="canonical-2211011131220233-1201130310310100-3332310013321300-0013031121233033-0310001131300303-0233032133111210-0213221332132100-1113221222302302"></a>
+
+## Next pages — local_subnet / 021131333130 / 4
+
+- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1120213212030010-2203232020010111-2023120222302321-3301333323312211-3200130033101210-3022111122312002-0312330002300120-2211202112102220)
+- [ingress_gw_ar.node.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-1102132030323030-3111130302032110-2012332231330301-1223111211000233-2230123120200211-2221331030322201-2000022111322133-3010013110301311)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-1120213212030010-2203232020010111-2023120222302321-3301333323312211-3200130033101210-3022111122312002-0312330002300120-2211202112102220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1013102013102113-1010030311123113-3220232211132100-3112132023002223-2110310231331100-2311330011100012-0223120122210313-3233320320200220"></a>
+
+## ingress_gw_ar.node.local_subnet.subnet — subnet / 120203012222 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
 - ingress_gw_ar.node.local_subnet.subnet
 
-<a id="canonical-be40192ae7756a115f3ecc56d63b49872f9b3339c0c809895f7a1bb4f0e87f38"></a>
+<a id="canonical-2332100001210222-3213131112220101-1133033230301112-3112032310212013-0233212303030321-3000302000212021-1133132201232310-3300322013330320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -74,15 +913,15 @@ subnet {
 }
 ```
 
-<a id="canonical-5c37c0e9f243ebe31eb4922c75b580c84d4758f5ad5179d32734a4cde96cc509"></a>
+<a id="canonical-1130031330003221-3302100332233203-0132231021020230-1311231120003020-1031101311203311-2231110113213103-0213031022103031-3221123030110021"></a>
 
-## Direct properties — ingress_gw_ar.node.local_subnet.subnet / 512f426231aa / 3
+## Direct properties — subnet / 120203012222 / 3
 
-<a id="canonical-737a21aae476f9c9b5015d12f6160d2a1fad81419fb522ec6121745af9d044d6"></a>
+<a id="canonical-1303132202012222-3210131233213021-2311000111310102-3312011200310222-0133223120011001-2133231102023230-1201020113101122-3321310010103112"></a>
 
-<a id="canonical-b80c84d9f064680ecf5d7eb387473e9fc9e6cdcaa08c2eb5e57d16c7fdb57ec8"></a>
+<a id="canonical-2320003020103121-3300121012200032-3033113113322303-2013101303322133-3021321230313022-2200203002322311-3211133101123013-3331231113323020"></a>
 
-## subnet_name property — ingress_gw_ar.node.local_subnet.subnet / 512f426231aa / 4
+## subnet_name property — subnet / 120203012222 / 4
 
 Type: `"string"`. Optional.
 
@@ -133,11 +972,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6595d7965f3801761a73b31207a2bc883cb066097b448d19fd6f3c3fbeee7272"></a>
+<a id="canonical-1211211131132112-1133032000011312-0122130323030102-0013220223302020-0330230012120021-1323101020310121-3331123303300333-2332323213021302"></a>
 
-<a id="canonical-bd6b04cb934c340c054446d008da390940ed1838ffe60851abf51b542545b5cc"></a>
+<a id="canonical-2331122300103023-2103103003100030-0011101010123100-0020312203210021-1000323101200320-3333321200201101-2223331101231110-0211101123113030"></a>
 
-## subnet_resource_grp property — ingress_gw_ar.node.local_subnet.subnet / 512f426231aa / 5
+## subnet_resource_grp property — subnet / 120203012222 / 5
 
 Type: `"string"`. Optional.
 
@@ -186,37 +1025,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-91edc28ed84f6b2688ef80b6218624950b072cb97206a20addd39a9784f73eb3): complete subsection reference.
+- [vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-2101323130022032-3120103312230212-2020323320002312-0201201202102111-0023001302302321-1302001222020022-3131310321222113-2010331303322303): complete subsection reference.
 
-<a id="canonical-622bf1949afc34126429ed8d69b15f8ab1b56d1e404b8fc2e486c8194954df4c"></a>
+<a id="canonical-1202022333012110-2122333003100102-1210022132312031-1221230111332022-2301231112310132-1000102320333002-3210201230200121-1021111031331030"></a>
 
-## Next pages — ingress_gw_ar.node.local_subnet.subnet / 512f426231aa / 6
+## Next pages — subnet / 120203012222 / 6
 
-- [ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-91edc28ed84f6b2688ef80b6218624950b072cb97206a20addd39a9784f73eb3)
-- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-007.md#canonical-c40a230559356b8bdb345774131fdd36f2125524a601a66842dee698de5a0873)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-2101323130022032-3120103312230212-2020323320002312-0201201202102111-0023001302302321-1302001222020022-3131310321222113-2010331303322303)
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-91edc28ed84f6b2688ef80b6218624950b072cb97206a20addd39a9784f73eb3"></a>
+<a id="canonical-2101323130022032-3120103312230212-2020323320002312-0201201202102111-0023001302302321-1302001222020022-3131310321222113-2010331303322303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f4cb0fc9fe917e42220ef1d1a86384842007839fbbcd5a6af35fe4a853cc277"></a>
+<a id="canonical-0233103023003330-2133322101133210-0202020032330131-0122201203201020-1002000013200321-3323233031112212-2233031133321022-2011033030021313"></a>
 
-## ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group — ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group / 6a8f3b914997 / 2
+## ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group — vnet_resource_group / 210110212113 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-007.md#canonical-87b70f7d188d23ff41722d94e8837588c63ec02ab72058e0fcb45f7d81e73a69)
-- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-007.md#canonical-c40a230559356b8bdb345774131fdd36f2125524a601a66842dee698de5a0873)
-- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-589e6304a3b881158b62acb9f1ffbda5e070f464ca55ad8236f02c18a58964a8)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
+- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1120213212030010-2203232020010111-2023120222302321-3301333323312211-3200130033101210-3022111122312002-0312330002300120-2211202112102220)
 - ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group
 
-<a id="canonical-39249ff2ef89d0d3e89070d0cefa34503603be5ace8d12ed0eb2de33eaabfd07"></a>
+<a id="canonical-0321021021333302-3233202131003103-3220210013003100-3032332203101100-0312000323321122-3032203101023231-0032230231320303-3222222333310013"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -245,39 +1084,39 @@ Terraform syntax:
 vnet_resource_group = {}
 ```
 
-<a id="canonical-9b60ec87cf246f8bff47bde63bddc0f568a724a695da35c0217844d0ccd5c2fe"></a>
+<a id="canonical-2123120032302013-3033021012332023-3333101323313212-0323313130003311-1220221302102212-2111312203113000-0201132010103100-3030311130023332"></a>
 
-## Direct properties — ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group / 6a8f3b914997 / 3
+## Direct properties — vnet_resource_group / 210110212113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a5632cbdae9e701c2bb6d23d7c5de19663375ed98f344eae8192690f526a5579"></a>
+<a id="canonical-2211120302302331-2232213213000130-0223231231020331-1330113132012112-1203031311323121-2033031010322232-2001210212210033-1102122211111321"></a>
 
-## Next pages — ingress_gw_ar.node.local_subnet.subnet.vnet_resource_group / 6a8f3b914997 / 4
+## Next pages — vnet_resource_group / 210110212113 / 4
 
-- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-589e6304a3b881158b62acb9f1ffbda5e070f464ca55ad8236f02c18a58964a8)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1120213212030010-2203232020010111-2023120222302321-3301333323312211-3200130033101210-3022111122312002-0312330002300120-2211202112102220)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-5278ceccd573239486fadf316b56502fac6d8825a9f4cea180295e9fc41d4c75"></a>
+<a id="canonical-1102132030323030-3111130302032110-2012332231330301-1223111211000233-2230123120200211-2221331030322201-2000022111322133-3010013110301311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4feb8fb9108459979f22a0ea002cf70f68562b515dfce1fe5f8c2f02828d198b"></a>
+<a id="canonical-1033322320332321-0100201011212113-2133020222003222-0000023033130033-1220111202231101-1131333032013332-1133203002330002-2002203101212023"></a>
 
-## ingress_gw_ar.node.local_subnet.subnet_param — ingress_gw_ar.node.local_subnet.subnet_param / 64e9d6d38573 / 2
+## ingress_gw_ar.node.local_subnet.subnet_param — subnet_param / 310320111303 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-007.md#canonical-87b70f7d188d23ff41722d94e8837588c63ec02ab72058e0fcb45f7d81e73a69)
-- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-007.md#canonical-c40a230559356b8bdb345774131fdd36f2125524a601a66842dee698de5a0873)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.node](resources--azure_vnet_site--reference--group-008.md#canonical-2013231300331331-0120203102033333-1001130202312110-3220200313112020-3012033230000222-2313020011203200-3330231011331331-2001321303221221)
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
 - ingress_gw_ar.node.local_subnet.subnet_param
 
-<a id="canonical-8d9aaea6eb3d44744139bdf1e45b8d8bc9fca32abff858b53cf73c38ec0ea94d"></a>
+<a id="canonical-2031212222322212-3223033110101310-1001032123313301-3210112320312023-3021333022030222-2333332011202311-0330331303300320-3230003222211031"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -310,15 +1149,15 @@ subnet_param {
 }
 ```
 
-<a id="canonical-f23a20cc521aeba5b308a4623e67cbe1aa2e0168cb705d596f9341c58b12df82"></a>
+<a id="canonical-3302032202003030-1102012232232211-2303002022101202-0332121330233201-2222023200011220-3023130011311121-1233210310013011-2023010231332002"></a>
 
-## Direct properties — ingress_gw_ar.node.local_subnet.subnet_param / 64e9d6d38573 / 3
+## Direct properties — subnet_param / 310320111303 / 3
 
-<a id="canonical-494a56c1e42ca7f6070fd3a7eeef06b73e33d018ee1e69c25a3cd4c66392de4b"></a>
+<a id="canonical-1021102211123001-3210023022133312-0013003331032213-3232323300122313-0332030331000120-3232013212213002-1122033031103012-1203210231321023"></a>
 
-<a id="canonical-96d3fe79dfe8b250b730608f9109b5dee11cda1400feece375c7ebde09950802"></a>
+<a id="canonical-2112310333321321-3133322023021100-2313030012002033-2101002123113132-3201013031220110-0000333232303203-1311301332233132-0021211100200002"></a>
 
-## ipv4 property — ingress_gw_ar.node.local_subnet.subnet_param / 64e9d6d38573 / 4
+## IPv4 property — subnet_param / 310320111303 / 4
 
 Type: `"string"`. Optional.
 
@@ -362,31 +1201,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-54a8efdabc2b250c384df88c09cbe2e0a7ceadcd5452cf6b59c6d9c46e8a005b"></a>
+<a id="canonical-1110222032333122-2330022302110030-0320103133202030-0021302332023200-2213303222313031-1110110230331223-1121301231213010-1232202200001123"></a>
 
-## Next pages — ingress_gw_ar.node.local_subnet.subnet_param / 64e9d6d38573 / 5
+## Next pages — subnet_param / 310320111303 / 5
 
-- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-007.md#canonical-c40a230559356b8bdb345774131fdd36f2125524a601a66842dee698de5a0873)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.node.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-3010002202030011-1121031112232023-3123031011131310-0103013331310312-3302010211110210-2212000122121220-1002313232122120-3132112200201303)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2"></a>
+<a id="canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-548e7e247f294b5e53e470a80e93ec45b2c360e9945cc5acec520fbfb2f34e0a"></a>
+<a id="canonical-1110203213320210-1333022110231132-1103321013002220-0032210332301011-2302300312003221-2110113030112230-3230110200332333-2302330310320022"></a>
 
-## ingress_gw_ar.performance_enhancement_mode — ingress_gw_ar.performance_enhancement_mode / b21df2575f66 / 2
+## ingress_gw_ar.performance_enhancement_mode — performance_enhancement_mode / 111311331212 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
 - ingress_gw_ar.performance_enhancement_mode
 
-<a id="canonical-3e633eb2abcb351b0fdfc9df342f3dda728bd154aff9113a3efdeaae7986c52a"></a>
+<a id="canonical-0332120303322302-2223302303110123-0033313330213133-0310023303313122-1302202331011110-2233332101010322-0332333132222232-1321201230110222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -421,42 +1260,42 @@ performance_enhancement_mode {
 }
 ```
 
-<a id="canonical-79ce5721683028513215bdff1b86e87d086ed09cf035f76e0bfc75e0c9eea6c0"></a>
+<a id="canonical-1321303211130201-1220030002201101-0302011123313333-0123201232201331-0020123231002130-3300031133131232-0023333013113200-3021323222123000"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode / b21df2575f66 / 3
+## Direct properties — performance_enhancement_mode / 111311331212 / 3
 
-- [perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12): complete subsection reference.
+- [perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102): complete subsection reference.
 
-- [perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7): complete subsection reference.
+- [perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113): complete subsection reference.
 
-<a id="canonical-94039708c0fe1a17c55ce26302888cf2df7de411e1bbfc988ef562d8419cd817"></a>
+<a id="canonical-2110000321130020-3000333201220113-3011113032021203-0002202020303302-3133133132100101-3201232333302120-2032331112023120-1001213031200113"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode / b21df2575f66 / 4
+## Next pages — performance_enhancement_mode / 111311331212 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12"></a>
+<a id="canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3223ea846364e7008c1e1009e545323d4a4c708be4434c29c3f1a585ab539069"></a>
+<a id="canonical-0302020332222010-1203121032130000-2030013201000021-3211101103020331-1022103013002023-3210100310300221-3003330122112011-2223110321001221"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced / 121aff688648 / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced — perf_mode_l3_enhanced / 122020121020 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced
 
-<a id="canonical-6aa06de546b2143523aaecb98d6c096bb7d6f0ce741abdab9694a8dab464d506"></a>
+<a id="canonical-1222220012313211-1012230201100311-0203222232302321-2031123000211223-2313311233003032-1310012223312223-2112211022203122-2310121031110012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -495,43 +1334,43 @@ perf_mode_l3_enhanced {
 }
 ```
 
-<a id="canonical-6d2a1f0a71b415d4732b3d6916bb09b2906e49b929b7bc86df8f803c4d32b6b6"></a>
+<a id="canonical-1231022201330022-1301231001113110-1303022303311221-0112232300212302-2100123210212321-0221231323302012-3133203320000330-1031030223122312"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced / 121aff688648 / 3
+## Direct properties — perf_mode_l3_enhanced / 122020121020 / 3
 
-- [jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-eb09277ed0a8eb684912b89f4e45ba44ef30e7ba53efd3de77a835523ff9f327): complete subsection reference.
+- [jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-3223002102131332-3100222032231220-1021010223202133-1032101123221010-3233030032132322-1103323331033132-1313222003111102-0333332133030213): complete subsection reference.
 
-- [no_jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-67e72c5919229811af37fba336392ab5b97a4e20376fb4a934d4ce712e3b4a5b): complete subsection reference.
+- [no_jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-1213321302301121-0121020221200101-2233031333232203-0312032102222311-2321132210320200-0313123323102221-0310311030321301-0232032310221123): complete subsection reference.
 
-<a id="canonical-e3825295e70c311b126bf6460a244b0b6ef9781c421369c72b1ca50c260a3ac2"></a>
+<a id="canonical-3203200211022111-3213003003010123-0102122333121012-0022021010230023-1232332113200130-1002010312213013-0223013022110030-0212002203223002"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced / 121aff688648 / 4
+## Next pages — perf_mode_l3_enhanced / 122020121020 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-eb09277ed0a8eb684912b89f4e45ba44ef30e7ba53efd3de77a835523ff9f327)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-67e72c5919229811af37fba336392ab5b97a4e20376fb4a934d4ce712e3b4a5b)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-3223002102131332-3100222032231220-1021010223202133-1032101123221010-3233030032132322-1103323331033132-1313222003111102-0333332133030213)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--azure_vnet_site--reference--group-008.md#canonical-1213321302301121-0121020221200101-2233031333232203-0312032102222311-2321132210320200-0313123323102221-0310311030321301-0232032310221123)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-eb09277ed0a8eb684912b89f4e45ba44ef30e7ba53efd3de77a835523ff9f327"></a>
+<a id="canonical-3223002102131332-3100222032231220-1021010223202133-1032101123221010-3233030032132322-1103323331033132-1313222003111102-0333332133030213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2382ae72a413f1dfe1ddb558c2ffc980aa6c18a561df928717f4d6dfe094a91a"></a>
+<a id="canonical-0203200222321302-2210010333013133-3201313123111120-3002333330212000-2222123001202211-1201313321022013-0113331031123133-3200211022210122"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 0cc72d6a21ff / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — jumbo / 122202013333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo
 
-<a id="canonical-1eee9f20bd4bea23f328226e84e0bbfc4848fea1c05b3fe9c59204bf14aa4ec3"></a>
+<a id="canonical-0132323221330200-2331102332220203-3303022002021232-2010320023233330-1020102033322201-3000112303333221-3011210200102333-0110222210323003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -560,39 +1399,39 @@ Terraform syntax:
 jumbo = {}
 ```
 
-<a id="canonical-7ecf405825879916b69760d4518a90de3317d4af95cca8cecd6aa496879942c7"></a>
+<a id="canonical-1332303310001120-0211201321210112-2312211312003110-1101202221003132-0303011331102233-2111303022203032-3031122222102112-2013212110023013"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 0cc72d6a21ff / 3
+## Direct properties — jumbo / 122202013333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4f36e9a446adcdc529d37a62ff2d27f8c9066e28ed49d323dee6a344ceb04cc3"></a>
+<a id="canonical-1033031232212210-1012223130313011-0221310313221202-3333023102133320-3021001212320220-3231102131030203-3132321222031010-3032230010303003"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 0cc72d6a21ff / 4
+## Next pages — jumbo / 122202013333 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-67e72c5919229811af37fba336392ab5b97a4e20376fb4a934d4ce712e3b4a5b"></a>
+<a id="canonical-1213321302301121-0121020221200101-2233031333232203-0312032102222311-2321132210320200-0313123323102221-0310311030321301-0232032310221123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fd2d16f6df85eefac0af61ec470838f50e5ffdf507adac286c12227d63920233"></a>
+<a id="canonical-3331023101123312-3133201132323322-3000223312013230-1013002003203311-0032113333313311-0013223122300220-1230010202021331-1203210200020303"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 8faabea0a807 / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — no_jumbo / 220022200013 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo
 
-<a id="canonical-5d7dc281bc441c09c1d053e60204a0818d0cddc32404bb290d6ad65a517b813b"></a>
+<a id="canonical-1131133130022001-2330101001300021-3001310011033212-0002001022002001-2031003031313003-0210001023230221-0031122231121122-1101132320010323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -621,38 +1460,38 @@ Terraform syntax:
 no_jumbo = {}
 ```
 
-<a id="canonical-5787d5065596da588113f2d26b0cc5d5a42caf5218419e9b072fc22f4d4e8078"></a>
+<a id="canonical-1113201331110012-1111211231221120-2001010333023102-1223003030113111-2210023022331102-0120100121322123-0013023330020233-1031103220001320"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 8faabea0a807 / 3
+## Direct properties — no_jumbo / 220022200013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4c783ff922406900ce3e7ae5ab7192b5fd5e9334ac10daeb30163bbfe050586e"></a>
+<a id="canonical-1030132003333321-0202100012210000-3032033213223211-2223130121022311-3331113221030310-2230010031223223-0300011203232333-3200110011201232"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 8faabea0a807 / 4
+## Next pages — no_jumbo / 220022200013 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-923930b3233972ffa841ce4d53f17ec0e451a9f4e6fae40f2cd30ceb1ee70d12)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l3_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-2102032103002303-0203032113023333-2220100130321031-1103330113323000-3210110122213310-3212332232100033-0230310300303223-0132321300310102)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7"></a>
+<a id="canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-80f9699b4bde0153162b7f071eff6c4d7d1563e447b54b5ee8b664ca1a778ec9"></a>
+<a id="canonical-2000332112212123-1023313200011103-0112022313330013-0132333312301031-1331011112033210-1013231110231132-3220231212103022-0122131320323021"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced / 3b6b19d52e5a / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced — perf_mode_l7_enhanced / 311102321122 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced
 
-<a id="canonical-282e0f4cab1078dc0f5d0e17a79c4370c56346c04130a319eb383361aa61b6ba"></a>
+<a id="canonical-0220023200331030-2223010013203130-0033113100320113-2213213010031300-3011120310123000-1001030022030121-3223032003031201-2222120123122322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -691,43 +1530,43 @@ perf_mode_l7_enhanced {
 }
 ```
 
-<a id="canonical-b77da55d9c4d60f7e809c8ffc67df8b1d4f690e9d95fc8dc738ddf59731cad3b"></a>
+<a id="canonical-2313133122111131-2130103112003313-3220002130203333-3012133133202301-3110331221003221-3121113330203130-1303203131331121-1303013022310323"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced / 3b6b19d52e5a / 3
+## Direct properties — perf_mode_l7_enhanced / 311102321122 / 3
 
-- [jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-b45f864d2dbb45faae69e8387d001f7a440cfb09edfabfe30f258f1f586efaa3): complete subsection reference.
+- [jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-2310113320121031-0231232310113322-2232122132200320-1331000001331322-1010003033230021-3231332223333203-0033021120330133-1120123233222203): complete subsection reference.
 
-- [jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-a077d926679f68ec1cda521855dd26b2fad1ed77c8564bcdb80704c0027945cc): complete subsection reference.
+- [jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-2200131331210212-1213213312203230-0130312211020120-1111313102122302-3322310132311313-3020111210233031-2320001300103000-0002132110113030): complete subsection reference.
 
-<a id="canonical-2f2e60990822b396e6a98fa5eee3c2ecc3a381c5e3f78a4a57934bfe29714acc"></a>
+<a id="canonical-0233023212002121-0020020223032112-3212222120332211-3232320330023230-3003220320013011-3203331320221022-1113210310233332-0221130110223030"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced / 3b6b19d52e5a / 4
+## Next pages — perf_mode_l7_enhanced / 311102321122 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-b45f864d2dbb45faae69e8387d001f7a440cfb09edfabfe30f258f1f586efaa3)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-a077d926679f68ec1cda521855dd26b2fad1ed77c8564bcdb80704c0027945cc)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-2310113320121031-0231232310113322-2232122132200320-1331000001331322-1010003033230021-3231332223333203-0033021120330133-1120123233222203)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--azure_vnet_site--reference--group-008.md#canonical-2200131331210212-1213213312203230-0130312211020120-1111313102122302-3322310132311313-3020111210233031-2320001300103000-0002132110113030)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-b45f864d2dbb45faae69e8387d001f7a440cfb09edfabfe30f258f1f586efaa3"></a>
+<a id="canonical-2310113320121031-0231232310113322-2232122132200320-1331000001331322-1010003033230021-3231332223333203-0033021120330133-1120123233222203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a0ea82810d5be21a1358907d70979799001e289221733803c27c1d68e4f7ffff"></a>
+<a id="canonical-2200322220022001-0031112332020122-0103112021001331-1300211321132121-0000013202202102-0201130303200003-3002133001311220-3210331333333333"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / 0f1e50712809 / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — jumbo_disabled / 130102200021 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled
 
-<a id="canonical-fb668e94264a7a43603132efe2febf6c68456f2d799aff7fa9bfd12d837e42b5"></a>
+<a id="canonical-3323121220322110-0212102213221003-1200030103023233-3202333223331230-1220101112330231-1321212233331333-2221233331010231-2003133210022311"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -756,39 +1595,39 @@ Terraform syntax:
 jumbo_disabled = {}
 ```
 
-<a id="canonical-124e258a7aed2bea7221f24b98dcaef9478f3e69cbac52e3504be94224b6af17"></a>
+<a id="canonical-0102103202112022-1322323102233222-1302020133021023-2120313022323321-1013203303321221-3023223011023203-1100102332211002-0210231222330113"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / 0f1e50712809 / 3
+## Direct properties — jumbo_disabled / 130102200021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7fa871b9840fd4ee612cefe81d57e340b65b848394e54fc02ecd6a2a21c1394f"></a>
+<a id="canonical-1333222013012321-2010003331103232-1201023032333220-0131111332031000-2312112320102003-2110321110333000-0232303112220222-0201300103211033"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / 0f1e50712809 / 4
+## Next pages — jumbo_disabled / 130102200021 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-a077d926679f68ec1cda521855dd26b2fad1ed77c8564bcdb80704c0027945cc"></a>
+<a id="canonical-2200131331210212-1213213312203230-0130312211020120-1111313102122302-3322310132311313-3020111210233031-2320001300103000-0002132110113030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b3044d4a874892af18eaaddda02167bc10c031d856012e06454d49d35a64256"></a>
+<a id="canonical-2023030010103110-2220131020210222-3301203222223131-3122000201121323-3001003000030131-2011120001023200-1210111031102131-0311221210021112"></a>
 
-## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / a31dda0351f5 / 2
+## ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — jumbo_enabled / 000311013311 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [ingress_gw_ar](resources--azure_vnet_site--reference--group-007.md#canonical-d0e215b74519793a40bfc7211040a95320d415ace2a874843eeb2ee665a518c4)
-- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3b7cf54e88a203c51b49b91964fd227cf387be5f726e62633846067d9131bbd2)
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [ingress_gw_ar](resources--azure_vnet_site--reference--group-008.md#canonical-3100320201112313-1011012113210322-1000233330130201-0100100022211103-0200311001112230-3202222013102010-0332322302323212-1211221101203010)
+- [ingress_gw_ar.performance_enhancement_mode](resources--azure_vnet_site--reference--group-008.md#canonical-0323133033111032-2020220200033011-0123102123210121-1210333102021330-3303201323321133-1302123212021203-0320101200121331-2101030123233102)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113)
 - ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled
 
-<a id="canonical-ef425a95f92bd598524adb7a81ab2f9083a2f2e4b56aa5320137f328fb1ed876"></a>
+<a id="canonical-3233100211222111-3321022331112120-1102102231231322-2001222302332100-2003220233023210-2311122222110302-0001031333030220-3323013231201312"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -817,36 +1656,36 @@ Terraform syntax:
 jumbo_enabled = {}
 ```
 
-<a id="canonical-5132a792ab7412fb4bdf35fb6fafd585b1336e401560acd452bac97013817cf8"></a>
+<a id="canonical-1101030222132102-2223131001023323-1023313303113323-1233223331112011-2301030312321000-0111120022303110-1102232230211300-0103200113303320"></a>
 
-## Direct properties — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / a31dda0351f5 / 3
+## Direct properties — jumbo_enabled / 000311013311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b376ed7451aa80655e14512cd9b784d643756bce5ded7a29d3c9f502f1a50b0a"></a>
+<a id="canonical-2303131232311310-1101222220001211-1132011011010230-3121231320103112-1003131112233032-1131323113220221-3103302133110002-3301221100230022"></a>
 
-## Next pages — ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / a31dda0351f5 / 4
+## Next pages — jumbo_enabled / 000311013311 / 4
 
-- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-3c6a2b2b56c3b69b0f52970678d5afdbd2032d8d1929cde2915505286c75a8d7)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [ingress_gw_ar.performance_enhancement_mode.perf_mode_l7_enhanced](resources--azure_vnet_site--reference--group-008.md#canonical-0330122202230223-1112300323122123-0033110221130012-1320311122333123-3102000302312031-0121022130313202-2101111100110220-1230131122203113)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0"></a>
+<a id="canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6d333335a709ad1478d14e81500e903a19d5a32aacaac665ef59aba72dfb08b2"></a>
+<a id="canonical-1231030303030311-2213002122310110-1320310110322001-1100003221000322-0121311122030222-2230222230121211-3233112122232213-0231332300202302"></a>
 
-## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 2ecd35d7c57b / 2
+## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 311330111323 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - kubernetes_upgrade_drain
 
-<a id="canonical-3b7a4fe6b6669f3eedeaf046ef82c9632f1c7b47b913c059c9105fa44a8d8095"></a>
+<a id="canonical-0323132210333212-2312121221330332-3231322233001012-3233200230211203-0233013013231013-2321010330001121-3021010011332210-1022203120002111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -881,41 +1720,41 @@ kubernetes_upgrade_drain {
 }
 ```
 
-<a id="canonical-6c5246ebc6a94849dce9f10c5fc315abdaeb99a808d2a9713918f5829e2f0a31"></a>
+<a id="canonical-1230110210123223-3012222110201021-3130322133010030-1133300301112223-3122322321212220-0020310222211301-0321012033112002-2132023300220301"></a>
 
-## Direct properties — kubernetes_upgrade_drain / 2ecd35d7c57b / 3
+## Direct properties — kubernetes_upgrade_drain / 311330111323 / 3
 
-- [disable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-02a34c1201382ab5f3b9eaaac21fd1e1d97e2557ad49c1965f7f9ea81181ad08): complete subsection reference.
+- [disable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-0002220310300102-0001032002222311-3303232132222222-3002013331013201-3121133202111113-2231102130012112-1133133321322220-0101200122310020): complete subsection reference.
 
-- [enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256): complete subsection reference.
+- [enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112): complete subsection reference.
 
-<a id="canonical-2c41b71067c7e6ec59d378fc7c8e961d973f875af165ec01ae4f6521991f1a6b"></a>
+<a id="canonical-0230100123130100-1213301332123230-1121310313203330-1330203221120131-2113033320131122-3301121132300001-2232103312110201-2121013301221223"></a>
 
-## Next pages — kubernetes_upgrade_drain / 2ecd35d7c57b / 4
+## Next pages — kubernetes_upgrade_drain / 311330111323 / 4
 
-- [kubernetes_upgrade_drain.disable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-02a34c1201382ab5f3b9eaaac21fd1e1d97e2557ad49c1965f7f9ea81181ad08)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [kubernetes_upgrade_drain.disable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-0002220310300102-0001032002222311-3303232132222222-3002013331013201-3121133202111113-2231102130012112-1133133321322220-0101200122310020)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-02a34c1201382ab5f3b9eaaac21fd1e1d97e2557ad49c1965f7f9ea81181ad08"></a>
+<a id="canonical-0002220310300102-0001032002222311-3303232132222222-3002013331013201-3121133202111113-2231102130012112-1133133321322220-0101200122310020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-834029c99fd53b085f7524e9dce749b4b1e9361f7d64588de2de5252aa1f167b"></a>
+<a id="canonical-2003100002213021-2133311103230020-1133131102103221-3130321310212310-2301322103120133-1331121011202031-3202313211021102-2222013301121323"></a>
 
-## kubernetes_upgrade_drain.disable_upgrade_drain — kubernetes_upgrade_drain.disable_upgrade_drain / e6e87268f2ff / 2
+## kubernetes_upgrade_drain.disable_upgrade_drain — disable_upgrade_drain / 122033023333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
 - kubernetes_upgrade_drain.disable_upgrade_drain
 
-<a id="canonical-c3cb5207fd67331f03520691a5b427d73e1b48ed1cfc54f5a590cf5cbfe0f66c"></a>
+<a id="canonical-3003302311020013-3331121303030133-0003110200122101-2211231002133113-0332012310203231-0130333011103311-2211210030331130-2333320033121230"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -944,37 +1783,37 @@ Terraform syntax:
 disable_upgrade_drain = {}
 ```
 
-<a id="canonical-b23bbdb73c0408d41ee93662e4f451b4e0e44b2007342db1a70839903e60c4da"></a>
+<a id="canonical-2302032323312313-0330001000203110-0132322103121202-3210331011012310-3200321010230200-0013031002312301-2213002003212100-0332120030103122"></a>
 
-## Direct properties — kubernetes_upgrade_drain.disable_upgrade_drain / e6e87268f2ff / 3
+## Direct properties — disable_upgrade_drain / 122033023333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-51688cadea7a07a4fb71522a9ca6aa03d30661b284fd88b307ce1709a12e5ff8"></a>
+<a id="canonical-1101122020302231-3222132200132210-3323130111020222-2130221222220003-3103001212012302-2010333120202303-0013303201130021-2201023211333320"></a>
 
-## Next pages — kubernetes_upgrade_drain.disable_upgrade_drain / e6e87268f2ff / 4
+## Next pages — disable_upgrade_drain / 122033023333 / 4
 
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256"></a>
+<a id="canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5dbc414be142f66a9874b3138b8d685d7d43d5364511a2e559d5a5633df8577"></a>
+<a id="canonical-2311312330100110-2332011002331212-2221201310230301-0320232031122011-3113311003311103-1210110101220232-1111213111221112-0303313320111313"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain — enable_upgrade_drain / 123033130112 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
 - kubernetes_upgrade_drain.enable_upgrade_drain
 
-<a id="canonical-e1cef55cea669b5cd798133258a3a2291309003469372bb8adceb8e25a45fcb0"></a>
+<a id="canonical-3201303233111130-3222121221231130-3113212001030302-1120220322020221-0103002100000310-1221031302232320-2231303223203202-1122101133302300"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1013,17 +1852,17 @@ enable_upgrade_drain {
 }
 ```
 
-<a id="canonical-513e04798f3c25768e1406b1e8d7397ad0822f15d5a8e7d78e254d62d6dc522c"></a>
+<a id="canonical-1101033200101321-2033033002111312-2032011000122301-3220311303211322-3100200202330111-3111222032133113-2032021110311202-3112313011020230"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 3
+## Direct properties — enable_upgrade_drain / 123033130112 / 3
 
-- [disable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-f7f3cdd3187ad02b13272cfc811a861abad23eec052e02d7275e6eeb1365517d): complete subsection reference.
+- [disable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3313330330313103-0120132231000223-0103021302303330-2001012220120122-2322310203323230-0011023200023113-0213113212323223-0103121111011331): complete subsection reference.
 
-<a id="canonical-2b99f75607be86f732503d293864294ed34d18f605185d3579c4c3077bedfdd8"></a>
+<a id="canonical-0223212133131112-0013233220123313-0302110003310221-0320121002211032-3103103101203312-0011012011310311-1321301030030013-1323323133313120"></a>
 
-<a id="canonical-b1e63d5e6298fda7a468324b7a11d4aa49a76de848178b07278ee372e3a6bcfd"></a>
+<a id="canonical-2301321203311132-1202212033312213-2210122003021023-1322010131102222-1021221312313220-1020011320230013-0213203232031302-3203221223303331"></a>
 
-## drain_max_unavailable_node_count property — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 4
+## drain_max_unavailable_node_count property — enable_upgrade_drain / 123033130112 / 4
 
 Type: `"number"`. Optional.
 
@@ -1074,21 +1913,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b3ad5f1b914da16d0a00117bbcdfcb7355c6e36a3774ae26d3653c0c3fc429c1"></a>
+<a id="canonical-2303223111330123-2101103122011231-0022000001011323-2330313330231303-1111301232031222-0313131022320212-3103121103300030-0333301002213001"></a>
 
-<a id="canonical-29b831dea70c963fa4443f19db6ab2d90ce8b359b48aa81a13a4c6fede13e073"></a>
+<a id="canonical-0221232003013132-2213003021120333-2210101003330121-3123122223023121-0030322023031121-2310202222200122-0103221030123332-3132010332001303"></a>
 
-## drain_max_unavailable_node_percentage property — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 5
+## drain_max_unavailable_node_percentage property — enable_upgrade_drain / 123033130112 / 5
 
 Type: `"number"`. Optional.
 
 Maximum percentage of nodes unavailable during upgrade draining.
 
-<a id="canonical-aebb56c2f32d0bc66f9a28a7a0134f5961406b39416552671f5a85ac86cd820c"></a>
+<a id="canonical-2232232311123002-3303023100233012-1233212202202213-2200010310331121-1201100012230321-1001121111021213-0133112220112230-2012303120020030"></a>
 
-<a id="canonical-50e8dc4dba5b3d799f8f176a86779eef5a4804679675e391f4510fa029207c3e"></a>
+<a id="canonical-1100322031301031-2322112303311321-2133203301131222-2012131321323233-1122102000101213-2112131132032101-3310110100332200-0221020013300332"></a>
 
-## drain_node_timeout property — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 6
+## drain_node_timeout property — enable_upgrade_drain / 123033130112 / 6
 
 Type: `"number"`. Optional.
 
@@ -1147,36 +1986,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-9db5812bd60b468847bffecba4d9e0eeba116aa5393a9c9f77f9cccaffdbc8f5): complete subsection reference.
+- [enable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-2131231120010223-3112002310122020-1013233333323023-2210312132003232-2322010112222211-0321032221302133-1313332130303022-3333312330203311): complete subsection reference.
 
-<a id="canonical-3645bb321affc2e5b8ea59da20ebf168f232218cea8616ddf8e06a55079e68ae"></a>
+<a id="canonical-0312101123230302-0122333330023211-2320322211213122-0200322333011220-3302030202012030-3222201201123131-3320320012221111-0013213212202232"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain / a174d56cf716 / 7
+## Next pages — enable_upgrade_drain / 123033130112 / 7
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-f7f3cdd3187ad02b13272cfc811a861abad23eec052e02d7275e6eeb1365517d)
-- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-9db5812bd60b468847bffecba4d9e0eeba116aa5393a9c9f77f9cccaffdbc8f5)
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3313330330313103-0120132231000223-0103021302303330-2001012220120122-2322310203323230-0011023200023113-0213113212323223-0103121111011331)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--azure_vnet_site--reference--group-008.md#canonical-2131231120010223-3112002310122020-1013233333323023-2210312132003232-2322010112222211-0321032221302133-1313332130303022-3333312330203311)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-f7f3cdd3187ad02b13272cfc811a861abad23eec052e02d7275e6eeb1365517d"></a>
+<a id="canonical-3313330330313103-0120132231000223-0103021302303330-2001012220120122-2322310203323230-0011023200023113-0213113212323223-0103121111011331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-095cda919960131d13acbe386b1614a757737b2ff18df51cf02f7d890a84f9a0"></a>
+<a id="canonical-0021113031222101-2121120001030131-0103223023320320-1223011201102213-1113130313230233-3301203133110130-3300023313312021-0022201033212200"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 1a655d64d8b1 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — disable_vega_upgrade_mode / 121031202301 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112)
 - kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode
 
-<a id="canonical-d12030fe8dc106ac29990e718f128f1e1c9d622e752cc57fbe388366c606af57"></a>
+<a id="canonical-3101020003003332-2031300100122230-0221212100321301-2033010220330132-0130213112020232-1311023030111333-2332032020031212-3012001222331113"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1205,38 +2044,38 @@ Terraform syntax:
 disable_vega_upgrade_mode = {}
 ```
 
-<a id="canonical-4c46beb8839a8d137f6625c31d01df3066202a95e410568d2994b15f3e501807"></a>
+<a id="canonical-1030101223322320-2003212220310103-1333121202113003-0131000131330300-1212020002222111-3210010011122031-0221211023011133-0332110001200013"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 1a655d64d8b1 / 3
+## Direct properties — disable_vega_upgrade_mode / 121031202301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0f8d892ddb3c31caa46d4b08f776690484d9942a69fa4460ef3a282f12c8ecb3"></a>
+<a id="canonical-0033203120210231-3123033003013022-2210123110230020-3313131212210010-2010312121100222-1221332210101200-3233032202200233-0102302032302303"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 1a655d64d8b1 / 4
+## Next pages — disable_vega_upgrade_mode / 121031202301 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-9db5812bd60b468847bffecba4d9e0eeba116aa5393a9c9f77f9cccaffdbc8f5"></a>
+<a id="canonical-2131231120010223-3112002310122020-1013233333323023-2210312132003232-2322010112222211-0321032221302133-1313332130303022-3333312330203311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-064fd052aa01ba140480b084907ced15980bc5360a2c401ef18613c71ddfe017"></a>
+<a id="canonical-0012103331001102-2222000123220110-0010200023002010-2100133032310111-2120002330110312-0022023010000132-3301201201033013-0131313332000113"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 6f381819c664 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — enable_vega_upgrade_mode / 012130121210 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-b5c1af0f284a4e0425831c6c3358f56df9913afd1d87a0cde4ebdc2d992213f0)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [kubernetes_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-2311300122330033-0220102210320010-0211200301301230-0303112033111231-3321210103223331-0131201322003031-3210322331300231-2121020201033300)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112)
 - kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode
 
-<a id="canonical-6b6c2c70feba2f692b66d6af1cbded610ba896ce0d470498db8c16b90303b299"></a>
+<a id="canonical-1223123002301300-3332232202331221-0223121231122233-0130233132311201-0023222021123032-0031101300102120-3123203001122321-0003000323022121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1265,36 +2104,36 @@ Terraform syntax:
 enable_vega_upgrade_mode = {}
 ```
 
-<a id="canonical-4ee84bf16280a7519c1a7aa52b233038d0bb8c3e04d3a4b478ce8d15b1878475"></a>
+<a id="canonical-1032322010233301-1202200022131101-2130012213222211-0223020303000320-3100232320300332-0010310322102310-1320303220310111-2301201320101311"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 6f381819c664 / 3
+## Direct properties — enable_vega_upgrade_mode / 012130121210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1ca6deb4798f7087d2206ddfa21e2f951eef8b331c410b9f15b87aae063410c1"></a>
+<a id="canonical-0130221231322310-1321203313002013-3102020012313133-2202013202332111-0132323320230303-0130100100232133-0111232013222232-0012031001003001"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 6f381819c664 / 4
+## Next pages — enable_vega_upgrade_mode / 012130121210 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-7586154b636be221965b978d94ff361b752cc69fa951865b14fdf878c6b21256)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--azure_vnet_site--reference--group-008.md#canonical-1311201201111023-1203122332020201-2112112321132031-2110333303120123-1311023030122133-2221110120121123-0110333133201320-3012230201021112)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-56780c660093e40a35bccfb572d45434d392039269f7dfe6edd188bdde47f2aa"></a>
+<a id="canonical-1112132000301212-0000210332100022-0311233030332311-1302311011100310-3103210200032102-1221331331333212-3231310120202331-3132101333022222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-02710de725e1c2361e4e57bd729a31a20d06ce35172f80f7e22d8fae7ab416b9"></a>
+<a id="canonical-0002130100313213-0211320130020312-0132103211132331-1302212203012202-0031001230320311-0113023320003313-3202023120332232-1322231001122321"></a>
 
-## log_receiver — log_receiver / 5f9af07f3223 / 2
+## log_receiver — log_receiver / 133303020203 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - log_receiver
 
-<a id="canonical-8b67b58809ea49fd5737d4c55904cf3d92c3d733e5cf30f1b5638ab47a07f778"></a>
+<a id="canonical-2023121323112020-0021322210213331-1113031331103011-1121001030330331-2102300331130303-3211303303003301-2311120320222310-1322001333131320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1327,8 +2166,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [log_receiver](resources--azure_vnet_site--reference--group-008.md#canonical-8b67b58809ea49fd5737d4c55904cf3d92c3d733e5cf30f1b5638ab47a07f778)
-- [logs_streaming_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-1c606de63e0ddc324653afb9cba28bbf9e1af1dca9b8fbbedaedab81e2f2e2e9)
+- [log_receiver](resources--azure_vnet_site--reference--group-008.md#canonical-2023121323112020-0021322210213331-1113031331103011-1121001030330331-2102300331130303-3211303303003301-2311120320222310-1322001333131320)
+- [logs_streaming_disabled](resources--azure_vnet_site--reference--group-008.md#canonical-0130120012313212-0332003131300302-1012110322332321-3023220220232333-2132012233013130-2221232033232332-3122323122232001-3202330232023221)
 
 Select alternatives according to the provider validators above.
 
@@ -1340,15 +2179,15 @@ log_receiver {
 }
 ```
 
-<a id="canonical-60c377a488bffb7c8c73df3eebcaae9af35bb7e6ea44e0710493afcc6cae1848"></a>
+<a id="canonical-1200300313132210-2020233333231330-2030130331330332-3223302222322122-3303112323133212-3222101032001301-0010210322333030-1230223201201020"></a>
 
-## Direct properties — log_receiver / 5f9af07f3223 / 3
+## Direct properties — log_receiver / 133303020203 / 3
 
-<a id="canonical-10fe2cdb1b59238f47c02c3a796d3f72b10fe48d5e3c8a65746519a877f9b4ec"></a>
+<a id="canonical-0100333202303123-0123112102032033-1013300002300322-1321123103331302-2301003332102031-1132033020221211-1310121101212220-1313332123103230"></a>
 
-<a id="canonical-2d12e72e98b0fa5ec29dd4de5717b4737aaa904df715295ba5080323f202f026"></a>
+<a id="canonical-0231010232130232-2120230033221132-3002213131103132-1113011323101303-1322222221001031-3313011102211123-2211002000030203-3302000233000212"></a>
 
-## name property — log_receiver / 5f9af07f3223 / 4
+## name property — log_receiver / 133303020203 / 4
 
 Type: `"string"`. Optional.
 
@@ -1409,11 +2248,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef82e6661edec8b9e5e1dfc4d5be75a266615b732bafe830705aa93fb7fc06e5"></a>
+<a id="canonical-3233200232121212-0132313230202321-3211320131333010-3111233213112202-1212120111231303-0223223332200300-1300112222210333-2313333000123211"></a>
 
-<a id="canonical-292e4e8e7f478e5de90d4e8010ce69f526bb25f014071a1c082b33705f081496"></a>
+<a id="canonical-0221023210322032-1333101320321131-3221003110322000-0100303212213311-0212232302113300-0110001301220130-0020022303031300-1133002001102112"></a>
 
-## namespace property — log_receiver / 5f9af07f3223 / 5
+## namespace property — log_receiver / 133303020203 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1481,11 +2320,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fc79de369dcf18c9c80bae53c7da9988d7a7967a8c6bc660fcb7e40858177916"></a>
+<a id="canonical-3330132131320312-2131303301203021-3020002322321103-3013312221212020-3113221321121322-2030122330121200-3330231332100020-1120011313210112"></a>
 
-<a id="canonical-5ead8bfafc24443ff687ef060ce40565c6da77d062ac6fae4109663ebce2ef7c"></a>
+<a id="canonical-1132223120233322-3330021010100333-3312201332330012-0030321000111211-3012312213133100-1202223012332232-1001002112120332-2330320232331330"></a>
 
-## tenant property — log_receiver / 5f9af07f3223 / 6
+## tenant property — log_receiver / 133303020203 / 6
 
 Type: `"string"`. Computed.
 
@@ -1539,30 +2378,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac02e3a588895d11f414bfdb5ee5c65e7b19512dd23c05440ec664ad467a392c"></a>
+<a id="canonical-2230000232032211-2020202111310101-3310011023333123-1132321130121132-1323012111010231-3102033000111010-0032301212102231-1012132203210230"></a>
 
-## Next pages — log_receiver / 5f9af07f3223 / 7
+## Next pages — log_receiver / 133303020203 / 7
 
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-25258cc231a9d4026b2cde1f1ec58b3aee1f285ea58854a696755c09feb1df65"></a>
+<a id="canonical-0211021120303002-0301222131100002-1223023031320133-0132301120230322-3232013302201132-2211202011102212-2112131111300021-3332230131331211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-01efcf47888e8a5d642ddcb6ad0ba2a391b01538bd0de56d5bf650174b98e7cb"></a>
+<a id="canonical-0001323330331013-2020203220221131-1210023131302312-2231002322022203-2101230001110320-2331003132111231-1123331211000113-1023212032133023"></a>
 
-## logs_streaming_disabled — logs_streaming_disabled / 2b933d374f9e / 2
+## logs_streaming_disabled — logs_streaming_disabled / 031310332132 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - logs_streaming_disabled
 
-<a id="canonical-1c606de63e0ddc324653afb9cba28bbf9e1af1dca9b8fbbedaedab81e2f2e2e9"></a>
+<a id="canonical-0130120012313212-0332003131300302-1012110322332321-3023220220232333-2132012233013130-2221232033232332-3122323122232001-3202330232023221"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -1591,36 +2430,36 @@ Terraform syntax:
 logs_streaming_disabled = {}
 ```
 
-<a id="canonical-b47794f712007113d19af089f9f3040ca98c4023526654091b5b3a76268c8100"></a>
+<a id="canonical-2310131321103313-0102000013010103-3101212233002021-3321330300100030-2221203010000203-1102121211100021-0123112303221312-0212203020010000"></a>
 
-## Direct properties — logs_streaming_disabled / 2b933d374f9e / 3
+## Direct properties — logs_streaming_disabled / 031310332132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d8a128a757b5145f4916e25cde8164db1dd0528b34d49c31288960c286a25b65"></a>
+<a id="canonical-3120220102202213-1113231101101133-1021011232021130-3132200112103123-0131310011022023-0310311021300301-0220202112003002-2012220211231211"></a>
 
-## Next pages — logs_streaming_disabled / 2b933d374f9e / 4
+## Next pages — logs_streaming_disabled / 031310332132 / 4
 
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-12091dabc447e067174432d59d031f10b3730bf83bc590517c664f1ebc67620e"></a>
+<a id="canonical-0102002101312223-3010101332001213-0113101003023111-2131000301330100-2303130300233320-0323301121001101-1330121210330132-2330121312020032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7ec2e4f54532c18f9d4674eec92804552478562b11f57a5e3b90692f0193d24f"></a>
+<a id="canonical-1332300232103311-1011030230012033-2131101213103232-3021022000101111-0210132011120223-0101331113221132-0323210012210233-0001210331021033"></a>
 
-## no_worker_nodes — no_worker_nodes / f167f71519e0 / 2
+## no_worker_nodes — no_worker_nodes / 011101213200 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - no_worker_nodes
 
-<a id="canonical-901f5206c55f10226c0d3d72c42f8444a04c26056043c8fa8e178abf6a44dc0c"></a>
+<a id="canonical-2100013311020012-3011113301000202-1230003103311302-3010023320101010-2200103002120011-1200100330203322-2032011320222333-1222101031300030"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -1646,9 +2485,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [no_worker_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-901f5206c55f10226c0d3d72c42f8444a04c26056043c8fa8e178abf6a44dc0c)
-- [nodes_per_az](resources--azure_vnet_site--reference--group-001.md#canonical-f7414ad3e0bf098c5c7e53b85428673559f45d751bb2fc3f22541b66596c634a)
-- [total_nodes](resources--azure_vnet_site--reference--group-001.md#canonical-2ee62b44b3416fa22f983c0aa54c0693978eade311abfd14a43cbecfaff46541)
+- [no_worker_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-2100013311020012-3011113301000202-1230003103311302-3010023320101010-2200103002120011-1200100330203322-2032011320222333-1222101031300030)
+- [nodes_per_az](resources--azure_vnet_site--reference--group-001.md#canonical-3313100110223103-3200233300212030-1130133211032320-1110022012130311-1121331011311311-0123230233300333-0202111001231212-1121123012031022)
+- [total_nodes](resources--azure_vnet_site--reference--group-001.md#canonical-0232321202231010-2303100112332202-0233212003300022-2211103000122103-2113203222313203-0101222333310110-2210033023323033-2233331012111001)
 
 Select alternatives according to the provider validators above.
 
@@ -1658,36 +2497,36 @@ Terraform syntax:
 no_worker_nodes = {}
 ```
 
-<a id="canonical-4609d4ba7d7a4ac7109d63f09d3865eba019fbefc4da9461e86765682e8a75c0"></a>
+<a id="canonical-1012002131102322-1331132210223013-0100213112033300-2131032012113223-2200012133233233-3010312221101201-3220121312111220-0232202213113000"></a>
 
-## Direct properties — no_worker_nodes / f167f71519e0 / 3
+## Direct properties — no_worker_nodes / 011101213200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-aaabc196703c8f3dc86ffa0b26e0e2f6d3ee6634495be22570990dc332392e64"></a>
+<a id="canonical-2222222330012112-1300033020330331-3020123333220023-0212320032023312-3103323212120310-1021112332020211-1300212100313003-0302032102321210"></a>
 
-## Next pages — no_worker_nodes / f167f71519e0 / 4
+## Next pages — no_worker_nodes / 011101213200 / 4
 
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-6723ac4ac38dc4b1691aa0cf9dabdebad2791a8eb4fac00fded397135cac5838"></a>
+<a id="canonical-1213020322301022-3003203130102301-1221012222003033-2131222331322322-3102132101222032-2310332230000033-3132310321130103-1130223011200320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c20ab0f53e3dd67993e97663efea27de3e25e452452f6fb663a422c32a2933d4"></a>
+<a id="canonical-3002002223003311-0332033131121321-2103322113121203-3233322202133132-0332021132101102-1011023312332312-1203221002023003-0222022103033110"></a>
 
-## offline_survivability_mode — offline_survivability_mode / 14917c6144ea / 2
+## offline_survivability_mode — offline_survivability_mode / 120110103222 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - offline_survivability_mode
 
-<a id="canonical-b5477d9d237e4325d4cd6f1def89b907791578616d8758e44ca29a5790ab8ad1"></a>
+<a id="canonical-2311101313312131-0203133210030211-3110303112330131-3233202123210013-1321011113201201-1231201311203210-1030220221221113-2100222320223101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1733,41 +2572,41 @@ offline_survivability_mode {
 }
 ```
 
-<a id="canonical-ced2eb0cd99f54d318f30d4936735200adae633b368474fb75bd898710ce85cf"></a>
+<a id="canonical-3032310232230030-3121213311103103-0120330300311021-0312130311020000-2231223212030323-0312201013103323-1311233120212013-0100303220113033"></a>
 
-## Direct properties — offline_survivability_mode / 14917c6144ea / 3
+## Direct properties — offline_survivability_mode / 120110103222 / 3
 
-- [enable_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-e5ea75808f242f0e251269bda3967a77ecbc86b7bebb9ed42abca01ea77b7842): complete subsection reference.
+- [enable_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3211322213112000-2033021002330032-0211010212212331-2203211213221313-3230233020122313-2332232321323110-0222233022000132-2213132313201002): complete subsection reference.
 
-- [no_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-af0adacc26170f8a8606d5c9414835610dd9182251acd9a5880c5cd548752821): complete subsection reference.
+- [no_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-2233002231223030-0212011300332022-2012001231113021-1001102003111201-0031312101200202-1101223031212211-2020003011303111-1020131102200201): complete subsection reference.
 
-<a id="canonical-e273258d1ddf70c6c8f681951c035f71aed62c4397abb9ff1ff9375c6be43900"></a>
+<a id="canonical-3202130302112031-0131313313003012-3020331220012111-0130000311331301-2232311202301003-2113222323213333-0133332103131130-1223321003210000"></a>
 
-## Next pages — offline_survivability_mode / 14917c6144ea / 4
+## Next pages — offline_survivability_mode / 120110103222 / 4
 
-- [offline_survivability_mode.enable_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-e5ea75808f242f0e251269bda3967a77ecbc86b7bebb9ed42abca01ea77b7842)
-- [offline_survivability_mode.no_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-af0adacc26170f8a8606d5c9414835610dd9182251acd9a5880c5cd548752821)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [offline_survivability_mode.enable_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-3211322213112000-2033021002330032-0211010212212331-2203211213221313-3230233020122313-2332232321323110-0222233022000132-2213132313201002)
+- [offline_survivability_mode.no_offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-2233002231223030-0212011300332022-2012001231113021-1001102003111201-0031312101200202-1101223031212211-2020003011303111-1020131102200201)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-e5ea75808f242f0e251269bda3967a77ecbc86b7bebb9ed42abca01ea77b7842"></a>
+<a id="canonical-3211322213112000-2033021002330032-0211010212212331-2203211213221313-3230233020122313-2332232321323110-0222233022000132-2213132313201002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-73fec1e9173c40235331040b0805c11ff3f6275e61f0f0f36a662739d041f45d"></a>
+<a id="canonical-1303333230013221-0113033010000203-1103030100100023-0020001130010133-3303331202131132-1201330033003303-1222121202130321-3100100133101131"></a>
 
-## offline_survivability_mode.enable_offline_survivability_mode — offline_survivability_mode.enable_offline_survivability_mode / 2d39924dd231 / 2
+## offline_survivability_mode.enable_offline_survivability_mode — enable_offline_survivability_mode / 103131020301 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-6723ac4ac38dc4b1691aa0cf9dabdebad2791a8eb4fac00fded397135cac5838)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-1213020322301022-3003203130102301-1221012222003033-2131222331322322-3102132101222032-2310332230000033-3132310321130103-1130223011200320)
 - offline_survivability_mode.enable_offline_survivability_mode
 
-<a id="canonical-e19fcd524baa6cb71db459238c99829a017dad515de0c0c747d85c3be8a2c819"></a>
+<a id="canonical-3201213330311102-1023222212302313-0131231011210203-2030212120022122-0001133122311101-1131320030003013-1013312011300323-3220220230200121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1796,37 +2635,37 @@ Terraform syntax:
 enable_offline_survivability_mode = {}
 ```
 
-<a id="canonical-3d51bab976dfe8898c0f6eb43d83db9ac5c5e95469f508f618610b5addbe055e"></a>
+<a id="canonical-0331110123222321-1312313332202021-2030003312322310-0331200331232122-3011301132211110-1221331100203312-0120120100231122-3131233200111132"></a>
 
-## Direct properties — offline_survivability_mode.enable_offline_survivability_mode / 2d39924dd231 / 3
+## Direct properties — enable_offline_survivability_mode / 103131020301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-86fe7173b61d9d47be17343805338aa255e37fc80dc0481bcd1fd7f7f0d3e2db"></a>
+<a id="canonical-2012333213011303-2312013121311013-2332011303100320-0011030320222202-1111320313333020-0031300010200123-3031013331133313-3300310332023123"></a>
 
-## Next pages — offline_survivability_mode.enable_offline_survivability_mode / 2d39924dd231 / 4
+## Next pages — enable_offline_survivability_mode / 103131020301 / 4
 
-- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-6723ac4ac38dc4b1691aa0cf9dabdebad2791a8eb4fac00fded397135cac5838)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-1213020322301022-3003203130102301-1221012222003033-2131222331322322-3102132101222032-2310332230000033-3132310321130103-1130223011200320)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-af0adacc26170f8a8606d5c9414835610dd9182251acd9a5880c5cd548752821"></a>
+<a id="canonical-2233002231223030-0212011300332022-2012001231113021-1001102003111201-0031312101200202-1101223031212211-2020003011303111-1020131102200201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d28af3b03a50c79e13c2755d27b2b82bceced281f601f706aa938035a07957dd"></a>
+<a id="canonical-3102202233032300-0322110030132132-0103300213111131-0213230223200223-3032303231022001-3312000133130012-2222210320000311-2200132111133131"></a>
 
-## offline_survivability_mode.no_offline_survivability_mode — offline_survivability_mode.no_offline_survivability_mode / 164d3d87e418 / 2
+## offline_survivability_mode.no_offline_survivability_mode — no_offline_survivability_mode / 201332100120 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-6723ac4ac38dc4b1691aa0cf9dabdebad2791a8eb4fac00fded397135cac5838)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-1213020322301022-3003203130102301-1221012222003033-2131222331322322-3102132101222032-2310332230000033-3132310321130103-1130223011200320)
 - offline_survivability_mode.no_offline_survivability_mode
 
-<a id="canonical-e59f7deaba71a742bf2a2eb6d36116d4bb16564061bfc713a501b8c0896a29a4"></a>
+<a id="canonical-3211213313313222-2322130122131002-2333022202322312-3103120101123110-2323011211121000-1201233330130103-2211000123203000-2021122202212210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1855,36 +2694,36 @@ Terraform syntax:
 no_offline_survivability_mode = {}
 ```
 
-<a id="canonical-c0dfa5ea25703e3ebed1b06bb4cc2f391c184b69df39d48b7c0a7ea350fca56f"></a>
+<a id="canonical-3000313322113222-0211130003320332-2332310123001223-2310303002330321-0130012010231221-3133032131102023-1330002213322203-1100333022111233"></a>
 
-## Direct properties — offline_survivability_mode.no_offline_survivability_mode / 164d3d87e418 / 3
+## Direct properties — no_offline_survivability_mode / 201332100120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-18fe7fdb129ddcce5e632ce90b5b36d68e816d56d6a4aa33d854272a826ab0c6"></a>
+<a id="canonical-0120333213333123-0102213131303032-1132120302303221-0023112303123112-2032200112311112-3112221022220303-3120111002130222-2002122223003012"></a>
 
-## Next pages — offline_survivability_mode.no_offline_survivability_mode / 164d3d87e418 / 4
+## Next pages — no_offline_survivability_mode / 201332100120 / 4
 
-- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-6723ac4ac38dc4b1691aa0cf9dabdebad2791a8eb4fac00fded397135cac5838)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [offline_survivability_mode](resources--azure_vnet_site--reference--group-008.md#canonical-1213020322301022-3003203130102301-1221012222003033-2131222331322322-3102132101222032-2310332230000033-3132310321130103-1130223011200320)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-70dd020b208d2a6edaf4a3aae30f4ff67ffceee27ffc85af22c92dc13e8b70af"></a>
+<a id="canonical-1300313100020023-0200203102221232-3122331022032222-3203003310333312-1333333032323202-1333333020112233-0202302102313001-0332202313002233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0580abc401719f454bcf459acfc55b5aa2f7108db11707091e2a7a72c9ebbbb4"></a>
+<a id="canonical-0011200022233010-0001130121331011-1023303310112122-3033301111231122-2202331301002031-2301011300130021-0132022213221302-3021322323232310"></a>
 
-## os — os / 3ef8a9d92645 / 2
+## os — os / 312102121011 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - os
 
-<a id="canonical-ec07e2c6748f8fc2a471c7d6cc0d504a3545ce5cd48cafa9d49ed6768cf874e4"></a>
+<a id="canonical-3230001332023012-1310203320333002-2210130130133112-3030003111001022-0311101130321130-3110203022332221-3110213231121312-2030332013103210"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1925,17 +2764,17 @@ os {
 }
 ```
 
-<a id="canonical-19f3de97fe5e10daa80c3524efbe44a259e9d2fb16c5b13b6f40180f5115cc44"></a>
+<a id="canonical-0121330331322113-3332113201003122-2220003003110210-3233233210102202-1121322131023323-0112301123010323-1233100001200033-1101011130301010"></a>
 
-## Direct properties — os / 3ef8a9d92645 / 3
+## Direct properties — os / 312102121011 / 3
 
-- [default_os_version](resources--azure_vnet_site--reference--group-008.md#canonical-d9a4b1fea46c9de6da3e2132e2db0cb3d0ccf1482556b9d53759a06730ae53ab): complete subsection reference.
+- [default_os_version](resources--azure_vnet_site--reference--group-008.md#canonical-3121221023013332-2210123021313212-3122033202010302-3202312300302303-3100303033011020-0211111223213111-0313112122001213-0300223211032223): complete subsection reference.
 
-<a id="canonical-d98f47ec771868ba7e3268e0bedfca045c6bc51eb75ea84827e01362333df3d0"></a>
+<a id="canonical-3121203310133230-1313012012202322-1332030212203200-2332313330220010-1130122330110132-2313113222201020-0213320001031202-0303033133033100"></a>
 
-<a id="canonical-3b39b82435427af179ce5f0d8da38c1777258c56e5a165d7971e5ef4fb612c7b"></a>
+<a id="canonical-0323032123200210-0311100213223301-1321303211330031-2031220320300113-1313021120301112-3211220112113113-2113013211323310-3323120102301323"></a>
 
-## operating_system_version property — os / 3ef8a9d92645 / 4
+## operating_system_version property — os / 312102121011 / 4
 
 Type: `"string"`. Optional.
 
@@ -1984,32 +2823,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4b8fe882ac1571bf3653a77480bd979590a8d5eed6336c8bed6fae9972cb609d"></a>
+<a id="canonical-1023203332202002-2230011113012333-0312110322131310-2000233121132111-2100222031113232-3112030312302023-3231123322322121-1302302312002131"></a>
 
-## Next pages — os / 3ef8a9d92645 / 5
+## Next pages — os / 312102121011 / 5
 
-- [os.default_os_version](resources--azure_vnet_site--reference--group-008.md#canonical-d9a4b1fea46c9de6da3e2132e2db0cb3d0ccf1482556b9d53759a06730ae53ab)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [os.default_os_version](resources--azure_vnet_site--reference--group-008.md#canonical-3121221023013332-2210123021313212-3122033202010302-3202312300302303-3100303033011020-0211111223213111-0313112122001213-0300223211032223)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-d9a4b1fea46c9de6da3e2132e2db0cb3d0ccf1482556b9d53759a06730ae53ab"></a>
+<a id="canonical-3121221023013332-2210123021313212-3122033202010302-3202312300302303-3100303033011020-0211111223213111-0313112122001213-0300223211032223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-25a1959cd2801352247c31dc07999c982f6a1ae8421a688866f4b43cf68a7080"></a>
+<a id="canonical-0211220121112130-3102200001031102-0210133003013130-0013212121302120-0233122201223220-1002012212202020-1212331023100330-3312202213002000"></a>
 
-## os.default_os_version — os.default_os_version / 3e388daca4d6 / 2
+## os.default_os_version — default_os_version / 223022103112 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [os](resources--azure_vnet_site--reference--group-008.md#canonical-70dd020b208d2a6edaf4a3aae30f4ff67ffceee27ffc85af22c92dc13e8b70af)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [os](resources--azure_vnet_site--reference--group-008.md#canonical-1300313100020023-0200203102221232-3122331022032222-3203003310333312-1333333032323202-1333333020112233-0202302102313001-0332202313002233)
 - os.default_os_version
 
-<a id="canonical-d06a4088d5ec806b8ff9219198fa36f5448fe66d0d4c51a95c43f0ce527f8c6a"></a>
+<a id="canonical-3100122210002020-3111323020001223-2033332102012101-2120332203123311-1010203332121231-0031103011012221-1130100333003032-1102133320301222"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2038,36 +2877,36 @@ Terraform syntax:
 default_os_version = {}
 ```
 
-<a id="canonical-262e8b4bbf4729d3fd8ada2f3b7b924abde4ae9729a11e3922a829d9159bc0ce"></a>
+<a id="canonical-0212023220231023-2333101302213103-3331202231220233-0323132321021022-2331321022322113-0221220101320321-0202222002213121-0111212330003032"></a>
 
-## Direct properties — os.default_os_version / 3e388daca4d6 / 3
+## Direct properties — default_os_version / 223022103112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4237a0f1f4aceccc1a993c854d3081b65ad05b9d439bf247ef4796a25727909b"></a>
+<a id="canonical-1002031322003301-3310223032303030-0122212103302011-1031030020012312-1122310011232131-1003212333021013-3233101321122202-1113021321002123"></a>
 
-## Next pages — os.default_os_version / 3e388daca4d6 / 4
+## Next pages — default_os_version / 223022103112 / 4
 
-- [os](resources--azure_vnet_site--reference--group-008.md#canonical-70dd020b208d2a6edaf4a3aae30f4ff67ffceee27ffc85af22c92dc13e8b70af)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [os](resources--azure_vnet_site--reference--group-008.md#canonical-1300313100020023-0200203102221232-3122331022032222-3203003310333312-1333333032323202-1333333020112233-0202302102313001-0332202313002233)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-44c595767a0eea838d43115b7d32a7c06c846d485a06c5ffc924da3ceec773d7"></a>
+<a id="canonical-1010301121111312-1322003232222003-2031100301011123-1331030222133000-1230201012311020-1122001230113333-3021021031220330-3232301313033113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2816f2564e3c47a902da485a44f38e0881c88c991f3e4a83fb14b5403d08b338"></a>
+<a id="canonical-0220011233021112-1032033010132221-0002312210201122-1010330320320020-2001302020302121-0133033210222003-3323011023111000-0331002023030320"></a>
 
-## sw — sw / 96acab4f7876 / 2
+## sw — sw / 103313201312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - sw
 
-<a id="canonical-2893e8b106a8b5416e19c084a9c2168de8f6432be547282536cf8caf8864715c"></a>
+<a id="canonical-0220210332202301-0012222023111001-1232012130002010-2221300201122031-3220331210030223-3211101302200211-0312303320302233-2020121013011130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2108,17 +2947,17 @@ sw {
 }
 ```
 
-<a id="canonical-fc6de07a64c5cd57b8232ececc456e9f2a92f17dd6116b97a2fa1a33bb3ce479"></a>
+<a id="canonical-3330123132001322-1210301130311113-2320020302323032-3030101112322133-0222210233011331-3112010112232113-2202332201220303-2323033032101321"></a>
 
-## Direct properties — sw / 96acab4f7876 / 3
+## Direct properties — sw / 103313201312 / 3
 
-- [default_sw_version](resources--azure_vnet_site--reference--group-008.md#canonical-7a1b3ef296447d4b2fa129266f73f8200fac4b841ad157616974775eadc214a2): complete subsection reference.
+- [default_sw_version](resources--azure_vnet_site--reference--group-008.md#canonical-1322012303323302-2112101013311023-0233220102210212-1233130333200200-0033223010232010-0122310111131201-1221131013131132-2231300201102202): complete subsection reference.
 
-<a id="canonical-6b0b64a6b0d535c371d1ac7d9cad41ceef961b8a22e5e468d32b29ea44d2af01"></a>
+<a id="canonical-1223002312102212-2300311103113003-1301310122301331-2130223110013032-3233211201232022-0202321132101220-3103022302213222-1010310222330001"></a>
 
-<a id="canonical-37ee65d61b77491d77582230244f48bc5472a608917372b82fb877e862cb1c16"></a>
+<a id="canonical-0313323212113112-0123131310210131-1313112002020300-0210103310202330-1110130222120020-2101130313022320-0233232013133220-1202302301300112"></a>
 
-## volterra_software_version property — sw / 96acab4f7876 / 4
+## volterra_software_version property — sw / 103313201312 / 4
 
 Type: `"string"`. Optional.
 
@@ -2169,32 +3008,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-961dcdd11fc6e96b214864af88f941048920466450aa93d9bde5ec343c920bf4"></a>
+<a id="canonical-2112013130313101-0133301232211223-0201102012102233-2020332110010010-2021020010121210-1100222221033121-2331321132300310-0330210200233310"></a>
 
-## Next pages — sw / 96acab4f7876 / 5
+## Next pages — sw / 103313201312 / 5
 
-- [sw.default_sw_version](resources--azure_vnet_site--reference--group-008.md#canonical-7a1b3ef296447d4b2fa129266f73f8200fac4b841ad157616974775eadc214a2)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [sw.default_sw_version](resources--azure_vnet_site--reference--group-008.md#canonical-1322012303323302-2112101013311023-0233220102210212-1233130333200200-0033223010232010-0122310111131201-1221131013131132-2231300201102202)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-7a1b3ef296447d4b2fa129266f73f8200fac4b841ad157616974775eadc214a2"></a>
+<a id="canonical-1322012303323302-2112101013311023-0233220102210212-1233130333200200-0033223010232010-0122310111131201-1221131013131132-2231300201102202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0a4d2a5c8a68b965322e6e2c9244d3698648ea14dc306941144236fb6b963407"></a>
+<a id="canonical-0022103102221130-2022122023211211-0302023212320230-2102101031031221-2012102032220110-3130030012211001-0110100203123323-1223211203100013"></a>
 
-## sw.default_sw_version — sw.default_sw_version / 10a392a3fded / 2
+## sw.default_sw_version — default_sw_version / 220333313231 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [sw](resources--azure_vnet_site--reference--group-008.md#canonical-44c595767a0eea838d43115b7d32a7c06c846d485a06c5ffc924da3ceec773d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [sw](resources--azure_vnet_site--reference--group-008.md#canonical-1010301121111312-1322003232222003-2031100301011123-1331030222133000-1230201012311020-1122001230113333-3021021031220330-3232301313033113)
 - sw.default_sw_version
 
-<a id="canonical-05bfa209d9d57202caa342ba37744a718c6499797e8784fba026127bbfbd0801"></a>
+<a id="canonical-0011233322020021-3121311113020002-3022220310022322-0313131010221301-2030121021211321-1332201320103323-2200021201021323-2333233100200001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2223,36 +3062,36 @@ Terraform syntax:
 default_sw_version = {}
 ```
 
-<a id="canonical-aac6c7e2c704ef9fd21fbf1adb0613359ae0298db467ba5069253791c2cad192"></a>
+<a id="canonical-2222301230133202-3013001032332133-3102013323330122-3123001201030311-2122320002212031-2310121323221100-1221021103132101-3002302231012102"></a>
 
-## Direct properties — sw.default_sw_version / 10a392a3fded / 3
+## Direct properties — default_sw_version / 220333313231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5207987749a4c9a0f35c2715ceea02f71b722c518c0c569fba68a445cdea5137"></a>
+<a id="canonical-1102001321201313-1021221030212200-3303113002130111-3032322200023313-0123130202301101-2030003011122133-2322122022101011-3031322211010313"></a>
 
-## Next pages — sw.default_sw_version / 10a392a3fded / 4
+## Next pages — default_sw_version / 220333313231 / 4
 
-- [sw](resources--azure_vnet_site--reference--group-008.md#canonical-44c595767a0eea838d43115b7d32a7c06c846d485a06c5ffc924da3ceec773d7)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [sw](resources--azure_vnet_site--reference--group-008.md#canonical-1010301121111312-1322003232222003-2031100301011123-1331030222133000-1230201012311020-1122001230113333-3021021031220330-3232301313033113)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-7aaf0ee72da98f9252c44a72ca2e351fbad6c9e97e7f0920851c965169a6da21"></a>
+<a id="canonical-1322223300323213-0231222120332102-1102301010221302-3022023203110133-2322311230213221-1332133300210200-2011013021121101-1221221231220201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d49c0655a5b4796e0b0642aff22f8e4fa12fdc76166bd1fedab6a2573af3097e"></a>
+<a id="canonical-3110213000121111-2211231013211232-0023001210022233-3302023320321033-2201023331301312-0112122331013332-3122231222021113-0322330300211332"></a>
 
-## timeouts — timeouts / ccc92bec6907 / 2
+## timeouts — timeouts / 323012210013 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - timeouts
 
-<a id="canonical-b113bc5a804095a6de310b43deebf31812d44d26f28881f50e88bd87cf2e2cb2"></a>
+<a id="canonical-2301010323301122-2000100021112212-3132030100231003-3132322333030120-0102311010310212-3302202020013311-0032202023312013-3033023202302302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2264,15 +3103,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-cf69f5c5d94ebed59f82565823d94f967d756e661528d29c3784624459f02c9e"></a>
+<a id="canonical-3033122133113011-3121103223323111-2133200211121120-0203312110332112-1331131112321212-0111022031022130-0313201012021010-1121330002302132"></a>
 
-## Direct properties — timeouts / ccc92bec6907 / 3
+## Direct properties — timeouts / 323012210013 / 3
 
-<a id="canonical-eb9221f3bf75afd0e13039be7ab935241a0e3e65fdc2ccf8728f49f8eca46ef8"></a>
+<a id="canonical-3223210202013303-2333131122333100-3201030003212332-1322232103110210-0122003203321211-3331300230303320-1302203310213320-3230221012323320"></a>
 
-<a id="canonical-e16e14ad3d4a2a1502cb3a66e67166dd46e4e658bfa21e971954e947644df4a5"></a>
+<a id="canonical-3201123201102231-0331102202220111-0002302303221212-3212130112123131-1012321032121120-2333220201322113-0121111032211013-1210103133102211"></a>
 
-## create property — timeouts / ccc92bec6907 / 4
+## create property — timeouts / 323012210013 / 4
 
 Type: `"string"`. Optional.
 
@@ -2280,11 +3119,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-3d9013fb875227685d14541e5aa97aebbfd21e1fd928e489f1db4cfa86a1cfba"></a>
+<a id="canonical-0331210001033323-2013110202131220-1131011011100132-1122222113223223-2333310201320133-3121022032102021-3301312310303322-2012220130332322"></a>
 
-<a id="canonical-3019a2168ff22db24c41dbe820ca2b2f01348f33b9f885395604af932897e8e5"></a>
+<a id="canonical-0300012122020112-2033330202312302-1030100131233220-0200302202230233-0001031020330303-2321332020110321-1112001022332103-0220211332203211"></a>
 
-## delete property — timeouts / ccc92bec6907 / 5
+## delete property — timeouts / 323012210013 / 5
 
 Type: `"string"`. Optional.
 
@@ -2293,11 +3132,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-4b24225d238d0f96ff6f076a3f4b4e46a6adb072f07c909ee5d19e9913a6c71e"></a>
+<a id="canonical-1023021002021131-0203203100332112-3333123300131222-0333102310321012-2212223123001302-3300133021002132-3211310121322121-0103221230130132"></a>
 
-<a id="canonical-d162849fd85e85a236a7b58fcb43e11b8fcda1c360c104dc098c665e0077b1f6"></a>
+<a id="canonical-3101120220102133-3120113220112202-0312221323112033-3023100332010123-2033303122013003-1200300100103130-0021203012121132-0000131323013312"></a>
 
-## read property — timeouts / ccc92bec6907 / 6
+## read property — timeouts / 323012210013 / 6
 
 Type: `"string"`. Optional.
 
@@ -2306,11 +3145,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-afce0b0e9e3ad3addee7940f82f1e32bbfce3e3c7cd94ca46d1e398fe72f9f70"></a>
+<a id="canonical-2233303200230032-2132032231032231-3132321321100033-2002330132030223-2333303203320330-1330312110302210-1231013203212033-3213023321331300"></a>
 
-<a id="canonical-6056089c55fb164b65c17f1791bd75925e858b5601a8c1a4d1644411ae770172"></a>
+<a id="canonical-1200111200202130-1111332301121023-1211300113330113-2101233113112102-1132201120231112-0001222030012210-3101121010100101-2232131300011302"></a>
 
-## update property — timeouts / ccc92bec6907 / 7
+## update property — timeouts / 323012210013 / 7
 
 Type: `"string"`. Optional.
 
@@ -2318,30 +3157,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-a8fb30133d529b125d1e2fa19f59e80828e67182ad1846364131df9c7efeb2bb"></a>
+<a id="canonical-2220332303000103-0331110221230102-1131013202332201-2133112132200020-0220321213012002-2231012010120312-1001030131332130-1332333223022323"></a>
 
-## Next pages — timeouts / ccc92bec6907 / 8
+## Next pages — timeouts / 323012210013 / 8
 
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93"></a>
+<a id="canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3176ddc922087b19392cf173c17982f9c99318b29e4f6d9f51024381551d16e2"></a>
+<a id="canonical-0301131231313021-0202002013230121-0321023033011303-3001132120023321-3021210301202302-2132103312312133-1101000210032001-1111013101123202"></a>
 
-## vnet — vnet / 71b2deb25908 / 2
+## vnet — vnet / 230211210020 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - vnet
 
-<a id="canonical-438fd3f40e4c60bfc68ab88a38b34430f6a6bb29780893808427a6558787960f"></a>
+<a id="canonical-1003203331033310-0032103012002333-3012202223202022-0320230310100300-3312221223230221-1320002021032000-2010021322121111-2013201321120033"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2380,41 +3219,41 @@ vnet {
 }
 ```
 
-<a id="canonical-94bc6905b44166565af0d206080bb685432a99f3409efcbca695a95116168350"></a>
+<a id="canonical-2110233012210011-2310100112121112-1122330031020012-0020002323122011-1003022221213303-1000213233302330-2212211122211101-0112011220031100"></a>
 
-## Direct properties — vnet / 71b2deb25908 / 3
+## Direct properties — vnet / 230211210020 / 3
 
-- [existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e): complete subsection reference.
+- [existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032): complete subsection reference.
 
-- [new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-94a563c34282b9d43d0f79e66332fcfd82d81cf45fecf9872e32b7bb5c6f1ae4): complete subsection reference.
+- [new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2110221112033003-1002200223213110-0331003313213212-1203030233303331-2002312001303310-1133323033212013-0232030223132323-1130123301223210): complete subsection reference.
 
-<a id="canonical-78ec581f3da4f1b62210507117d91dbdad3ed296351f412fba4e8988f413feb8"></a>
+<a id="canonical-1320323011200133-0331221033012312-0202010011001301-0113312101312331-2231033231022112-0311013310010233-2322103220212020-3310010333322320"></a>
 
-## Next pages — vnet / 71b2deb25908 / 4
+## Next pages — vnet / 230211210020 / 4
 
-- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e)
-- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-94a563c34282b9d43d0f79e66332fcfd82d81cf45fecf9872e32b7bb5c6f1ae4)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032)
+- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2110221112033003-1002200223213110-0331003313213212-1203030233303331-2002312001303310-1133323033212013-0232030223132323-1130123301223210)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e"></a>
+<a id="canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-62c0cdafb655d815ea25270bde2530df3e17e60cde690c7f3d85e7ca4515903e"></a>
+<a id="canonical-1202300030312233-2312111131200111-3222021102130023-3132021103003133-0332011332120030-3132122100301333-0331201132133022-1011011121000332"></a>
 
-## vnet.existing_vnet — vnet.existing_vnet / 8d1439a691b1 / 2
+## vnet.existing_vnet — existing_vnet / 221221012301 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
 - vnet.existing_vnet
 
-<a id="canonical-827c4fa2ce0d163a8c3583370877ddad1a336e7b8e8d5e8ee693530af4c64708"></a>
+<a id="canonical-2002133010332202-3032003101120322-2030031120030313-0020131331312231-0122030312321323-2032203111322032-3212210311030022-3310301210130020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2451,19 +3290,19 @@ existing_vnet {
 }
 ```
 
-<a id="canonical-91c29001c446bb365f244801f727d0eca82f40ada57cbe4d28753ae658bb4072"></a>
+<a id="canonical-2101300221000001-3010101223230312-1133021010200001-3313021331003230-2220023310002231-2211133023321031-0220131103223212-1120232310001302"></a>
 
-## Direct properties — vnet.existing_vnet / 8d1439a691b1 / 3
+## Direct properties — existing_vnet / 221221012301 / 3
 
-- [f5_orchestrated_routing](resources--azure_vnet_site--reference--group-008.md#canonical-7bd7bf763e13f9c3a5cd6ef35bbb2e728ec3f370500d931d03b0516f50605ca1): complete subsection reference.
+- [f5_orchestrated_routing](resources--azure_vnet_site--reference--group-008.md#canonical-1323311323331312-0332010333213003-2211303112323303-1123232302321302-2032300333031300-1100003121030131-0003230011011233-1100120011302201): complete subsection reference.
 
-- [manual_routing](resources--azure_vnet_site--reference--group-008.md#canonical-28c1680035a532e99781ecb86832f2e7727947ccfba1d5d932fc8f509ce1ff80): complete subsection reference.
+- [manual_routing](resources--azure_vnet_site--reference--group-008.md#canonical-0220300112200000-0311221103023221-2113200132302320-1220030233023213-1302132110133030-3323220131113121-0302333020331100-2130320133332000): complete subsection reference.
 
-<a id="canonical-cfcfa2f47659cc2ec8fe16a5f51f4dac3a47d42d7e5490d032a08f623f1f20b7"></a>
+<a id="canonical-3033303322023310-1312112130300232-3020333201122211-3311013310312230-0322101331100231-1332111021003100-0302220020331202-0333013302002313"></a>
 
-<a id="canonical-34d3d7358b877475f090aa47b611aa3ae2f7d19f27b6e5103133c181a77e97d8"></a>
+<a id="canonical-0310310331130311-2023201313101311-3300210022221013-2312010122220322-3202331331012133-0213231232110100-0301030330012001-2213133221133120"></a>
 
-## resource_group property — vnet.existing_vnet / 8d1439a691b1 / 4
+## resource_group property — existing_vnet / 221221012301 / 4
 
 Type: `"string"`. Optional.
 
@@ -2518,11 +3357,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05450d32aafd74c375cd7754dfd88afb716ef56de74350b5bbb19e2f1665c021"></a>
+<a id="canonical-0011101100310302-2222333113103003-1311303113131110-3133312020223323-1301123233111231-3213100311002311-2323230121320233-0112121130000201"></a>
 
-<a id="canonical-fe1c0409171d5132189c6abd20c43cf23df7d3d5df744233ac968c05a4cb54b9"></a>
+<a id="canonical-3332013000100021-0113013111010302-0120213012222331-0200301003303302-0331331331033111-3133131010020303-2230211220300011-2210302311102321"></a>
 
-## vnet_name property — vnet.existing_vnet / 8d1439a691b1 / 5
+## vnet_name property — existing_vnet / 221221012301 / 5
 
 Type: `"string"`. Optional.
 
@@ -2577,34 +3416,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-01c31fd471c0312c0582e102f0e0a776c50d4b7731985d6f85c00900c0d3728b"></a>
+<a id="canonical-0001300301333110-1301300003010230-0011200232010002-3300320022131312-3011003110231313-0301212011311233-2011300000210000-3000310313022023"></a>
 
-## Next pages — vnet.existing_vnet / 8d1439a691b1 / 6
+## Next pages — existing_vnet / 221221012301 / 6
 
-- [vnet.existing_vnet.f5_orchestrated_routing](resources--azure_vnet_site--reference--group-008.md#canonical-7bd7bf763e13f9c3a5cd6ef35bbb2e728ec3f370500d931d03b0516f50605ca1)
-- [vnet.existing_vnet.manual_routing](resources--azure_vnet_site--reference--group-008.md#canonical-28c1680035a532e99781ecb86832f2e7727947ccfba1d5d932fc8f509ce1ff80)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.existing_vnet.f5_orchestrated_routing](resources--azure_vnet_site--reference--group-008.md#canonical-1323311323331312-0332010333213003-2211303112323303-1123232302321302-2032300333031300-1100003121030131-0003230011011233-1100120011302201)
+- [vnet.existing_vnet.manual_routing](resources--azure_vnet_site--reference--group-008.md#canonical-0220300112200000-0311221103023221-2113200132302320-1220030233023213-1302132110133030-3323220131113121-0302333020331100-2130320133332000)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-7bd7bf763e13f9c3a5cd6ef35bbb2e728ec3f370500d931d03b0516f50605ca1"></a>
+<a id="canonical-1323311323331312-0332010333213003-2211303112323303-1123232302321302-2032300333031300-1100003121030131-0003230011011233-1100120011302201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f36da7b7dd48a44e14d314697eb570c67fb3f31c9c4aaa1f94610a7f39b4ee60"></a>
+<a id="canonical-3303123122132313-3131102022101032-0110310301101221-1332231113003012-1333230333030130-2130102222220133-2110120100221333-0321231032321200"></a>
 
-## vnet.existing_vnet.f5_orchestrated_routing — vnet.existing_vnet.f5_orchestrated_routing / 3b2e2787bb32 / 2
+## vnet.existing_vnet.f5_orchestrated_routing — f5_orchestrated_routing / 201323230302 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
-- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
+- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032)
 - vnet.existing_vnet.f5_orchestrated_routing
 
-<a id="canonical-8d183ffdf0f774e95c3c093550e918d045c1186260bee03e0fd6edc93446b293"></a>
+<a id="canonical-2031012003333331-3300331313103221-1130033000210311-1100322101203100-1011300101201202-1200233232000332-0033311232313021-0310101223022103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2633,38 +3472,38 @@ Terraform syntax:
 f5_orchestrated_routing = {}
 ```
 
-<a id="canonical-f05a5f16c5750b16ede27ed61eca36da65ba71aa4bf0277c7358d12f673ff092"></a>
+<a id="canonical-3300112211330112-3011131100230112-3231320213323112-0132302203123122-1211232213012222-1023330002131330-1303112031010233-1213033333002102"></a>
 
-## Direct properties — vnet.existing_vnet.f5_orchestrated_routing / 3b2e2787bb32 / 3
+## Direct properties — f5_orchestrated_routing / 201323230302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0b1aad949f9d81666ba73f72359d4afd32787a0ebb6f90cca19dcf450a6e97b1"></a>
+<a id="canonical-0023012222312110-2133213120011212-1223221303331302-0311213110223331-0302132013220032-2323123321003030-2201213130331011-0022123221132301"></a>
 
-## Next pages — vnet.existing_vnet.f5_orchestrated_routing / 3b2e2787bb32 / 4
+## Next pages — f5_orchestrated_routing / 201323230302 / 4
 
-- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-28c1680035a532e99781ecb86832f2e7727947ccfba1d5d932fc8f509ce1ff80"></a>
+<a id="canonical-0220300112200000-0311221103023221-2113200132302320-1220030233023213-1302132110133030-3323220131113121-0302333020331100-2130320133332000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7f6cf3b5932372af80ad09a991ad32cd9daea82f5fb6fe6d147f11907f7bee35"></a>
+<a id="canonical-1333123033032311-2103020313022233-2000223100212221-2101223103023031-2131223222200233-1133231233321231-0110133301012100-1333132332320311"></a>
 
-## vnet.existing_vnet.manual_routing — vnet.existing_vnet.manual_routing / 11a6d02c583f / 2
+## vnet.existing_vnet.manual_routing — manual_routing / 023011200333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
-- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
+- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032)
 - vnet.existing_vnet.manual_routing
 
-<a id="canonical-85ded0f765fb98124ca2b6f8c669440f72af4e75bdc0327346cb4c3e04dc4556"></a>
+<a id="canonical-2011313231003313-1211332321200102-1030220223123320-3012122110100033-1302223310321311-2331300003021303-1012302310300332-0010313010111112"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2693,37 +3532,37 @@ Terraform syntax:
 manual_routing = {}
 ```
 
-<a id="canonical-501d478148277662538c5788eeb6598f73aba0ea7547f900bb9f20e6f9c12bc2"></a>
+<a id="canonical-1100013110132001-1020021313121202-1103203011132020-3232231211212033-1303222322003222-1311101333210000-2323213302003212-3321300102233002"></a>
 
-## Direct properties — vnet.existing_vnet.manual_routing / 11a6d02c583f / 3
+## Direct properties — manual_routing / 023011200333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c76bcdc7cbe1bc33d1841db57363e0d66cbb5a0ff02109f5e3a629d7274c6acf"></a>
+<a id="canonical-3013122330313013-3023320123300303-3101201001312311-1303120332003112-1230232311220033-3300020100213311-3203221202213113-0213103012223033"></a>
 
-## Next pages — vnet.existing_vnet.manual_routing / 11a6d02c583f / 4
+## Next pages — manual_routing / 023011200333 / 4
 
-- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-4b76e83b6d3d61e39cc10afd26534209bc05d7e311c1d83324386a5434b92f4e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.existing_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-1023131232200323-1231033112013203-2130300100223331-0212110310020021-2330001131133203-0101300131200303-0210032012221110-0310232102331032)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-94a563c34282b9d43d0f79e66332fcfd82d81cf45fecf9872e32b7bb5c6f1ae4"></a>
+<a id="canonical-2110221112033003-1002200223213110-0331003313213212-1203030233303331-2002312001303310-1133323033212013-0232030223132323-1130123301223210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2257b3999763a89071a5c7fc68fb536980bd68849ae52e5d5e30e1e2d03a8f3b"></a>
+<a id="canonical-0202111323032121-2113120322202100-1301221130133330-1220332311031221-2000233112202010-2122321102321131-1132030032013202-3100032220330323"></a>
 
-## vnet.new_vnet — vnet.new_vnet / 345e52b1e2bb / 2
+## vnet.new_vnet — new_vnet / 230132022323 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
 - vnet.new_vnet
 
-<a id="canonical-1da9dca7b97de66ac28a6718a3e14c77e6035a379148c2523cd28eb6c789ec77"></a>
+<a id="canonical-0131222131302213-2321133132121222-3002202212130120-2203320110301313-3212000311220313-2101102030021102-0330310220322312-3013202132301313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2763,17 +3602,17 @@ new_vnet {
 }
 ```
 
-<a id="canonical-404dd37b64797d754e3cd29253206b4270e7183c7a0226212561004f3785c901"></a>
+<a id="canonical-1000103131031323-1210132113311311-1032033031022102-1103020012231002-1300321301200330-1322000202120201-0211120100001033-0313201130210001"></a>
 
-## Direct properties — vnet.new_vnet / 345e52b1e2bb / 3
+## Direct properties — new_vnet / 230132022323 / 3
 
-- [autogenerate](resources--azure_vnet_site--reference--group-008.md#canonical-2f71e56cd3e8494bb88fc1f8ca07fa6047c4686e23ae90861ec5a102c4f2087e): complete subsection reference.
+- [autogenerate](resources--azure_vnet_site--reference--group-008.md#canonical-0233130132111230-3103322010211023-2320203330013320-3022001333221200-1013301012201232-0203223221002012-0132301122010002-3010330200201332): complete subsection reference.
 
-<a id="canonical-f7dc61aa380843b04d0be430d743b12aea41b75b6c18b09622407c2bc55ffe53"></a>
+<a id="canonical-3313313012012222-0320002010032300-1031002332100300-3113100323010222-3222100123131123-1230012023002112-0202100013300223-3011113333321103"></a>
 
-<a id="canonical-f46f890db5fbbfcfc2df7f094678e54370be1d0932c907b8bcce306d9f63c31a"></a>
+<a id="canonical-3310123320210031-2311332323333033-3002313313330021-1012132032111003-1300233201310021-0302302100132320-2330303203001231-2133120330030122"></a>
 
-## name property — vnet.new_vnet / 345e52b1e2bb / 4
+## name property — new_vnet / 230132022323 / 4
 
 Type: `"string"`. Optional.
 
@@ -2839,11 +3678,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6463a2ac7db91c13d9270515ede2fe90a0a030871353d633d6d464951b1a973f"></a>
+<a id="canonical-1210120322022230-1331232101300103-3121021300110111-3231320233322100-2200220003002013-0103110331120303-3112311012102111-0123012221130333"></a>
 
-<a id="canonical-a995d13639efab783b60e797ed26921c74fbd41b32dd44a7e1dcaecd6e84781d"></a>
+<a id="canonical-2221211131010312-0321323322231320-0323120032132113-3231021221020130-1310332331100123-0302313110102213-3201313022323031-1232201013200131"></a>
 
-## primary_ipv4 property — vnet.new_vnet / 345e52b1e2bb / 5
+## primary_ipv4 property — new_vnet / 230132022323 / 5
 
 Type: `"string"`. Optional.
 
@@ -2884,33 +3723,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fabceee01afde91875afcc2910436942a0aa72bfd9fc24e1f7c5a0ee4b3e2ab7"></a>
+<a id="canonical-3322233032323200-0122333132210120-1311223330300221-0100100312211002-2200222213022333-3121333002103201-3313301122003232-1023033202222313"></a>
 
-## Next pages — vnet.new_vnet / 345e52b1e2bb / 6
+## Next pages — new_vnet / 230132022323 / 6
 
-- [vnet.new_vnet.autogenerate](resources--azure_vnet_site--reference--group-008.md#canonical-2f71e56cd3e8494bb88fc1f8ca07fa6047c4686e23ae90861ec5a102c4f2087e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.new_vnet.autogenerate](resources--azure_vnet_site--reference--group-008.md#canonical-0233130132111230-3103322010211023-2320203330013320-3022001333221200-1013301012201232-0203223221002012-0132301122010002-3010330200201332)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-2f71e56cd3e8494bb88fc1f8ca07fa6047c4686e23ae90861ec5a102c4f2087e"></a>
+<a id="canonical-0233130132111230-3103322010211023-2320203330013320-3022001333221200-1013301012201232-0203223221002012-0132301122010002-3010330200201332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-551eb9b45d11bab0518e320ff4e02ecc556d9304638fe7030b3d1a8af0114e8e"></a>
+<a id="canonical-1111013223212310-1131010123222300-1101203203020033-3310320002323030-1111123121030010-1203203332130003-0023033101222022-3300010110322032"></a>
 
-## vnet.new_vnet.autogenerate — vnet.new_vnet.autogenerate / 397644797543 / 2
+## vnet.new_vnet.autogenerate — autogenerate / 132113111003 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-8c0e3483e56222f4feb0fd6a8c47c326590ec63eab2337454d8ded6295ce7d93)
-- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-94a563c34282b9d43d0f79e66332fcfd82d81cf45fecf9872e32b7bb5c6f1ae4)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2030003203102003-3211120202023310-3332230033311222-2030101330030212-1121003230120332-2223020303131011-1031203132311202-2111303213312103)
+- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2110221112033003-1002200223213110-0331003313213212-1203030233303331-2002312001303310-1133323033212013-0232030223132323-1130123301223210)
 - vnet.new_vnet.autogenerate
 
-<a id="canonical-310690aba3efac87e537035f6ef1f89803592ab3cbc0c3d8ae6930a3c3ea6589"></a>
+<a id="canonical-0301001221002223-2203323322302013-3211031300031133-1232330133202120-0003112102222303-3023300030033120-2232122103002203-3003322212112021"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2939,36 +3778,36 @@ Terraform syntax:
 autogenerate = {}
 ```
 
-<a id="canonical-bf7749a3f9f5594724710aba6e2bb4692d700f56e67d398ec3f40dc0a8320b91"></a>
+<a id="canonical-2333131310212203-3321331111211013-0210130100222322-1232022323101221-0231130000331112-3212133103212032-3003331000313000-2220030200232101"></a>
 
-## Direct properties — vnet.new_vnet.autogenerate / 397644797543 / 3
+## Direct properties — autogenerate / 132113111003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-53186b39fa62aaaaf0880bacc33c4c90e81222946a08944c94189d7601d40003"></a>
+<a id="canonical-1103012012230321-3322120222222222-3300202000232230-3003033010302100-3220010202022110-1222002021101030-2110012021311312-0001311000000003"></a>
 
-## Next pages — vnet.new_vnet.autogenerate / 397644797543 / 4
+## Next pages — autogenerate / 132113111003 / 4
 
-- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-94a563c34282b9d43d0f79e66332fcfd82d81cf45fecf9872e32b7bb5c6f1ae4)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [vnet.new_vnet](resources--azure_vnet_site--reference--group-008.md#canonical-2110221112033003-1002200223213110-0331003313213212-1203030233303331-2002312001303310-1133323033212013-0232030223132323-1130123301223210)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314"></a>
+<a id="canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c4c64eff495ef9c9db76c102f798ac9f1fe7d20023825e5df9efb235a734e6b5"></a>
+<a id="canonical-3010301210323333-1021113233213021-3123131230010002-3313212022302133-0133321331020000-0203200211321131-3321323323020311-2213031032122311"></a>
 
-## voltstack_cluster — voltstack_cluster / 2b44c038cb45 / 2
+## voltstack_cluster — voltstack_cluster / 032030231011 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - voltstack_cluster
 
-<a id="canonical-5e0e75d724420192b7836a38457cc26788a32f8d6a90b5db1a9ef84ebe09a914"></a>
+<a id="canonical-1132003213113113-0210100200012102-2313200312220320-1011133030021213-2020220302332031-1222210023113123-0122213233201032-2332002122210110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3034,29 +3873,29 @@ voltstack_cluster {
 }
 ```
 
-<a id="canonical-6925f7e1a50155cb672222bc76f1a857bfb04375bde9e020ad731b93320ff314"></a>
+<a id="canonical-1221021133133201-2211000111113023-1213020202022330-1312330122201113-2333230010031311-2331322132000200-2231130301232103-0302003333030110"></a>
 
-## Direct properties — voltstack_cluster / 2b44c038cb45 / 3
+## Direct properties — voltstack_cluster / 032030231011 / 3
 
-- [accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba): complete subsection reference.
+- [accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322): complete subsection reference.
 
-- [active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-c7daa2b1eead26913cf943543104ade37afecb9636f69eb95b6b8b3b8d3ff556): complete subsection reference.
+- [active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3013312222022301-3232223102122101-0330332110031110-0301001022313203-1322333230232112-0312331221322321-1123122320230323-2031033333111112): complete subsection reference.
 
-- [active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-33ec78eec3070b27dcac18ed362ee719d939506c91581ffdf5fe357b73351a31): complete subsection reference.
+- [active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0303323013203232-3003001300230213-3130223001203231-0312023232130121-3121032111001230-2101112001333331-3311333203111323-1303031101220301): complete subsection reference.
 
-- [active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-5f0ab925481ff546dbce389f846a2a1e83e98011584758d4497d6150c48cd228): complete subsection reference.
+- [active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1133002223210211-1020013333111012-3123303203202133-2010122202220132-2003322120000101-1120101311203110-1021133112011100-3010203031020220): complete subsection reference.
 
-- [az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9): complete subsection reference.
+- [az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021): complete subsection reference.
 
-<a id="canonical-ad2371c20f2af1824179100ed50ebe6286a18cbf85271b890c2a416625e2a7f8"></a>
+<a id="canonical-2231020313013002-0033022233012002-1001132101000032-3111003223321202-2012220120302333-2011021301232021-0030022210011212-0211320222133320"></a>
 
-<a id="canonical-c698e3f16d605b95973215a5cfe7c6e5074bcd5879834272baaa140cb2c02e11"></a>
+<a id="canonical-3012212032033301-1231120011232111-2113030201112211-3033321330123211-0013102330311120-1321200310021302-2322222201100030-2302300002320101"></a>
 
-## azure_certified_hw property — voltstack_cluster / 2b44c038cb45 / 4
+## azure_certified_hw property — voltstack_cluster / 032030231011 / 4
 
 Type: `"string"`. Optional.
 
-\[Enum: azure-byol-voltstack-combo\] Azure Certified Hardware. Name for Azure certified hardware.
+\[Enum: Azure-byol-voltstack-combo\] Azure Certified Hardware. Name for Azure certified hardware.
 The only possible value is \`azure-byol-voltstack-combo\`.
 
 Upstream description:
@@ -3110,81 +3949,81 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [dc_cluster_group](resources--azure_vnet_site--reference--group-008.md#canonical-9d2d12a1b34075b677dd04161498868b24e0857164f1b741844d65f8cccd3d0a): complete subsection reference.
+- [dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-2131023101022201-2303100013112312-1313313100100112-0110212020122023-0210320020111301-1210330123131001-2010103112113320-3030303103310022): complete subsection reference.
 
-- [default_storage](resources--azure_vnet_site--reference--group-008.md#canonical-ed31b36fb96ae3be15150a7719135aebdb54e2fdb1a7466cbe4c60a030e14425): complete subsection reference.
+- [default_storage](resources--azure_vnet_site--reference--group-009.md#canonical-3231030123031233-2321122232032332-0111011100221313-0121010311223223-3123111032023331-2301221310121230-2332103012002200-0300320110100211): complete subsection reference.
 
-- [forward_proxy_allow_all](resources--azure_vnet_site--reference--group-008.md#canonical-c15dea8b1c56cbbe431e0b31debcee5d177ff009eac2f2f3d62ac6ee36c4344f): complete subsection reference.
+- [forward_proxy_allow_all](resources--azure_vnet_site--reference--group-009.md#canonical-3001113132222023-0130111230232332-1003013200230301-3132233032321131-0113133333000021-3222300233023303-3112022230123232-0312301003101033): complete subsection reference.
 
-- [global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f): complete subsection reference.
+- [global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-2220210311032001-2331030022323023-3230301222203031-0003110121033101-3301121312120023-0223331112203311-1110012300221302-0031310321121233): complete subsection reference.
 
-- [k8s_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d30e0699286fdea85a05f142127c4e9412c34f7bfc1257205aae6153dfa5c193): complete subsection reference.
+- [k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-3103003200122121-0220123331322220-1122001133011002-0102133010322110-0102300310331323-3330010211130200-1122223212011103-3133221130012103): complete subsection reference.
 
-- [no_dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-289e5681a9cf2e53242dcc84d84f97ca791fb0c3383962a8ba1d9a73adaba898): complete subsection reference.
+- [no_dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-0220213211122001-2221303302321103-0210023130302010-3120103321133022-1321013323003003-0320032112022220-2322013121221303-2231222322202120): complete subsection reference.
 
-- [no_forward_proxy](resources--azure_vnet_site--reference--group-009.md#canonical-da0a9f761b85bb12907956b73c9de07c013d2a221aed8b38eb299e527f86258f): complete subsection reference.
+- [no_forward_proxy](resources--azure_vnet_site--reference--group-009.md#canonical-3122002221331312-0123201123230102-2100132111122313-0330213132001330-0001033102220202-0122323120230320-3223022121321102-1333201202112033): complete subsection reference.
 
-- [no_global_network](resources--azure_vnet_site--reference--group-009.md#canonical-a832f2f4936449e6da6a29d31b957acde0e04f79c09f32485b52ecabc67ab28c): complete subsection reference.
+- [no_global_network](resources--azure_vnet_site--reference--group-009.md#canonical-2220030233023310-2103121010213212-3122122202213103-0123211113223031-3200320010331321-3000213303021020-1123110232302223-3012132223022030): complete subsection reference.
 
-- [no_k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-eebc49664723328c5667c67d2c0b2ef51f3daaf7ae64eb1fd7f9bc93b7bdc76d): complete subsection reference.
+- [no_k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-3232233010211212-1013020303022030-1112121330121331-0230002302323311-0133033122223313-2232121032230133-3113332123302103-2313233130131231): complete subsection reference.
 
-- [no_network_policy](resources--azure_vnet_site--reference--group-009.md#canonical-07114fe9e1bfc024bf75e993864a9f4f594519b6e0a53400b7b83ec05ea2ce19): complete subsection reference.
+- [no_network_policy](resources--azure_vnet_site--reference--group-009.md#canonical-0013010110333221-3201233330000210-2333131132212103-2012102221331033-1121101101212312-3200221103100000-2313232003323000-1132220230320121): complete subsection reference.
 
-- [no_outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-458d512fac829eb4805efac48006a46ceafc83a4a8805838e2191731127078a4): complete subsection reference.
+- [no_outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-1011203111010233-2230200221322310-2000113233223010-2000001222101230-3222333020032210-2220200011200320-3202012101130301-0102130013202210): complete subsection reference.
 
-- [outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-10b7b5c5ca2525688944c128802937ae34e397f8894fec2dde6dd487195ef2aa): complete subsection reference.
+- [outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-0100231323113011-3022021102111220-2021101030010220-2000022103132232-0310320321133320-2021103332300231-3132123131102013-0121113233022222): complete subsection reference.
 
-- [sm_connection_public_ip](resources--azure_vnet_site--reference--group-009.md#canonical-b97e72482667a76994786d259dab5022563f9130822b995a8826a686419910d5): complete subsection reference.
+- [sm_connection_public_ip](resources--azure_vnet_site--reference--group-009.md#canonical-2321133213021020-0212121322131221-2110132012310211-2131222311000202-1112033321010300-2002022321211122-2020021222122012-1001212101003111): complete subsection reference.
 
-- [sm_connection_pvt_ip](resources--azure_vnet_site--reference--group-009.md#canonical-c7d7c49bef3b6826e08eb566bee76348916abaaa4a828a15db5482e7b5ef09e9): complete subsection reference.
+- [sm_connection_pvt_ip](resources--azure_vnet_site--reference--group-009.md#canonical-3013311330102123-3233032312200212-3200203223111212-2332321312031020-2101122223222222-1022200220220111-3123111020023213-2311323300213221): complete subsection reference.
 
-- [storage_class_list](resources--azure_vnet_site--reference--group-009.md#canonical-f5eb60002d9390fbb074b58b83119e443d059edb53f00c5b35b3f02b327b480c): complete subsection reference.
+- [storage_class_list](resources--azure_vnet_site--reference--group-009.md#canonical-3311322312000000-0231210321003323-2300131023112023-2003010121321010-0331001121323123-1103330000301123-0311230333000223-0302132310200030): complete subsection reference.
 
-<a id="canonical-510be12d12c044a36ffe9edc3facf031f75c82edb631d8a4cb7374a33718b982"></a>
+<a id="canonical-1101002332010231-0102300010102203-1233333221323130-0333223033000301-3313113020023231-2312030131202210-3023130313102203-0313012023212002"></a>
 
-## Next pages — voltstack_cluster / 2b44c038cb45 / 5
+## Next pages — voltstack_cluster / 032030231011 / 5
 
-- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba)
-- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-c7daa2b1eead26913cf943543104ade37afecb9636f69eb95b6b8b3b8d3ff556)
-- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-33ec78eec3070b27dcac18ed362ee719d939506c91581ffdf5fe357b73351a31)
-- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-5f0ab925481ff546dbce389f846a2a1e83e98011584758d4497d6150c48cd228)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
-- [voltstack_cluster.dc_cluster_group](resources--azure_vnet_site--reference--group-008.md#canonical-9d2d12a1b34075b677dd04161498868b24e0857164f1b741844d65f8cccd3d0a)
-- [voltstack_cluster.default_storage](resources--azure_vnet_site--reference--group-008.md#canonical-ed31b36fb96ae3be15150a7719135aebdb54e2fdb1a7466cbe4c60a030e14425)
-- [voltstack_cluster.forward_proxy_allow_all](resources--azure_vnet_site--reference--group-008.md#canonical-c15dea8b1c56cbbe431e0b31debcee5d177ff009eac2f2f3d62ac6ee36c4344f)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [voltstack_cluster.k8s_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d30e0699286fdea85a05f142127c4e9412c34f7bfc1257205aae6153dfa5c193)
-- [voltstack_cluster.no_dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-289e5681a9cf2e53242dcc84d84f97ca791fb0c3383962a8ba1d9a73adaba898)
-- [voltstack_cluster.no_forward_proxy](resources--azure_vnet_site--reference--group-009.md#canonical-da0a9f761b85bb12907956b73c9de07c013d2a221aed8b38eb299e527f86258f)
-- [voltstack_cluster.no_global_network](resources--azure_vnet_site--reference--group-009.md#canonical-a832f2f4936449e6da6a29d31b957acde0e04f79c09f32485b52ecabc67ab28c)
-- [voltstack_cluster.no_k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-eebc49664723328c5667c67d2c0b2ef51f3daaf7ae64eb1fd7f9bc93b7bdc76d)
-- [voltstack_cluster.no_network_policy](resources--azure_vnet_site--reference--group-009.md#canonical-07114fe9e1bfc024bf75e993864a9f4f594519b6e0a53400b7b83ec05ea2ce19)
-- [voltstack_cluster.no_outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-458d512fac829eb4805efac48006a46ceafc83a4a8805838e2191731127078a4)
-- [voltstack_cluster.outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-10b7b5c5ca2525688944c128802937ae34e397f8894fec2dde6dd487195ef2aa)
-- [voltstack_cluster.sm_connection_public_ip](resources--azure_vnet_site--reference--group-009.md#canonical-b97e72482667a76994786d259dab5022563f9130822b995a8826a686419910d5)
-- [voltstack_cluster.sm_connection_pvt_ip](resources--azure_vnet_site--reference--group-009.md#canonical-c7d7c49bef3b6826e08eb566bee76348916abaaa4a828a15db5482e7b5ef09e9)
-- [voltstack_cluster.storage_class_list](resources--azure_vnet_site--reference--group-009.md#canonical-f5eb60002d9390fbb074b58b83119e443d059edb53f00c5b35b3f02b327b480c)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322)
+- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3013312222022301-3232223102122101-0330332110031110-0301001022313203-1322333230232112-0312331221322321-1123122320230323-2031033333111112)
+- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0303323013203232-3003001300230213-3130223001203231-0312023232130121-3121032111001230-2101112001333331-3311333203111323-1303031101220301)
+- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1133002223210211-1020013333111012-3123303203202133-2010122202220132-2003322120000101-1120101311203110-1021133112011100-3010203031020220)
+- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021)
+- [voltstack_cluster.dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-2131023101022201-2303100013112312-1313313100100112-0110212020122023-0210320020111301-1210330123131001-2010103112113320-3030303103310022)
+- [voltstack_cluster.default_storage](resources--azure_vnet_site--reference--group-009.md#canonical-3231030123031233-2321122232032332-0111011100221313-0121010311223223-3123111032023331-2301221310121230-2332103012002200-0300320110100211)
+- [voltstack_cluster.forward_proxy_allow_all](resources--azure_vnet_site--reference--group-009.md#canonical-3001113132222023-0130111230232332-1003013200230301-3132233032321131-0113133333000021-3222300233023303-3112022230123232-0312301003101033)
+- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-2220210311032001-2331030022323023-3230301222203031-0003110121033101-3301121312120023-0223331112203311-1110012300221302-0031310321121233)
+- [voltstack_cluster.k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-3103003200122121-0220123331322220-1122001133011002-0102133010322110-0102300310331323-3330010211130200-1122223212011103-3133221130012103)
+- [voltstack_cluster.no_dc_cluster_group](resources--azure_vnet_site--reference--group-009.md#canonical-0220213211122001-2221303302321103-0210023130302010-3120103321133022-1321013323003003-0320032112022220-2322013121221303-2231222322202120)
+- [voltstack_cluster.no_forward_proxy](resources--azure_vnet_site--reference--group-009.md#canonical-3122002221331312-0123201123230102-2100132111122313-0330213132001330-0001033102220202-0122323120230320-3223022121321102-1333201202112033)
+- [voltstack_cluster.no_global_network](resources--azure_vnet_site--reference--group-009.md#canonical-2220030233023310-2103121010213212-3122122202213103-0123211113223031-3200320010331321-3000213303021020-1123110232302223-3012132223022030)
+- [voltstack_cluster.no_k8s_cluster](resources--azure_vnet_site--reference--group-009.md#canonical-3232233010211212-1013020303022030-1112121330121331-0230002302323311-0133033122223313-2232121032230133-3113332123302103-2313233130131231)
+- [voltstack_cluster.no_network_policy](resources--azure_vnet_site--reference--group-009.md#canonical-0013010110333221-3201233330000210-2333131132212103-2012102221331033-1121101101212312-3200221103100000-2313232003323000-1132220230320121)
+- [voltstack_cluster.no_outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-1011203111010233-2230200221322310-2000113233223010-2000001222101230-3222333020032210-2220200011200320-3202012101130301-0102130013202210)
+- [voltstack_cluster.outside_static_routes](resources--azure_vnet_site--reference--group-009.md#canonical-0100231323113011-3022021102111220-2021101030010220-2000022103132232-0310320321133320-2021103332300231-3132123131102013-0121113233022222)
+- [voltstack_cluster.sm_connection_public_ip](resources--azure_vnet_site--reference--group-009.md#canonical-2321133213021020-0212121322131221-2110132012310211-2131222311000202-1112033321010300-2002022321211122-2020021222122012-1001212101003111)
+- [voltstack_cluster.sm_connection_pvt_ip](resources--azure_vnet_site--reference--group-009.md#canonical-3013311330102123-3233032312200212-3200203223111212-2332321312031020-2101122223222222-1022200220220111-3123111020023213-2311323300213221)
+- [voltstack_cluster.storage_class_list](resources--azure_vnet_site--reference--group-009.md#canonical-3311322312000000-0231210321003323-2300131023112023-2003010121321010-0331001121323123-1103330000301123-0311230333000223-0302132310200030)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba"></a>
+<a id="canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-71a94560f8b957b5877adb30208d3cb2e1be98e511f73207106c24d244763dfb"></a>
+<a id="canonical-1301222110111200-3320232111132311-2013132231230300-0200203103302302-3201233221203211-0101331303020013-0100123002103102-1010131203313323"></a>
 
-## voltstack_cluster.accelerated_networking — voltstack_cluster.accelerated_networking / 4c0aec71627d / 2
+## voltstack_cluster.accelerated_networking — accelerated_networking / 130112021331 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
 - voltstack_cluster.accelerated_networking
 
-<a id="canonical-c0912438c4918c11ed247f0c9c8bc17a8c8e62d91b3ef4e0abcaf6623cdfa4e7"></a>
+<a id="canonical-3000210102100320-3010210120300101-3231021013330030-2130202330011322-2030203212023121-0123033233103200-2223302233121202-0330313322103213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3223,42 +4062,42 @@ accelerated_networking {
 }
 ```
 
-<a id="canonical-23eb8af794af5f8c246d1ad15f8cb92e72263df993e5db744f5b1ea63cf65a0e"></a>
+<a id="canonical-0203322320223313-2110223311332030-0210123101223101-1133203023210232-1302021203313321-2103321131231310-1033112301322212-0330331211220032"></a>
 
-## Direct properties — voltstack_cluster.accelerated_networking / 4c0aec71627d / 3
+## Direct properties — accelerated_networking / 130112021331 / 3
 
-- [disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-e26929193933411a82c1cfcc7c093ce35e28cae79dfe298fffa3a7524a9a785b): complete subsection reference.
+- [disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-3202122102210121-0321030310010122-2002300130333030-1330002103303203-1132022030223213-2131333202212033-3333220322131102-1022212213201123): complete subsection reference.
 
-- [enable](resources--azure_vnet_site--reference--group-008.md#canonical-a151b97071eda85972f2b9fe47c8590dcc3924eba66db356f92b0827afe17e40): complete subsection reference.
+- [enable](resources--azure_vnet_site--reference--group-008.md#canonical-2201110123211300-1301323122201121-1302330223213332-1013302011210031-3030032102103223-2212123123031112-3321022300200213-2233320113321000): complete subsection reference.
 
-<a id="canonical-553a52b9f3fcbf0c0a76eb6e2822314b03c19ab97cf29b5a137dbeb1ac12778e"></a>
+<a id="canonical-1111032211022321-3303333023330030-0022131232231232-0220020203011023-0003300121222321-1330330221231122-0103133123322301-2230010213132032"></a>
 
-## Next pages — voltstack_cluster.accelerated_networking / 4c0aec71627d / 4
+## Next pages — accelerated_networking / 130112021331 / 4
 
-- [voltstack_cluster.accelerated_networking.disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-e26929193933411a82c1cfcc7c093ce35e28cae79dfe298fffa3a7524a9a785b)
-- [voltstack_cluster.accelerated_networking.enable](resources--azure_vnet_site--reference--group-008.md#canonical-a151b97071eda85972f2b9fe47c8590dcc3924eba66db356f92b0827afe17e40)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.accelerated_networking.disable_spec](resources--azure_vnet_site--reference--group-008.md#canonical-3202122102210121-0321030310010122-2002300130333030-1330002103303203-1132022030223213-2131333202212033-3333220322131102-1022212213201123)
+- [voltstack_cluster.accelerated_networking.enable](resources--azure_vnet_site--reference--group-008.md#canonical-2201110123211300-1301323122201121-1302330223213332-1013302011210031-3030032102103223-2212123123031112-3321022300200213-2233320113321000)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-e26929193933411a82c1cfcc7c093ce35e28cae79dfe298fffa3a7524a9a785b"></a>
+<a id="canonical-3202122102210121-0321030310010122-2002300130333030-1330002103303203-1132022030223213-2131333202212033-3333220322131102-1022212213201123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0a53f456e64ded16a5f9e1b1096bc3075e2ca54c068f007e9f131bd38220e669"></a>
+<a id="canonical-0022110333101112-3212103132310112-2211332132012301-0021122330030013-1132023022111030-0012203300001332-2133010301233103-2002020032121221"></a>
 
-## voltstack_cluster.accelerated_networking.disable_spec — voltstack_cluster.accelerated_networking.disable_spec / 10bfa456f947 / 2
+## voltstack_cluster.accelerated_networking.disable_spec — disable_spec / 111233211013 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322)
 - voltstack_cluster.accelerated_networking.disable_spec
 
-<a id="canonical-9dad896104f6ddcc7fd6e5dd36b20e5d0c02e7c5722f100194a92357575946b3"></a>
+<a id="canonical-2131223120211201-0010331231313030-1333311232113131-0312230200321131-0030000232133011-1302023301000001-2110222102031113-1113112110122303"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3270,38 +4109,38 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-f104c826c655ca1ce9e037f9f46b43d7fa8a2697f6af854f7ea11b063fbbac65"></a>
+<a id="canonical-3301001030200212-3012111130220130-3221320003133321-3310122310033113-3322202202122113-3312223320111033-1332220101230012-0333232322301211"></a>
 
-## Direct properties — voltstack_cluster.accelerated_networking.disable_spec / 10bfa456f947 / 3
+## Direct properties — disable_spec / 111233211013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6046f0a1c356795ca119d6960340f9db8abc4ef9de2ef148767deb255119c403"></a>
+<a id="canonical-1200101233002201-3003111213211130-2201012131122112-0003100033213123-2022233010323321-3132023233011020-1312133132230211-1101012130100003"></a>
 
-## Next pages — voltstack_cluster.accelerated_networking.disable_spec / 10bfa456f947 / 4
+## Next pages — disable_spec / 111233211013 / 4
 
-- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-a151b97071eda85972f2b9fe47c8590dcc3924eba66db356f92b0827afe17e40"></a>
+<a id="canonical-2201110123211300-1301323122201121-1302330223213332-1013302011210031-3030032102103223-2212123123031112-3321022300200213-2233320113321000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-52a327788c67e9f745fb840973765234da59d5556900c5b0fd77627902ae4322"></a>
+<a id="canonical-1102220302131320-2030121332213313-1011332320100021-1303131211020310-3122112131111111-1221000030112300-3331131312021321-0002223210030202"></a>
 
-## voltstack_cluster.accelerated_networking.enable — voltstack_cluster.accelerated_networking.enable / 8e377b717aa5 / 2
+## voltstack_cluster.accelerated_networking.enable — enable / 130113222211 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322)
 - voltstack_cluster.accelerated_networking.enable
 
-<a id="canonical-d6550ba736994701544c5c4924302758464eda3e86c0d88c3732dd8052c6b9e1"></a>
+<a id="canonical-3112111100232213-0312212110130001-1110103011301021-0210030002131120-1012103231220332-2012300031202030-0313030231312000-1102301223213201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3330,37 +4169,37 @@ Terraform syntax:
 enable = {}
 ```
 
-<a id="canonical-ad32656525dbd49f5cefed89c260fb7288aa0e9733119505cb5f39a62cadf81a"></a>
+<a id="canonical-2231030212111211-0211312331102133-1130323332312021-3002120033231302-2020222200322113-0303010121110011-3023113303212212-0230223133200122"></a>
 
-## Direct properties — voltstack_cluster.accelerated_networking.enable / 8e377b717aa5 / 3
+## Direct properties — enable / 130113222211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-db0aa733cd699fbdacc1d964c63e7c132cd1fef1b1e655f37134ffbf31307ba0"></a>
+<a id="canonical-3123002222130303-3031122121332331-2230300131211210-3012033213300103-0230310133323301-2301321211113303-1301031033332333-0301030013232200"></a>
 
-## Next pages — voltstack_cluster.accelerated_networking.enable / 8e377b717aa5 / 4
+## Next pages — enable / 130113222211 / 4
 
-- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-580b6e978a67fae17eebc01cf524e24c28a251ef267600b15fb016be469427ba)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.accelerated_networking](resources--azure_vnet_site--reference--group-008.md#canonical-1120002312322113-2022121333223201-1332322330000130-3311021032021030-0220220211013233-0212131200002301-1133230001122332-1012211002132322)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-c7daa2b1eead26913cf943543104ade37afecb9636f69eb95b6b8b3b8d3ff556"></a>
+<a id="canonical-3013312222022301-3232223102122101-0330332110031110-0301001022313203-1322333230232112-0312331221322321-1123122320230323-2031033333111112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f418e63c809d25a7a4f50f4edc1e3a948babb55384e9b66ccd71c9517b5f1b65"></a>
+<a id="canonical-3310012032120330-2000213102112213-2210331100331032-3130013203222110-2023222323111103-2010322123121230-3031130130211101-1323113301231211"></a>
 
-## voltstack_cluster.active_enhanced_firewall_policies — voltstack_cluster.active_enhanced_firewall_policies / 95699ddd41db / 2
+## voltstack_cluster.active_enhanced_firewall_policies — active_enhanced_firewall_policies / 313110013123 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
 - voltstack_cluster.active_enhanced_firewall_policies
 
-<a id="canonical-dfce3cc7050baa483d055eb8c0f2b4a2fe03d5e6a2114661c97c42e3f7c2f505"></a>
+<a id="canonical-3133303203303013-0011002322221020-0331001111322320-3000330223102202-3332000331113212-2202010110121201-3021133010023203-3313300233110011"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3399,39 +4238,39 @@ active_enhanced_firewall_policies {
 }
 ```
 
-<a id="canonical-66be392321fc5ab9b528607c351cd202dc7f60fd1ca687482ea16c46217bf8c4"></a>
+<a id="canonical-1212233203210203-0201333011222321-2311022012001330-0311013031020002-3130133312003331-0130221220131020-0232220112301012-0201132333203010"></a>
 
-## Direct properties — voltstack_cluster.active_enhanced_firewall_policies / 95699ddd41db / 3
+## Direct properties — active_enhanced_firewall_policies / 313110013123 / 3
 
-- [enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-6eceb5065a035f07af041a812a763cb480b9d7acfc65396cb0c2894889b3fc0b): complete subsection reference.
+- [enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1232303223110012-1122000311330013-2233001001222001-0222131203302310-2000232131132230-3330121103211230-2300300220211020-2021230333300023): complete subsection reference.
 
-<a id="canonical-6359a11b2982fd53b83dfa892db3974ba092090f1b1b449a90effe1c018fec49"></a>
+<a id="canonical-1203112122010123-0221200233311103-2320033133222021-0231230321131023-2200210200210033-0123012310102122-2100323333320130-0001203332301021"></a>
 
-## Next pages — voltstack_cluster.active_enhanced_firewall_policies / 95699ddd41db / 4
+## Next pages — active_enhanced_firewall_policies / 313110013123 / 4
 
-- [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-6eceb5065a035f07af041a812a763cb480b9d7acfc65396cb0c2894889b3fc0b)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1232303223110012-1122000311330013-2233001001222001-0222131203302310-2000232131132230-3330121103211230-2300300220211020-2021230333300023)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-6eceb5065a035f07af041a812a763cb480b9d7acfc65396cb0c2894889b3fc0b"></a>
+<a id="canonical-1232303223110012-1122000311330013-2233001001222001-0222131203302310-2000232131132230-3330121103211230-2300300220211020-2021230333300023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0d0941939c7613c46827bcdd106c483cffaf60769309f571af434869edb56354"></a>
+<a id="canonical-0031002110012103-2130131201033010-1220021323303131-0100123010200330-3333223312001312-2103002133111301-2233100310201221-3231231112031110"></a>
 
-## voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 2
+## voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies — enhanced_firewall_policies / 130200231023 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-c7daa2b1eead26913cf943543104ade37afecb9636f69eb95b6b8b3b8d3ff556)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3013312222022301-3232223102122101-0330332110031110-0301001022313203-1322333230232112-0312331221322321-1123122320230323-2031033333111112)
 - voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies
 
-<a id="canonical-f9245297e7c79c3227c65e207b2e31d2951741b4f39664754ed3f9e23916df5c"></a>
+<a id="canonical-3321021011022113-3213301321300302-0213301211320200-1323023203013102-2111011310012310-3303211212101311-1032310333213202-0321011231331130"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3488,15 +4327,15 @@ enhanced_firewall_policies {
 }
 ```
 
-<a id="canonical-6c1b6c116ea21fd7915430fb513b50e84314fe7c8cb38cde68158a28349e63fd"></a>
+<a id="canonical-1230012312300101-1232220201333113-2101111003003323-1101032311003220-1003011033321330-2030230320303132-1220011120220220-0310213212033331"></a>
 
-## Direct properties — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 3
+## Direct properties — enhanced_firewall_policies / 130200231023 / 3
 
-<a id="canonical-62e4d941604c3932703dae9962191554d72b38ebbbf2cb8e08bb859b917913cf"></a>
+<a id="canonical-1202321031211001-1200103003210302-1300033122322121-1202012101111110-3113022303203223-2323330230232032-0020232320112123-2101132101033033"></a>
 
-<a id="canonical-8c482ad7e95db3517f60f1c4d9ceb81218f1bb10bc56caf2c4bcbb105d80a2b1"></a>
+<a id="canonical-2030102002223113-3221113123031101-1333120033013010-3121303223200102-0120330123230100-2330111230223302-3010233023230100-1131200022022301"></a>
 
-## name property — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 4
+## name property — enhanced_firewall_policies / 130200231023 / 4
 
 Type: `"string"`. Optional.
 
@@ -3557,11 +4396,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-669fc373d2c1c3ae3911a344bf65566e552ba3745a164cf47623287f4c4d0fe0"></a>
+<a id="canonical-1212213330031303-3102300130032232-0321010122031010-2333121111121232-1111022322031310-1122011210303310-1312020302201333-1030103100333200"></a>
 
-<a id="canonical-291178121a7721f177e78b2e1dda211eef3edc14736b9b0a78cec5d4d1e31925"></a>
+<a id="canonical-0221010113200102-0122131302013301-1313321320230232-0131312202010132-3233033231300110-1303122321230022-1320303230113110-3101320301210211"></a>
 
-## namespace property — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 5
+## namespace property — enhanced_firewall_policies / 130200231023 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3629,11 +4468,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24b9f8a54949d96107a7da8542c096360b45fb29b2af87024ab39875b9ec35dd"></a>
+<a id="canonical-0210232133202211-1021102131211201-0013221331222011-1002300021120312-0023101133230221-2302223320130002-1022230321201311-2321323003113131"></a>
 
-<a id="canonical-931d2981171602cbd943959dc6a0f59015a498c23d2a87a130ca20564c27f6d1"></a>
+<a id="canonical-2103013102212001-0113011200023023-3121100321112131-3012220033112100-0111221021203002-0331022220132201-0300302202001112-1030021333123101"></a>
 
-## tenant property — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 6
+## tenant property — enhanced_firewall_policies / 130200231023 / 6
 
 Type: `"string"`. Computed.
 
@@ -3687,31 +4526,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c06f7bfb8f424ac6bc4ea6d6928bb280a6352330d2e3c4f82c528e34cc659040"></a>
+<a id="canonical-3000123313233323-2033100210223012-2330103222123112-2102202323022000-2212031102030300-3102320330103320-0230110220320310-3030121121001000"></a>
 
-## Next pages — voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies / bfbfba720b4b / 7
+## Next pages — enhanced_firewall_policies / 130200231023 / 7
 
-- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-c7daa2b1eead26913cf943543104ade37afecb9636f69eb95b6b8b3b8d3ff556)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_enhanced_firewall_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3013312222022301-3232223102122101-0330332110031110-0301001022313203-1322333230232112-0312331221322321-1123122320230323-2031033333111112)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-33ec78eec3070b27dcac18ed362ee719d939506c91581ffdf5fe357b73351a31"></a>
+<a id="canonical-0303323013203232-3003001300230213-3130223001203231-0312023232130121-3121032111001230-2101112001333331-3311333203111323-1303031101220301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-62269fd268ae4388ff5d2417eea1704af72f391936450250150d8ddc9f378673"></a>
+<a id="canonical-1202021221333102-1220223210032020-3333113102100113-3232220113001022-3313023303210121-0312101100021100-0111003120313130-2133031320121303"></a>
 
-## voltstack_cluster.active_forward_proxy_policies — voltstack_cluster.active_forward_proxy_policies / d92cdc7efbed / 2
+## voltstack_cluster.active_forward_proxy_policies — active_forward_proxy_policies / 133233233231 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
 - voltstack_cluster.active_forward_proxy_policies
 
-<a id="canonical-0a741f1e906a9070df6f630558c84973004dadffc55a2daef40d68093741b9c7"></a>
+<a id="canonical-0022131001330132-2100122221001300-3133123312030011-1120302010211303-0000103122313333-3011112202312232-3310003112200021-0313100123213013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3744,39 +4583,39 @@ active_forward_proxy_policies {
 }
 ```
 
-<a id="canonical-1c065d2a816c713c1034db7af2b1c16326c7148c803291e769a5f00c930a7959"></a>
+<a id="canonical-0130001211310222-2001123013010330-0100031031231322-3302230130011203-0212301301102030-2000030221013213-1221221133000030-2103002213211121"></a>
 
-## Direct properties — voltstack_cluster.active_forward_proxy_policies / d92cdc7efbed / 3
+## Direct properties — active_forward_proxy_policies / 133233233231 / 3
 
-- [forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-d91da465e65e35409b8e7d441641a923fb41fb6a948cf457b8837609358f2393): complete subsection reference.
+- [forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3121013122101211-3212113203111000-2123203213311010-0112100122210203-3323100133231222-2110203033101113-2320200313120021-0311203302032103): complete subsection reference.
 
-<a id="canonical-cc8196b81de54ec95f2a288c98f5c2616e184d297e1b0e28b2db236e7baf2d76"></a>
+<a id="canonical-3030200121122320-0131321110323021-1133022202202030-2120331130021201-1232012010310221-1332012300320220-2302312302031232-1323223302311312"></a>
 
-## Next pages — voltstack_cluster.active_forward_proxy_policies / d92cdc7efbed / 4
+## Next pages — active_forward_proxy_policies / 133233233231 / 4
 
-- [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-d91da465e65e35409b8e7d441641a923fb41fb6a948cf457b8837609358f2393)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-3121013122101211-3212113203111000-2123203213311010-0112100122210203-3323100133231222-2110203033101113-2320200313120021-0311203302032103)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-d91da465e65e35409b8e7d441641a923fb41fb6a948cf457b8837609358f2393"></a>
+<a id="canonical-3121013122101211-3212113203111000-2123203213311010-0112100122210203-3323100133231222-2110203033101113-2320200313120021-0311203302032103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7eb6545c1697b9a1afc14ee88682e737650446bd31b57855fb00e2927d933571"></a>
+<a id="canonical-1332231211101130-0112211323212201-2233300110323220-2012200232130313-1211001010122331-0301231113201111-3323000032022102-1331210303111301"></a>
 
-## voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 2
+## voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies — forward_proxy_policies / 021301321200 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-33ec78eec3070b27dcac18ed362ee719d939506c91581ffdf5fe357b73351a31)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0303323013203232-3003001300230213-3130223001203231-0312023232130121-3121032111001230-2101112001333331-3311333203111323-1303031101220301)
 - voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies
 
-<a id="canonical-0a932eebc1f05f1ceb4ff9bc00db6de65845148db4ec927505ba1126f9f78a1e"></a>
+<a id="canonical-0022210302323223-3001330011330130-3223103333212330-0000312312313212-1120101101102031-2310323021021311-0011232201010212-3321331320220132"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3833,15 +4672,15 @@ forward_proxy_policies {
 }
 ```
 
-<a id="canonical-6c379a9c01c1796400526a30c1e9984e3cf0a211a8d9472b2e6fda95299327f0"></a>
+<a id="canonical-1230031321222130-0001300113211210-0000110212220300-3001322121201032-0330330022020101-2220312110130223-0232123331222111-0221210302133300"></a>
 
-## Direct properties — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 3
+## Direct properties — forward_proxy_policies / 021301321200 / 3
 
-<a id="canonical-3a563b978e248af6d27e6153a54bed87ae82987c47585cf6a065443252621b8d"></a>
+<a id="canonical-0322111203232113-2032021020223312-3102133212011103-2211102332312013-2232200221201330-1013112011303312-2200121110100302-1102120201232031"></a>
 
-<a id="canonical-86ff3b1e7107fbeb35d23727f53718ddcd5f7926b2ad8c814d0c94feac4c6fd5"></a>
+<a id="canonical-2012333303230132-1301001333233223-0311310203130213-3311031301203131-3031113313210212-2302223120302001-1031003021103332-2230103012333111"></a>
 
-## name property — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 4
+## name property — forward_proxy_policies / 021301321200 / 4
 
 Type: `"string"`. Optional.
 
@@ -3902,11 +4741,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7de9826d9e6ea87149c6178b8f88918d687992ae278e41da62f6a6474c1bf466"></a>
+<a id="canonical-1331322120021231-2132123222201301-1021301201132023-2033202021012031-1220132121022232-0213203210013122-1202331222121013-1030012333101212"></a>
 
-<a id="canonical-29acae4feecb9ead7c9796afb6e57f95354b8338bc5e2a1a2fc9eb15a3d4a1a1"></a>
+<a id="canonical-0221223022321033-3232302321322231-1330211321122233-2312321113332111-0311102320030320-2330113202220122-0233302132230111-2203311022012201"></a>
 
-## namespace property — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 5
+## namespace property — forward_proxy_policies / 021301321200 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3974,11 +4813,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-149e60682c7830947c02b29b34b158acff4c54957f187fe0d8b9dd2eeb0b2714"></a>
+<a id="canonical-0110213212001220-0230132003002110-1330000223022123-0310230111202230-3333103011102111-1333012013333200-3120232131310232-3223002302130110"></a>
 
-<a id="canonical-de08454d52b372c51b63f44e95b379aecaca1bd12069ed7527c4c7d57dd150bf"></a>
+<a id="canonical-3132002010111031-1102230313023011-0123120333101032-2111230313212232-3022302201233101-0200122132311311-0213301030133111-1331310111002333"></a>
 
-## tenant property — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 6
+## tenant property — forward_proxy_policies / 021301321200 / 6
 
 Type: `"string"`. Computed.
 
@@ -4032,31 +4871,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f625e6727dcac6da52d82d39c706ac12e02b3e1fe054255963763938e083a5b9"></a>
+<a id="canonical-3312021132121302-1331302230123122-1102312002310321-3013001222300102-3200022303320133-3200111002111121-1203131203210320-3200200322112321"></a>
 
-## Next pages — voltstack_cluster.active_forward_proxy_policies.forward_proxy_policies / a2ba65271e60 / 7
+## Next pages — forward_proxy_policies / 021301321200 / 7
 
-- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-33ec78eec3070b27dcac18ed362ee719d939506c91581ffdf5fe357b73351a31)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_forward_proxy_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0303323013203232-3003001300230213-3130223001203231-0312023232130121-3121032111001230-2101112001333331-3311333203111323-1303031101220301)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-5f0ab925481ff546dbce389f846a2a1e83e98011584758d4497d6150c48cd228"></a>
+<a id="canonical-1133002223210211-1020013333111012-3123303203202133-2010122202220132-2003322120000101-1120101311203110-1021133112011100-3010203031020220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5b8ba4f0e9076ab3285b904bdafd5298bbeb1410ab88513a243f278571cbab3"></a>
+<a id="canonical-2311232023221033-0032210013122223-0302201123210010-2331223331110221-2023233223011001-0022232020110103-2202100333021320-1113013023222303"></a>
 
-## voltstack_cluster.active_network_policies — voltstack_cluster.active_network_policies / 6cd5c4404c61 / 2
+## voltstack_cluster.active_network_policies — active_network_policies / 100010301201 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
 - voltstack_cluster.active_network_policies
 
-<a id="canonical-8631e03cbd9c4bc9245efe87215c45602f4a848d6e95ba0b1867e443d8526d31"></a>
+<a id="canonical-2012030132000330-2331213010233021-0210113233322013-0201113010111200-0233102220102031-1232211123220023-0120121332101003-3120110212310301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4093,39 +4932,39 @@ active_network_policies {
 }
 ```
 
-<a id="canonical-2d5348b362e82746bf17f17932a251765219a16ffc003dcec2cef195459f2776"></a>
+<a id="canonical-0231110310202303-1202322002131012-2333011333011321-0302220211011312-1102012122011233-3330000003313032-3002303233012111-1011213302131312"></a>
 
-## Direct properties — voltstack_cluster.active_network_policies / 6cd5c4404c61 / 3
+## Direct properties — active_network_policies / 100010301201 / 3
 
-- [network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-2c8f8e3fb0fe4142df1f19457030ae8fb3add7d5bb4a574c97cadc2a00694a77): complete subsection reference.
+- [network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0230203320320333-2300333210011002-3133013301211011-1300030022322033-2303223131133111-2323102211131030-2113302231300222-0000122110221313): complete subsection reference.
 
-<a id="canonical-eca8c84fb161568e2ce81ec85d94fadbd587bb79eb32034cbafa0ddc62c6d35c"></a>
+<a id="canonical-3230222030201033-2301120111122032-0230322001323020-1131211033223123-3111201323231321-3223030200031030-2322332200313130-1202301231031130"></a>
 
-## Next pages — voltstack_cluster.active_network_policies / 6cd5c4404c61 / 4
+## Next pages — active_network_policies / 100010301201 / 4
 
-- [voltstack_cluster.active_network_policies.network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-2c8f8e3fb0fe4142df1f19457030ae8fb3add7d5bb4a574c97cadc2a00694a77)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_network_policies.network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-0230203320320333-2300333210011002-3133013301211011-1300030022322033-2303223131133111-2323102211131030-2113302231300222-0000122110221313)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-2c8f8e3fb0fe4142df1f19457030ae8fb3add7d5bb4a574c97cadc2a00694a77"></a>
+<a id="canonical-0230203320320333-2300333210011002-3133013301211011-1300030022322033-2303223131133111-2323102211131030-2113302231300222-0000122110221313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-00f3149c6a8d207c330ff0f1ff4090a35de0781d92126c9eca660fa8dc5b0074"></a>
+<a id="canonical-0000330301102130-1222203102001330-0303003333003301-3333100021002203-1131320013200131-2102010212302132-3022121200332220-3130112300001310"></a>
 
-## voltstack_cluster.active_network_policies.network_policies — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 2
+## voltstack_cluster.active_network_policies.network_policies — network_policies / 212002132312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-5f0ab925481ff546dbce389f846a2a1e83e98011584758d4497d6150c48cd228)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1133002223210211-1020013333111012-3123303203202133-2010122202220132-2003322120000101-1120101311203110-1021133112011100-3010203031020220)
 - voltstack_cluster.active_network_policies.network_policies
 
-<a id="canonical-6dd886db0a41e1fff068759a28bc302c509d542397079d884e940bbfbe438678"></a>
+<a id="canonical-1231312020123123-0022100132013333-3300122013112122-0220233003000230-1100213111100203-2113001321312020-1032211000232333-2332100320121320"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4182,15 +5021,15 @@ network_policies {
 }
 ```
 
-<a id="canonical-6c7a10c34fe2160b5f3756fc24d86154d62b061449a630859ba2b435bdc55981"></a>
+<a id="canonical-1230132201003003-1033320201120023-1133031311123330-0210312012011110-3112022300120110-1021221203002011-2123220223100311-2331301111212001"></a>
 
-## Direct properties — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 3
+## Direct properties — network_policies / 212002132312 / 3
 
-<a id="canonical-a8e2f7f0283d52b01a3455e3ce6036c7af2b37a46577d07b46cf17cec29958d7"></a>
+<a id="canonical-2220320233133300-0220033111022300-0122031011113203-3032120003123013-2233022303132210-1211131331001323-1012303301133032-3002212111203113"></a>
 
-<a id="canonical-22cf8eba56fc5b22b7c2dfde1e9ad9d581e97cc2685d25ddd3d18407410b2769"></a>
+<a id="canonical-0202303320322322-1112333011230202-2313300231333132-0132212231213111-2001322113303002-1220113102113131-3103310120100013-1001002302131221"></a>
 
-## name property — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 4
+## name property — network_policies / 212002132312 / 4
 
 Type: `"string"`. Optional.
 
@@ -4251,11 +5090,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec9b80330ef86161b6ca596c20560ca32ea9d50a0a2b3ff11b23a2c44ed3b130"></a>
+<a id="canonical-3230212320000303-0032332012011201-2312302211211230-0200111200302203-0232222131110022-0022022303333301-0123020322023010-1032310323010300"></a>
 
-<a id="canonical-45ca461148ecb1b81a0a8f101fbc14ee09c52f93041090dd0183e00b4793b321"></a>
+<a id="canonical-1011302210120101-1020323023012320-0122002220330100-0133233001103232-0021301102332103-0010010021003131-0001200332000023-1013210323030201"></a>
 
-## namespace property — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 5
+## namespace property — network_policies / 212002132312 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -4323,11 +5162,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e6ae6d47b3ed90a6af1ff5fa854142c3dd3a0a479970eb655c0a9460d8bbb706"></a>
+<a id="canonical-3212223212311013-2303323121002212-2233013333113322-2011100110023003-3131032200221013-2121130032231211-1130002221101200-3120232323130012"></a>
 
-<a id="canonical-25b812d3dac29d4de1e9bbfc66e7656ea365fb7c6b2dec1f24da8aa43c52f12e"></a>
+<a id="canonical-0211232001023103-3122300221311031-3201322123233330-1212321312111232-2203121133231330-1223023132300133-0210312220222210-0330110233010232"></a>
 
-## tenant property — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 6
+## tenant property — network_policies / 212002132312 / 6
 
 Type: `"string"`. Computed.
 
@@ -4381,31 +5220,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c370eb0f6632b32b4b9782d6436dcdda22938b117f8bf4b755492342bff57f4"></a>
+<a id="canonical-2130031300322300-3312120302230302-2310232113200231-1210031231303131-2202022103202301-0113332023331023-1311111021020310-0223333311133310"></a>
 
-## Next pages — voltstack_cluster.active_network_policies.network_policies / fa469f9827b6 / 7
+## Next pages — network_policies / 212002132312 / 7
 
-- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-5f0ab925481ff546dbce389f846a2a1e83e98011584758d4497d6150c48cd228)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.active_network_policies](resources--azure_vnet_site--reference--group-008.md#canonical-1133002223210211-1020013333111012-3123303203202133-2010122202220132-2003322120000101-1120101311203110-1021133112011100-3010203031020220)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9"></a>
+<a id="canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc429a2ab2c2cad820a153ba48b1135237bc89edf151f6f4ae9d69a6053a640b"></a>
+<a id="canonical-3330100221220222-2302300230223120-0200220111032322-1020230101031102-0313233020213231-3301110133123310-2232213112212212-0011032212100023"></a>
 
-## voltstack_cluster.az_nodes — voltstack_cluster.az_nodes / 94d7cb342434 / 2
+## voltstack_cluster.az_nodes — az_nodes / 031002100310 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
 - voltstack_cluster.az_nodes
 
-<a id="canonical-018c0923bf253528b7f5b9a8928319e215905df3266a22820013d4f6cc5722a3"></a>
+<a id="canonical-0001203000210203-2333021103110220-2313331123212220-2102200301213202-0111210011313303-0212122202022002-0000010331103312-3030111302022203"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4446,15 +5285,15 @@ az_nodes {
 }
 ```
 
-<a id="canonical-6e3bfee521bdb390f21d02332ee240a4ca92e96ef069496223af7a09e04e926f"></a>
+<a id="canonical-1232032333323211-0201233123032100-3302013100020303-0232320210002210-3022210232211232-3300122110211202-0203223313220021-3200103221021233"></a>
 
-## Direct properties — voltstack_cluster.az_nodes / 94d7cb342434 / 3
+## Direct properties — az_nodes / 031002100310 / 3
 
-<a id="canonical-dfc14c513542c2f464d5ec6a7af49de1d5bc8db7f922d38535af338519b9d6d2"></a>
+<a id="canonical-3133300110301101-0311100230023310-1210311132301222-1322331021313201-3111233020312313-3321020231032011-0311223303032011-0121232131123102"></a>
 
-<a id="canonical-d6d1ac9c3adc54db0b6c035ba44d306436715863f652ac371b041e4358279684"></a>
+<a id="canonical-3112310122302130-0322313011103123-0023123000031123-2210103103001210-0312130111201203-3312110222300313-0123001001321003-1120021321122010"></a>
 
-## azure_az property — voltstack_cluster.az_nodes / 94d7cb342434 / 4
+## azure_az property — az_nodes / 031002100310 / 4
 
 Type: `"string"`. Optional.
 
@@ -4511,35 +5350,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9): complete subsection reference.
+- [local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021): complete subsection reference.
 
-<a id="canonical-b2b5966de4e757dc3c1285b3ff798738c761308fe0a8f999eb1e25fb80b4b55c"></a>
+<a id="canonical-2302231121121231-3210321311133130-0330010220112303-3333132120130320-3013120103002033-3200222033212121-3223013202113323-2000231023111130"></a>
 
-## Next pages — voltstack_cluster.az_nodes / 94d7cb342434 / 5
+## Next pages — az_nodes / 031002100310 / 5
 
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9"></a>
+<a id="canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-474e39817e16ad453e2a260ef0265a041a4e96928e60c477629255115bea634c"></a>
+<a id="canonical-1013103203212001-1332011222311011-0332022202120032-3300021211220010-0122103221122102-2032120030101313-1202210211110101-1123322212031030"></a>
 
-## voltstack_cluster.az_nodes.local_subnet — voltstack_cluster.az_nodes.local_subnet / b412e4e1e07d / 2
+## voltstack_cluster.az_nodes.local_subnet — local_subnet / 320132001331 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021)
 - voltstack_cluster.az_nodes.local_subnet
 
-<a id="canonical-b4912f8a3b7424d5edcd1b8961a218331e038f46b87c054c7368ea5cf52f287f"></a>
+<a id="canonical-2310210102332022-0323131002103111-3231303101232021-1201220201200303-0132000320331012-2320133000111030-1303122032221130-3311023302201333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4578,43 +5417,43 @@ local_subnet {
 }
 ```
 
-<a id="canonical-73da251b196a67bf52e4973118fbfcc4570f6c17140e9840b7511a5e3fba7d21"></a>
+<a id="canonical-1303312202110123-0121122212132333-1102321021130301-0120332333303010-1113003312300113-0110003221201000-2313110101221132-0333232213310201"></a>
 
-## Direct properties — voltstack_cluster.az_nodes.local_subnet / b412e4e1e07d / 3
+## Direct properties — local_subnet / 320132001331 / 3
 
-- [subnet](resources--azure_vnet_site--reference--group-008.md#canonical-b926010db376e38225d7e7ebceca7b5283fad4b6380ced347e24270b937efb08): complete subsection reference.
+- [subnet](resources--azure_vnet_site--reference--group-008.md#canonical-2321021200010031-2303131232032002-0211311332133223-3032302213231102-2003332231102312-0320003032310310-1332021002130023-2103133233230020): complete subsection reference.
 
-- [subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-8ab67dd0204d5e6753dee469e6b1cb4905e52125ce05241f90f4a9d0f3d44f7d): complete subsection reference.
+- [subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-2022231213313100-0200103111321213-1103313232101221-3212230130231021-0011321102010211-3032001102100133-2100331022213100-3303311010331331): complete subsection reference.
 
-<a id="canonical-45418f7ce935d1f324b2f9e5d80b0a8d7372cc262a1faa65ee77d00de540df9d"></a>
+<a id="canonical-1011100120331330-3221031131013303-0210230233213211-3120002300222031-1303130230300212-0222013322221211-3232131331000031-3211100031332131"></a>
 
-## Next pages — voltstack_cluster.az_nodes.local_subnet / b412e4e1e07d / 4
+## Next pages — local_subnet / 320132001331 / 4
 
-- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-b926010db376e38225d7e7ebceca7b5283fad4b6380ced347e24270b937efb08)
-- [voltstack_cluster.az_nodes.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-8ab67dd0204d5e6753dee469e6b1cb4905e52125ce05241f90f4a9d0f3d44f7d)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-2321021200010031-2303131232032002-0211311332133223-3032302213231102-2003332231102312-0320003032310310-1332021002130023-2103133233230020)
+- [voltstack_cluster.az_nodes.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-008.md#canonical-2022231213313100-0200103111321213-1103313232101221-3212230130231021-0011321102010211-3032001102100133-2100331022213100-3303311010331331)
+- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-b926010db376e38225d7e7ebceca7b5283fad4b6380ced347e24270b937efb08"></a>
+<a id="canonical-2321021200010031-2303131232032002-0211311332133223-3032302213231102-2003332231102312-0320003032310310-1332021002130023-2103133233230020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3898da07c41bc405028eaa5ad7f4d83dedcc78cbaa2df30c77efe79813ace7e6"></a>
+<a id="canonical-0320212031220013-3010012330100011-0002203222221122-3113331031200331-3231303013203023-2222023133030030-1313323332132120-0103223032133212"></a>
 
-## voltstack_cluster.az_nodes.local_subnet.subnet — voltstack_cluster.az_nodes.local_subnet.subnet / 526dfcc2199a / 2
+## voltstack_cluster.az_nodes.local_subnet.subnet — subnet / 300201212122 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021)
+- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021)
 - voltstack_cluster.az_nodes.local_subnet.subnet
 
-<a id="canonical-478d05722190ea31211ca6753cefe4c6c610f86236cf54eb76b8334aeb6fa355"></a>
+<a id="canonical-1013203100111302-0201210032220301-0201013022121311-0330323332103012-3012010033201202-0312303311103223-1312232003031022-3223123322031111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4654,15 +5493,15 @@ subnet {
 }
 ```
 
-<a id="canonical-c2b623edba6261b8b1d4477e16408288100b9fe2f098c275eb372a46808d99d5"></a>
+<a id="canonical-3002231202033231-2322120212012320-2301311010131332-0112100020022020-0100002321333202-3300212030021311-3223031302221012-2000203121213111"></a>
 
-## Direct properties — voltstack_cluster.az_nodes.local_subnet.subnet / 526dfcc2199a / 3
+## Direct properties — subnet / 300201212122 / 3
 
-<a id="canonical-a004edc767d2207a4d8ceb6255d0b564a0a0a1155e40e531d47ebb41db2c0827"></a>
+<a id="canonical-2200001032313013-1213310202001322-1031203032231202-1111310023111210-2200220022010111-1132100032110301-3110133223231001-3123023000200213"></a>
 
-<a id="canonical-671c3ded510e35ebd5fd7de23e53e47df00cafa3935705d87d95a731e7e177ff"></a>
+<a id="canonical-1213013003313231-1101003203113223-3111333113313202-0332110332101331-3300003022332203-2103111300113120-1331211122130301-3213320113133333"></a>
 
-## subnet_name property — voltstack_cluster.az_nodes.local_subnet.subnet / 526dfcc2199a / 4
+## subnet_name property — subnet / 300201212122 / 4
 
 Type: `"string"`. Optional.
 
@@ -4713,11 +5552,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2a19058e6c943dd69a44bba9fbcd2a9ad1b7c207620572765782b58f862a48aa"></a>
+<a id="canonical-0222012100112032-1230211003313112-2122101023232221-3323303102222122-3101231330020013-1202001113021312-1113200223112033-2012022210202222"></a>
 
-<a id="canonical-aad42adc83cbed61635cc9a54bf2823210a8cba2101b949ce71b203e8145d475"></a>
+<a id="canonical-2222311002223130-2003302332311201-1203113030212211-1023330220020302-0100222030232202-0100012321102130-3213012302000332-2001101131101311"></a>
 
-## subnet_resource_grp property — voltstack_cluster.az_nodes.local_subnet.subnet / 526dfcc2199a / 5
+## subnet_resource_grp property — subnet / 300201212122 / 5
 
 Type: `"string"`. Optional.
 
@@ -4766,37 +5605,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-362af6321c6b88417ef0952c34395d40523cd7d2fa005cf20ef4b37c01eb6ef5): complete subsection reference.
+- [vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-0312022233120302-0130122320201001-1332330021110230-0310032111311000-1102033031133102-3322000011303302-0032331023031330-0001322312323311): complete subsection reference.
 
-<a id="canonical-2363435f02e382d415ae6eedd3978f721a5a8af3505e34ff1484ef2195a30098"></a>
+<a id="canonical-0203120310031133-0002320320023110-0111223212323231-3103211320331302-0122112220223303-1100113203103333-0110201032330201-2111220300002120"></a>
 
-## Next pages — voltstack_cluster.az_nodes.local_subnet.subnet / 526dfcc2199a / 6
+## Next pages — subnet / 300201212122 / 6
 
-- [voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-362af6321c6b88417ef0952c34395d40523cd7d2fa005cf20ef4b37c01eb6ef5)
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-008.md#canonical-0312022233120302-0130122320201001-1332330021110230-0310032111311000-1102033031133102-3322000011303302-0032331023031330-0001322312323311)
+- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-362af6321c6b88417ef0952c34395d40523cd7d2fa005cf20ef4b37c01eb6ef5"></a>
+<a id="canonical-0312022233120302-0130122320201001-1332330021110230-0310032111311000-1102033031133102-3322000011303302-0032331023031330-0001322312323311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4bbc2ac9f32cf8aa718b85895a87015a0f988e9a29c68a2015a6e6ae19ae1d4e"></a>
+<a id="canonical-1023233002223021-3303023033202222-1301202320112021-1122201300011122-0033212020322122-0221301220220200-0111221232122232-0121223201311032"></a>
 
-## voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group — voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group / 0ea08730e8b6 / 2
+## voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group — vnet_resource_group / 030032202312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
-- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-b926010db376e38225d7e7ebceca7b5283fad4b6380ced347e24270b937efb08)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-3101033031331331-3020213110130012-2102010101331003-3121320201023121-3030303022233301-0030021122120010-0330103121002130-3221012320030110)
+- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-1110030203112331-1013331332022220-1131111111202200-1313201113200032-0100300023212210-1230202123102322-2322310110221331-2322301103133021)
+- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-1132001220313023-0311122233001020-2302231132120203-0333203213323333-2123300302232030-3011010101320130-3203200033122300-1333101030103021)
+- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-2321021200010031-2303131232032002-0211311332133223-3032302213231102-2003332231102312-0320003032310310-1332021002130023-2103133233230020)
 - voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group
 
-<a id="canonical-ef32c77701deec2cd527eb99a07d550a3e27178e9cae9e39f9889263cab25e17"></a>
+<a id="canonical-3233030230131313-0001313232300230-3111021332232121-2200133111110022-0332021301132032-2130223221320321-3321202021021203-3022230211320113"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4825,1448 +5664,21 @@ Terraform syntax:
 vnet_resource_group = {}
 ```
 
-<a id="canonical-6938b2e72f385c0bf7dea122411e29f599b17f9f640e9222186ecb16a5d30a45"></a>
+<a id="canonical-1221032023023213-0233032011300023-3313313222010202-1001013202213311-2121230113332133-1210003221020202-0120123230230112-2211310300221011"></a>
 
-## Direct properties — voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group / 0ea08730e8b6 / 3
+## Direct properties — vnet_resource_group / 030032202312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9ecc730e578c736d4ed7430c4b9021942a14fac8ba18b7c985b8a2c908e13e7a"></a>
+<a id="canonical-2132303013030032-1113203013031231-1032311310030030-1023210002012110-0222011033223020-2322012023133021-2011232022023021-0020320103321322"></a>
 
-## Next pages — voltstack_cluster.az_nodes.local_subnet.subnet.vnet_resource_group / 0ea08730e8b6 / 4
+## Next pages — vnet_resource_group / 030032202312 / 4
 
-- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-b926010db376e38225d7e7ebceca7b5283fad4b6380ced347e24270b937efb08)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster.az_nodes.local_subnet.subnet](resources--azure_vnet_site--reference--group-008.md#canonical-2321021200010031-2303131232032002-0211311332133223-3032302213231102-2003332231102312-0320003032310310-1332021002130023-2103133233230020)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-8ab67dd0204d5e6753dee469e6b1cb4905e52125ce05241f90f4a9d0f3d44f7d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a4a1f8ccfe3ce10b4a764226ab249b2eef4d8c6464719c524d64aae06d838aa7"></a>
-
-## voltstack_cluster.az_nodes.local_subnet.subnet_param — voltstack_cluster.az_nodes.local_subnet.subnet_param / 164cde1e982b / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.az_nodes](resources--azure_vnet_site--reference--group-008.md#canonical-543235bd47f7e2a85d5558a07785780e10c0b9a46c89b4babad14a7dbac537c9)
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
-- voltstack_cluster.az_nodes.local_subnet.subnet_param
-
-<a id="canonical-120bfe3049a1d05335c3c189dc45a7caecfa4b45aba2eb1e7e7f0f01fa34056e"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Parameters for creating a new cloud subnet.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-subnet_param {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3e3a8e1b834f1024bb232879e239e00417a98c683913da6453880566b5f705ad"></a>
-
-## Direct properties — voltstack_cluster.az_nodes.local_subnet.subnet_param / 164cde1e982b / 3
-
-<a id="canonical-1957d3b6e2c91354a24d0f1890d4a4909cf16360dcd67487577d1572eb0dc345"></a>
-
-<a id="canonical-754569f7f2992634b607e8012beb4280013c9386fb6986bda57c7a7cf96ff5f8"></a>
-
-## ipv4 property — voltstack_cluster.az_nodes.local_subnet.subnet_param / 164cde1e982b / 4
-
-Type: `"string"`. Optional.
-
-IPv4 Subnet. IPv4 subnet prefix for this subnet.
-
-Upstream description:
-
-IPv4 subnet prefix for this subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "format": "ipv4",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  }
-}
-```
-
-<a id="canonical-b36d10d0310c897c1588c000eafe577de3ada520f1d549ebac7859e5715815bc"></a>
-
-## Next pages — voltstack_cluster.az_nodes.local_subnet.subnet_param / 164cde1e982b / 5
-
-- [voltstack_cluster.az_nodes.local_subnet](resources--azure_vnet_site--reference--group-008.md#canonical-5e068dcb356af048b2b5e6233f8e7eff9bc32b8cc5111e1ce380f6b07f44c4c9)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-9d2d12a1b34075b677dd04161498868b24e0857164f1b741844d65f8cccd3d0a"></a>
+<a id="canonical-2022231213313100-0200103111321213-1103313232101221-3212230130231021-0011321102010211-3032001102100133-2100331022213100-3303311010331331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-86880cd89ab92e9080a0471adfeabbdac2fcc5a3c889785babc07b00780058d6"></a>
-
-## voltstack_cluster.dc_cluster_group — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- voltstack_cluster.dc_cluster_group
-
-<a id="canonical-672ff5eb45af420ab9a04af84bc8711c408498dcac37e1e35cb0b5ec51e0ddb1"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-dc_cluster_group {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1db668ce07314fc4021d2298b1e7584d3946c0315ee3cd4c317b466f68981dd7"></a>
-
-## Direct properties — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 3
-
-<a id="canonical-983d34187000c8616180826656e8f7f210be34896e9904683454d33cacfa1234"></a>
-
-<a id="canonical-d87d174353491bf4744857df810593e81e09b0a2850557daeae657ade64a4bc9"></a>
-
-## name property — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-7a5b0691f8225ed490656ff17d0ddaa966acc91fcb5ad719c4ebca27bd6a4a02"></a>
-
-<a id="canonical-8adecbd7173dbbdf777d26cb415008b4f773bac59d8a226df59af6397db78eab"></a>
-
-## namespace property — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-5d8667810900acec5e437cc8ab620fd154c61870ffb0f6c3cfbe99787c5b7470"></a>
-
-<a id="canonical-c04356081145221811b54558287bf4c6ac69f1398546a02a401ec78332a58e3e"></a>
-
-## tenant property — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-30c7a27032520473fc839eadb549855e7e6ef63d687b09e6af896ad7fb1d48f5"></a>
-
-## Next pages — voltstack_cluster.dc_cluster_group / 07a8c8a45757 / 7
-
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-ed31b36fb96ae3be15150a7719135aebdb54e2fdb1a7466cbe4c60a030e14425"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f7325437210496e1cf699b7bf78be168a2cf42a7e1e9ccfffbd887c5b8db4cd0"></a>
-
-## voltstack_cluster.default_storage — voltstack_cluster.default_storage / 23167aa0d356 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- voltstack_cluster.default_storage
-
-<a id="canonical-4e41219b6c24a4cfb4a8eb9c9f958480ec34646e09cd1a0c0239427e122f36a9"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for default storage.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default_storage = {}
-```
-
-<a id="canonical-9d9d3330a06c3df26cc51f4a6467cd53cf22b5c7752fb991a4cf1faeeab7c101"></a>
-
-## Direct properties — voltstack_cluster.default_storage / 23167aa0d356 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-c277d8b92d76fcbbb2bb161fc0e1bdaeda808730b589fd57c2a97cded59cf61e"></a>
-
-## Next pages — voltstack_cluster.default_storage / 23167aa0d356 / 4
-
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-c15dea8b1c56cbbe431e0b31debcee5d177ff009eac2f2f3d62ac6ee36c4344f"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-03bea655528d4143700e20801133d0c7e27081016addccc7a1a740cdd9f24a14"></a>
-
-## voltstack_cluster.forward_proxy_allow_all — voltstack_cluster.forward_proxy_allow_all / e14d44caf1d7 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- voltstack_cluster.forward_proxy_allow_all
-
-<a id="canonical-260cc8aa2e7bbb418144c5adc5ffcc8f34561601c7c7ef6aaa3bff01db233919"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for forward proxy allow all.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-forward_proxy_allow_all = {}
-```
-
-<a id="canonical-c8e34771612d2e23771f7a5c709f20421bb5e13767e9da94093fbb0427c9968e"></a>
-
-## Direct properties — voltstack_cluster.forward_proxy_allow_all / e14d44caf1d7 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-066412e5e48b5ce4861924b5c7d1d3d03b4ce80528ccc738fc38ce0a31d2fadc"></a>
-
-## Next pages — voltstack_cluster.forward_proxy_allow_all / e14d44caf1d7 / 4
-
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-393f0ff07c2d9e7f1d584b95b6ad76e8669e0dbce31a5bc4e3b39a8a7278be9f"></a>
-
-## voltstack_cluster.global_network_list — voltstack_cluster.global_network_list / c267f62c9e31 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- voltstack_cluster.global_network_list
-
-<a id="canonical-f068771a4de015179df61c453ddeb29e5ce9f75efa73fee717cc22d571c8c2e9"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Global Network Connection List. List of global network connections.
-
-Upstream description:
-
-List of global network connections.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("global_network_connections")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-global_network_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-fa2064984f6b214632558c5116158e2c7432149fff720c08e87593695d9b3d25"></a>
-
-## Direct properties — voltstack_cluster.global_network_list / c267f62c9e31 / 3
-
-- [global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51): complete subsection reference.
-
-<a id="canonical-14a12acca1d4bd8e15586b725f6cbc2682621da85eec0542bd1fca72f5f1f041"></a>
-
-## Next pages — voltstack_cluster.global_network_list / c267f62c9e31 / 4
-
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-850d8d9301f997154694ca6b62b7096bf9b9acc1b4b81390a92156d2fa052438"></a>
-
-## voltstack_cluster.global_network_list.global_network_connections — voltstack_cluster.global_network_list.global_network_connections / 30d212ef0e13 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- voltstack_cluster.global_network_list.global_network_connections
-
-<a id="canonical-52d7169bd68c50b94bd8996a9484d304c691acd64dd7d5b2a4948f5d0228f643"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Global Network Connections. Global network connections.
-
-Upstream description:
-
-Global network connections.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr",
-    "slo_to_global_dr")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 8,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 8,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "8",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "8",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-global_network_connections {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-dc16d8b50b3737cd313ced2ab7150a16434c1329eb8583d44c1cf94f58fa0fc9"></a>
-
-## Direct properties — voltstack_cluster.global_network_list.global_network_connections / 30d212ef0e13 / 3
-
-- [sli_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-2b644667079b6ad86e305491b3705941401af9618ef4b1b923667c9b171d1574): complete subsection reference.
-
-- [slo_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-3b662671275f7b205177e6e1937ee5400435f8e00316a9b29d3fc506ca0f58c3): complete subsection reference.
-
-<a id="canonical-408860988740102aa27e8c07b5adf49913871657354a202e7b817100e9d8753b"></a>
-
-## Next pages — voltstack_cluster.global_network_list.global_network_connections / 30d212ef0e13 / 4
-
-- [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-2b644667079b6ad86e305491b3705941401af9618ef4b1b923667c9b171d1574)
-- [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-3b662671275f7b205177e6e1937ee5400435f8e00316a9b29d3fc506ca0f58c3)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-2b644667079b6ad86e305491b3705941401af9618ef4b1b923667c9b171d1574"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-985364cceeb08707603048e88811aa3e16afc59cd92c6b2944049b0196a08d3a"></a>
-
-## voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / 33a4d5ed46a0 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr
-
-<a id="canonical-e9936e8564c062480a2e28dc472b6d2600c8e7038cacf232554199348e85a56d"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Global network reference for direct connection.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-sli_to_global_dr {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-e5e97316beb05606c1c94a5c4f78f50eeb1696f55882584e0c46b26a84013417"></a>
-
-## Direct properties — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / 33a4d5ed46a0 / 3
-
-- [global_vn](resources--azure_vnet_site--reference--group-008.md#canonical-0cacfff6e5c151b140462797048b4ceee4a4098b8075da67a81024660f100e08): complete subsection reference.
-
-<a id="canonical-ed7dc675ca55d5ab6a525fca990743e73c60ef1fe94c60046cf0857fe879bc61"></a>
-
-## Next pages — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / 33a4d5ed46a0 / 4
-
-- [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--azure_vnet_site--reference--group-008.md#canonical-0cacfff6e5c151b140462797048b4ceee4a4098b8075da67a81024660f100e08)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-0cacfff6e5c151b140462797048b4ceee4a4098b8075da67a81024660f100e08"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d46f8f8e71ef606f4fc4a9939d86635a1acdf36ca8b5fdbf4ceced534c6d2dcf"></a>
-
-## voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-2b644667079b6ad86e305491b3705941401af9618ef4b1b923667c9b171d1574)
-- voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr.global_vn
-
-<a id="canonical-aa1bc7e242373ad8132dd098858a3369f038be358d1010c6013762f37ef33514"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-global_vn {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-25c6152b3137c5d9b992528d2eb38898bca095725862be3a1cca8a78e8d89173"></a>
-
-## Direct properties — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 3
-
-<a id="canonical-6337f74a98203dc16e72d54b4438180518a0e0667b4c39b87ff7fafaa4d1a73e"></a>
-
-<a id="canonical-4ac63fb6d92dc511521d9bcbd0fe6414a10dca80d9961f514651ae06849f0b4c"></a>
-
-## name property — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-bc22162216eeb123c543571b970da09229e3b4c88435efe86c93d9db31cf6a06"></a>
-
-<a id="canonical-c8f73fecd1d0d0609d3a70189d7b05b962dd5ae5693fdd76f1e0ca3c64820554"></a>
-
-## namespace property — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-6d8241b79d106003e9e5044577d42f7869ea113adadfa4abfd8fbf85b7d8d2b7"></a>
-
-<a id="canonical-360ffd40d44b953af3f4b0f019974ec4e0c209a45485fc186f71b56281297069"></a>
-
-## tenant property — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-85f3fc18b0d2a5caf76743e8f06b6c584c859bcd84c5e88f54166d49d1ff0631"></a>
-
-## Next pages — voltstack_cluster.global_network_list.global_network_connections.sli_to_global_d / e4f302f1f844 / 7
-
-- [voltstack_cluster.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-2b644667079b6ad86e305491b3705941401af9618ef4b1b923667c9b171d1574)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-3b662671275f7b205177e6e1937ee5400435f8e00316a9b29d3fc506ca0f58c3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f8ef13561fb6f7239f0fba20ea532fa5f9a7df3a15721bc4295bcf776d4c7232"></a>
-
-## voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / 80177bc5105b / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr
-
-<a id="canonical-38957fc8b4c175f2a3c761b3fc5ca7944034a785149724b8c5638f73cc36df37"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Global network reference for direct connection.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-slo_to_global_dr {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-5ed9173d21874623a34528c4dd1045274f0cdae5657ec6d52a1125d921db92e8"></a>
-
-## Direct properties — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / 80177bc5105b / 3
-
-- [global_vn](resources--azure_vnet_site--reference--group-008.md#canonical-c6221cf660dad3d81b33a876a66a799c9352b2635d0caa6b35a2d51f2b7def7a): complete subsection reference.
-
-<a id="canonical-433b411e0fa7f495ecd4f0b0cab5cf2480d61d46ae6296404d98d2016995e547"></a>
-
-## Next pages — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / 80177bc5105b / 4
-
-- [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--azure_vnet_site--reference--group-008.md#canonical-c6221cf660dad3d81b33a876a66a799c9352b2635d0caa6b35a2d51f2b7def7a)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-c6221cf660dad3d81b33a876a66a799c9352b2635d0caa6b35a2d51f2b7def7a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b7ce369d42b938491321d48f1e5b404329b7cc4265a0e6d2b907f93b250cd188"></a>
-
-## voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- [voltstack_cluster.global_network_list](resources--azure_vnet_site--reference--group-008.md#canonical-a8935381bd30aecbecc6a8cd035193d1f167660b2bf568f5541b0a720dd3966f)
-- [voltstack_cluster.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-008.md#canonical-4ff8031cf4922b4a592b1ca3ba34d1aa0e0c60d25f3a9ad96fc23e1842495b51)
-- [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-3b662671275f7b205177e6e1937ee5400435f8e00316a9b29d3fc506ca0f58c3)
-- voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr.global_vn
-
-<a id="canonical-32ed6c86cf40a4a47871917a2077639c128452dbc2a377d16c81d5efdf017c50"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-global_vn {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-26d3aa357511c3c7a0f1467a5e095ecc8b1a863bb6ff5167e50a83d47b074461"></a>
-
-## Direct properties — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 3
-
-<a id="canonical-c5bbf8748503ee8d35249fa15642db87f8d4615bd59e5f52c97fb6233b8385ae"></a>
-
-<a id="canonical-451159d0783cbf7a5dfb3a1e330533a0a802b94a438a9d24fbad847107044109"></a>
-
-## name property — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-a4b304ce51e360784340c251a036fa9c5caca8952846ed6382a9fb51b8f16b90"></a>
-
-<a id="canonical-94677945c053127d3dc134100eebfec742e44f2e5bb05926a24dc3552864adb4"></a>
-
-## namespace property — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-9944adc031453762b608288e4b8acd82f080f17642e085b06e626ad1c3000c6b"></a>
-
-<a id="canonical-13b21faa4baccc6fa454f518a4056191006b1733a889b16f0710886b9a0dabaf"></a>
-
-## tenant property — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-bb9aec1e275d3ad8dab858a16474eb645bf03ac3ba78e3c53bef58d6be904a69"></a>
-
-## Next pages — voltstack_cluster.global_network_list.global_network_connections.slo_to_global_d / e571cca46e96 / 7
-
-- [voltstack_cluster.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-008.md#canonical-3b662671275f7b205177e6e1937ee5400435f8e00316a9b29d3fc506ca0f58c3)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-d30e0699286fdea85a05f142127c4e9412c34f7bfc1257205aae6153dfa5c193"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f1f1978d384a49ee71982bcdcad7c94423288726bad2e9794a9fc9f36c5abd55"></a>
-
-## voltstack_cluster.k8s_cluster — voltstack_cluster.k8s_cluster / a267cbb72ae9 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster](resources--azure_vnet_site--reference--group-008.md#canonical-d13cdf7dc89d470692111f43d9e212d9ccccabf10c25a6043c4d909ce91b8314)
-- voltstack_cluster.k8s_cluster
-
-<a id="canonical-520e534050b9dbeeb62ce579a73c966ec4a07c3371a5caf91971951ff60501ca"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-k8s_cluster {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-8e4794d511e4137ebf09d6a9cce78b9778fedfe3fe83d2bcd45976fd1a706bda"></a>
-
-## Direct properties — voltstack_cluster.k8s_cluster / a267cbb72ae9 / 3
-
-<a id="canonical-84db2b6dffbeb9d357041cec53eae06869c5058f5fd97802a92def9914cd3d0c"></a>
-
-<a id="canonical-caad6cb98a0a249b36d0419059acf7aa5dd2f364eb280cf1257e32969aef33f1"></a>
-
-## name property — voltstack_cluster.k8s_cluster / a267cbb72ae9 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-304831524937ba2150c23e4e2595b0141c62624505e94af5076900c0995b8ea0"></a>

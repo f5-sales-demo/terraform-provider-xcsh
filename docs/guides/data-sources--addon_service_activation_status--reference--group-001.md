@@ -6,93 +6,93 @@ description: "Complete grouped canonical reference for xcsh_addon_service_activa
 
 # xcsh_addon_service_activation_status reference
 
-<a id="canonical-f41bda08979dbea479c6a4df981142036fa7233a29104511d138789f181b019b"></a>
+<a id="canonical-3310012331220020-2113213123322210-1321301222103133-2120010110020003-1233221302030322-0221010010110101-3101032013202133-0120012300012123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bbe7bdcf3a9cb16c783f706931fbb981ca2c160f75ac9fd2add64aa037100fd1"></a>
+<a id="canonical-2323321323313033-0322213023011230-1320033313001221-0301332323212001-3022023001120033-1311223021333102-2231311210222200-0313010000333101"></a>
 
-## Property reference — Property reference / 38d3f36a8eb8 / 2
+## Property reference — Property reference / 122220322320 / 2
 
 Breadcrumbs:
 
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)
 - Property reference
 
-<a id="canonical-26aa5487627d8831304e5d3cb45327e4b73e738ad534d2a64fd55b563bcca449"></a>
+<a id="canonical-0212222211102013-1202133120200301-0300103211310330-2310110302133210-2313033213032022-3111031031022212-1033311111231112-0323303022101021"></a>
 
-## Direct properties — Property reference / 38d3f36a8eb8 / 3
+## Direct properties — Property reference / 122220322320 / 3
 
-<a id="canonical-f22e40a26b02d51d3fdd512253f30d6022deb223e7d8b9d39782823cd769db55"></a>
+<a id="canonical-3302023210002202-1223000231110131-0333313111010202-1103330300311200-0202313223020203-3213312023213103-2113200220020330-3113122131231111"></a>
 
-<a id="canonical-a251e979befcd36114e659f92353ca6604759ff8f3d2736bc6626861630d0bb1"></a>
+<a id="canonical-2202110132211321-2332333031031201-0110321211213321-0203110330221212-0010131121333320-3303310213031223-3012120212201201-1203003100232301"></a>
 
-## addon_service property — Property reference / 38d3f36a8eb8 / 4
+## addon_service property — Property reference / 122220322320 / 4
 
 Type: `"string"`. Required.
 
 Name of the addon service to check (e.g., \`bot\_defense\`, \`client\_side\_defense\`).
 
-<a id="canonical-8c325481f5f9bde8b9e6a24ddde56c0fd5a45f170971b40924e46b5cc5821664"></a>
+<a id="canonical-2030030211102001-3311332123313220-2321321222021031-3131321112300033-3111221011330113-0021130123100021-0210321012231130-3011200201121210"></a>
 
-<a id="canonical-83c67d6ad77ae8f2ea391be262fbfe2a8a7ec520d3b730287bf1794fec7aa569"></a>
+<a id="canonical-2003301213311222-3113132232203302-3222032101233202-1202332333320222-2022133230110200-3103231303000220-1323330113211033-3230132222111221"></a>
 
-## can_activate property — Property reference / 38d3f36a8eb8 / 5
+## can_activate property — Property reference / 122220322320 / 5
 
 Type: `"bool"`. Computed.
 
 Whether the addon service can be activated. True if state is \`AS\_NONE\` (not yet subscribed) or
 \`AS\_SUBSCRIBED\` (already active).
 
-<a id="canonical-08045c262fabf011a91708387695807e0d715a24a2049aab9db4b2d2c6ce2e29"></a>
+<a id="canonical-0020001011300212-0233222333000101-2221011300200320-1312211120001332-0031130111220210-2202001021222223-2131231023023102-3012303202320221"></a>
 
-<a id="canonical-8c6b46bc8abdc91367cf27ba1b21bd1e1299243506046b398b54c2e389d82a99"></a>
+<a id="canonical-2030122310122330-2022233130210103-1213303302132322-0123020123310132-0102212102100311-0012001012230321-2023111030023203-2021312002222121"></a>
 
-## id property — Property reference / 38d3f36a8eb8 / 6
+## ID property — Property reference / 122220322320 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the data source.
 
-<a id="canonical-429ba3008a463268e73c643dff432bf36440e2fa0ae175b8c1f299e31cfa0579"></a>
+<a id="canonical-1002212322030000-2022101203021220-3213033012100331-3333100302233303-1210100032023322-0022320113112320-3001330221213203-0130332200111321"></a>
 
-<a id="canonical-64722e438b3ca5befd898e632e88910059238353568f88214546f2242cc1c11a"></a>
+<a id="canonical-1210130202321003-2023033022112332-3331202120321203-0232202021010000-1121020320031103-1112203320200201-1011101233020210-0230300130010122"></a>
 
-## message property — Property reference / 38d3f36a8eb8 / 7
+## message property — Property reference / 122220322320 / 7
 
 Type: `"string"`. Computed.
 
 Human-readable message describing the current activation status.
 
-<a id="canonical-bb444d1e5610fe066d34311366646b7bfb86882c737c5dedb879526fbe8582f3"></a>
+<a id="canonical-2323101010310132-1112010033320012-1231031003010103-1212121012231323-3323201220200230-1303133011313231-2320132111021233-2332201120023303"></a>
 
-<a id="canonical-0d6d0a7736d39a04ab7e47e3acc661dd3b29f489ce5c21b117df817796dc27da"></a>
+<a id="canonical-0031123100221313-0312310321220010-2223133210133203-2230301212013131-0323022133102021-3032113002012301-0113313320011313-2112313002133122"></a>
 
-## state property — Property reference / 38d3f36a8eb8 / 8
+## state property — Property reference / 122220322320 / 8
 
 Type: `"string"`. Computed.
 
 Current state of the addon service subscription. Possible values: \`AS\_NONE\`, \`AS\_PENDING\`,
 \`AS\_SUBSCRIBED\`, \`AS\_ERROR\`.
 
-<a id="canonical-d079e3a9a0869750cf2806a8a78bfd26ad26cf487f24a636193f58838f4da013"></a>
+<a id="canonical-3100132132032221-2200201221131100-3033022000122220-2213202333310212-2231021230331020-1333021022120312-0121033311202003-2033103122000103"></a>
 
-## All schema paths — Property reference / 38d3f36a8eb8 / 9
+## All schema paths — Property reference / 122220322320 / 9
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `addon_service` | [addon_service](data-sources--addon_service_activation_status--reference--group-001.md#canonical-f22e40a26b02d51d3fdd512253f30d6022deb223e7d8b9d39782823cd769db55) |
-| `can_activate` | [can_activate](data-sources--addon_service_activation_status--reference--group-001.md#canonical-8c325481f5f9bde8b9e6a24ddde56c0fd5a45f170971b40924e46b5cc5821664) |
-| `id` | [id](data-sources--addon_service_activation_status--reference--group-001.md#canonical-08045c262fabf011a91708387695807e0d715a24a2049aab9db4b2d2c6ce2e29) |
-| `message` | [message](data-sources--addon_service_activation_status--reference--group-001.md#canonical-429ba3008a463268e73c643dff432bf36440e2fa0ae175b8c1f299e31cfa0579) |
-| `state` | [state](data-sources--addon_service_activation_status--reference--group-001.md#canonical-bb444d1e5610fe066d34311366646b7bfb86882c737c5dedb879526fbe8582f3) |
+| `addon_service` | [addon_service](data-sources--addon_service_activation_status--reference--group-001.md#canonical-3302023210002202-1223000231110131-0333313111010202-1103330300311200-0202313223020203-3213312023213103-2113200220020330-3113122131231111) |
+| `can_activate` | [can_activate](data-sources--addon_service_activation_status--reference--group-001.md#canonical-2030030211102001-3311332123313220-2321321222021031-3131321112300033-3111221011330113-0021130123100021-0210321012231130-3011200201121210) |
+| `id` | [id](data-sources--addon_service_activation_status--reference--group-001.md#canonical-0020001011300212-0233222333000101-2221011300200320-1312211120001332-0031130111220210-2202001021222223-2131231023023102-3012303202320221) |
+| `message` | [message](data-sources--addon_service_activation_status--reference--group-001.md#canonical-1002212322030000-2022101203021220-3213033012100331-3333100302233303-1210100032023322-0022320113112320-3001330221213203-0130332200111321) |
+| `state` | [state](data-sources--addon_service_activation_status--reference--group-001.md#canonical-2323101010310132-1112010033320012-1231031003010103-1212121012231323-3323201220200230-1303133011313231-2320132111021233-2332201120023303) |
 
-<a id="canonical-29df5012ba482e87b421f24d1cd931c7a92b6a3df071ac958c0a7f37be39477d"></a>
+<a id="canonical-0221313311000102-2322102002322013-2310020133021031-0130312103013013-2221022312220331-3300130122302111-2030002213330313-2332032110131331"></a>
 
-## Next pages — Property reference / 38d3f36a8eb8 / 10
+## Next pages — Property reference / 122220322320 / 10
 
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)

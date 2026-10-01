@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver landing
 
-<a id="canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5"></a>
+<a id="canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6b3d5eaf45b7113e2ea91b6b564da149ea04a7f2e6a8b42f529cf9109b3fb65b"></a>
+<a id="canonical-1223033111322233-1011231301010332-0232222101231223-1112103122011021-3222001022133302-3212222023100233-1102213033210100-2123033323121123"></a>
 
-## xcsh_global_log_receiver — xcsh_global_log_receiver / acfd4e516ac0 / 2
+## xcsh_global_log_receiver — xcsh_global_log_receiver / 110112223000 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages new Global Log Receiver object in F5 Distributed Cloud.
 
-<a id="canonical-b5be1c88739c5b102b32beeeb9a790d5c7c232dceb839dce1d5bc3515d83f6bd"></a>
+<a id="canonical-2311233201302020-1303213011230100-0223030223323232-2321221321003111-3013300203023130-3223200321313032-0131112330031101-1131200333122331"></a>
 
-## Prerequisites — xcsh_global_log_receiver / acfd4e516ac0 / 3
+## Prerequisites — xcsh_global_log_receiver / 110112223000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-ada2358e62f26fe628fb7e70302710f5bbfdf1de1f6a32366a51bb7f9a1cd6c2"></a>
+<a id="canonical-2231220203112032-1202330212333212-0220332313321300-0300021301003311-2323333133013132-0133122203020312-1222110123231333-2122013031123002"></a>
 
-## Minimal configuration — xcsh_global_log_receiver / acfd4e516ac0 / 4
+## Minimal configuration — xcsh_global_log_receiver / 110112223000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_global_log_receiver" "example" {
 }
 ```
 
-<a id="canonical-5d480a62de965ea7dc31d2619efd86f918acb776af2398225c4fd3f046583309"></a>
+<a id="canonical-1131102000221202-3132211211322213-3130030131021201-2132333120123321-0120223023131312-2233020321200202-1130103331033300-1012112003030021"></a>
 
-## Root configuration — xcsh_global_log_receiver / acfd4e516ac0 / 5
+## Root configuration — xcsh_global_log_receiver / 110112223000 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-c3e87aad10003ffc677e4c4a4ea0e8577a5268df53c9b83ef99292432692b6a4"></a>
+<a id="canonical-3003322013222231-0100000003333330-1213133210301022-1032220032201113-1322110212203133-1103302123200332-3321210221021003-0212210223122210"></a>
 
-## Next pages — xcsh_global_log_receiver / acfd4e516ac0 / 6
+## Next pages — xcsh_global_log_receiver / 110112223000 / 6
 
-- [Property reference](../guides/resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [Examples](../guides/resources--global_log_receiver--examples--group-001.md#canonical-5c26fc0d1d2807236ae02af52707999e5e595a8aae44687b256637a6e9951aaf)
-- [Import](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-fd636c89e15c31c2420003286cdeffc263c9d5d51c7c91c1858f492c8a0eedaa)
-- [Timeouts](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-26a15a7a91bf182fca614bc5847ced9fcdc552d9e414a370ace5079ce25917d8)
+- [Property reference](../guides/resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [Examples](../guides/resources--global_log_receiver--examples--group-001.md#canonical-1130021233300031-0131022000130203-1222320002223311-0213001321212132-1132112111222022-2232101012201323-0211121203132212-3221211101222233)
+- [Import](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-3331120312302021-3201113003013002-1002000000030220-1230313233333002-1203302131113111-0130133021013001-2011203310210230-2022003232312222)
+- [Timeouts](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-0212220111221322-2101233301200233-3022120110233011-2010133032312133-3031301111023121-3210011022031300-2230321100132130-3202112101133120)

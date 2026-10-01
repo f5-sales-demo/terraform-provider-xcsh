@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_ike1 landing."
 
 # xcsh_ike1 landing
 
-<a id="canonical-81570b716a17db42e7a83bf26108dfb7a5809432f2a942ba3e8a9db577b0a45c"></a>
+<a id="canonical-2001111300231301-1222011331231002-3213222003233302-1201002031332313-2211200021100302-3302222110022322-0332202221312311-1313230022101130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae506d7b3e53444043a5a079a64e08e3e72916a0a684072a850cdcca97483b41"></a>
+<a id="canonical-2232110012311323-0332110310101000-1003221122001321-2212103200203203-3213022101122200-2212201000130222-2011003031303022-2113102003231001"></a>
 
-## xcsh_ike1 — xcsh_ike1 / 0e219fbee081 / 2
+## xcsh_ike1 — xcsh_ike1 / 233232002001 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
 
-<a id="canonical-115959fefa010f4ece827961d082ef0064240239b85615557b2da87200492366"></a>
+<a id="canonical-0101112111213332-3322000100331032-3032200213211201-3100200232330000-1210021000020321-2320111201111111-1323023122201302-0000102102031212"></a>
 
-## Prerequisites — xcsh_ike1 / 0e219fbee081 / 3
+## Prerequisites — xcsh_ike1 / 233232002001 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-9c0e77c1d40c622fb44fe5bf4e358209536321ae93ac6d7260d11f016e72381c"></a>
+<a id="canonical-2130003213133001-3110003012020233-2310103332112333-1032031120020021-1103120302012232-2103223012311302-1200310101330001-1232130203200130"></a>
 
-## Minimal configuration — xcsh_ike1 / 0e219fbee081 / 4
+## Minimal configuration — xcsh_ike1 / 233232002001 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_ike1" "example" {
 }
 ```
 
-<a id="canonical-0e6baeea1445dbd92e5315913f435ccd5db16834ae712fef88adfd8d3dfba380"></a>
+<a id="canonical-0032122322323222-0110101131233121-0232110301112101-0333100311303031-1131230112200310-2232130102333233-2020223133312031-0331332322032000"></a>
 
-## Root configuration — xcsh_ike1 / 0e219fbee081 / 5
+## Root configuration — xcsh_ike1 / 233232002001 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-cff6290d335cfdd3b0b889d699d3f189fd83113d115f74745e85877bc93f467b"></a>
+<a id="canonical-3033331202210031-0303113033313103-2300232020213112-2121310333012021-3331200301010331-0101113313101310-1132201120131323-3021033310121323"></a>
 
-## Next pages — xcsh_ike1 / 0e219fbee081 / 6
+## Next pages — xcsh_ike1 / 233232002001 / 6
 
-- [Property reference](../guides/resources--ike1--reference--group-001.md#canonical-2debb276abd42f87e00a9690a0634f2eecd9a9c655336e52bd08eac86a5ede94)
-- [Examples](../guides/resources--ike1--examples--group-001.md#canonical-a90ace16fce8dfc643a25b1907e73a1d38df1be791702aa2eaa0f7006aee33a1)
-- [Import](../guides/resources--ike1--lifecycle--group-001.md#canonical-02964e4b1a0397370a82257e7a3a2ec431e800a2155f87d0503c5047bc793c99)
-- [Timeouts](../guides/resources--ike1--lifecycle--group-001.md#canonical-045d2ec2f4d9e57680d007aa0d85b3b2e1146cafdb5eec4c7a9e33c188e74bdc)
+- [Property reference](../guides/resources--ike1--reference--group-001.md#canonical-0231322323021312-2223311002332013-3200002221122100-2200120310330232-3230312122213012-1111030312321102-2331002032223020-1222113231322110)
+- [Examples](../guides/resources--ike1--examples--group-001.md#canonical-2221002230320112-3330322031333012-1003220211230121-0013321303220131-0320313301233213-2101130002222202-3222220033130000-1222323203032201)
+- [Import](../guides/resources--ike1--lifecycle--group-001.md#canonical-0002211210321023-0122000321130313-0022200202111332-1322032202323010-0301322000002202-0111113320133100-1100033011001013-2330132103302121)
+- [Timeouts](../guides/resources--ike1--lifecycle--group-001.md#canonical-0010113102323002-3310312132111312-2000310000132222-0031201123032302-3201011012302233-3123113232301030-1322213203033001-2020321310233130)

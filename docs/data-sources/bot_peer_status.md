@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_peer_status land
 
 # xcsh_bot_peer_status landing
 
-<a id="canonical-67ec1acf92d1d20d9c08be3fef0b7bd8125ef46625bfa7cae7978e9ffcf45de4"></a>
+<a id="canonical-1213323001223033-2102310131020031-2130002023320333-3233002313233120-0102113233101212-0211233322133022-3213211320322133-3330331011313210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-14c91ad8aa3a4688e754d68a2f135d29fc70ddc5109786947e6da005e33b830e"></a>
+<a id="canonical-0110302101223120-2222032210122020-3213111031122022-0233010311310221-3330130031313011-0100211320122110-1332123122000011-3203032320030032"></a>
 
-## xcsh_bot_peer_status — xcsh_bot_peer_status / f30e1dc20f24 / 2
+## xcsh_bot_peer_status — xcsh_bot_peer_status / 300200330210 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-90c43b8156de288a5f16830816dd87890bc6a316ebf50daf7423d7d0fafd5da3"></a>
+<a id="canonical-2100301003232001-1112313202202022-1133011220030020-0112313120132021-0023301222030112-3223331100312233-1310020331133100-3322333111312203"></a>
 
-## Prerequisites — xcsh_bot_peer_status / f30e1dc20f24 / 3
+## Prerequisites — xcsh_bot_peer_status / 300200330210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-fb53f1cbc4b82ac4e67a62a5cc48413db12f261017143c7007be49888b3709f8"></a>
+<a id="canonical-3323110333013023-3010232002223010-3212132212022211-3030102010010331-2301023302120100-0113011003301300-0013233210212020-2023031300213320"></a>
 
-## Minimal configuration — xcsh_bot_peer_status / f30e1dc20f24 / 4
+## Minimal configuration — xcsh_bot_peer_status / 300200330210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "bot_peer_status_result" {
 }
 ```
 
-<a id="canonical-3d53bbddb244891cd2d62d5cac5131fd061546beeca339359e636ca7d5e6fa32"></a>
+<a id="canonical-0331110323233131-2302101020210130-3102311202311130-2230110103013331-0012011110122332-3230220303210311-2132120312302213-3111321233220302"></a>
 
-## Root configuration — xcsh_bot_peer_status / f30e1dc20f24 / 5
+## Root configuration — xcsh_bot_peer_status / 300200330210 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4ce4ae00c0ab0a7e75fccfb958fe32d3796dd1e87cb420977b992b3c4488133d"></a>
+<a id="canonical-1030321022320000-3000222300221332-1311333030332321-1120333203023103-1321123131013220-1330231002002113-1323212102230330-1010202001030331"></a>
 
-## Next pages — xcsh_bot_peer_status / f30e1dc20f24 / 6
+## Next pages — xcsh_bot_peer_status / 300200330210 / 6
 
-- [Property reference](../guides/data-sources--bot_peer_status--reference--group-001.md#canonical-af5bdebbe653a239e2a54201e0a334a1c2e085d044d39db19e057bf1f650b4a5)
-- [Examples](../guides/data-sources--bot_peer_status--examples--group-001.md#canonical-47ce9ed4715ab48aef0cbccef3678f1d5336b8af21bd233e2b03e7094538d3e7)
+- [Property reference](../guides/data-sources--bot_peer_status--reference--group-001.md#canonical-2233112331322323-3212110322020321-3202221110020001-3200220303102201-3002320020113100-1010310321312301-2132001113233301-3312110023102211)
+- [Examples](../guides/data-sources--bot_peer_status--examples--group-001.md#canonical-1013303221323110-1301112223102022-3233003023303032-3303121320330131-1103031223202233-0201233102030332-0223000332130021-1011032031033213)

@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_infraprotect_mitigat
 
 # xcsh_infraprotect_mitigation_ips examples
 
-<a id="canonical-acf837bcc3ba76e94b3d1c3511fae39e4803523592aaec119cad377aab2d3fa0"></a>
+<a id="canonical-2230332003132330-3003232213123221-1023033101300311-0101332232032132-1020000311020311-2102222232300101-2130223103131322-2223023103332200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c1ef0807362ecc59bcd0d0de961bb65b16f23bc43683135fd92362bd0cf299e"></a>
+<a id="canonical-0230013233002000-1303120232303011-2123303100310031-3221120123231211-2301123302032330-1003122003010311-3331210203120223-3100303302212132"></a>
 
-## Examples — Examples / a9c38f251b4c / 2
+## Examples — Examples / 021101231030 / 2
 
 Breadcrumbs:
 
-- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-6bbcfac04e0461ca71e3270fb54508b2dcb429ecf8c1773c17755777ea563c92)
+- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-1223233033223000-1032001012013022-1301320302130033-2311101100202302-3130231002213230-3320300113130330-0113131111131313-3222111203302102)
 - Examples
 
-<a id="canonical-ab921825b41067050c9d2ec9085b87738a6df7ffa289018fef933562de15ac09"></a>
+<a id="canonical-2223210201200211-2310010012130011-0030213102323021-0020112320131303-2022123133133333-2202202100012033-3233210303111202-3132011122300021"></a>
 
-## Complete configurations — Examples / a9c38f251b4c / 3
+## Complete configurations — Examples / 021101231030 / 3
 
-- [Data source](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-bbaa655948f34269902a843d93600d57e8e7185817e09c14a2f90d89174bc9f2): valid configuration.
+- [Data source](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-2323222212111121-1020330310021221-2100022220100331-2103120000311113-3220321301201120-0113320021300110-2202332100312021-0113102330213302): valid configuration.
 
-<a id="canonical-a3b85a3eadfd0c59881fa55bdcf28df682d8e86bc714accd77a68ec6d3bbfdf9"></a>
+<a id="canonical-2203232011220332-2231333100301121-2020013322111123-3130330220313312-2002312032201223-3013011022303031-1313221220323012-3103232333313321"></a>
 
-## Next pages — Examples / a9c38f251b4c / 4
+## Next pages — Examples / 021101231030 / 4
 
-- [Data source](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-bbaa655948f34269902a843d93600d57e8e7185817e09c14a2f90d89174bc9f2)
-- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-6bbcfac04e0461ca71e3270fb54508b2dcb429ecf8c1773c17755777ea563c92)
+- [Data source](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-2323222212111121-1020330310021221-2100022220100331-2103120000311113-3220321301201120-0113320021300110-2202332100312021-0113102330213302)
+- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-1223233033223000-1032001012013022-1301320302130033-2311101100202302-3130231002213230-3320300113130330-0113131111131313-3222111203302102)
 
-<a id="canonical-bbaa655948f34269902a843d93600d57e8e7185817e09c14a2f90d89174bc9f2"></a>
+<a id="canonical-2323222212111121-1020330310021221-2100022220100331-2103120000311113-3220321301201120-0113320021300110-2202332100312021-0113102330213302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-70050bfce50434561ff73ebca47f0a0ad7f423c8be8e38dcab52382971c1c9df"></a>
+<a id="canonical-1300001100233330-3211001003101112-0133331303322330-2210133300220022-3113331002033020-2332203203203130-2223110203200221-1301300130213133"></a>
 
-## Data source — Data source / 665fefb88833 / 2
+## Data source — Data source / 232020200303 / 2
 
 Breadcrumbs:
 
-- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-6bbcfac04e0461ca71e3270fb54508b2dcb429ecf8c1773c17755777ea563c92)
-- [Examples](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-acf837bcc3ba76e94b3d1c3511fae39e4803523592aaec119cad377aab2d3fa0)
+- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-1223233033223000-1032001012013022-1301320302130033-2311101100202302-3130231002213230-3320300113130330-0113131111131313-3222111203302102)
+- [Examples](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-2230332003132330-3003232213123221-1023033101300311-0101332232032132-1020000311020311-2102222232300101-2130223103131322-2223023103332200)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -80,9 +80,9 @@ output "infraprotect_mitigation_ips_result" {
 }
 ```
 
-<a id="canonical-1a6275899fd2ebcb0b9da4ebdcde45471dec32d0a2c7bd7338378213081b7659"></a>
+<a id="canonical-0122120213112021-2133310232233023-0023213122103223-3130313210111013-0131323003023100-2202301323311303-0320031320020103-0020012313121121"></a>
 
-## Next pages — Data source / 665fefb88833 / 3
+## Next pages — Data source / 232020200303 / 3
 
-- [Examples](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-acf837bcc3ba76e94b3d1c3511fae39e4803523592aaec119cad377aab2d3fa0)
-- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-6bbcfac04e0461ca71e3270fb54508b2dcb429ecf8c1773c17755777ea563c92)
+- [Examples](data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-2230332003132330-3003232213123221-1023033101300311-0101332232032132-1020000311020311-2102222232300101-2130223103131322-2223023103332200)
+- [xcsh_infraprotect_mitigation_ips](../data-sources/infraprotect_mitigation_ips.md#canonical-1223233033223000-1032001012013022-1301320302130033-2311101100202302-3130231002213230-3320300113130330-0113131111131313-3222111203302102)

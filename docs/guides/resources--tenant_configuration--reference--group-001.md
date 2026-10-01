@@ -6,84 +6,84 @@ description: "Complete grouped canonical reference for xcsh_tenant_configuration
 
 # xcsh_tenant_configuration reference
 
-<a id="canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2"></a>
+<a id="canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-44e48ca50bafac76e56ab678ae0b8ec08eda5bd510bd4f5d11240ae95035a8be"></a>
+<a id="canonical-1010321020302211-0023223322301312-3211122223121320-2232002320323000-2032312211233111-0100233110331131-0101021000223221-1100031122202332"></a>
 
-## Property reference — Property reference / e3377aee4542 / 2
+## Property reference — Property reference / 323210111002 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 - Property reference
 
-<a id="canonical-25b288279442fabd2f5b7abe4ebad23bf0debdfa6318194cd7a67e91abb207c4"></a>
+<a id="canonical-0211230220200213-2110100233222331-0233112313222332-1032232231020323-3300313223313322-1203012001211030-3113221213322101-2223230200133010"></a>
 
-## Direct properties — Property reference / e3377aee4542 / 3
+## Direct properties — Property reference / 323210111002 / 3
 
-<a id="canonical-c94fa6f9b9d3553bbec8a0ab33fea4b594bf4361f3f281d8362458de6fef16a3"></a>
+<a id="canonical-3021103322123321-2321310311110323-2332302022002223-0303333222102311-2110233310031201-3303330220013120-0312021011203132-1233323301122203"></a>
 
-<a id="canonical-c60d36224e5a01f1116d30a2d58a7c5c3deeca7ff03ad7be39a5b216a99b3661"></a>
+<a id="canonical-3012003103120202-1032112200013301-0101123103002202-3111202213301130-0331323230221333-3300032231132332-0321221123020112-2221212303121201"></a>
 
-## annotations property — Property reference / e3377aee4542 / 4
+## annotations property — Property reference / 323210111002 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
-- [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-821619c8d84bb2cefd992a812706b55e3c8c013ff89fcb52507934a4e8398408): complete subsection reference.
+- [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-2002011201213020-3120102323023032-3331212102222001-0213001223111132-0330203000010333-3320213330231102-1100132103102210-3220032120100020): complete subsection reference.
 
-<a id="canonical-55bc511b2a2900f74ce2445d0861ee98b02e6f903a3811b4177b35aa6d81ed23"></a>
+<a id="canonical-1111233011010123-0222022100003313-1030320210101131-0020120132322120-2300023212332100-0322032001012310-0113132303112222-1231200132310203"></a>
 
-<a id="canonical-c01406e8240ff8090f9633c64f8b970b44c40adbe549054070dde7da50d4aa33"></a>
+<a id="canonical-3000011000123220-0210003333200021-0033211203033012-1033202321130023-1010301000223123-3211102100111000-1300313132133122-1100311022220303"></a>
 
-## description property — Property reference / e3377aee4542 / 5
+## description property — Property reference / 323210111002 / 5
 
 Type: `"string"`. Optional.
 
 Human readable description for the object.
 
-<a id="canonical-890c9e81138b9b06c1dba91fe251caa0b56e90eadcd2db41ad111dddcd3bf62a"></a>
+<a id="canonical-2021003021322001-0103202321230012-3001312322210133-3202110130222200-2311123221003222-3130310231231001-2231010101313131-3031032333120222"></a>
 
-<a id="canonical-20b1e1fe0c28e56b89d0706b0cc230c054a7e86cf87380b93dbf6171afd3edad"></a>
+<a id="canonical-0200230132013332-0030022032111223-2021310013001223-0030300203003000-1110221332201230-3320130320002321-0331233312011301-2233310332312231"></a>
 
-## disable property — Property reference / e3377aee4542 / 6
+## disable property — Property reference / 323210111002 / 6
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-<a id="canonical-d962e3877806f18153aefdcd5e4995f643a08406e1916c62dc2c261f8ede82f1"></a>
+<a id="canonical-3121120232032013-1320001233012001-1103223233313031-1132102121113312-1003220020100012-3201210112301202-3130023002120133-2032313220023301"></a>
 
-<a id="canonical-fd541bd1f3b357dcabaf081a449a1c1d64317b163a43a5a35a81d3f2b69e980e"></a>
+<a id="canonical-3331111001233101-3303230311133130-2223223300200122-1010212201300131-1210030113230112-0322100322112203-1122200131033302-2312213221200032"></a>
 
-## id property — Property reference / e3377aee4542 / 7
+## ID property — Property reference / 323210111002 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-85cad13c7f0b6edf84289d0562023989da419bf26fa1f279dd535afb5651e0d0"></a>
+<a id="canonical-2011302231010330-1333002312323133-2010022021310011-1202000203212021-3122100121233302-1233220133021321-3131110311223323-1112110132003100"></a>
 
-<a id="canonical-8b79f08329b7e82824e360d876cb41d611dd7ae818f96147329fda7cc0a51907"></a>
+<a id="canonical-2023132133002003-0221231332200220-0210320312003120-1312302310013112-0101313113223220-0120332112011013-0302213331221330-3000221101210013"></a>
 
-## labels property — Property reference / e3377aee4542 / 8
+## labels property — Property reference / 323210111002 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-<a id="canonical-4d0fb22d12eafd58f1530eb700b03f1481b8a3a9691abc90e91ec2eb2255038f"></a>
+<a id="canonical-1031003323020231-0102322233311120-3301110300322313-0000230003330110-2001232022032221-1221012223302100-3221013230023223-0202111100032033"></a>
 
-<a id="canonical-ac122ee6e911429d8e3a696a59ad3a881fa0cd1600f4718edd3269889ae3b7f1"></a>
+<a id="canonical-2230010202323212-3221010110022131-2032032212211222-1121223103222020-0133220030310112-0000331013012032-3131030212212020-2122320323133301"></a>
 
-## name property — Property reference / e3377aee4542 / 9
+## name property — Property reference / 323210111002 / 9
 
 Type: `"string"`. Required.
 
@@ -97,11 +97,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-afaf16d4901cd36f08ef44ae840872b25693aca2c2350b3703368f77fcae5b71"></a>
+<a id="canonical-2233223301123110-2100013031031233-0020323310102232-2010002013022302-1112210322302202-3002031100230313-0003031220331313-3330223211231301"></a>
 
-<a id="canonical-fdcfaf34d04e54416ecf9412519bec10078e155b59a024c8d0bdabc9e7c6e370"></a>
+<a id="canonical-3331303322330310-3100103211101001-1232303321100102-1101212332300100-0013203201111123-1121220002103020-3100233122233021-3213301232031300"></a>
 
-## namespace property — Property reference / e3377aee4542 / 10
+## namespace property — Property reference / 323210111002 / 10
 
 Type: `"string"`. Required.
 
@@ -115,87 +115,87 @@ Validators: []validator.String{
 }
 ```
 
-- [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-d22ac2c8491ce686c86e96f5f7e8666dcd3f0370f6f460088d0e6594a3c2a10a): complete subsection reference.
+- [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-3102022230023020-1021013032122012-3020123221123311-3313322012121231-3031033300031300-3312331012000020-2031003212112110-2203300222010022): complete subsection reference.
 
-- [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-452a289512a12b40aecd668a1edafd36a78f77e364e271f9ea07d757fd73073f): complete subsection reference.
+- [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-1011022202202111-0102220102231000-2232303112122022-0132312233310312-2213203313133203-1210320213013321-3222001331131113-3331130300130333): complete subsection reference.
 
-- [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-2560c76f29b89582c64faf83495deba1b668a3386d8290a61ae8072cb0666184): complete subsection reference.
+- [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-0211120030131233-0221232021112002-3012103322332003-1021113132232201-2312122022030320-1231200221002212-0122322000130230-2300121212012010): complete subsection reference.
 
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba): complete subsection reference.
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322): complete subsection reference.
 
-<a id="canonical-a17e27657947f5a5e892bee50b3d73dba14c33868de863d934a566deda178840"></a>
+<a id="canonical-2201133202131211-1321101333112211-3220210223323211-0023033113033123-2201103003032012-2031322012033121-0310221112123132-3122011320201000"></a>
 
-## All schema paths — Property reference / e3377aee4542 / 11
+## All schema paths — Property reference / 323210111002 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--tenant_configuration--reference--group-001.md#canonical-c94fa6f9b9d3553bbec8a0ab33fea4b594bf4361f3f281d8362458de6fef16a3) |
-| `brute_force_detection` | [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-48fa94e6c975a8d147c4e7e08ed5b3643a3b30d88f2acfca9d2203c0f6b2a95c) |
-| `brute_force_detection.max_login_failures` | [brute_force_detection.max_login_failures](resources--tenant_configuration--reference--group-001.md#canonical-189d398634de6d9d31c1db42800896299c218d60294eb7af149c15ad147ac020) |
-| `description` | [description](resources--tenant_configuration--reference--group-001.md#canonical-55bc511b2a2900f74ce2445d0861ee98b02e6f903a3811b4177b35aa6d81ed23) |
-| `disable` | [disable](resources--tenant_configuration--reference--group-001.md#canonical-890c9e81138b9b06c1dba91fe251caa0b56e90eadcd2db41ad111dddcd3bf62a) |
-| `id` | [id](resources--tenant_configuration--reference--group-001.md#canonical-d962e3877806f18153aefdcd5e4995f643a08406e1916c62dc2c261f8ede82f1) |
-| `labels` | [labels](resources--tenant_configuration--reference--group-001.md#canonical-85cad13c7f0b6edf84289d0562023989da419bf26fa1f279dd535afb5651e0d0) |
-| `name` | [name](resources--tenant_configuration--reference--group-001.md#canonical-4d0fb22d12eafd58f1530eb700b03f1481b8a3a9691abc90e91ec2eb2255038f) |
-| `namespace` | [namespace](resources--tenant_configuration--reference--group-001.md#canonical-afaf16d4901cd36f08ef44ae840872b25693aca2c2350b3703368f77fcae5b71) |
-| `password_policy` | [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-ca5900014c605370373120907771c6218532d4cb21e99d13d6ea35da0e60588f) |
-| `password_policy.digits` | [password_policy.digits](resources--tenant_configuration--reference--group-001.md#canonical-7cba66b03d1fb1e5d6448ca8a3f8ec5d794c36f903ce1f4a253c562dcbc73068) |
-| `password_policy.expire_password` | [password_policy.expire_password](resources--tenant_configuration--reference--group-001.md#canonical-b5b9acfb68fab7b9b791b59eb5be60af58f82176d4977a0b85d7c9456b05844c) |
-| `password_policy.lowercase_characters` | [password_policy.lowercase_characters](resources--tenant_configuration--reference--group-001.md#canonical-fde746eb1abecdc040330a485d532bc0b14649301d5ae95f711cf17b06983bf8) |
-| `password_policy.minimum_length` | [password_policy.minimum_length](resources--tenant_configuration--reference--group-001.md#canonical-6f09724d5a49f4f4cee40e6da8ec4efb4833ca37d400a2e1e89694c2c8504a5e) |
-| `password_policy.not_recently_used` | [password_policy.not_recently_used](resources--tenant_configuration--reference--group-001.md#canonical-bc02e4de8199cba4df58d6de68aea9a063a7d84c82e4d82a3a9e85165a728044) |
-| `password_policy.not_username` | [password_policy.not_username](resources--tenant_configuration--reference--group-001.md#canonical-694547d573ccf852309153f0a61f9b792dd637c513ec794a9ab013a7388c371a) |
-| `password_policy.special_characters` | [password_policy.special_characters](resources--tenant_configuration--reference--group-001.md#canonical-35f3c0239e61050a34ae911828cd5e86dcbe624f976da146378e08812c591c23) |
-| `password_policy.uppercase_characters` | [password_policy.uppercase_characters](resources--tenant_configuration--reference--group-001.md#canonical-f50dd904cf9b8fe8b362474d50496f5c703ebe313390007710cba5d146fe1a5c) |
-| `tenant_details` | [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-ab19e16cb9b735c8a149c0869696a7ed8eeebe25c1784f220e5a12a51eb2f76d) |
-| `tenant_details.display_name` | [tenant_details.display_name](resources--tenant_configuration--reference--group-001.md#canonical-8665e3f55149777bac2ad93219c4cd4bc425d44edd4ad35bde447cae9129129d) |
-| `timeouts` | [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-70b2fa7667f36ffb7b4b5b17d674654eb37e39146edff7e73430f16608e085b7) |
-| `timeouts.create` | [timeouts.create](resources--tenant_configuration--reference--group-001.md#canonical-5f68907166c6207ee3fdcb2a4df71b43ec645d53b103172a0cc0c947964537b5) |
-| `timeouts.delete` | [timeouts.delete](resources--tenant_configuration--reference--group-001.md#canonical-576465c0618990ea0946721e8de7306b3710ffef5e6d65dbbf72f8e899401f49) |
-| `timeouts.read` | [timeouts.read](resources--tenant_configuration--reference--group-001.md#canonical-0c5735b6b4ab35b800a29d5fc09d5f6ae02ce5e7371cf7a914b2acc1ddf01e74) |
-| `timeouts.update` | [timeouts.update](resources--tenant_configuration--reference--group-001.md#canonical-47930ed94ac1d3b1a8ab54f11a44032c6eb900bfceab575eef3336e2b773059d) |
-| `user_session_expiration` | [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-91ac0514301375b0a02750bd5915a0f3db4dfc75de82dfe993541045323eb472) |
-| `user_session_expiration.absolute_timeout` | [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-d10df19bb39dbbe0395e55c1cd57b1008f975f3b22b8a6115cc638b79da1ea7b) |
-| `user_session_expiration.absolute_timeout.hours` | [user_session_expiration.absolute_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-bf079e049dc4612363887688f8fe41c8019603d2a00f9b6812bbb2db0557de15) |
-| `user_session_expiration.absolute_timeout.hours.duration` | [user_session_expiration.absolute_timeout.hours.duration](resources--tenant_configuration--reference--group-001.md#canonical-d6332dcbcfe284239d6d706fd04783adc542f5c53c3aeec261fae9d76ad69697) |
-| `user_session_expiration.absolute_timeout.minutes` | [user_session_expiration.absolute_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-ff9011ad00654d15cba61cbe42f2ef89022699922ca3c75560c110156f3fafc3) |
-| `user_session_expiration.absolute_timeout.minutes.duration` | [user_session_expiration.absolute_timeout.minutes.duration](resources--tenant_configuration--reference--group-001.md#canonical-f76dfe12793470231a9e16928511f900f5ce3e66313eb5d8c09f6fbc4f8e05f0) |
-| `user_session_expiration.idle_timeout` | [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-5c12ce410905f00420ddfd71d16183354e85f4e0c327a80c9d6033c81e8abfa6) |
-| `user_session_expiration.idle_timeout.hours` | [user_session_expiration.idle_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-693340cd5a297b2e7411a9285bd90b1f5831fba903a1e47f1a77c5fa83ac1f3a) |
-| `user_session_expiration.idle_timeout.hours.duration` | [user_session_expiration.idle_timeout.hours.duration](resources--tenant_configuration--reference--group-001.md#canonical-cb6af5cc68fdaf381c8b51e7304c7a7f27763911cc43de5d0d9e1e3f21d93fea) |
-| `user_session_expiration.idle_timeout.minutes` | [user_session_expiration.idle_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-473a4a67168c1711cf9882d7893c5050bc050eac27a6839d4a6fead1422e896a) |
-| `user_session_expiration.idle_timeout.minutes.duration` | [user_session_expiration.idle_timeout.minutes.duration](resources--tenant_configuration--reference--group-001.md#canonical-892ec7d143dad9e846826752fe9064335a4f4ee6a11974d151c1d04475bd76ee) |
+| `annotations` | [annotations](resources--tenant_configuration--reference--group-001.md#canonical-3021103322123321-2321310311110323-2332302022002223-0303333222102311-2110233310031201-3303330220013120-0312021011203132-1233323301122203) |
+| `brute_force_detection` | [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-1020332221103212-3021131122203101-1013301032133200-2032311123031210-0322032303003120-2033022230333022-2131020200033000-3312230222211130) |
+| `brute_force_detection.max_login_failures` | [brute_force_detection.max_login_failures](resources--tenant_configuration--reference--group-001.md#canonical-0120213103212012-0310313212312131-0301300131231002-2000002021120221-2130020120311200-0221103223132233-0110213001112231-0110132230000200) |
+| `description` | [description](resources--tenant_configuration--reference--group-001.md#canonical-1111233011010123-0222022100003313-1030320210101131-0020120132322120-2300023212332100-0322032001012310-0113132303112222-1231200132310203) |
+| `disable` | [disable](resources--tenant_configuration--reference--group-001.md#canonical-2021003021322001-0103202321230012-3001312322210133-3202110130222200-2311123221003222-3130310231231001-2231010101313131-3031032333120222) |
+| `id` | [id](resources--tenant_configuration--reference--group-001.md#canonical-3121120232032013-1320001233012001-1103223233313031-1132102121113312-1003220020100012-3201210112301202-3130023002120133-2032313220023301) |
+| `labels` | [labels](resources--tenant_configuration--reference--group-001.md#canonical-2011302231010330-1333002312323133-2010022021310011-1202000203212021-3122100121233302-1233220133021321-3131110311223323-1112110132003100) |
+| `name` | [name](resources--tenant_configuration--reference--group-001.md#canonical-1031003323020231-0102322233311120-3301110300322313-0000230003330110-2001232022032221-1221012223302100-3221013230023223-0202111100032033) |
+| `namespace` | [namespace](resources--tenant_configuration--reference--group-001.md#canonical-2233223301123110-2100013031031233-0020323310102232-2010002013022302-1112210322302202-3002031100230313-0003031220331313-3330223211231301) |
+| `password_policy` | [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-3022112100000001-1030120011031300-0313030102002100-1313130130120201-2011030231103023-0201322121310103-3112322203113122-0032120011202033) |
+| `password_policy.digits` | [password_policy.digits](resources--tenant_configuration--reference--group-001.md#canonical-1330232212122300-0331013323013211-3112101020302220-2203332032301131-1321103003123321-0003303201331022-0211033011120231-3023301303001220) |
+| `password_policy.expire_password` | [password_policy.expire_password](resources--tenant_configuration--reference--group-001.md#canonical-2311232122303323-1220332223132321-2313210123112132-2311233212002233-1120332002011312-3110211313220023-2011311330211011-1223001120101030) |
+| `password_policy.lowercase_characters` | [password_policy.lowercase_characters](resources--tenant_configuration--reference--group-001.md#canonical-3331321310123223-0122233230313000-1000030300221020-1131110302233000-2301101210210300-0131112232211133-1301013033011323-0012212003233320) |
+| `password_policy.minimum_length` | [password_policy.minimum_length](resources--tenant_configuration--reference--group-001.md#canonical-1233002113021031-1122102133103310-3032321000321231-2220323010323323-1020030330220313-3110000022023201-3220211221103002-3020110010221132) |
+| `password_policy.not_recently_used` | [password_policy.not_recently_used](resources--tenant_configuration--reference--group-001.md#canonical-2330000232103132-2001212130232210-3133112031123132-1220223222212200-1203221331201030-2002321031200222-0322213220110112-1122130220001010) |
+| `password_policy.not_username` | [password_policy.not_username](resources--tenant_configuration--reference--group-001.md#canonical-1221101110133111-1303303033201102-0300210111033300-2212013321231321-0231311203133011-0103323013211022-2122230001032213-0320203003130122) |
+| `password_policy.special_characters` | [password_policy.special_characters](resources--tenant_configuration--reference--group-001.md#canonical-0311330330000203-2132120100110022-0310223221010120-0220303111322012-3130233212021033-2113123122011012-0313203200202001-0230112101300203) |
+| `password_policy.uppercase_characters` | [password_policy.uppercase_characters](resources--tenant_configuration--reference--group-001.md#canonical-3311003131210010-3033212320333220-2303120210131031-1100102112331130-1300033223320301-0303210000001313-0100302322113101-1012333201221130) |
+| `tenant_details` | [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-2223012132011230-2321231303113020-2201102130002012-2112211222133231-2032323223320211-3001132010330202-0032112201022211-0132230233131231) |
+| `tenant_details.display_name` | [tenant_details.display_name](resources--tenant_configuration--reference--group-001.md#canonical-2012121132033311-1101102113131323-2230022231210302-0121301030311023-3010021131101032-3131102231031123-3132101013302232-2101022101022131) |
+| `timeouts` | [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-1300230233221312-1213330312333323-1323102311230113-3112131012111032-2303133203210110-1232313333133213-0310030033011212-0020320020112313) |
+| `timeouts.create` | [timeouts.create](resources--tenant_configuration--reference--group-001.md#canonical-1133122021001301-1212301202001332-3203333130230222-1031331301231003-3230121011311103-2301000301130222-0030300030211013-2112101103132311) |
+| `timeouts.delete` | [timeouts.delete](resources--tenant_configuration--reference--group-001.md#canonical-1113121012113000-1201202121003222-0021101213020132-2031321303001223-0313010033333233-1132123112113123-2333130233203220-2121100001331021) |
+| `timeouts.read` | [timeouts.read](resources--tenant_configuration--reference--group-001.md#canonical-0030111303112312-2310222303112320-0000220221311133-3000213111331222-3200023032113213-0313013033132221-0110230222303001-3131330001321310) |
+| `timeouts.update` | [timeouts.update](resources--tenant_configuration--reference--group-001.md#canonical-1013210300323121-1022300131032301-2220222311103301-0122101000030230-1232232100002333-3032222311131132-3233030303123202-2313130300112131) |
+| `user_session_expiration` | [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-2101223000110110-0300010313112300-2200021311002331-1121011122003303-3123103133301311-3132200231333221-2103111001001011-0302033223101302) |
+| `user_session_expiration.absolute_timeout` | [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-3101003133012123-2303213123233200-0321113211113001-3031111323010000-2033211311330323-0202232022120101-1130301203202313-2131220132221323) |
+| `user_session_expiration.absolute_timeout.hours` | [user_session_expiration.absolute_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-2333001321320010-2131301012010203-1203202013122020-3320333210013020-0001211200033102-2200003321231220-0102232323023123-0011111331320111) |
+| `user_session_expiration.absolute_timeout.hours.duration` | [user_session_expiration.absolute_timeout.hours.duration](resources--tenant_configuration--reference--group-001.md#canonical-3112030302313023-3033320220100203-2131123113001233-3100101320032231-3011100233113011-0330032232323002-1201332232213113-1222311221122113) |
+| `user_session_expiration.absolute_timeout.minutes` | [user_session_expiration.absolute_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-3333210001012231-0000121110310111-3023221201302332-1002330232332021-0002021221212102-0230220330131111-1200300101000111-1233033322333003) |
+| `user_session_expiration.absolute_timeout.minutes.duration` | [user_session_expiration.absolute_timeout.minutes.duration](resources--tenant_configuration--reference--group-001.md#canonical-3313123133320102-1321031013000203-0122213201122102-2011010133210000-3311303203321212-0301033223113120-3000213312332330-1033203200113300) |
+| `user_session_expiration.idle_timeout` | [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1130010230321001-0021001133000010-0200313133311301-3101120120030311-1032201133103200-3003021322200030-2131120003033020-0132202223332212) |
+| `user_session_expiration.idle_timeout.hours` | [user_session_expiration.idle_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-1221030310003031-1122022113230232-1310010122210220-1123312100230133-1120030133232221-0003220132101333-0122131330113322-2003223001330322) |
+| `user_session_expiration.idle_timeout.hours.duration` | [user_session_expiration.idle_timeout.hours.duration](resources--tenant_configuration--reference--group-001.md#canonical-3023122233113030-1220333122330320-0130202311013213-0300103013221333-0213131203210101-3030100331321131-0031213201320333-0201312103333222) |
+| `user_session_expiration.idle_timeout.minutes` | [user_session_expiration.idle_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-1013032210221213-0112203001130101-3033212020023113-2021033011001100-2330001100322230-0213221220032131-1022123332223101-1002023220211222) |
+| `user_session_expiration.idle_timeout.minutes.duration` | [user_session_expiration.idle_timeout.minutes.duration](resources--tenant_configuration--reference--group-001.md#canonical-2021023230133101-1003312231213220-1012200212131102-3332210012100303-1122103310323212-2201012113103101-1101300131001010-1311233113123232) |
 
-<a id="canonical-09972b6f649220b8166408895577bf251dae4d2f276f26c4a5b9f147bfd67233"></a>
+<a id="canonical-0021211302231233-1210210202002320-0112121000202021-1111131323330211-0131223210310233-0213123302123010-2211232133011013-2333311213020303"></a>
 
-## Next pages — Property reference / e3377aee4542 / 12
+## Next pages — Property reference / 323210111002 / 12
 
-- [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-821619c8d84bb2cefd992a812706b55e3c8c013ff89fcb52507934a4e8398408)
-- [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-d22ac2c8491ce686c86e96f5f7e8666dcd3f0370f6f460088d0e6594a3c2a10a)
-- [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-452a289512a12b40aecd668a1edafd36a78f77e364e271f9ea07d757fd73073f)
-- [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-2560c76f29b89582c64faf83495deba1b668a3386d8290a61ae8072cb0666184)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [brute_force_detection](resources--tenant_configuration--reference--group-001.md#canonical-2002011201213020-3120102323023032-3331212102222001-0213001223111132-0330203000010333-3320213330231102-1100132103102210-3220032120100020)
+- [password_policy](resources--tenant_configuration--reference--group-001.md#canonical-3102022230023020-1021013032122012-3020123221123311-3313322012121231-3031033300031300-3312331012000020-2031003212112110-2203300222010022)
+- [tenant_details](resources--tenant_configuration--reference--group-001.md#canonical-1011022202202111-0102220102231000-2232303112122022-0132312233310312-2213203313133203-1210320213013321-3222001331131113-3331130300130333)
+- [timeouts](resources--tenant_configuration--reference--group-001.md#canonical-0211120030131233-0221232021112002-3012103322332003-1021113132232201-2312122022030320-1231200221002212-0122322000130230-2300121212012010)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-821619c8d84bb2cefd992a812706b55e3c8c013ff89fcb52507934a4e8398408"></a>
+<a id="canonical-2002011201213020-3120102323023032-3331212102222001-0213001223111132-0330203000010333-3320213330231102-1100132103102210-3220032120100020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf76a4dbe76e65f982e072b1136206755cf1a1ffdb234b2f74db565f748140e4"></a>
+<a id="canonical-2333131222103123-3213123212113321-2002320013022301-0103120200121311-1130330122013333-3123020310230233-1310312311121133-1310200110003210"></a>
 
-## brute_force_detection — brute_force_detection / 2de426369f9d / 2
+## brute_force_detection — brute_force_detection / 031221332131 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
 - brute_force_detection
 
-<a id="canonical-48fa94e6c975a8d147c4e7e08ed5b3643a3b30d88f2acfca9d2203c0f6b2a95c"></a>
+<a id="canonical-1020332221103212-3021131122203101-1013301032133200-2032311123031210-0322032303003120-2033022230333022-2131020200033000-3312230222211130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -222,15 +222,15 @@ brute_force_detection {
 }
 ```
 
-<a id="canonical-8691a3f03a626d22cb876701f44fe1bb0e94a451f397114009c8c8890af4f991"></a>
+<a id="canonical-2012210122033300-0322120212310202-3023201312130001-3310103332012323-0032211022101101-3303211301011000-0021302030202021-0022331033212101"></a>
 
-## Direct properties — brute_force_detection / 2de426369f9d / 3
+## Direct properties — brute_force_detection / 031221332131 / 3
 
-<a id="canonical-189d398634de6d9d31c1db42800896299c218d60294eb7af149c15ad147ac020"></a>
+<a id="canonical-0120213103212012-0310313212312131-0301300131231002-2000002021120221-2130020120311200-0221103223132233-0110213001112231-0110132230000200"></a>
 
-<a id="canonical-b0ebd45163b927d9a05f979fcab5323380feef9c1d0efafebefe968c77491964"></a>
+<a id="canonical-2300322331101101-1203232102133121-2200113321132133-3022231103020303-2000333232332130-0131003233223332-2332333221122030-1313102101211210"></a>
 
-## max_login_failures property — brute_force_detection / 2de426369f9d / 4
+## max_login_failures property — brute_force_detection / 031221332131 / 4
 
 Type: `"number"`. Optional.
 
@@ -280,30 +280,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-85c7435b89ecd4506d89787fcc2c6f48c0e861942fb331cbb876a177d618c40f"></a>
+<a id="canonical-2011301310031123-2021323031101100-1231202113201333-3030023012331020-3000322012012110-0233230303013023-2320131222011313-3112012030100033"></a>
 
-## Next pages — brute_force_detection / 2de426369f9d / 5
+## Next pages — brute_force_detection / 031221332131 / 5
 
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-d22ac2c8491ce686c86e96f5f7e8666dcd3f0370f6f460088d0e6594a3c2a10a"></a>
+<a id="canonical-3102022230023020-1021013032122012-3020123221123311-3313322012121231-3031033300031300-3312331012000020-2031003212112110-2203300222010022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f7474aede3fa2f1c9b86c08a7fda5daf674c51c1809205919ba3e47962dfb64d"></a>
+<a id="canonical-3313101310223231-3203332202330130-2123201230002022-1333312211312233-1213103011013001-2000210200112101-2123220332101321-1202313323121031"></a>
 
-## password_policy — password_policy / d9dc91ac7c61 / 2
+## password_policy — password_policy / 223013301201 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
 - password_policy
 
-<a id="canonical-ca5900014c605370373120907771c6218532d4cb21e99d13d6ea35da0e60588f"></a>
+<a id="canonical-3022112100000001-1030120011031300-0313030102002100-1313130130120201-2011030231103023-0201322121310103-3112322203113122-0032120011202033"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -336,15 +336,15 @@ password_policy {
 }
 ```
 
-<a id="canonical-90727f18e594d3586f634e90d16f0f8633454df02a862aadffc85af9ed9d0e19"></a>
+<a id="canonical-2100130213330120-3211211031031120-1233120310322100-3101123300332012-0303101110313300-0222201202222231-3333302011223321-3231213100320121"></a>
 
-## Direct properties — password_policy / d9dc91ac7c61 / 3
+## Direct properties — password_policy / 223013301201 / 3
 
-<a id="canonical-7cba66b03d1fb1e5d6448ca8a3f8ec5d794c36f903ce1f4a253c562dcbc73068"></a>
+<a id="canonical-1330232212122300-0331013323013211-3112101020302220-2203332032301131-1321103003123321-0003303201331022-0211033011120231-3023301303001220"></a>
 
-<a id="canonical-4086aebe70481210c49f2200d2218446237af6c068b42564acdeafe6069ea940"></a>
+<a id="canonical-1000201222322332-1300102001020100-3010213302020000-3102020120101012-0203132233123000-1220231002111210-2230313222333212-0012213222211000"></a>
 
-## digits property — password_policy / d9dc91ac7c61 / 4
+## digits property — password_policy / 223013301201 / 4
 
 Type: `"number"`. Optional.
 
@@ -388,11 +388,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b5b9acfb68fab7b9b791b59eb5be60af58f82176d4977a0b85d7c9456b05844c"></a>
+<a id="canonical-2311232122303323-1220332223132321-2313210123112132-2311233212002233-1120332002011312-3110211313220023-2011311330211011-1223001120101030"></a>
 
-<a id="canonical-1d3d3b488981edcf60abee52ca758fb0c1af03841f60fb1a70605a1def2b6ee2"></a>
+<a id="canonical-0131033103231020-2021200132313033-1200222332321102-3022131120332300-3001223300032010-0133120033230122-1300120011220131-3233022312323202"></a>
 
-## expire_password property — password_policy / d9dc91ac7c61 / 5
+## expire_password property — password_policy / 223013301201 / 5
 
 Type: `"number"`. Optional.
 
@@ -442,11 +442,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fde746eb1abecdc040330a485d532bc0b14649301d5ae95f711cf17b06983bf8"></a>
+<a id="canonical-3331321310123223-0122233230313000-1000030300221020-1131110302233000-2301101210210300-0131112232211133-1301013033011323-0012212003233320"></a>
 
-<a id="canonical-d149094c3d9fc173c921ba7681db3966a506ad5e9f24156f1c1b4d7a977f1515"></a>
+<a id="canonical-3101102100211030-0331213330011303-3021020123221312-2001312303211212-2211001222311132-2133021001111233-0130012310311322-2113133301110111"></a>
 
-## lowercase_characters property — password_policy / d9dc91ac7c61 / 6
+## lowercase_characters property — password_policy / 223013301201 / 6
 
 Type: `"number"`. Optional.
 
@@ -490,11 +490,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f09724d5a49f4f4cee40e6da8ec4efb4833ca37d400a2e1e89694c2c8504a5e"></a>
+<a id="canonical-1233002113021031-1122102133103310-3032321000321231-2220323010323323-1020030330220313-3110000022023201-3220211221103002-3020110010221132"></a>
 
-<a id="canonical-4fc93460e339c5c88a61039faecc335bcd6c2405a930afc81d0321a092361c25"></a>
+<a id="canonical-1033302103101200-3203032130113020-2022120100032133-2232303003031123-3031123002100011-2221030022333020-0131000302012200-2102031201300211"></a>
 
-## minimum_length property — password_policy / d9dc91ac7c61 / 7
+## minimum_length property — password_policy / 223013301201 / 7
 
 Type: `"number"`. Optional.
 
@@ -544,11 +544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bc02e4de8199cba4df58d6de68aea9a063a7d84c82e4d82a3a9e85165a728044"></a>
+<a id="canonical-2330000232103132-2001212130232210-3133112031123132-1220223222212200-1203221331201030-2002321031200222-0322213220110112-1122130220001010"></a>
 
-<a id="canonical-6ea072eb350e26bf4aae2a11a22bb99cc273db6d26dcbf277aa8fb7911f30add"></a>
+<a id="canonical-1232220013023223-0311003202122333-1022223202220101-2202022323212130-3002130331231231-0212313023330213-1322222033231321-0101330300223131"></a>
 
-## not_recently_used property — password_policy / d9dc91ac7c61 / 8
+## not_recently_used property — password_policy / 223013301201 / 8
 
 Type: `"number"`. Optional.
 
@@ -573,11 +573,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-694547d573ccf852309153f0a61f9b792dd637c513ec794a9ab013a7388c371a"></a>
+<a id="canonical-1221101110133111-1303303033201102-0300210111033300-2212013321231321-0231311203133011-0103323013211022-2122230001032213-0320203003130122"></a>
 
-<a id="canonical-bd04bbbb0e06e820707ab9d083872f243e7589873d207bf935a7711280ab9f25"></a>
+<a id="canonical-2331001023232323-0032001232200200-1300132223213100-2003201302330210-0332131120212013-0331020013233321-0311221313010102-2000222321330211"></a>
 
-## not_username property — password_policy / d9dc91ac7c61 / 9
+## not_username property — password_policy / 223013301201 / 9
 
 Type: `"bool"`. Optional.
 
@@ -596,11 +596,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-35f3c0239e61050a34ae911828cd5e86dcbe624f976da146378e08812c591c23"></a>
+<a id="canonical-0311330330000203-2132120100110022-0310223221010120-0220303111322012-3130233212021033-2113123122011012-0313203200202001-0230112101300203"></a>
 
-<a id="canonical-0699e9a163fbff48c135bf1cfa037800b448d6296123185e0fea31aaa2b9b497"></a>
+<a id="canonical-0012212132212201-1203332333331020-3001031123330130-3322000313200000-2310102031120221-1201020301201132-0033322203012222-2202232123102113"></a>
 
-## special_characters property — password_policy / d9dc91ac7c61 / 10
+## special_characters property — password_policy / 223013301201 / 10
 
 Type: `"number"`. Optional.
 
@@ -644,11 +644,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f50dd904cf9b8fe8b362474d50496f5c703ebe313390007710cba5d146fe1a5c"></a>
+<a id="canonical-3311003131210010-3033212320333220-2303120210131031-1100102112331130-1300033223320301-0303210000001313-0100302322113101-1012333201221130"></a>
 
-<a id="canonical-96c38123692651b058165846c68455efa7ecf983056e88db87276d5feb12c156"></a>
+<a id="canonical-2112300320010203-1221021211012300-1120011211201012-3012201011113233-2213323033212003-0011123220203123-2013021312311133-3223010230011112"></a>
 
-## uppercase_characters property — password_policy / d9dc91ac7c61 / 11
+## uppercase_characters property — password_policy / 223013301201 / 11
 
 Type: `"number"`. Optional.
 
@@ -692,30 +692,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4ca9016ac5afc66c665f4b21361fbb4c81bd7315402966a29ce4461429b6c4ae"></a>
+<a id="canonical-1030222100011222-3011223330121230-1212113310230201-0312013323231030-2001233113030111-1000022112122202-2130321010120110-0221231230102232"></a>
 
-## Next pages — password_policy / d9dc91ac7c61 / 12
+## Next pages — password_policy / 223013301201 / 12
 
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-452a289512a12b40aecd668a1edafd36a78f77e364e271f9ea07d757fd73073f"></a>
+<a id="canonical-1011022202202111-0102220102231000-2232303112122022-0132312233310312-2213203313133203-1210320213013321-3222001331131113-3331130300130333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-65dc12b57ec4de1bbfc75c7e12bd5be176a828d6aa548fb5763dd0089a346ad1"></a>
+<a id="canonical-1211313001022311-1332301031320123-2333301311301332-0102233111233201-1312222002203112-2222111020332311-1312033131000020-2122031012223101"></a>
 
-## tenant_details — tenant_details / 8a7110248df3 / 2
+## tenant_details — tenant_details / 021020313303 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
 - tenant_details
 
-<a id="canonical-ab19e16cb9b735c8a149c0869696a7ed8eeebe25c1784f220e5a12a51eb2f76d"></a>
+<a id="canonical-2223012132011230-2321231303113020-2201102130002012-2112211222133231-2032323223320211-3001132010330202-0032112201022211-0132230233131231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -748,15 +748,15 @@ tenant_details {
 }
 ```
 
-<a id="canonical-f99ad47b2432dd2d808d11f1117e08fa0041f9c9605a86a28afdfb3cdf40e2a4"></a>
+<a id="canonical-3321212231101323-0210030231310231-2000203101013301-0101133200203322-0000100133213021-1200112220122202-2022333133230330-3133100032022210"></a>
 
-## Direct properties — tenant_details / 8a7110248df3 / 3
+## Direct properties — tenant_details / 021020313303 / 3
 
-<a id="canonical-8665e3f55149777bac2ad93219c4cd4bc425d44edd4ad35bde447cae9129129d"></a>
+<a id="canonical-2012121132033311-1101102113131323-2230022231210302-0121301030311023-3010021131101032-3131102231031123-3132101013302232-2101022101022131"></a>
 
-<a id="canonical-c9919a06587154f2c552f3620813cc6c22114016932d5cd42813f5313785fe56"></a>
+<a id="canonical-3021210121220012-1120130111103302-3011110233031202-0020010330301230-0202010110000112-2103023111303110-0220010333110301-0313201133321112"></a>
 
-## display_name property — tenant_details / 8a7110248df3 / 4
+## display_name property — tenant_details / 021020313303 / 4
 
 Type: `"string"`. Optional.
 
@@ -810,30 +810,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b059bda4c96812706581f933f87968f2b7bef8d66d43ea0592a3dd72d370638"></a>
+<a id="canonical-0223001121233122-1030211220010213-0012112001332103-0333201321122033-0223132332332031-1212311003322200-1121022203313113-0231031300120320"></a>
 
-## Next pages — tenant_details / 8a7110248df3 / 5
+## Next pages — tenant_details / 021020313303 / 5
 
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-2560c76f29b89582c64faf83495deba1b668a3386d8290a61ae8072cb0666184"></a>
+<a id="canonical-0211120030131233-0221232021112002-3012103322332003-1021113132232201-2312122022030320-1231200221002212-0122322000130230-2300121212012010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9217cbe62f91c65dcf5a914912fb7403d83fc9e617a73d3354093e3272ad192f"></a>
+<a id="canonical-2102011330233212-0233210130121131-3033112221011021-0102332313100003-3120033330213212-0113221303310303-1110002103320302-1302223101210233"></a>
 
-## timeouts — timeouts / 828798e48ac6 / 2
+## timeouts — timeouts / 321020223012 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
 - timeouts
 
-<a id="canonical-70b2fa7667f36ffb7b4b5b17d674654eb37e39146edff7e73430f16608e085b7"></a>
+<a id="canonical-1300230233221312-1213330312333323-1323102311230113-3112131012111032-2303133203210110-1232313333133213-0310030033011212-0020320020112313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -845,15 +845,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-3d39856ba527fffc71d7ab45309da8579089682a68d1db1484c0e42682492136"></a>
+<a id="canonical-0331032120111223-2211021333333330-1301311322231011-0300213122201113-2100202112200222-1220310131230110-2010300032100212-2002102102010312"></a>
 
-## Direct properties — timeouts / 828798e48ac6 / 3
+## Direct properties — timeouts / 321020223012 / 3
 
-<a id="canonical-5f68907166c6207ee3fdcb2a4df71b43ec645d53b103172a0cc0c947964537b5"></a>
+<a id="canonical-1133122021001301-1212301202001332-3203333130230222-1031331301231003-3230121011311103-2301000301130222-0030300030211013-2112101103132311"></a>
 
-<a id="canonical-6a66d0ecedbccfc6cdfd4b9153a4f110f88ce456e34990e6f8751b2896dc6333"></a>
+<a id="canonical-1222121231003230-3231233030333012-3031333110232101-1103221033010100-3320203032101112-3203102121003212-3320131101230220-2112313012030303"></a>
 
-## create property — timeouts / 828798e48ac6 / 4
+## create property — timeouts / 321020223012 / 4
 
 Type: `"string"`. Optional.
 
@@ -861,11 +861,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-576465c0618990ea0946721e8de7306b3710ffef5e6d65dbbf72f8e899401f49"></a>
+<a id="canonical-1113121012113000-1201202121003222-0021101213020132-2031321303001223-0313010033333233-1132123112113123-2333130233203220-2121100001331021"></a>
 
-<a id="canonical-cbe3526502f97f9df232861eeadfda9e86c7967a6d42ac73cc0fe56269d80f86"></a>
+<a id="canonical-3023320311021211-0002332113332131-3302030220120132-3222313331222132-2012301321121322-1231100222301303-3030003332111202-1221312000332012"></a>
 
-## delete property — timeouts / 828798e48ac6 / 5
+## delete property — timeouts / 321020223012 / 5
 
 Type: `"string"`. Optional.
 
@@ -874,11 +874,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-0c5735b6b4ab35b800a29d5fc09d5f6ae02ce5e7371cf7a914b2acc1ddf01e74"></a>
+<a id="canonical-0030111303112312-2310222303112320-0000220221311133-3000213111331222-3200023032113213-0313013033132221-0110230222303001-3131330001321310"></a>
 
-<a id="canonical-94feb0d738ac9706909e4f0935493adf5bfbf35f147244e620a9716c8c3e9e9a"></a>
+<a id="canonical-2110333223003113-0320223021130012-2100213210330021-0311102103223133-1123332333031133-0110130210103212-0200222113011230-2030033221322122"></a>
 
-## read property — timeouts / 828798e48ac6 / 6
+## read property — timeouts / 321020223012 / 6
 
 Type: `"string"`. Optional.
 
@@ -887,11 +887,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-47930ed94ac1d3b1a8ab54f11a44032c6eb900bfceab575eef3336e2b773059d"></a>
+<a id="canonical-1013210300323121-1022300131032301-2220222311103301-0122101000030230-1232232100002333-3032222311131132-3233030303123202-2313130300112131"></a>
 
-<a id="canonical-5c7e76d015c2513da08f230ea2a460e7d4af8cf0e61af255c3084cdd7d6fb83e"></a>
+<a id="canonical-1130133213123100-0111300211010331-2200203302030032-2202221012003213-3110223320303300-3212012233021111-3003002010303131-1331123323200332"></a>
 
-## update property — timeouts / 828798e48ac6 / 7
+## update property — timeouts / 321020223012 / 7
 
 Type: `"string"`. Optional.
 
@@ -899,30 +899,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-99510d73a528d8af0091555c56f37f375a494afd088b7f7057f38719c3693826"></a>
+<a id="canonical-2121110100311303-2211022031202233-0000210111111130-1112330313330313-1122102110223331-0020202313331300-1113330320130121-3003122103200212"></a>
 
-## Next pages — timeouts / 828798e48ac6 / 8
+## Next pages — timeouts / 321020223012 / 8
 
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba"></a>
+<a id="canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-75bc2ba2d69dcb82cc67d30517d4397abb97e2ddcdd1a39a7c7a6c5982530b94"></a>
+<a id="canonical-1311233002232202-3112213130232002-3030121331030011-0113311003211322-2323211332023131-3031310122032122-1330132212301121-2002110300232110"></a>
 
-## user_session_expiration — user_session_expiration / 9f165bd0dc6b / 2
+## user_session_expiration — user_session_expiration / 310031301223 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
 - user_session_expiration
 
-<a id="canonical-91ac0514301375b0a02750bd5915a0f3db4dfc75de82dfe993541045323eb472"></a>
+<a id="canonical-2101223000110110-0300010313112300-2200021311002331-1121011122003303-3123103133301311-3132200231333221-2103111001001011-0302033223101302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -961,41 +961,41 @@ user_session_expiration {
 }
 ```
 
-<a id="canonical-2c2e6ff37fcd177e515227db10505b7a7fe742365fd56670ecc2eaad971c7ac1"></a>
+<a id="canonical-0230023212333303-1333303101131332-1101110202133123-0100110011231322-1333321310020312-1133311112121300-3230300232222231-2113013013223001"></a>
 
-## Direct properties — user_session_expiration / 9f165bd0dc6b / 3
+## Direct properties — user_session_expiration / 310031301223 / 3
 
-- [absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25): complete subsection reference.
+- [absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211): complete subsection reference.
 
-- [idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6): complete subsection reference.
+- [idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312): complete subsection reference.
 
-<a id="canonical-e98778698b9939f28acaa15a2982a05cb0b0b5c926d687373668f2be943ecdd1"></a>
+<a id="canonical-3221201313201221-2023212103213302-2022302222011122-0221200222001130-2300230023113021-0212311220130313-0312122033022332-2110033230313101"></a>
 
-## Next pages — user_session_expiration / 9f165bd0dc6b / 4
+## Next pages — user_session_expiration / 310031301223 / 4
 
-- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25)
-- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211)
+- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25"></a>
+<a id="canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-36269dd723c789a53140ac9ede8b1b6a58834888fa48d5027e5d414445416500"></a>
+<a id="canonical-0312021221313113-0203301320212211-0301100022302132-3132202301231222-1120200310202020-3322102031110002-1332113110011010-1011100112110000"></a>
 
-## user_session_expiration.absolute_timeout — user_session_expiration.absolute_timeout / a9f8f8a8bb02 / 2
+## user_session_expiration.absolute_timeout — absolute_timeout / 222023230002 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
 - user_session_expiration.absolute_timeout
 
-<a id="canonical-d10df19bb39dbbe0395e55c1cd57b1008f975f3b22b8a6115cc638b79da1ea7b"></a>
+<a id="canonical-3101003133012123-2303213123233200-0321113211113001-3031111323010000-2033211311330323-0202232022120101-1130301203202313-2131220132221323"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1030,42 +1030,42 @@ absolute_timeout {
 }
 ```
 
-<a id="canonical-0bb741273f0e60f9a5c2cc2dde4607cfb9d9735abb7712694f1fd7bf6cd505d5"></a>
+<a id="canonical-0023231310010213-0333003212003321-2211300230300231-3132101200133033-2321312113031122-2323131301021221-1033013331132333-1230311100113111"></a>
 
-## Direct properties — user_session_expiration.absolute_timeout / a9f8f8a8bb02 / 3
+## Direct properties — absolute_timeout / 222023230002 / 3
 
-- [hours](resources--tenant_configuration--reference--group-001.md#canonical-3cc7883db7179c63f768244172ae8ed8a72157ad7634f380bf2c0ffa494a10c3): complete subsection reference.
+- [hours](resources--tenant_configuration--reference--group-001.md#canonical-0330301320200331-2313011321301203-3313122002101001-1302223220323120-2213020111132231-1312031033032000-2333023000333322-1021102201003003): complete subsection reference.
 
-- [minutes](resources--tenant_configuration--reference--group-001.md#canonical-995ab8627c0cb630bbc25af1c18f50464380804b22df48d6387a15e80697d64f): complete subsection reference.
+- [minutes](resources--tenant_configuration--reference--group-001.md#canonical-2121112223201202-1330003023120300-2323300211223301-3001203311001012-1003200020001023-0202313310203112-0320132201113220-0012211331121033): complete subsection reference.
 
-<a id="canonical-6c42050416215d33fb262aa98edfd72137412fad652cd4fe7db8581142d375e2"></a>
+<a id="canonical-1230100200110010-0112020111310303-3323021202222221-2032313331130201-0313100102332231-1211023031103332-1331232011200101-1002310313113202"></a>
 
-## Next pages — user_session_expiration.absolute_timeout / a9f8f8a8bb02 / 4
+## Next pages — absolute_timeout / 222023230002 / 4
 
-- [user_session_expiration.absolute_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-3cc7883db7179c63f768244172ae8ed8a72157ad7634f380bf2c0ffa494a10c3)
-- [user_session_expiration.absolute_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-995ab8627c0cb630bbc25af1c18f50464380804b22df48d6387a15e80697d64f)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.absolute_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-0330301320200331-2313011321301203-3313122002101001-1302223220323120-2213020111132231-1312031033032000-2333023000333322-1021102201003003)
+- [user_session_expiration.absolute_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-2121112223201202-1330003023120300-2323300211223301-3001203311001012-1003200020001023-0202313310203112-0320132201113220-0012211331121033)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-3cc7883db7179c63f768244172ae8ed8a72157ad7634f380bf2c0ffa494a10c3"></a>
+<a id="canonical-0330301320200331-2313011321301203-3313122002101001-1302223220323120-2213020111132231-1312031033032000-2333023000333322-1021102201003003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-104180d3c308cb2d6e1ecf5ee86c7e3bede0cdaf44b84840f8a42e4a17174066"></a>
+<a id="canonical-0100100120003103-3003002030230231-1232013230331132-3220123013320323-3231320030312233-1010232010201000-3320221002321022-0113011310001212"></a>
 
-## user_session_expiration.absolute_timeout.hours — user_session_expiration.absolute_timeout.hours / 1cc6d5d4ac8c / 2
+## user_session_expiration.absolute_timeout.hours — hours / 311022302030 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211)
 - user_session_expiration.absolute_timeout.hours
 
-<a id="canonical-bf079e049dc4612363887688f8fe41c8019603d2a00f9b6812bbb2db0557de15"></a>
+<a id="canonical-2333001321320010-2131301012010203-1203202013122020-3320333210013020-0001211200033102-2200003321231220-0102232323023123-0011111331320111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1098,15 +1098,15 @@ hours {
 }
 ```
 
-<a id="canonical-cdd0f621cbe7abd3860f05ee8c652c3e9bdb334f7eb8722030b9f4bee5a2accc"></a>
+<a id="canonical-3031310033120201-3023321322233103-2012003300113232-2030121102300332-2123312303031033-1332232013020200-0300232133102332-3211220222303030"></a>
 
-## Direct properties — user_session_expiration.absolute_timeout.hours / 1cc6d5d4ac8c / 3
+## Direct properties — hours / 311022302030 / 3
 
-<a id="canonical-d6332dcbcfe284239d6d706fd04783adc542f5c53c3aeec261fae9d76ad69697"></a>
+<a id="canonical-3112030302313023-3033320220100203-2131123113001233-3100101320032231-3011100233113011-0330032232323002-1201332232213113-1222311221122113"></a>
 
-<a id="canonical-366c3145a8097f98ac9c2c94396aa2be663a7d27d80386663bc22b2463662fc6"></a>
+<a id="canonical-0312123003011011-2220002113332120-2230213002302110-0321122222022332-1212032213310213-3120000320121212-0323300202230210-1203121202333012"></a>
 
-## duration property — user_session_expiration.absolute_timeout.hours / 1cc6d5d4ac8c / 4
+## duration property — hours / 311022302030 / 4
 
 Type: `"number"`. Optional.
 
@@ -1159,32 +1159,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2afd125070b63aa0b72402c0f6e010ca442a50ca9ea4be2897e5e11cea951322"></a>
+<a id="canonical-0222333101021100-1300231203222200-2313021000023000-3312320001003022-1010022211003022-2132221023320220-2113321132010130-3222211101030202"></a>
 
-## Next pages — user_session_expiration.absolute_timeout.hours / 1cc6d5d4ac8c / 5
+## Next pages — hours / 311022302030 / 5
 
-- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-995ab8627c0cb630bbc25af1c18f50464380804b22df48d6387a15e80697d64f"></a>
+<a id="canonical-2121112223201202-1330003023120300-2323300211223301-3001203311001012-1003200020001023-0202313310203112-0320132201113220-0012211331121033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-282b454b3008e04f48efb64ac97a65c1eef85ceda31746aa64dfd8d81e0c3a45"></a>
+<a id="canonical-0220022310111023-0300002032001033-1020323323121022-3021132212113001-3232332011303231-2203011310122222-1210313331203120-0132003003221011"></a>
 
-## user_session_expiration.absolute_timeout.minutes — user_session_expiration.absolute_timeout.minutes / 760b711693a3 / 2
+## user_session_expiration.absolute_timeout.minutes — minutes / 011221032203 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211)
 - user_session_expiration.absolute_timeout.minutes
 
-<a id="canonical-ff9011ad00654d15cba61cbe42f2ef89022699922ca3c75560c110156f3fafc3"></a>
+<a id="canonical-3333210001012231-0000121110310111-3023221201302332-1002330232332021-0002021221212102-0230220330131111-1200300101000111-1233033322333003"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1217,15 +1217,15 @@ minutes {
 }
 ```
 
-<a id="canonical-054795f58397283900020b7dbef05373edb87c4e2c7dc996be92a9af1add81c0"></a>
+<a id="canonical-0011101321113311-2003211302200321-0000000200231331-2332330011031303-3231232013301032-0230133130212112-2332210222212233-0122313120013000"></a>
 
-## Direct properties — user_session_expiration.absolute_timeout.minutes / 760b711693a3 / 3
+## Direct properties — minutes / 011221032203 / 3
 
-<a id="canonical-f76dfe12793470231a9e16928511f900f5ce3e66313eb5d8c09f6fbc4f8e05f0"></a>
+<a id="canonical-3313123133320102-1321031013000203-0122213201122102-2011010133210000-3311303203321212-0301033223113120-3000213312332330-1033203200113300"></a>
 
-<a id="canonical-e419c845923a1e39935a0c3d2336be4959ebc5355d97457a465117f15cc7fb1d"></a>
+<a id="canonical-3210012130201011-2102032201320321-2103112200300331-0203031223321021-1121322330110311-1131211310111322-1012110101133301-1130301333230131"></a>
 
-## duration property — user_session_expiration.absolute_timeout.minutes / 760b711693a3 / 4
+## duration property — minutes / 011221032203 / 4
 
 Type: `"number"`. Optional.
 
@@ -1278,31 +1278,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-403fa6f18731955cd7bf138cb46987a40c4fc2f179bb8f30e05594fbc943031a"></a>
+<a id="canonical-1000033322123301-2013030121111130-3113233301032030-2310122120132210-0030103330023301-1321232320330300-3200111121103323-3021100300030122"></a>
 
-## Next pages — user_session_expiration.absolute_timeout.minutes / 760b711693a3 / 5
+## Next pages — minutes / 011221032203 / 5
 
-- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-1d5b2abc3e80c6e61035f8fb3ff373d5a5fdb93b2d6ef40ae236508ab45dad25)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.absolute_timeout](resources--tenant_configuration--reference--group-001.md#canonical-0131112302222330-0332200030123212-0100031133203323-0333330313033111-2211333123210323-0231123233100022-3202031211002022-2310113122310211)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6"></a>
+<a id="canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-98879631fc7b0e8b29a20f199addcb190d47301e38cb34ed6b360399126403dd"></a>
+<a id="canonical-2120201321120301-3330132300322023-0221220200330121-2122313130230121-0031101303000132-0320302303103231-1223031200032121-0102121000033131"></a>
 
-## user_session_expiration.idle_timeout — user_session_expiration.idle_timeout / 7c390341fc6e / 2
+## user_session_expiration.idle_timeout — idle_timeout / 100133301232 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
 - user_session_expiration.idle_timeout
 
-<a id="canonical-5c12ce410905f00420ddfd71d16183354e85f4e0c327a80c9d6033c81e8abfa6"></a>
+<a id="canonical-1130010230321001-0021001133000010-0200313133311301-3101120120030311-1032201133103200-3003021322200030-2131120003033020-0132202223332212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1337,42 +1337,42 @@ idle_timeout {
 }
 ```
 
-<a id="canonical-a7a16b42fa9c051ddb8b315909508709fa1047a03c330b6e117346cc1258a4b6"></a>
+<a id="canonical-2213220112231002-3322213000110131-3123202303011121-0021110020130021-3322010010132200-0330030300231232-0101130310123030-0102112022102312"></a>
 
-## Direct properties — user_session_expiration.idle_timeout / 7c390341fc6e / 3
+## Direct properties — idle_timeout / 100133301232 / 3
 
-- [hours](resources--tenant_configuration--reference--group-001.md#canonical-06083d89bba8fbe6c374b2086817f06ed814175ddcf5013ad4488a1d2c109844): complete subsection reference.
+- [hours](resources--tenant_configuration--reference--group-001.md#canonical-0012002003312021-2323222033233212-3003131023020020-1220011333001232-3120011001131131-3130331100010322-3110102020220131-0230010021201010): complete subsection reference.
 
-- [minutes](resources--tenant_configuration--reference--group-001.md#canonical-c8e0a55bdb8dbe8e00eef2be0a0431926723c184c5a2e1f003882040dc316641): complete subsection reference.
+- [minutes](resources--tenant_configuration--reference--group-001.md#canonical-3020320022111123-3123203123322032-0000323233022332-0022001003012102-1213020330012010-3011220232013300-0003202002001000-3130030112121001): complete subsection reference.
 
-<a id="canonical-d9904361e16a213cede78eb877f49da3b3ad1474f4710a88429051d0fc1acde1"></a>
+<a id="canonical-3121210010031201-3201122202010330-3231321320322320-1313331021312203-2303223101101310-3310130100222020-1002210011013100-3330012230313201"></a>
 
-## Next pages — user_session_expiration.idle_timeout / 7c390341fc6e / 4
+## Next pages — idle_timeout / 100133301232 / 4
 
-- [user_session_expiration.idle_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-06083d89bba8fbe6c374b2086817f06ed814175ddcf5013ad4488a1d2c109844)
-- [user_session_expiration.idle_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-c8e0a55bdb8dbe8e00eef2be0a0431926723c184c5a2e1f003882040dc316641)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.idle_timeout.hours](resources--tenant_configuration--reference--group-001.md#canonical-0012002003312021-2323222033233212-3003131023020020-1220011333001232-3120011001131131-3130331100010322-3110102020220131-0230010021201010)
+- [user_session_expiration.idle_timeout.minutes](resources--tenant_configuration--reference--group-001.md#canonical-3020320022111123-3123203123322032-0000323233022332-0022001003012102-1213020330012010-3011220232013300-0003202002001000-3130030112121001)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-06083d89bba8fbe6c374b2086817f06ed814175ddcf5013ad4488a1d2c109844"></a>
+<a id="canonical-0012002003312021-2323222033233212-3003131023020020-1220011333001232-3120011001131131-3130331100010322-3110102020220131-0230010021201010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3d21e190ea58b743675730c8c9aa6cdabb615793dd33735bfdce04e09372ded1"></a>
+<a id="canonical-0331020132012100-3222112023131003-1213111303003020-3021222212303122-2323120111132103-3131030313031123-3331303200103200-2103130231323101"></a>
 
-## user_session_expiration.idle_timeout.hours — user_session_expiration.idle_timeout.hours / afe7002489fb / 2
+## user_session_expiration.idle_timeout.hours — hours / 021020213323 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312)
 - user_session_expiration.idle_timeout.hours
 
-<a id="canonical-693340cd5a297b2e7411a9285bd90b1f5831fba903a1e47f1a77c5fa83ac1f3a"></a>
+<a id="canonical-1221030310003031-1122022113230232-1310010122210220-1123312100230133-1120030133232221-0003220132101333-0122131330113322-2003223001330322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1405,15 +1405,15 @@ hours {
 }
 ```
 
-<a id="canonical-b138172e7d22e859abb83b86a4237559eae79a6c7670c81160b730b682d6c109"></a>
+<a id="canonical-2301032001130232-1331020232201121-2223232003232012-2210020313111121-3222321321221230-1312130030200101-1200231303002312-2002311230010021"></a>
 
-## Direct properties — user_session_expiration.idle_timeout.hours / afe7002489fb / 3
+## Direct properties — hours / 021020213323 / 3
 
-<a id="canonical-cb6af5cc68fdaf381c8b51e7304c7a7f27763911cc43de5d0d9e1e3f21d93fea"></a>
+<a id="canonical-3023122233113030-1220333122330320-0130202311013213-0300103013221333-0213131203210101-3030100331321131-0031213201320333-0201312103333222"></a>
 
-<a id="canonical-fb3565ee56e415ff1ffa356b6b92c9de66e2b294ed925b1d82fac758076e6b43"></a>
+<a id="canonical-3323031112113232-1112321001113333-0133332203111223-1223210230213132-1212320223022110-3231210211230131-2002332230131120-0013123212231003"></a>
 
-## duration property — user_session_expiration.idle_timeout.hours / afe7002489fb / 4
+## duration property — hours / 021020213323 / 4
 
 Type: `"number"`. Optional.
 
@@ -1466,32 +1466,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23b2b159232f5e89d64368fb8569534ccf325622ba4d63151e6b3a2999053c30"></a>
+<a id="canonical-0203230223011121-0203023311322021-3112100312203323-2011122111031030-3033030211120202-2322103112030111-0132122303220221-2121001103300300"></a>
 
-## Next pages — user_session_expiration.idle_timeout.hours / afe7002489fb / 5
+## Next pages — hours / 021020213323 / 5
 
-- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
 
-<a id="canonical-c8e0a55bdb8dbe8e00eef2be0a0431926723c184c5a2e1f003882040dc316641"></a>
+<a id="canonical-3020320022111123-3123203123322032-0000323233022332-0022001003012102-1213020330012010-3011220232013300-0003202002001000-3130030112121001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-390e14bedb7b9634be461d74c0e923bec3fd7739060674c9ad9492396fe10a55"></a>
+<a id="canonical-0321003201102332-3123132321120310-2332101201311310-3000322102032332-3003333113130321-0012001213103021-2231211021020321-1233320100221111"></a>
 
-## user_session_expiration.idle_timeout.minutes — user_session_expiration.idle_timeout.minutes / 14181b3ee5bc / 2
+## user_session_expiration.idle_timeout.minutes — minutes / 033232112330 / 2
 
 Breadcrumbs:
 
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
-- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-16136964bc77142e101e918b10e24c07bf5c7f99c8c5df90b4efd69072c8b3a2)
-- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-c2388a7d0b4ae235a90c04846dd8c1fc6d3d1e30b66d38bc7a5af4139f3518ba)
-- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)
+- [Property reference](resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [user_session_expiration](resources--tenant_configuration--reference--group-001.md#canonical-3002032020221331-0023102232020311-2221003000102010-1231312030013330-1231033101320300-2312123103202330-1322112233100103-2133031101202322)
+- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312)
 - user_session_expiration.idle_timeout.minutes
 
-<a id="canonical-473a4a67168c1711cf9882d7893c5050bc050eac27a6839d4a6fead1422e896a"></a>
+<a id="canonical-1013032210221213-0112203001130101-3033212020023113-2021033011001100-2330001100322230-0213221220032131-1022123332223101-1002023220211222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1524,15 +1524,15 @@ minutes {
 }
 ```
 
-<a id="canonical-4e78911affa5088d446233f02dab064776876e9d89f16d0261af6d554cb4bf77"></a>
+<a id="canonical-1032132021010122-3333221100202031-1010120203033300-0231222300121013-1312201312322131-2021330112310002-1201223312311111-1030231023331313"></a>
 
-## Direct properties — user_session_expiration.idle_timeout.minutes / 14181b3ee5bc / 3
+## Direct properties — minutes / 033232112330 / 3
 
-<a id="canonical-892ec7d143dad9e846826752fe9064335a4f4ee6a11974d151c1d04475bd76ee"></a>
+<a id="canonical-2021023230133101-1003312231213220-1012200212131102-3332210012100303-1122103310323212-2201012113103101-1101300131001010-1311233113123232"></a>
 
-<a id="canonical-365ee33204f02304e9cb3ef6342a16d7cecfea134f0bad8416c333dce5dda94b"></a>
+<a id="canonical-0312113232030302-0010330002030010-3221302303323312-0310022201123113-3032303332220103-1033002322312010-0112300303033130-3211313122211023"></a>
 
-## duration property — user_session_expiration.idle_timeout.minutes / 14181b3ee5bc / 4
+## duration property — minutes / 033232112330 / 4
 
 Type: `"number"`. Optional.
 
@@ -1585,9 +1585,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c023dd4d6c95fbc08e8510d62826648dc129d1d75b689187f797075246a1e47f"></a>
+<a id="canonical-3000020331311031-1230211133233000-2032201101003112-0220021212102031-3001022131013113-1123122021012013-3313211300131102-1012220132101333"></a>
 
-## Next pages — user_session_expiration.idle_timeout.minutes / 14181b3ee5bc / 5
+## Next pages — minutes / 033232112330 / 5
 
-- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-8794f1a173eba1a10c3602dcf1711b64171fd5d034b9cb286e00d6ba7189c6b6)
-- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-7e081faf644af0a986f55a7e090dca819919ecfa557bfc7618a12896eb23dc34)
+- [user_session_expiration.idle_timeout](resources--tenant_configuration--reference--group-001.md#canonical-2013211033012201-1303322322012201-0030031200023130-3301130101231210-0113013331113100-0310232130230220-1232000031122322-1301202130122312)
+- [xcsh_tenant_configuration](../resources/tenant_configuration.md#canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310)

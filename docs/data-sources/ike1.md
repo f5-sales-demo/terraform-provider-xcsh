@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_ike1 landing."
 
 # xcsh_ike1 landing
 
-<a id="canonical-9615a09559c55d9ac9b674d5ddca753d31c2214560e2a1d2f9188e7f403124f7"></a>
+<a id="canonical-2112011122002111-1121301111312122-3021231213103111-3131302213110331-0301300202011011-1200320222013102-3321012020321333-1000030102103313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2a8f087b37bac80fc6d5e7d4007ee3a3c294d49f6bbcdbccffab0a2925956a30"></a>
+<a id="canonical-0222203300201323-0313232230200033-3012311132133110-0000133232032203-3002211031102133-1223233031233030-3333222300220221-0211211112220300"></a>
 
-## xcsh_ike1 — xcsh_ike1 / 089ff9747364 / 2
+## xcsh_ike1 — xcsh_ike1 / 131013031210 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
 
-<a id="canonical-3d40feb6439bcaef3d639eff03e1bb4d8d2c704ddea12285d4a829a261ae4ac3"></a>
+<a id="canonical-0331100033322312-1003212330223233-0331120321323333-0003320123231031-2031023013001031-3132220102022011-3110222002212202-1201223210223003"></a>
 
-## Prerequisites — xcsh_ike1 / 089ff9747364 / 3
+## Prerequisites — xcsh_ike1 / 131013031210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-6713b716178771a58d1b3ad32e5809120f35adf142e4efa4bb76bc3905db062c"></a>
+<a id="canonical-1213010323130112-0113201313012211-2031012303223103-0232112000210102-0033031122313301-1002321032332210-2323131223300321-0011312300120230"></a>
 
-## Minimal configuration — xcsh_ike1 / 089ff9747364 / 4
+## Minimal configuration — xcsh_ike1 / 131013031210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "ike1_id" {
 }
 ```
 
-<a id="canonical-6d713358742960ad0aefdace8874a8564b1530e9fb939cc59b0389154752df32"></a>
+<a id="canonical-1231130103031120-1310022112002231-0022323331223032-2020131022201112-1023011103003221-3323210321303011-2123000320210111-1013110231330302"></a>
 
-## Root configuration — xcsh_ike1 / 089ff9747364 / 5
+## Root configuration — xcsh_ike1 / 131013031210 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-9d8afa5589bcc9b762464191b088bd98865e8a3baa0800839bbe0748e4004c59"></a>
+<a id="canonical-2131202233221111-2021233030212313-1202101210012101-2300202023312120-2012113220220323-2222002000002003-2123233200131020-3210000010301121"></a>
 
-## Next pages — xcsh_ike1 / 089ff9747364 / 6
+## Next pages — xcsh_ike1 / 131013031210 / 6
 
-- [Property reference](../guides/data-sources--ike1--reference--group-001.md#canonical-976497673af1903f2e4f1926d15b090ed29d1eb43535659975e8253a37136f07)
-- [Examples](../guides/data-sources--ike1--examples--group-001.md#canonical-defb7512b14d447bc7b57fa79136b54efef5377b69c4d47d608382ae823c9fe4)
+- [Property reference](../guides/data-sources--ike1--reference--group-001.md#canonical-2113121021131213-0322330121000333-0232103301210212-3101112300210032-3102213101322310-0311031112112121-1311322002110322-0313010312330013)
+- [Examples](../guides/data-sources--ike1--examples--group-001.md#canonical-3132332313110102-2301103110101323-3013231113332213-2101031223111032-3332331103131323-1221301031101331-1200200320022232-2002033021333210)

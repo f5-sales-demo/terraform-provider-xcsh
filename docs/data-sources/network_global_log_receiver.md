@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_global_log_r
 
 # xcsh_network_global_log_receiver landing
 
-<a id="canonical-251b976c87f6429c83905ed8e699743bc66f5d388ccb287b6ab1dc588898d9a5"></a>
+<a id="canonical-0211012321131230-2013331210022130-2003210011323120-3212212113100323-3012123311310320-2030302302201323-1222230131301120-2020212031212211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-072a4bf94e8c9bf7b3f26a858e566bf463afd8746eb28bf870a0c3a98f64fe23"></a>
+<a id="canonical-0013022210233321-1032203021233313-2303330212222011-2032111212233310-1203223331201310-1232230220233320-1300220030032221-2033121033320203"></a>
 
-## xcsh_network_global_log_receiver — xcsh_network_global_log_receiver / 5dabd7b0d55f / 2
+## xcsh_network_global_log_receiver — xcsh_network_global_log_receiver / 230031111133 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Global Log Receiver destinations. Published source entries mix CIDRs and individ
 Values are bundled from the pinned OpenAPI release; this data source performs no network request.
 Ports and traffic direction are not encoded in the manifest.
 
-<a id="canonical-c18b14fd1a0b27815177cd003982d5dbba5e7bbffad73029701a33aaee36cd24"></a>
+<a id="canonical-3001202301103331-0122002302132001-1101131330310000-0321200231113123-2322113213232333-3322311303000221-1300012203032222-3232031230310210"></a>
 
-## Prerequisites — xcsh_network_global_log_receiver / 5dabd7b0d55f / 3
+## Prerequisites — xcsh_network_global_log_receiver / 230031111133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-bd6ac7f16e3119c46f715e95b422db9c95c7f98237913bbdaf333ba2ab108872"></a>
+<a id="canonical-2331122230133301-1232030101213010-1233130111322111-2310020231232130-2111301333212002-0313210103232331-2233030303232202-2223010020201302"></a>
 
-## Minimal configuration — xcsh_network_global_log_receiver / 5dabd7b0d55f / 4
+## Minimal configuration — xcsh_network_global_log_receiver / 230031111133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "tls_syslog_egress" {
 }
 ```
 
-<a id="canonical-5ec7a6c928b11170728edaa0f15acbf15ef9e4cb55ba464015d4a136cc6b79c3"></a>
+<a id="canonical-1132301322123021-0220230101011300-1302203231222200-3301112230233301-1132332132103023-1111232210121000-0111311022010312-3030122313213003"></a>
 
-## Root configuration — xcsh_network_global_log_receiver / 5dabd7b0d55f / 5
+## Root configuration — xcsh_network_global_log_receiver / 230031111133 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-9103fc73b15e7a4ffea7a2337df2f3b6ef03c6ad009ebd7e4f7d43ce850203d7"></a>
+<a id="canonical-2101000333301303-2301113213221033-3332221322020303-1331330233032312-3233000330122231-0000213223311332-1033133110033032-2011000200033113"></a>
 
-## Next pages — xcsh_network_global_log_receiver / 5dabd7b0d55f / 6
+## Next pages — xcsh_network_global_log_receiver / 230031111133 / 6
 
-- [Property reference](../guides/data-sources--network_global_log_receiver--reference--group-001.md#canonical-72b74013a2b858f443b06606f41d24e6214625ccc7f7916d9f905b8d9e85df4f)
-- [Examples](../guides/data-sources--network_global_log_receiver--examples--group-001.md#canonical-62c4b37833b41dd8f8d601a10f553355c910f426180fe77dc01774450591215d)
+- [Property reference](../guides/data-sources--network_global_log_receiver--reference--group-001.md#canonical-1302231310000103-2202232011203310-1003230012120012-3310013102103212-0201101202113030-3013331321011231-2133210011232031-2132201131331033)
+- [Examples](../guides/data-sources--network_global_log_receiver--examples--group-001.md#canonical-1202301023031320-0303231001313120-3320311200012201-0033111103031111-3021010033100212-0120003332131331-3000011313101011-0011210102011131)

@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_network_interface re
 
 # xcsh_network_interface reference
 
-<a id="canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66"></a>
+<a id="canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fb0c3ad34005679a4791dd681f842d89eab1cb2797f0194783f471d3fb870fa8"></a>
+<a id="canonical-3323003003223103-1000001112132122-1013210131311220-0133201002312021-3222230130230213-2113330001211013-2003331013013103-3323201300332220"></a>
 
-## Property reference — Property reference / 3287d54a2f26 / 2
+## Property reference — Property reference / 102202330212 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 - Property reference
 
-<a id="canonical-b58e3d0b7ee1087ab05cf4569fe392abd475e2b0f00995f4827ed0e372c29aab"></a>
+<a id="canonical-2311203203310023-1332320100201322-2300113033101112-2133320321022223-3110131132022300-3300002121113310-2002133231003203-1302300221222223"></a>
 
-## Direct properties — Property reference / 3287d54a2f26 / 3
+## Direct properties — Property reference / 102202330212 / 3
 
-<a id="canonical-5c4d2c4671b3e8b7be047cc0fbab90a884988475940819fe89a7ae36f04a8527"></a>
+<a id="canonical-1130103102301012-1301230332202313-2332001013303000-3323222321002220-2010212020101311-2110002001213332-2021221322320312-3300102220110213"></a>
 
-<a id="canonical-dbf1574f2033184539e354560418b01f6f26ad73b00771fe9037fac74a44c656"></a>
+<a id="canonical-3123330111131033-0200030301201011-0321320311101112-0010012023000133-1233021222311303-2300001313013332-2100031333223013-1022101030121112"></a>
 
-## annotations property — Property reference / 3287d54a2f26 / 4
+## annotations property — Property reference / 102202330212 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,15 +67,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63): complete subsection reference.
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203): complete subsection reference.
 
-- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-9f99aa50006ad52bb054b5e32a6546cb75c8176bc2542f884210536a8ad6c8ae): complete subsection reference.
+- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-2133212122221100-0000122231110223-2300111023113203-0222121110123023-1311302001131223-3002111002332020-1002010011031222-2022311230202232): complete subsection reference.
 
-<a id="canonical-e03f2865c682cfcc5c6e4c1ce2e07a1719eb61f20b095154e32663a47f8a24fa"></a>
+<a id="canonical-3200033302201211-3012200230333030-1130123210300130-3202320013220113-0121322312013302-0023002111011110-3203021212032210-1333202202103322"></a>
 
-<a id="canonical-6bac56410a9511232743d48252956404b3742e5597c58efb355463bad9216c39"></a>
+<a id="canonical-1223223011121001-0022211101010203-0213100331102002-1102211112100010-2303131002321111-2113301120323323-0311111012032322-3121020112300321"></a>
 
-## description property — Property reference / 3287d54a2f26 / 5
+## description property — Property reference / 102202330212 / 5
 
 Type: `"string"`. Optional.
 
@@ -119,11 +119,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7b10832f6848410e0cf053ec3b5c835c1ac384fa6eb36076e268a2ca5a718e86"></a>
+<a id="canonical-1323010020030233-1220102010010032-0030330011033230-0323113020031130-0122300320103322-1232230312001312-3202122022023022-1122130120322012"></a>
 
-<a id="canonical-cf6a31dfac9c933adfed7104e5ed860357161d73ed005baf0e9e772c3717b24d"></a>
+<a id="canonical-3033122203013133-2230213021030322-3133323113010010-3211323120120003-1113011201311303-3231000011232233-0032213213130230-0313011323021031"></a>
 
-## disable property — Property reference / 3287d54a2f26 / 6
+## disable property — Property reference / 102202330212 / 6
 
 Type: `"bool"`. Optional.
 
@@ -146,27 +146,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369): complete subsection reference.
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221): complete subsection reference.
 
-<a id="canonical-091dfb0cb42273636cd2b82f7246ed381175b79169d9f95f48b3974c59144408"></a>
+<a id="canonical-0021013133230030-2310020213031203-1230310223200233-1302101232310320-0101131123132101-1221312133211133-1020230321131030-1121011010100020"></a>
 
-<a id="canonical-7445f25f575e1b8825165af1e870ee90869bc264ca23f4ad8dcc4b43ff17c1fb"></a>
+<a id="canonical-1310101133021133-1113113201232020-0211011211223301-3220130032322100-2012212330021210-3022020333102231-2031303010231003-3333011330013323"></a>
 
-## id property — Property reference / 3287d54a2f26 / 7
+## ID property — Property reference / 102202330212 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-4626cb0e4a457b5f49d07dd61a8f24423a27c55bc53a0654da434c2a7d001b58"></a>
+<a id="canonical-1012021230230032-1022101113231133-1021310013313112-0122203302101002-0322021330111123-3011032200121110-3122100310300222-1331000001231120"></a>
 
-<a id="canonical-4e210dbbe8ae87087c232d72323ca143f7a8ef0686228aa1d3cf6f3be4fda023"></a>
+<a id="canonical-1032020100312323-3220223220130020-1330020302311302-0302033022011003-3313222032330012-2012020220222201-3103303312330323-3210333122000203"></a>
 
-## labels property — Property reference / 3287d54a2f26 / 8
+## labels property — Property reference / 102202330212 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -187,13 +187,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-1c594b57dc38583cede4438254bed4c980392fdf365967edc1ad24fac341cbd0): complete subsection reference.
+- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-0130112110231113-3130032011200330-3231321010032002-1110233231103021-2000032102333133-0312112112133231-3001223102103322-3003100130233100): complete subsection reference.
 
-<a id="canonical-27e956ca44dafbe955ab1b47f6d12fe9cefb0ba115abf9e7bbb13993fe0326d5"></a>
+<a id="canonical-0213322111123022-1010312233233221-1111222301231013-3312310102333221-3032332300232201-0111222333213213-2323230103212103-3332000302123111"></a>
 
-<a id="canonical-21a97c7be355f6b17df9369693b66e803b996f9ed15667ff7fbbd0099c0962b8"></a>
+<a id="canonical-0201222113301323-3203111133122301-1331332103122112-2103231212322000-0323212112332132-3101111212133333-1333232331000021-2130002112022320"></a>
 
-## name property — Property reference / 3287d54a2f26 / 9
+## name property — Property reference / 102202330212 / 9
 
 Type: `"string"`. Required.
 
@@ -257,11 +257,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-771ba06ab7838207d041da62e01b61f6473c87734e7711564d263934b453e995"></a>
+<a id="canonical-1313012322001222-2313200320020013-3100100131221202-3200012312013312-1013033020131303-1032131301011112-1031021203210310-2310110332212111"></a>
 
-<a id="canonical-c9867c9afe893a741cea025b4e9857bc60d19eada2c9fdee7d835369d06a2357"></a>
+<a id="canonical-3021201213302122-3332202103221310-0130322200021123-1032212011132330-1200310121322231-2202302133313232-1331200311031221-3100122202031113"></a>
 
-## namespace property — Property reference / 3287d54a2f26 / 10
+## namespace property — Property reference / 102202330212 / 10
 
 Type: `"string"`. Required.
 
@@ -318,175 +318,175 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--network_interface--reference--group-002.md#canonical-737b5fe469f062275aac4bc20ccf512c05ebce12de508b1729aab672e41fe4b7): complete subsection reference.
+- [timeouts](resources--network_interface--reference--group-002.md#canonical-1303132311333210-1221330012020213-1122223010233002-0030303311010230-0011322330320102-3132110020230113-0221222223121302-3210013332102313): complete subsection reference.
 
-- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-0db6b411298b0a3c07d71c63f1bb4732bc353ecea9c44af1f2a38335e20aeda0): complete subsection reference.
+- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-0031231223100101-0221202300220330-0013311301301203-3301232310130302-2330031103323032-2221301010223301-3302220320030311-3202002232312200): complete subsection reference.
 
-<a id="canonical-5b791c39d7e425a145da71dd77f8519343aad1fd5bbd5986ebd173591ca9b5a1"></a>
+<a id="canonical-1123132101300321-3113321002112201-1011312213013131-1313332011012103-1003222231013331-1123233111212012-3223310113031121-0130222123112201"></a>
 
-## All schema paths — Property reference / 3287d54a2f26 / 11
+## All schema paths — Property reference / 102202330212 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--network_interface--reference--group-001.md#canonical-5c4d2c4671b3e8b7be047cc0fbab90a884988475940819fe89a7ae36f04a8527) |
-| `dedicated_interface` | [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-b53b392cbc7d2577e456e9d0ae806b587b3ee541d9b5bd6809b3d5fba242d3f0) |
-| `dedicated_interface.cluster` | [dedicated_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0389958ec42fa822f9da01f4b72355d05e02440e4674ba11e2da4301df2e419f) |
-| `dedicated_interface.device` | [dedicated_interface.device](resources--network_interface--reference--group-001.md#canonical-30fd2ac77da1e838a953920921bb7e521b4b1f1c41ee51c7885b8b06a7621a7b) |
-| `dedicated_interface.is_primary` | [dedicated_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-a10081edbd5fffad5424a97d32346acd6f883f12a5373a7552d0fe28357bcb67) |
-| `dedicated_interface.monitor` | [dedicated_interface.monitor](resources--network_interface--reference--group-001.md#canonical-093f038c92380a7ae5f28befce89ba99de661e277a91011d2cabf95dc928b4ff) |
-| `dedicated_interface.monitor_disabled` | [dedicated_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-49c6901bc981c1b0f1b6d759ac4edfd1b91d98e4dbafc623bd9a5b4316cdf46c) |
-| `dedicated_interface.mtu` | [dedicated_interface.mtu](resources--network_interface--reference--group-001.md#canonical-a3467b691dd35d7778b002e644810f87defaf6ebeca2f73316eb36f6e826fcb0) |
-| `dedicated_interface.node` | [dedicated_interface.node](resources--network_interface--reference--group-001.md#canonical-3e44161c489c63bddb045102a9c6fd3ac67f300c40df038f4c6ff2c4d954a485) |
-| `dedicated_interface.not_primary` | [dedicated_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-49d4b82ef9978d7c94f1587aeafe7cfbadb65dcbcc9241459fe56663417793de) |
-| `dedicated_interface.priority` | [dedicated_interface.priority](resources--network_interface--reference--group-001.md#canonical-f06226cfc0bcb4aac138eb3208b36c3c0bc1d458fd643f3fd361ac187a0afdcc) |
-| `dedicated_management_interface` | [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-219ef4535481f8a9fc1a82fb383574a7d61bf869a42d95fd8c64720c8c323408) |
-| `dedicated_management_interface.cluster` | [dedicated_management_interface.cluster](resources--network_interface--reference--group-001.md#canonical-036ae8d507a7df04b170cdb0f8b4afed9aa0e7b2695a14f9e038804546ed94ec) |
-| `dedicated_management_interface.device` | [dedicated_management_interface.device](resources--network_interface--reference--group-001.md#canonical-fc16f1f99ba19cfe0b96ecffe4baeeef70736aeb15cf3d7e1bc09107cbf22bbf) |
-| `dedicated_management_interface.mtu` | [dedicated_management_interface.mtu](resources--network_interface--reference--group-001.md#canonical-170bcaeccd55c9be40da899f970aed957fd689818d693e94b01c1318085ff567) |
-| `dedicated_management_interface.node` | [dedicated_management_interface.node](resources--network_interface--reference--group-001.md#canonical-2edff3601b527a5318776d83bc5bc65c48e0c933ab77da3588b95cc0e8464bed) |
-| `description` | [description](resources--network_interface--reference--group-001.md#canonical-e03f2865c682cfcc5c6e4c1ce2e07a1719eb61f20b095154e32663a47f8a24fa) |
-| `disable` | [disable](resources--network_interface--reference--group-001.md#canonical-7b10832f6848410e0cf053ec3b5c835c1ac384fa6eb36076e268a2ca5a718e86) |
-| `ethernet_interface` | [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-6e0657138526d4bae25542a24bb8e7ba776ee6142d767dc2d18163516f684e89) |
-| `ethernet_interface.cluster` | [ethernet_interface.cluster](resources--network_interface--reference--group-001.md#canonical-286e873f464b7834fc4b87a68ae713ba24d44fd6951924dfbc7c846578b03b39) |
-| `ethernet_interface.device` | [ethernet_interface.device](resources--network_interface--reference--group-001.md#canonical-ad8b11930cb633c6ffd0cdf7bb58f23c99963ce61ba5c48f3a8434f8dd6f28c7) |
-| `ethernet_interface.dhcp_client` | [ethernet_interface.dhcp_client](resources--network_interface--reference--group-001.md#canonical-32197e25be5d5ac066858a2ded06305f48ad6d50ef275dcbcb214abeee1300d3) |
-| `ethernet_interface.dhcp_server` | [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-7915f844e72da692deb4e203c026d277b9380bd10cb9a077d609420518aeebf8) |
-| `ethernet_interface.dhcp_server.automatic_from_end` | [ethernet_interface.dhcp_server.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-a1389086e0f253cfd6611c869eec2895de0b8e241c7155aebb064ee1862857a2) |
-| `ethernet_interface.dhcp_server.automatic_from_start` | [ethernet_interface.dhcp_server.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-3963b691ce8ab57c4284192187d169f72379e1ad578495f58842b697fc247767) |
-| `ethernet_interface.dhcp_server.dhcp_networks` | [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-dfc27e6ec4562dc5c33208f7b5a4eefd0e8ac17618e7269799f1489d4dc07af8) |
-| `ethernet_interface.dhcp_server.dhcp_networks.dgw_address` | [ethernet_interface.dhcp_server.dhcp_networks.dgw_address](resources--network_interface--reference--group-001.md#canonical-0c12d34ad083221af6f88734f0da77d5ad76b4a9acb1a9f149565f979692e6cf) |
-| `ethernet_interface.dhcp_server.dhcp_networks.dns_address` | [ethernet_interface.dhcp_server.dhcp_networks.dns_address](resources--network_interface--reference--group-001.md#canonical-b6f82ce1ccfe203f236d0c6f5ee142af2b2c74fc147d623a111a2af22281eccc) |
-| `ethernet_interface.dhcp_server.dhcp_networks.first_address` | [ethernet_interface.dhcp_server.dhcp_networks.first_address](resources--network_interface--reference--group-001.md#canonical-f51d24bc743daf61d8f3f80e215bd34f82a9b854c133dc9d542c73c8bcbed4d9) |
-| `ethernet_interface.dhcp_server.dhcp_networks.last_address` | [ethernet_interface.dhcp_server.dhcp_networks.last_address](resources--network_interface--reference--group-001.md#canonical-9ef6a54735209c3c85aa73dff81f03724c3578772da3ae050140820c1a951bbb) |
-| `ethernet_interface.dhcp_server.dhcp_networks.network_prefix` | [ethernet_interface.dhcp_server.dhcp_networks.network_prefix](resources--network_interface--reference--group-001.md#canonical-ea593d83ce801f035965cd79da01d8034307d098860caa27d8b1a076f4befe0f) |
-| `ethernet_interface.dhcp_server.dhcp_networks.pool_settings` | [ethernet_interface.dhcp_server.dhcp_networks.pool_settings](resources--network_interface--reference--group-001.md#canonical-4fe272c0cbf06036276f20145864ff2f6066cabbefe8104e6e7a76ac474cf8fa) |
-| `ethernet_interface.dhcp_server.dhcp_networks.pools` | [ethernet_interface.dhcp_server.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-ab8a2f63fcaed4da5cf579820aa5ad3f5d1f4e4210372bb7667cc321d30640c5) |
-| `ethernet_interface.dhcp_server.dhcp_networks.pools.end_ip` | [ethernet_interface.dhcp_server.dhcp_networks.pools.end_ip](resources--network_interface--reference--group-001.md#canonical-32e578cc24b0dd97de5581af53349ed49bd3c288d1762fe326669894fecf3bc4) |
-| `ethernet_interface.dhcp_server.dhcp_networks.pools.exclude` | [ethernet_interface.dhcp_server.dhcp_networks.pools.exclude](resources--network_interface--reference--group-001.md#canonical-8afa8bbc0805b591a13da147260f95225e7295abab9b68185c621d17ed625658) |
-| `ethernet_interface.dhcp_server.dhcp_networks.pools.start_ip` | [ethernet_interface.dhcp_server.dhcp_networks.pools.start_ip](resources--network_interface--reference--group-001.md#canonical-46b2636cf331774fc5f4e0fa97a37085c6672a03350cc1601abb267be4016e9b) |
-| `ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw` | [ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw](resources--network_interface--reference--group-001.md#canonical-aad0e1b6cc4c37da1332dfc9f63b0ff0539a92bd2f643972f39ba463764b49d8) |
-| `ethernet_interface.dhcp_server.dhcp_option82_tag` | [ethernet_interface.dhcp_server.dhcp_option82_tag](resources--network_interface--reference--group-001.md#canonical-0e561ae991d832d585d2f2968e78188cfe73f8e006d599e52b292c6aca883b02) |
-| `ethernet_interface.dhcp_server.fixed_ip_map` | [ethernet_interface.dhcp_server.fixed_ip_map](resources--network_interface--reference--group-001.md#canonical-6c0819c7d69877e3656f3602f7e66415fd51264f13a2a983122eb1bd49938102) |
-| `ethernet_interface.dhcp_server.interface_ip_map` | [ethernet_interface.dhcp_server.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-aa45145b5108abf11edf5528e142a3621978db41eb9c9613f7c3025e4b53a68b) |
-| `ethernet_interface.dhcp_server.interface_ip_map.interface_ip_map` | [ethernet_interface.dhcp_server.interface_ip_map.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-fd0ba71fd7e58bd5b96bae80fb0c04dcd114af16d8ddfd74df5421a15b81d417) |
-| `ethernet_interface.ipv6_auto_config` | [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-0383e001aa6430ea05121ee741becd34ed34615bfc522fddb69fbc000d8f2bfc) |
-| `ethernet_interface.ipv6_auto_config.host` | [ethernet_interface.ipv6_auto_config.host](resources--network_interface--reference--group-001.md#canonical-2d63b82cc646675e9b627784839a600b6f1e1c540593a29e908f9ed93883ed66) |
-| `ethernet_interface.ipv6_auto_config.router` | [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-589d774633953ed07ee758ce5a1024ef59608b53cc9c84bd932098b6110a4dcc) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config` | [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-dc53d7e926c8dfd350196bd1ea64c7e835eadc27b224663dede4a9b56616aa79) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.configured_list` | [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list](resources--network_interface--reference--group-001.md#canonical-c69670bff4b518bd2539b057799f58abf4ef8b2c8f43dba306676c0b23addc64) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.configured_list.dns_list` | [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list.dns_list](resources--network_interface--reference--group-001.md#canonical-0fc0b63ee232663ab13e8716b21e785e67284fb2416378f6a66e8ee31a798b47) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-9f98eeb5e176262b2c14a05c871c5c0e481659097b92fb2fd93915fb71c4c136) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.configured_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.configured_address](resources--network_interface--reference--group-001.md#canonical-2138a91165a0d6f98a01feef655973e5339049d6a8d5af6a9294be30c873b57b) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--network_interface--reference--group-001.md#canonical-0286f35c933e2f6c0be807ac2975447e36242ba6e3d9016db0ec22a9ff12b30a) |
-| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--network_interface--reference--group-001.md#canonical-94bc9ace9b2f5e8776d70138d3bea753e9c76e0cf8d30ed8bf9660b6650ddec1) |
-| `ethernet_interface.ipv6_auto_config.router.network_prefix` | [ethernet_interface.ipv6_auto_config.router.network_prefix](resources--network_interface--reference--group-001.md#canonical-16936745aca8643384bc1d4579a9493fa57ca2444d0f1938f1ce6fda8b73b810) |
-| `ethernet_interface.ipv6_auto_config.router.stateful` | [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-17c38b9f20cdd06f05cfd07ce97855102c6b90ece5bd3c78800f8fec5b534a5a) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end` | [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-6ca6f12adedaa622904057d41fcf183bed3b220f75f102e27814681a062b1553) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start` | [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-8bf4df97b8e24fd925fd58d569d20a9595e55609b938e8381c67f6ba415b9e50) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-8b0f37b60c5b8865deb3d15af9be8753aa487a374d79337a4aa75e8db5d607fe) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix](resources--network_interface--reference--group-001.md#canonical-22175ff499b48401ed21d2d8c84db14ce214635c4631614ba66225003e15c1d9) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings](resources--network_interface--reference--group-001.md#canonical-0a747ef544cb43b079530106d8806dfa4b18c99b9e8b488f13feec03bb6ffdc9) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-07227e352a23c33038c8374c3baa62a5eb541ea000cf80e028b03e600895a78f) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip](resources--network_interface--reference--group-001.md#canonical-6f011446dce544ad6c7dec656d0c76eca541e857317f21d93d9c4db6c6d02127) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip](resources--network_interface--reference--group-001.md#canonical-7120feb55e299061997c40d2a160d0f5865804196dcce1ee4b82292de692e4db) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.fixed_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.fixed_ip_map](resources--network_interface--reference--group-001.md#canonical-0d4dc6af4c18220c76c2d64fbb35850bdc4387b6f40a2f2a80012029730ce73c) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-8d16e5d6f2f3ce8eae7c8caa200948c6ffa86884f6c53800cf07a8788cd77341) |
-| `ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-3e9e67af64c477a87d90da26f09bc231a0599be249bb2118037a5965e9acbb06) |
-| `ethernet_interface.is_primary` | [ethernet_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-2a25c8b30670c082b6ccd885febb75c927e6b9dd5b45566ac51d857d95adcbaa) |
-| `ethernet_interface.monitor` | [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-2c2ea94141d5f5c631761897b48784fefa665733c6379d00a7a4e5b646f69c9f) |
-| `ethernet_interface.monitor_disabled` | [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-00b1b710483d9029260b5e5c65c45e4d6cdcb127f9d18922f127c6796221fe7b) |
-| `ethernet_interface.mtu` | [ethernet_interface.mtu](resources--network_interface--reference--group-001.md#canonical-13fe58f9ead768ef7c723e871124f50733863752b281f8091f2ea7ee5ed9c362) |
-| `ethernet_interface.no_ipv6_address` | [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-81e8bde0c542ae046890ccd7b6ca97bc9f4c67ec4f003094bbfe2f85610d581b) |
-| `ethernet_interface.node` | [ethernet_interface.node](resources--network_interface--reference--group-001.md#canonical-0c231be6cbd72c2b7c982492443ea07e54ea77ad45477ebf4d620759e14a0afb) |
-| `ethernet_interface.not_primary` | [ethernet_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-d6feb1ad4a0f6da80f15d4780c38a93c354d8bd742d75c6b8b7bddce772ecfe5) |
-| `ethernet_interface.priority` | [ethernet_interface.priority](resources--network_interface--reference--group-001.md#canonical-b4a227d8d1a6c6cc2cd434e4a3f253e81ab115a930ba33ab47a0626182c9de8b) |
-| `ethernet_interface.site_local_inside_network` | [ethernet_interface.site_local_inside_network](resources--network_interface--reference--group-001.md#canonical-85f6dd6599ba156de5c47aa2aa4ec8844c6367bb5435184c66788769101f2b66) |
-| `ethernet_interface.site_local_network` | [ethernet_interface.site_local_network](resources--network_interface--reference--group-001.md#canonical-83918a5d5cc033b3d4ed328d9c15172284ab234e6456012e467d4851c2d58a34) |
-| `ethernet_interface.static_ip` | [ethernet_interface.static_ip](resources--network_interface--reference--group-001.md#canonical-bb93a5143905ed4c3fba99beb8e9a3731ed985a6e0f8a8a48f019d236e243290) |
-| `ethernet_interface.static_ip.cluster_static_ip` | [ethernet_interface.static_ip.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-6a939f7a7a5d9fb7934c25d39a50aa46819ab8593b205ac02d66b183b4b61c95) |
-| `ethernet_interface.static_ip.cluster_static_ip.interface_ip_map` | [ethernet_interface.static_ip.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-5737da7b60ec4c327c8026de727f9b79d8d47a924d95eaf2941b4d26179bbdc3) |
-| `ethernet_interface.static_ip.node_static_ip` | [ethernet_interface.static_ip.node_static_ip](resources--network_interface--reference--group-002.md#canonical-d70deaa7005b2adac45dd4b06964f96ce201636b4b09ecc1fd8b3a813393f78d) |
-| `ethernet_interface.static_ip.node_static_ip.default_gw` | [ethernet_interface.static_ip.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-2dbaf847402ec4cfc27eef77c4bcc1416f495d74d428cea25f2dc3ee25f0b3ea) |
-| `ethernet_interface.static_ip.node_static_ip.dns_server` | [ethernet_interface.static_ip.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-4f883f9bf03d433e5d41c98daf15eeaa39eb4e15b64725621a048a49728f4b5a) |
-| `ethernet_interface.static_ip.node_static_ip.ip_address` | [ethernet_interface.static_ip.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-7bdce07a4740d26871beccccd5da616e98e84ad4e0e4b1370110e3cd7a63a568) |
-| `ethernet_interface.static_ipv6_address` | [ethernet_interface.static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-301fb268d2e32610b857aa8c1512cd5c6b32b1a2a69fdc553ddede6695b27c37) |
-| `ethernet_interface.static_ipv6_address.cluster_static_ip` | [ethernet_interface.static_ipv6_address.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-d153016fcdd189f2161cec708be092a601d3d42d2364deec057154f6c45cd7fe) |
-| `ethernet_interface.static_ipv6_address.cluster_static_ip.interface_ip_map` | [ethernet_interface.static_ipv6_address.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-7061c448dfa6b665754045c4d2b9d339578b0bcbb9066131b9544e2ccd82b066) |
-| `ethernet_interface.static_ipv6_address.node_static_ip` | [ethernet_interface.static_ipv6_address.node_static_ip](resources--network_interface--reference--group-002.md#canonical-d20402919e10de0d950f5ea8f899f5d67291e20eb8688d64947f65d8bbe5c7b2) |
-| `ethernet_interface.static_ipv6_address.node_static_ip.default_gw` | [ethernet_interface.static_ipv6_address.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-152f91ddc7eae9822fd45692fea0bf829269c2ca52cab80cd2fc5ef2d2c1be1a) |
-| `ethernet_interface.static_ipv6_address.node_static_ip.dns_server` | [ethernet_interface.static_ipv6_address.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-30d74b0aa093f79afeccdf7803b6088108362f5c334fcfdfe057a0e44ecae714) |
-| `ethernet_interface.static_ipv6_address.node_static_ip.ip_address` | [ethernet_interface.static_ipv6_address.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-7971030a9ac520e6eedecc19034aa7caeac217fb34a13138901deda62dc7580f) |
-| `ethernet_interface.storage_network` | [ethernet_interface.storage_network](resources--network_interface--reference--group-002.md#canonical-7ff07e6be90117e3e8bb1aad55041c91828b69ab7b035addabeada48182ad13a) |
-| `ethernet_interface.untagged` | [ethernet_interface.untagged](resources--network_interface--reference--group-002.md#canonical-a87a5701bb14fcfda551d90bedf6696e6fa4b1ab0aa87b530b53689cba07b030) |
-| `ethernet_interface.vlan_id` | [ethernet_interface.vlan_id](resources--network_interface--reference--group-001.md#canonical-ccc789142af389b5195663f33381a0cbcde4f82c0572a9a8748da98be57e9e9a) |
-| `id` | [id](resources--network_interface--reference--group-001.md#canonical-091dfb0cb42273636cd2b82f7246ed381175b79169d9f95f48b3974c59144408) |
-| `labels` | [labels](resources--network_interface--reference--group-001.md#canonical-4626cb0e4a457b5f49d07dd61a8f24423a27c55bc53a0654da434c2a7d001b58) |
-| `layer2_interface` | [layer2_interface](resources--network_interface--reference--group-002.md#canonical-e83fe3d490b7b1b9797f3df5de4ff22bc8deb68ea422ed8378cb6ac6f9fb18b9) |
-| `layer2_interface.l2sriov_interface` | [layer2_interface.l2sriov_interface](resources--network_interface--reference--group-002.md#canonical-2ae9ea6c87a7a85bbc990c5b62b10690956df01954b7faad8f67f41745e24aa3) |
-| `layer2_interface.l2sriov_interface.device` | [layer2_interface.l2sriov_interface.device](resources--network_interface--reference--group-002.md#canonical-404c1e6ba76e08387c9d77df9342e24d92f6172d9a00cc70bb43cff11a480ef0) |
-| `layer2_interface.l2sriov_interface.untagged` | [layer2_interface.l2sriov_interface.untagged](resources--network_interface--reference--group-002.md#canonical-2b6240834c2b7be8af41328df0235100df6f3a933aa9f74b97b0e4d48c42f46d) |
-| `layer2_interface.l2sriov_interface.vlan_id` | [layer2_interface.l2sriov_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-d00c578d39e778cfd60387e5bdf3f496eb83221cc045beb9f44b51e12630bbac) |
-| `layer2_interface.l2vlan_interface` | [layer2_interface.l2vlan_interface](resources--network_interface--reference--group-002.md#canonical-6b68b78583b4ab1bbf657e78184145acc9af43f231669ec56a2789d6d59dc06a) |
-| `layer2_interface.l2vlan_interface.device` | [layer2_interface.l2vlan_interface.device](resources--network_interface--reference--group-002.md#canonical-af303c0f4aeecc60838cc6dc0a54f8558208a0fb7b29e336b4ee6cac8fec1de0) |
-| `layer2_interface.l2vlan_interface.vlan_id` | [layer2_interface.l2vlan_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-0bf9ab6fdb2ca90b571c1a8b08fafbbbba6a6578aa527dadc77c04e01f18cc85) |
-| `layer2_interface.l2vlan_slo_interface` | [layer2_interface.l2vlan_slo_interface](resources--network_interface--reference--group-002.md#canonical-1e603ca6b506635b704b91fb12737a2a1b5b373ed71bd78f86f38dcad234de0e) |
-| `layer2_interface.l2vlan_slo_interface.vlan_id` | [layer2_interface.l2vlan_slo_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-67387467502d314677eb485651447c1910e7336ad39b4fd5fe202be5cac28714) |
-| `name` | [name](resources--network_interface--reference--group-001.md#canonical-27e956ca44dafbe955ab1b47f6d12fe9cefb0ba115abf9e7bbb13993fe0326d5) |
-| `namespace` | [namespace](resources--network_interface--reference--group-001.md#canonical-771ba06ab7838207d041da62e01b61f6473c87734e7711564d263934b453e995) |
-| `timeouts` | [timeouts](resources--network_interface--reference--group-002.md#canonical-0f1a477aeb1c77ebf2be4f90b99bfacf1b54171a03d304b0c69a4f6c23e114e7) |
-| `timeouts.create` | [timeouts.create](resources--network_interface--reference--group-002.md#canonical-efbe76065569c878d92de43cd3da30813ab33955833b53dd17984ae6a1481d8a) |
-| `timeouts.delete` | [timeouts.delete](resources--network_interface--reference--group-002.md#canonical-68f60b2a82d750e732d9236e23839690ba7b53dc64a401ab97f41808c6f2f8e2) |
-| `timeouts.read` | [timeouts.read](resources--network_interface--reference--group-002.md#canonical-1820c17b3dc561b882b296756e309f8b4c84ce3636eb55d3da302df03cc55dca) |
-| `timeouts.update` | [timeouts.update](resources--network_interface--reference--group-002.md#canonical-c1a896e6be4dfe1ecbdfcbfd9b32da7905b4ce1feec017af921e88d22f226a67) |
-| `tunnel_interface` | [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-5b16fd24e80b66597695a9d58656efff23e866192b280fee851b04a157e01f46) |
-| `tunnel_interface.mtu` | [tunnel_interface.mtu](resources--network_interface--reference--group-002.md#canonical-00466f20e230b514fb5e765632a201547ae0631eecd690ce090f58a44e5fec93) |
-| `tunnel_interface.node` | [tunnel_interface.node](resources--network_interface--reference--group-002.md#canonical-b97e10cdb6f73a19ae05dd0dd9baacc1a9e6c7ffd0d4d3520371a9b4da0d4699) |
-| `tunnel_interface.priority` | [tunnel_interface.priority](resources--network_interface--reference--group-002.md#canonical-8004221dfacd326c6a35ce6bbc434636bcfa2feee72258cedf9a70acd3557888) |
-| `tunnel_interface.site_local_inside_network` | [tunnel_interface.site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-c3a8d12380b8f911d1c554b5e7d05168e525a9aa92cd50c8cd19ab9f8fee4152) |
-| `tunnel_interface.site_local_network` | [tunnel_interface.site_local_network](resources--network_interface--reference--group-002.md#canonical-7956099f3a05592b4aa819ed490ff9f8c57dd6c146544af693a9bde8fef480eb) |
-| `tunnel_interface.static_ip` | [tunnel_interface.static_ip](resources--network_interface--reference--group-002.md#canonical-c66df417706b2af56978e29f09c01f35fe11f353aaceca85d8f98614b9a23b14) |
-| `tunnel_interface.static_ip.cluster_static_ip` | [tunnel_interface.static_ip.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-d32d6df37cd00022a747281774056c3c2448dc85d3dd169936f9edccbd0dc0a8) |
-| `tunnel_interface.static_ip.cluster_static_ip.interface_ip_map` | [tunnel_interface.static_ip.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-c9589b25857b35d35ec1255197c2a76caea57365ba94a268e8f6c31199fbb4e4) |
-| `tunnel_interface.static_ip.node_static_ip` | [tunnel_interface.static_ip.node_static_ip](resources--network_interface--reference--group-002.md#canonical-c7f4a5adbb982884dc3c87beb9e6027f8b8b1b2e2fcf5fd12dc0f2ecf74d3a1a) |
-| `tunnel_interface.static_ip.node_static_ip.default_gw` | [tunnel_interface.static_ip.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-593f543f94c55632fb933a6d7fb6819b32a92404ec944c944aede4065bbd5237) |
-| `tunnel_interface.static_ip.node_static_ip.dns_server` | [tunnel_interface.static_ip.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-957a383307f14b2b9837d2629ef9d09b9aa2e247b49dae28fe494f549522dfe3) |
-| `tunnel_interface.static_ip.node_static_ip.ip_address` | [tunnel_interface.static_ip.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-7b3bacbd7966d385fa96314f5958111887a3abebe8eef40d1eae6d56b59f43f2) |
-| `tunnel_interface.tunnel` | [tunnel_interface.tunnel](resources--network_interface--reference--group-002.md#canonical-e69e395b805d387e01859c146fbd0e0d20250fbc1c2a2ad34babd72602f38120) |
-| `tunnel_interface.tunnel.name` | [tunnel_interface.tunnel.name](resources--network_interface--reference--group-002.md#canonical-e61f2ad9ebabdbf83f94b1596141a831b9e5cecbf4b5c938a01bfb91baaadc73) |
-| `tunnel_interface.tunnel.namespace` | [tunnel_interface.tunnel.namespace](resources--network_interface--reference--group-002.md#canonical-60edc75cd60824678ec11b0ade93b552c21c20b6a2fd8c30c79fd4399a4776b2) |
-| `tunnel_interface.tunnel.tenant` | [tunnel_interface.tunnel.tenant](resources--network_interface--reference--group-002.md#canonical-79f3b8880bcb9b273cacd00d3bff242f1a1b475c89a996bf494a1b77b9192551) |
+| `annotations` | [annotations](resources--network_interface--reference--group-001.md#canonical-1130103102301012-1301230332202313-2332001013303000-3323222321002220-2010212020101311-2110002001213332-2021221322320312-3300102220110213) |
+| `dedicated_interface` | [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2311032303210230-2330133102111313-3210111232213100-2232200012231120-1323033232111001-3121231123311220-0021230331113323-2202100231033300) |
+| `dedicated_interface.cluster` | [dedicated_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0003202121112032-3010023322200202-3321312200013310-2313020311113100-1132000210100032-1012131023220101-3202312210030001-3133023210012133) |
+| `dedicated_interface.device` | [dedicated_interface.device](resources--network_interface--reference--group-001.md#canonical-0300333102223013-1331220132200320-2221110321020021-0201232313321102-0123102301330130-1001323211013013-2020112320230012-2213120201221323) |
+| `dedicated_interface.is_primary` | [dedicated_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-2201000020013231-2331113333332231-1110021022211331-0302031012223031-1233202003330102-2211031303221311-1102310033320220-0311132330231213) |
+| `dedicated_interface.monitor` | [dedicated_interface.monitor](resources--network_interface--reference--group-001.md#canonical-0021033300032030-2102032000221322-3211330220233233-3032202123222121-3132121201320213-1322210100010131-0230222333211131-3021022023103333) |
+| `dedicated_interface.monitor_disabled` | [dedicated_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-1021301221000123-3021200130012300-3301231231131121-2230103231333101-2321013121203210-3123223330120203-2331212211231003-0112303133101230) |
+| `dedicated_interface.mtu` | [dedicated_interface.mtu](resources--network_interface--reference--group-001.md#canonical-2203101213231221-0131310311311313-1320230000023212-1010200100332013-3132332233123223-3230220233130303-0112322303123312-3220021233302300) |
+| `dedicated_interface.node` | [dedicated_interface.node](resources--network_interface--reference--group-001.md#canonical-0332101001120130-1020213012032331-3123001011010002-2221301233310322-3012133303000030-1000313300032033-1030123333023010-3121111022102011) |
+| `dedicated_interface.not_primary` | [dedicated_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-1021311023200232-3321211320311330-2110330111201322-3222333213303323-2231231211313023-3030210210011011-2133321112121203-1001131321033132) |
+| `dedicated_interface.priority` | [dedicated_interface.priority](resources--network_interface--reference--group-001.md#canonical-3300120202123033-3000233023102222-3001032032230302-0020230312300330-0023300131101120-3331121003330333-3103120122300120-1322002233313030) |
+| `dedicated_management_interface` | [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-0201213233101103-1110200133202221-3330012220023323-0320031113102213-3112012333201221-2210023121113331-2030121013020030-2030030203100020) |
+| `dedicated_management_interface.cluster` | [dedicated_management_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0003122232203111-0013221331330010-2301130030312300-3320231022333231-2122220032132302-1221112201103321-3200032020001011-1012323121103230) |
+| `dedicated_management_interface.device` | [dedicated_management_interface.device](resources--network_interface--reference--group-001.md#canonical-3330011233013321-2123220121303332-0023211232303333-3210232232323233-1300130312223223-0111303303311332-0123300021010013-3023330202232333) |
+| `dedicated_management_interface.mtu` | [dedicated_management_interface.mtu](resources--network_interface--reference--group-001.md#canonical-0113002330223230-3031111130212332-1000312220212133-2113002232312111-1333311220212001-2031122103322110-2300013001030120-0020113333111213) |
+| `dedicated_management_interface.node` | [dedicated_management_interface.node](resources--network_interface--reference--group-001.md#canonical-0232313333031200-0123110213221103-0120131312312003-2330112330121130-1020320030210303-2223131331220311-2020232111303000-3220101210233231) |
+| `description` | [description](resources--network_interface--reference--group-001.md#canonical-3200033302201211-3012200230333030-1130123210300130-3202320013220113-0121322312013302-0023002111011110-3203021212032210-1333202202103322) |
+| `disable` | [disable](resources--network_interface--reference--group-001.md#canonical-1323010020030233-1220102010010032-0030330011033230-0323113020031130-0122300320103322-1232230312001312-3202122022023022-1122130120322012) |
+| `ethernet_interface` | [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-1232001211130103-2011021231102322-3202111110022202-1023232032132322-1313123232120110-0231131213313002-3101200112031101-1233122010322021) |
+| `ethernet_interface.cluster` | [ethernet_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0220123220130333-1012102313200310-3330102320132212-2022321301032322-0210311010333112-2111012102103133-2330133020101211-1320230003230321) |
+| `ethernet_interface.device` | [ethernet_interface.device](resources--network_interface--reference--group-001.md#canonical-2231202301012103-0030231203033012-3333310030313313-2323112033020330-2121211203303212-0123221130102033-0322201003103320-3131123302203013) |
+| `ethernet_interface.dhcp_client` | [ethernet_interface.dhcp_client](resources--network_interface--reference--group-001.md#canonical-0302012113320211-2332113111223000-1212201120220231-3231001203001133-1020223112311100-3233021311313023-3023020110222332-3232010300003103) |
+| `ethernet_interface.dhcp_server` | [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1321011133201010-3213023122122102-3132231032020003-3000021231021313-2321032000233101-0030232122001313-3112002110020011-0120223232233320) |
+| `ethernet_interface.dhcp_server.automatic_from_end` | [ethernet_interface.dhcp_server.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-2201032021002012-3200330211033033-3112120101302012-2132323002202111-3132002320320210-0130130111112232-2323001210323201-2012022011132202) |
+| `ethernet_interface.dhcp_server.automatic_from_start` | [ethernet_interface.dhcp_server.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-0321120323122101-3032202223111330-1002201001210201-2013310112213313-0203132132012231-1113201021113311-2020100223122113-3330021013131213) |
+| `ethernet_interface.dhcp_server.dhcp_networks` | [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-3133300213321232-3010111202313011-3003030200203313-2311221032323331-0032202230011312-0120321302122113-2121330110202131-1031300013223320) |
+| `ethernet_interface.dhcp_server.dhcp_networks.dgw_address` | [ethernet_interface.dhcp_server.dhcp_networks.dgw_address](resources--network_interface--reference--group-001.md#canonical-0030010231031022-3100200302020122-3312332020130310-3300312213133111-2231131223102221-2230230122213301-1021111211332113-2112210232123033) |
+| `ethernet_interface.dhcp_server.dhcp_networks.dns_address` | [ethernet_interface.dhcp_server.dhcp_networks.dns_address](resources--network_interface--reference--group-001.md#canonical-2312332002303201-3030333202000333-0203123100301233-1132320110022233-0223023013103330-0110133112020322-0101012202223302-0202200132303030) |
+| `ethernet_interface.dhcp_server.dhcp_networks.first_address` | [ethernet_interface.dhcp_server.dhcp_networks.first_address](resources--network_interface--reference--group-001.md#canonical-3311013102102330-1310033122331201-3120330333200032-0201112331031033-2002222123201110-3001030331302131-1110023013033020-2330233231103121) |
+| `ethernet_interface.dhcp_server.dhcp_networks.last_address` | [ethernet_interface.dhcp_server.dhcp_networks.last_address](resources--network_interface--reference--group-001.md#canonical-2132331222111013-0311020021300330-2011222213033133-3320013300031302-1030031113201313-0231220322320011-0001100020020030-0122211101232323) |
+| `ethernet_interface.dhcp_server.dhcp_networks.network_prefix` | [ethernet_interface.dhcp_server.dhcp_networks.network_prefix](resources--network_interface--reference--group-001.md#canonical-3222112103312003-3032200001330003-1121121130311321-3122000131200003-1003001331002120-2012003022220213-3120230122001312-3310233233320033) |
+| `ethernet_interface.dhcp_server.dhcp_networks.pool_settings` | [ethernet_interface.dhcp_server.dhcp_networks.pool_settings](resources--network_interface--reference--group-001.md#canonical-1033320213023000-3023330012000312-0213123302000110-1120121033330233-1200121230222323-3233322001001032-1232132213122230-1013103033203322) |
+| `ethernet_interface.dhcp_server.dhcp_networks.pools` | [ethernet_interface.dhcp_server.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-2223202202331203-3330223231103122-1130331113212002-0022221122310333-1131013310321002-0100031302232313-1212133030030201-3103001210003011) |
+| `ethernet_interface.dhcp_server.dhcp_networks.pools.end_ip` | [ethernet_interface.dhcp_server.dhcp_networks.pools.end_ip](resources--network_interface--reference--group-001.md#canonical-0302321113203030-0210230031312113-3132111120012233-1103031021323110-2123310330022020-3101131202333203-0212121221202110-3332303303233010) |
+| `ethernet_interface.dhcp_server.dhcp_networks.pools.exclude` | [ethernet_interface.dhcp_server.dhcp_networks.pools.exclude](resources--network_interface--reference--group-001.md#canonical-2022332220232330-0020001123112101-2201033122011013-0212003321110202-1132130221112223-2223212312200120-1130120201310113-3231120211121120) |
+| `ethernet_interface.dhcp_server.dhcp_networks.pools.start_ip` | [ethernet_interface.dhcp_server.dhcp_networks.pools.start_ip](resources--network_interface--reference--group-001.md#canonical-1012230212031230-3303030113131033-3011331032003322-2113220313002011-3012121302220003-0311003030011200-0122232302121323-3210000112322123) |
+| `ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw` | [ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw](resources--network_interface--reference--group-001.md#canonical-2222310032012312-3030103003133122-0103030231333021-3312032300333300-1103212221022331-0233121003211302-3303212322101203-1312102310213120) |
+| `ethernet_interface.dhcp_server.dhcp_option82_tag` | [ethernet_interface.dhcp_server.dhcp_option82_tag](resources--network_interface--reference--group-001.md#canonical-0032111201223221-2101312003023111-2011310233022112-2032132001202030-3332130333203200-0012311121213211-0223022102301222-3022202003230002) |
+| `ethernet_interface.dhcp_server.fixed_ip_map` | [ethernet_interface.dhcp_server.fixed_ip_map](resources--network_interface--reference--group-001.md#canonical-1230002001213013-3112212013133203-1211123303120002-3313321212100111-3331110102121033-0103220222212003-0102023223012331-1021210320010002) |
+| `ethernet_interface.dhcp_server.interface_ip_map` | [ethernet_interface.dhcp_server.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-2222101101101123-1101002022233301-0132313311110220-3201100222031202-0121132031231001-3223213021120103-3313300300021132-1023110322122023) |
+| `ethernet_interface.dhcp_server.interface_ip_map.interface_ip_map` | [ethernet_interface.dhcp_server.interface_ip_map.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-3331002322130133-3113321120233111-2321122322322000-3323003000103130-3101011022330112-3120313133311310-3133111002012201-1123200131100113) |
+| `ethernet_interface.ipv6_auto_config` | [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-0003200332000001-2222121003003222-0011010201323213-1001233230310310-3231031012011123-3330110202333131-2312213323300000-0031203302233330) |
+| `ethernet_interface.ipv6_auto_config.host` | [ethernet_interface.ipv6_auto_config.host](resources--network_interface--reference--group-001.md#canonical-0231120323200230-3012101212131132-2123120213132010-2003212212000023-1233013201301110-0011210322022132-2100203321323121-0320200332311212) |
+| `ethernet_interface.ipv6_auto_config.router` | [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-1120213113131012-0303211103323100-1332321311203032-1122010002103233-1121120020231103-3030213020102331-2103020021202312-0101002210313030) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config` | [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-3130110331133221-0212302031333103-1100012112233101-3222121030133220-0311322231300213-2302021012120331-3231321022212311-1212011222221321) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.configured_list` | [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list](resources--network_interface--reference--group-001.md#canonical-3012211213002333-3310231101202331-0211032123001113-1321213311202223-3310323320230230-2033100331232203-0012121312300023-0203223131301210) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.configured_list.dns_list` | [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list.dns_list](resources--network_interface--reference--group-001.md#canonical-0033300023120332-3202030212120322-2301033220130112-2302013213201132-1213022010332302-1001120313203312-2212123220323203-0122132120231013) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-2133212032322311-3201131202120223-0230011022001130-2013013011300032-1020011211210021-1323210233230233-3121032101113323-1301301030010312) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.configured_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.configured_address](resources--network_interface--reference--group-001.md#canonical-0201032022210101-1211220031123321-2022000133323233-1211112113033211-0303210010213112-2220311122331222-2102211023320300-3020130323111323) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--network_interface--reference--group-001.md#canonical-0002201233031130-2103033202331230-0023322000132230-0221131110101332-0312021002232212-3203312100011231-2300323002022221-3333010223030022) |
+| `ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address` | [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--network_interface--reference--group-001.md#canonical-2110233021223032-2123023311322013-1312311300010320-3103233222131103-3221301312320030-3320310300323120-2333211212002312-1211003131323001) |
+| `ethernet_interface.ipv6_auto_config.router.network_prefix` | [ethernet_interface.ipv6_auto_config.router.network_prefix](resources--network_interface--reference--group-001.md#canonical-0112210312131011-2230222012100303-2010233001311011-1321222110210333-2211133022021010-1031003301210320-3301303212333122-2023130323200100) |
+| `ethernet_interface.ipv6_auto_config.router.stateful` | [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-0113300320232133-0200303131001233-0011303331001330-3221132011110100-0230122321003230-3211233103301320-2000003320333230-1123110310221122) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end` | [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-1230221233010222-3132312222120202-2100100011133110-0133303301200323-3231032302020033-1311330100023202-1320011012200122-0012022301111103) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start` | [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-2023331031332113-2320320210333121-0211333111203111-1221310200222111-2111321111120021-2321032032200320-0130121333122322-1001112321321100) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-2023003303132312-0030112320201211-3132230331011122-3321233220131103-2222102013220313-1031132103031322-1022221311322031-2311311200133332) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix](resources--network_interface--reference--group-001.md#canonical-0202011311333310-2121231020100001-3231020131023120-3020103123011030-3202011012031130-1012030112011023-2212120202110000-0332011130013121) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings](resources--network_interface--reference--group-001.md#canonical-0022131013323311-1010302310032300-1321110300010012-3120200012313322-1023012030212123-2132202310202033-0103333232300003-2323123333313021) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-0013020213320311-0222020330030300-0320302003131030-0323222212022211-3223111001322200-0000303320003200-0220230003321200-0020211122132033) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip](resources--network_interface--reference--group-001.md#canonical-1233000101101012-3130321110102231-1230133132301211-1231003013123230-2211100132201113-0301133302013121-0331213010312312-3012310002010213) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip` | [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip](resources--network_interface--reference--group-001.md#canonical-1301020033322311-1132022121001201-2121133010003102-2201120031003311-2012112000100121-1231303032013232-1023200202210231-3212210232103123) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.fixed_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.fixed_ip_map](resources--network_interface--reference--group-001.md#canonical-0031103130122233-1030012002020030-1312300231121033-2323031120110023-3130100320132312-3310002202330222-2000000102000221-1303003032130330) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-2031011232113112-3302330330322032-2232133020302222-0200002110203012-3333222012202010-3312301103200000-3033001322201320-2030311313031001) |
+| `ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map` | [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-0332213212132233-1210301013132220-1331210031220212-3300212330020301-2200112121233202-1021232302010120-0003132211211211-3221223023230012) |
+| `ethernet_interface.is_primary` | [ethernet_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-0222021130202303-0012130030002002-2312303031202011-3332232313113021-0213321223213131-1123101111121222-3011013120111331-2111223130232222) |
+| `ethernet_interface.monitor` | [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-0230023222211001-1001311133113012-0301131201202113-2310201320103332-3322121211130303-3012031321310000-2213221032112312-1012331221302133) |
+| `ethernet_interface.monitor_disabled` | [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-0000230123130100-1020033121000221-0212002311321130-1211301011321031-1230313023010213-3321310120210202-3301021330121321-1202020133321323) |
+| `ethernet_interface.mtu` | [ethernet_interface.mtu](resources--network_interface--reference--group-001.md#canonical-0103333211203321-3222311312203233-1330130203322013-0101021033110013-0303201203131102-2302200133200021-0133023222133232-1132312130031202) |
+| `ethernet_interface.no_ipv6_address` | [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123) |
+| `ethernet_interface.node` | [ethernet_interface.node](resources--network_interface--reference--group-001.md#canonical-0030020301233212-3023311302300223-1330212002102102-1010033222001332-1110322213132231-1011101313322333-1031120200131121-3201102200223323) |
+| `ethernet_interface.not_primary` | [ethernet_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-3112333223012231-1022003312312220-0033011131101320-0030032022210330-0311103120233113-1002311311301223-2023132331313032-1313023230333211) |
+| `ethernet_interface.priority` | [ethernet_interface.priority](resources--network_interface--reference--group-001.md#canonical-2310220202133120-3101221230123030-0230311003103210-2203330211033220-0122230101112221-0300232203032223-1013220012021201-2002302131322023) |
+| `ethernet_interface.site_local_inside_network` | [ethernet_interface.site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-2011331231311211-2121232201111231-3211301013222202-2222103230202010-1030120312132323-1110031101201030-1212132020131221-0100013302231212) |
+| `ethernet_interface.site_local_network` | [ethernet_interface.site_local_network](resources--network_interface--reference--group-002.md#canonical-2003210120221131-1130300003032303-3110323103022031-2130011101130202-2010222302031032-1210111200010232-1012133110201101-3002311120220310) |
+| `ethernet_interface.static_ip` | [ethernet_interface.static_ip](resources--network_interface--reference--group-002.md#canonical-2323210322110110-0321001132311030-0333232221212332-2320322122031303-0132312120112212-3200332022202210-2033000121310203-1232021003022100) |
+| `ethernet_interface.static_ip.cluster_static_ip` | [ethernet_interface.static_ip.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-1222210321331322-1322113121332313-2103103002113103-2122110022221012-2001212223201121-0323020011223000-0231121223012003-2310231201302111) |
+| `ethernet_interface.static_ip.cluster_static_ip.interface_ip_map` | [ethernet_interface.static_ip.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-1113031331221323-1200323010300302-1330200002123132-1302133321231321-3120311013222102-1031211132223302-2110012310310212-0113212323313003) |
+| `ethernet_interface.static_ip.node_static_ip` | [ethernet_interface.static_ip.node_static_ip](resources--network_interface--reference--group-002.md#canonical-3113003132222213-0000112302223122-3010113131102300-1221121033211230-3202000112031223-1023002132303001-3331202303222001-0303210333132031) |
+| `ethernet_interface.static_ip.node_static_ip.default_gw` | [ethernet_interface.static_ip.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-0231232233201013-1000023230103033-3002133232331313-3010233030011001-1233102111311310-3110022030322202-1133023130033232-0211330023033222) |
+| `ethernet_interface.static_ip.node_static_ip.dns_server` | [ethernet_interface.static_ip.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-1033202003332123-3300033110030332-1131100130212031-2233011132322222-0321322310320111-2312101302111202-0122001020221021-1302203310231122) |
+| `ethernet_interface.static_ip.node_static_ip.ip_address` | [ethernet_interface.static_ip.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-1323313032001322-1013100031021220-1301233230303030-3111312212011232-2120322010223110-3200321023010313-0001010032033031-1322120322111220) |
+| `ethernet_interface.static_ipv6_address` | [ethernet_interface.static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-0300013323021220-3102320302120100-2320111322222030-0111010230311130-1223030223012202-2212213331301111-0331313231321212-2111230213300313) |
+| `ethernet_interface.static_ipv6_address.cluster_static_ip` | [ethernet_interface.static_ipv6_address.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-3101110300011233-3031310120213302-0112013032301300-2023320021022212-0001310331100231-0203121031323230-0011130111103312-3010113031133332) |
+| `ethernet_interface.static_ipv6_address.cluster_static_ip.interface_ip_map` | [ethernet_interface.static_ipv6_address.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-1300120130101020-3133221223121211-1311100010113010-3102232131030321-1113202300233023-2321001212010301-2321111010320230-3031200223001212) |
+| `ethernet_interface.static_ipv6_address.node_static_ip` | [ethernet_interface.static_ipv6_address.node_static_ip](resources--network_interface--reference--group-002.md#canonical-3102001000022101-2132010031320031-2111003311322220-3320212133113112-1302210132020032-2320122020311210-2110133312113120-2323321130132302) |
+| `ethernet_interface.static_ipv6_address.node_static_ip.default_gw` | [ethernet_interface.static_ipv6_address.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-0111023321013131-3013322232212002-0233311011122102-3332220023332002-2102122130023022-1102302223200030-3102333011323302-3102300123320122) |
+| `ethernet_interface.static_ipv6_address.node_static_ip.dns_server` | [ethernet_interface.static_ipv6_address.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-0300311310230022-2200210333132122-3332303031331320-0003231200202001-0020031202331130-0303103330333133-3200111322003210-1032302232130110) |
+| `ethernet_interface.static_ipv6_address.node_static_ip.ip_address` | [ethernet_interface.static_ipv6_address.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-1321130100030022-2122301102003212-3232313230300121-0003102222133022-3222300201133323-0310220103010320-2100013132312212-0231301311200033) |
+| `ethernet_interface.storage_network` | [ethernet_interface.storage_network](resources--network_interface--reference--group-002.md#canonical-1333330013321223-3221000101133203-3220232301222231-1111001001302101-2002202312212223-1323000311223131-2223322231221020-0120022231010322) |
+| `ethernet_interface.untagged` | [ethernet_interface.untagged](resources--network_interface--reference--group-002.md#canonical-2220132211130001-2323011033303331-2211110131210023-3231331212211232-1233221023012223-0022222013231103-0023110312202130-2322001323000300) |
+| `ethernet_interface.vlan_id` | [ethernet_interface.vlan_id](resources--network_interface--reference--group-001.md#canonical-3030301320210110-0222330320212311-0121111212033303-0303200122003023-3031321033200230-0011130222212220-1310203122212023-3211133221322122) |
+| `id` | [id](resources--network_interface--reference--group-001.md#canonical-0021013133230030-2310020213031203-1230310223200233-1302101232310320-0101131123132101-1221312133211133-1020230321131030-1121011010100020) |
+| `labels` | [labels](resources--network_interface--reference--group-001.md#canonical-1012021230230032-1022101113231133-1021310013313112-0122203302101002-0322021330111123-3011032200121110-3122100310300222-1331000001231120) |
+| `layer2_interface` | [layer2_interface](resources--network_interface--reference--group-002.md#canonical-3220033332033110-2100231323012321-1321133303313311-3132103333020223-3020313223122032-2210020232312003-1320302312223012-3321332301202321) |
+| `layer2_interface.l2sriov_interface` | [layer2_interface.l2sriov_interface](resources--network_interface--reference--group-002.md#canonical-0222322132221230-2013221322201123-2330212100301123-1202230100122100-2111123133000121-1110231333222231-2033121333100113-1011320210222203) |
+| `layer2_interface.l2sriov_interface.device` | [layer2_interface.l2sriov_interface.device](resources--network_interface--reference--group-002.md#canonical-1000103001321223-2213123200200320-1330213113133133-2103100232021031-2102331201130231-2122000030301300-2323100330333301-0122102000323300) |
+| `layer2_interface.l2sriov_interface.untagged` | [layer2_interface.l2sriov_interface.untagged](resources--network_interface--reference--group-002.md#canonical-0223120210002003-1030022313233220-2233100103022031-3300020311010000-3133123303222103-0322222133131023-2113230032103110-2030100233101231) |
+| `layer2_interface.l2sriov_interface.vlan_id` | [layer2_interface.l2sriov_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-3100003011132031-0321321313203033-3112000320133211-2331330333102112-3223200302020130-3000101123322321-3310102311013201-0212030023232230) |
+| `layer2_interface.l2vlan_interface` | [layer2_interface.l2vlan_interface](resources--network_interface--reference--group-002.md#canonical-1223122023132011-2003231022230123-2333121113321320-0120100110112230-3021223310033302-0301121221323011-1222021320213112-3111213130001222) |
+| `layer2_interface.l2vlan_interface.device` | [layer2_interface.l2vlan_interface.device](resources--network_interface--reference--group-002.md#canonical-2233030003300033-1022323230301200-2003203030123130-0022111033201111-2002002022003323-1323022132030312-2310323212302230-2033323001313200) |
+| `layer2_interface.l2vlan_interface.vlan_id` | [layer2_interface.l2vlan_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-0023332122231233-3123023022210023-1113013001222023-0020332233232323-2322122212111320-2222110213312231-3013133000103200-0133012030302011) |
+| `layer2_interface.l2vlan_slo_interface` | [layer2_interface.l2vlan_slo_interface](resources--network_interface--reference--group-002.md#canonical-0132120003302212-2311001212031123-1300102321013323-0102130313220222-0123112303130332-3113012331132033-2012330320313022-3102031031320032) |
+| `layer2_interface.l2vlan_slo_interface.vlan_id` | [layer2_interface.l2vlan_slo_interface.vlan_id](resources--network_interface--reference--group-002.md#canonical-1213032013101213-1100023103011012-1313322310201112-1101101013300121-0100321303031222-3103212310333111-3332020002233211-3022300220130110) |
+| `name` | [name](resources--network_interface--reference--group-001.md#canonical-0213322111123022-1010312233233221-1111222301231013-3312310102333221-3032332300232201-0111222333213213-2323230103212103-3332000302123111) |
+| `namespace` | [namespace](resources--network_interface--reference--group-001.md#canonical-1313012322001222-2313200320020013-3100100131221202-3200012312013312-1013033020131303-1032131301011112-1031021203210310-2310110332212111) |
+| `timeouts` | [timeouts](resources--network_interface--reference--group-002.md#canonical-0033012210131322-3223013013133223-3302233210332100-2321212333223033-0123111001130122-0003310300102300-3012212210331230-0203320101103213) |
+| `timeouts.create` | [timeouts.create](resources--network_interface--reference--group-002.md#canonical-3233233213120012-1111122130201320-3121023132100330-3103312203002001-0322230303211111-2003032311033131-0113212010223212-2201102001312022) |
+| `timeouts.delete` | [timeouts.delete](resources--network_interface--reference--group-002.md#canonical-1220331200230222-2002311311003213-0302312102031232-0203200321122100-2322132311033130-1210221000012223-2113331001200020-3012330233203202) |
+| `timeouts.read` | [timeouts.read](resources--network_interface--reference--group-002.md#canonical-0120020030011323-0331301112012320-2002230221121311-1232030021332023-1030201030320312-0312322311113103-3122030002313300-0330301111313022) |
+| `timeouts.update` | [timeouts.update](resources--network_interface--reference--group-002.md#canonical-3001222021123212-2332103133320132-3023313330233331-2123030231221321-0011231030320133-3232300001132233-2102013220203102-0233020212221213) |
+| `tunnel_interface` | [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-1123011233310210-3220002312121121-1312211122213111-2012111232333333-0203322012120121-0223022000333232-2011012300102201-1113320001331012) |
+| `tunnel_interface.mtu` | [tunnel_interface.mtu](resources--network_interface--reference--group-002.md#canonical-0000101212330200-3202030023110110-3323113213121112-0302220200011110-1322320012030132-3230311221003032-0021003311202210-1032113332302103) |
+| `tunnel_interface.node` | [tunnel_interface.node](resources--network_interface--reference--group-002.md#canonical-2321133201003031-2312331303220121-2232001131310031-3121232222303001-2221321230133333-3100311031031102-0003130122212310-3122003110122121) |
+| `tunnel_interface.priority` | [tunnel_interface.priority](resources--network_interface--reference--group-002.md#canonical-2000001002020131-3322303103021230-1222031130321223-2330100310120312-2330332202333232-3213020211203032-3133212213002230-3103111113202020) |
+| `tunnel_interface.site_local_inside_network` | [tunnel_interface.site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-3003222031010203-2000232033210101-3101301111102311-3213310011011220-3211021122212222-2102303111003020-3031012122232133-2033323210011102) |
+| `tunnel_interface.site_local_network` | [tunnel_interface.site_local_network](resources--network_interface--reference--group-002.md#canonical-1321111200212133-0322001111210223-1022222001213231-1021003333213320-3011133131123001-1012111010223312-2103222123313220-3332331020003223) |
+| `tunnel_interface.static_ip` | [tunnel_interface.static_ip](resources--network_interface--reference--group-002.md#canonical-3012123133100113-1300122302223311-1221132032022133-0021300001330311-3332010133031103-2222303230222011-3120332120120110-2321220203230110) |
+| `tunnel_interface.static_ip.cluster_static_ip` | [tunnel_interface.static_ip.cluster_static_ip](resources--network_interface--reference--group-002.md#canonical-3103023112313303-1330310000000202-2213101302200113-1310001112300330-0210102031302011-3103313101122121-0312332132313030-2331003130002220) |
+| `tunnel_interface.static_ip.cluster_static_ip.interface_ip_map` | [tunnel_interface.static_ip.cluster_static_ip.interface_ip_map](resources--network_interface--reference--group-002.md#canonical-3021112021230211-2011132303113103-1132300102111101-2113300222131230-2232221113031211-2322211022021220-3220331230030101-2121332323103210) |
+| `tunnel_interface.static_ip.node_static_ip` | [tunnel_interface.static_ip.node_static_ip](resources--network_interface--reference--group-002.md#canonical-3013331022112231-2323212002202010-3130033020132332-2321321200021333-2023202301230232-0233303311333101-0231300033023230-3313103103220122) |
+| `tunnel_interface.static_ip.node_static_ip.default_gw` | [tunnel_interface.static_ip.node_static_ip.default_gw](resources--network_interface--reference--group-002.md#canonical-1121033311100333-2110301111120302-3323210303221231-1333231220012123-0302222102100010-3230211010302110-1022323132100012-1123233111020313) |
+| `tunnel_interface.static_ip.node_static_ip.dns_server` | [tunnel_interface.static_ip.node_static_ip.dns_server](resources--network_interface--reference--group-002.md#canonical-2111132203200303-0013330110230223-2120031331021202-2132332131002123-2122220232021013-2310213122320220-3332102110331110-2111020231333203) |
+| `tunnel_interface.static_ip.node_static_ip.ip_address` | [tunnel_interface.static_ip.node_static_ip.ip_address](resources--network_interface--reference--group-002.md#canonical-1323032322302331-1321121231032011-3322211203011033-1121112001010120-2013220322233223-3220323233100031-0132223212311112-2311213310033302) |
+| `tunnel_interface.tunnel` | [tunnel_interface.tunnel](resources--network_interface--reference--group-002.md#canonical-3212213203211123-2000113103201332-0001201121300110-1233233100320031-0200021100332330-0130022202223103-1023222331130212-0002330320010200) |
+| `tunnel_interface.tunnel.name` | [tunnel_interface.tunnel.name](resources--network_interface--reference--group-002.md#canonical-3212013302223121-3223222331233320-0333211023011121-1201100122200301-2321321130323023-3310231130210320-2200012333232101-2322222231301303) |
+| `tunnel_interface.tunnel.namespace` | [tunnel_interface.tunnel.namespace](resources--network_interface--reference--group-002.md#canonical-1200323130131130-3112002002101213-2032300101230022-3132210323111102-3002013002002312-2202333120300300-3013213331100321-2122101313122302) |
+| `tunnel_interface.tunnel.tenant` | [tunnel_interface.tunnel.tenant](resources--network_interface--reference--group-002.md#canonical-1321330323202020-0023302321230213-0330223031000031-0323333302100233-0122012310131130-2021222121122333-1021102201231313-2321012102111101) |
 
-<a id="canonical-674f6cae6efecfa28b5126d6a0b4906d67bd1353c5e3f13fa90dfeff057075be"></a>
+<a id="canonical-1213103312302232-1232333230332202-2023110102123112-2200231021001231-1213233101031103-3011320333010333-2221003133323333-0011130013112332"></a>
 
-## Next pages — Property reference / 3287d54a2f26 / 12
+## Next pages — Property reference / 102202330212 / 12
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-9f99aa50006ad52bb054b5e32a6546cb75c8176bc2542f884210536a8ad6c8ae)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-1c594b57dc38583cede4438254bed4c980392fdf365967edc1ad24fac341cbd0)
-- [timeouts](resources--network_interface--reference--group-002.md#canonical-737b5fe469f062275aac4bc20ccf512c05ebce12de508b1729aab672e41fe4b7)
-- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-0db6b411298b0a3c07d71c63f1bb4732bc353ecea9c44af1f2a38335e20aeda0)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-2133212122221100-0000122231110223-2300111023113203-0222121110123023-1311302001131223-3002111002332020-1002010011031222-2022311230202232)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-0130112110231113-3130032011200330-3231321010032002-1110233231103021-2000032102333133-0312112112133231-3001223102103322-3003100130233100)
+- [timeouts](resources--network_interface--reference--group-002.md#canonical-1303132311333210-1221330012020213-1122223010233002-0030303311010230-0011322330320102-3132110020230113-0221222223121302-3210013332102313)
+- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-0031231223100101-0221202300220330-0013311301301203-3301232310130302-2330031103323032-2221301010223301-3302220320030311-3202002232312200)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63"></a>
+<a id="canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e77b7c10b84341e6107b06875dc2209fe4ba25773097519bccff827497dc441"></a>
+<a id="canonical-1332131323133001-0023201003100132-1201001323001220-1311313002020021-3332102322021113-1303002113110121-2330303333200213-1021133130101001"></a>
 
-## dedicated_interface — dedicated_interface / d159a1b096fd / 2
+## dedicated_interface — dedicated_interface / 230021123331 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
 - dedicated_interface
 
-<a id="canonical-b53b392cbc7d2577e456e9d0ae806b587b3ee541d9b5bd6809b3d5fba242d3f0"></a>
+<a id="canonical-2311032303210230-2330133102111313-3210111232213100-2232200012231120-1323033232111001-3121231123311220-0021230331113323-2202100231033300"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -527,11 +527,11 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-b53b392cbc7d2577e456e9d0ae806b587b3ee541d9b5bd6809b3d5fba242d3f0)
-- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-219ef4535481f8a9fc1a82fb383574a7d61bf869a42d95fd8c64720c8c323408)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-6e0657138526d4bae25542a24bb8e7ba776ee6142d767dc2d18163516f684e89)
-- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-e83fe3d490b7b1b9797f3df5de4ff22bc8deb68ea422ed8378cb6ac6f9fb18b9)
-- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-5b16fd24e80b66597695a9d58656efff23e866192b280fee851b04a157e01f46)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2311032303210230-2330133102111313-3210111232213100-2232200012231120-1323033232111001-3121231123311220-0021230331113323-2202100231033300)
+- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-0201213233101103-1110200133202221-3330012220023323-0320031113102213-3112012333201221-2210023121113331-2030121013020030-2030030203100020)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-1232001211130103-2011021231102322-3202111110022202-1023232032132322-1313123232120110-0231131213313002-3101200112031101-1233122010322021)
+- [layer2_interface](resources--network_interface--reference--group-002.md#canonical-3220033332033110-2100231323012321-1321133303313311-3132103333020223-3020313223122032-2210020232312003-1320302312223012-3321332301202321)
+- [tunnel_interface](resources--network_interface--reference--group-002.md#canonical-1123011233310210-3220002312121121-1312211122213111-2012111232333333-0203322012120121-0223022000333232-2011012300102201-1113320001331012)
 
 Select alternatives according to the provider validators above.
 
@@ -543,17 +543,17 @@ dedicated_interface {
 }
 ```
 
-<a id="canonical-2e6a1c076ba2927fd9e24be5b5829e18d73d13d0755ecd034c39fc133c7c2244"></a>
+<a id="canonical-0232122201300013-1223220221021333-3121320210233211-2311200221320120-3113033101033100-1311113230310003-1030032133300103-0330133002021010"></a>
 
-## Direct properties — dedicated_interface / d159a1b096fd / 3
+## Direct properties — dedicated_interface / 230021123331 / 3
 
-- [cluster](resources--network_interface--reference--group-001.md#canonical-27422342c3f165fc8ac99fdeefd53108887eb6c5b3663331e4f3d411232ad547): complete subsection reference.
+- [cluster](resources--network_interface--reference--group-001.md#canonical-0213100202031002-3003330112113330-2022302121333132-3233311103010020-2020133223123011-2303121203030301-3210330331100101-0203022231111013): complete subsection reference.
 
-<a id="canonical-30fd2ac77da1e838a953920921bb7e521b4b1f1c41ee51c7885b8b06a7621a7b"></a>
+<a id="canonical-0300333102223013-1331220132200320-2221110321020021-0201232313321102-0123102301330130-1001323211013013-2020112320230012-2213120201221323"></a>
 
-<a id="canonical-477b36b2bff727240acc0292a12d56a6ad4edc5203e9eea96c8abe1fe8fec526"></a>
+<a id="canonical-1013132303122302-2333331302130210-0022303000022102-2201023111122212-2231103231301102-0003322132322221-1230202223320133-3220333230110212"></a>
 
-## device property — dedicated_interface / d159a1b096fd / 4
+## device property — dedicated_interface / 230021123331 / 4
 
 Type: `"string"`. Optional.
 
@@ -604,17 +604,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [is_primary](resources--network_interface--reference--group-001.md#canonical-58a59d3ca74f080847a66d5f91742f825b500d17713a0aa95cdd6cb441456b9f): complete subsection reference.
+- [is_primary](resources--network_interface--reference--group-001.md#canonical-1120221121310330-2213103300200020-1013221212311133-2101131002332002-1123110000310113-1301032200222221-1130313112302310-1001101112232133): complete subsection reference.
 
-- [monitor](resources--network_interface--reference--group-001.md#canonical-ece69ee6c836de64b9981232fee7e8bc22dcc44ed73034a5716dbcff4d8c2456): complete subsection reference.
+- [monitor](resources--network_interface--reference--group-001.md#canonical-3230321221323212-3020031231321210-2321212001020302-3332321332202330-0202313030101032-3113030003102211-1301123123303333-1031203002101112): complete subsection reference.
 
-- [monitor_disabled](resources--network_interface--reference--group-001.md#canonical-fc09dbc340f4614e82c9cc6bf163241fb10c2fdf3ba84df2c5ee791fb15ba337): complete subsection reference.
+- [monitor_disabled](resources--network_interface--reference--group-001.md#canonical-3330002131233003-1000331012011032-2002302130301223-3301120302100133-2301003002333133-0323222010313302-3011323213210133-2301112322030313): complete subsection reference.
 
-<a id="canonical-a3467b691dd35d7778b002e644810f87defaf6ebeca2f73316eb36f6e826fcb0"></a>
+<a id="canonical-2203101213231221-0131310311311313-1320230000023212-1010200100332013-3132332233123223-3230220233130303-0112322303123312-3220021233302300"></a>
 
-<a id="canonical-db799282fc747efe498bf5fbdf937f4ced2f950194c42c1d0c4154c5715d7643"></a>
+<a id="canonical-3123132121022002-3330131013323332-1021202333113323-3133210313331030-3231023321110001-2110301002300131-0030100111103011-1301113113121003"></a>
 
-## mtu property — dedicated_interface / d159a1b096fd / 5
+## mtu property — dedicated_interface / 230021123331 / 5
 
 Type: `"number"`. Optional.
 
@@ -667,11 +667,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3e44161c489c63bddb045102a9c6fd3ac67f300c40df038f4c6ff2c4d954a485"></a>
+<a id="canonical-0332101001120130-1020213012032331-3123001011010002-2221301233310322-3012133303000030-1000313300032033-1030123333023010-3121111022102011"></a>
 
-<a id="canonical-d793f7451e79984e19e949e339e897739cd99910409f616c7734171bdf143994"></a>
+<a id="canonical-3113210333131011-0132132121201032-0121322110213203-0321322021131303-2130312121210100-1000213312011230-1313031001130123-3133011003212110"></a>
 
-## node property — dedicated_interface / d159a1b096fd / 6
+## node property — dedicated_interface / 230021123331 / 6
 
 Type: `"string"`. Optional.
 
@@ -724,13 +724,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [not_primary](resources--network_interface--reference--group-001.md#canonical-7cbbbecfa7b68b984bcc1dc5ca2d01b7ff96cc17f12d1a21b4c2844e56837835): complete subsection reference.
+- [not_primary](resources--network_interface--reference--group-001.md#canonical-1330232323323033-2213231220232120-1023303001313011-3022023100012313-3333211230300113-3301023101220201-2310300220101032-1112200313200311): complete subsection reference.
 
-<a id="canonical-f06226cfc0bcb4aac138eb3208b36c3c0bc1d458fd643f3fd361ac187a0afdcc"></a>
+<a id="canonical-3300120202123033-3000233023102222-3001032032230302-0020230312300330-0023300131101120-3331121003330333-3103120122300120-1322002233313030"></a>
 
-<a id="canonical-a0a911670b8c6ae8ad118cfd8ab0ad5b8b3163a4f1f3830a7a131dab184a2ab4"></a>
+<a id="canonical-2200222101011213-0023203012223220-2231010120303331-2022230022311123-2023030112032210-3301330320030022-1322010301312223-0120102202222310"></a>
 
-## priority property — dedicated_interface / d159a1b096fd / 7
+## priority property — dedicated_interface / 230021123331 / 7
 
 Type: `"number"`. Optional.
 
@@ -784,36 +784,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-74b433ff94dbce14fd9dcdc06e75cf06a86a0d2d812ba6635d4e3d17437d6329"></a>
+<a id="canonical-1310231003033333-2110312330320110-3331213130313000-1232131130330012-2220122200310231-2001022322121203-1131103203310113-1003133112030221"></a>
 
-## Next pages — dedicated_interface / d159a1b096fd / 8
+## Next pages — dedicated_interface / 230021123331 / 8
 
-- [dedicated_interface.cluster](resources--network_interface--reference--group-001.md#canonical-27422342c3f165fc8ac99fdeefd53108887eb6c5b3663331e4f3d411232ad547)
-- [dedicated_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-58a59d3ca74f080847a66d5f91742f825b500d17713a0aa95cdd6cb441456b9f)
-- [dedicated_interface.monitor](resources--network_interface--reference--group-001.md#canonical-ece69ee6c836de64b9981232fee7e8bc22dcc44ed73034a5716dbcff4d8c2456)
-- [dedicated_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-fc09dbc340f4614e82c9cc6bf163241fb10c2fdf3ba84df2c5ee791fb15ba337)
-- [dedicated_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-7cbbbecfa7b68b984bcc1dc5ca2d01b7ff96cc17f12d1a21b4c2844e56837835)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0213100202031002-3003330112113330-2022302121333132-3233311103010020-2020133223123011-2303121203030301-3210330331100101-0203022231111013)
+- [dedicated_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-1120221121310330-2213103300200020-1013221212311133-2101131002332002-1123110000310113-1301032200222221-1130313112302310-1001101112232133)
+- [dedicated_interface.monitor](resources--network_interface--reference--group-001.md#canonical-3230321221323212-3020031231321210-2321212001020302-3332321332202330-0202313030101032-3113030003102211-1301123123303333-1031203002101112)
+- [dedicated_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-3330002131233003-1000331012011032-2002302130301223-3301120302100133-2301003002333133-0323222010313302-3011323213210133-2301112322030313)
+- [dedicated_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-1330232323323033-2213231220232120-1023303001313011-3022023100012313-3333211230300113-3301023101220201-2310300220101032-1112200313200311)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-27422342c3f165fc8ac99fdeefd53108887eb6c5b3663331e4f3d411232ad547"></a>
+<a id="canonical-0213100202031002-3003330112113330-2022302121333132-3233311103010020-2020133223123011-2303121203030301-3210330331100101-0203022231111013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-36cfe1672fa82a161197a094d684de77f19c662b6807cc1a59d6fc33e2cf1b0f"></a>
+<a id="canonical-0312303332011213-0233222002220112-0101211322002110-3112201031321313-3301213012120223-1220001330300122-1121311233300303-3202303301230033"></a>
 
-## dedicated_interface.cluster — dedicated_interface.cluster / 9485621987d8 / 2
+## dedicated_interface.cluster — cluster / 012120133120 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
 - dedicated_interface.cluster
 
-<a id="canonical-0389958ec42fa822f9da01f4b72355d05e02440e4674ba11e2da4301df2e419f"></a>
+<a id="canonical-0003202121112032-3010023322200202-3321312200013310-2313020311113100-1132000210100032-1012131023220101-3202312210030001-3133023210012133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -842,37 +842,37 @@ Terraform syntax:
 cluster = {}
 ```
 
-<a id="canonical-d8fe73a27720dbb16c5cd43d3dc8b997bb2940cc5d5fe875df4f4a82c18ae2de"></a>
+<a id="canonical-3120333213032202-1313020031232301-1230113031100331-0331302023212113-2323022110003030-1131113332201311-3133103310222002-3001202232023132"></a>
 
-## Direct properties — dedicated_interface.cluster / 9485621987d8 / 3
+## Direct properties — cluster / 012120133120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6b9ed6cd0380b20e82b2f3e98165dca7077f352178a463778f71dd8666c4871f"></a>
+<a id="canonical-1223213231123031-0003200023020032-2002230233033221-2001121131302213-0013133303110201-1320221012031313-2033130131312012-1212301020130133"></a>
 
-## Next pages — dedicated_interface.cluster / 9485621987d8 / 4
+## Next pages — cluster / 012120133120 / 4
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-58a59d3ca74f080847a66d5f91742f825b500d17713a0aa95cdd6cb441456b9f"></a>
+<a id="canonical-1120221121310330-2213103300200020-1013221212311133-2101131002332002-1123110000310113-1301032200222221-1130313112302310-1001101112232133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ab1556aa76c2be36b19e0777d16180cdb0a3ca8874d753b78effd2dc703dcae"></a>
+<a id="canonical-1122230111111222-2213123002233203-1223012132001313-1331011201200030-3123002203302220-2013103113110323-1320323333310231-3013000331302232"></a>
 
-## dedicated_interface.is_primary — dedicated_interface.is_primary / 9343a2c8b5cc / 2
+## dedicated_interface.is_primary — is_primary / 302023113030 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
 - dedicated_interface.is_primary
 
-<a id="canonical-a10081edbd5fffad5424a97d32346acd6f883f12a5373a7552d0fe28357bcb67"></a>
+<a id="canonical-2201000020013231-2331113333332231-1110021022211331-0302031012223031-1233202003330102-2211031303221311-1102310033320220-0311132330231213"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -901,37 +901,37 @@ Terraform syntax:
 is_primary = {}
 ```
 
-<a id="canonical-aebea271dd98910c22f55ae845054fc27e78a615e39275db69889f7d5cf070db"></a>
+<a id="canonical-2232233222021301-3131212021010030-0202331111223220-1011001110333002-1332132022120111-3203210213113123-1221202021331331-1130330013003123"></a>
 
-## Direct properties — dedicated_interface.is_primary / 9343a2c8b5cc / 3
+## Direct properties — is_primary / 302023113030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-936ade05d88a70f4282c3fe34b09fc02e3556f3645df72fe5d0d154d208ccbbc"></a>
+<a id="canonical-2103122231320011-3120202213003310-0220023003333203-1023002133300002-3203111112330312-1011313313023332-1131003101111031-0200203030232330"></a>
 
-## Next pages — dedicated_interface.is_primary / 9343a2c8b5cc / 4
+## Next pages — is_primary / 302023113030 / 4
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-ece69ee6c836de64b9981232fee7e8bc22dcc44ed73034a5716dbcff4d8c2456"></a>
+<a id="canonical-3230321221323212-3020031231321210-2321212001020302-3332321332202330-0202313030101032-3113030003102211-1301123123303333-1031203002101112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d502c3c0c2352a03e16da01dae747f48d1742cbabb43124a7823a4e8e64acb54"></a>
+<a id="canonical-3111000230033000-3002031102220003-3201123122000131-2232131013331020-3101131002302322-2323100301021022-1320020322103220-3212102230231110"></a>
 
-## dedicated_interface.monitor — dedicated_interface.monitor / f0633f122996 / 2
+## dedicated_interface.monitor — monitor / 010202212112 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
 - dedicated_interface.monitor
 
-<a id="canonical-093f038c92380a7ae5f28befce89ba99de661e277a91011d2cabf95dc928b4ff"></a>
+<a id="canonical-0021033300032030-2102032000221322-3211330220233233-3032202123222121-3132121201320213-1322210100010131-0230222333211131-3021022023103333"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -956,37 +956,37 @@ Terraform syntax:
 monitor = {}
 ```
 
-<a id="canonical-f99361a3b640bede4ef0e505c934a2ee19f54afe2b97e3cef361646fdf0593d5"></a>
+<a id="canonical-3321210312012203-2312100023323132-1032330032110011-3021031022023232-0121331110223332-0223211332033032-3303120112101233-3133001121033111"></a>
 
-## Direct properties — dedicated_interface.monitor / f0633f122996 / 3
+## Direct properties — monitor / 010202212112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a471328cfc49b891bc637d2a4aeb949e98676d53fbac9ca4c6559610ef8e51c7"></a>
+<a id="canonical-2210130103022030-3330102123202101-2330120313310222-1022322321102132-2120121312311103-3323223021302210-3012111121120100-3233203211013013"></a>
 
-## Next pages — dedicated_interface.monitor / f0633f122996 / 4
+## Next pages — monitor / 010202212112 / 4
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-fc09dbc340f4614e82c9cc6bf163241fb10c2fdf3ba84df2c5ee791fb15ba337"></a>
+<a id="canonical-3330002131233003-1000331012011032-2002302130301223-3301120302100133-2301003002333133-0323222010313302-3011323213210133-2301112322030313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2baf89994523bdc6219db9f6eebb4862b560fce9a58ff12a40118d010a65f92f"></a>
+<a id="canonical-0223223320212121-1011020323313012-0201213123213312-3232232310201202-2311120033303221-2211203333010222-1000010120310001-0022121133210233"></a>
 
-## dedicated_interface.monitor_disabled — dedicated_interface.monitor_disabled / 289dd24058b8 / 2
+## dedicated_interface.monitor_disabled — monitor_disabled / 100011202320 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
 - dedicated_interface.monitor_disabled
 
-<a id="canonical-49c6901bc981c1b0f1b6d759ac4edfd1b91d98e4dbafc623bd9a5b4316cdf46c"></a>
+<a id="canonical-1021301221000123-3021200130012300-3301231231131121-2230103231333101-2321013121203210-3123223330120203-2331212211231003-0112303133101230"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1015,37 +1015,37 @@ Terraform syntax:
 monitor_disabled = {}
 ```
 
-<a id="canonical-378525457b040c0af79b514a94196498294e4dece3c885dc98feb266a364c5d3"></a>
+<a id="canonical-0313201102111011-1323001000300022-3313212311011022-2110012112102120-0221103210313230-3203302020113130-2120333223021212-2203121030113103"></a>
 
-## Direct properties — dedicated_interface.monitor_disabled / 289dd24058b8 / 3
+## Direct properties — monitor_disabled / 100011202320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d2df9f189be5c74f11193b2326a9bd749f01bdad17feb397d3a8eab25aefc9b5"></a>
+<a id="canonical-3102313321330120-2123321130131033-0101012103230203-0212222123311310-2133000123312231-0113333223032113-3103222032222302-1122323330212311"></a>
 
-## Next pages — dedicated_interface.monitor_disabled / 289dd24058b8 / 4
+## Next pages — monitor_disabled / 100011202320 / 4
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-7cbbbecfa7b68b984bcc1dc5ca2d01b7ff96cc17f12d1a21b4c2844e56837835"></a>
+<a id="canonical-1330232323323033-2213231220232120-1023303001313011-3022023100012313-3333211230300113-3301023101220201-2310300220101032-1112200313200311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-552b18958a08cad9a823b26af9b162d0ff4685a73618130db2c4a93d7d4efed9"></a>
+<a id="canonical-1111022301202111-2022002030223121-2220020323021222-3321230112023100-3333101220112213-0312012001030031-2302301022210331-1331103233323121"></a>
 
-## dedicated_interface.not_primary — dedicated_interface.not_primary / e6496bba3cc8 / 2
+## dedicated_interface.not_primary — not_primary / 232203303020 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
 - dedicated_interface.not_primary
 
-<a id="canonical-49d4b82ef9978d7c94f1587aeafe7cfbadb65dcbcc9241459fe56663417793de"></a>
+<a id="canonical-1021311023200232-3321211320311330-2110330111201322-3222333213303323-2231231211313023-3030210210011011-2133321112121203-1001131321033132"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1074,36 +1074,36 @@ Terraform syntax:
 not_primary = {}
 ```
 
-<a id="canonical-e39e2408781d64c996e098213b6ce8ba5951480589426b2b496983df83320397"></a>
+<a id="canonical-3203213202100020-1320013112103021-2112320021200201-0323123032202322-1121110110200011-2021100212230223-1021122120033133-2003030200032113"></a>
 
-## Direct properties — dedicated_interface.not_primary / e6496bba3cc8 / 3
+## Direct properties — not_primary / 232203303020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ce4307f65d91b526bff681dd14fd93958d0c724d388d0394d051f0e1aa9677ad"></a>
+<a id="canonical-3032100300133312-1131210123110212-2333331220013131-0110333121032111-2031003013021031-0320203100032110-3100110133003201-2222211213132231"></a>
 
-## Next pages — dedicated_interface.not_primary / e6496bba3cc8 / 4
+## Next pages — not_primary / 232203303020 / 4
 
-- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-a2d9ea4197f661139cf8470e947f4539eddfea1c7053324d7faf90cd97f12b63)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_interface](resources--network_interface--reference--group-001.md#canonical-2202312132221001-2113331212010103-2130332010130032-2110133310110321-3231313332220130-1300110303021031-1333223321003031-2113330102231203)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-9f99aa50006ad52bb054b5e32a6546cb75c8176bc2542f884210536a8ad6c8ae"></a>
+<a id="canonical-2133212122221100-0000122231110223-2300111023113203-0222121110123023-1311302001131223-3002111002332020-1002010011031222-2022311230202232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9e28357377f4ca9baf74013c04b933257c98639eeff62c169b5c3c570ef33fc7"></a>
+<a id="canonical-2132022003111303-1313331030222123-2233131000010330-0010232103030211-1330212012032132-3233331202300112-2123113003301113-0032330303333013"></a>
 
-## dedicated_management_interface — dedicated_management_interface / cc8e986e7761 / 2
+## dedicated_management_interface — dedicated_management_interface / 123213131201 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
 - dedicated_management_interface
 
-<a id="canonical-219ef4535481f8a9fc1a82fb383574a7d61bf869a42d95fd8c64720c8c323408"></a>
+<a id="canonical-0201213233101103-1110200133202221-3330012220023323-0320031113102213-3112012333201221-2210023121113331-2030121013020030-2030030203100020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1143,17 +1143,17 @@ dedicated_management_interface {
 }
 ```
 
-<a id="canonical-07f9ad6b409a0799d533ecaf7f86c406a42fe02ecece76f5ebb4313cd976105a"></a>
+<a id="canonical-0013332122311223-1000212200132121-3111030332302233-1333201230100012-2210023332000232-3032303213123311-3223231003010330-3121131201001122"></a>
 
-## Direct properties — dedicated_management_interface / cc8e986e7761 / 3
+## Direct properties — dedicated_management_interface / 123213131201 / 3
 
-- [cluster](resources--network_interface--reference--group-001.md#canonical-e663eafd5a4fbdd040e7770cf348a08812d71afecdca8047b8773e20a316e0d8): complete subsection reference.
+- [cluster](resources--network_interface--reference--group-001.md#canonical-3212120332223331-1122103323313100-1000321313130030-3303102022002020-0102311301223332-3031302220001013-2320131303320200-2203011232003120): complete subsection reference.
 
-<a id="canonical-fc16f1f99ba19cfe0b96ecffe4baeeef70736aeb15cf3d7e1bc09107cbf22bbf"></a>
+<a id="canonical-3330011233013321-2123220121303332-0023211232303333-3210232232323233-1300130312223223-0111303303311332-0123300021010013-3023330202232333"></a>
 
-<a id="canonical-ac86a32c53cd87e9ea8531d5d51c47bc5802d4e5d38afb9eb4282b4dbf803c38"></a>
+<a id="canonical-2230201222030230-1103303120133221-3222201103013111-3111013010132330-1120000231103211-3103202233232132-2310022002231031-2333200003300320"></a>
 
-## device property — dedicated_management_interface / cc8e986e7761 / 4
+## device property — dedicated_management_interface / 123213131201 / 4
 
 Type: `"string"`. Optional.
 
@@ -1204,11 +1204,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-170bcaeccd55c9be40da899f970aed957fd689818d693e94b01c1318085ff567"></a>
+<a id="canonical-0113002330223230-3031111130212332-1000312220212133-2113002232312111-1333311220212001-2031122103322110-2300013001030120-0020113333111213"></a>
 
-<a id="canonical-2ca3075f04d60fdb4f79700ac59d1ae9fbc7028cfc6772245588c8dc3b2f1484"></a>
+<a id="canonical-0230220300131133-0010311200333123-1033132113000022-3011213101223221-3323301300022030-3330121313020210-1111202030203130-0323023301102010"></a>
 
-## mtu property — dedicated_management_interface / cc8e986e7761 / 5
+## mtu property — dedicated_management_interface / 123213131201 / 5
 
 Type: `"number"`. Optional.
 
@@ -1261,11 +1261,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2edff3601b527a5318776d83bc5bc65c48e0c933ab77da3588b95cc0e8464bed"></a>
+<a id="canonical-0232313333031200-0123110213221103-0120131312312003-2330112330121130-1020320030210303-2223131331220311-2020232111303000-3220101210233231"></a>
 
-<a id="canonical-5f5dcfad22d611d6163d3183f0563f3a483d87152bf1a05006ee42b12d8a2b0a"></a>
+<a id="canonical-1133113130332231-0202311201013112-0112033103012003-3300111203330322-1020033120130111-0223330122001100-0012323210022301-0231202202230022"></a>
 
-## node property — dedicated_management_interface / cc8e986e7761 / 6
+## node property — dedicated_management_interface / 123213131201 / 6
 
 Type: `"string"`. Optional.
 
@@ -1318,32 +1318,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ce55f8f7a7a55bff1e3c877d0ea6d44fdc45af836bde958e4bb08414b70d1e09"></a>
+<a id="canonical-3032111133203313-2213221111233333-0132033020131331-0032221231101033-3130101122332003-1223313221112032-1023230020100110-2313003101320021"></a>
 
-## Next pages — dedicated_management_interface / cc8e986e7761 / 7
+## Next pages — dedicated_management_interface / 123213131201 / 7
 
-- [dedicated_management_interface.cluster](resources--network_interface--reference--group-001.md#canonical-e663eafd5a4fbdd040e7770cf348a08812d71afecdca8047b8773e20a316e0d8)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_management_interface.cluster](resources--network_interface--reference--group-001.md#canonical-3212120332223331-1122103323313100-1000321313130030-3303102022002020-0102311301223332-3031302220001013-2320131303320200-2203011232003120)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-e663eafd5a4fbdd040e7770cf348a08812d71afecdca8047b8773e20a316e0d8"></a>
+<a id="canonical-3212120332223331-1122103323313100-1000321313130030-3303102022002020-0102311301223332-3031302220001013-2320131303320200-2203011232003120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf7e964e7a03145da3259b3aac2ce528be22f629ad5e1571d5fb2422c9ee99e2"></a>
+<a id="canonical-2333133221121032-1322000301101131-2203021121230322-2230023032110220-2332020233120221-2231113201111301-3111332302100202-3021323221213202"></a>
 
-## dedicated_management_interface.cluster — dedicated_management_interface.cluster / 5f612c79b1d2 / 2
+## dedicated_management_interface.cluster — cluster / 132123013102 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-9f99aa50006ad52bb054b5e32a6546cb75c8176bc2542f884210536a8ad6c8ae)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-2133212122221100-0000122231110223-2300111023113203-0222121110123023-1311302001131223-3002111002332020-1002010011031222-2022311230202232)
 - dedicated_management_interface.cluster
 
-<a id="canonical-036ae8d507a7df04b170cdb0f8b4afed9aa0e7b2695a14f9e038804546ed94ec"></a>
+<a id="canonical-0003122232203111-0013221331330010-2301130030312300-3320231022333231-2122220032132302-1221112201103321-3200032020001011-1012323121103230"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1372,36 +1372,36 @@ Terraform syntax:
 cluster = {}
 ```
 
-<a id="canonical-3329a90a0e6f52463e095fcf508072d3bba84ac080f8d82eea68dcaa2cebd936"></a>
+<a id="canonical-0303022122210022-0032123311021012-0332002111333033-1100200013023103-2323222010223000-2000332031200232-3222122031302222-0230322331210312"></a>
 
-## Direct properties — dedicated_management_interface.cluster / 5f612c79b1d2 / 3
+## Direct properties — cluster / 132123013102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-116960a5c6eecfb3b8da04f1ff250fe00a00f2453123615622b8e8128b55a565"></a>
+<a id="canonical-0101122112002211-3012323230332303-2320312200103301-3333021100333200-0022000033021011-0301020312011112-0202232032200102-2023111122111211"></a>
 
-## Next pages — dedicated_management_interface.cluster / 5f612c79b1d2 / 4
+## Next pages — cluster / 132123013102 / 4
 
-- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-9f99aa50006ad52bb054b5e32a6546cb75c8176bc2542f884210536a8ad6c8ae)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [dedicated_management_interface](resources--network_interface--reference--group-001.md#canonical-2133212122221100-0000122231110223-2300111023113203-0222121110123023-1311302001131223-3002111002332020-1002010011031222-2022311230202232)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369"></a>
+<a id="canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-77926aa6865fd0aa0e56e975abf2667424a4261b64c6cc8f14506b7dce4fc113"></a>
+<a id="canonical-1313210212222212-2012113331002222-0032111232211311-2223330212121310-0210221002120123-1210301230302033-0110110012231331-3032103330010103"></a>
 
-## ethernet_interface — ethernet_interface / 0483b89fedbc / 2
+## ethernet_interface — ethernet_interface / 213332312330 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
 - ethernet_interface
 
-<a id="canonical-6e0657138526d4bae25542a24bb8e7ba776ee6142d767dc2d18163516f684e89"></a>
+<a id="canonical-1232001211130103-2011021231102322-3202111110022202-1023232032132322-1313123232120110-0231131213313002-3101200112031101-1233122010322021"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1471,17 +1471,17 @@ ethernet_interface {
 }
 ```
 
-<a id="canonical-54c35f6e1c4b7fafd9d965ddef89361ff87be1b4a7d538c8b76f888e57b14da4"></a>
+<a id="canonical-1110300311331232-0130102313332233-3121312112113131-3233202103120133-3320132332012310-2213311103203020-2313123320202032-1113230110312210"></a>
 
-## Direct properties — ethernet_interface / 0483b89fedbc / 3
+## Direct properties — ethernet_interface / 213332312330 / 3
 
-- [cluster](resources--network_interface--reference--group-001.md#canonical-3d6e609b89c36cad162609dc7fef0ad20e646a9c2b1f76297e3cf0cc40a4c481): complete subsection reference.
+- [cluster](resources--network_interface--reference--group-001.md#canonical-0331123212002123-2021300312302231-0112021200213130-1333323300223102-0032121012222130-0223013313120221-1332033033003030-1000221030102001): complete subsection reference.
 
-<a id="canonical-ad8b11930cb633c6ffd0cdf7bb58f23c99963ce61ba5c48f3a8434f8dd6f28c7"></a>
+<a id="canonical-2231202301012103-0030231203033012-3333310030313313-2323112033020330-2121211203303212-0123221130102033-0322201003103320-3131123302203013"></a>
 
-<a id="canonical-748aa8a63fb19f9109ea315d88fcce354a6e6ac104e6a13548d47e1bf0fc672c"></a>
+<a id="canonical-1310202222202212-0333230121332101-0021322203011131-2020333030320311-1022123212223001-0010321222010311-1020311013320123-3300333012130230"></a>
 
-## device property — ethernet_interface / 0483b89fedbc / 4
+## device property — ethernet_interface / 213332312330 / 4
 
 Type: `"string"`. Optional.
 
@@ -1532,23 +1532,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [dhcp_client](resources--network_interface--reference--group-001.md#canonical-9cd6c7a9dfa1e042007ad473dc91abad1b1892c94ecc157b826ea35e4d5fde01): complete subsection reference.
+- [dhcp_client](resources--network_interface--reference--group-001.md#canonical-2130311230132221-3133220132001002-0000132231101303-3130210122232231-0123012021023021-1032303001111323-2002123222031132-1031113331320001): complete subsection reference.
 
-- [dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a): complete subsection reference.
+- [dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122): complete subsection reference.
 
-- [ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc): complete subsection reference.
+- [ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030): complete subsection reference.
 
-- [is_primary](resources--network_interface--reference--group-001.md#canonical-96d9f13d322d043ffab7b9d4f26f2db3f8534caa14beae66c28f073b0a095cfe): complete subsection reference.
+- [is_primary](resources--network_interface--reference--group-001.md#canonical-2112312133010331-0302023100100333-3322231323213110-3302123302312303-3320110310302222-0110233222321212-3002203300130323-0022002111303332): complete subsection reference.
 
-- [monitor](resources--network_interface--reference--group-001.md#canonical-62801a6fa2931fd2b7d35c8817f8b05c3d35b24eb7bb2de84c2cd554935d3567): complete subsection reference.
+- [monitor](resources--network_interface--reference--group-001.md#canonical-1202200001221233-2202210301333102-2313310311302020-0113332023001130-0331031123021032-2313232302313220-1030023031111110-2103113103111213): complete subsection reference.
 
-- [monitor_disabled](resources--network_interface--reference--group-001.md#canonical-46034b21cdd271dec1c6260712d1736070b3232acf27399d469376dad34aa497): complete subsection reference.
+- [monitor_disabled](resources--network_interface--reference--group-001.md#canonical-1012000310230201-3031310213013132-3001301202120013-0102310113031200-1300230302030222-3033021303212131-1012210313123122-3103102222102113): complete subsection reference.
 
-<a id="canonical-13fe58f9ead768ef7c723e871124f50733863752b281f8091f2ea7ee5ed9c362"></a>
+<a id="canonical-0103333211203321-3222311312203233-1330130203322013-0101021033110013-0303201203131102-2302200133200021-0133023222133232-1132312130031202"></a>
 
-<a id="canonical-f9f7015430697df32ab0d647a74211251347c5889a6a1cc93db936e865bd1664"></a>
+<a id="canonical-3321331300011110-0300122113313303-0222230031121013-2213100201010211-0103101330112020-2122122201303021-0331232103123220-1211233101121210"></a>
 
-## mtu property — ethernet_interface / 0483b89fedbc / 5
+## mtu property — ethernet_interface / 213332312330 / 5
 
 Type: `"number"`. Optional.
 
@@ -1601,13 +1601,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-7f39517c0d7d7278f51272833c3b4b872306085209e35390e8cae77da081ef67): complete subsection reference.
+- [no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-1333032111011330-0031133113021320-3311010213022003-0330032310232013-0203001200201102-0021320311032100-3220302232131331-2200200132331213): complete subsection reference.
 
-<a id="canonical-0c231be6cbd72c2b7c982492443ea07e54ea77ad45477ebf4d620759e14a0afb"></a>
+<a id="canonical-0030020301233212-3023311302300223-1330212002102102-1010033222001332-1110322213132231-1011101313322333-1031120200131121-3201102200223323"></a>
 
-<a id="canonical-03e17b481367257044e5fc139c19f2c7d3c46c59157df0c99a0520ddd2f7c454"></a>
+<a id="canonical-0003320113231020-0103121302111300-1010321133300103-2130012133023013-3103301012301121-0111133133003021-2122001102003131-3102331330101110"></a>
 
-## node property — ethernet_interface / 0483b89fedbc / 6
+## node property — ethernet_interface / 213332312330 / 6
 
 Type: `"string"`. Optional.
 
@@ -1660,13 +1660,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [not_primary](resources--network_interface--reference--group-001.md#canonical-60e47d120eb8777337b513994e1d7faaf2e3563d789ab1f932f6ca92123ac8d0): complete subsection reference.
+- [not_primary](resources--network_interface--reference--group-001.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100): complete subsection reference.
 
-<a id="canonical-b4a227d8d1a6c6cc2cd434e4a3f253e81ab115a930ba33ab47a0626182c9de8b"></a>
+<a id="canonical-2310220202133120-3101221230123030-0230311003103210-2203330211033220-0122230101112221-0300232203032223-1013220012021201-2002302131322023"></a>
 
-<a id="canonical-85411a75be2cb1bc909dd0cad8357a87db6ee1b49dc61a4340241d40de7be427"></a>
+<a id="canonical-2011100101221311-2332023023012330-2100213131003022-3120031113222013-3123123232012310-2131301201221003-1000021001311000-3132132332100213"></a>
 
-## priority property — ethernet_interface / 0483b89fedbc / 7
+## priority property — ethernet_interface / 213332312330 / 7
 
 Type: `"number"`. Optional.
 
@@ -1720,23 +1720,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_local_inside_network](resources--network_interface--reference--group-001.md#canonical-1c24d05bd343dc61c1d309e128a96fcf4e987dd24e1cc1d23bc2a65b370bee1f): complete subsection reference.
+- [site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-0130021031001123-3103100331301201-3001310300213201-0220222112333033-1032212013313102-1032013030013102-0323300222121123-0313002332320133): complete subsection reference.
 
-- [site_local_network](resources--network_interface--reference--group-001.md#canonical-620cdf9938409a1009b7d079b70e5c3eddb3c79c506a6245e760e69bc9b913a7): complete subsection reference.
+- [site_local_network](resources--network_interface--reference--group-002.md#canonical-1202003031332121-0320100021220100-0021231331001321-2313003211300332-3131230330132130-1100122212021011-3213120032122123-3021232101032213): complete subsection reference.
 
-- [static_ip](resources--network_interface--reference--group-001.md#canonical-cab9271e1730e6f9466f7224ac0cdb714ed64f8faa8cc1318c98043323baf448): complete subsection reference.
+- [static_ip](resources--network_interface--reference--group-002.md#canonical-3022232102130132-0113030032123321-1012123313020210-2230003031231301-1032311210332033-2222203030010301-2030212000100303-0203232233101020): complete subsection reference.
 
-- [static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-82065ed290786f0db2ef4d7e91ef35f55e1eeb3eeb5b3835fbcfd751f3f864a6): complete subsection reference.
+- [static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-2002001211323102-2100132012330031-2302323310311332-2101323303113311-1132013232230332-3223112303200311-3323303331131101-3303332012102212): complete subsection reference.
 
-- [storage_network](resources--network_interface--reference--group-002.md#canonical-65a5224a94a01239bef6787e02312d7c041201fc3cded5a2a79a9d0992228f05): complete subsection reference.
+- [storage_network](resources--network_interface--reference--group-002.md#canonical-1211221102021022-2110220001020321-2332331213201332-0002030102311330-0010010200013330-0330313231112202-2213212221310021-2102020220330011): complete subsection reference.
 
-- [untagged](resources--network_interface--reference--group-002.md#canonical-87f18d894e38d753a597d57b34415cec0096cc21131754751028e636f41b66ce): complete subsection reference.
+- [untagged](resources--network_interface--reference--group-002.md#canonical-2013330120312021-1032032031131103-2211211331111323-0310100111303230-0000211230300201-0103011311101311-0100022032120312-3310012312123032): complete subsection reference.
 
-<a id="canonical-ccc789142af389b5195663f33381a0cbcde4f82c0572a9a8748da98be57e9e9a"></a>
+<a id="canonical-3030301320210110-0222330320212311-0121111212033303-0303200122003023-3031321033200230-0011130222212220-1310203122212023-3211133221322122"></a>
 
-<a id="canonical-4537883e88b0584eef2c66232b85db97ac398b875ce1a87292927fce6abcdc1c"></a>
+<a id="canonical-1011031320200332-2020230011201032-3233023012120203-0223201131232113-2230032120232013-1130320122201302-2102210213333032-1222233031300130"></a>
 
-## vlan_id property — ethernet_interface / 0483b89fedbc / 8
+## vlan_id property — ethernet_interface / 213332312330 / 8
 
 Type: `"number"`. Optional.
 
@@ -1788,46 +1788,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-252e8a4122724782dafa76f35e85c7f5a480cca98b4ad9afef8cf8dca6c0f79d"></a>
+<a id="canonical-0211023220221001-0202130210132002-3122332213123303-1132201130133311-2210200030302221-2023102231212233-3233203033203130-2212300033132131"></a>
 
-## Next pages — ethernet_interface / 0483b89fedbc / 9
+## Next pages — ethernet_interface / 213332312330 / 9
 
-- [ethernet_interface.cluster](resources--network_interface--reference--group-001.md#canonical-3d6e609b89c36cad162609dc7fef0ad20e646a9c2b1f76297e3cf0cc40a4c481)
-- [ethernet_interface.dhcp_client](resources--network_interface--reference--group-001.md#canonical-9cd6c7a9dfa1e042007ad473dc91abad1b1892c94ecc157b826ea35e4d5fde01)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-96d9f13d322d043ffab7b9d4f26f2db3f8534caa14beae66c28f073b0a095cfe)
-- [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-62801a6fa2931fd2b7d35c8817f8b05c3d35b24eb7bb2de84c2cd554935d3567)
-- [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-46034b21cdd271dec1c6260712d1736070b3232acf27399d469376dad34aa497)
-- [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-7f39517c0d7d7278f51272833c3b4b872306085209e35390e8cae77da081ef67)
-- [ethernet_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-60e47d120eb8777337b513994e1d7faaf2e3563d789ab1f932f6ca92123ac8d0)
-- [ethernet_interface.site_local_inside_network](resources--network_interface--reference--group-001.md#canonical-1c24d05bd343dc61c1d309e128a96fcf4e987dd24e1cc1d23bc2a65b370bee1f)
-- [ethernet_interface.site_local_network](resources--network_interface--reference--group-001.md#canonical-620cdf9938409a1009b7d079b70e5c3eddb3c79c506a6245e760e69bc9b913a7)
-- [ethernet_interface.static_ip](resources--network_interface--reference--group-001.md#canonical-cab9271e1730e6f9466f7224ac0cdb714ed64f8faa8cc1318c98043323baf448)
-- [ethernet_interface.static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-82065ed290786f0db2ef4d7e91ef35f55e1eeb3eeb5b3835fbcfd751f3f864a6)
-- [ethernet_interface.storage_network](resources--network_interface--reference--group-002.md#canonical-65a5224a94a01239bef6787e02312d7c041201fc3cded5a2a79a9d0992228f05)
-- [ethernet_interface.untagged](resources--network_interface--reference--group-002.md#canonical-87f18d894e38d753a597d57b34415cec0096cc21131754751028e636f41b66ce)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.cluster](resources--network_interface--reference--group-001.md#canonical-0331123212002123-2021300312302231-0112021200213130-1333323300223102-0032121012222130-0223013313120221-1332033033003030-1000221030102001)
+- [ethernet_interface.dhcp_client](resources--network_interface--reference--group-001.md#canonical-2130311230132221-3133220132001002-0000132231101303-3130210122232231-0123012021023021-1032303001111323-2002123222031132-1031113331320001)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.is_primary](resources--network_interface--reference--group-001.md#canonical-2112312133010331-0302023100100333-3322231323213110-3302123302312303-3320110310302222-0110233222321212-3002203300130323-0022002111303332)
+- [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-1202200001221233-2202210301333102-2313310311302020-0113332023001130-0331031123021032-2313232302313220-1030023031111110-2103113103111213)
+- [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-1012000310230201-3031310213013132-3001301202120013-0102310113031200-1300230302030222-3033021303212131-1012210313123122-3103102222102113)
+- [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-1333032111011330-0031133113021320-3311010213022003-0330032310232013-0203001200201102-0021320311032100-3220302232131331-2200200132331213)
+- [ethernet_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100)
+- [ethernet_interface.site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-0130021031001123-3103100331301201-3001310300213201-0220222112333033-1032212013313102-1032013030013102-0323300222121123-0313002332320133)
+- [ethernet_interface.site_local_network](resources--network_interface--reference--group-002.md#canonical-1202003031332121-0320100021220100-0021231331001321-2313003211300332-3131230330132130-1100122212021011-3213120032122123-3021232101032213)
+- [ethernet_interface.static_ip](resources--network_interface--reference--group-002.md#canonical-3022232102130132-0113030032123321-1012123313020210-2230003031231301-1032311210332033-2222203030010301-2030212000100303-0203232233101020)
+- [ethernet_interface.static_ipv6_address](resources--network_interface--reference--group-002.md#canonical-2002001211323102-2100132012330031-2302323310311332-2101323303113311-1132013232230332-3223112303200311-3323303331131101-3303332012102212)
+- [ethernet_interface.storage_network](resources--network_interface--reference--group-002.md#canonical-1211221102021022-2110220001020321-2332331213201332-0002030102311330-0010010200013330-0330313231112202-2213212221310021-2102020220330011)
+- [ethernet_interface.untagged](resources--network_interface--reference--group-002.md#canonical-2013330120312021-1032032031131103-2211211331111323-0310100111303230-0000211230300201-0103011311101311-0100022032120312-3310012312123032)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-3d6e609b89c36cad162609dc7fef0ad20e646a9c2b1f76297e3cf0cc40a4c481"></a>
+<a id="canonical-0331123212002123-2021300312302231-0112021200213130-1333323300223102-0032121012222130-0223013313120221-1332033033003030-1000221030102001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d37ef7ae68dc09aaf95bb31565fc00dd2fade384e7351ad498f8da8c2fe02e24"></a>
+<a id="canonical-3103133233132232-1220313000212222-3321112323030111-1211333000003131-0233223132032010-3213031101223110-2120332031222030-0233320002320210"></a>
 
-## ethernet_interface.cluster — ethernet_interface.cluster / 5161197a5547 / 2
+## ethernet_interface.cluster — cluster / 132211111013 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.cluster
 
-<a id="canonical-286e873f464b7834fc4b87a68ae713ba24d44fd6951924dfbc7c846578b03b39"></a>
+<a id="canonical-0220123220130333-1012102313200310-3330102320132212-2022321301032322-0210311010333112-2111012102103133-2330133020101211-1320230003230321"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1856,37 +1856,37 @@ Terraform syntax:
 cluster = {}
 ```
 
-<a id="canonical-c081d035bb049b7cd7d93fcb8b51e6204f756b6ae8961d70eb155b96fcc02104"></a>
+<a id="canonical-3000200131000311-2323001021231330-3113312103333023-2023110132120200-1033131112231222-3220211201311300-3223011111232112-3330300002010010"></a>
 
-## Direct properties — ethernet_interface.cluster / 5161197a5547 / 3
+## Direct properties — cluster / 132211111013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-705e256aa571ab6ba7b0a912086ec5c99641c059300bf47fff49e2b72565e423"></a>
+<a id="canonical-1300113202111222-2211130122231223-2213230022210102-0020123230113021-2112100130001121-0300002333101333-3333102132022313-0211121132100203"></a>
 
-## Next pages — ethernet_interface.cluster / 5161197a5547 / 4
+## Next pages — cluster / 132211111013 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-9cd6c7a9dfa1e042007ad473dc91abad1b1892c94ecc157b826ea35e4d5fde01"></a>
+<a id="canonical-2130311230132221-3133220132001002-0000132231101303-3130210122232231-0123012021023021-1032303001111323-2002123222031132-1031113331320001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0f5028f8830aed562a475b205b08aa06569aaafbb3df23c60ae734f496453668"></a>
+<a id="canonical-0033110002203320-2003002232311112-0222101311230200-1123002022220012-1112212222223323-2303313302033012-0022321303103310-2112101103121220"></a>
 
-## ethernet_interface.dhcp_client — ethernet_interface.dhcp_client / 6a9a6aa0ad1a / 2
+## ethernet_interface.dhcp_client — dhcp_client / 220022310122 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.dhcp_client
 
-<a id="canonical-32197e25be5d5ac066858a2ded06305f48ad6d50ef275dcbcb214abeee1300d3"></a>
+<a id="canonical-0302012113320211-2332113111223000-1212201120220231-3231001203001133-1020223112311100-3233021311313023-3023020110222332-3232010300003103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1915,37 +1915,37 @@ Terraform syntax:
 dhcp_client = {}
 ```
 
-<a id="canonical-6d6141894c1eb12b865f34d992828e20b759bfa269d0710c01030fe59782ba1b"></a>
+<a id="canonical-1231120110012021-1030013223010223-2012113303103121-2102200220320200-2313112123332202-1221310013010030-0001000300333211-2113200223220123"></a>
 
-## Direct properties — ethernet_interface.dhcp_client / 6a9a6aa0ad1a / 3
+## Direct properties — dhcp_client / 220022310122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2bd06a99f44ab0d66590de30064f38bb5aae1aebb7298e642d96665a2172f2b7"></a>
+<a id="canonical-0223310012222121-3310102223003112-1211210031320300-0012103303202323-1122223201223223-2313022120321210-0231211212121122-0201130233022313"></a>
 
-## Next pages — ethernet_interface.dhcp_client / 6a9a6aa0ad1a / 4
+## Next pages — dhcp_client / 220022310122 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a"></a>
+<a id="canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da5ef462573dbf0eb503e265b16f3f4c2cf52858803bdf6367ae6676e3d3a967"></a>
+<a id="canonical-3122113233101202-1113033123330032-2311000332021211-2301123303331030-0230331102201120-2000032331331203-1213223212121312-3203310322211213"></a>
 
-## ethernet_interface.dhcp_server — ethernet_interface.dhcp_server / 7210cc3b9279 / 2
+## ethernet_interface.dhcp_server — dhcp_server / 032321021321 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.dhcp_server
 
-<a id="canonical-7915f844e72da692deb4e203c026d277b9380bd10cb9a077d609420518aeebf8"></a>
+<a id="canonical-1321011133201010-3213023122122102-3132231032020003-3000021231021313-2321032000233101-0030232122001313-3112002110020011-0120223232233320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1985,31 +1985,31 @@ dhcp_server {
 }
 ```
 
-<a id="canonical-e1a84de5f80562e2770e9d9fb3eac85ff3eb23b90cb6da7343852774d201bcc5"></a>
+<a id="canonical-3201222010313211-3320001112023202-1313003221312133-2303322230201133-3303322302032321-0030231231221303-1003201102131310-3102000123303011"></a>
 
-## Direct properties — ethernet_interface.dhcp_server / 7210cc3b9279 / 3
+## Direct properties — dhcp_server / 032321021321 / 3
 
-- [automatic_from_end](resources--network_interface--reference--group-001.md#canonical-c2e3feb9a80fa8f8d6cadf3cb61b48b70a60882ce75fe414edcae9f27c8e92b3): complete subsection reference.
+- [automatic_from_end](resources--network_interface--reference--group-001.md#canonical-3002320333322321-2220003322203320-3112302231330330-2312012310202313-0022120020200230-3213113332100110-3231302232213302-1330203221022303): complete subsection reference.
 
-- [automatic_from_start](resources--network_interface--reference--group-001.md#canonical-7afe13829c1849a7f4f3881fd164f9794770cfaee750e08d8f0231622f28f008): complete subsection reference.
+- [automatic_from_start](resources--network_interface--reference--group-001.md#canonical-1322333201032002-2130012010212213-3310330320200133-3101121033211321-1013130030332232-3213110032002031-2033000203011202-0233022033000020): complete subsection reference.
 
-- [dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a): complete subsection reference.
+- [dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322): complete subsection reference.
 
-<a id="canonical-0e561ae991d832d585d2f2968e78188cfe73f8e006d599e52b292c6aca883b02"></a>
+<a id="canonical-0032111201223221-2101312003023111-2011310233022112-2032132001202030-3332130333203200-0012311121213211-0223022102301222-3022202003230002"></a>
 
-<a id="canonical-3179eb822923271040ad1e4ea60dbe5adeda0306324654c51597f4dd04c265ff"></a>
+<a id="canonical-0301132132232002-0221020302130100-1000223101321032-2212003123321122-3132312200030012-0302101211103011-0111211333103131-0010300212113333"></a>
 
-## dhcp_option82_tag property — ethernet_interface.dhcp_server / 7210cc3b9279 / 4
+## dhcp_option82_tag property — dhcp_server / 032321021321 / 4
 
 Type: `"string"`. Optional.
 
 DHCP option 82 tag.
 
-<a id="canonical-6c0819c7d69877e3656f3602f7e66415fd51264f13a2a983122eb1bd49938102"></a>
+<a id="canonical-1230002001213013-3112212013133203-1211123303120002-3313321212100111-3331110102121033-0103220222212003-0102023223012331-1021210320010002"></a>
 
-<a id="canonical-a7a72c8c5a1cd293b71a33f1993f55877359c328574d1d8fa4394807794ee0f7"></a>
+<a id="canonical-2213221302302030-1122013031022103-2313012203033301-2121033311112013-1303112130030220-1113103101312033-2210032110200013-1321103232003313"></a>
 
-## fixed_ip_map property — ethernet_interface.dhcp_server / 7210cc3b9279 / 5
+## fixed_ip_map property — dhcp_server / 032321021321 / 5
 
 Type: `["map", "string"]`. Optional.
 
@@ -2040,38 +2040,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](resources--network_interface--reference--group-001.md#canonical-4e527c846b1dd941ea055fc32c71b1bd6cb15aa74b57e13771e95eaed814f37e): complete subsection reference.
+- [interface_ip_map](resources--network_interface--reference--group-001.md#canonical-1032110213302010-1223013131211001-3222001111333003-0230130123012331-1230230111222213-1023111332010313-1301322111322232-3120011033031332): complete subsection reference.
 
-<a id="canonical-a604628e694eaa5059da89ef2a80b397a7e73704d1eb914eff605b761d4fcdf2"></a>
+<a id="canonical-2212001012022032-1221103222221100-1121312220213233-0222200023032113-2213321303130010-3101322321011032-3333120011231312-0131103330313302"></a>
 
-## Next pages — ethernet_interface.dhcp_server / 7210cc3b9279 / 6
+## Next pages — dhcp_server / 032321021321 / 6
 
-- [ethernet_interface.dhcp_server.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-c2e3feb9a80fa8f8d6cadf3cb61b48b70a60882ce75fe414edcae9f27c8e92b3)
-- [ethernet_interface.dhcp_server.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-7afe13829c1849a7f4f3881fd164f9794770cfaee750e08d8f0231622f28f008)
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
-- [ethernet_interface.dhcp_server.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-4e527c846b1dd941ea055fc32c71b1bd6cb15aa74b57e13771e95eaed814f37e)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-3002320333322321-2220003322203320-3112302231330330-2312012310202313-0022120020200230-3213113332100110-3231302232213302-1330203221022303)
+- [ethernet_interface.dhcp_server.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-1322333201032002-2130012010212213-3310330320200133-3101121033211321-1013130030332232-3213110032002031-2033000203011202-0233022033000020)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
+- [ethernet_interface.dhcp_server.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-1032110213302010-1223013131211001-3222001111333003-0230130123012331-1230230111222213-1023111332010313-1301322111322232-3120011033031332)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-c2e3feb9a80fa8f8d6cadf3cb61b48b70a60882ce75fe414edcae9f27c8e92b3"></a>
+<a id="canonical-3002320333322321-2220003322203320-3112302231330330-2312012310202313-0022120020200230-3213113332100110-3231302232213302-1330203221022303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddc568c105b23bae6569d2fdfdc01ad71faa4be28ab1315a32f55f38a84caa24"></a>
+<a id="canonical-3131301112203001-0011230203232232-1211122131023331-3331300001223113-0133222210233202-2022230103011122-0302331111330320-2220103022220210"></a>
 
-## ethernet_interface.dhcp_server.automatic_from_end — ethernet_interface.dhcp_server.automatic_from_end / c61d71907834 / 2
+## ethernet_interface.dhcp_server.automatic_from_end — automatic_from_end / 210013200310 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
 - ethernet_interface.dhcp_server.automatic_from_end
 
-<a id="canonical-a1389086e0f253cfd6611c869eec2895de0b8e241c7155aebb064ee1862857a2"></a>
+<a id="canonical-2201032021002012-3200330211033033-3112120101302012-2132323002202111-3132002320320210-0130130111112232-2323001210323201-2012022011132202"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2100,38 +2100,38 @@ Terraform syntax:
 automatic_from_end = {}
 ```
 
-<a id="canonical-7c346af988f6e589a9d805b640e0aaad29e11808fe2957431cf2ee011c374f6b"></a>
+<a id="canonical-1330031012223321-2020331232112021-2221312000112312-1000320022222231-0221320101200020-3332022111131003-0130330232320001-0130031310331223"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.automatic_from_end / c61d71907834 / 3
+## Direct properties — automatic_from_end / 210013200310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2f26fb7b6daa0e90eb2e670302580d3724610fe5857eb50429d75478c41ee3c9"></a>
+<a id="canonical-0233021233231323-1231222200322100-3223023212130003-0002112000310313-0210120100333211-2011133223110010-0221311311101320-3010013232033021"></a>
 
-## Next pages — ethernet_interface.dhcp_server.automatic_from_end / c61d71907834 / 4
+## Next pages — automatic_from_end / 210013200310 / 4
 
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-7afe13829c1849a7f4f3881fd164f9794770cfaee750e08d8f0231622f28f008"></a>
+<a id="canonical-1322333201032002-2130012010212213-3310330320200133-3101121033211321-1013130030332232-3213110032002031-2033000203011202-0233022033000020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-81fe987f9b70df885b953f01aec31aba9b39c25288afce2a6b342a8841966da9"></a>
+<a id="canonical-2001333221201333-2123130031332020-1123211103330001-2232300301222322-2123032130021102-2020223330320222-1223031002222020-1001211212312221"></a>
 
-## ethernet_interface.dhcp_server.automatic_from_start — ethernet_interface.dhcp_server.automatic_from_start / 45184183eef4 / 2
+## ethernet_interface.dhcp_server.automatic_from_start — automatic_from_start / 200332323310 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
 - ethernet_interface.dhcp_server.automatic_from_start
 
-<a id="canonical-3963b691ce8ab57c4284192187d169f72379e1ad578495f58842b697fc247767"></a>
+<a id="canonical-0321120323122101-3032202223111330-1002201001210201-2013310112213313-0203132132012231-1113201021113311-2020100223122113-3330021013131213"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2160,38 +2160,38 @@ Terraform syntax:
 automatic_from_start = {}
 ```
 
-<a id="canonical-4c21fe1ca6e4b6d270e4b12e9eac508d8f2535f106debaa70393f24e6e6d92c7"></a>
+<a id="canonical-1030020133320130-2212321023123102-1300321023010232-2132223011002031-2033021103113301-0012313223222213-0003210333021032-1232123121023013"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.automatic_from_start / 45184183eef4 / 3
+## Direct properties — automatic_from_start / 200332323310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9fdf7eb10c9ab05efd00bb4a8e1893b2d31cf6fea0889d6635ebf0cfa368cf97"></a>
+<a id="canonical-2133313313322301-0030212223001132-3331000023231022-2032012021032302-3103013033123332-2200202021311212-0311322333003033-2203122030332113"></a>
 
-## Next pages — ethernet_interface.dhcp_server.automatic_from_start / 45184183eef4 / 4
+## Next pages — automatic_from_start / 200332323310 / 4
 
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a"></a>
+<a id="canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f10fc2e1f97a2db066684d65f2952e3a492898bfe68396a21272cb2f8ea6aeb8"></a>
+<a id="canonical-3301003330023201-3321132202312300-1212122010311211-3302211102320322-1021022021202333-3212200321122202-0102130230230233-2032221222322320"></a>
 
-## ethernet_interface.dhcp_server.dhcp_networks — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 2
+## ethernet_interface.dhcp_server.dhcp_networks — dhcp_networks / 322201312031 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
 - ethernet_interface.dhcp_server.dhcp_networks
 
-<a id="canonical-dfc27e6ec4562dc5c33208f7b5a4eefd0e8ac17618e7269799f1489d4dc07af8"></a>
+<a id="canonical-3133300213321232-3010111202313011-3003030200203313-2311221032323331-0032202230011312-0120321302122113-2121330110202131-1031300013223320"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2258,15 +2258,15 @@ dhcp_networks {
 }
 ```
 
-<a id="canonical-b8d25d2388a96ad07416dab532e0f73cedb7b5276eb31be5464dac3292452da5"></a>
+<a id="canonical-2320310211310203-2020222112223100-1310011231222311-0302320033130330-3231231323110213-1232230301233211-1012103122300302-2102101102312211"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 3
+## Direct properties — dhcp_networks / 322201312031 / 3
 
-<a id="canonical-0c12d34ad083221af6f88734f0da77d5ad76b4a9acb1a9f149565f979692e6cf"></a>
+<a id="canonical-0030010231031022-3100200302020122-3312332020130310-3300312213133111-2231131223102221-2230230122213301-1021111211332113-2112210232123033"></a>
 
-<a id="canonical-30af4d7753af25e192459d6387c494661d569e331f24c36299e1933aa65908c1"></a>
+<a id="canonical-0300223310311313-1103223302113201-2102101121311203-2013301021101212-0131111221320303-0133021030031202-2121320121030322-2212112100203001"></a>
 
-## dgw_address property — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 4
+## dgw_address property — dhcp_networks / 322201312031 / 4
 
 Type: `"string"`. Optional.
 
@@ -2318,11 +2318,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b6f82ce1ccfe203f236d0c6f5ee142af2b2c74fc147d623a111a2af22281eccc"></a>
+<a id="canonical-2312332002303201-3030333202000333-0203123100301233-1132320110022233-0223023013103330-0110133112020322-0101012202223302-0202200132303030"></a>
 
-<a id="canonical-4d6f2c36097cff6e76f69589fbe80b8e9e1d794985f37988137aad787a0f569e"></a>
+<a id="canonical-1031123302300312-0021133033331232-1312331221112021-3323322000232032-2132013113211021-2011330313212020-0103132222311320-1322003311122132"></a>
 
-## dns_address property — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 5
+## dns_address property — dhcp_networks / 322201312031 / 5
 
 Type: `"string"`. Optional.
 
@@ -2374,15 +2374,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](resources--network_interface--reference--group-001.md#canonical-8d28e0d1887475a8e67ff4cb127e3850f7f8e9e4f145a1792a49d346901a748a): complete subsection reference.
+- [first_address](resources--network_interface--reference--group-001.md#canonical-2031022032003101-2020131013112220-3212133333103023-0102133203201100-3313332032213210-3301101122011321-0222102131031012-2100012213102022): complete subsection reference.
 
-- [last_address](resources--network_interface--reference--group-001.md#canonical-784f62c77f754ca0e3fdde40c11c8c57be7d17bc496be39a3f9c53e6f89393dc): complete subsection reference.
+- [last_address](resources--network_interface--reference--group-001.md#canonical-1320103312023013-1333131110302200-3203333131321000-3001013020301113-2332133101132330-1021122332032122-0333213011033212-3320210321033130): complete subsection reference.
 
-<a id="canonical-ea593d83ce801f035965cd79da01d8034307d098860caa27d8b1a076f4befe0f"></a>
+<a id="canonical-3222112103312003-3032200001330003-1121121130311321-3122000131200003-1003001331002120-2012003022220213-3120230122001312-3310233233320033"></a>
 
-<a id="canonical-375b41cecd2a6fac8fb63a70c8f3fda25611e0ce88a5f8f343f993e29d567786"></a>
+<a id="canonical-0313112310013032-3031022212332230-2033231203221300-3020330333312202-1112010132003032-2020221133203303-1003332121033202-2131111213132012"></a>
 
-## network_prefix property — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 6
+## network_prefix property — dhcp_networks / 322201312031 / 6
 
 Type: `"string"`. Optional.
 
@@ -2421,11 +2421,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4fe272c0cbf06036276f20145864ff2f6066cabbefe8104e6e7a76ac474cf8fa"></a>
+<a id="canonical-1033320213023000-3023330012000312-0213123302000110-1120121033330233-1200121230222323-3233322001001032-1232132213122230-1013103033203322"></a>
 
-<a id="canonical-a374f57b464cdbd0610b7937845187ed351af25f4c777a2717510dbddc93f769"></a>
+<a id="canonical-2203131033111323-1012103031233100-1201002313210313-2010110120133231-0311012233021133-1030131313220213-0113110100312331-3130210333131221"></a>
 
-## pool_settings property — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 7
+## pool_settings property — dhcp_networks / 322201312031 / 7
 
 Type: `"string"`. Optional.
 
@@ -2470,41 +2470,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [pools](resources--network_interface--reference--group-001.md#canonical-0add6de41b5cef175ff4ddde1bbbfbab290d616d108c9b7a579ab65ce3650847): complete subsection reference.
+- [pools](resources--network_interface--reference--group-001.md#canonical-0022313112313210-0123113032330113-1133331031313132-0123232333232223-0221003112011231-0100203021231322-1113212223121130-3203121100201013): complete subsection reference.
 
-- [same_as_dgw](resources--network_interface--reference--group-001.md#canonical-79fd400ea944817ac09ebd5d551f02c3991f768f47d9f7099665b476975048bf): complete subsection reference.
+- [same_as_dgw](resources--network_interface--reference--group-001.md#canonical-1321333110000032-2221101020011322-3000213223311131-1111013300023003-2121013313122033-1013312133130021-2112121123101312-2113110010202333): complete subsection reference.
 
-<a id="canonical-d012c6ca2ce0fc083feaba83ad5246bbb7897f50ee50c961ce3f5b399d4f6b9d"></a>
+<a id="canonical-3100010230123022-0230320033300020-0333322223222003-2231110210122323-2313202113331100-3232110030211201-3032033311230321-2131103312232131"></a>
 
-## Next pages — ethernet_interface.dhcp_server.dhcp_networks / 383a2aea1d8d / 8
+## Next pages — dhcp_networks / 322201312031 / 8
 
-- [ethernet_interface.dhcp_server.dhcp_networks.first_address](resources--network_interface--reference--group-001.md#canonical-8d28e0d1887475a8e67ff4cb127e3850f7f8e9e4f145a1792a49d346901a748a)
-- [ethernet_interface.dhcp_server.dhcp_networks.last_address](resources--network_interface--reference--group-001.md#canonical-784f62c77f754ca0e3fdde40c11c8c57be7d17bc496be39a3f9c53e6f89393dc)
-- [ethernet_interface.dhcp_server.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-0add6de41b5cef175ff4ddde1bbbfbab290d616d108c9b7a579ab65ce3650847)
-- [ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw](resources--network_interface--reference--group-001.md#canonical-79fd400ea944817ac09ebd5d551f02c3991f768f47d9f7099665b476975048bf)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.dhcp_networks.first_address](resources--network_interface--reference--group-001.md#canonical-2031022032003101-2020131013112220-3212133333103023-0102133203201100-3313332032213210-3301101122011321-0222102131031012-2100012213102022)
+- [ethernet_interface.dhcp_server.dhcp_networks.last_address](resources--network_interface--reference--group-001.md#canonical-1320103312023013-1333131110302200-3203333131321000-3001013020301113-2332133101132330-1021122332032122-0333213011033212-3320210321033130)
+- [ethernet_interface.dhcp_server.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-0022313112313210-0123113032330113-1133331031313132-0123232333232223-0221003112011231-0100203021231322-1113212223121130-3203121100201013)
+- [ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw](resources--network_interface--reference--group-001.md#canonical-1321333110000032-2221101020011322-3000213223311131-1111013300023003-2121013313122033-1013312133130021-2112121123101312-2113110010202333)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-8d28e0d1887475a8e67ff4cb127e3850f7f8e9e4f145a1792a49d346901a748a"></a>
+<a id="canonical-2031022032003101-2020131013112220-3212133333103023-0102133203201100-3313332032213210-3301101122011321-0222102131031012-2100012213102022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-13379aa3573537943e2176fa28f1e3a3dc7d5e620d90221d7d9f499590869118"></a>
+<a id="canonical-0103031321222203-1113031103132110-0332020113123322-0220330132032203-3130133111321202-0031210002020131-1331213310212111-2100201221010120"></a>
 
-## ethernet_interface.dhcp_server.dhcp_networks.first_address — ethernet_interface.dhcp_server.dhcp_networks.first_address / e3c453e40469 / 2
+## ethernet_interface.dhcp_server.dhcp_networks.first_address — first_address / 321000101221 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
 - ethernet_interface.dhcp_server.dhcp_networks.first_address
 
-<a id="canonical-f51d24bc743daf61d8f3f80e215bd34f82a9b854c133dc9d542c73c8bcbed4d9"></a>
+<a id="canonical-3311013102102330-1310033122331201-3120330333200032-0201112331031033-2002222123201110-3001030331302131-1110023013033020-2330233231103121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2533,39 +2533,39 @@ Terraform syntax:
 first_address = {}
 ```
 
-<a id="canonical-41f3178d9a445397e2b8c53618fcfe2c37593799a2de7440bad4c94235beb045"></a>
+<a id="canonical-1001330301132031-2122101011032113-3202232030110312-0120333033320230-0313112103132121-2202313213101000-2322311030211002-0311233223001011"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.dhcp_networks.first_address / e3c453e40469 / 3
+## Direct properties — first_address / 321000101221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-21f743cf5f364c605d2a4ebc54332f3d635739fb93c1a8d0f765be77bf154155"></a>
+<a id="canonical-0201331310033033-1133031210301200-1131022210322330-1110030302330331-1203111303213323-2103300122203100-3313121123321313-2333011110011111"></a>
 
-## Next pages — ethernet_interface.dhcp_server.dhcp_networks.first_address / e3c453e40469 / 4
+## Next pages — first_address / 321000101221 / 4
 
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-784f62c77f754ca0e3fdde40c11c8c57be7d17bc496be39a3f9c53e6f89393dc"></a>
+<a id="canonical-1320103312023013-1333131110302200-3203333131321000-3001013020301113-2332133101132330-1021122332032122-0333213011033212-3320210321033130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ee660479a2ef2009ebc16bc2faeecb3565e97400387637caa7d0257e43298db8"></a>
+<a id="canonical-3232121200101321-2202323302000021-3223300112233002-3322323230230311-1211322113100000-0320131203133022-2213310002111332-1003022120312320"></a>
 
-## ethernet_interface.dhcp_server.dhcp_networks.last_address — ethernet_interface.dhcp_server.dhcp_networks.last_address / 44d8f73e9e78 / 2
+## ethernet_interface.dhcp_server.dhcp_networks.last_address — last_address / 033221321320 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
 - ethernet_interface.dhcp_server.dhcp_networks.last_address
 
-<a id="canonical-9ef6a54735209c3c85aa73dff81f03724c3578772da3ae050140820c1a951bbb"></a>
+<a id="canonical-2132331222111013-0311020021300330-2011222213033133-3320013300031302-1030031113201313-0231220322320011-0001100020020030-0122211101232323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2594,39 +2594,39 @@ Terraform syntax:
 last_address = {}
 ```
 
-<a id="canonical-ccffe0b96218ff239614bb1096d82373fe9117935f9673f679ed7e006d4d407b"></a>
+<a id="canonical-3030333332002321-1202012033330203-2112011023230100-2112312002031303-3332210101132103-1133211213033312-1321323113320000-1231103110001323"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.dhcp_networks.last_address / 44d8f73e9e78 / 3
+## Direct properties — last_address / 033221321320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-637e95eaafe39aea3e2ff6e51c91d13b0e12fac37260a1f1eeebb239b5df2c65"></a>
+<a id="canonical-1203133221113222-2233320321223222-0332023333123211-0130210131010323-0032010233223003-1302120022013301-3232322323020321-2311313302301211"></a>
 
-## Next pages — ethernet_interface.dhcp_server.dhcp_networks.last_address / 44d8f73e9e78 / 4
+## Next pages — last_address / 033221321320 / 4
 
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-0add6de41b5cef175ff4ddde1bbbfbab290d616d108c9b7a579ab65ce3650847"></a>
+<a id="canonical-0022313112313210-0123113032330113-1133331031313132-0123232333232223-0221003112011231-0100203021231322-1113212223121130-3203121100201013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4689ee664c4ca421d154c130178fada6c5bf2387d34f694908d9febb410ed740"></a>
+<a id="canonical-1012202132321212-1030103022100201-3101111030010300-0113203322312212-3011233302032013-3103103312211021-0020312133322323-1001003231131000"></a>
 
-## ethernet_interface.dhcp_server.dhcp_networks.pools — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 2
+## ethernet_interface.dhcp_server.dhcp_networks.pools — pools / 213312100033 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
 - ethernet_interface.dhcp_server.dhcp_networks.pools
 
-<a id="canonical-ab8a2f63fcaed4da5cf579820aa5ad3f5d1f4e4210372bb7667cc321d30640c5"></a>
+<a id="canonical-2223202202331203-3330223231103122-1130331113212002-0022221122310333-1131013310321002-0100031302232313-1212133030030201-3103001210003011"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2675,15 +2675,15 @@ pools {
 }
 ```
 
-<a id="canonical-61133f8b365d7ccd2506c77ec2c90ca9c545ebcbf593e52c7495f15a15c46969"></a>
+<a id="canonical-1201010303332023-0312113113303031-0211001230131332-3002302100302221-3011101132233023-3311210332110230-1310211133011122-0111301012211221"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 3
+## Direct properties — pools / 213312100033 / 3
 
-<a id="canonical-32e578cc24b0dd97de5581af53349ed49bd3c288d1762fe326669894fecf3bc4"></a>
+<a id="canonical-0302321113203030-0210230031312113-3132111120012233-1103031021323110-2123310330022020-3101131202333203-0212121221202110-3332303303233010"></a>
 
-<a id="canonical-32cba509c2180a56ad028cd29e42be8dbb83346c0ffb30966f8b4af854096f7c"></a>
+<a id="canonical-0302302322110021-3002012000221112-2231000220303102-2132100223322031-2323200303101230-0033332303002112-1233202310223320-1110002112331330"></a>
 
-## end_ip property — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 4
+## end_ip property — pools / 213312100033 / 4
 
 Type: `"string"`. Optional.
 
@@ -2735,21 +2735,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8afa8bbc0805b591a13da147260f95225e7295abab9b68185c621d17ed625658"></a>
+<a id="canonical-2022332220232330-0020001123112101-2201033122011013-0212003321110202-1132130221112223-2223212312200120-1130120201310113-3231120211121120"></a>
 
-<a id="canonical-0d21d65c3a4b8000c570675a9fab5255b751e2619306aac315713d0396d4dd2c"></a>
+<a id="canonical-0031020131121130-0322102320000000-3011130012131122-2133222311021111-2313110132021201-2103001222223003-0111130103310003-2112311031310230"></a>
 
-## exclude property — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 5
+## exclude property — pools / 213312100033 / 5
 
 Type: `"bool"`. Optional.
 
 Exclude this address range from DHCP allocation.
 
-<a id="canonical-46b2636cf331774fc5f4e0fa97a37085c6672a03350cc1601abb267be4016e9b"></a>
+<a id="canonical-1012230212031230-3303030113131033-3011331032003322-2113220313002011-3012121302220003-0311003030011200-0122232302121323-3210000112322123"></a>
 
-<a id="canonical-1d982f7dd20b9dd31f9a92ddcc2d2939e4ce55d90eb8883c06d23892605c0bf3"></a>
+<a id="canonical-0131212002331331-3102002321313103-0133212221023131-3030023102210321-3210303211113121-0032232020200330-0012310203202102-1200113000233303"></a>
 
-## start_ip property — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 6
+## start_ip property — pools / 213312100033 / 6
 
 Type: `"string"`. Optional.
 
@@ -2801,33 +2801,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ea6f5b238bcc1f08040dc1691ca13782f98091861715a04bf36f5fca442578f9"></a>
+<a id="canonical-3222123311230203-2023303001330020-0010003130011221-0130220103132002-3321200021012012-0113011122001023-3303123311333022-1010021113203321"></a>
 
-## Next pages — ethernet_interface.dhcp_server.dhcp_networks.pools / 8d7aab9f640f / 7
+## Next pages — pools / 213312100033 / 7
 
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-79fd400ea944817ac09ebd5d551f02c3991f768f47d9f7099665b476975048bf"></a>
+<a id="canonical-1321333110000032-2221101020011322-3000213223311131-1111013300023003-2121013313122033-1013312133130021-2112121123101312-2113110010202333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-298c10067ab98323074415e05323df9c73cd3d865f1038a92fa932cfce591c54"></a>
+<a id="canonical-0221203001000012-1322232120030203-0013101001113200-1103020331332130-1303303103312012-1133010003202221-0233222103023033-3032112101301110"></a>
 
-## ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw — ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw / d148ebb74971 / 2
+## ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw — same_as_dgw / 231310211301 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
 - ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw
 
-<a id="canonical-aad0e1b6cc4c37da1332dfc9f63b0ff0539a92bd2f643972f39ba463764b49d8"></a>
+<a id="canonical-2222310032012312-3030103003133122-0103030231333021-3312032300333300-1103212221022331-0233121003211302-3303212322101203-1312102310213120"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2856,38 +2856,38 @@ Terraform syntax:
 same_as_dgw = {}
 ```
 
-<a id="canonical-c908dc107abde5f5e447e857b3ebf9510ee4c0d6e85ae00c259afedf3249c686"></a>
+<a id="canonical-3021002031300100-1322233132113311-3210101332201113-2303322333211101-0032321030003112-3220112232000030-0211212233323133-0302102130122012"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw / d148ebb74971 / 3
+## Direct properties — same_as_dgw / 231310211301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7f81c6cc118978d544e778caf844b1bebd6f7f93da7eb85198a1b782a89ea765"></a>
+<a id="canonical-1333200130123030-0101202113203111-1010321313203022-3320101023012332-2331123313332103-3122133223201101-2120220123132002-2220213222131211"></a>
 
-## Next pages — ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw / d148ebb74971 / 4
+## Next pages — same_as_dgw / 231310211301 / 4
 
-- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-51b6cf5b180815d210dbacc281fa1aedb8c66c837d3874e0368a1410fa1ddf7a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-1101231230331123-0120002001113102-0100312322303002-2001332201223231-2320301212302003-1331032013103200-0312202201100100-3322013131331322)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-4e527c846b1dd941ea055fc32c71b1bd6cb15aa74b57e13771e95eaed814f37e"></a>
+<a id="canonical-1032110213302010-1223013131211001-3222001111333003-0230130123012331-1230230111222213-1023111332010313-1301322111322232-3120011033031332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-103de5f674d8a4b110d521fdc7bf75073c198cd33fd4f7e08b8b4f59e18f9fb0"></a>
+<a id="canonical-0100033132113312-1310312022102301-0100311102013331-3013233313110013-0330012120303103-0333311033133200-2023202310331121-3201203321332300"></a>
 
-## ethernet_interface.dhcp_server.interface_ip_map — ethernet_interface.dhcp_server.interface_ip_map / ac8572f9093d / 2
+## ethernet_interface.dhcp_server.interface_ip_map — interface_ip_map / 332100210331 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
 - ethernet_interface.dhcp_server.interface_ip_map
 
-<a id="canonical-aa45145b5108abf11edf5528e142a3621978db41eb9c9613f7c3025e4b53a68b"></a>
+<a id="canonical-2222101101101123-1101002022233301-0132313311110220-3201100222031202-0121132031231001-3223213021120103-3313300300021132-1023110322122023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2918,15 +2918,15 @@ interface_ip_map {
 }
 ```
 
-<a id="canonical-55aa84396923ed02d83079e229b8c8902b9fa9da0796f790f9c2b8b6a714f1c8"></a>
+<a id="canonical-1111222220100321-1221020332310002-3120030013213202-0221232030202100-0223213322213122-0013211233132100-3321300223202312-2213011033013020"></a>
 
-## Direct properties — ethernet_interface.dhcp_server.interface_ip_map / ac8572f9093d / 3
+## Direct properties — interface_ip_map / 332100210331 / 3
 
-<a id="canonical-fd0ba71fd7e58bd5b96bae80fb0c04dcd114af16d8ddfd74df5421a15b81d417"></a>
+<a id="canonical-3331002322130133-3113321120233111-2321122322322000-3323003000103130-3101011022330112-3120313133311310-3133111002012201-1123200131100113"></a>
 
-<a id="canonical-69577e55f90a10ede729b0e4f00af30306003ad59fba4469670969f7b8bec930"></a>
+<a id="canonical-1221111313321111-3321002201003231-3213022123003210-3300002233030003-0012000003223111-2133232210101221-1213002112213313-2320233230210300"></a>
 
-## interface_ip_map property — ethernet_interface.dhcp_server.interface_ip_map / ac8572f9093d / 4
+## interface_ip_map property — interface_ip_map / 332100210331 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -2957,31 +2957,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ba302a682c6b8cea1d42bdfc6dd27838a260057595f012269e02e7fc561ac32d"></a>
+<a id="canonical-2322030002221220-0230122320303222-0131100223313330-1231310213200320-2202120000111311-2111330001020212-2132000232133330-1112012230030231"></a>
 
-## Next pages — ethernet_interface.dhcp_server.interface_ip_map / ac8572f9093d / 5
+## Next pages — interface_ip_map / 332100210331 / 5
 
-- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-67e6943ba32172c6727e5d13a56aaa4ab92f4c27bd86d90fb9808c923e23e29a)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.dhcp_server](resources--network_interface--reference--group-001.md#canonical-1213321221100323-2203020113023012-1302133211310103-2211122222221022-2321023310300213-2331201231210033-2321200020302102-0332020332022122)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc"></a>
+<a id="canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b6472f569a044f3059770bee3ff8f1f0c0f171dc7a63d6aba8b023c86f47864"></a>
+<a id="canonical-1323121013023311-1221220010103303-0011211313002332-3203333320330133-0030003301130131-3013221203311222-2322202300020330-2012331013201210"></a>
 
-## ethernet_interface.ipv6_auto_config — ethernet_interface.ipv6_auto_config / cd9defb11c18 / 2
+## ethernet_interface.ipv6_auto_config — ipv6_auto_config / 230101300120 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.ipv6_auto_config
 
-<a id="canonical-0383e001aa6430ea05121ee741becd34ed34615bfc522fddb69fbc000d8f2bfc"></a>
+<a id="canonical-0003200332000001-2222121003003222-0011010201323213-1001233230310310-3231031012011123-3330110202333131-2312213323300000-0031203302233330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3016,42 +3016,42 @@ ipv6_auto_config {
 }
 ```
 
-<a id="canonical-21ed3138de944cb4af07497a212b1dfcc56319597dd2ebc1b26c735a4997d3ca"></a>
+<a id="canonical-0201323103010320-3132211010302310-2233001310211322-0201022301313330-3011120301211121-1331310232233001-2302123013031122-1021211331033022"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config / cd9defb11c18 / 3
+## Direct properties — ipv6_auto_config / 230101300120 / 3
 
-- [host](resources--network_interface--reference--group-001.md#canonical-241c4a149374042008a151dc397daaadc146bb6e20a2229800781607b31d8350): complete subsection reference.
+- [host](resources--network_interface--reference--group-001.md#canonical-0210013010220110-2103131000100200-0020220111013130-0321133122222231-3001101223231232-0200220202022120-0000132001120013-2303013120031100): complete subsection reference.
 
-- [router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa): complete subsection reference.
+- [router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222): complete subsection reference.
 
-<a id="canonical-7747e594e29d3652b2ef0eaf57a8ba0d1bd13239545ae4d193fdf7424e244270"></a>
+<a id="canonical-1313101332112110-3202213103121102-2302323300322233-1113222023220031-0123310103020321-1110112232103101-2103333133131002-1032021010021300"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config / cd9defb11c18 / 4
+## Next pages — ipv6_auto_config / 230101300120 / 4
 
-- [ethernet_interface.ipv6_auto_config.host](resources--network_interface--reference--group-001.md#canonical-241c4a149374042008a151dc397daaadc146bb6e20a2229800781607b31d8350)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.host](resources--network_interface--reference--group-001.md#canonical-0210013010220110-2103131000100200-0020220111013130-0321133122222231-3001101223231232-0200220202022120-0000132001120013-2303013120031100)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-241c4a149374042008a151dc397daaadc146bb6e20a2229800781607b31d8350"></a>
+<a id="canonical-0210013010220110-2103131000100200-0020220111013130-0321133122222231-3001101223231232-0200220202022120-0000132001120013-2303013120031100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5374afaa34e6cce097926552faafdbaa4d1cec78f23107a4d305b08bad45fa09"></a>
+<a id="canonical-1103131022332222-0310321230303200-2113210212111102-3322223331232222-1031013032301320-3302030100132210-3103001123002023-2231101133220021"></a>
 
-## ethernet_interface.ipv6_auto_config.host — ethernet_interface.ipv6_auto_config.host / dbe11f277d65 / 2
+## ethernet_interface.ipv6_auto_config.host — host / 021313311211 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
 - ethernet_interface.ipv6_auto_config.host
 
-<a id="canonical-2d63b82cc646675e9b627784839a600b6f1e1c540593a29e908f9ed93883ed66"></a>
+<a id="canonical-0231120323200230-3012101212131132-2123120213132010-2003212212000023-1233013201301110-0011210322022132-2100203321323121-0320200332311212"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3080,38 +3080,38 @@ Terraform syntax:
 host = {}
 ```
 
-<a id="canonical-1aba9045ea1ea28dd2ec06a3ca822d8ebdc3a89b7a3a665fcfcd4f2a86c9d2f6"></a>
+<a id="canonical-0122232221001011-3222013222022031-3102323000122203-3022200202312032-2331300322202123-1322032212121133-3033303110330222-2012302131023312"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.host / dbe11f277d65 / 3
+## Direct properties — host / 021313311211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ab1c52610b26e748103e970e3d94eea4592c461897899f4b76f1d8b024adf9e3"></a>
+<a id="canonical-2223013011021201-0023021232131020-0100033221130032-0331211032322210-1121023010120120-2113202121331023-1312330131202300-0210223133213203"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.host / dbe11f277d65 / 4
+## Next pages — host / 021313311211 / 4
 
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa"></a>
+<a id="canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc3c5c36d4ef37dfdf6f85ef671a1f286213b9b28c69104a4e7e70752702399d"></a>
+<a id="canonical-3030033011300312-3110323303133133-3133123320113233-1213012201330220-1202010323212302-2030122101001022-1032133213001311-0213000203212131"></a>
 
-## ethernet_interface.ipv6_auto_config.router — ethernet_interface.ipv6_auto_config.router / fa25fa24c445 / 2
+## ethernet_interface.ipv6_auto_config.router — router / 021030101011 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
 - ethernet_interface.ipv6_auto_config.router
 
-<a id="canonical-589d774633953ed07ee758ce5a1024ef59608b53cc9c84bd932098b6110a4dcc"></a>
+<a id="canonical-1120213113131012-0303211103323100-1332321311203032-1122010002103233-1121120020231103-3030213020102331-2103020021202312-0101002210313030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3146,17 +3146,17 @@ router {
 }
 ```
 
-<a id="canonical-5b9c4be8189d9ec6812d8bac21b178e4bad03484678266cd8956c46ec8ea9cfa"></a>
+<a id="canonical-1123213010233220-0120213121323012-2001023120232230-0201230113203210-2322310003102010-1213200212123031-2021111230101232-3020322221303322"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router / fa25fa24c445 / 3
+## Direct properties — router / 021030101011 / 3
 
-- [dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875): complete subsection reference.
+- [dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311): complete subsection reference.
 
-<a id="canonical-16936745aca8643384bc1d4579a9493fa57ca2444d0f1938f1ce6fda8b73b810"></a>
+<a id="canonical-0112210312131011-2230222012100303-2010233001311011-1321222110210333-2211133022021010-1031003301210320-3301303212333122-2023130323200100"></a>
 
-<a id="canonical-9b863d4fdbed1f16623baac3a4b96910a2fc47c45f597711f5340b50cd0652d0"></a>
+<a id="canonical-2123201203311033-3123323101330112-1202032322223003-2210232112210100-2202333010133010-1133112113130101-3311031000231100-3031001211023100"></a>
 
-## network_prefix property — ethernet_interface.ipv6_auto_config.router / fa25fa24c445 / 4
+## network_prefix property — router / 021030101011 / 4
 
 Type: `"string"`. Optional.
 
@@ -3209,37 +3209,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512): complete subsection reference.
+- [stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102): complete subsection reference.
 
-<a id="canonical-e073a6f104ff16466cd38c0e745ff967303827b261b553951608f5d97243a1cc"></a>
+<a id="canonical-3200130322123301-0010333301121012-1230310320300032-1310113333211213-0300032002132302-1201231111032111-0112002033113121-1302100322013030"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router / fa25fa24c445 / 5
+## Next pages — router / 021030101011 / 5
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875"></a>
+<a id="canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-31adee625324403ebb7d456d69ef64ce2895f541167ea32762f51ea5665153be"></a>
+<a id="canonical-0301223132321202-1103021010000332-2323133110111231-1221323312103032-0220211133111001-0112133222030213-1202331101322211-1212110111032332"></a>
 
-## ethernet_interface.ipv6_auto_config.router.dns_config — ethernet_interface.ipv6_auto_config.router.dns_config / f7a174abd62b / 2
+## ethernet_interface.ipv6_auto_config.router.dns_config — dns_config / 222331120223 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
 - ethernet_interface.ipv6_auto_config.router.dns_config
 
-<a id="canonical-dc53d7e926c8dfd350196bd1ea64c7e835eadc27b224663dede4a9b56616aa79"></a>
+<a id="canonical-3130110331133221-0212302031333103-1100012112233101-3222121030133220-0311322231300213-2302021012120331-3231321022212311-1212011222221321"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3274,44 +3274,44 @@ dns_config {
 }
 ```
 
-<a id="canonical-4e332578c23c0797408916c9bec789cf1c7e83e8d61c3c12eb42e37161e44dd3"></a>
+<a id="canonical-1032030302111320-3002033000132113-1000202101123021-2332301320213033-0130133220033220-3112013003300102-3223100232031301-1201321010313103"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.dns_config / f7a174abd62b / 3
+## Direct properties — dns_config / 222331120223 / 3
 
-- [configured_list](resources--network_interface--reference--group-001.md#canonical-2dc56ae3f9cd0a8a042fa5294b80406ccd0543fc0f9d9fceff83d390867a35a8): complete subsection reference.
+- [configured_list](resources--network_interface--reference--group-001.md#canonical-0231301112223203-3321303100222022-0010023322110221-1023200010001230-3031001110033330-0033213121333032-3333200331032100-2012132203112220): complete subsection reference.
 
-- [local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf): complete subsection reference.
+- [local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033): complete subsection reference.
 
-<a id="canonical-f8283f4820712f09641b5029e605d4af858681d00f56d4658de090db151ce9b4"></a>
+<a id="canonical-3320022003331020-0200130102330021-1210012311000221-3212001131102233-2011201220013100-0033111231101211-2031320021003123-0111013032212310"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.dns_config / f7a174abd62b / 4
+## Next pages — dns_config / 222331120223 / 4
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list](resources--network_interface--reference--group-001.md#canonical-2dc56ae3f9cd0a8a042fa5294b80406ccd0543fc0f9d9fceff83d390867a35a8)
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.configured_list](resources--network_interface--reference--group-001.md#canonical-0231301112223203-3321303100222022-0010023322110221-1023200010001230-3031001110033330-0033213121333032-3333200331032100-2012132203112220)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-2dc56ae3f9cd0a8a042fa5294b80406ccd0543fc0f9d9fceff83d390867a35a8"></a>
+<a id="canonical-0231301112223203-3321303100222022-0010023322110221-1023200010001230-3031001110033330-0033213121333032-3333200331032100-2012132203112220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ce12b2f921b8dad8172173e4d46fdfbed5ed080033f8edadb8d273dda269cc18"></a>
+<a id="canonical-3032010223023321-0201232031223120-0113020113033210-3110123331332332-3111323100200000-0303332032312231-2320310213033131-2202122130300120"></a>
 
-## ethernet_interface.ipv6_auto_config.router.dns_config.configured_list — ethernet_interface.ipv6_auto_config.router.dns_config.configured_list / 662b16dc4bc0 / 2
+## ethernet_interface.ipv6_auto_config.router.dns_config.configured_list — configured_list / 313010233000 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
 - ethernet_interface.ipv6_auto_config.router.dns_config.configured_list
 
-<a id="canonical-c69670bff4b518bd2539b057799f58abf4ef8b2c8f43dba306676c0b23addc64"></a>
+<a id="canonical-3012211213002333-3310231101202331-0211032123001113-1321213311202223-3310323320230230-2033100331232203-0012121312300023-0203223131301210"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3344,15 +3344,15 @@ configured_list {
 }
 ```
 
-<a id="canonical-72eadc27e096692d20267de777fbffb3f6c3a049ac3f433946b14eee5baaca06"></a>
+<a id="canonical-1302322231300213-3200211212210231-0200021213313213-1313332333332303-3312300322001021-2230033310030321-1012230110323232-1123222230220012"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.dns_config.configured_list / 662b16dc4bc0 / 3
+## Direct properties — configured_list / 313010233000 / 3
 
-<a id="canonical-0fc0b63ee232663ab13e8716b21e785e67284fb2416378f6a66e8ee31a798b47"></a>
+<a id="canonical-0033300023120332-3202030212120322-2301033220130112-2302013213201132-1213022010332302-1001120313203312-2212123220323203-0122132120231013"></a>
 
-<a id="canonical-7aa7ae597c79ea7d56bc4e4e2fb851b75da5eaf7abc05a2ecb0b719b13e900d1"></a>
+<a id="canonical-1322221322321121-1330132132221331-1112233010321032-0233232011012313-1131221132223313-2223300011220232-3023002313012123-0103322100003101"></a>
 
-## dns_list property — ethernet_interface.ipv6_auto_config.router.dns_config.configured_list / 662b16dc4bc0 / 4
+## dns_list property — configured_list / 313010233000 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3408,34 +3408,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e603e8a945edab4cb93de2440220ada5b0396c50226c1327538d8cbede2bbe4b"></a>
+<a id="canonical-3212000332202221-1011323122231030-2321033132021010-0002020022312211-2300032112301100-0202123001030213-1103203120302332-3132022323321023"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.dns_config.configured_list / 662b16dc4bc0 / 5
+## Next pages — configured_list / 313010233000 / 5
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf"></a>
+<a id="canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-43ff920c7eb18ba1478e29b06585321c389f77626edb3d200f6f98536da5e534"></a>
+<a id="canonical-1003333321020030-1332230120232201-1013203202212300-1211201103020130-0320213313131202-1232312303310200-0033123321201103-1231221132110310"></a>
 
-## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns / 9d2db61922ce / 2
+## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns — local_dns / 012102023032 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
 - ethernet_interface.ipv6_auto_config.router.dns_config.local_dns
 
-<a id="canonical-9f98eeb5e176262b2c14a05c871c5c0e481659097b92fb2fd93915fb71c4c136"></a>
+<a id="canonical-2133212032322311-3201131202120223-0230011022001130-2013013011300032-1020011211210021-1323210233230233-3121032101113323-1301301030010312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3474,15 +3474,15 @@ local_dns {
 }
 ```
 
-<a id="canonical-21cb9e6873c8a42cda3ff08e41792754aa5b1952dcd97f9a4c2b2351a8af4d7f"></a>
+<a id="canonical-0201302321321220-1303302022100230-3122033333002032-1001132102131110-2222112301211102-3130312113332122-1030022302031101-2220223310311333"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns / 9d2db61922ce / 3
+## Direct properties — local_dns / 012102023032 / 3
 
-<a id="canonical-2138a91165a0d6f98a01feef655973e5339049d6a8d5af6a9294be30c873b57b"></a>
+<a id="canonical-0201032022210101-1211220031123321-2022000133323233-1211112113033211-0303210010213112-2220311122331222-2102211023320300-3020130323111323"></a>
 
-<a id="canonical-72b2d263020051ca20de1b8063571e70d702b05d277855137f6437ca9d7df435"></a>
+<a id="canonical-1302230231021203-0002000011013022-0200313201232000-1203111301321300-3113000223001131-0213132011110103-1333121003133022-2131133133100311"></a>
 
-## configured_address property — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns / 9d2db61922ce / 4
+## configured_address property — local_dns / 012102023032 / 4
 
 Type: `"string"`. Optional.
 
@@ -3534,41 +3534,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](resources--network_interface--reference--group-001.md#canonical-236c0feef46768a1318af3afd99a91ea1e69cfe5dba764569a21bedfeb74e8de): complete subsection reference.
+- [first_address](resources--network_interface--reference--group-001.md#canonical-0203123000333232-3310121312202201-0301202233032233-3121212221013222-0132122130333211-3123221312101112-2122020123323133-3223131032203132): complete subsection reference.
 
-- [last_address](resources--network_interface--reference--group-001.md#canonical-49e72f1fce38021676f4e4c4dc490e5473ef8974506a64d83eadc12677f4cce0): complete subsection reference.
+- [last_address](resources--network_interface--reference--group-001.md#canonical-1021321302330133-3032032000020112-1312331032103010-3130102100321110-1303323320211310-1100122212103120-0332223130010212-1313331030303200): complete subsection reference.
 
-<a id="canonical-3feef39374418ccad6c9bcedd5340bbea4652301f38c5dca11ba3f2ab2f77502"></a>
+<a id="canonical-0333323233032103-1310100120303022-3112302123303231-3111031000232332-2210121102030001-3303203011313022-0101232203330222-2302331313110002"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns / 9d2db61922ce / 5
+## Next pages — local_dns / 012102023032 / 5
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--network_interface--reference--group-001.md#canonical-236c0feef46768a1318af3afd99a91ea1e69cfe5dba764569a21bedfeb74e8de)
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--network_interface--reference--group-001.md#canonical-49e72f1fce38021676f4e4c4dc490e5473ef8974506a64d83eadc12677f4cce0)
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--network_interface--reference--group-001.md#canonical-0203123000333232-3310121312202201-0301202233032233-3121212221013222-0132122130333211-3123221312101112-2122020123323133-3223131032203132)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--network_interface--reference--group-001.md#canonical-1021321302330133-3032032000020112-1312331032103010-3130102100321110-1303323320211310-1100122212103120-0332223130010212-1313331030303200)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-236c0feef46768a1318af3afd99a91ea1e69cfe5dba764569a21bedfeb74e8de"></a>
+<a id="canonical-0203123000333232-3310121312202201-0301202233032233-3121212221013222-0132122130333211-3123221312101112-2122020123323133-3223131032203132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d0181f7bef08bf658a5bf3d6a9c62c6f9996824a6a38926ef79efe830db673a"></a>
+<a id="canonical-1031000120013313-2332330020233312-1120221123330331-1222213012023012-3321212112200210-2212220320210212-3233132132333220-0300312312130322"></a>
 
-## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address / 2c1c7f500fd7 / 2
+## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address — first_address / 110000333113 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033)
 - ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address
 
-<a id="canonical-0286f35c933e2f6c0be807ac2975447e36242ba6e3d9016db0ec22a9ff12b30a"></a>
+<a id="canonical-0002201233031130-2103033202331230-0023322000132230-0221131110101332-0312021002232212-3203312100011231-2300323002022221-3333010223030022"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3597,41 +3597,41 @@ Terraform syntax:
 first_address = {}
 ```
 
-<a id="canonical-44cc325b94f874b17f2223007319e8e7fc57db8f6bee56721a45caaabdcdaabd"></a>
+<a id="canonical-1010303003021123-2110332013102301-1333020202030000-1303012132203213-3330111331232033-1223323211121302-0122101130222222-2331303122222331"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address / 2c1c7f500fd7 / 3
+## Direct properties — first_address / 110000333113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d7dac82b0ac606e7d11ec0dc14a4ee4a72bf3cec1fc3905e9b87965b37af39c9"></a>
+<a id="canonical-3113312230200223-0022301200123213-3101013230003130-0110221032321022-1302233303303230-0133300321001132-2123201321121123-0313223303213021"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address / 2c1c7f500fd7 / 4
+## Next pages — first_address / 110000333113 / 4
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-49e72f1fce38021676f4e4c4dc490e5473ef8974506a64d83eadc12677f4cce0"></a>
+<a id="canonical-1021321302330133-3032032000020112-1312331032103010-3130102100321110-1303323320211310-1100122212103120-0332223130010212-1313331030303200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50762bc31c72ab7f7545a8549ffd74c09908003722ccfda21f963bcc20ae74d4"></a>
+<a id="canonical-1100131202233003-0130130222231333-1311101122201110-2133333113103000-2121002000000313-0202303033312202-0133211203233030-0200223213103110"></a>
 
-## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address / ffb450de4735 / 2
+## ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address — last_address / 313210130311 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-95d4d7323a3f8b2d0062f4dde92ec38a688e1d4d03164598e67c60fcd299a875)
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.dns_config](resources--network_interface--reference--group-001.md#canonical-2111311031130302-0322033320230231-0000120233103131-3221023230032022-1220203201311031-0003011210112120-3212133012003330-3102212122201311)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033)
 - ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address
 
-<a id="canonical-94bc9ace9b2f5e8776d70138d3bea753e9c76e0cf8d30ed8bf9660b6650ddec1"></a>
+<a id="canonical-2110233021223032-2123023311322013-1312311300010320-3103233222131103-3221301312320030-3320310300323120-2333211212002312-1211003131323001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3660,39 +3660,39 @@ Terraform syntax:
 last_address = {}
 ```
 
-<a id="canonical-def938d942d9126f962f7b0231dd238fcab0baa5a7900b77c43c197a08ce6f2e"></a>
+<a id="canonical-3132332103203121-1002312101021233-2112023313230002-0301313102032033-3022230023222211-2213210000231313-3010033001211322-0020303212330232"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address / ffb450de4735 / 3
+## Direct properties — last_address / 313210130311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-48033654332cfa901f4d1979d012e4385eb90f0975ca62414d4846466887e018"></a>
+<a id="canonical-1020000303121110-0303023033222100-0133103101211321-3100010232100320-1132232100330021-1311302212021001-1031102010121012-1220201332000120"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address / ffb450de4735 / 4
+## Next pages — last_address / 313210130311 / 4
 
-- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-61f1effd064a66b98b3936e2dff8e738e9e325705903787a475814b5457cbacf)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.dns_config.local_dns](resources--network_interface--reference--group-001.md#canonical-1201330132333331-0012102212122321-2023032103123202-3133332032130320-3221320302111300-1121000313201322-1013112001102311-1011133023223033)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512"></a>
+<a id="canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc6d496c0314d18e2775d8ce51fc712a11901794e617d0dfb28bff9b666d85db"></a>
+<a id="canonical-3330123110211230-0003011031012032-0213131131203032-1101333013010222-0101210001132110-3212011331003133-2302202333332123-1212123120113123"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful — ethernet_interface.ipv6_auto_config.router.stateful / 1fe5c4834aa8 / 2
+## ethernet_interface.ipv6_auto_config.router.stateful — stateful / 200310222220 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
 - ethernet_interface.ipv6_auto_config.router.stateful
 
-<a id="canonical-17c38b9f20cdd06f05cfd07ce97855102c6b90ece5bd3c78800f8fec5b534a5a"></a>
+<a id="canonical-0113300320232133-0200303131001233-0011303331001330-3221132011110100-0230122321003230-3211233103301320-2000003320333230-1123110310221122"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3732,21 +3732,21 @@ stateful {
 }
 ```
 
-<a id="canonical-457131f5f86415bc3805549e67d494d95b4c9656e91f03040fc9dd153938883f"></a>
+<a id="canonical-1011130103013311-3320121001112330-0320001111102132-1213311021103121-1123103021121112-3221013300030010-0033302131310111-0321032020200333"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful / 1fe5c4834aa8 / 3
+## Direct properties — stateful / 200310222220 / 3
 
-- [automatic_from_end](resources--network_interface--reference--group-001.md#canonical-95df0dad1f7c68a80426201bdf3f81fb6fa4af410573562f75740ea5d500d14c): complete subsection reference.
+- [automatic_from_end](resources--network_interface--reference--group-001.md#canonical-2111313300312231-0133133012202220-0010021202000123-3133033320013323-1233221022331001-0011130311120233-1311131000322211-3111000031011030): complete subsection reference.
 
-- [automatic_from_start](resources--network_interface--reference--group-001.md#canonical-4b29dbb99e5a42477d79610557e3c09a06cc66f9bd8c7e644049c5670efe3489): complete subsection reference.
+- [automatic_from_start](resources--network_interface--reference--group-001.md#canonical-1023022131232321-2132112210021013-1331132112010011-1113320330002122-0012303012123321-2331203013321210-1000102130111213-0032333203102021): complete subsection reference.
 
-- [dhcp_networks](resources--network_interface--reference--group-001.md#canonical-3fd2f27d5692de3f3a82fbba7d7700b4ff1dfbaeaf704072abdead28c94cc386): complete subsection reference.
+- [dhcp_networks](resources--network_interface--reference--group-001.md#canonical-0333310233021331-1112210231320333-0322200233232322-1331131300002310-3333013133232232-2233130010001302-2223313222310220-3021103030032012): complete subsection reference.
 
-<a id="canonical-0d4dc6af4c18220c76c2d64fbb35850bdc4387b6f40a2f2a80012029730ce73c"></a>
+<a id="canonical-0031103130122233-1030012002020030-1312300231121033-2323031120110023-3130100320132312-3310002202330222-2000000102000221-1303003032130330"></a>
 
-<a id="canonical-72a4a8b3d584a386063ff4691de0c08e9ac3e44f8c7730a60b2d679eb2d6da83"></a>
+<a id="canonical-1302221022202303-3111201022032012-0012033333101221-0131320030002032-2122300332101033-2030131303002212-0023023112132132-2302311231222003"></a>
 
-## fixed_ip_map property — ethernet_interface.ipv6_auto_config.router.stateful / 1fe5c4834aa8 / 4
+## fixed_ip_map property — stateful / 200310222220 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -3783,40 +3783,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](resources--network_interface--reference--group-001.md#canonical-c2a8d114e51ac8d3347a89aef51510636699cf87567078052584ff3a8a78b008): complete subsection reference.
+- [interface_ip_map](resources--network_interface--reference--group-001.md#canonical-3002222031010110-3211012230203103-0310132220212232-3311011101001203-1212212130332013-1112130013200011-0211201033330322-2022132023000020): complete subsection reference.
 
-<a id="canonical-dbb82b4dc815c576caf79763dc6db90f606a6188d025a65a69ed90d66a42c742"></a>
+<a id="canonical-3123232002231031-3020011130111312-3022331321131203-3130123123210033-1200122212012020-3100021122121122-1221323121003112-1222100230131002"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful / 1fe5c4834aa8 / 5
+## Next pages — stateful / 200310222220 / 5
 
-- [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-95df0dad1f7c68a80426201bdf3f81fb6fa4af410573562f75740ea5d500d14c)
-- [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-4b29dbb99e5a42477d79610557e3c09a06cc66f9bd8c7e644049c5670efe3489)
-- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-3fd2f27d5692de3f3a82fbba7d7700b4ff1dfbaeaf704072abdead28c94cc386)
-- [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-c2a8d114e51ac8d3347a89aef51510636699cf87567078052584ff3a8a78b008)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end](resources--network_interface--reference--group-001.md#canonical-2111313300312231-0133133012202220-0010021202000123-3133033320013323-1233221022331001-0011130311120233-1311131000322211-3111000031011030)
+- [ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start](resources--network_interface--reference--group-001.md#canonical-1023022131232321-2132112210021013-1331132112010011-1113320330002122-0012303012123321-2331203013321210-1000102130111213-0032333203102021)
+- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-0333310233021331-1112210231320333-0322200233232322-1331131300002310-3333013133232232-2233130010001302-2223313222310220-3021103030032012)
+- [ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map](resources--network_interface--reference--group-001.md#canonical-3002222031010110-3211012230203103-0310132220212232-3311011101001203-1212212130332013-1112130013200011-0211201033330322-2022132023000020)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-95df0dad1f7c68a80426201bdf3f81fb6fa4af410573562f75740ea5d500d14c"></a>
+<a id="canonical-2111313300312231-0133133012202220-0010021202000123-3133033320013323-1233221022331001-0011130311120233-1311131000322211-3111000031011030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4da46cc78576b099d58476b5326e24e4973aeff3ae24767563c8c262e6048ef7"></a>
+<a id="canonical-1031221012303013-2011131223002121-3111201013122311-0302123202103210-2113032232333303-2232021013121311-1203302030021202-3212001020323313"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end / cee26380845a / 2
+## ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end — automatic_from_end / 200020101122 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
 - ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end
 
-<a id="canonical-6ca6f12adedaa622904057d41fcf183bed3b220f75f102e27814681a062b1553"></a>
+<a id="canonical-1230221233010222-3132312222120202-2100100011133110-0133303301200323-3231032302020033-1311330100023202-1320011012200122-0012022301111103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3845,40 +3845,40 @@ Terraform syntax:
 automatic_from_end = {}
 ```
 
-<a id="canonical-ceffd2108409eb1922b6b7f9620f755de20f6bb4b46379f19cfc62a590255141"></a>
+<a id="canonical-3032333331020100-2010002132230121-0202231223133321-1202003313111131-3202003312232310-2310120313213301-2130333012022211-2100021111011001"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end / cee26380845a / 3
+## Direct properties — automatic_from_end / 200020101122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b0c40a1cecde792c6ba7afce62c34817a7f9b329f1a249488367813ac772941e"></a>
+<a id="canonical-2300301000220130-3230313213210230-1223221322333032-1202300310200113-2213332123030221-3301220210211020-2003121320010322-3013130221100132"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end / cee26380845a / 4
+## Next pages — automatic_from_end / 200020101122 / 4
 
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-4b29dbb99e5a42477d79610557e3c09a06cc66f9bd8c7e644049c5670efe3489"></a>
+<a id="canonical-1023022131232321-2132112210021013-1331132112010011-1113320330002122-0012303012123321-2331203013321210-1000102130111213-0032333203102021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b9b01c7ab7ed0ca0c5815e2e8674003cdae8551c83b896ff83cd91b12f58260d"></a>
+<a id="canonical-2321230001301322-2313323100302200-3011200111320232-2012131000000330-3122322011110130-2003232021123333-2003303121012301-0233112002120031"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start / 7ddd7e8ba6ca / 2
+## ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start — automatic_from_start / 202322123022 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
 - ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start
 
-<a id="canonical-8bf4df97b8e24fd925fd58d569d20a9595e55609b938e8381c67f6ba415b9e50"></a>
+<a id="canonical-2023331031332113-2320320210333121-0211333111203111-1221310200222111-2111321111120021-2321032032200320-0130121333122322-1001112321321100"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3907,40 +3907,40 @@ Terraform syntax:
 automatic_from_start = {}
 ```
 
-<a id="canonical-670f41150f61e7a24cb99ef85344cd9b69af28655d996bc0f5fe279e63de11bb"></a>
+<a id="canonical-1213003310010111-0033120132132202-1030232121323320-1103101030312123-1221223302201211-1131212112233000-3311333202132132-1203313201012323"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start / 7ddd7e8ba6ca / 3
+## Direct properties — automatic_from_start / 202322123022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-99de8ddfdddccff7f6dbd41b9ad9d33f7844008627212dbbd5d8f5cee39953af"></a>
+<a id="canonical-2121313220313133-3131313030333313-3312312331100123-2122312131030333-1320101000002012-0213020102312323-3111312033113032-3203212111032233"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start / 7ddd7e8ba6ca / 4
+## Next pages — automatic_from_start / 202322123022 / 4
 
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-3fd2f27d5692de3f3a82fbba7d7700b4ff1dfbaeaf704072abdead28c94cc386"></a>
+<a id="canonical-0333310233021331-1112210231320333-0322200233232322-1331131300002310-3333013133232232-2233130010001302-2223313222310220-3021103030032012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-472062aa1f043a112a3a6630e3862ab7efae9aa9882ad26ce3d8d30443c39edb"></a>
+<a id="canonical-1013020012022222-0133001003220101-0222032212120300-3203201202222313-3233223221222221-2020022231021230-3203312031030010-1003300321323123"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks / dcdc8cccfba0 / 2
+## ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks — dhcp_networks / 303033232200 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
 - ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks
 
-<a id="canonical-8b0f37b60c5b8865deb3d15af9be8753aa487a374d79337a4aa75e8db5d607fe"></a>
+<a id="canonical-2023003303132312-0030112320201211-3132230331011122-3321233220131103-2222102013220313-1031132103031322-1022221311322031-2311311200133332"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3994,15 +3994,15 @@ dhcp_networks {
 }
 ```
 
-<a id="canonical-e46d6ff36b56b006e2c9ce8b09bdbde7354ceb66f4d5cd4a2b89144d38cd3bde"></a>
+<a id="canonical-3210123112333303-1223111223000012-3202302130322023-0021233123313213-0311103032231212-3310311130311022-0223202101101031-0320303103233132"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks / dcdc8cccfba0 / 3
+## Direct properties — dhcp_networks / 303033232200 / 3
 
-<a id="canonical-22175ff499b48401ed21d2d8c84db14ce214635c4631614ba66225003e15c1d9"></a>
+<a id="canonical-0202011311333310-2121231020100001-3231020131023120-3020103123011030-3202011012031130-1012030112011023-2212120202110000-0332011130013121"></a>
 
-<a id="canonical-8e10f81bb955db0a8788745dc085f6a36ba3771bb4e02c870d9a14cbff5f500e"></a>
+<a id="canonical-2032010033200123-2321111131230022-2013202013101131-3000201133122203-1223220313130123-2310320002302013-0031212201103023-3333113311000032"></a>
 
-## network_prefix property — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks / dcdc8cccfba0 / 4
+## network_prefix property — dhcp_networks / 303033232200 / 4
 
 Type: `"string"`. Optional.
 
@@ -4041,11 +4041,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a747ef544cb43b079530106d8806dfa4b18c99b9e8b488f13feec03bb6ffdc9"></a>
+<a id="canonical-0022131013323311-1010302310032300-1321110300010012-3120200012313322-1023012030212123-2132202310202033-0103333232300003-2323123333313021"></a>
 
-<a id="canonical-89209e240aa4c85cc6a34a9855ef6ca491dbbf161b594bb661eb43a3b11e4186"></a>
+<a id="canonical-2021020021320210-0022221030201130-3012220310222120-1111323312302210-2101312323330112-0123112110232312-1201322310032203-2301013210012012"></a>
 
-## pool_settings property — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks / dcdc8cccfba0 / 5
+## pool_settings property — dhcp_networks / 303033232200 / 5
 
 Type: `"string"`. Optional.
 
@@ -4090,38 +4090,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [pools](resources--network_interface--reference--group-001.md#canonical-a2ad1340cc8d98107e2988ced8bd45b3999ba012548851d7a9486d5f6eb9b3fa): complete subsection reference.
+- [pools](resources--network_interface--reference--group-001.md#canonical-2202223101031000-3030203121200100-1332022120203032-3120233110112303-2121212322000102-1110202011013113-2221102012311133-1232232123033322): complete subsection reference.
 
-<a id="canonical-996ed86a5bb4362966a8f8b8db025f94bdb392759ebb31e8965e896454dfb7af"></a>
+<a id="canonical-2121123231201222-1123231003120221-1212222033202320-3123000211332110-2331230321021311-2132232303013220-2112113220211210-1110313323132233"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks / dcdc8cccfba0 / 6
+## Next pages — dhcp_networks / 303033232200 / 6
 
-- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-a2ad1340cc8d98107e2988ced8bd45b3999ba012548851d7a9486d5f6eb9b3fa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--network_interface--reference--group-001.md#canonical-2202223101031000-3030203121200100-1332022120203032-3120233110112303-2121212322000102-1110202011013113-2221102012311133-1232232123033322)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-a2ad1340cc8d98107e2988ced8bd45b3999ba012548851d7a9486d5f6eb9b3fa"></a>
+<a id="canonical-2202223101031000-3030203121200100-1332022120203032-3120233110112303-2121212322000102-1110202011013113-2221102012311133-1232232123033322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d2c99d7d43de4bd2afc0dfe99882ed0376255b682c10c0f2f4d5080605460a18"></a>
+<a id="canonical-3102302121311331-1003313210233102-2233300031333221-2120200232310003-1312021111231220-0230010030003302-3310311100200012-0011101200220120"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools / 7b793c4b6f63 / 2
+## ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools — pools / 102312331203 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-3fd2f27d5692de3f3a82fbba7d7700b4ff1dfbaeaf704072abdead28c94cc386)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-0333310233021331-1112210231320333-0322200233232322-1331131300002310-3333013133232232-2233130010001302-2223313222310220-3021103030032012)
 - ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools
 
-<a id="canonical-07227e352a23c33038c8374c3baa62a5eb541ea000cf80e028b03e600895a78f"></a>
+<a id="canonical-0013020213320311-0222020330030300-0320302003131030-0323222212022211-3223111001322200-0000303320003200-0220230003321200-0020211122132033"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4170,15 +4170,15 @@ pools {
 }
 ```
 
-<a id="canonical-d27bd48fad19e282726fca40eadbe4b69e22d34eb44f88266e66c98504e38016"></a>
+<a id="canonical-3102132331102033-2231012132022002-1302123330221000-3222312332102312-2132020231031032-2310103320200212-1232121230212011-0010320320000112"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools / 7b793c4b6f63 / 3
+## Direct properties — pools / 102312331203 / 3
 
-<a id="canonical-6f011446dce544ad6c7dec656d0c76eca541e857317f21d93d9c4db6c6d02127"></a>
+<a id="canonical-1233000101101012-3130321110102231-1230133132301211-1231003013123230-2211100132201113-0301133302013121-0331213010312312-3012310002010213"></a>
 
-<a id="canonical-38d49ceca496a3e82fc345b3cd51f6018c8f79887f1e71a217e657aa728d51e2"></a>
+<a id="canonical-0320311021303230-2210211222033220-0233300310112303-3031110133120001-2030203313212020-1333013213012202-0113321211132222-1302203111013202"></a>
 
-## end_ip property — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools / 7b793c4b6f63 / 4
+## end_ip property — pools / 102312331203 / 4
 
 Type: `"string"`. Optional.
 
@@ -4230,11 +4230,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7120feb55e299061997c40d2a160d0f5865804196dcce1ee4b82292de692e4db"></a>
+<a id="canonical-1301020033322311-1132022121001201-2121133010003102-2201120031003311-2012112000100121-1231303032013232-1023200202210231-3212210232103123"></a>
 
-<a id="canonical-0a3242e2f0df80f9d1948ed959fd5e986782aff555c7f97142ad2789f5c427f3"></a>
+<a id="canonical-0022030210023202-3300313320003321-3101211020323121-1121333111322120-1213200222333311-1111301333211301-1002223102132021-3311301002133303"></a>
 
-## start_ip property — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools / 7b793c4b6f63 / 5
+## start_ip property — pools / 102312331203 / 5
 
 Type: `"string"`. Optional.
 
@@ -4286,34 +4286,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f65d3a28574a6a6429bbee09c2cd5865033d5d1fb77c457b96096b7780507b5"></a>
+<a id="canonical-1033121131032202-2011131022122212-1002212323323200-2130023031112012-1100030331113101-3323131330101113-2321120021122313-1320001100132311"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools / 7b793c4b6f63 / 6
+## Next pages — pools / 102312331203 / 6
 
-- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-3fd2f27d5692de3f3a82fbba7d7700b4ff1dfbaeaf704072abdead28c94cc386)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--network_interface--reference--group-001.md#canonical-0333310233021331-1112210231320333-0322200233232322-1331131300002310-3333013133232232-2233130010001302-2223313222310220-3021103030032012)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-c2a8d114e51ac8d3347a89aef51510636699cf87567078052584ff3a8a78b008"></a>
+<a id="canonical-3002222031010110-3211012230203103-0310132220212232-3311011101001203-1212212130332013-1112130013200011-0211201033330322-2022132023000020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b519f07c12b27ab7d87da73b27eadfbac12f47b374ad84c6531a72bd69e81381"></a>
+<a id="canonical-2311012133001330-0102230213222313-3120133122130323-0213322231332322-3001023310132303-1310223120103012-1103012213022331-1221322001032001"></a>
 
-## ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map — ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map / 70ba0c9e5837 / 2
+## ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map — interface_ip_map / 213211200313 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-d507c80f6145ebfaca69d043fc19fbf9b72f5067c13af30649e79750a254c1cc)
-- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-9e1e8b4482e969e54bdedbd5f6e51a8ade9180c841dbc9b7e3c9b7b029de24aa)
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [ethernet_interface.ipv6_auto_config](resources--network_interface--reference--group-001.md#canonical-3111001330200033-1201101132233322-3022122131001003-3330012133233321-2313023311001213-3001032233030012-1021321321131100-2202111030013030)
+- [ethernet_interface.ipv6_auto_config.router](resources--network_interface--reference--group-001.md#canonical-2132013220231010-2002322112213211-1023313231233111-3312321101222022-3132210120003020-1001312330212313-3203302123132300-0221313202102222)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
 - ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map
 
-<a id="canonical-8d16e5d6f2f3ce8eae7c8caa200948c6ffa86884f6c53800cf07a8788cd77341"></a>
+<a id="canonical-2031011232113112-3302330330322032-2232133020302222-0200002110203012-3333222012202010-3312301103200000-3033001322201320-2030311313031001"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4340,15 +4340,15 @@ interface_ip_map {
 }
 ```
 
-<a id="canonical-10dc69ed733c5ce081af750b894db18b9fd27182a6631eb2de33f01826c695a6"></a>
+<a id="canonical-0100313012213231-1303033011303200-2001223313110023-2021103123012023-2133310213012002-2212120301322302-3132030333000120-0212301221112212"></a>
 
-## Direct properties — ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map / 70ba0c9e5837 / 3
+## Direct properties — interface_ip_map / 213211200313 / 3
 
-<a id="canonical-3e9e67af64c477a87d90da26f09bc231a0599be249bb2118037a5965e9acbb06"></a>
+<a id="canonical-0332213212132233-1210301013132220-1331210031220212-3300212330020301-2200112121233202-1021232302010120-0003132211211211-3221223023230012"></a>
 
-<a id="canonical-152dab58ccc38a9c17e5d694bf18bb102fd6fe277f7f180edcdd5faa4272e6ce"></a>
+<a id="canonical-0111023122231120-3030300320222130-0113321131122110-2333012023230100-0233311233320213-1333133301200032-3130313111332222-1002130232123032"></a>
 
-## interface_ip_map property — ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map / 70ba0c9e5837 / 4
+## interface_ip_map property — interface_ip_map / 213211200313 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -4383,31 +4383,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8e88335be17523e4f9249adbe9cf0c1c5a6fafbc1548309e80a8f422f70959ac"></a>
+<a id="canonical-2032202003031123-3201131102033210-3321021021223123-3221303300300130-1122123322332330-0111102003002132-2000222033100202-3313002111212230"></a>
 
-## Next pages — ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map / 70ba0c9e5837 / 5
+## Next pages — interface_ip_map / 213211200313 / 5
 
-- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-ebd7ef0686c6d804ac98a5d18f5b1a7ab434eea378a3d63b3b9863cfd1cbc512)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface.ipv6_auto_config.router.stateful](resources--network_interface--reference--group-001.md#canonical-3223311332330012-2012301231200010-2230212022113101-2033112301221322-2310031032322203-1320220331120323-0323212012033033-3101302330110102)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-96d9f13d322d043ffab7b9d4f26f2db3f8534caa14beae66c28f073b0a095cfe"></a>
+<a id="canonical-2112312133010331-0302023100100333-3322231323213110-3302123302312303-3320110310302222-0110233222321212-3002203300130323-0022002111303332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1e33f6b2869637d42e1d5e7c36998e49e95fdc5aa83adadbdfbe60d63c41f16b"></a>
+<a id="canonical-0132030333122302-2012211203133110-0232013111321330-0312212120321021-3221113331301122-2220032231223123-3133233212003112-0330100133011223"></a>
 
-## ethernet_interface.is_primary — ethernet_interface.is_primary / 31fa515fd854 / 2
+## ethernet_interface.is_primary — is_primary / 113331201110 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.is_primary
 
-<a id="canonical-2a25c8b30670c082b6ccd885febb75c927e6b9dd5b45566ac51d857d95adcbaa"></a>
+<a id="canonical-0222021130202303-0012130030002002-2312303031202011-3332232313113021-0213321223213131-1123101111121222-3011013120111331-2111223130232222"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4436,37 +4436,37 @@ Terraform syntax:
 is_primary = {}
 ```
 
-<a id="canonical-e67e6e1c83a6eb56c4d00f849b9f17af99978785bad17a26347a61fdd6de2518"></a>
+<a id="canonical-3212133212320130-2003221232231112-3010310000332010-2123213301132233-2121211320132011-2322310113220212-0310132212013331-3112313202110120"></a>
 
-## Direct properties — ethernet_interface.is_primary / 31fa515fd854 / 3
+## Direct properties — is_primary / 113331201110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fffd15411238453a4bd8ec2154f4a2a42e71aa8ba85581eab599c454c3efab00"></a>
+<a id="canonical-3333333101111001-0102032010110322-1023312032300201-1110331022022210-0232130122222023-2220111120013222-2311212130101110-3003323322230000"></a>
 
-## Next pages — ethernet_interface.is_primary / 31fa515fd854 / 4
+## Next pages — is_primary / 113331201110 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-62801a6fa2931fd2b7d35c8817f8b05c3d35b24eb7bb2de84c2cd554935d3567"></a>
+<a id="canonical-1202200001221233-2202210301333102-2313310311302020-0113332023001130-0331031123021032-2313232302313220-1030023031111110-2103113103111213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9e09996e2476798dfeab469f77ad947570ac127ba15f6e22f5e2897e4cd36135"></a>
+<a id="canonical-2132002121211232-0210131213212031-3332222310122133-1313223121101311-1300223001021323-2201113312320202-3311320220211332-1030310312010311"></a>
 
-## ethernet_interface.monitor — ethernet_interface.monitor / 06ea60fc43dc / 2
+## ethernet_interface.monitor — monitor / 333010033130 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.monitor
 
-<a id="canonical-2c2ea94141d5f5c631761897b48784fefa665733c6379d00a7a4e5b646f69c9f"></a>
+<a id="canonical-0230023222211001-1001311133113012-0301131201202113-2310201320103332-3322121211130303-3012031321310000-2213221032112312-1012331221302133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4491,37 +4491,37 @@ Terraform syntax:
 monitor = {}
 ```
 
-<a id="canonical-77f9b05ff34ce9c827a573d32684a4bd01182b2e9b14b1bab84d471fd44fdfe6"></a>
+<a id="canonical-1313332123001133-3303103032213020-0213221113033103-0212201022102331-0001012002230232-2123011023012322-2320103110130133-3110103331333212"></a>
 
-## Direct properties — ethernet_interface.monitor / 06ea60fc43dc / 3
+## Direct properties — monitor / 333010033130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-55079c54509e95596685ab8a823b0128b868fbc3394c61bcdd086c2e9c70e9ef"></a>
+<a id="canonical-1111001321301110-1100213221111121-1212201122232022-2002032300010220-2320122033233003-0321103012012330-3131002012300232-2130130032213233"></a>
 
-## Next pages — ethernet_interface.monitor / 06ea60fc43dc / 4
+## Next pages — monitor / 333010033130 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-46034b21cdd271dec1c6260712d1736070b3232acf27399d469376dad34aa497"></a>
+<a id="canonical-1012000310230201-3031310213013132-3001301202120013-0102310113031200-1300230302030222-3033021303212131-1012210313123122-3103102222102113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b515f391e23ab3f1ed59180a1e3d018840df7f15b6cecad0152487ac1ed2703"></a>
+<a id="canonical-0323110111330321-0132020322230333-0132311121012000-2201320331000120-2010003133133301-1123123032302231-0001110210201322-3001323102130003"></a>
 
-## ethernet_interface.monitor_disabled — ethernet_interface.monitor_disabled / ab6890d2ecce / 2
+## ethernet_interface.monitor_disabled — monitor_disabled / 310232303032 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.monitor_disabled
 
-<a id="canonical-00b1b710483d9029260b5e5c65c45e4d6cdcb127f9d18922f127c6796221fe7b"></a>
+<a id="canonical-0000230123130100-1020033121000221-0212002311321130-1211301011321031-1230313023010213-3321310120210202-3301021330121321-1202020133321323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4550,37 +4550,37 @@ Terraform syntax:
 monitor_disabled = {}
 ```
 
-<a id="canonical-0aa838b204ba92cc156c616f2a85141cff11d672653ed3f5ae1e525c9bd391c9"></a>
+<a id="canonical-0022222003202302-0010232221023030-0111123012011233-0222201101100130-3333010131121302-1211033231033311-2232013211021130-2123310321013021"></a>
 
-## Direct properties — ethernet_interface.monitor_disabled / ab6890d2ecce / 3
+## Direct properties — monitor_disabled / 310232303032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f9ddfa1c7af3878374efa195bb8c50e9a9ab8bcb25a1bfb3d0e119862a33988a"></a>
+<a id="canonical-3321313133220130-1322330320132003-1310323322012111-2323203011003221-2221222320233023-0211220123332303-3100320101212012-0222030321202022"></a>
 
-## Next pages — ethernet_interface.monitor_disabled / ab6890d2ecce / 4
+## Next pages — monitor_disabled / 310232303032 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-7f39517c0d7d7278f51272833c3b4b872306085209e35390e8cae77da081ef67"></a>
+<a id="canonical-1333032111011330-0031133113021320-3311010213022003-0330032310232013-0203001200201102-0021320311032100-3220302232131331-2200200132331213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3906756b993b84cc089d1d751fca6523557e1ea129e1e99b6c20c4b2c907f186"></a>
+<a id="canonical-0321001213111223-2121032320103030-0020213101311311-0133302212110203-1111133201322201-0221320132212123-1230020030102302-3021001333012012"></a>
 
-## ethernet_interface.no_ipv6_address — ethernet_interface.no_ipv6_address / 7b8371341a9f / 2
+## ethernet_interface.no_ipv6_address — no_ipv6_address / 031001222133 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.no_ipv6_address
 
-<a id="canonical-81e8bde0c542ae046890ccd7b6ca97bc9f4c67ec4f003094bbfe2f85610d581b"></a>
+<a id="canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4609,37 +4609,37 @@ Terraform syntax:
 no_ipv6_address = {}
 ```
 
-<a id="canonical-69bb123d535792152ac544f2c8c84256e5b2fcb728c53197ea5fc8a2afeb62d1"></a>
+<a id="canonical-1221232301020331-1103111321020111-0222301110103302-3020302010021112-3211230233302313-0220301103012113-3222113330202202-2233322312023101"></a>
 
-## Direct properties — ethernet_interface.no_ipv6_address / 7b8371341a9f / 3
+## Direct properties — no_ipv6_address / 031001222133 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8c31831576221050a33c6280c374ceb17eda62dc6233688d8fab6cf1effe91a3"></a>
+<a id="canonical-2030030120030111-1312020201001100-2203033012022000-3003131030322301-1332312212023130-1202030312202031-2033222312303301-3233333221012203"></a>
 
-## Next pages — ethernet_interface.no_ipv6_address / 7b8371341a9f / 4
+## Next pages — no_ipv6_address / 031001222133 / 4
 
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
-<a id="canonical-60e47d120eb8777337b513994e1d7faaf2e3563d789ab1f932f6ca92123ac8d0"></a>
+<a id="canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a645b594de83cec881b3f19b40580e0b9bcb8141806e33affea9078cbf2c6ba8"></a>
+<a id="canonical-2212101123112110-3132200330323020-2001230333012123-1000112000320023-2123302320011001-2000123203032233-3332222100132030-2333023012232220"></a>
 
-## ethernet_interface.not_primary — ethernet_interface.not_primary / 1cd48a6eb810 / 2
+## ethernet_interface.not_primary — not_primary / 123223200100 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
 - ethernet_interface.not_primary
 
-<a id="canonical-d6feb1ad4a0f6da80f15d4780c38a93c354d8bd742d75c6b8b7bddce772ecfe5"></a>
+<a id="canonical-3112333223012231-1022003312312220-0033011131101320-0030032022210330-0311103120233113-1002311311301223-2023132331313032-1313023230333211"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4666,191 +4666,4 @@ Terraform syntax:
 
 ```terraform
 not_primary = {}
-```
-
-<a id="canonical-f7b564989cdf8b4fee3fe38e8faefd7b340d20130da8fd55b9757cc3d4d158b9"></a>
-
-## Direct properties — ethernet_interface.not_primary / 1cd48a6eb810 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-088024918a8ee2e777ed10ffd4bff061f23f7d5d08066304dcd1f8856f87c41c"></a>
-
-## Next pages — ethernet_interface.not_primary / 1cd48a6eb810 / 4
-
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-
-<a id="canonical-1c24d05bd343dc61c1d309e128a96fcf4e987dd24e1cc1d23bc2a65b370bee1f"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d61bbb4630af05c1cfefda0ffbafe572b5b18f18faaa7722b68eee4bbfbc2035"></a>
-
-## ethernet_interface.site_local_inside_network — ethernet_interface.site_local_inside_network / c8c68dbfe762 / 2
-
-Breadcrumbs:
-
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- ethernet_interface.site_local_inside_network
-
-<a id="canonical-85f6dd6599ba156de5c47aa2aa4ec8844c6367bb5435184c66788769101f2b66"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_local_inside_network = {}
-```
-
-<a id="canonical-6af6dad898f212c1690f6496ccbde1d4c5b183ac30f84fa0b7e1fcd3aff62258"></a>
-
-## Direct properties — ethernet_interface.site_local_inside_network / c8c68dbfe762 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-c7826ff0c64885a0143d12e8af62bb8cf6aba6a691b600598bfb6885fa22ca80"></a>
-
-## Next pages — ethernet_interface.site_local_inside_network / c8c68dbfe762 / 4
-
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-
-<a id="canonical-620cdf9938409a1009b7d079b70e5c3eddb3c79c506a6245e760e69bc9b913a7"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-03652211ed3bfaa17c638c13db2ab25290b440a187d762c61ef13ff54cc27746"></a>
-
-## ethernet_interface.site_local_network — ethernet_interface.site_local_network / f7ec9017e460 / 2
-
-Breadcrumbs:
-
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- ethernet_interface.site_local_network
-
-<a id="canonical-83918a5d5cc033b3d4ed328d9c15172284ab234e6456012e467d4851c2d58a34"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_local_network = {}
-```
-
-<a id="canonical-05b5f347f2e1729ab2841d3c0f96954f1601e6ee08ca867b08ee9881bb7bd182"></a>
-
-## Direct properties — ethernet_interface.site_local_network / f7ec9017e460 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-548e477405eab682e6f0abd689b7d13e8295f7ce5fd4f31440539e5710ea639d"></a>
-
-## Next pages — ethernet_interface.site_local_network / f7ec9017e460 / 4
-
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-
-<a id="canonical-cab9271e1730e6f9466f7224ac0cdb714ed64f8faa8cc1318c98043323baf448"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-4b5639e6e424959bed585cb72568f0d4ac9736acf354554580663d6827f0a56e"></a>
-
-## ethernet_interface.static_ip — ethernet_interface.static_ip / b8d8b7423779 / 2
-
-Breadcrumbs:
-
-- [xcsh_network_interface](../resources/network_interface.md#canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-261f1ca86182d6d80002e855bcbcf682a31cf4629e1fc0e1672d613963e52369)
-- ethernet_interface.static_ip
-
-<a id="canonical-bb93a5143905ed4c3fba99beb8e9a3731ed985a6e0f8a8a48f019d236e243290"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Static IP Parameters. Configure Static IP parameters.
-
-Upstream description:
-
-Configure Static IP parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
-    "node_static_ip")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_ip {
-  # Configure direct properties listed below.
-}
 ```

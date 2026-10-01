@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_k8s_pod_security_adm
 
 # xcsh_k8s_pod_security_admission lifecycle
 
-<a id="canonical-7eea5c62d6c0e1d4ff1bcae58c0507b74ca9fdffc63f281506649b85dfc25582"></a>
+<a id="canonical-1332322211301202-3112300032013110-3333012330223211-2030001100132313-1030222133313333-3012033302200111-0012121021232011-3133300211112002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-289175427af0d8e4adaff10044c18b0e213c54fe22b130285ad37f262d825a29"></a>
+<a id="canonical-0220210113111002-1322330031203210-2231223333010000-1010300120230032-0201033011103332-0202230103000220-1122310313330212-0231200211220221"></a>
 
-## Import — Import / ac2dc66c1fbb / 2
+## Import — Import / 123001332323 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-37de369e9fe19aaf932b239f810d73047dfafd2b1a01d6804c3b7eb4d46f1b8b)
+- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_k8s_pod_security_admission.example system/example
 ```
 
-<a id="canonical-9953ab8e0b66b1da0eb76c288d5ae3f92e6f3d912477fd5ea8edf7abce73bbed"></a>
+<a id="canonical-2121110322232032-0023121223013122-0032231312300220-2031112232033321-0232123303312101-0210131333311132-2220323133132223-3032130323233231"></a>
 
-## Next pages — Import / ac2dc66c1fbb / 3
+## Next pages — Import / 123001332323 / 3
 
-- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-37de369e9fe19aaf932b239f810d73047dfafd2b1a01d6804c3b7eb4d46f1b8b)
+- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023)
 
-<a id="canonical-a6c18e2cd84cc7172dd4b2f66fb22400ca424e2b705f4c9726f7cd440271e120"></a>
+<a id="canonical-2212300120320230-3120103030130113-0231311023023312-1233230202100000-3022100210320223-1300113310302113-0212331330311010-0002130132010200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7941733e5f4adbdd3c61af9c993012836c5f4cef44be766bfae0e71ef67c13ba"></a>
+<a id="canonical-1321100113030332-1133102231233131-0330120122332130-2121030001022003-1230113310303233-1010233213121223-3322320032130132-3312133001032322"></a>
 
-## Timeouts — Timeouts / 46762145a2ac / 2
+## Timeouts — Timeouts / 101122022230 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-37de369e9fe19aaf932b239f810d73047dfafd2b1a01d6804c3b7eb4d46f1b8b)
+- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--k8s_pod_security_admission--reference--group-001.md#canonical-f7aa1facb841be5bf233bc09b9ec7d04217b43ce010a0a065bd1361d5cd646a8). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--k8s_pod_security_admission--reference--group-001.md#canonical-3313222201332230-2320100123321123-3302030323300021-2321323013310010-0201132310033032-0001002200220012-1123310103120131-1130311210122220). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-ad69cf24a998efd762ff18fb2fa0db71dc1f14c7af0b9dbeaa20a177d31d065e"></a>
+<a id="canonical-2231122130330210-2221212032333113-1202333301203323-0233220031231301-3130013301103013-2233002321312332-2222020022011313-3103013100121132"></a>
 
-## Next pages — Timeouts / 46762145a2ac / 3
+## Next pages — Timeouts / 101122022230 / 3
 
-- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-37de369e9fe19aaf932b239f810d73047dfafd2b1a01d6804c3b7eb4d46f1b8b)
+- [xcsh_k8s_pod_security_admission](../resources/k8s_pod_security_admission.md#canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023)

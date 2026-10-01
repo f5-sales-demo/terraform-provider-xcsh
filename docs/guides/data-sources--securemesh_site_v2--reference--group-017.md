@@ -6,20 +6,2570 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
-<a id="canonical-3a9bb6234cd405101365f7e1700c549bbfa1f3fcb01ad1ce12a5a833da8701be"></a>
+<a id="canonical-1230303231021131-0130121201022213-1313211023212110-3002023232112311-0012131323220033-3203333222211002-1021330003210202-2001303230330212"></a>
 
-## vmware.not_managed.node_list.interface_list — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 2
+## segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface — interface / 213032222130 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_routes](data-sources--securemesh_site_v2--reference--group-016.md#canonical-3013013210212323-2130222123331122-3102220321233132-3211131233310133-1323001231230321-0311212023230121-1333121113123323-1203333212113331)
+- [segment_vrf.segment_config.static_routes.static_routes](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0310112223023333-0331032222330012-0023123003302222-3100030000102221-3333323013021300-3203311323301121-3323203213212332-0332221210020010)
+- [segment_vrf.segment_config.static_routes.static_routes.node_interface](data-sources--securemesh_site_v2--reference--group-016.md#canonical-3121131131312033-3102100012000023-3020022122121233-2220301022320012-2131202021030211-1023002230213012-1210100032202030-3212320101223111)
+- [segment_vrf.segment_config.static_routes.static_routes.node_interface.list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-2113202010113230-3032001331112030-3120300302011222-3020201303330131-0212311302213032-0113001101100232-0322210002022111-3322002001103121)
+- segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface
+
+<a id="canonical-0003100202123023-3311220311031310-0131321030120311-1021132323222121-1311232103103003-2022121131201300-1220003321303233-3001312022232110"></a>
+
+Type: `"list"`. Computed.
+
+Interface. Interface reference on this node.
+
+Upstream description:
+
+Interface reference on this node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  }
+}
+```
+
+<a id="canonical-0203133321012002-2023122211012332-2003321233013300-1011112130002223-2202301301323012-2221020112303301-3121231131213122-1311232221121001"></a>
+
+## Direct properties — interface / 213032222130 / 3
+
+<a id="canonical-2001332021013223-1030311103320102-2123320032031212-2221111112313312-2321002320011113-2102101103323113-0202032121121131-1312032100100201"></a>
+
+<a id="canonical-1203232130031013-1111102311233013-1112032322111233-3102133330230011-3203033101300323-0310003312213230-3222302131231322-1100020303202001"></a>
+
+## kind property — interface / 213032222130 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. "route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0112323123332001-0100322202013220-2320030030221332-0300211132131120-3012303122023302-0312211301310130-0312213230132211-0000130122321320"></a>
+
+<a id="canonical-3020221100201130-3023332111011202-2330101223100323-2202133222011220-2113331112332030-1110223032333210-2202022332111313-2113321123113213"></a>
+
+## name property — interface / 213032222130 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0220001030122011-2123032003121330-2100123330111110-2220313300032323-2330211112013020-0023210132210023-0320113331000011-0320031110322102"></a>
+
+<a id="canonical-2102223111331013-3130201231302322-0203022332230021-1223320103000100-3013032000100331-2321303122022100-1202020112100322-0323302301020311"></a>
+
+## namespace property — interface / 213032222130 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3000331210120211-1200302032312003-0321013000310130-1111012212201121-3202323130103310-1311123000022303-1112230320212020-2011321132103012"></a>
+
+<a id="canonical-2233233013023211-0223212222121302-3012300002021221-3301213232020022-3310133210303021-2121000321320002-0222222202211013-2212103032203110"></a>
+
+## tenant property — interface / 213032222130 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3301013221312102-1212020333211131-0003001230210101-0113112213120020-2230002223100133-2233111123111130-2213010233122002-2313221133220311"></a>
+
+<a id="canonical-2032322213001031-1330312330023210-0320330220211113-2230010131110032-3001300321310133-1211310030212231-2133033032020032-1003212202101301"></a>
+
+## uid property — interface / 213032222130 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2113313233203301-3311333112133133-2201032122103222-1001110231313132-3222200133220320-1210021233013122-0001323121211210-3300013230101110"></a>
+
+## Next pages — interface / 213032222130 / 9
+
+- [segment_vrf.segment_config.static_routes.static_routes.node_interface.list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-2113202010113230-3032001331112030-3120300302011222-3020201303330131-0212311302213032-0113001101100232-0322210002022111-3322002001103121)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0212101323102221-1223302012131031-0231022222213210-3001231301331022-1103113222003122-0233200121111112-1223301301233323-1233120211312331"></a>
+
+## segment_vrf.segment_config.static_v6_routes — static_v6_routes / 023032303303 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- segment_vrf.segment_config.static_v6_routes
+
+<a id="canonical-2321210112013323-0200121000100001-2030323320102231-3010023203322200-3233011121013132-2002012001102123-1132003322330131-3322303222233230"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for static v6 routes.
+
+Upstream description:
+
+List of IPv6 static routes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3212103030031000-0000320221331202-0122000222211223-2303313332120230-0001222033312121-2003003230302303-3232010313311121-2301121031132232"></a>
+
+## Direct properties — static_v6_routes / 023032303303 / 3
+
+- [static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220): complete subsection reference.
+
+<a id="canonical-2102332210220231-0012022101201011-3113201322110110-3013030313321203-2233110103213102-0020133332120112-0321320100221031-2100010321202220"></a>
+
+## Next pages — static_v6_routes / 023032303303 / 4
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0303011001133310-0213301223101122-3303110122133321-3332131320330323-2103000100330113-1111020233213333-0311233311013303-1203201021012231"></a>
+
+## segment_vrf.segment_config.static_v6_routes.static_routes — static_routes / 122001113001 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- segment_vrf.segment_config.static_v6_routes.static_routes
+
+<a id="canonical-3020102102020121-1120013321312220-2012333223312020-2232302223203102-2222312021110303-0012032300123022-0220010231323133-0120230233023001"></a>
+
+Type: `"list"`. Computed.
+
+Static IPv6 Routes. List of IPv6 static routes.
+
+Upstream description:
+
+List of IPv6 static routes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2020333102301002-1023301321220223-3233210001120211-0032331221322301-0213303222312322-3121010033201203-1001131203202012-0221110233000221"></a>
+
+## Direct properties — static_routes / 122001113001 / 3
+
+<a id="canonical-3230231020310322-2100021111113131-0332113011323221-1001322301211221-2200220103122333-2302013201032313-1201122231123113-2211012120332230"></a>
+
+<a id="canonical-2232223212030133-3102300230010313-1200032031120112-3333101000100111-3000020212223121-1002222323011010-3323201331201332-3120021000100222"></a>
+
+## attrs property — static_routes / 122001113001 / 4
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
+\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
+Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [default_gateway](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021111133011010-0121301021321223-2020311330132131-0102103101030102-0103232233203020-3023020111011331-0123313200002020-0023100031323033): complete subsection reference.
+
+<a id="canonical-0000323213212212-1201210000321322-1303300201112231-3311130203001130-3120230200023033-1013102330003113-1313110323321322-2213302321021333"></a>
+
+<a id="canonical-1032230032111233-0200313220212001-3132112230203202-0303302001200210-3110031333312230-0031120111112113-3230023213323212-1130223001320130"></a>
+
+## ip_address property — static_routes / 122001113001 / 5
+
+Type: `"string"`. Computed.
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Upstream description:
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-3203311223300213-3312303320221323-0302011130302222-0320112333313213-2331113232011222-2111030322023320-1203130321230013-2320102031221310"></a>
+
+<a id="canonical-2003002211022122-0230020101220123-1302021200031103-2101332110300200-2002222220232113-1331120220131221-0111123210333111-2303031021333032"></a>
+
+## ip_prefixes property — static_routes / 122001113001 / 6
+
+Type: `["list", "string"]`. Computed.
+
+List of IPv6 route prefixes that have common next hop and attributes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 256,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [node_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103): complete subsection reference.
+
+<a id="canonical-2302130103210033-3320022213120100-3110202231030100-3031111231322121-1020323003022230-2110020023231313-0001312212123301-3323123303211230"></a>
+
+## Next pages — static_routes / 122001113001 / 7
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes.default_gateway](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021111133011010-0121301021321223-2020311330132131-0102103101030102-0103232233203020-3023020111011331-0123313200002020-0023100031323033)
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0021111133011010-0121301021321223-2020311330132131-0102103101030102-0103232233203020-3023020111011331-0123313200002020-0023100031323033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3131023111230032-3332333333123233-1121201330100323-2113122022201210-3123302031331110-0321103301310322-1333321002132333-2123210013102123"></a>
+
+## segment_vrf.segment_config.static_v6_routes.static_routes.default_gateway — default_gateway / 202311003330 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- segment_vrf.segment_config.static_v6_routes.static_routes.default_gateway
+
+<a id="canonical-1003321003320000-1330302021000032-0202233021220011-2312233333121001-1203020020211203-0012232130001112-0311020113213031-1320202101311122"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for default gateway.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2333111021323330-0102221112212001-3113210131001323-3200120201032021-1332332211213322-2223301131131113-0103323320012003-1210320110000330"></a>
+
+## Direct properties — default_gateway / 202311003330 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3331122113131033-0311001013232332-0032112320203232-2101302133102323-3320100111112233-1001022320203020-0322030212211330-3331110220120110"></a>
+
+## Next pages — default_gateway / 202311003330 / 4
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2102211123222302-2121313011120120-3111023230023230-1312220121110102-2210202022132123-1220201021132130-1320232310221332-0123121012321301"></a>
+
+## segment_vrf.segment_config.static_v6_routes.static_routes.node_interface — node_interface / 000000013210 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- segment_vrf.segment_config.static_v6_routes.static_routes.node_interface
+
+<a id="canonical-3120311032131001-1033110212200312-3122000310233020-3232012321103221-3233101203112330-1201303120111023-2021021000022332-2132302212111330"></a>
+
+Type: `"single"`. Computed.
+
+On multinode site, this type holds the information about per node interfaces.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0323301203203130-1131123023201120-0030231013330032-3231001023121132-2333023322201032-0133223102113300-0232322331232202-0321212211313323"></a>
+
+## Direct properties — node_interface / 000000013210 / 3
+
+- [list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2111011003301202-3133233121210301-3322233332303203-2223312211310330-0200330203023310-3221102013202221-3321212012023211-1012312333112021): complete subsection reference.
+
+<a id="canonical-0221302013320310-2110213212301312-3201232220013020-2233131012323111-0312231033222233-0213123023021211-2222131032002102-3022023023131103"></a>
+
+## Next pages — node_interface / 000000013210 / 4
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2111011003301202-3133233121210301-3322233332303203-2223312211310330-0200330203023310-3221102013202221-3321212012023211-1012312333112021)
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2111011003301202-3133233121210301-3322233332303203-2223312211310330-0200330203023310-3221102013202221-3321212012023211-1012312333112021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1303033230322112-3023130210020222-1001002311300303-1330103222112231-1033200321301302-3023210002012023-1000121312231020-3300232132321102"></a>
+
+## segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list — list / 000322303103 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103)
+- segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list
+
+<a id="canonical-3231201210012330-2031112300020123-2111112020133311-1013130302121333-1232010021321210-1131330230213013-2001130301001013-3302223002021230"></a>
+
+Type: `"list"`. Computed.
+
+On a multinode site, this list holds the nodes and corresponding networking\_interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "8"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "8"
+  }
+}
+```
+
+<a id="canonical-0230212322001230-3331102300103113-2323232333133232-3112023113220320-1103210000000301-0010022332202310-3010021110132210-2133102000122010"></a>
+
+## Direct properties — list / 000322303103 / 3
+
+- [interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0023300312002232-3313011201013002-3012111310212102-2230130201211100-2213212022200312-2330002021113101-1332223300323200-3222322012002211): complete subsection reference.
+
+<a id="canonical-1031213210131020-3310231323013220-1001221012000022-3202222123121113-1322030101330031-0332103111322000-2312222123323100-0322330030301110"></a>
+
+<a id="canonical-3130032132203220-2311300020302131-1101111002132311-1200333122203320-1221330230100312-3200311332012110-1011023103323002-1301232131123321"></a>
+
+## node property — list / 000322303103 / 4
+
+Type: `"string"`. Computed.
+
+Node. Node name on this site.
+
+Upstream description:
+
+Node name on this site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1321033202333020-3022310101121013-3111212230231121-1210112002032300-1312330232331001-0121011032323231-2001130333022311-1231332012223111"></a>
+
+## Next pages — list / 000322303103 / 5
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list.interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0023300312002232-3313011201013002-3012111310212102-2230130201211100-2213212022200312-2330002021113101-1332223300323200-3222322012002211)
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0023300312002232-3313011201013002-3012111310212102-2230130201211100-2213212022200312-2330002021113101-1332223300323200-3222322012002211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3113223322213111-0223231022013230-0321203212211312-2323101311301101-3000031111203202-0111221001213200-3101032020112200-3203323131032001"></a>
+
+## segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list.interface — interface / 300022201101 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [segment_vrf.segment_config](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0012020300313222-3111301312332300-1312100300000223-0332113232310300-2130132120201331-3001012312210132-3203200130212031-2113221223310320)
+- [segment_vrf.segment_config.static_v6_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303120210133032-0020301133000323-3311321220022302-3113222021233210-2213313002331302-1100333233332222-0121333220032113-2133332330221312)
+- [segment_vrf.segment_config.static_v6_routes.static_routes](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1013123331120122-0033112130321011-1333300111133331-1321221010013020-1000023032023001-2330032010300003-1210003001133331-2321100233112220)
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1231220311131020-0222213111202120-3211201112032233-0310210332003311-1012332122003020-1212302300220032-3311102022222031-2332011132202103)
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2111011003301202-3133233121210301-3322233332303203-2223312211310330-0200330203023310-3221102013202221-3321212012023211-1012312333112021)
+- segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list.interface
+
+<a id="canonical-3022302131021320-2201221321101200-1131213033032122-1010201012303013-1211330331021221-3120310001002023-3102302031231333-1002112301031010"></a>
+
+Type: `"list"`. Computed.
+
+Interface. Interface reference on this node.
+
+Upstream description:
+
+Interface reference on this node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  }
+}
+```
+
+<a id="canonical-1223221323000233-3330033313221231-1302321132210330-2012133311113210-2020120212101133-2200223000222212-3332112220100033-2123320213100132"></a>
+
+## Direct properties — interface / 300022201101 / 3
+
+<a id="canonical-2332010323001233-0033212230320312-0012320032131232-1323201212012311-0132121312301131-3220120131300211-1122012212333312-1210222332333301"></a>
+
+<a id="canonical-3332133213101003-1013223230112130-1100013231033213-0212133312203033-2031022322321232-3223300222232233-3320231021033010-1211010223013203"></a>
+
+## kind property — interface / 300022201101 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. "route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0223123221203302-1200310301132012-1122010132010120-3011130233100230-2023133032030120-1113023001030132-1111113111013330-1300113232233220"></a>
+
+<a id="canonical-3030231103003111-3020312333311200-1313023122213222-3321313010212231-0312023333310013-2003132213321111-3312020001310303-0002011212111223"></a>
+
+## name property — interface / 300022201101 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2111222213231023-3332311201223001-3021323333231030-2012120322000130-1221022333003031-3031210222122202-1211102121210221-0011230131220020"></a>
+
+<a id="canonical-3130322311303223-1123121031233131-1110302102020303-2302011103133013-2323103321131202-2111103223222103-0111220132031320-0220231131330130"></a>
+
+## namespace property — interface / 300022201101 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0103313331021203-1213003020120022-0101013121111103-0330101332131022-3001333123023003-1330032300130212-2021112203301313-3313022313202221"></a>
+
+<a id="canonical-0322121013200102-1023220110002323-3221100000322300-1330031330322131-2131133010033213-1300212301032100-1223003111233112-1332213312301330"></a>
+
+## tenant property — interface / 300022201101 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3321220133202023-2313120330201233-0023133220122003-1011133031320022-2102223002222333-0021320103130012-3002313122101100-2133202121113333"></a>
+
+<a id="canonical-0300330221323310-0211211131311330-2031233303203313-0223100012232001-1003220100013332-3131321101001321-2131320132300122-0012133020033303"></a>
+
+## uid property — interface / 300022201101 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3211013122313103-3230212322100132-2021322200201020-2032313023323221-2003032310212233-0313323123113032-2313023133111301-0123332121310331"></a>
+
+## Next pages — interface / 300022201101 / 9
+
+- [segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2111011003301202-3133233121210301-3322233332303203-2223312211310330-0200330203023310-3221102013202221-3321212012023211-1012312333112021)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0021113223132201-3022121331332032-3312123112022020-1203310012023130-2303101212300123-0001032222032213-1023013332311022-2231232033102112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3311000111020320-3133101310110200-2111011220103001-3110111032303203-3300111320223303-3101033200312322-2333220233003221-0021200223232102"></a>
+
+## segment_vrf.segment_network — segment_network / 222313011113 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- segment_vrf.segment_network
+
+<a id="canonical-0300320221222203-1033020102013121-2021120223120123-1123013320023122-2132101033100012-1222122212100313-0131233032002321-2213322222031102"></a>
+
+Type: `"single"`. Computed.
+
+Type establishes a 'direct reference' from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name for public API and Uid for private API This type of
+reference is called direct because the relation is explicit and concrete (as opposed to selector..
+
+Upstream description:
+
+This type establishes a 'direct reference' from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name for public API and Uid for private API This
+type of reference is called direct because the relation is explicit and concrete (as opposed to
+selector reference which builds a group based on labels of selectee objects)
+
+<a id="canonical-2202003022211221-2213322021300002-2100310232313011-2001223011210012-3311132302102023-0321003230113302-2111300311300020-0100302210321203"></a>
+
+## Direct properties — segment_network / 222313011113 / 3
+
+<a id="canonical-0113133220101213-2013133323020021-3232131101311221-3020010011232223-0101130333232211-3203122003123330-3012320320011301-2122110033331312"></a>
+
+<a id="canonical-1020320020223100-2022321333111210-1133131311123020-0200221132031311-0032200033100003-1212230011001031-1103100311121231-1030221001300313"></a>
+
+## kind property — segment_network / 222313011113 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. "route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1100232212302112-2230021121122212-0203001110103233-0101310322300111-2332233030321031-0132013212130030-1121322010230121-0100033133100212"></a>
+
+<a id="canonical-0122222332120123-0332233130220123-0231332032323213-1313301132003230-1232231113131200-2202311001013131-2010131232001320-1103210231312322"></a>
+
+## name property — segment_network / 222313011113 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1303311203120033-2231012200031110-2332021312001320-1202301032013212-3212230222113033-3330211113100202-0130300033022122-1212212000212010"></a>
+
+<a id="canonical-1013110112303230-0023111232233332-0301311030012221-2111013121131332-2332130302132031-0031332003212033-3121200100231102-2203321202303010"></a>
+
+## namespace property — segment_network / 222313011113 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3303122030023312-3130010003201020-2231233011310123-1022020130323133-1033012312203000-2122101100312112-3000313321100112-1330221001123303"></a>
+
+<a id="canonical-0212220333211023-2302313021113110-2103020131230121-3123101330301132-2102022313211022-0310132301022101-1210102231232202-2213302020221212"></a>
+
+## tenant property — segment_network / 222313011113 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1313120100332311-3120221010233230-0321332113212122-1212332212111201-2221301232132222-1321001022332131-1302002013231301-1010000131002102"></a>
+
+<a id="canonical-3310200012110011-1233102300032301-1203032033300032-1011331221200123-3231101103101322-0223122002213230-2222230021112120-0132203123320032"></a>
+
+## uid property — segment_network / 222313011113 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1032321003203233-2212212220013233-0320333201123201-1313030301233312-0031303100331001-3123231201012013-2103112001030121-1032221132101303"></a>
+
+## Next pages — segment_network / 222313011113 / 9
+
+- [segment_vrf](data-sources--securemesh_site_v2--reference--group-016.md#canonical-0230130300320210-0011023031331123-3231201210213202-0320133333320113-3130021121223112-2102321332323131-1022213002332031-0333312130233302)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0000033030322131-1123330122213033-2003103303102222-0200202303032031-1112122110013331-2321301132332200-1102311311201223-3322201021001233"></a>
+
+## site_mesh_group_on_slo — site_mesh_group_on_slo / 230033110201 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- site_mesh_group_on_slo
+
+<a id="canonical-3221121221012221-1120312011123103-2232231111100313-0130001022010320-2112303310110222-0231322011230011-1013121213110102-1122313133201011"></a>
+
+Type: `"single"`. Computed.
+
+Select how the site mesh group will be connected. By default, public IPs of the control nodes of the
+site will be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-site_mesh_group_choice": "[\"no_site_mesh_group\",\"site_mesh_group\"]",
+  "x-ves-oneof-field-site_mesh_group_ip_choice": "[\"sm_connection_public_ip\",\"sm_connection_pvt_ip\"]"
+}
+```
+
+<a id="canonical-2310220201101023-0122233021300212-0301131203310113-2301302330322132-2212311123213220-2322230331332133-0213302103102003-1102111321132233"></a>
+
+## Direct properties — site_mesh_group_on_slo / 230033110201 / 3
+
+- [no_site_mesh_group](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1331023023112310-1033013130131111-3120331103012113-0132333331321323-2320011313200210-0232023003301123-1202131331013033-3023122020220302): complete subsection reference.
+
+- [site_mesh_group](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0310123133313310-3101121232031020-1302233301002121-1311111131332031-0220212001000223-0130032130110330-3121332202001300-1311033113113121): complete subsection reference.
+
+- [sm_connection_public_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021212330003021-0231020110233323-1113133321030020-3002133131130110-3022123222213311-1302223331212110-1302131120032033-1302010200230222): complete subsection reference.
+
+- [sm_connection_pvt_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1222032311200220-2311221211201222-0221011112203212-3300123011013123-1123122011112211-2032010011311300-0033332111023213-2002023320101000): complete subsection reference.
+
+<a id="canonical-0210300230311321-2021231311332321-1000233332021031-2301002112330121-3110021223323303-3210231323031211-3011202233022103-3311211022003111"></a>
+
+## Next pages — site_mesh_group_on_slo / 230033110201 / 4
+
+- [site_mesh_group_on_slo.no_site_mesh_group](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1331023023112310-1033013130131111-3120331103012113-0132333331321323-2320011313200210-0232023003301123-1202131331013033-3023122020220302)
+- [site_mesh_group_on_slo.site_mesh_group](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0310123133313310-3101121232031020-1302233301002121-1311111131332031-0220212001000223-0130032130110330-3121332202001300-1311033113113121)
+- [site_mesh_group_on_slo.sm_connection_public_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021212330003021-0231020110233323-1113133321030020-3002133131130110-3022123222213311-1302223331212110-1302131120032033-1302010200230222)
+- [site_mesh_group_on_slo.sm_connection_pvt_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1222032311200220-2311221211201222-0221011112203212-3300123011013123-1123122011112211-2032010011311300-0033332111023213-2002023320101000)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1331023023112310-1033013130131111-3120331103012113-0132333331321323-2320011313200210-0232023003301123-1202131331013033-3023122020220302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0202330100103032-0332210111020001-3331100222330333-2203213131031020-1333333010312202-1123013200111321-2033303113221313-1111022000211311"></a>
+
+## site_mesh_group_on_slo.no_site_mesh_group — no_site_mesh_group / 323212000032 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- site_mesh_group_on_slo.no_site_mesh_group
+
+<a id="canonical-3323330023302300-2312013002310001-0132301322100012-0100033310122203-2332310220213010-0302000120331313-2100003211301101-2331223200220003"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0031222310230230-3321131201210002-0321103113322010-2331031023013131-3100302120023021-2033212213202122-0013230201102032-3101030112113013"></a>
+
+## Direct properties — no_site_mesh_group / 323212000032 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2001211113002030-2102212131023112-0003121310200112-0120122300113031-3231013303221111-2013223232020132-1230020013230132-1023321111101312"></a>
+
+## Next pages — no_site_mesh_group / 323212000032 / 4
+
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0310123133313310-3101121232031020-1302233301002121-1311111131332031-0220212001000223-0130032130110330-3121332202001300-1311033113113121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2330013102030133-2312110332133211-2231103013100123-0223321333000301-0323022120222112-1010111023231031-3232110332023111-3301033022011133"></a>
+
+## site_mesh_group_on_slo.site_mesh_group — site_mesh_group / 303223222022 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- site_mesh_group_on_slo.site_mesh_group
+
+<a id="canonical-1321102112031133-3302103200313300-2210220030221232-0033030310120132-1330331003032320-3221120333013130-3311031023133032-2220022223220233"></a>
+
+Type: `"single"`. Computed.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3300323322022232-2303131130021031-0122120302020321-3010012033130133-1313011333133100-2121330303033220-3213111120133132-3211012221233011"></a>
+
+## Direct properties — site_mesh_group / 303223222022 / 3
+
+<a id="canonical-0211002112203302-3300021232020332-3310031323000002-3201122232221132-0233231321220110-0033232022300032-3130321231220133-2133013103112022"></a>
+
+<a id="canonical-1203133201100332-2033230112331302-0020213333012211-3103201131333323-3221000213233020-1111312213323333-0132123002100002-2222221230030332"></a>
+
+## name property — site_mesh_group / 303223222022 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-2211210230111122-3303102031032312-2302021010101110-1323102233102122-2332102203110333-2020032131113113-0132000122101203-0012113211323020"></a>
+
+<a id="canonical-1203232303322120-2001002313121323-2300132002131020-3301333332122032-2133230312103110-2320012201010322-0323033230203123-3333221022200232"></a>
+
+## namespace property — site_mesh_group / 303223222022 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0030223333011111-3132131001110000-0132203313321220-0130302133022031-2121102313121320-0133321001301211-3301131102013100-2000322333321120"></a>
+
+<a id="canonical-2212201220033001-1301022010323233-1110323211101002-2010030331302003-2232332230212033-2300010302033133-2111232313030333-1202101020101303"></a>
+
+## tenant property — site_mesh_group / 303223222022 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-2232300300000110-1032100210302233-1122300021213021-1012310112212120-0100010331213013-1122010112201102-0103122302021012-1131311100113131"></a>
+
+## Next pages — site_mesh_group / 303223222022 / 7
+
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0021212330003021-0231020110233323-1113133321030020-3002133131130110-3022123222213311-1302223331212110-1302131120032033-1302010200230222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2030021233021300-3320133023320112-2032223323121213-2122233013310002-1011322130131010-0331211000101132-2311321333130021-2310222122332333"></a>
+
+## site_mesh_group_on_slo.sm_connection_public_ip — sm_connection_public_ip / 223303103002 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- site_mesh_group_on_slo.sm_connection_public_ip
+
+<a id="canonical-0111322032223002-1110313232312231-1210230113110231-0100123311113302-0032122111030213-3020201012133322-2113200321010330-0302113011100121"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3021222222302300-3322123233032233-0023322322111231-0300023010031030-0303101323231011-3303203330021222-2003131211311133-2121330201011231"></a>
+
+## Direct properties — sm_connection_public_ip / 223303103002 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3000221011300003-0022000312132311-2310023201022221-2112102112131120-2112103331210021-3110123000123000-3200133333111221-2322123103202211"></a>
+
+## Next pages — sm_connection_public_ip / 223303103002 / 4
+
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1222032311200220-2311221211201222-0221011112203212-3300123011013123-1123122011112211-2032010011311300-0033332111023213-2002023320101000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2111131033130220-0333122120321110-3003232001103012-1111121011223103-2310030122021220-2023022320102003-3302321232001000-3220302320221230"></a>
+
+## site_mesh_group_on_slo.sm_connection_pvt_ip — sm_connection_pvt_ip / 332111230203 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- site_mesh_group_on_slo.sm_connection_pvt_ip
+
+<a id="canonical-0321003000331112-0200312122110200-1033010120202310-0032303120310330-0211012333331322-3132003010010201-3330123131313120-2021102030132323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0030200210211200-3310001230122132-2022310202221313-1010031012222001-1222123322333033-0102231233303323-3001102220113322-3110133110320100"></a>
+
+## Direct properties — sm_connection_pvt_ip / 332111230203 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3032200133123001-1112211120130100-3111211113123120-1001123301313202-2133302323301131-2213333030302312-2300101303012211-0211313201223201"></a>
+
+## Next pages — sm_connection_pvt_ip / 332111230203 / 4
+
+- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0130300332201231-2102323331103230-1113310112020311-2132031122200311-2020200210212122-1333131013011300-0222101112203210-1213212023001031)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1011320210120000-0321202330123003-2012323301232312-3030023230033332-2230102100300321-0211002210023223-3230302301310130-2120032010202120"></a>
+
+## upgrade_settings — upgrade_settings / 331002213020 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- upgrade_settings
+
+<a id="canonical-3000003010233110-3122233323302221-3330021003012222-2202323100231222-2331122302332101-0210223033131103-2012230122031022-3013001013111221"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for upgrade settings.
+
+Upstream description:
+
+Specify how a site will be upgraded.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0023120231301103-3100230323331222-1122012110103300-2200301112311012-1031202131322010-0231333320103012-0302031112233031-0101201002030131"></a>
+
+## Direct properties — upgrade_settings / 331002213020 / 3
+
+- [kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111): complete subsection reference.
+
+<a id="canonical-1033211013011223-2111122131232223-3001333130222023-0120222301133331-2013101203133131-1302033021220320-3131102110013333-2001103203010310"></a>
+
+## Next pages — upgrade_settings / 331002213020 / 4
+
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3331000032132302-0232223100331202-3312303313212121-2031300313123333-2321133133320021-2200111003113201-2212212330210010-0330112013322221"></a>
+
+## upgrade_settings.kubernetes_upgrade_drain — kubernetes_upgrade_drain / 020133003023 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- upgrade_settings.kubernetes_upgrade_drain
+
+<a id="canonical-3131120002001132-2202330000310201-3032300003223200-0313232213321102-2010233303320121-0022133231122000-2103330100310323-1121212100202111"></a>
+
+Type: `"single"`. Computed.
+
+Specify how worker nodes within a site will be upgraded.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-kubernetes_upgrade_drain_enable_choice": "[\"disable_upgrade_drain\",\"enable_upgrade_drain\"]"
+}
+```
+
+<a id="canonical-0213113330202011-0100300202130132-1112031210133021-0232312112320203-3220130201231011-1312103003133231-3200322311311031-0233012233003010"></a>
+
+## Direct properties — kubernetes_upgrade_drain / 020133003023 / 3
+
+- [disable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1101002301102122-2031301321121333-2111011110222102-2010003033323032-0102303100133321-0020123323032330-0333110320203310-0011221132211102): complete subsection reference.
+
+- [enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123): complete subsection reference.
+
+<a id="canonical-3210313230011002-2021102301221133-2230210201230132-1022202010301301-2100320221201212-0012231222000232-0032110231110010-3013031323021223"></a>
+
+## Next pages — kubernetes_upgrade_drain / 020133003023 / 4
+
+- [upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1101002301102122-2031301321121333-2111011110222102-2010003033323032-0102303100133321-0020123323032330-0333110320203310-0011221132211102)
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1101002301102122-2031301321121333-2111011110222102-2010003033323032-0102303100133321-0020123323032330-0333110320203310-0011221132211102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1031331220221012-1031023023310322-1233213213120200-3210222222003003-3211221122100122-1303233023320212-2133303103232232-3232020330222132"></a>
+
+## upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain — disable_upgrade_drain / 211231023223 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain
+
+<a id="canonical-3010223302103231-0121212223111333-0033200230113113-2312000210203033-1013031101231311-0300020320223111-0221320200233103-0233111000310333"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable upgrade drain.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3300122330101030-3210220300001322-2220310333213301-0200212321331100-2312231002232033-3222303121102222-1310023032103111-1303020012201312"></a>
+
+## Direct properties — disable_upgrade_drain / 211231023223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0200302202013202-0101130222232201-3123213231301003-2321103112023120-3030311300301311-2020233321220332-2100003333103002-0232210203021000"></a>
+
+## Next pages — disable_upgrade_drain / 211231023223 / 4
+
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2001002323211133-2010100021023302-2202232201133203-0323112112110323-0310102010033120-1320321131100003-3131100221223230-3112030232010313"></a>
+
+## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain — enable_upgrade_drain / 300231331331 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain
+
+<a id="canonical-0300003311032023-3302312013333111-1013300221333331-1132000231211330-0131310303121002-3303100323302022-0221203131201212-1310113221312212"></a>
+
+Type: `"single"`. Computed.
+
+Specify batch upgrade settings for worker nodes within a site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-drain_max_unavailable_choice": "[\"drain_max_unavailable_node_count\", \"drain_max_unavailable_node_percentage\"]",
+  "x-ves-oneof-field-vega_upgrade_mode_toggle_choice": "[\"disable_vega_upgrade_mode\",\"enable_vega_upgrade_mode\"]"
+}
+```
+
+<a id="canonical-3031012333310031-0312132030203002-0322313203232000-0012233210100122-3111232022200310-3112321303211302-0001313101203132-1301122323121201"></a>
+
+## Direct properties — enable_upgrade_drain / 300231331331 / 3
+
+- [disable_vega_upgrade_mode](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1000023132331110-0302231221120301-0201322113131332-0032111123321231-0233302023230311-0121012200211000-0201320301232210-2200300300312222): complete subsection reference.
+
+<a id="canonical-0311322102003321-2301212210200030-0210212211333222-0323000203303023-1012321021101233-0300101132033131-1100013022323313-0310230211031113"></a>
+
+<a id="canonical-2203220230121202-1302312011033313-2110230333101032-0211312300201100-0310223010312230-2111320302010312-0313213210111032-1033203310200211"></a>
+
+## drain_max_unavailable_node_count property — enable_upgrade_drain / 300231331331 / 4
+
+Type: `"number"`. Computed.
+
+Node Batch Size Count. Exclusive with \[\]
+
+Upstream description:
+
+Exclusive with \[\]
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 5000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  }
+}
+```
+
+<a id="canonical-3333010022123302-3013231132331010-3332032200232101-3320222032120110-2003023013112232-2221020322210110-3330212223131313-2301212201221310"></a>
+
+<a id="canonical-3301323103333113-1333331111212121-1020011313023122-1012022132232003-0022103010103231-3210111022013312-0031022102103301-0330301112131030"></a>
+
+## drain_max_unavailable_node_percentage property — enable_upgrade_drain / 300231331331 / 5
+
+Type: `"number"`. Computed.
+
+Maximum percentage of nodes unavailable during upgrade draining.
+
+<a id="canonical-1303010013002002-2321012312121223-2211203313030312-2123020130012330-1300021033102121-1201312132110022-0020332333123221-1121122321311301"></a>
+
+<a id="canonical-1323103003212232-0013122223010021-2313203200030111-2100310133333100-0212301013032301-3302321002231212-3220111010201021-0010121032100320"></a>
+
+## drain_node_timeout property — enable_upgrade_drain / 300231331331 / 6
+
+Type: `"number"`. Computed.
+
+Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait
+indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set
+of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It
+is..
+
+Upstream description:
+
+Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait
+indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set
+of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
+recommended to use the default value).
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 900,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "900"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "900"
+  }
+}
+```
+
+- [enable_vega_upgrade_mode](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2300333333220033-2221032002323131-1300130033000020-1312322233132110-1321210332101211-3032200330111121-0101011011010333-0132101013322210): complete subsection reference.
+
+<a id="canonical-3101311012122313-2310122132111323-2322232211212002-2311011231122310-1310303213323303-2300013300333232-3221000213010333-0001002221021210"></a>
+
+## Next pages — enable_upgrade_drain / 300231331331 / 7
+
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1000023132331110-0302231221120301-0201322113131332-0032111123321231-0233302023230311-0121012200211000-0201320301232210-2200300300312222)
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2300333333220033-2221032002323131-1300130033000020-1312322233132110-1321210332101211-3032200330111121-0101011011010333-0132101013322210)
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1000023132331110-0302231221120301-0201322113131332-0032111123321231-0233302023230311-0121012200211000-0201320301232210-2200300300312222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0131020233102202-0330223021102111-2301320202033032-3133111233120300-3222321100220211-2310301030313231-0211032133111031-2301332111222131"></a>
+
+## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — disable_vega_upgrade_mode / 201321121131 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123)
+- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode
+
+<a id="canonical-1330203022203012-1033220033123111-3000323122013033-0302123231303221-2000013012122033-0223310311003123-2000313133031133-3323231021211231"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable vega upgrade mode.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2331311211300122-1132312330022203-2312313233133123-0123003213111023-2200021203121123-2003230033331333-2101000131302223-1220332322121030"></a>
+
+## Direct properties — disable_vega_upgrade_mode / 201321121131 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2113232203103200-0102121301102012-0313130033120113-1332030310233122-2211033130331330-1012213131011233-0020300120233223-2320232213033210"></a>
+
+## Next pages — disable_vega_upgrade_mode / 201321121131 / 4
+
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2300333333220033-2221032002323131-1300130033000020-1312322233132110-1321210332101211-3032200330111121-0101011011010333-0132101013322210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2212313230321322-1001101123032012-1013330002131030-3231000202021110-0323122032113323-1110133012330120-2110303321303120-0230323331322222"></a>
+
+## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — enable_vega_upgrade_mode / 231202133030 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [upgrade_settings](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030100133010212-1200030111021312-3123032332031021-0010103012023120-2202203012321113-0113233110320102-2113301111200001-0103012002023131)
+- [upgrade_settings.kubernetes_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1311312312123132-2132122001121023-2310232230000031-3331033300123111-2112333121031222-2121330032031221-0220303303333022-3300013222010111)
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123)
+- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode
+
+<a id="canonical-2121011223011123-1302123220211003-0332120032330212-2001113222130320-3110310330010032-3132212213013230-1330331013203313-3120012133321123"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for enable vega upgrade mode.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0220312131130322-3010203121203311-1312031333231211-2023301113222300-3230020201020230-3203213331233220-3301213112221221-3231303322001330"></a>
+
+## Direct properties — enable_vega_upgrade_mode / 231202133030 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1211233022221102-3220220113322133-0011332220321030-1020330022312202-3313223032212313-0320121102200102-0023232310223023-3311300123321103"></a>
+
+## Next pages — enable_vega_upgrade_mode / 231202133030 / 4
+
+- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021210223223221-1202110301313103-0001033232221120-3133022310111011-1230301200223222-3001001331031032-3021203121012132-2203311323331123)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1223003300002323-0122220231023121-2001311103221300-1302203011122312-2210122230211231-3023112121110301-3322101322021313-0203111022133332"></a>
+
+## vmware — vmware / 023203332131 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- vmware
+
+<a id="canonical-1000002233221021-3103002001232013-0203230211301022-0002322012112022-0103232111201010-2202332322301210-2103102202330030-0012103321010332"></a>
+
+Type: `"single"`. Computed.
+
+VMware Provider Type. VMware Provider Type.
+
+Upstream description:
+
+VMware Provider Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-orchestration_choice": "[\"not_managed\"]"
+}
+```
+
+<a id="canonical-0133201002330312-3102312203232312-0302232120131022-3100021101022003-0310122201020223-2022120120323131-1221121011322111-0031031131212003"></a>
+
+## Direct properties — vmware / 023203332131 / 3
+
+- [not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212): complete subsection reference.
+
+<a id="canonical-3211123130220013-2301121303021300-3323322010302331-0102013033112300-0220223311130113-3310210330211123-2032103222321133-1032210211111220"></a>
+
+## Next pages — vmware / 023203332131 / 4
+
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0223201211333321-1303031113222032-3113232320303000-3222002222131001-1021012330112330-2120333132210333-0211323111001020-1311022120330210"></a>
+
+## vmware.not_managed — not_managed / 013113220213 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- vmware.not_managed
+
+<a id="canonical-1213021313222310-3121323213021023-3100100011030113-2203123332213102-3002212031223001-0332033323310330-2031023000300211-3233020032202103"></a>
+
+Type: `"single"`. Computed.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0021320310210333-1011032213330031-0121303310203213-0003112020203100-3322032333122310-3110332110131310-3333333023031001-0203221100333221"></a>
+
+## Direct properties — not_managed / 013113220213 / 3
+
+- [node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101): complete subsection reference.
+
+<a id="canonical-3232033313010123-0133211110332300-2121101023110032-2031001223000101-2220032133120121-0331313311330230-3010123100313001-3012101321002113"></a>
+
+## Next pages — not_managed / 013113220213 / 4
+
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3112222222102022-2332330131012312-3202200231002212-0000312113301003-0011230101210013-0020301000030032-0112020001002111-2230013131320122"></a>
+
+## vmware.not_managed.node_list — node_list / 221302200230 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- vmware.not_managed.node_list
+
+<a id="canonical-3323211213321023-0300012331322202-3113132330121223-0202231132030323-3110203121001203-0030000122201002-3131331231202022-0322131213303333"></a>
+
+Type: `"list"`. Computed.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2231332332323222-1121231032210003-0311131131101230-0003103110122212-1203332310222123-2102102323023221-2311303013202233-0331203200322220"></a>
+
+## Direct properties — node_list / 221302200230 / 3
+
+<a id="canonical-1330320300132102-3003201133213233-3033200223322102-0210033321200302-1301001323031110-3200020101022131-1122200023320130-2220120213330011"></a>
+
+<a id="canonical-2322202313322310-2333202222112131-3331101111111032-0133022221121101-0210302323120230-0233223333223321-0231103002212212-0121320311121013"></a>
+
+## hostname property — node_list / 221302200230 / 4
+
+Type: `"string"`. Computed.
+
+Hostname. Hostname for this Node.
+
+Upstream description:
+
+Hostname for this Node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "fqdn",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1123"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313): complete subsection reference.
+
+<a id="canonical-3112312130031131-3113231233213033-3130130000301210-3020123212000211-2002331212010203-2021320211102210-1300123221132101-2220012210310310"></a>
+
+<a id="canonical-3303320303000212-2013133212020101-2230013120201323-2310001220210331-3103312320103023-1120333200210300-1101323001103301-3203023103312031"></a>
+
+## public_ip property — node_list / 221302200230 / 5
+
+Type: `"string"`. Computed.
+
+Public IP. Public IP for this Node.
+
+Upstream description:
+
+Public IP for this Node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3331232010122312-0303012232331222-1321001323220011-2021101333103201-0122331230301022-0322200330012301-2133002122213310-2320100122322002"></a>
+
+<a id="canonical-3011303320223012-1033131100100131-1203201030122101-2230232303111112-3130020030101211-1100003103120231-0030121321020311-3301030203002110"></a>
+
+## type property — node_list / 221302200230 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum: Control|Worker\] Type for this Node, can be Control or Worker. Possible values are
+\`Control\`, \`Worker\`.
+
+Upstream description:
+
+Type for this Node, can be Control or Worker.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "Control",
+    "Worker"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  }
+}
+```
+
+<a id="canonical-2102033202003011-1122001010232301-3122310102023122-1133031002032031-0011002212133113-2032021322320232-3013222233031103-0133131032201021"></a>
+
+## Next pages — node_list / 221302200230 / 7
+
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0322212323120203-1030311000110100-0103121133133201-1300003011102123-2333220133033330-2300012231013032-0102221122200303-3122201300012332"></a>
+
+## vmware.not_managed.node_list.interface_list — interface_list / 203220132002 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
 - vmware.not_managed.node_list.interface_list
 
-<a id="canonical-b387fe228fa40651113e049e2228b247e0b5d793b4181a29f87c89a29c4a1635"></a>
+<a id="canonical-2303201333320202-2033221000121101-0101033200102132-0202022023021013-3200231131132103-2310012001220221-3320133020212202-2130102201120311"></a>
 
 Type: `"list"`. Computed.
 
@@ -59,55 +2609,55 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-553b88c04c72412b95020d5a720860f03ab9146604a596226e55ce9c87108d4a"></a>
+<a id="canonical-1111032320203000-1030130210010223-2111000200311122-1302002012003300-0322232101101212-0010221121120202-1232111130322130-2013010020311022"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 3
+## Direct properties — interface_list / 203220132002 / 3
 
-- [bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133): complete subsection reference.
+- [bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303): complete subsection reference.
 
-<a id="canonical-9739b6efab1f1f253593d97b222ebc16b10f790d92e5047123c3d8fc8e624c12"></a>
+<a id="canonical-2113032123123233-2223013301330211-0311210331211323-0202023223300112-2301003313210031-2102321100101301-0203300331203330-2032120210300102"></a>
 
-<a id="canonical-20487659413e9fb91c3afa580f5c983b094f58ee1c7b285298adb0798fbf6d49"></a>
+<a id="canonical-0200102013121121-1001033221332321-0130032233221120-0033113021200323-0021103311203232-0130132302201102-2120223123001321-2033233312311021"></a>
 
-## description_spec property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 4
+## description_spec property — interface_list / 203220132002 / 4
 
 Type: `"string"`. Computed.
 
 Interface Description. Description for this Interface.
 
-- [dhcp_client](data-sources--securemesh_site_v2--reference--group-017.md#canonical-820048c87747341ee92a305eb48331c1ad7170c3802f93011c1b29a15d1fb513): complete subsection reference.
+- [dhcp_client](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2002000010203020-1313101303100132-3221022203001132-2310200303013001-2231130113003003-2000023321030001-0130012302212201-1131013323110103): complete subsection reference.
 
-- [dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c): complete subsection reference.
+- [dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130): complete subsection reference.
 
-- [ethernet_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9d944837d4c7972a526e05cea9804ab6f5f114eb7ef9e7670a296540362f28ef): complete subsection reference.
+- [ethernet_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2131211010200313-3110301321130222-1102123200113032-2221200010222312-3311330101103223-1332332132131213-0022022112111000-0312023302203233): complete subsection reference.
 
-- [ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa): complete subsection reference.
+- [ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322): complete subsection reference.
 
-<a id="canonical-9986d09e4d83101a80022f9b547aa737c88136d88a9e47cefefde272e63f2b59"></a>
+<a id="canonical-2121201231002132-1031200301000122-2000000202332123-1110132222130313-3020200103123120-2022213210133032-3332333132021302-3212033302231121"></a>
 
-<a id="canonical-e8d02daa377d49a780bfdce103d395399875a5d2c890f878152068a4bdae7363"></a>
+<a id="canonical-3220310002312222-0313133110212213-2000233331303201-0003310321110321-2120131122113102-3020210033201320-0111020012202210-2331223213031203"></a>
 
-## is_management property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 5
+## is_management property — interface_list / 203220132002 / 5
 
 Type: `"bool"`. Computed.
 
 Configuration for is\_management.
 
-<a id="canonical-b5139ec647fdb584ff968b57b56c3da623433471b563935b42048f59c3890c14"></a>
+<a id="canonical-2311010321323012-1013333123112010-3333211220231113-2311123003312212-0203100303101301-2311120321031123-1002001020331121-3003202100300110"></a>
 
-<a id="canonical-1865bfdc372fcba04ac49cf9be367c7734f11d1aee4a940e8c78a05d7250c4f4"></a>
+<a id="canonical-0120121123333130-0313023330232200-1022301021303321-2332031213301313-0310330101310122-3232102221100032-2030132022001131-1302110030103310"></a>
 
-## is_primary property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 6
+## is_primary property — interface_list / 203220132002 / 6
 
 Type: `"bool"`. Computed.
 
 Configuration for is\_primary.
 
-<a id="canonical-438788153610446f3b4620dde41845ce03ac4e1e297fc20f14f5b583e9561861"></a>
+<a id="canonical-1003201320200111-0312010010101233-0323101202003131-3210012010113032-0003223010320132-0221133330020033-0110331123112003-3221111201201201"></a>
 
-<a id="canonical-031885dfdf348f919768445ea2841d6ea393c31b16b2203cb2c400f7faa280e9"></a>
+<a id="canonical-0003012020113133-3133031020332101-2113122010101132-2202201001311232-2203210330030123-0112230202000330-2302301000003313-3322220220003221"></a>
 
-## labels property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 7
+## labels property — interface_list / 203220132002 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -140,15 +2690,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [monitor](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c0d532ea954a4fd60833369da7f4607c9a2d91db72c587e740164bfc42f33f20): complete subsection reference.
+- [monitor](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3000311103023222-2111102210333112-0020030303122131-2213331012001330-2122023121013123-1302301120133213-1000011210233330-1002330303330200): complete subsection reference.
 
-- [monitor_disabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d5a180851c2a785e2cf71829e969187cac0b0f828c10ea3c977c3ca059329a21): complete subsection reference.
+- [monitor_disabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3111220120002011-0130022213201132-0230331301200221-3221122101201330-2230002300332002-2030010032220330-2113133003302200-1121030221220201): complete subsection reference.
 
-<a id="canonical-299645ef098e69be0be2125494184960e5c28126fe61a748033a4277f2345b5f"></a>
+<a id="canonical-0221211210113233-0021203212212332-0023320201021110-2110012010211200-3211300220010212-3332120122131020-0003032210021313-3302031011231133"></a>
 
-<a id="canonical-c5d6d953aec3867573d0307454de141c733c474bfae2a5b985b06349aba4ab0b"></a>
+<a id="canonical-3011311231211103-2232300320121311-1303310003001310-1110313201100130-1303033010131023-3322320222112321-2011230012031021-2223221022230023"></a>
 
-## mtu property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 8
+## mtu property — interface_list / 203220132002 / 8
 
 Type: `"number"`. Computed.
 
@@ -190,11 +2740,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-828cb9e6a958314cfbef835db5fcfec8668a607fd63725614221b7d20c534368"></a>
+<a id="canonical-2002203023213212-2221112003011030-3323323320031131-2311333033323020-1212202212001333-3112031302111201-1002020123133102-0030110310031220"></a>
 
-<a id="canonical-30f5aebd58bb159dcb6d8df2afc9828b598b8f676af7022dc313b48308192cd3"></a>
+<a id="canonical-0300331122322331-1120232301112131-3023123120313302-2233302120022023-1121202320331213-1222331300020231-3003010323102003-0020012102303103"></a>
 
-## name property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 9
+## name property — interface_list / 203220132002 / 9
 
 Type: `"string"`. Computed.
 
@@ -249,17 +2799,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8): complete subsection reference.
+- [network_option](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3320130231323321-3022122100223033-1022132021022321-2011100212203002-0033031330120212-0212210003112230-2202320210023220-3322202133132320): complete subsection reference.
 
-- [no_ipv4_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-75c45b1993190ce2ad19a20d8e5b01f216e6775bce3004c8506756ec8fceb0c6): complete subsection reference.
+- [no_ipv4_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-1311301011230121-2103012100303202-2231012122020031-2032112300013302-0112321213131123-3032030000103020-1100121311123230-2033303223003012): complete subsection reference.
 
-- [no_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-a9b19516002b4330fd2f2374b11caf3cea679396fc69d21c7a0e7abceb217584): complete subsection reference.
+- [no_ipv6_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2221230121110112-0000022310030300-3331023302031310-2301013022330330-3222121321032112-3330122131020130-1322003213222330-3223020113112010): complete subsection reference.
 
-<a id="canonical-284402a2c624c9ebef934635d9f798b8cfc7fb38a265ce0b929369f35ec5cf19"></a>
+<a id="canonical-0220101000022202-3012021030213223-3233210310120311-3121331321202320-3033301333230320-2202121130320023-2102210312213303-1132301130330121"></a>
 
-<a id="canonical-c1fdcf35a70399aa86e6b15c31b0890ba6076f087db0b0e77f102c639f18abbc"></a>
+<a id="canonical-3001333130330311-2213000321212222-2012321223011130-0301230020210023-2212001312330020-1331230023003213-1333010002301203-2133012022232330"></a>
 
-## priority property — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 10
+## priority property — interface_list / 203220132002 / 10
 
 Type: `"number"`. Computed.
 
@@ -307,59 +2857,59 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9995a1d8d38c789c34d29c5ff06da51cb98796fb20dcaac83b30028c3ad6c6d0): complete subsection reference.
+- [site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2121211122013120-3103203013202130-0310310221301133-3300123122110130-2321201321123323-0200313022223020-0323030000022030-0322311230123100): complete subsection reference.
 
-- [site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8c2dee918558431a357fa0cc5fc17d639304b7e01b5d4dee3b08c42a2d4b1283): complete subsection reference.
+- [site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2030023132322101-2011112010030122-0311133322003030-1133300113311203-2103001023133200-0123113110313232-0323002030100222-0231102301022003): complete subsection reference.
 
-- [static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3a1d19b4aaf04e2319159d92244412ad68de95e84de0a9b3380ca724ff0c0314): complete subsection reference.
+- [static_ip](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0322013101212310-2222330010320203-0121011121312102-0210101001022231-1220313221113220-1031320022212303-0320003022130210-3333003000030110): complete subsection reference.
 
-- [static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117): complete subsection reference.
+- [static_ipv6_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0101212013130321-0131302111333332-2312131200130323-3111003310322033-0033230100220132-3322223222230132-0011121000101030-0332100211010113): complete subsection reference.
 
-- [vlan_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2c336614881f32108bf45b8d32c9338cb9eb1b6eab663f99a48f91edcef0c177): complete subsection reference.
+- [vlan_interface](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0230030312120110-2020013303020100-2023331011232031-0302302103032030-2321322301231232-2223121203332121-2210203321013231-3032330030011313): complete subsection reference.
 
-<a id="canonical-4637ef1aa40bfaf38530064e5b3a07100d11751a5c37d3b698ddc13759fbd408"></a>
+<a id="canonical-1012031332330122-2210002333223303-2011030000121032-1123032200130100-0031010113110122-1130031331032312-2120313130010313-1121332331100020"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list / 1fd7728e8782 / 11
+## Next pages — interface_list / 203220132002 / 11
 
-- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133)
-- [vmware.not_managed.node_list.interface_list.dhcp_client](data-sources--securemesh_site_v2--reference--group-017.md#canonical-820048c87747341ee92a305eb48331c1ad7170c3802f93011c1b29a15d1fb513)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [vmware.not_managed.node_list.interface_list.ethernet_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9d944837d4c7972a526e05cea9804ab6f5f114eb7ef9e7670a296540362f28ef)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.monitor](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c0d532ea954a4fd60833369da7f4607c9a2d91db72c587e740164bfc42f33f20)
-- [vmware.not_managed.node_list.interface_list.monitor_disabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d5a180851c2a785e2cf71829e969187cac0b0f828c10ea3c977c3ca059329a21)
-- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8)
-- [vmware.not_managed.node_list.interface_list.no_ipv4_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-75c45b1993190ce2ad19a20d8e5b01f216e6775bce3004c8506756ec8fceb0c6)
-- [vmware.not_managed.node_list.interface_list.no_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-a9b19516002b4330fd2f2374b11caf3cea679396fc69d21c7a0e7abceb217584)
-- [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9995a1d8d38c789c34d29c5ff06da51cb98796fb20dcaac83b30028c3ad6c6d0)
-- [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8c2dee918558431a357fa0cc5fc17d639304b7e01b5d4dee3b08c42a2d4b1283)
-- [vmware.not_managed.node_list.interface_list.static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3a1d19b4aaf04e2319159d92244412ad68de95e84de0a9b3380ca724ff0c0314)
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117)
-- [vmware.not_managed.node_list.interface_list.vlan_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2c336614881f32108bf45b8d32c9338cb9eb1b6eab663f99a48f91edcef0c177)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303)
+- [vmware.not_managed.node_list.interface_list.dhcp_client](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2002000010203020-1313101303100132-3221022203001132-2310200303013001-2231130113003003-2000023321030001-0130012302212201-1131013323110103)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [vmware.not_managed.node_list.interface_list.ethernet_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2131211010200313-3110301321130222-1102123200113032-2221200010222312-3311330101103223-1332332132131213-0022022112111000-0312023302203233)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [vmware.not_managed.node_list.interface_list.monitor](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3000311103023222-2111102210333112-0020030303122131-2213331012001330-2122023121013123-1302301120133213-1000011210233330-1002330303330200)
+- [vmware.not_managed.node_list.interface_list.monitor_disabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3111220120002011-0130022213201132-0230331301200221-3221122101201330-2230002300332002-2030010032220330-2113133003302200-1121030221220201)
+- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-018.md#canonical-3320130231323321-3022122100223033-1022132021022321-2011100212203002-0033031330120212-0212210003112230-2202320210023220-3322202133132320)
+- [vmware.not_managed.node_list.interface_list.no_ipv4_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-1311301011230121-2103012100303202-2231012122020031-2032112300013302-0112321213131123-3032030000103020-1100121311123230-2033303223003012)
+- [vmware.not_managed.node_list.interface_list.no_ipv6_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2221230121110112-0000022310030300-3331023302031310-2301013022330330-3222121321032112-3330122131020130-1322003213222330-3223020113112010)
+- [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2121211122013120-3103203013202130-0310310221301133-3300123122110130-2321201321123323-0200313022223020-0323030000022030-0322311230123100)
+- [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2030023132322101-2011112010030122-0311133322003030-1133300113311203-2103001023133200-0123113110313232-0323002030100222-0231102301022003)
+- [vmware.not_managed.node_list.interface_list.static_ip](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0322013101212310-2222330010320203-0121011121312102-0210101001022231-1220313221113220-1031320022212303-0320003022130210-3333003000030110)
+- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0101212013130321-0131302111333332-2312131200130323-3111003310322033-0033230100220132-3322223222230132-0011121000101030-0332100211010113)
+- [vmware.not_managed.node_list.interface_list.vlan_interface](data-sources--securemesh_site_v2--reference--group-018.md#canonical-0230030312120110-2020013303020100-2023331011232031-0302302103032030-2321322301231232-2223121203332121-2210203321013231-3032330030011313)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133"></a>
+<a id="canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c51a107c49662213b831541e4ccbded63d4d75a9fa4df94db53173b18bd87b5"></a>
+<a id="canonical-0030110122010013-3010211212020201-0323200301111001-3210303023313231-1203311031131122-2133221031332110-3123110301130323-0120233120132311"></a>
 
-## vmware.not_managed.node_list.interface_list.bond_interface — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 2
+## vmware.not_managed.node_list.interface_list.bond_interface — bond_interface / 222203212101 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
 - vmware.not_managed.node_list.interface_list.bond_interface
 
-<a id="canonical-8608ac064aee30d1ac7124d7e36f25a3f7c5782e494fd516aa012a8a808ce4ac"></a>
+<a id="canonical-2012002022300012-1022323203003101-2230130102103113-3203123302112203-3313301113200232-1021103331110112-2222000102222022-2000203032102230"></a>
 
 Type: `"single"`. Computed.
 
@@ -383,17 +2933,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0b1f1bd5cbeab329ef978c4443d5dab38b5026b9b2563d2e4416a6ffc261df9a"></a>
+<a id="canonical-0023013301233111-3023322223030221-3233211320301010-1003311131222303-2023110002122321-2302111203310232-1010011222123333-3002120131332122"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 3
+## Direct properties — bond_interface / 222203212101 / 3
 
-- [active_backup](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8df02ece9b575b8458cf28b5d929b3a243f2eacdbc4f06826aa2a973321067ae): complete subsection reference.
+- [active_backup](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2031330002323032-2123111311232010-1120303302202311-3121022123032202-1003330232223031-2330103300122002-1222220222211303-0302010012132232): complete subsection reference.
 
-<a id="canonical-b9c182446b55fdab634dde196f1b0819108f98051b766c4141259b72f25eeb5d"></a>
+<a id="canonical-2321300120021010-1223111133312223-1203103131320121-1233012300200121-0100203321200011-0123131212301001-1001021121231302-3302113232231131"></a>
 
-<a id="canonical-6b23979f5df85babb411cf8e4fdd4bd84750e0a6292e177669f52c3f6bc15895"></a>
+<a id="canonical-1223020321132133-1131332011232223-2310010130332032-1033313110233120-1013110032002212-0221023201131312-1221331102300333-1223300111202111"></a>
 
-## devices property — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 4
+## devices property — bond_interface / 222203212101 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -441,13 +2991,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [lacp](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9c638cfaf9e22db98977f617beec79611eb0ba052ea49ed44417692ec630babf): complete subsection reference.
+- [lacp](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2130120320303322-3321320202312321-2021131333120113-2332323013211201-0132230023220011-0232221021323110-1010011312210232-3012030023222333): complete subsection reference.
 
-<a id="canonical-f5d8b9f3bbc0625430e73cdd64876bfd2edb7b08ad95bfc58e0032d7329ef597"></a>
+<a id="canonical-3311312023213303-2323300012021110-0300321303303131-1210201312233331-0232312313230020-2231211123333011-2032000003023113-0302213233112113"></a>
 
-<a id="canonical-cdf21dd811fbe7243ecab3921812c96279d96e5f42ee60afdb45cfec2f427168"></a>
+<a id="canonical-3031330201313120-0101332332130210-0332302223032102-0120010230211202-1321312112321133-1002323212002233-3123101130333230-0233100213011220"></a>
 
-## link_polling_interval property — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 5
+## link_polling_interval property — bond_interface / 222203212101 / 5
 
 Type: `"number"`. Computed.
 
@@ -492,11 +3042,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86a82e3fca2e99a6e8d585688b66e33299914781865cd3573f09b423bd54cfad"></a>
+<a id="canonical-2012222002320333-3022023221212212-3220311120111220-2023121232030302-2121210110132001-2012113031031113-0333002123100203-2331111030332231"></a>
 
-<a id="canonical-0d212e4af1ff1e4afaa8a45c4a726d5afd2be9dc9241ea1e5eee0f50a7b00feb"></a>
+<a id="canonical-0031020102321022-3301333301321022-3322222022101130-1022130212311122-3331022332213130-2102100132220132-1132323200331100-2213230000333223"></a>
 
-## link_up_delay property — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 6
+## link_up_delay property — bond_interface / 222203212101 / 6
 
 Type: `"number"`. Computed.
 
@@ -537,11 +3087,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1c0a5f6e8dcc844c8a7bed62147d814c7808f465fb9171143facc4e2e0345a69"></a>
+<a id="canonical-0130002211331232-2031303020101030-2022132332311202-0110133120011030-1320002033101211-3323210113010110-0333223030103202-3200031011221221"></a>
 
-<a id="canonical-f0584ed711f3e431847b134896cf5774d2a8575baa6545e2e5c9f0e2d8ca6099"></a>
+<a id="canonical-3300112010323113-0101330332100301-2010132301031020-2112303311131310-3102222011131123-2222121110113202-3211302133003202-3120302212002121"></a>
 
-## name property — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 7
+## name property — bond_interface / 222203212101 / 7
 
 Type: `"string"`. Computed.
 
@@ -598,37 +3148,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3c20e135285cb23f433fe81b2895fdee8f4782b40cb94edd38ffa0f70a9b1b14"></a>
+<a id="canonical-0330020032010311-0220113023020333-1003033332200123-0220211133313232-2033101320022310-0030232110323131-0320333322003313-0022212301230110"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.bond_interface / 0e2430aa3991 / 8
+## Next pages — bond_interface / 222203212101 / 8
 
-- [vmware.not_managed.node_list.interface_list.bond_interface.active_backup](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8df02ece9b575b8458cf28b5d929b3a243f2eacdbc4f06826aa2a973321067ae)
-- [vmware.not_managed.node_list.interface_list.bond_interface.lacp](data-sources--securemesh_site_v2--reference--group-017.md#canonical-9c638cfaf9e22db98977f617beec79611eb0ba052ea49ed44417692ec630babf)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.bond_interface.active_backup](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2031330002323032-2123111311232010-1120303302202311-3121022123032202-1003330232223031-2330103300122002-1222220222211303-0302010012132232)
+- [vmware.not_managed.node_list.interface_list.bond_interface.lacp](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2130120320303322-3321320202312321-2021131333120113-2332323013211201-0132230023220011-0232221021323110-1010011312210232-3012030023222333)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-8df02ece9b575b8458cf28b5d929b3a243f2eacdbc4f06826aa2a973321067ae"></a>
+<a id="canonical-2031330002323032-2123111311232010-1120303302202311-3121022123032202-1003330232223031-2330103300122002-1222220222211303-0302010012132232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6074ad03da5a07ede3f987086ac71521c0d061e6643d146f41c27c30381372d0"></a>
+<a id="canonical-1200131022310003-3122112200133231-3203332120130020-1222301301110201-3000310012013212-1210033101101233-1001300213300300-0320010313023100"></a>
 
-## vmware.not_managed.node_list.interface_list.bond_interface.active_backup — vmware.not_managed.node_list.interface_list.bond_interface.active_backup / 797363bd6e7b / 2
+## vmware.not_managed.node_list.interface_list.bond_interface.active_backup — active_backup / 233112321323 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303)
 - vmware.not_managed.node_list.interface_list.bond_interface.active_backup
 
-<a id="canonical-132ef815bf97661fe0555c15015722493cce39ce751bcb6d8914f897344c802b"></a>
+<a id="canonical-0103023233200111-2333211312120133-3200111111300111-0001111302021021-0330303203213032-1311012330231231-2021011033202113-0310103020000223"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -651,41 +3201,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e2e61d48f6cd941d09dae0e0e7ec205d9f2dca76b1580bab365b4fede97c883"></a>
+<a id="canonical-0232023212013110-2033123031211001-3100213122320032-0032133230020011-3121330231302213-1223011120002322-2303121123103332-3132211330202003"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.bond_interface.active_backup / 797363bd6e7b / 3
+## Direct properties — active_backup / 233112321323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fdacbae6cbaebe38301317101776bb652af56ec1e6ad43d5c32f79c7ece7e9dc"></a>
+<a id="canonical-3331223023223212-3023223223320320-0300010301130100-0113131223231211-0222331112323001-3212223110033111-3003023313213013-3230321332213130"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.bond_interface.active_backup / 797363bd6e7b / 4
+## Next pages — active_backup / 233112321323 / 4
 
-- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-9c638cfaf9e22db98977f617beec79611eb0ba052ea49ed44417692ec630babf"></a>
+<a id="canonical-2130120320303322-3321320202312321-2021131333120113-2332323013211201-0132230023220011-0232221021323110-1010011312210232-3012030023222333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b43cff767c9d2b15e9d2c46d3c94b4ddbf849a0b118e9b2cf7f083cddb2b1bc"></a>
+<a id="canonical-1323100330333313-1213302131022301-1132213102301012-3103302110231031-3123332010212200-2301012032212302-3033133300200330-3131230223012330"></a>
 
-## vmware.not_managed.node_list.interface_list.bond_interface.lacp — vmware.not_managed.node_list.interface_list.bond_interface.lacp / 2ce1faeea125 / 2
+## vmware.not_managed.node_list.interface_list.bond_interface.lacp — lacp / 323222010211 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303)
 - vmware.not_managed.node_list.interface_list.bond_interface.lacp
 
-<a id="canonical-57466d45eec3838e72f0fdc9997023776332574a5f12e6fe46354437461295c3"></a>
+<a id="canonical-1113101212311011-3232300320032032-1302330033313021-2121130002031313-1203030211131022-1133010232123332-1012031110100313-1012010221113003"></a>
 
 Type: `"single"`. Computed.
 
@@ -708,15 +3258,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-074aedd71a0b7c0b82360977ac9c7891eaa224d5307a1af118cddda7528edce9"></a>
+<a id="canonical-0013102232313113-0122002313300023-2002031200211313-2230213013202101-3222220202103111-0300132201223301-0120303131312213-1102203231303221"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.bond_interface.lacp / 2ce1faeea125 / 3
+## Direct properties — lacp / 323222010211 / 3
 
-<a id="canonical-60b326b1ae61bed5cfae8dbf7df35d2cd39563102fa20701100a2f00583ebf75"></a>
+<a id="canonical-1200230302122301-2232120123323111-3033223220312333-1331330311310230-3103211112030100-0233220200130001-0100002202330000-1120033223331311"></a>
 
-<a id="canonical-a986ab7c8f06b9c95c94d2111e21f85eda2f90640cfa8c9b00a846b7714f1972"></a>
+<a id="canonical-2221201222231330-2033001223213021-1130211031020101-0132020133201132-3122023321001210-0030332220302123-0000222010122313-1301103301211302"></a>
 
-## rate property — vmware.not_managed.node_list.interface_list.bond_interface.lacp / 2ce1faeea125 / 4
+## rate property — lacp / 323222010211 / 4
 
 Type: `"number"`. Computed.
 
@@ -755,34 +3305,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47a964cdc486fef8e269869ab8a0e13c28696ac7641b983603a966bb8484ad70"></a>
+<a id="canonical-1013222112103031-3010201233323320-3202122120122122-2320220032010330-0220122112223013-1210012321200312-0003222112122323-2010201022311300"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.bond_interface.lacp / 2ce1faeea125 / 5
+## Next pages — lacp / 323222010211 / 5
 
-- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d7bfdee621d5eca93bd783d969229a48f6299a1d74b3f667f66a661bdfee2133)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3113233331323212-0201311132302221-0323311320033121-1221020221221020-3312022121220131-1310230333121213-3312122212120123-3133323202010303)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-820048c87747341ee92a305eb48331c1ad7170c3802f93011c1b29a15d1fb513"></a>
+<a id="canonical-2002000010203020-1313101303100132-3221022203001132-2310200303013001-2231130113003003-2000023321030001-0130012302212201-1131013323110103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f551bcc6f6b28ed146d130c61bdee91dfc32fc44ccc82bdfb3702a0f02967334"></a>
+<a id="canonical-3311110123303012-3312230220323101-1012310103003012-0123313232210131-3330030233301010-3030302002233133-2303130002220033-0002211213030310"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_client — vmware.not_managed.node_list.interface_list.dhcp_client / 87ad0d781e7a / 2
+## vmware.not_managed.node_list.interface_list.dhcp_client — dhcp_client / 132001321322 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
 - vmware.not_managed.node_list.interface_list.dhcp_client
 
-<a id="canonical-2e7b1245dd2c00bb514470a59c2fda899806424f35be5c86c3edf2dac19fa6ce"></a>
+<a id="canonical-0232132301021011-3131023000002323-1101101013002211-2130023331222021-2120001210021033-0311233211302012-3003323133023122-3001213322123032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -805,40 +3355,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-612205a7aa8939396ef804e2a70dbb712b7e7fc1d2eef0e229bb47e425ac7c67"></a>
+<a id="canonical-1201020200112213-2222202103210321-1232332000103202-2213003123231301-0223133213333001-3102323233003202-0221232310133210-0211223013301213"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_client / 87ad0d781e7a / 3
+## Direct properties — dhcp_client / 132001321322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3fee3eb29b9a3d08c8196d3f03975fd357b458462a80c9a36e3f4e236b472e4d"></a>
+<a id="canonical-0333323203322302-2123212203310020-3020012112310333-0003211311333103-1113231011201012-0222200030212203-1232033310320203-1223101302321031"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_client / 87ad0d781e7a / 4
+## Next pages — dhcp_client / 132001321322 / 4
 
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c"></a>
+<a id="canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cdc8ca3734dfc99cd36b9f859c8d269c749afca45764b3f00459b302cc6e6f55"></a>
+<a id="canonical-3031302030220313-0310313330212130-3103122321332011-2130203102122130-1310212233302210-1113121023033300-0010112123030002-3030123212331111"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server — vmware.not_managed.node_list.interface_list.dhcp_server / ff2dae5b60d5 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server — dhcp_server / 112312003111 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
 - vmware.not_managed.node_list.interface_list.dhcp_server
 
-<a id="canonical-df92c78c316ba25ccc8f6304dce29c11e4578acd215a6f4de57765620a1ba04f"></a>
+<a id="canonical-3133210230132030-0301122322021130-3030203312030010-3130320221300101-3210111320223031-0201112212331031-3211131312111202-0022012322001033"></a>
 
 Type: `"single"`. Computed.
 
@@ -856,31 +3406,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e1130af9f1273b408995ea78d729e5a832015475fe765e486d69af25af14a9ec"></a>
+<a id="canonical-3201010300223321-3301021303231000-2021211132221320-3113022132112220-0302000111101311-3332131211321020-1231122122330211-2233011022213230"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server / ff2dae5b60d5 / 3
+## Direct properties — dhcp_server / 112312003111 / 3
 
-- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3851e06e665df7b44e50ba9ee30ecbce5588e45e6fdc0f4591eaa9fa890ce08d): complete subsection reference.
+- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0320110132001232-1212113133132310-1032110023222132-3203003230233032-1111202032101132-1233313000331011-2101322222213322-2021003032002031): complete subsection reference.
 
-- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-73458f45584034ff429c4450eca753bc36c433b1c7b888f304a00e8b9e04c138): complete subsection reference.
+- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303101120331011-1120100003103333-1002213010101100-3230221311032330-0312301003032301-3013232020203303-0010220000322023-2132001030010320): complete subsection reference.
 
-- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0): complete subsection reference.
+- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100): complete subsection reference.
 
-<a id="canonical-65fd3b6ef8c56731c4411f2da458b14c89ad89026647df75ff3cca519f40a5c8"></a>
+<a id="canonical-1211333103231232-3320301112130301-3010100101330231-2210112023011030-2021223120210002-1212101331331311-3333033030221101-2133100022113020"></a>
 
-<a id="canonical-aba49f49d0f765c84a95fee1e5ff9deded541778f41df6a5b6096f1002b53075"></a>
+<a id="canonical-2223221021331021-3100331312113020-1022211133323201-3211333321313231-3231111001131320-3310013133122211-2312002112330100-0002231103001311"></a>
 
-## dhcp_option82_tag property — vmware.not_managed.node_list.interface_list.dhcp_server / ff2dae5b60d5 / 4
+## dhcp_option82_tag property — dhcp_server / 112312003111 / 4
 
 Type: `"string"`. Computed.
 
 DHCP option 82 tag.
 
-<a id="canonical-43d4a99c8ebc32c05357565f156d747e2d368e3341c2571a534233472760ac34"></a>
+<a id="canonical-1003311022212130-2032233003023000-1103111311121133-0111123113101332-0231031220320303-1001300211130122-1103100203031013-0213120022300310"></a>
 
-<a id="canonical-c78686d847bd0236b9dbd48f70fdd2ef5e5392e45c17e19e63ea2664ab453212"></a>
+<a id="canonical-3013201220123120-1013233100020312-2321312331102033-1300333131023233-1132110321023210-1130011332012132-1203322202121210-2223101103020102"></a>
 
-## fixed_ip_map property — vmware.not_managed.node_list.interface_list.dhcp_server / ff2dae5b60d5 / 5
+## fixed_ip_map property — dhcp_server / 112312003111 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -911,41 +3461,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8935cb98e0a00760412188310b5f7cf70cfd6afe15ca69909f5aaf3b752c94fd): complete subsection reference.
+- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2021031130232120-3200220000131200-1001020120200301-0023113313303313-0030333112223332-0111302212212100-2133112222330323-1311023021103331): complete subsection reference.
 
-<a id="canonical-f8aa524789234a7050081a4fe413263ab0ae1dbc2b9559f7f3443ec5251ea8c6"></a>
+<a id="canonical-3320222211021013-2021020310221300-1100002001221033-3210010302120322-2300223201312330-0223211111213313-3303101003323011-0211013222203012"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server / ff2dae5b60d5 / 6
+## Next pages — dhcp_server / 112312003111 / 6
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3851e06e665df7b44e50ba9ee30ecbce5588e45e6fdc0f4591eaa9fa890ce08d)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-73458f45584034ff429c4450eca753bc36c433b1c7b888f304a00e8b9e04c138)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8935cb98e0a00760412188310b5f7cf70cfd6afe15ca69909f5aaf3b752c94fd)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0320110132001232-1212113133132310-1032110023222132-3203003230233032-1111202032101132-1233313000331011-2101322222213322-2021003032002031)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1303101120331011-1120100003103333-1002213010101100-3230221311032330-0312301003032301-3013232020203303-0010220000322023-2132001030010320)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2021031130232120-3200220000131200-1001020120200301-0023113313303313-0030333112223332-0111302212212100-2133112222330323-1311023021103331)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-3851e06e665df7b44e50ba9ee30ecbce5588e45e6fdc0f4591eaa9fa890ce08d"></a>
+<a id="canonical-0320110132001232-1212113133132310-1032110023222132-3203003230233032-1111202032101132-1233313000331011-2101322222213322-2021003032002031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1147e2a43d8aa4a493988a4858430d4b09ce6091d5c92148580d176114315a51"></a>
+<a id="canonical-0101101332022210-0331202222102210-2103212020221020-1120100300311023-0021303212002101-3111302102011020-1120003101131201-0110030111221101"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 23d2a80077c5 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — automatic_from_end / 000013133011 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
 - vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end
 
-<a id="canonical-b9f1d09dca8dc97bf0f92ab509d79195d390ad21d41f02c885adf977c07e5852"></a>
+<a id="canonical-2321330131002131-3022203130211323-3300332102222311-0021311321012111-3103210022310201-3110013300023020-2011223133211313-3000133211201102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -968,41 +3518,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d5a916ab954bec218065275c4ac310b397912d868dbb42cf726fe339121afa74"></a>
+<a id="canonical-3111222101122223-2111102332300201-2000121102131130-1022300301002303-2113210102312012-2031232310023033-1302123332030321-0102012233221310"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 23d2a80077c5 / 3
+## Direct properties — automatic_from_end / 000013133011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d8fc4723c0637b41583f31a8f06294b893c82ebcc435307dfb57b5439eecdfb3"></a>
+<a id="canonical-3120333010130203-3000120313231001-1120033303012220-3300120221102320-2103302002322330-3010031103001331-3323111323111003-2132323031332303"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 23d2a80077c5 / 4
+## Next pages — automatic_from_end / 000013133011 / 4
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-73458f45584034ff429c4450eca753bc36c433b1c7b888f304a00e8b9e04c138"></a>
+<a id="canonical-1303101120331011-1120100003103333-1002213010101100-3230221311032330-0312301003032301-3013232020203303-0010220000322023-2132001030010320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-81f83350d9106b800f58be812d8a5ec5a75f5ac8a6b928841178d8cd8e580c73"></a>
+<a id="canonical-2001332003031100-3121010012232000-0033112023322001-0231202211323011-2213113311223020-2212232102202010-0101132031203031-2032112000301303"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 5bfda3263049 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — automatic_from_start / 021203001021 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
 - vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start
 
-<a id="canonical-9661f754ad90c2ee4b2b84865abc0ceaa1f823239a9bd6ab15fd0fe71cd59ca0"></a>
+<a id="canonical-2112120133131110-2231210030023232-1023022320102012-1122233000303222-2201332002030203-2122212331122223-0111333100333213-0130311121302200"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1025,41 +3575,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-21f9a5ce4e9426834788411b3c2c460f70c1bdf0e78f7e9c0ea710773911d131"></a>
+<a id="canonical-0201332122113032-1032211002122003-1013202010010123-0330023010120033-1300300123313300-3213203313322130-0032221301001313-0321010131010301"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 5bfda3263049 / 3
+## Direct properties — automatic_from_start / 021203001021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-945508733766705e6d862bd59809b04a6383c446cdab9dfc37ac5a949538d653"></a>
+<a id="canonical-2110111100201303-0313121213001132-1231201202233111-2120002123001022-1203200330101012-3031222321313330-0313223011222110-2111032031121103"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 5bfda3263049 / 4
+## Next pages — automatic_from_start / 021203001021 / 4
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0"></a>
+<a id="canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-049bd6df2640f87df9f648c21aed3426072dfd79eb1171b40cc8baebff410f59"></a>
+<a id="canonical-0010212331123133-0212100033201331-3321331210203002-0122323103100212-0013023133311321-3223010113012310-0030302023223223-3333100100331121"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — dhcp_networks / 101101123300 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
 - vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks
 
-<a id="canonical-7659d1ae6d97d8e01c0758709f282b8916e52de6b49194c0183e7ce53a634f0a"></a>
+<a id="canonical-1312112131012232-1231211331203200-0130001311201300-2133022002232021-0112321102313212-2310210121103000-0120033213303211-0322120310330022"></a>
 
 Type: `"list"`. Computed.
 
@@ -1105,15 +3655,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-688b056cb62d3644d5bef5aee1b52e3d1b507ea7537fd6695c93cc499335c528"></a>
+<a id="canonical-1220202300111230-2312023103121010-3111233233112232-3201231102320331-0123110013322213-1103133331121221-1130210330301021-2103031130110220"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 3
+## Direct properties — dhcp_networks / 101101123300 / 3
 
-<a id="canonical-64c1558a241426c5fd58425d0acdff1ac5aef984ab3fbeb52e934b8e2c12bb19"></a>
+<a id="canonical-1210300111112022-0210011002123011-3331112010021131-0022303133330122-3011223233212010-2223033323322311-0232210310232032-0230010223230121"></a>
 
-<a id="canonical-f7a0a4567afef121ad1e87b66027ee7e9a1025363b307f464ea15ceda9a98d59"></a>
+<a id="canonical-3313220022101112-1322333233010201-2231013220132312-1200021332321332-2122010002110312-0323030013331012-1032220111303231-2221222120311121"></a>
 
-## dgw_address property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 4
+## dgw_address property — dhcp_networks / 101101123300 / 4
 
 Type: `"string"`. Computed.
 
@@ -1156,11 +3706,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-40b76b674a04fac66273908dc4ce21672dafa54b732b88ee89013dc354fc31f8"></a>
+<a id="canonical-1000231312231213-1022001033223012-1202130321002031-3010303202011213-0231223322111023-1303022320203232-2021000103313003-1110333003013320"></a>
 
-<a id="canonical-35e879f6221a867757ea4331fc97f01b6c98b47c78f6225df4d5ef65c781cc82"></a>
+<a id="canonical-0311322013213312-0202012220121313-1113322210030301-3330211333000123-1230212023101330-1320331202021131-3310311132331211-3013200130302002"></a>
 
-## dns_address property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 5
+## dns_address property — dhcp_networks / 101101123300 / 5
 
 Type: `"string"`. Computed.
 
@@ -1203,15 +3753,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1147bbf4ad0e3903cb4307335c68d7e6b983dc0189aa9b40ec063f185a869513): complete subsection reference.
+- [first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0101101323233310-2231003203210003-3023100300130303-1130122031133212-2321200331300001-2021222221231000-3230001203330120-1122201221110103): complete subsection reference.
 
-- [last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7b5399d7a3edea50da928d4c501254fd0480d6b93f55fc854be0ca5f95bf990b): complete subsection reference.
+- [last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1323110321213113-2203323132221100-3122210220311030-1100010211103331-0010200031122321-0333111133302011-1023320030221133-2111233321210023): complete subsection reference.
 
-<a id="canonical-0160ed6a311c7a736b0f5ce27a8a796855d54552bd9ab5f6b85cc530b69fe1c0"></a>
+<a id="canonical-0001120032311222-0301013013221303-1223003311303202-1322202213211220-1111311110111102-2331212223113312-2320113030110300-2312213332013000"></a>
 
-<a id="canonical-342ccda09f7cb891cbb4efd02965b1ba686a99c65247384baa5f6ec8afd054ed"></a>
+<a id="canonical-0310023030312200-2133133023202101-3023231032333100-0221121123012322-1220122221213012-1102101303201023-2222113312323020-2233310011103231"></a>
 
-## network_prefix property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 6
+## network_prefix property — dhcp_networks / 101101123300 / 6
 
 Type: `"string"`. Computed.
 
@@ -1250,11 +3800,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-26b14c3648e54b40bade3105d51da81c6d977dfd2d9521b16ab3e948b29bd06a"></a>
+<a id="canonical-0212230110300312-1020321110231000-2322313203010011-3111013122200130-1231211313313331-0231211102012301-1222230332211020-2302212331001222"></a>
 
-<a id="canonical-950e583a2474cfffeb871fb4f9819b1c4e2a39a2614ac3de4cdb10ee5e1a92df"></a>
+<a id="canonical-2111003211200322-0210131030333333-3223201301332310-3321200121230130-1032022203212202-1201102230033132-1030312301003232-1132012221023133"></a>
 
-## pool_settings property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 7
+## pool_settings property — dhcp_networks / 101101123300 / 7
 
 Type: `"string"`. Computed.
 
@@ -1290,44 +3840,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-527d612738332c97a6442b44b60f54000ffd3ed2be95491f99aa8ae754515b1f): complete subsection reference.
+- [pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1102133112010213-0320030302302113-2212101002231010-2312003311100000-0033333103323102-2332211110210133-2121222220223213-1110110111230133): complete subsection reference.
 
-- [same_as_dgw](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef590b3ce218d0b5b2c1d744b8d05cc880e3264e6ac85bf809c140cd9a4fe4cd): complete subsection reference.
+- [same_as_dgw](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233112100230330-3202012031002311-2302300131131010-2320310011303020-2000320302121032-1222302011233320-0021300110003031-2122103332103031): complete subsection reference.
 
-<a id="canonical-ebdc5511df2db9726b5a560c7557178f592ffb22d1e3f0f5e52a775b1e905f5d"></a>
+<a id="canonical-3223313011110101-3133023123211302-1223112211120030-1311111301132033-1121023333230202-3101320333003311-3211022213131123-0132210011331131"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / 7ce9fb4516f0 / 8
+## Next pages — dhcp_networks / 101101123300 / 8
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1147bbf4ad0e3903cb4307335c68d7e6b983dc0189aa9b40ec063f185a869513)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7b5399d7a3edea50da928d4c501254fd0480d6b93f55fc854be0ca5f95bf990b)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-527d612738332c97a6442b44b60f54000ffd3ed2be95491f99aa8ae754515b1f)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef590b3ce218d0b5b2c1d744b8d05cc880e3264e6ac85bf809c140cd9a4fe4cd)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0101101323233310-2231003203210003-3023100300130303-1130122031133212-2321200331300001-2021222221231000-3230001203330120-1122201221110103)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1323110321213113-2203323132221100-3122210220311030-1100010211103331-0010200031122321-0333111133302011-1023320030221133-2111233321210023)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1102133112010213-0320030302302113-2212101002231010-2312003311100000-0033333103323102-2332211110210133-2121222220223213-1110110111230133)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233112100230330-3202012031002311-2302300131131010-2320310011303020-2000320302121032-1222302011233320-0021300110003031-2122103332103031)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-1147bbf4ad0e3903cb4307335c68d7e6b983dc0189aa9b40ec063f185a869513"></a>
+<a id="canonical-0101101323233310-2231003203210003-3023100300130303-1130122031133212-2321200331300001-2021222221231000-3230001203330120-1122201221110103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-60ba6bdeb4a825595fbf7fd69d0a7dbefe01ebed2cbc0ed748508f872bd0de34"></a>
+<a id="canonical-1200232212233132-2310222002111121-1133233313333112-2131002213312332-3332000132233231-0230233000323113-1020110020332013-0223310031320310"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addr / cc7ed5a8d004 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — first_address / 222031000010 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
 - vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
 
-<a id="canonical-62f69fd6940cb9055bb4c55304f87e5a38bac96caf911379b2b31783de9dd39f"></a>
+<a id="canonical-1202331221333112-2110003023210011-1123231030111103-0010332013321122-0320232230211230-2233210101031321-2302230301132003-3132213131032133"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1350,42 +3900,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-27e92efd581b456b166989bebc161c9a964607b17622910b0ec477ba82d7a94c"></a>
+<a id="canonical-0213322102323331-1120012310111223-0112122120212332-2330011201302122-2112101200132301-1312020221010023-0032301013132322-2002311322211030"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addr / cc7ed5a8d004 / 3
+## Direct properties — first_address / 222031000010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4805bcf7ca4d68171e77e7d7bb852757410567de08047be7610e2572a38c4cc5"></a>
+<a id="canonical-1020001123303313-3022103112200113-0132131332133113-2323201102131113-1001001112133132-0020001013233213-1201003202111302-2203203010303011"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addr / cc7ed5a8d004 / 4
+## Next pages — first_address / 222031000010 / 4
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-7b5399d7a3edea50da928d4c501254fd0480d6b93f55fc854be0ca5f95bf990b"></a>
+<a id="canonical-1323110321213113-2203323132221100-3122210220311030-1100010211103331-0010200031122321-0333111133302011-1023320030221133-2111233321210023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e817768dd72b43a1b1bd12a366afb2023d11894fb61c292fb9ffd6fb0d530553"></a>
+<a id="canonical-3220011313122031-3113022310032201-2301233101022203-1212223323020002-0331010120211033-2312013002210233-2321333331123323-0031110300111103"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addre / 84ff52d9819d / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address — last_address / 312120012131 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
 - vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
 
-<a id="canonical-04e733f53b717df8edd9109cdd7402c159e3908764d0c15655d116ce3778489e"></a>
+<a id="canonical-0010321303033311-0323130113313320-3231312101002130-3131131000023001-1121320321002013-1210310030011112-1111310101123032-0313132010202132"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1408,42 +3958,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d57b09fb8536271492e2be406a0ebf5358b61578968e6b297283280ab79feb86"></a>
+<a id="canonical-3111132300213323-2011031202130110-2102320223321000-1222003223331103-1120231201111320-2112203212230221-1302200302200022-2313213332232012"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addre / 84ff52d9819d / 3
+## Direct properties — last_address / 312120012131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5210ed18fc29d19cd89667c9ed1c09c17f9906597fbba63b4567e3616843556d"></a>
+<a id="canonical-1102010032310120-3330022131012130-3120211212133021-3231013000213001-1333212100121121-1333232322120323-1011121332031201-1220100311111231"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addre / 84ff52d9819d / 4
+## Next pages — last_address / 312120012131 / 4
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-527d612738332c97a6442b44b60f54000ffd3ed2be95491f99aa8ae754515b1f"></a>
+<a id="canonical-1102133112010213-0320030302302113-2212101002231010-2312003311100000-0033333103323102-2332211110210133-2121222220223213-1110110111230133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-776b6e1c17a5b612d508df2d232073ae78ff833ceefb15266edbb0c585927a68"></a>
+<a id="canonical-1313122312320130-0113221123120102-3111002031330231-0203020013032232-1320333320030330-3232332301110212-1232312323003011-2011210213221220"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools — pools / 212221031023 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
 - vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
 
-<a id="canonical-8edf06061d60b9d5a57459923dd047b88f2eb0eb451ef3889b7710cd73c5e2b0"></a>
+<a id="canonical-2032313300120012-0131120023213111-2211131011212102-0331310010132320-2033023223003223-1011013233032020-2123131301003031-1303301132022300"></a>
 
 Type: `"list"`. Computed.
 
@@ -1484,15 +4034,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d684c7d49693839b2b991dc68425ddfef6397736a84ec077ff269fe6e9a68d90"></a>
+<a id="canonical-3112201030133110-2112210320032123-0223212101313012-2010021131313332-3312032113130312-2220103230001313-3333021221333212-3221221220312100"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 3
+## Direct properties — pools / 212221031023 / 3
 
-<a id="canonical-e63a364fd93ef4caf7eca85ebd2712f5633324ea3de6c1037f41e9e74dfcdb75"></a>
+<a id="canonical-3212032203121033-3121033233103022-3313323022201132-2331021301023311-1203030302103222-0331321230010003-1333100132213213-1031333031231311"></a>
 
-<a id="canonical-4e141876be7ea258c3d0e1a59dce87b145a44e7900508dad296dd10bf60afd9b"></a>
+<a id="canonical-1032011001201312-2332133222021120-3003310032012211-2131303220132301-1011221010321321-0000110020312231-0221123131010023-3312002233312123"></a>
 
-## end_ip property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 4
+## end_ip property — pools / 212221031023 / 4
 
 Type: `"string"`. Computed.
 
@@ -1535,21 +4085,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bb7a7ee357260dcc0376e5b3941fb52f6f9fb4fe9434280f04691c08801e8195"></a>
+<a id="canonical-2323132213323203-1113021200313030-0003131232112303-2110013323110233-1233213323103332-2110031002200033-0010122101300020-2000013220012111"></a>
 
-<a id="canonical-9e8950260bad2bf56f00ab04a595860e77344a43da480e28ddd8c1b122a4830d"></a>
+<a id="canonical-2132202111000212-0023223102233311-1233000022230010-2211211120120032-1313031010221003-3122102000320220-3131312030012301-0202221020030031"></a>
 
-## exclude property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 5
+## exclude property — pools / 212221031023 / 5
 
 Type: `"bool"`. Computed.
 
 Exclude this address range from DHCP allocation.
 
-<a id="canonical-79b1a57fa3155cf8a5cf12005c9f688d8f6f31353ca2080d9720fc7c92e3e6c9"></a>
+<a id="canonical-1321230122111333-2203011111303320-2211303301020000-1130213312202031-2033123303010311-0330220200200031-2113020033301330-2102320332123021"></a>
 
-<a id="canonical-e7799b95e444b7bdc58ad13cb728eaad92a673353ccc54414f8ae650a8518f9f"></a>
+<a id="canonical-3213132121232111-3210101023132331-3011202231010330-2313022032222231-2102221213030311-0330303011101001-1033202232121100-2220110120332133"></a>
 
-## start_ip property — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 6
+## start_ip property — pools / 212221031023 / 6
 
 Type: `"string"`. Computed.
 
@@ -1592,36 +4142,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5b72a685ab0be644eb23f97fdf04f62aa8094473ef503d83c3be08fb8bb41e9a"></a>
+<a id="canonical-1123130222122011-2223002332121010-3223020333211333-3133001033120222-2220002110101303-3233110003312003-3003233200203323-2023231001322122"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / 967fb79a934b / 7
+## Next pages — pools / 212221031023 / 7
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-ef590b3ce218d0b5b2c1d744b8d05cc880e3264e6ac85bf809c140cd9a4fe4cd"></a>
+<a id="canonical-3233112100230330-3202012031002311-2302300131131010-2320310011303020-2000320302121032-1222302011233320-0021300110003031-2122103332103031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-926afad285b85696764964b8f249cdb04afa7d6a4bc9302a7111664019de7331"></a>
+<a id="canonical-2102122233223102-2011232011122112-1312102112102320-3302102130312300-1022332213311222-1023302103000222-1301010112121000-0121313213030301"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dg / 8f2cee990cc5 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw — same_as_dgw / 212100303011 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
 - vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
 
-<a id="canonical-8baa53aaa1993c07ce9475014c6d382ec4b5e80b311fe376cb274ebd5ff7ebc5"></a>
+<a id="canonical-2023222211032222-2201212103300013-3032211013110001-1030123103200232-3010231132200023-0301013332031312-3023021310322331-1133331332233011"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1644,41 +4194,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b03c2c6eb9e1d56f0167f634fb49d5c3954c2b470eac13aa998aeacbe166338d"></a>
+<a id="canonical-2300033002301232-2321320131111233-0001121333120310-3323102131113003-2111103002231013-0032223001032222-2121202232223023-3201121203032031"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dg / 8f2cee990cc5 / 3
+## Direct properties — same_as_dgw / 212100303011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d189f5346ae5b7167eb6fba0a961ce79b2293d8b213fe12ec6236804b29f2d55"></a>
+<a id="canonical-3101202133110310-1222321123130112-1332231233232200-2221120130321321-2302022103312023-0201033332010232-3012020312200010-2302213302311111"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dg / 8f2cee990cc5 / 4
+## Next pages — same_as_dgw / 212100303011 / 4
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f6f81ca3508cc12c4b2531615e4c52b7e56a9ec2652b5f07837f1259d472e6d0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3312332001302203-1100203030010230-1023021103011201-1132103011022313-3211122221323002-1211022311330013-2003133301021121-3110130232123100)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-8935cb98e0a00760412188310b5f7cf70cfd6afe15ca69909f5aaf3b752c94fd"></a>
+<a id="canonical-2021031130232120-3200220000131200-1001020120200301-0023113313303313-0030333112223332-0111302212212100-2133112222330323-1311023021103331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5f6e6d75e8a2729e8a9b619ee6561fda64fd9aaa97b2687bb0b14333d8a0d26f"></a>
+<a id="canonical-1133123212311311-3220220213022132-2022212312012132-3212111201333122-1210333121222222-2113230212201323-2300230110030303-3120220031021233"></a>
 
-## vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map — vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 32369df4c104 / 2
+## vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map — interface_ip_map / 331030010010 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
 - vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map
 
-<a id="canonical-aa875f643207e40cb1e054aa7db2b2b5e9d447e68f0fe8e9acca8e3c958ae3dd"></a>
+<a id="canonical-2222201311331210-0302001332100030-2301320011102222-1331230223022311-3221311010133212-2033003332203221-2230302220320330-2111202232033131"></a>
 
 Type: `"single"`. Computed.
 
@@ -1701,15 +4251,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0f4032d8fbcc0e5238b74115a6c71d85a4d8d2f8e055011de320fadd96da902e"></a>
+<a id="canonical-0033100003023120-3323303000321102-0320231310010111-2212301301312011-2210312031023320-3200111100010131-3203020033223131-2112312221000232"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 32369df4c104 / 3
+## Direct properties — interface_ip_map / 331030010010 / 3
 
-<a id="canonical-ff1244b40efc93c0ca39f4db4f6c01094839b8eb8487ed4ca771baf1cdc44355"></a>
+<a id="canonical-3333010210102310-0032333021033000-3022032133103123-1033123000010021-1020032123203223-2010201332311030-2213130123223301-3031301010031111"></a>
 
-<a id="canonical-efed05f520173b04eab2e6eecf3983d67b3ca9c86ff488562d23f1d63c033509"></a>
+<a id="canonical-3233323100113311-0200011303230010-3222230232123232-3033032120033112-1323033022213020-1233331020201112-0231020333013112-0330000303110021"></a>
 
-## interface_ip_map property — vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 32369df4c104 / 4
+## interface_ip_map property — interface_ip_map / 331030010010 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -1740,34 +4290,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6eeb1330899f24db5590aedec93a7c871fdfa038fd976b199b9a6a23f5b28eda"></a>
+<a id="canonical-1232322301030300-2021213302103123-1111210022323132-3021032213302013-0133313322000320-3331211312230121-2123212212220203-3311230220323122"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 32369df4c104 / 5
+## Next pages — interface_ip_map / 331030010010 / 5
 
-- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-90db80840d6492b757411db0899cb8591bf2cbe35d58e7264e798815fd1cb85c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2100312320002010-0031121021022313-1113100101312300-2021213023201121-0123330230233203-1131112032130212-1032132120200111-3331013023201130)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-9d944837d4c7972a526e05cea9804ab6f5f114eb7ef9e7670a296540362f28ef"></a>
+<a id="canonical-2131211010200313-3110301321130222-1102123200113032-2221200010222312-3311330101103223-1332332132131213-0022022112111000-0312023302203233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d4a5db8bfa26dd3ddf53a6950d06e306ed9668f813203dda18bde75aeadc0c3a"></a>
+<a id="canonical-3110221131232023-3322021231310331-3133110322122111-0031001232030012-3231211212203320-0103020003313122-0120233132131122-3222313000300322"></a>
 
-## vmware.not_managed.node_list.interface_list.ethernet_interface — vmware.not_managed.node_list.interface_list.ethernet_interface / 20c5b0e7f76c / 2
+## vmware.not_managed.node_list.interface_list.ethernet_interface — ethernet_interface / 321333131230 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
 - vmware.not_managed.node_list.interface_list.ethernet_interface
 
-<a id="canonical-25aa968e22d6e34101f44009f77bfe00728043ff4fe0be08e4469f2c40139ef1"></a>
+<a id="canonical-0211222221122032-0202311232031001-0001331010000021-3313132333320000-1302200010033333-1033320023320020-3210101221330230-1000010321323301"></a>
 
 Type: `"single"`. Computed.
 
@@ -1786,15 +4336,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c888e400280534e7abd87cda13586b2a272ae7b5fbd0d79422065e5557f88a25"></a>
+<a id="canonical-3020202032100000-0220001103103213-2223312013303122-0103112012230222-0213022232132311-3323310031132110-0202001211321111-1113332020220211"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ethernet_interface / 20c5b0e7f76c / 3
+## Direct properties — ethernet_interface / 321333131230 / 3
 
-<a id="canonical-02d3d01e54f7eb1f18b90196eb2051e0f1ec6d1bac9460588ca633d7ee98ccb1"></a>
+<a id="canonical-0002310331000132-1110331332230133-0120232100012112-3223020011013200-3301323012310123-2230211012001120-2030221203033113-3232212030302301"></a>
 
-<a id="canonical-a62eb9f67d6d989dacb150827f48026f297519741bbca1d5c5a1071ce9dcd82b"></a>
+<a id="canonical-2212023223213312-1331123121202131-2230230111002002-1333102000021233-0221131101211310-0123233022013111-3011220100130130-3221313031200223"></a>
 
-## device property — vmware.not_managed.node_list.interface_list.ethernet_interface / 20c5b0e7f76c / 4
+## device property — ethernet_interface / 321333131230 / 4
 
 Type: `"string"`. Computed.
 
@@ -1842,11 +4392,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a7b0e12680861e6c28e9bb83950ad4aec8976861bf92048262572d7ac7a61ca1"></a>
+<a id="canonical-2213230032010212-2000201201321230-0220322123232003-2111002231102232-3020211312201201-2333210200102002-1202111302311322-3013221201302201"></a>
 
-<a id="canonical-25e1cf7caafdbca36bb38a54be591010c05b28d2da1b0c0af12691b0f6676ac9"></a>
+<a id="canonical-0211320130331330-2222333123302203-1223230320221110-2332112101000100-3000112302203102-3122012300300022-3301021221012300-3312121312223021"></a>
 
-## mac property — vmware.not_managed.node_list.interface_list.ethernet_interface / 20c5b0e7f76c / 5
+## mac property — ethernet_interface / 321333131230 / 5
 
 Type: `"string"`. Computed.
 
@@ -1886,34 +4436,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af7c03d0c19f75e33e8e0c9e919fea6bbd3892d20607f97cfa420e79527031a1"></a>
+<a id="canonical-2233133000033100-3001213313113203-0332203200302132-2101213332221223-2331032021023102-0012001333211330-3322100200321321-1102130003012201"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ethernet_interface / 20c5b0e7f76c / 6
+## Next pages — ethernet_interface / 321333131230 / 6
 
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa"></a>
+<a id="canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad589e43fcf86c67d73618cfcaa5c614dd1ed3ac0b0387ac35eb5d71e9a74ded"></a>
+<a id="canonical-2231112021321003-3330332012301213-3113031201203033-3022221130120110-3131013231032230-0023000320132230-0311322311311301-3221221310313231"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config — vmware.not_managed.node_list.interface_list.ipv6_auto_config / c5ae580b35b4 / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config — ipv6_auto_config / 002303112310 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config
 
-<a id="canonical-4d57221498c8be40f9c9ffa21a3f6748697b048b703c1d50b34907e33ee75117"></a>
+<a id="canonical-1031111302020110-2120302023321000-3321302133332202-0122033312131020-1221132300102023-1300033001311100-2303102100133203-0332321311010113"></a>
 
 Type: `"single"`. Computed.
 
@@ -1933,45 +4483,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2f77cb2876442236b4b90bd1223ba2d4e9f08b88ddd788d7a24a093186a93b7"></a>
+<a id="canonical-3102331313302302-2013121010020203-1223102321002331-0102020323220231-1032213300202320-2031313113202031-1322021022002103-0120122221032313"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config / c5ae580b35b4 / 3
+## Direct properties — ipv6_auto_config / 002303112310 / 3
 
-- [host](data-sources--securemesh_site_v2--reference--group-017.md#canonical-5e1f65854a02d5ecbf4de109571e82427744bf185fb97075f71c5ae61a4b5a8f): complete subsection reference.
+- [host](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1132013312112011-1022000231113230-2333103132010021-1113013220021002-1313101023330120-1133232113001311-3313013011223212-0122102311222033): complete subsection reference.
 
-- [router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34): complete subsection reference.
+- [router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310): complete subsection reference.
 
-<a id="canonical-d6423036b6355e26e330cc23a9d571ad1e2ed81c86dcf8a00fe1bff3de926d43"></a>
+<a id="canonical-3112100203000312-2312031111320212-3203030030300203-2221311113012231-0132023231200130-2012313033202200-0033320123333303-3132210212311003"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config / c5ae580b35b4 / 4
+## Next pages — ipv6_auto_config / 002303112310 / 4
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.host](data-sources--securemesh_site_v2--reference--group-017.md#canonical-5e1f65854a02d5ecbf4de109571e82427744bf185fb97075f71c5ae61a4b5a8f)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.host](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1132013312112011-1022000231113230-2333103132010021-1113013220021002-1313101023330120-1133232113001311-3313013011223212-0122102311222033)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-5e1f65854a02d5ecbf4de109571e82427744bf185fb97075f71c5ae61a4b5a8f"></a>
+<a id="canonical-1132013312112011-1022000231113230-2333103132010021-1113013220021002-1313101023330120-1133232113001311-3313013011223212-0122102311222033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd76d18a0a2e8fcde007a993558559c16327ea77c743b7263099fd841e37bf17"></a>
+<a id="canonical-3131131231012022-0022023220333031-3200001322212103-1111201111213001-1203021332221313-3013100323130212-0300212133312010-0132031323330113"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.host — vmware.not_managed.node_list.interface_list.ipv6_auto_config.host / d62d0140e93a / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.host — host / 100032210322 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.host
 
-<a id="canonical-ccc2c5c642c911df3de758b794c8d27ffafb04531d958c8cc5188a4fad9d570e"></a>
+<a id="canonical-3030300230113012-1002302101013133-0331321311202313-2110302031021333-3322332300101103-0131211120302030-3011012020221033-2231213111130032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1994,41 +4544,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f11e3d26e73fa13e0b35dc3fdcbd6dc4a787928456c4762bff5502a435b09071"></a>
+<a id="canonical-3301013203310212-3213033322010332-0023031131300333-3130233112313010-2213201321022010-1112301013120223-3333111100022210-0311230021001301"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.host / d62d0140e93a / 3
+## Direct properties — host / 100032210322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-608a680160d7bb0b708da664f3a19fb2d19c4282ee408951c18b804b2d3e7cf4"></a>
+<a id="canonical-1200202212200001-1200311323230023-1300203122121210-3303220121332302-3101213010022002-3232100020211101-3001202320001023-0231033213303310"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.host / d62d0140e93a / 4
+## Next pages — host / 100032210322 / 4
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34"></a>
+<a id="canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-44c011f0e7fb314f33af50af8cfbf0dff983cd3e06406e68ebf656d7e2927ac3"></a>
+<a id="canonical-1010300001013300-3213332303011033-0303223311002233-2030332333003133-3321200330310332-0012100012321220-3223331211123113-3202210213223003"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router / ef676c921418 / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router — router / 210201100120 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.router
 
-<a id="canonical-89e5d6b564233c30bfb24e937b6f1fbd478d45a21e3422bc6a7718ee4476d249"></a>
+<a id="canonical-2021321131122311-1210020303300300-2333230210322103-1323123301332331-1013203110112202-0132031002022330-1222131301203232-1010131231021021"></a>
 
 Type: `"single"`. Computed.
 
@@ -2048,17 +4598,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b067142a70583fae9fe15296931d0e2c34db23913c473545ed3e4535c88c0485"></a>
+<a id="canonical-2300121301100222-1300112003332232-2133320111022112-2103013100320230-0310312302032101-0330101303111011-3231033210110311-3020203000102011"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router / ef676c921418 / 3
+## Direct properties — router / 210201100120 / 3
 
-- [dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2): complete subsection reference.
+- [dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102): complete subsection reference.
 
-<a id="canonical-3327e8b08b686d2cdbdb6f0f9a39b046f92681e23c708e25772d7e1a6da24338"></a>
+<a id="canonical-0303021332202300-2023122012310230-3123312312330033-2122032123001012-3321021220013202-0330130020320211-1313023113320122-1231220210030320"></a>
 
-<a id="canonical-d24010b144b0fecb5a71fe83b200fb062083d8ae6ec1aaaa296db8f2516402f6"></a>
+<a id="canonical-3102100001002301-1010230033323023-1122130133322003-2302000033230012-0200200331202232-1232300122222222-0221123123203302-1101121000023312"></a>
 
-## network_prefix property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router / ef676c921418 / 4
+## network_prefix property — router / 210201100120 / 4
 
 Type: `"string"`. Computed.
 
@@ -2103,40 +4653,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a): complete subsection reference.
+- [stateful](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2303133223121221-0333011230032202-3033310233222203-2112323002031022-0301132112233132-0012203012212110-0102112332321031-3312013221111222): complete subsection reference.
 
-<a id="canonical-1b45bae8a4f50a3934587d8ff6791de6755745c15352c7330d90c35c776b6674"></a>
+<a id="canonical-0123101123223220-2210331100220321-0310112013312033-3312132101313212-1311111310113001-1103110230130303-0031210030031130-1313122312121310"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router / ef676c921418 / 5
+## Next pages — router / 210201100120 / 5
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-018.md#canonical-2303133223121221-0333011230032202-3033310233222203-2112323002031022-0301132112233132-0012203012212110-0102112332321031-3312013221111222)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2"></a>
+<a id="canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c84e2061f8ce370cec1e39d74759804b4e0f0dada1a450ef8215abfe4f9910b"></a>
+<a id="canonical-0230201032020012-0133203032031300-3032300132032131-1310131121200010-2310320033003122-3122012210110032-3320020111222333-3210332121010023"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / d583ad980a49 / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — dns_config / 212000221021 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
 
-<a id="canonical-702199146779e9d8796c09e2dd245c1c3e5518f36bb82b81b3b262319585c3fa"></a>
+<a id="canonical-1300020121210110-1213132132213120-1321123000213202-3131021011300130-0332111101203303-1223232002232001-2303230212020301-2111201130033322"></a>
 
 Type: `"single"`. Computed.
 
@@ -2156,47 +4706,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fe8310fd3d3420ce24d75ff8ca3e0cfafaec7e759f5d58dbc14930c895bb740d"></a>
+<a id="canonical-3332200301003331-0331031002003032-0210311311333320-3022033200303322-3322323013321311-2133113111203123-3001102103003020-2111232313100031"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / d583ad980a49 / 3
+## Direct properties — dns_config / 212000221021 / 3
 
-- [configured_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c8b1616b84dc1a5852c6610542ff901d82b6422fa2f555e4839a5d8bacd52fb2): complete subsection reference.
+- [configured_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3020230112011223-2010313001221120-1102301212010011-1002333321000131-2002231210020233-2202331111113210-2003212211312023-2230311102332302): complete subsection reference.
 
-- [local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff): complete subsection reference.
+- [local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333): complete subsection reference.
 
-<a id="canonical-03a6775326e8abcd85f7ebb606e73d16450cc9c669d7cc7578725dea600dcc0c"></a>
+<a id="canonical-0003221213131103-0212322022233031-2011331332232312-0012321303310112-1011003030213012-1221311330301311-1320130211313222-1200003130300030"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / d583ad980a49 / 4
+## Next pages — dns_config / 212000221021 / 4
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c8b1616b84dc1a5852c6610542ff901d82b6422fa2f555e4839a5d8bacd52fb2)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3020230112011223-2010313001221120-1102301212010011-1002333321000131-2002231210020233-2202331111113210-2003212211312023-2230311102332302)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-c8b1616b84dc1a5852c6610542ff901d82b6422fa2f555e4839a5d8bacd52fb2"></a>
+<a id="canonical-3020230112011223-2010313001221120-1102301212010011-1002333321000131-2002231210020233-2202331111113210-2003212211312023-2230311102332302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ac8e8d9b8a812ef0de7c4dd1ceeecfbc8c22c3bfa1ad211e9c90783e835d275f"></a>
+<a id="canonical-2230203220312123-2022200102323300-3132133010313101-3032323230332330-2030020230032333-2201223102010132-2130210013200332-2003113102131133"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.c / 9eb436ac72ce / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — configured_list / 223013023032 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list
 
-<a id="canonical-730638e9c01ef6e358efe397c4e43c389434da842d5766e3db0319e937855288"></a>
+<a id="canonical-1303001203203221-3000013233123203-1120323332032113-3010321003300320-2110031031222010-0231111312123203-3123000301213221-0313201111022020"></a>
 
 Type: `"single"`. Computed.
 
@@ -2215,15 +4765,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4136c0c0ffa9973776595f248e3e783a40aa9198799658363dbedec7daffd483"></a>
+<a id="canonical-1001031230003000-3333222121130313-1312112111330210-2032033213200322-1000222221012120-1321211211200312-0331233231323013-3122333331102003"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.c / 9eb436ac72ce / 3
+## Direct properties — configured_list / 223013023032 / 3
 
-<a id="canonical-e2729252d4ee82984106b5e6200c8b3c6a57a4e4223b4670d6662afdf4bff8ea"></a>
+<a id="canonical-3202130221021102-3110323220022120-1001001223113212-0200003020230330-1222111322103210-0202032310121300-3112121202223331-3310233333203222"></a>
 
-<a id="canonical-bd7c1fedb3e3744f71b695e4e96328cc62755caea683ef64c36b2309d8d8a3de"></a>
+<a id="canonical-2331133001333231-2303320313101033-1301231221113210-3221120302203030-1202131111302232-2212200332331210-3003122302030021-3120312022033132"></a>
 
-## dns_list property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.c / 9eb436ac72ce / 4
+## dns_list property — configured_list / 223013023032 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -2271,37 +4821,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-71ca6094c8664b9d5c842c024761d1961e961a8e1a850a782f03a4a3386b3d77"></a>
+<a id="canonical-1301302212002110-3020121210232131-1130201002300002-1013120131012112-0132211201222032-0122201100221320-0233000322102203-0320122303311313"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.c / 9eb436ac72ce / 5
+## Next pages — configured_list / 223013023032 / 5
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff"></a>
+<a id="canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-719488b17af4417694c8133e000c505117eeb6420aeb297572ab3b72a18d874a"></a>
+<a id="canonical-1301211020202301-1322331010011312-2110302001030332-0000003011001101-0113323223121002-0022322302211311-1302222303231302-2201203120131022"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 5eb7d2bc93da / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — local_dns / 233021033122 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns
 
-<a id="canonical-317235efc82e2d3f035cebecc3c72031ef89590a3860246c9ff5bc4a930e2410"></a>
+<a id="canonical-0301130203113233-3020023202310333-0003113032233230-3003301302000301-3233202111210022-0320120002101230-2133331123301022-2103003202100100"></a>
 
 Type: `"single"`. Computed.
 
@@ -2321,15 +4871,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6ae9ecffd1bc5dca4235ae93d29932228fe5f672251b4273083109c926145a19"></a>
+<a id="canonical-1222322132303333-3101233011313022-1002031122322103-3102212103020202-2033321133121302-0211012310021303-0020030100213021-0212011011220121"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 5eb7d2bc93da / 3
+## Direct properties — local_dns / 233021033122 / 3
 
-<a id="canonical-0dca6ef911aa4aa592dce803466808ead853f706b75091274129b7fe4144a04f"></a>
+<a id="canonical-0031302212323321-0101222210222211-2102313032200003-1012122000203222-3120110333130012-2313110021010213-1001022123133332-1001101022001033"></a>
 
-<a id="canonical-acfbda16ec229f2a7695ac6f1bbcdb07e3693b4f0a3afe13fd3c529b8eab9010"></a>
+<a id="canonical-2230332331220112-3230020221330222-1312211122301233-0123233031230013-3203122103231033-0022032233320103-3331033011022123-2032222321000100"></a>
 
-## configured_address property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 5eb7d2bc93da / 4
+## configured_address property — local_dns / 233021033122 / 4
 
 Type: `"string"`. Computed.
 
@@ -2372,44 +4922,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0ca64d3897ab93b207bf87de2ca08167fe1733a7a342956b1143f72f459ed954): complete subsection reference.
+- [first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030221210310320-2113222321032302-0013233320133132-0230220020011213-3332011303032213-2203100221111223-0101100333130233-1011213231211110): complete subsection reference.
 
-- [last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-09418ea08cc0982221cb8215bf766726be05ec5912a6ff6bc411a7e54f70c52c): complete subsection reference.
+- [last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021100120322200-2030300021200202-0201302320020111-2333131212130212-2332001132301121-0102221233331223-3010010122133211-1033130030110230): complete subsection reference.
 
-<a id="canonical-e80301d711ae5d85e4a5abf4e10f94c172180c75fe2d812ab23842a0406a7c1a"></a>
+<a id="canonical-3220000300013113-0101223211312011-3210221122233310-3201003321103001-1302012000301311-3332023120010222-2302032010022200-1000122213300122"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 5eb7d2bc93da / 5
+## Next pages — local_dns / 233021033122 / 5
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0ca64d3897ab93b207bf87de2ca08167fe1733a7a342956b1143f72f459ed954)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-09418ea08cc0982221cb8215bf766726be05ec5912a6ff6bc411a7e54f70c52c)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0030221210310320-2113222321032302-0013233320133132-0230220020011213-3332011303032213-2203100221111223-0101100333130233-1011213231211110)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0021100120322200-2030300021200202-0201302320020111-2333131212130212-2332001132301121-0102221233331223-3010010122133211-1033130030110230)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-0ca64d3897ab93b207bf87de2ca08167fe1733a7a342956b1143f72f459ed954"></a>
+<a id="canonical-0030221210310320-2113222321032302-0013233320133132-0230220020011213-3332011303032213-2203100221111223-0101100333130233-1011213231211110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f234de55796d04afd9721b3aaf037db7f18a04b15a0cce5ec71b45ed5505f897"></a>
+<a id="canonical-3302031031321111-1321123100102233-3121130201230322-2233000313312313-3301202200102301-1122003030321132-3013012310113231-1111001133202113"></a>
 
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 4fc8ab7a51a8 / 2
+## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — first_address / 132211012220 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [vmware](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2210000000111300-0230202103322211-3033112311032330-0323231101022110-0223023121132012-3311132320032113-3220232031322232-2322132210333232)
+- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-017.md#canonical-2032000332103200-2121013331213333-3033310021311131-3111123131231332-2010001211000113-0212203120330033-1222331223210222-3203303131013212)
+- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0113011332030100-0203133202013110-3000011123010312-0031100220131303-3020100031313211-3031233322310110-2003203200101123-2231232111133101)
+- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0210213320201122-0010020311033111-2322011110013000-0210112002202130-1202331311120332-2123103333301331-2212231102013223-3333133333130313)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1313010221223230-1033330133120220-3211031211132320-3232022231130313-3212031331222330-2023023002110122-3111300211203321-0232110222213322)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333)
 - vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address
 
-<a id="canonical-fccfe221afb3ad063611e4874ec6f5d6ac59f7ac4d8e1b4a055d7a3a34514524"></a>
+<a id="canonical-3330303332020201-2233230322310012-0312010132102013-1032301233113112-2230112133132230-1031203201231022-0011113113220322-0310110110110210"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2432,1830 +4982,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-63406d3bcb461d59260265a8c36385bf68c0ac63a40c95521081e345843abb44"></a>
+<a id="canonical-1203100012310323-3023101201311121-0212000212112220-3003120320112333-1220300022301203-2210003021111102-0100200132031011-2010032223231010"></a>
 
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 4fc8ab7a51a8 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-237b490e810f65045604fda7d03bfdcb773b97f49417b7e7f84ac14ddf9ba8ac"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 4fc8ab7a51a8 / 4
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-09418ea08cc0982221cb8215bf766726be05ec5912a6ff6bc411a7e54f70c52c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a2b2aad3dce22652943cd1aeb9b374262010ae9c7835659f0799faa2c72e26fc"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 484ede26d9e5 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c5e5230b713709a027bf159ae0615941fe33d81e9c461b4b8230ffac34ecead2)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address
-
-<a id="canonical-abb1dfcb019ea8ea6f05ed0ac9d78375a9ccac3162bf2dc1d149c78f6949a999"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-eb39521ad3016b03e28fca8ddbd0a875ce739c21c207db51115c58f2c8a33e7f"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 484ede26d9e5 / 3
+## Direct properties — first_address / 132211012220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0419b885b1a9bd532ca2372a03fec1a0dbc9047614c50afae27cb066c89da53e"></a>
+<a id="canonical-0203132310210032-2001003312110010-1112001033312213-3100032333313023-1313032321133310-2110011323133213-3320102230011031-3133212322202230"></a>
 
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.l / 484ede26d9e5 / 4
+## Next pages — first_address / 132211012220 / 4
 
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ef171900030298d12447ed5e18f318aaed61443e6e84db6abf764d16b87887ff)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a1e76e03f93c487f88cca2f7b5f4f546d69abf03fdd66e0d46d141fb994bcb3f"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 9d7daf9d15d9 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
-
-<a id="canonical-854c0c31d5626e4e6ca3f5d980bfcd99102799ac3345a99ccd09683a6e9204b1"></a>
-
-Type: `"single"`. Computed.
-
-DHCPIPV6 Stateful Server.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-interfaces_addressing_choice": "[\"automatic_from_end\",\"automatic_from_start\",\"interface_ip_map\"]"
-}
-```
-
-<a id="canonical-51af99ad67d73005391873fed2951ac698289cd3375f665f234ec2d7c54b1c58"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 9d7daf9d15d9 / 3
-
-- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ee959231c7c461eec8c2b42ebc0fdb0386f484a838b709e678cd9bc6ddf7b237): complete subsection reference.
-
-- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7242213f56c65caf8ea14b484d0ac1f8eef2791eae679e4dece7bf655c3bdb7c): complete subsection reference.
-
-- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1f309a615fa3d7c612d27db8f6c4d73070e761d175590e8afe9a6c71d36418b1): complete subsection reference.
-
-<a id="canonical-e34ea3a786b2aa7865176b535942997d8fe8dcce1fac33de2343310723175307"></a>
-
-<a id="canonical-3ae974cac825066fcca33bbf772d55813f7383f311b57be2774952aefbf22475"></a>
-
-## fixed_ip_map property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 9d7daf9d15d9 / 4
-
-Type: `["map", "string"]`. Computed.
-
-Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
-addresses based on the MAC Address of the DHCP Client.
-
-Upstream description:
-
-Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
-addresses based on the MAC Address of the DHCP Client.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.mac": "true",
-    "ves.io.schema.rules.map.max_pairs": "128",
-    "ves.io.schema.rules.map.unique_values": "true",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.mac": "true",
-    "ves.io.schema.rules.map.max_pairs": "128",
-    "ves.io.schema.rules.map.unique_values": "true",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  }
-}
-```
-
-- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c6aa10188639ea4e465341457d908393487db96780b26ffaadcb4afda8a6574b): complete subsection reference.
-
-<a id="canonical-130a97fec0ab59bef197d81627aafb6cb43cbadf9555c2c757fc27695169f0b7"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 9d7daf9d15d9 / 5
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end](data-sources--securemesh_site_v2--reference--group-017.md#canonical-ee959231c7c461eec8c2b42ebc0fdb0386f484a838b709e678cd9bc6ddf7b237)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7242213f56c65caf8ea14b484d0ac1f8eef2791eae679e4dece7bf655c3bdb7c)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1f309a615fa3d7c612d27db8f6c4d73070e761d175590e8afe9a6c71d36418b1)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](data-sources--securemesh_site_v2--reference--group-017.md#canonical-c6aa10188639ea4e465341457d908393487db96780b26ffaadcb4afda8a6574b)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-ee959231c7c461eec8c2b42ebc0fdb0386f484a838b709e678cd9bc6ddf7b237"></a>
+<a id="canonical-0021100120322200-2030300021200202-0201302320020111-2333131212130212-2332001132301121-0102221233331223-3010010122133211-1033130030110230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-5c0841b60fb8d01145d03664504a184ffe2d0f3763b35274d87ef0e1239f1865"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 18c7492b47e3 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end
-
-<a id="canonical-e7ba93f4d08d1fea8b71d4ef369617c3167881a36954e683df19b26900b7ecac"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for automatic from end.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-5a4e3e8083bd9ea8ab00fdf38f3b5351c185b0edead22a35d701b092bb93fd11"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 18c7492b47e3 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-c42c7860aceecfecac4b213c053bb37e181214f83b31f96f8f124648858afefb"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 18c7492b47e3 / 4
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-7242213f56c65caf8ea14b484d0ac1f8eef2791eae679e4dece7bf655c3bdb7c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1df9638d729568a72c108bbab8803e23b6b9eaa29ded5abcc15524e78a04b28e"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 96e3c82464a1 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start
-
-<a id="canonical-250b63a2879d8fe84d9c0e414fc34da4b38b32fee9543784331ea687a2c17bd9"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for automatic from start.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-ccdfd32eda9ecfce48d3b8c42bfac7d4174ce0930eff6a21b5b980af2d6d52be"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 96e3c82464a1 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-7111863f2c8f64fcf921d21ac6563f1a4886a8749cab80a054d0b27944ddbdd0"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.aut / 96e3c82464a1 / 4
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-1f309a615fa3d7c612d27db8f6c4d73070e761d175590e8afe9a6c71d36418b1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ada99f1fb025283a4c79663c1facd9d5b6e9ede092a5ff2a101702d8ec51d6b7"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / bc58d3ddb360 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks
-
-<a id="canonical-7470a3b64aa579c0817e7a905e552c5cb038db64388dd5ec927a4dbca51db84d"></a>
-
-Type: `"list"`. Computed.
-
-List of networks from which DHCP server can allocate IP addresses.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-f89b0aa27ffdb25c021b8b1eb2140fb11326269a4622f3315e00652cf094feb8"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / bc58d3ddb360 / 3
-
-<a id="canonical-3eed26e597415fbfa1466bed8da26f4ffe1f7a39f8aa2b52c366698b8096e0ec"></a>
-
-<a id="canonical-f74045064916a034522f1fc3e2df9495b8d6696f45801cf82d284c9ecf80e27d"></a>
-
-## network_prefix property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / bc58d3ddb360 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
-
-Upstream description:
-
-Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-cb4c8508ca973c57c08032b6864b54a6d927c22cdbc832bf07bdcef484b60420"></a>
-
-<a id="canonical-d858246c63044580ea2bb0ac0b90ddac18938cb26ba0a2c05d0c5f6de1972694"></a>
-
-## pool_settings property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / bc58d3ddb360 / 5
-
-Type: `"string"`. Computed.
-
-\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
-Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
-IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
-Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
-\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
-\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
-
-Upstream description:
-
-Identifies the how to pick the network for Interface.
-
-Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list
-are excluded from IP Address allocation.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-  "enum": [
-    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d968065e87b4fda9fc5be4f29232ac21f11f8ea9e0e70b3b2c7282fc82f3d71a): complete subsection reference.
-
-<a id="canonical-da8a09a511dedfddac46efdad2e2e690762ca33d134fd24329cc6534ae1e87d0"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / bc58d3ddb360 / 6
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-017.md#canonical-d968065e87b4fda9fc5be4f29232ac21f11f8ea9e0e70b3b2c7282fc82f3d71a)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-d968065e87b4fda9fc5be4f29232ac21f11f8ea9e0e70b3b2c7282fc82f3d71a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-18d0f76dca0d54f241efa1511540efa743a6743e8bbe238005e952c8e65f25a2"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / 9dc2881f9825 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1f309a615fa3d7c612d27db8f6c4d73070e761d175590e8afe9a6c71d36418b1)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
-
-<a id="canonical-13db9dcb93cd20de316867ec553fcd56c20cca199d5730aca06525d6b219b002"></a>
-
-Type: `"list"`. Computed.
-
-List of non overlapping IP address ranges.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-a2684dc9a945d1fd187ece6b0a8fedd00080b6554675c756ed7c02994daf8fa3"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / 9dc2881f9825 / 3
-
-<a id="canonical-08e131d217df4182869aa7570c8f9793c4361b0886261668b695540ebddc8dab"></a>
-
-<a id="canonical-94d2e630c4e422b29e7b0d2451443dc925820ab5e8f22d431906ff7b232225f6"></a>
-
-## end_ip property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / 9dc2881f9825 / 4
-
-Type: `"string"`. Computed.
-
-Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix.
-
-Upstream description:
-
-Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-1cf4460f1408ed35563b679d4722b51e1bd734704f98d5ff2f917257b1fac083"></a>
-
-<a id="canonical-d90d5efb4c84e2afc9e3a8945416c8bb67a3c053e25c9054860bd3666291c6f0"></a>
-
-## start_ip property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / 9dc2881f9825 / 5
-
-Type: `"string"`. Computed.
-
-Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix. 2001::1 with prefix length of 64, start offset is 5.
-
-Upstream description:
-
-Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix. 2001::1 with prefix length of 64, start offset is 5.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-a566ac3cf9bffbdbe8d9949c31e07cec240535bcefcf8fbf8967b05cee7e26aa"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhc / 9dc2881f9825 / 6
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-017.md#canonical-1f309a615fa3d7c612d27db8f6c4d73070e761d175590e8afe9a6c71d36418b1)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-c6aa10188639ea4e465341457d908393487db96780b26ffaadcb4afda8a6574b"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-10c61c82557ffe7075fb3e0d69057d23da82abc6452c382413806b502a3baf6e"></a>
-
-## vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.int / a1448439af79 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-017.md#canonical-77129aec4ff1f628e53657b8ee2ad737e637dabc8b2c251ad5c258f92e52a9fa)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-017.md#canonical-07acf2c5d11f4fb50860146a4a96efc2994626ae6b632b8000751a1f268fea34)
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
-
-<a id="canonical-95eec95b97fe1caf3ee33db810e1daf569d460b3d483fe28812bf5bf8b17aa87"></a>
-
-Type: `"single"`. Computed.
-
-Map of Interface IPv6 assignments per node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-ea2c318edc9581be41b02c65b3f8c3a81c323a5e851534d2ce0e8f3524a57040"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.int / a1448439af79 / 3
-
-<a id="canonical-89c699bf5276ea24acb117d5841c34549f1f0358da45e72d488af01a3d7cdc47"></a>
-
-<a id="canonical-acbb401546986b15384209fd030b47e9a97b1b92a3901a9cf1b1302fd154cae4"></a>
-
-## interface_ip_map property — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.int / a1448439af79 / 4
-
-Type: `["map", "string"]`. Computed.
-
-Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
-
-Upstream description:
-
-Map of Site:Node to IPv6 address.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-807a0412186240d401df4ad20170263b20200ee5dee5b3f7c762fdc797ae9dac"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.int / a1448439af79 / 5
-
-- [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-017.md#canonical-b37eb6693f16c3a2cfd2faa396ec234a31796bde068c6994125bee4df61e956a)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-c0d532ea954a4fd60833369da7f4607c9a2d91db72c587e740164bfc42f33f20"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-9239c5d4e8302fdcccc4d2236c306f3f40ce0c197cf7b4bd44a57ca92d009596"></a>
-
-## vmware.not_managed.node_list.interface_list.monitor — vmware.not_managed.node_list.interface_list.monitor / 17656b1e1ece / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.monitor
-
-<a id="canonical-4929686c0e4668c8ab9d4a8e671c3af5ac278be813720e2bc4661debec74e64a"></a>
-
-Type: `["object", {}]`. Computed.
-
-Link Quality Monitoring configuration for a network interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-78fe8008b9761f2ca360e11e3b4045ce638f63bc4df851b7f322e00b15e58ad9"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.monitor / 17656b1e1ece / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-88c7f52fe3aaf6fc2f723cec06331abd3276baced10156b4783427e0e0bfd930"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.monitor / 17656b1e1ece / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-d5a180851c2a785e2cf71829e969187cac0b0f828c10ea3c977c3ca059329a21"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-88743a67737a0d0405d83f7ddfa36baa2a5d75bcbf8f264d919d5cc662c6ebf0"></a>
-
-## vmware.not_managed.node_list.interface_list.monitor_disabled — vmware.not_managed.node_list.interface_list.monitor_disabled / a075ecf3297b / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.monitor_disabled
-
-<a id="canonical-cddab7e2fdd8a37dea1f777e1b16906503c5a2dc9db1cde8cbfc2479cdfca624"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-8a631d94ef672c5d9a0a04388ac9a2185127571d84dae0adb168459bfb00074c"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.monitor_disabled / a075ecf3297b / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-f4019efc1223509ad53fe4f6d7963266aaffd50d894d5cebe7e75023bb462351"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.monitor_disabled / a075ecf3297b / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d090fe093bbce799d5dfb10509381a934f00e9614619670f9e100961a23013a1"></a>
-
-## vmware.not_managed.node_list.interface_list.network_option — vmware.not_managed.node_list.interface_list.network_option / f427dde0a9a2 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.network_option
-
-<a id="canonical-00ccded25439523b3999dd1c3a45251127f8c0e5ef71859c599f1757e7647a2c"></a>
-
-Type: `"single"`. Computed.
-
-Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
-local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
-Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
-optional.
-
-Upstream description:
-
-Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
-local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
-Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
-optional. Global VRFs are configured via Networking &gt; Segments. A site can have multiple Network
-Segments (global VRFs).
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_choice": "[\"segment_network\",\"site_local_inside_network\",\"site_local_network\"]"
-}
-```
-
-<a id="canonical-a947eca727e151ca61076c1215be3379afd8553caf6f822f46f62da3ac716397"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.network_option / f427dde0a9a2 / 3
-
-- [site_local_inside_network](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8d56c90d01f26d713783d061e8efbbd0ca04a8a8bb424cfd01e7957aec01e384): complete subsection reference.
-
-- [site_local_network](data-sources--securemesh_site_v2--reference--group-017.md#canonical-016f4054bc3f0e4c0b0f080c00ebc916a5ed0119a682ee615215754386316fb2): complete subsection reference.
-
-<a id="canonical-0368c3e607d8c951770942c993c2613c1763a4f26ec17e3dafe9ced8979c51e4"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.network_option / f427dde0a9a2 / 4
-
-- [vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network](data-sources--securemesh_site_v2--reference--group-017.md#canonical-8d56c90d01f26d713783d061e8efbbd0ca04a8a8bb424cfd01e7957aec01e384)
-- [vmware.not_managed.node_list.interface_list.network_option.site_local_network](data-sources--securemesh_site_v2--reference--group-017.md#canonical-016f4054bc3f0e4c0b0f080c00ebc916a5ed0119a682ee615215754386316fb2)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-8d56c90d01f26d713783d061e8efbbd0ca04a8a8bb424cfd01e7957aec01e384"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d6a93af678b89a3cab87a0ac2c93bca8db645ee8da4b4066146072009b84c6c0"></a>
-
-## vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network — vmware.not_managed.node_list.interface_list.network_option.site_local_inside_net / 3ffb45a6fe7d / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8)
-- vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network
-
-<a id="canonical-5b205ffacade9074d892d1bbcfc0407a6b206a3dd85dd68cb5a7ef3b3cc04456"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-d4d18537b1c66687812344cb3d394fdda826769408d534e45089ffbcf71afab3"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.network_option.site_local_inside_net / 3ffb45a6fe7d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-66f964d6bcd544caad0e2ac68d385e5cc4fd1375b72bad940773c26559e9e529"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.network_option.site_local_inside_net / 3ffb45a6fe7d / 4
-
-- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-016f4054bc3f0e4c0b0f080c00ebc916a5ed0119a682ee615215754386316fb2"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-57fc350456254c34d5481f2f7de634f2af98b214f92b512979969620deea9784"></a>
-
-## vmware.not_managed.node_list.interface_list.network_option.site_local_network — vmware.not_managed.node_list.interface_list.network_option.site_local_network / db844354e68e / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8)
-- vmware.not_managed.node_list.interface_list.network_option.site_local_network
-
-<a id="canonical-0ba7d3995bcd0616dacf9efcfc9dac65289ad4965c496c1f3edf0e53be3683a6"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-d6c0108e4b31755e3a03010cb2e96bb8c1ff7e85f7e2417c13f717dcb45a9aae"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.network_option.site_local_network / db844354e68e / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-785cb366d987e206fdcfc4ba2c7070f193a961c21b83468df84aff72ba6dd65f"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.network_option.site_local_network / db844354e68e / 4
-
-- [vmware.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-017.md#canonical-f872def9ca690acf4a7892b9854268c20f37c626269035aca2e242e8fa89f7b8)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-75c45b1993190ce2ad19a20d8e5b01f216e6775bce3004c8506756ec8fceb0c6"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-df958c9b810361cc5ff8527239901d19f8d28060c7aeeaed76a7e43db4dc81e8"></a>
-
-## vmware.not_managed.node_list.interface_list.no_ipv4_address — vmware.not_managed.node_list.interface_list.no_ipv4_address / 764446fbec97 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.no_ipv4_address
-
-<a id="canonical-3376fbda50f92414aedcf0da3a7c2f8681e53cfe99fb81dd300fbddc8adfb916"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-cdd69fa578fc8482a65b5313615d2e0df01f251afb07638390d00c9d250ccd87"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.no_ipv4_address / 764446fbec97 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-b8c7ac9567f244409f7ace9db05d80ab9ae64b9444fbf16dc837da3eba4e6c28"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.no_ipv4_address / 764446fbec97 / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-a9b19516002b4330fd2f2374b11caf3cea679396fc69d21c7a0e7abceb217584"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b0fad89cc8a4ab2956fabc16d8a87f1991ac0cef86674b46f750743382974e09"></a>
-
-## vmware.not_managed.node_list.interface_list.no_ipv6_address — vmware.not_managed.node_list.interface_list.no_ipv6_address / 289874a6d5ba / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.no_ipv6_address
-
-<a id="canonical-db422eea15f24536d83f5eb9a694713baa6c1a8c6908927fc573088dd15b5d30"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-201e24fb216467f20a9629e98120749445f81e0d8c1b40ec05314a3cf4a5c515"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.no_ipv6_address / 289874a6d5ba / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3e4006b06da74f06316a8eb78c9861ec9552531e4d47ec53dd8432e23d6d3f4f"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.no_ipv6_address / 289874a6d5ba / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-9995a1d8d38c789c34d29c5ff06da51cb98796fb20dcaac83b30028c3ad6c6d0"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3ca205eeda7e2ea6deeee22c63d2a44c611cc18faf3e572469217c95fb06b861"></a>
-
-## vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 9868b5770ccd / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
-
-<a id="canonical-b435a4b1ad216de9e2a81e2f4956500511a9167220942da0a081897d0f6dfa0f"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-547b4032fddb9c8c6aec47f33821a5b7014d1ddfa8903f03415b824cccc26f43"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 9868b5770ccd / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-df7893368bb7b1932561ba3ecc0f51ce3ffc9bdf5067f0c60322352fc4b71c03"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 9868b5770ccd / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-8c2dee918558431a357fa0cc5fc17d639304b7e01b5d4dee3b08c42a2d4b1283"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0d03ce26c5d9cfaba8257fbb7a15635e1e34b5a784d8e86eb9a7bc645198d245"></a>
-
-## vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 2f9a230d2b62 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
-
-<a id="canonical-c4dfcb2fed7360c21ab5eff364f2ebf964ee7c1f95c18743e1f544475fb6f9c9"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0e727871c9ddfb8ea82f2666ec1a05accf58def2f9360f2c3b79157386ee968f"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 2f9a230d2b62 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-32cf96b600be0fa304096813c535e57cfa6c7892b8cc0a6cc570bd5a8deed09a"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ / 2f9a230d2b62 / 4
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-3a1d19b4aaf04e2319159d92244412ad68de95e84de0a9b3380ca724ff0c0314"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7e7d32c17c286b32aa42793da548527ccb4d5ef7bcabade97c4dd6e92e00c9f6"></a>
-
-## vmware.not_managed.node_list.interface_list.static_ip — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.static_ip
-
-<a id="canonical-402b59d805312ce41145deb427df2138a9f95ae27fac8a432c615cff0aeef020"></a>
-
-Type: `"single"`. Computed.
-
-Configure Static IP parameters for a node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-966c346524b2567bf0e5f3e8ef41b770bc2e85240ae34af2125404baf6bfb99f"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 3
-
-<a id="canonical-6b4d6fd1a2c3e5cddc5d53b46b5a95174250b4f7e0c2c3fcc17a4ee537803570"></a>
-
-<a id="canonical-3ab38e5cc20de28a3f24f891358f876145f57a5203843565ba08aaf8bea0bf29"></a>
-
-## default_gw property — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 4
-
-Type: `"string"`. Computed.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-7d9fe9852cd771b7d5c74936ab1ca580e47cc153c8d5d0587ff75e5fd35ee488"></a>
-
-<a id="canonical-a5947d05038403ac480931b789819e04615b62a8ef5fae46256205cbde280c22"></a>
-
-## dns_server property — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 5
-
-Type: `"string"`. Computed.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-c53ed9c4e9dfb7042029c5a4219c29987f8f588fac7c569f5624f22769ad0d60"></a>
-
-<a id="canonical-cdae082939882864b8f617a4b2d9088467577ec11cd253348bfe98db196fe042"></a>
-
-## ip_address property — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 6
-
-Type: `"string"`. Computed.
-
-IP address of the interface and prefix length.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-8b1c156372a0629f9c2f864dee17b7642b048596da698ecad90bf49b1abd0277"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.static_ip / 0f7021d41f01 / 7
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-5fd41d62cfeeb473d8549858d89682acd408d2ce9d9111f0d5593f587123165c"></a>
-
-## vmware.not_managed.node_list.interface_list.static_ipv6_address — vmware.not_managed.node_list.interface_list.static_ipv6_address / 6fb2ba275d9e / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.static_ipv6_address
-
-<a id="canonical-2a6c957baab3983dbca9355ec4bc8200c32291d7a892a80a64efa29b0b779c09"></a>
-
-Type: `"single"`. Computed.
-
-Static IP Parameters. Configure Static IP parameters.
-
-Upstream description:
-
-Configure Static IP parameters.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
-}
-```
-
-<a id="canonical-7ebb4cfa9d15c940ccdeb36ecedf3b482e1269ab7d8e51b74fb0fc25854312bb"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.static_ipv6_address / 6fb2ba275d9e / 3
-
-- [cluster_static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7e5c5e106d4842c0e42aac1a34f32e4f51d499d467a1c83044274b8dbe7e7cb6): complete subsection reference.
-
-- [node_static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-eb0425f17208340b7f39cf8eb77883b8be5232b23ff01ac48926bf3c5f5330d5): complete subsection reference.
-
-<a id="canonical-68c1ccf1f568de2523a7ee513c340ddd73cb6f768aafb94ee4c84bb8fce1f841"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.static_ipv6_address / 6fb2ba275d9e / 4
-
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-7e5c5e106d4842c0e42aac1a34f32e4f51d499d467a1c83044274b8dbe7e7cb6)
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](data-sources--securemesh_site_v2--reference--group-017.md#canonical-eb0425f17208340b7f39cf8eb77883b8be5232b23ff01ac48926bf3c5f5330d5)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-7e5c5e106d4842c0e42aac1a34f32e4f51d499d467a1c83044274b8dbe7e7cb6"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a4d35e9034f393755d688588bd48a55e05fa306dcc3e57b5f128bddc98eb983d"></a>
-
-## vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip — vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_i / 32bd669c21a5 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117)
-- vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip
-
-<a id="canonical-95937acfd28a456ff4f5fef5a34711525009a0029a84ff2e06cba25fea5102f5"></a>
-
-Type: `"single"`. Computed.
-
-Configure Static IP parameters for cluster.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-4080641ca9cfaca39cffd10ae82976aefb5a21af6015824f5d3509acbf971971"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_i / 32bd669c21a5 / 3
-
-<a id="canonical-697668aae71f1b3aadf7f12a9f890a511718cf80fa1ae430fbefa9a1e98b79d6"></a>
-
-<a id="canonical-96d70a52b6ccb23c57aeb147d7fd586d29320703625d291649f969ba3a6234fd"></a>
-
-## interface_ip_map property — vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_i / 32bd669c21a5 / 4
-
-Type: `["map", "string"]`. Computed.
-
-Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  }
-}
-```
-
-<a id="canonical-ddab9dcce0d72a050fbb6bf666c9ff6a132598510af631fd65bd5ec635fa7159"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_i / 32bd669c21a5 / 5
-
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-eb0425f17208340b7f39cf8eb77883b8be5232b23ff01ac48926bf3c5f5330d5"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-cffa3290aecc52a62d195829197d51ebc493e46a4b0e823874f1152420ee3f45"></a>
-
-## vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117)
-- vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip
-
-<a id="canonical-f5a64cca541e1b2f2df27f233d60f60d07fbb446aff757ec221cdd0c12ab19b1"></a>
-
-Type: `"single"`. Computed.
-
-Configure Static IP parameters for a node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-cc803b76100f012c6f3e4c4e314c1eb4277e37111c65f34b6bd99d632a8c420a"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 3
-
-<a id="canonical-c6f63cbfefe040ae4a5a2f7c3876d02b00347db501476103f736064d86be423e"></a>
-
-<a id="canonical-6c29cca1509608df802cc8c9c4f84a4c0f0e537311868d3abc1fe0a0b49fb77b"></a>
-
-## default_gw property — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 4
-
-Type: `"string"`. Computed.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-6d4f8599a1294610cc259912a50de3f960140a95445b40e6df4820db1a12dc46"></a>
-
-<a id="canonical-102c115fba2c4e1a19373c619d59df5f2bfc2d3138e7d06652fa3b7aeb915f65"></a>
-
-## dns_server property — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 5
-
-Type: `"string"`. Computed.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-80f793c0ec586cc48c0461e0cdf924dc6280db0086f147891d80d952554853b2"></a>
-
-<a id="canonical-bdc7a1cf122f743b97bbfa78f3bd8eb3619634c94245e41f03d14aa1ab42fc97"></a>
-
-## ip_address property — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 6
-
-Type: `"string"`. Computed.
-
-IP address of the interface and prefix length.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-441ad7b027735c4d62c28c93c042fe8e6201133c594c1988795facd4fa7bc89c"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 39e2305f28d1 / 7
-
-- [vmware.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-017.md#canonical-119877391dc95ffeb676073bd50f4e8f0fb10a1efaaeab1e0564044c3e425117)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-2c336614881f32108bf45b8d32c9338cb9eb1b6eab663f99a48f91edcef0c177"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-e00f6dc6e56ae50ed67cf6568e61c9ebaf99e434626f7993eaf1c63686d5d35d"></a>
-
-## vmware.not_managed.node_list.interface_list.vlan_interface — vmware.not_managed.node_list.interface_list.vlan_interface / 2bd4076f6357 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [vmware](data-sources--securemesh_site_v2--reference--group-016.md#canonical-a40005702c893ea5cf5b53bc3bb512942b2d9786f57b8397e8b8deaeba7a4fee)
-- [vmware.not_managed](data-sources--securemesh_site_v2--reference--group-016.md#canonical-8e03e4e0991fd9ffcfd09d5dd56ddb7e84065017268d8f0f6af6b92ae3cdd1e6)
-- [vmware.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-1717e310237e21d4c015b1360d428773c840dde5cdbfad14838e045badb957d1)
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- vmware.not_managed.node_list.interface_list.vlan_interface
-
-<a id="canonical-5a7c5c10e4dd40515b41f1df1f205d69d8b673d3b5023b58a329d421892ba6e9"></a>
-
-Type: `"single"`. Computed.
-
-Configuration parameter for vlan interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-9860970146cacc5dcded7a998b311aa60a3f37e2e805f0f417293f64442620eb"></a>
-
-## Direct properties — vmware.not_managed.node_list.interface_list.vlan_interface / 2bd4076f6357 / 3
-
-<a id="canonical-c7448ef13d2dc0660f26f929e3ac4602a5684b67621ddfb3673821bf5d181bb6"></a>
-
-<a id="canonical-0a81eb364dba276efbdaa91fbf0fe5c025bd67f7c9815ef227c1dcc28896bfb4"></a>
-
-## device property — vmware.not_managed.node_list.interface_list.vlan_interface / 2bd4076f6357 / 4
-
-Type: `"string"`. Computed.
-
-Select a parent interface from the dropdown.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-33d5f4e18afa7f860b6ba3ba41714e5984e2ab64a756178e67bd06a106f07ade"></a>
-
-<a id="canonical-cb9445d636225054ac50ee58fdd6a93bdde38753d2496e9ef4c89f01625e9da1"></a>
-
-## vlan_id property — vmware.not_managed.node_list.interface_list.vlan_interface / 2bd4076f6357 / 5
-
-Type: `"number"`. Computed.
-
-Configure the VLAN tag for this interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 4095,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "4095"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "4095"
-  }
-}
-```
-
-<a id="canonical-c244c504d536f078713c58d8ce10a796fa7bbf84ea7d796ab25a40b0c1bae81a"></a>
-
-## Next pages — vmware.not_managed.node_list.interface_list.vlan_interface / 2bd4076f6357 / 6
-
-- [vmware.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-016.md#canonical-249f885a042353d5ba1541c02458289c62f7563e9b4ffc7da6b521ebff7ff737)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_workload_flavor land
 
 # xcsh_workload_flavor landing
 
-<a id="canonical-8c8c0ecc2e6ee25fc807e107477b515e49f3e31343c02d3b3fb96b576dfd8acc"></a>
+<a id="canonical-2030203000323030-0232123232021133-3020001332010013-1013132311011132-1021330332030103-1003300002310323-0333232112231113-1231333120223030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd8bd8bd5de56ba87c034acf620559460ae2e17da920f1a343cf2833bb62f473"></a>
+<a id="canonical-3131202331202331-1131321112232220-1330000310223033-1202001111211012-0022320232011331-2221020033012203-1003303302200303-2323120233101303"></a>
 
-## xcsh_workload_flavor — xcsh_workload_flavor / ac133c0c04a1 / 2
+## xcsh_workload_flavor — xcsh_workload_flavor / 003000102201 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages workload\_flavor in F5 Distributed Cloud.
 
-<a id="canonical-9085d48dc3249804ada61863c0dcc97fd57e9c31363400f862a80af9a4e4eb4f"></a>
+<a id="canonical-2100201131102031-3003021021200010-2231221201201203-3000313030211333-3111133221300301-0312031000003320-1202222000223321-2210321032231033"></a>
 
-## Prerequisites — xcsh_workload_flavor / ac133c0c04a1 / 3
+## Prerequisites — xcsh_workload_flavor / 003000102201 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c7c8f07e9ae0982eafc99f361fb1fea47236cec2948ff8150e648aab5e6bdd75"></a>
+<a id="canonical-3013302033001332-2122320021200232-2233302121330312-0133230133322210-1302031230323002-2110203333200111-0032121020222223-1132122331311311"></a>
 
-## Minimal configuration — xcsh_workload_flavor / ac133c0c04a1 / 4
+## Minimal configuration — xcsh_workload_flavor / 003000102201 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "workload_flavor_id" {
 }
 ```
 
-<a id="canonical-636a70b2c459f2b67241c7c5bce64293a564d521578d0c305a4717b0e2af20e0"></a>
+<a id="canonical-1203122213002302-3010112133022312-1302100130133011-2330321210022103-2211121031110201-1113203100300300-1122101301132300-3202223302003200"></a>
 
-## Root configuration — xcsh_workload_flavor / ac133c0c04a1 / 5
+## Root configuration — xcsh_workload_flavor / 003000102201 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-19b65502f6aa971cb128df99c90b138bfc46853065e18d2c4b76a3638d637716"></a>
+<a id="canonical-0121231211110002-3312222221130130-2301022031332121-3021002301032023-3330101220110300-1211320120310230-1023131222031203-2031120313130112"></a>
 
-## Next pages — xcsh_workload_flavor / ac133c0c04a1 / 6
+## Next pages — xcsh_workload_flavor / 003000102201 / 6
 
-- [Property reference](../guides/data-sources--workload_flavor--reference--group-001.md#canonical-9193b6067e4e8e493c8d2e08f2541bfa4d5b090c7074a32eae1dc6e93462dee9)
-- [Examples](../guides/data-sources--workload_flavor--examples--group-001.md#canonical-a9945d616ff369efe638b8eb3f7f840bfb4552c8f0287e9b4578032eb5f36892)
+- [Property reference](../guides/data-sources--workload_flavor--reference--group-001.md#canonical-2101210323120012-1332103220321021-0330203102320020-3302111001233322-1031112300210030-1300131022030232-2232013130123221-0310120231323221)
+- [Examples](../guides/data-sources--workload_flavor--examples--group-001.md#canonical-2221211011311201-1233330312213233-3212032023203223-0333133320100023-3323101111023020-3300022013322123-1011132000030232-2311330312202102)

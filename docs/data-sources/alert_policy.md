@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_alert_policy landing
 
 # xcsh_alert_policy landing
 
-<a id="canonical-3839c02b07d955e3e93e0d2e71298906f0e75421074c8fd38c1a7d4e4f56055c"></a>
+<a id="canonical-0320032130000223-0013312111113203-3221033200310232-1301022120210012-3300321311100201-0013103020333103-2030012213311032-1033111200111130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0ed1007803438fbc39777cfe3a0186122d662a1b3f8c5aad38592ddedde82a6f"></a>
+<a id="canonical-0032310100001320-0003100320332330-0321131313303332-0322000120120102-0231121202220123-0333203011222231-0320112102313132-3131322002221233"></a>
 
-## xcsh_alert_policy — xcsh_alert_policy / 4b9aba9f7399 / 2
+## xcsh_alert_policy — xcsh_alert_policy / 213313032121 / 2
 
 Breadcrumbs:
 
@@ -22,17 +22,17 @@ Breadcrumbs:
 
 Manages new Alert Policy Object in F5 Distributed Cloud.
 
-<a id="canonical-8b721da1199f2b7e41f7472645f5ca947f1409204620cc37b1c9483097874b3b"></a>
+<a id="canonical-2023130201312201-0121213302231332-1001331310130212-1011331130222110-1333011000210200-1012020030300313-2301302110200300-2113201310230323"></a>
 
-## Prerequisites — xcsh_alert_policy / 4b9aba9f7399 / 3
+## Prerequisites — xcsh_alert_policy / 213313032121 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-2186061ac47d62cd370406dc63176e39f85f6ace9993c887da052d6fde1654eb"></a>
+<a id="canonical-0201201200120122-3010133112023031-0313001000123130-1203011312320321-3320113312223032-2121210330202013-3122001102311233-3132011211103223"></a>
 
-## Minimal configuration — xcsh_alert_policy / 4b9aba9f7399 / 4
+## Minimal configuration — xcsh_alert_policy / 213313032121 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "alert_policy_id" {
 }
 ```
 
-<a id="canonical-4fa54f0af788346f583a291c4c1cb9cf6126587667436b387931c16276389d5d"></a>
+<a id="canonical-1033221110330022-3313202003101233-1120032202210130-1030013023213033-1201021211201312-1213100312230320-1321030130011202-1312032021311131"></a>
 
-## Root configuration — xcsh_alert_policy / 4b9aba9f7399 / 5
+## Root configuration — xcsh_alert_policy / 213313032121 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3c61419a774db0354c79c870eaa3ec682270a60e852dfd57c24fbad85ee80630"></a>
+<a id="canonical-0330120110012122-1313103123000311-1030132130201300-3222220332301220-0202130022120032-2011023133311113-3002103323223120-1132322000120300"></a>
 
-## Next pages — xcsh_alert_policy / 4b9aba9f7399 / 6
+## Next pages — xcsh_alert_policy / 213313032121 / 6
 
-- [Property reference](../guides/data-sources--alert_policy--reference--group-001.md#canonical-96a61606ae7f7cdfa2189a69f67c959ba0d7cb9eb20ab147015fece06408b99b)
-- [Examples](../guides/data-sources--alert_policy--examples--group-001.md#canonical-3d81f623ab4dcd5d770dbd48b8bef571212d883a505f979b3fabf28a252d1469)
+- [Property reference](../guides/data-sources--alert_policy--reference--group-001.md#canonical-2112221201120012-2232133313303133-2202012021221221-3312133021112123-2200311330232132-2302002223011013-0001113332303200-1210002023212123)
+- [Examples](../guides/data-sources--alert_policy--examples--group-001.md#canonical-0331200133120203-2223103130311131-1313003123311020-2320233233111301-0201023120200322-1100113321132123-0333222333022022-0211023101101221)

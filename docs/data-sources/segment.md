@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_segment landing."
 
 # xcsh_segment landing
 
-<a id="canonical-7a8b795fee80e2e6cc7579e56e701793aec6fb3c8a0be25bcde59beed1d43650"></a>
+<a id="canonical-1322202313211133-3232200032023212-3030131113213211-1232130001132103-2232301233230330-2022002332021123-3031321121233232-3101311003121100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50f2438a8d358508b19f338a0c6215bd9c37cb4639153fd755d0b918c7e35008"></a>
+<a id="canonical-1100330210032022-2031031120110020-2301213303032022-0030120201112331-2130031330231012-0321011103333113-1111310023210120-3013320311000020"></a>
 
-## xcsh_segment — xcsh_segment / 681d7b2d58c0 / 2
+## xcsh_segment — xcsh_segment / 023111203000 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
-<a id="canonical-2a74ccd42be16964a07c90776814f47a7dc3edf51002ccdaab40224a5f308ef5"></a>
+<a id="canonical-0222131030303110-0223320112211210-2200133021001313-1220011033101322-1331300332313311-0100000230303122-2223100002021022-1133030020323311"></a>
 
-## Prerequisites — xcsh_segment / 681d7b2d58c0 / 3
+## Prerequisites — xcsh_segment / 023111203000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-4b60fa0a410dbb1a6a2cdc1f1a79de44a00f410ba40428a15b12aaa4a8bac4ef"></a>
+<a id="canonical-1023120033220022-1001003123230122-1222023031300133-0122132131321010-2200003310010023-2210001002202201-1123010222222210-2220232230103233"></a>
 
-## Minimal configuration — xcsh_segment / 681d7b2d58c0 / 4
+## Minimal configuration — xcsh_segment / 023111203000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "segment_id" {
 }
 ```
 
-<a id="canonical-ac7c343e2e238f4f1c945ba6ab7e1a7d6e3307d4d9a061c54cc36808b4a59386"></a>
+<a id="canonical-2230133003100332-0232020320331033-0130211011232212-2223133201221331-1232030300133110-3121220012013011-1030300312200020-2310221121032012"></a>
 
-## Root configuration — xcsh_segment / 681d7b2d58c0 / 5
+## Root configuration — xcsh_segment / 023111203000 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-5a3decc658872e5412d10d6099c5e41a98e56ac25d51d3ded19caa6db830519e"></a>
+<a id="canonical-1122033132303012-1120201302321110-0102310100311200-2121301132100122-2120321112223002-1131110131033132-3101213022221231-2320030011012132"></a>
 
-## Next pages — xcsh_segment / 681d7b2d58c0 / 6
+## Next pages — xcsh_segment / 023111203000 / 6
 
-- [Property reference](../guides/data-sources--segment--reference--group-001.md#canonical-542cdf7a24561b3f7a476758c7d287b3eb9814b546e6df99ab410ec927020b6f)
-- [Examples](../guides/data-sources--segment--examples--group-001.md#canonical-248c349c9eaccfb1eb432c30ddd926ca75a9811b28d5ce7c70003f7f597195f5)
+- [Property reference](../guides/data-sources--segment--reference--group-001.md#canonical-1110023031331322-0210111201230333-1322101312131120-3013310220132303-3223212001102311-1012321231332121-2223100100323021-0213000200231233)
+- [Examples](../guides/data-sources--segment--examples--group-001.md#canonical-0210203003102130-2132223030332301-3223100302300300-3131312102123022-1311222120010123-0220311130321330-1300000003331333-1121130121113311)

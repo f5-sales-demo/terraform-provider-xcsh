@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_nginx_service_discov
 
 # xcsh_nginx_service_discovery reference
 
-<a id="canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09"></a>
+<a id="canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f2652646df7c62eddc07e999d4b5655a217df07b00e08c172cd535ab1539d2ab"></a>
+<a id="canonical-3302121102121012-3133133012023231-3130001332212121-3110231112111122-0201133133001323-0000320020300113-0230311103112223-0111032131022223"></a>
 
-## Property reference — Property reference / 2a4a88477386 / 2
+## Property reference — Property reference / 101313032012 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 - Property reference
 
-<a id="canonical-9bcc7ec5ec45029f7c273a1760ba9b49596dbe399135eac385615d77ffe43903"></a>
+<a id="canonical-2123303013323011-3230101100022133-1330021303220113-1200232221231021-1121123123320321-2101031132223003-2011120111311313-3333321003210003"></a>
 
-## Direct properties — Property reference / 2a4a88477386 / 3
+## Direct properties — Property reference / 101313032012 / 3
 
-<a id="canonical-49deaea7dca3c5fbb6cc96bace279a85490c4a08ee54a4c4664038da2fe5ec44"></a>
+<a id="canonical-1021313222322213-3130220330113323-2312303021122322-3032021321222011-1021003010220020-3232111022103010-1212100003203122-0233321132301010"></a>
 
-<a id="canonical-3ff386646dcb8425e1f4653c3721f045e31c19dd0429e99027f128d4d52ab427"></a>
+<a id="canonical-0333330320121210-1231302320100211-3201331012110330-0313020133001011-3203013001213131-0010022132212100-0213330102203110-3111022223100213"></a>
 
-## annotations property — Property reference / 2a4a88477386 / 4
+## annotations property — Property reference / 101313032012 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c829eb8451f454d7e409b099f307c3a87866e8d598ae77a99e8110cb779ff836"></a>
+<a id="canonical-3020022132232010-1101331011103113-3210002123002121-3303001330032220-1320121232203111-2120223213132221-2132200101003023-1313213333200312"></a>
 
-<a id="canonical-704df5c2e7aea134a56029246f1dea908325af25049541343ef5e476eceae7bd"></a>
+<a id="canonical-1300103133113002-3213223222010310-2211120002210210-1233013132222100-2003021122330211-0010211110010310-0332331132101312-3230322232132331"></a>
 
-## description property — Property reference / 2a4a88477386 / 5
+## description property — Property reference / 101313032012 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af0942b6373b44b83f99bf7c2d465a29a13c6a17861c362b12da73cf30027730"></a>
+<a id="canonical-2233002110022312-0313032310102320-0333212123331330-0231101211220221-2201033012220113-2012013003120223-0102312213033033-0300000213130300"></a>
 
-<a id="canonical-9dc4ff4a7d7fc48240c25669c1897a616de0d120bbc383eac624d160612d5eef"></a>
+<a id="canonical-2131301033331022-1331133330102002-1000300211121221-3001202113221201-1231320031010200-2323300320033222-3012021031011200-1201023111323233"></a>
 
-## disable property — Property reference / 2a4a88477386 / 6
+## disable property — Property reference / 101313032012 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,27 +142,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6): complete subsection reference.
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312): complete subsection reference.
 
-<a id="canonical-f2b6b90a9fdaf0829d60cbf623a74b95ec1215963f68caa0991c866a0cf0673a"></a>
+<a id="canonical-3302231223210022-2133312233002002-2131120030233312-0203221310232111-3230010201112112-0333122030222200-2121013020121222-0030330012130322"></a>
 
-<a id="canonical-777bbd7bfcf61469ef7638e3dc9afa92903ead5379eacce146697277d6de4cee"></a>
+<a id="canonical-1313132323311323-3330331201101221-3233131203203203-3130212233222102-2100033222311103-1321322230303201-1012122113021313-3112313210303232"></a>
 
-## id property — Property reference / 2a4a88477386 / 7
+## ID property — Property reference / 101313032012 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-4b2ad1edb35313cbe746277829a4c4bd6d41a359ab49d671736f6034e85067a1"></a>
+<a id="canonical-1023022231013231-2303110301033023-3213101202131320-0221221030102331-1231100122031121-2223102131121301-1303123312000310-3220110012132201"></a>
 
-<a id="canonical-1cc53fb8ba86ce386425af3233afeee187c8d431fba9a77b57bc6ae057144095"></a>
+<a id="canonical-0130301103332320-2322201230320320-1210021122330302-0303223332323201-2013302031100301-3323222122131323-1113233012223200-1113011010002111"></a>
 
-## labels property — Property reference / 2a4a88477386 / 8
+## labels property — Property reference / 101313032012 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-590b08169160e866a44d942f650f632961bd5bbcaa0bd3544033c34783bc318b"></a>
+<a id="canonical-1121002300200112-2101120032201212-2210103121100233-1211003312030221-1201233111232330-2222002331031110-1000030330031013-2003233003012023"></a>
 
-<a id="canonical-6ecf415c0625e8b53cb239e4cad101f5e9110f7770e6ce54cd582e51309b91e9"></a>
+<a id="canonical-1232303310011130-0012021132202311-0330230203213210-3022310100013311-3221010100331313-1300321230321110-3031112002321101-0300212321013221"></a>
 
-## name property — Property reference / 2a4a88477386 / 9
+## name property — Property reference / 101313032012 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8244e39d021882f536a87a9425c86547a26fd31a6d805757c665c0a42fa81e31"></a>
+<a id="canonical-2002101032032131-0002012020023311-0312222013222110-0211302012111013-2202123331030122-1231200011131113-3012121130002210-0233222001320301"></a>
 
-<a id="canonical-dea01eaecb5f97c6a9a65f570b3131d82acc9ddf7d6a11135d2fbcdf8b008bbb"></a>
+<a id="canonical-3132220001322232-3023113321133012-2221221211331113-0023030103013120-0222303021313133-1331122201010103-1131023323303133-2023000020232323"></a>
 
-## namespace property — Property reference / 2a4a88477386 / 10
+## namespace property — Property reference / 101313032012 / 10
 
 Type: `"string"`. Required.
 
@@ -312,75 +312,75 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-aa29d75af6e1655c8211234f59f20760fb3899fff39a441e11340c60ac7f4f9b): complete subsection reference.
+- [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-2222022131131122-3312320112111130-2002010102031033-1121330200131200-3323032021213333-3303212210100132-0101031000301200-2230133310332123): complete subsection reference.
 
-- [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-fe720eb086b57545b2fb0f63f5461fc0b63c51e4b8e942105bd7f5b7cfd791f1): complete subsection reference.
+- [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-3332130200322300-2012231113111011-2302332300331203-3311101201333000-2312033011013210-2320322110020100-1123311333112313-3033311321013301): complete subsection reference.
 
-<a id="canonical-e5d77c435819a5b580547577ad408509d5ccf2d770e2ecef6534ca599e178528"></a>
+<a id="canonical-3211311313301003-1120012122112311-2000111013111313-2231100020110021-3111303033023113-1300320232303233-1211031030221121-2132011320110220"></a>
 
-## All schema paths — Property reference / 2a4a88477386 / 11
+## All schema paths — Property reference / 101313032012 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--nginx_service_discovery--reference--group-001.md#canonical-49deaea7dca3c5fbb6cc96bace279a85490c4a08ee54a4c4664038da2fe5ec44) |
-| `description` | [description](resources--nginx_service_discovery--reference--group-001.md#canonical-c829eb8451f454d7e409b099f307c3a87866e8d598ae77a99e8110cb779ff836) |
-| `disable` | [disable](resources--nginx_service_discovery--reference--group-001.md#canonical-af0942b6373b44b83f99bf7c2d465a29a13c6a17861c362b12da73cf30027730) |
-| `discovery_target` | [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-8af76100b856e03baa6cedc650239dded2f83e5a172d99c153af3d3b409de9a7) |
-| `discovery_target.config_sync_group` | [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-005dab6cfd7088d4f47befb529abe950df908ef39ad0a85375a0e231b7a72ece) |
-| `discovery_target.config_sync_group.config_sync_group` | [discovery_target.config_sync_group.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-16f422cfa2a46f5f8ce21fafe59b8ab271532b0658e5d68917f2e2ce25d6d9fd) |
-| `discovery_target.config_sync_group.config_sync_group.kind` | [discovery_target.config_sync_group.config_sync_group.kind](resources--nginx_service_discovery--reference--group-001.md#canonical-27130147c44350b40fa7d045d4ab27a9caa45ad36932bff6389b91b7a6e1c67c) |
-| `discovery_target.config_sync_group.config_sync_group.name` | [discovery_target.config_sync_group.config_sync_group.name](resources--nginx_service_discovery--reference--group-001.md#canonical-2798f643301c60f000f879546ed91c2ccba821ffe57d820ea0a08dea4d2a9879) |
-| `discovery_target.config_sync_group.config_sync_group.namespace` | [discovery_target.config_sync_group.config_sync_group.namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-7d70a9fdd08c376fbbbdcb46c3bed10f765774aadcd7fdb023ce6af0fbe351dc) |
-| `discovery_target.config_sync_group.config_sync_group.tenant` | [discovery_target.config_sync_group.config_sync_group.tenant](resources--nginx_service_discovery--reference--group-001.md#canonical-20598e24525bc4a6f7e0c992c6018ed29a508d61226abdd9612fd5deed4dcc61) |
-| `discovery_target.config_sync_group.config_sync_group.uid` | [discovery_target.config_sync_group.config_sync_group.uid](resources--nginx_service_discovery--reference--group-001.md#canonical-6252daaa85b3d69b6e075a443e96556e9b07fe0bbdc82d6f588673a0db94c0fa) |
-| `discovery_target.nginx_instance` | [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-78505e910ac7bdd8d5fb2e27ed54d006019cd2ec718a1fe780188857d47c9b0b) |
-| `discovery_target.nginx_instance.nginx_instance` | [discovery_target.nginx_instance.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-e8099d466372c0d9dbba4102956518ba5f1a1a8f9fefbc589fd98db5d2de6e9e) |
-| `discovery_target.nginx_instance.nginx_instance.kind` | [discovery_target.nginx_instance.nginx_instance.kind](resources--nginx_service_discovery--reference--group-001.md#canonical-b5be6b837223b0f83c865035e126b672e7ecb3f9e4e3dbdfd87bbb34d292a5a5) |
-| `discovery_target.nginx_instance.nginx_instance.name` | [discovery_target.nginx_instance.nginx_instance.name](resources--nginx_service_discovery--reference--group-001.md#canonical-9d5bffaff73aee7f1d2ec2cd9a1c2026e7b6e085b0d6dd77b769e7e798d6b1d2) |
-| `discovery_target.nginx_instance.nginx_instance.namespace` | [discovery_target.nginx_instance.nginx_instance.namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-dc741cef4a95896994f1ba5f1f68142ab5c3ae15173bf65d921792d985a26b78) |
-| `discovery_target.nginx_instance.nginx_instance.tenant` | [discovery_target.nginx_instance.nginx_instance.tenant](resources--nginx_service_discovery--reference--group-001.md#canonical-70191eb5c643d9c3dc666b3d9df5c1e8c4564574c587d551e89ccf81cd2895c1) |
-| `discovery_target.nginx_instance.nginx_instance.uid` | [discovery_target.nginx_instance.nginx_instance.uid](resources--nginx_service_discovery--reference--group-001.md#canonical-4e70255fbd81eba06a2e117d8f177ab16cb200f5e714fc9edce08eaaf7ab68a7) |
-| `id` | [id](resources--nginx_service_discovery--reference--group-001.md#canonical-f2b6b90a9fdaf0829d60cbf623a74b95ec1215963f68caa0991c866a0cf0673a) |
-| `labels` | [labels](resources--nginx_service_discovery--reference--group-001.md#canonical-4b2ad1edb35313cbe746277829a4c4bd6d41a359ab49d671736f6034e85067a1) |
-| `name` | [name](resources--nginx_service_discovery--reference--group-001.md#canonical-590b08169160e866a44d942f650f632961bd5bbcaa0bd3544033c34783bc318b) |
-| `namespace` | [namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-8244e39d021882f536a87a9425c86547a26fd31a6d805757c665c0a42fa81e31) |
-| `server_block_filters` | [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-c86a6a9bf1ea1c8cd3622faaff016bf6befc32c7d0e812592a034a244d6d4c8a) |
-| `server_block_filters.name_regex` | [server_block_filters.name_regex](resources--nginx_service_discovery--reference--group-001.md#canonical-971b7ba000cd9913a4b38ab088e2f0dfb60e876735cda14887a63080c0fc810d) |
-| `server_block_filters.port_ranges` | [server_block_filters.port_ranges](resources--nginx_service_discovery--reference--group-001.md#canonical-7b634dae1709d55836179ea8a146c8ddac9f3cb05ceae9ef50b7d65a7299bf61) |
-| `timeouts` | [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-d0fca5828481edc50c29f4d915ab395980f080db92b39ff51f8b959d7ced822d) |
-| `timeouts.create` | [timeouts.create](resources--nginx_service_discovery--reference--group-001.md#canonical-bc3b9923a5115c97da21b102dde71575da63a437f9e725dea1eae052e2514e08) |
-| `timeouts.delete` | [timeouts.delete](resources--nginx_service_discovery--reference--group-001.md#canonical-40a61f66ac4f17b16204ab3867932b2cfc1d93dbe13f8a1a5067f30dee515ee7) |
-| `timeouts.read` | [timeouts.read](resources--nginx_service_discovery--reference--group-001.md#canonical-78157e1c1a76a1d8e033d3091f312e756f8fe9e4f00e6302901af0d62e1dc120) |
-| `timeouts.update` | [timeouts.update](resources--nginx_service_discovery--reference--group-001.md#canonical-eb609d4d71d73f24017ef9ce1881bdf681475ccbcb61a407791b99572d32fcc1) |
+| `annotations` | [annotations](resources--nginx_service_discovery--reference--group-001.md#canonical-1021313222322213-3130220330113323-2312303021122322-3032021321222011-1021003010220020-3232111022103010-1212100003203122-0233321132301010) |
+| `description` | [description](resources--nginx_service_discovery--reference--group-001.md#canonical-3020022132232010-1101331011103113-3210002123002121-3303001330032220-1320121232203111-2120223213132221-2132200101003023-1313213333200312) |
+| `disable` | [disable](resources--nginx_service_discovery--reference--group-001.md#canonical-2233002110022312-0313032310102320-0333212123331330-0231101211220221-2201033012220113-2012013003120223-0102312213033033-0300000213130300) |
+| `discovery_target` | [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2022331312010000-2320111232000323-2222123032313012-1100020321313132-3102332003321122-0113023121213001-1103223303310323-1000213132212213) |
+| `discovery_target.config_sync_group` | [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-0000113122231230-3331130020203110-3310132332332311-0221222332211100-3133210020323303-2122310022201103-1311220032020301-2313221302323032) |
+| `discovery_target.config_sync_group.config_sync_group` | [discovery_target.config_sync_group.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-0112331002023033-2202221012331133-2030320201332233-3211212320222302-1301110302230012-1120321131122021-0113330232023032-0211311231213331) |
+| `discovery_target.config_sync_group.config_sync_group.kind` | [discovery_target.config_sync_group.config_sync_group.kind](resources--nginx_service_discovery--reference--group-001.md#canonical-0213010300011013-3010100311002310-0033221331001011-3110222302132221-3022221011223103-1221030223333312-0320212321012313-2212320130121330) |
+| `discovery_target.config_sync_group.config_sync_group.name` | [discovery_target.config_sync_group.config_sync_group.name](resources--nginx_service_discovery--reference--group-001.md#canonical-0213212033121003-0300013012003300-0000332013211110-1232312101300230-3023222002013333-3211133120020032-2200220020313222-1031022221201321) |
+| `discovery_target.config_sync_group.config_sync_group.namespace` | [discovery_target.config_sync_group.config_sync_group.namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-1331130022213331-3100203003131233-2323233130231012-3003233231010033-1312111313102222-3130311333312300-0203303212223300-3323320311013130) |
+| `discovery_target.config_sync_group.config_sync_group.tenant` | [discovery_target.config_sync_group.config_sync_group.tenant](resources--nginx_service_discovery--reference--group-001.md#canonical-0200112120320210-1102112330102212-3313320030212102-3012000120323102-2122110020311201-0202122223313121-1201023331113132-3231103130301201) |
+| `discovery_target.config_sync_group.config_sync_group.uid` | [discovery_target.config_sync_group.config_sync_group.uid](resources--nginx_service_discovery--reference--group-001.md#canonical-1202110231222222-2011230331122123-1232001311221010-0332211211111232-2123001333320023-2331302002311233-1120201213032200-3123211030003322) |
+| `discovery_target.nginx_instance` | [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-1320110011322101-0022301323313120-3111332302320213-3231111031000012-0001213031023230-1301202201333213-2000012020201113-3110133021230023) |
+| `discovery_target.nginx_instance.nginx_instance` | [discovery_target.nginx_instance.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3220002121311012-1203130230003121-3123232210010002-2111121101202322-1133012201222033-2133323323301120-2133312120312311-3102313212322132) |
+| `discovery_target.nginx_instance.nginx_instance.kind` | [discovery_target.nginx_instance.nginx_instance.kind](resources--nginx_service_discovery--reference--group-001.md#canonical-2311233212232003-1302020323003320-0330201211000311-3201021223121302-3213323023033321-3210320331233133-3120132323230310-3102210222112211) |
+| `discovery_target.nginx_instance.nginx_instance.name` | [discovery_target.nginx_instance.nginx_instance.name](resources--nginx_service_discovery--reference--group-001.md#canonical-2131112333332233-3313032232321333-0131023230023031-2122013002000212-3213231232002011-2300311231311313-2313122132133213-2120311223013102) |
+| `discovery_target.nginx_instance.nginx_instance.namespace` | [discovery_target.nginx_instance.nginx_instance.namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-3130131001303233-1022211120211221-2110330123221133-0133122001100222-2311300322320111-0113032333121131-2102011321023121-2011220212231320) |
+| `discovery_target.nginx_instance.nginx_instance.tenant` | [discovery_target.nginx_instance.nginx_instance.tenant](resources--nginx_service_discovery--reference--group-001.md#canonical-1300012101322311-3012100331213003-3130121212230331-2131331130013220-3010111210111310-3011201331111101-3220213030332001-3031022021113001) |
+| `discovery_target.nginx_instance.nginx_instance.uid` | [discovery_target.nginx_instance.nginx_instance.uid](resources--nginx_service_discovery--reference--group-001.md#canonical-1032130002111133-2331200132232200-1222023201011331-2033011313222301-1230230200003311-3213011033302132-3130320020322222-3313222312202213) |
+| `id` | [id](resources--nginx_service_discovery--reference--group-001.md#canonical-3302231223210022-2133312233002002-2131120030233312-0203221310232111-3230010201112112-0333122030222200-2121013020121222-0030330012130322) |
+| `labels` | [labels](resources--nginx_service_discovery--reference--group-001.md#canonical-1023022231013231-2303110301033023-3213101202131320-0221221030102331-1231100122031121-2223102131121301-1303123312000310-3220110012132201) |
+| `name` | [name](resources--nginx_service_discovery--reference--group-001.md#canonical-1121002300200112-2101120032201212-2210103121100233-1211003312030221-1201233111232330-2222002331031110-1000030330031013-2003233003012023) |
+| `namespace` | [namespace](resources--nginx_service_discovery--reference--group-001.md#canonical-2002101032032131-0002012020023311-0312222013222110-0211302012111013-2202123331030122-1231200011131113-3012121130002210-0233222001320301) |
+| `server_block_filters` | [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-3020122212222123-3301322201302030-3103120202332222-3333000112233312-2332333003023013-3100322001021121-0222000310220210-1031123110302022) |
+| `server_block_filters.name_regex` | [server_block_filters.name_regex](resources--nginx_service_discovery--reference--group-001.md#canonical-2113012313232200-0000303121210103-2210230320222300-2020320233003133-2312003220131213-0311303122011020-2013221203002000-3000333020010031) |
+| `server_block_filters.port_ranges` | [server_block_filters.port_ranges](resources--nginx_service_discovery--reference--group-001.md#canonical-1323120310312232-0113002131111120-0312011321322220-2201101230203131-2230213303302300-1130322232213233-1100231331121122-1302212123331201) |
+| `timeouts` | [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-3100333022112002-2010200132313011-0030022133103121-0111222303211121-2000330020003123-2102230321333311-0133202321112131-1330323120020231) |
+| `timeouts.create` | [timeouts.create](resources--nginx_service_discovery--reference--group-001.md#canonical-2330032321210203-2211010111302113-3122020123010002-3131321301111311-3122120322100313-3321321302113132-2201322232001102-3202110110320020) |
+| `timeouts.delete` | [timeouts.delete](resources--nginx_service_discovery--reference--group-001.md#canonical-1000221201331212-2230103301132301-1202001022230320-1213210302230230-3330013121033123-3201033320220122-1100121333030031-3232110111323213) |
+| `timeouts.read` | [timeouts.read](resources--nginx_service_discovery--reference--group-001.md#canonical-1320011113320130-0122131222013120-3200030331030021-0133030102321311-1233203332213210-3300003212030002-2100012233003112-0232013130010200) |
+| `timeouts.update` | [timeouts.update](resources--nginx_service_discovery--reference--group-001.md#canonical-3223120021311031-1301311303330210-0001133233213032-0120200123313312-2001101311303023-3023120122100013-1321012321211113-0231030233303001) |
 
-<a id="canonical-1371b6c7f1fe4227c79185b390932f1f1755278f39d1089e12cf3b9e7b3822e1"></a>
+<a id="canonical-0103130123123013-3301333210020213-3013210120112303-2100210302330133-0113111102132033-0321310100202132-0102303303232132-1323032002023201"></a>
 
-## Next pages — Property reference / 2a4a88477386 / 12
+## Next pages — Property reference / 101313032012 / 12
 
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
-- [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-aa29d75af6e1655c8211234f59f20760fb3899fff39a441e11340c60ac7f4f9b)
-- [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-fe720eb086b57545b2fb0f63f5461fc0b63c51e4b8e942105bd7f5b7cfd791f1)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
+- [server_block_filters](resources--nginx_service_discovery--reference--group-001.md#canonical-2222022131131122-3312320112111130-2002010102031033-1121330200131200-3323032021213333-3303212210100132-0101031000301200-2230133310332123)
+- [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-3332130200322300-2012231113111011-2302332300331203-3311101201333000-2312033011013210-2320322110020100-1123311333112313-3033311321013301)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6"></a>
+<a id="canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-78cc0181d0ef2e7d57f4b60aeb5188c359cd8bcdefa7efb8ee8da0792805b336"></a>
+<a id="canonical-1320303000012001-3100323302321331-1113331023120022-3223110120203003-1121303120233031-3233221332332320-3232203122001321-0220001123030312"></a>
 
-## discovery_target — discovery_target / 4b1d7280c07c / 2
+## discovery_target — discovery_target / 200030001330 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
 - discovery_target
 
-<a id="canonical-8af76100b856e03baa6cedc650239dded2f83e5a172d99c153af3d3b409de9a7"></a>
+<a id="canonical-2022331312010000-2320111232000323-2222123032313012-1100020321313132-3102332003321122-0113023121213001-1103223303310323-1000213132212213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -415,41 +415,41 @@ discovery_target {
 }
 ```
 
-<a id="canonical-059dcdb4f9cb76271479a5ea9295d6bd03504f516755acc3996b7a2dd76c14e5"></a>
+<a id="canonical-0011213130312310-3321302313120213-0110132122113222-2102211131122331-0003110010331101-1213111122303003-2121122313220231-3113123001103211"></a>
 
-## Direct properties — discovery_target / 4b1d7280c07c / 3
+## Direct properties — discovery_target / 200030001330 / 3
 
-- [config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-8598c4fb654452cc64a846b13a58e10f57ba05580c1e9d7cdb693b0e6987ca1a): complete subsection reference.
+- [config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-2011212030103323-1211101011023030-1210222010122301-0322112032010033-1113232200111120-0030013221311330-3123122103230032-1221201330220122): complete subsection reference.
 
-- [nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-c24f0ca3ef08690c9d09aca923162a6dd0553a3d68f23de93a2a6dbe2cc8809f): complete subsection reference.
+- [nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3002103300302203-3233002012210030-2131002122302221-0203011202221231-3100111103220331-1220330203313221-0322022212312332-0230302020002133): complete subsection reference.
 
-<a id="canonical-484f0212a0401645d9de1c7186a7bcf5db93effbc26e2ecafd9d0eaab7dad7cb"></a>
+<a id="canonical-1020103300020102-2200100001121011-3121313201301301-2012221323303311-3123210332333323-3002123202323022-3331213100322222-2313312231133023"></a>
 
-## Next pages — discovery_target / 4b1d7280c07c / 4
+## Next pages — discovery_target / 200030001330 / 4
 
-- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-8598c4fb654452cc64a846b13a58e10f57ba05580c1e9d7cdb693b0e6987ca1a)
-- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-c24f0ca3ef08690c9d09aca923162a6dd0553a3d68f23de93a2a6dbe2cc8809f)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-2011212030103323-1211101011023030-1210222010122301-0322112032010033-1113232200111120-0030013221311330-3123122103230032-1221201330220122)
+- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3002103300302203-3233002012210030-2131002122302221-0203011202221231-3100111103220331-1220330203313221-0322022212312332-0230302020002133)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-8598c4fb654452cc64a846b13a58e10f57ba05580c1e9d7cdb693b0e6987ca1a"></a>
+<a id="canonical-2011212030103323-1211101011023030-1210222010122301-0322112032010033-1113232200111120-0030013221311330-3123122103230032-1221201330220122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-79cabb87a1dc94c145be29b7e14c1a106cdba3cda23c872d4ed763a64e37ec67"></a>
+<a id="canonical-1321302223232013-2201313021103001-1011233202212313-3201103001220100-1230312322033031-2202033020130231-1032311312032212-1032031332301213"></a>
 
-## discovery_target.config_sync_group — discovery_target.config_sync_group / 7100f4010c93 / 2
+## discovery_target.config_sync_group — config_sync_group / 000100302103 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
 - discovery_target.config_sync_group
 
-<a id="canonical-005dab6cfd7088d4f47befb529abe950df908ef39ad0a85375a0e231b7a72ece"></a>
+<a id="canonical-0000113122231230-3331130020203110-3310132332332311-0221222332211100-3133210020323303-2122310022201103-1311220032020301-2313221302323032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -486,39 +486,39 @@ config_sync_group {
 }
 ```
 
-<a id="canonical-b21facb32dd46cde213feeb64ff4c6545014d7032a44e5ba529fd4144e3eaa98"></a>
+<a id="canonical-2302013322302303-0231311012303132-0201033332322312-1033331030121110-1100011031130003-0222101032112322-1102213331100110-1032033222222120"></a>
 
-## Direct properties — discovery_target.config_sync_group / 7100f4010c93 / 3
+## Direct properties — config_sync_group / 000100302103 / 3
 
-- [config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-1eb09d1ad3f93d00963cbe48fb0d3681090123af24c22b9cb648c00dac95eccc): complete subsection reference.
+- [config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-0132230021310122-3103332103310000-2112033023321020-3323003103122001-0021000102032233-0210300202232130-2312102030000031-2230211132303030): complete subsection reference.
 
-<a id="canonical-be7ad85298017eb0d1f4fb5b35b5d1ed1754345230412b161a3ab4cf572a68e0"></a>
+<a id="canonical-2332132231201102-2120000113322300-3101331033231123-0311231131013231-0113111003101102-0300100102230112-0122032223103033-1113022212203200"></a>
 
-## Next pages — discovery_target.config_sync_group / 7100f4010c93 / 4
+## Next pages — config_sync_group / 000100302103 / 4
 
-- [discovery_target.config_sync_group.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-1eb09d1ad3f93d00963cbe48fb0d3681090123af24c22b9cb648c00dac95eccc)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target.config_sync_group.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-0132230021310122-3103332103310000-2112033023321020-3323003103122001-0021000102032233-0210300202232130-2312102030000031-2230211132303030)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-1eb09d1ad3f93d00963cbe48fb0d3681090123af24c22b9cb648c00dac95eccc"></a>
+<a id="canonical-0132230021310122-3103332103310000-2112033023321020-3323003103122001-0021000102032233-0210300202232130-2312102030000031-2230211132303030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8384f36501737c82a54edd48b4c4ae90ee63c3dc34ac683775c14fec49ce3533"></a>
+<a id="canonical-2003201033031211-0001130313302002-2211103231311020-2310301022322100-3232120330033130-0310223012200313-1311300110333230-1021303203110303"></a>
 
-## discovery_target.config_sync_group.config_sync_group — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 2
+## discovery_target.config_sync_group.config_sync_group — config_sync_group / 003311003321 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
-- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-8598c4fb654452cc64a846b13a58e10f57ba05580c1e9d7cdb693b0e6987ca1a)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
+- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-2011212030103323-1211101011023030-1210222010122301-0322112032010033-1113232200111120-0030013221311330-3123122103230032-1221201330220122)
 - discovery_target.config_sync_group.config_sync_group
 
-<a id="canonical-16f422cfa2a46f5f8ce21fafe59b8ab271532b0658e5d68917f2e2ce25d6d9fd"></a>
+<a id="canonical-0112331002023033-2202221012331133-2030320201332233-3211212320222302-1301110302230012-1120321131122021-0113330232023032-0211311231213331"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -569,15 +569,15 @@ config_sync_group {
 }
 ```
 
-<a id="canonical-ecf4766eb6c0b712684e785e31b05a7f12ce623d143891279ba7800d9a1d26c3"></a>
+<a id="canonical-3230331013121232-2312300023130102-1220103213201132-0301230011221333-0102303212020331-0110032021010213-2123221320000031-2122013102123003"></a>
 
-## Direct properties — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 3
+## Direct properties — config_sync_group / 003311003321 / 3
 
-<a id="canonical-27130147c44350b40fa7d045d4ab27a9caa45ad36932bff6389b91b7a6e1c67c"></a>
+<a id="canonical-0213010300011013-3010100311002310-0033221331001011-3110222302132221-3022221011223103-1221030223333312-0320212321012313-2212320130121330"></a>
 
-<a id="canonical-949d8edf28185539824b5edf7dc3c068acf46dc34a8e80cffee16cd37793e08b"></a>
+<a id="canonical-2110213120323133-0220012011110321-2002102311323133-1331300330001220-2230331012313003-1022203220003033-3332320112303103-1313210332002023"></a>
 
-## kind property — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 4
+## kind property — config_sync_group / 003311003321 / 4
 
 Type: `"string"`. Computed.
 
@@ -612,11 +612,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2798f643301c60f000f879546ed91c2ccba821ffe57d820ea0a08dea4d2a9879"></a>
+<a id="canonical-0213212033121003-0300013012003300-0000332013211110-1232312101300230-3023222002013333-3211133120020032-2200220020313222-1031022221201321"></a>
 
-<a id="canonical-539b860ac3a048726a37a2f1212f46f4379aa7aa0cf28aab5f4dc980816ec484"></a>
+<a id="canonical-1103212320120022-3003220010201302-1222031322023301-0201023310123310-0313212222132222-0030330220222223-1133103130212000-2001123230102010"></a>
 
-## name property — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 5
+## name property — config_sync_group / 003311003321 / 5
 
 Type: `"string"`. Optional.
 
@@ -651,11 +651,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d70a9fdd08c376fbbbdcb46c3bed10f765774aadcd7fdb023ce6af0fbe351dc"></a>
+<a id="canonical-1331130022213331-3100203003131233-2323233130231012-3003233231010033-1312111313102222-3130311333312300-0203303212223300-3323320311013130"></a>
 
-<a id="canonical-8c842d6b1fb87a471fe30c9ded1956ff2342acb61769be4bb6f78e6c1cfb13eb"></a>
+<a id="canonical-2030201002311223-0133232013221013-0133320300302131-3231012111123333-0203100222302312-0113122123321023-2312331320321230-0130332301033223"></a>
 
-## namespace property — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 6
+## namespace property — config_sync_group / 003311003321 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -715,11 +715,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-20598e24525bc4a6f7e0c992c6018ed29a508d61226abdd9612fd5deed4dcc61"></a>
+<a id="canonical-0200112120320210-1102112330102212-3313320030212102-3012000120323102-2122110020311201-0202122223313121-1201023331113132-3231103130301201"></a>
 
-<a id="canonical-244aa40d6984ee498c5eddcdcc8e2413d0a4e796914c2c50d6609005860ffac1"></a>
+<a id="canonical-0210102222100031-1221201032321021-2030113231313031-3030203202100103-3100221032132112-2101103002301100-3112120021000011-2012003333223001"></a>
 
-## tenant property — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 7
+## tenant property — config_sync_group / 003311003321 / 7
 
 Type: `"string"`. Computed.
 
@@ -754,11 +754,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6252daaa85b3d69b6e075a443e96556e9b07fe0bbdc82d6f588673a0db94c0fa"></a>
+<a id="canonical-1202110231222222-2011230331122123-1232001311221010-0332211211111232-2123001333320023-2331302002311233-1120201213032200-3123211030003322"></a>
 
-<a id="canonical-e4a04ac12a58987885aa4abb6f7d3be068279e855f12737da82ef92aae4d7872"></a>
+<a id="canonical-3210220010223001-0222112021201320-2011222210222323-1233133103233200-1220021321322011-1133010213031331-2220023233210222-2232103113201302"></a>
 
-## uid property — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 8
+## uid property — config_sync_group / 003311003321 / 8
 
 Type: `"string"`. Computed.
 
@@ -793,31 +793,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aaeee883bf5bc19af73fc22d122ec31132b8b12553158665fe09e5511f03e76d"></a>
+<a id="canonical-2222323232202003-2333112330012122-3313033330020231-0102023230030101-0302232023010211-1103011120121211-3332002132111101-0133000332131231"></a>
 
-## Next pages — discovery_target.config_sync_group.config_sync_group / 1052f40f50f9 / 9
+## Next pages — config_sync_group / 003311003321 / 9
 
-- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-8598c4fb654452cc64a846b13a58e10f57ba05580c1e9d7cdb693b0e6987ca1a)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target.config_sync_group](resources--nginx_service_discovery--reference--group-001.md#canonical-2011212030103323-1211101011023030-1210222010122301-0322112032010033-1113232200111120-0030013221311330-3123122103230032-1221201330220122)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-c24f0ca3ef08690c9d09aca923162a6dd0553a3d68f23de93a2a6dbe2cc8809f"></a>
+<a id="canonical-3002103300302203-3233002012210030-2131002122302221-0203011202221231-3100111103220331-1220330203313221-0322022212312332-0230302020002133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-43f2af28d4b8a443881763e8e9fc087ba4cdb67245e753c242105af74359a52c"></a>
+<a id="canonical-1003330222330220-3110232022101003-2020011312033220-3221333000201323-2210303123121302-1011321311033002-1002010011223313-1003112122110230"></a>
 
-## discovery_target.nginx_instance — discovery_target.nginx_instance / 7d7d5107b209 / 2
+## discovery_target.nginx_instance — nginx_instance / 001323020021 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
 - discovery_target.nginx_instance
 
-<a id="canonical-78505e910ac7bdd8d5fb2e27ed54d006019cd2ec718a1fe780188857d47c9b0b"></a>
+<a id="canonical-1320110011322101-0022301323313120-3111332302320213-3231111031000012-0001213031023230-1301202201333213-2000012020201113-3110133021230023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -854,39 +854,39 @@ nginx_instance {
 }
 ```
 
-<a id="canonical-529631d2ab2d025bb03823818467c39b1a0176ece30bb98c7b7c70ea76776978"></a>
+<a id="canonical-1102211203013102-2223023100021123-2300032002032001-2010121330032123-0122000113123230-3203002323212030-1323133013003222-1312131312211320"></a>
 
-## Direct properties — discovery_target.nginx_instance / 7d7d5107b209 / 3
+## Direct properties — nginx_instance / 001323020021 / 3
 
-- [nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3c4e30b9a162f7376a1a38c72fa468261c65d89fbff418ff24fe93461f885a64): complete subsection reference.
+- [nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-0330103203002321-2201120233130313-1222012203203013-0233221012200212-0130121131202133-2333331001203333-0210333221031012-0133202011221210): complete subsection reference.
 
-<a id="canonical-c2a89cac414c6ccd8aadba1e02cd712ac9de800c4703698ab3f2c5876d105bb6"></a>
+<a id="canonical-3002222021302230-1001103012303031-2022223123220132-0002303113010222-3021313220000030-1013000312212022-2303330230112013-1231010011232312"></a>
 
-## Next pages — discovery_target.nginx_instance / 7d7d5107b209 / 4
+## Next pages — nginx_instance / 001323020021 / 4
 
-- [discovery_target.nginx_instance.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3c4e30b9a162f7376a1a38c72fa468261c65d89fbff418ff24fe93461f885a64)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target.nginx_instance.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-0330103203002321-2201120233130313-1222012203203013-0233221012200212-0130121131202133-2333331001203333-0210333221031012-0133202011221210)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-3c4e30b9a162f7376a1a38c72fa468261c65d89fbff418ff24fe93461f885a64"></a>
+<a id="canonical-0330103203002321-2201120233130313-1222012203203013-0233221012200212-0130121131202133-2333331001203333-0210333221031012-0133202011221210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93c19ed17e4a75114a16c975f5dee520356fcb6c7d334157cdb7090b4d817e88"></a>
+<a id="canonical-2103300121323101-1332102213110101-1022011230211311-3311313232110200-0311123330231230-1331030310011113-3031231300210023-1031200113322020"></a>
 
-## discovery_target.nginx_instance.nginx_instance — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 2
+## discovery_target.nginx_instance.nginx_instance — nginx_instance / 131211323213 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-2054a037c9d64d979b7e5977309895a409f9af4abcca00bd24c7e70e5e31ebf6)
-- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-c24f0ca3ef08690c9d09aca923162a6dd0553a3d68f23de93a2a6dbe2cc8809f)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [discovery_target](resources--nginx_service_discovery--reference--group-001.md#canonical-0200111022000313-3021311210312113-2123133211211313-0300212021112210-0021332122331022-2330302200002331-0210301332130032-1132030132233312)
+- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3002103300302203-3233002012210030-2131002122302221-0203011202221231-3100111103220331-1220330203313221-0322022212312332-0230302020002133)
 - discovery_target.nginx_instance.nginx_instance
 
-<a id="canonical-e8099d466372c0d9dbba4102956518ba5f1a1a8f9fefbc589fd98db5d2de6e9e"></a>
+<a id="canonical-3220002121311012-1203130230003121-3123232210010002-2111121101202322-1133012201222033-2133323323301120-2133312120312311-3102313212322132"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -937,15 +937,15 @@ nginx_instance {
 }
 ```
 
-<a id="canonical-c413a8b49c97dca110eff6f89fee50f59474f1f66d6dfc9107f2721e0a94f4ed"></a>
+<a id="canonical-3010010322202310-2130211331302201-0100323333123320-2133323211003311-2110131033013312-1231123133302101-0013330213020132-0022211033103231"></a>
 
-## Direct properties — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 3
+## Direct properties — nginx_instance / 131211323213 / 3
 
-<a id="canonical-b5be6b837223b0f83c865035e126b672e7ecb3f9e4e3dbdfd87bbb34d292a5a5"></a>
+<a id="canonical-2311233212232003-1302020323003320-0330201211000311-3201021223121302-3213323023033321-3210320331233133-3120132323230310-3102210222112211"></a>
 
-<a id="canonical-97449b781832e62316f90aedf5ee2ca65b1a112a11b154388aae54c6c6aa4486"></a>
+<a id="canonical-2113101021231320-0120030232120203-0112332100223231-3311323202302212-1123012201010222-0101230111100320-2022223211103012-3012222210102012"></a>
 
-## kind property — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 4
+## kind property — nginx_instance / 131211323213 / 4
 
 Type: `"string"`. Computed.
 
@@ -980,11 +980,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9d5bffaff73aee7f1d2ec2cd9a1c2026e7b6e085b0d6dd77b769e7e798d6b1d2"></a>
+<a id="canonical-2131112333332233-3313032232321333-0131023230023031-2122013002000212-3213231232002011-2300311231311313-2313122132133213-2120311223013102"></a>
 
-<a id="canonical-1be2d3afa86537efb55644033a7eebef07bb250094be41723d62371b3d6c1d08"></a>
+<a id="canonical-0123320231032233-2220121103133233-2311111210100003-0322133232233233-0013232302110000-2110233210011302-0331120203130123-0331123001310020"></a>
 
-## name property — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 5
+## name property — nginx_instance / 131211323213 / 5
 
 Type: `"string"`. Optional.
 
@@ -1019,11 +1019,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc741cef4a95896994f1ba5f1f68142ab5c3ae15173bf65d921792d985a26b78"></a>
+<a id="canonical-3130131001303233-1022211120211221-2110330123221133-0133122001100222-2311300322320111-0113032333121131-2102011321023121-2011220212231320"></a>
 
-<a id="canonical-1b3be46213309ecb20f98172cd3a786ae468635b3a76ff5d2bd3e17dea949872"></a>
+<a id="canonical-0123032332101202-0103030021323023-0200332120011302-3031032213201222-3210122012031123-0322131233331131-0223310332011331-3222211021201302"></a>
 
-## namespace property — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 6
+## namespace property — nginx_instance / 131211323213 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -1083,11 +1083,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-70191eb5c643d9c3dc666b3d9df5c1e8c4564574c587d551e89ccf81cd2895c1"></a>
+<a id="canonical-1300012101322311-3012100331213003-3130121212230331-2131331130013220-3010111210111310-3011201331111101-3220213030332001-3031022021113001"></a>
 
-<a id="canonical-9e0f4a6b92e610d4938f8026bdecd1b8ed56b837d8085a7d7fa4f39c9fcbfb0e"></a>
+<a id="canonical-2132003310221223-2102321201003110-2103203320000212-2331323031012320-3231111223200313-3120002011221331-1333221033032130-2133302333230032"></a>
 
-## tenant property — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 7
+## tenant property — nginx_instance / 131211323213 / 7
 
 Type: `"string"`. Computed.
 
@@ -1122,11 +1122,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4e70255fbd81eba06a2e117d8f177ab16cb200f5e714fc9edce08eaaf7ab68a7"></a>
+<a id="canonical-1032130002111133-2331200132232200-1222023201011331-2033011313222301-1230230200003311-3213011033302132-3130320020322222-3313222312202213"></a>
 
-<a id="canonical-4753c2d4bfbef9be9a957ff96ae711a44212f233762f9b59cd8cbf6b3f1fba4a"></a>
+<a id="canonical-1013110330023110-2333233233212332-2122211113333321-1222321301012210-1002010233020303-1312023321231121-3031203023331223-0333013323221022"></a>
 
-## uid property — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 8
+## uid property — nginx_instance / 131211323213 / 8
 
 Type: `"string"`. Computed.
 
@@ -1161,30 +1161,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aa358ce2c06b5fbb78572d47a115d80141403b2655334fac2469f09a470a75a6"></a>
+<a id="canonical-2222031120303202-3000122311332323-1320111302311013-2201011131200001-1001100003230212-1111030310332230-0210122133002122-1013002213112212"></a>
 
-## Next pages — discovery_target.nginx_instance.nginx_instance / 21d1e0765ee7 / 9
+## Next pages — nginx_instance / 131211323213 / 9
 
-- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-c24f0ca3ef08690c9d09aca923162a6dd0553a3d68f23de93a2a6dbe2cc8809f)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [discovery_target.nginx_instance](resources--nginx_service_discovery--reference--group-001.md#canonical-3002103300302203-3233002012210030-2131002122302221-0203011202221231-3100111103220331-1220330203313221-0322022212312332-0230302020002133)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-aa29d75af6e1655c8211234f59f20760fb3899fff39a441e11340c60ac7f4f9b"></a>
+<a id="canonical-2222022131131122-3312320112111130-2002010102031033-1121330200131200-3323032021213333-3303212210100132-0101031000301200-2230133310332123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b439d3883494353c0819d03056526e40cdbd38aa3ef3af4145b3fb2492d296ab"></a>
+<a id="canonical-2310032131032020-0310211003110330-0020012131000300-1112110212321000-3031233103202222-0332330322331001-1011230333230210-2102310221122223"></a>
 
-## server_block_filters — server_block_filters / 2d950ae7e90c / 2
+## server_block_filters — server_block_filters / 321332210030 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
 - server_block_filters
 
-<a id="canonical-c86a6a9bf1ea1c8cd3622faaff016bf6befc32c7d0e812592a034a244d6d4c8a"></a>
+<a id="canonical-3020122212222123-3301322201302030-3103120202332222-3333000112233312-2332333003023013-3100322001021121-0222000310220210-1031123110302022"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1241,15 +1241,15 @@ server_block_filters {
 }
 ```
 
-<a id="canonical-add48c2d910cff360a8ac749aa8b8ec7252f2120521ad7fd366d68f417718635"></a>
+<a id="canonical-2231311020300231-2101003033330312-0022202230131021-2222202320323013-0211023302010200-1102012231133331-0312123112203310-0113130120120311"></a>
 
-## Direct properties — server_block_filters / 2d950ae7e90c / 3
+## Direct properties — server_block_filters / 321332210030 / 3
 
-<a id="canonical-971b7ba000cd9913a4b38ab088e2f0dfb60e876735cda14887a63080c0fc810d"></a>
+<a id="canonical-2113012313232200-0000303121210103-2210230320222300-2020320233003133-2312003220131213-0311303122011020-2013221203002000-3000333020010031"></a>
 
-<a id="canonical-94cb6474890d53a6c5ef0a8a3c57e7a0c76c8969bc1807b26657a93ae8e195d2"></a>
+<a id="canonical-2110302312101310-2021003111032212-3011323300222022-0330111332132200-3013123020211221-2330012000132302-1212111322210322-3220320121113102"></a>
 
-## name_regex property — server_block_filters / 2d950ae7e90c / 4
+## name_regex property — server_block_filters / 321332210030 / 4
 
 Type: `"string"`. Optional.
 
@@ -1296,11 +1296,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7b634dae1709d55836179ea8a146c8ddac9f3cb05ceae9ef50b7d65a7299bf61"></a>
+<a id="canonical-1323120310312232-0113002131111120-0312011321322220-2201101230203131-2230213303302300-1130322232213233-1100231331121122-1302212123331201"></a>
 
-<a id="canonical-de38321ab5e66c3c01ea64b5f5498ce8e37d121219c9acbf6526729150fad170"></a>
+<a id="canonical-3132032003020122-2311321212300330-0001322212102311-3311102120303220-3203133101020102-0121302122302333-1211021213022101-1100332231011300"></a>
 
-## port_ranges property — server_block_filters / 2d950ae7e90c / 5
+## port_ranges property — server_block_filters / 321332210030 / 5
 
 Type: `"string"`. Optional.
 
@@ -1356,30 +1356,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1c309f65f94961a05e376dedfcf0a8c11b60bf4c6622ae115947084f1209c920"></a>
+<a id="canonical-0130030021331211-3321102112012200-1132031312313231-3330330022203001-0123120023331030-1212020222320101-1121101300201033-0102002130210200"></a>
 
-## Next pages — server_block_filters / 2d950ae7e90c / 6
+## Next pages — server_block_filters / 321332210030 / 6
 
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-fe720eb086b57545b2fb0f63f5461fc0b63c51e4b8e942105bd7f5b7cfd791f1"></a>
+<a id="canonical-3332130200322300-2012231113111011-2302332300331203-3311101201333000-2312033011013210-2320322110020100-1123311333112313-3033311321013301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-72cb6bf91a6332f36318d7c9ee4431c9ab495705c605f9037a35bc2057df2fe7"></a>
+<a id="canonical-1302302312233321-0122120303023303-1203012031133021-3232101003013021-2223102111130011-3012001133210003-1322031123300200-1113313302333213"></a>
 
-## timeouts — timeouts / f8c8a4c7846c / 2
+## timeouts — timeouts / 301320101230 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
 - timeouts
 
-<a id="canonical-d0fca5828481edc50c29f4d915ab395980f080db92b39ff51f8b959d7ced822d"></a>
+<a id="canonical-3100333022112002-2010200132313011-0030022133103121-0111222303211121-2000330020003123-2102230321333311-0133202321112131-1330323120020231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1391,15 +1391,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-a46610675b5c66a397c967f6ad4bd61eb372c4c289da693e0e27dc3a09faa371"></a>
+<a id="canonical-2210121201001213-1123113012122203-2113302112133312-2231102331120132-2303130230103002-2021312212210332-0032021331300322-0021332222031301"></a>
 
-## Direct properties — timeouts / f8c8a4c7846c / 3
+## Direct properties — timeouts / 301320101230 / 3
 
-<a id="canonical-bc3b9923a5115c97da21b102dde71575da63a437f9e725dea1eae052e2514e08"></a>
+<a id="canonical-2330032321210203-2211010111302113-3122020123010002-3131321301111311-3122120322100313-3321321302113132-2201322232001102-3202110110320020"></a>
 
-<a id="canonical-e690a70cc2d054438d63ce0693c153f5c6c500d1a720d55e4a030ea59fff14da"></a>
+<a id="canonical-3212210022130030-3002310011101003-2031120330320012-2103300111033311-3012301100003101-2213020031111132-1022000300322211-2133333301103122"></a>
 
-## create property — timeouts / f8c8a4c7846c / 4
+## create property — timeouts / 301320101230 / 4
 
 Type: `"string"`. Optional.
 
@@ -1407,11 +1407,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-40a61f66ac4f17b16204ab3867932b2cfc1d93dbe13f8a1a5067f30dee515ee7"></a>
+<a id="canonical-1000221201331212-2230103301132301-1202001022230320-1213210302230230-3330013121033123-3201033320220122-1100121333030031-3232110111323213"></a>
 
-<a id="canonical-c6f09ac25b12ef4898a8398a3f1620211752bc6253aaf4844ec0d2df4e94eee0"></a>
+<a id="canonical-3012330021223002-1123010232331020-2120222003212022-0333011202000201-0113110223301202-1103222233102010-1032300031023133-1032211032323200"></a>
 
-## delete property — timeouts / f8c8a4c7846c / 5
+## delete property — timeouts / 301320101230 / 5
 
 Type: `"string"`. Optional.
 
@@ -1420,11 +1420,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-78157e1c1a76a1d8e033d3091f312e756f8fe9e4f00e6302901af0d62e1dc120"></a>
+<a id="canonical-1320011113320130-0122131222013120-3200030331030021-0133030102321311-1233203332213210-3300003212030002-2100012233003112-0232013130010200"></a>
 
-<a id="canonical-f2857171e9d49db65a880635ef4230e1cbfbecbdbe36c349b3d63323d6dca67a"></a>
+<a id="canonical-3302201113011301-3221311021312312-1122202000120311-3233100203003201-3023332332302331-2332031230031021-2303311203030203-3112313022121322"></a>
 
-## read property — timeouts / f8c8a4c7846c / 6
+## read property — timeouts / 301320101230 / 6
 
 Type: `"string"`. Optional.
 
@@ -1433,11 +1433,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-eb609d4d71d73f24017ef9ce1881bdf681475ccbcb61a407791b99572d32fcc1"></a>
+<a id="canonical-3223120021311031-1301311303330210-0001133233213032-0120200123313312-2001101311303023-3023120122100013-1321012321211113-0231030233303001"></a>
 
-<a id="canonical-f14ffdf43fe23ce32eda3dfb8c1ce023ec96b938a297d210eb2c52204e7db746"></a>
+<a id="canonical-3301103333313310-0333320203303203-0232312203313323-2030013032000203-3230211223210320-2202211331020100-3223023011020200-1032133123131012"></a>
 
-## update property — timeouts / f8c8a4c7846c / 7
+## update property — timeouts / 301320101230 / 7
 
 Type: `"string"`. Optional.
 
@@ -1445,9 +1445,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-3cff868f603e4bc2f5dbfe0bbc04c970032ccba644942cd0a27e3f2f6269c165"></a>
+<a id="canonical-0330333320122033-1200033210233002-3311312333320023-2330001030211300-0003023030232212-1010211002303100-2202133203330233-1202122130011211"></a>
 
-## Next pages — timeouts / f8c8a4c7846c / 8
+## Next pages — timeouts / 301320101230 / 8
 
-- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [Property reference](resources--nginx_service_discovery--reference--group-001.md#canonical-1330100322001110-1113231031021202-3122022020201302-2211321310100221-0202312133002311-1211013321231330-0032333223202203-3203133113300021)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)

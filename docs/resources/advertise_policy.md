@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_advertise_policy lan
 
 # xcsh_advertise_policy landing
 
-<a id="canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00"></a>
+<a id="canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cece5b434f95bfb64b6cf07e59af76375a6866793d02f9425abc26d261c9916f"></a>
+<a id="canonical-3032303211231003-1033211123332312-1023123033001332-1121223313120313-1122122012121321-0331000233211002-1122233002123102-1201302121011233"></a>
 
-## xcsh_advertise_policy — xcsh_advertise_policy / 565db87b456f / 2
+## xcsh_advertise_policy — xcsh_advertise_policy / 132310111233 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Manages a Advertise Policy resource in F5 Distributed Cloud for advertise\_polic
 how and where a service represented by a given virtual\_host object is advertised to consumers.
 configuration.
 
-<a id="canonical-4cc3c23b9ea7ba706a592e201df78c80953e9dba98dfd2ca6dfc4a2e25ed3b9f"></a>
+<a id="canonical-1030300330020323-2132221323221300-1222112102320200-0131331320302000-2111033221312322-2120313331023022-1231333010220232-0211323103232133"></a>
 
-## Prerequisites — xcsh_advertise_policy / 565db87b456f / 3
+## Prerequisites — xcsh_advertise_policy / 132310111233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-770973559abac46afef83e0f52ae1ea0380fdc33f4c1cdf1b399a947381ef4e0"></a>
+<a id="canonical-1313002113031111-2122232230101222-3332332003320033-1102223201322200-0320003331300303-3310300130313301-2303212122211013-0320013233103200"></a>
 
-## Minimal configuration — xcsh_advertise_policy / 565db87b456f / 4
+## Minimal configuration — xcsh_advertise_policy / 132310111233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,17 +58,17 @@ resource "xcsh_advertise_policy" "example" {
 }
 ```
 
-<a id="canonical-673f0876b4f9594da3c7adea3ab37e6e607a95040545d62e0c88bb3133879f3d"></a>
+<a id="canonical-1213033300201312-2310332111211031-2203301322313222-0322230313321232-1200132221110010-0011101131120232-0030202023230301-0303201321330331"></a>
 
-## Root configuration — xcsh_advertise_policy / 565db87b456f / 5
+## Root configuration — xcsh_advertise_policy / 132310111233 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-6f32fe7de92f7d79b28563dc290caab02489740b420065d9fff987a01eef6daf"></a>
+<a id="canonical-1233030233321331-3221023313311321-2302201112033130-0221003022222300-0210202113100023-1002000012113121-3333332120132200-0132323312312233"></a>
 
-## Next pages — xcsh_advertise_policy / 565db87b456f / 6
+## Next pages — xcsh_advertise_policy / 132310111233 / 6
 
-- [Property reference](../guides/resources--advertise_policy--reference--group-001.md#canonical-b5cc12d2efbedb6a5c13e201fb876d994e92fd89722dbac50b1058709e65057d)
-- [Examples](../guides/resources--advertise_policy--examples--group-001.md#canonical-6a3b267374c676ae36bae3d8f4ad9b293170f2b9387c9e12c907fa0a47d6f5eb)
-- [Import](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-e8762eed9866c7d9b818c0b610031bc1cb3884723df97984e623ebd057ca215d)
-- [Timeouts](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-718e0bc0254f3269f39143ee0424f73f46eaa95940030d8cc8eeefc71002fe68)
+- [Property reference](../guides/resources--advertise_policy--reference--group-001.md#canonical-2311303001023102-3233233231231222-1130010332020001-3323201312312121-1032210233312021-1302023123223011-0023010011201300-2132121100111331)
+- [Examples](../guides/resources--advertise_policy--examples--group-001.md#canonical-1222032302121303-1310301213122232-0312232232033120-3310223121230221-0301130033022321-0320133021320102-3021001333220022-1013311233113223)
+- [Import](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-3220131202323231-2120121230133121-2320012030002312-0100000301233001-3023032020101302-0331332113212010-3212020332233100-1113302202011131)
+- [Timeouts](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-1301203200233000-0211103303021221-3303210110033232-0010021033130333-1012322222211121-1000000300312030-3020323232333013-0100000233321220)

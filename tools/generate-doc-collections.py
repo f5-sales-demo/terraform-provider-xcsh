@@ -942,7 +942,9 @@ def generate(root, schema_path, constraints_path):
     outputs["documentation/registry-projection-manifest.json"] = (
         json.dumps(projection, indent=2, sort_keys=True) + "\n"
     )
-    shards, pending, pending_bytes = [], [], 0
+    shards: list[list[dict]] = []
+    pending: list[dict] = []
+    pending_bytes = 0
     for section in projection.pop("sections"):
         size = len(json.dumps(section, ensure_ascii=False).encode()) + 1
         if pending and pending_bytes + size > PROJECTION_RECEIPT_BUDGET:

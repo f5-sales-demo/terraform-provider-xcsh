@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_access_active_sessio
 
 # xcsh_access_active_sessions_terminate reference
 
-<a id="canonical-45d0d6ae516ec20fd95b3489f38e0b618c5403370ae189e9bf43484e24e92d3c"></a>
+<a id="canonical-1011310031122232-1101123230020033-3121112303102021-3303203200231201-2030111000030313-0022320120213221-2333100310201032-0210322102310330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a2120bd7950cdf2fe97a191483888ca5b73eedef52daba9f4ccf7459b95a8674"></a>
+<a id="canonical-2202010200233113-2111003031330233-3221132201210110-2003202020302211-2313033232313233-1102312223222133-1030303313101121-2321112220121310"></a>
 
-## Property reference — Property reference / 00db6982da46 / 2
+## Property reference — Property reference / 200231221012 / 2
 
 Breadcrumbs:
 
-- [xcsh_access_active_sessions_terminate](../actions/access_active_sessions_terminate.md#canonical-aefe1df7253e779a562274f8e664a4a668b95809ac818dc69c1d5be574a4a6d5)
+- [xcsh_access_active_sessions_terminate](../actions/access_active_sessions_terminate.md#canonical-2232333201313313-0211033213132122-1112020213103320-3212121022102212-1220232111200021-2230200120313012-2130013111233211-1310221022123111)
 - Property reference
 
-<a id="canonical-c09fc95de0616e517c02d1e75b977e095142326bc5d77329d339020529c5106e"></a>
+<a id="canonical-3000213330211131-3200120112321101-1330000231013213-1123211313320021-1101100203021223-3011311313030221-3103032100020011-0221301101001232"></a>
 
-## Direct properties — Property reference / 00db6982da46 / 3
+## Direct properties — Property reference / 200231221012 / 3
 
-<a id="canonical-8516ed3aa852aac248eca59e500ceabef92f8dcb70f7214c07940aab73d1fe0b"></a>
+<a id="canonical-2011011232310322-2220110222223002-1020323022112132-1100003032222332-3321023320313023-1300331302011030-0013211000222223-1303310133320023"></a>
 
-<a id="canonical-dc90764c4c738de01a8053818e07349b644a5814ba3616e4d9b633d160bd9033"></a>
+<a id="canonical-3130210013121030-1030130320313200-0122200011032001-2032001303102123-1210102211200110-2322031201123210-3121231203033101-1200233121000303"></a>
 
-## ids property — Property reference / 00db6982da46 / 4
+## ids property — Property reference / 200231221012 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -43,29 +43,29 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-7e74e581e3fe69ea8856f67af18b02e8f656c4c995dc982c10c8f812917062c5"></a>
+<a id="canonical-1332131032112001-3203333212213222-2020111233121322-3301202300023220-3312111230103021-2111313021200230-0100302033200102-2101130012023011"></a>
 
-<a id="canonical-ab1a89d039006f4c4dccaf3b3bd9e21f692a43741981acdcd2b6c85a6a0b5b43"></a>
+<a id="canonical-2223012220213100-0321000012331030-1031303022330323-0323312132020133-1221022210031310-0121200122303130-3102231230201122-1222002311231003"></a>
 
-## namespace property — Property reference / 00db6982da46 / 5
+## namespace property — Property reference / 200231221012 / 5
 
 Type: `"string"`. Required.
 
 Namespace Namespace of the App type for the current request (path parameter)
 
-<a id="canonical-228c5b566852ae54ed02153563b1bc263811eb35b0214370eb593e16634dacf2"></a>
+<a id="canonical-0202203011231112-1220110222321110-3231000201110311-1203230123300212-0320010132230311-2300020110031300-3223112103320112-1203103122303302"></a>
 
-## All schema paths — Property reference / 00db6982da46 / 6
+## All schema paths — Property reference / 200231221012 / 6
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `ids` | [ids](actions--access_active_sessions_terminate--reference--group-001.md#canonical-8516ed3aa852aac248eca59e500ceabef92f8dcb70f7214c07940aab73d1fe0b) |
-| `namespace` | [namespace](actions--access_active_sessions_terminate--reference--group-001.md#canonical-7e74e581e3fe69ea8856f67af18b02e8f656c4c995dc982c10c8f812917062c5) |
+| `ids` | [ids](actions--access_active_sessions_terminate--reference--group-001.md#canonical-2011011232310322-2220110222223002-1020323022112132-1100003032222332-3321023320313023-1300331302011030-0013211000222223-1303310133320023) |
+| `namespace` | [namespace](actions--access_active_sessions_terminate--reference--group-001.md#canonical-1332131032112001-3203333212213222-2020111233121322-3301202300023220-3312111230103021-2111313021200230-0100302033200102-2101130012023011) |
 
-<a id="canonical-c9205f10c200ac1c0d319ca7f46a1c4b63852bcda9030bfa1c04f386c9eb251c"></a>
+<a id="canonical-3021020011330100-3002000022300130-0031030121302213-3310122201301023-1203201102233031-2221000300233322-0130001033032012-3021322302110130"></a>
 
-## Next pages — Property reference / 00db6982da46 / 7
+## Next pages — Property reference / 200231221012 / 7
 
-- [xcsh_access_active_sessions_terminate](../actions/access_active_sessions_terminate.md#canonical-aefe1df7253e779a562274f8e664a4a668b95809ac818dc69c1d5be574a4a6d5)
+- [xcsh_access_active_sessions_terminate](../actions/access_active_sessions_terminate.md#canonical-2232333201313313-0211033213132122-1112020213103320-3212121022102212-1220232111200021-2230200120313012-2130013111233211-1310221022123111)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_proxy landing."
 
 # xcsh_dns_proxy landing
 
-<a id="canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a"></a>
+<a id="canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-247a321d150d3a979515cb730e595462537e0322e239ce7d7022774eb39ba0cb"></a>
+<a id="canonical-0210132203020131-0111003103222113-2111011130231303-0032112111101202-1103133200030202-3202032130321331-1300020213131032-2303212322003023"></a>
 
-## xcsh_dns_proxy — xcsh_dns_proxy / e1ca4a125a1f / 2
+## xcsh_dns_proxy — xcsh_dns_proxy / 010211220133 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-<a id="canonical-d652f05696f042990c9c1396c30fc12c9957eb9eb053e2dc7c3564ac29e4e0e2"></a>
+<a id="canonical-3112110233001112-2112330010022121-0030213001032112-3003003330010230-2121111332232132-2300110332023130-1330031112102230-0221321032003202"></a>
 
-## Prerequisites — xcsh_dns_proxy / e1ca4a125a1f / 3
+## Prerequisites — xcsh_dns_proxy / 010211220133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b950f8b3f1745465ee54109bb0a45483530a6c032f83361fa66db9524fd195f2"></a>
+<a id="canonical-2321110033202303-3301131011101211-3232111001002123-2300221011102003-1103002212300003-0233200303120133-2212123123211102-1033310121113302"></a>
 
-## Minimal configuration — xcsh_dns_proxy / e1ca4a125a1f / 4
+## Minimal configuration — xcsh_dns_proxy / 010211220133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_dns_proxy" "example" {
 }
 ```
 
-<a id="canonical-fd2fbce358591138ed00af8164b94861a42273801506abddcfa728bceaf805d3"></a>
+<a id="canonical-3331023323303203-1120112101010320-3231000022332001-1210232110201201-2210020213032000-0111001222233131-3033221302202330-3222332000113103"></a>
 
-## Root configuration — xcsh_dns_proxy / e1ca4a125a1f / 5
+## Root configuration — xcsh_dns_proxy / 010211220133 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-f2cd1b441d82b76b5e5bbaf407ca6fbe9af0ae4e53fe0d386b9723d82b613c94"></a>
+<a id="canonical-3302303101231010-0131200223131223-1132112323223310-0013302212332332-2122330022321032-1103333200310320-1223211302033120-0223120103302110"></a>
 
-## Next pages — xcsh_dns_proxy / e1ca4a125a1f / 6
+## Next pages — xcsh_dns_proxy / 010211220133 / 6
 
-- [Property reference](../guides/resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [Examples](../guides/resources--dns_proxy--examples--group-001.md#canonical-9fa90dae695ab8998220060b8a3ee60cd4dfcfd96133704fb891d295262d40e5)
-- [Import](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-f3bfd76d635a929d47f389f9c3f5813e9e54c2e1012f9cb23782add538ad5a9d)
-- [Timeouts](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-4706b3992f5d0f4ff8e2cf6d938d28bb6e371b0a0aa517f31c086296d6e5a520)
+- [Property reference](../guides/resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [Examples](../guides/resources--dns_proxy--examples--group-001.md#canonical-2133222100312232-1221112223202121-2002020000120023-2022033232120030-3110313330333121-1201030313001033-2320210131022111-0212023110003211)
+- [Import](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-3303233331131231-1203112221022131-1013330320213321-3003331120010332-2132111030023201-0001023321302302-0313200222313111-0320223111222131)
+- [Timeouts](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-1013001223032121-0233113100331033-3320320230331231-2103203102202323-1232031301230022-0022221101133303-0130002012022112-3112321122110200)

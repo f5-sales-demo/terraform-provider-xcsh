@@ -6,32 +6,32 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
-<a id="canonical-5db8d4b5757acfc29311ca7ae528f64484791ce86769b3c942b2e0b2a6218c6b"></a>
+<a id="canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-62a602a8926a01b814bd30d50c12c2a9853e86bc07ecd3004e23ff7d06b6fd69"></a>
+<a id="canonical-1202221200022220-2102122200012320-0110233103003111-0030010230022221-2011033220122330-0013323031030000-1032020333331331-0012231233311221"></a>
 
-## Property reference — Property reference / 1ce8a0b86159 / 2
+## Property reference — Property reference / 232012011121 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-1d377b95e8f5bf8636f98b5c9b8e1221f466f7bdda35a73abf8605ed5b3e8eea)
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
 - Property reference
 
-<a id="canonical-74841d8a717a53b272f6cc9eb2492bfc53cb3b817634ced114d9cebf51352ef5"></a>
+<a id="canonical-1310201001312022-1301132211032302-1302331230302132-2302102102233330-1103302303232001-1312031030323101-0110312130322333-1101031102323311"></a>
 
-## Direct properties — Property reference / 1ce8a0b86159 / 3
+## Direct properties — Property reference / 232012011121 / 3
 
-- [active_service_policies](data-sources--cdn_loadbalancer--reference--group-003.md#canonical-22eef3517bca4cba6d0e677182fafd166348ed4151c77e52d0e2a870362dc6e4): complete subsection reference.
+- [active_service_policies](data-sources--cdn_loadbalancer--reference--group-003.md#canonical-0202323233031101-1323302210302322-1231003212131301-2002332233310112-1203102032311001-1101301313321102-3100320222201300-0312023130123210): complete subsection reference.
 
-<a id="canonical-e2c4e68edea39a71077e15e2da29bb482f07e1ad0f10b046e33066c41762d38e"></a>
+<a id="canonical-3202301032122032-3132220321221301-0013133201113202-3122022123231020-0233001332012231-0033010023001012-3203030012123010-0113120231032032"></a>
 
-<a id="canonical-f5fe9d3883c221b35d8396b68f13fd3b3695108b0b424d9c96becf719e8def44"></a>
+<a id="canonical-3311333221310320-2003300202012303-1131200321122312-2033010333310323-0312211101002023-0023100210312130-2112233230331301-2132203132331010"></a>
 
-## annotations property — Property reference / 1ce8a0b86159 / 4
+## annotations property — Property reference / 232012011121 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -39,7 +39,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -68,39 +68,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [api_rate_limit](data-sources--cdn_loadbalancer--reference--group-003.md#canonical-66b75078bf3f57cca6e480dadc7b071b3ab3423f328cf97b20e0eea3e110564b): complete subsection reference.
+- [api_rate_limit](data-sources--cdn_loadbalancer--reference--group-003.md#canonical-1212231311001320-2333033311133030-2212321020003122-3130132300130123-0322230310020333-0302203033211323-0200320032322203-3201010011121023): complete subsection reference.
 
-- [api_specification](data-sources--cdn_loadbalancer--reference--group-005.md#canonical-362f6b7defed1ca0331731f6c193bdce3bc10a6cb21aa4e2772f46d6b5078255): complete subsection reference.
+- [api_specification](data-sources--cdn_loadbalancer--reference--group-005.md#canonical-0312023312231331-3233323101302200-0303011303013312-3001210323313032-0323300100221230-2302012222103202-1313023310123112-2311001320021111): complete subsection reference.
 
-- [app_firewall](data-sources--cdn_loadbalancer--reference--group-006.md#canonical-17341d6985723395421d8c31d46b1a17278f274f772d5fba259047f22ec78ced): complete subsection reference.
+- [app_firewall](data-sources--cdn_loadbalancer--reference--group-006.md#canonical-0113031001311221-2011130203032111-1002013120300301-3110122301220113-0213203302131033-1313023111332322-0211210010133302-0232301320303231): complete subsection reference.
 
-- [blocked_clients](data-sources--cdn_loadbalancer--reference--group-006.md#canonical-46045500a1e78445615a53dd5334ad33ce2d454451e88c6a3c566c24ac8b3826): complete subsection reference.
+- [blocked_clients](data-sources--cdn_loadbalancer--reference--group-006.md#canonical-1012001011110000-2201321320101011-1201112211033131-1103031022310303-3032023110111010-1101322020301222-0330111212300210-2230202303200212): complete subsection reference.
 
-- [bot_defense](data-sources--cdn_loadbalancer--reference--group-006.md#canonical-80c830837258747b14c29edc361da71ddaace2df95d3141cd7182f22161b76e0): complete subsection reference.
+- [bot_defense](data-sources--cdn_loadbalancer--reference--group-007.md#canonical-2000302003002003-1302112013101323-0110300221323130-0312013122130131-3122223032023133-2111310301100130-3113012002330202-0112012313123200): complete subsection reference.
 
-- [captcha_challenge](data-sources--cdn_loadbalancer--reference--group-008.md#canonical-530bcc216ddcdaff338b41ea0b5a54b2c40d76c0a6e10e7b8e7d1673d6d269a7): complete subsection reference.
+- [captcha_challenge](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-1103002330300201-1231313031223333-0303202310013222-0023112211102302-3010003113123000-2212320100321323-2032133101121303-3112310212212213): complete subsection reference.
 
-- [client_side_defense](data-sources--cdn_loadbalancer--reference--group-008.md#canonical-4d59a2b9c6e40fcbae06219e397d5552634502ae27be771799d796ae596e512d): complete subsection reference.
+- [client_side_defense](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-1031112122022321-3012321000333023-2232001202012132-0321133111111102-1203101100022232-0213233213130113-2121311321122232-1121123211010231): complete subsection reference.
 
-- [cors_policy](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-fc417be8204c4b8728a483a1863650a03902296f2284d0eebabd5417667dd223): complete subsection reference.
+- [cors_policy](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-3330100113233220-0200103010232013-0220221020032201-2012031211002200-0321000202211233-0202201031003232-2322233111100113-1212133131020203): complete subsection reference.
 
-- [csrf_policy](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-75eebc6e30f92011b907ed5c9d3ab2a72625997eccf90b773ec6b505f338396c): complete subsection reference.
+- [csrf_policy](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-1311323223301232-0300332102000101-2321001332311130-2131032223022213-0212021121211332-3030332100231313-0332301223110011-3303032003211230): complete subsection reference.
 
-- [custom_cache_rule](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-06d10c59251d252d7fce9adb3b74d3979ae27b09a55d4941edd7d01e37b4af78): complete subsection reference.
+- [custom_cache_rule](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-0012310100301121-0211013102110231-1333303221223123-0323131031032113-2122320213230021-2211113110211001-3231311331000132-0313231022331320): complete subsection reference.
 
-- [data_guard_rules](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-ee57a81a6530732d8c51e83ef1e9b9b1d71709c8413ab7557b32a271eb2a7e65): complete subsection reference.
+- [data_guard_rules](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-3232111322200122-1211030013030231-2030110132200332-3301322123212301-3113011300213020-1001032223131111-1323030222021301-3223022213321211): complete subsection reference.
 
-- [ddos_mitigation_rules](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-23fb934fdc8c11aec4fa330f9fdabf8e39499a5f76a8b4537af5d91bb4c53edc): complete subsection reference.
+- [ddos_mitigation_rules](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-0203332321031033-3130203001012232-3010332203030033-2133312223332032-0321102121221133-1312222023101103-1322331131210123-2310301103323130): complete subsection reference.
 
-- [default_cache_action](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-7e7f4c028619bb61b3a22fba07eaf909a5ea14f5fa6a39e44d8d2aec7140a9c7): complete subsection reference.
+- [default_cache_action](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1332133310300002-2012012123231201-2303220202332322-0013322233210021-2211322201103311-3322122203213210-1031203102223230-1301100022213013): complete subsection reference.
 
-- [default_sensitive_data_policy](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-44182d76825e878f69f595ae497de7899cf9189729eada12d24e7570c7aceadc): complete subsection reference.
+- [default_sensitive_data_policy](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1010012002311312-2002113220132033-1221331121112232-1021133132132021-2130332101202113-0221322231220102-3102103213111300-3013223032223130): complete subsection reference.
 
-<a id="canonical-465c026cf62676efd4b783f210cb71acb0e4efeb38ea0aa71769d4501e073080"></a>
+<a id="canonical-1012113000021230-3312021213123233-3110231320033302-0100302313012230-2300321032333223-0320322200222213-0113122131101100-0132001303002000"></a>
 
-<a id="canonical-b08672a6e0eb245aaedb3e7112e33777a41659525d3262718c4b140a29593d41"></a>
+<a id="canonical-2300201213022212-3200322302101122-2232312303321301-0102320303131313-2210011211211102-1131030212021301-2030102301100022-0221112103311001"></a>
 
-## description property — Property reference / 1ce8a0b86159 / 5
+## description property — Property reference / 232012011121 / 5
 
 Type: `"string"`. Computed.
 
@@ -148,27 +148,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_api_definition](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-df66c2908ab3c0ecf93a8cd22af687b9430c25b9971c0b8a9e6ba728a2001a33): complete subsection reference.
+- [disable_api_definition](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3133121230022100-2022230330003230-3321032220303102-0222331220132321-1003003002112321-2113013000232022-2132122322130220-2202000001220303): complete subsection reference.
 
-- [disable_api_discovery](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-a4d325e03dcc681fa8b89708c9bdb4988252e05b85d3696de9e0565db4361b9c): complete subsection reference.
+- [disable_api_discovery](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-2210310302113200-0331303012200133-2220232021130020-3021233123102120-2002110232001123-2011310312211231-3221320011121131-2310031201232130): complete subsection reference.
 
-- [disable_client_side_defense](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-f470ae3f8b5dcb8ac16e8a1165c62a28e5a7546a1d389d547cc001325e5a2b47): complete subsection reference.
+- [disable_client_side_defense](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3310130022320333-2023113130232022-3001123220220101-1211301202220220-3211221311101222-0131032021311110-1330300000010302-1132112202231013): complete subsection reference.
 
-- [disable_ip_reputation](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-6cf2ba0eb819fccf9e4e9e9f5993fa8e2dc5fafdb640cb4ddf1a83840aab34d0): complete subsection reference.
+- [disable_ip_reputation](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1230330223220032-2320012133303033-2132103221322133-1121210333222032-0231301133223331-2312100030231031-3133012220032010-0022222303103100): complete subsection reference.
 
-- [disable_malicious_user_detection](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-606be885391d214dacd98bf078dd9ed9168af7b9d43bf8d452c8c2ed54e1002d): complete subsection reference.
+- [disable_malicious_user_detection](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1200122332202011-0321013102011031-2230312120233300-1320313121323121-0112202233132321-3110032333203110-1102302030023231-1110320100000231): complete subsection reference.
 
-- [disable_rate_limit](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-93bf6479464cd8a577214ea9fd9a2749eb0acbcf622374fdd47b73cd19a4d798): complete subsection reference.
+- [disable_rate_limit](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-2103233312101321-1012103031202211-1313020110322221-3331212202131021-3223002230233033-1202020313103331-3110132313033031-0121221031132120): complete subsection reference.
 
-- [disable_threat_mesh](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-bc358ac1840523be4841d320886d9879cc831b43c07b4c9741eb51161800e999): complete subsection reference.
+- [disable_threat_mesh](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-2330031120223001-2010001102032332-1020100131030200-2020123121201321-3030200301231003-3000132310302113-1001322311010112-0120000032212121): complete subsection reference.
 
-- [disable_waf](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-45be9a9d0453fcbf1d5b7a9e640b3ddb6c47e33543d135435339fa8f45dc2a25): complete subsection reference.
+- [disable_waf](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1011233221222131-0010110333302333-0131112313222132-1210002303313123-1230101332030311-1003310103111003-1103032133222033-1011313002220211): complete subsection reference.
 
-<a id="canonical-fdbeed3596d26b617d9b26e93506c752ea35524c7cd7f9b868ca002f20b27c7e"></a>
+<a id="canonical-3331233232310311-2112310212231201-1331212302123221-0311001230131102-3222031111021030-1330311333212320-1220302200000233-0200230213301332"></a>
 
-<a id="canonical-382fe7bcc7c1960880740ff61a554eb8bba13977590ae79ad82dce8b59623d2a"></a>
+<a id="canonical-0320023332132330-3013300121120020-2000131000333312-0122111110322320-2323220103211313-1121002232132122-3120023130322023-1121120203310222"></a>
 
-## domains property — Property reference / 1ce8a0b86159 / 6
+## domains property — Property reference / 232012011121 / 6
 
 Type: `["list", "string"]`. Computed.
 
@@ -228,49 +228,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_api_discovery](data-sources--cdn_loadbalancer--reference--group-009.md#canonical-4d27c391b97ec0bb8400170e9e90720495a006d7b956f6f90243e13bfac2d267): complete subsection reference.
+- [enable_api_discovery](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1031021330032101-2321133230002323-2010000001130032-2132210013020010-2111220000123113-2321111233123321-0002100332010323-3322300231021213): complete subsection reference.
 
-- [enable_challenge](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-d08c9244a176c7a71959859b471fc4f32017bb25c0f7babbdfcb3dc9f911841a): complete subsection reference.
+- [enable_challenge](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3100203021021010-2201131230132213-0121112120112123-1013013330103303-0200011323230211-3000331323222323-3133302303313021-3321010120100122): complete subsection reference.
 
-- [enable_ip_reputation](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-f791575cc7afb803eae1edab6bd8161ce0ceef15091e48b7ee7c3fa6b3ba4eb0): complete subsection reference.
+- [enable_ip_reputation](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3313210111131130-3013223323200003-3222320132312223-1223312001120130-3200303232330111-0021013210202313-3232133003332212-2303232210322300): complete subsection reference.
 
-- [enable_malicious_user_detection](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-63dc44aae6483b2cb22e58f32ac31fd9657588bb024fedd084e3781a61ba5de3): complete subsection reference.
+- [enable_malicious_user_detection](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-1203313010102222-3212102003230230-2302023211203303-0222300301333121-1211131120202323-0002103332313100-2010320313200122-1201232211313203): complete subsection reference.
 
-- [enable_threat_mesh](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-f09d16a1eeb59b3ba5721dc4983536e2eaf4623b14596e4f6b810709ffc6ae2f): complete subsection reference.
+- [enable_threat_mesh](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3300213101122201-3232231121230323-2211130201313010-2120031103123202-3222331012020323-0110112112321033-1223200100130021-3333301222320233): complete subsection reference.
 
-- [graphql_rules](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-f1b85ea1fa6a6e2c26e23ee36f23c36b07e6cbe74339a722ebf7694908ccc9c5): complete subsection reference.
+- [graphql_rules](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3301232011322201-3322122212320230-0212320203323203-1233020330031223-0013321230233213-1003032122130202-3223331312211021-0020303030213011): complete subsection reference.
 
-- [http](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-008b300c77154c1484b58fff86572204ae1ec82ce5d78ccf747628a43b11a831): complete subsection reference.
+- [http](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-0000202303000030-1313011110300110-2010231120333333-2012111302020010-2232013230200230-3211311320303033-1310131202202210-0323010122200301): complete subsection reference.
 
-- [https](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-ecdbae149b8ba9ab361be31238c648e67d23a59ca92b2d8f18e6ba12d97a21af): complete subsection reference.
+- [https](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3230312322320110-2123202322212223-0312012332030102-0320301210203212-1331020322112130-2221022302312033-0120321223220102-3121132202012233): complete subsection reference.
 
-- [https_auto_cert](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-4a52b5f55a6121f3992d8b42133a29c221108de5d07075f61e7f8570d8cc5970): complete subsection reference.
+- [https_auto_cert](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-1022110223113311-1122120102013303-2121023120231002-0103032202213002-0201010020313211-3100130013113312-0132133320111300-3120303011211300): complete subsection reference.
 
-<a id="canonical-6699cd77d135ddde755fafcec0ef83dc186398003458000fde5a45c8764c6466"></a>
+<a id="canonical-1212212130311313-3101031131313132-1311113322333032-3000323320033130-0120120321200000-0310112000000033-3132112210113020-1312103012101212"></a>
 
-<a id="canonical-df44fb3de521af3bfd290f1c28001dc83a677663303676b3cd641c8c4ed4c70b"></a>
+<a id="canonical-3133101033230331-3211020122330323-3331022100330130-0220000001313020-0322121313121203-0300031213122303-3031121001302030-1032311030130023"></a>
 
-## id property — Property reference / 1ce8a0b86159 / 7
+## ID property — Property reference / 232012011121 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [js_challenge](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-b2d3b8b7553e766c73a39014b67c60a27e520c4fcf4518c9a44961b4ab3fd0d4): complete subsection reference.
+- [js_challenge](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-2302310323202313-1111033213121230-1303220321000110-2312133012002202-1332110200301033-3033101101203021-2210102112012310-2223033331003110): complete subsection reference.
 
-- [jwt_validation](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-e9c0248b9dccacb6877ca2f8bb94b11c27ba55338a07f3ecd602982f201cd5b4): complete subsection reference.
+- [jwt_validation](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-3221300002102023-2131303022302312-2013133022023320-2323211023010130-0213232211110303-2022001333033230-3112000221200233-0200013031112310): complete subsection reference.
 
-- [l7_ddos_action_block](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-7ffe063e878f3a3744dbd23f60e50c97276352019aab855a5dbf85a4d8b05f75): complete subsection reference.
+- [l7_ddos_action_block](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-1333333200120332-2013203303220313-1010312331020333-1200321100302113-0213120311020001-2122222320111122-1131233320112210-3120230011331311): complete subsection reference.
 
-- [l7_ddos_action_default](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-60c1d2cae5f8d7ef4588ef22dc10e409f573ad59f7fa0749e60a4cc7bb905003): complete subsection reference.
+- [l7_ddos_action_default](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1200300131023022-3211332031133233-1011202032330202-3130010032100021-3311130322311121-3313332200131021-3212002210303013-2323210011000003): complete subsection reference.
 
-- [l7_ddos_action_js_challenge](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-4064035bd1d3552bb9ccb82ffbae60db2624cc9c79d7f8b305061c5af59d3f48): complete subsection reference.
+- [l7_ddos_action_js_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1000121000031123-3101310311110223-2321303023200233-3323223212003123-0212021030302130-1321311333202303-0011001201301122-3311213103331020): complete subsection reference.
 
-<a id="canonical-b6d0bfa503d2f2dbe8ffa3eda48403d64abf4032f7c3158eab92a132ab411d52"></a>
+<a id="canonical-2312310023332211-0003310233023123-3220333322033231-2210201000033112-1022233310000302-3313300301112032-2223210222010302-2223100101311102"></a>
 
-<a id="canonical-a515064cb2a1e5c177640c00df46dd8b95bc387944bd89ac9f472e2871e8c4f0"></a>
+<a id="canonical-2211011100121030-2302220132113001-1313121000300000-3133101231312023-2111233003201321-1010233120212230-2133101302320220-1301322030103300"></a>
 
-## labels property — Property reference / 1ce8a0b86159 / 8
+## labels property — Property reference / 232012011121 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -294,11 +294,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2a471580d36c8774686fe829d3c10f4a0c5780bd730f3e3bd53db48d02fc6d22"></a>
+<a id="canonical-0222101301112000-3103123020131310-1220123332200221-3103300100331022-0030111320002331-1303003303320323-3111033123102031-0002333012310202"></a>
 
-<a id="canonical-5b79f97500a06efc70cae41fe57287fea1650ad3416b83f009dcc75d7af4a22c"></a>
+<a id="canonical-1123132133211311-0000220012323330-1300302232100133-3211130220133332-2201121100223103-1001122320033300-0021313030131131-1322331022020230"></a>
 
-## name property — Property reference / 1ce8a0b86159 / 9
+## name property — Property reference / 232012011121 / 9
 
 Type: `"string"`. Required.
 
@@ -354,11 +354,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-588f86a6505b74f05521bb512463227a0a20beca3447eb7d80c1282374e58b94"></a>
+<a id="canonical-1120203320122212-1100112313103300-1111020123231101-0210120302021322-0022020023323022-0310101332231331-2000300102200203-1310321120232110"></a>
 
-<a id="canonical-820969f25b8867da18b81af269016e5a2dc3b3a279f9ba2bac5a449297db55b2"></a>
+<a id="canonical-2002002112213302-1123202012133122-0120232001223302-1221000112321122-0231300323032202-1321332123220223-2230112210102102-2113312311112302"></a>
 
-## namespace property — Property reference / 1ce8a0b86159 / 10
+## namespace property — Property reference / 232012011121 / 10
 
 Type: `"string"`. Required.
 
@@ -407,32 +407,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_challenge](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-6e529dfa5d955f8b4335cc866733193c137c5e9d565daf1b27a3fa9022f7ec64): complete subsection reference.
+- [no_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1232110221313322-1131211111332023-1003031130302012-1213030301210330-0103133011322131-1112113122330123-0213220333222100-0202331332301210): complete subsection reference.
 
-- [no_service_policies](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-107e8e679b873906e8381ab7c4ccbea59f6bd95936693ad2aff2271ba7a5e3a6): complete subsection reference.
+- [no_service_policies](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-0100133220321213-2123201303210012-3220032001222313-3010303023322211-2133122331211121-0312122103223102-2233330202130123-2213221132032212): complete subsection reference.
 
-- [origin_pool](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-2bb6e1e94d7f9314d889119c7c85fbf1bf8b508164ddd71ba5a583ccf8b25654): complete subsection reference.
+- [origin_pool](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-0223231232013221-1031133321030110-3120202101012130-1330201133233301-2333202311002001-1210313131130123-2211221120033030-3320230211121110): complete subsection reference.
 
-- [other_settings](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-3d6cc47dd4ab6896f9c02762148d92d2ca1f16b4daa0bc5357e63017b529c4b4): complete subsection reference.
+- [other_settings](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-0331123030101331-3110222312202112-3321300002131202-0110203121023102-3022013301122310-3122220023301103-1113321203000113-2311022130102310): complete subsection reference.
 
-- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-4324e730ba27d6afbaf87c0b8e02942e3555725d734051ed25120d8bd87efb8e): complete subsection reference.
+- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032): complete subsection reference.
 
-- [protected_cookies](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-8bbb1c9226b8a8e1a08b621c2d00de5afe37a24525ca33acd988ea10eee90deb): complete subsection reference.
+- [protected_cookies](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-2023232301302102-0212232022203201-2200202312020130-0231000031321122-3332031322021011-0211302203032230-3121202032220100-3232322100313223): complete subsection reference.
 
-- [rate_limit](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-12bed4f6c3fd4f4da68f6b705b22bddc00b50871ecdae9367b04e4df3ea421b3): complete subsection reference.
+- [rate_limit](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-0102233231103312-3003333110331031-2212203312231300-1123020223313130-0000231100201301-3230312232210312-1323001032103133-0332221002012303): complete subsection reference.
 
-- [sensitive_data_policy](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-bb2647b3428854666f974efe2d4accde407916594bdd794de0a14630e2c93d77): complete subsection reference.
+- [sensitive_data_policy](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-2323021210132303-1002202011101212-1233211310323332-0231102230303132-1000132101121121-1023313113211031-3200220110120300-3202302103311313): complete subsection reference.
 
-- [service_policies_from_namespace](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-87808731574bc92e863e99557fbbe8621d30dfe501227638348645fb3d6ae8c4): complete subsection reference.
+- [service_policies_from_namespace](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-2013200020130301-1113102330210232-2012033221211111-1333232332201202-0131030031333211-0001020213120320-0310201210113323-0331122232203010): complete subsection reference.
 
-- [slow_ddos_mitigation](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-01c67b15d3a42bb9a1e992d885e2aaad2b664fbfb5f776a3c0c6d39c912ab599): complete subsection reference.
+- [slow_ddos_mitigation](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-0001301213230111-3103221002232321-2201322121023120-2011320222222231-0223121210332333-2311331313122203-3000301231032130-2101022223112121): complete subsection reference.
 
-- [system_default_timeouts](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-fa38e48238d43a1d52379d97249f1ee098d2c713f9459bf92678b51c370bbf0f): complete subsection reference.
+- [system_default_timeouts](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-3322032032102002-0320311003220131-1102031321312113-0210213301323200-2120310230130103-3321101121233321-0212132023110130-0313002323330033): complete subsection reference.
 
-- [trusted_clients](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-42424e14e1fa4134094c259fc2bdc475057248d372dc4b9a2620501636ee872e): complete subsection reference.
+- [trusted_clients](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-1002100210320110-3201332210010310-0021103002112133-3002233130101311-0011130210203103-1302313010232122-0212020011000112-0312323220130232): complete subsection reference.
 
-- [user_id_client_ip](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-51bae569a01abc71d9356bedb70367bcacc4ff50a745eb8a820ce86d9ebea852): complete subsection reference.
+- [user_id_client_ip](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-1101232232111221-2200012223301301-3121031112233231-2313000312132330-2230301033331100-2213101132232022-2002003032201231-2132233222201102): complete subsection reference.
 
-- [user_identification](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-cc94a6d81f55468ce844b7b39e7af9c0e4a0c8d3b1eb5554b18b65b5a24008a8): complete subsection reference.
+- [user_identification](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-3030211022123120-0133111110122030-3220101023132303-2132132233213000-3210220030203103-2301322311111110-2301202312112311-2202100000202220): complete subsection reference.
 
-- [waf_exclusion](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-03b49820156dc509ea8c20ab1c05f13581583c48a90846de0afcd4c0e6e2bc37): complete subsection reference.
+- [waf_exclusion](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-0003231021200200-0111123130110021-3222203002002223-0130001133010311-2001112003301020-2221002010123132-0022333031103000-3212320223300313): complete subsection reference.

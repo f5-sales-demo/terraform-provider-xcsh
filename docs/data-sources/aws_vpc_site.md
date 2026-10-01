@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_aws_vpc_site landing
 
 # xcsh_aws_vpc_site landing
 
-<a id="canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab"></a>
+<a id="canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-33bc7e36aa1f3951f1dc5b061afcdb8cf7086071b9e503cf94aa25f8fb4a2086"></a>
+<a id="canonical-0303233013320312-2222013303211101-3301313011230012-0122333031232030-3313002012001301-2321321100033033-2110222202113320-3323102202002012"></a>
 
-## xcsh_aws_vpc_site — xcsh_aws_vpc_site / e3f85b66e186 / 2
+## xcsh_aws_vpc_site — xcsh_aws_vpc_site / 121232012012 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC
 environments.
 
-<a id="canonical-32113dadfd49542bcb95aae872275ee868ef54f83259288e30b1b86a369df2f6"></a>
+<a id="canonical-0302010103312231-3331102111100223-3023211122223220-1302021311323220-1220323311103320-0302112102202032-0300230123201222-0312213133023312"></a>
 
-## Prerequisites — xcsh_aws_vpc_site / e3f85b66e186 / 3
+## Prerequisites — xcsh_aws_vpc_site / 121232012012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: AWS authentication for deployment
 
-<a id="canonical-ba65190c6eaf2925e0d6028f735bfcf6bea429b564959a4d7e91c262eaf92008"></a>
+<a id="canonical-2322121101210030-1232223302210211-3200311200022033-1303112333303312-2332221002212311-1210211121221031-1332210130021202-3222332102000020"></a>
 
-## Minimal configuration — xcsh_aws_vpc_site / e3f85b66e186 / 4
+## Minimal configuration — xcsh_aws_vpc_site / 121232012012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,15 +66,15 @@ output "aws_vpc_site_id" {
 }
 ```
 
-<a id="canonical-55dd953d84a637b5b20b0563a16c8d2111156730d29de1999495df3200de0dbd"></a>
+<a id="canonical-1111313121110331-2010221203132311-2302002300111203-2201123020310201-0101011112130300-3102213132012121-2110211131330302-0000313200312331"></a>
 
-## Root configuration — xcsh_aws_vpc_site / e3f85b66e186 / 5
+## Root configuration — xcsh_aws_vpc_site / 121232012012 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-09254ac09f620eae9f55be85c285657970b3fb2fa3c78c6b39457f34cccb038e"></a>
+<a id="canonical-0021021110223000-2133120200322232-2133111123322011-3002201112111321-1300230333230233-2203301320301223-0321101113330310-3030302300032032"></a>
 
-## Next pages — xcsh_aws_vpc_site / e3f85b66e186 / 6
+## Next pages — xcsh_aws_vpc_site / 121232012012 / 6
 
-- [Property reference](../guides/data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [Examples](../guides/data-sources--aws_vpc_site--examples--group-001.md#canonical-5c3437aa50cde77e2eedddc34f6ed350d27b75623455e69714667fa60cf9f156)
+- [Property reference](../guides/data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [Examples](../guides/data-sources--aws_vpc_site--examples--group-001.md#canonical-1130031003132222-1100303132131332-0232323131313003-1033123231031100-3102132313111202-0310111132122113-0110121213332212-0030332133011112)

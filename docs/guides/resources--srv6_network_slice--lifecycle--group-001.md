@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_srv6_network_slice l
 
 # xcsh_srv6_network_slice lifecycle
 
-<a id="canonical-49d2c70de7063a333d4931b3a921f8d08214ee237ad5e3715fbc6fde2768f201"></a>
+<a id="canonical-1021310230130031-3213001203220303-0331102103012303-2221020133203100-2002011032320203-1322311132031301-1133233012333132-0213122033020001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-07ece717ac6434bf03416ad60129972f164cdadd0e9eb1eb4c1d6138b6d14fec"></a>
+<a id="canonical-0013323032130113-2230121003102333-0003100112223112-0001022121130233-0112103031223131-0032213223013223-1030013112010320-2312310110333230"></a>
 
-## Import — Import / 7e80d330caf8 / 2
+## Import — Import / 030030223320 / 2
 
 Breadcrumbs:
 
-- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-431435cc9f00e58094c1dd963b8aa9cec4251ea8dcbf3313b046ca1921402d3e)
+- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-1003011003113030-2133000032112000-2110300131312112-0323202222213032-3010021101322220-3130233303030103-2300101230220121-0201100002310332)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_srv6_network_slice.example system/example
 ```
 
-<a id="canonical-437b9cace3e29ca70c2e865c018cac550e30bd06d1155a460a5236069786c3eb"></a>
+<a id="canonical-1003132321302230-3203320221302213-0030023220121130-0001203022301111-0032030023310012-3101011111221012-0022110203120012-2113201230033223"></a>
 
-## Next pages — Import / 7e80d330caf8 / 3
+## Next pages — Import / 030030223320 / 3
 
-- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-431435cc9f00e58094c1dd963b8aa9cec4251ea8dcbf3313b046ca1921402d3e)
+- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-1003011003113030-2133000032112000-2110300131312112-0323202222213032-3010021101322220-3130233303030103-2300101230220121-0201100002310332)
 
-<a id="canonical-6b5170b64d10d3e92f1a2b241f2c94c933794d119256b0a9a5055a34daedf100"></a>
+<a id="canonical-1223110113002312-1031010031033221-0233012202230210-0133023021103021-0303132110310101-2102111223002221-2211001111220310-3122323133010000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-af82b8ed06c055b5a3220360a421488c8de4c04e4f3205c476a57dc9aadbf81c"></a>
+<a id="canonical-2233200223203231-0012300011112311-2203020200031200-2210020110202030-2031321030001032-1033030200113010-1312221113313021-2222312333200130"></a>
 
-## Timeouts — Timeouts / 487946695ff1 / 2
+## Timeouts — Timeouts / 122111333301 / 2
 
 Breadcrumbs:
 
-- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-431435cc9f00e58094c1dd963b8aa9cec4251ea8dcbf3313b046ca1921402d3e)
+- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-1003011003113030-2133000032112000-2110300131312112-0323202222213032-3010021101322220-3130233303030103-2300101230220121-0201100002310332)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--srv6_network_slice--reference--group-001.md#canonical-bb84fcc743229e13d3b165a9c3c89d3253afa395a8d97cfc70dee42e9bbffb97). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--srv6_network_slice--reference--group-001.md#canonical-2323201033303013-1003020221320103-3103230112112221-3003302021310302-1103223322032111-2220312113303330-1300313232100232-2123233333232113). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-1dfc8d9294e11f8a0b023b084c35fa4247dd444e6a3d073410a4067f70aa7c71"></a>
+<a id="canonical-0131333020312102-2110320101332022-0023000203230020-1030031133221002-1013313110101032-1222033100130310-0100221000121333-1300222213301301"></a>
 
-## Next pages — Timeouts / 487946695ff1 / 3
+## Next pages — Timeouts / 122111333301 / 3
 
-- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-431435cc9f00e58094c1dd963b8aa9cec4251ea8dcbf3313b046ca1921402d3e)
+- [xcsh_srv6_network_slice](../resources/srv6_network_slice.md#canonical-1003011003113030-2133000032112000-2110300131312112-0323202222213032-3010021101322220-3130233303030103-2300101230220121-0201100002310332)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_nginx_instance landi
 
 # xcsh_nginx_instance landing
 
-<a id="canonical-b9ef2669c0bf7b4c379f2af4596962e7273bf8b58edf51272ccb89570543335a"></a>
+<a id="canonical-2321323302121221-3000233313231030-0313213302223310-1121122112023213-0213032333202311-2032313311010213-0230302320211113-0011100303031122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-641e48bc55474f616d5fc464a5623c39e6284a0d74d553d87abb898ec89ec8d9"></a>
+<a id="canonical-1210013210202330-1111101310331201-1231113330101210-2211120203300321-3212022010220031-1310311111033120-1322232320212032-3020213230203121"></a>
 
-## xcsh_nginx_instance — xcsh_nginx_instance / 6c7b068e5653 / 2
+## xcsh_nginx_instance — xcsh_nginx_instance / 203211121103 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration.
 configuration. (read-only data source)
 
-<a id="canonical-a95f1e114a72547575448b73b42f0b8f71d460392f6491a0cad8c3314546f78f"></a>
+<a id="canonical-2221113301320101-1022130211101311-1311101020231303-2310023300232033-1301311012000321-0233121021012200-3022312030030301-1011101233132033"></a>
 
-## Prerequisites — xcsh_nginx_instance / 6c7b068e5653 / 3
+## Prerequisites — xcsh_nginx_instance / 203211121103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-6de6b905f9ae457db41730c0d2777f3c862a6799906db32cc38adfc3d71da6c7"></a>
+<a id="canonical-1231321223210011-3321223210111331-2310011303003000-3102131313330330-2012022212132121-2100123123030230-3003202231333003-3113013122123013"></a>
 
-## Minimal configuration — xcsh_nginx_instance / 6c7b068e5653 / 4
+## Minimal configuration — xcsh_nginx_instance / 203211121103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "nginx_instance_id" {
 }
 ```
 
-<a id="canonical-a7f73b3de557b7a14918f5a59cec3fa4891c2576f40ce04a45e9a13764c33548"></a>
+<a id="canonical-2213331303230331-3211111323132201-1021012033112211-2130323003332210-2021013002111312-3310003032001022-1011322122010313-1210300303111020"></a>
 
-## Root configuration — xcsh_nginx_instance / 6c7b068e5653 / 5
+## Root configuration — xcsh_nginx_instance / 203211121103 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-bb29f3a290f0dd460a24d345fdcc8ce8f60f18b1d3b1701c1c1e3c11afea3b5a"></a>
+<a id="canonical-2323022133032202-2100330031311012-0022021031031011-3331303020303220-3312003301202301-3103230113000130-0130013203300101-2233322203231122"></a>
 
-## Next pages — xcsh_nginx_instance / 6c7b068e5653 / 6
+## Next pages — xcsh_nginx_instance / 203211121103 / 6
 
-- [Property reference](../guides/data-sources--nginx_instance--reference--group-001.md#canonical-dd5056fa9ff48164c06415e85ac04b9f289523c7992d8a1f6a56f04b83798c21)
-- [Examples](../guides/data-sources--nginx_instance--examples--group-001.md#canonical-f1cfd45c9eb52b9043c8dddc78a39f8e6d4c57431fafe737175b7666f359758d)
+- [Property reference](../guides/data-sources--nginx_instance--reference--group-001.md#canonical-3131110011123322-2133331020011210-3000121001113220-1122300010232133-0220211102033013-2121023120220133-1222111233001023-2003132120300201)
+- [Examples](../guides/data-sources--nginx_instance--examples--group-001.md#canonical-3301303331101130-2132231102232100-1003302031313130-1320220321332032-1231103011131003-0133223332130313-0113112313121212-3303112113112031)

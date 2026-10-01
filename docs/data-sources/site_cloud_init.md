@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_site_cloud_init land
 
 # xcsh_site_cloud_init landing
 
-<a id="canonical-bb83253dcef707bb0c00385589b2ba967da3ad61756414aa9015e45e3d75e738"></a>
+<a id="canonical-2323200302110331-3032331300132323-0030000003201111-2021230223222112-1331220322311201-1311121001102222-2100011132101132-0331131132130320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff73dd2e2b915723f837c18ad331cec2467349323f1405a78018eba7adca7300"></a>
+<a id="canonical-3333130331310232-0223210111130203-3320031330012022-3103030130323002-1012130310210302-0333011000112213-2000012032232213-2231302213030000"></a>
 
-## xcsh_site_cloud_init — xcsh_site_cloud_init / d132062d6435 / 2
+## xcsh_site_cloud_init — xcsh_site_cloud_init / 023112100311 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Retrieve Customer Edge cloud-init template.
 
-<a id="canonical-ddd573fb3eff406fcdf9e69ceb086d1b07288f5a895a5210072813c8d3f46889"></a>
+<a id="canonical-3131311113033323-0332333310001233-3031332132122130-3223002012310123-0013022020331122-2021112211020100-0013022001033020-3103331012202021"></a>
 
-## Prerequisites — xcsh_site_cloud_init / d132062d6435 / 3
+## Prerequisites — xcsh_site_cloud_init / 023112100311 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1be823cd5e50310db4ea18accca77c0e729aa5f434d99198094188ff49e70a07"></a>
+<a id="canonical-0123322002033031-1132110003010031-2310322201202230-3030221313300032-1302212222113310-0310312121012120-0021100120203333-1021321300220013"></a>
 
-## Minimal configuration — xcsh_site_cloud_init / d132062d6435 / 4
+## Minimal configuration — xcsh_site_cloud_init / 023112100311 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "site_cloud_init_result" {
 }
 ```
 
-<a id="canonical-040d2c08e8d79886a453d660bceafb8eed1cadc3dd0edf4d6f817bf8c824186a"></a>
+<a id="canonical-0010003102300020-3220311321202012-2210110331121200-2330322233232032-3231013022313003-3131003231331031-1233200113233320-3020021001201222"></a>
 
-## Root configuration — xcsh_site_cloud_init / d132062d6435 / 5
+## Root configuration — xcsh_site_cloud_init / 023112100311 / 5
 
 Required root properties: `provider_ref`, `site_name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-745c18569f13c7d67616027fd22f31604c4a5de88bf859ab35b3f7ed8f472e3b"></a>
+<a id="canonical-1310113001201112-2133010330133112-1312011200021333-3102023303011200-1030102211313220-2023332011212223-0311230333133231-2033101302320323"></a>
 
-## Next pages — xcsh_site_cloud_init / d132062d6435 / 6
+## Next pages — xcsh_site_cloud_init / 023112100311 / 6
 
-- [Property reference](../guides/data-sources--site_cloud_init--reference--group-001.md#canonical-449146e9b12ccd06dd9f1b3726adeaaf418081765a16b4774522c5040c4e90da)
-- [Examples](../guides/data-sources--site_cloud_init--examples--group-001.md#canonical-2af1fe52fef4663a7a40baa6d63bcf1d5b04630a18ac1e64cc5f4883fd0f6ca4)
+- [Property reference](../guides/data-sources--site_cloud_init--reference--group-001.md#canonical-1010210110123221-2301023030310012-3131213301230313-0212223132222233-1001200020011312-1122011223101313-1011020230110010-0030103221003122)
+- [Examples](../guides/data-sources--site_cloud_init--examples--group-001.md#canonical-0222330133321102-3332331012120322-1322100023222212-3112032330330131-1123001012030022-0120223001321210-3030113310202003-3331003312302210)

@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_bot_defense_app_infr
 
 # xcsh_bot_defense_app_infrastructure lifecycle
 
-<a id="canonical-cdf3f61f578246a0ebe8cbeb466d80aa0ce1dc47ddcd239217a5c3dcc3989680"></a>
+<a id="canonical-3031330333120133-1113200210122200-3223322030233223-1012123120002222-0030320131301013-3131303102032102-0113221130033130-3003212021122000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7cc24a9b3042b7b6d5876500c80775d8f9c6375ef206d262fa07ec79cf33ee7d"></a>
+<a id="canonical-1330300210222123-0300100223132312-3111201312110000-3020001313113120-3321301203131132-3302001231021202-3322001332301321-3033030332321331"></a>
 
-## Import — Import / b7c66c30333e / 2
+## Import — Import / 030003030332 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-630ddf7375046a55c019beba5ab35ecf1937656c254050d05d694d11d7ea1599)
+- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-1203003131331303-1311001012221111-3000012123322322-1122230311323033-0121031312111230-0211100011003100-1131122110310101-3113322201112121)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_bot_defense_app_infrastructure.example system/example
 ```
 
-<a id="canonical-294c909d059a0d82739a9e97befa334e3da4613a72ebee5439aaa97e6eb625f5"></a>
+<a id="canonical-0221103021002131-0011212200312002-1303212221322113-2332332203031032-0331221012010322-1302322332321110-0321222222211332-1232231202113311"></a>
 
-## Next pages — Import / b7c66c30333e / 3
+## Next pages — Import / 030003030332 / 3
 
-- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-630ddf7375046a55c019beba5ab35ecf1937656c254050d05d694d11d7ea1599)
+- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-1203003131331303-1311001012221111-3000012123322322-1122230311323033-0121031312111230-0211100011003100-1131122110310101-3113322201112121)
 
-<a id="canonical-ad627479e2ec2f13af7959e424facb55240235a4b16e9ef77d4547a1c93df710"></a>
+<a id="canonical-2231120213101321-3202323002330103-2233132111213210-0210332230231111-0210000203112210-2301123221323313-1331101110132201-3021033133130100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f91bcf6dd9a2417e6bb34fdb94fc24afda67b5ef5d541fcb8ef326caffdf0d63"></a>
+<a id="canonical-3321012330331231-3121220210011332-1223230310333123-2110333002102233-3122121323113233-1131111001333023-2032330302123022-3333313300311203"></a>
 
-## Timeouts — Timeouts / ab17a4d40624 / 2
+## Timeouts — Timeouts / 311000120210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-630ddf7375046a55c019beba5ab35ecf1937656c254050d05d694d11d7ea1599)
+- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-1203003131331303-1311001012221111-3000012123322322-1122230311323033-0121031312111230-0211100011003100-1131122110310101-3113322201112121)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--bot_defense_app_infrastructure--reference--group-001.md#canonical-34c5003b8b2e9306176db5f499f3dd03f0d68525e71a4952c3e2b33a3e1d5d94). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--bot_defense_app_infrastructure--reference--group-001.md#canonical-0310301100000323-2023023221030012-0113123123113310-2121330331310003-3300311220110211-3213012210211102-3003320223030322-0332013111312110). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-6e5234fae2cffa349e98e37f50c1652af38898394582d43841558e315fe2d7ff"></a>
+<a id="canonical-1232110203103322-3202303333220310-2132212032031333-1100300112110222-3303202021200321-1011200231100320-1001111120320301-1133320231133333"></a>
 
-## Next pages — Timeouts / ab17a4d40624 / 3
+## Next pages — Timeouts / 311000120210 / 3
 
-- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-630ddf7375046a55c019beba5ab35ecf1937656c254050d05d694d11d7ea1599)
+- [xcsh_bot_defense_app_infrastructure](../resources/bot_defense_app_infrastructure.md#canonical-1203003131331303-1311001012221111-3000012123322322-1122230311323033-0121031312111230-0211100011003100-1131122110310101-3113322201112121)

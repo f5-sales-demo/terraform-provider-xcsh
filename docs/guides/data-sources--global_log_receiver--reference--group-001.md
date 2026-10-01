@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver reference
 
-<a id="canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe"></a>
+<a id="canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-71ca6054badd9ed308aa917c6cc36d4d17d1aea50eff9172e68c0a6c9a0ba815"></a>
+<a id="canonical-1301302212001110-2322313121323103-0020222221011330-1230300312311031-0113310122322211-0032333321011302-3212203000221230-2122002322200111"></a>
 
-## Property reference — Property reference / ee2aefa3af0a / 2
+## Property reference — Property reference / 220322330022 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 - Property reference
 
-<a id="canonical-b8949203fc5e4ae17dd6dcab6974bfad8d4c74a9a7cc94691294c17842834a36"></a>
+<a id="canonical-2320211021020003-3330113210223201-1331311231302223-1221131023332231-2031103013102221-2213303021101221-0102211030011320-1002200310220312"></a>
 
-## Direct properties — Property reference / ee2aefa3af0a / 3
+## Direct properties — Property reference / 220322330022 / 3
 
-<a id="canonical-08170eeb7504824b8c9af262ebefe5fd84b970006ad2153180221346c7e14248"></a>
+<a id="canonical-0020011300323223-1311001020021023-2030212233021202-3223323332113331-2010232113000000-1222310201110301-2000020201031012-3013320110021020"></a>
 
-<a id="canonical-515477c1e099be1e9f803df89d83f154fdf83716b0153d65d2cccf41cef144ca"></a>
+<a id="canonical-1101111013133001-3200212123320132-2133200003313320-2131200333011110-3331332003130112-2300011103311211-3102303030331001-3032330110103022"></a>
 
-## annotations property — Property reference / ee2aefa3af0a / 4
+## annotations property — Property reference / 220322330022 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,21 +66,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-df9883b23b9a3363e082d3c4b3d4c306c14b6778efb738cf51239d9fa1e7fbfb): complete subsection reference.
+- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-3133212020032302-0323212203031203-3200200231033010-2303311030030012-3001102312131320-3233231303203033-1101020321312133-2201321333233323): complete subsection reference.
 
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e): complete subsection reference.
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032): complete subsection reference.
 
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39): complete subsection reference.
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321): complete subsection reference.
 
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6): complete subsection reference.
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312): complete subsection reference.
 
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-7241d05aab97e71040e3653bc7552f4bc7ac3ac847d65183ed5db6d89ed82052): complete subsection reference.
+- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102): complete subsection reference.
 
-<a id="canonical-64743360726e0dc5f3e15b484cd52c6ea168c0516ce2f4023f136aed2f13cc97"></a>
+<a id="canonical-1210131003031200-1302123200313011-3303320111231020-1030311102301232-2201122030001101-1230320233100002-0333010312223231-0233010330302113"></a>
 
-<a id="canonical-c5d58d1dec89933d0abbc981811de5f579e92bdd0bf20f8da77c3ea15585a87b"></a>
+<a id="canonical-3011311120310131-3230202121030331-0022232330212001-2001013132113311-1321322102233131-0023330200332031-2213133003322201-1111201122201323"></a>
 
-## description property — Property reference / ee2aefa3af0a / 5
+## description property — Property reference / 220322330022 / 5
 
 Type: `"string"`. Computed.
 
@@ -128,29 +128,29 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-b7191829d34da96f0435f5aec41d4e561e626957b75cdf343f72630ff0e93240): complete subsection reference.
+- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-2313012101200221-3103103122211233-0010031133112232-3010013110321112-0132120212211113-2313113031330310-0333130212030033-3300322103021000): complete subsection reference.
 
-- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-58684b364e0b8e5011351cd9b3602148b448064d1831c1a27d06df7e605452b2): complete subsection reference.
+- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1120122010230312-1032002320321100-0101031101303121-2303120002011020-2310102000121031-0120030130012202-1331001231331332-1200111011022302): complete subsection reference.
 
-- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-c2515e68697d658421a149636ad34121ab8c5447b571ca1fa29e974052ad74a8): complete subsection reference.
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220): complete subsection reference.
 
-<a id="canonical-a056c0c2a1b6d69f71077a4e06f64f2f7300bac72b7367ef24d8a1f158ecff39"></a>
+<a id="canonical-2200111230003002-2201231231122133-1301001313221032-0012331210330233-1303000023223013-0223130312133233-0210312022013301-1120323033330321"></a>
 
-<a id="canonical-e4792d68bdf6be121ac40161198d1980136a3fccc2f68f3835b30b23a0626da9"></a>
+<a id="canonical-3210132102311220-2331331223320102-0122301000011201-0121203101212000-0103122203333030-3002331220330320-0311230300230203-2200120212312221"></a>
 
-## id property — Property reference / ee2aefa3af0a / 6
+## ID property — Property reference / 220322330022 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-b2ba99714bf357739d2e73a2af07b4be508bfcec644db2fba3f3e59a26fa81bd): complete subsection reference.
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331): complete subsection reference.
 
-<a id="canonical-94995592684160b7dab0af8037ad0a3d507fae58b962efb8ad5de382db15f243"></a>
+<a id="canonical-2110212111112102-1220100112002313-3122230022332000-0313223100220331-1100133322321120-2321120232332320-2231113132032002-3123011133021003"></a>
 
-<a id="canonical-266e81d781681ace70522e9cb831d7b0d638a9cf505c6a0c0c355afe6b6ede4d"></a>
+<a id="canonical-0212123220013113-2001122001223032-1300110202322130-2320030131132300-3112032022213033-1100113012220030-0030031111223332-1223123231321031"></a>
 
-## labels property — Property reference / ee2aefa3af0a / 7
+## labels property — Property reference / 220322330022 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -174,11 +174,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-007760a76f5a884982d2dbbcac8bc948eaa6b9f7d166fade141e16d3e1012f0b"></a>
+<a id="canonical-0000131312002213-1233112220201021-2002310231232330-2230202330211020-3222221223213313-3101121233223132-0110013201123103-3201000102330023"></a>
 
-<a id="canonical-7d48f8550451076dc27993ab85628f73dcd73ba7744457187ad3745c0163c808"></a>
+<a id="canonical-1331102033201111-0010110100131231-3002132121032223-2011120220331303-3130311303232213-1310101011130120-1322310313101130-0001120330200020"></a>
 
-## name property — Property reference / ee2aefa3af0a / 8
+## name property — Property reference / 220322330022 / 8
 
 Type: `"string"`. Required.
 
@@ -234,11 +234,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4584b30ea2792d16597d6c62636f22527cfd57472f11f1e00887d0dfe0b066d9"></a>
+<a id="canonical-1011201023030032-2202132102310112-1121133112301202-1203123302021102-1330333111131013-0233010133013200-0020201331003133-3200230012123121"></a>
 
-<a id="canonical-887b5abc919e2794932749b4521082f48b7fe259f853cdf7695ffc20a7d2d965"></a>
+<a id="canonical-2020132311222330-2101213202132110-2103021310212310-1102010020023310-2023133332021121-3320110330313313-1221113333300200-2213310231211211"></a>
 
-## namespace property — Property reference / ee2aefa3af0a / 9
+## namespace property — Property reference / 220322330022 / 9
 
 Type: `"string"`. Required.
 
@@ -287,409 +287,409 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-6a8ca15a6755e8c761d98fa0efc7d887c67f7c2cf83ede5ae159146cee36621c): complete subsection reference.
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130): complete subsection reference.
 
-- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-eac6c2cc015966b8d0a1b560e162a5757c3992ef61ab6e3555f7a8641fdb1d88): complete subsection reference.
+- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020): complete subsection reference.
 
-- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-e7d88a8682a21bc20dc8d78ab563c10f0d3a2ee20a4b1399394c1bda0161b874): complete subsection reference.
+- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310): complete subsection reference.
 
-- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-f360f7b122a79b7d1c6f6f9d22020aaec9eb1157401d37099f911acc32f3529a): complete subsection reference.
+- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122): complete subsection reference.
 
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-b92792beb6b0768e505b489f160b029bb8d833695a382acbf5b46a70680d13a3): complete subsection reference.
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203): complete subsection reference.
 
-- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-78587f316fc037494d3bdda63e54544614ce095432c2e1335fabfd6ee00f891b): complete subsection reference.
+- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1320112013330301-1233300003131021-1031032331312212-0332111011101012-0110303200211110-0302300232010303-1133222333311232-3200003320210123): complete subsection reference.
 
-- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-dae6dd6655685b107ef32055106d09b7b4dab7071a9959807699fd7c97a324e2): complete subsection reference.
+- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3122321231311212-1111122011230100-1332330302001111-0100123100212313-2310312223130013-0122212111212000-1312212133311330-2113220302103202): complete subsection reference.
 
-- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-4234f3746f0500e78349b4be62bcfa5b49542d6219128d146579072b81afbd0b): complete subsection reference.
+- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-1002031033031310-1233001100003213-2003102123102332-1202233033221123-1021111002311202-0121010220310110-1211132100130223-2001223323310023): complete subsection reference.
 
-- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-6ed29c2aa1b2f50992c155d7c0c80fc7a5bf1c207674965cc79d023a9e7e0070): complete subsection reference.
+- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1232310221300222-2201230233110021-2102300111113113-3000302000333013-2211233301300200-1312131021121130-3013213100020322-2132133200001300): complete subsection reference.
 
-- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-60223cb26da3c4491af2cd9271ba7071122485608016a658e918ce37e12dc0c1): complete subsection reference.
+- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1200020203302302-1231220330101021-0122330230312102-1301232213001301-0102021020111200-2000011222121120-3221012030320313-3201023130003001): complete subsection reference.
 
-<a id="canonical-56b48faa70a80de8420c6df73ed69e8079aa0017ab60e275677f6d2bd6f4b80f"></a>
+<a id="canonical-1112231020332222-1300222000313220-1002003012313313-0332311221322000-1321222200000113-2223120032021311-1213133312310223-3112331023200033"></a>
 
-## All schema paths — Property reference / ee2aefa3af0a / 10
+## All schema paths — Property reference / 220322330022 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--global_log_receiver--reference--group-001.md#canonical-08170eeb7504824b8c9af262ebefe5fd84b970006ad2153180221346c7e14248) |
-| `audit_logs` | [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-9fa6306bdbb6069dd4b9aa668f4e2c661e6f3e04d5ff23da549dd8b195a9df42) |
-| `aws_cloud_watch_receiver` | [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-fd5167464041e5466356ca926c5af5970183f82d36c7bb3345d6187ab1da0f97) |
-| `aws_cloud_watch_receiver.aws_cred` | [aws_cloud_watch_receiver.aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-d94456f96c37418dc58a53822fcb1d626e6b35b5ae90f4453180333e702e552e) |
-| `aws_cloud_watch_receiver.aws_cred.name` | [aws_cloud_watch_receiver.aws_cred.name](data-sources--global_log_receiver--reference--group-001.md#canonical-22729212426288499175d384f069c8e3bf45966b7eed9e2008006fecef1e2e29) |
-| `aws_cloud_watch_receiver.aws_cred.namespace` | [aws_cloud_watch_receiver.aws_cred.namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-539553a479f51cf160ef6106331fc18c42a8ee71510475bb1eb9ee59d48e8c0f) |
-| `aws_cloud_watch_receiver.aws_cred.tenant` | [aws_cloud_watch_receiver.aws_cred.tenant](data-sources--global_log_receiver--reference--group-001.md#canonical-c30db574f1137de546b01b378d382eb0de325dc899055896defd79173af7ce21) |
-| `aws_cloud_watch_receiver.aws_region` | [aws_cloud_watch_receiver.aws_region](data-sources--global_log_receiver--reference--group-001.md#canonical-f54a0193cece959c174850819f25161e5410ea3af613e40f78614f5d6f9b2659) |
-| `aws_cloud_watch_receiver.batch` | [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-6ff77b87244ade51af7ac58c52492e902432ddba9d0927829908e60d171a1d9c) |
-| `aws_cloud_watch_receiver.batch.max_bytes` | [aws_cloud_watch_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-001.md#canonical-d5ab853c25bd71f11cfbc5ff3e4d2c69d73b77ab03ae7e9dff37063d1fdccd1f) |
-| `aws_cloud_watch_receiver.batch.max_bytes_disabled` | [aws_cloud_watch_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-743ebb45bed6ad9279e9ffa0ff45b6c064f171e36f36b6114491fab958711eb9) |
-| `aws_cloud_watch_receiver.batch.max_events` | [aws_cloud_watch_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-001.md#canonical-9c08e76aa58273d5ae1342787410951c6ed55b84b57629cbc279153dc096a8e8) |
-| `aws_cloud_watch_receiver.batch.max_events_disabled` | [aws_cloud_watch_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-b252eb40bbab88586206c8b7cf7aaada46f72f4f2c09786b3f78fdd09720d9ee) |
-| `aws_cloud_watch_receiver.batch.timeout_seconds` | [aws_cloud_watch_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-001.md#canonical-08972e6997e67a014c0422cb6b58e8984fb0323a802871ffd965351e972d9434) |
-| `aws_cloud_watch_receiver.batch.timeout_seconds_default` | [aws_cloud_watch_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-b6625abf8ed7349dc06839f48b387e7ddd6795d11d592a2da20c5f358d79c690) |
-| `aws_cloud_watch_receiver.compression` | [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-9465830781e13d9893dfb02b396655b711827d008d8a17992b98f1543ed52d87) |
-| `aws_cloud_watch_receiver.compression.compression_default` | [aws_cloud_watch_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-4c3ba4ea5fd5f580b3a4baa08ba4dbf8bdc2c1c0d783c71ea689d95bd36e67f2) |
-| `aws_cloud_watch_receiver.compression.compression_gzip` | [aws_cloud_watch_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-6bae98de3de949c0e2b45aefc1052ef76756895fd1de86a3ef46c7cbe668520c) |
-| `aws_cloud_watch_receiver.compression.compression_none` | [aws_cloud_watch_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-06e14a5887e30c610536c4d48ca5d6527e2f4beddde77f4d624adbe4633b7cbe) |
-| `aws_cloud_watch_receiver.group_name` | [aws_cloud_watch_receiver.group_name](data-sources--global_log_receiver--reference--group-001.md#canonical-07faf075fb4c52ffb782b86bc7f8dbaafcfe53fd28604ab373a8b19310a58272) |
-| `aws_cloud_watch_receiver.stream_name` | [aws_cloud_watch_receiver.stream_name](data-sources--global_log_receiver--reference--group-001.md#canonical-4afd4f5b4d1013473e50d6aa425922047cd4286571d67a984e1cd2e833f8c273) |
-| `azure_event_hubs_receiver` | [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-5f8d310c2746fa4c17c4a70016a2a5fe97191aed64d1cd597a98b1a3d89f2fee) |
-| `azure_event_hubs_receiver.connection_string` | [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-3f4267535f141fd1a61562c1e0281c646018d972811f37bc7fc41881d1335b8e) |
-| `azure_event_hubs_receiver.connection_string.blindfold_secret_info` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-6f67f1ba265aaabb7c65c4e12e588552289d7a681048453950c98228d176f93c) |
-| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-9d3fb97a20e0287fc8733cce7e99b615b43888071665c2e5ab918eb1c845531f) |
-| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.location` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-001.md#canonical-a96d2751c331a5b27a2d669e88f3e65f7e58faaead83ad3d50b7ab051d4cb5de) |
-| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-2286724c776f3ccadca1619b723ae477ebb57504a0d5634a76282a70ef2b54af) |
-| `azure_event_hubs_receiver.connection_string.clear_secret_info` | [azure_event_hubs_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-5cbf8a4e79f70be17a7fa9697fa49e4424bbf3f87780af9aeae2cb93063240fe) |
-| `azure_event_hubs_receiver.connection_string.clear_secret_info.provider_ref` | [azure_event_hubs_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-001.md#canonical-fd3c0d07adece5898726453ec277bee236d4738668cda42d54446fca120defd4) |
-| `azure_event_hubs_receiver.connection_string.clear_secret_info.url` | [azure_event_hubs_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-001.md#canonical-937ccedaf14e3024919b28bf2f3dbb59916b5bfb0f12d8f2b2c5fafa3a8e2867) |
-| `azure_event_hubs_receiver.instance` | [azure_event_hubs_receiver.instance](data-sources--global_log_receiver--reference--group-001.md#canonical-ef0d165096b5060e460a8e50184d826db12d6d88bfb67c322554a23b8fa4f960) |
-| `azure_event_hubs_receiver.namespace` | [azure_event_hubs_receiver.namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-e6190f350141c41cfbe65991353ebc370fa046012b133b20c6a779b96aba5f0a) |
-| `azure_receiver` | [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-33d0516820774d65b0cb95a87591491c90c8a78ee4996ddde7ec41aba356117d) |
-| `azure_receiver.batch` | [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-bba588ffa53013eb0467f505e13897fadcf8f3f2ba3467b76226c095abdfc527) |
-| `azure_receiver.batch.max_bytes` | [azure_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-001.md#canonical-ba331a499368037efaf4c6958b82d55fbc9fd9462f2c62c6a9eb202f1861b076) |
-| `azure_receiver.batch.max_bytes_disabled` | [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-ece2b962d6b190267bd988002a60311ca84c5613e7553673a1ac20610dc9f719) |
-| `azure_receiver.batch.max_events` | [azure_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-001.md#canonical-a81532423032e39a56057c03dd4bddcdf357669c88aea1ce8c81a10f303687a6) |
-| `azure_receiver.batch.max_events_disabled` | [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-22db6b551a8506d2080636f35d98a33da53e95858c5d6c811af3c13c551e15d6) |
-| `azure_receiver.batch.timeout_seconds` | [azure_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-001.md#canonical-d43735d6688c92d67acce19fa8432bfd9a8e99cf5ef24b6e6b0a9ba8bd4566dc) |
-| `azure_receiver.batch.timeout_seconds_default` | [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-5b31381aef3de6031f6b10cff74861e476d214c0f187a72adf69e3e94d69dc8b) |
-| `azure_receiver.compression` | [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-d2738f44957da101adde93ab23d91ca58bc172fb4c8798282b46621f00d67597) |
-| `azure_receiver.compression.compression_default` | [azure_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-086288c086c32802a48bd111599752ee62c14655880db336654c3d9cb03f2435) |
-| `azure_receiver.compression.compression_gzip` | [azure_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-8f0646fe1ad8c33548e76b5dc1943a7a82609c23691e5d80761e32777e035288) |
-| `azure_receiver.compression.compression_none` | [azure_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-c1cf177ac80c70e866c17182bf34a06edea969f5c1b9915e34b7c3af97a0e816) |
-| `azure_receiver.connection_string` | [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-9a8ab2b67481917b6269a6805c892ff08b34454c6553603e9b1d289629620eb7) |
-| `azure_receiver.connection_string.blindfold_secret_info` | [azure_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-9b62ae478506050f71f7fc7bc9d3e4408d7ae700e0162609e71ef22e1e22a85a) |
-| `azure_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-a744ebc9550404dd61dcea5bf66772b90ce57d076e11589fa435dcf40978b101) |
-| `azure_receiver.connection_string.blindfold_secret_info.location` | [azure_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-a9a97fd5f79a84523a0049a312619d06f06c3de7bd0f28b6b6e8fe2e0ced3568) |
-| `azure_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-54df62adb361edbeec6fecd7b0a9b62a6544759b6d6dc0e8516862672955919d) |
-| `azure_receiver.connection_string.clear_secret_info` | [azure_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-926c7a50ad8d0a896ce6777b5734de431fb118c5ef72ed0ec9a97401d8959e1e) |
-| `azure_receiver.connection_string.clear_secret_info.provider_ref` | [azure_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-facb44a29e39230970a32f42c195dcb032350f5dcbc3b042b2b94bf0cfa39dd5) |
-| `azure_receiver.connection_string.clear_secret_info.url` | [azure_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-8dad2fa3a7256b4d1522a2a7b83b4d9bcb65269c7be85f4acb018dd0f050062c) |
-| `azure_receiver.container_name` | [azure_receiver.container_name](data-sources--global_log_receiver--reference--group-001.md#canonical-5a682b0e414665ce244919459fa07d09a594838086df125e77e5fefa822e8304) |
-| `azure_receiver.filename_options` | [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-d3e22600ed554da8cfaaea2fc08b5a052ac2a723867835c0276889a548aa8000) |
-| `azure_receiver.filename_options.custom_folder` | [azure_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-25913b195b678e1c346147d6998f11b4fc7b93dbd4dde9c079d92e0bfb5610fd) |
-| `azure_receiver.filename_options.log_type_folder` | [azure_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-8b206a92d0a96a4a933c67f6ccdb4eabc53984ce64e88b3164cc1a3fa4e4cc23) |
-| `azure_receiver.filename_options.no_folder` | [azure_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-a5c03b4b29286e10a758840756f91c035ba813671cbe3b7bcae84faadcf0cb80) |
-| `datadog_receiver` | [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-4c6892ae68db2e1b186f351c385d1019fefce792671cb3df607e0554ec2ddc23) |
-| `datadog_receiver.batch` | [datadog_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-8ecf8fe844568640d846280cb3a0ce7dbc084d5104a8e3e9f01c9c2eb5c70b15) |
-| `datadog_receiver.batch.max_bytes` | [datadog_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-a18701e55c6e13a2cf1dd7e6ad1ef31c0644cc1a3d85fb083143d0621d111ede) |
-| `datadog_receiver.batch.max_bytes_disabled` | [datadog_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-30637618a2a579faf2ba0f1de44caa34b7520f55b744e1b15ea7fcf1d94c89bc) |
-| `datadog_receiver.batch.max_events` | [datadog_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-002.md#canonical-cdcd43eec8d6b858a9ebd27e5440b0367156e09e3907460598279755ee3195b3) |
-| `datadog_receiver.batch.max_events_disabled` | [datadog_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-63b7bab2b36f2ac5fb91b3c4bd94e4ccd37c11789152f2c059e8395ccfc3ff1d) |
-| `datadog_receiver.batch.timeout_seconds` | [datadog_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-002.md#canonical-59ddef35fd30dcd9c2b1244eedfd147c7486e94fde5ddef5df41e4d6d516befc) |
-| `datadog_receiver.batch.timeout_seconds_default` | [datadog_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-b55f689a0c07b6da9a2a30289d24e56333b3c8cf2e58b81e9deea3db36a4062f) |
-| `datadog_receiver.compression` | [datadog_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-951ad4f64255801c1bbe1236d09be1aa809874f2dd5455e4bf0391f6610c9cb9) |
-| `datadog_receiver.compression.compression_default` | [datadog_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-e43da377baf4adaed52f9bf8799918b4fb6d37bf56dcb4451ec694f157175bfb) |
-| `datadog_receiver.compression.compression_gzip` | [datadog_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-43dd18c502649a825da456d90cfc1fb475675c4df863728a82bbc1978029da4a) |
-| `datadog_receiver.compression.compression_none` | [datadog_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-8e9cf508f57f3d052f6a4a5c3ec9269e35d1e246edd34202dfb8bf3d19b75155) |
-| `datadog_receiver.datadog_api_key` | [datadog_receiver.datadog_api_key](data-sources--global_log_receiver--reference--group-002.md#canonical-3b4764f72c0139bb246e25e69b1c49172d79a115dc699afa8aebc35d23e51dd6) |
-| `datadog_receiver.datadog_api_key.blindfold_secret_info` | [datadog_receiver.datadog_api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-fe83c79b3b5a2a87778a0bba976b8aa21b2371cc049fa2c9e43b45cc456fc56c) |
-| `datadog_receiver.datadog_api_key.blindfold_secret_info.decryption_provider` | [datadog_receiver.datadog_api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-06793d20358936e63313d7c3b3d11fd1d791f28c903e376e3d0f094d3e796802) |
-| `datadog_receiver.datadog_api_key.blindfold_secret_info.location` | [datadog_receiver.datadog_api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-193837d52a6573f6f2c01a654e754e2d1635f3232757d415ab49d03667890bb0) |
-| `datadog_receiver.datadog_api_key.blindfold_secret_info.store_provider` | [datadog_receiver.datadog_api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-3d12e1b7d780d698f1d7ab07ce2c4f2839d35edc301a38d1507f0b69af58d952) |
-| `datadog_receiver.datadog_api_key.clear_secret_info` | [datadog_receiver.datadog_api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-1f9417400ee0546c88a35a96ab86efb120b36233c50c0e8175278996ff480cf3) |
-| `datadog_receiver.datadog_api_key.clear_secret_info.provider_ref` | [datadog_receiver.datadog_api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-0988e20d2c700e9c4bb198c13b22c4508c21cd40ea55d677a731936c9da75348) |
-| `datadog_receiver.datadog_api_key.clear_secret_info.url` | [datadog_receiver.datadog_api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-18a53425696b0cb46dff9524c18a00c376e9e13af0af5f9847a54c5224a6a0a7) |
-| `datadog_receiver.endpoint` | [datadog_receiver.endpoint](data-sources--global_log_receiver--reference--group-002.md#canonical-32e4c9055a23446d8b7669634b242c92d7193d89e342b97e1af0e9d033c63647) |
-| `datadog_receiver.no_tls` | [datadog_receiver.no_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-8bddf8deae3d8010a00b52e06e73acd601fb8b978ce18652636dd280d8c4ce39) |
-| `datadog_receiver.site` | [datadog_receiver.site](data-sources--global_log_receiver--reference--group-002.md#canonical-5f00d9798ce5f10dfa4fcda10cae8bf619585e963754f81cf4e3deda5aa2f64e) |
-| `datadog_receiver.use_tls` | [datadog_receiver.use_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-d3ec2a9b3a86cef3bbc3253d1e4c17ebc021362047bf28e4ec948704a41f95c7) |
-| `datadog_receiver.use_tls.disable_verify_certificate` | [datadog_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-e51991fd316ad751946194cb45351a404124461893fc381578495a9af12b5e2b) |
-| `datadog_receiver.use_tls.disable_verify_hostname` | [datadog_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-002.md#canonical-bdfae2de990360c37d6d31230df3b3830d0d16a1156b53d9d55db22267216a45) |
-| `datadog_receiver.use_tls.enable_verify_certificate` | [datadog_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-9773376843b913e9e41565bc24bfc07ba2da6ac70f1f85f3ea36a4bad418ef09) |
-| `datadog_receiver.use_tls.enable_verify_hostname` | [datadog_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-002.md#canonical-a5921b2bc139d637ffeb4827cf7088024989142b79824731724c9c0d9026667a) |
-| `datadog_receiver.use_tls.mtls_disabled` | [datadog_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-5ee0eefaf8ab38af5e1f102d5d789c2bb55f42f945de35e6c7b6f2bffde61589) |
-| `datadog_receiver.use_tls.mtls_enable` | [datadog_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-002.md#canonical-aa4734897cfe92c5c9c6617dd19a7263c59f3ffca3863e76cd2c598702b07ca4) |
-| `datadog_receiver.use_tls.mtls_enable.certificate` | [datadog_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-14dbf16c960950556a755cb0f85d2f10a2b1e418117b46617ab0e9b3bb44b206) |
-| `datadog_receiver.use_tls.mtls_enable.key_url` | [datadog_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-002.md#canonical-b17a03c634b6cb250c4c6730fa7f8be7d179fa2e3fae5975161876bd6783a656) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-fbea8ff3604339cd1032d95248e8701d7c86f391b586318e8260c714c5503238) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-71666d17008ac5c410cced558c067a2a6a8c48c069c110af97d7d632b85d3a47) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-bd8ff3c7bb88e5b7cc55874a3e8dd18130e5204ddd02baad0dcd034f574a717a) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-dcf6b54e5941ededbfcbe14c0df740a5364e9534896d42abd811a135ee509928) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-817eb7fe5c07b09131147f957abab9349fa67fed0733f3c727705cee91673d2c) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-57e2ab3b560dfad4133e8a72ee6fb2229bb48d6918671c98d9557b9b25798b4c) |
-| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-97a88cb14e10cd4fbfc91d0861e9adb9bc816979613e5219ae37ccfb3da97776) |
-| `datadog_receiver.use_tls.no_ca` | [datadog_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-002.md#canonical-8a89e65daa4a2c84b0b05f9f32c5d7f0c0ac0edb524e3c6f4a47b6b4947d77d1) |
-| `datadog_receiver.use_tls.trusted_ca_url` | [datadog_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-002.md#canonical-f079ce660e3481ad4433bc031d11254834dee7b14a1a0eb759b9ae9841279d65) |
-| `description` | [description](data-sources--global_log_receiver--reference--group-001.md#canonical-64743360726e0dc5f3e15b484cd52c6ea168c0516ce2f4023f136aed2f13cc97) |
-| `dns_logs` | [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-3c0cf4cfae7a37e36a098964bdb7ac68726ba850bef0307a663b00b39428e737) |
-| `gcp_bucket_receiver` | [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1128734e088b037c58c9603f737bff23c86df51c827cfc4f1932c9f3cf5ed364) |
-| `gcp_bucket_receiver.batch` | [gcp_bucket_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-b60b7fc7098719dcbb05bd18ccf5b42822e76a931101db459cea2c6c927d3a99) |
-| `gcp_bucket_receiver.batch.max_bytes` | [gcp_bucket_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-81ad38888e85f02ca1447590b568cf903a758c5464a0e1ba37a1e39916dc59fc) |
-| `gcp_bucket_receiver.batch.max_bytes_disabled` | [gcp_bucket_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-edd512431d149cc6d8d74a94071804e1c087f519285a4fd4da99a727efda1084) |
-| `gcp_bucket_receiver.batch.max_events` | [gcp_bucket_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-002.md#canonical-6b9291527985f632a629818a6d9e9bc7f3ec23ff57533fb170773a5d3d8636ba) |
-| `gcp_bucket_receiver.batch.max_events_disabled` | [gcp_bucket_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-41278e2ff25ec6ccef86e8017b4964126ce35de5c548450e72cf852a3cb608c3) |
-| `gcp_bucket_receiver.batch.timeout_seconds` | [gcp_bucket_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-002.md#canonical-c4ef0f3ed46534b17bda510943e96532d5971cd421dc898e97bb2d4cccf1f603) |
-| `gcp_bucket_receiver.batch.timeout_seconds_default` | [gcp_bucket_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-22434fc273c739d43c31bc44965c48c9cfb522ffd013ed5ca75d4bdeb9aeab73) |
-| `gcp_bucket_receiver.bucket` | [gcp_bucket_receiver.bucket](data-sources--global_log_receiver--reference--group-002.md#canonical-c6194b69f5e744f8b3d20234e8adc6281e06ba05e9ee2ac5fc7e84896cf86492) |
-| `gcp_bucket_receiver.compression` | [gcp_bucket_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-fbfc0f6fb8c878954065cdeb459f311f202261ae70b9fe876789f9bf680d0705) |
-| `gcp_bucket_receiver.compression.compression_default` | [gcp_bucket_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-847f5fd5904cda37f611bf0a290cff3ed2c5fbac75eb3d96739cdacd63ad8e4f) |
-| `gcp_bucket_receiver.compression.compression_gzip` | [gcp_bucket_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-0f5423887de056959545ed6540659231afd490d2f4bdb9436b9a502dc6e7da4f) |
-| `gcp_bucket_receiver.compression.compression_none` | [gcp_bucket_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-415d117efdb1a3cad59447afb8489555eeaaf24a6771f91e970bda40180b2d3c) |
-| `gcp_bucket_receiver.filename_options` | [gcp_bucket_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-f4e52b63f489e36499eedc242691bf4039e4a60219e5760737085866128630d1) |
-| `gcp_bucket_receiver.filename_options.custom_folder` | [gcp_bucket_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-7df8ea6a557623f4bde559320187ac7a4f50ded1d98899e53f46dc18ecc5bdd6) |
-| `gcp_bucket_receiver.filename_options.log_type_folder` | [gcp_bucket_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-821ba9dc5ad1754203bb7e8ee30b8b48c8a2e83d29ec1e31bd644a42ec88e02d) |
-| `gcp_bucket_receiver.filename_options.no_folder` | [gcp_bucket_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-4bd851431589b06ac623a71a18fe0eb7c56c3e4393b41f0f3fa0200c677b0299) |
-| `gcp_bucket_receiver.gcp_cred` | [gcp_bucket_receiver.gcp_cred](data-sources--global_log_receiver--reference--group-002.md#canonical-aa836cb86a1ce4924fdd598a108474605169187fdf189a89e3a72fcaae3c33a9) |
-| `gcp_bucket_receiver.gcp_cred.name` | [gcp_bucket_receiver.gcp_cred.name](data-sources--global_log_receiver--reference--group-002.md#canonical-1aa6ded0200a2f42c76148303d6419283bf2a97c68afb62fb20a7f76a2f483d3) |
-| `gcp_bucket_receiver.gcp_cred.namespace` | [gcp_bucket_receiver.gcp_cred.namespace](data-sources--global_log_receiver--reference--group-002.md#canonical-4e867ba467d430eb854764492612e68ba4a413d36b6baf1eb0114ca7debebdae) |
-| `gcp_bucket_receiver.gcp_cred.tenant` | [gcp_bucket_receiver.gcp_cred.tenant](data-sources--global_log_receiver--reference--group-002.md#canonical-11470f0aaf7da9afce507a3a7512eff548a9f896365a6de14b2a0fac0636acd9) |
-| `http_receiver` | [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1128fb5d3d174ae457010bed22d2085ce139b22d5a8cc9a82b46392b50accfab) |
-| `http_receiver.auth_basic` | [http_receiver.auth_basic](data-sources--global_log_receiver--reference--group-002.md#canonical-58acaf9a0fbd810a4eb6afb7f9dd39d3156cd8752b7e8d7eea1666f869a922ee) |
-| `http_receiver.auth_basic.password` | [http_receiver.auth_basic.password](data-sources--global_log_receiver--reference--group-002.md#canonical-c0125065ecf75fa9f1dddc29d858199d093e8dbf998aa8adb276ea2766de3d81) |
-| `http_receiver.auth_basic.password.blindfold_secret_info` | [http_receiver.auth_basic.password.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-21cb144e32d156083fb56db24f7dc3213ebc85c2dbb50ea2105abf966f38d7c5) |
-| `http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider` | [http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-3c52ed6dcb408ff9a11ce0a703f3ecd53b22ca4457331178d14522aa06cb2cd0) |
-| `http_receiver.auth_basic.password.blindfold_secret_info.location` | [http_receiver.auth_basic.password.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-5089fb9a7f79ab2b14afa16b30872727260979e05cf65eee9fb6a0dbac6fe62f) |
-| `http_receiver.auth_basic.password.blindfold_secret_info.store_provider` | [http_receiver.auth_basic.password.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-caea25fba2ebbd7984ee329cb830ecf71145a968e0cb59280128314a90a95132) |
-| `http_receiver.auth_basic.password.clear_secret_info` | [http_receiver.auth_basic.password.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-0760a48cc9e4330a5ef077135d96fd56583d3308cd101729e9e534c0b4953135) |
-| `http_receiver.auth_basic.password.clear_secret_info.provider_ref` | [http_receiver.auth_basic.password.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-b7dc171f74029b26a6eea8218796d2f55d42f2a4e81674506858516e78d724fd) |
-| `http_receiver.auth_basic.password.clear_secret_info.url` | [http_receiver.auth_basic.password.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-6ad8789e73c15e6f8d1a77233995b779b0f924bbd301bfba05895af0f3080e11) |
-| `http_receiver.auth_basic.user_name` | [http_receiver.auth_basic.user_name](data-sources--global_log_receiver--reference--group-002.md#canonical-3cc30d5948f55a5dc362c3702ad64e11970e515ebb389ae15e90bbef5c9dca6f) |
-| `http_receiver.auth_none` | [http_receiver.auth_none](data-sources--global_log_receiver--reference--group-002.md#canonical-01513ad57d8235f3bfebd49bfca8fba002802cff8dc3fb29186ab4cb5dd58a25) |
-| `http_receiver.auth_token` | [http_receiver.auth_token](data-sources--global_log_receiver--reference--group-002.md#canonical-a30225a85f2219910dbf42f18d8ab75bbe92ee9bf83086659cc65a94d26a2e26) |
-| `http_receiver.auth_token.token` | [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-002.md#canonical-212714edc1f0c237204594a28c58e49ab0f6e860365434f4e797b451dc54135d) |
-| `http_receiver.auth_token.token.blindfold_secret_info` | [http_receiver.auth_token.token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-461b1cc272eb18994019e3576da6fc74eadfbad679bda4e2635a78d0c1e51672) |
-| `http_receiver.auth_token.token.blindfold_secret_info.decryption_provider` | [http_receiver.auth_token.token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-7139a81111a08aa2ae64a8e6f57e411b98de84ce67ca03ae64db1dae64191976) |
-| `http_receiver.auth_token.token.blindfold_secret_info.location` | [http_receiver.auth_token.token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-2f6c7fb752f6ef91c882f02751482b8eab988d37381e19993f27291386843d3a) |
-| `http_receiver.auth_token.token.blindfold_secret_info.store_provider` | [http_receiver.auth_token.token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-880478675d62ab19f6102e7d5b200e787677ee63499eab852c414c472875e819) |
-| `http_receiver.auth_token.token.clear_secret_info` | [http_receiver.auth_token.token.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-51132397636dc8f3e8697e429737107d1b58bd09bdb750448d0b6316e347db1a) |
-| `http_receiver.auth_token.token.clear_secret_info.provider_ref` | [http_receiver.auth_token.token.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-df0027f393ad7732156561351b77d9d36ba81c887178d1d96481b4d92fa89869) |
-| `http_receiver.auth_token.token.clear_secret_info.url` | [http_receiver.auth_token.token.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-ff152eb7f27ee50bcdd347e166e3ed1c907751210713d49bae9bd59bef073f91) |
-| `http_receiver.batch` | [http_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-cf0bc96796259fa40eafcbd02e580a711195bfa0959a1d485c68356561b21890) |
-| `http_receiver.batch.max_bytes` | [http_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-d8c364a6a300974a5800494b4b190177aca6112710e1a57944f2564814832330) |
-| `http_receiver.batch.max_bytes_disabled` | [http_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-0301b27b63919cd15c5bf72226d99de8090673c65d63b875b9885e637b6f1fd5) |
-| `http_receiver.batch.max_events` | [http_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-002.md#canonical-a9470306f908b1367a9c4143e0d7043208823c5491d02b87c04b93535cb1da12) |
-| `http_receiver.batch.max_events_disabled` | [http_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-477b5254a598775f0a0afbcfb3dc450666dcf59fc419258c1bd683e374b11b00) |
-| `http_receiver.batch.timeout_seconds` | [http_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-002.md#canonical-120df0f073d7a4a7e6fae3730d1d41c2a7238895459c504c90857edd353bc6bf) |
-| `http_receiver.batch.timeout_seconds_default` | [http_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-0e9d0c4960e1c8c66948d26deb3076da91b971d6ae0ebd37aa364c4ed017d487) |
-| `http_receiver.compression` | [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-6c50d54b945021f0bdb741480c9cebdc1965f378f118522a51b2784abe7b97db) |
-| `http_receiver.compression.compression_default` | [http_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-5065dd38ee2bbe8cacfe882c751b30859186541dd69f7bbcd04f19516accc6ba) |
-| `http_receiver.compression.compression_gzip` | [http_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-b181489196ef22dd3bc1bddaac4aa20eeeed67a40af1b028fdf931ecd031476c) |
-| `http_receiver.compression.compression_none` | [http_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-f92af2ac5d27141a3a0392c3bc013640a3bef8245ea45bae976d625ea43d1ee3) |
-| `http_receiver.no_tls` | [http_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-7572b41242e440e6f6f4bb5cdf52118e1e78c2dc2a3148fe81fe679ee30794b8) |
-| `http_receiver.uri` | [http_receiver.uri](data-sources--global_log_receiver--reference--group-002.md#canonical-a853fd4459b3bd75e7e8aabb18dbef36d8ca17e39d1e568b827290abda57a64c) |
-| `http_receiver.use_tls` | [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-aa4e8b8d8d38465ca5a6fd8f3ec7dc36981977b167cf2705a2bd00c48acfcf98) |
-| `http_receiver.use_tls.disable_verify_certificate` | [http_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-46d7ba665220528fbb56e00e55445f977dc42ee231f6810243f3a8cf4ace3be8) |
-| `http_receiver.use_tls.disable_verify_hostname` | [http_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-b029dbb33f2ff2fcf14b77b8c3d35ef838dac463835453604660a5ab896a0610) |
-| `http_receiver.use_tls.enable_verify_certificate` | [http_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-eec642e6269ba513a0e83aee691e912859e583b5be6bb3177d372318be53029d) |
-| `http_receiver.use_tls.enable_verify_hostname` | [http_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-f8e3737b10451e6c376af765f799c5d8c194f6b690634014f3e027fc05b4e22c) |
-| `http_receiver.use_tls.mtls_disabled` | [http_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-04ab152c359632c0c484f1cd3db30fa367439c070883e6e49726351ef2bf3a86) |
-| `http_receiver.use_tls.mtls_enable` | [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-976329e75b15969ce6bfb460f4c83e19ebbbce612e89ff12091ba4f8b1d65ac8) |
-| `http_receiver.use_tls.mtls_enable.certificate` | [http_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-c5bbd499bcf3a08fa1fdd2a6db2eac07dba6f106f18879eee2eacaffe70bf9aa) |
-| `http_receiver.use_tls.mtls_enable.key_url` | [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-57caad8d342718d189f8cd6e6e71542a33060b56331b59f8e2986557e0593f12) |
-| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-777904f0a020cc856bb741ef138c820d839ab3a0f73b560739800e334e089251) |
-| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-792ab75b7de294b95ac4e22ac67af053de3768cb4bcfac36b0af34ac1ff745a1) |
-| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-c3c23170fc40dd16db9896bef93705e4cd57a33303c23bfc1f4cd16d9e843410) |
-| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-0926218d8c16f367888bed8f9b45d88cdc6efa9fade3431b5ed3144fba057a5f) |
-| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-e76a95671c4710ae4b95572185b18640078c4cf137759d7fdf5ac2c269f557e2) |
-| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-466dbd2ac17fde3041f6a47258db106fa616d63eedd9296acb0c135c2ae08ffd) |
-| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-89656200f21bbb540241abaf7cebf4c2bbe9e962906f10d8c6037dcec302c0a6) |
-| `http_receiver.use_tls.no_ca` | [http_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-5c2bf436a8a202cf82b7c978d7f29587d4cc2448a43ce9ecedc6c1217541c2e1) |
-| `http_receiver.use_tls.trusted_ca_url` | [http_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-32df6a960ccdf166c9a071f9db1ddbb3e5bcb94e8c9952961f58c8180340e6ce) |
-| `id` | [id](data-sources--global_log_receiver--reference--group-001.md#canonical-a056c0c2a1b6d69f71077a4e06f64f2f7300bac72b7367ef24d8a1f158ecff39) |
-| `kafka_receiver` | [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-a31e1cd1ccf0f2715372a58f5a0fc58c6a79d744538de04ea640d384c8395979) |
-| `kafka_receiver.batch` | [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-53e9bf94b6c6aac7ccef2340cf936c3620f2979dc650a42e8905dbc602150071) |
-| `kafka_receiver.batch.max_bytes` | [kafka_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-86f08a44657eb6e76050db3089764ed44e263dcb4d865ae555c3154ccb1d4dcc) |
-| `kafka_receiver.batch.max_bytes_disabled` | [kafka_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-d6c9ec7b49f0b2a215bbff623073a3424c29c7f2cfadec61b35f7a0e2361da69) |
-| `kafka_receiver.batch.max_events` | [kafka_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-f3bb912c262ac130008fbb167c6a32075ec2263ef669be881d7b26e4f448ae9d) |
-| `kafka_receiver.batch.max_events_disabled` | [kafka_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-fc83403393425e1344f73dc2a2421b1ce58238060dc9cf3e7113e461e84e0308) |
-| `kafka_receiver.batch.timeout_seconds` | [kafka_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-b5d48fff30e6b4320b6769c66324bcac0cb4611e29d4fa7fff3b587ecc02dfee) |
-| `kafka_receiver.batch.timeout_seconds_default` | [kafka_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-de9d06e1d3dad50b6982f4df6af621115325fe21701277f10098f70a0e9325b3) |
-| `kafka_receiver.bootstrap_servers` | [kafka_receiver.bootstrap_servers](data-sources--global_log_receiver--reference--group-003.md#canonical-7e2cd0638734932dbfa0adfbeddf7c4d5c1911d62517780cabad8dc84eb5aa7d) |
-| `kafka_receiver.compression` | [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-dadf47410aa391ddf47afa8ea17ab1746f66e8666ba9358bf26aa3bb7df367e8) |
-| `kafka_receiver.compression.compression_default` | [kafka_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-c8436c1f40229d3a3f12a43978b664f211275957632585b6ba8b39a227103813) |
-| `kafka_receiver.compression.compression_gzip` | [kafka_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-855b25b4f3642ff8a85dd5eec79358bba4c81b03002a9642d891b501a703f605) |
-| `kafka_receiver.compression.compression_none` | [kafka_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-e1eac692a08e188a817fb4ff376811de7723fa6d4e6c6d0d254dc311bed66203) |
-| `kafka_receiver.kafka_topic` | [kafka_receiver.kafka_topic](data-sources--global_log_receiver--reference--group-003.md#canonical-86fd8dd45d23424f0efec599305967471a959ee70fee186b837ae6692ae91f1b) |
-| `kafka_receiver.no_tls` | [kafka_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-bd04ced755f2bd79e01964c4ff110b46efc7bef0e198a24c4c13a851266cea4a) |
-| `kafka_receiver.use_tls` | [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-fc7a0410084a7323afbf3d3432f45fa98857d4cd46fea4673d8314262ebe8d7d) |
-| `kafka_receiver.use_tls.disable_verify_certificate` | [kafka_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-6b869ded0d6fd18c4ce1882aa8db864cbfce7c34e19782fcadb8f106a2c898b0) |
-| `kafka_receiver.use_tls.disable_verify_hostname` | [kafka_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-4909e83b6a5c710921b55c398053237589737feea8831ac90ad0396db844a40f) |
-| `kafka_receiver.use_tls.enable_verify_certificate` | [kafka_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-539556431e452db7e8d30dbbc66125b08ec40c9d2c2a7a67ff731dde9395cab2) |
-| `kafka_receiver.use_tls.enable_verify_hostname` | [kafka_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-f21707b40187ac8e273a44b8e64aab24dabe9bb8cffabc08b3f7afbfa14e32a4) |
-| `kafka_receiver.use_tls.mtls_disabled` | [kafka_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-86403a836f2b7c58623b124f9df0fc74b080094ce22d379f838616ee66c32717) |
-| `kafka_receiver.use_tls.mtls_enable` | [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-4f82aee5b8986387dd0a106587743aae6329f8c08936de64966b0e84a2099b22) |
-| `kafka_receiver.use_tls.mtls_enable.certificate` | [kafka_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-1a6b774764971831650f041835945bb5a33d8ee8238530189e5db1b53dbd0092) |
-| `kafka_receiver.use_tls.mtls_enable.key_url` | [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-f56b685179c49e34e8efc65c61cf6adbf0dbb9d1133fdb8a6f079dfcad45856f) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0516261b0949d016e4fa60764d64a1d836f82a4a0b729d3d02c23152ca1eb885) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-6a598e77b7343bdbb07574676628c5ab0ba54ddfd2c755a9695045f87ec9d465) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-a40f121f3ff7e7cccdf70ef25fb2428d593a2048486fa2117278d4ffb0e657dc) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-b3a4a19f341cdeeab62fb551e37776ed7ff80c94ae19c30f686dbeec2e64a344) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-a114592615df6133f0aaf34c9cf40ef0cf88280f732b7b3f58f032af81d53bf0) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-99584070aa26d4031e82ef1f5565a405f0cf4fa6a0f990c676608d2cbe19f359) |
-| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-8c76f0a6989b2634fb5c8a0d92bf72f158d6f45dd36f112d3be7b48adb977d63) |
-| `kafka_receiver.use_tls.no_ca` | [kafka_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-a3c91c6c718fd42b4e06946653535eafcef04e43cc5cccaaa372a0bfd915e652) |
-| `kafka_receiver.use_tls.trusted_ca_url` | [kafka_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2d8f708a6168f399bb8e044c07091bc1aff3895282c30c4a2cc6d7a473c21274) |
-| `labels` | [labels](data-sources--global_log_receiver--reference--group-001.md#canonical-94995592684160b7dab0af8037ad0a3d507fae58b962efb8ad5de382db15f243) |
-| `name` | [name](data-sources--global_log_receiver--reference--group-001.md#canonical-007760a76f5a884982d2dbbcac8bc948eaa6b9f7d166fade141e16d3e1012f0b) |
-| `namespace` | [namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-4584b30ea2792d16597d6c62636f22527cfd57472f11f1e00887d0dfe0b066d9) |
-| `new_relic_receiver` | [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-de4a336b302a3b488fb87be5ddc2114a24a5cc1ba754c0ed424c2c8c71365141) |
-| `new_relic_receiver.api_key` | [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-70959860813e842268b5c73806c213433e44710f27ee47f4b5ae4c8cad1dc771) |
-| `new_relic_receiver.api_key.blindfold_secret_info` | [new_relic_receiver.api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-6d4f84f71264dacc88d3fc0abbffe91102fb1d2c1b984707656c3d035ed2f383) |
-| `new_relic_receiver.api_key.blindfold_secret_info.decryption_provider` | [new_relic_receiver.api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-de82c3b32fc5fa2bce3ab23d8b5c5cbb06e83d47aab0a6fa519d8b8768e4434a) |
-| `new_relic_receiver.api_key.blindfold_secret_info.location` | [new_relic_receiver.api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-0b233eac3d86a24b5c76c0cfc3c38e3e721bd97e5104769a73672286a4fb60c9) |
-| `new_relic_receiver.api_key.blindfold_secret_info.store_provider` | [new_relic_receiver.api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-b3fa2c78844c49dd7524cd3a32f324c532ddb711162c76f4d469bf09e59074a4) |
-| `new_relic_receiver.api_key.clear_secret_info` | [new_relic_receiver.api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-bbef8af3f744997fb19a474aa17488cfd6d35fdee771b8b394c45f6b76326141) |
-| `new_relic_receiver.api_key.clear_secret_info.provider_ref` | [new_relic_receiver.api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-0993bb241a1066539e70aea7adc033ef2150b5f5db3c07fb8b1daf3dae4e0a09) |
-| `new_relic_receiver.api_key.clear_secret_info.url` | [new_relic_receiver.api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-656a13b8277ed158fe98c12acc1d34f32d3e349aed2df172f5b62e7e3fb3b9a6) |
-| `new_relic_receiver.eu` | [new_relic_receiver.eu](data-sources--global_log_receiver--reference--group-003.md#canonical-a97238c0fe6143038aef5dcb1f5cb04b653ef091e11b6bfc311a9bd564666e2a) |
-| `new_relic_receiver.us` | [new_relic_receiver.us](data-sources--global_log_receiver--reference--group-003.md#canonical-f267c9272a349908094306debf89123593f1f52c89f843ed9ef97ba7a0209904) |
-| `ns_all` | [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-4c61613dac1b7423de7e703f6ebfc191efeb081005fa60f1948e50325101b0c7) |
-| `ns_current` | [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-a0e14c04d927e045973f735ce6e43e5cab4df82b3725fd35a09f0773ca47fc02) |
-| `ns_list` | [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-c5020c3ff01ccbcb7f51e4dd0018c982755920a0d4dfa0b182cbc771682ad584) |
-| `ns_list.namespaces` | [ns_list.namespaces](data-sources--global_log_receiver--reference--group-003.md#canonical-b7bc4b2fd247f874259644c28d852e75bb063e2e306a68f8aaa03ebbdc7b2546) |
-| `qradar_receiver` | [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-63e1be9603a2f1112924bcec75ff8b9f9b9b2825fccf9f55c0d1c4a43b8caf74) |
-| `qradar_receiver.batch` | [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-18d61cb5d591896c9ae80eb6d9e52e9c210d02fb4dd296d4570162f356e9f8c1) |
-| `qradar_receiver.batch.max_bytes` | [qradar_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-f8156477011b20209d669f357f9e64dc712c4a11019b962ac887a02c270d7b03) |
-| `qradar_receiver.batch.max_bytes_disabled` | [qradar_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-e2eb3fc8f3b0ff4b61accfd0c69d8638a00216964eadfbfd1bf7753604e34179) |
-| `qradar_receiver.batch.max_events` | [qradar_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-17a67128efe8c65264683d106db6986d0392430cb7d51e85e996c6225720b1da) |
-| `qradar_receiver.batch.max_events_disabled` | [qradar_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-d10152deb0ec74139d2b01578eec86f350f8e2f953cf9850d680551f30cb79ed) |
-| `qradar_receiver.batch.timeout_seconds` | [qradar_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-5106ec2de2aeec40ba6c0f213fcb939f44e9364a89361faeba90177890e78558) |
-| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-87570d7c5eadacfce5890c91f27d7211a89e6588ab86f012f823c0a8114df7b7) |
-| `qradar_receiver.compression` | [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-333b8d781a27bb4f2ca2436d507ddb1fbe6473e28b5c4c300067c5710e2d5f82) |
-| `qradar_receiver.compression.compression_default` | [qradar_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-4f5d489c596a20bac41f9f817b75f3adf68d092297cfe5b552e96a6b019d9a83) |
-| `qradar_receiver.compression.compression_gzip` | [qradar_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-efe622676ccb3473753dae8b15cabb2acf751fd60b422d47cdda9f1a03790ca4) |
-| `qradar_receiver.compression.compression_none` | [qradar_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-4c8c45721e36189f9ccb2d754b1e28078dd899fecbd3e64a612910d1d6fabccb) |
-| `qradar_receiver.no_tls` | [qradar_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-75a44f1d1031a8471baa0fd8a92ac2fe1f6c495e30fbdd73b3127432703625aa) |
-| `qradar_receiver.uri` | [qradar_receiver.uri](data-sources--global_log_receiver--reference--group-003.md#canonical-7647ab2b5fccea37a28b2aee902ae6b9a441378cd8f69e288091130b0b71a504) |
-| `qradar_receiver.use_tls` | [qradar_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-aca335a47ecfe2fb33c34eab49101bc1a1029749d745bb8e64a4cbf13b287a72) |
-| `qradar_receiver.use_tls.disable_verify_certificate` | [qradar_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-44514df5ca5709d389e614cd04a33f01d8f264e9f5abef71b706b91fd25a5ed8) |
-| `qradar_receiver.use_tls.disable_verify_hostname` | [qradar_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-0f39c62fab243475d1d23aa99084782cb61357585962b55264df06512a271c61) |
-| `qradar_receiver.use_tls.enable_verify_certificate` | [qradar_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-d3db25716d78ef3fc901f11e7ebbedfb653e6ec6244877b8e1240ea8e6f5f4c3) |
-| `qradar_receiver.use_tls.enable_verify_hostname` | [qradar_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-be0cf896738c5e38bd1612313a4c1a0f3212e9f26b3926ff03dd0073b30597c3) |
-| `qradar_receiver.use_tls.mtls_disabled` | [qradar_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-4d09553a085ec5fe3b9732a823327c4e0339d5c73050e91cb8d1a7d96b9f178c) |
-| `qradar_receiver.use_tls.mtls_enable` | [qradar_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-5203b1edc5f8da69ebea5e9cdff7bad9eecd3bd33da6a7566b4729d5e9c67068) |
-| `qradar_receiver.use_tls.mtls_enable.certificate` | [qradar_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-4bb979d800e90d819b4f0ef572613be12191da15ae8865b39a8ce33443d1fb7a) |
-| `qradar_receiver.use_tls.mtls_enable.key_url` | [qradar_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-c7aa5b3930e519b01d85c4e114d15eb07a231e8102c1c51e465aaa05427942c7) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-0fd96d72a5ac05a5c8841ea837aba13bb49e3b9431f8f34725a204b3347f2064) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-3af39a7d4779b04e9193ed4c07e0dfc08edec8760cd2dbf97d1ccb13f2be653f) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-e9b8ca6ec72623cbba7b9ddba0081b9d314d0f89caf15294107782a102b5a58a) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-626be832aa74e93743b31b7c1bcde5fa9a5fd61ab51880d8a905c7abce039846) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-a1936f621178a74aaa10b9928b1c78d2f62fa15acf4857d48d3a76f3de174e32) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-1fb2d311a83b4845f1c0c7bed9a9a547828c166b1029d3e45600de696c8bcff5) |
-| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-df9593fc2f1f916508281b6afc2f3bdc3a33105cabcffd8c543e8725800af392) |
-| `qradar_receiver.use_tls.no_ca` | [qradar_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-8adb64c76c96940ebe498a228b0ab2ace2556cc658f955660a2edd4501ffae1b) |
-| `qradar_receiver.use_tls.trusted_ca_url` | [qradar_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-fb06c0d68e5a89ccab5a28718a3e2307d38b62212265f8244b2e8346d0a21732) |
-| `request_logs` | [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-4e2818b42395658eeb7c84785af4bf6b05a6a0bb11bef566421f96787bc2b52d) |
-| `request_logs.sampled` | [request_logs.sampled](data-sources--global_log_receiver--reference--group-004.md#canonical-2700c0cb72e82e3c51ba6bf17f14cdaa2efb7da8c2bd97f35dee1cef21c11658) |
-| `request_logs.unsampled` | [request_logs.unsampled](data-sources--global_log_receiver--reference--group-004.md#canonical-b2799c59167c5d2a69da737ee2143a2369004e5fc66edd7b671afc294694dfbc) |
-| `s3_receiver` | [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-e6569dee683a809947ec9064923b603e50489bad872e1b88bf8fec828a194c03) |
-| `s3_receiver.aws_cred` | [s3_receiver.aws_cred](data-sources--global_log_receiver--reference--group-004.md#canonical-e218bb346ee7f6d594c482696a312c164acbf6a5022d8cdaf4ad10f26ed6b855) |
-| `s3_receiver.aws_cred.name` | [s3_receiver.aws_cred.name](data-sources--global_log_receiver--reference--group-004.md#canonical-3a8ab356ce3acc9cbceaa924a6f01b6227bbe3611c0f725459a95bd32608d2ea) |
-| `s3_receiver.aws_cred.namespace` | [s3_receiver.aws_cred.namespace](data-sources--global_log_receiver--reference--group-004.md#canonical-705c04f98bbe168cd7e12a6297276290851bc9ffde7109e684299bd5b97e988a) |
-| `s3_receiver.aws_cred.tenant` | [s3_receiver.aws_cred.tenant](data-sources--global_log_receiver--reference--group-004.md#canonical-77a207df33189e84bafe6781179130c012031593edebccffad7c671c13b65c88) |
-| `s3_receiver.aws_region` | [s3_receiver.aws_region](data-sources--global_log_receiver--reference--group-004.md#canonical-dc58aa1b3a12744c8c068e45ea5de745c9274d0996fa328687dad41a0c31f924) |
-| `s3_receiver.batch` | [s3_receiver.batch](data-sources--global_log_receiver--reference--group-004.md#canonical-c8b264cf9f82e39dcc4ada282650ae84579eb4df611cf8ddfb539c8d8b353f9d) |
-| `s3_receiver.batch.max_bytes` | [s3_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-004.md#canonical-6e0f86194c793191f0d93310c6fe5075487c4fc28cac7f00f2c326f06da8f329) |
-| `s3_receiver.batch.max_bytes_disabled` | [s3_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-4ddbdb5f8c994a75895518eb944f7aa20735e06945deca9c6b342b1cb6d4d488) |
-| `s3_receiver.batch.max_events` | [s3_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-004.md#canonical-6903799bd4d481785dfa88f505f7f3c15257bb5916c190b7598a4ec06a393a43) |
-| `s3_receiver.batch.max_events_disabled` | [s3_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-dbf83ad9a7d045024b2d2950ae6fa9169f5cbd418924e4730172de376726d0b8) |
-| `s3_receiver.batch.timeout_seconds` | [s3_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-004.md#canonical-60675b24dae7f21318aa3102eed3991118bae1fd59bdb28d47caeeefed8c4147) |
-| `s3_receiver.batch.timeout_seconds_default` | [s3_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-004.md#canonical-6bd760ceb829fb4969103ab06bc019e3f5b499462ee31956344b3484e831df37) |
-| `s3_receiver.bucket` | [s3_receiver.bucket](data-sources--global_log_receiver--reference--group-004.md#canonical-049ee00c58c3abf4894c8cf5e8a7def624b9d156daed9d444ec13a868e1210f1) |
-| `s3_receiver.compression` | [s3_receiver.compression](data-sources--global_log_receiver--reference--group-004.md#canonical-c1fe7d2192cafb05ceb0b440ee5022b15206de9f8c4fee42c2e2a1e1361d9c27) |
-| `s3_receiver.compression.compression_default` | [s3_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-004.md#canonical-9115ec844c3bcafebd60303c09e849af9384d8584cf769da79a90437a21ea604) |
-| `s3_receiver.compression.compression_gzip` | [s3_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-004.md#canonical-680365dfa46a41d9c2dbb40dbe2bd251486924c93ab5ccc586ede4530852766d) |
-| `s3_receiver.compression.compression_none` | [s3_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-004.md#canonical-2a27204842edaaec9929d7b4802e982575f1613ac5006309c58905c720a9c536) |
-| `s3_receiver.filename_options` | [s3_receiver.filename_options](data-sources--global_log_receiver--reference--group-004.md#canonical-4eb0d9f5b081ae8232b16d159840e808b152790389fb38557affa33ad738d2c6) |
-| `s3_receiver.filename_options.custom_folder` | [s3_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-ece9e20f1a3047ae68813023df4cbd133f3f9ab1e617b07aec01226213a1aaba) |
-| `s3_receiver.filename_options.log_type_folder` | [s3_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-babf622d80618bffd70b1e54007b2aeede94fd3aee7bcfb9a2dad24afa5819e9) |
-| `s3_receiver.filename_options.no_folder` | [s3_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-e5698fb7d9e33b0c2a77a9e282e83891ea358ed14c54cd8094393ab25ea3f344) |
-| `security_events` | [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-998417cd4d62d05d5ed56692f9c2eee42b1e26b6d72d2278edfff8d76688f244) |
-| `splunk_receiver` | [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-9cea3aa814ee71326f9bd3e207fbff67b5828a4c37f9c9f8eefe23a77dc8bd31) |
-| `splunk_receiver.batch` | [splunk_receiver.batch](data-sources--global_log_receiver--reference--group-004.md#canonical-34a2df733d0986cd3156d9a64bdd36da00f1e324c8764d9b601ce6d101e5b6f0) |
-| `splunk_receiver.batch.max_bytes` | [splunk_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-004.md#canonical-776fc6e70314e46fd02d554c5e7138cb0bd5978b253b4387abaa5aab132b183e) |
-| `splunk_receiver.batch.max_bytes_disabled` | [splunk_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-6e2f37d1c855e45b12debbf7b019c6f49a4b2d9eb651431c0b680d7a93bb7625) |
-| `splunk_receiver.batch.max_events` | [splunk_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-004.md#canonical-3e068b35448217058c7b3208e5e168674babc83794d9013fbae8bd3b9ec61d65) |
-| `splunk_receiver.batch.max_events_disabled` | [splunk_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-758275a0ed18e57c894658ed4fff05162cdbb38a6b7a7a21df9a325320f3767b) |
-| `splunk_receiver.batch.timeout_seconds` | [splunk_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-004.md#canonical-24c9ff7b82d3935fb4c5ebd7ab232c12809da4f450aa0f11e4c1da50db2488a8) |
-| `splunk_receiver.batch.timeout_seconds_default` | [splunk_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-004.md#canonical-12d29d50f9c214f458879e12a035b24bb7d7dd9c8781826f08d19151e7eb7cd3) |
-| `splunk_receiver.compression` | [splunk_receiver.compression](data-sources--global_log_receiver--reference--group-004.md#canonical-5eee87c1216fe43a4fd3c796e79c7e9a30199b5bc8e47e6efb9ff8f24c3a97ce) |
-| `splunk_receiver.compression.compression_default` | [splunk_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-004.md#canonical-f5f4d6b226d8a2af36388ba49e8f494d13d4127a42ab800be54f66e729d83ef2) |
-| `splunk_receiver.compression.compression_gzip` | [splunk_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-004.md#canonical-9e73327291839cdc29e5594aaf0c836bfbd7853549a14a067338d6a3e54296d0) |
-| `splunk_receiver.compression.compression_none` | [splunk_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-004.md#canonical-a94013c4d2eb50e7948ab142d6e91f813185cdd57ac347829813d58086cde01e) |
-| `splunk_receiver.endpoint` | [splunk_receiver.endpoint](data-sources--global_log_receiver--reference--group-004.md#canonical-1ad26994d6accd5bae3acbf0cc389f900e16db179300327e110ff93607d7cb29) |
-| `splunk_receiver.no_tls` | [splunk_receiver.no_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-7be2ff8bbf7dd1e630b7707ec28bc7b02d81d3aaebea54a485034a3a7602ea32) |
-| `splunk_receiver.splunk_hec_token` | [splunk_receiver.splunk_hec_token](data-sources--global_log_receiver--reference--group-004.md#canonical-044e2dcbc57b8f62129b6426c180c925b5e20308fa3ec8dfcb4e062683f44e49) |
-| `splunk_receiver.splunk_hec_token.blindfold_secret_info` | [splunk_receiver.splunk_hec_token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-de9221762147d6176ab8c8246c67fc3b6c452b8f08cb85a7b303f2d2cece57d8) |
-| `splunk_receiver.splunk_hec_token.blindfold_secret_info.decryption_provider` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-b345e3a32559b8bbe550c8231dae519c54fa46c5bed31f9324dc6e275578eed3) |
-| `splunk_receiver.splunk_hec_token.blindfold_secret_info.location` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-13359d5dfbdca6ebe3555c27b0b72c222e633f8e513e3b71538ae494c72005e3) |
-| `splunk_receiver.splunk_hec_token.blindfold_secret_info.store_provider` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-75748dce5fdc52d1cb36abc510c089d1757ae5f3994269c65a41188fdf6e81fc) |
-| `splunk_receiver.splunk_hec_token.clear_secret_info` | [splunk_receiver.splunk_hec_token.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-202ef4d0c52ec01c10c6adfdd944ec782dc82c7ad10a9b144e1fad139ae2e257) |
-| `splunk_receiver.splunk_hec_token.clear_secret_info.provider_ref` | [splunk_receiver.splunk_hec_token.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-7fddef634373fa41eabcacc6eb6cde15b940369b5acd989f0fba2763916799e3) |
-| `splunk_receiver.splunk_hec_token.clear_secret_info.url` | [splunk_receiver.splunk_hec_token.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-2d736ecc5cdac838b855c2629d6e4c5378568366215045719a8c6ffff9db327f) |
-| `splunk_receiver.use_tls` | [splunk_receiver.use_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-4d99715e85fec97e9bd6aff8fd89b9c95792a8daed8e69dc71e3587b77dbe4d2) |
-| `splunk_receiver.use_tls.disable_verify_certificate` | [splunk_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-abb7e0b70e2abd366dadfb109b660e27cfbaa253ba3b8ead5b41f74dc3e4a54d) |
-| `splunk_receiver.use_tls.disable_verify_hostname` | [splunk_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-a82b9462cb3d11d7d7fa805695d852dab1f201c3d7bb5678dc7b82ff82438ece) |
-| `splunk_receiver.use_tls.enable_verify_certificate` | [splunk_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-2ceaca628858702cdb41a68d5f289dda8d63dde178acbc7f490eac8486de74f9) |
-| `splunk_receiver.use_tls.enable_verify_hostname` | [splunk_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-b46c1dac09c40b284fb42e09aab194f30f2b606e9df403c8f09293dabb01728a) |
-| `splunk_receiver.use_tls.mtls_disabled` | [splunk_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-c60ee2a1d21d974a2e545ec9809e6618df78ffff3b433f5754e053fc53038507) |
-| `splunk_receiver.use_tls.mtls_enable` | [splunk_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-004.md#canonical-84c913066466246d55d5f8a88979343ec606a4ea4bcef1c99154ebf41170aaef) |
-| `splunk_receiver.use_tls.mtls_enable.certificate` | [splunk_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-1811a5840278a7188ec0d5f1d0a5c9e3989f94e63bcafd57fc2ab3d38ebeeba8) |
-| `splunk_receiver.use_tls.mtls_enable.key_url` | [splunk_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-004.md#canonical-d786d848070a35d93f6e2b2dd75b9b8e5e5bb54365896daed911e13fc64fbc5d) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-98e5aefc296f96fa068108af27931ca91875859c1f87ec1583e5f1bbef71cc1a) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-d2e97925f3c484802181d46258617a374eac6db0dc3fb34eb9a21ba6148353b1) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-3a51c28d4c72ce2e91c0c01f7bd39083af12defcc3e4cada6ccd615e0333c71c) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-7975a309044e820703085f20b8312c37c2e6ab157f071b7b7b722af305ee048a) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-ee4f95880b5768442a7371a5a7c37686103dbe672fa10742f996359703e2eaaf) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-317d1fb57c20c83cb0f520804963901841283c437cc3b47299df8539d9a1d9ea) |
-| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-c62ef53090ef57d9b81fae6539bf2c0bfb8eeced53a4120ba067e24aaff7f93f) |
-| `splunk_receiver.use_tls.no_ca` | [splunk_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-1960c66bf5a637fa3d0703679b811caebce661c566aab9c43f75747cb56a97db) |
-| `splunk_receiver.use_tls.trusted_ca_url` | [splunk_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-004.md#canonical-4f815177ec88baea9133b6f243ef318d9b42ac2b1543fbc2add7e0b428b585a2) |
-| `sumo_logic_receiver` | [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-95863243449b46ca8ba7bf4ea6f398b35ba9875c97fd3d58d4c6811920c9a0a1) |
-| `sumo_logic_receiver.url` | [sumo_logic_receiver.url](data-sources--global_log_receiver--reference--group-004.md#canonical-cd5ed7f98721b5cfe5d7a06d3b8a10232ccec0455d9e782020bc57a294cfb487) |
-| `sumo_logic_receiver.url.blindfold_secret_info` | [sumo_logic_receiver.url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-bb24244f5fd3a931d8c6bbfde05acc9f8d03181b32c217d765bf00f2b6c10dc1) |
-| `sumo_logic_receiver.url.blindfold_secret_info.decryption_provider` | [sumo_logic_receiver.url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-59bbe6f718ab3cd7b5aaacbc9a70813f725372cc9a251ea7d311a49714911d0e) |
-| `sumo_logic_receiver.url.blindfold_secret_info.location` | [sumo_logic_receiver.url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-b0f2dd09721aaf1b7475de5e952526890831b1c35f39b61012c7d44b5666b085) |
-| `sumo_logic_receiver.url.blindfold_secret_info.store_provider` | [sumo_logic_receiver.url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-31af75e245dacacc8a8fe8344b49fdd6589e9acfa2f551eefaa4971ec7eccb47) |
-| `sumo_logic_receiver.url.clear_secret_info` | [sumo_logic_receiver.url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-098ebdf4a57abe43e3c77acf8d241f3b1b88b22709eca7dc4b5c905b776489c2) |
-| `sumo_logic_receiver.url.clear_secret_info.provider_ref` | [sumo_logic_receiver.url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-73c14d2eb6766b1fe5f820db4654175ce1ca0e1aed5cfe3238fe488df55aaa86) |
-| `sumo_logic_receiver.url.clear_secret_info.url` | [sumo_logic_receiver.url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-6775b126b13e527e2ae655d822f2232d38804c4e5265f89e94b4e68f789d0a23) |
+| `annotations` | [annotations](data-sources--global_log_receiver--reference--group-001.md#canonical-0020011300323223-1311001020021023-2030212233021202-3223323332113331-2010232113000000-1222310201110301-2000020201031012-3013320110021020) |
+| `audit_logs` | [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-2133221203001223-3123231200122131-3110232122221212-2033103202301212-0132123303320010-3111333302033122-1110213131202301-2111222131331002) |
+| `aws_cloud_watch_receiver` | [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-3331110112131012-1000100132111012-1203111230222102-1230112233112113-0001200333200231-0312301323230303-1011311201201322-2301312200332113) |
+| `aws_cloud_watch_receiver.aws_cred` | [aws_cloud_watch_receiver.aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-3121101011123321-1230031310012031-3011202211032002-0233302301311202-1232122303112311-2232210033101011-0301200003030332-1300023211110232) |
+| `aws_cloud_watch_receiver.aws_cred.name` | [aws_cloud_watch_receiver.aws_cred.name](data-sources--global_log_receiver--reference--group-001.md#canonical-0202130221020102-1002120220201021-2101131131032010-3300122130203203-2333101121121223-1332323121320200-0020000012333230-3233013202320221) |
+| `aws_cloud_watch_receiver.aws_cred.namespace` | [aws_cloud_watch_receiver.aws_cred.namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-1103211111032210-1321331101303301-1200323312010012-0303013330012030-1002222032321301-1101001013112323-0132232132321121-3110203220300033) |
+| `aws_cloud_watch_receiver.aws_cred.tenant` | [aws_cloud_watch_receiver.aws_cred.tenant](data-sources--global_log_receiver--reference--group-001.md#canonical-3003003123111310-3301010313313211-1012230001230313-2031032002322300-3132030211313020-2121001111202112-3132333113210113-0322331330320201) |
+| `aws_cloud_watch_receiver.aws_region` | [aws_cloud_watch_receiver.aws_region](data-sources--global_log_receiver--reference--group-001.md#canonical-3311102200012103-3032303221112130-0113102011002001-2133021101120132-1110010032220322-3312010332100033-1320120110331131-1233212302121121) |
+| `aws_cloud_watch_receiver.batch` | [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-1233331313232013-0210102231321101-2233132230112030-1102102102322100-0210030231312322-2131002102132002-2121002032120031-0113012201312130) |
+| `aws_cloud_watch_receiver.batch.max_bytes` | [aws_cloud_watch_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-001.md#canonical-3111222320110330-0211233113013301-0130332330113333-0332103102301221-3113032313132223-0003223213322131-3333031300120331-0133313030310133) |
+| `aws_cloud_watch_receiver.batch.max_bytes_disabled` | [aws_cloud_watch_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-1310033223231011-2332311222312102-1321322133332200-3333101123123000-1210330113013203-1233031223120101-1010210133222321-1120130101322321) |
+| `aws_cloud_watch_receiver.batch.max_events` | [aws_cloud_watch_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-001.md#canonical-2130002032131222-2211200213033111-2232010310021320-1310010021110130-1232311111232010-2311131202213023-3002132101110331-3000211222203220) |
+| `aws_cloud_watch_receiver.batch.max_events_disabled` | [aws_cloud_watch_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-2302110232231000-2323222320201120-1202001230202313-3033132222223122-1012331302331033-0230002113201223-0333132033313100-2113020031213232) |
+| `aws_cloud_watch_receiver.batch.timeout_seconds` | [aws_cloud_watch_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-001.md#canonical-0020211302321221-2113321213220001-1030001002023023-1223112032202120-1033230003020322-2000022013013333-3121121103110132-2113023121100310) |
+| `aws_cloud_watch_receiver.batch.timeout_seconds_default` | [aws_cloud_watch_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-2312120211222333-2032311303102131-3000122003213310-2023032013321331-3131121321113101-0131112102220231-2202003011330311-2031132130122100) |
+| `aws_cloud_watch_receiver.compression` | [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2110121120030013-2001320103312120-2103313323000223-0321121211112313-0101200213310000-2031202201132121-0223212033011110-0332311102312013) |
+| `aws_cloud_watch_receiver.compression.compression_default` | [aws_cloud_watch_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-1030032322103222-1133311133112000-2303221023222200-2023221031233320-2331300230013000-3113200330130132-2212202131211123-3103123212133302) |
+| `aws_cloud_watch_receiver.compression.compression_gzip` | [aws_cloud_watch_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-1223223221203132-0331322110213000-3202231011223233-3001001102323313-1213111220211133-3101313220122203-3233101230133023-3212122011020030) |
+| `aws_cloud_watch_receiver.compression.compression_none` | [aws_cloud_watch_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-0012320110221120-2013320300301201-0011031230103110-2030221131121102-1332023310233231-3131321313331031-1202102231233210-1203032313302332) |
+| `aws_cloud_watch_receiver.group_name` | [aws_cloud_watch_receiver.group_name](data-sources--global_log_receiver--reference--group-001.md#canonical-0013332233001311-3323103011023333-2313200223201223-3013332031232222-3330333211033331-0220120010222303-1303222023012103-0100221120021302) |
+| `aws_cloud_watch_receiver.stream_name` | [aws_cloud_watch_receiver.stream_name](data-sources--global_log_receiver--reference--group-001.md#canonical-1022333110331123-1031010001031013-0332110031122222-1002112102020010-1330311002201211-1301311213222120-1032013031023220-0303332030021303) |
+| `azure_event_hubs_receiver` | [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1133203103010030-0213101233221030-0113301022130000-0112220222113332-2113012101223231-1210310130311121-1322212023012203-3120213302333232) |
+| `azure_event_hubs_receiver.connection_string` | [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-0333100212131103-1133011001333101-2212011112023001-3200022001301210-1200012031211302-2001013303132330-1333301001202001-3101030311232032) |
+| `azure_event_hubs_receiver.connection_string.blindfold_secret_info` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1233121333012322-0212112222222323-1330121130103201-0232112020111102-0220213113221220-0100102010110321-1100302120020220-3101131233210330) |
+| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-2131033323211322-0200320002201333-3020130303303032-1332212123120111-2310032020200013-0112121130023211-2223210120322301-3020101111030133) |
+| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.location` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-001.md#canonical-2221123102131101-3003030122112302-1322023112122132-2020330332121133-1332112033222232-2231200322310331-1100231322230011-0131103023113132) |
+| `azure_event_hubs_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_event_hubs_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-0202201213021030-1313123303303022-3130220112012123-1302032232101313-3223231113110010-2200311112031022-1312022002221300-3233022311102233) |
+| `azure_event_hubs_receiver.connection_string.clear_secret_info` | [azure_event_hubs_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1130233320221032-1321331300233201-1322133322211221-1333221021321010-0210232333033320-1313200022332122-3222320230232103-0012030210003332) |
+| `azure_event_hubs_receiver.connection_string.clear_secret_info.provider_ref` | [azure_event_hubs_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-001.md#canonical-3331033000310013-2231323032112021-2013021210110332-3002131323323202-0312311013032012-1220303122100231-1110101012333022-0102003132333110) |
+| `azure_event_hubs_receiver.connection_string.clear_secret_info.url` | [azure_event_hubs_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-001.md#canonical-2103133030323122-3301103203000210-2101212302202333-0233033123231121-2101122311233323-0033010231203302-2302301133223322-0322203202201213) |
+| `azure_event_hubs_receiver.instance` | [azure_event_hubs_receiver.instance](data-sources--global_log_receiver--reference--group-001.md#canonical-3233003101121100-2112231100120032-1012002220321100-0120103120021231-2301023112312020-2333231213300302-0211111022020323-2033221033211200) |
+| `azure_event_hubs_receiver.namespace` | [azure_event_hubs_receiver.namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-3212012100330311-0001100130100130-3323321211212101-0311033223300313-0033220010120001-0223010303230200-3012221313212321-1222232211330022) |
+| `azure_receiver` | [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0303310011011220-0200131310311211-2300302321112220-1311210110210130-2100302022132032-3210212112313131-3213323010012223-2203111201011331) |
+| `azure_receiver.batch` | [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2323221120203333-2211030001033223-0010121333110011-3201032021133322-3130332033033302-2322031012132313-1202021230002111-2223313330110213) |
+| `azure_receiver.batch.max_bytes` | [azure_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-001.md#canonical-2322030301221021-2103122000031332-3322331030122111-2023200231111133-2330213331211012-0233023012023012-2221322302000233-0120120123001312) |
+| `azure_receiver.batch.max_bytes_disabled` | [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-3230320223211202-3112230121000212-1323312120200000-0222120003010130-2220103011120103-3213111103121303-2201223002001201-0031302133130121) |
+| `azure_receiver.batch.max_events` | [azure_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-001.md#canonical-2220011103021002-0300030232032122-1112001113300003-3131102331313031-3303111312122130-2020223222013032-2030200122010033-0300031220132212) |
+| `azure_receiver.batch.max_events_disabled` | [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-0202312312231111-0122201100123102-0020001203123303-1131212022030331-2211033221112011-2030113112302001-0122330330010330-1111013201113112) |
+| `azure_receiver.batch.timeout_seconds` | [azure_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-001.md#canonical-3110031303113112-1220203021023112-1322303032012133-2220100302233331-2122203221213033-1132330210231232-1223002221232220-2331101112123130) |
+| `azure_receiver.batch.timeout_seconds_default` | [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-1123030103200122-3233033132120003-0133122301003033-3313102012013210-1312310201103000-3301201322130222-3133122132033221-1031122131302023) |
+| `azure_receiver.compression` | [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-3102130320331010-2111133122010001-2231313221032223-0203312101302211-2023300113023323-1030201321200220-0223101212020133-0000311213112113) |
+| `azure_receiver.compression.compression_default` | [azure_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-0020120220203000-2012300302200002-2210202331010101-1121211311023232-1202300110121111-2020003123030312-1211103003312130-2300033302100311) |
+| `azure_receiver.compression.compression_gzip` | [azure_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-2033001210123332-0122312030030311-1020321312231131-3001211003221322-2002120021300203-1221013211312000-1312013203021313-1332000311022020) |
+| `azure_receiver.compression.compression_none` | [azure_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-3001303301131322-3020003013003220-1212300113012002-2333031022001232-3132222112213311-3001232121011132-0310231330032233-2113220032200112) |
+| `azure_receiver.connection_string` | [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313) |
+| `azure_receiver.connection_string.blindfold_secret_info` | [azure_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122) |
+| `azure_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001) |
+| `azure_receiver.connection_string.blindfold_secret_info.location` | [azure_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220) |
+| `azure_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131) |
+| `azure_receiver.connection_string.clear_secret_info` | [azure_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132) |
+| `azure_receiver.connection_string.clear_secret_info.provider_ref` | [azure_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111) |
+| `azure_receiver.connection_string.clear_secret_info.url` | [azure_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230) |
+| `azure_receiver.container_name` | [azure_receiver.container_name](data-sources--global_log_receiver--reference--group-001.md#canonical-1122122002230032-1001101212113032-0210102101211011-2133220013310021-2211211020032000-2012313301021132-1313321133323322-2002023220030010) |
+| `azure_receiver.filename_options` | [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000) |
+| `azure_receiver.filename_options.custom_folder` | [azure_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331) |
+| `azure_receiver.filename_options.log_type_folder` | [azure_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203) |
+| `azure_receiver.filename_options.no_folder` | [azure_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-2211300003231023-0221022012320100-2213112020100013-1112332101300003-1123222001031213-0130233203231323-3022322010332222-3130330030232000) |
+| `datadog_receiver` | [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203) |
+| `datadog_receiver.batch` | [datadog_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-2032303320333220-1010111220121000-3120101202200030-2303220030321331-2330002010311101-0010222032033221-3300013021300232-2311301300230111) |
+| `datadog_receiver.batch.max_bytes` | [datadog_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-2201201300013211-1130123201032202-3033013131133212-2231013233030130-0012101030300122-0331201133230020-0301100331001202-0131010101323132) |
+| `datadog_receiver.batch.max_bytes_disabled` | [datadog_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-0300120313120120-2202221113213322-3302232200330131-3210103022220310-2313110200331111-2313101032012301-1132221333303301-3121103020212330) |
+| `datadog_receiver.batch.max_events` | [datadog_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-002.md#canonical-3031303110033232-3020311223201120-2221322331021332-1110100023000312-1301111232002132-0321001310120011-2120021321131111-3232030121112303) |
+| `datadog_receiver.batch.max_events_disabled` | [datadog_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-1203231323222302-2303123302223011-3323210123033010-2331211032103030-3103133001011320-2101110233023000-1121322003211130-3033300333330131) |
+| `datadog_receiver.batch.timeout_seconds` | [datadog_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-002.md#canonical-1121313132330311-3331030031303121-3002230102101032-3231333101101330-1310201232211033-3132113131323311-3133100132103112-3111011223323330) |
+| `datadog_receiver.batch.timeout_seconds_default` | [datadog_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-2311113312202122-0030001323123122-2122022203000220-2131021032111203-0303230330203033-0232112023200132-2131323222033123-0312221000120233) |
+| `datadog_receiver.compression` | [datadog_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-2111012231103312-1002111120000130-0123233201020312-3100212332012222-2000212013103302-3131111011113210-2333000321013312-1201003021302321) |
+| `datadog_receiver.compression.compression_default` | [datadog_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-3210033122031313-2322331022312232-3111023321233320-1321212101202310-3323123103132333-1112313023101011-0132301221103301-1113011311233323) |
+| `datadog_receiver.compression.compression_gzip` | [datadog_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-1003313101203011-0002121021222002-1131221011123121-0030333001332310-1311121311301031-3320120313022022-2002232330012113-2000022131221022) |
+| `datadog_receiver.compression.compression_none` | [datadog_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-2032213033110020-3311133303310011-0233122210221130-0332302102122132-0311310132021012-3231310310020002-3133232023330331-0121231311011111) |
+| `datadog_receiver.datadog_api_key` | [datadog_receiver.datadog_api_key](data-sources--global_log_receiver--reference--group-002.md#canonical-0323101312103313-0230000103212323-0210123202113212-2123013010210113-0231132122010111-3130122121223322-2022322330031131-0203321101313112) |
+| `datadog_receiver.datadog_api_key.blindfold_secret_info` | [datadog_receiver.datadog_api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-3332200330132123-0323112202222013-1313202200232322-2113122320222202-0123020313013030-0010213322023021-3210032310113030-1011123330111230) |
+| `datadog_receiver.datadog_api_key.blindfold_secret_info.decryption_provider` | [datadog_receiver.datadog_api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-0012132103310200-0311202103123212-0303010331133003-2303310101333101-3113210133022030-2100033203131232-0331003300211031-0332132112200002) |
+| `datadog_receiver.datadog_api_key.blindfold_secret_info.location` | [datadog_receiver.datadog_api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-0121032003133111-0222121113033312-3302300001221211-1032131110320231-0112031133030203-0213111331100111-2223102131000312-1213202100232300) |
+| `datadog_receiver.datadog_api_key.blindfold_secret_info.store_provider` | [datadog_receiver.datadog_api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-0331010232012313-3113200031122120-3301311322230013-3032023010330220-0321310311323130-0300012203203101-1100133300231221-2233112031211102) |
+| `datadog_receiver.datadog_api_key.clear_secret_info` | [datadog_receiver.datadog_api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-0133211001131000-0032320011101230-2020220311222112-2223201232332301-0200230312020303-3011003000322001-1311021320212112-3333102000303303) |
+| `datadog_receiver.datadog_api_key.clear_secret_info.provider_ref` | [datadog_receiver.datadog_api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-0021202032020031-0230130000322130-1023230121203001-0323020230101100-2030020130311000-3222111131121313-2213030121031230-2131221311031020) |
+| `datadog_receiver.datadog_api_key.clear_secret_info.url` | [datadog_receiver.datadog_api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-0120221103100211-1221122300302310-1231333321110210-3001202200003003-1312322132010322-3300223311332120-1013221110301102-0210221222002213) |
+| `datadog_receiver.endpoint` | [datadog_receiver.endpoint](data-sources--global_log_receiver--reference--group-002.md#canonical-0302321030210011-1122020310101231-2023131212211203-1023021002302102-3113012103312021-3203100223211332-0122330032213100-0303301203121013) |
+| `datadog_receiver.no_tls` | [datadog_receiver.no_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-2023313133203132-2232033120000100-2200002311023200-1232130322303112-0001332320232113-2030320120121102-1203123131022000-3120301030320321) |
+| `datadog_receiver.site` | [datadog_receiver.site](data-sources--global_log_receiver--reference--group-002.md#canonical-1133000031211321-2030321133010031-3322103330312201-0030223220233312-0121112011322112-0313111033200130-3310320331323122-1122220233121032) |
+| `datadog_receiver.use_tls` | [datadog_receiver.use_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-3103323002222123-0322201230323303-2323300302110331-0132103001133223-3000020103120200-1013233302203210-3230211020130010-2210013321113013) |
+| `datadog_receiver.use_tls.disable_verify_certificate` | [datadog_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-3211012121013331-0301122231131101-2110120121103023-1011031101221000-1001021010120120-2103333003200111-1320102111222122-3301022311320223) |
+| `datadog_receiver.use_tls.disable_verify_hostname` | [datadog_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-002.md#canonical-2331332232023132-2121000312003003-1331123103010203-0031330323032003-0031003101122201-0111122311033121-3111113123020202-1213020112221011) |
+| `datadog_receiver.use_tls.enable_verify_certificate` | [datadog_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-2113130303131220-1003232101033221-3210011112112330-0210233330001323-2202312212223013-0033013320113303-3222031222102322-3110012032330021) |
+| `datadog_receiver.use_tls.enable_verify_hostname` | [datadog_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-002.md#canonical-2211210201230223-3001032131120313-3333322310200213-3033130020200002-1021202101100223-1321200210130301-1302103021300031-2100021212121322) |
+| `datadog_receiver.use_tls.mtls_disabled` | [datadog_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-1132320032323322-3320222303202233-1132013301000231-1131132021300223-2311113310023321-1011313203113212-3013231233022333-3331321201112021) |
+| `datadog_receiver.use_tls.mtls_enable` | [datadog_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-002.md#canonical-2222101303102021-1330333221023011-3021301212011331-3101212213021203-3011213303333330-2203201203321312-3031023011212013-0002230013302210) |
+| `datadog_receiver.use_tls.mtls_enable.certificate` | [datadog_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-002.md#canonical-0110312333011230-2112002111001111-1222131111302300-3320113102330100-2202230132100120-0101132310121201-1322230032212303-2323101023020012) |
+| `datadog_receiver.use_tls.mtls_enable.key_url` | [datadog_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-002.md#canonical-2301132200033012-0310231230230211-0030103012130300-3322133320233213-3101132133220232-0333223211211311-0112012013122331-1213200322121112) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-3323322220333303-1200100303213031-0100030231211102-1020322013000131-1330201233032101-2311201203012032-2002120030130110-3011110003020320) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-1301121212310113-0000202230113010-0100303032311111-2030001213220222-1222203010203000-1221300101002233-2113311331120302-2320113103221013) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-2331203333033013-2323202032112313-3030111120131022-0332203131012001-0300321102001031-3131000223222231-0031303100031033-1113102213011322) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [datadog_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-3130331223111032-1121100132313231-2333302332011030-0031331310002211-0312103221110310-2021123110022223-3120010122010311-3232110021210220) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-2001133223133332-1130001323002101-0301011013332111-1322232223210310-2133221213333231-0013030333033013-0213130011303232-2101121303310230) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-1113320222230323-1112003133223110-0103033220221302-3232123323020202-2123231020311221-0120121301302120-3121111113232123-0211132120231030) |
+| `datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [datadog_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-2113222020302301-1032010030311033-2333302101310020-1201322122312321-2330200112211321-1201033211020121-2232031330303323-0331222113131312) |
+| `datadog_receiver.use_tls.no_ca` | [datadog_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-002.md#canonical-2022202132121131-2222102202302010-2300230011332133-0302301131133300-3000223000323123-1102103203301233-1022101323122310-2110133113133101) |
+| `datadog_receiver.use_tls.trusted_ca_url` | [datadog_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-002.md#canonical-3300132130321212-0032031020012231-1010030323300003-0131010102111020-0310313232132301-1022012200322313-1121232122322120-1001021321311211) |
+| `description` | [description](data-sources--global_log_receiver--reference--group-001.md#canonical-1210131003031200-1302123200313011-3303320111231020-1030311102301232-2201122030001101-1230320233100002-0333010312223231-0233010330302113) |
+| `dns_logs` | [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-0330003033103033-2232132203133203-1222002120211210-2331231322301220-1302122322201100-2332330003001322-1212032300002303-2110022032130313) |
+| `gcp_bucket_receiver` | [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022013031032-0020202300031330-1120302112000333-1303132333330203-3020123133110130-2002133033301033-0121030230213303-3033113231031210) |
+| `gcp_bucket_receiver.batch` | [gcp_bucket_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-2312002313333013-0021201301213130-2323001123310120-3030331123100220-0202321312222103-0101000131231011-2130322202301230-2102133103222121) |
+| `gcp_bucket_receiver.batch.max_bytes` | [gcp_bucket_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-2001223103202020-2032201133000230-2201101013112100-2311122030332100-0322131120301110-1210220032012322-0313220132032121-0112313011213330) |
+| `gcp_bucket_receiver.batch.max_bytes_disabled` | [gcp_bucket_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-3231311101021003-0131011021303012-3120311310222110-0013012000103201-3000201333110121-0220112210333110-3122212122130213-3233312201002010) |
+| `gcp_bucket_receiver.batch.max_events` | [gcp_bucket_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-002.md#canonical-1223210221011102-1321201133120302-2212022120012022-1231213221233013-3303323002033333-1113110303332301-1300131303221131-0331201203122322) |
+| `gcp_bucket_receiver.batch.max_events_disabled` | [gcp_bucket_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-1001021320320233-3302113230123030-3233201232200001-1323102112100102-1230320311313211-3011102010110032-1302303320110222-0330231200203003) |
+| `gcp_bucket_receiver.batch.timeout_seconds` | [gcp_bucket_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-002.md#canonical-3010323300330332-3110121103102301-1323312211010021-1003322112110302-3111211301303110-0201313020212032-2113232302311030-3030330133120003) |
+| `gcp_bucket_receiver.batch.timeout_seconds_default` | [gcp_bucket_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-0202100310333002-1303301303213110-0330030123301010-2112113010203021-3033231102023333-3100010332311130-2213113110233132-2321223222231303) |
+| `gcp_bucket_receiver.bucket` | [gcp_bucket_receiver.bucket](data-sources--global_log_receiver--reference--group-002.md#canonical-3012012110231221-3311321310103320-2303310200020310-3220223130120220-0132001223220011-3221323202223011-3330133220102021-1230332012102102) |
+| `gcp_bucket_receiver.compression` | [gcp_bucket_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-3323333000331233-2320302013202111-1000121130313223-1011213303010133-0200020212012232-1300232133322013-1213202133212333-1220003100130011) |
+| `gcp_bucket_receiver.compression.compression_default` | [gcp_bucket_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-2010133311333111-2100103031220313-3312010123330022-0221003033330332-3102301133232230-1311322303312112-1303213031223031-1203223120321033) |
+| `gcp_bucket_receiver.compression.compression_gzip` | [gcp_bucket_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-0033111002032020-1331320011122111-2111101132311211-1000121121020301-2233311021003102-3310233123211003-1223212211000231-3012321331221033) |
+| `gcp_bucket_receiver.compression.compression_none` | [gcp_bucket_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-1001113101011332-3331230122033022-3111211010132233-2320102021111111-3232222233021022-1213130133210132-2113002331221000-0120002302310330) |
+| `gcp_bucket_receiver.filename_options` | [gcp_bucket_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-3310321102231203-3310202132031210-2121323231300210-0212210123331000-0321321022120002-0121321113120013-0313002011201212-0102201203003101) |
+| `gcp_bucket_receiver.filename_options.custom_folder` | [gcp_bucket_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-1331332032221222-1111131202033310-2331321111210302-0001201322301322-1033110031323101-3121202021213211-0333101231300120-3230301123313112) |
+| `gcp_bucket_receiver.filename_options.log_type_folder` | [gcp_bucket_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-2002012322213130-1122310113111002-0003232313322032-3203002320231020-3020220232200331-0221323001320301-2331121010221002-3230202032000231) |
+| `gcp_bucket_receiver.filename_options.no_folder` | [gcp_bucket_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-1023312011011003-0111202123001222-3012020322130122-0120333200322313-3011123003321003-2103231001330033-0333220002000030-1213132300022121) |
+| `gcp_bucket_receiver.gcp_cred` | [gcp_bucket_receiver.gcp_cred](data-sources--global_log_receiver--reference--group-002.md#canonical-2222200312302320-1222013032102102-1033313111212022-0100201013101200-1101122101201333-3133012021222021-3203221302333022-2232033003032221) |
+| `gcp_bucket_receiver.gcp_cred.name` | [gcp_bucket_receiver.gcp_cred.name](data-sources--global_log_receiver--reference--group-002.md#canonical-0122221231323100-0200002202331002-3013120110200300-0331121001210220-0323330222211330-1220223323120233-2302002213331312-2202331020033103) |
+| `gcp_bucket_receiver.gcp_cred.namespace` | [gcp_bucket_receiver.gcp_cred.namespace](data-sources--global_log_receiver--reference--group-002.md#canonical-1032201213232210-1213311003003223-2011101312101021-0212010232122023-2210221001033103-1223122322330132-2300010110302213-3132233223312232) |
+| `gcp_bucket_receiver.gcp_cred.tenant` | [gcp_bucket_receiver.gcp_cred.tenant](data-sources--global_log_receiver--reference--group-002.md#canonical-0101101300330022-2233133122212233-3032110013220322-1311010232333311-1020222133202112-0312112212313201-1023022200332230-0012031222303121) |
+| `http_receiver` | [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022033231131-0331011310223210-1113000100233231-0202310200201130-3201032123020231-1122203030212220-0223101203210223-1100223030332223) |
+| `http_receiver.auth_basic` | [http_receiver.auth_basic](data-sources--global_log_receiver--reference--group-002.md#canonical-1120223022332122-0033233120010022-1032231222332313-3321313103213103-0111123031201311-0223133220311332-3222011212123320-1221222102023232) |
+| `http_receiver.auth_basic.password` | [http_receiver.auth_basic.password](data-sources--global_log_receiver--reference--group-002.md#canonical-3000010211001211-3230331311332221-3301313131300221-3120112001212131-0021033220312333-2121202222202231-2302131232220213-1212313203312001) |
+| `http_receiver.auth_basic.password.blindfold_secret_info` | [http_receiver.auth_basic.password.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-0201302301101032-0302310111120020-0333231112312302-1033133130030201-0332233020113002-3123231100322202-0100112223332112-1233032031133011) |
+| `http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider` | [http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-0330110232311231-3023100020333321-2201013032002213-0003330332303111-0323020230221010-1113030301011320-3101101102022222-0012302302303100) |
+| `http_receiver.auth_basic.password.blindfold_secret_info.location` | [http_receiver.auth_basic.password.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-1100202133232122-1333132122230223-0110223322011223-0300201302130213-0212002113213200-1130331211323232-2133231222003123-2230123332120233) |
+| `http_receiver.auth_basic.password.blindfold_secret_info.store_provider` | [http_receiver.auth_basic.password.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-3022322202113323-2202322323311321-2010323203022130-2320030032303313-0101101122211220-3200302311210220-0001022003011022-2100222111010302) |
+| `http_receiver.auth_basic.password.clear_secret_info` | [http_receiver.auth_basic.password.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-0013120022102030-3021321003030022-1132330013130103-1131211233311112-1120033103030020-3031010001130221-3221321103103000-2310211103010311) |
+| `http_receiver.auth_basic.password.clear_secret_info.provider_ref` | [http_receiver.auth_basic.password.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-2313313001130133-1310000221230212-2212323222200201-2013211231023311-1131100233022210-3220011213101100-1220112011011232-1320311302103331) |
+| `http_receiver.auth_basic.password.clear_secret_info.url` | [http_receiver.auth_basic.password.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-1222312013202132-1303300111321233-2031012213130203-0321211123131321-2300332102102323-3103000123332322-0011202111223300-3303002000320101) |
+| `http_receiver.auth_basic.user_name` | [http_receiver.auth_basic.user_name](data-sources--global_log_receiver--reference--group-002.md#canonical-0330300300311121-1020331111221131-3003120230031300-0222311210320101-2113003211011132-2323032021223201-1132210023233233-1130213130221233) |
+| `http_receiver.auth_none` | [http_receiver.auth_none](data-sources--global_log_receiver--reference--group-002.md#canonical-0001110103223111-1331200203113303-2333322331102123-3330222033232200-0002200002303333-2031300333230221-0120122223103023-1131311120220211) |
+| `http_receiver.auth_token` | [http_receiver.auth_token](data-sources--global_log_receiver--reference--group-002.md#canonical-2203000202112220-1133020201212101-0031233310023301-2031202223131123-2332210232322123-3320030020121211-2130301211222110-3102122202320212) |
+| `http_receiver.auth_token.token` | [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-002.md#canonical-0201021301103231-3001330030020313-0200101121102202-2030112032102122-2300331232201200-0312111003103310-3213211323101101-3130111001031131) |
+| `http_receiver.auth_token.token.blindfold_secret_info` | [http_receiver.auth_token.token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-1012012301303002-1302322301202121-1000012132031113-1231221233301310-3222313323223112-1321233122103202-1203112213203100-3001321101121302) |
+| `http_receiver.auth_token.token.blindfold_secret_info.decryption_provider` | [http_receiver.auth_token.token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-1301032122200101-0101220020222202-2232121022203212-3311133210010123-2120313220103032-1213302200032232-1210312301312232-1210012101211312) |
+| `http_receiver.auth_token.token.blindfold_secret_info.location` | [http_receiver.auth_token.token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-0233123013332313-1102331232332101-3020200233000213-1101102002232032-2223212020310313-0320013201212121-0333021302210103-2012201003310322) |
+| `http_receiver.auth_token.token.blindfold_secret_info.store_provider` | [http_receiver.auth_token.token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-2020001013201213-1131120222230121-3312010002321331-1123020000321320-1312131332321203-1021213222232011-0230100110301013-0220131132200121) |
+| `http_receiver.auth_token.token.clear_secret_info` | [http_receiver.auth_token.token.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1101010302032113-1203123130203303-3220122113321002-2113031301001331-0123112023310021-2331231311001010-2031002312030112-3203101331230122) |
+| `http_receiver.auth_token.token.clear_secret_info.provider_ref` | [http_receiver.auth_token.token.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-3133000002133303-2103223113130302-0111121112010311-0123131331213103-1223222001302020-1301132031013121-1210200123103121-0233222021201221) |
+| `http_receiver.auth_token.token.clear_secret_info.url` | [http_receiver.auth_token.token.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-3333011102322313-3302133232110023-3031310310133201-1212320332310130-2100131311010201-0013010331102123-2232212331112123-3233001303332101) |
+| `http_receiver.batch` | [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3033002330211213-2112021121332210-0032223330233100-0232112000221301-0101211123332200-2111212201311020-1130122003111211-1201230201202100) |
+| `http_receiver.batch.max_bytes` | [http_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-3120300312102212-2203000021131022-1120000010211023-1023012100011313-2230221201010213-0100320122111321-1010330211121020-0110200302030300) |
+| `http_receiver.batch.max_bytes_disabled` | [http_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0003000123021323-1203210121303101-1130112333130202-0212312121313220-0021001213033012-1131120323201311-2321202011321203-1323123301333111) |
+| `http_receiver.batch.max_events` | [http_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-2221101300030012-3321002023010312-1322213010011003-3200311300100302-0020200203301110-2101310002232013-3000102321031103-1130230131220102) |
+| `http_receiver.batch.max_events_disabled` | [http_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1013132311021110-2211212013131133-0022002233233033-2303313010110012-1212313033112133-3010012102112030-0123311220033203-1310230101230000) |
+| `http_receiver.batch.timeout_seconds` | [http_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-0102003133003300-1303311322102213-3212332232031303-0031013110013002-2213020320202111-1011213011001030-2100201113323131-0311032330122333) |
+| `http_receiver.batch.timeout_seconds_default` | [http_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-0032213100301021-1200320130203012-1221102031021231-3223030013123122-2101232113013112-2232003223310313-2222031210301032-3100011331102013) |
+| `http_receiver.compression` | [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1230110031111023-2110110002013300-2331231310011020-0030213032233130-0121121133031320-3301012011020222-1101230213201022-2332132321133123) |
+| `http_receiver.compression.compression_default` | [http_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-1100121131310320-3232022323322030-2230333220200230-1311012303002011-2101201211100131-3112213313232330-3100103301211101-1222303030122322) |
+| `http_receiver.compression.compression_gzip` | [http_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2301200110202101-2112323302023131-0323300123313122-2230102222020032-3232323112132210-0022330123000220-3331332103013230-3100030110131230) |
+| `http_receiver.compression.compression_none` | [http_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3321022233022230-1131021301100122-0322000321023003-2330000103121000-2203233233200210-1132221011232232-2113123112021132-2210033101323203) |
+| `http_receiver.no_tls` | [http_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-1311130223100102-1002321010003212-3312331023231130-3133110201012032-0132132030023130-0222030110203332-2001333212132132-3203001321102320) |
+| `http_receiver.uri` | [http_receiver.uri](data-sources--global_log_receiver--reference--group-002.md#canonical-2220110333311010-1121230323311311-3213322022222323-0120312332330312-3120302201133203-2131013211122023-2002130221002223-3122111322121030) |
+| `http_receiver.use_tls` | [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2222103220232031-2031032010121130-2211221233312033-0332301331300312-2120012113132301-1213303302130011-2202233100003010-2022303330332120) |
+| `http_receiver.use_tls.disable_verify_certificate` | [http_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-1012311323221212-1102020011022033-2323111232000032-1111101011332113-1331301002323202-0301331220010002-1003330322203033-1022303203233220) |
+| `http_receiver.use_tls.disable_verify_hostname` | [http_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-2300022131232303-0333023333023330-3301102313132320-3003310311323320-0320312230101203-2003111011031200-1012120022112223-2021122200120100) |
+| `http_receiver.use_tls.enable_verify_certificate` | [http_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-3232301210023212-0212212322110103-2200322003223232-1221013221010220-1121321120032311-2332122323030113-1331031302030120-2332110300022131) |
+| `http_receiver.use_tls.enable_verify_hostname` | [http_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-3320320313031323-0100101101321230-0313122233131211-3313212130113120-3001211033122312-2100120310000110-3303320002133330-0011231032020230) |
+| `http_receiver.use_tls.mtls_disabled` | [http_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0010222301110230-0311211203023000-3010201033013031-0331230300332203-1213100321300013-0020200332123210-2113021203110132-3302233303222012) |
+| `http_receiver.use_tls.mtls_enable` | [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-2113120302213213-1123011121122130-3212233323101200-3310302003320121-3223232330321201-0232202133330102-0021012322103320-2301311211223020) |
+| `http_receiver.use_tls.mtls_enable.certificate` | [http_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-3011232331102121-2330330322002033-2201333131022212-3123023222300013-3123221233010012-3301202013213232-3202322230223333-3213002333212222) |
+| `http_receiver.use_tls.mtls_enable.key_url` | [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1113302222312031-0310021301203101-2021332030311232-1232130111100222-0303001200231112-0303012311213320-3202212012111113-3200112103330102) |
+| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1313132100103300-2200020030302011-1223231310013233-0103203020020031-2003212223032200-3313032311120013-0321200000320303-1032002021021101) |
+| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-1321022223131123-1331320221102321-1122301032020222-3012132233001103-3132031312203023-1023303322300312-2300223303102230-0133331310112201) |
+| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-3003300203011300-3330100031310112-3123212021122332-3321031300113210-3031111322030303-0003300203233330-0133103031011231-2132201003100100) |
+| `http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-0021021202012031-2030011233031213-2020202332312033-2123101131202030-3130123233222133-2231320310030123-1132310301101033-2322001113221133) |
+| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-3213122221111213-0130101301002232-1023211111130201-2011230120121000-0013203010303301-0313131121311333-3133112230023002-1221331111133202) |
+| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-1012123123310222-3001133331320300-1001331222101302-1120312301001233-2212011231120332-3231312102211222-3023003001031130-0222320020333331) |
+| `http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-2021121112020000-3302012323231110-0002100122232233-1330322333103002-2323322132211202-2100123301003120-3012000313313032-3003000230002212) |
+| `http_receiver.use_tls.no_ca` | [http_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-1130022333100312-2220220200023033-2002231330211320-3113330221112013-3110303002101020-2210033032213230-3231301230010201-1311100130023201) |
+| `http_receiver.use_tls.trusted_ca_url` | [http_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-0302313312222112-0030303133011212-3021220013013321-3123013131232303-3211233023211032-2030212111022112-0133112030200120-0003100032123032) |
+| `id` | [id](data-sources--global_log_receiver--reference--group-001.md#canonical-2200111230003002-2201231231122133-1301001313221032-0012331210330233-1303000023223013-0223130312133233-0210312022013301-1120323033330321) |
+| `kafka_receiver` | [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2203013201303101-3030330033021301-1103130222112033-1122003330112030-1222132131131010-1103203132001032-2212100031032010-3020032111211321) |
+| `kafka_receiver.batch` | [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1103322123332110-2312301222223013-3030323302031000-3033210312300312-0200330221132131-3012110022100232-2021001131233012-0002011100001301) |
+| `kafka_receiver.batch.max_bytes` | [kafka_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-2012330020221010-1211133223123213-1200110031230300-2021131210323110-1032021203313023-1031201211223211-1111300301111030-3023013110313030) |
+| `kafka_receiver.batch.max_bytes_disabled` | [kafka_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3112302132301323-1021330023022202-0111232333331202-0300130322031002-1030022130133302-3033223132301201-2303113313220032-0203120131221221) |
+| `kafka_receiver.batch.max_events` | [kafka_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-3303232321010230-0212022230010300-0000203323230112-1330122203020013-1132300202120332-3312122123322020-0131132302123210-3310102022322131) |
+| `kafka_receiver.batch.max_events_disabled` | [kafka_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3330200310000303-2103100211320103-1010331303313002-2202100201230130-3211200203200012-0031302130330332-1301010332101201-3220103200030020) |
+| `kafka_receiver.batch.timeout_seconds` | [kafka_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-2311311020333333-0300321223100302-0023121312213012-1203021023302230-0030231012010132-0221311033221333-3333032311201332-3030000231333232) |
+| `kafka_receiver.batch.timeout_seconds_default` | [kafka_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3132213100123201-3103312231110023-1221200233103133-1222331202010101-1103021133320201-1300010213133301-0000212033130022-0032210302112303) |
+| `kafka_receiver.bootstrap_servers` | [kafka_receiver.bootstrap_servers](data-sources--global_log_receiver--reference--group-003.md#canonical-1332023031001203-2013031021030231-2333220022313323-3231313313301031-1130012101013112-0211011313200030-2223223120313020-1032231122221331) |
+| `kafka_receiver.compression` | [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-3122313310131001-0022220321013131-3310132233222032-2201132223011310-1233121232201212-1223222103112023-3302122222032323-1331330312133220) |
+| `kafka_receiver.compression.compression_default` | [kafka_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3020100312300133-1000020221310322-0333010222100321-1320231212103302-0101021311211113-1203021120112312-2322202303212202-0213010003200103) |
+| `kafka_receiver.compression.compression_gzip` | [kafka_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2011112302112310-3303121002333320-2220113131113232-3013210311202323-2210302001230003-0000022221121002-3120210123110001-2213000333120011) |
+| `kafka_receiver.compression.compression_none` | [kafka_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3201322230122102-2200203201202022-2001133323103333-0313122001013132-1313020333221231-1032123012310031-0211103130030101-2332311212020003) |
+| `kafka_receiver.kafka_topic` | [kafka_receiver.kafka_topic](data-sources--global_log_receiver--reference--group-003.md#canonical-2012333120313110-1131020310021033-0032333230112121-0300112112131013-0122211121323213-0033323201201223-2003132232121221-0222322101330123) |
+| `kafka_receiver.no_tls` | [kafka_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2331001030323113-1111330223311321-3200012112103010-3333010100231012-3233301323323300-3201212022021030-1030010322201101-0212123032221022) |
+| `kafka_receiver.use_tls` | [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3330132200100100-0020102213030203-2233233303310310-0302331011332221-2020111331103031-1012333222101213-0331200301100212-0232233220311331) |
+| `kafka_receiver.use_tls.disable_verify_certificate` | [kafka_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-1223201221313231-0031123331012030-1030320120200222-2220312320121030-2333303213300310-3201211320023330-2231232033010012-2202302021202300) |
+| `kafka_receiver.use_tls.disable_verify_hostname` | [kafka_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-1021002132200323-1222113013010021-0201231111300321-2000110302031311-2021130313333232-2220200301223021-0022310003211231-2320101022100033) |
+| `kafka_receiver.use_tls.enable_verify_certificate` | [kafka_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-1103211111121003-0132101102312313-3220310300312323-3012120102112300-2032301000302131-0230022213221213-3333130301313132-2103211130222302) |
+| `kafka_receiver.use_tls.enable_verify_hostname` | [kafka_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-3302011300132310-0001201322302032-0213032210102320-3212102222230210-3122233221232320-3033332223300020-2303331322332333-2201103203022210) |
+| `kafka_receiver.use_tls.mtls_disabled` | [kafka_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-2012100003222003-1233022313301120-1202032301021033-2131330033301310-2300200000211030-3202023103132133-2003201201123232-1212300302130113) |
+| `kafka_receiver.use_tls.mtls_enable` | [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1033200222323211-2320212012032013-3131002201001211-2013131003222232-1203022133203000-2021031231321210-2112122300322010-2202002121230202) |
+| `kafka_receiver.use_tls.mtls_enable.certificate` | [kafka_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-0122122313131013-1210211301200301-1211003300100120-0311211011232311-2203033120323220-0203201103000120-2132113123012311-0331233100002102) |
+| `kafka_receiver.use_tls.mtls_enable.key_url` | [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-3311122312201101-1321301021320310-3220323330121130-1201303312223123-3300312323213101-0103033331232022-1233001321313330-2231101120111233) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0011011202120123-0021102131000112-3210332212001312-1031121022013120-0312332002221022-0023130221310331-0002300203011102-3022013223202011) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-1222112120321313-2313031003233123-2300131113101213-1212022030112223-0023221110313133-3102301311112221-1221110010113320-1332302131101211) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-2210003301020133-0333331332133030-3031331300323302-1133230210022031-1121032202001020-1020123322020101-1302132031103333-2300321211133130) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-2303221022012133-0310013031323222-2312023323111101-3203131313123231-1333332000302110-2232012130030033-1220123123323230-0232121022031010) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-2201011011210212-0111313312010303-3300222233031030-2130331000323300-3033202002200033-1303022313230333-1120330003022233-2001311103233300) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-2121112010001300-2222021231100003-0132200232330133-1111121122100011-3300303310332212-2200332121003012-1312120020310230-2332012133031121) |
+| `kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-2030131233002212-2120212302120310-3323113020220031-2102233313023301-1120311233101131-3103123301010231-0323321323102022-3123211313311203) |
+| `kafka_receiver.use_tls.no_ca` | [kafka_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-2203302101301230-1301203331100223-1032001221101212-1103110311322233-3032330010321003-3030113030302222-2203130222002333-3121011132121102) |
+| `kafka_receiver.use_tls.trusted_ca_url` | [kafka_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-0231203313002022-1201122033032121-2323203200101030-0013002101233001-2233330320211102-2002300300301022-0230301231132210-1303300201021310) |
+| `labels` | [labels](data-sources--global_log_receiver--reference--group-001.md#canonical-2110212111112102-1220100112002313-3122230022332000-0313223100220331-1100133322321120-2321120232332320-2231113132032002-3123011133021003) |
+| `name` | [name](data-sources--global_log_receiver--reference--group-001.md#canonical-0000131312002213-1233112220201021-2002310231232330-2230202330211020-3222221223213313-3101121233223132-0110013201123103-3201000102330023) |
+| `namespace` | [namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-1011201023030032-2202132102310112-1121133112301202-1203123302021102-1330333111131013-0233010133013200-0020201331003133-3200230012123121) |
+| `new_relic_receiver` | [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-3132102203031223-0300022203231020-2033232013233211-3131300201011022-0210221130300123-2213111030003231-1002103002302030-1301031211011001) |
+| `new_relic_receiver.api_key` | [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-1300211121201200-2001033220100202-1220231130130320-0012300201031003-0332101013010033-0213323210133310-2311223210302030-2231013130131301) |
+| `new_relic_receiver.api_key.blindfold_secret_info` | [new_relic_receiver.api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1231103320103313-0102121031223030-2020310333300022-2323333332210101-0002332301310230-0123212010130013-1211123003310003-1132310233032003) |
+| `new_relic_receiver.api_key.blindfold_secret_info.decryption_provider` | [new_relic_receiver.api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-3132200230032303-0233301133220223-3032032223020331-2023113011302323-0012322003311013-2222230022123322-1101213120232013-1220321010031022) |
+| `new_relic_receiver.api_key.blindfold_secret_info.location` | [new_relic_receiver.api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-0023020303322230-0331201222021023-1130131230003033-3003300320320332-1302012331211332-1101001013122122-1303121302022012-2210332312003021) |
+| `new_relic_receiver.api_key.blindfold_secret_info.store_provider` | [new_relic_receiver.api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-2303332202301320-2010103010213131-1311021030310322-0302330302103011-0302313123130101-0112023013123310-3110122123330021-3211210013102210) |
+| `new_relic_receiver.api_key.clear_secret_info` | [new_relic_receiver.api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-2323323320223303-3313101021211333-2301212210131022-2201131020203033-3112310311333132-3213130123202303-2110301011331223-1312030212011001) |
+| `new_relic_receiver.api_key.clear_secret_info.provider_ref` | [new_relic_receiver.api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-0021210323230210-0122010012121103-2132130022322213-2231300003033233-0201110023113311-3123033000133323-2023013122330331-2232103200220021) |
+| `new_relic_receiver.api_key.clear_secret_info.url` | [new_relic_receiver.api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-1211122201032320-0213133231011120-3332212030010222-3030013103103303-0231033203102122-3231023133011302-3311231202321332-0333230323212212) |
+| `new_relic_receiver.eu` | [new_relic_receiver.eu](data-sources--global_log_receiver--reference--group-003.md#canonical-2221130203203000-3332120110030003-2022323311313023-0133113023001023-1211033233002101-3201012312233330-0301012221233111-1210121212320222) |
+| `new_relic_receiver.us` | [new_relic_receiver.us](data-sources--global_log_receiver--reference--group-003.md#canonical-3302121330210213-0222031021210020-0021100300123132-2333202101020311-2103330133110230-2021332010033231-2132332113232213-2200020021210010) |
+| `ns_all` | [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-1030120112010331-2230012313100203-3132133213000333-1232233330012101-3233322300200100-0011332212003301-2110203211000302-1101000123003013) |
+| `ns_current` | [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-2200320110300010-3121021332001011-2113033313031130-3212321003321130-2223103133200223-0313021133310311-2200213300131303-3022101333300002) |
+| `ns_list` | [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3011000200300333-3300013030233023-1333110132103131-0000012030212002-1311112102002200-3110313322002301-2002302330131301-1220022231112010) |
+| `ns_list.namespaces` | [ns_list.namespaces](data-sources--global_log_receiver--reference--group-003.md#canonical-2313233010230233-3102101333201310-0211211210103002-2031201102321311-2323001203320232-0300122212203320-2222220003322323-3130132302111012) |
+| `qradar_receiver` | [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310) |
+| `qradar_receiver.batch` | [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-0120311201302311-3111210120211230-2122322000322312-3121321102322130-0201003100023323-1031310221123110-1113000112023303-1112322133203001) |
+| `qradar_receiver.batch.max_bytes` | [qradar_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-3320011112101313-0001012302000200-2131121221330311-1333213212103130-1301023010220101-0001212321120222-3020201322000230-0213003113230003) |
+| `qradar_receiver.batch.max_bytes_disabled` | [qradar_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3202322303333020-3303230033331023-1201223030333100-3012213120120320-2200000201122112-1032223133233331-0123331313110312-0010320310011321) |
+| `qradar_receiver.batch.max_events` | [qradar_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-0113221213010220-3233322030121102-1210122003310100-1231231221201231-0003210210030030-2313311101322011-3221211230120202-1113020023013122) |
+| `qradar_receiver.batch.max_events_disabled` | [qradar_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3101000111023132-2300323013100103-2131022300011113-2032323020123303-1100332032023321-1103303321201100-3112200011110133-0300302313213231) |
+| `qradar_receiver.batch.timeout_seconds` | [qradar_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-1101001232300231-3202223232301000-2322123000330201-0333302321032133-1010322103121022-2021031201332232-2322210001131320-2100321320111120) |
+| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-2013111300311330-1132223122303330-3211202100302101-3302133113020101-2220213212112020-2223201233000102-3320020330002220-0101103133132313) |
+| `qradar_receiver.compression` | [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0303032320311320-0122021323231033-0230220210031231-1100133131230133-2332121013033202-2023113010300300-0000121330111301-0032023111332002) |
+| `qradar_receiver.compression.compression_default` | [qradar_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-1033113110202130-1121122202002322-3010013321332001-1323131133032231-3312203100210202-2113303332112311-1102322112221223-0001213121222003) |
+| `qradar_receiver.compression.compression_gzip` | [qradar_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-3233321202021213-1230302303101303-1311033122322023-0111302223230222-3033131101333112-0023100202311013-3031312221330122-0003132100302210) |
+| `qradar_receiver.compression.compression_none` | [qradar_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-1030203010111302-0132031201202133-2130302302311311-1023013202200013-2031312021213332-3023310332121022-1201022101003101-3112332223303023) |
+| `qradar_receiver.no_tls` | [qradar_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-1311221010330131-0100030122201013-0123222200333120-2221022230023332-0133123010211132-0300332331311303-2303010213100302-1300031202112222) |
+| `qradar_receiver.uri` | [qradar_receiver.uri](data-sources--global_log_receiver--reference--group-003.md#canonical-1312101322230223-1133303032220313-2202202302223232-2100022232122321-2210100103132030-3120331221320220-2000210101030023-0023130122110010) |
+| `qradar_receiver.use_tls` | [qradar_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2230220303112210-1332303332023323-0303300310322223-1021010001233001-2201000221131021-3113101123232032-1210221030233301-0323022013221302) |
+| `qradar_receiver.use_tls.disable_verify_certificate` | [qradar_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-1010110110313311-3022111300213103-2021321201103031-0010220303330001-3120330212103221-3311222332331301-2313001223210133-3102112211323120) |
+| `qradar_receiver.use_tls.disable_verify_hostname` | [qradar_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-0033032130120233-2223021003101311-3101310203222221-2100201013200230-2312010311131120-1121120223111102-1210313300121101-0222021301301201) |
+| `qradar_receiver.use_tls.enable_verify_certificate` | [qradar_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-3103312302111301-1231132032330333-3021000133010132-1332232332313323-1211033212323012-0210102013132320-3201021000322220-3212331133103003) |
+| `qradar_receiver.use_tls.enable_verify_hostname` | [qradar_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-2332003033202112-1303203011320320-2331011201020301-0322103001220033-0302010232213302-1223032102123333-0003313100001303-2303001121133003) |
+| `qradar_receiver.use_tls.mtls_disabled` | [qradar_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-1031002111110322-0020113230113332-0323211303022220-0203030213301032-0003032131113013-0300110032210130-2320310122133121-1223213301132030) |
+| `qradar_receiver.use_tls.mtls_enable` | [qradar_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-004.md#canonical-1102000323013231-3011332031221221-3223322211322130-3133331323223121-3232303103233103-0331221222131112-1223101302213111-3221301213001220) |
+| `qradar_receiver.use_tls.mtls_enable.certificate` | [qradar_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-1023232113213120-0000322100312001-2123103300323311-1302120103233201-0201210131220111-2232202012112303-2122203032030310-1003310133231322) |
+| `qradar_receiver.use_tls.mtls_enable.key_url` | [qradar_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-004.md#canonical-3013222211230321-0300321101212300-0131201130103201-0110310111322300-1322020301322001-0002300130110132-1012112222220011-1002132110023013) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-0033312112311302-2211223000112211-3020201001322220-0313222322010323-2310213203232110-0301332033031013-0211220200102303-0310133302001210) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-0322330321221331-1013132123001032-2101210332311030-0013320031333000-2032313230201312-0030310231233321-1331013030230103-3302233212110333) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-3221232030221232-3013021202033023-2322132321313123-2200002001232131-0301103100332021-3022330111022110-0100131320022201-0002231122112022) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-1202122332200302-2222131032210313-1003230301231330-0123303132113322-2122113331120122-2311012020003120-2221001130132223-3032000321201012) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-2201210312331202-0101132022131022-2222010023212102-2023013013203102-3312023322011122-3033102011133110-2031032213123303-3132011310320302) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-0133230231030101-2220032310201011-3301300030132332-3121222122111013-2002203001121223-0100022131033210-1112000031321221-1230202330333311) |
+| `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-3133211121033330-0233013321011211-0020022001231222-3330023303233130-0322030301001130-2223303333312030-1110033220130211-2000002233032102) |
+| `qradar_receiver.use_tls.no_ca` | [qradar_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-2022312312103013-1230211221100032-2332102120220202-2023002223022230-3202111112303012-1120332111111212-0022023231311011-0001333322320123) |
+| `qradar_receiver.use_tls.trusted_ca_url` | [qradar_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-3323001230003112-2032112220213030-2223112202201301-2022033202030013-3103202312020201-0202121133200210-1023023220031012-3100220201130302) |
+| `request_logs` | [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1032022001202310-0203211112112032-3223133020101320-1122331023331223-0011221222002323-0101233233111212-1002013321121320-1323300223110231) |
+| `request_logs.sampled` | [request_logs.sampled](data-sources--global_log_receiver--reference--group-004.md#canonical-0213000030003023-1302322002320330-1101232212233301-1333011030312222-0232332313312220-3002233121133303-1131323201303233-0201300101121120) |
+| `request_logs.unsampled` | [request_logs.unsampled](data-sources--global_log_receiver--reference--group-004.md#canonical-2302132121301121-0112133011310222-1221312213031332-3202011003220203-1221000010321133-3012123231311323-1213012233300221-1012211031332330) |
+| `s3_receiver` | [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3212111221313232-1220032220002121-1013323021001210-2102032312000332-1100102021232231-2013023201232020-2333203332302002-2022012110300003) |
+| `s3_receiver.aws_cred` | [s3_receiver.aws_cred](data-sources--global_log_receiver--reference--group-004.md#canonical-3202012023230310-1232321333123111-2110301020021221-1222030102300112-1022302333122211-0002023120303122-3310223101003302-1232311223201111) |
+| `s3_receiver.aws_cred.name` | [s3_receiver.aws_cred.name](data-sources--global_log_receiver--reference--group-004.md#canonical-0322202223031112-3032032230302130-2330322222210210-2212330001231202-0213232332031201-0130003313021110-1121222111233103-0212002031023222) |
+| `s3_receiver.aws_cred.namespace` | [s3_receiver.aws_cred.namespace](data-sources--global_log_receiver--reference--group-004.md#canonical-1300113000103321-2023233201122030-3113320102221202-2113021312022100-2011012330213333-3132130100213212-2010022121233111-2321133221202022) |
+| `s3_receiver.aws_cred.tenant` | [s3_receiver.aws_cred.tenant](data-sources--global_log_receiver--reference--group-004.md#canonical-1313220200133133-0303012021322010-2322333212132001-0113210103003000-0102000301112103-3231322330303333-2231133012130130-0103231211302020) |
+| `s3_receiver.aws_region` | [s3_receiver.aws_region](data-sources--global_log_receiver--reference--group-004.md#canonical-3130112022220123-0322010213101030-2030001220321011-3222113132131011-3021021310310021-2112332203022012-2013312231100122-0030030133210210) |
+| `s3_receiver.batch` | [s3_receiver.batch](data-sources--global_log_receiver--reference--group-004.md#canonical-3020230212103033-2133200232032131-3030102231220220-0212110022322010-1113213223103133-1201013033203131-3323110321302031-2023031103332131) |
+| `s3_receiver.batch.max_bytes` | [s3_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-004.md#canonical-1232003320120121-1030132103012101-3300312103030100-3012333211001311-1020133010333002-2030223013330000-3302300302123300-1231222033030221) |
+| `s3_receiver.batch.max_bytes_disabled` | [s3_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-1031312331231133-2030212110221311-2021111101203223-2110103313222202-0013031132001221-1011313230222130-1223031002230130-2312311031102020) |
+| `s3_receiver.batch.max_events` | [s3_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-004.md#canonical-1221000313212123-3110311020011320-1131332220203311-0011331333033001-1102111323231121-0112300121002313-1121202210323000-1222032103221003) |
+| `s3_receiver.batch.max_events_disabled` | [s3_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-3123332003223121-2213310010110002-1023023102211100-2232123322210112-2133113023311001-2021021032101303-0001130231320313-1213021231002320) |
+| `s3_receiver.batch.timeout_seconds` | [s3_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-004.md#canonical-1200121311230210-3122321333020103-0120222203010002-3232310321210101-0120232232013331-1121233123022031-1013302232323233-3231203010011013) |
+| `s3_receiver.batch.timeout_seconds_default` | [s3_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-004.md#canonical-1223311312003032-2320022133231021-1221010003222300-1223300001213203-3311231021211012-0232320301211112-0310102303102010-3220030131330313) |
+| `s3_receiver.bucket` | [s3_receiver.bucket](data-sources--global_log_receiver--reference--group-004.md#canonical-0010213232000030-1120300322233310-2021103020303311-3220221331323312-0210232131011112-3122323121311010-1032300103222012-2032010201003301) |
+| `s3_receiver.compression` | [s3_receiver.compression](data-sources--global_log_receiver--reference--group-004.md#canonical-3001333213310201-2102302233230011-3032230023101000-3232110002022301-1102001231322133-2030103332321002-3002320222013201-0312013121300213) |
+| `s3_receiver.compression.compression_default` | [s3_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-004.md#canonical-2101011132302010-1030032330223332-2331120003000330-0021322010212233-2103201031201120-1030331312213122-1321222100100313-2202013222120010) |
+| `s3_receiver.compression.compression_gzip` | [s3_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-004.md#canonical-1220000312113133-2210122210013121-3002312323100031-2332022331021101-1020122102103021-0322231130303011-2012323132101103-0020110213121231) |
+| `s3_receiver.compression.compression_none` | [s3_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-004.md#canonical-0222021302001020-1002323122223230-2121022131132310-2000023221200211-1311330112010322-3011000012030021-3011202100113013-0200222130110312) |
+| `s3_receiver.filename_options` | [s3_receiver.filename_options](data-sources--global_log_receiver--reference--group-004.md#canonical-1032230031213311-2300200122322002-0302230112310111-2120100032200020-2301110213210003-2021332303201111-1322333322030322-3113032031023012) |
+| `s3_receiver.filename_options.custom_folder` | [s3_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-3230322132020033-0122030010132232-1220200103000203-3133103023310103-0333033321222301-3212011323001322-3230000102021202-0103220122222322) |
+| `s3_receiver.filename_options.log_type_folder` | [s3_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-2322233312020231-2000120120233333-3113002301321110-0000132302223232-3132211033310322-3232132330332321-2202312231021022-3322112001213221) |
+| `s3_receiver.filename_options.no_folder` | [s3_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-004.md#canonical-3211122120332313-3121320303230030-0222131322213202-2002322003202101-3222031120323101-1030111030312000-2110032103222302-1132220333031010) |
+| `security_events` | [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-2121201001133031-1031120231001131-1132311112122102-3321300232323210-0223013202122312-3113023102021320-3231333333203113-1212202033021010) |
+| `splunk_receiver` | [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2130322203222220-0110323213010302-1233212331033202-0013332333331213-2311200220221030-0313332130213320-3232333202032213-1331302023310301) |
+| `splunk_receiver.batch` | [splunk_receiver.batch](data-sources--global_log_receiver--reference--group-004.md#canonical-0310220231331303-0331002120123031-0301111231212212-1023313103123122-0000330132030210-3020131210312123-1200013032123101-0001321123123300) |
+| `splunk_receiver.batch.max_bytes` | [splunk_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-004.md#canonical-1313123330123213-0003011032101233-3100023111111030-1132130103203023-0023311121132023-0211032310032013-2223222211222223-0103022301200332) |
+| `splunk_receiver.batch.max_bytes_disabled` | [splunk_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-1232023303133101-3020111132101123-0102313223233313-2300012130123310-2122102302312132-2312110110030130-0023122000311322-2103232313120211) |
+| `splunk_receiver.batch.max_events` | [splunk_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-004.md#canonical-0332001220230311-1010200201130011-2030132303020020-3211320112201213-1023222330200313-2110312100010333-2322322023310323-2132301201311211) |
+| `splunk_receiver.batch.max_events_disabled` | [splunk_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-1311200213112200-3231012032111330-2021101211203231-1033333300110112-0230312323032022-1223132213220201-3133212203021103-0200330313121323) |
+| `splunk_receiver.batch.timeout_seconds` | [splunk_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-004.md#canonical-0210302133331323-2002310321031133-2310301132233113-2223020302300102-2000213122103310-1100222200330101-3210300131221100-3123021020202220) |
+| `splunk_receiver.batch.timeout_seconds_default` | [splunk_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-004.md#canonical-0102310221311100-3321300201103310-1120201321320102-2200031123021023-2313311331312130-2013200120021233-0020310121011101-3213322313303103) |
+| `splunk_receiver.compression` | [splunk_receiver.compression](data-sources--global_log_receiver--reference--group-004.md#canonical-1132323220133001-0201123332100322-1033310330132112-3213213013322122-0300012121231123-3020321013321232-3323213333203302-1030032221133032) |
+| `splunk_receiver.compression.compression_default` | [splunk_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-004.md#canonical-3311331031122302-0212312022022233-0312032020232210-2132203310211031-0103311001021322-1002222320000023-3211103312123213-0221312003323302) |
+| `splunk_receiver.compression.compression_gzip` | [splunk_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-004.md#canonical-2132130303021302-2101200321303130-0221321111211022-2233003020031223-3323311320110311-1021220110220012-1303032031122203-3211100221123100) |
+| `splunk_receiver.compression.compression_none` | [splunk_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-004.md#canonical-2221100001033010-3102322311003213-2110202223011002-3112322101332001-0301201130313111-1322300310132002-2120010331112000-2012303132000132) |
+| `splunk_receiver.endpoint` | [splunk_receiver.endpoint](data-sources--global_log_receiver--reference--group-004.md#canonical-0122310212212110-3112223030311123-2232032230233300-3030032021332100-0032011231230113-2103000003021332-0101003333210312-0013311330230221) |
+| `splunk_receiver.no_tls` | [splunk_receiver.no_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-1323320233332023-2333133131013212-0300231313001332-3002202330132300-0231200131032222-3223322211102210-2011000310220322-1312000232220302) |
+| `splunk_receiver.splunk_hec_token` | [splunk_receiver.splunk_hec_token](data-sources--global_log_receiver--reference--group-004.md#canonical-0010103202313023-3011132320331202-0102212312100212-3001200030210211-2311320200030020-3322033230203133-3023103200120212-2003331010321021) |
+| `splunk_receiver.splunk_hec_token.blindfold_secret_info` | [splunk_receiver.splunk_hec_token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-3132210202011312-0201101331120113-1222232030200210-1230121333300323-1230101102232033-0020302320112213-2303000333023102-3032303211133120) |
+| `splunk_receiver.splunk_hec_token.blindfold_secret_info.decryption_provider` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-2303101132032203-0211112123202323-3211110030200203-0131223211012130-1110332210123011-2332310301332103-0210313012320213-1111132032323103) |
+| `splunk_receiver.splunk_hec_token.blindfold_secret_info.location` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-0103031121311131-3323313022123223-3203111111300213-2300231302300202-0232120303332032-1101033203231301-1103202232102110-3013020000113203) |
+| `splunk_receiver.splunk_hec_token.blindfold_secret_info.store_provider` | [splunk_receiver.splunk_hec_token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-1311131020313032-1133313011023101-3023031222233011-0100300020213101-1311132232113303-2121100212213012-1122100101202033-3133123220013330) |
+| `splunk_receiver.splunk_hec_token.clear_secret_info` | [splunk_receiver.splunk_hec_token.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-0200023233103100-3011023230000130-0100301222313331-3121101032301320-0231302002301322-3101002221230110-1032013322310103-2122320232021113) |
+| `splunk_receiver.splunk_hec_token.clear_secret_info.provider_ref` | [splunk_receiver.splunk_hec_token.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-1333313132331203-1003130333221001-3222233022303012-3223123031320111-2321100003122123-1122303121202133-0033232202131203-2101121321213203) |
+| `splunk_receiver.splunk_hec_token.clear_secret_info.url` | [splunk_receiver.splunk_hec_token.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-0231130312323030-1130312230200320-2320111130021202-2131123210301103-1320111220031212-0201110010111301-2122203012333333-3321312303021333) |
+| `splunk_receiver.use_tls` | [splunk_receiver.use_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-1031212113011132-2011333230211332-2123311222333320-3331202123213021-1113210222203122-3231203212213130-1301320311201323-1313312332103102) |
+| `splunk_receiver.use_tls.disable_verify_certificate` | [splunk_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-2223231332002313-0032022223310312-1231223133230100-2123121200320213-3033232222021103-2322032320322231-1123100133131031-3003321022111031) |
+| `splunk_receiver.use_tls.disable_verify_hostname` | [splunk_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-2220022321101202-3023033101013113-3113332220001112-2111312011023122-2301330200013003-3113232311121320-3130132320023333-2002100320323032) |
+| `splunk_receiver.use_tls.enable_verify_certificate` | [splunk_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-0230322230221202-2020112013000230-3123100122122031-1133022021313122-2031120331313201-1320223023301333-1021003222302010-2012313213103321) |
+| `splunk_receiver.use_tls.enable_verify_hostname` | [splunk_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-2310123001312230-0021301000230220-1033231002320021-2222230121103303-0033022312001232-2131331000033020-3300210221033122-2323000113022022) |
+| `splunk_receiver.use_tls.mtls_disabled` | [splunk_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-3012003232022201-3102013121131022-0232111011323021-2000213212120120-3133132033333333-0323100303331113-1110320011033330-1103000320110013) |
+| `splunk_receiver.use_tls.mtls_enable` | [splunk_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-004.md#canonical-2010302101030012-1210121202101231-1111311133202220-2021132103100332-3012001222103222-1023303233013021-2101111032233310-0101130022223233) |
+| `splunk_receiver.use_tls.mtls_enable.certificate` | [splunk_receiver.use_tls.mtls_enable.certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-0120010122112010-0002132022130120-2032300031113301-3100221130213203-2120213321103212-0323302233311113-3330022223033103-2032233232232220) |
+| `splunk_receiver.use_tls.mtls_enable.key_url` | [splunk_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-004.md#canonical-3113201231201020-0013002203113121-0333123202230231-3113112321232032-1132112323111003-1211202112312232-3121010132010333-3012103323301131) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-2120321122323330-0221123321123322-0012200100202233-0213210301302221-0120131120112130-0133201332300111-2003321133012323-3233130130300122) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-3102322113210211-3303301020102000-0201200131101202-1120120113220313-1032223012312300-3130033323031032-2321220201232212-0110200311032301) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-0322110130022031-1030130230320232-2101300030000133-1323310321002003-2233010231323330-3003321030223122-1230303112011132-0003030330130130) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider` | [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-1321131122030021-0010103220020013-0003002011330200-2320030102300313-3002321222230111-1333001301231323-1323130202223303-0011323200102022) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-3232103321112020-0023111312201010-0222130313012211-2213300313122012-0100033123321213-0233220100131002-3321211203112113-0003320232222233) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-0301133101332311-1330020030200330-2300331102002000-1021120321000120-1001022003301003-1330300323101302-2121313320110321-3121220131213222) |
+| `splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-3012023233110300-2100323311133121-2320013322321211-0321233302300023-3323203232303231-1103221001020023-2200121332021022-2233331333210333) |
+| `splunk_receiver.use_tls.no_ca` | [splunk_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-0121120030121223-3311221203133322-0331001300031213-2123200101302232-2330321212013011-1212222223213010-0333131113101330-2311122221133123) |
+| `splunk_receiver.use_tls.trusted_ca_url` | [splunk_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-004.md#canonical-1033200111011313-3230202023223222-2101030323123302-1003323303012031-2123100222300223-0111100333233002-2231311332002310-0220231120112202) |
+| `sumo_logic_receiver` | [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2111201203021003-1010212310123022-2023221323331032-2212330321202303-1123222120131130-2113333103311120-3110301220010121-0200302122002201) |
+| `sumo_logic_receiver.url` | [sumo_logic_receiver.url](data-sources--global_log_receiver--reference--group-004.md#canonical-3031113231133321-2013020123113033-3211311322001231-0323202201000203-0230303230001011-1131213213200200-0200233011132202-2110303323102013) |
+| `sumo_logic_receiver.url.blindfold_secret_info` | [sumo_logic_receiver.url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-2323021002101033-1133310322210301-3120301223233331-3200112230302133-2031000301200123-0302300201133113-1211233300003302-2312300100313001) |
+| `sumo_logic_receiver.url.blindfold_secret_info.decryption_provider` | [sumo_logic_receiver.url.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-1121232332123313-0120222303303113-2311222222302330-2122130020010333-1302110313023030-2122021101322213-3103010122102113-0110210101310032) |
+| `sumo_logic_receiver.url.blindfold_secret_info.location` | [sumo_logic_receiver.url.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-2300330231310021-1302012222330123-1310131131321132-2111021102122021-0020030123013003-1133032123120100-0102301331101023-1112121223002011) |
+| `sumo_logic_receiver.url.blindfold_secret_info.store_provider` | [sumo_logic_receiver.url.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-0301223313113202-1011312230223030-2022203332200310-1023102133313112-1120213221223033-2202331111013232-3322221021130132-3013323030231013) |
+| `sumo_logic_receiver.url.clear_secret_info` | [sumo_logic_receiver.url.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-0021203223313310-2211132223321003-3203301313223033-2031021001330323-0123202023020213-0021323022133130-1023113021001123-1313121020213002) |
+| `sumo_logic_receiver.url.clear_secret_info.provider_ref` | [sumo_logic_receiver.url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-1303300110310232-2312131212230133-3211332002003123-1012111001131130-3201302200320122-3231113033320302-0320333210202031-3311112222222012) |
+| `sumo_logic_receiver.url.clear_secret_info.url` | [sumo_logic_receiver.url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-1213131123010212-2301033211021332-0222321211113120-0202330202030231-0320200010301032-1102121133202132-2110231032122033-1320213100220203) |
 
-<a id="canonical-926ad7e40a48f27ac3967b91dd34d2894cc075c6f54e115ec783626f6625ed52"></a>
+<a id="canonical-2102122231133210-0022102033021322-3003211213232101-3131031031022021-1030300013113012-3311103201011132-3013200312021233-1212021132311102"></a>
 
-## Next pages — Property reference / ee2aefa3af0a / 11
+## Next pages — Property reference / 220322330022 / 11
 
-- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-df9883b23b9a3363e082d3c4b3d4c306c14b6778efb738cf51239d9fa1e7fbfb)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6)
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-7241d05aab97e71040e3653bc7552f4bc7ac3ac847d65183ed5db6d89ed82052)
-- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-b7191829d34da96f0435f5aec41d4e561e626957b75cdf343f72630ff0e93240)
-- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-58684b364e0b8e5011351cd9b3602148b448064d1831c1a27d06df7e605452b2)
-- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-c2515e68697d658421a149636ad34121ab8c5447b571ca1fa29e974052ad74a8)
-- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-b2ba99714bf357739d2e73a2af07b4be508bfcec644db2fba3f3e59a26fa81bd)
-- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-6a8ca15a6755e8c761d98fa0efc7d887c67f7c2cf83ede5ae159146cee36621c)
-- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-eac6c2cc015966b8d0a1b560e162a5757c3992ef61ab6e3555f7a8641fdb1d88)
-- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-e7d88a8682a21bc20dc8d78ab563c10f0d3a2ee20a4b1399394c1bda0161b874)
-- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-f360f7b122a79b7d1c6f6f9d22020aaec9eb1157401d37099f911acc32f3529a)
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-b92792beb6b0768e505b489f160b029bb8d833695a382acbf5b46a70680d13a3)
-- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-78587f316fc037494d3bdda63e54544614ce095432c2e1335fabfd6ee00f891b)
-- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-dae6dd6655685b107ef32055106d09b7b4dab7071a9959807699fd7c97a324e2)
-- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-4234f3746f0500e78349b4be62bcfa5b49542d6219128d146579072b81afbd0b)
-- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-6ed29c2aa1b2f50992c155d7c0c80fc7a5bf1c207674965cc79d023a9e7e0070)
-- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-60223cb26da3c4491af2cd9271ba7071122485608016a658e918ce37e12dc0c1)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-3133212020032302-0323212203031203-3200200231033010-2303311030030012-3001102312131320-3233231303203033-1101020321312133-2201321333233323)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102)
+- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-2313012101200221-3103103122211233-0010031133112232-3010013110321112-0132120212211113-2313113031330310-0333130212030033-3300322103021000)
+- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1120122010230312-1032002320321100-0101031101303121-2303120002011020-2310102000121031-0120030130012202-1331001231331332-1200111011022302)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020)
+- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310)
+- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1320112013330301-1233300003131021-1031032331312212-0332111011101012-0110303200211110-0302300232010303-1133222333311232-3200003320210123)
+- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3122321231311212-1111122011230100-1332330302001111-0100123100212313-2310312223130013-0122212111212000-1312212133311330-2113220302103202)
+- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-1002031033031310-1233001100003213-2003102123102332-1202233033221123-1021111002311202-0121010220310110-1211132100130223-2001223323310023)
+- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1232310221300222-2201230233110021-2102300111113113-3000302000333013-2211233301300200-1312131021121130-3013213100020322-2132133200001300)
+- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1200020203302302-1231220330101021-0122330230312102-1301232213001301-0102021020111200-2000011222121120-3221012030320313-3201023130003001)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-df9883b23b9a3363e082d3c4b3d4c306c14b6778efb738cf51239d9fa1e7fbfb"></a>
+<a id="canonical-3133212020032302-0323212203031203-3200200231033010-2303311030030012-3001102312131320-3233231303203033-1101020321312133-2201321333233323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b91213571fe0930011290404ced9481f29605df28e796b511571773756243e30"></a>
+<a id="canonical-2321010201031113-0133320021030000-0101022100100010-3032312110200133-0221120011313302-2032132112231101-0111130113130313-1112021003320300"></a>
 
-## audit_logs — audit_logs / 1ff9661b7242 / 2
+## audit_logs — audit_logs / 012313021002 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
 - audit_logs
 
-<a id="canonical-9fa6306bdbb6069dd4b9aa668f4e2c661e6f3e04d5ff23da549dd8b195a9df42"></a>
+<a id="canonical-2133221203001223-3123231200122131-3110232122221212-2033103202301212-0132123303320010-3111333302033122-1110213131202301-2111222131331002"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -714,47 +714,47 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-9fa6306bdbb6069dd4b9aa668f4e2c661e6f3e04d5ff23da549dd8b195a9df42)
-- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-3c0cf4cfae7a37e36a098964bdb7ac68726ba850bef0307a663b00b39428e737)
-- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-4e2818b42395658eeb7c84785af4bf6b05a6a0bb11bef566421f96787bc2b52d)
-- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-998417cd4d62d05d5ed56692f9c2eee42b1e26b6d72d2278edfff8d76688f244)
+- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-2133221203001223-3123231200122131-3110232122221212-2033103202301212-0132123303320010-3111333302033122-1110213131202301-2111222131331002)
+- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-0330003033103033-2232132203133203-1222002120211210-2331231322301220-1302122322201100-2332330003001322-1212032300002303-2110022032130313)
+- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1032022001202310-0203211112112032-3223133020101320-1122331023331223-0011221222002323-0101233233111212-1002013321121320-1323300223110231)
+- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-2121201001133031-1031120231001131-1132311112122102-3321300232323210-0223013202122312-3113023102021320-3231333333203113-1212202033021010)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-e59955a4e8d76e35f6f3b11e3d536dafb7532fa515f777f17d0fa23fda7e3f19"></a>
+<a id="canonical-3211212111112210-3220311312320311-3312330323010132-0331110312312233-2313110302332211-0111331313133301-1331003322020333-3122133203330121"></a>
 
-## Direct properties — audit_logs / 1ff9661b7242 / 3
+## Direct properties — audit_logs / 012313021002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7fa7d0377e210144d07caa29ab8d8e002f94a7853521b8bef986e7196da2dcdf"></a>
+<a id="canonical-1333221331000313-1332020100011010-3100133022220221-2223203120320000-0233211022132011-0311020123202332-3321201232130121-1231220231303133"></a>
 
-## Next pages — audit_logs / 1ff9661b7242 / 4
+## Next pages — audit_logs / 012313021002 / 4
 
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e"></a>
+<a id="canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-42bc14b08338c78ae291b1d2951c260f19ae9167680849c4f8eccbcafaf053e9"></a>
+<a id="canonical-1002233001102300-2003032030132022-3202210123013102-2111013002120033-0121223221011213-1220002010213010-3320323030233022-3322330011033221"></a>
 
-## aws_cloud_watch_receiver — aws_cloud_watch_receiver / bc4d2b2f0c3c / 2
+## aws_cloud_watch_receiver — aws_cloud_watch_receiver / 023300300330 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
 - aws_cloud_watch_receiver
 
-<a id="canonical-fd5167464041e5466356ca926c5af5970183f82d36c7bb3345d6187ab1da0f97"></a>
+<a id="canonical-3331110112131012-1000100132111012-1203111230222102-1230112233112113-0001200333200231-0312301323230303-1011311201201322-2301312200332113"></a>
 
 Type: `"single"`. Computed.
 
-\[OneOf: aws\_cloud\_watch\_receiver, azure\_event\_hubs\_receiver, azure\_receiver,
+\[OneOf: aws\_cloud\_watch\_receiver, Azure\_event\_hubs\_receiver, Azure\_receiver,
 datadog\_receiver, gcp\_bucket\_receiver, http\_receiver, kafka\_receiver, new\_relic\_receiver,
 qradar\_receiver, s3\_receiver, splunk\_receiver, sumo\_logic\_receiver\] AWS Cloudwatch Logs
 Configuration for Global Log Receiver.
@@ -778,32 +778,32 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-fd5167464041e5466356ca926c5af5970183f82d36c7bb3345d6187ab1da0f97)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-5f8d310c2746fa4c17c4a70016a2a5fe97191aed64d1cd597a98b1a3d89f2fee)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-33d0516820774d65b0cb95a87591491c90c8a78ee4996ddde7ec41aba356117d)
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-4c6892ae68db2e1b186f351c385d1019fefce792671cb3df607e0554ec2ddc23)
-- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1128734e088b037c58c9603f737bff23c86df51c827cfc4f1932c9f3cf5ed364)
-- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1128fb5d3d174ae457010bed22d2085ce139b22d5a8cc9a82b46392b50accfab)
-- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-a31e1cd1ccf0f2715372a58f5a0fc58c6a79d744538de04ea640d384c8395979)
-- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-de4a336b302a3b488fb87be5ddc2114a24a5cc1ba754c0ed424c2c8c71365141)
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-63e1be9603a2f1112924bcec75ff8b9f9b9b2825fccf9f55c0d1c4a43b8caf74)
-- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-e6569dee683a809947ec9064923b603e50489bad872e1b88bf8fec828a194c03)
-- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-9cea3aa814ee71326f9bd3e207fbff67b5828a4c37f9c9f8eefe23a77dc8bd31)
-- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-95863243449b46ca8ba7bf4ea6f398b35ba9875c97fd3d58d4c6811920c9a0a1)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-3331110112131012-1000100132111012-1203111230222102-1230112233112113-0001200333200231-0312301323230303-1011311201201322-2301312200332113)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1133203103010030-0213101233221030-0113301022130000-0112220222113332-2113012101223231-1210310130311121-1322212023012203-3120213302333232)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0303310011011220-0200131310311211-2300302321112220-1311210110210130-2100302022132032-3210212112313131-3213323010012223-2203111201011331)
+- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203)
+- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022013031032-0020202300031330-1120302112000333-1303132333330203-3020123133110130-2002133033301033-0121030230213303-3033113231031210)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022033231131-0331011310223210-1113000100233231-0202310200201130-3201032123020231-1122203030212220-0223101203210223-1100223030332223)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2203013201303101-3030330033021301-1103130222112033-1122003330112030-1222132131131010-1103203132001032-2212100031032010-3020032111211321)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-3132102203031223-0300022203231020-2033232013233211-3131300201011022-0210221130300123-2213111030003231-1002103002302030-1301031211011001)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310)
+- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3212111221313232-1220032220002121-1013323021001210-2102032312000332-1100102021232231-2013023201232020-2333203332302002-2022012110300003)
+- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2130322203222220-0110323213010302-1233212331033202-0013332333331213-2311200220221030-0313332130213320-3232333202032213-1331302023310301)
+- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2111201203021003-1010212310123022-2023221323331032-2212330321202303-1123222120131130-2113333103311120-3110301220010121-0200302122002201)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-69a94f1155200e6214c1eabbb0ad82ba2d2cfa8868038b7835847696d5965d0e"></a>
+<a id="canonical-1221222110330101-1111020000321202-0110300132222323-2300223120022322-0231023033222020-1220000320231320-0311201013122112-3111211211310032"></a>
 
-## Direct properties — aws_cloud_watch_receiver / bc4d2b2f0c3c / 3
+## Direct properties — aws_cloud_watch_receiver / 023300300330 / 3
 
-- [aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-3d541a8c2991a2a69fdd3dc41ba6747736cb653461fd620126c416cdc2dc55fc): complete subsection reference.
+- [aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330): complete subsection reference.
 
-<a id="canonical-f54a0193cece959c174850819f25161e5410ea3af613e40f78614f5d6f9b2659"></a>
+<a id="canonical-3311102200012103-3032303221112130-0113102011002001-2133021101120132-1110010032220322-3312010332100033-1320120110331131-1233212302121121"></a>
 
-<a id="canonical-a7d1164c09f72f9e53e06adec88415aa908400a46a0a4918dfe505ebd8e871cc"></a>
+<a id="canonical-2213310101121030-0021331302332132-1103320012223132-3020201001112222-2100201000002210-1222002210210120-3133321100113223-3120322013013030"></a>
 
-## aws_region property — aws_cloud_watch_receiver / bc4d2b2f0c3c / 4
+## aws_region property — aws_cloud_watch_receiver / 023300300330 / 4
 
 Type: `"string"`. Computed.
 
@@ -873,15 +873,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478): complete subsection reference.
+- [batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320): complete subsection reference.
 
-- [compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57): complete subsection reference.
+- [compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113): complete subsection reference.
 
-<a id="canonical-07faf075fb4c52ffb782b86bc7f8dbaafcfe53fd28604ab373a8b19310a58272"></a>
+<a id="canonical-0013332233001311-3323103011023333-2313200223201223-3013332031232222-3330333211033331-0220120010222303-1303222023012103-0100221120021302"></a>
 
-<a id="canonical-3ab8720477cde01d44ce5b6cbb42c9a99d1db949cf59187fae9ab02933190ba0"></a>
+<a id="canonical-0322232013020010-1313303132000131-1010303211231230-2323100230212221-2131013123211021-3033112101201333-2232212223000221-0303012100232200"></a>
 
-## group_name property — aws_cloud_watch_receiver / bc4d2b2f0c3c / 5
+## group_name property — aws_cloud_watch_receiver / 023300300330 / 5
 
 Type: `"string"`. Computed.
 
@@ -927,11 +927,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4afd4f5b4d1013473e50d6aa425922047cd4286571d67a984e1cd2e833f8c273"></a>
+<a id="canonical-1022333110331123-1031010001031013-0332110031122222-1002112102020010-1330311002201211-1301311213222120-1032013031023220-0303332030021303"></a>
 
-<a id="canonical-df285d68510598b95cace9ec3db5304ed6a8c6bddff41fdb97ee3351fb435f14"></a>
+<a id="canonical-3133022011311220-1101001121202321-1130223032213230-0331231103001032-3112222030122331-3133331001333123-2113323203031101-3323100311330110"></a>
 
-## stream_name property — aws_cloud_watch_receiver / bc4d2b2f0c3c / 6
+## stream_name property — aws_cloud_watch_receiver / 023300300330 / 6
 
 Type: `"string"`. Computed.
 
@@ -983,34 +983,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3e5d4062a7cf7c938f62b2ea352920065c322e723e5bc9a3b56a494a679c0e69"></a>
+<a id="canonical-0332113110001202-2213303313302103-2033120223023222-0311022102000012-1130030202321302-0332112330212203-2311122210211022-1213213000321221"></a>
 
-## Next pages — aws_cloud_watch_receiver / bc4d2b2f0c3c / 7
+## Next pages — aws_cloud_watch_receiver / 023300300330 / 7
 
-- [aws_cloud_watch_receiver.aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-3d541a8c2991a2a69fdd3dc41ba6747736cb653461fd620126c416cdc2dc55fc)
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-3d541a8c2991a2a69fdd3dc41ba6747736cb653461fd620126c416cdc2dc55fc"></a>
+<a id="canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4b5d2846ce0fdcd4bc1957ecf9c8fba2a5c79cfb9558e9858928b0f508e1eb43"></a>
+<a id="canonical-1023113102201012-3032003331303110-2330012111133230-3321302033232202-2211301321303323-2111112032212011-2021022023003311-0020320132231003"></a>
 
-## aws_cloud_watch_receiver.aws_cred — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 2
+## aws_cloud_watch_receiver.aws_cred — aws_cred / 110112023322 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
 - aws_cloud_watch_receiver.aws_cred
 
-<a id="canonical-d94456f96c37418dc58a53822fcb1d626e6b35b5ae90f4453180333e702e552e"></a>
+<a id="canonical-3121101011123321-1230031310012031-3011202211032002-0233302301311202-1232122303112311-2232210033101011-0301200003030332-1300023211110232"></a>
 
 Type: `"single"`. Computed.
 
@@ -1035,15 +1035,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d017141c74a69a215aa515e7f91347f3f6dcf6af29ca51ae254a7dc8e1662b6a"></a>
+<a id="canonical-3100011301100130-1310221221220201-1122221101113213-3321010310133303-3312313033122233-0221302211012232-0211102213313020-3201121202231222"></a>
 
-## Direct properties — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 3
+## Direct properties — aws_cred / 110112023322 / 3
 
-<a id="canonical-22729212426288499175d384f069c8e3bf45966b7eed9e2008006fecef1e2e29"></a>
+<a id="canonical-0202130221020102-1002120220201021-2101131131032010-3300122130203203-2333101121121223-1332323121320200-0020000012333230-3233013202320221"></a>
 
-<a id="canonical-45d8edb3902780c6942e0df80b72ee3acb0394384936c3aaf60b662abcbaf2a1"></a>
+<a id="canonical-1011312032312303-2100021320003012-2110023200313320-0023130232320322-3023000321100320-1021031230032222-3312002312120222-2330232233022201"></a>
 
-## name property — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 4
+## name property — aws_cred / 110112023322 / 4
 
 Type: `"string"`. Computed.
 
@@ -1096,11 +1096,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-539553a479f51cf160ef6106331fc18c42a8ee71510475bb1eb9ee59d48e8c0f"></a>
+<a id="canonical-1103211111032210-1321331101303301-1200323312010012-0303013330012030-1002222032321301-1101001013112323-0132232132321121-3110203220300033"></a>
 
-<a id="canonical-ba977c631c350d7b3df94e851f4f997b20fa6fe3309f3999a0a441bcf6d77fef"></a>
+<a id="canonical-2322211313301203-0130031100311323-0331332110322011-0133103321211323-0200332212333203-0300213303212121-2200221010012330-3312311313333233"></a>
 
-## namespace property — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 5
+## namespace property — aws_cred / 110112023322 / 5
 
 Type: `"string"`. Computed.
 
@@ -1160,11 +1160,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c30db574f1137de546b01b378d382eb0de325dc899055896defd79173af7ce21"></a>
+<a id="canonical-3003003123111310-3301010313313211-1012230001230313-2031032002322300-3132030211313020-2121001111202112-3132333113210113-0322331330320201"></a>
 
-<a id="canonical-4779faeb27c2aaa57348a351001860bdcb90cf4f0734ad4e6c071563db9b2ee3"></a>
+<a id="canonical-1013132133223223-0213300222222211-1303102022031101-0000012012002331-3023210030331033-0013031022311032-1230001301111203-3123212302323203"></a>
 
-## tenant property — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 6
+## tenant property — aws_cred / 110112023322 / 6
 
 Type: `"string"`. Computed.
 
@@ -1210,31 +1210,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a1fa7186ffa0ac23a9f6c6ca53d222785f72b3903f68d0bc86a3db412dd0d692"></a>
+<a id="canonical-2201332213012012-3333220022300203-2221331230123022-1103310202021320-1133130223032100-0333122031002330-2012220331231001-0231310031122102"></a>
 
-## Next pages — aws_cloud_watch_receiver.aws_cred / 9b0a545162fa / 7
+## Next pages — aws_cred / 110112023322 / 7
 
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478"></a>
+<a id="canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-864086cb12a5f6579207fa1b798a85fd7531495fcc221c85a36d21215ba70e5f"></a>
+<a id="canonical-2012100020123023-0102221133121113-2102001333220123-1321202220113331-1311030110211133-3030020201302011-2203123102010201-1123221300321133"></a>
 
-## aws_cloud_watch_receiver.batch — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 2
+## aws_cloud_watch_receiver.batch — batch / 311120311102 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
 - aws_cloud_watch_receiver.batch
 
-<a id="canonical-6ff77b87244ade51af7ac58c52492e902432ddba9d0927829908e60d171a1d9c"></a>
+<a id="canonical-1233331313232013-0210102231321101-2233132230112030-1102102102322100-0210030231312322-2131002102132002-2121002032120031-0113012201312130"></a>
 
 Type: `"single"`. Computed.
 
@@ -1256,15 +1256,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fb864a4078c1b8806b02f24fd2b04c9cf234cb24f0bf081b648ae05d3192dce5"></a>
+<a id="canonical-3323201210221000-1320300123202000-1223000233021033-3102230010302130-3302031030230210-3300233300200123-1210202232001131-0301210231303211"></a>
 
-## Direct properties — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 3
+## Direct properties — batch / 311120311102 / 3
 
-<a id="canonical-d5ab853c25bd71f11cfbc5ff3e4d2c69d73b77ab03ae7e9dff37063d1fdccd1f"></a>
+<a id="canonical-3111222320110330-0211233113013301-0130332330113333-0332103102301221-3113032313132223-0003223213322131-3333031300120331-0133313030310133"></a>
 
-<a id="canonical-ec6afe2df6fb8fc17253395b633c8887a9ee80b305dedf33f49dc16be65ad989"></a>
+<a id="canonical-3230122233320231-3312332320333001-1302110303211123-1203033020202013-2221323220002303-0011313231330303-3310213130011223-3212112231212021"></a>
 
-## max_bytes property — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 4
+## max_bytes property — batch / 311120311102 / 4
 
 Type: `"number"`. Computed.
 
@@ -1309,13 +1309,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-2f7de895b09020ece48800f5aa5b03ca9ac203c2ec0c524af28dbf6fa0bed084): complete subsection reference.
+- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0233133132202111-2300210002003230-3210202000003311-2222112300033022-2122300200033002-3230003011021022-3302203123331233-2200233231002010): complete subsection reference.
 
-<a id="canonical-9c08e76aa58273d5ae1342787410951c6ed55b84b57629cbc279153dc096a8e8"></a>
+<a id="canonical-2130002032131222-2211200213033111-2232010310021320-1310010021110130-1232311111232010-2311131202213023-3002132101110331-3000211222203220"></a>
 
-<a id="canonical-a0085ea26eddcbce1340878859e9abf5a05dd74648a31f8346bc856525f60ec7"></a>
+<a id="canonical-2200002011322202-1232313130233032-0103100020132020-1121322122233311-2200113131131012-1020220301332003-1012233020111211-0211331200323013"></a>
 
-## max_events property — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 5
+## max_events property — batch / 311120311102 / 5
 
 Type: `"number"`. Computed.
 
@@ -1360,13 +1360,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-05480253834e4a72af481c4e209715baa963c42ebe27dc35f49f8f01f43f9350): complete subsection reference.
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0011102000021103-2003103210221302-2233102001301032-0200211301112322-2221120330100232-2332021331300311-3310213320330001-3310033321031100): complete subsection reference.
 
-<a id="canonical-08972e6997e67a014c0422cb6b58e8984fb0323a802871ffd965351e972d9434"></a>
+<a id="canonical-0020211302321221-2113321213220001-1030001002023023-1223112032202120-1033230003020322-2000022013013333-3121121103110132-2113023121100310"></a>
 
-<a id="canonical-89bca529896db9a672fcdaeddca2c75fd90403df33b499b20e1e3e30ac282842"></a>
+<a id="canonical-2021233022110221-2021123123212212-1302333031223231-3130220230131133-3121001000033133-0303231021212302-0032013203320300-2230022002201002"></a>
 
-## timeout_seconds property — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 6
+## timeout_seconds property — batch / 311120311102 / 6
 
 Type: `"string"`. Computed.
 
@@ -1408,37 +1408,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-c33bcee763befe91190d25301905e9c262ca3edf10c18cb868b559e88e2ee30f): complete subsection reference.
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033): complete subsection reference.
 
-<a id="canonical-0d978a9e84651814e42da6c3fa09a3547268deeb1083c99a952cdc2b35676034"></a>
+<a id="canonical-0031211320222132-2010121101200110-3210023122123003-3322002122031110-1302122031323223-0100200330212122-2111023031300223-0311121312000310"></a>
 
-## Next pages — aws_cloud_watch_receiver.batch / fea8c8d58d52 / 7
+## Next pages — batch / 311120311102 / 7
 
-- [aws_cloud_watch_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-2f7de895b09020ece48800f5aa5b03ca9ac203c2ec0c524af28dbf6fa0bed084)
-- [aws_cloud_watch_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-05480253834e4a72af481c4e209715baa963c42ebe27dc35f49f8f01f43f9350)
-- [aws_cloud_watch_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-c33bcee763befe91190d25301905e9c262ca3edf10c18cb868b559e88e2ee30f)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0233133132202111-2300210002003230-3210202000003311-2222112300033022-2122300200033002-3230003011021022-3302203123331233-2200233231002010)
+- [aws_cloud_watch_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0011102000021103-2003103210221302-2233102001301032-0200211301112322-2221120330100232-2332021331300311-3310213320330001-3310033321031100)
+- [aws_cloud_watch_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-2f7de895b09020ece48800f5aa5b03ca9ac203c2ec0c524af28dbf6fa0bed084"></a>
+<a id="canonical-0233133132202111-2300210002003230-3210202000003311-2222112300033022-2122300200033002-3230003011021022-3302203123331233-2200233231002010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1b53f923a97a6d3bc0f74ac45205caba72eb56e66f953e6a72bae8b00d20ada"></a>
+<a id="canonical-2301231103332102-0322211322123103-2330003313102230-1011020011302223-2213023223111232-1212332111033212-2213022322322023-0000310200223122"></a>
 
-## aws_cloud_watch_receiver.batch.max_bytes_disabled — aws_cloud_watch_receiver.batch.max_bytes_disabled / cfe6c939e41f / 2
+## aws_cloud_watch_receiver.batch.max_bytes_disabled — max_bytes_disabled / 032132100133 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
 - aws_cloud_watch_receiver.batch.max_bytes_disabled
 
-<a id="canonical-743ebb45bed6ad9279e9ffa0ff45b6c064f171e36f36b6114491fab958711eb9"></a>
+<a id="canonical-1310033223231011-2332311222312102-1321322133332200-3333101123123000-1210330113013203-1233031223120101-1010210133222321-1120130101322321"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1461,38 +1461,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ba308d64985619cbac583a08e7e6312c8651ae8458074350dba7cc5dd56de2e"></a>
+<a id="canonical-0223220300203112-1021201112012130-2322301120032200-2032133212030102-3020121101223220-1011200013100311-0031232213303011-3131111231320232"></a>
 
-## Direct properties — aws_cloud_watch_receiver.batch.max_bytes_disabled / cfe6c939e41f / 3
+## Direct properties — max_bytes_disabled / 032132100133 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-33e9e1768435cc61b1d570d38bf4a115fe55b9509ed5981fe529070ae0aa2198"></a>
+<a id="canonical-0303322132011312-2010031130301201-2301311113003103-2023331022010111-3332111123211100-2132311121200133-3211022100130022-3200222202012120"></a>
 
-## Next pages — aws_cloud_watch_receiver.batch.max_bytes_disabled / cfe6c939e41f / 4
+## Next pages — max_bytes_disabled / 032132100133 / 4
 
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-05480253834e4a72af481c4e209715baa963c42ebe27dc35f49f8f01f43f9350"></a>
+<a id="canonical-0011102000021103-2003103210221302-2233102001301032-0200211301112322-2221120330100232-2332021331300311-3310213320330001-3310033321031100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d72bd6acfb47e7bccbd44de62867bc4247374c98c58349f3d53a1670e96ebc87"></a>
+<a id="canonical-3113022331122230-3323101332132330-3023311010313212-0220121323301002-1013031310302120-3011200310213303-3111032201121300-3221123223302013"></a>
 
-## aws_cloud_watch_receiver.batch.max_events_disabled — aws_cloud_watch_receiver.batch.max_events_disabled / a8f7a5aa6cd3 / 2
+## aws_cloud_watch_receiver.batch.max_events_disabled — max_events_disabled / 222212303103 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
 - aws_cloud_watch_receiver.batch.max_events_disabled
 
-<a id="canonical-b252eb40bbab88586206c8b7cf7aaada46f72f4f2c09786b3f78fdd09720d9ee"></a>
+<a id="canonical-2302110232231000-2323222320201120-1202001230202313-3033132222223122-1012331302331033-0230002113201223-0333132033313100-2113020031213232"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1515,38 +1515,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e348455ad8eb74215c65b8fae4ff2b4d9bf309368647682a21daa1fd64ec472"></a>
+<a id="canonical-2132031020101111-2231203223131002-0111301211232033-2232103333022310-3121233303002103-1220121013122002-2202013122220133-3112103230101302"></a>
 
-## Direct properties — aws_cloud_watch_receiver.batch.max_events_disabled / a8f7a5aa6cd3 / 3
+## Direct properties — max_events_disabled / 222212303103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c22614a4770e236a068bcbf7ae940ac2e88e1325531398b7ecea67dcd34896de"></a>
+<a id="canonical-3002021201102210-1313003202031222-0012202330233313-2232211000223002-3220203201030211-1103010321202313-3230322212133130-3103102021123132"></a>
 
-## Next pages — aws_cloud_watch_receiver.batch.max_events_disabled / a8f7a5aa6cd3 / 4
+## Next pages — max_events_disabled / 222212303103 / 4
 
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-c33bcee763befe91190d25301905e9c262ca3edf10c18cb868b559e88e2ee30f"></a>
+<a id="canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32634bd9b489bd89b8b37c1c6422bbca9613ffd53c9ae42ebf42ef0dca8e75ba"></a>
+<a id="canonical-0302120310233121-2310202123312021-2320230313300130-1210020223233022-2112010333333111-0330212232100232-2333100232330031-3022203213112322"></a>
 
-## aws_cloud_watch_receiver.batch.timeout_seconds_default — aws_cloud_watch_receiver.batch.timeout_seconds_default / f1553af710ca / 2
+## aws_cloud_watch_receiver.batch.timeout_seconds_default — timeout_seconds_default / 331301003022 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
 - aws_cloud_watch_receiver.batch.timeout_seconds_default
 
-<a id="canonical-b6625abf8ed7349dc06839f48b387e7ddd6795d11d592a2da20c5f358d79c690"></a>
+<a id="canonical-2312120211222333-2032311303102131-3000122003213310-2023032013321331-3131121321113101-0131112102220231-2202003011330311-2031132130122100"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1569,37 +1569,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-11b92705b4ab9dd944deb1fc54bd4421da24bf24f8a51ec3119c8ddd26d53bb3"></a>
+<a id="canonical-0101232102130011-2310222321313121-1010313223013330-1110233110100201-3122021023330210-3320221101323003-0101213020313131-0212311103232303"></a>
 
-## Direct properties — aws_cloud_watch_receiver.batch.timeout_seconds_default / f1553af710ca / 3
+## Direct properties — timeout_seconds_default / 331301003022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-792d8cfd6d93951d2194215270c7b3b2ac0a1b48f339e62fc71f46cfca068bac"></a>
+<a id="canonical-1321023120303331-1231210321110131-0201211002011102-1300301323032302-2230002201231020-3303032132120233-3013013310123033-3022001220232230"></a>
 
-## Next pages — aws_cloud_watch_receiver.batch.timeout_seconds_default / f1553af710ca / 4
+## Next pages — timeout_seconds_default / 331301003022 / 4
 
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-e0af9183ee489c2211fa5ade2ad069999fc1819b782cbe767f43679fd3e67478)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57"></a>
+<a id="canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e6133f38d5297d3ae63652213ba1cf37b4f34ff63309b7da57ffd7bbb90f4e75"></a>
+<a id="canonical-3212010303330320-3111022113310322-3212031211020201-0323220130330313-2310330310333312-0303002123133122-1113333331132323-2321003310321311"></a>
 
-## aws_cloud_watch_receiver.compression — aws_cloud_watch_receiver.compression / e01f3082b98d / 2
+## aws_cloud_watch_receiver.compression — compression / 200223212031 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
 - aws_cloud_watch_receiver.compression
 
-<a id="canonical-9465830781e13d9893dfb02b396655b711827d008d8a17992b98f1543ed52d87"></a>
+<a id="canonical-2110121120030013-2001320103312120-2103313323000223-0321121211112313-0101200213310000-2031202201132121-0223212033011110-0332311102312013"></a>
 
 Type: `"single"`. Computed.
 
@@ -1623,45 +1623,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23e26a536dd826554f589928321da5865f185ddf868375db4f0dbd571ca38934"></a>
+<a id="canonical-0203320212221103-1231312002121111-1033112021210220-0302013122112012-1133012011313133-2012200313113123-1033003123311113-0130220320210310"></a>
 
-## Direct properties — aws_cloud_watch_receiver.compression / e01f3082b98d / 3
+## Direct properties — compression / 200223212031 / 3
 
-- [compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-9f003994f84a2d1c90ebf6434e7c346c2570caf5611b515ee78fcb7c033fe5c2): complete subsection reference.
+- [compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002): complete subsection reference.
 
-- [compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-6f7223593d14606be9110b4cb7b6f920b8bccbebd044ed50f32b6fc2dc21eb81): complete subsection reference.
+- [compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-1233130202031121-0331011012001223-3221010100231030-2313231233210200-2320233030233223-3100101032311100-3303022312333002-3130020132232001): complete subsection reference.
 
-- [compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-c0374011381d73515c4b20ffcde7e422e9b466b0cf5c91475d2cdb687cfc7ad4): complete subsection reference.
+- [compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110): complete subsection reference.
 
-<a id="canonical-b6bb30841ed0b60797ade148da61812325ffb840b96db0a85345db957f3786b1"></a>
+<a id="canonical-2312232303002010-0132310023120013-2113223132011020-3122120120010203-0211333323201000-2321123123002220-1103101131232111-1333031320122301"></a>
 
-## Next pages — aws_cloud_watch_receiver.compression / e01f3082b98d / 4
+## Next pages — compression / 200223212031 / 4
 
-- [aws_cloud_watch_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-9f003994f84a2d1c90ebf6434e7c346c2570caf5611b515ee78fcb7c033fe5c2)
-- [aws_cloud_watch_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-6f7223593d14606be9110b4cb7b6f920b8bccbebd044ed50f32b6fc2dc21eb81)
-- [aws_cloud_watch_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-c0374011381d73515c4b20ffcde7e422e9b466b0cf5c91475d2cdb687cfc7ad4)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002)
+- [aws_cloud_watch_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-1233130202031121-0331011012001223-3221010100231030-2313231233210200-2320233030233223-3100101032311100-3303022312333002-3130020132232001)
+- [aws_cloud_watch_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-9f003994f84a2d1c90ebf6434e7c346c2570caf5611b515ee78fcb7c033fe5c2"></a>
+<a id="canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c62e46f6a27efde3e126b34e4a93875167974d044b6b8f28630ad1aa296bf886"></a>
+<a id="canonical-3012023210123312-2202133233313203-3201021223031032-1022210320131101-1213211310310010-1023122320330220-1203002231012222-0221122333202012"></a>
 
-## aws_cloud_watch_receiver.compression.compression_default — aws_cloud_watch_receiver.compression.compression_default / e628a0dd261e / 2
+## aws_cloud_watch_receiver.compression.compression_default — compression_default / 313102120132 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
 - aws_cloud_watch_receiver.compression.compression_default
 
-<a id="canonical-4c3ba4ea5fd5f580b3a4baa08ba4dbf8bdc2c1c0d783c71ea689d95bd36e67f2"></a>
+<a id="canonical-1030032322103222-1133311133112000-2303221023222200-2023221031233320-2331300230013000-3113200330130132-2212202131211123-3103123212133302"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1684,38 +1684,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-15d60d4ef098b8c8f2b077d1d769c95aee8da01b9f355090b8bab6ccc11e9508"></a>
+<a id="canonical-0111311200311032-3300212023203020-3302230013133101-3113122130211122-3232203122000123-2133031111002100-2320232223123030-3001013221110020"></a>
 
-## Direct properties — aws_cloud_watch_receiver.compression.compression_default / e628a0dd261e / 3
+## Direct properties — compression_default / 313102120132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-154d5b1b93bb7880f32c123f8f2d86c5d5b905178b72af56d9a0cab2af4bc1e1"></a>
+<a id="canonical-0111103111230123-2103232313202000-3303023001020333-2033023120123011-3111232100110113-2023130222331112-3121220030222302-2233102330013201"></a>
 
-## Next pages — aws_cloud_watch_receiver.compression.compression_default / e628a0dd261e / 4
+## Next pages — compression_default / 313102120132 / 4
 
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-6f7223593d14606be9110b4cb7b6f920b8bccbebd044ed50f32b6fc2dc21eb81"></a>
+<a id="canonical-1233130202031121-0331011012001223-3221010100231030-2313231233210200-2320233030233223-3100101032311100-3303022312333002-3130020132232001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ca9a30c90c717cdefb5718bd7a03f32cba8c7ab7cdadb28477221858f4c1efcd"></a>
+<a id="canonical-3022212203003021-0030130113303132-3323111301202331-1322000333030230-2322203013222313-3031223123022010-1313020201201120-3310300132333031"></a>
 
-## aws_cloud_watch_receiver.compression.compression_gzip — aws_cloud_watch_receiver.compression.compression_gzip / 7a2971890d9c / 2
+## aws_cloud_watch_receiver.compression.compression_gzip — compression_gzip / 202100312130 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
 - aws_cloud_watch_receiver.compression.compression_gzip
 
-<a id="canonical-6bae98de3de949c0e2b45aefc1052ef76756895fd1de86a3ef46c7cbe668520c"></a>
+<a id="canonical-1223223221203132-0331322110213000-3202231011223233-3001001102323313-1213111220211133-3101313220122203-3233101230133023-3212122011020030"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1738,38 +1738,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4c29c934888a15314c82493f23c3c1be7c0dc2602b022f7496a7550f6d2d1fc"></a>
+<a id="canonical-3210300221302103-1020202022011103-0110302002102103-3302033003300123-3213300031300212-0002230002023313-1021122213111100-3312310231013330"></a>
 
-## Direct properties — aws_cloud_watch_receiver.compression.compression_gzip / 7a2971890d9c / 3
+## Direct properties — compression_gzip / 202100312130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-da43a73f6b6f7825f69e99b14a0a56a38e931d525cbdba3f3babea30b583e3fb"></a>
+<a id="canonical-3122100322130333-1223123313200211-3312213221212301-1022002211122203-2032210301311102-1130233123220333-0323222332220300-2311200332033323"></a>
 
-## Next pages — aws_cloud_watch_receiver.compression.compression_gzip / 7a2971890d9c / 4
+## Next pages — compression_gzip / 202100312130 / 4
 
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-c0374011381d73515c4b20ffcde7e422e9b466b0cf5c91475d2cdb687cfc7ad4"></a>
+<a id="canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0d22107d08167f7215681c8049e4852c84f81ed3bb2f564f134363a1576e6787"></a>
+<a id="canonical-0031020201001331-0020011213331302-0111122001302000-1021321020110230-2010332001323103-2323023311121033-0103100312032201-1113123212132013"></a>
 
-## aws_cloud_watch_receiver.compression.compression_none — aws_cloud_watch_receiver.compression.compression_none / 3bb799a77a11 / 2
+## aws_cloud_watch_receiver.compression.compression_none — compression_none / 221313220101 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-659fcb0f0e6c47c121190f6a4617113f6128ac54b24e886490fecb98d43a2d8e)
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
 - aws_cloud_watch_receiver.compression.compression_none
 
-<a id="canonical-06e14a5887e30c610536c4d48ca5d6527e2f4beddde77f4d624adbe4633b7cbe"></a>
+<a id="canonical-0012320110221120-2013320300301201-0011031230103110-2030221131121102-1332023310233231-3131321313331031-1202102231233210-1203032313302332"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1792,36 +1792,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-48b56f3fba1bb967cd3fcb8409d6861bef7b006a916a17cd8707f777eae8738a"></a>
+<a id="canonical-1020231112330333-2322012323211213-3031033330232010-0021311220120123-3233132300001222-2101122201133031-2013001333131313-3222322013032022"></a>
 
-## Direct properties — aws_cloud_watch_receiver.compression.compression_none / 3bb799a77a11 / 3
+## Direct properties — compression_none / 221313220101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6a710e517479290dc3bca4b2d7519dd2f2c3b89a96d0b4737320d783849e1a46"></a>
+<a id="canonical-1222130100321101-1310132102210031-3003233022102302-3113110121313102-3302300323202122-2112310023101303-1303020031132003-2010213201221012"></a>
 
-## Next pages — aws_cloud_watch_receiver.compression.compression_none / 3bb799a77a11 / 4
+## Next pages — compression_none / 221313220101 / 4
 
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-8e8aedf1590d974b9d62aae8188b22fed053703badf6e150a9c07fcaf6849f57)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39"></a>
+<a id="canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-45416b011bd78cb07df56dbdf9cc300ea3d3b783d8a8ad05be8678b08e47746a"></a>
+<a id="canonical-1011100112230001-0123311320302300-1331331112312331-3321303003000032-2203310323132003-3120222022310011-2332201213202300-2032101313101222"></a>
 
-## azure_event_hubs_receiver — azure_event_hubs_receiver / e70749346071 / 2
+## azure_event_hubs_receiver — azure_event_hubs_receiver / 031012001301 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
 - azure_event_hubs_receiver
 
-<a id="canonical-5f8d310c2746fa4c17c4a70016a2a5fe97191aed64d1cd597a98b1a3d89f2fee"></a>
+<a id="canonical-1133203103010030-0213101233221030-0113301022130000-0112220222113332-2113012101223231-1210310130311121-1322212023012203-3120213302333232"></a>
 
 Type: `"single"`. Computed.
 
@@ -1840,17 +1840,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-16c303ac9593b6b03b6b6a952a4ef8ce944d31057586ab2f26ad752af376dd84"></a>
+<a id="canonical-0112300300032230-2111210323122300-0323122312222111-0222103233203032-2110103103010011-1311201222230233-0212223113110222-3303131231312010"></a>
 
-## Direct properties — azure_event_hubs_receiver / e70749346071 / 3
+## Direct properties — azure_event_hubs_receiver / 031012001301 / 3
 
-- [connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43): complete subsection reference.
+- [connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003): complete subsection reference.
 
-<a id="canonical-ef0d165096b5060e460a8e50184d826db12d6d88bfb67c322554a23b8fa4f960"></a>
+<a id="canonical-3233003101121100-2112231100120032-1012002220321100-0120103120021231-2301023112312020-2333231213300302-0211111022020323-2033221033211200"></a>
 
-<a id="canonical-5ff44fd6443e4dce9f3796be2f1718f024238aece1c4644f9f721658fc7365f8"></a>
+<a id="canonical-1133331010333112-1010033210313032-2133031321122332-0233011301203300-0210020320223230-3201301012101033-2133130201121120-3330130312113320"></a>
 
-## instance property — azure_event_hubs_receiver / e70749346071 / 4
+## instance property — azure_event_hubs_receiver / 031012001301 / 4
 
 Type: `"string"`. Computed.
 
@@ -1896,11 +1896,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e6190f350141c41cfbe65991353ebc370fa046012b133b20c6a779b96aba5f0a"></a>
+<a id="canonical-3212012100330311-0001100130100130-3323321211212101-0311033223300313-0033220010120001-0223010303230200-3012221313212321-1222232211330022"></a>
 
-<a id="canonical-a33ccffa32f6a8fba8a51c5e8f200d8113b2f0b7817bcd366c23493930cd0057"></a>
+<a id="canonical-2203033030333322-0302331222203323-2220221101301132-2033020000312001-0103230233002313-2001132330310312-1230020310210321-0300303100001113"></a>
 
-## namespace property — azure_event_hubs_receiver / e70749346071 / 5
+## namespace property — azure_event_hubs_receiver / 031012001301 / 5
 
 Type: `"string"`. Computed.
 
@@ -1958,32 +1958,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-521bbd43708398624f67b610d8f4f6c4030599d1893bdf29bfbb0a64f299e7e8"></a>
+<a id="canonical-1102012323311003-1300200321201202-1033121323120100-3120331033123010-0003001121213101-2021032331330221-2333232300221210-3302212132133220"></a>
 
-## Next pages — azure_event_hubs_receiver / e70749346071 / 6
+## Next pages — azure_event_hubs_receiver / 031012001301 / 6
 
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43"></a>
+<a id="canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-73bb9c2f27eca4e444e41436fbaeca352307f149d16470e9e930e2375e3224bb"></a>
+<a id="canonical-1303232321300233-0213323022103210-1010321001100312-3323223230220311-0203001333011021-3101121013003221-3221030032020313-1132030202102323"></a>
 
-## azure_event_hubs_receiver.connection_string — azure_event_hubs_receiver.connection_string / 49324f350e26 / 2
+## azure_event_hubs_receiver.connection_string — connection_string / 031100320212 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
 - azure_event_hubs_receiver.connection_string
 
-<a id="canonical-3f4267535f141fd1a61562c1e0281c646018d972811f37bc7fc41881d1335b8e"></a>
+<a id="canonical-0333100212131103-1133011001333101-2212011112023001-3200022001301210-1200012031211302-2001013303132330-1333301001202001-3101030311232032"></a>
 
 Type: `"single"`. Computed.
 
@@ -2003,42 +2003,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f515fb451cea04389d386707a839d00831d99bf30ecea7f61c31b786703ef88b"></a>
+<a id="canonical-3311011133231011-0130322200100320-2131032012130013-2220032131000020-0301312121233303-0032303222133312-0130030123132012-1300033233202023"></a>
 
-## Direct properties — azure_event_hubs_receiver.connection_string / 49324f350e26 / 3
+## Direct properties — connection_string / 031100320212 / 3
 
-- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-4bf3d64de6b35b576a03865ec80dfbe3196cfd77b49c129ad47db2723d900867): complete subsection reference.
+- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213): complete subsection reference.
 
-- [clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-a9e68274fd0c831a766d03c2bc3a9f49f39156a3840ae53d17ccc7f08b00a96d): complete subsection reference.
+- [clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231): complete subsection reference.
 
-<a id="canonical-9de40996d5c924fe423e46e2ba3a138ed1c8dcec99c65bfb2ab66848fe714c16"></a>
+<a id="canonical-2131321000212112-3111302102103332-1002033210123202-2322032201032032-3101302031303230-2121301211233323-0222231212201020-3332130110300112"></a>
 
-## Next pages — azure_event_hubs_receiver.connection_string / 49324f350e26 / 4
+## Next pages — connection_string / 031100320212 / 4
 
-- [azure_event_hubs_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-4bf3d64de6b35b576a03865ec80dfbe3196cfd77b49c129ad47db2723d900867)
-- [azure_event_hubs_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-a9e68274fd0c831a766d03c2bc3a9f49f39156a3840ae53d17ccc7f08b00a96d)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_event_hubs_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213)
+- [azure_event_hubs_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-4bf3d64de6b35b576a03865ec80dfbe3196cfd77b49c129ad47db2723d900867"></a>
+<a id="canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-334b8f4d3f0362d4555a1c6bc636269de6d334dc8ec9922fdd8876b339d8816e"></a>
+<a id="canonical-0303102320331031-0333000312023110-1111112201301223-3012031202122131-3212310303103130-2032302121020233-3131202013122303-0321312020011232"></a>
 
-## azure_event_hubs_receiver.connection_string.blindfold_secret_info — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 2
+## azure_event_hubs_receiver.connection_string.blindfold_secret_info — blindfold_secret_info / 123000300310 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39)
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
+- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
 - azure_event_hubs_receiver.connection_string.blindfold_secret_info
 
-<a id="canonical-6f67f1ba265aaabb7c65c4e12e588552289d7a681048453950c98228d176f93c"></a>
+<a id="canonical-1233121333012322-0212112222222323-1330121130103201-0232112020111102-0220213113221220-0100102010110321-1100302120020220-3101131233210330"></a>
 
 Type: `"single"`. Computed.
 
@@ -2057,15 +2057,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aa8a2fe7c9a0e884c1677843c66c5b21219f493d8b8d4af71fa1ca5bd03a515d"></a>
+<a id="canonical-2222202202333213-3021220032202010-3001121313201003-3012123011230201-0201213310210331-2023203110223313-0133220130221123-3100032211011131"></a>
 
-## Direct properties — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 3
+## Direct properties — blindfold_secret_info / 123000300310 / 3
 
-<a id="canonical-9d3fb97a20e0287fc8733cce7e99b615b43888071665c2e5ab918eb1c845531f"></a>
+<a id="canonical-2131033323211322-0200320002201333-3020130303303032-1332212123120111-2310032020200013-0112121130023211-2223210120322301-3020101111030133"></a>
 
-<a id="canonical-d2bad6d8ab553a80ea3dd720863dedd84c7769c6ea6e4c8de4c8d16fbc30b414"></a>
+<a id="canonical-3102232231123120-2223111103222000-3222033131130200-2012033132313120-1030131312213012-3222123210302031-3210302031011233-2330030023100110"></a>
 
-## decryption_provider property — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 4
+## decryption_provider property — blindfold_secret_info / 123000300310 / 4
 
 Type: `"string"`. Computed.
 
@@ -2095,11 +2095,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a96d2751c331a5b27a2d669e88f3e65f7e58faaead83ad3d50b7ab051d4cb5de"></a>
+<a id="canonical-2221123102131101-3003030122112302-1322023112122132-2020330332121133-1332112033222232-2231200322310331-1100231322230011-0131103023113132"></a>
 
-<a id="canonical-a6df9b574375c7db45064a9113a502a0eb4abb8a971197f25f2f370c1f914c36"></a>
+<a id="canonical-2212313321231113-1003131130133123-1011001210222101-0103221100022200-3223102223232022-2113010121133302-1133023303130030-0133210110300312"></a>
 
-## location property — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 5
+## location property — blindfold_secret_info / 123000300310 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -2148,11 +2148,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2286724c776f3ccadca1619b723ae477ebb57504a0d5634a76282a70ef2b54af"></a>
+<a id="canonical-0202201213021030-1313123303303022-3130220112012123-1302032232101313-3223231113110010-2200311112031022-1312022002221300-3233022311102233"></a>
 
-<a id="canonical-5cbbb641193583d26e6eda157e271b12e6f4b6438753514212868881fbfa5638"></a>
+<a id="canonical-1130232323121001-0121031120033102-1232123231220111-1332021301230102-3212331023121003-2013110311011002-0102201220202001-3323332211120320"></a>
 
-## store_provider property — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 6
+## store_provider property — blindfold_secret_info / 123000300310 / 6
 
 Type: `"string"`. Computed.
 
@@ -2187,32 +2187,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-429e19994d8a4e0edf22cf205a69d1400e55ab1d55b81974f080509fa18e7d30"></a>
+<a id="canonical-1002213201212121-1031202210320032-3133020230330200-1122122131011000-0032111122230131-1111232001211310-3300200011002133-2201203213310300"></a>
 
-## Next pages — azure_event_hubs_receiver.connection_string.blindfold_secret_info / 7c69d26c0c34 / 7
+## Next pages — blindfold_secret_info / 123000300310 / 7
 
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-a9e68274fd0c831a766d03c2bc3a9f49f39156a3840ae53d17ccc7f08b00a96d"></a>
+<a id="canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-331ff87993deace29d03bdabab019efa1fb3e496a28c7ff730d597fc98042671"></a>
+<a id="canonical-0303013333201321-2103313222303202-2131000323312223-2223000121323322-0133230332102112-2202203013333313-0300311121133330-2120001002121301"></a>
 
-## azure_event_hubs_receiver.connection_string.clear_secret_info — azure_event_hubs_receiver.connection_string.clear_secret_info / 1f7e2ccc46f6 / 2
+## azure_event_hubs_receiver.connection_string.clear_secret_info — clear_secret_info / 303010123312 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1e93724fa97f305e8285ab20a3de95bcda72cb3dd4afba2b5d1f659e5b82aa39)
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
+- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
 - azure_event_hubs_receiver.connection_string.clear_secret_info
 
-<a id="canonical-5cbf8a4e79f70be17a7fa9697fa49e4424bbf3f87780af9aeae2cb93063240fe"></a>
+<a id="canonical-1130233320221032-1321331300233201-1322133322211221-1333221021321010-0210232333033320-1313200022332122-3222320230232103-0012030210003332"></a>
 
 Type: `"single"`. Computed.
 
@@ -2231,26 +2231,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac0058114bfb1b14cfc6bbf6e9618c8f5c42bc0e10ac1ffb4085690f65774a13"></a>
+<a id="canonical-2230000011200101-1023332301230110-3033301223233312-3221120120302033-1130100223300032-0100223001333323-1000201112210033-1211131310220103"></a>
 
-## Direct properties — azure_event_hubs_receiver.connection_string.clear_secret_info / 1f7e2ccc46f6 / 3
+## Direct properties — clear_secret_info / 303010123312 / 3
 
-<a id="canonical-fd3c0d07adece5898726453ec277bee236d4738668cda42d54446fca120defd4"></a>
+<a id="canonical-3331033000310013-2231323032112021-2013021210110332-3002131323323202-0312311013032012-1220303122100231-1110101012333022-0102003132333110"></a>
 
-<a id="canonical-678d6834c8918a2a5212075a1dac57dcbe956964fd00846707510e95cda58c2f"></a>
+<a id="canonical-1213203112200310-3020210120220222-1102010200131122-0131223011133130-2332211112211210-3331000020101213-0013110100322111-3031221120300233"></a>
 
-## provider_ref property — azure_event_hubs_receiver.connection_string.clear_secret_info / 1f7e2ccc46f6 / 4
+## provider_ref property — clear_secret_info / 303010123312 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-937ccedaf14e3024919b28bf2f3dbb59916b5bfb0f12d8f2b2c5fafa3a8e2867"></a>
+<a id="canonical-2103133030323122-3301103203000210-2101212302202333-0233033123231121-2101122311233323-0033010231203302-2302301133223322-0322203202201213"></a>
 
-<a id="canonical-d52f661879d4ef49b2740990db5909d3e38d119d052ade96f794a6e704ac37e8"></a>
+<a id="canonical-3111023312120120-1321311032331021-2302131000212100-3123112100213103-3203203101012131-0011022231322112-3313211022123213-0010223003133220"></a>
 
-## url property — azure_event_hubs_receiver.connection_string.clear_secret_info / 1f7e2ccc46f6 / 5
+## URL property — clear_secret_info / 303010123312 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -2310,30 +2310,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24ec03ec942e849bbe5b851a78b8460cff1e60207f24e8f156787acc4e928123"></a>
+<a id="canonical-0210323000033230-2110023220102123-2332112320110122-1320232010120030-3333013212000200-1333021032203301-1112132013223030-1032210220010203"></a>
 
-## Next pages — azure_event_hubs_receiver.connection_string.clear_secret_info / 1f7e2ccc46f6 / 6
+## Next pages — clear_secret_info / 303010123312 / 6
 
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-abb40162489c5d60ca4f8bac4d87a6a712d58b8626d6e323895171c9a7273b43)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6"></a>
+<a id="canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9772637760aaee6ceba5727ea72ccf4a84730c22a381f697219c4c18603d3d43"></a>
+<a id="canonical-2113130212031313-1200222232321230-3223221113021332-2213023030331022-2010130300300202-2203200133122113-0201213010300120-1200033103311003"></a>
 
-## azure_receiver — azure_receiver / aea6dfd433d2 / 2
+## azure_receiver — azure_receiver / 311003033102 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
 - azure_receiver
 
-<a id="canonical-33d0516820774d65b0cb95a87591491c90c8a78ee4996ddde7ec41aba356117d"></a>
+<a id="canonical-0303310011011220-0200131310311211-2300302321112220-1311210110210130-2100302022132032-3210212112313131-3213323010012223-2203111201011331"></a>
 
 Type: `"single"`. Computed.
 
@@ -2352,21 +2352,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-13d069caf26a0fd73ce635f4e85756522e2f52abd26f91e55c9eab0182254c57"></a>
+<a id="canonical-0103310012213022-3302122200333113-0330321203113310-3220111311121102-0232023311022223-3102123321013211-1130213222230001-2002021110301113"></a>
 
-## Direct properties — azure_receiver / aea6dfd433d2 / 3
+## Direct properties — azure_receiver / 311003033102 / 3
 
-- [batch](data-sources--global_log_receiver--reference--group-001.md#canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e): complete subsection reference.
+- [batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032): complete subsection reference.
 
-- [compression](data-sources--global_log_receiver--reference--group-002.md#canonical-71a878ee1d36ee303f1eda176a382c17ae04e2922f1d2d38102d6f0138b7d5fe): complete subsection reference.
+- [compression](data-sources--global_log_receiver--reference--group-002.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332): complete subsection reference.
 
-- [connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-b1d4378fc6ac36df67d7e84d8d66a74cc58a0fe156db7dbb626ca26b57bbe164): complete subsection reference.
+- [connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210): complete subsection reference.
 
-<a id="canonical-5a682b0e414665ce244919459fa07d09a594838086df125e77e5fefa822e8304"></a>
+<a id="canonical-1122122002230032-1001101212113032-0210102101211011-2133220013310021-2211211020032000-2012313301021132-1313321133323322-2002023220030010"></a>
 
-<a id="canonical-28f15aca12045ec0113e4ce673c44ebc2b157bd3548a8e32f9d857786c33757d"></a>
+<a id="canonical-0220330111223022-0102001011323000-0101033210303212-1303301010322330-0223011113233103-1110202220320302-3321312011131320-1230030313111331"></a>
 
-## container_name property — azure_receiver / aea6dfd433d2 / 4
+## container_name property — azure_receiver / 311003033102 / 4
 
 Type: `"string"`. Computed.
 
@@ -2412,37 +2412,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-67e28dd59f9f134efb8387a9fd4b71f4c99385a9db5a25fa28ea0da0aa22330f): complete subsection reference.
+- [filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033): complete subsection reference.
 
-<a id="canonical-5ba4629ade5413fd8dfc4485b79b829eb20807d5afb4db3116f80d12bba6cf6e"></a>
+<a id="canonical-1123221012022122-3132111001033331-2031333010102011-2313212320022132-2302002000133111-2233231031230301-0112332000310102-2323221230331232"></a>
 
-## Next pages — azure_receiver / aea6dfd433d2 / 5
+## Next pages — azure_receiver / 311003033102 / 5
 
-- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e)
-- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-71a878ee1d36ee303f1eda176a382c17ae04e2922f1d2d38102d6f0138b7d5fe)
-- [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-b1d4378fc6ac36df67d7e84d8d66a74cc58a0fe156db7dbb626ca26b57bbe164)
-- [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-67e28dd59f9f134efb8387a9fd4b71f4c99385a9db5a25fa28ea0da0aa22330f)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032)
+- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332)
+- [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210)
+- [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e"></a>
+<a id="canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5a3f630ffba1181b2903ee05cdd4bc86c7bd13762137c4ee455569e32bde8dc"></a>
+<a id="canonical-2211220333120300-3333232201012001-2302210003323200-1130313110233020-1230132331010313-1202010313301032-3210111111122132-0302233132203130"></a>
 
-## azure_receiver.batch — azure_receiver.batch / 70ab8873061e / 2
+## azure_receiver.batch — batch / 130300120132 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
 - azure_receiver.batch
 
-<a id="canonical-bba588ffa53013eb0467f505e13897fadcf8f3f2ba3467b76226c095abdfc527"></a>
+<a id="canonical-2323221120203333-2211030001033223-0010121333110011-3201032021133322-3130332033033302-2322031012132313-1202021230002111-2223313330110213"></a>
 
 Type: `"single"`. Computed.
 
@@ -2464,15 +2464,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-02a77d8771c0e3c5868cbccbbaef2eb5803c13204fa57cc08ca513500058aafb"></a>
+<a id="canonical-0002221313312013-1301300032033011-2012203023303023-2322323302322311-2000033001030200-1033221113303000-2030221101031100-0000112022223323"></a>
 
-## Direct properties — azure_receiver.batch / 70ab8873061e / 3
+## Direct properties — batch / 130300120132 / 3
 
-<a id="canonical-ba331a499368037efaf4c6958b82d55fbc9fd9462f2c62c6a9eb202f1861b076"></a>
+<a id="canonical-2322030301221021-2103122000031332-3322331030122111-2023200231111133-2330213331211012-0233023012023012-2221322302000233-0120120123001312"></a>
 
-<a id="canonical-8b026c0bbd53bf584e0503541ad5999ebefcc97e7fd419a0f8b4e4bdbce27a7c"></a>
+<a id="canonical-2023000212300023-2331110323331120-1032001100031110-0122311121212132-2332333030211332-1333311001212200-3320231032102331-2330320213221330"></a>
 
-## max_bytes property — azure_receiver.batch / 70ab8873061e / 4
+## max_bytes property — batch / 130300120132 / 4
 
 Type: `"number"`. Computed.
 
@@ -2517,13 +2517,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-33570fa762d51df98e4c40a44111d319e82f7d260eb9627f6e951d83de01e3f3): complete subsection reference.
+- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0303111300332213-1202311101313321-2032103010002210-1001010131030121-3220023313310212-0032232112021333-1232211101312003-3132000132033303): complete subsection reference.
 
-<a id="canonical-a81532423032e39a56057c03dd4bddcdf357669c88aea1ce8c81a10f303687a6"></a>
+<a id="canonical-2220011103021002-0300030232032122-1112001113300003-3131102331313031-3303111312122130-2020223222013032-2030200122010033-0300031220132212"></a>
 
-<a id="canonical-e00b6d38844c4db874583974e7d1cf3cf3b8af4e46448f8755d701d4ca67a19f"></a>
+<a id="canonical-3200002312310320-2010103010312320-1310112003211310-3213310130330330-3303232022331032-1012101020332013-1111311300013110-3022121322012133"></a>
 
-## max_events property — azure_receiver.batch / 70ab8873061e / 5
+## max_events property — batch / 130300120132 / 5
 
 Type: `"number"`. Computed.
 
@@ -2568,13 +2568,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-b376c86bc9b6981145ff733476ef5f7b6783709693e6d277323033fb482368a7): complete subsection reference.
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213): complete subsection reference.
 
-<a id="canonical-d43735d6688c92d67acce19fa8432bfd9a8e99cf5ef24b6e6b0a9ba8bd4566dc"></a>
+<a id="canonical-3110031303113112-1220203021023112-1322303032012133-2220100302233331-2122203221213033-1132330210231232-1223002221232220-2331101112123130"></a>
 
-<a id="canonical-45d3ea1ac18e580876624a8b34e5dc78dac6805a6bc61d24c8532ff0f299da6f"></a>
+<a id="canonical-1011310332220122-3001203211200020-1312120210222023-0310321131301320-3122301220001122-1223301201310210-3020110302333300-3302212131221233"></a>
 
-## timeout_seconds property — azure_receiver.batch / 70ab8873061e / 6
+## timeout_seconds property — batch / 130300120132 / 6
 
 Type: `"string"`. Computed.
 
@@ -2616,115 +2616,20 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-def1ef14667fdcb585f83fae4b18ed18e48417029785d272b1f408aa4e16a157): complete subsection reference.
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113): complete subsection reference.
 
-<a id="canonical-35bc004006356b31e57f49d137d4492d022fa4b2ebf505b223307e766de58b5b"></a>
+<a id="canonical-0311233000001000-0012031112230301-3211133310213101-0313311010210231-0002023322102302-3223331100112302-0203030013321312-1231321120231123"></a>
 
-## Next pages — azure_receiver.batch / 70ab8873061e / 7
+## Next pages — batch / 130300120132 / 7
 
-- [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-33570fa762d51df98e4c40a44111d319e82f7d260eb9627f6e951d83de01e3f3)
-- [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-b376c86bc9b6981145ff733476ef5f7b6783709693e6d277323033fb482368a7)
-- [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-def1ef14667fdcb585f83fae4b18ed18e48417029785d272b1f408aa4e16a157)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
+- [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0303111300332213-1202311101313321-2032103010002210-1001010131030121-3220023313310212-0032232112021333-1232211101312003-3132000132033303)
+- [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213)
+- [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
-<a id="canonical-33570fa762d51df98e4c40a44111d319e82f7d260eb9627f6e951d83de01e3f3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-59a4fe794bad4e17bc80258ce2a6d3917333a511988166e13545960d4afb5ff6"></a>
-
-## azure_receiver.batch.max_bytes_disabled — azure_receiver.batch.max_bytes_disabled / ec7530eb1ecd / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6)
-- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e)
-- azure_receiver.batch.max_bytes_disabled
-
-<a id="canonical-ece2b962d6b190267bd988002a60311ca84c5613e7553673a1ac20610dc9f719"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-dcf3fa57ff02fe43423fcdf7de13bf34c129eab55b52c7d5019f1fd4b060e276"></a>
-
-## Direct properties — azure_receiver.batch.max_bytes_disabled / ec7530eb1ecd / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-ef2c7c2492b38030c63b0e58098d6f940a8d7be1658fa5ef8476f888418b609f"></a>
-
-## Next pages — azure_receiver.batch.max_bytes_disabled / ec7530eb1ecd / 4
-
-- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-
-<a id="canonical-b376c86bc9b6981145ff733476ef5f7b6783709693e6d277323033fb482368a7"></a>
+<a id="canonical-0303111300332213-1202311101313321-2032103010002210-1001010131030121-3220023313310212-0032232112021333-1232211101312003-3132000132033303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-5ca0425f2e1f7c167b7bb4346e5b56b43fa824faa1c0614a566d7e263a7f79cc"></a>
-
-## azure_receiver.batch.max_events_disabled — azure_receiver.batch.max_events_disabled / 73ca8935150f / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-99c68f0c69d8f9c338e720b39f9b655bfc69129b1f91704ea1303907e530b2f6)
-- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-94b5d6cae427d6372c732fb99af31e900e01b115c060f422b7aab9e92d0a220e)
-- azure_receiver.batch.max_events_disabled
-
-<a id="canonical-22db6b551a8506d2080636f35d98a33da53e95858c5d6c811af3c13c551e15d6"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1caa8e6408816e51f895809fcf750552e3a40f3a7050c3f2ca3947406d855a35"></a>
-
-## Direct properties — azure_receiver.batch.max_events_disabled / 73ca8935150f / 3
-
-This is an empty object or choice marker. It has no direct properties.

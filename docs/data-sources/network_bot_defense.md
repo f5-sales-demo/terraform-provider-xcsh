@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_bot_defense 
 
 # xcsh_network_bot_defense landing
 
-<a id="canonical-0f1230987fc786b4cb7c4b344761f3dee154f819970a4e6a082efc66aa2b0e4d"></a>
+<a id="canonical-0033010203002120-1333301320122310-3023133010230310-1013120133033132-3201111033200121-2113002210321222-0020023233301212-2222022300321031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-76ce487c04679e7babd86460145e2308d94e120b987bbeb05e54be3d0db1c45f"></a>
+<a id="canonical-1312303210201330-0010121321321323-2223312012101200-0110113202030020-3121103201020023-2120132323322300-1132111023320331-0031230130101133"></a>
 
-## xcsh_network_bot_defense — xcsh_network_bot_defense / 873f87da7267 / 2
+## xcsh_network_bot_defense — xcsh_network_bot_defense / 312213021213 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Bot Defense domains for an FQDN-aware firewall or proxy. Values are bundled from
 release; this data source performs no network request. Ports and traffic direction are not encoded
 in the manifest.
 
-<a id="canonical-e2a2037b53398c1281173294e0300c33bdee6f20ea9c91856143151bbda7479a"></a>
+<a id="canonical-3202220200031323-1103032120300102-2001011303022110-3200030000300303-2331323212330200-3222213021012011-1201100301110123-2331221310132122"></a>
 
-## Prerequisites — xcsh_network_bot_defense / 873f87da7267 / 3
+## Prerequisites — xcsh_network_bot_defense / 312213021213 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8d0acfe9e53bd7c030bcc4fd5ab7ad9c2e93a5ab3a585b55bf4e743fc6f2b721"></a>
+<a id="canonical-2031002230333221-3211032331133000-0300233030103331-1122231322312130-0232210322112223-0322112011231111-2333103213100333-3012330223130201"></a>
 
-## Minimal configuration — xcsh_network_bot_defense / 873f87da7267 / 4
+## Minimal configuration — xcsh_network_bot_defense / 312213021213 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "bot_defense_https_proxy_rule" {
 }
 ```
 
-<a id="canonical-3dba987a0f2a3d7e316b402462c3f7bcba1d2011accb117a9d31a34fd543f2d2"></a>
+<a id="canonical-0331232221201322-0033022203311332-0301122310000210-1202300333132330-2322013102000101-2230302301011322-2131030122031033-3111100333023102"></a>
 
-## Root configuration — xcsh_network_bot_defense / 873f87da7267 / 5
+## Root configuration — xcsh_network_bot_defense / 312213021213 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0d975b7d0de11bb65cf3cc989a79bc2108e7e99e2a089fec4bc8bebbc20480d1"></a>
+<a id="canonical-0031211311231331-0031320101232312-1130330330302120-2122132123300201-0020321332212132-0222002021333230-1023302023322323-3002001020003101"></a>
 
-## Next pages — xcsh_network_bot_defense / 873f87da7267 / 6
+## Next pages — xcsh_network_bot_defense / 312213021213 / 6
 
-- [Property reference](../guides/data-sources--network_bot_defense--reference--group-001.md#canonical-e9b989ac97501f94c8334812a9f1281e2f3df1d62b05ae468e99c21685977e41)
-- [Examples](../guides/data-sources--network_bot_defense--examples--group-001.md#canonical-02700dbe54bec0d993bff3ebb664b29b8813b46344c33b64034f20f39624ad6c)
+- [Property reference](../guides/data-sources--network_bot_defense--reference--group-001.md#canonical-3221232120212230-2113110001332110-3020030310200102-2221330102200132-0233033133013112-0223001122321012-2032212130020112-2011211313321001)
+- [Examples](../guides/data-sources--network_bot_defense--examples--group-001.md#canonical-0002130000312332-1110233230003121-2103233333033223-2312121023022123-2020010323101203-1010300303231210-0003103302003303-2112021022311230)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_rate_limiter landing
 
 # xcsh_rate_limiter landing
 
-<a id="canonical-007f7a5d2b174631ab0f6d827b17f892fa0aa9d8bb4058855adff100f838679c"></a>
+<a id="canonical-0000133313221131-0223011310120301-2223003312312002-1323011333202102-3322002222213120-2323100011202011-1122313333010000-3320032012132130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf154b272576abc126a809ee3520c9c923bd936abb9982332ebc85fc80287e0b"></a>
+<a id="canonical-2333011110230213-0211131222233001-0212222000213232-0311020030213021-0203233121031222-2323212120020303-0232233020113330-2000022013320023"></a>
 
-## xcsh_rate_limiter — xcsh_rate_limiter / 04c1ce5906db / 2
+## xcsh_rate_limiter — xcsh_rate_limiter / 112100123123 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages rate\_limiter creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-f988b2bc2fcb05a181f0b8185914d3b485f1fbe210b9d509111b7b5c39c90f30"></a>
+<a id="canonical-3321202023022330-0233302300112201-2001330023200120-1121011031032310-2011330133233202-0100232131110021-0101012313231130-0321302100330300"></a>
 
-## Prerequisites — xcsh_rate_limiter / 04c1ce5906db / 3
+## Prerequisites — xcsh_rate_limiter / 112100123123 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `rate_limiter_policy`.
 
 - rate_limiter_policy: Detailed rate limiting rules
 
-<a id="canonical-b96e8f0db9bcb1bbef98f37927c7de501525600f71b28bdc22cb694df7694f80"></a>
+<a id="canonical-2321123220330031-2321233023012323-3233212033031321-0213301331321100-0111021112000033-1301230220233130-0202302312211031-3313122110332000"></a>
 
-## Minimal configuration — xcsh_rate_limiter / 04c1ce5906db / 4
+## Minimal configuration — xcsh_rate_limiter / 112100123123 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,15 +66,15 @@ output "rate_limiter_id" {
 }
 ```
 
-<a id="canonical-f879789b27d79d279413ece9ce07499bd6242d7b9a5c54508c90ab1f5bbc7391"></a>
+<a id="canonical-3320132113202123-0213311321310213-2110010332303221-3032001310212123-3112021002311323-2122113011101100-2030210022230133-1123233013032101"></a>
 
-## Root configuration — xcsh_rate_limiter / 04c1ce5906db / 5
+## Root configuration — xcsh_rate_limiter / 112100123123 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-dd1512812a76063997a6a818c44a439c744c35eb4eee1b697119572dd23a41f3"></a>
+<a id="canonical-3131011101022001-0222131200120321-2113221222200120-3010102210032130-1310103003113223-1032323201231221-1301012111130231-3102032210013303"></a>
 
-## Next pages — xcsh_rate_limiter / 04c1ce5906db / 6
+## Next pages — xcsh_rate_limiter / 112100123123 / 6
 
-- [Property reference](../guides/data-sources--rate_limiter--reference--group-001.md#canonical-675f099fbfef5fab17eb7caf586a5b843f100d7f7b90b906635610c96b9d19eb)
-- [Examples](../guides/data-sources--rate_limiter--examples--group-001.md#canonical-d2aa5143f978329a2cb5d3186781df77d0e69f043c28f96ae10250235db9d56e)
+- [Property reference](../guides/data-sources--rate_limiter--reference--group-001.md#canonical-1213113300212133-2333323311332223-0113322313302233-1120122211232010-0333010000311333-1323210023210012-1203111201003021-1223213101213223)
+- [Examples](../guides/data-sources--rate_limiter--examples--group-001.md#canonical-3102222211011003-3321132003022122-0230231131030120-1213200131331313-3100321221330010-0330022033211222-3201000211000203-1131232131111232)

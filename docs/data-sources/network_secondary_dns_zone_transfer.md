@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_secondary_dn
 
 # xcsh_network_secondary_dns_zone_transfer landing
 
-<a id="canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32"></a>
+<a id="canonical-0211000112320000-3032222023300022-3233300332112210-3202010232211322-0100212322311011-2201301123313213-3323022110111321-3110203223320302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c21df305415f23e8cc7614235d0351e94803cb8e940a0f75eb45097580c372c8"></a>
+<a id="canonical-3002013133030011-1001113302033220-3030131201100203-1131000311013221-1020000330232032-2110002200331311-3223101100211311-2000300313023020"></a>
 
-## xcsh_network_secondary_dns_zone_transfer — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 2
+## xcsh_network_secondary_dns_zone_transfer — xcsh_network_secondary_dns_zone_transfer / 231311321222 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Published Secondary DNS transfer and notify IPv4 addresses. The source does not 
 purposes. Values are bundled from the pinned OpenAPI release; this data source performs no network
 request. Ports and traffic direction are not encoded in the manifest.
 
-<a id="canonical-ced39f5b6043367bd14be04ed3b18a0e993bcdf23dedeca3853aaa1c31ece807"></a>
+<a id="canonical-3032310321331123-1200100303121323-3101102332001032-3103230120220032-2121032330313302-0331323132302203-2011032222220130-0301323032200013"></a>
 
-## Prerequisites — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 3
+## Prerequisites — xcsh_network_secondary_dns_zone_transfer / 231311321222 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-5aa8533bc7db5d2f96c2bb2e456d34bd6fbeace3af1eec141dc03563cd6d3dde"></a>
+<a id="canonical-1122222011030323-3013312311310233-2112300223230232-1011123103102331-1233233222303203-2233013232300110-0131300003111203-3031123103313132"></a>
 
-## Minimal configuration — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 4
+## Minimal configuration — xcsh_network_secondary_dns_zone_transfer / 231311321222 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -70,15 +70,15 @@ output "secondary_dns_rules" {
 }
 ```
 
-<a id="canonical-b2101240f647a4d92c6aa6fd3f9805109db89015fb8166f01a6c3617cdbf6839"></a>
+<a id="canonical-2302010001021000-3312101322103121-0230122222123331-0333212000110100-2131232021000111-3323200112123300-0122123003120113-3031233312200321"></a>
 
-## Root configuration — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 5
+## Root configuration — xcsh_network_secondary_dns_zone_transfer / 231311321222 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3ec9376a6250475eb0cee86b3ad89743869635e796f59dfd4e54cc7cdb751579"></a>
+<a id="canonical-0332302103131222-1202110010131132-2300303232201223-0322312021131003-2012211203113213-2112331121313331-1032111030301330-3123131101111321"></a>
 
-## Next pages — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 6
+## Next pages — xcsh_network_secondary_dns_zone_transfer / 231311321222 / 6
 
-- [Property reference](../guides/data-sources--network_secondary_dns_zone_transfer--reference--group-001.md#canonical-c945fd07bc00a831ed39b45e5684e423a74eab2504bb40760e1b07243fd4e278)
-- [Examples](../guides/data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-bc67719214c86f2fffbd605245afc762550a9ca52160a01d1c861afb2aaf5d2f)
+- [Property reference](../guides/data-sources--network_secondary_dns_zone_transfer--reference--group-001.md#canonical-3021101133310013-2330000022200301-3231032123101132-1112201032100203-2213103222230211-0010232310001312-0032012300130210-0333311032021320)
+- [Examples](../guides/data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-2330121313012102-0110302012330233-3333233112001102-1011223330131202-1111002221302211-0201120022000131-0130201201223323-0222223311310233)

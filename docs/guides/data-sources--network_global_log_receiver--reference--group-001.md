@@ -6,113 +6,113 @@ description: "Complete grouped canonical reference for xcsh_network_global_log_r
 
 # xcsh_network_global_log_receiver reference
 
-<a id="canonical-72b74013a2b858f443b06606f41d24e6214625ccc7f7916d9f905b8d9e85df4f"></a>
+<a id="canonical-1302231310000103-2202232011203310-1003230012120012-3310013102103212-0201101202113030-3013331321011231-2133210011232031-2132201131331033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-01b9e15f07f8868e6dd6ef3f8a596e1e1df25314217307f80c41846eecdb993a"></a>
+<a id="canonical-0001232132011133-0013332020122032-1231311232330333-2022112112320132-0131330211030110-0201130300133320-0030100120101232-3230312321210322"></a>
 
-## Property reference — Property reference / 79b97fa77080 / 2
+## Property reference — Property reference / 221313002000 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_global_log_receiver](../data-sources/network_global_log_receiver.md#canonical-251b976c87f6429c83905ed8e699743bc66f5d388ccb287b6ab1dc588898d9a5)
+- [xcsh_network_global_log_receiver](../data-sources/network_global_log_receiver.md#canonical-0211012321131230-2013331210022130-2003210011323120-3212212113100323-3012123311310320-2030302302201323-1222230131301120-2020212031212211)
 - Property reference
 
-<a id="canonical-3c29d6a04c04485ca15a27d44ed0d484df21caf621af4ef6b0324ecdc8bab826"></a>
+<a id="canonical-0330022131122200-1030001010201130-2201112202133110-1032310031102010-3133020130223312-0201223310323312-2300030210323031-3020232223200212"></a>
 
-## Direct properties — Property reference / 79b97fa77080 / 3
+## Direct properties — Property reference / 221313002000 / 3
 
-<a id="canonical-279c221e1a93353269fe908c17cc79ee75eb6d0988eb3f6d81b0ff488434c548"></a>
+<a id="canonical-0213213002020132-0122210303110302-1221333221002030-0113303013213232-1311322312310021-2020322303331231-2001230033331020-2010031030111020"></a>
 
-<a id="canonical-648c3685399b82d537a023bdba334fa81ed4697d31be24d1c68195e93d65d881"></a>
+<a id="canonical-1210203003122011-0321212320023111-0313220002032331-2322030310332220-0132311012211331-0301233202103101-3012200121113221-0331121131202001"></a>
 
-## api_release_tag property — Property reference / 79b97fa77080 / 4
+## api_release_tag property — Property reference / 221313002000 / 4
 
 Type: `"string"`. Computed.
 
 Pinned api-specs-enriched release tag compiled into this provider.
 
-<a id="canonical-bf32ccaa1c1c698aec9b84e1a5bee6ad5e8f851740b1f5da92d9073ead974499"></a>
+<a id="canonical-2333030230302222-0130013012212022-3230212320103201-2211233232122231-1132203320110113-1000230133113122-2102312100130332-2231211310102121"></a>
 
-<a id="canonical-a8649f2bb7ccb0dbdffe55e98a45571377332b343fc3783902145d252d229cc9"></a>
+<a id="canonical-2220121021330223-2313303023003123-3133333211113221-2022101111130103-1313030302230310-0333300313200321-0002011011310211-0231020221303021"></a>
 
-## cidr_blocks property — Property reference / 79b97fa77080 / 5
+## cidr_blocks property — Property reference / 221313002000 / 5
 
 Type: `["list", "string"]`. Computed.
 
 Sorted unique IPv4 CIDRs. Individual IPv4 addresses are normalized to /32.
 
-<a id="canonical-d551f66d01ab3ac2b020536bc945327afdffa3b220cf4a48f70fb792d7ac9ac5"></a>
+<a id="canonical-3111110133121231-0001222303223002-2300020011031223-3021101103021322-3331333322032302-0200303310221020-3313003323132102-3113223021223011"></a>
 
-<a id="canonical-e7005d97a160fa8afdc6a90fb82885f243dd2d665210d210545a2bb8de3213a5"></a>
+<a id="canonical-3213000011312113-2201120033222022-3331301222210033-2320022020113302-1003313102311212-1102010031020100-1110112202232320-3132030201032211"></a>
 
-## id property — Property reference / 79b97fa77080 / 6
+## ID property — Property reference / 221313002000 / 6
 
 Type: `"string"`. Computed.
 
 Stable identifier derived from the pinned source digest, data-source group, and selected regions.
 
-<a id="canonical-51fe1f6d616c1a82e47590632fd1b16a9782ae0989960931afff6fe2ff0f18a9"></a>
+<a id="canonical-1101333201331231-1201123001222002-3210131121001203-0233310123011222-2113200222320021-2021211200210301-2233333312333202-3333003301202221"></a>
 
-<a id="canonical-2964ec44122d754d381b255052dfba9431f88b4970b93361c9405e2adc52865f"></a>
+<a id="canonical-0221121032301010-0102023113111031-0320012302111100-1102313323222110-0301332020231021-1300232103031201-3021100011320222-3130110220121133"></a>
 
-## manifest_generated_at property — Property reference / 79b97fa77080 / 7
+## manifest_generated_at property — Property reference / 221313002000 / 7
 
 Type: `"string"`. Computed.
 
 Generation timestamp reported by the published network allowlist manifest.
 
-<a id="canonical-8c41819fd7ce0f70a171e0fe965c4e56aa9e93e41cdc4b1a5ba50d0355a4e110"></a>
+<a id="canonical-2030100120012133-3113303200331300-2201130132003332-2112113010321112-2222213221033210-0130313010230122-1123221100310003-1111221032010100"></a>
 
-<a id="canonical-17e3e47f2b3ef84134030d05d9df383e1f5dd565f7001cf367d066926c845445"></a>
+<a id="canonical-0113320332101333-0223033233201001-0310000300310011-3121313303200332-0133113131111211-3313000001303303-1213310012122102-1230201011101011"></a>
 
-## source_entries property — Property reference / 79b97fa77080 / 8
+## source_entries property — Property reference / 221313002000 / 8
 
 Type: `["list", "string"]`. Computed.
 
 IPv4 entries exactly as represented by the published group, preserving source order.
 
-<a id="canonical-d9710070b41e191a4315135bf49687eeae067375de8720e021b4290da4638371"></a>
+<a id="canonical-3121130100001300-2310013201210122-1003011101031123-3310211220133232-2232001213031311-3132201302003200-0201231002210031-2210120320031301"></a>
 
-<a id="canonical-8671b3ba5d3d58fa7e0c2402e56b0d78876a015f1b6e84c27f21c2254ef5382a"></a>
+<a id="canonical-2012130123032322-1131033111203322-1332003002100002-3211122300311320-2013122200011133-0123123220103002-1333020130020211-1032331103200222"></a>
 
-## source_sha256 property — Property reference / 79b97fa77080 / 9
+## source_sha256 property — Property reference / 221313002000 / 9
 
 Type: `"string"`. Computed.
 
 SHA-256 digest of the canonical published network allowlist manifest.
 
-<a id="canonical-9a5978e8dd1be738271304d0e339bf05ebfcd0a276dc2fcbf0eb9eba28b63109"></a>
+<a id="canonical-2122112113203220-3131012332130320-0213010300103100-3203032123330011-3223333031002202-1312313002333023-3300322321322322-0220231203010021"></a>
 
-<a id="canonical-1c4b9570da76e33094c1ba412ea7a51a496a0ea477d4d8eb066c76fc3b680638"></a>
+<a id="canonical-0130102321111300-3122131232030300-2110300123221001-0232221322110122-1021122200322210-1313311031203223-0012123013123330-0323122000120320"></a>
 
-## source_url property — Property reference / 79b97fa77080 / 10
+## source_url property — Property reference / 221313002000 / 10
 
 Type: `"string"`. Computed.
 
 Published F5 network allowlist source URL.
 
-<a id="canonical-629e355b1c18c1d44752f37fa84ad36ffbe45d997e8003045e164fa613396b00"></a>
+<a id="canonical-1202213203111123-0130012030013110-1013110233031333-2220102231031233-3323321011312121-1332200000030010-1132011210332212-0103032112230000"></a>
 
-## All schema paths — Property reference / 79b97fa77080 / 11
+## All schema paths — Property reference / 221313002000 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `api_release_tag` | [api_release_tag](data-sources--network_global_log_receiver--reference--group-001.md#canonical-279c221e1a93353269fe908c17cc79ee75eb6d0988eb3f6d81b0ff488434c548) |
-| `cidr_blocks` | [cidr_blocks](data-sources--network_global_log_receiver--reference--group-001.md#canonical-bf32ccaa1c1c698aec9b84e1a5bee6ad5e8f851740b1f5da92d9073ead974499) |
-| `id` | [id](data-sources--network_global_log_receiver--reference--group-001.md#canonical-d551f66d01ab3ac2b020536bc945327afdffa3b220cf4a48f70fb792d7ac9ac5) |
-| `manifest_generated_at` | [manifest_generated_at](data-sources--network_global_log_receiver--reference--group-001.md#canonical-51fe1f6d616c1a82e47590632fd1b16a9782ae0989960931afff6fe2ff0f18a9) |
-| `source_entries` | [source_entries](data-sources--network_global_log_receiver--reference--group-001.md#canonical-8c41819fd7ce0f70a171e0fe965c4e56aa9e93e41cdc4b1a5ba50d0355a4e110) |
-| `source_sha256` | [source_sha256](data-sources--network_global_log_receiver--reference--group-001.md#canonical-d9710070b41e191a4315135bf49687eeae067375de8720e021b4290da4638371) |
-| `source_url` | [source_url](data-sources--network_global_log_receiver--reference--group-001.md#canonical-9a5978e8dd1be738271304d0e339bf05ebfcd0a276dc2fcbf0eb9eba28b63109) |
+| `api_release_tag` | [api_release_tag](data-sources--network_global_log_receiver--reference--group-001.md#canonical-0213213002020132-0122210303110302-1221333221002030-0113303013213232-1311322312310021-2020322303331231-2001230033331020-2010031030111020) |
+| `cidr_blocks` | [cidr_blocks](data-sources--network_global_log_receiver--reference--group-001.md#canonical-2333030230302222-0130013012212022-3230212320103201-2211233232122231-1132203320110113-1000230133113122-2102312100130332-2231211310102121) |
+| `id` | [id](data-sources--network_global_log_receiver--reference--group-001.md#canonical-3111110133121231-0001222303223002-2300020011031223-3021101103021322-3331333322032302-0200303310221020-3313003323132102-3113223021223011) |
+| `manifest_generated_at` | [manifest_generated_at](data-sources--network_global_log_receiver--reference--group-001.md#canonical-1101333201331231-1201123001222002-3210131121001203-0233310123011222-2113200222320021-2021211200210301-2233333312333202-3333003301202221) |
+| `source_entries` | [source_entries](data-sources--network_global_log_receiver--reference--group-001.md#canonical-2030100120012133-3113303200331300-2201130132003332-2112113010321112-2222213221033210-0130313010230122-1123221100310003-1111221032010100) |
+| `source_sha256` | [source_sha256](data-sources--network_global_log_receiver--reference--group-001.md#canonical-3121130100001300-2310013201210122-1003011101031123-3310211220133232-2232001213031311-3132201302003200-0201231002210031-2210120320031301) |
+| `source_url` | [source_url](data-sources--network_global_log_receiver--reference--group-001.md#canonical-2122112113203220-3131012332130320-0213010300103100-3203032123330011-3223333031002202-1312313002333023-3300322321322322-0220231203010021) |
 
-<a id="canonical-ad2ed62f35b3c9845650c847dbad6252d6699f50e6f4df00779684014077e13d"></a>
+<a id="canonical-2231023231120233-0311230330212010-1112110030201013-3123223112021102-3112122121331100-3212331031330000-1313211220100001-1000131332010331"></a>
 
-## Next pages — Property reference / 79b97fa77080 / 12
+## Next pages — Property reference / 221313002000 / 12
 
-- [xcsh_network_global_log_receiver](../data-sources/network_global_log_receiver.md#canonical-251b976c87f6429c83905ed8e699743bc66f5d388ccb287b6ab1dc588898d9a5)
+- [xcsh_network_global_log_receiver](../data-sources/network_global_log_receiver.md#canonical-0211012321131230-2013331210022130-2003210011323120-3212212113100323-3012123311310320-2030302302201323-1222230131301120-2020212031212211)

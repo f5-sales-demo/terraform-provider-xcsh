@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_managed_client_custo
 
 # xcsh_managed_client_customer_support_comments examples
 
-<a id="canonical-cc0ea23565c192a388b604de1b0ea61a22dc512875758e6628c231e975bf2815"></a>
+<a id="canonical-3030003222020311-1211300121022203-2020231200103132-0123003222120122-0202313011010220-1311131120321212-0220300203013221-1311233302200111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9875db3419de28440df3eb19ddecb90807c846d147b159f08e05ba79d97219f1"></a>
+<a id="canonical-2120131131230310-0121313202201010-0031330332230121-3131323023210020-0013302010123101-1013230111213300-2032001123221321-3121130201213301"></a>
 
-## Examples — Examples / 37b168f2f3e8 / 2
+## Examples — Examples / 330233033220 / 2
 
 Breadcrumbs:
 
-- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab)
+- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223)
 - Examples
 
-<a id="canonical-cc77de4749db47e482915d76c5d2ea12d289671a97620a5d2500e60d97dc5259"></a>
+<a id="canonical-3030131331321013-1021312310133210-2002210111311312-3011310232220102-3102202112130122-2113120200221131-0211000032120031-2113313011021121"></a>
 
-## Complete configurations — Examples / 37b168f2f3e8 / 3
+## Complete configurations — Examples / 330233033220 / 3
 
-- [Data source](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-d01f08d87247474d16b24793c7e806322d58723086f74abb7f8549c15312d5aa): valid configuration.
+- [Data source](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-3100013300203120-1302101310131031-0112230210132103-3013322000120302-0231112013020300-2012331310222323-1333201110213001-1103010231112222): valid configuration.
 
-<a id="canonical-7d29f540afad00f47df38a283d8393e1e69a90506fd22d74fc5325aa54eb3b27"></a>
+<a id="canonical-1331022133111000-2233223100003310-1331330320220220-0331200321033201-3212212221001100-1233310202311310-3330110302112222-1110322303230213"></a>
 
-## Next pages — Examples / 37b168f2f3e8 / 4
+## Next pages — Examples / 330233033220 / 4
 
-- [Data source](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-d01f08d87247474d16b24793c7e806322d58723086f74abb7f8549c15312d5aa)
-- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab)
+- [Data source](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-3100013300203120-1302101310131031-0112230210132103-3013322000120302-0231112013020300-2012331310222323-1333201110213001-1103010231112222)
+- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223)
 
-<a id="canonical-d01f08d87247474d16b24793c7e806322d58723086f74abb7f8549c15312d5aa"></a>
+<a id="canonical-3100013300203120-1302101310131031-0112230210132103-3013322000120302-0231112013020300-2012331310222323-1333201110213001-1103010231112222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-714fb07f0ca3222211b1658f0f845f34adc6f5fcef4c78295819491928f27239"></a>
+<a id="canonical-1301103323001333-0030220302020202-0101230112112033-0033201011330310-2231301233113330-3233103013200221-1120012110210121-0220330213020321"></a>
 
-## Data source — Data source / 12ea6c76f49f / 2
+## Data source — Data source / 131233102133 / 2
 
 Breadcrumbs:
 
-- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab)
-- [Examples](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-cc0ea23565c192a388b604de1b0ea61a22dc512875758e6628c231e975bf2815)
+- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223)
+- [Examples](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-3030003222020311-1211300121022203-2020231200103132-0123003222120122-0202313011010220-1311131120321212-0220300203013221-1311233302200111)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "managed_client_customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-a2b0f5dc20cd7e72639ed1659f62ea0e83eaeccba2d500a7b9db0f90b2677e6b"></a>
+<a id="canonical-2202230033113130-0200303113321302-1203213231011211-2133120232220032-2003322232303023-2202311100002213-2321312300332100-2302121313321223"></a>
 
-## Next pages — Data source / 12ea6c76f49f / 3
+## Next pages — Data source / 131233102133 / 3
 
-- [Examples](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-cc0ea23565c192a388b604de1b0ea61a22dc512875758e6628c231e975bf2815)
-- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab)
+- [Examples](data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-3030003222020311-1211300121022203-2020231200103132-0123003222120122-0202313011010220-1311131120321212-0220300203013221-1311233302200111)
+- [xcsh_managed_client_customer_support_comments](../data-sources/managed_client_customer_support_comments.md#canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223)

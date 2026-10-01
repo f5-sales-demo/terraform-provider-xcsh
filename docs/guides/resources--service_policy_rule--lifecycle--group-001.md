@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_service_policy_rule 
 
 # xcsh_service_policy_rule lifecycle
 
-<a id="canonical-e22c3b7aed96d383a4fa826a8df645de490a6ffed0d96920b265b1a68498a69a"></a>
+<a id="canonical-3202023003231322-3231211231032003-2210332220021222-2031331210113132-1021002212333332-3100312112210200-2302121123012212-2010212022122122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f35094db8b16e2f608573563463ac10fa18ee1971acdd802f20481a94d6da148"></a>
+<a id="canonical-3303110021103123-2023011232023312-0020111303111203-1012032230010033-2201203232012113-0122303131200002-3302001020012221-1031123122011020"></a>
 
-## Import — Import / 4a6476604444 / 2
+## Import — Import / 120010101010 / 2
 
 Breadcrumbs:
 
-- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-1da84b6dc4f5299900f209052f10a2987a5ffbbd70404a7f4621e1315566f5ce)
+- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-0131222010231231-3010331102212121-0000330200210011-0233010022022120-1322113333232331-1300100010221333-1012020132010301-1111121233113032)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_service_policy_rule.example system/example
 ```
 
-<a id="canonical-bf3b1aa074ac67c41073834c6afac2d0a478d2dece313e84a0e417b6c1fddeb7"></a>
+<a id="canonical-2333032301222200-1310223012133010-0100130320031030-1222332230023100-2210132031023132-3032030103322010-2200321001132312-3001333131322313"></a>
 
-## Next pages — Import / 4a6476604444 / 3
+## Next pages — Import / 120010101010 / 3
 
-- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-1da84b6dc4f5299900f209052f10a2987a5ffbbd70404a7f4621e1315566f5ce)
+- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-0131222010231231-3010331102212121-0000330200210011-0233010022022120-1322113333232331-1300100010221333-1012020132010301-1111121233113032)
 
-<a id="canonical-3ede20bdfc6da2ff9cee70c702369e73620e706b61a92d557a7b5a480d354b18"></a>
+<a id="canonical-0332313202002331-3330123122023333-2130323213003013-0002031221321303-1202003213001223-1201222102311111-1322132311221020-0031031110230120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c57dd1adbdcbbe9b98d1d5b63059faa89731c4f01c7564df5b8a78761c2eff92"></a>
+<a id="canonical-3011133131012231-2331302323322123-2120310131112312-0300112133222220-2113030130103300-0130131112103133-1123202213201312-0130023233332102"></a>
 
-## Timeouts — Timeouts / 512ce9f8b4e2 / 2
+## Timeouts — Timeouts / 332023103202 / 2
 
 Breadcrumbs:
 
-- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-1da84b6dc4f5299900f209052f10a2987a5ffbbd70404a7f4621e1315566f5ce)
+- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-0131222010231231-3010331102212121-0000330200210011-0233010022022120-1322113333232331-1300100010221333-1012020132010301-1111121233113032)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--service_policy_rule--reference--group-002.md#canonical-49d1dcedd566f98a405b94194bc73262f7147467a3f23b9ded4df6aaafb63e75). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--service_policy_rule--reference--group-002.md#canonical-1021310131303231-3111121233212022-1000112321100121-1023301303021202-3313011013101213-2203330203232131-3231103133122222-2233231203321311). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-f1e9ea89f0caac9d1638f674af0ae4259d24712d0eb27e207a7e2fba524bcfba"></a>
+<a id="canonical-3301322132222021-3300302222302131-0112032033121310-2233002232100211-2131021013010231-0032230213320200-1322133202332322-1102102330332322"></a>
 
-## Next pages — Timeouts / 512ce9f8b4e2 / 3
+## Next pages — Timeouts / 332023103202 / 3
 
-- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-1da84b6dc4f5299900f209052f10a2987a5ffbbd70404a7f4621e1315566f5ce)
+- [xcsh_service_policy_rule](../resources/service_policy_rule.md#canonical-0131222010231231-3010331102212121-0000330200210011-0233010022022120-1322113333232331-1300100010221333-1012020132010301-1111121233113032)

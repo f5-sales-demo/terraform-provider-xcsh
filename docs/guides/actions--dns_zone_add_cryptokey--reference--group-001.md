@@ -6,40 +6,40 @@ description: "Complete grouped canonical reference for xcsh_dns_zone_add_cryptok
 
 # xcsh_dns_zone_add_cryptokey reference
 
-<a id="canonical-a2054223eb59702f779639edabed8972fc3dc1170f0410220f43b85cfc6e4f06"></a>
+<a id="canonical-2202001110020203-3223112113000233-1313211203213231-2223323120211302-3330033130010113-0033001001000202-0033100323201130-3330123210330012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad8d3cd152854f3f92d9e5467c496b3df73ebe218efdb9ec490b8ba90a0cc04e"></a>
+<a id="canonical-2231203103303101-1102201110330333-2102312132111012-1330102112230331-3313033223320201-2032333123213230-1021002320232221-0022003030001032"></a>
 
-## Property reference — Property reference / 2fff315da8ab / 2
+## Property reference — Property reference / 113122202223 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_zone_add_cryptokey](../actions/dns_zone_add_cryptokey.md#canonical-85ff7b5ce0689a3d0497afdd728eedfead55ce6ef5288db5ba75c83a0e169984)
+- [xcsh_dns_zone_add_cryptokey](../actions/dns_zone_add_cryptokey.md#canonical-2011333313231130-3200122021220331-0010211322333131-1302203232313332-2231111130321232-3311022020312311-2322131130200322-0032011221212010)
 - Property reference
 
-<a id="canonical-4ea27ba0da73bde51fa7b4d20f8ff9e624426298a031036ce1405313de87fbe6"></a>
+<a id="canonical-1032220213232200-3122130323313211-0133221323103102-0033203333213212-0210100212022120-2200030100031230-3201100011030103-3132201333233212"></a>
 
-## Direct properties — Property reference / 2fff315da8ab / 3
+## Direct properties — Property reference / 113122202223 / 3
 
-<a id="canonical-c3935d8683bd7ce877bbc375beda55988494294927b40b3d03448fc73ec780ce"></a>
+<a id="canonical-3003210311312012-2003233113303220-1313232330031311-2332312211112120-2010211002211021-0213231000230331-0003101020333013-0332301320003032"></a>
 
-<a id="canonical-6cbdabf19ae4566bd1c9b0075b0337bc66b2dad85691bbc1cc41329d974b71ba"></a>
+<a id="canonical-1230233122233301-2122321011121223-3101302123000013-1123000303132330-1212230231223120-1112210123233001-3030100103022131-2113102313012322"></a>
 
-## key_type property — Property reference / 2fff315da8ab / 4
+## key_type property — Property reference / 113122202223 / 4
 
 Type: `"string"`. Optional.
 
 Key Type. Type or category classification
 
-<a id="canonical-c7b9ea0317cef58a3c33e2adc9bceb9ed11077f69d51133387e00f6029e540b2"></a>
+<a id="canonical-3013232132220003-0113303233112022-0330030332022231-3021233032232132-3101010013133312-2131110101030303-2013320000331200-0221321110002302"></a>
 
-<a id="canonical-de74bed08495c13d1ce57a9313d5ac7a7a6f284ed71c9ee8260b80be35c1b024"></a>
+<a id="canonical-3132131023323100-2010211130010331-0130321113222103-0103311122301322-1322123302201032-3113013021323220-0212002320002332-0311300123000210"></a>
 
-## namespace property — Property reference / 2fff315da8ab / 5
+## namespace property — Property reference / 113122202223 / 5
 
 Type: `"string"`. Optional.
 
@@ -55,30 +55,30 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-2e4506e4e3ecfe08db8a1d61bb93e7048a5ee702f5017e835de4f3134f8f6488"></a>
+<a id="canonical-0232101100123210-3203323033320020-3123202201311201-2323210332130010-2022113232130002-3311000113322003-1131321033030103-1033203312102020"></a>
 
-<a id="canonical-e31c72a149b6d3f8d660ea632c3c210196ca6c7d2b58f1cd37ebe45ff5723b00"></a>
+<a id="canonical-3203013013022201-1021231231033320-3112120032221203-0230033002010001-2112302212301331-0223112033013031-0313322332101133-3311130203230000"></a>
 
-## zone_name property — Property reference / 2fff315da8ab / 6
+## zone_name property — Property reference / 113122202223 / 6
 
 Type: `"string"`. Optional.
 
 Zone Name. Human-readable name for the resource
 
-<a id="canonical-e599fc075ae690d9551912917a7445b2fccc53dd144ed331a054e53b512c0373"></a>
+<a id="canonical-3211212133300013-1122321221003121-1111012101022101-1322131010112302-3330303011033131-0110103231030301-2200111032110323-1101023000031303"></a>
 
-## All schema paths — Property reference / 2fff315da8ab / 7
+## All schema paths — Property reference / 113122202223 / 7
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `key_type` | [key_type](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-c3935d8683bd7ce877bbc375beda55988494294927b40b3d03448fc73ec780ce) |
-| `namespace` | [namespace](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-c7b9ea0317cef58a3c33e2adc9bceb9ed11077f69d51133387e00f6029e540b2) |
-| `zone_name` | [zone_name](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-2e4506e4e3ecfe08db8a1d61bb93e7048a5ee702f5017e835de4f3134f8f6488) |
+| `key_type` | [key_type](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-3003210311312012-2003233113303220-1313232330031311-2332312211112120-2010211002211021-0213231000230331-0003101020333013-0332301320003032) |
+| `namespace` | [namespace](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-3013232132220003-0113303233112022-0330030332022231-3021233032232132-3101010013133312-2131110101030303-2013320000331200-0221321110002302) |
+| `zone_name` | [zone_name](actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-0232101100123210-3203323033320020-3123202201311201-2323210332130010-2022113232130002-3311000113322003-1131321033030103-1033203312102020) |
 
-<a id="canonical-4b529c8e7361638b5b99c974f4215a842ae7d1f47150714de2cae0df0a280f15"></a>
+<a id="canonical-1023110221302032-1303120112032023-1123212130211310-3310020111222010-0222321331013310-1301110013011031-3202302232003133-0022022000330111"></a>
 
-## Next pages — Property reference / 2fff315da8ab / 8
+## Next pages — Property reference / 113122202223 / 8
 
-- [xcsh_dns_zone_add_cryptokey](../actions/dns_zone_add_cryptokey.md#canonical-85ff7b5ce0689a3d0497afdd728eedfead55ce6ef5288db5ba75c83a0e169984)
+- [xcsh_dns_zone_add_cryptokey](../actions/dns_zone_add_cryptokey.md#canonical-2011333313231130-3200122021220331-0010211322333131-1302203232313332-2231111130321232-3311022020312311-2322131130200322-0032011221212010)

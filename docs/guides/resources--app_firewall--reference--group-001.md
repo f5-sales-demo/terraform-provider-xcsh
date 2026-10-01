@@ -6,43 +6,43 @@ description: "Complete grouped canonical reference for xcsh_app_firewall referen
 
 # xcsh_app_firewall reference
 
-<a id="canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f"></a>
+<a id="canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b54c420d89fd87900faf43556901691458ff8a875ef3cdab9f6f9a48ab901adb"></a>
+<a id="canonical-2311103010020031-2021333120132100-0033223310031111-1221000112210110-1120333320222013-1132330330312223-2133123321221020-2223210001223123"></a>
 
-## Property reference — Property reference / 6d3207546445 / 2
+## Property reference — Property reference / 111012101011 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 - Property reference
 
-<a id="canonical-2fe50ae6e7ad51cb2d2f16c9005436ab944917e9034d33e8076289080a6e4d66"></a>
+<a id="canonical-0233321100223212-3213223111013023-0231023301123021-0000111003122223-2110102101133221-0003103103033220-0013120220210020-0022123210311212"></a>
 
-## Direct properties — Property reference / 6d3207546445 / 3
+## Direct properties — Property reference / 111012101011 / 3
 
-- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-99e75007717b48e03533e9b898700c624862621444d75258e3499b4a886b6a53): complete subsection reference.
+- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-2121321311000013-1301132310203200-0311030332212320-2120130000301202-1020120212020110-1010311311021120-3203102121231022-2020122312221103): complete subsection reference.
 
-- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-18d5fde757750c5ae1f21da40bf6c3348e1ce30d1a5e9499aff566ee1c05c9f6): complete subsection reference.
+- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-0120311133313213-1113131100301122-3201330201312210-0023331230030310-2032013032030031-0122113221102121-2233331112123232-0130001130213312): complete subsection reference.
 
-<a id="canonical-b7a1643f43fcf910d6689f41da4417f85af63199400dee49cf718c7c4b60f455"></a>
+<a id="canonical-2313220112100333-1003333033210100-3112122021331001-3122101001133320-1122331203012121-1000003132321021-3033130120301330-1023120033101111"></a>
 
-<a id="canonical-92aff7f7d410dcf20c05d9d2cb63b8adfb965d5daa73bcbb0e5068152d732d11"></a>
+<a id="canonical-2102223333133313-3110010031303302-0030001131213102-3023120323202231-3323211211311131-2222130323302323-0032110012200111-0231130302310101"></a>
 
-## annotations property — Property reference / 6d3207546445 / 4
+## annotations property — Property reference / 111012101011 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -71,25 +71,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [blocking](resources--app_firewall--reference--group-001.md#canonical-693b041ad0bdd1cbc9ed189a8d1f0c51264fa57d2eb99321044f6af82b046836): complete subsection reference.
+- [blocking](resources--app_firewall--reference--group-001.md#canonical-1221032300100122-3100233131013023-3021323101202122-2031013300301101-0212103322111331-0232232121030201-0010103312223320-0223001012200312): complete subsection reference.
 
-- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-072958fc9ffb537d907339d78644e0e909d2fafbeefef201fd6997bb27655858): complete subsection reference.
+- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-0013022111203330-2133332311031331-2100130303213113-2012101032003221-0021310233223323-3232333233020001-3331122121132323-0213121111201120): complete subsection reference.
 
-- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-f561d7c60d03776bdafc8bcd1ff3cc2e20c3d873eba27b07550e9f5f35938d55): complete subsection reference.
+- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-3311120131133012-0031000313131223-3122333020233031-0133330330300232-0200300331201303-3223220213230013-1111003221331133-0311210320311111): complete subsection reference.
 
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543): complete subsection reference.
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003): complete subsection reference.
 
-- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-6947b4b6ae9be6828bcabf9af8ec58df4d8d915bc460cd5ac7aca0837968974a): complete subsection reference.
+- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-1221101323102312-2232212332122002-2023302223332122-3320323011203133-1031203121011123-3010120030311122-3013223022002003-1321122021131022): complete subsection reference.
 
-- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-44fe272375c06e26a85aa2b82dfb265fe7083495451fe26afb286e1f38d67f28): complete subsection reference.
+- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-1010333202130203-1311300012320212-2220112222022320-0231332302121133-3213002003102111-1011013332021222-3323022012320133-0320311213330220): complete subsection reference.
 
-- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-5be5ae1e2e5176410bb44105286f6d85a52b42ab0b6197700dabfddfb431af0c): complete subsection reference.
+- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-1123321122320132-0232110113121001-0023231010010011-0220123312312011-2211022310022223-0023120121131300-0031222333313133-2310030122330030): complete subsection reference.
 
-<a id="canonical-3d21e40a84f93db709171c9798997e75a875a6d311e710043fd64bba0d7812f5"></a>
+<a id="canonical-0331020132100022-2010332103312313-0021011301302113-2120212113321311-2220131122123103-0101321301000010-0333311210232322-0031132001023311"></a>
 
-<a id="canonical-3ae06fb56aa853c508135fba65887f9c65d5263fde191bfb99b286e41afc27ad"></a>
+<a id="canonical-0322320012332311-1222222011033011-0020010311332322-1211202013332130-1211311102120333-3132012101233323-2121230220123210-0122333002132231"></a>
 
-## description property — Property reference / 6d3207546445 / 5
+## description property — Property reference / 111012101011 / 5
 
 Type: `"string"`. Optional.
 
@@ -133,13 +133,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25): complete subsection reference.
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211): complete subsection reference.
 
-<a id="canonical-c58f2081977e182263854051ec1c1e744b42708f528b422eecda62e72e4d772e"></a>
+<a id="canonical-3011203302002001-2113133201200202-1203201110001101-3230013001321310-1023100213002033-1102202310020232-3230312212023213-0232103113130232"></a>
 
-<a id="canonical-786e9d019022cee289e72c232f46a51a95ce45ab48ff82d07a0e0bbf574cab5c"></a>
+<a id="canonical-1320123221310001-2100020230323202-2021321302300203-0233101222110122-2111303210112223-1020333320023100-1322003200232333-1113103022231130"></a>
 
-## disable property — Property reference / 6d3207546445 / 6
+## disable property — Property reference / 111012101011 / 6
 
 Type: `"bool"`. Optional.
 
@@ -162,31 +162,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-47affa490998093df338643b50e1c90112344a03acdef78edc4281137a077690): complete subsection reference.
+- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1013223333221021-0021212000210331-3303032012100323-1100320130210001-0102031010220003-2230313233132032-3130100220010103-1322001313122100): complete subsection reference.
 
-- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-ad9e53637860a64860af7cc627b9c06ca47bdd01c64d32907874af14cf12e9d2): complete subsection reference.
+- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-2231213211031203-1320120022121020-1200223313303012-0213232130001230-2210132331310001-3012103103022100-1320131022330110-3033010232213102): complete subsection reference.
 
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2): complete subsection reference.
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202): complete subsection reference.
 
-<a id="canonical-546bffcc5a98df820cef681f79c54e8fbb2021f6627bc641cd2b3d747880777c"></a>
+<a id="canonical-1110122333333030-1122212031332002-0030323312200133-1321301110322033-2323020002013312-1202132330121001-3031022303311310-1320200013131330"></a>
 
-<a id="canonical-c76253db749eb705b3bb31439230cdc79b12fa561eb4c09dd9f5c091370ee1cd"></a>
+<a id="canonical-3013120211033123-1310213223130011-2303232303011003-2102030030313013-2123010233221112-0132231030002131-3121331130002101-0313003232013031"></a>
 
-## id property — Property reference / 6d3207546445 / 7
+## ID property — Property reference / 111012101011 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-f9ecf3241c5fe2e22223abc5890f1dc6389c762ee61e0ba08170f5907c1adbc4"></a>
+<a id="canonical-3321323033030210-0130113332023202-0202020322233011-2021003301313012-0320213013120232-3212013200232200-2001130033112100-1330012231233010"></a>
 
-<a id="canonical-9a1c7b71aa2d9fde58038f072531a5dd91625890da56821a8ff73f54474fe2f8"></a>
+<a id="canonical-2122013013231301-2222023121333132-1120000320330013-0211030122113131-2101120211202100-3122111220020122-2033331303331110-1013103332023320"></a>
 
-## labels property — Property reference / 6d3207546445 / 8
+## labels property — Property reference / 111012101011 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -207,13 +207,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [monitoring](resources--app_firewall--reference--group-001.md#canonical-0af4bd45812502713e359638e33b95e7b7a75e36c5e4cbd05bd2e0e32d361a5b): complete subsection reference.
+- [monitoring](resources--app_firewall--reference--group-001.md#canonical-0022331023311011-2001021100021301-0332031121120320-3203032321113213-2313221311320312-3011321030233100-1123310232003203-0231031201221123): complete subsection reference.
 
-<a id="canonical-99212eb54ab584464d55fc5bf7cf01634d13507bb4c5bc463aa5ff3d7e231c34"></a>
+<a id="canonical-2121020102322311-1022231120101012-1031111133301123-3313303300011203-1031010311001323-2310301123301012-0322221133330331-1332020301300310"></a>
 
-<a id="canonical-36961cabddccd4aa3f6a562561e95de57acf39322eb3c1aa83206dba8803ef34"></a>
+<a id="canonical-0312211201302223-3131303031102222-0333122211120211-1201322111313211-1322303303210302-0232230330012222-2003020012312322-2020000332330310"></a>
 
-## name property — Property reference / 6d3207546445 / 9
+## name property — Property reference / 111012101011 / 9
 
 Type: `"string"`. Required.
 
@@ -277,11 +277,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a54162f6577c422d428f88851d5f89fa10cb10fa0cd22120ae1a827807fb3cea"></a>
+<a id="canonical-2211100112023312-1113133010020231-1002203320202011-0131113320213322-0100302301003322-0030310202010200-2232012220021320-0013332303303222"></a>
 
-<a id="canonical-a579149576edf3fbf70a3bba5b63f5629faf4bb4ebe413a6be50899c7e6ab2e7"></a>
+<a id="canonical-2211132101102111-1312323133033323-3313002203232322-1123120333111202-2133223310232310-3223321001032212-2332110020212130-1332122223023213"></a>
 
-## namespace property — Property reference / 6d3207546445 / 10
+## namespace property — Property reference / 111012101011 / 10
 
 Type: `"string"`. Required.
 
@@ -338,135 +338,135 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--app_firewall--reference--group-001.md#canonical-67d4d2bfa69993c60e75b7447ba2cd302087271ff43cb4137ef0271be5a07774): complete subsection reference.
+- [timeouts](resources--app_firewall--reference--group-001.md#canonical-1213311031022333-2212212121033012-0032131123131010-1323220230310300-0200201302130133-3310033023100103-1332330002130123-3211220013131310): complete subsection reference.
 
-- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-bd4acad954f14442cc39f60e29182a6ea4cb4aa9fb62403d2ff142704a95d1b8): complete subsection reference.
+- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-2331102230223121-1110330110101002-3030032133120032-0221012002221232-2210302310222221-3323120210000331-0233330110021300-1022211131012320): complete subsection reference.
 
-<a id="canonical-7a3ae8b0f15e8f178732576897d35d46c52ee02bc5c47c58d8816c96d836c271"></a>
+<a id="canonical-1322032232202300-3301113220330113-2013030211131220-2113310311311012-3011023232000223-3011301013301120-3120200112302112-3120031230021301"></a>
 
-## All schema paths — Property reference / 6d3207546445 / 11
+## All schema paths — Property reference / 111012101011 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `allow_all_response_codes` | [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-0093ee8cc6de21bb83a3f78596af64d49bb19d6ab92460094070aabbc5749613) |
-| `allowed_response_codes` | [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-3e9dfe7b6e88eab4c936e2ebfce9b9582dc5748f12447b8c047d49b430bb7837) |
-| `allowed_response_codes.response_code` | [allowed_response_codes.response_code](resources--app_firewall--reference--group-001.md#canonical-6757f06bebfda4b6a343e4c5f9acbd069e27b7f8241a55d7c834c29ccb89730f) |
-| `annotations` | [annotations](resources--app_firewall--reference--group-001.md#canonical-b7a1643f43fcf910d6689f41da4417f85af63199400dee49cf718c7c4b60f455) |
-| `blocking` | [blocking](resources--app_firewall--reference--group-001.md#canonical-58e805d65ae44d54805832aeca95deddbca2b1956a92f7e8eb87aeb324a70814) |
-| `blocking_page` | [blocking_page](resources--app_firewall--reference--group-001.md#canonical-c8c1215d4c70797a3a77938684a5f8d751a0ad448f1a1c1da3bdacba0b7df8b4) |
-| `blocking_page.blocking_page` | [blocking_page.blocking_page](resources--app_firewall--reference--group-001.md#canonical-c9be7abfb1bea31b8fb282253da6ebaf71a296d82c542d853eec60609ed4dbd1) |
-| `blocking_page.response_code` | [blocking_page.response_code](resources--app_firewall--reference--group-001.md#canonical-c08ca5feb293b8a2aa283ffdd1519c6d38838054eb00b1157b52c397c1afb527) |
-| `bot_protection_setting` | [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-7d88d8a4dfc187f0fffb82258f500d93dc7f8cfb2d283ed4b351d5030857ed5b) |
-| `bot_protection_setting.good_bot_action` | [bot_protection_setting.good_bot_action](resources--app_firewall--reference--group-001.md#canonical-ee93d5abf625ecd35f90918c21d720333d71bfae02bb6c973d91dc83584e9daf) |
-| `bot_protection_setting.malicious_bot_action` | [bot_protection_setting.malicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-697e342ea786153b9d7c6da9aaf989d32d1d66cced3ab7fc8f1d3ff7fa938872) |
-| `bot_protection_setting.suspicious_bot_action` | [bot_protection_setting.suspicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-282564e2353269d561b4a048ffd6eb8c8c70592fc0631c05b80c04645fd95608) |
-| `custom_anonymization` | [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-741ecda829962b0b8635898004a8cbd61109562fd7819b8e05f810517ca27d20) |
-| `custom_anonymization.anonymization_config` | [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-6dbce352c9627857a0ed8a9a419f6d2e93613e43a593f71309b5ec8c8666527e) |
-| `custom_anonymization.anonymization_config.cookie` | [custom_anonymization.anonymization_config.cookie](resources--app_firewall--reference--group-001.md#canonical-1def22ce36f36bfc84ece4df8a1ae7884cf0f81c624bdc6234fb6b5a8db40e67) |
-| `custom_anonymization.anonymization_config.cookie.cookie_name` | [custom_anonymization.anonymization_config.cookie.cookie_name](resources--app_firewall--reference--group-001.md#canonical-343642986599e61e941c8fa19b3412cc618ea4068dfbac32feb9cb397092f749) |
-| `custom_anonymization.anonymization_config.http_header` | [custom_anonymization.anonymization_config.http_header](resources--app_firewall--reference--group-001.md#canonical-a5b965ed3475960fa7f8de69e76ebb6ea87defede64c6beb28c26e103d2a157a) |
-| `custom_anonymization.anonymization_config.http_header.header_name` | [custom_anonymization.anonymization_config.http_header.header_name](resources--app_firewall--reference--group-001.md#canonical-76904d0f31c4a8ae29e701c79b8e9de85f96901d0d399e09896ae4f524b73ed9) |
-| `custom_anonymization.anonymization_config.query_parameter` | [custom_anonymization.anonymization_config.query_parameter](resources--app_firewall--reference--group-001.md#canonical-0da37484036f70e3d444ce2161dca30d7c4dc97ff8214069744d6c571f71e8c5) |
-| `custom_anonymization.anonymization_config.query_parameter.query_param_name` | [custom_anonymization.anonymization_config.query_parameter.query_param_name](resources--app_firewall--reference--group-001.md#canonical-dbc2ae71eb1f18f023f740464710b21d27438b932ce51bb53948a8614d62ba00) |
-| `default_anonymization` | [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-9727bb489265bcd50444538b1c399efb7f1ec5c9d729251c5ca7a089a0159b36) |
-| `default_bot_setting` | [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-b1aa2df863c14a99978e209770f55885d172db05011f1d5bffc299ec084cf773) |
-| `default_detection_settings` | [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-011347eb16b655bc5769fc2731f7d0b1271ef3d185d5d3e33c64a8ac2620af67) |
-| `description` | [description](resources--app_firewall--reference--group-001.md#canonical-3d21e40a84f93db709171c9798997e75a875a6d311e710043fd64bba0d7812f5) |
-| `detection_settings` | [detection_settings](resources--app_firewall--reference--group-001.md#canonical-70e24531aa649a904098fc49ac0f87afdee27ab5c32a4807db2f01fc7db71c86) |
-| `detection_settings.bot_protection_setting` | [detection_settings.bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-2e539c1f5dd6d10e13ebd0c8dfeab8171604f5e6ad670df5b80d3468358229aa) |
-| `detection_settings.bot_protection_setting.good_bot_action` | [detection_settings.bot_protection_setting.good_bot_action](resources--app_firewall--reference--group-001.md#canonical-b9e46cc87ecb11251e778681ad1275e7f55e968783020c5ec53088412be2e109) |
-| `detection_settings.bot_protection_setting.malicious_bot_action` | [detection_settings.bot_protection_setting.malicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-f4185cfe588df1e2c30a18a52c996eb18a163dbcdb94a02ca49ba0155c604e64) |
-| `detection_settings.bot_protection_setting.suspicious_bot_action` | [detection_settings.bot_protection_setting.suspicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-c046bd7e395c179029f862f5a2fc54dcf418edbc00503ab2d084a5c24cded679) |
-| `detection_settings.default_bot_setting` | [detection_settings.default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-052654dd081696fcb90eacd51a34c594aabe4d8dc9a33a5332eacf00949bc438) |
-| `detection_settings.default_violation_settings` | [detection_settings.default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-f0efe0e359fec05e4e6ae40aae6327dfe2e91bcc03ae70a2db2733150f12619b) |
-| `detection_settings.disable_staging` | [detection_settings.disable_staging](resources--app_firewall--reference--group-001.md#canonical-feed9c592978514c4d1c3486c4996059d1b71c0fe7558373c015c2fd11fecd37) |
-| `detection_settings.disable_suppression` | [detection_settings.disable_suppression](resources--app_firewall--reference--group-001.md#canonical-46b71052d29ddf541afd4c2c354ab3aef53f4be247196b17db74250c7ebd98e4) |
-| `detection_settings.disable_threat_campaigns` | [detection_settings.disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-82600db76196568ac4cc94ae85310b9d788dc57d4ee7d7b66bd4cc9e078e4210) |
-| `detection_settings.enable_suppression` | [detection_settings.enable_suppression](resources--app_firewall--reference--group-001.md#canonical-2e59e7bd929fd1c7c588ef351964479e5310c321f7440cffb1bf7b90d926c313) |
-| `detection_settings.enable_threat_campaigns` | [detection_settings.enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-d7aa96b917ea9d1d57eb860a533966dddc3b9270ee0196654c723d739917e87f) |
-| `detection_settings.signature_selection_setting` | [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-6976908045cc6c7da57931a88b71a65112f814ffa5380d7ca55267cbfbbeb884) |
-| `detection_settings.signature_selection_setting.attack_type_settings` | [detection_settings.signature_selection_setting.attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-c95c6ae8811b03c9949497fd0d6d726c042236c7d8613acfa18ba8be9d388f88) |
-| `detection_settings.signature_selection_setting.attack_type_settings.disabled_attack_types` | [detection_settings.signature_selection_setting.attack_type_settings.disabled_attack_types](resources--app_firewall--reference--group-001.md#canonical-708ef1383dfae0537c4e076fd150c0dc64035f53ddb94e8085db5eceba1fe7ed) |
-| `detection_settings.signature_selection_setting.default_attack_type_settings` | [detection_settings.signature_selection_setting.default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-bbbdabd84189eac9eeae26ca7d6ccbb9a0df2695d790c4e2b731594bc4a6bafd) |
-| `detection_settings.signature_selection_setting.default_signature_setting` | [detection_settings.signature_selection_setting.default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-d8f33b74e4afcb5dfa5c9453becc57f3565e7c72adb60a21b046b53d2b20efd9) |
-| `detection_settings.signature_selection_setting.high_medium_accuracy_signatures` | [detection_settings.signature_selection_setting.high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-8fb306a310398f4b2077ab8537ec0a63ca4548834ab5ccee746b9ea716272093) |
-| `detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures` | [detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-c08d7ecc04fe0d75f924b942a2d5f98beb3443080f1af8b6e4d1fc6c4e178e16) |
-| `detection_settings.signature_selection_setting.only_high_accuracy_signatures` | [detection_settings.signature_selection_setting.only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-d2db926a6f5e6a583208fb8605f262dfed09a03b69d6269ac4a2132949a5d838) |
-| `detection_settings.signature_selection_setting.signature_settings_by_accuracy` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-099e881eed27d69bfe04a2779cedbc06a114d21c72e0c05e3fa8c4da0520dfe8) |
-| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.high_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.high_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-85e1b1061ff13259a7c3a169d9402ff0b08b081a1abc423e243c361c4c7a56cc) |
-| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.low_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.low_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-df89ef43e46359f1907cd3679a8b5f13aa547de1c0d1811348d5f5c5bdc1f525) |
-| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.medium_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.medium_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-0c55dc8bdb3d7af8e7f9d66fbe0705463fa6e3ec63691034db80dc52fe3c5b40) |
-| `detection_settings.stage_new_and_updated_signatures` | [detection_settings.stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-bbaba6e34215d14a44f66fee78d56bd02f329e3723e21cdd8d7050ec67500cc6) |
-| `detection_settings.stage_new_and_updated_signatures.staging_period` | [detection_settings.stage_new_and_updated_signatures.staging_period](resources--app_firewall--reference--group-001.md#canonical-952a06ffbd8220618ee7049bb07e6b03a5af0d9d0334601164b1d96684902448) |
-| `detection_settings.stage_new_signatures` | [detection_settings.stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-9d824bf82d0196a7d0fab123fecf2f801a967b7f20fd448596e42580784dda31) |
-| `detection_settings.stage_new_signatures.staging_period` | [detection_settings.stage_new_signatures.staging_period](resources--app_firewall--reference--group-001.md#canonical-208e3356fcf2e95e0e56d565a1b5122c96c5d16e38b3e47575d9cd333109f25e) |
-| `detection_settings.violation_settings` | [detection_settings.violation_settings](resources--app_firewall--reference--group-001.md#canonical-c07dd07d2a73094aff2168ea28189477899c6c5e1ab0d1fc9e2841109d25d67e) |
-| `detection_settings.violation_settings.disabled_violation_types` | [detection_settings.violation_settings.disabled_violation_types](resources--app_firewall--reference--group-001.md#canonical-923be1899177f5decb21c31d560e7a494e73cd280672cfc75a773da9eb68795c) |
-| `detection_settings.violations_view` | [detection_settings.violations_view](resources--app_firewall--reference--group-001.md#canonical-7f0a74733caaa88496fd424dfdef7b1adfb648f4ff4c5f1d6db248c495238952) |
-| `detection_settings.violations_view.description_spec` | [detection_settings.violations_view.description_spec](resources--app_firewall--reference--group-001.md#canonical-ce6e5851b29207632de5a17adb35feaa76d94c51375fea58c44f988871f065ee) |
-| `detection_settings.violations_view.enabled` | [detection_settings.violations_view.enabled](resources--app_firewall--reference--group-001.md#canonical-1168e33b0f4401c9fa8508a4fd372785ae477b83af999f2569debebbf602089a) |
-| `detection_settings.violations_view.enabled_by_default` | [detection_settings.violations_view.enabled_by_default](resources--app_firewall--reference--group-001.md#canonical-26e1a0adcf4de1ac46b06ffb548bfa24471a96987e8d3ee91297ff34f42fef68) |
-| `detection_settings.violations_view.name` | [detection_settings.violations_view.name](resources--app_firewall--reference--group-001.md#canonical-db944b9c5d9495300161bdc6192ad461bc591ad0adf368180f8b2cb431c3c983) |
-| `detection_settings.violations_view.title` | [detection_settings.violations_view.title](resources--app_firewall--reference--group-001.md#canonical-3cc3878cf49fc38de8b7581378ef6e8d06141f5dfcb65bb50e3a5b726e6d44a9) |
-| `disable` | [disable](resources--app_firewall--reference--group-001.md#canonical-c58f2081977e182263854051ec1c1e744b42708f528b422eecda62e72e4d772e) |
-| `disable_ai_enhancements` | [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-51ba662e5b8c9b65413be9c8dee479c2763e325af11635dc4b22e4f83ea5c45a) |
-| `disable_anonymization` | [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-9fd50e3757171707ef410094d05c48cdc26d6219a8dc9e01f3b8c422e7ce77b8) |
-| `enable_ai_enhancements` | [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-e15da73ee066596a786073362d2a50a22d6966b73494d3f0c43141af69049afa) |
-| `enable_ai_enhancements.mitigate_high_medium_risk_action` | [enable_ai_enhancements.mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-371f99c7ae9884367f103e01278a0cf12c001c84402fe278e61c4c9ba9f24265) |
-| `enable_ai_enhancements.mitigate_high_risk_action` | [enable_ai_enhancements.mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-d81b31ab2b5ecd6aff09d59ca5cb165227e173bb77c8ed865540db462e02c07b) |
-| `id` | [id](resources--app_firewall--reference--group-001.md#canonical-546bffcc5a98df820cef681f79c54e8fbb2021f6627bc641cd2b3d747880777c) |
-| `labels` | [labels](resources--app_firewall--reference--group-001.md#canonical-f9ecf3241c5fe2e22223abc5890f1dc6389c762ee61e0ba08170f5907c1adbc4) |
-| `monitoring` | [monitoring](resources--app_firewall--reference--group-001.md#canonical-31173fc53755e36aeb57e91c8ade2b3b3306a03640ed7372256752b2c0954a62) |
-| `name` | [name](resources--app_firewall--reference--group-001.md#canonical-99212eb54ab584464d55fc5bf7cf01634d13507bb4c5bc463aa5ff3d7e231c34) |
-| `namespace` | [namespace](resources--app_firewall--reference--group-001.md#canonical-a54162f6577c422d428f88851d5f89fa10cb10fa0cd22120ae1a827807fb3cea) |
-| `timeouts` | [timeouts](resources--app_firewall--reference--group-001.md#canonical-703aca3e43c29ba6f2037b305f0b1855c8291afa5341773a9db32d0aa641c8fe) |
-| `timeouts.create` | [timeouts.create](resources--app_firewall--reference--group-001.md#canonical-a75a6126eead8c4028458166ebf57c9c5fbbb69deb4311cc971d5d767991e243) |
-| `timeouts.delete` | [timeouts.delete](resources--app_firewall--reference--group-001.md#canonical-87220a77c2a5c536ce774df4f386897a74e6fa12376b0d1a8a3d706280ce638a) |
-| `timeouts.read` | [timeouts.read](resources--app_firewall--reference--group-001.md#canonical-11ebb6dc003ff2679f692eb6c7bffcd330114368d5daadc0a7c249df476bf2e7) |
-| `timeouts.update` | [timeouts.update](resources--app_firewall--reference--group-001.md#canonical-3c4857464273f6055f0de427e517afafde9bd128851136582116c96484327c97) |
-| `use_default_blocking_page` | [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-286e9e1d7913821e1199805378122627c59e4f6f9f7f7e45acc6c68e38bf0077) |
+| `allow_all_response_codes` | [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-0000210332322030-3012313202012323-2003220333132011-2112223312103110-2123230121311222-2321021012000021-1000130022222323-3011131021120103) |
+| `allowed_response_codes` | [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-0332213133321323-1232202032222310-3021031232023223-3330322123211120-0231301113102033-0102101013232030-0010133110212310-0300232313200313) |
+| `allowed_response_codes.response_code` | [allowed_response_codes.response_code](resources--app_firewall--reference--group-001.md#canonical-1213111333001223-3223333122102312-2203100332103011-3321223023310012-2132021323133320-0210012211113113-3020031030022130-3023202113030033) |
+| `annotations` | [annotations](resources--app_firewall--reference--group-001.md#canonical-2313220112100333-1003333033210100-3112122021331001-3122101001133320-1122331203012121-1000003132321021-3033130120301330-1023120033101111) |
+| `blocking` | [blocking](resources--app_firewall--reference--group-001.md#canonical-1120322000113112-1122321010311110-2000112003022232-3022211131323131-2330220223012111-1222210233133220-3223201322322303-0210221300200110) |
+| `blocking_page` | [blocking_page](resources--app_firewall--reference--group-001.md#canonical-3020300102011131-1030130013211322-0322131321032012-2010221133203113-1101220022311010-2033012201300131-2203233122302322-0023133133202310) |
+| `blocking_page.blocking_page` | [blocking_page.blocking_page](resources--app_firewall--reference--group-001.md#canonical-3021233213222333-2301233222030123-2033230220020211-0331221232232233-1301220221123120-0230111002312011-0332323012001200-2132311031233101) |
+| `blocking_page.response_code` | [blocking_page.response_code](resources--app_firewall--reference--group-001.md#canonical-3000203022113332-2302210323202202-2222022003333331-3101110121301231-0320200320001110-3223000023010111-1323110230032113-3001223323110213) |
+| `bot_protection_setting` | [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-1331202031202210-3133300120133300-3333332320020211-2033110000312103-3130133320303323-0231022003323110-2303110131110003-0020111332311123) |
+| `bot_protection_setting.good_bot_action` | [bot_protection_setting.good_bot_action](resources--app_firewall--reference--group-001.md#canonical-3232210331112223-3312021132303103-1133210021012030-0201311302000303-0331130123332232-0002232312302113-0331210131302003-1120103221312233) |
+| `bot_protection_setting.malicious_bot_action` | [bot_protection_setting.malicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-1221133203100232-2213201201110323-2131133012312221-2222332120213103-0231013112123030-3231032223133330-2033013103333313-3322210320201302) |
+| `bot_protection_setting.suspicious_bot_action` | [bot_protection_setting.suspicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-0220021112103202-0311030212213111-1201231022001020-3333311232232030-2030130011210233-3000120301300011-2320003000101210-1133312111120020) |
+| `custom_anonymization` | [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-1310013230312220-0221211202230023-2012031120212000-0010222030233112-0101002111120233-3113200121232032-0011332001001101-1330220213310200) |
+| `custom_anonymization.anonymization_config` | [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-1231233032031102-3021120213201113-2200323120222122-1001213312310232-2103120103321003-2211210333130103-0021231132302030-2012121211021332) |
+| `custom_anonymization.anonymization_config.cookie` | [custom_anonymization.anonymization_config.cookie](resources--app_firewall--reference--group-001.md#canonical-0131323302023032-0312330312233330-2010323032103133-2022012232132020-1030330033200130-1202102331301202-0310332312231122-2031231000321213) |
+| `custom_anonymization.anonymization_config.cookie.cookie_name` | [custom_anonymization.anonymization_config.cookie.cookie_name](resources--app_firewall--reference--group-001.md#canonical-0310031210022120-1211212132120132-2110013020332201-2123031001023030-1201203222100012-2031332322300302-3332232130230321-1300210233131021) |
+| `custom_anonymization.anonymization_config.http_header` | [custom_anonymization.anonymization_config.http_header](resources--app_firewall--reference--group-001.md#canonical-2211232112113231-0310131121120033-2213332031321221-3213123223231232-2220133132333231-3212103012233223-0220300212320100-0331022201111322) |
+| `custom_anonymization.anonymization_config.http_header.header_name` | [custom_anonymization.anonymization_config.http_header.header_name](resources--app_firewall--reference--group-001.md#canonical-1312210010310033-0301301022202232-0221321300013013-2123203221313220-1133211221000131-0031032121320021-2021122232103311-0210231303323121) |
+| `custom_anonymization.anonymization_config.query_parameter` | [custom_anonymization.anonymization_config.query_parameter](resources--app_firewall--reference--group-001.md#canonical-0031220313102010-0003123313003203-3110101030320201-1201313022030031-1330103130211333-3320020110001221-1310103112301113-0133130132203011) |
+| `custom_anonymization.anonymization_config.query_parameter.query_param_name` | [custom_anonymization.anonymization_config.query_parameter.query_param_name](resources--app_firewall--reference--group-001.md#canonical-3123300222321301-3223013301203300-0203331310001012-1013010023020131-0213100320232103-0230321101232311-0321102022201201-1031120223220000) |
+| `default_anonymization` | [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-2113021323231020-2102121123303111-0010101011032023-0130032121323323-1333013230113021-3113022102110130-1130221322002021-2200011121230312) |
+| `default_bot_setting` | [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-2301222202313320-1203300110222121-2113203202002113-1300331111202011-3101130231230011-0001013301311123-3333300221213230-0020103033131303) |
+| `default_detection_settings` | [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-0001010310133223-0112231211112330-1113122133300213-0301331331002301-0213013233033101-2011311131033203-0330121022202230-0212020022331213) |
+| `description` | [description](resources--app_firewall--reference--group-001.md#canonical-0331020132100022-2010332103312313-0021011301302113-2120212113321311-2220131122123103-0101321301000010-0333311210232322-0031132001023311) |
+| `detection_settings` | [detection_settings](resources--app_firewall--reference--group-001.md#canonical-1300320210110301-2222121021222100-1000212033301021-2230003320132233-3132320213222311-3003022210200013-3123023300013330-1331231301302012) |
+| `detection_settings.bot_protection_setting` | [detection_settings.bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-0232110321300133-1131311231010032-0103322331003020-3133322223200113-0112001033113212-2231121300313311-2320003103101220-0311200202212222) |
+| `detection_settings.bot_protection_setting.good_bot_action` | [detection_settings.bot_protection_setting.good_bot_action](resources--app_firewall--reference--group-001.md#canonical-2321321012303020-1332302301010211-0132131320122001-2231010213113213-3311113221122013-2003000200301132-3011030020201001-0223320232010021) |
+| `detection_settings.bot_protection_setting.malicious_bot_action` | [detection_settings.bot_protection_setting.malicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-3310012011303332-1120203133013202-3003002201202211-0230212112322301-2022011203312330-3123211022000230-2210212322000111-1130120010321210) |
+| `detection_settings.bot_protection_setting.suspicious_bot_action` | [detection_settings.bot_protection_setting.suspicious_bot_action](resources--app_firewall--reference--group-001.md#canonical-3000101223311332-0321113001132100-0221332012023311-2202333011103130-3310012032312330-0000110003222302-3100201022113002-1030313231121321) |
+| `detection_settings.default_bot_setting` | [detection_settings.default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-0011021211103131-0020011221123330-2321003222303111-0122031030112110-2222233210312031-3021220303221103-0302322230330000-2110212330100320) |
+| `detection_settings.default_violation_settings` | [detection_settings.default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-3300323332003203-1121333230001132-1032122232100022-2232120302133133-3202322101233030-0003223213002202-3123021303030111-0033010212012123) |
+| `detection_settings.disable_staging` | [detection_settings.disable_staging](resources--app_firewall--reference--group-001.md#canonical-3332323121301121-0221132011011030-1031013003102012-3010212112001121-3101231301300033-3213111120031303-3000011130023331-0101333230310313) |
+| `detection_settings.disable_suppression` | [detection_settings.disable_suppression](resources--app_firewall--reference--group-001.md#canonical-1012231301001102-3102213131331110-0122333110300230-0311102223032232-3311033310233202-1013012112230113-3123131002110030-1332233121203210) |
+| `detection_settings.disable_threat_campaigns` | [detection_settings.disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-2002120000312313-1201211211122022-3010303021102232-2011030100232131-1320203130111331-1032321331132312-1223311030302132-0013203210020100) |
+| `detection_settings.enable_suppression` | [detection_settings.enable_suppression](resources--app_firewall--reference--group-001.md#canonical-0232112132132331-2102213331013013-3011202032330311-0121121010132132-1103010030030201-3313101000303333-2301233313232100-3121021230030103) |
+| `detection_settings.enable_threat_campaigns` | [detection_settings.enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-3113222221122321-0113322221310131-1113322320120022-1103032112123131-3130032321021300-3232000121121211-1030130203311303-2121011332201333) |
+| `detection_settings.signature_selection_setting` | [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-1221131221002000-1011303012301331-2211132103012220-2023130122121101-0102332001103333-2211032000311330-2211110212133023-3323233223202010) |
+| `detection_settings.signature_selection_setting.attack_type_settings` | [detection_settings.signature_selection_setting.attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-3021113012223220-2001012300033021-2110211021133331-0031123113021230-0010020203123013-3120120103223033-2201202322202332-2131032020332020) |
+| `detection_settings.signature_selection_setting.attack_type_settings.disabled_attack_types` | [detection_settings.signature_selection_setting.attack_type_settings.disabled_attack_types](resources--app_firewall--reference--group-001.md#canonical-1300203233010320-0331332232001103-1330103200131233-3101110030003130-1210000311331103-3131232110322000-2011312311323032-2322013332133231) |
+| `detection_settings.signature_selection_setting.default_attack_type_settings` | [detection_settings.signature_selection_setting.default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-2323233122233120-1001202132223021-3232223202123022-1331123030232321-2200313302122111-3113210030103202-2313030111211023-3010221223223331) |
+| `detection_settings.signature_selection_setting.default_signature_setting` | [detection_settings.signature_selection_setting.default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-3120330303231310-3210223330231131-3322113021101103-2332303011133303-1112113213301302-2231231200220201-2300101223110331-0223020032333121) |
+| `detection_settings.signature_selection_setting.high_medium_accuracy_signatures` | [detection_settings.signature_selection_setting.high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-2033230300122203-0100032120331023-0200131322232011-0313323000221203-3022101110202003-1022231130303232-1310122321322213-0112021302002103) |
+| `detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures` | [detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-3000203113323030-0010333200311311-3321021023211002-2202311133212023-3223031010030020-0033012233202312-3210310133301230-1032011320320112) |
+| `detection_settings.signature_selection_setting.only_high_accuracy_signatures` | [detection_settings.signature_selection_setting.only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-3102312321021222-1233113212221120-0302002033232012-0011330212023133-3231002122000323-1221311202122122-3010220201030221-1021221131200320) |
+| `detection_settings.signature_selection_setting.signature_settings_by_accuracy` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-0021213220200132-3231021331122123-3332001022021313-2130323123300012-2201011031020130-1302320030001132-0333222030103122-0011020031333220) |
+| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.high_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.high_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-2011320123010012-0133330103021121-2213300322011221-3121100002333300-2300202300200122-0122233010020332-0210033003120130-1030132211123030) |
+| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.low_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.low_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-3133202132331003-3210120311213301-2100133031031213-2122202311330103-2222111013313201-3000310120010103-1020311133113011-2331300133110211) |
+| `detection_settings.signature_selection_setting.signature_settings_by_accuracy.medium_accuracy_action` | [detection_settings.signature_selection_setting.signature_settings_by_accuracy.medium_accuracy_action](resources--app_firewall--reference--group-001.md#canonical-0030111131302023-3123033113223320-3213332131121233-2332001300111012-0333221232033230-1203122101000310-3123200031301102-3332033011231000) |
+| `detection_settings.stage_new_and_updated_signatures` | [detection_settings.stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-2323222322123203-1002011131011022-1010331212333232-1320311112233100-0233030221320313-0203320201303131-2031130011003230-1213110000303012) |
+| `detection_settings.stage_new_and_updated_signatures.staging_period` | [detection_settings.stage_new_and_updated_signatures.staging_period](resources--app_firewall--reference--group-001.md#canonical-2111022200123333-2331200202001201-2032321300102123-2300133212230003-2211223300312131-0003031012000101-1210230131211212-2010210002101020) |
+| `detection_settings.stage_new_signatures` | [detection_settings.stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-2131200210233320-0231000121122213-3100332223010203-3332303302332000-0122211213231333-0200333110102011-2112321002112000-1320103131220301) |
+| `detection_settings.stage_new_signatures.staging_period` | [detection_settings.stage_new_signatures.staging_period](resources--app_firewall--reference--group-001.md#canonical-0200203203031112-3330330232211132-0032111231111211-2201231101020230-2112301131011232-0320230332101311-1311312130310303-0301002133021132) |
+| `detection_settings.violation_settings` | [detection_settings.violation_settings](resources--app_firewall--reference--group-001.md#canonical-3000133131001331-0222130300211022-3333020112203222-0220012021101313-2021213012301132-0122230031013330-2132022010010100-2131021131121332) |
+| `detection_settings.violation_settings.disabled_violation_types` | [detection_settings.violation_settings.disabled_violation_types](resources--app_firewall--reference--group-001.md#canonical-2102032332012021-2101131333113132-3023020130030131-1112003213221021-1032130330310220-0012130230333013-1122131303312221-3223122013211130) |
+| `detection_settings.violations_view` | [detection_settings.violations_view](resources--app_firewall--reference--group-001.md#canonical-1333002213101303-0330222222202010-2112333110021031-3331323313230122-3133231210203310-3333103011330131-1231230210203010-2111020320211102) |
+| `detection_settings.violations_view.description_spec` | [detection_settings.violations_view.description_spec](resources--app_firewall--reference--group-001.md#canonical-3032123211201101-2302210200131203-0231321122011322-3123031133322222-1312312110301101-0313113332221120-3010103321202020-1301330012113232) |
+| `detection_settings.violations_view.enabled` | [detection_settings.violations_view.enabled](resources--app_firewall--reference--group-001.md#canonical-0101122032030323-0033101000013021-3322201100202210-3331031302132011-2232101313232003-2233212121330211-1221313223322323-3312000200202122) |
+| `detection_settings.violations_view.enabled_by_default` | [detection_settings.violations_view.enabled_by_default](resources--app_firewall--reference--group-001.md#canonical-0212320122002231-3033103132012230-1012230012333323-1110202333220210-1013012221122120-1332203103323221-0102211333330310-3310023332331220) |
+| `detection_settings.violations_view.name` | [detection_settings.violations_view.name](resources--app_firewall--reference--group-001.md#canonical-3123211010232130-1131211021110300-0001120123313012-0121022231101201-2330112101223100-2231330312200120-0033202302302310-0301300330212003) |
+| `detection_settings.violations_view.title` | [detection_settings.violations_view.title](resources--app_firewall--reference--group-001.md#canonical-0330300320132030-3310213330032031-3220231311200103-1320323312322031-0012011001331131-3330231211232311-0032032211231302-1232123110102221) |
+| `disable` | [disable](resources--app_firewall--reference--group-001.md#canonical-3011203302002001-2113133201200202-1203201110001101-3230013001321310-1023100213002033-1102202310020232-3230312212023213-0232103113130232) |
+| `disable_ai_enhancements` | [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1101232212120232-1123203021231211-1001032332213020-3132321013213002-1312033203021122-3301011203113130-1023020232103320-0332221130101122) |
+| `disable_anonymization` | [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-2133311100320313-1113011301130013-3233100100002110-3100113010203031-3002123112020121-2220313021320001-3303232030100202-3213303213132320) |
+| `enable_ai_enhancements` | [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-3201113122130332-3200121211211222-1320120013030312-0231022211002202-0231122112122313-0310211031033300-3010030110012233-1221001021223322) |
+| `enable_ai_enhancements.mitigate_high_medium_risk_action` | [enable_ai_enhancements.mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-0313013321213013-2232212020100312-1333010003320001-0213202200303301-0230000001302010-1000023332021320-3212013010302123-2221330210021211) |
+| `enable_ai_enhancements.mitigate_high_risk_action` | [enable_ai_enhancements.mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-3120012303012223-0223113230311222-3333002131112130-2211302301121102-0213320113032323-1313302032312012-1111100031231012-0232000230001323) |
+| `id` | [id](resources--app_firewall--reference--group-001.md#canonical-1110122333333030-1122212031332002-0030323312200133-1321301110322033-2323020002013312-1202132330121001-3031022303311310-1320200013131330) |
+| `labels` | [labels](resources--app_firewall--reference--group-001.md#canonical-3321323033030210-0130113332023202-0202020322233011-2021003301313012-0320213013120232-3212013200232200-2001130033112100-1330012231233010) |
+| `monitoring` | [monitoring](resources--app_firewall--reference--group-001.md#canonical-0301011303333011-0313111132031222-3223111332210130-2022313202230323-0303001222000312-1000323113031302-0211121311022302-3000211110221202) |
+| `name` | [name](resources--app_firewall--reference--group-001.md#canonical-2121020102322311-1022231120101012-1031111133301123-3313303300011203-1031010311001323-2310301123301012-0322221133330331-1332020301300310) |
+| `namespace` | [namespace](resources--app_firewall--reference--group-001.md#canonical-2211100112023312-1113133010020231-1002203320202011-0131113320213322-0100302301003322-0030310202010200-2232012220021320-0013332303303222) |
+| `timeouts` | [timeouts](resources--app_firewall--reference--group-001.md#canonical-1300032230220332-1003300221232212-3302000313230300-1133002301201111-3020022101223322-1103100113130322-2131230302310022-2212100130203332) |
+| `timeouts.create` | [timeouts.create](resources--app_firewall--reference--group-001.md#canonical-2213112212010212-3232223120301000-0220101120011212-3223331113302130-1133232323122131-3223100301013030-2113013111311312-1321210132021003) |
+| `timeouts.delete` | [timeouts.delete](resources--app_firewall--reference--group-001.md#canonical-2013020200221313-3002221130110312-3032131310313310-3303201220211322-1310321233220102-0313122300310122-2022033113001202-2000303212032022) |
+| `timeouts.read` | [timeouts.read](resources--app_firewall--reference--group-001.md#canonical-0101322323123130-0000033333021213-2133122102322312-3013233333303103-0300010110031220-3111312222313000-2213300210213133-1013122333023213) |
+| `timeouts.update` | [timeouts.update](resources--app_firewall--reference--group-001.md#canonical-0330102011131012-1002130333120011-1133003132100213-3211011322332233-3132212331010220-2011010103121120-0201011230211210-2010030213302113) |
+| `use_default_blocking_page` | [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-0220123221320131-1321010320020132-0101212120001103-1320010202120213-3011213210331233-2133133313321011-2230301230122032-0320233300001313) |
 
-<a id="canonical-a68e69504a5f7e0d230f68a202c1c76fda676d279233bda811dc6844c138a57e"></a>
+<a id="canonical-2212203212211100-1022113313320031-0203003312202202-0002300130131233-3122121312310213-2102030323312220-0101313012201010-3001032022111332"></a>
 
-## Next pages — Property reference / 6d3207546445 / 12
+## Next pages — Property reference / 111012101011 / 12
 
-- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-99e75007717b48e03533e9b898700c624862621444d75258e3499b4a886b6a53)
-- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-18d5fde757750c5ae1f21da40bf6c3348e1ce30d1a5e9499aff566ee1c05c9f6)
-- [blocking](resources--app_firewall--reference--group-001.md#canonical-693b041ad0bdd1cbc9ed189a8d1f0c51264fa57d2eb99321044f6af82b046836)
-- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-072958fc9ffb537d907339d78644e0e909d2fafbeefef201fd6997bb27655858)
-- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-f561d7c60d03776bdafc8bcd1ff3cc2e20c3d873eba27b07550e9f5f35938d55)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
-- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-6947b4b6ae9be6828bcabf9af8ec58df4d8d915bc460cd5ac7aca0837968974a)
-- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-44fe272375c06e26a85aa2b82dfb265fe7083495451fe26afb286e1f38d67f28)
-- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-5be5ae1e2e5176410bb44105286f6d85a52b42ab0b6197700dabfddfb431af0c)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-47affa490998093df338643b50e1c90112344a03acdef78edc4281137a077690)
-- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-ad9e53637860a64860af7cc627b9c06ca47bdd01c64d32907874af14cf12e9d2)
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2)
-- [monitoring](resources--app_firewall--reference--group-001.md#canonical-0af4bd45812502713e359638e33b95e7b7a75e36c5e4cbd05bd2e0e32d361a5b)
-- [timeouts](resources--app_firewall--reference--group-001.md#canonical-67d4d2bfa69993c60e75b7447ba2cd302087271ff43cb4137ef0271be5a07774)
-- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-bd4acad954f14442cc39f60e29182a6ea4cb4aa9fb62403d2ff142704a95d1b8)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-2121321311000013-1301132310203200-0311030332212320-2120130000301202-1020120212020110-1010311311021120-3203102121231022-2020122312221103)
+- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-0120311133313213-1113131100301122-3201330201312210-0023331230030310-2032013032030031-0122113221102121-2233331112123232-0130001130213312)
+- [blocking](resources--app_firewall--reference--group-001.md#canonical-1221032300100122-3100233131013023-3021323101202122-2031013300301101-0212103322111331-0232232121030201-0010103312223320-0223001012200312)
+- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-0013022111203330-2133332311031331-2100130303213113-2012101032003221-0021310233223323-3232333233020001-3331122121132323-0213121111201120)
+- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-3311120131133012-0031000313131223-3122333020233031-0133330330300232-0200300331201303-3223220213230013-1111003221331133-0311210320311111)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
+- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-1221101323102312-2232212332122002-2023302223332122-3320323011203133-1031203121011123-3010120030311122-3013223022002003-1321122021131022)
+- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-1010333202130203-1311300012320212-2220112222022320-0231332302121133-3213002003102111-1011013332021222-3323022012320133-0320311213330220)
+- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-1123321122320132-0232110113121001-0023231010010011-0220123312312011-2211022310022223-0023120121131300-0031222333313133-2310030122330030)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1013223333221021-0021212000210331-3303032012100323-1100320130210001-0102031010220003-2230313233132032-3130100220010103-1322001313122100)
+- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-2231213211031203-1320120022121020-1200223313303012-0213232130001230-2210132331310001-3012103103022100-1320131022330110-3033010232213102)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202)
+- [monitoring](resources--app_firewall--reference--group-001.md#canonical-0022331023311011-2001021100021301-0332031121120320-3203032321113213-2313221311320312-3011321030233100-1123310232003203-0231031201221123)
+- [timeouts](resources--app_firewall--reference--group-001.md#canonical-1213311031022333-2212212121033012-0032131123131010-1323220230310300-0200201302130133-3310033023100103-1332330002130123-3211220013131310)
+- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-2331102230223121-1110330110101002-3030032133120032-0221012002221232-2210302310222221-3323120210000331-0233330110021300-1022211131012320)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-99e75007717b48e03533e9b898700c624862621444d75258e3499b4a886b6a53"></a>
+<a id="canonical-2121321311000013-1301132310203200-0311030332212320-2120130000301202-1020120212020110-1010311311021120-3203102121231022-2020122312221103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-99cf4dfefe23c3ffbc0044a6414051f416e2cf7a59e8a4e1851bb05aaddb993b"></a>
+<a id="canonical-2121303310313332-3332020330033333-2330000010102212-1001100011013310-0112320230331322-1121322022103201-2011012323001122-2231312321210323"></a>
 
-## allow_all_response_codes — allow_all_response_codes / 33d3a5705dcb / 2
+## allow_all_response_codes — allow_all_response_codes / 130011313023 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - allow_all_response_codes
 
-<a id="canonical-0093ee8cc6de21bb83a3f78596af64d49bb19d6ab92460094070aabbc5749613"></a>
+<a id="canonical-0000210332322030-3012313202012323-2003220333132011-2112223312103110-2123230121311222-2321021012000021-1000130022222323-3011131021120103"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -492,8 +492,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-0093ee8cc6de21bb83a3f78596af64d49bb19d6ab92460094070aabbc5749613)
-- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-3e9dfe7b6e88eab4c936e2ebfce9b9582dc5748f12447b8c047d49b430bb7837)
+- [allow_all_response_codes](resources--app_firewall--reference--group-001.md#canonical-0000210332322030-3012313202012323-2003220333132011-2112223312103110-2123230121311222-2321021012000021-1000130022222323-3011131021120103)
+- [allowed_response_codes](resources--app_firewall--reference--group-001.md#canonical-0332213133321323-1232202032222310-3021031232023223-3330322123211120-0231301113102033-0102101013232030-0010133110212310-0300232313200313)
 
 Select alternatives according to the provider validators above.
 
@@ -503,36 +503,36 @@ Terraform syntax:
 allow_all_response_codes = {}
 ```
 
-<a id="canonical-81a0132dbf636f5a84a993fae9e2e0f74cdac8b7e22a2c189f900f4250dfc8a7"></a>
+<a id="canonical-2001220001030231-2333120312331122-2010222121033322-3221320232003313-1030312230202313-3202022202300120-2133210000331002-1100313330202213"></a>
 
-## Direct properties — allow_all_response_codes / 33d3a5705dcb / 3
+## Direct properties — allow_all_response_codes / 130011313023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bcb4751a34dcd010da46c7e9cc03ef10741b2941565a5eb6e92f4cd47f9a598c"></a>
+<a id="canonical-2330231013110122-0310313031000100-3122101230133221-3030000332330100-1310012302211001-1112112211322312-3221023310303110-1333212211212030"></a>
 
-## Next pages — allow_all_response_codes / 33d3a5705dcb / 4
+## Next pages — allow_all_response_codes / 130011313023 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-18d5fde757750c5ae1f21da40bf6c3348e1ce30d1a5e9499aff566ee1c05c9f6"></a>
+<a id="canonical-0120311133313213-1113131100301122-3201330201312210-0023331230030310-2032013032030031-0122113221102121-2233331112123232-0130001130213312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d1e45d7c77331a6cf861459921556263630c8546d4cf44bc0607638f81a5ebcb"></a>
+<a id="canonical-3101321011311330-1313030301221230-3320120110112121-0201111112021203-1203003020111012-3110303310102330-0012001312032033-2001221132233023"></a>
 
-## allowed_response_codes — allowed_response_codes / c9304dca4b90 / 2
+## allowed_response_codes — allowed_response_codes / 302210232100 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - allowed_response_codes
 
-<a id="canonical-3e9dfe7b6e88eab4c936e2ebfce9b9582dc5748f12447b8c047d49b430bb7837"></a>
+<a id="canonical-0332213133321323-1232202032222310-3021031232023223-3330322123211120-0231301113102033-0102101013232030-0010133110212310-0300232313200313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -565,15 +565,15 @@ allowed_response_codes {
 }
 ```
 
-<a id="canonical-d92141d3a979f0ec4f5c73d78e520a52fcaae6a1f99f2fc997a6f64ec69ee58c"></a>
+<a id="canonical-3121020110013103-2221132133003230-1033113013033113-2032110200221102-3330222232122201-3321213302333021-2113221233121032-3012213232112030"></a>
 
-## Direct properties — allowed_response_codes / c9304dca4b90 / 3
+## Direct properties — allowed_response_codes / 302210232100 / 3
 
-<a id="canonical-6757f06bebfda4b6a343e4c5f9acbd069e27b7f8241a55d7c834c29ccb89730f"></a>
+<a id="canonical-1213111333001223-3223333122102312-2203100332103011-3321223023310012-2132021323133320-0210012211113113-3020031030022130-3023202113030033"></a>
 
-<a id="canonical-49127397e90b3d6f10286344ae8ab6ddf7cfc09600c01ad8a7a360a544f1ae16"></a>
+<a id="canonical-1021010213032113-3221002303311233-0100022012031010-2232202223123131-3313303330002112-0000300001223120-2213220312002211-1010330122320112"></a>
 
-## response_code property — allowed_response_codes / c9304dca4b90 / 4
+## response_code property — allowed_response_codes / 302210232100 / 4
 
 Type: `["list", "number"]`. Optional.
 
@@ -631,30 +631,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8da669620f79594ac4d4ed93613caf0a91bb0ea3ded97c0bd533e71696bd8d00"></a>
+<a id="canonical-2031221212211202-0033132111211022-3010311032312103-1201033022330022-2101232300322203-3132312113300023-3111030332130112-2112233120310000"></a>
 
-## Next pages — allowed_response_codes / c9304dca4b90 / 5
+## Next pages — allowed_response_codes / 302210232100 / 5
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-693b041ad0bdd1cbc9ed189a8d1f0c51264fa57d2eb99321044f6af82b046836"></a>
+<a id="canonical-1221032300100122-3100233131013023-3021323101202122-2031013300301101-0212103322111331-0232232121030201-0010103312223320-0223001012200312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-01f34e27dbf4aeb4b9d1fefa6938fb627a6988f6a852e3b1d39846aee06886f4"></a>
+<a id="canonical-0001330310320213-3123331022322310-2321310133323322-1221032033231202-1322122120203312-2220110232032301-3103212010122232-3200122020123310"></a>
 
-## blocking — blocking / ad305bf7d2a9 / 2
+## blocking — blocking / 331331022221 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - blocking
 
-<a id="canonical-58e805d65ae44d54805832aeca95deddbca2b1956a92f7e8eb87aeb324a70814"></a>
+<a id="canonical-1120322000113112-1122321010311110-2000112003022232-3022211131323131-2330220223012111-1222210233133220-3223201322322303-0210221300200110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -679,8 +679,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [blocking](resources--app_firewall--reference--group-001.md#canonical-58e805d65ae44d54805832aeca95deddbca2b1956a92f7e8eb87aeb324a70814)
-- [monitoring](resources--app_firewall--reference--group-001.md#canonical-31173fc53755e36aeb57e91c8ade2b3b3306a03640ed7372256752b2c0954a62)
+- [blocking](resources--app_firewall--reference--group-001.md#canonical-1120322000113112-1122321010311110-2000112003022232-3022211131323131-2330220223012111-1222210233133220-3223201322322303-0210221300200110)
+- [monitoring](resources--app_firewall--reference--group-001.md#canonical-0301011303333011-0313111132031222-3223111332210130-2022313202230323-0303001222000312-1000323113031302-0211121311022302-3000211110221202)
 
 Select alternatives according to the provider validators above.
 
@@ -690,36 +690,36 @@ Terraform syntax:
 blocking = {}
 ```
 
-<a id="canonical-730c585fe4f63b1266aaedfa2bb81d1802fac366e393f82a6fc10e77ce586f6a"></a>
+<a id="canonical-1303003011201133-3210331203230102-1212222232313322-0223232001310120-0002332230031212-3203210333200222-1233300100321313-3032112012331222"></a>
 
-## Direct properties — blocking / ad305bf7d2a9 / 3
+## Direct properties — blocking / 331331022221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cfabf6cd9208754e2a0d139beccccacfe58782ac8418887e0f77a2c22d161b0f"></a>
+<a id="canonical-3033222333123031-2102002013111032-0222003101032123-3230303030223033-3211201320022230-2010012020201332-0033131322023002-0231011201230033"></a>
 
-## Next pages — blocking / ad305bf7d2a9 / 4
+## Next pages — blocking / 331331022221 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-072958fc9ffb537d907339d78644e0e909d2fafbeefef201fd6997bb27655858"></a>
+<a id="canonical-0013022111203330-2133332311031331-2100130303213113-2012101032003221-0021310233223323-3232333233020001-3331122121132323-0213121111201120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e31396fea64f4d5b8c821af15f64d21cbc910418a83ec3459100f42aea0cddd6"></a>
+<a id="canonical-3203010321123332-2212103310311123-2030200201223301-1133121031020130-2330210100100120-2220033230031011-2101000033100222-3222003031313112"></a>
 
-## blocking_page — blocking_page / 3227d13a87fe / 2
+## blocking_page — blocking_page / 032220133332 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - blocking_page
 
-<a id="canonical-c8c1215d4c70797a3a77938684a5f8d751a0ad448f1a1c1da3bdacba0b7df8b4"></a>
+<a id="canonical-3020300102011131-1030130013211322-0322131321032012-2010221133203113-1101220022311010-2033012201300131-2203233122302322-0023133133202310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -745,8 +745,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-c8c1215d4c70797a3a77938684a5f8d751a0ad448f1a1c1da3bdacba0b7df8b4)
-- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-286e9e1d7913821e1199805378122627c59e4f6f9f7f7e45acc6c68e38bf0077)
+- [blocking_page](resources--app_firewall--reference--group-001.md#canonical-3020300102011131-1030130013211322-0322131321032012-2010221133203113-1101220022311010-2033012201300131-2203233122302322-0023133133202310)
+- [use_default_blocking_page](resources--app_firewall--reference--group-001.md#canonical-0220123221320131-1321010320020132-0101212120001103-1320010202120213-3011213210331233-2133133313321011-2230301230122032-0320233300001313)
 
 Select alternatives according to the provider validators above.
 
@@ -758,15 +758,15 @@ blocking_page {
 }
 ```
 
-<a id="canonical-1267d83362f7248b9fc4ba3f674e8db09f8b981f3e6257807da516e69aa82352"></a>
+<a id="canonical-0102121331200303-1202331302102023-2133301023220333-1213103220312300-2133202321200133-0332120211132000-1331221101123212-2122222002031102"></a>
 
-## Direct properties — blocking_page / 3227d13a87fe / 3
+## Direct properties — blocking_page / 032220133332 / 3
 
-<a id="canonical-c9be7abfb1bea31b8fb282253da6ebaf71a296d82c542d853eec60609ed4dbd1"></a>
+<a id="canonical-3021233213222333-2301233222030123-2033230220020211-0331221232232233-1301220221123120-0230111002312011-0332323012001200-2132311031233101"></a>
 
-<a id="canonical-0ad1f459609886072b94a94179c0722ee21ab3e4bc0e6503dd3f0f7207a3cd51"></a>
+<a id="canonical-0022310133101121-1200212020120013-0223211022211001-1321300013020232-3202012223033210-2330003212110003-3131033300331302-0013220330311101"></a>
 
-## blocking_page property — blocking_page / 3227d13a87fe / 4
+## blocking_page property — blocking_page / 032220133332 / 4
 
 Type: `"string"`. Optional.
 
@@ -826,11 +826,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c08ca5feb293b8a2aa283ffdd1519c6d38838054eb00b1157b52c397c1afb527"></a>
+<a id="canonical-3000203022113332-2302210323202202-2222022003333331-3101110121301231-0320200320001110-3223000023010111-1323110230032113-3001223323110213"></a>
 
-<a id="canonical-e2cfcb864a47e263c4132dd9a7e74f6bec7e06d7f418e2fb1fc40b30cc2cce4e"></a>
+<a id="canonical-3202303330232012-1022101332021203-3010010302313121-2213321310331223-3230133200123113-3310012032023323-0133301000230300-3030023030321032"></a>
 
-## response_code property — blocking_page / 3227d13a87fe / 5
+## response_code property — blocking_page / 032220133332 / 5
 
 Type: `"string"`. Optional.
 
@@ -1013,30 +1013,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-238bac0a62425929ae25efb506cf95edc9585c814a502212c8edc3b53190522b"></a>
+<a id="canonical-0203202322300022-1202100211210221-2232021132332311-0012303321113231-3021112011302001-1022110002020102-3020323130032311-0301210011020223"></a>
 
-## Next pages — blocking_page / 3227d13a87fe / 6
+## Next pages — blocking_page / 032220133332 / 6
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-f561d7c60d03776bdafc8bcd1ff3cc2e20c3d873eba27b07550e9f5f35938d55"></a>
+<a id="canonical-3311120131133012-0031000313131223-3122333020233031-0133330330300232-0200300331201303-3223220213230013-1111003221331133-0311210320311111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-58b229e4efca7b04fc5769a5315873d94855e63d8a22bcd9bbdc43af3d7915ae"></a>
+<a id="canonical-1120230202213210-3233302213230010-3330111312212211-0301112013033121-1020111132120331-2022020223303121-2323313010032233-0331132101112232"></a>
 
-## bot_protection_setting — bot_protection_setting / bcb36319714f / 2
+## bot_protection_setting — bot_protection_setting / 012113011033 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - bot_protection_setting
 
-<a id="canonical-7d88d8a4dfc187f0fffb82258f500d93dc7f8cfb2d283ed4b351d5030857ed5b"></a>
+<a id="canonical-1331202031202210-3133300120133300-3333332320020211-2033110000312103-3130133320303323-0231022003323110-2303110131110003-0020111332311123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1062,8 +1062,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-7d88d8a4dfc187f0fffb82258f500d93dc7f8cfb2d283ed4b351d5030857ed5b)
-- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-b1aa2df863c14a99978e209770f55885d172db05011f1d5bffc299ec084cf773)
+- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-1331202031202210-3133300120133300-3333332320020211-2033110000312103-3130133320303323-0231022003323110-2303110131110003-0020111332311123)
+- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-2301222202313320-1203300110222121-2113203202002113-1300331111202011-3101130231230011-0001013301311123-3333300221213230-0020103033131303)
 
 Select alternatives according to the provider validators above.
 
@@ -1075,61 +1075,15 @@ bot_protection_setting {
 }
 ```
 
-<a id="canonical-d5b4848d34db6f021cb6f693f5478f7aa40110a9252f0f5e774b085b9059d961"></a>
+<a id="canonical-3111231020102031-0310312312330002-0130231233122103-3311101320331322-2210000101002221-0211023300331132-1313102300201123-2100112131211201"></a>
 
-## Direct properties — bot_protection_setting / bcb36319714f / 3
+## Direct properties — bot_protection_setting / 012113011033 / 3
 
-<a id="canonical-ee93d5abf625ecd35f90918c21d720333d71bfae02bb6c973d91dc83584e9daf"></a>
+<a id="canonical-3232210331112223-3312021132303103-1133210021012030-0201311302000303-0331130123332232-0002232312302113-0331210131302003-1120103221312233"></a>
 
-<a id="canonical-5dc53110553f03aef645d9a8d977a052ee7ad62a51ec5f537549e3a666afd567"></a>
+<a id="canonical-1131301103010100-1111033300032232-3312101131212220-3121131322001102-3232132231120222-1101323011331103-1311102132032212-1212223331111213"></a>
 
-## good_bot_action property — bot_protection_setting / bcb36319714f / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: BLOCK|REPORT|IGNORE\] Action to be performed on the request Log and block Log only Disable
-detection. Possible values are \`BLOCK\`, \`REPORT\`, \`IGNORE\`. Defaults to \`BLOCK\`.
-
-Upstream description:
-
-Action to be performed on the request
-
-Log and block Log only Disable detection.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("BLOCK",
-    "REPORT",
-    "IGNORE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "BLOCK",
-  "enum": [
-    "BLOCK",
-    "REPORT",
-    "IGNORE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-697e342ea786153b9d7c6da9aaf989d32d1d66cced3ab7fc8f1d3ff7fa938872"></a>
-
-<a id="canonical-a70cc90f465f0ae3670de350766c98b2fa6ec3798d25088530f34762d2a90424"></a>
-
-## malicious_bot_action property — bot_protection_setting / bcb36319714f / 5
+## good_bot_action property — bot_protection_setting / 012113011033 / 4
 
 Type: `"string"`. Optional.
 
@@ -1171,11 +1125,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-282564e2353269d561b4a048ffd6eb8c8c70592fc0631c05b80c04645fd95608"></a>
+<a id="canonical-1221133203100232-2213201201110323-2131133012312221-2222332120213103-0231013112123030-3231032223133330-2033013103333313-3322210320201302"></a>
 
-<a id="canonical-ebe18b4ccffe801ddb9078c3c12afd25ebdf69575edc063d2ea8d5fbc6fcd6c8"></a>
+<a id="canonical-2213003030210033-1012113300223203-1213003132031100-1312123021202302-3322123230031321-2031021100202011-0300330310131202-3102222100100210"></a>
 
-## suspicious_bot_action property — bot_protection_setting / bcb36319714f / 6
+## malicious_bot_action property — bot_protection_setting / 012113011033 / 5
 
 Type: `"string"`. Optional.
 
@@ -1217,30 +1171,76 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d458ad42651610bfb720636526321729439addb20c5560a7a4f53c69223d9718"></a>
+<a id="canonical-0220021112103202-0311030212213111-1201231022001020-3333311232232030-2030130011210233-3000120301300011-2320003000101210-1133312111120020"></a>
 
-## Next pages — bot_protection_setting / bcb36319714f / 7
+<a id="canonical-3223320120231030-3033333220000131-3123210013203003-3001022233310211-3223313312211113-1132313000120331-0232222031113323-3012333031123020"></a>
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+## suspicious_bot_action property — bot_protection_setting / 012113011033 / 6
 
-<a id="canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543"></a>
+Type: `"string"`. Optional.
+
+\[Enum: BLOCK|REPORT|IGNORE\] Action to be performed on the request Log and block Log only Disable
+detection. Possible values are \`BLOCK\`, \`REPORT\`, \`IGNORE\`. Defaults to \`BLOCK\`.
+
+Upstream description:
+
+Action to be performed on the request
+
+Log and block Log only Disable detection.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("BLOCK",
+    "REPORT",
+    "IGNORE"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "BLOCK",
+  "enum": [
+    "BLOCK",
+    "REPORT",
+    "IGNORE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3110112022311002-1211011201002333-2313020012031211-0212030201130221-1003212231312302-0030111112002213-2210331103301221-0202033121130120"></a>
+
+## Next pages — bot_protection_setting / 012113011033 / 7
+
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+
+<a id="canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e97fc7abfa273969547d46976d3da4130c83d15b52b697ee9f8e5d62c4e9b7a4"></a>
+<a id="canonical-3221133330132223-3322021303211221-1110133110122113-1231033122100103-0030200331011123-1102231221133232-2133203211311202-3010322123132210"></a>
 
-## custom_anonymization — custom_anonymization / f99f26e0f452 / 2
+## custom_anonymization — custom_anonymization / 320033101102 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - custom_anonymization
 
-<a id="canonical-741ecda829962b0b8635898004a8cbd61109562fd7819b8e05f810517ca27d20"></a>
+<a id="canonical-1310013230312220-0221211202230023-2012031120212000-0010222030233112-0101002111120233-3113200121232032-0011332001001101-1330220213310200"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1273,9 +1273,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-741ecda829962b0b8635898004a8cbd61109562fd7819b8e05f810517ca27d20)
-- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-9727bb489265bcd50444538b1c399efb7f1ec5c9d729251c5ca7a089a0159b36)
-- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-9fd50e3757171707ef410094d05c48cdc26d6219a8dc9e01f3b8c422e7ce77b8)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-1310013230312220-0221211202230023-2012031120212000-0010222030233112-0101002111120233-3113200121232032-0011332001001101-1330220213310200)
+- [default_anonymization](resources--app_firewall--reference--group-001.md#canonical-2113021323231020-2102121123303111-0010101011032023-0130032121323323-1333013230113021-3113022102110130-1130221322002021-2200011121230312)
+- [disable_anonymization](resources--app_firewall--reference--group-001.md#canonical-2133311100320313-1113011301130013-3233100100002110-3100113010203031-3002123112020121-2220313021320001-3303232030100202-3213303213132320)
 
 Select alternatives according to the provider validators above.
 
@@ -1287,38 +1287,38 @@ custom_anonymization {
 }
 ```
 
-<a id="canonical-204107807a1c7d3bcd73401d1e0f9e00435b580e7ad5942e129e54f8a18398c6"></a>
+<a id="canonical-0200100100132000-1322013013310323-3031130310000131-0132003321320000-1003112311200032-1322311121100232-0102213211103320-2201200321203012"></a>
 
-## Direct properties — custom_anonymization / f99f26e0f452 / 3
+## Direct properties — custom_anonymization / 320033101102 / 3
 
-- [anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b): complete subsection reference.
+- [anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123): complete subsection reference.
 
-<a id="canonical-22ffa2389776abfe7495afb72ebc0a7347cc3f528ace6bd71d5a66b650ece1ec"></a>
+<a id="canonical-0202333322020320-2113131222233332-1310211122332313-0232233000221303-1013303003331102-2022303212233113-0131112212122312-1100323032013230"></a>
 
-## Next pages — custom_anonymization / f99f26e0f452 / 4
+## Next pages — custom_anonymization / 320033101102 / 4
 
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b"></a>
+<a id="canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8bf859467a6ac59981409c4db8a3b13f9a8abe7b775cb182ced942d69de2b8a"></a>
+<a id="canonical-3020233320112110-1213221222301121-2120011000213010-3123202203230103-3321222022233213-2313131130230120-0230323121100231-1221313202232022"></a>
 
-## custom_anonymization.anonymization_config — custom_anonymization.anonymization_config / 333af49b9222 / 2
+## custom_anonymization.anonymization_config — anonymization_config / 212321020202 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
 - custom_anonymization.anonymization_config
 
-<a id="canonical-6dbce352c9627857a0ed8a9a419f6d2e93613e43a593f71309b5ec8c8666527e"></a>
+<a id="canonical-1231233032031102-3021120213201113-2200323120222122-1001213312310232-2103120103321003-2211210333130103-0021231132302030-2012121211021332"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1379,45 +1379,45 @@ anonymization_config {
 }
 ```
 
-<a id="canonical-121002d4f6cc703799e0ede207a1353ef132e64e7f73fd50f20fd52be9f6cc94"></a>
+<a id="canonical-0102010000023110-3312303013000313-2121320032313202-0013220103110332-3301030232121032-1333130333311100-3302003331110223-3221331230302110"></a>
 
-## Direct properties — custom_anonymization.anonymization_config / 333af49b9222 / 3
+## Direct properties — anonymization_config / 212321020202 / 3
 
-- [cookie](resources--app_firewall--reference--group-001.md#canonical-9102c0c6bce576d63ad09219a14416ef8a7b890f61ad06ef19611e41d91fb1cc): complete subsection reference.
+- [cookie](resources--app_firewall--reference--group-001.md#canonical-2101000230003012-2330321113123112-0322310021020121-2201101001123233-2022132320210033-1201223100123233-0121120101321001-3121013323013030): complete subsection reference.
 
-- [http_header](resources--app_firewall--reference--group-001.md#canonical-f96aa2981e881752c2f8ac0bc98be331780cd9f60d3e7caacfc556b734e92c8f): complete subsection reference.
+- [http_header](resources--app_firewall--reference--group-001.md#canonical-3321122222022120-0132202001131102-3002332022300023-3021202332030301-1320003031213312-0031033213302222-3033301111122313-0310322102302033): complete subsection reference.
 
-- [query_parameter](resources--app_firewall--reference--group-001.md#canonical-6076a2d2e0b48d82902073dc80fad277d99b87e9aedeb1e826685eb5cefd242b): complete subsection reference.
+- [query_parameter](resources--app_firewall--reference--group-001.md#canonical-1200131222023102-3200231020312002-2100020013033130-2000332231021313-3121212320133221-2232313223013220-0212122011322311-3032333102100223): complete subsection reference.
 
-<a id="canonical-c2e5062bc0a98be1d2e38181235e08d7597ee7cdfd0ae726ffcc67cfa0415a93"></a>
+<a id="canonical-3002321100120223-3000222120233201-3102320320012001-0203113200203113-1121133232133031-3331002232130212-3333303012133033-2200100111222103"></a>
 
-## Next pages — custom_anonymization.anonymization_config / 333af49b9222 / 4
+## Next pages — anonymization_config / 212321020202 / 4
 
-- [custom_anonymization.anonymization_config.cookie](resources--app_firewall--reference--group-001.md#canonical-9102c0c6bce576d63ad09219a14416ef8a7b890f61ad06ef19611e41d91fb1cc)
-- [custom_anonymization.anonymization_config.http_header](resources--app_firewall--reference--group-001.md#canonical-f96aa2981e881752c2f8ac0bc98be331780cd9f60d3e7caacfc556b734e92c8f)
-- [custom_anonymization.anonymization_config.query_parameter](resources--app_firewall--reference--group-001.md#canonical-6076a2d2e0b48d82902073dc80fad277d99b87e9aedeb1e826685eb5cefd242b)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [custom_anonymization.anonymization_config.cookie](resources--app_firewall--reference--group-001.md#canonical-2101000230003012-2330321113123112-0322310021020121-2201101001123233-2022132320210033-1201223100123233-0121120101321001-3121013323013030)
+- [custom_anonymization.anonymization_config.http_header](resources--app_firewall--reference--group-001.md#canonical-3321122222022120-0132202001131102-3002332022300023-3021202332030301-1320003031213312-0031033213302222-3033301111122313-0310322102302033)
+- [custom_anonymization.anonymization_config.query_parameter](resources--app_firewall--reference--group-001.md#canonical-1200131222023102-3200231020312002-2100020013033130-2000332231021313-3121212320133221-2232313223013220-0212122011322311-3032333102100223)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-9102c0c6bce576d63ad09219a14416ef8a7b890f61ad06ef19611e41d91fb1cc"></a>
+<a id="canonical-2101000230003012-2330321113123112-0322310021020121-2201101001123233-2022132320210033-1201223100123233-0121120101321001-3121013323013030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d2fc2bec6f7dca11a025411c73c393e7864f73c30b4da65f072ae0345bfe46b7"></a>
+<a id="canonical-3102333002233230-1233133130220101-2200021110010130-1303300321033213-2012103313033003-0023103122121133-0013022232000310-1123333210122313"></a>
 
-## custom_anonymization.anonymization_config.cookie — custom_anonymization.anonymization_config.cookie / 17a79e71f053 / 2
+## custom_anonymization.anonymization_config.cookie — cookie / 130133001103 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
 - custom_anonymization.anonymization_config.cookie
 
-<a id="canonical-1def22ce36f36bfc84ece4df8a1ae7884cf0f81c624bdc6234fb6b5a8db40e67"></a>
+<a id="canonical-0131323302023032-0312330312233330-2010323032103133-2022012232132020-1030330033200130-1202102331301202-0310332312231122-2031231000321213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1450,15 +1450,15 @@ cookie {
 }
 ```
 
-<a id="canonical-e8f81f919525dafa8efa974d6e2198f422014687fb28af24e84ede4976bffdb7"></a>
+<a id="canonical-3220332001332101-2111021131223322-2032332221131031-1232020121203310-0202000110122013-3323022022330210-3220103231321021-1312233333312313"></a>
 
-## Direct properties — custom_anonymization.anonymization_config.cookie / 17a79e71f053 / 3
+## Direct properties — cookie / 130133001103 / 3
 
-<a id="canonical-343642986599e61e941c8fa19b3412cc618ea4068dfbac32feb9cb397092f749"></a>
+<a id="canonical-0310031210022120-1211212132120132-2110013020332201-2123031001023030-1201203222100012-2031332322300302-3332232130230321-1300210233131021"></a>
 
-<a id="canonical-687b5a8c3c25371c5bd9bff36c33adaed9beacb82a34b438237c51fcbd77c451"></a>
+<a id="canonical-1220132311222030-0330021103130130-1123312123333303-1230030322312232-3121233222302320-0222031023100320-0203133011013330-2331131330101101"></a>
 
-## cookie_name property — custom_anonymization.anonymization_config.cookie / 17a79e71f053 / 4
+## cookie_name property — cookie / 130133001103 / 4
 
 Type: `"string"`. Optional.
 
@@ -1513,32 +1513,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b41f461f31ea0b01c6eb46dce9755a22c7971a63190205b7146f3114048824b2"></a>
+<a id="canonical-2310013310120133-0301322200230001-3012322310123130-3221131111220202-3013211301221203-0121000200112313-0110123303010110-0010202002102302"></a>
 
-## Next pages — custom_anonymization.anonymization_config.cookie / 17a79e71f053 / 5
+## Next pages — cookie / 130133001103 / 5
 
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-f96aa2981e881752c2f8ac0bc98be331780cd9f60d3e7caacfc556b734e92c8f"></a>
+<a id="canonical-3321122222022120-0132202001131102-3002332022300023-3021202332030301-1320003031213312-0031033213302222-3033301111122313-0310322102302033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-03f3202f13078151bf1c95bd3e31e4bb76bef74b9e14ee4c7098a64d6a084761"></a>
+<a id="canonical-0003330302000233-0103001320011101-2333013021112331-0332030132102323-1312233233131023-2132011032321030-1300212022121031-1222002010131201"></a>
 
-## custom_anonymization.anonymization_config.http_header — custom_anonymization.anonymization_config.http_header / 352e45846606 / 2
+## custom_anonymization.anonymization_config.http_header — http_header / 201012120012 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
 - custom_anonymization.anonymization_config.http_header
 
-<a id="canonical-a5b965ed3475960fa7f8de69e76ebb6ea87defede64c6beb28c26e103d2a157a"></a>
+<a id="canonical-2211232112113231-0310131121120033-2213332031321221-3213123223231232-2220133132333231-3212103012233223-0220300212320100-0331022201111322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1571,15 +1571,15 @@ http_header {
 }
 ```
 
-<a id="canonical-dd991839410b4357645d39c3202bad4e691951eba5ec043213740edee5c8ad35"></a>
+<a id="canonical-3131212101200321-1001002310031113-1210113103213003-0200022322311032-1221012111013223-2211323000100302-0103131000323132-3211302022310311"></a>
 
-## Direct properties — custom_anonymization.anonymization_config.http_header / 352e45846606 / 3
+## Direct properties — http_header / 201012120012 / 3
 
-<a id="canonical-76904d0f31c4a8ae29e701c79b8e9de85f96901d0d399e09896ae4f524b73ed9"></a>
+<a id="canonical-1312210010310033-0301301022202232-0221321300013013-2123203221313220-1133211221000131-0031032121320021-2021122232103311-0210231303323121"></a>
 
-<a id="canonical-b2ac0f23b517ce959740730a6053ef5c858eedcdc1a8952e39b2fd2e4efb00fc"></a>
+<a id="canonical-2302223000330203-2311011330322111-2113100013030022-1200110332331130-2011203232313031-3001222021110232-0321230233310232-1032332300003330"></a>
 
-## header_name property — custom_anonymization.anonymization_config.http_header / 352e45846606 / 4
+## header_name property — http_header / 201012120012 / 4
 
 Type: `"string"`. Optional.
 
@@ -1624,32 +1624,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80c4a55de84c7b7e8f792ddd1e9102fb325820026417e054c3ba31aace553428"></a>
+<a id="canonical-2000301022111131-3220103013231332-2033132102313131-0132210100023323-0302112002000002-1210011332001110-3003232203012222-3032111103100220"></a>
 
-## Next pages — custom_anonymization.anonymization_config.http_header / 352e45846606 / 5
+## Next pages — http_header / 201012120012 / 5
 
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-6076a2d2e0b48d82902073dc80fad277d99b87e9aedeb1e826685eb5cefd242b"></a>
+<a id="canonical-1200131222023102-3200231020312002-2100020013033130-2000332231021313-3121212320133221-2232313223013220-0212122011322311-3032333102100223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-64caef20979e707e7417257e7b0cee9d5d97bddaa3eaf6d7873f102096dc3c9b"></a>
+<a id="canonical-1210302232330200-2113213213001332-1310011302111332-1323003032322131-1131211323313122-2203322233123113-2013033301000200-2112313003302123"></a>
 
-## custom_anonymization.anonymization_config.query_parameter — custom_anonymization.anonymization_config.query_parameter / f90894db925e / 2
+## custom_anonymization.anonymization_config.query_parameter — query_parameter / 312321021132 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-254ad5b9f3bac7f5008304f7b3e6554c47f4cf5d029dca329d4725b019ff6543)
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [custom_anonymization](resources--app_firewall--reference--group-001.md#canonical-0211102231112321-3303232230133311-0000200300103313-2303321211111030-1013331030331131-0002213130220302-2131101302112300-0121333312111003)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
 - custom_anonymization.anonymization_config.query_parameter
 
-<a id="canonical-0da37484036f70e3d444ce2161dca30d7c4dc97ff8214069744d6c571f71e8c5"></a>
+<a id="canonical-0031220313102010-0003123313003203-3110101030320201-1201313022030031-1330103130211333-3320020110001221-1310103112301113-0133130132203011"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1682,15 +1682,15 @@ query_parameter {
 }
 ```
 
-<a id="canonical-88f980597533d67f4c0613752875cad79771bfea501ef8ebef14a5bf1a0c0410"></a>
+<a id="canonical-2020332120001121-1311030331121333-1030001201031311-0220131130223113-2113130123333222-1100013233203223-3233011022112333-0122003000100100"></a>
 
-## Direct properties — custom_anonymization.anonymization_config.query_parameter / f90894db925e / 3
+## Direct properties — query_parameter / 312321021132 / 3
 
-<a id="canonical-dbc2ae71eb1f18f023f740464710b21d27438b932ce51bb53948a8614d62ba00"></a>
+<a id="canonical-3123300222321301-3223013301203300-0203331310001012-1013010023020131-0213100320232103-0230321101232311-0321102022201201-1031120223220000"></a>
 
-<a id="canonical-1bce7962f9a3f1aad7a6c0df1c69c0ee844dd52b551fd8f2de7ac14ba87c2d48"></a>
+<a id="canonical-0123303213211202-3321220333012222-3113221230003133-0130122130003232-2010103131110223-1111013331203302-3132132230011023-2220133002311020"></a>
 
-## query_param_name property — custom_anonymization.anonymization_config.query_parameter / f90894db925e / 4
+## query_param_name property — query_parameter / 312321021132 / 4
 
 Type: `"string"`. Optional.
 
@@ -1745,30 +1745,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-55cccf44a84ad4428d158e78bb1f711b996724736bd0b40bf69322e52069853b"></a>
+<a id="canonical-1111303030331010-2220102231101002-2031011120321320-2323013313010123-2121121302101303-1223310023100023-3312210302023211-0200122120110323"></a>
 
-## Next pages — custom_anonymization.anonymization_config.query_parameter / f90894db925e / 5
+## Next pages — query_parameter / 312321021132 / 5
 
-- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-384b9603bbef09e9364c3baf8ce50d98ff77e7a4a68541ed934cb58dfb00409b)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [custom_anonymization.anonymization_config](resources--app_firewall--reference--group-001.md#canonical-0320102321120003-2323323300213221-0312103003232233-2030321100312120-3333131332132210-2212201110013231-2103103023112031-3323000010002123)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-6947b4b6ae9be6828bcabf9af8ec58df4d8d915bc460cd5ac7aca0837968974a"></a>
+<a id="canonical-1221101323102312-2232212332122002-2023302223332122-3320323011203133-1031203121011123-3010120030311122-3013223022002003-1321122021131022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-26cb6f0032b55319146954cd10f298570e5c5cb9a1ca893505e5acf879025e4f"></a>
+<a id="canonical-0212302312330000-0302231111030121-0110122111103031-0100330221201113-0032113011302321-2201302220210311-0011321122303320-1321000211321033"></a>
 
-## default_anonymization — default_anonymization / 2b2baa10d9c5 / 2
+## default_anonymization — default_anonymization / 010031213011 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - default_anonymization
 
-<a id="canonical-9727bb489265bcd50444538b1c399efb7f1ec5c9d729251c5ca7a089a0159b36"></a>
+<a id="canonical-2113021323231020-2102121123303111-0010101011032023-0130032121323323-1333013230113021-3113022102110130-1130221322002021-2200011121230312"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -1798,36 +1798,36 @@ Terraform syntax:
 default_anonymization = {}
 ```
 
-<a id="canonical-e47a896de7aec0992efd117756fd911a134b1f4093a48d1053823304758d2ea0"></a>
+<a id="canonical-3210132220211231-3213223230002121-0232333101011313-1112333121010122-0103102301331000-2103221020310100-1103200203030010-1311203102322200"></a>
 
-## Direct properties — default_anonymization / 2b2baa10d9c5 / 3
+## Direct properties — default_anonymization / 010031213011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d206968a0d38d882fe6b02803ae5f0034c7648d21fb8271b5bc6ce155161ffc3"></a>
+<a id="canonical-3102001221122022-0031032031202002-3332122300022000-0322321133000003-1030131210203102-0133232002130123-1123301230320111-1101120133333003"></a>
 
-## Next pages — default_anonymization / 2b2baa10d9c5 / 4
+## Next pages — default_anonymization / 010031213011 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-44fe272375c06e26a85aa2b82dfb265fe7083495451fe26afb286e1f38d67f28"></a>
+<a id="canonical-1010333202130203-1311300012320212-2220112222022320-0231332302121133-3213002003102111-1011013332021222-3323022012320133-0320311213330220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-565be0598c77a17e55179a052f568e5796ba47bb41cb1c72e93ecedc67e2a5eb"></a>
+<a id="canonical-1112112332001121-2030131322011332-1111011321220011-0233111220321113-2112232210132323-1001302301301302-3221033230323130-1213320222113223"></a>
 
-## default_bot_setting — default_bot_setting / 01c266bbbc41 / 2
+## default_bot_setting — default_bot_setting / 232323301001 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - default_bot_setting
 
-<a id="canonical-b1aa2df863c14a99978e209770f55885d172db05011f1d5bffc299ec084cf773"></a>
+<a id="canonical-2301222202313320-1203300110222121-2113203202002113-1300331111202011-3101130231230011-0001013301311123-3333300221213230-0020103033131303"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -1857,36 +1857,36 @@ Terraform syntax:
 default_bot_setting = {}
 ```
 
-<a id="canonical-08abfbe6caae49f643bde1bcf2c0b280749ce860b84fb1d465a63191da15d353"></a>
+<a id="canonical-0020222333233212-3022223210213312-1003233132012330-3302300023022000-1310213032201200-2320103323013110-1211221203012101-3122011131031103"></a>
 
-## Direct properties — default_bot_setting / 01c266bbbc41 / 3
+## Direct properties — default_bot_setting / 232323301001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bf7d9ec654a966295e3bdf42a2d0c621d8f1001a73259199ac853741cd6ce1af"></a>
+<a id="canonical-2333133121323012-1110222112120221-1132032331331002-2202310030120201-3120330100000122-1303021121012121-2230201103131001-3031123032012233"></a>
 
-## Next pages — default_bot_setting / 01c266bbbc41 / 4
+## Next pages — default_bot_setting / 232323301001 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-5be5ae1e2e5176410bb44105286f6d85a52b42ab0b6197700dabfddfb431af0c"></a>
+<a id="canonical-1123321122320132-0232110113121001-0023231010010011-0220123312312011-2211022310022223-0023120121131300-0031222333313133-2310030122330030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fdb5784d06423f186cfd9294a040b584cc76fcabfbb117a18ca40a756ef57080"></a>
+<a id="canonical-3331231113201031-0012100203330120-1230333121022110-2200100023112010-3030131233302223-3323230101132201-2030221000221311-1232331113002000"></a>
 
-## default_detection_settings — default_detection_settings / c830419680da / 2
+## default_detection_settings — default_detection_settings / 211220003122 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - default_detection_settings
 
-<a id="canonical-011347eb16b655bc5769fc2731f7d0b1271ef3d185d5d3e33c64a8ac2620af67"></a>
+<a id="canonical-0001010310133223-0112231211112330-1113122133300213-0301331331002301-0213013233033101-2011311131033203-0330121022202230-0212020022331213"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -1913,8 +1913,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-011347eb16b655bc5769fc2731f7d0b1271ef3d185d5d3e33c64a8ac2620af67)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-70e24531aa649a904098fc49ac0f87afdee27ab5c32a4807db2f01fc7db71c86)
+- [default_detection_settings](resources--app_firewall--reference--group-001.md#canonical-0001010310133223-0112231211112330-1113122133300213-0301331331002301-0213013233033101-2011311131033203-0330121022202230-0212020022331213)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-1300320210110301-2222121021222100-1000212033301021-2230003320132233-3132320213222311-3003022210200013-3123023300013330-1331231301302012)
 
 Select alternatives according to the provider validators above.
 
@@ -1924,36 +1924,36 @@ Terraform syntax:
 default_detection_settings = {}
 ```
 
-<a id="canonical-c4a6fe4404e5609f32d59bfc0a392b3322a2c7a970af2da2b4be88b037ba29f8"></a>
+<a id="canonical-3010221233321010-0010321112002133-0302311121233330-0022032102230303-0202220230132221-1300223302312202-2310233220202300-0313232202213320"></a>
 
-## Direct properties — default_detection_settings / c830419680da / 3
+## Direct properties — default_detection_settings / 211220003122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ae5a5f50ba3b6eba478730e0e89236450ac0c3e48ba8e9c43569f53f0350abf7"></a>
+<a id="canonical-2232112211331100-2322032312322322-1013201303003200-3220210203121011-0022300030033210-2023222032213010-0311122133110333-0003110022233313"></a>
 
-## Next pages — default_detection_settings / c830419680da / 4
+## Next pages — default_detection_settings / 211220003122 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25"></a>
+<a id="canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-df99547fd0cad612093e828497607f49514170e9370853776289e6f42c606c2d"></a>
+<a id="canonical-3133212111101333-3100302231120102-0021033220022010-2113120013331021-1101100113003221-0313002011031313-1202202132123310-0230120012300231"></a>
 
-## detection_settings — detection_settings / e61eeb46775c / 2
+## detection_settings — detection_settings / 101213131130 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - detection_settings
 
-<a id="canonical-70e24531aa649a904098fc49ac0f87afdee27ab5c32a4807db2f01fc7db71c86"></a>
+<a id="canonical-1300320210110301-2222121021222100-1000212033301021-2230003320132233-3132320213222311-3003022210200013-3123023300013330-1331231301302012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2004,74 +2004,74 @@ detection_settings {
 }
 ```
 
-<a id="canonical-957784985fae10beeac31c90a797e97ca4f9d8ab046e7119a7871828c7673367"></a>
+<a id="canonical-2111131320102120-1133223201002332-3222300301302100-2213211332211330-2210332131202223-0010123213010121-2213201301200220-3013121303031213"></a>
 
-## Direct properties — detection_settings / e61eeb46775c / 3
+## Direct properties — detection_settings / 101213131130 / 3
 
-- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-07e4081987613c3a68980e41480869d3b95480690c55cdf843fe753d9b8a0f94): complete subsection reference.
+- [bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-0013321000200121-2013120103300322-1220212000321001-1020002012213103-2321111020001221-0030111130313320-1003333213110331-2123202200332110): complete subsection reference.
 
-- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-61400fdff8c519472ed7502c419146d944ca7ce0743105519028759c0b1883dd): complete subsection reference.
+- [default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-1201100000333133-3320301101211013-0232311311000230-1001210110123121-1010302213303200-1310030100111101-2100022013112130-0023012020033131): complete subsection reference.
 
-- [default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-33ccc62329659e64238c15080b95c40c70b5b66de1a68bc38b8fb0d4b030376b): complete subsection reference.
+- [default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-0303303030120203-0221121121321210-0203203001110020-0023211130100030-1300231123121231-3201221220233003-2023203323003110-2300030003131223): complete subsection reference.
 
-- [disable_staging](resources--app_firewall--reference--group-001.md#canonical-7d1abdd1ef436ee0f6799a670d1f884d5ce9d256d520498060d98f8bbbcee75b): complete subsection reference.
+- [disable_staging](resources--app_firewall--reference--group-001.md#canonical-1331012223313101-3233100312323200-3312132121221213-0031013320201031-1130322131021112-3111020010212000-1200312120332023-2323303232131123): complete subsection reference.
 
-- [disable_suppression](resources--app_firewall--reference--group-001.md#canonical-8b2148a68294a1f9a612a5cb93c9d69beba44bb613585ed238bad6175bfab0fa): complete subsection reference.
+- [disable_suppression](resources--app_firewall--reference--group-001.md#canonical-2023020110202212-2002211022013321-2212010222113023-2103302131122123-3223221010232312-0103112011323102-0320232231120113-1123332223003322): complete subsection reference.
 
-- [disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-afbe76045c2e51be79cbee95d021919cf376b542760ae7b7031456ecd222101e): complete subsection reference.
+- [disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-2233233213120010-1130023211012332-1321302332322111-3100020121012130-3303131223111002-1312002232132313-0003011011123230-3102020201000132): complete subsection reference.
 
-- [enable_suppression](resources--app_firewall--reference--group-001.md#canonical-de472f3861e768e6c0f4e40a5c1f33e8043d012a33d6e5b2900e19d20798d20c): complete subsection reference.
+- [enable_suppression](resources--app_firewall--reference--group-001.md#canonical-3132101302330320-1201321312203212-3000331032100022-1130013303033220-0010033100010222-0303311232112302-2100003201213102-0013212031020030): complete subsection reference.
 
-- [enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-04f450b9f5e7a8b3ae8a3e60228be0b433c0f0f0535417c3134aa1c07f30ec9f): complete subsection reference.
+- [enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-0010331011002321-3311321322202303-2232202203321200-0202202332002310-0303300033003300-1103111001133003-0103102222013000-1333030032302133): complete subsection reference.
 
-- [signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33): complete subsection reference.
+- [signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303): complete subsection reference.
 
-- [stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-acae56c05cba1eccdb7cf8c63de412288fb23866cdc8ba1d0dc7213366c70cd2): complete subsection reference.
+- [stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-2230223211123000-1130232201323030-3123133033203012-0331321001020220-2033230203201212-3031302023220131-0031301302010303-1212301300303102): complete subsection reference.
 
-- [stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-6228cc79e4b6a4b20fd635d6e2070432f1eb909c57f4fa9881be0f5024297671): complete subsection reference.
+- [stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-1202022030301321-3210231222102302-0033311203113112-3202001300100302-3301322321002130-1113331033222120-2001233200331100-0210022113121301): complete subsection reference.
 
-- [violation_settings](resources--app_firewall--reference--group-001.md#canonical-1c74050138fcc23ffa3ba856e17b5f13cbed18739b345f2dc49e893b31d7c510): complete subsection reference.
+- [violation_settings](resources--app_firewall--reference--group-001.md#canonical-0130131000110001-0320333030020333-3322032322201112-3201132311330103-3023323101201303-2123031011330231-3010213220210323-0301311330110100): complete subsection reference.
 
-- [violations_view](resources--app_firewall--reference--group-001.md#canonical-ab92e2105163d3b386c6dbeb464717f7f31d562bce448ba3491a24b09e752dc9): complete subsection reference.
+- [violations_view](resources--app_firewall--reference--group-001.md#canonical-2223210232020100-1101120331032303-2012301231233223-1012101301133313-3303013111120223-3032101020232203-1021012202102300-2132131102313021): complete subsection reference.
 
-<a id="canonical-7c90266023023684b6102cf4077c239259de3d6d171f65bffd87bc35b33cd946"></a>
+<a id="canonical-1330210002121200-0203000203122010-2312010002303310-0013133002032102-1121313203311231-0113013312112333-3331201323300311-2303033031211012"></a>
 
-## Next pages — detection_settings / e61eeb46775c / 4
+## Next pages — detection_settings / 101213131130 / 4
 
-- [detection_settings.bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-07e4081987613c3a68980e41480869d3b95480690c55cdf843fe753d9b8a0f94)
-- [detection_settings.default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-61400fdff8c519472ed7502c419146d944ca7ce0743105519028759c0b1883dd)
-- [detection_settings.default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-33ccc62329659e64238c15080b95c40c70b5b66de1a68bc38b8fb0d4b030376b)
-- [detection_settings.disable_staging](resources--app_firewall--reference--group-001.md#canonical-7d1abdd1ef436ee0f6799a670d1f884d5ce9d256d520498060d98f8bbbcee75b)
-- [detection_settings.disable_suppression](resources--app_firewall--reference--group-001.md#canonical-8b2148a68294a1f9a612a5cb93c9d69beba44bb613585ed238bad6175bfab0fa)
-- [detection_settings.disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-afbe76045c2e51be79cbee95d021919cf376b542760ae7b7031456ecd222101e)
-- [detection_settings.enable_suppression](resources--app_firewall--reference--group-001.md#canonical-de472f3861e768e6c0f4e40a5c1f33e8043d012a33d6e5b2900e19d20798d20c)
-- [detection_settings.enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-04f450b9f5e7a8b3ae8a3e60228be0b433c0f0f0535417c3134aa1c07f30ec9f)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [detection_settings.stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-acae56c05cba1eccdb7cf8c63de412288fb23866cdc8ba1d0dc7213366c70cd2)
-- [detection_settings.stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-6228cc79e4b6a4b20fd635d6e2070432f1eb909c57f4fa9881be0f5024297671)
-- [detection_settings.violation_settings](resources--app_firewall--reference--group-001.md#canonical-1c74050138fcc23ffa3ba856e17b5f13cbed18739b345f2dc49e893b31d7c510)
-- [detection_settings.violations_view](resources--app_firewall--reference--group-001.md#canonical-ab92e2105163d3b386c6dbeb464717f7f31d562bce448ba3491a24b09e752dc9)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.bot_protection_setting](resources--app_firewall--reference--group-001.md#canonical-0013321000200121-2013120103300322-1220212000321001-1020002012213103-2321111020001221-0030111130313320-1003333213110331-2123202200332110)
+- [detection_settings.default_bot_setting](resources--app_firewall--reference--group-001.md#canonical-1201100000333133-3320301101211013-0232311311000230-1001210110123121-1010302213303200-1310030100111101-2100022013112130-0023012020033131)
+- [detection_settings.default_violation_settings](resources--app_firewall--reference--group-001.md#canonical-0303303030120203-0221121121321210-0203203001110020-0023211130100030-1300231123121231-3201221220233003-2023203323003110-2300030003131223)
+- [detection_settings.disable_staging](resources--app_firewall--reference--group-001.md#canonical-1331012223313101-3233100312323200-3312132121221213-0031013320201031-1130322131021112-3111020010212000-1200312120332023-2323303232131123)
+- [detection_settings.disable_suppression](resources--app_firewall--reference--group-001.md#canonical-2023020110202212-2002211022013321-2212010222113023-2103302131122123-3223221010232312-0103112011323102-0320232231120113-1123332223003322)
+- [detection_settings.disable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-2233233213120010-1130023211012332-1321302332322111-3100020121012130-3303131223111002-1312002232132313-0003011011123230-3102020201000132)
+- [detection_settings.enable_suppression](resources--app_firewall--reference--group-001.md#canonical-3132101302330320-1201321312203212-3000331032100022-1130013303033220-0010033100010222-0303311232112302-2100003201213102-0013212031020030)
+- [detection_settings.enable_threat_campaigns](resources--app_firewall--reference--group-001.md#canonical-0010331011002321-3311321322202303-2232202203321200-0202202332002310-0303300033003300-1103111001133003-0103102222013000-1333030032302133)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [detection_settings.stage_new_and_updated_signatures](resources--app_firewall--reference--group-001.md#canonical-2230223211123000-1130232201323030-3123133033203012-0331321001020220-2033230203201212-3031302023220131-0031301302010303-1212301300303102)
+- [detection_settings.stage_new_signatures](resources--app_firewall--reference--group-001.md#canonical-1202022030301321-3210231222102302-0033311203113112-3202001300100302-3301322321002130-1113331033222120-2001233200331100-0210022113121301)
+- [detection_settings.violation_settings](resources--app_firewall--reference--group-001.md#canonical-0130131000110001-0320333030020333-3322032322201112-3201132311330103-3023323101201303-2123031011330231-3010213220210323-0301311330110100)
+- [detection_settings.violations_view](resources--app_firewall--reference--group-001.md#canonical-2223210232020100-1101120331032303-2012301231233223-1012101301133313-3303013111120223-3032101020232203-1021012202102300-2132131102313021)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-07e4081987613c3a68980e41480869d3b95480690c55cdf843fe753d9b8a0f94"></a>
+<a id="canonical-0013321000200121-2013120103300322-1220212000321001-1020002012213103-2321111020001221-0030111130313320-1003333213110331-2123202200332110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-82f9bff738c415de242b558e409a78f2df6074bc282ff648f11f78bc0ac3c227"></a>
+<a id="canonical-2002332123333313-0320301001113132-0210022311112032-1000212213203302-3133120013102330-0220023333121020-3301013313202330-0022300330020213"></a>
 
-## detection_settings.bot_protection_setting — detection_settings.bot_protection_setting / 9c6ba444d07c / 2
+## detection_settings.bot_protection_setting — bot_protection_setting / 101031001330 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.bot_protection_setting
 
-<a id="canonical-2e539c1f5dd6d10e13ebd0c8dfeab8171604f5e6ad670df5b80d3468358229aa"></a>
+<a id="canonical-0232110321300133-1131311231010032-0103322331003020-3133322223200113-0112001033113212-2231121300313311-2320003103101220-0311200202212222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2102,61 +2102,15 @@ bot_protection_setting {
 }
 ```
 
-<a id="canonical-0d7d4095db21945c3ae653584257dd3fe9d1c14589282740048168e1d17cd4ff"></a>
+<a id="canonical-0031133110002111-3123020121101130-0322321211031120-1002111331310333-3221310130011011-2021022002131000-0010200112203201-3101133031103333"></a>
 
-## Direct properties — detection_settings.bot_protection_setting / 9c6ba444d07c / 3
+## Direct properties — bot_protection_setting / 101031001330 / 3
 
-<a id="canonical-b9e46cc87ecb11251e778681ad1275e7f55e968783020c5ec53088412be2e109"></a>
+<a id="canonical-2321321012303020-1332302301010211-0132131320122001-2231010213113213-3311113221122013-2003000200301132-3011030020201001-0223320232010021"></a>
 
-<a id="canonical-40884f28b1a36e48764cb410db9192d425fe02646e2a1e493b1ae346e52570b0"></a>
+<a id="canonical-1000202010330220-2301220312321020-1312103023100100-3123210121023110-0211333200021210-1232022201321021-0323012232031012-3211021113002300"></a>
 
-## good_bot_action property — detection_settings.bot_protection_setting / 9c6ba444d07c / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: BLOCK|REPORT|IGNORE\] Action to be performed on the request Log and block Log only Disable
-detection. Possible values are \`BLOCK\`, \`REPORT\`, \`IGNORE\`. Defaults to \`BLOCK\`.
-
-Upstream description:
-
-Action to be performed on the request
-
-Log and block Log only Disable detection.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("BLOCK",
-    "REPORT",
-    "IGNORE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "BLOCK",
-  "enum": [
-    "BLOCK",
-    "REPORT",
-    "IGNORE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f4185cfe588df1e2c30a18a52c996eb18a163dbcdb94a02ca49ba0155c604e64"></a>
-
-<a id="canonical-ab93f212c2f7969e0734e632f0dfb47e0d707aa5ab312a5c653718ebd2068c11"></a>
-
-## malicious_bot_action property — detection_settings.bot_protection_setting / 9c6ba444d07c / 5
+## good_bot_action property — bot_protection_setting / 101031001330 / 4
 
 Type: `"string"`. Optional.
 
@@ -2198,11 +2152,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c046bd7e395c179029f862f5a2fc54dcf418edbc00503ab2d084a5c24cded679"></a>
+<a id="canonical-3310012011303332-1120203133013202-3003002201202211-0230212112322301-2022011203312330-3123211022000230-2210212322000111-1130120010321210"></a>
 
-<a id="canonical-5a5b49df28d614ae7a19140cee40eb7fbf5ad0b2e05ff1b064eb542cfd78bbdb"></a>
+<a id="canonical-2223210333020102-3002331321122132-0013031032120302-3300313323101332-0031130013222211-2223030102221130-1211031301203223-3102001220300101"></a>
 
-## suspicious_bot_action property — detection_settings.bot_protection_setting / 9c6ba444d07c / 6
+## malicious_bot_action property — bot_protection_setting / 101031001330 / 5
 
 Type: `"string"`. Optional.
 
@@ -2244,31 +2198,77 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dd8e1745da56455e5b1f1c3ba22a0a65fd672d8b0c316a484f73ee2c7ff3bbae"></a>
+<a id="canonical-3000101223311332-0321113001132100-0221332012023311-2202333011103130-3310012032312330-0000110003222302-3100201022113002-1030313231121321"></a>
 
-## Next pages — detection_settings.bot_protection_setting / 9c6ba444d07c / 7
+<a id="canonical-1122112310213133-0220311201102232-1322012101100030-3232100032231333-2333112231002302-3200113333012300-1210322311100230-3331132023233123"></a>
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+## suspicious_bot_action property — bot_protection_setting / 101031001330 / 6
 
-<a id="canonical-61400fdff8c519472ed7502c419146d944ca7ce0743105519028759c0b1883dd"></a>
+Type: `"string"`. Optional.
+
+\[Enum: BLOCK|REPORT|IGNORE\] Action to be performed on the request Log and block Log only Disable
+detection. Possible values are \`BLOCK\`, \`REPORT\`, \`IGNORE\`. Defaults to \`BLOCK\`.
+
+Upstream description:
+
+Action to be performed on the request
+
+Log and block Log only Disable detection.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("BLOCK",
+    "REPORT",
+    "IGNORE"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "BLOCK",
+  "enum": [
+    "BLOCK",
+    "REPORT",
+    "IGNORE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3131203201131011-3122111210111132-1123013301300323-2202022200221211-3331121302312023-0030030112221020-1033130332320230-1333330323232232"></a>
+
+## Next pages — bot_protection_setting / 101031001330 / 7
+
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+
+<a id="canonical-1201100000333133-3320301101211013-0232311311000230-1001210110123121-1010302213303200-1310030100111101-2100022013112130-0023012020033131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8de092f6f89c85847857a0fe5175f578b4461d9123ffc955217c6bfb92ea4004"></a>
+<a id="canonical-2031320021023312-3320213020112010-1320111322003332-1101131133111320-2310101201312101-0203333330211111-0201133012233323-2102322210000010"></a>
 
-## detection_settings.default_bot_setting — detection_settings.default_bot_setting / d573a4c16558 / 2
+## detection_settings.default_bot_setting — default_bot_setting / 300112111120 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.default_bot_setting
 
-<a id="canonical-052654dd081696fcb90eacd51a34c594aabe4d8dc9a33a5332eacf00949bc438"></a>
+<a id="canonical-0011021211103131-0020011221123330-2321003222303111-0122031030112110-2222233210312031-3021220303221103-0302322230330000-2110212330100320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2297,37 +2297,37 @@ Terraform syntax:
 default_bot_setting = {}
 ```
 
-<a id="canonical-68d85989e029fa4eb25861185b680d7348e5bce28928248a1f113c041955b840"></a>
+<a id="canonical-1220312011212021-3200022133221032-2302112012010120-1123122000311303-1020321123303202-2021022002102022-0133010103300010-0121111123201000"></a>
 
-## Direct properties — detection_settings.default_bot_setting / d573a4c16558 / 3
+## Direct properties — default_bot_setting / 300112111120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-44225b6c7a6a552ee9a68494ddcc9bf55ada28cd55aca89ebfa03aee1e2da467"></a>
+<a id="canonical-1010020211231230-1322122211110232-3221221220102110-3131303021233311-1122312202203031-1111223022202132-2333220003223232-0132023122101213"></a>
 
-## Next pages — detection_settings.default_bot_setting / d573a4c16558 / 4
+## Next pages — default_bot_setting / 300112111120 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-33ccc62329659e64238c15080b95c40c70b5b66de1a68bc38b8fb0d4b030376b"></a>
+<a id="canonical-0303303030120203-0221121121321210-0203203001110020-0023211130100030-1300231123121231-3201221220233003-2023203323003110-2300030003131223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e150f0922f631aa36f7560102cb147c7087f0b5153fc5bb8e7763f0301fa99e"></a>
+<a id="canonical-0232011100330021-0202331203012222-0312331311120001-0002302301101330-1300201333002311-0111033330112323-2032131312033300-0300013322212132"></a>
 
-## detection_settings.default_violation_settings — detection_settings.default_violation_settings / 81473f327bd1 / 2
+## detection_settings.default_violation_settings — default_violation_settings / 030213233101 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.default_violation_settings
 
-<a id="canonical-f0efe0e359fec05e4e6ae40aae6327dfe2e91bcc03ae70a2db2733150f12619b"></a>
+<a id="canonical-3300323332003203-1121333230001132-1032122232100022-2232120302133133-3202322101233030-0003223213002202-3123021303030111-0033010212012123"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2356,37 +2356,37 @@ Terraform syntax:
 default_violation_settings = {}
 ```
 
-<a id="canonical-63acd5c85e92af0d21317224f691e9667870594c69a5060338edef0e858c1784"></a>
+<a id="canonical-1203223031113020-1132210222330031-0201030113020210-3312210132211212-1320130011211030-1221221100120003-0320323132330032-2011203001132010"></a>
 
-## Direct properties — detection_settings.default_violation_settings / 81473f327bd1 / 3
+## Direct properties — default_violation_settings / 030213233101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4d561d7ea70f2e432363860ffe12cc9c791d13b6137d0949571a629bbd9f8efc"></a>
+<a id="canonical-1031111201311332-2213003302321003-0203120320120033-3332010230302130-1321013101032312-0103133100211021-1113012212022123-2331213320323330"></a>
 
-## Next pages — detection_settings.default_violation_settings / 81473f327bd1 / 4
+## Next pages — default_violation_settings / 030213233101 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-7d1abdd1ef436ee0f6799a670d1f884d5ce9d256d520498060d98f8bbbcee75b"></a>
+<a id="canonical-1331012223313101-3233100312323200-3312132121221213-0031013320201031-1130322131021112-3111020010212000-1200312120332023-2323303232131123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4e02c76c5150434694d25ca8a76f078de2c42228b29ff8b95c76b5d894b426d3"></a>
+<a id="canonical-1032000230131230-1101110010031012-2110310211302220-2213123300132031-3202301002020220-2302213333202321-1130131223113120-2110231002123103"></a>
 
-## detection_settings.disable_staging — detection_settings.disable_staging / e477ea861700 / 2
+## detection_settings.disable_staging — disable_staging / 201201130000 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.disable_staging
 
-<a id="canonical-feed9c592978514c4d1c3486c4996059d1b71c0fe7558373c015c2fd11fecd37"></a>
+<a id="canonical-3332323121301121-0221132011011030-1031013003102012-3010212112001121-3101231301300033-3213111120031303-3000011130023331-0101333230310313"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2415,37 +2415,37 @@ Terraform syntax:
 disable_staging = {}
 ```
 
-<a id="canonical-81cad19d980b3322a057dd76e48bf5cb243e189a36af12cd83faf4c77eaf99ba"></a>
+<a id="canonical-2001302231012131-2120002303030202-2200111331311312-3210202333113023-0210033201202122-0312223301023031-2003332233103013-1332223321212322"></a>
 
-## Direct properties — detection_settings.disable_staging / e477ea861700 / 3
+## Direct properties — disable_staging / 201201130000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b6e618ebb9fb71ef0f818de154145828ee78a2182b27b5a2a3c4e288cb7174f7"></a>
+<a id="canonical-2312321201203223-2321332313013233-0033200120313201-1110011011200220-3232132022020120-0223021323112202-2203301032022020-3023130113103313"></a>
 
-## Next pages — detection_settings.disable_staging / e477ea861700 / 4
+## Next pages — disable_staging / 201201130000 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-8b2148a68294a1f9a612a5cb93c9d69beba44bb613585ed238bad6175bfab0fa"></a>
+<a id="canonical-2023020110202212-2002211022013321-2212010222113023-2103302131122123-3223221010232312-0103112011323102-0320232231120113-1123332223003322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fb403be6aab73b6e9b6c3f8f00c8f4da32e1e66770a26f2e900a0300ccd5d2ea"></a>
+<a id="canonical-3323100003233212-2222231303231232-2123123003332033-0000302033103122-0302320132121213-1300220212330232-2100002200030000-3030311131023222"></a>
 
-## detection_settings.disable_suppression — detection_settings.disable_suppression / b88f30a8de92 / 2
+## detection_settings.disable_suppression — disable_suppression / 222031322102 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.disable_suppression
 
-<a id="canonical-46b71052d29ddf541afd4c2c354ab3aef53f4be247196b17db74250c7ebd98e4"></a>
+<a id="canonical-1012231301001102-3102213131331110-0122333110300230-0311102223032232-3311033310233202-1013012112230113-3123131002110030-1332233121203210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2474,37 +2474,37 @@ Terraform syntax:
 disable_suppression = {}
 ```
 
-<a id="canonical-db3f39b94d03cbd47584e1ac2e0cfc9013ee198e8ebce28268b0b387f1e3c145"></a>
+<a id="canonical-3123033303212321-1031000330233110-1311201032012230-0232003033302100-0103323201212032-2032233032022002-1220230023032013-3301320330011011"></a>
 
-## Direct properties — detection_settings.disable_suppression / b88f30a8de92 / 3
+## Direct properties — disable_suppression / 222031322102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8ce1852e7d00c5189175e3112029297e5e466b3f59e98a3fd0bd883868ff8c28"></a>
+<a id="canonical-2030320120110232-1331000030110120-2101131132030101-0200022102211332-1132101212230333-1121322120220333-3100233120200320-1220333320300220"></a>
 
-## Next pages — detection_settings.disable_suppression / b88f30a8de92 / 4
+## Next pages — disable_suppression / 222031322102 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-afbe76045c2e51be79cbee95d021919cf376b542760ae7b7031456ecd222101e"></a>
+<a id="canonical-2233233213120010-1130023211012332-1321302332322111-3100020121012130-3303131223111002-1312002232132313-0003011011123230-3102020201000132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a244da2cf8b11898764adab94d1a990a1e10f3af123117587febfc8198d5c5d2"></a>
+<a id="canonical-2202101031220230-3320230101202120-1312102231222321-1031012221210022-0132010033032233-0102030101131120-1333322333302001-2120311130113102"></a>
 
-## detection_settings.disable_threat_campaigns — detection_settings.disable_threat_campaigns / 423def178c9e / 2
+## detection_settings.disable_threat_campaigns — disable_threat_campaigns / 011320302132 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.disable_threat_campaigns
 
-<a id="canonical-82600db76196568ac4cc94ae85310b9d788dc57d4ee7d7b66bd4cc9e078e4210"></a>
+<a id="canonical-2002120000312313-1201211211122022-3010303021102232-2011030100232131-1320203130111331-1032321331132312-1223311030302132-0013203210020100"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2533,37 +2533,37 @@ Terraform syntax:
 disable_threat_campaigns = {}
 ```
 
-<a id="canonical-52eedc22e35e5e0916fda4715f6e4eb8099aa535cd5e3272676e5688bbd234e0"></a>
+<a id="canonical-1102323231300202-3203113211320021-0112333122101301-1133123210322320-0021212222110311-3031113203021302-1213123211122020-2323310203103200"></a>
 
-## Direct properties — detection_settings.disable_threat_campaigns / 423def178c9e / 3
+## Direct properties — disable_threat_campaigns / 011320302132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f95ea32929b2b9227516ea88c79860de62a9e11e6169b5c967f3913fbd914fdb"></a>
+<a id="canonical-3321113222030221-0221230223210202-1311011232222020-3013212012003132-1202222132010132-1201122123113021-1213330321010333-2331210110333123"></a>
 
-## Next pages — detection_settings.disable_threat_campaigns / 423def178c9e / 4
+## Next pages — disable_threat_campaigns / 011320302132 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-de472f3861e768e6c0f4e40a5c1f33e8043d012a33d6e5b2900e19d20798d20c"></a>
+<a id="canonical-3132101302330320-1201321312203212-3000331032100022-1130013303033220-0010033100010222-0303311232112302-2100003201213102-0013212031020030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2dfa4e1eded18dd6dcc4443b26ba1130abe40492a0e8e67c3546f417d292d388"></a>
+<a id="canonical-0231332210320132-3132310120313112-3130301010100323-0212232201010300-2223321000102102-2200322032121330-0311101233100113-3102210231032020"></a>
 
-## detection_settings.enable_suppression — detection_settings.enable_suppression / faf3367f1391 / 2
+## detection_settings.enable_suppression — enable_suppression / 133301032101 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.enable_suppression
 
-<a id="canonical-2e59e7bd929fd1c7c588ef351964479e5310c321f7440cffb1bf7b90d926c313"></a>
+<a id="canonical-0232112132132331-2102213331013013-3011202032330311-0121121010132132-1103010030030201-3313101000303333-2301233313232100-3121021230030103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2592,37 +2592,37 @@ Terraform syntax:
 enable_suppression = {}
 ```
 
-<a id="canonical-70fd5829b8b54d3f16e4f19c7fb4efd94fa0fa1ce08bece7418ef8ed3bebfbd9"></a>
+<a id="canonical-1300333111200221-2320231110310333-0112321033012130-1333231032333121-1033220033220130-3200202332303213-1001203233203231-0323322333233121"></a>
 
-## Direct properties — detection_settings.enable_suppression / faf3367f1391 / 3
+## Direct properties — enable_suppression / 133301032101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-80a36d851132b448cf79801ef523606337d4ba322327e29fc88a5dcdbf53a9fe"></a>
+<a id="canonical-2000220312312011-0101030223101020-3033132120000132-3311020312001203-0313311023220302-0203021332022133-3020202211313031-2333110322213332"></a>
 
-## Next pages — detection_settings.enable_suppression / faf3367f1391 / 4
+## Next pages — enable_suppression / 133301032101 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-04f450b9f5e7a8b3ae8a3e60228be0b433c0f0f0535417c3134aa1c07f30ec9f"></a>
+<a id="canonical-0010331011002321-3311321322202303-2232202203321200-0202202332002310-0303300033003300-1103111001133003-0103102222013000-1333030032302133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ac285ecb6ce8408f042e78ba5aad5a56ee34424940f2454512cf690524e46c53"></a>
+<a id="canonical-2230022011323023-1230322010002033-0010023213202322-1122223111221112-3232031010021021-1000330210111011-0102303312210011-0210321012301103"></a>
 
-## detection_settings.enable_threat_campaigns — detection_settings.enable_threat_campaigns / 2024a27ec524 / 2
+## detection_settings.enable_threat_campaigns — enable_threat_campaigns / 133230110210 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.enable_threat_campaigns
 
-<a id="canonical-d7aa96b917ea9d1d57eb860a533966dddc3b9270ee0196654c723d739917e87f"></a>
+<a id="canonical-3113222221122321-0113322221310131-1113322320120022-1103032112123131-3130032321021300-3232000121121211-1030130203311303-2121011332201333"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2651,37 +2651,37 @@ Terraform syntax:
 enable_threat_campaigns = {}
 ```
 
-<a id="canonical-22732233ecf871b797511fe9cee8883f1b0c0777fbbb66e9b6f28f99b70e9cbf"></a>
+<a id="canonical-0202130302020303-3230332013012313-2113110101333221-3032322020200333-0123003000131313-3323232312123221-2312330220332121-2313003221302333"></a>
 
-## Direct properties — detection_settings.enable_threat_campaigns / 2024a27ec524 / 3
+## Direct properties — enable_threat_campaigns / 133230110210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-51a5cb7ee0d5bb7f6ad59a9163c0c4e05e2db4d22fcff3ba92433cdd5660e9f0"></a>
+<a id="canonical-1101221130231332-3200311123231333-1222311121222101-1203300030103200-1132023123103102-0233303333032322-2102100303303131-1112120032213300"></a>
 
-## Next pages — detection_settings.enable_threat_campaigns / 2024a27ec524 / 4
+## Next pages — enable_threat_campaigns / 133230110210 / 4
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33"></a>
+<a id="canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b9ae9040f7fc45285136a5a05dccef8d3165ffca6ec7e14dd8436039fb5871e"></a>
+<a id="canonical-0023212232210010-0033133330101102-2011010312221122-0011313030323320-3103011211333330-2212323013320110-3131201003120003-2133231120130132"></a>
 
-## detection_settings.signature_selection_setting — detection_settings.signature_selection_setting / 737620959ad9 / 2
+## detection_settings.signature_selection_setting — signature_selection_setting / 211121223121 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.signature_selection_setting
 
-<a id="canonical-6976908045cc6c7da57931a88b71a65112f814ffa5380d7ca55267cbfbbeb884"></a>
+<a id="canonical-1221131221002000-1011303012301331-2211132103012220-2023130122121101-0102332001103333-2211032000311330-2211110212133023-3323233223202010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2726,57 +2726,57 @@ signature_selection_setting {
 }
 ```
 
-<a id="canonical-b1f89fdec8c8440f5c0befdff8e02ed0befc17b6f9d42ba9dfcdf5c1a9d72fb3"></a>
+<a id="canonical-2301332021333132-3020302010100033-1130002332333133-3320320002323100-2332333001132312-3321311002232221-3133303133113001-2221311302332303"></a>
 
-## Direct properties — detection_settings.signature_selection_setting / 737620959ad9 / 3
+## Direct properties — signature_selection_setting / 211121223121 / 3
 
-- [attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-d830b2bd8e56c4239afad917b9c06d58c6802547cc7278c29f0517f2a0d1a265): complete subsection reference.
+- [attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-3120030023022331-2032111230100203-2122332231210113-2321300012311120-3012200002111013-3030130213203002-2133001101133302-2200310122021211): complete subsection reference.
 
-- [default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-4e3128b25b020a369fb5db44d1c1c74152cc50c63cbd064173367125256db1fc): complete subsection reference.
+- [default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-1032030102202302-1123000200220312-2133231131231010-3101300130131001-1102303011003012-0330233100121001-1303031213010211-0211123123013330): complete subsection reference.
 
-- [default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-6bad3e48fd059dd6d772349a730a63963df031f70ef2d8f4785cfa94e19c1260): complete subsection reference.
+- [default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-1223223103321020-3331001121313112-3113130203102122-1303002212032112-0331330003013313-0032330231203310-1320113033222110-3201213001021200): complete subsection reference.
 
-- [high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-bb6226e7837586665243f18f816dbdda47c2f34571fb2768fa4656ef656eeb99): complete subsection reference.
+- [high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-2323120202123213-2003131120121212-1102100333012033-2001123123313122-1013300233031011-1301332302131220-3322101211123233-1211123232232121): complete subsection reference.
 
-- [high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-fdc01c597c155d8cb1e023adc57d79079eca989a1e1b6671384e9de988983cb0): complete subsection reference.
+- [high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-3331300001301121-1330011111312030-2301320002032231-3011133113210013-2132302221202122-0132012312121301-0320103221313221-2020212003302300): complete subsection reference.
 
-- [only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-6d7cbd4a2e34e25ef3e1beb749e285fc430dbe9110c6f3fe524481385d5999d8): complete subsection reference.
+- [only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-1231133023311022-0232031032021132-3303320123322313-1021320220113330-1003003123322101-0100301233033332-1102101020010320-1131112121213120): complete subsection reference.
 
-- [signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-9f0c788d4b5c717de7c53a638dfd375c86d984d8f8d162d1303a49a1c141703e): complete subsection reference.
+- [signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-2133003013202031-1023113013011331-3213301103221203-2031333103131130-2012312120103120-3320310112023101-0300032210212201-3001100113000332): complete subsection reference.
 
-<a id="canonical-f9f8b293cb214f29bde6ab557e967241a8a34772b43159be16357bdfb8ee61f8"></a>
+<a id="canonical-3321332023022103-3023020110330221-2331321222231111-1332211213021001-2220220310131302-2310030111212332-0112031113233133-2320323212013320"></a>
 
-## Next pages — detection_settings.signature_selection_setting / 737620959ad9 / 4
+## Next pages — signature_selection_setting / 211121223121 / 4
 
-- [detection_settings.signature_selection_setting.attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-d830b2bd8e56c4239afad917b9c06d58c6802547cc7278c29f0517f2a0d1a265)
-- [detection_settings.signature_selection_setting.default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-4e3128b25b020a369fb5db44d1c1c74152cc50c63cbd064173367125256db1fc)
-- [detection_settings.signature_selection_setting.default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-6bad3e48fd059dd6d772349a730a63963df031f70ef2d8f4785cfa94e19c1260)
-- [detection_settings.signature_selection_setting.high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-bb6226e7837586665243f18f816dbdda47c2f34571fb2768fa4656ef656eeb99)
-- [detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-fdc01c597c155d8cb1e023adc57d79079eca989a1e1b6671384e9de988983cb0)
-- [detection_settings.signature_selection_setting.only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-6d7cbd4a2e34e25ef3e1beb749e285fc430dbe9110c6f3fe524481385d5999d8)
-- [detection_settings.signature_selection_setting.signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-9f0c788d4b5c717de7c53a638dfd375c86d984d8f8d162d1303a49a1c141703e)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting.attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-3120030023022331-2032111230100203-2122332231210113-2321300012311120-3012200002111013-3030130213203002-2133001101133302-2200310122021211)
+- [detection_settings.signature_selection_setting.default_attack_type_settings](resources--app_firewall--reference--group-001.md#canonical-1032030102202302-1123000200220312-2133231131231010-3101300130131001-1102303011003012-0330233100121001-1303031213010211-0211123123013330)
+- [detection_settings.signature_selection_setting.default_signature_setting](resources--app_firewall--reference--group-001.md#canonical-1223223103321020-3331001121313112-3113130203102122-1303002212032112-0331330003013313-0032330231203310-1320113033222110-3201213001021200)
+- [detection_settings.signature_selection_setting.high_medium_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-2323120202123213-2003131120121212-1102100333012033-2001123123313122-1013300233031011-1301332302131220-3322101211123233-1211123232232121)
+- [detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-3331300001301121-1330011111312030-2301320002032231-3011133113210013-2132302221202122-0132012312121301-0320103221313221-2020212003302300)
+- [detection_settings.signature_selection_setting.only_high_accuracy_signatures](resources--app_firewall--reference--group-001.md#canonical-1231133023311022-0232031032021132-3303320123322313-1021320220113330-1003003123322101-0100301233033332-1102101020010320-1131112121213120)
+- [detection_settings.signature_selection_setting.signature_settings_by_accuracy](resources--app_firewall--reference--group-001.md#canonical-2133003013202031-1023113013011331-3213301103221203-2031333103131130-2012312120103120-3320310112023101-0300032210212201-3001100113000332)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-d830b2bd8e56c4239afad917b9c06d58c6802547cc7278c29f0517f2a0d1a265"></a>
+<a id="canonical-3120030023022331-2032111230100203-2122332231210113-2321300012311120-3012200002111013-3030130213203002-2133001101133302-2200310122021211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-867f27055b0bbceb194503de3007c6fab68170471b56c4a4680a3422f72a1b0d"></a>
+<a id="canonical-2012133302130011-1123002323303223-0121101100033132-0300001330123322-2312200113001013-0123111230102210-1220002203100202-3313022201230031"></a>
 
-## detection_settings.signature_selection_setting.attack_type_settings — detection_settings.signature_selection_setting.attack_type_settings / 3dd880767747 / 2
+## detection_settings.signature_selection_setting.attack_type_settings — attack_type_settings / 131213131013 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.attack_type_settings
 
-<a id="canonical-c95c6ae8811b03c9949497fd0d6d726c042236c7d8613acfa18ba8be9d388f88"></a>
+<a id="canonical-3021113012223220-2001012300033021-2110211021133331-0031123113021230-0010020203123013-3120120103223033-2201202322202332-2131032020332020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2809,15 +2809,15 @@ attack_type_settings {
 }
 ```
 
-<a id="canonical-8fa29943602d5c2118555d57c263ee4c299d6162aa128ff450ac61958a161590"></a>
+<a id="canonical-2033220221211003-1200023111300201-0120111111311113-3002120332321030-0221213112011202-2222010220333310-1100223012012111-2022011201112100"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.attack_type_settings / 3dd880767747 / 3
+## Direct properties — attack_type_settings / 131213131013 / 3
 
-<a id="canonical-708ef1383dfae0537c4e076fd150c0dc64035f53ddb94e8085db5eceba1fe7ed"></a>
+<a id="canonical-1300203233010320-0331332232001103-1330103200131233-3101110030003130-1210000311331103-3131232110322000-2011312311323032-2322013332133231"></a>
 
-<a id="canonical-bfd1bc7677daa52469ed8ab019f8907592f0d273ac32b6c42b581f9b17046c67"></a>
+<a id="canonical-2333310123301312-1313312222110210-1221323120222300-0121332021001311-2102330031021303-2230030223123010-0223112001332123-0113001012301213"></a>
 
-## disabled_attack_types property — detection_settings.signature_selection_setting.attack_type_settings / 3dd880767747 / 4
+## disabled_attack_types property — attack_type_settings / 131213131013 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -2888,32 +2888,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-673cd6cfd68fd53660fc5de87388003d0c8998649dd531bd6dc62e2b0534b4eb"></a>
+<a id="canonical-1213033031123033-3112203331110312-1200333011313220-1303202000000331-0030202121201210-2131311103012331-1231301202320223-0011031023103223"></a>
 
-## Next pages — detection_settings.signature_selection_setting.attack_type_settings / 3dd880767747 / 5
+## Next pages — attack_type_settings / 131213131013 / 5
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-4e3128b25b020a369fb5db44d1c1c74152cc50c63cbd064173367125256db1fc"></a>
+<a id="canonical-1032030102202302-1123000200220312-2133231131231010-3101300130131001-1102303011003012-0330233100121001-1303031213010211-0211123123013330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5212cb7eff88a56c897aebe5994292586424eff67850b6067c2b185d22d7ead3"></a>
+<a id="canonical-1102010230231332-3333202022111230-2021132232233211-2121100221021120-1210021032333312-1320110023120012-1330022301201131-0202311332223103"></a>
 
-## detection_settings.signature_selection_setting.default_attack_type_settings — detection_settings.signature_selection_setting.default_attack_type_settings / a1733e5b49c7 / 2
+## detection_settings.signature_selection_setting.default_attack_type_settings — default_attack_type_settings / 112310213013 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.default_attack_type_settings
 
-<a id="canonical-bbbdabd84189eac9eeae26ca7d6ccbb9a0df2695d790c4e2b731594bc4a6bafd"></a>
+<a id="canonical-2323233122233120-1001202132223021-3232223202123022-1331123030232321-2200313302122111-3113210030103202-2313030111211023-3010221223223331"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2942,38 +2942,38 @@ Terraform syntax:
 default_attack_type_settings = {}
 ```
 
-<a id="canonical-f7c4de2ca4299373f08828ae33bedbd8dc3fa94b1d1465e88bab4c99e7489880"></a>
+<a id="canonical-3313301031320230-2210022121031303-3300202002202232-0303233231233120-3130033322211023-0131011012113220-2023222310302121-3213102021202000"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.default_attack_type_settings / a1733e5b49c7 / 3
+## Direct properties — default_attack_type_settings / 112310213013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2abc6d93a122ccd47d578d9a988bdbd54f9fd1f54125f28b06c504b6f45f5e67"></a>
+<a id="canonical-0222233012312103-2201020230303110-1331111320312122-2120202331233111-1033213331013311-1001021133022023-0012301100102312-3310113311321213"></a>
 
-## Next pages — detection_settings.signature_selection_setting.default_attack_type_settings / a1733e5b49c7 / 4
+## Next pages — default_attack_type_settings / 112310213013 / 4
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-6bad3e48fd059dd6d772349a730a63963df031f70ef2d8f4785cfa94e19c1260"></a>
+<a id="canonical-1223223103321020-3331001121313112-3113130203102122-1303002212032112-0331330003013313-0032330231203310-1320113033222110-3201213001021200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-24daacb738b5a8cf8c6e60f91e8d04e396ba63bfc1f989648707439aa45f3af1"></a>
+<a id="canonical-0210312222302313-0320231122203033-2030123212003321-0132203100103203-2112232212032333-3001332120211210-2013001310032122-2210113303223301"></a>
 
-## detection_settings.signature_selection_setting.default_signature_setting — detection_settings.signature_selection_setting.default_signature_setting / dc42e56bb331 / 2
+## detection_settings.signature_selection_setting.default_signature_setting — default_signature_setting / 122323030301 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.default_signature_setting
 
-<a id="canonical-d8f33b74e4afcb5dfa5c9453becc57f3565e7c72adb60a21b046b53d2b20efd9"></a>
+<a id="canonical-3120330303231310-3210223330231131-3322113021101103-2332303011133303-1112113213301302-2231231200220201-2300101223110331-0223020032333121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3002,38 +3002,38 @@ Terraform syntax:
 default_signature_setting = {}
 ```
 
-<a id="canonical-0b88d7bcbc3f244d9b4750fce24f97a69ce8be1974abd58211a149163334134c"></a>
+<a id="canonical-0023202031132330-2330033302101031-2123101311003330-3202103321132212-2130322023320121-1310222331112002-0101220110210112-0303031001031030"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.default_signature_setting / dc42e56bb331 / 3
+## Direct properties — default_signature_setting / 122323030301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d053ea729da9e82e41ea7e60ef1d0e3b3d820d5fe5abdc7487c9b20131cc16c7"></a>
+<a id="canonical-3100110332221302-2131222132200232-1001322213321200-3233013100320323-0331200200311133-3211222331301310-2013302123020001-0301303001123013"></a>
 
-## Next pages — detection_settings.signature_selection_setting.default_signature_setting / dc42e56bb331 / 4
+## Next pages — default_signature_setting / 122323030301 / 4
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-bb6226e7837586665243f18f816dbdda47c2f34571fb2768fa4656ef656eeb99"></a>
+<a id="canonical-2323120202123213-2003131120121212-1102100333012033-2001123123313122-1013300233031011-1301332302131220-3322101211123233-1211123232232121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-710938acef1a82741c37e4155c98900fd1a906bf816f9cd773ee8631c78fc72c"></a>
+<a id="canonical-1301002103202230-3233012220021310-0130031332100111-1130212021000033-3101222100122333-2001123321303113-1303323220120301-3013203330130230"></a>
 
-## detection_settings.signature_selection_setting.high_medium_accuracy_signatures — detection_settings.signature_selection_setting.high_medium_accuracy_signatures / 94e448eff80b / 2
+## detection_settings.signature_selection_setting.high_medium_accuracy_signatures — high_medium_accuracy_signatures / 323333200023 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.high_medium_accuracy_signatures
 
-<a id="canonical-8fb306a310398f4b2077ab8537ec0a63ca4548834ab5ccee746b9ea716272093"></a>
+<a id="canonical-2033230300122203-0100032120331023-0200131322232011-0313323000221203-3022101110202003-1022231130303232-1310122321322213-0112021302002103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3062,38 +3062,38 @@ Terraform syntax:
 high_medium_accuracy_signatures = {}
 ```
 
-<a id="canonical-22629c13713e94401ff7a6b6dcd53a045df9e6fd3d4e6d80a6cc160dce37d899"></a>
+<a id="canonical-0202120221300103-1301033221101000-0133331322122312-3130311103220010-1131332132123331-0331103212312000-2212303001120031-3032031331202121"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.high_medium_accuracy_signatures / 94e448eff80b / 3
+## Direct properties — high_medium_accuracy_signatures / 323333200023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1bd3f3bd7c7a823bcc95ba075523c8ed49bbfa78dc661d384aa0808cb52bb528"></a>
+<a id="canonical-0123310333032331-1330132220020323-3030211123220013-1111020330203231-1021232333221320-3130121201310320-1022220020002030-2311022323110220"></a>
 
-## Next pages — detection_settings.signature_selection_setting.high_medium_accuracy_signatures / 94e448eff80b / 4
+## Next pages — high_medium_accuracy_signatures / 323333200023 / 4
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-fdc01c597c155d8cb1e023adc57d79079eca989a1e1b6671384e9de988983cb0"></a>
+<a id="canonical-3331300001301121-1330011111312030-2301320002032231-3011133113210013-2132302221202122-0132012312121301-0320103221313221-2020212003302300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0911540598837649eabac998174642bb1ea24c5f72b96d6be80f47f86a9deaa2"></a>
+<a id="canonical-0021010111100011-2120200313121021-3222232230212120-0113101210022323-0132220210301133-1302232112311223-3220003310133320-1222213132222202"></a>
 
-## detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures — detection_settings.signature_selection_setting.high_medium_low_accuracy_signatur / 6b11a5dcd210 / 2
+## detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures — high_medium_low_accuracy_signatures / 313031020100 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures
 
-<a id="canonical-c08d7ecc04fe0d75f924b942a2d5f98beb3443080f1af8b6e4d1fc6c4e178e16"></a>
+<a id="canonical-3000203113323030-0010333200311311-3321021023211002-2202311133212023-3223031010030020-0033012233202312-3210310133301230-1032011320320112"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3122,38 +3122,38 @@ Terraform syntax:
 high_medium_low_accuracy_signatures = {}
 ```
 
-<a id="canonical-2d825a120b79e8d5148f6a17b7a0c09aecf5f9b78d4ee7c6cbe33cdc0ca5c3cf"></a>
+<a id="canonical-0231200211220102-0023132132203111-0110203312220113-2313220030002122-3230331133212313-2031103232133012-3023320303303130-0030221130033033"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.high_medium_low_accuracy_signatur / 6b11a5dcd210 / 3
+## Direct properties — high_medium_low_accuracy_signatures / 313031020100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-36bc8f7d5835c16174f11b6f83158407998baff145c7b3ce2cc1f34d20dd97bf"></a>
+<a id="canonical-0312233020331331-1120031130011201-1310330101231233-2003011120100013-2121202322333301-1011301323033032-0230300133031031-0200313121132333"></a>
 
-## Next pages — detection_settings.signature_selection_setting.high_medium_low_accuracy_signatur / 6b11a5dcd210 / 4
+## Next pages — high_medium_low_accuracy_signatures / 313031020100 / 4
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-6d7cbd4a2e34e25ef3e1beb749e285fc430dbe9110c6f3fe524481385d5999d8"></a>
+<a id="canonical-1231133023311022-0232031032021132-3303320123322313-1021320220113330-1003003123322101-0100301233033332-1102101020010320-1131112121213120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-274117524bc1b9bdf802b983dda3190d4af00f8fee694fba15959126ac3d7109"></a>
+<a id="canonical-0213100101131102-1023300123212331-3320000223212003-3131220301210031-1022330000332033-3232122110332322-0111211121010212-2230033113010021"></a>
 
-## detection_settings.signature_selection_setting.only_high_accuracy_signatures — detection_settings.signature_selection_setting.only_high_accuracy_signatures / 6251915c7826 / 2
+## detection_settings.signature_selection_setting.only_high_accuracy_signatures — only_high_accuracy_signatures / 113013200212 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.only_high_accuracy_signatures
 
-<a id="canonical-d2db926a6f5e6a583208fb8605f262dfed09a03b69d6269ac4a2132949a5d838"></a>
+<a id="canonical-3102312321021222-1233113212221120-0302002033232012-0011330212023133-3231002122000323-1221311202122122-3010220201030221-1021221131200320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3182,38 +3182,38 @@ Terraform syntax:
 only_high_accuracy_signatures = {}
 ```
 
-<a id="canonical-69c399423e8eaeb2e23ec1275c1e2a8a56a04642a41d26f28bfac25190a39eba"></a>
+<a id="canonical-1221300321211002-0332203222322302-3202033230010213-1130013202222022-1112220010121002-2210013102123302-2023332230021101-2100220321322322"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.only_high_accuracy_signatures / 6251915c7826 / 3
+## Direct properties — only_high_accuracy_signatures / 113013200212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-26a7744e8badc2aa0f8e8790912ea3c06f0eeb5dabaf70d993faabaf482c8164"></a>
+<a id="canonical-0212221313101032-2023223130022222-0033203220132100-2101023222033000-1233003232231131-2223223313003121-2103332222232233-1020023020011210"></a>
 
-## Next pages — detection_settings.signature_selection_setting.only_high_accuracy_signatures / 6251915c7826 / 4
+## Next pages — only_high_accuracy_signatures / 113013200212 / 4
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-9f0c788d4b5c717de7c53a638dfd375c86d984d8f8d162d1303a49a1c141703e"></a>
+<a id="canonical-2133003013202031-1023113013011331-3213301103221203-2031333103131130-2012312120103120-3320310112023101-0300032210212201-3001100113000332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd402e7b50fa82a2f190526bdd9c56a3a5f40e65ee8f68c2c91bc4899f157743"></a>
+<a id="canonical-3031100002321323-1100332220022202-3301210011021223-3131213011122203-2211331000321211-3232203312203002-3021012330102021-2133011113131003"></a>
 
-## detection_settings.signature_selection_setting.signature_settings_by_accuracy — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 2
+## detection_settings.signature_selection_setting.signature_settings_by_accuracy — signature_settings_by_accuracy / 133032011003 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
 - detection_settings.signature_selection_setting.signature_settings_by_accuracy
 
-<a id="canonical-099e881eed27d69bfe04a2779cedbc06a114d21c72e0c05e3fa8c4da0520dfe8"></a>
+<a id="canonical-0021213220200132-3231021331122123-3332001022021313-2130323123300012-2201011031020130-1302320030001132-0333222030103122-0011020031333220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3240,62 +3240,15 @@ signature_settings_by_accuracy {
 }
 ```
 
-<a id="canonical-4b40c1b6a7e7b41262507c3d27a9912a19a545419dc0b4669fc9c94dc92ece5d"></a>
+<a id="canonical-1023100030012312-2213321323100102-1202110013300331-0213222121010222-0121221110111001-2131300023101212-2133302130211031-3021023230321131"></a>
 
-## Direct properties — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 3
+## Direct properties — signature_settings_by_accuracy / 133032011003 / 3
 
-<a id="canonical-85e1b1061ff13259a7c3a169d9402ff0b08b081a1abc423e243c361c4c7a56cc"></a>
+<a id="canonical-2011320123010012-0133330103021121-2213300322011221-3121100002333300-2300202300200122-0122233010020332-0210033003120130-1030132211123030"></a>
 
-<a id="canonical-b8f8fb5b97770c30313c75583a122bf51de7f32442540dc54226af66549dac32"></a>
+<a id="canonical-2320332033231123-2113131300300300-0301033013111120-0322010202233311-0131321333030210-1002111000313011-1002021222331212-1110213122300302"></a>
 
-## high_accuracy_action property — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: SIG\_BLOCK|SIG\_REPORT|SIG\_IGNORE\] Action to be performed on the request Log and block Log
-only Disable detection. Possible values are \`SIG\_BLOCK\`, \`SIG\_REPORT\`, \`SIG\_IGNORE\`.
-Defaults to \`SIG\_BLOCK\`.
-
-Upstream description:
-
-Action to be performed on the request
-
-Log and block Log only Disable detection.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("SIG_BLOCK",
-    "SIG_REPORT",
-    "SIG_IGNORE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "SIG_BLOCK",
-  "enum": [
-    "SIG_BLOCK",
-    "SIG_REPORT",
-    "SIG_IGNORE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-df89ef43e46359f1907cd3679a8b5f13aa547de1c0d1811348d5f5c5bdc1f525"></a>
-
-<a id="canonical-b20db08c73e009a4c4d2d6a397c3ec157a0e4746adde7401860bd19814b96956"></a>
-
-## low_accuracy_action property — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 5
+## high_accuracy_action property — signature_settings_by_accuracy / 133032011003 / 4
 
 Type: `"string"`. Optional.
 
@@ -3338,11 +3291,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c55dc8bdb3d7af8e7f9d66fbe0705463fa6e3ec63691034db80dc52fe3c5b40"></a>
+<a id="canonical-3133202132331003-3210120311213301-2100133031031213-2122202311330103-2222111013313201-3000310120010103-1020311133113011-2331300133110211"></a>
 
-<a id="canonical-e7fd83d7a71c1ed5035fd6eebec6c87c126a3eea80b0f3f44006cdfeb4e310c6"></a>
+<a id="canonical-2302003123002030-1303320000212210-3010310231122203-2113300332300111-1322003210131012-2231313213100001-2012002331012120-0110232112211112"></a>
 
-## medium_accuracy_action property — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 6
+## low_accuracy_action property — signature_settings_by_accuracy / 133032011003 / 5
 
 Type: `"string"`. Optional.
 
@@ -3385,31 +3338,78 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5318fc6ee6620c96774efcbca0fa2546a826ea4232672036c49bfbcbbe9e0ecd"></a>
+<a id="canonical-0030111131302023-3123033113223320-3213332131121233-2332001300111012-0333221232033230-1203122101000310-3123200031301102-3332033011231000"></a>
 
-## Next pages — detection_settings.signature_selection_setting.signature_settings_by_accuracy / f961367ce143 / 7
+<a id="canonical-3213333120033113-2213013001323111-0003113331123232-2332301230201330-0102122203323222-2000230033033310-1000001230313332-2310320301003012"></a>
 
-- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-313da9987467171ecc9db013a10506b3c4d3d44eb638b1333fdd318f34125e33)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+## medium_accuracy_action property — signature_settings_by_accuracy / 133032011003 / 6
 
-<a id="canonical-acae56c05cba1eccdb7cf8c63de412288fb23866cdc8ba1d0dc7213366c70cd2"></a>
+Type: `"string"`. Optional.
+
+\[Enum: SIG\_BLOCK|SIG\_REPORT|SIG\_IGNORE\] Action to be performed on the request Log and block Log
+only Disable detection. Possible values are \`SIG\_BLOCK\`, \`SIG\_REPORT\`, \`SIG\_IGNORE\`.
+Defaults to \`SIG\_BLOCK\`.
+
+Upstream description:
+
+Action to be performed on the request
+
+Log and block Log only Disable detection.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("SIG_BLOCK",
+    "SIG_REPORT",
+    "SIG_IGNORE"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "SIG_BLOCK",
+  "enum": [
+    "SIG_BLOCK",
+    "SIG_REPORT",
+    "SIG_IGNORE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1103012033301232-3212120200302112-1313103233302330-2200332202111012-2220021232221002-0302121302000312-3010212333233023-2332213200323031"></a>
+
+## Next pages — signature_settings_by_accuracy / 133032011003 / 7
+
+- [detection_settings.signature_selection_setting](resources--app_firewall--reference--group-001.md#canonical-0301033122212120-1310121301130132-3030213123000103-2201001100122303-3010310331101032-2312032023010303-0333313103012033-0310010211320303)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+
+<a id="canonical-2230223211123000-1130232201323030-3123133033203012-0331321001020220-2033230203201212-3031302023220131-0031301302010303-1212301300303102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ffa2d903b9508da3b5194f34677f20804f5100e99096422dabbe07c1bd294d4b"></a>
+<a id="canonical-3333220231210003-2321110020312203-2311012110330310-1213133302002000-1033110100003221-2100211210020231-2223233200133001-2331022110311023"></a>
 
-## detection_settings.stage_new_and_updated_signatures — detection_settings.stage_new_and_updated_signatures / de79d5434094 / 2
+## detection_settings.stage_new_and_updated_signatures — stage_new_and_updated_signatures / 100310002110 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.stage_new_and_updated_signatures
 
-<a id="canonical-bbaba6e34215d14a44f66fee78d56bd02f329e3723e21cdd8d7050ec67500cc6"></a>
+<a id="canonical-2323222322123203-1002011131011022-1010331212333232-1320311112233100-0233030221320313-0203320201303131-2031130011003230-1213110000303012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3442,15 +3442,15 @@ stage_new_and_updated_signatures {
 }
 ```
 
-<a id="canonical-09d31715ff50b12333a24f2e920ec34f858fc048aae82772cdc4f8acaa605b7d"></a>
+<a id="canonical-0021310301130111-3333110023010203-0303220210330232-2102003230031033-2011203330001020-2222322002131302-3031301033202230-2222120011231331"></a>
 
-## Direct properties — detection_settings.stage_new_and_updated_signatures / de79d5434094 / 3
+## Direct properties — stage_new_and_updated_signatures / 100310002110 / 3
 
-<a id="canonical-952a06ffbd8220618ee7049bb07e6b03a5af0d9d0334601164b1d96684902448"></a>
+<a id="canonical-2111022200123333-2331200202001201-2032321300102123-2300133212230003-2211223300312131-0003031012000101-1210230131211212-2010210002101020"></a>
 
-<a id="canonical-ab6244baa3a0bf93bb7d3b292e87b1e38c00bd83f39ecc25ed14f9e17b236227"></a>
+<a id="canonical-2223120210102322-2203220023332103-2323133103230221-0232201323013203-2030000023312003-3303213230300211-3231011033213201-1323020312020213"></a>
 
-## staging_period property — detection_settings.stage_new_and_updated_signatures / de79d5434094 / 4
+## staging_period property — stage_new_and_updated_signatures / 100310002110 / 4
 
 Type: `"number"`. Optional.
 
@@ -3507,31 +3507,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86efe36536a48f5f0a3ce6fbea53ea22915fdd4daadf267ff098b3e84dba2690"></a>
+<a id="canonical-2012323332031211-0312221020331133-0022033032123323-3222110332220202-2101113331311031-2222313302121333-3300212023033220-1031232202122100"></a>
 
-## Next pages — detection_settings.stage_new_and_updated_signatures / de79d5434094 / 5
+## Next pages — stage_new_and_updated_signatures / 100310002110 / 5
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-6228cc79e4b6a4b20fd635d6e2070432f1eb909c57f4fa9881be0f5024297671"></a>
+<a id="canonical-1202022030301321-3210231222102302-0033311203113112-3202001300100302-3301322321002130-1113331033222120-2001233200331100-0210022113121301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d0f4026d29de9f332cbd8ab9bddab12bf325bcb6667592f50777a92ea75615ac"></a>
+<a id="canonical-3100331000021231-0221313221330303-0230233120222321-2331312223010223-3303021123302312-1212131121023311-0013131322210232-2213111201112230"></a>
 
-## detection_settings.stage_new_signatures — detection_settings.stage_new_signatures / 9d682627f5c4 / 2
+## detection_settings.stage_new_signatures — stage_new_signatures / 021333113010 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.stage_new_signatures
 
-<a id="canonical-9d824bf82d0196a7d0fab123fecf2f801a967b7f20fd448596e42580784dda31"></a>
+<a id="canonical-2131200210233320-0231000121122213-3100332223010203-3332303302332000-0122211213231333-0200333110102011-2112321002112000-1320103131220301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3564,15 +3564,15 @@ stage_new_signatures {
 }
 ```
 
-<a id="canonical-a820f72fb14f57cbab5a7d630a3b8335742828eee1172b1e467374fc96327e79"></a>
+<a id="canonical-2220020033130233-2301103311133023-2223112213311203-0022032320030311-1310022002203232-3201011302230132-1012130313103330-2112030213321321"></a>
 
-## Direct properties — detection_settings.stage_new_signatures / 9d682627f5c4 / 3
+## Direct properties — stage_new_signatures / 021333113010 / 3
 
-<a id="canonical-208e3356fcf2e95e0e56d565a1b5122c96c5d16e38b3e47575d9cd333109f25e"></a>
+<a id="canonical-0200203203031112-3330330232211132-0032111231111211-2201231101020230-2112301131011232-0320230332101311-1311312130310303-0301002133021132"></a>
 
-<a id="canonical-d44cabd65ac42d0b57e18184aed3a0b57959ef6832afe2fb10fbe5bbbb27271e"></a>
+<a id="canonical-3110103022233112-1122301002310023-1113320120012010-2232310322002311-1321112132331220-0302223332023323-0100332332112323-2323021302130132"></a>
 
-## staging_period property — detection_settings.stage_new_signatures / 9d682627f5c4 / 4
+## staging_period property — stage_new_signatures / 021333113010 / 4
 
 Type: `"number"`. Optional.
 
@@ -3629,31 +3629,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bab6e80393f3954faa1b53fb7a6c145e2b0f068d37e57aa8942cad2d7beb9cba"></a>
+<a id="canonical-2322231232200003-2103330321111033-2222012311033323-1322123001101132-0223003300122031-0313321113222220-2110023022310231-1323322321302322"></a>
 
-## Next pages — detection_settings.stage_new_signatures / 9d682627f5c4 / 5
+## Next pages — stage_new_signatures / 021333113010 / 5
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-1c74050138fcc23ffa3ba856e17b5f13cbed18739b345f2dc49e893b31d7c510"></a>
+<a id="canonical-0130131000110001-0320333030020333-3322032322201112-3201132311330103-3023323101201303-2123031011330231-3010213220210323-0301311330110100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-de7be1301f83726887258657add1e8e9b0b5a90fedd31654ac23917a81989e88"></a>
+<a id="canonical-3132132332010300-0133200313021220-2013021120121113-2231310132203221-2300231122210033-3231310301121110-2230020321011322-2001212021322020"></a>
 
-## detection_settings.violation_settings — detection_settings.violation_settings / 6326142f53fd / 2
+## detection_settings.violation_settings — violation_settings / 023311033331 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.violation_settings
 
-<a id="canonical-c07dd07d2a73094aff2168ea28189477899c6c5e1ab0d1fc9e2841109d25d67e"></a>
+<a id="canonical-3000133131001331-0222130300211022-3333020112203222-0220012021101313-2021213012301132-0122230031013330-2132022010010100-2131021131121332"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3686,15 +3686,15 @@ violation_settings {
 }
 ```
 
-<a id="canonical-62b3e1f0714727b5e482edf3da0985272e2f0d0ccd8daffd036d9d4f3bc11890"></a>
+<a id="canonical-1202230332013300-1301101302132311-3210200232313303-3122002120110213-0232023300310030-3031203122333331-0003123121311033-0323300101202100"></a>
 
-## Direct properties — detection_settings.violation_settings / 6326142f53fd / 3
+## Direct properties — violation_settings / 023311033331 / 3
 
-<a id="canonical-923be1899177f5decb21c31d560e7a494e73cd280672cfc75a773da9eb68795c"></a>
+<a id="canonical-2102032332012021-2101131333113132-3023020130030131-1112003213221021-1032130330310220-0012130230333013-1122131303312221-3223122013211130"></a>
 
-<a id="canonical-c89704b34a283af1213471480964aab41fc3485a009ca39b5c496fe423ff6917"></a>
+<a id="canonical-3020211300102303-1022022003223301-0201031013011020-0021121022222310-0133300310201122-0000213022032123-1130102112333210-0203333312210113"></a>
 
-## disabled_violation_types property — detection_settings.violation_settings / 6326142f53fd / 4
+## disabled_violation_types property — violation_settings / 023311033331 / 4
 
 Type: `["list", "string"]`. Optional, Deprecated.
 
@@ -3766,31 +3766,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cd940646a29d6af192f5697cdc3396a0cb2608b8a4fc079374caaee6749487a6"></a>
+<a id="canonical-3031211000121012-2202213112223301-2102331112211330-3130030321122200-3023021200202320-2210333000132103-1310302222323212-1310211020132212"></a>
 
-## Next pages — detection_settings.violation_settings / 6326142f53fd / 5
+## Next pages — violation_settings / 023311033331 / 5
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-ab92e2105163d3b386c6dbeb464717f7f31d562bce448ba3491a24b09e752dc9"></a>
+<a id="canonical-2223210232020100-1101120331032303-2012301231233223-1012101301133313-3303013111120223-3032101020232203-1021012202102300-2132131102313021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c4c56f742d6f391b8cb23d5ed42fc3c7eb13a0276d3591e749f58b633c98bea0"></a>
+<a id="canonical-3010301112331310-0231123303210123-2030230203311132-3110023330033013-3223010322000213-1231031121013213-1021331120231203-0330212023322200"></a>
 
-## detection_settings.violations_view — detection_settings.violations_view / ad6d2e15e9c9 / 2
+## detection_settings.violations_view — violations_view / 011132213021 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
 - detection_settings.violations_view
 
-<a id="canonical-7f0a74733caaa88496fd424dfdef7b1adfb648f4ff4c5f1d6db248c495238952"></a>
+<a id="canonical-1333002213101303-0330222222202010-2112333110021031-3331323313230122-3133231210203310-3333103011330131-1231230210203010-2111020320211102"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3824,25 +3824,25 @@ violations_view {
 }
 ```
 
-<a id="canonical-e9454545b27ea84848632da93fc3586e615457dd4b2b64378ec2c94b55dc9e7b"></a>
+<a id="canonical-3221101110111011-2302133222201020-1020120302312221-0333300311201232-1201111011133131-1023022312100313-2032300230211023-1111313021321323"></a>
 
-## Direct properties — detection_settings.violations_view / ad6d2e15e9c9 / 3
+## Direct properties — violations_view / 011132213021 / 3
 
-<a id="canonical-ce6e5851b29207632de5a17adb35feaa76d94c51375fea58c44f988871f065ee"></a>
+<a id="canonical-3032123211201101-2302210200131203-0231321122011322-3123031133322222-1312312110301101-0313113332221120-3010103321202020-1301330012113232"></a>
 
-<a id="canonical-8e8752361fc25d7bd016899117ab369f9168d76e1649d2272ae47bec0290f1ad"></a>
+<a id="canonical-2032201311020312-0133300211311323-3100011220212101-0113222303122133-2101122031131232-0112102131020213-0222321013233230-0002210033012231"></a>
 
-## description_spec property — detection_settings.violations_view / ad6d2e15e9c9 / 4
+## description_spec property — violations_view / 011132213021 / 4
 
 Type: `"string"`. Optional.
 
 Description. Human-readable description text
 
-<a id="canonical-1168e33b0f4401c9fa8508a4fd372785ae477b83af999f2569debebbf602089a"></a>
+<a id="canonical-0101122032030323-0033101000013021-3322201100202210-3331031302132011-2232101313232003-2233212121330211-1221313223322323-3312000200202122"></a>
 
-<a id="canonical-b03dc133d905b2b8622a22f4a6fe43db71c354b67c9a5c0559b0c89b08f8e3d3"></a>
+<a id="canonical-2300033130010303-3121001123022320-1202022202023310-2212333210033123-1301300311102312-1330212211300011-1121230030202123-0020332032033103"></a>
 
-## enabled property — detection_settings.violations_view / ad6d2e15e9c9 / 5
+## enabled property — violations_view / 011132213021 / 5
 
 Type: `"bool"`. Optional.
 
@@ -3865,11 +3865,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-26e1a0adcf4de1ac46b06ffb548bfa24471a96987e8d3ee91297ff34f42fef68"></a>
+<a id="canonical-0212320122002231-3033103132012230-1012230012333323-1110202333220210-1013012221122120-1332203103323221-0102211333330310-3310023332331220"></a>
 
-<a id="canonical-28f20bda9b5ab0febf9e1b4fd141a48daf585a0f4845726b066eaad7d08d9cd0"></a>
+<a id="canonical-0220330200233122-2123112223003332-2333213201231033-3101100122102031-2233112011220033-1020101113021223-0012123222223113-3100203121303100"></a>
 
-## enabled_by_default property — detection_settings.violations_view / ad6d2e15e9c9 / 6
+## enabled_by_default property — violations_view / 011132213021 / 6
 
 Type: `"string"`. Optional.
 
@@ -3898,11 +3898,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db944b9c5d9495300161bdc6192ad461bc591ad0adf368180f8b2cb431c3c983"></a>
+<a id="canonical-3123211010232130-1131211021110300-0001120123313012-0121022231101201-2330112101223100-2231330312200120-0033202302302310-0301300330212003"></a>
 
-<a id="canonical-9b083927957016fc3b552ecf39e4d62bd77fd7c9f4972761b03b91fd81d16142"></a>
+<a id="canonical-2123002003210213-2111130001123330-0323111102323033-0321321031120223-3113133331133021-3310211302131201-2300032321013331-2001310112011002"></a>
 
-## name property — detection_settings.violations_view / ad6d2e15e9c9 / 7
+## name property — violations_view / 011132213021 / 7
 
 Type: `"string"`. Optional.
 
@@ -3960,11 +3960,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3cc3878cf49fc38de8b7581378ef6e8d06141f5dfcb65bb50e3a5b726e6d44a9"></a>
+<a id="canonical-0330300320132030-3310213330032031-3220231311200103-1320323312322031-0012011001331131-3330231211232311-0032032211231302-1232123110102221"></a>
 
-<a id="canonical-8e050f09b206dfd7563b254700452a59813ec731e96ea8f45402a131fea8ed73"></a>
+<a id="canonical-2032001100330021-2302001231333113-1112032302111013-0000101102221121-2001033230130301-3221123222203310-1110000222010301-3332222032311303"></a>
 
-## title property — detection_settings.violations_view / ad6d2e15e9c9 / 8
+## title property — violations_view / 011132213021 / 8
 
 Type: `"string"`. Optional.
 
@@ -3997,30 +3997,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e282cd0f4cb6d834bdd53278262bf2198e6592ce5a677ad7352bbf210c1064c4"></a>
+<a id="canonical-3202200230310033-1030231231200310-2331311103021320-0212022333020121-2032121121023032-1122121313223113-0311022323330201-0030010012103010"></a>
 
-## Next pages — detection_settings.violations_view / ad6d2e15e9c9 / 9
+## Next pages — violations_view / 011132213021 / 9
 
-- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-9141dcda73075ecf630f673963f34fe0753de9929ce97279cbb5a120b46b0a25)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [detection_settings](resources--app_firewall--reference--group-001.md#canonical-2101100131303122-1303001311323033-1203003312130321-1203330310333200-1311033132212102-2130322113021321-3023231122010200-2310122300220211)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-47affa490998093df338643b50e1c90112344a03acdef78edc4281137a077690"></a>
+<a id="canonical-1013223333221021-0021212000210331-3303032012100323-1100320130210001-0102031010220003-2230313233132032-3130100220010103-1322001313122100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9276478517290eb478d54f09d726a69e18295e88ad899bb156e339956ecb28c2"></a>
+<a id="canonical-2102131210132011-0113022100322310-1320311110330021-3113021222122132-0120022111322020-2231202121232301-1112320303212111-1232302302203002"></a>
 
-## disable_ai_enhancements — disable_ai_enhancements / d6e1aed0fefc / 2
+## disable_ai_enhancements — disable_ai_enhancements / 310033323330 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - disable_ai_enhancements
 
-<a id="canonical-51ba662e5b8c9b65413be9c8dee479c2763e325af11635dc4b22e4f83ea5c45a"></a>
+<a id="canonical-1101232212120232-1123203021231211-1001032332213020-3132321013213002-1312033203021122-3301011203113130-1023020232103320-0332221130101122"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -4047,8 +4047,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-51ba662e5b8c9b65413be9c8dee479c2763e325af11635dc4b22e4f83ea5c45a)
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-e15da73ee066596a786073362d2a50a22d6966b73494d3f0c43141af69049afa)
+- [disable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1101232212120232-1123203021231211-1001032332213020-3132321013213002-1312033203021122-3301011203113130-1023020232103320-0332221130101122)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-3201113122130332-3200121211211222-1320120013030312-0231022211002202-0231122112122313-0310211031033300-3010030110012233-1221001021223322)
 
 Select alternatives according to the provider validators above.
 
@@ -4058,36 +4058,36 @@ Terraform syntax:
 disable_ai_enhancements = {}
 ```
 
-<a id="canonical-df90b47d16e50bb87b3b8aae35707b157f503f82a44ca5f6597e4e392f54786e"></a>
+<a id="canonical-3133210023101331-0112321100232320-1323032320222232-0311130013230111-1333110003332002-2210103022113312-1121133210320321-0233111013201232"></a>
 
-## Direct properties — disable_ai_enhancements / d6e1aed0fefc / 3
+## Direct properties — disable_ai_enhancements / 310033323330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1458485a13966dc20c819548ec9d9889e92e04439542030457350bb227dc1b02"></a>
+<a id="canonical-0110112010201122-0103211212313002-0030200121111020-3230213121202021-3221023200101003-2111100200030010-1113031100232302-0213313001230002"></a>
 
-## Next pages — disable_ai_enhancements / d6e1aed0fefc / 4
+## Next pages — disable_ai_enhancements / 310033323330 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-ad9e53637860a64860af7cc627b9c06ca47bdd01c64d32907874af14cf12e9d2"></a>
+<a id="canonical-2231213211031203-1320120022121020-1200223313303012-0213232130001230-2210132331310001-3012103103022100-1320131022330110-3033010232213102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9f80b8d1489b89e3dcd361da40fbefe38c482e756390efd403643b804da7542e"></a>
+<a id="canonical-2133200023203101-1020212320213203-3130310312013122-1000332332333203-2030102002321311-1203210032333110-0003121003232000-1031221311100232"></a>
 
-## disable_anonymization — disable_anonymization / 62d82577242b / 2
+## disable_anonymization — disable_anonymization / 131302100223 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - disable_anonymization
 
-<a id="canonical-9fd50e3757171707ef410094d05c48cdc26d6219a8dc9e01f3b8c422e7ce77b8"></a>
+<a id="canonical-2133311100320313-1113011301130013-3233100100002110-3100113010203031-3002123112020121-2220313021320001-3303232030100202-3213303213132320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4116,36 +4116,36 @@ Terraform syntax:
 disable_anonymization = {}
 ```
 
-<a id="canonical-6e8af3278749c1ef5225e06112ca27e16cc2a7db485adc3113ba1bc0b5a06ffe"></a>
+<a id="canonical-1232202233030213-2013102130013233-1102021132001201-0102302202133201-1230300222133123-1020112231300301-0103232201233000-2311220012333332"></a>
 
-## Direct properties — disable_anonymization / 62d82577242b / 3
+## Direct properties — disable_anonymization / 131302100223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a104e4a9b83079aee20b4fdf7fdf7032801e994f25b229bf74777815b762ae5a"></a>
+<a id="canonical-2201001032102221-2320030013212232-3202002310333133-1333313313000302-2000013221211033-0211230202212333-1310131313200111-2313120222321122"></a>
 
-## Next pages — disable_anonymization / 62d82577242b / 4
+## Next pages — disable_anonymization / 131302100223 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2"></a>
+<a id="canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e58893ecf3b79d3efca60e574b6dfb2cdf256ed0bc09ce314673612814543a35"></a>
+<a id="canonical-3211202021033230-3303231321310332-3330221200321113-1023123133230230-3133021112323100-2330002130320301-1012130312010220-0110111003220311"></a>
 
-## enable_ai_enhancements — enable_ai_enhancements / 2d4616639cca / 2
+## enable_ai_enhancements — enable_ai_enhancements / 120321303022 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - enable_ai_enhancements
 
-<a id="canonical-e15da73ee066596a786073362d2a50a22d6966b73494d3f0c43141af69049afa"></a>
+<a id="canonical-3201113122130332-3200121211211222-1320120013030312-0231022211002202-0231122112122313-0310211031033300-3010030110012233-1221001021223322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4180,41 +4180,41 @@ enable_ai_enhancements {
 }
 ```
 
-<a id="canonical-1ec5b1fe8d9a386fcd93f84f8d12a4e69aa94da6868ad664f3c3488623ec0cc9"></a>
+<a id="canonical-0132301123013332-2031212203201233-3031210333201033-2031010222103212-2122222110312212-2012202231121210-3303300310202012-0203323000303021"></a>
 
-## Direct properties — enable_ai_enhancements / 2d4616639cca / 3
+## Direct properties — enable_ai_enhancements / 120321303022 / 3
 
-- [mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-7e04a89fa71d47eb31388636e9f6adf45eae625c79dd5465414fa7c9c4579c6c): complete subsection reference.
+- [mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-1332001022202133-2213013110133223-0301032020120312-3221331222313310-1132223212021130-1321313111101211-1001103322133021-3010111321301230): complete subsection reference.
 
-- [mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-ebbebd2fbc73f6427b4f50d10b16503ef0fb1060968325d55ef08db4176f52e9): complete subsection reference.
+- [mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-3223233223310233-2330130333121002-1323103311003101-0023011211000332-3300332301001200-2112200302113111-1132330020312310-0113123311023221): complete subsection reference.
 
-<a id="canonical-d2dbb1e5b31fadb3ff19d5c74a2734cb074675dce2e281c1b3bb10bb5056dcf2"></a>
+<a id="canonical-3102312323013211-2303013322312303-3333012131113013-1022021303103023-0013101213113130-3202320220013001-2303232301002323-1100111231303302"></a>
 
-## Next pages — enable_ai_enhancements / 2d4616639cca / 4
+## Next pages — enable_ai_enhancements / 120321303022 / 4
 
-- [enable_ai_enhancements.mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-7e04a89fa71d47eb31388636e9f6adf45eae625c79dd5465414fa7c9c4579c6c)
-- [enable_ai_enhancements.mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-ebbebd2fbc73f6427b4f50d10b16503ef0fb1060968325d55ef08db4176f52e9)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [enable_ai_enhancements.mitigate_high_medium_risk_action](resources--app_firewall--reference--group-001.md#canonical-1332001022202133-2213013110133223-0301032020120312-3221331222313310-1132223212021130-1321313111101211-1001103322133021-3010111321301230)
+- [enable_ai_enhancements.mitigate_high_risk_action](resources--app_firewall--reference--group-001.md#canonical-3223233223310233-2330130333121002-1323103311003101-0023011211000332-3300332301001200-2112200302113111-1132330020312310-0113123311023221)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-7e04a89fa71d47eb31388636e9f6adf45eae625c79dd5465414fa7c9c4579c6c"></a>
+<a id="canonical-1332001022202133-2213013110133223-0301032020120312-3221331222313310-1132223212021130-1321313111101211-1001103322133021-3010111321301230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1ff96340227554424b2ad84c7a61a717d6b9f143ed887cf7d007d205e5c20401"></a>
+<a id="canonical-0133332112031000-0202131111101002-1023022231201030-1322120122130113-3112232133011003-3231202013303313-3100001331020011-3211300200100001"></a>
 
-## enable_ai_enhancements.mitigate_high_medium_risk_action — enable_ai_enhancements.mitigate_high_medium_risk_action / 88e5d812976a / 2
+## enable_ai_enhancements.mitigate_high_medium_risk_action — mitigate_high_medium_risk_action / 010221131222 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202)
 - enable_ai_enhancements.mitigate_high_medium_risk_action
 
-<a id="canonical-371f99c7ae9884367f103e01278a0cf12c001c84402fe278e61c4c9ba9f24265"></a>
+<a id="canonical-0313013321213013-2232212020100312-1333010003320001-0213202200303301-0230000001302010-1000023332021320-3212013010302123-2221330210021211"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4243,37 +4243,37 @@ Terraform syntax:
 mitigate_high_medium_risk_action = {}
 ```
 
-<a id="canonical-f0c723b056bca3f65ae2cc838c20e079d7700e90299fbe8cb0314838636f0d5d"></a>
+<a id="canonical-3300301302032300-1112233022033312-1122320230302003-2030020032001321-3113130000322100-0221213323322030-2300030110200320-1203123300311131"></a>
 
-## Direct properties — enable_ai_enhancements.mitigate_high_medium_risk_action / 88e5d812976a / 3
+## Direct properties — mitigate_high_medium_risk_action / 010221131222 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-87de9352ee5cb83271d8f47a539780acb403b48126d958d88edc03934726f7f9"></a>
+<a id="canonical-2013313221031102-3232113023200302-1301312033101322-1103211320002230-2310000323102001-0212312111203120-2032313000032103-1013021233133321"></a>
 
-## Next pages — enable_ai_enhancements.mitigate_high_medium_risk_action / 88e5d812976a / 4
+## Next pages — mitigate_high_medium_risk_action / 010221131222 / 4
 
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-ebbebd2fbc73f6427b4f50d10b16503ef0fb1060968325d55ef08db4176f52e9"></a>
+<a id="canonical-3223233223310233-2330130333121002-1323103311003101-0023011211000332-3300332301001200-2112200302113111-1132330020312310-0113123311023221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-560f93d9c04c014137a40dcb0f1c5e54c80b1be559744eb67100ca75e9a7bcfc"></a>
+<a id="canonical-1112003321033121-3000103000011001-0313221000313023-0033013011321110-3020002301233211-1121131010322312-1301000030221311-3221221323303330"></a>
 
-## enable_ai_enhancements.mitigate_high_risk_action — enable_ai_enhancements.mitigate_high_risk_action / aea7d2086183 / 2
+## enable_ai_enhancements.mitigate_high_risk_action — mitigate_high_risk_action / 002012012003 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202)
 - enable_ai_enhancements.mitigate_high_risk_action
 
-<a id="canonical-d81b31ab2b5ecd6aff09d59ca5cb165227e173bb77c8ed865540db462e02c07b"></a>
+<a id="canonical-3120012303012223-0223113230311222-3333002131112130-2211302301121102-0213320113032323-1313302032312012-1111100031231012-0232000230001323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4302,36 +4302,36 @@ Terraform syntax:
 mitigate_high_risk_action = {}
 ```
 
-<a id="canonical-49e911ad976a709a3e22b07e0359d5973572f1162aa3d8c953b17489aa0e62b7"></a>
+<a id="canonical-1021322101012231-2113122213002122-0332020223001332-0003112131112113-0311130233010112-0222220331203021-1103230113102021-2222003212022313"></a>
 
-## Direct properties — enable_ai_enhancements.mitigate_high_risk_action / aea7d2086183 / 3
+## Direct properties — mitigate_high_risk_action / 002012012003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c4410a0fe7d6f96205cf01ff0fba6174065e91aed369cec7bd5c81fff4eddb3e"></a>
+<a id="canonical-3010100100220033-3213311233211202-0011303300013333-0033232212011310-0012113221012232-3103122130323013-2331113020013333-3310323131230332"></a>
 
-## Next pages — enable_ai_enhancements.mitigate_high_risk_action / aea7d2086183 / 4
+## Next pages — mitigate_high_risk_action / 002012012003 / 4
 
-- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-66e746a4d30169eb67cd7aafdfbc6d21e2dacb0a438c4640b7615cc3ccc360a2)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [enable_ai_enhancements](resources--app_firewall--reference--group-001.md#canonical-1212321310122210-3103000112213223-1213303113222233-3133233012310201-3202312230230022-1003203010121000-2313120111303003-3030300312002202)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-0af4bd45812502713e359638e33b95e7b7a75e36c5e4cbd05bd2e0e32d361a5b"></a>
+<a id="canonical-0022331023311011-2001021100021301-0332031121120320-3203032321113213-2313221311320312-3011321030233100-1123310232003203-0231031201221123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a09a090661581079a2933a02fd1d58c7f14fcdfc73b1604200be185824a03f7a"></a>
+<a id="canonical-2200212200210012-1201112001001321-2202210303220002-3331013111203013-3301103330313330-1303230112001002-0000233201201120-0210220003331322"></a>
 
-## monitoring — monitoring / a4cc60ab6b05 / 2
+## monitoring — monitoring / 222312230011 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - monitoring
 
-<a id="canonical-31173fc53755e36aeb57e91c8ade2b3b3306a03640ed7372256752b2c0954a62"></a>
+<a id="canonical-0301011303333011-0313111132031222-3223111332210130-2022313202230323-0303001222000312-1000323113031302-0211121311022302-3000211110221202"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -4360,36 +4360,36 @@ Terraform syntax:
 monitoring = {}
 ```
 
-<a id="canonical-eb26073ec86816d5dcfc6d867d838253ec021be70a8ddaed66c88867185430d4"></a>
+<a id="canonical-3223021200130332-3020122001123111-3130333012312012-1331200320021103-3230000201233213-0022203131223231-1212302020201213-0120111003003110"></a>
 
-## Direct properties — monitoring / a4cc60ab6b05 / 3
+## Direct properties — monitoring / 222312230011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3eb0a40f1e4765e1c9aace918e724263fb63f581b33fc4f50d7bda1db0564975"></a>
+<a id="canonical-0332230022100033-0132101312113201-3021222230322101-2032130210021203-3323120333112001-2303033330103311-0031132331220131-2300111210211311"></a>
 
-## Next pages — monitoring / a4cc60ab6b05 / 4
+## Next pages — monitoring / 222312230011 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-67d4d2bfa69993c60e75b7447ba2cd302087271ff43cb4137ef0271be5a07774"></a>
+<a id="canonical-1213311031022333-2212212121033012-0032131123131010-1323220230310300-0200201302130133-3310033023100103-1332330002130123-3211220013131310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-98b2ae7ecc959c574937b537f8e053b4ffaf9a3e84f555b396663ca3d29e5ef1"></a>
+<a id="canonical-2120230222321332-3030211121301113-1021031323110313-3320320011032310-3333223321220332-2010331111112303-2112121203302203-3102213211323301"></a>
 
-## timeouts — timeouts / 4b22d9416aeb / 2
+## timeouts — timeouts / 100112223223 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - timeouts
 
-<a id="canonical-703aca3e43c29ba6f2037b305f0b1855c8291afa5341773a9db32d0aa641c8fe"></a>
+<a id="canonical-1300032230220332-1003300221232212-3302000313230300-1133002301201111-3020022101223322-1103100113130322-2131230302310022-2212100130203332"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4401,15 +4401,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-6776de9be760fe71c1836f2a437e94805892633e71e191d384fefab4d692b046"></a>
+<a id="canonical-1213131231322123-3213120033321301-3001200312330222-1003133221102000-1120210212030332-1301320121013103-2010333233222310-3112210223001012"></a>
 
-## Direct properties — timeouts / 4b22d9416aeb / 3
+## Direct properties — timeouts / 100112223223 / 3
 
-<a id="canonical-a75a6126eead8c4028458166ebf57c9c5fbbb69deb4311cc971d5d767991e243"></a>
+<a id="canonical-2213112212010212-3232223120301000-0220101120011212-3223331113302130-1133232323122131-3223100301013030-2113013111311312-1321210132021003"></a>
 
-<a id="canonical-5353649f685745e8bdfbc056946d50d1e1a7e50e1e3c388039845036f885d23d"></a>
+<a id="canonical-1103110312102133-1220111310113220-2331332330001112-2110123111003101-3201221332110032-0132033003202000-0321201011000312-3320201131020331"></a>
 
-## create property — timeouts / 4b22d9416aeb / 4
+## create property — timeouts / 100112223223 / 4
 
 Type: `"string"`. Optional.
 
@@ -4417,11 +4417,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-87220a77c2a5c536ce774df4f386897a74e6fa12376b0d1a8a3d706280ce638a"></a>
+<a id="canonical-2013020200221313-3002221130110312-3032131310313310-3303201220211322-1310321233220102-0313122300310122-2022033113001202-2000303212032022"></a>
 
-<a id="canonical-4bb69663a9f708240c4a58aba18bd7429979d01e87ea913a6f608332472c881b"></a>
+<a id="canonical-1023231221121203-2221331300200210-0030102211202223-2201202331131002-2121132131000132-2013322221010322-1233120020030302-1013023020200123"></a>
 
-## delete property — timeouts / 4b22d9416aeb / 5
+## delete property — timeouts / 100112223223 / 5
 
 Type: `"string"`. Optional.
 
@@ -4430,11 +4430,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-11ebb6dc003ff2679f692eb6c7bffcd330114368d5daadc0a7c249df476bf2e7"></a>
+<a id="canonical-0101322323123130-0000033333021213-2133122102322312-3013233333303103-0300010110031220-3111312222313000-2213300210213133-1013122333023213"></a>
 
-<a id="canonical-bd0c50da0b91b211da0ec9c1a695ab62012c2e04bdc0758a3332cc369d34e938"></a>
+<a id="canonical-2331003011003122-0023210123020101-3122003230213001-2212211122231202-0001023002320010-2331300013112022-0303030230300312-2131031032210320"></a>
 
-## read property — timeouts / 4b22d9416aeb / 6
+## read property — timeouts / 100112223223 / 6
 
 Type: `"string"`. Optional.
 
@@ -4443,11 +4443,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-3c4857464273f6055f0de427e517afafde9bd128851136582116c96484327c97"></a>
+<a id="canonical-0330102011131012-1002130333120011-1133003132100213-3211011322332233-3132212331010220-2011010103121120-0201011230211210-2010030213302113"></a>
 
-<a id="canonical-10ebbdc7c5fc0299738e5377426e5727b180c6402402cde55580903319d4a110"></a>
+<a id="canonical-0100322323313013-3011333000022121-1303203211031313-1002123211130213-2301200030121000-0210000230313211-1111200021000303-0121311022010100"></a>
 
-## update property — timeouts / 4b22d9416aeb / 7
+## update property — timeouts / 100112223223 / 7
 
 Type: `"string"`. Optional.
 
@@ -4455,30 +4455,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-6762c2b6b990f6177eeb4172bec1e60d217174210fe08635ca0e8ffdd4453a18"></a>
+<a id="canonical-1213120230022312-2321210033120113-1332322310011302-2332300132120031-0201130113100201-0033320020120311-3022003220333331-3110101103220120"></a>
 
-## Next pages — timeouts / 4b22d9416aeb / 8
+## Next pages — timeouts / 100112223223 / 8
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
 
-<a id="canonical-bd4acad954f14442cc39f60e29182a6ea4cb4aa9fb62403d2ff142704a95d1b8"></a>
+<a id="canonical-2331102230223121-1110330110101002-3030032133120032-0221012002221232-2210302310222221-3323120210000331-0233330110021300-1022211131012320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bea1ed002b6df1cbde5c985a8858e378f42f5fa1d40c25031fdffaed19c0ebbb"></a>
+<a id="canonical-2332220132310000-0223123133013023-3132113021201122-2020112032031320-3310023311332201-3110003002110003-0133313333223231-0121300032232323"></a>
 
-## use_default_blocking_page — use_default_blocking_page / 35c6be34c736 / 2
+## use_default_blocking_page — use_default_blocking_page / 031030130312 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
 - use_default_blocking_page
 
-<a id="canonical-286e9e1d7913821e1199805378122627c59e4f6f9f7f7e45acc6c68e38bf0077"></a>
+<a id="canonical-0220123221320131-1321010320020132-0101212120001103-1320010202120213-3011213210331233-2133133313321011-2230301230122032-0320233300001313"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -4507,15 +4507,15 @@ Terraform syntax:
 use_default_blocking_page = {}
 ```
 
-<a id="canonical-b5938a9aa144e3e29e1ffc94d6e83da2e2b10bafe519612b943fbca05cf26022"></a>
+<a id="canonical-2311210320222122-2201101032033202-2132013333302110-3112322003312202-3202230100232233-3211012112010223-2110033323302200-1130330212000202"></a>
 
-## Direct properties — use_default_blocking_page / 35c6be34c736 / 3
+## Direct properties — use_default_blocking_page / 031030130312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-10f816dd9a23a3dfca80fc04c2d05ca8bfa3995a6c816247157f21597354fbe4"></a>
+<a id="canonical-0100332001123131-2122020322033133-3022200033300010-3002310011302220-2333220321211122-1230200112021013-0111133302011121-1303111033233210"></a>
 
-## Next pages — use_default_blocking_page / 35c6be34c736 / 4
+## Next pages — use_default_blocking_page / 031030130312 / 4
 
-- [Property reference](resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
-- [xcsh_app_firewall](../resources/app_firewall.md#canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf)
+- [Property reference](resources--app_firewall--reference--group-001.md#canonical-0223030301303211-3210320011100320-2311123111323130-2001221232102223-1331203123203211-2111030310300333-2131113321122022-0103121302000233)
+- [xcsh_app_firewall](../resources/app_firewall.md#canonical-1302202021100230-1023301331311220-3101230121213001-2212232331001200-2013201222332002-1311323202101000-0112031300303303-2023002001023033)

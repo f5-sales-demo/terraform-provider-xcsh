@@ -6,80 +6,80 @@ description: "Complete grouped canonical reference for xcsh_site_image reference
 
 # xcsh_site_image reference
 
-<a id="canonical-ec8e309db65094e6e075991b728eb4bab2f7412acc5f567bcc844c1bea6db734"></a>
+<a id="canonical-3230203203002131-2312110021103212-3200131121210123-1302203223102322-2302331310010222-3030113311121323-3030201010300123-3222123123130310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d4c028578152188e999640728f4dc9e91b89ae4eec56a816f7ab0ac90d63b82e"></a>
+<a id="canonical-3110300002201113-2001110201202032-2121211210001302-2033103130213221-0123202122321032-3230111222200112-3313222300223021-0031120323200232"></a>
 
-## Property reference — Property reference / f4655b23400a / 2
+## Property reference — Property reference / 020310000022 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_image](../data-sources/site_image.md#canonical-ddab21760c47eb7a0955908fcfd208fc71d1b2d519a90c01d28e9ccb3de38892)
+- [xcsh_site_image](../data-sources/site_image.md#canonical-3131222302011312-0030101332231322-0021111121002033-3033310200203330-1301310123023111-0121222100300001-3102203221303023-0331320320202102)
 - Property reference
 
-<a id="canonical-0b7df35d4baef09bda149eb13c047fcf1e6f0ff77578297d08f0632d015f6f9f"></a>
+<a id="canonical-0023133133031131-1023223233002123-3122011021322301-0330001013333033-0132123300333313-1311132002211331-0020330012030231-0001113312332133"></a>
 
-## Direct properties — Property reference / f4655b23400a / 3
+## Direct properties — Property reference / 020310000022 / 3
 
-<a id="canonical-01f0caff635c4db32ff1f72468c00c9addea6c9722b1a441c883b2b2a8d3f0e7"></a>
+<a id="canonical-0001330030223333-1203113010312303-0233330133130210-1220300000302122-3131322212302113-0202230122101001-3020200323022302-2220310333003213"></a>
 
-<a id="canonical-82366729061b04aadeb846248948b74d5637147aa9f34ebe494659885229c4a1"></a>
+<a id="canonical-2002031212130221-0012012300102222-3132232010120210-2021102023131031-1112031301101322-2221330310322332-1021101211212020-1102022130102201"></a>
 
-## image_download_url property — Property reference / f4655b23400a / 4
+## image_download_url property — Property reference / 020310000022 / 4
 
 Type: `"string"`. Computed, Sensitive.
 
 Validated HTTPS image URL. Protect Terraform state.
 
-<a id="canonical-01e6d7422ccbc29a4bdb235f15ba2aa16305ced8b3071f8a5970ad7f75119e3e"></a>
+<a id="canonical-0001321231131002-0230302330022122-1023312302031133-0111232202222201-1203001130323120-2303001301332022-1121130022311333-1311010121320332"></a>
 
-<a id="canonical-2b522d06e045c71030fcdf8e77d40c0289ec73feba7ef2cd622dfa9e4c3072b4"></a>
+<a id="canonical-0223110202310012-3200101130130100-0300333031332032-1313311000300002-2021323013033332-2322133233023031-1202023133222132-1030030013022310"></a>
 
-## image_md5_sum property — Property reference / f4655b23400a / 5
+## image_md5_sum property — Property reference / 020310000022 / 5
 
 Type: `"string"`. Computed.
 
 Expected artifact MD5, which the consumer must verify before boot.
 
-<a id="canonical-3d6d9b0d65b83f52844e4df6bc86a044da989effddbc313e0cc6610377a385b5"></a>
+<a id="canonical-0331123121230031-1211232003331102-2010103210313312-2330201222001010-3122212021323333-3131233003010332-0030301212010003-1313220320112311"></a>
 
-<a id="canonical-e0bc34a5beb49e51af3408b7939e87fe5e8823fbf616720f645483f58fa15e63"></a>
+<a id="canonical-3200233003102211-2332231021321101-2233031000202313-2103213220133332-1132202002033323-3312011213020033-1210111020033311-2033220111321203"></a>
 
-## image_name property — Property reference / f4655b23400a / 6
+## image_name property — Property reference / 020310000022 / 6
 
 Type: `"string"`. Computed, Sensitive.
 
 Image name returned by the Site-UID query. May contain a download URL; protect Terraform state.
 
-<a id="canonical-b0012e4cc7d3e439bf05fa1bcc32483992c00bb3cde7eb8aa47e48bdcd190d04"></a>
+<a id="canonical-2300000102321030-3013310332100321-2333001133220123-3030030210200321-2102300000232303-3031321332232022-2210133210202331-3031012100310010"></a>
 
-<a id="canonical-4978d61410a69052b97cfbe4bb60441f09d6d54fb8ec2df77bd9e13cf77a6c56"></a>
+<a id="canonical-1021132031120110-0100221221001102-2321133033233210-2323120010100133-0021311231111033-2320323002313313-1323312132010330-3313132212301112"></a>
 
-## site_name property — Property reference / f4655b23400a / 7
+## site_name property — Property reference / 020310000022 / 7
 
 Type: `"string"`. Required.
 
 Existing KVM SMSv2 configuration name in system. Ownership is revalidated on each read.
 
-<a id="canonical-136230e0dff8aec774a0dcc48e6d90c50edc927fc6142f0e33a42c26544717fb"></a>
+<a id="canonical-0103120203003200-3133332022323013-1310220031303010-2032123121003011-0032313021021333-3012011002330032-0303221002300212-1110101301133323"></a>
 
-## All schema paths — Property reference / f4655b23400a / 8
+## All schema paths — Property reference / 020310000022 / 8
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `image_download_url` | [image_download_url](data-sources--site_image--reference--group-001.md#canonical-01f0caff635c4db32ff1f72468c00c9addea6c9722b1a441c883b2b2a8d3f0e7) |
-| `image_md5_sum` | [image_md5_sum](data-sources--site_image--reference--group-001.md#canonical-01e6d7422ccbc29a4bdb235f15ba2aa16305ced8b3071f8a5970ad7f75119e3e) |
-| `image_name` | [image_name](data-sources--site_image--reference--group-001.md#canonical-3d6d9b0d65b83f52844e4df6bc86a044da989effddbc313e0cc6610377a385b5) |
-| `site_name` | [site_name](data-sources--site_image--reference--group-001.md#canonical-b0012e4cc7d3e439bf05fa1bcc32483992c00bb3cde7eb8aa47e48bdcd190d04) |
+| `image_download_url` | [image_download_url](data-sources--site_image--reference--group-001.md#canonical-0001330030223333-1203113010312303-0233330133130210-1220300000302122-3131322212302113-0202230122101001-3020200323022302-2220310333003213) |
+| `image_md5_sum` | [image_md5_sum](data-sources--site_image--reference--group-001.md#canonical-0001321231131002-0230302330022122-1023312302031133-0111232202222201-1203001130323120-2303001301332022-1121130022311333-1311010121320332) |
+| `image_name` | [image_name](data-sources--site_image--reference--group-001.md#canonical-0331123121230031-1211232003331102-2010103210313312-2330201222001010-3122212021323333-3131233003010332-0030301212010003-1313220320112311) |
+| `site_name` | [site_name](data-sources--site_image--reference--group-001.md#canonical-2300000102321030-3013310332100321-2333001133220123-3030030210200321-2102300000232303-3031321332232022-2210133210202331-3031012100310010) |
 
-<a id="canonical-b32cd187a467b0c25dfb5204fecac9f63a9e99db179f600255e59f9107240710"></a>
+<a id="canonical-2303023031012013-2210121323003002-1131332311020010-3332302230213312-0322213221213123-0113213312000002-1111321121332101-0013021000130100"></a>
 
-## Next pages — Property reference / f4655b23400a / 9
+## Next pages — Property reference / 020310000022 / 9
 
-- [xcsh_site_image](../data-sources/site_image.md#canonical-ddab21760c47eb7a0955908fcfd208fc71d1b2d519a90c01d28e9ccb3de38892)
+- [xcsh_site_image](../data-sources/site_image.md#canonical-3131222302011312-0030101332231322-0021111121002033-3033310200203330-1301310123023111-0121222100300001-3102203221303023-0331320320202102)

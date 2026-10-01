@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster_role lif
 
 # xcsh_k8s_cluster_role lifecycle
 
-<a id="canonical-75409b56538408d86ccab6f08f31d82e11a455d18c722da77bc0c922acc45ecb"></a>
+<a id="canonical-1311100021231112-1103201000203120-1230302223123300-2033030131200232-0101221011113101-2030130202312213-1323300030210202-2230301011323023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d2e99d4976313d25c568bf01f6be8d4d8afcc2091beaed66ddf1f3909f1f61b5"></a>
+<a id="canonical-3102322121311021-1312030103310211-3011122023330001-3312233220311031-2022333030020021-0123322232311212-3131330133032100-2133013312012311"></a>
 
-## Import — Import / dc69d2725a06 / 2
+## Import — Import / 130211220012 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_k8s_cluster_role.example system/example
 ```
 
-<a id="canonical-b4e86160ebe1d66e01fb44f8ca639902a66e081b6c03dcad902cdbab13fb5976"></a>
+<a id="canonical-2310322012011200-3223320131121232-0001332310103320-3022120321210002-2212123200200123-1230000331302231-2100023031232223-0103332311211312"></a>
 
-## Next pages — Import / dc69d2725a06 / 3
+## Next pages — Import / 130211220012 / 3
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-0659617a6c0ee175253adc808b2f682c45968122c1fd2aa9c04e894e5ed49401"></a>
+<a id="canonical-0012112112011322-1230003232011311-0211032231302000-2023023312200230-1011211220010202-3001333102222221-3000103220211032-1132311021100001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2bafc5ae4c48e78cbbacaa55aa6e3a8328975e3127fe47c4693f0c156bf5b60c"></a>
+<a id="canonical-0223223330112232-1030102032132030-2323223022221111-2222123203222003-0220211311320301-0213333210133010-1221033300300111-1223331123120030"></a>
 
-## Timeouts — Timeouts / 32ac70bee12a / 2
+## Timeouts — Timeouts / 233232010222 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-c2f94201abee4b34a4e313fc47fda030e04828ac4432528e707f9c6a44aac733). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-3002332110020001-2223323210230310-2210320301033330-1013333122000300-3200102002202230-1010030211022032-1300133321301222-1010222230130303). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-9f0867e07f0ac449e55e77aa9537fa6601b26e9c746b6336cc4e0b1b2b283120"></a>
+<a id="canonical-2133002012133200-1333002230101021-3211113213132222-2111031333221212-0001230212322130-1310122312030312-3030103200230123-0223022003010200"></a>
 
-## Next pages — Timeouts / 32ac70bee12a / 3
+## Next pages — Timeouts / 233232010222 / 3
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)

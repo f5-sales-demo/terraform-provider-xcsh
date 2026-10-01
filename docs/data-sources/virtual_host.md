@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_virtual_host landing
 
 # xcsh_virtual_host landing
 
-<a id="canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8"></a>
+<a id="canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9ab0af4543bbc46570b780fb5f6e40dc6981b83117508ad134bc6545994f735f"></a>
+<a id="canonical-2122230022331011-1003232330101211-1300231320003323-1133123210003130-1221200123200301-0113110020223101-0310233012111011-2121103313031133"></a>
 
-## xcsh_virtual_host — xcsh_virtual_host / f5109a52e8f3 / 2
+## xcsh_virtual_host — xcsh_virtual_host / 110232203303 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages virtual host in a given namespace in F5 Distributed Cloud.
 
-<a id="canonical-d143caa652a3d88ba5653db41e25083e9bc8d09efbcd2bd4a79b79417fc0c797"></a>
+<a id="canonical-3101100330222212-1102220331202023-2211121103312310-0132021100200332-2123302031002132-3323303102233110-2213212313211001-1333300030132113"></a>
 
-## Prerequisites — xcsh_virtual_host / f5109a52e8f3 / 3
+## Prerequisites — xcsh_virtual_host / 110232203303 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-451510beb3a020ad4bcd779b3d699f0928132b6405c4537232628af2fbb53fad"></a>
+<a id="canonical-1011011101002332-2303220002002231-1023303113132123-0331122121330021-0220010302231210-0011301011031302-0302120220223302-3323231103332231"></a>
 
-## Minimal configuration — xcsh_virtual_host / f5109a52e8f3 / 4
+## Minimal configuration — xcsh_virtual_host / 110232203303 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "virtual_host_id" {
 }
 ```
 
-<a id="canonical-a0bcbf64dab9852f13f1614a9895f3241f189e7b6887ba43b4b1e24c30eae5ec"></a>
+<a id="canonical-2200233023331210-3122232120110233-0103330112011022-2120211133030210-0133012021321323-1220201323221003-2310230132021030-0300322232113230"></a>
 
-## Root configuration — xcsh_virtual_host / f5109a52e8f3 / 5
+## Root configuration — xcsh_virtual_host / 110232203303 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-589e714adc5d7d7629931cff171bab63a59ee5910fb6ea25b6c0362e6af7c4c2"></a>
+<a id="canonical-1120213213011022-3130113113311312-0221210301303333-0113012322231203-2211213232112101-0033231232220211-2312300003120232-1222331330103002"></a>
 
-## Next pages — xcsh_virtual_host / f5109a52e8f3 / 6
+## Next pages — xcsh_virtual_host / 110232203303 / 6
 
-- [Property reference](../guides/data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [Examples](../guides/data-sources--virtual_host--examples--group-001.md#canonical-1007d5b46c405c4dac828dcf0244f383fa0b2d87d812c2533acf250ab93f0856)
+- [Property reference](../guides/data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [Examples](../guides/data-sources--virtual_host--examples--group-001.md#canonical-0100001331112310-1230100011301031-2230200220313033-0002101033032003-3322002302312013-3120010230021103-0322303302110022-2321033300201112)

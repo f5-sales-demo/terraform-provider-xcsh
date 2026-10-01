@@ -6,9 +6,3330 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
-<a id="canonical-89bb79ec2d51bd9eebc406c2d03c5e3f8f509486612ad74b0bc763d9a395b83c"></a>
+<a id="canonical-0332231033012210-2223111013021011-3312210133012320-1333303212033130-3331210032310021-1001022111121230-3022310310010321-2000331031210020"></a>
 
-## sub_path property — stateful_service.configuration.parameters.file.mount / b73dd62b1542 / 6
+## Next pages — redirect_route / 030030011103 / 5
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.headers](resources--workload--reference--group-028.md#canonical-0032131122323001-1033332220221013-0310210230202112-2321033223002123-2113001013123333-2232332230200021-3130102220022032-3130121230320302)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](resources--workload--reference--group-028.md#canonical-1303023022032323-0011211310021103-2302310103100323-1020331133202010-1211220133311022-0313230133233210-0330011000132000-0200302302220132)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.path](resources--workload--reference--group-028.md#canonical-3012300121100130-2123213313031300-1111323022000031-3200021200320130-3002333023012223-3010202011010023-0133110113330213-0102003333203322)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](resources--workload--reference--group-028.md#canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-0032131122323001-1033332220221013-0310210230202112-2321033223002123-2113001013123333-2232332230200021-3130102220022032-3130121230320302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0020303101001301-3331321233103313-1030323311232210-2330121303202021-1303022013020123-0110222311323331-0203100121122030-2021210030013333"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.headers — headers / 202330001223 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.headers
+
+<a id="canonical-0133122232220013-3102021303211211-1022320323111012-2211033032122133-3023323021301102-0222010003123322-2123302032010122-1121331232201200"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Headers. List of (key, value) headers.
+
+Upstream description:
+
+List of (key, value) headers.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
+  validators.ConflictingListObjectAttributes("exact",
+    "presence"),
+  validators.ConflictingListObjectAttributes("exact",
+    "regex"),
+  validators.ConflictingListObjectAttributes("presence",
+    "regex")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 0,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+headers {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3013233310021323-1303201001212110-1032133233212312-1113312123031100-0203320010001202-1213230231131011-0213033311002301-3123102022110233"></a>
+
+## Direct properties — headers / 202330001223 / 3
+
+<a id="canonical-0232200101013201-2312000100322330-3132010332122101-2130312030101100-1331023011021031-0312021310302233-3311321131302202-1120023210310023"></a>
+
+<a id="canonical-1020031313121121-1130332311122020-3112112231222310-1010000130223203-2322222121321123-2212033123112131-2120333321133130-1022021210001213"></a>
+
+## exact property — headers / 202330001223 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[presence regex\] Header value to match exactly.
+
+Upstream description:
+
+Exclusive with \[presence regex\] Header value to match exactly.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.not_empty": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.not_empty": "true"
+  }
+}
+```
+
+<a id="canonical-3132111112033021-1023333321313211-1323220113130221-3211120002231010-2033130030033202-1100121233232301-2313032033300031-3302032230313003"></a>
+
+<a id="canonical-0223031210032111-0213231331010010-0103021133131312-0311032302033010-1113120333201303-0321310132030320-2313013021223033-0332003002210233"></a>
+
+## invert_match property — headers / 202330001223 / 5
+
+Type: `"bool"`. Optional.
+
+Invert the result of the match to detect missing header or non-matching value.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1200302003123100-2101212032022033-2221020033131322-2333220130013313-3312223111030101-2103312001300202-2030300301210302-2031333322233103"></a>
+
+<a id="canonical-3223112203021233-0131112303221011-3012020111322233-3311010302322132-0032032212223312-0011030212110222-3222333000231320-1233123332210003"></a>
+
+## name property — headers / 202330001223 / 6
+
+Type: `"string"`. Optional.
+
+Name. Name of the header.
+
+Upstream description:
+
+Name of the header.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.http_header_field": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.http_header_field": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-3323210012220212-3311330133022211-0112223102102121-2122313021302313-3002112201313110-2032303002033200-3221011112311031-0212300332203103"></a>
+
+<a id="canonical-1211123200033120-0110223321012130-0023002113101222-3221322111332120-1222021133310211-0322312132210003-1130111032220012-2203210133030003"></a>
+
+## presence property — headers / 202330001223 / 7
+
+Type: `"bool"`. Optional.
+
+Exclusive with \[exact regex\] If true, check for presence of header.
+
+Upstream description:
+
+Exclusive with \[exact regex\] If true, check for presence of header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0203231332213103-3112000333322303-0231332320221122-2032212321211022-3320300100231033-2002300333010022-0320121013002223-0231120101302220"></a>
+
+<a id="canonical-3111022321123123-2002030132201311-2303200220322301-0001320322220220-2211202033101033-2320320301303311-1331013211021011-3323211332300213"></a>
+
+## regex property — headers / 202330001223 / 8
+
+Type: `"string"`. Optional.
+
+Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+
+Upstream description:
+
+Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-1033220113330323-1232320122301032-0220211112303302-0112021131302030-2221200320330010-0100013020333022-2321122112321332-2112302031023020"></a>
+
+## Next pages — headers / 202330001223 / 9
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-1303023022032323-0011211310021103-2302310103100323-1020331133202010-1211220133311022-0313230133233210-0330011000132000-0200302302220132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3031333321131020-2121100131322012-3222310232010123-3020101001032032-2221123001323103-3222221023133231-3133310011310023-2121032010031302"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port — incoming_port / 301101101120 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port
+
+<a id="canonical-1313022113032010-2002202301320122-3232122132100210-1323100131033233-0323121031212313-3022013133200211-0023112320312330-3301310103203311"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Port match of the request can be a range or a specific port.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("no_port_match",
+    "port"),
+  validators.ConflictingObjectAttributes("no_port_match",
+    "port_ranges"),
+  validators.ConflictingObjectAttributes("port",
+    "port_ranges")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-port_match": "[\"no_port_match\",\"port\",\"port_ranges\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+incoming_port {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1230132223221100-2320112223231013-3101102110232300-1113323302003223-3021013013311121-2321302211003112-1300010311021032-3311300201012213"></a>
+
+## Direct properties — incoming_port / 301101101120 / 3
+
+- [no_port_match](resources--workload--reference--group-028.md#canonical-0021233132001133-2331002131121230-3112332120113032-0333113012011200-0320100031220123-2213021110230101-0112202030302213-3330201022331222): complete subsection reference.
+
+<a id="canonical-0210302232010132-0203333032013311-1003310032303232-1230210131122012-1012111233311323-1102123011131211-3203322223100232-1022020202211031"></a>
+
+<a id="canonical-2132022131031120-0220013231123012-0310011302220100-0201303123300111-2203223023001301-3230013332131002-0230311122113013-3232220303330032"></a>
+
+## port property — incoming_port / 301101101120 / 4
+
+Type: `"number"`. Optional.
+
+Exclusive with \[no\_port\_match port\_ranges\] Exact Port to match.
+
+Upstream description:
+
+Exclusive with \[no\_port\_match port\_ranges\] Exact Port to match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-2331330103002021-3313221203010001-1230001111002222-3022112320010202-3110032021221100-2010202332112100-2011011222121321-1011033200300022"></a>
+
+<a id="canonical-3123103232203202-1203012101211301-1212321332122232-3123322112032110-0331131021232313-1012233221323312-0021312012103113-2031320211010211"></a>
+
+## port_ranges property — incoming_port / 301101101120 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[no\_port\_match port\] Port range to match.
+
+Upstream description:
+
+Exclusive with \[no\_port\_match port\] Port range to match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 32),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 32,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "32",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "32",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range": "true"
+  }
+}
+```
+
+<a id="canonical-1220333231331332-1312113013333001-0031133213010131-2030220130012131-1123010020120003-2223302220311023-2120210311102132-1202012332310121"></a>
+
+## Next pages — incoming_port / 301101101120 / 6
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match](resources--workload--reference--group-028.md#canonical-0021233132001133-2331002131121230-3112332120113032-0333113012011200-0320100031220123-2213021110230101-0112202030302213-3330201022331222)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-0021233132001133-2331002131121230-3112332120113032-0333113012011200-0320100031220123-2213021110230101-0112202030302213-3330201022331222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0313232023211321-2030102021311313-0320211232300223-1032002113223020-0201102331323201-2211322211012022-0310201230301020-0100010010220013"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match — no_port_match / 001303002311 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](resources--workload--reference--group-028.md#canonical-1303023022032323-0011211310021103-2302310103100323-1020331133202010-1211220133311022-0313230133233210-0330011000132000-0200302302220132)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match
+
+<a id="canonical-1123121003313212-1132231122100332-3133222110313303-2013222122012212-1131312032300120-0122022031231012-2313100302303011-3130320120031210"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_port_match = {}
+```
+
+<a id="canonical-3202123321222030-0302013211010311-2023331032311132-3022103322112131-1032322021012031-1200023030211023-1130330202123101-0101313213301213"></a>
+
+## Direct properties — no_port_match / 001303002311 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3330322222102310-3033100012210332-2133322332102300-2123333030012130-1311320021212212-3103320221122110-0220301210021000-3033312332203233"></a>
+
+## Next pages — no_port_match / 001303002311 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](resources--workload--reference--group-028.md#canonical-1303023022032323-0011211310021103-2302310103100323-1020331133202010-1211220133311022-0313230133233210-0330011000132000-0200302302220132)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3012300121100130-2123213313031300-1111323022000031-3200021200320130-3002333023012223-3010202011010023-0133110113330213-0102003333203322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0302010203011102-0231200322303312-0300321210003111-0222212022331322-3111030030222202-0312201022133100-2003020101101232-2032212323111222"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.path — path / 130233112111 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.path
+
+<a id="canonical-2110002022213231-0110200102113003-2213030123311011-3031131131130221-1000123200332201-2333033313333100-1323200012300312-2110331002310100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Path match of the URI can be either be, Prefix match or exact match or regular expression match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
+    "prefix"),
+  validators.ConflictingObjectAttributes("path",
+    "regex"),
+  validators.ConflictingObjectAttributes("prefix",
+    "regex")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-path_match": "[\"path\",\"prefix\",\"regex\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+path {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1100110122212332-1313112011111111-3000001322321013-3023003211021230-0223333113111101-3230021300132203-2201022102120002-0220320201002211"></a>
+
+## Direct properties — path / 130233112111 / 3
+
+<a id="canonical-2303221123011010-0222301203312020-3033110103330321-3113203023202201-2231301012122111-1133231100033000-0122020330030201-2210021211011001"></a>
+
+<a id="canonical-0231320223222323-0330221332313201-1012313130010001-3300300002323332-2200131122011021-0023221122201033-2200033122233323-2312303222311131"></a>
+
+## path property — path / 130233112111 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Upstream description:
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[/a-zA-Z0-9._-]+$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3010331133321002-0110130233002230-2200203111303312-3220221123222012-0231303230101302-1033213001310312-1232232303200020-1233031103233322"></a>
+
+<a id="canonical-2023203132202020-2231130121313120-2002203213021122-3000201313111200-0121121222222301-0020300312310021-3233332020003100-2012013032331131"></a>
+
+## prefix property — path / 130233112111 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Upstream description:
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-2220031032200302-2221001210331022-0013223322322033-2103333112220012-0301120020333230-1220131210032312-3011301010301112-0310132012001111"></a>
+
+<a id="canonical-0100302010032321-0020003322211113-3133121010130210-1022032011311003-1233302203030203-3120333031110130-1302210231310232-2010113001201311"></a>
+
+## regex property — path / 130233112111 / 6
+
+Type: `"string"`. Optional.
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths).
+
+Upstream description:
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths)
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-0030322322121031-3032003213310203-1333320110130220-3110013003303010-1100201300301230-2033320010002221-3021333312202213-1222223113121023"></a>
+
+## Next pages — path / 130233112111 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3132020020130023-2132101112233201-0010103112303230-1231100330302222-1220110120302321-0223133220321113-2130230333311032-0123010122020031"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect — route_redirect / 222212013203 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect
+
+<a id="canonical-3201011132131102-2001032013323030-2120130232113221-0101013131320111-0213210111310213-2311112201022333-1133012320212021-0300102003301200"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Route redirect parameters when match action is redirect.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("path_redirect",
+    "prefix_rewrite"),
+  validators.ConflictingObjectAttributes("remove_all_params",
+    "replace_params"),
+  validators.ConflictingObjectAttributes("remove_all_params",
+    "retain_all_params"),
+  validators.ConflictingObjectAttributes("replace_params",
+    "retain_all_params")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-query_params": "[\"remove_all_params\",\"replace_params\",\"retain_all_params\"]",
+  "x-ves-oneof-field-redirect_path_choice": "[\"path_redirect\",\"prefix_rewrite\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+route_redirect {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0103000203030211-2002303221210210-0232022121102022-0202222121300101-3000223220011020-0203020222202100-0220022031001331-0113312122201032"></a>
+
+## Direct properties — route_redirect / 222212013203 / 3
+
+<a id="canonical-3301331312010010-3322322101112113-1303103200002121-3212022213323220-3023001003230233-0312332032033220-2211010122110012-1330223302033310"></a>
+
+<a id="canonical-0321221211101311-0010032102003032-3202002331311220-1113030313330033-3123222120103230-2132202331111020-0023031212221323-2300203032020012"></a>
+
+## host_redirect property — route_redirect / 222212013203 / 4
+
+Type: `"string"`. Optional.
+
+Swap host part of incoming URL in redirect URL.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1121100030102212-3311020332001021-2112332101232232-0110023301021013-2320000332333213-1312201223323033-3100233200101110-2210000113300222"></a>
+
+<a id="canonical-0133121123030203-1230032100230132-3313222221000301-3200213200133302-3011100012103121-0212023321001220-0002201111123133-0223101102023300"></a>
+
+## path_redirect property — route_redirect / 222212013203 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[prefix\_rewrite\] swap path part of incoming URL in redirect URL.
+
+Upstream description:
+
+Exclusive with \[prefix\_rewrite\] swap path part of incoming URL in redirect URL.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3332022021311002-2111313231002022-0202120021301100-3221323332212212-3033223332302110-0123011000200001-1030321022321311-2330230022331201"></a>
+
+<a id="canonical-3001320013311031-0012122310232031-3032011211311200-0002120023020212-0131033130120103-3233101030023130-2322213303001120-1003011332323130"></a>
+
+## prefix_rewrite property — route_redirect / 222212013203 / 6
+
+Type: `"string"`. Optional.
+
+Exclusive with \[path\_redirect\] In Redirect response, the matched prefix (or path) should be
+swapped with this value. This option allows redirect URLs be dynamically created based on the
+request.
+
+Upstream description:
+
+Exclusive with \[path\_redirect\] In Redirect response, the matched prefix (or path) should be
+swapped with this value. This option allows redirect URLs be dynamically created based on the
+request.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-1023113220303232-2031112320333020-2203023101020031-0102221030013010-2022131002023030-1100220133101121-0230312302322030-2121231111023102"></a>
+
+<a id="canonical-3031321212213021-0220200220020111-1111203013200310-0323220211022123-3132221313222103-0113022320002102-1120232003030031-3000300231231201"></a>
+
+## proto_redirect property — route_redirect / 222212013203 / 7
+
+Type: `"string"`. Optional.
+
+\[Enum: incoming-proto|http|https\] Swap protocol part of incoming URL in redirect URL The protocol
+can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of
+protocol is not done. Possible values are \`incoming-proto\`, \`http\`, \`https\`.
+
+Upstream description:
+
+Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or
+HTTPS When incoming-proto option is specified, swapping of protocol is not done.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("incoming-proto",
+    "http",
+    "https"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "incoming-proto",
+    "http",
+    "https"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"incoming-proto\\\",\\\"http\\\",\\\"https\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"incoming-proto\\\",\\\"http\\\",\\\"https\\\"]"
+  }
+}
+```
+
+- [remove_all_params](resources--workload--reference--group-028.md#canonical-3022302201200233-3230121112131102-3033302012210102-1132033121003310-0321123121011023-2220011131102301-3221003232313002-0110223211023003): complete subsection reference.
+
+<a id="canonical-1031020012213321-0023302333123012-0031022320102213-2313030310300222-0002333110311022-0000000113001103-2031302120322313-2031311221203120"></a>
+
+<a id="canonical-3200220022222132-1212330113221201-2023121032131120-3210330122023133-2201100331300202-0203120312132002-2123210020322232-1331210322301130"></a>
+
+## replace_params property — route_redirect / 222212013203 / 8
+
+Type: `"string"`. Optional.
+
+Exclusive with \[remove\_all\_params retain\_all\_params\].
+
+Upstream description:
+
+Exclusive with \[remove\_all\_params retain\_all\_params\]
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-1233330323311023-3320122010110320-3013103311212001-1110233023301013-2023302001213110-2132102331130101-1000332210302310-1220231301130211"></a>
+
+<a id="canonical-3033301011303220-1132211312031011-0111021113000203-0113330003000232-1013201201322110-0331331202021132-1200231123333221-1132000111303210"></a>
+
+## response_code property — route_redirect / 222212013203 / 9
+
+Type: `"number"`. Optional.
+
+The HTTP status code to use in the redirect response.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.AtMost(599),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 599,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "599"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "599"
+  }
+}
+```
+
+- [retain_all_params](resources--workload--reference--group-028.md#canonical-2111112002121012-0111132023300111-1303021012101121-0320331000102103-0112020202203322-0130322022020300-1213223100221333-2330202231122301): complete subsection reference.
+
+<a id="canonical-1011221020132133-0221111321033002-1310310131223112-2230103122201103-0233333033322102-2002123231221323-1223101102123211-3221310100212200"></a>
+
+## Next pages — route_redirect / 222212013203 / 10
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params](resources--workload--reference--group-028.md#canonical-3022302201200233-3230121112131102-3033302012210102-1132033121003310-0321123121011023-2220011131102301-3221003232313002-0110223211023003)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params](resources--workload--reference--group-028.md#canonical-2111112002121012-0111132023300111-1303021012101121-0320331000102103-0112020202203322-0130322022020300-1213223100221333-2330202231122301)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3022302201200233-3230121112131102-3033302012210102-1132033121003310-0321123121011023-2220011131102301-3221003232313002-0110223211023003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3321113110013313-2130301120231231-1211032010002030-1201121130233220-3212221333010103-0200333022131130-0222131102103022-3011231301001013"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params — remove_all_params / 311211121300 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](resources--workload--reference--group-028.md#canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params
+
+<a id="canonical-2110223021323332-2310230023302000-2112231032130332-3202312201201321-1023023332212203-1132323103101310-3301002131301003-1012122130013021"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for remove all params.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+remove_all_params = {}
+```
+
+<a id="canonical-1333030032212001-3021200023010021-1131102233323221-0022320000201302-2323020201300231-1100323011311332-1320333032102021-1133021203220300"></a>
+
+## Direct properties — remove_all_params / 311211121300 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3003120013001320-3212002012002020-0223230120001013-1010230201331023-1323220022011221-3323322211013202-0021230100302130-3011312111221020"></a>
+
+## Next pages — remove_all_params / 311211121300 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](resources--workload--reference--group-028.md#canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-2111112002121012-0111132023300111-1303021012101121-0320331000102103-0112020202203322-0130322022020300-1213223100221333-2330202231122301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2301222321302133-0031101212030323-3330330321131102-1112120020232122-0310002022200201-3200310101023221-2012123312210011-2210220301010032"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params — retain_all_params / 212001000001 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route](resources--workload--reference--group-027.md#canonical-0330013222233302-2210122030021330-0131201133002112-2132231131331102-2322210303201110-1121010222301222-3302213332031013-0122333212301102)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](resources--workload--reference--group-028.md#canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params
+
+<a id="canonical-2203012131333332-2001010102202011-1111113223000212-0322011222320312-3213122332302031-1330111030303002-0211011020033222-0302201302230020"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for retain all params.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+retain_all_params = {}
+```
+
+<a id="canonical-0111233202211132-0022322211011212-0313332033132031-0320031020313102-3120033110323231-1120321012013113-1100232221313221-0020031023331100"></a>
+
+## Direct properties — retain_all_params / 212001000001 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1010022110020321-1102023132311323-1323022021123011-3011223101230132-0113213211212113-1323210302312001-0112212123211311-0200330010032230"></a>
+
+## Next pages — retain_all_params / 212001000001 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](resources--workload--reference--group-028.md#canonical-3302110132323220-0130312011310200-3213310121101213-2332012011222213-2322213101231122-2221221001002212-3303021101022230-2212202010103100)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0013012213313132-0312023312123100-3101001333313333-3001222021011032-3010100221323121-0101202330120101-0121133330230213-2012002030302200"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route — simple_route / 123223003300 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route
+
+<a id="canonical-3220131130020110-3002022132020200-2213123020123211-0003001323331100-3202312021330332-3202301101313313-0213131010311033-2313320123133321"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Simple route matches on path and/or HTTP method and forwards the matching traffic to the default
+origin pool specified outside.
+
+Upstream description:
+
+A simple route matches on path and/or HTTP method and forwards the matching traffic to the default
+origin pool specified outside.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite",
+    "disable_host_rewrite"),
+  validators.ConflictingObjectAttributes("auto_host_rewrite",
+    "host_rewrite"),
+  validators.ConflictingObjectAttributes("disable_host_rewrite",
+    "host_rewrite")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-host_rewrite_params": "[\"auto_host_rewrite\",\"disable_host_rewrite\",\"host_rewrite\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+simple_route {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0323120033201211-0122212123223300-2322130302320221-2220233201221021-2302010320112030-1033113022031110-2123222303033231-2310120110001312"></a>
+
+## Direct properties — simple_route / 123223003300 / 3
+
+- [auto_host_rewrite](resources--workload--reference--group-028.md#canonical-0212220221111023-1000023213211100-3010222331203110-2120131200321123-0312032321201232-1111033102332123-1111121221230001-1321212321130012): complete subsection reference.
+
+- [disable_host_rewrite](resources--workload--reference--group-028.md#canonical-3201103303230233-1311003111323331-3201331333211200-2033111332103310-0101023203110110-3332121123222232-1103002012213120-0010321001223021): complete subsection reference.
+
+<a id="canonical-1301130322320332-3300200300121100-1131331121133210-1312323212010130-2212210332002213-2333022100232112-0021300203310112-0032210330231023"></a>
+
+<a id="canonical-1310133202102013-0033223222322201-2132133221033113-0103303032013320-3201132300120302-0112231333011111-1013201200320203-2110133102322321"></a>
+
+## host_rewrite property — simple_route / 123223003300 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
+value.
+
+Upstream description:
+
+Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
+value.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true"
+  }
+}
+```
+
+<a id="canonical-1013133322133001-1001022202113023-0101102033022211-3003213322303123-2111110020110132-0032311121032120-0101021333310232-1131102200030110"></a>
+
+<a id="canonical-1223120333111333-2222032200333232-3120033323013201-0000321331333302-2221132310331112-2021100203103212-3321012322010201-0222102021333222"></a>
+
+## http_method property — simple_route / 123223003300 / 5
+
+Type: `"string"`. Optional.
+
+\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Specifies the HTTP method
+used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`, \`HEAD\`,
+\`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
+\`ANY\`.
+
+Upstream description:
+
+Specifies the HTTP method used to access a resource.
+
+Any HTTP Method.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("ANY",
+    "GET",
+    "HEAD",
+    "POST",
+    "PUT",
+    "DELETE",
+    "CONNECT",
+    "OPTIONS",
+    "TRACE",
+    "PATCH",
+    "COPY"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "ANY",
+  "enum": [
+    "ANY",
+    "GET",
+    "HEAD",
+    "POST",
+    "PUT",
+    "DELETE",
+    "CONNECT",
+    "OPTIONS",
+    "TRACE",
+    "PATCH",
+    "COPY"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [path](resources--workload--reference--group-028.md#canonical-3021333212112313-2101331311213202-0232212101132113-3023302321322000-1220322010120102-3322031001132322-3000132030301332-0020122313213010): complete subsection reference.
+
+<a id="canonical-1230330010313221-2302230131300120-2301001103021013-2231303212101033-0002230201003313-3333200220000033-2001133211101313-1020020021102121"></a>
+
+## Next pages — simple_route / 123223003300 / 6
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite](resources--workload--reference--group-028.md#canonical-0212220221111023-1000023213211100-3010222331203110-2120131200321123-0312032321201232-1111033102332123-1111121221230001-1321212321130012)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite](resources--workload--reference--group-028.md#canonical-3201103303230233-1311003111323331-3201331333211200-2033111332103310-0101023203110110-3332121123222232-1103002012213120-0010321001223021)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.path](resources--workload--reference--group-028.md#canonical-3021333212112313-2101331311213202-0232212101132113-3023302321322000-1220322010120102-3322031001132322-3000132030301332-0020122313213010)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-0212220221111023-1000023213211100-3010222331203110-2120131200321123-0312032321201232-1111033102332123-1111121221230001-1321212321130012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2331023332012323-2133030310003223-1231010331223031-1232203012321131-2321222121233333-2001333111120012-2303032120122123-2312100021120203"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite — auto_host_rewrite / 321233132130 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite
+
+<a id="canonical-0221103303322032-1323133333203112-0203312122100112-1331121213202101-0131231203232113-0320021322101130-3203213311112311-1323103302322001"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+auto_host_rewrite = {}
+```
+
+<a id="canonical-2123101302110003-2111133310313330-0201221320002012-3311221332302010-1302001001330020-0110021000231011-2210332222202001-3021021100202221"></a>
+
+## Direct properties — auto_host_rewrite / 321233132130 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0233200322222132-1311011331232013-2110012011020001-2102313013322021-3330110130010011-3211201201101211-1310133332233303-1100300313000110"></a>
+
+## Next pages — auto_host_rewrite / 321233132130 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3201103303230233-1311003111323331-3201331333211200-2033111332103310-0101023203110110-3332121123222232-1103002012213120-0010321001223021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0133221332203203-0203102121301233-2102023022010001-2121210223300000-1313221232221221-0121113110301231-0020001303110230-1120103133330232"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite — disable_host_rewrite / 322101212231 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite
+
+<a id="canonical-1302022122012203-0131322123323220-2330210323202011-3202011210100032-3022131310303133-2131123120003130-2010113112121212-0003111123213230"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_host_rewrite = {}
+```
+
+<a id="canonical-2322131122210123-2101112001022122-3323023213013221-0131122123123023-2120303310302133-0123332303222313-3001132311020132-0000321021222312"></a>
+
+## Direct properties — disable_host_rewrite / 322101212231 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2203012320223301-2021000031230223-1222202131120300-1023032211001301-2220112020222100-0100333113012322-3112210301200300-0233330331121222"></a>
+
+## Next pages — disable_host_rewrite / 322101212231 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3021333212112313-2101331311213202-0232212101132113-3023302321322000-1220322010120102-3322031001132322-3000132030301332-0020122313213010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3100201222022320-2213330032311103-2201321303112002-2023132222302210-3332201233221210-0332103231301101-1132330232022310-2333220312211131"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.path — path / 320201032031 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer](resources--workload--reference--group-025.md#canonical-2203002110120031-3203013111221013-1321101003110222-2103121303322022-0021002301311230-0203100203111101-0321302220100020-1320220233023212)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes](resources--workload--reference--group-027.md#canonical-2300220120202032-2120133330213102-2332100100003133-0101032330232302-2302101320100002-1302333333023222-3232223323232230-0320110220223201)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes](resources--workload--reference--group-027.md#canonical-2302003233200103-3312120222212200-1000311013000201-0201011231133032-2032003100312302-3001032323113031-1031222100120212-0102213202320111)
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route.path
+
+<a id="canonical-0310013323322201-1202302121113021-1300200201013120-0201210320313022-0101012213312010-1122312131132302-1122103100233223-3022001010113202"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Path match of the URI can be either be, Prefix match or exact match or regular expression match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
+    "prefix"),
+  validators.ConflictingObjectAttributes("path",
+    "regex"),
+  validators.ConflictingObjectAttributes("prefix",
+    "regex")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-path_match": "[\"path\",\"prefix\",\"regex\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+path {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2001322312032001-1223013230323030-3203232332323221-1131330332223013-0311100303300321-0310331201221110-0101132212121022-0111100312103020"></a>
+
+## Direct properties — path / 320201032031 / 3
+
+<a id="canonical-0102203013100130-1223100310023132-1022212223310223-3020020301221022-0331331102333010-0331023000220221-0103202012031303-2301301222102020"></a>
+
+<a id="canonical-0213212200003202-1023311131101330-0302103132233013-3303132130120210-1003113232321003-0113001103222013-0022000002221022-1322030202232331"></a>
+
+## path property — path / 320201032031 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Upstream description:
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[/a-zA-Z0-9._-]+$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3130020022112022-1001330102122313-0220332113232103-1031123101021300-2010000000101110-3123101010013010-0220332332113232-2102011303121323"></a>
+
+<a id="canonical-1113320103020111-3130012123000200-1022013230202000-2102233112320131-3222322313003323-0020333013111300-2112032120002131-2232111220212223"></a>
+
+## prefix property — path / 320201032031 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Upstream description:
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-0321332322203211-0122323313332021-0210000311013321-1322322213232203-0312032212201321-1212322211303333-3321311122102030-3103312102321220"></a>
+
+<a id="canonical-3120133311130213-2323200223112313-1312202033032111-2111001010200020-0132200330130000-0322001200320211-0033002123110231-1232230011123131"></a>
+
+## regex property — path / 320201032031 / 6
+
+Type: `"string"`. Optional.
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths).
+
+Upstream description:
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths)
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-2300021312211233-2313303323232122-3302023131231321-0312320123010320-3012021132120113-1131211030010030-2020033221123000-2132303101021102"></a>
+
+## Next pages — path / 320201032031 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.port.http_loadbalancer.specific_routes.routes.simple_route](resources--workload--reference--group-028.md#canonical-3223313232022132-1300023030303322-3120001113102132-2101020221132002-0011333231033012-1032011333210012-0303212231230122-1132022333212200)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-2323101323000230-3130303013113131-1312013231212223-1212222320213220-2013000033112020-2320301032133202-3111123300030002-2013131210032122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3223212202130331-3323003120002300-0221133230321230-0300100020333323-3300330012011022-3000103231100001-1211103212310023-3223122202011000"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.port — port / 022120030322 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- stateful_service.advertise_options.advertise_on_public.port.port
+
+<a id="canonical-1131031200011330-2003320130233000-2310101133021033-2302211303123330-2002100332333100-0222332012221222-3213002133233322-2130331123333212"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Port. Single port.
+
+Upstream description:
+
+Single port.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+port {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0201321213221201-0311103133211033-0332322312323131-1321210113022223-0231002312203023-0013313213021210-3121133010011301-1111323103303233"></a>
+
+## Direct properties — port / 022120030322 / 3
+
+- [info](resources--workload--reference--group-028.md#canonical-2322021320231203-3320131000003231-1103323320202131-3000213021202011-0332120303031122-2330331300030221-3032131102120330-2202233022300200): complete subsection reference.
+
+<a id="canonical-0102220213310133-0023030313332122-2032331231103312-2320212110201130-2301322103300230-1223121030131000-1101003221231300-3221011232131330"></a>
+
+## Next pages — port / 022120030322 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.port.info](resources--workload--reference--group-028.md#canonical-2322021320231203-3320131000003231-1103323320202131-3000213021202011-0332120303031122-2330331300030221-3032131102120330-2202233022300200)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-2322021320231203-3320131000003231-1103323320202131-3000213021202011-0332120303031122-2330331300030221-3032131102120330-2202233022300200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2221011213200023-1102333303300313-0221020212300200-0231331132000233-2103033221031221-0021121112232031-3023011220010313-3220030122023131"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.port.info — info / 211321121330 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.port](resources--workload--reference--group-028.md#canonical-2323101323000230-3130303013113131-1312013231212223-1212222320213220-2013000033112020-2320301032133202-3111123300030002-2013131210032122)
+- stateful_service.advertise_options.advertise_on_public.port.port.info
+
+<a id="canonical-1003200323012333-3123333100232332-0221302030111010-1122030020112123-2111323020001212-2332020222010003-0320231121331300-0202201002111130"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Port Information. Port information.
+
+Upstream description:
+
+Port information.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("port"),
+  validators.ConflictingObjectAttributes("same_as_port",
+    "target_port")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-target_port_choice": "[\"same_as_port\",\"target_port\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+info {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0013100022101233-0031003110301321-2021333303030210-2312131300102301-0331231130323312-3312122010133130-1221333301030233-1330200132101332"></a>
+
+## Direct properties — info / 211321121330 / 3
+
+<a id="canonical-2130233332120323-2122131012111103-1210300211000022-3332230100113013-2002312130330033-1221120303203303-1022130221321032-0033332212131113"></a>
+
+<a id="canonical-3022320030102103-0020031210033332-3111322333231101-0003323213313330-0213001110213030-0133013020333032-1000233002103002-1013000202303033"></a>
+
+## port property — info / 211321121330 / 4
+
+Type: `"number"`. Optional.
+
+Port. Port the workload can be reached on.
+
+Upstream description:
+
+Port the workload can be reached on.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-2032230310010231-0012200323011202-0220320313023101-0003102032213212-3321003002333110-3111231212211022-3112121103121001-3313223020131202"></a>
+
+<a id="canonical-0001112321033233-1302100033320230-3001021203222113-1222102132101111-3123130323213000-0213112202111231-3013101222300202-0313330220210122"></a>
+
+## protocol property — info / 211321121330 / 5
+
+Type: `"string"`. Optional.
+
+\[Enum: PROTOCOL\_TCP|PROTOCOL\_HTTP|PROTOCOL\_HTTP2|PROTOCOL\_TLS\_WITH\_SNI|PROTOCOL\_UDP\] Type
+of protocol - PROTOCOL\_TCP: TCP TCP - PROTOCOL\_HTTP: HTTP HTTP - PROTOCOL\_HTTP2: HTTP2 HTTP2 -
+PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI TLS with SNI - PROTOCOL\_UDP: UDP UDP. Possible values are
+\`PROTOCOL\_TCP\`, \`PROTOCOL\_HTTP\`, \`PROTOCOL\_HTTP2\`, \`PROTOCOL\_TLS\_WITH\_SNI\`,
+\`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL\_TCP\`.
+
+Upstream description:
+
+Type of protocol
+
+&#8203;- PROTOCOL\_TCP: TCP
+
+TCP &#8203;- PROTOCOL\_HTTP: HTTP
+
+HTTP &#8203;- PROTOCOL\_HTTP2: HTTP2
+
+HTTP2 &#8203;- PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI
+
+TLS with SNI &#8203;- PROTOCOL\_UDP: UDP
+
+UDP.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("PROTOCOL_TCP",
+    "PROTOCOL_HTTP",
+    "PROTOCOL_HTTP2",
+    "PROTOCOL_TLS_WITH_SNI",
+    "PROTOCOL_UDP"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "PROTOCOL_TCP",
+  "enum": [
+    "PROTOCOL_TCP",
+    "PROTOCOL_HTTP",
+    "PROTOCOL_HTTP2",
+    "PROTOCOL_TLS_WITH_SNI",
+    "PROTOCOL_UDP"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [same_as_port](resources--workload--reference--group-028.md#canonical-2321001300010003-1102133001310130-2102300131332133-0012202022311302-1023033220032013-1331030230213323-3132030033000222-0302013110321223): complete subsection reference.
+
+<a id="canonical-1302320102002022-0131012232103000-1203033133022133-2113012321323021-2321310223313232-3121333222033301-1201232130313301-1313303013230301"></a>
+
+<a id="canonical-0100110111102001-0222133301321111-1211010320003020-0211200102202312-3103133212030000-3200121203003232-3300110222230011-3212001130300333"></a>
+
+## target_port property — info / 211321121330 / 6
+
+Type: `"number"`. Optional.
+
+Exclusive with \[same\_as\_port\] Port the workload is listening on.
+
+Upstream description:
+
+Exclusive with \[same\_as\_port\] Port the workload is listening on.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-1100010300230323-3213312222121213-1230002323222102-1302300013023331-0002020113221223-0010001132002323-0223133100321132-2301223331120222"></a>
+
+## Next pages — info / 211321121330 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.port.port.info.same_as_port](resources--workload--reference--group-028.md#canonical-2321001300010003-1102133001310130-2102300131332133-0012202022311302-1023033220032013-1331030230213323-3132030033000222-0302013110321223)
+- [stateful_service.advertise_options.advertise_on_public.port.port](resources--workload--reference--group-028.md#canonical-2323101323000230-3130303013113131-1312013231212223-1212222320213220-2013000033112020-2320301032133202-3111123300030002-2013131210032122)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-2321001300010003-1102133001310130-2102300131332133-0012202022311302-1023033220032013-1331030230213323-3132030033000222-0302013110321223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2001022212102210-1003021123233031-0212110223320203-0013112023222130-0113033321100312-3020032002022333-1311310201120023-2210220102112333"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.port.info.same_as_port — same_as_port / 301002103303 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [stateful_service.advertise_options.advertise_on_public.port.port](resources--workload--reference--group-028.md#canonical-2323101323000230-3130303013113131-1312013231212223-1212222320213220-2013000033112020-2320301032133202-3111123300030002-2013131210032122)
+- [stateful_service.advertise_options.advertise_on_public.port.port.info](resources--workload--reference--group-028.md#canonical-2322021320231203-3320131000003231-1103323320202131-3000213021202011-0332120303031122-2330331300030221-3032131102120330-2202233022300200)
+- stateful_service.advertise_options.advertise_on_public.port.port.info.same_as_port
+
+<a id="canonical-2313130303311000-3211112201320300-2210211200333123-0000002212022323-0002031002133011-0023021323032210-3003321203121000-0213203130030321"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+same_as_port = {}
+```
+
+<a id="canonical-2321322003322133-1113301001323132-3313001233031110-3312322332210313-1133030230323012-1200320031310131-1321303133230121-0003102321110233"></a>
+
+## Direct properties — same_as_port / 301002103303 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0201210101112132-2130312022021220-2101313033202312-3133020322311203-2011020023231201-2031033220320000-1132312320100201-1231313212002330"></a>
+
+## Next pages — same_as_port / 301002103303 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.port.port.info](resources--workload--reference--group-028.md#canonical-2322021320231203-3320131000003231-1103323320202131-3000213021202011-0332120303031122-2330331300030221-3032131102120330-2202233022300200)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-0201031010010211-0110122211331300-2100213123230032-2210131211202000-0123012121332012-2132032030312023-0111231211021031-2320223020033130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0032133002213222-3122123222023331-3203211322122220-0103212233021002-0230102222123301-1022323033030113-3022011032123201-3033021121021230"></a>
+
+## stateful_service.advertise_options.advertise_on_public.port.tcp_loadbalancer — tcp_loadbalancer / 012221302320 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [stateful_service.advertise_options.advertise_on_public](resources--workload--reference--group-021.md#canonical-3300101333202310-3223231311312310-2030111033033203-1011103231310023-1313110120311121-1221031312313020-1210302113302033-2110231331000202)
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- stateful_service.advertise_options.advertise_on_public.port.tcp_loadbalancer
+
+<a id="canonical-2002323122321000-2112022202131013-0020210332321210-2110030111322210-0230333322111022-2303230321311131-3000022230202211-0112030103210210"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for tcp loadbalancer.
+
+Upstream description:
+
+TCP loadbalancer.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+tcp_loadbalancer {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0331112030003310-0220123303200133-2131001123103321-1132332133223030-2100333233000013-1231312331023111-3213220033131132-3300033332021300"></a>
+
+## Direct properties — tcp_loadbalancer / 012221302320 / 3
+
+<a id="canonical-1301230131031211-1002122223323222-1020200132030311-1012113121300110-3031230310310131-3331030332311000-0331332220001120-3030322330112030"></a>
+
+<a id="canonical-0001001000032331-3123010301100301-0201022331202310-3110223301200302-3032213021211001-1013232102033100-0030233312230322-3032001221130011"></a>
+
+## domains property — tcp_loadbalancer / 012221302320 / 4
+
+Type: `["list", "string"]`. Optional.
+
+List of additional domains (host/authority header) that will be matched to this loadbalancer.
+Domains are also used for SNI matching if the is true Domains also indicate the list of names for
+which DNS resolution will be done by VER.
+
+Upstream description:
+
+A list of additional domains (host/authority header) that will be matched to this loadbalancer.
+
+Domains are also used for SNI matching if the \`with\_sni\` is true Domains also indicate the list
+of names for which DNS resolution will be done by VER.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 32),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.hostname": "true",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.hostname": "true",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2320313100122030-1230022111301233-0102031311332303-3002013303111302-2313303230010022-1323112332003230-3012230300101132-0020201133031222"></a>
+
+<a id="canonical-0133210102100221-0121210310311221-2210021013322031-1030322000003301-2030233021131021-2230202211112112-1010000233200333-3033222122322202"></a>
+
+## with_sni property — tcp_loadbalancer / 012221302320 / 5
+
+Type: `"bool"`. Optional.
+
+Set to true to enable TCP loadbalancer with SNI.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3302000201113231-3013310113220021-3311032220021123-2020222002122203-0211112111211331-1221023121123311-1132013231213130-3100130210131202"></a>
+
+## Next pages — tcp_loadbalancer / 012221302320 / 6
+
+- [stateful_service.advertise_options.advertise_on_public.port](resources--workload--reference--group-025.md#canonical-0120012201110120-2320030110233132-3233102311321321-2202232022223030-2133131131013111-3231210131302330-1022020011332122-3111230313032011)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3202321232103323-1000231221221030-0001122222031132-1003133321010023-1002201331103010-1230130022220311-0032100201113003-0333121223233010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3031203200120102-1323233301221231-0033233301303003-3021022231333222-1012200213222331-2012203312330010-3002100230102012-2023230021312132"></a>
+
+## stateful_service.advertise_options.do_not_advertise — do_not_advertise / 302132320322 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- stateful_service.advertise_options.do_not_advertise
+
+<a id="canonical-3002301133331320-1322203131133310-1112020032333111-0133302112022120-0233211032202220-0122333032100300-2110130011122200-1221220222220303"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for do not advertise.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+do_not_advertise = {}
+```
+
+<a id="canonical-0301312023303131-2103013013003232-0322032202230133-3211101030321030-1123321002330312-3222213223033210-2013330300310332-0211002231130312"></a>
+
+## Direct properties — do_not_advertise / 302132320322 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0232111321130313-0112022030320010-2233113213011133-0230200322030102-3233203113321230-2132120133201031-1320022213012032-1332012321200113"></a>
+
+## Next pages — do_not_advertise / 302132320322 / 4
+
+- [stateful_service.advertise_options](resources--workload--reference--group-017.md#canonical-1230002303322223-1032323033130121-3020022300122113-0112332301031221-1110131201023233-3032201112132133-0022212031002300-3303231132301323)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3101202312333220-2211200333103323-3221321230223013-3003313332022001-1200012223110010-0030111101023122-3322333232202020-0322003100320102"></a>
+
+## stateful_service.configuration — configuration / 103313011113 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- stateful_service.configuration
+
+<a id="canonical-1201322303303202-0221320010021012-1303000331110131-0101010002332012-2322111220213321-1101133003320203-1013112320231110-0212330121232013"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameters of the workload.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+configuration {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2220103012311213-3102022020310201-3311200211112010-1233322213123203-3222010100031302-0033122122310120-0031112022132332-2210021303322233"></a>
+
+## Direct properties — configuration / 103313011113 / 3
+
+- [parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123): complete subsection reference.
+
+<a id="canonical-3013012011300323-1322121012230321-2201122230001322-2322033030211322-2320303021103001-2332201230100232-1030330023110310-0313003333303201"></a>
+
+## Next pages — configuration / 103313011113 / 4
+
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3332110010001010-2013313311220303-3202133223200100-2202303301013330-0102032213323300-2000021002321300-1023233113132200-2213210011233132"></a>
+
+## stateful_service.configuration.parameters — parameters / 212030030032 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.configuration](resources--workload--reference--group-028.md#canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230)
+- stateful_service.configuration.parameters
+
+<a id="canonical-0333303303203013-2021330333311330-0211211331210301-1220230230230102-1013220331210112-1110310111112203-1213212300210113-0003113111231111"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Parameters. Parameters for the workload.
+
+Upstream description:
+
+Parameters for the workload.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.ConflictingListObjectAttributes("env_var",
+    "file")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+parameters {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1220312113113113-2001212200203312-2221013332032330-2023033010012312-0321032111220232-0031331223101321-1210111110012202-3131002013022203"></a>
+
+## Direct properties — parameters / 212030030032 / 3
+
+- [env_var](resources--workload--reference--group-028.md#canonical-1323013220320120-3113201120222231-3323230231223312-3132031213122030-0230203302303023-0002322101130002-2012310022211131-2033101310312030): complete subsection reference.
+
+- [file](resources--workload--reference--group-028.md#canonical-3111133103101303-0323302220303200-2031333233121200-0222313132030022-3332112322312012-1320033010330232-0302211321120013-3033112100233210): complete subsection reference.
+
+<a id="canonical-2021031223103233-3331302332023213-3202211312023120-0232023103033131-3313022112321303-3201002310200000-3212012302023201-1002323002003323"></a>
+
+## Next pages — parameters / 212030030032 / 4
+
+- [stateful_service.configuration.parameters.env_var](resources--workload--reference--group-028.md#canonical-1323013220320120-3113201120222231-3323230231223312-3132031213122030-0230203302303023-0002322101130002-2012310022211131-2033101310312030)
+- [stateful_service.configuration.parameters.file](resources--workload--reference--group-028.md#canonical-3111133103101303-0323302220303200-2031333233121200-0222313132030022-3332112322312012-1320033010330232-0302211321120013-3033112100233210)
+- [stateful_service.configuration](resources--workload--reference--group-028.md#canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-1323013220320120-3113201120222231-3323230231223312-3132031213122030-0230203302303023-0002322101130002-2012310022211131-2033101310312030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0020312123011131-2300331300210112-0112330203310230-1222203312201120-1301313110223211-3013223220201110-2332000031220123-2123232231000001"></a>
+
+## stateful_service.configuration.parameters.env_var — env_var / 100332012112 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.configuration](resources--workload--reference--group-028.md#canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230)
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- stateful_service.configuration.parameters.env_var
+
+<a id="canonical-0222323200322103-1001330330310020-2223213220122033-0312213222000102-2220311212203301-1313212103302002-0322202321313222-0202323113132010"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Environment Variable. Environment Variable.
+
+Upstream description:
+
+Environment Variable.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+env_var {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0310112321302022-0322131203330230-3303032032233223-3313020000000201-0031020131301020-1101003112103321-3203012310201033-2200000231211302"></a>
+
+## Direct properties — env_var / 100332012112 / 3
+
+<a id="canonical-3222100201300110-1130032302211021-2102200003012220-0013002332221001-1231100211012313-3131321100320010-1221203201011112-0022301132202233"></a>
+
+<a id="canonical-2223010302321130-1303103000233222-3002323322000301-1333320130110221-3123022113322001-0131130130023012-0030323120202322-1231320133232331"></a>
+
+## name property — env_var / 100332012112 / 4
+
+Type: `"string"`. Optional.
+
+Name. Name of Environment Variable.
+
+Upstream description:
+
+Name of Environment Variable.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-0332132212021231-2033021132011311-0000202101331333-3303302033331310-2013233012021300-1011230132310033-0202212131213213-2110112201302011"></a>
+
+<a id="canonical-0100203122012100-3223011011112022-3032312113012300-3033230021110321-2323122113101112-0201021103121001-3303003010013131-3012002330010120"></a>
+
+## value property — env_var / 100332012112 / 5
+
+Type: `"string"`. Optional.
+
+Value. Value of Environment Variable.
+
+Upstream description:
+
+Value of Environment Variable.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-2121303301001021-3221222101213133-2312023222023300-3203113311201332-1212013202201332-3132012210121202-1101300130033210-1232212011131010"></a>
+
+## Next pages — env_var / 100332012112 / 6
+
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-3111133103101303-0323302220303200-2031333233121200-0222313132030022-3332112322312012-1320033010330232-0302211321120013-3033112100233210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1121301021132111-3203011123333011-3332331121322311-3131210110221130-1311210122122222-0310111212232122-2002011302332002-0230322022322002"></a>
+
+## stateful_service.configuration.parameters.file — file / 003102002222 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.configuration](resources--workload--reference--group-028.md#canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230)
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- stateful_service.configuration.parameters.file
+
+<a id="canonical-0020013323122130-3121213332131131-1201313310110320-3100321010323213-0131121232132012-3131122213103311-0321012310213221-2011021002111231"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration File. Configuration File for the workload.
+
+Upstream description:
+
+Configuration File for the workload.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name",
+    "volume_name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+file {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2000303021211022-3301133000112123-2231230102132211-3112101010011111-3200220123132203-1012312333201122-1012303330012313-0133031333010202"></a>
+
+## Direct properties — file / 003102002222 / 3
+
+<a id="canonical-0203223030221121-2121202222200002-1233201032223132-2033103132103213-1203001310112123-0211231132221030-2131003000033103-2032110113000032"></a>
+
+<a id="canonical-0333130101010120-2011033110033132-1302022222131223-3101202122101221-2203123132300301-1032021023300221-0023131320010120-1223100001022321"></a>
+
+## data property — file / 003102002222 / 4
+
+Type: `"string"`. Optional.
+
+Data. File data
+
+Upstream description:
+
+File data
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(16384),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 16384,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 16384,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "16384",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "16384",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+- [mount](resources--workload--reference--group-028.md#canonical-0233000201230203-0013120130001113-1020123313011012-3331231213030323-1031331300313332-1022000203000000-1200013002010223-1333333023011110): complete subsection reference.
+
+<a id="canonical-0112000310120033-3010033122211331-2221033233201121-2000303021222011-0003121003123032-3230030011331330-3020223203233221-0200322123023311"></a>
+
+<a id="canonical-0101312011030013-1332003303001233-3332013230333123-2322100321203333-0130031122102131-2320021122223120-1212123220121113-3332302303103113"></a>
+
+## name property — file / 003102002222 / 5
+
+Type: `"string"`. Optional.
+
+Name. Name of the file.
+
+Upstream description:
+
+Name of the file.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-1110122130212220-3323121330233113-0323300323301321-2231021321210230-0001320213231033-3220033211102002-3001221000023113-3033222101211100"></a>
+
+<a id="canonical-2222221012303330-3331311220031323-0002101011311101-3212213200232021-2031231302330203-0133032112030111-2121232201330121-1120032231100000"></a>
+
+## volume_name property — file / 003102002222 / 6
+
+Type: `"string"`. Optional.
+
+Volume Name. Name of the Volume.
+
+Upstream description:
+
+Name of the Volume.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-0013110021310312-3223311220230331-2212130233223030-3331031230330222-0323301330331100-0123030331132322-3020110111312311-0203131033131033"></a>
+
+## Next pages — file / 003102002222 / 7
+
+- [stateful_service.configuration.parameters.file.mount](resources--workload--reference--group-028.md#canonical-0233000201230203-0013120130001113-1020123313011012-3331231213030323-1031331300313332-1022000203000000-1200013002010223-1333333023011110)
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+
+<a id="canonical-0233000201230203-0013120130001113-1020123313011012-3331231213030323-1031331300313332-1022000203000000-1200013002010223-1333333023011110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1133111230301231-1112301120323003-1302001200203301-1332001011201012-0210232323021222-3201131123130113-1233130200102232-1202010312222211"></a>
+
+## stateful_service.configuration.parameters.file.mount — mount / 022301111002 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.configuration](resources--workload--reference--group-028.md#canonical-3203012310220003-2210330300331110-2103223003030222-2222201323310103-2300110002113011-0130333021003321-0201020033321220-1102301103203230)
+- [stateful_service.configuration.parameters](resources--workload--reference--group-028.md#canonical-1302213033220212-3202132112103233-0311330233023033-0321030031223222-2102010112112002-2320312322333220-0032233021200100-1022102313033123)
+- [stateful_service.configuration.parameters.file](resources--workload--reference--group-028.md#canonical-3111133103101303-0323302220303200-2031333233121200-0222313132030022-3332112322312012-1320033010330232-0302211321120013-3033112100233210)
+- stateful_service.configuration.parameters.file.mount
+
+<a id="canonical-3222300012011013-3222112022030031-0333003331130000-2003211133012212-1331102322213200-0221012030311100-3120102101322322-1213110130012231"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Volume mount describes how volume is mounted inside a workload.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+mount {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0010210003102222-0102222213323010-2100322233300121-1311323232231303-2330012330303101-0230133222321222-2333011232113322-1001212231011322"></a>
+
+## Direct properties — mount / 022301111002 / 3
+
+<a id="canonical-2322311313103131-0101221031322302-3232233102110110-1001010021312101-0212133310022003-3301312102022112-2002122131021111-1210230132133110"></a>
+
+<a id="canonical-2022200001002102-3032002203003311-2010220331111232-0113112021331110-1121333111203120-2010300020032301-0210130003220110-2212023023311203"></a>
+
+## mode property — mount / 022301111002 / 4
+
+Type: `"string"`. Optional.
+
+\[Enum: VOLUME\_MOUNT\_READ\_ONLY|VOLUME\_MOUNT\_READ\_WRITE\] Mode in which the volume should be
+mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume in read-only mode -
+VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
+\`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
+\`VOLUME\_MOUNT\_READ\_ONLY\`.
+
+Upstream description:
+
+Mode in which the volume should be mounted to the workload
+
+&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
+
+Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
+
+Mount the volume in read-write mode.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
+    "VOLUME_MOUNT_READ_WRITE"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "VOLUME_MOUNT_READ_ONLY",
+  "enum": [
+    "VOLUME_MOUNT_READ_ONLY",
+    "VOLUME_MOUNT_READ_WRITE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3031321122023211-2211202131311023-0223203332202131-3032112021230313-1212110323111112-1012200221120121-2312323132212233-1230310101222201"></a>
+
+<a id="canonical-2321221131002033-1233013111021223-3313113030012010-0302123030310001-1223232100301121-2212331023103031-3232011311220322-0231211101000203"></a>
+
+## mount_path property — mount / 022301111002 / 5
+
+Type: `"string"`. Optional.
+
+Path within the workload container at which the volume should be mounted. Must not contain ':'.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "pattern": "^[^:]*$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.pattern": "^[^:]*$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.pattern": "^[^:]*$"
+  }
+}
+```
+
+<a id="canonical-3312322121030111-2300020310330113-1113101332223203-2112310233010112-1112301303032300-2110222221021323-2230233323030312-3300300103123303"></a>
+
+<a id="canonical-2021232313213230-0231110123312132-3223301000123002-3100033011320333-2033110021102012-1201022231131023-0023301312033121-2203211123200330"></a>
+
+## sub_path property — mount / 022301111002 / 6
 
 Type: `"string"`. Optional.
 
@@ -59,31 +3380,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b6d7699942f5d6bb1905cb29c166831156489a9119135c80609d7c58689755a2"></a>
+<a id="canonical-2312311312212121-1002331131122323-0121001130230221-3001121220030101-1112102021222101-0121010311302000-1200213113301120-1220211311112202"></a>
 
-## Next pages — stateful_service.configuration.parameters.file.mount / b73dd62b1542 / 7
+## Next pages — mount / 022301111002 / 7
 
-- [stateful_service.configuration.parameters.file](resources--workload--reference--group-027.md#canonical-d57d34733bca8ce08dfef6602adde30afe5bad86783c4f2e32979607cf590be4)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.configuration.parameters.file](resources--workload--reference--group-028.md#canonical-3111133103101303-0323302220303200-2031333233121200-0222313132030022-3332112322312012-1320033010330232-0302211321120013-3033112100233210)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1"></a>
+<a id="canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-480e2a19e6cba2067fafc92d81ee03af3e8b7d0e05f30f9fd4766359d06c67f7"></a>
+<a id="canonical-1020003202220121-3212302322020012-1333223330210231-2001323200032233-0332202313310032-0011330300332133-3110131212031121-3100123012133313"></a>
 
-## stateful_service.containers — stateful_service.containers / 250138b6710e / 2
+## stateful_service.containers — containers / 231213010032 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
 - stateful_service.containers
 
-<a id="canonical-5730314004728fd909647cbfaee08cb70feb8e372af10d991c6d208cb061fcaf"></a>
+<a id="canonical-1113030003011000-0010130220333121-0021121013302333-2232320020302313-0033322320320313-0222330100312121-0130123102002030-2300120133302233"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -146,15 +3467,15 @@ containers {
 }
 ```
 
-<a id="canonical-c56fe60b13ffa1f07d87b5d7cafb40f9b02e36d0719b74633d595052e2d61592"></a>
+<a id="canonical-3011123332120023-0103333322013300-1331201323113113-3022332310003321-2300023203123100-1301212313101203-0331112111001102-3202311201112102"></a>
 
-## Direct properties — stateful_service.containers / 250138b6710e / 3
+## Direct properties — containers / 231213010032 / 3
 
-<a id="canonical-3282366df303bd34524a6e2f848495316902aa7698d14c96afacb5025d6bae78"></a>
+<a id="canonical-0302200203121231-3303000323310310-1102102212320233-2010201021110301-1221000222221312-2120310110302112-2233223023110002-1131122322321320"></a>
 
-<a id="canonical-87f1a04296ded77fb55a714a404c95276fa7e6538ccae8325753fc0f5d73463b"></a>
+<a id="canonical-2013330122001002-2112313231131333-2311112213011022-1000103021110213-1233221332121103-2030302232200302-1113110333300033-1131130310120323"></a>
 
-## args property — stateful_service.containers / 250138b6710e / 4
+## args property — containers / 231213010032 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -199,11 +3520,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-240c3ebe23d4bf31281d0d586b7739f690014b8b834131d4f522c620210444f9"></a>
+<a id="canonical-0210003003322332-0203311023330301-0220013100311120-1223131303213312-2100000110232023-2003100103013110-3311020230120200-0201001010103321"></a>
 
-<a id="canonical-1deac7b8d9a5a9b1450ce28f67401bccbd67d6811401c6364a5539079159f480"></a>
+<a id="canonical-0131322230132320-3121221122212301-1011003032022033-1213100001233030-2331121331122001-0110000130120312-1022111103210013-2101112133102000"></a>
 
-## command property — stateful_service.containers / 250138b6710e / 5
+## command property — containers / 231213010032 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -248,15 +3569,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_flavor](resources--workload--reference--group-028.md#canonical-e7c8724220407cd29fb5712c06e0dc981526b9bdab498d7552f2be4105045f5a): complete subsection reference.
+- [custom_flavor](resources--workload--reference--group-028.md#canonical-3213302013021002-0200100013303102-2133231113010230-0012320031302120-0111021223212331-2223102120311311-1102330223321001-0011001011331122): complete subsection reference.
 
-- [default_flavor](resources--workload--reference--group-028.md#canonical-a8efb777e7aeb9924b11109b4492470ae711c10b005ca55e6a7b7f70838b3051): complete subsection reference.
+- [default_flavor](resources--workload--reference--group-028.md#canonical-2220323323131313-3213223223212102-1023010101002123-1010210210130022-3213010130010023-0000113022111132-1222132313331300-2003202303001101): complete subsection reference.
 
-<a id="canonical-c9bf93f9d15de9c2b441bdd5087a90741c4342ec90061a3199eb88555f23a48d"></a>
+<a id="canonical-3021233321033321-3101113132213002-2310100123313111-0020132221001310-0130100310023230-2100001201220301-2121322320201111-1133020322102031"></a>
 
-<a id="canonical-3f1c94b71086e7b9315de387b363f0d12a2cfaaaa2e2f30ae5a056f64d303076"></a>
+<a id="canonical-0333013021102313-0100201232132321-0301113132032013-2303120333003101-0222023033222222-2202320233030022-3211220011123312-1031030003001312"></a>
 
-## flavor property — stateful_service.containers / 250138b6710e / 6
+## flavor property — containers / 231213010032 / 6
 
 Type: `"string"`. Optional.
 
@@ -311,13 +3632,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2): complete subsection reference.
+- [image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302): complete subsection reference.
 
-<a id="canonical-3ce58518b2d512aff23bfb96326ee9e2a08b5817e8b8c75bde714b3ffd158552"></a>
+<a id="canonical-0330321120110120-2302311101022233-3302032333232112-0302123232213202-2200202311200113-3220232030131123-3132130110230333-3331011120111102"></a>
 
-<a id="canonical-26cb27c2a77dab99bcc1539181431bb05a37c2390f18fb385c003f40e0a85827"></a>
+<a id="canonical-0212302302133002-2213133122232121-2330300111032101-2001100301232300-1122031330020321-0033012033230320-1130000003331000-3200222011200213"></a>
 
-## init_container property — stateful_service.containers / 250138b6710e / 7
+## init_container property — containers / 231213010032 / 7
 
 Type: `"bool"`. Optional.
 
@@ -336,13 +3657,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95): complete subsection reference.
+- [liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111): complete subsection reference.
 
-<a id="canonical-efb963cfef0efd57d4dfc9f0ae6e00727cd564dccca428f182cf1fcab9fd97a6"></a>
+<a id="canonical-3233232112033033-3233003233311113-3110313330213300-2232123200001302-1330311112103130-3030221002203301-2002303301333022-2321333121132212"></a>
 
-<a id="canonical-bf92121d9e7971e8a2f7fa66e988d2223b1147f95acbfa848f470775163818c6"></a>
+<a id="canonical-2333210201020131-2132132113013220-2202331333221212-3221202031020202-0323010110133321-1122302333222010-2033101300131311-0112032001203012"></a>
 
-## name property — stateful_service.containers / 250138b6710e / 8
+## name property — containers / 231213010032 / 8
 
 Type: `"string"`. Optional.
 
@@ -407,39 +3728,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9): complete subsection reference.
+- [readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321): complete subsection reference.
 
-<a id="canonical-acf81b46f015814420f7800d3f929a6ba3ea9f8dc6427fc434a1c3657787fc7d"></a>
+<a id="canonical-2230332001231012-3300011120011010-0200331320000031-0333210221221223-2203322221332031-3012100213333010-0310220130031211-1313201333301331"></a>
 
-## Next pages — stateful_service.containers / 250138b6710e / 9
+## Next pages — containers / 231213010032 / 9
 
-- [stateful_service.containers.custom_flavor](resources--workload--reference--group-028.md#canonical-e7c8724220407cd29fb5712c06e0dc981526b9bdab498d7552f2be4105045f5a)
-- [stateful_service.containers.default_flavor](resources--workload--reference--group-028.md#canonical-a8efb777e7aeb9924b11109b4492470ae711c10b005ca55e6a7b7f70838b3051)
-- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.custom_flavor](resources--workload--reference--group-028.md#canonical-3213302013021002-0200100013303102-2133231113010230-0012320031302120-0111021223212331-2223102120311311-1102330223321001-0011001011331122)
+- [stateful_service.containers.default_flavor](resources--workload--reference--group-028.md#canonical-2220323323131313-3213223223212102-1023010101002123-1010210210130022-3213010130010023-0000113022111132-1222132313331300-2003202303001101)
+- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e7c8724220407cd29fb5712c06e0dc981526b9bdab498d7552f2be4105045f5a"></a>
+<a id="canonical-3213302013021002-0200100013303102-2133231113010230-0012320031302120-0111021223212331-2223102120311311-1102330223321001-0011001011331122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-95b699141d7790bf9ce6188c8d4996a9f05fc3e4dbd50e23e2d9d3a0de516dc5"></a>
+<a id="canonical-2111231221210110-0131131321002333-2130321201202030-2031102121122221-3300113330033210-3123311100320203-3202312131032200-3132110112313011"></a>
 
-## stateful_service.containers.custom_flavor — stateful_service.containers.custom_flavor / 386543b734e8 / 2
+## stateful_service.containers.custom_flavor — custom_flavor / 231303103220 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
 - stateful_service.containers.custom_flavor
 
-<a id="canonical-cfb6f7185efa56637eeb92ec3923783c7e40775800ad07635fdf8947fd996001"></a>
+<a id="canonical-3033231233130120-1132332211121203-1332322321023230-0321020313200330-1332100013131120-0000223100131203-1133313320211013-3331212112000001"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -478,15 +3799,15 @@ custom_flavor {
 }
 ```
 
-<a id="canonical-b04116a5b5235afb67146afae60e320f3bdbf4167c493db8b46a03da197781e6"></a>
+<a id="canonical-2300100101122211-2311020311223323-1213011012223322-3212003203020033-0323312333100112-1330102103312320-2310122200033122-0121131320013212"></a>
 
-## Direct properties — stateful_service.containers.custom_flavor / 386543b734e8 / 3
+## Direct properties — custom_flavor / 231303103220 / 3
 
-<a id="canonical-dcdd6341fe78247e4158882846ba9c5b5536062a41559f2f7276b2b0200bf46e"></a>
+<a id="canonical-3130313112031001-3332132002101332-1001112020200220-1012232221301123-1111031200120222-1001111121330233-1302131223022300-0200002333101232"></a>
 
-<a id="canonical-99a4095161a220d85ccd7fe42402e49e4f3af51e6a6b786fcb0ebcdc0d415ab0"></a>
+<a id="canonical-2121221000211101-1201220202003120-1130303113333210-0210000232102132-1033032233110132-1222122313201233-3023003223303130-0031100111222300"></a>
 
-## name property — stateful_service.containers.custom_flavor / 386543b734e8 / 4
+## name property — custom_flavor / 231303103220 / 4
 
 Type: `"string"`. Optional.
 
@@ -547,11 +3868,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d4b889d54a5fa64b99196d2bd786f053fb14fa83449ff10fdf7f8dd499c1dec4"></a>
+<a id="canonical-3110232020213111-1022113322121023-2121012112310223-3113201233001103-3323011033222003-1010213333010033-3133133320313110-2121300131323010"></a>
 
-<a id="canonical-430d603a034502337fee39d66dfc5c7d993fa4b8bad17bd005ed542c9e69c591"></a>
+<a id="canonical-1003003112000322-0003101100020303-1333323203213112-1231333011301331-2121033322102320-2322310113233100-0011323111100230-2132122130112101"></a>
 
-## namespace property — stateful_service.containers.custom_flavor / 386543b734e8 / 5
+## namespace property — custom_flavor / 231303103220 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -619,11 +3940,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ba9d1527ebe2fe0db8fe964590d467f5a788ac3576133d4ad33fb90ba27ca35a"></a>
+<a id="canonical-2322213101110213-3223320233320031-2320333221121011-2100311012133311-2213202022300311-1312010303311022-3103033323210023-2202133022031122"></a>
 
-<a id="canonical-2299e52dabef4d36e1aba9449323c5e70827a2105b7b68e29203cbbd2baaff5e"></a>
+<a id="canonical-0202212132110231-2223323310310312-3201222322211010-2103020330113213-0020021322020100-1123132312203202-2102000330232331-0223222233331132"></a>
 
-## tenant property — stateful_service.containers.custom_flavor / 386543b734e8 / 6
+## tenant property — custom_flavor / 231303103220 / 6
 
 Type: `"string"`. Computed.
 
@@ -677,32 +3998,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-adf1bfff03cc5f7a828d0ed5e44bad5c957fdd75a23e599de27bf4d72308c844"></a>
+<a id="canonical-2231330123333333-0003303011331322-2002203100323111-3210102322311130-2111133331311311-2202033211212131-3202132333103113-0203002030201010"></a>
 
-## Next pages — stateful_service.containers.custom_flavor / 386543b734e8 / 7
+## Next pages — custom_flavor / 231303103220 / 7
 
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-a8efb777e7aeb9924b11109b4492470ae711c10b005ca55e6a7b7f70838b3051"></a>
+<a id="canonical-2220323323131313-3213223223212102-1023010101002123-1010210210130022-3213010130010023-0000113022111132-1222132313331300-2003202303001101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eff97758665ec37031ac57411eb1674c0f54c1b1e0e44f9c44361cef882f2a4c"></a>
+<a id="canonical-3233332113131120-1212113230031300-0301223011131001-0132230112131030-0033111030012301-3200321010332130-1010031201303233-2020023302221030"></a>
 
-## stateful_service.containers.default_flavor — stateful_service.containers.default_flavor / b5a9ddecdbba / 2
+## stateful_service.containers.default_flavor — default_flavor / 323031232322 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
 - stateful_service.containers.default_flavor
 
-<a id="canonical-ef9712e073f0d124b3cc8e60d83bd1fdfccb02fe6c87ab83c663024c1c53f4f4"></a>
+<a id="canonical-3233211301023200-1303330031010210-2303303020321200-3120032331013331-3330302300023332-1230201322232003-3012120300021030-0130110333103310"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -731,38 +4052,38 @@ Terraform syntax:
 default_flavor = {}
 ```
 
-<a id="canonical-75a74fc6ab03a477dc495fb4f35518a1cefb8ab69636ed1327b24006a078c158"></a>
+<a id="canonical-1311221310333012-2223000322101313-3130102111332310-3303111101202201-3032332320222312-2112031232310103-0213230210000012-2200132030011120"></a>
 
-## Direct properties — stateful_service.containers.default_flavor / b5a9ddecdbba / 3
+## Direct properties — default_flavor / 323031232322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-292c8f290528ab1945dadd51568d90d322e3695e03362cf9672de139da0d49be"></a>
+<a id="canonical-0221023020330221-0011022022230121-1011312231311101-1112203121003103-0202320312211132-0003031202303321-1213023132010321-3122003110212332"></a>
 
-## Next pages — stateful_service.containers.default_flavor / b5a9ddecdbba / 4
+## Next pages — default_flavor / 323031232322 / 4
 
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2"></a>
+<a id="canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc9bfc29a45e3cde0dafd637fa741c1a1e7bd2a498e2ed0d7e3d3795fc8013a6"></a>
+<a id="canonical-3030212333300221-2210113203303132-0031223331120313-3322131001300122-0132132331022210-2120320232310031-1332033103132111-3330200001032212"></a>
 
-## stateful_service.containers.image — stateful_service.containers.image / 4c4d028c047f / 2
+## stateful_service.containers.image — image / 203000101333 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
 - stateful_service.containers.image
 
-<a id="canonical-c12ddf26cc7d33efd213470b6f051a90a598fee46ba189adf804c2713cd6a566"></a>
+<a id="canonical-3001023131330212-3030133103033233-3102010310130023-1233001101222100-2211212033323210-1223220120212231-3320001030021301-0330311222111212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -799,17 +4120,17 @@ image {
 }
 ```
 
-<a id="canonical-ea3bcd2dc91b7b74b4f370153d719d9dfc29a601e135960d49a801c6137a567a"></a>
+<a id="canonical-3222032330310231-3021012313231310-2310330313000111-0331130121312131-3330022122120001-3201031121120031-1021222000013012-0103132211121322"></a>
 
-## Direct properties — stateful_service.containers.image / 4c4d028c047f / 3
+## Direct properties — image / 203000101333 / 3
 
-- [container_registry](resources--workload--reference--group-028.md#canonical-745fd6c697ac66e4c83e47bc9c8500b1cbd87cf7d2bf4be37d9563695088d777): complete subsection reference.
+- [container_registry](resources--workload--reference--group-028.md#canonical-1310113331123012-2113223012123210-3020033210132330-2130201100002301-3023312013303313-3102233310233203-1331211112031221-1100202031131313): complete subsection reference.
 
-<a id="canonical-77781c48dddeb5fc611decc5176d8b34e682aef3bc62a6f46211ef1c26563bae"></a>
+<a id="canonical-1313132001301020-3131313223113330-1201013132303011-0113123120230310-3212200222323303-2330120222123310-1202010132330130-0212111203232232"></a>
 
-<a id="canonical-cf6127e837a5972db7e7a075c6f76ae15c84d4c26aac90f57d24e9eec508df4b"></a>
+<a id="canonical-3033120102133220-0313221121130231-2313321322001311-3012331312223201-1130201031103002-1222223021003311-1331021032213232-3011002031331023"></a>
 
-## name property — stateful_service.containers.image / 4c4d028c047f / 4
+## name property — image / 203000101333 / 4
 
 Type: `"string"`. Optional.
 
@@ -878,13 +4199,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [public](resources--workload--reference--group-028.md#canonical-448916f32fcfe60ccda1bf4da1c44234980967bc2cb19d61e996bb972ddc591f): complete subsection reference.
+- [public](resources--workload--reference--group-028.md#canonical-1010202101123303-0233303332120030-3031220123331031-2201301010020310-2120002112132330-0230230121311201-3221211223232113-0231313011210133): complete subsection reference.
 
-<a id="canonical-e44a3ceb665de3f0e3ed61a7a0e2ef64702f68ae2879aa4c8833db2a72fd199a"></a>
+<a id="canonical-3210102203303223-1212113132033300-3203323112012213-2200320232331210-1300023312202232-0220132122221030-2020030331230222-1302333101212122"></a>
 
-<a id="canonical-bf4f1323cb81e947ebeafee23a81ef08a1626e5d752798ad34bec666312009a4"></a>
+<a id="canonical-2333103301030203-3023200132211013-3223322233323202-0322200132330020-2201120212321131-1311021321202231-0310233230121212-0301020000212210"></a>
 
-## pull_policy property — stateful_service.containers.image / 4c4d028c047f / 5
+## pull_policy property — image / 203000101333 / 5
 
 Type: `"string"`. Optional.
 
@@ -946,35 +4267,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ae099c2da989359e5f151d26795dc1c08bd5bed87602d27f89d422df3744b69"></a>
+<a id="canonical-2022320021213002-3122212021031121-3211330111013102-1213211131300130-0020233111233231-2013120002310213-3320213110020231-3303131010231221"></a>
 
-## Next pages — stateful_service.containers.image / 4c4d028c047f / 6
+## Next pages — image / 203000101333 / 6
 
-- [stateful_service.containers.image.container_registry](resources--workload--reference--group-028.md#canonical-745fd6c697ac66e4c83e47bc9c8500b1cbd87cf7d2bf4be37d9563695088d777)
-- [stateful_service.containers.image.public](resources--workload--reference--group-028.md#canonical-448916f32fcfe60ccda1bf4da1c44234980967bc2cb19d61e996bb972ddc591f)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.image.container_registry](resources--workload--reference--group-028.md#canonical-1310113331123012-2113223012123210-3020033210132330-2130201100002301-3023312013303313-3102233310233203-1331211112031221-1100202031131313)
+- [stateful_service.containers.image.public](resources--workload--reference--group-028.md#canonical-1010202101123303-0233303332120030-3031220123331031-2201301010020310-2120002112132330-0230230121311201-3221211223232113-0231313011210133)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-745fd6c697ac66e4c83e47bc9c8500b1cbd87cf7d2bf4be37d9563695088d777"></a>
+<a id="canonical-1310113331123012-2113223012123210-3020033210132330-2130201100002301-3023312013303313-3102233310233203-1331211112031221-1100202031131313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1a441a4c790728c97d35d349ee7258e7263dede04b13fc99c82d5dc7608e4a36"></a>
+<a id="canonical-0122101001221030-1321001302203021-1331031131031021-3232130211203213-0212033132313200-1023010333302121-3020023111313013-1200203210220312"></a>
 
-## stateful_service.containers.image.container_registry — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 2
+## stateful_service.containers.image.container_registry — container_registry / 133132023001 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302)
 - stateful_service.containers.image.container_registry
 
-<a id="canonical-d14d7df8cf9cc58a358fefeb248536e56d9c7744fef4522d2c9d27d4d7b9101b"></a>
+<a id="canonical-3101103113313320-3033213030112022-0311203332333223-0210201103123211-1231213013131010-3332331011020231-0230213102133110-3113232101000123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1013,15 +4334,15 @@ container_registry {
 }
 ```
 
-<a id="canonical-b72ac55ebdb902644988858af395da0b93d7efc93cdee8de3a1add427a073982"></a>
+<a id="canonical-2313022230111132-2331232100021210-1021202020112022-3303211131220023-2103311332333021-0330313232203132-0322012231311002-1322001303212002"></a>
 
-## Direct properties — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 3
+## Direct properties — container_registry / 133132023001 / 3
 
-<a id="canonical-695ef58f1f5278e677b8cd6e67f09fb2095df805f817c0c335e8f8bfb4a616c2"></a>
+<a id="canonical-1221113233112033-0133110213203212-1313232030311232-1213330021332302-0021113133200011-3320011330003003-0311322033202333-2310221201123002"></a>
 
-<a id="canonical-482743a84be590302e6ca843174d788653af5cd0332d0d389ec446975337bd32"></a>
+<a id="canonical-1020021310032220-1023321121000300-0232123022201003-0113103113202012-1103223311303100-0303023100310320-2132301010122113-1103031323310302"></a>
 
-## name property — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 4
+## name property — container_registry / 133132023001 / 4
 
 Type: `"string"`. Optional.
 
@@ -1082,11 +4403,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3676f95f7c4791cb2b11c2f7f198242f2f91216d6e8397b89e1271f9371681e8"></a>
+<a id="canonical-0312131233211133-1330101321013023-0223010130023313-3301212002100233-0233210102011231-1232200321132320-2132010213013321-0313011220013220"></a>
 
-<a id="canonical-42f7aff450a05632fe559fd518e0411e9a2aca11a9de85aa756b4d63db2a997e"></a>
+<a id="canonical-1002331322333310-1100220011120302-3332111121333111-0120320010010132-2122022230220101-2221313220112222-1311122310311203-3123022221211332"></a>
 
-## namespace property — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 5
+## namespace property — container_registry / 133132023001 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1154,11 +4475,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2919c849ee5e605bf3fbf03a5ce58ba963efea99782c653a78a3b8210b272dc6"></a>
+<a id="canonical-0221012130201021-3232113212001123-3303332333000322-1130321120232221-1203323332222121-1320023012110322-1320220323200201-0023021302313012"></a>
 
-<a id="canonical-30b3f67d5b86492e6f9319e5814956c3d9a3aeab8f883c7a69ffa650f93ea053"></a>
+<a id="canonical-0300230333121331-1123201210210232-1233210301213211-2001102111123003-3121220322322223-2033202003301322-1221333322121100-3321033222001103"></a>
 
-## tenant property — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 6
+## tenant property — container_registry / 133132023001 / 6
 
 Type: `"string"`. Computed.
 
@@ -1212,33 +4533,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7179c79e2be7b4cc660845fe06c83e12cea5de94d621f8470524544554090b64"></a>
+<a id="canonical-1301132130132132-0223321323103030-1212002010113332-0012302003320102-3032221131322110-3112020133201013-0011021011101011-1110002100231210"></a>
 
-## Next pages — stateful_service.containers.image.container_registry / 805a0d7de2c1 / 7
+## Next pages — container_registry / 133132023001 / 7
 
-- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-448916f32fcfe60ccda1bf4da1c44234980967bc2cb19d61e996bb972ddc591f"></a>
+<a id="canonical-1010202101123303-0233303332120030-3031220123331031-2201301010020310-2120002112132330-0230230121311201-3221211223232113-0231313011210133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15358c32dd8abb31bb7f004e3588f3a9f068bf9df9b0ceb7a615495561a4ac9d"></a>
+<a id="canonical-0111031120300302-3131202223230301-2323133300001032-0311202033032221-3300122023332131-3321230030322313-2212011110211111-1201221022302131"></a>
 
-## stateful_service.containers.image.public — stateful_service.containers.image.public / 6ef86df3d031 / 2
+## stateful_service.containers.image.public — public / 330331000301 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302)
 - stateful_service.containers.image.public
 
-<a id="canonical-240eb6b63f8edc87d00e56ed16e20e5096f4050c1ddd6a25be4665dcbafba59d"></a>
+<a id="canonical-0210003223122312-0333203231302013-3100003211123231-0112320200321100-2112331000110030-0131313112220211-2332101212113130-2322332322112131"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1267,38 +4588,38 @@ Terraform syntax:
 public = {}
 ```
 
-<a id="canonical-2d5f194a46e6889082f756b85ff5fdf27c2f6499753ef3d99e6f05344ba540a6"></a>
+<a id="canonical-0231113301211022-1012321220202100-2002331311122320-1133331133313302-1330023312102121-1311033233033121-2132123300110310-1023221110002212"></a>
 
-## Direct properties — stateful_service.containers.image.public / 6ef86df3d031 / 3
+## Direct properties — public / 330331000301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-779c5a0b8f46a78aed1a5b07b73edc6fecc6bf07f292ffecafda6154de7953a1"></a>
+<a id="canonical-1313213011220023-2033101222132022-3231012211230013-2313033231301233-3230301223330013-3302210233333230-2233312212011110-3132132111032201"></a>
 
-## Next pages — stateful_service.containers.image.public / 6ef86df3d031 / 4
+## Next pages — public / 330331000301 / 4
 
-- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-2472577d9d501e0a7f71d3c27e070cf143ceab414de2c94bd70cd0941a8648f2)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.image](resources--workload--reference--group-028.md#canonical-0210130211131331-2131110001320022-1333130131033002-1332001300303301-1003303222231001-1031320230211023-3113003031002110-0122201210203302)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95"></a>
+<a id="canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0fc27ac8a656950bacdf16385b9ffd15469f1ce402a6e02efa93da055c173606"></a>
+<a id="canonical-0033300213223020-2212111221110023-2230313301120320-1123213333310111-1012213301303210-0002221232000232-3322210331220011-1130011303120012"></a>
 
-## stateful_service.containers.liveness_check — stateful_service.containers.liveness_check / 3705d3a86a1d / 2
+## stateful_service.containers.liveness_check — liveness_check / 222012220131 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
 - stateful_service.containers.liveness_check
 
-<a id="canonical-382ff182b5949fecc55299235431e9325125b2d37682e9267eba7f25a1f5b067"></a>
+<a id="canonical-0320023333012002-2311211021333230-3011110221210203-1110030132210302-1101021123023103-1312200232210212-1332232213330211-2201331123001213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1347,17 +4668,17 @@ liveness_check {
 }
 ```
 
-<a id="canonical-e5042d451ba9a5ed88505be6f225647420742d6f1cbbcda6ff47e930c46ffde0"></a>
+<a id="canonical-3211001002311011-0123222122113231-2020110011233212-3302021112101310-0200131002311233-0130232330312212-3333101332210300-3010123333313200"></a>
 
-## Direct properties — stateful_service.containers.liveness_check / 3705d3a86a1d / 3
+## Direct properties — liveness_check / 222012220131 / 3
 
-- [exec_health_check](resources--workload--reference--group-028.md#canonical-e29499c704ac4a31d0178fa85fd8aa3cd298d99c301fd185f85477d5942d4ef5): complete subsection reference.
+- [exec_health_check](resources--workload--reference--group-028.md#canonical-3202211021213013-0010223010220301-3100011320332220-1133312022220330-3102212031212130-0300013331012011-3320111013133111-2110023110323311): complete subsection reference.
 
-<a id="canonical-facd7d882b677c1504bcc28ac215589d72b0c2da7307ad0d350733bb4cf682c0"></a>
+<a id="canonical-3322303113312020-0223121313300111-0010233030022022-3002011111202131-1302230030023122-1303001322310031-0311001303032323-1030331220023000"></a>
 
-<a id="canonical-9106a04d55d0882437e8de4aa41b894181c3ebf66ebe90dfea2d581fe79e2f09"></a>
+<a id="canonical-2101001222001031-1111310020200210-0313322031321022-2210012320211001-2001300332233312-1232233221003133-3222023111200133-3213213202330021"></a>
 
-## healthy_threshold property — stateful_service.containers.liveness_check / 3705d3a86a1d / 4
+## healthy_threshold property — liveness_check / 222012220131 / 4
 
 Type: `"number"`. Optional.
 
@@ -1415,13 +4736,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [http_health_check](resources--workload--reference--group-028.md#canonical-14df354021e2e480c27873fb009397b21cdda20458b61467bd3f201a8c618880): complete subsection reference.
+- [http_health_check](resources--workload--reference--group-028.md#canonical-0110313303111000-0201320232102000-3002132013033323-0000210321132302-0130313122020010-1120231201101213-2331033302000122-2030120120202000): complete subsection reference.
 
-<a id="canonical-1b55a0ff44bff328646252d28fe0db95ed4b7aa1197c0278a41162fd9a37f70e"></a>
+<a id="canonical-0123111122003333-1010233333030220-1210120211023102-2033320031232111-3231102313222201-0121133000021320-2210010112023331-2122031333130032"></a>
 
-<a id="canonical-7d4b3151677da7b6f5e1e3bc0ca526c32835904c2a8f5782799752885018a69f"></a>
+<a id="canonical-1331102303011101-1213133122132312-3311320132032330-0030221102123003-0220031121001030-0222203311132002-1321211311022020-1100012022122133"></a>
 
-## initial_delay property — stateful_service.containers.liveness_check / 3705d3a86a1d / 5
+## initial_delay property — liveness_check / 222012220131 / 5
 
 Type: `"number"`. Optional.
 
@@ -1465,11 +4786,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4cdce78315a9fa9845021edcbbb87cccb5d0f872740ffabec9be2b5c384eb81e"></a>
+<a id="canonical-1030313032132003-0111222133222120-1011000201323130-2323232013303030-2311310033201302-1310003333222332-3021233202231130-0320103223200132"></a>
 
-<a id="canonical-5a4c57bd5ae29b7c98492f75cc8cbc3902d1f7151ce09946eb4a66c89e12c153"></a>
+<a id="canonical-1122103011132331-1122320221231330-2120102102331311-3030203023300321-0002310133130111-0130320021211012-3223102212123020-2132010230011103"></a>
 
-## interval property — stateful_service.containers.liveness_check / 3705d3a86a1d / 6
+## interval property — liveness_check / 222012220131 / 6
 
 Type: `"number"`. Optional.
 
@@ -1519,13 +4840,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tcp_health_check](resources--workload--reference--group-028.md#canonical-a58bfef463d73f588f7181e2203f6619cf9b5328fd728e0235ee9d150e16847e): complete subsection reference.
+- [tcp_health_check](resources--workload--reference--group-028.md#canonical-2211202333323310-1203311303331120-2033130120013202-0200033312120121-3033212311030220-3331130220320002-0311323221310111-0032011220101332): complete subsection reference.
 
-<a id="canonical-52b899aa4e3881f58d8f94915c3fc4abd4ee09021dcf238cc75e7945b9a7aeb5"></a>
+<a id="canonical-1102232021212222-1032032020013311-2031203321102101-1130033330102223-3110323200210002-0131303302032030-3013113213211011-2321221322322311"></a>
 
-<a id="canonical-93fe2a54546f214d1291444b3d27a1f562602f82eeeffe31e09c871dd84b556b"></a>
+<a id="canonical-2103333202221110-1110123302011031-0102210110101023-0331021322013311-1202120002332002-3232323333320301-3200213020130131-3120102311111223"></a>
 
-## timeout property — stateful_service.containers.liveness_check / 3705d3a86a1d / 7
+## timeout property — liveness_check / 222012220131 / 7
 
 Type: `"number"`. Optional.
 
@@ -1583,11 +4904,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c3bd5be33589e2f99cc6beba89f721910ed29ed6a961b96c5be3f6b007e0bee"></a>
+<a id="canonical-2130032331112332-0303112021320233-2121303012233223-2220213313020121-0100323102213231-1222211201232112-3011233203331223-0000133200233232"></a>
 
-<a id="canonical-bceb93718d3578418d737a676183e28fc26bdefbf6400e7d09d33549f5e591b8"></a>
+<a id="canonical-2330322321031301-2031031113201001-2031130313221213-1201200332022033-3002122331323323-3312100000321331-0021310303111021-3311321121012320"></a>
 
-## unhealthy_threshold property — stateful_service.containers.liveness_check / 3705d3a86a1d / 8
+## unhealthy_threshold property — liveness_check / 222012220131 / 8
 
 Type: `"number"`. Optional.
 
@@ -1642,36 +4963,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b9a4e19c3ad955d4dbafafb045e28b15f515cccebe17eccf155f5d656c899708"></a>
+<a id="canonical-2321221032012130-0322312111113110-3123223322332300-1011320220230111-3311011130303032-2332011332303033-0111113311311211-1230202121130020"></a>
 
-## Next pages — stateful_service.containers.liveness_check / 3705d3a86a1d / 9
+## Next pages — liveness_check / 222012220131 / 9
 
-- [stateful_service.containers.liveness_check.exec_health_check](resources--workload--reference--group-028.md#canonical-e29499c704ac4a31d0178fa85fd8aa3cd298d99c301fd185f85477d5942d4ef5)
-- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-14df354021e2e480c27873fb009397b21cdda20458b61467bd3f201a8c618880)
-- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-a58bfef463d73f588f7181e2203f6619cf9b5328fd728e0235ee9d150e16847e)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check.exec_health_check](resources--workload--reference--group-028.md#canonical-3202211021213013-0010223010220301-3100011320332220-1133312022220330-3102212031212130-0300013331012011-3320111013133111-2110023110323311)
+- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-0110313303111000-0201320232102000-3002132013033323-0000210321132302-0130313122020010-1120231201101213-2331033302000122-2030120120202000)
+- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-2211202333323310-1203311303331120-2033130120013202-0200033312120121-3033212311030220-3331130220320002-0311323221310111-0032011220101332)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e29499c704ac4a31d0178fa85fd8aa3cd298d99c301fd185f85477d5942d4ef5"></a>
+<a id="canonical-3202211021213013-0010223010220301-3100011320332220-1133312022220330-3102212031212130-0300013331012011-3320111013133111-2110023110323311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f6ab4e49ae2b825a811a82bec245202cf5bf6a214c98ebb4823ae2dcfb2433e6"></a>
+<a id="canonical-3312222310321021-2232022320021122-2001012220022332-3002101102000230-3311233312220201-1030212032232310-2002032232023130-3323021003033212"></a>
 
-## stateful_service.containers.liveness_check.exec_health_check — stateful_service.containers.liveness_check.exec_health_check / 9bcc6ab42145 / 2
+## stateful_service.containers.liveness_check.exec_health_check — exec_health_check / 231002011011 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
 - stateful_service.containers.liveness_check.exec_health_check
 
-<a id="canonical-2b6115e2cef701ff2b6ef649b4d6f9f33a16234f354a9716091dcdb0eedfa9db"></a>
+<a id="canonical-0223120101113202-3032331300013333-0223123233121021-2310311233213303-0322011202031033-0311102221130112-0021013130312300-3232313322213123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1710,15 +5031,15 @@ exec_health_check {
 }
 ```
 
-<a id="canonical-c76ca8238a0e71e94c3d365d2832c8497e15b282c22f4c5f69168490da4dff8b"></a>
+<a id="canonical-3013123022200203-2022003213013221-1030033103121131-0220030230201021-1332011123022002-3002023310301133-1221011220102100-3122103133332023"></a>
 
-## Direct properties — stateful_service.containers.liveness_check.exec_health_check / 9bcc6ab42145 / 3
+## Direct properties — exec_health_check / 231002011011 / 3
 
-<a id="canonical-2e89e29231afef5135aaeeb7a7c744516c1c95035965df05ed79936f32a2890c"></a>
+<a id="canonical-0232202132022102-0301223332331101-0311222232322313-2213301310101101-1230013021110003-1121121131330011-3231132121031233-0302220220210030"></a>
 
-<a id="canonical-4f61c7b0138a8db89184a321f9dc00a446d7e4a0c79f8c98e5491c68a377164b"></a>
+<a id="canonical-1033120130132300-0103202220312320-2101201022030201-3321313000002210-1012311332102200-3013213320302120-3211102101301220-2203131301121023"></a>
 
-## command property — stateful_service.containers.liveness_check.exec_health_check / 9bcc6ab42145 / 4
+## command property — exec_health_check / 231002011011 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1781,33 +5102,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bcfc3f0ee476b40641c354909800b68aac3b6973c87b0afc429842cf9155e979"></a>
+<a id="canonical-2330333003330032-3210131223100012-1001300311102100-2120000023122022-2230032312211303-3020132300223330-1002212010023033-2101111132211321"></a>
 
-## Next pages — stateful_service.containers.liveness_check.exec_health_check / 9bcc6ab42145 / 5
+## Next pages — exec_health_check / 231002011011 / 5
 
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-14df354021e2e480c27873fb009397b21cdda20458b61467bd3f201a8c618880"></a>
+<a id="canonical-0110313303111000-0201320232102000-3002132013033323-0000210321132302-0130313122020010-1120231201101213-2331033302000122-2030120120202000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-efe9f61c0cbf5c796ce125509bb0a0a3a5bd957d9e363673b851c23009d9afde"></a>
+<a id="canonical-3233322133120130-0030233311301321-1230320102111100-2123230022002203-2211233121111331-2132031203121303-2320110130020300-0021312122333132"></a>
 
-## stateful_service.containers.liveness_check.http_health_check — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 2
+## stateful_service.containers.liveness_check.http_health_check — http_health_check / 223131320031 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
 - stateful_service.containers.liveness_check.http_health_check
 
-<a id="canonical-254491ffb127d487319de0189543aa3bbb675820b696b88bc589e907350f1fd3"></a>
+<a id="canonical-0211101021013333-2301021331102013-0301213132000120-2111100322220323-2323121311200200-2312211223202023-3011202132210013-0311003301333103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1840,15 +5161,15 @@ http_health_check {
 }
 ```
 
-<a id="canonical-54226be1825a290b725d6257bbd4508b6564330aecfa20ed27131e08b2a43cd1"></a>
+<a id="canonical-1110020212233201-2002112202210023-1302113112021113-2323311011002023-1211121003030022-3230332202003231-0213010301320020-2302221003303101"></a>
 
-## Direct properties — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 3
+## Direct properties — http_health_check / 223131320031 / 3
 
-<a id="canonical-280c029ae6bc7db208d7b391e64862ee650573ac41ae70a6aebe2e9736fe0ebe"></a>
+<a id="canonical-0220003000022122-3212233013312302-0020311323032101-3212102012023232-1211001113032230-1001223213002212-2232233202322113-0312333200322332"></a>
 
-<a id="canonical-87beb6951fd788a4200649220d77b85f4b9c16fbb546bd74dc2f120879d54656"></a>
+<a id="canonical-2013233223122111-0133311320202210-0200001210210202-0031131323201133-1023213001123323-2311101223311310-3130023301020020-1321311110121112"></a>
 
-## headers property — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 4
+## headers property — http_health_check / 223131320031 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -1887,11 +5208,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e10cb7ff2325d2509713699121b5e3e9fd31a133d11999c45f6b84d318ad406e"></a>
+<a id="canonical-3201003023133333-0203021131021100-2113010312212101-0201231132033221-3331030122010303-3101012121213010-1133122320103103-0120223110001232"></a>
 
-<a id="canonical-4472a48aa5ca6dc6f9da98588e52188551fced0d71580ba97792661b5e6fcb33"></a>
+<a id="canonical-1010130222102022-2211302212313012-3321312221201120-2032110201202011-1101333032310031-1301112000232221-1313210212120123-1132123330230303"></a>
 
-## host_header property — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 5
+## host_header property — http_health_check / 223131320031 / 5
 
 Type: `"string"`. Optional.
 
@@ -1938,11 +5259,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-570669d223c6d0de780ffd19faac7d200864038c24d85f36fecec872547aab12"></a>
+<a id="canonical-1113001212213102-0203301231003132-1320003333310121-3322223013310200-0020121000032030-0210312011330312-3332303230201302-1110132222230102"></a>
 
-<a id="canonical-6c8e84a15f8e3ebc508843ab1c15be7327afcf66b71d863381bb71686cb807b4"></a>
+<a id="canonical-1230203220102201-1133203203322330-1100202010032223-0130011123321303-0213223330331212-2313013120120303-2001232313011220-1230232000132310"></a>
 
-## path property — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 6
+## path property — http_health_check / 223131320031 / 6
 
 Type: `"string"`. Optional.
 
@@ -1997,37 +5318,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [port](resources--workload--reference--group-028.md#canonical-33eb4c1f2fde7ad0460d1f4704d633f3924e465146407e1bf5bb5dee85e88a6f): complete subsection reference.
+- [port](resources--workload--reference--group-028.md#canonical-0303322310300133-0233313213223100-1012003101331013-0010311203033303-2102103210121101-1012100013320123-3311232311313232-2011322020221233): complete subsection reference.
 
-<a id="canonical-0ed0af89ec5074713f53a47eca51bdc59c97c4a49cb7cc2c646f77b879962936"></a>
+<a id="canonical-0032310022332021-3230110013101301-0333110322101332-3022110123313011-2130211330102210-2130231330300230-1210123313132320-1321211202210312"></a>
 
-## Next pages — stateful_service.containers.liveness_check.http_health_check / bdaff6adde0d / 7
+## Next pages — http_health_check / 223131320031 / 7
 
-- [stateful_service.containers.liveness_check.http_health_check.port](resources--workload--reference--group-028.md#canonical-33eb4c1f2fde7ad0460d1f4704d633f3924e465146407e1bf5bb5dee85e88a6f)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check.http_health_check.port](resources--workload--reference--group-028.md#canonical-0303322310300133-0233313213223100-1012003101331013-0010311203033303-2102103210121101-1012100013320123-3311232311313232-2011322020221233)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-33eb4c1f2fde7ad0460d1f4704d633f3924e465146407e1bf5bb5dee85e88a6f"></a>
+<a id="canonical-0303322310300133-0233313213223100-1012003101331013-0010311203033303-2102103210121101-1012100013320123-3311232311313232-2011322020221233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5465be73d645e559a05fe5396f3da22b2a2920d8a679566c06e4d5d1efafa6c1"></a>
+<a id="canonical-1110121123321303-3112101132111121-2200113332110321-1233033122020223-0222022102003120-2212132111121230-0012321031113101-3233223322123001"></a>
 
-## stateful_service.containers.liveness_check.http_health_check.port — stateful_service.containers.liveness_check.http_health_check.port / 151a43dbf8f0 / 2
+## stateful_service.containers.liveness_check.http_health_check.port — port / 312333203300 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-14df354021e2e480c27873fb009397b21cdda20458b61467bd3f201a8c618880)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-0110313303111000-0201320232102000-3002132013033323-0000210321132302-0130313122020010-1120231201101213-2331033302000122-2030120120202000)
 - stateful_service.containers.liveness_check.http_health_check.port
 
-<a id="canonical-411c9f062a23263bbaf3ef476b7ea6142985540da1a47fbad623725c4590a342"></a>
+<a id="canonical-1001013021330012-0222020302120323-2322330332331013-1223133222120110-0221201111100031-2201221013332322-3112020313021130-1011210022031002"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2066,15 +5387,15 @@ port {
 }
 ```
 
-<a id="canonical-d5754722738cca2955d6ef8c9fdfedd416ebf93658cc9d05b703ad3e2499f669"></a>
+<a id="canonical-3111131110130202-1303203030220221-1111311232332030-2133313332313110-0112322333210312-1120303021310011-2313000322310332-0210212133121221"></a>
 
-## Direct properties — stateful_service.containers.liveness_check.http_health_check.port / 151a43dbf8f0 / 3
+## Direct properties — port / 312333203300 / 3
 
-<a id="canonical-3883a490847bb2bb3c7521e754a48c5677c773cb138482f28741f6d1b0405cfa"></a>
+<a id="canonical-0320200322102100-2010132323022323-0330131102013213-1110221020301112-1313301313033023-0103201020023302-2013100133123101-2300100011303322"></a>
 
-<a id="canonical-dbd4af32b404bbb17d00a0ece8bee8960a4d75f79dd2036606cff1ea0c882353"></a>
+<a id="canonical-3123311022330302-2310001023232301-1331000022003230-3220233232202112-0022103113113313-2131310200031212-0012303333013222-0030202002031103"></a>
 
-## name property — stateful_service.containers.liveness_check.http_health_check.port / 151a43dbf8f0 / 4
+## name property — port / 312333203300 / 4
 
 Type: `"string"`. Optional.
 
@@ -2138,11 +5459,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b9e92d970a70a8750bc816d53d2b7e17b4b8fb63f8c693f2d0d2ca57fc9efc8c"></a>
+<a id="canonical-2321322102312113-0022130022201311-0023302001123111-0331022313320113-2310232033231203-3320301221033302-3100310230221113-3330213233302030"></a>
 
-<a id="canonical-fadaed6e7499760e058cd398594c162e49973b8cf533cff7ba159fa62bd0e0b1"></a>
+<a id="canonical-3322312232311232-1310212113120032-0011203031032120-1121103001120232-1021211303232030-3311030330333313-2322011121332212-0223310032002301"></a>
 
-## num property — stateful_service.containers.liveness_check.http_health_check.port / 151a43dbf8f0 / 5
+## num property — port / 312333203300 / 5
 
 Type: `"number"`. Optional.
 
@@ -2193,33 +5514,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-17496f0b58ebed51b34e96d75e34cea9db99484ba1a428923ed7fba9bddbd444"></a>
+<a id="canonical-0113102112330023-1120322332311101-2303103221123113-1132031030322221-3123212110201023-2201221002202102-0332311333232221-2331312331101010"></a>
 
-## Next pages — stateful_service.containers.liveness_check.http_health_check.port / 151a43dbf8f0 / 6
+## Next pages — port / 312333203300 / 6
 
-- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-14df354021e2e480c27873fb009397b21cdda20458b61467bd3f201a8c618880)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check.http_health_check](resources--workload--reference--group-028.md#canonical-0110313303111000-0201320232102000-3002132013033323-0000210321132302-0130313122020010-1120231201101213-2331033302000122-2030120120202000)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-a58bfef463d73f588f7181e2203f6619cf9b5328fd728e0235ee9d150e16847e"></a>
+<a id="canonical-2211202333323310-1203311303331120-2033130120013202-0200033312120121-3033212311030220-3331130220320002-0311323221310111-0032011220101332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d4684d3f11cb10a1ce102ae4276e2293b375154d893e505e5c3f569c323ec4f3"></a>
+<a id="canonical-3110122010310333-0101302301002201-3032010002223210-0213123202022103-2303131101111031-2021033211001132-1130033311122130-0302033230103303"></a>
 
-## stateful_service.containers.liveness_check.tcp_health_check — stateful_service.containers.liveness_check.tcp_health_check / d29503e63e76 / 2
+## stateful_service.containers.liveness_check.tcp_health_check — tcp_health_check / 321203321312 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
 - stateful_service.containers.liveness_check.tcp_health_check
 
-<a id="canonical-0d9a6f42d4f3e2718926f51498b17de73022b82e8f3cefff9aaf6a71c80aa8bc"></a>
+<a id="canonical-0031212212331002-3110330332021301-2021021233110110-2120230113313213-0300020223200232-2033033032333333-2122223312221301-3020002222202330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2246,41 +5567,41 @@ tcp_health_check {
 }
 ```
 
-<a id="canonical-f5aaf5191b316ee6d21651834c940cecf40ae39ca8c05ecfb0f120d2d14c95da"></a>
+<a id="canonical-3311222233110121-0123030112323212-3102011211012003-1030211000303230-3310002232032130-2220300011323033-2300330102003102-3101103021113122"></a>
 
-## Direct properties — stateful_service.containers.liveness_check.tcp_health_check / d29503e63e76 / 3
+## Direct properties — tcp_health_check / 321203321312 / 3
 
-- [port](resources--workload--reference--group-028.md#canonical-4bcf3fa36e96803fa6ca7a861bd7d7d3ccb1ef9f7efd57be15fdb3481c46800c): complete subsection reference.
+- [port](resources--workload--reference--group-028.md#canonical-1023303303332203-1232211220000333-2212302213222012-0123311331133103-3030230132332133-1332333111132332-0111333123031020-0130101220000030): complete subsection reference.
 
-<a id="canonical-95b77057de13c015d7b960e0b88045ae81fcd923672ef1981347820509e92dc7"></a>
+<a id="canonical-2111231313001113-3132010330000111-3113232112003200-2320200010112232-2001333031210203-1213023233012120-0103101320020011-0021322102313013"></a>
 
-## Next pages — stateful_service.containers.liveness_check.tcp_health_check / d29503e63e76 / 4
+## Next pages — tcp_health_check / 321203321312 / 4
 
-- [stateful_service.containers.liveness_check.tcp_health_check.port](resources--workload--reference--group-028.md#canonical-4bcf3fa36e96803fa6ca7a861bd7d7d3ccb1ef9f7efd57be15fdb3481c46800c)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check.tcp_health_check.port](resources--workload--reference--group-028.md#canonical-1023303303332203-1232211220000333-2212302213222012-0123311331133103-3030230132332133-1332333111132332-0111333123031020-0130101220000030)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-4bcf3fa36e96803fa6ca7a861bd7d7d3ccb1ef9f7efd57be15fdb3481c46800c"></a>
+<a id="canonical-1023303303332203-1232211220000333-2212302213222012-0123311331133103-3030230132332133-1332333111132332-0111333123031020-0130101220000030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa17a9b1dd3eee7b1876f87fd0f4652691dbdcee109f7ecdf20b0a67789dc6e7"></a>
+<a id="canonical-3322011322212301-3131033232321323-0120131233201333-3100331012110212-2101312331303232-0100213313323031-3302002300221213-1320213130123213"></a>
 
-## stateful_service.containers.liveness_check.tcp_health_check.port — stateful_service.containers.liveness_check.tcp_health_check.port / 09c508887777 / 2
+## stateful_service.containers.liveness_check.tcp_health_check.port — port / 202013131313 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-c885fe15ff1aa1344804fe7f8dffbd8c3a259c1a14f1fde14028dd39394bce95)
-- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-a58bfef463d73f588f7181e2203f6619cf9b5328fd728e0235ee9d150e16847e)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.liveness_check](resources--workload--reference--group-028.md#canonical-3020201133320111-3333012222010310-1020001033321333-2031333323312030-0322021121300122-0110330133313201-1000022031310321-0321102330322111)
+- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-2211202333323310-1203311303331120-2033130120013202-0200033312120121-3033212311030220-3331130220320002-0311323221310111-0032011220101332)
 - stateful_service.containers.liveness_check.tcp_health_check.port
 
-<a id="canonical-a285215b8bdf7129123c00db4fc3a1b71d4c0fa031f8bcd93cbed59a692c9271"></a>
+<a id="canonical-2202201102011123-2023313313010221-0102033000003123-1033300322012313-0131103000332200-0301332023303121-0330233231112122-1221023021021301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2319,15 +5640,15 @@ port {
 }
 ```
 
-<a id="canonical-36235ebc82eac8426066bbc9ce8a4dec0cfad26ef77348f02993f603ad11aec1"></a>
+<a id="canonical-0312020311322330-2002322230201002-1200121223233021-3032202210313230-0030332231021232-3313130310203300-0221210333120003-2231010122323001"></a>
 
-## Direct properties — stateful_service.containers.liveness_check.tcp_health_check.port / 09c508887777 / 3
+## Direct properties — port / 202013131313 / 3
 
-<a id="canonical-f3605be54b18d6ed018faa0052b336d45d7fec66aabc606e4ebe4d8ffa7d455f"></a>
+<a id="canonical-3303120011233211-1023012031123231-0001203322220000-1102230303123110-1131133332301212-2222233012001232-1032233210312033-3322133110111133"></a>
 
-<a id="canonical-7c89aa7c894721331754ed48d430c586dd6d2c2484702eba9408543902abf5ac"></a>
+<a id="canonical-1330202122221330-2021101302010303-0113111032311020-3110030030112012-3131123102300210-2010130002322322-2110002011100321-0002222333112230"></a>
 
-## name property — stateful_service.containers.liveness_check.tcp_health_check.port / 09c508887777 / 4
+## name property — port / 202013131313 / 4
 
 Type: `"string"`. Optional.
 
@@ -2391,11 +5712,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-898609a5f6a59979d753c5010d8e656be80a7b2f58cd49e95d24371dcb9b50bb"></a>
+<a id="canonical-2021201200212211-3312221121211321-3113110330110001-0031203212111223-3220002213230233-1120303110213221-1131021003130131-3023212311002323"></a>
 
-<a id="canonical-c2f8e0fa278f81ca62b161185f3aa8b6f2752a55fc34db7e16e8503b96d41a08"></a>
+<a id="canonical-3002332032003322-0213203320013022-1202230112010120-1133032222202312-3302131102221111-3330031031231332-0112322011000323-2112311001220020"></a>
 
-## num property — stateful_service.containers.liveness_check.tcp_health_check.port / 09c508887777 / 5
+## num property — port / 202013131313 / 5
 
 Type: `"number"`. Optional.
 
@@ -2446,32 +5767,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d7cf3c409d29e05c81571159a2b814db0eb4ac660b47d971e08690b9246614f"></a>
+<a id="canonical-2031133033033010-0021310221320011-3020011113010111-2122022320011031-2300322310223012-1200231013312113-0132002012210023-2102101212011033"></a>
 
-## Next pages — stateful_service.containers.liveness_check.tcp_health_check.port / 09c508887777 / 6
+## Next pages — port / 202013131313 / 6
 
-- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-a58bfef463d73f588f7181e2203f6619cf9b5328fd728e0235ee9d150e16847e)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.liveness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-2211202333323310-1203311303331120-2033130120013202-0200033312120121-3033212311030220-3331130220320002-0311323221310111-0032011220101332)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9"></a>
+<a id="canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-460c5500cce9a685c3c1b1501b8987aa8a26488bd16c239a14e1f7e64d361872"></a>
+<a id="canonical-1012003011110000-3030322122122011-3003300123011100-0123202120132222-2022021210202023-3101123002032122-0110320133133212-1031031201201302"></a>
 
-## stateful_service.containers.readiness_check — stateful_service.containers.readiness_check / 86857ceda411 / 2
+## stateful_service.containers.readiness_check — readiness_check / 323122100101 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
 - stateful_service.containers.readiness_check
 
-<a id="canonical-3ba34c4cdf99f94ffee807d798cb6412b68309e198a0ac05e28a2f707882cae9"></a>
+<a id="canonical-0323220310301030-3133212133211033-3332322000133113-2120302312100102-2312200300213201-2120220022300011-3202202202331300-1320200230223221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2520,17 +5841,17 @@ readiness_check {
 }
 ```
 
-<a id="canonical-ed6b383f429c4b4b446271dcc47fb025c83a221869957b200c19eb0ab6a36787"></a>
+<a id="canonical-3231122303200333-1002213010231023-1010120213013130-3010133323000211-3020032202020120-1221211113230200-0030012132230022-2312220312132013"></a>
 
-## Direct properties — stateful_service.containers.readiness_check / 86857ceda411 / 3
+## Direct properties — readiness_check / 323122100101 / 3
 
-- [exec_health_check](resources--workload--reference--group-028.md#canonical-98d22817f1a2657d0a062babd6e1d210ee24d5d2a09ac8d3a08487727bd100f8): complete subsection reference.
+- [exec_health_check](resources--workload--reference--group-028.md#canonical-2120310202200113-3301220212111331-0022001202232223-3112320131020100-3232021031113102-2200212230203103-2200201020131302-1323310100003320): complete subsection reference.
 
-<a id="canonical-a08949a404730396701ad5c287a32ba2e3d754ce1b3e218afc1792f9200a0201"></a>
+<a id="canonical-2200202110212210-0010130300032112-1300012231113002-2013220302232202-3203311311103032-0123033202012022-3330011321023321-0200002200020001"></a>
 
-<a id="canonical-b496b94d21932ab850cd10ae902ead5fb2ea5a8fa12cdc6d04db47f334d09257"></a>
+<a id="canonical-2310211223211031-0201210302222320-1100303101002232-2100023222311133-2302322211222033-2201023031301231-0010312310133303-0310310021021113"></a>
 
-## healthy_threshold property — stateful_service.containers.readiness_check / 86857ceda411 / 4
+## healthy_threshold property — readiness_check / 323122100101 / 4
 
 Type: `"number"`. Optional.
 
@@ -2588,13 +5909,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [http_health_check](resources--workload--reference--group-028.md#canonical-d3dfe5ab9c3c8e563ac6e0a5abea26e4bdf1929a75e607cd312742a7fad60b01): complete subsection reference.
+- [http_health_check](resources--workload--reference--group-028.md#canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001): complete subsection reference.
 
-<a id="canonical-8eeef28095c76be6e88958a3b93d8740f7d0ff8cf5b2e82b156ceb9b55953b3d"></a>
+<a id="canonical-2032323233022000-2111301312233212-3220202111202203-2321033120131000-3313310033332030-3311230232200223-0111123032232123-1111211103230331"></a>
 
-<a id="canonical-4710047f53636b9aa4d456032c717f7412e673b6bcbce6569c5cbb2f3145b337"></a>
+<a id="canonical-1013010000101333-1103120312232122-2210311011120003-0230130113331310-0102321213032312-2330233032121112-2130113023230233-0301101123030313"></a>
 
-## initial_delay property — stateful_service.containers.readiness_check / 86857ceda411 / 5
+## initial_delay property — readiness_check / 323122100101 / 5
 
 Type: `"number"`. Optional.
 
@@ -2638,11 +5959,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d554f6b6e35f1607cd42a00c7510bbcfd52dde68892dc2c3255c6fa42e4b8fb9"></a>
+<a id="canonical-3111111033122312-3203113301120013-3031100222000030-1311010023233033-3111023131321220-2021023130023003-0211113012332210-0232102320332321"></a>
 
-<a id="canonical-25e6125ce32da1f70f5558bc428edeec3ce9681e61937634d2294b594b70b639"></a>
+<a id="canonical-0211321201021130-3203023122013313-0033111111202330-1002203231323230-0330322112200132-1201210313120310-3102022110231121-1023130023120321"></a>
 
-## interval property — stateful_service.containers.readiness_check / 86857ceda411 / 6
+## interval property — readiness_check / 323122100101 / 6
 
 Type: `"number"`. Optional.
 
@@ -2692,13 +6013,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tcp_health_check](resources--workload--reference--group-028.md#canonical-b0a641f4835d535e4cd49e6afa10102e6c13513d954aeff642b64cf13aeebf0e): complete subsection reference.
+- [tcp_health_check](resources--workload--reference--group-028.md#canonical-2300221210013310-2003113111031132-1030311021321222-3322010001000232-1230010311010331-2111102232333312-1002231210303301-0322323223330032): complete subsection reference.
 
-<a id="canonical-6f10f87a5a331bee2217dd7425072d7007c50f12ec2a7fe836fc965b3abffcf7"></a>
+<a id="canonical-1233010033201322-1122030301233232-0202011331311310-0211001302311300-0013301100330102-3230022213333220-0312333021121123-0322233333303313"></a>
 
-<a id="canonical-d9cdacab020a7b43063007bb76d3ab3ca64569b6c7c485ced8694d68c9099d82"></a>
+<a id="canonical-3121303122302223-0002002213231003-0012030000132323-1312310322230330-2212101112212312-3013301020113032-3120122110311220-3021002121312002"></a>
 
-## timeout property — stateful_service.containers.readiness_check / 86857ceda411 / 7
+## timeout property — readiness_check / 323122100101 / 7
 
 Type: `"number"`. Optional.
 
@@ -2756,11 +6077,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ea8910b729e3f5bc882afdf820ecfe8b23bc04d6b77dfa4f0da361cfee1e0b1e"></a>
+<a id="canonical-3222202101002313-0221320333112330-2020022233313320-0200323033322023-0203233000103112-2313133133221033-0031220312013033-3232013200230132"></a>
 
-<a id="canonical-f5acbca8554640f091462e977326ec4140a1c88e29a84b5eb9829cf27a9b4047"></a>
+<a id="canonical-3311223023302220-1111101210003300-2101101202322113-1303021232301001-1000220130202032-0221222010231132-2321200221303302-1322212310001013"></a>
 
-## unhealthy_threshold property — stateful_service.containers.readiness_check / 86857ceda411 / 8
+## unhealthy_threshold property — readiness_check / 323122100101 / 8
 
 Type: `"number"`. Optional.
 
@@ -2815,36 +6136,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bb5770e9796e79a761603969b4e6e5bcc4cb7f0fdf67ee7378ad4d5e277db393"></a>
+<a id="canonical-2323111313003221-1321123213212213-1201120003211221-2310321232112330-3010302313330033-3133121332321303-1320223110311132-0213133123032103"></a>
 
-## Next pages — stateful_service.containers.readiness_check / 86857ceda411 / 9
+## Next pages — readiness_check / 323122100101 / 9
 
-- [stateful_service.containers.readiness_check.exec_health_check](resources--workload--reference--group-028.md#canonical-98d22817f1a2657d0a062babd6e1d210ee24d5d2a09ac8d3a08487727bd100f8)
-- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-d3dfe5ab9c3c8e563ac6e0a5abea26e4bdf1929a75e607cd312742a7fad60b01)
-- [stateful_service.containers.readiness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-b0a641f4835d535e4cd49e6afa10102e6c13513d954aeff642b64cf13aeebf0e)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.readiness_check.exec_health_check](resources--workload--reference--group-028.md#canonical-2120310202200113-3301220212111331-0022001202232223-3112320131020100-3232021031113102-2200212230203103-2200201020131302-1323310100003320)
+- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001)
+- [stateful_service.containers.readiness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-2300221210013310-2003113111031132-1030311021321222-3322010001000232-1230010311010331-2111102232333312-1002231210303301-0322323223330032)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-98d22817f1a2657d0a062babd6e1d210ee24d5d2a09ac8d3a08487727bd100f8"></a>
+<a id="canonical-2120310202200113-3301220212111331-0022001202232223-3112320131020100-3232021031113102-2200212230203103-2200201020131302-1323310100003320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-524a228e99b111f956fd4787b36146fe380e503206a8fdb1080b3205e467b370"></a>
+<a id="canonical-1102102202022032-2121230101013321-1112333110132013-2303120110123332-0320003211000302-0012222033312301-0020002303020011-3210121323031300"></a>
 
-## stateful_service.containers.readiness_check.exec_health_check — stateful_service.containers.readiness_check.exec_health_check / 23fb07d992ad / 2
+## stateful_service.containers.readiness_check.exec_health_check — exec_health_check / 312121022231 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
 - stateful_service.containers.readiness_check.exec_health_check
 
-<a id="canonical-49f18acc9ae4aa8da88971d49e6e75be6ac65d19e54808ebd0699e0d82232730"></a>
+<a id="canonical-1021330120223030-2122321022222031-2220202113013110-2132123213112332-1222301211310121-3211102000203223-3100122121320031-2002020302130300"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2883,15 +6204,15 @@ exec_health_check {
 }
 ```
 
-<a id="canonical-361e193082aa7927376a3d63ceca250fac9c84c66d93272e969b272163e4f64a"></a>
+<a id="canonical-0312013201210300-2002222213210213-0313122203311203-3032302202110033-2230213020103012-1231210302130232-2112212302130201-1203321033121022"></a>
 
-## Direct properties — stateful_service.containers.readiness_check.exec_health_check / 23fb07d992ad / 3
+## Direct properties — exec_health_check / 312121022231 / 3
 
-<a id="canonical-7545424a0c9aeb6e70e0eec705336b075b3780500a491f3c44ab2992de649da5"></a>
+<a id="canonical-1311101110021022-0030212232231232-1300320032323013-0011030312230013-1123031320001100-0022102101330330-1010222302212102-3132121021312211"></a>
 
-<a id="canonical-e4a710815be9100bd042ce685383fc53e4665a47305235d348770771742f6205"></a>
+<a id="canonical-3210221301002001-1123322101000023-3100100230321220-1103200333301103-3210121211221013-0300110203113103-1020131300131301-1310023312020011"></a>
 
-## command property — stateful_service.containers.readiness_check.exec_health_check / 23fb07d992ad / 4
+## command property — exec_health_check / 312121022231 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -2954,33 +6275,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d68ed3374513b5abf686b6cb6fefba83c892aeb153732a3f78ad09cb233fedb5"></a>
+<a id="canonical-3112203231030313-1011010323112223-3312201223123023-1233323323222003-3020210222322301-1103130302220333-1320223100213023-0203033332312311"></a>
 
-## Next pages — stateful_service.containers.readiness_check.exec_health_check / 23fb07d992ad / 5
+## Next pages — exec_health_check / 312121022231 / 5
 
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-d3dfe5ab9c3c8e563ac6e0a5abea26e4bdf1929a75e607cd312742a7fad60b01"></a>
+<a id="canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7d64af4bb0bf8162fc7c7d1cffc038f66e7ac5ac34203d54ecc6f30ea7495ba0"></a>
+<a id="canonical-1331121022331023-2300233320011202-3330133013310130-3333300003203312-1232132230112230-0310020003311110-3230301233030032-2213102111232200"></a>
 
-## stateful_service.containers.readiness_check.http_health_check — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 2
+## stateful_service.containers.readiness_check.http_health_check — http_health_check / 011111022021 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
 - stateful_service.containers.readiness_check.http_health_check
 
-<a id="canonical-8339c0d41ffdde07f4d78ab7ff77c9580bb5cd93322731c39e49c8df27ce72dd"></a>
+<a id="canonical-2003032130003110-0133333131320013-3310311320222313-3333131330211120-0023231130312103-0302021303013003-2132102130203133-0213303213023131"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3013,15 +6334,15 @@ http_health_check {
 }
 ```
 
-<a id="canonical-96f0413e2a7d962e73956d8409cbe73f64a7bdf5b8fc149635048c437639eb2b"></a>
+<a id="canonical-2112330010010332-0222133121120232-1303211112312010-0021302332130333-1210221323313311-2320333001102112-0311001020301003-1312032132230223"></a>
 
-## Direct properties — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 3
+## Direct properties — http_health_check / 011111022021 / 3
 
-<a id="canonical-3dc4e12967bda802231bbde148dabbe502f78da1af99d32887c373e6439a0a20"></a>
+<a id="canonical-0331301032010221-1213233122200002-0203012323313201-1020312223233211-0002331320312201-2233212131030220-2013300313033212-1003212200220200"></a>
 
-<a id="canonical-bcfafa4e4a5dacd4ad6e5e6be73e0e54228921edd5c997f36e29f93567f21e9d"></a>
+<a id="canonical-2330332233221032-1022113122303110-2231123211321223-3213033200321110-0202202102013231-3111302121133303-1232022133210311-1213330201322131"></a>
 
-## headers property — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 4
+## headers property — http_health_check / 011111022021 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -3060,11 +6381,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-304184df358dcf08d60f11b06353d651380f175bead0e60f245afbbbaf193538"></a>
+<a id="canonical-0300100120103133-0311203130330020-3112003301012300-1203110331121101-0320003301131123-3222310032120033-0210112233232323-2233012103110320"></a>
 
-<a id="canonical-99763b877b0e5162b574137c1b81e52eae2eac57f23959cbc1e19cf744b84fe2"></a>
+<a id="canonical-2121131203232013-1323003211011202-2311131001031330-0123200132110232-2232023222301113-3302032111213023-3001320121303313-1010232010333202"></a>
 
-## host_header property — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 5
+## host_header property — http_health_check / 011111022021 / 5
 
 Type: `"string"`. Optional.
 
@@ -3111,11 +6432,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-96f4dadfdb092094f905d7045d0825114cb17c95f72c55b02cc3677c0e74b1d6"></a>
+<a id="canonical-2112331031223133-3123002102002110-3321001131130010-1131002002110101-1030230113302111-3313023011112300-0230300312131330-0032131023013112"></a>
 
-<a id="canonical-6c4f0901cc324c3cb38ef43e3517d205990ee5cfa6d8041895f2bfbec0024872"></a>
+<a id="canonical-1230103300210001-3030030210300330-2303203233100332-0311011331020011-2121003232113033-2212312000100120-2111330223332332-3000000210201302"></a>
 
-## path property — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 6
+## path property — http_health_check / 011111022021 / 6
 
 Type: `"string"`. Optional.
 
@@ -3170,37 +6491,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [port](resources--workload--reference--group-028.md#canonical-ed704e21383d68f0d6c8b61e8039c73211ee0fec59a117c5be23c5942a4e041c): complete subsection reference.
+- [port](resources--workload--reference--group-028.md#canonical-3231130010320201-0320033112203300-3112302023120132-2000032130130302-0101323200333230-1121220101133011-2332020330112110-0222103200100130): complete subsection reference.
 
-<a id="canonical-21c3ae0c340b6e0867e26ac2282293bdee99fff349e5a59db8913255e5ae3368"></a>
+<a id="canonical-0201300322320030-0310002312320020-1213320212223002-0220020221032331-3232212133333303-1021321122112131-2320210103021111-3211223203031220"></a>
 
-## Next pages — stateful_service.containers.readiness_check.http_health_check / d83414155289 / 7
+## Next pages — http_health_check / 011111022021 / 7
 
-- [stateful_service.containers.readiness_check.http_health_check.port](resources--workload--reference--group-028.md#canonical-ed704e21383d68f0d6c8b61e8039c73211ee0fec59a117c5be23c5942a4e041c)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.readiness_check.http_health_check.port](resources--workload--reference--group-028.md#canonical-3231130010320201-0320033112203300-3112302023120132-2000032130130302-0101323200333230-1121220101133011-2332020330112110-0222103200100130)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-ed704e21383d68f0d6c8b61e8039c73211ee0fec59a117c5be23c5942a4e041c"></a>
+<a id="canonical-3231130010320201-0320033112203300-3112302023120132-2000032130130302-0101323200333230-1121220101133011-2332020330112110-0222103200100130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8ce8fa649119e12e0d58d488031edd9bada705fd8235c7d9ccff191c158b1cf3"></a>
+<a id="canonical-2030322033221210-2101012132010232-0031112031102020-0003013231312123-2231221300113331-2002031130133121-3030333301210130-0111202301303303"></a>
 
-## stateful_service.containers.readiness_check.http_health_check.port — stateful_service.containers.readiness_check.http_health_check.port / b0668394990b / 2
+## stateful_service.containers.readiness_check.http_health_check.port — port / 211021210023 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-d3dfe5ab9c3c8e563ac6e0a5abea26e4bdf1929a75e607cd312742a7fad60b01)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-3221212333032323-1011122002030020-0332100102213333-2230123311320001-3101132000200220-3323302320310311-1200332113313321-1231002100113301)
+- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-2101233010110302-0023221233331300-0020012001202110-3111101033233313-3131302323332021-0313320323031313-1031100100130333-1131132213032321)
+- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001)
 - stateful_service.containers.readiness_check.http_health_check.port
 
-<a id="canonical-295bde65a88550927c114e3504dd5501ebfbd41c25b3f2f0d1d6a351a9fde29b"></a>
+<a id="canonical-0221112331321211-2220201111002102-1330010110320311-0010313111110001-3223332331100130-0211230333023300-3101311222031101-2221333132022123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3239,15 +6560,15 @@ port {
 }
 ```
 
-<a id="canonical-e8491dc4ccf0de9f46d3523caf5587dc9128f3bb79054a29189223008eb85cd7"></a>
+<a id="canonical-3220102101313010-3030330031322133-1012310311020330-2233111120133130-2101022033032323-1321001110220221-0120210202030000-2032232011303113"></a>
 
-## Direct properties — stateful_service.containers.readiness_check.http_health_check.port / b0668394990b / 3
+## Direct properties — port / 211021210023 / 3
 
-<a id="canonical-72611a517a16436412a272aae808d3f4b7bfdbd98b00517822e1f9e52afea884"></a>
+<a id="canonical-1302120101221101-1322011210031210-0102220213022222-3220002031033310-2313233331233121-2023000011011320-0202320133213211-0222333222202010"></a>
 
-<a id="canonical-8b32c57ae8d5653541001c0311f95f86b87f48899d2f97f296e3bf00dcf9ecfd"></a>
+<a id="canonical-2023030230111322-3220311112110311-1001000001300003-0101332111332012-2320133310202021-2131023321133302-2112320323330000-3130332132303331"></a>
 
-## name property — stateful_service.containers.readiness_check.http_health_check.port / b0668394990b / 4
+## name property — port / 211021210023 / 4
 
 Type: `"string"`. Optional.
 
@@ -3311,11 +6632,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-66f9310d2c0893ab23184b0ec49b192ff0286e57e398530df8eccd903ce8ab90"></a>
+<a id="canonical-1212332103010031-0230002021032223-0203012010230032-3010212301210233-3300022012321113-3203212011030031-3320323030312100-0330322022232100"></a>
 
-<a id="canonical-f22a121d8b3093b35cdaa4ae53c7570c5efcf35b587ec2b903db087a3c5de9b1"></a>
+<a id="canonical-3302022201020131-2023030021032303-1130312222102232-1103301311130030-1132333033031123-1120133230022321-0003312300201322-0330113132212301"></a>
 
-## num property — stateful_service.containers.readiness_check.http_health_check.port / b0668394990b / 5
+## num property — port / 211021210023 / 5
 
 Type: `"number"`. Optional.
 
@@ -3366,3603 +6687,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1accde72df835e23a5d7c466a9bb24825805ba227544d8f9c3c13b058bb0d93"></a>
+<a id="canonical-3301223030313213-0231332003113202-0322113113301012-1222212323021020-0211200011232202-0213111010312033-2130033001032300-1120232300312103"></a>
 
-## Next pages — stateful_service.containers.readiness_check.http_health_check.port / b0668394990b / 6
+## Next pages — port / 211021210023 / 6
 
-- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-d3dfe5ab9c3c8e563ac6e0a5abea26e4bdf1929a75e607cd312742a7fad60b01)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [stateful_service.containers.readiness_check.http_health_check](resources--workload--reference--group-028.md#canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-b0a641f4835d535e4cd49e6afa10102e6c13513d954aeff642b64cf13aeebf0e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-763e109c59e1ac774e89388fc15ec866c835b4c20350432346e0f082499c4bf3"></a>
-
-## stateful_service.containers.readiness_check.tcp_health_check — stateful_service.containers.readiness_check.tcp_health_check / 80e6ad351ec3 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- stateful_service.containers.readiness_check.tcp_health_check
-
-<a id="canonical-041562476efd18ba52ad9ab0a5c2d2ff7c9bca3f1242a96b0f0e608a2afd4faa"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-TCPHealthCheckType describes a health check based on opening a TCP connection.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-tcp_health_check {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-bedf596fad927acf79e5c8e1876ffa175ccac556decbe3767a6995b8decaa7fa"></a>
-
-## Direct properties — stateful_service.containers.readiness_check.tcp_health_check / 80e6ad351ec3 / 3
-
-- [port](resources--workload--reference--group-028.md#canonical-d801fa183c6cc0aff4e211191e5dbeba454624e44c84a79488c41ff85c35165e): complete subsection reference.
-
-<a id="canonical-1434cb38445657fa748dd725d1d039fccc4f217d1cb9a31b5f838c8d354526e1"></a>
-
-## Next pages — stateful_service.containers.readiness_check.tcp_health_check / 80e6ad351ec3 / 4
-
-- [stateful_service.containers.readiness_check.tcp_health_check.port](resources--workload--reference--group-028.md#canonical-d801fa183c6cc0aff4e211191e5dbeba454624e44c84a79488c41ff85c35165e)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-d801fa183c6cc0aff4e211191e5dbeba454624e44c84a79488c41ff85c35165e"></a>
+<a id="canonical-2300221210013310-2003113111031132-1030311021321222-3322010001000232-1230010311010331-2111102232333312-1002231210303301-0322323223330032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-20ae9d4a9ce265c9fb2bd89ce307c4ef318dfdfd33ec33cfb1eadf1a0b7883bc"></a>
-
-## stateful_service.containers.readiness_check.tcp_health_check.port — stateful_service.containers.readiness_check.tcp_health_check.port / deb414cd0c88 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.containers](resources--workload--reference--group-028.md#canonical-e99bf3bb456823083e4129ffac6f5e01d1780828fbcb8d3560f97df96d0905f1)
-- [stateful_service.containers.readiness_check](resources--workload--reference--group-028.md#canonical-91bc45320ba6ff7008181894d544fbf7ddcbbf8937e3b3774d41073f5d7a73b9)
-- [stateful_service.containers.readiness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-b0a641f4835d535e4cd49e6afa10102e6c13513d954aeff642b64cf13aeebf0e)
-- stateful_service.containers.readiness_check.tcp_health_check.port
-
-<a id="canonical-5f2371dc14a3403ddcb42bd5311b998a513fea1d81c0d5dfbd80f3db873347e5"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Port. Port
-
-Upstream description:
-
-Port
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("name",
-    "num")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-port_choice": "[\"name\",\"num\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-port {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-848ade8e93cfd6fc65c60ad2a75612f1de74d497e87fd212012a563634437d40"></a>
-
-## Direct properties — stateful_service.containers.readiness_check.tcp_health_check.port / deb414cd0c88 / 3
-
-<a id="canonical-3f9b27c48b7ec0274215af11099673071b1905917f0a0b6a4fabab3c4d904f98"></a>
-
-<a id="canonical-c8edb169526c35e215fa928cf3a82b9c173b988ce50c41dbce0fb1483cc81c73"></a>
-
-## name property — stateful_service.containers.readiness_check.tcp_health_check.port / deb414cd0c88 / 4
-
-Type: `"string"`. Optional.
-
-Port Name. Exclusive with \[num\] Port Name.
-
-Upstream description:
-
-Exclusive with \[num\] Port Name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.iana_svc_name": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.iana_svc_name": "true"
-  }
-}
-```
-
-<a id="canonical-98798e728aac38e4b2f7881af18d7a8c87704808c70c0f8d311e18226179dd22"></a>
-
-<a id="canonical-47213bb3d39faad9f952f4cbed3de4124082402b4ef1e1dbecd00074a2b286a7"></a>
-
-## num property — stateful_service.containers.readiness_check.tcp_health_check.port / deb414cd0c88 / 5
-
-Type: `"number"`. Optional.
-
-Port Number. Exclusive with \[name\] Port number.
-
-Upstream description:
-
-Exclusive with \[name\] Port number.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-b90c7a73a50a355660f571656481844fde4020e56f502f0344dee247bfebae2f"></a>
-
-## Next pages — stateful_service.containers.readiness_check.tcp_health_check.port / deb414cd0c88 / 6
-
-- [stateful_service.containers.readiness_check.tcp_health_check](resources--workload--reference--group-028.md#canonical-b0a641f4835d535e4cd49e6afa10102e6c13513d954aeff642b64cf13aeebf0e)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d87da1f8ae782fee16cdfd107b92a0e65c681bf767530c6cc3c1c089b8f544a2"></a>
-
-## stateful_service.deploy_options — stateful_service.deploy_options / 1fe66cb10fbf / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- stateful_service.deploy_options
-
-<a id="canonical-daa63b1d2bd61c9cdee9b2b5e16d75419d7ecb6c602f4d1660f4b87099a1f8d2"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Deploy OPTIONS are used to configure the workload deployment OPTIONS.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("all_res",
-    "default_virtual_sites"),
-  validators.ConflictingObjectAttributes("all_res",
-    "deploy_ce_sites"),
-  validators.ConflictingObjectAttributes("all_res",
-    "deploy_ce_virtual_sites"),
-  validators.ConflictingObjectAttributes("all_res",
-    "deploy_re_sites"),
-  validators.ConflictingObjectAttributes("all_res",
-    "deploy_re_virtual_sites"),
-  validators.ConflictingObjectAttributes("default_virtual_sites",
-    "deploy_ce_sites"),
-  validators.ConflictingObjectAttributes("default_virtual_sites",
-    "deploy_ce_virtual_sites"),
-  validators.ConflictingObjectAttributes("default_virtual_sites",
-    "deploy_re_sites"),
-  validators.ConflictingObjectAttributes("default_virtual_sites",
-    "deploy_re_virtual_sites"),
-  validators.ConflictingObjectAttributes("deploy_ce_sites",
-    "deploy_ce_virtual_sites"),
-  validators.ConflictingObjectAttributes("deploy_ce_sites",
-    "deploy_re_sites"),
-  validators.ConflictingObjectAttributes("deploy_ce_sites",
-    "deploy_re_virtual_sites"),
-  validators.ConflictingObjectAttributes("deploy_ce_virtual_sites",
-    "deploy_re_sites"),
-  validators.ConflictingObjectAttributes("deploy_ce_virtual_sites",
-    "deploy_re_virtual_sites"),
-  validators.ConflictingObjectAttributes("deploy_re_sites",
-    "deploy_re_virtual_sites")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-deploy_choice": "[\"all_res\",\"default_virtual_sites\",\"deploy_ce_sites\",\"deploy_ce_virtual_sites\",\"deploy_re_sites\",\"deploy_re_virtual_sites\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-deploy_options {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-75ade84c729c8392ec75247ca9cb54288c26aa7f64fe1229a65e411fc9b7da25"></a>
-
-## Direct properties — stateful_service.deploy_options / 1fe66cb10fbf / 3
-
-- [all_res](resources--workload--reference--group-028.md#canonical-3f21a307ae498f1001b965635a64f1e75c91728e9d9fcca5749e4aa71b04343f): complete subsection reference.
-
-- [default_virtual_sites](resources--workload--reference--group-028.md#canonical-8e6f8a8261ed3675e0caec5a6880dd278f131351b0e7efec42c53de8dbbd5873): complete subsection reference.
-
-- [deploy_ce_sites](resources--workload--reference--group-028.md#canonical-f317a5e39414499eed96bd542f8fd93136464247af731ebb3d5a0d3da5dc7be0): complete subsection reference.
-
-- [deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-cbca6554517323b778587fbf1bc335362b53efdbd0f9da12c38c6a0e0b9d8edc): complete subsection reference.
-
-- [deploy_re_sites](resources--workload--reference--group-028.md#canonical-ca6381aecf772eea7ba4062737bd53347ec90fd52deabe3cc99165a3e00f2daa): complete subsection reference.
-
-- [deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-1f037266f52514c7a0edc54aa6e0e2a9a1973a3ffe824acd03c2d932408852cf): complete subsection reference.
-
-<a id="canonical-edfef2e1bd78af8900bd2dee4028b093551d143f3e3a5e027f57269072ed5367"></a>
-
-## Next pages — stateful_service.deploy_options / 1fe66cb10fbf / 4
-
-- [stateful_service.deploy_options.all_res](resources--workload--reference--group-028.md#canonical-3f21a307ae498f1001b965635a64f1e75c91728e9d9fcca5749e4aa71b04343f)
-- [stateful_service.deploy_options.default_virtual_sites](resources--workload--reference--group-028.md#canonical-8e6f8a8261ed3675e0caec5a6880dd278f131351b0e7efec42c53de8dbbd5873)
-- [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-028.md#canonical-f317a5e39414499eed96bd542f8fd93136464247af731ebb3d5a0d3da5dc7be0)
-- [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-cbca6554517323b778587fbf1bc335362b53efdbd0f9da12c38c6a0e0b9d8edc)
-- [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-028.md#canonical-ca6381aecf772eea7ba4062737bd53347ec90fd52deabe3cc99165a3e00f2daa)
-- [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-1f037266f52514c7a0edc54aa6e0e2a9a1973a3ffe824acd03c2d932408852cf)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-3f21a307ae498f1001b965635a64f1e75c91728e9d9fcca5749e4aa71b04343f"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-5568ceb4a580856ddd1d36973a12ce165a42c5b7acab751ff7d29d27cbfaac6c"></a>
-
-## stateful_service.deploy_options.all_res — stateful_service.deploy_options.all_res / da429f7cf7ae / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.all_res
-
-<a id="canonical-6d3159275ec2f3b56e93b4b77088f7444767478528c8745992239b55e817fa2a"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-all_res = {}
-```
-
-<a id="canonical-416544760f72be75f1324295540108ae3b2dfaf2dd340a324307bf5098129ca5"></a>
-
-## Direct properties — stateful_service.deploy_options.all_res / da429f7cf7ae / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-74ec50dc2435c988aa6ac6c3419bff6d50901476eed3f14fe499a89917b27804"></a>
-
-## Next pages — stateful_service.deploy_options.all_res / da429f7cf7ae / 4
-
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-8e6f8a8261ed3675e0caec5a6880dd278f131351b0e7efec42c53de8dbbd5873"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0be1c8aa03556c61ed645319a9b83d7c0d04ba6cdab4539316df897da5c5c1b1"></a>
-
-## stateful_service.deploy_options.default_virtual_sites — stateful_service.deploy_options.default_virtual_sites / 06f0833176f4 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.default_virtual_sites
-
-<a id="canonical-3da82370cc0762b2fa308677fbd51f392534b52377ece5402da7a48ba7af1c83"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default_virtual_sites = {}
-```
-
-<a id="canonical-daa5d34ae8f14b5f64ee40a36d5b78739cbe96080ba9536592a0ac199cf4421f"></a>
-
-## Direct properties — stateful_service.deploy_options.default_virtual_sites / 06f0833176f4 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-c83fd1767a49452c64ab7b6e1d7906190c7034f3f283791327c29299f3919e46"></a>
-
-## Next pages — stateful_service.deploy_options.default_virtual_sites / 06f0833176f4 / 4
-
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-f317a5e39414499eed96bd542f8fd93136464247af731ebb3d5a0d3da5dc7be0"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b0a7adb1107adbdf30964cb9f95f0f37d689272a56b824c92255e93ee0708d56"></a>
-
-## stateful_service.deploy_options.deploy_ce_sites — stateful_service.deploy_options.deploy_ce_sites / 1cc019ea7016 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.deploy_ce_sites
-
-<a id="canonical-07d84c85eb3dcb9375c06d70cd6065e3c8d18e95c347efa10644b14dd03330bd"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines a way to deploy a workload on specific Customer sites.
-
-Upstream description:
-
-This defines a way to deploy a workload on specific Customer sites.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("site")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-deploy_ce_sites {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0229c8f1e52f86f8df19a70fbb1ecda647ded9170914e5a580e8a36f174ab2ba"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_ce_sites / 1cc019ea7016 / 3
-
-- [site](resources--workload--reference--group-028.md#canonical-89e06417745f819a86aac35f2bd25d44119dc02a7aa955dfc5a09e2866e3acb8): complete subsection reference.
-
-<a id="canonical-90cd835178694f8d33697a133d62e4665ce8575b2d8a9deaf4e8adda90448422"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_ce_sites / 1cc019ea7016 / 4
-
-- [stateful_service.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-028.md#canonical-89e06417745f819a86aac35f2bd25d44119dc02a7aa955dfc5a09e2866e3acb8)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-89e06417745f819a86aac35f2bd25d44119dc02a7aa955dfc5a09e2866e3acb8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7b47df53da694c7d14d84cd1bdecd4f1e2a1f13255acef2376067b27ed6139be"></a>
-
-## stateful_service.deploy_options.deploy_ce_sites.site — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-028.md#canonical-f317a5e39414499eed96bd542f8fd93136464247af731ebb3d5a0d3da5dc7be0)
-- stateful_service.deploy_options.deploy_ce_sites.site
-
-<a id="canonical-b6944f01d29a9da8e378ce55fe86c6fd9673380c8310d82c52479e8636d46da2"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Which customer sites should this workload be deployed.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 32,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-279fb6caee1666b016ed53cf22ccbf61449c56f7d71f9045a32d0c7947201b5c"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 3
-
-<a id="canonical-423392fc2b345a55776be0e397dbe66bf606d1f33792cbe95d208d38c28bc6eb"></a>
-
-<a id="canonical-279b1ed01e19d3ae899bb9c7a80fe1c7e3df5074a1b801637f12e56cafb8bfbf"></a>
-
-## name property — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-fbe5ef12817a6560a21fcf7be5b2d2b19e21486e1ee0b0626652417e8283206c"></a>
-
-<a id="canonical-5c18bd147b6e97ce6081e4a155e83fa7c5e94cf97e5a254d2c56cbeeee373252"></a>
-
-## namespace property — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-f6bc62e181f8d2b202654263e760f19494adcd55b19c87fddfe19f3cd6d0639d"></a>
-
-<a id="canonical-e4e782b36f3b7ad2a8259522703c222f6cd32102469423ef1e7dc9fa3c736f64"></a>
-
-## tenant property — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-95f892fc6a0b869ef09fe402b9557be9c3e5ba020627f7ee7084218fc7465312"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_ce_sites.site / 5268714e5f8b / 7
-
-- [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-028.md#canonical-f317a5e39414499eed96bd542f8fd93136464247af731ebb3d5a0d3da5dc7be0)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-cbca6554517323b778587fbf1bc335362b53efdbd0f9da12c38c6a0e0b9d8edc"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-287a18a7c01f1aba09f192a9d3780d4128c350353db5234f0eb515a08fb31720"></a>
-
-## stateful_service.deploy_options.deploy_ce_virtual_sites — stateful_service.deploy_options.deploy_ce_virtual_sites / 4cb7c43363b2 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.deploy_ce_virtual_sites
-
-<a id="canonical-85f67d990bdc8c39eb9c540d9a3dbd2082de7cf3da7e49be0a7743326946d4a1"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines a way to deploy a workload on specific Customer virtual sites.
-
-Upstream description:
-
-This defines a way to deploy a workload on specific Customer virtual sites.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("virtual_site")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-deploy_ce_virtual_sites {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-6183c8e2341b420260bbcecca7586a215d2a775b8e5a3584e6f76d917f8188c2"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_ce_virtual_sites / 4cb7c43363b2 / 3
-
-- [virtual_site](resources--workload--reference--group-028.md#canonical-719ded1619757576086f4d53f044c0a447c1d681141bb58821872fdbfbcad8cb): complete subsection reference.
-
-<a id="canonical-a782febd9411bae80d8a7d1dbd138637510f9679917a5c783520be4136104bb3"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_ce_virtual_sites / 4cb7c43363b2 / 4
-
-- [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-719ded1619757576086f4d53f044c0a447c1d681141bb58821872fdbfbcad8cb)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-719ded1619757576086f4d53f044c0a447c1d681141bb58821872fdbfbcad8cb"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6960db4aee07977d3e574a15529211aedf49cee995cb6bd3de9b24389e60af4a"></a>
-
-## stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-cbca6554517323b778587fbf1bc335362b53efdbd0f9da12c38c6a0e0b9d8edc)
-- stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site
-
-<a id="canonical-0a1398f2b7aa1d9024dd3976bff6de9818ac9d693f86e3afe5e912c6dc2d6fee"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Which customer virtual sites should this workload be deployed.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 32,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-virtual_site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-63b3eb2b36210b090fd5ad0d28910a1073fb1b2dd27a3862b8f7f15ce29ccc7a"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 3
-
-<a id="canonical-e6aef0a347ad320c1d61ee89908354b0a2fbcc8e8d06cf004066283451fa0703"></a>
-
-<a id="canonical-1835ea2234b7a5585f09b1531cecf4cd261d919ea24c7d7b5826ac7d73677f96"></a>
-
-## name property — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-ca9417114b8ccefc0e4021703961f7bbfb36c075f968f8c2082515080a16518b"></a>
-
-<a id="canonical-51e692a088d94619cc6260088bd62fc721aa90748e10ff7596231f25fee988bd"></a>
-
-## namespace property — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-ccf0ebb1ff3ce41d56c99bc0f244b35e1b69b007f20c107cb1c202cb19a70059"></a>
-
-<a id="canonical-b1c352b2b433615bf5ad8f6543363c5cbba65eb2371a3cb54f680d5980070e56"></a>
-
-## tenant property — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-f3ad638cb5275cfde96d576acdd4778a1792de796dacae4558907b2a9c42f192"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site / 17cc816d8b37 / 7
-
-- [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-cbca6554517323b778587fbf1bc335362b53efdbd0f9da12c38c6a0e0b9d8edc)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-ca6381aecf772eea7ba4062737bd53347ec90fd52deabe3cc99165a3e00f2daa"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d9bec4ca22e8d87b6701b76e4e83ae57e73a356cca46c69d9f5fc7a3330e29b9"></a>
-
-## stateful_service.deploy_options.deploy_re_sites — stateful_service.deploy_options.deploy_re_sites / 77604a88bac9 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.deploy_re_sites
-
-<a id="canonical-59ecb5b177cfd7ea521a337e43b4073cfde57b9ea7493fc3e1fbb7f1dc2d4738"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines a way to deploy a workload on specific Regional Edge sites.
-
-Upstream description:
-
-This defines a way to deploy a workload on specific Regional Edge sites.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("site")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-deploy_re_sites {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-82e559ebc48fc317a819c1c1f86d49c5f1dc8f8c24ac9f653c83ff406850e2fa"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_re_sites / 77604a88bac9 / 3
-
-- [site](resources--workload--reference--group-028.md#canonical-a1241f9a0368b278640e17b770e46cd35fc7e1e2eec317e90114d706827b93b9): complete subsection reference.
-
-<a id="canonical-f231247f7419fb0d332a5263e6ce655554194a6ef2624d452c06d197755c7a83"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_re_sites / 77604a88bac9 / 4
-
-- [stateful_service.deploy_options.deploy_re_sites.site](resources--workload--reference--group-028.md#canonical-a1241f9a0368b278640e17b770e46cd35fc7e1e2eec317e90114d706827b93b9)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-a1241f9a0368b278640e17b770e46cd35fc7e1e2eec317e90114d706827b93b9"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a43632d2a2c9d68c705b227821181e468d05aeb197926f6ea329c4625331d094"></a>
-
-## stateful_service.deploy_options.deploy_re_sites.site — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-028.md#canonical-ca6381aecf772eea7ba4062737bd53347ec90fd52deabe3cc99165a3e00f2daa)
-- stateful_service.deploy_options.deploy_re_sites.site
-
-<a id="canonical-7cb1a7ec93a052c1fcd753457f4c72373edc9a93f8370cf4c012b044b3e96e90"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Which regional edge sites should this workload be deployed.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 32,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-974cde67411e983f023b926b49debf346d10916e4ede3c2b62d932f4628c62dd"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 3
-
-<a id="canonical-df53ceb7c3e70edbc8cf110ef7a32560657eded9ff40cfcecf3c66958bfc33b1"></a>
-
-<a id="canonical-9fdb072a56d9ab4128c8e2b01b5ec8a833dd05ebd2dc77bc514f927bcb2a9e68"></a>
-
-## name property — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-5d2a7424f9b82d796274079472e5a631cef410110c8243fb3e0725b2369c09c8"></a>
-
-<a id="canonical-339e3ddc5c6f1bb536e8f454efab2b7adeaf257067737bfb2da672bae2431843"></a>
-
-## namespace property — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-7c9ac5dda9d786ecb6df1a1581ca165c5abe263cc38ae07c15c7d237327b779a"></a>
-
-<a id="canonical-5d3926c754ae997c2c69e8858fab950af6b98fb725f3c3fd7470f65b305c33d8"></a>
-
-## tenant property — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-74252cfc587424f10531a96e55bd46ed5a62ae67de3c746398fff8c65840ca8d"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_re_sites.site / dcb3fabfd1a5 / 7
-
-- [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-028.md#canonical-ca6381aecf772eea7ba4062737bd53347ec90fd52deabe3cc99165a3e00f2daa)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-1f037266f52514c7a0edc54aa6e0e2a9a1973a3ffe824acd03c2d932408852cf"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b1b058bb3a1226a2e0ac9bcdeedbf8d21636c1f261bf3ec9370a506dd1b2e890"></a>
-
-## stateful_service.deploy_options.deploy_re_virtual_sites — stateful_service.deploy_options.deploy_re_virtual_sites / df258b57ae53 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- stateful_service.deploy_options.deploy_re_virtual_sites
-
-<a id="canonical-be08f8b156148a1233d426fafd6b98f2ecd002fe59729d5178397196ef5c8d53"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines a way to deploy a workload on specific Regional Edge virtual sites.
-
-Upstream description:
-
-This defines a way to deploy a workload on specific Regional Edge virtual sites.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("virtual_site")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-deploy_re_virtual_sites {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-ea34b8c422bcbaf55fbef19f9e0df83b68cfb9c6a7b88408edd0a7b6f8f042c5"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_re_virtual_sites / df258b57ae53 / 3
-
-- [virtual_site](resources--workload--reference--group-028.md#canonical-ec0b60d14d58852805f18b660b67b76368679cb4cea315fdb028ce270b76287a): complete subsection reference.
-
-<a id="canonical-c8d7dcc35b0a0616262391797c70de3c4be783b107d45b05b8eac0d1ec2e0258"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_re_virtual_sites / df258b57ae53 / 4
-
-- [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-ec0b60d14d58852805f18b660b67b76368679cb4cea315fdb028ce270b76287a)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-ec0b60d14d58852805f18b660b67b76368679cb4cea315fdb028ce270b76287a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-40883ca4060f5467db6d483d938f5c7c4c9653049595600720c8c9c9eb6bda04"></a>
-
-## stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.deploy_options](resources--workload--reference--group-028.md#canonical-2513a93c02711ec77866b205feb6413e7dd2117ba4c06380bf5e0b29878808c3)
-- [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-1f037266f52514c7a0edc54aa6e0e2a9a1973a3ffe824acd03c2d932408852cf)
-- stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site
-
-<a id="canonical-b67f0fb8bad8df520cb4096ff35fe327ecf77e93ae739f67de7f24bef47d8028"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Which regional edge virtual sites should this workload be deployed.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 32,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-virtual_site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-9324bde900ae251e3d3b0fca1651312ddb1abad16f5a1878d1886686ad521b4d"></a>
-
-## Direct properties — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 3
-
-<a id="canonical-8f7bc4f33a83c850a21f1cb361882a8949a320cbafdb1acf12fd8662a8525b48"></a>
-
-<a id="canonical-948bb1cd97101ac91cb4e06f0c8be02611ff700201fff8856833fcb496125a9e"></a>
-
-## name property — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-1dd876d7309d862780c87e34e94eeb420b8ae46cff0cf21209a2eb61d298268d"></a>
-
-<a id="canonical-dd9a5911a681cdbd523e1bf66196843c6928f3f22d7757bb8bac77e15e065c14"></a>
-
-## namespace property — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-c303beac995dfd50225d97c3ca2576abf76a887f2cf2f24abd8ad1ea31be3c4b"></a>
-
-<a id="canonical-ea1e3d529de62850243d571b5b0c13b8bffbbbc774c0b56b96d8f51895e9ed80"></a>
-
-## tenant property — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-a3a61d2c15dd34c86b54716df2f7bd103e74120849afdd257a81371caf5ccbae"></a>
-
-## Next pages — stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site / fd24c695c624 / 7
-
-- [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-1f037266f52514c7a0edc54aa6e0e2a9a1973a3ffe824acd03c2d932408852cf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7bebd6a0c94463a2197c55511f9fa02764e88cf57fd26b6169e324cbdeab1a06"></a>
-
-## stateful_service.persistent_volumes — stateful_service.persistent_volumes / 736c7d782874 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- stateful_service.persistent_volumes
-
-<a id="canonical-b07f162e7beae570e2149f641962dbc2a3fd27068ff77d10d6afe359a8910def"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Persistent storage configuration for the service.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-persistent_volumes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-f08e0dccebc33a48f3415c51f0217433ad0564ddd9a210f961b8c64198f14c35"></a>
-
-## Direct properties — stateful_service.persistent_volumes / 736c7d782874 / 3
-
-<a id="canonical-7f2e05f92ad9a16635992713678f545d278fc5cbeb4fe4abad477be6b8067ee6"></a>
-
-<a id="canonical-e1074c672850c3375c1b93ffa746aef12d797f651544b825d2a468a52cb9adb2"></a>
-
-## name property — stateful_service.persistent_volumes / 736c7d782874 / 4
-
-Type: `"string"`. Optional.
-
-Name. Name of the volume.
-
-Upstream description:
-
-Name of the volume.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.dns_1123_label": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.dns_1123_label": "true"
-  }
-}
-```
-
-- [persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade): complete subsection reference.
-
-<a id="canonical-0fabe7bc582ba7e067fb293070bec25823182249f09f5ee9ee2faa0526ee253e"></a>
-
-## Next pages — stateful_service.persistent_volumes / 736c7d782874 / 5
-
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-582a513a40e36cdfd89e869016583fdd8d4ce03acabc56699224716b3e3c3789"></a>
-
-## stateful_service.persistent_volumes.persistent_volume — stateful_service.persistent_volumes.persistent_volume / 7d5049a5940d / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e)
-- stateful_service.persistent_volumes.persistent_volume
-
-<a id="canonical-26b4c930bfeb283271bd7fc115be59d630ffad23477f32a2f1281e9344780d27"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume containing the Persistent Storage for the workload.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-persistent_volume {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-8001e9197d6e911e37a67b8b28d228f49c4ea0d2e4aaaa3793bf07e6ab1ce5c0"></a>
-
-## Direct properties — stateful_service.persistent_volumes.persistent_volume / 7d5049a5940d / 3
-
-- [mount](resources--workload--reference--group-028.md#canonical-f15e2de5868f5b79e1a06d0550b234f00f0644cdaf222718d7b6a9e3dd0a29ea): complete subsection reference.
-
-- [storage](resources--workload--reference--group-028.md#canonical-b35950953195ce91738cef5e736178f473d4cceeb032ff08e17ce59baaec8f1c): complete subsection reference.
-
-<a id="canonical-d37c5b208d871a07baabc79134120671c16c8ea1d97003a9e3a43a5e0fc8e0a1"></a>
-
-## Next pages — stateful_service.persistent_volumes.persistent_volume / 7d5049a5940d / 4
-
-- [stateful_service.persistent_volumes.persistent_volume.mount](resources--workload--reference--group-028.md#canonical-f15e2de5868f5b79e1a06d0550b234f00f0644cdaf222718d7b6a9e3dd0a29ea)
-- [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-028.md#canonical-b35950953195ce91738cef5e736178f473d4cceeb032ff08e17ce59baaec8f1c)
-- [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-f15e2de5868f5b79e1a06d0550b234f00f0644cdaf222718d7b6a9e3dd0a29ea"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2c6b6b01341ebebeccf16316cf97b3fe61b110fa02279c786ee489f1ca492e75"></a>
-
-## stateful_service.persistent_volumes.persistent_volume.mount — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e)
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- stateful_service.persistent_volumes.persistent_volume.mount
-
-<a id="canonical-57e771cc2c80c963a648cd14273bf20910befdbe99aac11a6e283961300a2c6a"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume mount describes how volume is mounted inside a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-mount {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-12a410d7bb0a900a581e43a776282ff60deff671a7174353f7f9d11530f4f898"></a>
-
-## Direct properties — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 3
-
-<a id="canonical-271ecd66e7a5aa5439e4bc071f4c122446995026f703d76775c6a159d21f7028"></a>
-
-<a id="canonical-8cff7e86aea65a73fae6c0499009f0bb98611c8647abdcc2cd999e7574146fa4"></a>
-
-## mode property — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: VOLUME\_MOUNT\_READ\_ONLY|VOLUME\_MOUNT\_READ\_WRITE\] Mode in which the volume should be
-mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume in read-only mode -
-VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
-\`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
-\`VOLUME\_MOUNT\_READ\_ONLY\`.
-
-Upstream description:
-
-Mode in which the volume should be mounted to the workload
-
-&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
-
-Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
-
-Mount the volume in read-write mode.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VOLUME_MOUNT_READ_ONLY",
-  "enum": [
-    "VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-64ae3db9d68a4e5dcee8518817b845d9621b7ef79715c1ccfd88179bfc30cae0"></a>
-
-<a id="canonical-dc341077f7086edd179c6e91abb3485707f63da6b6bfe2ca94e83dce45ed5374"></a>
-
-## mount_path property — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 5
-
-Type: `"string"`. Optional.
-
-Path within the workload container at which the volume should be mounted. Must not contain ':'.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "pattern": "^[^:]*$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  }
-}
-```
-
-<a id="canonical-77dd8f9b2a64e8e748752b44f37f6c93eadf256843d98178178dc02d3b0be7a8"></a>
-
-<a id="canonical-3bf838ae193ee872270d642de5a983eea55e1104d50b859cbb8e3d6cd6b31396"></a>
-
-## sub_path property — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 6
-
-Type: `"string"`. Optional.
-
-Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
-root).
-
-Upstream description:
-
-Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
-root).
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-72cd6fe0a4a60d476a69a1367222e2915710e35b54804bf84bafecaef61905d8"></a>
-
-## Next pages — stateful_service.persistent_volumes.persistent_volume.mount / 4de7b6bc91dd / 7
-
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-b35950953195ce91738cef5e736178f473d4cceeb032ff08e17ce59baaec8f1c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3def00dae87779d0968cb7cb8385286ca6ff4f7d7c8508a4af4c92a20a2f7f35"></a>
-
-## stateful_service.persistent_volumes.persistent_volume.storage — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e)
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- stateful_service.persistent_volumes.persistent_volume.storage
-
-<a id="canonical-870b00d85d280e92b8590cbbf1e05f59400e2dfee0987b58d33dc22cea9e9999"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Persistent storage configuration is used to configure Persistent Volume Claim (PVC).
-
-Upstream description:
-
-Persistent storage configuration is used to configure Persistent Volume Claim (PVC)
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("storage_size"),
-  validators.ConflictingObjectAttributes("class_name",
-    "default")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-class_name_choice": "[\"class_name\",\"default\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-storage {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-169081e36f28fbc2f89a8f53bb2efb49d209c920e7fb03bb83d1655e980e04c4"></a>
-
-## Direct properties — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 3
-
-<a id="canonical-96878230224bd8493839924c91631e2cfe2e5add6b4ffa10d22b0eb20ca7c0d7"></a>
-
-<a id="canonical-85517a6b20270b46a1e28fadad77eb38bee68d52017eb0e04e9d2d206ff47421"></a>
-
-## access_mode property — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 4
-
-Type: `"string"`. Optional.
-
-\[Enum:
-ACCESS\_MODE\_READ\_WRITE\_ONCE|ACCESS\_MODE\_READ\_WRITE\_MANY|ACCESS\_MODE\_READ\_ONLY\_MANY\]
-Persistence storage access mode is used to configure access mode for persistent storage -
-ACCESS\_MODE\_READ\_WRITE\_ONCE: Read Write Once Read Write Once is used to mount persistent storage
-in read/write mode to exactly 1 host - ACCESS\_MODE\_READ\_WRITE\_MANY: Read Write Many Read Write
-Many is used.. Possible values are \`ACCESS\_MODE\_READ\_WRITE\_ONCE\`,
-\`ACCESS\_MODE\_READ\_WRITE\_MANY\`, \`ACCESS\_MODE\_READ\_ONLY\_MANY\`. Defaults to
-\`ACCESS\_MODE\_READ\_WRITE\_ONCE\`.
-
-Upstream description:
-
-Persistence storage access mode is used to configure access mode for persistent storage
-
-&#8203;- ACCESS\_MODE\_READ\_WRITE\_ONCE: Read Write Once
-
-Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host &#8203;-
-ACCESS\_MODE\_READ\_WRITE\_MANY: Read Write Many
-
-Read Write Many is used to mount persistent storage in read/write mode to many hosts &#8203;-
-ACCESS\_MODE\_READ\_ONLY\_MANY: Read Only Many
-
-Read Only Many is used to mount persistent storage in read-only mode to many hosts.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("ACCESS_MODE_READ_WRITE_ONCE",
-    "ACCESS_MODE_READ_WRITE_MANY",
-    "ACCESS_MODE_READ_ONLY_MANY"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "ACCESS_MODE_READ_WRITE_ONCE",
-  "enum": [
-    "ACCESS_MODE_READ_WRITE_ONCE",
-    "ACCESS_MODE_READ_WRITE_MANY",
-    "ACCESS_MODE_READ_ONLY_MANY"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0c524680f2e047fc5ca185709406ce2acf65cffab18e9c95e677eb6d901e1cc0"></a>
-
-<a id="canonical-be4d73293f945368cf67b581b3691c6c4918a85155a65535ee9171c098c80455"></a>
-
-## class_name property — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 5
-
-Type: `"string"`. Optional.
-
-Exclusive with \[default\] Use the specified class name.
-
-Upstream description:
-
-Exclusive with \[default\] Use the specified class name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-- [default](resources--workload--reference--group-028.md#canonical-c85802f7210630200a1cd899e202ef541e4bdb9a5cbc38bedb0614832c32892a): complete subsection reference.
-
-<a id="canonical-1ac36ce20fba743f4e6c19fbce49e13a4bffb8298238eb1b4926025b9324b0d2"></a>
-
-<a id="canonical-ce06ffd0273f701f12dd861fb8a6e09a705e107e037f0b8d8e1b5eaf408f5cd4"></a>
-
-## storage_size property — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 6
-
-Type: `"number"`. Optional.
-
-Size (in GiB). Size in GiB of the persistent storage.
-
-Upstream description:
-
-Size in GiB of the persistent storage.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.double.gte": "0.004",
-    "ves.io.schema.rules.double.lte": "256",
-    "ves.io.schema.rules.message.required": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.double.gte": "0.004",
-    "ves.io.schema.rules.double.lte": "256",
-    "ves.io.schema.rules.message.required": "true"
-  }
-}
-```
-
-<a id="canonical-a618cc43cb67ea037abdd88fcfea8abee88768e89d53b01c3c4cfb6a2e70fba2"></a>
-
-## Next pages — stateful_service.persistent_volumes.persistent_volume.storage / 7b8f30309a3b / 7
-
-- [stateful_service.persistent_volumes.persistent_volume.storage.default](resources--workload--reference--group-028.md#canonical-c85802f7210630200a1cd899e202ef541e4bdb9a5cbc38bedb0614832c32892a)
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-c85802f7210630200a1cd899e202ef541e4bdb9a5cbc38bedb0614832c32892a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2870a71347ef6d5e195ea2eeb8daceb61daaceb8dd96e788f3e97d6d86b5c865"></a>
-
-## stateful_service.persistent_volumes.persistent_volume.storage.default — stateful_service.persistent_volumes.persistent_volume.storage.default / 000d249c8084 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-a203e04acd7f749603be1522b30eccf5c29f4b281dddb74e04ca8905b0310f7e)
-- [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-96d80b9ab6aeae048f8373415d53f468f984bb0a9d04c5115486f4970769bade)
-- [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-028.md#canonical-b35950953195ce91738cef5e736178f473d4cceeb032ff08e17ce59baaec8f1c)
-- stateful_service.persistent_volumes.persistent_volume.storage.default
-
-<a id="canonical-6bae153e8c98d3360096dc856650cdc052995739b008c568e8d5f04d2313c8ce"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default = {}
-```
-
-<a id="canonical-c89eaa2fc56d16b6321379ccb773709bc68bf87d3bd9611df3d1b2bf7cdbcd96"></a>
-
-## Direct properties — stateful_service.persistent_volumes.persistent_volume.storage.default / 000d249c8084 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-b2e2919b938c372d75fcf2dcf7b6d4118cf2c39ed36d4e0705b81dc8d5d96cca"></a>
-
-## Next pages — stateful_service.persistent_volumes.persistent_volume.storage.default / 000d249c8084 / 4
-
-- [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-028.md#canonical-b35950953195ce91738cef5e736178f473d4cceeb032ff08e17ce59baaec8f1c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-29a60e695fa2ddf2da5fe0b273aff907f4dfd3d5b85fe204b155210cd4f6636c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-440041dd09058ee2da8934c451bc149062bf8141ef5243c20cba1fe432a9e355"></a>
-
-## stateful_service.scale_to_zero — stateful_service.scale_to_zero / cc7d94cf3e84 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- stateful_service.scale_to_zero
-
-<a id="canonical-96e6e383b70e1dc85c8c15ddded85d282a3fc113f74ce8ebc6d79670ad0f604c"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for scale to zero.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-scale_to_zero = {}
-```
-
-<a id="canonical-01df859aca6bce43de49df49c34f228378e1b64ef5559d5676a33051e4817b52"></a>
-
-## Direct properties — stateful_service.scale_to_zero / cc7d94cf3e84 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-822ed880016696c9887e082bb23ee08afa9e6a30f7d3a2aed0373eb806485d87"></a>
-
-## Next pages — stateful_service.scale_to_zero / cc7d94cf3e84 / 4
-
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-611471eb1d5ac6e378b4326f148815a45d03054ea181c69908e8f209ec4ab584"></a>
-
-## stateful_service.volumes — stateful_service.volumes / 214b96a038b7 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- stateful_service.volumes
-
-<a id="canonical-02ba93ca269249c6f2cccb0523aa79087e05d7ba304bd5df0476631519eb59c7"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Ephemeral Volumes. Ephemeral volumes for the service.
-
-Upstream description:
-
-Ephemeral volumes for the service.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.ConflictingListObjectAttributes("empty_dir",
-    "host_path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-volumes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-37f24f286922b0934dfde0043e9ef00b38475689012e09aef5c5cd35612115a3"></a>
-
-## Direct properties — stateful_service.volumes / 214b96a038b7 / 3
-
-- [empty_dir](resources--workload--reference--group-028.md#canonical-6f54be1db77c1206c706b220311f1837344b1235660eedcd5ab1390923ac3830): complete subsection reference.
-
-- [host_path](resources--workload--reference--group-028.md#canonical-205c706e9066dbd7c4ca5324dc84fd01b0f54d123f4ae858548198dfa9881299): complete subsection reference.
-
-<a id="canonical-e742e9effc5bbe15161eb6c288b0c4e5bdd11d2f3408ba17c8a6d16de57aef2e"></a>
-
-<a id="canonical-ecc1cf88cb1123e4eb2d492b7043682697372cf8adac492444cfaf6e35db0d5a"></a>
-
-## name property — stateful_service.volumes / 214b96a038b7 / 4
-
-Type: `"string"`. Optional.
-
-Name. Name of the volume.
-
-Upstream description:
-
-Name of the volume.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.dns_1123_label": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.dns_1123_label": "true"
-  }
-}
-```
-
-<a id="canonical-3661f3ccc965b83817a8640d96ecd9c0b51554dc82b8d7842363e305b295bfb1"></a>
-
-## Next pages — stateful_service.volumes / 214b96a038b7 / 5
-
-- [stateful_service.volumes.empty_dir](resources--workload--reference--group-028.md#canonical-6f54be1db77c1206c706b220311f1837344b1235660eedcd5ab1390923ac3830)
-- [stateful_service.volumes.host_path](resources--workload--reference--group-028.md#canonical-205c706e9066dbd7c4ca5324dc84fd01b0f54d123f4ae858548198dfa9881299)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-6f54be1db77c1206c706b220311f1837344b1235660eedcd5ab1390923ac3830"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a791a215f11ece88fb3e762802706de23d8d72f96153e28df1f0bfd22dd53cd0"></a>
-
-## stateful_service.volumes.empty_dir — stateful_service.volumes.empty_dir / 2c8c2be8317b / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- stateful_service.volumes.empty_dir
-
-<a id="canonical-8df048265b714e9f21ed931a70ad93262de27278aaed458b82f10dc99fa59c03"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume containing a temporary directory whose lifetime is the same as a replica of a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("size_limit")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-empty_dir {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-c2b1ef27c9b178812d413f51f0a0ebff67a7e1dece0c6baf625101c28294641c"></a>
-
-## Direct properties — stateful_service.volumes.empty_dir / 2c8c2be8317b / 3
-
-- [mount](resources--workload--reference--group-028.md#canonical-55b223c2e5b7b48bb092a210dae8c6807b4c020b96c7c5bd15aaca8c9d69f559): complete subsection reference.
-
-<a id="canonical-bd7f20df2cfdaa80ae4450010fa2d4df4368e1077171ca769f4ddd25c47626ad"></a>
-
-<a id="canonical-36d06129b9c3e7148d2b8244a16d626005fa685ccd083834a33533f34ef37b2a"></a>
-
-## size_limit property — stateful_service.volumes.empty_dir / 2c8c2be8317b / 4
-
-Type: `"number"`. Optional.
-
-Size Limit (in GiB). Configuration parameter for size limit
-
-Upstream description:
-
-Configuration parameter for size limit
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.double.lte": "10",
-    "ves.io.schema.rules.message.required": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.double.lte": "10",
-    "ves.io.schema.rules.message.required": "true"
-  }
-}
-```
-
-<a id="canonical-ca7863095f0a4e73d34bf4cc186976e16a2af7eab8e981770a043b948c722e97"></a>
-
-## Next pages — stateful_service.volumes.empty_dir / 2c8c2be8317b / 5
-
-- [stateful_service.volumes.empty_dir.mount](resources--workload--reference--group-028.md#canonical-55b223c2e5b7b48bb092a210dae8c6807b4c020b96c7c5bd15aaca8c9d69f559)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-55b223c2e5b7b48bb092a210dae8c6807b4c020b96c7c5bd15aaca8c9d69f559"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-07b401ffa1e7cbeae4e354ce39b2d794325a9cb2d43b027865b75069add2942b"></a>
-
-## stateful_service.volumes.empty_dir.mount — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- [stateful_service.volumes.empty_dir](resources--workload--reference--group-028.md#canonical-6f54be1db77c1206c706b220311f1837344b1235660eedcd5ab1390923ac3830)
-- stateful_service.volumes.empty_dir.mount
-
-<a id="canonical-bd73c48fd4c7413230c147ce3e6f24787dd9e89b6f49ed86d3dd1ed04810f9af"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume mount describes how volume is mounted inside a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-mount {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-319b9b2cd15bfb593946de6adeec7ec4f52631c284c1b863e43e0f0376e1c71d"></a>
-
-## Direct properties — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 3
-
-<a id="canonical-a7762b83a1f39fc1a6f08ccabe70f8b7ba22ae961241950f446a0f3809b6df87"></a>
-
-<a id="canonical-d096ad6ccaf0da4be61107ee7400437cdb6ab837a54e522c05565f10ee9c07dc"></a>
-
-## mode property — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: VOLUME\_MOUNT\_READ\_ONLY|VOLUME\_MOUNT\_READ\_WRITE\] Mode in which the volume should be
-mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume in read-only mode -
-VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
-\`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
-\`VOLUME\_MOUNT\_READ\_ONLY\`.
-
-Upstream description:
-
-Mode in which the volume should be mounted to the workload
-
-&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
-
-Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
-
-Mount the volume in read-write mode.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VOLUME_MOUNT_READ_ONLY",
-  "enum": [
-    "VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-d43f7614d782b11fefbc3645de77bcf4c775ef40eac0eacedad69be849b20cd7"></a>
-
-<a id="canonical-5678b6d6f16971ff7089b20ee387e61426116414a307d4a734cf69e7c50c9c12"></a>
-
-## mount_path property — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 5
-
-Type: `"string"`. Optional.
-
-Path within the workload container at which the volume should be mounted. Must not contain ':'.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "pattern": "^[^:]*$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  }
-}
-```
-
-<a id="canonical-de6d031e5fabce16ca6849ad774b42ed15ea7112cdd5eb5a5971dbfebe4893e8"></a>
-
-<a id="canonical-9689eb3282d846fc4bd266e7189522f9b5736138d9dcafc457cbc28b7ae6a2e6"></a>
-
-## sub_path property — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 6
-
-Type: `"string"`. Optional.
-
-Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
-root).
-
-Upstream description:
-
-Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
-root).
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-39aab56d5db5a45875983037342edc80c94ab01ff36e5a022483e7b0c51a8967"></a>
-
-## Next pages — stateful_service.volumes.empty_dir.mount / 05f4a939937d / 7
-
-- [stateful_service.volumes.empty_dir](resources--workload--reference--group-028.md#canonical-6f54be1db77c1206c706b220311f1837344b1235660eedcd5ab1390923ac3830)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-205c706e9066dbd7c4ca5324dc84fd01b0f54d123f4ae858548198dfa9881299"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-fd881c98de2a2a86bf010d788ca1a997ae76bf5b4869ffa4f6905e0526965223"></a>
-
-## stateful_service.volumes.host_path — stateful_service.volumes.host_path / 498d67bd8e39 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- stateful_service.volumes.host_path
-
-<a id="canonical-dbe7b255a173a33b3fc0661b9af4c08766c4b79a6ab3e30efed8bbf264983f97"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume containing a host mapped path into the workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-host_path {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-b0706ab7e3c425504d73dc43d36b5ffd783f4d19c5d7af00c362206d7a073015"></a>
-
-## Direct properties — stateful_service.volumes.host_path / 498d67bd8e39 / 3
-
-- [mount](resources--workload--reference--group-028.md#canonical-c4dfb3de724f8ad62bde6f17d93ca1935507133c501d76e358d5cbcddcd231ce): complete subsection reference.
-
-<a id="canonical-6df109488dc6c63d8e8b8573816f5aca917eeb97942a01167aa85ff0a3a01099"></a>
-
-<a id="canonical-8badc4c924b69688ab32c383b21a0bf9e94e76d038f84a1ba9ed882c9f885908"></a>
-
-## path property — stateful_service.volumes.host_path / 498d67bd8e39 / 4
-
-Type: `"string"`. Optional.
-
-Path. Path of the directory on the host.
-
-Upstream description:
-
-Path of the directory on the host.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "[^\\\\0]+"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "[^\\\\0]+"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "[^\\\\0]+"
-  }
-}
-```
-
-<a id="canonical-29b1d7ffd1710f95cda35ae53799dcefad9355160abbd9fcc37aa3c88766e85b"></a>
-
-## Next pages — stateful_service.volumes.host_path / 498d67bd8e39 / 5
-
-- [stateful_service.volumes.host_path.mount](resources--workload--reference--group-028.md#canonical-c4dfb3de724f8ad62bde6f17d93ca1935507133c501d76e358d5cbcddcd231ce)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-c4dfb3de724f8ad62bde6f17d93ca1935507133c501d76e358d5cbcddcd231ce"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-36aa349e156a695885757a07e7d691b1de00344b0682fdf00c720abbaf11f011"></a>
-
-## stateful_service.volumes.host_path.mount — stateful_service.volumes.host_path.mount / 68911b59a07a / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-38e7ef0ae08e8226d79f01ebfd032f90bd70887814b91e9ee1610bebdab59227)
-- [stateful_service.volumes.host_path](resources--workload--reference--group-028.md#canonical-205c706e9066dbd7c4ca5324dc84fd01b0f54d123f4ae858548198dfa9881299)
-- stateful_service.volumes.host_path.mount
-
-<a id="canonical-4860c871dbf67cf345c52842a80c89f36cc7fe9e783f2e52a4fd36a72c41857e"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume mount describes how volume is mounted inside a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-mount {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-d0a4b5d4c4a065d970d2dedf24b32da46f646bba3d35382eefcb596fe0f1fc23"></a>
-
-## Direct properties — stateful_service.volumes.host_path.mount / 68911b59a07a / 3
-
-<a id="canonical-c6a9644024ebe0e0304a4c7d94240532d756449322e0f943cb7cb821f15ffb0a"></a>
-
-<a id="canonical-305bfd7d9b3396c6168ee0b1da6253c76571bce56907108d1093426b4bea82bc"></a>
-
-## mode property — stateful_service.volumes.host_path.mount / 68911b59a07a / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: VOLUME\_MOUNT\_READ\_ONLY|VOLUME\_MOUNT\_READ\_WRITE\] Mode in which the volume should be
-mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume in read-only mode -
-VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
-\`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
-\`VOLUME\_MOUNT\_READ\_ONLY\`.
-
-Upstream description:
-
-Mode in which the volume should be mounted to the workload
-
-&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
-
-Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
-
-Mount the volume in read-write mode.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VOLUME_MOUNT_READ_ONLY",
-  "enum": [
-    "VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1f744b0010205142b84ed0828f2a3bcc4275b1b0754bc86401386234a41c41f8"></a>
-
-<a id="canonical-cb532038a813249fdaa93befd8cbc61be08c885e36f9476b8cd9b4ebf84c6b35"></a>
-
-## mount_path property — stateful_service.volumes.host_path.mount / 68911b59a07a / 5
-
-Type: `"string"`. Optional.
-
-Path within the workload container at which the volume should be mounted. Must not contain ':'.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "pattern": "^[^:]*$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  }
-}
-```
-
-<a id="canonical-e46d8f6a38fcc812a5630ce2b0b787685d933869879c22e49752f3de6b93f3f1"></a>
-
-<a id="canonical-d3177a0f498eb89872390af9c99183d460620e185080aed66595406446f10e4c"></a>
-
-## sub_path property — stateful_service.volumes.host_path.mount / 68911b59a07a / 6
-
-Type: `"string"`. Optional.
-
-Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
-root).
-
-Upstream description:
-
-Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
-root).
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-1171637b5d51ac456bde54a5e5461e40ed644a80065f55b2b7d7ca95ecf51494"></a>
-
-## Next pages — stateful_service.volumes.host_path.mount / 68911b59a07a / 7
-
-- [stateful_service.volumes.host_path](resources--workload--reference--group-028.md#canonical-205c706e9066dbd7c4ca5324dc84fd01b0f54d123f4ae858548198dfa9881299)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-923a5edb0b626cfe6c45cb6f5d6d5e0ff2ccab8133ffed2c2cdcdabe8d3e7698"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0cea738db9be2817688f3568c6425423cab585e061026287ddd242b2ebf9603f"></a>
-
-## timeouts — timeouts / 9348da332b07 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- timeouts
-
-<a id="canonical-ed902ba0352c11c9f01a16010daf5f74c4454d62d37253221cd683527735e3fa"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Terraform syntax:
-
-```terraform
-timeouts {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-f6693fc08a34c57464b6d75c5fc10a1d599fe5100e1b4271578a2613bdd8f93a"></a>
-
-## Direct properties — timeouts / 9348da332b07 / 3
-
-<a id="canonical-f3db28dd22f8afc794baede88adff9cf089d148a3033270c8bc539829799e6e9"></a>
-
-<a id="canonical-5e1e07129f3bf65963c2300e7e8f1ab525e69199dc408c208817bcb2011f1ded"></a>
-
-## create property — timeouts / 9348da332b07 / 4
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-0163693782f5d81626662d481776b5b52d44f5fca5d90e12a80b09ee0c329a5a"></a>
-
-<a id="canonical-3cb066c8d480b1d7176a4660a7f664e602136205c2fe389b807ebd19e56be857"></a>
-
-## delete property — timeouts / 9348da332b07 / 5
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
-saved into state before the destroy operation occurs.
-
-<a id="canonical-b62c6c67583ec09fccf5a051a947cf853901907b7d51b5f75f069327f2a9db6e"></a>
-
-<a id="canonical-a435107d0dcf1fd09291acfcd99e1f3cb0146b3df6cec4d20575cfbdb52aadb2"></a>
-
-## read property — timeouts / 9348da332b07 / 6
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
-is enabled.
-
-<a id="canonical-0386be23cb74ffe05ddfc8232463d857257481c006063dc6e550a27256668d7d"></a>
-
-<a id="canonical-d9d2b2e29604479a52dce71817a13eced7f1d204ee6795449052a1535830742f"></a>
-
-## update property — timeouts / 9348da332b07 / 7
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-a6a7e260d76933f6292830a3ef6d3f5e44709f72f6c0a583ad1c9e3d820b387e"></a>
-
-## Next pages — timeouts / 9348da332b07 / 8
-
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)

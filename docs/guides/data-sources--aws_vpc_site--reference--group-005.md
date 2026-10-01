@@ -6,19 +6,619 @@ description: "Complete grouped canonical reference for xcsh_aws_vpc_site referen
 
 # xcsh_aws_vpc_site reference
 
-<a id="canonical-2cb0d30f3f567e7e98e8206de6202c3a40336a7999bf2ab0c5488ad073286c05"></a>
+<a id="canonical-3130213021121303-2130201002102002-3121102001223322-2303233323030132-0312113033302023-1023011002302021-2202112200122033-0211031100133020"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 155b4e229d37 / 3
+## Next pages — no_forward_proxy / 220031101201 / 4
 
-- [interface](data-sources--aws_vpc_site--reference--group-005.md#canonical-dcb9573375cbcfc21fc5177cfbe2cb40a83d4c7dc8c84a7d50343453a7ae2048): complete subsection reference.
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-- [nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3): complete subsection reference.
+<a id="canonical-3123132102010221-1313323321201022-0132332313100232-0000232320222000-3120131330332002-0230203032302100-3221213323300131-3111230102030233"></a>
 
-<a id="canonical-3e0f615565540c7168beee69f2deb0ea6d4ca4c46ce60809e6ffa33fd73641fb"></a>
+<!-- Exact provider and upstream contract identifiers. -->
 
-<a id="canonical-c888613e962435b1767c3a088770b243e751cbc2c004534b8a51e171c49f4fa8"></a>
+<!-- textlint-disable terminology -->
 
-## type property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 155b4e229d37 / 4
+<a id="canonical-0212301203132223-3331031112103230-2313212232303313-2331013120020021-3222202331020112-0212320122303320-1203012030000322-2202301200232201"></a>
+
+## voltstack_cluster.no_global_network — no_global_network / 032022001222 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- voltstack_cluster.no_global_network
+
+<a id="canonical-2330210202200302-1111210033031011-1023000312330010-1022302303130100-1123020230203231-1210103200323010-0330020211302231-2012032302101030"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for no global network.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012002300130112-2121121332021022-1102132220011331-2213201000001102-2013122010111301-2300332231231223-3133001022122122-1123012033313102"></a>
+
+## Direct properties — no_global_network / 032022001222 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2331223233011301-2132111002210321-2333022320312233-1321100111233220-2022331032001030-3121030201210212-1231333313202303-0010330110321131"></a>
+
+## Next pages — no_global_network / 032022001222 / 4
+
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-2212001200320023-0103123301111112-3121300212222310-1021330323330101-0332010301010213-3321300022202131-3202313123033002-1302013031223111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3021230032210232-0021202030330012-1312001001211213-2023000220202111-3022200310213210-2010031010123130-3220310230201130-1002012030012123"></a>
+
+## voltstack_cluster.no_k8s_cluster — no_k8s_cluster / 002012032022 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- voltstack_cluster.no_k8s_cluster
+
+<a id="canonical-2133003213300012-0001012012133131-3320123011112130-3120121330102203-3203101222310013-0330023022132102-0030303023122223-3033023322033312"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0222122011021123-3200123111101101-3022001212322230-1100312130323031-2123212131213113-0112003003233121-1131223323031033-1013013311223321"></a>
+
+## Direct properties — no_k8s_cluster / 002012032022 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1323321321312013-1131002320030121-1022022321233323-2221312201311003-1130233233003032-2331232010013003-0122111112001313-2000121323130312"></a>
+
+## Next pages — no_k8s_cluster / 002012032022 / 4
+
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-0102212321312020-3001010321302321-2121322220110010-3021000211211010-1211120120201000-2022133233322130-3001002323233230-3010320323010110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0223201021110002-3123222202022032-0120222222303023-0230102331223011-3202201213200303-2222213031223232-0111323211311110-1121002332232133"></a>
+
+## voltstack_cluster.no_network_policy — no_network_policy / 012013001222 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- voltstack_cluster.no_network_policy
+
+<a id="canonical-0033211312312310-0132132023031310-0201111220202303-0000011322203300-2013103101112012-3000202120122111-1101130302001012-3033303030233132"></a>
+
+Type: `["object", {}]`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2303100221202233-3301300323221113-3302223201131231-2011030301020000-1311033202321000-0330102131323201-1033302120321022-3331113220010022"></a>
+
+## Direct properties — no_network_policy / 012013001222 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3210333323020122-0330022131223210-1010300033301312-3110321013222101-1232020110220133-1233113211233201-3102310023033103-2122103230233203"></a>
+
+## Next pages — no_network_policy / 012013001222 / 4
+
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-2033230010123303-3331132231121030-1022211311211031-3121113000112103-3212222020011033-1333131100313232-0330121132301312-2312021313323032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1100032133101010-1033202222131213-3100323022023310-2010330312211002-3220102222231012-1002322211233310-3101133211003012-1133200102232102"></a>
+
+## voltstack_cluster.no_outside_static_routes — no_outside_static_routes / 132032002120 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- voltstack_cluster.no_outside_static_routes
+
+<a id="canonical-2122020111123201-2133203233131011-1312003033103111-1331023000323312-1113121031133211-3123232212232333-0311321322111133-3332232222301013"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for no outside static routes.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3222113303123210-0101313313010223-2111222120333330-1010232101123232-3121130120203332-0231211032301201-2130311131202330-3030012331323111"></a>
+
+## Direct properties — no_outside_static_routes / 132032002120 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1111120131302121-1111032203321102-1230232100112131-1232011202332311-2200320200032322-1213222202013301-1302321001203233-0200332021012220"></a>
+
+## Next pages — no_outside_static_routes / 132032002120 / 4
+
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0313332100013003-3113321130120020-1032322103212112-3122331000002111-0120231012032322-2022032202120113-3221123122010220-1103001330100220"></a>
+
+## voltstack_cluster.outside_static_routes — outside_static_routes / 312132332121 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- voltstack_cluster.outside_static_routes
+
+<a id="canonical-1311232301002310-1111010323100233-1330121313012203-3220211121323220-3232131330210102-2200101023132320-0231332023123102-3330330000230133"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for outside static routes.
+
+Upstream description:
+
+List of static routes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2103323133032123-3323313202213103-1310022300212122-1321211300030201-0132223310102102-2331332212103330-2233230123111002-2130223331023320"></a>
+
+## Direct properties — outside_static_routes / 312132332121 / 3
+
+- [static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320): complete subsection reference.
+
+<a id="canonical-3013322213302323-0211313013120110-2120312322010010-1203031121030113-2032313320121321-3022320031300210-1211323111033031-3013113101103321"></a>
+
+## Next pages — outside_static_routes / 312132332121 / 4
+
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2323300211312311-1010000110310121-2321211310332030-2322323010332221-1322311322322033-0011030101101111-0112223111303202-1131000311032111"></a>
+
+## voltstack_cluster.outside_static_routes.static_route_list — static_route_list / 200010120120 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- voltstack_cluster.outside_static_routes.static_route_list
+
+<a id="canonical-0202031211013232-3322303011123111-0121220221120332-2231022023203302-1001100332220231-2220111110120200-1303032023102013-0011330111102330"></a>
+
+Type: `"list"`. Computed.
+
+List of Static Routes. List of Static routes.
+
+Upstream description:
+
+List of Static routes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+<a id="canonical-0313030211110112-3122113031230331-3220332033123021-1222111233311102-3221333123020021-1112110220330022-3322322011310030-3313231231310222"></a>
+
+## Direct properties — static_route_list / 200010120120 / 3
+
+- [custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013): complete subsection reference.
+
+<a id="canonical-0332300021001332-0200132133133123-3000322023301030-2002300101200001-1100022131013213-2030321203012211-2232133202210231-2131202301133113"></a>
+
+<a id="canonical-1003202002230333-0132202102003332-0113211130201021-1110221020202101-0223033303000212-1300010200320000-3332301012310220-1030030331101211"></a>
+
+## simple_static_route property — static_route_list / 200010120120 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
+interface in the network.
+
+Upstream description:
+
+Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
+interface in the network.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-3123113112213233-1322013321032102-1331001320002113-1110013301113231-3103131032202011-2213003200331021-3021211003100032-1000021121103101"></a>
+
+## Next pages — static_route_list / 200010120120 / 5
+
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1211013312322032-0310232022231102-3212131222133212-3332102020310003-0101023332031330-3320310113330133-3011233033131112-0330331003120112"></a>
+
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 122223022102 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route
+
+<a id="canonical-1211130322110200-3023102210031012-2213323223011212-1220320220302223-1211311312021203-2122023002001333-1202230223332001-3022310002102021"></a>
+
+Type: `"single"`. Computed.
+
+Defines a static route, configuring a list of prefixes and a next-hop to be used for them.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3310110323202302-0201223123332112-0221102311331021-0303122112111220-3031012033130001-1223312212303223-0232112012100122-3301023130222122"></a>
+
+## Direct properties — custom_static_route / 122223022102 / 3
+
+<a id="canonical-0122330032232223-2111003303320123-1221102333301100-1030132032103002-2322322313120113-1120212000130323-1021033200321132-0032002132122211"></a>
+
+<a id="canonical-3233320203102010-2200212022031323-0122113022332321-2312233301132300-3221021230120223-1111003132300332-0202203001010301-3120122113030303"></a>
+
+## attrs property — custom_static_route / 122223022102 / 4
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of route attributes associated with the static route. Possible values are
+\`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
+\`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
+\`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of route attributes associated with the static route.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  }
+}
+```
+
+- [labels](data-sources--aws_vpc_site--reference--group-005.md#canonical-0231211000221200-0012023313322003-0003213301203333-3110131323210322-2101310013302121-2231131120210132-1131321101310030-2231331100100120): complete subsection reference.
+
+- [nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122): complete subsection reference.
+
+- [subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000): complete subsection reference.
+
+<a id="canonical-1032311021223211-1020231102122131-2301003210033210-0311122122333300-3011211210202112-1102002120132023-2000301132032330-1112303200230233"></a>
+
+## Next pages — custom_static_route / 122223022102 / 5
+
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--aws_vpc_site--reference--group-005.md#canonical-0231211000221200-0012023313322003-0003213301203333-3110131323210322-2101310013302121-2231131120210132-1131321101310030-2231331100100120)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-0231211000221200-0012023313322003-0003213301203333-3110131323210322-2101310013302121-2231131120210132-1131321101310030-2231331100100120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2203322333210030-0331023232011320-0233102301220110-0001122112203033-0310211322312322-2011321112302002-2032133303232302-2123010210331122"></a>
+
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels — labels / 003120112213 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.labels
+
+<a id="canonical-3023100101030132-3203111321312033-2120232121210230-1230201110333111-1111132131102012-2002023130131231-3132222011101132-1003003331210031"></a>
+
+Type: `"single"`. Computed.
+
+Add Labels for this Static Route, these labels can be used in network policy.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0121312020130220-2003112213332012-3032213002210302-3102331332031023-0320103023332023-3311201033300200-0132101121212201-0010213201230223"></a>
+
+## Direct properties — labels / 003120112213 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2101231302200332-0102332001003033-3220203000222123-3300002322330302-2033323003212323-1322101031312103-0003222322230011-3233320120011120"></a>
+
+## Next pages — labels / 003120112213 / 4
+
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+
+<a id="canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0033303131220201-0213131110203220-1021201311202122-0302203131303211-3221033210021223-3323331213002000-0131112232111001-3102202302221313"></a>
+
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 020221310313 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop
+
+<a id="canonical-0221000201222111-0011303133210012-1212202021202323-3122000211022213-1000101002320112-1312032303222320-2023203030120102-2131120231231012"></a>
+
+Type: `"single"`. Computed.
+
+Nexthop. Identifies the next-hop for a route.
+
+Upstream description:
+
+Identifies the next-hop for a route.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0230230031030033-0333111213321332-2120322002001231-3212020002300322-1000030312221321-2121233302222300-3011102020223100-1303022012300011"></a>
+
+## Direct properties — nexthop / 020221310313 / 3
+
+- [interface](data-sources--aws_vpc_site--reference--group-005.md#canonical-3130232111130303-1311302330333002-0133301101131330-3323320230231000-2220033110301331-3020302010221331-1100031003101103-2213223202001020): complete subsection reference.
+
+- [nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303): complete subsection reference.
+
+<a id="canonical-0332003312011111-1211111000301301-1220233232321221-3302313223003222-1231103022103010-1230321200200021-3212333322030333-3113031210013323"></a>
+
+<a id="canonical-3020202012010332-2112021003112301-1312133003220020-2013130023021003-3213110130233002-3000001011031023-2022110132011301-3010213310332220"></a>
+
+## type property — nexthop / 020221310313 / 4
 
 Type: `"string"`. Computed.
 
@@ -56,37 +656,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fd89d280c66e0987dbe80c08f9701e0e737b2047a776d3a5286cbda6efdf0307"></a>
+<a id="canonical-3331202131022000-3012123200212013-3123322000300020-3321130001320032-1303132302001013-2213131231032211-0220123023312212-3233313300030013"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 155b4e229d37 / 5
+## Next pages — nexthop / 020221310313 / 5
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--aws_vpc_site--reference--group-005.md#canonical-dcb9573375cbcfc21fc5177cfbe2cb40a83d4c7dc8c84a7d50343453a7ae2048)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--aws_vpc_site--reference--group-005.md#canonical-3130232111130303-1311302330333002-0133301101131330-3323320230231000-2220033110301331-3020302010221331-1100031003101103-2213223202001020)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-dcb9573375cbcfc21fc5177cfbe2cb40a83d4c7dc8c84a7d50343453a7ae2048"></a>
+<a id="canonical-3130232111130303-1311302330333002-0133301101131330-3323320230231000-2220033110301331-3020302010221331-1100031003101103-2213223202001020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-08f74db98e5c2e3aad759d8c98410d5b5fb4449b136e7b5c9b4a24596a1f8d93"></a>
+<a id="canonical-0020331310312321-2032113002320322-2231131121312030-2120100100311123-1133231010102123-0103123213231130-2123102202101121-1222013320312103"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 210000210233 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
 - voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.interface
 
-<a id="canonical-a91516dc853dfb59f011abbb2367553a8e4d44cc4be0994c7b1cea88fefab9a0"></a>
+<a id="canonical-2221011101123130-2011033133231121-3300010122232323-0203121311110322-2032103110103030-1023320021211030-1323013032222020-3332332223212200"></a>
 
 Type: `"list"`. Computed.
 
@@ -127,15 +727,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-302359c72cb8c0a5f6564c2119a54e2c4e654f077a4cf34c17e181f9b9496571"></a>
+<a id="canonical-0300020311213013-0230232030002211-3312111210300201-0121221110320230-1032121110330013-1322103033031030-0113320120013321-2321102112111301"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 3
+## Direct properties — interface / 210000210233 / 3
 
-<a id="canonical-fc918de0222c5145b7cad5978a0ed7014036f808ef780c6aa6100d6ffd9e55b6"></a>
+<a id="canonical-3330210120313200-0202023011011011-2313302231112113-2022003231130001-1000031233200020-3233132000301222-2212010000311233-3331213211112312"></a>
 
-<a id="canonical-8bab48a3f9ae94598a19bb6dd6fabb50609cafd32a2196bc94b5dd02e22a3412"></a>
+<a id="canonical-2023222310202203-3321223221101121-2022012123231231-3112332223231100-1200213022333103-0222020121122330-2110231131310002-3202022203100102"></a>
 
-## kind property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 4
+## kind property — interface / 210000210233 / 4
 
 Type: `"string"`. Computed.
 
@@ -170,11 +770,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f6d01539b122512445f4f9b45925e6541933fcc229e66c5de6475711e47df00"></a>
+<a id="canonical-1033123100011103-2123010202110102-1010113310332123-1011210211321211-1001210303333030-0202213212123011-3132121013111301-0132101331330000"></a>
 
-<a id="canonical-e0a84aba7ec127fbe9412f20947ff0d6c28c765bd8c6edf6e2c47fe1a50c1350"></a>
+<a id="canonical-3200222010222322-1332300102133323-3221100102330200-2110133333003112-3002203013121123-3120301232313312-3202301013333201-2211003001031100"></a>
 
-## name property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 5
+## name property — interface / 210000210233 / 5
 
 Type: `"string"`. Computed.
 
@@ -209,11 +809,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f7b15c4eb82208326e65d5b1e0c8df50ff069e1006195c146b325335177925c"></a>
+<a id="canonical-0233132301113010-3223200202002003-0212321211311123-0132003020313311-0033330012213201-0000120121113001-1012230302110303-1101131321021130"></a>
 
-<a id="canonical-a8a784b2df628e4a759f118e66b3bb21a4f793c42c1f0e0df08688428f800ec9"></a>
+<a id="canonical-2220221320102302-3133120220321022-1311213301012032-1212230323230201-2210331321033010-0230013300320031-3300201220201002-2033200000323021"></a>
 
-## namespace property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 6
+## namespace property — interface / 210000210233 / 6
 
 Type: `"string"`. Computed.
 
@@ -263,11 +863,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8075fd652d3794df0a83d7dbbf588be74b62bb1bfed4ed1865b50bf232cd740a"></a>
+<a id="canonical-2000131133311211-0231031321103133-0022200331133123-2333112020233213-1023120223230123-3332311032310120-1211231100233302-0302303113100022"></a>
 
-<a id="canonical-7fa706235203823405e1b7ea2498e1da58c2b4699cf7cb160c651059aa72e3d9"></a>
+<a id="canonical-1333221300120203-1102000320020310-0011320123133222-0210212032013122-1120300223101221-2130331330230112-0030121101001121-2222130232033121"></a>
 
-## tenant property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 7
+## tenant property — interface / 210000210233 / 7
 
 Type: `"string"`. Computed.
 
@@ -302,11 +902,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c802f3840b787b89c22f0addb7d3978859fd6f7ce9b51d86d055c8ef874fff39"></a>
+<a id="canonical-3020000233032010-0023132013232021-3002023300223131-2313310321132020-1121333112331330-3221231101312012-3100111130203233-2013103333330321"></a>
 
-<a id="canonical-70d81ca3c6dfe870890493ebf69d77aeec19019359eff62785b3497f172c3352"></a>
+<a id="canonical-1300312001302203-3012313332201300-2021001021033223-3312213113132232-3230012100012103-1121323333120213-2011230310211333-0113023003031102"></a>
 
-## uid property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 8
+## uid property — interface / 210000210233 / 8
 
 Type: `"string"`. Computed.
 
@@ -341,35 +941,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d5a93b60e3df58fce55d9a5e69a0b73b3a00866e5cb21c84196de8cc932d113"></a>
+<a id="canonical-1331112221032312-0032033133112033-3032111131212211-3212212200231303-2303220000201212-3211302302013020-1001211231322030-3021030231010103"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 53443d90092f / 9
+## Next pages — interface / 210000210233 / 9
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3"></a>
+<a id="canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0dadf7fb2be8d0a3d68d25843589628e915c4ac0186dd94c6a79bbe86088e51b"></a>
+<a id="canonical-0031223133133323-0223322031002203-3112203102112010-0311202112022032-2101113010223000-0120123131211030-1222132123233220-1200202032110123"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / f6e23cb8cb8c / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 232030232030 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
 - voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
 
-<a id="canonical-cc37e2af2764962d50e2e85a48e6f850eecdd6450a458a999de463e98f9ce40c"></a>
+<a id="canonical-3030031332022233-0213121021120231-1100320232201122-1020321233201100-3232303131121011-0022101120222121-2131321012033221-2033213032100030"></a>
 
 Type: `"single"`. Computed.
 
@@ -389,49 +989,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24f6a082f6219d15234a483e9ef33a91eda7e7fb944f547a5744569a2aff2798"></a>
+<a id="canonical-0210331222002002-3312020121310111-0203102210200332-2132330303222101-3231221332133323-2110103311101322-1113101011122122-0222333302132120"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / f6e23cb8cb8c / 3
+## Direct properties — nexthop_address / 232030232030 / 3
 
-- [dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b): complete subsection reference.
+- [dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023): complete subsection reference.
 
-- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-db54f8460f8fb6dc11917ab0351c278660b32b8bcd6ade78f4e8f55a58483d57): complete subsection reference.
+- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-3123111033201012-0033203323123130-0101210113222300-0311013002132012-1200230302232023-3031122231321320-3310322033111122-1120102003311113): complete subsection reference.
 
-- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-5b1744119da5c4685da12215e07f5b40a7822d516779f1b1e630bec2ea5067e0): complete subsection reference.
+- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-1123011310100101-2131221130101220-1131220102020111-3200133311231000-2213200202311101-1213132133012301-3212030023323002-3222110012133200): complete subsection reference.
 
-<a id="canonical-ffbca121fbbedecb3a46b6b1d1fc5a6a88b18519990daaa7a684cab2b1d70c96"></a>
+<a id="canonical-3333233022010201-3323233231323023-0322101223122301-3101333011221222-2020230120110121-2121003122222213-2212201030222302-2301311300302112"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / f6e23cb8cb8c / 4
+## Next pages — nexthop_address / 232030232030 / 4
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-db54f8460f8fb6dc11917ab0351c278660b32b8bcd6ade78f4e8f55a58483d57)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-5b1744119da5c4685da12215e07f5b40a7822d516779f1b1e630bec2ea5067e0)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-3123111033201012-0033203323123130-0101210113222300-0311013002132012-1200230302232023-3031122231321320-3310322033111122-1120102003311113)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-1123011310100101-2131221130101220-1131220102020111-3200133311231000-2213200202311101-1213132133012301-3212030023323002-3222110012133200)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b"></a>
+<a id="canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd0becac71b1ef1733f44f97026c5c4e821f14da1513461c8ba30a1dca1c7816"></a>
+<a id="canonical-3131002332302230-1301230132330113-0303331010332113-0002123011301032-2002013301103122-0111010310120130-2023220300220131-3022013013200112"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 2d4d1c272d1a / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 021302310122 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
 - voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack
 
-<a id="canonical-cb49e1d2b69bfdf214b7a47814d28f75c8136b2e6fc3ebe9ceafaa22d2f8b86f"></a>
+<a id="canonical-3023102132013102-2312212333313302-0110231322101320-0110310220331311-3020010312230232-1233300332233221-3032223322220202-3102332023201233"></a>
 
 Type: `"single"`. Computed.
 
@@ -450,47 +1050,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-148a726635708d069468ca7217cf7d6cb4a70d322e6a4dcd00f31dcc00f65497"></a>
+<a id="canonical-0110202213021212-0311130020310012-2110122030221302-0113303313311230-2310221300310302-0232122210313031-0000330301313030-0000331211102113"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 2d4d1c272d1a / 3
+## Direct properties — dual_stack / 021302310122 / 3
 
-- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-8fc9a28dba31ef55f1e4e1b8171b40158f44dd8199fea4f69bc0d5ff87c49f8b): complete subsection reference.
+- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-2033302122022031-2322030132331111-3301321032012320-0113012310000111-2033101031312001-2121333222103312-2123300031113333-2013301021332023): complete subsection reference.
 
-- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-6287e5ad2c1914a30c696ff5cbd184d63c1b37f57147dce504b62489a46ab5d2): complete subsection reference.
+- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-1202201332112231-0230012101102203-0030122112333311-3023310120103112-0330012303133311-1301101331303211-0010231202102021-2210122223113102): complete subsection reference.
 
-<a id="canonical-ffeaf102c0d1270f47ec2484b9c8a8f514c300b47e52d53e2040dea4a07ae21d"></a>
+<a id="canonical-3333322233010002-3000310102130033-1013323002102010-2321302022203311-0110300300002310-1332110231110332-0200100031322210-2200132232020131"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 2d4d1c272d1a / 4
+## Next pages — dual_stack / 021302310122 / 4
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-8fc9a28dba31ef55f1e4e1b8171b40158f44dd8199fea4f69bc0d5ff87c49f8b)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-6287e5ad2c1914a30c696ff5cbd184d63c1b37f57147dce504b62489a46ab5d2)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-2033302122022031-2322030132331111-3301321032012320-0113012310000111-2033101031312001-2121333222103312-2123300031113333-2013301021332023)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-1202201332112231-0230012101102203-0030122112333311-3023310120103112-0330012303133311-1301101331303211-0010231202102021-2210122223113102)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-8fc9a28dba31ef55f1e4e1b8171b40158f44dd8199fea4f69bc0d5ff87c49f8b"></a>
+<a id="canonical-2033302122022031-2322030132331111-3301321032012320-0113012310000111-2033101031312001-2121333222103312-2123300031113333-2013301021332023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-42eae203f03a86b330ce67111e2bd974d032d6dcd2efee490c5fbf8d7686d111"></a>
+<a id="canonical-1002322232020003-3300032220122303-0300303212130101-0132022331211310-3100030231123130-3102323332321021-0030113323332031-1312201231010101"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 00add8a90ec7 / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 222100323013 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4
 
-<a id="canonical-8881e421a8ce6024aae66fab3adf4177007b8e1b0b35df9b6ab26650a9210bf7"></a>
+<a id="canonical-2020200132100201-2220303212000210-2222321212332223-0322313310011313-0000132320320123-0023031131332123-1222230212121100-2221020100233313"></a>
 
 Type: `"single"`. Computed.
 
@@ -513,15 +1113,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a93bd19ac950f1f2fd9e3cde85d47a61ba029b3c50a5333cc1ffedfad7e7a17"></a>
+<a id="canonical-1122210323310121-2230211100330133-0233312132033031-3220113110132212-0123220002212303-3011002211030303-3030013333323133-2231133213220113"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 00add8a90ec7 / 3
+## Direct properties — IPv4 / 222100323013 / 3
 
-<a id="canonical-bdb3a34e171eeaa0b516b5e7a9b2564d751c4074638155b3f3215b31877ca1fb"></a>
+<a id="canonical-2331230322031032-0113013232222200-2311011223113213-2221230211121031-1311013010001310-1203200111112303-3303020111230301-2013133022013323"></a>
 
-<a id="canonical-fc3602fa5d5be7004e1fe2178914c7cbd8205a056b4ead83af24c95c9f8f0e29"></a>
+<a id="canonical-3330031200023322-1131112332130000-1032013332020113-2021011030133023-3120020011220011-1223103222312003-2233021030211130-2133203300320221"></a>
 
-## addr property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 00add8a90ec7 / 4
+## addr property — IPv4 / 222100323013 / 4
 
 Type: `"string"`. Computed.
 
@@ -558,37 +1158,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-70fa7ed51a60e83134bc09e1543775493c179970ca4b8a4cf31fc5bf6353af61"></a>
+<a id="canonical-1300332213323111-0122120032200301-0310233000213201-1110031313111021-0330011321211300-3022102320221030-3303013330112333-1203110322331201"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 00add8a90ec7 / 5
+## Next pages — IPv4 / 222100323013 / 5
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-6287e5ad2c1914a30c696ff5cbd184d63c1b37f57147dce504b62489a46ab5d2"></a>
+<a id="canonical-1202201332112231-0230012101102203-0030122112333311-3023310120103112-0330012303133311-1301101331303211-0010231202102021-2210122223113102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-57e4c8c2af5cec23391762ab171f26642f19aa034ebbe471658568a0b9e0b81b"></a>
+<a id="canonical-1113321030203002-2233113032300203-0321011312022223-0113013302121210-0233012122220003-1032232332101301-1211201112202200-2321320023200123"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 9272ced1ba6a / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 310123221222 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6
 
-<a id="canonical-57af923f27067f0bef1b643a163d04ee79608fa8a3bc8d4c8509a174f8e2f5a1"></a>
+<a id="canonical-1113223321020333-0213001213330023-3233012312100322-0112033100103232-1321120020332220-2203233020311030-2011002122011310-3320320233112201"></a>
 
 Type: `"single"`. Computed.
 
@@ -611,15 +1211,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c58839c1734ef80c24dc1f2d5a5c66d1212ca6a5a950cb5e84bc6aeace90eeac"></a>
+<a id="canonical-3011202003213001-1303103233200030-0210313001330231-1122113012123101-0201023022122211-2221110030231132-2010233012223222-3032210032322230"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 9272ced1ba6a / 3
+## Direct properties — IPv6 / 310123221222 / 3
 
-<a id="canonical-b36ff329768a100c6f9d5b671a74428e2dac6539f556bace573a88de4b7a31b5"></a>
+<a id="canonical-2303123333030221-1312202201000030-1233213111231213-0122131010022032-0231223012110321-3311111223223032-1113032220203132-1023132203012311"></a>
 
-<a id="canonical-b2206b76a091f8e98b60c575aa8d213fa1ade2386a137c87fcba6e9405a60908"></a>
+<a id="canonical-2302020012231312-2200210133203221-2023120030111311-2222203102010333-2201223132020320-1222010313302013-3330232212322110-0011221200210020"></a>
 
-## addr property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 9272ced1ba6a / 4
+## addr property — IPv6 / 310123221222 / 4
 
 Type: `"string"`. Computed.
 
@@ -664,36 +1264,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d498c1dfb7859907f721f494293ca363513f3f74187b0b2b6c89f7f15136e32f"></a>
+<a id="canonical-3110212030013133-2313201121210013-3313020133102110-0221033022031203-1101033303331310-0120132300230223-1230202133133301-1101031232030233"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 9272ced1ba6a / 5
+## Next pages — IPv6 / 310123221222 / 5
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-25ffb17f07d98630bd07a6b217e1eef2907f630f30a6e297148562fc77dd910b)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--aws_vpc_site--reference--group-005.md#canonical-0211333323011333-0013312120120300-2331001322122302-0113320132323302-2100133312030033-0300221232022113-0110201112023330-1313313121010023)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-db54f8460f8fb6dc11917ab0351c278660b32b8bcd6ade78f4e8f55a58483d57"></a>
+<a id="canonical-3123111033201012-0033203323123130-0101210113222300-0311013002132012-1200230302232023-3031122231321320-3310322033111122-1120102003311113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-afe930a5c83b68de4b562cb1965ba21e9964714c9b2a6e7e231c2bff3d37bbba"></a>
+<a id="canonical-2233322103002211-3020032312203132-1023111202302301-2112112322020132-2121121013011030-2123022212321332-0203013002233333-0331031323232322"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 8891f31d8205 / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 013120020011 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
 
-<a id="canonical-77229533f077d8a4a4cafb86f8cb9b1a35b48b7add5f43d9841d55d4f4168702"></a>
+<a id="canonical-1313020221110303-3300131331202210-2210302233232012-3320302321230122-0311231020231322-3131113310033121-2010013111113110-3310011220130002"></a>
 
 Type: `"single"`. Computed.
 
@@ -716,15 +1316,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-151a66dca6756d8e01f6767fb0aa95f0ae0005db14bd23b3af5ea09eb2f56aa7"></a>
+<a id="canonical-0111012212123130-2212131112312032-0001331213121333-2300222221113300-2232000000113123-0110233102032303-2233113222002132-2302331112222213"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 8891f31d8205 / 3
+## Direct properties — IPv4 / 013120020011 / 3
 
-<a id="canonical-98d9814efe7991b926193901edfdbc731cf7c4e7f61fd954b2ccb343640beffd"></a>
+<a id="canonical-2120312120011032-3332132121012321-0212012103210001-3231333123301303-0130331330103213-3312013331211110-2302303023031003-1210002332333331"></a>
 
-<a id="canonical-721c0d2f65ee18cc2edd23366d2a56779c651aa4eadbee01580343514542f909"></a>
+<a id="canonical-1302013000310233-1211323201203030-0232313102030312-1231022211121313-2130121101222210-3222312332320001-1120000310031101-1011100233210021"></a>
 
-## addr property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 8891f31d8205 / 4
+## addr property — IPv4 / 013120020011 / 4
 
 Type: `"string"`. Computed.
 
@@ -761,36 +1361,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e3f6cdfcaaa36fed267a5e21490ed707c2af938bb68643652c951aec9d61587d"></a>
+<a id="canonical-3203331230313330-2222220312333231-0212132211320201-1021003231130013-3002223321032023-2312201210031211-0230211101223230-2131120111201331"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 8891f31d8205 / 5
+## Next pages — IPv4 / 013120020011 / 5
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-5b1744119da5c4685da12215e07f5b40a7822d516779f1b1e630bec2ea5067e0"></a>
+<a id="canonical-1123011310100101-2131221130101220-1131220102020111-3200133311231000-2213200202311101-1213132133012301-3212030023323002-3222110012133200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ea7c4c3de35a6f4a5b10228bf302f2691c930afc5348c4e4b31aca527554d2c1"></a>
+<a id="canonical-3222133010300331-3203112212331022-1123010002022023-3303000233021221-0130210300223330-1103102030103210-2303012230221102-1311111031023001"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 12c202715e6d / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 130111321231 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-004.md#canonical-5d8ad31696ac3f3ca96a45c50fa7746b0b7a044a0ca13167a10b55ae923e1ada)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--aws_vpc_site--reference--group-005.md#canonical-1131202231030112-2112223003330330-2221122210113011-0033221313101223-0023132200101022-0030220103011213-2201002311112232-2102033201223122)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
 
-<a id="canonical-b1f65d5acb898a25f831b1f33a63aa9fe2fd7b2dff9b255ea266908760b22cc1"></a>
+<a id="canonical-2301331211311122-3023202120220211-3320030123013303-0322120322222133-3202333113230231-3333212302111132-2202121221002013-1200230202303001"></a>
 
 Type: `"single"`. Computed.
 
@@ -813,15 +1413,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-996d4471e35333b6046bb4e067e742f8434585b759d1adde9fef4e2e6fd0feba"></a>
+<a id="canonical-2121123110101301-3203110303032312-0010122323103200-1213321310023320-1003101120112313-1121310122313132-2133323310320232-1233310033322322"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 12c202715e6d / 3
+## Direct properties — IPv6 / 130111321231 / 3
 
-<a id="canonical-30cf87d4b52c20b594145d1aa157623ef4482ea5f664925dcea5d62c5f3ebee9"></a>
+<a id="canonical-0300303320133110-2311023002002311-2110011011310122-2201111312020332-3310102002322211-3312121021021131-3032221131120230-1133033223323221"></a>
 
-<a id="canonical-2c02ea7da7a6672100b34dda8d4683f3da89ae607fc30d73f57644263039967f"></a>
+<a id="canonical-0230000232221331-2213221212130201-0000230310313122-2031101220033303-3122202122321200-1333300300311303-3311131210100212-0300032121121333"></a>
 
-## addr property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 12c202715e6d / 4
+## addr property — IPv6 / 130111321231 / 4
 
 Type: `"string"`. Computed.
 
@@ -866,34 +1466,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7aea7de3c45b934b917b39aaad5d4f58670cd7ac833278744bd3cc95a6e95774"></a>
+<a id="canonical-1322322213313203-3010112321031023-2101132303212222-2231113110331120-1213003031132230-2003030213201310-1023310330302111-2212322111131310"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.ne / 12c202715e6d / 5
+## Next pages — IPv6 / 130111321231 / 5
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-f99762732f6eef7d9169b3989bda96e4e0e9b4d8bf04554e0e02bd02520892b3)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--aws_vpc_site--reference--group-005.md#canonical-3321211312021303-0233123232331331-2101122123032120-2123312221123210-3200322123103120-2333001011111032-0032000223310002-1102002021022303)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-1c2fcf1ec9d797aa24c214c65d86001e3db189de3f6cf941bd6f123d6af37ec0"></a>
+<a id="canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3eef6eeae6c6c67eebcf641ee64af6ceccb45b716b6dc0980dacb8fe223e1193"></a>
+<a id="canonical-0332323312323222-3212301230121332-3223303312100132-3212102233123032-3030231011231301-1223123130002120-0031223023203332-0202033201012103"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / 6de2a9292f23 / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets — subnets / 022102330203 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
 - voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets
 
-<a id="canonical-672f39e85c9fdf072317aca3f40a7abef1d9a27e00a02597e5946ef64497cecf"></a>
+<a id="canonical-1213023303213220-1130213331330013-0203011322302203-3310002213222332-3301312122021332-0000220002112113-3211211012323312-1010211330323033"></a>
 
 Type: `"list"`. Computed.
 
@@ -936,45 +1536,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5d2804cfd27fc6003ac55646f40418156a045a120b24d951ab1ab1f218a58723"></a>
+<a id="canonical-1131022000103033-3102133330120000-0322301111121012-3310001001200111-1222001011220102-0023021031211101-2223012223013302-0120221120130203"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / 6de2a9292f23 / 3
+## Direct properties — subnets / 022102330203 / 3
 
-- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-d8d4b276cdfaa97003e2f1ebcc429fe9e8b1db6183bc31867aea55e5dd835c13): complete subsection reference.
+- [ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-3120311023021312-3031332222211300-0003320233013223-3030100221333221-3220230131231201-2003233003012012-1322322211113211-3131200311300103): complete subsection reference.
 
-- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-8f2051106fca301fd54fafd97dbb7042dfba5314203958b1f40f69bad45607f5): complete subsection reference.
+- [ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-2033020011010100-1233302203000133-3111103322333121-1331232313001002-3133232211030110-0200032111202301-3310003312212322-3110111200133311): complete subsection reference.
 
-<a id="canonical-3c7f54da94f75943e42411331f1a846d32ce563acce80cceb1e75d258edbaada"></a>
+<a id="canonical-0330133311103122-2110331311211003-3210021001010303-0133012220101231-0302303211120322-3030322000303032-2301321311310211-2032312322223122"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / 6de2a9292f23 / 4
+## Next pages — subnets / 022102330203 / 4
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-d8d4b276cdfaa97003e2f1ebcc429fe9e8b1db6183bc31867aea55e5dd835c13)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-8f2051106fca301fd54fafd97dbb7042dfba5314203958b1f40f69bad45607f5)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--aws_vpc_site--reference--group-005.md#canonical-3120311023021312-3031332222211300-0003320233013223-3030100221333221-3220230131231201-2003233003012012-1322322211113211-3131200311300103)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--aws_vpc_site--reference--group-005.md#canonical-2033020011010100-1233302203000133-3111103322333121-1331232313001002-3133232211030110-0200032111202301-3310003312212322-3110111200133311)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-d8d4b276cdfaa97003e2f1ebcc429fe9e8b1db6183bc31867aea55e5dd835c13"></a>
+<a id="canonical-3120311023021312-3031332222211300-0003320233013223-3030100221333221-3220230131231201-2003233003012012-1322322211113211-3131200311300103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6aa9a95b3eb83b54f6b88c032355f24a9def1e463cdf635664341b26b8285b3e"></a>
+<a id="canonical-1222222122211123-0332232003231110-3312232020300003-0203111133021022-2131323301321012-0330313312031112-1210031001230212-2320022011230332"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / ee33baa6bbd7 / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 221223233113 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-1c2fcf1ec9d797aa24c214c65d86001e3db189de3f6cf941bd6f123d6af37ec0)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4
 
-<a id="canonical-ac12620670a209f5166ce200322c16e9d6af5738c30787951e114480daa626da"></a>
+<a id="canonical-2230010212020012-1300220200213311-0112123032020000-0302023001123221-3112223311130320-3003001320132111-0132010110102000-3122221202123122"></a>
 
 Type: `"single"`. Computed.
 
@@ -993,15 +1593,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d285178a2a0176c70a0f43b56d99a602f09dd7fb00bec9e139a0796d1107848"></a>
+<a id="canonical-1331022011011320-2202220001131230-1300220033100323-1112312121221200-0233002131311333-2300002332302132-0103212200132112-3101010013201020"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / ee33baa6bbd7 / 3
+## Direct properties — IPv4 / 221223233113 / 3
 
-<a id="canonical-6a6b98882adfedc67c0d956ceb460b6ff35b82abcc9a33815193b48169e31f2a"></a>
+<a id="canonical-1222122321202020-0222313332313012-1330003121111230-3223101200231233-3303112320022223-3030212203032001-1101210323102001-1221320301330222"></a>
 
-<a id="canonical-ef806be1f2d817597111689f726feb7dce4c632b6d9cd295b5114864fddab82a"></a>
+<a id="canonical-3233200012233201-3302312001131121-1301010112202133-1302123332231331-3032103012030223-1231213031022111-2311010110201210-3331312223200222"></a>
 
-## plen property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / ee33baa6bbd7 / 4
+## plen property — IPv4 / 221223233113 / 4
 
 Type: `"number"`. Computed.
 
@@ -1037,11 +1637,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10a741faf449e4bffbc02b7db374b4b90a50df0c400822fe22efbb20fb2400a6"></a>
+<a id="canonical-0100221310013322-3310102132102333-3323300002231331-2303131023102321-0022110031330030-1000002002023332-0202323323230200-3323021000002212"></a>
 
-<a id="canonical-86d32a09f03173f6fe718caeb873370492c425d0f644e8cee6cd56847aedf50a"></a>
+<a id="canonical-2012310302220021-3300030113033312-3332130120302232-2320130303130010-2102301002113100-3312101032203032-3212303111122010-1322323133110022"></a>
 
-## prefix property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / ee33baa6bbd7 / 5
+## prefix property — IPv4 / 221223233113 / 5
 
 Type: `"string"`. Computed.
 
@@ -1078,35 +1678,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-87b483541c20d181de41e8ee8a049ec25de38b47408035d893b36d3e1a07294e"></a>
+<a id="canonical-2013231020031110-0130020031012001-3132100132203232-2022001021323002-1131320320231013-1000200003113120-2103230312310332-0122001302211032"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / ee33baa6bbd7 / 6
+## Next pages — IPv4 / 221223233113 / 6
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-1c2fcf1ec9d797aa24c214c65d86001e3db189de3f6cf941bd6f123d6af37ec0)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-8f2051106fca301fd54fafd97dbb7042dfba5314203958b1f40f69bad45607f5"></a>
+<a id="canonical-2033020011010100-1233302203000133-3111103322333121-1331232313001002-3133232211030110-0200032111202301-3310003312212322-3110111200133311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-755fa3b877e9b5be87b1de22846c1e9cb2c4f9080073f97250e64b9a74efb467"></a>
+<a id="canonical-1311113322032320-1313322123112332-2013230131320202-2010123001322130-2302301033210020-0000130333211302-1100321210232122-1310323323101213"></a>
 
-## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6 — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / d994258fb099 / 2
+## voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 203323002121 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-004.md#canonical-fc117b259a0186a106062d2990256669dddd1fe7a759a6558363ac6365334e6d)
-- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-004.md#canonical-ae52f688a89ba596b353e1dea3f2dd583f69dcc81297a799512f50941f8d0e78)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-004.md#canonical-595702d7115acc2a4f00c89cf8d2f2bca419ac2ce6c76f96baec14f712436607)
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-1c2fcf1ec9d797aa24c214c65d86001e3db189de3f6cf941bd6f123d6af37ec0)
-- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.outside_static_routes](data-sources--aws_vpc_site--reference--group-005.md#canonical-3330010113230211-2122000120122201-0012001202310221-2100021112121221-3131313101333213-2213112122121111-2003120322301203-1211030310321231)
+- [voltstack_cluster.outside_static_routes.static_route_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2232110233122020-2220212322112112-2303110332013132-2203330231311120-0333122131303020-0102211322132121-1101023311002110-0133203100321320)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route](data-sources--aws_vpc_site--reference--group-005.md#canonical-1121111300023113-0101112230300222-1033000030202130-3320310233022330-2210012122300230-3212301312332112-2322323001103313-0102100312120013)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000)
+- voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6
 
-<a id="canonical-0d5580d4e1c1dab90da025b675ea5d352e9ec2636a9fdc42af9a5049d258ee88"></a>
+<a id="canonical-0031111120003110-3201300131222321-0031220002112312-1311322211310311-0232213230021203-1222213331301002-2233212211001021-3102112032322020"></a>
 
 Type: `"single"`. Computed.
 
@@ -1125,15 +1725,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-87d0415ce74a602bc6d52ec2782ca574ff0a4f5029dfd957fa07fc37db982808"></a>
+<a id="canonical-2013310010011130-3213102212000223-3012311102323002-1320023022111310-3333002210331100-0221313331211113-3322001333300313-3123212002200020"></a>
 
-## Direct properties — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / d994258fb099 / 3
+## Direct properties — IPv6 / 203323002121 / 3
 
-<a id="canonical-ab020fcbae4852c93dae29a8cf749311c64789a31e097ef86b04f38016bcd3d0"></a>
+<a id="canonical-2223000200333023-2232102011023021-0331223202212220-3033131021030101-3012101320212203-0132002113323320-1223001033032000-0112233031033100"></a>
 
-<a id="canonical-78398cc42c0b66ac90f4793a611643a8262abf472938bf2b4cb712f7e8e2de52"></a>
+<a id="canonical-1320032120303010-0230002312122230-2100331013210322-1201011210032220-0212022223331013-0221032023330223-1030231301023313-3220320231321102"></a>
 
-## plen property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / d994258fb099 / 4
+## plen property — IPv6 / 203323002121 / 4
 
 Type: `"number"`. Computed.
 
@@ -1169,11 +1769,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b01f550f45ff3592bdf84b544e81d42e180512887ee7c26a822f32020b556d5f"></a>
+<a id="canonical-2300013311110033-1011333303112102-2331332010231110-1032200131100232-0120001101022020-1332321330021222-2002023303020002-0023111112311133"></a>
 
-<a id="canonical-ed5c6a7c5c3f58b449c535a640e45d4a524b3d409c7167d4987ff8c5049efb91"></a>
+<a id="canonical-3231113012221330-1130033311202310-1021301103112212-1000321011311022-1102102303311000-2130130112133110-2120133333203011-0010213233232101"></a>
 
-## prefix property — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / d994258fb099 / 5
+## prefix property — IPv6 / 203323002121 / 5
 
 Type: `"string"`. Computed.
 
@@ -1218,31 +1818,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-85c0e0fa5bddf3500ea6a306dcc75781d0d55c3ffc32f66408e744c49ef1c6fa"></a>
+<a id="canonical-2011300032003322-1123313133031100-0032221222030012-3130301311132001-3100311111300333-3330030233121210-0020321310103010-2132330130123322"></a>
 
-## Next pages — voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.su / d994258fb099 / 6
+## Next pages — IPv6 / 203323002121 / 6
 
-- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-1c2fcf1ec9d797aa24c214c65d86001e3db189de3f6cf941bd6f123d6af37ec0)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.outside_static_routes.static_route_list.custom_static_route.subnets](data-sources--aws_vpc_site--reference--group-005.md#canonical-0130023330330132-3021311321132222-0210300201103012-1131201200000132-0331230120213132-0333123033211001-2331123301020331-1222330313323000)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-79c6ac5549c7a8592fc75fcf20480505f861d3867d0f61977082398ba8a05a5c"></a>
+<a id="canonical-1321301222301111-1021301322201121-0233301311333033-0200102000110011-3320120131032012-1331003312012113-1300200203212023-2220220011221130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f57a3abf864e4fa8e32ef6385df5f699b563c3e4925043b8ed0bf149ecde4e6e"></a>
+<a id="canonical-3311132203222333-2012103210332220-3203023233120320-1131331133122121-2311120330033210-2102110010032320-3231002333011021-3230313210321232"></a>
 
-## voltstack_cluster.sm_connection_public_ip — voltstack_cluster.sm_connection_public_ip / de110ee1ef29 / 2
+## voltstack_cluster.sm_connection_public_ip — sm_connection_public_ip / 320132330221 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
 - voltstack_cluster.sm_connection_public_ip
 
-<a id="canonical-97857809b6e4aaf698e2af018369b2cb71e290a736c573d0c3b92a741ccdeed3"></a>
+<a id="canonical-2113201113200021-2312321022223312-2120320222330001-2003122123023023-1301320221002213-0312301113033100-3003232102221310-0130303132323103"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1265,37 +1865,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f2aa4b37bcfbaf59c119480883919a47233a8dff7057244e2d56befa10fb4aa"></a>
+<a id="canonical-1233022222102303-1323303323223311-2130010121102000-2020032101212210-1302030322203133-3313001113021010-3202311112233233-2201003323102222"></a>
 
-## Direct properties — voltstack_cluster.sm_connection_public_ip / de110ee1ef29 / 3
+## Direct properties — sm_connection_public_ip / 320132330221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f3996b1607d36c53ea4b8474a10ad475f59edc5b67c8acc73510f47c8bddf116"></a>
+<a id="canonical-3303212112230112-0013310312301103-3222102320101310-2201002231101311-3311213231301123-1213302022303013-0311010033101330-2023313133010112"></a>
 
-## Next pages — voltstack_cluster.sm_connection_public_ip / de110ee1ef29 / 4
+## Next pages — sm_connection_public_ip / 320132330221 / 4
 
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-85752786ad6ab87137e7b05b9f01c15c8c8862cc2c500c3ccc603a4a1c47df2f"></a>
+<a id="canonical-2011131102132012-2231122223201301-0313321323001123-2133000130011130-2030202012023030-0230110000300330-3030120003221022-0130101331330233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-933baa8a1019014e2eb162273a293626c7b988039c2f134fdf5235d112a6adfa"></a>
+<a id="canonical-2103032322222022-0100012100011032-0232230112020213-0322022103120212-3013232120200003-2130023301031033-3133110203113101-0102221222313322"></a>
 
-## voltstack_cluster.sm_connection_pvt_ip — voltstack_cluster.sm_connection_pvt_ip / d780b4eaa362 / 2
+## voltstack_cluster.sm_connection_pvt_ip — sm_connection_pvt_ip / 322222031202 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
 - voltstack_cluster.sm_connection_pvt_ip
 
-<a id="canonical-8e5ad07413ed37e6218a8390a4a915685ab48b3c5af4c1d81f61f0bdba77c931"></a>
+<a id="canonical-2032112231001310-0103323103133212-0201202220032100-2210222101111220-1122231020230330-1122331030013120-0133120133002331-2322131330210301"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1318,37 +1918,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e2543b5e05555b5f6ea2dd221e9e460fadd381e0a64845ccfcf5109ebc0995bf"></a>
+<a id="canonical-3202111003231132-0011111111231133-1232220231310202-0132213210120033-2231310320013200-2212102010113030-3330331101002132-2330002121112333"></a>
 
-## Direct properties — voltstack_cluster.sm_connection_pvt_ip / d780b4eaa362 / 3
+## Direct properties — sm_connection_pvt_ip / 322222031202 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2cfaf8a2c206cdd4656bb8bbc48a2838e455a4e6194c59f1db47cd6f63befdc4"></a>
+<a id="canonical-0230332233202202-3002001230313110-1211122323202323-3010202202200320-3210111122103212-0121103011213301-3123101330311233-1203233233313010"></a>
 
-## Next pages — voltstack_cluster.sm_connection_pvt_ip / d780b4eaa362 / 4
+## Next pages — sm_connection_pvt_ip / 322222031202 / 4
 
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-971b039f053e8eebe6ed31d992852f4386d1fc5f48f855ee86755ed5a22a09cb"></a>
+<a id="canonical-2113012300032133-0011033220323223-3212323103013121-2102201102331003-2012310133301133-1020332011113232-2012131111323111-2202022200213023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1891c7cab66bbca479801f47d80aae9030ef86f35126f4141a9d58430f285a0c"></a>
+<a id="canonical-0120210130133022-2312122323302210-1321200001331013-3120002222322100-0300323320123303-1101021233100110-0122213111201003-0033022011220030"></a>
 
-## voltstack_cluster.storage_class_list — voltstack_cluster.storage_class_list / 420dcf63322d / 2
+## voltstack_cluster.storage_class_list — storage_class_list / 120303020231 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
 - voltstack_cluster.storage_class_list
 
-<a id="canonical-071b825154ef5ff42e2b2eb01aa5669579d44b9b0354af443f14769848cac3cc"></a>
+<a id="canonical-0013012320021101-1110323311333310-0232022302322300-0122221112122111-1321311010232123-0003111022331010-0333011013122120-1020302230033030"></a>
 
 Type: `"single"`. Computed.
 
@@ -1367,39 +1967,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a150bfeae7e2bc703f3211b4f96b23d0a224d305f1a7f8ec3e0e930bc862d6b3"></a>
+<a id="canonical-2201110023333222-3213320223301300-0333030201012310-3321122302033100-2202021031030011-3301221333203230-0332003221030023-3020120231122303"></a>
 
-## Direct properties — voltstack_cluster.storage_class_list / 420dcf63322d / 3
+## Direct properties — storage_class_list / 120303020231 / 3
 
-- [storage_classes](data-sources--aws_vpc_site--reference--group-005.md#canonical-46aa16c4b660d4d9c8e5eee58d0b5efa68483b94bd7595e66d5bf458323201c6): complete subsection reference.
+- [storage_classes](data-sources--aws_vpc_site--reference--group-005.md#canonical-1012222201123010-2312120031103121-3020321132323211-2031002311323322-1220102003232110-2331131121113212-1231112333101120-0302030200013012): complete subsection reference.
 
-<a id="canonical-483a603e0f7028043c9839322bae32e8c4794729f3385f08c38690e92b342da1"></a>
+<a id="canonical-1020032212000332-0033130002200010-0330212003210302-0223223203023220-3010132110130221-3303032011330020-3003201221003221-0223031002312201"></a>
 
-## Next pages — voltstack_cluster.storage_class_list / 420dcf63322d / 4
+## Next pages — storage_class_list / 120303020231 / 4
 
-- [voltstack_cluster.storage_class_list.storage_classes](data-sources--aws_vpc_site--reference--group-005.md#canonical-46aa16c4b660d4d9c8e5eee58d0b5efa68483b94bd7595e66d5bf458323201c6)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.storage_class_list.storage_classes](data-sources--aws_vpc_site--reference--group-005.md#canonical-1012222201123010-2312120031103121-3020321132323211-2031002311323322-1220102003232110-2331131121113212-1231112333101120-0302030200013012)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-46aa16c4b660d4d9c8e5eee58d0b5efa68483b94bd7595e66d5bf458323201c6"></a>
+<a id="canonical-1012222201123010-2312120031103121-3020321132323211-2031002311323322-1220102003232110-2331131121113212-1231112333101120-0302030200013012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-289f43d2686cdbeaf758a2c32b6e07e268192a36f40f361bb76ae68448667135"></a>
+<a id="canonical-0220213310033102-1220123031233222-3313112022023003-0223123200133202-1220012102220312-3310003303120123-2313122232122010-1020121213010311"></a>
 
-## voltstack_cluster.storage_class_list.storage_classes — voltstack_cluster.storage_class_list.storage_classes / 59de275d224c / 2
+## voltstack_cluster.storage_class_list.storage_classes — storage_classes / 113102021030 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-ce03987dc4fa70508f8e432b0fc8b0c65d9dacdc10695d71f9c4f1c61d03dbb9)
-- [voltstack_cluster.storage_class_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-971b039f053e8eebe6ed31d992852f4386d1fc5f48f855ee86755ed5a22a09cb)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [voltstack_cluster](data-sources--aws_vpc_site--reference--group-004.md#canonical-3032000321201331-3010332213001100-2033203210030223-0033302023003012-1131213122303130-0100122111311301-3321301033013012-0131000331232321)
+- [voltstack_cluster.storage_class_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2113012300032133-0011033220323223-3212323103013121-2102201102331003-2012310133301133-1020332011113232-2012131111323111-2202022200213023)
 - voltstack_cluster.storage_class_list.storage_classes
 
-<a id="canonical-9ba2c7dfc1e6ee5bd9723e300341f6d64c75d5c34c6bc205b73f350376d8f886"></a>
+<a id="canonical-2123220230133133-3001321232321123-3121130203320300-0003100133123112-1030131131113003-1030122330020011-2313033303110003-1312312033202012"></a>
 
 Type: `"list"`. Computed.
 
@@ -1443,15 +2043,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1c5dca8877a5933366ac3fb3d135fa813bb555de8be603a3f1daa9fdab2a383f"></a>
+<a id="canonical-0130113130222020-1313221121030303-1212223003332303-3101031133222001-0323231111113132-2023321200032203-3301312222213331-2223022203200333"></a>
 
-## Direct properties — voltstack_cluster.storage_class_list.storage_classes / 59de275d224c / 3
+## Direct properties — storage_classes / 113102021030 / 3
 
-<a id="canonical-a613fc40c316ce6e283381a182e20a2f7e9ad37f17c7d8e96651b0eea4bf291a"></a>
+<a id="canonical-2212010333301000-3003011230321232-0220030320012201-2002320200220233-1332212231031333-0113301331203221-1212110123003232-2210233302210122"></a>
 
-<a id="canonical-41cc37750deaa089148d0a48b26b421151def9d01492e6c3d35ddc69944f6bdc"></a>
+<a id="canonical-1001303003131311-0031322222002021-0110203100221020-2302122310020101-1101313233213100-0110210232123003-3103113131301221-2110103312233130"></a>
 
-## default_storage_class property — voltstack_cluster.storage_class_list.storage_classes / 59de275d224c / 4
+## default_storage_class property — storage_classes / 113102021030 / 4
 
 Type: `"bool"`. Computed.
 
@@ -1470,11 +2070,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ddd0b3b50a6a7e3d5f6fa456d3498f38ebe4498b4b0ada470bc78fb76d5b7592"></a>
+<a id="canonical-3131310023032311-0022122213320331-1133123322101112-3103102120330320-3223321010212023-1023002231221013-0023301320332313-1231112313112102"></a>
 
-<a id="canonical-e1f6c30a7ac1037c4dc0a7f209fe811c9bb2fea00cc9bfbc025c4fcb8de108e0"></a>
+<a id="canonical-3201331230030022-1322300100031330-1031300022133302-0021333220010130-2123230233322200-0030302123332330-0002113010333023-2031320100203200"></a>
 
-## storage_class_name property — voltstack_cluster.storage_class_list.storage_classes / 59de275d224c / 5
+## storage_class_name property — storage_classes / 113102021030 / 5
 
 Type: `"string"`. Computed.
 
@@ -1514,30 +2114,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e835990fe92a02a46131ee2ef5872dafdb633f295f07ffb5330a395b94afa95"></a>
+<a id="canonical-2132200311212100-3332210222000222-1012010301323202-3233112013023122-3331231203033302-2111330013333323-1103030022032111-2321102233222111"></a>
 
-## Next pages — voltstack_cluster.storage_class_list.storage_classes / 59de275d224c / 6
+## Next pages — storage_classes / 113102021030 / 6
 
-- [voltstack_cluster.storage_class_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-971b039f053e8eebe6ed31d992852f4386d1fc5f48f855ee86755ed5a22a09cb)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [voltstack_cluster.storage_class_list](data-sources--aws_vpc_site--reference--group-005.md#canonical-2113012300032133-0011033220323223-3212323103013121-2102201102331003-2012310133301133-1020332011113232-2012131111323111-2202022200213023)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-c482fd7fdef218c974f1bc3d19e9ec98b067330464c5d118dc6b9acff264f21e"></a>
+<a id="canonical-3010200233311333-3132330201203021-1310330123300331-0121322132302120-2300121303030010-1210301131010120-3130122321223033-3302121033020132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-986d2341a12c5b5cbf9182421bcd9bd0fc0fc7de2e0b37a1dcea4ebda086dda2"></a>
+<a id="canonical-2120123102031001-2201023011231130-2333210120021002-0123303121233100-3330003330133132-0232002303132201-3130322210322331-2200201231312202"></a>
 
-## vpc — vpc / 7ddb32bdc351 / 2
+## vpc — vpc / 233130031101 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
 - vpc
 
-<a id="canonical-0168a69df836d59bf8bcdf842afa7944a40e90f9cf9b59b64b7063b32141cd71"></a>
+<a id="canonical-0001122022122131-3320031231112123-3320233031332010-0222332213211010-2210003221003321-3033212311212312-1023130012032303-0201100130311301"></a>
 
 Type: `"single"`. Computed.
 
@@ -1561,17 +2161,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c7dcd490da243cd94d317cd3b67434c9e072be0a0774c7f3b9c7238eb34018ab"></a>
+<a id="canonical-3013313031102100-3122021003303121-1031030113303103-2312131003103021-3200130223320022-0013131030133303-2321301302032032-2303100001202223"></a>
 
-## Direct properties — vpc / 7ddb32bdc351 / 3
+## Direct properties — vpc / 233130031101 / 3
 
-- [new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-2c5ec47f40d08d199c4e319abffbf698d75affa6fe32230bb004015f4fa0e2f0): complete subsection reference.
+- [new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-0230113230101333-1000310020310121-2130103203012122-2333332333122120-3113112233332212-3332030202030023-2300001000011133-1033220032023300): complete subsection reference.
 
-<a id="canonical-d26f494a21e204a94afae9a3e9787c1b1c5e341d8ce7dace2e3f5375f3922d69"></a>
+<a id="canonical-3102123310211022-0201320200102221-1022332232212203-3221132013300123-0130113203100131-2030321331223032-0232033311031311-3303210202311221"></a>
 
-<a id="canonical-cd81e1dcc0339aa8783c840f395854a1d769768137f8f3ddd4adb9799fa8aac5"></a>
+<a id="canonical-3031200132013130-3000030321222220-1320033020100033-0321112011102201-3113122113122001-0313332033033131-3110223123211321-2133222022223011"></a>
 
-## vpc_id property — vpc / 7ddb32bdc351 / 4
+## vpc_id property — vpc / 233130031101 / 4
 
 Type: `"string"`. Computed.
 
@@ -1615,32 +2215,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e888b4a565ebe214cc9e0fe78bb46832ff31d37c51e0705b691823eee98ff02f"></a>
+<a id="canonical-3220202023102211-1211322332020110-3030213200333213-2023231012200302-3333030131031330-1101320013001123-1221012002033232-3221203333000233"></a>
 
-## Next pages — vpc / 7ddb32bdc351 / 5
+## Next pages — vpc / 233130031101 / 5
 
-- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-2c5ec47f40d08d199c4e319abffbf698d75affa6fe32230bb004015f4fa0e2f0)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-0230113230101333-1000310020310121-2130103203012122-2333332333122120-3113112233332212-3332030202030023-2300001000011133-1033220032023300)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-2c5ec47f40d08d199c4e319abffbf698d75affa6fe32230bb004015f4fa0e2f0"></a>
+<a id="canonical-0230113230101333-1000310020310121-2130103203012122-2333332333122120-3113112233332212-3332030202030023-2300001000011133-1033220032023300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e7cc50f2f874032b58f94364376088de30c44b4fba72af9a0a864d79e38d9c95"></a>
+<a id="canonical-3213303011003302-3320131000030223-1120332110031210-0313120020203132-0300301010231033-2322130222332122-0022201210311321-3203203121302111"></a>
 
-## vpc.new_vpc — vpc.new_vpc / e066777e89a9 / 2
+## vpc.new_vpc — new_vpc / 133220212221 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-c482fd7fdef218c974f1bc3d19e9ec98b067330464c5d118dc6b9acff264f21e)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-3010200233311333-3132330201203021-1310330123300331-0121322132302120-2300121303030010-1210301131010120-3130122321223033-3302121033020132)
 - vpc.new_vpc
 
-<a id="canonical-458f41240440241bd926f9145cdba59c9db071450fe3d574027217ded5a730d6"></a>
+<a id="canonical-1011203310010210-0010100002100123-3121021233210110-1130312322112130-2131230013011011-0033320331111310-0002130201133132-3111221303003112"></a>
 
 Type: `"single"`. Computed.
 
@@ -1664,17 +2264,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b41bd113c5db6d7a0751ae2b8b45e6490645f400d6781a5a95838bad4c32fd8e"></a>
+<a id="canonical-2310012331010103-3011312312311322-0013110122320223-2023101132121021-0012101133100000-3112132001221122-2111200320232231-1030030233312032"></a>
 
-## Direct properties — vpc.new_vpc / e066777e89a9 / 3
+## Direct properties — new_vpc / 133220212221 / 3
 
-- [autogenerate](data-sources--aws_vpc_site--reference--group-005.md#canonical-5e04adf742f1fdc8665ad30bdee1b5c8f7f8cd58b3f18100fae705dc0fbfd430): complete subsection reference.
+- [autogenerate](data-sources--aws_vpc_site--reference--group-005.md#canonical-1132001022313313-1002330133313020-1212112231030023-3132320123113020-3313332030311120-2303330120010000-3322321300113130-0033233331100300): complete subsection reference.
 
-<a id="canonical-e8e2e033a02c013a17cf6ae162f84181e2412faef59152860dc8c7dcb988de8f"></a>
+<a id="canonical-3220320232000303-2200023000010322-0113303312223201-1202332010012001-3202100102332232-3311210111022012-0031302030133130-2321202031322033"></a>
 
-<a id="canonical-6775e136b8d300a1c612dc754728fa6878c8b5c5c502bd3d6fc46631e1a32937"></a>
+<a id="canonical-1213131132010312-2320310300002201-3012010231301311-1013022033221220-1320302023113011-3011000223310331-1233301012120301-3201220302210313"></a>
 
-## name_tag property — vpc.new_vpc / e066777e89a9 / 4
+## name_tag property — new_vpc / 133220212221 / 4
 
 Type: `"string"`. Computed.
 
@@ -1715,11 +2315,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f5456b797aa4a6aa34786e22aaade28ff289bf344f7c97e30ee0ba0d1c6f076c"></a>
+<a id="canonical-3311101112231321-1322221022122222-0310132012320202-2222223132022033-3302202123330310-1033133021133203-0032320023220031-0130123300131230"></a>
 
-<a id="canonical-cb6dc56ad4818f0b7a4b9e5f9c9fb3bb543621131337041af482a203cdd5aecc"></a>
+<a id="canonical-3023123130111222-3110200120330023-1322102321321133-2130213323032323-1110031202010103-0103031300100122-3310200222020003-3031311122323030"></a>
 
-## primary_ipv4 property — vpc.new_vpc / e066777e89a9 / 5
+## primary_ipv4 property — new_vpc / 133220212221 / 5
 
 Type: `"string"`. Computed.
 
@@ -1766,33 +2366,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0fb267fe2501f1e708689631b00860da048824a1c3587df2ffc29f63e8863ffc"></a>
+<a id="canonical-0033230212133332-0211000133013213-0020122021120301-2300002012003122-0010202002102201-3003112013313302-3333300221331203-3220201203333330"></a>
 
-## Next pages — vpc.new_vpc / e066777e89a9 / 6
+## Next pages — new_vpc / 133220212221 / 6
 
-- [vpc.new_vpc.autogenerate](data-sources--aws_vpc_site--reference--group-005.md#canonical-5e04adf742f1fdc8665ad30bdee1b5c8f7f8cd58b3f18100fae705dc0fbfd430)
-- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-c482fd7fdef218c974f1bc3d19e9ec98b067330464c5d118dc6b9acff264f21e)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [vpc.new_vpc.autogenerate](data-sources--aws_vpc_site--reference--group-005.md#canonical-1132001022313313-1002330133313020-1212112231030023-3132320123113020-3313332030311120-2303330120010000-3322321300113130-0033233331100300)
+- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-3010200233311333-3132330201203021-1310330123300331-0121322132302120-2300121303030010-1210301131010120-3130122321223033-3302121033020132)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-5e04adf742f1fdc8665ad30bdee1b5c8f7f8cd58b3f18100fae705dc0fbfd430"></a>
+<a id="canonical-1132001022313313-1002330133313020-1212112231030023-3132320123113020-3313332030311120-2303330120010000-3322321300113130-0033233331100300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-92e6599c26628d1f617d0e2eebdc914040d3581950974a116357326325c3b676"></a>
+<a id="canonical-2102321211212130-0212120220310133-1201133100320232-3223313021011000-1000310311200121-1100211310220101-1203111303021203-0211300323121312"></a>
 
-## vpc.new_vpc.autogenerate — vpc.new_vpc.autogenerate / a54208ce7d82 / 2
+## vpc.new_vpc.autogenerate — autogenerate / 303213312002 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-c482fd7fdef218c974f1bc3d19e9ec98b067330464c5d118dc6b9acff264f21e)
-- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-2c5ec47f40d08d199c4e319abffbf698d75affa6fe32230bb004015f4fa0e2f0)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-3010200233311333-3132330201203021-1310330123300331-0121322132302120-2300121303030010-1210301131010120-3130122321223033-3302121033020132)
+- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-0230113230101333-1000310020310121-2130103203012122-2333332333122120-3113112233332212-3332030202030023-2300001000011133-1033220032023300)
 - vpc.new_vpc.autogenerate
 
-<a id="canonical-4f17d001a7ddfddd0fabf2c4e978587f46e60dd4508e17ac3074562e3b4a1261"></a>
+<a id="canonical-1033011331000001-2213313133313131-0033222333023010-3221132011201333-1012321200313110-1100203201132230-0300131011120232-0323102201021201"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1815,36 +2415,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-133cb3c3fe909c27caca741b6067bbd4834a4ccbabc454b14d29cedc8522e1ed"></a>
+<a id="canonical-0103033023033003-3332210021300213-3022302213100123-1200121323233110-2003102210303023-2223301011102301-1031022130323130-2011020232013231"></a>
 
-## Direct properties — vpc.new_vpc.autogenerate / a54208ce7d82 / 3
+## Direct properties — autogenerate / 303213312002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9af795eb5a3e2c49efe17aa750aa006cea97f5f4c69b17a6d6fb8af014573551"></a>
+<a id="canonical-2122331321113223-1122033202301021-3233320113222213-1100222200001230-3222211333113310-3012212301132212-3112332320223300-0110111303111101"></a>
 
-## Next pages — vpc.new_vpc.autogenerate / a54208ce7d82 / 4
+## Next pages — autogenerate / 303213312002 / 4
 
-- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-2c5ec47f40d08d199c4e319abffbf698d75affa6fe32230bb004015f4fa0e2f0)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [vpc.new_vpc](data-sources--aws_vpc_site--reference--group-005.md#canonical-0230113230101333-1000310020310121-2130103203012122-2333332333122120-3113112233332212-3332030202030023-2300001000011133-1033220032023300)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-1aaf17a2664f507686e37894dc171e25232558868c23cf23a2ff535374e932d3"></a>
+<a id="canonical-0122223301132202-1212103311001312-2012320313202110-3130011301320211-0203021111202012-2030020330330203-2202333311031103-1310322103023103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ca4f855050f006b685bb206e13a311216976e70b7809aa0acbdbdf8c031297fd"></a>
+<a id="canonical-3022103320111100-1100330000122312-2011232302001232-0103220301010201-1221131232130023-1320002122220022-3023312331332030-0003010221133331"></a>
 
-## waf_signatures — waf_signatures / 302c65c73dbf / 2
+## waf_signatures — waf_signatures / 301303312333 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
 - waf_signatures
 
-<a id="canonical-8ebffefa7527917c1526c33cdd0d25fdd82a056dfb700c3a99363af0eccbad85"></a>
+<a id="canonical-2032233333323322-1311021321011330-0111021230030330-3131003102113331-3120022200111231-3323130000300322-2121031203223300-3230302322312011"></a>
 
 Type: `"single"`. Computed.
 
@@ -1870,41 +2470,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d72c3e3a70164bb4cd6af394e9cb7628467823defdb849f7e502fc583bf0665c"></a>
+<a id="canonical-3113023003320322-1300011210232310-3031122233032110-3221302313120220-1012132002033132-3331232010213313-3211000233301120-0323330012121130"></a>
 
-## Direct properties — waf_signatures / 302c65c73dbf / 3
+## Direct properties — waf_signatures / 301303312333 / 3
 
-- [automatic](data-sources--aws_vpc_site--reference--group-005.md#canonical-019fee67523ef23ff78b23369f8d37132d7326034bcfe0f839f429f60578df6d): complete subsection reference.
+- [automatic](data-sources--aws_vpc_site--reference--group-005.md#canonical-0001213332321213-1102033233020333-3313202302030312-2133203103130103-0231130302120003-1023303332003320-0321331002213312-0011132031331231): complete subsection reference.
 
-- [manual](data-sources--aws_vpc_site--reference--group-005.md#canonical-60c403d5309a053e007c8c0bb9136251255785018787413040f0bfde1ea600c5): complete subsection reference.
+- [manual](data-sources--aws_vpc_site--reference--group-005.md#canonical-1200301000033111-0300212200110332-0000133020300023-2321010312021101-0211111320110001-2013201310010300-1000330023333132-0132221200003011): complete subsection reference.
 
-<a id="canonical-8e804dd4b13e4136b595bb6d5e62ebfa51f76eabc6e7225a033519d96f6901f4"></a>
+<a id="canonical-2032200010313110-2301033210010312-2311211123231231-1132120232233322-1101331312322223-3012321302021122-0003031101213121-1233122100013310"></a>
 
-## Next pages — waf_signatures / 302c65c73dbf / 4
+## Next pages — waf_signatures / 301303312333 / 4
 
-- [waf_signatures.automatic](data-sources--aws_vpc_site--reference--group-005.md#canonical-019fee67523ef23ff78b23369f8d37132d7326034bcfe0f839f429f60578df6d)
-- [waf_signatures.manual](data-sources--aws_vpc_site--reference--group-005.md#canonical-60c403d5309a053e007c8c0bb9136251255785018787413040f0bfde1ea600c5)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [waf_signatures.automatic](data-sources--aws_vpc_site--reference--group-005.md#canonical-0001213332321213-1102033233020333-3313202302030312-2133203103130103-0231130302120003-1023303332003320-0321331002213312-0011132031331231)
+- [waf_signatures.manual](data-sources--aws_vpc_site--reference--group-005.md#canonical-1200301000033111-0300212200110332-0000133020300023-2321010312021101-0211111320110001-2013201310010300-1000330023333132-0132221200003011)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-019fee67523ef23ff78b23369f8d37132d7326034bcfe0f839f429f60578df6d"></a>
+<a id="canonical-0001213332321213-1102033233020333-3313202302030312-2133203103130103-0231130302120003-1023303332003320-0321331002213312-0011132031331231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-84b31375d84b0f81f02f870c3b36c7e0545385080654c9f5315d3136989a1aca"></a>
+<a id="canonical-2010230301031311-3120102300332001-3300023320130030-0323031230133200-1110110320110020-0012111030213311-0301113103010312-2120212201223022"></a>
 
-## waf_signatures.automatic — waf_signatures.automatic / d2291412019b / 2
+## waf_signatures.automatic — automatic / 010200012123 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-1aaf17a2664f507686e37894dc171e25232558868c23cf23a2ff535374e932d3)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-0122223301132202-1212103311001312-2012320313202110-3130011301320211-0203021111202012-2030020330330203-2202333311031103-1310322103023103)
 - waf_signatures.automatic
 
-<a id="canonical-bc736858814028dbf28a63691e3fc0e4aede256d82f72ca851df9ab0b715f8c6"></a>
+<a id="canonical-2330130312201120-2001100002203123-3302202212031221-0132033330003210-2232313202111231-2002331302302220-1101313321222300-2313011133203012"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1927,37 +2527,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24ad84ded38b164909f6cf0f4d37276554f06b4b9e3f7c552e7fde4edf71ccfa"></a>
+<a id="canonical-0210223120103132-3103202301121021-0021331230330033-1031031302131211-1110330012231023-2132033313301111-0232133331321032-3133130130303322"></a>
 
-## Direct properties — waf_signatures.automatic / d2291412019b / 3
+## Direct properties — automatic / 010200012123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-127a05e9944da59fbe0e8d8d68e7f526d847cfb4208e9d96df7d8ab687e0dc61"></a>
+<a id="canonical-0102132200113221-2110103122112133-2332003220312031-1220321333110212-3120101330332310-0200203221312112-3133133120222312-2013320031301201"></a>
 
-## Next pages — waf_signatures.automatic / d2291412019b / 4
+## Next pages — automatic / 010200012123 / 4
 
-- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-1aaf17a2664f507686e37894dc171e25232558868c23cf23a2ff535374e932d3)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-0122223301132202-1212103311001312-2012320313202110-3130011301320211-0203021111202012-2030020330330203-2202333311031103-1310322103023103)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
 
-<a id="canonical-60c403d5309a053e007c8c0bb9136251255785018787413040f0bfde1ea600c5"></a>
+<a id="canonical-1200301000033111-0300212200110332-0000133020300023-2321010312021101-0211111320110001-2013201310010300-1000330023333132-0132221200003011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5644e991f096a801ca943e28875b1a82af97978ddf4d35737584b679591e408"></a>
+<a id="canonical-2211121010322121-0133002112222000-0130222110033202-2020131123012220-0222332113211320-3131331031031113-0313112010231213-2111210132100020"></a>
 
-## waf_signatures.manual — waf_signatures.manual / a5be85ba9f4b / 2
+## waf_signatures.manual — manual / 232221331023 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
-- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
-- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-1aaf17a2664f507686e37894dc171e25232558868c23cf23a2ff535374e932d3)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)
+- [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
+- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-0122223301132202-1212103311001312-2012320313202110-3130011301320211-0203021111202012-2030020330330203-2202333311031103-1310322103023103)
 - waf_signatures.manual
 
-<a id="canonical-923c39f5de1c0e50537b66f5688143106a161e710bad00e4d82b7a3087d0b0d6"></a>
+<a id="canonical-2102033003213311-3132013000321100-1103132312123311-1220200110030100-1222011201321301-0023223100003210-3120022313220300-2013310023003112"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1980,15 +2580,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-08fc48be4f5409afa1f3971af91b065bcaa5d7ad335762b3420c92e6b199ac74"></a>
+<a id="canonical-0020333010202332-1033111000212233-2201330321130122-3321012300121123-3022221131132231-0303111312022303-1002003021023212-2301212122301310"></a>
 
-## Direct properties — waf_signatures.manual / a5be85ba9f4b / 3
+## Direct properties — manual / 232221331023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-55c9e0e774f1f9b619dddfaa2de05ee84a1eb2d406b7b712f7da7cdf41ab337a"></a>
+<a id="canonical-1111302132003213-1310330133212312-0121313131332222-0231320011323220-1022013223023110-0012231323130102-3313312213303133-1001222303031322"></a>
 
-## Next pages — waf_signatures.manual / a5be85ba9f4b / 4
+## Next pages — manual / 232221331023 / 4
 
-- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-1aaf17a2664f507686e37894dc171e25232558868c23cf23a2ff535374e932d3)
-- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab)
+- [waf_signatures](data-sources--aws_vpc_site--reference--group-005.md#canonical-0122223301132202-1212103311001312-2012320313202110-3130011301320211-0203021111202012-2030020330330203-2202333311031103-1310322103023103)
+- [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)

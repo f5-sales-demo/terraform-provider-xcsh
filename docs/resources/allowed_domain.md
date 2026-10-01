@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_allowed_domain landi
 
 # xcsh_allowed_domain landing
 
-<a id="canonical-dbe8b7d2442b45128c46f867dab30be75f23c65c250d4451f1beb4e00c8d65f0"></a>
+<a id="canonical-3123322023133102-1010022310110102-2030101233201213-3122230300233213-1133020330121130-0211003110101101-3301233223103200-0030203112113300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-22c6bf8712f43af22712df15b7d4661a86c1f26a3f9aee00c87b37d047996ed8"></a>
+<a id="canonical-0202301223332013-0102331003223302-0213010231330111-2313311012120122-2012300133021222-0333212232320000-3020132303133100-1013212112323120"></a>
 
-## xcsh_allowed_domain — xcsh_allowed_domain / 7b691519ee46 / 2
+## xcsh_allowed_domain — xcsh_allowed_domain / 012132321012 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages allowed domain in F5 Distributed Cloud.
 
-<a id="canonical-a9703f84a0302333eb3c5f478b3d4800a08121c8225c160fb19245023aba1c90"></a>
+<a id="canonical-2221130003332010-2200030002030303-3223033011331013-2023033110200000-2200200102013020-0202113001120033-2301210210110002-0322232201302100"></a>
 
-## Prerequisites — xcsh_allowed_domain / 7b691519ee46 / 3
+## Prerequisites — xcsh_allowed_domain / 012132321012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3f9a7a0616fcc5e919c2200021601a5f21fb611bb459da972c3b9eadd4b5fb41"></a>
+<a id="canonical-0333212213220012-0112333030113221-0121300202000000-0201120001221133-0201332312010123-2310112131222113-0230032321322231-3110231133231001"></a>
 
-## Minimal configuration — xcsh_allowed_domain / 7b691519ee46 / 4
+## Minimal configuration — xcsh_allowed_domain / 012132321012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,17 +58,17 @@ resource "xcsh_allowed_domain" "example" {
 }
 ```
 
-<a id="canonical-132a14cc3087c699e25e1b1e70a333b886e1ee45e50f3c4715ddbbd206b92609"></a>
+<a id="canonical-0103022201103030-0300201330122121-3202113201230132-1300220303032320-2012320132321011-3211003303301013-0111313123233102-0012232102120021"></a>
 
-## Root configuration — xcsh_allowed_domain / 7b691519ee46 / 5
+## Root configuration — xcsh_allowed_domain / 012132321012 / 5
 
 Required root properties: `allowed_domain`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ae6370b3038253d41d78539c4b6f64b193dc6b87d37a1af665fb6c4927dfa9fc"></a>
+<a id="canonical-2232120313002303-0003200211033110-0131132011032130-1023123312102301-2103313012232013-3103132201223312-1211332312301021-0213313322213330"></a>
 
-## Next pages — xcsh_allowed_domain / 7b691519ee46 / 6
+## Next pages — xcsh_allowed_domain / 012132321012 / 6
 
-- [Property reference](../guides/resources--allowed_domain--reference--group-001.md#canonical-b4f5d2267a3810dd15ca31a5e12ece95139a49ccbbc3defd7a52e44af9653777)
-- [Examples](../guides/resources--allowed_domain--examples--group-001.md#canonical-104c527e8be9f381bf482f9625410f3ecb948b959e49bbecf63ce5facc703ae7)
-- [Import](../guides/resources--allowed_domain--lifecycle--group-001.md#canonical-b699ff7a0af626f3a0fe6d2929e083115601af13d99cf8cacac3a8cf997ba778)
-- [Timeouts](../guides/resources--allowed_domain--lifecycle--group-001.md#canonical-9b4dbaac9bf9cb1ece1cb74e19965e6b8864986f574f4ef4ade4cbb7ec4ab236)
+- [Property reference](../guides/resources--allowed_domain--reference--group-001.md#canonical-2310331131020212-1322032001003131-0111302203012211-3201023230322111-0103212210213030-2323300331323331-1322110232101022-3321121103131313)
+- [Examples](../guides/resources--allowed_domain--examples--group-001.md#canonical-0100103011021332-2023322133032001-2333102002332112-0211100100330332-3023211020232111-2132102123233230-3312033032113322-3030130003223213)
+- [Import](../guides/resources--allowed_domain--lifecycle--group-001.md#canonical-2312212133331322-0022331202123303-2200333212310221-0221320020030101-1112000122330103-3121213033203022-3022300322203033-2121132322131320)
+- [Timeouts](../guides/resources--allowed_domain--lifecycle--group-001.md#canonical-2123103123222230-2123332130230132-3032013023131032-0121211211321223-2020121021201233-1113103310323310-2231321030232313-3230102223020312)

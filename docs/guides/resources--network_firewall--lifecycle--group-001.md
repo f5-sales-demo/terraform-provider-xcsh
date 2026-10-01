@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_network_firewall lif
 
 # xcsh_network_firewall lifecycle
 
-<a id="canonical-3e3abc62914d512e29685590aa5d0358e6c9aab5b040a2af0eadbef2c68de363"></a>
+<a id="canonical-0332032223301202-2101103111010232-0221122011112100-2222113100031120-3212302122222311-2300100022022233-0032223123323302-3012203132031203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1ba1f986b841ff0667595aa718867bf72eb5141beda6f36ca84b6b9da6ed163"></a>
+<a id="canonical-2301232201332120-1223201001333300-1212131121112222-1301202012132333-1302322311011001-2332312212330312-3022201023122321-3122123231011203"></a>
 
-## Import — Import / 3aef7e6b5717 / 2
+## Import — Import / 122311130113 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_firewall](../resources/network_firewall.md#canonical-024ddce0e2a1491081bdd9b5fa829cc2057bdaba914b6c85173f71e5817a007f)
+- [xcsh_network_firewall](../resources/network_firewall.md#canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_network_firewall.example system/example
 ```
 
-<a id="canonical-29e08a3ebc8539f2c792f814b55d9fc658a634dccbf98792ea0a2541e07230bc"></a>
+<a id="canonical-0221320020220332-2330201103213302-3013210233200110-2311113121333012-1120221203103130-3023332120132102-3222002202111001-3200130203002330"></a>
 
-## Next pages — Import / 3aef7e6b5717 / 3
+## Next pages — Import / 122311130113 / 3
 
-- [xcsh_network_firewall](../resources/network_firewall.md#canonical-024ddce0e2a1491081bdd9b5fa829cc2057bdaba914b6c85173f71e5817a007f)
+- [xcsh_network_firewall](../resources/network_firewall.md#canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333)
 
-<a id="canonical-673f7ac9a575f532f891576211a2bb959c6bd0a34c8acc76b0aabfcde516ebac"></a>
+<a id="canonical-1213033313223021-2211131133110302-3320210111131202-0101220223232111-2130122331002203-1030202230301312-2300222223333031-3211011232232230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddd8ac95c0db776467b60f59a9765243bd5f673b6b06c48844ac8900cee5ec79"></a>
+<a id="canonical-3131312022302111-3000312313131210-1213231200331121-2221131211021003-2331113312130323-1223001230102020-1010223020210000-3032321132301321"></a>
 
-## Timeouts — Timeouts / 7c66753deb8a / 2
+## Timeouts — Timeouts / 033132232022 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_firewall](../resources/network_firewall.md#canonical-024ddce0e2a1491081bdd9b5fa829cc2057bdaba914b6c85173f71e5817a007f)
+- [xcsh_network_firewall](../resources/network_firewall.md#canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--network_firewall--reference--group-001.md#canonical-13beff0d72fc635fa81f630cac90ae6c65f75e61395007c411ed634fa684cf8a). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--network_firewall--reference--group-001.md#canonical-0103233233330031-1302333012031133-2220013312030030-2230210022321230-1211331311321201-0321110000133010-0101323112031033-2212201030332022). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-ace32468670180c64e1703eff17fc7a819596e1be05e8cddb2563ec06188db70"></a>
+<a id="canonical-2230320302101220-1213000120003012-1032011300033233-3301133330132220-0121112112320123-3200113220303131-2302111203323000-1201202031231300"></a>
 
-## Next pages — Timeouts / 7c66753deb8a / 3
+## Next pages — Timeouts / 033132232022 / 3
 
-- [xcsh_network_firewall](../resources/network_firewall.md#canonical-024ddce0e2a1491081bdd9b5fa829cc2057bdaba914b6c85173f71e5817a007f)
+- [xcsh_network_firewall](../resources/network_firewall.md#canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333)

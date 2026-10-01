@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_authorization_server
 
 # xcsh_authorization_server landing
 
-<a id="canonical-c9a064e11c392b1729b64c4abb5a0c14e6107920f082e94b97489dd17471f27a"></a>
+<a id="canonical-3021220012103201-0130032102230113-0221231210301022-2323112200300110-3212010013210200-3300200232211023-2113102021313101-1310130133021322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a0d7ce63d300d1c79888b7b9411474d9644b2a44a9915d977f3bec22e08d865d"></a>
+<a id="canonical-2200311330321203-3103000031013013-2120202023132321-1001011013103121-1210102302221010-2221210111312113-1333032332300202-3200203120121131"></a>
 
-## xcsh_authorization_server — xcsh_authorization_server / 7dc8d97fce0a / 2
+## xcsh_authorization_server — xcsh_authorization_server / 133330320022 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages authorization\_server creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-<a id="canonical-75001cc491ff292d77aa9309306cb1cfdcb78ae5ef25bf381bb4d57b5d9b78ce"></a>
+<a id="canonical-1311000001303010-2101333302210231-1313222221030021-0300123023013033-3130231320223211-3233021123330320-0123231031111323-1131212313203032"></a>
 
-## Prerequisites — xcsh_authorization_server / 7dc8d97fce0a / 3
+## Prerequisites — xcsh_authorization_server / 133330320022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-f32e460b17c1c528379d5c9a3f183ccb3b11adfa40271b951f3886e463148db5"></a>
+<a id="canonical-3303023210120023-0113300130110220-0313213111302122-0333012003303023-0323010122313322-1000021301232111-0133032020123210-1203011020312311"></a>
 
-## Minimal configuration — xcsh_authorization_server / 7dc8d97fce0a / 4
+## Minimal configuration — xcsh_authorization_server / 133330320022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "authorization_server_id" {
 }
 ```
 
-<a id="canonical-76ca0a8337fa5d25aed849a66df18fa516afea45c9f3ba9f3bbd07cc11a14b74"></a>
+<a id="canonical-1312302200222003-0313332211310211-2232312010212212-1231330120332211-0112223332221011-3021330323222133-0323233100133030-0101220110231310"></a>
 
-## Root configuration — xcsh_authorization_server / 7dc8d97fce0a / 5
+## Root configuration — xcsh_authorization_server / 133330320022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a7233e04d28a7ce822c0bb8fcad8d70cba2345e6b1dce5d5a77f322992a42815"></a>
+<a id="canonical-2213020303320010-3102202213303220-0202300023232033-3022312031130030-2322020310113212-2301313032113111-2213133303020221-2102221002200111"></a>
 
-## Next pages — xcsh_authorization_server / 7dc8d97fce0a / 6
+## Next pages — xcsh_authorization_server / 133330320022 / 6
 
-- [Property reference](../guides/data-sources--authorization_server--reference--group-001.md#canonical-4fe633a5d8eadcbda1f3928dac2979247f71fce9af1db4ad727fc19ccb660f8d)
-- [Examples](../guides/data-sources--authorization_server--examples--group-001.md#canonical-8fc47a5c0c28ccc2cd7f1fabecc67d23713c219f4b177fc3dca6b5ebb9377006)
+- [Property reference](../guides/data-sources--authorization_server--reference--group-001.md#canonical-1033321203032211-3120322231302331-2201330321022031-2230022113210210-1333130133303221-2233013123102231-1302133330012130-3023121200332031)
+- [Examples](../guides/data-sources--authorization_server--examples--group-001.md#canonical-2033301013221130-0030022030303002-3031133301332223-3230301213310203-1301033002012133-1023011313333003-3130221223113223-2321031313000012)

@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_trusted_ca_list refe
 
 # xcsh_trusted_ca_list reference
 
-<a id="canonical-85409a678c309b8757816905fb4db6f52278501f089928c98decb8ccad0ed016"></a>
+<a id="canonical-2011100021221213-2030030021232013-1113200112210011-3323103123123311-0202132011000133-0020212102203021-2031323023203030-2231003231000112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ef202bae29da9fd979266527f2b7969131bb703812d1464872dcea15d99a6202"></a>
+<a id="canonical-3233020002232232-0221312221333121-1321021212110213-3302231321122101-0301232313000320-0102310110121020-1302313032220111-3121212212020002"></a>
 
-## Property reference — Property reference / 1eeafaa38e4d / 2
+## Property reference — Property reference / 220320321031 / 2
 
 Breadcrumbs:
 
-- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-2a0175e3a6bbb4a391b22a048ce8c1c99fa0b6d99781050dc30b74fca0cbb5d6)
+- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-0222000113113203-2212232323102203-2101230202220010-2030322030013021-2133220023123121-2113200100110031-3003002313103330-2200302323113112)
 - Property reference
 
-<a id="canonical-e7273ac8e5c40b03fa7cb05eb67e03c66c028945860c48250366670045c742be"></a>
+<a id="canonical-3213021303223020-3211301000230003-3322133023001132-2312133200033012-1230000220211011-2012003010200211-0003121212130000-1011301310022332"></a>
 
-## Direct properties — Property reference / 1eeafaa38e4d / 3
+## Direct properties — Property reference / 220320321031 / 3
 
-<a id="canonical-bf4a1d24fbf0cd3f4b7f85ac5600dbb2961f6854d166f4496900d33f957b3d27"></a>
+<a id="canonical-2333102201310210-3323330030310333-1023133320112230-1112000031232302-2112013312201110-3101121233101021-1221000031030333-2111132303310213"></a>
 
-<a id="canonical-85c95ce867480cdc93c35d19890fa37f1cca2a03a75562d83a7363765bc34bef"></a>
+<a id="canonical-2011302111303220-1213102000303130-2103300311310121-2021003322031333-0130302202220003-2213111112023120-0322130312031312-1123300310233233"></a>
 
-## annotations property — Property reference / 1eeafaa38e4d / 4
+## annotations property — Property reference / 220320321031 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-11e624d1393c807af5b859dfd80facdb3588acf45da8a930d6297e25fabceb22"></a>
+<a id="canonical-0101321202103101-0321033020001322-3311232011213133-3120003322303123-0311202022303310-1131222022210300-3112022113320211-3322233032230202"></a>
 
-<a id="canonical-a43f9505c4f6f4069a91e1fe2467b967d4f84c25ae0d510aac760ddfe894b8c0"></a>
+<a id="canonical-2210033321110011-3010331233100012-2122210132013332-0210121323211213-3110332010300211-2232003111010022-2230131200313133-3220211023203000"></a>
 
-## description property — Property reference / 1eeafaa38e4d / 5
+## description property — Property reference / 220320321031 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5f11c4c82a62a6006142571697100b1f85771f468e53e69fbf97b82188e71e61"></a>
+<a id="canonical-1133010130103020-0222120222120000-1201100211130112-2113010000230133-2011131301331012-2032110332122133-2333211323200201-2020321301321201"></a>
 
-<a id="canonical-7263ff9b9de05fc960c1d5afcf877f7ebd5ea067d8e2e0d8e3514bb34a8e4429"></a>
+<a id="canonical-1302120333332123-2131320011333021-1200300131112233-3033201313331332-2331113222001213-3120320232003120-3203110110232303-1022203210100221"></a>
 
-## disable property — Property reference / 1eeafaa38e4d / 6
+## disable property — Property reference / 220320321031 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,25 +142,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9b7e0ed93b15c1b39bcc1015013333b98153756fd0b96f4f6a94404b240aa104"></a>
+<a id="canonical-2123133200323121-0323011130012303-2123303001000111-0001030303032321-2001110313111233-3100232112331033-1222211010001023-0210002222010010"></a>
 
-<a id="canonical-7a4dc76e082d4d710252711e8eeb660f0289e867260665286abceb49a53e1ecc"></a>
+<a id="canonical-1322103130131232-0020023110311301-0002110213010132-2032322312120033-0002202132201213-0212001212110220-1222233032231021-2211033201323030"></a>
 
-## id property — Property reference / 1eeafaa38e4d / 7
+## ID property — Property reference / 220320321031 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-063cba405cad9a913bdc2fc64d0d56fdf458ef680ca958ccb75d72e8bdc40f87"></a>
+<a id="canonical-0012033023221000-1130223121222101-0323313002333012-1031003111123331-3310112032331220-0030222111203030-2313113113023220-2331301000332013"></a>
 
-<a id="canonical-cd191d49197556e4c9d8ec557d42a54208e97e7e78d9f21f18b7a4909bad30b4"></a>
+<a id="canonical-3031012101311021-0121131111123210-3021312032301111-1331100222111002-0020322113321332-1320312133020133-0120231322102100-2123223103002310"></a>
 
-## labels property — Property reference / 1eeafaa38e4d / 8
+## labels property — Property reference / 220320321031 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -181,11 +181,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a6a48d6fdd83bdd531f96544c2248a5d91a3784683284e89c8ec374c1cbc3ea0"></a>
+<a id="canonical-2212221020311233-3131200323313111-0301332112111010-3002021020221131-2101220313201012-2003022010322021-3020323003131030-0130233003322200"></a>
 
-<a id="canonical-e19083bd03136229a07823a8acca9e9a4ba3f266429e6b3124225e8fcdcd92af"></a>
+<a id="canonical-3201210020032331-0003010312020221-2200132002032220-2230302221322122-1023220333021212-1002213212230301-0210020211322033-3031303121022233"></a>
 
-## name property — Property reference / 1eeafaa38e4d / 9
+## name property — Property reference / 220320321031 / 9
 
 Type: `"string"`. Required.
 
@@ -249,11 +249,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cdf6f66ad23600ee2eef848348f061fa67ced79f5b0dca142da82f1791f0af8a"></a>
+<a id="canonical-3031331233121222-3102031200003232-0232323320102003-1020330012013322-1213303231132133-1123003130220110-0231222002330113-2101330022332022"></a>
 
-<a id="canonical-e6ee1aac8bba0f5ce2ca1399ec11255fc80f75ce5cc5a905375ea5ba3180ca83"></a>
+<a id="canonical-3212323201222230-2023232200331130-3202302201032121-3230010102111133-3020003313113032-1130301122210011-0313113222112322-0301200030222003"></a>
 
-## namespace property — Property reference / 1eeafaa38e4d / 10
+## namespace property — Property reference / 220320321031 / 10
 
 Type: `"string"`. Required.
 
@@ -310,13 +310,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-e3905bfb4ab22205f1c83c5957ee19959c323aabaa2478e5ff41941fdf481b77): complete subsection reference.
+- [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-3203210011233323-1022230202020011-3301302003301121-1113323201212111-2130030203222223-2222021013203211-3333100121100133-3133102001231313): complete subsection reference.
 
-<a id="canonical-fef3016c021d522a54e6ac4d068028d7cc3d6e6414450a978100e11b5d2baa41"></a>
+<a id="canonical-3332330300011230-0002013111020222-1110321222301031-0012200002203113-3030033112321210-0110101100222113-2001000032010123-1131022322221001"></a>
 
-<a id="canonical-1e24b189b6982834814235e6ecbfe7b09af821003be1d918cb4d72b4622c643c"></a>
+<a id="canonical-0132021023012021-2312212002200310-2001100203113212-3230233332132300-2122332002010000-0323320131210120-3023103113022310-1202023012100330"></a>
 
-## trusted_ca_url property — Property reference / 1eeafaa38e4d / 11
+## trusted_ca_url property — Property reference / 220320321031 / 11
 
 Type: `"string"`. Optional, Computed.
 
@@ -363,52 +363,52 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bab344aae6992b0ab0bf9ab55119c235178b496956719f98e3793d700b508559"></a>
+<a id="canonical-2322230310102222-3212212102230022-2300233321222311-1101012130020311-0113202310211221-1112130121332120-3203132103311300-0023110020111121"></a>
 
-## All schema paths — Property reference / 1eeafaa38e4d / 12
+## All schema paths — Property reference / 220320321031 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--trusted_ca_list--reference--group-001.md#canonical-bf4a1d24fbf0cd3f4b7f85ac5600dbb2961f6854d166f4496900d33f957b3d27) |
-| `description` | [description](resources--trusted_ca_list--reference--group-001.md#canonical-11e624d1393c807af5b859dfd80facdb3588acf45da8a930d6297e25fabceb22) |
-| `disable` | [disable](resources--trusted_ca_list--reference--group-001.md#canonical-5f11c4c82a62a6006142571697100b1f85771f468e53e69fbf97b82188e71e61) |
-| `id` | [id](resources--trusted_ca_list--reference--group-001.md#canonical-9b7e0ed93b15c1b39bcc1015013333b98153756fd0b96f4f6a94404b240aa104) |
-| `labels` | [labels](resources--trusted_ca_list--reference--group-001.md#canonical-063cba405cad9a913bdc2fc64d0d56fdf458ef680ca958ccb75d72e8bdc40f87) |
-| `name` | [name](resources--trusted_ca_list--reference--group-001.md#canonical-a6a48d6fdd83bdd531f96544c2248a5d91a3784683284e89c8ec374c1cbc3ea0) |
-| `namespace` | [namespace](resources--trusted_ca_list--reference--group-001.md#canonical-cdf6f66ad23600ee2eef848348f061fa67ced79f5b0dca142da82f1791f0af8a) |
-| `timeouts` | [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-0e05dd2b9b5320ab04e0256c71038654921ff77e9efa132a4ad69bedf6d06847) |
-| `timeouts.create` | [timeouts.create](resources--trusted_ca_list--reference--group-001.md#canonical-0354a8b3b06450ee4b063559c29ebb5427a0624a9295cb4b6e6362377e20fc23) |
-| `timeouts.delete` | [timeouts.delete](resources--trusted_ca_list--reference--group-001.md#canonical-1c3e98784da29f69f33951f06f19345afc39fe0118cbd74672701ef8e6dbeb71) |
-| `timeouts.read` | [timeouts.read](resources--trusted_ca_list--reference--group-001.md#canonical-c4955b3034964871212aa327b819cb479aef3f06d6eda41fa6fd57ccb5c1f182) |
-| `timeouts.update` | [timeouts.update](resources--trusted_ca_list--reference--group-001.md#canonical-f2b42eb95172d8d4b90141df0f95c4e90e30c7ec76345baf204b3ac6e1f0e34b) |
-| `trusted_ca_url` | [trusted_ca_url](resources--trusted_ca_list--reference--group-001.md#canonical-fef3016c021d522a54e6ac4d068028d7cc3d6e6414450a978100e11b5d2baa41) |
+| `annotations` | [annotations](resources--trusted_ca_list--reference--group-001.md#canonical-2333102201310210-3323330030310333-1023133320112230-1112000031232302-2112013312201110-3101121233101021-1221000031030333-2111132303310213) |
+| `description` | [description](resources--trusted_ca_list--reference--group-001.md#canonical-0101321202103101-0321033020001322-3311232011213133-3120003322303123-0311202022303310-1131222022210300-3112022113320211-3322233032230202) |
+| `disable` | [disable](resources--trusted_ca_list--reference--group-001.md#canonical-1133010130103020-0222120222120000-1201100211130112-2113010000230133-2011131301331012-2032110332122133-2333211323200201-2020321301321201) |
+| `id` | [id](resources--trusted_ca_list--reference--group-001.md#canonical-2123133200323121-0323011130012303-2123303001000111-0001030303032321-2001110313111233-3100232112331033-1222211010001023-0210002222010010) |
+| `labels` | [labels](resources--trusted_ca_list--reference--group-001.md#canonical-0012033023221000-1130223121222101-0323313002333012-1031003111123331-3310112032331220-0030222111203030-2313113113023220-2331301000332013) |
+| `name` | [name](resources--trusted_ca_list--reference--group-001.md#canonical-2212221020311233-3131200323313111-0301332112111010-3002021020221131-2101220313201012-2003022010322021-3020323003131030-0130233003322200) |
+| `namespace` | [namespace](resources--trusted_ca_list--reference--group-001.md#canonical-3031331233121222-3102031200003232-0232323320102003-1020330012013322-1213303231132133-1123003130220110-0231222002330113-2101330022332022) |
+| `timeouts` | [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-0032001131310223-2123110302002223-0010320002111230-1301000320121110-2102013333131332-2132332201030222-1022311221233231-3312310012201013) |
+| `timeouts.create` | [timeouts.create](resources--trusted_ca_list--reference--group-001.md#canonical-0003111022202303-2300121011003232-1023001203111121-3002213223231110-0213220012021022-2102211130231023-1232120312020313-1332020033300203) |
+| `timeouts.delete` | [timeouts.delete](resources--trusted_ca_list--reference--group-001.md#canonical-0130033221201320-1031220221331221-3303032111013300-1233012103101122-3330032133320001-0120302331131012-1302130001323320-3212312332231301) |
+| `timeouts.read` | [timeouts.read](resources--trusted_ca_list--reference--group-001.md#canonical-3010211111230300-0310211210201301-0201022222030213-2320012130231013-2122323303330012-3112323122100133-2212333111133030-2311300133012002) |
+| `timeouts.update` | [timeouts.update](resources--trusted_ca_list--reference--group-001.md#canonical-3302231002322321-1101130231203110-2321000110013133-0033211130103221-0032030030133230-1312031011232233-0200102303223012-3201330032031023) |
+| `trusted_ca_url` | [trusted_ca_url](resources--trusted_ca_list--reference--group-001.md#canonical-3332330300011230-0002013111020222-1110321222301031-0012200002203113-3030033112321210-0110101100222113-2001000032010123-1131022322221001) |
 
-<a id="canonical-f9fee68f72701ca4de85b9325eebbf6b3cf56568eac974706d1449504ae99d71"></a>
+<a id="canonical-3321333232122033-1302130001302210-3132201123210302-1132322323331223-0330331112111220-3222302113101300-1231011010211100-1022322121311301"></a>
 
-## Next pages — Property reference / 1eeafaa38e4d / 13
+## Next pages — Property reference / 220320321031 / 13
 
-- [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-e3905bfb4ab22205f1c83c5957ee19959c323aabaa2478e5ff41941fdf481b77)
-- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-2a0175e3a6bbb4a391b22a048ce8c1c99fa0b6d99781050dc30b74fca0cbb5d6)
+- [timeouts](resources--trusted_ca_list--reference--group-001.md#canonical-3203210011233323-1022230202020011-3301302003301121-1113323201212111-2130030203222223-2222021013203211-3333100121100133-3133102001231313)
+- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-0222000113113203-2212232323102203-2101230202220010-2030322030013021-2133220023123121-2113200100110031-3003002313103330-2200302323113112)
 
-<a id="canonical-e3905bfb4ab22205f1c83c5957ee19959c323aabaa2478e5ff41941fdf481b77"></a>
+<a id="canonical-3203210011233323-1022230202020011-3301302003301121-1113323201212111-2130030203222223-2222021013203211-3333100121100133-3133102001231313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2529e2e96fbe35d207985ba7c2b709a4a0455cb90ba5ffd1fd30326aa13192bd"></a>
+<a id="canonical-0211022132023221-1233233203113102-0013212011232213-3002231300212210-2200101111302321-0023221133333101-3331030003021222-2201030121022331"></a>
 
-## timeouts — timeouts / d26ea723fb38 / 2
+## timeouts — timeouts / 020333230320 / 2
 
 Breadcrumbs:
 
-- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-2a0175e3a6bbb4a391b22a048ce8c1c99fa0b6d99781050dc30b74fca0cbb5d6)
-- [Property reference](resources--trusted_ca_list--reference--group-001.md#canonical-85409a678c309b8757816905fb4db6f52278501f089928c98decb8ccad0ed016)
+- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-0222000113113203-2212232323102203-2101230202220010-2030322030013021-2133220023123121-2113200100110031-3003002313103330-2200302323113112)
+- [Property reference](resources--trusted_ca_list--reference--group-001.md#canonical-2011100021221213-2030030021232013-1113200112210011-3323103123123311-0202132011000133-0020212102203021-2031323023203030-2231003231000112)
 - timeouts
 
-<a id="canonical-0e05dd2b9b5320ab04e0256c71038654921ff77e9efa132a4ad69bedf6d06847"></a>
+<a id="canonical-0032001131310223-2123110302002223-0010320002111230-1301000320121110-2102013333131332-2132332201030222-1022311221233231-3312310012201013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -420,15 +420,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-b123dec89a16f7deef7fbf3f5c15690eba62af49111512615dc74eaa778e803f"></a>
+<a id="canonical-2301020331323020-2122011233133132-3233133323330333-1130011112210032-2322120222331021-0101011101021201-1131301310322222-1313203220000333"></a>
 
-## Direct properties — timeouts / d26ea723fb38 / 3
+## Direct properties — timeouts / 020333230320 / 3
 
-<a id="canonical-0354a8b3b06450ee4b063559c29ebb5427a0624a9295cb4b6e6362377e20fc23"></a>
+<a id="canonical-0003111022202303-2300121011003232-1023001203111121-3002213223231110-0213220012021022-2102211130231023-1232120312020313-1332020033300203"></a>
 
-<a id="canonical-62a891066d892ae308ba83700185493efcc46d4b686dee8e2bcafb2f0ff727a3"></a>
+<a id="canonical-1202222021010012-1231202102223203-0020232220031300-0001201110210332-3330301012311023-1220123132322032-0223302233230233-0033331302132203"></a>
 
-## create property — timeouts / d26ea723fb38 / 4
+## create property — timeouts / 020333230320 / 4
 
 Type: `"string"`. Optional.
 
@@ -436,11 +436,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-1c3e98784da29f69f33951f06f19345afc39fe0118cbd74672701ef8e6dbeb71"></a>
+<a id="canonical-0130033221201320-1031220221331221-3303032111013300-1233012103101122-3330032133320001-0120302331131012-1302130001323320-3212312332231301"></a>
 
-<a id="canonical-6adb6a8991160ff31a53a522619dc331938ce0031a62fc5d971cdb1917f8d3b7"></a>
+<a id="canonical-1222312312222021-2101011200333303-0122110322110202-1201213130030301-2103203032000003-0122120233301131-2113013031230121-0113332031032313"></a>
 
-## delete property — timeouts / d26ea723fb38 / 5
+## delete property — timeouts / 020333230320 / 5
 
 Type: `"string"`. Optional.
 
@@ -449,11 +449,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-c4955b3034964871212aa327b819cb479aef3f06d6eda41fa6fd57ccb5c1f182"></a>
+<a id="canonical-3010211111230300-0310211210201301-0201022222030213-2320012130231013-2122323303330012-3112323122100133-2212333111133030-2311300133012002"></a>
 
-<a id="canonical-4c21dc2a66eaa1bd30e454a660ac355411344663ad3e0b53449cfa37fc7ceb50"></a>
+<a id="canonical-1030020131300222-1212322222012331-0300321011102212-1200223003111110-0101031010121203-2231033200231103-1010213033220313-3330133032231100"></a>
 
-## read property — timeouts / d26ea723fb38 / 6
+## read property — timeouts / 020333230320 / 6
 
 Type: `"string"`. Optional.
 
@@ -462,11 +462,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-f2b42eb95172d8d4b90141df0f95c4e90e30c7ec76345baf204b3ac6e1f0e34b"></a>
+<a id="canonical-3302231002322321-1101130231203110-2321000110013133-0033211130103221-0032030030133230-1312031011232233-0200102303223012-3201330032031023"></a>
 
-<a id="canonical-38108da6e7ecb21f1c9f9b9cb375a386f3f81b76cb85b250fe66bad76ea4ec9e"></a>
+<a id="canonical-0320010020312212-3213323023020133-0130213321232130-2303131122032012-3303332001231312-3023201123021100-3332121223223113-1232221032302132"></a>
 
-## update property — timeouts / d26ea723fb38 / 7
+## update property — timeouts / 020333230320 / 7
 
 Type: `"string"`. Optional.
 
@@ -474,9 +474,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-9c4ee344fd02e4db9a88205b48449595d20bef3413c90e5a1007905f9c52b038"></a>
+<a id="canonical-2130103232031010-3331000232103123-2122202002001123-1020101021112111-3102002332330310-0103302100321122-0100001321001133-2130110223000320"></a>
 
-## Next pages — timeouts / d26ea723fb38 / 8
+## Next pages — timeouts / 020333230320 / 8
 
-- [Property reference](resources--trusted_ca_list--reference--group-001.md#canonical-85409a678c309b8757816905fb4db6f52278501f089928c98decb8ccad0ed016)
-- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-2a0175e3a6bbb4a391b22a048ce8c1c99fa0b6d99781050dc30b74fca0cbb5d6)
+- [Property reference](resources--trusted_ca_list--reference--group-001.md#canonical-2011100021221213-2030030021232013-1113200112210011-3323103123123311-0202132011000133-0020212102203021-2031323023203030-2231003231000112)
+- [xcsh_trusted_ca_list](../resources/trusted_ca_list.md#canonical-0222000113113203-2212232323102203-2101230202220010-2030322030013021-2133220023123121-2113200100110031-3003002313103330-2200302323113112)

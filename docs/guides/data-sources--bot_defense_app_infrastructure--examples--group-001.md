@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_bot_defense_app_infr
 
 # xcsh_bot_defense_app_infrastructure examples
 
-<a id="canonical-a3e12eaacf713ac0a9bf6f28de4c2b9cf5ec26b752ac8b94c2708f8dd92817dc"></a>
+<a id="canonical-2203320102322222-3033130103223000-2221233312330220-3132103002232130-3311323002122313-1102223020232110-3002130020332031-3121022001133130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b17534932e685e75885643f2262214f357a33d8c4dfd390b51ece25f6eddd8ff"></a>
+<a id="canonical-2301131103102103-0232122011321311-2020111210033302-0212020201103303-1113220303312030-1031333103210023-1101323032021133-1232313131203333"></a>
 
-## Examples — Examples / f9043cf77704 / 2
+## Examples — Examples / 331313130010 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-f36ab4b52244feda08ea56f1901fc5744d9285c8e182df39ed067d65a8637425)
+- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211)
 - Examples
 
-<a id="canonical-5d93ed27550f7c0c6c5aae7408a8da5e798af2b2e89974493ac95f6bac97089b"></a>
+<a id="canonical-1131210332310213-1111003313300030-1230112222321310-0020222031221132-1321202233022302-3220212113101021-0322302111331223-2230211300202123"></a>
 
-## Complete configurations — Examples / f9043cf77704 / 3
+## Complete configurations — Examples / 331313130010 / 3
 
-- [Data source](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-f4a81c6beaa5594253e6aae11e3e2608c6d68ab22418f4a12f2de74092c348e6): valid configuration.
+- [Data source](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-3310222001301223-3222221111211002-1103321222223201-0132033202120020-3012311220222302-0210012033102201-0233023132131000-2102300310203212): valid configuration.
 
-<a id="canonical-bc8eab3d39f9e131a029bb57469aef1d72d3b6b343d69279abd2a98cd6d8b587"></a>
+<a id="canonical-2330203222230331-0321332132010301-2200022123231113-1012212232330131-1302310323122303-1003311221021321-2223310222212030-3112312023112013"></a>
 
-## Next pages — Examples / f9043cf77704 / 4
+## Next pages — Examples / 331313130010 / 4
 
-- [Data source](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-f4a81c6beaa5594253e6aae11e3e2608c6d68ab22418f4a12f2de74092c348e6)
-- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-f36ab4b52244feda08ea56f1901fc5744d9285c8e182df39ed067d65a8637425)
+- [Data source](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-3310222001301223-3222221111211002-1103321222223201-0132033202120020-3012311220222302-0210012033102201-0233023132131000-2102300310203212)
+- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211)
 
-<a id="canonical-f4a81c6beaa5594253e6aae11e3e2608c6d68ab22418f4a12f2de74092c348e6"></a>
+<a id="canonical-3310222001301223-3222221111211002-1103321222223201-0132033202120020-3012311220222302-0210012033102201-0233023132131000-2102300310203212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-94c24888721ab1593e5c3574688276382e2c79713e8e95e3d53fc0fab526d117"></a>
+<a id="canonical-2110300210202020-1302012223011121-0332113003111310-1220200213120320-0232023013211301-0332203221113203-3111033330003322-2311021231010113"></a>
 
-## Data source — Data source / d41a5f793e54 / 2
+## Data source — Data source / 132103321110 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-f36ab4b52244feda08ea56f1901fc5744d9285c8e182df39ed067d65a8637425)
-- [Examples](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-a3e12eaacf713ac0a9bf6f28de4c2b9cf5ec26b752ac8b94c2708f8dd92817dc)
+- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211)
+- [Examples](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-2203320102322222-3033130103223000-2221233312330220-3132103002232130-3311323002122313-1102223020232110-3002130020332031-3121022001133130)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -81,9 +81,9 @@ output "bot_defense_app_infrastructure_id" {
 }
 ```
 
-<a id="canonical-a2dfc74606ad7698f60a4aad78fb750ee37e054c6a4b496a2cd285e6c0cdf43f"></a>
+<a id="canonical-2202313330131012-0012223113122120-3312002210222231-1320332313110032-3203133200111030-1222102310211222-0230310220113212-3000303133100333"></a>
 
-## Next pages — Data source / d41a5f793e54 / 3
+## Next pages — Data source / 132103321110 / 3
 
-- [Examples](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-a3e12eaacf713ac0a9bf6f28de4c2b9cf5ec26b752ac8b94c2708f8dd92817dc)
-- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-f36ab4b52244feda08ea56f1901fc5744d9285c8e182df39ed067d65a8637425)
+- [Examples](data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-2203320102322222-3033130103223000-2221233312330220-3132103002232130-3311323002122313-1102223020232110-3002130020332031-3121022001133130)
+- [xcsh_bot_defense_app_infrastructure](../data-sources/bot_defense_app_infrastructure.md#canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211)

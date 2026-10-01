@@ -6,100 +6,100 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
-<a id="canonical-ceb62be7b2a798ec3b50ed9f690ed290b96ccf40d5ebbf17f95c279cbb160482"></a>
+<a id="canonical-3032231202233213-2302221321203230-0323110032312133-1221003231022100-2321123030331000-3111322323330113-3321113002132130-2323011200102002"></a>
 
-## All schema paths — Property reference / 352114ffb00f / 13
+## All schema paths — Property reference / 333323000033 / 13
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `stateful_service.deploy_options.all_res` | [stateful_service.deploy_options.all_res](resources--workload--reference--group-028.md#canonical-6d3159275ec2f3b56e93b4b77088f7444767478528c8745992239b55e817fa2a) |
-| `stateful_service.deploy_options.default_virtual_sites` | [stateful_service.deploy_options.default_virtual_sites](resources--workload--reference--group-028.md#canonical-3da82370cc0762b2fa308677fbd51f392534b52377ece5402da7a48ba7af1c83) |
-| `stateful_service.deploy_options.deploy_ce_sites` | [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-028.md#canonical-07d84c85eb3dcb9375c06d70cd6065e3c8d18e95c347efa10644b14dd03330bd) |
-| `stateful_service.deploy_options.deploy_ce_sites.site` | [stateful_service.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-028.md#canonical-b6944f01d29a9da8e378ce55fe86c6fd9673380c8310d82c52479e8636d46da2) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.name` | [stateful_service.deploy_options.deploy_ce_sites.site.name](resources--workload--reference--group-028.md#canonical-423392fc2b345a55776be0e397dbe66bf606d1f33792cbe95d208d38c28bc6eb) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.namespace` | [stateful_service.deploy_options.deploy_ce_sites.site.namespace](resources--workload--reference--group-028.md#canonical-fbe5ef12817a6560a21fcf7be5b2d2b19e21486e1ee0b0626652417e8283206c) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.tenant` | [stateful_service.deploy_options.deploy_ce_sites.site.tenant](resources--workload--reference--group-028.md#canonical-f6bc62e181f8d2b202654263e760f19494adcd55b19c87fddfe19f3cd6d0639d) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites` | [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-85f67d990bdc8c39eb9c540d9a3dbd2082de7cf3da7e49be0a7743326946d4a1) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-0a1398f2b7aa1d9024dd3976bff6de9818ac9d693f86e3afe5e912c6dc2d6fee) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name](resources--workload--reference--group-028.md#canonical-e6aef0a347ad320c1d61ee89908354b0a2fbcc8e8d06cf004066283451fa0703) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace](resources--workload--reference--group-028.md#canonical-ca9417114b8ccefc0e4021703961f7bbfb36c075f968f8c2082515080a16518b) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant](resources--workload--reference--group-028.md#canonical-ccf0ebb1ff3ce41d56c99bc0f244b35e1b69b007f20c107cb1c202cb19a70059) |
-| `stateful_service.deploy_options.deploy_re_sites` | [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-028.md#canonical-59ecb5b177cfd7ea521a337e43b4073cfde57b9ea7493fc3e1fbb7f1dc2d4738) |
-| `stateful_service.deploy_options.deploy_re_sites.site` | [stateful_service.deploy_options.deploy_re_sites.site](resources--workload--reference--group-028.md#canonical-7cb1a7ec93a052c1fcd753457f4c72373edc9a93f8370cf4c012b044b3e96e90) |
-| `stateful_service.deploy_options.deploy_re_sites.site.name` | [stateful_service.deploy_options.deploy_re_sites.site.name](resources--workload--reference--group-028.md#canonical-df53ceb7c3e70edbc8cf110ef7a32560657eded9ff40cfcecf3c66958bfc33b1) |
-| `stateful_service.deploy_options.deploy_re_sites.site.namespace` | [stateful_service.deploy_options.deploy_re_sites.site.namespace](resources--workload--reference--group-028.md#canonical-5d2a7424f9b82d796274079472e5a631cef410110c8243fb3e0725b2369c09c8) |
-| `stateful_service.deploy_options.deploy_re_sites.site.tenant` | [stateful_service.deploy_options.deploy_re_sites.site.tenant](resources--workload--reference--group-028.md#canonical-7c9ac5dda9d786ecb6df1a1581ca165c5abe263cc38ae07c15c7d237327b779a) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites` | [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-be08f8b156148a1233d426fafd6b98f2ecd002fe59729d5178397196ef5c8d53) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-b67f0fb8bad8df520cb4096ff35fe327ecf77e93ae739f67de7f24bef47d8028) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name](resources--workload--reference--group-028.md#canonical-8f7bc4f33a83c850a21f1cb361882a8949a320cbafdb1acf12fd8662a8525b48) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace](resources--workload--reference--group-028.md#canonical-1dd876d7309d862780c87e34e94eeb420b8ae46cff0cf21209a2eb61d298268d) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant](resources--workload--reference--group-028.md#canonical-c303beac995dfd50225d97c3ca2576abf76a887f2cf2f24abd8ad1ea31be3c4b) |
-| `stateful_service.num_replicas` | [stateful_service.num_replicas](resources--workload--reference--group-017.md#canonical-73569a7d7bfe8566f2e37b6920911a1c8d370e05806cda09af855215db5ced98) |
-| `stateful_service.persistent_volumes` | [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-b07f162e7beae570e2149f641962dbc2a3fd27068ff77d10d6afe359a8910def) |
-| `stateful_service.persistent_volumes.name` | [stateful_service.persistent_volumes.name](resources--workload--reference--group-028.md#canonical-7f2e05f92ad9a16635992713678f545d278fc5cbeb4fe4abad477be6b8067ee6) |
-| `stateful_service.persistent_volumes.persistent_volume` | [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-26b4c930bfeb283271bd7fc115be59d630ffad23477f32a2f1281e9344780d27) |
-| `stateful_service.persistent_volumes.persistent_volume.mount` | [stateful_service.persistent_volumes.persistent_volume.mount](resources--workload--reference--group-028.md#canonical-57e771cc2c80c963a648cd14273bf20910befdbe99aac11a6e283961300a2c6a) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.mode` | [stateful_service.persistent_volumes.persistent_volume.mount.mode](resources--workload--reference--group-028.md#canonical-271ecd66e7a5aa5439e4bc071f4c122446995026f703d76775c6a159d21f7028) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.mount_path` | [stateful_service.persistent_volumes.persistent_volume.mount.mount_path](resources--workload--reference--group-028.md#canonical-64ae3db9d68a4e5dcee8518817b845d9621b7ef79715c1ccfd88179bfc30cae0) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.sub_path` | [stateful_service.persistent_volumes.persistent_volume.mount.sub_path](resources--workload--reference--group-028.md#canonical-77dd8f9b2a64e8e748752b44f37f6c93eadf256843d98178178dc02d3b0be7a8) |
-| `stateful_service.persistent_volumes.persistent_volume.storage` | [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-028.md#canonical-870b00d85d280e92b8590cbbf1e05f59400e2dfee0987b58d33dc22cea9e9999) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.access_mode` | [stateful_service.persistent_volumes.persistent_volume.storage.access_mode](resources--workload--reference--group-028.md#canonical-96878230224bd8493839924c91631e2cfe2e5add6b4ffa10d22b0eb20ca7c0d7) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.class_name` | [stateful_service.persistent_volumes.persistent_volume.storage.class_name](resources--workload--reference--group-028.md#canonical-0c524680f2e047fc5ca185709406ce2acf65cffab18e9c95e677eb6d901e1cc0) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.default` | [stateful_service.persistent_volumes.persistent_volume.storage.default](resources--workload--reference--group-028.md#canonical-6bae153e8c98d3360096dc856650cdc052995739b008c568e8d5f04d2313c8ce) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.storage_size` | [stateful_service.persistent_volumes.persistent_volume.storage.storage_size](resources--workload--reference--group-028.md#canonical-1ac36ce20fba743f4e6c19fbce49e13a4bffb8298238eb1b4926025b9324b0d2) |
-| `stateful_service.scale_to_zero` | [stateful_service.scale_to_zero](resources--workload--reference--group-028.md#canonical-96e6e383b70e1dc85c8c15ddded85d282a3fc113f74ce8ebc6d79670ad0f604c) |
-| `stateful_service.volumes` | [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-02ba93ca269249c6f2cccb0523aa79087e05d7ba304bd5df0476631519eb59c7) |
-| `stateful_service.volumes.empty_dir` | [stateful_service.volumes.empty_dir](resources--workload--reference--group-028.md#canonical-8df048265b714e9f21ed931a70ad93262de27278aaed458b82f10dc99fa59c03) |
-| `stateful_service.volumes.empty_dir.mount` | [stateful_service.volumes.empty_dir.mount](resources--workload--reference--group-028.md#canonical-bd73c48fd4c7413230c147ce3e6f24787dd9e89b6f49ed86d3dd1ed04810f9af) |
-| `stateful_service.volumes.empty_dir.mount.mode` | [stateful_service.volumes.empty_dir.mount.mode](resources--workload--reference--group-028.md#canonical-a7762b83a1f39fc1a6f08ccabe70f8b7ba22ae961241950f446a0f3809b6df87) |
-| `stateful_service.volumes.empty_dir.mount.mount_path` | [stateful_service.volumes.empty_dir.mount.mount_path](resources--workload--reference--group-028.md#canonical-d43f7614d782b11fefbc3645de77bcf4c775ef40eac0eacedad69be849b20cd7) |
-| `stateful_service.volumes.empty_dir.mount.sub_path` | [stateful_service.volumes.empty_dir.mount.sub_path](resources--workload--reference--group-028.md#canonical-de6d031e5fabce16ca6849ad774b42ed15ea7112cdd5eb5a5971dbfebe4893e8) |
-| `stateful_service.volumes.empty_dir.size_limit` | [stateful_service.volumes.empty_dir.size_limit](resources--workload--reference--group-028.md#canonical-bd7f20df2cfdaa80ae4450010fa2d4df4368e1077171ca769f4ddd25c47626ad) |
-| `stateful_service.volumes.host_path` | [stateful_service.volumes.host_path](resources--workload--reference--group-028.md#canonical-dbe7b255a173a33b3fc0661b9af4c08766c4b79a6ab3e30efed8bbf264983f97) |
-| `stateful_service.volumes.host_path.mount` | [stateful_service.volumes.host_path.mount](resources--workload--reference--group-028.md#canonical-4860c871dbf67cf345c52842a80c89f36cc7fe9e783f2e52a4fd36a72c41857e) |
-| `stateful_service.volumes.host_path.mount.mode` | [stateful_service.volumes.host_path.mount.mode](resources--workload--reference--group-028.md#canonical-c6a9644024ebe0e0304a4c7d94240532d756449322e0f943cb7cb821f15ffb0a) |
-| `stateful_service.volumes.host_path.mount.mount_path` | [stateful_service.volumes.host_path.mount.mount_path](resources--workload--reference--group-028.md#canonical-1f744b0010205142b84ed0828f2a3bcc4275b1b0754bc86401386234a41c41f8) |
-| `stateful_service.volumes.host_path.mount.sub_path` | [stateful_service.volumes.host_path.mount.sub_path](resources--workload--reference--group-028.md#canonical-e46d8f6a38fcc812a5630ce2b0b787685d933869879c22e49752f3de6b93f3f1) |
-| `stateful_service.volumes.host_path.path` | [stateful_service.volumes.host_path.path](resources--workload--reference--group-028.md#canonical-6df109488dc6c63d8e8b8573816f5aca917eeb97942a01167aa85ff0a3a01099) |
-| `stateful_service.volumes.name` | [stateful_service.volumes.name](resources--workload--reference--group-028.md#canonical-e742e9effc5bbe15161eb6c288b0c4e5bdd11d2f3408ba17c8a6d16de57aef2e) |
-| `timeouts` | [timeouts](resources--workload--reference--group-028.md#canonical-ed902ba0352c11c9f01a16010daf5f74c4454d62d37253221cd683527735e3fa) |
-| `timeouts.create` | [timeouts.create](resources--workload--reference--group-028.md#canonical-f3db28dd22f8afc794baede88adff9cf089d148a3033270c8bc539829799e6e9) |
-| `timeouts.delete` | [timeouts.delete](resources--workload--reference--group-028.md#canonical-0163693782f5d81626662d481776b5b52d44f5fca5d90e12a80b09ee0c329a5a) |
-| `timeouts.read` | [timeouts.read](resources--workload--reference--group-028.md#canonical-b62c6c67583ec09fccf5a051a947cf853901907b7d51b5f75f069327f2a9db6e) |
-| `timeouts.update` | [timeouts.update](resources--workload--reference--group-028.md#canonical-0386be23cb74ffe05ddfc8232463d857257481c006063dc6e550a27256668d7d) |
+| `stateful_service.deploy_options.all_res` | [stateful_service.deploy_options.all_res](resources--workload--reference--group-029.md#canonical-1231030111210213-1132300233032311-1232210323102313-1300202033131010-1013121310132011-0220302013101121-2102020321231111-3220011333220222) |
+| `stateful_service.deploy_options.default_virtual_sites` | [stateful_service.deploy_options.default_virtual_sites](resources--workload--reference--group-029.md#canonical-0331222002031300-3030001312022302-3322030020121313-3323311101330321-0211031023110203-1313323032111000-0231221322102023-2213223301302003) |
+| `stateful_service.deploy_options.deploy_ce_sites` | [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-029.md#canonical-0013312010302011-3223033130232103-1311300012311300-3031120012113203-3020310120322111-3003101332332201-0012101023011031-3100030303002331) |
+| `stateful_service.deploy_options.deploy_ce_sites.site` | [stateful_service.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-029.md#canonical-2312211010330001-3102212221312220-3203132030321111-3332201230123331-2112130303200030-2003010031200230-1102101321322012-0312311012312202) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.name` | [stateful_service.deploy_options.deploy_ce_sites.site.name](resources--workload--reference--group-029.md#canonical-1002030321023330-0223031011221111-1313122332003203-2113312332121223-3312001231013303-0313210230233221-1131020020310320-3002202330123223) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.namespace` | [stateful_service.deploy_options.deploy_ce_sites.site.namespace](resources--workload--reference--group-029.md#canonical-3323321132330102-2001132212111200-2202013330331323-3211230231022301-2132020110201232-0132320023001202-1212110210011332-2002200302001230) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.tenant` | [stateful_service.deploy_options.deploy_ce_sites.site.tenant](resources--workload--reference--group-029.md#canonical-3312233012023201-2001332031022302-0002121110021203-3213120033012110-2110223130311111-2301213020133331-3133320121330330-3112310012032131) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites` | [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-029.md#canonical-2011331213312121-0023313020300321-3223213011100031-2122033123310200-2002313213303303-3122133210212332-0022131310030302-1221101231102201) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-029.md#canonical-0022010321203302-2313222201312100-0210313103211312-2333331231322120-0120223021311221-0333201232032233-3211322101023012-3130023112333232) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name](resources--workload--reference--group-029.md#canonical-3212223233002203-1013223103020030-0131120132322021-2100200311102300-2202332330302032-2031001230330000-1000121202200310-1101332200130003) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace](resources--workload--reference--group-029.md#canonical-3022211001130101-1023203030323330-0032100002011300-0321120133132323-3323031230001311-3321122033203002-0020021101110020-0022011211012023) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant](resources--workload--reference--group-029.md#canonical-3030330032232301-3333033032100131-1112302121233000-3302101023031132-0123122123000013-3302003001001330-2301300200023023-0121221300001121) |
+| `stateful_service.deploy_options.deploy_re_sites` | [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-029.md#canonical-1121323023112301-1313303331133222-1102012203031332-1003231000130330-3331321113232132-2213102103333003-3201332323133301-3130023110130320) |
+| `stateful_service.deploy_options.deploy_re_sites.site` | [stateful_service.deploy_options.deploy_re_sites.site](resources--workload--reference--group-029.md#canonical-1330230122133230-2103220011023001-3330311311031011-1333103013020313-0332313021222103-3320031300303310-3000010223001010-2303322112322100) |
+| `stateful_service.deploy_options.deploy_re_sites.site.name` | [stateful_service.deploy_options.deploy_re_sites.site.name](resources--workload--reference--group-029.md#canonical-3133110330322313-3003321300323123-3020303301010032-3313220302111200-1211133231323121-3333100030333032-3033033012122111-2023333003032301) |
+| `stateful_service.deploy_options.deploy_re_sites.site.namespace` | [stateful_service.deploy_options.deploy_re_sites.site.namespace](resources--workload--reference--group-029.md#canonical-1131022213100210-3321232002311321-1202131000132110-1302321122120301-3032331001000101-0030200210033323-0332001302112302-0312213000213020) |
+| `stateful_service.deploy_options.deploy_re_sites.site.tenant` | [stateful_service.deploy_options.deploy_re_sites.site.tenant](resources--workload--reference--group-029.md#canonical-1330212230113131-2221311320123230-2312313301220111-2001302201121130-1122233202120330-3003202232001330-0111301331020313-0302132313132122) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites` | [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-029.md#canonical-2332002033202301-1112011020220102-0303311002123322-3331122321203302-3230310000023332-1121130221311101-1320032113012112-3233113020311103) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-029.md#canonical-2312133300332320-2322312031331102-0030231000211233-3303113332030213-3230331313322103-2232130321331213-3132133302102332-3310133120000220) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name](resources--workload--reference--group-029.md#canonical-2033132330103303-0322200330201100-2202013301302303-1201202002222021-1021220302003023-2233312301223033-0102333120121202-2220110211231020) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace](resources--workload--reference--group-029.md#canonical-0131312013123113-0300213120120213-2000302013320310-3221103232231002-0023202232101230-3333003033020102-0021220232231201-3102212002122031) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant](resources--workload--reference--group-029.md#canonical-3003000323322230-2121113133311100-0202113121133003-3022021113122223-3313122220201333-0230330233021022-2331202231013222-0301233203301023) |
+| `stateful_service.num_replicas` | [stateful_service.num_replicas](resources--workload--reference--group-017.md#canonical-1303111221221331-1323333220111212-3302320313231221-0200210101220130-2031031300320011-2000123031220021-2233201111020111-3123113032312120) |
+| `stateful_service.persistent_volumes` | [stateful_service.persistent_volumes](resources--workload--reference--group-029.md#canonical-2300133301120232-1323322232111300-3202011021331210-0121120231233002-2203333102130012-2033331313310100-3112223332031121-2220210100313233) |
+| `stateful_service.persistent_volumes.name` | [stateful_service.persistent_volumes.name](resources--workload--reference--group-029.md#canonical-1333023200113321-0222312122011212-0311212102130103-1213203311101131-0213203330113023-3223103332102223-2231101313233212-2320001213323212) |
+| `stateful_service.persistent_volumes.persistent_volume` | [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-029.md#canonical-0212231030210300-2333322302200302-1301233113333001-0111233211213112-0300333322310203-1013133303022202-3301022001322103-1010132000310213) |
+| `stateful_service.persistent_volumes.persistent_volume.mount` | [stateful_service.persistent_volumes.persistent_volume.mount](resources--workload--reference--group-029.md#canonical-1113321313013030-0230200030211203-2212102030310110-0213032333020021-0100233233312332-2121222230010122-1232022003211201-0300002202301222) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.mode` | [stateful_service.persistent_volumes.persistent_volume.mount.mode](resources--workload--reference--group-029.md#canonical-0213013230311212-3213221122221110-0321321023300013-0133103001020210-1012212111000212-3313000331131213-1311301222011121-3102013313000220) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.mount_path` | [stateful_service.persistent_volumes.persistent_volume.mount.mount_path](resources--workload--reference--group-029.md#canonical-1210223203312321-3112202210321131-3032322011012020-0113232010113121-1202012313323313-2113011130013030-3331202001132123-3330030030223200) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.sub_path` | [stateful_service.persistent_volumes.persistent_volume.mount.sub_path](resources--workload--reference--group-029.md#canonical-1313313120332123-0222121032203213-1020131102231010-3303133312302103-3222313302111220-1003312120011320-0113203130000231-0323002332132220) |
+| `stateful_service.persistent_volumes.persistent_volume.storage` | [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-029.md#canonical-2013002300003120-1131022000322102-2320112100302323-3301320011331121-1000003202313332-3200212013231120-3103033130020230-3222213221212121) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.access_mode` | [stateful_service.persistent_volumes.persistent_volume.storage.access_mode](resources--workload--reference--group-029.md#canonical-2112201320020300-0202102331201021-0320032121021030-2101120301320230-3332023211223131-1223103333220100-3102022300322302-0030221330003113) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.class_name` | [stateful_service.persistent_volumes.persistent_volume.storage.class_name](resources--workload--reference--group-029.md#canonical-0030110210122000-3302320010133330-1130220120111300-2110001230320222-3033121130333322-2301203221302111-3212131332231231-2100013201303000) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.default` | [stateful_service.persistent_volumes.persistent_volume.storage.default](resources--workload--reference--group-029.md#canonical-1223223201110332-2030212031030312-0000211231302011-1212110030313000-1102212111130321-2300002030111220-3220311133001031-0203010330203032) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.storage_size` | [stateful_service.persistent_volumes.persistent_volume.storage.storage_size](resources--workload--reference--group-029.md#canonical-0122300312303202-0033232213100333-1032123001213323-3032102132010322-1023333323200221-2002032032230123-1021021200021123-2103021023003102) |
+| `stateful_service.scale_to_zero` | [stateful_service.scale_to_zero](resources--workload--reference--group-029.md#canonical-2112321232032003-2313003201313020-1130203001113131-3132312011310220-0222033330010103-3313103032203223-3012311321121300-2231003312001030) |
+| `stateful_service.volumes` | [stateful_service.volumes](resources--workload--reference--group-029.md#canonical-0002232221033022-0212210210213012-3302303030230011-0203222213210020-1332001131132322-0300102331113133-0010131212030111-0121322311213013) |
+| `stateful_service.volumes.empty_dir` | [stateful_service.volumes.empty_dir](resources--workload--reference--group-029.md#canonical-2031330010200212-1123130110322133-0201323121030122-1300223121030212-0231320213021320-2222323110112023-2002330100313021-2133221121300003) |
+| `stateful_service.volumes.empty_dir.mount` | [stateful_service.volumes.empty_dir.mount](resources--workload--reference--group-029.md#canonical-2331130330102033-3110301310010302-0300300110133032-0332123302101320-1331312132202123-1233102132312012-3103313101323100-1020010033212233) |
+| `stateful_service.volumes.empty_dir.mount.mode` | [stateful_service.volumes.empty_dir.mount.mode](resources--workload--reference--group-029.md#canonical-2213131202232003-2201330321333001-2212330020303022-2332130033202313-2322020222322112-0102100121110033-1010122200330320-0021231231332013) |
+| `stateful_service.volumes.empty_dir.mount.mount_path` | [stateful_service.volumes.empty_dir.mount.mount_path](resources--workload--reference--group-029.md#canonical-3110033313120110-3113200223010133-3233233003121011-3132131323303310-3013131132331000-3222300032223032-3122311221233220-1021230200303113) |
+| `stateful_service.volumes.empty_dir.mount.sub_path` | [stateful_service.volumes.empty_dir.mount.sub_path](resources--workload--reference--group-029.md#canonical-3132123100030132-1133222330320112-3022122010212231-1313102310023231-0111322213010102-3031311132231122-1121130131233332-2332102021033220) |
+| `stateful_service.volumes.empty_dir.size_limit` | [stateful_service.volumes.empty_dir.size_limit](resources--workload--reference--group-029.md#canonical-2331133302003133-0230333122222000-2232101011000001-0033220231103133-1003122032010013-1301130130221312-2133103131310211-3010131202122231) |
+| `stateful_service.volumes.host_path` | [stateful_service.volumes.host_path](resources--workload--reference--group-029.md#canonical-3123321323021111-2201130322030323-0333300012120123-2122331030002013-1212301023132122-1222230332030032-3332312023233302-1210212003332113) |
+| `stateful_service.volumes.host_path.mount` | [stateful_service.volumes.host_path.mount](resources--workload--reference--group-029.md#canonical-1020120030201301-3123331213303303-1011301102201002-2220003020213303-1230301333322132-1320033302321102-2210333103122213-0230100120111332) |
+| `stateful_service.volumes.host_path.mount.mode` | [stateful_service.volumes.host_path.mount.mode](resources--workload--reference--group-029.md#canonical-3012222112101000-0210322332003200-0300102210301331-2110021000110302-3113111210102103-0202320033211003-3023133023200201-3301113333230022) |
+| `stateful_service.volumes.host_path.mount.mount_path` | [stateful_service.volumes.host_path.mount.mount_path](resources--workload--reference--group-029.md#canonical-0133131010230000-0100020011011002-2320103231002002-2033022203233030-1002131123012300-1311102330201210-0001032012020310-2210013010013320) |
+| `stateful_service.volumes.host_path.mount.sub_path` | [stateful_service.volumes.host_path.mount.sub_path](resources--workload--reference--group-029.md#canonical-3210123120331222-0320333030200102-2211120300303202-2300231320131220-1131210303201221-2013213002023210-2113110233033132-1223210333033301) |
+| `stateful_service.volumes.host_path.path` | [stateful_service.volumes.host_path.path](resources--workload--reference--group-029.md#canonical-1231330100211020-2031301230120331-2032202320111303-2001123311223022-2101133232232113-2110022200010112-1322222011333300-2203220001002121) |
+| `stateful_service.volumes.name` | [stateful_service.volumes.name](resources--workload--reference--group-029.md#canonical-3213100232213233-3330112323320111-0112013223123002-2020230030103211-2331310101310233-0310002023220113-3020221231011231-3211132232330232) |
+| `timeouts` | [timeouts](resources--workload--reference--group-029.md#canonical-3231210002232200-0311023001013021-3300012201120001-0031223311331310-3010101110311202-3103130211030202-0130311220031102-1313031132033322) |
+| `timeouts.create` | [timeouts.create](resources--workload--reference--group-029.md#canonical-3303312302203131-0202332022333013-2110232232313220-2022313333213033-0020213101102022-0300030302130030-2023301103212002-2113212132123221) |
+| `timeouts.delete` | [timeouts.delete](resources--workload--reference--group-029.md#canonical-0001120312210313-2002331131200112-0212121202311020-0113131223112311-0231101033113330-2211312100320102-2220002300213232-0030030221221122) |
+| `timeouts.read` | [timeouts.read](resources--workload--reference--group-029.md#canonical-2312023012301213-1120033230002133-3030331122001101-2221101330332011-0321000121001323-1331110123113313-1133001221030213-3302222131231232) |
+| `timeouts.update` | [timeouts.update](resources--workload--reference--group-029.md#canonical-0003201223320203-3023131033333200-1131313330200203-0210120331201113-0211131020013000-0012001203313012-3211110022021302-1112121220311331) |
 
-<a id="canonical-91e6bd4fbd5f88628745470ea0ac90aea2a9f4741c35968b391e737695d114d3"></a>
+<a id="canonical-2101321223311033-2331113320201202-2013101110130032-2200223021002232-2202222133101310-0130031121122023-0321013213031312-2111310101103103"></a>
 
-<a id="canonical-7aa67a895533406f6fc1e387403de9ef8e1a535fff674ecbc0761e4ef545593e"></a>
+<a id="canonical-1322221213222021-1111030310001233-1233300132032013-1000033132213233-2032012211031133-3333121310323023-3000131201321032-3311101111210332"></a>
 
-## Next pages — Property reference / 352114ffb00f / 15
+## Next pages — Property reference / 333323000033 / 15
 
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [service](resources--workload--reference--group-005.md#canonical-3878aa4259028f4891bf5a01e0e221cdb7c4d36f7eff864876c0158b26b73805)
-- [simple_service](resources--workload--reference--group-016.md#canonical-9361b00a2d9b5209c533e92d6cb37dd367b4eb50395ea573285491ecbf8e6419)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-a1ae4fd0e881ea29023afda841e3139a5e765d0a27acd6a4f490cedbb1d9e2bf)
-- [timeouts](resources--workload--reference--group-028.md#canonical-923a5edb0b626cfe6c45cb6f5d6d5e0ff2ccab8133ffed2c2cdcdabe8d3e7698)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [service](resources--workload--reference--group-005.md#canonical-0320132022221002-1121000220331020-2101233311220001-3200320202013031-2313301031031233-1332333320121020-1312300001112023-0212231303200011)
+- [simple_service](resources--workload--reference--group-016.md#canonical-2103120123000022-0231212311020021-3011030332210231-1230230313313103-1213231032231100-0321113222111303-0220111021013230-2333203212100121)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-2201223210333100-3220200132220221-0002032233312220-1001320301032122-1132131211310022-0213223031122210-3310210030323123-2301312132022333)
+- [timeouts](resources--workload--reference--group-029.md#canonical-2102032211323123-0023120212303332-1230101130231233-1131123111320033-3302303022232001-0303333332310230-0230313031222332-2031033213122120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35"></a>
+<a id="canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9055d4d7c048958f43d6fb70274c1b07fe95938fe833204ad1a4662ef54ba198"></a>
+<a id="canonical-2100111131103113-3000102021112033-1003311233231300-0213103001230013-3332211121032033-3220030302001022-3101221012120232-3311102322012120"></a>
 
-## job — job / a426bbe90290 / 2
+## job — job / 322100022100 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
 - job
 
-<a id="canonical-7af3cd763872b00e9f529acc68f667729330586234f0b3cb75f040ec1b7eeb78"></a>
+<a id="canonical-1322330330311312-0320130223000032-2133110221223030-1220331212131302-2103030011201202-0310330023033023-1311330010003230-0123133232231320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -133,10 +133,10 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [job](resources--workload--reference--group-004.md#canonical-7af3cd763872b00e9f529acc68f667729330586234f0b3cb75f040ec1b7eeb78)
-- [service](resources--workload--reference--group-005.md#canonical-7ed254f36602be22a99eb0ff599d775031ded49db4c47a9006a9d0ce05a2fc0e)
-- [simple_service](resources--workload--reference--group-016.md#canonical-cff3ed51e45c2052315515d0cb4605df00bfd02f40a708551fa14bd5c64d543a)
-- [stateful_service](resources--workload--reference--group-017.md#canonical-dde20583724223a21f496bb6678aa9dd98fcca44af835bc3f76c1b54b8dbaca1)
+- [job](resources--workload--reference--group-004.md#canonical-1322330330311312-0320130223000032-2133110221223030-1220331212131302-2103030011201202-0310330023033023-1311330010003230-0123133232231320)
+- [service](resources--workload--reference--group-005.md#canonical-1332310211103303-1212000223320202-2221213223003333-1121213113131100-0301313231102131-2310301013222100-0012222131003032-0011220233300032)
+- [simple_service](resources--workload--reference--group-016.md#canonical-3033330332311101-3210113002001102-0301111101113100-3023101200113133-0000233331000233-1000221300201111-0133220110233111-3012103111100322)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-3131320200112003-1302100202032202-0133102112232312-1213202222213131-2120333030221010-2233200311233003-3313123001231110-2320312322302201)
 
 Select alternatives according to the provider validators above.
 
@@ -148,21 +148,21 @@ job {
 }
 ```
 
-<a id="canonical-60d71d95c53d132dfdffaba9a44b3d57b352215a47632d1793c7a983d8ae91e5"></a>
+<a id="canonical-1200311301312111-3011033101030231-3331333322232221-2210102303311113-2303110202011122-1013120302310113-2103301322212003-3120223221013211"></a>
 
-## Direct properties — job / a426bbe90290 / 3
+## Direct properties — job / 322100022100 / 3
 
-- [configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e): complete subsection reference.
+- [configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132): complete subsection reference.
 
-- [containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98): complete subsection reference.
+- [containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120): complete subsection reference.
 
-- [deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c): complete subsection reference.
+- [deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030): complete subsection reference.
 
-<a id="canonical-268d9aefc2c4f8f51d262b474c407c78fa123f53bfd37e2173aa6db35772d4b4"></a>
+<a id="canonical-0212203121223233-3002301033203311-0131021202231013-1030100013301320-3322010203331103-2333310313320201-1303222212312303-1113130231102310"></a>
 
-<a id="canonical-ee9ae389dc438343f6c6ce4f7561a1566629d777166ff9c63028d74be29b49d2"></a>
+<a id="canonical-3232212232032021-3130100320031003-3312301230321033-1311120122011112-1212022131131313-0112123333213012-0300022031131023-3202212310213102"></a>
 
-## num_replicas property — job / a426bbe90290 / 4
+## num_replicas property — job / 322100022100 / 4
 
 Type: `"number"`. Optional.
 
@@ -206,37 +206,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d): complete subsection reference.
+- [volumes](resources--workload--reference--group-004.md#canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131): complete subsection reference.
 
-<a id="canonical-e98c99c58806a069fdb60ebbba50a51fa69561c1a7deab46c4a6df8c4f74c361"></a>
+<a id="canonical-3221203021213011-2020001222001221-3331231200322323-2322110022110133-2212211112013001-2213313222231012-3010221231332030-1033131030031201"></a>
 
-## Next pages — job / a426bbe90290 / 5
+## Next pages — job / 322100022100 / 5
 
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [job.volumes](resources--workload--reference--group-004.md#canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e"></a>
+<a id="canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-117d5fd7ec6e7e4f4bb95f16b6638ad6f395e5f5f08ffc453c752e0ac462dc1b"></a>
+<a id="canonical-0101133111333113-3230123213321033-1023232111330112-2312120320223112-3303211132113311-3300203333301011-0330131102320022-3010120231300123"></a>
 
-## job.configuration — job.configuration / f2592d4cd583 / 2
+## job.configuration — configuration / 103031112003 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
 - job.configuration
 
-<a id="canonical-f555c76eba2e035e9867fdf261f56c06720cf88b6368e213e326dc7cf9fe2efa"></a>
+<a id="canonical-3311111130131232-2322023200031132-2120121333313302-1201331112300012-1302003033202023-1203122032020103-3203021231301330-3321333202323322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -263,39 +263,39 @@ configuration {
 }
 ```
 
-<a id="canonical-cfbd8017b410b92bbeb3341443d2df4ef8f4cd705435a417e265a04fce5906cc"></a>
+<a id="canonical-3033233120000113-2310010023210223-2332230303100110-1003310231331032-3320331030311300-1110031122100113-3202121122001033-3032112100123030"></a>
 
-## Direct properties — job.configuration / f2592d4cd583 / 3
+## Direct properties — configuration / 103031112003 / 3
 
-- [parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c): complete subsection reference.
+- [parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130): complete subsection reference.
 
-<a id="canonical-b578297067944bd1a46ec4dd2a9faf0dcbe26359a488e7ceb3cc885d1a323213"></a>
+<a id="canonical-2311132002211300-1213211010233101-2210123230103131-0222213322330031-3023320212031121-2210202032133032-2303303020201131-0122030203020103"></a>
 
-## Next pages — job.configuration / f2592d4cd583 / 4
+## Next pages — configuration / 103031112003 / 4
 
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c"></a>
+<a id="canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-abd97644264e71e88be5e044ca6484c0f35a8d9ecf35b19da6c9f3131c36b86e"></a>
+<a id="canonical-2223312113121010-0212103213013220-2023321132001010-3022121020103000-3303112220312132-3033031123012131-2212302133030103-0130031223201232"></a>
 
-## job.configuration.parameters — job.configuration.parameters / 2c7cace248e0 / 2
+## job.configuration.parameters — parameters / 320210203200 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
 - job.configuration.parameters
 
-<a id="canonical-d25c65af99e8918c2776bc3e4939ece4b29a924a9c318e6dcd0ca5ac4f3ff00a"></a>
+<a id="canonical-3102113012112233-2121322021012030-0213131223300332-1021032132303210-2302212221021022-2130030120321231-3031003022112230-1033033333000022"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -354,43 +354,43 @@ parameters {
 }
 ```
 
-<a id="canonical-5637802ac3c25952af71ee050c55e38aaa1b4f5c2ca7159baf226f85bdbc6a88"></a>
+<a id="canonical-1112031320000222-3003300211211102-2233130132320011-0030111132032022-2222012310331130-0230221301112123-2233020212332011-2331233012222020"></a>
 
-## Direct properties — job.configuration.parameters / 2c7cace248e0 / 3
+## Direct properties — parameters / 320210203200 / 3
 
-- [env_var](resources--workload--reference--group-004.md#canonical-6d82336e9c05bbcf38edeb3826b2e230153348a584c6b5f6ccaa88a6d844b109): complete subsection reference.
+- [env_var](resources--workload--reference--group-004.md#canonical-1231200203031232-2130001123233033-0320323132230320-0212230232020300-0111030310202211-2010301223113312-3030222220202212-3120101023010021): complete subsection reference.
 
-- [file](resources--workload--reference--group-004.md#canonical-c4749933caefd34d009e9fdf04c3ed07a3aa4e735c2eaf70ac98a46b32feac12): complete subsection reference.
+- [file](resources--workload--reference--group-004.md#canonical-3010131021210303-3022323331031031-0000213221333133-0010300332310013-2203222210321303-1130023222331300-2230212022101223-0302333222300102): complete subsection reference.
 
-<a id="canonical-7df63c8402295628ecb957b312870be98861586ca9a9a2e72e2a1c279ec78072"></a>
+<a id="canonical-1331331203302010-0002022111120220-3230232111132303-0102201300233221-2020120111201230-2221222122023213-0232022201300213-2132301320001302"></a>
 
-## Next pages — job.configuration.parameters / 2c7cace248e0 / 4
+## Next pages — parameters / 320210203200 / 4
 
-- [job.configuration.parameters.env_var](resources--workload--reference--group-004.md#canonical-6d82336e9c05bbcf38edeb3826b2e230153348a584c6b5f6ccaa88a6d844b109)
-- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-c4749933caefd34d009e9fdf04c3ed07a3aa4e735c2eaf70ac98a46b32feac12)
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration.parameters.env_var](resources--workload--reference--group-004.md#canonical-1231200203031232-2130001123233033-0320323132230320-0212230232020300-0111030310202211-2010301223113312-3030222220202212-3120101023010021)
+- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-3010131021210303-3022323331031031-0000213221333133-0010300332310013-2203222210321303-1130023222331300-2230212022101223-0302333222300102)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-6d82336e9c05bbcf38edeb3826b2e230153348a584c6b5f6ccaa88a6d844b109"></a>
+<a id="canonical-1231200203031232-2130001123233033-0320323132230320-0212230232020300-0111030310202211-2010301223113312-3030222220202212-3120101023010021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dbc9037990188820145c7cb0e9a986cf2ce033f7772d1cb5f843f19680f5f2a0"></a>
+<a id="canonical-3123302100031321-2100012020200200-0110113013302300-3221222120123033-0230320003033313-1313023101302311-3320100333012112-2000331133022200"></a>
 
-## job.configuration.parameters.env_var — job.configuration.parameters.env_var / 096db6e07e95 / 2
+## job.configuration.parameters.env_var — env_var / 320013322111 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
 - job.configuration.parameters.env_var
 
-<a id="canonical-ffb624a37635093fbf66f3c24c43d1e2bd9f88ab6d3e76a5ecf48956eae9f86d"></a>
+<a id="canonical-3333231202102203-1312031100210333-2333121233033002-1030100331013202-2331213320202223-1231033213122211-3230331020211112-3222322133201231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -421,15 +421,15 @@ env_var {
 }
 ```
 
-<a id="canonical-a1e03fa1c4d56664dc05ecb1cfb5f595cfbec13f7e3849c8f49abd49393818da"></a>
+<a id="canonical-2201320003332201-3010311112121210-3130001132302301-3033231133112111-3033233230010333-1332032010213020-3310212223311021-0321032001203122"></a>
 
-## Direct properties — job.configuration.parameters.env_var / 096db6e07e95 / 3
+## Direct properties — env_var / 320013322111 / 3
 
-<a id="canonical-0bcc5f765363dd33e57429c88915b1deb2b3265f5cc142d8881edd8052c7d5da"></a>
+<a id="canonical-0023303011331312-1103120331310303-3211131002213020-2021011123013132-2302230302121133-1130300110023120-2020013231312000-1102301331113122"></a>
 
-<a id="canonical-ae279f0c5b1b12a6e513c6b06fbe0130cf6d2f46a0515bbf87d2ada92fc9a996"></a>
+<a id="canonical-2232021321330030-1123012301022212-3211010330122300-1233233200010300-3033123102331012-2200110111232333-2013310222312221-0233302122212112"></a>
 
-## name property — job.configuration.parameters.env_var / 096db6e07e95 / 4
+## name property — env_var / 320013322111 / 4
 
 Type: `"string"`. Optional.
 
@@ -492,11 +492,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c2b52fd4cafb28ae789ce46f5c13f030b919fa457fe1b602aecb4572a09d746a"></a>
+<a id="canonical-3002231102333110-3022332302202232-1320213032101233-1130010333000300-2321012133221011-1333320123120002-2232302310111302-2200213113101222"></a>
 
-<a id="canonical-60d014d6264253054d2b055b572eaa19317fc4ee06159e3b1dc46dd4c83da938"></a>
+<a id="canonical-1200310001103112-0212100211030011-1031022300111123-1113023222220121-0301133330103232-0012011121320323-0131301012313110-3020033122210320"></a>
 
-## value property — job.configuration.parameters.env_var / 096db6e07e95 / 5
+## value property — env_var / 320013322111 / 5
 
 Type: `"string"`. Optional.
 
@@ -545,33 +545,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0d35fcc11f36dd124edc7a1eadd669f2c6f768f0d0ec6d2fd5ac71feedebcef0"></a>
+<a id="canonical-0031031133303001-0133031231310102-1032313013220132-2231311212213302-3012331312203300-3100323012310233-3111223013013332-3231322330323300"></a>
 
-## Next pages — job.configuration.parameters.env_var / 096db6e07e95 / 6
+## Next pages — env_var / 320013322111 / 6
 
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-c4749933caefd34d009e9fdf04c3ed07a3aa4e735c2eaf70ac98a46b32feac12"></a>
+<a id="canonical-3010131021210303-3022323331031031-0000213221333133-0010300332310013-2203222210321303-1130023222331300-2230212022101223-0302333222300102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e52e1c4f65591ed681adc65b901d007b789b5991099020c7648d7c02a01593dd"></a>
+<a id="canonical-3211023201301033-1211112101323112-2001223130121123-2100013100001323-1320212311212101-0021210002003013-1210203113300002-2200011121033131"></a>
 
-## job.configuration.parameters.file — job.configuration.parameters.file / 2b6b1433453e / 2
+## job.configuration.parameters.file — file / 030310110332 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
 - job.configuration.parameters.file
 
-<a id="canonical-cd44ff568fd0a79e95b1da51ec97a98ff8ca2134ef0ad939868fc6a604052b51"></a>
+<a id="canonical-3031101033331112-2033310022132132-2111230131221101-3230211322212033-3320302202010310-3233002231210321-2012203330122212-0010001102231101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -609,15 +609,15 @@ file {
 }
 ```
 
-<a id="canonical-90f985af57220bd06ed17a46ead200eae5e290e2a6007d742d11f84b33fa45d4"></a>
+<a id="canonical-2100332120112233-1113020200233100-1232310113221012-3222310200003222-3211320221003202-2212000013311310-0231010133201023-0303332210113110"></a>
 
-## Direct properties — job.configuration.parameters.file / 2b6b1433453e / 3
+## Direct properties — file / 030310110332 / 3
 
-<a id="canonical-baca8bc64f21c36e8f6c2f68dde76902001fa2eed3e275e9b271f7de805a9a60"></a>
+<a id="canonical-2322302220233012-1033020130031232-2033123002331220-3131321312210002-0000013322023232-3103320213113221-2302130133133132-2000112221221200"></a>
 
-<a id="canonical-d677591b4a7667e56587c97a916545196b9e693e4c9667172f41ef9e662a7aba"></a>
+<a id="canonical-3112131311210123-1022131212133211-1211201330211322-2101121110110121-1223213212210332-1030211212130113-0233100132332132-1212022213222322"></a>
 
-## data property — job.configuration.parameters.file / 2b6b1433453e / 4
+## data property — file / 030310110332 / 4
 
 Type: `"string"`. Optional.
 
@@ -669,13 +669,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [mount](resources--workload--reference--group-004.md#canonical-bd5e9a317a403e235723400f8af0f3ce646a8c4c151fec460f55b16a27bd669e): complete subsection reference.
+- [mount](resources--workload--reference--group-004.md#canonical-2331113221220301-1322100003320203-1113020310000033-2022330033033032-1210122220301030-0111013332301012-0033111123011222-0213233112122132): complete subsection reference.
 
-<a id="canonical-71ed89dde5200b1501cc50c969de754631e48649f6194256317256db516d255a"></a>
+<a id="canonical-1301323120213131-3211020000230111-0001303011003021-1221313213111012-0301321020121021-3312012110021112-0301130211123123-1101123102111122"></a>
 
-<a id="canonical-7b7c4a22c187ba4b33ad78a97a6249431a89076a1b675c279de670b1da86c159"></a>
+<a id="canonical-1323133010220202-3001201323221023-0303223113202221-1322120210211003-0122202100131222-0123121311300213-2131321213002301-3122201230011121"></a>
 
-## name property — job.configuration.parameters.file / 2b6b1433453e / 5
+## name property — file / 030310110332 / 5
 
 Type: `"string"`. Optional.
 
@@ -740,11 +740,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7477d24bbaf1914458dd95b0c77496f59e595a8b67ff50a8a47cdd16b825c4c7"></a>
+<a id="canonical-1310131331021023-2322330121011010-1120313121112300-3013131021123311-2132112111222023-1213333311002220-2210133031310112-2320021130103013"></a>
 
-<a id="canonical-9063cbf4123edacef87c00d0af068a87938a6c4ee5130715def610f9438d8752"></a>
+<a id="canonical-2100120330233310-0102033231223032-3320133000003100-2233001220222013-2103202212301032-3211010300130111-3132331201003321-1003203120131102"></a>
 
-## volume_name property — job.configuration.parameters.file / 2b6b1433453e / 6
+## volume_name property — file / 030310110332 / 6
 
 Type: `"string"`. Optional.
 
@@ -795,35 +795,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c78e50a167daf54e3b2ccf8e009f46f6e84cafdf1e53df0439eb26c2461d87f"></a>
+<a id="canonical-2130132032110022-0112133122331110-3203230230303320-3200002133101233-1232201030223331-3301321103313300-1003213223021230-0210120131201333"></a>
 
-## Next pages — job.configuration.parameters.file / 2b6b1433453e / 7
+## Next pages — file / 030310110332 / 7
 
-- [job.configuration.parameters.file.mount](resources--workload--reference--group-004.md#canonical-bd5e9a317a403e235723400f8af0f3ce646a8c4c151fec460f55b16a27bd669e)
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration.parameters.file.mount](resources--workload--reference--group-004.md#canonical-2331113221220301-1322100003320203-1113020310000033-2022330033033032-1210122220301030-0111013332301012-0033111123011222-0213233112122132)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-bd5e9a317a403e235723400f8af0f3ce646a8c4c151fec460f55b16a27bd669e"></a>
+<a id="canonical-2331113221220301-1322100003320203-1113020310000033-2022330033033032-1210122220301030-0111013332301012-0033111123011222-0213233112122132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6d53209cd24200da2333a3558d99693d41f1a99ee34bc1898cc6de066484afbf"></a>
+<a id="canonical-1231110302002130-3102100200003122-0203030322031111-2031212112210331-1001330122212132-3203102330012021-2030301231320012-1210201022332333"></a>
 
-## job.configuration.parameters.file.mount — job.configuration.parameters.file.mount / 26f01c7a56d8 / 2
+## job.configuration.parameters.file.mount — mount / 132211123120 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.configuration](resources--workload--reference--group-004.md#canonical-789d2115a9a9224c0b9f02bf03ee3e839868e52a71f66a934be5f61962eb855e)
-- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-1fa3c23bc5fd74779cdb4556353e1e5d09ac984a00fe607045d9b3e675a95d9c)
-- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-c4749933caefd34d009e9fdf04c3ed07a3aa4e735c2eaf70ac98a46b32feac12)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.configuration](resources--workload--reference--group-004.md#canonical-1320213102010111-2221222102021030-0023213300022333-0003323203322003-2120122032110222-1301331212222103-1023321133120121-1202322320111132)
+- [job.configuration.parameters](resources--workload--reference--group-004.md#canonical-0133220330020323-3011333113101313-2130312310111112-0311033201321131-0021223021201022-0000333212001300-1011312123033212-1311222111312130)
+- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-3010131021210303-3022323331031031-0000213221333133-0010300332310013-2203222210321303-1130023222331300-2230212022101223-0302333222300102)
 - job.configuration.parameters.file.mount
 
-<a id="canonical-a138546d803a8f45a074626cab8f86ea504479ddb3b5fc7360647567cf3de117"></a>
+<a id="canonical-2201032011101231-2000032220331011-2200131012021230-2223203320123222-1100101013213131-2303231133301303-1200121013111213-3033033132010113"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -856,15 +856,15 @@ mount {
 }
 ```
 
-<a id="canonical-9d0368e39d1528597db7dd285ffcb44b225dcfa7d7494bcf62b9996bd4b2456c"></a>
+<a id="canonical-2131000312203203-2131011102201121-1331231331310220-1133333023101023-0202113130332213-3113102110233033-1202232121211223-3110230210111230"></a>
 
-## Direct properties — job.configuration.parameters.file.mount / 26f01c7a56d8 / 3
+## Direct properties — mount / 132211123120 / 3
 
-<a id="canonical-f348356d4f3e21a294460a0892450a380987addfbf49f4b7440800fb592ddb97"></a>
+<a id="canonical-3303102003111231-1033033202012202-2110101200220020-2102101100220320-0021201322313133-2333102133102313-1010002000003323-1121023131232113"></a>
 
-<a id="canonical-2c952c714757b3248a01d0ac60b6d15792247b1a8f9bed81eca6e8174753caa8"></a>
+<a id="canonical-0230211102301301-1013111323030210-2022000131002230-1200231231011113-2102021013230122-2033212332312001-3230221232200113-1013110330222220"></a>
 
-## mode property — job.configuration.parameters.file.mount / 26f01c7a56d8 / 4
+## mode property — mount / 132211123120 / 4
 
 Type: `"string"`. Optional.
 
@@ -911,11 +911,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6d74ebfafcd777d8131ffb1c6009dd79f925b0a9fe5efeaa4f106014e39c3cd7"></a>
+<a id="canonical-1231131032233322-3330311313133120-0103013333230130-1200002131311321-3321021123002221-3332113233322222-1033010012000110-3203213003303113"></a>
 
-<a id="canonical-a4ac991d37ac9551933236512f805a094f6fa4979d7d872c33c308f46fe97689"></a>
+<a id="canonical-2210223021210131-0313223021111101-2103030203121101-0233200011220021-1033123322102113-2131133120130230-0303300300203310-1233322113122021"></a>
 
-## mount_path property — job.configuration.parameters.file.mount / 26f01c7a56d8 / 5
+## mount_path property — mount / 132211123120 / 5
 
 Type: `"string"`. Optional.
 
@@ -965,11 +965,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-348bf99650e5908e7997c65325e539d74f50c08ce49c19f8038dc0d9c80dc83e"></a>
+<a id="canonical-0310202333212112-1100321121002032-1321211330121103-0211321103213113-1033110030002030-3210213001213320-0003203130003121-3020003130200332"></a>
 
-<a id="canonical-578d6646039098b02a55e82f0b1a806792e5116abd9561d0c4500587c99aef08"></a>
+<a id="canonical-1113203112121012-0003210021202300-0222111132200233-0023012220001213-2102321101011222-2331211112013100-3010110000112013-3021212232330020"></a>
 
-## sub_path property — job.configuration.parameters.file.mount / 26f01c7a56d8 / 6
+## sub_path property — mount / 132211123120 / 6
 
 Type: `"string"`. Optional.
 
@@ -1020,31 +1020,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-35f5d28fd7945c614445e9f5e68c10fe3c52e3e943d7284a4d73666fdbee98b2"></a>
+<a id="canonical-0311331131022033-3113211011301201-1010101132213311-3212203001003332-0330110232033221-1003311302201022-1031130312121233-3123323221202302"></a>
 
-## Next pages — job.configuration.parameters.file.mount / 26f01c7a56d8 / 7
+## Next pages — mount / 132211123120 / 7
 
-- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-c4749933caefd34d009e9fdf04c3ed07a3aa4e735c2eaf70ac98a46b32feac12)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.configuration.parameters.file](resources--workload--reference--group-004.md#canonical-3010131021210303-3022323331031031-0000213221333133-0010300332310013-2203222210321303-1130023222331300-2230212022101223-0302333222300102)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98"></a>
+<a id="canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e0c9e420fab9856758e114f29b99c50016c6a7ca65f3e55647c6ab3db1734348"></a>
+<a id="canonical-3200302132100200-3322232120111213-1120320101103302-2123212130110000-0112301222133022-1211330332111112-1013301222230331-2301130310031020"></a>
 
-## job.containers — job.containers / 3c6ad5bb3812 / 2
+## job.containers — containers / 232303200102 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
 - job.containers
 
-<a id="canonical-0af40e8aaa154ee94431f1a934c134aa232dcad2db7d4be21cf3ecd2a7ee0336"></a>
+<a id="canonical-0022331000322022-2222011110323221-1010030133012221-0310300103102222-0203023130223102-3123133110233202-0130330332303102-2213323200030312"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1107,15 +1107,15 @@ containers {
 }
 ```
 
-<a id="canonical-a0aebeb16bc0200b437e3f7a933e6545816941b121349cc2225710499052800d"></a>
+<a id="canonical-2200223223322301-1223300002000023-1003133203331322-2103033212111011-2001122110012301-0201031021303002-0202111301001021-2100110220000031"></a>
 
-## Direct properties — job.containers / 3c6ad5bb3812 / 3
+## Direct properties — containers / 232303200102 / 3
 
-<a id="canonical-687c61bba4ad47870bc269d196c81a70358112cd7738ae648f1960a27103aa31"></a>
+<a id="canonical-1220133012012323-2210223110132013-0023300212213101-2112302001221300-0311200101023031-1313032022321210-2033012112002202-1301000322220301"></a>
 
-<a id="canonical-f4d86f84fcaa526d2efd067aa3136eabb0fac4a15f4a2620fa5707a9015f859e"></a>
+<a id="canonical-3310312012332010-3330222211021231-0232333100121322-2203010312322223-2300332230102201-1133102202120200-3322111300132221-0001113320112132"></a>
 
-## args property — job.containers / 3c6ad5bb3812 / 4
+## args property — containers / 232303200102 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1160,11 +1160,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b6ccc97d4f0009d7ef1771db0147ce6fd9b6350392604fcb027f5e3067bc84ce"></a>
+<a id="canonical-2312303030211331-1033000000213113-3233011313013123-0001101330321233-3121231203110003-2102120010333023-0002133311320300-1213233020103032"></a>
 
-<a id="canonical-eca014c21b23de5a72dbac0cf234b21dd0b1c2dedb93cedf8464d6bd1fd95e85"></a>
+<a id="canonical-3230220001103002-0123020331321122-1302312322300030-3302031023020131-3100230130023132-3123210330323133-2010121031122331-0133312111322011"></a>
 
-## command property — job.containers / 3c6ad5bb3812 / 5
+## command property — containers / 232303200102 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -1209,15 +1209,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_flavor](resources--workload--reference--group-004.md#canonical-adfcad742f4aa687e362ff2254f878968a1acf016c95e54d0d328ef6eae61258): complete subsection reference.
+- [custom_flavor](resources--workload--reference--group-004.md#canonical-2231333022311310-0233102222122013-3203120233330202-1110332013202112-2022012230330001-1230211132111031-0031030220323312-3222321201021120): complete subsection reference.
 
-- [default_flavor](resources--workload--reference--group-004.md#canonical-2db6a11e21ad058c406174d2e2e73b35035308eb465252a7dcc6c334ed8b1cb3): complete subsection reference.
+- [default_flavor](resources--workload--reference--group-004.md#canonical-0231231222010132-0201223100112030-1000120113103102-3202321303230311-0003110300203223-1012110211022213-3130301230030310-3231202301302303): complete subsection reference.
 
-<a id="canonical-62e1706222f189fa97cae0a032f2866ef060c7c13550839e45d762e72a19deda"></a>
+<a id="canonical-1202320113001202-0202330120213322-2113302232002200-0302330220121232-3300120030133001-0311110020032132-1011311312023213-0222012131323122"></a>
 
-<a id="canonical-f511faaae69c9c9903e05c070b0cf2d7e55cf517894ed56500728efd751663e9"></a>
+<a id="canonical-3311010133222222-3212213021302121-0003320011300013-0023003033023113-3211113033110113-2021103231111211-0000130220323331-1311011212033221"></a>
 
-## flavor property — job.containers / 3c6ad5bb3812 / 6
+## flavor property — containers / 232303200102 / 6
 
 Type: `"string"`. Optional.
 
@@ -1272,13 +1272,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef): complete subsection reference.
+- [image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233): complete subsection reference.
 
-<a id="canonical-650c32c45731b4f24e619ab55829894066434f1f26ce22eef9463b3fe540f937"></a>
+<a id="canonical-1211003003023010-1113030123103302-1032120121222311-1120022120211000-1212100310330133-0212303202023232-3321101203230333-3211100033210313"></a>
 
-<a id="canonical-c93a339f902038ef44fa4633f8ce45eadcee2ed65ec0c2dcffc1b4c09c814c68"></a>
+<a id="canonical-3021032203032133-2100020003203233-1010332210120303-3320303210113222-3130323202323112-1132300030023130-3333300123103000-2130200110301220"></a>
 
-## init_container property — job.containers / 3c6ad5bb3812 / 7
+## init_container property — containers / 232303200102 / 7
 
 Type: `"bool"`. Optional.
 
@@ -1297,13 +1297,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a): complete subsection reference.
+- [liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122): complete subsection reference.
 
-<a id="canonical-eec23e1f282bb70bc8571f6ea4c6b419f47162dd63f5eadddbe17c1d16408296"></a>
+<a id="canonical-3232300203320133-0220022323130023-3020111301331232-2210301223100121-3310130112023131-1203331132223131-3123320113300131-0112100020022112"></a>
 
-<a id="canonical-28b1b9eb18433bd549abd9b9728fff36250e32f8f9eb870f14c4b2c8149d273e"></a>
+<a id="canonical-0220230123213223-0120100303233111-1021222331212321-1302203333330312-0211003203023320-3321322320130033-0110301023023020-0110213102130332"></a>
 
-## name property — job.containers / 3c6ad5bb3812 / 8
+## name property — containers / 232303200102 / 8
 
 Type: `"string"`. Optional.
 
@@ -1368,39 +1368,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9): complete subsection reference.
+- [readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121): complete subsection reference.
 
-<a id="canonical-c5cc04ff7b870604c66ef3ea193b25ca9f973f7da357a13661c911304fdd7864"></a>
+<a id="canonical-3011303000103333-1323201300120010-3012123233033222-0121032302113022-2133211303331331-2203111322010312-1201302101010300-1033313113201210"></a>
 
-## Next pages — job.containers / 3c6ad5bb3812 / 9
+## Next pages — containers / 232303200102 / 9
 
-- [job.containers.custom_flavor](resources--workload--reference--group-004.md#canonical-adfcad742f4aa687e362ff2254f878968a1acf016c95e54d0d328ef6eae61258)
-- [job.containers.default_flavor](resources--workload--reference--group-004.md#canonical-2db6a11e21ad058c406174d2e2e73b35035308eb465252a7dcc6c334ed8b1cb3)
-- [job.containers.image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.custom_flavor](resources--workload--reference--group-004.md#canonical-2231333022311310-0233102222122013-3203120233330202-1110332013202112-2022012230330001-1230211132111031-0031030220323312-3222321201021120)
+- [job.containers.default_flavor](resources--workload--reference--group-004.md#canonical-0231231222010132-0201223100112030-1000120113103102-3202321303230311-0003110300203223-1012110211022213-3130301230030310-3231202301302303)
+- [job.containers.image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-adfcad742f4aa687e362ff2254f878968a1acf016c95e54d0d328ef6eae61258"></a>
+<a id="canonical-2231333022311310-0233102222122013-3203120233330202-1110332013202112-2022012230330001-1230211132111031-0031030220323312-3222321201021120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec47952c202e7214fd9db5cdc503c28509c3a6db32a4e70cff615e7a960b0ff3"></a>
+<a id="canonical-3230101321110230-0200023213020110-3331213123113031-3011000330022011-0021300322123123-0302221032130030-3333120111321322-2112002300333303"></a>
 
-## job.containers.custom_flavor — job.containers.custom_flavor / a61a57c4aefd / 2
+## job.containers.custom_flavor — custom_flavor / 301022323331 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
 - job.containers.custom_flavor
 
-<a id="canonical-d016ce42209cb9a3a1980a6d904a07099c46939d6603823f13f6840e41b4672e"></a>
+<a id="canonical-3100011230321002-0200213023212203-2201212000221231-2100102200130021-2130101221032131-1212000320020333-0103331220100032-1001231012130232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1439,15 +1439,15 @@ custom_flavor {
 }
 ```
 
-<a id="canonical-972808cde419e521fa6f637dbc5fd0c3f18d207203d277540bfbdd08c4d8b1fe"></a>
+<a id="canonical-2113022000203031-3210012132110201-3322123312031331-2330113331003003-3301203102001302-0003310213131110-0023332331310020-3010312023013332"></a>
 
-## Direct properties — job.containers.custom_flavor / a61a57c4aefd / 3
+## Direct properties — custom_flavor / 301022323331 / 3
 
-<a id="canonical-4ef323a3a3f51a76abcb42e1d63afc33ef752e778f012a1477e5549e299ccfd8"></a>
+<a id="canonical-1032330302032203-2203331101221312-2223302310023201-3112032233300303-3233131102321313-2033000102220110-1313321111102132-0221213030333120"></a>
 
-<a id="canonical-a858ab7e119803ba9d2ac9aa31c49aee84d435b2bf1f8eabaa114f64e775fd94"></a>
+<a id="canonical-2220112022231332-0101212000032322-2131022230212222-0301301021223232-2010311003112302-2333013320322223-2222010110331210-3213131133312110"></a>
 
-## name property — job.containers.custom_flavor / a61a57c4aefd / 4
+## name property — custom_flavor / 301022323331 / 4
 
 Type: `"string"`. Optional.
 
@@ -1508,11 +1508,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-42d912bb78299f53410c69760e06352568ddfb90c8fc046f7fe9c8f6e9d1b29c"></a>
+<a id="canonical-1002312101022323-1320022121331103-1001003012211312-0032001203110211-1220313133232100-3020333000101233-1333322130203312-3221310123022130"></a>
 
-<a id="canonical-58d5b080e3b2b924946079218f56b63baca2d749974024b69316763bf1b29df9"></a>
+<a id="canonical-1120311123002000-3203230223210210-2110120013210201-2033111223120323-2230220231131021-2113100002102312-2103011213120323-3301230221313321"></a>
 
-## namespace property — job.containers.custom_flavor / a61a57c4aefd / 5
+## namespace property — custom_flavor / 301022323331 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1580,11 +1580,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8c40265a00d1fd448448bd4689a9a2d680d7c63bb93c7c54624afc9dd646a847"></a>
+<a id="canonical-2030100002121122-0000310133311010-2010102023311012-2021222122023112-2000311330120323-2321033013301110-1202102233302131-3112101222201013"></a>
 
-<a id="canonical-ff7d519019a39915de483047185be9840f49dce780db88a89c155f0615afda24"></a>
+<a id="canonical-3333133111012100-0121220321210111-3132102003001013-0120112332212010-0033102131303213-2000312320202220-2130011111330012-0111223331220210"></a>
 
-## tenant property — job.containers.custom_flavor / a61a57c4aefd / 6
+## tenant property — custom_flavor / 301022323331 / 6
 
 Type: `"string"`. Computed.
 
@@ -1638,32 +1638,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6061fc1cc402b178ebe84d4769b077e7aef2863cff6573988cf2968857b38a8d"></a>
+<a id="canonical-1200120133300130-3010000223011320-3223322010311013-1221230013133213-2232330220120330-3333121113032120-2030330221122020-1113230320222031"></a>
 
-## Next pages — job.containers.custom_flavor / a61a57c4aefd / 7
+## Next pages — custom_flavor / 301022323331 / 7
 
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-2db6a11e21ad058c406174d2e2e73b35035308eb465252a7dcc6c334ed8b1cb3"></a>
+<a id="canonical-0231231222010132-0201223100112030-1000120113103102-3202321303230311-0003110300203223-1012110211022213-3130301230030310-3231202301302303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ed0ec19d9dfc9e609c6e00c286ee9b9634f223f0cc5f23fad84b817b17af9e3d"></a>
+<a id="canonical-3231003230012131-2131333021321200-2130123200003002-2012323221232112-0310330202033300-3030113302033322-3120102320011323-0113223321320331"></a>
 
-## job.containers.default_flavor — job.containers.default_flavor / 5a37a71e1002 / 2
+## job.containers.default_flavor — default_flavor / 013201000002 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
 - job.containers.default_flavor
 
-<a id="canonical-05b6212eca1b69834f13d303e7281ee6262fd0bc11a0ad47b9b2dc782daba3b6"></a>
+<a id="canonical-0011231202010232-3022012312212003-1033010331030003-3213022001323212-0212023331002330-0101220022311013-2321230231301320-0231222322032312"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1692,38 +1692,38 @@ Terraform syntax:
 default_flavor = {}
 ```
 
-<a id="canonical-87a2f09b3475b92e960b0433e3fa4c63ecf1bfe7affbae56bb74f4f4aa2327e1"></a>
+<a id="canonical-2013220233002123-0310131123210232-2112002300100303-3203332210301203-3230330123333213-2233332322321112-2323131033103310-2222020302133201"></a>
 
-## Direct properties — job.containers.default_flavor / 5a37a71e1002 / 3
+## Direct properties — default_flavor / 013201000002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2a2960833842a003c3155c33c8fba780a37efc15636d4ec7a5d35c0b7fc977d8"></a>
+<a id="canonical-0222022112002003-0320100222000003-3003011111300303-3020332322132000-2203133233300111-1203123110323013-2211310311300023-1333302113133120"></a>
 
-## Next pages — job.containers.default_flavor / 5a37a71e1002 / 4
+## Next pages — default_flavor / 013201000002 / 4
 
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef"></a>
+<a id="canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-67faf8657e68b0884227e8e4c3c4c40292050d5d19c0881986fd3c9751599b5b"></a>
+<a id="canonical-1213332233201211-1332122023002020-1002021332203210-3003301030100002-2102001100311131-0121300020200121-2012333103302113-1101112121231123"></a>
 
-## job.containers.image — job.containers.image / f877632ab7cc / 2
+## job.containers.image — image / 022223133030 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
 - job.containers.image
 
-<a id="canonical-b55a70a754cb19eda51840550d4ddffdb3215c212acfbf46832fe3062e3da8fc"></a>
+<a id="canonical-2311112213002213-1110302301213231-2211012010001111-0031103131333331-2303020111300201-0222303323331012-2003023332030012-0232033122203330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1760,17 +1760,17 @@ image {
 }
 ```
 
-<a id="canonical-b27297cbad7a6f36448a997b6e6ec966d46a3c437b32dc76beaa31f9f1e91308"></a>
+<a id="canonical-2302130221133023-2231132212330312-1010202221211323-1232123230211212-3110122203301003-1323030231301312-2332222203013321-3301322101030020"></a>
 
-## Direct properties — job.containers.image / f877632ab7cc / 3
+## Direct properties — image / 022223133030 / 3
 
-- [container_registry](resources--workload--reference--group-004.md#canonical-6d7dd352696ee82945aa295cec51c2d8dd73cba425ada98544c77226839920f4): complete subsection reference.
+- [container_registry](resources--workload--reference--group-004.md#canonical-1231133131031102-1221123232200221-1011222202211130-3230110130023120-3131130330232210-0211223122212011-1010301313020212-2003212102003310): complete subsection reference.
 
-<a id="canonical-50fc59e62c4990199018ecf2e7549a011bb65d416db0de9d3a2e58cdfb791dab"></a>
+<a id="canonical-1100333011213212-0230102121000121-2100012032303302-3213111021220001-0123231211311001-1231230031322131-0322023211203031-3323132101312223"></a>
 
-<a id="canonical-0662b0dab1c2b276821ac15555f531ed8cb9d5f166efe5745881c0eeddcb62e7"></a>
+<a id="canonical-0012120223003122-2301300223021312-2002012230011111-1111331103013231-2030232131113301-1212323332111310-1120200130003232-3131302312023213"></a>
 
-## name property — job.containers.image / f877632ab7cc / 4
+## name property — image / 022223133030 / 4
 
 Type: `"string"`. Optional.
 
@@ -1839,13 +1839,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [public](resources--workload--reference--group-004.md#canonical-fd7bf11b94ec634f8471b7c8caf1cd5cb4e7d00bc76541222a3c040db95449ee): complete subsection reference.
+- [public](resources--workload--reference--group-004.md#canonical-3331132333010123-2110323012031033-2010130123133020-3022330130311130-2310321331000023-3013121110010202-0222033000100031-2321111010213232): complete subsection reference.
 
-<a id="canonical-7aab2edded443d6958f4521c684eb7fe09bc441344955e2321ea47669c1b61b0"></a>
+<a id="canonical-1322222302323131-3231101003311221-1120331011020130-1220103223133332-0021233010100103-1010211111320203-0201322210131212-2130012312012300"></a>
 
-<a id="canonical-7ddf13f2f4d85fc383262420d2a3e518722db628e0bf092c392c0c941d193e87"></a>
+<a id="canonical-1331313301033302-3310312011333003-2003021202100200-3102220332110120-1302023123120220-3200233300210230-0321023000302110-0131012103322013"></a>
 
-## pull_policy property — job.containers.image / f877632ab7cc / 5
+## pull_policy property — image / 022223133030 / 5
 
 Type: `"string"`. Optional.
 
@@ -1907,35 +1907,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d24d23555c6b5aeda3fed9d58b50e4089959783201f533cae590b4f2de4d9d66"></a>
+<a id="canonical-3102103102031111-1130122311223231-2203333231213111-2023110032100020-2121112113200302-0001331103033022-3211210023103302-3132103121311212"></a>
 
-## Next pages — job.containers.image / f877632ab7cc / 6
+## Next pages — image / 022223133030 / 6
 
-- [job.containers.image.container_registry](resources--workload--reference--group-004.md#canonical-6d7dd352696ee82945aa295cec51c2d8dd73cba425ada98544c77226839920f4)
-- [job.containers.image.public](resources--workload--reference--group-004.md#canonical-fd7bf11b94ec634f8471b7c8caf1cd5cb4e7d00bc76541222a3c040db95449ee)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.image.container_registry](resources--workload--reference--group-004.md#canonical-1231133131031102-1221123232200221-1011222202211130-3230110130023120-3131130330232210-0211223122212011-1010301313020212-2003212102003310)
+- [job.containers.image.public](resources--workload--reference--group-004.md#canonical-3331132333010123-2110323012031033-2010130123133020-3022330130311130-2310321331000023-3013121110010202-0222033000100031-2321111010213232)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-6d7dd352696ee82945aa295cec51c2d8dd73cba425ada98544c77226839920f4"></a>
+<a id="canonical-1231133131031102-1221123232200221-1011222202211130-3230110130023120-3131130330232210-0211223122212011-1010301313020212-2003212102003310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bc1a8097bdd5305a6ddefcb0b603c66e8b14237ca8c395eba79e3d761b1f2428"></a>
+<a id="canonical-2330012220002113-2331311103001122-1231313233302300-2312000330121232-2023011002031330-2220300321113223-2213213203311312-0123013302100220"></a>
 
-## job.containers.image.container_registry — job.containers.image.container_registry / c12dfa07b1a2 / 2
+## job.containers.image.container_registry — container_registry / 001323012202 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233)
 - job.containers.image.container_registry
 
-<a id="canonical-f75e5480a71965c7719a15743cdb49dadd822dee92e1c552ada5fd487b3393d3"></a>
+<a id="canonical-3313113211102000-2213012112113013-1301212201111310-0330312310213122-3131200202313232-2102320130111102-2231221133311020-1323030321033103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1974,15 +1974,15 @@ container_registry {
 }
 ```
 
-<a id="canonical-28e82742b1ddada794143ff549e984938af20807494b70e58aaa2f4f3a62483c"></a>
+<a id="canonical-0220322002131002-2301313122312213-2110011003333311-1021322120102103-2022330200200013-1021102313003211-2022222202331033-0322120210200330"></a>
 
-## Direct properties — job.containers.image.container_registry / c12dfa07b1a2 / 3
+## Direct properties — container_registry / 001323012202 / 3
 
-<a id="canonical-661623e400ded8f19da21b954506b846aa3d1be79a871a3bc5dd974529376519"></a>
+<a id="canonical-1212011202033210-0000313231203301-2131220201232111-1011001223201012-2222033101233213-2122201301220323-3011313121131011-0221031312110121"></a>
 
-<a id="canonical-503d6c224e1aa256a36e278ac17f83c3099b9502076fefe7768f4240acb3e306"></a>
+<a id="canonical-1100033112300202-1032012222021112-2203123202132022-3001133320033003-0021212321110002-0013123332333213-1312203310021000-2230230332030012"></a>
 
-## name property — job.containers.image.container_registry / c12dfa07b1a2 / 4
+## name property — container_registry / 001323012202 / 4
 
 Type: `"string"`. Optional.
 
@@ -2043,11 +2043,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7488647fc9bbe77ba1737f2fb3234885c0e385e9137e4c0b2364434251d499a3"></a>
+<a id="canonical-1310202012101333-3021232332131323-2201130313330233-2303020310202011-3000320320113221-0103133210300023-0203121010031002-1101311021212203"></a>
 
-<a id="canonical-59ad448a7a85a5134f8d58751a58cf5404fea522e4e4c51d49658981274db991"></a>
+<a id="canonical-1121223110102022-1322201122110103-1033203111201311-0122112030331110-0010333222110202-3210321030110131-1021121120212001-0213103123212101"></a>
 
-## namespace property — job.containers.image.container_registry / c12dfa07b1a2 / 5
+## namespace property — container_registry / 001323012202 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -2115,11 +2115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7ec3ff4e0bcee2ee8844cf34d370a69dc4892fe2e84b41e3eeb5c5ccd8e4829e"></a>
+<a id="canonical-1332300333331032-0023303232023232-2020101030330310-3103130022122131-3010202102333202-3220102310013203-3232231130113030-3120321020022132"></a>
 
-<a id="canonical-35d6c11156b2c22cce956d2699aa0bb62096b21044b68e828853fd7d4fd5fc56"></a>
+<a id="canonical-0311311230010101-1112230230020230-3032211112310212-2121222200232312-0200211223020100-1010231220322002-2020110333311331-1033311133301112"></a>
 
-## tenant property — job.containers.image.container_registry / c12dfa07b1a2 / 6
+## tenant property — container_registry / 001323012202 / 6
 
 Type: `"string"`. Computed.
 
@@ -2173,33 +2173,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7dd27627bf4137c731a4e44823e2e219e4a532f5161399f5138f001671eef960"></a>
+<a id="canonical-1331310213120213-2333100103133013-0301221032101020-0203320232020121-3210221103023311-0112010321213311-0103203300000112-1301323233211200"></a>
 
-## Next pages — job.containers.image.container_registry / c12dfa07b1a2 / 7
+## Next pages — container_registry / 001323012202 / 7
 
-- [job.containers.image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-fd7bf11b94ec634f8471b7c8caf1cd5cb4e7d00bc76541222a3c040db95449ee"></a>
+<a id="canonical-3331132333010123-2110323012031033-2010130123133020-3022330130311130-2310321331000023-3013121110010202-0222033000100031-2321111010213232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0768f599d96ead3f477853e1f608cbdc7d84e5804f6a2c53f9124ab33c50ddd1"></a>
+<a id="canonical-0013122033112121-3121123222310333-1013132011033201-3312002030233130-1331201032112000-1033122202301103-3321010210222303-0330110031313101"></a>
 
-## job.containers.image.public — job.containers.image.public / 65c1129fa69e / 2
+## job.containers.image.public — public / 213322122132 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233)
 - job.containers.image.public
 
-<a id="canonical-33febd7484d66408c277c34fee6925c4149cca0ecf5eee569e0ca1675ea68fdd"></a>
+<a id="canonical-0303333223311310-2010311212100020-3002131330031033-3232122102113010-0110213030220032-3033113232321112-2132003022011213-1132221220333131"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2228,38 +2228,38 @@ Terraform syntax:
 public = {}
 ```
 
-<a id="canonical-22bdaa2e4d64983c78210cb8da48c3b04996dc73cba6181c64bfcc6dc30ebec7"></a>
+<a id="canonical-0202233122220232-1031121021200330-1320020100302320-3122102030032300-1021211231301303-3023221201200130-1210233330301231-3003003223323013"></a>
 
-## Direct properties — job.containers.image.public / 65c1129fa69e / 3
+## Direct properties — public / 213322122132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d1d729ba5d07165779974addb060b786bd7579a1b356114c1661c2f9d0f9e165"></a>
+<a id="canonical-3101311302212322-1131001301121113-1321211310223131-2300120023132012-2331131113212201-2303111201011030-0112120130023321-3100332132011211"></a>
 
-## Next pages — job.containers.image.public / 65c1129fa69e / 4
+## Next pages — public / 213322122132 / 4
 
-- [job.containers.image](resources--workload--reference--group-004.md#canonical-821717b1fc4a75f452710e5cbd3256380571aa3961b179819a4aa6b3771795ef)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.image](resources--workload--reference--group-004.md#canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a"></a>
+<a id="canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2ea0e2bb387906e2bbef53fb7127d4c845a119645695f8bd4da393f5ee5c54d4"></a>
+<a id="canonical-0232220032022323-0320132100123202-2323323311033323-1301021331103020-1011220101211210-1112211133202331-1031220321033311-3232113011103110"></a>
 
-## job.containers.liveness_check — job.containers.liveness_check / 3e6a1fd4c649 / 2
+## job.containers.liveness_check — liveness_check / 311030121021 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
 - job.containers.liveness_check
 
-<a id="canonical-bb6fcd1a7c8ab0d3ee644eabf4c2d481855652ba020e3a16f0446e625f8079f8"></a>
+<a id="canonical-2323123330310122-1330202223003103-3232121010322223-3310300231102001-2011111211022322-0002003203220112-3300101012321202-1133200013213320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2308,17 +2308,17 @@ liveness_check {
 }
 ```
 
-<a id="canonical-22fb64834b1067283b3f6a11ce2bb777360dec73a10846384e2ad64829ff1520"></a>
+<a id="canonical-0202332312102003-1023010012130220-0323033312220101-3032022323131313-0312003132301303-2201002010120320-1032022231121020-0221333301110200"></a>
 
-## Direct properties — job.containers.liveness_check / 3e6a1fd4c649 / 3
+## Direct properties — liveness_check / 311030121021 / 3
 
-- [exec_health_check](resources--workload--reference--group-004.md#canonical-34fd0fa42d321965e0c463deb08bfe5a1fed5304b72d0a148ce248f62b66375e): complete subsection reference.
+- [exec_health_check](resources--workload--reference--group-004.md#canonical-0310333100332210-0231030201211211-3200301012033132-2300202333321122-0133323111030010-2313023100220110-2030320210203312-0223121203131132): complete subsection reference.
 
-<a id="canonical-cde59ee77a5aab13121c380a87c39235ed28b3288f48a2ec1385815f585766a0"></a>
+<a id="canonical-3031321121323213-1322112222230103-0102013003200022-2013300321020311-3231022023030220-2033102022023230-0103201120011133-1120111312122200"></a>
 
-<a id="canonical-9ad81b51a45aeccef07246fe089e74a577655863d8e1045cd0db60c5bcace2df"></a>
+<a id="canonical-2122312001231101-2210112232303032-3300130210123332-0020213213102211-1313121111201203-3120320100101130-3100312312003011-2330223032023133"></a>
 
-## healthy_threshold property — job.containers.liveness_check / 3e6a1fd4c649 / 4
+## healthy_threshold property — liveness_check / 311030121021 / 4
 
 Type: `"number"`. Optional.
 
@@ -2376,13 +2376,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [http_health_check](resources--workload--reference--group-004.md#canonical-fc21277047cf25198f60ae6608bc970ca886c2973d16382421b522c832fca6b7): complete subsection reference.
+- [http_health_check](resources--workload--reference--group-004.md#canonical-3330020102131300-1013303302110121-2033120022321212-0020233021130030-2220201230022113-0331011203200210-0201231102023020-0302333022122313): complete subsection reference.
 
-<a id="canonical-e461d23a0db7df1b5846d4155d77a1fb88474fc76790b3bf17302f1daa43aecb"></a>
+<a id="canonical-3210120131020322-0031231331330123-1120101231100111-1131131322013323-2020101310333013-1213210023032333-0113030002330131-2222100322323023"></a>
 
-<a id="canonical-53c109e619dcb5cfa04461c4667fee1bcd7cd4c0e41b61a429ea07331d8eb721"></a>
+<a id="canonical-1103300100213212-0121313023113033-2200101012013010-1212133332320123-3031133031103000-3210012312012210-0221322200130303-0131203223130201"></a>
 
-## initial_delay property — job.containers.liveness_check / 3e6a1fd4c649 / 5
+## initial_delay property — liveness_check / 311030121021 / 5
 
 Type: `"number"`. Optional.
 
@@ -2426,11 +2426,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5320860fd723cede39ddd6f6e638be906e4fdb796c7e8f9c2feeb82b16fe4eae"></a>
+<a id="canonical-1103020020120033-3113020330323132-0321313131123312-3212032023322100-1232103331231321-1230133220332130-0233323223200223-0112333210322232"></a>
 
-<a id="canonical-0e139ed47984315829c28cd0ae78c9ff606132f878ebb7189960258f05abc6be"></a>
+<a id="canonical-0032010321323110-1321201003011120-0221300220303100-2232132030213333-1200120103023320-1320322323130120-2121120002112033-0011222330122332"></a>
 
-## interval property — job.containers.liveness_check / 3e6a1fd4c649 / 6
+## interval property — liveness_check / 311030121021 / 6
 
 Type: `"number"`. Optional.
 
@@ -2480,13 +2480,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tcp_health_check](resources--workload--reference--group-004.md#canonical-6bb5447eba21a77c5b124a62c8abaa6e61412fffc5d0f50676a4d9f150538430): complete subsection reference.
+- [tcp_health_check](resources--workload--reference--group-004.md#canonical-1223231110101332-2322020122131330-1123010210221202-3020222322221232-1201100102333333-3011310033110012-1312221031213301-1100110320100300): complete subsection reference.
 
-<a id="canonical-2c949426669fc1fab003bab0b3c1d21ee553a96a151adf8687cc2d113bec79f8"></a>
+<a id="canonical-0230211021100212-1212213330013322-2300000323222300-2303300131020132-3211110322211222-0111012231332012-2013303002310101-0323323013213320"></a>
 
-<a id="canonical-accacde93fea65a9eb0c932e141fb77679372d9bd3636b3d5b192a22b9a46a7c"></a>
+<a id="canonical-2230302230313221-0333322212112221-3223003021030232-0110013323131312-1321031302312123-3103120312230331-1123012102220202-2321221012221330"></a>
 
-## timeout property — job.containers.liveness_check / 3e6a1fd4c649 / 7
+## timeout property — liveness_check / 311030121021 / 7
 
 Type: `"number"`. Optional.
 
@@ -2544,11 +2544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4a381b52ca3a9a343e80ba2b4e3119084e9cd98bf7dc0c5d6978938128ae859e"></a>
+<a id="canonical-1022032001231102-3022032221220310-0332200023220223-1032030101210020-1032213031212023-3313313000301131-1221132021032001-0220223220112132"></a>
 
-<a id="canonical-6fd76ad382b1517df89bd42f6fe984d3648e417011036194346c13ffde66179f"></a>
+<a id="canonical-1233311312223103-2002230111011331-3320212331100233-1233322120103103-1210203210011300-0101000312012110-0310123001033333-3132121201132133"></a>
 
-## unhealthy_threshold property — job.containers.liveness_check / 3e6a1fd4c649 / 8
+## unhealthy_threshold property — liveness_check / 311030121021 / 8
 
 Type: `"number"`. Optional.
 
@@ -2603,36 +2603,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d4828bde992da3984f2d5fba24fa4b5faa09df67569457bc357fc6bc56121778"></a>
+<a id="canonical-3110200220233132-2121023122032120-1033023111332322-0210332210231133-2222002131331213-1112211011132330-0311133330122330-1112010201131320"></a>
 
-## Next pages — job.containers.liveness_check / 3e6a1fd4c649 / 9
+## Next pages — liveness_check / 311030121021 / 9
 
-- [job.containers.liveness_check.exec_health_check](resources--workload--reference--group-004.md#canonical-34fd0fa42d321965e0c463deb08bfe5a1fed5304b72d0a148ce248f62b66375e)
-- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-fc21277047cf25198f60ae6608bc970ca886c2973d16382421b522c832fca6b7)
-- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-6bb5447eba21a77c5b124a62c8abaa6e61412fffc5d0f50676a4d9f150538430)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check.exec_health_check](resources--workload--reference--group-004.md#canonical-0310333100332210-0231030201211211-3200301012033132-2300202333321122-0133323111030010-2313023100220110-2030320210203312-0223121203131132)
+- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-3330020102131300-1013303302110121-2033120022321212-0020233021130030-2220201230022113-0331011203200210-0201231102023020-0302333022122313)
+- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1223231110101332-2322020122131330-1123010210221202-3020222322221232-1201100102333333-3011310033110012-1312221031213301-1100110320100300)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-34fd0fa42d321965e0c463deb08bfe5a1fed5304b72d0a148ce248f62b66375e"></a>
+<a id="canonical-0310333100332210-0231030201211211-3200301012033132-2300202333321122-0133323111030010-2313023100220110-2030320210203312-0223121203131132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4dec288bb735b839ca8ee32635d350e1c47d5de11a0120f51149f0b14006cf9f"></a>
+<a id="canonical-1031323002202023-2313031123200321-3022203232030212-0311310311003201-3010133111313201-0122000102003311-0101102133002301-1000001230332133"></a>
 
-## job.containers.liveness_check.exec_health_check — job.containers.liveness_check.exec_health_check / 154e4f43daf4 / 2
+## job.containers.liveness_check.exec_health_check — exec_health_check / 100331223310 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
 - job.containers.liveness_check.exec_health_check
 
-<a id="canonical-991615c4b7539403cc779d3ee0fe646f8fb68bc9ba6ca90c726258d54a3c8181"></a>
+<a id="canonical-2121011201113010-2313110321100003-3030131321310332-3200333212101233-2033231220233021-2322123022210030-1302120211203111-1022033020012001"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2671,15 +2671,15 @@ exec_health_check {
 }
 ```
 
-<a id="canonical-e7eab3f5213001f9b703183eb5f0bf2a765e50a65d310f6ffe8a02d17a7bb92e"></a>
+<a id="canonical-3213322223033311-0201030000013321-2313000301200332-2311330023330222-1312113211002212-1131030100331233-3332202200023101-1322132323210232"></a>
 
-## Direct properties — job.containers.liveness_check.exec_health_check / 154e4f43daf4 / 3
+## Direct properties — exec_health_check / 100331223310 / 3
 
-<a id="canonical-a5ddfed429c38f7d3676c86d81890ed205094b68476eee2014a1653c4e5a2bb5"></a>
+<a id="canonical-2211313133323110-0221300320331331-0312131230201231-2001202100323102-0011002110231220-1013123232320200-0110220112110330-1032112202232311"></a>
 
-<a id="canonical-c754d7e342dbcad9b08e6fddea17e629520cae681fdab644b73e4f1442660937"></a>
+<a id="canonical-3013111031133203-1002312330223121-2300203212333131-3222011332120221-1102003022321220-0133312223121010-2313033210330110-1002121200210313"></a>
 
-## command property — job.containers.liveness_check.exec_health_check / 154e4f43daf4 / 4
+## command property — exec_health_check / 100331223310 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -2742,33 +2742,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b4bddd8fea7b00d2e4707f3079c05fe45c18e80db7e6cf1fc06fb535b4eb49e0"></a>
+<a id="canonical-2310233131312033-3222132300003102-3210130013330300-1321300011333210-1130012032200031-2313321230330133-3000123323110311-2310322310213200"></a>
 
-## Next pages — job.containers.liveness_check.exec_health_check / 154e4f43daf4 / 5
+## Next pages — exec_health_check / 100331223310 / 5
 
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-fc21277047cf25198f60ae6608bc970ca886c2973d16382421b522c832fca6b7"></a>
+<a id="canonical-3330020102131300-1013303302110121-2033120022321212-0020233021130030-2220201230022113-0331011203200210-0201231102023020-0302333022122313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9a96de9739118219b8ffb11cf2543f06efc1071fe65bfc63507e1d4685e68190"></a>
+<a id="canonical-2122211231322113-0321010120020121-2320333323010130-3302111003330012-3233300100130133-3212112333301203-1100133201311012-2011321220012100"></a>
 
-## job.containers.liveness_check.http_health_check — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 2
+## job.containers.liveness_check.http_health_check — http_health_check / 012110331321 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
 - job.containers.liveness_check.http_health_check
 
-<a id="canonical-12ac3922562f1aae51075da0c559a95179f3182504ba82ca4ee20ce3b1d055b3"></a>
+<a id="canonical-0102223003210202-1112023301222232-1101001311312200-3011112122211101-1321330301200211-0010232220023022-1032320200303203-2301310011112303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2801,15 +2801,15 @@ http_health_check {
 }
 ```
 
-<a id="canonical-d3d1721ffb1541ac950b4d46271812d23d32b99079e30f75dbbf0c6b2f11d916"></a>
+<a id="canonical-3103310113020133-3323011110012230-2111002310311012-0213012001023102-0331030223212100-1321320300331311-3123233300301223-0233010131210112"></a>
 
-## Direct properties — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 3
+## Direct properties — http_health_check / 012110331321 / 3
 
-<a id="canonical-75b7fa3829de855df6a217f3ae7bde2139e5487f9242d019fcc3fb78027e9185"></a>
+<a id="canonical-1311231333220320-0221313220111131-3312220201133303-2232132331320201-0321321110201333-2102100231000121-3330300333231320-0002133221012011"></a>
 
-<a id="canonical-4db46ca4321dfb715e6078a55550457181e2a83eaa588167f58b5c5ace514ef7"></a>
+<a id="canonical-1031231012302210-0302013133231301-1132120013202211-1111110010111301-2001320222200332-2222112020011213-3311202311301122-3032110110323313"></a>
 
-## headers property — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 4
+## headers property — http_health_check / 012110331321 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -2848,11 +2848,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1f6ff6e8346d9c08ecb5ae301f24ee24df38153ea7f7c5cdf87b8494b199579a"></a>
+<a id="canonical-0133123333123220-0310123121300020-3230231122320300-0133021032320210-3133032001110332-2213331330113031-3320132320102110-2301212111132122"></a>
 
-<a id="canonical-ffdfcd6d01d518ddfea8e8a67d4464ab54bad6fe1a6d048d095460ba189b4f73"></a>
+<a id="canonical-3333313330311231-0001311101203131-3332222032202212-1331101012102223-1110232231123332-0122123100102031-0021111012002322-0120212310331303"></a>
 
-## host_header property — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 5
+## host_header property — http_health_check / 012110331321 / 5
 
 Type: `"string"`. Optional.
 
@@ -2899,11 +2899,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-484092b219f28e16dd41730e27d2cac4fa1e5cc26fa3873f80c993980d52cec5"></a>
+<a id="canonical-1020100021022302-0121330220320112-3131100113030032-0213310230223010-3322013211303002-1233220320130333-2000302121032120-0031110230323011"></a>
 
-<a id="canonical-56cc7efde36d6ab1b10de800aa3555493d401f57f58508ffdc6910583817b564"></a>
+<a id="canonical-1112303013323331-3203123112222301-2301003132200000-2222031111111021-0331100001331113-3311201100203333-3130122101001120-0320011323111210"></a>
 
-## path property — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 6
+## path property — http_health_check / 012110331321 / 6
 
 Type: `"string"`. Optional.
 
@@ -2958,37 +2958,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [port](resources--workload--reference--group-004.md#canonical-79d454723610e9e12f56ac8db21cdfbc229befe4f58b543f3a949f030ad98ea2): complete subsection reference.
+- [port](resources--workload--reference--group-004.md#canonical-1321311011101302-0312010032213201-0233111222302031-2302013031332330-0202212332333210-3311202311100333-0322211021330003-0022312120322202): complete subsection reference.
 
-<a id="canonical-c1c26cc53ed529193ca7ab203407f7934d7a6b186045679f46215b8c08cbf0bf"></a>
+<a id="canonical-3001300212303011-0332311102210121-0330221322230200-0310001333132103-1031132212230120-1200101112132133-1012020111232030-0020302333002333"></a>
 
-## Next pages — job.containers.liveness_check.http_health_check / 5b16ec194f79 / 7
+## Next pages — http_health_check / 012110331321 / 7
 
-- [job.containers.liveness_check.http_health_check.port](resources--workload--reference--group-004.md#canonical-79d454723610e9e12f56ac8db21cdfbc229befe4f58b543f3a949f030ad98ea2)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check.http_health_check.port](resources--workload--reference--group-004.md#canonical-1321311011101302-0312010032213201-0233111222302031-2302013031332330-0202212332333210-3311202311100333-0322211021330003-0022312120322202)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-79d454723610e9e12f56ac8db21cdfbc229befe4f58b543f3a949f030ad98ea2"></a>
+<a id="canonical-1321311011101302-0312010032213201-0233111222302031-2302013031332330-0202212332333210-3311202311100333-0322211021330003-0022312120322202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e5b9fe9c4c369a2cfdbd39fea2a458b268a00e16cf0a281941a1792818d7ba5d"></a>
+<a id="canonical-3211232133322130-1030031221220230-3331233103213332-2202221011202302-1220220000320112-3033002202200121-1001220113210220-0120311323221131"></a>
 
-## job.containers.liveness_check.http_health_check.port — job.containers.liveness_check.http_health_check.port / 283ac9a20eaa / 2
+## job.containers.liveness_check.http_health_check.port — port / 220200322222 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-fc21277047cf25198f60ae6608bc970ca886c2973d16382421b522c832fca6b7)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-3330020102131300-1013303302110121-2033120022321212-0020233021130030-2220201230022113-0331011203200210-0201231102023020-0302333022122313)
 - job.containers.liveness_check.http_health_check.port
 
-<a id="canonical-6eea73b4407af773ae131ce6999694498e370074f54640df5d56c05856312f08"></a>
+<a id="canonical-1232322213032310-1000132233131303-2232010301303212-2121211221101021-2032031300001310-3311101210003133-1131111230001120-1112030102330020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3027,15 +3027,15 @@ port {
 }
 ```
 
-<a id="canonical-bb2c386b51fa2abc118458cb1fb8022a16de3e9fdd3f754c33c5f3a6e9f82cfa"></a>
+<a id="canonical-2323023003201223-1101332202222330-0101201011203023-0133232000020222-0112313203322133-3131033313111030-0303301133032212-3221332002303322"></a>
 
-## Direct properties — job.containers.liveness_check.http_health_check.port / 283ac9a20eaa / 3
+## Direct properties — port / 220200322222 / 3
 
-<a id="canonical-4740e5c985bc7693a846888feafba5738630c3b740224fb1b25755d6209fc464"></a>
+<a id="canonical-1013100032113021-2011233013122103-2220101220202033-3222332322111303-2012030030032313-1000020210332301-2302111311113112-0200213330101210"></a>
 
-<a id="canonical-b64bab4ed8c199cc2ec253711e9656edbc68e71b2a561c7f0cc00e2b328d8a30"></a>
+<a id="canonical-2312102322231032-3120300121213030-0232300211031301-0132211211123231-2330122032130123-0222111201301333-0030300000320223-0302203120220300"></a>
 
-## name property — job.containers.liveness_check.http_health_check.port / 283ac9a20eaa / 4
+## name property — port / 220200322222 / 4
 
 Type: `"string"`. Optional.
 
@@ -3099,11 +3099,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-594f958ccafc8216ffb14dca83bfc33573f03ea0d66ad356a5f8e2304b8d8e4d"></a>
+<a id="canonical-1121103321112030-3022333020020112-3333230110313022-2003233330030311-1303330003322200-3112122231031112-2211332032020300-1023203120321031"></a>
 
-<a id="canonical-20bdede28ae1942088132e851e13bcfbb3e2c44ca995b4a051eef5003ff8ec96"></a>
+<a id="canonical-0200233132313202-2022320121100200-2020010302322011-0132010323303323-2303320230101030-2221211123102200-1101323233110000-0333332032302112"></a>
 
-## num property — job.containers.liveness_check.http_health_check.port / 283ac9a20eaa / 5
+## num property — port / 220200322222 / 5
 
 Type: `"number"`. Optional.
 
@@ -3154,33 +3154,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b7a110aff3edc0d31fbf735967ff3c6619552048ea0612ee21c8f9bc4bad3b93"></a>
+<a id="canonical-2313220101002233-3303323130003103-0133233313031121-1213333303301212-0121111102001020-3222001201023232-0201302033212330-1023223103232103"></a>
 
-## Next pages — job.containers.liveness_check.http_health_check.port / 283ac9a20eaa / 6
+## Next pages — port / 220200322222 / 6
 
-- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-fc21277047cf25198f60ae6608bc970ca886c2973d16382421b522c832fca6b7)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check.http_health_check](resources--workload--reference--group-004.md#canonical-3330020102131300-1013303302110121-2033120022321212-0020233021130030-2220201230022113-0331011203200210-0201231102023020-0302333022122313)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-6bb5447eba21a77c5b124a62c8abaa6e61412fffc5d0f50676a4d9f150538430"></a>
+<a id="canonical-1223231110101332-2322020122131330-1123010210221202-3020222322221232-1201100102333333-3011310033110012-1312221031213301-1100110320100300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-adb319308a23cb786940a691a268b9c935798ba92d12bea4395689beb2001235"></a>
+<a id="canonical-2231230301210300-2022020330231320-1221100022122101-2202122023213021-0311132120232221-0231010223322210-0321111220212332-2302000001020311"></a>
 
-## job.containers.liveness_check.tcp_health_check — job.containers.liveness_check.tcp_health_check / 58cda7b0a18f / 2
+## job.containers.liveness_check.tcp_health_check — tcp_health_check / 230022012033 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
 - job.containers.liveness_check.tcp_health_check
 
-<a id="canonical-1f62ceda9c223e182172d9107fceed93b747bd9f5dea61fe6ff299f5e14acde7"></a>
+<a id="canonical-0133120230323122-2130020203320120-0201130231210100-1333303232312103-2313101323312133-1131322212013332-1233330221213311-3201102230313213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3207,41 +3207,41 @@ tcp_health_check {
 }
 ```
 
-<a id="canonical-7629158c2319316901c0789c8c57740b43625f42b29813f73e2b2b44d0d1ac68"></a>
+<a id="canonical-1312022101112030-0203012103011221-0001300013202130-2030111313100023-1003120211331002-2302212001033313-0332022302231010-3100310122301220"></a>
 
-## Direct properties — job.containers.liveness_check.tcp_health_check / 58cda7b0a18f / 3
+## Direct properties — tcp_health_check / 230022012033 / 3
 
-- [port](resources--workload--reference--group-004.md#canonical-67570b3bb170e44956535b10659bae71a1b3328fc5db599934d53fc9d31c7f3e): complete subsection reference.
+- [port](resources--workload--reference--group-004.md#canonical-1213111300230323-2301130032101021-1112110311230100-1211212322321301-2201230303022033-3011312311212121-0310311103333021-3103013013330332): complete subsection reference.
 
-<a id="canonical-99b63ae7b4d76119337548b3deef11ce812d7b5194b271d64b91996b7c7a6d8c"></a>
+<a id="canonical-2121231203223213-2310311312010121-0303131110202303-3132323301013032-2001023113231101-2110230213013112-1023210121211223-1330132212312030"></a>
 
-## Next pages — job.containers.liveness_check.tcp_health_check / 58cda7b0a18f / 4
+## Next pages — tcp_health_check / 230022012033 / 4
 
-- [job.containers.liveness_check.tcp_health_check.port](resources--workload--reference--group-004.md#canonical-67570b3bb170e44956535b10659bae71a1b3328fc5db599934d53fc9d31c7f3e)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check.tcp_health_check.port](resources--workload--reference--group-004.md#canonical-1213111300230323-2301130032101021-1112110311230100-1211212322321301-2201230303022033-3011312311212121-0310311103333021-3103013013330332)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-67570b3bb170e44956535b10659bae71a1b3328fc5db599934d53fc9d31c7f3e"></a>
+<a id="canonical-1213111300230323-2301130032101021-1112110311230100-1211212322321301-2201230303022033-3011312311212121-0310311103333021-3103013013330332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f5810818fc067f6cd035eeddbffb0adb0b2412446f3881e20c1e700fac23ee45"></a>
+<a id="canonical-3311200100200120-3330001213331230-3100031132323131-2333332300223123-0023021001021010-1233032020013202-0030013213000033-2230020332321011"></a>
 
-## job.containers.liveness_check.tcp_health_check.port — job.containers.liveness_check.tcp_health_check.port / 579f42b4d12a / 2
+## job.containers.liveness_check.tcp_health_check.port — port / 231031010222 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-664b6078bc0a84e13ded258e2d8229eb1548428be933280c13bc1c218676d25a)
-- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-6bb5447eba21a77c5b124a62c8abaa6e61412fffc5d0f50676a4d9f150538430)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.liveness_check](resources--workload--reference--group-004.md#canonical-1212102312001320-2330002220103201-0331323102112032-0231200202213223-0111102010022023-3221030302200030-0103233001300201-2012131231021122)
+- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1223231110101332-2322020122131330-1123010210221202-3020222322221232-1201100102333333-3011310033110012-1312221031213301-1100110320100300)
 - job.containers.liveness_check.tcp_health_check.port
 
-<a id="canonical-e7950dcd80022e5ff2647996e683c18031b259bfa35c9a4eb918306729ce2db2"></a>
+<a id="canonical-3213211100313031-2000000202321133-3302121013212112-3212200330012000-0301230211212333-2203113021221032-2321012003001213-0221303202312302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3280,15 +3280,15 @@ port {
 }
 ```
 
-<a id="canonical-da7ca9d77131709456cf7fb36514b22325a03c384fa9349167c345f4f2974b26"></a>
+<a id="canonical-3122133022213113-1301030113002110-1112303313332303-1211011023020203-0211220003300320-1033222103102101-1213300310113310-3302211310230212"></a>
 
-## Direct properties — job.containers.liveness_check.tcp_health_check.port / 579f42b4d12a / 3
+## Direct properties — port / 231031010222 / 3
 
-<a id="canonical-246850900c589e3f98c17cb2b2e0cbd795e77bf64227ef88b43fc1bba717ef85"></a>
+<a id="canonical-0210122011002100-0030112021320333-2120300113302302-2302320030233113-2111321313233312-1002021332332020-2310033330012323-2213011332332011"></a>
 
-<a id="canonical-1575e14e8e2c8f36904a6e9be04ff936e4437223a979a38fec0ace48fd8cc8d0"></a>
+<a id="canonical-0111131132011032-2032023020330312-2100102212322123-3200103333210312-3210100313020203-2221132122032033-3230002230321020-3331203030203100"></a>
 
-## name property — job.containers.liveness_check.tcp_health_check.port / 579f42b4d12a / 4
+## name property — port / 231031010222 / 4
 
 Type: `"string"`. Optional.
 
@@ -3352,11 +3352,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc8a7291f81ff376092dae199f8ea11f538d7b3d119d0231b120f3f37bcb0f49"></a>
+<a id="canonical-3130202213022101-3320013333031312-0021023122320121-2133203222010133-1103203113230331-0101213100020301-2301020033033303-1323302300331021"></a>
 
-<a id="canonical-f9bcd895848ca6596ca60aa1b876ecf4f7a316784911b49df760f90a3b028404"></a>
+<a id="canonical-3321233031202111-2010203022121121-1230221200222201-2320131232303310-3313220301121320-1021010123102131-3313120033210022-0323000220100010"></a>
 
-## num property — job.containers.liveness_check.tcp_health_check.port / 579f42b4d12a / 5
+## num property — port / 231031010222 / 5
 
 Type: `"number"`. Optional.
 
@@ -3407,32 +3407,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89c64d2254cf26ed1de9ce78b6e48e73b9add4dad68f82806033eddcbb508b01"></a>
+<a id="canonical-2021301210310202-1110303302123231-0131322130321320-2312321020321303-2321223131103122-3112203320022000-1200030332313130-2323110020230001"></a>
 
-## Next pages — job.containers.liveness_check.tcp_health_check.port / 579f42b4d12a / 6
+## Next pages — port / 231031010222 / 6
 
-- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-6bb5447eba21a77c5b124a62c8abaa6e61412fffc5d0f50676a4d9f150538430)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.liveness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1223231110101332-2322020122131330-1123010210221202-3020222322221232-1201100102333333-3011310033110012-1312221031213301-1100110320100300)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9"></a>
+<a id="canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aa33cabf32088cf6b3117de02e367f07a861bc73767bddf182d5915154bde610"></a>
+<a id="canonical-2222030330222333-0302002020303312-2303010113313200-0232031213330013-2220120123301303-1312132331313301-2002311121011101-1110233132120100"></a>
 
-## job.containers.readiness_check — job.containers.readiness_check / 79f0f3ee737c / 2
+## job.containers.readiness_check — readiness_check / 323213031330 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
 - job.containers.readiness_check
 
-<a id="canonical-15669d9f514d03f64ed5ec65eec2f3d8151d5c9bf669cbbb514998a4f4cc6a5f"></a>
+<a id="canonical-0111121221312133-1101103100033312-1032311132301211-3232300233033120-0111013111302123-3312122130232323-1101102121202210-3310303012221133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3481,17 +3481,17 @@ readiness_check {
 }
 ```
 
-<a id="canonical-7895ebb5f52baebf05f7ac1cfd471f782f143f55f767ab9f4a6b5e5c4f5eb32e"></a>
+<a id="canonical-1320211132232311-3311022322322333-0011331322300130-3331101301331320-0233011003331111-3313121322232133-1022122311321130-1033113223030232"></a>
 
-## Direct properties — job.containers.readiness_check / 79f0f3ee737c / 3
+## Direct properties — readiness_check / 323213031330 / 3
 
-- [exec_health_check](resources--workload--reference--group-004.md#canonical-bccba7981f376aba48070162aaacd9ab2036b9991cc9ca906de13b66c045f0a9): complete subsection reference.
+- [exec_health_check](resources--workload--reference--group-004.md#canonical-2330302322132120-0133031312222322-1020001300011202-2222223031212223-0200031223212121-0130302130222100-1231320103231212-3000101133002221): complete subsection reference.
 
-<a id="canonical-81d7803e2a5989be3a6838b6b2583d0da84943a4de48c58d994351267e5afc61"></a>
+<a id="canonical-2001311320000332-0222112120212332-0322122003202312-2302112003310031-2220102110032210-3132102030112031-2121100311010212-1332112233301201"></a>
 
-<a id="canonical-695f3d72f8685f20d088a323d29087f14cd62ca7541056b53f86efb4b0b74b3b"></a>
+<a id="canonical-1221113303311302-3320122011330200-3100202022030203-3102210020133301-1030311202302213-1110010011122311-0333201232332310-2300231310230323"></a>
 
-## healthy_threshold property — job.containers.readiness_check / 79f0f3ee737c / 4
+## healthy_threshold property — readiness_check / 323213031330 / 4
 
 Type: `"number"`. Optional.
 
@@ -3549,13 +3549,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [http_health_check](resources--workload--reference--group-004.md#canonical-2f7939f9f7a08d94914e4c5134b087f42a77cf2ac59f9208dab15c1e37282844): complete subsection reference.
+- [http_health_check](resources--workload--reference--group-004.md#canonical-0233132103213321-3313220020312110-2101103210301101-0310230020133310-0222131330330222-3011213321020020-3122230111300132-0313022002201010): complete subsection reference.
 
-<a id="canonical-8a9b22d570578615d28f9992874a787b678329ab4a18c9932aad76579f76165f"></a>
+<a id="canonical-2022212302023111-1300111320120111-3102203321212102-2013102213201323-1213200302212223-1022012030212103-0222223113121113-2133131201121133"></a>
 
-<a id="canonical-aebaafac50da99c9bdfb37b165a9839fcc5261b5f093665a338b9812b89f5822"></a>
+<a id="canonical-2232232222332230-1100312221213021-2331332303132301-1211222120032133-3030110212012311-3300210312121122-0303202321200102-2320213311200202"></a>
 
-## initial_delay property — job.containers.readiness_check / 79f0f3ee737c / 5
+## initial_delay property — readiness_check / 323213031330 / 5
 
 Type: `"number"`. Optional.
 
@@ -3599,11 +3599,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-88a7f6b996d1557a966fe49e2fdb5927ad183e2cb7f6ea3a05b79bb6751f7d16"></a>
+<a id="canonical-2020221333122321-2112310111111322-2112123332102132-0233312311210213-2231012003320230-2313331232220322-0011231321232312-1311013313310112"></a>
 
-<a id="canonical-aef94ea9f36b78b4f1e69c622c609feda6b1fd13d30701c2656692c762fcb77f"></a>
+<a id="canonical-2232332110322221-3303122313202310-3301321221301202-0230120021333231-2212230133310103-3103001300013002-1211121221023013-1202333023131333"></a>
 
-## interval property — job.containers.readiness_check / 79f0f3ee737c / 6
+## interval property — readiness_check / 323213031330 / 6
 
 Type: `"number"`. Optional.
 
@@ -3653,13 +3653,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tcp_health_check](resources--workload--reference--group-004.md#canonical-7dcf5ec56da123900f692e993b67952fecae87f74105c7864649e256c0bfb52a): complete subsection reference.
+- [tcp_health_check](resources--workload--reference--group-004.md#canonical-1331303311323011-1231220102032100-0033122102322121-0323121321110233-3230223220133313-1001001130132012-1012102132021112-3000233323110222): complete subsection reference.
 
-<a id="canonical-b22598f76289279b330044682f0084c749710fec3addbccfbdcea501fce1f65d"></a>
+<a id="canonical-2302021121203313-1202202102132123-0303000010101220-0233000020103013-1021130100333230-0322313123303033-2331303222110001-3330320133121131"></a>
 
-<a id="canonical-f97bc748f595850fc387c6658fb87a8a8a02d462458696d9a15593370ee3e835"></a>
+<a id="canonical-3321132330131020-3311211120110033-3003201330121211-2033232013222022-2022000231101202-1011201221123121-2201111121030313-0032320332200311"></a>
 
-## timeout property — job.containers.readiness_check / 79f0f3ee737c / 7
+## timeout property — readiness_check / 323213031330 / 7
 
 Type: `"number"`. Optional.
 
@@ -3717,11 +3717,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2cbaec37bda3b165a982a5b8bf00aee56203ded48f3121b9522fa1e1b018b698"></a>
+<a id="canonical-0230232232300313-2331220323011211-2221200222112320-2333000022323211-1202000331323110-2033030102012321-1102023322013201-2300012023122120"></a>
 
-<a id="canonical-7576af2cd30396d549422570f9db7b9675f1d873ad03618ff2d759c7452d5859"></a>
+<a id="canonical-1311131222330230-3103000321123111-1021100202111300-3321312313232112-1311330131201303-2231000312012033-3302311311213013-1011023111201121"></a>
 
-## unhealthy_threshold property — job.containers.readiness_check / 79f0f3ee737c / 8
+## unhealthy_threshold property — readiness_check / 323213031330 / 8
 
 Type: `"number"`. Optional.
 
@@ -3776,36 +3776,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0d1d6e4aefcd368787c3507e71968a5485db372c5fccd9e7361e2cb97373999"></a>
+<a id="canonical-3200310131123210-2232333031031220-1320133003110013-3213012112202211-1020113123031302-3011333030312132-1303120132023023-2113031303212121"></a>
 
-## Next pages — job.containers.readiness_check / 79f0f3ee737c / 9
+## Next pages — readiness_check / 323213031330 / 9
 
-- [job.containers.readiness_check.exec_health_check](resources--workload--reference--group-004.md#canonical-bccba7981f376aba48070162aaacd9ab2036b9991cc9ca906de13b66c045f0a9)
-- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-2f7939f9f7a08d94914e4c5134b087f42a77cf2ac59f9208dab15c1e37282844)
-- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-7dcf5ec56da123900f692e993b67952fecae87f74105c7864649e256c0bfb52a)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check.exec_health_check](resources--workload--reference--group-004.md#canonical-2330302322132120-0133031312222322-1020001300011202-2222223031212223-0200031223212121-0130302130222100-1231320103231212-3000101133002221)
+- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-0233132103213321-3313220020312110-2101103210301101-0310230020133310-0222131330330222-3011213321020020-3122230111300132-0313022002201010)
+- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1331303311323011-1231220102032100-0033122102322121-0323121321110233-3230223220133313-1001001130132012-1012102132021112-3000233323110222)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-bccba7981f376aba48070162aaacd9ab2036b9991cc9ca906de13b66c045f0a9"></a>
+<a id="canonical-2330302322132120-0133031312222322-1020001300011202-2222223031212223-0200031223212121-0130302130222100-1231320103231212-3000101133002221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-22274da2bbff1bec37c1421407866f986caffa0241ccee4de40ba5ec7b3ab6d1"></a>
+<a id="canonical-0202021310312202-2323333301233230-0313300110020110-0013201212332120-1230223333220002-1001303032321031-3210002322113230-1323032223123101"></a>
 
-## job.containers.readiness_check.exec_health_check — job.containers.readiness_check.exec_health_check / b94befdebf1c / 2
+## job.containers.readiness_check.exec_health_check — exec_health_check / 313223330130 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
 - job.containers.readiness_check.exec_health_check
 
-<a id="canonical-54bc26c119872297465196a6aa0a191808c97a2eb787a863e5916930f97fae44"></a>
+<a id="canonical-1110233002123001-0121201302022113-1012110121122212-2222002201210120-0020302113220232-2313201322201203-3211210112210300-3321133322321010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3844,15 +3844,15 @@ exec_health_check {
 }
 ```
 
-<a id="canonical-82e10d42508c66c3a7f09d91f7ed3c0c94ff54ad31439d391f384474ff7d184c"></a>
+<a id="canonical-2002320100311002-1100203012123003-2213330021312101-3313323103300030-2110333311102231-0301100321310321-0133032010101310-3333133101201030"></a>
 
-## Direct properties — job.containers.readiness_check.exec_health_check / b94befdebf1c / 3
+## Direct properties — exec_health_check / 313223330130 / 3
 
-<a id="canonical-80218f37ec186b86f14c6cab6c23990f3d19f4526eb09f96e18e932606944984"></a>
+<a id="canonical-2000020120330313-3230012012232012-3301103012302223-1230020321210033-0331012133101102-1232230021332112-3201203221030212-0012211010212010"></a>
 
-<a id="canonical-bfe1517de3d212e5cce261ee16c7b2006b50e316b7f3f881315d0a2fdb6241ab"></a>
+<a id="canonical-2333320111011331-3203310201023211-3030320212013232-0112301323020000-1223110032030112-2313330333202001-0301113100220233-3123120210012223"></a>
 
-## command property — job.containers.readiness_check.exec_health_check / b94befdebf1c / 4
+## command property — exec_health_check / 313223330130 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3915,33 +3915,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-64333d10b0568a4bde018b666278c3d900a52b0b831256de1a14eaad5e7f879a"></a>
+<a id="canonical-1210030303310100-2300111220221023-3132000120231212-1202132030033121-0000221102230023-2003010211123132-0122011032222231-1132133320132122"></a>
 
-## Next pages — job.containers.readiness_check.exec_health_check / b94befdebf1c / 5
+## Next pages — exec_health_check / 313223330130 / 5
 
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-2f7939f9f7a08d94914e4c5134b087f42a77cf2ac59f9208dab15c1e37282844"></a>
+<a id="canonical-0233132103213321-3313220020312110-2101103210301101-0310230020133310-0222131330330222-3011213321020020-3122230111300132-0313022002201010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d3a4bc2e90d4749eda21d54e8d41b86e10ba037b5dfbc8f9e6bc718b062ff5d7"></a>
+<a id="canonical-3103221023300232-2100311013102132-3122020131111032-2031100123201232-0100232200031323-1131332330203321-3212233013012023-0012023333113113"></a>
 
-## job.containers.readiness_check.http_health_check — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 2
+## job.containers.readiness_check.http_health_check — http_health_check / 300001331212 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
 - job.containers.readiness_check.http_health_check
 
-<a id="canonical-4640d5cd6b9174a03381ce607c7f9fdb76776c54d272e4675210289377d705b5"></a>
+<a id="canonical-1012100031113031-1223210113102200-0303200130321200-1330133321333123-1312131312301110-3102130232101213-1102010002202103-1313311300112311"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3974,15 +3974,15 @@ http_health_check {
 }
 ```
 
-<a id="canonical-9e02aa745e0ae016ce9341d142c3933520972d1a4dd3568edf4629743261d4cc"></a>
+<a id="canonical-2132000222221310-1132002232000112-3032210310013101-1002300321030311-0200211302310122-1031310311122032-3133101202211310-0302120131103030"></a>
 
-## Direct properties — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 3
+## Direct properties — http_health_check / 300001331212 / 3
 
-<a id="canonical-b275224c3e183c1b4e78b7c09c84799001b7450ef7f87c8a91a8fc8476acc18e"></a>
+<a id="canonical-2302131102021030-0332012003300123-1032132023133000-2130201013212100-0001231310110032-3313332013302022-2101222033302010-1312223030012032"></a>
 
-<a id="canonical-829214aa33717c6b3e56c156b97bb73201d1c78aa3d78ae9ba533c355dd6e229"></a>
+<a id="canonical-2002210201102222-0303130113301223-0332111230011112-2321132323130302-0001310130132022-2203311320223221-2322110303300311-1131311232020221"></a>
 
-## headers property — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 4
+## headers property — http_health_check / 300001331212 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -4021,11 +4021,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-271310ff0affd2c742b3bd1bcdbf1a49b9fd4f6e3ea61a9a74b7b979e4b40e15"></a>
+<a id="canonical-0213010301003333-0022333331023013-1002230323310123-3031233301221021-2321333110331232-0332221201222122-1310231323211321-3210231000320111"></a>
 
-<a id="canonical-12189644d4223edbafa0dadbd508fa87bbb562ce17d7f751cd823870880fa0c3"></a>
+<a id="canonical-0102012021121010-3110020203323123-2233220031223123-3111002033222013-2323231112023032-0113311333131101-3031200203201300-2020003322003003"></a>
 
-## host_header property — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 5
+## host_header property — http_health_check / 300001331212 / 5
 
 Type: `"string"`. Optional.
 
@@ -4072,11 +4072,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d6dd93937a813c3759c5d08fad07cbbf33505a3557f6cecba9641f6e8e8060b4"></a>
+<a id="canonical-3112313121032103-1322200103300313-1121301131002033-2231001330232333-0303110011220311-1113331230323023-2221121001331232-2032200012002310"></a>
 
-<a id="canonical-e36a1dbd45dd2663a0b2dd8f6ef43dcecf432595436edbba02766c7e50edefd8"></a>
+<a id="canonical-3203122201312331-1011313102121203-2200230231312033-1232331003313032-3033100302112111-1003123231232322-0002131212301332-1100323132333120"></a>
 
-## path property — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 6
+## path property — http_health_check / 300001331212 / 6
 
 Type: `"string"`. Optional.
 
@@ -4131,37 +4131,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [port](resources--workload--reference--group-004.md#canonical-e06893ef9cfd15750a26269063f545314a6840aa66be824a455c843a87f1bdcc): complete subsection reference.
+- [port](resources--workload--reference--group-004.md#canonical-3200122021033233-2130333101111311-0022021202122100-1203331110110301-1022122010002222-1212233220021022-1011113020100322-2013330123313030): complete subsection reference.
 
-<a id="canonical-54ae9f436cf10196d7ba4db365901ac981dcbbe368e7609e16e99a2089a6b9cf"></a>
+<a id="canonical-1110223221331003-1230330100012112-3113232210312303-1211210001223021-2001313023233203-1220321312002132-0112322121220200-2021221223213033"></a>
 
-## Next pages — job.containers.readiness_check.http_health_check / 5b69bcc01f66 / 7
+## Next pages — http_health_check / 300001331212 / 7
 
-- [job.containers.readiness_check.http_health_check.port](resources--workload--reference--group-004.md#canonical-e06893ef9cfd15750a26269063f545314a6840aa66be824a455c843a87f1bdcc)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check.http_health_check.port](resources--workload--reference--group-004.md#canonical-3200122021033233-2130333101111311-0022021202122100-1203331110110301-1022122010002222-1212233220021022-1011113020100322-2013330123313030)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e06893ef9cfd15750a26269063f545314a6840aa66be824a455c843a87f1bdcc"></a>
+<a id="canonical-3200122021033233-2130333101111311-0022021202122100-1203331110110301-1022122010002222-1212233220021022-1011113020100322-2013330123313030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a00456dc09f531b31c4d6a787391d3ee3e3e22300dc6d7464e1bc027b0f06d1d"></a>
+<a id="canonical-2200001011123130-0021331103012303-0130103112221320-1303210131033232-0332033202020300-0031301231131012-1032012330000213-2300330012310131"></a>
 
-## job.containers.readiness_check.http_health_check.port — job.containers.readiness_check.http_health_check.port / ab0fd272aa7b / 2
+## job.containers.readiness_check.http_health_check.port — port / 130222221323 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-2f7939f9f7a08d94914e4c5134b087f42a77cf2ac59f9208dab15c1e37282844)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-0233132103213321-3313220020312110-2101103210301101-0310230020133310-0222131330330222-3011213321020020-3122230111300132-0313022002201010)
 - job.containers.readiness_check.http_health_check.port
 
-<a id="canonical-4ed722504af1871f23ad113a07fe71b16d6d1f4473259341d7ff5573e1a92a88"></a>
+<a id="canonical-1032311302021100-1022330120130133-0203223101010322-0013333213012301-1231123101331010-1303021121031001-3113333311111303-3201222102222020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4200,15 +4200,15 @@ port {
 }
 ```
 
-<a id="canonical-b56988a8792e0e5fba496e508e4e807c2f850a7b54da5226394a08577f4004b5"></a>
+<a id="canonical-2311122120202220-1321023200321133-2322102112321100-2032103220001330-0233201100221323-1110312211020212-0321102200201113-1333100000102311"></a>
 
-## Direct properties — job.containers.readiness_check.http_health_check.port / ab0fd272aa7b / 3
+## Direct properties — port / 130222221323 / 3
 
-<a id="canonical-c41644d109b27f2bbdc13f56008d8dc63bc5b243c2aabf28b9bc3459256880fa"></a>
+<a id="canonical-3010011210103101-0021230213330223-2331300103331112-0000203120313012-0323301123021003-3002222223330220-2321233003101121-0211122020003322"></a>
 
-<a id="canonical-5f6d8a178606f9cdf80b108e9180900962d5b0a059457ab4645746a75b379d81"></a>
+<a id="canonical-1133123120220113-2012001233213031-3320002301002032-2101200021000021-1202311123002200-1121101113222310-1210111310122213-1123031321312001"></a>
 
-## name property — job.containers.readiness_check.http_health_check.port / ab0fd272aa7b / 4
+## name property — port / 130222221323 / 4
 
 Type: `"string"`. Optional.
 
@@ -4272,11 +4272,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a96956a1891a899c775126362ba1565170a50426649b0866a646b870d378e561"></a>
+<a id="canonical-2221122111122201-2021012220212130-1313110102120312-0223220111121101-1300221100100212-1210212300201212-2212101223201300-3103132032111201"></a>
 
-<a id="canonical-0cfad4bf260a4b7fea059af3f1b3de25cc09d0d56dd2fddff1b1cc9e6a322d20"></a>
+<a id="canonical-0030332231102333-0212002210231333-3222001121223303-3301230331320211-3030002131003111-1231310233313133-3301230130302132-1222030202310200"></a>
 
-## num property — job.containers.readiness_check.http_health_check.port / ab0fd272aa7b / 5
+## num property — port / 130222221323 / 5
 
 Type: `"number"`. Optional.
 
@@ -4327,33 +4327,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8c92ea995ad8f425a830dfa8bc9cc4e6fac8a1a98fc068dccc2c3daa8faaaf63"></a>
+<a id="canonical-2030210232222121-1122312033100211-2220030031332220-2330213030103212-3322302022012221-2033300012203130-3030023003312222-2033222222331203"></a>
 
-## Next pages — job.containers.readiness_check.http_health_check.port / ab0fd272aa7b / 6
+## Next pages — port / 130222221323 / 6
 
-- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-2f7939f9f7a08d94914e4c5134b087f42a77cf2ac59f9208dab15c1e37282844)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check.http_health_check](resources--workload--reference--group-004.md#canonical-0233132103213321-3313220020312110-2101103210301101-0310230020133310-0222131330330222-3011213321020020-3122230111300132-0313022002201010)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-7dcf5ec56da123900f692e993b67952fecae87f74105c7864649e256c0bfb52a"></a>
+<a id="canonical-1331303311323011-1231220102032100-0033122102322121-0323121321110233-3230223220133313-1001001130132012-1012102132021112-3000233323110222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8c5c4908a97216e06e0a26acfd7e7794556597cb1eaf66338c241addfa2f3315"></a>
+<a id="canonical-2030113010210020-2221130201123200-1232002202122230-3331133213132110-1111121121133023-0132223312120303-2030021001223131-3322023303030111"></a>
 
-## job.containers.readiness_check.tcp_health_check — job.containers.readiness_check.tcp_health_check / daef0af66a19 / 2
+## job.containers.readiness_check.tcp_health_check — tcp_health_check / 331212220121 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
 - job.containers.readiness_check.tcp_health_check
 
-<a id="canonical-fd0858759024d50843faeb7bc48602b933cbe1bfa74637d8bc3f7f449902c4e6"></a>
+<a id="canonical-3331002011201311-2100021031110020-1003332232231323-3010201200022321-0303302332012333-2213101203133120-2330033313331010-2121000230103212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4380,41 +4380,41 @@ tcp_health_check {
 }
 ```
 
-<a id="canonical-5918d89f4b8cfc16020caa8dbaa0aa71b63602722bf049ae47c0a9849cb5d36d"></a>
+<a id="canonical-1121012031202133-1023203033300112-0002003022222031-2322220022221301-2312031200021302-0223330010212232-1013300022212010-2130231131031231"></a>
 
-## Direct properties — job.containers.readiness_check.tcp_health_check / daef0af66a19 / 3
+## Direct properties — tcp_health_check / 331212220121 / 3
 
-- [port](resources--workload--reference--group-004.md#canonical-77f002923a08a48f7b0a09409a01509819c589779a487a9efc9e402fdea067e9): complete subsection reference.
+- [port](resources--workload--reference--group-004.md#canonical-1313330000022102-0322002022102033-1323002200211000-2122000111002120-0121301120211313-2122102013222132-3330213210000233-3132220012133221): complete subsection reference.
 
-<a id="canonical-eb4e21a64378858a06bd32b1dd6fe768e89bbc2ca8c1ab0f4ff63809a3bf5563"></a>
+<a id="canonical-3223103202012212-1003132020112022-0012233103022301-3131123332131220-3220212323300230-2220300122230033-1033331203200021-2203233311111203"></a>
 
-## Next pages — job.containers.readiness_check.tcp_health_check / daef0af66a19 / 4
+## Next pages — tcp_health_check / 331212220121 / 4
 
-- [job.containers.readiness_check.tcp_health_check.port](resources--workload--reference--group-004.md#canonical-77f002923a08a48f7b0a09409a01509819c589779a487a9efc9e402fdea067e9)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check.tcp_health_check.port](resources--workload--reference--group-004.md#canonical-1313330000022102-0322002022102033-1323002200211000-2122000111002120-0121301120211313-2122102013222132-3330213210000233-3132220012133221)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-77f002923a08a48f7b0a09409a01509819c589779a487a9efc9e402fdea067e9"></a>
+<a id="canonical-1313330000022102-0322002022102033-1323002200211000-2122000111002120-0121301120211313-2122102013222132-3330213210000233-3132220012133221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dfa131de7aaa0ef8cd5fc73c9b1ab0c6a319b75ab1e0d3fdcd0dbf019c299c84"></a>
+<a id="canonical-3133220103013132-1322222200323320-3031113330130330-2123012223003012-2203012123131122-2301320031033331-3031003123330001-2130022121302010"></a>
 
-## job.containers.readiness_check.tcp_health_check.port — job.containers.readiness_check.tcp_health_check.port / 1c9ec301fc89 / 2
+## job.containers.readiness_check.tcp_health_check.port — port / 000133302021 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.containers](resources--workload--reference--group-004.md#canonical-82c7b6af294900c9c77af96fc68cc5546a21656aeaf124898263bbac85ca3b98)
-- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-2ad6d52bf19fa4411a436a477f3c64361fb4f510ddd1b27bbaea796cd4d126d9)
-- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-7dcf5ec56da123900f692e993b67952fecae87f74105c7864649e256c0bfb52a)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.containers](resources--workload--reference--group-004.md#canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120)
+- [job.containers.readiness_check](resources--workload--reference--group-004.md#canonical-0222311231110223-3301213322101001-0122100312221013-1333033012100312-0133231033110100-3131310123021323-2322322213211230-3110310102123121)
+- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1331303311323011-1231220102032100-0033122102322121-0323121321110233-3230223220133313-1001001130132012-1012102132021112-3000233323110222)
 - job.containers.readiness_check.tcp_health_check.port
 
-<a id="canonical-c6946cb820bbcb1fa5d8015d8f94e5a231ee5459047f5dc3c265a24a636e802b"></a>
+<a id="canonical-3012211012302320-0200232330230133-2211312000011131-2033211032112202-0301323211101121-0010133311313003-3002121122021022-1203123220000223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4453,15 +4453,15 @@ port {
 }
 ```
 
-<a id="canonical-ce9a9d40034eb88581fef0309d2d94a8f7aa9669f6990a2072c57d0a834dee9d"></a>
+<a id="canonical-3032212221311000-0003103223202011-2001333233000300-2131023121102220-3313222221121221-3312212100220200-1302301113310022-2003103132322131"></a>
 
-## Direct properties — job.containers.readiness_check.tcp_health_check.port / 1c9ec301fc89 / 3
+## Direct properties — port / 000133302021 / 3
 
-<a id="canonical-4653f1324cfda2b35920142ae050688b38497777b657778794a9ad4eb2a65eb8"></a>
+<a id="canonical-1012110333010302-1030333122022303-1121020001100222-3200110012202023-0320102113131313-2312111313132013-2110222122311032-2302221211322320"></a>
 
-<a id="canonical-214b9b9d4c0ffbe3ceba1450db9c454a024b01caeedf8a29e8be96c70f42c572"></a>
+<a id="canonical-0201102321232131-1030003333233203-3032232201101100-3123213010111022-0002102300013022-3232313320220221-3220233221123013-0033100230111302"></a>
 
-## name property — job.containers.readiness_check.tcp_health_check.port / 1c9ec301fc89 / 4
+## name property — port / 000133302021 / 4
 
 Type: `"string"`. Optional.
 
@@ -4525,11 +4525,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac24c193cdba8ce3670df2e9851c1155c699c3c3d629bf88ff062fb01da282a2"></a>
+<a id="canonical-2230021030012103-3031232220303203-1213003133023221-2011013001011111-3012212130033003-3112022123332020-3333001202332300-0131220220022202"></a>
 
-<a id="canonical-f1cba8c3d48bb48a9ae69d514e32e31401f12fb7c1b649f8c57160db39b68f2d"></a>
+<a id="canonical-3301302322203003-3110202323102022-2122321221311101-1032030232030110-0001330102332313-3001231210213320-3011130112003123-0321231220330231"></a>
 
-## num property — job.containers.readiness_check.tcp_health_check.port / 1c9ec301fc89 / 5
+## num property — port / 000133302021 / 5
 
 Type: `"number"`. Optional.
 
@@ -4580,31 +4580,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-666cdae51fcde09109cb2d9a73068b04b415dec5fdea693f6609c9716f520e82"></a>
+<a id="canonical-1212123031223211-0133303132002101-0021302302312122-1303001220230010-2310011131323011-3331322212210333-1212002130211301-1233110200322002"></a>
 
-## Next pages — job.containers.readiness_check.tcp_health_check.port / 1c9ec301fc89 / 6
+## Next pages — port / 000133302021 / 6
 
-- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-7dcf5ec56da123900f692e993b67952fecae87f74105c7864649e256c0bfb52a)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.containers.readiness_check.tcp_health_check](resources--workload--reference--group-004.md#canonical-1331303311323011-1231220102032100-0033122102322121-0323121321110233-3230223220133313-1001001130132012-1012102132021112-3000233323110222)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c"></a>
+<a id="canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-340696e436b83611308ebeadc3e62de692b96b864c05747f5feb35863135f080"></a>
+<a id="canonical-0310001221123210-0312232003120101-0300203223322231-3003321202313212-2102232112232012-1030001113101333-1133322303112012-0301031133002000"></a>
 
-## job.deploy_options — job.deploy_options / 0d7f46ebaa80 / 2
+## job.deploy_options — deploy_options / 322322222000 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
 - job.deploy_options
 
-<a id="canonical-70bc3697dca82cf2f3c6f226b39a674b97152c67fa5d630fbfa8dc6a2d90c232"></a>
+<a id="canonical-1300233003122113-3130222002303302-3303301233020212-2303212212131023-2113011102301213-3322113112030033-2333222031301222-0231210030020302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4667,54 +4667,54 @@ deploy_options {
 }
 ```
 
-<a id="canonical-ee23f4fe45fc2ed091a35c206258ffbacce708167e464dc331bda541a6beae42"></a>
+<a id="canonical-3232020333103332-1011333002323100-2101220311300200-1202112033332322-3030321300200112-1332101210313003-0301233122111001-2212233222321002"></a>
 
-## Direct properties — job.deploy_options / 0d7f46ebaa80 / 3
+## Direct properties — deploy_options / 322322222000 / 3
 
-- [all_res](resources--workload--reference--group-004.md#canonical-dda40cf842f4407d3e6735bad96fe6044380b48aa42c69e1ee2583a0b0f445b0): complete subsection reference.
+- [all_res](resources--workload--reference--group-004.md#canonical-3131221000303320-1002331010001331-0332121303112322-3121123332120010-1003200023102022-2210023012213201-3232021120032200-2300331010112300): complete subsection reference.
 
-- [default_virtual_sites](resources--workload--reference--group-004.md#canonical-9b46d9e23f5c1ef55272500018e351765937a6e15e90682d4f259456b67d79f3): complete subsection reference.
+- [default_virtual_sites](resources--workload--reference--group-004.md#canonical-2123101231213202-0333113001323311-1102130211000000-0120320311011312-1121031322123201-1132210012200231-1033021121101112-2312133113213303): complete subsection reference.
 
-- [deploy_ce_sites](resources--workload--reference--group-004.md#canonical-c5f4655d60969effaa8775659eea055364f87b8db3bd8147af3760293490155b): complete subsection reference.
+- [deploy_ce_sites](resources--workload--reference--group-004.md#canonical-3011331012111131-1200211221323333-2222201313111211-2132322200111103-1210332013232031-2303233120011013-2233031312000221-0310210001111123): complete subsection reference.
 
-- [deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-db35ee6a65db8e7b90f0bb6a458a836ebedeaf507fa3cef7265f414c00496857): complete subsection reference.
+- [deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-3123031132321222-1211312320321323-2100330023231222-1011202220031232-2332313222331100-1333220330323313-0212113310011030-0000102112201113): complete subsection reference.
 
-- [deploy_re_sites](resources--workload--reference--group-004.md#canonical-e2182c33681bea913461f03930624d0791559a3139887cc8720793c55fe08080): complete subsection reference.
+- [deploy_re_sites](resources--workload--reference--group-004.md#canonical-3202012002300303-1220012332222101-0310120133000321-0300120210310013-2101111121220301-0321202013303020-1302001321033011-1133320020002000): complete subsection reference.
 
-- [deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-b3ec09847de320bb9d2c1bf8ae5d30284ded1c23c88b6490feee43cd967e614b): complete subsection reference.
+- [deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-2303323000212010-1331320302002323-2131023001233320-2232113103000220-1031323101300203-3020202312102100-3332323210033031-2112133212011023): complete subsection reference.
 
-<a id="canonical-a5ffc37845a42c7eb734551c0b8ad9b65e24018a46c8ebe21e3fd57594935438"></a>
+<a id="canonical-2211333330031320-1011221002301332-2313031011110130-0023202231212312-1132021000012022-1012302032233202-0132033331111311-2110210311100320"></a>
 
-## Next pages — job.deploy_options / 0d7f46ebaa80 / 4
+## Next pages — deploy_options / 322322222000 / 4
 
-- [job.deploy_options.all_res](resources--workload--reference--group-004.md#canonical-dda40cf842f4407d3e6735bad96fe6044380b48aa42c69e1ee2583a0b0f445b0)
-- [job.deploy_options.default_virtual_sites](resources--workload--reference--group-004.md#canonical-9b46d9e23f5c1ef55272500018e351765937a6e15e90682d4f259456b67d79f3)
-- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-c5f4655d60969effaa8775659eea055364f87b8db3bd8147af3760293490155b)
-- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-db35ee6a65db8e7b90f0bb6a458a836ebedeaf507fa3cef7265f414c00496857)
-- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-e2182c33681bea913461f03930624d0791559a3139887cc8720793c55fe08080)
-- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-b3ec09847de320bb9d2c1bf8ae5d30284ded1c23c88b6490feee43cd967e614b)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.all_res](resources--workload--reference--group-004.md#canonical-3131221000303320-1002331010001331-0332121303112322-3121123332120010-1003200023102022-2210023012213201-3232021120032200-2300331010112300)
+- [job.deploy_options.default_virtual_sites](resources--workload--reference--group-004.md#canonical-2123101231213202-0333113001323311-1102130211000000-0120320311011312-1121031322123201-1132210012200231-1033021121101112-2312133113213303)
+- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-3011331012111131-1200211221323333-2222201313111211-2132322200111103-1210332013232031-2303233120011013-2233031312000221-0310210001111123)
+- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-3123031132321222-1211312320321323-2100330023231222-1011202220031232-2332313222331100-1333220330323313-0212113310011030-0000102112201113)
+- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-3202012002300303-1220012332222101-0310120133000321-0300120210310013-2101111121220301-0321202013303020-1302001321033011-1133320020002000)
+- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-2303323000212010-1331320302002323-2131023001233320-2232113103000220-1031323101300203-3020202312102100-3332323210033031-2112133212011023)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-dda40cf842f4407d3e6735bad96fe6044380b48aa42c69e1ee2583a0b0f445b0"></a>
+<a id="canonical-3131221000303320-1002331010001331-0332121303112322-3121123332120010-1003200023102022-2210023012213201-3232021120032200-2300331010112300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ca6cd03007a0e5059927d231e603693b5fa4194bbd0b9550a44443954e490380"></a>
+<a id="canonical-3022123031000300-0013220032110011-2121021331020301-3212000312210323-1133221001211023-2331002321111100-2210101010032111-1032102100032000"></a>
 
-## job.deploy_options.all_res — job.deploy_options.all_res / f4ac96fed997 / 2
+## job.deploy_options.all_res — all_res / 333231212113 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.all_res
 
-<a id="canonical-c1a19a9ee70ddb245ec63db1400baff775ba6cd7ba1d0f60e79c7a860f8c7138"></a>
+<a id="canonical-3001220121222132-3213003131230210-1132301203312301-1000002322333313-1311232212303113-2322013100331200-3213213013222012-0033203013010320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4743,38 +4743,38 @@ Terraform syntax:
 all_res = {}
 ```
 
-<a id="canonical-83770bcb9d6f2dd8fdba3a3c9e0cd4c52b852acd677ad598cf6009507f6e098b"></a>
+<a id="canonical-2003131300233023-2131123302313120-3331232203220330-2132003031103011-0223201102223031-1213132231112120-3033120000211100-1333123200212023"></a>
 
-## Direct properties — job.deploy_options.all_res / f4ac96fed997 / 3
+## Direct properties — all_res / 333231212113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-688618bff559ad889cfb1133dd5a3e489b972bdd46ffe3a2aff687e3e1f5f392"></a>
+<a id="canonical-1220201201202333-3311112122312020-2130332301010303-3131112203321020-2123211302233131-1012333332032202-2233331220133203-3201331133032102"></a>
 
-## Next pages — job.deploy_options.all_res / f4ac96fed997 / 4
+## Next pages — all_res / 333231212113 / 4
 
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-9b46d9e23f5c1ef55272500018e351765937a6e15e90682d4f259456b67d79f3"></a>
+<a id="canonical-2123101231213202-0333113001323311-1102130211000000-0120320311011312-1121031322123201-1132210012200231-1033021121101112-2312133113213303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93c74ab91919e1e2049a1984a32047c569f2619128a798fdb22834c46c268afb"></a>
+<a id="canonical-2103301310222321-0121012132013202-0010212201212010-2203020010133011-1221330212012101-0220221321203331-2302022003103010-1230021220223323"></a>
 
-## job.deploy_options.default_virtual_sites — job.deploy_options.default_virtual_sites / 7a0be886ade3 / 2
+## job.deploy_options.default_virtual_sites — default_virtual_sites / 201222313203 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.default_virtual_sites
 
-<a id="canonical-19a77b0df96fbc55b65e44e44b5e4125833c5be6a5985b55e1658b1b144d7f8c"></a>
+<a id="canonical-0121221313230031-3321123323301111-2312113210103210-1023113210010211-2003033011233212-2211212011231111-3201121120230123-0110103113332030"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4803,38 +4803,38 @@ Terraform syntax:
 default_virtual_sites = {}
 ```
 
-<a id="canonical-f4ad2afa31ccb0d2fe7262780cffa4c14202d715810118397f5149224a5765bd"></a>
+<a id="canonical-3310223102223322-0301303023003102-3332130212021320-0030333322103001-1002000231130111-2001000101200321-1333110110210202-1022111312112331"></a>
 
-## Direct properties — job.deploy_options.default_virtual_sites / 7a0be886ade3 / 3
+## Direct properties — default_virtual_sites / 201222313203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-66f81781acb1d658542b0794bd19c0f71575e456eddebc1a8d3291ce7257c388"></a>
+<a id="canonical-1212332001132001-2230230131121120-1110022300132110-2331012130003313-0111131132101112-3231313223300122-2031030221013032-1302111330032020"></a>
 
-## Next pages — job.deploy_options.default_virtual_sites / 7a0be886ade3 / 4
+## Next pages — default_virtual_sites / 201222313203 / 4
 
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-c5f4655d60969effaa8775659eea055364f87b8db3bd8147af3760293490155b"></a>
+<a id="canonical-3011331012111131-1200211221323333-2222201313111211-2132322200111103-1210332013232031-2303233120011013-2233031312000221-0310210001111123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc8b61c8bdc084e0ea1bd89b25dbaad1c2874864ab43ff163733c54609be92a3"></a>
+<a id="canonical-3030202312013020-2331300020103200-3222012331202123-0211312322223101-3002201310201210-2223100333330112-0313030330111012-0021233221022203"></a>
 
-## job.deploy_options.deploy_ce_sites — job.deploy_options.deploy_ce_sites / 0bb092cec9fc / 2
+## job.deploy_options.deploy_ce_sites — deploy_ce_sites / 303230213330 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.deploy_ce_sites
 
-<a id="canonical-1ca42636981c640a751569438fc2e50753f7b8bcd4acee5851e628cabc679667"></a>
+<a id="canonical-0130221002120312-2120013012100022-1311011112211003-2033300232110013-1103331323202330-3110223032321120-1101321202203022-2330121321121213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4871,40 +4871,40 @@ deploy_ce_sites {
 }
 ```
 
-<a id="canonical-8e1230825e999a072076fac6af61367813f836f993b1012ac9e8768b54f9b31e"></a>
+<a id="canonical-2032010203002002-1132212121220013-0200131233223012-2233120103121320-0103332003123321-2103230100010222-3021322013122023-1110332123030132"></a>
 
-## Direct properties — job.deploy_options.deploy_ce_sites / 0bb092cec9fc / 3
+## Direct properties — deploy_ce_sites / 303230213330 / 3
 
-- [site](resources--workload--reference--group-004.md#canonical-6cb48f8ed24662754edd9e43a4bf06ebf4940b61428627104e98941b7acc9c23): complete subsection reference.
+- [site](resources--workload--reference--group-004.md#canonical-1230231020332032-3102101212021311-1032313121321003-2210233300123223-3310211000231201-1002201202130100-1032212021100123-1322303021300203): complete subsection reference.
 
-<a id="canonical-6aa86369117d479df47ec568cc4f161f015c5dd0a5dd21d53b9080526b13f20f"></a>
+<a id="canonical-1222222012031221-0101133110132131-3310133230111220-3030103301120133-0001113011313100-2211313102013111-0323210020001102-1223010333020033"></a>
 
-## Next pages — job.deploy_options.deploy_ce_sites / 0bb092cec9fc / 4
+## Next pages — deploy_ce_sites / 303230213330 / 4
 
-- [job.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-004.md#canonical-6cb48f8ed24662754edd9e43a4bf06ebf4940b61428627104e98941b7acc9c23)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-004.md#canonical-1230231020332032-3102101212021311-1032313121321003-2210233300123223-3310211000231201-1002201202130100-1032212021100123-1322303021300203)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-6cb48f8ed24662754edd9e43a4bf06ebf4940b61428627104e98941b7acc9c23"></a>
+<a id="canonical-1230231020332032-3102101212021311-1032313121321003-2210233300123223-3310211000231201-1002201202130100-1032212021100123-1322303021300203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-927c17f4b3c99b8a097bba6d70204d6ac3a34ed2b3b5342622f4403bb84ff160"></a>
+<a id="canonical-2102133001133310-2303302121232022-0021132323221231-1300020010311222-3003220310323102-2303231103100212-0202331010000323-2320103333011200"></a>
 
-## job.deploy_options.deploy_ce_sites.site — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 2
+## job.deploy_options.deploy_ce_sites.site — site / 122332230010 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-c5f4655d60969effaa8775659eea055364f87b8db3bd8147af3760293490155b)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-3011331012111131-1200211221323333-2222201313111211-2132322200111103-1210332013232031-2303233120011013-2233031312000221-0310210001111123)
 - job.deploy_options.deploy_ce_sites.site
 
-<a id="canonical-36d9168008d036ad8740f7b403a3ad31281a24d66330901d2bed989e54030a73"></a>
+<a id="canonical-0312312101122000-0020310003122231-2013100033132310-0003220322310301-0220012202103112-1203030021000131-0223323121202132-1110000300221303"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4964,15 +4964,15 @@ site {
 }
 ```
 
-<a id="canonical-345ac882152ac0acead14c8eb5447a5b5893d9e7a2ca3527428856588f82dfda"></a>
+<a id="canonical-0310112230202002-0111022230002230-3222310110302032-2311101013221123-1120210331213213-2202302203110213-1002202011121120-2033200231333122"></a>
 
-## Direct properties — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 3
+## Direct properties — site / 122332230010 / 3
 
-<a id="canonical-c1b294c35d5d3717b037716ae01995ac727add51dcba9690ea56ef96e16aa00c"></a>
+<a id="canonical-3001230221103003-1131113103130113-2300031313011222-3200012121112230-1302132231311101-3130232221122100-3222111232332112-3201122222000030"></a>
 
-<a id="canonical-e2594dd2865c474716112b4f4cbeb575157fb3b591ddcaac554a3e5e01a22aa7"></a>
+<a id="canonical-3202112110313102-2012113010131013-0112010102231033-1030233223111311-0111133323032311-2101313130222230-1111102203321132-0001220202222213"></a>
 
-## name property — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 4
+## name property — site / 122332230010 / 4
 
 Type: `"string"`. Optional.
 
@@ -5033,11 +5033,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c53961b22ca46dc4a74038e8b46b2efe669a852d6b987c4cc7c34fac9ff98931"></a>
+<a id="canonical-3011032112012302-0230221012313010-2213100003203220-2310122302323332-1212212220110231-1223212013301030-3013300310332230-2133332120210301"></a>
 
-<a id="canonical-98d9c8d2bf046be52b0a8b2f6153b2e893e209364d6872dd16f387ea23df77a3"></a>
+<a id="canonical-2120312130203102-2333001012233211-0223002220230233-1201110323023220-2103320200210312-1031122013023131-0112330320133222-0203313313132203"></a>
 
-## namespace property — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 5
+## namespace property — site / 122332230010 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -5105,11 +5105,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d7d12b67e31db97dcec23ac6a9239ec7b9cf8d388a8cfdef9ff04aed87bea80e"></a>
+<a id="canonical-3113310102231213-3203013123211331-3032300203223012-2221020321323013-2321303320310320-2022203033313233-2133330010223231-2013233222200032"></a>
 
-<a id="canonical-428b7443316af4efab7079cf931ec0fb6cb2361404a9aec8231fd94a2712c621"></a>
+<a id="canonical-1002202313101003-0301122233103233-2223130013213033-2103013230003323-1230230203120110-0010222122323020-0203013331211022-0213010230120201"></a>
 
-## tenant property — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 6
+## tenant property — site / 122332230010 / 6
 
 Type: `"string"`. Computed.
 
@@ -5163,32 +5163,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cd4d075b11f319da35c244c45819334064dcd6037073c30611d3637dc4414897"></a>
+<a id="canonical-3031103100131123-0101330301213122-0311300210103010-1120012103031000-1210313031120003-1300130330030012-0101310312031331-3010100110202113"></a>
 
-## Next pages — job.deploy_options.deploy_ce_sites.site / 5deb056beb04 / 7
+## Next pages — site / 122332230010 / 7
 
-- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-c5f4655d60969effaa8775659eea055364f87b8db3bd8147af3760293490155b)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_ce_sites](resources--workload--reference--group-004.md#canonical-3011331012111131-1200211221323333-2222201313111211-2132322200111103-1210332013232031-2303233120011013-2233031312000221-0310210001111123)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-db35ee6a65db8e7b90f0bb6a458a836ebedeaf507fa3cef7265f414c00496857"></a>
+<a id="canonical-3123031132321222-1211312320321323-2100330023231222-1011202220031232-2332313222331100-1333220330323313-0212113310011030-0000102112201113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9f2926a201d356d6833b6e4444b290eb613e5e1942749b7ff871f44e9baa6afd"></a>
+<a id="canonical-2133022102122202-0001310311123112-2003032312321010-1010230221003223-1201033211320121-1002131021231333-3320130133101032-2123222212223331"></a>
 
-## job.deploy_options.deploy_ce_virtual_sites — job.deploy_options.deploy_ce_virtual_sites / e5c6e3c1cd2c / 2
+## job.deploy_options.deploy_ce_virtual_sites — deploy_ce_virtual_sites / 300130310230 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.deploy_ce_virtual_sites
 
-<a id="canonical-e85a2bb225e45fa8b48cb12ab0d6a877d424e0e68b05b68e95382f547fc3d722"></a>
+<a id="canonical-3220112202232302-0211321011332220-2310203023010222-2300311222201313-3110021032003212-2023001123122032-2111032002331110-1333300331130202"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5225,40 +5225,40 @@ deploy_ce_virtual_sites {
 }
 ```
 
-<a id="canonical-41ce35efd85cc1d66859ad7c821f01e15a6623785cf7f296e3bec71285872323"></a>
+<a id="canonical-1001303203113233-3120113030013112-1220112122311330-2002013300013201-1122121202031320-1130331333022112-3203233230130102-2011201302030203"></a>
 
-## Direct properties — job.deploy_options.deploy_ce_virtual_sites / e5c6e3c1cd2c / 3
+## Direct properties — deploy_ce_virtual_sites / 300130310230 / 3
 
-- [virtual_site](resources--workload--reference--group-004.md#canonical-9b52d0b139f5f22552c2a695e79efef2dee48069a317d200205c8e5f48f24081): complete subsection reference.
+- [virtual_site](resources--workload--reference--group-004.md#canonical-2123110231002301-0321331133020211-1102300222122111-3213213233323302-3132321020001221-2203011331020000-0200113020321133-1020330210002001): complete subsection reference.
 
-<a id="canonical-af01273f8e0b394aea40bf88621c11c2f7cd97ac362b1c17a49a35742b66f30b"></a>
+<a id="canonical-2233000102130333-2032002303211022-3222100023332020-1202013001013002-3313303121132230-0312022301300113-2210212203111310-0223121233030023"></a>
 
-## Next pages — job.deploy_options.deploy_ce_virtual_sites / e5c6e3c1cd2c / 4
+## Next pages — deploy_ce_virtual_sites / 300130310230 / 4
 
-- [job.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-004.md#canonical-9b52d0b139f5f22552c2a695e79efef2dee48069a317d200205c8e5f48f24081)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-004.md#canonical-2123110231002301-0321331133020211-1102300222122111-3213213233323302-3132321020001221-2203011331020000-0200113020321133-1020330210002001)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-9b52d0b139f5f22552c2a695e79efef2dee48069a317d200205c8e5f48f24081"></a>
+<a id="canonical-2123110231002301-0321331133020211-1102300222122111-3213213233323302-3132321020001221-2203011331020000-0200113020321133-1020330210002001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-35b55dedbe3f3080f47eea31e97d6eabd07929748c9a1b5a5f2720884fe16589"></a>
+<a id="canonical-0311231111313231-2332033303002000-3310133232220301-3221133112322223-3100132102211310-2030212201231122-1133021302002020-1033320112112021"></a>
 
-## job.deploy_options.deploy_ce_virtual_sites.virtual_site — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 2
+## job.deploy_options.deploy_ce_virtual_sites.virtual_site — virtual_site / 110130303221 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-db35ee6a65db8e7b90f0bb6a458a836ebedeaf507fa3cef7265f414c00496857)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-3123031132321222-1211312320321323-2100330023231222-1011202220031232-2332313222331100-1333220330323313-0212113310011030-0000102112201113)
 - job.deploy_options.deploy_ce_virtual_sites.virtual_site
 
-<a id="canonical-2892c0140f75723a2410a8e8350253ee8ed58ee8fa0d787a6a69f533298bb77a"></a>
+<a id="canonical-0220210230000110-0033131113020322-0210010022203220-0311000211033232-2032311120323220-3322003113201322-1222122133110303-0221202323131322"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5318,15 +5318,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-3c5d81903f2c460bfc340e293da6f992f7aaac0d008482500ba68948108001f7"></a>
+<a id="canonical-0330113120012100-0333023010120023-3330031000320221-0331221233212102-3313222222300031-0000201020021100-0023221220211020-0100200000013313"></a>
 
-## Direct properties — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 3
+## Direct properties — virtual_site / 110130303221 / 3
 
-<a id="canonical-47cbbdb8c6f27f1be8b2d2fdf452a2ea42ab4c0ebe58e8bdb226161d4bf27560"></a>
+<a id="canonical-1013302323312320-3012330213330123-3220230231023331-3310110222023222-1002222310300032-2332112032202331-2302021201120131-1023330213111200"></a>
 
-<a id="canonical-4dd6fcb4a216779930992a143e71392fa0947f7f39a568d173fb6f967fe9ab12"></a>
+<a id="canonical-1031311233302310-2202011213132121-0300212102220110-0332130103210233-2200211013331333-0321221112203101-1303332312332112-1333322122230102"></a>
 
-## name property — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 4
+## name property — virtual_site / 110130303221 / 4
 
 Type: `"string"`. Optional.
 
@@ -5387,11 +5387,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fa5e2742bd67a910ec782c9bfb0bafe6bb29625aa2f08da8013ac584cf3ac514"></a>
+<a id="canonical-3322113202131002-2331121322210100-3230132002302123-3323002322333212-2323022112021122-2202330020312220-0001032230112010-3033032230110110"></a>
 
-<a id="canonical-b9fe5e57fbf7a749168498c9770a244f4390e64f2eec1b4a38a1d388e8d545a3"></a>
+<a id="canonical-2321333211321113-3323331322131021-0112201021203021-1313002202101033-1003210032121033-0232323001231022-0320220131032020-3220311110112203"></a>
 
-## namespace property — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 5
+## namespace property — virtual_site / 110130303221 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -5459,11 +5459,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c8716e0ef82920a8fd41b6dc0a37f39d55fdf3943cde173090a3a8fc5809e24a"></a>
+<a id="canonical-3020130112320032-3320022102002220-3331100123123130-0022031333032131-1111333133032110-0330313201130300-2100220322203330-1120002132021022"></a>
 
-<a id="canonical-8d085c5055341766be0ba1df67f71205f605bccdd2eb0ebf8b6892f038c2a217"></a>
+<a id="canonical-2031002011301100-1111031001131212-2332002322013133-1213331301020011-3312001123303031-3102322300322333-2023122021023300-0320300222020113"></a>
 
-## tenant property — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 6
+## tenant property — virtual_site / 110130303221 / 6
 
 Type: `"string"`. Computed.
 
@@ -5517,32 +5517,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eba92201f02442a7f086674ae22555753cb9a8870e3f6b172dce059f843e26c1"></a>
+<a id="canonical-3223222102020001-3300021010022213-3300201212131022-3202021111111311-0330232122202013-0032033312230113-0231303200112133-2010033202123001"></a>
 
-## Next pages — job.deploy_options.deploy_ce_virtual_sites.virtual_site / dcfa6d51cce9 / 7
+## Next pages — virtual_site / 110130303221 / 7
 
-- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-db35ee6a65db8e7b90f0bb6a458a836ebedeaf507fa3cef7265f414c00496857)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-004.md#canonical-3123031132321222-1211312320321323-2100330023231222-1011202220031232-2332313222331100-1333220330323313-0212113310011030-0000102112201113)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e2182c33681bea913461f03930624d0791559a3139887cc8720793c55fe08080"></a>
+<a id="canonical-3202012002300303-1220012332222101-0310120133000321-0300120210310013-2101111121220301-0321202013303020-1302001321033011-1133320020002000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a46106200a79bd85181affcad164bfac38dd10d19a8debd0ea3c1f7932bbffae"></a>
+<a id="canonical-2210120100120200-0022132123312011-0120012233333022-3101121023332230-0320313101003101-2122203132233100-3222033001331321-0302232333332232"></a>
 
-## job.deploy_options.deploy_re_sites — job.deploy_options.deploy_re_sites / 223f8eb9e48d / 2
+## job.deploy_options.deploy_re_sites — deploy_re_sites / 232132102031 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.deploy_re_sites
 
-<a id="canonical-282141637e107f248e096a5c0c18a4714595181847ce61c4062d3fcd1959fa62"></a>
+<a id="canonical-0220020110011203-1332010013330210-2032002112221130-0030012022101301-1011211101200120-1013303212013010-0012023103333031-0121112133221202"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5579,40 +5579,40 @@ deploy_re_sites {
 }
 ```
 
-<a id="canonical-e471ca6ed2268954367f2083dbaae75aa6ba6b49889ca73210f50b977348ade7"></a>
+<a id="canonical-3210130130221232-3102021220211110-0312133302002003-3123222232131122-2212232212231021-2020213022130302-0100331100232113-1303102022313213"></a>
 
-## Direct properties — job.deploy_options.deploy_re_sites / 223f8eb9e48d / 3
+## Direct properties — deploy_re_sites / 232132102031 / 3
 
-- [site](resources--workload--reference--group-004.md#canonical-47d7d36dd609327efc0f757ccbbad20c8f06929dd2af48813bd635b78a6fd786): complete subsection reference.
+- [site](resources--workload--reference--group-004.md#canonical-1013311331031231-3112002103021332-3330003313111330-3023232231020030-2033001221022131-3102223310202001-0323311203112313-2022123331132012): complete subsection reference.
 
-<a id="canonical-57fec23b3f52e13e129b672761c4c6ab2e35dcb33e23afba8050a9068332c5e7"></a>
+<a id="canonical-1113333230020323-0333110232010332-0102212312130213-1201301030122223-0232031131302303-0332020322332322-2000110022210012-2003030230113213"></a>
 
-## Next pages — job.deploy_options.deploy_re_sites / 223f8eb9e48d / 4
+## Next pages — deploy_re_sites / 232132102031 / 4
 
-- [job.deploy_options.deploy_re_sites.site](resources--workload--reference--group-004.md#canonical-47d7d36dd609327efc0f757ccbbad20c8f06929dd2af48813bd635b78a6fd786)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_re_sites.site](resources--workload--reference--group-004.md#canonical-1013311331031231-3112002103021332-3330003313111330-3023232231020030-2033001221022131-3102223310202001-0323311203112313-2022123331132012)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-47d7d36dd609327efc0f757ccbbad20c8f06929dd2af48813bd635b78a6fd786"></a>
+<a id="canonical-1013311331031231-3112002103021332-3330003313111330-3023232231020030-2033001221022131-3102223310202001-0323311203112313-2022123331132012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-587fefc2c71ec7a304eef2a3edb486a1b37225ba451a007f485024c36108df3d"></a>
+<a id="canonical-1120133332333002-3013013230132203-0010323233022203-3231231020122201-2303130202112322-1011012200001333-1020110002103003-1201002031330331"></a>
 
-## job.deploy_options.deploy_re_sites.site — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 2
+## job.deploy_options.deploy_re_sites.site — site / 013310231120 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-e2182c33681bea913461f03930624d0791559a3139887cc8720793c55fe08080)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-3202012002300303-1220012332222101-0310120133000321-0300120210310013-2101111121220301-0321202013303020-1302001321033011-1133320020002000)
 - job.deploy_options.deploy_re_sites.site
 
-<a id="canonical-65a944f3a4113b3c68570ccf1fecea61cc7db97d5306018544c9f020bd7807ad"></a>
+<a id="canonical-1211222110103303-2210010103230330-1220111300303033-0133323032221201-3030133123211331-1103001200012011-1010302133000200-2331132000132231"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5672,15 +5672,15 @@ site {
 }
 ```
 
-<a id="canonical-91ea961592938886b7fdf89fb3787c6e48b021ffaca5a73eb07c28897d89983a"></a>
+<a id="canonical-2101322221120111-2102210320202012-2313333133202133-2303132013301232-1020230002013333-2230221122130332-2300133002202021-1331202121200322"></a>
 
-## Direct properties — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 3
+## Direct properties — site / 013310231120 / 3
 
-<a id="canonical-fde3476003e5b9be9ed7a0026769deaaa1fd46e061a18ecdf76798b4cd970a72"></a>
+<a id="canonical-3331320310131200-0003321123212332-2132311322000002-1213122131322222-2201333110123200-1201220120323031-3313121321202310-3031211300221302"></a>
 
-<a id="canonical-6d09390ddc4979f123e02677611c8a412030bc56a575982f276557f0711e61d6"></a>
+<a id="canonical-1231002103210031-3130102113213301-0203320002121313-1201013020221001-0200030023301112-2211131121200233-0213121111133300-1301013212013112"></a>
 
-## name property — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 4
+## name property — site / 013310231120 / 4
 
 Type: `"string"`. Optional.
 
@@ -5741,11 +5741,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bd4800592bd9ddf865ae0a5e4beae38f5f71d7e3ac96e6f128a01e707653532f"></a>
+<a id="canonical-2331102000001121-0223312131313320-1211223200221132-1023322232032033-1133130131133203-2230211232123301-0220220001321300-1312110311030233"></a>
 
-<a id="canonical-2af63cdde4fbc40e87404b29c07476fa99a950a17ca1665b66cc4c54a23edd39"></a>
+<a id="canonical-0222331203303131-3210332330100032-2013100010230221-3000131013123322-2121222111002201-1330220112121123-1212303010301110-2202033231310321"></a>
 
-## namespace property — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 5
+## namespace property — site / 013310231120 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -5813,11 +5813,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-222628909b4d58de4a2c7e818340825197ded68ee01b699ceb318849b3c0baa0"></a>
+<a id="canonical-0202021202202100-2123103111203132-1022023013322001-2003100020021101-2113313231122032-3200012312212130-3223030120201021-2303300023222200"></a>
 
-<a id="canonical-1d9d0d0dd046f7edefd22d90a3167e92380225f2e9c84a94ef8d18d6d7329ef6"></a>
+<a id="canonical-0131213100310031-3100101233133231-3233310202312100-2203011213322102-0320000202113302-3221302010222110-3233203101203112-3113030221323312"></a>
 
-## tenant property — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 6
+## tenant property — site / 013310231120 / 6
 
 Type: `"string"`. Computed.
 
@@ -5871,32 +5871,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-15dd2f052d172c740079adeec7f9e6a9311fdb02e164853463797dbb11a0398b"></a>
+<a id="canonical-0111313102330011-0231011302301310-0000132122313232-3013332132122221-0301013331230002-3201121020110310-1203132113312323-0101220003212023"></a>
 
-## Next pages — job.deploy_options.deploy_re_sites.site / 702aca1f4b58 / 7
+## Next pages — site / 013310231120 / 7
 
-- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-e2182c33681bea913461f03930624d0791559a3139887cc8720793c55fe08080)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_re_sites](resources--workload--reference--group-004.md#canonical-3202012002300303-1220012332222101-0310120133000321-0300120210310013-2101111121220301-0321202013303020-1302001321033011-1133320020002000)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-b3ec09847de320bb9d2c1bf8ae5d30284ded1c23c88b6490feee43cd967e614b"></a>
+<a id="canonical-2303323000212010-1331320302002323-2131023001233320-2232113103000220-1031323101300203-3020202312102100-3332323210033031-2112133212011023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-40efb29d3de429fbceacd6ef9645dac57cc1f16fb6282a6f3135e1962a5b86e5"></a>
+<a id="canonical-1000323323022131-0331321002213323-3032223031123233-2112101131223011-1330300133011233-2312022002221233-0301031132012112-0222112320123211"></a>
 
-## job.deploy_options.deploy_re_virtual_sites — job.deploy_options.deploy_re_virtual_sites / e3ef04a59f71 / 2
+## job.deploy_options.deploy_re_virtual_sites — deploy_re_virtual_sites / 221121331301 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
 - job.deploy_options.deploy_re_virtual_sites
 
-<a id="canonical-82e0d9e8505137974bd6641a0338fb32125927c302c7ab09255366589453df55"></a>
+<a id="canonical-2002320031213220-1100110103132113-1023311212100122-0003032033230302-0102112102133003-0002301322230021-0211110312121120-2110110331331111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5933,40 +5933,40 @@ deploy_re_virtual_sites {
 }
 ```
 
-<a id="canonical-94cffa8288a7f04b2ff9850abaaa30434185195e591028e123ffa92b4670d49a"></a>
+<a id="canonical-2110303333222002-2020221333001023-0233332120110022-2322222203001003-1001201101211132-1121010002203201-0203333322210223-1012130031102122"></a>
 
-## Direct properties — job.deploy_options.deploy_re_virtual_sites / e3ef04a59f71 / 3
+## Direct properties — deploy_re_virtual_sites / 221121331301 / 3
 
-- [virtual_site](resources--workload--reference--group-004.md#canonical-b125d36b342f0359fd162c29c0850463163b697e54756b54dff11cb3f98daa9c): complete subsection reference.
+- [virtual_site](resources--workload--reference--group-004.md#canonical-2301021131031223-0310023300031121-3331011202300221-3000201100101203-0112032312211332-1110131112231110-3133330101302303-3321203122222130): complete subsection reference.
 
-<a id="canonical-8618c3ffefba5d8aa1ff037519b7c58bdbd011843235bc104e8e1859263eaad6"></a>
+<a id="canonical-2012012030033333-3233232211312022-2201333300031311-0121231330112023-3123310001012010-0302031123300100-1032203201201121-0212033222223112"></a>
 
-## Next pages — job.deploy_options.deploy_re_virtual_sites / e3ef04a59f71 / 4
+## Next pages — deploy_re_virtual_sites / 221121331301 / 4
 
-- [job.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-004.md#canonical-b125d36b342f0359fd162c29c0850463163b697e54756b54dff11cb3f98daa9c)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-004.md#canonical-2301021131031223-0310023300031121-3331011202300221-3000201100101203-0112032312211332-1110131112231110-3133330101302303-3321203122222130)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-b125d36b342f0359fd162c29c0850463163b697e54756b54dff11cb3f98daa9c"></a>
+<a id="canonical-2301021131031223-0310023300031121-3331011202300221-3000201100101203-0112032312211332-1110131112231110-3133330101302303-3321203122222130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b2eca4849c3f9a0eeb72921316c366001b7e8c786a1d0971924b141e4e6c7d8a"></a>
+<a id="canonical-2302323022102010-2130033321220032-3223130221020103-0112300312120000-0123133220301320-1222013100211301-2102102301100132-1032123013312022"></a>
 
-## job.deploy_options.deploy_re_virtual_sites.virtual_site — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 2
+## job.deploy_options.deploy_re_virtual_sites.virtual_site — virtual_site / 110032223320 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.deploy_options](resources--workload--reference--group-004.md#canonical-32362239851538aba3f8285ae771998679eab9a286110e60b11d7ab1876db04c)
-- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-b3ec09847de320bb9d2c1bf8ae5d30284ded1c23c88b6490feee43cd967e614b)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.deploy_options](resources--workload--reference--group-004.md#canonical-0302031202020321-2011011103202223-2203332002201122-3213130121212012-1321322223212202-2012010100321200-2301013113222301-2013123123001030)
+- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-2303323000212010-1331320302002323-2131023001233320-2232113103000220-1031323101300203-3020202312102100-3332323210033031-2112133212011023)
 - job.deploy_options.deploy_re_virtual_sites.virtual_site
 
-<a id="canonical-cb79b7f5bc6d4868af20d240954d035ae8bd2fc953b40a77e6e4e588885219d3"></a>
+<a id="canonical-3023132123133311-2330123110201220-2233020031021000-2111103100031122-3220233102333021-1103231000221313-3212321032112020-2020110201213103"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -6026,15 +6026,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-a93579bb673b3738cddb59a92367ca0e18339aa510717304a66df5391c567aec"></a>
+<a id="canonical-2221031113212323-1213032303130320-3031312311212221-0203121330220032-0120030321222211-0100130113030010-2212123133110321-0130111213223230"></a>
 
-## Direct properties — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 3
+## Direct properties — virtual_site / 110032223320 / 3
 
-<a id="canonical-46ad01f901ac22363ff5d94c9dfa2ea0cb34a221dec4870fc0e933fc9b9eea68"></a>
+<a id="canonical-1012223100013321-0001223002020312-0333331131211030-2131332202322200-3023031022020201-3132301020130033-3000322103033330-2123213232221220"></a>
 
-<a id="canonical-833171f2d5e6572bc26615efeab73f0a237aeaceca79886902cf58f3dc9337c3"></a>
+<a id="canonical-2003030113013302-3111321211130223-3002121201113233-3222231303330022-0203132232223032-3022132120201221-0002303311203303-3130210303133003"></a>
 
-## name property — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 4
+## name property — virtual_site / 110032223320 / 4
 
 Type: `"string"`. Optional.
 
@@ -6095,11 +6095,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e5085b2e1030374af7f3f74ffb9dd529f00195171e76c62ddc0c048d071a78e1"></a>
+<a id="canonical-3211002011230232-0100030003131022-3313330333131033-3323213131110221-3300000121110113-0132131230120231-3130003000102031-0013012213203201"></a>
 
-<a id="canonical-1b81d20d12058be2edea5f8b878f496b8aa0518782d3ff066ef5a0fb945411e0"></a>
+<a id="canonical-0123200131020031-0102001120233202-3231322211332023-2013203310211223-2022220011012013-2002310333330012-1232331122003323-2110111001013200"></a>
 
-## namespace property — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 5
+## namespace property — virtual_site / 110032223320 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -6167,11 +6167,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-301109d2b1a82b62f23af38b4ecda492154a8fab93ee6cb9c6da0a26b1269838"></a>
+<a id="canonical-0300010100213102-2301222002231202-3302032233032023-1032303122102102-0111102220332223-2103323212302321-3012312200220212-2301021221200320"></a>
 
-<a id="canonical-ad61b7c793ea16ad6221b05da3acf09f715d54defec1abe716ae4e9c3518a5b3"></a>
+<a id="canonical-2231120123133013-2103322201122231-1202020123001131-2203223033002133-1301113111103132-3332300122233213-0112223210322130-0311012022112303"></a>
 
-## tenant property — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 6
+## tenant property — virtual_site / 110032223320 / 6
 
 Type: `"string"`. Computed.
 
@@ -6225,31 +6225,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e363bb60a3d009100ac492c389577af581f1173f8399d7c1f26f9c0af1c3cb5"></a>
+<a id="canonical-0232031203232312-0022033100002101-0000223010210230-0320211113132233-1120013301011303-3320032121311330-0133021233213000-2233013003302311"></a>
 
-## Next pages — job.deploy_options.deploy_re_virtual_sites.virtual_site / 9ef6a350eaf8 / 7
+## Next pages — virtual_site / 110032223320 / 7
 
-- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-b3ec09847de320bb9d2c1bf8ae5d30284ded1c23c88b6490feee43cd967e614b)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-004.md#canonical-2303323000212010-1331320302002323-2131023001233320-2232113103000220-1031323101300203-3020202312102100-3332323210033031-2112133212011023)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d"></a>
+<a id="canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c113c4446af2f6f737c68d732fa1a4d27bfae0927bbe45ed3234e176abde8a4"></a>
+<a id="canonical-0030010103301010-1012223302331233-1303133012203113-0302332201221031-0213233322320021-0213232332101132-3103020310320113-1222233132202210"></a>
 
-## job.volumes — job.volumes / 3dd377c459c3 / 2
+## job.volumes — volumes / 301011213003 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
 - job.volumes
 
-<a id="canonical-2d994021580c64c133105cf8fe231b9a1493f18efd9f3c26da44fabde28a5f3a"></a>
+<a id="canonical-0231212110000201-1120003012103001-0303010011303320-3332020301232122-0110210333012032-3331213303300212-3122101033222331-3202202211330322"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -6309,19 +6309,19 @@ volumes {
 }
 ```
 
-<a id="canonical-8c0f757fb1c330353e406772c67e2f89c721d6cc856fd7714fe3413259acd5d3"></a>
+<a id="canonical-2030003313111333-2301300303000311-0332100012131302-3012133202332021-3013020131123030-2011123331131301-1033320310010302-1121223031113103"></a>
 
-## Direct properties — job.volumes / 3dd377c459c3 / 3
+## Direct properties — volumes / 301011213003 / 3
 
-- [empty_dir](resources--workload--reference--group-004.md#canonical-930870d6205ac1bc58511e649c6455c442be1d109920edf3a82ee1225204ba69): complete subsection reference.
+- [empty_dir](resources--workload--reference--group-004.md#canonical-2103002013003112-0200112230012330-1120110101321210-2130121011113010-1002233201310100-2121020032313303-2220023232010202-1102001023221221): complete subsection reference.
 
-- [host_path](resources--workload--reference--group-004.md#canonical-6bb656f2328f688095b9ca536c2e349a5f7252ceadba20d027e33022cfb67684): complete subsection reference.
+- [host_path](resources--workload--reference--group-004.md#canonical-1223231211123302-0302203312202000-2111232130221103-1230023203102122-1133130211023032-2231232202003100-0213320303000202-3033231213122010): complete subsection reference.
 
-<a id="canonical-9bfcb37f8178f7f103c16843d7bbaa227863760d7f3a4b2ecbea4e94d8c1ba83"></a>
+<a id="canonical-2123333023031333-2001132033133301-0003300112201003-3113232322220202-1320120313120031-1333032210230232-3023322210322110-3120300123222003"></a>
 
-<a id="canonical-c656a48d8f9ba16815a0aa61e95e12a0c3df032ed3180214897d7b6e1d2d2337"></a>
+<a id="canonical-3012111222102031-2033212322011220-0111220022221201-3221113201022200-3003313300030232-3103012000020110-2021133113231232-0131023102030313"></a>
 
-## name property — job.volumes / 3dd377c459c3 / 4
+## name property — volumes / 301011213003 / 4
 
 Type: `"string"`. Optional.
 
@@ -6383,37 +6383,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [persistent_volume](resources--workload--reference--group-004.md#canonical-e38069c1d5c3c16a9ea3b6a85b1d7b22744a2fed8ec6756c367678b4eba2e0b5): complete subsection reference.
+- [persistent_volume](resources--workload--reference--group-005.md#canonical-3203200012213001-3111300330011222-2132220323122220-1123013113230202-1310102202333231-2032301213111230-0312131213202310-3223220232002311): complete subsection reference.
 
-<a id="canonical-2ef1884de1dee57a0df965a52c58b2a08a43d3e5029103343685af18dc4a324c"></a>
+<a id="canonical-0232330120201031-3201313232111322-0031332112112211-0230112023022200-2022100331033211-0002210100030310-0312201122330120-3130102203021030"></a>
 
-## Next pages — job.volumes / 3dd377c459c3 / 5
+## Next pages — volumes / 301011213003 / 5
 
-- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-930870d6205ac1bc58511e649c6455c442be1d109920edf3a82ee1225204ba69)
-- [job.volumes.host_path](resources--workload--reference--group-004.md#canonical-6bb656f2328f688095b9ca536c2e349a5f7252ceadba20d027e33022cfb67684)
-- [job.volumes.persistent_volume](resources--workload--reference--group-004.md#canonical-e38069c1d5c3c16a9ea3b6a85b1d7b22744a2fed8ec6756c367678b4eba2e0b5)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-2103002013003112-0200112230012330-1120110101321210-2130121011113010-1002233201310100-2121020032313303-2220023232010202-1102001023221221)
+- [job.volumes.host_path](resources--workload--reference--group-004.md#canonical-1223231211123302-0302203312202000-2111232130221103-1230023203102122-1133130211023032-2231232202003100-0213320303000202-3033231213122010)
+- [job.volumes.persistent_volume](resources--workload--reference--group-005.md#canonical-3203200012213001-3111300330011222-2132220323122220-1123013113230202-1310102202333231-2032301213111230-0312131213202310-3223220232002311)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-930870d6205ac1bc58511e649c6455c442be1d109920edf3a82ee1225204ba69"></a>
+<a id="canonical-2103002013003112-0200112230012330-1120110101321210-2130121011113010-1002233201310100-2121020032313303-2220023232010202-1102001023221221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0e32626b6067d78356ab9ef1e19a7768db45076a9ddef524d46a0dd02d2d0e62"></a>
+<a id="canonical-0032030212021223-1200121331132003-1112222321323301-3201212213131220-3123101100131222-2131313233110210-3110122200313100-0231023100321202"></a>
 
-## job.volumes.empty_dir — job.volumes.empty_dir / 266389f199cb / 2
+## job.volumes.empty_dir — empty_dir / 330121213023 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.volumes](resources--workload--reference--group-004.md#canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131)
 - job.volumes.empty_dir
 
-<a id="canonical-d99ee0ac35d315606dcf9304e64efdcb325341c0d0ffdf0381a5cff7c071562e"></a>
+<a id="canonical-3121213232002230-0311310301111200-1231303321030010-3212103233313023-0302110310013000-3100333331330003-2001221130333313-3000130111120232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -6446,17 +6446,17 @@ empty_dir {
 }
 ```
 
-<a id="canonical-d157d0958830296ac18958f1ccc9dd6ead4a0cdc763a276c104a2520d84eecac"></a>
+<a id="canonical-3101111331002111-2020030002211222-3001202111203301-3030302131311232-2231102200303130-1312032202131230-0100102202110200-3120103232302230"></a>
 
-## Direct properties — job.volumes.empty_dir / 266389f199cb / 3
+## Direct properties — empty_dir / 330121213023 / 3
 
-- [mount](resources--workload--reference--group-004.md#canonical-e60de3cf046a6f78bbae96fa54131ae43449a0dda7e86152672a8c0eee9b6b55): complete subsection reference.
+- [mount](resources--workload--reference--group-004.md#canonical-3212003132033033-0010122212331320-2323223221123322-1110010301223210-0310102122003131-2213322012011102-1213022220300032-3232212312231111): complete subsection reference.
 
-<a id="canonical-5e3afec6edbc734ce60841152e740d3e67a6d01dae4af30c11e02ce51c577d46"></a>
+<a id="canonical-1132032233323012-3231233013031030-3212002010010111-0232131000310332-1213221231000131-2232102233030030-0101320002303211-0130111313311012"></a>
 
-<a id="canonical-296fa237c3d951eb0ca9988a968c77beb6def54743ae2c8187019be264e5e3e4"></a>
+<a id="canonical-0221123322020313-3003312111013223-0030222121202022-2112203013132332-2312313233111013-1003223202302001-2013000121233202-1210321132033210"></a>
 
-## size_limit property — job.volumes.empty_dir / 266389f199cb / 4
+## size_limit property — empty_dir / 330121213023 / 4
 
 Type: `"number"`. Optional.
 
@@ -6487,34 +6487,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fffdb278e3388e8d1c36020a5fb5b978ae7f3f730377ee1fa3342d25bb5f2948"></a>
+<a id="canonical-3333333123021320-3203032020322031-0130031200020022-1133231123211320-2232133303331303-0003131332320133-2203031002310211-2323113302211020"></a>
 
-## Next pages — job.volumes.empty_dir / 266389f199cb / 5
+## Next pages — empty_dir / 330121213023 / 5
 
-- [job.volumes.empty_dir.mount](resources--workload--reference--group-004.md#canonical-e60de3cf046a6f78bbae96fa54131ae43449a0dda7e86152672a8c0eee9b6b55)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.volumes.empty_dir.mount](resources--workload--reference--group-004.md#canonical-3212003132033033-0010122212331320-2323223221123322-1110010301223210-0310102122003131-2213322012011102-1213022220300032-3232212312231111)
+- [job.volumes](resources--workload--reference--group-004.md#canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-e60de3cf046a6f78bbae96fa54131ae43449a0dda7e86152672a8c0eee9b6b55"></a>
+<a id="canonical-3212003132033033-0010122212331320-2323223221123322-1110010301223210-0310102122003131-2213322012011102-1213022220300032-3232212312231111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-070967e9c182d92e509d1a6cd7d859eb1cdc712fb1842330d43c60d30054e4a2"></a>
+<a id="canonical-0013002112133221-3001200231210232-1100213101221230-3113312011213223-0130313013010233-2301201002030300-3110033012003103-0000111032102202"></a>
 
-## job.volumes.empty_dir.mount — job.volumes.empty_dir.mount / e7d84f8803be / 2
+## job.volumes.empty_dir.mount — mount / 202000032332 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-930870d6205ac1bc58511e649c6455c442be1d109920edf3a82ee1225204ba69)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
+- [Property reference](resources--workload--reference--group-001.md#canonical-2012112310002012-0330033330301132-3320113331023022-3021220030311012-0303221211130302-2102311022120112-1230121320333310-1232212220033130)
+- [job](resources--workload--reference--group-004.md#canonical-2101133223131122-0231303130011203-2130203200233301-2332212033103313-3210300031001001-1312100313213300-1013120312121230-0320112032220311)
+- [job.volumes](resources--workload--reference--group-004.md#canonical-3030211032210202-3200123100133322-2330332311200201-3221211012330020-2120013021021113-1301223221032102-0030211333033310-1111121220320131)
+- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-2103002013003112-0200112230012330-1120110101321210-2130121011113010-1002233201310100-2121020032313303-2220023232010202-1102001023221221)
 - job.volumes.empty_dir.mount
 
-<a id="canonical-753950edcd98d87e497e1399e747e3793d6c208e695da7d0d968629e0a0a060e"></a>
+<a id="canonical-1311032111003231-3031212031201332-1021133201032121-3213101332031321-0331123002002032-1221113122133100-3121122012022132-0022002200120032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -6547,15 +6547,15 @@ mount {
 }
 ```
 
-<a id="canonical-4fe6b986cb354935393acd964450345abe20dae4600b3e6be7d35f270e71484e"></a>
+<a id="canonical-1033321223212012-3023031110210311-0321032230312112-1010110003101122-2332020031223210-1200002303321223-3213310311330213-0032130110201032"></a>
 
-## Direct properties — job.volumes.empty_dir.mount / e7d84f8803be / 3
+## Direct properties — mount / 202000032332 / 3
 
-<a id="canonical-2c75324366e8fd48d4066212d88882a3b7a54bb96a8e79abc752d5049a34138f"></a>
+<a id="canonical-0230131103021003-1212322033311020-3110001212020102-3120202020022203-2313221110232321-1222203213212223-3013110231110010-2122031001032033"></a>
 
-<a id="canonical-356bedf1ebcd8417c29af56da461e5cd7ac5a90041d3625a88c0fbe9fa12a022"></a>
+<a id="canonical-0311122332313301-3223303120100113-3002212233111231-2210120132113031-1322301122210000-1001310312021122-2020300033233221-3322010222000202"></a>
 
-## mode property — job.volumes.empty_dir.mount / e7d84f8803be / 4
+## mode property — mount / 202000032332 / 4
 
 Type: `"string"`. Optional.
 
@@ -6602,11 +6602,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7da9b2bd00fa7f5936ad369e0963c6c8a01a669bd94462a786b9ba9eae87afab"></a>
+<a id="canonical-1331222123022331-0000332213331121-0312223103122132-0021120330123020-2200012212122123-3121101012022213-2012232123222132-2232201322332223"></a>
 
-<a id="canonical-b309ca4cbc76bd4894bcd248aa4389cfc535595401b1567fdc87be919891cb43"></a>
+<a id="canonical-2303002130221030-2330131223311020-2110233031021020-2222100320213033-3011031111211110-0001230111121333-3130201323322101-2120210130231003"></a>
 
-## mount_path property — job.volumes.empty_dir.mount / e7d84f8803be / 5
+## mount_path property — mount / 202000032332 / 5
 
 Type: `"string"`. Optional.
 
@@ -6656,11 +6656,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c57d96adfeb4ec0ba449239a7172fc02cc3dea219d088635895354817b85ebfa"></a>
+<a id="canonical-3011133121122231-3332231032300023-2210102102032122-1301130233300002-3030033132220201-2131002020120311-2021110311102001-1323201132233322"></a>
 
-<a id="canonical-812d27be0227d84cc75e7b0e58950d64b2cb5cd6b45876888a51b49c18a12ff6"></a>
+<a id="canonical-2001023102132332-0002021331201030-3013113213230032-1120211100311210-2302302311303112-2310112013122020-2022110123102130-0120220102333312"></a>
 
-## sub_path property — job.volumes.empty_dir.mount / e7d84f8803be / 6
+## sub_path property — mount / 202000032332 / 6
 
 Type: `"string"`. Optional.
 
@@ -6711,361 +6711,14 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f8d8006025858a6fb2ab7c5a80e751e866946079831f6c85e6391aea8b0e32f"></a>
+<a id="canonical-0233203120000012-0002112011202212-3323022223133011-2220003213110132-2012122110120013-2120030133123020-1132120321012232-2220230032030233"></a>
 
-## Next pages — job.volumes.empty_dir.mount / e7d84f8803be / 7
+## Next pages — mount / 202000032332 / 7
 
-- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-930870d6205ac1bc58511e649c6455c442be1d109920edf3a82ee1225204ba69)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
+- [job.volumes.empty_dir](resources--workload--reference--group-004.md#canonical-2103002013003112-0200112230012330-1120110101321210-2130121011113010-1002233201310100-2121020032313303-2220023232010202-1102001023221221)
+- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
 
-<a id="canonical-6bb656f2328f688095b9ca536c2e349a5f7252ceadba20d027e33022cfb67684"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-4315574c23be151a84e9568aedd85c3a73e79ed38e9605f37e370951853c85df"></a>
-
-## job.volumes.host_path — job.volumes.host_path / e75f044cd99b / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- job.volumes.host_path
-
-<a id="canonical-b455fd62a6e63d76cd52b5ad44745a9b5d6bd2bb89fc551b8c36c8cb7827d39d"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume containing a host mapped path into the workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-host_path {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-6ef71a9c4a93b46a432ef989dd5d4d4e596f02bd558fb80e9e4bc8baed579f50"></a>
-
-## Direct properties — job.volumes.host_path / e75f044cd99b / 3
-
-- [mount](resources--workload--reference--group-004.md#canonical-18bd20fdd4a27d6a21107947377c326ea19abb170a8660851c36beb190cc1d5b): complete subsection reference.
-
-<a id="canonical-e4eb08c1fec14225e2c81c7d885393d35d8fc52bae8ef18417440bb491be3dce"></a>
-
-<a id="canonical-aba8f7f631de3368a7b9e17589c011715c78223921af21b6c1e7c646fc299d22"></a>
-
-## path property — job.volumes.host_path / e75f044cd99b / 4
-
-Type: `"string"`. Optional.
-
-Path. Path of the directory on the host.
-
-Upstream description:
-
-Path of the directory on the host.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "[^\\\\0]+"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "[^\\\\0]+"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "[^\\\\0]+"
-  }
-}
-```
-
-<a id="canonical-325405e0d53e4f4ef9aa90c0c3d7abb5fffbe3a2f08f19fecdddebf5cdcc36dd"></a>
-
-## Next pages — job.volumes.host_path / e75f044cd99b / 5
-
-- [job.volumes.host_path.mount](resources--workload--reference--group-004.md#canonical-18bd20fdd4a27d6a21107947377c326ea19abb170a8660851c36beb190cc1d5b)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-18bd20fdd4a27d6a21107947377c326ea19abb170a8660851c36beb190cc1d5b"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1e42a2efa37b5e2405ff524c44ad3e03b1afefdff768133867f80bd38a3c9d00"></a>
-
-## job.volumes.host_path.mount — job.volumes.host_path.mount / 8aa22454bcfe / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-- [Property reference](resources--workload--reference--group-001.md#canonical-865b40863c3fcc5ef85fd2cac9a0cd4633a6573292d4a6166c678ff46e9a83dc)
-- [job](resources--workload--reference--group-004.md#canonical-917eb75a2dcdc1639c8e0bf1be98f4f7e4c0d041764379f04763666c3858ea35)
-- [job.volumes](resources--workload--reference--group-004.md#canonical-cc94e922e06d07fabcfb5821e9946f08981c925771ae93920c97f3f455668e1d)
-- [job.volumes.host_path](resources--workload--reference--group-004.md#canonical-6bb656f2328f688095b9ca536c2e349a5f7252ceadba20d027e33022cfb67684)
-- job.volumes.host_path.mount
-
-<a id="canonical-9252fcc93981bd4726fb06c25f5dcc91044a5bb59290f86721b1cbd5dcfc941e"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Volume mount describes how volume is mounted inside a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-mount {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-25c79096b78fa9f6de5f0ea179749aa100acd22f5d0df016c503a180251c4ba6"></a>
-
-## Direct properties — job.volumes.host_path.mount / 8aa22454bcfe / 3
-
-<a id="canonical-d591dfe2c107f4955d0b231b16c4c28cd3bc87f2f4484bfd7b090cbe4dbe6a30"></a>
-
-<a id="canonical-d08cb396a159cdda13fb7892f3d2bdc826a756815241b9a57086e3fadf988928"></a>
-
-## mode property — job.volumes.host_path.mount / 8aa22454bcfe / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: VOLUME\_MOUNT\_READ\_ONLY|VOLUME\_MOUNT\_READ\_WRITE\] Mode in which the volume should be
-mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume in read-only mode -
-VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
-\`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
-\`VOLUME\_MOUNT\_READ\_ONLY\`.
-
-Upstream description:
-
-Mode in which the volume should be mounted to the workload
-
-&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
-
-Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
-
-Mount the volume in read-write mode.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VOLUME_MOUNT_READ_ONLY",
-  "enum": [
-    "VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-73649e6df816dca0b3f25f0e966954155ac7df8e48671a38bbfb9f54d6f55b0e"></a>
-
-<a id="canonical-b1d834ce5cef83b8408523ef6c7f240cef22904d1b1c394a4270fbce35e429cc"></a>
-
-## mount_path property — job.volumes.host_path.mount / 8aa22454bcfe / 5
-
-Type: `"string"`. Optional.
-
-Path within the workload container at which the volume should be mounted. Must not contain ':'.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "pattern": "^[^:]*$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.pattern": "^[^:]*$"
-  }
-}
-```
-
-<a id="canonical-5ff932be34386f1160f6b5396386e88b4bcbe5623db983fe1da670b9d5158b60"></a>
-
-<a id="canonical-dc376240adccd5201a132aa4ea1a3641312c4c83718ae225e6f750dbd75665f5"></a>
-
-## sub_path property — job.volumes.host_path.mount / 8aa22454bcfe / 6
-
-Type: `"string"`. Optional.
-
-Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
-root).
-
-Upstream description:
-
-Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
-root).
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-802db6a61edebd17d3afdb06b85f6ced5559030cec1f0d98deffd153be69f8b0"></a>
-
-## Next pages — job.volumes.host_path.mount / 8aa22454bcfe / 7
-
-- [job.volumes.host_path](resources--workload--reference--group-004.md#canonical-6bb656f2328f688095b9ca536c2e349a5f7252ceadba20d027e33022cfb67684)
-- [xcsh_workload](../resources/workload.md#canonical-35d9915f43ca5fff8ac85c03830d1af72c049eeb58d2d09b92098817c37219ba)
-
-<a id="canonical-e38069c1d5c3c16a9ea3b6a85b1d7b22744a2fed8ec6756c367678b4eba2e0b5"></a>
+<a id="canonical-1223231211123302-0302203312202000-2111232130221103-1230023203102122-1133130211023032-2231232202003100-0213320303000202-3033231213122010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

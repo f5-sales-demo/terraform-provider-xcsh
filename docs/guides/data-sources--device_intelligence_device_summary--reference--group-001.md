@@ -6,90 +6,90 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_device_summary reference
 
-<a id="canonical-93f159bc76d0b51ddc452c0d614270f715e8fbdad2fe323e8255e24d25ca5d9a"></a>
+<a id="canonical-2103330111212330-1312310023110131-3130101102300031-1201100213003313-0111322033233122-3102333203020332-2002111132021031-0211302211312122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c4bc5edad990badc0526b6e5c91134a38beba6d8bce27ac5cb1dbf103cdbb685"></a>
+<a id="canonical-3010233011323122-3121210023223130-0011021223123211-3021010103102203-2023322322123120-2330320213223011-3023013123330100-0330312323122011"></a>
 
-## Property reference — Property reference / 136c06d1959b / 2
+## Property reference — Property reference / 310121112123 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
 - Property reference
 
-<a id="canonical-24d770a2f796446389b78a19bab4cdf7789c650ae0336dc02938662c69d657fc"></a>
+<a id="canonical-0210311313002202-3313211210101203-2021231320220121-2322231030313313-1320213012110022-3200030312313000-0221032012120230-1221311211133330"></a>
 
-## Direct properties — Property reference / 136c06d1959b / 3
+## Direct properties — Property reference / 310121112123 / 3
 
-<a id="canonical-dd4d560899cb69cf574e443d9e3872cdeee24129b287f141da3ab15e5a97421a"></a>
+<a id="canonical-3131103111120020-2121302312213033-1113103210100331-2132032013023031-3232320210010221-2302201333011001-3122032223011132-1122211310020122"></a>
 
-<a id="canonical-db2c39b2c287bf5e71f2ea468c3d2f46b7c444e36caae7b4429a4b8250759dbb"></a>
+<a id="canonical-3123023003212302-3002201323331132-1301330232221012-2030033102331012-2313301010103203-1230222232132310-1002212210232002-1100131121312323"></a>
 
-## action_taken property — Property reference / 136c06d1959b / 4
+## action_taken property — Property reference / 310121112123 / 4
 
 Type: `"string"`. Computed.
 
 Action taken or recommended based on the risk assessment.
 
-<a id="canonical-94196b8cfe0f1a315a450b5bc3ad92b87039e534dcda8f69ef4c29c404d9e444"></a>
+<a id="canonical-2110012112232030-3332003301220301-1122101100231123-3003223121022320-1300032132110310-3130312220331221-3233103002213010-0010312132101010"></a>
 
-<a id="canonical-eed6adc404a53569ca29e6ae3d1bd96c37303af1441e9068734fe6830b16275b"></a>
+<a id="canonical-3232311222313010-0010221103111221-3022022132122232-0331012331211230-0313030003223301-1010013221001220-1303103332122003-0023011202131123"></a>
 
-## channel property — Property reference / 136c06d1959b / 5
+## channel property — Property reference / 310121112123 / 5
 
 Type: `"string"`. Computed.
 
 Channel or platform used by the device (e.g., Web, Mobile).
 
-<a id="canonical-af2074b06d700f939f32edfed92e8f05b84bb92f179469fc39a22ee80d9b9136"></a>
+<a id="canonical-2233020013102300-1231130000332103-2133030232313332-3121023220330011-2320102323210233-0113211012213330-0321220202323220-0031212321010312"></a>
 
-<a id="canonical-ea68da9164052a54e9c0891ff266f0ab8ebfe6e739d19f37168aaf11b7611a8d"></a>
+<a id="canonical-3222122031222101-1210001102221110-3221300020210133-3302121233002223-2032233332123213-0321310121330313-0112202222330101-2313120101222031"></a>
 
-## confidence property — Property reference / 136c06d1959b / 6
+## confidence property — Property reference / 310121112123 / 6
 
 Type: `"number"`. Computed.
 
 Confidence level of the risk assessment (0–100).
 
-<a id="canonical-c6c98cb7a131fffec9aef5351679052d069bc357b8c5e05bf822c6b5feb662cf"></a>
+<a id="canonical-3012302120302313-2201030133333332-3021223233110311-0112132100110231-0012212330031113-2320301132001123-3320020230122311-3332231212023033"></a>
 
-<a id="canonical-391dc367f64e7633d3fc0cf51b1b33efc20c36d57215bfe1e51c40531de29790"></a>
+<a id="canonical-0321013130031213-3312103213120303-3103333000303311-0123012303033233-3002003003123111-1302011123333201-3211013010001103-0131320221132100"></a>
 
-## detected_signals property — Property reference / 136c06d1959b / 7
+## detected_signals property — Property reference / 310121112123 / 7
 
 Type: `["list", "string"]`. Computed.
 
 List of risk or integrity signals detected for this device.
 
-<a id="canonical-98d75d320f8510ce0589b873d6e8328b04374d52f77bc7f168b94dcdb2b48f64"></a>
+<a id="canonical-2120311311310302-0033201101003032-0011202123201303-3112322003022023-0010031310311102-3313132330133301-1220232110313031-2302231020331210"></a>
 
-<a id="canonical-1194929b15c06d6dae3d64a35bc3b7fade97d6799ffc5fca780bf37c833d9dc8"></a>
+<a id="canonical-0101211021022123-0111300012311231-2232033112102203-1123300323133322-3132211331121321-2133333011333022-1320002333031330-2003033121313020"></a>
 
-## device_id property — Property reference / 136c06d1959b / 8
+## device_id property — Property reference / 310121112123 / 8
 
 Type: `"string"`. Required.
 
 DeviceID. Device identifier.
 
-<a id="canonical-4dc02e246a83ea10f5b1db1c91aae46160f33598173bb4165e44a999fe9bc2d5"></a>
+<a id="canonical-1031300002320210-1222200332220100-3311230131230130-2101222232101201-1200330303112120-0113032323100112-1132101022212121-3332212330023111"></a>
 
-<a id="canonical-148daa6f853d129c0e1cf110ebfb50ce0b3bc0cf0cdc9e8ce804e849fa1f19f5"></a>
+<a id="canonical-0110203122221233-2011033101022130-0032013033010100-3223332311003032-0023032330003033-0030313021322030-3220001032201021-3322013301213311"></a>
 
-## device_risk_score property — Property reference / 136c06d1959b / 9
+## device_risk_score property — Property reference / 310121112123 / 9
 
 Type: `"number"`. Computed.
 
 Overall risk score for the device (0–100).
 
-<a id="canonical-42cc7efc207b9d8548599253481d232718a9fab9bf7303f582ac2620014b4434"></a>
+<a id="canonical-1002303013323330-0200132321312011-1020112121021103-1020013102030213-0120222133222321-2333130300033311-2002223002120200-0001102310100310"></a>
 
-<a id="canonical-b418989bdb6ff12b556a36b991d26c5ca0494117d9a3e225a547d78938401e75"></a>
+<a id="canonical-2310012021202123-3123123333010223-1111122203122321-2101310212301130-2200102110010113-3121220332020211-2211101331132021-0320100001321311"></a>
 
-## end_time property — Property reference / 136c06d1959b / 10
+## end_time property — Property reference / 310121112123 / 10
 
 Type: `"string"`. Optional.
 
@@ -103,33 +103,33 @@ Validators: []validator.String{
 }
 ```
 
-- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-547e9333ad37605b8f929e5c900eea6a57fc8daf0478ab407f267b9923dd7b6d): complete subsection reference.
+- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1110133221030303-2231031312001123-2033210221321130-2100003232221222-1113333020312233-0010132022231000-1333021213232121-0203313113231231): complete subsection reference.
 
-<a id="canonical-afc426cebea6524288fe1824c97553d321a751d7e4eea26fe5ebcefd984424e4"></a>
+<a id="canonical-2233301002123032-2332221211021002-2020333201200210-3021131111033103-0201221311013113-3210323222021233-3211322330323331-2120101002103210"></a>
 
-<a id="canonical-d7cbdd0d44dd28b454bff42ab486e8f5a0a98a1630fb23cedca6fccff24a3828"></a>
+<a id="canonical-3113302331310031-1010313102202310-1110233333100222-2310201232203311-2200222120220112-0300332302033032-3130221233303033-3302102203200220"></a>
 
-## high_risk_txn_count property — Property reference / 136c06d1959b / 11
+## high_risk_txn_count property — Property reference / 310121112123 / 11
 
 Type: `"string"`. Computed.
 
 Number of high-risk transactions linked to the device.
 
-<a id="canonical-00825c9da1a27c89b04ffa85b86cd05d3f99ea1da937469729fe471f400d9b45"></a>
+<a id="canonical-0000200211302131-2201220213302021-2300103333222011-2320123031001131-0333212132220131-2221031310122113-0221333210130133-1000003121231011"></a>
 
-<a id="canonical-13238905fa1cc56a949b3e84d9017ba5c7d4b371d8c7ab648b9a3abc26163e7e"></a>
+<a id="canonical-0103020320210011-3322013030111222-2110212303322010-3121000113232211-3013311023031301-3120301322231210-2023212203222330-0212011203321332"></a>
 
-## hosting property — Property reference / 136c06d1959b / 12
+## hosting property — Property reference / 310121112123 / 12
 
 Type: `"string"`. Computed.
 
 Type of hosting or network environment detected for the device.
 
-<a id="canonical-49c55d9b1ac9e487a429e02137212e469fd17eef3133785a805ee7bbb715010c"></a>
+<a id="canonical-1021301111312123-0122302132102013-2210022132000201-0313020102321012-2133310113323233-0301030313201122-2000113232132323-2313011100010030"></a>
 
-<a id="canonical-3daecdd0197f8934cdd046145d9f8ec5ec305debd82cfe6ca3f831eb2dcff90f"></a>
+<a id="canonical-0331223230313100-0121133320210310-3031310010120110-1131213320323011-3230030011313223-3120023033321230-2203332003013223-0231303333210033"></a>
 
-## ip_address property — Property reference / 136c06d1959b / 13
+## ip_address property — Property reference / 310121112123 / 13
 
 Type: `"string"`. Computed.
 
@@ -145,51 +145,51 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-c5d4e1eb9b5dfe15d5271dd540d3ef2e0fc466f338bd6a1c6af00c19a06c3b31"></a>
+<a id="canonical-3011311032013223-2123113133320111-3111021301313111-1000310332330232-0033301012123303-0320233112220130-1222330000300121-2200123003230301"></a>
 
-<a id="canonical-56205cbd66c64698e59f710f63aa74005b136a34e22bd3ee486457e1b8ab96b8"></a>
+<a id="canonical-1112020011302331-1212301210122120-3211213313010033-1203222213100000-1123010312220310-3202022331033232-1020121011133201-2320222321122320"></a>
 
-## location property — Property reference / 136c06d1959b / 14
+## location property — Property reference / 310121112123 / 14
 
 Type: `["list", "number"]`. Computed.
 
 Geographic coordinates associated with the device.
 
-<a id="canonical-9acd290cdd1921e7507284a74dec8ab7a28d4dad003795601423625b71d6e754"></a>
+<a id="canonical-2122303102210030-3131012102013213-1100130220102213-1031323020222313-2202203110312231-0000031321111200-0110020312021123-1301311232131110"></a>
 
-<a id="canonical-819ff05f516f950cfd3da562ab93fc13a53831b97ebe56690f8a951bc1f3acfe"></a>
+<a id="canonical-2001213333001133-1101123321110030-3331033122111202-2223210333300103-2211032003012321-1332233211121221-0033202221110123-3001330322303332"></a>
 
-## namespace property — Property reference / 136c06d1959b / 15
+## namespace property — Property reference / 310121112123 / 15
 
 Type: `"string"`. Required.
 
 Namespace. Namespace name.
 
-<a id="canonical-6a2d1f619124a8ba896ac2a18bb113f69d833918a6499055675e8635baf514ac"></a>
+<a id="canonical-1222023101331201-2101021022202322-2021122230022201-2023230101033312-2131200303210120-2212102121001111-1213113220120311-2322331101102230"></a>
 
-<a id="canonical-48c881285b8f70dfd01554b144433f73046f8c4823d46ebd24b6064bb7d8e443"></a>
+<a id="canonical-1020302020010220-1123203313003133-3100011111102301-1010100303331303-0010123320301020-0203311012322331-0210231200121023-2313312032101003"></a>
 
-## new_or_returning_device property — Property reference / 136c06d1959b / 16
+## new_or_returning_device property — Property reference / 310121112123 / 16
 
 Type: `"string"`. Computed.
 
 Indicates whether the device is new or returning.
 
-<a id="canonical-9c85365cf86f7ba97c10f3737ffdc689714544bbe1f859442c87cf88194dbaf1"></a>
+<a id="canonical-2130201103121130-3320123313232221-1330010033031303-1333333130122021-1301101110102323-3201332011211010-0230201330332020-0121103123223301"></a>
 
-<a id="canonical-a9907f02fece4d0883163c05928bd20b2e5c53ca9fcd5cf051a7a482a2c4d090"></a>
+<a id="canonical-2221210013330002-3332303210310020-2003011203300011-2102202331020023-0232113011033022-2133303111303300-1101221322102002-2202301031002100"></a>
 
-## os property — Property reference / 136c06d1959b / 17
+## os property — Property reference / 310121112123 / 17
 
 Type: `"string"`. Computed.
 
 Operating system and version reported for the device.
 
-<a id="canonical-3bd19876f8b91cb46de96f06f07df72fa94d47cf0f73fa4276ea3d91dc0ed04e"></a>
+<a id="canonical-0323310121201312-3320232101302310-1231322112330012-3300133133130233-2221103110133033-0033130333221002-1312322203312101-3130003231001032"></a>
 
-<a id="canonical-2a8bb8ddbd9c39ec0a2bd3d307dfdef393842322b64dd1ff39ed2d75d512aff0"></a>
+<a id="canonical-0222202323203131-2331213003213230-0022022331033103-0013313331323303-2103201002030202-2312103131013333-0321323102311311-3111010222333300"></a>
 
-## start_time property — Property reference / 136c06d1959b / 18
+## start_time property — Property reference / 310121112123 / 18
 
 Type: `"string"`. Optional.
 
@@ -203,87 +203,87 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-0cab226f3291d2aa1eebaa516c05b1448adf0cd56997247921e1d346bbd7f9c4"></a>
+<a id="canonical-0030222302021233-0302210131022222-0132322322221101-1230001123011010-2022313300303111-1221211302101321-0201320131031012-2323311333213010"></a>
 
-<a id="canonical-545188f8a1118130f520a9e47acca17cf0a24b761b967de249c58f1a491e1e64"></a>
+<a id="canonical-1110110120203320-2201010120010300-3311020022213210-1322303022011330-3300220210231312-0123211213313202-1021301120330122-1021013201321210"></a>
 
-## user_agent property — Property reference / 136c06d1959b / 19
+## user_agent property — Property reference / 310121112123 / 19
 
 Type: `"string"`. Computed.
 
 User agent string reported by the device/browser.
 
-<a id="canonical-708b062d08dd0333554c4ba14415a88ff8fdc399b505f7399da4482ca7d7f743"></a>
+<a id="canonical-1300202300120231-0020313100030303-1111103010232201-1010011122202033-3320333130032121-2311001133130321-2131221010200230-2213311333131003"></a>
 
-## All schema paths — Property reference / 136c06d1959b / 20
+## All schema paths — Property reference / 310121112123 / 20
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `action_taken` | [action_taken](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-dd4d560899cb69cf574e443d9e3872cdeee24129b287f141da3ab15e5a97421a) |
-| `channel` | [channel](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-94196b8cfe0f1a315a450b5bc3ad92b87039e534dcda8f69ef4c29c404d9e444) |
-| `confidence` | [confidence](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-af2074b06d700f939f32edfed92e8f05b84bb92f179469fc39a22ee80d9b9136) |
-| `detected_signals` | [detected_signals](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-c6c98cb7a131fffec9aef5351679052d069bc357b8c5e05bf822c6b5feb662cf) |
-| `device_id` | [device_id](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-98d75d320f8510ce0589b873d6e8328b04374d52f77bc7f168b94dcdb2b48f64) |
-| `device_risk_score` | [device_risk_score](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-4dc02e246a83ea10f5b1db1c91aae46160f33598173bb4165e44a999fe9bc2d5) |
-| `end_time` | [end_time](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-42cc7efc207b9d8548599253481d232718a9fab9bf7303f582ac2620014b4434) |
-| `filters` | [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-8d224c4b03676a98d3f7781b6d4da5122e7c201d3b9bfad5325174accea5e23a) |
-| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-44b8ca9234e0eab987a71c6705a98daac4d4acadd659c2ce4d1e76514f0f645d) |
-| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-d32ece6b80a383cf1f287fc5ca34d8241f95038b687f9908423057357c5f8d45) |
-| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0bfc6defedccfa8cfed28586f0b0403a4391a9270016def2a17d8371decb9584) |
-| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-d9aa0f16ef6599ec1b67bb6b1394d0171477b699f0625ac842011a7e5a22a99b) |
-| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-471b8178c9f46b5513aa9585f36fff6578eb95ec3e5b4fc3b12bd119232813ae) |
-| `high_risk_txn_count` | [high_risk_txn_count](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-afc426cebea6524288fe1824c97553d321a751d7e4eea26fe5ebcefd984424e4) |
-| `hosting` | [hosting](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-00825c9da1a27c89b04ffa85b86cd05d3f99ea1da937469729fe471f400d9b45) |
-| `ip_address` | [ip_address](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-49c55d9b1ac9e487a429e02137212e469fd17eef3133785a805ee7bbb715010c) |
-| `location` | [location](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-c5d4e1eb9b5dfe15d5271dd540d3ef2e0fc466f338bd6a1c6af00c19a06c3b31) |
-| `namespace` | [namespace](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-9acd290cdd1921e7507284a74dec8ab7a28d4dad003795601423625b71d6e754) |
-| `new_or_returning_device` | [new_or_returning_device](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-6a2d1f619124a8ba896ac2a18bb113f69d833918a6499055675e8635baf514ac) |
-| `os` | [os](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-9c85365cf86f7ba97c10f3737ffdc689714544bbe1f859442c87cf88194dbaf1) |
-| `start_time` | [start_time](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3bd19876f8b91cb46de96f06f07df72fa94d47cf0f73fa4276ea3d91dc0ed04e) |
-| `user_agent` | [user_agent](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0cab226f3291d2aa1eebaa516c05b1448adf0cd56997247921e1d346bbd7f9c4) |
+| `action_taken` | [action_taken](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3131103111120020-2121302312213033-1113103210100331-2132032013023031-3232320210010221-2302201333011001-3122032223011132-1122211310020122) |
+| `channel` | [channel](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2110012112232030-3332003301220301-1122101100231123-3003223121022320-1300032132110310-3130312220331221-3233103002213010-0010312132101010) |
+| `confidence` | [confidence](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2233020013102300-1231130000332103-2133030232313332-3121023220330011-2320102323210233-0113211012213330-0321220202323220-0031212321010312) |
+| `detected_signals` | [detected_signals](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3012302120302313-2201030133333332-3021223233110311-0112132100110231-0012212330031113-2320301132001123-3320020230122311-3332231212023033) |
+| `device_id` | [device_id](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2120311311310302-0033201101003032-0011202123201303-3112322003022023-0010031310311102-3313132330133301-1220232110313031-2302231020331210) |
+| `device_risk_score` | [device_risk_score](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1031300002320210-1222200332220100-3311230131230130-2101222232101201-1200330303112120-0113032323100112-1132101022212121-3332212330023111) |
+| `end_time` | [end_time](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1002303013323330-0200132321312011-1020112121021103-1020013102030213-0120222133222321-2333130300033311-2002223002120200-0001102310100310) |
+| `filters` | [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2031020210301023-0003121312222120-3103331313200123-1231103122110102-0232133002000131-0323212333223111-0302110113102230-3032221132020322) |
+| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1010232030222102-0310320032222321-2013221301301213-0011222120312222-3010311022302231-3112112130023032-1031013213121101-1033003312101131) |
+| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3103023230321223-2000220320033033-0133022013333011-3022031031200210-0133211100032023-1220133321210020-1002030011130311-1330113320311011) |
+| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0023333012313233-3231303033222030-3332310220112012-3300230010000322-1003210122210213-0000011231323302-2201133120031301-3132302321112010) |
+| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3121222200330112-3233121121213230-0123121323231223-0103211031000113-0110131323122121-3300120211223020-1002000101221332-1122020222212123) |
+| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1013012320011320-3021331012231111-0103222221112011-3303123333331211-1320322321113230-0332112310333003-2301022331010121-0203022001032232) |
+| `high_risk_txn_count` | [high_risk_txn_count](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2233301002123032-2332221211021002-2020333201200210-3021131111033103-0201221311013113-3210323222021233-3211322330323331-2120101002103210) |
+| `hosting` | [hosting](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0000200211302131-2201220213302021-2300103333222011-2320123031001131-0333212132220131-2221031310122113-0221333210130133-1000003121231011) |
+| `ip_address` | [ip_address](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1021301111312123-0122302132102013-2210022132000201-0313020102321012-2133310113323233-0301030313201122-2000113232132323-2313011100010030) |
+| `location` | [location](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-3011311032013223-2123113133320111-3111021301313111-1000310332330232-0033301012123303-0320233112220130-1222330000300121-2200123003230301) |
+| `namespace` | [namespace](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2122303102210030-3131012102013213-1100130220102213-1031323020222313-2202203110312231-0000031321111200-0110020312021123-1301311232131110) |
+| `new_or_returning_device` | [new_or_returning_device](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1222023101331201-2101021022202322-2021122230022201-2023230101033312-2131200303210120-2212102121001111-1213113220120311-2322331101102230) |
+| `os` | [os](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2130201103121130-3320123313232221-1330010033031303-1333333130122021-1301101110102323-3201332011211010-0230201330332020-0121103123223301) |
+| `start_time` | [start_time](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0323310121201312-3320232101302310-1231322112330012-3300133133130233-2221103110133033-0033130333221002-1312322203312101-3130003231001032) |
+| `user_agent` | [user_agent](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0030222302021233-0302210131022222-0132322322221101-1230001123011010-2022313300303111-1221211302101321-0201320131031012-2323311333213010) |
 
-<a id="canonical-a0abef5f8d6d0e4066218d6fe51bc28f6b1718a61a50122fcbaad909ab9ac0dc"></a>
+<a id="canonical-2200222332331133-2031123100321000-1212020120311233-3211012330022033-1223011301202212-0122110001020233-3023222231210021-2223212230003130"></a>
 
-## Next pages — Property reference / 136c06d1959b / 21
+## Next pages — Property reference / 310121112123 / 21
 
-- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-547e9333ad37605b8f929e5c900eea6a57fc8daf0478ab407f267b9923dd7b6d)
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1110133221030303-2231031312001123-2033210221321130-2100003232221222-1113333020312233-0010132022231000-1333021213232121-0203313113231231)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
 
-<a id="canonical-547e9333ad37605b8f929e5c900eea6a57fc8daf0478ab407f267b9923dd7b6d"></a>
+<a id="canonical-1110133221030303-2231031312001123-2033210221321130-2100003232221222-1113333020312233-0010132022231000-1333021213232121-0203313113231231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-df8f9ee5befd8c324d6c205a023eb5312ff70362baec247316136f941384d49d"></a>
+<a id="canonical-3133203321323211-2332333120300302-1031123002001122-0002033223110301-0233331300031202-2322323002101303-0112010312332110-0103201031102131"></a>
 
-## filters — filters / 067ae5eaca16 / 2
+## filters — filters / 322230220112 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
-- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-93f159bc76d0b51ddc452c0d614270f715e8fbdad2fe323e8255e24d25ca5d9a)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
+- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2103330111212330-1312310023110131-3130101102300031-1201100213003313-0111322033233122-3102333203020332-2002111132021031-0211302211312122)
 - filters
 
-<a id="canonical-8d224c4b03676a98d3f7781b6d4da5122e7c201d3b9bfad5325174accea5e23a"></a>
+<a id="canonical-2031020210301023-0003121312222120-3103331313200123-1231103122110102-0232133002000131-0323212333223111-0302110113102230-3032221132020322"></a>
 
 Type: `"single"`. Optional.
 
 Global Filters. Query Global Filters.
 
-<a id="canonical-fa140893d9ab181d691daa50edb83402f2c6a094889211d932f6d884ddb2a7c7"></a>
+<a id="canonical-3322011000202103-3121222301200131-1221013122221100-3231232003100002-3302301222002110-2020210201013121-0302331231202010-3131230222133013"></a>
 
-## Direct properties — filters / 067ae5eaca16 / 3
+## Direct properties — filters / 322230220112 / 3
 
-- [global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0a0639c6c3691ec73f0ece13e0393873b264b65d6f231cdf179a88708113023c): complete subsection reference.
+- [global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0022001203213012-3003122101323013-0333003230320103-3200032103201303-2302121023121131-1233020301303133-0113212220201300-2001010300020330): complete subsection reference.
 
-<a id="canonical-471b8178c9f46b5513aa9585f36fff6578eb95ec3e5b4fc3b12bd119232813ae"></a>
+<a id="canonical-1013012320011320-3021331012231111-0103222221112011-3303123333331211-1320322321113230-0332112310333003-2301022331010121-0203022001032232"></a>
 
-<a id="canonical-ec9fc8adb9c9a6c856eef1104c4f4a8ef7ce52c6e35b60e535b2b59f89a98402"></a>
+<a id="canonical-3230213330202231-2321302122123020-1112323233010100-1030103310222032-3313303211023012-3203112312003211-0311230223112133-2021222120100002"></a>
 
-## region_filter property — filters / 067ae5eaca16 / 4
+## region_filter property — filters / 322230220112 / 4
 
 Type: `"string"`. Optional.
 
@@ -302,46 +302,46 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-7d2b011badefa628653466ec0c0c6cda3dea6176bb282b951cf1771cb4a531b2"></a>
+<a id="canonical-1331022300010123-2231323322120220-1211031012123230-0030003012303122-0331322212011312-2323022002232111-0130330113130130-2310221103012302"></a>
 
-## Next pages — filters / 067ae5eaca16 / 5
+## Next pages — filters / 322230220112 / 5
 
-- [filters.global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0a0639c6c3691ec73f0ece13e0393873b264b65d6f231cdf179a88708113023c)
-- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-93f159bc76d0b51ddc452c0d614270f715e8fbdad2fe323e8255e24d25ca5d9a)
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [filters.global_filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-0022001203213012-3003122101323013-0333003230320103-3200032103201303-2302121023121131-1233020301303133-0113212220201300-2001010300020330)
+- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2103330111212330-1312310023110131-3130101102300031-1201100213003313-0111322033233122-3102333203020332-2002111132021031-0211302211312122)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
 
-<a id="canonical-0a0639c6c3691ec73f0ece13e0393873b264b65d6f231cdf179a88708113023c"></a>
+<a id="canonical-0022001203213012-3003122101323013-0333003230320103-3200032103201303-2302121023121131-1233020301303133-0113212220201300-2001010300020330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-25ed0304508d727e773d472ac803d52886f93865a689145e0ed5bb2a3c955d04"></a>
+<a id="canonical-0211323100030010-1100203113021332-1313033110130222-3020000331110220-2012332103201211-2212202101101132-0032311123230222-0330211111310010"></a>
 
-## filters.global_filters — filters.global_filters / b77022fc10d1 / 2
+## filters.global_filters — global_filters / 333001003101 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
-- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-93f159bc76d0b51ddc452c0d614270f715e8fbdad2fe323e8255e24d25ca5d9a)
-- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-547e9333ad37605b8f929e5c900eea6a57fc8daf0478ab407f267b9923dd7b6d)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)
+- [Property reference](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-2103330111212330-1312310023110131-3130101102300031-1201100213003313-0111322033233122-3102333203020332-2002111132021031-0211302211312122)
+- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1110133221030303-2231031312001123-2033210221321130-2100003232221222-1113333020312233-0010132022231000-1333021213232121-0203313113231231)
 - filters.global_filters
 
-<a id="canonical-44b8ca9234e0eab987a71c6705a98daac4d4acadd659c2ce4d1e76514f0f645d"></a>
+<a id="canonical-1010232030222102-0310320032222321-2013221301301213-0011222120312222-3010311022302231-3112112130023032-1031013213121101-1033003312101131"></a>
 
 Type: `"list"`. Optional.
 
 Global Filters. List of global filters.
 
-<a id="canonical-bf4a5fbe792ddddd4181145ddd251b1a56eef9d916fb43ea3b6d46acccb99774"></a>
+<a id="canonical-2333102211332332-1321023131313131-1001200101101131-3131021101230122-1112323233213121-0112332310033222-0323123110122230-3030232121131310"></a>
 
-## Direct properties — filters.global_filters / b77022fc10d1 / 3
+## Direct properties — global_filters / 333001003101 / 3
 
-<a id="canonical-d32ece6b80a383cf1f287fc5ca34d8241f95038b687f9908423057357c5f8d45"></a>
+<a id="canonical-3103023230321223-2000220320033033-0133022013333011-3022031031200210-0133211100032023-1220133321210020-1002030011130311-1330113320311011"></a>
 
-<a id="canonical-85622236c9a36b3852576bd957ef048fd6f710788d3a4416266b9e4b31b7cfe9"></a>
+<a id="canonical-2011120202020312-3021220312230320-1102111312233121-1113323300102033-3112331301001320-2031032210100112-0212122321321023-0301231330333221"></a>
 
-## key property — filters.global_filters / b77022fc10d1 / 4
+## key property — global_filters / 333001003101 / 4
 
 Type: `"string"`. Optional.
 
@@ -420,11 +420,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-0bfc6defedccfa8cfed28586f0b0403a4391a9270016def2a17d8371decb9584"></a>
+<a id="canonical-0023333012313233-3231303033222030-3332310220112012-3300230010000322-1003210122210213-0000011231323302-2201133120031301-3132302321112010"></a>
 
-<a id="canonical-3a2717fd8457cf175c117206a67ac6048570d000f8da33327082111e20b907a2"></a>
+<a id="canonical-0322021301133331-2010111330330113-1130010113020012-2212132230120010-2011130031000000-3320312203030302-1300200201010132-0200232100132202"></a>
 
-## op property — filters.global_filters / b77022fc10d1 / 5
+## op property — global_filters / 333001003101 / 5
 
 Type: `"string"`. Optional.
 
@@ -451,11 +451,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-d9aa0f16ef6599ec1b67bb6b1394d0171477b699f0625ac842011a7e5a22a99b"></a>
+<a id="canonical-3121222200330112-3233121121213230-0123121323231223-0103211031000113-0110131323122121-3300120211223020-1002000101221332-1122020222212123"></a>
 
-<a id="canonical-36f8cf93aee966541ad578e704d5b521ad56151a841bbd451d16d20c3245817a"></a>
+<a id="canonical-0312332030332103-2232322112121110-0122311113203213-0010311123110201-2231111201110122-2010012323311011-0131011231020030-0302101120011322"></a>
 
-## values property — filters.global_filters / b77022fc10d1 / 6
+## values property — global_filters / 333001003101 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -469,9 +469,9 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-fc1da1da66ddd8c33cdcc423cb8dfcf8217a0faac8efbb6890e4c67d68002687"></a>
+<a id="canonical-3330013122013122-1212313131203003-0330313030100203-3023203133303320-0201132200332222-3020323323231220-2100321030121331-1220000002122013"></a>
 
-## Next pages — filters.global_filters / b77022fc10d1 / 7
+## Next pages — global_filters / 333001003101 / 7
 
-- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-547e9333ad37605b8f929e5c900eea6a57fc8daf0478ab407f267b9923dd7b6d)
-- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989)
+- [filters](data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-1110133221030303-2231031312001123-2033210221321130-2100003232221222-1113333020312233-0010132022231000-1333021213232121-0203313113231231)
+- [xcsh_device_intelligence_device_summary](../data-sources/device_intelligence_device_summary.md#canonical-3320320012000030-1120213132323310-0033312123010313-0312323233302312-0102031103102222-2230101011132101-1321001213032302-3200123203212021)

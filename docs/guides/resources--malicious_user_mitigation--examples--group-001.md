@@ -6,72 +6,72 @@ description: "Complete grouped canonical reference for xcsh_malicious_user_mitig
 
 # xcsh_malicious_user_mitigation examples
 
-<a id="canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b"></a>
+<a id="canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b6fa28ec611b0281c28878033367b188bc4fadc26b9a752169a9d1de9be8a528"></a>
+<a id="canonical-2312332202203230-1201012300022001-3002202013200003-0303121323012020-2330103322313002-1223212213110201-1221222131013132-2123322022110220"></a>
 
-## Examples — Examples / fe9bcd133a90 / 2
+## Examples — Examples / 010303222100 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 - Examples
 
-<a id="canonical-efb9546fe62fee9ddaf6044485f66c2d50ff386bf2a2248d9a91ef5b9ee6a27e"></a>
+<a id="canonical-3233232111101233-3212023332322131-3122331200101010-2011331212300231-1100333303201223-3302220202102031-2122210132331123-2132321222021332"></a>
 
-## Complete configurations — Examples / fe9bcd133a90 / 3
+## Complete configurations — Examples / 010303222100 / 3
 
-- [All attributes](resources--malicious_user_mitigation--examples--group-001.md#canonical-67d758ece8000857d87ff3d2f894220907edc6394227e61b2babdbcadf4c17d9): valid configuration.
+- [All attributes](resources--malicious_user_mitigation--examples--group-001.md#canonical-1213311311203230-3220000000201113-3120133333033102-3320211002020021-0013323130120321-1002021332120123-0223222331233022-3133103001133121): valid configuration.
 
-- [Block](resources--malicious_user_mitigation--examples--group-001.md#canonical-49fe2585478e157d6d68e2f5ddc2d526adb895a38841051a38f95876b7305e56): valid configuration.
+- [Block](resources--malicious_user_mitigation--examples--group-001.md#canonical-1021333202112011-1013203201111331-1231122032023311-3131300231110212-2231232021112203-2020100100110122-0320332111201312-2313030011321112): valid configuration.
 
-- [Captcha](resources--malicious_user_mitigation--examples--group-001.md#canonical-0e0839ddd197712d6b10b78da5cffe0ca29c6ec6712557815d3266d390da8506): valid configuration.
+- [Captcha](resources--malicious_user_mitigation--examples--group-001.md#canonical-0032002003213131-3101211313010231-1223010023132031-2211303333320030-2202213012323012-1301021111132001-1131030212123103-2100312220110012): valid configuration.
 
-- [Js challenge](resources--malicious_user_mitigation--examples--group-001.md#canonical-e7f955332f60e37ddc7aa2caef5aeb01546c7107882183d35cdab47fe34798c6): valid configuration.
+- [Js challenge](resources--malicious_user_mitigation--examples--group-001.md#canonical-3213332111110303-0233120032031331-3130132222023022-3233112232230001-1110123013010013-2020020120033103-1130312223101333-3203101321203012): valid configuration.
 
-- [Resource](resources--malicious_user_mitigation--examples--group-001.md#canonical-f106284d67f273747fb03d5087c39e2217d44d792fe9889fc86293cbcba05111): valid configuration.
+- [Resource](resources--malicious_user_mitigation--examples--group-001.md#canonical-3301001202201031-1213330213031310-1333230003311100-2013300321320202-0113311010311321-0233322120202133-3020120221033023-3023220011010101): valid configuration.
 
-- [With annotations](resources--malicious_user_mitigation--examples--group-001.md#canonical-3e17b8e9a626df01ca4ddd304c286a3613c35849eb4c1c9e300b0e68c6e8ce30): valid configuration.
+- [With annotations](resources--malicious_user_mitigation--examples--group-001.md#canonical-0332011323203221-2212021231330001-3022103131310300-1030022012220312-0103300311201021-3223103001302132-0300002300321220-3012322030320300): valid configuration.
 
-- [With description](resources--malicious_user_mitigation--examples--group-001.md#canonical-1a071a1e3fe5fb79b1eda653a0a2cb5279f5994b5819cddfb916864e70a8ded8): valid configuration.
+- [With description](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122001301220132-0333321133231321-2301323122121103-2200220230231102-1321331121211023-1120012130313133-2321011220121032-1300222031323120): valid configuration.
 
-- [With labels](resources--malicious_user_mitigation--examples--group-001.md#canonical-c8ee1a4b07148d5e3657bcabffbcb2d83319d32627976a7b51233575a63c87c6): valid configuration.
+- [With labels](resources--malicious_user_mitigation--examples--group-001.md#canonical-3020323201221023-0013011020311132-0312111323302223-3333233023023120-0303012131030212-0213211312221323-1101020303111311-2212033020133012): valid configuration.
 
-- [With mitigation type](resources--malicious_user_mitigation--examples--group-001.md#canonical-e206584d6df1a2b3f5ac77c380477b799c311a0f1ecfa45cbfadc74955a81ca8): valid configuration.
+- [With mitigation type](resources--malicious_user_mitigation--examples--group-001.md#canonical-3202001211201031-1231330122022303-3311223013133003-2000101313231321-2130030101220033-0132303322101130-2333223130131021-1111222001302220): valid configuration.
 
-<a id="canonical-4c7a2752956b30f471e142d04b65e73cb328a8424acec4110c3b4b81fe8cba33"></a>
+<a id="canonical-1030132202131102-2111122303003310-1301320110023100-1023121132130330-2303022022201002-1022303230100101-0030032310232001-3332203023220303"></a>
 
-## Next pages — Examples / fe9bcd133a90 / 4
+## Next pages — Examples / 010303222100 / 4
 
-- [All attributes](resources--malicious_user_mitigation--examples--group-001.md#canonical-67d758ece8000857d87ff3d2f894220907edc6394227e61b2babdbcadf4c17d9)
-- [Block](resources--malicious_user_mitigation--examples--group-001.md#canonical-49fe2585478e157d6d68e2f5ddc2d526adb895a38841051a38f95876b7305e56)
-- [Captcha](resources--malicious_user_mitigation--examples--group-001.md#canonical-0e0839ddd197712d6b10b78da5cffe0ca29c6ec6712557815d3266d390da8506)
-- [Js challenge](resources--malicious_user_mitigation--examples--group-001.md#canonical-e7f955332f60e37ddc7aa2caef5aeb01546c7107882183d35cdab47fe34798c6)
-- [Resource](resources--malicious_user_mitigation--examples--group-001.md#canonical-f106284d67f273747fb03d5087c39e2217d44d792fe9889fc86293cbcba05111)
-- [With annotations](resources--malicious_user_mitigation--examples--group-001.md#canonical-3e17b8e9a626df01ca4ddd304c286a3613c35849eb4c1c9e300b0e68c6e8ce30)
-- [With description](resources--malicious_user_mitigation--examples--group-001.md#canonical-1a071a1e3fe5fb79b1eda653a0a2cb5279f5994b5819cddfb916864e70a8ded8)
-- [With labels](resources--malicious_user_mitigation--examples--group-001.md#canonical-c8ee1a4b07148d5e3657bcabffbcb2d83319d32627976a7b51233575a63c87c6)
-- [With mitigation type](resources--malicious_user_mitigation--examples--group-001.md#canonical-e206584d6df1a2b3f5ac77c380477b799c311a0f1ecfa45cbfadc74955a81ca8)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [All attributes](resources--malicious_user_mitigation--examples--group-001.md#canonical-1213311311203230-3220000000201113-3120133333033102-3320211002020021-0013323130120321-1002021332120123-0223222331233022-3133103001133121)
+- [Block](resources--malicious_user_mitigation--examples--group-001.md#canonical-1021333202112011-1013203201111331-1231122032023311-3131300231110212-2231232021112203-2020100100110122-0320332111201312-2313030011321112)
+- [Captcha](resources--malicious_user_mitigation--examples--group-001.md#canonical-0032002003213131-3101211313010231-1223010023132031-2211303333320030-2202213012323012-1301021111132001-1131030212123103-2100312220110012)
+- [Js challenge](resources--malicious_user_mitigation--examples--group-001.md#canonical-3213332111110303-0233120032031331-3130132222023022-3233112232230001-1110123013010013-2020020120033103-1130312223101333-3203101321203012)
+- [Resource](resources--malicious_user_mitigation--examples--group-001.md#canonical-3301001202201031-1213330213031310-1333230003311100-2013300321320202-0113311010311321-0233322120202133-3020120221033023-3023220011010101)
+- [With annotations](resources--malicious_user_mitigation--examples--group-001.md#canonical-0332011323203221-2212021231330001-3022103131310300-1030022012220312-0103300311201021-3223103001302132-0300002300321220-3012322030320300)
+- [With description](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122001301220132-0333321133231321-2301323122121103-2200220230231102-1321331121211023-1120012130313133-2321011220121032-1300222031323120)
+- [With labels](resources--malicious_user_mitigation--examples--group-001.md#canonical-3020323201221023-0013011020311132-0312111323302223-3333233023023120-0303012131030212-0213211312221323-1101020303111311-2212033020133012)
+- [With mitigation type](resources--malicious_user_mitigation--examples--group-001.md#canonical-3202001211201031-1231330122022303-3311223013133003-2000101313231321-2130030101220033-0132303322101130-2333223130131021-1111222001302220)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-67d758ece8000857d87ff3d2f894220907edc6394227e61b2babdbcadf4c17d9"></a>
+<a id="canonical-1213311311203230-3220000000201113-3120133333033102-3320211002020021-0013323130120321-1002021332120123-0223222331233022-3133103001133121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1fc8b3e751ad393a1d99cdfc2039112dd0e6b678057d1714e6fd0b4fcc4f31ae"></a>
+<a id="canonical-0133302023033213-1101223103210322-0131212130313330-0200032101010231-3100321223121320-0011133101130110-3212333100231033-3030103303012232"></a>
 
-## All attributes — All attributes / 704b862d444e / 2
+## All attributes — All attributes / 023110101032 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - All attributes
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -125,27 +125,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-a5ca7cb5260da50917271ff553266bb03b46c5d1b42c7e85174c77fd5603b14c"></a>
+<a id="canonical-2211302213302311-0212003122110021-0113021301333311-1103021212232300-0323101230113101-2310023013322011-0113103013133331-1112000323011030"></a>
 
-## Next pages — All attributes / 704b862d444e / 3
+## Next pages — All attributes / 023110101032 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-49fe2585478e157d6d68e2f5ddc2d526adb895a38841051a38f95876b7305e56"></a>
+<a id="canonical-1021333202112011-1013203201111331-1231122032023311-3131300231110212-2231232021112203-2020100100110122-0320332111201312-2313030011321112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d16c8125176fe16b759e2bfdeab650ce9e546b878551883a79752e3b75a95903"></a>
+<a id="canonical-3101123020010211-0113123332011223-1311213202233331-3222231211003032-2132111012232013-2011110120200322-1321131102320323-1311222111210003"></a>
 
-## Block — Block / 60bf2808f25a / 2
+## Block — Block / 002033021122 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - Block
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -185,27 +185,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-bb2808788edb2b0a130cea50d7611f30b96b70f64ad20de239208a4f9ddeea95"></a>
+<a id="canonical-2323022000201320-2032312302230022-0103003032221100-3113120101330300-2321122313003312-1022310200313202-0321020020221033-2131313232222111"></a>
 
-## Next pages — Block / 60bf2808f25a / 3
+## Next pages — Block / 002033021122 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-0e0839ddd197712d6b10b78da5cffe0ca29c6ec6712557815d3266d390da8506"></a>
+<a id="canonical-0032002003213131-3101211313010231-1223010023132031-2211303333320030-2202213012323012-1301021111132001-1131030212123103-2100312220110012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0d283d1ee3ed2c350b0c3bdfd63ae376cc436eef3465b3b1d1dfed0463fee98d"></a>
+<a id="canonical-0031022003310132-3203323102300311-0023003003233133-3112032232031312-3030100312323233-0310121123032301-3101313332310010-1203333232212031"></a>
 
-## Captcha — Captcha / 5f046632cb78 / 2
+## Captcha — Captcha / 030230231320 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - Captcha
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -245,27 +245,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-fe1e4c3220fc5d76e037bd9a4a8897a01af7bf4f153f88dd3d7b3b811239ae11"></a>
+<a id="canonical-3332013210300302-0200333011311312-3200031323312122-1022202021132200-0122331323331033-0111033320203131-0331132303232001-0102032122320101"></a>
 
-## Next pages — Captcha / 5f046632cb78 / 3
+## Next pages — Captcha / 030230231320 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-e7f955332f60e37ddc7aa2caef5aeb01546c7107882183d35cdab47fe34798c6"></a>
+<a id="canonical-3213332111110303-0233120032031331-3130132222023022-3233112232230001-1110123013010013-2020020120033103-1130312223101333-3203101321203012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9aab50b9b3b4317260c5c4231063238733f37464d1044d3df75ea575dc9ca84e"></a>
+<a id="canonical-2122222311002321-2303231003011302-1200301130100203-0100120302032013-0303330313101210-3101001010310331-3313113222111311-3130213022201032"></a>
 
-## Js challenge — Js challenge / fcc0bdc6db85 / 2
+## Js challenge — Js challenge / 301231232011 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - Js challenge
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -305,27 +305,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-5f1cc2136b1f6f8de44cba333cf1d60126531a5c9ffb278941f749c412101408"></a>
+<a id="canonical-1133013030020103-1223013312332031-3210103023220303-0330330131120001-0212110301221130-2133332302132021-1001331310213010-0102010001100020"></a>
 
-## Next pages — Js challenge / fcc0bdc6db85 / 3
+## Next pages — Js challenge / 301231232011 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-f106284d67f273747fb03d5087c39e2217d44d792fe9889fc86293cbcba05111"></a>
+<a id="canonical-3301001202201031-1213330213031310-1333230003311100-2013300321320202-0113311010311321-0233322120202133-3020120221033023-3023220011010101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e583b538ca3e221d815cc284f9f1a570f9ee3b9006e00480746b31bfb38ad32b"></a>
+<a id="canonical-3211200323110320-3022033202020131-2001113030022010-3321330122111300-3321323203232100-0012320000102000-1310122303012333-2303202231030223"></a>
 
-## Resource — Resource / 3b389d0acb9a / 2
+## Resource — Resource / 002230232122 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - Resource
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -356,27 +356,27 @@ resource "xcsh_malicious_user_mitigation" "example" {
 }
 ```
 
-<a id="canonical-1ab7189de69a7bbf3c83822e807f8d29a5e9d60da92348bd423197b3a765d8a0"></a>
+<a id="canonical-0122231301202131-3212212213232333-0330200320020232-2000133320310221-2211322131120031-2221020310202331-1002030121132303-2213121131202200"></a>
 
-## Next pages — Resource / 3b389d0acb9a / 3
+## Next pages — Resource / 002230232122 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-3e17b8e9a626df01ca4ddd304c286a3613c35849eb4c1c9e300b0e68c6e8ce30"></a>
+<a id="canonical-0332011323203221-2212021231330001-3022103131310300-1030022012220312-0103300311201021-3223103001302132-0300002300321220-3012322030320300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50ab5076d087075e09f18f3db6cea458758ca05009c36e3dc7e2d64dcb5b3420"></a>
+<a id="canonical-1100222311001312-3100201300131132-0021330120330331-2312303222101120-1311203022001100-0021300312320331-3013320231121031-3023112303100200"></a>
 
-## With annotations — With annotations / c33c54739c65 / 2
+## With annotations — With annotations / 130321301211 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - With annotations
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -423,27 +423,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-0c8f0b9aeb7e47e26ed0171fdc7a7c72ab222ad51c348cd11d0bfdf7207a1614"></a>
+<a id="canonical-0030203300232122-3223133210133202-1232310001130133-3130132213301302-2223020202223111-0130031020303101-0131002333313313-0200132201120110"></a>
 
-## Next pages — With annotations / c33c54739c65 / 3
+## Next pages — With annotations / 130321301211 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-1a071a1e3fe5fb79b1eda653a0a2cb5279f5994b5819cddfb916864e70a8ded8"></a>
+<a id="canonical-0122001301220132-0333321133231321-2301323122121103-2200220230231102-1321331121211023-1120012130313133-2321011220121032-1300222031323120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-36593f4d7c97d907b1aaa1ca5081dcdb10570b1e681885e739f60e12e9110448"></a>
+<a id="canonical-0312112103331031-1330211331210013-2301222222013022-1100200131303123-0100111300230132-1220012020113213-0321331200320102-3221010100101020"></a>
 
-## With description — With description / 2927648afc5e / 2
+## With description — With description / 202233301132 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - With description
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -487,27 +487,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-ea35d9b250c9a5b689342e8d17d0034c477cf408fc9e197071106ad81f444212"></a>
+<a id="canonical-3222031131212302-1100302122112312-2021031002322031-0113310000031030-1013133033100020-3330213201211300-1301010012223120-0133101010020102"></a>
 
-## Next pages — With description / 2927648afc5e / 3
+## Next pages — With description / 202233301132 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-c8ee1a4b07148d5e3657bcabffbcb2d83319d32627976a7b51233575a63c87c6"></a>
+<a id="canonical-3020323201221023-0013011020311132-0312111323302223-3333233023023120-0303012131030212-0213211312221323-1101020303111311-2212033020133012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c3dca87d7515abc777a90edbe71766e59b259c58a9ef196f7585422399cbc6e2"></a>
+<a id="canonical-3003313022201331-1311011122233013-1313222100323123-3213011312123211-2123021121301120-2221323301211233-1311201110020203-2121302330123202"></a>
 
-## With labels — With labels / 2e14813c6e2d / 2
+## With labels — With labels / 033012320231 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - With labels
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -554,27 +554,27 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-2ea96c84bb9ec209bbfbeedc597b3a32c464b14d255754cce868cf2a0318cc97"></a>
+<a id="canonical-0232222112302010-2323213230020021-2323332332323130-1121132303220302-3010121023011031-0211111311103030-3220122030330222-0003012030302113"></a>
 
-## Next pages — With labels / 2e14813c6e2d / 3
+## Next pages — With labels / 033012320231 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-e206584d6df1a2b3f5ac77c380477b799c311a0f1ecfa45cbfadc74955a81ca8"></a>
+<a id="canonical-3202001211201031-1231330122022303-3311223013133003-2000101313231321-2130030101220033-0132303322101130-2333223130131021-1111222001302220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-720c898e952626c04a076f57b4a55d2cb17cde8d2b1ad60da45a0ce242095240"></a>
+<a id="canonical-1302003020212032-2111021202123000-1022001312331113-2310221111310230-2301133031322031-0223012231120031-2210112200303202-1002002111021000"></a>
 
-## With mitigation type — With mitigation type / 073f629d6fe0 / 2
+## With mitigation type — With mitigation type / 213112333200 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
 - With mitigation type
 
 Acceptance-test-derived fixture; no new live API execution is claimed.
@@ -629,9 +629,9 @@ resource "xcsh_malicious_user_mitigation" "test" {
 }
 ```
 
-<a id="canonical-56110a6acde8abf2d8db360e92acd3dfaa3329de08b446b7694ba132cbf2fb48"></a>
+<a id="canonical-1112010100221222-3031322022233302-3120312303120032-2102223031033133-2222030302213132-0020231010122313-1221102322010302-3023330233231020"></a>
 
-## Next pages — With mitigation type / 073f629d6fe0 / 3
+## Next pages — With mitigation type / 213112333200 / 3
 
-- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Examples](resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)

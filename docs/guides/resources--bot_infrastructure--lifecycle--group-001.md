@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_bot_infrastructure l
 
 # xcsh_bot_infrastructure lifecycle
 
-<a id="canonical-322446d62d6e6bf6916696a98d8289b344ddfcd15baa2b2655f8e85ae2ed09d6"></a>
+<a id="canonical-0302021010123112-0231123212233312-2101121221122221-2031200220212303-1010313133303101-1123222202230212-1111332032201122-3202323100213112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0342d346d022ac54e87662f6b653da969b982b7e8ce4fa98a3069ee860315211"></a>
+<a id="canonical-0003100231031012-3100020222301110-3220131212023312-2312110331222112-2123212002231332-2030321033222120-2203001221323220-1200030111020101"></a>
 
-## Import — Import / d70a41e4da00 / 2
+## Import — Import / 321031220000 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-aae65caac0c4aab59621523325e7f8203c0205db6a352330cd7f03cb7cbed28f)
+- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_bot_infrastructure.example system/example
 ```
 
-<a id="canonical-cc3a0f5fbb3c64790fb70eef07d30426f01e3a66b2ea159afda7577c9771158d"></a>
+<a id="canonical-3030032200331133-2323033012101321-0033231300323233-0013310300100212-3300013203221212-2302322201112122-3331221311131330-2113130101112031"></a>
 
-## Next pages — Import / d70a41e4da00 / 3
+## Next pages — Import / 321031220000 / 3
 
-- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-aae65caac0c4aab59621523325e7f8203c0205db6a352330cd7f03cb7cbed28f)
+- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033)
 
-<a id="canonical-d3aff639de2e4c3c392ecb7a596842f46c956d36c27e5c84298a371ee4d57843"></a>
+<a id="canonical-3103223333120321-3132023210300330-0321023230231322-1121122010023310-1230211112310312-3002133211302010-0221202203130132-3210311113201003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2cd2286072b7ec6a58a3093f89362aedca5142866caf26e3ff5d2614043109d5"></a>
+<a id="canonical-0230310202201200-1302231332301222-1120220300210333-2021031202223231-3022110110022012-1230223302123203-3333113102120110-0010030100213111"></a>
 
-## Timeouts — Timeouts / 7100999f5e5d / 2
+## Timeouts — Timeouts / 213311321131 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-aae65caac0c4aab59621523325e7f8203c0205db6a352330cd7f03cb7cbed28f)
+- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--bot_infrastructure--reference--group-001.md#canonical-2aa4a2d11badc359557c777ae2901e45795ad604e20bf5da708ea72663b8cba6). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--bot_infrastructure--reference--group-001.md#canonical-0222221022023101-0123223130031121-1111133013131322-3202210001321011-1321112231120010-3202002333113122-1300203222130212-1203232030232212). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-6ce235897ab559a2153c868b862f0d9ad8812504717f58b9b953c25fb37d19da"></a>
+<a id="canonical-1230320203112021-1322231111212202-0111033020122023-2012023300312122-3120200102110010-1301133311202321-2321110330021133-2303133101213122"></a>
 
-## Next pages — Timeouts / 7100999f5e5d / 3
+## Next pages — Timeouts / 213311321131 / 3
 
-- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-aae65caac0c4aab59621523325e7f8203c0205db6a352330cd7f03cb7cbed28f)
+- [xcsh_bot_infrastructure](../resources/bot_infrastructure.md#canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033)

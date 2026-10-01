@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_protocol_policer ref
 
 # xcsh_protocol_policer reference
 
-<a id="canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491"></a>
+<a id="canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e2e678ee8d9e7f9a32278d9728311a0e2424ae27d0874034962b4e876efac4d8"></a>
+<a id="canonical-3202321213203232-2031213213332122-0302021320312113-0220030101220032-0210021022320213-3100201310000310-2112022310322013-1232332230103120"></a>
 
-## Property reference — Property reference / 7506c35428e6 / 2
+## Property reference — Property reference / 111002203212 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 - Property reference
 
-<a id="canonical-ea13e93f61a3af9d784b3795f3a0db240e548405d25d258ab68ec7844e34b9a3"></a>
+<a id="canonical-3222010332210333-1201220322332131-1320102303132111-3303220031230210-0032111020100011-3102113102112022-2312203230132010-1032031023212203"></a>
 
-## Direct properties — Property reference / 7506c35428e6 / 3
+## Direct properties — Property reference / 111002203212 / 3
 
-<a id="canonical-a5bc89af503d9dd0f561454eb373204d052d0961ec37ac99041fa103a2169a1a"></a>
+<a id="canonical-2211233020212233-1100033121313100-3311120110111032-2303130302001031-0011023100211201-3230031322302121-0010013322010003-2202011221220122"></a>
 
-<a id="canonical-d34d180ab96b1624a09c5deac6124e63e99fbaf7506b0543f52e71406eb060a8"></a>
+<a id="canonical-3103103101200022-2321122301120210-2200213011313222-3012010210321203-3221213323223313-1100122300111003-3311023213011000-1232230012002220"></a>
 
-## annotations property — Property reference / 7506c35428e6 / 4
+## annotations property — Property reference / 111002203212 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4aefab21ff6a0cd8cae41f1fde8b0f39ed60abb31d83c5759e2eb218e956b6e2"></a>
+<a id="canonical-1022323322230201-3333122200303120-3022321001330133-3132202300330321-3231120022232303-0131200330111311-2132023223020120-3221111223123202"></a>
 
-<a id="canonical-47976e110a443b021ad3cf6eb934caf3f050fa539eedd99098468cab501a9c7d"></a>
+<a id="canonical-1013211312320101-0022101003230002-0122310330331232-2321031030223303-3300110033221103-2132323131212100-2120101220302223-1100012221301331"></a>
 
-## description property — Property reference / 7506c35428e6 / 5
+## description property — Property reference / 111002203212 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,21 +118,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c645a663cad79e88c8bb483f261dfc59d8287e53a4c9ad5cdd9193c30b545db"></a>
+<a id="canonical-0030121011221212-0330223113213220-2030202323102003-3302120131333011-2131200220133211-0322103021223111-3031312101210330-0300231110113123"></a>
 
-<a id="canonical-db705494031e5083b6a9ed53c67de86541e6eb2f67122289bed9b1d1a970f152"></a>
+<a id="canonical-3123130011102110-0003013211002003-2312222132311103-3012133132201211-1001321232230233-1213010202022021-2332312123013101-2221130033011102"></a>
 
-## id property — Property reference / 7506c35428e6 / 6
+## ID property — Property reference / 111002203212 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-947fca13e64688786b763ff3127acaff1d8485cc96526a7ee79d1b1509fd96f7"></a>
+<a id="canonical-2110133330220103-3212101220201320-1223131203333303-0102132230223333-0131201020113030-2112110212221332-3213213101230111-0021333121123313"></a>
 
-<a id="canonical-a76140c04ac952977bc442df667b00981685c539737059ca1d60ae8fccdae5cd"></a>
+<a id="canonical-2213120110003000-1022302111022113-1323301010023133-1212132300002120-0112201130110321-1303130011213022-0131120022322033-3030312232113031"></a>
 
-## labels property — Property reference / 7506c35428e6 / 7
+## labels property — Property reference / 111002203212 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -156,11 +156,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-990ab8ab3313eef8b16f160cf3b74b7a6aac6dbc32506df9d1cd7944dbdf7cda"></a>
+<a id="canonical-2121002223202223-0303010332323320-2301123301120030-3303231310231322-1222223012312330-0302110012313321-3101303113211010-3123313313303122"></a>
 
-<a id="canonical-5dc8c402d39f428fba5c2edefda02b50f15bb76806f162b612350b780d570378"></a>
+<a id="canonical-1131302030100002-3103213310022033-2322113002323132-3331220002231100-3301112323131220-0012330112022312-0102031100231320-0031111300031320"></a>
 
-## name property — Property reference / 7506c35428e6 / 8
+## name property — Property reference / 111002203212 / 8
 
 Type: `"string"`. Required.
 
@@ -216,11 +216,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f0442cf85f2c659ef1f46cad9a260d977804b6de9e478190851725e83f1b92d2"></a>
+<a id="canonical-3300101002303320-1133023012112132-3301331012302231-2122021200312113-1320001023123132-2132101320012100-2011011302113220-0333012321023102"></a>
 
-<a id="canonical-631fab452a8c9bb52c6e509d27a2f4f75c61dc3df865e9d5fd2febd6baca7885"></a>
+<a id="canonical-1203013322231011-0222203021232311-0230123211002131-0213220233103313-1130120131300331-3320121132213111-3331023332233112-2322302213202011"></a>
 
-## namespace property — Property reference / 7506c35428e6 / 9
+## namespace property — Property reference / 111002203212 / 9
 
 Type: `"string"`. Optional, Computed.
 
@@ -269,61 +269,61 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d): complete subsection reference.
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031): complete subsection reference.
 
-<a id="canonical-46980980ed4f8cdcf2af15cbd48805fb831270c4016cdcc78df28efe950ec2bf"></a>
+<a id="canonical-1012212000212000-3231103320303130-3302223301113023-3110202000113323-2003010213003010-0001123031303013-2031330220323332-2111003230022333"></a>
 
-## All schema paths — Property reference / 7506c35428e6 / 10
+## All schema paths — Property reference / 111002203212 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--protocol_policer--reference--group-001.md#canonical-a5bc89af503d9dd0f561454eb373204d052d0961ec37ac99041fa103a2169a1a) |
-| `description` | [description](data-sources--protocol_policer--reference--group-001.md#canonical-4aefab21ff6a0cd8cae41f1fde8b0f39ed60abb31d83c5759e2eb218e956b6e2) |
-| `id` | [id](data-sources--protocol_policer--reference--group-001.md#canonical-0c645a663cad79e88c8bb483f261dfc59d8287e53a4c9ad5cdd9193c30b545db) |
-| `labels` | [labels](data-sources--protocol_policer--reference--group-001.md#canonical-947fca13e64688786b763ff3127acaff1d8485cc96526a7ee79d1b1509fd96f7) |
-| `name` | [name](data-sources--protocol_policer--reference--group-001.md#canonical-990ab8ab3313eef8b16f160cf3b74b7a6aac6dbc32506df9d1cd7944dbdf7cda) |
-| `namespace` | [namespace](data-sources--protocol_policer--reference--group-001.md#canonical-f0442cf85f2c659ef1f46cad9a260d977804b6de9e478190851725e83f1b92d2) |
-| `protocol_policer` | [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-6e9e88b4d4d358bc0b69816c2dcee957c1d1633fd8860e809e35c0d00a654597) |
-| `protocol_policer.policer` | [protocol_policer.policer](data-sources--protocol_policer--reference--group-001.md#canonical-ba8c623e961967d73f5e8524f19f509d63609a5665f74bf3b62905e307c7d81d) |
-| `protocol_policer.policer.kind` | [protocol_policer.policer.kind](data-sources--protocol_policer--reference--group-001.md#canonical-3d67f687071de4ac05f38833bee7f0b73e89055e9c4877b3e5076a7cea4e19b0) |
-| `protocol_policer.policer.name` | [protocol_policer.policer.name](data-sources--protocol_policer--reference--group-001.md#canonical-8feef6a94f96ce104d31e73a07842ca9988a406d20cd37a408e96462a38a3ec8) |
-| `protocol_policer.policer.namespace` | [protocol_policer.policer.namespace](data-sources--protocol_policer--reference--group-001.md#canonical-db535a29103ecb41ec312a58581795761f8e763b712c2e94bd33db792ab3d60d) |
-| `protocol_policer.policer.tenant` | [protocol_policer.policer.tenant](data-sources--protocol_policer--reference--group-001.md#canonical-4b80b9b0799ff7dac9f2543e302d108645d6a44d41484f59371964c8af0c1ebd) |
-| `protocol_policer.policer.uid` | [protocol_policer.policer.uid](data-sources--protocol_policer--reference--group-001.md#canonical-243501c2f07205c078dc80415dc3f08c5d70354e3cc6ac7f566215c95b47c94a) |
-| `protocol_policer.protocol` | [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-ca86ec9d972f63994be3aa4a76a169489d950a54a920d044cf0c0acf984c5e4f) |
-| `protocol_policer.protocol.dns` | [protocol_policer.protocol.dns](data-sources--protocol_policer--reference--group-001.md#canonical-0b78bae95938bfe4bf7dd5c8d4a317bc82e45ab8aba7bbb551ed383c44297720) |
-| `protocol_policer.protocol.icmp` | [protocol_policer.protocol.icmp](data-sources--protocol_policer--reference--group-001.md#canonical-06c444443c24dce01d0ea493cb07e4efa5fa04a871c0f5c911355e0d680d5b7f) |
-| `protocol_policer.protocol.icmp.type` | [protocol_policer.protocol.icmp.type](data-sources--protocol_policer--reference--group-001.md#canonical-7630b53bac092b884e6b5b19b4bc2c376fcf42781eec9afed5adb2461273510a) |
-| `protocol_policer.protocol.tcp` | [protocol_policer.protocol.tcp](data-sources--protocol_policer--reference--group-001.md#canonical-566a5d445ccddae3def2c2786c3263085d16d254fa8dbbfdfec49bfc6c3d629c) |
-| `protocol_policer.protocol.tcp.flags` | [protocol_policer.protocol.tcp.flags](data-sources--protocol_policer--reference--group-001.md#canonical-4b452f55ae5221c096eedbd8809a62c0c7a6e634e72c2b14425d1d29c8deb1a4) |
-| `protocol_policer.protocol.udp` | [protocol_policer.protocol.udp](data-sources--protocol_policer--reference--group-001.md#canonical-f723b7bf11b0babc47e4bad5802f45d29192c79b9adaef18b0679563ef08ec24) |
+| `annotations` | [annotations](data-sources--protocol_policer--reference--group-001.md#canonical-2211233020212233-1100033121313100-3311120110111032-2303130302001031-0011023100211201-3230031322302121-0010013322010003-2202011221220122) |
+| `description` | [description](data-sources--protocol_policer--reference--group-001.md#canonical-1022323322230201-3333122200303120-3022321001330133-3132202300330321-3231120022232303-0131200330111311-2132023223020120-3221111223123202) |
+| `id` | [id](data-sources--protocol_policer--reference--group-001.md#canonical-0030121011221212-0330223113213220-2030202323102003-3302120131333011-2131200220133211-0322103021223111-3031312101210330-0300231110113123) |
+| `labels` | [labels](data-sources--protocol_policer--reference--group-001.md#canonical-2110133330220103-3212101220201320-1223131203333303-0102132230223333-0131201020113030-2112110212221332-3213213101230111-0021333121123313) |
+| `name` | [name](data-sources--protocol_policer--reference--group-001.md#canonical-2121002223202223-0303010332323320-2301123301120030-3303231310231322-1222223012312330-0302110012313321-3101303113211010-3123313313303122) |
+| `namespace` | [namespace](data-sources--protocol_policer--reference--group-001.md#canonical-3300101002303320-1133023012112132-3301331012302231-2122021200312113-1320001023123132-2132101320012100-2011011302113220-0333012321023102) |
+| `protocol_policer` | [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1232213220202310-3110310311202330-0023122120011230-0231303232211113-3001310112030333-3120201200322000-2132031130003100-0022121110112113) |
+| `protocol_policer.policer` | [protocol_policer.policer](data-sources--protocol_policer--reference--group-001.md#canonical-2322203012020332-2112012112133113-0333113220110210-3301213311002131-1203120021221112-1211331310233303-2312022100113203-0013301331200131) |
+| `protocol_policer.policer.kind` | [protocol_policer.policer.kind](data-sources--protocol_policer--reference--group-001.md#canonical-0331121333122013-0013013132102230-0011330320200303-2332321333002313-0332202100111132-2130102013132303-3211001312221330-3222103201212300) |
+| `protocol_policer.policer.name` | [protocol_policer.policer.name](data-sources--protocol_policer--reference--group-001.md#canonical-2033323233122221-1033211230320100-1031030132130322-0013201002302221-2120202210001231-0200303103132210-0020322112101202-2203202203323020) |
+| `protocol_policer.policer.namespace` | [protocol_policer.policer.namespace](data-sources--protocol_policer--reference--group-001.md#canonical-3123110311220221-0100033230231001-3230030102221120-1120011321111312-0133203213120323-1301023002322110-2331030331231321-0222230331120031) |
+| `protocol_policer.policer.tenant` | [protocol_policer.policer.tenant](data-sources--protocol_policer--reference--group-001.md#canonical-1023200023212300-1321213333133122-3021330211100332-0300023101002012-1011311222101031-1001102010331121-0313012112103020-2233003001322331) |
+| `protocol_policer.policer.uid` | [protocol_policer.policer.uid](data-sources--protocol_policer--reference--group-001.md#canonical-0210031100013002-3300130200113000-1320313020001001-1131300333002030-1131130003111032-0330301222301333-1112120201113021-1123101330211022) |
+| `protocol_policer.protocol` | [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-3022201232302131-2113023312032121-1023320322221022-1312220112211020-2131211100221110-2221020031001010-3033003000223033-2120103011321033) |
+| `protocol_policer.protocol.dns` | [protocol_policer.protocol.dns](data-sources--protocol_policer--reference--group-001.md#canonical-0023132023223221-1121032023333210-2333133131113020-3110220301132330-2002321011222320-2223221323232311-1101323103200330-1010022113130200) |
+| `protocol_policer.protocol.icmp` | [protocol_policer.protocol.icmp](data-sources--protocol_policer--reference--group-001.md#canonical-0012301010101010-0330021031303200-0131003222102103-3023001332103233-2211332200102220-1301300033113021-0101031111320031-1220003111231333) |
+| `protocol_policer.protocol.icmp.type` | [protocol_policer.protocol.icmp.type](data-sources--protocol_policer--reference--group-001.md#canonical-1312030023110323-2230002102232020-1032122311230121-2310233002300313-1233303310021320-0132323021223332-3111223123021012-0102130311010022) |
+| `protocol_policer.protocol.tcp` | [protocol_policer.protocol.tcp](data-sources--protocol_policer--reference--group-001.md#canonical-1112122211311010-1130303131223203-3132330230021320-1230030212030020-1131011231021110-3322203123233331-3332301021233330-1230033112022130) |
+| `protocol_policer.protocol.tcp.flags` | [protocol_policer.protocol.tcp.flags](data-sources--protocol_policer--reference--group-001.md#canonical-1023101102331111-2232110202013000-2112323231233120-2000212212023000-3013221232120310-3213023002230110-1002113101310221-3020313223012210) |
+| `protocol_policer.protocol.udp` | [protocol_policer.protocol.udp](data-sources--protocol_policer--reference--group-001.md#canonical-3313020323132333-0101230023222330-1013321023223111-2000023310113102-2101210230132123-2122312232330120-2300121321111203-3233002032300210) |
 
-<a id="canonical-403b49e1ab4a7e32c6dd95ea84ec3b530144372e372b64ab9e4a8cd708f0289a"></a>
+<a id="canonical-1000032310213201-2223102213320302-3012313121113222-2010323003231103-0001101003130232-0313022312102223-2132102220303113-0020330002202122"></a>
 
-## Next pages — Property reference / 7506c35428e6 / 11
+## Next pages — Property reference / 111002203212 / 11
 
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d"></a>
+<a id="canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f5cb73150bab5c5443af7a75dc38b5e8c1fe27a223d0261b4295333a9dd66cd"></a>
+<a id="canonical-2033113023130301-1100232223113011-1010032233132213-1131300320231132-2030013332021322-0202033100021201-2310022111030303-2221313112123031"></a>
 
-## protocol_policer — protocol_policer / af7b4c940adc / 2
+## protocol_policer — protocol_policer / 211000223130 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
 - protocol_policer
 
-<a id="canonical-6e9e88b4d4d358bc0b69816c2dcee957c1d1633fd8860e809e35c0d00a654597"></a>
+<a id="canonical-1232213220202310-3110310311202330-0023122120011230-0231303232211113-3001310112030333-3120201200322000-2132031130003100-0022121110112113"></a>
 
 Type: `"list"`. Computed.
 
@@ -363,41 +363,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4fef07454362422fd91264d8d982bececc444a08e4fde51f62d13ad68d4ef074"></a>
+<a id="canonical-1033323300131011-1003120210020233-3121010212103120-3121200223323032-3030101010220020-3210333132110133-1202310103223112-2031103233001310"></a>
 
-## Direct properties — protocol_policer / af7b4c940adc / 3
+## Direct properties — protocol_policer / 211000223130 / 3
 
-- [policer](data-sources--protocol_policer--reference--group-001.md#canonical-9eb3f4a33a68822c988cdc9e72c3a5c8eedd580e2aa0319b18b61a18fcd10cd4): complete subsection reference.
+- [policer](data-sources--protocol_policer--reference--group-001.md#canonical-2132230333102203-0322122020020230-2120203031302132-1302300322113020-3232313111200032-0222220003012123-0120231201220120-3330310100303110): complete subsection reference.
 
-- [protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d): complete subsection reference.
+- [protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131): complete subsection reference.
 
-<a id="canonical-9b5d2adaf6a8f98076fb4bc9fa6fce8824d9a9509701cdffc9dcafe16c5a408f"></a>
+<a id="canonical-2123113102223122-3312222033212000-1312332310233021-3322123330322020-0210312122211100-2113000130313333-3021313022333201-1230112210002033"></a>
 
-## Next pages — protocol_policer / af7b4c940adc / 4
+## Next pages — protocol_policer / 211000223130 / 4
 
-- [protocol_policer.policer](data-sources--protocol_policer--reference--group-001.md#canonical-9eb3f4a33a68822c988cdc9e72c3a5c8eedd580e2aa0319b18b61a18fcd10cd4)
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.policer](data-sources--protocol_policer--reference--group-001.md#canonical-2132230333102203-0322122020020230-2120203031302132-1302300322113020-3232313111200032-0222220003012123-0120231201220120-3330310100303110)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-9eb3f4a33a68822c988cdc9e72c3a5c8eedd580e2aa0319b18b61a18fcd10cd4"></a>
+<a id="canonical-2132230333102203-0322122020020230-2120203031302132-1302300322113020-3232313111200032-0222220003012123-0120231201220120-3330310100303110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e16b9b35516bf012bade6219b47b53c794a5891e6d1a56c64f7d01e8a37215c1"></a>
+<a id="canonical-3201122321230311-1101122333000102-2322313212020121-2310132311033013-2110221120210132-1231012211123012-1033133100013220-2203130201113001"></a>
 
-## protocol_policer.policer — protocol_policer.policer / 6ef4414ee67e / 2
+## protocol_policer.policer — policer / 103232121332 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
 - protocol_policer.policer
 
-<a id="canonical-ba8c623e961967d73f5e8524f19f509d63609a5665f74bf3b62905e307c7d81d"></a>
+<a id="canonical-2322203012020332-2112012112133113-0333113220110210-3301213311002131-1203120021221112-1211331310233303-2312022100113203-0013301331200131"></a>
 
 Type: `"list"`. Computed.
 
@@ -440,15 +440,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bfae37acf1412289e6c3e8dd58ccd6a75080594c96bd4121a2899ba32cb9b9b1"></a>
+<a id="canonical-2333223203132230-3301100102022021-3212300332203131-1120303031122213-1100200011211030-2112233110010201-2202202121232203-0230232123212301"></a>
 
-## Direct properties — protocol_policer.policer / 6ef4414ee67e / 3
+## Direct properties — policer / 103232121332 / 3
 
-<a id="canonical-3d67f687071de4ac05f38833bee7f0b73e89055e9c4877b3e5076a7cea4e19b0"></a>
+<a id="canonical-0331121333122013-0013013132102230-0011330320200303-2332321333002313-0332202100111132-2130102013132303-3211001312221330-3222103201212300"></a>
 
-<a id="canonical-b8e653cbb20532801dfc3561917e42ae0320a2ddd3d2894a5d6f7e24e64eee4b"></a>
+<a id="canonical-2320321211033023-2302001103022000-0131333003111201-2101133210022232-0003020022023131-3103310220211022-1131123313320210-3212103232321023"></a>
 
-## kind property — protocol_policer.policer / 6ef4414ee67e / 4
+## kind property — policer / 103232121332 / 4
 
 Type: `"string"`. Computed.
 
@@ -483,11 +483,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8feef6a94f96ce104d31e73a07842ca9988a406d20cd37a408e96462a38a3ec8"></a>
+<a id="canonical-2033323233122221-1033211230320100-1031030132130322-0013201002302221-2120202210001231-0200303103132210-0020322112101202-2203202203323020"></a>
 
-<a id="canonical-b28274e0c94b9d849265c3e379df4528771c0f37ef8804c4c4a49856f432737b"></a>
+<a id="canonical-2302200213103200-3021102321312010-2102121130033203-1321313310110220-1313013000330313-3233202000103010-3010221021201112-3310030213031323"></a>
 
-## name property — protocol_policer.policer / 6ef4414ee67e / 5
+## name property — policer / 103232121332 / 5
 
 Type: `"string"`. Computed.
 
@@ -522,11 +522,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db535a29103ecb41ec312a58581795761f8e763b712c2e94bd33db792ab3d60d"></a>
+<a id="canonical-3123110311220221-0100033230231001-3230030102221120-1120011321111312-0133203213120323-1301023002322110-2331030331231321-0222230331120031"></a>
 
-<a id="canonical-7b19ce19dda9931b78ca6aa724f5c22ee55478828c57efd8569d1755028a57ac"></a>
+<a id="canonical-1323012130320121-3131222121030123-1320302212222213-0210331130020232-3211111013202002-2030111332333120-1112213101131111-0002202211132230"></a>
 
-## namespace property — protocol_policer.policer / 6ef4414ee67e / 6
+## namespace property — policer / 103232121332 / 6
 
 Type: `"string"`. Computed.
 
@@ -576,11 +576,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4b80b9b0799ff7dac9f2543e302d108645d6a44d41484f59371964c8af0c1ebd"></a>
+<a id="canonical-1023200023212300-1321213333133122-3021330211100332-0300023101002012-1011311222101031-1001102010331121-0313012112103020-2233003001322331"></a>
 
-<a id="canonical-278ff799e1b5803e8b9331ecc317206bdbedac818a8d803602db56699f94d8eb"></a>
+<a id="canonical-0213203333132121-3201231120000332-2023210303013230-3003011302001223-3123323122302001-2022203120000312-0002312311121221-2133211031203223"></a>
 
-## tenant property — protocol_policer.policer / 6ef4414ee67e / 7
+## tenant property — policer / 103232121332 / 7
 
 Type: `"string"`. Computed.
 
@@ -615,11 +615,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-243501c2f07205c078dc80415dc3f08c5d70354e3cc6ac7f566215c95b47c94a"></a>
+<a id="canonical-0210031100013002-3300130200113000-1320313020001001-1131300333002030-1131130003111032-0330301222301333-1112120201113021-1123101330211022"></a>
 
-<a id="canonical-2c4222242844d4ea3135fa8e1c847a865d7c544bbcb040e5d07fffaa9dbfcecb"></a>
+<a id="canonical-0230100202020210-0220101031103222-0301031133222032-0130201013222012-1131133011101023-2330230010003211-3100133333332222-2131233330323023"></a>
 
-## uid property — protocol_policer.policer / 6ef4414ee67e / 8
+## uid property — policer / 103232121332 / 8
 
 Type: `"string"`. Computed.
 
@@ -654,31 +654,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b7153773964de9fbeaac461f98d74a09d8d74f7c300baa5189447e8d0d672d6b"></a>
+<a id="canonical-2313011103131303-2112103132213323-3222223010120133-2120311310220021-3120311310331330-0300002322221101-2021101013322031-0031121302311223"></a>
 
-## Next pages — protocol_policer.policer / 6ef4414ee67e / 9
+## Next pages — policer / 103232121332 / 9
 
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d"></a>
+<a id="canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1a2d64941d9c8f486e050e902b781ce33743b6fd79015b3218ff1ac28daa3e85"></a>
+<a id="canonical-0122023112102110-0131213020331020-1232001100322100-0223132001303203-0313100323123331-1321000111230302-0120333301223002-2031222203322011"></a>
 
-## protocol_policer.protocol — protocol_policer.protocol / 21edde5acbe7 / 2
+## protocol_policer.protocol — protocol / 112230233213 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
 - protocol_policer.protocol
 
-<a id="canonical-ca86ec9d972f63994be3aa4a76a169489d950a54a920d044cf0c0acf984c5e4f"></a>
+<a id="canonical-3022201232302131-2113023312032121-1023320322221022-1312220112211020-2131211100221110-2221020031001010-3033003000223033-2120103011321033"></a>
 
 Type: `"single"`. Computed.
 
@@ -698,48 +698,48 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c0ecbc04e444f6e3904f3d6e53086681c0fec1062b857b4cbd71927ffdff2589"></a>
+<a id="canonical-3000323023300010-3210101033123203-2100103303311232-1103002012122001-3000333230010012-0223201113231030-2331130121021333-3331333302112021"></a>
 
-## Direct properties — protocol_policer.protocol / 21edde5acbe7 / 3
+## Direct properties — protocol / 112230233213 / 3
 
-- [dns](data-sources--protocol_policer--reference--group-001.md#canonical-d2c6a4ac7a2cc1fda341d2ed668f9bb510e13a0e389c6186ea61c6b9ee3329e5): complete subsection reference.
+- [dns](data-sources--protocol_policer--reference--group-001.md#canonical-3102301222102230-1322023030013331-2203100131023231-1212203321232311-0100320103220032-0320213012012012-3222120130122321-3232030302213211): complete subsection reference.
 
-- [icmp](data-sources--protocol_policer--reference--group-001.md#canonical-c481ecaef34c9637396589f2a27b67e3abfe7da92edf8f014e092cbbd16cfd61): complete subsection reference.
+- [icmp](data-sources--protocol_policer--reference--group-001.md#canonical-3010200132302232-3303103021120313-0321121120213302-2202132312133203-2223333213312221-0232313320330001-1032002102302323-3101123033311201): complete subsection reference.
 
-- [tcp](data-sources--protocol_policer--reference--group-001.md#canonical-c1245a83b905bf86d27d63c4e69ea94c99dfee0e27d79b65f699d7a85b44f6bc): complete subsection reference.
+- [tcp](data-sources--protocol_policer--reference--group-001.md#canonical-3001021011222003-2321001123332012-3102133112033010-3212213222211030-2121313332320032-0213311321231211-3312212131132220-1123101033122330): complete subsection reference.
 
-- [udp](data-sources--protocol_policer--reference--group-001.md#canonical-7c54ffd0034ea139913c84483157e946ed00598dbed1008e47974a7fb4e6d41c): complete subsection reference.
+- [udp](data-sources--protocol_policer--reference--group-001.md#canonical-1330111033333100-0003103222010321-2101033020101020-0301111332211012-3231000011212031-2332310100002032-1013211310221333-2310321231100130): complete subsection reference.
 
-<a id="canonical-ed049b90ac5c4132f7d4868449c04d798a4ede1577fe4fa3b73a730e9c711839"></a>
+<a id="canonical-3231001021232100-2230113010010302-3313311020122010-1021300010311321-2022103231320111-1313333210332203-2313032213030032-2130130101200321"></a>
 
-## Next pages — protocol_policer.protocol / 21edde5acbe7 / 4
+## Next pages — protocol / 112230233213 / 4
 
-- [protocol_policer.protocol.dns](data-sources--protocol_policer--reference--group-001.md#canonical-d2c6a4ac7a2cc1fda341d2ed668f9bb510e13a0e389c6186ea61c6b9ee3329e5)
-- [protocol_policer.protocol.icmp](data-sources--protocol_policer--reference--group-001.md#canonical-c481ecaef34c9637396589f2a27b67e3abfe7da92edf8f014e092cbbd16cfd61)
-- [protocol_policer.protocol.tcp](data-sources--protocol_policer--reference--group-001.md#canonical-c1245a83b905bf86d27d63c4e69ea94c99dfee0e27d79b65f699d7a85b44f6bc)
-- [protocol_policer.protocol.udp](data-sources--protocol_policer--reference--group-001.md#canonical-7c54ffd0034ea139913c84483157e946ed00598dbed1008e47974a7fb4e6d41c)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.protocol.dns](data-sources--protocol_policer--reference--group-001.md#canonical-3102301222102230-1322023030013331-2203100131023231-1212203321232311-0100320103220032-0320213012012012-3222120130122321-3232030302213211)
+- [protocol_policer.protocol.icmp](data-sources--protocol_policer--reference--group-001.md#canonical-3010200132302232-3303103021120313-0321121120213302-2202132312133203-2223333213312221-0232313320330001-1032002102302323-3101123033311201)
+- [protocol_policer.protocol.tcp](data-sources--protocol_policer--reference--group-001.md#canonical-3001021011222003-2321001123332012-3102133112033010-3212213222211030-2121313332320032-0213311321231211-3312212131132220-1123101033122330)
+- [protocol_policer.protocol.udp](data-sources--protocol_policer--reference--group-001.md#canonical-1330111033333100-0003103222010321-2101033020101020-0301111332211012-3231000011212031-2332310100002032-1013211310221333-2310321231100130)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-d2c6a4ac7a2cc1fda341d2ed668f9bb510e13a0e389c6186ea61c6b9ee3329e5"></a>
+<a id="canonical-3102301222102230-1322023030013331-2203100131023231-1212203321232311-0100320103220032-0320213012012012-3222120130122321-3232030302213211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e3f4621ac735b8c27f6bf98541568d33d879ef215550e2c119ef7e34914ad1ae"></a>
+<a id="canonical-3203331012020122-3013031123203002-1333122333212011-1001111220310303-3120132132330201-1111110032023001-0121323313320310-2101102231012232"></a>
 
-## protocol_policer.protocol.dns — protocol_policer.protocol.dns / 4a36710df205 / 2
+## protocol_policer.protocol.dns — dns / 003133020011 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
 - protocol_policer.protocol.dns
 
-<a id="canonical-0b78bae95938bfe4bf7dd5c8d4a317bc82e45ab8aba7bbb551ed383c44297720"></a>
+<a id="canonical-0023132023223221-1121032023333210-2333133131113020-3110220301132330-2002321011222320-2223221323232311-1101323103200330-1010022113130200"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -758,38 +758,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2fcc33b3f0891fc4cc2723c062e50761358efa4a1a922e6dfa5fcebd3aae99a9"></a>
+<a id="canonical-0233303003032303-3300202101333010-3030021302033000-1202321100131201-0311203233221022-0122210202321231-3322113330322331-0322223221212221"></a>
 
-## Direct properties — protocol_policer.protocol.dns / 4a36710df205 / 3
+## Direct properties — dns / 003133020011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-12e8f3e2c9a60cdf72bd0a4a02032860bda2cbe4397633c83feeb6b0df497ba7"></a>
+<a id="canonical-0102322033033202-3021221200303133-1302233100221022-0002000302201200-2331220230233210-0321131203033020-0333323223122300-3133102113232213"></a>
 
-## Next pages — protocol_policer.protocol.dns / 4a36710df205 / 4
+## Next pages — dns / 003133020011 / 4
 
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-c481ecaef34c9637396589f2a27b67e3abfe7da92edf8f014e092cbbd16cfd61"></a>
+<a id="canonical-3010200132302232-3303103021120313-0321121120213302-2202132312133203-2223333213312221-0232313320330001-1032002102302323-3101123033311201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-72a626bc80da47c5e2e03a1e1d964d42348e601a723a46902377727068941c5a"></a>
+<a id="canonical-1302221202122330-2000312210133011-3202320003220132-0131211210311002-0310203212000122-1302032210122100-0203131313021300-1220211001301122"></a>
 
-## protocol_policer.protocol.icmp — protocol_policer.protocol.icmp / 3a5cacd8f0da / 2
+## protocol_policer.protocol.icmp — icmp / 312033003122 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
 - protocol_policer.protocol.icmp
 
-<a id="canonical-06c444443c24dce01d0ea493cb07e4efa5fa04a871c0f5c911355e0d680d5b7f"></a>
+<a id="canonical-0012301010101010-0330021031303200-0131003222102103-3023001332103233-2211332200102220-1301300033113021-0101031111320031-1220003111231333"></a>
 
 Type: `"single"`. Computed.
 
@@ -812,15 +812,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a2180c5dc1b9da78a55adef2cb30907ce4e70bd9dd470517138936392b76f5b1"></a>
+<a id="canonical-2202012000301131-3001232131221320-2211112231323302-3023030021001330-3210321300233121-3131101300110113-0103202103120321-0223131233112301"></a>
 
-## Direct properties — protocol_policer.protocol.icmp / 3a5cacd8f0da / 3
+## Direct properties — icmp / 312033003122 / 3
 
-<a id="canonical-7630b53bac092b884e6b5b19b4bc2c376fcf42781eec9afed5adb2461273510a"></a>
+<a id="canonical-1312030023110323-2230002102232020-1032122311230121-2310233002300313-1233303310021320-0132323021223332-3111223123021012-0102130311010022"></a>
 
-<a id="canonical-9ead4d69feb7c1dc912c744ea3d0c99085ab3b386365068a4e264bf18021d794"></a>
+<a id="canonical-2132223110311221-3332231330013130-2101023013101032-2203310030212100-2011222303230320-1203121100122022-1032021210233301-2000020131132110"></a>
 
-## type property — protocol_policer.protocol.icmp / 3a5cacd8f0da / 4
+## type property — icmp / 312033003122 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -845,32 +845,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8b51677993a0bcff8817268f0f956280350fd8ebd330b4f1e1f5c2a47b4b26c2"></a>
+<a id="canonical-2023110112131321-2103220023303333-2020011302122033-0033211112022000-0311003331203223-3103030023103301-3201331130022210-1323102302123002"></a>
 
-## Next pages — protocol_policer.protocol.icmp / 3a5cacd8f0da / 5
+## Next pages — icmp / 312033003122 / 5
 
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-c1245a83b905bf86d27d63c4e69ea94c99dfee0e27d79b65f699d7a85b44f6bc"></a>
+<a id="canonical-3001021011222003-2321001123332012-3102133112033010-3212213222211030-2121313332320032-0213311321231211-3312212131132220-1123101033122330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bafa5ffad489ebbdda60ebcce0da3a252f1c0514963bc803d9ff5a776121d913"></a>
+<a id="canonical-2322332211333322-3110202132232331-3122120032233030-3200312203220211-0233013000110110-2112032330200003-3121333311221313-1201020131210103"></a>
 
-## protocol_policer.protocol.tcp — protocol_policer.protocol.tcp / fa75cab46891 / 2
+## protocol_policer.protocol.tcp — tcp / 231012202101 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
 - protocol_policer.protocol.tcp
 
-<a id="canonical-566a5d445ccddae3def2c2786c3263085d16d254fa8dbbfdfec49bfc6c3d629c"></a>
+<a id="canonical-1112122211311010-1130303131223203-3132330230021320-1230030212030020-1131011231021110-3322203123233331-3332301021233330-1230033112022130"></a>
 
 Type: `"single"`. Computed.
 
@@ -889,15 +889,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-874f92f607492f0e38308451743768aa4a4b0dc5e0fbefa58c747c36843d8b40"></a>
+<a id="canonical-2013103321023312-0013102102330032-0320030020101101-1310031312202222-1022102300313011-3200332332332211-2030131013300312-2010033120231000"></a>
 
-## Direct properties — protocol_policer.protocol.tcp / fa75cab46891 / 3
+## Direct properties — tcp / 231012202101 / 3
 
-<a id="canonical-4b452f55ae5221c096eedbd8809a62c0c7a6e634e72c2b14425d1d29c8deb1a4"></a>
+<a id="canonical-1023101102331111-2232110202013000-2112323231233120-2000212212023000-3013221232120310-3213023002230110-1002113101310221-3020313223012210"></a>
 
-<a id="canonical-bd01b598ddadda44cb2b3febd2e24af8f59eb2eb08e94ec020015a94048a735e"></a>
+<a id="canonical-2331000123112120-3131223131221010-3023022303333223-3102320210223320-3311213223023223-0020322110323000-0200000111222110-0010202213031132"></a>
 
-## flags property — protocol_policer.protocol.tcp / fa75cab46891 / 4
+## flags property — tcp / 231012202101 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -922,32 +922,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a0948faa1640de28ce3205eb04ddf1b6ccf4936a680da15a6be9587e9cc92617"></a>
+<a id="canonical-2200211020332222-0112100031320220-3032030200113223-0010313133012312-3030331021031222-1220003122011122-1223322111201332-2130302102120113"></a>
 
-## Next pages — protocol_policer.protocol.tcp / fa75cab46891 / 5
+## Next pages — tcp / 231012202101 / 5
 
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
 
-<a id="canonical-7c54ffd0034ea139913c84483157e946ed00598dbed1008e47974a7fb4e6d41c"></a>
+<a id="canonical-1330111033333100-0003103222010321-2101033020101020-0301111332211012-3231000011212031-2332310100002032-1013211310221333-2310321231100130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ba9287004b4384651742ef418572150dfd587d6e148d703d311180a11df7cd52"></a>
+<a id="canonical-2322210220130000-1023100320101211-0113100232331001-2011130201110031-3331112013311232-0110203113000331-0301010120002201-0131331330311102"></a>
 
-## protocol_policer.protocol.udp — protocol_policer.protocol.udp / ae0f95248c68 / 2
+## protocol_policer.protocol.udp — udp / 021020301220 / 2
 
 Breadcrumbs:
 
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
-- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-1c0f9e479b43f472fa9b158ac9ab0882a2445796723024e7566764effc3aa491)
-- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-511cd6275f7e9626e7978434d9e9cc5431c00db328674c4952e5eb754d16f44d)
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)
+- [Property reference](data-sources--protocol_policer--reference--group-001.md#canonical-0130003321321013-2123100333101302-3322212301112022-3021222300202002-2202101011132112-1302030002103213-1112121312103233-3330032222102101)
+- [protocol_policer](data-sources--protocol_policer--reference--group-001.md#canonical-1101013031120213-1133133221120212-3213211320100310-3121322130301110-0301300000312303-0220121310301021-1102321132231311-1031011233101031)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
 - protocol_policer.protocol.udp
 
-<a id="canonical-f723b7bf11b0babc47e4bad5802f45d29192c79b9adaef18b0679563ef08ec24"></a>
+<a id="canonical-3313020323132333-0101230023222330-1013321023223111-2000023310113102-2101210230132123-2122312232330120-2300121321111203-3233002032300210"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -970,15 +970,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-41b117a6420e5bfc038e5efd9dbe40aa5f1f0dacc38db3d55a9ae91bccbd57ba"></a>
+<a id="canonical-1001230101132212-1002003211233330-0003203211323331-2131233210002222-1133013300312230-3003203123033111-1122212232210123-3030233111132322"></a>
 
-## Direct properties — protocol_policer.protocol.udp / ae0f95248c68 / 3
+## Direct properties — udp / 021020301220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bedab064be149db252eac37bcc6a99914b66da4ac90f3f7600114010436200fb"></a>
+<a id="canonical-2332312223001210-2332011021312302-1102322230031323-3030122221212101-1023121231221022-3021003303331312-0000010110000100-1003120200003323"></a>
 
-## Next pages — protocol_policer.protocol.udp / ae0f95248c68 / 4
+## Next pages — udp / 021020301220 / 4
 
-- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-762910771eb373d8085338112563383a5433c06ec873f7aea4624d04da760c9d)
-- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-3fe015d3b1ba6ff09581d00d9baa87149cb8e458009e6dbcf6d2b038c3b7946e)
+- [protocol_policer.protocol](data-sources--protocol_policer--reference--group-001.md#canonical-1312022101001313-0132230313033120-0020110303200101-0211120303200322-1110030330001232-3020130333132232-2210120210310010-3122131200302131)
+- [xcsh_protocol_policer](../data-sources/protocol_policer.md#canonical-0333320001113103-2301232212333300-2111200131000031-2123222220130110-2130232032101120-0000213212312330-3312310223000320-3003231321101232)

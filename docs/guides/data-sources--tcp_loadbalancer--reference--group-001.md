@@ -6,38 +6,38 @@ description: "Complete grouped canonical reference for xcsh_tcp_loadbalancer ref
 
 # xcsh_tcp_loadbalancer reference
 
-<a id="canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b"></a>
+<a id="canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-66ddca3b82a26320901ec4d2af19395cc5fdd85cdf6d556d13be7e140d4b0d12"></a>
+<a id="canonical-1212313130220323-2002220212030200-2100013230103102-2233012103211130-3011333131201130-3133123111111231-0103233213320110-0031102300310102"></a>
 
-## Property reference — Property reference / 7eba654d3f60 / 2
+## Property reference — Property reference / 103103331200 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 - Property reference
 
-<a id="canonical-4150a973cc02bade569d36f07313b92a9b2f144d65c4c9ba4965132fb689cf71"></a>
+<a id="canonical-1001110022211303-3030000223223132-1112213103123300-1303010323210222-2123023301101031-1211301030212322-1021121101030233-2312202130331301"></a>
 
-## Direct properties — Property reference / 7eba654d3f60 / 3
+## Direct properties — Property reference / 103103331200 / 3
 
-- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-45284443551b024b171d2f15c5b2a1a11c45d73a87eb54ea5ae3ecce816903d0): complete subsection reference.
+- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100): complete subsection reference.
 
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800): complete subsection reference.
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000): complete subsection reference.
 
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5684e25de901e83fdd06b403aedef7b7952f266b34a2576f9c1eabbbabb5b10d): complete subsection reference.
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031): complete subsection reference.
 
-- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-93c42f400565a50ba7899bf25a14840f61f30439c967fbdb821dfad3d26713f7): complete subsection reference.
+- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2103301002331000-0011121122110023-2213202121233302-1122011020100033-1201330300100321-3021121333233123-2002013133223103-3102121301033313): complete subsection reference.
 
-<a id="canonical-0f9f0aa3d47c170f19422b30acca2e6822c2a98ed19944894f257270a3f11cbb"></a>
+<a id="canonical-0033213300222203-3110133001130033-0121100202230300-2230302202321220-0202300222212032-3101212110102021-1033021113021300-2203330101302323"></a>
 
-<a id="canonical-1659ef00dab2a7af6a9b8f28747fe1be0f4f17bb76b8e4a128e40d5ce49c3fb2"></a>
+<a id="canonical-0112112132330000-3122230222132233-1222212320330220-1310133332012332-0033103301132323-1312232032102201-0220321000311130-3210213003332302"></a>
 
-## annotations property — Property reference / 7eba654d3f60 / 4
+## annotations property — Property reference / 103103331200 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -45,7 +45,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -74,13 +74,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-58d165c905a3aa921c6ac38d12138ce201d65967f9ffc5dc81b357df7ae71d92): complete subsection reference.
+- [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1120310112113021-0011220322222102-0130122230032031-0102010320303202-0001311211211213-3321333330113130-2001230311133133-1322321301312102): complete subsection reference.
 
-<a id="canonical-7cf89a45dabd1f83cded0cfe9103f0aa1923b4aa9a219510e5de2dcd397d01ae"></a>
+<a id="canonical-1330332021221011-3122233101332003-3031323100303332-2101000333002222-0121020323102222-2122020121110100-3211313202313031-0321133100012232"></a>
 
-<a id="canonical-0e3b959616e068ca4a1f744111c442f4afd9d7fa626e9ce708c10c3e0ab81f73"></a>
+<a id="canonical-0032032321112112-0112320012203022-1022013313101001-0101301010023310-2233312131133322-1202123221303213-0020300100300332-0022232001331303"></a>
 
-## description property — Property reference / 7eba654d3f60 / 5
+## description property — Property reference / 103103331200 / 5
 
 Type: `"string"`. Computed.
 
@@ -128,11 +128,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6bc0a5ff846120ece02cb467b92287af0b46cd8e27487f0e4057d4edc1bdee4"></a>
+<a id="canonical-3012233000221133-3320101201020032-3032000230231012-1323210202201322-3300231012303120-3202131020133300-3210001113311032-3130012331323210"></a>
 
-<a id="canonical-087f1473c567a1c3a434bc1b899e41c727535b4bff8ab0bda032afc4e565ebb6"></a>
+<a id="canonical-0020133301101303-3011121322013003-2210031023300123-2021213210013013-0213110311231023-3333202223002331-2200030222333010-3211121132232312"></a>
 
-## dns_volterra_managed property — Property reference / 7eba654d3f60 / 6
+## dns_volterra_managed property — Property reference / 103103331200 / 6
 
 Type: `"bool"`. Computed.
 
@@ -158,15 +158,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-b1801b83aca2b6ca4df5d63ecc6355d3044c0feac6da71d837ff4f327a6aaa0b): complete subsection reference.
+- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2301200001232003-2230220223123022-1031331131120332-3030120311113103-0010103000333222-3012312213013120-0313333310330302-1322122222220023): complete subsection reference.
 
-- [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-92a4b8fc91e5719ee6dabdf2bf0c8c07e6c9afd663ed699d176b12d95be766bd): complete subsection reference.
+- [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2102221023203330-2101321113012132-3212312223313302-2333003020300013-3212302122333112-1203323112212131-0113122301023121-1123321312122331): complete subsection reference.
 
-<a id="canonical-80b7fd6a82350740ac0b75ea17db3c3379e4b0e8b2b26decb5861e4ded136971"></a>
+<a id="canonical-2000231333311222-2002031100131000-2230002313113222-0113312303300303-1321321023003220-2302230212313230-2311201201321031-3231010312211301"></a>
 
-<a id="canonical-e286d29d35e96265f126f15684c9234ab0d663539051927e0986691a3d8afaf1"></a>
+<a id="canonical-3202201231022131-0311322112021211-3301021233011112-2010302102031022-2300311212031103-2100110121021332-0021201212210122-0331202233223301"></a>
 
-## domains property — Property reference / 7eba654d3f60 / 7
+## domains property — Property reference / 103103331200 / 7
 
 Type: `["list", "string"]`. Computed.
 
@@ -231,29 +231,29 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6fefce460aa1c56801d63f400e477b2c03db10c5fade95cd00405f57b6474f06): complete subsection reference.
+- [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1233323330321012-0022220130111220-0001311203331000-0032101313230230-0003312301003011-3322313221113031-0000100011331113-2312101310330012): complete subsection reference.
 
-- [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-7b4e92e9b7e4a2ce124345a9c73070c6c23728a208081113b06d1f9771e991f4): complete subsection reference.
+- [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1323103221023221-2313321022023032-0102100310112221-3013030013003012-3002031302202202-0020002001010103-2300123101332113-1301322121013310): complete subsection reference.
 
-- [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-81aa7887946841c82a19ae76a9603b0fd6014eb80c03c27bd3f913d0edec525a): complete subsection reference.
+- [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2001222213202013-2110122010013020-0222012122321312-2221120003230033-3112000110322320-0030000330021323-3103332101033100-3231323011021122): complete subsection reference.
 
-- [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-919c33641590e0126296cedb9bf8574ce4d8993d7c5af43da49b3145d89baa95): complete subsection reference.
+- [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2101213003031210-0111210032000102-1202211230323123-2123332011131030-3210312021210331-1330112233100331-2210212303011011-3120212322222111): complete subsection reference.
 
-<a id="canonical-08fc10935ac9bffe8776c1460e9bfd5ae4abe7c4fa1b072f6e79eddc1b42d5ff"></a>
+<a id="canonical-0020333001002103-1122302123333332-2013131230011012-0032212333311122-3210222332133010-3322012300130233-1232132132313130-0123100231113333"></a>
 
-<a id="canonical-2081fb1a9444200c210d4158cf023f7ab394948ee0110e03bb09354c614ed9ff"></a>
+<a id="canonical-0200200133230122-2110101002000030-0201003110011120-3033000203331322-2303211021102032-3200010100320003-2323002103111030-1201103231213333"></a>
 
-## id property — Property reference / 7eba654d3f60 / 8
+## ID property — Property reference / 103103331200 / 8
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-8f7af16b38376ce9f5615418e228b605c3014be736446c3f194cfa06777ec9b3"></a>
+<a id="canonical-2033132233011223-0320031312303221-3311120111100120-3202022023120011-3003000110233213-0312101012300333-0121103033220012-1313133230212303"></a>
 
-<a id="canonical-42f39509bcde421b1efeade2498e8db65f7aceebe9af3cbc18a640f4fe7ee035"></a>
+<a id="canonical-1002330321110021-2330313210020123-0132333222313202-1021203220312312-1133132230323223-3221223303302330-0120221210003310-3332133232000311"></a>
 
-## idle_timeout property — Property reference / 7eba654d3f60 / 9
+## idle_timeout property — Property reference / 103103331200 / 9
 
 Type: `"number"`. Computed.
 
@@ -294,11 +294,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-48e7ec93a1680605bb6b39a1c4295f5b987c24531d79c9e80a735475890ae070"></a>
+<a id="canonical-1020321332302103-2201122000120011-2323122303212201-3010022111331123-2120133002101103-0131132130213220-0022130311101311-2021002232001300"></a>
 
-<a id="canonical-31af1ef2385f461e2315763ad5f7b9815c1b13ac256a33d5c2a52f072df0c7cb"></a>
+<a id="canonical-0301223301323302-0320113310120132-0203011113120322-3111331323212001-1130012301032230-0211122203033111-3002221102330013-0231330030133023"></a>
 
-## labels property — Property reference / 7eba654d3f60 / 10
+## labels property — Property reference / 103103331200 / 10
 
 Type: `["map", "string"]`. Computed.
 
@@ -322,11 +322,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aa8c5f43346e51549215da9b839e6ba5825b9781c24284e92cd7b859376e4c9a"></a>
+<a id="canonical-2222203011331003-0310123211011110-2102011131222123-2003213212232211-2002112321132001-3002100220103221-0230311323201121-0313123210302122"></a>
 
-<a id="canonical-55a4c1d8439be4a69c86fdbb27349db80b14fc4f7c0c9b1f4daa050a1679e1c7"></a>
+<a id="canonical-1111221030013120-1003212332102212-2130201233312323-0213031021312320-0023011033301033-1330003021230133-1031222200110022-0112132132013013"></a>
 
-## listen_port property — Property reference / 7eba654d3f60 / 11
+## listen_port property — Property reference / 103103331200 / 11
 
 Type: `"number"`. Computed.
 
@@ -369,16 +369,16 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [listen_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa8c5f43346e51549215da9b839e6ba5825b9781c24284e92cd7b859376e4c9a)
-- [port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c4fa74814bb91b338c7e9385da77e309e04d7a9c91764f89fa5c85c2ef375a42)
+- [listen_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222203011331003-0310123211011110-2102011131222123-2003213212232211-2002112321132001-3002100220103221-0230311323201121-0313123210302122)
+- [port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3010332213102001-1023232101230303-2030133221032011-3122131332030021-3200103113222130-2101131210332021-3322113020113002-3233031311221002)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-b1d4a3f4fd970a7e704a89a7902a625eab915353775f6538da8646c6ca4cc50d"></a>
+<a id="canonical-2301311022033310-3331211300221332-1300102220212213-2100022212021132-2223210111031103-1313113312110320-3122201210123012-3022103030110031"></a>
 
-<a id="canonical-76b1b2f04b10d4ca5ad6abd766332529a5d675e3d130b33f9a519f4b1a16dc08"></a>
+<a id="canonical-1312230123023300-1023010031103022-1122311222233113-1212030302110221-2211311213113203-3101030023030333-2122110121331023-0122011231300020"></a>
 
-## name property — Property reference / 7eba654d3f60 / 12
+## name property — Property reference / 103103331200 / 12
 
 Type: `"string"`. Required.
 
@@ -434,11 +434,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-60c5885abe7449be1ee0e7a64626657531a288d2be37523c9b18310aacb4697b"></a>
+<a id="canonical-1200301120201122-2332131010212332-0132320032132212-1012021212111311-0301220220203102-2332031311020330-2123012003010022-2230231012211323"></a>
 
-<a id="canonical-59376c2cb95dfac87f482f6a49ee5d97484dac201a5a6ce107beac2b10fab60f"></a>
+<a id="canonical-1121031312300230-2321113133223020-1333102002331222-1021323211312113-1020103122300200-0122112212303201-0013233222300223-0100332223120033"></a>
 
-## namespace property — Property reference / 7eba654d3f60 / 13
+## namespace property — Property reference / 103103331200 / 13
 
 Type: `"string"`. Required.
 
@@ -487,17 +487,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-eecd9cf3f444d97ef8d07cd7dc143b76295c7f091307b4c0ec0be1395b0afd03): complete subsection reference.
+- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3232303121303303-3310101031211332-3320310013303113-3130011003231312-0221113013330021-0103001323103000-3230002332010321-1123002233310003): complete subsection reference.
 
-- [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-fbd7a2a7cc37149eea9e418797c4c0076cdcf0920443426b82cf1264fe067cbc): complete subsection reference.
+- [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3323311322022213-3030031301102132-3222213210012013-2113301030000013-1230313033002102-0010100310021223-2002303301021210-3332001213302330): complete subsection reference.
 
-- [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-894f595bbc8978227e5e9971546495ff0b655dcd9725c3b9e929610927854c91): complete subsection reference.
+- [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2021103311211123-2330202113200202-1332113221211301-1110121021113333-0023121111313031-2113021130032321-3221022112010021-0213201110302101): complete subsection reference.
 
-<a id="canonical-c4fa74814bb91b338c7e9385da77e309e04d7a9c91764f89fa5c85c2ef375a42"></a>
+<a id="canonical-3010332213102001-1023232101230303-2030133221032011-3122131332030021-3200103113222130-2101131210332021-3322113020113002-3233031311221002"></a>
 
-<a id="canonical-d27b0ff5b3d7fc63fce51db42a4dfc41dee6d260429b6fbb3b9ee86cd49aeabd"></a>
+<a id="canonical-3102132300333311-2303311333301203-3330321101312310-0222103133301001-3132321231021200-1002212312332323-0323213232201230-3110212232222331"></a>
 
-## port_ranges property — Property reference / 7eba654d3f60 / 14
+## port_ranges property — Property reference / 103103331200 / 14
 
 Type: `"string"`. Computed.
 
@@ -548,270 +548,270 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-cc1c3b2f483ba6234b58359b9208b3f5b95fbdc41442e47e1b1563ca0af0f2e5): complete subsection reference.
+- [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3030013003230233-1020032322120203-1023112003112123-2102002023033311-2321113323313010-0110100232101332-0123011112033022-0022330033023211): complete subsection reference.
 
-- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1b22f5ba2b642ff390ebaac0f099fe50f84b8b44393fb2f0efbdb4c499f4b7d5): complete subsection reference.
+- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0123020233112322-0223121002333303-2100322322223000-3300212133321100-3320102320231010-0321033323023300-3233233123103010-2121331023133111): complete subsection reference.
 
-- [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-9fc01974e3956c45c697aa96fa01d9561f837ca5f51871023cd162da605ea22b): complete subsection reference.
+- [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2133300001211310-3203211112301011-3012211322222112-3322000131211112-0133200313302211-3311012013010002-0330310112023122-1200113222020223): complete subsection reference.
 
-- [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8e30515f89b566c0046c0b656f5f1cae28136176409095156357cbe5f3cab9fc): complete subsection reference.
+- [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2032030011011133-2021231112123000-0010123000231211-1233113301302232-0220010312011312-1000210021110111-1203111330233211-3303302223213330): complete subsection reference.
 
-- [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a8cb93789e0c003784740b4e13da283bfc153d645902b5eb637e45de41c0c031): complete subsection reference.
+- [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2220302321031320-2132003000000313-2010131000231032-0103312202200323-3330011103311210-1121000223113223-1203133210113132-1001300030000301): complete subsection reference.
 
-- [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-17eb82266e303a3d9bed39b3a1288b032620aaf6227dde0f4948ac347bb7b929): complete subsection reference.
+- [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0113322320020212-1232030003220331-2123323103212303-2201022020230003-0212020022223312-0202133131320033-1021102022300310-1323231323210221): complete subsection reference.
 
-<a id="canonical-ec4008ce2e285d3bc7b513fd03b1105f9f16e839ef8fb11697affb6f59240e3c"></a>
+<a id="canonical-3230100000203032-0232022011310323-3013231101033331-0003230101001133-2133011232200321-3233203323010112-2113223333231233-1121021000320330"></a>
 
-## All schema paths — Property reference / 7eba654d3f60 / 15
+## All schema paths — Property reference / 103103331200 / 15
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `active_service_policies` | [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d82c009ba1a1aaa6002c1ec20e4a1e5ae1e81a34c6a82e063d94ade1b66c6175) |
-| `active_service_policies.policies` | [active_service_policies.policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-ca4e72eb8d8f385236af57083d019ad38aea47a0bee96ad836f9f9fff4364e95) |
-| `active_service_policies.policies.name` | [active_service_policies.policies.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-ecb505853434fb11ad44de7fe8097acaa16f3d85182a3302a3d79e659462bffa) |
-| `active_service_policies.policies.namespace` | [active_service_policies.policies.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-f7826859f1c43c12396594c22a0dbbe1c9f709369714cedc1e374b77550b3a41) |
-| `active_service_policies.policies.tenant` | [active_service_policies.policies.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6327a96cf9f3295181e2d5ec447431d5ce419f7629e6ea217d051621c1d2c2a4) |
-| `advertise_custom` | [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-471af99fcb75d952a306832f9d95c86b7be81d5a2b4f27938e79aedd8c85da87) |
-| `advertise_custom.advertise_where` | [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-f4b5f5d26e5051fa35327f18d355aa9186b5924a0eb7874e363f1452f5fe42d9) |
-| `advertise_custom.advertise_where.advertise_dualstack_on_public` | [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-adb1b2ff73be6620249351b0f71f7786c386718634701e3f44d1a6152c04407f) |
-| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-29317668529c303b89e96e6a80ecee79c6be37432fd225877b23daefa6b0ca49) |
-| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e0d27db3b216c5705f114150fd28088467112e7a282583387a9c08d7736e3d08) |
-| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-8840b4785b565a7e4fdce72b2615772f33bb4ed0e9da2c949018c5b4388ff70c) |
-| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d6f0a79800094cb5b2d575932283d5924b3140990b2e8f448d994562460aa9d7) |
-| `advertise_custom.advertise_where.advertise_on_public` | [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c2dfc0e73fdc005042660b79524a631776e8a138724c78a38dda04210dd3ebb0) |
-| `advertise_custom.advertise_where.advertise_on_public.public_ip` | [advertise_custom.advertise_where.advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-f3f2ccd5e38421216ba5e4b19d80991c1e8ea4852c5e18b5cf2caa7576ebb63d) |
-| `advertise_custom.advertise_where.advertise_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1b5f96665f81c3055ee9af89e5db5ffd25a383994ac72a751780fe668910c155) |
-| `advertise_custom.advertise_where.advertise_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-748021f63e6f80fbf698b410067c4ab5422081266395f717aa04ac79706d29c5) |
-| `advertise_custom.advertise_where.advertise_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-102c8fbed596557e281a980be9fb6af3bdfa6b7a40b16a19216d8fb49402eff8) |
-| `advertise_custom.advertise_where.advertise_v6_on_public` | [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-bd1d695be46aa5531497323c6ca98a36111e6c78bf05b9a03a5bbb5b0315d425) |
-| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d3a4f017cd0b77e7bc0ed27c928d6d691cac755dff6bf9fc00b74b19cb3ae836) |
-| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0996c3312330c90c85c20cec94319daf9766175e16aba23f6fc71dc003129851) |
-| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-482f79575613fdfe556a1d95ed77134e4701e649076f2ed85b2bed590d1aa3dd) |
-| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-ef507ffc44c8bfaca8a861e4d31cc1a83a61ec6f73b5c2330d2b8595606415f7) |
-| `advertise_custom.advertise_where.port` | [advertise_custom.advertise_where.port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-589be668802ce6f2bbe966a5dcf9a65cf27b688bb7ea7c6142a5bb35d5749c7c) |
-| `advertise_custom.advertise_where.port_ranges` | [advertise_custom.advertise_where.port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1471343496d3b52c8f68f76189e478a8797a7072266c437938d069e651fab01e) |
-| `advertise_custom.advertise_where.site` | [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d809f6e94b6a258d25e40ce871e5f83a103127e06084bbf2b55deb35cc9556dc) |
-| `advertise_custom.advertise_where.site.ip` | [advertise_custom.advertise_where.site.ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-263e5da0c66fd7fd78caee8b160a2ffef11d8fdd93e1b84b1a4536c1aaaf9f3b) |
-| `advertise_custom.advertise_where.site.network` | [advertise_custom.advertise_where.site.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5ed1e6f9be8027167c2c534ae98f40f512e4ad0e6f30c03f56d20fa75cf334ea) |
-| `advertise_custom.advertise_where.site.site` | [advertise_custom.advertise_where.site.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5b1ecf73154021e3b508b541652dd8f0dcb5ac7c111bd831ff6d0d4da650a983) |
-| `advertise_custom.advertise_where.site.site.name` | [advertise_custom.advertise_where.site.site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6865bcd2fbb369c94c602916bdf554ac44dbb4647024bdad868952060a46faa9) |
-| `advertise_custom.advertise_where.site.site.namespace` | [advertise_custom.advertise_where.site.site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7bc1b981b7da82bd46b321158ad1c7553f9f610daefdb432e3b677d47f84187a) |
-| `advertise_custom.advertise_where.site.site.tenant` | [advertise_custom.advertise_where.site.site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5a5e8c49b6558287791b83b29c5149652fdb4b02693994b5f4910c0dda98d126) |
-| `advertise_custom.advertise_where.use_default_port` | [advertise_custom.advertise_where.use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c0c5285ca8e66556d0d9d118b406132edaffec1d66415656d9c3a9a8d9d9c762) |
-| `advertise_custom.advertise_where.virtual_network` | [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-292d1afe839a4f286c37c6d7e0a7cadc23d414c47954572a260c495c80a19226) |
-| `advertise_custom.advertise_where.virtual_network.default_v6_vip` | [advertise_custom.advertise_where.virtual_network.default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a5455aea40c21e399b666fed309d9c265c75416d59c223c249f93496a86bbc7e) |
-| `advertise_custom.advertise_where.virtual_network.default_vip` | [advertise_custom.advertise_where.virtual_network.default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-061b46b0d7e20bee7c4aa56c55613fefdc55c7fe1360185fd63ce425f353c372) |
-| `advertise_custom.advertise_where.virtual_network.specific_v6_vip` | [advertise_custom.advertise_where.virtual_network.specific_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-df14e0e037dec276ae2430dd4970cfd6df6f3ae68b477116c38ac6a40694af6c) |
-| `advertise_custom.advertise_where.virtual_network.specific_vip` | [advertise_custom.advertise_where.virtual_network.specific_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-ea70527ac5376409eebe7a773359dad049b3ee7f2a6cf49ca0a17ca852dff5e7) |
-| `advertise_custom.advertise_where.virtual_network.virtual_network` | [advertise_custom.advertise_where.virtual_network.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-050cd0774eee544bd040435ec613eb2d98736708a32cdd8b56e2f9beda4cfac6) |
-| `advertise_custom.advertise_where.virtual_network.virtual_network.name` | [advertise_custom.advertise_where.virtual_network.virtual_network.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-8fecf36e3b4ef911f3012b36f4567f3c8c041a601000f6affcdf93119ef2a331) |
-| `advertise_custom.advertise_where.virtual_network.virtual_network.namespace` | [advertise_custom.advertise_where.virtual_network.virtual_network.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-30be27eb00c2487a5a78733c0e43c1c89de14fdb8e515d23615871f2721a3ad4) |
-| `advertise_custom.advertise_where.virtual_network.virtual_network.tenant` | [advertise_custom.advertise_where.virtual_network.virtual_network.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-90e43382e0da0ba254501813be7f7afd3d79ab19700841e1c6e10bc22e93d4ad) |
-| `advertise_custom.advertise_where.virtual_site` | [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-34ebf29b4a091424a7c8534e643a08d001a7f32891ff7092133a27b54a70a49b) |
-| `advertise_custom.advertise_where.virtual_site.network` | [advertise_custom.advertise_where.virtual_site.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-9615dd6dcc86060a65c25b26db73bc538be804decee62fcc0c3cbb5f82558e64) |
-| `advertise_custom.advertise_where.virtual_site.virtual_site` | [advertise_custom.advertise_where.virtual_site.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-005d3cc6febfb0dc643987bffcc45650ba3357a5f80868678ab652d886703424) |
-| `advertise_custom.advertise_where.virtual_site.virtual_site.name` | [advertise_custom.advertise_where.virtual_site.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-925052ca6d49d6d1c52ec576e82b4d1087508b4a20f3c5bc61fc5669a3c441ba) |
-| `advertise_custom.advertise_where.virtual_site.virtual_site.namespace` | [advertise_custom.advertise_where.virtual_site.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-29641efe6bdf167004cc1a7e3886b753b921cb1b15e08385f9f82a510ab3b46c) |
-| `advertise_custom.advertise_where.virtual_site.virtual_site.tenant` | [advertise_custom.advertise_where.virtual_site.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d1bbcdba119d2fce89d77672fdd8c0d9b3b94a0fa03d6d9853e4907475cefb8e) |
-| `advertise_custom.advertise_where.virtual_site_with_vip` | [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e33dddab6ab70b9eee12a677281f2693498435d927ff0d155910bb9d205ec39d) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.ip` | [advertise_custom.advertise_where.virtual_site_with_vip.ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3a29474a7e433e733da617c4782e5decee850bc2de7cb97469fda5d97113ef37) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.network` | [advertise_custom.advertise_where.virtual_site_with_vip.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e7c883e3a7d19c3a74542f16ab4ca61a8ed23d9f41ec2da5a50f1c18753c2b68) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-37556c8801ff63728726da7ee4488bce6f90177c947f2bfa9ff4026dec361fca) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-53e8fb33c82ebd73937213d4fabae679789b21e17b713fcfcbd16dc7dbd3c345) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c00fe8e921bce7863240cf95f20dab00b56b179f2093dbd9c6cf3a8b45815901) |
-| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0b496fa15b2fb8707a8e6abe810e831a48f52476a1f8500e7c16f3815da38648) |
-| `advertise_custom.advertise_where.vk8s_service` | [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-b5fab35e1014938779a23334b010a9851cc21a197be6f85199f06c6d34a598b0) |
-| `advertise_custom.advertise_where.vk8s_service.site` | [advertise_custom.advertise_where.vk8s_service.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-bcb2af668ba2210029eaa253ddff86c56c48acd22a5e411a20ca24e548a75d50) |
-| `advertise_custom.advertise_where.vk8s_service.site.name` | [advertise_custom.advertise_where.vk8s_service.site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-508462d0461401372bf6525581b8da21ef2fff10fe5074455a941e72053e9002) |
-| `advertise_custom.advertise_where.vk8s_service.site.namespace` | [advertise_custom.advertise_where.vk8s_service.site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-df05d1b860cdd37b1dd088b005c2fe7f3e79d3add30e0f9fba226e83d15030b1) |
-| `advertise_custom.advertise_where.vk8s_service.site.tenant` | [advertise_custom.advertise_where.vk8s_service.site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-18b08ec442a92b323130d8cf2a65b2c5abccdceb509944c3d48a66668f8cc850) |
-| `advertise_custom.advertise_where.vk8s_service.virtual_site` | [advertise_custom.advertise_where.vk8s_service.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d5757c3b5b3740647933b9646f59ad11fd82972986d34117a6d463d93d2e1b99) |
-| `advertise_custom.advertise_where.vk8s_service.virtual_site.name` | [advertise_custom.advertise_where.vk8s_service.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e168397ff3465af233242a93540c6498985ca2d0c643d5ea966fc86d3703d8ed) |
-| `advertise_custom.advertise_where.vk8s_service.virtual_site.namespace` | [advertise_custom.advertise_where.vk8s_service.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-06d989a40bf48e74992a4af3b0fabe4a27f5d7969c6bccaf64dc8d3d17c512c8) |
-| `advertise_custom.advertise_where.vk8s_service.virtual_site.tenant` | [advertise_custom.advertise_where.vk8s_service.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-62276a01ee1d3e94d059313b59f296b7fc18794461374a8e578733f9dc649d4a) |
-| `advertise_on_public` | [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a036294937822daf472e5e0cdb0113c257532b5591e640bafd0f49e736f09d5a) |
-| `advertise_on_public.public_ip` | [advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-b2f0a5d81ea2b5cc630b6fa8c57aa538104f8f9eed9d411a29c43dd8f6645813) |
-| `advertise_on_public.public_ip.name` | [advertise_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6a30a73c3d1f6d27280d801f9aa9b6cc6bc5035e137653f2d73492d9ca6a8a07) |
-| `advertise_on_public.public_ip.namespace` | [advertise_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2e50ccc0fbbf69023d0a85ed6a39df94387f175d2ed145ff7df167bcb35a8a86) |
-| `advertise_on_public.public_ip.tenant` | [advertise_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-bb99f1a3addfecee27de11f7a0135ea56995641c16a775d427eacec7f490bf43) |
-| `advertise_on_public_default_vip` | [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5bf02f2574ca18e1572f4a5e318efeb20e4f23b884c4cdd1a7053091eea130a7) |
-| `annotations` | [annotations](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0f9f0aa3d47c170f19422b30acca2e6822c2a98ed19944894f257270a3f11cbb) |
-| `default_lb_with_sni` | [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-fb0684273e818fd43aab97fe6e37b100e665012e3122609c33a936ce78119679) |
-| `description` | [description](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7cf89a45dabd1f83cded0cfe9103f0aa1923b4aa9a219510e5de2dcd397d01ae) |
-| `dns_volterra_managed` | [dns_volterra_managed](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c6bc0a5ff846120ece02cb467b92287af0b46cd8e27487f0e4057d4edc1bdee4) |
-| `do_not_advertise` | [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-01cc0932a46a5e320283e534345f8c825a17d59bebd68c99ece71365db19d7c0) |
-| `do_not_retract_cluster` | [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-091de0d4244a87b5f28a89d1b769fbba251f63159ff4955552ce45874ce8c26e) |
-| `domains` | [domains](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-80b7fd6a82350740ac0b75ea17db3c3379e4b0e8b2b26decb5861e4ded136971) |
-| `hash_policy_choice_least_active` | [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-276f5b12ebcd77b22ad7ddc5af64d67552eec4766bc436625a8e827c56e62a70) |
-| `hash_policy_choice_random` | [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e63ed6ce45d8bec7456f0a0b6d3e37296135057044b29fe677c537905a2d1ba6) |
-| `hash_policy_choice_round_robin` | [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-070f057da974c9821fd7516399b7360b78161a5faec435deb93fbc65fd8b23eb) |
-| `hash_policy_choice_source_ip_stickiness` | [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-01dd2b7992898b9df7a374e9b65ecd82f63a3c952ffb253f77930b95754a7daa) |
-| `id` | [id](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-08fc10935ac9bffe8776c1460e9bfd5ae4abe7c4fa1b072f6e79eddc1b42d5ff) |
-| `idle_timeout` | [idle_timeout](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-8f7af16b38376ce9f5615418e228b605c3014be736446c3f194cfa06777ec9b3) |
-| `labels` | [labels](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-48e7ec93a1680605bb6b39a1c4295f5b987c24531d79c9e80a735475890ae070) |
-| `listen_port` | [listen_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa8c5f43346e51549215da9b839e6ba5825b9781c24284e92cd7b859376e4c9a) |
-| `name` | [name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-b1d4a3f4fd970a7e704a89a7902a625eab915353775f6538da8646c6ca4cc50d) |
-| `namespace` | [namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-60c5885abe7449be1ee0e7a64626657531a288d2be37523c9b18310aacb4697b) |
-| `no_service_policies` | [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1959f2c19f4e27dd4cfd683029d504e1fca822c6390b85c034c7f8cfa01575aa) |
-| `no_sni` | [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-965fdafaedb81e2f72308d6ed003e2ac4e28a96e84f352bc1b99b736d8b2d726) |
-| `origin_pools_weights` | [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e08be0f4252fd01319d67849816b91515c2ebc2959d64debca59b0f010b1fdc0) |
-| `origin_pools_weights.cluster` | [origin_pools_weights.cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5719014c81e92c4c5d1053cc770c6251141633150eb20035c3e3cca76047d415) |
-| `origin_pools_weights.cluster.name` | [origin_pools_weights.cluster.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a61fd4e9cdf8fe0d646bb6fd4ddd7d34d0af5d79d85f5776d6e9e086e8f5c3b3) |
-| `origin_pools_weights.cluster.namespace` | [origin_pools_weights.cluster.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e0fbc76dd38f030ccdef27a4dea599786c318626032e71a46907d14b603be28f) |
-| `origin_pools_weights.cluster.tenant` | [origin_pools_weights.cluster.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-30f6dd08a9107495ca41e78af63ade06913f8a5e5bd21d936980f11aaad3ca3b) |
-| `origin_pools_weights.endpoint_subsets` | [origin_pools_weights.endpoint_subsets](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e86dee8129b14a97b1077a0d835455aa240f45752d6756efd48feb75507d2fd9) |
-| `origin_pools_weights.pool` | [origin_pools_weights.pool](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5e9df8be7a18347bfc2c08053dbdf17eaac2b6a03d73aa9badfdc174c6d7aeaf) |
-| `origin_pools_weights.pool.name` | [origin_pools_weights.pool.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-62b1cc7112b4aa495eda22fd3b3fd451a022be5b9f9fca8fd705f3cd5ceb2b18) |
-| `origin_pools_weights.pool.namespace` | [origin_pools_weights.pool.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-ef404c1aeca4b6205718974e08891675d0a3c700bf38e68e8fb38e6e28bd06b4) |
-| `origin_pools_weights.pool.tenant` | [origin_pools_weights.pool.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-f98bdacf88c4d534a6114ebda8c8b0e1c6542c54151eda4e75d3fa145bb3df92) |
-| `origin_pools_weights.priority` | [origin_pools_weights.priority](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-13c562149f911e9cd8e5f5dc67346c376f3513b08b0596f30c4ec1f56b958e76) |
-| `origin_pools_weights.weight` | [origin_pools_weights.weight](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6d7839ecb65bb4e77339d4f5482ac2fe81046117e1303de79121b6281bd83476) |
-| `port_ranges` | [port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c4fa74814bb91b338c7e9385da77e309e04d7a9c91764f89fa5c85c2ef375a42) |
-| `retract_cluster` | [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5d2efbc23bdf348e8a597d843d71f01b03efd513109e51807d41264372f8ab6f) |
-| `service_policies_from_namespace` | [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-f13cd904bb7cda8dcac837323ed3c4fa516dcaf5b3266754719068b762ee4480) |
-| `sni` | [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-b6a2633f2cb6856d063cae523509c0ab9608250c264c8c8489e72187a9450702) |
-| `tcp` | [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6fd58b64bda394756870c8b71293a539b1718404753bd67efcf8ce90155f8d87) |
-| `tls_tcp` | [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6649da9a04b26b4b8eb2d282f1e67f5245a513f9bd8538217e65210664609bae) |
-| `tls_tcp.tls_cert_params` | [tls_tcp.tls_cert_params](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-dead4bd0781a288f5e40cb6f0f4b9060ae8d3c234f955ff93d80609436ccff58) |
-| `tls_tcp.tls_cert_params.certificates` | [tls_tcp.tls_cert_params.certificates](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-9d3635db982ed7e48de7a8fac8a1cb51eeec01c79c3293e7bfca77bb256cb36a) |
-| `tls_tcp.tls_cert_params.certificates.name` | [tls_tcp.tls_cert_params.certificates.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3c9dc3f2b57e60ee6d162a3d21d06d4272ece514854d30d152420242bdf40fb5) |
-| `tls_tcp.tls_cert_params.certificates.namespace` | [tls_tcp.tls_cert_params.certificates.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-86a77c75d9131a8473c971dc3968ff11fbb8fd20e242c8656ca9d2fef3a91658) |
-| `tls_tcp.tls_cert_params.certificates.tenant` | [tls_tcp.tls_cert_params.certificates.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8efce4f1748e1934a7a7034b7f5a68b5056b028e5707373e2ef0f6f5db4123f8) |
-| `tls_tcp.tls_cert_params.no_mtls` | [tls_tcp.tls_cert_params.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5dfbeaaaa53dacbf740dfa2357f228e5a254cffffd97a7c1dc398629eb5234f2) |
-| `tls_tcp.tls_cert_params.tls_config` | [tls_tcp.tls_cert_params.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-59047fc953cd1e5a6d0fd9178d12912477a531eb55df1b222e35e95cf5c2bd0d) |
-| `tls_tcp.tls_cert_params.tls_config.custom_security` | [tls_tcp.tls_cert_params.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-602b554d6947311fe0d865fb62d38cdca59b89fa749d9bf89c0936b8931e91f3) |
-| `tls_tcp.tls_cert_params.tls_config.custom_security.cipher_suites` | [tls_tcp.tls_cert_params.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-b61790c898143a9dac35a2a54a20a3f32a7713be7693deebc04666b0231f6a08) |
-| `tls_tcp.tls_cert_params.tls_config.custom_security.max_version` | [tls_tcp.tls_cert_params.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8d647bb4a6145d29485b4d58f0ff5269bf63ed28d56841cfb95f0d4b3bbcd4a4) |
-| `tls_tcp.tls_cert_params.tls_config.custom_security.min_version` | [tls_tcp.tls_cert_params.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-4733de4998e56446ca118a72157a3eb6b578d056f75716098fbcf444b02b1ee5) |
-| `tls_tcp.tls_cert_params.tls_config.default_security` | [tls_tcp.tls_cert_params.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c0923fe93e888dc23a70b5729cea9b54ad69a21deeae01695cf0cae3a7ffe059) |
-| `tls_tcp.tls_cert_params.tls_config.low_security` | [tls_tcp.tls_cert_params.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0c1df4b2d5f504ec2675bac19cb8431878255542c81874eb37e3466e858bca8b) |
-| `tls_tcp.tls_cert_params.tls_config.medium_security` | [tls_tcp.tls_cert_params.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-46e00117bf332968b77ae72b9c1687ab8d5137d3a13b70065a853d7de99c6b9e) |
-| `tls_tcp.tls_cert_params.use_mtls` | [tls_tcp.tls_cert_params.use_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c6e71f375c0198a4de0a767c9151f012a951ea1c1ca26b899f77477c69c055fe) |
-| `tls_tcp.tls_cert_params.use_mtls.client_certificate_optional` | [tls_tcp.tls_cert_params.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e3003c52d4e81cc51ea49dbdc7a3d96762a38a8c4454c26c54b62b6210c6406f) |
-| `tls_tcp.tls_cert_params.use_mtls.crl` | [tls_tcp.tls_cert_params.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-49274aa568c97a65279caf8c884c69a21ed44162c32c2669ce110a51ec7e3d0f) |
-| `tls_tcp.tls_cert_params.use_mtls.crl.name` | [tls_tcp.tls_cert_params.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-07a40c09745ddac316ec4411a0d9ee838ff59459281dd08c51d1c7d114156e06) |
-| `tls_tcp.tls_cert_params.use_mtls.crl.namespace` | [tls_tcp.tls_cert_params.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1726181a9f6166d895ace7f1ed3a937f527b71d847c12c4c6f1fd03a8d64257c) |
-| `tls_tcp.tls_cert_params.use_mtls.crl.tenant` | [tls_tcp.tls_cert_params.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-f10da52298c49a72ae51ddf0abe74b04d7f2f2acc99177a49b03fb86ca352b17) |
-| `tls_tcp.tls_cert_params.use_mtls.no_crl` | [tls_tcp.tls_cert_params.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-77a7ee254580a4bc3a9f386a0bf1e2f226c6acd6d19d0f8341aa1dd7b622e0dc) |
-| `tls_tcp.tls_cert_params.use_mtls.trusted_ca` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d0da501f02421f8c36e068b0784e568bdaf840ddbee4c06a5a7d8f1fb714d62b) |
-| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.name` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-cd32564b3cc8c04adfaf8bf51a237c3a8d92cef7a55df49422acb7d879f1f193) |
-| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.namespace` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a6653bece57f378cf09c4e4b89958623956280598ce23e0479f02bc44b17a61c) |
-| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.tenant` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a46a5ef6c621ce472f7128e48c1df8b5b9b29674791837a6a47827fc7067b7b2) |
-| `tls_tcp.tls_cert_params.use_mtls.trusted_ca_url` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6e2c33b765640ffd512f4d98aa597bde4c01a6a5028264cfd306623a3cb682bd) |
-| `tls_tcp.tls_cert_params.use_mtls.xfcc_disabled` | [tls_tcp.tls_cert_params.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-86f263245c948c774c707fd9030c69090bdce525d67c096e4c4cf6908d65b0ff) |
-| `tls_tcp.tls_cert_params.use_mtls.xfcc_options` | [tls_tcp.tls_cert_params.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d7fddc6f465cf8b460cf969c353ebe1f307544a31fbc01cb1638e289de2e2895) |
-| `tls_tcp.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2badc0e2f8749532bba00a1a475a90d550ad6e0a7abf03715e7e9c95c239ceae) |
-| `tls_tcp.tls_parameters` | [tls_tcp.tls_parameters](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-99275446ac13605bb6647d69fae1798a4be9eaef2fe16d3780be66e1d1eef301) |
-| `tls_tcp.tls_parameters.no_mtls` | [tls_tcp.tls_parameters.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c17dbd8240e29b262a640d3360bdaaeaacf8e7bff790136d7737a81d49554140) |
-| `tls_tcp.tls_parameters.tls_certificates` | [tls_tcp.tls_parameters.tls_certificates](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-464ac9efe6e532f14d5a08ff037178c217be579c9044943db38f20349c142b6d) |
-| `tls_tcp.tls_parameters.tls_certificates.certificate_url` | [tls_tcp.tls_parameters.tls_certificates.certificate_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-509c8676521f794a891dbbd179b46e483878be3a7397e32ebd8e4f5f3e8aeb99) |
-| `tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms` | [tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-ffdb2a2daa20d8fc63817649a193b321cfaef5e7b26f4764674f5468404af51a) |
-| `tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-21cf558f9b7105f8fd5270944c3e4a723da778c97aa87668f6a877af4a012f03) |
-| `tls_tcp.tls_parameters.tls_certificates.description_spec` | [tls_tcp.tls_parameters.tls_certificates.description_spec](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-acfc1bd88952526c5efb84dc56532d01ba99664cf4e18d087d1ef7b3a4e36a8f) |
-| `tls_tcp.tls_parameters.tls_certificates.disable_ocsp_stapling` | [tls_tcp.tls_parameters.tls_certificates.disable_ocsp_stapling](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-457fbb0f055047297b0d318613d60c4c5ca28a8f9356968c78073d048985e2ba) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key` | [tls_tcp.tls_parameters.tls_certificates.private_key](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-51f437676dd8e97aaf145b404295d2d44a2750fe2bc22f68d2371e53a82959de) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-f8e2eebd011445308fbf055a070f4ce0bb91f822cc407ec209c22b2f5a102bd6) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-cf1362f8dee2049fb3b4f99406212853189f2a33a593e06271bb2a6ee9a7bc50) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1ff1c2aa09ca5739cbb2ea161402eebda1e7b187d34de94b49faca1c341fff73) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8bebe8b8a7c4cb94327d2f38eca856f718fe9987834ea8787874d8864decaa6d) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-7693ae84b5c8b06e0ebefc9059c1d3ab2edf30001eb7d80fb45498b7c5cea927) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c35806fa5d59a63757fae87a8e94f03ff761e10fdcbff183573dcf784586b0d1) |
-| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.url` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-4b31f7fbb2800f07e858400969cea3c4946311281da299673745817903e929a5) |
-| `tls_tcp.tls_parameters.tls_certificates.use_system_defaults` | [tls_tcp.tls_parameters.tls_certificates.use_system_defaults](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1fb99423d6776abe649612e3273715ea5053346d42e4ba209ce0b8e0920e2dc1) |
-| `tls_tcp.tls_parameters.tls_config` | [tls_tcp.tls_parameters.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a9cfd7e35c8fba86fc7b9381a9b01807e5e26df77c2b481d86a05d135bddf451) |
-| `tls_tcp.tls_parameters.tls_config.custom_security` | [tls_tcp.tls_parameters.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c745ddd7211cbf6aeff46c0a71c7fbadf6ac941236741a5e936d0684127c6f5e) |
-| `tls_tcp.tls_parameters.tls_config.custom_security.cipher_suites` | [tls_tcp.tls_parameters.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d05ae0eeb0a65e3589bb302230a501ee353272c987eb83d7f2e1869174a1fbf0) |
-| `tls_tcp.tls_parameters.tls_config.custom_security.max_version` | [tls_tcp.tls_parameters.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-305c08eba83f59d8f4fd30c731393da305c731338195a4ed154c9544a42a0ebc) |
-| `tls_tcp.tls_parameters.tls_config.custom_security.min_version` | [tls_tcp.tls_parameters.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-fd42d7518dba16c04e29d608bdf065efbd496fdda2ba517c62152ff7548ded22) |
-| `tls_tcp.tls_parameters.tls_config.default_security` | [tls_tcp.tls_parameters.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-7e2aae6b94b17fc8496ee02beb2ed6b931148ed0ee34b6d6ab1be3ec868e1c81) |
-| `tls_tcp.tls_parameters.tls_config.low_security` | [tls_tcp.tls_parameters.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6f23f3010bb4b542b89645de20e4c13c2ac5906e8d43d67110ce5e46f598665c) |
-| `tls_tcp.tls_parameters.tls_config.medium_security` | [tls_tcp.tls_parameters.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c14ddd6bc4237362e00ce855025bbe93dbd2f380dd55b5ded25fcd00ed6a9d51) |
-| `tls_tcp.tls_parameters.use_mtls` | [tls_tcp.tls_parameters.use_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-eba97b0a9b8cfc84e10ae26096ceaf8547e2cdca908f784b381cf3cba37d96db) |
-| `tls_tcp.tls_parameters.use_mtls.client_certificate_optional` | [tls_tcp.tls_parameters.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-343b964a5dc1ec5a11cae5e37c09f9474a105ce974083e7187f18bc5bdb3b5f4) |
-| `tls_tcp.tls_parameters.use_mtls.crl` | [tls_tcp.tls_parameters.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-10815073cd332e2b247814082e3ce6a88bc9cfcffa9a8c79ac8562ba53a4c9b3) |
-| `tls_tcp.tls_parameters.use_mtls.crl.name` | [tls_tcp.tls_parameters.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-56cbacad3fb382ff77aa412ac8424e0e267d9bc7625501899907a2350f7640d2) |
-| `tls_tcp.tls_parameters.use_mtls.crl.namespace` | [tls_tcp.tls_parameters.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-114bbb3d4f5606e6377f5643f2523f0ab63083db87da7cca7ebbdb772dedcdb6) |
-| `tls_tcp.tls_parameters.use_mtls.crl.tenant` | [tls_tcp.tls_parameters.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d9fc93bd16a5d8c0ac4baf14668848d4f61ad9f78fea4ebdfbcbcd3a710e325e) |
-| `tls_tcp.tls_parameters.use_mtls.no_crl` | [tls_tcp.tls_parameters.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3e59bc68b4c19552a3446fa8b7355f5d01df108551f761379ca82d9b6f1b7fab) |
-| `tls_tcp.tls_parameters.use_mtls.trusted_ca` | [tls_tcp.tls_parameters.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-74282a2cf195454318694c61a7c5412b6d5a3909f1c85becc18154a38bde0b4c) |
-| `tls_tcp.tls_parameters.use_mtls.trusted_ca.name` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c1c855cc2e4762e451fc8f4900d2af914c1c2e91ffc5ac67458e2af651a4b46f) |
-| `tls_tcp.tls_parameters.use_mtls.trusted_ca.namespace` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c6b87730655188844fe1ee0c6906073da63c393a3f74cf23c35fa0d17138a625) |
-| `tls_tcp.tls_parameters.use_mtls.trusted_ca.tenant` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d2676906ecac0b3c0281e668f3180822adca61a5e28d2cf2565bda47be41e8f7) |
-| `tls_tcp.tls_parameters.use_mtls.trusted_ca_url` | [tls_tcp.tls_parameters.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-c5c6b0b77279e2f73c608ea2ceca255604e151f3e0fbc931b25ada739661ce98) |
-| `tls_tcp.tls_parameters.use_mtls.xfcc_disabled` | [tls_tcp.tls_parameters.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d8c01288c4e74c836c766f5798bcf219e2e7e7ee1af5daa0f7c68cdf8ff2cc08) |
-| `tls_tcp.tls_parameters.use_mtls.xfcc_options` | [tls_tcp.tls_parameters.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-48724beffdc2bc5314a8e0044c04e991c8a7eed16c84cf9256ceb9d19022916b) |
-| `tls_tcp.tls_parameters.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp.tls_parameters.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a30ebade131adc2c935677442beb4843304b982a5a7a23242c0c55325654bb7c) |
-| `tls_tcp_auto_cert` | [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-da1071ff0460dbe3ac648e09b3a5265ecc1c738a79ff6727775e870c422eff00) |
-| `tls_tcp_auto_cert.no_mtls` | [tls_tcp_auto_cert.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-76efaeb96c3f588009f2c98199c0c17274166db9b92ab9fc8a93d47caef9bc6f) |
-| `tls_tcp_auto_cert.tls_config` | [tls_tcp_auto_cert.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-90affc6782fa8b0b557c840073a58818a22acce5528de37552c6d6ef248f0633) |
-| `tls_tcp_auto_cert.tls_config.custom_security` | [tls_tcp_auto_cert.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-d79e8f06e44c46d4bacabbc15e99e74adda29fe557188467621979541939e38b) |
-| `tls_tcp_auto_cert.tls_config.custom_security.cipher_suites` | [tls_tcp_auto_cert.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0bfb309cfe30b6a87df6088bb9b5f733611068e4fe6e58577f5a2d7a435fd897) |
-| `tls_tcp_auto_cert.tls_config.custom_security.max_version` | [tls_tcp_auto_cert.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-74700b1a209eaeed652f1d214a7be88008599e7c4653b22f199a833a00d239af) |
-| `tls_tcp_auto_cert.tls_config.custom_security.min_version` | [tls_tcp_auto_cert.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-9fa4453b48ca1ee1f47757042c07942e15440761e9778ce94600e5ba336d4889) |
-| `tls_tcp_auto_cert.tls_config.default_security` | [tls_tcp_auto_cert.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6d6e5669e9ff4ff4b6161648948574397005fc9a76bd960eb1f0c104c06d8ee5) |
-| `tls_tcp_auto_cert.tls_config.low_security` | [tls_tcp_auto_cert.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1532cebffbd122a3fbe1598cdea8c2aabf096826ee1a9e81578b5c0dbfb5d144) |
-| `tls_tcp_auto_cert.tls_config.medium_security` | [tls_tcp_auto_cert.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-730e7eb521689469723008ab4707bbb4b0ac2e164cd7a73a38893ec01e238f9b) |
-| `tls_tcp_auto_cert.use_mtls` | [tls_tcp_auto_cert.use_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8032bb22a890292ac2a3bf76f3fa65288e9055e011dc1ddf2a381c0f06ae07e5) |
-| `tls_tcp_auto_cert.use_mtls.client_certificate_optional` | [tls_tcp_auto_cert.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-74a8307f2112ca1de79aaa672ec5dc9da70abdf8dc8001e72a6d116452116814) |
-| `tls_tcp_auto_cert.use_mtls.crl` | [tls_tcp_auto_cert.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-8b65c7535cb28f815315fb93d2761bf2f62187a800e842ce99d6fe9dadbff094) |
-| `tls_tcp_auto_cert.use_mtls.crl.name` | [tls_tcp_auto_cert.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-59467e9c69d3c22791e75134e0ebe759f57a6acc0d692cfaaaf44f0d58fbc0e9) |
-| `tls_tcp_auto_cert.use_mtls.crl.namespace` | [tls_tcp_auto_cert.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-8f26a75a6ccec616e289f65abc49a2116db94ce40c034d7a514da505a1005e5a) |
-| `tls_tcp_auto_cert.use_mtls.crl.tenant` | [tls_tcp_auto_cert.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-48e93e69e8c570fe3f39ee42de591849f646d67a54086e7bcc51dee3ef77d39b) |
-| `tls_tcp_auto_cert.use_mtls.no_crl` | [tls_tcp_auto_cert.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-b4d5e68e2f911d002aa39b00d77ff1a112e6a34c00408f9d3b75138dbd0d6dd3) |
-| `tls_tcp_auto_cert.use_mtls.trusted_ca` | [tls_tcp_auto_cert.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-26793d7dacab2547fdc4d25c2cf863b21c8f0acae8b3da17e5ed242282dbd0e5) |
-| `tls_tcp_auto_cert.use_mtls.trusted_ca.name` | [tls_tcp_auto_cert.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-b29ba026fb23d665ac23ae5d9f026be9df4457aad725b1c9be184c391064f7cf) |
-| `tls_tcp_auto_cert.use_mtls.trusted_ca.namespace` | [tls_tcp_auto_cert.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-8a0e431c21d596764cd23b4d7ed21969e7741d666d0a750d47f35a44133c4398) |
-| `tls_tcp_auto_cert.use_mtls.trusted_ca.tenant` | [tls_tcp_auto_cert.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-77f13ca43f59f9ca68a631a4f5d49f1cefc5129bdf9650554497bc35c14bb1db) |
-| `tls_tcp_auto_cert.use_mtls.trusted_ca_url` | [tls_tcp_auto_cert.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-e77db2b4b01c549b5391ea17e667c4e0b926de99bb151ca62d4d29c64b9157fe) |
-| `tls_tcp_auto_cert.use_mtls.xfcc_disabled` | [tls_tcp_auto_cert.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-eeb8c4f8dc665473647ade8ac7e5cb09303898d57e1af1098f6ad24661d93ab1) |
-| `tls_tcp_auto_cert.use_mtls.xfcc_options` | [tls_tcp_auto_cert.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-a7d148f76edcf35d7e6673cd275a6125d11953863696c8b0a3be6802e6b109e8) |
-| `tls_tcp_auto_cert.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp_auto_cert.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-4fbd7a9ebbb27e4690d7e94033bb1aa0b3d65a8b59feba065ad4be8e6eea48e1) |
+| `active_service_policies` | [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3120023000002123-2201220122222212-0000023001323002-0032102201321122-3201322001220310-3012222002320012-0331211022313201-2312123012011311) |
+| `active_service_policies.policies` | [active_service_policies.policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3022103213023223-2031203303201102-0312223311130020-0331000121223103-2022322210132200-2332322112223120-0312332133213333-3310031210322111) |
+| `active_service_policies.policies.name` | [active_service_policies.policies.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3230231100112011-0310031033230101-2231101031321333-3220002113223022-2201123303312011-0120022203030002-2203311321321211-2110120223333322) |
+| `active_service_policies.policies.namespace` | [active_service_policies.policies.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3313200212201121-3301301003300102-0321121121103002-0222003123233201-3021331300210312-2113011030323130-0132031310231313-1111002303221001) |
+| `active_service_policies.policies.tenant` | [active_service_policies.policies.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1203021322211230-3321330302211101-2001320231113230-1010131003013111-3032100121331312-0221321232220201-1331001101120201-3001310230022210) |
+| `advertise_custom` | [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1013012233212133-3023131131211102-2203001220030233-2131211130201223-1323322001311122-0223103302132103-2032132122323131-2030201131222013) |
+| `advertise_custom.advertise_where` | [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3310231133113102-1232110011013322-0311030213330120-3103111122222101-2012231121021022-0032231320131032-0312033301101102-3311333210023121) |
+| `advertise_custom.advertise_where.advertise_dualstack_on_public` | [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2231230123023333-1303233212120200-0210210311012300-3313013313132012-3003201213012012-0310130001320333-1010310122120111-0230001010001333) |
+| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0221030113121220-1102213003000323-2021322112321222-2000323032321321-3012233203131003-0233310202112013-1323020331223233-2212230030221021) |
+| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3200310213312303-2302011230111300-1133010110011100-3331022000202010-1213010102321322-0220021120030320-1322213000203113-1303123203310020) |
+| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2020100023101320-1123111211221332-1033313032130223-0212011113130233-0303232310323100-3221312202302110-2100012030112310-0320203333130030) |
+| `advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3112330022132120-0000002110302311-2302311113112103-0202200331112102-1023030110002121-0023023220331010-2031212110111202-1012002222213113) |
+| `advertise_custom.advertise_where.advertise_on_public` | [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3002313330003213-0333313000001100-1002121200231321-1102102212030113-1312322022010320-1302103013202203-2031312200100201-0031310332232300) |
+| `advertise_custom.advertise_where.advertise_on_public.public_ip` | [advertise_custom.advertise_where.advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3303330230303111-3203201002010201-1223221132102301-2131200021210130-0132203222102011-0230113201202311-3033023022221311-1312322323120331) |
+| `advertise_custom.advertise_where.advertise_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0123113321121212-1133200130030011-1132322122332021-3211312311333331-0211220320032121-1022301302221311-0113200033321212-2021010030011111) |
+| `advertise_custom.advertise_where.advertise_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1310200002013312-0332123320003323-3312212023100100-0012133010222311-1002020020010212-1203211133130113-2222001022301321-1300123102213011) |
+| `advertise_custom.advertise_where.advertise_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0100023020332332-3111211211111332-0220012221200023-3221332312223303-2331332212231322-1000230112220121-0201123120332310-2110000232333320) |
+| `advertise_custom.advertise_where.advertise_v6_on_public` | [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2331013112211123-3210122222111103-0110211303020330-1230222120220312-0101013212301320-2333001123212200-0322112323231123-0003011131100211) |
+| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3103221033000113-3031002313133213-2330003231021330-2102203112311221-0130223013111131-3333122333213330-0000231310230121-3023032232200312) |
+| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0021211230030301-0203030030210030-2011300200303230-2110030121312233-2113121201131132-0112222322020333-1233301301313000-0003010221201101) |
+| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1020023313211113-1112010333313332-1111122201312111-3231131301031032-1013000132121021-0013123302323120-1123022332311121-0031012222033131) |
+| `advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant` | [advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3233110013333330-1010302023332230-2220222012013210-3103013030012220-0322120132301233-1303231130020303-0031022320112111-1200121001113313) |
+| `advertise_custom.advertise_where.port` | [advertise_custom.advertise_where.port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1120212332121220-2000023032123302-2323322112122211-3130332122121130-3302132312202023-2313322213301201-1002221123230311-3111131021301330) |
+| `advertise_custom.advertise_where.port_ranges` | [advertise_custom.advertise_where.port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0110130103100310-2112310323110230-2033122033131201-2021321013202220-1321132213001302-0212123010031321-0320310012213212-1101332223000132) |
+| `advertise_custom.advertise_where.site` | [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3120002133123221-1023122202112031-0211321000303220-1301321133200322-0100030102133200-1200201023233302-2311113132230311-3030211111123130) |
+| `advertise_custom.advertise_where.site.ip` | [advertise_custom.advertise_where.site.ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0212033211312200-3012123331133331-1320302232322023-0112002202333332-3301013120333131-2103320123201023-0122101103123001-2222223321330323) |
+| `advertise_custom.advertise_where.site.network` | [advertise_custom.advertise_where.site.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1132310132123321-2332200002130112-1330023011031022-3221203310003311-0102321022310032-1233030030000333-1112310200332213-1130330303103222) |
+| `advertise_custom.advertise_where.site.site` | [advertise_custom.advertise_where.site.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1123013230331303-0111100002013203-2311002023111001-1211023131203300-3130231122301330-0101012331200301-3333123100311031-2212110022212003) |
+| `advertise_custom.advertise_where.site.site.name` | [advertise_custom.advertise_where.site.site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1220121123303102-3323230312213021-1030120002210112-2331331111102230-1010312323101210-1300021023312231-2012202111020012-0022101233222221) |
+| `advertise_custom.advertise_where.site.site.namespace` | [advertise_custom.advertise_where.site.site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1323300123212001-2313312220022331-1012230302010111-2022310130131111-0333213312010031-2232333123100302-3203231213133110-1333201001201322) |
+| `advertise_custom.advertise_where.site.site.tenant` | [advertise_custom.advertise_where.site.site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1122113220301021-2312111120022013-1321012320032302-2130110110211211-0233312310230002-1221032121102311-3310210100300031-3122212031010212) |
+| `advertise_custom.advertise_where.use_default_port` | [advertise_custom.advertise_where.use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3000301102201130-2220321212111112-3100312131010120-2310001201030232-3122333332300131-1212100111121112-3121300322212220-3121312130131202) |
+| `advertise_custom.advertise_where.virtual_network` | [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0221023101223332-2003212210330220-1230031330123113-3200221330223130-0203311001103010-1321111011130222-0212003010211130-2000220121020212) |
+| `advertise_custom.advertise_where.virtual_network.default_v6_vip` | [advertise_custom.advertise_where.virtual_network.default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2211101111223222-1000300201320321-2123121212333231-0300213121300212-1130131110011231-1121300202033002-1021332103102112-2220122323301332) |
+| `advertise_custom.advertise_where.virtual_network.default_vip` | [advertise_custom.advertise_where.virtual_network.default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0012012310122300-3113320200233232-1330102222111230-1111120103333233-3130111130133332-0103120001201133-3112033032100211-3303110330031302) |
+| `advertise_custom.advertise_where.virtual_network.specific_v6_vip` | [advertise_custom.advertise_where.virtual_network.specific_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133011032003200-0313313230021312-2232021003003131-1021130030333112-3133123303223212-2023101313010112-3003202230122210-0012211022331230) |
+| `advertise_custom.advertise_where.virtual_network.specific_vip` | [advertise_custom.advertise_where.virtual_network.specific_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3222130011021322-3011031312100021-3232233213221313-0303112131223100-1021230332321333-0222123033102130-2200220113302220-1102313333113213) |
+| `advertise_custom.advertise_where.virtual_network.virtual_network` | [advertise_custom.advertise_where.virtual_network.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0011003031001313-1032323211101023-3100100010031132-3012010332230231-2120130312130020-2203023031312023-1112320233212332-3122103033223012) |
+| `advertise_custom.advertise_where.virtual_network.virtual_network.name` | [advertise_custom.advertise_where.virtual_network.virtual_network.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2033323033031232-0323103233210101-3303000102230312-3310111213330330-2030001001221200-0100000033122233-3330313321030101-2132330222030301) |
+| `advertise_custom.advertise_where.virtual_network.virtual_network.namespace` | [advertise_custom.advertise_where.virtual_network.virtual_network.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0300233202133223-0000300210201322-1122132013030330-0032100330013020-2131320110333123-2032110111310203-1201112013013302-1302012203223110) |
+| `advertise_custom.advertise_where.virtual_network.virtual_network.tenant` | [advertise_custom.advertise_where.virtual_network.virtual_network.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2100321003032002-3200312200232202-1110110001200103-2332133313223331-0331132122230121-1300002010013201-3012320100233002-0232210331102231) |
+| `advertise_custom.advertise_where.virtual_site` | [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0310322333022123-1022002101100210-2213302011031032-1210032200203100-0001221333030220-2101333313002102-0103032202132311-1022130022102123) |
+| `advertise_custom.advertise_where.virtual_site.network` | [advertise_custom.advertise_where.virtual_site.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2112011131311231-3030201200120022-1211300211230212-3123130323301103-2023322000103132-3032321202333030-0030033023231133-2002111120321210) |
+| `advertise_custom.advertise_where.virtual_site.virtual_site` | [advertise_custom.advertise_where.virtual_site.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0000113103303012-3332233323003130-1210032120132333-3330301011121100-2322030311132211-3320002012201213-2022231211023120-2012130003100210) |
+| `advertise_custom.advertise_where.virtual_site.virtual_site.name` | [advertise_custom.advertise_where.virtual_site.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2102110011023022-1231102131123101-3011023230111312-3220022310310100-2013110020231022-0200330330112330-1201333011121221-2203301010012322) |
+| `advertise_custom.advertise_where.virtual_site.virtual_site.namespace` | [advertise_custom.advertise_where.virtual_site.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0221121001323332-1223313301121300-0010303001221332-0320201223131103-2321020130230123-0111320020032011-3321332002221101-0022230323101230) |
+| `advertise_custom.advertise_where.virtual_site.virtual_site.tenant` | [advertise_custom.advertise_where.virtual_site.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3101232330312322-0101213102333032-2021311313121302-3331312030003121-2303232110220033-2200033112312120-1103321021001310-1311303233232032) |
+| `advertise_custom.advertise_where.virtual_site_with_vip` | [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3203033131312223-1222231300232132-3232010222121313-0220013302122103-1021201003113121-0213333300310111-1121010023232131-0200113230032131) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.ip` | [advertise_custom.advertise_where.virtual_site_with_vip.ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0322022110131022-1332100303321303-0331221201133010-1320023211313230-3232201100233002-3132133023211310-1221333122113121-1301010332330313) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.network` | [advertise_custom.advertise_where.virtual_site_with_vip.network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3213302020033203-2213310121300322-1310111002330112-2223103022120122-2032310203312133-1001323002312211-2211003301300120-1311033002231220) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0313111112302020-0001333312031302-2013021231221332-3210102020233032-1233210001131330-2110133302233322-2133331000021231-3230031201333022) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103322033230303-3020023223311303-2103130201033110-3322232232121321-1320212302013201-1323130103333033-3023310112313013-3123310330031011) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3000003332203221-0201233032132012-0302100030332111-3302003122230000-2311122301132133-0200210331233121-3012303303222023-1011200111210001) |
+| `advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant` | [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0023102112332201-1123023323201300-1322203212222332-2001003220030122-1020331102101312-2201332011000032-1330011233032001-1131220320121020) |
+| `advertise_custom.advertise_where.vk8s_service` | [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2311332223031132-0100011021032013-1321220203030310-2300010022212011-0130300201220121-1323321233201101-2121330012301231-0310221121202300) |
+| `advertise_custom.advertise_where.vk8s_service.site` | [advertise_custom.advertise_where.vk8s_service.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2330230222331212-2023220202010000-0221322222021103-3131333320123011-1230102022303102-0222113210010122-0200302202103211-1020221311311100) |
+| `advertise_custom.advertise_where.vk8s_service.site.name` | [advertise_custom.advertise_where.vk8s_service.site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1100201012023100-1012011000010313-0223331211021111-2001232031220201-3233023333330100-3332110013101011-1122211001321302-0011033221000002) |
+| `advertise_custom.advertise_where.vk8s_service.site.namespace` | [advertise_custom.advertise_where.vk8s_service.site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133001131012320-1200303131031323-0131310020202300-0011300233321333-0332132131032231-3103003200332133-2322020212322003-3101110003002301) |
+| `advertise_custom.advertise_where.vk8s_service.site.tenant` | [advertise_custom.advertise_where.vk8s_service.site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0120230020323010-1002222102230302-0301030031203033-0222121123023011-2223303031303223-1100212110103003-3110202212121212-2033203030201100) |
+| `advertise_custom.advertise_where.vk8s_service.virtual_site` | [advertise_custom.advertise_where.vk8s_service.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3111131113300323-1123031310001210-1321030323211210-1233112122310101-3331200221130221-2012310310010113-2212311012033121-0331023201232121) |
+| `advertise_custom.advertise_where.vk8s_service.virtual_site.name` | [advertise_custom.advertise_where.vk8s_service.virtual_site.name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3201122003211333-3303101211223302-0303021002222103-1110003012102120-2120113022023100-3012100331113222-2112123330201231-0313000331203231) |
+| `advertise_custom.advertise_where.vk8s_service.virtual_site.namespace` | [advertise_custom.advertise_where.vk8s_service.virtual_site.namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0012312120212210-0023331020321310-2121022210223303-2300332223321022-0213331131132112-2130122330302233-1210313020310331-0113301101023020) |
+| `advertise_custom.advertise_where.vk8s_service.virtual_site.tenant` | [advertise_custom.advertise_where.vk8s_service.virtual_site.tenant](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1202021312220001-3232013103322110-3100112103010323-1121330221122313-3330012013211010-1201031310222032-1113201303033321-3130121021311022) |
+| `advertise_on_public` | [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2200031202211021-0313200202312233-1013023211320030-3123000101033002-1113110302231111-2101321210002322-3331003310213213-0312330021311122) |
+| `advertise_on_public.public_ip` | [advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2302330022113120-0132220223113030-1203002312332220-3011132222110320-0100103320332132-3231213110010122-0221301003313120-3312121011200103) |
+| `advertise_on_public.public_ip.name` | [advertise_on_public.public_ip.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1222030022130330-0331013312310213-0220003120000133-2122222123123030-1223301100031132-0103131211033302-3113031021023121-3022122220220013) |
+| `advertise_on_public.public_ip.namespace` | [advertise_on_public.public_ip.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0232110030303000-3323233312210002-0331002220113231-1222032131332110-0320133301131131-0232310110113333-1331330112132330-2303112220222012) |
+| `advertise_on_public.public_ip.tenant` | [advertise_on_public.public_ip.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2323212133012203-2231313332303232-0213313201013313-2200010311322211-1221211112100130-0112221313113110-0213322230323013-3310210023331003) |
+| `advertise_on_public_default_vip` | [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1123330002330211-1310302201203201-1113023310221132-0301203233322302-0032103302032320-2010301030313101-2213001103002101-3232220103002213) |
+| `annotations` | [annotations](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0033213300222203-3110133001130033-0121100202230300-2230302202321220-0202300222212032-3101212110102021-1033021113021300-2203330101302323) |
+| `default_lb_with_sni` | [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3323001220100213-0332200120333110-0322222321133332-1232031323010000-3212121100010232-0301020212002130-0303222103123032-1320010121121321) |
+| `description` | [description](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1330332021221011-3122233101332003-3031323100303332-2101000333002222-0121020323102222-2122020121110100-3211313202313031-0321133100012232) |
+| `dns_volterra_managed` | [dns_volterra_managed](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3012233000221133-3320101201020032-3032000230231012-1323210202201322-3300231012303120-3202131020133300-3210001113311032-3130012331323210) |
+| `do_not_advertise` | [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0001303000210302-2210122211320302-0002200332110310-0310113320302002-1122011331112123-3223311220302121-3230321301031211-3123012131133000) |
+| `do_not_retract_cluster` | [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0021013132003110-0210102220132311-3302202220213101-2313122133232322-0211013312030111-2133331021111111-1102303210112013-1030322030021232) |
+| `domains` | [domains](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2000231333311222-2002031100131000-2230002313113222-0113312303300303-1321321023003220-2302230212313230-2311201201321031-3231010312211301) |
+| `hash_policy_choice_least_active` | [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0213123311230102-3223303113132302-0222311331313011-2233121031121311-1102323230101312-1223301003121202-1122203220021330-1112321202221300) |
+| `hash_policy_choice_random` | [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3212033231123032-1011312023323013-1011123300220023-1231033203130221-1201031100111300-1010230221333212-1313301103132100-1122023101232212) |
+| `hash_policy_choice_round_robin` | [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0013003300111331-2221131030212002-0133311311011203-2121231303120023-1320011201221133-2232301003113132-2321033323301211-3331202302033223) |
+| `hash_policy_choice_source_ip_stickiness` | [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0001313102231321-2102202120232131-3313220313103221-2312113230312002-3312032203302111-0233332302110333-1313210300232111-1311102213312222) |
+| `id` | [id](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0020333001002103-1122302123333332-2013131230011012-0032212333311122-3210222332133010-3322012300130233-1232132132313130-0123100231113333) |
+| `idle_timeout` | [idle_timeout](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2033132233011223-0320031312303221-3311120111100120-3202022023120011-3003000110233213-0312101012300333-0121103033220012-1313133230212303) |
+| `labels` | [labels](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1020321332302103-2201122000120011-2323122303212201-3010022111331123-2120133002101103-0131132130213220-0022130311101311-2021002232001300) |
+| `listen_port` | [listen_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222203011331003-0310123211011110-2102011131222123-2003213212232211-2002112321132001-3002100220103221-0230311323201121-0313123210302122) |
+| `name` | [name](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2301311022033310-3331211300221332-1300102220212213-2100022212021132-2223210111031103-1313113312110320-3122201210123012-3022103030110031) |
+| `namespace` | [namespace](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1200301120201122-2332131010212332-0132320032132212-1012021212111311-0301220220203102-2332031311020330-2123012003010022-2230231012211323) |
+| `no_service_policies` | [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0121112133023001-2133103202133131-1030333112200300-0221311100103201-3330222002023012-0321002320113000-0310301333203033-2200011113112222) |
+| `no_sni` | [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2112113331223322-3231232001320233-1302030020311232-3100000332022230-1032022022211232-2010330311022330-0123212123130312-3120230231130212) |
+| `origin_pools_weights` | [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3200202332003310-0211023331000103-0121311213201021-2001122321011101-1130023223300221-1121311210313223-3022112123003300-0100230133313000) |
+| `origin_pools_weights.cluster` | [origin_pools_weights.cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1113012100011030-2001322102301030-1131010011033030-1313003012021101-0110011203030111-0032230200000311-3003320330302213-1200101331100111) |
+| `origin_pools_weights.cluster.name` | [origin_pools_weights.cluster.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2212013331103221-3031332033320031-1210122323123331-1031313113310310-3100223311311321-3120113311131312-3112322132002012-3220331130032303) |
+| `origin_pools_weights.cluster.namespace` | [origin_pools_weights.cluster.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3200332330131231-3103203300030030-3031323302132210-3132221121211320-1230030120120212-0003023213012210-1221001331011023-1200032332022033) |
+| `origin_pools_weights.cluster.tenant` | [origin_pools_weights.cluster.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0300331231310020-2221010013102111-3022100132132022-3312032231320012-2101033320221132-1123310201312103-1221200033010122-2222310330220323) |
+| `origin_pools_weights.endpoint_subsets` | [origin_pools_weights.endpoint_subsets](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3220123132322001-0221230110222113-2301001313220031-2003111011112222-0210003310111311-0231121311123233-3110203332231311-1100133102333121) |
+| `origin_pools_weights.pool` | [origin_pools_weights.pool](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1132213133202332-1322012003101323-3330023000200011-0331233133011332-2222300223122200-0331130322222123-2231333130011310-3012311322322233) |
+| `origin_pools_weights.pool.name` | [origin_pools_weights.pool.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1202230130301301-0102231022221021-1132312202023331-0323033331101101-2200020223321123-2133213330222033-3113001133033031-1130322302230120) |
+| `origin_pools_weights.pool.namespace` | [origin_pools_weights.pool.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3233100010300122-3230221023120200-1113012021131032-0020202101121311-3100220330130000-2333032032122032-2033230320321232-0220233100122310) |
+| `origin_pools_weights.pool.tenant` | [origin_pools_weights.pool.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3321202331223033-2020301031110310-2212010110322331-2220302023003201-3012111002301110-0111013231221032-1311310333220110-1123230331332102) |
+| `origin_pools_weights.priority` | [origin_pools_weights.priority](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0103301112020110-2133210101322130-3120321133113130-1213031012300313-1233031101032300-2023001121123303-0030103230013311-1223211120321312) |
+| `origin_pools_weights.weight` | [origin_pools_weights.weight](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1231132003213230-2312112323103213-1303032131103311-1020022230023332-2001001012010113-3201030003313213-2101020123120220-0123312003101312) |
+| `port_ranges` | [port_ranges](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3010332213102001-1023232101230303-2030133221032011-3122131332030021-3200103113222130-2101131210332021-3322113020113002-3233031311221002) |
+| `retract_cluster` | [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1131023233233002-0323313303102032-2022112113312010-0331130133000123-0003323331110103-0100213211012000-1331100102121003-1302332022231233) |
+| `service_policies_from_namespace` | [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3301033031210010-2323133031222031-3022302003130302-0332310330103322-1101123130223311-2303021212131110-1301210012202313-1202323210102000) |
+| `sni` | [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2312220212030333-0230231220111231-0012033022321102-0311002130002223-2112002002110030-0212103020302010-2021321302012013-2221101100130002) |
+| `tcp` | [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1233311120231210-2331220321101311-1220130030202313-0102210322110321-2301130120100010-1311032331121332-3330332030322100-0111113320312013) |
+| `tls_tcp` | [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1212102131222122-0010230212231023-2032230231022002-3301321213331102-1011221101033321-2331201103200201-1332121102010012-1210120021232232) |
+| `tls_tcp.tls_cert_params` | [tls_tcp.tls_cert_params](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3132223110233100-1320012202202033-1132100030231233-0033102321001200-2232203103300203-1033211111333321-0331200012002110-0312303033331120) |
+| `tls_tcp.tls_cert_params.certificates` | [tls_tcp.tls_cert_params.certificates](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2131031203113123-2120023231133210-2031321322203322-3020220130231101-3232323000013013-2130030221033213-2333302213132323-0211123023031222) |
+| `tls_tcp.tls_cert_params.certificates.name` | [tls_tcp.tls_cert_params.certificates.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0330213130033302-2311133212003232-1231011202220331-0201310012311002-1302323032110110-2011103103003101-1102100200021002-2331331000332311) |
+| `tls_tcp.tls_cert_params.certificates.namespace` | [tls_tcp.tls_cert_params.certificates.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2012221313301311-3121010301222010-1303302113013130-0321122033330101-3323232033310200-3202100230201211-1230222131023332-3303222101121120) |
+| `tls_tcp.tls_cert_params.certificates.tenant` | [tls_tcp.tls_cert_params.certificates.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2032333032103301-1310203201210310-2213221300031023-1333112212202311-0011122300022032-1113001303130332-0232330033123311-3123100102033320) |
+| `tls_tcp.tls_cert_params.no_mtls` | [tls_tcp.tls_cert_params.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1131332332222222-2211033122302333-1310003133220203-1113330202203211-2202111030333333-3331211322133001-3130032120120221-3223110203103302) |
+| `tls_tcp.tls_cert_params.tls_config` | [tls_tcp.tls_cert_params.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1121001013333021-1103303101321122-1231003331210113-2031010221010210-1313221103013223-1111313301230202-0232031132211130-3311300223310031) |
+| `tls_tcp.tls_cert_params.tls_config.custom_security` | [tls_tcp.tls_cert_params.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1200022311111031-1221101303010133-3200312012113323-1202310320303130-2211212320213322-1310213121233320-2130002103122320-2103013221013303) |
+| `tls_tcp.tls_cert_params.tls_config.custom_security.cipher_suites` | [tls_tcp.tls_cert_params.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2312011321003020-2120011003222131-2230031122022211-1022020022033303-0222131301032332-1312210331323223-3000101212122300-0203013312220020) |
+| `tls_tcp.tls_cert_params.tls_config.custom_security.max_version` | [tls_tcp.tls_cert_params.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2031121013232310-2212011011310221-1020112310311120-3300333311021221-2333120332310220-3111122010013033-2321113300311023-0323233031102210) |
+| `tls_tcp.tls_cert_params.tls_config.custom_security.min_version` | [tls_tcp.tls_cert_params.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1013030331321021-2120321112101012-3022010120221302-0111132203322312-2311132031001112-3313111301120021-2033233033101010-2300022301323211) |
+| `tls_tcp.tls_cert_params.tls_config.default_security` | [tls_tcp.tls_cert_params.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3000210203333221-0332202020313002-0322130023111302-2130322221231110-2231122122020131-3232223200011221-1130330030223203-2213333332001121) |
+| `tls_tcp.tls_cert_params.tls_config.low_security` | [tls_tcp.tls_cert_params.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0030013133102302-3111331100103230-0212131123223001-2130232010030120-1320021111111002-3020012013103223-0313320310121232-2011202330222023) |
+| `tls_tcp.tls_cert_params.tls_config.medium_security` | [tls_tcp.tls_cert_params.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1012320000010113-2333030302211220-2313132232130223-2130011220132223-2031110103133103-2201032313000012-1122201103311331-3221213012232132) |
+| `tls_tcp.tls_cert_params.use_mtls` | [tls_tcp.tls_cert_params.use_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3012321301330313-1130000121202210-3132002213121330-2101110133000102-2221110132220130-0130220212232021-2133131310131330-1221300011113332) |
+| `tls_tcp.tls_cert_params.use_mtls.client_certificate_optional` | [tls_tcp.tls_cert_params.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3203000003301102-3110322001303011-0132221021312331-3013220331211213-1202220320222030-1010111030021230-1110231202231202-0100301210001233) |
+| `tls_tcp.tls_cert_params.use_mtls.crl` | [tls_tcp.tls_cert_params.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1021021310222211-1220302113221211-0213213022332030-2020103012212202-0132311010011202-3003023002121221-3032010100221101-3230133203310033) |
+| `tls_tcp.tls_cert_params.use_mtls.crl.name` | [tls_tcp.tls_cert_params.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0013221000300021-1310113131223003-0112323010100101-2200312132322003-2033331121101121-0220013131002030-1101310130133101-0110011112320012) |
+| `tls_tcp.tls_cert_params.use_mtls.crl.namespace` | [tls_tcp.tls_cert_params.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0113021201200122-2133120112123120-2111223032133301-3231032221031333-1102132313013120-1013300102301030-1233013331000322-2031121002111330) |
+| `tls_tcp.tls_cert_params.use_mtls.crl.tenant` | [tls_tcp.tls_cert_params.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3301003122110202-2120301021221302-2232110131313300-2223321310230010-3113330233022230-3021210113132210-2123000333232012-3022031102230113) |
+| `tls_tcp.tls_cert_params.use_mtls.no_crl` | [tls_tcp.tls_cert_params.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1313221332320211-1011200022102330-0322213303201222-0023330132023302-0212301222303112-3101213100332003-1001222201313113-2312020232003130) |
+| `tls_tcp.tls_cert_params.use_mtls.trusted_ca` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3100312211000133-0002100201332030-0312320012202300-1320103211122023-3122332010003131-2332321030001222-1122133120330133-2313011031120223) |
+| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.name` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3031030211121023-0330302030001022-3133223320233311-0122020313300322-2031210230323313-2211113133102110-0202223023133120-1321330133012103) |
+| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.namespace` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2212121103233230-3211133303132030-3300213010321023-2021211120120203-2111120220001121-2030320203320010-1321330002233010-1023011322120130) |
+| `tls_tcp.tls_cert_params.use_mtls.trusted_ca.tenant` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2210122211323312-3012020130321013-0233130102203210-2030013133202311-2321230221121310-1321012003132212-2210132002133330-1300121323132302) |
+| `tls_tcp.tls_cert_params.use_mtls.trusted_ca_url` | [tls_tcp.tls_cert_params.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1232023003032313-1211121000333331-1101023310312120-2222112113233132-1030000122122211-0002200212103033-3103001212020322-0330231220022331) |
+| `tls_tcp.tls_cert_params.use_mtls.xfcc_disabled` | [tls_tcp.tls_cert_params.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2012330212030210-1130211020301313-1030130013333121-0003003012210021-0023313032110211-3112133000211232-1030103033122100-2031121123003333) |
+| `tls_tcp.tls_cert_params.use_mtls.xfcc_options` | [tls_tcp.tls_cert_params.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3113333131301233-1012113033202310-1200303321122130-0311033223320133-0300131110102203-0133233000013023-0112032032022021-3132023202202111) |
+| `tls_tcp.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0223223130003202-3320131021110302-2323220000220122-1013112221003111-1100223112320022-1322233300031301-1132133221302111-3002032130322232) |
+| `tls_tcp.tls_parameters` | [tls_tcp.tls_parameters](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2121021311101012-2230010312001123-2312121013311221-3322320113212022-1023322132223233-0233320112310313-2000233212123201-3101323233030001) |
+| `tls_tcp.tls_parameters.no_mtls` | [tls_tcp.tls_parameters.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3001133123312002-1000320221230212-0222121000310303-1200233122223222-2230332032132333-3313210001031231-1313031322200131-1021111110011000) |
+| `tls_tcp.tls_parameters.tls_certificates` | [tls_tcp.tls_parameters.tls_certificates](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1012102230213233-3212321103023301-1031112200203333-0003130113203002-0113233211132130-2100101021100331-2303203302000310-2130011002231231) |
+| `tls_tcp.tls_parameters.tls_certificates.certificate_url` | [tls_tcp.tls_parameters.tls_certificates.certificate_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1100213020121312-1102013313211022-2021013123233101-1321231012321020-0320132023320322-1303211332030232-2331203210331133-0332202232232121) |
+| `tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms` | [tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3333312302220231-2222020031203330-1203200113121021-2201210323030201-3033223233113213-2302123310131210-1213103311101220-1000102233110122) |
+| `tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0201303311112033-2123130100113320-3331110213002110-1030033210221302-0331221313203021-1322222013121220-3312222013132233-1022000102330003) |
+| `tls_tcp.tls_parameters.tls_certificates.description_spec` | [tls_tcp.tls_parameters.tls_certificates.description_spec](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2230333001233120-2021110211021230-1132332320103130-1112110302310001-2322212112121030-3310320120310020-1331013233132303-2210320312222033) |
+| `tls_tcp.tls_parameters.tls_certificates.disable_ocsp_stapling` | [tls_tcp.tls_parameters.tls_certificates.disable_ocsp_stapling](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1011133323230033-0011110010130221-1323003103012012-0103311200301030-1130220220222033-2103111221122030-1320001303310010-2021201132022322) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key` | [tls_tcp.tls_parameters.tls_certificates.private_key](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1101331003131213-1231312032211322-2233011011231000-1002211131023110-1022021311003332-0223300202331220-3102031301321103-2220022111213132) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3320320232322331-0001011010110300-2033233300111122-0013003310303200-2323210133200202-3030100013323002-0021300202230233-1122010002233112) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3033010312023320-3132320200102133-2303231033212110-0012020102201103-0120213302220303-2211210332001202-1301232302221232-3221221323301100) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0133330130022222-0021302211130321-3023230232220112-0110000232322331-2201321323012013-3103103132211023-1021332230220130-0310013333331303) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2023322332202320-2213301030232110-0302133102330320-3230222011123313-0120333221212013-2003103222201320-1320131031202012-1031323022221231) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1312210322322010-2311302023001232-0032233233302100-1121300131032223-0232313303000000-0132231331200033-2310111021202313-3011303222210213) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3003112000123322-1131112122120313-1113332232201322-2032211033000333-3313120132010033-3130233333012003-1113033130331320-1011201223003101) |
+| `tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.url` | [tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info.url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1023030133133323-2302200000330013-3220112010000021-1221303222033010-2110120301010220-0131220221211213-0313101120011321-0003322102212211) |
+| `tls_tcp.tls_parameters.tls_certificates.use_system_defaults` | [tls_tcp.tls_parameters.tls_certificates.use_system_defaults](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0133232121100203-3112131312222332-1210211201023203-0213031301113222-1100110303101231-1002321023220200-2130320023203200-2102003202313001) |
+| `tls_tcp.tls_parameters.tls_config` | [tls_tcp.tls_parameters.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2221303331133203-1130203323222012-3330132321032001-2221230001200013-3211320212313313-1330022310200131-2012220011310103-1123313133101101) |
+| `tls_tcp.tls_parameters.tls_config.custom_security` | [tls_tcp.tls_parameters.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3013101131313113-0201013023331222-3233331012300022-1301301333232231-3312223021100102-0312131001221132-2103123100122010-0102133012331132) |
+| `tls_tcp.tls_parameters.tls_config.custom_security.cipher_suites` | [tls_tcp.tls_parameters.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3100112232003232-2300221211320311-2021232303000202-0300221100013232-0311030213023021-2013322320033113-3302320120122101-1310220133233300) |
+| `tls_tcp.tls_parameters.tls_config.custom_security.max_version` | [tls_tcp.tls_parameters.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0300113000203223-2220033311213120-3310333103003013-0301032103312203-0011301303010303-2001211122103231-0111103021111010-2210022200322330) |
+| `tls_tcp.tls_parameters.tls_config.custom_security.min_version` | [tls_tcp.tls_parameters.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3331100231131101-2031232201123000-1032022131120020-2331330012113233-2331102112333131-2202232211011330-1202011102333313-1110203132310202) |
+| `tls_tcp.tls_parameters.tls_config.default_security` | [tls_tcp.tls_parameters.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1332022222321223-2110230113333020-1021123232000223-3223023231122321-0301011020323100-3232031023123112-2223012332033230-2012203201302001) |
+| `tls_tcp.tls_parameters.tls_config.low_security` | [tls_tcp.tls_parameters.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1233020333030001-0023231023111002-2320211210113132-0200321030010330-0222301121001232-2031100331121301-0100303211321012-3311212012121130) |
+| `tls_tcp.tls_parameters.tls_config.medium_security` | [tls_tcp.tls_parameters.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3001103131311223-3010020313031202-3200003032201111-0002112323322103-3123310233032000-3131111123113132-3102113330310000-3231122221311101) |
+| `tls_tcp.tls_parameters.use_mtls` | [tls_tcp.tls_parameters.use_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3223222113230022-2123203033302010-3201002232021200-2112303222332011-1013320230313022-2100203313201023-0320013033033023-2203133121123123) |
+| `tls_tcp.tls_parameters.use_mtls.client_certificate_optional` | [tls_tcp.tls_parameters.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0310032321121022-1131300132301122-0101302232113203-1330002133211013-1022010011303221-1310002003321301-2013330120233011-2331230323113310) |
+| `tls_tcp.tls_parameters.use_mtls.crl` | [tls_tcp.tls_parameters.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0100200111001303-3031030302320223-0210132001100020-0232033032122220-2023302130333033-3322212220301321-2230201112022322-1103221030212303) |
+| `tls_tcp.tls_parameters.use_mtls.crl.name` | [tls_tcp.tls_parameters.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1112302322302231-0333230320023333-1313222210010222-3020100210320032-0212133121233013-1202111100012021-2121001322020311-0033131210003102) |
+| `tls_tcp.tls_parameters.use_mtls.crl.namespace` | [tls_tcp.tls_parameters.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0101102323230331-1033111200123212-0313133311121003-3302110203330022-2312030020033123-2013312213303022-1332232331231313-0231323130312312) |
+| `tls_tcp.tls_parameters.use_mtls.crl.tenant` | [tls_tcp.tls_parameters.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3121333021032331-0112221131203000-2230102322330110-1212202010203110-3312012231213313-2033322210322331-3323302330310322-1301003203021132) |
+| `tls_tcp.tls_parameters.use_mtls.no_crl` | [tls_tcp.tls_parameters.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0332112123301220-2310300121111102-2203101012332220-2313031111331131-0001313301002011-1101331312010313-2130222002312123-1233012313332223) |
+| `tls_tcp.tls_parameters.use_mtls.trusted_ca` | [tls_tcp.tls_parameters.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1310022002220230-3301211110111003-0120122110301201-2213301110010223-1231112203210021-3301302011233230-3001200111102203-2023313200231030) |
+| `tls_tcp.tls_parameters.use_mtls.trusted_ca.name` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3001302011113030-0232101312023210-1101333020331021-0000310222332101-1030013002322101-3333301122301213-1011203202223312-1101221023101233) |
+| `tls_tcp.tls_parameters.use_mtls.trusted_ca.namespace` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3012232013130300-1211110120202010-1033320132320030-1221001200130331-2212033003210322-0333131030330203-3003113322003101-1301032022120211) |
+| `tls_tcp.tls_parameters.use_mtls.trusted_ca.tenant` | [tls_tcp.tls_parameters.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3102121312210012-3230223000230330-0002200132121220-3303012000200202-2231302212012211-3202203102303302-1112112331221013-2332100132203313) |
+| `tls_tcp.tls_parameters.use_mtls.trusted_ca_url` | [tls_tcp.tls_parameters.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3011301223002313-1302132132023313-0330120020322202-3032302202111112-0010320111013303-3200332330210301-2302112231221303-2112120130322120) |
+| `tls_tcp.tls_parameters.use_mtls.xfcc_disabled` | [tls_tcp.tls_parameters.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3120300001022020-3010321310302003-1230131212331113-2120233033020121-3202321332133232-0122331131222200-3313301220303133-2033330230300020) |
+| `tls_tcp.tls_parameters.use_mtls.xfcc_options` | [tls_tcp.tls_parameters.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1020130210233233-3331300223301103-0110222032000010-1030001032212101-3020221332323101-1230201030332102-1112303223213101-2100020221011223) |
+| `tls_tcp.tls_parameters.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp.tls_parameters.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2203003223223132-0103012231300230-2103111213131010-0223322310201003-0300102321200222-1122132202030210-0230003011110302-1112111023231330) |
+| `tls_tcp_auto_cert` | [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3122010013013333-0010120031233203-2230121020320021-2303221102121132-3030013013032022-1321333312130213-1313113220130030-1002023233330000) |
+| `tls_tcp_auto_cert.no_mtls` | [tls_tcp_auto_cert.no_mtls](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1312323322322321-1230033311202000-0021330230212001-2121300030011302-1310011212312321-2321022223213330-2022210331101330-2232332123301233) |
+| `tls_tcp_auto_cert.tls_config` | [tls_tcp_auto_cert.tls_config](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2100223333301213-2002332220230023-1111133020100000-1303221120200120-2202022230303211-1102203132031311-1102301231123233-0210203300120303) |
+| `tls_tcp_auto_cert.tls_config.custom_security` | [tls_tcp_auto_cert.tls_config.custom_security](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-3113213220330012-3210103010123110-2322302223233001-1132212132131022-3131220221333211-1113012020101213-1202012113211110-0121032132032023) |
+| `tls_tcp_auto_cert.tls_config.custom_security.cipher_suites` | [tls_tcp_auto_cert.tls_config.custom_security.cipher_suites](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-0023332303002130-3332030023122220-1331331200202023-2321231133130303-1201010012203210-3332123211201113-1333112202311322-1003113331202113) |
+| `tls_tcp_auto_cert.tls_config.custom_security.max_version` | [tls_tcp_auto_cert.tls_config.custom_security.max_version](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1310130000230122-0200213222323231-1211023301310201-1022132332202000-0020112121321330-1012110323020233-0121212220030322-0000310203212233) |
+| `tls_tcp_auto_cert.tls_config.custom_security.min_version` | [tls_tcp_auto_cert.tls_config.custom_security.min_version](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2133221010110323-1020302201323201-3310131311130010-0230001321100232-0111101000131201-3221131320303221-1012000032112322-0303123110202021) |
+| `tls_tcp_auto_cert.tls_config.default_security` | [tls_tcp_auto_cert.tls_config.default_security](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1231123211121221-3221333310333310-2312011201121020-2110201113100321-1300001133302122-1312233121120032-2301330030010010-3000123120323211) |
+| `tls_tcp_auto_cert.tls_config.low_security` | [tls_tcp_auto_cert.tls_config.low_security](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-0111030230322333-3323310102022203-3323320111212030-3132222030022222-2333002112200212-3232012221322001-1113202311300031-2333231131011010) |
+| `tls_tcp_auto_cert.tls_config.medium_security` | [tls_tcp_auto_cert.tls_config.medium_security](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1303003213322311-0201122021101221-1302030000202223-1013001323232310-2300223002320112-1030311322130322-0320202103323000-0132020320332123) |
+| `tls_tcp_auto_cert.use_mtls` | [tls_tcp_auto_cert.use_mtls](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2000030223230202-2220210002210222-3002220323331312-3303332212110220-2032210011113200-0101313001313133-0222032001300033-0012223200133211) |
+| `tls_tcp_auto_cert.use_mtls.client_certificate_optional` | [tls_tcp_auto_cert.use_mtls.client_certificate_optional](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1310222003001333-0201010230220131-3213212222221213-0232301131302131-2213002223313320-3130200000013213-0222123101011210-1102010112200110) |
+| `tls_tcp_auto_cert.use_mtls.crl` | [tls_tcp_auto_cert.use_mtls.crl](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2023121130131103-1130230220332001-1103011133232103-3102131201233302-3312020120132220-0000322010023032-2121311233322131-2231233333002110) |
+| `tls_tcp_auto_cert.use_mtls.crl.name` | [tls_tcp_auto_cert.use_mtls.crl.name](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1121101213322130-1221310330020213-2101321311010310-3200322332131121-3311132212223030-0031122102303322-2222331010330031-1120332330003221) |
+| `tls_tcp_auto_cert.use_mtls.crl.namespace` | [tls_tcp_auto_cert.use_mtls.crl.namespace](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2033021222131122-1230303230120112-3202202133121122-2330102122020101-1231232110303210-0030000310311322-1101103122110011-2201000011321122) |
+| `tls_tcp_auto_cert.use_mtls.crl.tenant` | [tls_tcp_auto_cert.use_mtls.crl.tenant](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1020322103321221-3220301113003332-0333032132321002-3132112101201021-3312101231121322-1110002012321323-3030110131323203-3233131331032123) |
+| `tls_tcp_auto_cert.use_mtls.no_crl` | [tls_tcp_auto_cert.use_mtls.no_crl](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2310311132122032-0233210101310000-0222220321230000-3113133333012201-0102321222031030-0000100020332131-0323131101032031-2331003112313103) |
+| `tls_tcp_auto_cert.use_mtls.trusted_ca` | [tls_tcp_auto_cert.use_mtls.trusted_ca](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-0212132103311331-2230222302111013-3331301031021130-0230332012032302-0130203300223022-3220230331220113-3211323102100202-2002312331003211) |
+| `tls_tcp_auto_cert.use_mtls.trusted_ca.name` | [tls_tcp_auto_cert.use_mtls.trusted_ca.name](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2302212322000212-3323020331121211-2230020322321131-2133000212233221-3133101011132222-3113021123013021-2332012010300321-0100121033133033) |
+| `tls_tcp_auto_cert.use_mtls.trusted_ca.namespace` | [tls_tcp_auto_cert.use_mtls.trusted_ca.namespace](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2022003210030130-0201311121121312-1030310203231031-1332310201211221-3213131001311212-1231002213110031-1013330311221010-0103033010032120) |
+| `tls_tcp_auto_cert.use_mtls.trusted_ca.tenant` | [tls_tcp_auto_cert.use_mtls.trusted_ca.tenant](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1313330103302210-0333112133213022-1220221203012210-3311311021330130-3233301101022123-3133211211001111-1010211323300311-3001102323013123) |
+| `tls_tcp_auto_cert.use_mtls.trusted_ca_url` | [tls_tcp_auto_cert.use_mtls.trusted_ca_url](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-3213133123022310-2300013011102123-1103210132220113-3212121330103200-2321021231322121-2323011101302212-0231103102213012-1023210111133332) |
+| `tls_tcp_auto_cert.use_mtls.xfcc_disabled` | [tls_tcp_auto_cert.use_mtls.xfcc_disabled](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-3232232030103320-3130121211101303-1210132231322022-3013321130230021-0300032021203111-1332012233010021-2033122231021012-1201312103222301) |
+| `tls_tcp_auto_cert.use_mtls.xfcc_options` | [tls_tcp_auto_cert.use_mtls.xfcc_options](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-2213310110203313-1232313033031131-1332121213033031-0213112212010211-3101012111032012-0312211230202300-2203233212200002-3212230100213220) |
+| `tls_tcp_auto_cert.use_mtls.xfcc_options.xfcc_header_elements` | [tls_tcp_auto_cert.use_mtls.xfcc_options.xfcc_header_elements](data-sources--tcp_loadbalancer--reference--group-003.md#canonical-1033233113222132-2323230213321012-2100311332211000-0303232301222200-2303311211222023-1121333223220012-1122311023322032-1232322210203201) |
 
-<a id="canonical-04407d75f3e001686a13bd08b888f72cf31866b903f6a0db96389cfe0efed8df"></a>
+<a id="canonical-0010100013311311-3303320000011220-1222010323310020-2320202033130230-3303012012122321-0003331222003123-2112032021303332-0032333231203133"></a>
 
-## Next pages — Property reference / 7eba654d3f60 / 16
+## Next pages — Property reference / 103103331200 / 16
 
-- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-45284443551b024b171d2f15c5b2a1a11c45d73a87eb54ea5ae3ecce816903d0)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5684e25de901e83fdd06b403aedef7b7952f266b34a2576f9c1eabbbabb5b10d)
-- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-93c42f400565a50ba7899bf25a14840f61f30439c967fbdb821dfad3d26713f7)
-- [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-58d165c905a3aa921c6ac38d12138ce201d65967f9ffc5dc81b357df7ae71d92)
-- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-b1801b83aca2b6ca4df5d63ecc6355d3044c0feac6da71d837ff4f327a6aaa0b)
-- [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-92a4b8fc91e5719ee6dabdf2bf0c8c07e6c9afd663ed699d176b12d95be766bd)
-- [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-6fefce460aa1c56801d63f400e477b2c03db10c5fade95cd00405f57b6474f06)
-- [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-7b4e92e9b7e4a2ce124345a9c73070c6c23728a208081113b06d1f9771e991f4)
-- [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-81aa7887946841c82a19ae76a9603b0fd6014eb80c03c27bd3f913d0edec525a)
-- [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-919c33641590e0126296cedb9bf8574ce4d8993d7c5af43da49b3145d89baa95)
-- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-eecd9cf3f444d97ef8d07cd7dc143b76295c7f091307b4c0ec0be1395b0afd03)
-- [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-fbd7a2a7cc37149eea9e418797c4c0076cdcf0920443426b82cf1264fe067cbc)
-- [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-894f595bbc8978227e5e9971546495ff0b655dcd9725c3b9e929610927854c91)
-- [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-cc1c3b2f483ba6234b58359b9208b3f5b95fbdc41442e47e1b1563ca0af0f2e5)
-- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1b22f5ba2b642ff390ebaac0f099fe50f84b8b44393fb2f0efbdb4c499f4b7d5)
-- [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-9fc01974e3956c45c697aa96fa01d9561f837ca5f51871023cd162da605ea22b)
-- [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-8e30515f89b566c0046c0b656f5f1cae28136176409095156357cbe5f3cab9fc)
-- [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-a8cb93789e0c003784740b4e13da283bfc153d645902b5eb637e45de41c0c031)
-- [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-17eb82266e303a3d9bed39b3a1288b032620aaf6227dde0f4948ac347bb7b929)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031)
+- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2103301002331000-0011121122110023-2213202121233302-1122011020100033-1201330300100321-3021121333233123-2002013133223103-3102121301033313)
+- [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1120310112113021-0011220322222102-0130122230032031-0102010320303202-0001311211211213-3321333330113130-2001230311133133-1322321301312102)
+- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2301200001232003-2230220223123022-1031331131120332-3030120311113103-0010103000333222-3012312213013120-0313333310330302-1322122222220023)
+- [do_not_retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2102221023203330-2101321113012132-3212312223313302-2333003020300013-3212302122333112-1203323112212131-0113122301023121-1123321312122331)
+- [hash_policy_choice_least_active](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1233323330321012-0022220130111220-0001311203331000-0032101313230230-0003312301003011-3322313221113031-0000100011331113-2312101310330012)
+- [hash_policy_choice_random](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1323103221023221-2313321022023032-0102100310112221-3013030013003012-3002031302202202-0020002001010103-2300123101332113-1301322121013310)
+- [hash_policy_choice_round_robin](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2001222213202013-2110122010013020-0222012122321312-2221120003230033-3112000110322320-0030000330021323-3103332101033100-3231323011021122)
+- [hash_policy_choice_source_ip_stickiness](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2101213003031210-0111210032000102-1202211230323123-2123332011131030-3210312021210331-1330112233100331-2210212303011011-3120212322222111)
+- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3232303121303303-3310101031211332-3320310013303113-3130011003231312-0221113013330021-0103001323103000-3230002332010321-1123002233310003)
+- [no_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3323311322022213-3030031301102132-3222213210012013-2113301030000013-1230313033002102-0010100310021223-2002303301021210-3332001213302330)
+- [origin_pools_weights](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2021103311211123-2330202113200202-1332113221211301-1110121021113333-0023121111313031-2113021130032321-3221022112010021-0213201110302101)
+- [retract_cluster](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3030013003230233-1020032322120203-1023112003112123-2102002023033311-2321113323313010-0110100232101332-0123011112033022-0022330033023211)
+- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0123020233112322-0223121002333303-2100322322223000-3300212133321100-3320102320231010-0321033323023300-3233233123103010-2121331023133111)
+- [sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2133300001211310-3203211112301011-3012211322222112-3322000131211112-0133200313302211-3311012013010002-0330310112023122-1200113222020223)
+- [tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2032030011011133-2021231112123000-0010123000231211-1233113301302232-0220010312011312-1000210021110111-1203111330233211-3303302223213330)
+- [tls_tcp](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2220302321031320-2132003000000313-2010131000231032-0103312202200323-3330011103311210-1121000223113223-1203133210113132-1001300030000301)
+- [tls_tcp_auto_cert](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0113322320020212-1232030003220331-2123323103212303-2201022020230003-0212020022223312-0202133131320033-1021102022300310-1323231323210221)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-45284443551b024b171d2f15c5b2a1a11c45d73a87eb54ea5ae3ecce816903d0"></a>
+<a id="canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-91a93fa17b19e973b35235ef81038b3509697a09aec418c3d10ff040cb8c9da7"></a>
+<a id="canonical-2101222103332201-1323012132211303-2303110203113233-2001000320230311-0021122113220021-2232301001203003-3101003333001000-3023203021312213"></a>
 
-## active_service_policies — active_service_policies / 99d71e54f243 / 2
+## active_service_policies — active_service_policies / 111033021003 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
 - active_service_policies
 
-<a id="canonical-d82c009ba1a1aaa6002c1ec20e4a1e5ae1e81a34c6a82e063d94ade1b66c6175"></a>
+<a id="canonical-3120023000002123-2201220122222212-0000023001323002-0032102201321122-3201322001220310-3012222002320012-0331211022313201-2312123012011311"></a>
 
 Type: `"single"`. Computed.
 
@@ -837,44 +837,44 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d82c009ba1a1aaa6002c1ec20e4a1e5ae1e81a34c6a82e063d94ade1b66c6175)
-- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1959f2c19f4e27dd4cfd683029d504e1fca822c6390b85c034c7f8cfa01575aa)
-- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-f13cd904bb7cda8dcac837323ed3c4fa516dcaf5b3266754719068b762ee4480)
+- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3120023000002123-2201220122222212-0000023001323002-0032102201321122-3201322001220310-3012222002320012-0331211022313201-2312123012011311)
+- [no_service_policies](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0121112133023001-2133103202133131-1030333112200300-0221311100103201-3330222002023012-0321002320113000-0310301333203033-2200011113112222)
+- [service_policies_from_namespace](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-3301033031210010-2323133031222031-3022302003130302-0332310330103322-1101123130223311-2303021212131110-1301210012202313-1202323210102000)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-3fbda0f1c9952ec31a09a4002a72a86bbb1e982835c73f4489d494a0fa468ea3"></a>
+<a id="canonical-0333233122003301-3021211102323003-0122002122100000-0222130222201223-2323013221200220-0311301303331010-2021311021102200-3322101220322203"></a>
 
-## Direct properties — active_service_policies / 99d71e54f243 / 3
+## Direct properties — active_service_policies / 111033021003 / 3
 
-- [policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-27835a803c165ea0f2bfd94ab0a663c3ac4c7197bcd48a0e23413e309b7466d7): complete subsection reference.
+- [policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0213200311222000-0330011211322200-3302233331211022-2300221212033003-2230103013012113-2330311020220032-0203100103320300-2123131012123113): complete subsection reference.
 
-<a id="canonical-3240d2fee9a0786c0c907df4fd0433f6561d25d78707c0ee825f3c5fb076cd38"></a>
+<a id="canonical-0302100031023332-3221220013201230-0030210013313310-3331001003033312-1112013102113113-2013001330003232-2002113303301133-2300131230310320"></a>
 
-## Next pages — active_service_policies / 99d71e54f243 / 4
+## Next pages — active_service_policies / 111033021003 / 4
 
-- [active_service_policies.policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-27835a803c165ea0f2bfd94ab0a663c3ac4c7197bcd48a0e23413e309b7466d7)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [active_service_policies.policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0213200311222000-0330011211322200-3302233331211022-2300221212033003-2230103013012113-2330311020220032-0203100103320300-2123131012123113)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-27835a803c165ea0f2bfd94ab0a663c3ac4c7197bcd48a0e23413e309b7466d7"></a>
+<a id="canonical-0213200311222000-0330011211322200-3302233331211022-2300221212033003-2230103013012113-2330311020220032-0203100103320300-2123131012123113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b07044eb8c4bcb32d8226e683f9ca59d0f72f108c9154ed7417632a0aa83cc4"></a>
+<a id="canonical-0323001300101032-2320301023302303-0231200202123212-2003332130221121-3100331302330100-2030210111103231-1310011312030222-0022222003303010"></a>
 
-## active_service_policies.policies — active_service_policies.policies / 01af85b87a26 / 2
+## active_service_policies.policies — policies / 232013220212 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-45284443551b024b171d2f15c5b2a1a11c45d73a87eb54ea5ae3ecce816903d0)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100)
 - active_service_policies.policies
 
-<a id="canonical-ca4e72eb8d8f385236af57083d019ad38aea47a0bee96ad836f9f9fff4364e95"></a>
+<a id="canonical-3022103213023223-2031203303201102-0312223311130020-0331000121223103-2022322210132200-2332322112223120-0312332133213333-3310031210322111"></a>
 
 Type: `"list"`. Computed.
 
@@ -932,15 +932,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fc6272c19bf8aa54a1626f5a4d4a9b5824f30522b0ec26c3722637aef37f081b"></a>
+<a id="canonical-3330120213023001-2123332022221110-2201120212331122-1031102221231120-0210330300110202-2300323002123003-1302021203132232-3303133300200123"></a>
 
-## Direct properties — active_service_policies.policies / 01af85b87a26 / 3
+## Direct properties — policies / 232013220212 / 3
 
-<a id="canonical-ecb505853434fb11ad44de7fe8097acaa16f3d85182a3302a3d79e659462bffa"></a>
+<a id="canonical-3230231100112011-0310031033230101-2231101031321333-3220002113223022-2201123303312011-0120022203030002-2203311321321211-2110120223333322"></a>
 
-<a id="canonical-bd994d3e078898ae9c96b12d240c924518865bcaf07e53efa6184dbb4f90eefc"></a>
+<a id="canonical-2331212110310332-0013202021202232-2130211223010231-0210003021021011-0120201211233022-3300133211033233-2212012010312323-1033210032323330"></a>
 
-## name property — active_service_policies.policies / 01af85b87a26 / 4
+## name property — policies / 232013220212 / 4
 
 Type: `"string"`. Computed.
 
@@ -993,11 +993,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f7826859f1c43c12396594c22a0dbbe1c9f709369714cedc1e374b77550b3a41"></a>
+<a id="canonical-3313200212201121-3301301003300102-0321121121103002-0222003123233201-3021331300210312-2113011030323130-0132031310231313-1111002303221001"></a>
 
-<a id="canonical-2b0f09a1a0f020aade29b8a29e9cd48c603e7ffff6dd9ed9ee0e85b4b88a37ef"></a>
+<a id="canonical-0223003300212201-2200330002002222-3132022123202202-2132213031102030-1200033213333333-3312313121323121-3232003220112310-2320202203133233"></a>
 
-## namespace property — active_service_policies.policies / 01af85b87a26 / 5
+## namespace property — policies / 232013220212 / 5
 
 Type: `"string"`. Computed.
 
@@ -1057,11 +1057,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6327a96cf9f3295181e2d5ec447431d5ce419f7629e6ea217d051621c1d2c2a4"></a>
+<a id="canonical-1203021322211230-3321330302211101-2001320231113230-1010131003013111-3032100121331312-0221321232220201-1331001101120201-3001310230022210"></a>
 
-<a id="canonical-871e11b717b5a76713ff66adc2d8eeb7fe491fd36f2efca8038ec3fb515e81e6"></a>
+<a id="canonical-2013013201012313-0113231122131213-0103333312122231-3002312032322313-3332102101333103-1233023233302220-0003203230033323-1101113220013212"></a>
 
-## tenant property — active_service_policies.policies / 01af85b87a26 / 6
+## tenant property — policies / 232013220212 / 6
 
 Type: `"string"`. Computed.
 
@@ -1107,30 +1107,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3562b3ea58e9e8ee6a00af5f8e55cb7808300d18c012dc49c83be9f6084a808a"></a>
+<a id="canonical-0311120223033222-1120322132203232-1222000022331133-2032111130231320-0020030000310120-3000010231301021-3020032332213312-0020102220002022"></a>
 
-## Next pages — active_service_policies.policies / 01af85b87a26 / 7
+## Next pages — policies / 232013220212 / 7
 
-- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-45284443551b024b171d2f15c5b2a1a11c45d73a87eb54ea5ae3ecce816903d0)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800"></a>
+<a id="canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-59242700d7ca83296fa63366269e57628348f49659a40df0bb95d9e7fc8b0708"></a>
+<a id="canonical-1121021002130000-3113302220030221-1233221203031212-0212213211131202-2003102033102112-1121221000313300-2323211131213213-3330202300130020"></a>
 
-## advertise_custom — advertise_custom / 7e6261a9bbc2 / 2
+## advertise_custom — advertise_custom / 222123233002 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
 - advertise_custom
 
-<a id="canonical-471af99fcb75d952a306832f9d95c86b7be81d5a2b4f27938e79aedd8c85da87"></a>
+<a id="canonical-1013012233212133-3023131131211102-2203001220030233-2131211130201223-1323322001311122-0223103302132103-2032132122323131-2030201131222013"></a>
 
 Type: `"single"`. Computed.
 
@@ -1157,45 +1157,45 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-471af99fcb75d952a306832f9d95c86b7be81d5a2b4f27938e79aedd8c85da87)
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a036294937822daf472e5e0cdb0113c257532b5591e640bafd0f49e736f09d5a)
-- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-5bf02f2574ca18e1572f4a5e318efeb20e4f23b884c4cdd1a7053091eea130a7)
-- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-01cc0932a46a5e320283e534345f8c825a17d59bebd68c99ece71365db19d7c0)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1013012233212133-3023131131211102-2203001220030233-2131211130201223-1323322001311122-0223103302132103-2032132122323131-2030201131222013)
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2200031202211021-0313200202312233-1013023211320030-3123000101033002-1113110302231111-2101321210002322-3331003310213213-0312330021311122)
+- [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1123330002330211-1310302201203201-1113023310221132-0301203233322302-0032103302032320-2010301030313101-2213001103002101-3232220103002213)
+- [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-0001303000210302-2210122211320302-0002200332110310-0310113320302002-1122011331112123-3223311220302121-3230321301031211-3123012131133000)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-45cfadd0dd712a3b4948b4532f609188cb7cc45a7363992e107102cc375399fa"></a>
+<a id="canonical-1011303322313100-3131130102220323-1021102023101103-0233120021012020-3023133030101122-1303120321210232-0100130100023030-0313110321213322"></a>
 
-## Direct properties — advertise_custom / 7e6261a9bbc2 / 3
+## Direct properties — advertise_custom / 222123233002 / 3
 
-- [advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4): complete subsection reference.
+- [advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310): complete subsection reference.
 
-<a id="canonical-3b94df0f55742e3a1d8a017950b71b8c01d08e74eb7cc881b3daa75f2c672e59"></a>
+<a id="canonical-0323211031330033-1111131002320322-0131202200011321-1100231301232030-0001310020321310-3223133030202001-2303312222131133-0230121302321121"></a>
 
-## Next pages — advertise_custom / 7e6261a9bbc2 / 4
+## Next pages — advertise_custom / 222123233002 / 4
 
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4"></a>
+<a id="canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-92b9c813a08891830973d7af8755ceb0a3ea86c3894091b96229145ea6af3a0b"></a>
+<a id="canonical-2102232130200103-2200202021012003-0021130331132233-2013111130322300-2203322220123003-2021100021012321-1202022101101132-2212223303220023"></a>
 
-## advertise_custom.advertise_where — advertise_custom.advertise_where / 0a3a2b5ec751 / 2
+## advertise_custom.advertise_where — advertise_where / 113230131101 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
 - advertise_custom.advertise_where
 
-<a id="canonical-f4b5f5d26e5051fa35327f18d355aa9186b5924a0eb7874e363f1452f5fe42d9"></a>
+<a id="canonical-3310231133113102-1232110011013322-0311030213330120-3103111122222101-2012231121021022-0032231320131032-0312033301101102-3311333210023121"></a>
 
 Type: `"list"`. Computed.
 
@@ -1241,21 +1241,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23cb748e57df715106c67a70bdcb1f01aafdff98b49b0c85fc1c17a52f906bbc"></a>
+<a id="canonical-0203302313102032-1113313313011101-0012301213221300-2331302301330001-2222333133332120-2310212300302011-3330013001132211-0233210012232330"></a>
 
-## Direct properties — advertise_custom.advertise_where / 0a3a2b5ec751 / 3
+## Direct properties — advertise_where / 113230131101 / 3
 
-- [advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3d462f30c7ca95052b630aa6a1d624146093f359d73c94e56a3bd1fcd91c2621): complete subsection reference.
+- [advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0331101202330300-3013302221110011-0223120300222212-2201311202100110-1200210333031121-3113033021103211-1222032331013330-3121013002120201): complete subsection reference.
 
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-dfaab23f86f0112d17675483ca69348356e99ddff02deaf649669314dfff4cf1): complete subsection reference.
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133222223020333-2012330001010231-0113121311102003-3022122103102003-1112322121313133-3300023132223312-1021121221030110-3133333310303301): complete subsection reference.
 
-- [advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-46cc3819c4f398e12b559479726e49c8227d387a81e24240352f67d3f59a72e7): complete subsection reference.
+- [advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1012303003200121-3010330321203201-0223111121101321-1302123210213020-0202133103201322-2001320210021000-0311023312133103-3311212213023213): complete subsection reference.
 
-<a id="canonical-589be668802ce6f2bbe966a5dcf9a65cf27b688bb7ea7c6142a5bb35d5749c7c"></a>
+<a id="canonical-1120212332121220-2000023032123302-2323322112122211-3130332122121130-3302132312202023-2313322213301201-1002221123230311-3111131021301330"></a>
 
-<a id="canonical-5c976240e57fafffb7e4eef14e90c49a59804bab72e31829e3a7270ba10e073d"></a>
+<a id="canonical-1130211312021000-3211133322333333-2313321032323301-1032210030102122-1121200010232223-1302320301200221-3203221302130023-2201003200130331"></a>
 
-## port property — advertise_custom.advertise_where / 0a3a2b5ec751 / 4
+## port property — advertise_where / 113230131101 / 4
 
 Type: `"number"`. Computed.
 
@@ -1299,11 +1299,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1471343496d3b52c8f68f76189e478a8797a7072266c437938d069e651fab01e"></a>
+<a id="canonical-0110130103100310-2112310323110230-2033122033131201-2021321013202220-1321132213001302-0212123010031321-0320310012213212-1101332223000132"></a>
 
-<a id="canonical-206b6c40d9b7cb68f095976aeda728333b2d45d7e082d798c1f560ec3735c70a"></a>
+<a id="canonical-0200122312301000-3121231330231220-3300211121131222-3231221302200303-0323023110113113-3200200231132120-3001331112003230-0313031130130022"></a>
 
-## port_ranges property — advertise_custom.advertise_where / 0a3a2b5ec751 / 5
+## port_ranges property — advertise_where / 113230131101 / 5
 
 Type: `"string"`. Computed.
 
@@ -1354,53 +1354,53 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6154cc131efd96f49fc548c9ef0b56096e0b05701254583ab3201d119d476c5c): complete subsection reference.
+- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1201111030300103-0132333121123310-2133301110203021-3233002311120021-1232002300111300-0102111011200322-2303020001310101-2131101312301130): complete subsection reference.
 
-- [use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-cbd6138b9711633dd692e7e87f5dbd5fbce6172a5ae8686cf2412c4103855eed): complete subsection reference.
+- [use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3023311201032023-2113010112030331-3112210232133220-1333113123311133-2330321201130222-1122322012201230-3302100102301001-0003201111323231): complete subsection reference.
 
-- [virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060): complete subsection reference.
+- [virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200): complete subsection reference.
 
-- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1a5ef3da6635d886439116617c4a2eae9ca298a6c3426a83e74b422d51d7f640): complete subsection reference.
+- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0122113233033122-1212031131202012-1003210101121201-1330102202322232-2130220221202212-3003100212222003-3213102310020231-1101311333121000): complete subsection reference.
 
-- [virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-34bc7328d542baac3689a826d753e66f29a0fbd47032aca079658a060c62ae10): complete subsection reference.
+- [virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0310233013030220-3111100223222230-0312202122200212-3113110332121233-0221220033233110-1300030222302200-1321121120220012-0030120222320100): complete subsection reference.
 
-- [vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f): complete subsection reference.
+- [vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333): complete subsection reference.
 
-<a id="canonical-679905370da826fe80cf76f1a96798e9b7457125988648b2a591a7b20f7cf0f6"></a>
+<a id="canonical-1213212100110313-0031222002123332-2000303313123301-2221121321203221-2313101113010211-2120201210202302-2211210122132302-0033133033003312"></a>
 
-## Next pages — advertise_custom.advertise_where / 0a3a2b5ec751 / 6
+## Next pages — advertise_where / 113230131101 / 6
 
-- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3d462f30c7ca95052b630aa6a1d624146093f359d73c94e56a3bd1fcd91c2621)
-- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-dfaab23f86f0112d17675483ca69348356e99ddff02deaf649669314dfff4cf1)
-- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-46cc3819c4f398e12b559479726e49c8227d387a81e24240352f67d3f59a72e7)
-- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6154cc131efd96f49fc548c9ef0b56096e0b05701254583ab3201d119d476c5c)
-- [advertise_custom.advertise_where.use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-cbd6138b9711633dd692e7e87f5dbd5fbce6172a5ae8686cf2412c4103855eed)
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
-- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1a5ef3da6635d886439116617c4a2eae9ca298a6c3426a83e74b422d51d7f640)
-- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-34bc7328d542baac3689a826d753e66f29a0fbd47032aca079658a060c62ae10)
-- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0331101202330300-3013302221110011-0223120300222212-2201311202100110-1200210333031121-3113033021103211-1222032331013330-3121013002120201)
+- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133222223020333-2012330001010231-0113121311102003-3022122103102003-1112322121313133-3300023132223312-1021121221030110-3133333310303301)
+- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1012303003200121-3010330321203201-0223111121101321-1302123210213020-0202133103201322-2001320210021000-0311023312133103-3311212213023213)
+- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1201111030300103-0132333121123310-2133301110203021-3233002311120021-1232002300111300-0102111011200322-2303020001310101-2131101312301130)
+- [advertise_custom.advertise_where.use_default_port](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3023311201032023-2113010112030331-3112210232133220-1333113123311133-2330321201130222-1122322012201230-3302100102301001-0003201111323231)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
+- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0122113233033122-1212031131202012-1003210101121201-1330102202322232-2130220221202212-3003100212222003-3213102310020231-1101311333121000)
+- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0310233013030220-3111100223222230-0312202122200212-3113110332121233-0221220033233110-1300030222302200-1321121120220012-0030120222320100)
+- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-3d462f30c7ca95052b630aa6a1d624146093f359d73c94e56a3bd1fcd91c2621"></a>
+<a id="canonical-0331101202330300-3013302221110011-0223120300222212-2201311202100110-1200210333031121-3113033021103211-1222032331013330-3121013002120201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e7c8f95ab6db20f62be35e7816fdfb2fee07e456946c56defcb6f9216828d844"></a>
+<a id="canonical-3213302033211122-2312312302003312-0223320311321320-0112333133230233-3232001332101112-2110123011123132-3330231233210201-1220022031201010"></a>
 
-## advertise_custom.advertise_where.advertise_dualstack_on_public — advertise_custom.advertise_where.advertise_dualstack_on_public / 843103e6b277 / 2
+## advertise_custom.advertise_where.advertise_dualstack_on_public — advertise_dualstack_on_public / 321223021313 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.advertise_dualstack_on_public
 
-<a id="canonical-adb1b2ff73be6620249351b0f71f7786c386718634701e3f44d1a6152c04407f"></a>
+<a id="canonical-2231230123023333-1303233212120200-0210210311012300-3313013313132012-3003201213012012-0310130001320333-1010310122120111-0230001010001333"></a>
 
 Type: `"single"`. Computed.
 
@@ -1425,40 +1425,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5fa1c05486ac42ab50f44d0908beb0d41f88b3043d957b689d8f9ae3e6eef253"></a>
+<a id="canonical-1133220130001110-2012223010022223-1100331010310021-0020233223003110-0133202023030010-0331211113231220-2131203321223203-3212323233021103"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_dualstack_on_public / 843103e6b277 / 3
+## Direct properties — advertise_dualstack_on_public / 321223021313 / 3
 
-- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-235f800b3d6d97dced2b42252d1a6fc2b95c2916a2145ea464b1c5f594e7517b): complete subsection reference.
+- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0203113320000023-0331123121133130-3231022310020211-0231012212333002-2321113002210112-2202011011322210-1210230130113311-2110321311011323): complete subsection reference.
 
-<a id="canonical-c412f960bd4ab31e5ffe9e071aeab1732eb8fab8ac049b429055558b5ed9f7da"></a>
+<a id="canonical-3010010233211200-2331102223030132-1133333221320013-0122322223011303-0232232033222320-2230001021231002-2100111111112023-1132312133133122"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_dualstack_on_public / 843103e6b277 / 4
+## Next pages — advertise_dualstack_on_public / 321223021313 / 4
 
-- [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-235f800b3d6d97dced2b42252d1a6fc2b95c2916a2145ea464b1c5f594e7517b)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0203113320000023-0331123121133130-3231022310020211-0231012212333002-2321113002210112-2202011011322210-1210230130113311-2110321311011323)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-235f800b3d6d97dced2b42252d1a6fc2b95c2916a2145ea464b1c5f594e7517b"></a>
+<a id="canonical-0203113320000023-0331123121133130-3231022310020211-0231012212333002-2321113002210112-2202011011322210-1210230130113311-2110321311011323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0ec1d3dd498dbc807e04b968e72dafac6a28aefc7d6cd22b86f37fcf7b723c08"></a>
+<a id="canonical-0032300131033131-1021203123302000-1332001023211220-3213023122332230-1222022022323330-1331123031020223-2012330313333033-1323130203300020"></a>
 
-## advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 2
+## advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip — public_ip / 203112320030 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3d462f30c7ca95052b630aa6a1d624146093f359d73c94e56a3bd1fcd91c2621)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0331101202330300-3013302221110011-0223120300222212-2201311202100110-1200210333031121-3113033021103211-1222032331013330-3121013002120201)
 - advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip
 
-<a id="canonical-29317668529c303b89e96e6a80ecee79c6be37432fd225877b23daefa6b0ca49"></a>
+<a id="canonical-0221030113121220-1102213003000323-2021322112321222-2000323032321321-3012233203131003-0233310202112013-1323020331223233-2212230030221021"></a>
 
 Type: `"single"`. Computed.
 
@@ -1483,15 +1483,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-36fb3e759b6148b0326c663504c7051c82730a974554b4c4845e14656d7234cc"></a>
+<a id="canonical-0312332303321311-2123120110202300-0302123012120311-0010301300110130-2002130300222113-1011111023103010-2010113201101211-1231130203103030"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 3
+## Direct properties — public_ip / 203112320030 / 3
 
-<a id="canonical-e0d27db3b216c5705f114150fd28088467112e7a282583387a9c08d7736e3d08"></a>
+<a id="canonical-3200310213312303-2302011230111300-1133010110011100-3331022000202010-1213010102321322-0220021120030320-1322213000203113-1303123203310020"></a>
 
-<a id="canonical-ff862a2d367e1eaa193057a63d0e55e5301eb82582f0fd033f012fe85ba39408"></a>
+<a id="canonical-3333201202220231-0312133201322222-0121030011132212-0331003211113211-0300013223200211-2002330033310003-0333000102333220-1123220321100020"></a>
 
-## name property — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 4
+## name property — public_ip / 203112320030 / 4
 
 Type: `"string"`. Computed.
 
@@ -1544,11 +1544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8840b4785b565a7e4fdce72b2615772f33bb4ed0e9da2c949018c5b4388ff70c"></a>
+<a id="canonical-2020100023101320-1123111211221332-1033313032130223-0212011113130233-0303232310323100-3221312202302110-2100012030112310-0320203333130030"></a>
 
-<a id="canonical-1dda66540f6cdb7171fbe57a63161138956cd57065865e41fd2dc2c3941475af"></a>
+<a id="canonical-0131312212121110-0033123031231301-1301332332111322-1203011201010320-2111123031111300-1211201211321001-3331023130023003-2110011013112233"></a>
 
-## namespace property — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 5
+## namespace property — public_ip / 203112320030 / 5
 
 Type: `"string"`. Computed.
 
@@ -1608,11 +1608,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d6f0a79800094cb5b2d575932283d5924b3140990b2e8f448d994562460aa9d7"></a>
+<a id="canonical-3112330022132120-0000002110302311-2302311113112103-0202200331112102-1023030110002121-0023023220331010-2031212110111202-1012002222213113"></a>
 
-<a id="canonical-1996508517b04bb7c31c5aae5e6fb0c485a177df3a069e0e817414532c399357"></a>
+<a id="canonical-0121211211002011-0113230010232313-3003013011222232-1132123323003010-2011220113133133-0322001221320032-2001131001101103-0230032121031113"></a>
 
-## tenant property — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 6
+## tenant property — public_ip / 203112320030 / 6
 
 Type: `"string"`. Computed.
 
@@ -1658,32 +1658,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10d614843ff610a65f62c0e8396de7dabbcdcc7f5262220b6cbc39fd5e4c0ede"></a>
+<a id="canonical-0100311201102010-0333331201002212-1133120230003220-0321123132133122-2323303130301333-1102120202020023-1230233003213331-1132103000323132"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip / 0756a98d6e0c / 7
+## Next pages — public_ip / 203112320030 / 7
 
-- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3d462f30c7ca95052b630aa6a1d624146093f359d73c94e56a3bd1fcd91c2621)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_dualstack_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0331101202330300-3013302221110011-0223120300222212-2201311202100110-1200210333031121-3113033021103211-1222032331013330-3121013002120201)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-dfaab23f86f0112d17675483ca69348356e99ddff02deaf649669314dfff4cf1"></a>
+<a id="canonical-3133222223020333-2012330001010231-0113121311102003-3022122103102003-1112322121313133-3300023132223312-1021121221030110-3133333310303301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f571f0a3d91ad73180b9f1638d9278cea516663ef8e2b87f106b8b01ef9caaac"></a>
+<a id="canonical-3311130133002203-3121012231130301-2000232133011203-2031210213203032-2211011212120332-3320320223201333-0100122320230001-3233213022222230"></a>
 
-## advertise_custom.advertise_where.advertise_on_public — advertise_custom.advertise_where.advertise_on_public / af8873c9d11d / 2
+## advertise_custom.advertise_where.advertise_on_public — advertise_on_public / 302131010131 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.advertise_on_public
 
-<a id="canonical-c2dfc0e73fdc005042660b79524a631776e8a138724c78a38dda04210dd3ebb0"></a>
+<a id="canonical-3002313330003213-0333313000001100-1002121200231321-1102102212030113-1312322022010320-1302103013202203-2031312200100201-0031310332232300"></a>
 
 Type: `"single"`. Computed.
 
@@ -1708,40 +1708,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-21f1833bb2df66a34b182a4034c996fc76cf807e057dab4a22f183f42996f5ba"></a>
+<a id="canonical-0201330120030323-2302313312122203-1023012002221000-0310302121123330-1312303320001332-0011133122231022-0202330120033310-0221211233112322"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_on_public / af8873c9d11d / 3
+## Direct properties — advertise_on_public / 302131010131 / 3
 
-- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a9f8c89364d3a1ac7bba2d15140159d0a65c43868f9f786b6c3cc50d77d12e66): complete subsection reference.
+- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2221332030202103-1210310322012230-1323232202310111-0110000111213100-2212113010032012-2033213313201223-1230033030110031-1313310102321212): complete subsection reference.
 
-<a id="canonical-992935a1e83103a4fcc7815c78b9f2f64d2b7a27641f16645dd7764e375703a4"></a>
+<a id="canonical-2121022103112201-3220030100032210-3330301320011130-1320232133023312-1031022313220213-1210013301121210-1131311313121032-0313111300032210"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_on_public / af8873c9d11d / 4
+## Next pages — advertise_on_public / 302131010131 / 4
 
-- [advertise_custom.advertise_where.advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a9f8c89364d3a1ac7bba2d15140159d0a65c43868f9f786b6c3cc50d77d12e66)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2221332030202103-1210310322012230-1323232202310111-0110000111213100-2212113010032012-2033213313201223-1230033030110031-1313310102321212)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-a9f8c89364d3a1ac7bba2d15140159d0a65c43868f9f786b6c3cc50d77d12e66"></a>
+<a id="canonical-2221332030202103-1210310322012230-1323232202310111-0110000111213100-2212113010032012-2033213313201223-1230033030110031-1313310102321212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-96a4f39634c184c8fd7abeaece310477e7747f5265eff4ce71a1b30a2e78ded6"></a>
+<a id="canonical-2112221033032112-0310300120103020-3331132223322232-3032030100101313-3213131013331102-1211323333103032-1301220123030022-0232132031323112"></a>
 
-## advertise_custom.advertise_where.advertise_on_public.public_ip — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 2
+## advertise_custom.advertise_where.advertise_on_public.public_ip — public_ip / 202331111132 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-dfaab23f86f0112d17675483ca69348356e99ddff02deaf649669314dfff4cf1)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133222223020333-2012330001010231-0113121311102003-3022122103102003-1112322121313133-3300023132223312-1021121221030110-3133333310303301)
 - advertise_custom.advertise_where.advertise_on_public.public_ip
 
-<a id="canonical-f3f2ccd5e38421216ba5e4b19d80991c1e8ea4852c5e18b5cf2caa7576ebb63d"></a>
+<a id="canonical-3303330230303111-3203201002010201-1223221132102301-2131200021210130-0132203222102011-0230113201202311-3033023022221311-1312322323120331"></a>
 
 Type: `"single"`. Computed.
 
@@ -1766,15 +1766,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9d2171b7110eca6009819abebd7501410ce23837872752ff4e89616b27766d03"></a>
+<a id="canonical-2131020113012313-0101003230221200-0021200121222332-2331131100011001-0030320203200313-2013021311023333-1032202112011223-0213131212310003"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 3
+## Direct properties — public_ip / 202331111132 / 3
 
-<a id="canonical-1b5f96665f81c3055ee9af89e5db5ffd25a383994ac72a751780fe668910c155"></a>
+<a id="canonical-0123113321121212-1133200130030011-1132322122332021-3211312311333331-0211220320032121-1022301302221311-0113200033321212-2021010030011111"></a>
 
-<a id="canonical-80e632e0974ecad8348d8e72b5b980f128e040ee798ce240a8e3b4826a065fa6"></a>
+<a id="canonical-2000321203023200-2113103230223120-0310203120321302-2311232120003301-0220320010003232-1321203032021000-2220320323102002-1222001211332212"></a>
 
-## name property — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 4
+## name property — public_ip / 202331111132 / 4
 
 Type: `"string"`. Computed.
 
@@ -1827,11 +1827,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-748021f63e6f80fbf698b410067c4ab5422081266395f717aa04ac79706d29c5"></a>
+<a id="canonical-1310200002013312-0332123320003323-3312212023100100-0012133010222311-1002020020010212-1203211133130113-2222001022301321-1300123102213011"></a>
 
-<a id="canonical-fa9cfe8f1fed4f5343d48cc4f6ab6b2bf72bfa8cf915bc627ce37ed964b9fcac"></a>
+<a id="canonical-3322213033322033-0133323110331103-1003311020303010-3312222312230223-3313022333222030-3321011123301202-1330320313323121-1210232133302230"></a>
 
-## namespace property — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 5
+## namespace property — public_ip / 202331111132 / 5
 
 Type: `"string"`. Computed.
 
@@ -1891,11 +1891,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-102c8fbed596557e281a980be9fb6af3bdfa6b7a40b16a19216d8fb49402eff8"></a>
+<a id="canonical-0100023020332332-3111211211111332-0220012221200023-3221332312223303-2331332212231322-1000230112220121-0201123120332310-2110000232333320"></a>
 
-<a id="canonical-03d4371a150d6248566d4d006e9a72bda1196b25266bdfe8954944d694de264a"></a>
+<a id="canonical-0003311003130122-0111003112021020-1112123110310000-1232212213022331-2201012112230211-0212122331333220-2111102110103112-2110313202121022"></a>
 
-## tenant property — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 6
+## tenant property — public_ip / 202331111132 / 6
 
 Type: `"string"`. Computed.
 
@@ -1941,32 +1941,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-52f2f0e3eb6e74dc3b767938fc45146de69d433340a5533fada1c935f5487e9a"></a>
+<a id="canonical-1102330233003203-3223123213103130-0323131213210320-3330101101101231-3212213110030303-1000221111030333-2231220130210311-3311102013322122"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_on_public.public_ip / 20072d8bd55e / 7
+## Next pages — public_ip / 202331111132 / 7
 
-- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-dfaab23f86f0112d17675483ca69348356e99ddff02deaf649669314dfff4cf1)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3133222223020333-2012330001010231-0113121311102003-3022122103102003-1112322121313133-3300023132223312-1021121221030110-3133333310303301)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-46cc3819c4f398e12b559479726e49c8227d387a81e24240352f67d3f59a72e7"></a>
+<a id="canonical-1012303003200121-3010330321203201-0223111121101321-1302123210213020-0202133103201322-2001320210021000-0311023312133103-3311212213023213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b409905e06074afba9701ab5f8cb0735a402045d9e93130ad28f7822674e314a"></a>
+<a id="canonical-2310002121001132-0012001310223323-2221130001222311-3320302300130311-2210000200101131-2132210301030022-3102203313200202-1213103203011022"></a>
 
-## advertise_custom.advertise_where.advertise_v6_on_public — advertise_custom.advertise_where.advertise_v6_on_public / 6b24d4f0e93b / 2
+## advertise_custom.advertise_where.advertise_v6_on_public — advertise_v6_on_public / 330032210323 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.advertise_v6_on_public
 
-<a id="canonical-bd1d695be46aa5531497323c6ca98a36111e6c78bf05b9a03a5bbb5b0315d425"></a>
+<a id="canonical-2331013112211123-3210122222111103-0110211303020330-1230222120220312-0101013212301320-2333001123212200-0322112323231123-0003011131100211"></a>
 
 Type: `"single"`. Computed.
 
@@ -1991,40 +1991,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2fac2273eee7e0c0fed6fc1e4b0d7ff4bd9f44a4c926423e1a7ad0e9cfd7709e"></a>
+<a id="canonical-0233223002021303-3232321332003000-3332311233300132-1023003113333310-2331213310102210-3021021210020332-0122132231003221-3033311313002132"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_v6_on_public / 6b24d4f0e93b / 3
+## Direct properties — advertise_v6_on_public / 330032210323 / 3
 
-- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d14b4039a0c8071696e8e847ec7c02ed68ee9a6123258306d03834a0e7323234): complete subsection reference.
+- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3101102310000321-2200302000130112-2112322032201013-3230133000023231-1220323221221201-0203021120030012-3100032003102200-3213030203020310): complete subsection reference.
 
-<a id="canonical-9803ee02d0d0fc0967fc460d4f40ea1ebcc8c71560daef1bc1e432bb77e1e104"></a>
+<a id="canonical-2120000332320002-3100310033300021-1213333010120031-1033100032220132-2330302030130111-1200312232330123-3001321003022323-1313320132010010"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_v6_on_public / 6b24d4f0e93b / 4
+## Next pages — advertise_v6_on_public / 330032210323 / 4
 
-- [advertise_custom.advertise_where.advertise_v6_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-d14b4039a0c8071696e8e847ec7c02ed68ee9a6123258306d03834a0e7323234)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_v6_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3101102310000321-2200302000130112-2112322032201013-3230133000023231-1220323221221201-0203021120030012-3100032003102200-3213030203020310)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-d14b4039a0c8071696e8e847ec7c02ed68ee9a6123258306d03834a0e7323234"></a>
+<a id="canonical-3101102310000321-2200302000130112-2112322032201013-3230133000023231-1220323221221201-0203021120030012-3100032003102200-3213030203020310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-48499d2e1bd44784a6c37e9decb77b60657983fda3b03e8ae7bb7c97ff0e2b22"></a>
+<a id="canonical-1020102121310232-0123311010132010-2212300313322131-3230231313231200-1211132120033331-2203230003322022-3213232313302113-3333003202230202"></a>
 
-## advertise_custom.advertise_where.advertise_v6_on_public.public_ip — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 2
+## advertise_custom.advertise_where.advertise_v6_on_public.public_ip — public_ip / 022331021103 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-46cc3819c4f398e12b559479726e49c8227d387a81e24240352f67d3f59a72e7)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1012303003200121-3010330321203201-0223111121101321-1302123210213020-0202133103201322-2001320210021000-0311023312133103-3311212213023213)
 - advertise_custom.advertise_where.advertise_v6_on_public.public_ip
 
-<a id="canonical-d3a4f017cd0b77e7bc0ed27c928d6d691cac755dff6bf9fc00b74b19cb3ae836"></a>
+<a id="canonical-3103221033000113-3031002313133213-2330003231021330-2102203112311221-0130223013111131-3333122333213330-0000231310230121-3023032232200312"></a>
 
 Type: `"single"`. Computed.
 
@@ -2049,15 +2049,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-77cec09a10c1756bb88d7210da123d9f920d3ed93b327855351a07973137786a"></a>
+<a id="canonical-1313303230002122-0100300113111223-2320203113020100-3122010203312133-2102003103323121-0323030213201111-0311012200132113-0301031313201222"></a>
 
-## Direct properties — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 3
+## Direct properties — public_ip / 022331021103 / 3
 
-<a id="canonical-0996c3312330c90c85c20cec94319daf9766175e16aba23f6fc71dc003129851"></a>
+<a id="canonical-0021211230030301-0203030030210030-2011300200303230-2110030121312233-2113121201131132-0112222322020333-1233301301313000-0003010221201101"></a>
 
-<a id="canonical-82c2448b4c5f81496814ec739db208ef25be714b2376081583a6e96faf10176c"></a>
+<a id="canonical-2002300210102023-1030113320011021-1220011032301303-2131230200203233-0211233213011023-0203131200200111-2003221232211233-2233010001131230"></a>
 
-## name property — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 4
+## name property — public_ip / 022331021103 / 4
 
 Type: `"string"`. Computed.
 
@@ -2110,11 +2110,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-482f79575613fdfe556a1d95ed77134e4701e649076f2ed85b2bed590d1aa3dd"></a>
+<a id="canonical-1020023313211113-1112010333313332-1111122201312111-3231131301031032-1013000132121021-0013123302323120-1123022332311121-0031012222033131"></a>
 
-<a id="canonical-97777d39e20f1cb5c5e811e6172ef971d8cad28089391c0dfc153e123b7add57"></a>
+<a id="canonical-2113131313310321-3202003301302311-3011322001013212-0113023233211301-3120302231022000-2021032101300031-3330011103320102-0323132231311113"></a>
 
-## namespace property — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 5
+## namespace property — public_ip / 022331021103 / 5
 
 Type: `"string"`. Computed.
 
@@ -2174,11 +2174,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef507ffc44c8bfaca8a861e4d31cc1a83a61ec6f73b5c2330d2b8595606415f7"></a>
+<a id="canonical-3233110013333330-1010302023332230-2220222012013210-3103013030012220-0322120132301233-1303231130020303-0031022320112111-1200121001113313"></a>
 
-<a id="canonical-b1b921e87c2d8c1fd35e19bbae39fe680acd6f57cd73733d72fe61b4ca5caa39"></a>
+<a id="canonical-2301232102013220-1330023120300133-3103113201212323-2232032133321220-0022303112331113-3031130313030331-1302333212012310-3022113022220321"></a>
 
-## tenant property — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 6
+## tenant property — public_ip / 022331021103 / 6
 
 Type: `"string"`. Computed.
 
@@ -2224,32 +2224,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6b5ccd5e6878b2e584b3fb8719f9052608959f491aa1f8d3d62088e71c8e2c2a"></a>
+<a id="canonical-1223113030311132-1220132023023211-2010230333232013-0121332100110212-0020211121331021-0122220133203103-3112020020203213-0130203202300222"></a>
 
-## Next pages — advertise_custom.advertise_where.advertise_v6_on_public.public_ip / 18919d2bd253 / 7
+## Next pages — public_ip / 022331021103 / 7
 
-- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-46cc3819c4f398e12b559479726e49c8227d387a81e24240352f67d3f59a72e7)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.advertise_v6_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1012303003200121-3010330321203201-0223111121101321-1302123210213020-0202133103201322-2001320210021000-0311023312133103-3311212213023213)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-6154cc131efd96f49fc548c9ef0b56096e0b05701254583ab3201d119d476c5c"></a>
+<a id="canonical-1201111030300103-0132333121123310-2133301110203021-3233002311120021-1232002300111300-0102111011200322-2303020001310101-2131101312301130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff92e127ae0316caccac3fab77acc8629fccca3e32981fa6c511c59f7bc476ff"></a>
+<a id="canonical-3333210232010213-2232000301123022-3030223003332223-1313223030201202-2133303030220332-0302212001332212-3011010130112133-1323301013123333"></a>
 
-## advertise_custom.advertise_where.site — advertise_custom.advertise_where.site / dc70a223910f / 2
+## advertise_custom.advertise_where.site — site / 020321010033 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.site
 
-<a id="canonical-d809f6e94b6a258d25e40ce871e5f83a103127e06084bbf2b55deb35cc9556dc"></a>
+<a id="canonical-3120002133123221-1023122202112031-0211321000303220-1301321133200322-0100030102133200-1200201023233302-2311113132230311-3030211111123130"></a>
 
 Type: `"single"`. Computed.
 
@@ -2274,15 +2274,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-34dc3231d47fb2e7697394f9367d6c1715fe38a807b748d21f4695b820986e91"></a>
+<a id="canonical-0310313003020301-3110133323023213-1221130321103321-0312133112300113-0111333203202220-0013231310203102-0133101221112320-0200212012322101"></a>
 
-## Direct properties — advertise_custom.advertise_where.site / dc70a223910f / 3
+## Direct properties — site / 020321010033 / 3
 
-<a id="canonical-263e5da0c66fd7fd78caee8b160a2ffef11d8fdd93e1b84b1a4536c1aaaf9f3b"></a>
+<a id="canonical-0212033211312200-3012123331133331-1320302232322023-0112002202333332-3301013120333131-2103320123201023-0122101103123001-2222223321330323"></a>
 
-<a id="canonical-21e72691db975c4f98d66a2f8c8d0ab45ede232116f8a238d6d338e5a043e695"></a>
+<a id="canonical-0201321302122101-3123211311301033-2120311212220233-2030203100222310-1132313202030201-0112332022020320-3112310303203211-2200100332122111"></a>
 
-## ip property — advertise_custom.advertise_where.site / dc70a223910f / 4
+## ip property — site / 020321010033 / 4
 
 Type: `"string"`. Computed.
 
@@ -2319,11 +2319,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5ed1e6f9be8027167c2c534ae98f40f512e4ad0e6f30c03f56d20fa75cf334ea"></a>
+<a id="canonical-1132310132123321-2332200002130112-1330023011031022-3221203310003311-0102321022310032-1233030030000333-1112310200332213-1130330303103222"></a>
 
-<a id="canonical-b67481ef0f83a2cfc6b4fe3a38a5d15cb9d90b3a011c0f0a275a67500f7e6f86"></a>
+<a id="canonical-2312131020013233-0033200322023033-3012231033320322-0320221131011130-2321312100230322-0001013000330022-0213112212131100-0033133212332012"></a>
 
-## network property — advertise_custom.advertise_where.site / dc70a223910f / 5
+## network property — site / 020321010033 / 5
 
 Type: `"string"`. Computed.
 
@@ -2370,36 +2370,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7b35937a184c1bf4aa39f6c1428d17e974778d7a6b143251b7edfbec84eac4c6): complete subsection reference.
+- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1323031121031322-0120103001233310-2222032133123001-1002203101133221-1310131320311322-1223011003021101-2313323133233230-2010322230103012): complete subsection reference.
 
-<a id="canonical-c485f312b4028495a82cf1425f0924d820225ecdb19c7b72009538976880d3ad"></a>
+<a id="canonical-3010201133030102-2310000220102111-2220023033011002-1133002102103120-0200020211323031-2301213013231302-0000211103202113-1220200031032231"></a>
 
-## Next pages — advertise_custom.advertise_where.site / dc70a223910f / 6
+## Next pages — site / 020321010033 / 6
 
-- [advertise_custom.advertise_where.site.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7b35937a184c1bf4aa39f6c1428d17e974778d7a6b143251b7edfbec84eac4c6)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.site.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1323031121031322-0120103001233310-2222032133123001-1002203101133221-1310131320311322-1223011003021101-2313323133233230-2010322230103012)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-7b35937a184c1bf4aa39f6c1428d17e974778d7a6b143251b7edfbec84eac4c6"></a>
+<a id="canonical-1323031121031322-0120103001233310-2222032133123001-1002203101133221-1310131320311322-1223011003021101-2313323133233230-2010322230103012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d8df5388bed397d364164c8e2ce62bc57d3d300b7843762818676ce7114d1139"></a>
+<a id="canonical-3120313311032020-2332310321133103-1210011210302032-0230321202233011-1331033103000023-1320100313120220-0120121312303213-0101103101010321"></a>
 
-## advertise_custom.advertise_where.site.site — advertise_custom.advertise_where.site.site / a3cac9b989fa / 2
+## advertise_custom.advertise_where.site.site — site / 232120213322 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6154cc131efd96f49fc548c9ef0b56096e0b05701254583ab3201d119d476c5c)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1201111030300103-0132333121123310-2133301110203021-3233002311120021-1232002300111300-0102111011200322-2303020001310101-2131101312301130)
 - advertise_custom.advertise_where.site.site
 
-<a id="canonical-5b1ecf73154021e3b508b541652dd8f0dcb5ac7c111bd831ff6d0d4da650a983"></a>
+<a id="canonical-1123013230331303-0111100002013203-2311002023111001-1211023131203300-3130231122301330-0101012331200301-3333123100311031-2212110022212003"></a>
 
 Type: `"single"`. Computed.
 
@@ -2424,15 +2424,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ab38b4ed73e0e2671625ea58a461f3f8291718d46fd4290332c6fa00b4a4bd82"></a>
+<a id="canonical-2223032023103231-1303320032021213-0112021132221120-2210120133033320-0221011301203110-1233311002210003-0302301233220000-2310221023312002"></a>
 
-## Direct properties — advertise_custom.advertise_where.site.site / a3cac9b989fa / 3
+## Direct properties — site / 232120213322 / 3
 
-<a id="canonical-6865bcd2fbb369c94c602916bdf554ac44dbb4647024bdad868952060a46faa9"></a>
+<a id="canonical-1220121123303102-3323230312213021-1030120002210112-2331331111102230-1010312323101210-1300021023312231-2012202111020012-0022101233222221"></a>
 
-<a id="canonical-153d28af10cd61dc8400d959c671a9f31e25789772ac98a458f833d9d242be44"></a>
+<a id="canonical-0111033102202233-0100303112013130-2010000031211121-3012130122213303-0132021113202113-1302223021202210-1120332003033121-3102100223321010"></a>
 
-## name property — advertise_custom.advertise_where.site.site / a3cac9b989fa / 4
+## name property — site / 232120213322 / 4
 
 Type: `"string"`. Computed.
 
@@ -2485,11 +2485,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7bc1b981b7da82bd46b321158ad1c7553f9f610daefdb432e3b677d47f84187a"></a>
+<a id="canonical-1323300123212001-2313312220022331-1012230302010111-2022310130131111-0333213312010031-2232333123100302-3203231213133110-1333201001201322"></a>
 
-<a id="canonical-9b9095235dd4fb5484ce94407860b71a0db7af0ba05a3efb75fd061e2cf7e878"></a>
+<a id="canonical-2123210021110203-1131311033231110-2010303221101000-1320120023130122-0031231322330023-2200112203323323-1311333100120132-0230331332201320"></a>
 
-## namespace property — advertise_custom.advertise_where.site.site / a3cac9b989fa / 5
+## namespace property — site / 232120213322 / 5
 
 Type: `"string"`. Computed.
 
@@ -2549,11 +2549,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a5e8c49b6558287791b83b29c5149652fdb4b02693994b5f4910c0dda98d126"></a>
+<a id="canonical-1122113220301021-2312111120022013-1321012320032302-2130110110211211-0233312310230002-1221032121102311-3310210100300031-3122212031010212"></a>
 
-<a id="canonical-9cce3149e3c4ed4cdd7dd3b4ce615a6a9a9ed3a967f3a0123ecf7f4eaee2e469"></a>
+<a id="canonical-2130303203011021-3203301032311030-3131133131032310-3032120111221222-2122213231032221-1213330322000102-0332303313331032-2232320232101221"></a>
 
-## tenant property — advertise_custom.advertise_where.site.site / a3cac9b989fa / 6
+## tenant property — site / 232120213322 / 6
 
 Type: `"string"`. Computed.
 
@@ -2599,32 +2599,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4537a672a873c113b9e07c5f3b14b6a123f5db8689c2db21772057cb98f112c"></a>
+<a id="canonical-2210110313221213-0222201303300101-0323213200133011-3303230110231222-0102033311312320-1220213002312302-0113130200111330-2321203301010230"></a>
 
-## Next pages — advertise_custom.advertise_where.site.site / a3cac9b989fa / 7
+## Next pages — site / 232120213322 / 7
 
-- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6154cc131efd96f49fc548c9ef0b56096e0b05701254583ab3201d119d476c5c)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1201111030300103-0132333121123310-2133301110203021-3233002311120021-1232002300111300-0102111011200322-2303020001310101-2131101312301130)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-cbd6138b9711633dd692e7e87f5dbd5fbce6172a5ae8686cf2412c4103855eed"></a>
+<a id="canonical-3023311201032023-2113010112030331-3112210232133220-1333113123311133-2330321201130222-1122322012201230-3302100102301001-0003201111323231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7ca5c502966ab07bc0e75b1cfd3bf20aae0872ed7aa275cb3dad191f6d78b86b"></a>
+<a id="canonical-1330221130110002-2112122223001323-3000321311230130-3331032333020022-2232002013023231-1322220213113023-0331223101210133-1231132023201223"></a>
 
-## advertise_custom.advertise_where.use_default_port — advertise_custom.advertise_where.use_default_port / d37c1f7a1a00 / 2
+## advertise_custom.advertise_where.use_default_port — use_default_port / 132201220000 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.use_default_port
 
-<a id="canonical-c0c5285ca8e66556d0d9d118b406132edaffec1d66415656d9c3a9a8d9d9c762"></a>
+<a id="canonical-3000301102201130-2220321212111112-3100312131010120-2310001201030232-3122333332300131-1212100111121112-3121300322212220-3121312130131202"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2647,38 +2647,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-297ec33c64b2f49e65f6b9384cfffded2e437c867dc022309faf1d3b27ed4803"></a>
+<a id="canonical-0221133230030330-1210230233102132-1211331223210320-1030333333313231-0232100313302012-1331300002020300-2133223301310323-0213323110200003"></a>
 
-## Direct properties — advertise_custom.advertise_where.use_default_port / d37c1f7a1a00 / 3
+## Direct properties — use_default_port / 132201220000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e37727027c6a249e3acdd83a81dbd97818cc60cd5124277259f722a0605a52a5"></a>
+<a id="canonical-3203131302130002-1330122202102132-0322303131200322-2001312331211320-0120303012003031-1101021002131302-1121331302022200-1200112211022211"></a>
 
-## Next pages — advertise_custom.advertise_where.use_default_port / d37c1f7a1a00 / 4
+## Next pages — use_default_port / 132201220000 / 4
 
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060"></a>
+<a id="canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f509422d83c5e51f832817b0490e51299acfa2d9d0564acdf18c5ea2af55b8b4"></a>
+<a id="canonical-3311002110020231-2003301132110133-2003022001132300-1021003211010221-2122303322023121-3100111210223031-3301203011322202-2233111123202310"></a>
 
-## advertise_custom.advertise_where.virtual_network — advertise_custom.advertise_where.virtual_network / db73cdff8373 / 2
+## advertise_custom.advertise_where.virtual_network — virtual_network / 333320031303 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.virtual_network
 
-<a id="canonical-292d1afe839a4f286c37c6d7e0a7cadc23d414c47954572a260c495c80a19226"></a>
+<a id="canonical-0221023101223332-2003212210330220-1230031330123113-3200221330223130-0203311001103010-1321111011130222-0212003010211130-2000220121020212"></a>
 
 Type: `"single"`. Computed.
 
@@ -2699,19 +2699,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-39400d71c9c2bd91ca9f73a39ed5f0045c2b3ef53c0e692cf5ffecd9a7127027"></a>
+<a id="canonical-0321100000311301-3021300223312101-3022213313032203-2132311133000010-1130022303323311-0330003212210230-3311333332303121-2213010213000213"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_network / db73cdff8373 / 3
+## Direct properties — virtual_network / 333320031303 / 3
 
-- [default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7259436d32018fc54e78f0c45316491778fa4471799b56ca8f0f0e6fa38f9007): complete subsection reference.
+- [default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1302112110031231-0302000120333011-1032132033003010-1103011210210113-1320332210101301-1321212311123022-2033003300321233-2203203321000013): complete subsection reference.
 
-- [default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a554924f6e6eb721b41a66411722ccb19c6b5f3bc801827c5e65beab15a7e2c4): complete subsection reference.
+- [default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2211111021021033-1232123223130201-2310012212121001-0113020230302301-2130122311330323-3020000120021330-1132121123322223-0111221332023010): complete subsection reference.
 
-<a id="canonical-df14e0e037dec276ae2430dd4970cfd6df6f3ae68b477116c38ac6a40694af6c"></a>
+<a id="canonical-3133011032003200-0313313230021312-2232021003003131-1021130030333112-3133123303223212-2023101313010112-3003202230122210-0012211022331230"></a>
 
-<a id="canonical-553f50daaf62886f8f10c79e7219f27de357b54d3d28dc9fc45646b3b7055e46"></a>
+<a id="canonical-1111033311003122-2233120220201233-2033010030132132-1302012133021331-3203111323111031-0331022031302133-3010111210122303-2313001111321012"></a>
 
-## specific_v6_vip property — advertise_custom.advertise_where.virtual_network / db73cdff8373 / 4
+## specific_v6_vip property — virtual_network / 333320031303 / 4
 
 Type: `"string"`. Computed.
 
@@ -2752,11 +2752,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ea70527ac5376409eebe7a773359dad049b3ee7f2a6cf49ca0a17ca852dff5e7"></a>
+<a id="canonical-3222130011021322-3011031312100021-3232233213221313-0303112131223100-1021230332321333-0222123033102130-2200220113302220-1102313333113213"></a>
 
-<a id="canonical-e636c7a5353385f4fba021b00b616c2e8600f910d1fc7a75c2c2b08f84d19c44"></a>
+<a id="canonical-3212031230132211-0311030320113310-3323220002012300-0023120112300232-2012000033210100-3101333013221311-3002300223002033-2010310121301010"></a>
 
-## specific_vip property — advertise_custom.advertise_where.virtual_network / db73cdff8373 / 5
+## specific_vip property — virtual_network / 333320031303 / 5
 
 Type: `"string"`. Computed.
 
@@ -2797,38 +2797,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c71463730981f3c04ffd2bfa6066bac72c8e8a1202ddf589b55c69b2b68801ca): complete subsection reference.
+- [virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3013011012031303-0021200133033000-1033333102233322-1200121223223013-0230203220220102-0002313133112021-2311113012212302-2312202000013022): complete subsection reference.
 
-<a id="canonical-ebdf3e05d631baff5a7bb96a88545022fcae34e03482d79df89880155e445dfe"></a>
+<a id="canonical-3223313303320011-3112030123223333-1122132323211222-2020111011000202-3330223203103200-0310200231132131-3320212020000111-1132101011313332"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_network / db73cdff8373 / 6
+## Next pages — virtual_network / 333320031303 / 6
 
-- [advertise_custom.advertise_where.virtual_network.default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-7259436d32018fc54e78f0c45316491778fa4471799b56ca8f0f0e6fa38f9007)
-- [advertise_custom.advertise_where.virtual_network.default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a554924f6e6eb721b41a66411722ccb19c6b5f3bc801827c5e65beab15a7e2c4)
-- [advertise_custom.advertise_where.virtual_network.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-c71463730981f3c04ffd2bfa6066bac72c8e8a1202ddf589b55c69b2b68801ca)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_network.default_v6_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1302112110031231-0302000120333011-1032132033003010-1103011210210113-1320332210101301-1321212311123022-2033003300321233-2203203321000013)
+- [advertise_custom.advertise_where.virtual_network.default_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2211111021021033-1232123223130201-2310012212121001-0113020230302301-2130122311330323-3020000120021330-1132121123322223-0111221332023010)
+- [advertise_custom.advertise_where.virtual_network.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3013011012031303-0021200133033000-1033333102233322-1200121223223013-0230203220220102-0002313133112021-2311113012212302-2312202000013022)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-7259436d32018fc54e78f0c45316491778fa4471799b56ca8f0f0e6fa38f9007"></a>
+<a id="canonical-1302112110031231-0302000120333011-1032132033003010-1103011210210113-1320332210101301-1321212311123022-2033003300321233-2203203321000013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-877d3bce8290bad01285bd7476116cc08fe00d0d14a6af402cf3f989e19296c7"></a>
+<a id="canonical-2013133103233032-2002210023223100-0102201123311310-1312010112303000-2033320000310031-0110221222331000-0230330333212021-3201210221123013"></a>
 
-## advertise_custom.advertise_where.virtual_network.default_v6_vip — advertise_custom.advertise_where.virtual_network.default_v6_vip / dc420c1698f2 / 2
+## advertise_custom.advertise_where.virtual_network.default_v6_vip — default_v6_vip / 011221203302 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
 - advertise_custom.advertise_where.virtual_network.default_v6_vip
 
-<a id="canonical-a5455aea40c21e399b666fed309d9c265c75416d59c223c249f93496a86bbc7e"></a>
+<a id="canonical-2211101111223222-1000300201320321-2123121212333231-0300213121300212-1130131110011231-1121300202033002-1021332103102112-2220122323301332"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2851,39 +2851,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d6566cbabd1c6415f221ec096ef283e904a97538a96b0668dcd2de7dcd59d435"></a>
+<a id="canonical-3112111212302322-2331013012100111-3302020132300021-1232330220033221-0010222113110320-2221122300121220-3130310231321331-3031112131100311"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_network.default_v6_vip / dc420c1698f2 / 3
+## Direct properties — default_v6_vip / 011221203302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f897464a7d012fe699ba0859f01703d43691b48aec0358c5414149efcb984202"></a>
+<a id="canonical-3320211310121022-1331000102333212-2121232200201121-3300011300033110-0312210123102022-3230000311203011-1001100110213233-3023212010020002"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_network.default_v6_vip / dc420c1698f2 / 4
+## Next pages — default_v6_vip / 011221203302 / 4
 
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-a554924f6e6eb721b41a66411722ccb19c6b5f3bc801827c5e65beab15a7e2c4"></a>
+<a id="canonical-2211111021021033-1232123223130201-2310012212121001-0113020230302301-2130122311330323-3020000120021330-1132121123322223-0111221332023010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e92f14f95e66feb8b6cc7acaa4f08d24ca83a0de86e0d13d88ef5bfde14cb1b7"></a>
+<a id="canonical-3221023301103321-1132121233322320-2312303013223022-2210330020310210-3022200322003132-2012320031010331-2020323311233331-3201103023012313"></a>
 
-## advertise_custom.advertise_where.virtual_network.default_vip — advertise_custom.advertise_where.virtual_network.default_vip / 956ffbfe4732 / 2
+## advertise_custom.advertise_where.virtual_network.default_vip — default_vip / 333210130302 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
 - advertise_custom.advertise_where.virtual_network.default_vip
 
-<a id="canonical-061b46b0d7e20bee7c4aa56c55613fefdc55c7fe1360185fd63ce425f353c372"></a>
+<a id="canonical-0012012310122300-3113320200233232-1330102222111230-1111120103333233-3130111130133332-0103120001201133-3112033032100211-3303110330031302"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2906,39 +2906,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a82ca185d30be8659700a54865d7f69cdcea20e1590bbe8b1440a6e8dc3cf2b"></a>
+<a id="canonical-1122200230220120-1131030023322012-1121130000221110-2012113113331221-3031303222020032-0111210023233220-2301101000221232-2031300330330223"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_network.default_vip / 956ffbfe4732 / 3
+## Direct properties — default_vip / 333210130302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-258dfb65231137f7852040704f4922b40cc623f6d5ca86471b48e0ed19256f32"></a>
+<a id="canonical-0211203133231211-0203010103133313-2011020010001300-1033102102022310-0030301202033312-3111302220121013-0123102032003231-0121021112330302"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_network.default_vip / 956ffbfe4732 / 4
+## Next pages — default_vip / 333210130302 / 4
 
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-c71463730981f3c04ffd2bfa6066bac72c8e8a1202ddf589b55c69b2b68801ca"></a>
+<a id="canonical-3013011012031303-0021200133033000-1033333102233322-1200121223223013-0230203220220102-0002313133112021-2311113012212302-2312202000013022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-573a5a7920b11d6c4d3ceb6a74a0cf5a29d808c0a86ea5bb818d176368e10465"></a>
+<a id="canonical-1113032211221321-0200230101311230-1031033032231222-1310220030331122-0221312000203000-2220123222112323-2001203101131203-1220320100101211"></a>
 
-## advertise_custom.advertise_where.virtual_network.virtual_network — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 2
+## advertise_custom.advertise_where.virtual_network.virtual_network — virtual_network / 013111232120 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
 - advertise_custom.advertise_where.virtual_network.virtual_network
 
-<a id="canonical-050cd0774eee544bd040435ec613eb2d98736708a32cdd8b56e2f9beda4cfac6"></a>
+<a id="canonical-0011003031001313-1032323211101023-3100100010031132-3012010332230231-2120130312130020-2203023031312023-1112320233212332-3122103033223012"></a>
 
 Type: `"single"`. Computed.
 
@@ -2963,15 +2963,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50d48771c4fdd7bd0bf2c57e3401aed22829501332be7c689cb3b46913e34693"></a>
+<a id="canonical-1100311020131301-3010333131132331-0023330230111332-0310000122323102-0220022111000103-0302233213301220-2130230323101221-0103320310122103"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 3
+## Direct properties — virtual_network / 013111232120 / 3
 
-<a id="canonical-8fecf36e3b4ef911f3012b36f4567f3c8c041a601000f6affcdf93119ef2a331"></a>
+<a id="canonical-2033323033031232-0323103233210101-3303000102230312-3310111213330330-2030001001221200-0100000033122233-3330313321030101-2132330222030301"></a>
 
-<a id="canonical-2bdb3a6f6e9501d81ce612d935f1d4bca9e24ef5f0105e97ba9e70e4d942d4e0"></a>
+<a id="canonical-0223312303221233-1232211100013120-0130321201023121-0311330131102330-2221320210323311-3300010011322113-2322213213003210-3121100231103200"></a>
 
-## name property — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 4
+## name property — virtual_network / 013111232120 / 4
 
 Type: `"string"`. Computed.
 
@@ -3024,11 +3024,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-30be27eb00c2487a5a78733c0e43c1c89de14fdb8e515d23615871f2721a3ad4"></a>
+<a id="canonical-0300233202133223-0000300210201322-1122132013030330-0032100330013020-2131320110333123-2032110111310203-1201112013013302-1302012203223110"></a>
 
-<a id="canonical-fc0fedd81ad4cbcd6db65214e95d9c80b603805ecf7137d8e93e463a45a12887"></a>
+<a id="canonical-3330003332313120-0122311030233031-1231231211020110-3221113121302000-2312000320001132-3033130103133120-3221033210120322-1011220102202013"></a>
 
-## namespace property — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 5
+## namespace property — virtual_network / 013111232120 / 5
 
 Type: `"string"`. Computed.
 
@@ -3088,11 +3088,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-90e43382e0da0ba254501813be7f7afd3d79ab19700841e1c6e10bc22e93d4ad"></a>
+<a id="canonical-2100321003032002-3200312200232202-1110110001200103-2332133313223331-0331132122230121-1300002010013201-3012320100233002-0232210331102231"></a>
 
-<a id="canonical-99a94d4c8c082183a8bbd8ad9010b7b61d6ffc2d0c0d4e24e0bc9d49aa73e8dc"></a>
+<a id="canonical-2121222110311030-2030002002012003-2220232331202231-2100010023132312-0131123333300231-0030003110320210-3200233021311021-2222130332203130"></a>
 
-## tenant property — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 6
+## tenant property — virtual_network / 013111232120 / 6
 
 Type: `"string"`. Computed.
 
@@ -3138,32 +3138,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ab434e1395bdc2ce464891a8abcf57470ac92c103ee67e4650b6eafa66382e41"></a>
+<a id="canonical-2223100310320103-2111233130023032-1012102021012220-2223303311131013-0022302102300100-0332321213321012-1100231232223322-1212032002321001"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_network.virtual_network / a5633f1d5b98 / 7
+## Next pages — virtual_network / 013111232120 / 7
 
-- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-e68e23c32c3c3f15a320ed4904eedf78c88278169bdbb38ce32097d318e1e060)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_network](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-3212203202033003-0230033003330111-2203020032311021-0010323231331320-3020200213200112-2123312323032030-3203020021133103-0120320132001200)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-1a5ef3da6635d886439116617c4a2eae9ca298a6c3426a83e74b422d51d7f640"></a>
+<a id="canonical-0122113233033122-1212031131202012-1003210101121201-1330102202322232-2130220221202212-3003100212222003-3213102310020231-1101311333121000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06c92b8679d5572cb4ce5d67e65aac06e8289aa973e886584f0dadf8c6a0ed02"></a>
+<a id="canonical-0012302102232012-1321311111130230-2310303211311213-3212112222300012-3220022021222221-1303322020121120-1033003122313320-3012220032310002"></a>
 
-## advertise_custom.advertise_where.virtual_site — advertise_custom.advertise_where.virtual_site / 4292b7e18889 / 2
+## advertise_custom.advertise_where.virtual_site — virtual_site / 320120202021 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.virtual_site
 
-<a id="canonical-34ebf29b4a091424a7c8534e643a08d001a7f32891ff7092133a27b54a70a49b"></a>
+<a id="canonical-0310322333022123-1022002101100210-2213302011031032-1210032200203100-0001221333030220-2101333313002102-0103032202132311-1022130022102123"></a>
 
 Type: `"single"`. Computed.
 
@@ -3188,15 +3188,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2496c38f06aa1452493448580684b45f059d67098b4bd688fcff589c897df3cc"></a>
+<a id="canonical-0210211230032033-0012222201101102-1021031010201120-0012201023101133-0011213112130021-2023102331122020-3330333311202130-2021133133033030"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_site / 4292b7e18889 / 3
+## Direct properties — virtual_site / 320120202021 / 3
 
-<a id="canonical-9615dd6dcc86060a65c25b26db73bc538be804decee62fcc0c3cbb5f82558e64"></a>
+<a id="canonical-2112011131311231-3030201200120022-1211300211230212-3123130323301103-2023322000103132-3032321202333030-0030033023231133-2002111120321210"></a>
 
-<a id="canonical-12e40d9cad3389d69a16c494514b6b4c7816edd1d32d66254892d21c9e6a6bc9"></a>
+<a id="canonical-0102321000312130-2231030320213112-2122011230102110-1101102312231030-1320011232313101-3103023112120211-1020210231020130-2132122212233021"></a>
 
-## network property — advertise_custom.advertise_where.virtual_site / 4292b7e18889 / 4
+## network property — virtual_site / 320120202021 / 4
 
 Type: `"string"`. Computed.
 
@@ -3243,36 +3243,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-4b807a091c7b032f998f8e04e907c97f8f88ddd1bb298d6d1b08a9bd0b6b4d30): complete subsection reference.
+- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1023200013220021-0130132300030233-2121203320320010-3221001330211333-2033202031313101-2323022120311231-0123002022212331-0023122310310300): complete subsection reference.
 
-<a id="canonical-049e87aeb4db904225edee1945d9a7cd56618efefd937f1542eb9a16dcae7404"></a>
+<a id="canonical-0010213220132232-2310312321001002-0211323132320121-1011312122133031-1112120120323332-3331210313330111-1002322321220112-3130223213100010"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_site / 4292b7e18889 / 5
+## Next pages — virtual_site / 320120202021 / 5
 
-- [advertise_custom.advertise_where.virtual_site.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-4b807a091c7b032f998f8e04e907c97f8f88ddd1bb298d6d1b08a9bd0b6b4d30)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_site.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1023200013220021-0130132300030233-2121203320320010-3221001330211333-2033202031313101-2323022120311231-0123002022212331-0023122310310300)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-4b807a091c7b032f998f8e04e907c97f8f88ddd1bb298d6d1b08a9bd0b6b4d30"></a>
+<a id="canonical-1023200013220021-0130132300030233-2121203320320010-3221001330211333-2033202031313101-2323022120311231-0123002022212331-0023122310310300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d672dc58001cc702233073022b27273bc434147ba93dbb2391be8a6f2e52ec69"></a>
+<a id="canonical-3112130231301120-0000013030130002-0203030013030002-0223021302130323-3010031001101323-2221033123230203-2101233220221233-0232110232301221"></a>
 
-## advertise_custom.advertise_where.virtual_site.virtual_site — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 2
+## advertise_custom.advertise_where.virtual_site.virtual_site — virtual_site / 010300101211 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1a5ef3da6635d886439116617c4a2eae9ca298a6c3426a83e74b422d51d7f640)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0122113233033122-1212031131202012-1003210101121201-1330102202322232-2130220221202212-3003100212222003-3213102310020231-1101311333121000)
 - advertise_custom.advertise_where.virtual_site.virtual_site
 
-<a id="canonical-005d3cc6febfb0dc643987bffcc45650ba3357a5f80868678ab652d886703424"></a>
+<a id="canonical-0000113103303012-3332233323003130-1210032120132333-3330301011121100-2322030311132211-3320002012201213-2022231211023120-2012130003100210"></a>
 
 Type: `"single"`. Computed.
 
@@ -3297,15 +3297,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-64f45774664145b9cf128c471a16b362dfc937c61ad96f50afad9ba0aa43f7ff"></a>
+<a id="canonical-1210331011131310-1212100110112321-3033010220301013-0122011223031202-3133302103133012-0122312112331100-2233223121232200-2222100333133333"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 3
+## Direct properties — virtual_site / 010300101211 / 3
 
-<a id="canonical-925052ca6d49d6d1c52ec576e82b4d1087508b4a20f3c5bc61fc5669a3c441ba"></a>
+<a id="canonical-2102110011023022-1231102131123101-3011023230111312-3220022310310100-2013110020231022-0200330330112330-1201333011121221-2203301010012322"></a>
 
-<a id="canonical-4098891b0bab28b73bcf230583ed4ceeea3a9665c9c105c725b58061410321a9"></a>
+<a id="canonical-1000212020210123-0023222302202313-0323303302030011-2003323110303232-3222032221121211-3021300100113013-0211231120001201-1001000302012221"></a>
 
-## name property — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 4
+## name property — virtual_site / 010300101211 / 4
 
 Type: `"string"`. Computed.
 
@@ -3358,11 +3358,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-29641efe6bdf167004cc1a7e3886b753b921cb1b15e08385f9f82a510ab3b46c"></a>
+<a id="canonical-0221121001323332-1223313301121300-0010303001221332-0320201223131103-2321020130230123-0111320020032011-3321332002221101-0022230323101230"></a>
 
-<a id="canonical-adbf344b2408bd38f56e2dff35c541d4ce99c5350c17b8a30cdb240b67f50faf"></a>
+<a id="canonical-2231233303101023-0210002023310320-3311123202313333-0311301110013110-3032212130110311-0030011323202203-0030312302100023-1213331100332233"></a>
 
-## namespace property — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 5
+## namespace property — virtual_site / 010300101211 / 5
 
 Type: `"string"`. Computed.
 
@@ -3422,11 +3422,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d1bbcdba119d2fce89d77672fdd8c0d9b3b94a0fa03d6d9853e4907475cefb8e"></a>
+<a id="canonical-3101232330312322-0101213102333032-2021311313121302-3331312030003121-2303232110220033-2200033112312120-1103321021001310-1311303233232032"></a>
 
-<a id="canonical-1656c15dad5e25d74438672d8997225d9d4ec03be5e3e4fbd34041c4a9d17152"></a>
+<a id="canonical-0112111230011131-2231113202113113-1010032012130231-2021211302021131-2131103230000323-3211320332103323-3103100010013010-2221310113011102"></a>
 
-## tenant property — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 6
+## tenant property — virtual_site / 010300101211 / 6
 
 Type: `"string"`. Computed.
 
@@ -3472,32 +3472,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-69d7d554226d6e9c3093bc426f0c2d132f942a058e19850630062800d924a25d"></a>
+<a id="canonical-1221311331111110-0202123112322130-0300210323301002-1233003002310103-0233211002220011-2032012120110012-0300001202200000-3121021022021131"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_site.virtual_site / b2efd0130465 / 7
+## Next pages — virtual_site / 010300101211 / 7
 
-- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1a5ef3da6635d886439116617c4a2eae9ca298a6c3426a83e74b422d51d7f640)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0122113233033122-1212031131202012-1003210101121201-1330102202322232-2130220221202212-3003100212222003-3213102310020231-1101311333121000)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-34bc7328d542baac3689a826d753e66f29a0fbd47032aca079658a060c62ae10"></a>
+<a id="canonical-0310233013030220-3111100223222230-0312202122200212-3113110332121233-0221220033233110-1300030222302200-1321121120220012-0030120222320100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff27816ed34dcc7489b7952cd8b38cb5fa97fb931b3341b3cb27317a33b0cf47"></a>
+<a id="canonical-3333021320011232-3103103130301310-2021231321110230-3120230320302311-3322211333232103-0123030310012303-3023021303011322-0303230030331013"></a>
 
-## advertise_custom.advertise_where.virtual_site_with_vip — advertise_custom.advertise_where.virtual_site_with_vip / 508ffa05e3b6 / 2
+## advertise_custom.advertise_where.virtual_site_with_vip — virtual_site_with_vip / 001132032312 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.virtual_site_with_vip
 
-<a id="canonical-e33dddab6ab70b9eee12a677281f2693498435d927ff0d155910bb9d205ec39d"></a>
+<a id="canonical-3203033131312223-1222231300232132-3232010222121313-0220013302122103-1021201003113121-0213333300310111-1121010023232131-0200113230032131"></a>
 
 Type: `"single"`. Computed.
 
@@ -3522,15 +3522,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-354ad7445bc6ffe3a3b70cce004b542ca36e0808b8d4446f1e75877d73c34ad0"></a>
+<a id="canonical-0311102231131010-1123301233333203-2203231300303032-0000102311100230-2203123200200020-2320311010101233-0132131120131331-1303300310223100"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_site_with_vip / 508ffa05e3b6 / 3
+## Direct properties — virtual_site_with_vip / 001132032312 / 3
 
-<a id="canonical-3a29474a7e433e733da617c4782e5decee850bc2de7cb97469fda5d97113ef37"></a>
+<a id="canonical-0322022110131022-1332100303321303-0331221201133010-1320023211313230-3232201100233002-3132133023211310-1221333122113121-1301010332330313"></a>
 
-<a id="canonical-d03de9a2113411200870ba6f5618c8cd1c401511fdcca3172f85bce13840cc55"></a>
+<a id="canonical-3100033132212202-0101031001010200-0020130023221233-1112012030203031-0130100001110101-3331303022030113-0233201123303201-0320100030301111"></a>
 
-## ip property — advertise_custom.advertise_where.virtual_site_with_vip / 508ffa05e3b6 / 4
+## ip property — virtual_site_with_vip / 001132032312 / 4
 
 Type: `"string"`. Computed.
 
@@ -3567,11 +3567,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e7c883e3a7d19c3a74542f16ab4ca61a8ed23d9f41ec2da5a50f1c18753c2b68"></a>
+<a id="canonical-3213302020033203-2213310121300322-1310111002330112-2223103022120122-2032310203312133-1001323002312211-2211003301300120-1311033002231220"></a>
 
-<a id="canonical-4272768c17145be083a86b81571c395b70d3d3cd57dfa4f261d4479ca188184a"></a>
+<a id="canonical-1002130213122030-0113011011233200-2003222012232001-1113013003211123-1300310331033031-1113313322103302-1201311010132130-2201202001201022"></a>
 
-## network property — advertise_custom.advertise_where.virtual_site_with_vip / 508ffa05e3b6 / 5
+## network property — virtual_site_with_vip / 001132032312 / 5
 
 Type: `"string"`. Computed.
 
@@ -3604,36 +3604,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a82797b69349dd76f7412f4c86417f35ad269252d5f96f040a8b985ff68ebb54): complete subsection reference.
+- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2220021321132312-2103102131311312-3313100102331030-2012100113330311-2231021221021102-3111332112330010-0022202321201133-3312203223231110): complete subsection reference.
 
-<a id="canonical-1d435b74ac142ca9840c1b16fbf8600d300fe2796791cc366021c40e013fbea4"></a>
+<a id="canonical-0131100311231310-2230011002302221-2010003001230112-3323332012000031-0300003332021321-1213210130300312-1200020130100032-0001033323322210"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_site_with_vip / 508ffa05e3b6 / 6
+## Next pages — virtual_site_with_vip / 001132032312 / 6
 
-- [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-a82797b69349dd76f7412f4c86417f35ad269252d5f96f040a8b985ff68ebb54)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2220021321132312-2103102131311312-3313100102331030-2012100113330311-2231021221021102-3111332112330010-0022202321201133-3312203223231110)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-a82797b69349dd76f7412f4c86417f35ad269252d5f96f040a8b985ff68ebb54"></a>
+<a id="canonical-2220021321132312-2103102131311312-3313100102331030-2012100113330311-2231021221021102-3111332112330010-0022202321201133-3312203223231110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93325b5226e4c9ef12f3f02118105eff33d764b0c0111c24c4dee853a88b2b95"></a>
+<a id="canonical-2103030211231102-0212321030213233-0102330333000201-0120010011323333-0303311312102300-3000010101300210-3010313232201103-2220202302232111"></a>
 
-## advertise_custom.advertise_where.virtual_site_with_vip.virtual_site — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 2
+## advertise_custom.advertise_where.virtual_site_with_vip.virtual_site — virtual_site / 200120023202 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-34bc7328d542baac3689a826d753e66f29a0fbd47032aca079658a060c62ae10)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0310233013030220-3111100223222230-0312202122200212-3113110332121233-0221220033233110-1300030222302200-1321121120220012-0030120222320100)
 - advertise_custom.advertise_where.virtual_site_with_vip.virtual_site
 
-<a id="canonical-37556c8801ff63728726da7ee4488bce6f90177c947f2bfa9ff4026dec361fca"></a>
+<a id="canonical-0313111112302020-0001333312031302-2013021231221332-3210102020233032-1233210001131330-2110133302233322-2133331000021231-3230031201333022"></a>
 
 Type: `"single"`. Computed.
 
@@ -3658,15 +3658,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-16bab7f63c4654ce0a4124a91bd2231cb7fec411f4e2fad737075830a5827a51"></a>
+<a id="canonical-0112232223133312-0330101211103032-0022100102102221-0123310202030130-2313333230100101-3310320233223113-0313001311200300-2211200213221101"></a>
 
-## Direct properties — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 3
+## Direct properties — virtual_site / 200120023202 / 3
 
-<a id="canonical-53e8fb33c82ebd73937213d4fabae679789b21e17b713fcfcbd16dc7dbd3c345"></a>
+<a id="canonical-1103322033230303-3020023223311303-2103130201033110-3322232232121321-1320212302013201-1323130103333033-3023310112313013-3123310330031011"></a>
 
-<a id="canonical-aa9c485a52c530203d54736f048474a6c5292cb73e799fb5ae831d1c887baa2d"></a>
+<a id="canonical-2222213010201122-1102301103000200-0331111013031233-0010201013102212-3011022102302313-0332132121332311-2232200301310130-2020132322220231"></a>
 
-## name property — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 4
+## name property — virtual_site / 200120023202 / 4
 
 Type: `"string"`. Computed.
 
@@ -3719,11 +3719,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c00fe8e921bce7863240cf95f20dab00b56b179f2093dbd9c6cf3a8b45815901"></a>
+<a id="canonical-3000003332203221-0201233032132012-0302100030332111-3302003122230000-2311122301132133-0200210331233121-3012303303222023-1011200111210001"></a>
 
-<a id="canonical-e20d8db44730aab68993769867b15335889e42b1d5cfa36b1534d2553c8823c5"></a>
+<a id="canonical-3202003120312310-1013030022222312-2021210313122120-1213230111030311-2020213210022301-3111303322031223-0111031031021111-0330202002033011"></a>
 
-## namespace property — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 5
+## namespace property — virtual_site / 200120023202 / 5
 
 Type: `"string"`. Computed.
 
@@ -3783,11 +3783,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0b496fa15b2fb8707a8e6abe810e831a48f52476a1f8500e7c16f3815da38648"></a>
+<a id="canonical-0023102112332201-1123023323201300-1322203212222332-2001003220030122-1020331102101312-2201332011000032-1330011233032001-1131220320121020"></a>
 
-<a id="canonical-3b743818776a4238369e5f0f2bae5e0ea4c6a3d360efa369a44d4134dc7da32d"></a>
+<a id="canonical-0323131003200120-1313122210020320-0312213211330033-0223223211320032-2210301222033103-1200323322031221-2210103110010310-3130133122030231"></a>
 
-## tenant property — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 6
+## tenant property — virtual_site / 200120023202 / 6
 
 Type: `"string"`. Computed.
 
@@ -3833,32 +3833,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-172cdd381377e77285d4379241221473ad85df80e64f9c4c5677559ffd9f737b"></a>
+<a id="canonical-0113023031310320-0103131332131302-2011311003132102-1001020201101303-2231201131332000-3212103321301030-1112131311112133-3331213313031323"></a>
 
-## Next pages — advertise_custom.advertise_where.virtual_site_with_vip.virtual_site / abd6938182e2 / 7
+## Next pages — virtual_site / 200120023202 / 7
 
-- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-34bc7328d542baac3689a826d753e66f29a0fbd47032aca079658a060c62ae10)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.virtual_site_with_vip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0310233013030220-3111100223222230-0312202122200212-3113110332121233-0221220033233110-1300030222302200-1321121120220012-0030120222320100)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f"></a>
+<a id="canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5e6a530e1019f77388398a9487a7afd4740548231a0cfe18bf136fa84329ed2e"></a>
+<a id="canonical-1132122211030032-0100012133131303-2020032120222110-2013221322333110-1310001110200203-0122003033320120-2333010312332220-1003022132310232"></a>
 
-## advertise_custom.advertise_where.vk8s_service — advertise_custom.advertise_where.vk8s_service / 93a298df5a59 / 2
+## advertise_custom.advertise_where.vk8s_service — vk8s_service / 313311221121 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
 - advertise_custom.advertise_where.vk8s_service
 
-<a id="canonical-b5fab35e1014938779a23334b010a9851cc21a197be6f85199f06c6d34a598b0"></a>
+<a id="canonical-2311332223031132-0100011021032013-1321220203030310-2300010022212011-0130300201220121-1323321233201101-2121330012301231-0310221121202300"></a>
 
 Type: `"single"`. Computed.
 
@@ -3884,43 +3884,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-846325eab51fd3ea66badebad1d74ba1dc2b9e51ad8e5d3104491edcb485fd65"></a>
+<a id="canonical-2010120302113222-2311013331033222-1212232231322322-3101311310232201-3130022321321101-2231203211310301-0010102101323130-2310201133311211"></a>
 
-## Direct properties — advertise_custom.advertise_where.vk8s_service / 93a298df5a59 / 3
+## Direct properties — vk8s_service / 313311221121 / 3
 
-- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6eaaa669607edcbc7f817a84706e0b18929673c5d9cfc608bc7ce4aab632dca9): complete subsection reference.
+- [site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1232222222121221-1200133231302330-1333200113222010-1300123200230120-2102211213033011-3121303330120020-2330133032102222-2312030231302221): complete subsection reference.
 
-- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-9e3c8a5cecc0ca05a5cbc138c1227e2547fae623ec7c1d3293a99fd7ecafd2ef): complete subsection reference.
+- [virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2132033020221130-3230300030220011-2211302330010320-3001020213320211-1013332232120203-3230133001310302-2103222121333113-3230223331023233): complete subsection reference.
 
-<a id="canonical-b39dc89e57fd0d39dc09372c8601cba424aa7fc4a4ec0f4cf83ca7d3a72796ee"></a>
+<a id="canonical-2303213130202132-1113333100310321-3130002103130230-2012000130232210-0210222213333010-2210323000331030-3320033022133103-2213021321123232"></a>
 
-## Next pages — advertise_custom.advertise_where.vk8s_service / 93a298df5a59 / 4
+## Next pages — vk8s_service / 313311221121 / 4
 
-- [advertise_custom.advertise_where.vk8s_service.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-6eaaa669607edcbc7f817a84706e0b18929673c5d9cfc608bc7ce4aab632dca9)
-- [advertise_custom.advertise_where.vk8s_service.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-9e3c8a5cecc0ca05a5cbc138c1227e2547fae623ec7c1d3293a99fd7ecafd2ef)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.vk8s_service.site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1232222222121221-1200133231302330-1333200113222010-1300123200230120-2102211213033011-3121303330120020-2330133032102222-2312030231302221)
+- [advertise_custom.advertise_where.vk8s_service.virtual_site](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2132033020221130-3230300030220011-2211302330010320-3001020213320211-1013332232120203-3230133001310302-2103222121333113-3230223331023233)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-6eaaa669607edcbc7f817a84706e0b18929673c5d9cfc608bc7ce4aab632dca9"></a>
+<a id="canonical-1232222222121221-1200133231302330-1333200113222010-1300123200230120-2102211213033011-3121303330120020-2330133032102222-2312030231302221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eb78ba2790c96f915b7611a17b7bfa5b76a2af062aecda6ef37327545575ed95"></a>
+<a id="canonical-3223132023220213-2100302112332101-1123131201012201-1323132333221123-1312220222330012-0222323031221232-3303130302131110-1111131132312111"></a>
 
-## advertise_custom.advertise_where.vk8s_service.site — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 2
+## advertise_custom.advertise_where.vk8s_service.site — site / 013330120012 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
 - advertise_custom.advertise_where.vk8s_service.site
 
-<a id="canonical-bcb2af668ba2210029eaa253ddff86c56c48acd22a5e411a20ca24e548a75d50"></a>
+<a id="canonical-2330230222331212-2023220202010000-0221322222021103-3131333320123011-1230102022303102-0222113210010122-0200302202103211-1020221311311100"></a>
 
 Type: `"single"`. Computed.
 
@@ -3945,15 +3945,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3add91e65e663d125489668974ef72038c71c26aa0839d7adef101962cef0865"></a>
+<a id="canonical-0322313121013212-1132121203310102-1110202112122021-1310323313020003-2030130130021222-2200200321311322-3132330100012112-0230323300201211"></a>
 
-## Direct properties — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 3
+## Direct properties — site / 013330120012 / 3
 
-<a id="canonical-508462d0461401372bf6525581b8da21ef2fff10fe5074455a941e72053e9002"></a>
+<a id="canonical-1100201012023100-1012011000010313-0223331211021111-2001232031220201-3233023333330100-3332110013101011-1122211001321302-0011033221000002"></a>
 
-<a id="canonical-dc58d0a2469750e6160c832674f7961cc1023947e6dea71a03ea33cc841acb09"></a>
+<a id="canonical-3130112031002202-1012211311003212-0112003020030212-1310331321120130-3001000203211013-3212313222130122-0003322203033030-2010012230230021"></a>
 
-## name property — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 4
+## name property — site / 013330120012 / 4
 
 Type: `"string"`. Computed.
 
@@ -4006,11 +4006,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df05d1b860cdd37b1dd088b005c2fe7f3e79d3add30e0f9fba226e83d15030b1"></a>
+<a id="canonical-3133001131012320-1200303131031323-0131310020202300-0011300233321333-0332132131032231-3103003200332133-2322020212322003-3101110003002301"></a>
 
-<a id="canonical-6738d714dd77ae50228b0e78c2a3e0dc73ced5f2f62c73cbfd6ec83265047f3a"></a>
+<a id="canonical-1213032031130110-3131131322321100-0202202300321320-3002220332003130-1303303231113302-3312023013033023-3331123230200302-1211001013330322"></a>
 
-## namespace property — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 5
+## namespace property — site / 013330120012 / 5
 
 Type: `"string"`. Computed.
 
@@ -4070,11 +4070,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-18b08ec442a92b323130d8cf2a65b2c5abccdceb509944c3d48a66668f8cc850"></a>
+<a id="canonical-0120230020323010-1002222102230302-0301030031203033-0222121123023011-2223303031303223-1100212110103003-3110202212121212-2033203030201100"></a>
 
-<a id="canonical-737482e9178f181a3d8c7b962a53e3820fce3ffc643b109f882dcd5347bc151b"></a>
+<a id="canonical-1303131020023221-0113203301200122-0331203013232112-0222110332032002-0033303203333330-1210032301002133-2020023130311103-1013233001110123"></a>
 
-## tenant property — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 6
+## tenant property — site / 013330120012 / 6
 
 Type: `"string"`. Computed.
 
@@ -4120,33 +4120,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b633315c158642923f0f2a6313921180292e1c9302d38af51edce8f91e3233a9"></a>
+<a id="canonical-2312030303011130-0111201210022102-0333003302221203-0103210201012000-0221023201302103-0002310320223311-0132313032203321-0132030203032221"></a>
 
-## Next pages — advertise_custom.advertise_where.vk8s_service.site / 7c392c1fc606 / 7
+## Next pages — site / 013330120012 / 7
 
-- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-9e3c8a5cecc0ca05a5cbc138c1227e2547fae623ec7c1d3293a99fd7ecafd2ef"></a>
+<a id="canonical-2132033020221130-3230300030220011-2211302330010320-3001020213320211-1013332232120203-3230133001310302-2103222121333113-3230223331023233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c72b8a8dbd412dbaf5fcaf88b516472ff1d950eaff596c3bd8dc3690694251d4"></a>
+<a id="canonical-3013022320222031-2331100102312322-3311333022332020-2311011210130233-3301312111003222-3333112112300323-3120313003122100-1221100211013110"></a>
 
-## advertise_custom.advertise_where.vk8s_service.virtual_site — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 2
+## advertise_custom.advertise_where.vk8s_service.virtual_site — virtual_site / 100230322301 / 2
 
 Breadcrumbs:
 
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5369a8063b3ad84afa4b51f6a2a231a762e2a2207952933f53643da7b6f8d800)
-- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-aa5fc2cd403f4b5c7ff3aad1dc7ad13537c90b8950820f79acd82c594d64ceb4)
-- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
+- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0103323311003132-3301302203223221-0203231010322201-0313110133112213-0110221020311100-2200213031313001-2012020103110231-2011020211202023)
+- [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
+- [advertise_custom.advertise_where](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-2222113330023031-1000033310231130-1333330322223101-3130132231010311-0313302100232021-1100200200331321-2230312002301121-1031121030322310)
+- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
 - advertise_custom.advertise_where.vk8s_service.virtual_site
 
-<a id="canonical-d5757c3b5b3740647933b9646f59ad11fd82972986d34117a6d463d93d2e1b99"></a>
+<a id="canonical-3111131113300323-1123031310001210-1321030323211210-1233112122310101-3331200221130221-2012310310010113-2212311012033121-0331023201232121"></a>
 
 Type: `"single"`. Computed.
 
@@ -4171,15 +4171,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f4207e716563a82a5c66a8d2d1fe9d5e5e3d956dffe1c374a506096ff92b81bd"></a>
+<a id="canonical-3310020013321301-1211120322200222-1130121222203102-3101333221311132-1132033121111231-3333320130031310-2211001200211233-3321022320012331"></a>
 
-## Direct properties — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 3
+## Direct properties — virtual_site / 100230322301 / 3
 
-<a id="canonical-e168397ff3465af233242a93540c6498985ca2d0c643d5ea966fc86d3703d8ed"></a>
+<a id="canonical-3201122003211333-3303101211223302-0303021002222103-1110003012102120-2120113022023100-3012100331113222-2112123330201231-0313000331203231"></a>
 
-<a id="canonical-da570cc8ee52c23beea364cdf37fbd1cb216c6ec4285cdd728e29b899a0e44d0"></a>
+<a id="canonical-3122111300303020-3232110230020323-3232220312103031-3303133323310130-2302011230123230-1002201130313113-0220320221232021-2122003210103100"></a>
 
-## name property — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 4
+## name property — virtual_site / 100230322301 / 4
 
 Type: `"string"`. Computed.
 
@@ -4232,11 +4232,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-06d989a40bf48e74992a4af3b0fabe4a27f5d7969c6bccaf64dc8d3d17c512c8"></a>
+<a id="canonical-0012312120212210-0023331020321310-2121022210223303-2300332223321022-0213331131132112-2130122330302233-1210313020310331-0113301101023020"></a>
 
-<a id="canonical-32381c15519cb1fc4a098056059cf50448c51bb04cf8bd71649e34b6fa088367"></a>
+<a id="canonical-0302032001300111-1101213023013330-1022002120001112-0011213033110010-1020301101232300-1030332023311301-1210213203102312-3322002020031213"></a>
 
-## namespace property — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 5
+## namespace property — virtual_site / 100230322301 / 5
 
 Type: `"string"`. Computed.
 
@@ -4296,11 +4296,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-62276a01ee1d3e94d059313b59f296b7fc18794461374a8e578733f9dc649d4a"></a>
+<a id="canonical-1202021312220001-3232013103322110-3100112103010323-1121330221122313-3330012013211010-1201031310222032-1113201303033321-3130121021311022"></a>
 
-<a id="canonical-33433c43e4f58fe99a96e7c1af2439cbb58fcdd97b333e5f0dc7ecd0b7c2873b"></a>
+<a id="canonical-0303100303301003-3210331120333221-2122211232133001-2233021003213023-2311203330313121-1323030303321133-0031301332303100-2313300220130323"></a>
 
-## tenant property — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 6
+## tenant property — virtual_site / 100230322301 / 6
 
 Type: `"string"`. Computed.
 
@@ -4346,233 +4346,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a90fdf22ae9bd9c24e91d44e739a0d94b645b713f62ec1650bb91526a3eb3eb5"></a>
+<a id="canonical-2221003331330202-2232212331213002-1032210131101032-1303212200312110-2312101123130103-3312023230011211-0023232101110212-2203322303322311"></a>
 
-## Next pages — advertise_custom.advertise_where.vk8s_service.virtual_site / c9785342ceb1 / 7
+## Next pages — virtual_site / 100230322301 / 7
 
-- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1e6911fe82c3f48cf199b6bdec55513186d4cd526dfe2980014df97511c7663f)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
+- [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
+- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
 
-<a id="canonical-5684e25de901e83fdd06b403aedef7b7952f266b34a2576f9c1eabbbabb5b10d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-78772db94809d0e8b4233df6858f58a272fe30642b04620311c3879bfed8a9e3"></a>
-
-## advertise_on_public — advertise_on_public / 51b2c2ec729d / 2
-
-Breadcrumbs:
-
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- advertise_on_public
-
-<a id="canonical-a036294937822daf472e5e0cdb0113c257532b5591e640bafd0f49e736f09d5a"></a>
-
-Type: `"single"`. Computed.
-
-Defines a way to advertise a load balancer on public. If optional public\_ip is provided, it will
-only be advertised on RE sites where that public\_ip is available.
-
-Upstream description:
-
-This defines a way to advertise a load balancer on public. If optional public\_ip is provided, it
-will only be advertised on RE sites where that public\_ip is available.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1b261bd061f9325bad1261e69bc3b6957a97a2a66d5291edea37e1977d1aaf8d"></a>
-
-## Direct properties — advertise_on_public / 51b2c2ec729d / 3
-
-- [public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-bb521c582e424d4fe702c1ae19c4b81fc3909f1d3d22f97b088f634d0bb8f1e2): complete subsection reference.
-
-<a id="canonical-a2c543b651b70cb2db9a3c8bc03af51c6ec503cb36d416796de77edf156f9809"></a>
-
-## Next pages — advertise_on_public / 51b2c2ec729d / 4
-
-- [advertise_on_public.public_ip](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-bb521c582e424d4fe702c1ae19c4b81fc3909f1d3d22f97b088f634d0bb8f1e2)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-
-<a id="canonical-bb521c582e424d4fe702c1ae19c4b81fc3909f1d3d22f97b088f634d0bb8f1e2"></a>
+<a id="canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-ef9af24a675909cabb56c8d3eb3fec66697a0a31489a8d96d2ea17519139bd56"></a>
-
-## advertise_on_public.public_ip — advertise_on_public.public_ip / 13db4c8fec6b / 2
-
-Breadcrumbs:
-
-- [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f)
-- [Property reference](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-5684e25de901e83fdd06b403aedef7b7952f266b34a2576f9c1eabbbabb5b10d)
-- advertise_on_public.public_ip
-
-<a id="canonical-b2f0a5d81ea2b5cc630b6fa8c57aa538104f8f9eed9d411a29c43dd8f6645813"></a>
-
-Type: `"single"`. Computed.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-63215f325b4f80fc6fffe7b8a951883a272b656a25b21aae0acd7f23a078ffbb"></a>
-
-## Direct properties — advertise_on_public.public_ip / 13db4c8fec6b / 3
-
-<a id="canonical-6a30a73c3d1f6d27280d801f9aa9b6cc6bc5035e137653f2d73492d9ca6a8a07"></a>
-
-<a id="canonical-3ce4b9371724b2fcaebf04d17b4d464a38fac407a8815aaa9be5c351b226494a"></a>
-
-## name property — advertise_on_public.public_ip / 13db4c8fec6b / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-2e50ccc0fbbf69023d0a85ed6a39df94387f175d2ed145ff7df167bcb35a8a86"></a>
-
-<a id="canonical-1eede8c5114992c7944773594470d93be17294f741919cf930b9cdc5d5ec5f4d"></a>
-
-## namespace property — advertise_on_public.public_ip / 13db4c8fec6b / 5
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-bb99f1a3addfecee27de11f7a0135ea56995641c16a775d427eacec7f490bf43"></a>

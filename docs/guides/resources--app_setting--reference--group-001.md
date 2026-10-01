@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_app_setting referenc
 
 # xcsh_app_setting reference
 
-<a id="canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804"></a>
+<a id="canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1307ad176ad3e80dae6b709945d3fc728304c88c7c12a99775bbe87df06b26cb"></a>
+<a id="canonical-0103001322310113-1222310332200031-2232122313002121-1011310333301302-2003001030202030-1330010222212113-1311232332201331-3300122302123023"></a>
 
-## Property reference — Property reference / 119fb504d73f / 2
+## Property reference — Property reference / 001031130333 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 - Property reference
 
-<a id="canonical-e3aab9287993c73b3ab42f94e63ec5eeae0fd1d0d4214ac6b8ba8979e799fe83"></a>
+<a id="canonical-3203222223210220-1321210330130323-0322231002332110-3212033230113232-2232003331013100-3110020110223012-2320232220211321-3213212133322003"></a>
 
-## Direct properties — Property reference / 119fb504d73f / 3
+## Direct properties — Property reference / 001031130333 / 3
 
-<a id="canonical-3385610e1c3d59b1e9ff6810c2211ec9cf88cdfc4998be4eb961903cda6f061f"></a>
+<a id="canonical-0303201112010032-0130033111212301-3221333312200100-3002020101323021-3033202030313330-1021212023321032-2321120121000330-3122123300120133"></a>
 
-<a id="canonical-d3101e4b5b116698cb65ee8ac9c7efe6fb48cdd9be578f65631afe49021a90f7"></a>
+<a id="canonical-3103010001321023-1123010112122120-3023121132322022-3021301332333212-3323102030313121-2332111320331211-1203012233321021-0002012221003313"></a>
 
-## annotations property — Property reference / 119fb504d73f / 4
+## annotations property — Property reference / 001031130333 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,13 +67,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356): complete subsection reference.
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112): complete subsection reference.
 
-<a id="canonical-0a313fc5537582d0076a0d45b22459bf4d4638da2c750fde76615d992eed26a7"></a>
+<a id="canonical-0022030103333011-1103131120023100-0013122200311011-2302021011212333-1031101203203122-0230131100333132-1312120111312121-0232323102122213"></a>
 
-<a id="canonical-ff5414067aea844ca20aafd88ab783479abf810f4beb0ac56bacf3f5516c5e11"></a>
+<a id="canonical-3333111001100012-1322322220101030-2202002222333120-2022231320031013-2122233320010033-1023322300223011-1223223033033311-1101123011320101"></a>
 
-## description property — Property reference / 119fb504d73f / 5
+## description property — Property reference / 001031130333 / 5
 
 Type: `"string"`. Optional.
 
@@ -117,11 +117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d905c83a40fd141491580190a25c538217cb7cf9f8fcc5b640aa1180d7692ba4"></a>
+<a id="canonical-3121001130200322-1000333101100110-2101112000012100-2202113011032002-0113302313303321-3320333030112312-1000222201012000-3113122102232210"></a>
 
-<a id="canonical-959540d87de0e2bd7916dd89e38791bfe4e1ae6bfd426d0691a5940f21e73d8d"></a>
+<a id="canonical-2111211110003120-1331320032022331-1321011231312021-3203201321012333-3210320122321223-3331100212310012-2101221121100033-0201321303312031"></a>
 
-## disable property — Property reference / 119fb504d73f / 6
+## disable property — Property reference / 001031130333 / 6
 
 Type: `"bool"`. Optional.
 
@@ -144,25 +144,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-30475c1af09a11d363618bc9b98f2f428d6d0e5a986d4901a08b2fc5127de1b7"></a>
+<a id="canonical-0300101311300122-3300212201013103-1203120120233021-2321203302331002-2031123100321122-2120123110210001-2200202302333011-0102133132012313"></a>
 
-<a id="canonical-5ef4defb71bb1fb6978eb8edf3ee72c58b7bf260ffad5e50f695562451ccb243"></a>
+<a id="canonical-1132331031323323-1301232301332312-2113203223203231-3303323213023011-2023132333021200-3333223111321100-3312211111120210-1101303023021003"></a>
 
-## id property — Property reference / 119fb504d73f / 7
+## ID property — Property reference / 001031130333 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-d8d54e22ea7f264b13b8b259710eb0e6ae21fcf44962e9a4aef114128bf920ff"></a>
+<a id="canonical-3120311110320202-3222133302121023-0103232023021121-1301003223003212-2232020133303310-1021120232212210-2232330101100102-2023332102003333"></a>
 
-<a id="canonical-8a5770963a64fa5bd891013c1b31071b5649b507a7275cb5f9dec48bdb0bb6ba"></a>
+<a id="canonical-2022111313002112-0322121033221123-3120210100010330-0123030100130123-1112102123110013-2213021311302311-3321313230102023-3123002323122322"></a>
 
-## labels property — Property reference / 119fb504d73f / 8
+## labels property — Property reference / 001031130333 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-00c231b07778d1680d5cb96658ffc067df4b8478963dfb17f9a0b970b254071d"></a>
+<a id="canonical-0000300203012300-1313132031011220-0031113023211212-1120333330001213-3133102320101320-2112033133230113-3321220023211300-2302111000130131"></a>
 
-<a id="canonical-98540c8ad3ba3616f3a99936abb54de48cda8921e3fe2428364c770eaed0fa0f"></a>
+<a id="canonical-2120111000302022-3103232203120112-3303222121210312-2223231110313210-2030312220210201-3203333202100220-0312103013130032-2232310033220033"></a>
 
-## name property — Property reference / 119fb504d73f / 9
+## name property — Property reference / 001031130333 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9d95c5884ef44b706a40c71f3182c7f84bccd7dd734d8c88574e46dce3a623f5"></a>
+<a id="canonical-2131211130112020-1032331010231300-1222100030130133-0301200230133320-1023303031133131-1303103120302020-1113103210123130-3203221202033311"></a>
 
-<a id="canonical-e6bad3b7c90db16d3feba9d83272702adda5a13abfd66d841b8fda701242d3c6"></a>
+<a id="canonical-3212232231032313-3021003123011231-0333322322213120-0302130213000222-3131221122010322-2333311212312010-0123203331221300-0102100231033012"></a>
 
-## namespace property — Property reference / 119fb504d73f / 10
+## namespace property — Property reference / 001031130333 / 10
 
 Type: `"string"`. Required.
 
@@ -312,97 +312,97 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--app_setting--reference--group-001.md#canonical-b6bf006bee2af16444ad1d452e09cf84122225ae3f0f01656f31a62f5a1b158e): complete subsection reference.
+- [timeouts](resources--app_setting--reference--group-001.md#canonical-2312233300001223-3232022233011210-1010223101311011-0232002130332010-0102020202112232-0333003300011211-1233030122120233-1122012301112032): complete subsection reference.
 
-<a id="canonical-42b0bcb7533a85d63036de36f454ad1a74a749f8575a486860694656365dd443"></a>
+<a id="canonical-1002230023302313-1103032220113112-0300031231320312-3310111022310122-1310221310213320-1113112210201220-1200122110121112-0312113131101003"></a>
 
-## All schema paths — Property reference / 119fb504d73f / 11
+## All schema paths — Property reference / 001031130333 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--app_setting--reference--group-001.md#canonical-3385610e1c3d59b1e9ff6810c2211ec9cf88cdfc4998be4eb961903cda6f061f) |
-| `app_type_settings` | [app_type_settings](resources--app_setting--reference--group-001.md#canonical-4a47deb61957e28de040aa75f97b8e532d63e53407e2b8cf5d25c67111712663) |
-| `app_type_settings.app_type_ref` | [app_type_settings.app_type_ref](resources--app_setting--reference--group-001.md#canonical-b2ce6ab4dcceaf2a3176ec5982a048dde53da5983e8ee99d1707575657a12a04) |
-| `app_type_settings.app_type_ref.kind` | [app_type_settings.app_type_ref.kind](resources--app_setting--reference--group-001.md#canonical-361203a0f136781141afedeecaa1ba20eac8dcb7b80a19a300eb26f537d180df) |
-| `app_type_settings.app_type_ref.name` | [app_type_settings.app_type_ref.name](resources--app_setting--reference--group-001.md#canonical-db0324bc5e8efcbcd3a9d068d08e84fab326a0a4109707402f0f4b6380eb00dd) |
-| `app_type_settings.app_type_ref.namespace` | [app_type_settings.app_type_ref.namespace](resources--app_setting--reference--group-001.md#canonical-f3594ddfee694c85354e6c09259965524a1951a6c3f2532761a5917641c55270) |
-| `app_type_settings.app_type_ref.tenant` | [app_type_settings.app_type_ref.tenant](resources--app_setting--reference--group-001.md#canonical-c03d324bd88c2622d6d29c384a951ef402cdc6b480241e76cacdddd4f8744cdc) |
-| `app_type_settings.app_type_ref.uid` | [app_type_settings.app_type_ref.uid](resources--app_setting--reference--group-001.md#canonical-01df61bd5cd86af3b12596b7598ab79355c79a4399d649c8753cce35229846db) |
-| `app_type_settings.business_logic_markup_setting` | [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-b64e891dd6a371ecda65aa5f99d0dbf97770f1495b09086759bc4a0737e759f1) |
-| `app_type_settings.business_logic_markup_setting.disable_spec` | [app_type_settings.business_logic_markup_setting.disable_spec](resources--app_setting--reference--group-001.md#canonical-383223c3a40cb8e8fc783e8a5a1249e99d025ed8373fdcbb34c16325d53d7076) |
-| `app_type_settings.business_logic_markup_setting.enable` | [app_type_settings.business_logic_markup_setting.enable](resources--app_setting--reference--group-001.md#canonical-2fc85b63e14691a05aefe8bfaf50f5a28e929f76de90ab3a68420c472ab552a1) |
-| `app_type_settings.timeseries_analyses_setting` | [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-a501ea728b97e59308d75d3c20acfd81d4ddf328a4563e8623777b5246cbadc2) |
-| `app_type_settings.timeseries_analyses_setting.metric_selectors` | [app_type_settings.timeseries_analyses_setting.metric_selectors](resources--app_setting--reference--group-001.md#canonical-a71bcfcc974b495b3164dd42d99a4053b419ff08d3a71c704913edcf1d425634) |
-| `app_type_settings.timeseries_analyses_setting.metric_selectors.metric` | [app_type_settings.timeseries_analyses_setting.metric_selectors.metric](resources--app_setting--reference--group-001.md#canonical-314c4e29ed7b06a649ec31d7067308a53c06c979e998ae5d49c5f3fba371a5d7) |
-| `app_type_settings.timeseries_analyses_setting.metric_selectors.metrics_source` | [app_type_settings.timeseries_analyses_setting.metric_selectors.metrics_source](resources--app_setting--reference--group-001.md#canonical-2634bfcd601e57400fac76e183849eb34bd3560eda589702dbdaa2ae8b31d75e) |
-| `app_type_settings.user_behavior_analysis_setting` | [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a95b9ddfb094890c9f9d4bd360e2e9d2838b6ca73adddd1a15b0482c169b60fa) |
-| `app_type_settings.user_behavior_analysis_setting.disable_detection` | [app_type_settings.user_behavior_analysis_setting.disable_detection](resources--app_setting--reference--group-001.md#canonical-f64fc6655935330c8016584e0be182277befa8bc2730f6277b457eadb95bfb9f) |
-| `app_type_settings.user_behavior_analysis_setting.disable_learning` | [app_type_settings.user_behavior_analysis_setting.disable_learning](resources--app_setting--reference--group-001.md#canonical-5c42e09df28c12b1fe9c355ecf32d42c5c0a9d0f57e30409226c42f99f3b78ca) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection` | [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-400ce4b40c3733e9121789b57deaabcd432d2a1033bf702044aa90d575623721) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic` | [app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-4a39622499de50363929a7476c736c7612f5baf2bba156b63c7309db131c9406) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.cooling_off_period` | [app_type_settings.user_behavior_analysis_setting.enable_detection.cooling_off_period](resources--app_setting--reference--group-001.md#canonical-61b8767049c9f95b870fdc69152b5a96af558405f63e7a417dbc85d7aebcacee) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-d3e66e10d555c43738de98344ca93b58fc55f982786bcaca633ade01b2bd8c22) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-ff3dc5f8c0ac27dd7a777dcd921c91dd448be7e9a05aa8c109d129ded2bbfd81) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-bae5b5aef22977b9c512461aa6e3ee05c6af5a856153eff6dc008bb9153ca3f5) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-055aaee013ee47c8da952ca757cb6f16ca6b62cb56a2703809d3b1924c9227a5) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-64a65a9a7bbfa2d9e9b952174f3345ace232b9482ecb0b4de421e1af310cebc6) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-892729e56e3da5eae13d868cd170e2de916118166a357bc9906c670011e9cddc) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-7c89ddf27eda6b15df7c5864bc8a086bfd5293f780dbc60141aa312c68b28032) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-be51d8aa950b355900f47ebabddaf65e23a11f1c1d754068bc70ac3870194606) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-de451c060ed5349afd195a16ec8e130454450b41f6c19cd7fe823a4ee5f88be6) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-1ab4f3403976fd4bf8429eb30cf6ac5b76c2f04c23c364e6cd2934bb0d04459a) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity.login_failures_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity.login_failures_threshold](resources--app_setting--reference--group-001.md#canonical-de84a99b005cd2b5a07c425439896a3d5d5ca0af3ce43554b63304324c5922b0) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-c99a8aec36705697e74045bc659bbbe7eca2af4fbf3c9ff1b5a7b6346a36ae8c) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity.forbidden_requests_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity.forbidden_requests_threshold](resources--app_setting--reference--group-001.md#canonical-139d367f036c04fa7acc9fee109bb8286137838447bbcaec2d540ffe9011e122) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-8ed0d496152743f966d0a70d526527f0aae52c14e690190561c8d72341011def) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-dca5763c54c675063f514c307eb53856f11473731ee60222923ff5efc618a09f) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high](resources--app_setting--reference--group-001.md#canonical-bcfb9800a9427a77deb06ed1ee85860c08a4a48dcbde20b3989de6d43d39f186) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low](resources--app_setting--reference--group-001.md#canonical-0bafa5b6d66dc599eef7ac1deaa2ae93cbece751a4003026d8341f5dba55ac98) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium](resources--app_setting--reference--group-001.md#canonical-822b460b996ee8dfa374049717aab6b79f7ea0942c3c94c44377a32bee843771) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-83f0ddf8f8bdab5035a9e32c2ea49aa39db231db13099c82938afe95645a2791) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom.nonexistent_requests_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom.nonexistent_requests_threshold](resources--app_setting--reference--group-001.md#canonical-836064832f5f292f9c58d2f3d94c65236e426a5b36144dd6065fe9bb001047fe) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit](resources--app_setting--reference--group-001.md#canonical-95325c36050af5c6f4912bbb941ac7b6b9c84f49b4859850c694416af3ebcfb7) |
-| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity](resources--app_setting--reference--group-001.md#canonical-c8ffda23bce7d985e23cc069c96a6397521ea01e4ec5fa045aa15720243eebf4) |
-| `app_type_settings.user_behavior_analysis_setting.enable_learning` | [app_type_settings.user_behavior_analysis_setting.enable_learning](resources--app_setting--reference--group-001.md#canonical-d07699123055523581526a89343a1cc3372bde8066f4e63124d0e7701bcc5c13) |
-| `description` | [description](resources--app_setting--reference--group-001.md#canonical-0a313fc5537582d0076a0d45b22459bf4d4638da2c750fde76615d992eed26a7) |
-| `disable` | [disable](resources--app_setting--reference--group-001.md#canonical-d905c83a40fd141491580190a25c538217cb7cf9f8fcc5b640aa1180d7692ba4) |
-| `id` | [id](resources--app_setting--reference--group-001.md#canonical-30475c1af09a11d363618bc9b98f2f428d6d0e5a986d4901a08b2fc5127de1b7) |
-| `labels` | [labels](resources--app_setting--reference--group-001.md#canonical-d8d54e22ea7f264b13b8b259710eb0e6ae21fcf44962e9a4aef114128bf920ff) |
-| `name` | [name](resources--app_setting--reference--group-001.md#canonical-00c231b07778d1680d5cb96658ffc067df4b8478963dfb17f9a0b970b254071d) |
-| `namespace` | [namespace](resources--app_setting--reference--group-001.md#canonical-9d95c5884ef44b706a40c71f3182c7f84bccd7dd734d8c88574e46dce3a623f5) |
-| `timeouts` | [timeouts](resources--app_setting--reference--group-001.md#canonical-c8788ad92ab8c25486b501baacbdcd9e45d2481c2c8fc852221bed8e3b0136fc) |
-| `timeouts.create` | [timeouts.create](resources--app_setting--reference--group-001.md#canonical-717ca7cdd15db15a6712df2c251a0c1a24bc87603d29d5e55b63bfe9f2f53300) |
-| `timeouts.delete` | [timeouts.delete](resources--app_setting--reference--group-001.md#canonical-ac5a7cf64f4662deef75a4e292cf0acbe2c60880484191a4c3777070f830f3d7) |
-| `timeouts.read` | [timeouts.read](resources--app_setting--reference--group-001.md#canonical-7faee6be1bb2b66561873e366d3961dd72a70b05a4bff752225813316301c9f8) |
-| `timeouts.update` | [timeouts.update](resources--app_setting--reference--group-001.md#canonical-333fc64ee989c59e99aec03be8a2b65d9f516fe2dc691a39f047558218c29e22) |
+| `annotations` | [annotations](resources--app_setting--reference--group-001.md#canonical-0303201112010032-0130033111212301-3221333312200100-3002020101323021-3033202030313330-1021212023321032-2321120121000330-3122123300120133) |
+| `app_type_settings` | [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1022101331322312-0121111332022031-3200100022221311-3321132320321103-0231120332110310-0013320223203033-1131021130121301-0101130102121203) |
+| `app_type_settings.app_type_ref` | [app_type_settings.app_type_ref](resources--app_setting--reference--group-001.md#canonical-2302303212222310-3130303222330222-0301131232301121-2002220010203131-3211033122112120-0332203232212131-0113001311131112-1113220102220010) |
+| `app_type_settings.app_type_ref.kind` | [app_type_settings.app_type_ref.kind](resources--app_setting--reference--group-001.md#canonical-0312010200032200-3301031213200101-1001223332313232-3022220123220200-3222302031302313-2320002201212203-0000322302123311-0313310120003133) |
+| `app_type_settings.app_type_ref.name` | [app_type_settings.app_type_ref.name](resources--app_setting--reference--group-001.md#canonical-3123000302102330-1132203233302330-3103222131001220-3100203220103322-2303021222002210-0100211300131000-0233003310231203-2000322300003131) |
+| `app_type_settings.app_type_ref.namespace` | [app_type_settings.app_type_ref.namespace](resources--app_setting--reference--group-001.md#canonical-3303112110313133-3232122110302011-0311103212300021-0211212112111102-1022012111012212-3003330211030213-1201221121011312-1001301111021300) |
+| `app_type_settings.app_type_ref.tenant` | [app_type_settings.app_type_ref.tenant](resources--app_setting--reference--group-001.md#canonical-3000033103021023-3120203002120202-3112310221300320-1022211101323310-0002303130122310-2000021001321312-3022303131313110-3320131010303130) |
+| `app_type_settings.app_type_ref.uid` | [app_type_settings.app_type_ref.uid](resources--app_setting--reference--group-001.md#canonical-0001313312012331-1130312012223303-2301021121122313-1121202223132103-1111301321221003-2121311210213020-1311033030320311-0202212010123123) |
+| `app_type_settings.business_logic_markup_setting` | [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-2312103220210131-3112220313013230-3122121122221133-2121310031233321-1313130033011021-1123002100201213-1121233010220013-0313321311213301) |
+| `app_type_settings.business_logic_markup_setting.disable_spec` | [app_type_settings.business_logic_markup_setting.disable_spec](resources--app_setting--reference--group-001.md#canonical-0320030202033003-2210003023203220-3330132003322022-1122010210213221-2131000211323120-0313033331302323-0310300112030211-3111033113001312) |
+| `app_type_settings.business_logic_markup_setting.enable` | [app_type_settings.business_logic_markup_setting.enable](resources--app_setting--reference--group-001.md#canonical-0233302011231203-3201101221012200-1122323332202333-2233110033112202-2032210221331312-3132210022230322-1220100200301013-0222231111022201) |
+| `app_type_settings.timeseries_analyses_setting` | [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-2211000132221302-2023211332112103-0020311311310330-0200223033312001-3110313133030220-2210111203322012-0203131313231102-1012302322313002) |
+| `app_type_settings.timeseries_analyses_setting.metric_selectors` | [app_type_settings.timeseries_analyses_setting.metric_selectors](resources--app_setting--reference--group-001.md#canonical-2213012330333030-2113102310211123-0301121031311002-3121212210001103-2310012133330020-3103221301301300-1021010332313033-0131100211120310) |
+| `app_type_settings.timeseries_analyses_setting.metric_selectors.metric` | [app_type_settings.timeseries_analyses_setting.metric_selectors.metric](resources--app_setting--reference--group-001.md#canonical-0301103010320221-3231132300122212-1021323003013113-0012130300202211-0330001230211321-3221212022321131-1021301133033323-2203130122113113) |
+| `app_type_settings.timeseries_analyses_setting.metric_selectors.metrics_source` | [app_type_settings.timeseries_analyses_setting.metric_selectors.metrics_source](resources--app_setting--reference--group-001.md#canonical-0212031023333031-1200013211131000-0033223013123201-2003201021322303-1023310311120032-3122112021130002-3123312222022232-2023030131131132) |
+| `app_type_settings.user_behavior_analysis_setting` | [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2221112321313133-2300211020210030-2133213110233103-1200320232213102-2003202312302213-0322313131310122-0111230010200230-0112212312003322) |
+| `app_type_settings.user_behavior_analysis_setting.disable_detection` | [app_type_settings.user_behavior_analysis_setting.disable_detection](resources--app_setting--reference--group-001.md#canonical-3312103330121211-1121031103030030-2000011211201032-0023320120020213-1323323322202330-0213030033120213-1323101113322231-2321112333232133) |
+| `app_type_settings.user_behavior_analysis_setting.disable_learning` | [app_type_settings.user_behavior_analysis_setting.disable_learning](resources--app_setting--reference--group-001.md#canonical-1130100232002131-3302203001022301-3332213003111132-3033030231100230-1130002221310033-1113320300100021-0202123010023321-2133032313203022) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection` | [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1000003032102310-0030031303033221-0102011320212311-1331322222233031-1003023102220100-0303233313000200-1010222221003111-1311120203130201) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic` | [app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-1022032112020210-2121313211000312-0321022122131013-1230130312301312-0102331123223302-2323220111122312-0330130300213123-0103013021100012) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.cooling_off_period` | [app_type_settings.user_behavior_analysis_setting.enable_detection.cooling_off_period](resources--app_setting--reference--group-001.md#canonical-1201232013121300-1021302133211123-2013003331301221-0111022311222112-2233111120100011-3312033213221001-1331233020113113-2232233022303232) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-3103321212320100-3111111130100313-0320313221200310-1030222103231120-3330111133212002-1320122330223022-1203032231320001-2302233120300202) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-3333033130113320-3000223002133131-1322131313313031-2102013021013131-1010202332133221-2200112222203001-0021310102213132-3102232333312001) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-2322321123112232-3302022113132321-3011010210120122-2212320332320011-3012223311222011-1201110332333312-3130000020232321-0111033022033311) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-0011112222323200-0103323210133020-3122211102302213-1113302312330112-3022122312023023-1112220213000320-0021310323012102-1030210202132211) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-1210221211222122-1323233322023121-3221232111020113-1033030310112230-3202030223211020-0232302300231031-3210020132012233-0301003032233012) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-2021021302213211-1232033122113222-3201033120122030-3101130032023132-2101120101200112-1222031113233021-2100123012130000-0101322130313130) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-1330202131313302-1332312212230111-3133133011201210-2330202200201223-3331110221033313-2000312330120001-1001222203010230-1220230220000302) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-2332110131202222-2111002303111121-0000331013322322-2331312233121132-0203220101330130-0131131110001220-2330130022300320-1300012110120012) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-3132101101300012-0032311103102122-3331012111220112-3230203201030010-1110101100231001-3312300121303113-3332200203221032-3211332020233212) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-0122231033031000-0321131233311023-3320100221322303-0030331222301123-1312300233001030-0203300312103212-3031022103102323-0031001010112122) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity.login_failures_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity.login_failures_threshold](resources--app_setting--reference--group-001.md#canonical-3132201022212123-0000113031022311-2200133010021110-0321202112220331-1131113022002233-0330321003111110-2312030300100302-1030112102022300) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-3021212220223230-0312130011122113-3213100010112330-1211212323233213-3230220222331033-2333033021333301-2311221323120310-1222031222322030) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity.forbidden_requests_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity.forbidden_requests_threshold](resources--app_setting--reference--group-001.md#canonical-0103213103121333-0003123000103322-1322303021333232-0100212323200220-1201031320032010-1013232330223230-0231111000333332-2100010132010202) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-2032310031102112-0111021310033321-1212310022130031-1102121102133300-2222321102300110-3212210001210011-1201302031130203-1001000101313233) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-3130221113120330-1110301213110012-0333110110300300-1332231103201112-3301011013031303-0132321200020202-2102033333113233-3012012022002133) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high](resources--app_setting--reference--group-001.md#canonical-2330332321200000-2221100213221313-3132230012323101-3232201120120030-0020221022102031-3023313202002303-2120213132123110-0331032133012012) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low](resources--app_setting--reference--group-001.md#canonical-0023223322112312-3112123130112121-3232331322300131-3222220222322103-3023323032131101-2210000003000212-3120031001331131-2322111122302120) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium](resources--app_setting--reference--group-001.md#canonical-2002022310120023-2121123232203133-2203131000102113-0113222223122313-2133133222002110-0230033021103010-1003131322030223-3232201003131301) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-2003330031313320-3320233122231100-0311222132030230-0232221021222203-2131230203013123-0103002121302002-2103202233322111-1210112202132101) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom.nonexistent_requests_threshold` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom.nonexistent_requests_threshold](resources--app_setting--reference--group-001.md#canonical-2003120012102003-0233113302210233-2130112031023303-3121103012110203-1232100212221123-0312011010313112-0012113332212323-0000010010133332) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit](resources--app_setting--reference--group-001.md#canonical-2111030211300312-0011002233113012-3310210102232323-2110012230132312-2321302010331021-2310201121201100-3012211010011222-3303322330332313) |
+| `app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity` | [app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity](resources--app_setting--reference--group-001.md#canonical-3020333331220203-2330321331212011-3202033030001221-3021122212032113-1102013222000132-1032301133220010-1122220111130200-0210033232233310) |
+| `app_type_settings.user_behavior_analysis_setting.enable_learning` | [app_type_settings.user_behavior_analysis_setting.enable_learning](resources--app_setting--reference--group-001.md#canonical-3100131221210102-0300111111020311-2001110212222021-0310032201303003-0313022331322000-1212331032120301-0210310032131300-0123303011300103) |
+| `description` | [description](resources--app_setting--reference--group-001.md#canonical-0022030103333011-1103131120023100-0013122200311011-2302021011212333-1031101203203122-0230131100333132-1312120111312121-0232323102122213) |
+| `disable` | [disable](resources--app_setting--reference--group-001.md#canonical-3121001130200322-1000333101100110-2101112000012100-2202113011032002-0113302313303321-3320333030112312-1000222201012000-3113122102232210) |
+| `id` | [id](resources--app_setting--reference--group-001.md#canonical-0300101311300122-3300212201013103-1203120120233021-2321203302331002-2031123100321122-2120123110210001-2200202302333011-0102133132012313) |
+| `labels` | [labels](resources--app_setting--reference--group-001.md#canonical-3120311110320202-3222133302121023-0103232023021121-1301003223003212-2232020133303310-1021120232212210-2232330101100102-2023332102003333) |
+| `name` | [name](resources--app_setting--reference--group-001.md#canonical-0000300203012300-1313132031011220-0031113023211212-1120333330001213-3133102320101320-2112033133230113-3321220023211300-2302111000130131) |
+| `namespace` | [namespace](resources--app_setting--reference--group-001.md#canonical-2131211130112020-1032331010231300-1222100030130133-0301200230133320-1023303031133131-1303103120302020-1113103210123130-3203221202033311) |
+| `timeouts` | [timeouts](resources--app_setting--reference--group-001.md#canonical-3020132020223121-0222232030021110-2012231100012322-2230233130312132-1011310210200130-0230203330201102-0202012332312032-0323000103123330) |
+| `timeouts.create` | [timeouts.create](resources--app_setting--reference--group-001.md#canonical-1301133022133031-3101113123011122-1213010231330230-0211012200300122-0210233020131200-0331022131113211-1123120323333221-3302331103030000) |
+| `timeouts.delete` | [timeouts.delete](resources--app_setting--reference--group-001.md#canonical-2230112213303312-1033101212023132-3233131122103202-2102303300223023-3202301200202000-1020100121012210-3003131313001300-3320030033033113) |
+| `timeouts.read` | [timeouts.read](resources--app_setting--reference--group-001.md#canonical-1333223232122332-0123230223121211-1201201303320312-1231032112013131-1302221300230011-2210233333131102-0202112001030301-1203000130213320) |
+| `timeouts.update` | [timeouts.update](resources--app_setting--reference--group-001.md#canonical-0303033330121032-3221202130112132-2121223230000323-3220220223121131-2133110112333202-3130122101220321-3300101311112002-0120300221320202) |
 
-<a id="canonical-4efd248d419f59dad81c90432350d90bc2ce74da1a66bb48e7843cc8251a7108"></a>
+<a id="canonical-1032333102102031-1001213311213122-3120013021001003-0203110031210023-3002303213103122-0122121223231020-3213201003303020-0211012213010020"></a>
 
-## Next pages — Property reference / 119fb504d73f / 12
+## Next pages — Property reference / 001031130333 / 12
 
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [timeouts](resources--app_setting--reference--group-001.md#canonical-b6bf006bee2af16444ad1d452e09cf84122225ae3f0f01656f31a62f5a1b158e)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [timeouts](resources--app_setting--reference--group-001.md#canonical-2312233300001223-3232022233011210-1010223101311011-0232002130332010-0102020202112232-0333003300011211-1233030122120233-1122012301112032)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356"></a>
+<a id="canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4b343f24e9251473f93b1f888656c1445ada93afe2974de0fdb98312c0be5a1d"></a>
+<a id="canonical-1023031003330210-3221021101101303-3321032301332020-2012111230011010-1122312221032233-3202211310313200-3331232120030102-3000233211220131"></a>
 
-## app_type_settings — app_type_settings / a30f829f02e8 / 2
+## app_type_settings — app_type_settings / 213300023220 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
 - app_type_settings
 
-<a id="canonical-4a47deb61957e28de040aa75f97b8e532d63e53407e2b8cf5d25c67111712663"></a>
+<a id="canonical-1022101331322312-0121111332022031-3200100022221311-3321132320321103-0231120332110310-0013320223203033-1131021130121301-0101130102121203"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -459,47 +459,47 @@ app_type_settings {
 }
 ```
 
-<a id="canonical-c84c90cdae7e4e37d051b846bcbd4c22171ddd2d35a76163c5aaa96f3cb2d52a"></a>
+<a id="canonical-3020103021003031-2232133210320313-3100110123201012-2330233110300202-0113013131310231-0311221312011203-3011222222211233-0330230231110222"></a>
 
-## Direct properties — app_type_settings / a30f829f02e8 / 3
+## Direct properties — app_type_settings / 213300023220 / 3
 
-- [app_type_ref](resources--app_setting--reference--group-001.md#canonical-0d4c9492f1c2f847ffad7d10a3e91cfc15ce7d81c54d26e793735033ab0c2025): complete subsection reference.
+- [app_type_ref](resources--app_setting--reference--group-001.md#canonical-0031103021102102-3301300233201013-3333223113310100-2203322101303330-0111303213312001-3011103102123213-2103130311000303-2223003002000211): complete subsection reference.
 
-- [business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e): complete subsection reference.
+- [business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032): complete subsection reference.
 
-- [timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-8ef1350a06bca9d5f9e3014dd9f61b2f79fb8010643ce097d12de338b62a4148): complete subsection reference.
+- [timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-2032330103110022-0012233022213111-3321320300011031-3121331201230233-1321332320000100-1210033032002113-3101023132030320-2312022210011020): complete subsection reference.
 
-- [user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906): complete subsection reference.
+- [user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012): complete subsection reference.
 
-<a id="canonical-b1980c5e79e9aa4029de6b45eb8a80a26778df2ca27be440abafd7cbe5d83c52"></a>
+<a id="canonical-2301212000301132-1321322122221000-0221313212231011-3223202220002202-1213132031330230-2202132332101000-2223223331133023-3211312003301102"></a>
 
-## Next pages — app_type_settings / a30f829f02e8 / 4
+## Next pages — app_type_settings / 213300023220 / 4
 
-- [app_type_settings.app_type_ref](resources--app_setting--reference--group-001.md#canonical-0d4c9492f1c2f847ffad7d10a3e91cfc15ce7d81c54d26e793735033ab0c2025)
-- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e)
-- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-8ef1350a06bca9d5f9e3014dd9f61b2f79fb8010643ce097d12de338b62a4148)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.app_type_ref](resources--app_setting--reference--group-001.md#canonical-0031103021102102-3301300233201013-3333223113310100-2203322101303330-0111303213312001-3011103102123213-2103130311000303-2223003002000211)
+- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032)
+- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-2032330103110022-0012233022213111-3321320300011031-3121331201230233-1321332320000100-1210033032002113-3101023132030320-2312022210011020)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-0d4c9492f1c2f847ffad7d10a3e91cfc15ce7d81c54d26e793735033ab0c2025"></a>
+<a id="canonical-0031103021102102-3301300233201013-3333223113310100-2203322101303330-0111303213312001-3011103102123213-2103130311000303-2223003002000211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd61a1c1f0528a916956f423bf8ff3983518b82aab68b0bcd0970ca0da2499c8"></a>
+<a id="canonical-3131120122013001-3300110220222101-1221111233100203-2333203333032120-0311012023200222-2223122023002330-3100211300302200-3122021021213020"></a>
 
-## app_type_settings.app_type_ref — app_type_settings.app_type_ref / 3158c3df9fa5 / 2
+## app_type_settings.app_type_ref — app_type_ref / 313321332211 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
 - app_type_settings.app_type_ref
 
-<a id="canonical-b2ce6ab4dcceaf2a3176ec5982a048dde53da5983e8ee99d1707575657a12a04"></a>
+<a id="canonical-2302303212222310-3130303222330222-0301131232301121-2002220010203131-3211033122112120-0332203232212131-0113001311131112-1113220102220010"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -552,15 +552,15 @@ app_type_ref {
 }
 ```
 
-<a id="canonical-fdf90cc190d03bdb4473fe86a5fda97c71924826a024513d4fb6ef87686ca281"></a>
+<a id="canonical-3331332100303001-2100310003233123-1010130333322012-2211333122211330-1301210210200212-2200021011010331-1033231232332013-1220123022022001"></a>
 
-## Direct properties — app_type_settings.app_type_ref / 3158c3df9fa5 / 3
+## Direct properties — app_type_ref / 313321332211 / 3
 
-<a id="canonical-361203a0f136781141afedeecaa1ba20eac8dcb7b80a19a300eb26f537d180df"></a>
+<a id="canonical-0312010200032200-3301031213200101-1001223332313232-3022220123220200-3222302031302313-2320002201212203-0000322302123311-0313310120003133"></a>
 
-<a id="canonical-a4b67de43c0cf1fe0475f72e54eaa73b0b9505f8fda1ec0466ff29789ee2441c"></a>
+<a id="canonical-2210231213313210-0330003033013332-0010131133130232-1110322222130323-0023211100113320-3331220132300010-1212333302211320-2132320210100130"></a>
 
-## kind property — app_type_settings.app_type_ref / 3158c3df9fa5 / 4
+## kind property — app_type_ref / 313321332211 / 4
 
 Type: `"string"`. Computed.
 
@@ -595,11 +595,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db0324bc5e8efcbcd3a9d068d08e84fab326a0a4109707402f0f4b6380eb00dd"></a>
+<a id="canonical-3123000302102330-1132203233302330-3103222131001220-3100203220103322-2303021222002210-0100211300131000-0233003310231203-2000322300003131"></a>
 
-<a id="canonical-9cb8db538c02f8c825a2f2fbf0eb14a16a62fe5c795443883499b296e0c430bf"></a>
+<a id="canonical-2130232031231103-2030000233203020-0211220233023323-3300322301102201-1222120233321130-1321111010032020-0310212123022112-3200301003002333"></a>
 
-## name property — app_type_settings.app_type_ref / 3158c3df9fa5 / 5
+## name property — app_type_ref / 313321332211 / 5
 
 Type: `"string"`. Optional.
 
@@ -634,11 +634,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f3594ddfee694c85354e6c09259965524a1951a6c3f2532761a5917641c55270"></a>
+<a id="canonical-3303112110313133-3232122110302011-0311103212300021-0211212112111102-1022012111012212-3003330211030213-1201221121011312-1001301111021300"></a>
 
-<a id="canonical-5eb319fcb471e8bcab096216e8d2e2933a1100c4a12974fb9f9b29df5eb8f54a"></a>
+<a id="canonical-1132230301213330-2310130132202330-2223002112020112-3220310232022103-0322010100003010-2201022113103323-2133212302213133-1132232033111022"></a>
 
-## namespace property — app_type_settings.app_type_ref / 3158c3df9fa5 / 6
+## namespace property — app_type_ref / 313321332211 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -698,11 +698,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c03d324bd88c2622d6d29c384a951ef402cdc6b480241e76cacdddd4f8744cdc"></a>
+<a id="canonical-3000033103021023-3120203002120202-3112310221300320-1022211101323310-0002303130122310-2000021001321312-3022303131313110-3320131010303130"></a>
 
-<a id="canonical-0bbf4c3b97a21f0f905855ff08e32ade557117179a0ffc4a273aaae95a8e7d2e"></a>
+<a id="canonical-0023233310300323-2113220201330033-2100112011113333-0020320302223132-1111130101130113-2122003333301022-0213032222223221-1122203213310232"></a>
 
-## tenant property — app_type_settings.app_type_ref / 3158c3df9fa5 / 7
+## tenant property — app_type_ref / 313321332211 / 7
 
 Type: `"string"`. Computed.
 
@@ -737,11 +737,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-01df61bd5cd86af3b12596b7598ab79355c79a4399d649c8753cce35229846db"></a>
+<a id="canonical-0001313312012331-1130312012223303-2301021121122313-1121202223132103-1111301321221003-2121311210213020-1311033030320311-0202212010123123"></a>
 
-<a id="canonical-74e885162c4ce0d294189fb80ee2de62ee04c20e64190bede1f5d64699ed5f39"></a>
+<a id="canonical-1310322020110112-0230103032003102-2110012021332320-0032320231321202-3232001030020032-1210012100233231-3201331131121012-2121323111330321"></a>
 
-## uid property — app_type_settings.app_type_ref / 3158c3df9fa5 / 8
+## uid property — app_type_ref / 313321332211 / 8
 
 Type: `"string"`. Computed.
 
@@ -776,31 +776,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b4a21e1fd483958975490eb8d6970f34f1f962c98e4086aa68335dfffc79f36c"></a>
+<a id="canonical-2310220201320133-3110200321112021-1311102100322320-3112211300330310-3301332112023021-2032100020122222-1220030311313333-3330132133031230"></a>
 
-## Next pages — app_type_settings.app_type_ref / 3158c3df9fa5 / 9
+## Next pages — app_type_ref / 313321332211 / 9
 
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e"></a>
+<a id="canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-670ab7cd9b4b4fd0c1d291194861d9bca31e6bc023447ffa1cbde9134dbac46f"></a>
+<a id="canonical-1213002223133031-2123102310333100-3001310221010121-1020120131212330-2203013212233000-0203101013333322-0130233132210103-1031232230101233"></a>
 
-## app_type_settings.business_logic_markup_setting — app_type_settings.business_logic_markup_setting / 171ec0c47c79 / 2
+## app_type_settings.business_logic_markup_setting — business_logic_markup_setting / 301013301321 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
 - app_type_settings.business_logic_markup_setting
 
-<a id="canonical-b64e891dd6a371ecda65aa5f99d0dbf97770f1495b09086759bc4a0737e759f1"></a>
+<a id="canonical-2312103220210131-3112220313013230-3122121122221133-2121310031233321-1313130033011021-1123002100201213-1121233010220013-0313321311213301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -835,42 +835,42 @@ business_logic_markup_setting {
 }
 ```
 
-<a id="canonical-f4d6636b017937727101b5f62b032f9f395e44eb06a69ef4d0e4c0323a160637"></a>
+<a id="canonical-3310311212031223-0001132103131302-1301000123113312-0223000302332133-0321113210103223-0012221221323310-3100321030000302-0322011200120313"></a>
 
-## Direct properties — app_type_settings.business_logic_markup_setting / 171ec0c47c79 / 3
+## Direct properties — business_logic_markup_setting / 301013301321 / 3
 
-- [disable_spec](resources--app_setting--reference--group-001.md#canonical-934b73d092bbd12501a4fd3387ac3088227286827467d0f12e57d422211b051d): complete subsection reference.
+- [disable_spec](resources--app_setting--reference--group-001.md#canonical-2103102313033100-2102232331010211-0001221033310303-2013223003002020-0202130220122002-1310121331003301-0232111331100202-0201012300110131): complete subsection reference.
 
-- [enable](resources--app_setting--reference--group-001.md#canonical-77a357dbae85320abf23ad5d68d07f69b64e1d49943c2434a0de05cddddd25e3): complete subsection reference.
+- [enable](resources--app_setting--reference--group-001.md#canonical-1313220311133123-2232201103020022-2333020322311131-1220310013331221-2312103201311021-2110033002100310-2200313200113031-3131313102113203): complete subsection reference.
 
-<a id="canonical-3388a81336377714fb7025e39cdd0faa0cb0d5e57606f95fa3aa6b4f9402eabb"></a>
+<a id="canonical-0303202022200103-0312031313130110-3323130002113203-2130313100332222-0030230031113211-1312001233211133-2203222212231033-2110000232222323"></a>
 
-## Next pages — app_type_settings.business_logic_markup_setting / 171ec0c47c79 / 4
+## Next pages — business_logic_markup_setting / 301013301321 / 4
 
-- [app_type_settings.business_logic_markup_setting.disable_spec](resources--app_setting--reference--group-001.md#canonical-934b73d092bbd12501a4fd3387ac3088227286827467d0f12e57d422211b051d)
-- [app_type_settings.business_logic_markup_setting.enable](resources--app_setting--reference--group-001.md#canonical-77a357dbae85320abf23ad5d68d07f69b64e1d49943c2434a0de05cddddd25e3)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.business_logic_markup_setting.disable_spec](resources--app_setting--reference--group-001.md#canonical-2103102313033100-2102232331010211-0001221033310303-2013223003002020-0202130220122002-1310121331003301-0232111331100202-0201012300110131)
+- [app_type_settings.business_logic_markup_setting.enable](resources--app_setting--reference--group-001.md#canonical-1313220311133123-2232201103020022-2333020322311131-1220310013331221-2312103201311021-2110033002100310-2200313200113031-3131313102113203)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-934b73d092bbd12501a4fd3387ac3088227286827467d0f12e57d422211b051d"></a>
+<a id="canonical-2103102313033100-2102232331010211-0001221033310303-2013223003002020-0202130220122002-1310121331003301-0232111331100202-0201012300110131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fb54c8f2b4a7dda192be07c13725369735317ddab76b0fc9f5da9cd0301be64d"></a>
+<a id="canonical-3323111030203302-2310221331312201-2102233200133001-0313021103122113-0311030113313122-2313122300333021-3311312221303100-0300012332121031"></a>
 
-## app_type_settings.business_logic_markup_setting.disable_spec — app_type_settings.business_logic_markup_setting.disable_spec / 4ee5e1a7f8fa / 2
+## app_type_settings.business_logic_markup_setting.disable_spec — disable_spec / 221333203322 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032)
 - app_type_settings.business_logic_markup_setting.disable_spec
 
-<a id="canonical-383223c3a40cb8e8fc783e8a5a1249e99d025ed8373fdcbb34c16325d53d7076"></a>
+<a id="canonical-0320030202033003-2210003023203220-3330132003322022-1122010210213221-2131000211323120-0313033331302323-0310300112030211-3111033113001312"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -882,38 +882,38 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-b0206b168a76aa4a25836ee873e137238ea7873d8c8794e63175457e151052bb"></a>
+<a id="canonical-2300020012230112-2022131222221022-0211200312323220-1303320103130203-2032221320130331-2030201321103212-0301131110111332-0111010011022323"></a>
 
-## Direct properties — app_type_settings.business_logic_markup_setting.disable_spec / 4ee5e1a7f8fa / 3
+## Direct properties — disable_spec / 221333203322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2f35742cb7963681cea61684b754baed061b654664d49a28d48605dc1772e847"></a>
+<a id="canonical-0233031113100230-2313211203122001-3032221201122010-2313111023223231-0012012312111012-1210311021220220-3110201200113130-0113130232201013"></a>
 
-## Next pages — app_type_settings.business_logic_markup_setting.disable_spec / 4ee5e1a7f8fa / 4
+## Next pages — disable_spec / 221333203322 / 4
 
-- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-77a357dbae85320abf23ad5d68d07f69b64e1d49943c2434a0de05cddddd25e3"></a>
+<a id="canonical-1313220311133123-2232201103020022-2333020322311131-1220310013331221-2312103201311021-2110033002100310-2200313200113031-3131313102113203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b4c9499bdd3a02ebfedd5c18f41a7ff7208a29ab93c4953a131d450ee267b78"></a>
+<a id="canonical-0323103021102121-2331310322000232-2333323131113001-2033100122133333-1302002022022122-2321033010211103-2201030131101100-3232021213231320"></a>
 
-## app_type_settings.business_logic_markup_setting.enable — app_type_settings.business_logic_markup_setting.enable / 5536af574ac8 / 2
+## app_type_settings.business_logic_markup_setting.enable — enable / 111310223020 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032)
 - app_type_settings.business_logic_markup_setting.enable
 
-<a id="canonical-2fc85b63e14691a05aefe8bfaf50f5a28e929f76de90ab3a68420c472ab552a1"></a>
+<a id="canonical-0233302011231203-3201101221012200-1122323332202333-2233110033112202-2032210221331312-3132210022230322-1220100200301013-0222231111022201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -942,37 +942,37 @@ Terraform syntax:
 enable = {}
 ```
 
-<a id="canonical-574de06ff0b6cb6a34a51a134df4f1d1c9a0a21260d6f248a9e4c5536fbe7b46"></a>
+<a id="canonical-1113103132001233-3300231230231222-0310221101220103-1031331033013101-3021220022020102-1200311233021020-2221321030111103-1233233213231012"></a>
 
-## Direct properties — app_type_settings.business_logic_markup_setting.enable / 5536af574ac8 / 3
+## Direct properties — enable / 111310223020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9692f734a0537e78f58597537be4d651904fb201252f5fd0e3ad5b337400215d"></a>
+<a id="canonical-2112210233130310-2200110313321320-3311201121131103-1323321031121101-2100103323020001-0211023311333100-3203223111230303-1310000002011131"></a>
 
-## Next pages — app_type_settings.business_logic_markup_setting.enable / 5536af574ac8 / 4
+## Next pages — enable / 111310223020 / 4
 
-- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-36a2be0a9b32b6297811c65c9d994ea33bd57de3ad674979dbf54de31e625e0e)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.business_logic_markup_setting](resources--app_setting--reference--group-001.md#canonical-0312220223320022-2123030223120221-1320010130121130-2131212110322203-0323311113313203-2231121310211321-3123331110313203-0132120211320032)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-8ef1350a06bca9d5f9e3014dd9f61b2f79fb8010643ce097d12de338b62a4148"></a>
+<a id="canonical-2032330103110022-0012233022213111-3321320300011031-3121331201230233-1321332320000100-1210033032002113-3101023132030320-2312022210011020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cee7a05d7f31c0931980e6e3343c996cd2bc149db96d21b6bf7311d73b88df6c"></a>
+<a id="canonical-3032321322001131-1333030130002103-0121200032123203-0310033021211230-3102233001102131-2321123102012312-2333130301013113-0323202031331230"></a>
 
-## app_type_settings.timeseries_analyses_setting — app_type_settings.timeseries_analyses_setting / 131bba055a85 / 2
+## app_type_settings.timeseries_analyses_setting — timeseries_analyses_setting / 001111222011 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
 - app_type_settings.timeseries_analyses_setting
 
-<a id="canonical-a501ea728b97e59308d75d3c20acfd81d4ddf328a4563e8623777b5246cbadc2"></a>
+<a id="canonical-2211000132221302-2023211332112103-0020311311310330-0200223033312001-3110313133030220-2210111203322012-0203131313231102-1012302322313002"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1003,39 +1003,39 @@ timeseries_analyses_setting {
 }
 ```
 
-<a id="canonical-333f9c55326ed4dfe88463a168ee196879e3885221c260425e78adc8fbee51ea"></a>
+<a id="canonical-0303033321301111-0302123231103133-3220201012032201-1220323201211220-1321320320201102-0201300212001002-1132132022313020-3323323211013222"></a>
 
-## Direct properties — app_type_settings.timeseries_analyses_setting / 131bba055a85 / 3
+## Direct properties — timeseries_analyses_setting / 001111222011 / 3
 
-- [metric_selectors](resources--app_setting--reference--group-001.md#canonical-699aed2f867843e691b0727f5fe443ee4818f2a6932e169707ee5cbea2c5715b): complete subsection reference.
+- [metric_selectors](resources--app_setting--reference--group-001.md#canonical-1221212232310233-2012132010033212-2101230013021333-1133321010033232-1020012033022212-2103023201122113-0013323211302332-2202301113011123): complete subsection reference.
 
-<a id="canonical-6e1bb9829c50ae7a6d6783a674862284df97a991d594ea4d3b3bd47eec0a342b"></a>
+<a id="canonical-1232012323212002-2130110022321322-1231121320032212-1310201202022010-3133211322212101-3111211032221031-0323032331101332-3230002203100223"></a>
 
-## Next pages — app_type_settings.timeseries_analyses_setting / 131bba055a85 / 4
+## Next pages — timeseries_analyses_setting / 001111222011 / 4
 
-- [app_type_settings.timeseries_analyses_setting.metric_selectors](resources--app_setting--reference--group-001.md#canonical-699aed2f867843e691b0727f5fe443ee4818f2a6932e169707ee5cbea2c5715b)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.timeseries_analyses_setting.metric_selectors](resources--app_setting--reference--group-001.md#canonical-1221212232310233-2012132010033212-2101230013021333-1133321010033232-1020012033022212-2103023201122113-0013323211302332-2202301113011123)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-699aed2f867843e691b0727f5fe443ee4818f2a6932e169707ee5cbea2c5715b"></a>
+<a id="canonical-1221212232310233-2012132010033212-2101230013021333-1133321010033232-1020012033022212-2103023201122113-0013323211302332-2202301113011123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-29518030cb8098fb4827f9356f0d9ec5ff7c5948e8717f0cec0729730b8e7547"></a>
+<a id="canonical-0221110120000300-3023200021203323-1020021333210311-1233003121323011-3333133011211020-3220130113330030-3230001302211303-0023203213111013"></a>
 
-## app_type_settings.timeseries_analyses_setting.metric_selectors — app_type_settings.timeseries_analyses_setting.metric_selectors / d55879fa30af / 2
+## app_type_settings.timeseries_analyses_setting.metric_selectors — metric_selectors / 332203002233 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-8ef1350a06bca9d5f9e3014dd9f61b2f79fb8010643ce097d12de338b62a4148)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-2032330103110022-0012233022213111-3321320300011031-3121331201230233-1321332320000100-1210033032002113-3101023132030320-2312022210011020)
 - app_type_settings.timeseries_analyses_setting.metric_selectors
 
-<a id="canonical-a71bcfcc974b495b3164dd42d99a4053b419ff08d3a71c704913edcf1d425634"></a>
+<a id="canonical-2213012330333030-2113102310211123-0301121031311002-3121212210001103-2310012133330020-3103221301301300-1021010332313033-0131100211120310"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1085,15 +1085,15 @@ metric_selectors {
 }
 ```
 
-<a id="canonical-b0044f8a582173d3f56336af6617f8e296ebb2a51ecf52516e36215a198e7c5d"></a>
+<a id="canonical-2300001010332022-1120020113033103-3311120303122233-1212011333203202-2112322323022211-0132303311021101-1232031202011122-0121203213301131"></a>
 
-## Direct properties — app_type_settings.timeseries_analyses_setting.metric_selectors / d55879fa30af / 3
+## Direct properties — metric_selectors / 332203002233 / 3
 
-<a id="canonical-314c4e29ed7b06a649ec31d7067308a53c06c979e998ae5d49c5f3fba371a5d7"></a>
+<a id="canonical-0301103010320221-3231132300122212-1021323003013113-0012130300202211-0330001230211321-3221212022321131-1021301133033323-2203130122113113"></a>
 
-<a id="canonical-60999a2734b8bf229ea808991c93a8ed29418b217a2d6f8a9505e9b97e8f5d3f"></a>
+<a id="canonical-1200212121220213-0310232023330202-2132222000202121-0130210322203231-0221100120230201-1322023112332022-2111001132212321-1332203311310333"></a>
 
-## metric property — app_type_settings.timeseries_analyses_setting.metric_selectors / d55879fa30af / 4
+## metric property — metric_selectors / 332203002233 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1135,11 +1135,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2634bfcd601e57400fac76e183849eb34bd3560eda589702dbdaa2ae8b31d75e"></a>
+<a id="canonical-0212031023333031-1200013211131000-0033223013123201-2003201021322303-1023310311120032-3122112021130002-3123312222022232-2023030131131132"></a>
 
-<a id="canonical-8c8632c5eade4196adff0303dcaa1a3ce800087d2b960e0547e39aa3652ba90b"></a>
+<a id="canonical-2030201203023011-3222313210012112-2231333300030003-3130222201220330-3220000000201331-0223211200320011-1013320321222203-1211022322210023"></a>
 
-## metrics_source property — app_type_settings.timeseries_analyses_setting.metric_selectors / d55879fa30af / 5
+## metrics_source property — metric_selectors / 332203002233 / 5
 
 Type: `"string"`. Optional.
 
@@ -1185,31 +1185,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5ab836cb173ff600c10ea6feb50a4595c6ec50bbba3df404caed6152719b2e5d"></a>
+<a id="canonical-1122232003123023-0113033333120000-3001003222123332-2311002210112111-3012323011002323-2322033133100010-3022323112011102-1301212302321131"></a>
 
-## Next pages — app_type_settings.timeseries_analyses_setting.metric_selectors / d55879fa30af / 6
+## Next pages — metric_selectors / 332203002233 / 6
 
-- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-8ef1350a06bca9d5f9e3014dd9f61b2f79fb8010643ce097d12de338b62a4148)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.timeseries_analyses_setting](resources--app_setting--reference--group-001.md#canonical-2032330103110022-0012233022213111-3321320300011031-3121331201230233-1321332320000100-1210033032002113-3101023132030320-2312022210011020)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906"></a>
+<a id="canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5d9c237a7001752c4fb43a82a9829d52451f5dc9f40dcae2dcbb099090e2b6e"></a>
+<a id="canonical-3011312130020313-2213000001131102-3010332310032220-0222212002213111-0210110133113130-2133100031302232-0231302323002121-0021003202231232"></a>
 
-## app_type_settings.user_behavior_analysis_setting — app_type_settings.user_behavior_analysis_setting / 33853f248d53 / 2
+## app_type_settings.user_behavior_analysis_setting — user_behavior_analysis_setting / 021020311103 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
 - app_type_settings.user_behavior_analysis_setting
 
-<a id="canonical-a95b9ddfb094890c9f9d4bd360e2e9d2838b6ca73adddd1a15b0482c169b60fa"></a>
+<a id="canonical-2221112321313133-2300211020210030-2133213110233103-1200320232213102-2003202312302213-0322313131310122-0111230010200230-0112212312003322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1247,48 +1247,48 @@ user_behavior_analysis_setting {
 }
 ```
 
-<a id="canonical-593913b8116051108beb33668400659be852da4958e45e9fbc0ca5562f74f511"></a>
+<a id="canonical-1121032101032320-0101120011010100-2023322303031212-2010000012112123-3220110231221021-1120321011322133-2330003022111112-0233131033110101"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting / 33853f248d53 / 3
+## Direct properties — user_behavior_analysis_setting / 021020311103 / 3
 
-- [disable_detection](resources--app_setting--reference--group-001.md#canonical-57e720e997c118bc8ccee355bad15c81f01a805ccfff47f0baf1ccf03c9117ac): complete subsection reference.
+- [disable_detection](resources--app_setting--reference--group-001.md#canonical-1113321302003221-2113300101202330-2030303232031111-2322310111302001-3300012220001130-3033333310133300-2322330130303300-0330210101132230): complete subsection reference.
 
-- [disable_learning](resources--app_setting--reference--group-001.md#canonical-9fe185fe9eeccb6bfdea6bb7f878d339da4cc63d44811ee79237bf62165722a3): complete subsection reference.
+- [disable_learning](resources--app_setting--reference--group-001.md#canonical-2133320120113332-2132323030231223-3331322212232313-3320132031030321-3122103030120331-1010200101323213-2102031323331202-0112111302022203): complete subsection reference.
 
-- [enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7): complete subsection reference.
+- [enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013): complete subsection reference.
 
-- [enable_learning](resources--app_setting--reference--group-001.md#canonical-d01137f84d2f346f488d52eef965b5b98f4c0d6fe2e3b9399dbb4ecec344c68a): complete subsection reference.
+- [enable_learning](resources--app_setting--reference--group-001.md#canonical-3100010103133320-1031023303101233-1020203111023232-3321121123112321-2033103000311233-3202320323210321-2131232310323032-3003101030122022): complete subsection reference.
 
-<a id="canonical-29963a68aee34294e89629504587653c3f689ceb49618c58056cc1a4b4ec0fe3"></a>
+<a id="canonical-0221211203221220-2232320310022110-3220211202211100-1011201312110330-0333122021303223-1021120120301120-0011123030012210-2310323000333203"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting / 33853f248d53 / 4
+## Next pages — user_behavior_analysis_setting / 021020311103 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.disable_detection](resources--app_setting--reference--group-001.md#canonical-57e720e997c118bc8ccee355bad15c81f01a805ccfff47f0baf1ccf03c9117ac)
-- [app_type_settings.user_behavior_analysis_setting.disable_learning](resources--app_setting--reference--group-001.md#canonical-9fe185fe9eeccb6bfdea6bb7f878d339da4cc63d44811ee79237bf62165722a3)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [app_type_settings.user_behavior_analysis_setting.enable_learning](resources--app_setting--reference--group-001.md#canonical-d01137f84d2f346f488d52eef965b5b98f4c0d6fe2e3b9399dbb4ecec344c68a)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.disable_detection](resources--app_setting--reference--group-001.md#canonical-1113321302003221-2113300101202330-2030303232031111-2322310111302001-3300012220001130-3033333310133300-2322330130303300-0330210101132230)
+- [app_type_settings.user_behavior_analysis_setting.disable_learning](resources--app_setting--reference--group-001.md#canonical-2133320120113332-2132323030231223-3331322212232313-3320132031030321-3122103030120331-1010200101323213-2102031323331202-0112111302022203)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [app_type_settings.user_behavior_analysis_setting.enable_learning](resources--app_setting--reference--group-001.md#canonical-3100010103133320-1031023303101233-1020203111023232-3321121123112321-2033103000311233-3202320323210321-2131232310323032-3003101030122022)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-57e720e997c118bc8ccee355bad15c81f01a805ccfff47f0baf1ccf03c9117ac"></a>
+<a id="canonical-1113321302003221-2113300101202330-2030303232031111-2322310111302001-3300012220001130-3033333310133300-2322330130303300-0330210101132230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fe2f28562c77d578cb315297ed62a4ba53580d771ebda7959e274f9c1761480f"></a>
+<a id="canonical-3332023302201112-0230131331111320-3023030111022113-3231120222102322-1103112000311313-0132233122132111-2132021310332130-0113120110200033"></a>
 
-## app_type_settings.user_behavior_analysis_setting.disable_detection — app_type_settings.user_behavior_analysis_setting.disable_detection / fceaf1fb2c2a / 2
+## app_type_settings.user_behavior_analysis_setting.disable_detection — disable_detection / 332302300222 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
 - app_type_settings.user_behavior_analysis_setting.disable_detection
 
-<a id="canonical-f64fc6655935330c8016584e0be182277befa8bc2730f6277b457eadb95bfb9f"></a>
+<a id="canonical-3312103330121211-1121031103030030-2000011211201032-0023320120020213-1323323322202330-0213030033120213-1323101113322231-2321112333232133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1317,38 +1317,38 @@ Terraform syntax:
 disable_detection = {}
 ```
 
-<a id="canonical-c7e990ececa040c17adc4520a0ce7ebb967da57ccf49cafbef25bc4d5aaa212b"></a>
+<a id="canonical-3013322121003230-3230220010003001-1322313010110200-2200303213322323-2112133122111330-3033102130223323-3233021123301031-1122222202010223"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.disable_detection / fceaf1fb2c2a / 3
+## Direct properties — disable_detection / 332302300222 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3233430b7a6f3b0d560c40bf4e12c30ef3e9b1851cd90f4e1af48bcd24a88d0d"></a>
+<a id="canonical-0302030310030023-1322123303230031-1112003010002333-1032010230030032-3303322123012011-0130312100331032-0122331020233031-0210222020310031"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.disable_detection / fceaf1fb2c2a / 4
+## Next pages — disable_detection / 332302300222 / 4
 
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-9fe185fe9eeccb6bfdea6bb7f878d339da4cc63d44811ee79237bf62165722a3"></a>
+<a id="canonical-2133320120113332-2132323030231223-3331322212232313-3320132031030321-3122103030120331-1010200101323213-2102031323331202-0112111302022203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5b9b2c347d2848561176794038d5ef043ee296775ca62df2edc110fbd1c1036"></a>
+<a id="canonical-2211232123023003-1013310220102011-1201011312132110-0003203111323300-1003323202211213-1311302212023133-0232313001010033-2331013001000312"></a>
 
-## app_type_settings.user_behavior_analysis_setting.disable_learning — app_type_settings.user_behavior_analysis_setting.disable_learning / a0f9949fd1b1 / 2
+## app_type_settings.user_behavior_analysis_setting.disable_learning — disable_learning / 213331012301 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
 - app_type_settings.user_behavior_analysis_setting.disable_learning
 
-<a id="canonical-5c42e09df28c12b1fe9c355ecf32d42c5c0a9d0f57e30409226c42f99f3b78ca"></a>
+<a id="canonical-1130100232002131-3302203001022301-3332213003111132-3033030231100230-1130002221310033-1113320300100021-0202123010023321-2133032313203022"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1377,38 +1377,38 @@ Terraform syntax:
 disable_learning = {}
 ```
 
-<a id="canonical-5140088e803cdaf6e781389829ec7a8d021d8feb839add088bd6784d08550312"></a>
+<a id="canonical-1101100000202032-2000033031223312-3213200103202120-0221323013222031-0002013120333223-2003212231310020-2023311213201031-0020111100030102"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.disable_learning / a0f9949fd1b1 / 3
+## Direct properties — disable_learning / 213331012301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8511b522517e67fb7284deb3c9e8cba75595b10b6527291b5e9eb65b47429b2e"></a>
+<a id="canonical-2011010123110202-1101133212133323-1302201031322303-3021322030232213-1111211123010023-1211021302210123-1132213223121123-1013100221230232"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.disable_learning / a0f9949fd1b1 / 4
+## Next pages — disable_learning / 213331012301 / 4
 
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7"></a>
+<a id="canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c47a96c8e795cef23697c838565750edd54178613a0533782b8e399991fd4fa7"></a>
+<a id="canonical-3010132221123020-3213211130323302-0312211330200320-1112111311003231-3111100113201201-0322001103031320-0223203203212121-2101333110332213"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection — app_type_settings.user_behavior_analysis_setting.enable_detection / c0e64fc5831f / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection — enable_detection / 301120030133 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
 - app_type_settings.user_behavior_analysis_setting.enable_detection
 
-<a id="canonical-400ce4b40c3733e9121789b57deaabcd432d2a1033bf702044aa90d575623721"></a>
+<a id="canonical-1000003032102310-0030031303033221-0102011320212311-1331322222233031-1003023102220100-0303233313000200-1010222221003111-1311120203130201"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1475,17 +1475,17 @@ enable_detection {
 }
 ```
 
-<a id="canonical-8d79c11f004e51f190f2b48febf81b5d2c5ad76a26e3aaf1f24231fe6110e6bf"></a>
+<a id="canonical-2031132130010133-0000103211013301-2100330223102033-3223332001231131-0230112231131222-0212320322223301-3302100203013332-1201010032122333"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection / c0e64fc5831f / 3
+## Direct properties — enable_detection / 301120030133 / 3
 
-- [bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-8c0b897ccd2e760e64b7a01504c6496415b67a12615fab80524d11ae2d9be0c5): complete subsection reference.
+- [bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-2030002320211330-3031023213120032-1210231322000111-0010301210211210-0111231213220102-1201113322232000-1102103101012232-0231212332003011): complete subsection reference.
 
-<a id="canonical-61b8767049c9f95b870fdc69152b5a96af558405f63e7a417dbc85d7aebcacee"></a>
+<a id="canonical-1201232013121300-1021302133211123-2013003331301221-0111022311222112-2233111120100011-3312033213221001-1331233020113113-2232233022303232"></a>
 
-<a id="canonical-43efe8ce3e1d82da2e428fed011b0e8df7291b5824d3c8f17db7e7631bc3184e"></a>
+<a id="canonical-1003323332203032-0332013120023122-0232100220333231-0001012300322031-3313022101231120-0210310330203301-1331231332131203-0123300301201032"></a>
 
-## cooling_off_period property — app_type_settings.user_behavior_analysis_setting.enable_detection / c0e64fc5831f / 4
+## cooling_off_period property — enable_detection / 301120030133 / 4
 
 Type: `"number"`. Optional.
 
@@ -1543,82 +1543,82 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-4a4735720ddae208b084184b0313c7d6852f357b57d4d1ad0e54c45f625f4923): complete subsection reference.
+- [exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-1022101303111302-0031312232020020-2300201001201023-0003010330133112-2011023303111323-1113311031012231-0032111030101133-1202113310210203): complete subsection reference.
 
-- [exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-e6a9d17786a70fb93abdf0228b3abb8a59000236846c279bd33560e08bac8b82): complete subsection reference.
+- [exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-3212222131011313-2012221300332321-0322233133000202-2023032223232022-1121000000020312-2010123002132123-3103031112003200-2023223020232002): complete subsection reference.
 
-- [exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-db405d5dc6cf8dd528fa4d125896761d97c73bc79e9eb40bec9d6a4a3025e38d): complete subsection reference.
+- [exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-3123100011311131-3012303320313111-0220332210310102-1120211213120131-2113301303233013-2132213223100023-3230213112221022-0300021132032031): complete subsection reference.
 
-- [exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-4cbec45cd1172b884b82a7e753ce85a7b3a60a2b089a232334ea2e803661b6b5): complete subsection reference.
+- [exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-1030233230101130-3101011302232020-1023200222133213-1103303220112213-2303221200220223-0020212202030203-0310322202322000-0312120123122311): complete subsection reference.
 
-- [exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-e89f5feccbb15c790cb9755dc87939b52dba5a0720e5438858c58dee309798b3): complete subsection reference.
+- [exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-3220213311333230-3023230111301321-0030232113111131-3020132103212311-0231232211220013-0200321110032020-1120301120313232-0300211321202303): complete subsection reference.
 
-- [exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-fa2d5cb2615e22fd4daec7de7170a1a1383749b2e795ae8d56ad87366893e684): complete subsection reference.
+- [exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-3322023111302302-1201113202023331-1031223230133132-1301130022012201-0320031310212302-3213211122322031-1112223120130312-1220210332122010): complete subsection reference.
 
-- [exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-8064da0e2e844df91ed036a65ac0b915e9921aebc73305c1ea941f9d83d5adce): complete subsection reference.
+- [exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-2000121031220032-0232201010313321-0132310003122212-1122300023210111-3221210201223223-3013030300113001-3222211001332131-2003311122313032): complete subsection reference.
 
-- [exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-40c84c61625bb0d41b3e2f925038315d72ff6d0b9649fbc8a5132dac40acfd9c): complete subsection reference.
+- [exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-1000302010301201-1202112323003110-0123033202332102-1100032003011131-1302333312310023-2112102133233020-2211010302312230-1000223033312130): complete subsection reference.
 
-- [include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-bdfd3c4e9528639085c1c02cb3271c6860cf8e8c9422bec3e38ff00938528dfb): complete subsection reference.
+- [include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-2331333103301032-2111022012032100-2011300130000230-2303021301301220-1200303320322030-2110020223323003-3203203333000021-0320110220313323): complete subsection reference.
 
-- [include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-65421d22cb003bf12dde77aebfd4df147a22f200376078b4b7cae1cf081aefdb): complete subsection reference.
+- [include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-1211100201310202-3023000003233301-0231313213132232-2333311031330110-1322020233020000-0313120013202310-2313302232013033-0020012232333123): complete subsection reference.
 
-- [include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-59b85f16ce1b4a9cfed0acfb83c8887322a4941b2058e2f7e357243205fa31e4): complete subsection reference.
+- [include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-1121232011330112-3032012310222130-3332310022303323-2003302020201303-0202221021100123-0200112032023313-3203111302100302-0011332203013210): complete subsection reference.
 
-- [include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-209971f904c9e70e82b2f1100768f68a51b1820eeecd7f73fa9b36904ae796fb): complete subsection reference.
+- [include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-0200212113013321-0010302132130032-2002230233010100-0013122033122022-1101230120020032-3232303113331303-3322212303122100-1022321321123323): complete subsection reference.
 
-- [include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1): complete subsection reference.
+- [include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101): complete subsection reference.
 
-- [include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-cfa14ec7bb1c3cf14fb5bd291e0fe016ebc69c99f949302fdf7743911bff9b9b): complete subsection reference.
+- [include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-3033220110323013-2323013003303301-1033231123310221-0132003332000112-3223301221302121-3321102103000233-3133131310032101-0123333321232123): complete subsection reference.
 
-- [include_rate_limit](resources--app_setting--reference--group-001.md#canonical-e20ee432d778f12f7942ec87a89dfa69b49fefcc9fe5ee90fd4cada018a811c0): complete subsection reference.
+- [include_rate_limit](resources--app_setting--reference--group-001.md#canonical-3202003232100302-3113132033010233-1321100232302013-2220213133221221-2310213332333030-2133321132322100-3331103022312200-0120222001013000): complete subsection reference.
 
-- [include_waf_activity](resources--app_setting--reference--group-001.md#canonical-b9d46803fbfb042e14ae681e28b89a8bdf98f5abd2b339510d88c9ff67827cd5): complete subsection reference.
+- [include_waf_activity](resources--app_setting--reference--group-001.md#canonical-2321311012200003-3323332300100232-0110223212200132-0220232021222023-3133212033112223-3102230303211101-0031202030213333-1213200213303111): complete subsection reference.
 
-<a id="canonical-6e52ab2ee43435dbcb305ff593a3432e9dd0086fcde66ba1c80d9bb6a1c61382"></a>
+<a id="canonical-1232110222230232-3210031003113123-3023030011333311-2103220310030232-2131310000201233-3031321212232201-3020003121232312-2201301201032002"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection / c0e64fc5831f / 5
+## Next pages — enable_detection / 301120030133 / 5
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-8c0b897ccd2e760e64b7a01504c6496415b67a12615fab80524d11ae2d9be0c5)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-4a4735720ddae208b084184b0313c7d6852f357b57d4d1ad0e54c45f625f4923)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-e6a9d17786a70fb93abdf0228b3abb8a59000236846c279bd33560e08bac8b82)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-db405d5dc6cf8dd528fa4d125896761d97c73bc79e9eb40bec9d6a4a3025e38d)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-4cbec45cd1172b884b82a7e753ce85a7b3a60a2b089a232334ea2e803661b6b5)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-e89f5feccbb15c790cb9755dc87939b52dba5a0720e5438858c58dee309798b3)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-fa2d5cb2615e22fd4daec7de7170a1a1383749b2e795ae8d56ad87366893e684)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-8064da0e2e844df91ed036a65ac0b915e9921aebc73305c1ea941f9d83d5adce)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-40c84c61625bb0d41b3e2f925038315d72ff6d0b9649fbc8a5132dac40acfd9c)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-bdfd3c4e9528639085c1c02cb3271c6860cf8e8c9422bec3e38ff00938528dfb)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-65421d22cb003bf12dde77aebfd4df147a22f200376078b4b7cae1cf081aefdb)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-59b85f16ce1b4a9cfed0acfb83c8887322a4941b2058e2f7e357243205fa31e4)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-209971f904c9e70e82b2f1100768f68a51b1820eeecd7f73fa9b36904ae796fb)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-cfa14ec7bb1c3cf14fb5bd291e0fe016ebc69c99f949302fdf7743911bff9b9b)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit](resources--app_setting--reference--group-001.md#canonical-e20ee432d778f12f7942ec87a89dfa69b49fefcc9fe5ee90fd4cada018a811c0)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity](resources--app_setting--reference--group-001.md#canonical-b9d46803fbfb042e14ae681e28b89a8bdf98f5abd2b339510d88c9ff67827cd5)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic](resources--app_setting--reference--group-001.md#canonical-2030002320211330-3031023213120032-1210231322000111-0010301210211210-0111231213220102-1201113322232000-1102103101012232-0231212332003011)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection](resources--app_setting--reference--group-001.md#canonical-1022101303111302-0031312232020020-2300201001201023-0003010330133112-2011023303111323-1113311031012231-0032111030101133-1202113310210203)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-3212222131011313-2012221300332321-0322233133000202-2023032223232022-1121000000020312-2010123002132123-3103031112003200-2023223020232002)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-3123100011311131-3012303320313111-0220332210310102-1120211213120131-2113301303233013-2132213223100023-3230213112221022-0300021132032031)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-1030233230101130-3101011302232020-1023200222133213-1103303220112213-2303221200220223-0020212202030203-0310322202322000-0312120123122311)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation](resources--app_setting--reference--group-001.md#canonical-3220213311333230-3023230111301321-0030232113111131-3020132103212311-0231232211220013-0200321110032020-1120301120313232-0300211321202303)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity](resources--app_setting--reference--group-001.md#canonical-3322023111302302-1201113202023331-1031223230133132-1301130022012201-0320031310212302-3213211122322031-1112223120130312-1220210332122010)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit](resources--app_setting--reference--group-001.md#canonical-2000121031220032-0232201010313321-0132310003122212-1122300023210111-3221210201223223-3013030300113001-3222211001332131-2003311122313032)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity](resources--app_setting--reference--group-001.md#canonical-1000302010301201-1202112323003110-0123033202332102-1100032003011131-1302333312310023-2112102133233020-2211010302312230-1000223033312130)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity](resources--app_setting--reference--group-001.md#canonical-2331333103301032-2111022012032100-2011300130000230-2303021301301220-1200303320322030-2110020223323003-3203203333000021-0320110220313323)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity](resources--app_setting--reference--group-001.md#canonical-1211100201310202-3023000003233301-0231313213132232-2333311031330110-1322020233020000-0313120013202310-2313302232013033-0020012232333123)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity](resources--app_setting--reference--group-001.md#canonical-1121232011330112-3032012310222130-3332310022303323-2003302020201303-0202221021100123-0200112032023313-3203111302100302-0011332203013210)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation](resources--app_setting--reference--group-001.md#canonical-0200212113013321-0010302132130032-2002230233010100-0013122033122022-1101230120020032-3232303113331303-3322212303122100-1022321321123323)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom](resources--app_setting--reference--group-001.md#canonical-3033220110323013-2323013003303301-1033231123310221-0132003332000112-3223301221302121-3321102103000233-3133131310032101-0123333321232123)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit](resources--app_setting--reference--group-001.md#canonical-3202003232100302-3113132033010233-1321100232302013-2220213133221221-2310213332333030-2133321132322100-3331103022312200-0120222001013000)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity](resources--app_setting--reference--group-001.md#canonical-2321311012200003-3323332300100232-0110223212200132-0220232021222023-3133212033112223-3102230303211101-0031202030213333-1213200213303111)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-8c0b897ccd2e760e64b7a01504c6496415b67a12615fab80524d11ae2d9be0c5"></a>
+<a id="canonical-2030002320211330-3031023213120032-1210231322000111-0010301210211210-0111231213220102-1201113322232000-1102103101012232-0231212332003011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e7a28295413057a7ee7429786369670f756fb7f686ac53cbaab2096b87aeee7"></a>
+<a id="canonical-1332132202200221-1110010300111322-1332321310022113-2012031221121300-3313111233231333-1220122230110330-2322222302002112-2320132232323213"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic — app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection / e311e5c5b2b9 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic — bola_detection_automatic / 301123022321 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection_automatic
 
-<a id="canonical-4a39622499de50363929a7476c736c7612f5baf2bba156b63c7309db131c9406"></a>
+<a id="canonical-1022032112020210-2121313211000312-0321022122131013-1230130312301312-0102331123223302-2323220111122312-0330130300213123-0103013021100012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1647,39 +1647,39 @@ Terraform syntax:
 bola_detection_automatic = {}
 ```
 
-<a id="canonical-3d90c22774a8afc18d01440a4fb39229f08f5a3fa90b4de54987a53943977acd"></a>
+<a id="canonical-0331210030020213-1310222022333001-2031000110100022-1033230321020221-3300203311220333-2221002310313211-1021201322110321-1003211313223031"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection / e311e5c5b2b9 / 3
+## Direct properties — bola_detection_automatic / 301123022321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1921da5295f1ce7bbdb6b6399a2a3719fde986c309b7adcb28492002ed1d6636"></a>
+<a id="canonical-0121020131221102-2111330130321323-2331231223120321-2122022203130121-3331322120123003-0021231322313023-0220102102000002-3231013112120312"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.bola_detection / e311e5c5b2b9 / 4
+## Next pages — bola_detection_automatic / 301123022321 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-4a4735720ddae208b084184b0313c7d6852f357b57d4d1ad0e54c45f625f4923"></a>
+<a id="canonical-1022101303111302-0031312232020020-2300201001201023-0003010330133112-2011023303111323-1113311031012231-0032111030101133-1202113310210203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9e6d7895b9a1d53c1ef68236921d909026e9677e5b1d54eed6937a2503bc5346"></a>
+<a id="canonical-2132123113202111-2321220131110330-0132331220020312-2102013121002100-0212322112131332-1123013111103232-3112210313220211-0003233011031012"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_d / 179bd1cd8518 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection — exclude_bola_detection / 303120110120 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_detection
 
-<a id="canonical-d3e66e10d555c43738de98344ca93b58fc55f982786bcaca633ade01b2bd8c22"></a>
+<a id="canonical-3103321212320100-3111111130100313-0320313221200310-1030222103231120-3330111133212002-1320122330223022-1203032231320001-2302233120300202"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1708,39 +1708,39 @@ Terraform syntax:
 exclude_bola_detection = {}
 ```
 
-<a id="canonical-ea3e4cf5ba30d10800be96483e322740a00c3edb8cd33fabc4d2a0505607a19b"></a>
+<a id="canonical-3222033210303311-2322030031010020-0000233221121020-0332030202131000-2200003003323123-2030310303332223-3010310222001100-1112001322012123"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_d / 179bd1cd8518 / 3
+## Direct properties — exclude_bola_detection / 303120110120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4abbe1ffb2b8978bb0c52fa55b4bd0902196d2b8df4160f80a8e0f2ea7c1ae92"></a>
+<a id="canonical-1022232332013333-2302232021132023-2300301102332211-1123102331002100-0201211231022320-3133100112003320-0022203200330232-2213300122322102"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bola_d / 179bd1cd8518 / 4
+## Next pages — exclude_bola_detection / 303120110120 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-e6a9d17786a70fb93abdf0228b3abb8a59000236846c279bd33560e08bac8b82"></a>
+<a id="canonical-3212222131011313-2012221300332321-0322233133000202-2023032223232022-1121000000020312-2010123002132123-3103031112003200-2023223020232002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e27ed17e8daff2f8814c9907181a34f23bad813decd245fc9ba805dd2a24f005"></a>
+<a id="canonical-3202133231011332-2031223333023320-2001103021210013-0120012203103302-0323223120010331-3230310210113330-2123222000113131-0222021033000011"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_de / 00314365fd55 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity — exclude_bot_defense_activity / 121133311111 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_defense_activity
 
-<a id="canonical-ff3dc5f8c0ac27dd7a777dcd921c91dd448be7e9a05aa8c109d129ded2bbfd81"></a>
+<a id="canonical-3333033130113320-3000223002133131-1322131313313031-2102013021013131-1010202332133221-2200112222203001-0021310102213132-3102232333312001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1769,39 +1769,39 @@ Terraform syntax:
 exclude_bot_defense_activity = {}
 ```
 
-<a id="canonical-4f80570b348a27dab7c444ce12cd3ce74d5c227bbe8cb782279ebf9fb6f43dc2"></a>
+<a id="canonical-1033200011130023-0310202202133122-2313301010103032-0102303103303213-1031113002021323-2332203023132002-0213213223332133-2312331003313002"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_de / 00314365fd55 / 3
+## Direct properties — exclude_bot_defense_activity / 121133311111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-dd7c69f4b5160739cc626e58bdd7cfbcc74f49b6163d95ab2579c19c74479374"></a>
+<a id="canonical-3131133012213310-2311011200130321-3030120212321120-2331311330332330-3013103310212312-0112033121112223-0211132130012130-1310101321031310"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_bot_de / 00314365fd55 / 4
+## Next pages — exclude_bot_defense_activity / 121133311111 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-db405d5dc6cf8dd528fa4d125896761d97c73bc79e9eb40bec9d6a4a3025e38d"></a>
+<a id="canonical-3123100011311131-3012303320313111-0220332210310102-1120211213120131-2113301303233013-2132213223100023-3230213112221022-0300021132032031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6a865f88c24bb68642aa889724822401c5f4e3aff199ce26ac800af53a58b87a"></a>
+<a id="canonical-1222201211332020-3002102323122012-1002222220202113-0210200202100001-3011331032032233-3301212130320212-2230200000223311-0322112023201322"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed / cc74ea48d6c0 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity — exclude_failed_login_activity / 102031123000 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed_login_activity
 
-<a id="canonical-bae5b5aef22977b9c512461aa6e3ee05c6af5a856153eff6dc008bb9153ca3f5"></a>
+<a id="canonical-2322321123112232-3302022113132321-3011010210120122-2212320332320011-3012223311222011-1201110332333312-3130000020232321-0111033022033311"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1830,39 +1830,39 @@ Terraform syntax:
 exclude_failed_login_activity = {}
 ```
 
-<a id="canonical-dbbbe0bbafdca5a863dc2c13ce7cdbf407974ae71fbd986c070cde400666d526"></a>
+<a id="canonical-3123232332002323-2233313022112220-1203313002300103-3032133031233310-0013211310223213-0133233121201230-0013003031321000-0012121231110212"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed / cc74ea48d6c0 / 3
+## Direct properties — exclude_failed_login_activity / 102031123000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-201685fc76198f614ae90a5b05a445dbdb2951bb1f59fec86dd5bb5d4789d0d8"></a>
+<a id="canonical-0200011220113330-1312012120331201-1022322100221123-0011221010113123-3123022111012323-0133112133323020-1231311123231131-1013202131003120"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_failed / cc74ea48d6c0 / 4
+## Next pages — exclude_failed_login_activity / 102031123000 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-4cbec45cd1172b884b82a7e753ce85a7b3a60a2b089a232334ea2e803661b6b5"></a>
+<a id="canonical-1030233230101130-3101011302232020-1023200222133213-1103303220112213-2303221200220223-0020212202030203-0310322202322000-0312120123122311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c2f8856f82e7b0d7381452d45fb385f0359e2578548fcca9ea84a806f6ff88be"></a>
+<a id="canonical-3002332020111233-2002321323003113-0320011011023110-1133230320113300-0311213202111320-1110203330302221-3222201022200012-3312333320202332"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbid / e589936c030b / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity — exclude_forbidden_activity / 123000030023 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbidden_activity
 
-<a id="canonical-055aaee013ee47c8da952ca757cb6f16ca6b62cb56a2703809d3b1924c9227a5"></a>
+<a id="canonical-0011112222323200-0103323210133020-3122211102302213-1113302312330112-3022122312023023-1112220213000320-0021310323012102-1030210202132211"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1891,39 +1891,39 @@ Terraform syntax:
 exclude_forbidden_activity = {}
 ```
 
-<a id="canonical-aa6ef01db1d70b161ea5a48c938f4a45fd7858582e631454c6b0c4c9c8d091a4"></a>
+<a id="canonical-2222123233000131-2301311300230112-0132221122102030-2103203310221011-3331132011201120-0232120301101110-3012230030103021-3020310021012210"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbid / e589936c030b / 3
+## Direct properties — exclude_forbidden_activity / 123000030023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f7f218b5d171574686f244641546dfce6d568b2c8b57ef9ff6e517003d3fe7e6"></a>
+<a id="canonical-3313330201202311-3101130111131012-2012330210101210-0111101231333032-1231111220230230-2023111332332133-3312321101130000-0331033332133212"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_forbid / e589936c030b / 4
+## Next pages — exclude_forbidden_activity / 123000030023 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-e89f5feccbb15c790cb9755dc87939b52dba5a0720e5438858c58dee309798b3"></a>
+<a id="canonical-3220213311333230-3023230111301321-0030232113111131-3020132103212311-0231232211220013-0200321110032020-1120301120313232-0300211321202303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a57baa8ed8d364fbb5113dd4671b41722729f2a21d664e83a3539310442cb791"></a>
+<a id="canonical-2211132322222032-3120310312103323-2311010103313110-1213012310011302-0213022133022202-0131121210322003-2203110321030100-1010023023132101"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_rep / c2cb8c200dda / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation — exclude_ip_reputation / 020000313122 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_reputation
 
-<a id="canonical-64a65a9a7bbfa2d9e9b952174f3345ace232b9482ecb0b4de421e1af310cebc6"></a>
+<a id="canonical-1210221211222122-1323233322023121-3221232111020113-1033030310112230-3202030223211020-0232302300231031-3210020132012233-0301003032233012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1952,39 +1952,39 @@ Terraform syntax:
 exclude_ip_reputation = {}
 ```
 
-<a id="canonical-1baa3ab2073f041c2752307a151c28543bf0c3ec1b5d970163b821c27ea107c7"></a>
+<a id="canonical-0123222203222302-0013033300100130-0213110203001322-0111013002201110-0323330030033230-0123113121130001-1203232002013002-1332220100133013"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_rep / c2cb8c200dda / 3
+## Direct properties — exclude_ip_reputation / 020000313122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-82b8a396eb720e86d68c2aa8ff7184d435584863937ed608fc7f5dc12d3a0289"></a>
+<a id="canonical-2002232022032112-3223130200322012-3112203002222220-3333130120103110-0311112010201203-2103133231120020-3330133311313001-0231032200022021"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_ip_rep / c2cb8c200dda / 4
+## Next pages — exclude_ip_reputation / 020000313122 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-fa2d5cb2615e22fd4daec7de7170a1a1383749b2e795ae8d56ad87366893e684"></a>
+<a id="canonical-3322023111302302-1201113202023331-1031223230133132-1301130022012201-0320031310212302-3213211122322031-1112223120130312-1220210332122010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1c15d47a6b9facfad5beb1e09ffbe3a7a43dbf01490902b98fbaf5ec652d1d34"></a>
+<a id="canonical-0130011131101322-1223213322303322-3111233223013200-2133332332032213-2210033123330001-1021002100022321-2033232233113230-1211023101310310"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_ex / feb3e28efcc6 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity — exclude_non_existent_url_activity / 203233303012 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_existent_url_activity
 
-<a id="canonical-892729e56e3da5eae13d868cd170e2de916118166a357bc9906c670011e9cddc"></a>
+<a id="canonical-2021021302213211-1232033122113222-3201033120122030-3101130032023132-2101120101200112-1222031113233021-2100123012130000-0101322130313130"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2013,39 +2013,39 @@ Terraform syntax:
 exclude_non_existent_url_activity = {}
 ```
 
-<a id="canonical-7ab7187264a7094a1899cb82321cd8e12dc646849176ff57fe2502ac43b80ab2"></a>
+<a id="canonical-1322231301201302-1210221300211022-0120212130232002-0302013031203201-0231301210122010-2101131233331113-3332021100022230-1003232000222302"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_ex / feb3e28efcc6 / 3
+## Direct properties — exclude_non_existent_url_activity / 203233303012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1e72078caa1cc2e26a55a8cfce486ea29333217774c2ed21e0375066aac21d25"></a>
+<a id="canonical-0132130200132030-2222013030023202-1222111122203033-3032102012322202-2103030302011313-1310300232310201-3200031311001212-2222300201310211"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_non_ex / feb3e28efcc6 / 4
+## Next pages — exclude_non_existent_url_activity / 203233303012 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-8064da0e2e844df91ed036a65ac0b915e9921aebc73305c1ea941f9d83d5adce"></a>
+<a id="canonical-2000121031220032-0232201010313321-0132310003122212-1122300023210111-3221210201223223-3013030300113001-3222211001332131-2003311122313032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5bd9a165575ab3de4c1b914827378b956266fb649e205664396d680e0314be04"></a>
+<a id="canonical-1123312122011211-1113112223033132-1030012321011020-0213031320232111-1202121233231210-2132020011121210-0321123112200032-0003011023320010"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_l / 7a9690997adc / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit — exclude_rate_limit / 212113223130 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_limit
 
-<a id="canonical-7c89ddf27eda6b15df7c5864bc8a086bfd5293f780dbc60141aa312c68b28032"></a>
+<a id="canonical-1330202131313302-1332312212230111-3133133011201210-2330202200201223-3331110221033313-2000312330120001-1001222203010230-1220230220000302"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2074,39 +2074,39 @@ Terraform syntax:
 exclude_rate_limit = {}
 ```
 
-<a id="canonical-8fa0c606095832625c4cc863c95c817178d228afd5c3512959b50e83db2d1c58"></a>
+<a id="canonical-2033220030120012-0021112003021202-1130103030201203-3021113020011301-1320310202202233-3111300311010221-1121231100322003-3123023101301120"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_l / 7a9690997adc / 3
+## Direct properties — exclude_rate_limit / 212113223130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c76b59587aef8f912088651e7ad8cb518bd145f9387fb733a26779bee685d84f"></a>
+<a id="canonical-3013122311211120-1322323320332101-0200202012110132-1322312030231101-2023310110113321-0320133323130303-2202121313212332-3212201131201033"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_rate_l / 7a9690997adc / 4
+## Next pages — exclude_rate_limit / 212113223130 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-40c84c61625bb0d41b3e2f925038315d72ff6d0b9649fbc8a5132dac40acfd9c"></a>
+<a id="canonical-1000302010301201-1202112323003110-0123033202332102-1100032003011131-1302333312310023-2112102133233020-2211010302312230-1000223033312130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-00468deb2336b2fc04517b460cfe9d1f0ba249255cd45393bdf88a3cf4979555"></a>
+<a id="canonical-0000101220313223-0203031223023330-0010110113231012-0030333221310133-0023220210210211-1130311011032103-2331332020220330-3310211321111111"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_ac / 1daaab3beec2 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity — exclude_waf_activity / 032332323002 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_activity
 
-<a id="canonical-be51d8aa950b355900f47ebabddaf65e23a11f1c1d754068bc70ac3870194606"></a>
+<a id="canonical-2332110131202222-2111002303111121-0000331013322322-2331312233121132-0203220101330130-0131131110001220-2330130022300320-1300012110120012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2135,39 +2135,39 @@ Terraform syntax:
 exclude_waf_activity = {}
 ```
 
-<a id="canonical-7b73276807066a5c832ad80efcf54902dde996302ec533b7f477ec7bb91094ef"></a>
+<a id="canonical-1323130302131220-0013001212221130-2003022231200032-3330331110210002-3131322121120300-0232301103032313-3310131332301323-2321010021103233"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_ac / 1daaab3beec2 / 3
+## Direct properties — exclude_waf_activity / 032332323002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-453d5365ca5f221ac784a0c0b49f84758a1bf259ffadf1e9679dcd860ea8d682"></a>
+<a id="canonical-1011033111031211-3022113302020122-3013201022003000-2310213320101311-2022012333021121-3333223133013221-1213213130312012-0032222031122002"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.exclude_waf_ac / 1daaab3beec2 / 4
+## Next pages — exclude_waf_activity / 032332323002 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-bdfd3c4e9528639085c1c02cb3271c6860cf8e8c9422bec3e38ff00938528dfb"></a>
+<a id="canonical-2331333103301032-2111022012032100-2011300130000230-2303021301301220-1200303320322030-2110020223323003-3203203333000021-0320110220313323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9c4c724663b9bc0cf4b6ac57b100000088a85ecb673efcf61250a0035dafc3f5"></a>
+<a id="canonical-2130103013021012-1203232123300030-3310231222301113-2301000000000000-2020222011323023-1213033233303312-0102110022000003-1131223330033311"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_de / 31862386371e / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity — include_bot_defense_activity / 201203130132 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_defense_activity
 
-<a id="canonical-de451c060ed5349afd195a16ec8e130454450b41f6c19cd7fe823a4ee5f88be6"></a>
+<a id="canonical-3132101101300012-0032311103102122-3331012111220112-3230203201030010-1110101100231001-3312300121303113-3332200203221032-3211332020233212"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2196,39 +2196,39 @@ Terraform syntax:
 include_bot_defense_activity = {}
 ```
 
-<a id="canonical-e175c46789559eef75ca4776e8fa10f56e3fabdcb33b18b52bfc7a1783264e09"></a>
+<a id="canonical-3201131130101213-2021111121323233-1311302210131312-3220332201003311-1232033322233130-2303032301202311-0223333013220113-2003021210320021"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_de / 31862386371e / 3
+## Direct properties — include_bot_defense_activity / 201203130132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-521462b981c2bf83bab67a91d45327ba3ab1ccc83517630d162115213eee650d"></a>
+<a id="canonical-1102011012022321-2001300223332003-2322231213222101-3110110302132322-0322230130303020-0311011312030031-0112020101110201-0332323212110031"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_bot_de / 31862386371e / 4
+## Next pages — include_bot_defense_activity / 201203130132 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-65421d22cb003bf12dde77aebfd4df147a22f200376078b4b7cae1cf081aefdb"></a>
+<a id="canonical-1211100201310202-3023000003233301-0231313213132232-2333311031330110-1322020233020000-0313120013202310-2313302232013033-0020012232333123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5e123ca770341d5279e1fb2ef2a1960f9ddfae8bd63ca7dd8f6ffa01f3ec6163"></a>
+<a id="canonical-1132010203302213-1300031001311102-1321320133230232-3302220121120033-2131313322322023-3112033022133131-2033123333220001-3303323012011203"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed / c05a9c094b7e / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity — include_failed_login_activity / 002110231332 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed_login_activity
 
-<a id="canonical-1ab4f3403976fd4bf8429eb30cf6ac5b76c2f04c23c364e6cd2934bb0d04459a"></a>
+<a id="canonical-0122231033031000-0321131233311023-3320100221322303-0030331222301123-1312300233001030-0203300312103212-3031022103102323-0031001010112122"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2269,15 +2269,15 @@ include_failed_login_activity {
 }
 ```
 
-<a id="canonical-cddb056147e444c0d532b7a4686c73e1a8848c23af0a9fdb03ea311e31f58c7f"></a>
+<a id="canonical-3031312300111201-1013321010103000-3111030223132210-1220123013033201-2220201020300203-2233002221333123-0003322203010132-0301331120301333"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed / c05a9c094b7e / 3
+## Direct properties — include_failed_login_activity / 002110231332 / 3
 
-<a id="canonical-de84a99b005cd2b5a07c425439896a3d5d5ca0af3ce43554b63304324c5922b0"></a>
+<a id="canonical-3132201022212123-0000113031022311-2200133010021110-0321202112220331-1131113022002233-0330321003111110-2312030300100302-1030112102022300"></a>
 
-<a id="canonical-bf4f1c0e1e43b7c4dab78fdd477e56503eb1aacfd877a487bc4ffbfb9cc7b5ba"></a>
+<a id="canonical-2333103301300032-0132100323133010-3122231320333131-1013133211121100-0332230122223033-3120131322102013-2330103333233323-2130301323112322"></a>
 
-## login_failures_threshold property — app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed / c05a9c094b7e / 4
+## login_failures_threshold property — include_failed_login_activity / 002110231332 / 4
 
 Type: `"number"`. Optional.
 
@@ -2323,33 +2323,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad8fa5f024523a794768e300d3cb2d1b48ca6ab3ee768c8ab41e0ab644b6cd48"></a>
+<a id="canonical-2231203322113300-0210110203221321-1013122032030000-3103302302310123-1020302212222303-3232131220302022-2310013200222312-1010231230311020"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_failed / c05a9c094b7e / 5
+## Next pages — include_failed_login_activity / 002110231332 / 5
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-59b85f16ce1b4a9cfed0acfb83c8887322a4941b2058e2f7e357243205fa31e4"></a>
+<a id="canonical-1121232011330112-3032012310222130-3332310022303323-2003302020201303-0202221021100123-0200112032023313-3203111302100302-0011332203013210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e8f5582e926ee220eb8f6e3b42832c71e9bbb048f1939ee69023e7a46b956b29"></a>
+<a id="canonical-3220331111200232-2102123232020200-3223203312320323-1002200302301301-3221232323001020-3301210321323212-2100020332132210-1223211112230221"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbid / 88efed2c2452 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity — include_forbidden_activity / 023002101102 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbidden_activity
 
-<a id="canonical-c99a8aec36705697e74045bc659bbbe7eca2af4fbf3c9ff1b5a7b6346a36ae8c"></a>
+<a id="canonical-3021212220223230-0312130011122113-3213100010112330-1211212323233213-3230220222331033-2333033021333301-2311221323120310-1222031222322030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2390,15 +2390,15 @@ include_forbidden_activity {
 }
 ```
 
-<a id="canonical-352518f112e47fd66e83093228079059722933dec9537f6048c0b6ce6df51ec9"></a>
+<a id="canonical-0311021101203301-0102321013333112-1232200300210302-0220001321001121-1302022103033132-3021110313331200-1020300023123032-1231331101323021"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbid / 88efed2c2452 / 3
+## Direct properties — include_forbidden_activity / 023002101102 / 3
 
-<a id="canonical-139d367f036c04fa7acc9fee109bb8286137838447bbcaec2d540ffe9011e122"></a>
+<a id="canonical-0103213103121333-0003123000103322-1322303021333232-0100212323200220-1201031320032010-1013232330223230-0231111000333332-2100010132010202"></a>
 
-<a id="canonical-4b6362346296394f95fe29dd47ac3d11c4e10ba923fc4403af202b1996d094ef"></a>
+<a id="canonical-1023120312020310-1202211203211033-2111333202213131-1013223003310101-3010320100232221-0203333010100003-2233020002230121-2112310021103233"></a>
 
-## forbidden_requests_threshold property — app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbid / 88efed2c2452 / 4
+## forbidden_requests_threshold property — include_forbidden_activity / 023002101102 / 4
 
 Type: `"number"`. Optional.
 
@@ -2444,33 +2444,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fef093afe1a6d6d445c54b43e35c8e2a28f09d1dbfb8b20ac8f70b94f54daf1f"></a>
+<a id="canonical-3332330021032233-3201221231123110-1011301110231003-3203113020320222-0220330021310131-2333232023020022-3020331300232110-3311103122330133"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_forbid / 88efed2c2452 / 5
+## Next pages — include_forbidden_activity / 023002101102 / 5
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-209971f904c9e70e82b2f1100768f68a51b1820eeecd7f73fa9b36904ae796fb"></a>
+<a id="canonical-0200212113013321-0010302132130032-2002230233010100-0013122033122022-1101230120020032-3232303113331303-3322212303122100-1022321321123323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bb075bfc10d1644a8949726e0a0ee8ef66f7d22561d0ba928e79d9c4c9bca9ad"></a>
+<a id="canonical-2323001311233330-0100310112101022-2021102113021232-0022003232203233-1212331331020211-1201310023222102-2032132131213010-3021233022212231"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation — app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_rep / 51e7c20e9ed2 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation — include_ip_reputation / 003221323102 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_reputation
 
-<a id="canonical-8ed0d496152743f966d0a70d526527f0aae52c14e690190561c8d72341011def"></a>
+<a id="canonical-2032310031102112-0111021310033321-1212310022130031-1102121102133300-2222321102300110-3212210001210011-1201302031130203-1001000101313233"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2499,39 +2499,39 @@ Terraform syntax:
 include_ip_reputation = {}
 ```
 
-<a id="canonical-d16c412bd6a818813968a7389e881843ce6a66fa366beefa5ff6a34f21fc5456"></a>
+<a id="canonical-3101123010010223-3112222001202001-0321122022130320-2132202001201003-3032122212123322-0312122332323322-1133331222031033-0201333011101112"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_rep / 51e7c20e9ed2 / 3
+## Direct properties — include_ip_reputation / 003221323102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2c7c82b9ba90766145c7a99031d2470cee476ef4ee60ee0f4e150772e65cadb4"></a>
+<a id="canonical-0230133020022321-2322210013121201-1011301322212100-0301310210130030-3232101312323310-3232120032320033-1032011100131302-3212113022312310"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_ip_rep / 51e7c20e9ed2 / 4
+## Next pages — include_ip_reputation / 003221323102 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1"></a>
+<a id="canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec81f8727d6dfac45efca93be9b7aaa702bff68dd5fc04faf153c47e7b2670f7"></a>
+<a id="canonical-3230200133201302-1331123133223010-1132333022210323-3221231322222213-0002233333122031-3111333000103322-3301110330101332-1323021213003313"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / da3e6ef40522 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic — include_non_existent_url_activity_automatic / 331000110202 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic
 
-<a id="canonical-dca5763c54c675063f514c307eb53856f11473731ee60222923ff5efc618a09f"></a>
+<a id="canonical-3130221113120330-1110301213110012-0333110110300300-1332231103201112-3301011013031303-0132321200020202-2102033333113233-3012012022002133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2570,47 +2570,47 @@ include_non_existent_url_activity_automatic {
 }
 ```
 
-<a id="canonical-968e3d96d1e3b4824122f3019d2dc8cd89598676acea1952c18fefa48b9226b6"></a>
+<a id="canonical-2112203203312112-3101320323102002-1001020233030001-2131023130203031-2021112120121312-2230322201211102-3001203332332210-2023210202122312"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / da3e6ef40522 / 3
+## Direct properties — include_non_existent_url_activity_automatic / 331000110202 / 3
 
-- [high](resources--app_setting--reference--group-001.md#canonical-f3b048be366e08f39b15bed3ee0bb4ac1e9b2d361e5fec5517e7b719bc55a38b): complete subsection reference.
+- [high](resources--app_setting--reference--group-001.md#canonical-3303230010202332-0312123200203303-2123011123323103-3232002323102230-0132212302310312-0132113332301111-0113321323130121-2330111122032023): complete subsection reference.
 
-- [low](resources--app_setting--reference--group-001.md#canonical-93436bbc6d1f5784562a5abbc54ec471891d6913c197a9d4523b54ee39f47e7f): complete subsection reference.
+- [low](resources--app_setting--reference--group-001.md#canonical-2103100312232330-1231013311132010-1112022211222323-3011103230101301-2021013112210103-3001211322213110-1102032311103232-0321331013321333): complete subsection reference.
 
-- [medium](resources--app_setting--reference--group-001.md#canonical-544224adaf6f9fe0556d1379bd65648c422718d11ad39868c4029c583b31e320): complete subsection reference.
+- [medium](resources--app_setting--reference--group-001.md#canonical-1110100202102231-2233123321333200-1111123101031321-2331121112102030-1002021301203101-0122310321201220-3010000221301120-0323030132030200): complete subsection reference.
 
-<a id="canonical-c7d721acd994da9d5bfa97e13c3e7bd03a830f361895666920169de193e0b97c"></a>
+<a id="canonical-3013311302012230-3121211031222131-1123332221133201-0330033213233100-0322200300330312-0120211112121221-0200011221313201-2103320023211330"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / da3e6ef40522 / 4
+## Next pages — include_non_existent_url_activity_automatic / 331000110202 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high](resources--app_setting--reference--group-001.md#canonical-f3b048be366e08f39b15bed3ee0bb4ac1e9b2d361e5fec5517e7b719bc55a38b)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low](resources--app_setting--reference--group-001.md#canonical-93436bbc6d1f5784562a5abbc54ec471891d6913c197a9d4523b54ee39f47e7f)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium](resources--app_setting--reference--group-001.md#canonical-544224adaf6f9fe0556d1379bd65648c422718d11ad39868c4029c583b31e320)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high](resources--app_setting--reference--group-001.md#canonical-3303230010202332-0312123200203303-2123011123323103-3232002323102230-0132212302310312-0132113332301111-0113321323130121-2330111122032023)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low](resources--app_setting--reference--group-001.md#canonical-2103100312232330-1231013311132010-1112022211222323-3011103230101301-2021013112210103-3001211322213110-1102032311103232-0321331013321333)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium](resources--app_setting--reference--group-001.md#canonical-1110100202102231-2233123321333200-1111123101031321-2331121112102030-1002021301203101-0122310321201220-3010000221301120-0323030132030200)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-f3b048be366e08f39b15bed3ee0bb4ac1e9b2d361e5fec5517e7b719bc55a38b"></a>
+<a id="canonical-3303230010202332-0312123200203303-2123011123323103-3232002323102230-0132212302310312-0132113332301111-0113321323130121-2330111122032023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-699317ff63047e25ca74a4948a9fc77371f9f4dc04c6cfbb9eef4c6006317f2c"></a>
+<a id="canonical-1221210301133333-1203001013320211-3022131022102110-2022213330131303-1301332133103130-0010301230332323-2132323310301200-0012030113330230"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 1882e8087d3c / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high — high / 002013310330 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.high
 
-<a id="canonical-bcfb9800a9427a77deb06ed1ee85860c08a4a48dcbde20b3989de6d43d39f186"></a>
+<a id="canonical-2330332321200000-2221100213221313-3132230012323101-3232201120120030-0020221022102031-3023313202002303-2120213132123110-0331032133012012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2639,40 +2639,40 @@ Terraform syntax:
 high = {}
 ```
 
-<a id="canonical-edaf7b63ffeef504667f2e9154019ade8db5d01090a6b0e9aab3fe4a43eb154c"></a>
+<a id="canonical-3231223313231203-3333323233110010-1212133302322101-1110000121223132-2031231131000100-2100221223003221-2222230333321022-1003322301111030"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 1882e8087d3c / 3
+## Direct properties — high / 002013310330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-90da1856c02008b6ecb9bdd443177f08ca281764a1167d47799c49f1429d6c9c"></a>
+<a id="canonical-2100312201201112-3000020000202312-3230232123313110-1003011313330020-3022022001131210-2201011213311013-1321213010213301-1002213112302130"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 1882e8087d3c / 4
+## Next pages — high / 002013310330 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-93436bbc6d1f5784562a5abbc54ec471891d6913c197a9d4523b54ee39f47e7f"></a>
+<a id="canonical-2103100312232330-1231013311132010-1112022211222323-3011103230101301-2021013112210103-3001211322213110-1102032311103232-0321331013321333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-133fdb301efc03026cb60ba6dfe8d7a4920084412a217e97ae30eab5da28e305"></a>
+<a id="canonical-0103033331230300-0132333000030002-1230231200232212-3133322031132210-2102000020101001-0222020113322113-2232030032222311-3122022032030011"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / d780d1571afa / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low — low / 111301223322 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.low
 
-<a id="canonical-0bafa5b6d66dc599eef7ac1deaa2ae93cbece751a4003026d8341f5dba55ac98"></a>
+<a id="canonical-0023223322112312-3112123130112121-3232331322300131-3222220222322103-3023323032131101-2210000003000212-3120031001331131-2322111122302120"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2701,40 +2701,40 @@ Terraform syntax:
 low = {}
 ```
 
-<a id="canonical-ae0ff2afaee4f87ff712a78262ea9e6bf5340340e9945e9c414fcd4345ccec59"></a>
+<a id="canonical-2232003333022233-2232321033201333-3313010222132002-1202322221321223-3311031000031000-3221211011322130-1001103330311003-1011303032301121"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / d780d1571afa / 3
+## Direct properties — low / 111301223322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b9499941e0958a655f2d2074d48bf93c118b63a5fefe311c2faf7ccddfed8fea"></a>
+<a id="canonical-2321102121211001-3200211120221211-1133023102001310-3110202333210330-0101202312032211-3332333203010130-0233223313303031-3133323120333222"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / d780d1571afa / 4
+## Next pages — low / 111301223322 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-544224adaf6f9fe0556d1379bd65648c422718d11ad39868c4029c583b31e320"></a>
+<a id="canonical-1110100202102231-2233123321333200-1111123101031321-2331121112102030-1002021301203101-0122310321201220-3010000221301120-0323030132030200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9cd3f8ceb518484a9f454fb1b63083a0901144c2ae419580d5f356215f84a70d"></a>
+<a id="canonical-2130310333203032-2311012010201022-2133101110332301-2312030020032200-2100010110103002-2232100121112000-3111330311120201-1133201022130031"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 577416ccedb4 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium — medium / 303032312310 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic.medium
 
-<a id="canonical-822b460b996ee8dfa374049717aab6b79f7ea0942c3c94c44377a32bee843771"></a>
+<a id="canonical-2002022310120023-2121123232203133-2203131000102113-0113222223122313-2133133222002110-0230033021103010-1003131322030223-3232201003131301"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2763,39 +2763,39 @@ Terraform syntax:
 medium = {}
 ```
 
-<a id="canonical-3d0d5f74e7536691e94716aeb4404447bee6f4cd74f0c7e1216c687491ca784d"></a>
+<a id="canonical-0331003111331310-3213110312122101-3221101301122232-2310100010101013-2332321233103031-1310330030133201-0201123012201310-2101302213201031"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 577416ccedb4 / 3
+## Direct properties — medium / 303032312310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cf319968d66c6efa6fed4a4f674f80ab7fe86acc6db83d728a2daff2940eca65"></a>
+<a id="canonical-3033030121211220-3112123012323322-1233323110221033-1213103320002223-1333322012223030-1231232003311302-2022023122333302-2110003230221211"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 577416ccedb4 / 4
+## Next pages — medium / 303032312310 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-be5abca0cd2f042af95a31ac194cac0c64757ac4bf2c18ba3c067f93ae3eb6d1)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_automatic](resources--app_setting--reference--group-001.md#canonical-2332112223302200-3031023300100222-3321112203012230-0121103022300030-1210131113223010-2333023001202322-0330001213332103-2232033223123101)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-cfa14ec7bb1c3cf14fb5bd291e0fe016ebc69c99f949302fdf7743911bff9b9b"></a>
+<a id="canonical-3033220110323013-2323013003303301-1033231123310221-0132003332000112-3223301221302121-3321102103000233-3133131310032101-0123333321232123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e01d456db9993f842bba5a4d4359cafddd7083e921ef7412b1378cc20bd22eb"></a>
+<a id="canonical-1332000131101112-3123212121033320-1002232322112210-3110031121302233-3131311300200332-2102013233131001-0223010313203030-0200233102023223"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 23bc07486d17 / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom — include_non_existent_url_activity_custom / 102012310113 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_existent_url_activity_custom
 
-<a id="canonical-83f0ddf8f8bdab5035a9e32c2ea49aa39db231db13099c82938afe95645a2791"></a>
+<a id="canonical-2003330031313320-3320233122231100-0311222132030230-0232221021222203-2131230203013123-0103002121302002-2103202233322111-1210112202132101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2828,15 +2828,15 @@ include_non_existent_url_activity_custom {
 }
 ```
 
-<a id="canonical-3ff7384f3ecfa16125376b56e932d651c342cf6434e1d9b9b0c8bbc554b56e24"></a>
+<a id="canonical-0333331303201033-0332303322011201-0211031312231112-3221030231121101-3003100230331210-0310320131212321-2300302023233011-1110231112320210"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 23bc07486d17 / 3
+## Direct properties — include_non_existent_url_activity_custom / 102012310113 / 3
 
-<a id="canonical-836064832f5f292f9c58d2f3d94c65236e426a5b36144dd6065fe9bb001047fe"></a>
+<a id="canonical-2003120012102003-0233113302210233-2130112031023303-3121103012110203-1232100212221123-0312011010313112-0012113332212323-0000010010133332"></a>
 
-<a id="canonical-fd90b643f6ddde45985934194c4b906af3a5e2cb2ffe37cd6576925d51315186"></a>
+<a id="canonical-3331210023121003-3312313131321011-2120112103100121-1030102321001222-3303221132023023-0233333203133031-1211131221021131-1101030111012012"></a>
 
-## nonexistent_requests_threshold property — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 23bc07486d17 / 4
+## nonexistent_requests_threshold property — include_non_existent_url_activity_custom / 102012310113 / 4
 
 Type: `"number"`. Optional.
 
@@ -2885,33 +2885,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2eab68cca3d9fef4d1898153e462b2a2ed86d34bcc5deebcb865bd567c28207e"></a>
+<a id="canonical-0232222312203030-2203312133323310-3101202120011103-3210120223022202-3231201231031023-3030113132322330-2320121123311112-1330022002001332"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_non_ex / 23bc07486d17 / 5
+## Next pages — include_non_existent_url_activity_custom / 102012310113 / 5
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-e20ee432d778f12f7942ec87a89dfa69b49fefcc9fe5ee90fd4cada018a811c0"></a>
+<a id="canonical-3202003232100302-3113132033010233-1321100232302013-2220213133221221-2310213332333030-2133321132322100-3331103022312200-0120222001013000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1c4c326d8dbbc0bbe47536d02f535199e0dad11260ed0f6ed0b3cbd6910ce115"></a>
+<a id="canonical-0130103003021231-2031232330002323-3210131103123100-0233110311012121-3200312231010102-1200323100331232-3100230330233112-2101003032010111"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit — app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_l / 24697374cd4c / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit — include_rate_limit / 131030311030 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_limit
 
-<a id="canonical-95325c36050af5c6f4912bbb941ac7b6b9c84f49b4859850c694416af3ebcfb7"></a>
+<a id="canonical-2111030211300312-0011002233113012-3310210102232323-2110012230132312-2321302010331021-2310201121201100-3012211010011222-3303322330332313"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2940,39 +2940,39 @@ Terraform syntax:
 include_rate_limit = {}
 ```
 
-<a id="canonical-e96c42db04dacfd4031ae0fa2a959c9a5870e5de8f8bc4788d54f18ffbf2c723"></a>
+<a id="canonical-3221123010023123-0010312230333110-0003012232003322-0222211121302122-1120130032113132-2033202330101320-2031111033012033-3323330230130203"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_l / 24697374cd4c / 3
+## Direct properties — include_rate_limit / 131030311030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5faa8bc37165cd808405ec68d206b55cfb706c31499ac52623d97af969cf393c"></a>
+<a id="canonical-1133222220233003-1301121130312000-2010001132301220-3102001223111130-3323130012300301-1021212230110212-0203312113223321-1221303303210330"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_rate_l / 24697374cd4c / 4
+## Next pages — include_rate_limit / 131030311030 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-b9d46803fbfb042e14ae681e28b89a8bdf98f5abd2b339510d88c9ff67827cd5"></a>
+<a id="canonical-2321311012200003-3323332300100232-0110223212200132-0220232021222023-3133212033112223-3102230303211101-0031202030213333-1213200213303111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-304794428d09fe6987a05ed1aeb1ab2930cc723833b0f7b3370d45b1408f984e"></a>
+<a id="canonical-0300101321101002-2031002133321221-2013220011323101-2232230122230221-0300303013020320-0303230033132303-0313003110112301-1000203321201032"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity — app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_ac / 36852fa8488b / 2
+## app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity — include_waf_activity / 222010202023 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
 - app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_activity
 
-<a id="canonical-c8ffda23bce7d985e23cc069c96a6397521ea01e4ec5fa045aa15720243eebf4"></a>
+<a id="canonical-3020333331220203-2330321331212011-3202033030001221-3021122212032113-1102013222000132-1032301133220010-1122220111130200-0210033232233310"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3001,38 +3001,38 @@ Terraform syntax:
 include_waf_activity = {}
 ```
 
-<a id="canonical-cde4104dfd9600d317a355406c3582ddd4f731514dfdad0c3003e0663bae05e0"></a>
+<a id="canonical-3031321001001031-3331211200003103-0113220311111000-1230031120023131-3110331303011101-1031333122310030-0300000332001212-0323223200113200"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_ac / 36852fa8488b / 3
+## Direct properties — include_waf_activity / 222010202023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3a819fd71901e8d6bd2718aec06ebeac1ad31bf85a261e91d1d0e0d37eccb5cb"></a>
+<a id="canonical-0322200121333113-0121000132203112-2331021301202232-3000123223322230-0122310301233320-1122021201322101-3101310032003103-1332303023113023"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_detection.include_waf_ac / 36852fa8488b / 4
+## Next pages — include_waf_activity / 222010202023 / 4
 
-- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-71bc16553c0d1c17e9dd0f711fc0ebbcb5733b172907bdd8bfd9d07152743cc7)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting.enable_detection](resources--app_setting--reference--group-001.md#canonical-1301233001121111-0330003101300113-3221313100331301-0133300032232330-2311130303230113-0221001323313120-2333312131001301-1102131003303013)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-d01137f84d2f346f488d52eef965b5b98f4c0d6fe2e3b9399dbb4ecec344c68a"></a>
+<a id="canonical-3100010103133320-1031023303101233-1020203111023232-3321121123112321-2033103000311233-3202320323210321-2131232310323032-3003101030122022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b4f748545c1e4a80188703ffaeea5a684a161812811c07cfd57cf244a32a45e2"></a>
+<a id="canonical-2310331310201110-1130013210222000-0120201300033333-2232322211221220-1022011201200102-2001013000133033-3111133033021010-2203022210113202"></a>
 
-## app_type_settings.user_behavior_analysis_setting.enable_learning — app_type_settings.user_behavior_analysis_setting.enable_learning / a72945b3c46c / 2
+## app_type_settings.user_behavior_analysis_setting.enable_learning — enable_learning / 230330101230 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-6e6e9d5933f46c38e5071f676e56063b373a360c2c053c3b274df33ad8c03356)
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [app_type_settings](resources--app_setting--reference--group-001.md#canonical-1232123221311121-0303331012300320-3211001301331213-1232111200120323-0313032203120030-0230001103300323-0213103133030322-3120300003031112)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
 - app_type_settings.user_behavior_analysis_setting.enable_learning
 
-<a id="canonical-d07699123055523581526a89343a1cc3372bde8066f4e63124d0e7701bcc5c13"></a>
+<a id="canonical-3100131221210102-0300111111020311-2001110212222021-0310032201303003-0313022331322000-1212331032120301-0210310032131300-0123303011300103"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3061,36 +3061,36 @@ Terraform syntax:
 enable_learning = {}
 ```
 
-<a id="canonical-e3811167ac6a81aea6508e43662df94ef4c7b4acdfbf9fa298b098776e6e9518"></a>
+<a id="canonical-3203200101011213-2230122220012232-2212110020321003-1212023133211032-3310301323102230-3133233321332202-2120230021201313-1232123221110120"></a>
 
-## Direct properties — app_type_settings.user_behavior_analysis_setting.enable_learning / a72945b3c46c / 3
+## Direct properties — enable_learning / 230330101230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2a1725603d7c8361cbaadbffb6394aa0767d050eff69c2fa25ce3374d9adaf0b"></a>
+<a id="canonical-0222011302111200-0331133020031201-3023222231233333-2312032110222200-1312133100110032-3333122130023322-0211303203031310-3121223122330023"></a>
 
-## Next pages — app_type_settings.user_behavior_analysis_setting.enable_learning / a72945b3c46c / 4
+## Next pages — enable_learning / 230330101230 / 4
 
-- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-a0b0eb4e61e218c4cbf49160c75fb0b92da42f6d217517c5a81ef36c1b3c4906)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [app_type_settings.user_behavior_analysis_setting](resources--app_setting--reference--group-001.md#canonical-2200230032231032-1201320201203010-3023331021011200-3013113323002321-0231221002331231-0201131101133011-2220013233031230-0123033010210012)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
 
-<a id="canonical-b6bf006bee2af16444ad1d452e09cf84122225ae3f0f01656f31a62f5a1b158e"></a>
+<a id="canonical-2312233300001223-3232022233011210-1010223101311011-0232002130332010-0102020202112232-0333003300011211-1233030122120233-1122012301112032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-58bdb562521f31ed6352fdf57acbee760d6c9d426f7def3ca7b5d62ee9053707"></a>
+<a id="canonical-1120233123111202-1102013303013231-1203110233313311-1322302332321312-0031123021311002-1233133132330330-2213231131120232-3221001103130013"></a>
 
-## timeouts — timeouts / f4c0ddc450e1 / 2
+## timeouts — timeouts / 301011003201 / 2
 
 Breadcrumbs:
 
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
 - timeouts
 
-<a id="canonical-c8788ad92ab8c25486b501baacbdcd9e45d2481c2c8fc852221bed8e3b0136fc"></a>
+<a id="canonical-3020132020223121-0222232030021110-2012231100012322-2230233130312132-1011310210200130-0230203330201102-0202012332312032-0323000103123330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3102,15 +3102,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-bdea50f4526f46d32cd727c69c7279c7583e2708f201d2e3b59c8fc630bd12ff"></a>
+<a id="canonical-2331322211003310-1102123310123103-0230311302133012-2130130213213013-1120033202130020-3302000131023203-2311213020333012-0300233101023333"></a>
 
-## Direct properties — timeouts / f4c0ddc450e1 / 3
+## Direct properties — timeouts / 301011003201 / 3
 
-<a id="canonical-717ca7cdd15db15a6712df2c251a0c1a24bc87603d29d5e55b63bfe9f2f53300"></a>
+<a id="canonical-1301133022133031-3101113123011122-1213010231330230-0211012200300122-0210233020131200-0331022131113211-1123120323333221-3302331103030000"></a>
 
-<a id="canonical-923b4717bdb17c9caa25de4910552923b83314ebf4f073e15321376b5b07e8ab"></a>
+<a id="canonical-2102032310130113-2331230113302130-2222021131321021-0100111102210203-2320030301103223-3310330013033201-1103020103131223-1123001332202223"></a>
 
-## create property — timeouts / f4c0ddc450e1 / 4
+## create property — timeouts / 301011003201 / 4
 
 Type: `"string"`. Optional.
 
@@ -3118,11 +3118,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-ac5a7cf64f4662deef75a4e292cf0acbe2c60880484191a4c3777070f830f3d7"></a>
+<a id="canonical-2230112213303312-1033101212023132-3233131122103202-2102303300223023-3202301200202000-1020100121012210-3003131313001300-3320030033033113"></a>
 
-<a id="canonical-155f66f1139a7802c99aaff1ef0bbd6240de78b9e711f63553b9f601aef1bd19"></a>
+<a id="canonical-0111113312123301-0103212213200002-3021212222333301-3233002323311202-1000313213202321-3213010133120311-1103232133120001-2232330123310121"></a>
 
-## delete property — timeouts / f4c0ddc450e1 / 5
+## delete property — timeouts / 301011003201 / 5
 
 Type: `"string"`. Optional.
 
@@ -3131,11 +3131,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-7faee6be1bb2b66561873e366d3961dd72a70b05a4bff752225813316301c9f8"></a>
+<a id="canonical-1333223232122332-0123230223121211-1201201303320312-1231032112013131-1302221300230011-2210233333131102-0202112001030301-1203000130213320"></a>
 
-<a id="canonical-21d8b70ad96502f30478b2a00ca4b89ac06ae6a28aaedad28a68630499f79463"></a>
+<a id="canonical-0201312023130022-3121121100023303-0010132023022200-0030221023202122-3000122232122202-2022223231223102-2022122012030010-2121331321101203"></a>
 
-## read property — timeouts / f4c0ddc450e1 / 6
+## read property — timeouts / 301011003201 / 6
 
 Type: `"string"`. Optional.
 
@@ -3144,11 +3144,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-333fc64ee989c59e99aec03be8a2b65d9f516fe2dc691a39f047558218c29e22"></a>
+<a id="canonical-0303033330121032-3221202130112132-2121223230000323-3220220223121131-2133110112333202-3130122101220321-3300101311112002-0120300221320202"></a>
 
-<a id="canonical-5bcc8f00e23d1226e82ed75589ce076a42f737f12a5d9fc4556965bd45a555f3"></a>
+<a id="canonical-1123303020330000-3202033101020212-3220023231131111-2021303200131222-1002331303133301-0222113121333010-1111122112112331-1011221111113303"></a>
 
-## update property — timeouts / f4c0ddc450e1 / 7
+## update property — timeouts / 301011003201 / 7
 
 Type: `"string"`. Optional.
 
@@ -3156,9 +3156,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-c1d83313bad232067cedf99ff19520537c8ee79606340bee00923abdb18109c5"></a>
+<a id="canonical-3001312003030103-2322310203020012-1330323133212133-3301211102001103-1330203232132112-0012031000233232-0000210203222331-2301200100213011"></a>
 
-## Next pages — timeouts / f4c0ddc450e1 / 8
+## Next pages — timeouts / 301011003201 / 8
 
-- [Property reference](resources--app_setting--reference--group-001.md#canonical-9ad21ab31c3e7b3129df74f8b6b7e6a2a6e9f291d0f10385bcc9dc540abbf804)
-- [xcsh_app_setting](../resources/app_setting.md#canonical-2f6ae5677f2d60f80270b519919167cd9a5878a0384c83ae1ca1406c83ef6a94)
+- [Property reference](resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [xcsh_app_setting](../resources/app_setting.md#canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110)

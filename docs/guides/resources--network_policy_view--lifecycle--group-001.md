@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_network_policy_view 
 
 # xcsh_network_policy_view lifecycle
 
-<a id="canonical-3f9ddcf404b2e6ab64ca1a996e42047688e42eee4229f3d3a769d1f67ae44e0b"></a>
+<a id="canonical-0333213131303310-0010230232122223-1210302201222121-1232100200101312-2020321002323232-1002022133033103-2213122131013312-1322321010320023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-79b3bf9caccd35137d892512e60a571ea961b5af0f33853239a908c199edeaf9"></a>
+<a id="canonical-1321230323332130-2230303103110103-1331202102110102-3212002211130132-2221120123112233-0033030320110302-0321222100203001-2121323132223321"></a>
 
-## Import — Import / 13c2b5c9873e / 2
+## Import — Import / 302120130332 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-83b0c3b4c91e37648a731cb08b936fee9da871201453ba08d68bc65bd7e90d13)
+- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-2003230030032310-3021013203131210-2022130301302300-2023210312333232-2131222013010200-0110110323220020-3112202330121123-3113322100310103)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_network_policy_view.example system/example
 ```
 
-<a id="canonical-c38c73bf80d69b6af5779f2f2468ee0201ed530d8517d99050cee39457e54b02"></a>
+<a id="canonical-3003203013032333-2000311221231222-3311131321330233-0210122032320002-0001323111030031-2011011331212100-1100303232032110-1113321110230002"></a>
 
-## Next pages — Import / 13c2b5c9873e / 3
+## Next pages — Import / 302120130332 / 3
 
-- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-83b0c3b4c91e37648a731cb08b936fee9da871201453ba08d68bc65bd7e90d13)
+- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-2003230030032310-3021013203131210-2022130301302300-2023210312333232-2131222013010200-0110110323220020-3112202330121123-3113322100310103)
 
-<a id="canonical-547ea016533a54df735aad194220a1bfc6c65d4a302a8d6fb4360da1c482153c"></a>
+<a id="canonical-1110133222000112-1103032211103133-1303112222310121-1002020022012333-3012301211311022-0300022220311233-2310031200312201-3010200201110330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4b2be632ebf1ea0f643a46d6abcd3bac1144239e631e5b9f904540ed19b2e6e1"></a>
+<a id="canonical-1023022332120302-3223330132220033-1210032210123112-2223303103232230-0101101002032132-1203013211232133-2100101110003231-0121230232123201"></a>
 
-## Timeouts — Timeouts / 306dc5cbd5b0 / 2
+## Timeouts — Timeouts / 302331112300 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-83b0c3b4c91e37648a731cb08b936fee9da871201453ba08d68bc65bd7e90d13)
+- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-2003230030032310-3021013203131210-2022130301302300-2023210312333232-2131222013010200-0110110323220020-3112202330121123-3113322100310103)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--network_policy_view--reference--group-001.md#canonical-8d062b5a6c721be625f15b9aaf1708cf895efbca37bfbcf04384388757be2460). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--network_policy_view--reference--group-001.md#canonical-2031001202231122-1230130201233212-0211330111232122-2233011300203033-2021113233233022-0313233323303300-1003201003202013-1113233202101200). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-1e5b23a1ac553b0445b321545c4bfb5c0f965159f5bde6af639a63ce880d7710"></a>
+<a id="canonical-0132112302032201-2230111103230010-1011230302011110-1130102333231130-0033211211011121-3311233132122233-1203212212033032-2020003113130100"></a>
 
-## Next pages — Timeouts / 306dc5cbd5b0 / 3
+## Next pages — Timeouts / 302331112300 / 3
 
-- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-83b0c3b4c91e37648a731cb08b936fee9da871201453ba08d68bc65bd7e90d13)
+- [xcsh_network_policy_view](../resources/network_policy_view.md#canonical-2003230030032310-3021013203131210-2022130301302300-2023210312333232-2131222013010200-0110110323220020-3112202330121123-3113322100310103)

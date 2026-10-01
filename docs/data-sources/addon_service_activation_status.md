@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_addon_service_activa
 
 # xcsh_addon_service_activation_status landing
 
-<a id="canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506"></a>
+<a id="canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-465315a473bbd9ac1d1144581392e4ffb2adc239bbf742af021f474da1e0ae3a"></a>
+<a id="canonical-1012110301112210-1303232331212230-0131010110101120-0103210232103333-2302223130020321-2323331310022233-0002013310131031-2201320022320322"></a>
 
-## xcsh_addon_service_activation_status — xcsh_addon_service_activation_status / 4dc401abc9be / 2
+## xcsh_addon_service_activation_status — xcsh_addon_service_activation_status / 222330212332 / 2
 
 Breadcrumbs:
 
@@ -32,15 +32,15 @@ current subscription state is.
 pending activation | | \`AS\_SUBSCRIBED\` | Service is active and subscribed | | \`AS\_ERROR\` |
 Subscription in error state |
 
-<a id="canonical-f38aa391e6bb05bf1274f6db963e79d182d042135ff4dee440d572f0cfba8b13"></a>
+<a id="canonical-3303202222032101-3212232300112333-0102131033123123-2112033213213101-2002310010020103-1133331031323210-1000311113023300-3033232220230103"></a>
 
-## Prerequisites — xcsh_addon_service_activation_status / 4dc401abc9be / 3
+## Prerequisites — xcsh_addon_service_activation_status / 222330212332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-86ad71cec148f85d1e602eb75f9d71e27dd4ce5a932309bf3a67498ffd547809"></a>
+<a id="canonical-2012223113013032-3001102033201131-0132120002322313-1133213113013202-1331311030321122-2103020300212333-0322121310212033-3331111013200021"></a>
 
-## Minimal configuration — xcsh_addon_service_activation_status / 4dc401abc9be / 4
+## Minimal configuration — xcsh_addon_service_activation_status / 222330212332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -68,15 +68,15 @@ output "addon_service_activation_state" {
 }
 ```
 
-<a id="canonical-7e106cde9575aa0d131c8a6a2286bcfbfcf439e5d379ddbe62b79296e4027049"></a>
+<a id="canonical-1332010012303132-2111131122220031-0103013020221222-0202201223303323-3330331003213211-3103132131312332-1202231321022112-3210000213001021"></a>
 
-## Root configuration — xcsh_addon_service_activation_status / 4dc401abc9be / 5
+## Root configuration — xcsh_addon_service_activation_status / 222330212332 / 5
 
 Required root properties: `addon_service`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4aae7b5c4a4e340ef8409a5793869dc8f2fd01dea07de293f9c285e08af92708"></a>
+<a id="canonical-1022223213231130-1022103203100032-3320100021221113-2103201221313020-3302333100013132-2200133132022103-3321300220113200-2022332102130020"></a>
 
-## Next pages — xcsh_addon_service_activation_status / 4dc401abc9be / 6
+## Next pages — xcsh_addon_service_activation_status / 222330212332 / 6
 
-- [Property reference](../guides/data-sources--addon_service_activation_status--reference--group-001.md#canonical-f41bda08979dbea479c6a4df981142036fa7233a29104511d138789f181b019b)
-- [Examples](../guides/data-sources--addon_service_activation_status--examples--group-001.md#canonical-d291fe604a5df6f19ada2116def1f779abd33918a13909945c2a13c9a8ccc44e)
+- [Property reference](../guides/data-sources--addon_service_activation_status--reference--group-001.md#canonical-3310012331220020-2113213123322210-1321301222103133-2120010110020003-1233221302030322-0221010010110101-3101032013202133-0120012300012123)
+- [Examples](../guides/data-sources--addon_service_activation_status--examples--group-001.md#canonical-3102210133321200-1022113133123301-2122312202010112-3132330133131321-2223310303210120-2201032100212110-1130022201033021-2220303030101032)

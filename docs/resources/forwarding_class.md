@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_forwarding_class lan
 
 # xcsh_forwarding_class landing
 
-<a id="canonical-b532b65420c12831270a1c2064a45d87a3cc38ad0f9908b904eac37340a37726"></a>
+<a id="canonical-2311030223121110-0200300102200301-0213002201300200-1210221011312013-2203303003202231-0033212100202321-0010322230031303-1000220313130212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c76fd4ff6d86cafc395ec7287bd491733395df38a59af0d0303512af82728692"></a>
+<a id="canonical-3013123331103333-1231201230223330-0321113230130220-1323311021011303-0303211131330320-2211212233003100-0300031101022233-2002130220122102"></a>
 
-## xcsh_forwarding_class — xcsh_forwarding_class / 193e0abc93d8 / 2
+## xcsh_forwarding_class — xcsh_forwarding_class / 233021033120 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users
 in system namespace. configuration.
 
-<a id="canonical-251a8928a191a8449bba46213face721c9a1bd814e91c3a19d2bac014b5cb631"></a>
+<a id="canonical-0211012220210220-2201210122201010-2123232210120201-0333223032130201-3021220123312001-1032210130032201-2131022322300001-1023113023120301"></a>
 
-## Prerequisites — xcsh_forwarding_class / 193e0abc93d8 / 3
+## Prerequisites — xcsh_forwarding_class / 233021033120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-6822deb96949b2dcb0495406547cd3edbe5bb321739d2c98eb1f558fbf618e7b"></a>
+<a id="canonical-1220020231322321-1221102123023130-2300102111100012-1110133031033231-2332112323030201-1303213102302120-3223013311112033-2333120120321323"></a>
 
-## Minimal configuration — xcsh_forwarding_class / 193e0abc93d8 / 4
+## Minimal configuration — xcsh_forwarding_class / 233021033120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_forwarding_class" "example" {
 }
 ```
 
-<a id="canonical-23cdb1859a0d8f127428b03282e94565888c49ac76be1401ee52013b44e3b5c3"></a>
+<a id="canonical-0203303123012011-2122003120330102-1310022023000302-2002322110111211-2020203010212230-1312233201100001-3232110200010323-1010320323113003"></a>
 
-## Root configuration — xcsh_forwarding_class / 193e0abc93d8 / 5
+## Root configuration — xcsh_forwarding_class / 233021033120 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4119b592a5774924db6937c97122675ef47c2fb96439f550c3f1d9f617783cc9"></a>
+<a id="canonical-1001012123112102-2211131310210210-3123122103133021-1301020212131132-3310133002332321-1210032133111100-3003330131213312-0113132003303021"></a>
 
-## Next pages — xcsh_forwarding_class / 193e0abc93d8 / 6
+## Next pages — xcsh_forwarding_class / 233021033120 / 6
 
-- [Property reference](../guides/resources--forwarding_class--reference--group-001.md#canonical-1255622e5d747b356be1777947f299b3ca6f69fbfbdab173a2cc2b147d98a70c)
-- [Examples](../guides/resources--forwarding_class--examples--group-001.md#canonical-5955f4f6761160e682dae3b90ae4fc0c70c41e30a8dcd6aaaefdab6915e072ea)
-- [Import](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-6547cf28bafd92feb766ef14dac5e9fce04cf59db97ec6605fb2a23310534e1d)
-- [Timeouts](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-f50c8b329fb289cd6b5ee18052e078467715dfe30a13fc6fd67666440e16fabb)
+- [Property reference](../guides/resources--forwarding_class--reference--group-001.md#canonical-0102111112020232-1131131013230311-1223320113131321-1013330221212303-3022123312213323-3323312223011303-2202303002230110-1331212022130030)
+- [Examples](../guides/resources--forwarding_class--examples--group-001.md#canonical-1121111133103312-1312010112003212-2002312232032321-0022321033300030-1300301001320300-2220313031122222-2232333122231221-0111320013023222)
+- [Import](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-1211101330330220-2322333121023332-2313121232330110-3122301132213330-3200103033112131-2321133230121200-1133230222020303-0100110310320131)
+- [Timeouts](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-3311003020230302-2133230220213031-1223113232012000-1102320013201012-1313011131333203-0022010333301233-3112131212121010-0032011233222323)

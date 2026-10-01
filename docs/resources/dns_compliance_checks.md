@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_compliance_check
 
 # xcsh_dns_compliance_checks landing
 
-<a id="canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924"></a>
+<a id="canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8f9bb1c60d5b493400b522b2afa60491012627cc6c321706ca5c943df301fda"></a>
+<a id="canonical-3320332123230130-1200311123102103-1000002311020223-0222332212001021-0100010212021330-3012300302011300-1230221130211003-3133030001333122"></a>
 
-## xcsh_dns_compliance_checks — xcsh_dns_compliance_checks / ec8e5e56b845 / 2
+## xcsh_dns_compliance_checks — xcsh_dns_compliance_checks / 111223201011 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-<a id="canonical-371c9346578d419351e2a7e31b11020b6c75b5560c5d7e439c3a3f049431c500"></a>
+<a id="canonical-0313013021031012-1113203110012103-1101320222133203-0123010100020023-1230131123111112-0030113113321003-2130032203330010-2110030130110000"></a>
 
-## Prerequisites — xcsh_dns_compliance_checks / ec8e5e56b845 / 3
+## Prerequisites — xcsh_dns_compliance_checks / 111223201011 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-a21ef4cab2c9aadf28ead3eabcedcb348ee06bf59d1cf75a1ec8250e67fe5a18"></a>
+<a id="canonical-2202013233103022-2302302122223133-0220322231033222-2330323130230310-2032320012233311-2131013033131122-0132302002110032-1213333211220120"></a>
 
-## Minimal configuration — xcsh_dns_compliance_checks / ec8e5e56b845 / 4
+## Minimal configuration — xcsh_dns_compliance_checks / 111223201011 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_dns_compliance_checks" "example" {
 }
 ```
 
-<a id="canonical-1ab5fa5bf768f6bd84ab05165bc4e2179398c861d954ae8e02e47cbe1421535a"></a>
+<a id="canonical-0122231133221123-3313122033122331-2010222300110112-1123301032020113-2103212030201201-3121111022322032-0002321013302332-0110020111031122"></a>
 
-## Root configuration — xcsh_dns_compliance_checks / ec8e5e56b845 / 5
+## Root configuration — xcsh_dns_compliance_checks / 111223201011 / 5
 
 Required root properties: `domain_denylist`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-7b3353f6ac1681d37efd819ecc77d58d71b3923cfc6066499f07e7576a9b7b88"></a>
+<a id="canonical-1323030311033312-2230011220013103-1332333120012132-3030131331112031-1301230321020330-3330120012121021-2133001332131113-1222212313232020"></a>
 
-## Next pages — xcsh_dns_compliance_checks / ec8e5e56b845 / 6
+## Next pages — xcsh_dns_compliance_checks / 111223201011 / 6
 
-- [Property reference](../guides/resources--dns_compliance_checks--reference--group-001.md#canonical-eee1b4d710d52db719c841deb6e007376a78ef3ab29c2e2a6fc1e96dd6936c22)
-- [Examples](../guides/resources--dns_compliance_checks--examples--group-001.md#canonical-eb430301335b9fce6c29bb4e206953f38e52742ac4f0703a58f37fdb51b3d161)
-- [Import](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-3e8c45883cd1a3948b530d5d66eb509661ed3222c493c43b4a23e42b133d76b1)
-- [Timeouts](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-b6648163dc46cf44b575809fa12f03e825820f2f5bcaf9ac5820452ffa5bfc13)
+- [Property reference](../guides/resources--dns_compliance_checks--reference--group-001.md#canonical-3232320123103113-0100311102312313-0121302010013132-2312320000130313-1222132032330322-2302213002320222-1233300132211231-3112210312300202)
+- [Examples](../guides/resources--dns_compliance_checks--examples--group-001.md#canonical-3223100300030001-0303112321333032-1230022123231032-0200122111033303-2032110213100222-3010330013000322-1120330313333123-1101230331011201)
+- [Import](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-0332203010112020-0330310122032110-2023110300311131-1212322311002112-1201323103020202-3010210330100323-1022020332100223-0103033113122301)
+- [Timeouts](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-2312121020011203-3130101230331010-2311131120002133-2201023300033220-0211200200330233-1123302233212230-1120020010110233-3322112333300103)

@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_infraprotect_synchro
 
 # xcsh_infraprotect_synchronize_configuration examples
 
-<a id="canonical-592bbdecfb48f78b5766a613695205d3e5f9dd31e0ac81e921edcb2d1794284c"></a>
+<a id="canonical-1121022323313230-3323102033132023-1113121222120103-1221110200113103-3211332131310301-3200223020013221-0201323130230231-0113211002201030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a9e3d5751cd68b9dc9bf181541217e8cc60704617ff7fb025ea2e5a1e6059ef2"></a>
+<a id="canonical-2221320331111311-0130311220232131-3021233301200111-1001020113322030-3012001300101201-1333331333230002-1132220232112201-3212001121323302"></a>
 
-## Examples — Examples / b0eaaf63e8ff / 2
+## Examples — Examples / 120332203333 / 2
 
 Breadcrumbs:
 
-- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-c3e1b3aa794f6032e8b56effdea59b5c380dd1c1dc0035df959f94ebabf3a655)
+- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-3003320123032222-1321103312000302-3220231112323333-3132221121231130-0320003131013001-3130000003113133-2111213321103223-2223330322121111)
 - Examples
 
-<a id="canonical-23e273a6539a3ca24a2241fe8ac17461ef6feca6c2c3baa349e44b99b998e194"></a>
+<a id="canonical-0203320213032212-1103212203302202-1022020210013332-2022300113101201-3233123332302212-3002300323222203-1021321010232121-2321212032012110"></a>
 
-## Complete configurations — Examples / b0eaaf63e8ff / 3
+## Complete configurations — Examples / 120332203333 / 3
 
-- [Action](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-476178c71ec712ebe3a3f9b1bdbc4d6d9906a64413cb5abb29d6ac9b1e960e35): valid configuration.
+- [Action](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-1013120113203013-0132301301023223-3203220333212301-2331233010311231-2121001222121010-0103302311222323-0221311222302123-0132211200320311): valid configuration.
 
-<a id="canonical-f45019170621dab62634615b269ac917fb89f55b6f20a36d41508dbbde307e8a"></a>
+<a id="canonical-3310110001210113-0012020131222312-0212031012011123-0212212230210113-3323202133111123-1233020022031231-1001110020312323-3132030013322022"></a>
 
-## Next pages — Examples / b0eaaf63e8ff / 4
+## Next pages — Examples / 120332203333 / 4
 
-- [Action](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-476178c71ec712ebe3a3f9b1bdbc4d6d9906a64413cb5abb29d6ac9b1e960e35)
-- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-c3e1b3aa794f6032e8b56effdea59b5c380dd1c1dc0035df959f94ebabf3a655)
+- [Action](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-1013120113203013-0132301301023223-3203220333212301-2331233010311231-2121001222121010-0103302311222323-0221311222302123-0132211200320311)
+- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-3003320123032222-1321103312000302-3220231112323333-3132221121231130-0320003131013001-3130000003113133-2111213321103223-2223330322121111)
 
-<a id="canonical-476178c71ec712ebe3a3f9b1bdbc4d6d9906a64413cb5abb29d6ac9b1e960e35"></a>
+<a id="canonical-1013120113203013-0132301301023223-3203220333212301-2331233010311231-2121001222121010-0103302311222323-0221311222302123-0132211200320311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e618feaa5006d324a5ff7c05d923da94333c79c9f506fef2fd4f656cc3dbc3fa"></a>
+<a id="canonical-3212012033322222-1100001231030210-2211333313300011-3121020331222110-0303033013213021-3311001233323302-3331103312111230-3003312330033322"></a>
 
-## Action — Action / 19e5094aac28 / 2
+## Action — Action / 102222300220 / 2
 
 Breadcrumbs:
 
-- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-c3e1b3aa794f6032e8b56effdea59b5c380dd1c1dc0035df959f94ebabf3a655)
-- [Examples](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-592bbdecfb48f78b5766a613695205d3e5f9dd31e0ac81e921edcb2d1794284c)
+- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-3003320123032222-1321103312000302-3220231112323333-3132221121231130-0320003131013001-3130000003113133-2111213321103223-2223330322121111)
+- [Examples](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-1121022323313230-3323102033132023-1113121222120103-1221110200113103-3211332131310301-3200223020013221-0201323130230231-0113211002201030)
 - Action
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -77,9 +77,9 @@ action "xcsh_infraprotect_synchronize_configuration" "example" {
 }
 ```
 
-<a id="canonical-e2c53903461b8cb547a659fe471865ed164e7efc76c4f35b78956c04183065a8"></a>
+<a id="canonical-3202301103210003-1012012320302311-1013221211213332-1013012012113231-0112103213323330-1312301033031123-1320211112300010-0120030012112220"></a>
 
-## Next pages — Action / 19e5094aac28 / 3
+## Next pages — Action / 102222300220 / 3
 
-- [Examples](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-592bbdecfb48f78b5766a613695205d3e5f9dd31e0ac81e921edcb2d1794284c)
-- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-c3e1b3aa794f6032e8b56effdea59b5c380dd1c1dc0035df959f94ebabf3a655)
+- [Examples](actions--infraprotect_synchronize_configuration--examples--group-001.md#canonical-1121022323313230-3323102033132023-1113121222120103-1221110200113103-3211332131310301-3200223020013221-0201323130230231-0113211002201030)
+- [xcsh_infraprotect_synchronize_configuration](../actions/infraprotect_synchronize_configuration.md#canonical-3003320123032222-1321103312000302-3220231112323333-3132221121231130-0320003131013001-3130000003113133-2111213321103223-2223330322121111)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_site_mesh_group land
 
 # xcsh_site_mesh_group landing
 
-<a id="canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22"></a>
+<a id="canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dcd51bda7060cdecaa08535f06e86a4547e62df5f2ca6826dd87d7f7162ac92e"></a>
+<a id="canonical-3130311101233122-1300120030313230-2222002011031133-0012322012221011-1013321202313311-3302302212200212-3131201331133313-0112022230210232"></a>
 
-## xcsh_site_mesh_group — xcsh_site_mesh_group / 648bfe7b24ea / 2
+## xcsh_site_mesh_group — xcsh_site_mesh_group / 132302103222 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages Site Mesh Group in system namespace of user in F5 Distributed Cloud.
 
-<a id="canonical-2cc33d3f198ea874250a77db0bd722db93249604a445b8a559ac68b7b86c02bf"></a>
+<a id="canonical-0230300303310333-0121203222201310-0211002213133123-0023311302023123-2103021021120010-2210101123202211-1121223012202313-2320123000022333"></a>
 
-## Prerequisites — xcsh_site_mesh_group / 648bfe7b24ea / 3
+## Prerequisites — xcsh_site_mesh_group / 132302103222 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Required dependencies: `site`.
 
 - site: Sites to include in mesh connectivity
 
-<a id="canonical-1743ee116f47f5298f4125782e73a3812146c18fffe41862870feec1f2e4706b"></a>
+<a id="canonical-0113100332320101-1233101333110221-2033100102111320-0232130322032001-0201101230012033-3333321001201202-2013003332323001-3302321013001223"></a>
 
-## Minimal configuration — xcsh_site_mesh_group / 648bfe7b24ea / 4
+## Minimal configuration — xcsh_site_mesh_group / 132302103222 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -65,15 +65,15 @@ output "site_mesh_group_id" {
 }
 ```
 
-<a id="canonical-b288576ab93374ee3435b9ac2d211fd321a3c2d8937167ba8eb5f8bbe6473b47"></a>
+<a id="canonical-2302202011131222-2321030313103232-0310031123212230-0231020101333103-0201220330023120-2103130112132322-2032231133202323-3212101303231013"></a>
 
-## Root configuration — xcsh_site_mesh_group / 648bfe7b24ea / 5
+## Root configuration — xcsh_site_mesh_group / 132302103222 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-036f28fbd12aec530d7c0294b02d7b61700f86d9f7a0af7a6448ebd0aa3b8c2d"></a>
+<a id="canonical-0003123302203323-3101022232301103-0031133000022110-2300023113231201-1300003320123121-3313220022331322-1210102032233100-2222032320300231"></a>
 
-## Next pages — xcsh_site_mesh_group / 648bfe7b24ea / 6
+## Next pages — xcsh_site_mesh_group / 132302103222 / 6
 
-- [Property reference](../guides/data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [Examples](../guides/data-sources--site_mesh_group--examples--group-001.md#canonical-d4c40650ecf86c580d3877f661b8ae24c251d4c0650148c0b1cc19fe8c3b4076)
+- [Property reference](../guides/data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [Examples](../guides/data-sources--site_mesh_group--examples--group-001.md#canonical-3110301000121100-3230332012301120-0031032013133312-1201232022320210-3002110131103000-1211000110203000-2301303001213332-2030032310001312)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_fleet landing."
 
 # xcsh_fleet landing
 
-<a id="canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d"></a>
+<a id="canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b4176887752e65f534f80e6e08e900e5f1a4790d3d88b975757792a829b31547"></a>
+<a id="canonical-2310011312202013-1311023212113311-0310332000321232-0020322100003211-3301221013210031-0331202023211311-1311131321022220-0221230301111013"></a>
 
-## xcsh_fleet — xcsh_fleet / 1e2cf1b9651a / 2
+## xcsh_fleet — xcsh_fleet / 232112110122 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages fleet will create a fleet object in 'system' namespace of the user in F5 Distributed Cloud.
 
-<a id="canonical-a349fa8e582b670c4a988bdd4bf5d214304f9f6f73982900d69723fbfbbce6bb"></a>
+<a id="canonical-2203102133222032-1120022312130030-1022212020233131-1023331131020110-0300103321331233-1303212002210000-3112211302033323-3323233032122323"></a>
 
-## Prerequisites — xcsh_fleet / 1e2cf1b9651a / 3
+## Prerequisites — xcsh_fleet / 232112110122 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-9155b3a22fb7368058acb436bcf847de65cc3a1093f84fda29acf8a55609650e"></a>
+<a id="canonical-2101111123032202-0233231303122000-1120223023100312-2330332010133132-1211303003220100-2103332010333122-0221223033202211-1112002112110032"></a>
 
-## Minimal configuration — xcsh_fleet / 1e2cf1b9651a / 4
+## Minimal configuration — xcsh_fleet / 232112110122 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,17 +58,17 @@ resource "xcsh_fleet" "example" {
 }
 ```
 
-<a id="canonical-8e869257f5139e38dd15b2b53a7e66277b69dba030f6648d311648b9fb3aef1b"></a>
+<a id="canonical-2032201221021113-3311010321320320-3131011123022311-0322133212120213-1323122131232200-0300331212102031-0301011210202321-3323032232330123"></a>
 
-## Root configuration — xcsh_fleet / 1e2cf1b9651a / 5
+## Root configuration — xcsh_fleet / 232112110122 / 5
 
 Required root properties: `fleet_label`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-7177a77db3f522e3db49541642fd5b1c048626b9b72b69b34478c1fd464a0405"></a>
+<a id="canonical-1301131322131331-2303331102023203-3123102111100112-1002333111230130-0010201202122321-2313022312212303-1010132030013331-1012102200100011"></a>
 
-## Next pages — xcsh_fleet / 1e2cf1b9651a / 6
+## Next pages — xcsh_fleet / 232112110122 / 6
 
-- [Property reference](../guides/resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [Examples](../guides/resources--fleet--examples--group-001.md#canonical-f088ffb8e7ae87e96ee1781aef5f7a9d6ced2ed410db553b5a7fe67146c45fa5)
-- [Import](../guides/resources--fleet--lifecycle--group-001.md#canonical-e9c56e0cfb53edb101d7203270a9f46998ef02a6647fb1587c3cd771ead63f1e)
-- [Timeouts](../guides/resources--fleet--lifecycle--group-001.md#canonical-512baea545bf03ee097e1ecc90dcb56f14534657f7a2900cfa20eff1d4365e85)
+- [Property reference](../guides/resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [Examples](../guides/resources--fleet--examples--group-001.md#canonical-3300202033332320-3213223220133221-1232320113200122-3233113313222131-1230323102323110-0100312311110323-1122133332121301-1012301011332211)
+- [Import](../guides/resources--fleet--lifecycle--group-001.md#canonical-3221301112320030-3323110332312301-0001311302000302-1300222133101221-2120323300022212-1210133323011120-1330033031131301-3222311203330132)
+- [Timeouts](../guides/resources--fleet--lifecycle--group-001.md#canonical-1101022322322211-1011233300033232-0021133201323030-2100313023111233-0110110310121113-3313220221000030-3322020032333301-3110031211322011)

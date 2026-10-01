@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_policy landi
 
 # xcsh_network_policy landing
 
-<a id="canonical-3497617cda5e21ac68488f7bf521f577868b56ddc0631029379984fbc02afd8f"></a>
+<a id="canonical-0310211312011330-3122113202012230-1220102020331323-3311020133111313-2012202311123131-3000120301000221-0313212120103323-3000022233312033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f86decb5959e9b544966fc6e3cabeabd86e86b5bab7081c3a063e2a58f9a3264"></a>
+<a id="canonical-3320123132302311-2111213221231110-1021121233301232-0330222332222331-2012322012231123-2223130020013003-2200120332022211-2033212203021210"></a>
 
-## xcsh_network_policy — xcsh_network_policy / fdceecd36315 / 2
+## xcsh_network_policy — xcsh_network_policy / 310312030111 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages new network policy with configured parameters in specified namespace in F5 Distributed
 Cloud.
 
-<a id="canonical-e6c5b7858eccf86ac713d100371d6fdbaa12d31db158fe474cb476d43e37e01a"></a>
+<a id="canonical-3212301123132011-2032303033201222-3013010331010000-0313013112333123-2222010231030131-2301112033321013-1030231013123110-0332031332000122"></a>
 
-## Prerequisites — xcsh_network_policy / fdceecd36315 / 3
+## Prerequisites — xcsh_network_policy / 310312030111 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-c5b381f646280cea713ce02729e8bd83ffd8e66ac346a320fad992e2b7b41145"></a>
+<a id="canonical-3011230320013312-1012022000303222-1301033032000213-0221322023312003-3333312032121222-3003101222030200-3322312121023202-2313231001011011"></a>
 
-## Minimal configuration — xcsh_network_policy / fdceecd36315 / 4
+## Minimal configuration — xcsh_network_policy / 310312030111 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "network_policy_id" {
 }
 ```
 
-<a id="canonical-e0aee27502488092cd963855729636a6736c7ad9e5866abf60c4109d5f363fb8"></a>
+<a id="canonical-3200223232021311-0002102020002102-3031211203201111-1302211203122212-1303123013223121-3211201212222333-1200301001002131-1133031203332320"></a>
 
-## Root configuration — xcsh_network_policy / fdceecd36315 / 5
+## Root configuration — xcsh_network_policy / 310312030111 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4757112fb170774c1e6effbf50adffc167ce428e66a4716dbe7ddb0697c5bd17"></a>
+<a id="canonical-1013111301010233-2301130013131030-0132123233332333-1100223133333001-1213303210022032-1212221013011231-2332133131230012-2113301123310113"></a>
 
-## Next pages — xcsh_network_policy / fdceecd36315 / 6
+## Next pages — xcsh_network_policy / 310312030111 / 6
 
-- [Property reference](../guides/data-sources--network_policy--reference--group-001.md#canonical-754e2a526c5d4eaa3c63be9b2b9acdd5575af1fc91af7e96c519bc1b95c7b5ff)
-- [Examples](../guides/data-sources--network_policy--examples--group-001.md#canonical-d1d15b038df0af9dd85a494b15b270488299067a984757ebd5ff426db647ed35)
+- [Property reference](../guides/data-sources--network_policy--reference--group-001.md#canonical-1311103202221102-1230113110322222-0330120323322123-0223212230313111-1113112233013330-2101223313322112-3011012123300123-2111301323113333)
+- [Examples](../guides/data-sources--network_policy--examples--group-001.md#canonical-3101310111230003-2031330022332131-3120112210211023-0111230213001020-2002212100121322-2120101311133223-3111333310021231-2312101332310311)

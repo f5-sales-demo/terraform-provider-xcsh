@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_waf_threats landing.
 
 # xcsh_waf_threats landing
 
-<a id="canonical-ad4b2c34c0e4ec597b5ffdad9e167fc4c6ccccc97a9939911c04f34090ec91a0"></a>
+<a id="canonical-2231102302300310-3000321032301121-1323113333312231-2132011213333010-3012303030303021-1322212103212101-0130001033031000-2100323021012200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b44c0ecbdf81dae6c221f7d5db00a6da41491347b70d874281ee54812807018"></a>
+<a id="canonical-2023101030003230-2331332001312232-1230020201331331-1131230000221231-2210011021010310-1323130031201310-0220013232111020-0102200013000120"></a>
 
-## xcsh_waf_threats — xcsh_waf_threats / 79b1bf7cbd63 / 2
+## xcsh_waf_threats — xcsh_waf_threats / 133023311203 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-a3002064d13ab7d75e45273e714cf5abbbb9bcf8465701242de2a8964a73907e"></a>
+<a id="canonical-2203000002001210-3101032223133113-1132101102130332-1301103033112223-2323232123303320-1012111300010210-0231320222202112-1022130321001332"></a>
 
-## Prerequisites — xcsh_waf_threats / 79b1bf7cbd63 / 3
+## Prerequisites — xcsh_waf_threats / 133023311203 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-83450a547f0ff9e5138f645907150f0da1ef7f2f0c4e419c775543449f9befd6"></a>
+<a id="canonical-2003101100221110-1333003333213211-0103203312101121-0013011100330031-2201323313330233-0030103210012130-1313111110031010-2133212332333112"></a>
 
-## Minimal configuration — xcsh_waf_threats / 79b1bf7cbd63 / 4
+## Minimal configuration — xcsh_waf_threats / 133023311203 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,15 +56,15 @@ output "waf_threats_result" {
 }
 ```
 
-<a id="canonical-e02f3f307dc65f2ec5a03cf14990aa993d162652c7c425d62bc8636d48b4767b"></a>
+<a id="canonical-3200023303330300-1331301211330232-3011220003303301-1021210022222121-0331011202121102-3013301002113112-0223302012031231-1020231013121323"></a>
 
-## Root configuration — xcsh_waf_threats / 79b1bf7cbd63 / 5
+## Root configuration — xcsh_waf_threats / 133023311203 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2a7e5a2c239bd721ebe289cfa7b14cb805385b3a1ada577536f6e8626f6f7539"></a>
+<a id="canonical-0222133211220230-0203212331130201-3223320220213033-2213230110302320-0011032011230322-0122312211131311-0312331232201202-1233123313110321"></a>
 
-## Next pages — xcsh_waf_threats / 79b1bf7cbd63 / 6
+## Next pages — xcsh_waf_threats / 133023311203 / 6
 
-- [Property reference](../guides/data-sources--waf_threats--reference--group-001.md#canonical-694a9838f896e006462dd3aa27eeba62fd0d019c7247bec80b961803c8526d8e)
-- [Examples](../guides/data-sources--waf_threats--examples--group-001.md#canonical-ec4d28c7443fcfd9835e6bf5700cc562dffd31d6cc15938fae92732a710ee386)
+- [Property reference](../guides/data-sources--waf_threats--reference--group-001.md#canonical-1221102221200320-3320211232000012-1012023131032222-0213323223221202-3331003100012130-1302101323323020-0023211201200003-3020110212312032)
+- [Examples](../guides/data-sources--waf_threats--examples--group-001.md#canonical-3230103102203013-1010033330333121-2003113212233311-1300003030111202-3133333103013112-3030011121032033-2232210213030222-1301003232032012)

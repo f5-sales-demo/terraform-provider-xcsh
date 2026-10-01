@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster_role_bin
 
 # xcsh_k8s_cluster_role_binding examples
 
-<a id="canonical-0f0b3e644267b874e613f4a501fb551d76f2eed900928bc96d27de39d966bd86"></a>
+<a id="canonical-0033002303321210-1002121323201310-3212010333102211-0001332311110131-1312330232323121-0000210220233021-1231021331320321-3121121223312012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dfb4204ce5150eca2bc861a6baf15bf595743a93dd8c7120960aeadc118fcd90"></a>
+<a id="canonical-3133231002001030-3211011100323022-0223302012012212-2322330111233311-2111131003222103-3131203013010200-2112002232223130-0101203330312100"></a>
 
-## Examples — Examples / 9fef401ff86c / 2
+## Examples — Examples / 013333201230 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-89aa41927c7201d228ed76b699b17dcb5b4c9bac74cfeefe90e715c6cd60d347)
+- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-2021222210012102-1330130200013102-0220323113122312-2121230113313023-1123103021232230-1310303332323332-2100321301113012-3031120031031013)
 - Examples
 
-<a id="canonical-abcf320455a05aa5b8ec7c36c84a2125da9cb1529c1ca998ed95c4cc6cb31cf9"></a>
+<a id="canonical-2223303303020010-1111220011222211-2320323013300312-3020102202010211-3122213023011102-2130013022212120-3231211130103030-1230230301303321"></a>
 
-## Complete configurations — Examples / 9fef401ff86c / 3
+## Complete configurations — Examples / 013333201230 / 3
 
-- [Data source](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-e43a97952fe4fca6d6097ad2d4e3ae376d5979bd73c909ad74abcf3d34a0cccc): valid configuration.
+- [Data source](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-3210032221132111-0233321033302212-3112002113223102-3110320322320313-1231112113212331-1303302100212231-1310222330330331-0310220030303030): valid configuration.
 
-<a id="canonical-067ebebe0480a13ee4f9df73ee023eb802b98dff02b3aa8284a187087af6c493"></a>
+<a id="canonical-0012133223322332-0010200022010332-3210332131331303-3232000203322320-0002232120313333-0002230322222002-2010220120130020-1322331230102103"></a>
 
-## Next pages — Examples / 9fef401ff86c / 4
+## Next pages — Examples / 013333201230 / 4
 
-- [Data source](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-e43a97952fe4fca6d6097ad2d4e3ae376d5979bd73c909ad74abcf3d34a0cccc)
-- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-89aa41927c7201d228ed76b699b17dcb5b4c9bac74cfeefe90e715c6cd60d347)
+- [Data source](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-3210032221132111-0233321033302212-3112002113223102-3110320322320313-1231112113212331-1303302100212231-1310222330330331-0310220030303030)
+- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-2021222210012102-1330130200013102-0220323113122312-2121230113313023-1123103021232230-1310303332323332-2100321301113012-3031120031031013)
 
-<a id="canonical-e43a97952fe4fca6d6097ad2d4e3ae376d5979bd73c909ad74abcf3d34a0cccc"></a>
+<a id="canonical-3210032221132111-0233321033302212-3112002113223102-3110320322320313-1231112113212331-1303302100212231-1310222330330331-0310220030303030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-63e8757abadffb133137bbbd610d35967a87e930b3024c9468fc530d4d28922d"></a>
+<a id="canonical-1203322013111322-2322313333230103-0301031323232331-1201003103112112-1322201332210300-2303000210302110-1220333011030031-1031022021020231"></a>
 
-## Data source — Data source / 9486a457dec4 / 2
+## Data source — Data source / 111331323010 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-89aa41927c7201d228ed76b699b17dcb5b4c9bac74cfeefe90e715c6cd60d347)
-- [Examples](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-0f0b3e644267b874e613f4a501fb551d76f2eed900928bc96d27de39d966bd86)
+- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-2021222210012102-1330130200013102-0220323113122312-2121230113313023-1123103021232230-1310303332323332-2100321301113012-3031120031031013)
+- [Examples](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-0033002303321210-1002121323201310-3212010333102211-0001332311110131-1312330232323121-0000210220233021-1231021331320321-3121121223312012)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -81,9 +81,9 @@ output "k8s_cluster_role_binding_id" {
 }
 ```
 
-<a id="canonical-f44d27946358371ec3205c978ed7284f75c70b70b75f06efc9bd29abdcb65858"></a>
+<a id="canonical-3310103102132110-1203112003130132-3003020011302113-2032311302201033-1311301300231300-2313113300123233-3021233102212223-3130231211201120"></a>
 
-## Next pages — Data source / 9486a457dec4 / 3
+## Next pages — Data source / 111331323010 / 3
 
-- [Examples](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-0f0b3e644267b874e613f4a501fb551d76f2eed900928bc96d27de39d966bd86)
-- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-89aa41927c7201d228ed76b699b17dcb5b4c9bac74cfeefe90e715c6cd60d347)
+- [Examples](data-sources--k8s_cluster_role_binding--examples--group-001.md#canonical-0033002303321210-1002121323201310-3212010333102211-0001332311110131-1312330232323121-0000210220233021-1231021331320321-3121121223312012)
+- [xcsh_k8s_cluster_role_binding](../data-sources/k8s_cluster_role_binding.md#canonical-2021222210012102-1330130200013102-0220323113122312-2121230113313023-1123103021232230-1310303332323332-2100321301113012-3031120031031013)

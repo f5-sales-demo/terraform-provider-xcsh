@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_code_base_integratio
 
 # xcsh_code_base_integration landing
 
-<a id="canonical-dfd634386a632b8766c1f79a7fe219dee977271c92ddfb192ce6925365cdbb55"></a>
+<a id="canonical-3133311203100320-1222120302232013-1212300133132122-1333320201213132-3221131302130130-2102313133230121-0230321221021103-1211303123231111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1eb7cbfec959fb8f6e58765d9d02dc41ef7b040706b977f210f0e30d90a30d4"></a>
+<a id="canonical-3201322313302333-3230211121332320-3312321120131211-3121310002313010-0132331323001000-1300122321131333-0201003300320300-3121002203003110"></a>
 
-## xcsh_code_base_integration — xcsh_code_base_integration / 2abd5159de93 / 2
+## xcsh_code_base_integration — xcsh_code_base_integration / 112131322103 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages integration details in F5 Distributed Cloud.
 
-<a id="canonical-b705c696929efd8293d35be909a2e6444722e13a658f948b01dcc003eb6c8bf5"></a>
+<a id="canonical-2313001130122112-2102213233312002-2103310311233221-0021220232121010-1013020232010322-1211203321102023-0001313030000003-3223123020233311"></a>
 
-## Prerequisites — xcsh_code_base_integration / 2abd5159de93 / 3
+## Prerequisites — xcsh_code_base_integration / 112131322103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b731f8f31f8b7f3fc26829f33503e8c18af34cb856601e00be2174e922744c24"></a>
+<a id="canonical-2313030133203303-0133202313330333-3002122002213303-0311000332203001-2022330310302320-1112120001320000-2332020113103221-0202131010300210"></a>
 
-## Minimal configuration — xcsh_code_base_integration / 2abd5159de93 / 4
+## Minimal configuration — xcsh_code_base_integration / 112131322103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "code_base_integration_id" {
 }
 ```
 
-<a id="canonical-2ebdec4fd6760e4c63bfce3aa7d5993cfa677b8d57a74a4a2c9e558c12525690"></a>
+<a id="canonical-0232233132301033-3112131200321030-1203233330320322-2213311121210330-3322121313232031-1113221310221022-0230213211112030-0102110211122100"></a>
 
-## Root configuration — xcsh_code_base_integration / 2abd5159de93 / 5
+## Root configuration — xcsh_code_base_integration / 112131322103 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a2ea337ba99147abc175da850b6357573409f1214d39ac5af11a5b340fbf3060"></a>
+<a id="canonical-2202322203031323-2221210110132223-3001131131222011-0023120311131113-0310002133010201-1031032122301122-3301012211230310-0033233303001200"></a>
 
-## Next pages — xcsh_code_base_integration / 2abd5159de93 / 6
+## Next pages — xcsh_code_base_integration / 112131322103 / 6
 
-- [Property reference](../guides/data-sources--code_base_integration--reference--group-001.md#canonical-bf7364062ab003f6a5afc722ec7c5ff0dffa6a5c90e531ab18f12c5fdd2db00a)
-- [Examples](../guides/data-sources--code_base_integration--examples--group-001.md#canonical-1c960e71d8f0331c3ff5be704f697493d965f155409f7befe21e1e6bbd7bfbb3)
+- [Property reference](../guides/data-sources--code_base_integration--reference--group-001.md#canonical-2333130312100012-0222230000033312-2211223330130202-3230133011333300-3133332212221130-2100321103012223-0120330102301133-3131023123000022)
+- [Examples](../guides/data-sources--code_base_integration--examples--group-001.md#canonical-0130211200321301-3120330003030130-0333331123321300-1033122113102103-3121121133011111-1000213313233233-3202013201321223-2331132333232303)

@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_aws_tgw_site referen
 
 # xcsh_aws_tgw_site reference
 
-<a id="canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194"></a>
+<a id="canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-631e11939984e009d07a0b9c6dbbbc82713dc6d1becdeaf5c61940862d2092ad"></a>
+<a id="canonical-1203013201012103-2121201032000021-3100132200232130-1231232323302002-1301033130123101-2332303132223311-3012012110002012-0231020021022231"></a>
 
-## Property reference — Property reference / 691c9a728462 / 2
+## Property reference — Property reference / 130220101202 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 - Property reference
 
-<a id="canonical-b76056caceba14f10b03fbd9c026a11da8bec22d6e657d0e74a5a2377dad1924"></a>
+<a id="canonical-2313120011123022-3032232201103301-0023000333233121-3000021222010131-2220233230020231-1232121113310032-1310221122020313-1331223101210210"></a>
 
-## Direct properties — Property reference / 691c9a728462 / 3
+## Direct properties — Property reference / 130220101202 / 3
 
-<a id="canonical-0ac9c41df7cf2190f7c828ef44ea4ee0d4ab2e32cabdbfff38c7fa68fae4fdf4"></a>
+<a id="canonical-0022302130100131-3313303302012100-3313302002203233-1010322210323200-3110222302320302-3022233123333333-0320301333221220-3322321033313310"></a>
 
-<a id="canonical-92f8bf9d0e171e83e2a557391fe1d426f5a301e435e014a2d30cf18929fa2f87"></a>
+<a id="canonical-2102332023332131-0032011301322003-3202221111130321-0133320131100212-3311220300013210-0311320001102202-3103003033012021-0221332202332013"></a>
 
-## annotations property — Property reference / 691c9a728462 / 4
+## annotations property — Property reference / 130220101202 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,23 +67,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48): complete subsection reference.
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020): complete subsection reference.
 
-- [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-f38ef4556d9454ee1fa3198b1de8b3eace6ebf064864c8599236cc65e500aa8f): complete subsection reference.
+- [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-3303203233101111-1231211011103232-0133220301212023-0131322023033222-3032123223330012-1020121030201121-2102031230301211-3211000022222033): complete subsection reference.
 
-- [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-e8d8b9fb2aee79c8f7b4a5747a0783a249ff6ae310ab6774a3c05184d3e24c51): complete subsection reference.
+- [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-3220312023213323-0222323213213020-3313231022111310-1322001320032202-1021333312223203-0100222312131310-2203300011012010-3103320210301101): complete subsection reference.
 
-- [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-fc40e9958bb6e7178fac69151232bfbf4397fc7a8a01886162591f52e00b9404): complete subsection reference.
+- [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-3330100032212111-2023231232130113-2033223012210111-0102030223332333-1003211333301322-2022000120201201-1202112101331102-3200002321100010): complete subsection reference.
 
-- [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-347174fd79b6c86f16e86abc884c54253528abca8e5888200327edfd66b4729d): complete subsection reference.
+- [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-0310130113103331-1321231230201233-0112322012222330-2020103011100211-0311022022233022-2032112020200200-0003021332313331-1212231013022131): complete subsection reference.
 
-- [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-2e91e3b2b5e727c6e40a4216181f74d84039efa17ee193877ca6cab3695ef316): complete subsection reference.
+- [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-0232210132032302-2311321302133012-3210002210020112-0120013313103120-1000032132332201-1332320121032013-1330221230222303-1221113233030112): complete subsection reference.
 
-<a id="canonical-ddcd1139717f2d4600cd6e94ee4146d61921e8b44445d36fb40c274f886688c4"></a>
+<a id="canonical-3131303101010321-1301133302311012-0000303112322110-3232100110123112-0121020132202310-1010101131031233-2310003002131033-2020121220203010"></a>
 
-<a id="canonical-fc781a926d363e16cdce2dc054dff2ca0a2444ae474f9060a48d8bbdeb736d2e"></a>
+<a id="canonical-3330132001222102-1231031203320112-3031303202313000-1110313333023022-0022021010102232-1013103321001200-2210203120232331-3223130312310232"></a>
 
-## description property — Property reference / 691c9a728462 / 5
+## description property — Property reference / 130220101202 / 5
 
 Type: `"string"`. Optional.
 
@@ -127,15 +127,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-302989a4f6d557908c55a666fb3705955d8482c6561e1cab36d132b1cc5a1779): complete subsection reference.
+- [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-0300022120212210-3312311111132100-2030111122121212-3323031300112111-1131201020023012-1112013201302223-0312310103022301-3030112201131321): complete subsection reference.
 
-- [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-ac82732ae4c6ed1fc3fe57328e909a84eec3d10b2e429345d448109c2a5fb3db): complete subsection reference.
+- [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-2230200213030222-3210301232310133-3003333211130302-2032210021222010-3232300331010023-0232100221031011-3110102001002130-0222113323033123): complete subsection reference.
 
-<a id="canonical-e95ada1ca86c3c5b5efad03febfaefe6e094023ecc91cc0c37ee1e14d2af9c7f"></a>
+<a id="canonical-3221112231220130-2220123003301123-1132332231000333-3223332232333212-3200211000020332-3030210130300030-0313323201320110-3102223321301333"></a>
 
-<a id="canonical-c2a6a28a1b2686c92cdf56a2526262de6eb2b072ca54da2a2c5f9e3120e8d08b"></a>
+<a id="canonical-3002221222022022-0123021220123021-0230313311122202-1102120212023132-1232230223001302-3022111031220222-0230113321320301-0200322031002023"></a>
 
-## disable property — Property reference / 691c9a728462 / 6
+## disable property — Property reference / 130220101202 / 6
 
 Type: `"bool"`. Optional.
 
@@ -158,27 +158,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-587dbfff4f4b620623f9182fe5ebc4e9b6275d917c8de9f95cadd9191acd80d9"></a>
+<a id="canonical-1120133123333333-1033102312020012-0203332101200233-3211322330103221-2312021311312101-1330203132213321-1130223131210121-0122303120003121"></a>
 
-<a id="canonical-102007453e2a9c7c0d17e3abe32c6810736358b03ff2581b0dc7781af6c611a5"></a>
+<a id="canonical-0100020000131011-0332022221301330-0031011332032223-3203023012200100-1303120311202300-0333330211200123-0031301313200122-3312301201012211"></a>
 
-## id property — Property reference / 691c9a728462 / 7
+## ID property — Property reference / 130220101202 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-5f0e8beb13147df524b7d641760ac19c7109b05bd03b9cd7f614d7b329893a3e): complete subsection reference.
+- [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-1133003220233223-0103011013313311-0210231331121001-1312002230012130-1301002123001123-3100032321303113-3312011031132303-0221202103220332): complete subsection reference.
 
-<a id="canonical-ac216435801a1a3ce16bfcaa7ead85613af16f64d2db1abbc555172be3dc3c0b"></a>
+<a id="canonical-2230020112100311-2000012201220330-3201122333302222-1332223120111201-0322330112331210-3102312301222323-3011111101130223-3203313003300023"></a>
 
-<a id="canonical-f71120bec23d85401185e1ecb7c8c24dd525509a7f74bfe764969f3cfb3e7910"></a>
+<a id="canonical-3313010102002332-3002033120111000-0101201132013230-2313302030021031-3111021111002122-1333131023333213-1210211221330330-3323033213210100"></a>
 
-## labels property — Property reference / 691c9a728462 / 8
+## labels property — Property reference / 130220101202 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -199,15 +199,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-5328bd4d13cd4b9bc6bf897e865e5f8b01e086064bde136bab9076d75b001faa): complete subsection reference.
+- [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-1103022023311031-0103303110232123-3012233320211332-2012113211332023-0001320020120012-1023313201031223-2223210013123113-1123000001332222): complete subsection reference.
 
-- [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-fdb168a79ccc613abd6af4e13fca87d0cf0e20f031d3af2ea06cada88b87c750): complete subsection reference.
+- [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-3331230112202213-2130303012010322-2331122233103201-0333302220133100-3033003202003300-0301310322330232-2200123022312220-2023201330131100): complete subsection reference.
 
-<a id="canonical-9c278855cba94834343a5719376c67c0769d8fdb5476699b6f985f50e97ed0a0"></a>
+<a id="canonical-2130021320201111-3023222110200310-0310032211130121-0313123012133000-1312213120333123-1110131212212123-1233212011331100-3221133231002200"></a>
 
-<a id="canonical-825b7ef160c5cde296cbd014725e83df047fce835f1ffdfade180fe65bd81527"></a>
+<a id="canonical-2002112313323301-1200301130313202-2112302331000110-1302113220033133-0010133330322003-1133013333313322-3132012000333212-1123312001110213"></a>
 
-## name property — Property reference / 691c9a728462 / 9
+## name property — Property reference / 130220101202 / 9
 
 Type: `"string"`. Required.
 
@@ -271,11 +271,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10ed9937cf5b7e976965bde4988f01d268420b318daa4d7ad5067727ec17df31"></a>
+<a id="canonical-0100323121210313-3033112313322113-1221121123313210-2120203300013102-1220100200230301-2031222210311322-3111001213130213-3230011331330301"></a>
 
-<a id="canonical-cb9e33052d6b66a3cbf8526836befd5e2648f4b6f0a4a94b8d7fe0b774be8a64"></a>
+<a id="canonical-3023213203030011-0231122312122203-3023332011021220-0312233233311132-0212102033102312-3300221022211023-2031133332002313-1310233220221210"></a>
 
-## namespace property — Property reference / 691c9a728462 / 10
+## namespace property — Property reference / 130220101202 / 10
 
 Type: `"string"`. Required.
 
@@ -332,21 +332,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-c1d488ffe9bc7e32f5e0c9a74b5c69d528239d7d4ecd68080450066df847f5fb): complete subsection reference.
+- [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-3001311020203333-3221233013320302-3311320030212213-1023113012213111-0220020321311331-1032303112200020-0010110000121231-3320101333113323): complete subsection reference.
 
-- [os](resources--aws_tgw_site--reference--group-002.md#canonical-b36c285d2a1299188f2809f555233d568667868bcfa2072e2d4e916468e5ee8c): complete subsection reference.
+- [os](resources--aws_tgw_site--reference--group-002.md#canonical-2303123002201131-0222010221210120-2033022000213311-1111020303311112-2012121320122023-3033220200130232-0231103221011210-1220321132322030): complete subsection reference.
 
-- [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-4303abda634caa4786db98cdc8377f6b9ba8897cbe625e6d6e5da785aaec3f97): complete subsection reference.
+- [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-1003000322233122-1203103022221013-2012312321203031-3020031313331223-2123222020211330-2332120211321231-1232113122132011-2222323003332113): complete subsection reference.
 
-- [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-167e0e87b06b0a771760b8cbb360bf5f698651ea97f72ae4267354bc6877cb65): complete subsection reference.
+- [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-0112133200322013-2300122300221313-0113120023203023-2303120023331133-1221201211013222-2113331302223210-0212130311102330-1220131330231211): complete subsection reference.
 
-- [sw](resources--aws_tgw_site--reference--group-002.md#canonical-7076ed8e78694917e5f4df2c7aa41c7f303f575fbcc702ac483a7905e883932d): complete subsection reference.
+- [sw](resources--aws_tgw_site--reference--group-002.md#canonical-1300131232312032-1320122110210113-3211331031330230-1322221001301333-0300033311131133-2330301300022230-1020032213210011-3220200321030231): complete subsection reference.
 
-<a id="canonical-56c105f82e5b3804d787b967ec605a02d4b533cb7f65cd0d1415a422f034dbe5"></a>
+<a id="canonical-1112300100113320-0232112303200010-3113201323211213-3230120011220002-3110231103033023-1333121130310031-0110011122100202-3300031031233211"></a>
 
-<a id="canonical-f3a1625b49bb67c17a86f008585acf3fe7d451813537129711c52a50e5f46628"></a>
+<a id="canonical-3303220112021123-1021232312133001-1322201233000020-1120112230330333-3213311011012001-0311031301022113-0101301102221100-3211331012120220"></a>
 
-## tags property — Property reference / 691c9a728462 / 11
+## tags property — Property reference / 130220101202 / 11
 
 Type: `["map", "string"]`. Optional.
 
@@ -381,342 +381,342 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-5ff04c1933b8606e7ed6ccd8a5bd654c5b878146645f88ddcebe941fe708934c): complete subsection reference.
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030): complete subsection reference.
 
-- [timeouts](resources--aws_tgw_site--reference--group-002.md#canonical-7553cb4ac80cbd43a7a6cc1761d46be7559d8d7376ce03508ffdd968b305b1cf): complete subsection reference.
+- [timeouts](resources--aws_tgw_site--reference--group-003.md#canonical-1311110330231022-3020003023311003-2213221230300113-1201311012233213-1111213120311303-1312303200031100-2033333131211220-2303001123013033): complete subsection reference.
 
-- [vn_config](resources--aws_tgw_site--reference--group-002.md#canonical-110845d859c3a4bab87ea9730548ddd8e2e2bde8e808ef623db5e3fb6a8f808d): complete subsection reference.
+- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031): complete subsection reference.
 
-- [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-6a136b15777bb8a98743650367f2764c51a7b782bf04d63d34a2defafee0ddf3): complete subsection reference.
+- [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-1222010312230111-1313132323202221-2013100312110003-1213330213121030-1101221323132002-2333001031120331-0310220231323322-3332320031313303): complete subsection reference.
 
-- [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-6d8e9aff961991a95f631650b225f1a27401e6966c47ee24453e16093a40748e): complete subsection reference.
+- [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-1231203221223333-2112012121012221-1133120301121100-2302021133012202-1310000132122112-1230101332320210-1011033201120021-0322100013102032): complete subsection reference.
 
-<a id="canonical-584c5e22626056f5cbb527a64c169ab5604e64c9aab3522d69f26b46f7d9f219"></a>
+<a id="canonical-1120103011320202-1202120011123311-3023231102132212-1030011221222311-1200103212103021-2222230311020231-1221330212231012-3313312133020121"></a>
 
-## All schema paths — Property reference / 691c9a728462 / 12
+## All schema paths — Property reference / 130220101202 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--aws_tgw_site--reference--group-001.md#canonical-0ac9c41df7cf2190f7c828ef44ea4ee0d4ab2e32cabdbfff38c7fa68fae4fdf4) |
-| `aws_parameters` | [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-b8df39ec01df9616f8675ba90bbd827321ccbfe415aa31e0ae4c30299796519a) |
-| `aws_parameters.admin_password` | [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-47fe691e9721e0d7e2e3f4df2200aa1fed77dbf18c335b5d9aca87226ab68197) |
-| `aws_parameters.admin_password.blindfold_secret_info` | [aws_parameters.admin_password.blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-4adb868bb34fb595fef71192fa480a4637398817e54deff1d7e6d9b581bc2897) |
-| `aws_parameters.admin_password.blindfold_secret_info.decryption_provider` | [aws_parameters.admin_password.blindfold_secret_info.decryption_provider](resources--aws_tgw_site--reference--group-001.md#canonical-3066e9510c16101dd4008390fe8f3db63f94a3146816cb8904ef8ec10c2f0a7f) |
-| `aws_parameters.admin_password.blindfold_secret_info.location` | [aws_parameters.admin_password.blindfold_secret_info.location](resources--aws_tgw_site--reference--group-001.md#canonical-902388d1b73e7ed0e01782f3517ada8992d60fdb5b694e9edc8e664b5697d500) |
-| `aws_parameters.admin_password.blindfold_secret_info.store_provider` | [aws_parameters.admin_password.blindfold_secret_info.store_provider](resources--aws_tgw_site--reference--group-001.md#canonical-e0437efedf39e3a131f29a7e3ffc6323c4e0edf8c0444e3593fe7a0ae58274d4) |
-| `aws_parameters.admin_password.clear_secret_info` | [aws_parameters.admin_password.clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-95a9fa8f85097f67a04129fd26fcfe2eae0d7566f10f62624676956ea703e322) |
-| `aws_parameters.admin_password.clear_secret_info.provider_ref` | [aws_parameters.admin_password.clear_secret_info.provider_ref](resources--aws_tgw_site--reference--group-001.md#canonical-b9828acaaa98b63162c5b92b97aed389d69bc5b8278fa2ed9dacaffc878573d1) |
-| `aws_parameters.admin_password.clear_secret_info.url` | [aws_parameters.admin_password.clear_secret_info.url](resources--aws_tgw_site--reference--group-001.md#canonical-b19f97b8fbcfcc528c808b756f37285bb0dd2fce073aefecf9a19c00852ada3f) |
-| `aws_parameters.aws_cred` | [aws_parameters.aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-afbd740e212a335c1aa9e082e7f7f41ccbda3c87ff5716cb0bae22ce0bcb3a8d) |
-| `aws_parameters.aws_cred.name` | [aws_parameters.aws_cred.name](resources--aws_tgw_site--reference--group-001.md#canonical-aa086c855a2fb5c590686b1ba17600cd5ee27e6cf53216523c460e318ab399c6) |
-| `aws_parameters.aws_cred.namespace` | [aws_parameters.aws_cred.namespace](resources--aws_tgw_site--reference--group-001.md#canonical-346f0bbc0bb98b81e6dd7da3fc41dcbcd3284a19b73e6a79c6656148a97e891d) |
-| `aws_parameters.aws_cred.tenant` | [aws_parameters.aws_cred.tenant](resources--aws_tgw_site--reference--group-001.md#canonical-edfebec6a589264264f8d0777379fa7400efb8e92ac54c65bf3cbd237978cb91) |
-| `aws_parameters.aws_region` | [aws_parameters.aws_region](resources--aws_tgw_site--reference--group-001.md#canonical-f66dbbe11a5283416386c195913e774b4f5fdc207091ccb5a4106944007e6559) |
-| `aws_parameters.az_nodes` | [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-fb2bfb41dc0d82bb84cf60336d281ff240717dc003051f4e096c0ac5eb296ef5) |
-| `aws_parameters.az_nodes.aws_az_name` | [aws_parameters.az_nodes.aws_az_name](resources--aws_tgw_site--reference--group-001.md#canonical-463365584c3c9af0b8b4b4039e915e9b4808c85fc0ca0541b32ab6a792e373ea) |
-| `aws_parameters.az_nodes.inside_subnet` | [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-b910dc8e743677ff887c22e8152161c24f45563eec30bb4ca18fa8c69b090805) |
-| `aws_parameters.az_nodes.inside_subnet.existing_subnet_id` | [aws_parameters.az_nodes.inside_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-4de66bbd0c8714a337e588f55443bcaf9dce84cc9c37a7ad01357e82b5044edd) |
-| `aws_parameters.az_nodes.inside_subnet.subnet_param` | [aws_parameters.az_nodes.inside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-97dd02a6aa4fec37729fea8b6d3ae177bb50268a962b48dbe60822a8d4d1d50e) |
-| `aws_parameters.az_nodes.inside_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.inside_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-716c070e124589efc5da18a08de6c22654bcd7d69909be2115c4bfc9598e484c) |
-| `aws_parameters.az_nodes.outside_subnet` | [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-04960f4424d2b0d4b470c4108cfc828a45c706130ef83c88103d1c68bbcfb980) |
-| `aws_parameters.az_nodes.outside_subnet.existing_subnet_id` | [aws_parameters.az_nodes.outside_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-b0d593e80d170c975b17abea8a26a811d14963e57c9666a85120b5b8abca6d89) |
-| `aws_parameters.az_nodes.outside_subnet.subnet_param` | [aws_parameters.az_nodes.outside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-178d71bcf91e185d748bfc5e5131913de3c1a022c3a15f0b73b8a2560ebf4c65) |
-| `aws_parameters.az_nodes.outside_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.outside_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-15d5fcdf0af88ae551c6ce4295c0a276806d8e83d22dd9b0cb775452d2d10094) |
-| `aws_parameters.az_nodes.reserved_inside_subnet` | [aws_parameters.az_nodes.reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-a4f81741908c1e0df6e57f9979abcc23eb421dbee371e9483f326f3c1d6681ef) |
-| `aws_parameters.az_nodes.workload_subnet` | [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-e9a5aabc1dea32ce8e69ddbcede71fd7434c2766e1d86e0ec19bde91e2a92040) |
-| `aws_parameters.az_nodes.workload_subnet.existing_subnet_id` | [aws_parameters.az_nodes.workload_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-47656bb0b68796fac88a63a7b8cdb441c2bf73d4c45d46e63a16fcfb8812e3f4) |
-| `aws_parameters.az_nodes.workload_subnet.subnet_param` | [aws_parameters.az_nodes.workload_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0b16c5d9dbbc4cf45c24b402ac63acd86c958febbef20a9144278a36b53026e4) |
-| `aws_parameters.az_nodes.workload_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.workload_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-1933ddd419baa21c6ce98d3bcc4e6aaf8314dda0a1a6471c7c0ab42ecd8d55f2) |
-| `aws_parameters.custom_security_group` | [aws_parameters.custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-d0968f23e68e7a95578266883f00caedbe487b227ad438793aa54b48c01a608f) |
-| `aws_parameters.custom_security_group.inside_security_group_id` | [aws_parameters.custom_security_group.inside_security_group_id](resources--aws_tgw_site--reference--group-001.md#canonical-ceef3b608f66430b9eb21ee06ae873678a5b777ffb65bbd1012d8a338aa17878) |
-| `aws_parameters.custom_security_group.outside_security_group_id` | [aws_parameters.custom_security_group.outside_security_group_id](resources--aws_tgw_site--reference--group-001.md#canonical-73c04a5f6c4034636ba865a9e297869ff571fee2c6b32c885bcc862d50766e54) |
-| `aws_parameters.disable_encryption` | [aws_parameters.disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-03805be8ca9cfad4b1b4847a9fe4bdb0dff83133d50b93768a5fb5088e83cd43) |
-| `aws_parameters.disable_internet_vip` | [aws_parameters.disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-ae4f0f3c1ae9d386a14f7801b9f668f892477920d5ef7ebc005ea7e8bd30ee86) |
-| `aws_parameters.disk_size` | [aws_parameters.disk_size](resources--aws_tgw_site--reference--group-001.md#canonical-9ce8a7de9ae5acd74cfc7c6988f38bd40de7a32ed3ab1a13397a437af4b802d6) |
-| `aws_parameters.enable_encryption` | [aws_parameters.enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-0ec3db85e4f1fd47f8640657a8e2a0f2b5ce43c53ccb5b4fb7e01e0dac474b38) |
-| `aws_parameters.enable_encryption.kms_key_id` | [aws_parameters.enable_encryption.kms_key_id](resources--aws_tgw_site--reference--group-001.md#canonical-74f7898dfe6160c450abda0d9e33cf3536bbbee4cdc91f9549cf9265dd670ebc) |
-| `aws_parameters.enable_internet_vip` | [aws_parameters.enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-8bba561b6295cefd101a9efb4d3de7b9e60b889ead0b4e79725bbf15dfa0a78f) |
-| `aws_parameters.existing_tgw` | [aws_parameters.existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-cdf4b580fd1cb25dc424c53737109e1d9f0185b0cf336a041e012b0d6a1e4eb4) |
-| `aws_parameters.existing_tgw.tgw_asn` | [aws_parameters.existing_tgw.tgw_asn](resources--aws_tgw_site--reference--group-001.md#canonical-e3b1bbc23c815bd9f414fa1fa6c65d747a8d6d4d5cfeb40edd1aa76f699085fd) |
-| `aws_parameters.existing_tgw.tgw_id` | [aws_parameters.existing_tgw.tgw_id](resources--aws_tgw_site--reference--group-001.md#canonical-4eb547e195d687d888811ec0f055f936b62f394e98e8a085cb8f9313f1496cd3) |
-| `aws_parameters.existing_tgw.volterra_site_asn` | [aws_parameters.existing_tgw.volterra_site_asn](resources--aws_tgw_site--reference--group-001.md#canonical-c5c1152ed7ffc46dec87e95e587a97d5c6134c45567bd61721fcd85e45325e9e) |
-| `aws_parameters.f5xc_security_group` | [aws_parameters.f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-54dc7e3625aa67ce268c0817dc425f18de17a8bcf921471f3da7ba24341646b4) |
-| `aws_parameters.instance_type` | [aws_parameters.instance_type](resources--aws_tgw_site--reference--group-001.md#canonical-c74273294dbeae216bffdcd30fe0266bf850af20d81a3111dcc083f1cc686016) |
-| `aws_parameters.new_tgw` | [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-5a5f926fed2cc993355bc753558edc5ecf309df9817bc17f3df85df1086d9b5c) |
-| `aws_parameters.new_tgw.system_generated` | [aws_parameters.new_tgw.system_generated](resources--aws_tgw_site--reference--group-001.md#canonical-156529bf2718cd0dccd2afbffec20cc05742611a626fd1d9799d5386fd0f592e) |
-| `aws_parameters.new_tgw.user_assigned` | [aws_parameters.new_tgw.user_assigned](resources--aws_tgw_site--reference--group-001.md#canonical-3c055260d3e6ece4fd16bec67061ce12670b6722073190ae9818f7371d6994ca) |
-| `aws_parameters.new_tgw.user_assigned.tgw_asn` | [aws_parameters.new_tgw.user_assigned.tgw_asn](resources--aws_tgw_site--reference--group-001.md#canonical-45f4ae92e7113fa99cb4ab87ca978f3f5f160c47eeb246e2959fb3d8253dd5f0) |
-| `aws_parameters.new_tgw.user_assigned.volterra_site_asn` | [aws_parameters.new_tgw.user_assigned.volterra_site_asn](resources--aws_tgw_site--reference--group-001.md#canonical-6e4859bffd629ffb333ef65785181d82f301cae7c9337b87f886d3ccb3262f96) |
-| `aws_parameters.new_vpc` | [aws_parameters.new_vpc](resources--aws_tgw_site--reference--group-002.md#canonical-74ee03345ff222625074b7fec80e3ec8e5cc0917698c667e6651e10d1ff0131b) |
-| `aws_parameters.new_vpc.autogenerate` | [aws_parameters.new_vpc.autogenerate](resources--aws_tgw_site--reference--group-002.md#canonical-4cee8ea06a44d4415191ee85a94ed81ddcd51e9e999c65b5ed80cc2377a13747) |
-| `aws_parameters.new_vpc.name_tag` | [aws_parameters.new_vpc.name_tag](resources--aws_tgw_site--reference--group-002.md#canonical-66e25dd9807a1eef7f8e9be8438e6ad1eb50400ed454ce8abd5e1093cb481fc8) |
-| `aws_parameters.new_vpc.primary_ipv4` | [aws_parameters.new_vpc.primary_ipv4](resources--aws_tgw_site--reference--group-002.md#canonical-229233bf45e0c11fed1d4fd8848a3773a11b524811271a09362024178aa4c2ac) |
-| `aws_parameters.no_worker_nodes` | [aws_parameters.no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-bc4bd9d19ebed9455f15464366fb78b8104af9a49d586a5aae92740fa9ef8cfa) |
-| `aws_parameters.nodes_per_az` | [aws_parameters.nodes_per_az](resources--aws_tgw_site--reference--group-001.md#canonical-78069ab3841acd2f64c991a506a11a9130680e2d8945617d108ac0b7530f3635) |
-| `aws_parameters.reserved_tgw_cidr` | [aws_parameters.reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-217df55ab72f020f9460ba67a6113a63d170f28bfba9445e25e61a582b449b8a) |
-| `aws_parameters.ssh_key` | [aws_parameters.ssh_key](resources--aws_tgw_site--reference--group-001.md#canonical-a14f180aecced62e682152714b37b4919851254fabba835c0d057376389459b9) |
-| `aws_parameters.tgw_cidr` | [aws_parameters.tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-4071d78aefea4a0553ebeb7b73e00ac04a701f5a01673bef668dc78a1cc2bd14) |
-| `aws_parameters.tgw_cidr.ipv4` | [aws_parameters.tgw_cidr.ipv4](resources--aws_tgw_site--reference--group-002.md#canonical-df5d082102250f01d4b558812d0b3af26b59bf9ca09b76fa72e29468c81b3e8b) |
-| `aws_parameters.total_nodes` | [aws_parameters.total_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-3c0984a6024b5552778ebf98575be07d5c379ab431f747ca1b1e9b9db4979b65) |
-| `aws_parameters.vpc_id` | [aws_parameters.vpc_id](resources--aws_tgw_site--reference--group-001.md#canonical-4912b3f08118b46648c3b7c746cfaf4f39e633d78350ad60aa0bf3666ab64267) |
-| `block_all_services` | [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-92687f15442e205ba25c1be6414ce764510d97ca41eef734e413e6532ef940c5) |
-| `blocked_services` | [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-f2bc47ab189f0fdf332ba3670d67a08ace7945d34b26e4a91ec052c1166f8a63) |
-| `blocked_services.blocked_service` | [blocked_services.blocked_service](resources--aws_tgw_site--reference--group-002.md#canonical-eeec99388c63976fa00e0b755a89d013ae9ba1f8206cfe7f40697a82f450c53a) |
-| `blocked_services.blocked_service.dns` | [blocked_services.blocked_service.dns](resources--aws_tgw_site--reference--group-002.md#canonical-621b89128455bb18a4d94ea95deb72d8284ab2c596b7064d38605f1a14b07115) |
-| `blocked_services.blocked_service.network_type` | [blocked_services.blocked_service.network_type](resources--aws_tgw_site--reference--group-002.md#canonical-75f4b773c776279b418ffcfc1fd9f25a2c0c6cb3690d6612e04d7eb350a7b66b) |
-| `blocked_services.blocked_service.ssh` | [blocked_services.blocked_service.ssh](resources--aws_tgw_site--reference--group-002.md#canonical-b060766320b33fe05c0fb93bf35318a72e658d649bdd2f5f7a037fee8bfd4ff4) |
-| `blocked_services.blocked_service.web_user_interface` | [blocked_services.blocked_service.web_user_interface](resources--aws_tgw_site--reference--group-002.md#canonical-10005e84005b24614f640470ac6ee73bcf6de88469aa6e490f29296ca08974cf) |
-| `coordinates` | [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-7a716c2ca189d903d4f26a83e0777f518d0b015913fca00111bbb64fdf4b93b8) |
-| `coordinates.latitude` | [coordinates.latitude](resources--aws_tgw_site--reference--group-002.md#canonical-a3babf83d9f7722da27b24ebd29ae0cf5e9e480d5cb976135435538c7d37d632) |
-| `coordinates.longitude` | [coordinates.longitude](resources--aws_tgw_site--reference--group-002.md#canonical-63af6b5c77fc7f6763822f985c0bd5130c3f8c5b75fa46cc1e113b126f3ccd54) |
-| `custom_dns` | [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-f199fba880d5237e82ab901b5b39ce494c885d04ea7329b6f19bfa0d7c029dd4) |
-| `custom_dns.inside_nameserver` | [custom_dns.inside_nameserver](resources--aws_tgw_site--reference--group-002.md#canonical-e23470976891892ea64d4567a52a0b6b66851a97f1ef5d9acdd7fa773acd83f9) |
-| `custom_dns.outside_nameserver` | [custom_dns.outside_nameserver](resources--aws_tgw_site--reference--group-002.md#canonical-4240b44ac7d801c6a7541e85ed48008a6225acf6986633aa10b789a99fa41cce) |
-| `default_blocked_services` | [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-807b0250ceb5f671f89c9359c068c15526f4a67bc2148a562a2ef648ce982475) |
-| `description` | [description](resources--aws_tgw_site--reference--group-001.md#canonical-ddcd1139717f2d4600cd6e94ee4146d61921e8b44445d36fb40c274f886688c4) |
-| `direct_connect_disabled` | [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-dac64ee326fc8f93eab5e4cf182e098e5f4fa96a4a784d4e5780728193048c15) |
-| `direct_connect_enabled` | [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-119113580de10ee0036ce9fc950181b4c727b9a197f59a0f781654dbcc0f0c0b) |
-| `direct_connect_enabled.auto_asn` | [direct_connect_enabled.auto_asn](resources--aws_tgw_site--reference--group-002.md#canonical-d9ba56a7a1e52dfbf7b9a60123b96709fe536d4377064a2d9fda86ede6beb79c) |
-| `direct_connect_enabled.custom_asn` | [direct_connect_enabled.custom_asn](resources--aws_tgw_site--reference--group-002.md#canonical-b79e1ca8e5852a5aecf0406582cbc9ce647d8913b7f3e60fb5fc5912e5cdcf20) |
-| `direct_connect_enabled.hosted_vifs` | [direct_connect_enabled.hosted_vifs](resources--aws_tgw_site--reference--group-002.md#canonical-119e032f4274ef3ffa7b6371aa7347e5c96c1ccf2b3b09ff0d4fd9720f578fb8) |
-| `direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect` | [direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect](resources--aws_tgw_site--reference--group-002.md#canonical-726f2079f0b9942e52ac688f3aa00abd3b4560d8e407f9a2f440ba66d52d0356) |
-| `direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect.cloudlink_network_name` | [direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect.cloudlink_network_name](resources--aws_tgw_site--reference--group-002.md#canonical-885eca1e38927dfb8b37d71883508731f8b4b365c3ea67d07b7b78d190bb4f79) |
-| `direct_connect_enabled.hosted_vifs.site_registration_over_internet` | [direct_connect_enabled.hosted_vifs.site_registration_over_internet](resources--aws_tgw_site--reference--group-002.md#canonical-688d9d2bcef3f2ebd594b44c48b7dd51cf399c0ac25ac61885c5d74e72952024) |
-| `direct_connect_enabled.hosted_vifs.vif_list` | [direct_connect_enabled.hosted_vifs.vif_list](resources--aws_tgw_site--reference--group-002.md#canonical-52f854fec34897fd8ba709c668724e0fe511a4eb7c9a6258046c16a177895da8) |
-| `direct_connect_enabled.hosted_vifs.vif_list.other_region` | [direct_connect_enabled.hosted_vifs.vif_list.other_region](resources--aws_tgw_site--reference--group-002.md#canonical-6cfd0737db92fc3f387d5c2b64751a5ca5d23fec84090d6216926acf7a7fc547) |
-| `direct_connect_enabled.hosted_vifs.vif_list.same_as_site_region` | [direct_connect_enabled.hosted_vifs.vif_list.same_as_site_region](resources--aws_tgw_site--reference--group-002.md#canonical-232ba9595420745655e74675f55e3921efe87825970de3519b8e20e156b580e0) |
-| `direct_connect_enabled.hosted_vifs.vif_list.vif_id` | [direct_connect_enabled.hosted_vifs.vif_list.vif_id](resources--aws_tgw_site--reference--group-002.md#canonical-f57e856261732350d7293e4785c6f32d771c00b8f22a7f2b44f4467b1bdc9355) |
-| `direct_connect_enabled.standard_vifs` | [direct_connect_enabled.standard_vifs](resources--aws_tgw_site--reference--group-002.md#canonical-e2b6081b27a7cc7457005544c6e2de52bfc22b959f0b5a15cdd94bb594596f62) |
-| `disable` | [disable](resources--aws_tgw_site--reference--group-001.md#canonical-e95ada1ca86c3c5b5efad03febfaefe6e094023ecc91cc0c37ee1e14d2af9c7f) |
-| `id` | [id](resources--aws_tgw_site--reference--group-001.md#canonical-587dbfff4f4b620623f9182fe5ebc4e9b6275d917c8de9f95cadd9191acd80d9) |
-| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-4f80ba7a872482f05d380accb2aefbcf42330e69bf9fb45e73b042727556fd53) |
-| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-b9d4c33bf3714ac57754bf2cb644a4613545d4588fa7958c1d39d93e008335c3) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-60b956b5d441b3cf8ac98642dde4c9624498ea0736a2546b2915bb750f76dcaa) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--aws_tgw_site--reference--group-002.md#canonical-5b5f04216e48cfec015b94fcbe7e8b1dd3a5751fefab338d7ad1debb6483dc63) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](resources--aws_tgw_site--reference--group-002.md#canonical-1039210c2552d74cf4378dceeec97871f5c0cef09f1ad76326b7c42d0f75f49a) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](resources--aws_tgw_site--reference--group-002.md#canonical-9e20e81d1ad9b0819fa3bf3be45d193e4c77a2a490cc310ce13b46c8f49567af) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](resources--aws_tgw_site--reference--group-002.md#canonical-befd8b74dca385a5ec123562ef377086bed50e5d1cd82e0b37dc6c49ba63ff27) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--aws_tgw_site--reference--group-002.md#canonical-b1c187a1ac16b14917bfdf349d961da97426299c8d01a1910cee75eb08603366) |
-| `labels` | [labels](resources--aws_tgw_site--reference--group-001.md#canonical-ac216435801a1a3ce16bfcaa7ead85613af16f64d2db1abbc555172be3dc3c0b) |
-| `log_receiver` | [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-e0f27dc08c3abcaea1c9442696f74690ea29b1c9c46d4e98f604c2ee93040813) |
-| `log_receiver.name` | [log_receiver.name](resources--aws_tgw_site--reference--group-002.md#canonical-008b8073fb391c29d62520ebcb5371d09a72beaf5ef6ec3ba57619aeb1eac08a) |
-| `log_receiver.namespace` | [log_receiver.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-d482a55f2a1976d838e20a3c66a4022299c79fe97b805230732dcdafe3dadb00) |
-| `log_receiver.tenant` | [log_receiver.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-7e1a5abd62b02327667ebe227464a05d3c9e2981377e98e6df4180ef8e300c9b) |
-| `logs_streaming_disabled` | [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-8244e24808d2c8df987ef85abc86cd1b6c7934aee1339ba9123c1a5c51d4ae48) |
-| `name` | [name](resources--aws_tgw_site--reference--group-001.md#canonical-9c278855cba94834343a5719376c67c0769d8fdb5476699b6f985f50e97ed0a0) |
-| `namespace` | [namespace](resources--aws_tgw_site--reference--group-001.md#canonical-10ed9937cf5b7e976965bde4988f01d268420b318daa4d7ad5067727ec17df31) |
-| `offline_survivability_mode` | [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-f0eac2e3c39277cb8020e491b2312dd937083c1b4c31e4ab2fd4185e3a320250) |
-| `offline_survivability_mode.enable_offline_survivability_mode` | [offline_survivability_mode.enable_offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-d2d553899274a4da3b1dcbc1a2eeb3eccf2d887bc1a7cdad98183b5652ec5716) |
-| `offline_survivability_mode.no_offline_survivability_mode` | [offline_survivability_mode.no_offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-64fd5c393616b0dd40f9f354898b531a46770d4119891be460c66c002a5149b7) |
-| `os` | [os](resources--aws_tgw_site--reference--group-002.md#canonical-8abc68ef5d6144c9ad6b9acf5479950114bd51be5f75ad84155e094839732c08) |
-| `os.default_os_version` | [os.default_os_version](resources--aws_tgw_site--reference--group-002.md#canonical-54e2bdf5129eea60196e53e828c20526ef7afb1c5fb2630d65c4abef08b85990) |
-| `os.operating_system_version` | [os.operating_system_version](resources--aws_tgw_site--reference--group-002.md#canonical-2c35bebd6b9e05ec8641085d1a61d6448432355f729aa5b15d0ca4f463d35166) |
-| `performance_enhancement_mode` | [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-0f751d74fe8b13aa6d549d56934e712be9ebad56ad44b3020cbdc6480769845a) |
-| `performance_enhancement_mode.perf_mode_l3_enhanced` | [performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_tgw_site--reference--group-002.md#canonical-cd76f68ac940084410d8945b328530d8aa2b304511795f379220c6ace1e9bfbc) |
-| `performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--aws_tgw_site--reference--group-002.md#canonical-5f8ae67e816e9ae0208416825b268df9d22689b8af3ae9e335dcfa46296a4f55) |
-| `performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--aws_tgw_site--reference--group-002.md#canonical-9245cb5bc3f298a3903e40687a5e39a382fa3df257e779db2e2bdb14e05800d5) |
-| `performance_enhancement_mode.perf_mode_l7_enhanced` | [performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_tgw_site--reference--group-002.md#canonical-c6579b5591458cc7d60a8bc113b794d17148e03359b09c33197471e4e22249c5) |
-| `performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-ee5fe3a4cf21407ed8cfe6ea778739757bbbce12a47f02a5b1777f968df41641) |
-| `performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-727be0eead130993e8ad1f234c4ee4dfb8a4effa172c7713259d1a67c9d61496) |
-| `private_connectivity` | [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-0e44d8f367a3dd341058d0f9af047fd63771d872e0cfe26499986d5462c83478) |
-| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](resources--aws_tgw_site--reference--group-002.md#canonical-d5e7365ab614ad33d0b97a329d5ff6de05b656b83fbe75c9249e5f6d68622b43) |
-| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](resources--aws_tgw_site--reference--group-002.md#canonical-2e8a982009f56602e4376f38a368756b78a25007cc565047caaf415bbee167fc) |
-| `private_connectivity.cloud_link.namespace` | [private_connectivity.cloud_link.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-07b3da90560b7935051a2bb8181a94283367c15b4ee869e047bc7b95d4e2289f) |
-| `private_connectivity.cloud_link.tenant` | [private_connectivity.cloud_link.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-b0d4bfb91c2a372493933c046495aba56f1663046531b79adea1be5cf8f2f698) |
-| `private_connectivity.inside` | [private_connectivity.inside](resources--aws_tgw_site--reference--group-002.md#canonical-faa8d5c50ac1ce021302bfce8278aefdf1bd5ea849892e84f98580ebf0569d70) |
-| `private_connectivity.outside` | [private_connectivity.outside](resources--aws_tgw_site--reference--group-002.md#canonical-c4a2c241d523a5b606d2bb7d43a91a029b8a2876ec9ed3cdf91f1649afab8ead) |
-| `sw` | [sw](resources--aws_tgw_site--reference--group-002.md#canonical-688e5f8d462864c3a29ffd340314a04cbfc5ff2479892e76f2568ef428bc909e) |
-| `sw.default_sw_version` | [sw.default_sw_version](resources--aws_tgw_site--reference--group-002.md#canonical-bde73d3e70e7ce34013056d02dcb38f064825997d17a0747978e2c9018304a6e) |
-| `sw.volterra_software_version` | [sw.volterra_software_version](resources--aws_tgw_site--reference--group-002.md#canonical-79e6354f473ec8351bb7d621cf866612679e58b72602a1331b549cad572e9bb9) |
-| `tags` | [tags](resources--aws_tgw_site--reference--group-001.md#canonical-56c105f82e5b3804d787b967ec605a02d4b533cb7f65cd0d1415a422f034dbe5) |
-| `tgw_security` | [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-76d50759ef620219023b57f8f9583cce4c1c3ed0cbe324c1912f1787d543ca47) |
-| `tgw_security.active_east_west_service_policies` | [tgw_security.active_east_west_service_policies](resources--aws_tgw_site--reference--group-002.md#canonical-546c58bb71187c8cf2e0de09dcb75b70f03fa5325839abed1fb0ef75d35a44a9) |
-| `tgw_security.active_east_west_service_policies.service_policies` | [tgw_security.active_east_west_service_policies.service_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0e1fef266b64f42d251c4c36e0d13548fcf2407bdc2b15459d59f9a383eed0bf) |
-| `tgw_security.active_east_west_service_policies.service_policies.name` | [tgw_security.active_east_west_service_policies.service_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-1e286906324dce3b16e33b7d0f981a900e9849f02bf96721198ced1bc2d39497) |
-| `tgw_security.active_east_west_service_policies.service_policies.namespace` | [tgw_security.active_east_west_service_policies.service_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-bbcbe9abcc3c3b42d5567a35fb6ac48acba84e299e077e8915edfe7a5a73bfdd) |
-| `tgw_security.active_east_west_service_policies.service_policies.tenant` | [tgw_security.active_east_west_service_policies.service_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-63d2d93b6279117fd3b963635bb0dfe2b2948b87d5fbc3236d17a59a42a0e4b8) |
-| `tgw_security.active_enhanced_firewall_policies` | [tgw_security.active_enhanced_firewall_policies](resources--aws_tgw_site--reference--group-002.md#canonical-2b2541ae92baee7770f500699975dabe117ca66edff058e711daef0f8d25958f) |
-| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies](resources--aws_tgw_site--reference--group-002.md#canonical-1f367bba8542016b47dadd0240aba83003c76685b48709f22e3d2d4ab95c7a49) |
-| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-02f7daa8c1a2549edbe8bc7937098b8f1d9b768f1a59d847fef008c353a1f0d4) |
-| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-78b76582ef8c063e185cce4c0f9d01e09fe2e79ef2dc08a88d7f794f3ee393b3) |
-| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-fcca5b445a3e57dbb75f28ecd7d29ed88cf8309704e05c044074afdb9da7cdec) |
-| `tgw_security.active_forward_proxy_policies` | [tgw_security.active_forward_proxy_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0f7d3b567a14a0bf518148dba55bef2c8f54e0f14e109024d84c816f76fde0e1) |
-| `tgw_security.active_forward_proxy_policies.forward_proxy_policies` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies](resources--aws_tgw_site--reference--group-002.md#canonical-181a240d439c37f404932563ba560731d1a451fe7c56f4a95442c67b0a4fd55a) |
-| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.name` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-f818aa3cb150cc044405927ba334aaa6ce46a7dc64234b262a320d2504c5de69) |
-| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.namespace` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-81704ea759db82e2279ceeef6a5fac7f95200bbf37d67b7fcfa000a9c447655c) |
-| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.tenant` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-bcb1109912269e993776ff0c81a55eeb8126a5883b9b8d8a2a6336ed1a146d51) |
-| `tgw_security.active_network_policies` | [tgw_security.active_network_policies](resources--aws_tgw_site--reference--group-002.md#canonical-47c1bb875fb6eb216f7fcc4babee0a94f7db2d8a8e2753e86755ff0c439d8d7c) |
-| `tgw_security.active_network_policies.network_policies` | [tgw_security.active_network_policies.network_policies](resources--aws_tgw_site--reference--group-002.md#canonical-fa35526f956abd6e5bf2b15c578f3193119a846574b4c38b0c9de42dccd381ef) |
-| `tgw_security.active_network_policies.network_policies.name` | [tgw_security.active_network_policies.network_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-8110123b6d20e7f94aae25c16aa22373bd3a2c08ce37f8b2f75474a147c73700) |
-| `tgw_security.active_network_policies.network_policies.namespace` | [tgw_security.active_network_policies.network_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-ed4c08fd4e2ed13f698752d72e4539bbacd5de3719abc9902aae8b7c598cb9c4) |
-| `tgw_security.active_network_policies.network_policies.tenant` | [tgw_security.active_network_policies.network_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-0b27c45cd488e53df91cb0eac6e9470ce63d51250e3b39d6cbf09ada0f311d8b) |
-| `tgw_security.east_west_service_policy_allow_all` | [tgw_security.east_west_service_policy_allow_all](resources--aws_tgw_site--reference--group-002.md#canonical-ac04e59c692ab1bd6136a083e7424b87d913a586a319177f4afe1cb301ac4d0b) |
-| `tgw_security.forward_proxy_allow_all` | [tgw_security.forward_proxy_allow_all](resources--aws_tgw_site--reference--group-002.md#canonical-bf0dd5e4aa6889bcc4dc270207578b0c1486fcaa37be5c9c70777d813ed6c1b2) |
-| `tgw_security.no_east_west_policy` | [tgw_security.no_east_west_policy](resources--aws_tgw_site--reference--group-002.md#canonical-3b2e7305066ac0cdc6dd6d0a2ffd0476908542f5c39c295dfa26a7641b4a07fa) |
-| `tgw_security.no_forward_proxy` | [tgw_security.no_forward_proxy](resources--aws_tgw_site--reference--group-002.md#canonical-410e6710d0c426ef3181f220c73abcd483f68f7329720910210602ebe8b21e72) |
-| `tgw_security.no_network_policy` | [tgw_security.no_network_policy](resources--aws_tgw_site--reference--group-002.md#canonical-3ed71b92661bfefdd4075e100aac67ff5c8fd7a566ebe4c48374d12494572270) |
-| `timeouts` | [timeouts](resources--aws_tgw_site--reference--group-002.md#canonical-41f232eeea5a1df0a1a020c28d487fe0038c962e99dcf7fc2bec4cb43848e39d) |
-| `timeouts.create` | [timeouts.create](resources--aws_tgw_site--reference--group-002.md#canonical-aed28684150ff33be4d7796a79d3972a2d5895ae3c3bbafccd368c20c0686048) |
-| `timeouts.delete` | [timeouts.delete](resources--aws_tgw_site--reference--group-002.md#canonical-cf79cf44a96147795771fda0526b1c0d95dd9935b8cec60de5b59be6c5e2b6f5) |
-| `timeouts.read` | [timeouts.read](resources--aws_tgw_site--reference--group-002.md#canonical-36844258841e6e8daec6432c8c19deb7edd884c8dfa326170c0f1a2bf9502a08) |
-| `timeouts.update` | [timeouts.update](resources--aws_tgw_site--reference--group-002.md#canonical-e5e6c84241cdff0d268ddf93b621331978ac3c7fe4da94a8555ca571fc64657b) |
-| `vn_config` | [vn_config](resources--aws_tgw_site--reference--group-002.md#canonical-2d9d64fb77b97c6f1294b2d91695434a49cbb6efba293b7a88503902791d127a) |
-| `vn_config.allowed_vip_port` | [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3a6f8b9cae264f949303180413bbf7a52575cdd9ebc8c79c1d9ddb01f9f0c927) |
-| `vn_config.allowed_vip_port.custom_ports` | [vn_config.allowed_vip_port.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-a4a61d6c084e6d4861b8dacf869d4a92901320edb1e37b1c0fd7a086bbd6a455) |
-| `vn_config.allowed_vip_port.custom_ports.port_ranges` | [vn_config.allowed_vip_port.custom_ports.port_ranges](resources--aws_tgw_site--reference--group-003.md#canonical-0ad6517e5187bbdac18c59b1cb66d3d2431abc45f4f2fc3d136b9f105423be0a) |
-| `vn_config.allowed_vip_port.disable_allowed_vip_port` | [vn_config.allowed_vip_port.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-ca6cc2ac5593cd01cc77981d09bd43cd805c49dc8eccfcdfaedbbd21bd48f762) |
-| `vn_config.allowed_vip_port.use_http_https_port` | [vn_config.allowed_vip_port.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-ca2d97ad209edeb8d550b7d897195e30dd36efa8b9b275f425ab079b0f61ef4f) |
-| `vn_config.allowed_vip_port.use_http_port` | [vn_config.allowed_vip_port.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-613a685dac6043a8f4f6ab107b38b57e4348dee7b6258b628215cd6aba386d2b) |
-| `vn_config.allowed_vip_port.use_https_port` | [vn_config.allowed_vip_port.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-2ca78f0ff3515f2b3a1f5cd5ed2bcc2c4f4e4542bc11b04b893ba6e32f65faf2) |
-| `vn_config.allowed_vip_port_sli` | [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-ad51201dfcdfc13578233e5cde7d14f603c24abb79768cfdf2812a4312c849b4) |
-| `vn_config.allowed_vip_port_sli.custom_ports` | [vn_config.allowed_vip_port_sli.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-4b1d99a9291c2d1ec427d94b06de02845bd1299ade1186d0fb26341a3096c14c) |
-| `vn_config.allowed_vip_port_sli.custom_ports.port_ranges` | [vn_config.allowed_vip_port_sli.custom_ports.port_ranges](resources--aws_tgw_site--reference--group-003.md#canonical-0dd27f44b80cbd3f01cd429789897d3931878363e88a8bd2b215ee8e969028c9) |
-| `vn_config.allowed_vip_port_sli.disable_allowed_vip_port` | [vn_config.allowed_vip_port_sli.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-2a553c75361f0add0104d8602b968fadd30eb0ed204339022383847cfc156b8a) |
-| `vn_config.allowed_vip_port_sli.use_http_https_port` | [vn_config.allowed_vip_port_sli.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-5b4faa612541843bf9e4df1263f8669f12e2497b815fadfdb2ae0de6e5bad6d0) |
-| `vn_config.allowed_vip_port_sli.use_http_port` | [vn_config.allowed_vip_port_sli.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-8c4aedd707bb0c993bc113bf69942b21e18e89e9b060fa4b43b48ef87635e1ea) |
-| `vn_config.allowed_vip_port_sli.use_https_port` | [vn_config.allowed_vip_port_sli.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-cbb22e0d5930a60ccb875d5e6955225e0014a779e1c4b6d2467275b1321552a1) |
-| `vn_config.dc_cluster_group_inside_vn` | [vn_config.dc_cluster_group_inside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-32b5d510ca4d7dd340a778452f046ebae147467f1eaeb52fc8b42251ae4f7953) |
-| `vn_config.dc_cluster_group_inside_vn.name` | [vn_config.dc_cluster_group_inside_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-33a76fbf3b2176dff8855a7abe1503cd32af824e2d543d1ea1475b8f9c98936f) |
-| `vn_config.dc_cluster_group_inside_vn.namespace` | [vn_config.dc_cluster_group_inside_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-5aea276ec576d450ec1352ee0393948cb1cf60a57696fff9dfc09a75c431b66a) |
-| `vn_config.dc_cluster_group_inside_vn.tenant` | [vn_config.dc_cluster_group_inside_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-0b73b1aabbf68a4f05b02d1baa79805eee6a8bb4e4233cc446b5818b5a9493f1) |
-| `vn_config.dc_cluster_group_outside_vn` | [vn_config.dc_cluster_group_outside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0b97b402fe8921d8338faa719c984a3c38e46efbd16c1e78662e20340f66ca50) |
-| `vn_config.dc_cluster_group_outside_vn.name` | [vn_config.dc_cluster_group_outside_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-631a660b961c0a07c29866c641aaede62b75957b7c7cef385252ca4ce81e2633) |
-| `vn_config.dc_cluster_group_outside_vn.namespace` | [vn_config.dc_cluster_group_outside_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-20813f8aacf05df081eb1b48f584619ec980826dd15b71a5b33109e28025d9cc) |
-| `vn_config.dc_cluster_group_outside_vn.tenant` | [vn_config.dc_cluster_group_outside_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-daee89284ae1e9d08d0d825dbe7c7544944d5f375448001fc500bff13cb3306e) |
-| `vn_config.global_network_list` | [vn_config.global_network_list](resources--aws_tgw_site--reference--group-003.md#canonical-9be859efac131b19296b21f17afe56fa2ee646558ed8e588e6da15241b9bf68c) |
-| `vn_config.global_network_list.global_network_connections` | [vn_config.global_network_list.global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-37ea0243159277f22c59c0c97a84c938f112aa88f7c72487d264cbe2c5b886aa) |
-| `vn_config.global_network_list.global_network_connections.sli_to_global_dr` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-45056b4c42ef5d1bed309f07f9249cffe13ae4396c1d24150d74c1f518241a4e) |
-| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-e52ca3b1482b677725071f34650551ffac08cda0acf90380db7acdc3f0ab12d0) |
-| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-230fefb0eabe1fd4d7b640e5ea954a6a1f365c2a1c66bc6392dc2dbc8faf4593) |
-| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-a1f80918bc704635371ead6c736b70c21018657a837c30ce15e479f02a85f60e) |
-| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-6660550b14502c1f18b78136ee16c5c7b4c8318bdbc926889d44bceb0195b282) |
-| `vn_config.global_network_list.global_network_connections.slo_to_global_dr` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-4b220696ec5e61951cba0de0b449596e66c75705eb5910e5b6664dabfbb3b53f) |
-| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0dbd6d4cc42a533d46891f925bb369b8e105d1a7bf9081c8083dc6fc99d7c4d2) |
-| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-3d0d1c1c9e0557b70a1856e764b807e0cb10c23296fd74ffec02fcc685542b89) |
-| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-e735588c4b37f5d440c48cc3504c46265716e6f132fff7f1c0a71042fc367d59) |
-| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-34667d990cc7695a7d55bb87909d9c354cbc729d541eeca24bfd2a7b8071790b) |
-| `vn_config.inside_static_routes` | [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-e9d4c945d12a5181370ebf86c118bdd8e4f7fbc7d13111b80e88b55fca9eee7d) |
-| `vn_config.inside_static_routes.static_route_list` | [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-bf19c8f28b7dae1f59db06764aed1a0773128a91f6e449a46554812b06ca021e) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route` | [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-141186e7f666d11a3865c5cfc02f44fa04e72a2b46b8521306440bde02914f21) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.attrs` | [vn_config.inside_static_routes.static_route_list.custom_static_route.attrs](resources--aws_tgw_site--reference--group-003.md#canonical-572b299eac60cccc24853cdd3b6892a8ba2a515cbf6e1964b47a191eb5eccde0) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.labels` | [vn_config.inside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-610d9be4e688527a47eabb299762d250e4838b41b5878d842a54fc8e866d1272) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1a5378682ba319746be5cfbd653c6626a4c5ba467a22fd725a77a5e19f5d8a28) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-c442b7d2c1e6a739aa08398a51eb6169af8e23191f60666a95ee2c1bd7b6de45) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](resources--aws_tgw_site--reference--group-003.md#canonical-cc0170fdea027451204c999f65449366aa6a9720f33c0e1bb797b7a39c5e3f92) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](resources--aws_tgw_site--reference--group-003.md#canonical-409ced29e2a7d0ad5c3a0f8f060ffd3534e2ea34935dff79b70ab6ec89781ad9) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-202bc5bcabe4198cec8dada5e13538496d823d23f83dc8779ca00a4757724ba7) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-cd4b8565bce845d3facb25c085ebf37b5d44b326b01ba4b13e41d21fb6d730f1) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](resources--aws_tgw_site--reference--group-003.md#canonical-e9150d09a3fcc16036cf3a8a6e4758c245190348a8dc598372b839b16cb2708e) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-6fdde452222857aaf8b5591fb0a5bc6fe84a178ee96748079c9bcce287f1622d) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-b06fb45f3fbd999f7b657fb0201a9b299e8dc2545d5ba97f7aafff1e76c178e5) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-fa98f7e17063309afd487927be49b9a72b18596a8ef629f336f48cd261b21d97) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-950a7b17480e5e5da9a6acfafc3bae9976975acb9b3f1f3b48ea46e56412af7d) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-6677f3ad5914da54fa17c8fc7c4f984e6d8ca31468552a5b067b343bebb319e9) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](resources--aws_tgw_site--reference--group-003.md#canonical-2347ace543598f690061418e3114ca656abd2835aef1d4141498e536fde05555) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-4badde14e648b4191aa9707927d54195111403f3b0d1fab305e45be7325e6353) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-ca08830ceb6ffbed250e9d2778d171926c21078bd4a80af02ac6bb38a8c1e889) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-46d9ae94dde00ec53495c90c2fcfbee6776bfb73a02401627885e96232c1c44a) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](resources--aws_tgw_site--reference--group-003.md#canonical-ad798ae0ad4ba2228a678866b1cbf19b999cabe5ae3ea83c1176f50aff80169c) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.type` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.type](resources--aws_tgw_site--reference--group-003.md#canonical-59f88511c1940c8fa795f8e6203e361f9a13167488f096dbd72bf61244f2a5d3) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-f301e050e8b2a057dd0ce5e28e620dab933507eb388ce16a0b992c44a589b345) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-2c6b9bdcd7ed16bc708705eda94c8cb275e0f7484aa0f5f38f874e4499e0f09d) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](resources--aws_tgw_site--reference--group-003.md#canonical-fa671e65d6fe8bfbb3fcffd84eea55b564a30c6a0c62b9ea7b8f8c7104ec52b9) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](resources--aws_tgw_site--reference--group-003.md#canonical-7cf6bd6a144249fe1ee478d11e0a5fcd2284984b88679adcc552e91eae6ed3fc) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-d8c496090d0285aedc798d5a8ea8da20df42e86dedebaf554b72656909ad1043) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](resources--aws_tgw_site--reference--group-003.md#canonical-d426422583334276659c5d9f22a0cee49e81a401c096f546c4b5ce7998ae82b1) |
-| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](resources--aws_tgw_site--reference--group-003.md#canonical-7f1ef5e41197fc018f3679821dd6ccbd30d9ac9aaba962148e4ca2864503f934) |
-| `vn_config.inside_static_routes.static_route_list.simple_static_route` | [vn_config.inside_static_routes.static_route_list.simple_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-f9c87c320f33f80c511b8cd297c5d1090e2bda0d656418e2e7d2efdedc556e6f) |
-| `vn_config.no_dc_cluster_group` | [vn_config.no_dc_cluster_group](resources--aws_tgw_site--reference--group-003.md#canonical-9710f656b3aef731f795ba0202544316d932aa24090d85645f324adbc0e365e2) |
-| `vn_config.no_global_network` | [vn_config.no_global_network](resources--aws_tgw_site--reference--group-003.md#canonical-a987642426f88fce3124633f56616d897e642eb771d8c9e239bbad1c0b7be533) |
-| `vn_config.no_inside_static_routes` | [vn_config.no_inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-e375cdada23bca0526a524b50d8350af8e96e925797f60c37d5ba7ab959740bd) |
-| `vn_config.no_outside_static_routes` | [vn_config.no_outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-c2df28f72af3d73a7a97eeaa0310c808eeda847d095e385bc98235a4d5a4fe6a) |
-| `vn_config.outside_static_routes` | [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-ae75c78654be04a04bb78c2e12956605a360a6da1059caa087e36869721ee7bc) |
-| `vn_config.outside_static_routes.static_route_list` | [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-2574ced6230122eec924c58971ef5a92ae3973866a065cf35d88a6d3c54dd9cb) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route` | [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-c99557f3aecc77b94fa554eff001598cee0aa1431943086473f1a9bcb2133f44) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.attrs` | [vn_config.outside_static_routes.static_route_list.custom_static_route.attrs](resources--aws_tgw_site--reference--group-003.md#canonical-0356635cc6e94e850a41a0613ff6d3bc7eeabfc9e29fd04c674cd88d44ea9bf7) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.labels` | [vn_config.outside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-7eab1046c2093f6e8a2c4830fed40c59809444adebe8a97688035749f0431aa4) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-f929093866295e582cc6ddb53980e2feba810b8f03bc399dc0a66c5cbfe8459d) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-19fb2219bd74230573241ab403a66ce7e539a420a60ec015a680c1b408609715) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](resources--aws_tgw_site--reference--group-003.md#canonical-e90bbdfe1bf893fd4d319b5ee61f13528a408b7fbe3c1021cb2c033690a0d98f) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](resources--aws_tgw_site--reference--group-003.md#canonical-0c1fa5b5b610f34dcf2f315a21051f9fa7d3615ee190d22a66c34c252f12851e) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-3c2991b34c5f19b034e9ef8cf785b02a2803416fc496917f993f23bfec25face) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-42847b715c59efd84e8f90e51be2555503d449880c4d2a2b0dbf1f3e6f1fb4d1) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](resources--aws_tgw_site--reference--group-003.md#canonical-3b86f7c8f475cf5d9d5eb5f315659db2a0bb1a16517787fc07d8f5f98b54b3ee) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-e5ba286e4dc29ebefe41341ab7ef302cf9733e34198d930a71827a8f180d1f4e) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-84cce9475c09d37e14b426fb590cda20187317b6689b3a125ff30973b6877454) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-1afa34227b64774358f4c6e24f04b388649bb7c04ddecfbce973f212b30fe780) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-1e330e171479ef688aca97d6f3d87738be6f6c62329b59c0b30ec147d4be57d7) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-d327fbd44591de809be627924f7b66c17ef88823d75ae436a2824cb51c936e25) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](resources--aws_tgw_site--reference--group-003.md#canonical-c0aa458f3714b91a916a4bf352eeb257c4111282b25e1515dc216c6c88c7638c) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-0a4b8f0d71bc907a1f25c361776aa1c65f5e0074b8ca8c8bf67ceae32f6a91a6) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-c63983ec42e1d46c32d1437a2a6d53f45c17f64fbd941e3b89aeb13e607f01d5) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_tgw_site--reference--group-004.md#canonical-d4b199f18d955fd86b070279e4b5d070aa5d70fea944727fde8e175881b5e61a) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](resources--aws_tgw_site--reference--group-004.md#canonical-daedee21f2b82700145605c74a12ee3883e52dcb9d0cada80f2ea68f694092e1) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.type](resources--aws_tgw_site--reference--group-003.md#canonical-5a2fb32d22e4ff942f51852df057470036d84734236d8a953bcc9650979a3ea3) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-004.md#canonical-cffde52c11e4ec77a0ffea28fcebd409e94ba14e97284057a8f3134dee329ef1) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_tgw_site--reference--group-004.md#canonical-3bb4c4b68dbb1b8428aa0f2e2dada765e72f4eab37dc7d0cb1796cc258cd67ca) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](resources--aws_tgw_site--reference--group-004.md#canonical-6e12564e2e26cfce4ac2889ffbb118c8c5551e2121de7cc07fd3f3eb3443c9a9) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](resources--aws_tgw_site--reference--group-004.md#canonical-d32b7ca202631164c4c8c108461db5c41bc3e675b00d2498f89849a007d3645b) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_tgw_site--reference--group-004.md#canonical-4bbba6f398597b9013af3d3e77324a2b0eca83fcbc8cc97dff409822d66446ce) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](resources--aws_tgw_site--reference--group-004.md#canonical-1e6a24e125335c225e163e83a846e4cc14219ddfa4090af2634d82e4306c9ebb) |
-| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](resources--aws_tgw_site--reference--group-004.md#canonical-d5d7b44bf5c7f514bc820ecf98b92987ffc639042b047e6795380ec138dfb1e9) |
-| `vn_config.outside_static_routes.static_route_list.simple_static_route` | [vn_config.outside_static_routes.static_route_list.simple_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-e8a1ff8dfedac86e4affc2ad0abc5bd31b3150e158ead546be5dbbcf20b54e89) |
-| `vn_config.sm_connection_public_ip` | [vn_config.sm_connection_public_ip](resources--aws_tgw_site--reference--group-004.md#canonical-62934311464c78654206088afcad0e66574bc52752dfbd07e6237934a5b3b17a) |
-| `vn_config.sm_connection_pvt_ip` | [vn_config.sm_connection_pvt_ip](resources--aws_tgw_site--reference--group-004.md#canonical-c1a93302970bffa7d1c78b6891b41c0cfc2bc5fe9c1d75f09afb4763c25ade09) |
-| `vpc_attachments` | [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-bce0d35c2b76f1d20d33b4f67b533b620e7758adb0eae939a5d0a9d989834d5e) |
-| `vpc_attachments.vpc_list` | [vpc_attachments.vpc_list](resources--aws_tgw_site--reference--group-004.md#canonical-64e51b24a01c68a625a6ce81995a1274e5be7c48822cf59ddfe5e2282aa55e68) |
-| `vpc_attachments.vpc_list.labels` | [vpc_attachments.vpc_list.labels](resources--aws_tgw_site--reference--group-004.md#canonical-e41605155bcea2cdd94df0e6f184d47db2e624175241c3f3941c25ee6f9f2822) |
-| `vpc_attachments.vpc_list.vpc_id` | [vpc_attachments.vpc_list.vpc_id](resources--aws_tgw_site--reference--group-004.md#canonical-e0043c45eb68468b70a72db18dd59949567ad5a7309ad2bbf28db29944ac2fab) |
-| `waf_signatures` | [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-ea9e313c1fd8aba779020efd5a0f862c453f8cbffa600e7e2d723416b917abed) |
-| `waf_signatures.automatic` | [waf_signatures.automatic](resources--aws_tgw_site--reference--group-004.md#canonical-37f040218e8a7bd1a144d6c14bba7ab887b37a8791ed9e1ecd6fb8198cb87ae7) |
-| `waf_signatures.manual` | [waf_signatures.manual](resources--aws_tgw_site--reference--group-004.md#canonical-06472057b4314a3c5613b1ee1254a6d14e3c15386a27d2f6f2ec773a252689a3) |
+| `annotations` | [annotations](resources--aws_tgw_site--reference--group-001.md#canonical-0022302130100131-3313303302012100-3313302002203233-1010322210323200-3110222302320302-3022233123333333-0320301333221220-3322321033313310) |
+| `aws_parameters` | [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2320313303213230-0001313321120112-3320121311232221-0023233120021303-0201303023333210-0111222203013200-2232103003000221-2113211211012122) |
+| `aws_parameters.admin_password` | [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-1013333212210132-2113020132003113-3202320333103133-0202000022220133-3231131331233301-2030030311231131-2122302220130202-1222231220012113) |
+| `aws_parameters.admin_password.blindfold_secret_info` | [aws_parameters.admin_password.blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-1022312320122023-2303103323112111-3332331301012102-3322102000221012-0313032120200113-3211103132333301-3113321231212311-2001233002202113) |
+| `aws_parameters.admin_password.blindfold_secret_info.decryption_provider` | [aws_parameters.admin_password.blindfold_secret_info.decryption_provider](resources--aws_tgw_site--reference--group-001.md#canonical-0300121232211101-0030011201000131-3110000020032100-3332203303312312-0333211022030110-1220011230232021-0010323320323001-0030023300221333) |
+| `aws_parameters.admin_password.blindfold_secret_info.location` | [aws_parameters.admin_password.blindfold_secret_info.location](resources--aws_tgw_site--reference--group-001.md#canonical-2100020320203101-2313033213323100-3200011320023303-1101132231222021-2102311200333123-1123122110322132-3130203212121023-1112211331110000) |
+| `aws_parameters.admin_password.blindfold_secret_info.store_provider` | [aws_parameters.admin_password.blindfold_secret_info.store_provider](resources--aws_tgw_site--reference--group-001.md#canonical-3200100313323332-3133032132032201-0301330221221332-0333333012030203-3010320032313320-3000101010320311-2103333213220022-3211200213103110) |
+| `aws_parameters.admin_password.clear_secret_info` | [aws_parameters.admin_password.clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-2111222133222033-2011002113331213-2200100102213331-0212333033320232-2232003113111212-3301003312021202-1012131221111232-2213000332030202) |
+| `aws_parameters.admin_password.clear_secret_info.provider_ref` | [aws_parameters.admin_password.clear_secret_info.provider_ref](resources--aws_tgw_site--reference--group-001.md#canonical-2321200220223022-2222212023120301-1202301123210223-2113223231032021-3112212330112320-0213203322023231-2131223022333330-2013201113033101) |
+| `aws_parameters.admin_password.clear_secret_info.url` | [aws_parameters.admin_password.clear_secret_info.url](resources--aws_tgw_site--reference--group-001.md#canonical-2301213321132320-3323303330301102-2030200020231311-1233031302201123-2300313102333032-0013032232333230-3321220121300000-2011022231220333) |
+| `aws_parameters.aws_cred` | [aws_parameters.aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-2233233113100032-0201022203031130-0122222132002002-3213331333100130-3023312203302013-3333111301123023-0023223202023032-0023302303222031) |
+| `aws_parameters.aws_cred.name` | [aws_parameters.aws_cred.name](resources--aws_tgw_site--reference--group-001.md#canonical-2222002012302011-1122023323113011-2100122012230123-2201131200003031-1132320213321230-3311030201121102-0330101200320301-2022230321213012) |
+| `aws_parameters.aws_cred.namespace` | [aws_parameters.aws_cred.namespace](resources--aws_tgw_site--reference--group-001.md#canonical-0310123300232330-0023232120232001-3212313113312203-3330100131302330-3103022010220121-2313033212221321-3012121112011020-2221133220210131) |
+| `aws_parameters.aws_cred.tenant` | [aws_parameters.aws_cred.tenant](resources--aws_tgw_site--reference--group-001.md#canonical-3231333223323012-2211202102121002-1210332031001313-1303132133221310-0000323323203221-0222301110301211-2333033023310203-1321132030232101) |
+| `aws_parameters.aws_region` | [aws_parameters.aws_region](resources--aws_tgw_site--reference--group-001.md#canonical-3312123123233201-0122110220031001-1203201230012111-2101033213131023-1033113331300200-1300210130302311-2210010012211010-0000133212111121) |
+| `aws_parameters.az_nodes` | [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-3323022333231001-3130003120022323-2010303312000303-1231022001333302-1000130113313000-0003001101331032-0021123000223011-3223022112323311) |
+| `aws_parameters.az_nodes.aws_az_name` | [aws_parameters.az_nodes.aws_az_name](resources--aws_tgw_site--reference--group-001.md#canonical-1012030312111120-1030033021223300-2320231023100003-2132210111322123-1020002030201133-3000302200111001-2303022223122213-2102320313033222) |
+| `aws_parameters.az_nodes.inside_subnet` | [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2321010031302032-1310031213133333-2020133002023220-0111020112013002-1033101111120332-3230030023231030-2201203322203012-2123002100200011) |
+| `aws_parameters.az_nodes.inside_subnet.existing_subnet_id` | [aws_parameters.az_nodes.inside_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-1031321212232331-0030201301102203-0313321120203311-1110100323302233-2131303220103030-2130031322132231-0001031113322002-2311001010323131) |
+| `aws_parameters.az_nodes.inside_subnet.subnet_param` | [aws_parameters.az_nodes.inside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-2113313100022212-2222103332300313-1302213332222023-1231032232011313-2323110002122022-2112022310203123-3212002002022220-3110310131110032) |
+| `aws_parameters.az_nodes.inside_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.inside_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-1301123000130032-0102101120213233-3011312201202200-2031321230020212-1110233031133112-2121002123320201-0111301023333021-1121203210201030) |
+| `aws_parameters.az_nodes.outside_subnet` | [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0010211200331010-0210310223003110-2310130030100100-2030333020022022-1011301300120103-0032332003302020-0100033101301220-2323303323212000) |
+| `aws_parameters.az_nodes.outside_subnet.existing_subnet_id` | [aws_parameters.az_nodes.outside_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-2300311121033220-0031011300302113-1123011322233222-2022021222200101-3101102112033211-1330211212122220-1101020023112320-2223302212312021) |
+| `aws_parameters.az_nodes.outside_subnet.subnet_param` | [aws_parameters.az_nodes.outside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0113203113012330-3321013201201131-1310202333301132-1101030121010331-3203300122000202-3003220111330023-1303232022021112-0032233310301211) |
+| `aws_parameters.az_nodes.outside_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.outside_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-0111311133303133-0022332020223211-1101301230321002-2111300022021312-2000123120322003-3102023131212300-3023131311101102-3102310100002110) |
+| `aws_parameters.az_nodes.reserved_inside_subnet` | [aws_parameters.az_nodes.reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2210332001131001-2100203001320031-3312321113332121-1321222330300203-3223100201312332-3203130132211020-0333030212330330-0131121220013233) |
+| `aws_parameters.az_nodes.workload_subnet` | [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-3221221122222330-0131322203023032-2032122131312330-3231321301333113-1003103002131212-3201312012320032-3001212331322101-3202222102001000) |
+| `aws_parameters.az_nodes.workload_subnet.existing_subnet_id` | [aws_parameters.az_nodes.workload_subnet.existing_subnet_id](resources--aws_tgw_site--reference--group-001.md#canonical-1013121112232300-2312201321123322-3020202212032213-2320303123101001-3002233313033110-3010113110123212-0322011233303323-2020010232033310) |
+| `aws_parameters.az_nodes.workload_subnet.subnet_param` | [aws_parameters.az_nodes.workload_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0023011230113121-3123233010303310-1130021023100002-2230120322303120-1230211120333223-2332330200222101-1010021320220312-2311030002123210) |
+| `aws_parameters.az_nodes.workload_subnet.subnet_param.ipv4` | [aws_parameters.az_nodes.workload_subnet.subnet_param.ipv4](resources--aws_tgw_site--reference--group-001.md#canonical-0121030331313110-0121232222020130-1230322120310323-3030103212222233-2003011031312200-2201221210130130-1330002223100232-3031203111113302) |
+| `aws_parameters.custom_security_group` | [aws_parameters.custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-3100211220330203-3212203213222111-1113200212122020-0333000030223231-2332102013230202-1322311003201321-0322221110231020-3000012212002033) |
+| `aws_parameters.custom_security_group.inside_security_group_id` | [aws_parameters.custom_security_group.inside_security_group_id](resources--aws_tgw_site--reference--group-001.md#canonical-3032323303231200-2033121210030023-2132230201323200-1222322013031213-2022112313131333-3323121123233101-0001023120220303-2022220113201320) |
+| `aws_parameters.custom_security_group.outside_security_group_id` | [aws_parameters.custom_security_group.outside_security_group_id](resources--aws_tgw_site--reference--group-001.md#canonical-1303300010221133-1230100003101203-1223222012112221-3202211320122133-3311130133323202-3012230302302020-1123303020120231-1100131212321110) |
+| `aws_parameters.disable_encryption` | [aws_parameters.disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-0003200011233220-3022213033223110-2301231020101322-2133321023312300-3133332003010303-3111002321031312-2022113323110020-2032200330311003) |
+| `aws_parameters.disable_internet_vip` | [aws_parameters.disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-2232103300330330-0122322131032012-2201103313200001-2321331212203320-2102101313210200-3111323313322330-0000113222133220-2331030032322012) |
+| `aws_parameters.disk_size` | [aws_parameters.disk_size](resources--aws_tgw_site--reference--group-001.md#canonical-2130322022133132-2122321122303113-1030333013301221-2020330320233110-0031321322030232-3103222301220103-0321132210031322-3310232000023112) |
+| `aws_parameters.enable_encryption` | [aws_parameters.enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-0032300331232011-3210330133311013-3320121000121113-2220320222003302-2311303210033011-0330302311231033-2313320001320031-2230101310230320) |
+| `aws_parameters.enable_encryption.kms_key_id` | [aws_parameters.enable_encryption.kms_key_id](resources--aws_tgw_site--reference--group-001.md#canonical-1310331320212031-3332120112003010-1100222331220031-2132030330330311-0312232323323210-3031302101332111-1021303321021211-3131121300322330) |
+| `aws_parameters.enable_internet_vip` | [aws_parameters.enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-2023232211120123-1202211130323331-0100012221323323-1031033132132321-3212002320202132-2231002310321321-1302112323330111-3133220022132033) |
+| `aws_parameters.existing_tgw` | [aws_parameters.existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-3031331023112000-3331013023021131-3010021030110313-0313010021320131-2133000120112300-3033030312220010-0132000102230031-1222013210322310) |
+| `aws_parameters.existing_tgw.tgw_asn` | [aws_parameters.existing_tgw.tgw_asn](resources--aws_tgw_site--reference--group-001.md#canonical-3203230123233002-0330200111233121-3310011033220133-2212301211311310-1322203112311031-1130333223100032-3131012222131233-1221210020113331) |
+| `aws_parameters.existing_tgw.tgw_id` | [aws_parameters.existing_tgw.tgw_id](resources--aws_tgw_site--reference--group-001.md#canonical-1032231110133201-2111311220133120-2020200101323000-3300111133210312-2312023303211032-2120322022002011-3023203321030103-3301102112303103) |
+| `aws_parameters.existing_tgw.volterra_site_asn` | [aws_parameters.existing_tgw.volterra_site_asn](resources--aws_tgw_site--reference--group-001.md#canonical-3011300101110232-3113333330101231-3230201332211132-1120132221133111-3012010310301011-1112132331120113-0201333031201132-1011030211322132) |
+| `aws_parameters.f5xc_security_group` | [aws_parameters.f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-1110313013320312-0211222212133032-0212203000200113-3130100211330120-3132011322202330-3321020110130133-0331221323220210-0310011210122310) |
+| `aws_parameters.instance_type` | [aws_parameters.instance_type](resources--aws_tgw_site--reference--group-001.md#canonical-3013100213030221-1031233222320201-1223333331303103-0033320002121223-3320110022330200-3120012203010101-3130300020033301-3030122012000112) |
+| `aws_parameters.new_tgw` | [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-1122113321021233-3231023030212103-0311112330131103-1111203231301132-3033030021313321-2001132330011333-0331332011313301-0020123121231130) |
+| `aws_parameters.new_tgw.system_generated` | [aws_parameters.new_tgw.system_generated](resources--aws_tgw_site--reference--group-002.md#canonical-0111121102212333-0213012030310031-3030310222332333-3332300200303000-1113100212010122-1202123331013121-1321213111032012-3331003311210232) |
+| `aws_parameters.new_tgw.user_assigned` | [aws_parameters.new_tgw.user_assigned](resources--aws_tgw_site--reference--group-002.md#canonical-0330001111021200-3103321232303210-3331011223323012-1300120130320102-1213002312130202-0013030121002232-2120012033130313-0131122121103022) |
+| `aws_parameters.new_tgw.user_assigned.tgw_asn` | [aws_parameters.new_tgw.user_assigned.tgw_asn](resources--aws_tgw_site--reference--group-002.md#canonical-1011331022322102-3213010103332221-2130231022232013-3022211320330333-1133011200301013-3232230210123202-2111213323033120-0211033131113300) |
+| `aws_parameters.new_tgw.user_assigned.volterra_site_asn` | [aws_parameters.new_tgw.user_assigned.volterra_site_asn](resources--aws_tgw_site--reference--group-002.md#canonical-1232102011212333-3331120221333323-0303033233121113-2011012001312002-3303000130223213-3021030313232013-3320201231033030-2303021202332112) |
+| `aws_parameters.new_vpc` | [aws_parameters.new_vpc](resources--aws_tgw_site--reference--group-002.md#canonical-1310323200030310-1133330202021202-1100131023133332-3020003203323020-3211303000210113-1221203012121332-1212110132010031-0133330001030123) |
+| `aws_parameters.new_vpc.autogenerate` | [aws_parameters.new_vpc.autogenerate](resources--aws_tgw_site--reference--group-002.md#canonical-1030323220322200-1222101031101001-1101210132322011-2221103231200131-3130311101322132-2121213012112311-3231200030300203-1313220103131013) |
+| `aws_parameters.new_vpc.name_tag` | [aws_parameters.new_vpc.name_tag](resources--aws_tgw_site--reference--group-002.md#canonical-1212320211313121-2000132201323233-1333203221233220-1003203212223101-3223110010000032-3110111030322022-2331113201002103-3023102001333020) |
+| `aws_parameters.new_vpc.primary_ipv4` | [aws_parameters.new_vpc.primary_ipv4](resources--aws_tgw_site--reference--group-002.md#canonical-0202210203032333-1011320030010133-3231013110333120-2010202203131303-2201012311021020-0101021301220021-0312020002100113-2022221030022230) |
+| `aws_parameters.no_worker_nodes` | [aws_parameters.no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-2330102331213101-2132233231211011-1133011110121003-1212332313202320-0100102233212210-2131112012221122-2232210213100033-2221323320303322) |
+| `aws_parameters.nodes_per_az` | [aws_parameters.nodes_per_az](resources--aws_tgw_site--reference--group-001.md#canonical-1320001221222303-2010012230310233-1210302121012211-0012220101222101-0300122000320231-2021101112011331-0100202230002313-1103003303120311) |
+| `aws_parameters.reserved_tgw_cidr` | [aws_parameters.reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-0201133133111122-2313023300020033-2110120023221213-2212010103221203-3101130033022023-3323222110101132-0211321201221120-0223101021232022) |
+| `aws_parameters.ssh_key` | [aws_parameters.ssh_key](resources--aws_tgw_site--reference--group-001.md#canonical-2201103301200022-3230303231120232-1220020111021301-1023031323102101-2120110102111033-2223232220031130-0031001113031312-0320211011212321) |
+| `aws_parameters.tgw_cidr` | [aws_parameters.tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-1000130131132022-3233322210220011-1103322332231323-1303320000223000-1022130001331122-0001121303233233-1212203130132022-0130300223310110) |
+| `aws_parameters.tgw_cidr.ipv4` | [aws_parameters.tgw_cidr.ipv4](resources--aws_tgw_site--reference--group-002.md#canonical-3133113100200201-0002021100330001-3110231111202001-0231002303223302-1223112123332130-2200212313123322-1302320221101220-3020012303322023) |
+| `aws_parameters.total_nodes` | [aws_parameters.total_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-0330002120102212-0002102311111102-1313203223332120-1113112332001331-1130031321222310-0301331310133022-0123013221232131-2310211321231211) |
+| `aws_parameters.vpc_id` | [aws_parameters.vpc_id](resources--aws_tgw_site--reference--group-001.md#canonical-1021010223033300-2001012023101212-1020300323133013-1012303322331033-0321321203033113-2003110022311200-2222002333031212-1222231210021213) |
+| `block_all_services` | [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-2102122013330111-1010023202001123-2202113001233212-1001103032131210-1101003121133022-1001323233130310-3210010332121103-0232332110003011) |
+| `blocked_services` | [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-3302233010132223-0120213300333133-0303022322031213-0031121322002022-3032132110113103-1023021232102221-0132300011023001-0112123320221203) |
+| `blocked_services.blocked_service` | [blocked_services.blocked_service](resources--aws_tgw_site--reference--group-002.md#canonical-3232323021210320-2030120321131233-2200003200231311-1122202131000103-2232212322013320-0200123033321333-1000122113222002-3310110030110322) |
+| `blocked_services.blocked_service.dns` | [blocked_services.blocked_service.dns](resources--aws_tgw_site--reference--group-002.md#canonical-1202012320210102-2010111123230120-2210312110322221-1131322313023120-0220102223023011-2112231300121031-0320120011330122-0110230013010111) |
+| `blocked_services.blocked_service.network_type` | [blocked_services.blocked_service.network_type](resources--aws_tgw_site--reference--group-002.md#canonical-1311331023131303-3013131202132123-1001203333303330-0133312133021122-0230003012302303-1221003112120102-3200103113322303-1100221323121223) |
+| `blocked_services.blocked_service.ssh` | [blocked_services.blocked_service.ssh](resources--aws_tgw_site--reference--group-002.md#canonical-2300120013121203-0200230303333200-1130003323210323-3303110301202213-0232121120311210-2123313102331133-1322000313333232-2023333110333310) |
+| `blocked_services.blocked_service.web_user_interface` | [blocked_services.blocked_service.web_user_interface](resources--aws_tgw_site--reference--group-002.md#canonical-0100000011322010-0000112302101201-1033121000101300-2230123232130323-3033123132202010-1221222212321021-0033022102211230-2200202113103033) |
+| `coordinates` | [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-1322130112300230-2201202131210003-3110330212222003-3200131313331101-2031002300011121-0103333022000001-0101232323121033-3133102321032320) |
+| `coordinates.latitude` | [coordinates.latitude](resources--aws_tgw_site--reference--group-002.md#canonical-2203232223332003-3121331313020231-2202132302103223-3102212232003033-1132213210200031-1130232113120103-1110031111032030-1331031331120302) |
+| `coordinates.longitude` | [coordinates.longitude](resources--aws_tgw_site--reference--group-002.md#canonical-1203223312231130-1313333013331213-1203200202332120-1130002331110103-0030033320301123-1311332210123030-0132010103230102-1233033030311110) |
+| `custom_dns` | [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-3301212133232220-2000311102031332-2002222321000123-1123032130321021-1030202011310010-3222130302212312-3301212333220031-1330000221313110) |
+| `custom_dns.inside_nameserver` | [custom_dns.inside_nameserver](resources--aws_tgw_site--reference--group-002.md#canonical-3202031013002113-1220210120210232-2212103110111213-2211022200231223-1212201101222113-3301323311312122-3031311333221313-0322303120033321) |
+| `custom_dns.outside_nameserver` | [custom_dns.outside_nameserver](resources--aws_tgw_site--reference--group-002.md#canonical-1002100023101022-3013312000013012-2213111001322011-3231102000002022-1202021122303312-2120121203032222-0100231320212221-2133221001303032) |
+| `default_blocked_services` | [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-2000132300021100-3032231133121301-3320213021031121-3000122030011111-0212331022121323-3002011020221112-0222023233121020-3032212002101311) |
+| `description` | [description](resources--aws_tgw_site--reference--group-001.md#canonical-3131303101010321-1301133302311012-0000303112322110-3232100110123112-0121020132202310-1010101131031233-2310003002131033-2020121220203010) |
+| `direct_connect_disabled` | [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-3122301210323203-0212333020332103-3222231132103033-0120023200212032-1133103322211222-1022132010311032-1113200013022001-2103001020300111) |
+| `direct_connect_enabled` | [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-0101210101031120-0031320100323200-0003123032213330-2111000120012310-3013021323212201-2113331121220033-1320011211103123-3030003300300023) |
+| `direct_connect_enabled.auto_asn` | [direct_connect_enabled.auto_asn](resources--aws_tgw_site--reference--group-002.md#canonical-3121232211122213-2201321102313323-3313232122120001-0203232112130021-3332110312311003-1313001210220231-2133312220123231-3212233223132130) |
+| `direct_connect_enabled.custom_asn` | [direct_connect_enabled.custom_asn](resources--aws_tgw_site--reference--group-002.md#canonical-2313213201302220-3211201102221122-3230330010001211-2002302330213032-1210133120210103-2313330332120033-2311333011210102-3211303130330200) |
+| `direct_connect_enabled.hosted_vifs` | [direct_connect_enabled.hosted_vifs](resources--aws_tgw_site--reference--group-002.md#canonical-0101213200030233-1002131032330333-3322132312031301-2222130310133211-3021123001303033-0223032300213333-0031103331211302-0033111320332320) |
+| `direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect` | [direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect](resources--aws_tgw_site--reference--group-002.md#canonical-1302123302001321-3300232121100232-1102223012202033-0322220000222331-0323101112003120-3210001333212202-3310100023221212-3111023100031112) |
+| `direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect.cloudlink_network_name` | [direct_connect_enabled.hosted_vifs.site_registration_over_direct_connect.cloudlink_network_name](resources--aws_tgw_site--reference--group-002.md#canonical-2020113230220132-0320210213313323-2023031331130120-2003110020130301-3320231023031211-3003322212133100-1323132313203101-2100232310331321) |
+| `direct_connect_enabled.hosted_vifs.site_registration_over_internet` | [direct_connect_enabled.hosted_vifs.site_registration_over_internet](resources--aws_tgw_site--reference--group-002.md#canonical-1220203121310223-3032330333023223-3111211023101030-1020231331311101-3033032121300022-3002112230120120-2011301131131032-1302211102000210) |
+| `direct_connect_enabled.hosted_vifs.vif_list` | [direct_connect_enabled.hosted_vifs.vif_list](resources--aws_tgw_site--reference--group-002.md#canonical-1102332011103332-3003102021133331-2023221300213012-1220130210320033-3211010122103223-1330212212021120-0010123001122201-1313202111312220) |
+| `direct_connect_enabled.hosted_vifs.vif_list.other_region` | [direct_connect_enabled.hosted_vifs.vif_list.other_region](resources--aws_tgw_site--reference--group-002.md#canonical-1230333100130313-3123210233300333-0320133111300223-1210131101221130-2211310203333230-2010002100311202-0112210212223033-1322133330111013) |
+| `direct_connect_enabled.hosted_vifs.vif_list.same_as_site_region` | [direct_connect_enabled.hosted_vifs.vif_list.same_as_site_region](resources--aws_tgw_site--reference--group-002.md#canonical-0203022322211121-1110020013101112-1111321310121311-3311113203210201-3233322013200211-2113003132031101-2123203202003201-1112231120003200) |
+| `direct_connect_enabled.hosted_vifs.vif_list.vif_id` | [direct_connect_enabled.hosted_vifs.vif_list.vif_id](resources--aws_tgw_site--reference--group-002.md#canonical-3311133220111202-1201130302031100-3113022103321013-2011301233030231-1313013000002320-3302022213330223-1010331010121323-0123313021031111) |
+| `direct_connect_enabled.standard_vifs` | [direct_connect_enabled.standard_vifs](resources--aws_tgw_site--reference--group-002.md#canonical-3202231200200123-0213221330301310-1113000011111010-3012320231321102-2333300202232111-2133002311220111-3031312110232311-2110112112331202) |
+| `disable` | [disable](resources--aws_tgw_site--reference--group-001.md#canonical-3221112231220130-2220123003301123-1132332231000333-3223332232333212-3200211000020332-3030210130300030-0313323201320110-3102223321301333) |
+| `id` | [id](resources--aws_tgw_site--reference--group-001.md#canonical-1120133123333333-1033102312020012-0203332101200233-3211322330103221-2312021311312101-1330203132213321-1130223131210121-0122303120003121) |
+| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-1033200023221322-2013021020023300-1131032000223030-2302223233233033-1002030300321221-2333213323101132-1303230010021302-1311111233311103) |
+| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-2321311030030323-3303130110223011-1313111023330230-2312101022101201-0311101131101120-2033221321112030-0131032131210332-0000200303113003) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-1200232111122311-3110100123033033-2022302120121002-3131321030211202-1010212032220013-0312220211101223-0221011123231311-0033131231302222) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--aws_tgw_site--reference--group-002.md#canonical-1123113300100201-1232102030333230-0001112321103330-2332133220230131-3103221113110133-3233222303032031-1322310131322323-1210200331301203) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](resources--aws_tgw_site--reference--group-002.md#canonical-0100032102010030-0211110231131030-3310031320313032-3232302113201301-3311300030323300-2133012231131203-0212231330100231-0033131133102122) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](resources--aws_tgw_site--reference--group-002.md#canonical-2132020032200131-0122312123002001-2133220323330323-3210113101210332-1030131322022210-2100303003010030-3201032310123020-3310211112132233) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](resources--aws_tgw_site--reference--group-002.md#canonical-2332333120231310-3130220320112211-3230010203111202-3233031313002012-2332311100321131-0130312002320023-0313313012301021-2322120333330213) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--aws_tgw_site--reference--group-002.md#canonical-2301300120132201-2230011223011021-0113233331330310-2131211201312221-1310021202212130-2031000122012101-0030323213113223-0020120003031212) |
+| `labels` | [labels](resources--aws_tgw_site--reference--group-001.md#canonical-2230020112100311-2000012201220330-3201122333302222-1332223120111201-0322330112331210-3102312301222323-3011111101130223-3203313003300023) |
+| `log_receiver` | [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-3200330213313000-2030032223302232-2201302110100212-2112331310122100-3222022123013021-3010123110322120-3312001030023232-2103001000200103) |
+| `log_receiver.name` | [log_receiver.name](resources--aws_tgw_site--reference--group-002.md#canonical-0000202320001303-3323032101300221-3112021102003223-3023110313013100-2122130223322233-1132331232300323-2211131201212232-2301322230002022) |
+| `log_receiver.namespace` | [log_receiver.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-3110200222111133-0222012113123120-0320320200220330-1212221000020202-2121301321333221-1323200011020300-1303023130312233-3203312231230000) |
+| `log_receiver.tenant` | [log_receiver.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-1332012211222331-1202230002030213-1212133223320202-1310121022001131-0330213202212001-0313133221203212-3133100120003233-2032030000302123) |
+| `logs_streaming_disabled` | [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-2002101032021020-0020310230203133-2120133233201122-2330201230310123-1230132103102232-3201030321232221-0102033001221130-1101311022321020) |
+| `name` | [name](resources--aws_tgw_site--reference--group-001.md#canonical-2130021320201111-3023222110200310-0310032211130121-0313123012133000-1312213120333123-1110131212212123-1233212011331100-3221133231002200) |
+| `namespace` | [namespace](resources--aws_tgw_site--reference--group-001.md#canonical-0100323121210313-3033112313322113-1221121123313210-2120203300013102-1220100200230301-2031222210311322-3111001213130213-3230011331330301) |
+| `offline_survivability_mode` | [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-3300322230023203-3003210213133023-2000020032102101-2302030102313121-0313002003300123-1030030132102223-0233311001201132-0322030200021100) |
+| `offline_survivability_mode.enable_offline_survivability_mode` | [offline_survivability_mode.enable_offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-3102311111032021-2102131022103122-0323013130233001-2202323223033230-3033023120201323-3001221330312231-2120012003231112-1102323011130112) |
+| `offline_survivability_mode.no_offline_survivability_mode` | [offline_survivability_mode.no_offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-1210333111300321-0312011223003131-1000332133031110-2021202311030122-1012131300311001-0121202101233210-1200301212300000-0222110110212313) |
+| `os` | [os](resources--aws_tgw_site--reference--group-002.md#canonical-2022233012203233-1131120110103021-2231122321223033-1110132121110001-0110233111012332-1133131122312010-0111113200211020-0321130302300020) |
+| `os.default_os_version` | [os.default_os_version](resources--aws_tgw_site--reference--group-002.md#canonical-1110320223313311-0102213232221200-0121123211033220-0220300200110212-3233132233230130-1133230212030031-1211301022233233-0020232011212100) |
+| `os.operating_system_version` | [os.operating_system_version](resources--aws_tgw_site--reference--group-002.md#canonical-0230031123322331-1223213200113230-2012100100201131-0122120131121010-2010030203111133-1302212222112301-1131003022103310-1203310311011212) |
+| `performance_enhancement_mode` | [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-0033131101311310-3332202301032222-1231111021311112-2103103213010223-3221322322311112-2231101023030002-0030233130121020-0013122120101122) |
+| `performance_enhancement_mode.perf_mode_l3_enhanced` | [performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_tgw_site--reference--group-002.md#canonical-3031131233122022-3021100000201010-0100312021101123-0302201103003120-2222022303001011-0101132111330313-2102020030122230-3201322123332330) |
+| `performance_enhancement_mode.perf_mode_l3_enhanced.jumbo` | [performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--aws_tgw_site--reference--group-002.md#canonical-1133202232121332-2001123221223200-0200201001122002-1123021220313321-3102021220212320-2233032232213203-0311313033221012-0221122210331111) |
+| `performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo` | [performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--aws_tgw_site--reference--group-002.md#canonical-2102101130231123-3003330221202203-2100033210001220-1322113203212203-2002332203313302-1113321313213123-0232022331230110-3200112000003111) |
+| `performance_enhancement_mode.perf_mode_l7_enhanced` | [performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_tgw_site--reference--group-002.md#canonical-3012111321231111-2101101120303013-3112002220233001-0103231321103101-1301102032000303-1121230021300303-0121131013013210-3202020210213011) |
+| `performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled` | [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-3232113332032210-3033020110001332-3120303332123222-1313201303211311-1323232330320102-2210133300022211-2301131313332112-2031331001121001) |
+| `performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled` | [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-1302132332003232-2231010300212103-3220223101330203-1030103232103133-2320221032333322-0113023013130103-0211213101221213-3021311201102112) |
+| `private_connectivity` | [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-0032101031203303-1213220331310310-0100112031003321-2233001013333112-0313130131201302-3200303332021210-2121212012311110-1202302003101320) |
+| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](resources--aws_tgw_site--reference--group-002.md#canonical-3111321303121122-2312011022310303-3100232113220302-2131113333123132-0011231211122320-0333233213113021-0210213211331231-1220120202231003) |
+| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](resources--aws_tgw_site--reference--group-002.md#canonical-0232202221200200-0021331112120002-3210031312330320-2203122013111223-1320220211000013-3030111211001013-3022223310011123-2332320112133330) |
+| `private_connectivity.cloud_link.namespace` | [private_connectivity.cloud_link.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-0013230331222100-1112002313210311-0011012202232320-0120012221100220-0303121330011123-1032322012213200-1013233013232111-3110320202202133) |
+| `private_connectivity.cloud_link.tenant` | [private_connectivity.cloud_link.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-2300311023332321-0130022203130210-2103210303300010-1210211122232211-1233011212030010-1211030123132122-3132220123321130-3320330233122120) |
+| `private_connectivity.inside` | [private_connectivity.inside](resources--aws_tgw_site--reference--group-002.md#canonical-3322222031113011-0022300130320002-0103000223333032-2002132022323331-3301233111322220-1021202102322010-3321201120003223-3300111221311300) |
+| `private_connectivity.outside` | [private_connectivity.outside](resources--aws_tgw_site--reference--group-002.md#canonical-3010220230021001-3111020322112312-0012310223231331-1003222101220002-2123202202201312-3230213231033031-3321013301121021-2233222320322231) |
+| `sw` | [sw](resources--aws_tgw_site--reference--group-002.md#canonical-1220203211332031-1012022012103003-2202213333310310-0003011022001030-2333301133330210-1321202102321312-3302111220323310-0220233021002132) |
+| `sw.default_sw_version` | [sw.default_sw_version](resources--aws_tgw_site--reference--group-002.md#canonical-2331321303310332-1300321330320310-0001030011123100-0231302303203300-1210200211212113-3101132200131013-2113203202302100-0120030010221232) |
+| `sw.volterra_software_version` | [sw.volterra_software_version](resources--aws_tgw_site--reference--group-002.md#canonical-1321321203111033-1013033230200311-0123231331120201-3033201212120102-1213213211202313-0212000222010303-0123111021302231-1113023221232321) |
+| `tags` | [tags](resources--aws_tgw_site--reference--group-001.md#canonical-1112300100113320-0232112303200010-3113201323211213-3230120011220002-3110231103033023-1333121130310031-0110011122100202-3300031031233211) |
+| `tgw_security` | [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1312311100131121-3233120200020121-0002032311133320-3321112003303032-1030013003323100-3023320302103001-2101023301132013-3111100330221013) |
+| `tgw_security.active_east_west_service_policies` | [tgw_security.active_east_west_service_policies](resources--aws_tgw_site--reference--group-002.md#canonical-1110123011202323-1301012013302030-3302320031320021-3130231311231300-3300033322110302-1120032122233231-0133230032331311-3103112210102221) |
+| `tgw_security.active_east_west_service_policies.service_policies` | [tgw_security.active_east_west_service_policies.service_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0032013332330212-1223121033100231-0211013010300312-3200310103111020-3330330210001323-3130022301111011-2131112133212203-2003323231002333) |
+| `tgw_security.active_east_west_service_policies.service_policies.name` | [tgw_security.active_east_west_service_policies.service_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-0132022012210012-0302103130320323-0112320303231331-0033212001222100-0032212010213300-0223332112130201-0121203032310123-3002310321102113) |
+| `tgw_security.active_east_west_service_policies.service_policies.namespace` | [tgw_security.active_east_west_service_policies.service_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-2323302332212223-3030033003231002-3111111213220311-3323122230102022-3023222010320221-2132001313322021-0111323133321322-1122130323333131) |
+| `tgw_security.active_east_west_service_policies.service_policies.tenant` | [tgw_security.active_east_west_service_policies.service_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-1203310231210323-1202132101011333-3103232112031203-1123230031333202-2302211020232013-3111332330030203-1231011322112122-1002220032102320) |
+| `tgw_security.active_enhanced_firewall_policies` | [tgw_security.active_enhanced_firewall_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0223021110012232-2102232232321313-1300331100001221-2121131131222332-0101133022121232-3133330011203213-0101312232330033-2031021121112033) |
+| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0133031213232322-2011100200011223-1013312231310002-1000222322200300-0003301312122011-2310201300213302-0232033102311022-2321113013221021) |
+| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.name` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-0002331331222220-3001220211102132-3123322023301321-0313002120232033-0131212313122033-0122112131201013-3332330000203003-1103220133003110) |
+| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-1320231312112002-3233203000120332-0120113030321030-0033213100013200-2133320232132132-3302313000202220-2031133313211033-0332320321032303) |
+| `tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant` | [tgw_security.active_enhanced_firewall_policies.enhanced_firewall_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-3330302211231010-1122033211133123-2313113302203230-3113310221323120-2030332003002113-0010320011300010-1000131022333123-2131221330313230) |
+| `tgw_security.active_forward_proxy_policies` | [tgw_security.active_forward_proxy_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0033133103231112-1322011022002333-1101200110203123-2211112332330230-2033111032003301-1032010021000210-3120103020011233-1312333132003201) |
+| `tgw_security.active_forward_proxy_policies.forward_proxy_policies` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies](resources--aws_tgw_site--reference--group-002.md#canonical-0120012202100031-1003213003133310-0010210302111203-2322111200130301-3101221011013332-1330111233102221-1110100230121323-0022103331111122) |
+| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.name` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-3320012022220330-2301110030300010-1010001121021323-2203031022222212-3032101222133130-1210020310230212-0222030200310211-0010301131321221) |
+| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.namespace` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-2001130010322213-1121312320023202-0213213032323233-1222113322301333-2111020000232333-0313311213231333-3033220000002221-3010101312111130) |
+| `tgw_security.active_forward_proxy_policies.forward_proxy_policies.tenant` | [tgw_security.active_forward_proxy_policies.forward_proxy_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-2330230101002121-0102021221322121-0313131233330030-2001221111323223-2001021222112020-0323212320312022-0222120303123231-0122011012311101) |
+| `tgw_security.active_network_policies` | [tgw_security.active_network_policies](resources--aws_tgw_site--reference--group-002.md#canonical-1013300123232013-1133231232230201-1233133330301023-2223323200222110-3313312302312022-2032021311033220-1213111133330030-1003213120311330) |
+| `tgw_security.active_network_policies.network_policies` | [tgw_security.active_network_policies.network_policies](resources--aws_tgw_site--reference--group-002.md#canonical-3322031111021233-2111122223311232-1123330223011130-1113203303012103-0101212220101211-1310231030032023-0030213132100231-3030310320013233) |
+| `tgw_security.active_network_policies.network_policies.name` | [tgw_security.active_network_policies.network_policies.name](resources--aws_tgw_site--reference--group-002.md#canonical-2001010001020323-1231020032133321-1022223202113001-1222220202031303-2331032202300020-3032031333202302-3313111013102201-1013301303130000) |
+| `tgw_security.active_network_policies.network_policies.namespace` | [tgw_security.active_network_policies.network_policies.namespace](resources--aws_tgw_site--reference--group-002.md#canonical-3231103000203331-1032023231010333-1221201311023113-0232101103212323-2230311131320313-0121222330212100-0222223220231330-1121203023213010) |
+| `tgw_security.active_network_policies.network_policies.tenant` | [tgw_security.active_network_policies.network_policies.tenant](resources--aws_tgw_site--reference--group-002.md#canonical-0023021330101130-3110202032110331-3321013023003222-3012322110130030-3212033111010211-0032032303213112-3023330021223122-0033030101312023) |
+| `tgw_security.east_west_service_policy_allow_all` | [tgw_security.east_west_service_policy_allow_all](resources--aws_tgw_site--reference--group-002.md#canonical-2230001032112130-1221022223012331-1201031222002003-3213100210232013-3121010322112012-2203012101131333-1022333201302303-0001223010310023) |
+| `tgw_security.forward_proxy_allow_all` | [tgw_security.forward_proxy_allow_all](resources--aws_tgw_site--reference--group-002.md#canonical-2333003131113210-2222122020212330-3010313002130002-0013111320230030-0110201233302222-0313233211302130-1300131313312001-0332311230012302) |
+| `tgw_security.no_east_west_policy` | [tgw_security.no_east_west_policy](resources--aws_tgw_site--reference--group-002.md#canonical-0323023213030011-0012122230003031-3012313112310022-0233333100101312-2100201110023311-3003213002211131-3322021222131210-0123102200133322) |
+| `tgw_security.no_forward_proxy` | [tgw_security.no_forward_proxy](resources--aws_tgw_site--reference--group-002.md#canonical-1001003212130100-3100301002123233-0301200133020200-3013032223303110-2003331220331303-0221130200210100-0201001200023223-3220230201321302) |
+| `tgw_security.no_network_policy` | [tgw_security.no_network_policy](resources--aws_tgw_site--reference--group-003.md#canonical-0332311301232102-1212012333323331-3110001311320100-0022223012133333-1130203331132211-1212322332103010-2003131031010210-2110111302021300) |
+| `timeouts` | [timeouts](resources--aws_tgw_site--reference--group-003.md#canonical-1001330203023232-3222112201313300-2201220002003002-2031102013333200-0003203021120232-2121313033133330-0223323010302310-0320102032032131) |
+| `timeouts.create` | [timeouts.create](resources--aws_tgw_site--reference--group-003.md#canonical-2232310220122010-0111003333030323-3210311313211222-1321310321130222-0231112021112232-0330032323223330-3031031220300200-3000122012001020) |
+| `timeouts.delete` | [timeouts.delete](resources--aws_tgw_site--reference--group-003.md#canonical-3033132130331010-2221120110131321-1113130133312200-1102122301300031-2111313121210311-2320303230120031-3211231121233212-3011320223123311) |
+| `timeouts.read` | [timeouts.read](resources--aws_tgw_site--reference--group-003.md#canonical-0312201010021120-2010013212322031-2232301210030230-2030012131322313-3231312020103020-3133220302120113-0030003301220223-3321110002220020) |
+| `timeouts.update` | [timeouts.update](resources--aws_tgw_site--reference--group-003.md#canonical-3211321230201002-1001303133330031-0212203131332103-2312020103030121-1320223003301333-3210312221102220-1111113022111301-3330121012111323) |
+| `vn_config` | [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0231213112103323-1313232113301233-0102211023023121-0112211110031022-1021302323123233-2322022103231322-2020110003210002-1321013101021322) |
+| `vn_config.allowed_vip_port` | [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-0322123320232130-2232021210332110-2103000301200010-0103232333132211-0211131130313121-3223302030132130-0131213131230001-3321330030210213) |
+| `vn_config.allowed_vip_port.custom_ports` | [vn_config.allowed_vip_port.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-2210221201311230-0020103212311020-1201232031223033-2012213110222102-2100010302003231-2301320313230130-0033311322002012-2323311222101111) |
+| `vn_config.allowed_vip_port.custom_ports.port_ranges` | [vn_config.allowed_vip_port.custom_ports.port_ranges](resources--aws_tgw_site--reference--group-003.md#canonical-0022311211011332-1101201323233122-3001203011212301-3023121231033102-1003012223301011-3310330233300331-0103122321330100-1110020323320022) |
+| `vn_config.allowed_vip_port.disable_allowed_vip_port` | [vn_config.allowed_vip_port.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3022123030022230-1111210330310001-3030131321200131-0021233110033031-2000113010213130-2032303033303133-2232312323310201-2331102033131202) |
+| `vn_config.allowed_vip_port.use_http_https_port` | [vn_config.allowed_vip_port.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-3022023121132231-0200213231322320-3111110023133120-2113012111320300-3131031232332220-2321230213113310-0211222300132123-0033120132331033) |
+| `vn_config.allowed_vip_port.use_http_port` | [vn_config.allowed_vip_port.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-1201032212201131-2230120010032220-3310331222230100-1323032023111332-1003102031323213-2312021120231202-2002011130311222-2322032012310223) |
+| `vn_config.allowed_vip_port.use_https_port` | [vn_config.allowed_vip_port.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-0230221320330033-3303110111330223-0322013311303111-3231022330300230-1033103210111002-2330010123001023-2021032322123203-0233121133223302) |
+| `vn_config.allowed_vip_port_sli` | [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-2231110102000131-3330313330010311-1320020303321130-3132133101103312-0003300210222323-1321131220303331-3302200102221003-0102302010212310) |
+| `vn_config.allowed_vip_port_sli.custom_ports` | [vn_config.allowed_vip_port_sli.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-1023013121212221-0221013002310132-3010021331211023-0012313200022010-1123310102212122-3132010120123100-3323021203100122-0300211230011030) |
+| `vn_config.allowed_vip_port_sli.custom_ports.port_ranges` | [vn_config.allowed_vip_port_sli.custom_ports.port_ranges](resources--aws_tgw_site--reference--group-003.md#canonical-0031310213331010-2320003023310333-0001303110022113-2021202113310321-0301201320031203-3220202220233102-2302011132322032-2112210002203021) |
+| `vn_config.allowed_vip_port_sli.disable_allowed_vip_port` | [vn_config.allowed_vip_port_sli.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-0222111103301311-0312013300223131-0001001031201200-0223211220332231-3103003223003231-0200100303210002-0203200320101330-3330011112232022) |
+| `vn_config.allowed_vip_port_sli.use_http_https_port` | [vn_config.allowed_vip_port_sli.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-1123103322221201-0211100120100323-3321321031330102-1203332012122133-0102320210211323-2001113322313331-2302223200313212-3211232231123100) |
+| `vn_config.allowed_vip_port_sli.use_http_port` | [vn_config.allowed_vip_port_sli.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-2030102232313113-0013232300302121-0323300101032333-1221211002230201-3201203220213221-2300120033221023-1003231020323320-1312031132013222) |
+| `vn_config.allowed_vip_port_sli.use_https_port` | [vn_config.allowed_vip_port_sli.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-3023230202320031-1121030022120030-3023201311311132-1221111102021132-0000011022131321-3201301023123102-1012130213112301-0302011111022201) |
+| `vn_config.dc_cluster_group_inside_vn` | [vn_config.dc_cluster_group_inside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0302231131110100-3022103113313103-1000221313201011-0233001012322322-3201101310121333-0132223223110233-3020231002021101-2232103313211103) |
+| `vn_config.dc_cluster_group_inside_vn.name` | [vn_config.dc_cluster_group_inside_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-0303221312332333-0323020113123133-3320201111221322-2332011100033031-0302223320021032-0231111003310132-2201101311232033-2130212021031233) |
+| `vn_config.dc_cluster_group_inside_vn.namespace` | [vn_config.dc_cluster_group_inside_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-1122322202131232-3011131231101100-3230010311023232-0003210321102030-2301303312002211-1312211233333321-3133300021221311-3010030123121222) |
+| `vn_config.dc_cluster_group_inside_vn.tenant` | [vn_config.dc_cluster_group_inside_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-0023130323012222-2323331220221033-0011230002310123-2222132120001132-3232122220232310-3210020303303010-1012231120012023-1122211021033301) |
+| `vn_config.dc_cluster_group_outside_vn` | [vn_config.dc_cluster_group_outside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0023211323100002-3332202102013120-0303203322221301-2130212010220330-0320321012323323-3101123001321320-1212023202000310-0033121230221100) |
+| `vn_config.dc_cluster_group_outside_vn.name` | [vn_config.dc_cluster_group_outside_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-1203012212120023-2112013000220013-3002212012123012-1001222232313212-0223131121111323-1330133032330320-1102110230221030-3220013202120303) |
+| `vn_config.dc_cluster_group_outside_vn.namespace` | [vn_config.dc_cluster_group_outside_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-0200200103332022-2230330011313300-2001322301231020-3311201012012132-3021200020021231-3101112313012211-2303030100213202-2000021131213030) |
+| `vn_config.dc_cluster_group_outside_vn.tenant` | [vn_config.dc_cluster_group_outside_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-3122323220210220-1022320132213100-2031003120021131-2332133013111010-2110103111330313-1110102000000133-3011000023333301-0330230303001232) |
+| `vn_config.global_network_list` | [vn_config.global_network_list](resources--aws_tgw_site--reference--group-003.md#canonical-2123322011213233-2230010301230121-0221122302013301-1322333211123322-0232321210121111-2032312032112020-3212312201110210-0123212333122030) |
+| `vn_config.global_network_list.global_network_connections` | [vn_config.global_network_list.global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-0313322200021003-0111210213133302-0230112130003021-1322201030210320-3301010222222020-3313301302102013-3102121030233202-3011232020122222) |
+| `vn_config.global_network_list.global_network_connections.sli_to_global_dr` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-1011001112231030-1002323311310123-3231030021330013-3321021021303333-3201032232100321-1230013102100111-0031131030013311-0120021001221032) |
+| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-3211023022032301-1020022312131313-0211001301330310-1211001111013333-2230002030312200-2230332100032000-3123132230313003-3300222301023100) |
+| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-0203003332332300-3222233201333110-3113231210003211-3222211110221222-0133031211300222-0130121223301203-2102313002312330-2033223310112103) |
+| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-2201332000210120-2330130010120311-0313013222311230-1303122313003002-0100012012111322-2003133003003032-0111321013213300-0222201133120032) |
+| `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-1212120011110023-0110110002300133-0120231320010312-3232011230113013-2310302003012023-3123302102122020-2131101023303223-0001211123022002) |
+| `vn_config.global_network_list.global_network_connections.slo_to_global_dr` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-1023020200122112-3230113212012111-0130232200313200-2310102111211232-1212301311130011-3223112101003211-2312121210312223-3323230323110333) |
+| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0031233112311030-3010022211030331-1012202101332102-1123230312212320-3201001131012213-2333210020013020-0020033130123330-2121311330103102) |
+| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name](resources--aws_tgw_site--reference--group-003.md#canonical-0331003101300130-2132001111132313-0022012011123213-1210232000133200-3023010030020302-2112333113103333-3230000233303012-2011111002232021) |
+| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-3213031111202030-1023031333113110-1000301020303003-1100103010120212-1113011232123301-0302333333133301-3000221301001002-3330031213311121) |
+| `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` | [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-0310121213312121-0030301312211122-1331111123232013-2100213121300311-1030233013022131-1110013232302202-1023333102221323-2000130113210023) |
+| `vn_config.inside_static_routes` | [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-3221311030211011-3101022211012001-0313003223332012-3001012023313120-3210331333233013-3101030101012320-0032202023111133-3022213232321331) |
+| `vn_config.inside_static_routes.static_route_list` | [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-2333012130203302-2023133122320133-1121312300121312-1022323101220013-1303010220222101-3312321010212210-1211111020010223-0012302200020132) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route` | [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-0110010120123213-3312121231010122-0320121130113033-3000023310103322-0010321302220223-1012232011020103-0012101000233132-0002210110330201) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.attrs` | [vn_config.inside_static_routes.static_route_list.custom_static_route.attrs](resources--aws_tgw_site--reference--group-003.md#canonical-1113022302212132-2230120030303030-0210201103303131-0323122021022220-2322022211011130-2333123201211210-2310132201210132-2311323030313200) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.labels` | [vn_config.inside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-1201003121233210-3212202011021322-1013322223230221-2113120231021100-3210200320231001-2311201320312010-0222111033302032-2012123101021302) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0122110313201220-0223220301211310-1223321130332331-1211033012120212-2210301123221012-1322020233311302-1122131322113201-2133113120220220) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-3010100223133102-3001321222130321-2222002003212022-1101322312011221-2233203202030121-0133120012121222-2111323202300123-3113231231321011) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](resources--aws_tgw_site--reference--group-003.md#canonical-3030000113003331-3222000213101101-0200103021212133-1211101021031212-2222122221130200-3303033000320123-2313211323132203-2130113203332102) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](resources--aws_tgw_site--reference--group-003.md#canonical-1000213032310221-3202221331002231-1130032200332033-0012003333310311-0310320232220310-2103113133331321-2313002223123230-2021132001223121) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-0200022330112330-2223321001212030-3230203122312211-3201031103201021-1231200203310203-3320033130201313-2130220000221013-1113130210232213) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-3031102320111211-2330322010113103-3322302302113000-2011322333031323-1131101023030212-2300012322102301-0332100131020133-2312311303003301) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](resources--aws_tgw_site--reference--group-003.md#canonical-3221011100310021-2203333030011200-0312303303222022-1232101311203002-1011012100031020-2220313011212003-1302232003212301-1230230213002032) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-1233313132101102-0202022011132222-3320231111210133-2300221123301233-3220102201132032-3221121310200013-2130212330303202-2013330112020231) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-2300123323101133-0333233121212133-1323121113332300-0200012221230221-2132203130021110-1131112322211333-1322223333330132-1312300113203211) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-3322212033133201-1300120303002122-3331102013210213-2332102123212213-0223012011211222-2032331202213303-0312331020303102-1201230201312113) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-2111002213230113-1020003211321131-2221221222303322-3330032322322121-1312211311223023-2123033301330323-1020322210123211-1210010222331331) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-1212131333032231-1121011031221110-3322011330203330-1330103321201032-1231203022030110-1220111102221123-0012132303100323-3223230301213221) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](resources--aws_tgw_site--reference--group-003.md#canonical-0203101322303211-1003112120331221-0000120110012032-0301011030221211-1222233102200311-2232330131100110-0110212032110312-3331320011111111) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-1023223131320110-3212102023100121-0122222113001321-0213311110012111-0101011000033303-2300310133222303-0011321011233213-0302113212031103) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](resources--aws_tgw_site--reference--group-003.md#canonical-3022002020030030-3223123333233231-0211003221310213-1320310113012102-1230020100132023-3110222000223300-0222301223230320-2220300132202021) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-1012312122322110-3131320000323011-0310211130210030-0233303323323212-1313122333231303-2200021000011202-1320201132211202-0302300130101022) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](resources--aws_tgw_site--reference--group-003.md#canonical-2231132120223200-2231102322020202-2022121320201212-2301302333012123-2121213022233211-2232033222200330-0101131233110022-3333200001122130) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.type` | [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.type](resources--aws_tgw_site--reference--group-003.md#canonical-1121332020110101-3001211000302033-2213211133203212-0200033203120133-2122010301121310-2020330021123123-3113022333120102-1010330222113103) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-3303000132001100-3220230222001113-3131003032113202-2032120200312223-2103031100133223-0320203032011222-0023212102301010-2211202123031011) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-0230122321233130-3113323101122330-1300201300113231-2221103020302302-1311320033131020-1022220033113303-2033201310321010-2121320033002131) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](resources--aws_tgw_site--reference--group-003.md#canonical-3322121301321211-3112333220233323-2303333033333120-1032322211112311-1210220300301222-0030120223213222-1323203320301301-0010323011022321) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](resources--aws_tgw_site--reference--group-003.md#canonical-1330331223311222-0110100210213332-0132321013203101-0132002211333031-0202201021201023-2020121321223130-3011110232210132-2232123231033330) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-3120301021120021-0031000220112232-3130132120311122-2032222031220200-3133100232201231-3231322322331111-1023130212111221-0021223101001003) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](resources--aws_tgw_site--reference--group-003.md#canonical-3110021210020211-2003030310021312-1211213011312133-0202220030323210-2132200122100001-3000211233111012-3010231130321321-2120223220022301) |
+| `vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](resources--aws_tgw_site--reference--group-003.md#canonical-1333013233113210-0101211333300001-2033031213212002-0131311230302331-0300312122302122-2223222112020110-2032103022022012-1011000333210310) |
+| `vn_config.inside_static_routes.static_route_list.simple_static_route` | [vn_config.inside_static_routes.static_route_list.simple_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3321302013300302-0033030333200030-1101012320303102-2113301131010021-0032022331220031-1211121001203202-3213310232333132-3130111112321233) |
+| `vn_config.no_dc_cluster_group` | [vn_config.no_dc_cluster_group](resources--aws_tgw_site--reference--group-003.md#canonical-2113010033121112-2303223233130301-3313211123220002-0002111010030112-3121030222220210-0021003120111210-1133030210223123-3000320312113202) |
+| `vn_config.no_global_network` | [vn_config.no_global_network](resources--aws_tgw_site--reference--group-003.md#canonical-2221201312100210-0212332020333032-0301021012030333-1112120112312021-1332121002322313-1301312030213202-0321232322310130-0023132332110303) |
+| `vn_config.no_inside_static_routes` | [vn_config.no_inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-3203131130312231-2202032330220011-0212221102102311-0031200311002233-2032211232210211-1321133312003003-1331112322132223-2111211310002331) |
+| `vn_config.no_outside_static_routes` | [vn_config.no_outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-3002313302203313-0222330331130322-1322211332322222-0003010030200020-3232312220101331-0021113203201123-3021200203112210-3111221033321222) |
+| `vn_config.outside_static_routes` | [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2232131130132012-1110233200102200-1023231320300232-0102211112120011-2203120022123122-0100112130222200-2013320312201221-1302013232132330) |
+| `vn_config.outside_static_routes.static_route_list` | [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0211131030323112-0203000102023232-3021021030112021-1301323311222102-2232032113032012-1222001211303303-1131202022123103-3011103131213023) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route` | [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3021211111133303-2232303013132321-1033221111103233-3300000111212030-3232002222011003-0121100300201210-1303330122212330-2302010303331010) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.attrs` | [vn_config.outside_static_routes.static_route_list.custom_static_route.attrs](resources--aws_tgw_site--reference--group-003.md#canonical-0003111212031130-3012322110322011-0022100122001201-0333331231032330-1332322223333021-3202213331001030-1213103031202031-1010322221233313) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.labels` | [vn_config.outside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-1332222301001012-3002002103331232-2022023010200300-3332311000301121-2000211010102231-3223322022211312-2020000311131021-3300100301222210) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-3321022100210320-1212022111321120-0230301231312311-0321200032023332-2322200100232033-0003233003212131-3000221212301130-2333322010112131) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-0121332302020121-2331131002030011-1303021001222310-0003221212303213-3211032122100200-2212003230000111-2212200030012310-0020120021130111) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind](resources--aws_tgw_site--reference--group-003.md#canonical-3221002323313332-0123332021033331-1031030121231132-3212013301031102-2022100020231333-2332033001000201-3023023000030312-2100220031212033) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.name](resources--aws_tgw_site--reference--group-003.md#canonical-0030013322112311-2312010033031031-3033023303011122-0201001101332133-2213310312011132-3201210031020222-1212300310300211-0233010220110132) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace](resources--aws_tgw_site--reference--group-003.md#canonical-0330022121012303-1030113301212300-0310322132332030-3313201123000222-0220000310011233-3010211221011333-2121033302032333-3230021133223032) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant](resources--aws_tgw_site--reference--group-003.md#canonical-1002201013231301-1130112132333120-1032203321003211-0123320211111111-0003311010212020-0030103102220223-0031233301330332-1233013323103101) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid](resources--aws_tgw_site--reference--group-003.md#canonical-0323201233133020-3310131130331131-2131113223113303-0111121121312302-2200232301220112-1101131320133330-0013312033113321-2023111023033232) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-3211232202201232-1031300221322332-3332100103100122-2313323303000230-3321130303320310-0121203121030022-1301200213222033-0120003101331032) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-004.md#canonical-2010303032211013-1130002131031332-0110231002123323-1121003031220200-0120130301132312-1220212303220102-1133330300211303-2312201313101110) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_tgw_site--reference--group-004.md#canonical-0122332203100202-1323121013131003-1120331030123202-1033001023032020-1210212323133000-1031313230332330-3221130333020102-2303003332132000) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr](resources--aws_tgw_site--reference--group-004.md#canonical-0132030300320113-0110132132331220-2022302221133112-3303312013130320-2332123312301202-0302212311213000-2303003230011013-3110233211133113) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_tgw_site--reference--group-004.md#canonical-3103021333233110-1011210131322000-2123321202132102-1033132312123001-1332332020200203-3113112232100312-2202200210302311-0130210312320211) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr](resources--aws_tgw_site--reference--group-004.md#canonical-3000222210112033-0313011023210122-2101122210233303-1102323223021113-3010010101022002-2302113201110111-3130020112301230-2020301312032030) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_tgw_site--reference--group-004.md#canonical-0022102320330031-1301233021001322-0133021130031201-1313122222013012-1133113200001310-2320302220302023-3312133032223203-0233122221012212) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4.addr](resources--aws_tgw_site--reference--group-004.md#canonical-3012032120033230-1002320131101230-0302310110031322-0222123111033310-1130011333121033-2331211001320323-2021223223010332-1200133300013111) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_tgw_site--reference--group-004.md#canonical-3110230121213301-2031211111333120-1223001300021321-3210231131001300-2222113113003332-2221101013021333-3132203201131120-2001231132120122) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6.addr](resources--aws_tgw_site--reference--group-004.md#canonical-3122323132320201-3302232002130000-0110111200113013-1022010232320320-2003321102313023-2131003022312220-0033023222122033-1221100021023201) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.type` | [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.type](resources--aws_tgw_site--reference--group-003.md#canonical-1122023323030231-0202321033332110-0233110120110231-3300111310130000-0312312010130310-0203123120222111-0323303021121100-2113212203322203) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-004.md#canonical-3033333132110230-0101321032301313-2200333332220220-3330322331100021-3221102322011032-2113022010001113-2220330301031031-3232030221323301) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_tgw_site--reference--group-004.md#canonical-0323231030102312-2031232301232010-0220222200330232-0231223122131211-3213023310322223-0313313013310030-2301132112303002-1120303112133022) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.plen](resources--aws_tgw_site--reference--group-004.md#canonical-1232010211121032-0232021230333032-1022300220202133-3323230101203020-3011111101320201-0201313213303000-1333310333033223-0310100330212221) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4.prefix](resources--aws_tgw_site--reference--group-004.md#canonical-3103022313302202-0002120301011210-3010302030010020-1012013123113010-0123300332121311-2300003102102120-3320212010212200-0013310312101123) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_tgw_site--reference--group-004.md#canonical-1023232322123303-2120112113232100-0103223303310332-1313030210220223-0032302220033330-2330203030211331-3333100021200202-3112121010123032) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.plen](resources--aws_tgw_site--reference--group-004.md#canonical-0132122202103201-0211030311300202-1132011203322003-2220101232103030-0110020121313133-2210002100223302-1203103120023210-0300123021322323) |
+| `vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix` | [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6.prefix](resources--aws_tgw_site--reference--group-004.md#canonical-3111311323101023-3311301333110110-2330200200323033-2120232102212013-3333301203210010-0223001013321213-2111032000323001-0320313323013221) |
+| `vn_config.outside_static_routes.static_route_list.simple_static_route` | [vn_config.outside_static_routes.static_route_list.simple_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3220220133332031-3332312230201232-1022333330022231-0022233011233103-0123030111003201-1120322231111012-2332113123233033-0200231110322021) |
+| `vn_config.sm_connection_public_ip` | [vn_config.sm_connection_public_ip](resources--aws_tgw_site--reference--group-004.md#canonical-1202210310030101-1012103013201211-1002001200202022-3330223100321212-1113102330110213-1102313323310013-3212020313210310-2211230323011322) |
+| `vn_config.sm_connection_pvt_ip` | [vn_config.sm_connection_pvt_ip](resources--aws_tgw_site--reference--group-004.md#canonical-3001222103030002-2113002333332213-3101301320231220-2101231001300030-3330022330113332-2130013113113300-2122332310131203-3002112231320021) |
+| `vpc_attachments` | [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-2330320031031130-0223131233013102-0031030323103312-1323110303231202-0032131311202231-2300322232210321-2211310022213121-2021200310311132) |
+| `vpc_attachments.vpc_list` | [vpc_attachments.vpc_list](resources--aws_tgw_site--reference--group-004.md#canonical-1210321101230210-2200013012202212-0211221230322001-2121112201021310-3211233213301020-2002023033112131-3133321132020220-0222221111321220) |
+| `vpc_attachments.vpc_list.labels` | [vpc_attachments.vpc_list.labels](resources--aws_tgw_site--reference--group-004.md#canonical-3210011200110111-1123303222023031-3121103133003212-3301201031101331-2302321202100113-1102100130033303-2110013002113232-1233213302200202) |
+| `vpc_attachments.vpc_list.vpc_id` | [vpc_attachments.vpc_list.vpc_id](resources--aws_tgw_site--reference--group-004.md#canonical-3200001003301011-3223122010122023-1300221302312301-2031311121211021-1112132231112213-0300212231022323-3302203123022121-1010223002332223) |
+| `waf_signatures` | [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-3222213203010330-0133312022232213-1321000200323331-1122003320120230-1011033320302333-3322120000321332-0231130203100112-2321011322233231) |
+| `waf_signatures.automatic` | [waf_signatures.automatic](resources--aws_tgw_site--reference--group-004.md#canonical-0313330010000201-2032202213233101-2201101031123001-1023232213222320-2013230313222013-2101323121320132-3031123323200121-2030232013223213) |
+| `waf_signatures.manual` | [waf_signatures.manual](resources--aws_tgw_site--reference--group-004.md#canonical-0012101302001113-2310030110220330-1112010323013232-0102111022123101-1032033001110320-1222021331023312-3302323013130322-0211021220212203) |
 
-<a id="canonical-b81b31988c0c8217fb1379d45c73ca2e2eb4a87002302073411f266cc3f16cff"></a>
+<a id="canonical-2320012303012120-2030003020020113-3323010313213110-1130130330220232-0232231022201300-0002030002001303-1001013302121230-3003330112303333"></a>
 
-## Next pages — Property reference / 691c9a728462 / 13
+## Next pages — Property reference / 130220101202 / 13
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-f38ef4556d9454ee1fa3198b1de8b3eace6ebf064864c8599236cc65e500aa8f)
-- [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-e8d8b9fb2aee79c8f7b4a5747a0783a249ff6ae310ab6774a3c05184d3e24c51)
-- [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-fc40e9958bb6e7178fac69151232bfbf4397fc7a8a01886162591f52e00b9404)
-- [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-347174fd79b6c86f16e86abc884c54253528abca8e5888200327edfd66b4729d)
-- [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-2e91e3b2b5e727c6e40a4216181f74d84039efa17ee193877ca6cab3695ef316)
-- [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-302989a4f6d557908c55a666fb3705955d8482c6561e1cab36d132b1cc5a1779)
-- [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-ac82732ae4c6ed1fc3fe57328e909a84eec3d10b2e429345d448109c2a5fb3db)
-- [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-5f0e8beb13147df524b7d641760ac19c7109b05bd03b9cd7f614d7b329893a3e)
-- [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-5328bd4d13cd4b9bc6bf897e865e5f8b01e086064bde136bab9076d75b001faa)
-- [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-fdb168a79ccc613abd6af4e13fca87d0cf0e20f031d3af2ea06cada88b87c750)
-- [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-c1d488ffe9bc7e32f5e0c9a74b5c69d528239d7d4ecd68080450066df847f5fb)
-- [os](resources--aws_tgw_site--reference--group-002.md#canonical-b36c285d2a1299188f2809f555233d568667868bcfa2072e2d4e916468e5ee8c)
-- [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-4303abda634caa4786db98cdc8377f6b9ba8897cbe625e6d6e5da785aaec3f97)
-- [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-167e0e87b06b0a771760b8cbb360bf5f698651ea97f72ae4267354bc6877cb65)
-- [sw](resources--aws_tgw_site--reference--group-002.md#canonical-7076ed8e78694917e5f4df2c7aa41c7f303f575fbcc702ac483a7905e883932d)
-- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-5ff04c1933b8606e7ed6ccd8a5bd654c5b878146645f88ddcebe941fe708934c)
-- [timeouts](resources--aws_tgw_site--reference--group-002.md#canonical-7553cb4ac80cbd43a7a6cc1761d46be7559d8d7376ce03508ffdd968b305b1cf)
-- [vn_config](resources--aws_tgw_site--reference--group-002.md#canonical-110845d859c3a4bab87ea9730548ddd8e2e2bde8e808ef623db5e3fb6a8f808d)
-- [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-6a136b15777bb8a98743650367f2764c51a7b782bf04d63d34a2defafee0ddf3)
-- [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-6d8e9aff961991a95f631650b225f1a27401e6966c47ee24453e16093a40748e)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [block_all_services](resources--aws_tgw_site--reference--group-002.md#canonical-3303203233101111-1231211011103232-0133220301212023-0131322023033222-3032123223330012-1020121030201121-2102031230301211-3211000022222033)
+- [blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-3220312023213323-0222323213213020-3313231022111310-1322001320032202-1021333312223203-0100222312131310-2203300011012010-3103320210301101)
+- [coordinates](resources--aws_tgw_site--reference--group-002.md#canonical-3330100032212111-2023231232130113-2033223012210111-0102030223332333-1003211333301322-2022000120201201-1202112101331102-3200002321100010)
+- [custom_dns](resources--aws_tgw_site--reference--group-002.md#canonical-0310130113103331-1321231230201233-0112322012222330-2020103011100211-0311022022233022-2032112020200200-0003021332313331-1212231013022131)
+- [default_blocked_services](resources--aws_tgw_site--reference--group-002.md#canonical-0232210132032302-2311321302133012-3210002210020112-0120013313103120-1000032132332201-1332320121032013-1330221230222303-1221113233030112)
+- [direct_connect_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-0300022120212210-3312311111132100-2030111122121212-3323031300112111-1131201020023012-1112013201302223-0312310103022301-3030112201131321)
+- [direct_connect_enabled](resources--aws_tgw_site--reference--group-002.md#canonical-2230200213030222-3210301232310133-3003333211130302-2032210021222010-3232300331010023-0232100221031011-3110102001002130-0222113323033123)
+- [kubernetes_upgrade_drain](resources--aws_tgw_site--reference--group-002.md#canonical-1133003220233223-0103011013313311-0210231331121001-1312002230012130-1301002123001123-3100032321303113-3312011031132303-0221202103220332)
+- [log_receiver](resources--aws_tgw_site--reference--group-002.md#canonical-1103022023311031-0103303110232123-3012233320211332-2012113211332023-0001320020120012-1023313201031223-2223210013123113-1123000001332222)
+- [logs_streaming_disabled](resources--aws_tgw_site--reference--group-002.md#canonical-3331230112202213-2130303012010322-2331122233103201-0333302220133100-3033003202003300-0301310322330232-2200123022312220-2023201330131100)
+- [offline_survivability_mode](resources--aws_tgw_site--reference--group-002.md#canonical-3001311020203333-3221233013320302-3311320030212213-1023113012213111-0220020321311331-1032303112200020-0010110000121231-3320101333113323)
+- [os](resources--aws_tgw_site--reference--group-002.md#canonical-2303123002201131-0222010221210120-2033022000213311-1111020303311112-2012121320122023-3033220200130232-0231103221011210-1220321132322030)
+- [performance_enhancement_mode](resources--aws_tgw_site--reference--group-002.md#canonical-1003000322233122-1203103022221013-2012312321203031-3020031313331223-2123222020211330-2332120211321231-1232113122132011-2222323003332113)
+- [private_connectivity](resources--aws_tgw_site--reference--group-002.md#canonical-0112133200322013-2300122300221313-0113120023203023-2303120023331133-1221201211013222-2113331302223210-0212130311102330-1220131330231211)
+- [sw](resources--aws_tgw_site--reference--group-002.md#canonical-1300131232312032-1320122110210113-3211331031330230-1322221001301333-0300033311131133-2330301300022230-1020032213210011-3220200321030231)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- [timeouts](resources--aws_tgw_site--reference--group-003.md#canonical-1311110330231022-3020003023311003-2213221230300113-1201311012233213-1111213120311303-1312303200031100-2033333131211220-2303001123013033)
+- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
+- [vpc_attachments](resources--aws_tgw_site--reference--group-004.md#canonical-1222010312230111-1313132323202221-2013100312110003-1213330213121030-1101221323132002-2333001031120331-0310220231323322-3332320031313303)
+- [waf_signatures](resources--aws_tgw_site--reference--group-004.md#canonical-1231203221223333-2112012121012221-1133120301121100-2302021133012202-1310000132122112-1230101332320210-1011033201120021-0322100013102032)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48"></a>
+<a id="canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1f53d240bf3eadb95fd589814ec66d2648958ebfa85f728b217ca93dee36b5c2"></a>
+<a id="canonical-0133110331021000-2333033222312321-1133311120212001-1032301212310212-1020211120322333-2220113313022023-0201133022210331-3232031223113002"></a>
 
-## aws_parameters — aws_parameters / da1487af8f02 / 2
+## aws_parameters — aws_parameters / 223320330002 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
 - aws_parameters
 
-<a id="canonical-b8df39ec01df9616f8675ba90bbd827321ccbfe415aa31e0ae4c30299796519a"></a>
+<a id="canonical-2320313303213230-0001313321120112-3320121311232221-0023233120021303-0201303023333210-0111222203013200-2232103003000221-2113211211012122"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -778,19 +778,19 @@ aws_parameters {
 }
 ```
 
-<a id="canonical-56f045a18237b9cbd34811601d653641d89af212fd5278d831acd1d69413c388"></a>
+<a id="canonical-1112330010112201-2002031323213023-3103102001011200-0131121103121001-3120212233020102-3331110213203120-0301223031013112-2110010330032020"></a>
 
-## Direct properties — aws_parameters / da1487af8f02 / 3
+## Direct properties — aws_parameters / 223320330002 / 3
 
-- [admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452): complete subsection reference.
+- [admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102): complete subsection reference.
 
-- [aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-e9e60ee6cd97042783e932829df6acea0fc6b60f4182d9f8d517f9c7228511e0): complete subsection reference.
+- [aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-3221321200323212-3031211300100213-2003322103022002-2131331222303222-0033301223120033-1001200231213320-3111011333213013-0202201101013200): complete subsection reference.
 
-<a id="canonical-f66dbbe11a5283416386c195913e774b4f5fdc207091ccb5a4106944007e6559"></a>
+<a id="canonical-3312123123233201-0122110220031001-1203201230012111-2101033213131023-1033113331300200-1300210130302311-2210010012211010-0000133212111121"></a>
 
-<a id="canonical-31f6e3c500d7e17582e43557a49d38a7a7aef28dd69255b07acdaa6232ee3413"></a>
+<a id="canonical-0301331232033011-0000311332011311-2002321003111113-2210213103202213-2213223233022031-3112210211112300-1322303122221202-0302323203100103"></a>
 
-## aws_region property — aws_parameters / da1487af8f02 / 4
+## aws_region property — aws_parameters / 223320330002 / 4
 
 Type: `"string"`. Optional.
 
@@ -825,19 +825,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b): complete subsection reference.
+- [az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323): complete subsection reference.
 
-- [custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-a2dbf3068620cc2ba0398e09b0bfc71396676e57c14fdee9a4a4b6a35bfcb755): complete subsection reference.
+- [custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-2202312333030012-2012020030300223-2200032120320021-2300233330130103-2112121312321113-3001103331323221-2210221023122203-1123333023131111): complete subsection reference.
 
-- [disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-6f4daa9c6f5acfe04beb470e293d168eda234f99982312b18c311291fe554551): complete subsection reference.
+- [disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-1233103122222130-1233112230333200-1023322310130032-0221033101122032-3122020310332121-2120020301022301-2030030101022101-3332111110111101): complete subsection reference.
 
-- [disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-94343b10b6742d3b41a087823b366f63704533082ddd021cf173675cefd4954f): complete subsection reference.
+- [disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-2110031003230100-2312131002310323-1001220020132002-0323031212331203-1300101103030020-0231313100020130-3301130312131130-3233311021111033): complete subsection reference.
 
-<a id="canonical-9ce8a7de9ae5acd74cfc7c6988f38bd40de7a32ed3ab1a13397a437af4b802d6"></a>
+<a id="canonical-2130322022133132-2122321122303113-1030333013301221-2020330320233110-0031321322030232-3103222301220103-0321132210031322-3310232000023112"></a>
 
-<a id="canonical-f75b6d77e46493c36b167bfe889aa1a4e4ac4eae87422fdeb67fdc79ab4c5c95"></a>
+<a id="canonical-3313112312311313-3210121021033003-1223011213233332-2020212222012210-3210223010322232-2013100202333132-2312133331301321-2223103011302111"></a>
 
-## disk_size property — aws_parameters / da1487af8f02 / 5
+## disk_size property — aws_parameters / 223320330002 / 5
 
 Type: `"number"`. Optional.
 
@@ -881,19 +881,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-9fcf4edf24bb9ac5a87ed674acb3693271da466bc5df4c2dc505b7bf598f61c9): complete subsection reference.
+- [enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-2133303310323133-0210232321223011-2220133231121310-2230230312210302-1301312210121223-3011313310300231-3011001123132333-1121203312013021): complete subsection reference.
 
-- [enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-00ffbb634b9197ae73007e874f86eb0a47a982e3437a4789288f9a7ed47bf3f7): complete subsection reference.
+- [enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-0000333323231203-1023210121132232-1303000013322013-1033201232230022-1013222120023203-1003132210132021-0220203321221332-3110132333033313): complete subsection reference.
 
-- [existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-13688fa212f3629952f7851b68ae9ce15d01ad9608fffecf507600292ce14c98): complete subsection reference.
+- [existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-0103122020332202-0102330312022121-1102331320110123-1220223221303201-1131000122312112-0020333333323033-1100131200000221-0230320110302120): complete subsection reference.
 
-- [f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-b34cebbd4a5b43e28221b06df679ba86048fdab745ea758667b7f8d8473e73e0): complete subsection reference.
+- [f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-2303103032232331-1022112310033202-2002020123001231-3312132123222012-0010203331222313-1011322213112012-1213231333203120-1013033213033200): complete subsection reference.
 
-<a id="canonical-c74273294dbeae216bffdcd30fe0266bf850af20d81a3111dcc083f1cc686016"></a>
+<a id="canonical-3013100213030221-1031233222320201-1223333331303103-0033320002121223-3320110022330200-3120012203010101-3130300020033301-3030122012000112"></a>
 
-<a id="canonical-fab11e844adf2a57a6ce48cfd360d8fbd57a0dd28ad19516bda426c2e54bbfd8"></a>
+<a id="canonical-3322230101322010-1022313302221113-2212303210203033-3103120031203323-3111132200313102-2022310121110112-2331221002123002-3211102323333120"></a>
 
-## instance_type property — aws_parameters / da1487af8f02 / 6
+## instance_type property — aws_parameters / 223320330002 / 6
 
 Type: `"string"`. Optional.
 
@@ -944,17 +944,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52): complete subsection reference.
+- [new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-0201010233301021-1032210023013130-2031032132102301-2312330221121331-1233321022203030-1131222010323002-1133333302232200-1323232013331102): complete subsection reference.
 
-- [new_vpc](resources--aws_tgw_site--reference--group-001.md#canonical-2823b6f937a1792c17d1a89fa7317dd7838c44ea0e8ac666805abf0d98ea773a): complete subsection reference.
+- [new_vpc](resources--aws_tgw_site--reference--group-002.md#canonical-0220020323123321-0313220113210230-0113310122202133-2213030113313113-2003203010103222-0032202230121212-2000112223330031-2120322213130322): complete subsection reference.
 
-- [no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-a989844489c66d4e7faae9b8073925c332423fe87f9ed9161f123294f9f2b651): complete subsection reference.
+- [no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-2221202120101010-2021301212311032-1333222232212320-0013032102113003-0302100203333220-1333213231210112-0133010203022110-3321330223121101): complete subsection reference.
 
-<a id="canonical-78069ab3841acd2f64c991a506a11a9130680e2d8945617d108ac0b7530f3635"></a>
+<a id="canonical-1320001221222303-2010012230310233-1210302121012211-0012220101222101-0300122000320231-2021101112011331-0100202230002313-1103003303120311"></a>
 
-<a id="canonical-5588af80dbda673828081ad5e52412d7bd928b163628e0fd9f091c2587527d04"></a>
+<a id="canonical-1111202022332000-3123312212130320-0220002001223111-3211021001023113-2331210220230112-0312022032003331-2133002101300211-2013110213310010"></a>
 
-## nodes_per_az property — aws_parameters / da1487af8f02 / 7
+## nodes_per_az property — aws_parameters / 223320330002 / 7
 
 Type: `"number"`. Optional.
 
@@ -1007,13 +1007,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-d99f8f19c6a7e99ee542ccfb2979873c26ae54bd8d9b7fa065b15906cbe89931): complete subsection reference.
+- [reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-3121213320330121-3012221332212132-3211100230303323-0221132120130330-0212223211102331-2031212313332200-1211230111210012-3023322021210301): complete subsection reference.
 
-<a id="canonical-a14f180aecced62e682152714b37b4919851254fabba835c0d057376389459b9"></a>
+<a id="canonical-2201103301200022-3230303231120232-1220020111021301-1023031323102101-2120110102111033-2223232220031130-0031001113031312-0320211011212321"></a>
 
-<a id="canonical-83a235841ab634e0200c932a4211ac51c754c6cb62c8e47368663ee9643122e3"></a>
+<a id="canonical-2003220203112010-0122231203103200-0200003021030222-1002010122301101-3013111030123023-1202302032101303-1220121203323221-1210030102023203"></a>
 
-## ssh_key property — aws_parameters / da1487af8f02 / 8
+## ssh_key property — aws_parameters / 223320330002 / 8
 
 Type: `"string"`. Optional.
 
@@ -1064,13 +1064,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-dda6f57721acd4eeedf2a9b8e0df09e5fe75a64f91d5fb5515a8f7664c2a2e98): complete subsection reference.
+- [tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-3131221233111313-0201223031103232-3231330222212320-3200313300213211-3332131122121033-2101311133231111-0111222033131212-1030022202322120): complete subsection reference.
 
-<a id="canonical-3c0984a6024b5552778ebf98575be07d5c379ab431f747ca1b1e9b9db4979b65"></a>
+<a id="canonical-0330002120102212-0002102311111102-1313203223332120-1113112332001331-1130031321222310-0301331310133022-0123013221232131-2310211321231211"></a>
 
-<a id="canonical-8aa5a5eb26198bb0726b86d7cf2426695b4cf70f0b25d0955feaf32d027d3f4f"></a>
+<a id="canonical-2022221122113223-0212012120232300-1302122320123113-3033021002121221-1123103033130033-0023021131002111-1133322233030231-0002133103331033"></a>
 
-## total_nodes property — aws_parameters / da1487af8f02 / 9
+## total_nodes property — aws_parameters / 223320330002 / 9
 
 Type: `"number"`. Optional.
 
@@ -1123,11 +1123,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4912b3f08118b46648c3b7c746cfaf4f39e633d78350ad60aa0bf3666ab64267"></a>
+<a id="canonical-1021010223033300-2001012023101212-1020300323133013-1012303322331033-0321321203033113-2003110022311200-2222002333031212-1222231210021213"></a>
 
-<a id="canonical-f857abc48af75154c57c4cea96742326b111dc854169a4ce48c60635d034d732"></a>
+<a id="canonical-3320111322233010-2022331311011110-3011133010303222-2112131002030212-2301010131302011-1001122122103032-1020301200120311-3100031031130302"></a>
 
-## vpc_id property — aws_parameters / da1487af8f02 / 10
+## vpc_id property — aws_parameters / 223320330002 / 10
 
 Type: `"string"`. Optional.
 
@@ -1179,46 +1179,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-15f8ab6d97583488daf87aec89bbfa916ffd77548bb57ddcbfd651f184f21e49"></a>
+<a id="canonical-0111332022231231-2113112003102020-3122332013223230-2021232333222101-1233333113131110-2023231113313130-2333311211013301-2010330201321021"></a>
 
-## Next pages — aws_parameters / da1487af8f02 / 11
+## Next pages — aws_parameters / 223320330002 / 11
 
-- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452)
-- [aws_parameters.aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-e9e60ee6cd97042783e932829df6acea0fc6b60f4182d9f8d517f9c7228511e0)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [aws_parameters.custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-a2dbf3068620cc2ba0398e09b0bfc71396676e57c14fdee9a4a4b6a35bfcb755)
-- [aws_parameters.disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-6f4daa9c6f5acfe04beb470e293d168eda234f99982312b18c311291fe554551)
-- [aws_parameters.disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-94343b10b6742d3b41a087823b366f63704533082ddd021cf173675cefd4954f)
-- [aws_parameters.enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-9fcf4edf24bb9ac5a87ed674acb3693271da466bc5df4c2dc505b7bf598f61c9)
-- [aws_parameters.enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-00ffbb634b9197ae73007e874f86eb0a47a982e3437a4789288f9a7ed47bf3f7)
-- [aws_parameters.existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-13688fa212f3629952f7851b68ae9ce15d01ad9608fffecf507600292ce14c98)
-- [aws_parameters.f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-b34cebbd4a5b43e28221b06df679ba86048fdab745ea758667b7f8d8473e73e0)
-- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52)
-- [aws_parameters.new_vpc](resources--aws_tgw_site--reference--group-001.md#canonical-2823b6f937a1792c17d1a89fa7317dd7838c44ea0e8ac666805abf0d98ea773a)
-- [aws_parameters.no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-a989844489c66d4e7faae9b8073925c332423fe87f9ed9161f123294f9f2b651)
-- [aws_parameters.reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-d99f8f19c6a7e99ee542ccfb2979873c26ae54bd8d9b7fa065b15906cbe89931)
-- [aws_parameters.tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-dda6f57721acd4eeedf2a9b8e0df09e5fe75a64f91d5fb5515a8f7664c2a2e98)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102)
+- [aws_parameters.aws_cred](resources--aws_tgw_site--reference--group-001.md#canonical-3221321200323212-3031211300100213-2003322103022002-2131331222303222-0033301223120033-1001200231213320-3111011333213013-0202201101013200)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [aws_parameters.custom_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-2202312333030012-2012020030300223-2200032120320021-2300233330130103-2112121312321113-3001103331323221-2210221023122203-1123333023131111)
+- [aws_parameters.disable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-1233103122222130-1233112230333200-1023322310130032-0221033101122032-3122020310332121-2120020301022301-2030030101022101-3332111110111101)
+- [aws_parameters.disable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-2110031003230100-2312131002310323-1001220020132002-0323031212331203-1300101103030020-0231313100020130-3301130312131130-3233311021111033)
+- [aws_parameters.enable_encryption](resources--aws_tgw_site--reference--group-001.md#canonical-2133303310323133-0210232321223011-2220133231121310-2230230312210302-1301312210121223-3011313310300231-3011001123132333-1121203312013021)
+- [aws_parameters.enable_internet_vip](resources--aws_tgw_site--reference--group-001.md#canonical-0000333323231203-1023210121132232-1303000013322013-1033201232230022-1013222120023203-1003132210132021-0220203321221332-3110132333033313)
+- [aws_parameters.existing_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-0103122020332202-0102330312022121-1102331320110123-1220223221303201-1131000122312112-0020333333323033-1100131200000221-0230320110302120)
+- [aws_parameters.f5xc_security_group](resources--aws_tgw_site--reference--group-001.md#canonical-2303103032232331-1022112310033202-2002020123001231-3312132123222012-0010203331222313-1011322213112012-1213231333203120-1013033213033200)
+- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-0201010233301021-1032210023013130-2031032132102301-2312330221121331-1233321022203030-1131222010323002-1133333302232200-1323232013331102)
+- [aws_parameters.new_vpc](resources--aws_tgw_site--reference--group-002.md#canonical-0220020323123321-0313220113210230-0113310122202133-2213030113313113-2003203010103222-0032202230121212-2000112223330031-2120322213130322)
+- [aws_parameters.no_worker_nodes](resources--aws_tgw_site--reference--group-002.md#canonical-2221202120101010-2021301212311032-1333222232212320-0013032102113003-0302100203333220-1333213231210112-0133010203022110-3321330223121101)
+- [aws_parameters.reserved_tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-3121213320330121-3012221332212132-3211100230303323-0221132120130330-0212223211102331-2031212313332200-1211230111210012-3023322021210301)
+- [aws_parameters.tgw_cidr](resources--aws_tgw_site--reference--group-002.md#canonical-3131221233111313-0201223031103232-3231330222212320-3200313300213211-3332131122121033-2101311133231111-0111222033131212-1030022202322120)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452"></a>
+<a id="canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c30e5dba1831dbd2826a136d3c508fea1eec9f9a6cb3aadec701848a838a8d55"></a>
+<a id="canonical-3003003211312322-0120030131233102-2002122201031231-0330110020333222-0132323021332122-1230230322223132-3013000120102022-2003202220311111"></a>
 
-## aws_parameters.admin_password — aws_parameters.admin_password / 998b16a12df7 / 2
+## aws_parameters.admin_password — admin_password / 220102313313 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.admin_password
 
-<a id="canonical-47fe691e9721e0d7e2e3f4df2200aa1fed77dbf18c335b5d9aca87226ab68197"></a>
+<a id="canonical-1013333212210132-2113020132003113-3202320333103133-0202000022220133-3231131331233301-2030030311231131-2122302220130202-1222231220012113"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1253,42 +1253,42 @@ admin_password {
 }
 ```
 
-<a id="canonical-b8d70a6b5faa28bc2e45e37617ef2cb3bf66a35b9e66b566b4a4854c0ad1c7a6"></a>
+<a id="canonical-2320311300221223-1133222202202330-0232101132031312-0113323302302303-2333121222031123-2132121223111212-2310221020111030-0022310130132212"></a>
 
-## Direct properties — aws_parameters.admin_password / 998b16a12df7 / 3
+## Direct properties — admin_password / 220102313313 / 3
 
-- [blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-8ae03ea9d521b70b12de43648ec5a70ff58b0dfca5379f3fb0159af39d9ae54e): complete subsection reference.
+- [blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-2022320003322221-3111020123130023-0102313210031210-2032301122130033-3311202300313330-2211031321330333-2300011121223303-2131212232111032): complete subsection reference.
 
-- [clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-cf1cc6f0432406c467b75996913f7366edaa8a69808753af1edc300950bf49b4): complete subsection reference.
+- [clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-3033013030123300-1003021000123010-1213231311212112-2101033313031212-3231222220221221-2000201311032233-0132313003000021-1100233310212310): complete subsection reference.
 
-<a id="canonical-61e0ecd7b1ed7cf5a8b30ef5dc43fad4ce2dbc6ca094edec6185af3707aac2b6"></a>
+<a id="canonical-1201320032303113-2301323113303311-2220230300323311-3130100333223110-3032023123301230-2200211032313230-1201201122330313-0013222230022312"></a>
 
-## Next pages — aws_parameters.admin_password / 998b16a12df7 / 4
+## Next pages — admin_password / 220102313313 / 4
 
-- [aws_parameters.admin_password.blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-8ae03ea9d521b70b12de43648ec5a70ff58b0dfca5379f3fb0159af39d9ae54e)
-- [aws_parameters.admin_password.clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-cf1cc6f0432406c467b75996913f7366edaa8a69808753af1edc300950bf49b4)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.admin_password.blindfold_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-2022320003322221-3111020123130023-0102313210031210-2032301122130033-3311202300313330-2211031321330333-2300011121223303-2131212232111032)
+- [aws_parameters.admin_password.clear_secret_info](resources--aws_tgw_site--reference--group-001.md#canonical-3033013030123300-1003021000123010-1213231311212112-2101033313031212-3231222220221221-2000201311032233-0132313003000021-1100233310212310)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-8ae03ea9d521b70b12de43648ec5a70ff58b0dfca5379f3fb0159af39d9ae54e"></a>
+<a id="canonical-2022320003322221-3111020123130023-0102313210031210-2032301122130033-3311202300313330-2211031321330333-2300011121223303-2131212232111032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ffea1db1e2970f7e1fb0b52d7ce4cd7ed9966a6bdcfb74f8eee65f5dfde10d7b"></a>
+<a id="canonical-3333322201312301-3202211300331332-0133230023110231-1330321030311332-3121211212221223-3130332313103320-3232321211331131-3331320100311323"></a>
 
-## aws_parameters.admin_password.blindfold_secret_info — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 2
+## aws_parameters.admin_password.blindfold_secret_info — blindfold_secret_info / 313021002033 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102)
 - aws_parameters.admin_password.blindfold_secret_info
 
-<a id="canonical-4adb868bb34fb595fef71192fa480a4637398817e54deff1d7e6d9b581bc2897"></a>
+<a id="canonical-1022312320122023-2303103323112111-3332331301012102-3322102000221012-0313032120200113-3211103132333301-3113321231212311-2001233002202113"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1321,15 +1321,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-a3aebf79f5a7ff23331e5a5d70c824b1edd8bf18cafc0edcc16622dfbfa13924"></a>
+<a id="canonical-2203223223331321-3311221333330203-0303013211221131-1300302002102301-3231312023330120-3022333000323130-3001121202023133-2333220103210210"></a>
 
-## Direct properties — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 3
+## Direct properties — blindfold_secret_info / 313021002033 / 3
 
-<a id="canonical-3066e9510c16101dd4008390fe8f3db63f94a3146816cb8904ef8ec10c2f0a7f"></a>
+<a id="canonical-0300121232211101-0030011201000131-3110000020032100-3332203303312312-0333211022030110-1220011230232021-0010323320323001-0030023300221333"></a>
 
-<a id="canonical-8c4793e2c5476d6da93330730383ff17aa9d3a35418aa27c64ebb66bc073a8c8"></a>
+<a id="canonical-2030101321033202-3011101312311231-2221030303001303-0003200333330113-2222213103220311-1001202222021330-1210322323121223-3000130322203020"></a>
 
-## decryption_provider property — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 4
+## decryption_provider property — blindfold_secret_info / 313021002033 / 4
 
 Type: `"string"`. Optional.
 
@@ -1359,11 +1359,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-902388d1b73e7ed0e01782f3517ada8992d60fdb5b694e9edc8e664b5697d500"></a>
+<a id="canonical-2100020320203101-2313033213323100-3200011320023303-1101132231222021-2102311200333123-1123122110322132-3130203212121023-1112211331110000"></a>
 
-<a id="canonical-535a2de7488d06d54244e07c176f3e91c4f02e18fed77ae90d2dd75702f9113d"></a>
+<a id="canonical-1103112202313213-1020203100123111-1002101032001330-0113123303322101-3010330002320120-3332311313223221-0031023131131113-0002332101010331"></a>
 
-## location property — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 5
+## location property — blindfold_secret_info / 313021002033 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1420,11 +1420,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0437efedf39e3a131f29a7e3ffc6323c4e0edf8c0444e3593fe7a0ae58274d4"></a>
+<a id="canonical-3200100313323332-3133032132032201-0301330221221332-0333333012030203-3010320032313320-3000101010320311-2103333213220022-3211200213103110"></a>
 
-<a id="canonical-e72c125a4f1ad3b923becc49c180afab34f5e219a6d186b5f09847b229491397"></a>
+<a id="canonical-3213023001021122-1033012231032321-0203233230301021-3001200022332223-0310331132020121-2212310120122311-3300212010132302-0221102101032113"></a>
 
-## store_provider property — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 6
+## store_provider property — blindfold_secret_info / 313021002033 / 6
 
 Type: `"string"`. Optional.
 
@@ -1459,32 +1459,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93d0de8deeca6ddfe2f2d752f41f5138da16aed700dec5545aa80e2786eeabeb"></a>
+<a id="canonical-2103310031322031-3232302212313133-3202330231131102-3310013311010320-3122011222323113-0000313230111110-1122222000320213-2012323222233223"></a>
 
-## Next pages — aws_parameters.admin_password.blindfold_secret_info / a2b745dc908f / 7
+## Next pages — blindfold_secret_info / 313021002033 / 7
 
-- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-cf1cc6f0432406c467b75996913f7366edaa8a69808753af1edc300950bf49b4"></a>
+<a id="canonical-3033013030123300-1003021000123010-1213231311212112-2101033313031212-3231222220221221-2000201311032233-0132313003000021-1100233310212310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-75515449fc2d22837ed9eb569309d331b94a35fae02b30ace1432d1312c2a87c"></a>
+<a id="canonical-1311110111101021-3330023102022003-1332312132231112-2103002131030301-2321102203113322-3200022303002230-3201100302310103-0102300222201330"></a>
 
-## aws_parameters.admin_password.clear_secret_info — aws_parameters.admin_password.clear_secret_info / 33fa9641f62b / 2
+## aws_parameters.admin_password.clear_secret_info — clear_secret_info / 100133120223 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102)
 - aws_parameters.admin_password.clear_secret_info
 
-<a id="canonical-95a9fa8f85097f67a04129fd26fcfe2eae0d7566f10f62624676956ea703e322"></a>
+<a id="canonical-2111222133222033-2011002113331213-2200100102213331-0212333033320232-2232003113111212-3301003312021202-1012131221111232-2213000332030202"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1517,26 +1517,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-efa9bebf033f108eb755e419cfed5eec8c8f4361994ff51ca16646865540ad9b"></a>
+<a id="canonical-3233222123322333-0003033301002032-2313111132100121-3033323111323230-2030203310031201-2121103333110130-2201121210122012-1111100022312123"></a>
 
-## Direct properties — aws_parameters.admin_password.clear_secret_info / 33fa9641f62b / 3
+## Direct properties — clear_secret_info / 100133120223 / 3
 
-<a id="canonical-b9828acaaa98b63162c5b92b97aed389d69bc5b8278fa2ed9dacaffc878573d1"></a>
+<a id="canonical-2321200220223022-2222212023120301-1202301123210223-2113223231032021-3112212330112320-0213203322023231-2131223022333330-2013201113033101"></a>
 
-<a id="canonical-d193d4142e00b25cd51dcb04c0a5e9c9b04a3fcf138af15f10032cc37796415c"></a>
+<a id="canonical-3101210331100110-0232000023021130-3111013130230010-3000221132213021-2300102203333033-0103202233011133-0100000302303003-1313211210011130"></a>
 
-## provider_ref property — aws_parameters.admin_password.clear_secret_info / 33fa9641f62b / 4
+## provider_ref property — clear_secret_info / 100133120223 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-b19f97b8fbcfcc528c808b756f37285bb0dd2fce073aefecf9a19c00852ada3f"></a>
+<a id="canonical-2301213321132320-3323303330301102-2030200020231311-1233031302201123-2300313102333032-0013032232333230-3321220121300000-2011022231220333"></a>
 
-<a id="canonical-eedb8ff94aab874b84fd548da6b8854254b408ae4311ce912361198b19887cd4"></a>
+<a id="canonical-3232312320333321-1022222320131023-2010333111102031-2212232020111002-1110231000202232-1003010130322101-0203120101212023-0121202013303110"></a>
 
-## url property — aws_parameters.admin_password.clear_secret_info / 33fa9641f62b / 5
+## URL property — clear_secret_info / 100133120223 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1604,31 +1604,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e262001651924ff3742f1fd99df4c1d5b89f533f85a887288dc554f737f6cad5"></a>
+<a id="canonical-3202120200000112-1101210210333303-1310023301333121-2131331030013111-2320213311030333-2011222020130220-2031301111103313-0313331230223111"></a>
 
-## Next pages — aws_parameters.admin_password.clear_secret_info / 33fa9641f62b / 6
+## Next pages — clear_secret_info / 100133120223 / 6
 
-- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-88f8143d60eb6d965531df056eb61c3c957a4e86ddbed6d734b8eb35169a4452)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.admin_password](resources--aws_tgw_site--reference--group-001.md#canonical-2020332001100331-1200322312312112-1111030131330011-1232231201300330-2111132210322012-3131233231123113-0310232032230311-0112212210101102)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-e9e60ee6cd97042783e932829df6acea0fc6b60f4182d9f8d517f9c7228511e0"></a>
+<a id="canonical-3221321200323212-3031211300100213-2003322103022002-2131331222303222-0033301223120033-1001200231213320-3111011333213013-0202201101013200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-27a003a18d26b4020c5d3032365881a1d813dd61994f7f7c4241be1a00aaf6f2"></a>
+<a id="canonical-0213220000032201-2031021223100002-0030113103000302-0312112020012201-3120010331311201-2121103313331330-1002100123320122-0000222233123302"></a>
 
-## aws_parameters.aws_cred — aws_parameters.aws_cred / 7e3dfbb0b040 / 2
+## aws_parameters.aws_cred — aws_cred / 230023001000 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.aws_cred
 
-<a id="canonical-afbd740e212a335c1aa9e082e7f7f41ccbda3c87ff5716cb0bae22ce0bcb3a8d"></a>
+<a id="canonical-2233233113100032-0201022203031130-0122222132002002-3213331333100130-3023312203302013-3333111301123023-0023223202023032-0023302303222031"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1667,15 +1667,15 @@ aws_cred {
 }
 ```
 
-<a id="canonical-78dad7b555dba61b9b6b25a7e5cc0010a07f5144ef7afd8a7a74d8e7c4791637"></a>
+<a id="canonical-1320312231132311-1111312322120123-2123122302112213-3211303000000100-2200133311011010-3233132233312022-1322131031203213-3010132101120313"></a>
 
-## Direct properties — aws_parameters.aws_cred / 7e3dfbb0b040 / 3
+## Direct properties — aws_cred / 230023001000 / 3
 
-<a id="canonical-aa086c855a2fb5c590686b1ba17600cd5ee27e6cf53216523c460e318ab399c6"></a>
+<a id="canonical-2222002012302011-1122023323113011-2100122012230123-2201131200003031-1132320213321230-3311030201121102-0330101200320301-2022230321213012"></a>
 
-<a id="canonical-18ddafe7a79a37272366d4f526935c62ed310e5eb68aa42e4892976b5834df50"></a>
+<a id="canonical-0120313122333213-2213212203130213-0203121231103311-0212210311301202-3231030100321132-2312202222100232-1020210221131223-1120031031331100"></a>
 
-## name property — aws_parameters.aws_cred / 7e3dfbb0b040 / 4
+## name property — aws_cred / 230023001000 / 4
 
 Type: `"string"`. Optional.
 
@@ -1736,11 +1736,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-346f0bbc0bb98b81e6dd7da3fc41dcbcd3284a19b73e6a79c6656148a97e891d"></a>
+<a id="canonical-0310123300232330-0023232120232001-3212313113312203-3330100131302330-3103022010220121-2313033212221321-3012121112011020-2221133220210131"></a>
 
-<a id="canonical-d6cf8008c44b52ec1f50fe2b2dc11af4958b717d55c827dfcd3a6ea38e271705"></a>
+<a id="canonical-3112303320000020-3010102311023230-0133110033320223-0231300101223310-2111202313011331-1111302002133133-3031032212322203-2032021301130011"></a>
 
-## namespace property — aws_parameters.aws_cred / 7e3dfbb0b040 / 5
+## namespace property — aws_cred / 230023001000 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1808,11 +1808,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-edfebec6a589264264f8d0777379fa7400efb8e92ac54c65bf3cbd237978cb91"></a>
+<a id="canonical-3231333223323012-2211202102121002-1210332031001313-1303132133221310-0000323323203221-0222301110301211-2333033023310203-1321132030232101"></a>
 
-<a id="canonical-db1b0ba5af52b0dc4939010f0597ea20bbc624cf882fd474f15f5afe22c6e7a0"></a>
+<a id="canonical-3123012300232211-2233110223003130-1021032100010033-0011211332220200-2323301202103033-2020023331101310-3301113311223332-0202301232132200"></a>
 
-## tenant property — aws_parameters.aws_cred / 7e3dfbb0b040 / 6
+## tenant property — aws_cred / 230023001000 / 6
 
 Type: `"string"`. Computed.
 
@@ -1866,31 +1866,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b75c2b655ca91063c1a6a306399627feb8afc9412f6fec2c9d83f255705b76cd"></a>
+<a id="canonical-2313113002231211-1130222101001203-3001221222030012-0321211202133332-2320223330211001-0233123332300230-2131200333021111-1300112313123031"></a>
 
-## Next pages — aws_parameters.aws_cred / 7e3dfbb0b040 / 7
+## Next pages — aws_cred / 230023001000 / 7
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b"></a>
+<a id="canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e330f2e65af5eadc273602b5ece8a07252df372265581bdb69a023333259a0b"></a>
+<a id="canonical-2032030300330232-1211223311322231-3002130312000223-1132303220220013-0211023133031302-0212111120012331-2312212200020303-0303021121220023"></a>
 
-## aws_parameters.az_nodes — aws_parameters.az_nodes / e1ec34b58bbf / 2
+## aws_parameters.az_nodes — az_nodes / 231120232333 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.az_nodes
 
-<a id="canonical-fb2bfb41dc0d82bb84cf60336d281ff240717dc003051f4e096c0ac5eb296ef5"></a>
+<a id="canonical-3323022333231001-3130003120022323-2010303312000303-1231022001333302-1000130113313000-0003001101331032-0021123000223011-3223022112323311"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1933,15 +1933,15 @@ az_nodes {
 }
 ```
 
-<a id="canonical-c9a16c6007f9de4c6c1cab345f9982e78bd890ec373e8ea234c57ea3c4596d8f"></a>
+<a id="canonical-3021220112301200-0013332131321030-1230013022230310-1133212120023213-2023312021003230-0313033220322202-0310301113322203-3010112112312033"></a>
 
-## Direct properties — aws_parameters.az_nodes / e1ec34b58bbf / 3
+## Direct properties — az_nodes / 231120232333 / 3
 
-<a id="canonical-463365584c3c9af0b8b4b4039e915e9b4808c85fc0ca0541b32ab6a792e373ea"></a>
+<a id="canonical-1012030312111120-1030033021223300-2320231023100003-2132210111322123-1020002030201133-3000302200111001-2303022223122213-2102320313033222"></a>
 
-<a id="canonical-4b9c469eaf320df7a84fef2744476641f609928f767d74aa66994bae9c4d3b21"></a>
+<a id="canonical-1023213010122132-2233030200313313-2220103332330213-1010101312121001-3312002121022033-1312133113102222-1212212110232232-2130103103230201"></a>
 
-## aws_az_name property — aws_parameters.az_nodes / e1ec34b58bbf / 4
+## aws_az_name property — az_nodes / 231120232333 / 4
 
 Type: `"string"`. Optional.
 
@@ -1976,44 +1976,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-5999cb63066f4166ef223df059ecacd92d68d1c9c5fb3bf1939d19d196064e6d): complete subsection reference.
+- [inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-1121212130231203-0012123310011212-3233020203313300-1121323022303121-0231122031013021-3011332303233301-2103213101213101-2112001210321231): complete subsection reference.
 
-- [outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-17065352d24fe947e9b2a45a7a5e303178f7297ecbde3da1d267d5884f4ab8fa): complete subsection reference.
+- [outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0113001211031102-3102103332211013-3221230222101122-1322113203000301-1320331302211332-3023313203312201-3102121331112020-1033102223203322): complete subsection reference.
 
-- [reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2536a8e26a9c3af28ee612d67c0121f6c18e077ac6264c76a92a4fe63b5a3505): complete subsection reference.
+- [reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0211031222203202-1222213003223302-2032321201023112-1330000102013312-3001203200131322-3012021210301312-2221022210333212-0323112203110011): complete subsection reference.
 
-- [workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-9e9660a632e8abfc5cbd116c62206b38ce0dfaeae340c4ca3691816ad1d88903): complete subsection reference.
+- [workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2132211212002212-0302322022233330-1130233101011230-1202020012230320-3032003133223222-3203100030103022-0312210120011222-3101312020210003): complete subsection reference.
 
-<a id="canonical-cac299216713b5ba478bd0b1023e5103d046fe3b96b719ecb0eb415fb2c942b7"></a>
+<a id="canonical-3022300221210201-1213010323112322-1013202331002301-0002033211010003-3100101233320323-2112231301213230-2300322310011133-2302302110022313"></a>
 
-## Next pages — aws_parameters.az_nodes / e1ec34b58bbf / 5
+## Next pages — az_nodes / 231120232333 / 5
 
-- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-5999cb63066f4166ef223df059ecacd92d68d1c9c5fb3bf1939d19d196064e6d)
-- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-17065352d24fe947e9b2a45a7a5e303178f7297ecbde3da1d267d5884f4ab8fa)
-- [aws_parameters.az_nodes.reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2536a8e26a9c3af28ee612d67c0121f6c18e077ac6264c76a92a4fe63b5a3505)
-- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-9e9660a632e8abfc5cbd116c62206b38ce0dfaeae340c4ca3691816ad1d88903)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-1121212130231203-0012123310011212-3233020203313300-1121323022303121-0231122031013021-3011332303233301-2103213101213101-2112001210321231)
+- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0113001211031102-3102103332211013-3221230222101122-1322113203000301-1320331302211332-3023313203312201-3102121331112020-1033102223203322)
+- [aws_parameters.az_nodes.reserved_inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0211031222203202-1222213003223302-2032321201023112-1330000102013312-3001203200131322-3012021210301312-2221022210333212-0323112203110011)
+- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2132211212002212-0302322022233330-1130233101011230-1202020012230320-3032003133223222-3203100030103022-0312210120011222-3101312020210003)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-5999cb63066f4166ef223df059ecacd92d68d1c9c5fb3bf1939d19d196064e6d"></a>
+<a id="canonical-1121212130231203-0012123310011212-3233020203313300-1121323022303121-0231122031013021-3011332303233301-2103213101213101-2112001210321231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-921996683690cb7f752fc41a04a8a6b25aac2c76cf07b229d6dbe2ff80acb23b"></a>
+<a id="canonical-2102012121121220-0312210030231333-1311023330100122-0010222022122302-1122223002301312-3033001323020221-3112312332023333-2000223023020323"></a>
 
-## aws_parameters.az_nodes.inside_subnet — aws_parameters.az_nodes.inside_subnet / 0da927da1eba / 2
+## aws_parameters.az_nodes.inside_subnet — inside_subnet / 312201322322 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
 - aws_parameters.az_nodes.inside_subnet
 
-<a id="canonical-b910dc8e743677ff887c22e8152161c24f45563eec30bb4ca18fa8c69b090805"></a>
+<a id="canonical-2321010031302032-1310031213133333-2020133002023220-0111020112013002-1033101111120332-3230030023231030-2201203322203012-2123002100200011"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2052,15 +2052,15 @@ inside_subnet {
 }
 ```
 
-<a id="canonical-a2ea9f989404652690173a8820380d5ac5334b73327fadad7d7ae2d8181db1d2"></a>
+<a id="canonical-2202322221332120-2110001012110212-2100011303222020-0200032000311122-3011030310231303-0302133322312231-1331132232023120-0120013123013102"></a>
 
-## Direct properties — aws_parameters.az_nodes.inside_subnet / 0da927da1eba / 3
+## Direct properties — inside_subnet / 312201322322 / 3
 
-<a id="canonical-4de66bbd0c8714a337e588f55443bcaf9dce84cc9c37a7ad01357e82b5044edd"></a>
+<a id="canonical-1031321212232331-0030201301102203-0313321120203311-1110100323302233-2131303220103030-2130031322132231-0001031113322002-2311001010323131"></a>
 
-<a id="canonical-874649d7579d0be6e8c2f394aab4ff0b1e7dcf47d34b24d8c2e9ee84758957e8"></a>
+<a id="canonical-2013101210213113-1113213100233212-3220300233032110-2222231033330023-0132133130331013-3103102302103120-3002322132322010-1311202111133220"></a>
 
-## existing_subnet_id property — aws_parameters.az_nodes.inside_subnet / 0da927da1eba / 4
+## existing_subnet_id property — inside_subnet / 312201322322 / 4
 
 Type: `"string"`. Optional.
 
@@ -2112,36 +2112,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-26038bb035a9bdde78a139dc5f6b0be0799552749daff7322378f5e2da9c479d): complete subsection reference.
+- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0212000320232300-0311222123313132-1320220103213130-1133122300233200-1321211111021310-2131223333130302-0203132033113202-3122213010132131): complete subsection reference.
 
-<a id="canonical-502c029d2f0f44e5fca16fae7bf8f453be3f664542f5df57cede2f13e50a2c85"></a>
+<a id="canonical-1100023000022131-0233003310103211-3330220112332232-1323332033101103-2332033312121011-1002331131331113-3032313202330103-3211002202302011"></a>
 
-## Next pages — aws_parameters.az_nodes.inside_subnet / 0da927da1eba / 5
+## Next pages — inside_subnet / 312201322322 / 5
 
-- [aws_parameters.az_nodes.inside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-26038bb035a9bdde78a139dc5f6b0be0799552749daff7322378f5e2da9c479d)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.inside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0212000320232300-0311222123313132-1320220103213130-1133122300233200-1321211111021310-2131223333130302-0203132033113202-3122213010132131)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-26038bb035a9bdde78a139dc5f6b0be0799552749daff7322378f5e2da9c479d"></a>
+<a id="canonical-0212000320232300-0311222123313132-1320220103213130-1133122300233200-1321211111021310-2131223333130302-0203132033113202-3122213010132131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d0951e947eb14c05f10b50718dc23782c5ea032b5b728b958c1042199cb6db6d"></a>
+<a id="canonical-3100211101322110-1332230110300011-3301002311001301-2031300203132002-3011322200030223-1123130220232111-2030010010020121-2130231231231231"></a>
 
-## aws_parameters.az_nodes.inside_subnet.subnet_param — aws_parameters.az_nodes.inside_subnet.subnet_param / 3f20c45830d9 / 2
+## aws_parameters.az_nodes.inside_subnet.subnet_param — subnet_param / 112003003121 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-5999cb63066f4166ef223df059ecacd92d68d1c9c5fb3bf1939d19d196064e6d)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-1121212130231203-0012123310011212-3233020203313300-1121323022303121-0231122031013021-3011332303233301-2103213101213101-2112001210321231)
 - aws_parameters.az_nodes.inside_subnet.subnet_param
 
-<a id="canonical-97dd02a6aa4fec37729fea8b6d3ae177bb50268a962b48dbe60822a8d4d1d50e"></a>
+<a id="canonical-2113313100022212-2222103332300313-1302213332222023-1231032232011313-2323110002122022-2112022310203123-3212002002022220-3110310131110032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2174,15 +2174,15 @@ subnet_param {
 }
 ```
 
-<a id="canonical-31083ef8f9916679063d8dca4b4feb68ea18e9eb2d78746002d54cbb8bd674cd"></a>
+<a id="canonical-0301002003323320-3321210112121321-0012033120313022-1023103332231220-3222012032213223-0231132013101200-0002311110302323-2023311213103031"></a>
 
-## Direct properties — aws_parameters.az_nodes.inside_subnet.subnet_param / 3f20c45830d9 / 3
+## Direct properties — subnet_param / 112003003121 / 3
 
-<a id="canonical-716c070e124589efc5da18a08de6c22654bcd7d69909be2115c4bfc9598e484c"></a>
+<a id="canonical-1301123000130032-0102101120213233-3011312201202200-2031321230020212-1110233031133112-2121002123320201-0111301023333021-1121203210201030"></a>
 
-<a id="canonical-203e2183ac465dbeaa634516533e81958842fdf5e8ca81701693f5b10ff4b577"></a>
+<a id="canonical-0200033202012003-2230101211312332-2222120310110112-1103033220012111-2020100233313311-3220302220011300-0112210333112301-0033331023111313"></a>
 
-## ipv4 property — aws_parameters.az_nodes.inside_subnet.subnet_param / 3f20c45830d9 / 4
+## IPv4 property — subnet_param / 112003003121 / 4
 
 Type: `"string"`. Optional.
 
@@ -2226,32 +2226,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-97bbdd0c13ea150d27afd07dbd8c53866904b5768ad20c3eb9398e717488fbaa"></a>
+<a id="canonical-2113232331310030-0103322201110031-0213223331001331-2331203011032012-1221001023111312-2022310200300332-2321032120321301-1310202033232222"></a>
 
-## Next pages — aws_parameters.az_nodes.inside_subnet.subnet_param / 3f20c45830d9 / 5
+## Next pages — subnet_param / 112003003121 / 5
 
-- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-5999cb63066f4166ef223df059ecacd92d68d1c9c5fb3bf1939d19d196064e6d)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.inside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-1121212130231203-0012123310011212-3233020203313300-1121323022303121-0231122031013021-3011332303233301-2103213101213101-2112001210321231)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-17065352d24fe947e9b2a45a7a5e303178f7297ecbde3da1d267d5884f4ab8fa"></a>
+<a id="canonical-0113001211031102-3102103332211013-3221230222101122-1322113203000301-1320331302211332-3023313203312201-3102121331112020-1033102223203322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-84076648983481e7cf83e53c7c758564ec79b3cd03126a7436e646f80744f518"></a>
+<a id="canonical-2010001312121020-2120031020013213-3033200332110330-1330131120111210-3230132123033031-0003010212221310-0312321210123320-0013101033110120"></a>
 
-## aws_parameters.az_nodes.outside_subnet — aws_parameters.az_nodes.outside_subnet / 5aa1af600721 / 2
+## aws_parameters.az_nodes.outside_subnet — outside_subnet / 120000130201 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
 - aws_parameters.az_nodes.outside_subnet
 
-<a id="canonical-04960f4424d2b0d4b470c4108cfc828a45c706130ef83c88103d1c68bbcfb980"></a>
+<a id="canonical-0010211200331010-0210310223003110-2310130030100100-2030333020022022-1011301300120103-0032332003302020-0100033101301220-2323303323212000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2290,15 +2290,15 @@ outside_subnet {
 }
 ```
 
-<a id="canonical-1c8fc5108b2b76585b8a13feb438765411e73c381e56629e082da25a610d6b1d"></a>
+<a id="canonical-0130203330110100-2023022313121120-1123202201033332-2310032013121110-0101321303300320-0132111212022132-0020023122021122-1201003112230131"></a>
 
-## Direct properties — aws_parameters.az_nodes.outside_subnet / 5aa1af600721 / 3
+## Direct properties — outside_subnet / 120000130201 / 3
 
-<a id="canonical-b0d593e80d170c975b17abea8a26a811d14963e57c9666a85120b5b8abca6d89"></a>
+<a id="canonical-2300311121033220-0031011300302113-1123011322233222-2022021222200101-3101102112033211-1330211212122220-1101020023112320-2223302212312021"></a>
 
-<a id="canonical-1ceeaa240c00ac0cb568cb38a4c0aeca5ec5e424bc62ffbe27eb5cefe253ff71"></a>
+<a id="canonical-0130323222220210-0030000022300030-2311122030230320-2210300022323022-1132301132100210-2330120233332332-0213322311303233-3202110333331301"></a>
 
-## existing_subnet_id property — aws_parameters.az_nodes.outside_subnet / 5aa1af600721 / 4
+## existing_subnet_id property — outside_subnet / 120000130201 / 4
 
 Type: `"string"`. Optional.
 
@@ -2350,36 +2350,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-8a32a0e11d89ffe0cfc83670add60dcacefb26e51857505ec2aef766f4ca6773): complete subsection reference.
+- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-2022030222003201-0131202133333200-3033302003121300-2231311200313022-3032332302123211-0120111311001132-3002223233131212-3310302212131303): complete subsection reference.
 
-<a id="canonical-a7b2a03c0089154c3c6ab3e74bbd2309836e9f85b6e839db39a034c194bd8fc8"></a>
+<a id="canonical-2213230222000330-0000202101111030-0330122223033213-1023233102030021-2003123221332011-2312322003213123-0321220003103001-2110233120333020"></a>
 
-## Next pages — aws_parameters.az_nodes.outside_subnet / 5aa1af600721 / 5
+## Next pages — outside_subnet / 120000130201 / 5
 
-- [aws_parameters.az_nodes.outside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-8a32a0e11d89ffe0cfc83670add60dcacefb26e51857505ec2aef766f4ca6773)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.outside_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-2022030222003201-0131202133333200-3033302003121300-2231311200313022-3032332302123211-0120111311001132-3002223233131212-3310302212131303)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-8a32a0e11d89ffe0cfc83670add60dcacefb26e51857505ec2aef766f4ca6773"></a>
+<a id="canonical-2022030222003201-0131202133333200-3033302003121300-2231311200313022-3032332302123211-0120111311001132-3002223233131212-3310302212131303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-14ba74ee5c43740a68c9b65f69356a0f257e51737ea2781ae4c58d2583180287"></a>
+<a id="canonical-0110232213103232-1130100313100022-1220302123121133-1221031112220033-0211133211011303-1332220213200122-3210301120310211-2003012000022013"></a>
 
-## aws_parameters.az_nodes.outside_subnet.subnet_param — aws_parameters.az_nodes.outside_subnet.subnet_param / 8367c25a963f / 2
+## aws_parameters.az_nodes.outside_subnet.subnet_param — subnet_param / 112221120333 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-17065352d24fe947e9b2a45a7a5e303178f7297ecbde3da1d267d5884f4ab8fa)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0113001211031102-3102103332211013-3221230222101122-1322113203000301-1320331302211332-3023313203312201-3102121331112020-1033102223203322)
 - aws_parameters.az_nodes.outside_subnet.subnet_param
 
-<a id="canonical-178d71bcf91e185d748bfc5e5131913de3c1a022c3a15f0b73b8a2560ebf4c65"></a>
+<a id="canonical-0113203113012330-3321013201201131-1310202333301132-1101030121010331-3203300122000202-3003220111330023-1303232022021112-0032233310301211"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2412,15 +2412,15 @@ subnet_param {
 }
 ```
 
-<a id="canonical-5104f5732f44d6fb27ddf7a7bf34f8659d07e7361488e5c8cdced7f2712dfa7c"></a>
+<a id="canonical-1101001033111303-0233101031123323-0213313133132213-2333031033201211-2131001332130312-0110202032113020-3031303231133302-1301023133221330"></a>
 
-## Direct properties — aws_parameters.az_nodes.outside_subnet.subnet_param / 8367c25a963f / 3
+## Direct properties — subnet_param / 112221120333 / 3
 
-<a id="canonical-15d5fcdf0af88ae551c6ce4295c0a276806d8e83d22dd9b0cb775452d2d10094"></a>
+<a id="canonical-0111311133303133-0022332020223211-1101301230321002-2111300022021312-2000123120322003-3102023131212300-3023131311101102-3102310100002110"></a>
 
-<a id="canonical-bc35838cab7f162b797bbb35b490c8dd50adcb1659b273bbde4a9ffa9a2fff91"></a>
+<a id="canonical-2330031120032030-2223133301120223-1321132323230311-2310210030203131-1100223130230112-1121230213032323-3132102221333322-2122023333332101"></a>
 
-## ipv4 property — aws_parameters.az_nodes.outside_subnet.subnet_param / 8367c25a963f / 4
+## IPv4 property — subnet_param / 112221120333 / 4
 
 Type: `"string"`. Optional.
 
@@ -2464,32 +2464,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0f814fbd1319d2e320a5989b16483f843e6bc782c01c378e889b4e41384c313a"></a>
+<a id="canonical-0033200110332331-0103012131023203-0200221121202123-0112102003332010-0332122330132002-3000013003132032-2020212310321001-0320103003010322"></a>
 
-## Next pages — aws_parameters.az_nodes.outside_subnet.subnet_param / 8367c25a963f / 5
+## Next pages — subnet_param / 112221120333 / 5
 
-- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-17065352d24fe947e9b2a45a7a5e303178f7297ecbde3da1d267d5884f4ab8fa)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.outside_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-0113001211031102-3102103332211013-3221230222101122-1322113203000301-1320331302211332-3023313203312201-3102121331112020-1033102223203322)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-2536a8e26a9c3af28ee612d67c0121f6c18e077ac6264c76a92a4fe63b5a3505"></a>
+<a id="canonical-0211031222203202-1222213003223302-2032321201023112-1330000102013312-3001203200131322-3012021210301312-2221022210333212-0323112203110011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b4f0020aa76f4d6f1b057efea3bbe2479c20ecf5015952f690d52c9525ee91b0"></a>
+<a id="canonical-2310330000020022-2213123310311233-0123001113323332-2203232332021013-2130020032303311-0001112111023312-2100311102302111-0211323221012300"></a>
 
-## aws_parameters.az_nodes.reserved_inside_subnet — aws_parameters.az_nodes.reserved_inside_subnet / 577bd992daeb / 2
+## aws_parameters.az_nodes.reserved_inside_subnet — reserved_inside_subnet / 210231223223 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
 - aws_parameters.az_nodes.reserved_inside_subnet
 
-<a id="canonical-a4f81741908c1e0df6e57f9979abcc23eb421dbee371e9483f326f3c1d6681ef"></a>
+<a id="canonical-2210332001131001-2100203001320031-3312321113332121-1321222330300203-3223100201312332-3203130132211020-0333030212330330-0131121220013233"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2518,38 +2518,38 @@ Terraform syntax:
 reserved_inside_subnet = {}
 ```
 
-<a id="canonical-54bf346d91c0b8cca36b92d57a44d24ca241746e13d8ddbdb412545be632c19a"></a>
+<a id="canonical-1110233303101231-2101300023203030-2203122321023111-1322101031021030-2202100113101232-0103312031312331-2310010211101123-3212030230012122"></a>
 
-## Direct properties — aws_parameters.az_nodes.reserved_inside_subnet / 577bd992daeb / 3
+## Direct properties — reserved_inside_subnet / 210231223223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8f09b60fc51ccdd7c8fd76bfb4bc53583563ef2607dc170b55a1da6d3202c1d5"></a>
+<a id="canonical-2033002123120033-3011013030313113-3020333113122333-2310233011031120-0311120332330212-0013313001130023-1111220131221231-0302000230013111"></a>
 
-## Next pages — aws_parameters.az_nodes.reserved_inside_subnet / 577bd992daeb / 4
+## Next pages — reserved_inside_subnet / 210231223223 / 4
 
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-9e9660a632e8abfc5cbd116c62206b38ce0dfaeae340c4ca3691816ad1d88903"></a>
+<a id="canonical-2132211212002212-0302322022233330-1130233101011230-1202020012230320-3032003133223222-3203100030103022-0312210120011222-3101312020210003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c7fc10866fc17ac96eb85ccfdce1a89f4067df222dc000228af7566cd0b5ed08"></a>
+<a id="canonical-3013333001002012-1233300113223021-1232232011303033-3130320122202133-1000121331330202-0231300000000202-2022331311121230-3100231132310020"></a>
 
-## aws_parameters.az_nodes.workload_subnet — aws_parameters.az_nodes.workload_subnet / ddc3f792a98b / 2
+## aws_parameters.az_nodes.workload_subnet — workload_subnet / 210222212023 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
 - aws_parameters.az_nodes.workload_subnet
 
-<a id="canonical-e9a5aabc1dea32ce8e69ddbcede71fd7434c2766e1d86e0ec19bde91e2a92040"></a>
+<a id="canonical-3221221122222330-0131322203023032-2032122131312330-3231321301333113-1003103002131212-3201312012320032-3001212331322101-3202222102001000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2588,15 +2588,15 @@ workload_subnet {
 }
 ```
 
-<a id="canonical-e1283ceb59ef1e5e25babcb9a7c2ba41799dd1c577227688cd0146eeea2b598d"></a>
+<a id="canonical-3201022003303223-1121323301321132-0211232223302321-2213300223221001-1321213131013011-1313020213122020-3031000110123232-3222022311212031"></a>
 
-## Direct properties — aws_parameters.az_nodes.workload_subnet / ddc3f792a98b / 3
+## Direct properties — workload_subnet / 210222212023 / 3
 
-<a id="canonical-47656bb0b68796fac88a63a7b8cdb441c2bf73d4c45d46e63a16fcfb8812e3f4"></a>
+<a id="canonical-1013121112232300-2312201321123322-3020202212032213-2320303123101001-3002233313033110-3010113110123212-0322011233303323-2020010232033310"></a>
 
-<a id="canonical-16b999a025449bbb9a8a0c3496daa96495faac477a0e2aee73dd8c0a02ba3626"></a>
+<a id="canonical-0112232121212200-0211101021232323-2122202200300310-2112312222211210-2111332222301013-1322003202223232-1303313120300022-0002232203120212"></a>
 
-## existing_subnet_id property — aws_parameters.az_nodes.workload_subnet / ddc3f792a98b / 4
+## existing_subnet_id property — workload_subnet / 210222212023 / 4
 
 Type: `"string"`. Optional.
 
@@ -2648,36 +2648,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-25e8ae67a29cb47b720d0e651da85a2811680609f8d6de8e49f3037e1b353520): complete subsection reference.
+- [subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0211322022321213-2202213023101323-1302003100321211-0131222011220220-0101122000120021-3320311231322032-1021330300031332-0123031103110200): complete subsection reference.
 
-<a id="canonical-05db9f64968faead3aa4bd7a5372c2873bf92d3c7c918812a21a4e3ab2cf5270"></a>
+<a id="canonical-0011312321331210-2112203322322231-0322221023311322-1103130230022013-0323332102310330-1330210120200102-2202012210320322-2302303311021300"></a>
 
-## Next pages — aws_parameters.az_nodes.workload_subnet / ddc3f792a98b / 5
+## Next pages — workload_subnet / 210222212023 / 5
 
-- [aws_parameters.az_nodes.workload_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-25e8ae67a29cb47b720d0e651da85a2811680609f8d6de8e49f3037e1b353520)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.workload_subnet.subnet_param](resources--aws_tgw_site--reference--group-001.md#canonical-0211322022321213-2202213023101323-1302003100321211-0131222011220220-0101122000120021-3320311231322032-1021330300031332-0123031103110200)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-25e8ae67a29cb47b720d0e651da85a2811680609f8d6de8e49f3037e1b353520"></a>
+<a id="canonical-0211322022321213-2202213023101323-1302003100321211-0131222011220220-0101122000120021-3320311231322032-1021330300031332-0123031103110200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b6549bcaef64aa87d2df0046426dafb12763e40163226a92d55724e871d1a79"></a>
+<a id="canonical-1323121110212330-2232331210222220-1331023133000010-1210021231223323-0102131203321000-0112030202122221-0231111113021032-2013013101221321"></a>
 
-## aws_parameters.az_nodes.workload_subnet.subnet_param — aws_parameters.az_nodes.workload_subnet.subnet_param / c0950076f940 / 2
+## aws_parameters.az_nodes.workload_subnet.subnet_param — subnet_param / 131233211000 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-b9b100e7deba782559419b98d00a975f113e2952ad307da115a4d1ccae964b7b)
-- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-9e9660a632e8abfc5cbd116c62206b38ce0dfaeae340c4ca3691816ad1d88903)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [aws_parameters.az_nodes](resources--aws_tgw_site--reference--group-001.md#canonical-2321230100003213-3132232213200211-1121100121232120-3100002221131133-0101033202211102-2231030013312201-0111221031013030-2232211210231323)
+- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2132211212002212-0302322022233330-1130233101011230-1202020012230320-3032003133223222-3203100030103022-0312210120011222-3101312020210003)
 - aws_parameters.az_nodes.workload_subnet.subnet_param
 
-<a id="canonical-0b16c5d9dbbc4cf45c24b402ac63acd86c958febbef20a9144278a36b53026e4"></a>
+<a id="canonical-0023011230113121-3123233010303310-1130021023100002-2230120322303120-1230211120333223-2332330200222101-1010021320220312-2311030002123210"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2710,15 +2710,15 @@ subnet_param {
 }
 ```
 
-<a id="canonical-73b3266190b7d29734eb51c455f72785b0bfc4fc6a4f09172d7ce6e2f3fa0571"></a>
+<a id="canonical-1303230302121201-2100231331022113-0310322311013010-1111331302132011-2300233330103330-1222103300210113-0231133032123202-3303332200111301"></a>
 
-## Direct properties — aws_parameters.az_nodes.workload_subnet.subnet_param / c0950076f940 / 3
+## Direct properties — subnet_param / 131233211000 / 3
 
-<a id="canonical-1933ddd419baa21c6ce98d3bcc4e6aaf8314dda0a1a6471c7c0ab42ecd8d55f2"></a>
+<a id="canonical-0121030331313110-0121232222020130-1230322120310323-3030103212222233-2003011031312200-2201221210130130-1330002223100232-3031203111113302"></a>
 
-<a id="canonical-6fddda25dedd83106eed930b8179458e9caca442259702a1cc06bb092fe7aae4"></a>
+<a id="canonical-1233313131220211-3132313120030100-1232323121030023-2001132110112032-2130223022101002-0211211300022201-3030001223230021-0233321322223210"></a>
 
-## ipv4 property — aws_parameters.az_nodes.workload_subnet.subnet_param / c0950076f940 / 4
+## IPv4 property — subnet_param / 131233211000 / 4
 
 Type: `"string"`. Optional.
 
@@ -2762,31 +2762,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aecdbfb2122a1dd8831825363df170492a0dcb70a0badc167e9ff1fae8352544"></a>
+<a id="canonical-2232303123332302-0102022201313120-2003012002110312-0331330113001021-0222003130231300-2200232231300112-1332213333013322-3220031102111010"></a>
 
-## Next pages — aws_parameters.az_nodes.workload_subnet.subnet_param / c0950076f940 / 5
+## Next pages — subnet_param / 131233211000 / 5
 
-- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-9e9660a632e8abfc5cbd116c62206b38ce0dfaeae340c4ca3691816ad1d88903)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.az_nodes.workload_subnet](resources--aws_tgw_site--reference--group-001.md#canonical-2132211212002212-0302322022233330-1130233101011230-1202020012230320-3032003133223222-3203100030103022-0312210120011222-3101312020210003)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-a2dbf3068620cc2ba0398e09b0bfc71396676e57c14fdee9a4a4b6a35bfcb755"></a>
+<a id="canonical-2202312333030012-2012020030300223-2200032120320021-2300233330130103-2112121312321113-3001103331323221-2210221023122203-1123333023131111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cfeff6c4f6facb4da35f767ae9e479de84e89190a1b0d0eefc497d58b1b9b5c6"></a>
+<a id="canonical-3033323333123010-3312332230231031-2203113313121322-3221321013213132-2010322021012100-2201230031003232-3330102113311120-2301232123113012"></a>
 
-## aws_parameters.custom_security_group — aws_parameters.custom_security_group / d8a1e0c73b1d / 2
+## aws_parameters.custom_security_group — custom_security_group / 301303230131 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.custom_security_group
 
-<a id="canonical-d0968f23e68e7a95578266883f00caedbe487b227ad438793aa54b48c01a608f"></a>
+<a id="canonical-3100211220330203-3212203213222111-1113200212122020-0333000030223231-2332102013230202-1322311003201321-0322221110231020-3000012212002033"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2814,15 +2814,15 @@ custom_security_group {
 }
 ```
 
-<a id="canonical-9f7bee099e8d2b2b8699fe6e7ee8702244d1d23ac4886c3272494bed4f522629"></a>
+<a id="canonical-2133132332320021-2132203102230223-2012212133321232-1332322013000202-1010310131020322-3010202012300302-1302102110233231-1033110202120221"></a>
 
-## Direct properties — aws_parameters.custom_security_group / d8a1e0c73b1d / 3
+## Direct properties — custom_security_group / 301303230131 / 3
 
-<a id="canonical-ceef3b608f66430b9eb21ee06ae873678a5b777ffb65bbd1012d8a338aa17878"></a>
+<a id="canonical-3032323303231200-2033121210030023-2132230201323200-1222322013031213-2022112313131333-3323121123233101-0001023120220303-2022220113201320"></a>
 
-<a id="canonical-9f729db2d33ecae006ec937cf0a304c45e5653411e49b12d04cc18ef64f3a503"></a>
+<a id="canonical-2133130221312302-3103033230223200-0012323021031330-3300220300103010-1132111211031001-0132102123010231-0010303001203233-1210330322110003"></a>
 
-## inside_security_group_id property — aws_parameters.custom_security_group / d8a1e0c73b1d / 4
+## inside_security_group_id property — custom_security_group / 301303230131 / 4
 
 Type: `"string"`. Optional.
 
@@ -2870,11 +2870,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-73c04a5f6c4034636ba865a9e297869ff571fee2c6b32c885bcc862d50766e54"></a>
+<a id="canonical-1303300010221133-1230100003101203-1223222012112221-3202211320122133-3311130133323202-3012230302302020-1123303020120231-1100131212321110"></a>
 
-<a id="canonical-c0d1699e7456ebeefe66ed7c4b11dc66f2fdf0214b167e3890e389ea899fe84f"></a>
+<a id="canonical-3000310112212132-1310111232233232-3332121232311330-1023010131301212-3302333133000201-1023011213320320-2100320320213222-2021213332201033"></a>
 
-## outside_security_group_id property — aws_parameters.custom_security_group / d8a1e0c73b1d / 5
+## outside_security_group_id property — custom_security_group / 301303230131 / 5
 
 Type: `"string"`. Optional.
 
@@ -2922,31 +2922,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cbce3b6ea1e344305fa492ec2a71640245ddb09c1026e09e72338639c25641b3"></a>
+<a id="canonical-3023303203231232-2201320310100300-1133221021023230-0222130112100002-1011313123002130-0100021232002132-1302030320120321-3002111210012303"></a>
 
-## Next pages — aws_parameters.custom_security_group / d8a1e0c73b1d / 6
+## Next pages — custom_security_group / 301303230131 / 6
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-6f4daa9c6f5acfe04beb470e293d168eda234f99982312b18c311291fe554551"></a>
+<a id="canonical-1233103122222130-1233112230333200-1023322310130032-0221033101122032-3122020310332121-2120020301022301-2030030101022101-3332111110111101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-83f5ffa802846075799935bb26e3df19d493fc43fb7741f43bb3299baa3f5205"></a>
+<a id="canonical-2003331133332220-0002201012001311-1321212103112323-0212320331330121-3110210333301003-3323131310013310-0323230302212123-2222033311020011"></a>
 
-## aws_parameters.disable_encryption — aws_parameters.disable_encryption / d466f7221f93 / 2
+## aws_parameters.disable_encryption — disable_encryption / 020201332103 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.disable_encryption
 
-<a id="canonical-03805be8ca9cfad4b1b4847a9fe4bdb0dff83133d50b93768a5fb5088e83cd43"></a>
+<a id="canonical-0003200011233220-3022213033223110-2301231020101322-2133321023312300-3133332003010303-3111002321031312-2022113323110020-2032200330311003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2975,37 +2975,37 @@ Terraform syntax:
 disable_encryption = {}
 ```
 
-<a id="canonical-87b7aa23ca6b104c62aaf1f4544addc11378dc9b5a2b1a1e98320ee4b738f8e1"></a>
+<a id="canonical-2013231322220203-3022122301001030-1202222233013310-1110102231313001-0103132031302123-1122022301220132-2120030200323210-2313032033203201"></a>
 
-## Direct properties — aws_parameters.disable_encryption / d466f7221f93 / 3
+## Direct properties — disable_encryption / 020201332103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a533f190f4f14ae6fcfbd2be61eba4eb411420bcd2c0ba55afaa3785765ad7f0"></a>
+<a id="canonical-2211030333012100-3310330110223212-3330332331022332-1201322322103223-1001011002002330-3102300023221111-2233222203132011-1312112231133300"></a>
 
-## Next pages — aws_parameters.disable_encryption / d466f7221f93 / 4
+## Next pages — disable_encryption / 020201332103 / 4
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-94343b10b6742d3b41a087823b366f63704533082ddd021cf173675cefd4954f"></a>
+<a id="canonical-2110031003230100-2312131002310323-1001220020132002-0323031212331203-1300101103030020-0231313100020130-3301130312131130-3233311021111033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9093d3bc0ee242e3bf9314b655be5b020293ebf8e51e39fe07735feebddc042e"></a>
+<a id="canonical-2100210331032330-0032320210023203-2333210301102312-1111233211230002-0002210332233320-3211013203213332-0013130311333232-2331313000100232"></a>
 
-## aws_parameters.disable_internet_vip — aws_parameters.disable_internet_vip / db50ffeea0bd / 2
+## aws_parameters.disable_internet_vip — disable_internet_vip / 323222002331 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.disable_internet_vip
 
-<a id="canonical-ae4f0f3c1ae9d386a14f7801b9f668f892477920d5ef7ebc005ea7e8bd30ee86"></a>
+<a id="canonical-2232103300330330-0122322131032012-2201103313200001-2321331212203320-2102101313210200-3111323313322330-0000113222133220-2331030032322012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3034,37 +3034,37 @@ Terraform syntax:
 disable_internet_vip = {}
 ```
 
-<a id="canonical-14dcd2b8b33f1dfadcdec1076ff7c305ce174e3b7f32b9f442bdecce6cd656dd"></a>
+<a id="canonical-0110313031022320-2303033301313322-3130313230010013-1233331330030011-3032011310320323-1333030223213310-1002233132303032-1230311211123131"></a>
 
-## Direct properties — aws_parameters.disable_internet_vip / db50ffeea0bd / 3
+## Direct properties — disable_internet_vip / 323222002331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8909fd4d1dbe4d7e569c08ef0d53490107bf83178a51707630a2d5e8cb5531df"></a>
+<a id="canonical-2021002133311031-0131233210311332-1112213000203233-0031110310210001-0013233320030113-2022110113001312-0300220231113220-3023111103013133"></a>
 
-## Next pages — aws_parameters.disable_internet_vip / db50ffeea0bd / 4
+## Next pages — disable_internet_vip / 323222002331 / 4
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-9fcf4edf24bb9ac5a87ed674acb3693271da466bc5df4c2dc505b7bf598f61c9"></a>
+<a id="canonical-2133303310323133-0210232321223011-2220133231121310-2230230312210302-1301312210121223-3011313310300231-3011001123132333-1121203312013021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d47f41212a6dc61983676a215826c385f3b71209fc95b57585cc37937beada4f"></a>
+<a id="canonical-3110133310010201-0222123130120121-2003121312220201-1120021230032011-3303231301020021-3330211123111311-2011303003132103-1323322231221033"></a>
 
-## aws_parameters.enable_encryption — aws_parameters.enable_encryption / 78753a627025 / 2
+## aws_parameters.enable_encryption — enable_encryption / 120213000211 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.enable_encryption
 
-<a id="canonical-0ec3db85e4f1fd47f8640657a8e2a0f2b5ce43c53ccb5b4fb7e01e0dac474b38"></a>
+<a id="canonical-0032300331232011-3210330133311013-3320121000121113-2220320222003302-2311303210033011-0330302311231033-2313320001320031-2230101310230320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3101,15 +3101,15 @@ enable_encryption {
 }
 ```
 
-<a id="canonical-24f1458fe7043a42d2fb51a2f1d6a0f7a68d262efb3ab881f11aa424b9abf66f"></a>
+<a id="canonical-0210330110112033-3213001003221002-3102332311012202-3301311222003313-2212203102120232-3323032223202001-3301012222100210-2321222333121233"></a>
 
-## Direct properties — aws_parameters.enable_encryption / 78753a627025 / 3
+## Direct properties — enable_encryption / 120213000211 / 3
 
-<a id="canonical-74f7898dfe6160c450abda0d9e33cf3536bbbee4cdc91f9549cf9265dd670ebc"></a>
+<a id="canonical-1310331320212031-3332120112003010-1100222331220031-2132030330330311-0312232323323210-3031302101332111-1021303321021211-3131121300322330"></a>
 
-<a id="canonical-6ede9d4366b0efcbff2bf4fcf1e90060f6432f5cca3c58289c86458e38316c7a"></a>
+<a id="canonical-1232313221311003-1212230032333023-3333022333103330-3301322100001200-3312100302331130-3022033011200220-2130201210112032-0320030112301322"></a>
 
-## kms_key_id property — aws_parameters.enable_encryption / 78753a627025 / 4
+## kms_key_id property — enable_encryption / 120213000211 / 4
 
 Type: `"string"`. Optional.
 
@@ -3144,31 +3144,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-19cca620caa73e09e62b63637051d47837c273e9a3291390a0f55ee72cca2343"></a>
+<a id="canonical-0121303022120200-3022221303320021-3212022312031203-1300110131101320-0313300213033221-2203022101032100-2200331111323213-0230302202031003"></a>
 
-## Next pages — aws_parameters.enable_encryption / 78753a627025 / 5
+## Next pages — enable_encryption / 120213000211 / 5
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-00ffbb634b9197ae73007e874f86eb0a47a982e3437a4789288f9a7ed47bf3f7"></a>
+<a id="canonical-0000333323231203-1023210121132232-1303000013322013-1033201232230022-1013222120023203-1003132210132021-0220203321221332-3110132333033313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3fc8d23496f7ac63d9a9d74ba0b4674fe5a61c85f14e25cac273d60b9b546901"></a>
+<a id="canonical-0333302031020310-2112331322301203-3121222131131023-2200231012131033-3211221201302011-3301103202113022-3002130331120023-2123111012210001"></a>
 
-## aws_parameters.enable_internet_vip — aws_parameters.enable_internet_vip / 8d3cfba8d13b / 2
+## aws_parameters.enable_internet_vip — enable_internet_vip / 222031010323 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.enable_internet_vip
 
-<a id="canonical-8bba561b6295cefd101a9efb4d3de7b9e60b889ead0b4e79725bbf15dfa0a78f"></a>
+<a id="canonical-2023232211120123-1202211130323331-0100012221323323-1031033132132321-3212002320202132-2231002310321321-1302112323330111-3133220022132033"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3197,37 +3197,37 @@ Terraform syntax:
 enable_internet_vip = {}
 ```
 
-<a id="canonical-cb0bb63b5734734404ecd113fe1d95c07f5ac1193ec72cfe9923dcc80eec7635"></a>
+<a id="canonical-3023002323120323-1113031013031010-0010323031010103-3332013121113000-1333112230010121-0332301302303332-2121020331303020-0032323013120311"></a>
 
-## Direct properties — aws_parameters.enable_internet_vip / 8d3cfba8d13b / 3
+## Direct properties — enable_internet_vip / 222031010323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fb72f2aec47b0bdbdac0da8c513752fa3b2da8f3ff5047da8438be7fbf30811c"></a>
+<a id="canonical-3323130233022232-3010132300233123-3122300031222030-1101031311023322-0323023122203303-3333110010133122-2010032023321333-2333030020010130"></a>
 
-## Next pages — aws_parameters.enable_internet_vip / 8d3cfba8d13b / 4
+## Next pages — enable_internet_vip / 222031010323 / 4
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-13688fa212f3629952f7851b68ae9ce15d01ad9608fffecf507600292ce14c98"></a>
+<a id="canonical-0103122020332202-0102330312022121-1102331320110123-1220223221303201-1131000122312112-0020333333323033-1100131200000221-0230320110302120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3f3bef92a7862ad747d78e65defed8c2bae5cc8fecebc151b272585932c927c9"></a>
+<a id="canonical-0333032332332102-2213201202223113-1013311320321211-3132333231203002-2322321130302033-3230322330011101-2302130211201121-0302302102133021"></a>
 
-## aws_parameters.existing_tgw — aws_parameters.existing_tgw / 20abfd274e87 / 2
+## aws_parameters.existing_tgw — existing_tgw / 021310322013 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.existing_tgw
 
-<a id="canonical-cdf4b580fd1cb25dc424c53737109e1d9f0185b0cf336a041e012b0d6a1e4eb4"></a>
+<a id="canonical-3031331023112000-3331013023021131-3010021030110313-0313010021320131-2133000120112300-3033030312220010-0132000102230031-1222013210322310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3258,15 +3258,15 @@ existing_tgw {
 }
 ```
 
-<a id="canonical-a8f8875a94d9674011fd1aa3055bf3ee8217fb22a6b270f261e953393d11dc8d"></a>
+<a id="canonical-2220332020131122-2110312112131000-0101333101222203-0011112333033232-2002011333230202-2212230213003302-1201322111030321-0331010131302031"></a>
 
-## Direct properties — aws_parameters.existing_tgw / 20abfd274e87 / 3
+## Direct properties — existing_tgw / 021310322013 / 3
 
-<a id="canonical-e3b1bbc23c815bd9f414fa1fa6c65d747a8d6d4d5cfeb40edd1aa76f699085fd"></a>
+<a id="canonical-3203230123233002-0330200111233121-3310011033220133-2212301211311310-1322203112311031-1130333223100032-3131012222131233-1221210020113331"></a>
 
-<a id="canonical-79bbffd6c111183673f11ed0db7d168dc9d76c26fa043d6e2eb4891baf21f7e4"></a>
+<a id="canonical-1321232333333112-3001010101200312-1303330101323100-3123133101122031-3021311312300212-3322001003311232-0232231020210123-2233020133133210"></a>
 
-## tgw_asn property — aws_parameters.existing_tgw / 20abfd274e87 / 4
+## tgw_asn property — existing_tgw / 021310322013 / 4
 
 Type: `"number"`. Optional.
 
@@ -3317,11 +3317,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4eb547e195d687d888811ec0f055f936b62f394e98e8a085cb8f9313f1496cd3"></a>
+<a id="canonical-1032231110133201-2111311220133120-2020200101323000-3300111133210312-2312023303211032-2120322022002011-3023203321030103-3301102112303103"></a>
 
-<a id="canonical-8f1fc9cff28499387bc330a92635b5d22221a9a115d7854b492053e20b185f7e"></a>
+<a id="canonical-2033013330213033-3302201021210320-1323300303002221-0212031123113102-0202020122212201-0111311320111023-1021020011033202-0023012011331332"></a>
 
-## tgw_id property — aws_parameters.existing_tgw / 20abfd274e87 / 5
+## tgw_id property — existing_tgw / 021310322013 / 5
 
 Type: `"string"`. Optional.
 
@@ -3373,11 +3373,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c5c1152ed7ffc46dec87e95e587a97d5c6134c45567bd61721fcd85e45325e9e"></a>
+<a id="canonical-3011300101110232-3113333330101231-3230201332211132-1120132221133111-3012010310301011-1112132331120113-0201333031201132-1011030211322132"></a>
 
-<a id="canonical-a0e17612daf1d426c5c5b0cd70f771a10ee143a0d9522343c084b74be085f801"></a>
+<a id="canonical-2200320113120102-3122330131100212-3011301123003031-1300331313012201-0032320110032200-3121110202031003-3000201023131023-3200201133200001"></a>
 
-## volterra_site_asn property — aws_parameters.existing_tgw / 20abfd274e87 / 6
+## volterra_site_asn property — existing_tgw / 021310322013 / 6
 
 Type: `"number"`. Optional.
 
@@ -3428,31 +3428,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10887fa4891f3a69389ab8c0c442f24fe63d22f68e7815d4b58b5313fe7e24fa"></a>
+<a id="canonical-0100202013332210-2021013303221221-0320212223203000-3010100233021033-3212033102023312-2032132001113110-2311202311030103-3332133202103322"></a>
 
-## Next pages — aws_parameters.existing_tgw / 20abfd274e87 / 7
+## Next pages — existing_tgw / 021310322013 / 7
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-b34cebbd4a5b43e28221b06df679ba86048fdab745ea758667b7f8d8473e73e0"></a>
+<a id="canonical-2303103032232331-1022112310033202-2002020123001231-3312132123222012-0010203331222313-1011322213112012-1213231333203120-1013033213033200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad7d8c5e8cd13e2c8133d6c66324cb04becebc3afdad8ad5e88cdc88ed617e87"></a>
+<a id="canonical-2231133120301132-2030310103320230-2001030331123012-1203021030230010-2332303223300322-3331223120223111-3220203031302020-3231120113322013"></a>
 
-## aws_parameters.f5xc_security_group — aws_parameters.f5xc_security_group / 0c8ba203a5cf / 2
+## aws_parameters.f5xc_security_group — f5xc_security_group / 000322113033 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.f5xc_security_group
 
-<a id="canonical-54dc7e3625aa67ce268c0817dc425f18de17a8bcf921471f3da7ba24341646b4"></a>
+<a id="canonical-1110313013320312-0211222212133032-0212203000200113-3130100211330120-3132011322202330-3321020110130133-0331221323220210-0310011210122310"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3481,37 +3481,37 @@ Terraform syntax:
 f5xc_security_group = {}
 ```
 
-<a id="canonical-e74c0935a8beba1b526b16fa457ef5f941ecb1ff94d6720f68933486351126ce"></a>
+<a id="canonical-3213103000210311-2220233223220123-1102122301123322-1011133233113321-1001323023013333-2110311213020033-1220210303102012-0311010102123032"></a>
 
-## Direct properties — aws_parameters.f5xc_security_group / 0c8ba203a5cf / 3
+## Direct properties — f5xc_security_group / 000322113033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-07459583612a92cf2c5aba72786aec7fafabfb523501d07db25cdb76dd42ad4e"></a>
+<a id="canonical-0013101121112003-1201022221023033-0230112223221302-1320122232301333-2233222333231102-0311000131001331-2302113031231312-3131100222311032"></a>
 
-## Next pages — aws_parameters.f5xc_security_group / 0c8ba203a5cf / 4
+## Next pages — f5xc_security_group / 000322113033 / 4
 
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52"></a>
+<a id="canonical-0201010233301021-1032210023013130-2031032132102301-2312330221121331-1233321022203030-1131222010323002-1133333302232200-1323232013331102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4ea61fb5112ff78f627702f75e2d6afe014bf603651dcd927c15dc6524102713"></a>
+<a id="canonical-1032221201332311-0101023333132033-1202131300023313-1132023112223332-0001102333120003-1211013130312102-1330011131301211-0210010002130103"></a>
 
-## aws_parameters.new_tgw — aws_parameters.new_tgw / 65c9a3b4becf / 2
+## aws_parameters.new_tgw — new_tgw / 231023323033 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
 - aws_parameters.new_tgw
 
-<a id="canonical-5a5f926fed2cc993355bc753558edc5ecf309df9817bc17f3df85df1086d9b5c"></a>
+<a id="canonical-1122113321021233-3231023030212103-0311112330131103-1111203231301132-3033030021313321-2001132330011333-0331332011313301-0020123121231130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3546,246 +3546,24 @@ new_tgw {
 }
 ```
 
-<a id="canonical-e787e23b3c0ad4d78b9539b02bea679f6a50e7aae6855a58477ef131b9b5613d"></a>
+<a id="canonical-3213201332020323-0330002231103113-2023211103212300-0223322212132133-1222110032132222-3212201111221120-1013133233010301-2321231112010331"></a>
 
-## Direct properties — aws_parameters.new_tgw / 65c9a3b4becf / 3
+## Direct properties — new_tgw / 231023323033 / 3
 
-- [system_generated](resources--aws_tgw_site--reference--group-001.md#canonical-13a572284b3b05205ae03250f1ad44c06e6843609b0f41f811a21db37ef3a5ca): complete subsection reference.
+- [system_generated](resources--aws_tgw_site--reference--group-001.md#canonical-0103221113020220-1023032300110200-1122320003021100-3301223110103000-1232122010031200-2123003310013320-0101220201312303-1332330322113022): complete subsection reference.
 
-- [user_assigned](resources--aws_tgw_site--reference--group-001.md#canonical-46e61e66ff905e68701d95cb84a8a4d87d7dd02d84f8a17529630edc5ce9f23e): complete subsection reference.
+- [user_assigned](resources--aws_tgw_site--reference--group-002.md#canonical-1012321201321212-3333210011321220-1300013121113023-2010222022103120-1331133131000231-2010332022011311-0221120300323130-1130322133020332): complete subsection reference.
 
-<a id="canonical-32459c6b788912273c8a3ede314a2b328909686fdea76efe468b8327d8470bdf"></a>
+<a id="canonical-0302101121301223-1320202101020213-0330202203323132-0301102202230302-2021002112201233-3132221312323332-1012202320030213-3120101300233133"></a>
 
-## Next pages — aws_parameters.new_tgw / 65c9a3b4becf / 4
+## Next pages — new_tgw / 231023323033 / 4
 
-- [aws_parameters.new_tgw.system_generated](resources--aws_tgw_site--reference--group-001.md#canonical-13a572284b3b05205ae03250f1ad44c06e6843609b0f41f811a21db37ef3a5ca)
-- [aws_parameters.new_tgw.user_assigned](resources--aws_tgw_site--reference--group-001.md#canonical-46e61e66ff905e68701d95cb84a8a4d87d7dd02d84f8a17529630edc5ce9f23e)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
+- [aws_parameters.new_tgw.system_generated](resources--aws_tgw_site--reference--group-001.md#canonical-0103221113020220-1023032300110200-1122320003021100-3301223110103000-1232122010031200-2123003310013320-0101220201312303-1332330322113022)
+- [aws_parameters.new_tgw.user_assigned](resources--aws_tgw_site--reference--group-002.md#canonical-1012321201321212-3333210011321220-1300013121113023-2010222022103120-1331133131000231-2010332022011311-0221120300323130-1130322133020332)
+- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-0211211321130333-3310103111003032-2331313101231121-1000033231012332-1331312012302111-2003331003101111-3231100013121220-1221232021331020)
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
-<a id="canonical-13a572284b3b05205ae03250f1ad44c06e6843609b0f41f811a21db37ef3a5ca"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0fcf0072b636002d6bf5f1eef7542c784535c7bdcbaa6838e4ffc76189f8ab6b"></a>
-
-## aws_parameters.new_tgw.system_generated — aws_parameters.new_tgw.system_generated / a662fdfec0cc / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52)
-- aws_parameters.new_tgw.system_generated
-
-<a id="canonical-156529bf2718cd0dccd2afbffec20cc05742611a626fd1d9799d5386fd0f592e"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for system generated.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-system_generated = {}
-```
-
-<a id="canonical-d1272ecc62acb1a0a6c1a1db44b1a40bac9b5c344654f2e6cd40191bce229789"></a>
-
-## Direct properties — aws_parameters.new_tgw.system_generated / a662fdfec0cc / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-6ec1164d4cf518d5bf345b00f063033a2ab79d106605c994e3cd07aa52525d19"></a>
-
-## Next pages — aws_parameters.new_tgw.system_generated / a662fdfec0cc / 4
-
-- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-
-<a id="canonical-46e61e66ff905e68701d95cb84a8a4d87d7dd02d84f8a17529630edc5ce9f23e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a5ec29ef8968baf77f1fd4903bfce15ef91ede04f769fbaeac147d5b231d3361"></a>
-
-## aws_parameters.new_tgw.user_assigned — aws_parameters.new_tgw.user_assigned / 949228739ee8 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [aws_parameters](resources--aws_tgw_site--reference--group-001.md#canonical-2597973ff44d50cebddd1b59403ed1be7dd86c9583f43455ed40766869b89f48)
-- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52)
-- aws_parameters.new_tgw.user_assigned
-
-<a id="canonical-3c055260d3e6ece4fd16bec67061ce12670b6722073190ae9818f7371d6994ca"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Information needed when ASNs are assigned by the user.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-user_assigned {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-f22e5363624ec0a0cd5b3a9af747d9a33f2022022d4783fdf74b1df2d0aa237c"></a>
-
-## Direct properties — aws_parameters.new_tgw.user_assigned / 949228739ee8 / 3
-
-<a id="canonical-45f4ae92e7113fa99cb4ab87ca978f3f5f160c47eeb246e2959fb3d8253dd5f0"></a>
-
-<a id="canonical-b633437c333fc783ce69adca0a4161f107f6636c6777248d004e6f929af16414"></a>
-
-## tgw_asn property — aws_parameters.new_tgw.user_assigned / 949228739ee8 / 4
-
-Type: `"number"`. Optional.
-
-TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(64513, 65534),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65534,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 64513
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "64512",
-    "ves.io.schema.rules.uint32.lte": "65534"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "64512",
-    "ves.io.schema.rules.uint32.lte": "65534"
-  }
-}
-```
-
-<a id="canonical-6e4859bffd629ffb333ef65785181d82f301cae7c9337b87f886d3ccb3262f96"></a>
-
-<a id="canonical-e38e0d34acdafc5e888cf917a7209fe4917b84679b6384c76b8f16d8815a9451"></a>
-
-## volterra_site_asn property — aws_parameters.new_tgw.user_assigned / 949228739ee8 / 5
-
-Type: `"number"`. Optional.
-
-Enter F5XC Site ASN. F5XC Site ASN.
-
-Upstream description:
-
-F5XC Site ASN.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "0",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "0",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-2c243f2a86c03b777935da96e5757c90c208b40ae659c4c5531522a6c2f95511"></a>
-
-## Next pages — aws_parameters.new_tgw.user_assigned / 949228739ee8 / 6
-
-- [aws_parameters.new_tgw](resources--aws_tgw_site--reference--group-001.md#canonical-2112fc494e90b1dc8d39e4b1b6f2967d6fe4a8cc5da84ec25fff2ba07bb87f52)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116)
-
-<a id="canonical-2823b6f937a1792c17d1a89fa7317dd7838c44ea0e8ac666805abf0d98ea773a"></a>
+<a id="canonical-0103221113020220-1023032300110200-1122320003021100-3301223110103000-1232122010031200-2123003310013320-0101220201312303-1332330322113022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

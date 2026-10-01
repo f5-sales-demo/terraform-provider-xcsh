@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_bgp_asn_set referenc
 
 # xcsh_bgp_asn_set reference
 
-<a id="canonical-f77d4e7e206bcb563c10db6a1d66e0f7227add89a6be618d75ba79917484a4eb"></a>
+<a id="canonical-3313133110321332-0200122330231112-0330010031231222-0131121232003313-0202132231312021-2212233212012031-1311232213212101-1310201022103223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-96912a375544b39e205da98bb4b55486527e43df2cf3184721dc282ea401e885"></a>
+<a id="canonical-2112210102220313-1111101023032132-0200113122212023-2310231111102012-1102133210033133-0230330301201013-0201313002200232-2210000132202011"></a>
 
-## Property reference — Property reference / 7835e5bb41cb / 2
+## Property reference — Property reference / 232310013023 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_asn_set](../data-sources/bgp_asn_set.md#canonical-117a5d23afbac64f2130fcb3963e2ecf60d3582aab779009e560eb05521c7e3f)
+- [xcsh_bgp_asn_set](../data-sources/bgp_asn_set.md#canonical-0101132211310203-2233232230121033-0201030033302303-2112033202323033-1200310311200222-2223131321000021-3211120032230011-1102013013320333)
 - Property reference
 
-<a id="canonical-6cb04ec913d73fea8e51b82cab0a0ef3eff3ebddb3e7cd5a0ae67da5e2a446f2"></a>
+<a id="canonical-1230230010323021-0103311303333222-2032110123200230-2223002200323303-3233330332233131-2303321330311122-0022321213312211-3202221010123302"></a>
 
-## Direct properties — Property reference / 7835e5bb41cb / 3
+## Direct properties — Property reference / 232310013023 / 3
 
-<a id="canonical-ca79ee496c3f46bfa25bea5bd3bf56d9f0f0a485d0eb6e0eb744db83eeb1e732"></a>
+<a id="canonical-3022132132321021-1230033310122333-2202112332221123-3103233311123121-3300330022102011-3100322312320032-2313101031232003-3232230132130302"></a>
 
-<a id="canonical-412d4390b8a430b0001a05671d8f8154c4cd5ba8fcb61e314b0a7db1ffa54056"></a>
+<a id="canonical-1001023110032100-2320221003002300-0000012200111213-0131203320011110-3010303111232220-3330231201320301-1023002213312301-3333221110001112"></a>
 
-## annotations property — Property reference / 7835e5bb41cb / 4
+## annotations property — Property reference / 232310013023 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50ee79ddd224deca0227868abbadd8bb78f7d99f5c6fd8b4b89ba718208a1bf2"></a>
+<a id="canonical-1100323213213131-3102021031323022-0002021320122022-2323223131202323-1320331331212133-1130123331202310-2320212322130120-0200202201233302"></a>
 
-<a id="canonical-7d32d8ce37a391b2b6857f37f598a20793a26e1f6b227fbaf738351db2da8bd6"></a>
+<a id="canonical-1331030231203032-0313220321012302-2312201113330313-3311212022020013-2103220212320133-1223020213332322-3313032003110131-2302312220233112"></a>
 
-## as_numbers property — Property reference / 7835e5bb41cb / 5
+## as_numbers property — Property reference / 232310013023 / 5
 
 Type: `["list", "number"]`. Computed.
 
@@ -122,11 +122,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-88845489f66207d6981be7406d4de7871ac0631157ce2dce26332291b50867e0"></a>
+<a id="canonical-2020201011102021-3312120200133112-2120012332131000-1231103132132013-0122300012030101-1113303202313032-0212030302022101-2311002012133200"></a>
 
-<a id="canonical-770a6e56e6bd5baf95022f51b9ad6ba931926fad963b67d6c142f3049e9c1b9c"></a>
+<a id="canonical-1313002212321112-3212233111232233-2111000202331101-2321223112232221-0301210212332231-2112032312133112-3001100233030010-2132213001232130"></a>
 
-## description property — Property reference / 7835e5bb41cb / 6
+## description property — Property reference / 232310013023 / 6
 
 Type: `"string"`. Computed.
 
@@ -174,21 +174,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b2c49c2c6e87a9b8aa84a19b78168ce8081325248d8c5cc38fafa563108a6d7"></a>
+<a id="canonical-0223023010213002-3012322013222123-2022222010220121-2313200112203032-2000200103021102-1020312030113030-0320332233221112-0301002022123113"></a>
 
-<a id="canonical-9fbb7aecdc2ee2c49c26ca54f6d381fce67cf7e8ec4feebc204ddf2710e84bfd"></a>
+<a id="canonical-2133232313223230-3130023232023010-2130021230221110-3312310320013330-3212133033133220-3230103332322330-0200103131330213-0100322010233331"></a>
 
-## id property — Property reference / 7835e5bb41cb / 7
+## ID property — Property reference / 232310013023 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-4bdefa98de03c8cb5c1bdc1f027be1c45ed6a7d891bdb0cfb05b6aa822fd565f"></a>
+<a id="canonical-1023313233222120-3132000330203023-1130012331300133-0002132332013010-1132311222133120-2101233123003033-2300112312222220-0202333111121133"></a>
 
-<a id="canonical-da2567a48ec7248df219a3602fae612e7429d3eb961a19877c9b41ac8e86d9b3"></a>
+<a id="canonical-3122021112132210-2032301302102031-3302012122031200-0233223212010232-1310022131033223-2112012201212013-1330212310012230-2032201231212303"></a>
 
-## labels property — Property reference / 7835e5bb41cb / 8
+## labels property — Property reference / 232310013023 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -212,11 +212,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-570b2437fb47634f1d285dd9409b1de99f0f07107d5488b9484df3fa233a7c1e"></a>
+<a id="canonical-1113002302100313-3323101312031033-0131022011313121-1000212301313221-2133003300130100-1331111020202321-1020103133033322-0203032213300132"></a>
 
-<a id="canonical-910c40d4c093d28b6e296e91e5a32bb1f6c199edf82fc776626ff090cf6c5296"></a>
+<a id="canonical-2101003010003110-3000210331022023-1232022112322101-3211220302232301-3312300121213231-3320023330131312-1202123333002100-3033123011022112"></a>
 
-## name property — Property reference / 7835e5bb41cb / 9
+## name property — Property reference / 232310013023 / 9
 
 Type: `"string"`. Required.
 
@@ -272,11 +272,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7fde289fc451eabf30e44e7130e86594227efaa0f18d37d3c55d0082b095e156"></a>
+<a id="canonical-1333313202202133-3010110132222333-0300321010321301-0300322012112110-0202133233222200-3301203103133103-3011113100002002-2300211132011112"></a>
 
-<a id="canonical-3e1898fd22771f48cfb82aa5e644fbea4dbed2580cf64a00ac83ffdf7dd0023d"></a>
+<a id="canonical-0332012021203331-0202131301331020-3033232002222211-3212101033233222-1031233231021120-0030331210220000-2230200333333133-1331310000020331"></a>
 
-## namespace property — Property reference / 7835e5bb41cb / 10
+## namespace property — Property reference / 232310013023 / 10
 
 Type: `"string"`. Required.
 
@@ -325,24 +325,24 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0699bd6ded980ef65a148c7935b9cea0be3f78fa4ef30fd312961e96e419d6a4"></a>
+<a id="canonical-0012212123311231-3231212000323312-1122011020301321-0311232130322200-2332033313203322-1032330300333103-0102211201322112-3210012131122210"></a>
 
-## All schema paths — Property reference / 7835e5bb41cb / 11
+## All schema paths — Property reference / 232310013023 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--bgp_asn_set--reference--group-001.md#canonical-ca79ee496c3f46bfa25bea5bd3bf56d9f0f0a485d0eb6e0eb744db83eeb1e732) |
-| `as_numbers` | [as_numbers](data-sources--bgp_asn_set--reference--group-001.md#canonical-50ee79ddd224deca0227868abbadd8bb78f7d99f5c6fd8b4b89ba718208a1bf2) |
-| `description` | [description](data-sources--bgp_asn_set--reference--group-001.md#canonical-88845489f66207d6981be7406d4de7871ac0631157ce2dce26332291b50867e0) |
-| `id` | [id](data-sources--bgp_asn_set--reference--group-001.md#canonical-2b2c49c2c6e87a9b8aa84a19b78168ce8081325248d8c5cc38fafa563108a6d7) |
-| `labels` | [labels](data-sources--bgp_asn_set--reference--group-001.md#canonical-4bdefa98de03c8cb5c1bdc1f027be1c45ed6a7d891bdb0cfb05b6aa822fd565f) |
-| `name` | [name](data-sources--bgp_asn_set--reference--group-001.md#canonical-570b2437fb47634f1d285dd9409b1de99f0f07107d5488b9484df3fa233a7c1e) |
-| `namespace` | [namespace](data-sources--bgp_asn_set--reference--group-001.md#canonical-7fde289fc451eabf30e44e7130e86594227efaa0f18d37d3c55d0082b095e156) |
+| `annotations` | [annotations](data-sources--bgp_asn_set--reference--group-001.md#canonical-3022132132321021-1230033310122333-2202112332221123-3103233311123121-3300330022102011-3100322312320032-2313101031232003-3232230132130302) |
+| `as_numbers` | [as_numbers](data-sources--bgp_asn_set--reference--group-001.md#canonical-1100323213213131-3102021031323022-0002021320122022-2323223131202323-1320331331212133-1130123331202310-2320212322130120-0200202201233302) |
+| `description` | [description](data-sources--bgp_asn_set--reference--group-001.md#canonical-2020201011102021-3312120200133112-2120012332131000-1231103132132013-0122300012030101-1113303202313032-0212030302022101-2311002012133200) |
+| `id` | [id](data-sources--bgp_asn_set--reference--group-001.md#canonical-0223023010213002-3012322013222123-2022222010220121-2313200112203032-2000200103021102-1020312030113030-0320332233221112-0301002022123113) |
+| `labels` | [labels](data-sources--bgp_asn_set--reference--group-001.md#canonical-1023313233222120-3132000330203023-1130012331300133-0002132332013010-1132311222133120-2101233123003033-2300112312222220-0202333111121133) |
+| `name` | [name](data-sources--bgp_asn_set--reference--group-001.md#canonical-1113002302100313-3323101312031033-0131022011313121-1000212301313221-2133003300130100-1331111020202321-1020103133033322-0203032213300132) |
+| `namespace` | [namespace](data-sources--bgp_asn_set--reference--group-001.md#canonical-1333313202202133-3010110132222333-0300321010321301-0300322012112110-0202133233222200-3301203103133103-3011113100002002-2300211132011112) |
 
-<a id="canonical-1d2573d2a313f0474ebe1a63ec1d7f5eec6616b610b602aa7a7e68e939d2f927"></a>
+<a id="canonical-0131021113033102-2203010333001013-1032233201221203-3230013113331132-3230121201122312-0100231200022222-1322133212203221-0321310233210213"></a>
 
-## Next pages — Property reference / 7835e5bb41cb / 12
+## Next pages — Property reference / 232310013023 / 12
 
-- [xcsh_bgp_asn_set](../data-sources/bgp_asn_set.md#canonical-117a5d23afbac64f2130fcb3963e2ecf60d3582aab779009e560eb05521c7e3f)
+- [xcsh_bgp_asn_set](../data-sources/bgp_asn_set.md#canonical-0101132211310203-2233232230121033-0201030033302303-2112033202323033-1200310311200222-2223131321000021-3211120032230011-1102013013320333)

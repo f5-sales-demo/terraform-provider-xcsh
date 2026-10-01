@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy
 
 # xcsh_waf_exclusion_policy landing
 
-<a id="canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89"></a>
+<a id="canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e0cc09fb25e84e138ff1da37c385a8690bd1959dabf8bd72ecf6e1422ae827e"></a>
+<a id="canonical-2032003030002133-2302113220103201-0320333301312203-1330032011222012-2100233101211121-3122233320233113-0232303312320110-0202223220021332"></a>
 
-## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / 793b3b6c05bc / 2
+## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / 123000112330 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages WAF exclusion policy in F5 Distributed Cloud.
 
-<a id="canonical-fdc8d7051ad5e91fca6082ffae3450d85f06a42c2e2e62cb7d916c2a50c6831f"></a>
+<a id="canonical-3331302031130011-0122311132210133-3022120020023333-2232031011003120-1133001222100230-0232023212023023-1331210112300222-1100301220030133"></a>
 
-## Prerequisites — xcsh_waf_exclusion_policy / 793b3b6c05bc / 3
+## Prerequisites — xcsh_waf_exclusion_policy / 123000112330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-746ee5e7ffde9e1bcef2ed74a3e8369cba95aff2ec995eefc026dc7c91d256d5"></a>
+<a id="canonical-1310123232113213-3333313221320123-3032330232311310-2203322003122130-2322211122333302-3230212111323233-3000021231301330-2101310211123111"></a>
 
-## Minimal configuration — xcsh_waf_exclusion_policy / 793b3b6c05bc / 4
+## Minimal configuration — xcsh_waf_exclusion_policy / 123000112330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_waf_exclusion_policy" "example" {
 }
 ```
 
-<a id="canonical-edc5f4013d7a25b88e3397f456d9775d817d5a3e7593f15f19d20477b1680dcd"></a>
+<a id="canonical-3231301133100001-0331132202112320-2032030321133310-1112312113131131-2001133111220332-1311210333011133-0121310200101313-2301122000313031"></a>
 
-## Root configuration — xcsh_waf_exclusion_policy / 793b3b6c05bc / 5
+## Root configuration — xcsh_waf_exclusion_policy / 123000112330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-86ad8b5a0625494e07bf3d9149471ceafc4b1757fefc9fe18ee90dac6a0522ac"></a>
+<a id="canonical-2012223120231122-0012021110211032-0013233303312101-1021101301303222-3330102301131113-3332333021333201-2032322100312230-1222001102022230"></a>
 
-## Next pages — xcsh_waf_exclusion_policy / 793b3b6c05bc / 6
+## Next pages — xcsh_waf_exclusion_policy / 123000112330 / 6
 
-- [Property reference](../guides/resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [Examples](../guides/resources--waf_exclusion_policy--examples--group-001.md#canonical-146b94aad58f86e5ea0e61f3bfb3ddcd8362cbd7dbb53ea2486b5251c5f1dec0)
-- [Import](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-c62af02aed4a213863d69863f3d3edbb995bf329358720ac0d007a5fdeca4bba)
-- [Timeouts](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-8879781bdcd401ae30f7dd317eb84188c7c3d62be47a334c59569da3844457d4)
+- [Property reference](../guides/resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [Examples](../guides/resources--waf_exclusion_policy--examples--group-001.md#canonical-0110122321102222-3111203320123211-3222003212013303-2333230331313031-2003120230233113-3123231103322202-1020122311021101-3011330131323000)
+- [Import](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-3012022233000222-3231102202010320-1203311221201203-3303310332312323-2121112333030221-0311201302002230-0031000013221133-3132302210232322)
+- [Timeouts](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-2020132113200123-3130311000012232-0300331331310301-1332232010012020-3013300331120223-3210132203031030-1121111221312203-2010101011133110)

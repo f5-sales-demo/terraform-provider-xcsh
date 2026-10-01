@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_artifact_registry_to
 
 # xcsh_artifact_registry_token landing
 
-<a id="canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1"></a>
+<a id="canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1ed89e52be387c9c96a2ac92b2acbe98be5bd46b38ad1cd8effa131ba317f30f"></a>
+<a id="canonical-0132312021321102-2332032013302130-2112220222302102-2302223023322120-2332112331101223-0320223101303120-3233332201030123-2203011333030033"></a>
 
-## xcsh_artifact_registry_token — xcsh_artifact_registry_token / 300e3ecee56f / 2
+## xcsh_artifact_registry_token — xcsh_artifact_registry_token / 303232111233 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Authentication credential for access control.
 
-<a id="canonical-41f666af8b9d48c12634913a526f520f0c02c8bc685917b0b3fd031e637b1457"></a>
+<a id="canonical-1001331212122233-2023213110203001-0212031021010322-1102123311020033-0030000230202330-1220112101132300-2303333100030132-1203132301101113"></a>
 
-## Prerequisites — xcsh_artifact_registry_token / 300e3ecee56f / 3
+## Prerequisites — xcsh_artifact_registry_token / 303232111233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-fdddf36efdebe4531c547a27a74b5f255500b2e277347bf1c2b85d6f175fc3aa"></a>
+<a id="canonical-3331313133031232-3331322332101103-0130111013220213-2213102311330211-1111000023023202-1313031013233301-3002232011311233-0113113330032222"></a>
 
-## Minimal configuration — xcsh_artifact_registry_token / 300e3ecee56f / 4
+## Minimal configuration — xcsh_artifact_registry_token / 303232111233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,16 +53,16 @@ ephemeral "xcsh_artifact_registry_token" "example" {
 }
 ```
 
-<a id="canonical-05f26d62c8936c7b04337ff3d5ab8b967f80dbeffba9022edea7e53f9eb0bd2c"></a>
+<a id="canonical-0011330212311202-3020210312301323-0010030313333303-3111222320232112-1333200031233233-3323222100020232-3132221332110333-2132230023310230"></a>
 
-## Root configuration — xcsh_artifact_registry_token / 300e3ecee56f / 5
+## Root configuration — xcsh_artifact_registry_token / 303232111233 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0dc736cf6a002775016e246cdf27037913693ac21475f4c20fe32522c032e0a3"></a>
+<a id="canonical-0031301303123033-1222000002131311-0001123202101230-3133021300031321-0103122103223002-0110131133103002-0033320302110202-3000030232002203"></a>
 
-## Next pages — xcsh_artifact_registry_token / 300e3ecee56f / 6
+## Next pages — xcsh_artifact_registry_token / 303232111233 / 6
 
-- [Property reference](../guides/ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-a3dcfe8c172a2c5524817e37d40511bed73fd5a47e634a5bd12e0537f627528b)
-- [Examples](../guides/ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-05ded51d3e607a3e15c2af840b498c3b1b531de1ea66c354eea7a579d3523c57)
-- [Lifecycle](../guides/ephemeral-resources--artifact_registry_token--lifecycle--group-001.md#canonical-14f69f6067c03deafb334d9a4ceae9718e5ad0b7cc953075f928fd89e9944b00)
+- [Property reference](../guides/ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-2203313033322030-0113022202301111-0210200113320313-3110001101012332-3113033331112210-1332120310221123-3101023200110313-3312021311022023)
+- [Examples](../guides/ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113)
+- [Lifecycle](../guides/ephemeral-resources--artifact_registry_token--lifecycle--group-001.md#canonical-0110331221331200-1213300003313222-3323030310312122-1030322232211301-2032112231002313-3030211103001311-3321022033312021-3221211010230000)

@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_policy_based_routing
 
 # xcsh_policy_based_routing lifecycle
 
-<a id="canonical-569d51116aad9d0df02aee8921d14c4eb7f4859e1e2acd8ab49f9329ee070b1e"></a>
+<a id="canonical-1112213111010101-1222223121310031-3300022232322021-0201310110301032-2313331020112132-0132022230312022-2310213321030221-3232001300230132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff8b1a6b0bb122afc234246f479d7e342c549c3a1c0e826ed0d887db8ad7dc1e"></a>
+<a id="canonical-3333202301221223-0023230102022233-3002031002101233-1013213113320310-0230111021300322-0130003220021232-3100312020133123-2022311331300132"></a>
 
-## Import — Import / 5920b38631aa / 2
+## Import — Import / 201203012222 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152)
+- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_policy_based_routing.example system/example
 ```
 
-<a id="canonical-e40f3cf46768b1b65918b44dbd051899d39469b1acee28fe382c31a31e76c3b3"></a>
+<a id="canonical-3210003303303310-1213122023012312-1121012023101031-2331001101202121-3103211012212301-2230323202203332-0320023003012203-0132131230032303"></a>
 
-## Next pages — Import / 5920b38631aa / 3
+## Next pages — Import / 201203012222 / 3
 
-- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152)
+- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102)
 
-<a id="canonical-4679ef1fe84c62092c5f5cc4b7f35d425f28a788cbce4bedb77db7ea8054188c"></a>
+<a id="canonical-1012132132330133-3220103012020021-0230113311303010-2313330311311002-1133022022132020-3023303210233231-2313133123133222-2000111001202030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aba7db4415e40726cf7a18f77b592351ea57450d70a460f062d8d3dac87a96df"></a>
+<a id="canonical-2223221331231010-0111321000130212-3033132201203313-1323112102031101-3222111310110031-1300221012003300-1202312031033122-3020132221123133"></a>
 
-## Timeouts — Timeouts / aa90eff491ac / 2
+## Timeouts — Timeouts / 331021012230 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152)
+- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--policy_based_routing--reference--group-001.md#canonical-e6b0b7cdc591feff0e35c2994ef5aa4ca05a7f1daf4ce44cb331cdfbaf70222f). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--policy_based_routing--reference--group-001.md#canonical-3212230023133031-3011210133323333-0032031130022121-1032331122221030-2200112213330131-2233103032101030-2303030130313323-2233130002020233). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-0cb432f27a1552a99fb675693c1be07fd636ef50b4057b34e7c8ce0e41099e6e"></a>
+<a id="canonical-0030231003023302-1322011111022221-2133231213111221-0330012332001333-3112031232331100-2310001113230310-3213302030320032-1001002121321232"></a>
 
-## Next pages — Timeouts / aa90eff491ac / 3
+## Next pages — Timeouts / 331021012230 / 3
 
-- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152)
+- [xcsh_policy_based_routing](../resources/policy_based_routing.md#canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102)

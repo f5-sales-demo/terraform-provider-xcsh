@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_infrastructure l
 
 # xcsh_bot_infrastructure landing
 
-<a id="canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64"></a>
+<a id="canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e19f0f270e56aebac72f6896814998717ce2949108f3ebf7ba122370e4c959f7"></a>
+<a id="canonical-3201213300330213-0032111222322322-3013023312202112-2001102121201301-1330320221102101-0020330332233313-2322010202031300-3210302111213313"></a>
 
-## xcsh_bot_infrastructure — xcsh_bot_infrastructure / 08022d1cd3b3 / 2
+## xcsh_bot_infrastructure — xcsh_bot_infrastructure / 013031032303 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages Bot Infrastructure in F5 Distributed Cloud.
 
-<a id="canonical-260351bb88ac3f72a36638f9a78fb119c881cdf799f5a075ba0af3e9185f1bb7"></a>
+<a id="canonical-0212000311012323-2020223003331302-2203121203203321-2213203323010121-3020200130313313-2121331122001311-2322002233033221-0120113301232313"></a>
 
-## Prerequisites — xcsh_bot_infrastructure / 08022d1cd3b3 / 3
+## Prerequisites — xcsh_bot_infrastructure / 013031032303 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1741158fae9d3990ee560b630d665854a899e05d271307ec8d5a596ea9c24ee7"></a>
+<a id="canonical-0113100101112033-2232213103212100-3232111200231203-0031121211201110-2220212132001131-0213010300133230-2031112211211232-2221300210323213"></a>
 
-## Minimal configuration — xcsh_bot_infrastructure / 08022d1cd3b3 / 4
+## Minimal configuration — xcsh_bot_infrastructure / 013031032303 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "bot_infrastructure_id" {
 }
 ```
 
-<a id="canonical-5aa05381451fcb10583be87dff2d6a5738cbce3010953bd6acea8f39eb599af2"></a>
+<a id="canonical-1122220011032001-1011013330230100-1120032332201331-3333023112221113-0320302330320300-0100211103233112-2230322220330321-3223112121223302"></a>
 
-## Root configuration — xcsh_bot_infrastructure / 08022d1cd3b3 / 5
+## Root configuration — xcsh_bot_infrastructure / 013031032303 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1a6b2d16b560a27adafe517d0ed77d084b1bcac90217caf02855df0b28b3cb89"></a>
+<a id="canonical-0122122302310112-2311120022021322-3122333211011331-0032311313310020-1023012330223021-0002011330223300-0220111131330023-0220230330232021"></a>
 
-## Next pages — xcsh_bot_infrastructure / 08022d1cd3b3 / 6
+## Next pages — xcsh_bot_infrastructure / 013031032303 / 6
 
-- [Property reference](../guides/data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
-- [Examples](../guides/data-sources--bot_infrastructure--examples--group-001.md#canonical-f81d994c8dee00bb9e231d904fced88e7af9e8c8d882c731cb033b9b31919ca3)
+- [Property reference](../guides/data-sources--bot_infrastructure--reference--group-001.md#canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232)
+- [Examples](../guides/data-sources--bot_infrastructure--examples--group-001.md#canonical-3320013121211030-2031323200002323-2132020301312100-1033303231202032-1322332132203020-3120200230130301-3023000303232123-0301210121302203)

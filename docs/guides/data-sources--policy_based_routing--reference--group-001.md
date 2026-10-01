@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_policy_based_routing
 
 # xcsh_policy_based_routing reference
 
-<a id="canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d"></a>
+<a id="canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc230f7ed642f7c5806b56b5014eaea57349349ae2fae10ef0a9e0d81ac064c9"></a>
+<a id="canonical-3030020300331332-3112100233133011-2000122311122311-0001103222322211-1303102103102122-3202332232010032-3300222132003120-0122300012103021"></a>
 
-## Property reference — Property reference / da3202ed899c / 2
+## Property reference — Property reference / 323120212130 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 - Property reference
 
-<a id="canonical-cdcaeb666c30b807509a5e984dcdc0a6d6b0844b38d595f133adcb199d42e539"></a>
+<a id="canonical-3031302232231212-1230030023200013-1100212211322120-1031303130002212-3112230020101023-0320311121113301-0303223130230121-2131100232110321"></a>
 
-## Direct properties — Property reference / da3202ed899c / 3
+## Direct properties — Property reference / 323120212130 / 3
 
-<a id="canonical-d65b53af970f8c217c33a56e0481c09de7370d4a30f8471ddd2100ed1a59155e"></a>
+<a id="canonical-3112112311032233-2113003320300201-1330030322111232-0010200130002131-3213031300311022-0300332010130131-3131020100003231-0122112101111132"></a>
 
-<a id="canonical-7cf56caef386e1c6990684f92ebd212c923b0577160cd30f679bd49dbb16111d"></a>
+<a id="canonical-1330331112302232-3303201232013012-2121001220103321-0232233102010230-2102032300111313-0112003031030033-1213212331102131-2323011201010131"></a>
 
-## annotations property — Property reference / da3202ed899c / 4
+## annotations property — Property reference / 323120212130 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8dde88b0a9da616c0206253a70d97af8a43b845feebf2cd34f8d62d84122242d"></a>
+<a id="canonical-2031313220202300-2221312212011230-0002001202110322-1300312113223320-2210032320101133-3232233302303103-1033203112023120-1001020202100231"></a>
 
-<a id="canonical-414f9814d00cc2666f0ac28148418a5adf59473412085f64e33b095153a78d87"></a>
+<a id="canonical-1001103321200110-3100003030021212-1233002230022001-1020100120221122-3133112110130310-0102002011331210-3203032300211101-1103221320312013"></a>
 
-## description property — Property reference / da3202ed899c / 5
+## description property — Property reference / 323120212130 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,25 +118,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32): complete subsection reference.
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302): complete subsection reference.
 
-- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-00df9106da3d9248c38a0af546df4f2548c586620425b7859c7f7583a1e0012e): complete subsection reference.
+- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0000313321010012-3122033121021020-3003202200223311-1012313310330211-1020301120121202-0010021123132011-2130133313112003-2201320000010232): complete subsection reference.
 
-<a id="canonical-d6980d2f8aea28788e5d05a6b7bcfc7ef0c155a8570292b233a41cfb1101d8c6"></a>
+<a id="canonical-3112212000310233-2022322202201320-2032113100112212-2313233033301332-3300300111112220-1113000221022302-0303221001303323-0101000131203012"></a>
 
-<a id="canonical-e2abe406b121e43f6b16ed7a9a551e7e938e6fa57ed134ac69458d7e614ec590"></a>
+<a id="canonical-3202222332100012-2301020132100333-1223011232311322-2122111101321332-2103203212332211-1332310103102230-1221101120311332-1201103230112100"></a>
 
-## id property — Property reference / da3202ed899c / 6
+## ID property — Property reference / 323120212130 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-3cdfc38d17cc8f947439afe0d4285dc9e5268c04a6b3b37b39295c29e6176b03"></a>
+<a id="canonical-0330313330032031-0113303020332110-1310032122333200-3110022011313021-3211021220300010-2212230323031323-0321022111300221-3212011312230003"></a>
 
-<a id="canonical-5dc4c434e1cdfbcb4cb211beb1e2519c385fbcf41197b4412cfb3fe1756fe716"></a>
+<a id="canonical-1131301030100310-3201303133233023-1030230201012332-2301320211012130-0320113323303310-0101211323101001-0230332303333201-1311123332130112"></a>
 
-## labels property — Property reference / da3202ed899c / 7
+## labels property — Property reference / 323120212130 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -160,11 +160,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad3691de90caaa011cd3f7e9500ffca2fc9872df918bdf5796f81766607f11a1"></a>
+<a id="canonical-2231031221013132-2100302222220001-0130310333133221-1100003333302202-3330212013023133-2101202331331113-2112332001131212-1200133301012201"></a>
 
-<a id="canonical-7b4dfb484f400e704eea350d5d4c69868388343cffd4f42c5459555a2e4d3c6b"></a>
+<a id="canonical-1323103133231020-1033100000321300-1032322203110031-1131103012212012-2003202003100330-3333311033100230-1110112111111122-0232103103301223"></a>
 
-## name property — Property reference / da3202ed899c / 8
+## name property — Property reference / 323120212130 / 8
 
 Type: `"string"`. Required.
 
@@ -220,11 +220,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f4cae6f96fc7dd77e190279607cf18156d51fe60622a13252a50175715809e1"></a>
+<a id="canonical-0233103022321233-2112333013313113-1332012100021321-1200133033012001-1112311101333212-0012020222010302-1102221100011311-1301112000213201"></a>
 
-<a id="canonical-091567c2b1592326f1a6770cee98addf21aa74600ed8edc06d0c480a23fed675"></a>
+<a id="canonical-0021011112133002-2301112102030212-3301221213130030-3232212022313133-0201222213101200-0032312032313000-1231003010200022-0203333231121311"></a>
 
-## namespace property — Property reference / da3202ed899c / 9
+## namespace property — Property reference / 323120212130 / 9
 
 Type: `"string"`. Required.
 
@@ -273,119 +273,119 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405): complete subsection reference.
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011): complete subsection reference.
 
-<a id="canonical-3add7c8c07b871da4ea0e99bf680a8993a5d2a8ad77f63a54868abf84b28c50c"></a>
+<a id="canonical-0322313113302030-0013232013013122-1032220032212123-3312200022202121-0322113102222022-3113133312032211-1020122022233320-1023022030110030"></a>
 
-## All schema paths — Property reference / da3202ed899c / 10
+## All schema paths — Property reference / 323120212130 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--policy_based_routing--reference--group-001.md#canonical-d65b53af970f8c217c33a56e0481c09de7370d4a30f8471ddd2100ed1a59155e) |
-| `description` | [description](data-sources--policy_based_routing--reference--group-001.md#canonical-8dde88b0a9da616c0206253a70d97af8a43b845feebf2cd34f8d62d84122242d) |
-| `forward_proxy_pbr` | [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-e9a8854ee1eccb87012ba27ca87c5beb0c5249c29d6f9d8683953c210ace7c21) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules` | [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-f9016ce0654089533256e7f737db396dd223d446640825586a332b7a61fedb68) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations` | [forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-0cdaaa07c84eafc0f2c21222cc637de6c4cb8edf884b592aa957efb49f4821a7) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.all_sources` | [forward_proxy_pbr.forward_proxy_pbr_rules.all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-ea01b709ca013ea77fbc310635f4a77f49b8e41a4387fba09e677e77fc2e77cf) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-13555c9a39125c7ed0e35d5f8a9ce5b2d8adccf1b35526c2c4c263c07fbfba6b) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-d7be537368b1a889b6a8e9899563f153e524d7086928ff542003c662a35e5f88) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.namespace` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-36fa836f74f1461e6b0d370d69875c2a33f9e6a8997dddee201abb973a64b5d4) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.tenant` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-3b87e2bf6f6a47119d3ef982b8b9ecdbfb6bd1b333ed9705b02f96e568029e64) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-184b4eaeb8a92e05417c01033d10788c5cff91a80c4e6574e63759161b7c05f0) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-8659d1f49311c1f9a8b12820d0e1d1db3f7b29bab29888ddff6ccab8a5f5da98) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-8fbff81e669f86b440c328e6552b59e618d8b6ec26da346907945dda825a430e) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-9cb2f451b6294f8e944cd6ddfa9df531704f19192639a936985ae4418b5d3c55) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-e24e7e770e9136625787e96ee4a548b441c9552398cd08f538958b9f0e741301) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_prefix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_prefix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-7eb89cb76d1de2c06d9fbafd839a7e9f65408a2607f8dfeea371915421276e9a) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-5d52dd0ed76ee492b769ddcbff0d4fd8e3465d476ee702df4983630ccc60eaf7) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-236ecd62dbfccdb90e3a043a6ad80569dccfbf5f040d7ceb85175ba8d1ccef9c) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.suffix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.suffix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-8d9496d9fbbca5e79d0e3304a11db00994e5247d7faa0e179057902b33510411) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-fc7528b27302c2fb29eddeb742c80ed04bbf13bd55aa74cb49484ae73ed16811) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.name](data-sources--policy_based_routing--reference--group-001.md#canonical-d18e11bd2fcf2817d90fa94c21cb050a6b2b6c9ab9993490c0924c1182da02f9) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.namespace` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-89a6fc8f173287da80252d10383923768dcc53a9a02dad3bcbae5d5dfe3e15b3) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.tenant` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-c98bca840512e209de15817a8c540042ad433ad7f2f46269621bc5affb29d5df) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.label_selector` | [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-e2c4812f61066bbd4c9c5e6aaf1741a4d9ad070593701e9091b82c6fbd37b8f5) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.label_selector.expressions` | [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector.expressions](data-sources--policy_based_routing--reference--group-001.md#canonical-7a533a8bd5e7f2ffd67e915ae4e2412b0ef84e839ae0d820133ba5b152d7875b) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-882e22f3385e35b608b16777f0a27b04c6060178c8f172ece34b4e781cd44713) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata.description_spec` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata.description_spec](data-sources--policy_based_routing--reference--group-001.md#canonical-e4741f57f567f3ddeedc8bdbbf0820147d8a3d48ecc4e7180289813e994bc816) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata.name](data-sources--policy_based_routing--reference--group-001.md#canonical-05ee124fd531cbd928a40066a14e69da1e4dbd7a252b50ce684f07b7a0ee1e2c) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-5ec6f762eb6a3e37a2435c87fcfb3331bc6f28d8a4e274fde3c1c03c340aaa8f) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list.prefixes` | [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-3a0e299ee52170cfa2f23a063271cfc3558d3e7816f869811164e9fdc5239775) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-fc68e11402e79d093af1147ad8497c182fb8a24fee4c7160344dd7baaf2d2d58) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-cd4bf44e645ca693aa812dde8756fd4889e9e0577d7e0ecb2c9ed8be42e24c98) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-2c571f151e604358c5aa36f6aa28e95d1fd6894342d6fd145b5550cb0d80fe3b) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-b3e8a03fe929d48f4995e56e00e25f0ab526e63ccce75d976c552fd4cbf7ff98) |
-| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.suffix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.suffix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-27a45b5b54b4d4ec3c584b3a0494d84f60d759a7531cd1d2c873e5e622cbb8f6) |
-| `forwarding_class_list` | [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7125047be099209e535432dfe5dec37b4afb8ccbfc2bcdce248dacb47bc8e5d8) |
-| `forwarding_class_list.name` | [forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-c737c0f7fbedec79778fe952772559e4bf85c6fc9803792b598a3eb7f631b8d2) |
-| `forwarding_class_list.namespace` | [forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-cffbb1f52c1803c9421659478c55c46be4a4355915f454172671f9fedc0f7e06) |
-| `forwarding_class_list.tenant` | [forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-67bd05388ffc3a453a391818fa0bffc034f96f2d40cb43d52184df8de6587be8) |
-| `id` | [id](data-sources--policy_based_routing--reference--group-001.md#canonical-d6980d2f8aea28788e5d05a6b7bcfc7ef0c155a8570292b233a41cfb1101d8c6) |
-| `labels` | [labels](data-sources--policy_based_routing--reference--group-001.md#canonical-3cdfc38d17cc8f947439afe0d4285dc9e5268c04a6b3b37b39295c29e6176b03) |
-| `name` | [name](data-sources--policy_based_routing--reference--group-001.md#canonical-ad3691de90caaa011cd3f7e9500ffca2fc9872df918bdf5796f81766607f11a1) |
-| `namespace` | [namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-2f4cae6f96fc7dd77e190279607cf18156d51fe60622a13252a50175715809e1) |
-| `network_pbr` | [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-fd04ccc60307e88d9463a971f5d7df1a85169d821589db16d46bf2b9b8dbba03) |
-| `network_pbr.any` | [network_pbr.any](data-sources--policy_based_routing--reference--group-001.md#canonical-430b041e36eaeb3ab1e087d17a9c353d904864303e2afe1f5f4dbe02a9e4452d) |
-| `network_pbr.label_selector` | [network_pbr.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-156a1784f386717797403c94f7be1c5b90253e7095c40f7fad8035dbabec8473) |
-| `network_pbr.label_selector.expressions` | [network_pbr.label_selector.expressions](data-sources--policy_based_routing--reference--group-001.md#canonical-31990e30529bdbce62c36fa3106f58166e3a99792d01efd5986dba9acb24ceef) |
-| `network_pbr.network_pbr_rules` | [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-a3d30a9b1b0ab258d82e4ac2ef12849a2152deb3c09bf35ea25ea0151c2c4d74) |
-| `network_pbr.network_pbr_rules.all_tcp_traffic` | [network_pbr.network_pbr_rules.all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-82855584f0cf011acfa049273ba57e93c8334a70341872a0383d632be429509e) |
-| `network_pbr.network_pbr_rules.all_traffic` | [network_pbr.network_pbr_rules.all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-4eb2dac0ae9ac5a10725c53ca4dfb394e1d54c3613f74de35afe2ec30b0ba99f) |
-| `network_pbr.network_pbr_rules.all_udp_traffic` | [network_pbr.network_pbr_rules.all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-35fb8193aa430a785a9378f1c35c49272e0d67c17723ab2999760eb7eb26a093) |
-| `network_pbr.network_pbr_rules.any` | [network_pbr.network_pbr_rules.any](data-sources--policy_based_routing--reference--group-001.md#canonical-bf893380bc5ec146d7e9b665c23a192c82ef962356091e56dc19dab0df37bccb) |
-| `network_pbr.network_pbr_rules.applications` | [network_pbr.network_pbr_rules.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-175a063f9e522387be6b671f3410684bdba1d2906e58c238829e33e1f2e89fdc) |
-| `network_pbr.network_pbr_rules.applications.applications` | [network_pbr.network_pbr_rules.applications.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-cd6467c9ca6ee36d1b64de466d1dd3c422703d21ccb851d3876dc170c210da1d) |
-| `network_pbr.network_pbr_rules.dns_name` | [network_pbr.network_pbr_rules.dns_name](data-sources--policy_based_routing--reference--group-001.md#canonical-a1ad512aaf920dc41ad9f616f9fe36b8ecf0bafddb5dd3d12c44c583351598c4) |
-| `network_pbr.network_pbr_rules.forwarding_class_list` | [network_pbr.network_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-26e0ebee13d9739fec706f26b4dd04381ccfb9d3a0f426e5c046cc9f12ff491b) |
-| `network_pbr.network_pbr_rules.forwarding_class_list.name` | [network_pbr.network_pbr_rules.forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-42d260713981fa7aadb4b269580bbfc89b8142d013eeb45164cac65d1cd8d00c) |
-| `network_pbr.network_pbr_rules.forwarding_class_list.namespace` | [network_pbr.network_pbr_rules.forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-61bccef6ce0a17fca8cb1e47c8bbdcce032484537630751688c426a20b81e136) |
-| `network_pbr.network_pbr_rules.forwarding_class_list.tenant` | [network_pbr.network_pbr_rules.forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-f1ac34138432d0b344a155f0ebcbfc6b4d8ecc95e50d6d7e4659ca0b0b7422b3) |
-| `network_pbr.network_pbr_rules.ip_prefix_set` | [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-7ad889af4e73d0ff297bce16035ff989905fcdc6f0ff6fd6e6b2d4041c78d103) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref` | [network_pbr.network_pbr_rules.ip_prefix_set.ref](data-sources--policy_based_routing--reference--group-001.md#canonical-95476b283c9fb2fcbdec29487f9741dfe7ad68e4bc46e11ab44874751efa3dd5) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref.kind` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.kind](data-sources--policy_based_routing--reference--group-001.md#canonical-912cd407119ba82eb97e5717247570712d2603c07071f191cd0901283a0c99ea) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref.name` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.name](data-sources--policy_based_routing--reference--group-001.md#canonical-9e9edcb5052edd851b1f274af730c02ba94b65c0b5546225e840cd49665e5ffc) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref.namespace` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-8926721449c19cfe9df40209a7d0e73239d6f2d24ca416e9a76e43d3c50ea574) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref.tenant` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-660cfb277b528b749565200b706e67ec3d6d2f54e6977126d13e1b82e984eb6b) |
-| `network_pbr.network_pbr_rules.ip_prefix_set.ref.uid` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.uid](data-sources--policy_based_routing--reference--group-001.md#canonical-5faa6725e40df0284fc2a52f3309c0d04e6d1e491040e98b56cd088d245b0ff3) |
-| `network_pbr.network_pbr_rules.metadata` | [network_pbr.network_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-37f9c9c5b5c5dc6021b9352610bcdfa2deec1f967bebfc1903ccde62aa3fbfdb) |
-| `network_pbr.network_pbr_rules.metadata.description_spec` | [network_pbr.network_pbr_rules.metadata.description_spec](data-sources--policy_based_routing--reference--group-001.md#canonical-aa28934e23b48f10d21805b0354d8e16d32e9f8d2ab160e3ff247f2bcc4bfcc3) |
-| `network_pbr.network_pbr_rules.metadata.name` | [network_pbr.network_pbr_rules.metadata.name](data-sources--policy_based_routing--reference--group-001.md#canonical-8054927c92edb8ea2149f756ed06b3a9846c462dac840500210cea07f566f18d) |
-| `network_pbr.network_pbr_rules.prefix_list` | [network_pbr.network_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-4083e0eb6e062fde7e8d9432e94e582242a49994320574de554ebec9ce30691c) |
-| `network_pbr.network_pbr_rules.prefix_list.prefixes` | [network_pbr.network_pbr_rules.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-57909b01ac7931c9a3782ff5b51a11de8db74f621af130ac6a6d9da8a9a4ee06) |
-| `network_pbr.network_pbr_rules.protocol_port_range` | [network_pbr.network_pbr_rules.protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-33208f1a676cbe633844719daa4b20691e12dfe2ff0f1973bd16d9910b7e5dd4) |
-| `network_pbr.network_pbr_rules.protocol_port_range.port_ranges` | [network_pbr.network_pbr_rules.protocol_port_range.port_ranges](data-sources--policy_based_routing--reference--group-001.md#canonical-b8d50dbd76780d32b11d12e6224db04a72c847b0ba838256b93737cc5c8906e7) |
-| `network_pbr.network_pbr_rules.protocol_port_range.protocol` | [network_pbr.network_pbr_rules.protocol_port_range.protocol](data-sources--policy_based_routing--reference--group-001.md#canonical-c06e8b388a0ac5f95f0d895efc1893a61ccad968cc09777eb3a1db3ea2048791) |
-| `network_pbr.prefix_list` | [network_pbr.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-8d635098eb8ea341d7ba1def8781b9982c5a3db07ff148726ea04de622789628) |
-| `network_pbr.prefix_list.prefixes` | [network_pbr.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-9f2909e540d7324505f3486fe306bc206a7fd50359896e3009632097108ae4e2) |
+| `annotations` | [annotations](data-sources--policy_based_routing--reference--group-001.md#canonical-3112112311032233-2113003320300201-1330030322111232-0010200130002131-3213031300311022-0300332010130131-3131020100003231-0122112101111132) |
+| `description` | [description](data-sources--policy_based_routing--reference--group-001.md#canonical-2031313220202300-2221312212011230-0002001202110322-1300312113223320-2210032320101133-3232233302303103-1033203112023120-1001020202100231) |
+| `forward_proxy_pbr` | [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3221222020111032-3201323030232013-0001022322021330-2220133011233223-0030110210213002-2131123321312012-2003211103300201-0022303213300201) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules` | [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-3321000112303200-1211100020211103-0302111232133313-0313312303211231-3102020331101012-1210002002111120-1222030302231322-1201333231231220) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations` | [forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-0030312222220013-3020103222333000-3302300201020202-3030120313313212-3010302320323133-2020102311210222-2221111332332310-2133102002012213) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.all_sources` | [forward_proxy_pbr.forward_proxy_pbr_rules.all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-3222000123130021-3022000103322213-1333233003010012-0311331022131333-1021232032100122-1003201333232200-2132121313321313-3330023213133033) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0103111111302122-0321010211301332-3100320311311133-2022213032112302-3120223130303301-2303111102123002-3010300212033000-1333233323221223) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-3113233211031303-1220230122202021-2312222032212021-2111120333011103-3211021031130020-1221022033331110-0200000330121202-2203113211332020) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.namespace` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-0312332220031233-1310330110120132-1223003103130031-1221201311300222-0303332132122220-2121133131313232-0200012223232113-0322121023113110) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.tenant` | [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-0323201332022333-1233122210130101-2131033233212002-2320232132303123-3323122331012303-0303323121130011-2300023321123211-1220000221321210) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0120102310322232-2320222102320011-1001133000010003-0331010013202030-1130333321012220-0030103212111310-3212031311210112-0123133000113300) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-2012112131013310-2103010130013321-2220230102200200-3100320131013123-0333132302212322-2302212020203131-3333123030222320-2211331131222120) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-2033233333200132-1212213320122310-1000300302203212-1111022311213212-0120312023123230-0212312203101221-0013211011313122-2002112210030032) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-2130230233101101-2312022110332032-2110103031123131-3322213133110301-1300103301210121-0212032122210312-2120112232101001-2023113103301111) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-3202103213321313-0032210103121202-1113201332211232-3210221110202310-1001302111110203-2120303100203311-0320211120232133-0032131001030001) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_prefix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_prefix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-1332232021302313-1231013132023000-1231213323223331-2003212213322133-1211100020220212-0013332031333232-2203130121011110-0201021312322122) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-1131110231310032-3113123232102102-2313122131313023-3333003110333120-3203101211311013-1232321300023133-1021200312030030-3030120032223313) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-0203123230311202-3123333030312321-0032032200100322-1222312000111221-3130303323331133-0010003113303223-2011011311232220-3101303032332130) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.suffix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.suffix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-2031211021123121-3323233022113213-2131003203030010-2201013123000021-2110321102101331-1333222200320113-2100111321000223-0303110100100101) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-3330131102202302-1303000230023323-0221323131322313-1002302000323100-1023233301032331-1111222213103023-1021102010223213-0332310112200101) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.name](data-sources--policy_based_routing--reference--group-001.md#canonical-3101203201012331-0233303302200113-3121003322211030-0201302300110022-1223022312302122-2321212103102100-3000210210300101-2002312200023321) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.namespace` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-2021221233302033-0113030220133122-2000021102310100-0320032102031312-2031303011032221-2200023122310323-3023223211311131-3332033201112303) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.tenant` | [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-3021202330222010-0011010232020021-3132011120011322-2030111000001002-2231100303223113-3302331012021221-1202012330112233-3323022131113133) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.label_selector` | [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-3202301020010233-1201001212232331-1030213011321222-2233011310012210-3121223100130011-2103130001322100-2101232002301233-2331031323203311) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.label_selector.expressions` | [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector.expressions](data-sources--policy_based_routing--reference--group-001.md#canonical-1322110303222023-3111321333023333-3112133221011122-3210320210010223-0032332010322003-2122320031200200-0103032322112301-1102311320131123) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-2020023202023303-0320113203112312-0020230112131313-3300220213230010-3012001200011320-3020330113023230-3203102310321320-0130311010130103) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata.description_spec` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata.description_spec](data-sources--policy_based_routing--reference--group-001.md#canonical-3210131001331113-3311121333033131-3232313020233123-2333002002000110-1331202203311020-3230301032130120-0002202120010332-2121102330200112) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.metadata.name` | [forward_proxy_pbr.forward_proxy_pbr_rules.metadata.name](data-sources--policy_based_routing--reference--group-001.md#canonical-0011323201021033-3111030130233121-0220221000001212-2201103212213122-0132103123311322-0211022311003032-1220103300132313-2200323201320230) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1132301233131202-3223122203320313-2202100311302013-3330332303030301-2330123302203120-2210320213103331-3203300130000330-0310002222222033) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list.prefixes` | [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-0322003202212132-3211020113003033-2202330203220012-0302130130333003-1111203103321320-0112332012212001-0101121032213331-3011020321131311) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-3330122032010110-0002321321310021-0322330101101322-3120102113300120-0233232022021033-3232103013011200-0310103131132322-2233023102311120) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-3031102333101032-1210113022122103-2222200102313132-2013111233311020-2021322132001113-1331133200323023-0230213231202332-1002320210302120) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.exact_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.exact_value](data-sources--policy_based_routing--reference--group-001.md#canonical-0230111301330111-0132120010031120-3011222203123312-2222022032211131-0133311220211003-1002311233310110-1123111111003023-0031200033320323) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.regex_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.regex_value](data-sources--policy_based_routing--reference--group-001.md#canonical-2303322022000333-3221022131102033-1021211132111232-0000320211330022-2311021232120330-3030321311312113-1230111102333110-3023331333332120) |
+| `forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.suffix_value` | [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.suffix_value](data-sources--policy_based_routing--reference--group-001.md#canonical-0213221011231123-1110231031103230-0330112010230322-0010211031201033-1200311311212213-1103013031013102-3020130332113212-0202302323203312) |
+| `forwarding_class_list` | [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1301021100101323-3200212102002132-1103111003023133-3211313230031323-1022332320303023-3330022330313032-0210203122302310-1323302032113120) |
+| `forwarding_class_list.name` | [forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-3013031330003313-3323323132301321-1313203332211102-1313021111213210-2333201130123330-2120000313210223-1121202203322313-3312030123203102) |
+| `forwarding_class_list.namespace` | [forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-3033332323013311-0230012000033021-1002011211211013-2030111130101223-3210221003111121-0111331011100113-0212130133213332-3130003313320012) |
+| `forwarding_class_list.tenant` | [forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-1213233100110320-2033333003221011-0322032101200120-3322002333333000-0310332112330231-1000302310033111-0201201031332031-3212112013233220) |
+| `id` | [id](data-sources--policy_based_routing--reference--group-001.md#canonical-3112212000310233-2022322202201320-2032113100112212-2313233033301332-3300300111112220-1113000221022302-0303221001303323-0101000131203012) |
+| `labels` | [labels](data-sources--policy_based_routing--reference--group-001.md#canonical-0330313330032031-0113303020332110-1310032122333200-3110022011313021-3211021220300010-2212230323031323-0321022111300221-3212011312230003) |
+| `name` | [name](data-sources--policy_based_routing--reference--group-001.md#canonical-2231031221013132-2100302222220001-0130310333133221-1100003333302202-3330212013023133-2101202331331113-2112332001131212-1200133301012201) |
+| `namespace` | [namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-0233103022321233-2112333013313113-1332012100021321-1200133033012001-1112311101333212-0012020222010302-1102221100011311-1301112000213201) |
+| `network_pbr` | [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3331001030303012-0003001332202031-2110120322211301-3311311331330122-2011011221312002-0111202131230112-3110122333022321-2320312323220003) |
+| `network_pbr.any` | [network_pbr.any](data-sources--policy_based_routing--reference--group-001.md#canonical-1003002300100132-0312322232230322-2301320020133101-1322213003110331-2100102012100300-0332022233320133-1133103123320002-2221321010110231) |
+| `network_pbr.label_selector` | [network_pbr.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-0111122201132010-3303201213011313-2113100003302110-3313233201301123-2100021103321300-2111301000331333-2231200003113123-2223323020101303) |
+| `network_pbr.label_selector.expressions` | [network_pbr.label_selector.expressions](data-sources--policy_based_routing--reference--group-001.md#canonical-0301212100320300-1102212331233032-1202300312332203-0100123311200112-1232032221211321-0231000132333111-2120123123222122-3023021030323233) |
+| `network_pbr.network_pbr_rules` | [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2203310300222123-0123002223021120-3120023210223002-3233010220102122-0201110231322303-3000212333031132-2202113222000111-0130023010311310) |
+| `network_pbr.network_pbr_rules.all_tcp_traffic` | [network_pbr.network_pbr_rules.all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-2002201111112010-3300303300010122-3033220010210213-0323221113322103-3020030310221300-0310012013022200-0320033112030223-3210022111002132) |
+| `network_pbr.network_pbr_rules.all_traffic` | [network_pbr.network_pbr_rules.all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-1032230231223000-2232212230112201-0013021130110330-2210313323032110-3201311110300312-0103331310313203-1122333202323003-0023002322212133) |
+| `network_pbr.network_pbr_rules.all_udp_traffic` | [network_pbr.network_pbr_rules.all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-0311332320012103-2222100300221320-1122210313203301-3003113010210213-0232003112133001-1313020322230221-2121131200322313-3223021222002103) |
+| `network_pbr.network_pbr_rules.any` | [network_pbr.network_pbr_rules.any](data-sources--policy_based_routing--reference--group-001.md#canonical-2333202103032000-2330113230011012-3113322123121211-3002032201210230-2002323321120203-1112002101321112-3130012131222300-3133031323303023) |
+| `network_pbr.network_pbr_rules.applications` | [network_pbr.network_pbr_rules.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-0113112200120333-2132110202032013-2332122312130133-0310010012201023-3123220131022100-1232112030020320-2002213203033201-3302322021333130) |
+| `network_pbr.network_pbr_rules.applications.applications` | [network_pbr.network_pbr_rules.applications.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-3031121012133021-3022123232031231-0123121031321012-1231013131033010-0202130003310201-3030232011013103-2013123130011300-3002010031220131) |
+| `network_pbr.network_pbr_rules.dns_name` | [network_pbr.network_pbr_rules.dns_name](data-sources--policy_based_routing--reference--group-001.md#canonical-2201223111010222-2233210200313010-0122312133120112-3321333203122320-3230330023223331-3123113131033101-0230101030112003-0311011121203010) |
+| `network_pbr.network_pbr_rules.forwarding_class_list` | [network_pbr.network_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0212320032233232-0103312113032133-3230130012330212-2310313100100320-0130303323213103-2200331002123211-3000101230302133-0102333310210123) |
+| `network_pbr.network_pbr_rules.forwarding_class_list.name` | [network_pbr.network_pbr_rules.forwarding_class_list.name](data-sources--policy_based_routing--reference--group-001.md#canonical-1002310212001301-0321200133221322-2231231023021221-1120002323333020-2123200110023100-0103323223101101-1210302230121131-0130312031000030) |
+| `network_pbr.network_pbr_rules.forwarding_class_list.namespace` | [network_pbr.network_pbr_rules.forwarding_class_list.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-1201233030323312-3032002201133330-2220302301321013-3020232331303032-0003021020101103-1312030013110112-2020301002122202-0023200132010312) |
+| `network_pbr.network_pbr_rules.forwarding_class_list.tenant` | [network_pbr.network_pbr_rules.forwarding_class_list.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-3301223003100103-2010030231002303-1010220111113300-3223302333301223-1031203230302111-3211003112311332-1012112130220023-0023131002022303) |
+| `network_pbr.network_pbr_rules.ip_prefix_set` | [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-1322312020212233-1032130331003333-0221132330320112-0003113333212021-2100113330313012-3300333312333112-3212230231100010-0130132031010003) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref` | [network_pbr.network_pbr_rules.ip_prefix_set.ref](data-sources--policy_based_routing--reference--group-001.md#canonical-2111101312230220-0330213323023330-2331323002211020-1333211310013133-3213223112203210-2330101232010122-2310102013101311-0132332203313111) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref.kind` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.kind](data-sources--policy_based_routing--reference--group-001.md#canonical-2101023031100013-0101212322200232-2321133211130113-0210131113001301-0231021200033000-1300130133012101-3031002100010220-0322003021213222) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref.name` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.name](data-sources--policy_based_routing--reference--group-001.md#canonical-2132213231302311-0011023231312011-0123013302131022-3313030030000223-2221102312113000-2311111012020211-3220100030311021-1212113211333330) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref.namespace` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.namespace](data-sources--policy_based_routing--reference--group-001.md#canonical-2021021213020110-1021300121303332-2131331000020021-2213310032130302-0321311233023102-1030221001123221-2213123210033103-3011003222111310) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref.tenant` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.tenant](data-sources--policy_based_routing--reference--group-001.md#canonical-1212003033230213-1323110220231310-2111121102000023-1300123212133230-0331123102331110-3212211313010212-3101033201232002-3221201032231223) |
+| `network_pbr.network_pbr_rules.ip_prefix_set.ref.uid` | [network_pbr.network_pbr_rules.ip_prefix_set.ref.uid](data-sources--policy_based_routing--reference--group-001.md#canonical-1133222212130211-3210003133000220-1033300222110233-0303002130003100-1032123101321021-0100100032212023-1112303100202031-0210112300333303) |
+| `network_pbr.network_pbr_rules.metadata` | [network_pbr.network_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-0313332130213011-2311301131301200-0201232103110212-0100233031332202-3132323001332112-1323322333300121-0003303031321202-2222033323333123) |
+| `network_pbr.network_pbr_rules.metadata.description_spec` | [network_pbr.network_pbr_rules.metadata.description_spec](data-sources--policy_based_routing--reference--group-001.md#canonical-2222022021031032-0203231020330100-3102012000112300-0311103120320112-3103023221332031-0222230112003203-3333021013330223-3030102333303003) |
+| `network_pbr.network_pbr_rules.metadata.name` | [network_pbr.network_pbr_rules.metadata.name](data-sources--policy_based_routing--reference--group-001.md#canonical-2000111021021330-2102323123203222-0201102133131112-3231001223032221-2010123010120231-2230201000110000-0201003032220013-3311121233012031) |
+| `network_pbr.network_pbr_rules.prefix_list` | [network_pbr.network_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1000200332003223-1232001202333132-1332203121100302-3221103211200202-1002221021212110-0302001113103132-1111103223323021-3032030012210130) |
+| `network_pbr.network_pbr_rules.prefix_list.prefixes` | [network_pbr.network_pbr_rules.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-1113210021230001-2230132103013021-2203132002333311-2311012201013132-2031231310331202-0122330103002230-1222123121312220-2221221032320012) |
+| `network_pbr.network_pbr_rules.protocol_port_range` | [network_pbr.network_pbr_rules.protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-0303020020330122-1213123023321203-0320101013012131-2222102302001221-0132010231333202-3333003301211303-2331011231212101-0023133211313110) |
+| `network_pbr.network_pbr_rules.protocol_port_range.port_ranges` | [network_pbr.network_pbr_rules.protocol_port_range.port_ranges](data-sources--policy_based_routing--reference--group-001.md#canonical-2320311100312331-1312132000310302-2301013101023212-0202103123001022-1302302010132300-2322200320021112-2321031303133030-1130202100123213) |
+| `network_pbr.network_pbr_rules.protocol_port_range.protocol` | [network_pbr.network_pbr_rules.protocol_port_range.protocol](data-sources--policy_based_routing--reference--group-001.md#canonical-3000123220230320-2022002230113321-1133003120211132-3330012021032212-0130302231211220-3030002113131332-2303220131230332-2202001020132101) |
+| `network_pbr.prefix_list` | [network_pbr.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-2031120311002120-3223203222031001-3113232201313233-2013200123212120-0230112203312300-1333330110201302-1232220010313212-0202132021120220) |
+| `network_pbr.prefix_list.prefixes` | [network_pbr.prefix_list.prefixes](data-sources--policy_based_routing--reference--group-001.md#canonical-2133022100213211-1000311303021011-0011330310201233-3203001223300200-1222133331110003-1121202112320300-0021120302002113-0100202232103202) |
 
-<a id="canonical-cbb83aa52681f73635634dc4ae079f35c622aae0f0bf8637ed91dd6af214a6e6"></a>
+<a id="canonical-3023232003222211-0212200133130312-0311120310313010-2232001321330311-3012020222223200-3300233320120313-3231210131311222-3302011022123212"></a>
 
-## Next pages — Property reference / da3202ed899c / 11
+## Next pages — Property reference / 323120212130 / 11
 
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-00df9106da3d9248c38a0af546df4f2548c586620425b7859c7f7583a1e0012e)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0000313321010012-3122033121021020-3003202200223311-1012313310330211-1020301120121202-0010021123132011-2130133313112003-2201320000010232)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32"></a>
+<a id="canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-30ff7a949eff2694468db15723ee4c863e92cf01aad075ea5cefd356714e23d2"></a>
+<a id="canonical-0300333313222110-2132333302122110-1012203123011113-0203323210302012-0332210230330001-2222310013113222-1130323331031112-1301103202033102"></a>
 
-## forward_proxy_pbr — forward_proxy_pbr / ba4362200373 / 2
+## forward_proxy_pbr — forward_proxy_pbr / 020000031303 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
 - forward_proxy_pbr
 
-<a id="canonical-e9a8854ee1eccb87012ba27ca87c5beb0c5249c29d6f9d8683953c210ace7c21"></a>
+<a id="canonical-3221222020111032-3201323030232013-0001022322021330-2220133011233223-0030110210213002-2131123321312012-2003211103300201-0022303213300201"></a>
 
 Type: `"single"`. Computed.
 
@@ -410,43 +410,43 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-e9a8854ee1eccb87012ba27ca87c5beb0c5249c29d6f9d8683953c210ace7c21)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-fd04ccc60307e88d9463a971f5d7df1a85169d821589db16d46bf2b9b8dbba03)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3221222020111032-3201323030232013-0001022322021330-2220133011233223-0030110210213002-2131123321312012-2003211103300201-0022303213300201)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3331001030303012-0003001332202031-2110120322211301-3311311331330122-2011011221312002-0111202131230112-3110122333022321-2320312323220003)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-88c0413a5b4771aa610c68de071ba0bc25b292677f86cf3f8ca8a3443895eba2"></a>
+<a id="canonical-2020300010010322-1123101313012222-1201003012203132-0013012322002330-0211230221021213-1333201230330333-2030222022031010-0320211132232202"></a>
 
-## Direct properties — forward_proxy_pbr / ba4362200373 / 3
+## Direct properties — forward_proxy_pbr / 020000031303 / 3
 
-- [forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a): complete subsection reference.
+- [forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122): complete subsection reference.
 
-<a id="canonical-176019229add2b44acedde76220d3cbc54789bf228d9c922f7445e69ab1d2d6b"></a>
+<a id="canonical-0113120001210202-2122313102231010-2230323131321312-0202003103302330-1110132021233302-0220312130210202-3313101011321221-2223013102311223"></a>
 
-## Next pages — forward_proxy_pbr / ba4362200373 / 4
+## Next pages — forward_proxy_pbr / 020000031303 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a"></a>
+<a id="canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c26d53bcabb9314ef836eb3f01a143859526425a3e0e223088144facdb32edc"></a>
+<a id="canonical-0030021231110323-3022232321030110-3233200312322303-3300012201100320-1121110212100211-2203320032020203-0020200110103322-3031230302323130"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules — forward_proxy_pbr.forward_proxy_pbr_rules / c53be9d9ee46 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules — forward_proxy_pbr_rules / 312132321012 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
 - forward_proxy_pbr.forward_proxy_pbr_rules
 
-<a id="canonical-f9016ce0654089533256e7f737db396dd223d446640825586a332b7a61fedb68"></a>
+<a id="canonical-3321000112303200-1211100020211103-0302111232133313-0313312303211231-3102020331101012-1210002002111120-1222030302231322-1201333231231220"></a>
 
 Type: `"list"`. Computed.
 
@@ -489,63 +489,63 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df034e255216c71f415f5a0c828403c54e3fe78e37c79e855b95a637508a6e8a"></a>
+<a id="canonical-3133000310320211-1102011230130133-1001113311220030-2002201000033011-1032033332132032-0313301321322011-1123211122120313-1100202212322022"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules / c53be9d9ee46 / 3
+## Direct properties — forward_proxy_pbr_rules / 312132321012 / 3
 
-- [all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-6171bb1ebdf67b5399f835c91a31adf5a2bba15741984571d15da638a042a627): complete subsection reference.
+- [all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-1201130123230132-2331331213231103-2121332003113021-0122030122313311-2202232322011113-1001212010111301-3101113122120320-2200100222120213): complete subsection reference.
 
-- [all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-e083eb0f522a1c30f3393d80342938858bbffd2ad38646feac3f64736d7b1c6a): complete subsection reference.
+- [all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-3200200332230033-1102022201300300-3303032103312000-0310022103202011-2023233333310222-3103201210123332-2230033312101303-1231132301301222): complete subsection reference.
 
-- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-72201c762aacf19d586743867074af145919058d40a70adaa7c3a9494a09a6ea): complete subsection reference.
+- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1302020001301312-0222223033012131-1120121310032012-1300131022330110-1121012100112031-1000221300223122-2213300322211021-1022002122123222): complete subsection reference.
 
-- [http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47): complete subsection reference.
+- [http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013): complete subsection reference.
 
-- [ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-2c851c7847ce6d67448b4ca967aeee60e4fa9948ed8298d52db1b85dd410d4a9): complete subsection reference.
+- [ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-0230201101301320-1013303212311213-1010202310302221-1213223232321200-3210332221211020-3231200221203111-0231230123201131-3110010031102221): complete subsection reference.
 
-- [label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-f32637a485d2e418bd8573fd08d7d6116a869e8c9eb2d15ad43792d4a8035c36): complete subsection reference.
+- [label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-3303021203132210-2011310232100120-2331201113033331-0020311331120101-1222201221322030-2132230231011122-3110031321023110-2220000311300312): complete subsection reference.
 
-- [metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-68e47746092962d5ce01e813d1db0b0a5d9537d295fb2b0147daa13dd3d6dae1): complete subsection reference.
+- [metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-1220321013131012-0021022112023111-3032000132200103-3101312300230022-1131211103133102-2111332302230001-1013312222010331-3103311231223201): complete subsection reference.
 
-- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-06522db7fdb799b41b854f8821649a0d513946d7f372e11fd599463e88034595): complete subsection reference.
+- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0012110202312313-3331231321212310-0123201110332020-0201121021220031-1101032110123113-3303130232010133-3111212110120332-2020000310112111): complete subsection reference.
 
-- [tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-506deaec95b4fe9cd4594c44d53aff5ab3451cc5bb2487262d51478f8c79f768): complete subsection reference.
+- [tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1100123132223230-2111231033322130-3110112110301010-3111032233331122-2303101101303011-2323021020130212-0231110110132033-2030132133131220): complete subsection reference.
 
-<a id="canonical-9762b25f164d5ef545854a340dec4d57532374d4c355d7401b605d20f8f130e4"></a>
+<a id="canonical-2113120223021133-0112103111323311-1011201110220310-0031323010311113-1103020313103110-3003111131131000-0123120011310200-3320330103003210"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules / c53be9d9ee46 / 4
+## Next pages — forward_proxy_pbr_rules / 312132321012 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-6171bb1ebdf67b5399f835c91a31adf5a2bba15741984571d15da638a042a627)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-e083eb0f522a1c30f3393d80342938858bbffd2ad38646feac3f64736d7b1c6a)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-72201c762aacf19d586743867074af145919058d40a70adaa7c3a9494a09a6ea)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-2c851c7847ce6d67448b4ca967aeee60e4fa9948ed8298d52db1b85dd410d4a9)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-f32637a485d2e418bd8573fd08d7d6116a869e8c9eb2d15ad43792d4a8035c36)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-68e47746092962d5ce01e813d1db0b0a5d9537d295fb2b0147daa13dd3d6dae1)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-06522db7fdb799b41b854f8821649a0d513946d7f372e11fd599463e88034595)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-506deaec95b4fe9cd4594c44d53aff5ab3451cc5bb2487262d51478f8c79f768)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations](data-sources--policy_based_routing--reference--group-001.md#canonical-1201130123230132-2331331213231103-2121332003113021-0122030122313311-2202232322011113-1001212010111301-3101113122120320-2200100222120213)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.all_sources](data-sources--policy_based_routing--reference--group-001.md#canonical-3200200332230033-1102022201300300-3303032103312000-0310022103202011-2023233333310222-3103201210123332-2230033312101303-1231132301301222)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1302020001301312-0222223033012131-1120121310032012-1300131022330110-1121012100112031-1000221300223122-2213300322211021-1022002122123222)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-0230201101301320-1013303212311213-1010202310302221-1213223232321200-3210332221211020-3231200221203111-0231230123201131-3110010031102221)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-3303021203132210-2011310232100120-2331201113033331-0020311331120101-1222201221322030-2132230231011122-3110031321023110-2220000311300312)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-1220321013131012-0021022112023111-3032000132200103-3101312300230022-1131211103133102-2111332302230001-1013312222010331-3103311231223201)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0012110202312313-3331231321212310-0123201110332020-0201121021220031-1101032110123113-3303130232010133-3111212110120332-2020000310112111)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1100123132223230-2111231033322130-3110112110301010-3111032233331122-2303101101303011-2323021020130212-0231110110132033-2030132133131220)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-6171bb1ebdf67b5399f835c91a31adf5a2bba15741984571d15da638a042a627"></a>
+<a id="canonical-1201130123230132-2331331213231103-2121332003113021-0122030122313311-2202232322011113-1001212010111301-3101113122120320-2200100222120213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6ac3533fc28dbe0f738bb81eb50e1b215629cfeff858ba1f60288bf6524501cf"></a>
+<a id="canonical-1222300311030333-3002203123320033-1303202323200132-2311003201230201-1112022130333233-3320112023220133-1200022020233312-1102101100013033"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations — forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations / 970c029f921b / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations — all_destinations / 213321020123 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations
 
-<a id="canonical-0cdaaa07c84eafc0f2c21222cc637de6c4cb8edf884b592aa957efb49f4821a7"></a>
+<a id="canonical-0030312222220013-3020103222333000-3302300201020202-3030120313313212-3010302320323133-2020102311210222-2221111332332310-2133102002012213"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -568,38 +568,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8cab5d410d8dbb0c01261c0f3c5f7a1ac50233c278a233d7347f3bb6dbbd3fc"></a>
+<a id="canonical-3320302223113110-0100312031232300-3000010212013000-3303301133132201-2230110002030330-0213202202030331-1303101333032323-1231232331033330"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations / 970c029f921b / 3
+## Direct properties — all_destinations / 213321020123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-763b1696995996aee0c2ce80ab86ceb126ab78ddd3a98df89c4ddb1e921fd9d0"></a>
+<a id="canonical-1312032301122112-2121112121122232-3200300230322000-2223201230322301-0212222313203131-3103222120313320-2130103131230132-2102013331213100"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations / 970c029f921b / 4
+## Next pages — all_destinations / 213321020123 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-e083eb0f522a1c30f3393d80342938858bbffd2ad38646feac3f64736d7b1c6a"></a>
+<a id="canonical-3200200332230033-1102022201300300-3303032103312000-0310022103202011-2023233333310222-3103201210123332-2230033312101303-1231132301301222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f734411552a5e3fba49a70d3a5971f63b05a7282a61e4a77bc23bc4bb14f032f"></a>
+<a id="canonical-3313031010010111-1102221132033323-2210212213003103-2211211301331203-2300112213022002-2212013210221313-2330020323301023-2301103300030233"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.all_sources — forward_proxy_pbr.forward_proxy_pbr_rules.all_sources / d51dafa15cd1 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.all_sources — all_sources / 220111303101 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.all_sources
 
-<a id="canonical-ea01b709ca013ea77fbc310635f4a77f49b8e41a4387fba09e677e77fc2e77cf"></a>
+<a id="canonical-3222000123130021-3022000103322213-1333233003010012-0311331022131333-1021232032100122-1003201333232200-2132121313321313-3330023213133033"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -622,38 +622,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-46c51ad8f33ecd842f31f51fbe3b8f417ba0ae6d43621163b431763e1c38cb81"></a>
+<a id="canonical-1012301101223120-3303033230312010-0233030133110133-2332032320331001-1323220022321231-1003120201011203-2310030113120332-0130032030232001"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.all_sources / d51dafa15cd1 / 3
+## Direct properties — all_sources / 220111303101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e700becbbed88fccf44f633422bbf4316f229438026e0205767130d10051ee60"></a>
+<a id="canonical-3213000023323023-2332312020333030-3310103312030310-0202232333100301-1233020221100320-0002123200020011-1312130103003101-0000110132321200"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.all_sources / d51dafa15cd1 / 4
+## Next pages — all_sources / 220111303101 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-72201c762aacf19d586743867074af145919058d40a70adaa7c3a9494a09a6ea"></a>
+<a id="canonical-1302020001301312-0222223033012131-1120121310032012-1300131022330110-1121012100112031-1000221300223122-2213300322211021-1022002122123222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9f961087342e4708b915fdf652ba3e594f7ec81fc66abc45af6b7f234d52d203"></a>
+<a id="canonical-2133211201002013-0310023210130020-2321011133313312-1102232203321121-1033133230200133-3012122223301011-2233122313330203-1031110231020003"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list — forwarding_class_list / 113102213230 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list
 
-<a id="canonical-13555c9a39125c7ed0e35d5f8a9ce5b2d8adccf1b35526c2c4c263c07fbfba6b"></a>
+<a id="canonical-0103111111302122-0321010211301332-3100320311311133-2022213032112302-3120223130303301-2303111102123002-3010300212033000-1333233323221223"></a>
 
 Type: `"list"`. Computed.
 
@@ -696,15 +696,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4c5a861637ee048e4f19c44a9d4119ebcef656fe76369b026c07bf19254b3103"></a>
+<a id="canonical-1030112220120112-0313323200102032-1033012130101022-2131100101213223-3032331211123332-1312031221230002-1230001323330121-0211102303010003"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 3
+## Direct properties — forwarding_class_list / 113102213230 / 3
 
-<a id="canonical-d7be537368b1a889b6a8e9899563f153e524d7086928ff542003c662a35e5f88"></a>
+<a id="canonical-3113233211031303-1220230122202021-2312222032212021-2111120333011103-3211021031130020-1221022033331110-0200000330121202-2203113211332020"></a>
 
-<a id="canonical-812795cf8c9007e6a9d2fc216514509decf83730423f29d1b792cd5b14d14d6b"></a>
+<a id="canonical-2001021321113033-2030210000133212-2221310233300201-1211011011002131-3230332003130300-1002033302213101-2313210230311123-0110310110311223"></a>
 
-## name property — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 4
+## name property — forwarding_class_list / 113102213230 / 4
 
 Type: `"string"`. Computed.
 
@@ -757,11 +757,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-36fa836f74f1461e6b0d370d69875c2a33f9e6a8997dddee201abb973a64b5d4"></a>
+<a id="canonical-0312332220031233-1310330110120132-1223003103130031-1221201311300222-0303332132122220-2121133131313232-0200012223232113-0322121023113110"></a>
 
-<a id="canonical-5f0d025c7d01b625667551697ab8d9c38175c676f05c8c5120366be2ad418e1c"></a>
+<a id="canonical-1133003100021130-1331000123120211-1212131111011221-1322232031213003-2001131130121312-3300113020301101-0200031212233202-2231100120320130"></a>
 
-## namespace property — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 5
+## namespace property — forwarding_class_list / 113102213230 / 5
 
 Type: `"string"`. Computed.
 
@@ -821,11 +821,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3b87e2bf6f6a47119d3ef982b8b9ecdbfb6bd1b333ed9705b02f96e568029e64"></a>
+<a id="canonical-0323201332022333-1233122210130101-2131033233212002-2320232132303123-3323122331012303-0303323121130011-2300023321123211-1220000221321210"></a>
 
-<a id="canonical-cf7798327fd133ca3106214bb0205adff45895214284dbcff8da73c10d14ded4"></a>
+<a id="canonical-3033131321200302-1333310103033022-0301001202011023-2300020011223133-3310112021110201-1002201031233033-3320312213033001-0031011031323110"></a>
 
-## tenant property — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 6
+## tenant property — forwarding_class_list / 113102213230 / 6
 
 Type: `"string"`. Computed.
 
@@ -871,32 +871,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ee68d46410ed9934ee954128bd13ab3786b8e0ad376af53f8a74974ba44389d2"></a>
+<a id="canonical-3232122031101210-0100323121210310-3232211110010220-2331010322230313-2012232032002231-0313122233110333-2022131021131023-2210100320213102"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list / 9dec935d29ec / 7
+## Next pages — forwarding_class_list / 113102213230 / 7
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47"></a>
+<a id="canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf92bfe8183c40119ebe86bd387d4570dfb3667fc60534e2486d7cbe025894c8"></a>
+<a id="canonical-2333210223333220-0120033010000101-2132233220122331-0320133110111300-3133230312121333-3012001103103202-1020123113302332-0002112021103020"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.http_list — forward_proxy_pbr.forward_proxy_pbr_rules.http_list / 182fdbfd3ae6 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.http_list — http_list / 333103223212 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.http_list
 
-<a id="canonical-184b4eaeb8a92e05417c01033d10788c5cff91a80c4e6574e63759161b7c05f0"></a>
+<a id="canonical-0120102310322232-2320222102320011-1001133000010003-0331010013202030-1130333321012220-0030103212111310-3212031311210112-0123133000113300"></a>
 
 Type: `"single"`. Computed.
 
@@ -915,40 +915,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-39dae158d4506a1d727be765a40101593d72a94a2e06b7f52da3467fbe973aab"></a>
+<a id="canonical-0321312232011120-3110110012220131-1302132332131211-2210000100011121-0331130222211022-0232001223133311-0231220310121333-2332211303222223"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.http_list / 182fdbfd3ae6 / 3
+## Direct properties — http_list / 333103223212 / 3
 
-- [http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-5b3a9931f2b25c13952ea94ab155fcd7f652938b778266cf2bf127c99dbda5c8): complete subsection reference.
+- [http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1123032221210301-3302230211300103-2111023222211022-2301111133303113-3312110221032023-1313200212123033-0223330102133021-2131233122113020): complete subsection reference.
 
-<a id="canonical-207f9cd1fd134333e4988e8e7d74d7685b6aa542f8cf5be9c8afdebffb57d1ae"></a>
+<a id="canonical-0200133321303101-3331010310030303-3210212020322032-1331131031131220-1123122222111002-3320303311233221-3020223331322333-3323111331012232"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.http_list / 182fdbfd3ae6 / 4
+## Next pages — http_list / 333103223212 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-5b3a9931f2b25c13952ea94ab155fcd7f652938b778266cf2bf127c99dbda5c8)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1123032221210301-3302230211300103-2111023222211022-2301111133303113-3312110221032023-1313200212123033-0223330102133021-2131233122113020)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-5b3a9931f2b25c13952ea94ab155fcd7f652938b778266cf2bf127c99dbda5c8"></a>
+<a id="canonical-1123032221210301-3302230211300103-2111023222211022-2301111133303113-3312110221032023-1313200212123033-0223330102133021-2131233122113020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-51f41e5f1c3d0b8fee92c066859d341578abb3e467334f0793f8a27f9ef1dd07"></a>
+<a id="canonical-1101331001321133-0130033100232033-3232210230001212-2011213103100111-1320222323033210-1213030310330013-2103332022021333-2132330131310013"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list — http_list / 100103031311 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013)
 - forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list
 
-<a id="canonical-8659d1f49311c1f9a8b12820d0e1d1db3f7b29bab29888ddff6ccab8a5f5da98"></a>
+<a id="canonical-2012112131013310-2103010130013321-2220230102200200-3100320131013123-0333132302212322-2302212020203131-3333123030222320-2211331131222120"></a>
 
 Type: `"list"`. Computed.
 
@@ -992,17 +992,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80430a4c489889a9f4fc9f52cb28eb9a145ce971cca052c113131ab0215f9e56"></a>
+<a id="canonical-2000100300221030-1020212020212221-3310333021331102-3023022032232122-0110113032211301-3030220011023001-0103010301222300-0201113321321112"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 3
+## Direct properties — http_list / 100103031311 / 3
 
-- [any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-fd63b2769ab19b657edef354449101cc2a8e56f57fa0cb2a22621a762639577c): complete subsection reference.
+- [any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-3331120323021312-2122230121231211-1332313233031110-1010210100013030-0222203211123311-1333220030230222-0202120201221312-0212032111131330): complete subsection reference.
 
-<a id="canonical-9cb2f451b6294f8e944cd6ddfa9df531704f19192639a936985ae4418b5d3c55"></a>
+<a id="canonical-2130230233101101-2312022110332032-2110103031123131-3322213133110301-1300103301210121-0212032122210312-2120112232101001-2023113103301111"></a>
 
-<a id="canonical-7f484b21b0c3726287d5ca33d98f5cf401f735e7677991722efaa5b651827cad"></a>
+<a id="canonical-1333102010230201-2300300313021202-2013311130220303-3121203311303310-0001331303113213-1213132121011302-0232332222112312-1101200213302231"></a>
 
-## exact_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 4
+## exact_value property — http_list / 100103031311 / 4
 
 Type: `"string"`. Computed.
 
@@ -1050,11 +1050,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e24e7e770e9136625787e96ee4a548b441c9552398cd08f538958b9f0e741301"></a>
+<a id="canonical-3202103213321313-0032210103121202-1113201332211232-3210221110202310-1001302111110203-2120303100203311-0320211120232133-0032131001030001"></a>
 
-<a id="canonical-6aed5ede6bb9044fcff88fb0232013d09a10f7302cba3ece82c0f374a383759c"></a>
+<a id="canonical-1222323111323132-1223232100101033-3033332020332300-0203020001033100-2122010033130300-0230232203323032-2002300033031310-2203200313112130"></a>
 
-## path_exact_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 5
+## path_exact_value property — http_list / 100103031311 / 5
 
 Type: `"string"`. Computed.
 
@@ -1101,11 +1101,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7eb89cb76d1de2c06d9fbafd839a7e9f65408a2607f8dfeea371915421276e9a"></a>
+<a id="canonical-1332232021302313-1231013132023000-1231213323223331-2003212213322133-1211100020220212-0013332031333232-2203130121011110-0201021312322122"></a>
 
-<a id="canonical-308799fa69ddc64fcd6b1b5b4a098d1c2b8db3568546016bd0a5587dc7b37df1"></a>
+<a id="canonical-0300201321213322-1221313130121033-3031122301231123-1022002120310130-0223203123031112-2011101200011223-3100221111201331-3013230313313301"></a>
 
-## path_prefix_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 6
+## path_prefix_value property — http_list / 100103031311 / 6
 
 Type: `"string"`. Computed.
 
@@ -1154,11 +1154,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5d52dd0ed76ee492b769ddcbff0d4fd8e3465d476ee702df4983630ccc60eaf7"></a>
+<a id="canonical-1131110231310032-3113123232102102-2313122131313023-3333003110333120-3203101211311013-1232321300023133-1021200312030030-3030120032223313"></a>
 
-<a id="canonical-8f0c2a733be0892cee1be76fb69daa45c5aedc096505ae179a5e6a31902151c0"></a>
+<a id="canonical-2033003002221303-0323320020210230-3232012332131233-2312213122221011-3011223231300021-1211001122320113-2122113212220301-2100020111013000"></a>
 
-## path_regex_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 7
+## path_regex_value property — http_list / 100103031311 / 7
 
 Type: `"string"`. Computed.
 
@@ -1207,11 +1207,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-236ecd62dbfccdb90e3a043a6ad80569dccfbf5f040d7ceb85175ba8d1ccef9c"></a>
+<a id="canonical-0203123230311202-3123333030312321-0032032200100322-1222312000111221-3130303323331133-0010003113303223-2011011311232220-3101303032332130"></a>
 
-<a id="canonical-7d0bf0547a3c822a41352f6dd3666793ec729ea1a585274cb1abbed5b5716ed9"></a>
+<a id="canonical-1331002333001110-1322033020020222-1001031102331231-3103121212132103-3230130221322201-2211201102131030-2301222323323111-2311130112323121"></a>
 
-## regex_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 8
+## regex_value property — http_list / 100103031311 / 8
 
 Type: `"string"`. Computed.
 
@@ -1258,11 +1258,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d9496d9fbbca5e79d0e3304a11db00994e5247d7faa0e179057902b33510411"></a>
+<a id="canonical-2031211021123121-3323233022113213-2131003203030010-2201013123000021-2110321102101331-1333222200320113-2100111321000223-0303110100100101"></a>
 
-<a id="canonical-9a377dfa62c613c2153c5537ad2011f515f3eb59540f220804481346283ec6e1"></a>
+<a id="canonical-2122031313313322-1202301201033002-0111033011110313-2231020001013311-0111330332231121-1110003302020020-0010102001031012-0220033230123201"></a>
 
-## suffix_value property — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 9
+## suffix_value property — http_list / 100103031311 / 9
 
 Type: `"string"`. Computed.
 
@@ -1312,35 +1312,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db464394f7971275a7571b8e5db8312727e60c102e9f46a2e6b6da1b517e0db5"></a>
+<a id="canonical-3123101210032110-3313211301021311-2213111301232032-1131232003010213-0213321200300100-0232213310122202-3212231231220123-1101133200312311"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list / 692979413375 / 10
+## Next pages — http_list / 100103031311 / 10
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-fd63b2769ab19b657edef354449101cc2a8e56f57fa0cb2a22621a762639577c)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path](data-sources--policy_based_routing--reference--group-001.md#canonical-3331120323021312-2122230121231211-1332313233031110-1010210100013030-0222203211123311-1333220030230222-0202120201221312-0212032111131330)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-fd63b2769ab19b657edef354449101cc2a8e56f57fa0cb2a22621a762639577c"></a>
+<a id="canonical-3331120323021312-2122230121231211-1332313233031110-1010210100013030-0222203211123311-1333220030230222-0202120201221312-0212032111131330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-813a6bab4752a08f6fd1e62c5e8f92d4ad27280d3bea685e54ddd1e332e89190"></a>
+<a id="canonical-2001032212232223-1013110222002033-1233310132120230-1132203321023110-2231021302200031-0323322212201132-1110313131013203-0302322021012100"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path / b801ee99b64b / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path — any_path / 212123121023 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-7bbfc8405b63cdcbae107b961f216c9b3f43cb2a154cd2b7b4c24830032aab47)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-5b3a9931f2b25c13952ea94ab155fcd7f652938b778266cf2bf127c99dbda5c8)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1323233330201000-1123120330313023-2232010013232112-0133020112302123-0333100330230222-0111103031022313-2310300210200300-0003022222231013)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1123032221210301-3302230211300103-2111023222211022-2301111133303113-3312110221032023-1313200212123033-0223330102133021-2131233122113020)
 - forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path
 
-<a id="canonical-8fbff81e669f86b440c328e6552b59e618d8b6ec26da346907945dda825a430e"></a>
+<a id="canonical-2033233333200132-1212213320122310-1000300302203212-1111022311213212-0120312023123230-0212312203101221-0013211011313122-2002112210030032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1363,38 +1363,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f941ece8009f3afcabd054fdf233b41ecc1cf3c3143ce99d4030e6d9d6433373"></a>
+<a id="canonical-3321100132303220-0000213303223330-2223310011103331-3302030323100132-3030013033033003-0110033032212131-1000030032123121-3112100303031303"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path / b801ee99b64b / 3
+## Direct properties — any_path / 212123121023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e98cf9d3b7057d8384c5778807c09444ca472ff6f6261a1a031061a26e77a12e"></a>
+<a id="canonical-3221203033213103-2313001113312003-2010301113132020-0013300021101010-3022101302333312-3312021201220122-0003010012012202-1232131322010232"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path / b801ee99b64b / 4
+## Next pages — any_path / 212123121023 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-5b3a9931f2b25c13952ea94ab155fcd7f652938b778266cf2bf127c99dbda5c8)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1123032221210301-3302230211300103-2111023222211022-2301111133303113-3312110221032023-1313200212123033-0223330102133021-2131233122113020)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-2c851c7847ce6d67448b4ca967aeee60e4fa9948ed8298d52db1b85dd410d4a9"></a>
+<a id="canonical-0230201101301320-1013303212311213-1010202310302221-1213223232321200-3210332221211020-3231200221203111-0231230123201131-3110010031102221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bd3ec68b86a114e8ca106ab3e5185f4447bfec5871e26700c98e148b0782dad5"></a>
+<a id="canonical-2331033230122023-2012220101103220-3022010012222303-3211012011331010-1013233332301120-1301320212130000-3021203201102023-0013200231223111"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set — ip_prefix_set / 132102321311 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set
 
-<a id="canonical-fc7528b27302c2fb29eddeb742c80ed04bbf13bd55aa74cb49484ae73ed16811"></a>
+<a id="canonical-3330131102202302-1303000230023323-0221323131322313-1002302000323100-1023233301032331-1111222213103023-1021102010223213-0332310112200101"></a>
 
 Type: `"single"`. Computed.
 
@@ -1419,15 +1419,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10e4f7a68d5e03abc3754728b3851d81edd355ec2c78c7bcdf5696cafca793c5"></a>
+<a id="canonical-0100321033132212-2031113200032223-3003131110130220-2303201101312001-3231310311113230-0230132030132330-3133111221123022-3330221321033011"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 3
+## Direct properties — ip_prefix_set / 132102321311 / 3
 
-<a id="canonical-d18e11bd2fcf2817d90fa94c21cb050a6b2b6c9ab9993490c0924c1182da02f9"></a>
+<a id="canonical-3101203201012331-0233303302200113-3121003322211030-0201302300110022-1223022312302122-2321212103102100-3000210210300101-2002312200023321"></a>
 
-<a id="canonical-a0a059a07c057ef21f95af29f67730fe35faf640a96a6723df6173847f4b41a6"></a>
+<a id="canonical-2200220011212200-1330001113323302-0133211122330221-3312131303003332-0311332233121000-2221122212130203-3133120113032010-1333102310012212"></a>
 
-## name property — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 4
+## name property — ip_prefix_set / 132102321311 / 4
 
 Type: `"string"`. Computed.
 
@@ -1480,11 +1480,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89a6fc8f173287da80252d10383923768dcc53a9a02dad3bcbae5d5dfe3e15b3"></a>
+<a id="canonical-2021221233302033-0113030220133122-2000021102310100-0320032102031312-2031303011032221-2200023122310323-3023223211311131-3332033201112303"></a>
 
-<a id="canonical-f1d5c8dacb34d8cea4f787a130962806e23ec30544ffc8a3681c51b2a132b192"></a>
+<a id="canonical-3301311130203122-3023031031203032-2210331320132201-0300211202200012-3202033230030011-1010333330202203-1220013011012302-2201030223012102"></a>
 
-## namespace property — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 5
+## namespace property — ip_prefix_set / 132102321311 / 5
 
 Type: `"string"`. Computed.
 
@@ -1544,11 +1544,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c98bca840512e209de15817a8c540042ad433ad7f2f46269621bc5affb29d5df"></a>
+<a id="canonical-3021202330222010-0011010232020021-3132011120011322-2030111000001002-2231100303223113-3302331012021221-1202012330112233-3323022131113133"></a>
 
-<a id="canonical-a19aa72967ef75d713698a63f23d38a9783eb4739e8a19739f6f86ce88cb4502"></a>
+<a id="canonical-2201212222130221-1213323313113113-0103122120221203-3302033103202221-1320033223101303-2132202201211303-2133123320123032-2020302310110002"></a>
 
-## tenant property — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 6
+## tenant property — ip_prefix_set / 132102321311 / 6
 
 Type: `"string"`. Computed.
 
@@ -1594,32 +1594,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2073bee5eb5386b78598bd38dbddeafdc768398a397cd278bb85d56894f7dfa0"></a>
+<a id="canonical-0200130323323211-3223110320122313-2011212023310320-3123313132223331-3013122003212022-0321133031021320-2323201131111220-2110331331332200"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set / 24d497792e75 / 7
+## Next pages — ip_prefix_set / 132102321311 / 7
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-f32637a485d2e418bd8573fd08d7d6116a869e8c9eb2d15ad43792d4a8035c36"></a>
+<a id="canonical-3303021203132210-2011310232100120-2331201113033331-0020311331120101-1222201221322030-2132230231011122-3110031321023110-2220000311300312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-41ce455aa62b75d1785e10a581cf0e0f12c874465666f1995a365f76cef8e7e8"></a>
+<a id="canonical-1001303210111122-2212022313113101-1320113201002211-2001303300320033-0102302013101012-1112121233012121-1122031211331312-3032332032133220"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.label_selector — forward_proxy_pbr.forward_proxy_pbr_rules.label_selector / 633d0ba77d9c / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.label_selector — label_selector / 221313312130 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.label_selector
 
-<a id="canonical-e2c4812f61066bbd4c9c5e6aaf1741a4d9ad070593701e9091b82c6fbd37b8f5"></a>
+<a id="canonical-3202301020010233-1201001212232331-1030213011321222-2233011310012210-3121223100130011-2103130001322100-2101232002301233-2331031323203311"></a>
 
 Type: `"single"`. Computed.
 
@@ -1655,15 +1655,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cd42c8fc5a414e0b8c1ee950d7f64e85c14580e3c1e138ce10453175588f7a29"></a>
+<a id="canonical-3031100230203330-1122100110320023-2030013232211100-3113331210322011-3001101120003203-3001320103203032-0100101103011311-1120203313220221"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.label_selector / 633d0ba77d9c / 3
+## Direct properties — label_selector / 221313312130 / 3
 
-<a id="canonical-7a533a8bd5e7f2ffd67e915ae4e2412b0ef84e839ae0d820133ba5b152d7875b"></a>
+<a id="canonical-1322110303222023-3111321333023333-3112133221011122-3210320210010223-0032332010322003-2122320031200200-0103032322112301-1102311320131123"></a>
 
-<a id="canonical-b9f0015e28d020bd80187d7fe5fdcd549557626185495e59f8b18c85b8e2ece8"></a>
+<a id="canonical-2321330000011132-0220310002002331-2000012013311333-3211333130311110-2111111312021201-2011102111321121-3320230120302011-2320320232303220"></a>
 
-## expressions property — forward_proxy_pbr.forward_proxy_pbr_rules.label_selector / 633d0ba77d9c / 4
+## expressions property — label_selector / 221313312130 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -1708,32 +1708,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9d5b4f3757b74ee1239463f0ea58318a43bcb20111248ad6370e758f49f1c7ff"></a>
+<a id="canonical-2131112310330313-1113231310323201-0203211012033300-3222112003012022-1003233023020001-0101021020223112-0313003213112033-1021330130133333"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.label_selector / 633d0ba77d9c / 5
+## Next pages — label_selector / 221313312130 / 5
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-68e47746092962d5ce01e813d1db0b0a5d9537d295fb2b0147daa13dd3d6dae1"></a>
+<a id="canonical-1220321013131012-0021022112023111-3032000132200103-3101312300230022-1131211103133102-2111332302230001-1013312222010331-3103311231223201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ead2402b3ce8c4580eb422686352f4321c6fed3ea97991dcfe60efc6dbbe4baa"></a>
+<a id="canonical-3222310210000223-0330322030101120-0032231002021220-1203110233100302-0130123332310332-2221132121013130-3332120032333012-3123233210232222"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.metadata — forward_proxy_pbr.forward_proxy_pbr_rules.metadata / 1c0eb7e81979 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.metadata — metadata / 322001211321 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.metadata
 
-<a id="canonical-882e22f3385e35b608b16777f0a27b04c6060178c8f172ece34b4e781cd44713"></a>
+<a id="canonical-2020023202023303-0320113203112312-0020230112131313-3300220213230010-3012001200011320-3020330113023230-3203102310321320-0130311010130103"></a>
 
 Type: `"single"`. Computed.
 
@@ -1762,25 +1762,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6915acedec997e839b08e6ed712c1db70247b025f5be4a248a714ca5fa9a48de"></a>
+<a id="canonical-1221011122303231-3230212113322003-2123002032123231-1301023001312313-0002101323000211-3311233210220210-2022130110302211-3322212210203132"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.metadata / 1c0eb7e81979 / 3
+## Direct properties — metadata / 322001211321 / 3
 
-<a id="canonical-e4741f57f567f3ddeedc8bdbbf0820147d8a3d48ecc4e7180289813e994bc816"></a>
+<a id="canonical-3210131001331113-3311121333033131-3232313020233123-2333002002000110-1331202203311020-3230301032130120-0002202120010332-2121102330200112"></a>
 
-<a id="canonical-947e170f4ea365c9e01bfda1b12c5fa2ee6f2fbdd6a371b01e079c2a5a63fb9b"></a>
+<a id="canonical-2110133201130033-1032220312113021-3200012333312201-2301023011332202-3232123302332331-3112220313012300-0132001321300222-1122120333232123"></a>
 
-## description_spec property — forward_proxy_pbr.forward_proxy_pbr_rules.metadata / 1c0eb7e81979 / 4
+## description_spec property — metadata / 322001211321 / 4
 
 Type: `"string"`. Computed.
 
 Description. Human readable description.
 
-<a id="canonical-05ee124fd531cbd928a40066a14e69da1e4dbd7a252b50ce684f07b7a0ee1e2c"></a>
+<a id="canonical-0011323201021033-3111030130233121-0220221000001212-2201103212213122-0132103123311322-0211022311003032-1220103300132313-2200323201320230"></a>
 
-<a id="canonical-223dca9d0cf965e02c1935934d9ee912f858cf0742b346dffda7fc93e325396c"></a>
+<a id="canonical-0202033130222131-0030332112113200-0230012103112103-1031213232210102-3320112030330013-1002230310123133-3331221333302103-3203021103211230"></a>
 
-## name property — forward_proxy_pbr.forward_proxy_pbr_rules.metadata / 1c0eb7e81979 / 5
+## name property — metadata / 322001211321 / 5
 
 Type: `"string"`. Computed.
 
@@ -1839,32 +1839,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-847cc65b0f28e681ad28172e090ee9f5ab352c93c2993ff6225930d492f050b3"></a>
+<a id="canonical-2010133030121123-0033022032122001-2231022001130232-0021003232213311-2223031102302103-3002212103333312-0202112103003110-2102330011002303"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.metadata / 1c0eb7e81979 / 6
+## Next pages — metadata / 322001211321 / 6
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-06522db7fdb799b41b854f8821649a0d513946d7f372e11fd599463e88034595"></a>
+<a id="canonical-0012110202312313-3331231321212310-0123201110332020-0201121021220031-1101032110123113-3303130232010133-3111212110120332-2020000310112111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c410a1f1471bc42db782374313dcee4bb1631a2d2d5477103f16fe0d47c93597"></a>
+<a id="canonical-3010010022013301-1013012330100231-2313200203131003-0103313032321023-2301120301220231-0231111013130100-0333011233320031-1013302103112113"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list — forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list / d819ee4a26b6 / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list — prefix_list / 102202122312 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list
 
-<a id="canonical-5ec6f762eb6a3e37a2435c87fcfb3331bc6f28d8a4e274fde3c1c03c340aaa8f"></a>
+<a id="canonical-1132301233131202-3223122203320313-2202100311302013-3330332303030301-2330123302203120-2210320213103331-3203300130000330-0310002222222033"></a>
 
 Type: `"single"`. Computed.
 
@@ -1883,15 +1883,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cf74173fc938bacbf710cdfe64d023d71c521120ed34419e0e99500e0a02fc00"></a>
+<a id="canonical-3033131001130333-3021032023223023-3313010030313332-1210310002033113-0130110201010200-3231031010012132-0032212111000032-0022000233300000"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list / d819ee4a26b6 / 3
+## Direct properties — prefix_list / 102202122312 / 3
 
-<a id="canonical-3a0e299ee52170cfa2f23a063271cfc3558d3e7816f869811164e9fdc5239775"></a>
+<a id="canonical-0322003202212132-3211020113003033-2202330203220012-0302130130333003-1111203103321320-0112332012212001-0101121032213331-3011020321131311"></a>
 
-<a id="canonical-c72c4f67299788a81825bd570da6d541bd8a51b3b1c6073b88aa80e6a6ef7423"></a>
+<a id="canonical-3013023010331213-0221211320202220-0120021123311113-0031221231111001-2331202211012303-2301301200130323-2020222220003212-2212323313100203"></a>
 
-## prefixes property — forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list / d819ee4a26b6 / 4
+## prefixes property — prefix_list / 102202122312 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -1933,32 +1933,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dfe0cec495afbf69e7502e51bcdd11b599ed1c288fc405b0a6a818774cde12af"></a>
+<a id="canonical-3133320030323010-2111223323331221-3213110002321101-2330313101012311-2121323101300220-2033301000112300-2212222001201313-1030313201022233"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list / d819ee4a26b6 / 5
+## Next pages — prefix_list / 102202122312 / 5
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-506deaec95b4fe9cd4594c44d53aff5ab3451cc5bb2487262d51478f8c79f768"></a>
+<a id="canonical-1100123132223230-2111231033322130-3110112110301010-3111032233331122-2303101101303011-2323021020130212-0231110110132033-2030132133131220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c44bf68bc357b94d388176c636f65a2548039fa16e0a1053fcb0d5e381fe85af"></a>
+<a id="canonical-3010102333122023-3003111323211031-0320200113123012-0312331211220211-1020000321332201-1232002201001103-3330230031113203-2001333220112233"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.tls_list — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list / a066110008dc / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.tls_list — tls_list / 000000203130 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
 - forward_proxy_pbr.forward_proxy_pbr_rules.tls_list
 
-<a id="canonical-fc68e11402e79d093af1147ad8497c182fb8a24fee4c7160344dd7baaf2d2d58"></a>
+<a id="canonical-3330122032010110-0002321321310021-0322330101101322-3120102113300120-0233232022021033-3232103013011200-0310103131132322-2233023102311120"></a>
 
 Type: `"single"`. Computed.
 
@@ -1977,40 +1977,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3112c56fee7276432cc914b18082ca60fa4ea5de1976bc5ff93ad3862c325a7d"></a>
+<a id="canonical-0301010230111233-3232130213121003-0230302101102301-2000200230221200-3322103222113132-0121131223301133-3321032231032012-0230030211221331"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list / a066110008dc / 3
+## Direct properties — tls_list / 000000203130 / 3
 
-- [tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-f63e47b6686ab468f068ae12bf3d414ca55fe7e81f0cfc6be42206242c121e73): complete subsection reference.
+- [tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-3312033210132312-1220122223101220-3300122022320102-2333033110011030-2211113332133220-0133003033301223-3210020200120210-0230010201321303): complete subsection reference.
 
-<a id="canonical-1a0b46e70c731ef2e5a889fe3d0776d558e7f6997517e22190d3ca343104ffc3"></a>
+<a id="canonical-0122002310123213-0030130301323302-3211222020213332-0331001313123111-1120321333122121-1311011332020201-2100310330220310-0301001033333003"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list / a066110008dc / 4
+## Next pages — tls_list / 000000203130 / 4
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-f63e47b6686ab468f068ae12bf3d414ca55fe7e81f0cfc6be42206242c121e73)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-3312033210132312-1220122223101220-3300122022320102-2333033110011030-2211113332133220-0133003033301223-3210020200120210-0230010201321303)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-f63e47b6686ab468f068ae12bf3d414ca55fe7e81f0cfc6be42206242c121e73"></a>
+<a id="canonical-3312033210132312-1220122223101220-3300122022320102-2333033110011030-2211113332133220-0133003033301223-3210020200120210-0230010201321303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-76b7fbc2ac008d0a5edca2a9c52397dad0b3062f427e5938d4c9f6d212b8b5ee"></a>
+<a id="canonical-1312231333233002-2230000020310022-1132313022022221-3011020321133122-3100230300120233-1002133211210320-3110302133123102-0102232023113232"></a>
 
-## forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 2
+## forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list — tls_list / 000202210223 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-ebbd6e66492851c4fb87ea6b8c4d4dee3ea4e7910e068697b769a204f9ae5d32)
-- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-8fb6e2fa5ba097815707aa1afa480e93d794bcffcaf40bfa6c6cd607089b915a)
-- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-506deaec95b4fe9cd4594c44d53aff5ab3451cc5bb2487262d51478f8c79f768)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [forward_proxy_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-3223233112321212-1021022011013010-3323201332221223-2030103110313232-0332221032132101-0032001220122113-2313122122020010-3321223211310302)
+- [forward_proxy_pbr.forward_proxy_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-2033231232023322-1123220021132001-1113001322220122-3322102000322103-3113211023303333-3022331000233322-1230123031120013-0020212321011122)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1100123132223230-2111231033322130-3110112110301010-3111032233331122-2303101101303011-2323021020130212-0231110110132033-2030132133131220)
 - forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list
 
-<a id="canonical-cd4bf44e645ca693aa812dde8756fd4889e9e0577d7e0ecb2c9ed8be42e24c98"></a>
+<a id="canonical-3031102333101032-1210113022122103-2222200102313132-2013111233311020-2021322132001113-1331133200323023-0230213231202332-1002320210302120"></a>
 
 Type: `"list"`. Computed.
 
@@ -2054,15 +2054,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-da52c94a41e0bfc5c991fbacc924cde81b0e4f3ae078d5704bd0675567ed29f5"></a>
+<a id="canonical-3122110230211022-1001320023333011-3021210133232230-3021021030313220-0123003210330322-3200132031111300-1023310012131111-1213323102213311"></a>
 
-## Direct properties — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 3
+## Direct properties — tls_list / 000202210223 / 3
 
-<a id="canonical-2c571f151e604358c5aa36f6aa28e95d1fd6894342d6fd145b5550cb0d80fe3b"></a>
+<a id="canonical-0230111301330111-0132120010031120-3011222203123312-2222022032211131-0133311220211003-1002311233310110-1123111111003023-0031200033320323"></a>
 
-<a id="canonical-587f922576e98d6d747a88c00004591baf18af737f9f6d2324dc0e32d665d4a0"></a>
+<a id="canonical-1120133321020211-1312322120311231-1310132220203000-0000001011210123-2233012022331303-1333213312310203-0210313000320302-3112121131102200"></a>
 
-## exact_value property — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 4
+## exact_value property — tls_list / 000202210223 / 4
 
 Type: `"string"`. Computed.
 
@@ -2110,11 +2110,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b3e8a03fe929d48f4995e56e00e25f0ab526e63ccce75d976c552fd4cbf7ff98"></a>
+<a id="canonical-2303322022000333-3221022131102033-1021211132111232-0000320211330022-2311021232120330-3030321311312113-1230111102333110-3023331333332120"></a>
 
-<a id="canonical-18a21250f9f76db0a11e910166db8ba075bff036e5b779958e2923fc862abf48"></a>
+<a id="canonical-0120220201021100-3321331312312300-2201013221010001-1212312320232200-1311233333000312-3211231313212111-2032022102033330-2012022223331020"></a>
 
-## regex_value property — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 5
+## regex_value property — tls_list / 000202210223 / 5
 
 Type: `"string"`. Computed.
 
@@ -2161,11 +2161,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-27a45b5b54b4d4ec3c584b3a0494d84f60d759a7531cd1d2c873e5e622cbb8f6"></a>
+<a id="canonical-0213221011231123-1110231031103230-0330112010230322-0010211031201033-1200311311212213-1103013031013102-3020130332113212-0202302323203312"></a>
 
-<a id="canonical-7a76544f2f34dc7bd0c20e4243ac2c38537c3ae6cd1f98d295eca99d479e8771"></a>
+<a id="canonical-1322131211101033-0233031031301323-3100300200321002-1003223002300320-1103133003223212-3031013321203102-2111323022212131-1013213220131301"></a>
 
-## suffix_value property — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 6
+## suffix_value property — tls_list / 000202210223 / 6
 
 Type: `"string"`. Computed.
 
@@ -2215,30 +2215,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5411922a0f038a5a86e1e675bb1ab9ddbe31089c58f72293ffa5a2346191a932"></a>
+<a id="canonical-1110010121020222-0033000320221122-2012320132121311-2323012223213131-2332030100202130-1120331302022103-3333221122020310-1201210122210302"></a>
 
-## Next pages — forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list / c7f69802292b / 7
+## Next pages — tls_list / 000202210223 / 7
 
-- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-506deaec95b4fe9cd4594c44d53aff5ab3451cc5bb2487262d51478f8c79f768)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [forward_proxy_pbr.forward_proxy_pbr_rules.tls_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1100123132223230-2111231033322130-3110112110301010-3111032233331122-2303101101303011-2323021020130212-0231110110132033-2030132133131220)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-00df9106da3d9248c38a0af546df4f2548c586620425b7859c7f7583a1e0012e"></a>
+<a id="canonical-0000313321010012-3122033121021020-3003202200223311-1012313310330211-1020301120121202-0010021123132011-2130133313112003-2201320000010232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7aaa5b3aaa3f642e2640221265e4f4131ff862d5dd5736ee7053458f7811f5de"></a>
+<a id="canonical-1322222211230322-2222033312100232-0212100002020102-1211321033100103-0133332012023111-3131111303123232-1300110310112033-1320010133113132"></a>
 
-## forwarding_class_list — forwarding_class_list / 911e217a7e95 / 2
+## forwarding_class_list — forwarding_class_list / 132213322111 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
 - forwarding_class_list
 
-<a id="canonical-7125047be099209e535432dfe5dec37b4afb8ccbfc2bcdce248dacb47bc8e5d8"></a>
+<a id="canonical-1301021100101323-3200212102002132-1103111003023133-3211313230031323-1022332320303023-3330022330313032-0210203122302310-1323302032113120"></a>
 
 Type: `"list"`. Computed.
 
@@ -2281,15 +2281,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-851be6357c8df1a4a2a19cd183d270e5ed8a662179b27eeb51366d0b4e3f9443"></a>
+<a id="canonical-2011012332120311-1330203133012210-2202220121303101-2003310213003211-3231202212120201-1321230213323223-1101031212310023-1032033321101003"></a>
 
-## Direct properties — forwarding_class_list / 911e217a7e95 / 3
+## Direct properties — forwarding_class_list / 132213322111 / 3
 
-<a id="canonical-c737c0f7fbedec79778fe952772559e4bf85c6fc9803792b598a3eb7f631b8d2"></a>
+<a id="canonical-3013031330003313-3323323132301321-1313203332211102-1313021111213210-2333201130123330-2120000313210223-1121202203322313-3312030123203102"></a>
 
-<a id="canonical-df72f0a813212a3888f63fe72ab85cfb30903e6d1189a45cbdd2a783164c74c1"></a>
+<a id="canonical-3133130233002220-0103020102220320-2020331203333213-0222232011303323-0300210003321231-0101202122101130-2331310222132003-0112103013103001"></a>
 
-## name property — forwarding_class_list / 911e217a7e95 / 4
+## name property — forwarding_class_list / 132213322111 / 4
 
 Type: `"string"`. Computed.
 
@@ -2342,11 +2342,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cffbb1f52c1803c9421659478c55c46be4a4355915f454172671f9fedc0f7e06"></a>
+<a id="canonical-3033332323013311-0230012000033021-1002011211211013-2030111130101223-3210221003111121-0111331011100113-0212130133213332-3130003313320012"></a>
 
-<a id="canonical-894cc901226ee7bbe90b18e51dfa7c89b7bd79ff77ec0728a7ff04263a5c8476"></a>
+<a id="canonical-2021103030210001-0202123232132323-3221002301203211-0131332213302021-2313233113213333-1313323000130220-2213333300100212-0322113020101312"></a>
 
-## namespace property — forwarding_class_list / 911e217a7e95 / 5
+## namespace property — forwarding_class_list / 132213322111 / 5
 
 Type: `"string"`. Computed.
 
@@ -2406,11 +2406,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67bd05388ffc3a453a391818fa0bffc034f96f2d40cb43d52184df8de6587be8"></a>
+<a id="canonical-1213233100110320-2033333003221011-0322032101200120-3322002333333000-0310332112330231-1000302310033111-0201201031332031-3212112013233220"></a>
 
-<a id="canonical-e31e584b63521a0ae31a4332a514966a36927b57698629e1e782119b29e5e943"></a>
+<a id="canonical-3203013211201023-1203110201220022-3203012210030302-2211011021121222-0312210213231113-1221201202213201-3213200201012123-0221321132211003"></a>
 
-## tenant property — forwarding_class_list / 911e217a7e95 / 6
+## tenant property — forwarding_class_list / 132213322111 / 6
 
 Type: `"string"`. Computed.
 
@@ -2456,30 +2456,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-34b6b100748ee4b4654bd4a1c67e1b66d9e82234715c82794d96749c799d0d01"></a>
+<a id="canonical-0310231223010000-1310203232102310-1211102331102201-3012133201231212-3121322002020310-1301113020021321-1031211213102130-1321213100310001"></a>
 
-## Next pages — forwarding_class_list / 911e217a7e95 / 7
+## Next pages — forwarding_class_list / 132213322111 / 7
 
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405"></a>
+<a id="canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa247fc2dfbf25199677b8abd440cb56a0d61265a065a9371247aa7e0a0443c3"></a>
+<a id="canonical-3322021013333002-3133233302110121-2112131323202223-3110100030231112-2200311201021211-2200121122210313-0102101322221332-0022001010033003"></a>
 
-## network_pbr — network_pbr / a06991cf8c48 / 2
+## network_pbr — network_pbr / 303320301020 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
 - network_pbr
 
-<a id="canonical-fd04ccc60307e88d9463a971f5d7df1a85169d821589db16d46bf2b9b8dbba03"></a>
+<a id="canonical-3331001030303012-0003001332202031-2110120322211301-3311311331330122-2011011221312002-0111202131230112-3110122333022321-2320312323220003"></a>
 
 Type: `"single"`. Computed.
 
@@ -2503,47 +2503,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-61f07bf1eeb3f8c17ffef4ce1b781d44c60e61d7c3b2f4c25483997381fdd388"></a>
+<a id="canonical-1201330013233301-3232230333203001-1333333233103032-0123132001311010-3012003212013113-3003230233103002-1110200321211303-2001333131032020"></a>
 
-## Direct properties — network_pbr / a06991cf8c48 / 3
+## Direct properties — network_pbr / 303320301020 / 3
 
-- [any](data-sources--policy_based_routing--reference--group-001.md#canonical-c7c3c789fb1dbec7638025637d05679527f51bc52de51da2e719722cfc6b2fb3): complete subsection reference.
+- [any](data-sources--policy_based_routing--reference--group-001.md#canonical-3013300330132021-3323013123323013-1203200002111203-1331001112132111-0213331101233011-0231321101312202-3213012113020230-3330122302332303): complete subsection reference.
 
-- [label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-1ae9605c277239293201bff4ecd460a74d79e4846fd881a06faef4d338cdc349): complete subsection reference.
+- [label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-0122322112001130-0213130203210221-0302000123333310-3230311012002213-1031132132102010-1233312020012200-1233223233103103-0320303130031021): complete subsection reference.
 
-- [network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901): complete subsection reference.
+- [network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001): complete subsection reference.
 
-- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-2e666d0078404f5978dae6c8a24c2acec20583e056d394420b3608a2f79fe274): complete subsection reference.
+- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0232121212310000-1320100010331121-1320312232123020-2202103002223032-3002001120033200-1112310321101002-0023031200202202-3313213332021310): complete subsection reference.
 
-<a id="canonical-c3d4ce8f969badbb0e12f339ce00ade0528fe0a2f1c4bf466895d5f568a536c3"></a>
+<a id="canonical-3003311030322033-2112212322312323-0032010233030321-3032000022313200-1102203332002202-3301301023331012-1220211131113311-1220221103123003"></a>
 
-## Next pages — network_pbr / a06991cf8c48 / 4
+## Next pages — network_pbr / 303320301020 / 4
 
-- [network_pbr.any](data-sources--policy_based_routing--reference--group-001.md#canonical-c7c3c789fb1dbec7638025637d05679527f51bc52de51da2e719722cfc6b2fb3)
-- [network_pbr.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-1ae9605c277239293201bff4ecd460a74d79e4846fd881a06faef4d338cdc349)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [network_pbr.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-2e666d0078404f5978dae6c8a24c2acec20583e056d394420b3608a2f79fe274)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.any](data-sources--policy_based_routing--reference--group-001.md#canonical-3013300330132021-3323013123323013-1203200002111203-1331001112132111-0213331101233011-0231321101312202-3213012113020230-3330122302332303)
+- [network_pbr.label_selector](data-sources--policy_based_routing--reference--group-001.md#canonical-0122322112001130-0213130203210221-0302000123333310-3230311012002213-1031132132102010-1233312020012200-1233223233103103-0320303130031021)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [network_pbr.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0232121212310000-1320100010331121-1320312232123020-2202103002223032-3002001120033200-1112310321101002-0023031200202202-3313213332021310)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-c7c3c789fb1dbec7638025637d05679527f51bc52de51da2e719722cfc6b2fb3"></a>
+<a id="canonical-3013300330132021-3323013123323013-1203200002111203-1331001112132111-0213331101233011-0231321101312202-3213012113020230-3330122302332303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2ed1716f3d25c5cd615c623dbafb2e77fdff950e39ec9bda33687160af49dccc"></a>
+<a id="canonical-0232310113011233-0331021130113031-1201113012020331-2322332302321313-3331333321110032-0321323021233122-0303122013011200-2233102131303030"></a>
 
-## network_pbr.any — network_pbr.any / 1ebc84423a96 / 2
+## network_pbr.any — any / 100203222112 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
 - network_pbr.any
 
-<a id="canonical-430b041e36eaeb3ab1e087d17a9c353d904864303e2afe1f5f4dbe02a9e4452d"></a>
+<a id="canonical-1003002300100132-0312322232230322-2301320020133101-1322213003110331-2100102012100300-0332022233320133-1133103123320002-2221321010110231"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2566,37 +2566,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-04e1a550eabc1f1d56890b5e13347bc51c653ddba77d6fe2eb2ba79bd18e7bdb"></a>
+<a id="canonical-0010320122111100-3222233001330131-1112202100231132-0103031013233011-0130121103313123-2213133112333202-3223022322132123-3101203213233123"></a>
 
-## Direct properties — network_pbr.any / 1ebc84423a96 / 3
+## Direct properties — any / 100203222112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-afeadbdb3c18edfdf7ace52fa2ba8d2f6fd8a4b5dba016148e5b6ce7fe6b43bb"></a>
+<a id="canonical-2233322231233123-0330012032313331-3313223032110233-2202232220310233-1233312022102311-3123220001120110-2032112312303213-3332122310032323"></a>
 
-## Next pages — network_pbr.any / 1ebc84423a96 / 4
+## Next pages — any / 100203222112 / 4
 
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-1ae9605c277239293201bff4ecd460a74d79e4846fd881a06faef4d338cdc349"></a>
+<a id="canonical-0122322112001130-0213130203210221-0302000123333310-3230311012002213-1031132132102010-1233312020012200-1233223233103103-0320303130031021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8d4fd648c00bef4d8a54576db5f289ffb27f77dd8ee604fe853b80f4c9b4845c"></a>
+<a id="canonical-2031103331121020-3000002332331031-2022111011131231-2311330220213333-2302133313133131-2032321200103332-2011032320003310-3021231020101130"></a>
 
-## network_pbr.label_selector — network_pbr.label_selector / 172d21e56bba / 2
+## network_pbr.label_selector — label_selector / 321112232322 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
 - network_pbr.label_selector
 
-<a id="canonical-156a1784f386717797403c94f7be1c5b90253e7095c40f7fad8035dbabec8473"></a>
+<a id="canonical-0111122201132010-3303201213011313-2113100003302110-3313233201301123-2100021103321300-2111301000331333-2231200003113123-2223323020101303"></a>
 
 Type: `"single"`. Computed.
 
@@ -2632,15 +2632,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4693b85992952d642eceda787b3a0c50d8dcd30142f20ca522c296226a18832b"></a>
+<a id="canonical-1012210323201121-2102211102311210-0232303231221320-1323032200301100-3120313031030001-1002330200302211-0202300221120202-1222012020030223"></a>
 
-## Direct properties — network_pbr.label_selector / 172d21e56bba / 3
+## Direct properties — label_selector / 321112232322 / 3
 
-<a id="canonical-31990e30529bdbce62c36fa3106f58166e3a99792d01efd5986dba9acb24ceef"></a>
+<a id="canonical-0301212100320300-1102212331233032-1202300312332203-0100123311200112-1232032221211321-0231000132333111-2120123123222122-3023021030323233"></a>
 
-<a id="canonical-063cee3639245872d7b4af84e6b265b2d9fa05e91e2edbe9f14c500ff7248c85"></a>
+<a id="canonical-0012033032320312-0321021011201302-3113231022332010-3212230212112302-3121332200113221-0132023231233221-3301103011000033-3313021020302011"></a>
 
-## expressions property — network_pbr.label_selector / 172d21e56bba / 4
+## expressions property — label_selector / 321112232322 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -2685,31 +2685,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-543eb618ce7a5b9d75502895c04b90080aaeb42e5a791ea0371c327c08e4cc83"></a>
+<a id="canonical-1110033223120120-3032132211232131-1311110002202111-3000102321000020-0022223223100232-1122132101322200-0313013003021330-0020321030302003"></a>
 
-## Next pages — network_pbr.label_selector / 172d21e56bba / 5
+## Next pages — label_selector / 321112232322 / 5
 
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901"></a>
+<a id="canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ca51baaa56e7caec38fc7420247e28106af5d61545b18e8cec65d64084a52f2"></a>
+<a id="canonical-0330221101232222-2211123213302232-3003203330131002-0002101332022001-0012223311311201-1110112301203220-3032301211311210-0020102211023302"></a>
 
-## network_pbr.network_pbr_rules — network_pbr.network_pbr_rules / 8e79d5ad98c8 / 2
+## network_pbr.network_pbr_rules — network_pbr_rules / 223121203020 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
 - network_pbr.network_pbr_rules
 
-<a id="canonical-a3d30a9b1b0ab258d82e4ac2ef12849a2152deb3c09bf35ea25ea0151c2c4d74"></a>
+<a id="canonical-2203310300222123-0123002223021120-3120023210223002-3233010220102122-0201110231322303-3000212333031132-2202113222000111-0130023010311310"></a>
 
 Type: `"list"`. Computed.
 
@@ -2752,25 +2752,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80401e8ba41b38d041120051b8cabee431622d88fb055d711eb48e2dd273ace6"></a>
+<a id="canonical-2000100001322023-2210012303203100-1001010200001101-2320302223323210-0301120202312020-3323001111311301-0132231020320231-3102130322303212"></a>
 
-## Direct properties — network_pbr.network_pbr_rules / 8e79d5ad98c8 / 3
+## Direct properties — network_pbr_rules / 223121203020 / 3
 
-- [all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-a26fe445d24c64057cc45c2f4189f91d6a627d4416e201acbaa66b0b239bf171): complete subsection reference.
+- [all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-2202123332101011-3102103012100011-1330301011300233-1001202133210131-1222120213311010-0112320200012230-2322221212230023-0203212333011301): complete subsection reference.
 
-- [all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-b80267cd0f32f58dec35b6ba9e2bfa0913d5a9aca700ec8bf32085064b708ba8): complete subsection reference.
+- [all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-2320000212133031-0033030233112031-3230031123122322-2132022333220021-0103311122212230-2213000032302023-3303020020110012-1023130020232220): complete subsection reference.
 
-- [all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-1c0e695a087a952ab5eff5b63adf7b76a8d46824c684463813139495513f1379): complete subsection reference.
+- [all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-0130003212211122-0020132221110222-2311323333112312-0322313313231312-2220311012200210-3012201010120320-0103010321102111-1101033301031321): complete subsection reference.
 
-- [any](data-sources--policy_based_routing--reference--group-001.md#canonical-fe90b13302475b5582f77109a4b23e15938fa1a674eceac711920e38ba79b81f): complete subsection reference.
+- [any](data-sources--policy_based_routing--reference--group-001.md#canonical-3332210023010303-0002101311231111-2002331313010021-2210230203320111-2103203322012212-1310323032223013-0101210200320320-2322132123200133): complete subsection reference.
 
-- [applications](data-sources--policy_based_routing--reference--group-001.md#canonical-9b4c7fcba04fa3439d91ea391ee12a8b739a4cfe277289fb111f86a4c28c15e4): complete subsection reference.
+- [applications](data-sources--policy_based_routing--reference--group-001.md#canonical-2123103013333023-2200103322031003-2131210132220321-0132320102222023-1303212210303332-0213130220213323-0101013320122210-3002203001113210): complete subsection reference.
 
-<a id="canonical-a1ad512aaf920dc41ad9f616f9fe36b8ecf0bafddb5dd3d12c44c583351598c4"></a>
+<a id="canonical-2201223111010222-2233210200313010-0122312133120112-3321333203122320-3230330023223331-3123113131033101-0230101030112003-0311011121203010"></a>
 
-<a id="canonical-e86a8ee344c316c84e6405f2792b39e53b7007fbf6955e3ffb0ed6508adb91d6"></a>
+<a id="canonical-3220122220323203-1010300301123020-1032121000113302-1321022303213211-0323130000133323-3312211111320333-3323003231121100-2022312321013112"></a>
 
-## dns_name property — network_pbr.network_pbr_rules / 8e79d5ad98c8 / 4
+## dns_name property — network_pbr_rules / 223121203020 / 4
 
 Type: `"string"`. Computed.
 
@@ -2821,52 +2821,52 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-11b224295f34f2aa650a7b215e5cb5fc035e607375440c66424d5ed66bd9ce88): complete subsection reference.
+- [forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0101230202100221-1133031033022222-1211002213230201-1132113023113330-0003113212001303-1311101000301212-1002103111323112-1223312130322020): complete subsection reference.
 
-- [ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-de16819c0762a93d7942baf43d98b18b396f3dab8ec9bd375d7ef7d66bc6ca4f): complete subsection reference.
+- [ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-3132011220012130-0013120222210331-1321100223223310-0331212023012023-0321123303312223-2032302123310313-1131133233133112-1223301230221033): complete subsection reference.
 
-- [metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-258b712bbb53f1846a9389d2abd1047a36eb318dcfdce3a8ad3fa8852a73c27a): complete subsection reference.
+- [metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-0211202313010223-2323110333012010-1222210320213102-2223310100101322-0312322303012031-3033313032032220-2231033322202011-0222130330021322): complete subsection reference.
 
-- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-6102ddf8620fd347ff0e8fda974797faa35d4a12f5c29a7ff4bcbc52a946228a): complete subsection reference.
+- [prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1201000231313320-1202003331031013-3333003220333122-2113101321133322-2203113110220102-3311300221221333-3310233023301102-2221101202022022): complete subsection reference.
 
-- [protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-715cb6f11d295f65fb64f92febd3ac53d3276808be6b9d074bc3d1d2519a5254): complete subsection reference.
+- [protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-1301113023123301-0131022111331211-3323121033210233-3223310322301103-3103021312200020-2332122321310013-1023300331013102-1101212211021110): complete subsection reference.
 
-<a id="canonical-61363067266b85ea67fa2cf4e1ca4a5d210931722155500ffc501289126c075f"></a>
+<a id="canonical-1201031203001213-0212122320113222-1213332202303310-3201302210221131-0201002103011302-0201111111000033-3330110001022021-0102123000131133"></a>
 
-## Next pages — network_pbr.network_pbr_rules / 8e79d5ad98c8 / 5
+## Next pages — network_pbr_rules / 223121203020 / 5
 
-- [network_pbr.network_pbr_rules.all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-a26fe445d24c64057cc45c2f4189f91d6a627d4416e201acbaa66b0b239bf171)
-- [network_pbr.network_pbr_rules.all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-b80267cd0f32f58dec35b6ba9e2bfa0913d5a9aca700ec8bf32085064b708ba8)
-- [network_pbr.network_pbr_rules.all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-1c0e695a087a952ab5eff5b63adf7b76a8d46824c684463813139495513f1379)
-- [network_pbr.network_pbr_rules.any](data-sources--policy_based_routing--reference--group-001.md#canonical-fe90b13302475b5582f77109a4b23e15938fa1a674eceac711920e38ba79b81f)
-- [network_pbr.network_pbr_rules.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-9b4c7fcba04fa3439d91ea391ee12a8b739a4cfe277289fb111f86a4c28c15e4)
-- [network_pbr.network_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-11b224295f34f2aa650a7b215e5cb5fc035e607375440c66424d5ed66bd9ce88)
-- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-de16819c0762a93d7942baf43d98b18b396f3dab8ec9bd375d7ef7d66bc6ca4f)
-- [network_pbr.network_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-258b712bbb53f1846a9389d2abd1047a36eb318dcfdce3a8ad3fa8852a73c27a)
-- [network_pbr.network_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-6102ddf8620fd347ff0e8fda974797faa35d4a12f5c29a7ff4bcbc52a946228a)
-- [network_pbr.network_pbr_rules.protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-715cb6f11d295f65fb64f92febd3ac53d3276808be6b9d074bc3d1d2519a5254)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules.all_tcp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-2202123332101011-3102103012100011-1330301011300233-1001202133210131-1222120213311010-0112320200012230-2322221212230023-0203212333011301)
+- [network_pbr.network_pbr_rules.all_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-2320000212133031-0033030233112031-3230031123122322-2132022333220021-0103311122212230-2213000032302023-3303020020110012-1023130020232220)
+- [network_pbr.network_pbr_rules.all_udp_traffic](data-sources--policy_based_routing--reference--group-001.md#canonical-0130003212211122-0020132221110222-2311323333112312-0322313313231312-2220311012200210-3012201010120320-0103010321102111-1101033301031321)
+- [network_pbr.network_pbr_rules.any](data-sources--policy_based_routing--reference--group-001.md#canonical-3332210023010303-0002101311231111-2002331313010021-2210230203320111-2103203322012212-1310323032223013-0101210200320320-2322132123200133)
+- [network_pbr.network_pbr_rules.applications](data-sources--policy_based_routing--reference--group-001.md#canonical-2123103013333023-2200103322031003-2131210132220321-0132320102222023-1303212210303332-0213130220213323-0101013320122210-3002203001113210)
+- [network_pbr.network_pbr_rules.forwarding_class_list](data-sources--policy_based_routing--reference--group-001.md#canonical-0101230202100221-1133031033022222-1211002213230201-1132113023113330-0003113212001303-1311101000301212-1002103111323112-1223312130322020)
+- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-3132011220012130-0013120222210331-1321100223223310-0331212023012023-0321123303312223-2032302123310313-1131133233133112-1223301230221033)
+- [network_pbr.network_pbr_rules.metadata](data-sources--policy_based_routing--reference--group-001.md#canonical-0211202313010223-2323110333012010-1222210320213102-2223310100101322-0312322303012031-3033313032032220-2231033322202011-0222130330021322)
+- [network_pbr.network_pbr_rules.prefix_list](data-sources--policy_based_routing--reference--group-001.md#canonical-1201000231313320-1202003331031013-3333003220333122-2113101321133322-2203113110220102-3311300221221333-3310233023301102-2221101202022022)
+- [network_pbr.network_pbr_rules.protocol_port_range](data-sources--policy_based_routing--reference--group-001.md#canonical-1301113023123301-0131022111331211-3323121033210233-3223310322301103-3103021312200020-2332122321310013-1023300331013102-1101212211021110)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-a26fe445d24c64057cc45c2f4189f91d6a627d4416e201acbaa66b0b239bf171"></a>
+<a id="canonical-2202123332101011-3102103012100011-1330301011300233-1001202133210131-1222120213311010-0112320200012230-2322221212230023-0203212333011301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-56ab4fa27b0f4546caf6488e1d8289be1650fd3d91e467bcc327a7ece59c82f6"></a>
+<a id="canonical-1112222310332202-1323003310111012-3022331210202032-0131200220212332-0112110033310331-2101321012132330-3003021322133230-3211213020023312"></a>
 
-## network_pbr.network_pbr_rules.all_tcp_traffic — network_pbr.network_pbr_rules.all_tcp_traffic / 17b07cda05a3 / 2
+## network_pbr.network_pbr_rules.all_tcp_traffic — all_tcp_traffic / 312200112203 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.all_tcp_traffic
 
-<a id="canonical-82855584f0cf011acfa049273ba57e93c8334a70341872a0383d632be429509e"></a>
+<a id="canonical-2002201111112010-3300303300010122-3033220010210213-0323221113322103-3020030310221300-0310012013022200-0320033112030223-3210022111002132"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2889,38 +2889,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb7cbb4deafe34df374fc82d1c1f2af94ad10e0fede8c73b4b74db23be4693c9"></a>
+<a id="canonical-3023133023231031-3222333203103133-0313103330200231-0130013302223321-1022310100320033-3231322030130323-1023131031230203-2332101221033021"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.all_tcp_traffic / 17b07cda05a3 / 3
+## Direct properties — all_tcp_traffic / 312200112203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c92327f249360c36a1bd740189b1f07748d6b87f24b02f12c475a44aed12f345"></a>
+<a id="canonical-3021020302133302-1021031200300312-2201233113100001-2021230133001313-1020311223201333-0210230002330102-3010131122101022-3231010233031011"></a>
 
-## Next pages — network_pbr.network_pbr_rules.all_tcp_traffic / 17b07cda05a3 / 4
+## Next pages — all_tcp_traffic / 312200112203 / 4
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-b80267cd0f32f58dec35b6ba9e2bfa0913d5a9aca700ec8bf32085064b708ba8"></a>
+<a id="canonical-2320000212133031-0033030233112031-3230031123122322-2132022333220021-0103311122212230-2213000032302023-3303020020110012-1023130020232220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bde9405e44d1f385d03908ef3c6c7636a5f8feaeec3bc9a5eb8dc666f2de923a"></a>
+<a id="canonical-2331322110001132-1010310133032011-3100032100203233-0330123013120312-2211332033322232-3230032330212211-3223203130121212-3302313221020322"></a>
 
-## network_pbr.network_pbr_rules.all_traffic — network_pbr.network_pbr_rules.all_traffic / 6499b90b537d / 2
+## network_pbr.network_pbr_rules.all_traffic — all_traffic / 002311031331 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.all_traffic
 
-<a id="canonical-4eb2dac0ae9ac5a10725c53ca4dfb394e1d54c3613f74de35afe2ec30b0ba99f"></a>
+<a id="canonical-1032230231223000-2232212230112201-0013021130110330-2210313323032110-3201311110300312-0103331310313203-1122333202323003-0023002322212133"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2943,38 +2943,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7fb02d37698561368f62083549d87d155652773b2323ee515519103bebf1b326"></a>
+<a id="canonical-1333230002310313-1221201112010312-2033120200200311-1021312013310111-1112110213130323-0203020332321101-1111012101000323-3223330123030212"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.all_traffic / 6499b90b537d / 3
+## Direct properties — all_traffic / 002311031331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-008083d882f588f97942824a174dc7c9369e3efb59c01538f25d094743258a32"></a>
+<a id="canonical-0000200020033120-2002331120203321-1321100220021022-0113103130133021-0312213203323323-1121300001110320-3302113100211013-1003021120220302"></a>
 
-## Next pages — network_pbr.network_pbr_rules.all_traffic / 6499b90b537d / 4
+## Next pages — all_traffic / 002311031331 / 4
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-1c0e695a087a952ab5eff5b63adf7b76a8d46824c684463813139495513f1379"></a>
+<a id="canonical-0130003212211122-0020132221110222-2311323333112312-0322313313231312-2220311012200210-3012201010120320-0103010321102111-1101033301031321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-21e58a4e10eb1893f3fac615d0c3c1d59f814998655b0410f2c52911b25524e6"></a>
+<a id="canonical-0201321120221032-0100322301202103-3303332230120111-3100300330013111-2133200110212120-1211112300100100-3302301102210101-2302111102103212"></a>
 
-## network_pbr.network_pbr_rules.all_udp_traffic — network_pbr.network_pbr_rules.all_udp_traffic / 29a4014b5d63 / 2
+## network_pbr.network_pbr_rules.all_udp_traffic — all_udp_traffic / 102311311203 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.all_udp_traffic
 
-<a id="canonical-35fb8193aa430a785a9378f1c35c49272e0d67c17723ab2999760eb7eb26a093"></a>
+<a id="canonical-0311332320012103-2222100300221320-1122210313203301-3003113010210213-0232003112133001-1313020322230221-2121131200322313-3223021222002103"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2997,38 +2997,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5022ed435e53c0fdc45f6973ea3136f9d92c8bebea16ddf461f6b5ea9a5c0746"></a>
+<a id="canonical-1100020232311003-1132110330003331-3010113312211303-3222030103123321-3121023020233223-3222011231313310-1201331223113222-2122113000131012"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.all_udp_traffic / 29a4014b5d63 / 3
+## Direct properties — all_udp_traffic / 102311311203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8d234626d08b83e7681ffa6c103c0bd048867003ae647c6b66942924cbca133a"></a>
+<a id="canonical-2031020310120212-3100202320033213-1220013333221230-0100033000233100-1020201213000003-2232121013301223-1212211002210210-3023302201030322"></a>
 
-## Next pages — network_pbr.network_pbr_rules.all_udp_traffic / 29a4014b5d63 / 4
+## Next pages — all_udp_traffic / 102311311203 / 4
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-fe90b13302475b5582f77109a4b23e15938fa1a674eceac711920e38ba79b81f"></a>
+<a id="canonical-3332210023010303-0002101311231111-2002331313010021-2210230203320111-2103203322012212-1310323032223013-0101210200320320-2322132123200133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-722945886835aed071c3794d7cd6f176be2a9ff574aa177bd0feb5815904fdca"></a>
+<a id="canonical-1302022110112020-1220031122323100-1301300313211031-1330311233011312-2332022221333311-1310222201131323-3100333223112001-1121001033313022"></a>
 
-## network_pbr.network_pbr_rules.any — network_pbr.network_pbr_rules.any / beeaef51b066 / 2
+## network_pbr.network_pbr_rules.any — any / 110123001212 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.any
 
-<a id="canonical-bf893380bc5ec146d7e9b665c23a192c82ef962356091e56dc19dab0df37bccb"></a>
+<a id="canonical-2333202103032000-2330113230011012-3113322123121211-3002032201210230-2002323321120203-1112002101321112-3130012131222300-3133031323303023"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3051,38 +3051,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-40415d72aad293a2659ec313b2857a7db65f95ff94c744aba48971c5e36f5fac"></a>
+<a id="canonical-1000100111311302-2222310221032202-1211213230030103-2302201113221331-2312113321113333-2110301310102223-2210202113013011-3203123311332230"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.any / beeaef51b066 / 3
+## Direct properties — any / 110123001212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b90c761049a20f0841ed8d1207da5a0a944af74556361a79281e57e655f846ff"></a>
+<a id="canonical-2321003013120100-1021220200330020-1001323120310102-0013312211220022-2110102233131011-1112031201221321-0220013211133212-1111332010123333"></a>
 
-## Next pages — network_pbr.network_pbr_rules.any / beeaef51b066 / 4
+## Next pages — any / 110123001212 / 4
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-9b4c7fcba04fa3439d91ea391ee12a8b739a4cfe277289fb111f86a4c28c15e4"></a>
+<a id="canonical-2123103013333023-2200103322031003-2131210132220321-0132320102222023-1303212210303332-0213130220213323-0101013320122210-3002203001113210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b0db23e8f5071c4b4b741cc4b53b4afc91c0ae5060e85848a10cb57bed89740c"></a>
+<a id="canonical-2300312302033220-3311001301301023-1023131001303010-2311032310223330-2101300022321100-1200322011201020-2201003023111323-3231202113100030"></a>
 
-## network_pbr.network_pbr_rules.applications — network_pbr.network_pbr_rules.applications / f81303102e65 / 2
+## network_pbr.network_pbr_rules.applications — applications / 010002321211 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.applications
 
-<a id="canonical-175a063f9e522387be6b671f3410684bdba1d2906e58c238829e33e1f2e89fdc"></a>
+<a id="canonical-0113112200120333-2132110202032013-2332122312130133-0310010012201023-3123220131022100-1232112030020320-2002213203033201-3302322021333130"></a>
 
 Type: `"single"`. Computed.
 
@@ -3105,15 +3105,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-397176226c9c59c5c63f71e6327699d284782b75d284cfac2e7e4dd2ea234db0"></a>
+<a id="canonical-0321130113120202-1230213011213011-3012033313013212-0302131221213102-2010132002231311-3102201030332230-0232133210313102-3222020310312300"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.applications / f81303102e65 / 3
+## Direct properties — applications / 010002321211 / 3
 
-<a id="canonical-cd6467c9ca6ee36d1b64de466d1dd3c422703d21ccb851d3876dc170c210da1d"></a>
+<a id="canonical-3031121012133021-3022123232031231-0123121031321012-1231013131033010-0202130003310201-3030232011013103-2013123130011300-3002010031220131"></a>
 
-<a id="canonical-5a0c5e62fa66ae9e77d3904328eeb23f1c0c8a82076a5562a945d6ee7f76d68e"></a>
+<a id="canonical-1122003011321202-3322121222322132-1313310321001003-0220323223020333-0130003020222002-0013122211111202-2221101131123232-1333131231122032"></a>
 
-## applications property — network_pbr.network_pbr_rules.applications / f81303102e65 / 4
+## applications property — applications / 010002321211 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -3139,32 +3139,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22a2d179f0c34e9bbdf48a391df6b26a682a3fe27767c7501a75ce246894141b"></a>
+<a id="canonical-0202220231011321-3300300310322123-2331331020220321-0131331223021222-1220022203333202-1313121330131100-0122131130320210-1220211001100123"></a>
 
-## Next pages — network_pbr.network_pbr_rules.applications / f81303102e65 / 5
+## Next pages — applications / 010002321211 / 5
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-11b224295f34f2aa650a7b215e5cb5fc035e607375440c66424d5ed66bd9ce88"></a>
+<a id="canonical-0101230202100221-1133031033022222-1211002213230201-1132113023113330-0003113212001303-1311101000301212-1002103111323112-1223312130322020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-afdf7c08f4a8f6a4102681476ffa91bd617246a7b929d60b0ad282b763375c64"></a>
+<a id="canonical-2233313313300020-3310222033122210-0100021220011013-1233332221012331-1201130210122213-2321022131120023-0022310220022313-1203031311301210"></a>
 
-## network_pbr.network_pbr_rules.forwarding_class_list — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 2
+## network_pbr.network_pbr_rules.forwarding_class_list — forwarding_class_list / 100100303332 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.forwarding_class_list
 
-<a id="canonical-26e0ebee13d9739fec706f26b4dd04381ccfb9d3a0f426e5c046cc9f12ff491b"></a>
+<a id="canonical-0212320032233232-0103312113032133-3230130012330212-2310313100100320-0130303323213103-2200331002123211-3000101230302133-0102333310210123"></a>
 
 Type: `"list"`. Computed.
 
@@ -3207,15 +3207,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-20679d4052062f06c6c5b3c569a42a6412c5662049925b02b7bb6382a3a370c7"></a>
+<a id="canonical-0200121321311000-1102001202330012-3012301123033011-1221221002221210-0102301112120200-1021210211230002-2313232312032002-2203220313003013"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 3
+## Direct properties — forwarding_class_list / 100100303332 / 3
 
-<a id="canonical-42d260713981fa7aadb4b269580bbfc89b8142d013eeb45164cac65d1cd8d00c"></a>
+<a id="canonical-1002310212001301-0321200133221322-2231231023021221-1120002323333020-2123200110023100-0103323223101101-1210302230121131-0130312031000030"></a>
 
-<a id="canonical-888f025e8ed157c915f276df90d776f9064dbce4dfdd1805a96d067f9c717320"></a>
+<a id="canonical-2020203300021132-2032310111133021-0111330213123133-2100311313123321-0012103123303210-3133313101200011-2221123100121333-2130130113030200"></a>
 
-## name property — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 4
+## name property — forwarding_class_list / 100100303332 / 4
 
 Type: `"string"`. Computed.
 
@@ -3268,11 +3268,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-61bccef6ce0a17fca8cb1e47c8bbdcce032484537630751688c426a20b81e136"></a>
+<a id="canonical-1201233030323312-3032002201133330-2220302301321013-3020232331303032-0003021020101103-1312030013110112-2020301002122202-0023200132010312"></a>
 
-<a id="canonical-24f87cf7c9fc61ad521445a9f6d6e1c9c7d49c487b77e501c2d64afd558b3e17"></a>
+<a id="canonical-0210332013303313-3021333012012231-1102011010112221-3312311232013021-3013311021301020-1323131332110001-3002311210223331-1111202303320113"></a>
 
-## namespace property — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 5
+## namespace property — forwarding_class_list / 100100303332 / 5
 
 Type: `"string"`. Computed.
 
@@ -3332,11 +3332,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1ac34138432d0b344a155f0ebcbfc6b4d8ecc95e50d6d7e4659ca0b0b7422b3"></a>
+<a id="canonical-3301223003100103-2010030231002303-1010220111113300-3223302333301223-1031203230302111-3211003112311332-1012112130220023-0023131002022303"></a>
 
-<a id="canonical-bf6f224b240b0476a72440879c1a75406bd04eb60f96d126dd33b95e3af5e56b"></a>
+<a id="canonical-2333123302021023-0210002300101312-2213021010002013-2130012213111000-1223310010322312-0033211231010212-3131030323211132-0322331132111223"></a>
 
-## tenant property — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 6
+## tenant property — forwarding_class_list / 100100303332 / 6
 
 Type: `"string"`. Computed.
 
@@ -3382,32 +3382,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bfb282089649ab06d8c6c3218fa958499ccd85f1befe6ac65fc58c5583fecc81"></a>
+<a id="canonical-2333230220020020-2112102122230012-3120301230030201-2033222111201021-2130303120113301-2332333212223012-1133301120301111-2003333230302001"></a>
 
-## Next pages — network_pbr.network_pbr_rules.forwarding_class_list / f561e3410cfe / 7
+## Next pages — forwarding_class_list / 100100303332 / 7
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-de16819c0762a93d7942baf43d98b18b396f3dab8ec9bd375d7ef7d66bc6ca4f"></a>
+<a id="canonical-3132011220012130-0013120222210331-1321100223223310-0331212023012023-0321123303312223-2032302123310313-1131133233133112-1223301230221033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15042d14f94ac28ba09fa56901dfea72081a898e2470bf395187ca9a2a7bfeb5"></a>
+<a id="canonical-0111001002310110-3321102230022023-2200213322111221-0001313332221302-0020012220212032-0210130023330321-1101201330222122-0222132333322311"></a>
 
-## network_pbr.network_pbr_rules.ip_prefix_set — network_pbr.network_pbr_rules.ip_prefix_set / ed044f1c2ebe / 2
+## network_pbr.network_pbr_rules.ip_prefix_set — ip_prefix_set / 013002322332 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.ip_prefix_set
 
-<a id="canonical-7ad889af4e73d0ff297bce16035ff989905fcdc6f0ff6fd6e6b2d4041c78d103"></a>
+<a id="canonical-1322312020212233-1032130331003333-0221132330320112-0003113333212021-2100113330313012-3300333312333112-3212230231100010-0130132031010003"></a>
 
 Type: `"single"`. Computed.
 
@@ -3430,40 +3430,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6468b1d56f6efa4dcf2cb8fe03cc6518de36b5dd9390ad7bd93dd6ccf5f2e7eb"></a>
+<a id="canonical-1210122023013111-1233123233221031-3033023023203332-0003303012110120-3132031223113131-2103210022311323-3121033131123030-3311330232133223"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.ip_prefix_set / ed044f1c2ebe / 3
+## Direct properties — ip_prefix_set / 013002322332 / 3
 
-- [ref](data-sources--policy_based_routing--reference--group-001.md#canonical-65cda249e093db8b4810663c36a70536c1bf53f9db6b42307e3b7fdb7222a2d4): complete subsection reference.
+- [ref](data-sources--policy_based_routing--reference--group-001.md#canonical-1211303122021021-3200210331232023-1020010012120330-0312221300110312-3001233311033321-3123122310020300-1332032313333123-1302020222023110): complete subsection reference.
 
-<a id="canonical-3ad5107323951b254e0700ed148a8ba8f3881d56913ad63f3a1a990d98cd8ee4"></a>
+<a id="canonical-0322311101001303-0203211101230211-1032001300003231-0110202220232220-3303202001311112-2101032231120333-0322012221210031-2120303120323210"></a>
 
-## Next pages — network_pbr.network_pbr_rules.ip_prefix_set / ed044f1c2ebe / 4
+## Next pages — ip_prefix_set / 013002322332 / 4
 
-- [network_pbr.network_pbr_rules.ip_prefix_set.ref](data-sources--policy_based_routing--reference--group-001.md#canonical-65cda249e093db8b4810663c36a70536c1bf53f9db6b42307e3b7fdb7222a2d4)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules.ip_prefix_set.ref](data-sources--policy_based_routing--reference--group-001.md#canonical-1211303122021021-3200210331232023-1020010012120330-0312221300110312-3001233311033321-3123122310020300-1332032313333123-1302020222023110)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-65cda249e093db8b4810663c36a70536c1bf53f9db6b42307e3b7fdb7222a2d4"></a>
+<a id="canonical-1211303122021021-3200210331232023-1020010012120330-0312221300110312-3001233311033321-3123122310020300-1332032313333123-1302020222023110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd70459531bb2f5d3adbac41488ce160143a184d26a1650773b091eaae7d2b05"></a>
+<a id="canonical-3031130010112111-0301232302331131-0322312322301001-1020203032011200-0110032201201031-0212220112110013-1303230021013222-2232133102230011"></a>
 
-## network_pbr.network_pbr_rules.ip_prefix_set.ref — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 2
+## network_pbr.network_pbr_rules.ip_prefix_set.ref — ref / 012030310122 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-de16819c0762a93d7942baf43d98b18b396f3dab8ec9bd375d7ef7d66bc6ca4f)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-3132011220012130-0013120222210331-1321100223223310-0331212023012023-0321123303312223-2032302123310313-1131133233133112-1223301230221033)
 - network_pbr.network_pbr_rules.ip_prefix_set.ref
 
-<a id="canonical-95476b283c9fb2fcbdec29487f9741dfe7ad68e4bc46e11ab44874751efa3dd5"></a>
+<a id="canonical-2111101312230220-0330213323023330-2331323002211020-1333211310013133-3213223112203210-2330101232010122-2310102013101311-0132332203313111"></a>
 
 Type: `"list"`. Computed.
 
@@ -3504,15 +3504,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-27b54f3c5010816fe3e30de98eddb08da95c09a904a8d2f0b35fcc3eb6f09cae"></a>
+<a id="canonical-0213231110330330-1100010020011233-3203320300313221-2032313123002031-2221113000212221-0010222031023300-2303113330300332-2312330021302232"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 3
+## Direct properties — ref / 012030310122 / 3
 
-<a id="canonical-912cd407119ba82eb97e5717247570712d2603c07071f191cd0901283a0c99ea"></a>
+<a id="canonical-2101023031100013-0101212322200232-2321133211130113-0210131113001301-0231021200033000-1300130133012101-3031002100010220-0322003021213222"></a>
 
-<a id="canonical-eeb2c2d0f5d03ce5d6ef6585c51f8a37d82870149ce714dde568025a2a148ffa"></a>
+<a id="canonical-3232230230023100-3311310003303211-3112323312112011-3011013320220313-3120022013000110-2130321301103131-3211122000021122-0222011020333322"></a>
 
-## kind property — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 4
+## kind property — ref / 012030310122 / 4
 
 Type: `"string"`. Computed.
 
@@ -3547,11 +3547,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e9edcb5052edd851b1f274af730c02ba94b65c0b5546225e840cd49665e5ffc"></a>
+<a id="canonical-2132213231302311-0011023231312011-0123013302131022-3313030030000223-2221102312113000-2311111012020211-3220100030311021-1212113211333330"></a>
 
-<a id="canonical-31584620c2f2a4af97cf115bfcd37f3d3082f304295f38e0724e13f3d92735d4"></a>
+<a id="canonical-0301112010120200-3002330222102233-2113303301011123-3330310313330331-0300200233030010-0221113303203200-1302103201033303-3121021303113110"></a>
 
-## name property — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 5
+## name property — ref / 012030310122 / 5
 
 Type: `"string"`. Computed.
 
@@ -3586,11 +3586,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8926721449c19cfe9df40209a7d0e73239d6f2d24ca416e9a76e43d3c50ea574"></a>
+<a id="canonical-2021021213020110-1021300121303332-2131331000020021-2213310032130302-0321311233023102-1030221001123221-2213123210033103-3011003222111310"></a>
 
-<a id="canonical-fab9b4089c8c5d7abad7c7c0bc012fb95faeae9e337ac7298e58517da092bec2"></a>
+<a id="canonical-3322232123100020-2130203011311322-2322311330133000-2330000102332321-1133223222322132-0303132230130221-2032112011011331-2200210223323002"></a>
 
-## namespace property — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 6
+## namespace property — ref / 012030310122 / 6
 
 Type: `"string"`. Computed.
 
@@ -3640,11 +3640,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-660cfb277b528b749565200b706e67ec3d6d2f54e6977126d13e1b82e984eb6b"></a>
+<a id="canonical-1212003033230213-1323110220231310-2111121102000023-1300123212133230-0331123102331110-3212211313010212-3101033201232002-3221201032231223"></a>
 
-<a id="canonical-5a833bae5b62954670605b3bb9808dcc2ff6081cce9e46fdf9bdc7286b245ad8"></a>
+<a id="canonical-1122200303232232-1123120221111012-1300120011230323-2321200020313030-0233331200200130-3032213210123331-3321233130130220-1223021011223120"></a>
 
-## tenant property — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 7
+## tenant property — ref / 012030310122 / 7
 
 Type: `"string"`. Computed.
 
@@ -3679,11 +3679,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5faa6725e40df0284fc2a52f3309c0d04e6d1e491040e98b56cd088d245b0ff3"></a>
+<a id="canonical-1133222212130211-3210003133000220-1033300222110233-0303002130003100-1032123101321021-0100100032212023-1112303100202031-0210112300333303"></a>
 
-<a id="canonical-8d149217ccb7a7e75db998b929d7621ee3ada4ddc01293396ef89f1fd511a39c"></a>
+<a id="canonical-2031011021020113-3030231322133213-1131232121202321-0221311312020132-3203223122103131-3000010221030321-1232332021330133-3111010122032130"></a>
 
-## uid property — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 8
+## uid property — ref / 012030310122 / 8
 
 Type: `"string"`. Computed.
 
@@ -3718,32 +3718,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-07e2b116c7391482ad9a916973218c750e64361e9382d6bfeba05c490cac2cc3"></a>
+<a id="canonical-0013320223010112-3013032101102002-2231212221011221-1303020120301311-0032121003120132-2103200231122333-3223220011301021-0030223002303003"></a>
 
-## Next pages — network_pbr.network_pbr_rules.ip_prefix_set.ref / 0a1ac118cd1a / 9
+## Next pages — ref / 012030310122 / 9
 
-- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-de16819c0762a93d7942baf43d98b18b396f3dab8ec9bd375d7ef7d66bc6ca4f)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules.ip_prefix_set](data-sources--policy_based_routing--reference--group-001.md#canonical-3132011220012130-0013120222210331-1321100223223310-0331212023012023-0321123303312223-2032302123310313-1131133233133112-1223301230221033)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-258b712bbb53f1846a9389d2abd1047a36eb318dcfdce3a8ad3fa8852a73c27a"></a>
+<a id="canonical-0211202313010223-2323110333012010-1222210320213102-2223310100101322-0312322303012031-3033313032032220-2231033322202011-0222130330021322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-148ee75118d04568cbb23c48523e5f03b9ea17a24e6ba61304ae5b76dce6481c"></a>
+<a id="canonical-0110203232131101-0120310010111220-3023230203301020-1102033211330003-2321322201132202-1032122322120103-0010223211231312-3130321210200130"></a>
 
-## network_pbr.network_pbr_rules.metadata — network_pbr.network_pbr_rules.metadata / 95be7d58ba33 / 2
+## network_pbr.network_pbr_rules.metadata — metadata / 112023220303 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.metadata
 
-<a id="canonical-37f9c9c5b5c5dc6021b9352610bcdfa2deec1f967bebfc1903ccde62aa3fbfdb"></a>
+<a id="canonical-0313332130213011-2311301131301200-0201232103110212-0100233031332202-3132323001332112-1323322333300121-0003303031321202-2222033323333123"></a>
 
 Type: `"single"`. Computed.
 
@@ -3772,25 +3772,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4b14a4d5d5040c6a003fb74cf9248ce0e744e7fff8c31cc9caa495d456fe756"></a>
+<a id="canonical-3210230110221031-1131110010003012-2200000333231310-3033210210203032-0032131010321333-3333203003013030-2130222210211131-1011123332131112"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.metadata / 95be7d58ba33 / 3
+## Direct properties — metadata / 112023220303 / 3
 
-<a id="canonical-aa28934e23b48f10d21805b0354d8e16d32e9f8d2ab160e3ff247f2bcc4bfcc3"></a>
+<a id="canonical-2222022021031032-0203231020330100-3102012000112300-0311103120320112-3103023221332031-0222230112003203-3333021013330223-3030102333303003"></a>
 
-<a id="canonical-3ba152609932815e32ea48e6bc49bc01cc6ac1d65c27e96424524444454a5bfb"></a>
+<a id="canonical-0323220111021200-2121030220011132-0302322210203212-2330102123300001-3030122230013112-1130021332211210-0210110210101010-1011102211233323"></a>
 
-## description_spec property — network_pbr.network_pbr_rules.metadata / 95be7d58ba33 / 4
+## description_spec property — metadata / 112023220303 / 4
 
 Type: `"string"`. Computed.
 
 Description. Human readable description.
 
-<a id="canonical-8054927c92edb8ea2149f756ed06b3a9846c462dac840500210cea07f566f18d"></a>
+<a id="canonical-2000111021021330-2102323123203222-0201102133131112-3231001223032221-2010123010120231-2230201000110000-0201003032220013-3311121233012031"></a>
 
-<a id="canonical-cda235fab6bf316a4d3d145120169e88e9cff794537fa1743322b341f101ebdd"></a>
+<a id="canonical-3031220203113322-2312233303011222-1031033101101101-0200011221322020-3221303333132110-1103133322011310-0303020223031001-3301000132233131"></a>
 
-## name property — network_pbr.network_pbr_rules.metadata / 95be7d58ba33 / 5
+## name property — metadata / 112023220303 / 5
 
 Type: `"string"`. Computed.
 
@@ -3849,32 +3849,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cdf97e8cf58487c0c2c01ae5c4cf5a2f22218cf57abd64d42d528a111d9530cd"></a>
+<a id="canonical-3031332113322030-3311201020133000-3002300001223211-3010303311220233-0202020120303311-1322233112103110-0231110220220101-0131211103003031"></a>
 
-## Next pages — network_pbr.network_pbr_rules.metadata / 95be7d58ba33 / 6
+## Next pages — metadata / 112023220303 / 6
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-6102ddf8620fd347ff0e8fda974797faa35d4a12f5c29a7ff4bcbc52a946228a"></a>
+<a id="canonical-1201000231313320-1202003331031013-3333003220333122-2113101321133322-2203113110220102-3311300221221333-3310233023301102-2221101202022022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ad567cdc41b00c80787df7aed4b180d0fde5496b8bf7e9f43f8ba99df71b2e9"></a>
+<a id="canonical-1122311112133031-3010012300003020-0013201331331322-3231102301200031-0033313211102112-2320233313322133-1003332023222121-3133130123023221"></a>
 
-## network_pbr.network_pbr_rules.prefix_list — network_pbr.network_pbr_rules.prefix_list / 12a6789583aa / 2
+## network_pbr.network_pbr_rules.prefix_list — prefix_list / 211120032222 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.prefix_list
 
-<a id="canonical-4083e0eb6e062fde7e8d9432e94e582242a49994320574de554ebec9ce30691c"></a>
+<a id="canonical-1000200332003223-1232001202333132-1332203121100302-3221103211200202-1002221021212110-0302001113103132-1111103223323021-3032030012210130"></a>
 
 Type: `"single"`. Computed.
 
@@ -3893,15 +3893,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c9615eaa125061463269937bb3bcf721389721da53f317d65d91f9cabe6a3e9a"></a>
+<a id="canonical-3021120111322222-0102110012011012-0302122121031323-2303233033130201-0320211302013122-1103330301133112-1131210133213022-2332122203322122"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.prefix_list / 12a6789583aa / 3
+## Direct properties — prefix_list / 211120032222 / 3
 
-<a id="canonical-57909b01ac7931c9a3782ff5b51a11de8db74f621af130ac6a6d9da8a9a4ee06"></a>
+<a id="canonical-1113210021230001-2230132103013021-2203132002333311-2311012201013132-2031231310331202-0122330103002230-1222123121312220-2221221032320012"></a>
 
-<a id="canonical-c72b6a5777448b5f6f2f295d585bc43d8ab294a21915a8f8cd77ac0f7d1c90d1"></a>
+<a id="canonical-3013022312221113-1313101020231133-1233023302211131-1120112330100331-2022230221102202-0121011122203320-3031131322300033-1331013021003101"></a>
 
-## prefixes property — network_pbr.network_pbr_rules.prefix_list / 12a6789583aa / 4
+## prefixes property — prefix_list / 211120032222 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -3943,32 +3943,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c84230b99ac60c2a061871082470cc29578f111bf52b126526129871745440bc"></a>
+<a id="canonical-3020100203002321-2122301200300222-0012012013010020-0210130030300221-1113203301010123-3311022301021211-0212010221201301-1310111010002330"></a>
 
-## Next pages — network_pbr.network_pbr_rules.prefix_list / 12a6789583aa / 5
+## Next pages — prefix_list / 211120032222 / 5
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-715cb6f11d295f65fb64f92febd3ac53d3276808be6b9d074bc3d1d2519a5254"></a>
+<a id="canonical-1301113023123301-0131022111331211-3323121033210233-3223310322301103-3103021312200020-2332122321310013-1023300331013102-1101212211021110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b345d71530d2967a6712a8cb1b3889576f255cc1785af074d9ceb3a32e0df4b"></a>
+<a id="canonical-2023031011311301-1103003102211213-2212130102222030-2301230320202111-1312330211113030-0113201122330013-1031213032230322-0302320031331023"></a>
 
-## network_pbr.network_pbr_rules.protocol_port_range — network_pbr.network_pbr_rules.protocol_port_range / bd1b23c153f0 / 2
+## network_pbr.network_pbr_rules.protocol_port_range — protocol_port_range / 300111033300 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
 - network_pbr.network_pbr_rules.protocol_port_range
 
-<a id="canonical-33208f1a676cbe633844719daa4b20691e12dfe2ff0f1973bd16d9910b7e5dd4"></a>
+<a id="canonical-0303020020330122-1213123023321203-0320101013012131-2222102302001221-0132010231333202-3333003301211303-2331011231212101-0023133211313110"></a>
 
 Type: `"single"`. Computed.
 
@@ -3991,15 +3991,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-61a03eb20eb9bf6e88985bdc5c01613ee06149a8282edb80b2dbabb314916632"></a>
+<a id="canonical-1201220003322302-0032232123331232-2020212011233130-1130000112010332-3200120110212220-0220023231232000-2302312322232303-0110210112120302"></a>
 
-## Direct properties — network_pbr.network_pbr_rules.protocol_port_range / bd1b23c153f0 / 3
+## Direct properties — protocol_port_range / 300111033300 / 3
 
-<a id="canonical-b8d50dbd76780d32b11d12e6224db04a72c847b0ba838256b93737cc5c8906e7"></a>
+<a id="canonical-2320311100312331-1312132000310302-2301013101023212-0202103123001022-1302302010132300-2322200320021112-2321031303133030-1130202100123213"></a>
 
-<a id="canonical-11c62b82ddad1c65f5e1d972abac0ff4656259bf40958a34f64b39157ad0ffe0"></a>
+<a id="canonical-0101301202232002-3131223101301211-3311320131211302-2223223000333310-1211120211212333-1000211120220310-3312102303210111-1322310033333200"></a>
 
-## port_ranges property — network_pbr.network_pbr_rules.protocol_port_range / bd1b23c153f0 / 4
+## port_ranges property — protocol_port_range / 300111033300 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -4038,11 +4038,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c06e8b388a0ac5f95f0d895efc1893a61ccad968cc09777eb3a1db3ea2048791"></a>
+<a id="canonical-3000123220230320-2022002230113321-1133003120211132-3330012021032212-0130302231211220-3030002113131332-2303220131230332-2202001020132101"></a>
 
-<a id="canonical-a3dceedb831965ddea5dafccb840fd9f26dc8f47ba04dc70d9d0a39b1e34ddfc"></a>
+<a id="canonical-2203313032323123-2003012112113131-3222113122333030-2320100033312133-0212313020331013-2322001031301300-3121310022032123-0132031031313330"></a>
 
-## protocol property — network_pbr.network_pbr_rules.protocol_port_range / bd1b23c153f0 / 5
+## protocol property — protocol_port_range / 300111033300 / 5
 
 Type: `"string"`. Computed.
 
@@ -4088,31 +4088,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-59c3d4e30a75e0eb7915bc17e721d137511204552dfaed9bf15e5b266ff2681a"></a>
+<a id="canonical-1121300331103203-0022131132003223-1321011123300113-3213020131010313-1101010200101111-0231332232312123-3301113211230212-1233330212200122"></a>
 
-## Next pages — network_pbr.network_pbr_rules.protocol_port_range / bd1b23c153f0 / 6
+## Next pages — protocol_port_range / 300111033300 / 6
 
-- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-16ff46784595eeb798611194d114aa63a92f53ae9a9a4dc34a11f33cb8ec0901)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr.network_pbr_rules](data-sources--policy_based_routing--reference--group-001.md#canonical-0112333310121320-1011211132322313-2120120101012110-3101011022221203-2221023311032232-2122212210313003-1022010133030330-2320323000210001)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
 
-<a id="canonical-2e666d0078404f5978dae6c8a24c2acec20583e056d394420b3608a2f79fe274"></a>
+<a id="canonical-0232121212310000-1320100010331121-1320312232123020-2202103002223032-3002001120033200-1112310321101002-0023031200202202-3313213332021310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e16eee024a1ef13684a5c644f6a76ebf8ba2d79f575072719cc22a1e79dda83f"></a>
+<a id="canonical-3201123232320002-1022013233010312-2010221130121010-3312221312322333-2023220231132133-1113110013021301-2130300202220132-1321313122200333"></a>
 
-## network_pbr.prefix_list — network_pbr.prefix_list / 4ab14243d6f8 / 2
+## network_pbr.prefix_list — prefix_list / 100331123320 / 2
 
 Breadcrumbs:
 
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
-- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)
+- [Property reference](data-sources--policy_based_routing--reference--group-001.md#canonical-3020220020102013-1020212212113210-2110032221121310-1233011300323132-3123011100001132-3112102103121120-3020133332302001-0200300102322131)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
 - network_pbr.prefix_list
 
-<a id="canonical-8d635098eb8ea341d7ba1def8781b9982c5a3db07ff148726ea04de622789628"></a>
+<a id="canonical-2031120311002120-3223203222031001-3113232201313233-2013200123212120-0230112203312300-1333330110201302-1232220010313212-0202132021120220"></a>
 
 Type: `"single"`. Computed.
 
@@ -4131,15 +4131,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8f557bcfd031054a92407a78fadc37028befbbcb01c01e7975cf8ce848ecdc05"></a>
+<a id="canonical-2033111113233033-3100030100111022-2102100013221320-3322313003130002-2023323323233023-0001300001321321-1311303320303220-1020323031300011"></a>
 
-## Direct properties — network_pbr.prefix_list / 4ab14243d6f8 / 3
+## Direct properties — prefix_list / 100331123320 / 3
 
-<a id="canonical-9f2909e540d7324505f3486fe306bc206a7fd50359896e3009632097108ae4e2"></a>
+<a id="canonical-2133022100213211-1000311303021011-0011330310201233-3203001223300200-1222133331110003-1121202112320300-0021120302002113-0100202232103202"></a>
 
-<a id="canonical-c910f349125059daf8576ddbe9838369c8ffced73c7deff24ad1452d0a5b13c3"></a>
+<a id="canonical-3021010033031021-0102110011213122-3320111312313123-3221200320031221-3020333330323113-0330133132333302-1022310110110231-0022112301033003"></a>
 
-## prefixes property — network_pbr.prefix_list / 4ab14243d6f8 / 4
+## prefixes property — prefix_list / 100331123320 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -4181,9 +4181,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d821d86642b4a97ff3eefa7b83bce9552922deef4d379870dc8152e4e49fbb61"></a>
+<a id="canonical-3120020131201212-1002231022211333-3303323233221323-2003233032211111-0221020231323233-1031031321201300-3130200111023210-3210213323231201"></a>
 
-## Next pages — network_pbr.prefix_list / 4ab14243d6f8 / 5
+## Next pages — prefix_list / 100331123320 / 5
 
-- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-b46f77fcf0f5c5a0cac6b82f1f42cd7b35cd71305145a9280f8d0046a71b2405)
-- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22)
+- [network_pbr](data-sources--policy_based_routing--reference--group-001.md#canonical-2310123313133330-3300331130112200-3022301223200233-0133100230311323-0311303113010300-1101101122210220-0033203100001012-2213012302100011)
+- [xcsh_policy_based_routing](../data-sources/policy_based_routing.md#canonical-2133102010301311-1122300333110212-0113100300221123-0232113133011013-1302230200202323-2120230033020310-2101300103030113-3212011122230202)

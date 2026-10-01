@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_device_history landing
 
-<a id="canonical-4f287dc4ac3600af7828b70c0aa416a821d47f3785e18cec7baf65231b298079"></a>
+<a id="canonical-1033022013313010-2230031200002233-1320022023130030-0022221001122220-0201311013330313-2011320120303230-1323223312110203-0123022120001321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e2f6d9849a6c9de05598bb81aebfd304d148a21a2d7dfc3e70f0f8401d4a80c"></a>
+<a id="canonical-2032023312312120-1021221230213132-0011112120232320-0122322333310300-1031011020220201-2202311331333003-3213003300332010-0001311022200030"></a>
 
-## xcsh_device_intelligence_device_history — xcsh_device_intelligence_device_history / 5dc83232b064 / 2
+## xcsh_device_intelligence_device_history — xcsh_device_intelligence_device_history / 030223001210 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-99bd464bad059cd9acb6834f774762a70fff2dcb6bcd278ed27353c0f8f77db5"></a>
+<a id="canonical-2121233110121023-2231001121303121-2230231220031033-1313101312022213-0033333302313023-1223303102132032-3102130311033000-3320331313312311"></a>
 
-## Prerequisites — xcsh_device_intelligence_device_history / 5dc83232b064 / 3
+## Prerequisites — xcsh_device_intelligence_device_history / 030223001210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-a068ab3015ff8ddaccb518c39a21790620ae25ae1c5bc4eb5145342677044c76"></a>
+<a id="canonical-2200122022230300-0111333320313122-3030231101203003-2122020113210012-0200223202112232-0130112330103223-1101101103100212-1313001010301312"></a>
 
-## Minimal configuration — xcsh_device_intelligence_device_history / 5dc83232b064 / 4
+## Minimal configuration — xcsh_device_intelligence_device_history / 030223001210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,15 +58,15 @@ output "device_intelligence_device_history_result" {
 }
 ```
 
-<a id="canonical-bde3a038a8a081f5397ccac1402830f547566e12b9ec7b5758093c4ea52e8662"></a>
+<a id="canonical-2331320322000320-2220220020013311-0321133030223001-1000022003003311-1013111212320102-2321323013231113-1120002103301032-2211023220121202"></a>
 
-## Root configuration — xcsh_device_intelligence_device_history / 5dc83232b064 / 5
+## Root configuration — xcsh_device_intelligence_device_history / 030223001210 / 5
 
 Required root properties: `device_id`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-27f82b78343e386344acf6330c92a7d97547b09bffb16310a0eb340a45af9577"></a>
+<a id="canonical-0213332002231320-0310033203201203-1010223033120303-0030210222133121-1311101323002123-3333230112030100-2200322303100022-1011223321111313"></a>
 
-## Next pages — xcsh_device_intelligence_device_history / 5dc83232b064 / 6
+## Next pages — xcsh_device_intelligence_device_history / 030223001210 / 6
 
-- [Property reference](../guides/data-sources--device_intelligence_device_history--reference--group-001.md#canonical-57a6e4c4c70f6a59052929b2dd18df6408ce5754db6d69b2b048613e92dd4d8c)
-- [Examples](../guides/data-sources--device_intelligence_device_history--examples--group-001.md#canonical-1951b16ac543cc0787ec0e6e895a4bba92897dd508464ba4197dac078a4fb569)
+- [Property reference](../guides/data-sources--device_intelligence_device_history--reference--group-001.md#canonical-1113221232103010-3013003312221121-0011022102212302-3131012031331210-0020303211131110-3123123112212302-2300102012010332-2102313110312030)
+- [Examples](../guides/data-sources--device_intelligence_device_history--examples--group-001.md#canonical-0121110123011222-3011100330300013-2013323000321232-2021112210232322-2102202113313111-0020101210232210-0121133122300013-2022103323111221)

@@ -6,32 +6,32 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 # xcsh_application_profiles reference
 
-<a id="canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed"></a>
+<a id="canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b60dfb611cdf8a8a9479efc15b302353a74aec54e078c6d848b4622ed4feb864"></a>
+<a id="canonical-2312003133231201-0130313320222022-2110132132333001-1123030002031103-2213102232301110-3200132030123120-1020231012020232-3110333223201210"></a>
 
-## Property reference — Property reference / 56b0abd5bcb9 / 2
+## Property reference — Property reference / 311123302321 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 - Property reference
 
-<a id="canonical-43119c7fcb2253e518c41a17fcc5ff86e70d3aadb77cd2cfa620000286261a05"></a>
+<a id="canonical-1003010121301333-3023020211033211-0120301001220113-3330301133332012-3213003103222231-2313133031023033-2212020000000002-2012021201220011"></a>
 
-## Direct properties — Property reference / 56b0abd5bcb9 / 3
+## Direct properties — Property reference / 311123302321 / 3
 
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb): complete subsection reference.
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323): complete subsection reference.
 
-<a id="canonical-553c0bce8453c589c8260fdf1a8ab4dafabaa78c6be5c598e1115d7e3fa904bd"></a>
+<a id="canonical-1111033000233032-2010110330112021-3020021200333133-0122202223103122-3322232222132030-1223321130112120-3201010111311332-0333222100102331"></a>
 
-<a id="canonical-0a44761febe0292bfcc1fc2c8265cf0f6b1e8767ba9cf64f99b1f8633d5157b2"></a>
+<a id="canonical-0022101013120133-3223320002210223-3330300133300230-2002121130330033-1223013220131213-2322213033121033-2121230133201203-0331110111132302"></a>
 
-## annotations property — Property reference / 56b0abd5bcb9 / 4
+## annotations property — Property reference / 311123302321 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -39,7 +39,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -68,13 +68,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e): complete subsection reference.
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332): complete subsection reference.
 
-<a id="canonical-407033a5b28212a9fa2b2d0daa0571bdb68160e34b7bdf0f1c33f656799e5138"></a>
+<a id="canonical-1000130003032211-2302200201022221-3322022302310031-2222001113012331-2312200112003203-1023132331330033-0130030333121112-1321213211010320"></a>
 
-<a id="canonical-2c24b16f4935ac4c99e8ce9af9180a583c2b3eddf10bc595ba9f8d1642a32ac6"></a>
+<a id="canonical-0230021023011233-1021031122301030-2121322030322122-3321012000221120-0330022303323131-3301002330112111-2322213320310112-1002220302223012"></a>
 
-## description property — Property reference / 56b0abd5bcb9 / 5
+## description property — Property reference / 311123302321 / 5
 
 Type: `"string"`. Computed.
 
@@ -122,23 +122,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2e807f00e2b6d37f74a491dd4da1c2832ccb22ebcc88894dea6b92e5b4e3125"></a>
+<a id="canonical-3102322000133300-0032022312310313-3313102210210131-3110312201300220-0302303023020232-2330302020202110-3132221223210232-1123103203010211"></a>
 
-<a id="canonical-8842747f7cd1717ed962c487862b8015160eea1bdab326e7531f838703518917"></a>
+<a id="canonical-2020100213101333-1330310113011332-3121120230102013-2012022320000111-0112003232220123-3122230302123213-1103013320032013-0003110120210113"></a>
 
-## id property — Property reference / 56b0abd5bcb9 / 6
+## ID property — Property reference / 311123302321 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [irules](data-sources--application_profiles--reference--group-001.md#canonical-b03852e8035d88ad972f06db07b19a393462dd0e06b97aff9ac57a85e610479b): complete subsection reference.
+- [irules](data-sources--application_profiles--reference--group-001.md#canonical-2300032011023220-0003113120202231-2113023300123123-0013230121220321-0310120231310032-0012232113223333-2122301113222011-3212010010132123): complete subsection reference.
 
-<a id="canonical-e3d6a779dca4cf85451988d9763e5920678e5045b2fc6f9bd70b71cfb2d492a9"></a>
+<a id="canonical-3203311222131321-3130221030332011-1011012120203121-1312033211210200-1213203211001011-2302333012332123-3113002313013033-2302311021022221"></a>
 
-<a id="canonical-f820e38cb6b0f7288f5fb0a65eb0659776775ec15106f527dbde0f6eea35b43b"></a>
+<a id="canonical-3320020032032030-2312230033130220-2033113323002212-1132230012112113-1312131311323001-1101001233110213-3123313200331232-3222031123100323"></a>
 
-## labels property — Property reference / 56b0abd5bcb9 / 7
+## labels property — Property reference / 311123302321 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -162,11 +162,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ea96340a8f3a482f051c465cddc4fb71e54c0d92497a1913415367f4499ca0f2"></a>
+<a id="canonical-3222211203100022-2033032210200233-0011013010121130-3131301033231301-3211103000312102-1021132201210103-1001110312133310-1021213022003302"></a>
 
-<a id="canonical-ab2cc2e75a62bf962d75ea055295a0daea0cd00abe699387a6c85e0f525add98"></a>
+<a id="canonical-2223023030023213-1122120223332112-0231131132220011-1102211122003122-3222003031000022-2332122121032013-2212302011320033-1102112231312120"></a>
 
-## name property — Property reference / 56b0abd5bcb9 / 8
+## name property — Property reference / 311123302321 / 8
 
 Type: `"string"`. Required.
 
@@ -222,11 +222,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-506cbfd4b79a664779b05eb167bd9320a9b64f5b876f6c7f71b10e22f656f60d"></a>
+<a id="canonical-1100123023333110-2313212212121013-1321230011322301-1213233121030200-2221231210331123-2013123312301333-1301230100320202-3312111233120031"></a>
 
-<a id="canonical-ed76b0d0bc67857cc2b9d94c30126d778bce0d3dac3b979e513eb3feeec1dbed"></a>
+<a id="canonical-3231131223003100-2330121320111330-3002232131211030-0300010212311313-2023303200310331-2230032321132132-1101033223033332-3232300131233231"></a>
 
-## namespace property — Property reference / 56b0abd5bcb9 / 9
+## namespace property — Property reference / 311123302321 / 9
 
 Type: `"string"`. Required.
 
@@ -275,423 +275,423 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc): complete subsection reference.
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130): complete subsection reference.
 
-<a id="canonical-7f3aa656bdc6030d844ee09b3247ee010850b2779ff86fde339f3d86f04748bc"></a>
+<a id="canonical-1333032222121112-2331301200030031-2010103232002123-0302101332320001-0020110023021313-2133332012333132-0303213303312012-3300101310202330"></a>
 
-## All schema paths — Property reference / 56b0abd5bcb9 / 10
+## All schema paths — Property reference / 311123302321 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `advanced_tcp_profile` | [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-d3767388aea02ec0ca5025809e8b9ea513436b560577f5b21d781ce28158f42b) |
-| `advanced_tcp_profile.disable_tcp_advanced_profile` | [advanced_tcp_profile.disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-0d26b2193786af7aa79e0db3600a2e41886b063eee854d74aa5addef66f9383b) |
-| `advanced_tcp_profile.enable_tcp_advanced_profile` | [advanced_tcp_profile.enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-9e6ebe48e8f5f7a29e5a34daccaba29516ab8384272cdf414e783ef391dba3fd) |
-| `annotations` | [annotations](data-sources--application_profiles--reference--group-001.md#canonical-553c0bce8453c589c8260fdf1a8ab4dafabaa78c6be5c598e1115d7e3fa904bd) |
-| `ddos_profile` | [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-b8c30b3a65e6d9609c5c15e10affae0439226c346239ecc25fe5608ef8470fc8) |
-| `ddos_profile.disable_ddos_mitigation` | [ddos_profile.disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-ba0a9fa3a16fff5595f46101036ae725e701da0f88906e3bfc6cc6b3f5fca749) |
-| `ddos_profile.enable_ddos_mitigation` | [ddos_profile.enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-61c54997e65f4ea0911b9bf8f4da246106d1643e36664a7e10d7ee912196e5e6) |
-| `description` | [description](data-sources--application_profiles--reference--group-001.md#canonical-407033a5b28212a9fa2b2d0daa0571bdb68160e34b7bdf0f1c33f656799e5138) |
-| `id` | [id](data-sources--application_profiles--reference--group-001.md#canonical-d2e807f00e2b6d37f74a491dd4da1c2832ccb22ebcc88894dea6b92e5b4e3125) |
-| `irules` | [irules](data-sources--application_profiles--reference--group-001.md#canonical-9f505918e95bbf193101e06dc82e460ae7385da1d3b0e487261980ebfc4c2fa0) |
-| `irules.kind` | [irules.kind](data-sources--application_profiles--reference--group-001.md#canonical-ad0d9d62279d6fb30c0456cb22ef8c40aafb7cab14347c374325bfb8d41723c7) |
-| `irules.name` | [irules.name](data-sources--application_profiles--reference--group-001.md#canonical-ce7fd1101c941540c77558402346710e11496dbac0f0189034db95a46db22d8a) |
-| `irules.namespace` | [irules.namespace](data-sources--application_profiles--reference--group-001.md#canonical-c537b88d8371e4da4a11e7917efcdb6f972e38b8bc3603453241ff6ffe283574) |
-| `irules.tenant` | [irules.tenant](data-sources--application_profiles--reference--group-001.md#canonical-175f2bea23fd12acd42a1af0d58283c7ee0a7379d6a7cc91a9398b7bda102f44) |
-| `irules.uid` | [irules.uid](data-sources--application_profiles--reference--group-001.md#canonical-a3ef076b67a7821b4a918797dc2fd8ae2de2e9ce3b4d05d01b42f973020f4853) |
-| `labels` | [labels](data-sources--application_profiles--reference--group-001.md#canonical-e3d6a779dca4cf85451988d9763e5920678e5045b2fc6f9bd70b71cfb2d492a9) |
-| `name` | [name](data-sources--application_profiles--reference--group-001.md#canonical-ea96340a8f3a482f051c465cddc4fb71e54c0d92497a1913415367f4499ca0f2) |
-| `namespace` | [namespace](data-sources--application_profiles--reference--group-001.md#canonical-506cbfd4b79a664779b05eb167bd9320a9b64f5b876f6c7f71b10e22f656f60d) |
-| `virtual_server` | [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-6d8b283c9385612b65995a6a3cdd81b8bb0f78278a1f7e926c3382872d8b7260) |
-| `virtual_server.access_profile` | [virtual_server.access_profile](data-sources--application_profiles--reference--group-001.md#canonical-f18c4d94352b1ed57cb7e55085e3d01eaa7094df7dcead0f0cee184453bb76ad) |
-| `virtual_server.access_profile.kind` | [virtual_server.access_profile.kind](data-sources--application_profiles--reference--group-001.md#canonical-addd341b46ac881e8c5b97dd28d7bc7b288efc54b5481b822f0aa7bbfaaa4654) |
-| `virtual_server.access_profile.name` | [virtual_server.access_profile.name](data-sources--application_profiles--reference--group-001.md#canonical-41302f6760a20249e1d4869da6deb91fdadc1ae85873a1b2bf35321385d14674) |
-| `virtual_server.access_profile.namespace` | [virtual_server.access_profile.namespace](data-sources--application_profiles--reference--group-001.md#canonical-62defd0bb3dbb951810770ff982d02885a94a7f164663eadb76304093a7b33d5) |
-| `virtual_server.access_profile.tenant` | [virtual_server.access_profile.tenant](data-sources--application_profiles--reference--group-001.md#canonical-e797019088039352cf9fb282a43ee6b3bf83e601b583333f33fa477989ad25c3) |
-| `virtual_server.access_profile.uid` | [virtual_server.access_profile.uid](data-sources--application_profiles--reference--group-001.md#canonical-afd917f455def6751b0b3d22fef529d27d30deea328c2867b4e4729834ec66de) |
-| `virtual_server.address_translation` | [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-d5cb7b1fa01499170bf47bf0de2596b184f2a9ac70b0d5ab247153464679d3e0) |
-| `virtual_server.address_translation.address_translation_disable` | [virtual_server.address_translation.address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-3f4060e9e0e5b960f3b4300906422a8755cfcddcfdce9b0897e0c242ee89b670) |
-| `virtual_server.address_translation.address_translation_enable` | [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-b40c437c53279a11948161c044f26ba354ac407b7b8fcb23b991e3f8fc692711) |
-| `virtual_server.auto_last_hop` | [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-937a6558a263dc0f40a43b93040407bcf1d1bea17e00581999961e95406c6dbc) |
-| `virtual_server.auto_last_hop.auto_last_hop_default` | [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-0f3d26554379edf0f708a65ddd7dac1fc63f4e38b7da543656ca0be810045171) |
-| `virtual_server.auto_last_hop.auto_last_hop_disable` | [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-f46bae3d4532eb7ff3e67ae4bb710b04e61a785e17d8fb39fa881f9db5432173) |
-| `virtual_server.auto_last_hop.auto_last_hop_enable` | [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-82206f3b2f1975ec40ed44e55f1960fe96510f1ec9d22b955464cbd70026bafb) |
-| `virtual_server.clone_pool_client` | [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-5f21ebe5b4511a050617e0b9479dedcf91e28d53d51ba4590cb00fdeee099a77) |
-| `virtual_server.clone_pool_client.kind` | [virtual_server.clone_pool_client.kind](data-sources--application_profiles--reference--group-002.md#canonical-e73990620c630b475a7a61bd2756a3bc2d46a5a009c23dfd8944a3a0c3bd5fc3) |
-| `virtual_server.clone_pool_client.name` | [virtual_server.clone_pool_client.name](data-sources--application_profiles--reference--group-002.md#canonical-79cf1ed6eef4c2cbcaff54c4e7ac7dfa31d1669f27278fa779163591c81ec621) |
-| `virtual_server.clone_pool_client.namespace` | [virtual_server.clone_pool_client.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a5b6aad587df6b3fac47bb6af430e35a75fe798bc1a35251a10c4f2cfd2f7e6e) |
-| `virtual_server.clone_pool_client.tenant` | [virtual_server.clone_pool_client.tenant](data-sources--application_profiles--reference--group-002.md#canonical-84fa3e14e52dbe6ba8b066f9e832492a582421fbc7c017076a2a7a89521f3e7e) |
-| `virtual_server.clone_pool_client.uid` | [virtual_server.clone_pool_client.uid](data-sources--application_profiles--reference--group-002.md#canonical-6f564e025e781779fd26e0b7e730307710beb774113d27f266dd6c04f9eb5d90) |
-| `virtual_server.clone_pool_server` | [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-29dd50e32aa5ed95979b7dd9e3ac8a4618b69ed68e6d42aabb77c57ed6acb868) |
-| `virtual_server.clone_pool_server.kind` | [virtual_server.clone_pool_server.kind](data-sources--application_profiles--reference--group-002.md#canonical-6f59548b35299463534c643bc214049db390c75f2e5c76542479fea6ea0e05bd) |
-| `virtual_server.clone_pool_server.name` | [virtual_server.clone_pool_server.name](data-sources--application_profiles--reference--group-002.md#canonical-b335996841b27c0c6c0fed4e8843eb67820ad20564c8a098dd7783410d063a2d) |
-| `virtual_server.clone_pool_server.namespace` | [virtual_server.clone_pool_server.namespace](data-sources--application_profiles--reference--group-002.md#canonical-91e361ed2bdcf710b383c7b64e145e31e1fed4713369bd7904216b3ef83d7311) |
-| `virtual_server.clone_pool_server.tenant` | [virtual_server.clone_pool_server.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0efca091478e84c6812815566b8b779a2cb3055caab9d4dcc2d068671713a711) |
-| `virtual_server.clone_pool_server.uid` | [virtual_server.clone_pool_server.uid](data-sources--application_profiles--reference--group-002.md#canonical-67be68133578d45274404e49ac1e87ac629dfdc3ea234e36ffb60878e38b9ce6) |
-| `virtual_server.connection_limit` | [virtual_server.connection_limit](data-sources--application_profiles--reference--group-001.md#canonical-c3d44cfa848788c88ac81d3ccac710087e8bc390d8b3e8e1d113a3e340f5380e) |
-| `virtual_server.connection_rate_limit` | [virtual_server.connection_rate_limit](data-sources--application_profiles--reference--group-001.md#canonical-c6b2ef93baf1a91d75e3f5835daea2e407683a962196a7384304944dd3eaebcd) |
-| `virtual_server.connection_rate_limit_mode` | [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-ddc4ed26919c16086ceb2bcaefafcb34d867c9cc514e0c9716fc6cec179e319c) |
-| `virtual_server.connection_rate_limit_mode.per_destination_address` | [virtual_server.connection_rate_limit_mode.per_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-ee9b3d2df982dc70d72c52f5f7503e8fcfee153548801069800663586acbc4c2) |
-| `virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-4119fea0293eb65fbd643d95bd1167fea7b5b3fcb3ebfc2ae29c5c9bbee723eb) |
-| `virtual_server.connection_rate_limit_mode.per_source_address` | [virtual_server.connection_rate_limit_mode.per_source_address](data-sources--application_profiles--reference--group-002.md#canonical-2aa3ed29cd305a7b4514b960e06e7ad9ee11027971ccaf319f4a3e5747c81b58) |
-| `virtual_server.connection_rate_limit_mode.per_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-edd5dd522d8a5793b3182557bc2acc450c04dc2d74a33901cac8299cd9d3c2e0) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-4d87d6d980d30242f54c620326ff6a882c728222afef67d62f9ab0ef52513eeb) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-86d1bb5653dd131f715aa0998ff0b1544af48f06ed07075fce7fc58e6608696c) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-8e105434fcd467f29a3406f839675b58d960151b134be74c580dde4ef0a10ac8) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server` | [virtual_server.connection_rate_limit_mode.per_virtual_server](data-sources--application_profiles--reference--group-002.md#canonical-7df149253f9ad02c14e4bf0e12b3efb6e1bb4a42a4ba591896be99d318b25272) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-e83333c5c6c718611130819d4816b640e5fb4ee141c0e12828bd92ed6a744cbe) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-84072962501041f56f4ef0f34f616b99537a30f6f6449164f1c6dfb798f6756e) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_address](data-sources--application_profiles--reference--group-002.md#canonical-a0d0a7b40ae0fce1696739b70b3b56491e9d72f723e8965b3465b0eea355cc3b) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-24c66a1beda73999202cc1ed8465635f646b848e29dae19f8e403291fa8fea0a) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-91572c8df33fe9baa93d7d3ba6f0098a0db67d64471b83069b17772c992a7790) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-fd7594b3979db6b09048ca2410b77c323fdd2ae7e3e339fe6bdcaddd0f7dac3b) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-a1c6aa2f3b90685145c49e3d62d0118ee1cebf08d6ee0bc0003496f1e3b278d9) |
-| `virtual_server.default_persistence_profile` | [virtual_server.default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-1e7938358f045952100fcca22fb3c8c5af8d26119330c252db38be6e835badc5) |
-| `virtual_server.default_persistence_profile.kind` | [virtual_server.default_persistence_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-433ea78566aeca4d9a219d8be0a14e3ba23d8390a981c6585570e1f37be5b94a) |
-| `virtual_server.default_persistence_profile.name` | [virtual_server.default_persistence_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3b2bf8ce26449710b2874c472ad621e91d86858c80b7a448d6928396045141cf) |
-| `virtual_server.default_persistence_profile.namespace` | [virtual_server.default_persistence_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-99388833946b4fc32c505f79c91de91f980d24a5d56112b315e919905b86061e) |
-| `virtual_server.default_persistence_profile.tenant` | [virtual_server.default_persistence_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-fc7d6097b501e3cf9d8a8a32f8f7d94b42115e38bb62ab38aa8f3825d9bdf0aa) |
-| `virtual_server.default_persistence_profile.uid` | [virtual_server.default_persistence_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-8158350217910ac826077e3c21b7e4dfda3f5414c6d22e670c03d6e0e3560dd3) |
-| `virtual_server.default_pool` | [virtual_server.default_pool](data-sources--application_profiles--reference--group-002.md#canonical-0e0dc9da9e9097c5e4ed16e17dab2b180e879646d4c59aec036a91444e298f11) |
-| `virtual_server.default_pool.kind` | [virtual_server.default_pool.kind](data-sources--application_profiles--reference--group-002.md#canonical-81ea534fc69e3c233e263ab48a72f3372532fdd1b5786d1d4df426b9a5420c08) |
-| `virtual_server.default_pool.name` | [virtual_server.default_pool.name](data-sources--application_profiles--reference--group-002.md#canonical-ce9f8dbb6af102ef239352868dc3273997050e554df2aac90a958b40c4d65c5c) |
-| `virtual_server.default_pool.namespace` | [virtual_server.default_pool.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a75c3cedc697cf7abab9925b31c70dcfa71680e2a26c2dcb54a6beb8a15f195a) |
-| `virtual_server.default_pool.tenant` | [virtual_server.default_pool.tenant](data-sources--application_profiles--reference--group-002.md#canonical-91b6f0c64af0da8fffb870d3c081db8ae5677377e48a02494b5647247c1a297c) |
-| `virtual_server.default_pool.uid` | [virtual_server.default_pool.uid](data-sources--application_profiles--reference--group-002.md#canonical-5254c7e98f59b24713b906c8912f3c18b37f03895e16fc0258230db02332afdf) |
-| `virtual_server.fallback_persistence_profile` | [virtual_server.fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-cda90e7c0c5a0f593ed8e46c75cb5c5efdb09d15e5b64f090866401902b39b0d) |
-| `virtual_server.fallback_persistence_profile.kind` | [virtual_server.fallback_persistence_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0cc90ce266fecdd5334b561ee9ca37ae03b208c3d7e98bd434abef684736fef3) |
-| `virtual_server.fallback_persistence_profile.name` | [virtual_server.fallback_persistence_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-8557cc993fa464c9b0a66b2a42d60a9b98ca1e4a0b5e1d2eea43618c5838e349) |
-| `virtual_server.fallback_persistence_profile.namespace` | [virtual_server.fallback_persistence_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-33cb47cece85343d84201118fd3393b306aec103f92dad1a438a07bdc171f954) |
-| `virtual_server.fallback_persistence_profile.tenant` | [virtual_server.fallback_persistence_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-e13c1afcd9264424301c7b8aad7b0b2b7623b2ab7c6e472338a6cb2f8a8cdcd4) |
-| `virtual_server.fallback_persistence_profile.uid` | [virtual_server.fallback_persistence_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-6ff9953699b348d69aa3a02c03109a3f17bea350534e9e9b0948231c2c762856) |
-| `virtual_server.fix_profile` | [virtual_server.fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-bfc05c64e7b23d9747294460ce2e0e992fc21840ad29934e049e9f688a7d631c) |
-| `virtual_server.fix_profile.kind` | [virtual_server.fix_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-5aeff7824d7cb8b2081f461cb2b3eb09d7d3423147fb0377392bbd0d67e55ee8) |
-| `virtual_server.fix_profile.name` | [virtual_server.fix_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-629d214d39851e606c254872a7485648b1609df8fb74fb7bfaed1ea5425fceeb) |
-| `virtual_server.fix_profile.namespace` | [virtual_server.fix_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-4a9de7edee40ef15dad7c2e132c685fcd6856047c370094dd49da576ee8a3c21) |
-| `virtual_server.fix_profile.tenant` | [virtual_server.fix_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-a485e75275af0ae1b06f0fca25fe574be8c9611b2d4f8b1f7ac7eb6c7e3b8b1d) |
-| `virtual_server.fix_profile.uid` | [virtual_server.fix_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-31452fb8d1876d15f68b4c9c4c9d5b82062803be61f4c1f197d85eeeda5ff6bd) |
-| `virtual_server.http` | [virtual_server.http](data-sources--application_profiles--reference--group-002.md#canonical-3e91f022ac2cc4b9431b39f5f986bd64a35359eb0043e2e380f955e3249e0712) |
-| `virtual_server.http.client_ssl_profile` | [virtual_server.http.client_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-1b99ccfab4dcf31c2422084b09e6dc049efaac7c519638faf63e13a45c25d15e) |
-| `virtual_server.http.client_ssl_profile.kind` | [virtual_server.http.client_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-3c9b156b7de194c526a45972f3f772c860f15f7312cd83c1e7d18dbdfee4fbee) |
-| `virtual_server.http.client_ssl_profile.name` | [virtual_server.http.client_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-711c38fbd9fd7b68dadeab50257e8e709c2f2c04cf99d18451f7c0c3f88deda5) |
-| `virtual_server.http.client_ssl_profile.namespace` | [virtual_server.http.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-e2415dcd4f39a391695b994be809702d4938fe4e544a698dc4f68fcc2a77ff3a) |
-| `virtual_server.http.client_ssl_profile.tenant` | [virtual_server.http.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-056b00b50a5c63c710215266e3dada4b7d9394ee3ea2b30c279032d9160b7a6a) |
-| `virtual_server.http.client_ssl_profile.uid` | [virtual_server.http.client_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-c364ae7f9dd008ff803a51590348c2c3656d0559676701bf2c7b1fa0473f1f41) |
-| `virtual_server.http.http2_client_profile` | [virtual_server.http.http2_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-06c6df1e540c4dd546442e888f4da2c896616ef789c8e966db6ef71e526fa616) |
-| `virtual_server.http.http2_client_profile.kind` | [virtual_server.http.http2_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-59e165efb900b4edee109bff124bde6e4da17e3620011aa3b609514e7dfe716a) |
-| `virtual_server.http.http2_client_profile.name` | [virtual_server.http.http2_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3f5e855d20df012a4f858e4c3f12a1055f7a2f9c6b1f019578bc5b3e7ed52c52) |
-| `virtual_server.http.http2_client_profile.namespace` | [virtual_server.http.http2_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-c56bb928b0b39278ccd126936a34f226c0531323dbd6225056228cb71ccd10dc) |
-| `virtual_server.http.http2_client_profile.tenant` | [virtual_server.http.http2_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0b7a3703d03d128cafa33019ff4989cc3e244d3d38c7ba5a4b6c2b7f52c629d2) |
-| `virtual_server.http.http2_client_profile.uid` | [virtual_server.http.http2_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-f489a3f43f4cece41581224b05b40a327a72fa743dc76252da452f893b6c1b89) |
-| `virtual_server.http.http2_server_profile` | [virtual_server.http.http2_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-d0a400e20566b3e910996d9cbe1f9e9d857be08e131bf3bd0fcfd634badcf0a5) |
-| `virtual_server.http.http2_server_profile.kind` | [virtual_server.http.http2_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-c38726d21def8650362c2f3527826c47e0ece7f33877dd0bc5b997dc3fdab994) |
-| `virtual_server.http.http2_server_profile.name` | [virtual_server.http.http2_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3b03ff90266efa29472fe8bc7279e2bdf47cc7388353bcecd506743f6b80891f) |
-| `virtual_server.http.http2_server_profile.namespace` | [virtual_server.http.http2_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-8b7c4b7eba5c6a33eb4efb02a8d9f429e454606743d635caee9e74b55668cb6e) |
-| `virtual_server.http.http2_server_profile.tenant` | [virtual_server.http.http2_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-ac8455c8336f13ff3fb9a1c97679c4257fea278bec09a0f23dc89134ff31b1b6) |
-| `virtual_server.http.http2_server_profile.uid` | [virtual_server.http.http2_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-29141dd2a1dfe3b767d738f453a9523e5d0226c49d180f898aa32a4394aef805) |
-| `virtual_server.http.http_client_profile` | [virtual_server.http.http_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-1a9c78f5056622fe56eb7018efe01d68405639a8d3479713e9551510945d5449) |
-| `virtual_server.http.http_client_profile.kind` | [virtual_server.http.http_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-dcac4f14d5d7401edc7d714e03d40e34a11b49fd078f7b37e8103e91928b6cd8) |
-| `virtual_server.http.http_client_profile.name` | [virtual_server.http.http_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-8c10e3b32b4c6cd179b0ea7e3dfa98a81cf7ba6d2e9b5cfd898fb6e311ef8f07) |
-| `virtual_server.http.http_client_profile.namespace` | [virtual_server.http.http_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-f2fc114ebd2b26c042bb336937faec1a1d9126e951c5db8766061928ebce2272) |
-| `virtual_server.http.http_client_profile.tenant` | [virtual_server.http.http_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-9374dac7e768ff91a3e7807769171c05f16c522a624d638166be91b38b892193) |
-| `virtual_server.http.http_client_profile.uid` | [virtual_server.http.http_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0a32a30e69f7dc3a77363d45ab11ba22fc0be5bbcd730ebd3e5f162119f0c0aa) |
-| `virtual_server.http.http_server_profile` | [virtual_server.http.http_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-aa02b94dab5d90b52a777578cff8c404b6dbb4c4b331f51eb01d2d7cb6d078c0) |
-| `virtual_server.http.http_server_profile.kind` | [virtual_server.http.http_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-28218f8978ae4c8a86401c2624d3a86ddd6b3e65cdb206bd37b0bebf8385591f) |
-| `virtual_server.http.http_server_profile.name` | [virtual_server.http.http_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3c2a5fd59f8e1ca48b7d3b930358be4f621061d918c342b30a461f9cb507c99b) |
-| `virtual_server.http.http_server_profile.namespace` | [virtual_server.http.http_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-295f4d50b395e1549e10dfeee6698fbcdef1a36ca7bd10a10943087eb03a428a) |
-| `virtual_server.http.http_server_profile.tenant` | [virtual_server.http.http_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-5bb3dea00e808d20f0d57e25fff056710e7706cbc655d1094dcc318fc2377230) |
-| `virtual_server.http.http_server_profile.uid` | [virtual_server.http.http_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-95c824cf1cbf084fb538662682faffdae12fd79a6dc853c809bb2c4d7b5c8b7d) |
-| `virtual_server.http.ocsp_profile` | [virtual_server.http.ocsp_profile](data-sources--application_profiles--reference--group-002.md#canonical-3685b833adb363b1381de77d94856efc3319543397d6ead25e84e9b52b5c2d9a) |
-| `virtual_server.http.ocsp_profile.kind` | [virtual_server.http.ocsp_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-6ce506af7c30ef5245e5ed626c87f056c87490c2b739245a8f215c6ff4a81fc2) |
-| `virtual_server.http.ocsp_profile.name` | [virtual_server.http.ocsp_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-b060b151431754ea49f5c55314dbfbd9a452ffacfb8eb267c5eec6fe57643a17) |
-| `virtual_server.http.ocsp_profile.namespace` | [virtual_server.http.ocsp_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-47b08256932f3ee177d5e49867ca4ef96d1e2d7ca9140e7a2f39191695416afe) |
-| `virtual_server.http.ocsp_profile.tenant` | [virtual_server.http.ocsp_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-1028207a49e7e5abf5a7d10ac8df3dc80211692249018ac3e699e989b3d0f044) |
-| `virtual_server.http.ocsp_profile.uid` | [virtual_server.http.ocsp_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-064e8993dfe95c8fd5511e4f9fa7c1820921a3ab953eece18f2b046dfaa2953a) |
-| `virtual_server.http.server_ssl_profile` | [virtual_server.http.server_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-4224d0dbf16bde64a9f8a59817118481976c1baa8e977ff924313965b55cb1d2) |
-| `virtual_server.http.server_ssl_profile.kind` | [virtual_server.http.server_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-f519bad014b7b52c25d60a78e94dffc1263bbbc49c24fd8acc308671c27993a4) |
-| `virtual_server.http.server_ssl_profile.name` | [virtual_server.http.server_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-4c27d911a00ba625bb1f48986327bd1c64f50bbcd834f783bd29c0e21a3051e3) |
-| `virtual_server.http.server_ssl_profile.namespace` | [virtual_server.http.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-d76262d1b0fbe848118c8019a1d2b5ad0186a232703c29250ae79ae0da4d8b40) |
-| `virtual_server.http.server_ssl_profile.tenant` | [virtual_server.http.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-cdb715882dfb96d730a73fe0711ae6220913e1e1d90c0c78d971ddda21e08ceb) |
-| `virtual_server.http.server_ssl_profile.uid` | [virtual_server.http.server_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-5a196d42a153999a79504d8b24f348d948b6755d0acd5c1dad6db3e01c80a0d3) |
-| `virtual_server.http.stream_profile` | [virtual_server.http.stream_profile](data-sources--application_profiles--reference--group-002.md#canonical-de9e1be889e52150a81b6d319541f21a17a83cb924b0094b266f36463cce7948) |
-| `virtual_server.http.stream_profile.kind` | [virtual_server.http.stream_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2c024fb5eaf1996d3740b872d9effb256c95aad4045b2a36b738aab2d7536885) |
-| `virtual_server.http.stream_profile.name` | [virtual_server.http.stream_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-b7e93084dd7b97c9ba6a8c19bfc6cdf48fa5e2794a08c124a5a0cb348d422367) |
-| `virtual_server.http.stream_profile.namespace` | [virtual_server.http.stream_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-167aac626058f3d2b9d4c84e58ebb55b005384154d48e001e99d605dc07e5e56) |
-| `virtual_server.http.stream_profile.tenant` | [virtual_server.http.stream_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-25cc2c67df7661e38433d08e796c5c61840c7c1f63d669607ae8773975fc227f) |
-| `virtual_server.http.stream_profile.uid` | [virtual_server.http.stream_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-17b7483175589887d8b915dbc7f9a87a1b770030a2dcc83bd63ada74a40b493d) |
-| `virtual_server.http.tcp_client_profile` | [virtual_server.http.tcp_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-c51b4e45bfd112c205832f158012f507f8410becb123841f1e3c181b17435e41) |
-| `virtual_server.http.tcp_client_profile.kind` | [virtual_server.http.tcp_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-66d48c18ebd73937c21b69b14acc7dd7d0268116ea7326f48463a7b03b98be06) |
-| `virtual_server.http.tcp_client_profile.name` | [virtual_server.http.tcp_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-fe7aa3cfb10df9f967570bf566b82b64941685c63b0f8026d5c289170a078ddc) |
-| `virtual_server.http.tcp_client_profile.namespace` | [virtual_server.http.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-e8f5eebfecbe1ba7f3ea15b0299f23bf92256098b1f3c44f9dd468c36360c89e) |
-| `virtual_server.http.tcp_client_profile.tenant` | [virtual_server.http.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-5fdfd73ebad5b844f8665936c8d9c947bb187a0dced74a87cae9deb1b483f772) |
-| `virtual_server.http.tcp_client_profile.uid` | [virtual_server.http.tcp_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-4f920a894ad3f619bcb1a3f38d09edac59280074a7ee06db65e0b831d5149f2f) |
-| `virtual_server.http.tcp_server_profile` | [virtual_server.http.tcp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-4df66e759912115ff2c98d3352738a3ac31842b64b38ea894abe97cabc3ff691) |
-| `virtual_server.http.tcp_server_profile.kind` | [virtual_server.http.tcp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-7bcfaf6b78e08a7cc9f2e1eabf0c6bb9ad017568837b2ce5ae9c58e054265ef1) |
-| `virtual_server.http.tcp_server_profile.name` | [virtual_server.http.tcp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-f0f224ea108def99ee8ac8ee9d0586ffcae3a965af818d6ac842877e591e7612) |
-| `virtual_server.http.tcp_server_profile.namespace` | [virtual_server.http.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-38d3a103eb7ddcc05f995d7aa09f13f0f66fda7cfa3da772c61ed97f13686976) |
-| `virtual_server.http.tcp_server_profile.tenant` | [virtual_server.http.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-dbca43842ede3bd74794df567f8bc3485eca859d80fb324708d234886ebc5797) |
-| `virtual_server.http.tcp_server_profile.uid` | [virtual_server.http.tcp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-14afc38dc1eecda70db78953b834f0a448c2c5792b93c25735fbbdfb898b59c6) |
-| `virtual_server.http.websocket_client_profile` | [virtual_server.http.websocket_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-99a75be6986d1779943a76b5db2f7896887f33654e5bd138dd25fa01d7bce3d5) |
-| `virtual_server.http.websocket_client_profile.kind` | [virtual_server.http.websocket_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2aa93501420a94f1e282f2d374bb2ad7cbe15a76a659579d6bfa0d3f57934992) |
-| `virtual_server.http.websocket_client_profile.name` | [virtual_server.http.websocket_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-751a1dbae2b1543e08985ea76f49a1edf3ce431d052f078e551f2aaa65e87bee) |
-| `virtual_server.http.websocket_client_profile.namespace` | [virtual_server.http.websocket_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-e24476187f8804bfb7ec1ce1699e13bff0a0fb9e3596f8570d93294b9f4302c3) |
-| `virtual_server.http.websocket_client_profile.tenant` | [virtual_server.http.websocket_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-b7c0714faf9100daae542ca41330b27e96951e29f0bfc16313e0b722046a1d38) |
-| `virtual_server.http.websocket_client_profile.uid` | [virtual_server.http.websocket_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-41ab680b7ff1cb85c8c1feb78350640a67d0c7a23bcf1e44eb2d32a7b2610b35) |
-| `virtual_server.http.websocket_server_profile` | [virtual_server.http.websocket_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-a1eb4f060c8c0a690908021d81dc0f9a664894d562ec56a50a8e663a8970b9f6) |
-| `virtual_server.http.websocket_server_profile.kind` | [virtual_server.http.websocket_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-97cf291a7d43a9b8c2dd6f91153df5220779bc46a5b3582509b89ec8c720b2bb) |
-| `virtual_server.http.websocket_server_profile.name` | [virtual_server.http.websocket_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-68f2a25d912a4387ae5ba30943dc5ee579feb41e2053f72bb1f075e0cb7eadce) |
-| `virtual_server.http.websocket_server_profile.namespace` | [virtual_server.http.websocket_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-4717e1c31e04546992e0c711608598b7e26928abbb5d94b09920cb8a3de99874) |
-| `virtual_server.http.websocket_server_profile.tenant` | [virtual_server.http.websocket_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-5a068417c7abf27dde51081c3f247e510be672746a7775996998f3b24509fc25) |
-| `virtual_server.http.websocket_server_profile.uid` | [virtual_server.http.websocket_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-c7f6f90c55f70d2a9bb1200a7daee4fc6b5e7e8a4946a14a801864989e9f7297) |
-| `virtual_server.http3` | [virtual_server.http3](data-sources--application_profiles--reference--group-002.md#canonical-59c74f35851384576f40767c66a9253e2fd71cb1d116e74ea1357b5355bd03d5) |
-| `virtual_server.http3.client_ssl_profile` | [virtual_server.http3.client_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-2da862f0c0a27f3961b846ec9ac0c9b0fbb93d1c88aa2d038e607b54538e496b) |
-| `virtual_server.http3.client_ssl_profile.kind` | [virtual_server.http3.client_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-cb93c4023178aa786455638fbb10943269568649871b417a1e9bf321cbf74090) |
-| `virtual_server.http3.client_ssl_profile.name` | [virtual_server.http3.client_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-d215931e8a5ebd7489d85a5b7948e1ee017e66d2ed6051656301f14ae37b1e95) |
-| `virtual_server.http3.client_ssl_profile.namespace` | [virtual_server.http3.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a04f0ce00e8c93d3682dd00c1771fb94ac3649d4ea11d22484a4dd07d4887f66) |
-| `virtual_server.http3.client_ssl_profile.tenant` | [virtual_server.http3.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-c792d1e98e463d8b88faf7fe4dc73dad20af8882e640d42228beeb23527acbbf) |
-| `virtual_server.http3.client_ssl_profile.uid` | [virtual_server.http3.client_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-2504c99b5fff5fd0e127140bc408f47955d69197007bbd3b6b99fbd7f7877d11) |
-| `virtual_server.http3.http3_profile` | [virtual_server.http3.http3_profile](data-sources--application_profiles--reference--group-002.md#canonical-e85b342deb4612b3bfb19a47d01b564d9ba0f221961ff9f5a8f6a55e6d23a1be) |
-| `virtual_server.http3.http3_profile.kind` | [virtual_server.http3.http3_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-a697d4db6a32b7ade68b1ef43f8833817c56cef1150f7787ba78f8236ce43693) |
-| `virtual_server.http3.http3_profile.name` | [virtual_server.http3.http3_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-78f4c4e2ea0cec354bafe02699029e318b9f190dd6cbf233ea7092d70375a18a) |
-| `virtual_server.http3.http3_profile.namespace` | [virtual_server.http3.http3_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-68374b757b28c671cd02be73291e051da9b891a7adc52b474329adb432800d87) |
-| `virtual_server.http3.http3_profile.tenant` | [virtual_server.http3.http3_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-00d6ddfdc23b96a84db1a7fd6f561749cf5a08bc8ccee037f93d599dfae00421) |
-| `virtual_server.http3.http3_profile.uid` | [virtual_server.http3.http3_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-48123a4b3a4706efb3a7f1aeb8bc539dd169e6ccdb967e97157245ce940b5679) |
-| `virtual_server.http3.http_client_profile` | [virtual_server.http3.http_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-15ccf63ee6aac4c25cabb0155afb24aa61ccdf950196d80611c37ed485e026b5) |
-| `virtual_server.http3.http_client_profile.kind` | [virtual_server.http3.http_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-a08a549efcb756630d46caf0562c8ae3d8ba79e0caf443dc1de73355a4cd98c0) |
-| `virtual_server.http3.http_client_profile.name` | [virtual_server.http3.http_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-69c49bdd9ba32b00437f5fe62c1ed0328e28b9e5b28597932e593ccc60c72a33) |
-| `virtual_server.http3.http_client_profile.namespace` | [virtual_server.http3.http_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-789e73b40dacf8a18cd57afd26b01f1fcf0fea0403c01c980b24a037ef689236) |
-| `virtual_server.http3.http_client_profile.tenant` | [virtual_server.http3.http_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-a65df17694572abe989e93ca8d8e503b4b5c333d3ac39f990902e5fec9b8ab42) |
-| `virtual_server.http3.http_client_profile.uid` | [virtual_server.http3.http_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-6ecf1e806d3064c15d60818b0c417637accd448088a2dc3213c1fc9c656a8034) |
-| `virtual_server.http3.http_server_profile` | [virtual_server.http3.http_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-e9da22cf52ac6df0e313c16c640a2e85b733bb71aa5bcae661ce5d65db9d7424) |
-| `virtual_server.http3.http_server_profile.kind` | [virtual_server.http3.http_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-111d9a5e6284823ea2f30caff78e087a42d3c32a46d7a6609eb9f1574fc1bf7e) |
-| `virtual_server.http3.http_server_profile.name` | [virtual_server.http3.http_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-07df6918dcdff9ff7f9c956fe7ed3662714af25bf37d8d3f8edad2c87b575e37) |
-| `virtual_server.http3.http_server_profile.namespace` | [virtual_server.http3.http_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a7ad5bdb5bce221058651701445caf32b44bf4519bac3ddec6355e07e8c128c1) |
-| `virtual_server.http3.http_server_profile.tenant` | [virtual_server.http3.http_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-8c943699acbd8b65173840a9c950db83106493f52c64898ade6d8e2039ab79da) |
-| `virtual_server.http3.http_server_profile.uid` | [virtual_server.http3.http_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-5f885262e3bf5b7029b87b60187a1b4ab2bc337300bf03b3a9302fe711e8efe3) |
-| `virtual_server.http3.quic_profile` | [virtual_server.http3.quic_profile](data-sources--application_profiles--reference--group-002.md#canonical-b50e8a2eec57ed79fa1950be4865f9706f3a7d22f5f10988d017df3388e27137) |
-| `virtual_server.http3.quic_profile.kind` | [virtual_server.http3.quic_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-63f41adb59f2bdd84f6923bdfc9f41c9563bd19d5531f0833c9d4804ed5b80d5) |
-| `virtual_server.http3.quic_profile.name` | [virtual_server.http3.quic_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-15262949d436631a03dc62127a28342377c1d92b53f92355c06deb0b4d4189b9) |
-| `virtual_server.http3.quic_profile.namespace` | [virtual_server.http3.quic_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-b857560b8b16d3bc873f12c788047b8f9dc94f76e8d9c1cd1c1520a863a82495) |
-| `virtual_server.http3.quic_profile.tenant` | [virtual_server.http3.quic_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-9e9fb74b79a10d0cf7ec602952ba9f8f6e16bed43454c39019acb75fe4057f41) |
-| `virtual_server.http3.quic_profile.uid` | [virtual_server.http3.quic_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-8b828f3973545bea6c0fbce252fc3f8f8a9a7f7cb27f83a8be824734836f0ae4) |
-| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-a2e7936f9d7cb4e74f14f2a394bec22d0386db6d5be7d6e0ce7c59a5cff08a43) |
-| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-06cb7d1d5383b35318ee40487179b9f4a4f3d4605c3166198dbfb0b55917ed76) |
-| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-4e39c3ce0109b220b8f3be8591545016263585f55974626e228b7171a2c3b1d1) |
-| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a8dc133b17618d8636ce04534f0405a04ad801ff2e469ffcd477fd8a0e981410) |
-| `virtual_server.http3.server_ssl_profile.tenant` | [virtual_server.http3.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-19fd4072c5abb1c0b86db8daaeb388446f8019f3a4fa1dcf6f84176ccdf935cf) |
-| `virtual_server.http3.server_ssl_profile.uid` | [virtual_server.http3.server_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-f99acca0cf79c1762b86dfc8a536d862a6884db0d93a45c62e4828877122e302) |
-| `virtual_server.http3.tcp_server_profile` | [virtual_server.http3.tcp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-959687a2571b8aa04770a89bcf8a57170286fecdf391e1e4b98ad4642f55a86d) |
-| `virtual_server.http3.tcp_server_profile.kind` | [virtual_server.http3.tcp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-bf7a34d8f639b21838edd1e5bb266a3ae8ae2bdf6485c2a7c4a3462fdedfb8c1) |
-| `virtual_server.http3.tcp_server_profile.name` | [virtual_server.http3.tcp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-b9a75ec583315b8eef735c7224696b3fdfe2762e8c7b2e0d6b19829255c1515b) |
-| `virtual_server.http3.tcp_server_profile.namespace` | [virtual_server.http3.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-965b89684d5da78027a927448455e8c737d0bffe4f15f0acc3a380f432da3aaa) |
-| `virtual_server.http3.tcp_server_profile.tenant` | [virtual_server.http3.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-b9a6a5b9e027e315db57fb96330cda7242fa2eeff9baef6cf5a59d99b1b7000b) |
-| `virtual_server.http3.tcp_server_profile.uid` | [virtual_server.http3.tcp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-fd14f0436cf609ac4a2d163b734822591deff2fe37ac90b11bce2e681315563a) |
-| `virtual_server.http3.udp_client_profile` | [virtual_server.http3.udp_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-d455d2e53cb96825d6cd79d9195cf5edd883d522a5a74ae99a2cf7fbd8635269) |
-| `virtual_server.http3.udp_client_profile.kind` | [virtual_server.http3.udp_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-a381ad507f416241c6412706080ecc5b2ed2cd13fc012e191ab9eeb4c3672709) |
-| `virtual_server.http3.udp_client_profile.name` | [virtual_server.http3.udp_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-970aeb4e827cc02d63bf1975ff1f36d488566c0cf3b2b146b75061f9a15d42e0) |
-| `virtual_server.http3.udp_client_profile.namespace` | [virtual_server.http3.udp_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-a34f28c9b3fafef8b345bbd7c0312203c041075eca1187d6c03d817eed9427b1) |
-| `virtual_server.http3.udp_client_profile.tenant` | [virtual_server.http3.udp_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-20c4e627d01cb49e1e9884f72ae8fff26f154bd64cd4342954b10a141d5262ed) |
-| `virtual_server.http3.udp_client_profile.uid` | [virtual_server.http3.udp_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-df276a148c4bed5388121a127fc955c15fd1d25798c122f4801500b76586eb8d) |
-| `virtual_server.http3.udp_server_profile` | [virtual_server.http3.udp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-03e78a67a865975e00df35c6fc6ecc36f4d7901daae8cb33f5ae7f41a6de3463) |
-| `virtual_server.http3.udp_server_profile.kind` | [virtual_server.http3.udp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1e2bdafdc7f35c1e1f0b980a7b5f10930f597ffdb01291676a8a69d4385b1123) |
-| `virtual_server.http3.udp_server_profile.name` | [virtual_server.http3.udp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-99ad14f06ef68e0b7498c1f579016b8fe0232f645e30b9b76b3f8bf0a90d22e9) |
-| `virtual_server.http3.udp_server_profile.namespace` | [virtual_server.http3.udp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-d71558dd0013a6608cc2386a6916ea10d565cd841aa9e65c671f459f090a52a2) |
-| `virtual_server.http3.udp_server_profile.tenant` | [virtual_server.http3.udp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-978514a2159618d6be71d6d98e55fd16288786fc07a2c7418cd80abf2453bf1d) |
-| `virtual_server.http3.udp_server_profile.uid` | [virtual_server.http3.udp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-6da45e49e79b962745dbefffe9421df37824154fe20f8190d6d328d36d2b4b7b) |
-| `virtual_server.https` | [virtual_server.https](data-sources--application_profiles--reference--group-002.md#canonical-d4590d5492772762dcd475e0f257fdb82dd3a054627a0738dc4f0a13978965db) |
-| `virtual_server.https.client_ssl_profile` | [virtual_server.https.client_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-5ee982bf36322fe9f914ead4f15768695c61a7aa42ac737432d767aeac0da4b7) |
-| `virtual_server.https.client_ssl_profile.kind` | [virtual_server.https.client_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-5467672c814dd823424b77ddf32537a01c3ad96b70a16cb2742b59a9439f5060) |
-| `virtual_server.https.client_ssl_profile.name` | [virtual_server.https.client_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-e73f7703e9c1231810de98bcb5fb85445290849ec06696388d26e138e4a95942) |
-| `virtual_server.https.client_ssl_profile.namespace` | [virtual_server.https.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-8fd42f31ad1273c70c2963dafe51b4a9176233c77a0cfb883514b7aed323c460) |
-| `virtual_server.https.client_ssl_profile.tenant` | [virtual_server.https.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-16544674d2ac2b82631e500d2cd66b44c9f4456e05f8c72e109514337dbe1104) |
-| `virtual_server.https.client_ssl_profile.uid` | [virtual_server.https.client_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-d24e2c915b892193f109ff629814de0b7d403ceffa4a51c1ef0a63adc82182aa) |
-| `virtual_server.https.http2_client_profile` | [virtual_server.https.http2_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-b0d6cc993ec4cd1c5c60643897fb53962932f49c554aa1170f2b124fa75ccf14) |
-| `virtual_server.https.http2_client_profile.kind` | [virtual_server.https.http2_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-a3336b87d9ba29ea1c83298d7ebc0ceadf9f4dee7822bc1dd3b7f9a59d13bc53) |
-| `virtual_server.https.http2_client_profile.name` | [virtual_server.https.http2_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-c818848fcd6fbb9351fbf64df48d33c03b5f70d2ad3e842d58e22a2d09403483) |
-| `virtual_server.https.http2_client_profile.namespace` | [virtual_server.https.http2_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-8d40102d4e443c6a5c6634be9efcb7447745dce6ff63d0d7642b93c1b46a367e) |
-| `virtual_server.https.http2_client_profile.tenant` | [virtual_server.https.http2_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-92ed7ecef32a7ce4d4161521d2fce018e0bf62c42a8b54b9f9819992bdd6c20e) |
-| `virtual_server.https.http2_client_profile.uid` | [virtual_server.https.http2_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-17ad9c332c2f7c621f7dfdd59723fddcc56aedcc8e2e65d7d08fc9ee200510eb) |
-| `virtual_server.https.http2_server_profile` | [virtual_server.https.http2_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-cedc1b1efb6532ee0cc2414c5cccb67da37c211833832a853225c077daa91cd1) |
-| `virtual_server.https.http2_server_profile.kind` | [virtual_server.https.http2_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-62c5e9fd6324cbeedcaffad5ee49cf2dce181a948c92cc5150753214e14c7b19) |
-| `virtual_server.https.http2_server_profile.name` | [virtual_server.https.http2_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-ebf2dc4990ec58933361adaf5c759f97f2915aa634b6e657012990423742c840) |
-| `virtual_server.https.http2_server_profile.namespace` | [virtual_server.https.http2_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0fbb61df015bd9b18f41cc6bcbcd8b017de0656e2ad748c1531a1b73d20a0412) |
-| `virtual_server.https.http2_server_profile.tenant` | [virtual_server.https.http2_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-d986d1d0a1ee7a4197d3a2902eecf6da6e7fd8629f0e6cfca9e19f45107dc0df) |
-| `virtual_server.https.http2_server_profile.uid` | [virtual_server.https.http2_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-028f4b9d1f7ab90ef983ed22c28e421d233a5926009240cdc5ea151f2db4f805) |
-| `virtual_server.https.http_client_profile` | [virtual_server.https.http_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-ddc17c08055c18109993a607e59e76af0393225f3c228b43fdfa08c667e834c3) |
-| `virtual_server.https.http_client_profile.kind` | [virtual_server.https.http_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-35b4daf643bd40497ce7c4a1f405ae122fa0282d491803532b0fe4585fee388d) |
-| `virtual_server.https.http_client_profile.name` | [virtual_server.https.http_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-e4622718da81b6ab913640e16d2177535859cf25b7136cbc2b649e5a583f9c46) |
-| `virtual_server.https.http_client_profile.namespace` | [virtual_server.https.http_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-17e385808a2277afe1ee631ee68a115849edf62d5cf1b365dbb0039d5f149ea5) |
-| `virtual_server.https.http_client_profile.tenant` | [virtual_server.https.http_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-c769e3a8f0816dd99fc5da9bd0bd91f7bdb50ec6d1500048cbfd79e6913101c2) |
-| `virtual_server.https.http_client_profile.uid` | [virtual_server.https.http_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-26b0d1062156ab0972b57d5edf6dd2dc09641b5b5ec66bce962a18960029ec6c) |
-| `virtual_server.https.http_server_profile` | [virtual_server.https.http_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-dec9eda488ec8a960180066b26bbca0c038abf43a9f4f014cfcd89592d076588) |
-| `virtual_server.https.http_server_profile.kind` | [virtual_server.https.http_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-b76e29ccfd6be22a2d7752b58ca78ce4d53ffa95b14044807368888061bb6eb5) |
-| `virtual_server.https.http_server_profile.name` | [virtual_server.https.http_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-4f7de1a837c82b7e3afaef25c7713766dff443c197e97d32f914048d830d1f67) |
-| `virtual_server.https.http_server_profile.namespace` | [virtual_server.https.http_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2364178b23216538d2b01b45afca31964db33584e28d302b271f6ed2119a8fda) |
-| `virtual_server.https.http_server_profile.tenant` | [virtual_server.https.http_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-a4acbdaaee593c4bc03e5814eb77e408c1cd453d0348661712fe55341692f3ab) |
-| `virtual_server.https.http_server_profile.uid` | [virtual_server.https.http_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-46bb3adc75666cc825e48237c0b0d3c51b2d541412251fc10571f28c66d1418c) |
-| `virtual_server.https.ocsp_profile` | [virtual_server.https.ocsp_profile](data-sources--application_profiles--reference--group-003.md#canonical-87091287bd839c53798f2c02171540c3af9a6338920296d53c343792561bb449) |
-| `virtual_server.https.ocsp_profile.kind` | [virtual_server.https.ocsp_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3f78313b58f41f5bf4ea7edc013bd9b05f61dcbbcf677d5825aea5acec2adfe2) |
-| `virtual_server.https.ocsp_profile.name` | [virtual_server.https.ocsp_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-ac2f76107cd2fb8478b7cfaf13031b8d1c2d7172ae79687846a381c14eb8d6a6) |
-| `virtual_server.https.ocsp_profile.namespace` | [virtual_server.https.ocsp_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3d68d3a18bcc911bbfd7e8178558d6cef2ddbfd706bde3df4c1b3329e85d883c) |
-| `virtual_server.https.ocsp_profile.tenant` | [virtual_server.https.ocsp_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-fabf427876a2f6574836ea4be14cd382e43fc69447e6013b0043a7a2071bfa52) |
-| `virtual_server.https.ocsp_profile.uid` | [virtual_server.https.ocsp_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-d4cec6258e0adaf178491b2082030454545e59440cc2a24a6a59f1e07001c360) |
-| `virtual_server.https.server_ssl_profile` | [virtual_server.https.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-f3d6bf36cffb58d7a7dbcfadb032655eae87008585c63f86edff665e168906a2) |
-| `virtual_server.https.server_ssl_profile.kind` | [virtual_server.https.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-83603a426b70080275a6d33cfb1fba108165ea1d12ddbdbe41a3f7c1c97df634) |
-| `virtual_server.https.server_ssl_profile.name` | [virtual_server.https.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-7bb36a8b523c3bf3cf5e1e83b1da3fa468b39d3a8dfc6fc539bfe6d7d1a33cef) |
-| `virtual_server.https.server_ssl_profile.namespace` | [virtual_server.https.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-00628772f6e9a747acf4e45a81a99bb8eb868a55ed6536a1fe29da10b0afb449) |
-| `virtual_server.https.server_ssl_profile.tenant` | [virtual_server.https.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-e3f1ebaf5bed7745a5919e2612cd8546e09858fcdafc36dc6b9f92d8ea47395f) |
-| `virtual_server.https.server_ssl_profile.uid` | [virtual_server.https.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-5dd28854200a7a322569ae81d9550a844910261ca01effcf856977b0b0219e2e) |
-| `virtual_server.https.stream_profile` | [virtual_server.https.stream_profile](data-sources--application_profiles--reference--group-003.md#canonical-9159b8d42da7929cd3846360b09881856c3ba471f5eb18c05241202f3da79dc5) |
-| `virtual_server.https.stream_profile.kind` | [virtual_server.https.stream_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-99a9ab68c36646f9ca9d0cc2964aa93d1a52e8e188504b07f48b9c4150967fb2) |
-| `virtual_server.https.stream_profile.name` | [virtual_server.https.stream_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-6994a2a8b89afcd166c194b0791bd49b031690f34f2cd54edb690662a089713d) |
-| `virtual_server.https.stream_profile.namespace` | [virtual_server.https.stream_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-7bc71d00a060e9fc6f82e242d247f5430e5f4493fa1f58437f932043e43194ad) |
-| `virtual_server.https.stream_profile.tenant` | [virtual_server.https.stream_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-d616a5c45083d03e307ff5bac81328340a7e78178a2eeeabcbaed5e12523614a) |
-| `virtual_server.https.stream_profile.uid` | [virtual_server.https.stream_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0e6fffec07b17a047715a9fea8bd75f8bbfc0733e26040c5a532bd4dd2c41306) |
-| `virtual_server.https.tcp_client_profile` | [virtual_server.https.tcp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-f542921f0bb847a58417d6670d00afc58412f338750f7d3aa4e6b61e839cf44a) |
-| `virtual_server.https.tcp_client_profile.kind` | [virtual_server.https.tcp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-c01d32c4bc9b4ecffd848aa0b03821594c54ee4cdbbf8f38580e6dfeebf3faed) |
-| `virtual_server.https.tcp_client_profile.name` | [virtual_server.https.tcp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-5316816f398975096f0329db7c3983714e4d64a0e7d526349d06897976b61e99) |
-| `virtual_server.https.tcp_client_profile.namespace` | [virtual_server.https.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-ee10a6746546badae5342c16a921a16babbb7288400cbe2ffe9570565f050d2e) |
-| `virtual_server.https.tcp_client_profile.tenant` | [virtual_server.https.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-4489a866eb442ef5fb1c5cfea10f743c02f678e2247e5e9d879769bf04b477f0) |
-| `virtual_server.https.tcp_client_profile.uid` | [virtual_server.https.tcp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-08e81b4f088414c05c1ed6c9679c5502b7c10049e2ac533243edf52f90197d4e) |
-| `virtual_server.https.tcp_server_profile` | [virtual_server.https.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-bf6a3b12fd0251570d2fee396000d411ff7e7e4a1d3c82a7b1af949c75317422) |
-| `virtual_server.https.tcp_server_profile.kind` | [virtual_server.https.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-071bb0b692f5bb69f9a93462eb9915f201a3963077ce3b28d09b99f28e706fab) |
-| `virtual_server.https.tcp_server_profile.name` | [virtual_server.https.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1111f87675cd6a6437454f231949b2e0351c2560e0b6916efcd63fd040e21d91) |
-| `virtual_server.https.tcp_server_profile.namespace` | [virtual_server.https.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-e753c24a70ce44f56071ba03abcd57d00a33bc69f38e1b3350a53c0dde321d22) |
-| `virtual_server.https.tcp_server_profile.tenant` | [virtual_server.https.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-fee442f391679ed3caa0e8acebb1c571b5d1d381db32ba0fc48290a22387c60a) |
-| `virtual_server.https.tcp_server_profile.uid` | [virtual_server.https.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-6bdc4df7bfa9cd2dcb14a08ae310f0a92158700752c5a23cd535b76c20f32cf9) |
-| `virtual_server.https.websocket_client_profile` | [virtual_server.https.websocket_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-d458aaa7cd4c3b57a43d0f2b347b04de2bf6ea2c0b8abc31a7bbff84b0e7d77d) |
-| `virtual_server.https.websocket_client_profile.kind` | [virtual_server.https.websocket_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-9d3bd9350990ebcda6514edc832838f02897ff096719f1a6b7eea75260620ee2) |
-| `virtual_server.https.websocket_client_profile.name` | [virtual_server.https.websocket_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-fceece888635c30c9763cc902782df97470d8478af7a82e7a70f5b1cdf3544e4) |
-| `virtual_server.https.websocket_client_profile.namespace` | [virtual_server.https.websocket_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-148d99bf8efc51daad5728650b6b36459876f3b2d0373266a47a89fc6de81292) |
-| `virtual_server.https.websocket_client_profile.tenant` | [virtual_server.https.websocket_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-444dcf30ef004905b057fb6d028cecd43b6ffd4be4dd2c766a5dde7b43220ad8) |
-| `virtual_server.https.websocket_client_profile.uid` | [virtual_server.https.websocket_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-73b93473c0acfe0b4edfeebf82deed9ecb421614162c869a4ee722fefedc65b1) |
-| `virtual_server.https.websocket_server_profile` | [virtual_server.https.websocket_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-86571b7a55e8c33a958a06494cbd77f1519b55ca11d838c124a00332e4f8400f) |
-| `virtual_server.https.websocket_server_profile.kind` | [virtual_server.https.websocket_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-173ee6154284ade44cd5c10b3c2e43f939e2221017d6eb39054b8ba4ed9c4bae) |
-| `virtual_server.https.websocket_server_profile.name` | [virtual_server.https.websocket_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-4900917f6ff6e6bc285c2c7742f834071aa0ea224ef8d2427e1ff7c96ed90c4b) |
-| `virtual_server.https.websocket_server_profile.namespace` | [virtual_server.https.websocket_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-6da0ae28f2ae011a20cc029d56aade976357b922119b464554786927b396c6cb) |
-| `virtual_server.https.websocket_server_profile.tenant` | [virtual_server.https.websocket_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-063da4d3c6bc63e7018adfc431f7941f82618485a66b0d3a9b4ad7424d7fd94e) |
-| `virtual_server.https.websocket_server_profile.uid` | [virtual_server.https.websocket_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-20cc66aaa78073189612dcbecb93c669666caa87a095416d3d9ce5fecd7b1681) |
-| `virtual_server.immediate_action_on_service_down` | [virtual_server.immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-24f59946a3d58f9754f08a2e67462e6b9f8a0985f17241d8c05e8bd5bdfa33d4) |
-| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop](data-sources--application_profiles--reference--group-003.md#canonical-ef0ed12167543ebba930c555e39a68faba075ef6200abd2eb49872ad6eb8ef1b) |
-| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none](data-sources--application_profiles--reference--group-003.md#canonical-c0f77183775d8a5679e3fa2bebd2c4effa7f3cbf1ff8c2d2588ea70cff5991dc) |
-| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset](data-sources--application_profiles--reference--group-003.md#canonical-cddb9284ff3df29dd074fb333c13bf15d54071e1071e619c775fd379c2dee06f) |
-| `virtual_server.last_hop_pool` | [virtual_server.last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-7dfbdf1f7dc13e226b471d7bf9dbc910b5d21e4e2bc8d7b2d406eac51f0b43a1) |
-| `virtual_server.last_hop_pool.kind` | [virtual_server.last_hop_pool.kind](data-sources--application_profiles--reference--group-003.md#canonical-f8b09b3656cad01fdeae4a1f7f9fba938bfa425513fd4e2299c6387b7495fafe) |
-| `virtual_server.last_hop_pool.name` | [virtual_server.last_hop_pool.name](data-sources--application_profiles--reference--group-003.md#canonical-5079228e397112c36a01c694a798a009dae5b3a10f91b0373a1626b22343d26c) |
-| `virtual_server.last_hop_pool.namespace` | [virtual_server.last_hop_pool.namespace](data-sources--application_profiles--reference--group-003.md#canonical-4aafd1a5c6c0411a5f1b251795ecdb7dffa42e155d119e0bab0f74e9e7a3555e) |
-| `virtual_server.last_hop_pool.tenant` | [virtual_server.last_hop_pool.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3a3945ae58fc1137aa54dbebf09b1f882e2df9ff0483c8b30a48c252f6264e60) |
-| `virtual_server.last_hop_pool.uid` | [virtual_server.last_hop_pool.uid](data-sources--application_profiles--reference--group-003.md#canonical-2ab5eb34d4b33e195fb97687719c4088f41a22426fb3bd7da2b656df8c1bbba5) |
-| `virtual_server.nat64` | [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-d6aa6fe895906e316c1d2f52574869c46bd0aab9012c237b2d86bbcc398455df) |
-| `virtual_server.nat64.nat64_disable` | [virtual_server.nat64.nat64_disable](data-sources--application_profiles--reference--group-003.md#canonical-fc240bbed6629c5e62589d6f424a8aeb7b4d6eb9c8f0d23144056c7fe4696e73) |
-| `virtual_server.nat64.nat64_enable` | [virtual_server.nat64.nat64_enable](data-sources--application_profiles--reference--group-003.md#canonical-bbf30fd71593225aea4a4a36d80ed3f96b08685aa69ae17c0a2e19b7a70fd17b) |
-| `virtual_server.port_translation` | [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-2c1a9a7dc9518624b1ed03a4160943fcc843e743f8e29e9ef81b323d02be6d47) |
-| `virtual_server.port_translation.port_translation_disable` | [virtual_server.port_translation.port_translation_disable](data-sources--application_profiles--reference--group-003.md#canonical-6bfc5b2bc3deb4a5e7f9b5c5855f9d7f5d87006eea110759fb60ba8e64d5aa85) |
-| `virtual_server.port_translation.port_translation_enable` | [virtual_server.port_translation.port_translation_enable](data-sources--application_profiles--reference--group-003.md#canonical-5b248fabc30abbbd809c4ca12eb25f1375999bf88acb488f7f2b10461ad1d606) |
-| `virtual_server.request_logging_profile` | [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-4d530c7ac5195f5df8e87d097dfb37073fb53f5ac6fc8c695f9aa1f4a8b9c182) |
-| `virtual_server.request_logging_profile.kind` | [virtual_server.request_logging_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-d516f11b7ab24db2d4a09d761b126baa6926b235afe21cd6e7a41edfaaf4163d) |
-| `virtual_server.request_logging_profile.name` | [virtual_server.request_logging_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0e7499e10e90607a4a3e18de29aefa396cd69047f57b389c42afa59425e4c826) |
-| `virtual_server.request_logging_profile.namespace` | [virtual_server.request_logging_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-bfb6d8aac0620447bf6b6cb044c01e0d7603ff2ec87342f6b03177ea7e2656a4) |
-| `virtual_server.request_logging_profile.tenant` | [virtual_server.request_logging_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-b9e41430aa0a1d1e36406bca5475c489624d6a2b746154d9768f92633bfdd1f3) |
-| `virtual_server.request_logging_profile.uid` | [virtual_server.request_logging_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-6527c9961712f454e771a9a8daa43ccfe80c9b882ca03aa018b65c61d05f5be0) |
-| `virtual_server.source_port` | [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-ad363b517828af74b2f7de0607ed43073ab239752d743a549b36f3fcc847d40e) |
-| `virtual_server.source_port.source_port_change` | [virtual_server.source_port.source_port_change](data-sources--application_profiles--reference--group-003.md#canonical-4fb102546ee7433007d57646ddee19ebdd648aa79b2b3bcc20f9734116144591) |
-| `virtual_server.source_port.source_port_preserve` | [virtual_server.source_port.source_port_preserve](data-sources--application_profiles--reference--group-003.md#canonical-da91e57ce73f7e99acedeeef22892a41b34f21fc63a01bc31fe8b7bfedb4b63b) |
-| `virtual_server.source_port.source_port_preserve_strict` | [virtual_server.source_port.source_port_preserve_strict](data-sources--application_profiles--reference--group-003.md#canonical-93b5d4c9ab521cefdb5df5d99c459a4a8c5127b0129049cfa15962003c4177d8) |
-| `virtual_server.statistics_profile` | [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-8c63ada2758f01b939e0d1e1ef09aecd8f10abb3945d84e973e82b982e1e6a87) |
-| `virtual_server.statistics_profile.kind` | [virtual_server.statistics_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-b21123a591a3a0185a49c00c3db2d1938f0fed586514246c9a5f520eef8ac7f1) |
-| `virtual_server.statistics_profile.name` | [virtual_server.statistics_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-649caae6df455908facdf6b01b6c75fc83bc5b03dabbaa5d57ddf944a1ce9bdd) |
-| `virtual_server.statistics_profile.namespace` | [virtual_server.statistics_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-efc17eb45f5dfbab6c2bb1df657a670797e69834d93ce4a02818770429265fe4) |
-| `virtual_server.statistics_profile.tenant` | [virtual_server.statistics_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-e0383c1ef3c9388180333756d0428519fc42d245bf81328b32a6320e8ddfd3b1) |
-| `virtual_server.statistics_profile.uid` | [virtual_server.statistics_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-d126ce4776172715ccf9e1d2159ba689e3aae18756cba9f0fcf68bbbaf31bcbc) |
-| `virtual_server.tcp` | [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-fed3b36f37e7c02ef01066cef90f506b4200d146691c163d934491714451bed0) |
-| `virtual_server.tcp.client_ssl_profile` | [virtual_server.tcp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-6becd4ce7fc44af63bdd7bd2a5337ac39609fc2edd60384df022d7a0a0ff5489) |
-| `virtual_server.tcp.client_ssl_profile.kind` | [virtual_server.tcp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-6811c599e8bf8411c76fe469e97ee3c50a05ec4fa4542281767b7912fe508b35) |
-| `virtual_server.tcp.client_ssl_profile.name` | [virtual_server.tcp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-61bbd436ad7fbe7051a82c41306382c2f6d0688cb6f82a89a7ad5b8a5ad01462) |
-| `virtual_server.tcp.client_ssl_profile.namespace` | [virtual_server.tcp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1a2785e0f2a08687dcf12d69cea302abbf1386a88f4de8043bd3f932a764eebc) |
-| `virtual_server.tcp.client_ssl_profile.tenant` | [virtual_server.tcp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-461fa089a5957a838ea7178ceb6be3cdf509d19770c54f284ed9047001e93d1a) |
-| `virtual_server.tcp.client_ssl_profile.uid` | [virtual_server.tcp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-991a15b602076359e1f770748d3b707d8bfe8ddf87e2b840910864f93b12fb9a) |
-| `virtual_server.tcp.ocsp_profile` | [virtual_server.tcp.ocsp_profile](data-sources--application_profiles--reference--group-003.md#canonical-ea5e2eba3da843952d83ef1d58125020784cbe09c83b5687c6e70bb166bf588c) |
-| `virtual_server.tcp.ocsp_profile.kind` | [virtual_server.tcp.ocsp_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-9f4cd9f54b82832b309f6c38cf8fba8cc3296ce3fa39f73223980024e4e21a3e) |
-| `virtual_server.tcp.ocsp_profile.name` | [virtual_server.tcp.ocsp_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-73c92c8c1002ec35a44af767cbe2dd502ce9f665066ec5286526f54dfe7dec3a) |
-| `virtual_server.tcp.ocsp_profile.namespace` | [virtual_server.tcp.ocsp_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-dcb08e05d34e14396334e1031f26405909b454fdefa3214fe6aca20da25bd3c5) |
-| `virtual_server.tcp.ocsp_profile.tenant` | [virtual_server.tcp.ocsp_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3a2731fb22e0b952d0473100a46aa47ababed01db36542e068fba7e36abcbb6f) |
-| `virtual_server.tcp.ocsp_profile.uid` | [virtual_server.tcp.ocsp_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-ef7352c2aa96b88465b6492a78d95f13ed848c15cfea76ae10b9ea2b79ef2962) |
-| `virtual_server.tcp.server_ssl_profile` | [virtual_server.tcp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-7190c5c4c134028b638b0785b8ae92f8215cc96f575a3e1d394f5720b7cb205e) |
-| `virtual_server.tcp.server_ssl_profile.kind` | [virtual_server.tcp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-dba3204329536526c42cb36e102676af2d46948ec422b6f3e1b6847eefb0afd0) |
-| `virtual_server.tcp.server_ssl_profile.name` | [virtual_server.tcp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-e82c9f044af52c325cd32957a3f61eb42f952eee539c68ca85b3eb171ea59a1a) |
-| `virtual_server.tcp.server_ssl_profile.namespace` | [virtual_server.tcp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-d5ad219b232cfa683ecc27ed8d124012481411ad520005c5c2f2c7e267863f7b) |
-| `virtual_server.tcp.server_ssl_profile.tenant` | [virtual_server.tcp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-8a523c6fafb0d46270ae4fb0f901b8285de3e9ffa2d5f5e09fbc95260e1cccfd) |
-| `virtual_server.tcp.server_ssl_profile.uid` | [virtual_server.tcp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1380e0d9b387c3c90ee1df25dd0348f3ef8966126de5fe71d2a6c4754368ad0a) |
-| `virtual_server.tcp.tcp_client_profile` | [virtual_server.tcp.tcp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-2f709128592e3af6ceb0b049905d4c8b84bc61257894947d89536ef44c66e294) |
-| `virtual_server.tcp.tcp_client_profile.kind` | [virtual_server.tcp.tcp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-cea36b67b0b9992ca66fd77a4de6e25ccbaf8dd789f59f667dd84f658e2a464b) |
-| `virtual_server.tcp.tcp_client_profile.name` | [virtual_server.tcp.tcp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-339cea565067082078abad2ddb0a5a5d6cd74b9bddc6677352a673278dc1df4d) |
-| `virtual_server.tcp.tcp_client_profile.namespace` | [virtual_server.tcp.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-818389ef58313e1e4e58a54de540443cb2fe63cd9fb68044af577396e63bfd21) |
-| `virtual_server.tcp.tcp_client_profile.tenant` | [virtual_server.tcp.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-664320f73d93bf8c61cdb1ac0ca7e8e1c15dec76d13bd42aefaf41d754fbf45a) |
-| `virtual_server.tcp.tcp_client_profile.uid` | [virtual_server.tcp.tcp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2fa6b3c5662d9355393deff203f45d3f572d91b54890d032692e200c281a4da4) |
-| `virtual_server.tcp.tcp_server_profile` | [virtual_server.tcp.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-ab44608225a6ab07a35eaaa98010b5ee0a454d0df672599fd170fe7a969dcfe9) |
-| `virtual_server.tcp.tcp_server_profile.kind` | [virtual_server.tcp.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-bd0bbe56573f934579b9834b4ba824ef8925c0f631584913185142e18266c148) |
-| `virtual_server.tcp.tcp_server_profile.name` | [virtual_server.tcp.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-83347ebd1043c69f339775ce94bdfb66c6de01778d208ea248f9564b6b6609d0) |
-| `virtual_server.tcp.tcp_server_profile.namespace` | [virtual_server.tcp.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-faa2112423a167e5586e12c02ddd13d07e54788234b1d63db9d8063292b1250b) |
-| `virtual_server.tcp.tcp_server_profile.tenant` | [virtual_server.tcp.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-396c0164845bc25d7d477c33b49184007bae206b5c353cfd6a3add209162152d) |
-| `virtual_server.tcp.tcp_server_profile.uid` | [virtual_server.tcp.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-d68b9e1c328b65fb3cce0050fb12b189a6129d62eb3a6b2e6d2d9dac147050d0) |
-| `virtual_server.udp` | [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-ec4acd18442e0e69df2ef446188dfaacef92f9137e352e59ad0b651b89e711ae) |
-| `virtual_server.udp.client_ssl_profile` | [virtual_server.udp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-ab54d95f11fc2ee97cca03519e5ab6eaa168b9cc48e77c05447fd88decc34716) |
-| `virtual_server.udp.client_ssl_profile.kind` | [virtual_server.udp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3ac464f4a5922e72a84223e9dbb59a4caafc7420abf965a45d25b755ed903b9f) |
-| `virtual_server.udp.client_ssl_profile.name` | [virtual_server.udp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1e4ecef1b49112cae943af2c88afbe26269b567917a487fdb30d11209acfeb25) |
-| `virtual_server.udp.client_ssl_profile.namespace` | [virtual_server.udp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-644ef6ec0583c430dafb65342f13d2075a0a6591668fee22798a5ec352c691c4) |
-| `virtual_server.udp.client_ssl_profile.tenant` | [virtual_server.udp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-25d5a383ea7155c2d103b444895cb03d9501272995623a85501cf14b2379a9b0) |
-| `virtual_server.udp.client_ssl_profile.uid` | [virtual_server.udp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-a5431232b819578f61cd8289689d06a886270d1e2f33fdce859d6dc32dc9b6d4) |
-| `virtual_server.udp.server_ssl_profile` | [virtual_server.udp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-113c6c7fbc1ec2f04c809603d5bd35cc52490f8d9d64deaaa77765bcb122e5d0) |
-| `virtual_server.udp.server_ssl_profile.kind` | [virtual_server.udp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-beec88a2b11075f5e18edff61da77733b1059650335da63c1ecdf50288e5c356) |
-| `virtual_server.udp.server_ssl_profile.name` | [virtual_server.udp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-a9cd946b1f38f186f702b8d1fda417d9847a812c2ddf5ff37b0a2ef57118749d) |
-| `virtual_server.udp.server_ssl_profile.namespace` | [virtual_server.udp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-508d560d98eeb784b1cc1a82c620c7f767da089524611eabb117624580546145) |
-| `virtual_server.udp.server_ssl_profile.tenant` | [virtual_server.udp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-6b698e52808ff6c37a68bda6c03456d0e6df4b24b6bb024987b4d22e7224ad04) |
-| `virtual_server.udp.server_ssl_profile.uid` | [virtual_server.udp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-ad72e40adb053a0d8f9b4934802eae5d00cb27c7a6e984fd246bd016121514d3) |
-| `virtual_server.udp.udp_client_profile` | [virtual_server.udp.udp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-4a287d25dd2f51853eac7bfc346f70b2c33101f37d4d142b0275987bab0093d0) |
-| `virtual_server.udp.udp_client_profile.kind` | [virtual_server.udp.udp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-fde67c0e8239a86bdea73fbed61c54aeb34094c964604ce4e33c022f3b9bf08f) |
-| `virtual_server.udp.udp_client_profile.name` | [virtual_server.udp.udp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-78afd2af2586cbd82b0a7420e4620abc9fa017628d91ec37aebce715f874fa22) |
-| `virtual_server.udp.udp_client_profile.namespace` | [virtual_server.udp.udp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-b367ea08a04834bae4bf87c6c934a3b99c4b4ca5f819a7ce6778288df9dbcbdd) |
-| `virtual_server.udp.udp_client_profile.tenant` | [virtual_server.udp.udp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-55dc3f2796ce12cc3ecc8f7a2905aa1cf5d4cd4fed73c9caf139069afb8338eb) |
-| `virtual_server.udp.udp_client_profile.uid` | [virtual_server.udp.udp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-dbee2710dea23677e4d9c68675867c61a63d2d5a8055a2ee513b89d9ee1c846f) |
-| `virtual_server.udp.udp_server_profile` | [virtual_server.udp.udp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-6e92e9fae03d12e44a42d646f5ef3e621c3827c8b10da3ffc912cee3cec7a35f) |
-| `virtual_server.udp.udp_server_profile.kind` | [virtual_server.udp.udp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-31ba8ff8262f4af9af428d96b0f6b13385ae283f5f651afb9b60f7982d7865ba) |
-| `virtual_server.udp.udp_server_profile.name` | [virtual_server.udp.udp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-715d9c3e85718431be75de5c94927bb9fdd6ab1fb922b4594f87cfd1f56fb977) |
-| `virtual_server.udp.udp_server_profile.namespace` | [virtual_server.udp.udp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-50e6cd84cb7a6202fe774e173df025ba5e27adc665f392bb22a3eec870dcf1fb) |
-| `virtual_server.udp.udp_server_profile.tenant` | [virtual_server.udp.udp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-08bfd6347868017170671eff6fbd78b8eb195e222dbaa38f938c0ab5466fff99) |
-| `virtual_server.udp.udp_server_profile.uid` | [virtual_server.udp.udp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-f27b48285694654d1bb1b9759d1b5919f4e5c621a16e71645bf9110e6a8a5d2e) |
-| `virtual_server.virtual_server_state` | [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-89b19c385bb0df18a103d7cdde9054f96f70b81b27afcc611e2ae38962137b90) |
-| `virtual_server.virtual_server_state.state_disabled` | [virtual_server.virtual_server_state.state_disabled](data-sources--application_profiles--reference--group-003.md#canonical-bfb0fbd34a39406765d93e7ea7128ff07984685a2a47757d91a083beb53af121) |
-| `virtual_server.virtual_server_state.state_enabled` | [virtual_server.virtual_server_state.state_enabled](data-sources--application_profiles--reference--group-003.md#canonical-9713f599f7c135068f02155ddd77a98abe3da7c62a31f2b43d4462c0527cd32c) |
-| `virtual_server.vs_score` | [virtual_server.vs_score](data-sources--application_profiles--reference--group-001.md#canonical-51a437adb20e64820dce32be1cddadfac3c7d009cb042089c829feda5cc50c4f) |
+| `advanced_tcp_profile` | [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3103131213032020-2232220002323000-3022110002112000-2132202321322211-0103100312231112-0011131333112302-0131132001303202-2001112033100223) |
+| `advanced_tcp_profile.disable_tcp_advanced_profile` | [advanced_tcp_profile.disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-0031021223020121-0313201222331322-2213213200312303-1200002202321001-2020122300120332-3232201110311310-2222112231313233-1212332103200323) |
+| `advanced_tcp_profile.enable_tcp_advanced_profile` | [advanced_tcp_profile.enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-2132123223321020-3220331133132202-2132112203103122-3030222322022111-0112222320032010-0213023031331001-1032132003323303-2101312322033331) |
+| `annotations` | [annotations](data-sources--application_profiles--reference--group-001.md#canonical-1111033000233032-2010110330112021-3020021200333133-0122202223103122-3322232222132030-1223321130112120-3201010111311332-0333222100102331) |
+| `ddos_profile` | [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-2320300300230322-1211321231211200-2130113001113201-0022333322320010-0321020212300310-1202032132303002-1133321112002032-3320101300333020) |
+| `ddos_profile.disable_ddos_mitigation` | [ddos_profile.disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-2322002221332203-2201123333331111-2111331012010001-0003122232130211-3213000131220033-2020210012320323-3330123030122303-3311333022131021) |
+| `ddos_profile.enable_ddos_mitigation` | [ddos_profile.enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-1201301110212113-3212113310322200-2101012321233320-3310312202101201-0012310112100332-0312121210221332-0100311332322101-0201211232113212) |
+| `description` | [description](data-sources--application_profiles--reference--group-001.md#canonical-1000130003032211-2302200201022221-3322022302310031-2222001113012331-2312200112003203-1023132331330033-0130030333121112-1321213211010320) |
+| `id` | [id](data-sources--application_profiles--reference--group-001.md#canonical-3102322000133300-0032022312310313-3313102210210131-3110312201300220-0302303023020232-2330302020202110-3132221223210232-1123103203010211) |
+| `irules` | [irules](data-sources--application_profiles--reference--group-001.md#canonical-2133110011210120-3221112323330121-0301000132001231-3020023210120022-3213032011312201-3103230032102013-0212012120003223-3330103002332200) |
+| `irules.kind` | [irules.kind](data-sources--application_profiles--reference--group-001.md#canonical-2231003121311202-0213213112332303-0030001011123023-0202323320301000-2222332313302223-0110031013300313-1003021123332320-3110011302033013) |
+| `irules.name` | [irules.name](data-sources--application_profiles--reference--group-001.md#canonical-3032133331010100-0130211001111000-3013131111201000-0203101213010032-0101102112312322-3000330001202100-0310312321112210-1231230202312022) |
+| `irules.namespace` | [irules.namespace](data-sources--application_profiles--reference--group-001.md#canonical-3011031323202031-2003130132103122-1022010132132101-1332333031231233-2113023203202320-2330031200031011-0302100133331233-3332022003111310) |
+| `irules.tenant` | [irules.tenant](data-sources--application_profiles--reference--group-001.md#canonical-0113113302233222-0203333101022230-3110022201223300-3111200220033013-3232002213031321-3112221330302101-2221032120231323-3122010002331010) |
+| `irules.uid` | [irules.uid](data-sources--application_profiles--reference--group-001.md#canonical-2203323300131223-1213221320020123-1022210120132113-3130023331202232-0231320232213032-0323103100113100-0123100233211303-0002003310201103) |
+| `labels` | [labels](data-sources--application_profiles--reference--group-001.md#canonical-3203311222131321-3130221030332011-1011012120203121-1312033211210200-1213203211001011-2302333012332123-3113002313013033-2302311021022221) |
+| `name` | [name](data-sources--application_profiles--reference--group-001.md#canonical-3222211203100022-2033032210200233-0011013010121130-3131301033231301-3211103000312102-1021132201210103-1001110312133310-1021213022003302) |
+| `namespace` | [namespace](data-sources--application_profiles--reference--group-001.md#canonical-1100123023333110-2313212212121013-1321230011322301-1213233121030200-2221231210331123-2013123312301333-1301230100320202-3312111233120031) |
+| `virtual_server` | [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-1231202302200330-2103201112010223-1211212111221222-0330313120012320-2323003313200213-2022013313322102-1230030320022013-0231202313021200) |
+| `virtual_server.access_profile` | [virtual_server.access_profile](data-sources--application_profiles--reference--group-001.md#canonical-3301203010312110-0311022301323111-1330231332111100-2011320331000132-2222130021103133-1331303222310033-0030323201201010-1103232313122231) |
+| `virtual_server.access_profile.kind` | [virtual_server.access_profile.kind](data-sources--application_profiles--reference--group-001.md#canonical-2231313103100123-1012223020200132-2030112321133131-0220311323301323-0220203233301110-2311102001232002-0233002222132323-3322222210121110) |
+| `virtual_server.access_profile.name` | [virtual_server.access_profile.name](data-sources--application_profiles--reference--group-001.md#canonical-1001030002331213-1200220200021021-3201311020122131-2212313223210133-3122313001223220-1120130322012302-2333031103020103-2011310110121310) |
+| `virtual_server.access_profile.namespace` | [virtual_server.access_profile.namespace](data-sources--application_profiles--reference--group-001.md#canonical-1202313233310023-2303312323211101-2001001313003333-2120023100022020-1122211022133301-1210121203322231-2313120300100021-0322132303033111) |
+| `virtual_server.access_profile.tenant` | [virtual_server.access_profile.tenant](data-sources--application_profiles--reference--group-001.md#canonical-3213211300012100-2020000321031102-3033213323022002-2210033232122303-2333200332120001-2311200303030333-0303332210131321-2021223102113003) |
+| `virtual_server.access_profile.uid` | [virtual_server.access_profile.uid](data-sources--application_profiles--reference--group-001.md#canonical-2233312101133310-1111313233121311-0123002303310202-3332331102213102-1331030031323222-0302203002201213-2310321013022120-0310323012123132) |
+| `virtual_server.address_translation` | [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-3111302313230133-2200011021210113-0023331013233300-3132021121122301-2010330222212230-1300230031112223-0210130111031012-1012132131033200) |
+| `virtual_server.address_translation.address_translation_disable` | [virtual_server.address_translation.address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-0333100012003221-3200321123211200-3303231003000021-0012100202222013-1111303330313130-3331303221230020-2113320030021002-3232202123121300) |
+| `virtual_server.address_translation.address_translation_enable` | [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-2310003010031330-1103021321220101-2110200112013000-1010330212232203-1110223010001323-1323203330230203-2321210132033320-3330122102130101) |
+| `virtual_server.auto_last_hop` | [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-2103132212111120-2202120331300033-1000221003232103-0010001000132330-3301310123322201-1332000011200121-2121211201322111-1000123012312330) |
+| `virtual_server.auto_last_hop.auto_last_hop_default` | [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-0033033102121111-1003132132313300-3313002022121131-3131133122300133-3012033310320320-2313312211100312-1112302200233220-0100001011011301) |
+| `virtual_server.auto_last_hop.auto_last_hop_disable` | [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3310122322320331-1011030232231333-3303321213223210-2323130100230010-3212012213201132-0113312033230321-3322202001332131-2311100302011303) |
+| `virtual_server.auto_last_hop.auto_last_hop_enable` | [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2002020012330323-0233012113113230-1000323110103211-1133012112003332-2112110100330132-3021310202232111-1110121030233113-0000021223223323) |
+| `virtual_server.clone_pool_client` | [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1133020132233211-2310110101220011-0012011332002321-1013213132313033-2101320220311103-3111012322101121-0030230000333132-3232002121221313) |
+| `virtual_server.clone_pool_client.kind` | [virtual_server.clone_pool_client.kind](data-sources--application_profiles--reference--group-002.md#canonical-3213032121001202-0030120300231013-1122132212012331-0213111222032330-0231101222112200-0021300203313331-2021101022032200-3003233111333003) |
+| `virtual_server.clone_pool_client.name` | [virtual_server.clone_pool_client.name](data-sources--application_profiles--reference--group-002.md#canonical-1321303301323112-3232331030023023-3022333311103010-3213223013313322-0301310112122133-0213021320332213-1321011203112101-3020013230120201) |
+| `virtual_server.clone_pool_client.namespace` | [virtual_server.clone_pool_client.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2211231222223111-2013313312230333-2230101323231222-3310030032031122-1311333213212023-3001220311021101-2201003010330230-3331023313321232) |
+| `virtual_server.clone_pool_client.tenant` | [virtual_server.clone_pool_client.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2010332203320110-3211023123321223-2220230012123321-3220030210210222-1120021002013323-3013300001130013-1222022213222021-1102013303321332) |
+| `virtual_server.clone_pool_client.uid` | [virtual_server.clone_pool_client.uid](data-sources--application_profiles--reference--group-002.md#canonical-1233111210320002-1132132001131321-3331021232002313-3213030003001313-0100233223131310-0101033102133302-1212313112300010-3321322311312100) |
+| `virtual_server.clone_pool_server` | [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-0221313111003203-0222221132312111-2113212313313121-3203223020221012-0120231221323112-2032123110022222-2323131330111332-3112223023201220) |
+| `virtual_server.clone_pool_server.kind` | [virtual_server.clone_pool_server.kind](data-sources--application_profiles--reference--group-002.md#canonical-1233112111102023-0311022121101203-1103103012100323-3002011000102131-2303210030131133-0232113013121110-0210132133322212-3222003200112331) |
+| `virtual_server.clone_pool_server.name` | [virtual_server.clone_pool_server.name](data-sources--application_profiles--reference--group-002.md#canonical-2303031121211220-1001230213300030-1230003332311032-2020100332231213-2002002231020011-1210302022002120-3131131320031001-0031001203220231) |
+| `virtual_server.clone_pool_server.namespace` | [virtual_server.clone_pool_server.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2101320312013231-0223313033130100-2303200330132312-1032011011320301-3201333231101301-0303122123311321-0010020112230332-3320033113030101) |
+| `virtual_server.clone_pool_server.tenant` | [virtual_server.clone_pool_server.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0032333022002101-1013203220103012-2001022001111112-1223202313132122-0230230300111130-2222232131103130-3002310012201213-0113010322130101) |
+| `virtual_server.clone_pool_server.uid` | [virtual_server.clone_pool_server.uid](data-sources--application_profiles--reference--group-002.md#canonical-1213233212200103-0311132031101102-1310100010321021-2230013220132230-1202213133313003-3222020310320312-3333231200201320-3203202321303212) |
+| `virtual_server.connection_limit` | [virtual_server.connection_limit](data-sources--application_profiles--reference--group-001.md#canonical-3003311010303322-2010201320203020-2022302001310330-3022301301000020-1332202330032100-3120230332203201-3101010322033203-1000331103200032) |
+| `virtual_server.connection_rate_limit` | [virtual_server.connection_rate_limit](data-sources--application_profiles--reference--group-001.md#canonical-3012230232332103-2322330122210131-1311320333112003-1131223222023210-0013122003222112-0201211222130320-1003001021101031-3103322232233031) |
+| `virtual_server.connection_rate_limit_mode` | [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-3131301032310212-2101213001120020-1230322302233022-3233223330230310-3120121330213030-1101103200302113-0112333012303230-0113213203012130) |
+| `virtual_server.connection_rate_limit_mode.per_destination_address` | [virtual_server.connection_rate_limit_mode.per_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-3232212303310231-3321200231301300-3113023011023311-3313110003322033-3033323201110311-1020200001001221-2000001212031120-1222302330103002) |
+| `virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-1001012133322200-0221033223121133-2331121003312111-2331010112133332-2213231123033330-2303322333300222-3202213011302123-2332321302033223) |
+| `virtual_server.connection_rate_limit_mode.per_source_address` | [virtual_server.connection_rate_limit_mode.per_source_address](data-sources--application_profiles--reference--group-002.md#canonical-0222220332310221-3031030011221323-1011011023211200-3200123213223121-3232010100021321-1301303022330301-2133102203321113-1013302001231120) |
+| `virtual_server.connection_rate_limit_mode.per_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-3231311131311102-0231202211132103-2303012002111113-2330022230301011-0030001031300231-1310220303210001-3022302002212130-3121310330023200) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-1031201331123121-2000310300021002-3311103012020003-0212333312222020-0230130220020202-2233323312133112-0233212223003233-1102110103323223) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-2012310123231112-1103313101030133-1301112222002121-2033330023011110-1022331020330012-3231001300131133-3032133330112032-1212002012211230) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-2032010011100310-3330311012133302-2122031000123320-0321121311231120-3121120001110123-0103102332131030-1120003131321032-3300220100223020) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server` | [virtual_server.connection_rate_limit_mode.per_virtual_server](data-sources--application_profiles--reference--group-002.md#canonical-1331330110210211-0333212231000230-0110321023330032-0102230332332312-3201232310221002-2210232211210120-2112233221213103-0120230211021302) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-3220030303033011-3012301301201201-0101030020012131-1020011223121000-3211332310323201-1001300032010220-0220233121023231-1222131010302332) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-2010001302211202-1100010010013311-1233103233003303-1033120112232121-1103132203003312-3312101021011210-3301301231332313-2120331213111232) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_address](data-sources--application_profiles--reference--group-002.md#canonical-2200310022132310-0022320033303201-1221121303212313-0023032311121021-0132213113023313-0203322021121123-0310121123003232-2203111130300323) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-0210301212220123-3231221303212121-0200023030013231-2010121112031133-1210122320102032-0221312232012133-2032100003022101-3322203332220022) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-2101111302302031-3303033332212322-2221033113310323-2212330000212022-0031231213311210-1013012320030012-2123011313130230-2121022213132100) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-3331131121102303-2113213123122300-2100102030220210-0100231313300302-0333313102223213-3203320303213332-1223313022313131-0033133122300323) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-2201301222220233-0323210012201101-1011301021320331-1202310001012032-3201303223330020-3112323200233000-0000031021123301-3203230213203121) |
+| `virtual_server.default_persistence_profile` | [virtual_server.default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0132132103200311-2033001011211102-0100003330302202-0233230330203011-2233203102120101-2103030030021102-3123032023321232-2003112322313011) |
+| `virtual_server.default_persistence_profile.kind` | [virtual_server.default_persistence_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1003033222132011-1212223230221031-2122020121312023-3200220110320323-2202033120032100-2221200130121120-1111130032013303-1323321123211022) |
+| `virtual_server.default_persistence_profile.name` | [virtual_server.default_persistence_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0323022333203032-0212101021130100-2302201310301013-0222311202013221-0131201220112030-2000231322101020-3112210220032112-0010110110013033) |
+| `virtual_server.default_persistence_profile.namespace` | [virtual_server.default_persistence_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2121032020200303-2110122310333003-0230110011331321-3021013132210133-2120003102102211-3111120101022303-0111322101212100-1123201200120132) |
+| `virtual_server.default_persistence_profile.tenant` | [virtual_server.default_persistence_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-3330133112002113-2311000132033033-2131202220220302-3320331331211023-1002010111320320-2323120222230320-2222203303200211-3121233133002222) |
+| `virtual_server.default_persistence_profile.uid` | [virtual_server.default_persistence_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-2001112003110002-0113210100223020-0212001313320330-0201231332103133-3122033311100110-3012310202321213-0030000331123200-3203111200313103) |
+| `virtual_server.default_pool` | [virtual_server.default_pool](data-sources--application_profiles--reference--group-002.md#canonical-0032003130213122-2132210021133011-3210323101123201-1331222302230120-0032201321121012-3110301121223230-0003122221011010-1032022120330101) |
+| `virtual_server.default_pool.kind` | [virtual_server.default_pool.kind](data-sources--application_profiles--reference--group-002.md#canonical-2001322211031033-3012213203300203-0332021203222310-2022130233030313-0211030233313101-2311132012310131-1031331002122321-2211100200300020) |
+| `virtual_server.default_pool.name` | [virtual_server.default_pool.name](data-sources--application_profiles--reference--group-002.md#canonical-3032213320312323-1222330100023233-0203210311022012-2031300302130321-2113001100321111-1031330222223021-0022211120231000-3010311211301130) |
+| `virtual_server.default_pool.namespace` | [virtual_server.default_pool.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2213113003303231-3012211330331322-2322232121021123-0301301300313033-2213011220003202-2202123002313023-1110221223322320-2201113301211122) |
+| `virtual_server.default_pool.tenant` | [virtual_server.default_pool.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2101231233003012-1022330031222033-3333232013003103-3000200131232022-3211121313031313-3210202200021021-1023111210130210-1330012202211330) |
+| `virtual_server.default_pool.uid` | [virtual_server.default_pool.uid](data-sources--application_profiles--reference--group-002.md#canonical-1102111030133221-2033112123021013-0103232100123020-2101023303300120-2303133300032021-1132011233300002-1120020300312300-0203030222333133) |
+| `virtual_server.fallback_persistence_profile` | [virtual_server.fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-3031222100321330-0030112200331121-0332312032101230-1311302311301132-3331230021310111-3211231210330021-0020121210000121-0002230321230031) |
+| `virtual_server.fallback_persistence_profile.kind` | [virtual_server.fallback_persistence_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0030302100303202-1212333230313111-0303102311120132-3221302203132232-0003230200203003-3113322120233110-0310222332331220-1013031233323303) |
+| `virtual_server.fallback_persistence_profile.name` | [virtual_server.fallback_persistence_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2011111330302121-0333221012103021-2300221212230222-1002311200222123-2120302201321022-0023113201310232-3222100312012030-1120032032031021) |
+| `virtual_server.fallback_persistence_profile.namespace` | [virtual_server.fallback_persistence_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-0303302310133032-3032201103100331-2010020001010120-3331030321032303-0012223230010003-3321023122310122-1003202200132331-3001130133211110) |
+| `virtual_server.fallback_persistence_profile.tenant` | [virtual_server.fallback_persistence_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-3201033001223330-3121021210100210-0300013013232022-2231132300230223-1312020323022223-1330123210130203-0320221230230233-2022203031303110) |
+| `virtual_server.fallback_persistence_profile.uid` | [virtual_server.fallback_persistence_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1233332121110312-2121230310203112-2122220322000230-0003010021220333-0113233222031100-1103103221322123-0021102002030130-0230131202201112) |
+| `virtual_server.fix_profile` | [virtual_server.fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-2333300011301210-3213230203312113-1013022110101200-3032023200322121-0233300201201000-2231022121031032-0010213221331220-2022133112030130) |
+| `virtual_server.fix_profile.kind` | [virtual_server.fix_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1122323333132002-1031133023202302-0020013310120130-2302230332230021-3113310310020301-1013332300031313-0321022323310031-1213321111323220) |
+| `virtual_server.fix_profile.name` | [virtual_server.fix_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1202213102011031-0321201101321200-1230021110201302-2213102011121020-2301120021313320-3323131033231323-3322323101322211-1002113330323223) |
+| `virtual_server.fix_profile.namespace` | [virtual_server.fix_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1022213132133231-3232100032330111-3122311330023201-0302301220113330-3112201112001013-3003130000211031-3110213122111312-3232202203300201) |
+| `virtual_server.fix_profile.tenant` | [virtual_server.fix_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2210201132131102-1311223300223201-2300123300333022-0211333211131023-3220302112010123-0231103320230133-1322301332231230-1332032320230131) |
+| `virtual_server.fix_profile.uid` | [virtual_server.fix_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0301101102332320-3101201312310111-3312202310302130-1030213111232002-0012022000032332-1201331030013301-2113312011323232-3122113333122331) |
+| `virtual_server.http` | [virtual_server.http](data-sources--application_profiles--reference--group-002.md#canonical-0332210133000202-2230023030102321-1003012303213311-3321201223311210-2203110311213223-0000100332023203-2000332111113203-0210213200130102) |
+| `virtual_server.http.client_ssl_profile` | [virtual_server.http.client_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-0123212130303322-2310313033030130-0210020200201023-0021321231300010-2132332222301330-1101211203203322-3312033201032210-1130021131011132) |
+| `virtual_server.http.client_ssl_profile.kind` | [virtual_server.http.client_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0330212301111223-1331320121103011-0212221011211302-3303331313023020-1200330111331303-0102303120033001-3213310120312331-3332321033233232) |
+| `virtual_server.http.client_ssl_profile.name` | [virtual_server.http.client_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1301013003203323-3121333113231220-3122313222231100-0211133220321300-2130023302300010-3033212131012010-1101331330003003-3320203132312211) |
+| `virtual_server.http.client_ssl_profile.namespace` | [virtual_server.http.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3202100111313031-1033032122032101-1221112321211023-3220002113000231-1021032033321032-1110102212212031-3010331220333030-0222131333330322) |
+| `virtual_server.http.client_ssl_profile.tenant` | [virtual_server.http.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0011122300002311-0022113012033013-0100020111021212-3203312231221023-1331210321103232-0332220223030030-0213210003023121-0112002313221222) |
+| `virtual_server.http.client_ssl_profile.uid` | [virtual_server.http.client_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3003121022321333-2131310000203333-2000032211011121-0003102030023003-1211123100111121-1213121300012333-0230132301332200-1013033301331001) |
+| `virtual_server.http.http2_client_profile` | [virtual_server.http.http2_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-0012301231330132-1110003010313111-1012101002322020-2033103122023020-2112120112323313-2021302032211212-3123123233130132-1102123322120112) |
+| `virtual_server.http.http2_client_profile.kind` | [virtual_server.http.http2_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1121320112113233-2321000023103231-3232010021233333-0102102331321232-1031220113320312-0200000101222203-2312002111011032-1331333213011222) |
+| `virtual_server.http.http2_client_profile.name` | [virtual_server.http.http2_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0333113220111131-0200313300010222-1033201120321030-0333010222010011-1133132202332130-1223013300012111-1320233011230332-1332311102301102) |
+| `virtual_server.http.http2_client_profile.namespace` | [virtual_server.http.http2_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3011122323210220-2300230321021320-3030310102122103-1222031033020212-3000110301030203-3123311202021100-1112020220302313-0130303101003130) |
+| `virtual_server.http.http2_client_profile.tenant` | [virtual_server.http.http2_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0023132203130003-3100033101022030-2233220303000121-3333102120213030-0332021010310331-0320301323221122-1023123002231333-1102301202213102) |
+| `virtual_server.http.http2_client_profile.uid` | [virtual_server.http.http2_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3310202122033310-0333103032303210-0111200102021023-0011231000220302-1322130233221310-0331301312021102-3122101102332021-0323123001232021) |
+| `virtual_server.http.http2_server_profile` | [virtual_server.http.http2_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-3100221000003202-0011121223033221-0100212112312130-2332013321322131-2011132332002032-0103012333032331-0033303331120310-2322313033002211) |
+| `virtual_server.http.http2_server_profile.kind` | [virtual_server.http.http2_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-3003201302123102-0131323320121100-0312023002330311-0213200212301013-3200323032133303-0320131331310023-3011232121133130-0333312223212110) |
+| `virtual_server.http.http2_server_profile.name` | [virtual_server.http.http2_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0323000333332100-0212123233220221-1013023332202330-1302132132022331-3310133030130320-2003110323303230-3111001213100333-1223200020210133) |
+| `virtual_server.http.http2_server_profile.namespace` | [virtual_server.http.http2_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2023133010231332-2322113012220303-3223103233230002-2220312133100221-3210111012001213-1003311203113022-3232213213102311-1112122030231232) |
+| `virtual_server.http.http2_server_profile.tenant` | [virtual_server.http.http2_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2230201011113020-0303123301033333-0333232122013021-1312132130100211-1333322202132023-3230002122003302-0331302021010310-3333030123012312) |
+| `virtual_server.http.http2_server_profile.uid` | [virtual_server.http.http2_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0221011001313102-2201313332032313-1213311303203310-1103222111020332-1131000202123010-2131012000332021-2022220302221003-2110223233200011) |
+| `virtual_server.http.http_client_profile` | [virtual_server.http.http_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-0122213013203311-0011121202023332-1112322313000120-3233320001311220-1000111203212220-3103101321130103-3221111101110100-2110113111101021) |
+| `virtual_server.http.http_client_profile.kind` | [virtual_server.http.http_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-3130223010330110-3111311310000132-3130133113011032-0003311000320310-2201012310213331-0013203313230313-3220010003322101-2102202312303120) |
+| `virtual_server.http.http_client_profile.name` | [virtual_server.http.http_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2030010032032303-0223103012303101-1321230032221332-0331332221202220-0130331323221231-0232212311303331-2021203323123203-0101323320330013) |
+| `virtual_server.http.http_client_profile.namespace` | [virtual_server.http.http_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3302333001011032-2331022302123000-1002232303031221-0313332232300122-0131210102123221-1101301131232013-1212001201210220-3223303202021302) |
+| `virtual_server.http.http_client_profile.tenant` | [virtual_server.http.http_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2103131031223013-3213122033332101-2203321320001313-1221011301300011-3301123011020222-1202103112032001-1212233221012303-2023202102012103) |
+| `virtual_server.http.http_client_profile.uid` | [virtual_server.http.http_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0022030222030032-1221331331300322-1313031203311011-2223010123220202-3330002332112323-3031130300322331-0332113301120201-0121330030002222) |
+| `virtual_server.http.http_server_profile` | [virtual_server.http.http_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-2222000223211031-2223113121002311-0222131313111320-3033332030100010-2312312323103010-2303030133110132-2300013102311330-2312310013203000) |
+| `virtual_server.http.http_server_profile.kind` | [virtual_server.http.http_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0220020120332021-1320223210302022-2012100001300212-0210310322201231-3131122303321211-3031230200122331-0313230023322333-2003201111210133) |
+| `virtual_server.http.http_server_profile.name` | [virtual_server.http.http_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0330022211333111-2133203201302210-2023133103232103-0003112023321033-1202010012013121-0120300310022303-0022101201332130-2311001330212123) |
+| `virtual_server.http.http_server_profile.namespace` | [virtual_server.http.http_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-0221113310311100-2303211132011110-2132010031333232-3212122120332330-3132330122031230-2213233101002201-0021100300201332-2300032210022022) |
+| `virtual_server.http.http_server_profile.tenant` | [virtual_server.http.http_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-1123230331322200-0032200020310200-3300311113320211-3333330011121301-0032131300123023-3012111131010021-1031303003012033-3002031313020300) |
+| `virtual_server.http.http_server_profile.uid` | [virtual_server.http.http_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-2111302002103033-0130233300201033-2311032012120212-2002332233333122-3201023331132122-1231302011033020-0021232302301031-1323113020231331) |
+| `virtual_server.http.ocsp_profile` | [virtual_server.http.ocsp_profile](data-sources--application_profiles--reference--group-002.md#canonical-0312201123200303-2231230312032301-0320013132131331-2110201112323330-0303012111100303-2113311232223102-1132201032212311-0223113002312122) |
+| `virtual_server.http.ocsp_profile.kind` | [virtual_server.http.ocsp_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1230321100122233-1330030032331102-1011321132311202-1230201333001112-3020131021003002-2313032102101122-2033020111301233-3310222001333002) |
+| `virtual_server.http.ocsp_profile.name` | [virtual_server.http.ocsp_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2300120023011101-1003011311103222-1021331130111103-0110312333233121-2210110233332230-3323203223021213-3011323230123332-1113121003220113) |
+| `virtual_server.http.ocsp_profile.namespace` | [virtual_server.http.ocsp_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1013230020021112-2103023303323201-1313311132102120-1213302210323321-1231013202311330-2221011000321322-0233032101210112-2111100112223332) |
+| `virtual_server.http.ocsp_profile.tenant` | [virtual_server.http.ocsp_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0100022002001322-1021321332112223-3311221331010022-3020313303313020-0002010112210202-1021000120223003-3212212132212021-2303310033001010) |
+| `virtual_server.http.ocsp_profile.uid` | [virtual_server.http.ocsp_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0012103220212103-3133322111302033-3111110101321033-2133221330012002-0021020122032223-2111033232303201-2033022300101231-3322220221110322) |
+| `virtual_server.http.server_ssl_profile` | [virtual_server.http.server_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-1002021031003123-3301122331321210-2221332022112120-0113010120102001-2113123001232222-2032211313333321-0210030103211211-2311113023013102) |
+| `virtual_server.http.server_ssl_profile.kind` | [virtual_server.http.server_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-3311012123223100-0110231323110230-0211311200221320-3221103133333001-0212032323233010-2130021033312022-3030030020121301-3002132121032210) |
+| `virtual_server.http.server_ssl_profile.name` | [virtual_server.http.server_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1030021331210101-2200002322120211-2323013310202120-1203021323310130-1210331100232330-3120031033132003-2331022130003202-0122030011013203) |
+| `virtual_server.http.server_ssl_profile.namespace` | [virtual_server.http.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3113120212023101-2300332332201020-0101203020000121-2201310223112231-0001201222020302-1300033002210211-0022321321223200-3122103120231000) |
+| `virtual_server.http.server_ssl_profile.tenant` | [virtual_server.http.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-3031231301112020-0231332321123113-0300221303333200-1301012232120202-0021010332013201-3121003000301320-3121130131313122-0201320020303223) |
+| `virtual_server.http.server_ssl_profile.uid` | [virtual_server.http.server_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1122012112311002-2201110321212122-1321110010312023-0210330310203121-1020231213111131-0022303111300131-2231123123033200-0130200022003103) |
+| `virtual_server.http.stream_profile` | [virtual_server.http.stream_profile](data-sources--application_profiles--reference--group-002.md#canonical-3132213201233220-2021321102011100-2220012312310301-2111100133020122-0113222003302321-0210230000211023-0212123303121012-0330303213211020) |
+| `virtual_server.http.stream_profile.kind` | [virtual_server.http.stream_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0230000210332311-3222330121211231-0313100023201302-3121323333230211-1230211122223110-0010112302220312-2313032022222302-3113110312202011) |
+| `virtual_server.http.stream_profile.name` | [virtual_server.http.stream_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2313322103002010-3131132321133021-2322122220300121-2333301230313310-2033221132021321-1022002030010210-2211220030230310-2031100202031213) |
+| `virtual_server.http.stream_profile.namespace` | [virtual_server.http.stream_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-0112132222301202-1200112033033102-2321311030201032-1120322323111123-0000110320100111-1031102032000001-3221213112001131-3000133211321112) |
+| `virtual_server.http.stream_profile.tenant` | [virtual_server.http.stream_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0211303002301213-3133131212013203-2010030331002032-1321123011301201-2010003013300133-1203311212211200-1322322013130321-1311333002021333) |
+| `virtual_server.http.stream_profile.uid` | [virtual_server.http.stream_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0113231310200301-1311112021202013-3120232101113123-3013332122201322-0123131300000300-2202313030200323-3112032231221310-2210002310210331) |
+| `virtual_server.http.tcp_client_profile` | [virtual_server.http.tcp_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-3011012310321011-2333310101023002-0011200302330111-2000010233110013-3320100100233230-2301020320100133-0132033001200123-0113100311321001) |
+| `virtual_server.http.tcp_client_profile.kind` | [virtual_server.http.tcp_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1212311020300120-3223311303210313-3002012312212301-1022303013313113-3100021220010112-3222130302123310-2010120322132300-0323212023320012) |
+| `virtual_server.http.tcp_client_profile.name` | [virtual_server.http.tcp_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3332132222033033-2301003133213321-1213111300233311-1212232002231210-2110011220113012-0323003320000212-3111300220210113-0022001320313130) |
+| `virtual_server.http.tcp_client_profile.namespace` | [virtual_server.http.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3220331132322333-3230233201232213-3303322201112300-0221213302032333-2102021112002120-2301330330101033-2131311012203003-1203120030202132) |
+| `virtual_server.http.tcp_client_profile.tenant` | [virtual_server.http.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-1133313331130332-2322311123201010-3320121211210312-3020312130211013-2323012013220031-3032311310222013-3022322131322301-2310200333131302) |
+| `virtual_server.http.tcp_client_profile.uid` | [virtual_server.http.tcp_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1033210200222021-1022310333120121-2330230122033303-2031002132312230-1121022000001310-2213323200123123-1211320023200301-3111011021330233) |
+| `virtual_server.http.tcp_server_profile` | [virtual_server.http.tcp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-1031331212321311-2121010201011133-3302302120310303-1102130320220322-3003012010022312-1023032032222021-1022233221133022-2330033333122101) |
+| `virtual_server.http.tcp_server_profile.kind` | [virtual_server.http.tcp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1323303322331223-1320320020221330-3021330232013222-2333003012232321-2231000113111220-2003132302303211-2232213011203200-1110021211323301) |
+| `virtual_server.http.tcp_server_profile.name` | [virtual_server.http.tcp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3300330202103222-0100203132332121-3232202230203232-2131001120123333-3022320322211211-2233200120311222-3020100220131332-1121013213120102) |
+| `virtual_server.http.tcp_server_profile.namespace` | [virtual_server.http.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-0320310322010003-3223133131303000-1133212111311322-2200213301033300-3312123331221330-3322033122131302-3012013231211333-0103122012211312) |
+| `virtual_server.http.tcp_server_profile.tenant` | [virtual_server.http.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-3123302210032010-0232313203233113-1013211031331112-1333202330031020-1132302220112131-2000332303021013-0020310203102020-1232233011132113) |
+| `virtual_server.http.tcp_server_profile.uid` | [virtual_server.http.tcp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0110223330032031-3001323230312213-0031231320211103-2320031033002210-1020300230111321-0223210330021113-0311332323313323-2021202311213012) |
+| `virtual_server.http.websocket_client_profile` | [virtual_server.http.websocket_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-2121221311233212-2120123101131321-2110032213122311-3123023313202112-2020133303031211-1032112331010320-3131021133220001-3113233032033111) |
+| `virtual_server.http.websocket_client_profile.kind` | [virtual_server.http.websocket_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0222222103110001-1002002221103301-3202200233023103-1310232302223113-3023320111221312-2212112111132131-1223332200310333-1113210310212102) |
+| `virtual_server.http.websocket_client_profile.name` | [virtual_server.http.websocket_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1311012201312322-3202230111100332-0020212011322213-1233102122013231-3303303210030131-0011023300132032-1111013302222222-1211322013233232) |
+| `virtual_server.http.websocket_client_profile.namespace` | [virtual_server.http.websocket_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3202101013120120-1333202000102333-2313323001303201-1221213201032333-3300220033232132-0311211233201113-0031210302211023-2133100300023003) |
+| `virtual_server.http.websocket_client_profile.tenant` | [virtual_server.http.websocket_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2313300013011033-2233210100003122-2232111002302210-0103030023021332-2112211101320221-3300233330011203-0103320023130202-0010122201310320) |
+| `virtual_server.http.websocket_client_profile.uid` | [virtual_server.http.websocket_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1001222312200023-1333330130232011-3020300133322313-2003110012100022-1213310030132202-0323303301321010-3223023103022213-2302120100230311) |
+| `virtual_server.http.websocket_server_profile` | [virtual_server.http.websocket_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-2201322310330012-0030203000221221-0021002000020131-2001313000332122-1212102021103111-1202323011122211-0022203212120322-2021130023213312) |
+| `virtual_server.http.websocket_server_profile.kind` | [virtual_server.http.websocket_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2113303302210122-1331100322212320-3002313112332101-0111033133110202-0013132123301012-2211230311200211-0021232021323020-3013020023022323) |
+| `virtual_server.http.websocket_server_profile.name` | [virtual_server.http.websocket_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1220330222021131-2101022210032013-2232112322030021-1003313011323211-1321333223100132-0200110333130223-2301330013113200-3023133222313032) |
+| `virtual_server.http.websocket_server_profile.namespace` | [virtual_server.http.websocket_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1013011332013003-0132001011101221-2102320030130101-1200201121202313-3202122102202223-2323113121102300-2121020030232022-0331322121201310) |
+| `virtual_server.http.websocket_server_profile.tenant` | [virtual_server.http.websocket_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-1122001220100113-3013222333021331-3132110100200130-0333021013321101-0023321213021310-1222131313112121-1221212033032302-1011002133300211) |
+| `virtual_server.http.websocket_server_profile.uid` | [virtual_server.http.websocket_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3013331233210030-1111331300310222-2123230102000022-1331223232103330-1223113213322022-1021101222011022-2000012012102120-2132213313022113) |
+| `virtual_server.http3` | [virtual_server.http3](data-sources--application_profiles--reference--group-002.md#canonical-1121301310330311-2011010320101113-1233100013121330-1212222102110332-0233311301302301-3101011232131032-2201031113231103-1111233100033111) |
+| `virtual_server.http3.client_ssl_profile` | [virtual_server.http3.client_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-0231222012023300-3000220213330321-1201232010123230-2122300030212300-3323232103310130-2020222202310003-2032120013231110-1103203210211223) |
+| `virtual_server.http3.client_ssl_profile.kind` | [virtual_server.http3.client_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-3023210330100002-0301132022221320-1210111112032033-2323010021100302-1221111220121021-2013012310011322-0132212333030201-3023331310002100) |
+| `virtual_server.http3.client_ssl_profile.name` | [virtual_server.http3.client_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-3102011121030132-2022113223311310-2021312011221123-1321102032013232-0001133212123102-3231120011011211-1203000133011022-3203132301322111) |
+| `virtual_server.http3.client_ssl_profile.namespace` | [virtual_server.http3.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2200103300303200-0032203021033103-1220023131000030-0113130133232110-2230031210213110-3222010131020210-2010221031310013-3110202013331212) |
+| `virtual_server.http3.client_ssl_profile.tenant` | [virtual_server.http3.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-3013210231013221-2032101203312023-2020332233133332-1031301303312231-0200223320202002-3212100031100202-0220233232230203-1102132230232333) |
+| `virtual_server.http3.client_ssl_profile.uid` | [virtual_server.http3.client_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-0211001030212123-1133333311333100-3201021301100023-3010002033101321-1111311221012113-0000132323310323-1223212133233113-3313201313310101) |
+| `virtual_server.http3.http3_profile` | [virtual_server.http3.http3_profile](data-sources--application_profiles--reference--group-002.md#canonical-3220112303100231-3223101201022303-2333230121221013-3100012311121031-2123220033020201-2112013333213311-2220331222111132-1231020322012332) |
+| `virtual_server.http3.http3_profile.kind` | [virtual_server.http3.http3_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2212211331103123-1222030223132231-3212202301323310-0333202003032001-1330111230323301-0111003313132013-2322132033200203-1230321003122103) |
+| `virtual_server.http3.http3_profile.name` | [virtual_server.http3.http3_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1320331030103202-3222003032300311-1023223332000212-2121000221320301-2023213301210031-3112302333020303-3222130021023113-0003131122012022) |
+| `virtual_server.http3.http3_profile.namespace` | [virtual_server.http3.http3_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1220031310231311-1323022030121301-3031000223321303-0221013200110131-2221232021012213-2231301102231013-1003022122312310-0302200000312013) |
+| `virtual_server.http3.http3_profile.tenant` | [virtual_server.http3.http3_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0000311231313331-3002032321122220-1031230122133331-1233111201131021-3033112200202330-2030303232000313-3321033111212131-3322320000100201) |
+| `virtual_server.http3.http3_profile.uid` | [virtual_server.http3.http3_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1020010203221023-0322101300123233-2303221333012232-2320233011032131-3101122132123030-3123211213322113-0111130210113032-2110002311121321) |
+| `virtual_server.http3.http_client_profile` | [virtual_server.http3.http_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-0111303033120332-3212222230103002-1130222323000111-1122332302102222-1201303031332111-0001211231200012-0101300313323110-2011320002122311) |
+| `virtual_server.http3.http_client_profile.kind` | [virtual_server.http3.http_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2200202211102132-3330231311121203-0031101230223300-1112023020223203-3120232213213200-3022331010033130-0131321303031111-2210303121203000) |
+| `virtual_server.http3.http_client_profile.name` | [virtual_server.http3.http_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1221301021233131-2123220302230000-1003133311333212-0230013231000302-2032022023213211-2302201121132103-0232112103303030-1200301302220303) |
+| `virtual_server.http3.http_client_profile.namespace` | [virtual_server.http3.http_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1320213213032310-0031223033202201-2030311113223331-0212230001330133-3033003332220010-0003300001302120-0023021022000313-3233122021020312) |
+| `virtual_server.http3.http_client_profile.tenant` | [virtual_server.http3.http_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2212113133011312-2110111302222332-2120213221033022-2031203211000323-1023113003030331-0322300321332121-0021000232113332-3021232022231002) |
+| `virtual_server.http3.http_client_profile.uid` | [virtual_server.http3.http_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1232303301322000-1231030012103001-1131120020012023-0030100113120313-2230303110102000-2020220231300302-0103300133302130-1211122220000310) |
+| `virtual_server.http3.http_server_profile` | [virtual_server.http3.http_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-3221312202023033-1102223012313300-3203010330011230-1210002202322011-2313030323231301-2222112330223212-1201303211311211-3123213113100210) |
+| `virtual_server.http3.http_server_profile.kind` | [virtual_server.http3.http_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0101013121221132-1202201020020332-2202330300302233-3313203200201322-1002310330030222-1012311322121200-2132232133011113-1033300123331332) |
+| `virtual_server.http3.http_server_profile.name` | [virtual_server.http3.http_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0013313312210120-3130313333213333-1333213021111233-3213323103121202-1301102233021123-3303133120310333-2032312231023020-1323111311320313) |
+| `virtual_server.http3.http_server_profile.namespace` | [virtual_server.http3.http_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2213223111233123-1123303202020100-1120121101130001-1010113022330302-2310102333101101-2123223003313132-3012031111320013-3220300102203001) |
+| `virtual_server.http3.http_server_profile.tenant` | [virtual_server.http3.http_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2030211003122121-2230233120231211-0113032010002221-3021110031232003-0100121021033311-0230121020212022-3132123120320200-0321222313213122) |
+| `virtual_server.http3.http_server_profile.uid` | [virtual_server.http3.http_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1133202011021202-3203233311231300-0221232013231200-0120132201231022-2302233003031303-0000233300032303-2221030002333213-0101322032333203) |
+| `virtual_server.http3.quic_profile` | [virtual_server.http3.quic_profile](data-sources--application_profiles--reference--group-002.md#canonical-2311003220220232-3230111332311321-3322012111002332-1020121133211300-1233032213310202-3311330100212020-3100011331330303-2020320213010313) |
+| `virtual_server.http3.quic_profile.kind` | [virtual_server.http3.quic_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1203331001223123-1121330223313120-1033122102032331-3330213310013021-1112032331012131-1111030133002003-0330213110200010-3231112320003111) |
+| `virtual_server.http3.quic_profile.name` | [virtual_server.http3.quic_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0111021202211021-3110031212030122-0003313012020102-1322022003100203-1313300131210223-1103332102031111-3000123132230023-1031100120212321) |
+| `virtual_server.http3.quic_profile.namespace` | [virtual_server.http3.quic_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2320111311120023-2023011231032330-2013033301023013-2020001013232033-2131302110331312-3220312130013031-0130011102002220-1203222002102111) |
+| `virtual_server.http3.quic_profile.tenant` | [virtual_server.http3.quic_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2132213323131023-1321220100310030-3313323012000221-1102232221332033-1232011223323110-0310111030032100-0121223023131133-3210001113331001) |
+| `virtual_server.http3.quic_profile.uid` | [virtual_server.http3.quic_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-2023200220330321-1303111011233222-1230003323303202-1102333003332033-2022212213331330-2302133320032220-2332200210130310-2003123300223210) |
+| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-2202321321031233-2131133023103213-1033011033022203-2110233230020231-0003201231231231-1123321331123200-3032133011212211-3033330020221003) |
+| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0012302313310131-1103200323031103-0120323210001020-1301132123213310-2210330331101200-1130030112120121-2031233323002311-1121011332311312) |
+| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1032032130033032-0001002123020200-2320330323322011-2101111011000112-0212031120113311-1121131012021232-0202202313011301-2202300323013101) |
+| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2220313001030323-0113120120312012-0312303200101103-1033001000112200-1022312000013333-0232101221333330-3110131333312022-0032212001100100) |
+| `virtual_server.http3.server_ssl_profile.tenant` | [virtual_server.http3.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0121333110001302-3011222323013000-2320123123203122-2232230320201010-1233200001213303-2210332201313033-1233201001131230-3031332103113033) |
+| `virtual_server.http3.server_ssl_profile.uid` | [virtual_server.http3.server_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3321212230302200-3033132130011312-0223201231333020-2211031231201202-2212202010312300-3121032210113012-0232102002202013-1301020232030002) |
+| `virtual_server.http3.tcp_server_profile` | [virtual_server.http3.tcp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-2111211220132202-1113012320222200-1013130022202123-3033202211130113-0002201233323031-3303210132013210-2321202231101210-0233111122201231) |
+| `virtual_server.http3.tcp_server_profile.kind` | [virtual_server.http3.tcp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2333132203103120-3312032123020120-0320323131013211-2323021212220322-3220223202233133-1210201130022213-3010220310120233-3132313323203001) |
+| `virtual_server.http3.tcp_server_profile.name` | [virtual_server.http3.tcp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2321221311323011-2003030111232032-3233130311301302-0210122112230333-3133320213120232-2030132302320031-1223012120022102-1111300111011123) |
+| `virtual_server.http3.tcp_server_profile.namespace` | [virtual_server.http3.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2112112320211220-1031113122132000-0213222102131010-2010111132203013-0313310023333332-1033011133002230-3003220320003310-0302312203222222) |
+| `virtual_server.http3.tcp_server_profile.tenant` | [virtual_server.http3.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2321221222112321-3200021332030111-3123111333232112-0303003031221302-1002332202323233-3321232232331230-3311221121312121-2301231300000023) |
+| `virtual_server.http3.tcp_server_profile.uid` | [virtual_server.http3.tcp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3331011033001003-1230331200212230-1022023101120323-1303102002021121-0131323333023332-0313223021002301-0123303202321220-0103011111120322) |
+| `virtual_server.http3.udp_client_profile` | [virtual_server.http3.udp_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-3110111131023211-0330232112200211-3112303113213121-0121113033113231-3120200331110202-2211221310223221-2122023033133323-3120120311021221) |
+| `virtual_server.http3.udp_client_profile.kind` | [virtual_server.http3.udp_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2203200122311100-1333100112021001-3012100102130012-0020003230301123-0232310230310103-3330000102320121-0122232132322310-3003121302130021) |
+| `virtual_server.http3.udp_client_profile.name` | [virtual_server.http3.udp_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2113002232231032-2002133030000231-1203233301211311-3333013303123110-2020111212300030-3303230223011012-2313110012013321-2201113110023200) |
+| `virtual_server.http3.udp_client_profile.namespace` | [virtual_server.http3.udp_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2203103302203021-2303332233323320-2303101123233113-3000030102020003-3000100100131132-3022010120133112-3000033120011332-3231211002132301) |
+| `virtual_server.http3.udp_client_profile.tenant` | [virtual_server.http3.udp_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0200301032120213-3100013023102132-0132212020103313-0222322033333302-1233011110233112-1030311003100221-1110230100220110-0131110212023231) |
+| `virtual_server.http3.udp_client_profile.uid` | [virtual_server.http3.udp_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3133021312220110-2030102332311103-2020010201220102-1333302111113001-1133310131021113-2120300102023310-2000011100002313-1211201232232031) |
+| `virtual_server.http3.udp_server_profile` | [virtual_server.http3.udp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003321320221213-2220121121131132-0000313303113012-3330123230300312-3310311321000131-2222322030230303-3311223213331001-2212313203101203) |
+| `virtual_server.http3.udp_server_profile.kind` | [virtual_server.http3.udp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0132022331223331-3013330311300132-0133002321200022-1323113301002103-0033112113333331-2300010221011213-1222202212213110-0320112301010203) |
+| `virtual_server.http3.udp_server_profile.name` | [virtual_server.http3.udp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2121223101103300-1232331220320023-1310212030013311-1321000112232033-3200020302331210-1132030023212313-1223033320233300-2221003102023221) |
+| `virtual_server.http3.udp_server_profile.namespace` | [virtual_server.http3.udp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3113011111203131-0000010322121200-2030300203201222-1221011232220100-3111121130312010-0122222132121130-1213013310112133-0021002211022202) |
+| `virtual_server.http3.udp_server_profile.tenant` | [virtual_server.http3.udp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2113201101102202-0111211201203112-2332130131123121-2032111133310112-0220201320123330-0013220230131001-2030312000222333-0210110323330131) |
+| `virtual_server.http3.udp_server_profile.uid` | [virtual_server.http3.udp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1231221011321021-3213212321120213-1011312332333333-3221100201313303-1320021001111033-3202003320012100-3112310302203103-1231022310231323) |
+| `virtual_server.https` | [virtual_server.https](data-sources--application_profiles--reference--group-003.md#canonical-3110112100311110-2102131302131202-3130311013113200-3302111333312320-0231310322001110-1202132200130320-3130103300220103-2113202112113123) |
+| `virtual_server.https.client_ssl_profile` | [virtual_server.https.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1132322120022333-0312030202333221-3321011032223110-3301111312201221-1130120122132222-1002223013031310-0302311312132232-2230003122102313) |
+| `virtual_server.https.client_ssl_profile.kind` | [virtual_server.https.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1110121312130230-2001103131200203-1002102313133131-3303021103132200-0130032231211223-1300220112302302-1310022311212221-1003213311001200) |
+| `virtual_server.https.client_ssl_profile.name` | [virtual_server.https.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3213033313130003-3221300102030120-0100313221202330-2311332320111010-1102210020102132-3000121221120320-2031021232010320-3210222111211002) |
+| `virtual_server.https.client_ssl_profile.namespace` | [virtual_server.https.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2033311002330301-2231010213033013-0030022112033122-3332110123102221-0113120203033013-1322003033232020-0311011023132232-3103020330101200) |
+| `virtual_server.https.client_ssl_profile.tenant` | [virtual_server.https.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0112111010121310-3102223002232002-1203013211000031-0230311212231010-3021331010111232-0011332030130232-0100211101100303-1331233201010010) |
+| `virtual_server.https.client_ssl_profile.uid` | [virtual_server.https.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3102103202302101-1123202102012103-3301002133331202-2120011031320023-1331100003303233-3322102211013001-3233002212032231-3020020120022222) |
+| `virtual_server.https.http2_client_profile` | [virtual_server.https.http2_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-2300311230302121-0332301030310130-1130120012100320-2113332311032112-0221030233102130-1111102222010113-0033022301021033-2213113030330110) |
+| `virtual_server.https.http2_client_profile.kind` | [virtual_server.https.http2_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2203030312232013-3121232202213222-0130200302212031-1332233000303222-3133213310313232-1320020223300131-3103231333212211-2131010323301103) |
+| `virtual_server.https.http2_client_profile.name` | [virtual_server.https.http2_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3020012020102033-3031123323232103-1101332333121031-3310203103033000-0323113313003102-2231033220100231-1120320202220231-0021100003102003) |
+| `virtual_server.https.http2_client_profile.namespace` | [virtual_server.https.http2_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2031100001000231-1032101003301222-1130121203102332-2132333023131010-1313101131303212-3333120331003113-1210022321033001-2310122203121332) |
+| `virtual_server.https.http2_client_profile.tenant` | [virtual_server.https.http2_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2102323113323032-3303022213303210-3110011201110201-3102333032000120-3200233312023010-0222202311102321-3321200121212102-2331311230020032) |
+| `virtual_server.https.http2_client_profile.uid` | [virtual_server.https.http2_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0113223121300303-0230023313301202-0133133133313111-2113020333313130-3011122232313030-2032023212113113-3100203330213232-0200001101003223) |
+| `virtual_server.https.http2_server_profile` | [virtual_server.https.http2_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-3032313001230132-3323121103023232-0030300210011030-1130303023121331-2203133002010120-0303200302222011-0302021130001313-3122222101303101) |
+| `virtual_server.https.http2_server_profile.kind` | [virtual_server.https.http2_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1202301132213331-1203021030233232-3130223333223111-3232102130330231-3032012001222110-2030210230301101-1100131103020110-3201103013230121) |
+| `virtual_server.https.http2_server_profile.name` | [virtual_server.https.http2_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3223330231301021-2100323011202103-0303120122312233-1130131121332113-3302210111222212-0310231232121113-0001022121001002-0313100230201000) |
+| `virtual_server.https.http2_server_profile.namespace` | [virtual_server.https.http2_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0033232312013133-0001112331212301-2033100130301223-3023303120230001-1331320012111232-0222311310203001-1103012201231303-3102002200100102) |
+| `virtual_server.https.http2_server_profile.tenant` | [virtual_server.https.http2_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3121201231013100-2201323213221001-2113310322022100-0232323033123122-1232133331201202-2133003212303330-2221320121331011-0100133130003133) |
+| `virtual_server.https.http2_server_profile.uid` | [virtual_server.https.http2_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0002203310232131-0133132223210032-3321200332310202-3002203210020131-0203032211210212-0000210210003031-3011322201110133-0231231033200011) |
+| `virtual_server.https.http_client_profile` | [virtual_server.https.http_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-3131300113300020-0011113001200100-2121210322120013-3211213213122233-0003210302021133-0330020220231003-3331332200203012-1213322003103003) |
+| `virtual_server.https.http_client_profile.kind` | [virtual_server.https.http_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0311231031223312-1003233110001021-1330321330102201-3310001122320102-0233220002200231-1021012000031103-0223003332101120-1133323203202031) |
+| `virtual_server.https.http_client_profile.name` | [virtual_server.https.http_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3210120202130120-3122200123122223-2101031210003201-1231020113131103-1120112130330211-2313010312302330-0223121021321122-1120033321301012) |
+| `virtual_server.https.http_client_profile.namespace` | [virtual_server.https.http_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0113320320112000-2022020213132233-3201323212030132-3212202201011120-1021323133120231-1130330123031211-3123230000032131-1133011021322211) |
+| `virtual_server.https.http_client_profile.tenant` | [virtual_server.https.http_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3013122132032220-3300200112313121-2133301131222123-3100233121013313-2331231100323012-3101110000001020-3023333113213212-2101030100013002) |
+| `virtual_server.https.http_client_profile.uid` | [virtual_server.https.http_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0212230031010012-0201111222230021-1302231113311132-3133123131023130-0021121001231123-1132301212233032-2112022201202112-0000022132301230) |
+| `virtual_server.https.http_server_profile` | [virtual_server.https.http_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-3132302132312210-2020323020222112-0001200000121223-0212232330220030-0003202223331003-2221331033000110-3033303120211121-0231001312112020) |
+| `virtual_server.https.http_server_profile.kind` | [virtual_server.https.http_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2313123202213030-3331122332020222-0231131311022311-2030221320303210-3111033333222111-2301100010102000-1303122020202000-1201232312322311) |
+| `virtual_server.https.http_server_profile.name` | [virtual_server.https.http_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1033133132012220-0313302002231332-0322332232330211-3013130103131212-3133331010033001-2113322113310302-3321011000102031-2003003101331213) |
+| `virtual_server.https.http_server_profile.namespace` | [virtual_server.https.http_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0203121001132023-0203020112110320-3102230001231011-2233302203012112-1031230303112010-3202203103000223-0213013312323102-0101212220333122) |
+| `virtual_server.https.http_server_profile.tenant` | [virtual_server.https.http_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2210223023312222-3232112103301023-3000033211200110-3223131332100020-3001303110110331-0003102012120113-0102333211110310-0112210233032223) |
+| `virtual_server.https.http_server_profile.uid` | [virtual_server.https.http_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1012232303223130-1311121212303020-0211321020020313-3000230031033011-0123023111100110-0102021101333001-0011130133022030-1212310110012030) |
+| `virtual_server.https.ocsp_profile` | [virtual_server.https.ocsp_profile](data-sources--application_profiles--reference--group-003.md#canonical-2013002101022013-2331200321301103-1321203302300002-0113011110003003-2233212212030320-2102000221123111-0330031003132102-1112012323101021) |
+| `virtual_server.https.ocsp_profile.kind` | [virtual_server.https.ocsp_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0333132003010323-1120331001331123-3310322213323130-0001032331212300-1133120131302323-3033121313311120-0211223222112230-3230022231333202) |
+| `virtual_server.https.ocsp_profile.name` | [virtual_server.https.ocsp_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2230023313120100-1330310233232010-1320231330332233-0103000301232031-0130023113011302-2232132112201320-1012220320013001-1032232031122212) |
+| `virtual_server.https.ocsp_profile.namespace` | [virtual_server.https.ocsp_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0331122031032201-2023303021010123-2333311332200113-2011112031123032-3302313123333113-0012233132033133-1030012303030221-3220113120200330) |
+| `virtual_server.https.ocsp_profile.tenant` | [virtual_server.https.ocsp_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3322233310021320-1312220233121113-1020031232221023-3201103031032002-3210033330122110-1013321200010323-0000100322132202-0013012333221102) |
+| `virtual_server.https.ocsp_profile.uid` | [virtual_server.https.ocsp_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3110303230120211-2032002231223301-1320102101230200-2002000300101110-1110113211211010-0030300222021022-1222112133013200-1300000130031200) |
+| `virtual_server.https.server_ssl_profile` | [virtual_server.https.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-3303311223330312-3033332311203113-2213312330332231-2300030212111132-2232201300002011-2011301203332012-3231333312121132-0112202100122202) |
+| `virtual_server.https.server_ssl_profile.kind` | [virtual_server.https.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2003120003221002-1223130000200002-1311221231030330-3323013323220100-2001121132220131-0102313123312332-1001220333133001-3021133133120310) |
+| `virtual_server.https.server_ssl_profile.name` | [virtual_server.https.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1323230312222023-1102033003233303-3033113201322003-2301312203332210-1220230321310322-2031333012333011-0321233332123113-3101220303303233) |
+| `virtual_server.https.server_ssl_profile.namespace` | [virtual_server.https.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0000120220131302-3312322122131013-2230331032101122-2001222121232320-3223201220221111-3231121103122201-3332022131220100-2300223323101021) |
+| `virtual_server.https.server_ssl_profile.tenant` | [virtual_server.https.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3203330132232233-1123323113131011-2211210121320212-0102303120111012-3200212011203330-3122333003123130-1223213321023120-3222101303211133) |
+| `virtual_server.https.server_ssl_profile.uid` | [virtual_server.https.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1131310220201110-0200002213220302-0211122122322001-3121111100222010-1021010002120130-2200013233333033-2011122113132300-2300020121320232) |
+| `virtual_server.https.stream_profile` | [virtual_server.https.stream_profile](data-sources--application_profiles--reference--group-003.md#canonical-2101112123203110-0231221321022130-3103201012031200-2300212020012011-1230032322101301-3311322301203000-1102100102000233-0331221321313011) |
+| `virtual_server.https.stream_profile.kind` | [virtual_server.https.stream_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2121222122231220-3003121210123321-3022213100303002-2112102222210331-0122110232203201-2020110010230013-3310202321301001-1100211213332302) |
+| `virtual_server.https.stream_profile.name` | [virtual_server.https.stream_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1221211022022220-2320212233303101-1212300121102300-1321012331102123-0003011221003303-1033023031111032-3123122100121202-2200202113010331) |
+| `virtual_server.https.stream_profile.namespace` | [virtual_server.https.stream_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1323301301310000-2200120032213330-1233200232021002-3102101333111003-0032113310102103-3322013311201003-1333210302001003-3210030121102231) |
+| `virtual_server.https.stream_profile.tenant` | [virtual_server.https.stream_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3112011222113010-1100200331000332-0300133333112322-3020010302200310-0022133213200113-2022023232322223-3023223231113201-0211020312011022) |
+| `virtual_server.https.stream_profile.uid` | [virtual_server.https.stream_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0032123333333230-0013230113220010-1313011122213332-2220233113113320-2323333000130303-3202120010003011-2211030223311031-3102301001030012) |
+| `virtual_server.https.tcp_client_profile` | [virtual_server.https.tcp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-3311100221020133-0023232010132211-2010011331121213-0031000022333011-2010010233030320-1311003313310322-2210321223120132-2003213033101022) |
+| `virtual_server.https.tcp_client_profile.kind` | [virtual_server.https.tcp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3000013103023010-2330212310323033-3331201020222200-2300032002011121-1030111032321030-3123233320330320-1120003212313332-3223330333223231) |
+| `virtual_server.https.tcp_client_profile.name` | [virtual_server.https.tcp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1103011220011233-0321202113110021-1233000302213123-1330032120031301-1032103112102200-3213311102120310-2131001220211321-1312231201322121) |
+| `virtual_server.https.tcp_client_profile.namespace` | [virtual_server.https.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3232010022121310-1211101223223122-3211031002300112-2221020122011223-2223232313022020-1000003023320233-3332211113001112-1133001100310232) |
+| `virtual_server.https.tcp_client_profile.tenant` | [virtual_server.https.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1010202122201212-3223101002323311-3323013011303332-2201003313100330-0002331213203202-0210133211322131-2013211312212333-0010231013133300) |
+| `virtual_server.https.tcp_client_profile.uid` | [virtual_server.https.tcp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0020322001231033-0020201001103000-1130013231123021-1213213011110002-2313300100001021-3202223011030302-1003323133110233-2100012113311032) |
+| `virtual_server.https.tcp_server_profile` | [virtual_server.https.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-2333122203230102-3331000211011113-0031023332320321-1200000031100101-3333133213321022-0131033020022213-2301223321102130-1311030113100202) |
+| `virtual_server.https.tcp_server_profile.kind` | [virtual_server.https.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0013012323002312-2102331123231221-3321222103101202-3223212101113302-0001220321120300-1313303203230220-3100212321213302-2032130012332223) |
+| `virtual_server.https.tcp_server_profile.name` | [virtual_server.https.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0101010133201312-1311303112221210-0313101110330203-0121102123023200-0311013002111200-3200231221011232-3330311203333100-1000320201312101) |
+| `virtual_server.https.tcp_server_profile.namespace` | [virtual_server.https.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3213110330021022-1300303210103311-1200130123220003-2223303111133100-0022030323301221-3303203201230303-1100221103300031-3132030201310202) |
+| `virtual_server.https.tcp_server_profile.tenant` | [virtual_server.https.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3332321010023303-2101121321323103-3022220032202230-3223230130111301-2311310131032001-3123030223220033-3010200221002202-0203201330120022) |
+| `virtual_server.https.tcp_server_profile.uid` | [virtual_server.https.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1223313010313313-2333222130310231-3023011022002022-3203010033002221-0201112013000013-1102301122020330-3111031123131230-0200330302303321) |
+| `virtual_server.https.websocket_client_profile` | [virtual_server.https.websocket_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-3110112022222213-3031103003231113-2210033100330223-0310132300103132-0223331232220230-0023202223300301-2213232333332010-2300321331131331) |
+| `virtual_server.https.websocket_client_profile.kind` | [virtual_server.https.websocket_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2131032331210311-0021210032233031-2212110110323130-2003022003203300-0220211333330021-1213012133012212-2313323222131102-1200120200323202) |
+| `virtual_server.https.websocket_client_profile.name` | [virtual_server.https.websocket_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3330323230322020-2012031130030030-2113120330302100-0213200231332113-1013003120101320-2233132220023213-2213003311230130-3133031110103210) |
+| `virtual_server.https.websocket_client_profile.namespace` | [virtual_server.https.websocket_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0110203121212333-2032333011013122-2231111302201211-0023122303121011-2120131233032302-3100031303021212-2210132220213330-1231322001022102) |
+| `virtual_server.https.websocket_client_profile.tenant` | [virtual_server.https.websocket_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1010103130330300-3233000010210011-2300111333231231-0002203032303110-0323123333311023-3210313102301312-1222113131321323-1003020200223120) |
+| `virtual_server.https.websocket_client_profile.uid` | [virtual_server.https.websocket_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1303232103101303-3000223033320023-1032313332322333-2002313232312132-3023100201120110-0112023020122122-1032321302023332-3332313012112301) |
+| `virtual_server.https.websocket_server_profile` | [virtual_server.https.websocket_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-2012111301231322-1111322030030322-2111202200121021-1030233113133301-1101212311113022-0101312003203001-0210220000030302-3210332010000033) |
+| `virtual_server.https.websocket_server_profile.kind` | [virtual_server.https.websocket_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0113033232120111-1002201022313210-1030311130010023-0330023210033321-0321320202020100-0113311232230321-0011102320232210-3231213010232232) |
+| `virtual_server.https.websocket_server_profile.name` | [virtual_server.https.websocket_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1021000021011333-1233331232122330-0220113002301313-1002332003100013-0122220032220202-1032332031021002-1332013333133021-1232312100301023) |
+| `virtual_server.https.websocket_server_profile.namespace` | [virtual_server.https.websocket_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1231220022320220-3302223200010122-0200303000022131-1112222231322113-1203111323210202-0101212310121011-1110132012210213-2303211230123023) |
+| `virtual_server.https.websocket_server_profile.tenant` | [virtual_server.https.websocket_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0012033122103103-3012233012033213-0001202231333010-0301331321100133-2002120120102011-2212122300310322-2123102231131002-1031133331211032) |
+| `virtual_server.https.websocket_server_profile.uid` | [virtual_server.https.websocket_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0200303012122222-2213200013030120-2112010231302332-3023210330121221-1212123022222013-2200211110011231-0331213032113332-3031132301122001) |
+| `virtual_server.immediate_action_on_service_down` | [virtual_server.immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-0210331121211012-2203311120332113-1110330020220232-1213101202321223-2133202200212011-3301130210013120-3000113220233111-2331332203033110) |
+| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop](data-sources--application_profiles--reference--group-003.md#canonical-3233003231010201-1213111003322323-2221030030111111-3203212212203322-2322001311323312-0200002223310232-2310212013022231-1232232032330123) |
+| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none](data-sources--application_profiles--reference--group-003.md#canonical-3000331313012003-1313113120221112-1321320333220223-3223310230103233-3322133303302333-0133332030023102-1120203222130030-3333112121013130) |
+| `virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset` | [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset](data-sources--application_profiles--reference--group-003.md#canonical-3031312321022010-3333033133022131-3100131033230303-0330010323330111-3111100013013201-0013013212012130-1313113331031321-3002313232001233) |
+| `virtual_server.last_hop_pool` | [virtual_server.last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-1331332331330133-1331300103320202-1223101301311323-3321312330210100-2311310201321032-0223302031132302-3110001232223011-0133002310032201) |
+| `virtual_server.last_hop_pool.kind` | [virtual_server.last_hop_pool.kind](data-sources--application_profiles--reference--group-003.md#canonical-3320230021230312-1112302231000133-3132223210220133-1333213323222103-2023332210021111-0103333110320202-2121301203201323-1310211133223332) |
+| `virtual_server.last_hop_pool.name` | [virtual_server.last_hop_pool.name](data-sources--application_profiles--reference--group-003.md#canonical-1100132102022032-0321130101023003-1222000130122110-2213212022000021-3122321123032201-0033210123000313-0322011202122302-0203100331021230) |
+| `virtual_server.last_hop_pool.namespace` | [virtual_server.last_hop_pool.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1022223331012211-3012300010010122-1133012302110113-2111323031231331-3333221002320111-1131010121320023-2223003313103221-3213220311111132) |
+| `virtual_server.last_hop_pool.tenant` | [virtual_server.last_hop_pool.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0322032110112232-1120333001010313-2222111031233223-3300212301332020-0232023133213333-0010200330202303-0022102030021102-3312021210321200) |
+| `virtual_server.last_hop_pool.uid` | [virtual_server.last_hop_pool.uid](data-sources--application_profiles--reference--group-003.md#canonical-0222231132230310-3110230303320121-1133232113122013-1301213010002020-3310012202021002-1233230323311331-2202231211123133-2030012323232211) |
+| `virtual_server.nat64` | [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-3112222212333220-2111210012320301-1230013102331102-1113102012213010-1223310022222321-0001023002031323-0231201223233030-0321201011113133) |
+| `virtual_server.nat64.nat64_disable` | [virtual_server.nat64.nat64_disable](data-sources--application_profiles--reference--group-003.md#canonical-3330021000232332-3112120221301132-1202112021311233-1002102220223223-1323103112322321-3020330031020301-1010001112301333-3210122112321303) |
+| `virtual_server.nat64.nat64_enable` | [virtual_server.nat64.nat64_enable](data-sources--application_profiles--reference--group-003.md#canonical-2323330300333113-0111210302021122-3222102210220312-3120003231033321-1223002012201122-2212212232011330-0022023201212313-2213003331011323) |
+| `virtual_server.port_translation` | [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-0230012221221331-3021110120120210-2301323100032210-0112002110033330-3020100332131003-3320320221322132-3320012303020331-0002233212311013) |
+| `virtual_server.port_translation.port_translation_disable` | [virtual_server.port_translation.port_translation_disable](data-sources--application_profiles--reference--group-003.md#canonical-1223333011230223-3003313223102211-3213332123113011-2011113321311333-1131201300001232-3222010100131121-3323120023222032-1210311122222011) |
+| `virtual_server.port_translation.port_translation_enable` | [virtual_server.port_translation.port_translation_enable](data-sources--application_profiles--reference--group-003.md#canonical-1123021020332223-3003002223232331-2000213010302201-0232230211330103-1311212121233320-2022302310202033-1333022301001012-0122310131120012) |
+| `virtual_server.request_logging_profile` | [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-1031110300301322-3011012111331131-3320322013310021-1331332303130013-0333231103331122-3012333020301221-1133212222013310-2220232130012002) |
+| `virtual_server.request_logging_profile.kind` | [virtual_server.request_logging_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3111011233010123-1322230210312302-3110220021311312-0123010212232222-1221021223020311-2233320201303112-3213221001323133-2222331001120331) |
+| `virtual_server.request_logging_profile.name` | [virtual_server.request_logging_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0032131021213201-0032210012001322-1022033201203132-0221223233220321-1230311221001013-3311132303202130-1002223322112110-0211321030200212) |
+| `virtual_server.request_logging_profile.namespace` | [virtual_server.request_logging_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2333231231202222-3000120200101013-2333122312302300-1010300001320031-1312000333330232-3020130310023312-2300030113133222-1332021211122210) |
+| `virtual_server.request_logging_profile.tenant` | [virtual_server.request_logging_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2321321001100300-2222002201310132-0312100012233022-1110131130102021-1202103112220223-1310120111103121-1312203321021203-0323333131013303) |
+| `virtual_server.request_logging_profile.uid` | [virtual_server.request_logging_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1211021330212112-0113010233101110-3213130122212220-3122221003303033-3220003021232020-0230220003222200-0120231211301201-3100113311233200) |
+| `virtual_server.source_port` | [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-2231031203231101-1320022022331310-2302331331320012-0013323110030013-0322230203211311-0231131003221110-2123031233033330-3020101331100032) |
+| `virtual_server.source_port.source_port_change` | [virtual_server.source_port.source_port_change](data-sources--application_profiles--reference--group-003.md#canonical-1033230100021110-1232321310030300-0013311113121012-3131323201213223-3131121020222213-2123022303233030-0200332113031001-0112011010112101) |
+| `virtual_server.source_port.source_port_preserve` | [virtual_server.source_port.source_port_preserve](data-sources--application_profiles--reference--group-003.md#canonical-3122210132111330-3213033313322121-2230323132323233-0202202102221001-2303103302013330-1203220001233003-0133322023132333-3231231023120323) |
+| `virtual_server.source_port.source_port_preserve_strict` | [virtual_server.source_port.source_port_preserve_strict](data-sources--application_profiles--reference--group-003.md#canonical-2103231131103021-2223110201303233-3123113133113121-2130101121221022-2030110102132300-0102210010213033-2201112112020000-0330100113133120) |
+| `virtual_server.statistics_profile` | [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-2030120322312202-1311203300012321-0321320031013201-3233002122323031-2033010022232303-2110113120103221-1303322002232120-0232013212222013) |
+| `virtual_server.statistics_profile.kind` | [virtual_server.statistics_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2302010102032211-2101220322000120-1122102130000030-0331230231012103-2033003332311120-1211011002101230-2122113311020032-3233202230133301) |
+| `virtual_server.statistics_profile.name` | [virtual_server.statistics_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1210213022223212-3133101111210020-3322303133122300-0123123013113330-2003233011230003-3122232322221131-1113313133211010-2201303221233131) |
+| `virtual_server.statistics_profile.namespace` | [virtual_server.statistics_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3233300113322310-1133113133232223-1230022323013133-1211132212130013-2113321221200310-3121033032102200-0220012013130010-0221021211333210) |
+| `virtual_server.statistics_profile.tenant` | [virtual_server.statistics_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3200032003300132-3303302103202001-2000030303131112-3100100220110121-3330100231021011-2333200103022023-0302221203020032-2031313331032301) |
+| `virtual_server.statistics_profile.uid` | [virtual_server.statistics_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3101021230321013-1312011302130111-3030332132013102-0111212322122021-3203222232012013-1112302322213300-3330331220232323-2233030123302330) |
+| `virtual_server.tcp` | [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-3332310323031233-0313321330000232-3300010012123032-3321003311001223-1002000031011012-1221013001120331-2103101021011301-1010110123323100) |
+| `virtual_server.tcp.client_ssl_profile` | [virtual_server.tcp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1223323031103032-1333301010223312-0323313113233102-2211030313223003-2112002133300232-3131120003201031-3300020231132200-2200333311102021) |
+| `virtual_server.tcp.client_ssl_profile.kind` | [virtual_server.tcp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1220010130112121-3220233320100101-3013123332101221-3221133232033011-0022001132301033-2210111002022001-1312132313210102-3332110020230311) |
+| `virtual_server.tcp.client_ssl_profile.name` | [virtual_server.tcp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1201232331100312-2231133323321300-1101222002301001-0300120320023002-3312310012202030-2312332002222021-2213223111232022-1122310001101202) |
+| `virtual_server.tcp.client_ssl_profile.namespace` | [virtual_server.tcp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0122021320113200-3302220020122013-3130330102311221-3032220300022223-2333010320122220-2033103132200010-0323310333210302-2213121032322330) |
+| `virtual_server.tcp.client_ssl_profile.tenant` | [virtual_server.tcp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1012013322002021-2211211113222003-2032221301132030-3223122332033031-3311002131012113-1300301110330220-1032312100101300-0001322103310122) |
+| `virtual_server.tcp.client_ssl_profile.uid` | [virtual_server.tcp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2121012201112312-0002001312031121-3201331313001310-2031032313001331-2023333220313133-2013320223201000-2101002012103321-0323010233232122) |
+| `virtual_server.tcp.ocsp_profile` | [virtual_server.tcp.ocsp_profile](data-sources--application_profiles--reference--group-003.md#canonical-3222113202322322-0331222010032111-0231200332330131-1120010211000200-1320103023320021-3020032311122013-3012321300232301-1212233311202030) |
+| `virtual_server.tcp.ocsp_profile.kind` | [virtual_server.tcp.ocsp_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2133103031213311-1023200220030223-0300213312300320-3033203323222030-3003022112303203-3322032133130302-0203212000000210-3210320201220332) |
+| `virtual_server.tcp.ocsp_profile.name` | [virtual_server.tcp.ocsp_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1303302102302030-0100000232300311-2210102233131213-3023320231311100-0230322133121211-0012123230110220-1211021233111031-3332133132300322) |
+| `virtual_server.tcp.ocsp_profile.namespace` | [virtual_server.tcp.ocsp_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3130230020320011-3103103201100321-1203031032010003-0133021210001121-0021231011103331-3233220302011033-3212223022020031-2202112331033011) |
+| `virtual_server.tcp.ocsp_profile.tenant` | [virtual_server.tcp.ocsp_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0322021303013323-0202320023211102-3100101303010000-2210122222101322-2322233231000131-2303121110023200-1220332322133203-1222233023231233) |
+| `virtual_server.tcp.ocsp_profile.uid` | [virtual_server.tcp.ocsp_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3233130311023002-2222211223202010-1211231210210222-1320312111330103-3231201020300111-3033322213122232-0100232132220223-1321323302211202) |
+| `virtual_server.tcp.server_ssl_profile` | [virtual_server.tcp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1301210030113010-3001031000022023-1203202300132011-2320223221023320-0201113030211233-1113112203320131-0321103311130200-2313302302001132) |
+| `virtual_server.tcp.server_ssl_profile.kind` | [virtual_server.tcp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3123220302001003-0221110312110212-3010023023031232-0100021213122233-0231101221102032-3010020223123303-3201231220101332-3233230022333100) |
+| `virtual_server.tcp.server_ssl_profile.name` | [virtual_server.tcp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3220023021330010-1022331102300302-1130310302211113-2203331201322310-0233211102323232-1103213012203022-2011230332230113-0132221121220122) |
+| `virtual_server.tcp.server_ssl_profile.namespace` | [virtual_server.tcp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3111223102012123-0203023033221220-0332303002133231-2031010210000102-1020011001012231-1102000000113011-3002330230133202-1213201203331323) |
+| `virtual_server.tcp.server_ssl_profile.tenant` | [virtual_server.tcp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2022110203301233-2233230031101202-1300223210332300-3321000123200220-1131320332213333-2202311133113200-2133233021110212-0032013030303331) |
+| `virtual_server.tcp.server_ssl_profile.uid` | [virtual_server.tcp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0103200032003121-2303201330033021-0032320131330211-3131000310203303-3233202112120102-1231321133321301-3102221230101311-1003122022310022) |
+| `virtual_server.tcp.tcp_client_profile` | [virtual_server.tcp.tcp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-0233130021010220-1121023203223312-3032230023001021-2100113110302023-2010233012010211-1320211021101331-2021110312323310-1030121232022110) |
+| `virtual_server.tcp.tcp_client_profile.kind` | [virtual_server.tcp.tcp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3032220312231213-2300232121210230-2212123331131322-1031321232021130-3023223320313113-2021331121331212-1331312010331211-2032022210121023) |
+| `virtual_server.tcp.tcp_client_profile.name` | [virtual_server.tcp.tcp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0303213032221112-1100121300200200-1320222322310231-3123002211221131-1230311310232123-3131301212131303-1102221213030213-2031300131331031) |
+| `virtual_server.tcp.tcp_client_profile.namespace` | [virtual_server.tcp.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2001200320213233-1120030103320132-1032112022111031-3211100010100330-2302333212033031-2133231220001010-2233111313032112-3212032333310201) |
+| `virtual_server.tcp.tcp_client_profile.tenant` | [virtual_server.tcp.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1212100302003313-0331210323332030-1201303123012230-0030221332203201-3001113132301312-3101032331100222-3233223310013113-1110332333101122) |
+| `virtual_server.tcp.tcp_client_profile.uid` | [virtual_server.tcp.tcp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0233221223033011-1212023121031111-0321033132333302-0003331011310333-1113023121012311-1020210031000302-1221023202000030-0220012210312210) |
+| `virtual_server.tcp.tcp_server_profile` | [virtual_server.tcp.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-2223101012002002-0211221222230013-2203113222222221-2000010023113232-0022101110310031-3312130211212133-3101130033321322-2112213130333221) |
+| `virtual_server.tcp.tcp_server_profile.kind` | [virtual_server.tcp.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2331002323321112-1113033321031011-1321232120031023-1023222002103233-2021021130003312-0301112010210103-0120110110023201-2002121230011020) |
+| `virtual_server.tcp.tcp_server_profile.name` | [virtual_server.tcp.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2003031013322331-0100100330122133-0303211313113032-2110233133231212-3012313200011313-2031020020322202-1020332111121023-1223121200213100) |
+| `virtual_server.tcp.tcp_server_profile.namespace` | [virtual_server.tcp.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3322220201010210-0203220112133211-1120123201023000-0231313101033100-1332111013202002-0310230131120331-2321312000120302-2102230102110023) |
+| `virtual_server.tcp.tcp_server_profile.tenant` | [virtual_server.tcp.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0321123000011210-2010112330021131-1331101313300303-2310210120100000-1323223202001223-1130031103303331-1222032231310200-2101120201110231) |
+| `virtual_server.tcp.tcp_server_profile.uid` | [virtual_server.tcp.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3112202321320130-0302202312113323-0330303200001100-3323010223012021-2212010221311202-3223032212230232-1231023121312230-0110130011003100) |
+| `virtual_server.udp` | [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-3230102230310120-1010023200321221-3133023233101012-0120203133222230-3233210233210103-1332031102321121-2231002312110123-2021321301012232) |
+| `virtual_server.udp.client_ssl_profile` | [virtual_server.udp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-2223111031211133-0101333002323221-1330302200031101-2132112223123222-2201122023213030-1020321313300011-1010133331202031-3230300310130112) |
+| `virtual_server.udp.client_ssl_profile.kind` | [virtual_server.udp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0322301012103310-2211210202321302-2220100202033221-3123231121221030-2222333013100200-2223332112112210-1131021123131111-3231210003232133) |
+| `virtual_server.udp.client_ssl_profile.name` | [virtual_server.udp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0132103230323301-2310210101023022-3221100322330230-2020223323320212-0212212311121321-0113221020133331-2303003101010200-2122303332230211) |
+| `virtual_server.udp.client_ssl_profile.namespace` | [virtual_server.udp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1210103233123230-0011200330100300-3122332312110310-0233010331020013-1122002212112101-1212203332320202-1321202211323003-1102301221013010) |
+| `virtual_server.udp.client_ssl_profile.tenant` | [virtual_server.udp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0211311122032003-3222130111113002-3101000323101010-2021113023000331-2111000102130221-2111120203222011-1100013033011023-0203132122212300) |
+| `virtual_server.udp.client_ssl_profile.uid` | [virtual_server.udp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2211100301020302-2320012111132033-1201303120022021-1220213100122220-2012021300310132-0233030333313032-2011213112313003-0231302123123110) |
+| `virtual_server.udp.server_ssl_profile` | [virtual_server.udp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-0101033012301333-2330013230023300-1030200021120003-3111233103113030-1102102100332031-2131121031322222-2213131312112330-2301020232113100) |
+| `virtual_server.udp.server_ssl_profile.kind` | [virtual_server.udp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2332323020202202-2301010013113311-3201203231333312-0131221313130303-2301001121121100-0303113122120330-0132303133110002-2020321130031112) |
+| `virtual_server.udp.server_ssl_profile.name` | [virtual_server.udp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2221303121101223-0133032033012012-3313000223203101-3331221001133121-2010132220010230-0231313311333303-1323002202323311-1301012013102131) |
+| `virtual_server.udp.server_ssl_profile.namespace` | [virtual_server.udp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1100203111120031-2120323223132010-2301303001222002-3012020030133313-1213312200202111-0210120101322223-2301011312021011-2000111012011011) |
+| `virtual_server.udp.server_ssl_profile.tenant` | [virtual_server.udp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1223122120321102-2000203333123003-1322122023312212-3000031011123100-3212313310230210-2312232300021021-2013231031020232-1302021022310010) |
+| `virtual_server.udp.server_ssl_profile.uid` | [virtual_server.udp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2231130232100022-3123001103220031-2033212310210310-2000023222321131-0000302302133013-2212322120103331-0210122331000112-0102011101103103) |
+| `virtual_server.udp.udp_client_profile` | [virtual_server.udp.udp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-1022022013310211-3131023311012011-0332223013233330-0310123313002302-3003030100013303-1331103101100223-0002131121201323-2223000021033100) |
+| `virtual_server.udp.udp_client_profile.kind` | [virtual_server.udp.udp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3331321213300032-2002032122201223-3132221303332332-3112013011102232-2303100021103021-1210120010303210-3203033000020233-0323212333002033) |
+| `virtual_server.udp.udp_client_profile.name` | [virtual_server.udp.udp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1320223331022233-0211201230233120-0223002213100200-3210120200222330-2133220001131202-2031210132300313-2232233032130111-3320131033220202) |
+| `virtual_server.udp.udp_client_profile.namespace` | [virtual_server.udp.udp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2303121332220020-2200102003102322-3210233320133012-3021031022032321-2130102310302211-3320012122133032-1213132002202031-3321312330233131) |
+| `virtual_server.udp.udp_client_profile.tenant` | [virtual_server.udp.udp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1111313003330213-2112303201023030-0332303020331322-0221001122220130-3311311030311033-3231130330213022-3301032100122122-3323200303203223) |
+| `virtual_server.udp.udp_client_profile.uid` | [virtual_server.udp.udp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3123323202130100-3132220203121313-3210312130122012-1311201213301201-2212033102311122-2000111122023232-1101032320213121-3232013020101233) |
+| `virtual_server.udp.udp_server_profile` | [virtual_server.udp.udp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-1232210232213322-3200033101023210-1022100231121012-3311323303321202-0130032002133020-2301003122033333-3021010230323203-3032301322031133) |
+| `virtual_server.udp.udp_server_profile.kind` | [virtual_server.udp.udp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0301232220333320-0212023310223321-2233100220312112-2300331223010303-2011223202200333-1133121101223323-2123120033132120-0231132012112322) |
+| `virtual_server.udp.udp_server_profile.name` | [virtual_server.udp.udp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1301113121300332-2011130120100301-2332131131321130-2110210213232321-3331311222230133-2321020223101121-1033201330333101-3311123323211313) |
+| `virtual_server.udp.udp_server_profile.namespace` | [virtual_server.udp.udp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1100321230312010-3023132212020002-3332131310320113-0331330002112322-1132021322313012-1211330321022323-0202220332323020-1300313033013323) |
+| `virtual_server.udp.udp_server_profile.tenant` | [virtual_server.udp.udp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0020233331120310-1320122000011301-1300121301323333-1233233113202320-3223012111320202-0231232222032033-2103203000222311-1012123333332121) |
+| `virtual_server.udp.udp_server_profile.uid` | [virtual_server.udp.udp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3302132310200220-1112211012111031-0123230123211311-2131012311210121-3310321130120201-2201123213011210-1123332101010032-1222202211310232) |
+| `virtual_server.virtual_server_state` | [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-2021230121300320-1123230031330120-2201000331133031-3132210011103321-1233130023200123-0213223330301201-0132022232032021-1202010313232100) |
+| `virtual_server.virtual_server_state.state_disabled` | [virtual_server.virtual_server_state.state_disabled](data-sources--application_profiles--reference--group-003.md#canonical-2333230033233103-1022032110001213-1211312103321332-2213010220333300-1321201012201122-0222101313111331-2101220020032332-2311032233010201) |
+| `virtual_server.virtual_server_state.state_enabled` | [virtual_server.virtual_server_state.state_enabled](data-sources--application_profiles--reference--group-004.md#canonical-2113010333112121-3313300103110012-2033000201111131-3131131322212022-2332033122133012-0222030133022310-0331101012023000-1102133031030230) |
+| `virtual_server.vs_score` | [virtual_server.vs_score](data-sources--application_profiles--reference--group-001.md#canonical-1101221003132231-2302003212102002-0031303203022332-0130313122313322-3003301331000021-3023001002002021-3020022133323122-1130301100301033) |
 
-<a id="canonical-8b94e0e4d81a2fbbb616f38c90d01744f84bfe4ed0fdbf48cd5b545619542a6f"></a>
+<a id="canonical-2023211032003210-3120012202332323-2312011233032030-2100310001131010-3320102333321032-3100333123331020-3031112311101112-0121111002221233"></a>
 
-## Next pages — Property reference / 56b0abd5bcb9 / 11
+## Next pages — Property reference / 311123302321 / 11
 
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb)
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e)
-- [irules](data-sources--application_profiles--reference--group-001.md#canonical-b03852e8035d88ad972f06db07b19a393462dd0e06b97aff9ac57a85e610479b)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
+- [irules](data-sources--application_profiles--reference--group-001.md#canonical-2300032011023220-0003113120202231-2113023300123123-0013230121220321-0310120231310032-0012232113223333-2122301113222011-3212010010132123)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb"></a>
+<a id="canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b825fee9e8e13352ecad687f940221874a88bcbc76ecc96cc5e79f739e81870c"></a>
+<a id="canonical-2320021133323221-3220320103031102-3230223112201333-2110000202012013-1022202023302330-1312323030211230-3011321321331303-2132200120130030"></a>
 
-## advanced_tcp_profile — advanced_tcp_profile / fbb5ca5f5444 / 2
+## advanced_tcp_profile — advanced_tcp_profile / 113311101010 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
 - advanced_tcp_profile
 
-<a id="canonical-d3767388aea02ec0ca5025809e8b9ea513436b560577f5b21d781ce28158f42b"></a>
+<a id="canonical-3103131213032020-2232220002323000-3022110002112000-2132202321322211-0103100312231112-0011131333112302-0131132001303202-2001112033100223"></a>
 
 Type: `"single"`. Computed.
 
@@ -715,41 +715,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9f934dcf36c7bee3313153478c974d8d05ec4eb1ab72e8e14afd46a1f2a3278b"></a>
+<a id="canonical-2133210310313033-0312301323323203-0301030111031013-2030211310312031-0011323010322301-2223130232203201-1022333110122201-3302220302132023"></a>
 
-## Direct properties — advanced_tcp_profile / fbb5ca5f5444 / 3
+## Direct properties — advanced_tcp_profile / 113311101010 / 3
 
-- [disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-65da3288a4fd806d96bc676a3a236ca6d585819053bfaf2ea71855de57509179): complete subsection reference.
+- [disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321): complete subsection reference.
 
-- [enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-6134876561c66f7c3bc0c4c09e3d11b12600bf0abca0d310923b3c05537abe45): complete subsection reference.
+- [enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011): complete subsection reference.
 
-<a id="canonical-309523fc67299740b1b18125c238c76236157cfbd3e554b30451737d40bd8333"></a>
+<a id="canonical-0300211102033330-1213022121131000-2301230120010211-3002032030131202-0312011113303323-3103321111102303-0010110113031331-1000233120030303"></a>
 
-## Next pages — advanced_tcp_profile / fbb5ca5f5444 / 4
+## Next pages — advanced_tcp_profile / 113311101010 / 4
 
-- [advanced_tcp_profile.disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-65da3288a4fd806d96bc676a3a236ca6d585819053bfaf2ea71855de57509179)
-- [advanced_tcp_profile.enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-6134876561c66f7c3bc0c4c09e3d11b12600bf0abca0d310923b3c05537abe45)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [advanced_tcp_profile.disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321)
+- [advanced_tcp_profile.enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-65da3288a4fd806d96bc676a3a236ca6d585819053bfaf2ea71855de57509179"></a>
+<a id="canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8195f7f9fba7b63d8ea2c956f7043d8d141c6ba8943a664c6e2d1d6a092e6897"></a>
+<a id="canonical-2001211133133321-3323221323120331-2032220230211112-3313001003312031-0110013012232220-2110032212121030-1232023101311222-0021023212202113"></a>
 
-## advanced_tcp_profile.disable_tcp_advanced_profile — advanced_tcp_profile.disable_tcp_advanced_profile / 9880f7f35e8a / 2
+## advanced_tcp_profile.disable_tcp_advanced_profile — disable_tcp_advanced_profile / 330311322022 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
 - advanced_tcp_profile.disable_tcp_advanced_profile
 
-<a id="canonical-0d26b2193786af7aa79e0db3600a2e41886b063eee854d74aa5addef66f9383b"></a>
+<a id="canonical-0031021223020121-0313201222331322-2213213200312303-1200002202321001-2020122300120332-3232201110311310-2222112231313233-1212332103200323"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -772,37 +772,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-39166a53d47ae877d0395ea6f94fa4bc3eb02cb3d9ed9d9558f46ca311fa8bbd"></a>
+<a id="canonical-0321011212221103-3110132232201313-3100032111322212-3321103322102330-0332230002302303-3121323121312111-1120331012302203-0101332220232331"></a>
 
-## Direct properties — advanced_tcp_profile.disable_tcp_advanced_profile / 9880f7f35e8a / 3
+## Direct properties — disable_tcp_advanced_profile / 330311322022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-704403d7c9ed5aeecf945adc7d550b2c8da7ed1c85101db06d6baddf03aa57a0"></a>
+<a id="canonical-1300101000033113-3021323111223232-3033211011223130-1331111100230230-2031221332310130-2011010001312300-1231122322313133-0003222211132200"></a>
 
-## Next pages — advanced_tcp_profile.disable_tcp_advanced_profile / 9880f7f35e8a / 4
+## Next pages — disable_tcp_advanced_profile / 330311322022 / 4
 
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-6134876561c66f7c3bc0c4c09e3d11b12600bf0abca0d310923b3c05537abe45"></a>
+<a id="canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f7daf043f2e643436d13683cab80cf0bc6d919f5eed731003c498b6b87939b35"></a>
+<a id="canonical-3313312233001003-3302321210031003-1231010312200330-2223200030330023-3012312101213311-3232311303010000-0330102120231223-2013210321230311"></a>
 
-## advanced_tcp_profile.enable_tcp_advanced_profile — advanced_tcp_profile.enable_tcp_advanced_profile / ed56c3e4712b / 2
+## advanced_tcp_profile.enable_tcp_advanced_profile — enable_tcp_advanced_profile / 321013010223 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
 - advanced_tcp_profile.enable_tcp_advanced_profile
 
-<a id="canonical-9e6ebe48e8f5f7a29e5a34daccaba29516ab8384272cdf414e783ef391dba3fd"></a>
+<a id="canonical-2132123223321020-3220331133132202-2132112203103122-3030222322022111-0112222320032010-0213023031331001-1032132003323303-2101312322033331"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -825,36 +825,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ada784e398833685e85b6234a18264b039e32bd7836c33141c7443518cb8e506"></a>
+<a id="canonical-2231221320103203-2120200303122011-3220112312020310-2201200212102300-0321320302233113-2003123003030110-0130131010031101-2030232032110012"></a>
 
-## Direct properties — advanced_tcp_profile.enable_tcp_advanced_profile / ed56c3e4712b / 3
+## Direct properties — enable_tcp_advanced_profile / 321013010223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5a591d4f566f0bc45cee68a1e9ec50b069598115f3098f7b99aaec440c76a251"></a>
+<a id="canonical-1122112101311033-1112123300233010-1130323212202201-3221323011002300-1221112120010111-3303002120331323-2121222232301010-0030131222021101"></a>
 
-## Next pages — advanced_tcp_profile.enable_tcp_advanced_profile / ed56c3e4712b / 4
+## Next pages — enable_tcp_advanced_profile / 321013010223 / 4
 
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-c96b791db73eb7ed3c59393c5beb519e56f6b98af5a2999dbfbbef69414cbabb)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e"></a>
+<a id="canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c9f86f67c5a171d819cdabb2391f80b2469d87d757b9b0a0e2e98834a2cc05f4"></a>
+<a id="canonical-3021332012331213-3011220113013120-0121303122232302-0321013320002302-1012213120133113-1113232123002200-3202322120200310-2202303000113310"></a>
 
-## ddos_profile — ddos_profile / f09077bb779a / 2
+## ddos_profile — ddos_profile / 232313132122 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
 - ddos_profile
 
-<a id="canonical-b8c30b3a65e6d9609c5c15e10affae0439226c346239ecc25fe5608ef8470fc8"></a>
+<a id="canonical-2320300300230322-1211321231211200-2130113001113201-0022333322320010-0321020212300310-1202032132303002-1133321112002032-3320101300333020"></a>
 
 Type: `"single"`. Computed.
 
@@ -878,41 +878,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-25d33b385b208782715fe493712cc3da3b6e6510e698e19e6009effba8be998a"></a>
+<a id="canonical-0211310303230320-1123020020132002-1301113332102103-1301023030033122-0323123212110100-3212212032012132-1200002132333323-2220233221212022"></a>
 
-## Direct properties — ddos_profile / f09077bb779a / 3
+## Direct properties — ddos_profile / 232313132122 / 3
 
-- [disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-714f973e1231815bfc6c95de5ab98c2ff63b7c8c49ead62abc7df179876bf94c): complete subsection reference.
+- [disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030): complete subsection reference.
 
-- [enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-9cfe5451f6ddf70cc4c96d1ae89b340bc09920615b6da5ebb63d1b9033df3244): complete subsection reference.
+- [enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010): complete subsection reference.
 
-<a id="canonical-e9d28ce051db4a21c13b086755875e54ac75cfaadfe1e12b0158bcc1fe56b9c0"></a>
+<a id="canonical-3221310220303200-1101312310220201-3001032300201213-1111201311321110-2230131130332222-3133320132010223-0001112023303001-3332111223213000"></a>
 
-## Next pages — ddos_profile / f09077bb779a / 4
+## Next pages — ddos_profile / 232313132122 / 4
 
-- [ddos_profile.disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-714f973e1231815bfc6c95de5ab98c2ff63b7c8c49ead62abc7df179876bf94c)
-- [ddos_profile.enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-9cfe5451f6ddf70cc4c96d1ae89b340bc09920615b6da5ebb63d1b9033df3244)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [ddos_profile.disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030)
+- [ddos_profile.enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-714f973e1231815bfc6c95de5ab98c2ff63b7c8c49ead62abc7df179876bf94c"></a>
+<a id="canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f9ab34877f3e7b868df4b84f0a28fe2e469d2f5d910daa305cb24d49ec40468"></a>
+<a id="canonical-2033212223031020-1313330332132320-1220313310232010-3300220220333202-3210122131023311-3121010031222203-0011302302103110-2132301000101220"></a>
 
-## ddos_profile.disable_ddos_mitigation — ddos_profile.disable_ddos_mitigation / 60da480196a5 / 2
+## ddos_profile.disable_ddos_mitigation — disable_ddos_mitigation / 000121122211 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
 - ddos_profile.disable_ddos_mitigation
 
-<a id="canonical-ba0a9fa3a16fff5595f46101036ae725e701da0f88906e3bfc6cc6b3f5fca749"></a>
+<a id="canonical-2322002221332203-2201123333331111-2111331012010001-0003122232130211-3213000131220033-2020210012320323-3330123030122303-3311333022131021"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -935,37 +935,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e2e1432b0acc2c5b7a9d17496c1ed29a4094e92d6451407848551991698842e4"></a>
+<a id="canonical-3202320110030223-0022303002301123-1322213101131021-1230013231022122-1000211032210231-1210110110001320-1020111101212101-1221202010023210"></a>
 
-## Direct properties — ddos_profile.disable_ddos_mitigation / 60da480196a5 / 3
+## Direct properties — disable_ddos_mitigation / 000121122211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2086a55994276833745d3f12def13ccf2c54c87c9f3d6b7b46e6713fbdb628dc"></a>
+<a id="canonical-0200201222111121-2110021312200303-1310113103330102-3132330103303033-0230111030201330-2133033112231323-1012321213010333-2331231202203130"></a>
 
-## Next pages — ddos_profile.disable_ddos_mitigation / 60da480196a5 / 4
+## Next pages — disable_ddos_mitigation / 000121122211 / 4
 
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-9cfe5451f6ddf70cc4c96d1ae89b340bc09920615b6da5ebb63d1b9033df3244"></a>
+<a id="canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e62040a1728a3620d3f32c66f7aa606cf394e3a20f45937cabdb1a3d04140f67"></a>
+<a id="canonical-3212020010002201-1302202203120200-3103330302301212-3313222212001230-3303211032032202-0033101121031330-2223312301220331-0010011000331213"></a>
 
-## ddos_profile.enable_ddos_mitigation — ddos_profile.enable_ddos_mitigation / 8c453195a4c2 / 2
+## ddos_profile.enable_ddos_mitigation — enable_ddos_mitigation / 211122103002 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
 - ddos_profile.enable_ddos_mitigation
 
-<a id="canonical-61c54997e65f4ea0911b9bf8f4da246106d1643e36664a7e10d7ee912196e5e6"></a>
+<a id="canonical-1201301110212113-3212113310322200-2101012321233320-3310312202101201-0012310112100332-0312121210221332-0100311332322101-0201211232113212"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -988,36 +988,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f706c9356361b78b71426bf0b9a28c7171d483865f7977ee98f62a7a1994a9b"></a>
+<a id="canonical-1233130012302103-1112031201231320-2313011002122333-0023212202203013-0113013110200320-1211331321131332-3221203312022213-2201212110222123"></a>
 
-## Direct properties — ddos_profile.enable_ddos_mitigation / 8c453195a4c2 / 3
+## Direct properties — enable_ddos_mitigation / 211122103002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b3efba164a9920f3f5a84dca14bf450247a20f9c3ea57dea43917418b650a124"></a>
+<a id="canonical-2303323323220112-1022212102003303-3311222010313022-0110233310110002-1013220200332130-0332221113313222-1003210113100120-2312110022010210"></a>
 
-## Next pages — ddos_profile.enable_ddos_mitigation / 8c453195a4c2 / 4
+## Next pages — enable_ddos_mitigation / 211122103002 / 4
 
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-29d3d0446d62faa0d39154381930b796864b6b683593f6fa1f025b812be1937e)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-b03852e8035d88ad972f06db07b19a393462dd0e06b97aff9ac57a85e610479b"></a>
+<a id="canonical-2300032011023220-0003113120202231-2113023300123123-0013230121220321-0310120231310032-0012232113223333-2122301113222011-3212010010132123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6d14bd434ed347fce245a7330f7e388e9960d61645b49a5d16f878123722808b"></a>
+<a id="canonical-1231011023311003-1032310310133330-3202101122130303-0033133203202032-2121120031120112-1011231021221131-0112332013200102-0313020220002023"></a>
 
-## irules — irules / d3e99e2b2f35 / 2
+## irules — irules / 022302330311 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
 - irules
 
-<a id="canonical-9f505918e95bbf193101e06dc82e460ae7385da1d3b0e487261980ebfc4c2fa0"></a>
+<a id="canonical-2133110011210120-3221112323330121-0301000132001231-3020023210120022-3213032011312201-3103230032102013-0212012120003223-3330103002332200"></a>
 
 Type: `"list"`. Computed.
 
@@ -1057,15 +1057,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c1e7bf64625d19d50dcea4e278b9b6a221f1f274d8b32e140e8a600d1ddd2e2a"></a>
+<a id="canonical-3001321323331210-1202113101213111-0031303222103202-1320232123122202-0201330133021310-3120230302320110-0032202212000031-0131313102320222"></a>
 
-## Direct properties — irules / d3e99e2b2f35 / 3
+## Direct properties — irules / 022302330311 / 3
 
-<a id="canonical-ad0d9d62279d6fb30c0456cb22ef8c40aafb7cab14347c374325bfb8d41723c7"></a>
+<a id="canonical-2231003121311202-0213213112332303-0030001011123023-0202323320301000-2222332313302223-0110031013300313-1003021123332320-3110011302033013"></a>
 
-<a id="canonical-2322262e668345ec3ffddd2415e0360f254794b2f80908822149335ff5a01e5d"></a>
+<a id="canonical-0203020202120232-1212200310113230-0333333131310210-0111320003120033-0211101321102302-3320002100202002-0201102103031133-3311220001321131"></a>
 
-## kind property — irules / d3e99e2b2f35 / 4
+## kind property — irules / 022302330311 / 4
 
 Type: `"string"`. Computed.
 
@@ -1100,11 +1100,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ce7fd1101c941540c77558402346710e11496dbac0f0189034db95a46db22d8a"></a>
+<a id="canonical-3032133331010100-0130211001111000-3013131111201000-0203101213010032-0101102112312322-3000330001202100-0310312321112210-1231230202312022"></a>
 
-<a id="canonical-c6502cdd524fcac2d813ab48d6ba634e67cb3db3403138f0cbaf7fe76391fb5b"></a>
+<a id="canonical-3012110002303131-1102103330223002-3120010322231020-3112232212031032-1213302303312303-1000030103203300-3023223313333213-1203210133231123"></a>
 
-## name property — irules / d3e99e2b2f35 / 5
+## name property — irules / 022302330311 / 5
 
 Type: `"string"`. Computed.
 
@@ -1139,11 +1139,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c537b88d8371e4da4a11e7917efcdb6f972e38b8bc3603453241ff6ffe283574"></a>
+<a id="canonical-3011031323202031-2003130132103122-1022010132132101-1332333031231233-2113023203202320-2330031200031011-0302100133331233-3332022003111310"></a>
 
-<a id="canonical-5cb09300708e49f9a2149921eb68bfe12a6a66caf51b7452ab8bfbdc0e32fa4c"></a>
+<a id="canonical-1130230021030000-1300203210213321-2202011021210201-3223122023333201-0222122212123022-3311012313101102-2223202333233130-0032030233221030"></a>
 
-## namespace property — irules / d3e99e2b2f35 / 6
+## namespace property — irules / 022302330311 / 6
 
 Type: `"string"`. Computed.
 
@@ -1193,11 +1193,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-175f2bea23fd12acd42a1af0d58283c7ee0a7379d6a7cc91a9398b7bda102f44"></a>
+<a id="canonical-0113113302233222-0203333101022230-3110022201223300-3111200220033013-3232002213031321-3112221330302101-2221032120231323-3122010002331010"></a>
 
-<a id="canonical-61d01b21d1604fc3dfcc7a0c2ccd31b2520d4ff779bf3a04b977a8527ce813f7"></a>
+<a id="canonical-1201310001230201-3101120010333003-3133303013220030-0230303103012302-1102003110333313-1321233303220010-2321131322201102-1330322001033313"></a>
 
-## tenant property — irules / d3e99e2b2f35 / 7
+## tenant property — irules / 022302330311 / 7
 
 Type: `"string"`. Computed.
 
@@ -1232,11 +1232,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a3ef076b67a7821b4a918797dc2fd8ae2de2e9ce3b4d05d01b42f973020f4853"></a>
+<a id="canonical-2203323300131223-1213221320020123-1022210120132113-3130023331202232-0231320232213032-0323103100113100-0123100233211303-0002003310201103"></a>
 
-<a id="canonical-74963cfea3e91bc370e0cccd57006736f795cfefc1d6ec9cf722c96cd98cec3c"></a>
+<a id="canonical-1310211203303332-2203322101233003-1300320030303031-1113000012130312-3313211130333233-3001311232302130-3313020230211230-3121203032300330"></a>
 
-## uid property — irules / d3e99e2b2f35 / 8
+## uid property — irules / 022302330311 / 8
 
 Type: `"string"`. Computed.
 
@@ -1271,30 +1271,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f9ca7ca09979b8824f66ff12b9f139cf49faf2b726d198054fb6db6ebf9c9287"></a>
+<a id="canonical-3321302213302200-2121132123202002-1033121233330102-2321330103213033-1021332233022313-0212310121200011-1033231231231232-2333213021022013"></a>
 
-## Next pages — irules / d3e99e2b2f35 / 9
+## Next pages — irules / 022302330311 / 9
 
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc"></a>
+<a id="canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-af8d1cc97b4d0f56b1608aa3b1a1dab1d275581613a0a5833d327e5cbe726736"></a>
+<a id="canonical-2233203101303021-1323103100331112-2301120020222203-2301220131222301-3102131111200112-0103220022112003-0331030213321130-2332130212130312"></a>
 
-## virtual_server — virtual_server / b6ab15ca52a3 / 2
+## virtual_server — virtual_server / 302211022203 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
 - virtual_server
 
-<a id="canonical-6d8b283c9385612b65995a6a3cdd81b8bb0f78278a1f7e926c3382872d8b7260"></a>
+<a id="canonical-1231202302200330-2103201112010223-1211212111221222-0330313120012320-2323003313200213-2022013313322102-1230030320022013-0231202313021200"></a>
 
 Type: `"single"`. Computed.
 
@@ -1314,25 +1314,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-57cf5d0a666ed882b4d9706ec0fded9ecf033c8c8098d63919aa14c0e242247a"></a>
+<a id="canonical-1113303311310022-1212123231202002-2310312113001232-3000333132312132-3033000303302030-2000212031120321-0121222201103000-3202100202101322"></a>
 
-## Direct properties — virtual_server / b6ab15ca52a3 / 3
+## Direct properties — virtual_server / 302211022203 / 3
 
-- [access_profile](data-sources--application_profiles--reference--group-001.md#canonical-3c56c26bbdeaa9090011d18c377c0e458b10dde91c0d8d6965e15855283ed77e): complete subsection reference.
+- [access_profile](data-sources--application_profiles--reference--group-001.md#canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332): complete subsection reference.
 
-- [address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1): complete subsection reference.
+- [address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101): complete subsection reference.
 
-- [auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f): complete subsection reference.
+- [auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033): complete subsection reference.
 
-- [clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-5d73316e5d127760389f4de33f8f2c93af8832f8e4b48154b679834d4f5408a7): complete subsection reference.
+- [clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213): complete subsection reference.
 
-- [clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-8ec873d6c734de5225aca2d4908de716882031bc8c0863c1dd26084af348358f): complete subsection reference.
+- [clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033): complete subsection reference.
 
-<a id="canonical-c3d44cfa848788c88ac81d3ccac710087e8bc390d8b3e8e1d113a3e340f5380e"></a>
+<a id="canonical-3003311010303322-2010201320203020-2022302001310330-3022301301000020-1332202330032100-3120230332203201-3101010322033203-1000331103200032"></a>
 
-<a id="canonical-6b219730b205e7fb415c1c1356c84f156651c8625beedd1ca4ed3096c5e60b41"></a>
+<a id="canonical-1223020121130300-2302001132133323-1001113001300103-1112302010330111-1212110130201202-1123323231310130-2210323103002112-3011321200231001"></a>
 
-## connection_limit property — virtual_server / b6ab15ca52a3 / 4
+## connection_limit property — virtual_server / 302211022203 / 4
 
 Type: `"number"`. Computed.
 
@@ -1377,11 +1377,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6b2ef93baf1a91d75e3f5835daea2e407683a962196a7384304944dd3eaebcd"></a>
+<a id="canonical-3012230232332103-2322330122210131-1311320333112003-1131223222023210-0013122003222112-0201211222130320-1003001021101031-3103322232233031"></a>
 
-<a id="canonical-d8a57ce2b92ea9e25b0184d059080b6fe7cf90378458bed83cb3a5c7060c5c01"></a>
+<a id="canonical-3120221113303202-2321023222213202-1123000120103100-1121002000231233-3213303321000313-2010112023323120-0330230322113013-0012003011300001"></a>
 
-## connection_rate_limit property — virtual_server / b6ab15ca52a3 / 5
+## connection_rate_limit property — virtual_server / 302211022203 / 5
 
 Type: `"number"`. Computed.
 
@@ -1430,47 +1430,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0ff1a1f4c36341bce502bae92b575dac0a88378f391590e464696488a7ce3c5f): complete subsection reference.
+- [connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133): complete subsection reference.
 
-- [default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0366d1dd265cc60d0524a3f453cf707e64e9634ca637fbca12d78eb6b8463161): complete subsection reference.
+- [default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003121231013131-0212113030120031-0011021022033310-1103303313001332-1210322112031030-2212031333233022-0102311320322312-2320101203011201): complete subsection reference.
 
-- [default_pool](data-sources--application_profiles--reference--group-002.md#canonical-3ff91b0f7877a94f4912abc43e110504ba594829ab9540f690ae63e862c83ced): complete subsection reference.
+- [default_pool](data-sources--application_profiles--reference--group-002.md#canonical-0333332101230033-1320131322211033-1021010222233010-0332010100110010-2322112110200221-2223211110003312-2100223212033220-1202302003303231): complete subsection reference.
 
-- [fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-f7bc990e9c3e8f027c8654d878046f88f3442028146200f0ba190a9e1bf9222c): complete subsection reference.
+- [fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-3313233021210032-2130033220330002-1330201211103120-1320001012332020-3303101002000220-0110120200003300-2322012100222132-0123332102020230): complete subsection reference.
 
-- [fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-fe1e80eb31e642e61346da9d7773a14ffdb260dee3a620e9e85a918fd920f453): complete subsection reference.
+- [fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-3332013220003223-0301321210023212-0103101231222131-1313130322011033-3331230212003132-3203221202003221-3220112221012033-3121020033101103): complete subsection reference.
 
-- [http](data-sources--application_profiles--reference--group-002.md#canonical-128cbeb7bf9769a705b460cdf807fb5fb3658c967f490e3b7a9ff3f2090407cd): complete subsection reference.
+- [http](data-sources--application_profiles--reference--group-002.md#canonical-0102203023322313-2333211312212213-0011231012003031-3320001333231133-2303121120302112-1333102100320323-1322213333033302-0021001000133031): complete subsection reference.
 
-- [http3](data-sources--application_profiles--reference--group-002.md#canonical-af9f2c4d452502e80b0646ae3e551a0d366427163c82c18e370f5d573a180367): complete subsection reference.
+- [http3](data-sources--application_profiles--reference--group-002.md#canonical-2233213302301031-1011021100023220-0023001210122232-0332111101220031-0312121002130112-0330200230012032-0313003311311113-0322012000031213): complete subsection reference.
 
-- [https](data-sources--application_profiles--reference--group-002.md#canonical-3913d79055f5178e921761a3717a87f1a62d9a7075f7880dbebea5e6152a523f): complete subsection reference.
+- [https](data-sources--application_profiles--reference--group-003.md#canonical-0321010331132100-1111331101132032-2102011312012203-1301132220133301-2212023121221300-1311331320200031-2332233222113212-0111022211020333): complete subsection reference.
 
-- [immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-b06d67cf7343f5f2ed5be727e404999c334cb21ee5bbf4264c4bb778cb4569f8): complete subsection reference.
+- [immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-2300123112133033-1303100333113302-3231112332130213-3210001021212130-0303103023020132-3211232333100212-1030102323131320-3023101112213320): complete subsection reference.
 
-- [last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-00c49ee343c420b534167e37120e0f65d3241be0e65da401f8ab8495f7ac87cb): complete subsection reference.
+- [last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-0000301021323203-1003301002002311-0310011213320313-0102003200331211-3103021001233200-3212113122100001-3320222320102111-3313223020133023): complete subsection reference.
 
-- [nat64](data-sources--application_profiles--reference--group-003.md#canonical-f8055b0439e9d63c4c9239eb747d5b3451270728bf042bcf326f9859bf1d731a): complete subsection reference.
+- [nat64](data-sources--application_profiles--reference--group-003.md#canonical-3320001111230010-0321322131120330-1030210203213223-1310133111230310-1101021300130220-2333001002233033-0302123321201121-2333013113030122): complete subsection reference.
 
-- [port_translation](data-sources--application_profiles--reference--group-003.md#canonical-4f39f6eca33ddb7fb761dd7e59c61a6579e3840ccc7e8c7e76eccd69c2ca2c68): complete subsection reference.
+- [port_translation](data-sources--application_profiles--reference--group-003.md#canonical-1033032133123230-2203033131231333-2313120131311332-1121301201221211-1321320320100030-3030133220301332-1312323030311221-3002302202301220): complete subsection reference.
 
-- [request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-eee319a7a1bc5aea591a514b66ed5b4f70fbc9ff7220feea6b49aaec53d79ede): complete subsection reference.
+- [request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-3232320301212213-2201233011223222-1121012211011023-1212323111231033-1300332330213333-1302020033323222-1223102122223230-1103311321323132): complete subsection reference.
 
-- [source_port](data-sources--application_profiles--reference--group-003.md#canonical-407c4608699a81f4e3bb3778a1b26581ec0c108c04dbd9a3849e526729f9a8e3): complete subsection reference.
+- [source_port](data-sources--application_profiles--reference--group-003.md#canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203): complete subsection reference.
 
-- [statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-2c3db883e913163179c953dff01dfd2f3fdccc8020837b14abe11c6e7a6b105a): complete subsection reference.
+- [statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122): complete subsection reference.
 
-- [tcp](data-sources--application_profiles--reference--group-003.md#canonical-7e68c1acd62fcb8bd84098a29c63253343102ec83007254f96ec7153f910c051): complete subsection reference.
+- [tcp](data-sources--application_profiles--reference--group-003.md#canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101): complete subsection reference.
 
-- [udp](data-sources--application_profiles--reference--group-003.md#canonical-d51961fd24b168399f71bb2d9281ab5fa247ef8ede7a7b0dee891f5c77b92d92): complete subsection reference.
+- [udp](data-sources--application_profiles--reference--group-003.md#canonical-3111012112013331-0210230112200321-2133130123230231-2102200122231133-2202101332332032-3132132213230031-3232202101331130-1313232102312102): complete subsection reference.
 
-- [virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-300638b1ed4116f684a232f38ce18576e112d93f7687ddea795783b9e07a871c): complete subsection reference.
+- [virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-0300001203202301-3231100101123312-2010220203023303-2030320120111312-3201010231210333-1312201331313222-1321111320032321-3200132220130130): complete subsection reference.
 
-<a id="canonical-51a437adb20e64820dce32be1cddadfac3c7d009cb042089c829feda5cc50c4f"></a>
+<a id="canonical-1101221003132231-2302003212102002-0031303203022332-0130313122313322-3003301331000021-3023001002002021-3020022133323122-1130301100301033"></a>
 
-<a id="canonical-e2a76034de81d57638e92e27b5e435f816f289a1d1f5240db2aac7797ce5ef3d"></a>
+<a id="canonical-3202221312000310-3132200131111312-0320322102320213-2311321003113320-0112330220212201-3101331102100031-2302222230131321-1330321132330331"></a>
 
-## vs_score property — virtual_server / b6ab15ca52a3 / 6
+## vs_score property — virtual_server / 302211022203 / 6
 
 Type: `"number"`. Computed.
 
@@ -1517,54 +1517,54 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c5bdd04df19855e0d373b849446a9910b02fd6483614d57ecc1371f58e5e4513"></a>
+<a id="canonical-3011233131001031-3301212011113200-3103130323201021-1010122221210100-2300023331121020-0312011031111332-3030010313013311-2032113210110103"></a>
 
-## Next pages — virtual_server / b6ab15ca52a3 / 7
+## Next pages — virtual_server / 302211022203 / 7
 
-- [virtual_server.access_profile](data-sources--application_profiles--reference--group-001.md#canonical-3c56c26bbdeaa9090011d18c377c0e458b10dde91c0d8d6965e15855283ed77e)
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1)
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f)
-- [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-5d73316e5d127760389f4de33f8f2c93af8832f8e4b48154b679834d4f5408a7)
-- [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-8ec873d6c734de5225aca2d4908de716882031bc8c0863c1dd26084af348358f)
-- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0ff1a1f4c36341bce502bae92b575dac0a88378f391590e464696488a7ce3c5f)
-- [virtual_server.default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0366d1dd265cc60d0524a3f453cf707e64e9634ca637fbca12d78eb6b8463161)
-- [virtual_server.default_pool](data-sources--application_profiles--reference--group-002.md#canonical-3ff91b0f7877a94f4912abc43e110504ba594829ab9540f690ae63e862c83ced)
-- [virtual_server.fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-f7bc990e9c3e8f027c8654d878046f88f3442028146200f0ba190a9e1bf9222c)
-- [virtual_server.fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-fe1e80eb31e642e61346da9d7773a14ffdb260dee3a620e9e85a918fd920f453)
-- [virtual_server.http](data-sources--application_profiles--reference--group-002.md#canonical-128cbeb7bf9769a705b460cdf807fb5fb3658c967f490e3b7a9ff3f2090407cd)
-- [virtual_server.http3](data-sources--application_profiles--reference--group-002.md#canonical-af9f2c4d452502e80b0646ae3e551a0d366427163c82c18e370f5d573a180367)
-- [virtual_server.https](data-sources--application_profiles--reference--group-002.md#canonical-3913d79055f5178e921761a3717a87f1a62d9a7075f7880dbebea5e6152a523f)
-- [virtual_server.immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-b06d67cf7343f5f2ed5be727e404999c334cb21ee5bbf4264c4bb778cb4569f8)
-- [virtual_server.last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-00c49ee343c420b534167e37120e0f65d3241be0e65da401f8ab8495f7ac87cb)
-- [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-f8055b0439e9d63c4c9239eb747d5b3451270728bf042bcf326f9859bf1d731a)
-- [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-4f39f6eca33ddb7fb761dd7e59c61a6579e3840ccc7e8c7e76eccd69c2ca2c68)
-- [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-eee319a7a1bc5aea591a514b66ed5b4f70fbc9ff7220feea6b49aaec53d79ede)
-- [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-407c4608699a81f4e3bb3778a1b26581ec0c108c04dbd9a3849e526729f9a8e3)
-- [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-2c3db883e913163179c953dff01dfd2f3fdccc8020837b14abe11c6e7a6b105a)
-- [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-7e68c1acd62fcb8bd84098a29c63253343102ec83007254f96ec7153f910c051)
-- [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-d51961fd24b168399f71bb2d9281ab5fa247ef8ede7a7b0dee891f5c77b92d92)
-- [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-300638b1ed4116f684a232f38ce18576e112d93f7687ddea795783b9e07a871c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.access_profile](data-sources--application_profiles--reference--group-001.md#canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332)
+- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
+- [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213)
+- [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033)
+- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
+- [virtual_server.default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003121231013131-0212113030120031-0011021022033310-1103303313001332-1210322112031030-2212031333233022-0102311320322312-2320101203011201)
+- [virtual_server.default_pool](data-sources--application_profiles--reference--group-002.md#canonical-0333332101230033-1320131322211033-1021010222233010-0332010100110010-2322112110200221-2223211110003312-2100223212033220-1202302003303231)
+- [virtual_server.fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-3313233021210032-2130033220330002-1330201211103120-1320001012332020-3303101002000220-0110120200003300-2322012100222132-0123332102020230)
+- [virtual_server.fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-3332013220003223-0301321210023212-0103101231222131-1313130322011033-3331230212003132-3203221202003221-3220112221012033-3121020033101103)
+- [virtual_server.http](data-sources--application_profiles--reference--group-002.md#canonical-0102203023322313-2333211312212213-0011231012003031-3320001333231133-2303121120302112-1333102100320323-1322213333033302-0021001000133031)
+- [virtual_server.http3](data-sources--application_profiles--reference--group-002.md#canonical-2233213302301031-1011021100023220-0023001210122232-0332111101220031-0312121002130112-0330200230012032-0313003311311113-0322012000031213)
+- [virtual_server.https](data-sources--application_profiles--reference--group-003.md#canonical-0321010331132100-1111331101132032-2102011312012203-1301132220133301-2212023121221300-1311331320200031-2332233222113212-0111022211020333)
+- [virtual_server.immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-2300123112133033-1303100333113302-3231112332130213-3210001021212130-0303103023020132-3211232333100212-1030102323131320-3023101112213320)
+- [virtual_server.last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-0000301021323203-1003301002002311-0310011213320313-0102003200331211-3103021001233200-3212113122100001-3320222320102111-3313223020133023)
+- [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-3320001111230010-0321322131120330-1030210203213223-1310133111230310-1101021300130220-2333001002233033-0302123321201121-2333013113030122)
+- [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-1033032133123230-2203033131231333-2313120131311332-1121301201221211-1321320320100030-3030133220301332-1312323030311221-3002302202301220)
+- [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-3232320301212213-2201233011223222-1121012211011023-1212323111231033-1300332330213333-1302020033323222-1223102122223230-1103311321323132)
+- [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203)
+- [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122)
+- [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101)
+- [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-3111012112013331-0210230112200321-2133130123230231-2102200122231133-2202101332332032-3132132213230031-3232202101331130-1313232102312102)
+- [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-0300001203202301-3231100101123312-2010220203023303-2030320120111312-3201010231210333-1312201331313222-1321111320032321-3200132220130130)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-3c56c26bbdeaa9090011d18c377c0e458b10dde91c0d8d6965e15855283ed77e"></a>
+<a id="canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dad0a3c34d1105b941e5ddac9ac20708742b1ea18899172fc60ffc3ffe3bc677"></a>
+<a id="canonical-3122310022033003-1031010100112321-1001321131312230-2122300200130020-1310022301322201-2020212101130233-3012003333300333-3332032330121313"></a>
 
-## virtual_server.access_profile — virtual_server.access_profile / 59d3653d3120 / 2
+## virtual_server.access_profile — access_profile / 033103010200 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
 - virtual_server.access_profile
 
-<a id="canonical-f18c4d94352b1ed57cb7e55085e3d01eaa7094df7dcead0f0cee184453bb76ad"></a>
+<a id="canonical-3301203010312110-0311022301323111-1330231332111100-2011320331000132-2222130021103133-1331303222310033-0030323201201010-1103232313122231"></a>
 
 Type: `"list"`. Computed.
 
@@ -1605,15 +1605,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-97bf2f4f9eb0f4f1504c39e39736ffb34281c2351b9ba151b30bd6e3498f5cfe"></a>
+<a id="canonical-2113233302331033-2132230033103301-1100103003213203-2113031233332303-1002200130020311-0123212322011101-2303002331123203-1021203311303332"></a>
 
-## Direct properties — virtual_server.access_profile / 59d3653d3120 / 3
+## Direct properties — access_profile / 033103010200 / 3
 
-<a id="canonical-addd341b46ac881e8c5b97dd28d7bc7b288efc54b5481b822f0aa7bbfaaa4654"></a>
+<a id="canonical-2231313103100123-1012223020200132-2030112321133131-0220311323301323-0220203233301110-2311102001232002-0233002222132323-3322222210121110"></a>
 
-<a id="canonical-a5f21874fde75bfe5dcc95d556f971b3923f75c302f282b27406977e9595635d"></a>
+<a id="canonical-2211330201201310-3331321311233332-1131303021113111-1112332113012303-2102033313113003-0002330220022302-1310001221131332-2111211112031131"></a>
 
-## kind property — virtual_server.access_profile / 59d3653d3120 / 4
+## kind property — access_profile / 033103010200 / 4
 
 Type: `"string"`. Computed.
 
@@ -1648,11 +1648,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-41302f6760a20249e1d4869da6deb91fdadc1ae85873a1b2bf35321385d14674"></a>
+<a id="canonical-1001030002331213-1200220200021021-3201311020122131-2212313223210133-3122313001223220-1120130322012302-2333031103020103-2011310110121310"></a>
 
-<a id="canonical-1c3052008788aace5c53a3bceee0cbb89d0e95d7ffbfc03a7c7fec6414e25c0c"></a>
+<a id="canonical-0130030011020000-2013202022223032-1130110322032330-3232320030232320-2131003221113113-3333233330000322-1330133332301210-0110320211300030"></a>
 
-## name property — virtual_server.access_profile / 59d3653d3120 / 5
+## name property — access_profile / 033103010200 / 5
 
 Type: `"string"`. Computed.
 
@@ -1687,11 +1687,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-62defd0bb3dbb951810770ff982d02885a94a7f164663eadb76304093a7b33d5"></a>
+<a id="canonical-1202313233310023-2303312323211101-2001001313003333-2120023100022020-1122211022133301-1210121203322231-2313120300100021-0322132303033111"></a>
 
-<a id="canonical-2a2f0066fdea586b78f06da689fd4ada7044d0f1713bce919e258294822999c1"></a>
+<a id="canonical-0222023300001212-3331322211201223-1320330012312212-2021333110223122-1300101031003301-1301032330322101-2132021120022110-2002022121213001"></a>
 
-## namespace property — virtual_server.access_profile / 59d3653d3120 / 6
+## namespace property — access_profile / 033103010200 / 6
 
 Type: `"string"`. Computed.
 
@@ -1741,11 +1741,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e797019088039352cf9fb282a43ee6b3bf83e601b583333f33fa477989ad25c3"></a>
+<a id="canonical-3213211300012100-2020000321031102-3033213323022002-2210033232122303-2333200332120001-2311200303030333-0303332210131321-2021223102113003"></a>
 
-<a id="canonical-dcd25dd87bed0bbcce50e39a79d2fe61d3b6f9ee58ad780663d098bd348afded"></a>
+<a id="canonical-3130310211313120-1323323100232330-3032110032032122-1321310233321201-3103231233213232-1120223113200012-1203310021202331-0310202233313231"></a>
 
-## tenant property — virtual_server.access_profile / 59d3653d3120 / 7
+## tenant property — access_profile / 033103010200 / 7
 
 Type: `"string"`. Computed.
 
@@ -1780,11 +1780,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-afd917f455def6751b0b3d22fef529d27d30deea328c2867b4e4729834ec66de"></a>
+<a id="canonical-2233312101133310-1111313233121311-0123002303310202-3332331102213102-1331030031323222-0302203002201213-2310321013022120-0310323012123132"></a>
 
-<a id="canonical-0407b2252ea46df9825bfda8c3545b3d1eb02de1d62bc704ff8431efd8c5baf5"></a>
+<a id="canonical-0010001323020211-0232221012313321-2002112333312220-3003111011230331-0132230002313201-3112022330130010-3333201003013233-3120301123223311"></a>
 
-## uid property — virtual_server.access_profile / 59d3653d3120 / 8
+## uid property — access_profile / 033103010200 / 8
 
 Type: `"string"`. Computed.
 
@@ -1819,31 +1819,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3c34051cdd70e3a1d6a995359dd46ff792c8ad13df6d21505f38689d5d33c6ba"></a>
+<a id="canonical-0330031000110130-3131130032032201-3112222121110311-2131311012333313-2102302022310103-3133123102011100-1133032012202131-1131030330122322"></a>
 
-## Next pages — virtual_server.access_profile / 59d3653d3120 / 9
+## Next pages — access_profile / 033103010200 / 9
 
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1"></a>
+<a id="canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-48a87a70c197d43ea5548e157dd586a92b1b92d4b5890846d5d436f17362601c"></a>
+<a id="canonical-1020222013221300-3001211331100332-2211111020320111-1331311120122221-0223012321023110-2311202100201012-3111311003123301-1303120212000130"></a>
 
-## virtual_server.address_translation — virtual_server.address_translation / 979d7faf31ac / 2
+## virtual_server.address_translation — address_translation / 223303012230 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
 - virtual_server.address_translation
 
-<a id="canonical-d5cb7b1fa01499170bf47bf0de2596b184f2a9ac70b0d5ab247153464679d3e0"></a>
+<a id="canonical-3111302313230133-2200011021210113-0023331013233300-3132021121122301-2010330222212230-1300230031112223-0210130111031012-1012132131033200"></a>
 
 Type: `"single"`. Computed.
 
@@ -1872,42 +1872,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ff09887a5f7d5342f74748cd1e65545a930d5654b2609c5bccf61aae3ce5b7a"></a>
+<a id="canonical-0233330021202013-2211331331110310-0233131013102030-3101321211111011-2221030031111211-1023021200213011-2330303312012222-3203303211231322"></a>
 
-## Direct properties — virtual_server.address_translation / 979d7faf31ac / 3
+## Direct properties — address_translation / 223303012230 / 3
 
-- [address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-9516c481f82132ba1f53fa6a6c8c0220dee7ad5b286bc23d812c16bfcc36c19a): complete subsection reference.
+- [address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122): complete subsection reference.
 
-- [address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-55fe55d10494b3de8691a5a42f198ac8476abad2c29d9c66791bcd13543fce3d): complete subsection reference.
+- [address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331): complete subsection reference.
 
-<a id="canonical-f99bb8af018a06fa67568a4600040175b4069aad56f6c2612b498d86bafc847c"></a>
+<a id="canonical-3321212323202233-0001202200123322-1213111220221012-0000001000011311-2310001221222231-1112331230021201-0223102120312012-2322333020101330"></a>
 
-## Next pages — virtual_server.address_translation / 979d7faf31ac / 4
+## Next pages — address_translation / 223303012230 / 4
 
-- [virtual_server.address_translation.address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-9516c481f82132ba1f53fa6a6c8c0220dee7ad5b286bc23d812c16bfcc36c19a)
-- [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-55fe55d10494b3de8691a5a42f198ac8476abad2c29d9c66791bcd13543fce3d)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.address_translation.address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122)
+- [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-9516c481f82132ba1f53fa6a6c8c0220dee7ad5b286bc23d812c16bfcc36c19a"></a>
+<a id="canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4eafed0db7dba1c588039556a7a0011084010b5a9135366cf4e0312a49274b41"></a>
+<a id="canonical-1032223332310031-2313312322013011-2020000321111112-2213220000010100-2010000100231122-2101031103121230-3310320003010222-1021021310231001"></a>
 
-## virtual_server.address_translation.address_translation_disable — virtual_server.address_translation.address_translation_disable / 72e598a7fed4 / 2
+## virtual_server.address_translation.address_translation_disable — address_translation_disable / 221333323110 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
 - virtual_server.address_translation.address_translation_disable
 
-<a id="canonical-3f4060e9e0e5b960f3b4300906422a8755cfcddcfdce9b0897e0c242ee89b670"></a>
+<a id="canonical-0333100012003221-3200321123211200-3303231003000021-0012100202222013-1111303330313130-3331303221230020-2113320030021002-3232202123121300"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1930,38 +1930,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-abc213bfef3ef00b6943ca961f793929eac1758ded2dd53d0cc06bcb86dfde0a"></a>
+<a id="canonical-2223300201032333-3233033233000023-1221100330222112-0133132103210221-3222300113112031-3231023131110331-0030300012233023-2012313331320022"></a>
 
-## Direct properties — virtual_server.address_translation.address_translation_disable / 72e598a7fed4 / 3
+## Direct properties — address_translation_disable / 221333323110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cdb61dbe68cf83a0a8904f77b924cef5acc19133d241bfa83fcdaadc290ec95d"></a>
+<a id="canonical-3031231201312332-1220303320032200-2220210010331313-2321021030323311-2230300121010303-3102100123332220-0333303122223130-0221003230211131"></a>
 
-## Next pages — virtual_server.address_translation.address_translation_disable / 72e598a7fed4 / 4
+## Next pages — address_translation_disable / 221333323110 / 4
 
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-55fe55d10494b3de8691a5a42f198ac8476abad2c29d9c66791bcd13543fce3d"></a>
+<a id="canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-73cf956d7f1274b69c5c13af65c2d7010b036292fad91bf68ae44a8cea13ac90"></a>
+<a id="canonical-1303303321111231-1333010213102312-2130113001032233-1211300231130001-0023000312022102-3322312101233312-2022321010222030-3222010322302100"></a>
 
-## virtual_server.address_translation.address_translation_enable — virtual_server.address_translation.address_translation_enable / fc7783286e6a / 2
+## virtual_server.address_translation.address_translation_enable — address_translation_enable / 022012321222 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
 - virtual_server.address_translation.address_translation_enable
 
-<a id="canonical-b40c437c53279a11948161c044f26ba354ac407b7b8fcb23b991e3f8fc692711"></a>
+<a id="canonical-2310003010031330-1103021321220101-2110200112013000-1010330212232203-1110223010001323-1323203330230203-2321210132033320-3330122102130101"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1984,37 +1984,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-beafc38a00d4ae2cd6a9244722e493d3fcc2e08fe1f6edc81c394948ab8f3646"></a>
+<a id="canonical-2332223330032022-0000311022320230-3112222102101013-0202321021033103-3330300232002033-3201331232313020-0130032110211020-2223203303121012"></a>
 
-## Direct properties — virtual_server.address_translation.address_translation_enable / fc7783286e6a / 3
+## Direct properties — address_translation_enable / 022012321222 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-66123cc79a295ba81dad6ed22487e7942d7445f04c8b704c2fba58d0218fc872"></a>
+<a id="canonical-1212010203303013-2122022111232220-0131223112323102-0210201332132110-0231131010113300-1030202313001030-0233232211203100-0201203330201302"></a>
 
-## Next pages — virtual_server.address_translation.address_translation_enable / fc7783286e6a / 4
+## Next pages — address_translation_enable / 022012321222 / 4
 
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-7d8ab78d0c9441bc0bd8be5c5ceac2bd7577be661a7b51e0ce84e800a9674dd1)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f"></a>
+<a id="canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6292a8629c9712fbc3875533525277c0b79de72c56b46c0021bb060bbd3f5deb"></a>
+<a id="canonical-1202210222201202-2130211301023323-3003201311110303-1102110213133000-2313213132130230-1112231012300000-0201232300120023-2331033311313223"></a>
 
-## virtual_server.auto_last_hop — virtual_server.auto_last_hop / b960e53332ee / 2
+## virtual_server.auto_last_hop — auto_last_hop / 030303023232 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
 - virtual_server.auto_last_hop
 
-<a id="canonical-937a6558a263dc0f40a43b93040407bcf1d1bea17e00581999961e95406c6dbc"></a>
+<a id="canonical-2103132212111120-2202120331300033-1000221003232103-0010001000132330-3301310123322201-1332000011200121-2121211201322111-1000123012312330"></a>
 
 Type: `"single"`. Computed.
 
@@ -2053,45 +2053,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-640c5865fcac3e516bd25e99788c4fbc457c8571d93a6f741c796db6e15adb6a"></a>
+<a id="canonical-1210003011201211-3330223003321101-1223310211322121-1320203010332330-1011133020111301-3121032212331310-0130132112312312-3201112231231222"></a>
 
-## Direct properties — virtual_server.auto_last_hop / b960e53332ee / 3
+## Direct properties — auto_last_hop / 030303023232 / 3
 
-- [auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-8a883e6200baf4775e2fddc484b69fdfec77a47acf4746cdef6a5659a47b1447): complete subsection reference.
+- [auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013): complete subsection reference.
 
-- [auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-cbff403cb5e9bc187c648bc34b53a523ec94c8f8ff655f7ebcbe28e1476ae6e8): complete subsection reference.
+- [auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220): complete subsection reference.
 
-- [auto_last_hop_enable](data-sources--application_profiles--reference--group-001.md#canonical-84761035cb05ffb88500d877300070d51f218f57a37c9527849dcfbf7248a3a0): complete subsection reference.
+- [auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200): complete subsection reference.
 
-<a id="canonical-d00e5d59fcabfc2ca86a1d6edf090418b6af92d1cc089022192c93617917ae05"></a>
+<a id="canonical-3100003211311121-3330222333300230-2220122201311232-3133002100100120-2312223321023101-3030002021000202-0121023021031201-1321011322320011"></a>
 
-## Next pages — virtual_server.auto_last_hop / b960e53332ee / 4
+## Next pages — auto_last_hop / 030303023232 / 4
 
-- [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-8a883e6200baf4775e2fddc484b69fdfec77a47acf4746cdef6a5659a47b1447)
-- [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-cbff403cb5e9bc187c648bc34b53a523ec94c8f8ff655f7ebcbe28e1476ae6e8)
-- [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-001.md#canonical-84761035cb05ffb88500d877300070d51f218f57a37c9527849dcfbf7248a3a0)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013)
+- [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220)
+- [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-8a883e6200baf4775e2fddc484b69fdfec77a47acf4746cdef6a5659a47b1447"></a>
+<a id="canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-97932112016403acf77b5910f8552c78880b671622aa90c37954fe55264e8da8"></a>
+<a id="canonical-2113210302010102-0001121000032230-3313132311210100-3320111102301320-2020002312130112-0202222221003003-1321111033321111-0212103220312220"></a>
 
-## virtual_server.auto_last_hop.auto_last_hop_default — virtual_server.auto_last_hop.auto_last_hop_default / 8c92158da912 / 2
+## virtual_server.auto_last_hop.auto_last_hop_default — auto_last_hop_default / 203122210102 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
 - virtual_server.auto_last_hop.auto_last_hop_default
 
-<a id="canonical-0f3d26554379edf0f708a65ddd7dac1fc63f4e38b7da543656ca0be810045171"></a>
+<a id="canonical-0033033102121111-1003132132313300-3313002022121131-3131133122300133-3012033310320320-2313312211100312-1112302200233220-0100001011011301"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2114,74 +2114,20 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8deba9bea935d146bb1424911d50a4b000daf89707d70ecc406ec7dc42393290"></a>
+<a id="canonical-2031322322212332-2221031131011012-2323011002102101-0131110022102300-0000312233202113-0013311300323030-1000123230133130-1002032103022100"></a>
 
-## Direct properties — virtual_server.auto_last_hop.auto_last_hop_default / 8c92158da912 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-4e2efdee492d32d534cd112767c5a036b541c949e6ec25f08b994c716ba4b87b"></a>
-
-## Next pages — virtual_server.auto_last_hop.auto_last_hop_default / 8c92158da912 / 4
-
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-
-<a id="canonical-cbff403cb5e9bc187c648bc34b53a523ec94c8f8ff655f7ebcbe28e1476ae6e8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-cef0baf2296d1e08380c3d8e310665982b16ed23cccbfadebe4c66c8836af16f"></a>
-
-## virtual_server.auto_last_hop.auto_last_hop_disable — virtual_server.auto_last_hop.auto_last_hop_disable / d56a4587b51d / 2
-
-Breadcrumbs:
-
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-8519cbc749aafaa144cf506541d90c30aaa671f48a5df22ebcbf657678299cdc)
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f)
-- virtual_server.auto_last_hop.auto_last_hop_disable
-
-<a id="canonical-f46bae3d4532eb7ff3e67ae4bb710b04e61a785e17d8fb39fa881f9db5432173"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for auto last hop disable.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-43dc5eeb6d2d2989492c68de38d1c4a41d37d1bd7243609b2d2bd55d31189f00"></a>
-
-## Direct properties — virtual_server.auto_last_hop.auto_last_hop_disable / d56a4587b51d / 3
+## Direct properties — auto_last_hop_default / 203122210102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-84317d025a109677adc55b4912a25871c45d55edb7a59723565a2184ba7f972d"></a>
+<a id="canonical-1032023233313232-1021023103023111-0310303101010213-1213301122000312-2311100130211021-3212323002113300-2023212110301301-1223221023201323"></a>
 
-## Next pages — virtual_server.auto_last_hop.auto_last_hop_disable / d56a4587b51d / 4
+## Next pages — auto_last_hop_default / 203122210102 / 4
 
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-67b69d939156306d219f0b653719624f46811a1991a32753e6fdfd42e0c3de4f)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c)
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
-<a id="canonical-84761035cb05ffb88500d877300070d51f218f57a37c9527849dcfbf7248a3a0"></a>
+<a id="canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

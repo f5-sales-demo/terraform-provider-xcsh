@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_rate_limiter landing
 
 # xcsh_rate_limiter landing
 
-<a id="canonical-b2c6bc1b321c698ee5c9ba1c5a551db32a4d4f24b7a856632c892693b9535555"></a>
+<a id="canonical-2302301223300123-0302013012212032-3211302123220130-1122111101312303-0222103110330210-2313222011121203-0230202102122103-2321110311111111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-290615dd6fc0d301714d5d31b47298f871080361431dee52806c792ba602a672"></a>
+<a id="canonical-0221001201113131-1233300031030001-1301103111310301-2310130221203320-1301002000031201-1003013132321102-2000123013210223-2212000222121302"></a>
 
-## xcsh_rate_limiter — xcsh_rate_limiter / b5133d7dc470 / 2
+## xcsh_rate_limiter — xcsh_rate_limiter / 133130101300 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages rate\_limiter creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-10e21dff70e48808f708ddb93a64a301c501dd17c6d1c098a6e3e0622c9994c7"></a>
+<a id="canonical-0100320201313333-1300321020200020-3313002031312321-0322121022030001-3011000131310113-3012310130002120-2212320332001202-0230212121103013"></a>
 
-## Prerequisites — xcsh_rate_limiter / b5133d7dc470 / 3
+## Prerequisites — xcsh_rate_limiter / 133130101300 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `rate_limiter_policy`.
 
 - rate_limiter_policy: Detailed rate limiting rules
 
-<a id="canonical-e74eb62de793d2f3b2d43e32e900c92afabb5d5a30d538e6dca1f9d9f91b9358"></a>
+<a id="canonical-3213103223120231-3213210331023303-2302311003320302-3221000030210222-3322232311311122-0300311103203212-3130220133213121-3321012321031120"></a>
 
-## Minimal configuration — xcsh_rate_limiter / b5133d7dc470 / 4
+## Minimal configuration — xcsh_rate_limiter / 133130101300 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -63,17 +63,17 @@ resource "xcsh_rate_limiter" "example" {
 }
 ```
 
-<a id="canonical-11fd0f3d55e1152febd51448800b36184c01e03362faadd0cca07848ebd14fd5"></a>
+<a id="canonical-0101333100330331-1111320101110233-3223311101101020-2000002303120120-1030000132000303-1202332222313100-3030220013201020-3223310110333111"></a>
 
-## Root configuration — xcsh_rate_limiter / b5133d7dc470 / 5
+## Root configuration — xcsh_rate_limiter / 133130101300 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a4399abbf52d4b2db634abd05bcaa2cbfb73df1d3fb18e79b096f51fb4cc916a"></a>
+<a id="canonical-2210032121222323-3311023110230231-2312031022233100-1123302222023023-3323130331330131-0333230120321321-2300211233110133-2310303021011222"></a>
 
-## Next pages — xcsh_rate_limiter / b5133d7dc470 / 6
+## Next pages — xcsh_rate_limiter / 133130101300 / 6
 
-- [Property reference](../guides/resources--rate_limiter--reference--group-001.md#canonical-9be48129c49b834e84b2c46957ecf1750c1fe42efcca8c4b1f1a0ed0929a4fca)
-- [Examples](../guides/resources--rate_limiter--examples--group-001.md#canonical-9ea7fc79d045c404a4ce2b5ecf5c8943c947fcdddc514443d6bd7a84f955b6a9)
-- [Import](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-e77234ecd8ddd847ab72ce71eafcfd54dcbf5ac812887a81785e1cd69190ba6b)
-- [Timeouts](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-f3e27b8aa13c22aceab5b617a27770da75cb39756beff21af40cf20aac001a8f)
+- [Property reference](../guides/resources--rate_limiter--reference--group-001.md#canonical-2123321020010221-3010212320031032-2010230230101221-1113323033011311-0030013332100232-3330302220301023-0133012200323100-2102212210333022)
+- [Examples](../guides/resources--rate_limiter--examples--group-001.md#canonical-2132221333301321-3100101130100010-2210303202231132-3033113020211003-3021101333303131-3130110110101003-3112233113222010-3321111123122221)
+- [Import](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-3213130203103230-3120313131201013-2223130230321301-3222333033311110-3130233311223020-0102202013222001-1320113201303112-2101210023221223)
+- [Timeouts](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-3303320213232022-2201033002022230-3222231123120113-2202131313003122-1311302303211311-1223323333020122-3310003033020022-2230000001222033)

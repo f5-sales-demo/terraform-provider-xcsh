@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_risk_score_distribution reference
 
-<a id="canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed"></a>
+<a id="canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-db0d89a6a0acd58e13f3ee163e12706c215d7d45b595d2620482559582904488"></a>
+<a id="canonical-3123003120212212-2200223031112032-0103330332320112-0332010213001230-0201113113311011-2311211131021202-0010200211112111-2002210010102020"></a>
 
-## Property reference — Property reference / 535c761e3fbc / 2
+## Property reference — Property reference / 013203332330 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
 - Property reference
 
-<a id="canonical-ed5bf2b497344ae44f0e3b70eed73fa703b06567d56fc2244dd3082f8eccd62d"></a>
+<a id="canonical-3231112333022310-2113031010223210-1033003203231300-3232311303332213-0003230012111213-3111123330020210-1031310300200233-2032303031120231"></a>
 
-## Direct properties — Property reference / 535c761e3fbc / 3
+## Direct properties — Property reference / 013203332330 / 3
 
-<a id="canonical-8417f450e020a9fab10d828cc385124d68ecaf524f632f9998a30df05783aa3a"></a>
+<a id="canonical-2010011333101100-3200020022213322-2301003120022030-3003201101021031-1220323022331102-1033120302332121-2120220300313300-1113200322220322"></a>
 
-<a id="canonical-f3227b032b650513789b04e5347ae4e787835131640ba1db21a8902e8e537bce"></a>
+<a id="canonical-3303020213230003-0223121100110103-1320212300103211-0310132232103213-2013200311010301-1210002322013123-0201222021000232-2032110313233032"></a>
 
-## end_time property — Property reference / 535c761e3fbc / 4
+## end_time property — Property reference / 013203332330 / 4
 
 Type: `"string"`. Optional.
 
@@ -45,25 +45,25 @@ Validators: []validator.String{
 }
 ```
 
-- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-d0f786fd2f7f7ebf1e908f0af412d5201e5d86eabd2c6e48cdcc2f8677a5ad25): complete subsection reference.
+- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3100331320123331-0233133313322333-0132210020330022-3310010231110200-0132113120123222-2331023012321020-3031303002332012-1313221122310211): complete subsection reference.
 
-<a id="canonical-d017dd923a45db72bfc1d6c1053b82ffe90ee9b6942afda388a1cd633dd0a3aa"></a>
+<a id="canonical-3100011331312102-0322101131231302-2333300131123001-0011032320023333-3221003232212312-2110022233312203-2020220130311203-0331310022032222"></a>
 
-<a id="canonical-ee954fea65e0e21540931388059d522a7db8f9c968650adc52833f116fa10118"></a>
+<a id="canonical-3232211110333222-1211320032020111-1000210301032020-0011213111020222-1331232033213021-1220121100223130-1102200303330101-1233220100010120"></a>
 
-## namespace property — Property reference / 535c761e3fbc / 5
+## namespace property — Property reference / 013203332330 / 5
 
 Type: `"string"`. Required.
 
 Namespace. Namespace name.
 
-- [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-c71e60fa9aadf919727367c93c798e534f50d3cb69f02d0c951ad28437dcde0e): complete subsection reference.
+- [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3013013212003322-2122223133210121-1302130312133021-0330132120321103-1033110031033023-1221330002310030-2111012231022010-0313313031320032): complete subsection reference.
 
-<a id="canonical-5b5c5b98ad424238c09343c0472bbeeed8112c887117c64f8ab80818d4cb0fed"></a>
+<a id="canonical-1123113011232120-2231100210020320-3000210310033000-1013022323323232-3120010102302020-1301011330121033-2022232000200120-3110302300333231"></a>
 
-<a id="canonical-763389ecccf8e8e9fcc8df52b4ada85c42a5d6ed3253bc5ec0276fc2b1c1af3e"></a>
+<a id="canonical-1312030320213230-3030332032203221-3330302031331102-2310223122201130-1002221131123231-0302110323301132-3000021312333002-2301300122330332"></a>
 
-## start_time property — Property reference / 535c761e3fbc / 6
+## start_time property — Property reference / 013203332330 / 6
 
 Type: `"string"`. Optional.
 
@@ -79,68 +79,68 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-94380adc465bcba395e9d7b702e03fc30201286d7033892978e2be5ac6948b95"></a>
+<a id="canonical-2110032000223130-1012112330232203-2111322131132313-0002320003333003-0002000102201231-1300030320210221-1320320223321122-3012211020232111"></a>
 
-## All schema paths — Property reference / 535c761e3fbc / 7
+## All schema paths — Property reference / 013203332330 / 7
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `end_time` | [end_time](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-8417f450e020a9fab10d828cc385124d68ecaf524f632f9998a30df05783aa3a) |
-| `filters` | [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-03c8c72adee32b9905997438267cfadf473020129479952fc6c7b7d0d5f8daba) |
-| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-6ee93e45e3bb0745be49b52bc98e05cb51aca3d12deaa8f06b69d5d1a7d3978b) |
-| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-f0840bcb5e4243f417dff1a4536142281a56ff4de4aed83adfd6af42348cc875) |
-| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-cd3d5d0f0a2597b26931392c527be15310dd3ddf65cb68615fd305f99727ea09) |
-| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-020e04067a7441815b29d662ae343d54c1108c9dc7508538c70f74adf1d61835) |
-| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-bdf110d98236e4bf602113641365a265d25e165894de37ca3d3cc553a20106da) |
-| `namespace` | [namespace](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-d017dd923a45db72bfc1d6c1053b82ffe90ee9b6942afda388a1cd633dd0a3aa) |
-| `risk_score_distribution` | [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-f4e47c1ef1aedb08e2d87d52b2fae6913364f37f33f7a6e148c4b331f3ae9c0d) |
-| `risk_score_distribution.device_count` | [risk_score_distribution.device_count](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-425218f30408024f203a6867a712cd2e7b219f196c2e164d2e5bac3c9db03b20) |
-| `risk_score_distribution.risk_rank` | [risk_score_distribution.risk_rank](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-03035bb72663b5feb5bf0456e6b55c759dbc7d0a4dbbb6528fa22638d2407824) |
-| `start_time` | [start_time](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-5b5c5b98ad424238c09343c0472bbeeed8112c887117c64f8ab80818d4cb0fed) |
+| `end_time` | [end_time](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-2010011333101100-3200020022213322-2301003120022030-3003201101021031-1220323022331102-1033120302332121-2120220300313300-1113200322220322) |
+| `filters` | [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0003302030130222-3132320302232121-0011212113100320-0212133033223133-1013030002000102-2110132121110233-3012301323133100-3111332031222322) |
+| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1232322103321011-3203232300131011-2332102123110223-3021203200113023-1101223022033101-0231322222203300-1223122131113101-2213310321132023) |
+| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3300201000233023-1132100210033310-0113313333012210-1103120110020220-0122111233331031-3210223231200322-3133311222331002-0310203030201311) |
+| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3031033111310033-0022021121132302-1221030103210230-1102132332011103-0100313103313133-1211302312201201-1133310300113321-2113021332220021) |
+| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0002003200100012-1322131010012001-1123022131121202-2232031003311110-3001010020302131-3013110020110320-3013003313102231-3301311201200311) |
+| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-2331330101003121-2002031232102333-1200020101031210-0103121122021211-3102113201121120-2110313203133022-0331033030111103-2202000100123122) |
+| `namespace` | [namespace](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3100011331312102-0322101131231302-2333300131123001-0011032320023333-3221003232212312-2110022233312203-2020220130311203-0331310022032222) |
+| `risk_score_distribution` | [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3310321013300132-3301223231230020-3202312013311102-2302332232122101-0303121033031333-0303331322123201-1020301023030301-3303223221300031) |
+| `risk_score_distribution.device_count` | [risk_score_distribution.device_count](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1002110201203303-0010002000021033-0200032212201213-2213010230310232-1323020121330121-1230023201121031-0232112322300330-2131230003230200) |
+| `risk_score_distribution.risk_rank` | [risk_score_distribution.risk_rank](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0003000311232313-0212120323113332-2311233300101112-3212231111301311-2131233013310022-1031232323121102-2033220202120320-3102100013200210) |
+| `start_time` | [start_time](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1123113011232120-2231100210020320-3000210310033000-1013022323323232-3120010102302020-1301011330121033-2022232000200120-3110302300333231) |
 
-<a id="canonical-54317f5926d5cf950e47aefc69102d0f683bc6b9fbb1aca371bc9e0faf91b95d"></a>
+<a id="canonical-1110030113331121-0212311130332111-0032101322323330-1221010002310033-1220032330122321-3323230122302203-1301233021320033-2233210123211131"></a>
 
-## Next pages — Property reference / 535c761e3fbc / 8
+## Next pages — Property reference / 013203332330 / 8
 
-- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-d0f786fd2f7f7ebf1e908f0af412d5201e5d86eabd2c6e48cdcc2f8677a5ad25)
-- [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-c71e60fa9aadf919727367c93c798e534f50d3cb69f02d0c951ad28437dcde0e)
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
+- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3100331320123331-0233133313322333-0132210020330022-3310010231110200-0132113120123222-2331023012321020-3031303002332012-1313221122310211)
+- [risk_score_distribution](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3013013212003322-2122223133210121-1302130312133021-0330132120321103-1033110031033023-1221330002310030-2111012231022010-0313313031320032)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
 
-<a id="canonical-d0f786fd2f7f7ebf1e908f0af412d5201e5d86eabd2c6e48cdcc2f8677a5ad25"></a>
+<a id="canonical-3100331320123331-0233133313322333-0132210020330022-3310010231110200-0132113120123222-2331023012321020-3031303002332012-1313221122310211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-acd599c88364dcbbf99aae6162a680e790d76526e3612ecced83093fca7e2d75"></a>
+<a id="canonical-2230311121213020-2003121031302323-3321212222321201-1202221220003213-2100311312110212-3203120102323030-3231200300210333-3022133202311311"></a>
 
-## filters — filters / 5448b18b73b6 / 2
+## filters — filters / 202313032312 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
-- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
+- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231)
 - filters
 
-<a id="canonical-03c8c72adee32b9905997438267cfadf473020129479952fc6c7b7d0d5f8daba"></a>
+<a id="canonical-0003302030130222-3132320302232121-0011212113100320-0212133033223133-1013030002000102-2110132121110233-3012301323133100-3111332031222322"></a>
 
 Type: `"single"`. Optional.
 
 Global Filters. Query Global Filters.
 
-<a id="canonical-4e5559712c20d5f7b534b89c5abe3359797053ae6d77523ff0de3ddaf2a4c3a6"></a>
+<a id="canonical-1032111111211301-0230020031113313-2311031023202130-1122233203031121-1321130011032232-1231131311020333-3300313203313122-3302221030032212"></a>
 
-## Direct properties — filters / 5448b18b73b6 / 3
+## Direct properties — filters / 202313032312 / 3
 
-- [global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-f724b0d8d43a3e6fb3ba748017ab69c6fb539648666462e315c6c503902547dd): complete subsection reference.
+- [global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3313021023003120-3110032203321233-2303232213102000-0113222312213012-3323110321121020-1212121012023203-0111301230110003-2100021110133131): complete subsection reference.
 
-<a id="canonical-bdf110d98236e4bf602113641365a265d25e165894de37ca3d3cc553a20106da"></a>
+<a id="canonical-2331330101003121-2002031232102333-1200020101031210-0103121122021211-3102113201121120-2110313203133022-0331033030111103-2202000100123122"></a>
 
-<a id="canonical-9dfd0323bda169eac2831ec7d15f0e925491448e6759bb4e653e21282e878afb"></a>
+<a id="canonical-2131333100030203-2331220112213222-3002200301323013-3101113300322102-1110210110102032-1213112123231032-1211033202010220-0232201320223323"></a>
 
-## region_filter property — filters / 5448b18b73b6 / 4
+## region_filter property — filters / 202313032312 / 4
 
 Type: `"string"`. Optional.
 
@@ -159,46 +159,46 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-bdc1cd91f057a2bacc1950e390349761d6621c567c60f05705b704205d78ab56"></a>
+<a id="canonical-2331300130312101-3300111322022322-3030012111003203-2100031021131201-3112120201301112-1330120033001113-0011231300100200-1131132022231112"></a>
 
-## Next pages — filters / 5448b18b73b6 / 5
+## Next pages — filters / 202313032312 / 5
 
-- [filters.global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-f724b0d8d43a3e6fb3ba748017ab69c6fb539648666462e315c6c503902547dd)
-- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
+- [filters.global_filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3313021023003120-3110032203321233-2303232213102000-0113222312213012-3323110321121020-1212121012023203-0111301230110003-2100021110133131)
+- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
 
-<a id="canonical-f724b0d8d43a3e6fb3ba748017ab69c6fb539648666462e315c6c503902547dd"></a>
+<a id="canonical-3313021023003120-3110032203321233-2303232213102000-0113222312213012-3323110321121020-1212121012023203-0111301230110003-2100021110133131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7261c6befdaaea4e9e0d4a255b2b70bea68f5b3dd469cbd85828e9c1bc23a4a3"></a>
+<a id="canonical-1302120130122332-3331222232221032-2132003110220211-1123022313002332-2212203311230331-3110122130233120-1120022032213001-2330020322102203"></a>
 
-## filters.global_filters — filters.global_filters / 3b80f397ac5f / 2
+## filters.global_filters — global_filters / 211322301133 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
-- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
-- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-d0f786fd2f7f7ebf1e908f0af412d5201e5d86eabd2c6e48cdcc2f8677a5ad25)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
+- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231)
+- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3100331320123331-0233133313322333-0132210020330022-3310010231110200-0132113120123222-2331023012321020-3031303002332012-1313221122310211)
 - filters.global_filters
 
-<a id="canonical-6ee93e45e3bb0745be49b52bc98e05cb51aca3d12deaa8f06b69d5d1a7d3978b"></a>
+<a id="canonical-1232322103321011-3203232300131011-2332102123110223-3021203200113023-1101223022033101-0231322222203300-1223122131113101-2213310321132023"></a>
 
 Type: `"list"`. Optional.
 
 Global Filters. List of global filters.
 
-<a id="canonical-6d1871c903310c74d0e2973c7ce0a22722c4fc8763e8c30053f2e0981d7bafc4"></a>
+<a id="canonical-1231012013013021-0003030100301310-3100320221130330-1330320022020213-0202301033302013-1203322030030000-1103330232002120-0131132322333010"></a>
 
-## Direct properties — filters.global_filters / 3b80f397ac5f / 3
+## Direct properties — global_filters / 211322301133 / 3
 
-<a id="canonical-f0840bcb5e4243f417dff1a4536142281a56ff4de4aed83adfd6af42348cc875"></a>
+<a id="canonical-3300201000233023-1132100210033310-0113313333012210-1103120110020220-0122111233331031-3210223231200322-3133311222331002-0310203030201311"></a>
 
-<a id="canonical-6f4e4aa83b16e634d9e43fb1b2381f39a1d9b127979363541636384590de25f8"></a>
+<a id="canonical-1233103210222220-0323011232120310-3121321003332301-2302032001330321-2201312123010213-2113210312031110-0112031203201011-2100313202113320"></a>
 
-## key property — filters.global_filters / 3b80f397ac5f / 4
+## key property — global_filters / 211322301133 / 4
 
 Type: `"string"`. Optional.
 
@@ -277,11 +277,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-cd3d5d0f0a2597b26931392c527be15310dd3ddf65cb68615fd305f99727ea09"></a>
+<a id="canonical-3031033111310033-0022021121132302-1221030103210230-1102132332011103-0100313103313133-1211302312201201-1133310300113321-2113021332220021"></a>
 
-<a id="canonical-993bc93b8ed5c13ceb40153c61405d80ade85b4f9aa319596beda29384db0951"></a>
+<a id="canonical-2121032330210323-2032311130010330-3223100001110330-1201100011312000-2231322011231033-2122220301211121-1223323122022103-2010312300211101"></a>
 
-## op property — filters.global_filters / 3b80f397ac5f / 5
+## op property — global_filters / 211322301133 / 5
 
 Type: `"string"`. Optional.
 
@@ -308,11 +308,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-020e04067a7441815b29d662ae343d54c1108c9dc7508538c70f74adf1d61835"></a>
+<a id="canonical-0002003200100012-1322131010012001-1123022131121202-2232031003311110-3001010020302131-3013110020110320-3013003313102231-3301311201200311"></a>
 
-<a id="canonical-42224297f1fa312c631409575de8eeb74efc2b77d689960582ed277d1f7a0466"></a>
+<a id="canonical-1002020210022113-3301332203010230-1203011000211113-1131322032322313-1032333002231313-3112202121120011-2002323102131331-0133132200101212"></a>
 
-## values property — filters.global_filters / 3b80f397ac5f / 6
+## values property — global_filters / 211322301133 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -326,62 +326,62 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-d8334463d0cdd37b658fc722fc44380712042257b8e614283904865036f6a119"></a>
+<a id="canonical-3120030310101203-3100303131031323-1211203330130202-3330101003200013-0102001002021113-2320321201100220-0321001020121100-0312331222010121"></a>
 
-## Next pages — filters.global_filters / 3b80f397ac5f / 7
+## Next pages — global_filters / 211322301133 / 7
 
-- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-d0f786fd2f7f7ebf1e908f0af412d5201e5d86eabd2c6e48cdcc2f8677a5ad25)
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
+- [filters](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-3100331320123331-0233133313322333-0132210020330022-3310010231110200-0132113120123222-2331023012321020-3031303002332012-1313221122310211)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
 
-<a id="canonical-c71e60fa9aadf919727367c93c798e534f50d3cb69f02d0c951ad28437dcde0e"></a>
+<a id="canonical-3013013212003322-2122223133210121-1302130312133021-0330132120321103-1033110031033023-1221330002310030-2111012231022010-0313313031320032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ce6b5bae8352358de55490b8d4b4e2aceff09b15b07c9fe5d63716a66b99fd66"></a>
+<a id="canonical-3032122311232232-2003110203112031-3211111021002320-3110231032022230-3233330021230111-2300133021333211-3112031301122212-1223212133311212"></a>
 
-## risk_score_distribution — risk_score_distribution / efff6d396ecb / 2
+## risk_score_distribution — risk_score_distribution / 032112323023 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
-- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)
+- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231)
 - risk_score_distribution
 
-<a id="canonical-f4e47c1ef1aedb08e2d87d52b2fae6913364f37f33f7a6e148c4b331f3ae9c0d"></a>
+<a id="canonical-3310321013300132-3301223231230020-3202312013311102-2302332232122101-0303121033031333-0303331322123201-1020301023030301-3303223221300031"></a>
 
 Type: `"list"`. Computed.
 
 Distribution of devices across risk ranks.
 
-<a id="canonical-e026d09daf98f1da89f39296c3eba569c019ac56d18ac8283d60c766c4441969"></a>
+<a id="canonical-3200021231002131-2233212033013122-2021330321022112-3003322322111221-3000012122301112-3101202230200220-0331120030131212-3010101001211221"></a>
 
-## Direct properties — risk_score_distribution / efff6d396ecb / 3
+## Direct properties — risk_score_distribution / 032112323023 / 3
 
-<a id="canonical-425218f30408024f203a6867a712cd2e7b219f196c2e164d2e5bac3c9db03b20"></a>
+<a id="canonical-1002110201203303-0010002000021033-0200032212201213-2213010230310232-1323020121330121-1230023201121031-0232112322300330-2131230003230200"></a>
 
-<a id="canonical-fb90d29b3e6e7c318b59714b9a98aee5ae06ce4782058208df1a2f83075e9256"></a>
+<a id="canonical-3323210031022123-0332123213300301-2023112113011023-2122212022323211-2232001230321013-2002001120020020-3133012202332003-0013113221021112"></a>
 
-## device_count property — risk_score_distribution / efff6d396ecb / 4
+## device_count property — risk_score_distribution / 032112323023 / 4
 
 Type: `"string"`. Computed.
 
 Device Count. Number of devices in this risk rank.
 
-<a id="canonical-03035bb72663b5feb5bf0456e6b55c759dbc7d0a4dbbb6528fa22638d2407824"></a>
+<a id="canonical-0003000311232313-0212120323113332-2311233300101112-3212231111301311-2131233013310022-1031232323121102-2033220202120320-3102100013200210"></a>
 
-<a id="canonical-e3207bffdc6fc42d34f92a030a121db761f781492eeda2f12152b56e666d6d70"></a>
+<a id="canonical-3203020013233333-3130123330100231-0310332102220003-0022010201312313-1201331320011021-0232323122023301-0201110223111232-1212123112311300"></a>
 
-## risk_rank property — risk_score_distribution / efff6d396ecb / 5
+## risk_rank property — risk_score_distribution / 032112323023 / 5
 
 Type: `"string"`. Computed.
 
 Risk rank label (e.g., low, medium, high).
 
-<a id="canonical-18cba55318907d504cb20d34595da9e9f4a3a947569f0d583a1ebc974a2bfeb6"></a>
+<a id="canonical-0120302322111103-0120210013311100-1030230200310310-1121113122213221-3310220322211013-1112213300311120-0322013223302113-1022022333322312"></a>
 
-## Next pages — risk_score_distribution / efff6d396ecb / 6
+## Next pages — risk_score_distribution / 032112323023 / 6
 
-- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
-- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e)
+- [Property reference](data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-0133122332303212-2021022130012330-2033203113001123-2122022002301131-1113132203202220-2330133310103203-3120012013102030-2301000100213231)
+- [xcsh_device_intelligence_risk_score_distribution](../data-sources/device_intelligence_risk_score_distribution.md#canonical-0220221212202100-3300002033312230-0123021230311320-1120110032303212-1000013303201203-1310101222000102-0330103220003033-0002223100110032)

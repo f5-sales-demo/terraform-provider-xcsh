@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_site_upgrade_sw land
 
 # xcsh_site_upgrade_sw landing
 
-<a id="canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565"></a>
+<a id="canonical-0120130312312320-0223010000032113-2233123110100201-3130110122132200-2323212123211333-3120313220122233-0023002110221112-0320032112111211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b983ee5b3fe394d7d1e33b68198fe76b14f4ec4a470eca9dd901a7e4896635f0"></a>
+<a id="canonical-2321200332321123-0333320321103113-3101320303231220-0121203332131223-0110331032301022-1013003230222131-3121000122133210-2021121203113300"></a>
 
-## xcsh_site_upgrade_sw — xcsh_site_upgrade_sw / f5e6663c8f8f / 2
+## xcsh_site_upgrade_sw — xcsh_site_upgrade_sw / 033020332033 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Request an in-place site software upgrade.
 
-<a id="canonical-a43823969e9d7690158f934b0e7f780c15f24d60fd639506add52b1cae0897d0"></a>
+<a id="canonical-2210032002032112-2132213113122100-0111203321031023-0032133313200030-0111330210311200-3331120321110012-2231311102230130-2232002021133100"></a>
 
-## Prerequisites — xcsh_site_upgrade_sw / f5e6663c8f8f / 3
+## Prerequisites — xcsh_site_upgrade_sw / 033020332033 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8f24f6b5c6ea20a4ee20aac9d604e6cfabc571c787486e2119012878249a0607"></a>
+<a id="canonical-2033021033122311-3012322202002210-3232020022223021-3112001032123033-2223301113013013-2013102012320201-0121000102201320-0210212200120013"></a>
 
-## Minimal configuration — xcsh_site_upgrade_sw / f5e6663c8f8f / 4
+## Minimal configuration — xcsh_site_upgrade_sw / 033020332033 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,16 +58,16 @@ action "xcsh_site_upgrade_sw" "example" {
 }
 ```
 
-<a id="canonical-bbddb4e1f9a367627adc2bfb0355ed0143ced9c4340ef99036aa09bb7013aa6e"></a>
+<a id="canonical-2323313123103201-3321220312131202-1322313002233323-0003111132310001-1003303231213010-0310003233212100-0312222200212323-1300010322221232"></a>
 
-## Root configuration — xcsh_site_upgrade_sw / f5e6663c8f8f / 5
+## Root configuration — xcsh_site_upgrade_sw / 033020332033 / 5
 
 Required root properties: `site`, `software_version`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-9bb397876254c61db76e13522b1b9f6c36d747defa4c1cd3ce680ccc6d460548"></a>
+<a id="canonical-2123230321132013-1202111030120131-2313123201031102-0223012321331230-0312311310133132-3322103001303103-3032122000303030-1231101200111020"></a>
 
-## Next pages — xcsh_site_upgrade_sw / f5e6663c8f8f / 6
+## Next pages — xcsh_site_upgrade_sw / 033020332033 / 6
 
-- [Property reference](../guides/actions--site_upgrade_sw--reference--group-001.md#canonical-0c382e518064cf3a2721e69913fd349c991e7047f5c7a6025d6c71eb8269340e)
-- [Examples](../guides/actions--site_upgrade_sw--examples--group-001.md#canonical-5f5bbc00fe0ddc9db04112bacf135860a397d4686eb33770fd9bb25aba8c9394)
-- [Lifecycle](../guides/actions--site_upgrade_sw--lifecycle--group-001.md#canonical-23a990217858f0772fd3794724ea67680f0ad99f8f1529d4d949476ca1a8332f)
+- [Property reference](../guides/actions--site_upgrade_sw--reference--group-001.md#canonical-0030032002321101-2000121030330322-0213020132122121-0103333103102130-2121013213001013-3311301322120002-1131123013013223-2002122103100032)
+- [Examples](../guides/actions--site_upgrade_sw--examples--group-001.md#canonical-1133112323300000-3332003131302131-2300100101022322-3033010311201200-2203211331101220-1232230303131300-3331212323021122-2322203021032110)
+- [Lifecycle](../guides/actions--site_upgrade_sw--lifecycle--group-001.md#canonical-0203222121000201-1320112033001313-0233310313211013-0210322212131220-0033002231212133-2033011102213110-3121102110131230-2201222003030233)

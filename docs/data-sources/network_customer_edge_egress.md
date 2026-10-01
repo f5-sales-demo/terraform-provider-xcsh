@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_customer_edg
 
 # xcsh_network_customer_edge_egress landing
 
-<a id="canonical-e8a53f08d4a40bf225466083460717f25dabd979bfa6a17a3cab3b3fbaa24138"></a>
+<a id="canonical-3220221103330020-3110221000233302-0211101212002003-1012001301133302-1131222331211321-2333221222011322-0330222303230333-2322220210010320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dc31891e547e5cca0a4f4643b7fe8de85689056be07cdf163e59fc50a6907ccc"></a>
+<a id="canonical-3130030120210132-1110133211303022-0022103310121003-2313333220313220-1112202100111223-3200133031330112-0332112133301100-2212210013303030"></a>
 
-## xcsh_network_customer_edge_egress — xcsh_network_customer_edge_egress / 79cd67327bcf / 2
+## xcsh_network_customer_edge_egress — xcsh_network_customer_edge_egress / 030213233033 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Secure Mesh v2 registration IPv4 addresses and egress domains. Legacy Customer E
 intentionally excluded. Values are bundled from the pinned OpenAPI release; this data source
 performs no network request. Ports and traffic direction are not encoded in the manifest.
 
-<a id="canonical-847fb8a4cdc13a37549f402626ad294e992ea6bf6188a2d457242de7e47db7cd"></a>
+<a id="canonical-2010133323202210-3031300103220313-1110213310000212-0212223102211032-2121023222122333-1201202022023110-1113021002313213-3210133123133031"></a>
 
-## Prerequisites — xcsh_network_customer_edge_egress / 79cd67327bcf / 3
+## Prerequisites — xcsh_network_customer_edge_egress / 030213233033 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-51488a15ef25df60c331b04c7ee84e99fb15900f288739ee69524c7cd95e0f34"></a>
+<a id="canonical-1101102020220111-3233021131331200-3003030123001030-1332322010322121-3323011121000033-0220201303213232-1221110210301330-3121113200330310"></a>
 
-## Minimal configuration — xcsh_network_customer_edge_egress / 79cd67327bcf / 4
+## Minimal configuration — xcsh_network_customer_edge_egress / 030213233033 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -63,15 +63,15 @@ output "secure_mesh_v2_https_egress" {
 }
 ```
 
-<a id="canonical-aa1740bc39ce66198a119d6aab4d0aa5335a98a9c22cf9ace5b0a5019c6cda14"></a>
+<a id="canonical-2222011310002330-0321303212120121-2022010121311222-2223103100222211-0303112221202221-3002023033212230-3211230022110001-2130123031220110"></a>
 
-## Root configuration — xcsh_network_customer_edge_egress / 79cd67327bcf / 5
+## Root configuration — xcsh_network_customer_edge_egress / 030213233033 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-148c83ae26e9778516deee4853b0e8bf48aa5d7c65e4877043376b5b40467b99"></a>
+<a id="canonical-0110203020032232-0212322113132011-0112313232321020-1103230032202333-1020222211311330-1211321020131300-1003031312231123-1000101213232121"></a>
 
-## Next pages — xcsh_network_customer_edge_egress / 79cd67327bcf / 6
+## Next pages — xcsh_network_customer_edge_egress / 030213233033 / 6
 
-- [Property reference](../guides/data-sources--network_customer_edge_egress--reference--group-001.md#canonical-fcf3f94ae406bb1faa761b4a9cdf3711b3d6f68f069675781ca1886e216a0b88)
-- [Examples](../guides/data-sources--network_customer_edge_egress--examples--group-001.md#canonical-7f463e71e192bcbb9a976ba4c7ba9f7598a671ac30aada9471885444abcfcfe0)
+- [Property reference](../guides/data-sources--network_customer_edge_egress--reference--group-001.md#canonical-3330330333211022-3210001223230133-2222131201231022-2130313303130101-2303311233122033-0012211213111320-0130220120201232-0201122200232020)
+- [Examples](../guides/data-sources--network_customer_edge_egress--examples--group-001.md#canonical-1333101203321301-3201210223302323-2122211312232210-3013232221331311-2120221213012230-0300222231222110-1301202011101010-2223303330333200)

@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_site_mesh_group refe
 
 # xcsh_site_mesh_group reference
 
-<a id="canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05"></a>
+<a id="canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37559a450143e59fc9e193b98a7ff680724e7a7841a70553a8053fa0a103fadf"></a>
+<a id="canonical-0313111121221011-0001100332112133-3021320121032321-2022133333122000-1302103213221320-1001221300111103-2220001103332200-2201000333223133"></a>
 
-## Property reference — Property reference / 11e9a49d41e8 / 2
+## Property reference — Property reference / 213110013220 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 - Property reference
 
-<a id="canonical-b28a1728fb20e26fcad68dc347a17d6c6c241b70401d5920876cb24b10416804"></a>
+<a id="canonical-2302202201130220-3323020032021233-3022311220313003-1013220113311230-1230021001231300-1000013111210200-2013123023021023-0100100112200010"></a>
 
-## Direct properties — Property reference / 11e9a49d41e8 / 3
+## Direct properties — Property reference / 213110013220 / 3
 
-<a id="canonical-d6a4b2277c08a8f2c100c65ef3cca907e302127c3cbb658acd51bc37c983f0b4"></a>
+<a id="canonical-3112221023020213-1330002022203302-3001000030121132-3303303022210013-3203000201021330-0330232312112022-3031110123300313-3021200333002310"></a>
 
-<a id="canonical-c1b93249a7ae8ac86dae1889cb74cad1854d2754f8bcf8cb814457daae8b87da"></a>
+<a id="canonical-3001232103021021-2213223220223020-1231223201202021-3023131030223101-2011103102131110-3320233033203023-2001101011133122-2232202320133122"></a>
 
-## annotations property — Property reference / 11e9a49d41e8 / 4
+## annotations property — Property reference / 213110013220 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,15 +66,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-181016123fd35f48774b63a20fba48ea9d8c3bc5ceadd60ae9771323fbe43908): complete subsection reference.
+- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-0120010001120102-0333310311331020-1313102312032202-0033232210203222-2131203003233011-3032223131120022-3221131301030203-3323321003210020): complete subsection reference.
 
-- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-e797489225116b86a1f9140200fb5ff7bd90f0352826b0791707084229268088): complete subsection reference.
+- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-3213211310202102-0211010112232012-2201332101100002-0000332311333313-2331210033000311-0220021223001321-0113001300201002-0221021220002020): complete subsection reference.
 
-<a id="canonical-6fb94e8f0faf86c6fe414946512e358de45945dac227f9b40b1da515b952bcdb"></a>
+<a id="canonical-1233232110322033-0033223320123012-3332100110211012-1101023203112031-3210112110113122-3002021333212310-0023013122110111-2321110223303123"></a>
 
-<a id="canonical-c412c465dd1a0eea6f14212a0bdcc055ae81d8d38f77522f84952ff1105eb0c0"></a>
+<a id="canonical-3010010230101211-3131012200323222-1233011002010222-0023313030001111-2232200131203103-2033131311020233-2010211102333301-0100113223003000"></a>
 
-## description property — Property reference / 11e9a49d41e8 / 5
+## description property — Property reference / 213110013220 / 5
 
 Type: `"string"`. Computed.
 
@@ -122,29 +122,29 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-06df6d27d32aace149b0ac37c919b333c3bf80a615c142bc0db33b31436dd76a): complete subsection reference.
+- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-0012313312310213-3103022222303201-1021230022300313-3021012123030303-3003233320002212-0111300110022330-0031230303230301-1003123131131222): complete subsection reference.
 
-- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-440f8af49585155ef5e4749e73de16fcf41404741bd29a0ff592286dc9d2efc0): complete subsection reference.
+- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-1010003320223310-2111201101111132-3311321013102132-1303313201123330-3310011000101310-0123310221220033-3311210202201231-3021310232333000): complete subsection reference.
 
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26): complete subsection reference.
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212): complete subsection reference.
 
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb): complete subsection reference.
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323): complete subsection reference.
 
-<a id="canonical-49a767c020359a11c08ecbadcb54fc5cfb6f237a0d0b65b09498700f63ee842a"></a>
+<a id="canonical-1021221312133000-0200031121220101-3000203230232231-3023111033301130-3323123302031322-0031002312112300-2110212013000033-1203323220100222"></a>
 
-<a id="canonical-bfd40609fee6db9abfb7ba532c05a0dc6888807d44c3ed37f9eede6e669612a9"></a>
+<a id="canonical-2333311000120021-3332321231232122-2333231323221103-0230001122003130-1220202020001331-1010300332310313-3321323231321232-1212211201022221"></a>
 
-## id property — Property reference / 11e9a49d41e8 / 6
+## ID property — Property reference / 213110013220 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-fc00bbf4ae152de43821d08fd152c973bd7c2e09e1ddeddce98149119490ab4e"></a>
+<a id="canonical-3330000023233310-2232011102313210-0320020131002033-3101110230211303-2331133002320021-3201313132313130-3221200110210101-2110210022231032"></a>
 
-<a id="canonical-5037334cc155287b6c636568c2fd1f57a2382357d150880dcf454912fa29a6a7"></a>
+<a id="canonical-1100031303031030-3001111102201323-1230120312111220-3002333101331113-2202032002031113-3101110020200031-3033101110210102-3322022122122213"></a>
 
-## labels property — Property reference / 11e9a49d41e8 / 7
+## labels property — Property reference / 213110013220 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -168,11 +168,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d7e0efc867ceb2c6552e312f084b7097075fd52e4ddc707e10ee871e008e13b"></a>
+<a id="canonical-2031133200323330-2012133032230230-1211110232030102-3300201023130021-1300131133311102-3210313130130013-3201003232201301-3200002032010323"></a>
 
-<a id="canonical-d200704199fd631f11ef9134aa50d2f0c9cefe4b8df2a6dd1477097745b00657"></a>
+<a id="canonical-3102000013001001-2121333112030133-0101323321010310-2222110031023300-3021303233321023-2031330222123131-0110131300211313-1011230000121113"></a>
 
-## name property — Property reference / 11e9a49d41e8 / 8
+## name property — Property reference / 213110013220 / 8
 
 Type: `"string"`. Required.
 
@@ -228,11 +228,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-25d3a10b79d8b7bd2910a7b2425c34bb1eadf128a079575ac5c0df133c5f220b"></a>
+<a id="canonical-0211310322010023-1321312023132331-0221010022132302-1002113003102323-0132223133010220-2200132111131122-3011300031330103-0330113302020023"></a>
 
-<a id="canonical-bd3bca1dadbca153bb067192c373534a4faf03dea13dfb53b9d95dc2d4de3707"></a>
+<a id="canonical-2331032330220131-2231233022011103-2323001213012102-3003130311031022-1033223300033132-2201033133231103-2321312111313002-3110313203130013"></a>
 
-## namespace property — Property reference / 11e9a49d41e8 / 9
+## namespace property — Property reference / 213110013220 / 9
 
 Type: `"string"`. Required.
 
@@ -281,82 +281,82 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647): complete subsection reference.
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013): complete subsection reference.
 
-- [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-a9e329125b7a1d7844be73cac31dcf65b489fd929a01b43d4a2c5b62c555a0ae): complete subsection reference.
+- [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-2221320302210102-1123132201311320-1010233213033022-3003013130331211-2310202133312102-2122000123100331-1022023011231202-3011111122002232): complete subsection reference.
 
-<a id="canonical-b2c70b84aea3da1b02a61feb3210cc36f142209fe025ed2e36aa25b45561775e"></a>
+<a id="canonical-2302301300232010-2232220331220123-0002221201333223-0302010030300312-3301100202002133-3200021132310232-0312222202112310-1111120113131132"></a>
 
-## All schema paths — Property reference / 11e9a49d41e8 / 10
+## All schema paths — Property reference / 213110013220 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--site_mesh_group--reference--group-001.md#canonical-d6a4b2277c08a8f2c100c65ef3cca907e302127c3cbb658acd51bc37c983f0b4) |
-| `bfd_disabled` | [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-6184342a27952146ad3492aa88b79fae8a963a7b5f90794b3bfefeaf88230184) |
-| `bfd_enabled` | [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-f9d1e1d3e26828878a3a259dc35f45e196a4d405084719dd1e6342dd133e9db9) |
-| `bfd_enabled.multiplier` | [bfd_enabled.multiplier](data-sources--site_mesh_group--reference--group-001.md#canonical-724710e21252a39a10c405f377c0baddd921720ff1549423add32e6081766669) |
-| `bfd_enabled.receive_interval_milliseconds` | [bfd_enabled.receive_interval_milliseconds](data-sources--site_mesh_group--reference--group-001.md#canonical-1fa5358c9a66f90d49e63969845050016db078c99d176c037d811f6897a129be) |
-| `bfd_enabled.transmit_interval_milliseconds` | [bfd_enabled.transmit_interval_milliseconds](data-sources--site_mesh_group--reference--group-001.md#canonical-19ca8d36ea09b2b8a3c24b5ec6d959698e53e320fbbd6d161a21dcee84b3cd5f) |
-| `description` | [description](data-sources--site_mesh_group--reference--group-001.md#canonical-6fb94e8f0faf86c6fe414946512e358de45945dac227f9b40b1da515b952bcdb) |
-| `disable_re_fallback` | [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-bba38a5ec121288dfe8f6195bdab4bdbe6cefa73e13d26a4c167e645d0d22fca) |
-| `enable_re_fallback` | [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-4ad1fe475bb25cde2ee55aecd8fb15d87e48442f34cd6b6b5e9cea4d48da34a9) |
-| `full_mesh` | [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f7739600ff27c71cf742280b86a77930b9e479a8f1fea372a5d29103d731003e) |
-| `full_mesh.control_and_data_plane_mesh` | [full_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-55d593bf0d68a5c033538ebd8f860a665da2e8625d0d046949b80fa4ada969b7) |
-| `full_mesh.data_plane_mesh` | [full_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-6a93d8043b77aba2e17a6169d29cfa027325976c7c2e2d08ce2d2216924b8237) |
-| `hub_mesh` | [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-253a37fa61e54ee6fe4845ca76cf541120f94acd51cd9c687ef75cf816cab27c) |
-| `hub_mesh.control_and_data_plane_mesh` | [hub_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-15b5b2a9f1a92a7acaaa5e4ead409fd9d9cb494ff0f060ac9972d2bb48d025ce) |
-| `hub_mesh.data_plane_mesh` | [hub_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-454228b77d3d3c6643d462b19d4d9a0fba15d4454ea2235ae2caccf94d8f6819) |
-| `id` | [id](data-sources--site_mesh_group--reference--group-001.md#canonical-49a767c020359a11c08ecbadcb54fc5cfb6f237a0d0b65b09498700f63ee842a) |
-| `labels` | [labels](data-sources--site_mesh_group--reference--group-001.md#canonical-fc00bbf4ae152de43821d08fd152c973bd7c2e09e1ddeddce98149119490ab4e) |
-| `name` | [name](data-sources--site_mesh_group--reference--group-001.md#canonical-8d7e0efc867ceb2c6552e312f084b7097075fd52e4ddc707e10ee871e008e13b) |
-| `namespace` | [namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-25d3a10b79d8b7bd2910a7b2425c34bb1eadf128a079575ac5c0df133c5f220b) |
-| `spoke_mesh` | [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-a1e25e9fbb20e21385d137101d6a1723d401ea33cc06cd2aabbe8603860a3f62) |
-| `spoke_mesh.control_and_data_plane_mesh` | [spoke_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-da25d44ac7877f1053b7563b03906181c1c136038e9a78f941b431ac86ccebc2) |
-| `spoke_mesh.data_plane_mesh` | [spoke_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-96332c5fab40c6fb154e6f3ba469ee0b2b3c9a14beaca8be27fda12f343dd80d) |
-| `spoke_mesh.hub_mesh_group` | [spoke_mesh.hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-5abe78c44df1a87c00f1f67a316686e95acf2dfed6f025ab09871ce53e313d7e) |
-| `spoke_mesh.hub_mesh_group.name` | [spoke_mesh.hub_mesh_group.name](data-sources--site_mesh_group--reference--group-001.md#canonical-6aee091a3b6e30b0d5b7ca3da81a0629165844304c1bfd449658883b418dc081) |
-| `spoke_mesh.hub_mesh_group.namespace` | [spoke_mesh.hub_mesh_group.namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-a94c016d0ec2321d0693873fa43c20f8c335a9e48a28bed0585a52ea9211af31) |
-| `spoke_mesh.hub_mesh_group.tenant` | [spoke_mesh.hub_mesh_group.tenant](data-sources--site_mesh_group--reference--group-001.md#canonical-3fe836229bad5ac2b65e3121133d521b55fcfa52579bfb58d39cdda7afb08dd5) |
-| `virtual_site` | [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-6398a30466d2b176dfe8ff00a0299bd4451b3242d6f4fdb848f0d0cecfe853e1) |
-| `virtual_site.kind` | [virtual_site.kind](data-sources--site_mesh_group--reference--group-001.md#canonical-e652f3f9c2c5c02793847ff824f3dc451bbd57c1fe4b89d2fe7008e82b1a2e2c) |
-| `virtual_site.name` | [virtual_site.name](data-sources--site_mesh_group--reference--group-001.md#canonical-c581871ba7cbb9cc9ad0a4bf78b8d4ac42f34212ce9ba664c10bbbd682c5ab6b) |
-| `virtual_site.namespace` | [virtual_site.namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-2160e97177870789e69bd43cf5a0a01441408e6aa7b114da18e9b7294f3a8096) |
-| `virtual_site.tenant` | [virtual_site.tenant](data-sources--site_mesh_group--reference--group-001.md#canonical-b2cf00b0a425edb1d71ee5ddbb4ba3c3e650a7b01c6b72387652d4ea7b1358e3) |
-| `virtual_site.uid` | [virtual_site.uid](data-sources--site_mesh_group--reference--group-001.md#canonical-2c93c81f386ecc16f2bdd4bf5ba3c7842ad10a65ab13b4cb9112a372adcfb7e3) |
+| `annotations` | [annotations](data-sources--site_mesh_group--reference--group-001.md#canonical-3112221023020213-1330002022203302-3001000030121132-3303303022210013-3203000201021330-0330232312112022-3031110123300313-3021200333002310) |
+| `bfd_disabled` | [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-1201201003100222-0213211102011012-2231031021022222-2020231321332232-2022211203221323-1133210013211023-0323333233322233-2020020300012010) |
+| `bfd_enabled` | [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-3321310132013103-3202122002202013-2022032202112131-3003113310113201-2112221031100011-0020101301213131-0132120310023131-0103033221312321) |
+| `bfd_enabled.multiplier` | [bfd_enabled.multiplier](data-sources--site_mesh_group--reference--group-001.md#canonical-1302101301003202-0102110222032122-0100301000113303-1313300023223131-3121020113020033-3301111021100203-2231310302321200-2001131212121221) |
+| `bfd_enabled.receive_interval_milliseconds` | [bfd_enabled.receive_interval_milliseconds](data-sources--site_mesh_group--reference--group-001.md#canonical-0133221103112030-2122121233210031-1021321203211221-2010110011000001-1231230013203021-2131011312300003-1331200101331220-2113220102212332) |
+| `bfd_enabled.transmit_interval_milliseconds` | [bfd_enabled.transmit_interval_milliseconds](data-sources--site_mesh_group--reference--group-001.md#canonical-0121302220310312-3222002123022320-2203300210231132-3012312111211221-2032110332030200-3323233112310112-0122020131303232-2010230330311133) |
+| `description` | [description](data-sources--site_mesh_group--reference--group-001.md#canonical-1233232110322033-0033223320123012-3332100110211012-1101023203112031-3210112110113122-3002021333212310-0023013122110111-2321110223303123) |
+| `disable_re_fallback` | [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-2323220320221132-3001020102202031-3332203312012111-2331222310233123-3212303233221303-3201033102122210-3001121332121011-3100310202333022) |
+| `enable_re_fallback` | [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-1022310133321013-1123230211303132-0232321111223230-3120332301113120-1332102010100233-0310303112231223-1132213032221031-1020312203102221) |
+| `full_mesh` | [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3313130321120000-3333021330130130-3313100202200023-2012221313210300-2321321013212220-3301333222031302-2211310221010003-3113030100000332) |
+| `full_mesh.control_and_data_plane_mesh` | [full_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-1111311121032333-0031122022113000-0303110320322331-2033201200221212-1131220232201202-1131003100101221-1021232000332210-2231222112212313) |
+| `full_mesh.data_plane_mesh` | [full_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-1222210331200010-0323131322232202-3201132212011221-3102213033220002-1303021121131230-1330023202310020-3032023102020112-2102102320020313) |
+| `hub_mesh` | [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0211032203133322-1201321110323212-3332102010113022-1312303311100101-0200332110223031-1101303121301220-1332331311303320-0112302223021330) |
+| `hub_mesh.control_and_data_plane_mesh` | [hub_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0111231123022221-3301222102221322-3022222211321032-2231100021333121-3121302310211033-3300330012002230-2121130231022323-1020310002113032) |
+| `hub_mesh.data_plane_mesh` | [hub_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-1011100202202313-1331033103301212-1003311012022301-2131103121220033-2322011131101011-1032220202031122-3202302230303321-1031203312200121) |
+| `id` | [id](data-sources--site_mesh_group--reference--group-001.md#canonical-1021221312133000-0200031121220101-3000203230232231-3023111033301130-3323123302031322-0031002312112300-2110212013000033-1203323220100222) |
+| `labels` | [labels](data-sources--site_mesh_group--reference--group-001.md#canonical-3330000023233310-2232011102313210-0320020131002033-3101110230211303-2331133002320021-3201313132313130-3221200110210101-2110210022231032) |
+| `name` | [name](data-sources--site_mesh_group--reference--group-001.md#canonical-2031133200323330-2012133032230230-1211110232030102-3300201023130021-1300131133311102-3210313130130013-3201003232201301-3200002032010323) |
+| `namespace` | [namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-0211310322010023-1321312023132331-0221010022132302-1002113003102323-0132223133010220-2200132111131122-3011300031330103-0330113302020023) |
+| `spoke_mesh` | [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2201320211322133-2323020032020103-2011310103130100-0131122201130203-3110000132220303-3030001230310222-2223233220120003-2012002203331202) |
+| `spoke_mesh.control_and_data_plane_mesh` | [spoke_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3122021131101022-3013201313330100-1103231311120323-0003210012012001-3001300103120003-2032212213203321-1001231003012230-2012303032233002) |
+| `spoke_mesh.data_plane_mesh` | [spoke_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2112030302301133-2223100030123323-0111103212330323-2210122132320023-0223033021220110-2332223022202332-0213333122010233-0310033131200031) |
+| `spoke_mesh.hub_mesh_group` | [spoke_mesh.hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-1122233213203010-1031330122201330-0000330133121322-0301121220123221-1122303302313332-3112330002112223-0021201301303211-0332030103311332) |
+| `spoke_mesh.hub_mesh_group.name` | [spoke_mesh.hub_mesh_group.name](data-sources--site_mesh_group--reference--group-001.md#canonical-1222323200210122-0323123203002300-3111231330220331-2220012200120221-0112112010100300-1030012333311010-2112112020200323-1001203130002001) |
+| `spoke_mesh.hub_mesh_group.namespace` | [spoke_mesh.hub_mesh_group.namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-2221103000011231-0032300203020131-0012210320130333-2210033002003320-3003031122213210-2022022023323100-1120112211023222-2102010122330301) |
+| `spoke_mesh.hub_mesh_group.tenant` | [spoke_mesh.hub_mesh_group.tenant](data-sources--site_mesh_group--reference--group-001.md#canonical-0333322003120202-2123223111223002-2312113203010201-0103033111020123-1111333033221102-1113212333231120-3103213031312213-2233230020313111) |
+| `virtual_site` | [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-1203212022030010-1212310223011312-3133322033330000-2200022121233110-1011012303021002-3112331033312320-1020330031003032-3033322011033201) |
+| `virtual_site.kind` | [virtual_site.kind](data-sources--site_mesh_group--reference--group-001.md#canonical-3212110233033321-3002301130000213-2103201013333320-0210330331301011-0123233111133001-3332102320213102-3332130000203220-0223012202320230) |
+| `virtual_site.name` | [virtual_site.name](data-sources--site_mesh_group--reference--group-001.md#canonical-3011200120130123-2213302323213030-2122310022102333-1320232031102230-1002330310020102-3032212322121210-3001002323233112-2002301122231223) |
+| `virtual_site.namespace` | [virtual_site.namespace](data-sources--site_mesh_group--reference--group-001.md#canonical-0201120032211301-1313201300132021-3212212331100330-3311220022000110-1001100020321222-2213230101103122-0120322123130221-1033032220002112) |
+| `virtual_site.tenant` | [virtual_site.tenant](data-sources--site_mesh_group--reference--group-001.md#canonical-2302303300002300-2210021132312301-3113013232113131-2323102322033003-3212110022132300-0130122313020320-1312110231103222-1323010311203203) |
+| `virtual_site.uid` | [virtual_site.uid](data-sources--site_mesh_group--reference--group-001.md#canonical-0230210330200133-0320123230300112-3302233131102333-1123220330132010-0222310100221211-2223010323103023-2101010222031302-2231303323133203) |
 
-<a id="canonical-59e4578b3215abe10f4b1a240c9703d065f0fc93c42a1a1047e3b247ae79f053"></a>
+<a id="canonical-1121321011132023-0302011122233201-0033102301220210-0030211300033100-1211330033302103-3010022201220100-1013320323021013-2232132133001103"></a>
 
-## Next pages — Property reference / 11e9a49d41e8 / 11
+## Next pages — Property reference / 213110013220 / 11
 
-- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-181016123fd35f48774b63a20fba48ea9d8c3bc5ceadd60ae9771323fbe43908)
-- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-e797489225116b86a1f9140200fb5ff7bd90f0352826b0791707084229268088)
-- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-06df6d27d32aace149b0ac37c919b333c3bf80a615c142bc0db33b31436dd76a)
-- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-440f8af49585155ef5e4749e73de16fcf41404741bd29a0ff592286dc9d2efc0)
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26)
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb)
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
-- [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-a9e329125b7a1d7844be73cac31dcf65b489fd929a01b43d4a2c5b62c555a0ae)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-0120010001120102-0333310311331020-1313102312032202-0033232210203222-2131203003233011-3032223131120022-3221131301030203-3323321003210020)
+- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-3213211310202102-0211010112232012-2201332101100002-0000332311333313-2331210033000311-0220021223001321-0113001300201002-0221021220002020)
+- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-0012313312310213-3103022222303201-1021230022300313-3021012123030303-3003233320002212-0111300110022330-0031230303230301-1003123131131222)
+- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-1010003320223310-2111201101111132-3311321013102132-1303313201123330-3310011000101310-0123310221220033-3311210202201231-3021310232333000)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
+- [virtual_site](data-sources--site_mesh_group--reference--group-001.md#canonical-2221320302210102-1123132201311320-1010233213033022-3003013130331211-2310202133312102-2122000123100331-1022023011231202-3011111122002232)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-181016123fd35f48774b63a20fba48ea9d8c3bc5ceadd60ae9771323fbe43908"></a>
+<a id="canonical-0120010001120102-0333310311331020-1313102312032202-0033232210203222-2131203003233011-3032223131120022-3221131301030203-3323321003210020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89695b37f22fcc7a53468b6d8b6ac82b360b1cb12d0d8fff6926a4ac484f8539"></a>
+<a id="canonical-2021122111230313-3302023330301322-1103101220231231-2023122230200223-0312002301302301-0231003120333333-1221021222102230-1020103320110321"></a>
 
-## bfd_disabled — bfd_disabled / fdb90511dbdd / 2
+## bfd_disabled — bfd_disabled / 010131233131 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - bfd_disabled
 
-<a id="canonical-6184342a27952146ad3492aa88b79fae8a963a7b5f90794b3bfefeaf88230184"></a>
+<a id="canonical-1201201003100222-0213211102011012-2231031021022222-2020231321332232-2022211203221323-1133210013211023-0323333233322233-2020020300012010"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -381,41 +381,41 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-6184342a27952146ad3492aa88b79fae8a963a7b5f90794b3bfefeaf88230184)
-- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-f9d1e1d3e26828878a3a259dc35f45e196a4d405084719dd1e6342dd133e9db9)
+- [bfd_disabled](data-sources--site_mesh_group--reference--group-001.md#canonical-1201201003100222-0213211102011012-2231031021022222-2020231321332232-2022211203221323-1133210013211023-0323333233322233-2020020300012010)
+- [bfd_enabled](data-sources--site_mesh_group--reference--group-001.md#canonical-3321310132013103-3202122002202013-2022032202112131-3003113310113201-2112221031100011-0020101301213131-0132120310023131-0103033221312321)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-a4700433be035a491ccd06b00a3be04f5fa9b9ee1b20d4cd01b0892041cc4d27"></a>
+<a id="canonical-2210130000100303-2332000311221021-0130303100122300-0022032332001033-1133222123213232-0123020031103031-0001230020210200-1001303010310213"></a>
 
-## Direct properties — bfd_disabled / fdb90511dbdd / 3
+## Direct properties — bfd_disabled / 010131233131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1928c14c70de35de3127b160b9f96815506037f242ca775631692429324c7d09"></a>
+<a id="canonical-0121022030011030-1300313203113132-0301021323011200-2321332112200111-1100120003133302-1002302213131112-0301122102100221-0302103013310021"></a>
 
-## Next pages — bfd_disabled / fdb90511dbdd / 4
+## Next pages — bfd_disabled / 010131233131 / 4
 
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-e797489225116b86a1f9140200fb5ff7bd90f0352826b0791707084229268088"></a>
+<a id="canonical-3213211310202102-0211010112232012-2201332101100002-0000332311333313-2331210033000311-0220021223001321-0113001300201002-0221021220002020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-456b2e41cafb3659b0faca6c68a1932d17e6b66ca93bd650a54a7f662eac8327"></a>
+<a id="canonical-1011122302321001-3022332303121121-2300332230221230-1220220121030231-0113321223121230-2221032331121100-2211102213331212-0232223020030213"></a>
 
-## bfd_enabled — bfd_enabled / cd8b74770180 / 2
+## bfd_enabled — bfd_enabled / 131300012000 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - bfd_enabled
 
-<a id="canonical-f9d1e1d3e26828878a3a259dc35f45e196a4d405084719dd1e6342dd133e9db9"></a>
+<a id="canonical-3321310132013103-3202122002202013-2022032202112131-3003113310113201-2112221031100011-0020101301213131-0132120310023131-0103033221312321"></a>
 
 Type: `"single"`. Computed.
 
@@ -438,15 +438,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cc705e3c61da257e19e5a3833e9bfe0356914899d03cc9e90d7d04910847ae1d"></a>
+<a id="canonical-3030130011320330-1201312202111332-0121321122032003-0332212333320003-1112210110202121-3100033030213221-0031133100102101-0020101322320131"></a>
 
-## Direct properties — bfd_enabled / cd8b74770180 / 3
+## Direct properties — bfd_enabled / 131300012000 / 3
 
-<a id="canonical-724710e21252a39a10c405f377c0baddd921720ff1549423add32e6081766669"></a>
+<a id="canonical-1302101301003202-0102110222032122-0100301000113303-1313300023223131-3121020113020033-3301111021100203-2231310302321200-2001131212121221"></a>
 
-<a id="canonical-5958cf5fd5973bfb513b3f9e2ef4aaa7da7a91b9cf7df96fbe1247561629a18c"></a>
+<a id="canonical-1121112030331133-3111211303233323-1101032303332132-0232331022222213-3122132221012321-3033133133211233-2332010210131112-0112022122012030"></a>
 
-## multiplier property — bfd_enabled / cd8b74770180 / 4
+## multiplier property — bfd_enabled / 131300012000 / 4
 
 Type: `"number"`. Computed.
 
@@ -491,11 +491,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1fa5358c9a66f90d49e63969845050016db078c99d176c037d811f6897a129be"></a>
+<a id="canonical-0133221103112030-2122121233210031-1021321203211221-2010110011000001-1231230013203021-2131011312300003-1331200101331220-2113220102212332"></a>
 
-<a id="canonical-6adb9be03475773e13a0c15cebc2b4d17ad89e1bf9133c7384229abb63d1134c"></a>
+<a id="canonical-1222312321233200-0310131113130332-0103220030011130-3223300223103101-1322312021320123-3321010303301303-2010020221222323-1203310101031030"></a>
 
-## receive_interval_milliseconds property — bfd_enabled / cd8b74770180 / 5
+## receive_interval_milliseconds property — bfd_enabled / 131300012000 / 5
 
 Type: `"number"`. Computed.
 
@@ -536,11 +536,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-19ca8d36ea09b2b8a3c24b5ec6d959698e53e320fbbd6d161a21dcee84b3cd5f"></a>
+<a id="canonical-0121302220310312-3222002123022320-2203300210231132-3012312111211221-2032110332030200-3323233112310112-0122020131303232-2010230330311133"></a>
 
-<a id="canonical-25d78c8edce2d8c48e188e599e44f97a3eb1bebe53b2765ec4fd6d9ff3a79024"></a>
+<a id="canonical-0211311320302032-3130320231203010-2032012020321121-2132101033211322-0332230123322332-1103230213121132-3010333112312133-3303221321000210"></a>
 
-## transmit_interval_milliseconds property — bfd_enabled / cd8b74770180 / 6
+## transmit_interval_milliseconds property — bfd_enabled / 131300012000 / 6
 
 Type: `"number"`. Computed.
 
@@ -581,30 +581,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-681e283cc90fdcfd30adef293c99e40d8358a598dd709d1a5e542ef6fe6be741"></a>
+<a id="canonical-1220013202200330-3021003331303331-0300223132330221-0330212132100031-2003112022112120-3131130021310122-1132111002323312-3332122332131001"></a>
 
-## Next pages — bfd_enabled / cd8b74770180 / 7
+## Next pages — bfd_enabled / 131300012000 / 7
 
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-06df6d27d32aace149b0ac37c919b333c3bf80a615c142bc0db33b31436dd76a"></a>
+<a id="canonical-0012313312310213-3103022222303201-1021230022300313-3021012123030303-3003233320002212-0111300110022330-0031230303230301-1003123131131222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5602cb3203b7c6da9ea19777559be71518996141efd258fcf001e6812ebdc838"></a>
+<a id="canonical-1112000230230302-0003231330123122-2132220121131313-1111212332130111-0120212112011001-3233310211203330-3300000132122001-0232233130200320"></a>
 
-## disable_re_fallback — disable_re_fallback / cb93383a4c85 / 2
+## disable_re_fallback — disable_re_fallback / 032210302011 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - disable_re_fallback
 
-<a id="canonical-bba38a5ec121288dfe8f6195bdab4bdbe6cefa73e13d26a4c167e645d0d22fca"></a>
+<a id="canonical-2323220320221132-3001020102202031-3332203312012111-2331222310233123-3212303233221303-3201033102122210-3001121332121011-3100310202333022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -630,41 +630,41 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-bba38a5ec121288dfe8f6195bdab4bdbe6cefa73e13d26a4c167e645d0d22fca)
-- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-4ad1fe475bb25cde2ee55aecd8fb15d87e48442f34cd6b6b5e9cea4d48da34a9)
+- [disable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-2323220320221132-3001020102202031-3332203312012111-2331222310233123-3212303233221303-3201033102122210-3001121332121011-3100310202333022)
+- [enable_re_fallback](data-sources--site_mesh_group--reference--group-001.md#canonical-1022310133321013-1123230211303132-0232321111223230-3120332301113120-1332102010100233-0310303112231223-1132213032221031-1020312203102221)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-d0c33d09f7187fbf8524436fd44dcf968e89d98d996e1f8f5e1177278381c64c"></a>
+<a id="canonical-3100300303310021-3313012013332333-2011021010031233-3110103130332112-2032202131212031-2121123201332033-1132010113130213-2003200130121030"></a>
 
-## Direct properties — disable_re_fallback / cb93383a4c85 / 3
+## Direct properties — disable_re_fallback / 032210302011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-937cdc0148bb4219e5cc36d101286321590f09709fbff31998f1e889da042319"></a>
+<a id="canonical-2103133031300001-1020232310020121-3211303003123101-0001022012030201-1121003300211300-2133233333030121-2120330132202021-3122001002030121"></a>
 
-## Next pages — disable_re_fallback / cb93383a4c85 / 4
+## Next pages — disable_re_fallback / 032210302011 / 4
 
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-440f8af49585155ef5e4749e73de16fcf41404741bd29a0ff592286dc9d2efc0"></a>
+<a id="canonical-1010003320223310-2111201101111132-3311321013102132-1303313201123330-3310011000101310-0123310221220033-3311210202201231-3021310232333000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90cbeab22d3baa0cbfc6d7b19564bb10cd60adc03f2470c621df3f0ab3bb8e41"></a>
+<a id="canonical-2100302332222302-0231032322220030-2333301231132301-2111121023230100-3031120022313000-0333021013003012-0201313303330022-2303232320321001"></a>
 
-## enable_re_fallback — enable_re_fallback / 91170f903c4a / 2
+## enable_re_fallback — enable_re_fallback / 210003301022 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - enable_re_fallback
 
-<a id="canonical-4ad1fe475bb25cde2ee55aecd8fb15d87e48442f34cd6b6b5e9cea4d48da34a9"></a>
+<a id="canonical-1022310133321013-1123230211303132-0232321111223230-3120332301113120-1332102010100233-0310303112231223-1132213032221031-1020312203102221"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -687,36 +687,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df6014d839e55c7282d9b66b87fb38348a8f9df01b3a2ebb12a28d3dec2eada8"></a>
+<a id="canonical-3133120001103120-0321321111301302-2002312123121223-2013332303200310-2022203321313300-0123032202322323-0102220220310331-3230023222312220"></a>
 
-## Direct properties — enable_re_fallback / 91170f903c4a / 3
+## Direct properties — enable_re_fallback / 210003301022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f7584715ab7b038f1e0306b076a955d23af021175aff58cc2a5e35872ed5a04e"></a>
+<a id="canonical-3313112010130111-2223132300032033-0132000300122300-1312222111113102-0322330002010113-1122333311203030-0222113203112013-0232311122001032"></a>
 
-## Next pages — enable_re_fallback / 91170f903c4a / 4
+## Next pages — enable_re_fallback / 210003301022 / 4
 
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26"></a>
+<a id="canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37ac233fc7a9bc18dbd2c08066d69444391f3764412c19b072a51d33ea94b259"></a>
+<a id="canonical-0313223002030333-3013222123300120-3123310230002000-1212311221101010-0321013303131210-1001023001212300-1302221101310303-3222211023021121"></a>
 
-## full_mesh — full_mesh / 9e90eb5819e4 / 2
+## full_mesh — full_mesh / 112001213210 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - full_mesh
 
-<a id="canonical-f7739600ff27c71cf742280b86a77930b9e479a8f1fea372a5d29103d731003e"></a>
+<a id="canonical-3313130321120000-3333021330130130-3313100202200023-2012221313210300-2321321013212220-3301333222031302-2211310221010003-3113030100000332"></a>
 
 Type: `"single"`. Computed.
 
@@ -742,47 +742,47 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f7739600ff27c71cf742280b86a77930b9e479a8f1fea372a5d29103d731003e)
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-253a37fa61e54ee6fe4845ca76cf541120f94acd51cd9c687ef75cf816cab27c)
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-a1e25e9fbb20e21385d137101d6a1723d401ea33cc06cd2aabbe8603860a3f62)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3313130321120000-3333021330130130-3313100202200023-2012221313210300-2321321013212220-3301333222031302-2211310221010003-3113030100000332)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0211032203133322-1201321110323212-3332102010113022-1312303311100101-0200332110223031-1101303121301220-1332331311303320-0112302223021330)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2201320211322133-2323020032020103-2011310103130100-0131122201130203-3110000132220303-3030001230310222-2223233220120003-2012002203331202)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-108ee13622d6ea7f94bb35ef8cff58e9c31a06b8ed7a3861666c84dc645accd9"></a>
+<a id="canonical-0100203232010312-0202311232221333-2110232303113233-2030333311203221-3003012200122320-3231132203201201-1212123020103130-1210112230303121"></a>
 
-## Direct properties — full_mesh / 9e90eb5819e4 / 3
+## Direct properties — full_mesh / 112001213210 / 3
 
-- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-b1856f51fe5783fc08223111e14f02c494c50ddab64acf4942004db1583da1c4): complete subsection reference.
+- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2301201112331101-3332111320033330-0020020203010101-3201103300023010-2110301100313122-2312102230331021-1002000010312301-1120033122013010): complete subsection reference.
 
-- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0806c6872152c7c2e53d7058d3cef3deafca224af5fce3ffc4e9d002462942bc): complete subsection reference.
+- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0020001230122013-0201110230133002-3211033113001120-3103303233033132-2233302202021022-3311333032033333-3010322131000002-1012022110022330): complete subsection reference.
 
-<a id="canonical-4bd0a465375febb041ec8c3c8c14e96d6961f5922baf9bfe5f8d7dcd70880b62"></a>
+<a id="canonical-1023310022101211-0313113332232300-1001323020300330-2030011032211231-1221120133112102-0223223321233332-1133203113313031-1300202000231202"></a>
 
-## Next pages — full_mesh / 9e90eb5819e4 / 4
+## Next pages — full_mesh / 112001213210 / 4
 
-- [full_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-b1856f51fe5783fc08223111e14f02c494c50ddab64acf4942004db1583da1c4)
-- [full_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0806c6872152c7c2e53d7058d3cef3deafca224af5fce3ffc4e9d002462942bc)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [full_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2301201112331101-3332111320033330-0020020203010101-3201103300023010-2110301100313122-2312102230331021-1002000010312301-1120033122013010)
+- [full_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-0020001230122013-0201110230133002-3211033113001120-3103303233033132-2233302202021022-3311333032033333-3010322131000002-1012022110022330)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-b1856f51fe5783fc08223111e14f02c494c50ddab64acf4942004db1583da1c4"></a>
+<a id="canonical-2301201112331101-3332111320033330-0020020203010101-3201103300023010-2110301100313122-2312102230331021-1002000010312301-1120033122013010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-72e6730cc9b336cffc3fcc820ef603c7e70e2741af546d24f0a3a6d1c72749b1"></a>
+<a id="canonical-1302321213030030-3021230303123033-3330033330302002-0032331200033013-3213003202131001-2233111012310210-3300220322123101-3013021310212301"></a>
 
-## full_mesh.control_and_data_plane_mesh — full_mesh.control_and_data_plane_mesh / 5a76df1a76ca / 2
+## full_mesh.control_and_data_plane_mesh — control_and_data_plane_mesh / 012213123022 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212)
 - full_mesh.control_and_data_plane_mesh
 
-<a id="canonical-55d593bf0d68a5c033538ebd8f860a665da2e8625d0d046949b80fa4ada969b7"></a>
+<a id="canonical-1111311121032333-0031122022113000-0303110320322331-2033201200221212-1131220232201202-1131003100101221-1021232000332210-2231222112212313"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -805,37 +805,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3ef6277081c9aeb06cb09f08ab8c89da719202a7f0b91a5a5241f870c583d1cc"></a>
+<a id="canonical-0332331202131300-2001302122322300-1230230021330020-2223203020213122-1301210200022213-3300232101221122-1102100133201300-3011200331013030"></a>
 
-## Direct properties — full_mesh.control_and_data_plane_mesh / 5a76df1a76ca / 3
+## Direct properties — control_and_data_plane_mesh / 012213123022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-941368ed9cdc7fc7c4e6b3d2fb1b675cf218629b9f0f645c5a2b9a20d12a705b"></a>
+<a id="canonical-2110010312203231-2130313013333013-3010321223033102-3323012312131130-3302012012022123-2133003312101130-1122022321220200-3101022213001123"></a>
 
-## Next pages — full_mesh.control_and_data_plane_mesh / 5a76df1a76ca / 4
+## Next pages — control_and_data_plane_mesh / 012213123022 / 4
 
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-0806c6872152c7c2e53d7058d3cef3deafca224af5fce3ffc4e9d002462942bc"></a>
+<a id="canonical-0020001230122013-0201110230133002-3211033113001120-3103303233033132-2233302202021022-3311333032033333-3010322131000002-1012022110022330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec922798e43b339c5ab183f1f61917f0f2c29f5d4611a42a42335967ce6fe16a"></a>
+<a id="canonical-3230210202132120-3210032303032130-1122230120033301-3312012101133300-3302300221331131-1012010122100222-1002030311211213-3032123332011222"></a>
 
-## full_mesh.data_plane_mesh — full_mesh.data_plane_mesh / f1f95f36f7b8 / 2
+## full_mesh.data_plane_mesh — data_plane_mesh / 031233132320 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212)
 - full_mesh.data_plane_mesh
 
-<a id="canonical-6a93d8043b77aba2e17a6169d29cfa027325976c7c2e2d08ce2d2216924b8237"></a>
+<a id="canonical-1222210331200010-0323131322232202-3201132212011221-3102213033220002-1303021121131230-1330023202310020-3032023102020112-2102102320020313"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -858,36 +858,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4e68a996d72227665c0132913ccce77c77a3407fc03933beb225992efbac2db0"></a>
+<a id="canonical-1032122022212112-3113020202131212-1130000103022101-0330303032131330-1313220310001333-3000032103032332-2302021121210232-3323223002312300"></a>
 
-## Direct properties — full_mesh.data_plane_mesh / f1f95f36f7b8 / 3
+## Direct properties — data_plane_mesh / 031233132320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0a2116e69bb93e3c341ce1af46a2116f4e38ffe8981b268d3014e488cb109b5a"></a>
+<a id="canonical-0022020101123212-2123232103320330-0310013032012233-1012220201011233-1032032033333220-2120012302122031-0300011032102020-3023010021231122"></a>
 
-## Next pages — full_mesh.data_plane_mesh / f1f95f36f7b8 / 4
+## Next pages — data_plane_mesh / 031233132320 / 4
 
-- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-85d44cf5d1ff6dbc399d97dd1ea896712545d638bcda608438092f6b90606c26)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [full_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb"></a>
+<a id="canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89a8c067c9d4c82fe8beecc5bb6228c1f15e34ba3c82e1830408e20fdddfa47f"></a>
+<a id="canonical-2021222030001213-3021311030200233-3220233232303011-2323120202203001-3301113203102322-0330200232012003-0010002032020033-3131313322101333"></a>
 
-## hub_mesh — hub_mesh / 4a29b6a7c1ce / 2
+## hub_mesh — hub_mesh / 221330013032 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - hub_mesh
 
-<a id="canonical-253a37fa61e54ee6fe4845ca76cf541120f94acd51cd9c687ef75cf816cab27c"></a>
+<a id="canonical-0211032203133322-1201321110323212-3332102010113022-1312303311100101-0200332110223031-1101303121301220-1332331311303320-0112302223021330"></a>
 
 Type: `"single"`. Computed.
 
@@ -911,41 +911,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ded401a506f7b4d8055340c213d98482ee57ce9b706022aabc0e9053d60dd213"></a>
+<a id="canonical-3132311000012211-0012331323103120-0011110310003002-0103312120102002-3232111330322123-1300120002022222-2330003221001103-3112003131020103"></a>
 
-## Direct properties — hub_mesh / 4a29b6a7c1ce / 3
+## Direct properties — hub_mesh / 221330013032 / 3
 
-- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-83a63ac6b46ee8fed364d1321c0de5fed9ab75b2c41c70ea7cddc12ef949dd09): complete subsection reference.
+- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2003221203223012-2310123232203332-3103121031010302-0130003132113332-3121222313112302-3010013013003222-1330313130010232-3321102131310021): complete subsection reference.
 
-- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-cbb5bc331d2238c25876f28ee752b4e2e2169776940f8fba03bfee134782c638): complete subsection reference.
+- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3023231123300303-0131020203203002-1120131233022032-3213110223103202-3202011221131312-2110003320332322-0003233332320103-1013200230120320): complete subsection reference.
 
-<a id="canonical-03b3af7be6cf2723386ba52b14d78280014d0c18833f1fc109377f8480fbf2e7"></a>
+<a id="canonical-0003230322331323-3212303302130203-0320122322110223-0110311320022000-0001103100300120-2003033301333001-0021031313332010-2000332333023213"></a>
 
-## Next pages — hub_mesh / 4a29b6a7c1ce / 4
+## Next pages — hub_mesh / 221330013032 / 4
 
-- [hub_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-83a63ac6b46ee8fed364d1321c0de5fed9ab75b2c41c70ea7cddc12ef949dd09)
-- [hub_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-cbb5bc331d2238c25876f28ee752b4e2e2169776940f8fba03bfee134782c638)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [hub_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2003221203223012-2310123232203332-3103121031010302-0130003132113332-3121222313112302-3010013013003222-1330313130010232-3321102131310021)
+- [hub_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3023231123300303-0131020203203002-1120131233022032-3213110223103202-3202011221131312-2110003320332322-0003233332320103-1013200230120320)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-83a63ac6b46ee8fed364d1321c0de5fed9ab75b2c41c70ea7cddc12ef949dd09"></a>
+<a id="canonical-2003221203223012-2310123232203332-3103121031010302-0130003132113332-3121222313112302-3010013013003222-1330313130010232-3321102131310021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1cd61b233a02ad7d28c08223303ef8f7e5f11d37e0a97a8bde85dba235cd2d83"></a>
+<a id="canonical-0130311201230203-0322000222311331-0220300020020203-0300033233203313-3211330101310313-3200222113222023-3132201131232202-0311303102312003"></a>
 
-## hub_mesh.control_and_data_plane_mesh — hub_mesh.control_and_data_plane_mesh / c648d6305a77 / 2
+## hub_mesh.control_and_data_plane_mesh — control_and_data_plane_mesh / 030011221313 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323)
 - hub_mesh.control_and_data_plane_mesh
 
-<a id="canonical-15b5b2a9f1a92a7acaaa5e4ead409fd9d9cb494ff0f060ac9972d2bb48d025ce"></a>
+<a id="canonical-0111231123022221-3301222102221322-3022222211321032-2231100021333121-3121302310211033-3300330012002230-2121130231022323-1020310002113032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -968,37 +968,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-abbbd2008b94b227288fa5d641bc433d3f2268e9f60bf19a957bb56bf53265c9"></a>
+<a id="canonical-2223232331020000-2023211023020213-0220203322113112-1001233010030331-0333020212203221-3312002333012122-2111132323111223-3311030212113021"></a>
 
-## Direct properties — hub_mesh.control_and_data_plane_mesh / c648d6305a77 / 3
+## Direct properties — control_and_data_plane_mesh / 030011221313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-df55995d49aa3d53b2bd6377e5105cbffe37d0b9d2e37408123f82effbf7e1c8"></a>
+<a id="canonical-3133111121211131-1021222203311103-2302233112031313-3211010011302333-3332031331002321-3102320313100020-0102033320023233-3323331332013020"></a>
 
-## Next pages — hub_mesh.control_and_data_plane_mesh / c648d6305a77 / 4
+## Next pages — control_and_data_plane_mesh / 030011221313 / 4
 
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-cbb5bc331d2238c25876f28ee752b4e2e2169776940f8fba03bfee134782c638"></a>
+<a id="canonical-3023231123300303-0131020203203002-1120131233022032-3213110223103202-3202011221131312-2110003320332322-0003233332320103-1013200230120320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-284edb2508ee05704ed69dd40aa280c4a575c4353ec5f57908199268c3712e9b"></a>
+<a id="canonical-0220103231230211-0020323200111300-1032311221313110-0022220220003010-2211131130100311-0332301133111321-0020012121021220-3003130102322123"></a>
 
-## hub_mesh.data_plane_mesh — hub_mesh.data_plane_mesh / a3d9b2bdb992 / 2
+## hub_mesh.data_plane_mesh — data_plane_mesh / 233123212102 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323)
 - hub_mesh.data_plane_mesh
 
-<a id="canonical-454228b77d3d3c6643d462b19d4d9a0fba15d4454ea2235ae2caccf94d8f6819"></a>
+<a id="canonical-1011100202202313-1331033103301212-1003311012022301-2131103121220033-2322011131101011-1032220202031122-3202302230303321-1031203312200121"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1021,36 +1021,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0139e9430ca72326864076e6ce15c6af3e486ebfb3831b84d4097639dd686f55"></a>
+<a id="canonical-0001032132211003-0030221302030212-2012100013123212-3032011130122233-0332102012322333-2303200301232010-3110002113120321-3131122012331111"></a>
 
-## Direct properties — hub_mesh.data_plane_mesh / a3d9b2bdb992 / 3
+## Direct properties — data_plane_mesh / 233123212102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8db8a051f18c4789508130fca2c8c259b8f56660baf54c455e2dc4f13ad2248d"></a>
+<a id="canonical-2031232022001101-3301203010132021-1100200103003330-2202302030021121-2320331112121200-2322331110301011-1132023130103301-0322310202102031"></a>
 
-## Next pages — hub_mesh.data_plane_mesh / a3d9b2bdb992 / 4
+## Next pages — data_plane_mesh / 233123212102 / 4
 
-- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f455434d0dd86ee67e53abeed9b659387855409cb4510673909d35bdf46604bb)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [hub_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647"></a>
+<a id="canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-97c5f3018834947d3ef2b46c93da465d9ea266ace7b453a236fd1312b6970ea4"></a>
+<a id="canonical-2113301133030001-2020031021101331-0332330223101230-2103312210121131-2132220212122230-3213231011032202-0312333101030102-2312211300322210"></a>
 
-## spoke_mesh — spoke_mesh / 19e0efbd6232 / 2
+## spoke_mesh — spoke_mesh / 233112020302 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - spoke_mesh
 
-<a id="canonical-a1e25e9fbb20e21385d137101d6a1723d401ea33cc06cd2aabbe8603860a3f62"></a>
+<a id="canonical-2201320211322133-2323020032020103-2011310103130100-0131122201130203-3110000132220303-3030001230310222-2223233220120003-2012002203331202"></a>
 
 Type: `"single"`. Computed.
 
@@ -1074,44 +1074,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b1388187b3ccf6c43f0eef5210f4ee8e775947604d5d2aee6698c21525308b27"></a>
+<a id="canonical-2301032020012013-2303303033123010-0333003232331102-0100331032322032-1313112110131200-1031113102223232-1212212030020111-0211030020230213"></a>
 
-## Direct properties — spoke_mesh / 19e0efbd6232 / 3
+## Direct properties — spoke_mesh / 233112020302 / 3
 
-- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-4c704162ddf50ab064adf54d9293a43f79257a60fe18ab0663bcf83bd9279330): complete subsection reference.
+- [control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-1030130010011202-3131331100222300-1210223133111031-2102210322100333-1321021113221200-3332012022230012-1203233033200323-3121021321030300): complete subsection reference.
 
-- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-a78192e24c579a4f256febdfc7e8bcd028857b65eb7a3772d82df00cc3b830ec): complete subsection reference.
+- [data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2213200121023202-1030111321221033-0211123332233133-3013322023303100-0220201113231211-3223132203131302-3120023133000030-3003232003003230): complete subsection reference.
 
-- [hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-7ecc9164160c98b68d850d67628225a12f42e8c82292a34d22f553da688db832): complete subsection reference.
+- [hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-1332303021011210-0112003021202312-2031201100311213-1202200202112201-0233100232203020-0202210222031031-0202331111033122-1220203123200302): complete subsection reference.
 
-<a id="canonical-50429f985f26a67a90dab2bb4d48cf5d29ae6562bd72bef4e000230845f8788f"></a>
+<a id="canonical-1100100221332120-1133021222121322-2100312223022323-1031102030331131-0221223212111202-2331130223323310-3200000002030020-1011332013202033"></a>
 
-## Next pages — spoke_mesh / 19e0efbd6232 / 4
+## Next pages — spoke_mesh / 233112020302 / 4
 
-- [spoke_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-4c704162ddf50ab064adf54d9293a43f79257a60fe18ab0663bcf83bd9279330)
-- [spoke_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-a78192e24c579a4f256febdfc7e8bcd028857b65eb7a3772d82df00cc3b830ec)
-- [spoke_mesh.hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-7ecc9164160c98b68d850d67628225a12f42e8c82292a34d22f553da688db832)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [spoke_mesh.control_and_data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-1030130010011202-3131331100222300-1210223133111031-2102210322100333-1321021113221200-3332012022230012-1203233033200323-3121021321030300)
+- [spoke_mesh.data_plane_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-2213200121023202-1030111321221033-0211123332233133-3013322023303100-0220201113231211-3223132203131302-3120023133000030-3003232003003230)
+- [spoke_mesh.hub_mesh_group](data-sources--site_mesh_group--reference--group-001.md#canonical-1332303021011210-0112003021202312-2031201100311213-1202200202112201-0233100232203020-0202210222031031-0202331111033122-1220203123200302)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-4c704162ddf50ab064adf54d9293a43f79257a60fe18ab0663bcf83bd9279330"></a>
+<a id="canonical-1030130010011202-3131331100222300-1210223133111031-2102210322100333-1321021113221200-3332012022230012-1203233033200323-3121021321030300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad5ffa57c2089da770e816f799b16a40f6d4ef148b57d71ab9a38bad88a32330"></a>
+<a id="canonical-2231113333221113-3002002021312213-1300322001123313-2121230112221000-3312311032330110-2023111331130122-2321220320232231-2020220302030300"></a>
 
-## spoke_mesh.control_and_data_plane_mesh — spoke_mesh.control_and_data_plane_mesh / 015b8b88b7af / 2
+## spoke_mesh.control_and_data_plane_mesh — control_and_data_plane_mesh / 202023132233 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
 - spoke_mesh.control_and_data_plane_mesh
 
-<a id="canonical-da25d44ac7877f1053b7563b03906181c1c136038e9a78f941b431ac86ccebc2"></a>
+<a id="canonical-3122021131101022-3013201313330100-1103231311120323-0003210012012001-3001300103120003-2032212213203321-1001231003012230-2012303032233002"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1134,37 +1134,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d3a01d03dbc26f432568b9d3b959e7bb76f43358d998140fbb19d2e44c73f1f9"></a>
+<a id="canonical-3103220001310003-3123300212331003-0211122023213103-2321112132132323-1312331003031120-3121212001100033-2323012131023210-1030130333013321"></a>
 
-## Direct properties — spoke_mesh.control_and_data_plane_mesh / 015b8b88b7af / 3
+## Direct properties — control_and_data_plane_mesh / 202023132233 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7a10a22fbb1a4d1f3b6e9224d2a20b4abf3445595a9f0c0e525bca23153d3984"></a>
+<a id="canonical-1322010022020233-2323012210310133-0323123221020210-3102220200231022-2333031010111121-1122213300300032-1102112330220203-0111033103212010"></a>
 
-## Next pages — spoke_mesh.control_and_data_plane_mesh / 015b8b88b7af / 4
+## Next pages — control_and_data_plane_mesh / 202023132233 / 4
 
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-a78192e24c579a4f256febdfc7e8bcd028857b65eb7a3772d82df00cc3b830ec"></a>
+<a id="canonical-2213200121023202-1030111321221033-0211123332233133-3013322023303100-0220201113231211-3223132203131302-3120023133000030-3003232003003230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4fd45f61a8d38c0c699800e445cb905c5bd378508c684d17bf6b57b2f00e920b"></a>
+<a id="canonical-1033311011331201-2220310320300030-1221212000003210-1011302321001130-1123310313201100-2030122010310113-2333122311132302-3300003221020023"></a>
 
-## spoke_mesh.data_plane_mesh — spoke_mesh.data_plane_mesh / 5f6dd4760986 / 2
+## spoke_mesh.data_plane_mesh — data_plane_mesh / 131200212012 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
 - spoke_mesh.data_plane_mesh
 
-<a id="canonical-96332c5fab40c6fb154e6f3ba469ee0b2b3c9a14beaca8be27fda12f343dd80d"></a>
+<a id="canonical-2112030302301133-2223100030123323-0111103212330323-2210122132320023-0223033021220110-2332223022202332-0213333122010233-0310033131200031"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1187,37 +1187,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9d35275036223ac4a7f6a6b61c0059154367c98d79901f050eac9e34245f0aa7"></a>
+<a id="canonical-2131031102131100-0312020203223010-2213331222122312-0130000011210111-1003121330212031-1321210001330011-0032223021320310-0210113300222213"></a>
 
-## Direct properties — spoke_mesh.data_plane_mesh / 5f6dd4760986 / 3
+## Direct properties — data_plane_mesh / 131200212012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3365bb161870cb75b0aa8b4100697bb89aade130b40a94697d96dd81a7d4bdff"></a>
+<a id="canonical-0303121123230112-0120130030231311-2300222220231001-0000122113232320-2122223132010300-2310002221101221-1331211231312001-2213311023313333"></a>
 
-## Next pages — spoke_mesh.data_plane_mesh / 5f6dd4760986 / 4
+## Next pages — data_plane_mesh / 131200212012 / 4
 
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-7ecc9164160c98b68d850d67628225a12f42e8c82292a34d22f553da688db832"></a>
+<a id="canonical-1332303021011210-0112003021202312-2031201100311213-1202200202112201-0233100232203020-0202210222031031-0202331111033122-1220203123200302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32dbe283965ccc2f89b8cf87cafd573af264cc21d5fa6462d3eb64a474a700c7"></a>
+<a id="canonical-0302312332022003-2112113030300233-2021232030332013-3022333111130322-3302121030300201-3111332212101202-3103322312102210-1310221300003013"></a>
 
-## spoke_mesh.hub_mesh_group — spoke_mesh.hub_mesh_group / 2f5817578862 / 2
+## spoke_mesh.hub_mesh_group — hub_mesh_group / 111320201202 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
 - spoke_mesh.hub_mesh_group
 
-<a id="canonical-5abe78c44df1a87c00f1f67a316686e95acf2dfed6f025ab09871ce53e313d7e"></a>
+<a id="canonical-1122233213203010-1031330122201330-0000330133121322-0301121220123221-1122303302313332-3112330002112223-0021201301303211-0332030103311332"></a>
 
 Type: `"single"`. Computed.
 
@@ -1242,15 +1242,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c2d20940df7f1478114f7286bd68c924216025593df03453009b1cb9bc192c98"></a>
+<a id="canonical-3002310200211000-3133133301101320-0101103313022012-2331122030210210-0201120002111121-0331330003101103-0000212301302321-2330012102302120"></a>
 
-## Direct properties — spoke_mesh.hub_mesh_group / 2f5817578862 / 3
+## Direct properties — hub_mesh_group / 111320201202 / 3
 
-<a id="canonical-6aee091a3b6e30b0d5b7ca3da81a0629165844304c1bfd449658883b418dc081"></a>
+<a id="canonical-1222323200210122-0323123203002300-3111231330220331-2220012200120221-0112112010100300-1030012333311010-2112112020200323-1001203130002001"></a>
 
-<a id="canonical-751814e2e0e4e84b4fa7101760583f54c910e335ff8a6b62565960c062907684"></a>
+<a id="canonical-1311012001103202-3200321032201023-1033221301000113-1200112003331110-3021010032030311-3333202212231202-1112112112003000-1202210013122010"></a>
 
-## name property — spoke_mesh.hub_mesh_group / 2f5817578862 / 4
+## name property — hub_mesh_group / 111320201202 / 4
 
 Type: `"string"`. Computed.
 
@@ -1303,11 +1303,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a94c016d0ec2321d0693873fa43c20f8c335a9e48a28bed0585a52ea9211af31"></a>
+<a id="canonical-2221103000011231-0032300203020131-0012210320130333-2210033002003320-3003031122213210-2022022023323100-1120112211023222-2102010122330301"></a>
 
-<a id="canonical-ce4f5060a708803e3c69f96bd8cd02013352edd9d4698fa7dfcdf0c1e1badc0a"></a>
+<a id="canonical-3032103311001200-2213002020000332-0330122133211223-3120303100020001-0303110232313121-3110122120332213-3133303133003001-3201232231300022"></a>
 
-## namespace property — spoke_mesh.hub_mesh_group / 2f5817578862 / 5
+## namespace property — hub_mesh_group / 111320201202 / 5
 
 Type: `"string"`. Computed.
 
@@ -1367,11 +1367,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3fe836229bad5ac2b65e3121133d521b55fcfa52579bfb58d39cdda7afb08dd5"></a>
+<a id="canonical-0333322003120202-2123223111223002-2312113203010201-0103033111020123-1111333033221102-1113212333231120-3103213031312213-2233230020313111"></a>
 
-<a id="canonical-7c2fc74a9c431251fcc3c01aba57984aa0a70bce380f230ba9bad5e4d0902687"></a>
+<a id="canonical-1330023330131022-2130100301021101-3330300330000122-2322111321201022-2200221300233032-0320003302030023-2221232231113210-3100210002122013"></a>
 
-## tenant property — spoke_mesh.hub_mesh_group / 2f5817578862 / 6
+## tenant property — hub_mesh_group / 111320201202 / 6
 
 Type: `"string"`. Computed.
 
@@ -1417,30 +1417,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9964e9f99ac6d7ec854375bc78bee2eafef1e76a88a7f030189b5a1d7f0c7426"></a>
+<a id="canonical-2121121032213321-2122301231133230-2011100313112330-1320233232023222-3332330132131222-2020221333000300-0120212311220131-1333003013100212"></a>
 
-## Next pages — spoke_mesh.hub_mesh_group / 2f5817578862 / 7
+## Next pages — hub_mesh_group / 111320201202 / 7
 
-- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-f3b049be1b404fa59d54932cf1f1394c51633bb62126853b237bd2388b6c1647)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [spoke_mesh](data-sources--site_mesh_group--reference--group-001.md#canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
 
-<a id="canonical-a9e329125b7a1d7844be73cac31dcf65b489fd929a01b43d4a2c5b62c555a0ae"></a>
+<a id="canonical-2221320302210102-1123132201311320-1010233213033022-3003013130331211-2310202133312102-2122000123100331-1022023011231202-3011111122002232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da37bba9eb64bb0a329b560eba6f3b19eede7b7007ea2bed96018559fc0cc3cf"></a>
+<a id="canonical-3122031323232221-3223121023230022-0302212311120032-2322123303230121-3232313213231300-0013322202233231-2112000120111121-3330003030033033"></a>
 
-## virtual_site — virtual_site / 87818aa503ca / 2
+## virtual_site — virtual_site / 221100033022 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
 - virtual_site
 
-<a id="canonical-6398a30466d2b176dfe8ff00a0299bd4451b3242d6f4fdb848f0d0cecfe853e1"></a>
+<a id="canonical-1203212022030010-1212310223011312-3133322033330000-2200022121233110-1011012303021002-3112331033312320-1020330031003032-3033322011033201"></a>
 
 Type: `"list"`. Computed.
 
@@ -1484,15 +1484,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3e3979cc33adeeca869ea7bd4ddca78cfe6b5a44c3e7b467e7f5ce1d1cb4542d"></a>
+<a id="canonical-0332032113213030-0303223132323022-2012213222132331-1031313022132030-3332122311221010-3003321323101213-3213331130320131-0130231011100231"></a>
 
-## Direct properties — virtual_site / 87818aa503ca / 3
+## Direct properties — virtual_site / 221100033022 / 3
 
-<a id="canonical-e652f3f9c2c5c02793847ff824f3dc451bbd57c1fe4b89d2fe7008e82b1a2e2c"></a>
+<a id="canonical-3212110233033321-3002301130000213-2103201013333320-0210330331301011-0123233111133001-3332102320213102-3332130000203220-0223012202320230"></a>
 
-<a id="canonical-cb1a999ce6775b0c3ee49dde425840e600431b4f7f10194e662aab72c47ae4ac"></a>
+<a id="canonical-3023012221212130-3212131311230030-0332321021313132-1002112010003212-0000100301231033-1333010001211032-1212022222231302-3010132232102230"></a>
 
-## kind property — virtual_site / 87818aa503ca / 4
+## kind property — virtual_site / 221100033022 / 4
 
 Type: `"string"`. Computed.
 
@@ -1527,11 +1527,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c581871ba7cbb9cc9ad0a4bf78b8d4ac42f34212ce9ba664c10bbbd682c5ab6b"></a>
+<a id="canonical-3011200120130123-2213302323213030-2122310022102333-1320232031102230-1002330310020102-3032212322121210-3001002323233112-2002301122231223"></a>
 
-<a id="canonical-a8f672124935f874cda7c851361b9a6fc31422afe6e14446a1cea4512f60060a"></a>
+<a id="canonical-2220331213020102-1021031133201310-3031221330201101-0312012321221233-3003011002022233-3212320110101012-2201303222101101-0233120000120022"></a>
 
-## name property — virtual_site / 87818aa503ca / 5
+## name property — virtual_site / 221100033022 / 5
 
 Type: `"string"`. Computed.
 
@@ -1566,11 +1566,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2160e97177870789e69bd43cf5a0a01441408e6aa7b114da18e9b7294f3a8096"></a>
+<a id="canonical-0201120032211301-1313201300132021-3212212331100330-3311220022000110-1001100020321222-2213230101103122-0120322123130221-1033032220002112"></a>
 
-<a id="canonical-eb35d4f1f0ce8c4e87bd4b9e5abe1fad6db3ed56281d0a19572f4e99c355631c"></a>
+<a id="canonical-3223031131103301-3300303220301032-2013233110232132-1122233201332231-1231230332311112-0220013100220121-1113023310322121-3003111112030130"></a>
 
-## namespace property — virtual_site / 87818aa503ca / 6
+## namespace property — virtual_site / 221100033022 / 6
 
 Type: `"string"`. Computed.
 
@@ -1620,11 +1620,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b2cf00b0a425edb1d71ee5ddbb4ba3c3e650a7b01c6b72387652d4ea7b1358e3"></a>
+<a id="canonical-2302303300002300-2210021132312301-3113013232113131-2323102322033003-3212110022132300-0130122313020320-1312110231103222-1323010311203203"></a>
 
-<a id="canonical-81877663d3cfcb3847d39999ae60a92ac0121e7d07629f7a2e775d3604ef435d"></a>
+<a id="canonical-2001201313121203-3103303330230320-1013310321212121-2232120022210222-3000010201321331-0013120221331322-0232131311310312-0010323310031131"></a>
 
-## tenant property — virtual_site / 87818aa503ca / 7
+## tenant property — virtual_site / 221100033022 / 7
 
 Type: `"string"`. Computed.
 
@@ -1659,11 +1659,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2c93c81f386ecc16f2bdd4bf5ba3c7842ad10a65ab13b4cb9112a372adcfb7e3"></a>
+<a id="canonical-0230210330200133-0320123230300112-3302233131102333-1123220330132010-0222310100221211-2223010323103023-2101010222031302-2231303323133203"></a>
 
-<a id="canonical-7ebda801c6d753892057fd1472dbb357c0773d6a083e953b4a41a260808a0611"></a>
+<a id="canonical-1332233122200001-3012311311032021-0200111333310110-1302312323031113-3000131303311222-0020033221110323-1022100122021200-2000202200120101"></a>
 
-## uid property — virtual_site / 87818aa503ca / 8
+## uid property — virtual_site / 221100033022 / 8
 
 Type: `"string"`. Computed.
 
@@ -1698,9 +1698,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1150ac9621ffdb3798c485adb8dd661c22bb44bb005d273eaaa8b9f4aa02d3ae"></a>
+<a id="canonical-0101110022302112-0201333331230313-2120301020112231-2320313112120130-0202232310102323-0000113102130332-2222222023213310-2222000231032232"></a>
 
-## Next pages — virtual_site / 87818aa503ca / 9
+## Next pages — virtual_site / 221100033022 / 9
 
-- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-c98fa646f5fd6d8327e7c22d463f059277517a5dc88daa59ed45a3712907cd05)
-- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-06f1ce29c6f54c5a003416d320f4de9faa10a30dfd60441f817101f8dba26e22)
+- [Property reference](data-sources--site_mesh_group--reference--group-001.md#canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011)
+- [xcsh_site_mesh_group](../data-sources/site_mesh_group.md#canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202)

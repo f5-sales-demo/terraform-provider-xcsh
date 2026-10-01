@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_cdn_cache_rule landi
 
 # xcsh_cdn_cache_rule landing
 
-<a id="canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081"></a>
+<a id="canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15a0f477121930e1a07a413ccc77e9e8f77682d3b9c31248e7b251ce2712d164"></a>
+<a id="canonical-0111220033101313-0102012103003201-2200132210010330-3030131332213220-3313131220023103-2321300301021020-3213230211013032-0213010231011210"></a>
 
-## xcsh_cdn_cache_rule — xcsh_cdn_cache_rule / da3a49551ba4 / 2
+## xcsh_cdn_cache_rule — xcsh_cdn_cache_rule / 111101232210 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification.
 configuration.
 
-<a id="canonical-703a859bc999f6f5638c6e8c86c98567b7b278b0013c50b0c7d3a2e70714ab90"></a>
+<a id="canonical-1300032220112123-3021212133123311-1203203012322030-2012302120111213-2313230213202300-0001033011002300-3013310322023213-0013011022232100"></a>
 
-## Prerequisites — xcsh_cdn_cache_rule / da3a49551ba4 / 3
+## Prerequisites — xcsh_cdn_cache_rule / 111101232210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-5aa68390830307ce1b1916e4333a1331dae5dab90628b950ed6ef8173398395d"></a>
+<a id="canonical-1122221220032100-2003000300133032-0123012101123210-0303032201030301-3122321131222321-0012022023211100-3231123233200113-0303212003211131"></a>
 
-## Minimal configuration — xcsh_cdn_cache_rule / da3a49551ba4 / 4
+## Minimal configuration — xcsh_cdn_cache_rule / 111101232210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_cdn_cache_rule" "example" {
 }
 ```
 
-<a id="canonical-48612da350673b0454fd3d664b43a2ce5fef3e0a52a10832f9dda189d1bbc469"></a>
+<a id="canonical-1020120102312203-1100121303230010-1110333103311212-1023100322023032-1133323303320022-1102220100200302-3321313122012021-3101232330101221"></a>
 
-## Root configuration — xcsh_cdn_cache_rule / da3a49551ba4 / 5
+## Root configuration — xcsh_cdn_cache_rule / 111101232210 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-24ecb62eb208b3288ca45f8c243039b17bcb996d4dfb7f83dbf7f57c5afb3b9e"></a>
+<a id="canonical-0210323023120232-2302002023030220-2030221011332030-0210030003212301-1323302321211231-1031332313332003-3123331333111330-1122332303232132"></a>
 
-## Next pages — xcsh_cdn_cache_rule / da3a49551ba4 / 6
+## Next pages — xcsh_cdn_cache_rule / 111101232210 / 6
 
-- [Property reference](../guides/resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [Examples](../guides/resources--cdn_cache_rule--examples--group-001.md#canonical-26f48ea8b5f91d0dad499291c518db3babf530eb629d1bb63ef4b4191f7fdfa5)
-- [Import](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-dd361e84d6649bc3c5d88388fa7e6876c2d87ff9f842d0df5df9a5615ddf6367)
-- [Timeouts](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-007c5c6d5ded78d2f65e76e302c09cfb99ac8204148fac0db9c98fa9b93346ba)
+- [Property reference](../guides/resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [Examples](../guides/resources--cdn_cache_rule--examples--group-001.md#canonical-0212331020322220-2311332101310031-2231102121022101-3011012031230323-2223331103003223-1202213101232312-0332331023100121-0133133331332211)
+- [Import](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-3131031201322010-3112121021233003-3011312020032020-3322133212201312-3002312013333321-3320100231003133-1131332122111201-1131313312031213)
+- [Timeouts](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-0000133011301231-1131323113203102-3312113213123203-0002300021303323-2121223020020010-0110203322300031-2321302120332221-2321030310122322)

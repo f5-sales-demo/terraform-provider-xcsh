@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_bgp_routing_policy r
 
 # xcsh_bgp_routing_policy reference
 
-<a id="canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2"></a>
+<a id="canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-262bf249aef212af65bda357089cc622aa26307ab92b3ed82a7d1fd3fe4a1cbc"></a>
+<a id="canonical-0212022333021021-2232330201022233-1211233122031113-0020213030120202-2222021203001322-2321022303323120-0222133101333103-3332102201302330"></a>
 
-## Property reference — Property reference / d047a8a4f446 / 2
+## Property reference — Property reference / 221033101012 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 - Property reference
 
-<a id="canonical-ae19a4cab6c3e4d35bc7714fd0e7d5b00af32209ab29e38874847e8ff0fabd66"></a>
+<a id="canonical-2232012122103022-2312300332103103-1123301313011033-3100321331112300-0022330302020021-2223022132032020-1310201013322033-3300332223311212"></a>
 
-## Direct properties — Property reference / d047a8a4f446 / 3
+## Direct properties — Property reference / 221033101012 / 3
 
-<a id="canonical-7456ccfd62bcb1b9ba02c0139d0c2f109e21d8bad4ae799534f8933711a88184"></a>
+<a id="canonical-1310111230303331-1202233023012321-2322000230000103-2131003002330100-2132020131202322-3110223213212111-0310332021030313-0101222020012010"></a>
 
-<a id="canonical-33761ae35589d5e4c574741e32e2834dcbd7536d577b520286f5bad2d0beb67d"></a>
+<a id="canonical-0303131201223203-1111202131113210-3011131013100132-0302320220031031-3023311311031231-1113132311020002-2012331123223102-3100233223121331"></a>
 
-## annotations property — Property reference / d047a8a4f446 / 4
+## annotations property — Property reference / 221033101012 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c3367eeadd85347ae90d01ad52bca647af7806e6bda50e7faeb33e2ca2bb51d1"></a>
+<a id="canonical-3003031213323222-3131201103101322-3221003100012231-1102233022121013-2233132000123212-2331221100321333-2232230303320230-2202232311013101"></a>
 
-<a id="canonical-5a42c1f483fbfc5deafaf122479c478f9f70101c036d16ec01eeeeff85d02e1b"></a>
+<a id="canonical-1122100230013310-2003332333301131-3222332233010202-1013213010132033-2133130001000130-0003123101123230-0001323232323333-2011310002320123"></a>
 
-## description property — Property reference / d047a8a4f446 / 5
+## description property — Property reference / 221033101012 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ada8b210ad685d67b764e47ff981704931a8b9a7b1a53aa762b9e9372c9e3257"></a>
+<a id="canonical-2231222023020100-2231122011311213-2313121032101333-3321200113001021-0301222023212213-2301221103222213-1202232132210313-0230213203021113"></a>
 
-<a id="canonical-40386317ae480d9aa0da6ce6c4fcbd7402c9ea54301350a35a90a2319a8e29f5"></a>
+<a id="canonical-1000032012030113-2232102000312122-2200312212303212-3010333023311310-0002302132221110-0300010311002203-1122210022020301-2122203202213311"></a>
 
-## disable property — Property reference / d047a8a4f446 / 6
+## disable property — Property reference / 221033101012 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,25 +142,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-673083bb30282c1a95368bc07120327c580ee54735e133777bbc763f35e1663d"></a>
+<a id="canonical-1213030020032323-0300022002300122-2111031220233000-1301020003021330-1120003232111013-0311320103031313-1323233013120333-0311320112120331"></a>
 
-<a id="canonical-088cb12868a8d0de9ac2725de1da0da12b7d413aeeb2672be320c3b2bcd58cea"></a>
+<a id="canonical-0020203023010220-1220222031003132-2122300213021131-3201312200312201-0223133110010322-3232230212130223-3203020030032302-2330311120303222"></a>
 
-## id property — Property reference / d047a8a4f446 / 7
+## ID property — Property reference / 221033101012 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-488491ab7acf80739377d8caca30b97a3c5dd55a757b5ad3525cc51611773147"></a>
+<a id="canonical-1020201021012223-1322303320001303-2103131331203022-3022030023211322-0330113131111122-1311132311223103-1102113030110112-0101131303011013"></a>
 
-<a id="canonical-4c14dba90538d9f7dd536cb4ae4d2e5213689e0954d789d7505d9c8e05395c64"></a>
+<a id="canonical-1030011031232221-0011032031213313-3131110312302310-2232103102321102-0103122021320021-1110311320213113-1100113121302032-0011032111301210"></a>
 
-## labels property — Property reference / d047a8a4f446 / 8
+## labels property — Property reference / 221033101012 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -181,11 +181,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5053eebcf3931cdaecf7b3fdf1ac327a060ed2ffa3e2f2f1877851512d8163b7"></a>
+<a id="canonical-1100110332322330-3303210301303122-3230331323033331-3301223003021322-0012003231023333-2203320233023301-2013132011011101-0231200112032313"></a>
 
-<a id="canonical-6c2937b3ce616107968b60e0c0ae2ea994dbd6164a1694310e39f8bec5f43b4d"></a>
+<a id="canonical-1230022103132303-3032120112010013-2112202312003200-3000223202322221-2110312331120112-1022011221100301-0032032133202332-3011331003231031"></a>
 
-## name property — Property reference / d047a8a4f446 / 9
+## name property — Property reference / 221033101012 / 9
 
 Type: `"string"`. Required.
 
@@ -249,11 +249,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9cb158619a6204364761415fb9a316ae9e1333d917802e041d27cfc4a3381a45"></a>
+<a id="canonical-2130230111201201-2122120200100312-1013120110011133-2321220301122232-2132010303033121-0113200002320010-0131021330333010-2203032001221011"></a>
 
-<a id="canonical-acc9e9c88040eb9b5b2dfe2dd5e9873aa3b57527d074208b3de29b94135fe5f6"></a>
+<a id="canonical-2230302132213020-2000100032232123-1123023133320231-3111322120130322-2203231113110213-3100131002002023-0331320221232110-0103113332113312"></a>
 
-## namespace property — Property reference / d047a8a4f446 / 10
+## namespace property — Property reference / 221033101012 / 10
 
 Type: `"string"`. Required.
 
@@ -310,75 +310,75 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9): complete subsection reference.
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321): complete subsection reference.
 
-- [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-c9a860ff79fefdf349a65cfb4f7a31c8f86b3cac9cc17e7425d6754034b3424b): complete subsection reference.
+- [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-3021222012003333-1321333233313303-1021221211303323-1033132203013020-3320122303302230-2130300113321310-0211311213111000-0310230310021023): complete subsection reference.
 
-<a id="canonical-630ed538b7387c667f1a8777b6598c31543706f0d66e1202336a3d73fd686924"></a>
+<a id="canonical-1203003231110320-2313032013301212-1333012220131313-2312112120300301-1110031300123300-3112123201020002-0303122203311303-3331122012210210"></a>
 
-## All schema paths — Property reference / d047a8a4f446 / 11
+## All schema paths — Property reference / 221033101012 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--bgp_routing_policy--reference--group-001.md#canonical-7456ccfd62bcb1b9ba02c0139d0c2f109e21d8bad4ae799534f8933711a88184) |
-| `description` | [description](resources--bgp_routing_policy--reference--group-001.md#canonical-c3367eeadd85347ae90d01ad52bca647af7806e6bda50e7faeb33e2ca2bb51d1) |
-| `disable` | [disable](resources--bgp_routing_policy--reference--group-001.md#canonical-ada8b210ad685d67b764e47ff981704931a8b9a7b1a53aa762b9e9372c9e3257) |
-| `id` | [id](resources--bgp_routing_policy--reference--group-001.md#canonical-673083bb30282c1a95368bc07120327c580ee54735e133777bbc763f35e1663d) |
-| `labels` | [labels](resources--bgp_routing_policy--reference--group-001.md#canonical-488491ab7acf80739377d8caca30b97a3c5dd55a757b5ad3525cc51611773147) |
-| `name` | [name](resources--bgp_routing_policy--reference--group-001.md#canonical-5053eebcf3931cdaecf7b3fdf1ac327a060ed2ffa3e2f2f1877851512d8163b7) |
-| `namespace` | [namespace](resources--bgp_routing_policy--reference--group-001.md#canonical-9cb158619a6204364761415fb9a316ae9e1333d917802e041d27cfc4a3381a45) |
-| `rules` | [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-e986fce8c23ad5ecddf817b7ef91dae83225a7de012b7a68eaeeed647ffe4449) |
-| `rules.action` | [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-b8bd1c790b010381bb702a1e82d38ab97f8a51bd1d94d8c368f9c094efd81314) |
-| `rules.action.allow` | [rules.action.allow](resources--bgp_routing_policy--reference--group-001.md#canonical-f299f88510b8b2d8574540672e57083989d01ef0817f3fd9926f6bf3badf7964) |
-| `rules.action.as_path` | [rules.action.as_path](resources--bgp_routing_policy--reference--group-001.md#canonical-76d84835f4d1bd3cc9f0cc1b32c912cc0dd2507921f8d8f8747579a33eddb709) |
-| `rules.action.community` | [rules.action.community](resources--bgp_routing_policy--reference--group-001.md#canonical-4a85bb2a2cd16070b7f5b7e601ae9a34cbf702075c642a109ef610f2c7d128d9) |
-| `rules.action.community.community` | [rules.action.community.community](resources--bgp_routing_policy--reference--group-001.md#canonical-8ea58b18fdf97c142da14d25a54cb9ae4d2f28176ac7be5bf3dced119e2c3a51) |
-| `rules.action.deny` | [rules.action.deny](resources--bgp_routing_policy--reference--group-001.md#canonical-16f3b60204c540bd343b9359773e6bad3c52bb05ec0a64115e81c13f7c77110b) |
-| `rules.action.local_preference` | [rules.action.local_preference](resources--bgp_routing_policy--reference--group-001.md#canonical-b15489816388984332dc0fdc2d57189a73bca9ffa67bbc2e751ce4f91b0fd5b9) |
-| `rules.action.metric` | [rules.action.metric](resources--bgp_routing_policy--reference--group-001.md#canonical-fb04f68c5114c3582d817fb0c87f18f32d8134075c24ce295e1980ce6144cd34) |
-| `rules.match` | [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-1fbe514c4ed589640871f1e7461309cff108fc2605d22a5df07eb9b7413a55c6) |
-| `rules.match.as_path` | [rules.match.as_path](resources--bgp_routing_policy--reference--group-001.md#canonical-fcb4bcb65b15764c74353316a0e002457176e7057fe65a592fe7faad565f5d7c) |
-| `rules.match.community` | [rules.match.community](resources--bgp_routing_policy--reference--group-001.md#canonical-548a169912b0a2dcf7f46ae8774307e2a110089078fc6500d87e1e098d104ef4) |
-| `rules.match.community.community` | [rules.match.community.community](resources--bgp_routing_policy--reference--group-001.md#canonical-947fefc4cccd3b75883b85d59589727d67abc68503cb444c8bd66636db33d9b7) |
-| `rules.match.ip_prefixes` | [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-f7542c575a47b81660843c88e8de4627d36ef2126434342f812a7b3a136c1f0f) |
-| `rules.match.ip_prefixes.prefixes` | [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-594e2f8d2507d0df1af1db9b86a9e222590b52022e35b2c9ffe84f2581379d04) |
-| `rules.match.ip_prefixes.prefixes.equal_or_longer_than` | [rules.match.ip_prefixes.prefixes.equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-c334e13fa88b9312ea63a79c3370d72d1976bda3af32de6eafeee7317ff80534) |
-| `rules.match.ip_prefixes.prefixes.exact_match` | [rules.match.ip_prefixes.prefixes.exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-5ead52d33ddf8fedddba8d722ad1490f776b93c004986531f5210c27bd961fd9) |
-| `rules.match.ip_prefixes.prefixes.ip_prefixes` | [rules.match.ip_prefixes.prefixes.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-14073c7ede6e74aeaefa3f03869567ccbb1756bf2de274800d800004f034c959) |
-| `rules.match.ip_prefixes.prefixes.longer_than` | [rules.match.ip_prefixes.prefixes.longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-770e41769121abc3af6d1ec3955be37b2288ab658ced136b8650256dec40a0de) |
-| `timeouts` | [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-868da87c22b9a277e317a3f6ae974632bf6f95e5808898dcbcf8aafd39d21cf1) |
-| `timeouts.create` | [timeouts.create](resources--bgp_routing_policy--reference--group-001.md#canonical-cbd1dc2be7fd3e786e4b3269b6fc065c1e5ceafd47eb4e0255ce474ba3a74f69) |
-| `timeouts.delete` | [timeouts.delete](resources--bgp_routing_policy--reference--group-001.md#canonical-c5a02843cf3ba7128f9e6585adc4b9bc659683416790749088919132c8239953) |
-| `timeouts.read` | [timeouts.read](resources--bgp_routing_policy--reference--group-001.md#canonical-3970684b4ed02e3c99062089764f1abac323325f3ebebf4c3f55de532660fae0) |
-| `timeouts.update` | [timeouts.update](resources--bgp_routing_policy--reference--group-001.md#canonical-2e65f5b732abffa9552876c22d2c6255654f4662033b3630a5124e24adecfc9a) |
+| `annotations` | [annotations](resources--bgp_routing_policy--reference--group-001.md#canonical-1310111230303331-1202233023012321-2322000230000103-2131003002330100-2132020131202322-3110223213212111-0310332021030313-0101222020012010) |
+| `description` | [description](resources--bgp_routing_policy--reference--group-001.md#canonical-3003031213323222-3131201103101322-3221003100012231-1102233022121013-2233132000123212-2331221100321333-2232230303320230-2202232311013101) |
+| `disable` | [disable](resources--bgp_routing_policy--reference--group-001.md#canonical-2231222023020100-2231122011311213-2313121032101333-3321200113001021-0301222023212213-2301221103222213-1202232132210313-0230213203021113) |
+| `id` | [id](resources--bgp_routing_policy--reference--group-001.md#canonical-1213030020032323-0300022002300122-2111031220233000-1301020003021330-1120003232111013-0311320103031313-1323233013120333-0311320112120331) |
+| `labels` | [labels](resources--bgp_routing_policy--reference--group-001.md#canonical-1020201021012223-1322303320001303-2103131331203022-3022030023211322-0330113131111122-1311132311223103-1102113030110112-0101131303011013) |
+| `name` | [name](resources--bgp_routing_policy--reference--group-001.md#canonical-1100110332322330-3303210301303122-3230331323033331-3301223003021322-0012003231023333-2203320233023301-2013132011011101-0231200112032313) |
+| `namespace` | [namespace](resources--bgp_routing_policy--reference--group-001.md#canonical-2130230111201201-2122120200100312-1013120110011133-2321220301122232-2132010303033121-0113200002320010-0131021330333010-2203032001221011) |
+| `rules` | [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3221201233303220-3002032231113230-3131332001132313-3233210131223220-0302021122133132-0001022313221220-3222323232311210-1333333210101021) |
+| `rules.action` | [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2320233101301321-0023000100032001-2323130002220132-2002310320222321-1333202211012331-0131211031203003-1220332130002110-3233312001030110) |
+| `rules.action.allow` | [rules.action.allow](resources--bgp_routing_policy--reference--group-001.md#canonical-3302212133202011-0100232023023120-1113101110001213-0232111300200321-2021310001323300-2001133303333121-2102123312233303-2322313313211210) |
+| `rules.action.as_path` | [rules.action.as_path](resources--bgp_routing_policy--reference--group-001.md#canonical-1312312010200311-3310310123310330-3021330030300123-0302302101023030-0031310211001321-0201332031203320-1310131113212203-0332313123130021) |
+| `rules.action.community` | [rules.action.community](resources--bgp_routing_policy--reference--group-001.md#canonical-1022201123230222-0230310112001300-2313331123133212-0001223221220310-3023331300020013-1130121002220100-2132331201003302-3013310102203121) |
+| `rules.action.community.community` | [rules.action.community.community](resources--bgp_routing_policy--reference--group-001.md#canonical-2032221120230120-3331332113300110-0231220110310211-2211103023212232-1031023302200113-1222301323321123-3303313032310101-2132023003221101) |
+| `rules.action.deny` | [rules.action.deny](resources--bgp_routing_policy--reference--group-001.md#canonical-0112330323120002-0010301110002331-0310032321031121-1313033212232231-0330110223230011-3230002212100101-1132200130010333-1330131301010023) |
+| `rules.action.local_preference` | [rules.action.local_preference](resources--bgp_routing_policy--reference--group-001.md#canonical-2301111020212001-1203202021201003-0302313000333130-0231111301202122-1303233022213333-2212132323300232-1311013032103321-0123003331112321) |
+| `rules.action.metric` | [rules.action.metric](resources--bgp_routing_policy--reference--group-001.md#canonical-3323001033122030-1101011030031120-0231200113332300-3020133301203303-0231200103100013-1130021030320221-1132012120003032-1201101030310310) |
+| `rules.match` | [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-0133233211011030-1032311120211210-0020130133013213-1012010300213033-3301002033300212-0011310202221131-3300133223212313-1001032211113012) |
+| `rules.match.as_path` | [rules.match.as_path](resources--bgp_routing_policy--reference--group-001.md#canonical-3330231023302312-1123011113121030-1310031103030112-2200320000021011-1301131232130011-1333321211221121-0233321333222231-1112113311311330) |
+| `rules.match.community` | [rules.match.community](resources--bgp_routing_policy--reference--group-001.md#canonical-1110202201122121-0102230022023130-3313331012223220-1313100300133202-2201010000202100-1320333012110000-3120133201320021-2031010010323310) |
+| `rules.match.community.community` | [rules.match.community.community](resources--bgp_routing_policy--reference--group-001.md#canonical-2110133332333010-3030303103231311-2020032320113111-2111202113021331-1213222330122011-0003302310101030-2023311212120312-3123030331212313) |
+| `rules.match.ip_prefixes` | [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-3313111002301113-1122101323200112-1200201003302020-3220313210120213-3103123233020102-1210031003100233-2001022213230322-0103123001330033) |
+| `rules.match.ip_prefixes.prefixes` | [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1121103202332031-0211001331003133-0122330131232123-2012222132020202-1121002311020002-0232031123023021-3333322010330211-2001031321310010) |
+| `rules.match.ip_prefixes.prefixes.equal_or_longer_than` | [rules.match.ip_prefixes.prefixes.equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-3003031032010333-2220202321030102-3222120322132130-0303130031130231-0121131223312203-2233030231321232-2233323232130301-1333332000110310) |
+| `rules.match.ip_prefixes.prefixes.exact_match` | [rules.match.ip_prefixes.prefixes.exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-1132223111023103-0331313320333231-3131232220311302-0222310110210033-1313122321033000-0010212012110301-3311020100300213-2331211201333121) |
+| `rules.match.ip_prefixes.prefixes.ip_prefixes` | [rules.match.ip_prefixes.prefixes.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0110001303301332-3132123213102232-2232332203330003-2012211112133030-2323011311122333-0231320213102000-0031200000000010-3300031030211121) |
+| `rules.match.ip_prefixes.prefixes.longer_than` | [rules.match.ip_prefixes.prefixes.longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-1313003210011312-2101020122233003-2233123101323003-2111112332031323-0202202022231211-2030323101031223-2012110002111231-3230100022003132) |
+| `timeouts` | [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-2012203122201330-0202232122021313-3203011322033312-2232211310120302-2333123321113211-2000202021203130-2330332022223331-0321310201303301) |
+| `timeouts.create` | [timeouts.create](resources--bgp_routing_policy--reference--group-001.md#canonical-3023310131300223-3213333103321320-1232102303021221-2312333000121130-0132113032223331-1013322310320002-1111303210131023-2203221310331221) |
+| `timeouts.delete` | [timeouts.delete](resources--bgp_routing_policy--reference--group-001.md#canonical-3011220002201003-3033032322130102-2033213212112011-2231301023212330-1211211220031001-1213210013102100-2020210121010302-3020020321211103) |
+| `timeouts.read` | [timeouts.read](resources--bgp_routing_policy--reference--group-001.md#canonical-0321130012201023-1032310002320330-2121001202002021-1312103301222322-3003020303021133-0332233223331030-0333111131321103-0212120033223200) |
+| `timeouts.update` | [timeouts.update](resources--bgp_routing_policy--reference--group-001.md#canonical-0232121133112313-0302222333332221-1111022013123002-0231023012021111-1211103310121202-0003032303120300-2211010210320210-2231323033302122) |
 
-<a id="canonical-cf9bf97e035ace2328eab24677efb8238e3dcf73281dfe1fdebe4a2eaaa40979"></a>
+<a id="canonical-3033212333211332-0003112230320203-0220322223021012-1313323323200203-2032033130331303-0220013133320133-3132233210220232-2222221000211321"></a>
 
-## Next pages — Property reference / d047a8a4f446 / 12
+## Next pages — Property reference / 221033101012 / 12
 
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-c9a860ff79fefdf349a65cfb4f7a31c8f86b3cac9cc17e7425d6754034b3424b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [timeouts](resources--bgp_routing_policy--reference--group-001.md#canonical-3021222012003333-1321333233313303-1021221211303323-1033132203013020-3320122303302230-2130300113321310-0211311213111000-0310230310021023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9"></a>
+<a id="canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06134db78d356c471de4366016c1f67edceeb12e2a3f8e9964cb808a222542c0"></a>
+<a id="canonical-0012010310312313-2031031112301013-0131321003121200-0112300133121332-3130323223010232-0222033320322121-1210302320002022-0202021110023000"></a>
 
-## rules — rules / db5cb0907c92 / 2
+## rules — rules / 210013302102 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
 - rules
 
-<a id="canonical-e986fce8c23ad5ecddf817b7ef91dae83225a7de012b7a68eaeeed647ffe4449"></a>
+<a id="canonical-3221201233303220-3002032231113230-3131332001132313-3233210131223220-0302021122133132-0001022313221220-3222323232311210-1333333210101021"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -436,41 +436,41 @@ rules {
 }
 ```
 
-<a id="canonical-8245030568359036e0dc0fd0ab39f3ffac84f38a91110c0b5127f0cb438debdd"></a>
+<a id="canonical-2002101100030011-1220031121000312-3200313000333100-2223032133033333-2230201033032022-2101010100300023-1101021333003023-1003203132233131"></a>
 
-## Direct properties — rules / db5cb0907c92 / 3
+## Direct properties — rules / 210013302102 / 3
 
-- [action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b): complete subsection reference.
+- [action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023): complete subsection reference.
 
-- [match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55): complete subsection reference.
+- [match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111): complete subsection reference.
 
-<a id="canonical-fabdfcedcce076bdd179e4d23106fde03970d50a18759e6733a02b2c3b2038ed"></a>
+<a id="canonical-3322233133303231-3030320013122331-3101132132103102-0301001233313200-0321130031110022-0120131121321213-0303220002230230-0323020003203231"></a>
 
-## Next pages — rules / db5cb0907c92 / 4
+## Next pages — rules / 210013302102 / 4
 
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b"></a>
+<a id="canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d01a4de850dd7a14618108afd9d191c74f5ed97a20d8acc3fea367e3ecf6be56"></a>
+<a id="canonical-3100012210313220-1100313113220110-1201200100202233-3121310121013013-1033113231211322-0200312022303003-3332220312133203-3230331223321112"></a>
 
-## rules.action — rules.action / 1511ced9efcc / 2
+## rules.action — action / 312132333030 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
 - rules.action
 
-<a id="canonical-b8bd1c790b010381bb702a1e82d38ab97f8a51bd1d94d8c368f9c094efd81314"></a>
+<a id="canonical-2320233101301321-0023000100032001-2323130002220132-2002310320222321-1333202211012331-0131211031203003-1220332130002110-3233312001030110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -533,17 +533,17 @@ action {
 }
 ```
 
-<a id="canonical-8804140db5bd0bf652bfe5a34c698e701202a0d3b5dcb30714519519d0f622be"></a>
+<a id="canonical-2020001001100031-2311233100233312-1102233332112203-1030122120321300-0102000222003103-2311313023030013-0110110121110121-3100331202022332"></a>
 
-## Direct properties — rules.action / 1511ced9efcc / 3
+## Direct properties — action / 312132333030 / 3
 
-- [allow](resources--bgp_routing_policy--reference--group-001.md#canonical-0972ecae3711514da6109bd2327efe60669f3436cbf78a8a28bbbf30e158a8e7): complete subsection reference.
+- [allow](resources--bgp_routing_policy--reference--group-001.md#canonical-0021130232302232-0313010111011031-2212010021233102-0302133233321200-1212213303100312-3023331320222022-0220232323330300-3201112022203213): complete subsection reference.
 
-<a id="canonical-76d84835f4d1bd3cc9f0cc1b32c912cc0dd2507921f8d8f8747579a33eddb709"></a>
+<a id="canonical-1312312010200311-3310310123310330-3021330030300123-0302302101023030-0031310211001321-0201332031203320-1310131113212203-0332313123130021"></a>
 
-<a id="canonical-bc3cbbc39c0f370ac80f3bde5948de4ab79cf36b25e5ce953fbecaa51c5ad227"></a>
+<a id="canonical-2330033023233003-2130003303130022-3020003303233132-1121102031321022-2313213033031223-0211321130322111-0333233230222211-0130112231020213"></a>
 
-## as_path property — rules.action / 1511ced9efcc / 4
+## as_path property — action / 312132333030 / 4
 
 Type: `"string"`. Optional.
 
@@ -578,15 +578,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [community](resources--bgp_routing_policy--reference--group-001.md#canonical-3f51aedacbcc72c2a2cdd2342ee8ac48f0a63d604683a27d28aa1ad37b521ddc): complete subsection reference.
+- [community](resources--bgp_routing_policy--reference--group-001.md#canonical-0333110122323122-3023303013023002-2202303131020310-0232322022301020-3300221203311200-1012200322021331-0220222201223103-1323110201313130): complete subsection reference.
 
-- [deny](resources--bgp_routing_policy--reference--group-001.md#canonical-d3cf61fba3ed3d52903f95b38435d118930feac74ffc376bf3d044d350d62445): complete subsection reference.
+- [deny](resources--bgp_routing_policy--reference--group-001.md#canonical-3103303312013323-2203323103311102-2100033321112303-2010031131010120-2103003332223013-1033333003131223-3303310010103103-1100311202101011): complete subsection reference.
 
-<a id="canonical-b15489816388984332dc0fdc2d57189a73bca9ffa67bbc2e751ce4f91b0fd5b9"></a>
+<a id="canonical-2301111020212001-1203202021201003-0302313000333130-0231111301202122-1303233022213333-2212132323300232-1311013032103321-0123003331112321"></a>
 
-<a id="canonical-9761d14fdca561fd15ff207058992ecbc921f38e8e0a2bb58b56ebb8763c7e27"></a>
+<a id="canonical-2113120131011033-3130221112013331-0111333302001300-1120212102323023-3021020133032032-2032002202232311-2023111232232320-1312033013320213"></a>
 
-## local_preference property — rules.action / 1511ced9efcc / 5
+## local_preference property — action / 312132333030 / 5
 
 Type: `"number"`. Optional.
 
@@ -611,11 +611,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fb04f68c5114c3582d817fb0c87f18f32d8134075c24ce295e1980ce6144cd34"></a>
+<a id="canonical-3323001033122030-1101011030031120-0231200113332300-3020133301203303-0231200103100013-1130021030320221-1132012120003032-1201101030310310"></a>
 
-<a id="canonical-dc10d1c56e892fbeb50dbdbbbee9ee54203e4c5be9e6cd2266d57342bd425dc5"></a>
+<a id="canonical-3130010031013011-1232202102332332-2311003123312323-2332322132321110-0200033210301123-3221321230310202-1212311113031002-2331100211313011"></a>
 
-## metric property — rules.action / 1511ced9efcc / 6
+## metric property — action / 312132333030 / 6
 
 Type: `"number"`. Optional.
 
@@ -640,35 +640,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0d0a20355c0dbf814f720ce2bbfae078374bf6f2e07b1d3a9f3920df80f964bf"></a>
+<a id="canonical-0031002202000311-1130003123332001-1033130200303202-2323332232001320-0313102333123302-3200132301310322-2133032102003133-2000332112102333"></a>
 
-## Next pages — rules.action / 1511ced9efcc / 7
+## Next pages — action / 312132333030 / 7
 
-- [rules.action.allow](resources--bgp_routing_policy--reference--group-001.md#canonical-0972ecae3711514da6109bd2327efe60669f3436cbf78a8a28bbbf30e158a8e7)
-- [rules.action.community](resources--bgp_routing_policy--reference--group-001.md#canonical-3f51aedacbcc72c2a2cdd2342ee8ac48f0a63d604683a27d28aa1ad37b521ddc)
-- [rules.action.deny](resources--bgp_routing_policy--reference--group-001.md#canonical-d3cf61fba3ed3d52903f95b38435d118930feac74ffc376bf3d044d350d62445)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.action.allow](resources--bgp_routing_policy--reference--group-001.md#canonical-0021130232302232-0313010111011031-2212010021233102-0302133233321200-1212213303100312-3023331320222022-0220232323330300-3201112022203213)
+- [rules.action.community](resources--bgp_routing_policy--reference--group-001.md#canonical-0333110122323122-3023303013023002-2202303131020310-0232322022301020-3300221203311200-1012200322021331-0220222201223103-1323110201313130)
+- [rules.action.deny](resources--bgp_routing_policy--reference--group-001.md#canonical-3103303312013323-2203323103311102-2100033321112303-2010031131010120-2103003332223013-1033333003131223-3303310010103103-1100311202101011)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-0972ecae3711514da6109bd2327efe60669f3436cbf78a8a28bbbf30e158a8e7"></a>
+<a id="canonical-0021130232302232-0313010111011031-2212010021233102-0302133233321200-1212213303100312-3023331320222022-0220232323330300-3201112022203213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1cd572fa2286addc778f986f47d3dd2317b1f441c927801abfd207be65b147fd"></a>
+<a id="canonical-0130311113023322-0202201222313130-1313203321201233-1013310331310203-0113230133101001-3021021320000122-2333310200132332-1211230110133331"></a>
 
-## rules.action.allow — rules.action.allow / df23eb244037 / 2
+## rules.action.allow — allow / 021010000313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
 - rules.action.allow
 
-<a id="canonical-f299f88510b8b2d8574540672e57083989d01ef0817f3fd9926f6bf3badf7964"></a>
+<a id="canonical-3302212133202011-0100232023023120-1113101110001213-0232111300200321-2021310001323300-2001133303333121-2102123312233303-2322313313211210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -697,38 +697,38 @@ Terraform syntax:
 allow = {}
 ```
 
-<a id="canonical-1437c9a85327c1fb9950a5614a621489dac5b9a1e4e147573c1c061ac7850fb4"></a>
+<a id="canonical-0110031330212220-1103021330013323-2121110022111201-1022120201102021-3122301123212201-3210320110131113-0330013000120122-3013201100332310"></a>
 
-## Direct properties — rules.action.allow / df23eb244037 / 3
+## Direct properties — allow / 021010000313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cf20d95c74788c8ecfc6d773b354d1dfb274b61bcbadc4e6d5330671b95ca888"></a>
+<a id="canonical-3033020031211130-1310132020302032-3033301231131303-2303111031013133-2302131023120123-3023223130103212-3111030300121301-2321113022202020"></a>
 
-## Next pages — rules.action.allow / df23eb244037 / 4
+## Next pages — allow / 021010000313 / 4
 
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-3f51aedacbcc72c2a2cdd2342ee8ac48f0a63d604683a27d28aa1ad37b521ddc"></a>
+<a id="canonical-0333110122323122-3023303013023002-2202303131020310-0232322022301020-3300221203311200-1012200322021331-0220222201223103-1323110201313130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6eb5245c20be5a1239cd1d7b12b4114349a763e01d179deee0f39aefdc8ad3c1"></a>
+<a id="canonical-1232231102101130-0200233211220102-0321303101311323-0102231001011003-1021221312033200-0131011321313232-3200330321223233-3130202231033001"></a>
 
-## rules.action.community — rules.action.community / 226f08f5de0d / 2
+## rules.action.community — community / 331131320031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
 - rules.action.community
 
-<a id="canonical-4a85bb2a2cd16070b7f5b7e601ae9a34cbf702075c642a109ef610f2c7d128d9"></a>
+<a id="canonical-1022201123230222-0230310112001300-2313331123133212-0001223221220310-3023331300020013-1130121002220100-2132331201003302-3013310102203121"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -765,15 +765,15 @@ community {
 }
 ```
 
-<a id="canonical-6d27a83259d1e1cf8c9e95fefa5788284fbd152e568e656ab65c790fde7618fb"></a>
+<a id="canonical-1231021322200302-1121310132013033-2030213221113332-3322111320200220-1033233101110232-1112203212111222-2312113013210033-3132131201203323"></a>
 
-## Direct properties — rules.action.community / 226f08f5de0d / 3
+## Direct properties — community / 331131320031 / 3
 
-<a id="canonical-8ea58b18fdf97c142da14d25a54cb9ae4d2f28176ac7be5bf3dced119e2c3a51"></a>
+<a id="canonical-2032221120230120-3331332113300110-0231220110310211-2211103023212232-1031023302200113-1222301323321123-3303313032310101-2132023003221101"></a>
 
-<a id="canonical-4db24fb2863a6126b461046365a67990eb0783ff2064be600afe6fe60c309e71"></a>
+<a id="canonical-1031230210332302-2012032212010212-2310120100101203-1211221213212100-3223001320033333-0200121023321200-0022333212333212-0030030021321301"></a>
 
-## community property — rules.action.community / 226f08f5de0d / 4
+## community property — community / 331131320031 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -835,32 +835,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-41b535a49bd55c4561cc66bc5ed7a2168c18866f4adc3a335d1f792524898682"></a>
+<a id="canonical-1001231103112210-2123311111301011-1201303012122330-1132311322020112-2030012020121233-1022313003220303-1131013313210211-0210202120122002"></a>
 
-## Next pages — rules.action.community / 226f08f5de0d / 5
+## Next pages — community / 331131320031 / 5
 
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-d3cf61fba3ed3d52903f95b38435d118930feac74ffc376bf3d044d350d62445"></a>
+<a id="canonical-3103303312013323-2203323103311102-2100033321112303-2010031131010120-2103003332223013-1033333003131223-3303310010103103-1100311202101011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9eace889cb861f19fb618a4055519e9c2edf14f4f1ef202c6d941d7ed47ee63a"></a>
+<a id="canonical-2132223032202021-3023201201330121-3323120120221000-1111110121322130-0232313301103310-3301323302000230-1231211001311332-3110133232120322"></a>
 
-## rules.action.deny — rules.action.deny / bdddbe9a5256 / 2
+## rules.action.deny — deny / 212211021112 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
 - rules.action.deny
 
-<a id="canonical-16f3b60204c540bd343b9359773e6bad3c52bb05ec0a64115e81c13f7c77110b"></a>
+<a id="canonical-0112330323120002-0010301110002331-0310032321031121-1313033212232231-0330110223230011-3230002212100101-1132200130010333-1330131301010023"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -889,37 +889,37 @@ Terraform syntax:
 deny = {}
 ```
 
-<a id="canonical-7d4c8bb7e3d1f4ec4d177b270abdc0df2b0a1b3903eb927630668ca33f4f8254"></a>
+<a id="canonical-1331103020232313-3203310133103230-1031011313230213-0022233130003133-0223002201230321-0003322321021312-0300121220302203-0333103320021110"></a>
 
-## Direct properties — rules.action.deny / bdddbe9a5256 / 3
+## Direct properties — deny / 212211021112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5df882dffdd6d1dcf09608641d834afc03caaf90225ff3f6a3f0b19608faa6d2"></a>
+<a id="canonical-1131332020023133-3331311231013130-3300211200201210-0131200310223330-0003302222332100-0202113333033312-2203330023012112-0020332222123102"></a>
 
-## Next pages — rules.action.deny / bdddbe9a5256 / 4
+## Next pages — deny / 212211021112 / 4
 
-- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-997cbbaacae511c8d52a466868b798e103c930a784e99d9ce2282a8935f3760b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.action](resources--bgp_routing_policy--reference--group-001.md#canonical-2121133023232222-3022321101013020-3111022210121220-1220231321203201-0003302103002213-2010322121312130-3202022002222021-0311330313120023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55"></a>
+<a id="canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-362ee9ad8d493fc754ff6795314c3cd13ffc12ae40e869392fff99fc3449e02d"></a>
+<a id="canonical-0312023232212231-2031102103333013-1110333312132111-0301103003303101-0333333001022232-1000322012210321-0233333321213330-0310102132000231"></a>
 
-## rules.match — rules.match / 19cef3727bad / 2
+## rules.match — match / 130213232231 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
 - rules.match
 
-<a id="canonical-1fbe514c4ed589640871f1e7461309cff108fc2605d22a5df07eb9b7413a55c6"></a>
+<a id="canonical-0133233211011030-1032311120211210-0020130133013213-1012010300213033-3301002033300212-0011310202221131-3300133223212313-1001032211113012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -958,15 +958,15 @@ match {
 }
 ```
 
-<a id="canonical-2651234068c4d52bb8455d7c8ce68e516229fb3cedca0a706d50ae572ea53dba"></a>
+<a id="canonical-0212110102031000-1220301031110223-2320101111311330-2030321220321101-1202022133230330-3231302200221300-1231110022321113-0232221103312322"></a>
 
-## Direct properties — rules.match / 19cef3727bad / 3
+## Direct properties — match / 130213232231 / 3
 
-<a id="canonical-fcb4bcb65b15764c74353316a0e002457176e7057fe65a592fe7faad565f5d7c"></a>
+<a id="canonical-3330231023302312-1123011113121030-1310031103030112-2200320000021011-1301131232130011-1333321211221121-0233321333222231-1112113311311330"></a>
 
-<a id="canonical-8bd986f1cac556e59cf03809184cc9b4474683e9c6e40ec38cd027effda29eb3"></a>
+<a id="canonical-2023312120123301-3022301111123211-2130330003200021-0120103030212310-1013101220033221-3012321000323003-2030310002133233-3331220221322303"></a>
 
-## as_path property — rules.match / 19cef3727bad / 4
+## as_path property — match / 130213232231 / 4
 
 Type: `"string"`. Optional.
 
@@ -1001,38 +1001,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [community](resources--bgp_routing_policy--reference--group-001.md#canonical-6f178a053ed67531db794caf20be076078e006a0e33ba7537e8c2c928ae0231c): complete subsection reference.
+- [community](resources--bgp_routing_policy--reference--group-001.md#canonical-1233011320220011-0332311213110301-3123132110302233-0200233200131200-1320320000122200-3203032322131103-1332203002302102-2022320002030130): complete subsection reference.
 
-- [ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8): complete subsection reference.
+- [ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020): complete subsection reference.
 
-<a id="canonical-dd8a48e28baa8f54fe71eb7fc5c46b2ca59798e5edb604f89cc5fcbb51a73e10"></a>
+<a id="canonical-3131202210203202-2023222220331110-3332130132231333-3011301012230230-2211211321203211-3231231200103320-2130301133302323-1101221303320100"></a>
 
-## Next pages — rules.match / 19cef3727bad / 5
+## Next pages — match / 130213232231 / 5
 
-- [rules.match.community](resources--bgp_routing_policy--reference--group-001.md#canonical-6f178a053ed67531db794caf20be076078e006a0e33ba7537e8c2c928ae0231c)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.community](resources--bgp_routing_policy--reference--group-001.md#canonical-1233011320220011-0332311213110301-3123132110302233-0200233200131200-1320320000122200-3203032322131103-1332203002302102-2022320002030130)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-6f178a053ed67531db794caf20be076078e006a0e33ba7537e8c2c928ae0231c"></a>
+<a id="canonical-1233011320220011-0332311213110301-3123132110302233-0200233200131200-1320320000122200-3203032322131103-1332203002302102-2022320002030130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-04c8ad1ec81a9c895a733e2afb582675ab1744b56629ac3bef62224c2d536bf4"></a>
+<a id="canonical-0010302022310132-3020012221302021-1122130303320222-3323112002121311-2223011310102311-1212022122300323-3233120202021030-0231110312233310"></a>
 
-## rules.match.community — rules.match.community / a553d190b7f5 / 2
+## rules.match.community — community / 210023133311 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
 - rules.match.community
 
-<a id="canonical-548a169912b0a2dcf7f46ae8774307e2a110089078fc6500d87e1e098d104ef4"></a>
+<a id="canonical-1110202201122121-0102230022023130-3313331012223220-1313100300133202-2201010000202100-1320333012110000-3120133201320021-2031010010323310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1069,15 +1069,15 @@ community {
 }
 ```
 
-<a id="canonical-4ef3e66f0fefd302f46c2c6959b1f41218c24bbe7284ce8657a75fc27779a967"></a>
+<a id="canonical-1032330332121233-0033323331030002-3310123002301221-1121230133100102-0120300210232332-1302201030322012-1113221311333002-1313132122211213"></a>
 
-## Direct properties — rules.match.community / a553d190b7f5 / 3
+## Direct properties — community / 210023133311 / 3
 
-<a id="canonical-947fefc4cccd3b75883b85d59589727d67abc68503cb444c8bd66636db33d9b7"></a>
+<a id="canonical-2110133332333010-3030303103231311-2020032320113111-2111202113021331-1213222330122011-0003302310101030-2023311212120312-3123030331212313"></a>
 
-<a id="canonical-ef2051b04cd2c9e2cbddc973b4cbd957ba60b0ecb869d44d25a1dd2d007eb645"></a>
+<a id="canonical-3233020011012300-1030310230213202-3023313130211303-2310302331211113-2322120023003230-2320122131101031-0211220131310231-0000133223121011"></a>
 
-## community property — rules.match.community / a553d190b7f5 / 4
+## community property — community / 210023133311 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1139,32 +1139,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e6d6e3c876b72672d2cc9db27bce304e63bb40d8a794992464658c344a1bb058"></a>
+<a id="canonical-3212311232033020-1312231302121302-3102303021312302-1323303203001032-1203232310003120-2213211021210210-1210121120300310-1022012323001120"></a>
 
-## Next pages — rules.match.community / a553d190b7f5 / 5
+## Next pages — community / 210023133311 / 5
 
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8"></a>
+<a id="canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8034b42e4140d659fc2ac338421b969a0ff7ae60db72209e25e7ad494a92aae"></a>
+<a id="canonical-3020000310231002-3210011000311211-2133300222300303-2010020123211221-2200333313223212-0031231302020021-3202113213223110-2110222102222232"></a>
 
-## rules.match.ip_prefixes — rules.match.ip_prefixes / 1f38119bc601 / 2
+## rules.match.ip_prefixes — ip_prefixes / 212330120001 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
 - rules.match.ip_prefixes
 
-<a id="canonical-f7542c575a47b81660843c88e8de4627d36ef2126434342f812a7b3a136c1f0f"></a>
+<a id="canonical-3313111002301113-1122101323200112-1200201003302020-3220313210120213-3103123233020102-1210031003100233-2001022213230322-0103123001330033"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1197,40 +1197,40 @@ ip_prefixes {
 }
 ```
 
-<a id="canonical-1f88be43e6f085ef4bd66bd3e36a6cad59d0b697a69b5d8dabf7c61dfdd2b4f5"></a>
+<a id="canonical-0133202023321003-3212330020113233-1023311212233103-3203122212302231-1121310023122113-2212212311312031-2223331330120131-3331310223103311"></a>
 
-## Direct properties — rules.match.ip_prefixes / 1f38119bc601 / 3
+## Direct properties — ip_prefixes / 212330120001 / 3
 
-- [prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b): complete subsection reference.
+- [prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023): complete subsection reference.
 
-<a id="canonical-e0842cbbe1ed208af793855235b10ea733e4abbde0cdf70850a71e4414a08803"></a>
+<a id="canonical-3200201002302323-3201323102002022-3313210320111102-0311230100322213-0303321022232331-3200303133130020-1100221301321010-0110220020200003"></a>
 
-## Next pages — rules.match.ip_prefixes / 1f38119bc601 / 4
+## Next pages — ip_prefixes / 212330120001 / 4
 
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b"></a>
+<a id="canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-983cf2bfc7f271211e6bccbeed64027b051f4ea5896a5ff2842d36829991080c"></a>
+<a id="canonical-2120033033022333-3013330213010201-0132122330302332-3231121000021323-0011013310322211-2021122211333302-2010023103122002-2121210100200030"></a>
 
-## rules.match.ip_prefixes.prefixes — rules.match.ip_prefixes.prefixes / 38965fc7da35 / 2
+## rules.match.ip_prefixes.prefixes — prefixes / 301331220311 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
 - rules.match.ip_prefixes.prefixes
 
-<a id="canonical-594e2f8d2507d0df1af1db9b86a9e222590b52022e35b2c9ffe84f2581379d04"></a>
+<a id="canonical-1121103202332031-0211001331003133-0122330131232123-2012222132020202-1121002311020002-0232031123023021-3333322010330211-2001031321310010"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1296,19 +1296,19 @@ prefixes {
 }
 ```
 
-<a id="canonical-9abc53460f94d2cc5ab2696c2f562e41874ef751cc3f4b9e81554aa9c21ef4ef"></a>
+<a id="canonical-2122233011031012-0033211031023030-1122230212211230-0233111202321001-2013103233131101-3030033310232132-2001111110222221-3002013233103233"></a>
 
-## Direct properties — rules.match.ip_prefixes.prefixes / 38965fc7da35 / 3
+## Direct properties — prefixes / 301331220311 / 3
 
-- [equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-ac6c12959712b3909067aa491e6fa6733c1c6d3e2274be46a8366d1cf925b0b1): complete subsection reference.
+- [equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-2230123001022111-2113010223032100-2100121322221021-0132123322121303-0330013012310332-0202131023321012-2220031212310130-3321021123002301): complete subsection reference.
 
-- [exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-e1aea0312f8218a84dbc758dd290e8ddf3a75178e87c2d280eace748b6cec184): complete subsection reference.
+- [exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-3201223222000301-0233200201202220-1031233013112031-3102210032203131-3303221311011320-3220133002310220-0032223032131020-2312303230012010): complete subsection reference.
 
-<a id="canonical-14073c7ede6e74aeaefa3f03869567ccbb1756bf2de274800d800004f034c959"></a>
+<a id="canonical-0110001303301332-3132123213102232-2232332203330003-2012211112133030-2323011311122333-0231320213102000-0031200000000010-3300031030211121"></a>
 
-<a id="canonical-cb571d59c973748b037abf9e2eea2d33f41100af43cf9d88d16f7646b7f878ed"></a>
+<a id="canonical-3023111301311121-3021130313102023-0003132223332132-0232322202310303-3310010100002233-1003303321312020-3101123313121012-2313332013203231"></a>
 
-## ip_prefixes property — rules.match.ip_prefixes.prefixes / 38965fc7da35 / 4
+## ip_prefixes property — prefixes / 301331220311 / 4
 
 Type: `"string"`. Optional.
 
@@ -1358,39 +1358,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-c6c1ba946585e2fcdf3cb05478f229356277c4a333b75f1b3b71796cec42f3c4): complete subsection reference.
+- [longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-3012300123222110-1211201132023330-3133033023001110-1320330202210311-1202131330102203-0303231311330123-0323130113211230-3230100233033010): complete subsection reference.
 
-<a id="canonical-f21f157698454c34878a538f85f8e647a5c04ac4b149daa9a0914603829641d3"></a>
+<a id="canonical-3302013301111312-2120101110300310-2013202211032033-2011332032121013-2211300010223010-2301102131222221-2200210110120003-2002211210013103"></a>
 
-## Next pages — rules.match.ip_prefixes.prefixes / 38965fc7da35 / 5
+## Next pages — prefixes / 301331220311 / 5
 
-- [rules.match.ip_prefixes.prefixes.equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-ac6c12959712b3909067aa491e6fa6733c1c6d3e2274be46a8366d1cf925b0b1)
-- [rules.match.ip_prefixes.prefixes.exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-e1aea0312f8218a84dbc758dd290e8ddf3a75178e87c2d280eace748b6cec184)
-- [rules.match.ip_prefixes.prefixes.longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-c6c1ba946585e2fcdf3cb05478f229356277c4a333b75f1b3b71796cec42f3c4)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.ip_prefixes.prefixes.equal_or_longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-2230123001022111-2113010223032100-2100121322221021-0132123322121303-0330013012310332-0202131023321012-2220031212310130-3321021123002301)
+- [rules.match.ip_prefixes.prefixes.exact_match](resources--bgp_routing_policy--reference--group-001.md#canonical-3201223222000301-0233200201202220-1031233013112031-3102210032203131-3303221311011320-3220133002310220-0032223032131020-2312303230012010)
+- [rules.match.ip_prefixes.prefixes.longer_than](resources--bgp_routing_policy--reference--group-001.md#canonical-3012300123222110-1211201132023330-3133033023001110-1320330202210311-1202131330102203-0303231311330123-0323130113211230-3230100233033010)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-ac6c12959712b3909067aa491e6fa6733c1c6d3e2274be46a8366d1cf925b0b1"></a>
+<a id="canonical-2230123001022111-2113010223032100-2100121322221021-0132123322121303-0330013012310332-0202131023321012-2220031212310130-3321021123002301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5b99162bdf9bf7ff2d2a714a13e5302bc81271027f86217a4b653db515cfdf1"></a>
+<a id="canonical-2311232121011202-2331332123331333-3302310222130110-2201033211030002-2330200102130100-0213332012020113-2210231211033123-1101113033313301"></a>
 
-## rules.match.ip_prefixes.prefixes.equal_or_longer_than — rules.match.ip_prefixes.prefixes.equal_or_longer_than / ba78904022e1 / 2
+## rules.match.ip_prefixes.prefixes.equal_or_longer_than — equal_or_longer_than / 100002023201 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
 - rules.match.ip_prefixes.prefixes.equal_or_longer_than
 
-<a id="canonical-c334e13fa88b9312ea63a79c3370d72d1976bda3af32de6eafeee7317ff80534"></a>
+<a id="canonical-3003031032010333-2220202321030102-3222120322132130-0303130031130231-0121131223312203-2233030231321232-2233323232130301-1333332000110310"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1419,40 +1419,40 @@ Terraform syntax:
 equal_or_longer_than = {}
 ```
 
-<a id="canonical-f2728d3a5312f956e4ca92f88fe88a104cd51d0ed15fb91f860714794e0b3d5b"></a>
+<a id="canonical-3302130220310322-1103010233211112-3210302221023320-2033322020220100-1030311101310032-3101113323210133-2012001301101321-1032002303311123"></a>
 
-## Direct properties — rules.match.ip_prefixes.prefixes.equal_or_longer_than / ba78904022e1 / 3
+## Direct properties — equal_or_longer_than / 100002023201 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c7261d3c937ad718f59fa7ea2951be6a68c8613ab59f6d801eea6591c169057a"></a>
+<a id="canonical-3013021201310330-2103132231130120-3311213322133222-0221110123321222-1220302012010322-2311213312312000-0132322212112101-3001122100111322"></a>
 
-## Next pages — rules.match.ip_prefixes.prefixes.equal_or_longer_than / ba78904022e1 / 4
+## Next pages — equal_or_longer_than / 100002023201 / 4
 
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-e1aea0312f8218a84dbc758dd290e8ddf3a75178e87c2d280eace748b6cec184"></a>
+<a id="canonical-3201223222000301-0233200201202220-1031233013112031-3102210032203131-3303221311011320-3220133002310220-0032223032131020-2312303230012010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-164ba80892bd8b3a08c78763f880d47ef06250eff09b0ebef0671f4e1bf70f77"></a>
+<a id="canonical-0112102322200020-2102233120230322-0020301320131203-3320200031101332-3300120211003233-3300212300322332-3300121301331032-0123331300331313"></a>
 
-## rules.match.ip_prefixes.prefixes.exact_match — rules.match.ip_prefixes.prefixes.exact_match / aeb6b1314504 / 2
+## rules.match.ip_prefixes.prefixes.exact_match — exact_match / 030110110010 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
 - rules.match.ip_prefixes.prefixes.exact_match
 
-<a id="canonical-5ead52d33ddf8fedddba8d722ad1490f776b93c004986531f5210c27bd961fd9"></a>
+<a id="canonical-1132223111023103-0331313320333231-3131232220311302-0222310110210033-1313122321033000-0010212012110301-3311020100300213-2331211201333121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1481,40 +1481,40 @@ Terraform syntax:
 exact_match = {}
 ```
 
-<a id="canonical-25ac805be537a89340dcbec275919bd90e155585cbef01f6760de8d1a4e1257d"></a>
+<a id="canonical-0211223020001123-3211031322202103-1000313023323002-1311210121233121-0032011111112011-3023323300013312-1312003132203101-2210320102111331"></a>
 
-## Direct properties — rules.match.ip_prefixes.prefixes.exact_match / aeb6b1314504 / 3
+## Direct properties — exact_match / 030110110010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c37a87187d6f4b73f9dea62464f830e5998fb8129d08c8cf811bcb61b24eb01f"></a>
+<a id="canonical-3003132220130120-1331123310231303-3321313222120210-1210332003003211-2121203323200102-2131002030203033-2001012330231201-2302103223000133"></a>
 
-## Next pages — rules.match.ip_prefixes.prefixes.exact_match / aeb6b1314504 / 4
+## Next pages — exact_match / 030110110010 / 4
 
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-c6c1ba946585e2fcdf3cb05478f229356277c4a333b75f1b3b71796cec42f3c4"></a>
+<a id="canonical-3012300123222110-1211201132023330-3133033023001110-1320330202210311-1202131330102203-0303231311330123-0323130113211230-3230100233033010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-01d317980bfe45da6117d664460b867f7e6c19812f8542c428f3bba0a4b9a25c"></a>
+<a id="canonical-0001310301132120-0023333210113122-1201011331121210-1012002320121333-1332123001212001-0233201110023010-0220330323232200-2210232122021130"></a>
 
-## rules.match.ip_prefixes.prefixes.longer_than — rules.match.ip_prefixes.prefixes.longer_than / db0a4821b136 / 2
+## rules.match.ip_prefixes.prefixes.longer_than — longer_than / 020123010312 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-d082d86afd3213490a5bb95a24a42989f337fe40113b0a82668bad930713e4b9)
-- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-fad2747985aecdb6862ec68f1b404a4f099c3d739f02bbdeea07c74565df8b55)
-- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-28425111739c40f576f9d6f33817f5964461121745e092b60e34a0a94ffb8bc8)
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [rules](resources--bgp_routing_policy--reference--group-001.md#canonical-3100200231201222-3331030201031021-0022112323211122-0210221002212021-3303031333321000-0101032300222002-1212202322312103-0013010332102321)
+- [rules.match](resources--bgp_routing_policy--reference--group-001.md#canonical-3322310213101321-2011223230312312-2012023230122033-0123100010221033-0021213003311303-2133000223233132-3222001330131011-1211313320231111)
+- [rules.match.ip_prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0220100211010101-1303213010003311-1312332131123303-0320011333112112-1010120101020113-1011320021022312-0032031022002221-1033332320233020)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
 - rules.match.ip_prefixes.prefixes.longer_than
 
-<a id="canonical-770e41769121abc3af6d1ec3955be37b2288ab658ced136b8650256dec40a0de"></a>
+<a id="canonical-1313003210011312-2101020122233003-2233123101323003-2111112332031323-0202202022231211-2030323101031223-2012110002111231-3230100022003132"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1543,36 +1543,36 @@ Terraform syntax:
 longer_than = {}
 ```
 
-<a id="canonical-c60bc58879b3cd052c8a885f9cbc11440576f116101e2a6248c4389ae867f9bd"></a>
+<a id="canonical-3012002330112020-1321230330310011-0230202220201133-2130233001011010-0011131233010112-0100013202221202-1020301003202122-3220121333212331"></a>
 
-## Direct properties — rules.match.ip_prefixes.prefixes.longer_than / db0a4821b136 / 3
+## Direct properties — longer_than / 020123010312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6021c2eb7b102c36ad1ce6e134fce8c3901aa26b276b23905e2ddc1234971643"></a>
+<a id="canonical-1200020130023223-1323010002300312-2231013032123201-0310333032203003-2100012222021223-0213122302032100-1132023131300102-0310211301121003"></a>
 
-## Next pages — rules.match.ip_prefixes.prefixes.longer_than / db0a4821b136 / 4
+## Next pages — longer_than / 020123010312 / 4
 
-- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-1e63c1fc6639a531a8d3e786c79b5a7dadbcd05713e07dd21dc90b1ef1a7d24b)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [rules.match.ip_prefixes.prefixes](resources--bgp_routing_policy--reference--group-001.md#canonical-0132120330013330-1212032122110301-2220310332132012-3013212311221331-2231233031001113-0103320013313102-0131302100230132-3301221331021023)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
 
-<a id="canonical-c9a860ff79fefdf349a65cfb4f7a31c8f86b3cac9cc17e7425d6754034b3424b"></a>
+<a id="canonical-3021222012003333-1321333233313303-1021221211303323-1033132203013020-3320122303302230-2130300113321310-0211311213111000-0310230310021023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-02b56fcfcc55becbb2ed1b8ea76f9ccd47e1cb888b7a1159af2a1550671accfe"></a>
+<a id="canonical-0002231112333033-3030111123323023-2302323101232032-2213123321303031-1013320130232020-2023132201011121-2233022201111100-1213012230303332"></a>
 
-## timeouts — timeouts / 907c553db6e6 / 2
+## timeouts — timeouts / 033123123212 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
 - timeouts
 
-<a id="canonical-868da87c22b9a277e317a3f6ae974632bf6f95e5808898dcbcf8aafd39d21cf1"></a>
+<a id="canonical-2012203122201330-0202232122021313-3203011322033312-2232211310120302-2333123321113211-2000202021203130-2330332022223331-0321310201303301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1584,15 +1584,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-3a1c2acbbdae3707d687ca317d95118c5a1ecc8e6e151a73f7a2ca54756929b7"></a>
+<a id="canonical-0322013002223023-2331223203130013-3112201330220301-1331211101012030-1122013230302032-1232011101221303-3313220230221110-1311122102212313"></a>
 
-## Direct properties — timeouts / 907c553db6e6 / 3
+## Direct properties — timeouts / 033123123212 / 3
 
-<a id="canonical-cbd1dc2be7fd3e786e4b3269b6fc065c1e5ceafd47eb4e0255ce474ba3a74f69"></a>
+<a id="canonical-3023310131300223-3213333103321320-1232102303021221-2312333000121130-0132113032223331-1013322310320002-1111303210131023-2203221310331221"></a>
 
-<a id="canonical-146afc1b4503e5ca0ed60ba8535dea72780880bb4457886eae8d2273c6c56516"></a>
+<a id="canonical-0110122233300123-1011000332113022-0032311200232220-1103113132221302-1320002020002323-1010111320201232-2232203102021303-3012301112110112"></a>
 
-## create property — timeouts / 907c553db6e6 / 4
+## create property — timeouts / 033123123212 / 4
 
 Type: `"string"`. Optional.
 
@@ -1600,11 +1600,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-c5a02843cf3ba7128f9e6585adc4b9bc659683416790749088919132c8239953"></a>
+<a id="canonical-3011220002201003-3033032322130102-2033213212112011-2231301023212330-1211211220031001-1213210013102100-2020210121010302-3020020321211103"></a>
 
-<a id="canonical-d458f4022bd51a6544cf56307e634c3e0d32e6816e7790fe7c45d33e98b7cd0d"></a>
+<a id="canonical-3110112033100002-0223311101221211-1010303311120300-1332120310300332-0031030232122001-1232131321003332-1330101131030332-2120231330310031"></a>
 
-## delete property — timeouts / 907c553db6e6 / 5
+## delete property — timeouts / 033123123212 / 5
 
 Type: `"string"`. Optional.
 
@@ -1613,11 +1613,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-3970684b4ed02e3c99062089764f1abac323325f3ebebf4c3f55de532660fae0"></a>
+<a id="canonical-0321130012201023-1032310002320330-2121001202002021-1312103301222322-3003020303021133-0332233223331030-0333111131321103-0212120033223200"></a>
 
-<a id="canonical-d26a7cb2b286dcee1402df0acfee4d5187a7ef2339a93a29037d6626f8e790f3"></a>
+<a id="canonical-3102122213302302-2302201231303232-0110000231330022-3033323210311101-2013221332330203-0321222103220221-0003133112120212-3320321321003303"></a>
 
-## read property — timeouts / 907c553db6e6 / 6
+## read property — timeouts / 033123123212 / 6
 
 Type: `"string"`. Optional.
 
@@ -1626,11 +1626,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-2e65f5b732abffa9552876c22d2c6255654f4662033b3630a5124e24adecfc9a"></a>
+<a id="canonical-0232121133112313-0302222333332221-1111022013123002-0231023012021111-1211103310121202-0003032303120300-2211010210320210-2231323033302122"></a>
 
-<a id="canonical-517727ee71696a8783700578cff4798dae9cc59f3035c0ba223e565edd462eae"></a>
+<a id="canonical-1101131302133232-1301122112222013-2003130000111320-3033331013212031-2232213030112133-0300031130002322-0202033211121132-3131101202322232"></a>
 
-## update property — timeouts / 907c553db6e6 / 7
+## update property — timeouts / 033123123212 / 7
 
 Type: `"string"`. Optional.
 
@@ -1638,9 +1638,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-0982fe8a8577bdbe4f97dd414d646902f8604a8837a8bfbbaf03c6472b91e5f5"></a>
+<a id="canonical-0021200233322022-2011131323312332-1033211331311001-1031121012210002-3320120010222020-0313222023332323-2233000330121013-0223210132113311"></a>
 
-## Next pages — timeouts / 907c553db6e6 / 8
+## Next pages — timeouts / 033123123212 / 8
 
-- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-c72ce71fac4abd1b7af13fe660e6b9827ab44900fa751595f774bec024eaacf2)
-- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-a52b2ec832e07dcfd0c3d20b81b2af1ed61314bb6d9237e5a98ee665cc2f23d5)
+- [Property reference](resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [xcsh_bgp_routing_policy](../resources/bgp_routing_policy.md#canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111)

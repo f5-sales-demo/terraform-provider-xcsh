@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_partner_customer_sup
 
 # xcsh_partner_customer_support_comments landing
 
-<a id="canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7"></a>
+<a id="canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d7750b48ab2eddce8be895f04252f17e5630b419a62c7185f4064da6a5e7b60c"></a>
+<a id="canonical-3113131100231020-2223023231313032-2023322021113300-1002110233011332-1112030023100121-2212023013012011-3310001210312212-2211321323120030"></a>
 
-## xcsh_partner_customer_support_comments — xcsh_partner_customer_support_comments / 94aa15b7640f / 2
+## xcsh_partner_customer_support_comments — xcsh_partner_customer_support_comments / 231312100033 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-<a id="canonical-f01bcceb4a625a27324e5720636dc8051a25db2581406ee10592c71b4199e6df"></a>
+<a id="canonical-3300012330303223-1022120211220213-0302103211130200-1203123130200011-0122021131230211-2001100012323201-0011210230130123-1001212132123133"></a>
 
-## Prerequisites — xcsh_partner_customer_support_comments / 94aa15b7640f / 3
+## Prerequisites — xcsh_partner_customer_support_comments / 231312100033 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-90a00bbcb0c1b5022a3ca04b73d8d06a5edfdde9cab779fd0fc19c66a0235fe7"></a>
+<a id="canonical-2100220000232330-2300300123110002-0222033022001023-1303312031001222-1132313331313221-3022231313213331-0033300121301212-2200020311333213"></a>
 
-## Minimal configuration — xcsh_partner_customer_support_comments / 94aa15b7640f / 4
+## Minimal configuration — xcsh_partner_customer_support_comments / 231312100033 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "partner_customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-d020527cfa594332ddd7a36b840c7c5696122db44c1bbe232f9dc12885c5f27d"></a>
+<a id="canonical-3100020011021330-3322112110030302-3131311322031223-2010003013301112-2112010202312310-1030012323320203-0233213130010220-2011301133021331"></a>
 
-## Root configuration — xcsh_partner_customer_support_comments / 94aa15b7640f / 5
+## Root configuration — xcsh_partner_customer_support_comments / 231312100033 / 5
 
 Required root properties: `tp_id`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-5eb225231f02b52ea60dedb46507e318dc723fb517726e59984c57fb167b2236"></a>
+<a id="canonical-1132230202110203-0133000223110232-2212003132312310-1211001332030120-3130130203332311-0113130212321121-2120103011133323-0112132302020312"></a>
 
-## Next pages — xcsh_partner_customer_support_comments / 94aa15b7640f / 6
+## Next pages — xcsh_partner_customer_support_comments / 231312100033 / 6
 
-- [Property reference](../guides/data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2fa65522231cce83a94be0e590bceafb5ed95373feffa05567d61dea8ccd6ef6)
-- [Examples](../guides/data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0c592772aba34f4eca08e8e3c45c89ef32f6b5aed46eeddfc3751a68e5555237)
+- [Property reference](../guides/data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0233221211110202-0203013030322003-2221102332003211-2100233032223323-1132312111031303-3332333322001111-1213311201313222-2030303112323312)
+- [Examples](../guides/data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0030112102131302-2223220310331032-3022002032203203-3010113020213233-0302331223112232-3110123232313133-3003131101221220-3211111111020313)

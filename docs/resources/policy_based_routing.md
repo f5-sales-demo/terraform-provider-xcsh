@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_policy_based_routing
 
 # xcsh_policy_based_routing landing
 
-<a id="canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152"></a>
+<a id="canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2b8462451f0806fe0aee5bd45011bcd67c303c0d6502747a9461d1a11ab6c679"></a>
+<a id="canonical-0223201012021011-0133002000123332-0022323211233110-1100010123303112-1330030003300031-1211000213101322-2110120131012201-0122231230121321"></a>
 
-## xcsh_policy_based_routing — xcsh_policy_based_routing / 011d30b1cd1a / 2
+## xcsh_policy_based_routing — xcsh_policy_based_routing / 230130310122 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing
 create specification. configuration.
 
-<a id="canonical-cb1dc3ad5c4819e7e851fcb9536a3298ba884dfbd4b043be1ff6c6d4dc0208e4"></a>
+<a id="canonical-3023013130032231-1130102001213213-3220110133302321-1103122203022120-2322202010313323-3110230010032332-0133331230123110-3130000200203210"></a>
 
-## Prerequisites — xcsh_policy_based_routing / 011d30b1cd1a / 3
+## Prerequisites — xcsh_policy_based_routing / 230130310122 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-ab1ff8a3c0d999a63781953df46bdd06f34e516dfb7513730bbd3efc10e9f6e9"></a>
+<a id="canonical-2223013333202203-3000312121212212-0313200121110331-3310122331310012-3303103211011231-3323131101031303-0023233103323330-0100322133123221"></a>
 
-## Minimal configuration — xcsh_policy_based_routing / 011d30b1cd1a / 4
+## Minimal configuration — xcsh_policy_based_routing / 230130310122 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_policy_based_routing" "example" {
 }
 ```
 
-<a id="canonical-037987cef7e58cf5a56a19726b4bdc6f50a4ae28724eb0327f484a06b5502f5f"></a>
+<a id="canonical-0003132120133032-3313321120303311-2211122201211302-1223102331301233-1100221022320220-1302103223000302-1333102010220012-2311110002331133"></a>
 
-## Root configuration — xcsh_policy_based_routing / 011d30b1cd1a / 5
+## Root configuration — xcsh_policy_based_routing / 230130310122 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-5be56c029a018670a3ebf75d8a2b070c185988629da3754c90e6534dec17e861"></a>
+<a id="canonical-1123321112300002-2122000120121300-2203322333131131-2022022300130030-0120112120201202-2131220313111030-2100321211031031-3230011332201201"></a>
 
-## Next pages — xcsh_policy_based_routing / 011d30b1cd1a / 6
+## Next pages — xcsh_policy_based_routing / 230130310122 / 6
 
-- [Property reference](../guides/resources--policy_based_routing--reference--group-001.md#canonical-7a80a6f1ee6f6296fe821d9b09a9003d6bf3b5c5dd54a0de6b0fb4dce9623d4e)
-- [Examples](../guides/resources--policy_based_routing--examples--group-001.md#canonical-2b37fbed9b408e1b36ae3feaeae2737ab01aa3c0205049bbd43a7fe1d7bd105d)
-- [Import](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-569d51116aad9d0df02aee8921d14c4eb7f4859e1e2acd8ab49f9329ee070b1e)
-- [Timeouts](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-4679ef1fe84c62092c5f5cc4b7f35d425f28a788cbce4bedb77db7ea8054188c)
+- [Property reference](../guides/resources--policy_based_routing--reference--group-001.md#canonical-1322200022123301-3232123312022112-3332200201312123-0021222100000331-1223330323113011-3131111022003132-1223003323103130-3221120203311032)
+- [Examples](../guides/resources--policy_based_routing--examples--group-001.md#canonical-0223031333233231-2123100020320123-0312223203333222-3222320213031322-2300012222033000-0200110010212323-3110032213333201-3113233101001131)
+- [Import](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-1112213111010101-1222223121310031-3300022232322021-0201310110301032-2313331020112132-0132022230312022-2310213321030221-3232001300230132)
+- [Timeouts](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-1012132132330133-3220103012020021-0230113311303010-2313330311311002-1133022022132020-3023303210233231-2313133123133222-2000111001202030)

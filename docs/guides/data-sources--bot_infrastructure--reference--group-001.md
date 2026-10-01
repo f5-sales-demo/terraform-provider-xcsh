@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_bot_infrastructure r
 
 # xcsh_bot_infrastructure reference
 
-<a id="canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee"></a>
+<a id="canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-55bd18c3ecc7853a8f736c5d7148d8bf3c9d1de1ec270cd61aa06fb43d0f144b"></a>
+<a id="canonical-1111233101203003-3230301320110322-2033130312301131-1301102031202333-0330213101313201-3230021300303112-0122220012332310-0331003301101023"></a>
 
-## Property reference — Property reference / 61dd550e09fd / 2
+## Property reference — Property reference / 003200213331 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
 - Property reference
 
-<a id="canonical-1071651c19e3e9123696d5ca00bc34c52f3070e8035bf63daed57c34bfac8573"></a>
+<a id="canonical-0100130112110130-0121320332210102-0312211231113022-0000233003103011-0233030013003220-0003112333120331-2232311113300310-2333223020111303"></a>
 
-## Direct properties — Property reference / 61dd550e09fd / 3
+## Direct properties — Property reference / 003200213331 / 3
 
-<a id="canonical-0d87c9f5951f1fbc80ab28bc48763a27dddb1af980c77a0abddaf7cfe7f594c6"></a>
+<a id="canonical-0031201330213311-2111013301332330-2000222302202330-1020131203220213-3131312301223321-2000301313220022-2331312233133033-3213331121103012"></a>
 
-<a id="canonical-1cdd1a907bc2aee818867301f93e066d826ac049655f45043bf03c62c454b583"></a>
+<a id="canonical-0130313101222100-1323300222323220-0120201213030001-3321033200121231-2002122230001021-1211113310110010-0323330003301202-3010111023112003"></a>
 
-## annotations property — Property reference / 61dd550e09fd / 4
+## annotations property — Property reference / 003200213331 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,13 +66,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859): complete subsection reference.
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121): complete subsection reference.
 
-<a id="canonical-62dfd0ae5759890aeb0384a058f51110f98991c3bb6c749fad6bfb7996b85383"></a>
+<a id="canonical-1202313331002232-1113112120210022-3223000320102200-1120331101010100-3321202121013003-2323123013102133-2231122333231321-2112232011032003"></a>
 
-<a id="canonical-5ff6f8f637f8414700ab37f727f89039b9fb0220b2ac66c59d68dea4ffb11d1a"></a>
+<a id="canonical-1133331233203312-0313332010011013-0000222303133313-0213332021000321-2321332300020200-2302223012123011-2131122031322210-3333230101310122"></a>
 
-## description property — Property reference / 61dd550e09fd / 5
+## description property — Property reference / 003200213331 / 5
 
 Type: `"string"`. Computed.
 
@@ -120,21 +120,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bbc1ad6a5a7978b165a5b3644bf387f5d8f3d2cdd02f56c412076ffcb71d39d3"></a>
+<a id="canonical-2323300122311222-1122132113202301-1211221123031210-1023330320133311-3120330331023031-3100023311123010-0102001312333330-2313013103213103"></a>
 
-<a id="canonical-d6ec138849eb81763a58810449b147b8072ff8e085f7b4a04d0ded1313a4a9df"></a>
+<a id="canonical-3112323001032020-1021322320011312-0322112020010010-1021230110132320-0013023333203200-2011331323102200-1031003132310103-0103221022213133"></a>
 
-## id property — Property reference / 61dd550e09fd / 6
+## ID property — Property reference / 003200213331 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-124cbbf6faa8e2d3eb128553b991bfef7631b6c9a2e8bbd70ae5230804c75a44"></a>
+<a id="canonical-0102103023233312-3322222032023103-3223010220111103-2321210123333233-1312030123123021-2202322023233113-0022321102030020-0010301311221010"></a>
 
-<a id="canonical-afac7598c704582f9ea1685100c6b72af8f6e3d3cec24aee02a42b20c380eeec"></a>
+<a id="canonical-2233223013112120-3013001011200233-2132220112201101-0000301223130222-3320331232033103-3032300210223232-0002221002230200-3003200032323230"></a>
 
-## labels property — Property reference / 61dd550e09fd / 7
+## labels property — Property reference / 003200213331 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -158,11 +158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-83a1660b2644a001805c619ee27dea8707ac7f1f26205cd2e65df10a17d302c3"></a>
+<a id="canonical-2003220112120023-0212101022000001-2000113012012132-3202133132222013-0013223013330133-0212020011303102-3212113133010022-0113310300023003"></a>
 
-<a id="canonical-14d257fd9c394ca67896ea3b065ff7975c8a1102a0b1a5c308d9b40044dd1949"></a>
+<a id="canonical-0110310211133331-2130032110302212-1320211232220323-0012113333132113-1130202201010002-2200230122113003-0020312123100000-1010313101211021"></a>
 
-## name property — Property reference / 61dd550e09fd / 8
+## name property — Property reference / 003200213331 / 8
 
 Type: `"string"`. Required.
 
@@ -218,11 +218,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6cf03be6dcc6633c791f47e142c831128195365f1b6f8031136cd2cd9986a07"></a>
+<a id="canonical-3012303300032332-1231303012120303-3013210133101332-0110023020030101-0220012111031211-3301231233200003-0101031230310230-3121212012220013"></a>
 
-<a id="canonical-54b0241b00c4d8e2a4d39a4fd7beae69e5878e617aa2a98138189e08ec84d2e7"></a>
+<a id="canonical-1110230002100123-0000301031203202-2210310321221033-3113233222321221-3211201320321201-1322220222212001-0320012021320020-3230201031023213"></a>
 
-## namespace property — Property reference / 61dd550e09fd / 9
+## namespace property — Property reference / 003200213331 / 9
 
 Type: `"string"`. Required.
 
@@ -271,11 +271,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-21c353327f6c67384ff18af7e0744d17c02ec201e3faefec7f42944bceeef854"></a>
+<a id="canonical-0201300311030302-1333123012130320-1033330120223313-3200131010310113-3000023230020001-3203332232333230-1333100221101023-3032323233201110"></a>
 
-<a id="canonical-40d545643c306884e51da43a0218131775e36192944ebbf97aff13b85fda053a"></a>
+<a id="canonical-1000311110111210-0330030012202010-3211013122100322-0002012001030113-1311320312012102-2110103223233321-1322333301032320-1133312200110322"></a>
 
-## traffic_type property — Property reference / 61dd550e09fd / 10
+## traffic_type property — Property reference / 003200213331 / 10
 
 Type: `"string"`. Computed.
 
@@ -310,53 +310,53 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50b5c1fc158d05ed500ce1cea301936cf8c3a5c2a90c0ef8225b8ef98149350f"></a>
+<a id="canonical-1100231130013330-0111203100113231-1100003032013032-2203000121031230-3320300322113002-2221003000323320-0202112320323321-2001102103110033"></a>
 
-## All schema paths — Property reference / 61dd550e09fd / 11
+## All schema paths — Property reference / 003200213331 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--bot_infrastructure--reference--group-001.md#canonical-0d87c9f5951f1fbc80ab28bc48763a27dddb1af980c77a0abddaf7cfe7f594c6) |
-| `create_cloud_hosted` | [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-219b6a4ceae65a60930e39ed6bc882f7ba591826b9b4395f84b00e50d79b7b1f) |
-| `create_cloud_hosted.ip_addresses` | [create_cloud_hosted.ip_addresses](data-sources--bot_infrastructure--reference--group-001.md#canonical-ad7517bd8fd1e63b2356934ef2d4308dfb62a1e924a7904b0be9df4914275c61) |
-| `create_cloud_hosted.production` | [create_cloud_hosted.production](data-sources--bot_infrastructure--reference--group-001.md#canonical-92f7d3cd495a8631bffd6532d7f51397c54f66273bec6694f25cd88417f920b6) |
-| `create_cloud_hosted.production.region_1` | [create_cloud_hosted.production.region_1](data-sources--bot_infrastructure--reference--group-001.md#canonical-7e443cfc26b46b278d67c95773eb11bf4caec77a2cc70898121da4bca2b83ed0) |
-| `create_cloud_hosted.production.region_2` | [create_cloud_hosted.production.region_2](data-sources--bot_infrastructure--reference--group-001.md#canonical-2e296ce9307a55068c190038f116e2cbac216df88f134b545649d89b1191ce6e) |
-| `create_cloud_hosted.testing` | [create_cloud_hosted.testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-294ec0c659d51b638eb60aaadbd854663be508b101ea97793f5fea2f3c148fb0) |
-| `create_cloud_hosted.testing.region_1` | [create_cloud_hosted.testing.region_1](data-sources--bot_infrastructure--reference--group-001.md#canonical-2e4e4f6cac3deb3e974186a37629ce504626336f50c44bc8bb77d206851a258d) |
-| `description` | [description](data-sources--bot_infrastructure--reference--group-001.md#canonical-62dfd0ae5759890aeb0384a058f51110f98991c3bb6c749fad6bfb7996b85383) |
-| `id` | [id](data-sources--bot_infrastructure--reference--group-001.md#canonical-bbc1ad6a5a7978b165a5b3644bf387f5d8f3d2cdd02f56c412076ffcb71d39d3) |
-| `labels` | [labels](data-sources--bot_infrastructure--reference--group-001.md#canonical-124cbbf6faa8e2d3eb128553b991bfef7631b6c9a2e8bbd70ae5230804c75a44) |
-| `name` | [name](data-sources--bot_infrastructure--reference--group-001.md#canonical-83a1660b2644a001805c619ee27dea8707ac7f1f26205cd2e65df10a17d302c3) |
-| `namespace` | [namespace](data-sources--bot_infrastructure--reference--group-001.md#canonical-c6cf03be6dcc6633c791f47e142c831128195365f1b6f8031136cd2cd9986a07) |
-| `traffic_type` | [traffic_type](data-sources--bot_infrastructure--reference--group-001.md#canonical-21c353327f6c67384ff18af7e0744d17c02ec201e3faefec7f42944bceeef854) |
+| `annotations` | [annotations](data-sources--bot_infrastructure--reference--group-001.md#canonical-0031201330213311-2111013301332330-2000222302202330-1020131203220213-3131312301223321-2000301313220022-2331312233133033-3213331121103012) |
+| `create_cloud_hosted` | [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-0201212312221030-3222321211221200-2103003203213231-1223302020023313-2322112101200212-2321231003211133-2010230000321100-3113212313230133) |
+| `create_cloud_hosted.ip_addresses` | [create_cloud_hosted.ip_addresses](data-sources--bot_infrastructure--reference--group-001.md#canonical-2231131101132331-2033310132120323-0203111221031032-3302311003002031-3323120222013221-0210221321001023-0023322131331021-0110021311301201) |
+| `create_cloud_hosted.production` | [create_cloud_hosted.production](data-sources--bot_infrastructure--reference--group-001.md#canonical-2102331331033031-1021112220120301-2333333112110302-3113331101032113-3011103312120213-0323323012122110-3302113031202010-0113332102002312) |
+| `create_cloud_hosted.production.region_1` | [create_cloud_hosted.production.region_1](data-sources--bot_infrastructure--reference--group-001.md#canonical-1332101003303330-0212231012230213-2031121330211113-1303322301012333-1030223230131322-0230301300202120-0102013122102330-2202232003323100) |
+| `create_cloud_hosted.production.region_2` | [create_cloud_hosted.production.region_2](data-sources--bot_infrastructure--reference--group-001.md#canonical-0232022112303221-0300132211110012-2030012100000320-3301011232023023-2230020112313320-2033010310231110-1112102131202123-0101210130321232) |
+| `create_cloud_hosted.testing` | [create_cloud_hosted.testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-0221103230003012-1121311101231203-2032231200222222-3123312011101212-0323321100202301-0001322221131321-0333113332220233-0330011020332300) |
+| `create_cloud_hosted.testing.region_1` | [create_cloud_hosted.testing.region_1](data-sources--bot_infrastructure--reference--group-001.md#canonical-0232103210331230-2230033132230332-2113100120122203-1312022130321100-1012021203031233-1100301010233020-2323131331020012-2011012202112031) |
+| `description` | [description](data-sources--bot_infrastructure--reference--group-001.md#canonical-1202313331002232-1113112120210022-3223000320102200-1120331101010100-3321202121013003-2323123013102133-2231122333231321-2112232011032003) |
+| `id` | [id](data-sources--bot_infrastructure--reference--group-001.md#canonical-2323300122311222-1122132113202301-1211221123031210-1023330320133311-3120330331023031-3100023311123010-0102001312333330-2313013103213103) |
+| `labels` | [labels](data-sources--bot_infrastructure--reference--group-001.md#canonical-0102103023233312-3322222032023103-3223010220111103-2321210123333233-1312030123123021-2202322023233113-0022321102030020-0010301311221010) |
+| `name` | [name](data-sources--bot_infrastructure--reference--group-001.md#canonical-2003220112120023-0212101022000001-2000113012012132-3202133132222013-0013223013330133-0212020011303102-3212113133010022-0113310300023003) |
+| `namespace` | [namespace](data-sources--bot_infrastructure--reference--group-001.md#canonical-3012303300032332-1231303012120303-3013210133101332-0110023020030101-0220012111031211-3301231233200003-0101031230310230-3121212012220013) |
+| `traffic_type` | [traffic_type](data-sources--bot_infrastructure--reference--group-001.md#canonical-0201300311030302-1333123012130320-1033330120223313-3200131010310113-3000023230020001-3203332232333230-1333100221101023-3032323233201110) |
 
-<a id="canonical-e7b1e3164084a0e066d79d2d8b6b0f92c725228e42fd4926c104605cb29e68dd"></a>
+<a id="canonical-3213230132030112-1000201022003200-1212311321310231-2023122300332102-3013021102022032-1002333110210212-3001001012001130-2302213212203131"></a>
 
-## Next pages — Property reference / 61dd550e09fd / 12
+## Next pages — Property reference / 003200213331 / 12
 
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859)
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
 
-<a id="canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859"></a>
+<a id="canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-836fa5e6437eeae7e53c80993c33d3d24c4d50eed02aeb67131e12de2ee9b32c"></a>
+<a id="canonical-2003123322113212-1003133232223213-3211033020002121-0330030331033102-1030103111003232-3100022232231213-0103013201023132-0232322123030230"></a>
 
-## create_cloud_hosted — create_cloud_hosted / d17d7e23e2bf / 2
+## create_cloud_hosted — create_cloud_hosted / 020332022333 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
-- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
+- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232)
 - create_cloud_hosted
 
-<a id="canonical-219b6a4ceae65a60930e39ed6bc882f7ba591826b9b4395f84b00e50d79b7b1f"></a>
+<a id="canonical-0201212312221030-3222321211221200-2103003203213231-1223302020023313-2322112101200212-2321231003211133-2010230000321100-3113212313230133"></a>
 
 Type: `"single"`. Computed.
 
@@ -376,15 +376,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-04854ee103ada719c6c7eceb68e851aad9b904cba7203f9de43d3d29479ac0d2"></a>
+<a id="canonical-0010201110323201-0003223122130121-3012301332303223-1220322011012222-3121232100103023-2213020003332131-3210033103310221-1013212230003102"></a>
 
-## Direct properties — create_cloud_hosted / d17d7e23e2bf / 3
+## Direct properties — create_cloud_hosted / 020332022333 / 3
 
-<a id="canonical-ad7517bd8fd1e63b2356934ef2d4308dfb62a1e924a7904b0be9df4914275c61"></a>
+<a id="canonical-2231131101132331-2033310132120323-0203111221031032-3302311003002031-3323120222013221-0210221321001023-0023322131331021-0110021311301201"></a>
 
-<a id="canonical-f8962195f05fdad65e8607229363eed1f867ce909304b515092577bfca9a3463"></a>
+<a id="canonical-3320211202012111-3300113331223112-1132201200130202-2103120332323101-3320121330322100-2103001023110111-0021021113132333-3022212203101203"></a>
 
-## ip_addresses property — create_cloud_hosted / d17d7e23e2bf / 4
+## ip_addresses property — create_cloud_hosted / 020332022333 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -409,37 +409,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [production](data-sources--bot_infrastructure--reference--group-001.md#canonical-d35c64a6542461bbb575b00a0d437294a7cc69f4910ad7c5880bf1813f0e651d): complete subsection reference.
+- [production](data-sources--bot_infrastructure--reference--group-001.md#canonical-3103113012102212-1110021012012323-2311131123000022-0031100313022110-2213303012213310-2101002231133011-2020002333012001-0333003212110131): complete subsection reference.
 
-- [testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-27d7594f1809924f458da66029ebc370d680a7094060f50b28910f0838b73e32): complete subsection reference.
+- [testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-0213311311211033-0120002121021033-1011203122121200-0221322330031300-3112200022130021-1000120033110023-0220210100330020-0320231303320302): complete subsection reference.
 
-<a id="canonical-5981ab55d27b28a685b3df223043fe66f0d0554ab4ee1063c10eb069a505ec27"></a>
+<a id="canonical-1121200122231111-3102132302202212-2011230331330202-0300100333321212-3300310011111022-2310323201001203-3001003223001221-2211001132300213"></a>
 
-## Next pages — create_cloud_hosted / d17d7e23e2bf / 5
+## Next pages — create_cloud_hosted / 020332022333 / 5
 
-- [create_cloud_hosted.production](data-sources--bot_infrastructure--reference--group-001.md#canonical-d35c64a6542461bbb575b00a0d437294a7cc69f4910ad7c5880bf1813f0e651d)
-- [create_cloud_hosted.testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-27d7594f1809924f458da66029ebc370d680a7094060f50b28910f0838b73e32)
-- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
+- [create_cloud_hosted.production](data-sources--bot_infrastructure--reference--group-001.md#canonical-3103113012102212-1110021012012323-2311131123000022-0031100313022110-2213303012213310-2101002231133011-2020002333012001-0333003212110131)
+- [create_cloud_hosted.testing](data-sources--bot_infrastructure--reference--group-001.md#canonical-0213311311211033-0120002121021033-1011203122121200-0221322330031300-3112200022130021-1000120033110023-0220210100330020-0320231303320302)
+- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
 
-<a id="canonical-d35c64a6542461bbb575b00a0d437294a7cc69f4910ad7c5880bf1813f0e651d"></a>
+<a id="canonical-3103113012102212-1110021012012323-2311131123000022-0031100313022110-2213303012213310-2101002231133011-2020002333012001-0333003212110131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2baed5e015834485ff485943da580c7c772105eb1fa92c4e97dfb3164becfbbe"></a>
+<a id="canonical-0223223231113200-0111200310102011-3333102011211003-3122112000301330-1313020100113223-0133222102301032-2113313323030112-1023323033232332"></a>
 
-## create_cloud_hosted.production — create_cloud_hosted.production / 177347938b24 / 2
+## create_cloud_hosted.production — production / 210320230210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
-- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
+- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232)
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121)
 - create_cloud_hosted.production
 
-<a id="canonical-92f7d3cd495a8631bffd6532d7f51397c54f66273bec6694f25cd88417f920b6"></a>
+<a id="canonical-2102331331033031-1021112220120301-2333333112110302-3113331101032113-3011103312120213-0323323012122110-3302113031202010-0113332102002312"></a>
 
 Type: `"single"`. Computed.
 
@@ -458,59 +458,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-34874451fb800cdef5dde6e434e91c53f380f0178b82f1e3ddd2c3b3de54aee7"></a>
+<a id="canonical-0310201310101101-3323200000303132-3311313132123210-0310322101301103-3303200033000113-2023200233013203-3131310230032303-3132111022323213"></a>
 
-## Direct properties — create_cloud_hosted.production / 177347938b24 / 3
+## Direct properties — production / 210320230210 / 3
 
-<a id="canonical-7e443cfc26b46b278d67c95773eb11bf4caec77a2cc70898121da4bca2b83ed0"></a>
+<a id="canonical-1332101003303330-0212231012230213-2031121330211113-1303322301012333-1030223230131322-0230301300202120-0102013122102330-2202232003323100"></a>
 
-<a id="canonical-b66ffb04f67eaa8d10093e799d557c78cdb27720d00d824a6780b433b99c7a9c"></a>
+<a id="canonical-2312123333230010-3312133222222031-0100002103321321-2131111113301320-3031230213130200-3100003120021022-1213200023100303-2321213013222130"></a>
 
-## region_1 property — create_cloud_hosted.production / 177347938b24 / 4
-
-Type: `"string"`. Computed.
-
-Active-Active Infrastructure configuration where traffic is routed equally between the two regions.
-
-Upstream description:
-
-This is an Active-Active Infrastructure configuration where traffic is routed equally between the
-two regions.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true"
-  }
-}
-```
-
-<a id="canonical-2e296ce9307a55068c190038f116e2cbac216df88f134b545649d89b1191ce6e"></a>
-
-<a id="canonical-f988dc471f0e10b574ea43dcfe449dfde160ee5428550668056475386d371c00"></a>
-
-## region_2 property — create_cloud_hosted.production / 177347938b24 / 5
+## region_1 property — production / 210320230210 / 4
 
 Type: `"string"`. Computed.
 
@@ -550,31 +506,75 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-06c8d1b7edb9e47414383977a7639816e5e3834092e7f7cb139ced71c6e97a4d"></a>
+<a id="canonical-0232022112303221-0300132211110012-2030012100000320-3301011232023023-2230020112313320-2033010310231110-1112102131202123-0101210130321232"></a>
 
-## Next pages — create_cloud_hosted.production / 177347938b24 / 6
+<a id="canonical-3321202031301013-0133003201002311-1310322210033130-3332101021313331-3201120032321110-0220111100121220-0011121013110320-1231031301300000"></a>
 
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859)
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
+## region_2 property — production / 210320230210 / 5
 
-<a id="canonical-27d7594f1809924f458da66029ebc370d680a7094060f50b28910f0838b73e32"></a>
+Type: `"string"`. Computed.
+
+Active-Active Infrastructure configuration where traffic is routed equally between the two regions.
+
+Upstream description:
+
+This is an Active-Active Infrastructure configuration where traffic is routed equally between the
+two regions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="canonical-0012302031012313-3231232132101310-0110032003211313-2213120321200112-3211320320031000-2102321333133023-0103213032311301-3012322113221031"></a>
+
+## Next pages — production / 210320230210 / 6
+
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
+
+<a id="canonical-0213311311211033-0120002121021033-1011203122121200-0221322330031300-3112200022130021-1000120033110023-0220210100330020-0320231303320302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cf7f48ac1de7f4a21771910d1c616fb311869bd6f72a39cd6b9f46b0b523c3f9"></a>
+<a id="canonical-3033133310202230-0131321333102202-0113130121010031-0130120112332303-0101201221233112-3313022203213031-1223213310122300-2311020330033321"></a>
 
-## create_cloud_hosted.testing — create_cloud_hosted.testing / 95d6b84b315a / 2
+## create_cloud_hosted.testing — testing / 102303011122 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
-- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)
+- [Property reference](data-sources--bot_infrastructure--reference--group-001.md#canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232)
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121)
 - create_cloud_hosted.testing
 
-<a id="canonical-294ec0c659d51b638eb60aaadbd854663be508b101ea97793f5fea2f3c148fb0"></a>
+<a id="canonical-0221103230003012-1121311101231203-2032231200222222-3123312011101212-0323321100202301-0001322221131321-0333113332220233-0330011020332300"></a>
 
 Type: `"single"`. Computed.
 
@@ -593,15 +593,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8843e31457bdb5e37729f544468945633fcb3a682e3d32f2d551ba0971aa5c3a"></a>
+<a id="canonical-2020100332030110-1113233123113203-1313022133111010-1012202110111203-0333302303221220-0232033103023302-3111110123220021-1301222211300322"></a>
 
-## Direct properties — create_cloud_hosted.testing / 95d6b84b315a / 3
+## Direct properties — testing / 102303011122 / 3
 
-<a id="canonical-2e4e4f6cac3deb3e974186a37629ce504626336f50c44bc8bb77d206851a258d"></a>
+<a id="canonical-0232103210331230-2230033132230332-2113100120122203-1312022130321100-1012021203031233-1100301010233020-2323131331020012-2011012202112031"></a>
 
-<a id="canonical-e7e35373ba28b04db405ad4d1212fef2a59eaa38b0f81cfaccdc337bdc1557b1"></a>
+<a id="canonical-3213320311031303-2322022023001031-2310001122311031-0102010233323302-2211213222220320-2300332001303322-3030313003031323-3130011111132301"></a>
 
-## region_1 property — create_cloud_hosted.testing / 95d6b84b315a / 4
+## region_1 property — testing / 102303011122 / 4
 
 Type: `"string"`. Computed.
 
@@ -640,9 +640,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a747fe7d668d2188697576038a0ed326acac8764acc0854edd3917282ca5f83"></a>
+<a id="canonical-0022131013333213-3112122031020120-2012211311131200-0320220032310302-1222302230201312-1022303000201110-3231310321011302-2002302211332003"></a>
 
-## Next pages — create_cloud_hosted.testing / 95d6b84b315a / 5
+## Next pages — testing / 102303011122 / 5
 
-- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-42a6a07091a3a1551f90bee9ebfad0c1cf0e9b122612821a38744c0af4c83859)
-- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64)
+- [create_cloud_hosted](data-sources--bot_infrastructure--reference--group-001.md#canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121)
+- [xcsh_bot_infrastructure](../data-sources/bot_infrastructure.md#canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210)

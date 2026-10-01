@@ -6,32 +6,32 @@ description: "Complete grouped canonical reference for xcsh_tmm_session_metrics 
 
 # xcsh_tmm_session_metrics reference
 
-<a id="canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84"></a>
+<a id="canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-447f725647e10a4bc0ab529243adbee3f84bc7a6d2a0485a901f23e819c95fd7"></a>
+<a id="canonical-1010133313021112-1013320100221023-3000222311022102-1003223123323203-3320102330132212-3102220010201122-2100013302033220-0121302111333113"></a>
 
-## Property reference — Property reference / 93cb9827ed5a / 2
+## Property reference — Property reference / 021332311122 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 - Property reference
 
-<a id="canonical-6331918f1a3407569fb03c218b82b271761f7296c90b5fdfc1dd417f1939bfb1"></a>
+<a id="canonical-1203030121012033-0122031000131112-2133230003300201-2023200223021301-1312013313022112-3021002311333133-3001313110011333-0121032123332301"></a>
 
-## Direct properties — Property reference / 93cb9827ed5a / 3
+## Direct properties — Property reference / 021332311122 / 3
 
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344): complete subsection reference.
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010): complete subsection reference.
 
-<a id="canonical-9c72fcd61e192c759e5faa3053b12e0fccf22593151fcd4aaaf332a2d2f7c3bb"></a>
+<a id="canonical-2130130233303112-0132012102301311-2132113322220300-1103230102320033-3030330202112103-0111013330311022-2222330303022202-3102331330032323"></a>
 
-<a id="canonical-04a7862b1880e3af7956a04cd23b4cc8c04a4b6863c9481a12999816b0bb37b3"></a>
+<a id="canonical-0010221320120223-0120200032032233-1321111222001030-3102032310303020-3000102210231220-1203302110200122-0102212121200112-2300232303132303"></a>
 
-## end_time property — Property reference / 93cb9827ed5a / 4
+## end_time property — Property reference / 021332311122 / 4
 
 Type: `"string"`. Optional.
 
@@ -40,11 +40,11 @@ unix\_timestamp|RFC 3339 Optional: If not specified, then the end\_time will be 
 start\_time+10m If start\_time is not specified, then the end\_time will be evaluated to &lt;current
 time&gt;.
 
-<a id="canonical-9214bfa30326b1646a5dcc0c02c3f0e8f4eb93e2dd123c17f295bfd1ef687544"></a>
+<a id="canonical-2102011023332203-0003021223011210-1222113130300030-0002300333003220-3310322321033202-3131010203300113-3302211123333101-3233122013111010"></a>
 
-<a id="canonical-67bb283c659097a0fca5b2d6952967febf3d2d31d8dfb090e04a48161eac48b1"></a>
+<a id="canonical-1213232302200330-1211210021132200-3330221123023112-2111022112133332-2333033102310301-3120313323002100-3200102210200112-0132223010202301"></a>
 
-## field_selector property — Property reference / 93cb9827ed5a / 5
+## field_selector property — Property reference / 021332311122 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -57,11 +57,11 @@ values are \`METRIC\_TYPE\_NONE\`, \`METRIC\_TYPE\_ACTIVE\`, \`METRIC\_TYPE\_ALL
 \`METRIC\_TYPE\_ESTABLISHED\_TIMEOUT\`, \`METRIC\_TYPE\_EVALUATION\_TIMEOUT\`,
 \`METRIC\_TYPE\_ADMIN\_TERMINATED\`. Defaults to \`METRIC\_TYPE\_NONE\`.
 
-<a id="canonical-843f0b52915f2ff6161cac1da81972db9858ff5d1fa59121a9a16949418b7591"></a>
+<a id="canonical-2010033300231102-2101113302333312-0112013022300131-2220012113023123-2120112033331131-0133221121010201-2221220112211021-1001202313112101"></a>
 
-<a id="canonical-94483d0dedad04745f74059ea8a9de9378e4e631fe540fabf23d7e7ef91181b4"></a>
+<a id="canonical-2110102003310031-3231223100101310-1133131000112132-2220222131322103-1320321032120301-3332111000332223-3302033113321332-3321010120012310"></a>
 
-## group_by property — Property reference / 93cb9827ed5a / 6
+## group_by property — Property reference / 021332311122 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -79,34 +79,34 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-cf1498bb5997d9f010ec44eba76803b8760205d3430e227c208e7ef5eece593b"></a>
+<a id="canonical-3033011021202323-1121211331213300-0100323010103223-2213122000032320-1312000200113103-1003003202021330-0200203213323311-3232303211210323"></a>
 
-<a id="canonical-92ef9e192979d266cd9e288b89be41a9142ec17f6dd00ea4cde574cea170ae2e"></a>
+<a id="canonical-2102323321320121-0221132131021212-3031213202202023-2021233210012221-0110023230011333-1231310000322210-3031321113103032-2201130022320232"></a>
 
-## is_trend_request property — Property reference / 93cb9827ed5a / 7
+## is_trend_request property — Property reference / 021332311122 / 7
 
 Type: `"bool"`. Optional.
 
 Trend value computation requested by the user Optional:. Defaults to \`false\`.
 
-- [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-4401ddc79888b54eaf42c7ca558018746a8ccaecd10f4578cdd4f5e25e000c76): complete subsection reference.
+- [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1010000131313013-2120202023111032-2233100230133022-1111200001201310-1222203030223230-3101003310111320-3031311033113202-1132000000301312): complete subsection reference.
 
-<a id="canonical-f6808e34ec2d3b3458e4a71f7f138bbc54812a8a28d3f981c9dc70e2dde6c8e9"></a>
+<a id="canonical-3312200020320310-3230023103230310-1120321022130133-1333010320232330-1110200102222022-0220310333212001-3021313013003202-3131321230203221"></a>
 
-<a id="canonical-33b342d7dd1cccf971a5a596a748470096778fb9165f8edb5a1d50eebbf34243"></a>
+<a id="canonical-0303230310023113-3131013030303321-1301221122112112-2213102010130000-2112131320332321-0112113320323123-1122013111003232-2323330310021003"></a>
 
-## namespace property — Property reference / 93cb9827ed5a / 8
+## namespace property — Property reference / 021332311122 / 8
 
 Type: `"string"`. Required.
 
 Namespace namespace is used to scope session metrics. Only virtual server in given namespace will be
 considered.
 
-<a id="canonical-3aefaf5452479d1f6991dfc641af2ed818b2ef318ff7cca99746d3d63a4e6a60"></a>
+<a id="canonical-0322323322331110-1102101321310133-1221210131333012-1001223302323120-0120230232330301-2033331330302221-2113101231033112-0322103212221200"></a>
 
-<a id="canonical-174b2d8724880a71f927a94af199a9d309bc0546ab72abb1d8e7a1c0029a0d20"></a>
+<a id="canonical-0113102302312013-0210202000221301-3321021322211022-3301212122213103-0021233000111012-2223130222232301-3120321322013000-0002212200310200"></a>
 
-## start_time property — Property reference / 93cb9827ed5a / 9
+## start_time property — Property reference / 021332311122 / 9
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Format: unix\_timestamp|RFC 3339 Optional: If not specified, then the start\_tim
 to end\_time-10m If end\_time is not specified, then the start\_time will be evaluated to
 &lt;current time&gt;-10m.
 
-<a id="canonical-67fde01179d0b5535da33c8b80a753d5fc2bbde80c286195faecf970f83b84a1"></a>
+<a id="canonical-1213333132000101-1321310023111103-1131220303302023-2000221311033111-3330022323313220-0030022012012111-3322323033211300-3320032320102201"></a>
 
-<a id="canonical-411babb8a8ba6f2abfcdb7eeb8590f5f091f0af04e1d0879a98da99824c76ebd"></a>
+<a id="canonical-1001012322232320-2220232212330222-2333303123133232-2320112100331133-0021013300223300-1032013100201321-2221203122212120-0210301312322331"></a>
 
-## step property — Property reference / 93cb9827ed5a / 10
+## step property — Property reference / 021332311122 / 10
 
 Type: `"string"`. Optional.
 
@@ -127,80 +127,80 @@ Step is the resolution width, which determines the number of the data points \[x
 returned in the response. The timestamps in the response will be t1=start\_time, t2=t1+step, ..
 Tn=tn-1+step, where tn &lt;= end\_time.
 
-<a id="canonical-3a4f5613b13ec766f754a915a45124788d1cccbf9dd680e7dc860836789bce15"></a>
+<a id="canonical-0322103311120103-2301033230131212-3313111022210111-2210110102101320-2031013030302333-2131311220003213-3130201200200312-1320212330320111"></a>
 
-## All schema paths — Property reference / 93cb9827ed5a / 11
+## All schema paths — Property reference / 021332311122 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `data` | [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0d80eb0701c813f8f5346b1178a07a7aaee56f1e81798993a03b302021a95ff4) |
-| `data.metric` | [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-11489bf91bf897c0c394093762607d843828dd21c3907271c748d8ddfd7a2add) |
-| `data.metric.key` | [data.metric.key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-946cf6f2734ec0e8ab9010a5aab9160ffe17e6ce46453a08875bb2b342fb3dee) |
-| `data.metric.value` | [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-e1203cc2706d5e0221fe801d59f0f9d9d818b19dec1d2f327eb7afcf25965b8b) |
-| `data.metric.value.timestamp` | [data.metric.value.timestamp](data-sources--tmm_session_metrics--reference--group-001.md#canonical-dbe169cc1791d08f5abcb479fdb5876e19ea1cecef7477b88e8c23e89698777e) |
-| `data.metric.value.trend_value` | [data.metric.value.trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-90dfb62a6bcdf8ead41e0a0c4ee783c611c1f93e278fb23bcb123b29cb7f4a1b) |
-| `data.metric.value.trend_value.description_spec` | [data.metric.value.trend_value.description_spec](data-sources--tmm_session_metrics--reference--group-001.md#canonical-ce4b3d264c465b4290810a960b8ea83edb93a2caf405cbace0e54110019cb20c) |
-| `data.metric.value.trend_value.previous_value` | [data.metric.value.trend_value.previous_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-93fd207092664ec499ae16ea4fc4c70bc6a931ca398d436b8734253e5ddb3a27) |
-| `data.metric.value.trend_value.sentiment` | [data.metric.value.trend_value.sentiment](data-sources--tmm_session_metrics--reference--group-001.md#canonical-b8e6f1b9cd6817d55e0c9f5caf8932305b3b235d305e834637675d9aed7903b7) |
-| `data.metric.value.trend_value.value` | [data.metric.value.trend_value.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-c6e83257f43f640a191c068287b68837682559d898ac9bd92b776e8bbfbaabaa) |
-| `data.metric.value.value` | [data.metric.value.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1fbb39d0e5ca98baa69e783a4efb07d9455f8c61d17e5b1c44d7058788fa47f1) |
-| `data.type` | [data.type](data-sources--tmm_session_metrics--reference--group-001.md#canonical-18d00233513d513e137f4881c2f1333340475788443cd9175d6cc81f75d3a7ec) |
-| `data.unit` | [data.unit](data-sources--tmm_session_metrics--reference--group-001.md#canonical-5d3b27d4f3352ca3682fe8c7f7d16ec3a11ec17afcd2d74ac07d0d41e3d87551) |
-| `end_time` | [end_time](data-sources--tmm_session_metrics--reference--group-001.md#canonical-9c72fcd61e192c759e5faa3053b12e0fccf22593151fcd4aaaf332a2d2f7c3bb) |
-| `field_selector` | [field_selector](data-sources--tmm_session_metrics--reference--group-001.md#canonical-9214bfa30326b1646a5dcc0c02c3f0e8f4eb93e2dd123c17f295bfd1ef687544) |
-| `group_by` | [group_by](data-sources--tmm_session_metrics--reference--group-001.md#canonical-843f0b52915f2ff6161cac1da81972db9858ff5d1fa59121a9a16949418b7591) |
-| `is_trend_request` | [is_trend_request](data-sources--tmm_session_metrics--reference--group-001.md#canonical-cf1498bb5997d9f010ec44eba76803b8760205d3430e227c208e7ef5eece593b) |
-| `label_filter` | [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6c8afc2bac643256e9e8f0a2f01d7c5b72bab654c17c40b46055ca8b6ea37877) |
-| `label_filter.label` | [label_filter.label](data-sources--tmm_session_metrics--reference--group-001.md#canonical-28952a15a4dd2b39c6d521f55417bbc5792e9f53d97bd57eeaecf3c8ddf14cae) |
-| `label_filter.op` | [label_filter.op](data-sources--tmm_session_metrics--reference--group-001.md#canonical-180cec6c5cadbe04944e427acd6f006f3e04b674b0ac740b612e2f694cfbe881) |
-| `label_filter.value` | [label_filter.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-34ad5e62dc66796d741ef1e6e4680ff9f4d733ef338db14e654f2ee2abad302b) |
-| `namespace` | [namespace](data-sources--tmm_session_metrics--reference--group-001.md#canonical-f6808e34ec2d3b3458e4a71f7f138bbc54812a8a28d3f981c9dc70e2dde6c8e9) |
-| `start_time` | [start_time](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3aefaf5452479d1f6991dfc641af2ed818b2ef318ff7cca99746d3d63a4e6a60) |
-| `step` | [step](data-sources--tmm_session_metrics--reference--group-001.md#canonical-67fde01179d0b5535da33c8b80a753d5fc2bbde80c286195faecf970f83b84a1) |
+| `data` | [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0031200032230013-0001302001033320-3311031012230101-1320220013221322-2232321112330132-2001132120212103-2200032303000200-0201222111333310) |
+| `data.metric` | [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0101102021233321-0123332021133000-3003211000210313-1202120013312010-0320022031310201-3003210013021301-3013102031203131-3331132202223131) |
+| `data.metric.key` | [data.metric.key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2110123033123302-1303103230003220-2223210001002211-2222232101120033-3332011332123032-1012101103220020-2013112323022303-1002332303313232) |
+| `data.metric.value` | [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3201020003303002-1300123111320002-0201333220000131-1121330033213121-3120012023012131-3230013102330302-1332231322333033-0211211211232023) |
+| `data.metric.value.timestamp` | [data.metric.value.timestamp](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3123320112213030-0113210131002033-1122233023101321-3331231120131232-0121322201303230-3233131013132320-2032203002033220-2112212013131332) |
+| `data.metric.value.trend_value` | [data.metric.value.trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2100313323120222-1223303133203222-3110013200220030-1032321320033012-0101300133210332-0213203323020323-3023010203230221-3023133310220123) |
+| `data.metric.value.trend_value.description_spec` | [data.metric.value.trend_value.description_spec](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3032102303310212-1030101211231002-2100200100222112-0023203222200332-3123210322023022-3310001130232230-3200321110010100-0001213023020030) |
+| `data.metric.value.trend_value.previous_value` | [data.metric.value.trend_value.previous_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2103333102001300-2102121210323010-2121223201123222-1033301030130023-3012222103013022-0321203110031223-2013031002110332-1131312303220213) |
+| `data.metric.value.trend_value.sentiment` | [data.metric.value.trend_value.sentiment](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2320321233012321-3031122001133111-1132003021331130-2233202103020300-1123032302031131-0300113220031012-0313121311312122-3231132100032313) |
+| `data.metric.value.trend_value.value` | [data.metric.value.trend_value.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3012322003021113-3310033312100022-0121013000122002-2013231220200313-1220021111213120-2120223021233121-0223131312322023-2333232222232222) |
+| `data.metric.value.value` | [data.metric.value.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0133232303213100-3211302221202322-2212213213200322-1032332300133121-1011113320301201-3101133211230130-1010311300112013-2020332210133301) |
+| `data.type` | [data.type](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0120310000020303-1101033111010332-0103133310202001-3002330103030303-1000101311132020-1010033031210113-1131123030200133-1311310322133230) |
+| `data.unit` | [data.unit](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1131032302133110-3303031102302203-1220023332203013-3313310112323003-2201013230011322-3330310231131022-3000133100311001-3203312013111101) |
+| `end_time` | [end_time](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2130130233303112-0132012102301311-2132113322220300-1103230102320033-3030330202112103-0111013330311022-2222330303022202-3102331330032323) |
+| `field_selector` | [field_selector](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2102011023332203-0003021223011210-1222113130300030-0002300333003220-3310322321033202-3131010203300113-3302211123333101-3233122013111010) |
+| `group_by` | [group_by](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2010033300231102-2101113302333312-0112013022300131-2220012113023123-2120112033331131-0133221121010201-2221220112211021-1001202313112101) |
+| `is_trend_request` | [is_trend_request](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3033011021202323-1121211331213300-0100323010103223-2213122000032320-1312000200113103-1003003202021330-0200203213323311-3232303211210323) |
+| `label_filter` | [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1230202233300223-2230121003021112-3221322033002202-3300013113301123-1302232223121110-3001133010002310-1200111130222023-1232220313201313) |
+| `label_filter.label` | [label_filter.label](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0220211102220111-2210313102230321-3012311102013311-1110011323233011-1321023221331103-3121132331111332-3222323033033020-3131330110302232) |
+| `label_filter.op` | [label_filter.op](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0120003032301230-1130223123320010-2110103210021322-3031123300001233-0332001023121310-2300223013100023-1201023202331221-1030332332202001) |
+| `label_filter.value` | [label_filter.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0310223111321202-3130121213211231-1310013233013212-3210122000333321-3310311303033233-0303203123011032-1211103302323202-2223223103000223) |
+| `namespace` | [namespace](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3312200020320310-3230023103230310-1120321022130133-1333010320232330-1110200102222022-0220310333212001-3021313013003202-3131321230203221) |
+| `start_time` | [start_time](data-sources--tmm_session_metrics--reference--group-001.md#canonical-0322323322331110-1102101321310133-1221210131333012-1001223302323120-0120230232330301-2033331330302221-2113101231033112-0322103212221200) |
+| `step` | [step](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1213333132000101-1321310023111103-1131220303302023-2000221311033111-3330022323313220-0030022012012111-3322323033211300-3320032320102201) |
 
-<a id="canonical-535da31188531792613e9713863e3598f3a2bbbcd2be76569c15c8fc24a7ff8b"></a>
+<a id="canonical-1103113122030101-2020110301132102-1201033221130103-2012033203112120-3303220223232330-3102233213121112-2130011130203330-0210221333332023"></a>
 
-## Next pages — Property reference / 93cb9827ed5a / 12
+## Next pages — Property reference / 021332311122 / 12
 
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
-- [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-4401ddc79888b54eaf42c7ca558018746a8ccaecd10f4578cdd4f5e25e000c76)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
+- [label_filter](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1010000131313013-2120202023111032-2233100230133022-1111200001201310-1222203030223230-3101003310111320-3031311033113202-1132000000301312)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344"></a>
+<a id="canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-58e329b3eb69cad335f40fa600ba669ba2d28f5e332a64160c90541bf7a35fa2"></a>
+<a id="canonical-1120320302212303-3223122130223103-0311331000332212-0000232212122123-2202310220331132-0303022212100112-0030210011100123-3313220311332202"></a>
 
-## data — data / 92026aefaecc / 2
+## data — data / 323322323030 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
 - data
 
-<a id="canonical-0d80eb0701c813f8f5346b1178a07a7aaee56f1e81798993a03b302021a95ff4"></a>
+<a id="canonical-0031200032230013-0001302001033320-3311031012230101-1320220013221322-2232321112330132-2001132120212103-2200032303000200-0201222111333310"></a>
 
 Type: `"list"`. Computed.
 
 Data contains time-series TMM Session data.
 
-<a id="canonical-acd606a3ca59de80ea4b5f39a283974f3a5f2288adb1924bd39fb0ef30508a42"></a>
+<a id="canonical-2230311200122203-3022112131322000-3222102311330321-2202200321131033-0322113302022020-2231230121021023-3103213323003233-0300110020221002"></a>
 
-## Direct properties — data / 92026aefaecc / 3
+## Direct properties — data / 323322323030 / 3
 
-- [metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0): complete subsection reference.
+- [metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100): complete subsection reference.
 
-<a id="canonical-18d00233513d513e137f4881c2f1333340475788443cd9175d6cc81f75d3a7ec"></a>
+<a id="canonical-0120310000020303-1101033111010332-0103133310202001-3002330103030303-1000101311132020-1010033031210113-1131123030200133-1311310322133230"></a>
 
-<a id="canonical-55452aa6fc90f117d4b07c65d401bc768b2415f3130c7d2623e3b3ea430abdf5"></a>
+<a id="canonical-1111101102222212-3330210033010113-3110230013301211-3110000123301312-2023021001113303-0103003013310212-0203320323033222-1003002223313311"></a>
 
-## type property — data / 92026aefaecc / 4
+## type property — data / 323322323030 / 4
 
 Type: `"string"`. Computed.
 
@@ -230,11 +230,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-5d3b27d4f3352ca3682fe8c7f7d16ec3a11ec17afcd2d74ac07d0d41e3d87551"></a>
+<a id="canonical-1131032302133110-3303031102302203-1220023332203013-3313310112323003-2201013230011322-3330310231131022-3000133100311001-3203312013111101"></a>
 
-<a id="canonical-1fb7aa4890e84bfae2c45ef3be64b875a96729191177357e694b9864eca40520"></a>
+<a id="canonical-0133231322221020-2100322010233322-3202301011323303-2332121023201311-2221121302210121-0101131303111332-1221102321201210-3230221000110200"></a>
 
-## unit property — data / 92026aefaecc / 5
+## unit property — data / 323322323030 / 5
 
 Type: `"string"`. Computed.
 
@@ -283,203 +283,203 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-8eec9214b0a3ea7a739b53f0e9c9c21f9bbaeade79e6925b7cd2ad0add5cb07d"></a>
+<a id="canonical-2032323021020110-2300220332221322-1303212311033300-3221302130020133-2123232232223132-1321321221021123-1330310222310022-3131113023001331"></a>
 
-## Next pages — data / 92026aefaecc / 6
+## Next pages — data / 323322323030 / 6
 
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0"></a>
+<a id="canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-605a29b202526b8bcb783f3a05d5e913845802414bfe6b26e6491ee9761b443f"></a>
+<a id="canonical-1200112202212302-0002110212232023-3023132003330322-0011311132210103-2010112000021001-1023333212230212-3212102101323221-1312012310100333"></a>
 
-## data.metric — data.metric / 83e4e916879b / 2
+## data.metric — metric / 011220132123 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
 - data.metric
 
-<a id="canonical-11489bf91bf897c0c394093762607d843828dd21c3907271c748d8ddfd7a2add"></a>
+<a id="canonical-0101102021233321-0123332021133000-3003211000210313-1202120013312010-0320022031310201-3003210013021301-3013102031203131-3331132202223131"></a>
 
 Type: `"list"`. Computed.
 
 Metric. List of metrics.
 
-<a id="canonical-0bf1e13971c4a0e9d91b7fa85713fd17bed345a850f76b953f72270c54e86682"></a>
+<a id="canonical-0023330132010321-1301301022003221-3121012313332220-1113010333310113-2332310310112220-1100331312232111-0333130202130030-1110322012122002"></a>
 
-## Direct properties — data.metric / 83e4e916879b / 3
+## Direct properties — metric / 011220132123 / 3
 
-- [key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-e4d05a37f4d83ea26e4acc3284be1484d9222b6000946976aba64b320accc2eb): complete subsection reference.
+- [key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3210310011220313-3310312003322202-1232102230300302-2010233201102010-3121020202231200-0000211012211312-2223221210230302-0022303030023223): complete subsection reference.
 
-- [value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-7ad82d2e1b9a6a9e6cadbf28d029c4513dbdd9278670f13126af7f039e73188f): complete subsection reference.
+- [value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1322312002310232-0123212212222132-1230223123330220-3100022130101101-0331233131210213-2012130033010301-0212223313330003-2132130301202033): complete subsection reference.
 
-<a id="canonical-9d9d8b9cbf44a41e92331b44e545f49f0aca251c07c8ceef2ff902017048a681"></a>
+<a id="canonical-2131213120232130-2333101022100132-2102030301231010-3211101133102133-0022302202110130-0013302030323233-0233332100020001-1300102022122001"></a>
 
-## Next pages — data.metric / 83e4e916879b / 4
+## Next pages — metric / 011220132123 / 4
 
-- [data.metric.key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-e4d05a37f4d83ea26e4acc3284be1484d9222b6000946976aba64b320accc2eb)
-- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-7ad82d2e1b9a6a9e6cadbf28d029c4513dbdd9278670f13126af7f039e73188f)
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data.metric.key](data-sources--tmm_session_metrics--reference--group-001.md#canonical-3210310011220313-3310312003322202-1232102230300302-2010233201102010-3121020202231200-0000211012211312-2223221210230302-0022303030023223)
+- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1322312002310232-0123212212222132-1230223123330220-3100022130101101-0331233131210213-2012130033010301-0212223313330003-2132130301202033)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-e4d05a37f4d83ea26e4acc3284be1484d9222b6000946976aba64b320accc2eb"></a>
+<a id="canonical-3210310011220313-3310312003322202-1232102230300302-2010233201102010-3121020202231200-0000211012211312-2223221210230302-0022303030023223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c3631071efd1113aa2b18b86c79ebb4ec0be9789984562ea1d869d024972f50"></a>
+<a id="canonical-0330031203010013-0132333101010103-2222022301202320-1230132132232310-3230002332211320-2121201011120232-2201312012213100-0210211302331100"></a>
 
-## data.metric.key — data.metric.key / 83d97f18d562 / 2
+## data.metric.key — key / 012031111202 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
 - data.metric.key
 
-<a id="canonical-946cf6f2734ec0e8ab9010a5aab9160ffe17e6ce46453a08875bb2b342fb3dee"></a>
+<a id="canonical-2110123033123302-1303103230003220-2223210001002211-2222232101120033-3332011332123032-1012101103220020-2013112323022303-1002332303313232"></a>
 
 Type: `"single"`. Computed.
 
 Key contains the name/value pair. 'name' is the label name defined in 'MetricLabel'.
 
-<a id="canonical-2aca0480c4928dbafcab43fcf4925db8e94e124ae2ccec7227f0b0cbb57716c6"></a>
+<a id="canonical-0222302200102000-3010210220312322-3330222310033330-3310210211312320-3221103201021022-3202303032301302-0213330023003023-2311131301123012"></a>
 
-## Direct properties — data.metric.key / 83d97f18d562 / 3
+## Direct properties — key / 012031111202 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e565a778116d017eaba5ef37586915c3c67b6083251ee123306c34f07084346d"></a>
+<a id="canonical-3211121122131320-0101123100011332-2223221132330313-1120122101113003-3012132312002003-0211013232010203-0300123003103300-1300201003101231"></a>
 
-## Next pages — data.metric.key / 83d97f18d562 / 4
+## Next pages — key / 012031111202 / 4
 
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-7ad82d2e1b9a6a9e6cadbf28d029c4513dbdd9278670f13126af7f039e73188f"></a>
+<a id="canonical-1322312002310232-0123212212222132-1230223123330220-3100022130101101-0331233131210213-2012130033010301-0212223313330003-2132130301202033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-85569d1a0cb6cd43368afb266e986a02de65feca21c75ccbe813da1d1017597a"></a>
+<a id="canonical-2011111221310122-0030231230311003-0312202233230212-1232212012220002-3132121133323022-0201301311303023-3220010331220131-0100011311211322"></a>
 
-## data.metric.value — data.metric.value / 810eca911cff / 2
+## data.metric.value — value / 210101303333 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
 - data.metric.value
 
-<a id="canonical-e1203cc2706d5e0221fe801d59f0f9d9d818b19dec1d2f327eb7afcf25965b8b"></a>
+<a id="canonical-3201020003303002-1300123111320002-0201333220000131-1121330033213121-3120012023012131-3230013102330302-1332231322333033-0211211211232023"></a>
 
 Type: `"list"`. Computed.
 
 Value. List of metric values.
 
-<a id="canonical-398af823ce51c55e97ed8c41b4d805c95fceb0797a1eb3a4fc2b1803cef6ce84"></a>
+<a id="canonical-0321202233200203-3032110130111132-2113323120301001-2310312000113021-1133303223001321-1322013223032210-3330022301200003-3032331230322010"></a>
 
-## Direct properties — data.metric.value / 810eca911cff / 3
+## Direct properties — value / 210101303333 / 3
 
-<a id="canonical-dbe169cc1791d08f5abcb479fdb5876e19ea1cecef7477b88e8c23e89698777e"></a>
+<a id="canonical-3123320112213030-0113210131002033-1122233023101321-3331231120131232-0121322201303230-3233131013132320-2032203002033220-2112212013131332"></a>
 
-<a id="canonical-7b26617254201c12c214686219adcbfd38958877ace6e18d0b2c21139192cae2"></a>
+<a id="canonical-1323021212011302-1110020001300102-3002011012201202-0121223130233331-0320211120201313-2230321232012031-0023023002010103-2101210230223202"></a>
 
-## timestamp property — data.metric.value / 810eca911cff / 4
+## timestamp property — value / 210101303333 / 4
 
 Type: `"number"`. Computed.
 
 Timestamp. Timestamp
 
-- [trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-a5f3143dd9224006057c6a9b38292f562db420d49f79a98e7c3ff54afe99a009): complete subsection reference.
+- [trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2211330301100331-3121020210000012-0011133012222123-0320022102331112-0231231002003110-2133132122212032-1330033333111022-3332212122000021): complete subsection reference.
 
-<a id="canonical-1fbb39d0e5ca98baa69e783a4efb07d9455f8c61d17e5b1c44d7058788fa47f1"></a>
+<a id="canonical-0133232303213100-3211302221202322-2212213213200322-1032332300133121-1011113320301201-3101133211230130-1010311300112013-2020332210133301"></a>
 
-<a id="canonical-629ce7bb07abfd4b5b5766a05f9d9c4aca062b3d54d1fa4fa99034d4e38a41e1"></a>
+<a id="canonical-1202213032132323-0013222333311023-1123111312122200-1133213121301022-3022001202230331-1110310133221033-2221210003103110-3203202210013201"></a>
 
-## value property — data.metric.value / 810eca911cff / 5
+## value property — value / 210101303333 / 5
 
 Type: `"string"`. Computed.
 
 Value. Configuration parameter for value
 
-<a id="canonical-190bc04f7236f10fa9611a55c36200d7046fe60288017c76e3749c5193d867dd"></a>
+<a id="canonical-0121002330001033-1302031233010033-2221120101221111-3003120200003113-0010123332120002-2020000113301312-3203131021301101-2103312012133131"></a>
 
-## Next pages — data.metric.value / 810eca911cff / 6
+## Next pages — value / 210101303333 / 6
 
-- [data.metric.value.trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-a5f3143dd9224006057c6a9b38292f562db420d49f79a98e7c3ff54afe99a009)
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data.metric.value.trend_value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2211330301100331-3121020210000012-0011133012222123-0320022102331112-0231231002003110-2133132122212032-1330033333111022-3332212122000021)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-a5f3143dd9224006057c6a9b38292f562db420d49f79a98e7c3ff54afe99a009"></a>
+<a id="canonical-2211330301100331-3121020210000012-0011133012222123-0320022102331112-0231231002003110-2133132122212032-1330033333111022-3332212122000021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3e45922073076fba48445e78a86f66ca0574573de39d5caccdf47edddb7ad536"></a>
+<a id="canonical-0332101121020200-1303001312332322-1020101011321320-2220123312123022-0011131011130331-3203213111302230-3031331013323131-3123132231110312"></a>
 
-## data.metric.value.trend_value — data.metric.value.trend_value / 41fc8dade696 / 2
+## data.metric.value.trend_value — trend_value / 223132122112 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-6071d66977f819cd88722bc95ed4f96c00fe7f1e44cb22459f7e9c5bab25a344)
-- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-8a6cc9aceb7e3819db97af404bd3dac0aa475effbc80dc18eeac764f713fcfd0)
-- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-7ad82d2e1b9a6a9e6cadbf28d029c4513dbdd9278670f13126af7f039e73188f)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [data](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1200130131121221-1313332001213031-2020130202233021-1132311033211230-0000333213330132-1010302302021011-2133133221301123-2223021122031010)
+- [data.metric](data-sources--tmm_session_metrics--reference--group-001.md#canonical-2022123030212230-3223133203200121-3123211322331000-1023310331223000-2222101311323333-2330200031300120-3232223013121033-1301033330333100)
+- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1322312002310232-0123212212222132-1230223123330220-3100022130101101-0331233131210213-2012130033010301-0212223313330003-2132130301202033)
 - data.metric.value.trend_value
 
-<a id="canonical-90dfb62a6bcdf8ead41e0a0c4ee783c611c1f93e278fb23bcb123b29cb7f4a1b"></a>
+<a id="canonical-2100313323120222-1223303133203222-3110013200220030-1032321320033012-0101300133210332-0213203323020323-3023010203230221-3023133310220123"></a>
 
 Type: `"single"`. Computed.
 
 Trend value contains trend value, trend sentiment and trend calculation description and window size.
 
-<a id="canonical-400353f4765e6a884ed1ec76f65571da873160cedf8dd528227f923924fa2e0a"></a>
+<a id="canonical-1000000311033310-1312113212222020-1032310132301312-3312111113013122-2013030112003032-3133203131110220-0202133321020321-0210332202320022"></a>
 
-## Direct properties — data.metric.value.trend_value / 41fc8dade696 / 3
+## Direct properties — trend_value / 223132122112 / 3
 
-<a id="canonical-ce4b3d264c465b4290810a960b8ea83edb93a2caf405cbace0e54110019cb20c"></a>
+<a id="canonical-3032102303310212-1030101211231002-2100200100222112-0023203222200332-3123210322023022-3310001130232230-3200321110010100-0001213023020030"></a>
 
-<a id="canonical-d558429f230fefca60de63264bbe1b42f11a69461ea47feb2295d143e59e7364"></a>
+<a id="canonical-3111112010022133-0203003332333022-1200313212030212-1023233201231002-3301012212211012-0132221013333223-0202211131011003-3211213213031210"></a>
 
-## description_spec property — data.metric.value.trend_value / 41fc8dade696 / 4
+## description_spec property — trend_value / 223132122112 / 4
 
 Type: `"string"`. Computed.
 
 Description of the method used to calculate trend.
 
-<a id="canonical-93fd207092664ec499ae16ea4fc4c70bc6a931ca398d436b8734253e5ddb3a27"></a>
+<a id="canonical-2103333102001300-2102121210323010-2121223201123222-1033301030130023-3012222103013022-0321203110031223-2013031002110332-1131312303220213"></a>
 
-<a id="canonical-dfce5041ce430359747aeb644a893ad2aca5378dfc64004038563a84eb979230"></a>
+<a id="canonical-3133303211001001-3032100300031121-1310132232231210-1022202103223102-2230221103132031-3330121000001000-0320111203222010-3223211321020300"></a>
 
-## previous_value property — data.metric.value.trend_value / 41fc8dade696 / 5
+## previous_value property — trend_value / 223132122112 / 5
 
 Type: `"string"`. Computed.
 
 Configuration parameter for previous value.
 
-<a id="canonical-b8e6f1b9cd6817d55e0c9f5caf8932305b3b235d305e834637675d9aed7903b7"></a>
+<a id="canonical-2320321233012321-3031122001133111-1132003021331130-2233202103020300-1123032302031131-0300113220031012-0313121311312122-3231132100032313"></a>
 
-<a id="canonical-32a2bf060a3cc7d4ecc2fc4199835f7ad46d09291a0bb648aabb4a2a80865dd5"></a>
+<a id="canonical-0302220223330012-0022033030133110-3230300233301001-2121200311331322-3110123100210221-0122002323121020-2222232310220222-2000201211313111"></a>
 
-## sentiment property — data.metric.value.trend_value / 41fc8dade696 / 6
+## sentiment property — trend_value / 223132122112 / 6
 
 Type: `"string"`. Computed.
 
@@ -498,40 +498,40 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-c6e83257f43f640a191c068287b68837682559d898ac9bd92b776e8bbfbaabaa"></a>
+<a id="canonical-3012322003021113-3310033312100022-0121013000122002-2013231220200313-1220021111213120-2120223021233121-0223131312322023-2333232222232222"></a>
 
-<a id="canonical-5bc0246db46e023251226ae247840e2880781ec127c687849f35532ee77787be"></a>
+<a id="canonical-1123300002101231-2310123200020302-1101020212223202-1013201000320220-2000132001323001-0213301220132010-2133031111030232-3213131320132332"></a>
 
-## value property — data.metric.value.trend_value / 41fc8dade696 / 7
+## value property — trend_value / 223132122112 / 7
 
 Type: `"string"`. Computed.
 
 Value. Configuration parameter for value
 
-<a id="canonical-b365e5aa10aca1783b2616d856e7c988843bed1fdd0c4b2e13ca93100cb75bb4"></a>
+<a id="canonical-2303121132112222-0100223022011320-0323021201123120-1112321330212020-2010032332310133-3131003010230232-0103302221030100-0030231311232310"></a>
 
-## Next pages — data.metric.value.trend_value / 41fc8dade696 / 8
+## Next pages — trend_value / 223132122112 / 8
 
-- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-7ad82d2e1b9a6a9e6cadbf28d029c4513dbdd9278670f13126af7f039e73188f)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [data.metric.value](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1322312002310232-0123212212222132-1230223123330220-3100022130101101-0331233131210213-2012130033010301-0212223313330003-2132130301202033)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
 
-<a id="canonical-4401ddc79888b54eaf42c7ca558018746a8ccaecd10f4578cdd4f5e25e000c76"></a>
+<a id="canonical-1010000131313013-2120202023111032-2233100230133022-1111200001201310-1222203030223230-3101003310111320-3031311033113202-1132000000301312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c2287091c9d026c1a3e1fe483b13e2872498e1fb664013e0f5be24bccccbed35"></a>
+<a id="canonical-3002022013002101-3021310002123001-2203320133321020-0323010332022013-0210212032013323-1212100001033200-3311233202102330-3030302332310311"></a>
 
-## label_filter — label_filter / 4f924663d6e7 / 2
+## label_filter — label_filter / 120331123213 / 2
 
 Breadcrumbs:
 
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
 - label_filter
 
-<a id="canonical-6c8afc2bac643256e9e8f0a2f01d7c5b72bab654c17c40b46055ca8b6ea37877"></a>
+<a id="canonical-1230202233300223-2230121003021112-3221322033002202-3300013113301123-1302232223121110-3001133010002310-1200111130222023-1232220313201313"></a>
 
 Type: `"list"`. Optional.
 
@@ -546,15 +546,15 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-ffa6d7ce4a7608e6c7aaacb273a6df1f0a4b49d7b2863b4ba130dd0bf56ccc95"></a>
+<a id="canonical-3333221231133032-1022131200203212-3013222222302302-1303221231330133-0022102310213113-2302201203231023-2201030031310023-3311123030302111"></a>
 
-## Direct properties — label_filter / 4f924663d6e7 / 3
+## Direct properties — label_filter / 120331123213 / 3
 
-<a id="canonical-28952a15a4dd2b39c6d521f55417bbc5792e9f53d97bd57eeaecf3c8ddf14cae"></a>
+<a id="canonical-0220211102220111-2210313102230321-3012311102013311-1110011323233011-1321023221331103-3121132331111332-3222323033033020-3131330110302232"></a>
 
-<a id="canonical-7ad79184047d7f4095860a464f1f0820b81b42825b82a258974e5de423706dcd"></a>
+<a id="canonical-1322311321012010-0010133113331000-2111201200221012-1033013300200200-2320012310022002-1123200222021120-2113103211313210-0203130012313031"></a>
 
-## label property — label_filter / 4f924663d6e7 / 4
+## label property — label_filter / 120331123213 / 4
 
 Type: `"string"`. Optional.
 
@@ -575,11 +575,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-180cec6c5cadbe04944e427acd6f006f3e04b674b0ac740b612e2f694cfbe881"></a>
+<a id="canonical-0120003032301230-1130223123320010-2110103210021322-3031123300001233-0332001023121310-2300223013100023-1201023202331221-1030332332202001"></a>
 
-<a id="canonical-6c6e6d1d0702b013f0a94540f2ca1c667706da6d343bd9c68db96bfa46d15677"></a>
+<a id="canonical-1230123212310131-0013000223000103-3300222110111000-3302302201301212-1313001231221231-0310032331213012-2031232112233322-1012310111121313"></a>
 
-## op property — label_filter / 4f924663d6e7 / 5
+## op property — label_filter / 120331123213 / 5
 
 Type: `"string"`. Optional.
 
@@ -595,11 +595,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-34ad5e62dc66796d741ef1e6e4680ff9f4d733ef338db14e654f2ee2abad302b"></a>
+<a id="canonical-0310223111321202-3130121213211231-1310013233013212-3210122000333321-3310311303033233-0303203123011032-1211103302323202-2223223103000223"></a>
 
-<a id="canonical-9b05924fa0305cdb8185609003c3de7d0f2e3949a65d5a7dddaf0166a7edcc2f"></a>
+<a id="canonical-2123001121021033-2200030011303123-2001201112002100-0003300331321331-0033023203211021-2212113111221331-3131223300011212-2213323130300233"></a>
 
-## value property — label_filter / 4f924663d6e7 / 6
+## value property — label_filter / 120331123213 / 6
 
 Type: `"string"`. Optional.
 
@@ -613,9 +613,9 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-8c61e04d55c120b62220c88c4afd71d1308694193c5a56e65c2433861d69e5af"></a>
+<a id="canonical-2030120132001031-1111300102002312-0202020030202030-1022333113013101-0300201221100121-0330112211123212-1130021003032012-0131122132112233"></a>
 
-## Next pages — label_filter / 4f924663d6e7 / 7
+## Next pages — label_filter / 120331123213 / 7
 
-- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
-- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573)
+- [Property reference](data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [xcsh_tmm_session_metrics](../data-sources/tmm_session_metrics.md#canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303)

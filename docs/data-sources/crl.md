@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_crl landing."
 
 # xcsh_crl landing
 
-<a id="canonical-73f9576382ba605e0c52a90b24f3c47e46f2fa2fe6a252eff356e5dcb2c0e943"></a>
+<a id="canonical-1303332111131203-2002232212001132-0030110222210023-0210330330101332-1012330233220233-3212220211023233-3303111232113130-2302300032211003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d89d7c2d774657e79ac4af62b549d98af52ebb26db46cb7150e41b2047a9484"></a>
+<a id="canonical-1031202131133002-3113131012111332-1321223010223312-0223111021312120-2233110232232302-1231231012302313-0111003210012302-0010132221102010"></a>
 
-## xcsh_crl — xcsh_crl / bfc660bf2205 / 2
+## xcsh_crl — xcsh_crl / 233302020011 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a CRL resource in F5 Distributed Cloud for api to create crl object. configuration.
 
-<a id="canonical-5ecd1cac4994654c1889fc6c1b2ccc156e083aa23130fa07a11bdb28cc93dbf1"></a>
+<a id="canonical-1132303101302230-1021211012111030-0120202133301230-0123023030300111-1232002003222202-0301030033220013-2201012331230220-3030210331233301"></a>
 
-## Prerequisites — xcsh_crl / bfc660bf2205 / 3
+## Prerequisites — xcsh_crl / 233302020011 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-d32d560ed2b1c794b42381040365e6c04b7d7f73213ce3ba510603e429faf7b9"></a>
+<a id="canonical-3103023111120032-3102230130132110-2310020320010010-0003121132123000-1023133113331303-0201033032032322-1101001200033210-0221332233132321"></a>
 
-## Minimal configuration — xcsh_crl / bfc660bf2205 / 4
+## Minimal configuration — xcsh_crl / 233302020011 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "crl_id" {
 }
 ```
 
-<a id="canonical-9541233ccefa5a2db26b09ac1584e7d5da5e2d7420c4f492cf4e1ef7971a1442"></a>
+<a id="canonical-2111100102030330-3032332211220231-2302122300212230-0111201032133111-3122113202311310-0200301033102102-3033103201323313-2113012201101002"></a>
 
-## Root configuration — xcsh_crl / bfc660bf2205 / 5
+## Root configuration — xcsh_crl / 233302020011 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-b399bab3aa1924c1d1e60bc603528b96b2f5d05a7ea9c65ab21afced33e0d018"></a>
+<a id="canonical-2303212123222303-2222012102103001-3101321200233012-0003110220232112-2302331131001122-1332222130121122-2302012233303231-0303320031000120"></a>
 
-## Next pages — xcsh_crl / bfc660bf2205 / 6
+## Next pages — xcsh_crl / 233302020011 / 6
 
-- [Property reference](../guides/data-sources--crl--reference--group-001.md#canonical-c2c016728d6cc79099c35ae246c02f69a282f25fbac91acb6b380a38ba11c747)
-- [Examples](../guides/data-sources--crl--examples--group-001.md#canonical-b3f67ac2969dbe28fd8ecd6d912bf4b2163c31694d52b729046d2acbf3da56ec)
+- [Property reference](../guides/data-sources--crl--reference--group-001.md#canonical-3002300001121302-2031123030132100-2121300311223202-1012300002331221-2202200233021133-2322302101223023-1223032000220320-2322010130131013)
+- [Examples](../guides/data-sources--crl--examples--group-001.md#canonical-2303331213223002-2112213123320220-3331203230311231-2101022333102302-0112033003011221-1031110223130221-0010123102223023-3303312211123230)

@@ -6,31 +6,31 @@ description: "Complete grouped canonical reference for xcsh_namespace landing."
 
 # xcsh_namespace landing
 
-<a id="canonical-87303facfb5a86c45f03fd2edff3e82a1b37ef90f0d3be2e23ec03de74d32096"></a>
+<a id="canonical-2013030003332230-3323112220123010-1133000333310232-3133330332200222-0123031332332100-3300310323320232-0203323000033132-1310310302002112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1b941d55d1b44420a39f985d214db8ddd67c56467acb9dfd8a93e1706f895931"></a>
+<a id="canonical-0123211001311111-3101231010100200-2203213321201131-0201103123203131-3112133011121012-1322302321313331-2022210332011300-1233202111210301"></a>
 
-## xcsh_namespace — xcsh_namespace / aaeb769cadc6 / 2
+## xcsh_namespace — xcsh_namespace / 213022313012 / 2
 
 Breadcrumbs:
 
 - xcsh_namespace
 
-Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.
+Manages new namespace. Name of the object is name of the namespace in F5 Distributed Cloud.
 
-<a id="canonical-dbb4b093853033107dd97707dedce4c9138bae27b5153474630b1e0371c0a2ba"></a>
+<a id="canonical-3123231023002103-2011030003030100-1331312113130013-3132313032103021-0103202322320213-2311011103101310-1203002301320003-1301300022022322"></a>
 
-## Prerequisites — xcsh_namespace / aaeb769cadc6 / 3
+## Prerequisites — xcsh_namespace / 213022313012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8d3fe21097d97ce053d6577118c3d663d9ad2775edf70d7f88e046c3a2f46695"></a>
+<a id="canonical-2031033332020100-2113312113303200-1103311211131301-0120300331121203-3121223102131311-3231331300311333-2020320010123003-2202331012122111"></a>
 
-## Minimal configuration — xcsh_namespace / aaeb769cadc6 / 4
+## Minimal configuration — xcsh_namespace / 213022313012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "namespace_id" {
 }
 ```
 
-<a id="canonical-1b7ddda40dbd5fb92b41e5b4450de23800e7a3f13ae53c74e0f8a028c5955d94"></a>
+<a id="canonical-0123133131312210-0031233111332321-0223100132112310-1011003132020320-0000321322033301-0322321103301310-3200332022000220-3011211111312110"></a>
 
-## Root configuration — xcsh_namespace / aaeb769cadc6 / 5
+## Root configuration — xcsh_namespace / 213022313012 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3b0c46e14502279701f820a5421bcc79c29449fd9859445a780e8413803baf72"></a>
+<a id="canonical-0323003010123201-1011000202132113-0001332002002211-1002012330301321-3002211010213331-2120112110101122-1320003220100103-2000032322331302"></a>
 
-## Next pages — xcsh_namespace / aaeb769cadc6 / 6
+## Next pages — xcsh_namespace / 213022313012 / 6
 
-- [Property reference](../guides/data-sources--namespace--reference--group-001.md#canonical-6f4493fe6a03e423b14ed16b610b1d61c98ab9ef17f2f98fa04f2fb20e9e9fd7)
-- [Examples](../guides/data-sources--namespace--examples--group-001.md#canonical-13126340d43a7fef70e3c42c1e8d7b7fb39680618a33f6e79757825b1db49b7e)
+- [Property reference](../guides/data-sources--namespace--reference--group-001.md#canonical-1233101021033332-1222000332100203-2301103231011223-1201002301311201-3021202223213233-0113330233212033-2200103302332302-0032213221333113)
+- [Examples](../guides/data-sources--namespace--examples--group-001.md#canonical-0103010212031000-3110032213333233-1300320330100230-0132203113231333-2303211220001201-2022030333123213-2113111320021123-0131231021231332)

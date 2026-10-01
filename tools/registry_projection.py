@@ -23,14 +23,19 @@ def sha(text: str) -> str:
 
 def token(identifier: str) -> str:
     """Derive collision-safe explicit anchors from canonical identities."""
-    return "canonical-" + hashlib.sha256(identifier.encode()).hexdigest()
+    value = int.from_bytes(hashlib.sha256(identifier.encode()).digest(), "big")
+    digits = "".join(str((value >> shift) & 3) for shift in range(254, -1, -2))
+    return "canonical-" + "-".join(
+        digits[index : index + 16] for index in range(0, 128, 16)
+    )
 
 
 def pack(
     parts: list[str], overhead: str, target: int = TARGET, limit: int = LIMIT
 ) -> list[list[str]]:
     """Pack indivisible parts, counting exact UTF-8 wrapper bytes."""
-    groups, group = [], []
+    groups: list[list[str]] = []
+    group: list[str] = []
     for part in parts:
         if len((overhead + part).encode()) > limit:
             msg = "indivisible section exceeds Registry byte limit"
@@ -46,7 +51,9 @@ def pack(
 
 def sections(body: str, budget: int) -> list[str]:
     """Split headings outside fences and oversized tables between complete rows."""
-    blocks, current, fence = [], [], None
+    blocks: list[str] = []
+    current: list[str] = []
+    fence = None
     for line in body.splitlines(keepends=True):
         marker = re.match(r"^\s{0,3}(`{3,}|~{3,})", line)
         if marker:
@@ -158,12 +165,13 @@ def collect_sections(
             anchor_map = {
                 old: token(page["id"] + "#" + old) for old in ANCHOR.findall(original)
             }
-            body = ANCHOR.sub(
-                lambda match, anchor_map=anchor_map: (
-                    '<a id="' + anchor_map[match.group(1)] + '"'
-                ),
-                original,
-            )
+
+            def replace_anchor(
+                match: re.Match, mapping: dict[str, str] = anchor_map
+            ) -> str:
+                return '<a id="' + mapping[match.group(1)] + '"'
+
+            body = ANCHOR.sub(replace_anchor, original)
             canonical = canonical_url(page, site)
             if version:
                 canonical = canonical.replace(
@@ -198,14 +206,13 @@ def collect_sections(
                     + record["canonical_url"]
                     + ").\n\n"
                 )
-            item_text = '<a id="' + anchor + '"></a>\n\n' + body + "\n\n"
             buckets[bucket].append(
                 {
                     "page": page,
                     "record": record,
                     "text": publication_body(
-                        item_text,
-                        page["title"][:80]
+                        '<a id="' + anchor + '"></a>\n\n' + body + "\n\n",
+                        page["title"].split(".")[-1]
                         + " / "
                         + token(page["id"])[-12:]
                         + " / "
@@ -219,12 +226,15 @@ def collect_sections(
 
 def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict]:
     """Assign deterministic grouped files and every fragment destination."""
-    outputs, destinations = {}, {}
+    outputs: dict[str, Any] = {}
+    destinations: dict[Any, tuple[str, str]] = {}
     for (_, family), items in sorted(buckets.items()):
         page = items[0]["page"]
         title = "xcsh_" + page["provider_name"] + " " + family
         header = wrapper(title, categories[page["collection_id"]])
-        groups, group, size = [], [], len(header.encode())
+        groups: list[list[dict]] = []
+        group: list[dict] = []
+        size = len(header.encode())
         for item in items:
             # Bound link expansion conservatively before destinations are known.
             item_size = len(item["text"].encode()) + 512 * len(
@@ -265,6 +275,25 @@ def publication_body(text: str, context: str) -> str:
             lambda match: "## " + match.group(1) + " — " + context,
             parts[index],
         )
+        terms = {
+            "key value": "key-value",
+            "name space": "namespace",
+            "id": "ID",
+            "ipv4": "IPv4",
+            "ipv6": "IPv6",
+            "indexes": "indices",
+            "cloudflare": "Cloudflare",
+            "azure": "Azure",
+            "url": "URL",
+            "javascript": "JavaScript",
+        }
+        segments = re.split(r"(`[^`\n]*`|\[[^]\n]+\]\([^ )\n]+\)|<[^>]*>)", part)
+        for offset in range(0, len(segments), 2):
+            for before, after in terms.items():
+                segments[offset] = re.sub(
+                    r"\b" + re.escape(before) + r"\b", after, segments[offset]
+                )
+        part = "".join(segments)
         parts[index] = re.sub(r"\n{3,}", "\n\n", part)
     return "\n\n".join(part.strip() for part in parts if part.strip()) + "\n\n"
 
@@ -305,6 +334,8 @@ def project(
         outputs[path] = text
     for page in pages:
         page["registry_path"], page["registry_anchor"] = destinations[page["id"]]
+    for record in records:
+        record["anchor_map"] = list(record["anchor_map"].items())
     manifest = {
         "schema_version": 1,
         "target_bytes": TARGET,

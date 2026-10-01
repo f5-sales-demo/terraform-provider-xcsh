@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_azure_vnet_site life
 
 # xcsh_azure_vnet_site lifecycle
 
-<a id="canonical-f648ca3ca347ef7f27ab59f79b2ea2fc8e404b3aa0320144c0651eb872996c1d"></a>
+<a id="canonical-3312102030220330-2203101332331333-0213222311213313-2123023222023330-2032100010230322-2200030200011010-3000121101322320-1302212112300131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2fc0ef2016221f55136fb3d0dc9eb6b3c66b7ec3f3ea9534dde12e36d8ea36e1"></a>
+<a id="canonical-0233300032330200-0112020201331111-0103123323033100-3130213223122303-3012122313323003-3303322221110310-3131320102320312-3120322203123201"></a>
 
-## Import — Import / f9bf9a8c00eb / 2
+## Import — Import / 203000003223 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_azure_vnet_site.example system/example
 ```
 
-<a id="canonical-dba6cdc40365b77d55e760cf240b6097756e17f4ab023e73f3efc077ea73b1d0"></a>
+<a id="canonical-3123221230313010-0003121123131331-1111321312003033-0210002312002113-1311123201133310-2223000203321303-3303323330001313-3222130323013100"></a>
 
-## Next pages — Import / f9bf9a8c00eb / 3
+## Next pages — Import / 203000003223 / 3
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-657250870f51d2fc065cd36a65251ff9d62fee97de47bd65305eba10ee17e64d"></a>
+<a id="canonical-1211130211002013-0033110131023330-0012113031031222-1211021101333321-3112023332322113-3132101323311211-0300113223220100-3232011332121031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b93a1ae4b2696bb179bddeb2550fe6b3fd83e6dd3efde11fa8e5dc74824448d"></a>
+<a id="canonical-0023210322012232-1023021221122323-0113212331313223-0211110033321223-0333312003321231-3103323331320101-3322203211313013-1020021010102031"></a>
 
-## Timeouts — Timeouts / c7ae9dae508c / 2
+## Timeouts — Timeouts / 223211002030 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--azure_vnet_site--reference--group-008.md#canonical-7aaf0ee72da98f9252c44a72ca2e351fbad6c9e97e7f0920851c965169a6da21). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--azure_vnet_site--reference--group-008.md#canonical-1322223300323213-0231222120332102-1102301010221302-3022023203110133-2322311230213221-1332133300210200-2011013021121101-1221221231220201). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-6e42b874c9bfcb88b11162743b6f3760209431fa20b6b76c00d6590cbafd69fc"></a>
+<a id="canonical-1232100223201310-3021233330232020-2301010112021310-0323123303131200-0200211003013322-0200231223131230-0000311211210030-2322333112213330"></a>
 
-## Next pages — Timeouts / c7ae9dae508c / 3
+## Next pages — Timeouts / 223211002030 / 3
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)

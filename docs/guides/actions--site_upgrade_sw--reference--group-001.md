@@ -6,54 +6,54 @@ description: "Complete grouped canonical reference for xcsh_site_upgrade_sw refe
 
 # xcsh_site_upgrade_sw reference
 
-<a id="canonical-0c382e518064cf3a2721e69913fd349c991e7047f5c7a6025d6c71eb8269340e"></a>
+<a id="canonical-0030032002321101-2000121030330322-0213020132122121-0103333103102130-2121013213001013-3311301322120002-1131123013013223-2002122103100032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1cc3bfb639a80e8dfbda8dfc6bb5a08919f4c9761b209388a2c34fe910bc3001"></a>
+<a id="canonical-0130300323332312-0321222000322031-3323312220313330-1223231122002021-0121331030211312-0123020021032020-2202300310333221-0100233003000001"></a>
 
-## Property reference — Property reference / 9041ab6effbd / 2
+## Property reference — Property reference / 123233332331 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565)
+- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-0120130312312320-0223010000032113-2233123110100201-3130110122132200-2323212123211333-3120313220122233-0023002110221112-0320032112111211)
 - Property reference
 
-<a id="canonical-3730836dbf9153c25ec90b211153a4b52187177be3d01b3afa4bb89b29cf6b46"></a>
+<a id="canonical-0313030020031231-2333210111033002-1132302100230201-0101110322102311-0201201301131323-3203310001230322-3322102323202123-0221303312231012"></a>
 
-## Direct properties — Property reference / 9041ab6effbd / 3
+## Direct properties — Property reference / 123233332331 / 3
 
-<a id="canonical-b22c5c947defde25bdebdfce89408dcf36088dc6f0212bd83668de1e06b724f3"></a>
+<a id="canonical-2302023011302110-1331323331320211-2331322331333032-2021100020313033-0312002020313012-3300020102233120-0312122031320132-0012231302103303"></a>
 
-<a id="canonical-b90cba6a5881fd75dae612ea830e06c734cbb09f44e126433569e791a773c3cb"></a>
+<a id="canonical-2321003023221222-1120200133311311-3122321201023222-2003003200123013-0310302323002133-1010320102121003-0311122132132101-2213130330033023"></a>
 
-## site property — Property reference / 9041ab6effbd / 4
-
-Type: `"string"`. Required.
-
-<a id="canonical-409fb769a2a5d676fe78541a547bf3063fef9352cddcbcaeb897b0f5346b76bc"></a>
-
-<a id="canonical-5f181f2572b09c15f71d9aff04001a81f10f3d5b139f08773b48a0001276c4fd"></a>
-
-## software_version property — Property reference / 9041ab6effbd / 5
+## site property — Property reference / 123233332331 / 4
 
 Type: `"string"`. Required.
 
-<a id="canonical-4e626ddcaa60a2d2def115af93642330dde4b674d4dc0cb32dc979d2fc93e673"></a>
+<a id="canonical-1000213323131221-2202221131121312-3332132011100122-1110132333030012-0333323321031102-3031313023302232-2320211323003311-0310122313122330"></a>
 
-## All schema paths — Property reference / 9041ab6effbd / 6
+<a id="canonical-1133012001330211-1302230021300111-3313013121223333-0010000001222001-3301003303311123-0103213300201313-0323102022000000-0102131230103331"></a>
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+## software_version property — Property reference / 123233332331 / 5
+
+Type: `"string"`. Required.
+
+<a id="canonical-1032120212313130-2222120022023102-3132330101112233-2103121002030300-3131321023121310-3110313000302303-0231302113213102-3330210332121303"></a>
+
+## All schema paths — Property reference / 123233332331 / 6
+
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `site` | [site](actions--site_upgrade_sw--reference--group-001.md#canonical-b22c5c947defde25bdebdfce89408dcf36088dc6f0212bd83668de1e06b724f3) |
-| `software_version` | [software_version](actions--site_upgrade_sw--reference--group-001.md#canonical-409fb769a2a5d676fe78541a547bf3063fef9352cddcbcaeb897b0f5346b76bc) |
+| `site` | [site](actions--site_upgrade_sw--reference--group-001.md#canonical-2302023011302110-1331323331320211-2331322331333032-2021100020313033-0312002020313012-3300020102233120-0312122031320132-0012231302103303) |
+| `software_version` | [software_version](actions--site_upgrade_sw--reference--group-001.md#canonical-1000213323131221-2202221131121312-3332132011100122-1110132333030012-0333323321031102-3031313023302232-2320211323003311-0310122313122330) |
 
-<a id="canonical-67a1c1f2048806ffe49a7b649af6845abcea03330de210051121b9cb9607e0da"></a>
+<a id="canonical-1213220130013302-0010202000123333-3210212213231210-2122331220101122-2330322200030303-0031320201000011-0101020123213023-2112001332003122"></a>
 
-## Next pages — Property reference / 9041ab6effbd / 7
+## Next pages — Property reference / 123233332331 / 7
 
-- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565)
+- [xcsh_site_upgrade_sw](../actions/site_upgrade_sw.md#canonical-0120130312312320-0223010000032113-2233123110100201-3130110122132200-2323212123211333-3120313220122233-0023002110221112-0320032112111211)

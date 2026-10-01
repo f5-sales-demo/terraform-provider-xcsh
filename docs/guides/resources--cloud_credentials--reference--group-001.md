@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_cloud_credentials re
 
 # xcsh_cloud_credentials reference
 
-<a id="canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20"></a>
+<a id="canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6607bbfb458dced3fcf4196a013bb4a14b59f42bad8f3ace773a4361ad38cfbe"></a>
+<a id="canonical-1212001323233323-1011203130323103-3330331001211222-0001032323102201-1023112133100223-2231203303223032-1313032210031201-2231032030332332"></a>
 
-## Property reference — Property reference / 959e61ea3a47 / 2
+## Property reference — Property reference / 322203221013 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 - Property reference
 
-<a id="canonical-98c0e98e38ff2989a10a4daf9a1495ff4df7ea08fa72708a364335ae5cfed1e4"></a>
+<a id="canonical-2120300032212032-0320333302212021-2201002210312233-2122011021113333-1031331332220020-3322130213002022-0312100303112232-1130333231013210"></a>
 
-## Direct properties — Property reference / 959e61ea3a47 / 3
+## Direct properties — Property reference / 322203221013 / 3
 
-<a id="canonical-86800da7becaf8bff327b925a391101989626158591a266711e061d2fc4acc77"></a>
+<a id="canonical-2012200000312213-2332302233202333-3303021323210211-2203210101000121-2021120212011120-1121012202121213-0101320012013102-3330102230301313"></a>
 
-<a id="canonical-5315aadcba035deffec9f22c7f651aa7c4b2d7298c83310c55559ca35ce64c05"></a>
+<a id="canonical-1103011122223130-2322000311313233-3332302133020230-1333121101222213-3010230231130221-2030200303010030-1111111121302203-1130321210300011"></a>
 
-## annotations property — Property reference / 959e61ea3a47 / 4
+## annotations property — Property reference / 322203221013 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,19 +67,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53): complete subsection reference.
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103): complete subsection reference.
 
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65): complete subsection reference.
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211): complete subsection reference.
 
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b): complete subsection reference.
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323): complete subsection reference.
 
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4): complete subsection reference.
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010): complete subsection reference.
 
-<a id="canonical-ae655018076e6d2eba7c77fd372f4cb46f0f62db73f6ba87287a1d9d4f43af7d"></a>
+<a id="canonical-2232121111000120-0013123212310232-2322133013133331-0313023310302310-1233003312023123-1303331223222013-0220132201312131-1033100322331331"></a>
 
-<a id="canonical-653fe805b85fe2276c78c89e935e72b900d599148eb69962cf11c99fb85dd923"></a>
+<a id="canonical-1211033332200011-2320113332020213-1230132030202132-2103113213022321-0000311121210110-2032231221211202-3033010130212133-2320113131210203"></a>
 
-## description property — Property reference / 959e61ea3a47 / 5
+## description property — Property reference / 322203221013 / 5
 
 Type: `"string"`. Optional.
 
@@ -123,11 +123,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23c4c5880c09d2b45ed37791f364d90af1a0a8ab6abb7648880725fb58ebee43"></a>
+<a id="canonical-0203301030112020-0030002131022310-1132310313132101-3303121031210022-3301220022202223-1222232313121020-2020001302113323-1120322332321003"></a>
 
-<a id="canonical-476972e5a134cccfc33dc930daf78ea2b32461bcbcdd2411994a4cd3fb9bf521"></a>
+<a id="canonical-1013122113023211-2201031030303033-3003033130210300-3122331320322202-2303021012012330-2330313102100101-2121102210303103-3323212333110201"></a>
 
-## disable property — Property reference / 959e61ea3a47 / 6
+## disable property — Property reference / 322203221013 / 6
 
 Type: `"bool"`. Optional.
 
@@ -150,27 +150,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7): complete subsection reference.
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213): complete subsection reference.
 
-<a id="canonical-64e7469fcf37417e04a4c094512069ec6c4a0de66929057cb6f6f4276100ff1c"></a>
+<a id="canonical-1210321310122133-3033031310011332-0010221030002110-1101020012213230-1230102200313212-1221022100111330-2312331233100213-1201000033330130"></a>
 
-<a id="canonical-323ed11c045e3ee2936d85248134f6d816c56829e49319a55492b22749ba7f83"></a>
+<a id="canonical-0302033231010130-0010113203323202-2103123120110210-2001031033123120-0112301112200221-3210210301212211-1110210223020213-1021232213332003"></a>
 
-## id property — Property reference / 959e61ea3a47 / 7
+## ID property — Property reference / 322203221013 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-208db0e17f02ba45451c3b6c9cc0f339b20ba70eee1f461d246c4940ef03fcf3"></a>
+<a id="canonical-0200203123003201-1333000223221011-1011013003231230-2130300033030321-2302002322130032-3232013310120131-0210123010211000-3233000333303303"></a>
 
-<a id="canonical-a109c38030ed9a7dbd27883fb19fded6b7f87fbd7b8e420b3d9b5110790a80ae"></a>
+<a id="canonical-2201002130032000-0300323121221331-2331021320200333-2301213331323112-2313332013332331-1323203210020023-0331212311010100-1321002220002232"></a>
 
-## labels property — Property reference / 959e61ea3a47 / 8
+## labels property — Property reference / 322203221013 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -191,11 +191,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dd522debe24c946c486b84d5c3012f47ae9ae2044d28b5ceb54229789c9983bb"></a>
+<a id="canonical-3131110202313223-3202103021101230-1020122320103111-3003000102331013-2232212232020010-1031022023113032-2311100202211320-2130212120032323"></a>
 
-<a id="canonical-ca43b599a35678cb0e27caaf4f93cdfe6d1a6b121ef87cde6a094f145163ad9f"></a>
+<a id="canonical-3022100323112121-2203111213203023-0032021330222233-1033210330313332-1231012212230102-0132332013303132-1222002110330110-1101120322312133"></a>
 
-## name property — Property reference / 959e61ea3a47 / 9
+## name property — Property reference / 322203221013 / 9
 
 Type: `"string"`. Required.
 
@@ -259,11 +259,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b35ec70551a16b082e7da2a76adca3d66eb7715dd7e9fad5093b19c0ec6a7368"></a>
+<a id="canonical-2303113230130011-1101220112230020-0232133122022213-1222313022033112-1232231313011131-3113322133223111-0021032301213000-3230122213031220"></a>
 
-<a id="canonical-39e8873da6cc463e372e49c9e6dcef08ef2203f77f6db29c7f4fbf5ab97fecd9"></a>
+<a id="canonical-0321322020130331-2212303010120332-0313023210213021-3212313032330020-3233020200033313-1333123123022130-1333103323331122-2321133332303121"></a>
 
-## namespace property — Property reference / 959e61ea3a47 / 10
+## namespace property — Property reference / 322203221013 / 10
 
 Type: `"string"`. Required.
 
@@ -320,114 +320,114 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-3acc6c96cd5416a3e10b6797715d00081c043429c9034ec56cfd26dcf256fc19): complete subsection reference.
+- [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-0322303012302112-3031111001122203-3201002312132113-1301113100000020-0130001003100221-3021000310323011-1230333102123130-3302111233300121): complete subsection reference.
 
-<a id="canonical-818fb5a3e1faf1c549727b3385d70829353b30284c4b05fe1bc26f44dfb8881f"></a>
+<a id="canonical-2001203323112203-3201332233013011-1021130213230303-2011311300200221-0311032303000220-1030102300113332-0123300212331010-3133232020200133"></a>
 
-## All schema paths — Property reference / 959e61ea3a47 / 11
+## All schema paths — Property reference / 322203221013 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--cloud_credentials--reference--group-001.md#canonical-86800da7becaf8bff327b925a391101989626158591a266711e061d2fc4acc77) |
-| `aws_assume_role` | [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-84f22769fd3e174d0fe7c64ffde42b0a1cd12ff841df03686fbad29d20fd5132) |
-| `aws_assume_role.custom_external_id` | [aws_assume_role.custom_external_id](resources--cloud_credentials--reference--group-001.md#canonical-12b70d4d1a852e86a48de6d4774b1cfccf463f54659ad723539165475989eac7) |
-| `aws_assume_role.duration_seconds` | [aws_assume_role.duration_seconds](resources--cloud_credentials--reference--group-001.md#canonical-e02fc8b61732cd346e409f6dc9e23455943643252c3158c11421c779a12eb8ca) |
-| `aws_assume_role.external_id_is_optional` | [aws_assume_role.external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-74186f60bb062d070a7029ece4687c108670f5d34a5c3c58d05ec10efdb462b6) |
-| `aws_assume_role.external_id_is_tenant_id` | [aws_assume_role.external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-e14e5510df168cf3714396e8fc43e56a4f46481362b177773b775482c7ed1bad) |
-| `aws_assume_role.role_arn` | [aws_assume_role.role_arn](resources--cloud_credentials--reference--group-001.md#canonical-26de7af59bfb04fcde52246383c2e4f8bc81f16ade3494410eb4b45bbbaae2e7) |
-| `aws_assume_role.session_name` | [aws_assume_role.session_name](resources--cloud_credentials--reference--group-001.md#canonical-88a400c4296ce616be729d9967897d69ddf8ee52b7c633e365283ab9f6924def) |
-| `aws_assume_role.session_tags` | [aws_assume_role.session_tags](resources--cloud_credentials--reference--group-001.md#canonical-2f419eacb0cbadb123511a63d487d5209e4c55cb68d22cb0684e0e20ac6075f6) |
-| `aws_secret_key` | [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0b2eb6ef14be44880629a24347d679384ecd12b66af698aeb7e40711f5cba768) |
-| `aws_secret_key.access_key` | [aws_secret_key.access_key](resources--cloud_credentials--reference--group-001.md#canonical-acb081a5fd640910c9853e14ee84eae1edcf2c1767a8d797ff3259d9e78b8031) |
-| `aws_secret_key.secret_key` | [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-59ff61eae9655c0d66f9e12d9db9ac4119ec1729245846cffc58a105c7038ab6) |
-| `aws_secret_key.secret_key.blindfold_secret_info` | [aws_secret_key.secret_key.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-d74254856bf40b3160c9cedf0e83f251cc2e7bfd878a4f31f57be30c57717e63) |
-| `aws_secret_key.secret_key.blindfold_secret_info.decryption_provider` | [aws_secret_key.secret_key.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-cd5ccc8216c671fa23b9d5b72c700cb8298299850b52ccc5d07f84355d074f68) |
-| `aws_secret_key.secret_key.blindfold_secret_info.location` | [aws_secret_key.secret_key.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-b254d99e0db281db9eec1611f82d3a325f7543b15f8a2fcceb65928cb0d8bca9) |
-| `aws_secret_key.secret_key.blindfold_secret_info.store_provider` | [aws_secret_key.secret_key.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-86e49df6df043a920ec36e074b907e8409d25844183821f3f530e5d1de52d61b) |
-| `aws_secret_key.secret_key.clear_secret_info` | [aws_secret_key.secret_key.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-55c6f99009883f9d4e709478087460315ab0ab7302e203ef44ec197d6bed4b31) |
-| `aws_secret_key.secret_key.clear_secret_info.provider_ref` | [aws_secret_key.secret_key.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-4ea92a53177db402f5a58b134e2b0d6564a4843c5e10686a8464380f6e750d76) |
-| `aws_secret_key.secret_key.clear_secret_info.url` | [aws_secret_key.secret_key.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-110d54cad3f7d789b4995b960bd4f421d95dbdeb5086b7d7ee346a4068b0115f) |
-| `azure_client_secret` | [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-f4fcb5013edfbbd2e1f929d412f207c8f737feb5fe11334499701c98828f5296) |
-| `azure_client_secret.client_id` | [azure_client_secret.client_id](resources--cloud_credentials--reference--group-001.md#canonical-ccc7c8b67d1e2b868167a4cd5c4302fda59b16e0d160634e15252a183452d142) |
-| `azure_client_secret.client_secret` | [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-124d3f1223fdfba6a17f2a20cc0f8c9eaca0f8f6c51c7dbb960214f2550566ef) |
-| `azure_client_secret.client_secret.blindfold_secret_info` | [azure_client_secret.client_secret.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-f1ea43faa12bcfec73ed945790136a74b881045a5e556adcda743accc01b2f13) |
-| `azure_client_secret.client_secret.blindfold_secret_info.decryption_provider` | [azure_client_secret.client_secret.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-5304bc1622911374fa98c9a357a9bdc057f656a8a74052bc80508ac7ccd7545e) |
-| `azure_client_secret.client_secret.blindfold_secret_info.location` | [azure_client_secret.client_secret.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-024680e4e65413e5b59052710cd1014feb4f8ee9da53372350875cdabe62f1ae) |
-| `azure_client_secret.client_secret.blindfold_secret_info.store_provider` | [azure_client_secret.client_secret.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-e1f2c59d41fc6cf3ce68b535cd40ef822cf762c33f32ad050f13046226e7c8e9) |
-| `azure_client_secret.client_secret.clear_secret_info` | [azure_client_secret.client_secret.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-fd49bc736890090e5311a4dc776b3144142abb96f214258a5ecdab6f4eb651c7) |
-| `azure_client_secret.client_secret.clear_secret_info.provider_ref` | [azure_client_secret.client_secret.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-97e37a9df31f2458c0fbc51559ad609c59e6283dd6367718064c791900ee928b) |
-| `azure_client_secret.client_secret.clear_secret_info.url` | [azure_client_secret.client_secret.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-a888d1b281e51b43274bf4d4aa1a27cd6d4a037955b3cdfb6479d05be37d161e) |
-| `azure_client_secret.subscription_id` | [azure_client_secret.subscription_id](resources--cloud_credentials--reference--group-001.md#canonical-8fb62b6c8297ebb01aaf86dcc1b811c53aef8a4ccb5525acd8859d5dc9b43303) |
-| `azure_client_secret.tenant_id` | [azure_client_secret.tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-397ac8ee04bc2d26508fc35daaa0f6fe1858c0a63ba0b582ac7bf7c5d3d6aacc) |
-| `azure_pfx_certificate` | [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-df2c0182d927c3ce0cc417317dff1a750d40269b6c6bb70446a50d29b8446755) |
-| `azure_pfx_certificate.certificate_url` | [azure_pfx_certificate.certificate_url](resources--cloud_credentials--reference--group-001.md#canonical-617e646d802c8b308d378063a389c7fb4392a3bc618bc78a4b67a2e35bb55f62) |
-| `azure_pfx_certificate.client_id` | [azure_pfx_certificate.client_id](resources--cloud_credentials--reference--group-001.md#canonical-efb91a6b55c67a03637d8fd34ee14fdee5bde589203423c4ea046d93dd37432c) |
-| `azure_pfx_certificate.password` | [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-6012d8121a30b2c4037ae600f862ffef601d41ba9b1b32adbf87200d4fe4dabd) |
-| `azure_pfx_certificate.password.blindfold_secret_info` | [azure_pfx_certificate.password.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-dea3b516b0147de14036ccd2739f1a14f0ef9b4cf574909ff38615a613fd7502) |
-| `azure_pfx_certificate.password.blindfold_secret_info.decryption_provider` | [azure_pfx_certificate.password.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-3008d1320b299b99b3ba36d39ad1dfad2f878dd966fb3dcf425f243c2b68e0aa) |
-| `azure_pfx_certificate.password.blindfold_secret_info.location` | [azure_pfx_certificate.password.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-144511479c49e621748778433d201504bd37ab0a61d9d1a1ecf76cca13e7d28e) |
-| `azure_pfx_certificate.password.blindfold_secret_info.store_provider` | [azure_pfx_certificate.password.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-cfe18e7a64b37e5b8a5bb3c0c33706821d8ae62e48333e611117efc1d2f4b8b9) |
-| `azure_pfx_certificate.password.clear_secret_info` | [azure_pfx_certificate.password.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-8ea8654b2db3f2bac34109e7b363b31db9ecd1cd0f02c6fac79a34a33c3197be) |
-| `azure_pfx_certificate.password.clear_secret_info.provider_ref` | [azure_pfx_certificate.password.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-93fde45572ba704d7c341713d8b54842333bd3871bfc5139f54982f916e8e7ef) |
-| `azure_pfx_certificate.password.clear_secret_info.url` | [azure_pfx_certificate.password.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-7f868bf8f38d544528f4423a4c55b56689dc8ad466a13174e5ed4e3020a19409) |
-| `azure_pfx_certificate.subscription_id` | [azure_pfx_certificate.subscription_id](resources--cloud_credentials--reference--group-001.md#canonical-565ccbb81151ecc92ba38a2b098fcf3666c422177fa5eb26caff5eaff520ac6f) |
-| `azure_pfx_certificate.tenant_id` | [azure_pfx_certificate.tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-b5e173f95b735e65cc012dc756a06ab729ec17969362589cc2d3a552caa4ec29) |
-| `description` | [description](resources--cloud_credentials--reference--group-001.md#canonical-ae655018076e6d2eba7c77fd372f4cb46f0f62db73f6ba87287a1d9d4f43af7d) |
-| `disable` | [disable](resources--cloud_credentials--reference--group-001.md#canonical-23c4c5880c09d2b45ed37791f364d90af1a0a8ab6abb7648880725fb58ebee43) |
-| `gcp_cred_file` | [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-c6d5e0047cb0140207434ad4cacf0c414ded9691a9e46f5ae652d6d038bd5e86) |
-| `gcp_cred_file.credential_file` | [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-112ae79be7b74f472b49b8bf1962c588330c1d56f688dcc30a796c8683cda5b7) |
-| `gcp_cred_file.credential_file.blindfold_secret_info` | [gcp_cred_file.credential_file.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-b73371e9932f7968ba9b9f87dce78fcc42b4749cf0f091060650c1207f142984) |
-| `gcp_cred_file.credential_file.blindfold_secret_info.decryption_provider` | [gcp_cred_file.credential_file.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-ded1bde5f500a00b68faf3964668681561389ac608cfd29333883e69de64e9fe) |
-| `gcp_cred_file.credential_file.blindfold_secret_info.location` | [gcp_cred_file.credential_file.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-0741dafc23007cfaaff70fa0a316f14f662e597f96d3b17cfb57b67b007f4020) |
-| `gcp_cred_file.credential_file.blindfold_secret_info.store_provider` | [gcp_cred_file.credential_file.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-dfa60a07e3198c82c322cf47b2ec05614caa1a7c9377bad249bea41c1d4909e4) |
-| `gcp_cred_file.credential_file.clear_secret_info` | [gcp_cred_file.credential_file.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-c9b120cbfd1d032cfe4cf254f8b6ca24eed2f503d1aa499a0903aa3a4a4fc75e) |
-| `gcp_cred_file.credential_file.clear_secret_info.provider_ref` | [gcp_cred_file.credential_file.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-76cb4f180384af9f43aca561452bbc983599de9fdff772d921458d0dfabc0c5d) |
-| `gcp_cred_file.credential_file.clear_secret_info.url` | [gcp_cred_file.credential_file.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-139f8e150e8996473fa4c6a9c13af0fc64d971830e3bdec4290470ae96724926) |
-| `id` | [id](resources--cloud_credentials--reference--group-001.md#canonical-64e7469fcf37417e04a4c094512069ec6c4a0de66929057cb6f6f4276100ff1c) |
-| `labels` | [labels](resources--cloud_credentials--reference--group-001.md#canonical-208db0e17f02ba45451c3b6c9cc0f339b20ba70eee1f461d246c4940ef03fcf3) |
-| `name` | [name](resources--cloud_credentials--reference--group-001.md#canonical-dd522debe24c946c486b84d5c3012f47ae9ae2044d28b5ceb54229789c9983bb) |
-| `namespace` | [namespace](resources--cloud_credentials--reference--group-001.md#canonical-b35ec70551a16b082e7da2a76adca3d66eb7715dd7e9fad5093b19c0ec6a7368) |
-| `timeouts` | [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-44c9716c36756ca2eace2ede36b56d0fe85dd0d549e848b75bb5a838c5abf87f) |
-| `timeouts.create` | [timeouts.create](resources--cloud_credentials--reference--group-001.md#canonical-dbf5f1b102f11a69bce280da5449e40f442c2ad59f27b9b34127e96df1aa73d3) |
-| `timeouts.delete` | [timeouts.delete](resources--cloud_credentials--reference--group-001.md#canonical-8c4eb1fe1f24394877fd2beed9dfc1131d5bbdfd2263553890eead22ca0f82d7) |
-| `timeouts.read` | [timeouts.read](resources--cloud_credentials--reference--group-001.md#canonical-d48b89934793851663916b540810463da14d022e42ed89cfd3d6bd185ca05cb1) |
-| `timeouts.update` | [timeouts.update](resources--cloud_credentials--reference--group-001.md#canonical-de2c35d1fbb4fb4407a978591fefcf8c73defbaffa1ccd59191405871e2ad3ae) |
+| `annotations` | [annotations](resources--cloud_credentials--reference--group-001.md#canonical-2012200000312213-2332302233202333-3303021323210211-2203210101000121-2021120212011120-1121012202121213-0101320012013102-3330102230301313) |
+| `aws_assume_role` | [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-2010330202131221-3331033201131031-0033321330121033-3331321002230022-0130310102333320-1001313300031220-1233232231022131-0200333111010302) |
+| `aws_assume_role.custom_external_id` | [aws_assume_role.custom_external_id](resources--cloud_credentials--reference--group-001.md#canonical-0102231300311031-0122201102322012-2210203132123110-1313102301303330-3033101203331110-1211212231130203-1103210112111013-1121202132223013) |
+| `aws_assume_role.duration_seconds` | [aws_assume_role.duration_seconds](resources--cloud_credentials--reference--group-001.md#canonical-3200023330202312-0113030230310310-1232100021331231-3021320203101111-2110031210030211-0230030111203001-0110020130131321-2201023223203022) |
+| `aws_assume_role.external_id_is_optional` | [aws_assume_role.external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-1310012012331200-2323001202310013-0022130002213230-3210122013300100-2012130033113103-1022113003301120-3100113230010032-3331231012022312) |
+| `aws_assume_role.external_id_is_tenant_id` | [aws_assume_role.external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-3201103211110100-3133011220303303-1301100321123220-3330100332111222-1033101210200103-1202230113131313-0323131311102002-3013323101232231) |
+| `aws_assume_role.role_arn` | [aws_assume_role.role_arn](resources--cloud_credentials--reference--group-001.md#canonical-0212313213223311-2123332300103330-3132110202101203-2003300232103320-2330200133011222-3132031021101001-0032231023101123-2323222232023213) |
+| `aws_assume_role.session_name` | [aws_assume_role.session_name](resources--cloud_credentials--reference--group-001.md#canonical-2020221000003010-0221123032120112-2332130221312121-1213202113311221-3131332032321102-2313301203033203-1211022003222321-3312210210313233) |
+| `aws_assume_role.session_tags` | [aws_assume_role.session_tags](resources--cloud_credentials--reference--group-001.md#canonical-0233100121322230-2300302322312301-0203110101221203-3110201331110200-2132103011113023-1220310202302300-1220103200320200-2230120013113312) |
+| `aws_secret_key` | [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0023023223123233-0110233210102020-0012022122021003-1013311213210320-1032303101022312-1222331221202232-2313321000130101-3311302322131220) |
+| `aws_secret_key.access_key` | [aws_secret_key.access_key](resources--cloud_credentials--reference--group-001.md#canonical-2230230020012211-3331121000210100-3021201103320110-3232201032223201-3231303302300113-1213222031132113-3333030211213121-3213202320000301) |
+| `aws_secret_key.secret_key` | [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-1121333312013222-3221121111300031-1212332132010231-2131232122301001-0121323001130221-0210112010123033-3330112022010011-3013000320222312) |
+| `aws_secret_key.secret_key.blindfold_secret_info` | [aws_secret_key.secret_key.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3113100211102011-1223331000230301-1200302130323133-0032200333021101-3030023213233331-2013202210330301-3311132332030030-1113130113321203) |
+| `aws_secret_key.secret_key.blindfold_secret_info.decryption_provider` | [aws_secret_key.secret_key.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-3031113030302002-0112301213013322-0203232131112313-0230130000302320-0221200221212011-0023110230303011-3100133320100311-1131001310331220) |
+| `aws_secret_key.secret_key.blindfold_secret_info.location` | [aws_secret_key.secret_key.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-2302111031212132-0031230220013123-2132323001120101-3320023103220302-1133131110032301-1133202202333030-3223121121022030-2300312023302221) |
+| `aws_secret_key.secret_key.blindfold_secret_info.store_provider` | [aws_secret_key.secret_key.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-2012321021313312-3133001003222102-0032300312320013-1023210013322010-0021310211201010-0120032002013303-3311030032113101-3132110231120123) |
+| `aws_secret_key.secret_key.clear_secret_info` | [aws_secret_key.secret_key.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1111301233212100-0021202003332131-1032130021101320-0020131012000301-1122230022231303-0002320200033233-1010323001211331-1223323110230301) |
+| `aws_secret_key.secret_key.clear_secret_info.provider_ref` | [aws_secret_key.secret_key.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-1032222102221103-0113133123100002-3311221120230103-1032022300311211-1210221020100330-1132010012201222-2010121003200033-1232131100311312) |
+| `aws_secret_key.secret_key.clear_secret_info.url` | [aws_secret_key.secret_key.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-0101003111103022-3103331331132021-2310212111232112-0023311033100201-3121113123313223-1100201223133113-3232031012221000-1220230001011133) |
+| `azure_client_secret` | [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-3310333023110001-0332313323233102-3201332102213110-0102330200133020-3313031333322311-3332010103031010-2121130001302120-2002203311022112) |
+| `azure_client_secret.client_id` | [azure_client_secret.client_id](resources--cloud_credentials--reference--group-001.md#canonical-3030301330202312-1331013202232012-2001121322103031-1130100300023331-2211212301123200-3101120012031032-0111021102220120-0310110231011002) |
+| `azure_client_secret.client_secret` | [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0102103103330102-0203333133232212-2201133302220200-3030003320302132-2230220033203312-3011013013312323-2112000201103302-1111001112123233) |
+| `azure_client_secret.client_secret.blindfold_secret_info` | [azure_client_secret.client_secret.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3301322210033322-2201022330333230-1303323121101113-2100010312221310-2320200100101122-1132111112223130-3122131003223030-3000012302330103) |
+| `azure_client_secret.client_secret.blindfold_secret_info.decryption_provider` | [azure_client_secret.client_secret.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-1103001023300112-0202210101031310-3322212030212203-1113222123313000-1113331211122220-2213100011022330-2000110020223013-3030311311101132) |
+| `azure_client_secret.client_secret.blindfold_secret_info.location` | [azure_client_secret.client_secret.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-0002101220003210-3212111001033211-2311210011021301-0030310100011033-3223103320323221-3122110303130203-1100201311303122-2332120233012232) |
+| `azure_client_secret.client_secret.blindfold_secret_info.store_provider` | [azure_client_secret.client_secret.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-3201330230112131-1001333012303303-3032122023110311-3031100032332002-0230331312023003-0333030222310011-0033010300101202-0212321330203221) |
+| `azure_client_secret.client_secret.clear_secret_info` | [azure_client_secret.client_secret.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3331102123301303-1220210000210032-1103010122103130-1313122303011010-0110022223232112-3302011002112022-1132303122231233-1032231211013013) |
+| `azure_client_secret.client_secret.clear_secret_info.provider_ref` | [azure_client_secret.client_secret.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-2113320313222131-3303013302101120-3000332330110111-1121223112002130-1121321202200331-3112031213130120-0012103013210121-0000323221022023) |
+| `azure_client_secret.client_secret.clear_secret_info.url` | [azure_client_secret.client_secret.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-2220202031012302-2001321101231003-0213102333103110-2222012202133031-1231102200031321-1111230330313323-1210132131001123-3203133101120132) |
+| `azure_client_secret.subscription_id` | [azure_client_secret.subscription_id](resources--cloud_credentials--reference--group-001.md#canonical-2033231202231230-2002211332232300-0122223320123130-3001232001013011-0322323320221030-3023111102112230-3120201121311131-3021231003030003) |
+| `azure_client_secret.tenant_id` | [azure_client_secret.tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-0321132230203232-0010233002310212-1100203330031131-2222220033123332-0120112030002212-0323220023112002-2230132333133011-3103311222223030) |
+| `azure_pfx_certificate` | [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3133023000012002-3121021330033032-0030301001130301-1331333301221311-0031100002122123-1230122323130010-1012221100310221-2320101012131111) |
+| `azure_pfx_certificate.certificate_url` | [azure_pfx_certificate.certificate_url](resources--cloud_credentials--reference--group-001.md#canonical-1201133212101231-2000023020230300-2031031320001203-2203202130133323-1003210222032330-1201202330132022-1023121322023203-1123231111331202) |
+| `azure_pfx_certificate.client_id` | [azure_pfx_certificate.client_id](resources--cloud_credentials--reference--group-001.md#canonical-3233232101221223-1111301213220003-1203133120333103-1032320110333132-3211233132112021-0200031002033010-3222001012312103-3131031310030230) |
+| `azure_pfx_certificate.password` | [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-1200010231200102-0122030023023010-0003132232120000-3320120233333233-1200013110012322-2123012303022231-2333201302000031-1033321031222331) |
+| `azure_pfx_certificate.password.blindfold_secret_info` | [azure_pfx_certificate.password.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3132220323110112-2300011013313201-1000031230303102-1303213301220110-3300323321231030-3311131021002133-3303201201112212-0103333113110002) |
+| `azure_pfx_certificate.password.blindfold_secret_info.decryption_provider` | [azure_pfx_certificate.password.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-0300002031010302-0023022121232121-2303232203123103-2122310131332231-0233201320313121-1212332303313033-1002113302100330-0223122032002222) |
+| `azure_pfx_certificate.password.blindfold_secret_info.location` | [azure_pfx_certificate.password.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-0110101101011013-2130102132120201-1310201313201003-0331020001110010-2331031322230022-1201312131012201-3230331312303022-0103321331022032) |
+| `azure_pfx_certificate.password.blindfold_secret_info.store_provider` | [azure_pfx_certificate.password.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-3033320120321322-1210230313321123-2022112323033000-3003031300122002-0131202232120232-1020030303321201-0101011332333001-3102331023202321) |
+| `azure_pfx_certificate.password.clear_secret_info` | [azure_pfx_certificate.password.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-2032222012111023-0231230333022322-3003100100213213-2303120323030131-2321323031013031-0033000230123322-3013212203102203-0330030121132332) |
+| `azure_pfx_certificate.password.clear_secret_info.provider_ref` | [azure_pfx_certificate.password.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-2103333132101111-1302232213001031-1330031001130103-3120231110201002-0303032331032013-0123333011010321-3311102120023321-0112322032133233) |
+| `azure_pfx_certificate.password.clear_secret_info.url` | [azure_pfx_certificate.password.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-1333201220233320-3303203111101011-0220331010020322-1030111123111212-2021313020223110-1212220103011310-3211323110320300-0200220121100021) |
+| `azure_pfx_certificate.subscription_id` | [azure_pfx_certificate.subscription_id](resources--cloud_credentials--reference--group-001.md#canonical-1112113030232320-0101110132303021-0223220320220223-0021203330330312-1212301002020113-1333221132230212-3022333311322233-3311020022301233) |
+| `azure_pfx_certificate.tenant_id` | [azure_pfx_certificate.tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-2311320113033321-1123130311321211-3030000102313013-1112220012222313-0221323001132112-2103120211202130-3002310322111102-3022221032300221) |
+| `description` | [description](resources--cloud_credentials--reference--group-001.md#canonical-2232121111000120-0013123212310232-2322133013133331-0313023310302310-1233003312023123-1303331223222013-0220132201312131-1033100322331331) |
+| `disable` | [disable](resources--cloud_credentials--reference--group-001.md#canonical-0203301030112020-0030002131022310-1132310313132101-3303121031210022-3301220022202223-1222232313121020-2020001302113323-1120322332321003) |
+| `gcp_cred_file` | [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3012311132000010-1330230001100002-0013100310223110-3022303300301001-1031323121122101-2221321012331122-3212110231123100-0320233111322012) |
+| `gcp_cred_file.credential_file` | [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-0101022232132123-3213231310331013-0223102123202333-0121120230112020-0303003001311112-3312202031303003-0022132112302012-2003303122112313) |
+| `gcp_cred_file.credential_file.blindfold_secret_info` | [gcp_cred_file.credential_file.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-2313030313013221-2103023313211220-2322212321332013-3130321320333030-1002231013102130-3300330021010012-0012110030010200-1333011002212010) |
+| `gcp_cred_file.credential_file.blindfold_secret_info.decryption_provider` | [gcp_cred_file.credential_file.blindfold_secret_info.decryption_provider](resources--cloud_credentials--reference--group-001.md#canonical-3132310123313211-3311000022000023-1220332233032112-1012122012200111-1201032021223012-0020303331022103-0303202003321221-3132121032213332) |
+| `gcp_cred_file.credential_file.blindfold_secret_info.location` | [gcp_cred_file.credential_file.blindfold_secret_info.location](resources--cloud_credentials--reference--group-001.md#canonical-0013100131223330-0203000013303322-2233331300332200-2203011233011033-1212023211211333-2112310323011330-3323111323121323-0000133310000200) |
+| `gcp_cred_file.credential_file.blindfold_secret_info.store_provider` | [gcp_cred_file.credential_file.blindfold_secret_info.store_provider](resources--cloud_credentials--reference--group-001.md#canonical-3133221200220013-3203012120302002-3003020230331013-2302323000111201-1030222201221330-2103131323223102-1021233222100130-0131102100213210) |
+| `gcp_cred_file.credential_file.clear_secret_info` | [gcp_cred_file.credential_file.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3021230102003023-3331013100030230-3332103033021110-3320231230220210-3232310233110003-3101222210212122-0021000322220322-1022103330131132) |
+| `gcp_cred_file.credential_file.clear_secret_info.provider_ref` | [gcp_cred_file.credential_file.clear_secret_info.provider_ref](resources--cloud_credentials--reference--group-001.md#canonical-1312302310330120-0003201022332133-1003223022111201-1011022323302120-0311212131322133-3133331313023121-0201101120310031-3322233000301131) |
+| `gcp_cred_file.credential_file.clear_secret_info.url` | [gcp_cred_file.credential_file.clear_secret_info.url](resources--cloud_credentials--reference--group-001.md#canonical-0103213320320111-0032202121121013-0333221030122221-3001032233003330-1210312113012003-0032032331323010-0221001013002232-2112130210210212) |
+| `id` | [id](resources--cloud_credentials--reference--group-001.md#canonical-1210321310122133-3033031310011332-0010221030002110-1101020012213230-1230102200313212-1221022100111330-2312331233100213-1201000033330130) |
+| `labels` | [labels](resources--cloud_credentials--reference--group-001.md#canonical-0200203123003201-1333000223221011-1011013003231230-2130300033030321-2302002322130032-3232013310120131-0210123010211000-3233000333303303) |
+| `name` | [name](resources--cloud_credentials--reference--group-001.md#canonical-3131110202313223-3202103021101230-1020122320103111-3003000102331013-2232212232020010-1031022023113032-2311100202211320-2130212120032323) |
+| `namespace` | [namespace](resources--cloud_credentials--reference--group-001.md#canonical-2303113230130011-1101220112230020-0232133122022213-1222313022033112-1232231313011131-3113322133223111-0021032301213000-3230122213031220) |
+| `timeouts` | [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-1010302113011230-0312131112302202-3222303202323132-0312231112310033-3220113131003111-1021322010202313-1123231122200320-3011222333201333) |
+| `timeouts.create` | [timeouts.create](resources--cloud_credentials--reference--group-001.md#canonical-3123331133012301-0002330101221221-2330320220003122-1110102132100033-1010023002223111-2133021323212303-1001021332211231-3301222213033103) |
+| `timeouts.delete` | [timeouts.delete](resources--cloud_credentials--reference--group-001.md#canonical-2030103223013332-0133021003211020-1313333102233232-3121313330010103-0131112323313331-0202120311110320-2100323222310202-3022003320023113) |
+| `timeouts.read` | [timeouts.read](resources--cloud_credentials--reference--group-001.md#canonical-3110202320212103-1013210320110112-1203210112231110-0020010010120331-2201103100020232-1002323120213033-3103311223310120-1130220011302301) |
+| `timeouts.update` | [timeouts.update](resources--cloud_credentials--reference--group-001.md#canonical-3132023003113101-3323231033231010-0013222113201121-0133323330332030-1303313233232233-3322013030311121-0121011000112013-0132022231032232) |
 
-<a id="canonical-ff16e97103a181c6224554e0c85a59b8bfefc13c43352c5e53a31a20757cb357"></a>
+<a id="canonical-3333011232211301-0003220120013012-0202101111103200-3020112211212320-2333323330010330-1003031102301132-1103220301220200-1311133023031113"></a>
 
-## Next pages — Property reference / 959e61ea3a47 / 12
+## Next pages — Property reference / 322203221013 / 12
 
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7)
-- [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-3acc6c96cd5416a3e10b6797715d00081c043429c9034ec56cfd26dcf256fc19)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213)
+- [timeouts](resources--cloud_credentials--reference--group-001.md#canonical-0322303012302112-3031111001122203-3201002312132113-1301113100000020-0130001003100221-3021000310323011-1230333102123130-3302111233300121)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53"></a>
+<a id="canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6b59c2da63724bdbf247adeb2e319369d161f004d39c2f623b9a89be1eeacb84"></a>
+<a id="canonical-1223112130023122-1203130210233123-3302101322313223-0232030121031221-3101120133000010-3103213002331202-0323212220212332-0132322230232010"></a>
 
-## aws_assume_role — aws_assume_role / 36963b08a4c2 / 2
+## aws_assume_role — aws_assume_role / 002022103002 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - aws_assume_role
 
-<a id="canonical-84f22769fd3e174d0fe7c64ffde42b0a1cd12ff841df03686fbad29d20fd5132"></a>
+<a id="canonical-2010330202131221-3331033201131031-0033321330121033-3331321002230022-0130310102333320-1001313300031220-1233232231022131-0200333111010302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
-\[OneOf: aws\_assume\_role, aws\_secret\_key, azure\_client\_secret, azure\_pfx\_certificate,
+\[OneOf: aws\_assume\_role, aws\_secret\_key, Azure\_client\_secret, Azure\_pfx\_certificate,
 gcp\_cred\_file\] AWS Assume Role to Handle Delegated Access.
 
 Upstream description:
@@ -464,11 +464,11 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-84f22769fd3e174d0fe7c64ffde42b0a1cd12ff841df03686fbad29d20fd5132)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0b2eb6ef14be44880629a24347d679384ecd12b66af698aeb7e40711f5cba768)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-f4fcb5013edfbbd2e1f929d412f207c8f737feb5fe11334499701c98828f5296)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-df2c0182d927c3ce0cc417317dff1a750d40269b6c6bb70446a50d29b8446755)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-c6d5e0047cb0140207434ad4cacf0c414ded9691a9e46f5ae652d6d038bd5e86)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-2010330202131221-3331033201131031-0033321330121033-3331321002230022-0130310102333320-1001313300031220-1233232231022131-0200333111010302)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0023023223123233-0110233210102020-0012022122021003-1013311213210320-1032303101022312-1222331221202232-2313321000130101-3311302322131220)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-3310333023110001-0332313323233102-3201332102213110-0102330200133020-3313031333322311-3332010103031010-2121130001302120-2002203311022112)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3133023000012002-3121021330033032-0030301001130301-1331333301221311-0031100002122123-1230122323130010-1012221100310221-2320101012131111)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3012311132000010-1330230001100002-0013100310223110-3022303300301001-1031323121122101-2221321012331122-3212110231123100-0320233111322012)
 
 Select alternatives according to the provider validators above.
 
@@ -480,15 +480,15 @@ aws_assume_role {
 }
 ```
 
-<a id="canonical-a6030bee2c7036e46598bad456e1637830a4fe23418b96127a971ba39d9c3040"></a>
+<a id="canonical-2212000300233232-0230130003123210-1211212023223110-1112320112031320-0300221033320203-1001202321120102-1322211301232203-2131213003001000"></a>
 
-## Direct properties — aws_assume_role / 36963b08a4c2 / 3
+## Direct properties — aws_assume_role / 002022103002 / 3
 
-<a id="canonical-12b70d4d1a852e86a48de6d4774b1cfccf463f54659ad723539165475989eac7"></a>
+<a id="canonical-0102231300311031-0122201102322012-2210203132123110-1313102301303330-3033101203331110-1211212231130203-1103210112111013-1121202132223013"></a>
 
-<a id="canonical-2d16d61f7ffba85c716a6d9ac63f9274717b29690301db3ca3fc481553b3990b"></a>
+<a id="canonical-0231011231120133-1333332322201130-1301122212312122-3012033321021310-1301132302211221-0003000131230330-2203333010200111-1103230321210023"></a>
 
-## custom_external_id property — aws_assume_role / 36963b08a4c2 / 4
+## custom_external_id property — aws_assume_role / 002022103002 / 4
 
 Type: `"string"`. Optional.
 
@@ -541,11 +541,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e02fc8b61732cd346e409f6dc9e23455943643252c3158c11421c779a12eb8ca"></a>
+<a id="canonical-3200023330202312-0113030230310310-1232100021331231-3021320203101111-2110031210030211-0230030111203001-0110020130131321-2201023223203022"></a>
 
-<a id="canonical-ae5db9010f3878f5ab115e0b3b7a4e2b4034067ed44045c06326540697fc7d09"></a>
+<a id="canonical-2232113123210001-0033032013203311-2223010111320023-0323132210320223-1000031000121332-3110100010113000-1203021211100012-2113333013310021"></a>
 
-## duration_seconds property — aws_assume_role / 36963b08a4c2 / 5
+## duration_seconds property — aws_assume_role / 002022103002 / 5
 
 Type: `"number"`. Optional.
 
@@ -592,15 +592,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-dab3eb68bb7cfc99900c5b903d0b44a8a3702ed5d067879517b62ceaa87ebb64): complete subsection reference.
+- [external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-3122230332231220-2323133033302121-2100003011232100-0331002310102220-2203130002323111-3100121320132111-0113231202303222-2220133223231210): complete subsection reference.
 
-- [external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-a34e5cf0ce0ea91d1d99a1ec37cf38534bf58bff77a2163b4ef3376b03fb0576): complete subsection reference.
+- [external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-2203103211303300-3032003222210131-0131212122013230-0313303303201103-1023331120233333-1313220201120323-1032330303131223-0003332300111312): complete subsection reference.
 
-<a id="canonical-26de7af59bfb04fcde52246383c2e4f8bc81f16ade3494410eb4b45bbbaae2e7"></a>
+<a id="canonical-0212313213223311-2123332300103330-3132110202101203-2003300232103320-2330200133011222-3132031021101001-0032231023101123-2323222232023213"></a>
 
-<a id="canonical-080d4384e6a000ba32dfaace65993c7ce8cfd298a59374de1295ba13eb61b3c8"></a>
+<a id="canonical-0020003110032010-3212220000002322-0302313322223032-1211212103301330-3220303331022120-2211210313103132-0102211123220103-3223120123033020"></a>
 
-## role_arn property — aws_assume_role / 36963b08a4c2 / 6
+## role_arn property — aws_assume_role / 002022103002 / 6
 
 Type: `"string"`. Optional.
 
@@ -658,11 +658,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-88a400c4296ce616be729d9967897d69ddf8ee52b7c633e365283ab9f6924def"></a>
+<a id="canonical-2020221000003010-0221123032120112-2332130221312121-1213202113311221-3131332032321102-2313301203033203-1211022003222321-3312210210313233"></a>
 
-<a id="canonical-55da906b74c42ebe54f59b68ba9b748c2f5b45edfce599e25bc84958bb9adffd"></a>
+<a id="canonical-1111312221001223-1310301002322332-1110331121231220-2322212313102030-0233112310113231-3330321121213202-1123302010211120-2323212231333331"></a>
 
-## session_name property — aws_assume_role / 36963b08a4c2 / 7
+## session_name property — aws_assume_role / 002022103002 / 7
 
 Type: `"string"`. Optional.
 
@@ -722,11 +722,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f419eacb0cbadb123511a63d487d5209e4c55cb68d22cb0684e0e20ac6075f6"></a>
+<a id="canonical-0233100121322230-2300302322312301-0203110101221203-3110201331110200-2132103011113023-1220310202302300-1220103200320200-2230120013113312"></a>
 
-<a id="canonical-93510d15ccd73feb09e52d6f03054e148853aa5e5b512483967488069964c811"></a>
+<a id="canonical-2103110100310111-3030311303333223-0021321102311233-0003001110320110-2020110322221132-1123110102102003-2112131020200012-2121121030200101"></a>
 
-## session_tags property — aws_assume_role / 36963b08a4c2 / 8
+## session_tags property — aws_assume_role / 002022103002 / 8
 
 Type: `["map", "string"]`. Optional.
 
@@ -755,37 +755,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8dabc2301a6da0e2ef6d846e6a65a1490234e714debff84eca868614aacb89b"></a>
+<a id="canonical-3320312223300203-0001221231220032-0232331231201012-3212221211220110-2100020310321301-1031322333332010-3230222012201201-1022223023202123"></a>
 
-## Next pages — aws_assume_role / 36963b08a4c2 / 9
+## Next pages — aws_assume_role / 002022103002 / 9
 
-- [aws_assume_role.external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-dab3eb68bb7cfc99900c5b903d0b44a8a3702ed5d067879517b62ceaa87ebb64)
-- [aws_assume_role.external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-a34e5cf0ce0ea91d1d99a1ec37cf38534bf58bff77a2163b4ef3376b03fb0576)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_assume_role.external_id_is_optional](resources--cloud_credentials--reference--group-001.md#canonical-3122230332231220-2323133033302121-2100003011232100-0331002310102220-2203130002323111-3100121320132111-0113231202303222-2220133223231210)
+- [aws_assume_role.external_id_is_tenant_id](resources--cloud_credentials--reference--group-001.md#canonical-2203103211303300-3032003222210131-0131212122013230-0313303303201103-1023331120233333-1313220201120323-1032330303131223-0003332300111312)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-dab3eb68bb7cfc99900c5b903d0b44a8a3702ed5d067879517b62ceaa87ebb64"></a>
+<a id="canonical-3122230332231220-2323133033302121-2100003011232100-0331002310102220-2203130002323111-3100121320132111-0113231202303222-2220133223231210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-af85574bd410f8c6ca2b02b40146ba4e5e1e619cc28e3eb1d003232c328c19a3"></a>
+<a id="canonical-2233201111131023-3110010033203012-3022022300022310-0001101223221032-1132013212012130-3002203203322301-3100000302030230-0302203001212203"></a>
 
-## aws_assume_role.external_id_is_optional — aws_assume_role.external_id_is_optional / e2e8228a1d18 / 2
+## aws_assume_role.external_id_is_optional — external_id_is_optional / 202201310120 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103)
 - aws_assume_role.external_id_is_optional
 
-<a id="canonical-74186f60bb062d070a7029ece4687c108670f5d34a5c3c58d05ec10efdb462b6"></a>
+<a id="canonical-1310012012331200-2323001202310013-0022130002213230-3210122013300100-2012130033113103-1022113003301120-3100113230010032-3331231012022312"></a>
 
 Type: `["object", {}]`. Optional.
 
-Configuration parameter for external id is optional.
+Configuration parameter for external ID is optional.
 
 Upstream description:
 
@@ -810,37 +810,37 @@ Terraform syntax:
 external_id_is_optional = {}
 ```
 
-<a id="canonical-b45ac8b7755a7e94306912c863dbadc32ee51a64be6e6de8e2d35f70298e3c5d"></a>
+<a id="canonical-2310112230202313-1311112213322110-0300122101023020-1203312322313003-0232321101221210-2332123212313220-3202310311331300-0221203203301131"></a>
 
-## Direct properties — aws_assume_role.external_id_is_optional / e2e8228a1d18 / 3
+## Direct properties — external_id_is_optional / 202201310120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-77e61fd39b57b009fd1153531ed610ab5ff3cfeae0ddf3fb2471eaeb7b88f371"></a>
+<a id="canonical-1313321201333103-2123111323000021-3331010111031103-0132311201002223-1133330330333222-3200313133033323-0210130132223223-1323202033031301"></a>
 
-## Next pages — aws_assume_role.external_id_is_optional / e2e8228a1d18 / 4
+## Next pages — external_id_is_optional / 202201310120 / 4
 
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-a34e5cf0ce0ea91d1d99a1ec37cf38534bf58bff77a2163b4ef3376b03fb0576"></a>
+<a id="canonical-2203103211303300-3032003222210131-0131212122013230-0313303303201103-1023331120233333-1313220201120323-1032330303131223-0003332300111312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b6b81769a8dfe8bf381397480181dae1caaf2510017529a1157d03d32b751113"></a>
+<a id="canonical-2312232001131221-2220313332202333-0320010321131020-0001200131223201-3022223302110100-0001131102212201-0111133100033103-0223131101010103"></a>
 
-## aws_assume_role.external_id_is_tenant_id — aws_assume_role.external_id_is_tenant_id / 62e70a5438ad / 2
+## aws_assume_role.external_id_is_tenant_id — external_id_is_tenant_id / 111003202231 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103)
 - aws_assume_role.external_id_is_tenant_id
 
-<a id="canonical-e14e5510df168cf3714396e8fc43e56a4f46481362b177773b775482c7ed1bad"></a>
+<a id="canonical-3201103211110100-3133011220303303-1301100321123220-3330100332111222-1033101210200103-1202230113131313-0323131311102002-3013323101232231"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -869,36 +869,36 @@ Terraform syntax:
 external_id_is_tenant_id = {}
 ```
 
-<a id="canonical-4063f9a376775feb30a91b4059e249906f204ddba8bb0afff36098ac924988a7"></a>
+<a id="canonical-1000120333212203-1312131311333223-0300222101231000-1121320210212100-1233020010313123-2220232300223333-3303120021202230-2102102120202213"></a>
 
-## Direct properties — aws_assume_role.external_id_is_tenant_id / 62e70a5438ad / 3
+## Direct properties — external_id_is_tenant_id / 111003202231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4d5c8a3220d2cb023112348dfbf234c33ede57cb196fb8a87f854232f534b30c"></a>
+<a id="canonical-1031113020220302-0200310230230002-0301010203102031-3323330203103003-0332313211133023-0121123323202220-1333201110020302-3311031023030030"></a>
 
-## Next pages — aws_assume_role.external_id_is_tenant_id / 62e70a5438ad / 4
+## Next pages — external_id_is_tenant_id / 111003202231 / 4
 
-- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-e1774c8b1a1466c11c75cb97ee7d09fcc6af606dc9d9ae38f719ba05cfd63d53)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_assume_role](resources--cloud_credentials--reference--group-001.md#canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65"></a>
+<a id="canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-119b320ea4f0cfb9d14a3376e71a6fda2e24e0768021f309f6cc33513449bb02"></a>
+<a id="canonical-0101212303020032-2210330030332321-3101102203031312-3213012212333122-0232021032001312-2000020133030021-3312303003031101-0310102123230002"></a>
 
-## aws_secret_key — aws_secret_key / 4cb92e93af1d / 2
+## aws_secret_key — aws_secret_key / 210322330131 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - aws_secret_key
 
-<a id="canonical-0b2eb6ef14be44880629a24347d679384ecd12b66af698aeb7e40711f5cba768"></a>
+<a id="canonical-0023023223123233-0110233210102020-0012022122021003-1013311213210320-1032303101022312-1222331221202232-2313321000130101-3311302322131220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -931,15 +931,15 @@ aws_secret_key {
 }
 ```
 
-<a id="canonical-3870b1833e8da9da4dfbf1fa5fdeeb92a2818033cacdd20821376900059703bd"></a>
+<a id="canonical-0320130023012003-0332203122213122-1031332333013322-1133313232232102-2202200120000303-3022303131020020-0201031312210000-0011211300032331"></a>
 
-## Direct properties — aws_secret_key / 4cb92e93af1d / 3
+## Direct properties — aws_secret_key / 210322330131 / 3
 
-<a id="canonical-acb081a5fd640910c9853e14ee84eae1edcf2c1767a8d797ff3259d9e78b8031"></a>
+<a id="canonical-2230230020012211-3331121000210100-3021201103320110-3232201032223201-3231303302300113-1213222031132113-3333030211213121-3213202320000301"></a>
 
-<a id="canonical-d3b725f8d97b118470a0b3fa194232625151185e0ed05fc451c648b4da316143"></a>
+<a id="canonical-3103231302113320-3121132301012010-1300220023033322-0121100203021202-1101110101201132-0032310011333010-1101301210202310-3122030112011003"></a>
 
-## access_key property — aws_secret_key / 4cb92e93af1d / 4
+## access_key property — aws_secret_key / 210322330131 / 4
 
 Type: `"string"`. Optional.
 
@@ -990,34 +990,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43): complete subsection reference.
+- [secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003): complete subsection reference.
 
-<a id="canonical-14310ca05713a1346312ff2342748c7b22588b174a3c365a2a3c01e86e7ab1ad"></a>
+<a id="canonical-0110030100302200-1113010322010310-1203010233330203-1002131020301323-0202112020230113-1022033003121122-0222033000013220-1232132223012231"></a>
 
-## Next pages — aws_secret_key / 4cb92e93af1d / 5
+## Next pages — aws_secret_key / 210322330131 / 5
 
-- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43"></a>
+<a id="canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d33d48f1e5c2aa948f60dbd0731f02a222236c5478dc2113b55720d8e02bde44"></a>
+<a id="canonical-3103033110203301-3211300222222110-2033120031233100-1303013300022202-0202020312301110-1320313002010103-2311111302003120-3200022331321010"></a>
 
-## aws_secret_key.secret_key — aws_secret_key.secret_key / de566b3b2368 / 2
+## aws_secret_key.secret_key — secret_key / 032302031220 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211)
 - aws_secret_key.secret_key
 
-<a id="canonical-59ff61eae9655c0d66f9e12d9db9ac4119ec1729245846cffc58a105c7038ab6"></a>
+<a id="canonical-1121333312013222-3221121111300031-1212332132010231-2131232122301001-0121323001130221-0210112010123033-3330112022010011-3013000320222312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1052,42 +1052,42 @@ secret_key {
 }
 ```
 
-<a id="canonical-084fc15628331d12474b9557536ea272028910f19143e39aa30f56afa7eeaed7"></a>
+<a id="canonical-0020103330011112-0220030301310102-1013102321111113-1103123222021302-0002202101003301-2101100332032122-2203003311122233-2213323222323113"></a>
 
-## Direct properties — aws_secret_key.secret_key / de566b3b2368 / 3
+## Direct properties — secret_key / 032302031220 / 3
 
-- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-ff85862deb431f501bef683ce3eb785ceeab2389501713a4367d6d0ab9b41137): complete subsection reference.
+- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3333201120120231-3223100301331100-0123323312200330-3203322313201130-3232222302032021-1100011301032210-0312133112310022-2321231001010313): complete subsection reference.
 
-- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0638ebae88296b2a3f71b61e30472cacd6569174219c51c622697335d3ea2ac9): complete subsection reference.
+- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0012032032232232-2020022112230222-0333130123120132-0300101302302230-3112111221011310-0201213011013012-0202122113030311-3103322202223021): complete subsection reference.
 
-<a id="canonical-1854a24916db7a8d4580225317d604ed4ad67aae1ec2fd76c68c42a1c766ed55"></a>
+<a id="canonical-0120111022021021-0112312313222031-1011200002021103-0113311200103231-1022311213222232-0132300233311312-3012203010022201-3013121232311111"></a>
 
-## Next pages — aws_secret_key.secret_key / de566b3b2368 / 4
+## Next pages — secret_key / 032302031220 / 4
 
-- [aws_secret_key.secret_key.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-ff85862deb431f501bef683ce3eb785ceeab2389501713a4367d6d0ab9b41137)
-- [aws_secret_key.secret_key.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0638ebae88296b2a3f71b61e30472cacd6569174219c51c622697335d3ea2ac9)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_secret_key.secret_key.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3333201120120231-3223100301331100-0123323312200330-3203322313201130-3232222302032021-1100011301032210-0312133112310022-2321231001010313)
+- [aws_secret_key.secret_key.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0012032032232232-2020022112230222-0333130123120132-0300101302302230-3112111221011310-0201213011013012-0202122113030311-3103322202223021)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-ff85862deb431f501bef683ce3eb785ceeab2389501713a4367d6d0ab9b41137"></a>
+<a id="canonical-3333201120120231-3223100301331100-0123323312200330-3203322313201130-3232222302032021-1100011301032210-0312133112310022-2321231001010313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7ceb08fd9f01be1c73027581a4ef577a98efa35a4be9333befc2dc714858fb09"></a>
+<a id="canonical-1330322300203331-2133000123320130-1303000213112001-2210323311131322-2120323322031122-1023322103030323-3233300231301301-1020112033230021"></a>
 
-## aws_secret_key.secret_key.blindfold_secret_info — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 2
+## aws_secret_key.secret_key.blindfold_secret_info — blindfold_secret_info / 131331213331 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65)
-- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211)
+- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003)
 - aws_secret_key.secret_key.blindfold_secret_info
 
-<a id="canonical-d74254856bf40b3160c9cedf0e83f251cc2e7bfd878a4f31f57be30c57717e63"></a>
+<a id="canonical-3113100211102011-1223331000230301-1200302130323133-0032200333021101-3030023213233331-2013202210330301-3311132332030030-1113130113321203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1120,15 +1120,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-d92a4b88272f04e7baaaa266c6413e28f48bb7fc5eb5263258bad24d09125699"></a>
+<a id="canonical-3121022210232020-0213023300103213-2322222222021212-3012100103320220-3310202323133330-1132231102120302-1120232231021031-0021010211122121"></a>
 
-## Direct properties — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 3
+## Direct properties — blindfold_secret_info / 131331213331 / 3
 
-<a id="canonical-cd5ccc8216c671fa23b9d5b72c700cb8298299850b52ccc5d07f84355d074f68"></a>
+<a id="canonical-3031113030302002-0112301213013322-0203232131112313-0230130000302320-0221200221212011-0023110230303011-3100133320100311-1131001310331220"></a>
 
-<a id="canonical-b5e1c3c2032150e31fa2a49a5faebc51a79a8462454d5b7822b3882bce8cd436"></a>
+<a id="canonical-2311320130033002-0003020111003203-0133220222102122-1133223223301101-2213212220101202-1011103111231320-0202230320200223-3032203031100312"></a>
 
-## decryption_provider property — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 4
+## decryption_provider property — blindfold_secret_info / 131331213331 / 4
 
 Type: `"string"`. Optional.
 
@@ -1158,11 +1158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b254d99e0db281db9eec1611f82d3a325f7543b15f8a2fcceb65928cb0d8bca9"></a>
+<a id="canonical-2302111031212132-0031230220013123-2132323001120101-3320023103220302-1133131110032301-1133202202333030-3223121121022030-2300312023302221"></a>
 
-<a id="canonical-da75c6c03c0b051f19f6dffcf2c033586ec34aaffdef28eb90a9e880e09e3d30"></a>
+<a id="canonical-3122131130123000-0330002300110133-0121331231333330-3302300003031120-1232300310222233-3331323302203223-2100222132202000-3200213203310300"></a>
 
-## location property — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 5
+## location property — blindfold_secret_info / 131331213331 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1219,11 +1219,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86e49df6df043a920ec36e074b907e8409d25844183821f3f530e5d1de52d61b"></a>
+<a id="canonical-2012321021313312-3133001003222102-0032300312320013-1023210013322010-0021310211201010-0120032002013303-3311030032113101-3132110231120123"></a>
 
-<a id="canonical-ee560f3e81e7ed513ff1dae4e145e4fdefa9daefc1a5a96d31900c4b8e11749b"></a>
+<a id="canonical-3232111200330332-2001321332311101-0333330131223210-3201101132103331-3233222131223233-3001221122211231-0301210000301023-2032010113102123"></a>
 
-## store_provider property — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 6
+## store_provider property — blindfold_secret_info / 131331213331 / 6
 
 Type: `"string"`. Optional.
 
@@ -1258,32 +1258,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ed1c9a36b5f7ac0e4bae10b8659e981c489d150ed8d6b93eca9dfc3798b7c058"></a>
+<a id="canonical-3231013021220312-2311331322300032-1023223201002320-1211213221200130-1020213101110032-3120311223210332-3022213133300313-2120231330001120"></a>
 
-## Next pages — aws_secret_key.secret_key.blindfold_secret_info / 7bcf0577d9fd / 7
+## Next pages — blindfold_secret_info / 131331213331 / 7
 
-- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-0638ebae88296b2a3f71b61e30472cacd6569174219c51c622697335d3ea2ac9"></a>
+<a id="canonical-0012032032232232-2020022112230222-0333130123120132-0300101302302230-3112111221011310-0201213011013012-0202122113030311-3103322202223021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6aa93430a1582e834013b2d7cccb5368bc7f386f1c57b604f386cac8eec83d4e"></a>
+<a id="canonical-1222222103100300-2201112002322003-1000010323023113-3030302311031220-2330133303201233-0130111323120010-3303201230223020-3232302003311032"></a>
 
-## aws_secret_key.secret_key.clear_secret_info — aws_secret_key.secret_key.clear_secret_info / 7bde656c5413 / 2
+## aws_secret_key.secret_key.clear_secret_info — clear_secret_info / 123011100103 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-ef5772db96062a5b437953597113fc2ea170e7f7e18eaeac2c850abb9b133a65)
-- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [aws_secret_key](resources--cloud_credentials--reference--group-001.md#canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211)
+- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003)
 - aws_secret_key.secret_key.clear_secret_info
 
-<a id="canonical-55c6f99009883f9d4e709478087460315ab0ab7302e203ef44ec197d6bed4b31"></a>
+<a id="canonical-1111301233212100-0021202003332131-1032130021101320-0020131012000301-1122230022231303-0002320200033233-1010323001211331-1223323110230301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1316,26 +1316,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-64b5ce03a046ead4ac5c144a4ed988530ddc017e40d96c9f1958b07c982d9925"></a>
+<a id="canonical-1210231130320003-2200101232223110-2230113001101022-1032312120201103-0031313000011332-1000312112302133-0121112023001330-2120023121210211"></a>
 
-## Direct properties — aws_secret_key.secret_key.clear_secret_info / 7bde656c5413 / 3
+## Direct properties — clear_secret_info / 123011100103 / 3
 
-<a id="canonical-4ea92a53177db402f5a58b134e2b0d6564a4843c5e10686a8464380f6e750d76"></a>
+<a id="canonical-1032222102221103-0113133123100002-3311221120230103-1032022300311211-1210221020100330-1132010012201222-2010121003200033-1232131100311312"></a>
 
-<a id="canonical-2414f71e005e3f797cdfba4c3738687fd6e3cbc333afffa682115f68cb694e90"></a>
+<a id="canonical-0210011033130132-0000113203331321-1330313323221030-0313032012201333-3112320330233003-0303223333332212-2002010111331220-3023122110322100"></a>
 
-## provider_ref property — aws_secret_key.secret_key.clear_secret_info / 7bde656c5413 / 4
+## provider_ref property — clear_secret_info / 123011100103 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-110d54cad3f7d789b4995b960bd4f421d95dbdeb5086b7d7ee346a4068b0115f"></a>
+<a id="canonical-0101003111103022-3103331331132021-2310212111232112-0023311033100201-3121113123313223-1100201223133113-3232031012221000-1220230001011133"></a>
 
-<a id="canonical-3e37f3640234eb37d5dd307fa190d0a24675a0dc39466aff16ce73a12807c06c"></a>
+<a id="canonical-0332031333031210-0002031032230313-3111313103001333-2201210031002202-1012131122003130-0321101212223333-0112303213032201-0220001330001230"></a>
 
-## url property — aws_secret_key.secret_key.clear_secret_info / 7bde656c5413 / 5
+## URL property — clear_secret_info / 123011100103 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1403,30 +1403,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dfa1e19c223cf99ac229a79dcb8c7c5513714551fdc8119ddb1ea693582f7edb"></a>
+<a id="canonical-3133220132012130-0202033033212122-3002022122132131-3023203013301111-0103130110111101-3331302001012131-3123013222122103-1120023313323123"></a>
 
-## Next pages — aws_secret_key.secret_key.clear_secret_info / 7bde656c5413 / 6
+## Next pages — clear_secret_info / 123011100103 / 6
 
-- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-277549eb2bb912fb9bd5f951e1e1573049298027d498a8fdb711d0eb82249f43)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [aws_secret_key.secret_key](resources--cloud_credentials--reference--group-001.md#canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b"></a>
+<a id="canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-41bd3cf38fee4234bbd134636af2793802b6f41e34286c3388007f9c3daf8bd7"></a>
+<a id="canonical-1001233103303303-2033323210020310-2323310103101203-1222330213210320-0002231233100132-0310022012300303-2020000013332130-0331223320233113"></a>
 
-## azure_client_secret — azure_client_secret / f59086c5f30f / 2
+## azure_client_secret — azure_client_secret / 301133030033 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - azure_client_secret
 
-<a id="canonical-f4fcb5013edfbbd2e1f929d412f207c8f737feb5fe11334499701c98828f5296"></a>
+<a id="canonical-3310333023110001-0332313323233102-3201332102213110-0102330200133020-3313031333322311-3332010103031010-2121130001302120-2002203311022112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1465,15 +1465,15 @@ azure_client_secret {
 }
 ```
 
-<a id="canonical-a6435fbdceba4edcd7cf2db77b597285a97ebf12decaff67e27d98f09318a491"></a>
+<a id="canonical-2212100311332331-3032232210323130-3113303302312313-1323112113022011-2221133223330102-3132302233331213-3202133121203300-2103012022102101"></a>
 
-## Direct properties — azure_client_secret / f59086c5f30f / 3
+## Direct properties — azure_client_secret / 301133030033 / 3
 
-<a id="canonical-ccc7c8b67d1e2b868167a4cd5c4302fda59b16e0d160634e15252a183452d142"></a>
+<a id="canonical-3030301330202312-1331013202232012-2001121322103031-1130100300023331-2211212301123200-3101120012031032-0111021102220120-0310110231011002"></a>
 
-<a id="canonical-938bc5e1fd2eeda07c3f77ff3db0845072640a8ecfed94250b5f69cfc92a1f96"></a>
+<a id="canonical-2103202330113201-3331023232312200-1330033313133333-0331230020101100-1302121000222032-3033323121100211-0023113312213033-3021022201332112"></a>
 
-## client_id property — azure_client_secret / f59086c5f30f / 4
+## client_id property — azure_client_secret / 301133030033 / 4
 
 Type: `"string"`. Optional.
 
@@ -1520,13 +1520,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960): complete subsection reference.
+- [client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200): complete subsection reference.
 
-<a id="canonical-8fb62b6c8297ebb01aaf86dcc1b811c53aef8a4ccb5525acd8859d5dc9b43303"></a>
+<a id="canonical-2033231202231230-2002211332232300-0122223320123130-3001232001013011-0322323320221030-3023111102112230-3120201121311131-3021231003030003"></a>
 
-<a id="canonical-a717763ddeba678fd2455c680bf1c22a271cb728e0c36efce2cd536e57c39ede"></a>
+<a id="canonical-2213011313120331-3132232212132033-3102101111301220-0023330130020222-0213013023130220-3200300312323330-3202303111031232-1113300321323132"></a>
 
-## subscription_id property — azure_client_secret / f59086c5f30f / 5
+## subscription_id property — azure_client_secret / 301133030033 / 5
 
 Type: `"string"`. Optional.
 
@@ -1573,11 +1573,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-397ac8ee04bc2d26508fc35daaa0f6fe1858c0a63ba0b582ac7bf7c5d3d6aacc"></a>
+<a id="canonical-0321132230203232-0010233002310212-1100203330031131-2222220033123332-0120112030002212-0323220023112002-2230132333133011-3103311222223030"></a>
 
-<a id="canonical-e172a44b9e3b6bd0c26ab3a9a965f301b3bbf34fc6acf4423076ba87e7dead5b"></a>
+<a id="canonical-3201130222101023-2132032312233100-3002122223032221-2221121133030001-2303232333031033-3012223033101002-0300131223222013-3213313222311123"></a>
 
-## tenant_id property — azure_client_secret / f59086c5f30f / 6
+## tenant_id property — azure_client_secret / 301133030033 / 6
 
 Type: `"string"`. Optional.
 
@@ -1624,32 +1624,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ee45b2e9500077b68603233f691f594d01b53ee0aaa58b1273359e5866551685"></a>
+<a id="canonical-3232101123023221-1100000013132312-2012000302030333-1221013311211031-0001231103323200-2222221120230102-1303031121321120-1212111101122011"></a>
 
-## Next pages — azure_client_secret / f59086c5f30f / 7
+## Next pages — azure_client_secret / 301133030033 / 7
 
-- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960"></a>
+<a id="canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-07e265e31258d75bc43c19a4c3c5f415db94b9f4a12de22a877be7c291d08f0c"></a>
+<a id="canonical-0013320212113203-0102112031131123-3010033001212210-3003301133100111-3123211023213310-2201023132020222-2013132332133002-2101310020330030"></a>
 
-## azure_client_secret.client_secret — azure_client_secret.client_secret / 9b70490ffc9b / 2
+## azure_client_secret.client_secret — client_secret / 003333302123 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323)
 - azure_client_secret.client_secret
 
-<a id="canonical-124d3f1223fdfba6a17f2a20cc0f8c9eaca0f8f6c51c7dbb960214f2550566ef"></a>
+<a id="canonical-0102103103330102-0203333133232212-2201133302220200-3030003320302132-2230220033203312-3011013013312323-2112000201103302-1111001112123233"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1684,42 +1684,42 @@ client_secret {
 }
 ```
 
-<a id="canonical-fdcf50bde4983ffd8e1b01f46d77336b36f7aadd60a5bb18d32c84d81f9d4300"></a>
+<a id="canonical-3331303311002331-3210212003333331-2032012300013310-1231131303031223-0312331322223131-1200221123230120-3103023020103120-0133213110030000"></a>
 
-## Direct properties — azure_client_secret.client_secret / 9b70490ffc9b / 3
+## Direct properties — client_secret / 003333302123 / 3
 
-- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1c84d2a4251eac503fa95bd879f427500f3d3c9ad7c866ea9f8172c952ff127c): complete subsection reference.
+- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0130201031022210-0211013222301100-0333222111233120-1321331002131100-0033033103302122-3113302012123222-2133200113023021-1102333301021330): complete subsection reference.
 
-- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-57072146da50875d392c75350bfdb5deba2f8251bd23db9800f4c0c06185d765): complete subsection reference.
+- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1113001302011012-3122110020131131-0321023013110311-0023333123113132-2322023320021101-2331020331232120-0000331030003000-1201201131131211): complete subsection reference.
 
-<a id="canonical-8f9cd20e1437e85411e2110138e2b0e6471140af7ca3bdacfad1c439b1c7b02b"></a>
+<a id="canonical-2033213031020032-0110031332201110-0101320201010001-0320320223003212-1013010110002233-1330220323312230-3322310130100321-2301301323000223"></a>
 
-## Next pages — azure_client_secret.client_secret / 9b70490ffc9b / 4
+## Next pages — client_secret / 003333302123 / 4
 
-- [azure_client_secret.client_secret.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1c84d2a4251eac503fa95bd879f427500f3d3c9ad7c866ea9f8172c952ff127c)
-- [azure_client_secret.client_secret.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-57072146da50875d392c75350bfdb5deba2f8251bd23db9800f4c0c06185d765)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_client_secret.client_secret.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0130201031022210-0211013222301100-0333222111233120-1321331002131100-0033033103302122-3113302012123222-2133200113023021-1102333301021330)
+- [azure_client_secret.client_secret.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1113001302011012-3122110020131131-0321023013110311-0023333123113132-2322023320021101-2331020331232120-0000331030003000-1201201131131211)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-1c84d2a4251eac503fa95bd879f427500f3d3c9ad7c866ea9f8172c952ff127c"></a>
+<a id="canonical-0130201031022210-0211013222301100-0333222111233120-1321331002131100-0033033103302122-3113302012123222-2133200113023021-1102333301021330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a62ce13be77114c2ff14bd80838315209ba5979c18f63c23c4f167bd33a8df6c"></a>
+<a id="canonical-2212023032010323-3213130101103002-3333011023312000-2003200301110200-2123221121132130-0120331203300203-3010330112132331-0303222031331230"></a>
 
-## azure_client_secret.client_secret.blindfold_secret_info — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 2
+## azure_client_secret.client_secret.blindfold_secret_info — blindfold_secret_info / 130110011000 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b)
-- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323)
+- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200)
 - azure_client_secret.client_secret.blindfold_secret_info
 
-<a id="canonical-f1ea43faa12bcfec73ed945790136a74b881045a5e556adcda743accc01b2f13"></a>
+<a id="canonical-3301322210033322-2201022330333230-1303323121101113-2100010312221310-2320200100101122-1132111112223130-3122131003223030-3000012302330103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1752,15 +1752,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-10b81aecbcd7787f98601eb249922e6e26cd9e4c6a9017e6ce38a951ce094936"></a>
+<a id="canonical-0100232001223230-2330311313201333-2120120001322302-1021210202321232-0212303121321030-1222210001133212-3032032022211101-3032002110210312"></a>
 
-## Direct properties — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 3
+## Direct properties — blindfold_secret_info / 130110011000 / 3
 
-<a id="canonical-5304bc1622911374fa98c9a357a9bdc057f656a8a74052bc80508ac7ccd7545e"></a>
+<a id="canonical-1103001023300112-0202210101031310-3322212030212203-1113222123313000-1113331211122220-2213100011022330-2000110020223013-3030311311101132"></a>
 
-<a id="canonical-5d365551696a089464673a5e5e2c4b7197515a7961e9ba90a90ff97cdc11131b"></a>
+<a id="canonical-1131031211111101-1221122200202110-1210121303221132-1132023010231301-2113110111221321-1201322123222100-2221003333211330-3130010101030123"></a>
 
-## decryption_provider property — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 4
+## decryption_provider property — blindfold_secret_info / 130110011000 / 4
 
 Type: `"string"`. Optional.
 
@@ -1790,11 +1790,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-024680e4e65413e5b59052710cd1014feb4f8ee9da53372350875cdabe62f1ae"></a>
+<a id="canonical-0002101220003210-3212111001033211-2311210011021301-0030310100011033-3223103320323221-3122110303130203-1100201311303122-2332120233012232"></a>
 
-<a id="canonical-0fc0f0f726dc073ad81b581a3c0d75623884b497cc1be56d2b35b28860662b27"></a>
+<a id="canonical-0033300033003313-0212313000130322-3120012311200122-0330003113111202-0320201023102113-3030012332111231-0223031123022020-1200121202230213"></a>
 
-## location property — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 5
+## location property — blindfold_secret_info / 130110011000 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -1851,11 +1851,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e1f2c59d41fc6cf3ce68b535cd40ef822cf762c33f32ad050f13046226e7c8e9"></a>
+<a id="canonical-3201330230112131-1001333012303303-3032122023110311-3031100032332002-0230331312023003-0333030222310011-0033010300101202-0212321330203221"></a>
 
-<a id="canonical-1edb2988cdc3e4453cd8cac2f507aa5ab194a4b7e215a96bd9f090b4a47b3df3"></a>
+<a id="canonical-0132312302212020-3031300332101011-0330312030223002-3311001322221122-2301211022102313-3202011122211223-3121330021002310-2210132303313303"></a>
 
-## store_provider property — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 6
+## store_provider property — blindfold_secret_info / 130110011000 / 6
 
 Type: `"string"`. Optional.
 
@@ -1890,32 +1890,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7f88b2d97138669e36a3a900c5e193eaf897316dd6612244a1ac5191ea3b3420"></a>
+<a id="canonical-1333202023023121-1301032012122132-0312220322210000-3011320121033222-3320211303011231-3112120102021010-2201223011012101-3222032303100200"></a>
 
-## Next pages — azure_client_secret.client_secret.blindfold_secret_info / 75b641714140 / 7
+## Next pages — blindfold_secret_info / 130110011000 / 7
 
-- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-57072146da50875d392c75350bfdb5deba2f8251bd23db9800f4c0c06185d765"></a>
+<a id="canonical-1113001302011012-3122110020131131-0321023013110311-0023333123113132-2322023320021101-2331020331232120-0000331030003000-1201201131131211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2ce6e554131eaf65ca5f1e9d2ee7df400381d752018c6d577382a9998653b756"></a>
+<a id="canonical-0230321232111110-0103013222331211-3022113301322131-0232321331331000-0003200131131102-0001203012311113-1303200222212121-2012110323131112"></a>
 
-## azure_client_secret.client_secret.clear_secret_info — azure_client_secret.client_secret.clear_secret_info / cf884f88bae1 / 2
+## azure_client_secret.client_secret.clear_secret_info — clear_secret_info / 202023223201 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0d0ea7d2e8a2ccade98d84da9e05785e901de427a4e1bcabd8f887f5cd2fa27b)
-- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_client_secret](resources--cloud_credentials--reference--group-001.md#canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323)
+- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200)
 - azure_client_secret.client_secret.clear_secret_info
 
-<a id="canonical-fd49bc736890090e5311a4dc776b3144142abb96f214258a5ecdab6f4eb651c7"></a>
+<a id="canonical-3331102123301303-1220210000210032-1103010122103130-1313122303011010-0110022223232112-3302011002112022-1132303122231233-1032231211013013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1948,26 +1948,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-29888287a71b228355b3f2a400b2158ca25572b5f4e155e379ce2bb416712560"></a>
+<a id="canonical-0221202020022013-2213012302022003-1111230333022210-0000230201112030-2202111113022311-3310320111113203-1321303202232310-0112130102111200"></a>
 
-## Direct properties — azure_client_secret.client_secret.clear_secret_info / cf884f88bae1 / 3
+## Direct properties — clear_secret_info / 202023223201 / 3
 
-<a id="canonical-97e37a9df31f2458c0fbc51559ad609c59e6283dd6367718064c791900ee928b"></a>
+<a id="canonical-2113320313222131-3303013302101120-3000332330110111-1121223112002130-1121321202200331-3112031213130120-0012103013210121-0000323221022023"></a>
 
-<a id="canonical-4cf8201b186b07db5086146507db6724492444bfcac3710d834654063edd44f3"></a>
+<a id="canonical-1030332002000123-0120122300133123-1100201201101211-0013312312130210-1021021010102333-3022300313010031-2003101211100012-0332313110103303"></a>
 
-## provider_ref property — azure_client_secret.client_secret.clear_secret_info / cf884f88bae1 / 4
+## provider_ref property — clear_secret_info / 202023223201 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-a888d1b281e51b43274bf4d4aa1a27cd6d4a037955b3cdfb6479d05be37d161e"></a>
+<a id="canonical-2220202031012302-2001321101231003-0213102333103110-2222012202133031-1231102200031321-1111230330313323-1210132131001123-3203133101120132"></a>
 
-<a id="canonical-af6d283775260ba413a7b8afa2cc07e1ee7dde122cfb21db8a03a30b07b8858c"></a>
+<a id="canonical-2233123102200313-1311021200232210-0103221323202233-2202303000133201-3232133131320102-0230332302013123-2022000322030023-0013232020112030"></a>
 
-## url property — azure_client_secret.client_secret.clear_secret_info / cf884f88bae1 / 5
+## URL property — clear_secret_info / 202023223201 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -2035,30 +2035,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f8e5c23c1cfec38a44c248cb87e10ab976cb56f89f9864032392357aab010a1"></a>
+<a id="canonical-1233203211300203-3001303332300320-2210103002102030-2320133201002223-2113123023111233-2021332120121000-0302032102031113-2222230001002201"></a>
 
-## Next pages — azure_client_secret.client_secret.clear_secret_info / cf884f88bae1 / 6
+## Next pages — clear_secret_info / 202023223201 / 6
 
-- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-844239be548eccca761ee30e353773f7f5d22307b853badbe8909d532340a960)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_client_secret.client_secret](resources--cloud_credentials--reference--group-001.md#canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4"></a>
+<a id="canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-05aaf65a71de2a26e4b8ddbb4b4d8682e9b9d02e92a5d237fab7936c755ae30e"></a>
+<a id="canonical-0011222233121122-1301313202220212-3210232031312323-1023103120122002-3221232131000232-2102221131020313-3322231321031230-1311112232030032"></a>
 
-## azure_pfx_certificate — azure_pfx_certificate / bdd75999ebad / 2
+## azure_pfx_certificate — azure_pfx_certificate / 212132232231 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - azure_pfx_certificate
 
-<a id="canonical-df2c0182d927c3ce0cc417317dff1a750d40269b6c6bb70446a50d29b8446755"></a>
+<a id="canonical-3133023000012002-3121021330033032-0030301001130301-1331333301221311-0031100002122123-1230122323130010-1012221100310221-2320101012131111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2094,15 +2094,15 @@ azure_pfx_certificate {
 }
 ```
 
-<a id="canonical-4bcefa7b2e2181eff26b036adef34705b31e7c98d214eef1cc607fadf52b3e3d"></a>
+<a id="canonical-1023303233221323-0232020120013233-3302122300031222-3132330310130011-2303013213302120-3102011032323301-3030120013332231-3311022303320331"></a>
 
-## Direct properties — azure_pfx_certificate / bdd75999ebad / 3
+## Direct properties — azure_pfx_certificate / 212132232231 / 3
 
-<a id="canonical-617e646d802c8b308d378063a389c7fb4392a3bc618bc78a4b67a2e35bb55f62"></a>
+<a id="canonical-1201133212101231-2000023020230300-2031031320001203-2203202130133323-1003210222032330-1201202330132022-1023121322023203-1123231111331202"></a>
 
-<a id="canonical-0288862b36d3cd7068009a258271c5c48bfb59ad601970b123411e4642619f25"></a>
+<a id="canonical-0002202020120223-0312310330311300-1220000021220211-2002130130113010-2023332311212231-1200012113002301-0203100101321012-1002120121330211"></a>
 
-## certificate_url property — azure_pfx_certificate / bdd75999ebad / 4
+## certificate_url property — azure_pfx_certificate / 212132232231 / 4
 
 Type: `"string"`. Optional.
 
@@ -2160,11 +2160,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-efb91a6b55c67a03637d8fd34ee14fdee5bde589203423c4ea046d93dd37432c"></a>
+<a id="canonical-3233232101221223-1111301213220003-1203133120333103-1032320110333132-3211233132112021-0200031002033010-3222001012312103-3131031310030230"></a>
 
-<a id="canonical-aeb474ce7da3c982b15955b690be2a3e78a31ea0ac4f107eec96a0529d5eabc5"></a>
+<a id="canonical-2232231013103032-1331220330212002-2301112111112312-2100233202220332-1320220301322200-2230103301001332-3230211222001102-2131113222233011"></a>
 
-## client_id property — azure_pfx_certificate / bdd75999ebad / 5
+## client_id property — azure_pfx_certificate / 212132232231 / 5
 
 Type: `"string"`. Optional.
 
@@ -2211,13 +2211,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d): complete subsection reference.
+- [password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231): complete subsection reference.
 
-<a id="canonical-565ccbb81151ecc92ba38a2b098fcf3666c422177fa5eb26caff5eaff520ac6f"></a>
+<a id="canonical-1112113030232320-0101110132303021-0223220320220223-0021203330330312-1212301002020113-1333221132230212-3022333311322233-3311020022301233"></a>
 
-<a id="canonical-113ccf186d5845b71db8f21a88beb9b94994ce9247db77b2aa99c97b0f76637c"></a>
+<a id="canonical-0101033030330120-1231112010112313-0131232033020122-2020233223212321-1021211030322102-1013312313132302-2222212130211323-0033131212031330"></a>
 
-## subscription_id property — azure_pfx_certificate / bdd75999ebad / 6
+## subscription_id property — azure_pfx_certificate / 212132232231 / 6
 
 Type: `"string"`. Optional.
 
@@ -2264,11 +2264,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b5e173f95b735e65cc012dc756a06ab729ec17969362589cc2d3a552caa4ec29"></a>
+<a id="canonical-2311320113033321-1123130311321211-3030000102313013-1112220012222313-0221323001132112-2103120211202130-3002310322111102-3022221032300221"></a>
 
-<a id="canonical-3b7c7ef74561f774f185e15da08db79f984a35ff2730138867c0d21fa9926e3e"></a>
+<a id="canonical-0323133013323313-1011120133131310-3301201132011131-2200203123132133-2120102203113333-0213030001032020-1213300031020133-2221210212320332"></a>
 
-## tenant_id property — azure_pfx_certificate / bdd75999ebad / 7
+## tenant_id property — azure_pfx_certificate / 212132232231 / 7
 
 Type: `"string"`. Optional.
 
@@ -2315,32 +2315,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0308e4a45e170743186662ec4606cd8bd02d67c40592e60d529fdac43f001b26"></a>
+<a id="canonical-0003002032102210-1132011300131003-0120121212023230-1012001230312023-3100023112133010-0011210232120031-1102213331223010-0333000001230212"></a>
 
-## Next pages — azure_pfx_certificate / bdd75999ebad / 8
+## Next pages — azure_pfx_certificate / 212132232231 / 8
 
-- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d"></a>
+<a id="canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15fb8248c7e4e65db97887b3d01a949beaa784b069e99f55e9795c5744543cda"></a>
+<a id="canonical-0111332320021020-3013321032121131-2321132020132303-3100012221102123-3222221320102300-1221322121331111-3221132111301113-1010111003303122"></a>
 
-## azure_pfx_certificate.password — azure_pfx_certificate.password / a9cd84034d67 / 2
+## azure_pfx_certificate.password — password / 000310311213 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010)
 - azure_pfx_certificate.password
 
-<a id="canonical-6012d8121a30b2c4037ae600f862ffef601d41ba9b1b32adbf87200d4fe4dabd"></a>
+<a id="canonical-1200010231200102-0122030023023010-0003132232120000-3320120233333233-1200013110012322-2123012303022231-2333201302000031-1033321031222331"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2375,42 +2375,42 @@ password {
 }
 ```
 
-<a id="canonical-ad61af9c8f48e291c94f542fdfc9e41f5e7a1ac61ea7a5e017b523f8fe62c0d7"></a>
+<a id="canonical-2231120122332130-2033102032022101-3021103311100233-3133302132100133-1132132201223012-0132221322113200-0113231102033320-3332120230003113"></a>
 
-## Direct properties — azure_pfx_certificate.password / a9cd84034d67 / 3
+## Direct properties — password / 000310311213 / 3
 
-- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-740572c7c12a6ad7984148dd8c929048c8a15c887d56444d0c6b41203fca6475): complete subsection reference.
+- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1310001113023013-3001022212223113-2120100110203131-2030210221001020-3020220111302020-1331111210101031-0030122310010200-0333302212101311): complete subsection reference.
 
-- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-088ca23d1289343ef1b9ef9c7d107ddb2f2bce48a4c890c6d02682e4c28eef82): complete subsection reference.
+- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0020203022020331-0102202103100332-3301232132332130-1331010013313123-0233022330321020-2210302021003012-3100021220023210-3002203232332002): complete subsection reference.
 
-<a id="canonical-2464c53542a5c59f785115a57891c3eeab692f4cf346fb83dc1d2e46d3eb73dc"></a>
+<a id="canonical-0210121030110311-1002221130112133-1320110101112211-1320210130033232-2223122102331030-3303101233232003-3130013102321012-3103322313033130"></a>
 
-## Next pages — azure_pfx_certificate.password / a9cd84034d67 / 4
+## Next pages — password / 000310311213 / 4
 
-- [azure_pfx_certificate.password.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-740572c7c12a6ad7984148dd8c929048c8a15c887d56444d0c6b41203fca6475)
-- [azure_pfx_certificate.password.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-088ca23d1289343ef1b9ef9c7d107ddb2f2bce48a4c890c6d02682e4c28eef82)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_pfx_certificate.password.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-1310001113023013-3001022212223113-2120100110203131-2030210221001020-3020220111302020-1331111210101031-0030122310010200-0333302212101311)
+- [azure_pfx_certificate.password.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0020203022020331-0102202103100332-3301232132332130-1331010013313123-0233022330321020-2210302021003012-3100021220023210-3002203232332002)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-740572c7c12a6ad7984148dd8c929048c8a15c887d56444d0c6b41203fca6475"></a>
+<a id="canonical-1310001113023013-3001022212223113-2120100110203131-2030210221001020-3020220111302020-1331111210101031-0030122310010200-0333302212101311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c96c27a0d1de3bc6623be991b5025eed5731919b8668999f1fdd2e60943c6b31"></a>
+<a id="canonical-3021123002132200-3101313203233012-1202032332212101-2311000211323231-1113030121012123-2012122021212133-0133313102321200-2110033012230301"></a>
 
-## azure_pfx_certificate.password.blindfold_secret_info — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 2
+## azure_pfx_certificate.password.blindfold_secret_info — blindfold_secret_info / 300230003323 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4)
-- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010)
+- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231)
 - azure_pfx_certificate.password.blindfold_secret_info
 
-<a id="canonical-dea3b516b0147de14036ccd2739f1a14f0ef9b4cf574909ff38615a613fd7502"></a>
+<a id="canonical-3132220323110112-2300011013313201-1000031230303102-1303213301220110-3300323321231030-3311131021002133-3303201201112212-0103333113110002"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2443,15 +2443,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-43da40a61f1263ec15b02257d0486adca3268a4e95c72604a658f4839b5d8b79"></a>
+<a id="canonical-1003312210002212-0133010212033230-0111230002021113-3100102012223130-2203021220221032-2111301302120010-2212112033102003-2123113120231321"></a>
 
-## Direct properties — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 3
+## Direct properties — blindfold_secret_info / 300230003323 / 3
 
-<a id="canonical-3008d1320b299b99b3ba36d39ad1dfad2f878dd966fb3dcf425f243c2b68e0aa"></a>
+<a id="canonical-0300002031010302-0023022121232121-2303232203123103-2122310131332231-0233201320313121-1212332303313033-1002113302100330-0223122032002222"></a>
 
-<a id="canonical-62532f6b71536f2bda808eb89e8cae25c999f5a5e3b7904a93668f9ccd95e384"></a>
+<a id="canonical-1202110302331223-1301110312330223-3122200020322320-2132203022320211-3021212133112211-3203231321001022-2103121220332130-3031211132032010"></a>
 
-## decryption_provider property — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 4
+## decryption_provider property — blindfold_secret_info / 300230003323 / 4
 
 Type: `"string"`. Optional.
 
@@ -2481,11 +2481,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-144511479c49e621748778433d201504bd37ab0a61d9d1a1ecf76cca13e7d28e"></a>
+<a id="canonical-0110101101011013-2130102132120201-1310201313201003-0331020001110010-2331031322230022-1201312131012201-3230331312303022-0103321331022032"></a>
 
-<a id="canonical-c29b20d8527f145f06a96a09d524a828563455a7162a91e6d0f80b9a9268ea87"></a>
+<a id="canonical-3002212302003120-1102133301101133-0012222112220021-3111021022200220-1112031011112213-0112022221013212-3100332000232122-2102122032222013"></a>
 
-## location property — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 5
+## location property — blindfold_secret_info / 300230003323 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -2542,11 +2542,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cfe18e7a64b37e5b8a5bb3c0c33706821d8ae62e48333e611117efc1d2f4b8b9"></a>
+<a id="canonical-3033320120321322-1210230313321123-2022112323033000-3003031300122002-0131202232120232-1020030303321201-0101011332333001-3102331023202321"></a>
 
-<a id="canonical-fb8f34d1f97ae8ac932e4a70f50530753824db29aca59c3452e1a76b9397654d"></a>
+<a id="canonical-3323203303103101-3321132232202230-2103023210221300-3311001103001311-0320021031230221-2230221121300310-1102320122131223-2103211312111031"></a>
 
-## store_provider property — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 6
+## store_provider property — blindfold_secret_info / 300230003323 / 6
 
 Type: `"string"`. Optional.
 
@@ -2581,32 +2581,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e44d4873e1a73897285a2d2e37e0f0f5aabfdd2ac01af6ff7bfbecea6f9e3089"></a>
+<a id="canonical-3210103110201303-3201221303202113-0220112202310232-0313320033003311-2222233331310222-3000012233123333-1323332332303222-1233213203002021"></a>
 
-## Next pages — azure_pfx_certificate.password.blindfold_secret_info / 5a7ccfc2c0fb / 7
+## Next pages — blindfold_secret_info / 300230003323 / 7
 
-- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-088ca23d1289343ef1b9ef9c7d107ddb2f2bce48a4c890c6d02682e4c28eef82"></a>
+<a id="canonical-0020203022020331-0102202103100332-3301232132332130-1331010013313123-0233022330321020-2210302021003012-3100021220023210-3002203232332002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dead695ee101484e4d318ad3ff4cc50f6c8c4b81305c0e4b5c92f92a74d36de9"></a>
+<a id="canonical-3132223112211132-3201000110201032-1031030120223103-3333103030110033-1230203010232001-0300113000321023-1130210233210222-1310310312313221"></a>
 
-## azure_pfx_certificate.password.clear_secret_info — azure_pfx_certificate.password.clear_secret_info / f319f6a8ca7c / 2
+## azure_pfx_certificate.password.clear_secret_info — clear_secret_info / 222030221330 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-d9670a783b6e4c58fe4d91841ffcd56ced56d310123339ad0292a40f27a296c4)
-- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [azure_pfx_certificate](resources--cloud_credentials--reference--group-001.md#canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010)
+- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231)
 - azure_pfx_certificate.password.clear_secret_info
 
-<a id="canonical-8ea8654b2db3f2bac34109e7b363b31db9ecd1cd0f02c6fac79a34a33c3197be"></a>
+<a id="canonical-2032222012111023-0231230333022322-3003100100213213-2303120323030131-2321323031013031-0033000230123322-3013212203102203-0330030121132332"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2639,26 +2639,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-9b26a0c73bcf6d21bb79206e87182b2473511d85be954f4b91f34658125e53d9"></a>
+<a id="canonical-2123021222003013-0323303312310201-2323132102001232-2013012002230210-1303110101312011-2332211110331023-2101330310121120-0102113211033121"></a>
 
-## Direct properties — azure_pfx_certificate.password.clear_secret_info / f319f6a8ca7c / 3
+## Direct properties — clear_secret_info / 222030221330 / 3
 
-<a id="canonical-93fde45572ba704d7c341713d8b54842333bd3871bfc5139f54982f916e8e7ef"></a>
+<a id="canonical-2103333132101111-1302232213001031-1330031001130103-3120231110201002-0303032331032013-0123333011010321-3311102120023321-0112322032133233"></a>
 
-<a id="canonical-ae4cff2fbffc307d768473ca7fa787a89866a0a5eaaa6614d30ab75bd60f76fe"></a>
+<a id="canonical-2232103033330233-2333333003001331-1312201013033022-1333221320132220-2120121222002211-3222222212120110-3103002223131123-3112003313123332"></a>
 
-## provider_ref property — azure_pfx_certificate.password.clear_secret_info / f319f6a8ca7c / 4
+## provider_ref property — clear_secret_info / 222030221330 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-7f868bf8f38d544528f4423a4c55b56689dc8ad466a13174e5ed4e3020a19409"></a>
+<a id="canonical-1333201220233320-3303203111101011-0220331010020322-1030111123111212-2021313020223110-1212220103011310-3211323110320300-0200220121100021"></a>
 
-<a id="canonical-f459c7aa10683d25e424479c425e4bb25082f561d9af317fea013ade9a05dc4b"></a>
+<a id="canonical-3310112130132222-0100122003310211-3210021010132130-1002113210232302-1100200233111201-3121223303011333-3222000103223132-2122001131301023"></a>
 
-## url property — azure_pfx_certificate.password.clear_secret_info / f319f6a8ca7c / 5
+## URL property — clear_secret_info / 222030221330 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -2726,30 +2726,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e36fb0acb89af48ec7e2a0406a3efb9fcac970fa5ceb153f1ca94f1aad5e1c04"></a>
+<a id="canonical-3203123323002230-2320212233102032-3013320222001000-1222033233232133-3022302113003322-1130322301110333-0130222110330122-2231113201300010"></a>
 
-## Next pages — azure_pfx_certificate.password.clear_secret_info / f319f6a8ca7c / 6
+## Next pages — clear_secret_info / 222030221330 / 6
 
-- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-8d737cfe7746a75b87f43afc24f4248cb9e506cb5af9b01727154cd71069e22d)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [azure_pfx_certificate.password](resources--cloud_credentials--reference--group-001.md#canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7"></a>
+<a id="canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1de30643795d178ba1e5bc3ecf7d730910c72e85714f9c11ceacd57cda6c286"></a>
+<a id="canonical-2301313203001210-0313211131011320-2322013211233003-3230331331130300-2101003013023220-1113011033213001-0130322230311113-3031221230022012"></a>
 
-## gcp_cred_file — gcp_cred_file / 0f086282166b / 2
+## gcp_cred_file — gcp_cred_file / 200201121223 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - gcp_cred_file
 
-<a id="canonical-c6d5e0047cb0140207434ad4cacf0c414ded9691a9e46f5ae652d6d038bd5e86"></a>
+<a id="canonical-3012311132000010-1330230001100002-0013100310223110-3022303300301001-1031323121122101-2221321012331122-3212110231123100-0320233111322012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2780,38 +2780,38 @@ gcp_cred_file {
 }
 ```
 
-<a id="canonical-1fef13d9c2499ec47e18169833308e93e28565e1bb08fb5c8f38de9fadabc232"></a>
+<a id="canonical-0133323301033121-3002102121323010-1332012001122120-0303030020322103-3202201112113201-2323002033231130-2033032031322133-2231222330020302"></a>
 
-## Direct properties — gcp_cred_file / 0f086282166b / 3
+## Direct properties — gcp_cred_file / 200201121223 / 3
 
-- [credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14): complete subsection reference.
+- [credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110): complete subsection reference.
 
-<a id="canonical-c0f330ef277a9b5afd260f193952b23ec492b47a328be5299339ef1abb5060c5"></a>
+<a id="canonical-3000330303003233-0213132221231122-3331021200330121-0321110223020332-3010210223101322-0302202332110221-2103032132330122-2323110012003011"></a>
 
-## Next pages — gcp_cred_file / 0f086282166b / 4
+## Next pages — gcp_cred_file / 200201121223 / 4
 
-- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14"></a>
+<a id="canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-659d57915358a89e96680f9be570c2768708d238897bf1ece1e92657d82cd9d5"></a>
+<a id="canonical-1211213111132101-1103112022202132-2112122000332123-3211130030021312-2013002031020320-2021132333013230-3201322102121113-3120023031213111"></a>
 
-## gcp_cred_file.credential_file — gcp_cred_file.credential_file / b9ef5328b737 / 2
+## gcp_cred_file.credential_file — credential_file / 022023130313 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213)
 - gcp_cred_file.credential_file
 
-<a id="canonical-112ae79be7b74f472b49b8bf1962c588330c1d56f688dcc30a796c8683cda5b7"></a>
+<a id="canonical-0101022232132123-3213231310331013-0223102123202333-0121120230112020-0303003001311112-3312202031303003-0022132112302012-2003303122112313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2846,42 +2846,42 @@ credential_file {
 }
 ```
 
-<a id="canonical-8b675f27c698942168df753186a5949a90f9b38bd53bcffbee6f225bf7f101f6"></a>
+<a id="canonical-2023121311330213-3012212021100201-1220313313110301-2012221121102122-2100332123032023-3111032330333323-3232123302021123-3313330100013312"></a>
 
-## Direct properties — gcp_cred_file.credential_file / b9ef5328b737 / 3
+## Direct properties — credential_file / 022023130313 / 3
 
-- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-c1f549e505499741cca89667658e8ba9d8cc0054f0233f426a2d10f1972eec58): complete subsection reference.
+- [blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3001331110213211-0011102121131001-3030222021121213-1211203220232221-3120303000001110-3300020303331002-1222023101003301-2113023232301120): complete subsection reference.
 
-- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-2b96eed5593a484f1c89b12843795f75a613cf2408fe546a7a87f29b845be5b8): complete subsection reference.
+- [clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0223211232323111-1121032210201033-0130202123010220-1003132111331311-2212010330330210-0020333211101222-1322201333022123-2010112332112320): complete subsection reference.
 
-<a id="canonical-0942e6f2cc39eef8265cabf0b6124171e6dac2684a74368f424a79d266d87483"></a>
+<a id="canonical-0021100232123302-3030032132323320-0212113022233300-2312010210011301-3212312230021220-1022131003122033-1002102213213102-1212312013102003"></a>
 
-## Next pages — gcp_cred_file.credential_file / b9ef5328b737 / 4
+## Next pages — credential_file / 022023130313 / 4
 
-- [gcp_cred_file.credential_file.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-c1f549e505499741cca89667658e8ba9d8cc0054f0233f426a2d10f1972eec58)
-- [gcp_cred_file.credential_file.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-2b96eed5593a484f1c89b12843795f75a613cf2408fe546a7a87f29b845be5b8)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [gcp_cred_file.credential_file.blindfold_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-3001331110213211-0011102121131001-3030222021121213-1211203220232221-3120303000001110-3300020303331002-1222023101003301-2113023232301120)
+- [gcp_cred_file.credential_file.clear_secret_info](resources--cloud_credentials--reference--group-001.md#canonical-0223211232323111-1121032210201033-0130202123010220-1003132111331311-2212010330330210-0020333211101222-1322201333022123-2010112332112320)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-c1f549e505499741cca89667658e8ba9d8cc0054f0233f426a2d10f1972eec58"></a>
+<a id="canonical-3001331110213211-0011102121131001-3030222021121213-1211203220232221-3120303000001110-3300020303331002-1222023101003301-2113023232301120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f2259379daed02f5624e71eb6f2d7b7fe37de0ba21b46260121b7818a7df61a5"></a>
+<a id="canonical-3302021121031321-3122323100023311-1202103213013223-1233023113231333-3203133132002322-0201231012021200-0102012313200120-2213313312012211"></a>
 
-## gcp_cred_file.credential_file.blindfold_secret_info — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 2
+## gcp_cred_file.credential_file.blindfold_secret_info — blindfold_secret_info / 010302132233 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7)
-- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213)
+- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110)
 - gcp_cred_file.credential_file.blindfold_secret_info
 
-<a id="canonical-b73371e9932f7968ba9b9f87dce78fcc42b4749cf0f091060650c1207f142984"></a>
+<a id="canonical-2313030313013221-2103023313211220-2322212321332013-3130321320333030-1002231013102130-3300330021010012-0012110030010200-1333011002212010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2914,15 +2914,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-f3509fbe355330deeb0345135db952757e8bb3f5acf40f21cf97b60322c75bb0"></a>
+<a id="canonical-3303110021332332-0311110303003132-3223000310110103-1131232111021311-1332202323033311-2230331000330201-3033211323120003-0202301311232300"></a>
 
-## Direct properties — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 3
+## Direct properties — blindfold_secret_info / 010302132233 / 3
 
-<a id="canonical-ded1bde5f500a00b68faf3964668681561389ac608cfd29333883e69de64e9fe"></a>
+<a id="canonical-3132310123313211-3311000022000023-1220332233032112-1012122012200111-1201032021223012-0020303331022103-0303202003321221-3132121032213332"></a>
 
-<a id="canonical-a18756a5c110f555507bc59796922077189ea5cd28e8279e0309be0cf4b21fab"></a>
+<a id="canonical-2201201311122211-3001010033111111-1100132330112113-2112210202001313-0120213222113031-0220322002132132-0003002123320030-3310230201332223"></a>
 
-## decryption_provider property — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 4
+## decryption_provider property — blindfold_secret_info / 010302132233 / 4
 
 Type: `"string"`. Optional.
 
@@ -2952,11 +2952,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0741dafc23007cfaaff70fa0a316f14f662e597f96d3b17cfb57b67b007f4020"></a>
+<a id="canonical-0013100131223330-0203000013303322-2233331300332200-2203011233011033-1212023211211333-2112310323011330-3323111323121323-0000133310000200"></a>
 
-<a id="canonical-82a5ad64b7fb7e65ead7cd096c0bd09d7dd62307a6e9b79f23ac7f2851b1cae7"></a>
+<a id="canonical-2002221122311210-2313332313321211-3222311330310021-1230002331002131-1331311202030013-2212322123132133-0203223013330220-1101230130223213"></a>
 
-## location property — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 5
+## location property — blindfold_secret_info / 010302132233 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3013,11 +3013,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dfa60a07e3198c82c322cf47b2ec05614caa1a7c9377bad249bea41c1d4909e4"></a>
+<a id="canonical-3133221200220013-3203012120302002-3003020230331013-2302323000111201-1030222201221330-2103131323223102-1021233222100130-0131102100213210"></a>
 
-<a id="canonical-d8d975f7790b97b7bc29ab4b854026442ad6580327a6ece9705c033800840c5d"></a>
+<a id="canonical-3120312113113313-1321002321132313-2330022122231023-2011100002121010-0222311211200003-0213221232303221-1300113000030320-0000201000301131"></a>
 
-## store_provider property — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 6
+## store_provider property — blindfold_secret_info / 010302132233 / 6
 
 Type: `"string"`. Optional.
 
@@ -3052,32 +3052,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0e864cf8cc14f4e15bf11f13f8e10efccbb62a32d43a7792f65ede3e418c5041"></a>
+<a id="canonical-0032201210303320-3030011033103201-1123330101330103-3320320100323330-3023231202220302-3110032213132102-3312113231320332-1001203011001001"></a>
 
-## Next pages — gcp_cred_file.credential_file.blindfold_secret_info / f50ea21327af / 7
+## Next pages — blindfold_secret_info / 010302132233 / 7
 
-- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-2b96eed5593a484f1c89b12843795f75a613cf2408fe546a7a87f29b845be5b8"></a>
+<a id="canonical-0223211232323111-1121032210201033-0130202123010220-1003132111331311-2212010330330210-0020333211101222-1322201333022123-2010112332112320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f1cabce2bdb7f6ae41ab074764e3634e2c23f5e25cd3b39cf1ebeb6b709c6e54"></a>
+<a id="canonical-3301302223303202-2331231333122232-1001222300131013-1210320312031032-0230020333113202-1130310323032130-3301322332231223-1300213012321110"></a>
 
-## gcp_cred_file.credential_file.clear_secret_info — gcp_cred_file.credential_file.clear_secret_info / 28694bf8f172 / 2
+## gcp_cred_file.credential_file.clear_secret_info — clear_secret_info / 332033011302 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-eaf28e85327288aae51c56bc0cc7f4eabea47a39fde34da09e985726026564e7)
-- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [gcp_cred_file](resources--cloud_credentials--reference--group-001.md#canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213)
+- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110)
 - gcp_cred_file.credential_file.clear_secret_info
 
-<a id="canonical-c9b120cbfd1d032cfe4cf254f8b6ca24eed2f503d1aa499a0903aa3a4a4fc75e"></a>
+<a id="canonical-3021230102003023-3331013100030230-3332103033021110-3320231230220210-3232310233110003-3101222210212122-0021000322220322-1022103330131132"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3110,26 +3110,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-793356f00a38d78058bd7055b3e8ae7686645decbb49f6ebd6704680591db4e7"></a>
+<a id="canonical-1321030311123300-0022032031132000-1120233113001111-2303322022321312-2012121011313230-2323102133123223-3112130010122000-1121013123103213"></a>
 
-## Direct properties — gcp_cred_file.credential_file.clear_secret_info / 28694bf8f172 / 3
+## Direct properties — clear_secret_info / 332033011302 / 3
 
-<a id="canonical-76cb4f180384af9f43aca561452bbc983599de9fdff772d921458d0dfabc0c5d"></a>
+<a id="canonical-1312302310330120-0003201022332133-1003223022111201-1011022323302120-0311212131322133-3133331313023121-0201101120310031-3322233000301131"></a>
 
-<a id="canonical-119292b933bd91228d392977f2b92bdc26a9d5e76cdf6659a30f7fea61a99b0d"></a>
+<a id="canonical-0101210221022321-0303233121010202-2031032102211313-3302232102233130-0212222131113213-1230313312121121-2203003313333222-1201222121230031"></a>
 
-## provider_ref property — gcp_cred_file.credential_file.clear_secret_info / 28694bf8f172 / 4
+## provider_ref property — clear_secret_info / 332033011302 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-139f8e150e8996473fa4c6a9c13af0fc64d971830e3bdec4290470ae96724926"></a>
+<a id="canonical-0103213320320111-0032202121121013-0333221030122221-3001032233003330-1210312113012003-0032032331323010-0221001013002232-2112130210210212"></a>
 
-<a id="canonical-994b76e88b7aa3ac54b481e810ce0dc06113078bde1a3e89d85529c5ff4a909b"></a>
+<a id="canonical-2121102313123220-2023132222032230-1110231020013220-0100303200313000-1201010300132023-3132012203322021-3120111102213011-3333102221002123"></a>
 
-## url property — gcp_cred_file.credential_file.clear_secret_info / 28694bf8f172 / 5
+## URL property — clear_secret_info / 332033011302 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3197,30 +3197,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb9252340b8190d68a8e24b386207f596bfab1e19290e2d70d6bc7818f004d85"></a>
+<a id="canonical-3023210211020310-0023200121003112-2022203202102303-2012020013331121-1223332223013201-2102210032023113-0031122330132001-2033000010312011"></a>
 
-## Next pages — gcp_cred_file.credential_file.clear_secret_info / 28694bf8f172 / 6
+## Next pages — clear_secret_info / 332033011302 / 6
 
-- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-4c7067ff2a6a1df6617939577c372388bb8b4f00c063cf57839aa8a31f040e14)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [gcp_cred_file.credential_file](resources--cloud_credentials--reference--group-001.md#canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
 
-<a id="canonical-3acc6c96cd5416a3e10b6797715d00081c043429c9034ec56cfd26dcf256fc19"></a>
+<a id="canonical-0322303012302112-3031111001122203-3201002312132113-1301113100000020-0130001003100221-3021000310323011-1230333102123130-3302111233300121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-131b057433e7a76f58e9be54caec83219f96dfe976b00d1ffac1b960c0a488b2"></a>
+<a id="canonical-0103012300111310-0303321322131233-1120322123321110-3022323020030201-2133211231333221-1312230000310133-3322300123211200-3000221020202302"></a>
 
-## timeouts — timeouts / 8d7b303e32ba / 2
+## timeouts — timeouts / 033203022322 / 2
 
 Breadcrumbs:
 
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
 - timeouts
 
-<a id="canonical-44c9716c36756ca2eace2ede36b56d0fe85dd0d549e848b75bb5a838c5abf87f"></a>
+<a id="canonical-1010302113011230-0312131112302202-3222303202323132-0312231112310033-3220113131003111-1021322010202313-1123231122200320-3011222333201333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3232,15 +3232,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-f804b75a502e7ee8793f38eee1cdc436e61dbc95d87e70419ec6bdf461d4cfbe"></a>
+<a id="canonical-3320001023131122-1100023213323220-1321033303203232-3201303130100312-3212013123302111-3120133213001001-2132301223313310-1201311030332332"></a>
 
-## Direct properties — timeouts / 8d7b303e32ba / 3
+## Direct properties — timeouts / 033203022322 / 3
 
-<a id="canonical-dbf5f1b102f11a69bce280da5449e40f442c2ad59f27b9b34127e96df1aa73d3"></a>
+<a id="canonical-3123331133012301-0002330101221221-2330320220003122-1110102132100033-1010023002223111-2133021323212303-1001021332211231-3301222213033103"></a>
 
-<a id="canonical-c2245f9825692ce6c199810656f6441989ebb318a5f2587690e8b4ec4b061f88"></a>
+<a id="canonical-3002021011332120-0211122102303212-3001212120010012-1112331210100121-2021322323030120-2211330211201312-2100322023103230-1023001201332020"></a>
 
-## create property — timeouts / 8d7b303e32ba / 4
+## create property — timeouts / 033203022322 / 4
 
 Type: `"string"`. Optional.
 
@@ -3248,11 +3248,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-8c4eb1fe1f24394877fd2beed9dfc1131d5bbdfd2263553890eead22ca0f82d7"></a>
+<a id="canonical-2030103223013332-0133021003211020-1313333102233232-3121313330010103-0131112323313331-0202120311110320-2100323222310202-3022003320023113"></a>
 
-<a id="canonical-ce3f81abd42f68f17b860aff4a3ddefa09b5405ec3fb296f381e6be1a000c452"></a>
+<a id="canonical-3032033320012223-3110023312203301-1323201200223333-1022033131323322-0021231110001132-3003332302211233-0320013212233201-2200000030101102"></a>
 
-## delete property — timeouts / 8d7b303e32ba / 5
+## delete property — timeouts / 033203022322 / 5
 
 Type: `"string"`. Optional.
 
@@ -3261,11 +3261,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-d48b89934793851663916b540810463da14d022e42ed89cfd3d6bd185ca05cb1"></a>
+<a id="canonical-3110202320212103-1013210320110112-1203210112231110-0020010010120331-2201103100020232-1002323120213033-3103311223310120-1130220011302301"></a>
 
-<a id="canonical-276096439009d59e0954b259c84dd9cb21d4923301569ff1cfe807cf6a9bc788"></a>
+<a id="canonical-0213120021121003-2100002131112132-0021111023021121-3020103131213023-0201311021020303-0001111221333301-3033322000133033-1222212330132020"></a>
 
-## read property — timeouts / 8d7b303e32ba / 6
+## read property — timeouts / 033203022322 / 6
 
 Type: `"string"`. Optional.
 
@@ -3274,11 +3274,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-de2c35d1fbb4fb4407a978591fefcf8c73defbaffa1ccd59191405871e2ad3ae"></a>
+<a id="canonical-3132023003113101-3323231033231010-0013222113201121-0133323330332030-1303313233232233-3322013030311121-0121011000112013-0132022231032232"></a>
 
-<a id="canonical-b9a91b33fb36b44ff3e997627e12c8918a032bcdda3b2e6afa2e123d80707f55"></a>
+<a id="canonical-2321222101230303-3323031223101033-3303322121131202-1332010230202101-2022000302233031-3122032302321222-3322023201020331-2000130013331111"></a>
 
-## update property — timeouts / 8d7b303e32ba / 7
+## update property — timeouts / 033203022322 / 7
 
 Type: `"string"`. Optional.
 
@@ -3286,9 +3286,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-ce35e80f179a0845358f0f9ba3a64d5d3cb9a6d25f42deb5c5fbda657c03dc79"></a>
+<a id="canonical-3032031132200033-0113212200201011-0311203300332123-2203221210311131-0330232122123102-1133100231322311-3011332331221211-1330000331301321"></a>
 
-## Next pages — timeouts / 8d7b303e32ba / 8
+## Next pages — timeouts / 033203022322 / 8
 
-- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
-- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18)
+- [Property reference](resources--cloud_credentials--reference--group-001.md#canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200)
+- [xcsh_cloud_credentials](../resources/cloud_credentials.md#canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120)

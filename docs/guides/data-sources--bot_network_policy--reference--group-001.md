@@ -6,516 +6,516 @@ description: "Complete grouped canonical reference for xcsh_bot_network_policy r
 
 # xcsh_bot_network_policy reference
 
-<a id="canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c"></a>
+<a id="canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5958490ef8b40b8df1a4b33e5152df0caa2a8559abd13c1e70e00d3f3db02ac"></a>
+<a id="canonical-3011211120102100-3233202310002320-3133012210230303-3211011102313300-3022220222201111-2122233101033001-3213003200003103-3303312300022230"></a>
 
-## Property reference — Property reference / ee4abe2e405e / 2
+## Property reference — Property reference / 023210001132 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 - Property reference
 
-<a id="canonical-0b66a29cbd65b2f1d8931e65b4f0ab00ef116915c0f2390a00a8147fdd08c7b3"></a>
+<a id="canonical-0023121222022130-2331121123023301-3120210301321211-2310330022230000-3233010112210111-3000330203210022-0000222001101333-3131002030132303"></a>
 
-## Direct properties — Property reference / ee4abe2e405e / 3
+## Direct properties — Property reference / 023210001132 / 3
 
-<a id="canonical-719b5c1ecf58a99453334ce1f3776d8a15f6f046319a173747418cd48b37b1f9"></a>
+<a id="canonical-1301212311300132-3033112022212110-1103030310303201-3303131312312022-0111331233001012-0301212201130313-1013100120303110-2023031323013321"></a>
 
-<a id="canonical-2436b4cd734bb83c392fafd4bb37b0b11765dfe001d6a8eaeb1412924a8e7bc6"></a>
+<a id="canonical-0210031223103031-1303102323200330-0321023322333110-2323031323002301-0113121131333200-0001311222203222-3223011001022102-1022203213233012"></a>
 
-## annotations property — Property reference / ee4abe2e405e / 4
+## annotations property — Property reference / 023210001132 / 4
 
 Type: `["map", "string"]`. Computed.
 
 Annotations.
 
-<a id="canonical-e987aa1cd2d90d107d4e762056344003eceea31176a1e7b9857fe14c344f5cf3"></a>
+<a id="canonical-3221201322220130-3102312100310100-1331103213120200-1112031010000003-3230323222030101-1312220132132321-2011133332011030-0310103311303303"></a>
 
-<a id="canonical-fb941617e81aaa4322710e8b1dc5c6884ff4d9f0c9448a1f866f22e20d16e9f6"></a>
+<a id="canonical-3323211001120113-3220012222221003-0202130100322023-0131301130122020-1033331031213300-3021101020220133-2012123302023202-0031011232213312"></a>
 
-## description property — Property reference / ee4abe2e405e / 5
+## description property — Property reference / 023210001132 / 5
 
 Type: `"string"`. Computed.
 
 Description.
 
-<a id="canonical-ffa512e1127d551d693fe8393d138cd1528bae04eb9272d1e9cdf561523d60f2"></a>
+<a id="canonical-3333221101023201-0102133111110131-1221033332200321-0331010320303101-1102202322320010-3223210213023101-3221303133111201-1102033112003302"></a>
 
-<a id="canonical-b6b319f4dcfc262672bb72cc1f424c1879a83be5575bfd9c957e174e8926ed61"></a>
+<a id="canonical-2312230301213310-3130333002120212-1302232313023030-0133100210300120-1321222003233211-1113112333312130-2111133201131032-2021021232311201"></a>
 
-## id property — Property reference / ee4abe2e405e / 6
+## ID property — Property reference / 023210001132 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier.
 
-<a id="canonical-78140709ef30f7f9a2baf92a37cbbf064ffe846edd3274a7b50183b0460ec10a"></a>
+<a id="canonical-1320011000130021-3233030033133321-2202232233210222-0313302323330012-1033333220101232-3131030213102213-2311000120032300-1012003230010022"></a>
 
-<a id="canonical-6e76ac7b76f489f155d9100780863c4dfceaa19d1a337442c6b0dc17f8796283"></a>
+<a id="canonical-1232131222301323-1312331020213301-1111312101000013-2000201203301031-3330322222012131-0122030313101002-3012230031300113-3320132112022003"></a>
 
-## labels property — Property reference / ee4abe2e405e / 7
+## labels property — Property reference / 023210001132 / 7
 
 Type: `["map", "string"]`. Computed.
 
 Labels.
 
-<a id="canonical-0e30003a53d4f5f1baa98a22ce7a919c80578d72912ef8228bdc3eecf9e64d69"></a>
+<a id="canonical-0032030000000322-1103311033113301-2322222120220202-3032132221012130-2000111320311302-2101023233200202-2023313003323230-3321321210311221"></a>
 
-<a id="canonical-0a557ebe9be93a06f41a088504a7b4c2edb168f11f1af9e757638b5edba64681"></a>
+<a id="canonical-0022111113322332-2123322103220012-3310012200202011-0010221323103002-3231230112203301-0133012233213213-1113120320231132-3123221210122001"></a>
 
-## latest_version property — Property reference / ee4abe2e405e / 8
+## latest_version property — Property reference / 023210001132 / 8
 
 Type: `"string"`. Computed.
 
 Version. Version number or identifier
 
-<a id="canonical-b66851b55d77b6fd833166c88655901e88160546d745331bb3f62f0df475e3d8"></a>
+<a id="canonical-2312122011012311-1131131323123331-2003030112123020-2012111121000132-2020011200111012-3113101103030123-2303331202330031-3310131132033120"></a>
 
-<a id="canonical-d248e8d9c668df84526f79e3ac716492cfd6e7a8dc5fd861ea351e71534bee42"></a>
+<a id="canonical-3102102032203121-3012122031332010-1102123313213203-2230130112102102-3033311232132220-3130113331201201-3222031101321301-1103102332321002"></a>
 
-## name property — Property reference / ee4abe2e405e / 9
+## name property — Property reference / 023210001132 / 9
 
 Type: `"string"`. Required.
 
 Name of the BotNetworkPolicy to look up.
 
-<a id="canonical-2d3d9827a660f5e69b7c9852c040ff9730918f21ab6e1d917d2f97d197d80bc9"></a>
+<a id="canonical-0231033121200213-2212120033113212-2123133021201102-3000100033332113-0300210120330201-2223123201312101-1331023321133101-2113312000233021"></a>
 
-<a id="canonical-8fe651620af6b1847d647cf104b7b86d3d1a85db01ade1314897fc0a64aab99a"></a>
+<a id="canonical-2033321211011202-0022331223012010-1331121013303301-0010231323201231-0331012220113123-0001223132010301-1020211333300022-1210222223212122"></a>
 
-## namespace property — Property reference / ee4abe2e405e / 10
+## namespace property — Property reference / 023210001132 / 10
 
 Type: `"string"`. Required.
 
 Namespace of the BotNetworkPolicy.
 
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208): complete subsection reference.
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020): complete subsection reference.
 
-<a id="canonical-0496fc69fae7f68a08f936a3c0e6adef5fa63e712e40749ceb7f7e28a53313f6"></a>
+<a id="canonical-0010211233301221-3322321333122022-0020332103122203-3000321222313233-1133221203321301-0232100013102130-3223133313320220-2211030301033312"></a>
 
-## All schema paths — Property reference / ee4abe2e405e / 11
+## All schema paths — Property reference / 023210001132 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--bot_network_policy--reference--group-001.md#canonical-719b5c1ecf58a99453334ce1f3776d8a15f6f046319a173747418cd48b37b1f9) |
-| `description` | [description](data-sources--bot_network_policy--reference--group-001.md#canonical-e987aa1cd2d90d107d4e762056344003eceea31176a1e7b9857fe14c344f5cf3) |
-| `id` | [id](data-sources--bot_network_policy--reference--group-001.md#canonical-ffa512e1127d551d693fe8393d138cd1528bae04eb9272d1e9cdf561523d60f2) |
-| `labels` | [labels](data-sources--bot_network_policy--reference--group-001.md#canonical-78140709ef30f7f9a2baf92a37cbbf064ffe846edd3274a7b50183b0460ec10a) |
-| `latest_version` | [latest_version](data-sources--bot_network_policy--reference--group-001.md#canonical-0e30003a53d4f5f1baa98a22ce7a919c80578d72912ef8228bdc3eecf9e64d69) |
-| `name` | [name](data-sources--bot_network_policy--reference--group-001.md#canonical-b66851b55d77b6fd833166c88655901e88160546d745331bb3f62f0df475e3d8) |
-| `namespace` | [namespace](data-sources--bot_network_policy--reference--group-001.md#canonical-2d3d9827a660f5e69b7c9852c040ff9730918f21ab6e1d917d2f97d197d80bc9) |
-| `network_policy_content` | [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-440fc3e0bb8c94c91397a439d594bc3accb28d0f753b07ac746c5fbb317ded5f) |
-| `network_policy_content.manual_routing_list` | [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-a8b36f9df1dc2ce168606d8f4965a8f00d06fa690dc3918aa2ee4805e5dab056) |
-| `network_policy_content.manual_routing_list.manual_routing` | [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-22fe58c86acb08846b298830011d0fcf29b592dc662b5d6afa8ee7625e339b5c) |
-| `network_policy_content.manual_routing_list.manual_routing.domain_name` | [network_policy_content.manual_routing_list.manual_routing.domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-7d573c90ad694d7513dd4f13600169bb6ca7080ff9e17aad3443f5eb06decc08) |
-| `network_policy_content.manual_routing_list.manual_routing.http` | [network_policy_content.manual_routing_list.manual_routing.http](data-sources--bot_network_policy--reference--group-001.md#canonical-40a7f8b5758dd977b2cae162a02198143f8668e00706e9d5f19b9b5cb30d246c) |
-| `network_policy_content.manual_routing_list.manual_routing.https` | [network_policy_content.manual_routing_list.manual_routing.https](data-sources--bot_network_policy--reference--group-001.md#canonical-24419f9cb3cc138ff6a8547d057d043180cbb3f5c8d29c0ad713ba487e6f83f2) |
-| `network_policy_content.manual_routing_list.manual_routing.outbound_domain_name` | [network_policy_content.manual_routing_list.manual_routing.outbound_domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-1c2ad64ffa4ee9b51c3d9cfba8125af20cc7290c9f0fc76b793d295719bb541b) |
-| `network_policy_content.manual_routing_list.manual_routing.port` | [network_policy_content.manual_routing_list.manual_routing.port](data-sources--bot_network_policy--reference--group-001.md#canonical-601b6ecba977739835249ec25263f253c66e91f71b78627d39bece55957679d4) |
-| `network_policy_content.manual_routing_list.manual_routing.protocol_http` | [network_policy_content.manual_routing_list.manual_routing.protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-38d2180db607af22e8a8b7703e3f2225e8198f7619a433851a227bf394f15ed5) |
-| `network_policy_content.manual_routing_list.manual_routing.protocol_https` | [network_policy_content.manual_routing_list.manual_routing.protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-4a0511a7ec40cff16d18dc1d7f342b2a520839ec8188eddd5b566ddd4742d703) |
-| `network_policy_content.upstream_routing_list` | [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-efd8631cd858a5a47a5a36af0ee573d4ebc0ea25bd899681d5e7882fed088991) |
-| `network_policy_content.upstream_routing_list.upstream_routing` | [network_policy_content.upstream_routing_list.upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-24d896694bb17cd31e585f15b4cfd72a719de0f97dfac500b920cdf72589946a) |
-| `network_policy_content.upstream_routing_list.upstream_routing.domain_name` | [network_policy_content.upstream_routing_list.upstream_routing.domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-90300fdb9d745e042c0e60d1a2492b810dacaf2591afe65fa83c4c53a8672443) |
+| `annotations` | [annotations](data-sources--bot_network_policy--reference--group-001.md#canonical-1301212311300132-3033112022212110-1103030310303201-3303131312312022-0111331233001012-0301212201130313-1013100120303110-2023031323013321) |
+| `description` | [description](data-sources--bot_network_policy--reference--group-001.md#canonical-3221201322220130-3102312100310100-1331103213120200-1112031010000003-3230323222030101-1312220132132321-2011133332011030-0310103311303303) |
+| `id` | [id](data-sources--bot_network_policy--reference--group-001.md#canonical-3333221101023201-0102133111110131-1221033332200321-0331010320303101-1102202322320010-3223210213023101-3221303133111201-1102033112003302) |
+| `labels` | [labels](data-sources--bot_network_policy--reference--group-001.md#canonical-1320011000130021-3233030033133321-2202232233210222-0313302323330012-1033333220101232-3131030213102213-2311000120032300-1012003230010022) |
+| `latest_version` | [latest_version](data-sources--bot_network_policy--reference--group-001.md#canonical-0032030000000322-1103311033113301-2322222120220202-3032132221012130-2000111320311302-2101023233200202-2023313003323230-3321321210311221) |
+| `name` | [name](data-sources--bot_network_policy--reference--group-001.md#canonical-2312122011012311-1131131323123331-2003030112123020-2012111121000132-2020011200111012-3113101103030123-2303331202330031-3310131132033120) |
+| `namespace` | [namespace](data-sources--bot_network_policy--reference--group-001.md#canonical-0231033121200213-2212120033113212-2123133021201102-3000100033332113-0300210120330201-2223123201312101-1331023321133101-2113312000233021) |
+| `network_policy_content` | [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-1010003330033200-2323203021103021-0103211322100321-3111211023300322-3030230220310033-1311032300132230-1310123011332323-0301133132311133) |
+| `network_policy_content.manual_routing_list` | [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-2220230312332131-3301313002303201-1220120012312033-1021121122203300-0031001233221221-0031300321012022-2202323210200011-3211312223001112) |
+| `network_policy_content.manual_routing_list.manual_routing` | [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0202333211203020-1222302300202010-1223022120200300-0001013100333033-0221231121023130-1212022311311222-3322203232131202-1132030321231130) |
+| `network_policy_content.manual_routing_list.manual_routing.domain_name` | [network_policy_content.manual_routing_list.manual_routing.domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-1331111303302100-2231122110311311-0103313110330103-1200000112212323-1230221300200033-3321320113222231-0310100333113223-0012313230300020) |
+| `network_policy_content.manual_routing_list.manual_routing.http` | [network_policy_content.manual_routing_list.manual_routing.http](data-sources--bot_network_policy--reference--group-001.md#canonical-1000221333202311-1311203131211313-2302302232011202-2200020121200110-0333201212203200-0013001232213111-3301212321231130-2303003102101230) |
+| `network_policy_content.manual_routing_list.manual_routing.https` | [network_policy_content.manual_routing_list.manual_routing.https](data-sources--bot_network_policy--reference--group-001.md#canonical-0210100121332130-2303303001032033-3312222011101331-0011133100100301-2000302323033311-3020310221300022-3113010323221020-1332123320033302) |
+| `network_policy_content.manual_routing_list.manual_routing.outbound_domain_name` | [network_policy_content.manual_routing_list.manual_routing.outbound_domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-0130022231121033-3322103232212311-0130033121303323-2220010211223302-0030301302210030-2133003330131223-1321033102211113-0121232311100123) |
+| `network_policy_content.manual_routing_list.manual_routing.port` | [network_policy_content.manual_routing_list.manual_routing.port](data-sources--bot_network_policy--reference--group-001.md#canonical-1200012312323023-2221131313032120-0311021021323002-1102120333021103-3012123221013313-0123132012021331-0321233230321111-2111131213213110) |
+| `network_policy_content.manual_routing_list.manual_routing.protocol_http` | [network_policy_content.manual_routing_list.manual_routing.protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-0320310201200031-2312001322330202-3220222023131300-0332033302020211-3220012120331312-0121221003032011-0122020213233303-2110330111323111) |
+| `network_policy_content.manual_routing_list.manual_routing.protocol_https` | [network_policy_content.manual_routing_list.manual_routing.protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-1022001101012213-3230100030333301-1231012031300131-1333031002230222-1102002003213230-2001202032313131-1123111212313131-1013100231130003) |
+| `network_policy_content.upstream_routing_list` | [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3233312012030130-3120112022112210-1322112203122233-0032321113033110-3223300032220211-2331202121122001-3111321320200233-3231002020212101) |
+| `network_policy_content.upstream_routing_list.upstream_routing` | [network_policy_content.upstream_routing_list.upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0210312021121221-1023230113303103-0132112011330111-2310303331130222-1301213132003321-1331332230110000-2321020030313313-0211202121101222) |
+| `network_policy_content.upstream_routing_list.upstream_routing.domain_name` | [network_policy_content.upstream_routing_list.upstream_routing.domain_name](data-sources--bot_network_policy--reference--group-001.md#canonical-2100030000333123-2131131011320010-0230003212003101-2202102102232001-0031223022330211-2101223332121133-2220033010301103-2220121302101003) |
 
-<a id="canonical-72e1f5e0f6a61f52f680c2d4ef0dcceb77be494c39a0de5d667f5d654580f739"></a>
+<a id="canonical-1302320133113200-3312221201331102-3312200030023110-3233003130303223-1313233210211030-0321220031321131-1212133311311211-1011200033130321"></a>
 
-## Next pages — Property reference / ee4abe2e405e / 12
+## Next pages — Property reference / 023210001132 / 12
 
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208"></a>
+<a id="canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b7927a618ac23ad42b0271acd9e49099f00810a49108b960639216fcf859ac5b"></a>
+<a id="canonical-2313210213221201-2022300203223110-0223000213012230-3121321021002121-3300002001002210-2101002023211200-1203210201123330-3320112122301123"></a>
 
-## network_policy_content — network_policy_content / 506a10613333 / 2
+## network_policy_content — network_policy_content / 120103030303 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
 - network_policy_content
 
-<a id="canonical-440fc3e0bb8c94c91397a439d594bc3accb28d0f753b07ac746c5fbb317ded5f"></a>
+<a id="canonical-1010003330033200-2323203021103021-0103211322100321-3111211023300322-3030230220310033-1311032300132230-1310123011332323-0301133132311133"></a>
 
 Type: `"single"`. Computed.
 
 Configuration parameter for network policy content.
 
-<a id="canonical-572805658927ed76e83632eae34ad12aec4533a58d0f1d0abcd1f1190071e677"></a>
+<a id="canonical-1113022000111211-2021021332311312-3220031203023222-3203102231010222-3230101103032211-2031003301310022-2330310133010121-0000130132121313"></a>
 
-## Direct properties — network_policy_content / 506a10613333 / 3
+## Direct properties — network_policy_content / 120103030303 / 3
 
-- [manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665): complete subsection reference.
+- [manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211): complete subsection reference.
 
-- [upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-242c1e022143b9bba6a99228a3bef864b4a507cd1b23c62331cc722a7c838eb7): complete subsection reference.
+- [upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-0210023001320002-0201100323212323-2212222121020220-2203233233201210-2310221100133031-0123020330120203-0301303013020222-1330200320322313): complete subsection reference.
 
-<a id="canonical-860f4ad0039b3abb48f599e42e42928ea52dd917db30d5b126f533f84614cbfe"></a>
+<a id="canonical-2012003310223100-0003212303222323-1020331121213210-0232100221022032-2211023131210113-3123030031112301-0212331103033320-1012011030233332"></a>
 
-## Next pages — network_policy_content / 506a10613333 / 4
+## Next pages — network_policy_content / 120103030303 / 4
 
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-242c1e022143b9bba6a99228a3bef864b4a507cd1b23c62331cc722a7c838eb7)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-0210023001320002-0201100323212323-2212222121020220-2203233233201210-2310221100133031-0123020330120203-0301303013020222-1330200320322313)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665"></a>
+<a id="canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-52a58c57123a9339ebf669680f9127f980ed95577ba02a00dc5892f20d586857"></a>
+<a id="canonical-1102221120301113-0102032221030321-3223331212211220-0033210102133321-2000323121111113-1323220002220000-3130112021023302-0031112012201113"></a>
 
-## network_policy_content.manual_routing_list — network_policy_content.manual_routing_list / 80d43309ecbf / 2
+## network_policy_content.manual_routing_list — manual_routing_list / 002132302333 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
 - network_policy_content.manual_routing_list
 
-<a id="canonical-a8b36f9df1dc2ce168606d8f4965a8f00d06fa690dc3918aa2ee4805e5dab056"></a>
+<a id="canonical-2220230312332131-3301313002303201-1220120012312033-1021121122203300-0031001233221221-0031300321012022-2202323210200011-3211312223001112"></a>
 
 Type: `"single"`. Computed.
 
 Manual Routings. The list of manual routing.
 
-<a id="canonical-c09e1e909ede838f03652b5d8cbaa597e05d3068e238edd9728ba74a2c6860ee"></a>
+<a id="canonical-3000213201322100-2132313220032033-0003121102231131-2030232222112113-3200113103001220-3202032032313121-1302202322131022-0230122012003232"></a>
 
-## Direct properties — network_policy_content.manual_routing_list / 80d43309ecbf / 3
+## Direct properties — manual_routing_list / 002132302333 / 3
 
-- [manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5): complete subsection reference.
+- [manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311): complete subsection reference.
 
-<a id="canonical-d567fb69d1215dc5b0dd429aa408441d8c6a80707cbbf3e6b2645ae61ff44b29"></a>
+<a id="canonical-3111121333231221-3101020111313011-2300313110022122-2210002010100131-2030122220001300-1330232333033212-2302121011223212-0133331010230221"></a>
 
-## Next pages — network_policy_content.manual_routing_list / 80d43309ecbf / 4
+## Next pages — manual_routing_list / 002132302333 / 4
 
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5"></a>
+<a id="canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c2dc021e934c98bc9290b194ce79de90624d77ebf566eb5ac08ab1196b70c847"></a>
+<a id="canonical-3002313000020132-2103103021202330-2102210023012110-3032132131322100-1202103113133223-3311121232231122-3000202223010121-1223130030201013"></a>
 
-## network_policy_content.manual_routing_list.manual_routing — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 2
+## network_policy_content.manual_routing_list.manual_routing — manual_routing / 012011300232 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
 - network_policy_content.manual_routing_list.manual_routing
 
-<a id="canonical-22fe58c86acb08846b298830011d0fcf29b592dc662b5d6afa8ee7625e339b5c"></a>
+<a id="canonical-0202333211203020-1222302300202010-1223022120200300-0001013100333033-0221231121023130-1212022311311222-3322203232131202-1132030321231130"></a>
 
 Type: `"list"`. Computed.
 
 Manual Routing. Routing or forwarding configuration
 
-<a id="canonical-9c90c79ebe88dc3831225929d989beb27d917a2eb5e7e5eb5cbd8f7f946bbf6a"></a>
+<a id="canonical-2130210030132132-2332202031300320-0301020211210221-3121202123322302-1331210113220232-2311321332113223-1130233120331333-2110122323331222"></a>
 
-## Direct properties — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 3
+## Direct properties — manual_routing / 012011300232 / 3
 
-<a id="canonical-7d573c90ad694d7513dd4f13600169bb6ca7080ff9e17aad3443f5eb06decc08"></a>
+<a id="canonical-1331111303302100-2231122110311311-0103313110330103-1200000112212323-1230221300200033-3321320113222231-0310100333113223-0012313230300020"></a>
 
-<a id="canonical-bafa81036634231df410cc235fd6985426f1f2c995ffddeca5893257b1ee4fa9"></a>
+<a id="canonical-2322332220010003-1212031002030131-3310010030300203-1133311221201110-0212330133023021-2111333331313230-2211202103021113-2301323210332221"></a>
 
-## domain_name property — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 4
+## domain_name property — manual_routing / 012011300232 / 4
 
 Type: `"string"`. Computed.
 
 Inbound FQDN. Inbound FQDN value.
 
-- [http](data-sources--bot_network_policy--reference--group-001.md#canonical-0c97ed16ea80ddf8c020c03fc27ea30df3e6139aa3382a93f36d4a5e283c1ca0): complete subsection reference.
+- [http](data-sources--bot_network_policy--reference--group-001.md#canonical-0030211332310112-3222200031313320-3000020030000333-3002133222030031-3303321201032122-2203032002222103-3303123110221132-0220033001302200): complete subsection reference.
 
-- [https](data-sources--bot_network_policy--reference--group-001.md#canonical-2e4dc1a802f2d6dd9c96e44e11ccce4f5852add048b51692a52526241194faad): complete subsection reference.
+- [https](data-sources--bot_network_policy--reference--group-001.md#canonical-0232103130012220-0002330231123131-2130211232101032-0101303030321033-1120110222313100-1020231101122102-2211021102120210-0101211033222231): complete subsection reference.
 
-<a id="canonical-1c2ad64ffa4ee9b51c3d9cfba8125af20cc7290c9f0fc76b793d295719bb541b"></a>
+<a id="canonical-0130022231121033-3322103232212311-0130033121303323-2220010211223302-0030301302210030-2133003330131223-1321033102211113-0121232311100123"></a>
 
-<a id="canonical-cf0398a6cd5d7283c6330ae3171aecd5da670a3aac1e0e378bf0ed171b1877b0"></a>
+<a id="canonical-3033000321202212-3031113113022003-3012030300223203-0113012232303111-3122121300220322-2230013200320313-2023330032310113-0123012013132300"></a>
 
-## outbound_domain_name property — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 5
+## outbound_domain_name property — manual_routing / 012011300232 / 5
 
 Type: `"string"`. Computed.
 
 Outbound FQDN / IP. Outbound FQDN or IP value.
 
-<a id="canonical-601b6ecba977739835249ec25263f253c66e91f71b78627d39bece55957679d4"></a>
+<a id="canonical-1200012312323023-2221131313032120-0311021021323002-1102120333021103-3012123221013313-0123132012021331-0321233230321111-2111131213213110"></a>
 
-<a id="canonical-8d2e8ca662b976ed7d7d681c8d0f1a16e7a3694c0de97be78e5eb37061c29007"></a>
+<a id="canonical-2031023220302212-1202232113123231-1331133112200130-2031003301220112-3213220312211030-0031322113233213-2032113223031300-1201300221000013"></a>
 
-## port property — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 6
+## port property — manual_routing / 012011300232 / 6
 
 Type: `"number"`. Computed.
 
 Outbound Port. Outbound Port value.
 
-- [protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-19ef3cfb6f3a4c577c5577ecc29c4d1e53c9518a8dcebda377f324b17f68452b): complete subsection reference.
+- [protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-0121323303303323-1233032210301113-1330111113133230-3002213010310132-1103302111012022-2031303223312203-1313330302102301-1333122010110223): complete subsection reference.
 
-- [protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-4f35a6f40d6b20671d487c071b4f994b8b0f8d152d37a1f32857ee2bb963d0c9): complete subsection reference.
+- [protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-1033031122123310-0031122302001213-0131102013300013-0123103321211023-2023003320310111-0231031322013303-0220111332320223-2321120331003021): complete subsection reference.
 
-<a id="canonical-276dbb428b06ef2959b0de27b3f4cfde6b1532b8672192b49762ac5ba2a3597c"></a>
+<a id="canonical-0213123123231002-2023001232330221-1121230031320213-2303331030333132-1223011103022320-1213020121022310-2113120222301123-2202220311211330"></a>
 
-## Next pages — network_policy_content.manual_routing_list.manual_routing / dcaa77185c2e / 7
+## Next pages — manual_routing / 012011300232 / 7
 
-- [network_policy_content.manual_routing_list.manual_routing.http](data-sources--bot_network_policy--reference--group-001.md#canonical-0c97ed16ea80ddf8c020c03fc27ea30df3e6139aa3382a93f36d4a5e283c1ca0)
-- [network_policy_content.manual_routing_list.manual_routing.https](data-sources--bot_network_policy--reference--group-001.md#canonical-2e4dc1a802f2d6dd9c96e44e11ccce4f5852add048b51692a52526241194faad)
-- [network_policy_content.manual_routing_list.manual_routing.protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-19ef3cfb6f3a4c577c5577ecc29c4d1e53c9518a8dcebda377f324b17f68452b)
-- [network_policy_content.manual_routing_list.manual_routing.protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-4f35a6f40d6b20671d487c071b4f994b8b0f8d152d37a1f32857ee2bb963d0c9)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing.http](data-sources--bot_network_policy--reference--group-001.md#canonical-0030211332310112-3222200031313320-3000020030000333-3002133222030031-3303321201032122-2203032002222103-3303123110221132-0220033001302200)
+- [network_policy_content.manual_routing_list.manual_routing.https](data-sources--bot_network_policy--reference--group-001.md#canonical-0232103130012220-0002330231123131-2130211232101032-0101303030321033-1120110222313100-1020231101122102-2211021102120210-0101211033222231)
+- [network_policy_content.manual_routing_list.manual_routing.protocol_http](data-sources--bot_network_policy--reference--group-001.md#canonical-0121323303303323-1233032210301113-1330111113133230-3002213010310132-1103302111012022-2031303223312203-1313330302102301-1333122010110223)
+- [network_policy_content.manual_routing_list.manual_routing.protocol_https](data-sources--bot_network_policy--reference--group-001.md#canonical-1033031122123310-0031122302001213-0131102013300013-0123103321211023-2023003320310111-0231031322013303-0220111332320223-2321120331003021)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-0c97ed16ea80ddf8c020c03fc27ea30df3e6139aa3382a93f36d4a5e283c1ca0"></a>
+<a id="canonical-0030211332310112-3222200031313320-3000020030000333-3002133222030031-3303321201032122-2203032002222103-3303123110221132-0220033001302200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7959bf18fb23988e06993c70ba93266515595f7b68697a5558cfab2c74fa3c3e"></a>
+<a id="canonical-1321112123330120-3323020321202032-0012212103301300-2322210302121211-0111112111331323-1220122113221111-1120303322230230-1310332203300332"></a>
 
-## network_policy_content.manual_routing_list.manual_routing.http — network_policy_content.manual_routing_list.manual_routing.http / 0eb042bad0ff / 2
+## network_policy_content.manual_routing_list.manual_routing.http — http / 232231003333 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
 - network_policy_content.manual_routing_list.manual_routing.http
 
-<a id="canonical-40a7f8b5758dd977b2cae162a02198143f8668e00706e9d5f19b9b5cb30d246c"></a>
+<a id="canonical-1000221333202311-1311203131211313-2302302232011202-2200020121200110-0333201212203200-0013001232213111-3301212321231130-2303003102101230"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-5781c5a8e6e66daa4efac61c4dd53c7dc2f0df2abb6ad3d65285fcb9cd9d9a6b"></a>
+<a id="canonical-1113200130112220-3212321212312222-1032332230120130-1031311103301331-3002330031330222-2323122231033112-1102201133302321-3031213121221223"></a>
 
-## Direct properties — network_policy_content.manual_routing_list.manual_routing.http / 0eb042bad0ff / 3
+## Direct properties — http / 232231003333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ef45cb9682a69684b5c4649cfa43e99f6ae0cce5440d084fa81632e060378e46"></a>
+<a id="canonical-3233101130232112-2002221221122010-2311301012102130-3322100332212133-1222320030303211-1010003100201033-2220011203023200-1200031320321012"></a>
 
-## Next pages — network_policy_content.manual_routing_list.manual_routing.http / 0eb042bad0ff / 4
+## Next pages — http / 232231003333 / 4
 
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-2e4dc1a802f2d6dd9c96e44e11ccce4f5852add048b51692a52526241194faad"></a>
+<a id="canonical-0232103130012220-0002330231123131-2130211232101032-0101303030321033-1120110222313100-1020231101122102-2211021102120210-0101211033222231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9d3dfd48e860cff05780294cee5548e200a218ad355a37b644f375366b544641"></a>
+<a id="canonical-2131033133311020-3220120030333300-1113200002211030-3232111110203202-0000220201202231-0311112203132312-1010330313110312-1223111010121001"></a>
 
-## network_policy_content.manual_routing_list.manual_routing.https — network_policy_content.manual_routing_list.manual_routing.https / e5d19d6637f8 / 2
+## network_policy_content.manual_routing_list.manual_routing.https — https / 121203133320 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
 - network_policy_content.manual_routing_list.manual_routing.https
 
-<a id="canonical-24419f9cb3cc138ff6a8547d057d043180cbb3f5c8d29c0ad713ba487e6f83f2"></a>
+<a id="canonical-0210100121332130-2303303001032033-3312222011101331-0011133100100301-2000302323033311-3020310221300022-3113010323221020-1332123320033302"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-18d84325b50bf1b47444750d0d51ae5a669a6a74144a9c78d25c769cb64f9eb2"></a>
+<a id="canonical-0120312010030211-2311002333012310-1310101013110031-0031110122321122-1212212212221310-0110102221301320-3102113013122130-2312103321322302"></a>
 
-## Direct properties — network_policy_content.manual_routing_list.manual_routing.https / e5d19d6637f8 / 3
+## Direct properties — https / 121203133320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1685ebfaa5edc00c1f18fbcd2a0f6b1a8998a286ae7669913b22c5d6683e947b"></a>
+<a id="canonical-0112201132233322-2211323130000030-0133012033233031-0222003312230122-2021212022022012-2232131212212101-0323020230113112-1220033221101323"></a>
 
-## Next pages — network_policy_content.manual_routing_list.manual_routing.https / e5d19d6637f8 / 4
+## Next pages — https / 121203133320 / 4
 
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-19ef3cfb6f3a4c577c5577ecc29c4d1e53c9518a8dcebda377f324b17f68452b"></a>
+<a id="canonical-0121323303303323-1233032210301113-1330111113133230-3002213010310132-1103302111012022-2031303223312203-1313330302102301-1333122010110223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b76e191beb98a1fe625ed0dba51a442b3a3026326c2e3fd83ef5484efd2797b7"></a>
+<a id="canonical-2313123201210123-3223212022013332-1202113231003123-2211012210100223-0322030002120302-1230023203333120-0332331110201032-3331021321132313"></a>
 
-## network_policy_content.manual_routing_list.manual_routing.protocol_http — network_policy_content.manual_routing_list.manual_routing.protocol_http / fac158cb2012 / 2
+## network_policy_content.manual_routing_list.manual_routing.protocol_http — protocol_http / 302302000102 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
 - network_policy_content.manual_routing_list.manual_routing.protocol_http
 
-<a id="canonical-38d2180db607af22e8a8b7703e3f2225e8198f7619a433851a227bf394f15ed5"></a>
+<a id="canonical-0320310201200031-2312001322330202-3220222023131300-0332033302020211-3220012120331312-0121221003032011-0122020213233303-2110330111323111"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for protocol http.
 
-<a id="canonical-20ee1869775486c04f035084204d7c9232239f5d1278861ebf29a02b9ef86cd9"></a>
+<a id="canonical-0200323201201221-1313111020123000-1033000311002010-0200103113302102-0302020321331131-0102132020120132-2333022122000223-2132332012303121"></a>
 
-## Direct properties — network_policy_content.manual_routing_list.manual_routing.protocol_http / fac158cb2012 / 3
+## Direct properties — protocol_http / 302302000102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-28e46bb885360a6f7dee323d6773d8ecacbae9acfc99e39ad0eb608db85fd6a9"></a>
+<a id="canonical-0220321012232320-2011031200221233-1331323203020331-1213130331203230-2230232232212230-3330212132032122-3100322312002031-2320113331122221"></a>
 
-## Next pages — network_policy_content.manual_routing_list.manual_routing.protocol_http / fac158cb2012 / 4
+## Next pages — protocol_http / 302302000102 / 4
 
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-4f35a6f40d6b20671d487c071b4f994b8b0f8d152d37a1f32857ee2bb963d0c9"></a>
+<a id="canonical-1033031122123310-0031122302001213-0131102013300013-0123103321211023-2023003320310111-0231031322013303-0220111332320223-2321120331003021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b85d9b2745727b032cf2d8d7cc193cba04843fba24966675e1a78ee2448c185"></a>
+<a id="canonical-0323201131212302-1310111302132300-0302303302312031-1330300121033023-2200102010033323-2202102112121213-1132012213203232-0210102030012011"></a>
 
-## network_policy_content.manual_routing_list.manual_routing.protocol_https — network_policy_content.manual_routing_list.manual_routing.protocol_https / 923e3e28c977 / 2
+## network_policy_content.manual_routing_list.manual_routing.protocol_https — protocol_https / 022030211313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-fc7de59365ec4b6b1a612c01110daac24ad19c9a7f6b99403301c7a9ec6b9665)
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.manual_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-3330133132112103-1211323010231223-0122120102300001-0101003122223002-1022310121302122-1333122321211000-0303000130132221-3230122321121211)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
 - network_policy_content.manual_routing_list.manual_routing.protocol_https
 
-<a id="canonical-4a0511a7ec40cff16d18dc1d7f342b2a520839ec8188eddd5b566ddd4742d703"></a>
+<a id="canonical-1022001101012213-3230100030333301-1231012031300131-1333031002230222-1102002003213230-2001202032313131-1123111212313131-1013100231130003"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for protocol https.
 
-<a id="canonical-495251cd88feee4b78bee34c23811896679486e20f96da9b3b7ed85ae2c221b3"></a>
+<a id="canonical-1021110211013031-2020333232321023-1320233232031030-0203200101202112-1213211020123202-0033211231222123-0323133231201122-3202300202012303"></a>
 
-## Direct properties — network_policy_content.manual_routing_list.manual_routing.protocol_https / 923e3e28c977 / 3
+## Direct properties — protocol_https / 022030211313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ee015055102d3262a38afd0bde0086dce51eb69d58f34712f7d12fab6ed5f981"></a>
+<a id="canonical-3232000111001111-0100023103021202-2203202233310023-3132000020123130-3211013223122131-1120330310130102-3313310102332223-1232311133212001"></a>
 
-## Next pages — network_policy_content.manual_routing_list.manual_routing.protocol_https / 923e3e28c977 / 4
+## Next pages — protocol_https / 022030211313 / 4
 
-- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0604c0b527e4a0c78eff351cfb864ce7b854e060c99fde0e7b3a931e41b904b5)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.manual_routing_list.manual_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0012001030002311-0213321022003013-2032333303110130-3323201210303213-2320111032001200-3021213331320032-1323032221030132-1001232100102311)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-242c1e022143b9bba6a99228a3bef864b4a507cd1b23c62331cc722a7c838eb7"></a>
+<a id="canonical-0210023001320002-0201100323212323-2212222121020220-2203233233201210-2310221100133031-0123020330120203-0301303013020222-1330200320322313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-385816a9080a4175b047af32490970a744687dff7aea7455c433fa0d9e2d6076"></a>
+<a id="canonical-0320112001122221-0020002210011311-2300101322330302-1021002113002213-1010122013313333-1322322213101111-3010030333220031-2132023112001312"></a>
 
-## network_policy_content.upstream_routing_list — network_policy_content.upstream_routing_list / 905f0474cff6 / 2
+## network_policy_content.upstream_routing_list — upstream_routing_list / 131030333312 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
 - network_policy_content.upstream_routing_list
 
-<a id="canonical-efd8631cd858a5a47a5a36af0ee573d4ebc0ea25bd899681d5e7882fed088991"></a>
+<a id="canonical-3233312012030130-3120112022112210-1322112203122233-0032321113033110-3223300032220211-2331202121122001-3111321320200233-3231002020212101"></a>
 
 Type: `"single"`. Computed.
 
 Upstream Routings. Upstream DNS Routings.
 
-<a id="canonical-ede27f6261d18093f76274af14303ce21de1a18f88134a0fa8930a4f421d6dc5"></a>
+<a id="canonical-3231320213331202-1201310120002103-3313120213102233-0110030003303202-0131320122012033-2020010310220033-2220210300221033-1002013112313011"></a>
 
-## Direct properties — network_policy_content.upstream_routing_list / 905f0474cff6 / 3
+## Direct properties — upstream_routing_list / 131030333312 / 3
 
-- [upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-214562efc9ee7b77c83ce8d8be68baa50a8a8ce6d1d7aa885de2410dddea950c): complete subsection reference.
+- [upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0201101112023233-3021323213231313-3020033032203120-2332122023222211-0022202220303212-3101311322222020-1131320210010031-3131322221110030): complete subsection reference.
 
-<a id="canonical-332b6ee75813c37304df8d12c5822a738da4d9f2cdcb667e3501634aecb210ed"></a>
+<a id="canonical-0303022312323213-1120010330031303-0010313320310102-3011200202221303-2031221031213302-3031302312121332-0311000112031022-3230230201003231"></a>
 
-## Next pages — network_policy_content.upstream_routing_list / 905f0474cff6 / 4
+## Next pages — upstream_routing_list / 131030333312 / 4
 
-- [network_policy_content.upstream_routing_list.upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-214562efc9ee7b77c83ce8d8be68baa50a8a8ce6d1d7aa885de2410dddea950c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.upstream_routing_list.upstream_routing](data-sources--bot_network_policy--reference--group-001.md#canonical-0201101112023233-3021323213231313-3020033032203120-2332122023222211-0022202220303212-3101311322222020-1131320210010031-3131322221110030)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
 
-<a id="canonical-214562efc9ee7b77c83ce8d8be68baa50a8a8ce6d1d7aa885de2410dddea950c"></a>
+<a id="canonical-0201101112023233-3021323213231313-3020033032203120-2332122023222211-0022202220303212-3101311322222020-1131320210010031-3131322221110030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-11a94982182ee2ddd78987d2cd790cdfdbbc9c22414b9a9aefb5428567711749"></a>
+<a id="canonical-0101222110212002-0120023232023131-3113202120133102-3031132100303133-3123233021300202-1001102321222122-3233231110022011-1213130101131021"></a>
 
-## network_policy_content.upstream_routing_list.upstream_routing — network_policy_content.upstream_routing_list.upstream_routing / d8de1712aecf / 2
+## network_policy_content.upstream_routing_list.upstream_routing — upstream_routing / 010222323033 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
-- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-892e5f032a7ebfc97014822feaea303098042bbd601c04fd6a3aa99f96a14208)
-- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-242c1e022143b9bba6a99228a3bef864b4a507cd1b23c62331cc722a7c838eb7)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)
+- [Property reference](data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [network_policy_content](data-sources--bot_network_policy--reference--group-001.md#canonical-2021023211330003-0222133223333021-1300011020020233-3222322203000300-2120001002232331-1200013000103331-1222032222212133-2112220110020020)
+- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-0210023001320002-0201100323212323-2212222121020220-2203233233201210-2310221100133031-0123020330120203-0301303013020222-1330200320322313)
 - network_policy_content.upstream_routing_list.upstream_routing
 
-<a id="canonical-24d896694bb17cd31e585f15b4cfd72a719de0f97dfac500b920cdf72589946a"></a>
+<a id="canonical-0210312021121221-1023230113303103-0132112011330111-2310303331130222-1301213132003321-1331332230110000-2321020030313313-0211202121101222"></a>
 
 Type: `"list"`. Computed.
 
 Upstream Routing. Routing or forwarding configuration
 
-<a id="canonical-36be247ac1dd04ddb744cf1b8612e6c9e49f75dbc375bf826bcf1b0edded4e88"></a>
+<a id="canonical-0312233202101322-3001313100103131-2313101030330123-2012010232123021-3210213313113123-3003131123332002-1223303301230032-3131323110322020"></a>
 
-## Direct properties — network_policy_content.upstream_routing_list.upstream_routing / d8de1712aecf / 3
+## Direct properties — upstream_routing / 010222323033 / 3
 
-<a id="canonical-90300fdb9d745e042c0e60d1a2492b810dacaf2591afe65fa83c4c53a8672443"></a>
+<a id="canonical-2100030000333123-2131131011320010-0230003212003101-2202102102232001-0031223022330211-2101223332121133-2220033010301103-2220121302101003"></a>
 
-<a id="canonical-8b927cb2568e7d9bc48a508f3cbd43c0a8a9b178761764e1bed61169a8ac3380"></a>
+<a id="canonical-2023210213302302-1112203213312123-3010202211002033-0330233110033000-2220222123011320-1312011312103201-2332311201011221-2220223003032000"></a>
 
-## domain_name property — network_policy_content.upstream_routing_list.upstream_routing / d8de1712aecf / 4
+## domain_name property — upstream_routing / 010222323033 / 4
 
 Type: `"string"`. Computed.
 
 FQDN. Domain Name.
 
-<a id="canonical-4a73427f51f42af257d9111950158a5cf6e0a2e170ea2d88b239a1971b472035"></a>
+<a id="canonical-1022130310021333-1101331002223302-1113312101010121-1100011120221130-3312320022023201-1300322202312020-2302032122012113-0123101302000311"></a>
 
-## Next pages — network_policy_content.upstream_routing_list.upstream_routing / d8de1712aecf / 5
+## Next pages — upstream_routing / 010222323033 / 5
 
-- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-242c1e022143b9bba6a99228a3bef864b4a507cd1b23c62331cc722a7c838eb7)
-- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762)
+- [network_policy_content.upstream_routing_list](data-sources--bot_network_policy--reference--group-001.md#canonical-0210023001320002-0201100323212323-2212222121020220-2203233233201210-2310221100133031-0123020330120203-0301303013020222-1330200320322313)
+- [xcsh_bot_network_policy](../data-sources/bot_network_policy.md#canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202)

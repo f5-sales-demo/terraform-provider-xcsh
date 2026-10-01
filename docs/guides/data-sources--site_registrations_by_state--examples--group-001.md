@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_state examples
 
-<a id="canonical-f3844d2c83ae807351e728918ca3aadf7ff8666e92b43c036423d51b385ded73"></a>
+<a id="canonical-3303201010310230-2003223220001303-1101321302202101-2030220322223133-1333332012121232-2102231003300003-1210020331110123-0320113132311303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-774315652f797d2fd5c93671eb040d7d35dfe1bcd46ee91982e95151674c472f"></a>
+<a id="canonical-1313100301111211-0233132113310233-3111302103121301-3223001000311331-0311313332012330-3110123232210121-2002322111011101-1213103010130233"></a>
 
-## Examples — Examples / 4a8fd0238295 / 2
+## Examples — Examples / 020320022111 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 - Examples
 
-<a id="canonical-c52cad8a750a0c5019ba1a6d43e6c8759619ad8bf26987e0c4e352c19ca10833"></a>
+<a id="canonical-3011023022312022-1311002200301100-0121232201221231-1003321230201311-2112012122312023-3302122120133200-3010320311023001-2130220100200303"></a>
 
-## Complete configurations — Examples / 4a8fd0238295 / 3
+## Complete configurations — Examples / 020320022111 / 3
 
-- [Data source](data-sources--site_registrations_by_state--examples--group-001.md#canonical-9a2effbc9771c0fe71fe71fae81de3973461bc3a2548051bdbbecbde59c412e6): valid configuration.
+- [Data source](data-sources--site_registrations_by_state--examples--group-001.md#canonical-2122023233332330-2113130130003332-1301333213013322-3220013132032113-0310120123300322-0211102000110123-3123233230233132-1121301001023212): valid configuration.
 
-<a id="canonical-462f1cff5d24aacb6c7765517f76213ba3c504e7bbdec23df0fefc70498c3dfd"></a>
+<a id="canonical-1012023301303333-1131021022223023-1230131312111101-1333131202010323-2203301100103213-2323313230020331-3300333233301300-1021203003313331"></a>
 
-## Next pages — Examples / 4a8fd0238295 / 4
+## Next pages — Examples / 020320022111 / 4
 
-- [Data source](data-sources--site_registrations_by_state--examples--group-001.md#canonical-9a2effbc9771c0fe71fe71fae81de3973461bc3a2548051bdbbecbde59c412e6)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [Data source](data-sources--site_registrations_by_state--examples--group-001.md#canonical-2122023233332330-2113130130003332-1301333213013322-3220013132032113-0310120123300322-0211102000110123-3123233230233132-1121301001023212)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-9a2effbc9771c0fe71fe71fae81de3973461bc3a2548051bdbbecbde59c412e6"></a>
+<a id="canonical-2122023233332330-2113130130003332-1301333213013322-3220013132032113-0310120123300322-0211102000110123-3123233230233132-1121301001023212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d181d0a45167923e86dcfcde25a5e698f27a32966f020a8a906b287989d140a0"></a>
+<a id="canonical-3101200131002210-1101121321020332-2012313033303132-0211221132122120-3302132203022112-1233000200222022-2100122302201321-2021310110002200"></a>
 
-## Data source — Data source / 83a7a829972c / 2
+## Data source — Data source / 022121130230 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Examples](data-sources--site_registrations_by_state--examples--group-001.md#canonical-f3844d2c83ae807351e728918ca3aadf7ff8666e92b43c036423d51b385ded73)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Examples](data-sources--site_registrations_by_state--examples--group-001.md#canonical-3303201010310230-2003223220001303-1101321302202101-2030220322223133-1333332012121232-2102231003300003-1210020331110123-0320113132311303)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "site_registrations_by_state_result" {
 }
 ```
 
-<a id="canonical-4553203e64b1a4905cb1c36455907be2fed0360d18142b85d0b09495d34fccf9"></a>
+<a id="canonical-1011110302000332-1210230122102100-1130230130031210-1111210013233202-3332310003120031-0120011002232011-3100230021102111-3103103330303321"></a>
 
-## Next pages — Data source / 83a7a829972c / 3
+## Next pages — Data source / 022121130230 / 3
 
-- [Examples](data-sources--site_registrations_by_state--examples--group-001.md#canonical-f3844d2c83ae807351e728918ca3aadf7ff8666e92b43c036423d51b385ded73)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [Examples](data-sources--site_registrations_by_state--examples--group-001.md#canonical-3303201010310230-2003223220001303-1101321302202101-2030220322223133-1333332012121232-2102231003300003-1210020331110123-0320113132311303)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)

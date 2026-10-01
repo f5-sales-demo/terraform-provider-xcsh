@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site landi
 
 # xcsh_voltstack_site landing
 
-<a id="canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17"></a>
+<a id="canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eb07aeb08e9a95a21efbfadc53aa70ee8d179e50c9ce7c12338dc4d92c50a44a"></a>
+<a id="canonical-3223001322322300-2032212221112202-0132332333223130-1103222213003232-2031011321321100-3021303213300102-0303203130103121-0230110022101022"></a>
 
-## xcsh_voltstack_site — xcsh_voltstack_site / 78574b351342 / 2
+## xcsh_voltstack_site — xcsh_voltstack_site / 031101031002 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing
 sites.
 
-<a id="canonical-5b1aff9a8ddb302d87fb6ef17b63c322bffeac26a91c16904bab8d6d1e4e7fa3"></a>
+<a id="canonical-1123012233332122-2031312303000231-2013332312323301-1323120330030202-2333333222300212-2221013001122100-1023222320311231-0132103213332203"></a>
 
-## Prerequisites — xcsh_voltstack_site / 78574b351342 / 3
+## Prerequisites — xcsh_voltstack_site / 031101031002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-d600c301e97a762538f157d95329a47dc6cbd5baeca1b3d43bb947859494d073"></a>
+<a id="canonical-3112000030030001-3221132213120211-0320330111133121-1103022122101331-3012302331112322-3230220123033110-0323232110132011-2110211031001303"></a>
 
-## Minimal configuration — xcsh_voltstack_site / 78574b351342 / 4
+## Minimal configuration — xcsh_voltstack_site / 031101031002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_voltstack_site" "example" {
 }
 ```
 
-<a id="canonical-45f96e52d4d5430fdf5d868bd1b52ad3f5ae069132fae3256cf38badde456351"></a>
+<a id="canonical-1011332112321102-3110311110030033-3133113120122023-3101231102223103-3311223200122101-0302332232030211-1230330320232231-3132101112031101"></a>
 
-## Root configuration — xcsh_voltstack_site / 78574b351342 / 5
+## Root configuration — xcsh_voltstack_site / 031101031002 / 5
 
 Required root properties: `name`, `namespace`, `volterra_certified_hw`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4473f81c3e41f3c759f6f3f9d14586b6ea526adc72f4fd6153fd15d765f42a7d"></a>
+<a id="canonical-1010130333200130-0332100133033013-1121331233033321-3101101120122312-3222110212223130-1302331033311201-1103333101113113-1211331002221331"></a>
 
-## Next pages — xcsh_voltstack_site / 78574b351342 / 6
+## Next pages — xcsh_voltstack_site / 031101031002 / 6
 
-- [Property reference](../guides/resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [Examples](../guides/resources--voltstack_site--examples--group-001.md#canonical-80622daaa5ef0ae14ed426d2603f5d807d6b2b77ce118a081f8210d154ec653a)
-- [Import](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-01c6470fb7a188a21ae90227fad45dda7ded398b1c46fdc05c947b798e2370fb)
-- [Timeouts](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-c1b6ad83b6142b659efd3a65007bbdf9fe03083560168549636e34a84f9ede15)
+- [Property reference](../guides/resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [Examples](../guides/resources--voltstack_site--examples--group-001.md#canonical-2000120202312222-2211323300223201-1032311002123102-1200033311312000-1331122302231313-3032010120220020-0133200201003101-1110323012110322)
+- [Import](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-0001301210130033-2313220120202202-0122322100020213-3322311011313122-1331323103212023-0130101233313000-1130211013231321-2032020313003323)
+- [Timeouts](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-3001231222312003-2312011002231211-2132333103221211-0000132323313321-3332000300200311-1200011220111021-1203123203102220-1033213231320111)

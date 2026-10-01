@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_dnslb_health
 
 # xcsh_network_dnslb_health_checks landing
 
-<a id="canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6"></a>
+<a id="canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-14d2f58ed24e6c0aee7be32d8520bc8e4321beba02047cfcc04148d3448a488b"></a>
+<a id="canonical-0110310233112032-3102103212300022-3232132332030231-2011020023302032-1003020123322322-0002001013303330-3000100110203103-1010202210202023"></a>
 
-## xcsh_network_dnslb_health_checks — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 2
+## xcsh_network_dnslb_health_checks — xcsh_network_dnslb_health_checks / 013302220332 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ DNS Load Balancer health-check probe IPv4 addresses. Values are bundled from the
 release; this data source performs no network request. Ports and traffic direction are not encoded
 in the manifest.
 
-<a id="canonical-f88c03ed03590aa679208830a022452bfaee8b22deece22deb9ab2796daff35f"></a>
+<a id="canonical-3320203000033231-0003112100222212-1321020020200300-2200020210110223-3322323220230202-3132323032020231-3223212223021321-1231223333031133"></a>
 
-## Prerequisites — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 3
+## Prerequisites — xcsh_network_dnslb_health_checks / 013302220332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-169f607771d9bc82818a7f66675a3a362298402437f2d7fba106ac4970248f88"></a>
+<a id="canonical-0112213312001313-1301312123302002-2001202213331212-1213112203220312-0202212010000210-0313330231133323-2201001222301021-1300021020332020"></a>
 
-## Minimal configuration — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 4
+## Minimal configuration — xcsh_network_dnslb_health_checks / 013302220332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "https_health_check_ingress" {
 }
 ```
 
-<a id="canonical-a47d7000372f23b0897aff38a6040591cd13817815439434d42ee5ee5941677e"></a>
+<a id="canonical-2210133113000000-0313023302032300-2021132233330320-2212001000112101-3031010320011320-0111100321100310-3110023232113232-1121100112131332"></a>
 
-## Root configuration — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 5
+## Root configuration — xcsh_network_dnslb_health_checks / 013302220332 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1cde1655c7d71ca67554aaabd38bab5b21e176ae1d41bc313f7e3393c3dacf77"></a>
+<a id="canonical-0130313201121111-3013311301302212-1311111022222223-3103202322231123-0201320113122232-0131100123300301-0333133203032103-3003312230331313"></a>
 
-## Next pages — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 6
+## Next pages — xcsh_network_dnslb_health_checks / 013302220332 / 6
 
-- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference--group-001.md#canonical-eb3db1582ccee632fd8bc87ae872f5e5735d27c136a8bf35db85d8a0ae5e35ba)
-- [Examples](../guides/data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-33d31580d0a9942499cdade7b7ab7db335b8c5e8687bfa6ff986ff99d6735606)
+- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference--group-001.md#canonical-3223033123011120-0230303232120302-3331202330201322-3220130233113211-1303113102133001-0312222023330311-3123201131202200-2232113203112322)
+- [Examples](../guides/data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0303310301112000-3100222121100210-2121303122313213-2313222313312303-0311232030113220-1220132333221233-3321201233332121-3112130311120012)

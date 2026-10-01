@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_data_group landing."
 
 # xcsh_data_group landing
 
-<a id="canonical-8fa44c0b348749f6556f32f242093dd90beea888fbbeb6165a302dd0d3a951cd"></a>
+<a id="canonical-2033221010300023-0310201310213312-1111123303023302-1002002103313121-0023323222202020-3323233223120112-1122030002313100-3103222111013031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7319206f38d572d79a209967be20cf8af5738ffdd28269c2ac27fc30e2709981"></a>
+<a id="canonical-1303012102001233-0320311113023113-2122020021211213-2332020030332022-3311130320333331-3102200212213002-2230021333300300-3202130021212001"></a>
 
-## xcsh_data_group — xcsh_data_group / c56901fe0bec / 2
+## xcsh_data_group — xcsh_data_group / 333200233230 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages data group in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-<a id="canonical-871a0b2d842e38eba7f9b7476025f4fd7db7b7db5592ad0f241922dc4612818a"></a>
+<a id="canonical-2013012200230231-2010023203203223-2213332123131013-1200021133103331-1331231323133123-1111210222310033-0210012102023130-1012010220012022"></a>
 
-## Prerequisites — xcsh_data_group / c56901fe0bec / 3
+## Prerequisites — xcsh_data_group / 333200233230 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-ca3c01bd464e21d95a5abf6100c38af5d50b6ba7abbe5f0538c064be36dac0a3"></a>
+<a id="canonical-3022033000012331-1012103202013121-1122112223331201-0000300320223311-3111002312232213-2223233211330011-0320300012102332-0312312230002203"></a>
 
-## Minimal configuration — xcsh_data_group / c56901fe0bec / 4
+## Minimal configuration — xcsh_data_group / 333200233230 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_data_group" "example" {
 }
 ```
 
-<a id="canonical-f5338865819073604d358ccd8b36633e46ab241604ebfa7bbcceb5c82fc99298"></a>
+<a id="canonical-3311030320201211-2001210013031200-1031031120303031-2023031212030332-1012222302100112-0010322333221323-2330303223113020-0233302121022120"></a>
 
-## Root configuration — xcsh_data_group / c56901fe0bec / 5
+## Root configuration — xcsh_data_group / 333200233230 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-dbdbc44f486715b47e7f4458aedca74086a14b7729ef601843913c59e3e13094"></a>
+<a id="canonical-3123312330101033-1020121301112310-1332133310101120-2232313022131000-2012220110231313-0221323312000120-1003210103301121-3203320103002110"></a>
 
-## Next pages — xcsh_data_group / c56901fe0bec / 6
+## Next pages — xcsh_data_group / 333200233230 / 6
 
-- [Property reference](../guides/resources--data_group--reference--group-001.md#canonical-ed344f915adc27bbb56a72ed0c2fdcae2a9f2a3364048364e25bb8dc6b6f309e)
-- [Examples](../guides/resources--data_group--examples--group-001.md#canonical-1d293247dc1bbafe31dca58399cf1cf445f54893e37cb987fa1aae1f27900bb7)
-- [Import](../guides/resources--data_group--lifecycle--group-001.md#canonical-956f582ae35bd6ba68bf106ad37ec0701f0e92158d3347507dbc126a914ca166)
-- [Timeouts](../guides/resources--data_group--lifecycle--group-001.md#canonical-a7e57f32081f18308109b8b393dd7ebd58630cad04970e6107487adce1cbea53)
+- [Property reference](../guides/resources--data_group--reference--group-001.md#canonical-3231031010332101-1122313002132323-2311122213023231-0030023331302232-0222213302220303-1210001020031210-3202112323203130-1223123303002132)
+- [Examples](../guides/resources--data_group--examples--group-001.md#canonical-0131022103021013-3130012323223332-0301313022112003-2121303301303310-1011331110202103-3203133023212013-3322012222320133-0213210000232313)
+- [Import](../guides/resources--data_group--lifecycle--group-001.md#canonical-2111123311200222-3203112331122322-1220233301001222-3103133230001300-0133003221020111-2031030310131100-1331233001021222-2101103022011212)
+- [Timeouts](../guides/resources--data_group--lifecycle--group-001.md#canonical-2213321113330302-0020013301200300-2001002123202303-2103313113322331-1120120300302231-0010211300321201-0013102013223130-3201302332221103)

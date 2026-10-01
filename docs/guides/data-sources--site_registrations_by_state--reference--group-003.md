@@ -6,44 +6,597 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_state reference
 
-<a id="canonical-9336ac9e42b4db6f44e5bbdc8a18403b706168e88cd264cfbcfb25404abf003a"></a>
+<a id="canonical-3003000033113223-0132033123122113-3100003223211211-2032300110001313-1032332220221330-3311032110121213-3001311112332221-2131223222010031"></a>
 
-## Direct properties — items.object.system_metadata.initializers / c4c77f985244 / 3
+## items.object.spec.gc_spec.site — site / 303201301101 / 2
 
-- [pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-f16c7eb3ff02420763a206485419d532e0b1cfc1638b90cb42cac5c3cbd6ee2d): complete subsection reference.
+Breadcrumbs:
 
-- [result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-afac902a61501586c49bc4d808cee7e72b7055d46dd4c1c120216283f6629270): complete subsection reference.
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.spec](data-sources--site_registrations_by_state--reference--group-002.md#canonical-2300201123032020-3301313011211022-3130333221102211-1201033333320023-2321202211023203-3011230023203033-0331211032133013-3221200200032222)
+- [items.object.spec.gc_spec](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0101133023001220-0122002101101002-3021010302200310-1311213123300331-2033020320023103-2103222330330222-2020300312323220-2200331323103311)
+- items.object.spec.gc_spec.site
 
-<a id="canonical-f5299604aefd4c2a04d641b9d4a22d317a3283be38de1750b6942262bfba67ab"></a>
+<a id="canonical-2111301010302203-2121000033123223-2033303313102311-2203030321001220-2333201201301202-0223331132323102-1220032121210310-3331333300323202"></a>
 
-## Next pages — items.object.system_metadata.initializers / c4c77f985244 / 4
+Type: `"list"`. Computed.
 
-- [items.object.system_metadata.initializers.pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-f16c7eb3ff02420763a206485419d532e0b1cfc1638b90cb42cac5c3cbd6ee2d)
-- [items.object.system_metadata.initializers.result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-afac902a61501586c49bc4d808cee7e72b7055d46dd4c1c120216283f6629270)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+Site for this registration, assigned after registration is assigned to site.
 
-<a id="canonical-f16c7eb3ff02420763a206485419d532e0b1cfc1638b90cb42cac5c3cbd6ee2d"></a>
+<a id="canonical-2221301101001131-2311232230132233-0222121023031013-1332331130012201-1021320010211021-3323020111320313-2020132313030311-1320112321121013"></a>
+
+## Direct properties — site / 303201301101 / 3
+
+<a id="canonical-2201021300210313-2201112310132223-2221212233030233-0123030112132310-3201032021220331-2211110323000220-1210000112321233-2122232102103110"></a>
+
+<a id="canonical-3210023223312113-0122312301200131-2110202030030031-1210220200210002-2111132013112223-2033120333010020-0301102011223200-2221331210312313"></a>
+
+## kind property — site / 303201301101 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+<a id="canonical-2103013303031022-2131122022201001-3100303211030023-2212121022010211-1320230002310112-2010203032132231-1100312001013300-3011103223212010"></a>
+
+<a id="canonical-3010131310331030-2302110223022220-1300030201221210-3320332232320321-2123110212013121-1220231313330233-0302312233321303-0300101103333200"></a>
+
+## name property — site / 303201301101 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+<a id="canonical-2212203222001210-0021101200323223-2010120123330031-1313111223310302-2230303030003202-0100223320121012-1211333132020311-1222010123133103"></a>
+
+<a id="canonical-0103111233220320-0333310022220120-0333231231000013-1102011033013030-1203111301112200-3203331111221211-3100301211202110-0233112220001133"></a>
+
+## namespace property — site / 303201301101 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+<a id="canonical-1213122221032002-0030031321313322-2113203330020011-2203303030032321-0032130012010331-1313022022023300-1103332102313212-1011022300120023"></a>
+
+<a id="canonical-2032122123102303-2211132210321010-3121123011013032-0221013031000230-2011321322211302-2313301330212311-2221133311332323-0201110100130300"></a>
+
+## tenant property — site / 303201301101 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+<a id="canonical-0122131101133200-1123010201231023-1300211123213230-0102010030000313-3222020112021002-2232203023030313-2311001113110331-0112023012100100"></a>
+
+<a id="canonical-0121133030013111-1122003310221100-2301313303013003-0100210203003303-0211123022303212-2331333123222200-2000203100123032-2320112233223112"></a>
+
+## uid property — site / 303201301101 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+<a id="canonical-2331013113223232-2030013103003132-2102221112112001-2301113232230210-0122022032103102-3221310113002032-2003033013113113-0012010001101122"></a>
+
+## Next pages — site / 303201301101 / 9
+
+- [items.object.spec.gc_spec](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0101133023001220-0122002101101002-3021010302200310-1311213123300331-2033020320023103-2103222330330222-2020300312323220-2200331323103311)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-2332032110021112-3213123313223203-1123222313011220-2031302031133220-3103112021332201-3320000303232303-1020323103232000-1303231302300313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eeb7fa73d6c6f0c4f50076c6b73725f4ef7f6b34a6179447ecdb78b53f02255d"></a>
+<a id="canonical-0210200213313101-1012030300310320-2031031200112232-3113203333200132-2211121222203110-0011001333133201-1010212212211132-1023323033130000"></a>
 
-## items.object.system_metadata.initializers.pending — items.object.system_metadata.initializers.pending / 5b334940f779 / 2
+## items.object.status — status / 121201233210 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-6b2a79c49bdb8022e6123c3c9b65430899eba4c3cdce0da3fb5aa24a03144383)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-002.md#canonical-99e4872bf9a3e543cf18bbafe0c128c8a8f922cf6fe695715029b95e44a2bdee)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- items.object.status
+
+<a id="canonical-1200223300332122-0012203011200332-0110220132030230-2000121032010121-2203210213302302-3312201311113311-2012300313012312-1120030213302213"></a>
+
+Type: `"single"`. Computed.
+
+Status Type. Most recent observer status of object.
+
+<a id="canonical-1222113312031330-2333212030110033-1211013222202003-0003223020222301-3002221301310102-3023232210122030-0322111323320021-1003202322131313"></a>
+
+## Direct properties — status / 121201233210 / 3
+
+<a id="canonical-3102130113030102-3303300332001130-3022220303030311-2001302200121200-2013321323300130-1320231123233131-0300131233101001-2101030033022111"></a>
+
+<a id="canonical-2313110302313132-0210110032020023-3303113121121003-0100233300020022-1311301033122233-1211022133323010-2222311322031031-1311000301000122"></a>
+
+## current_state property — status / 121201233210 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum:
+NOTSET|NEW|APPROVED|ADMITTED|RETIRED|FAILED|DONE|PENDING|ONLINE|UPGRADING|MAINTENANCE|FAILED\_INACTIVE\]
+Defines states for registration object State isn't set Object was created (registration request was
+received and object created) Registration was approved and waiting for configuration This state can
+be set by user only if current state is NEW Registration is approved and prepared for to connect..
+Possible values are \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`, \`FAILED\`,
+\`DONE\`, \`PENDING\`, \`ONLINE\`, \`UPGRADING\`, \`MAINTENANCE\`, \`FAILED\_INACTIVE\`. Defaults to
+\`NOTSET\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("NOTSET",
+    "NEW",
+    "APPROVED",
+    "ADMITTED",
+    "RETIRED",
+    "FAILED",
+    "DONE",
+    "PENDING",
+    "ONLINE",
+    "UPGRADING",
+    "MAINTENANCE",
+    "FAILED_INACTIVE"),
+}
+```
+
+- [object_status](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0320111323202300-3320331113202003-1103220101123222-2310022310012323-3322213231021312-2310100301230212-1132013000033310-0221213130100222): complete subsection reference.
+
+<a id="canonical-0030222331323101-0312032333310011-0020021103230030-1220021103330223-0212310033212120-0012032003222031-0011132220231211-3003202000231013"></a>
+
+<a id="canonical-2322003130310002-3231031211100031-0121132013320212-0311031110331101-0201201101222133-0213001022300030-3300323000320212-0202330200331320"></a>
+
+## parent_current_state property — status / 121201233210 / 5
+
+Type: `"string"`. Computed.
+
+\[Enum:
+ONLINE|PROVISIONING|UPGRADING|STANDBY|FAILED|REREGISTRATION|WAITINGNODES|DECOMMISSIONING|WAITING\_FOR\_REGISTRATION|ORCHESTRATION\_IN\_PROGRESS|ORCHESTRATION\_COMPLETE|ERROR\_IN\_ORCHESTRATION|DELETING\_CLOUD\_RESOURCES|DELETED\_CLOUD\_RESOURCES|ERROR\_DELETING\_CLOUD\_RESOURCES|VALIDATION\_IN\_PROGRESS|VALIDATION\_SUCCESS|VALIDATION\_FAILED|FAILED\_INACTIVE|UPDATING\_CLOUD\_RESOURCES|ERROR\_UPDATING\_CLOUD\_RESOURCES|ORCHESTRATION\_QUEUED|UPDATE\_QUEUED|DELETE\_QUEUED\]
+State of Site defines in which operational state site itself is. Site is online and operational.
+Site is in provisioning state. For instance during site deployment or switching to different
+connected Regional Edge. Site is in process of upgrade. Possible values are \`ONLINE\`,
+\`PROVISIONING\`, \`UPGRADING\`, \`STANDBY\`, \`FAILED\`, \`REREGISTRATION\`, \`WAITINGNODES\`,
+\`DECOMMISSIONING\`, \`WAITING\_FOR\_REGISTRATION\`, \`ORCHESTRATION\_IN\_PROGRESS\`,
+\`ORCHESTRATION\_COMPLETE\`, \`ERROR\_IN\_ORCHESTRATION\`, \`DELETING\_CLOUD\_RESOURCES\`,
+\`DELETED\_CLOUD\_RESOURCES\`, \`ERROR\_DELETING\_CLOUD\_RESOURCES\`, \`VALIDATION\_IN\_PROGRESS\`,
+\`VALIDATION\_SUCCESS\`, \`VALIDATION\_FAILED\`, \`FAILED\_INACTIVE\`,
+\`UPDATING\_CLOUD\_RESOURCES\`, \`ERROR\_UPDATING\_CLOUD\_RESOURCES\`, \`ORCHESTRATION\_QUEUED\`,
+\`UPDATE\_QUEUED\`, \`DELETE\_QUEUED\`. Defaults to \`ONLINE\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("ONLINE",
+    "PROVISIONING",
+    "UPGRADING",
+    "STANDBY",
+    "FAILED",
+    "REREGISTRATION",
+    "WAITINGNODES",
+    "DECOMMISSIONING",
+    "WAITING_FOR_REGISTRATION",
+    "ORCHESTRATION_IN_PROGRESS",
+    "ORCHESTRATION_COMPLETE",
+    "ERROR_IN_ORCHESTRATION",
+    "DELETING_CLOUD_RESOURCES",
+    "DELETED_CLOUD_RESOURCES",
+    "ERROR_DELETING_CLOUD_RESOURCES",
+    "VALIDATION_IN_PROGRESS",
+    "VALIDATION_SUCCESS",
+    "VALIDATION_FAILED",
+    "FAILED_INACTIVE",
+    "UPDATING_CLOUD_RESOURCES",
+    "ERROR_UPDATING_CLOUD_RESOURCES",
+    "ORCHESTRATION_QUEUED",
+    "UPDATE_QUEUED",
+    "DELETE_QUEUED"),
+}
+```
+
+<a id="canonical-1033221133113232-1312032221032222-3220303200320231-3102332332001001-0233100230312333-1102001103201223-2313131210102323-2303022332333211"></a>
+
+<a id="canonical-0113201011101112-3320011310103013-3031101320211023-0321332120311022-3211011222200332-1100220010032333-2023223300321320-2111311332232001"></a>
+
+## state_update_timestamp property — status / 121201233210 / 6
+
+Type: `"string"`. Computed.
+
+Registration state update timestamp. Time of last registration state update.
+
+<a id="canonical-2312323121003233-2103330220211010-3033323030023011-2311111212031311-0211231120321311-2132111132110103-0120310000222131-2112302100233321"></a>
+
+## Next pages — status / 121201233210 / 7
+
+- [items.object.status.object_status](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0320111323202300-3320331113202003-1103220101123222-2310022310012323-3322213231021312-2310100301230212-1132013000033310-0221213130100222)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-0320111323202300-3320331113202003-1103220101123222-2310022310012323-3322213231021312-2310100301230212-1132013000033310-0221213130100222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1203213130022012-3112320312320331-2201010211332003-1130002201321030-3033002013202030-2032310211322301-3331113122120330-0201101030300001"></a>
+
+## items.object.status.object_status — object_status / 222022320033 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.status](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2332032110021112-3213123313223203-1123222313011220-2031302031133220-3103112021332201-3320000303232303-1020323103232000-1303231302300313)
+- items.object.status.object_status
+
+<a id="canonical-1001100122331201-2201212230202121-2210233110013103-2331112020203223-1233012213311033-0220102320230113-1201103122330220-2332100022010103"></a>
+
+Type: `"single"`. Computed.
+
+Status is a return value for calls that don't return other objects.
+
+<a id="canonical-3112320133020222-3123213213003000-1313033200221231-0020220010010330-2302003100222202-2232022030310333-1022201010032023-2100110222313310"></a>
+
+## Direct properties — object_status / 222022320033 / 3
+
+<a id="canonical-2322021010032321-2311223231113331-3303011230332101-1212210113012233-2022222033223000-0130030130112020-1211322301011020-3203033031032300"></a>
+
+<a id="canonical-2123330213032332-1120112201200323-1203311213220300-1021321322210102-2301301202212013-1030332001103323-0312302212212012-3113303110131212"></a>
+
+## code property — object_status / 222022320033 / 4
+
+Type: `"number"`. Computed.
+
+Suggested HTTP return code for this status, 0 if not set.
+
+<a id="canonical-2212332230001133-1200332023120133-2020323010123231-1123131211300321-1221102201101021-0313313103112313-0313221000131233-0022202233311111"></a>
+
+<a id="canonical-2030101333231033-3332120122231312-3021320302132233-2312323033233111-1003211020012222-2230233000212321-2031020012220212-0303012332200332"></a>
+
+## reason property — object_status / 222022320033 / 5
+
+Type: `"string"`. Computed.
+
+Human-readable description of why this operation is in the 'Failure' status. If this value is empty
+there is no information available.
+
+<a id="canonical-0132033201233113-1123123222323210-0202121122230003-2321033103100012-3331032132131232-0002332231213033-0131301302313103-1103333210112302"></a>
+
+<a id="canonical-1302233313032322-2332301021110311-3023132231010210-3133210032100132-1130330233231322-2013133231212303-0131230230120101-2212110203333233"></a>
+
+## status property — object_status / 222022320033 / 6
+
+Type: `"string"`. Computed.
+
+Status of the operation. One of: 'Success' or 'Failure'.
+
+<a id="canonical-2313011232233012-1033133101322003-2031211001102011-1213332031130220-3011011211303123-3323330021030001-2303203111331230-3210032022011223"></a>
+
+## Next pages — object_status / 222022320033 / 7
+
+- [items.object.status](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2332032110021112-3213123313223203-1123222313011220-2031302031133220-3103112021332201-3320000303232303-1020323103232000-1303231302300313)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0031223233012232-1131113001010132-2021202120123102-1033320301230011-3000330222103222-0223310221113300-3302023332213013-1002311230132220"></a>
+
+## items.object.system_metadata — system_metadata / 201033032031 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- items.object.system_metadata
+
+<a id="canonical-0333313131030121-2003220011021132-1333003230123203-1320113310001323-1332023301301101-2301203230010311-0332000311320033-3213232030110301"></a>
+
+Type: `"single"`. Computed.
+
+SystemObjectMetaType is metadata generated or populated by the system for all persisted objects and
+cannot be updated directly by users.
+
+<a id="canonical-2220130301020011-2302002030121020-0022221300111112-3320023102212203-3202102210223101-2303332212021231-0231201111302203-1032221123003332"></a>
+
+## Direct properties — system_metadata / 201033032031 / 3
+
+<a id="canonical-3301012322033132-3213220122313222-2212313221201232-2313323002102302-0313010133213032-1102113232130333-3010020123302110-0331332313332132"></a>
+
+<a id="canonical-1130011111221312-0102121222313330-1331002320233011-2301120101232220-2011033311312211-1330122013133022-2212001122213312-2132123102302231"></a>
+
+## creation_timestamp property — system_metadata / 201033032031 / 4
+
+Type: `"string"`. Computed.
+
+CreationTimestamp is a timestamp representing the server time when this object was created. It is
+not guaranteed to be set in happens-before order across separate operations. Clients may not set
+this value.
+
+<a id="canonical-2303312022032000-2211131120020200-1121232330101203-0230123300213132-0103331030202003-0313123330323113-1232333023023302-2033220021212001"></a>
+
+<a id="canonical-3031320101213320-1312131031123030-3303323130021233-0100301122031213-0223330232211303-1113122303320330-0030302023302210-1122223232000120"></a>
+
+## creator_class property — system_metadata / 201033032031 / 5
+
+Type: `"string"`. Computed.
+
+Value identifying the class of the user or service which created this configuration object.
+
+<a id="canonical-3130032232201301-2030023131333312-0201312230022300-0132332113100133-1011113300212023-2201330312220222-2032012021131012-3333020002213110"></a>
+
+<a id="canonical-3001123020031132-3020102000310120-1021100020331132-0210233121202020-2333113321302021-1211200113013003-3113102101031332-0330000123131030"></a>
+
+## creator_cookie property — system_metadata / 201033032031 / 6
+
+Type: `"string"`. Computed.
+
+Can used by the creator of the object for later audit for e.g. By storing the version identifying
+information of the object so at future it can be determined if version present at remote end is
+current or stale.
+
+<a id="canonical-2121002333300131-2032332010130030-0302122001330203-3213231120033123-0321033013111121-0122323222232022-3110103320113112-1110300110021011"></a>
+
+<a id="canonical-2300020230020212-3112002232200032-3231303121012211-3310120103333013-3321203203032101-1220122322000103-0203133332113110-3301211331133231"></a>
+
+## creator_id property — system_metadata / 201033032031 / 7
+
+Type: `"string"`. Computed.
+
+Value identifying the exact user or service that created this configuration object.
+
+<a id="canonical-3200331132230302-1331111103222103-3332301311212021-0030320223220102-3310133323200021-3013232012032120-3113320231000120-1002100210121213"></a>
+
+<a id="canonical-0133001223031001-2302003211022121-1023010000113232-2013120220223331-2131312102123100-2023020033200233-1033110020031011-0031131013002122"></a>
+
+## deletion_timestamp property — system_metadata / 201033032031 / 8
+
+Type: `"string"`. Computed.
+
+DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is
+set by the server when a graceful deletion is requested by the user, and is not directly settable by
+a client. The resource is expected to be deleted (no longer visible from resource lists, and not..
+
+<a id="canonical-2001002333121132-0320131120310122-2200213033303113-1001130211112133-2212121322223010-2211332110131300-3300010221132001-2020230202322032"></a>
+
+<a id="canonical-0232213203323210-2311101230022220-1302333103020010-3113230312300021-2122221231303310-2033132020133113-1123223332013322-2120000001230201"></a>
+
+## direct_ref_hash property — system_metadata / 201033032031 / 9
+
+Type: `"string"`. Computed.
+
+Hash of the UIDs of direct references on this object. This can be used to determine if this object
+hash has had references become resolved/unresolved.
+
+<a id="canonical-2212322320222330-2230111333100310-3202013203113212-2030013220221231-0132100323012223-2002132032012210-1212233030202322-3302013211331232"></a>
+
+<a id="canonical-0212302321022030-0311203022033231-3320013233331103-1100020013123210-2321112010011331-2321322301223232-3012203310103312-3321131133233313"></a>
+
+## finalizers property — system_metadata / 201033032031 / 10
+
+Type: `["list", "string"]`. Computed.
+
+Must be empty before the object is deleted from the registry. Each entry is an identifier for the
+responsible component that will remove the entry from the list. If the deletionTimestamp of the
+object is non-nil, entries in this list can only be removed.
+
+- [initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232): complete subsection reference.
+
+- [labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0232321320201130-0112221230100133-2312123211031121-2220101002200333-0220332322231032-2101122001100303-1230202231231023-0303303210002010): complete subsection reference.
+
+<a id="canonical-2212133031211303-2200202121010002-2330200123230211-2203130232313103-3213330221330313-3001211210310232-0312333321103013-3002111203133201"></a>
+
+<a id="canonical-1010211112332331-0031211103320130-0302233203303132-3112012310030031-2202211103331122-3302203021333010-1112313212121110-1122021330120112"></a>
+
+## modification_timestamp property — system_metadata / 201033032031 / 11
+
+Type: `"string"`. Computed.
+
+ModificationTimestamp is a timestamp representing the server time when this object was last
+modified.
+
+- [namespace](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0222220333221103-0031121023120230-1133322120202101-1313121021222123-0130222001303302-0103311201333121-2102221110020203-0302010130321220): complete subsection reference.
+
+<a id="canonical-3233321012321311-2113033212131021-0110120231120223-2300332221300112-0000002312202212-1333120013301100-0002323222022213-1231323011313203"></a>
+
+<a id="canonical-3321321232332013-1113222123032310-1000001303020310-3031002333021022-0030211333223120-0022311031002113-1310233330132310-2110002002133030"></a>
+
+## object_index property — system_metadata / 201033032031 / 12
+
+Type: `"number"`. Computed.
+
+Unique index for the object. Some objects need a unique integer index to be allocated for each
+object type. This field will be populated for all objects that need it and will be zero otherwise.
+
+- [owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1332123201133031-1321012020133231-1031003123111130-0100330112202022-2310013002312223-3032000022033213-3000112333322212-2100122332322303): complete subsection reference.
+
+<a id="canonical-3201103200201210-3310100230332203-1021212003012031-1220120031331002-0033101323333131-0123123211111223-3112103102130332-0230003011101231"></a>
+
+<a id="canonical-3223132000210032-1022302302030311-2001300022223130-3103001110311223-0213330200110011-1323002002123013-1130123202103232-2302033120210123"></a>
+
+## revision property — system_metadata / 201033032031 / 13
+
+Type: `"string"`. Computed.
+
+Revision number which always increases with each modification of the object in storage This doesn't
+necessarily increase sequentially, but should always increase. This will be 0 when first created,
+and before any modifications.
+
+<a id="canonical-3220230301231211-1232032222123213-3312302200013202-1001232312112022-0010301232032021-3112202331300020-0222222123331020-0210313031100111"></a>
+
+<a id="canonical-1322120011302330-0020020123203113-0301023111100331-0113122213332332-3022300301030102-2123320123022311-0020223101123223-0012002302010323"></a>
+
+## sre_disable property — system_metadata / 201033032031 / 14
+
+Type: `"bool"`. Computed.
+
+Should be set to true If F5XC/SRE operator wants to suppress an object from being presented to
+business-logic of a daemon(e.g. Due to bad-form/issue-causing Object). This is meant only to be used
+in temporary situations for operational continuity till a fix is rolled out in business-logic.
+
+<a id="canonical-0301320323211200-1022312210332311-3331013123021230-0232321122032202-1101200102020032-0122032111003222-1030222301110202-3111203103001100"></a>
+
+<a id="canonical-1312332312121333-0301211121312123-2313032300010030-2303220130221023-3102032201202000-3332220201311203-2212122330113231-3311033103033012"></a>
+
+## tenant property — system_metadata / 201033032031 / 15
+
+Type: `"string"`. Computed.
+
+Tenant to which this configuration object belongs to. The value for this is found from presented
+credentials.
+
+<a id="canonical-0322111213200010-2113233231333033-2122122101031202-2000332000102033-3121223213111023-0030111021220103-2021312033011231-3203022100112101"></a>
+
+<a id="canonical-0122113202013013-3001031311212023-1313201213010320-1032130110030033-1000113311230020-0330131122020120-2013011232103111-0231000111332122"></a>
+
+## trace_info property — system_metadata / 201033032031 / 16
+
+Type: `"string"`. Computed.
+
+Trace\_info holds information(&lt;trace-ID&gt;:&lt;span-ID&gt;:&lt;parent-span-ID&gt;) of the
+request doing the object modification. This can be used on the watch side to create subsequent
+spans. This information can be used to co-relate activities across services (modulo state
+compression) for a synchronous API.
+
+<a id="canonical-2213231332212032-0311111102212031-1131021232201313-1233221133112033-3320032300323231-2012231331031223-0211322110012203-3013302010001321"></a>
+
+<a id="canonical-1232311201221012-2333111203322101-1022231301230131-3112020102101100-1302102331201100-3003300011000231-2222033201330300-3300220112023011"></a>
+
+## uid property — system_metadata / 201033032031 / 17
+
+Type: `"string"`. Computed.
+
+Uid is the unique in time and space value for this object. It is generated by the server on
+successful creation of an object and is not allowed to change on Replace API. The value of is taken
+from uid field of ObjectMetaType, if provided.
+
+<a id="canonical-0211303002111222-0330230000130213-0220301031322210-3100333310102322-2101303112121011-0210001300031102-3002202121222330-3300330331331123"></a>
+
+<a id="canonical-2021311110201020-1330311223201020-1021103303001212-2212332003112120-2031320313001112-0010223310212230-0101330210322001-0321201300032331"></a>
+
+## vtrp_id property — system_metadata / 201033032031 / 18
+
+Type: `"string"`. Computed.
+
+VTRP ID. Indicate origin of this object.
+
+<a id="canonical-1333313213222321-2120231031312013-0323310330213010-0110221302213022-3320202320313122-1230311121030203-0132200200233203-2331101130303223"></a>
+
+<a id="canonical-3132302321320023-1110011020323211-0103310331130110-0022003233110031-1313002312322321-1003003332022102-0010201113100310-1223011031023332"></a>
+
+## vtrp_stale property — system_metadata / 201033032031 / 19
+
+Type: `"bool"`. Computed.
+
+Indicate whether mars deems this object to be stale via graceful restart timer information.
+
+<a id="canonical-2321300132001113-1131230133013130-1211032112211302-0331320203301220-0210232010330333-2232213111031131-2213000330021303-0323013231130120"></a>
+
+## Next pages — system_metadata / 201033032031 / 20
+
+- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232)
+- [items.object.system_metadata.labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0232321320201130-0112221230100133-2312123211031121-2220101002200333-0220332322231032-2101122001100303-1230202231231023-0303303210002010)
+- [items.object.system_metadata.namespace](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0222220333221103-0031121023120230-1133322120202101-1313121021222123-0130222001303302-0103311201333121-2102221110020203-0302010130321220)
+- [items.object.system_metadata.owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1332123201133031-1321012020133231-1031003123111130-0100330112202022-2310013002312223-3032000022033213-3000112333322212-2100122332322303)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1220012233301300-1221003331110112-2313112311222232-3022132031323103-1213102000333312-0213133023121023-3200111231002030-0311323031132130"></a>
+
+## items.object.system_metadata.initializers — initializers / 212011021010 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- items.object.system_metadata.initializers
+
+<a id="canonical-3101020020131332-3223332010320203-1322233032311313-0020321112102031-0200121301331033-1130300223013210-3120220312112000-2102230330001312"></a>
+
+Type: `"single"`. Computed.
+
+Initializers tracks the progress of initialization of a configuration object.
+
+<a id="canonical-2103031222302132-1002231031231233-1010321123233130-2022012010000323-1300120112203220-2030310212103033-2330332302111000-1022233300000322"></a>
+
+## Direct properties — initializers / 212011021010 / 3
+
+- [pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3301123013322303-3333000210020013-1203220200121020-1110012131110302-3200230130333001-1203202321003023-1002302230113003-3023311232320231): complete subsection reference.
+
+- [result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2233223021000222-1201110001112012-3010212330103120-0020303232133213-0223130011113110-1231311030013001-0200020112022003-3312120221021300): complete subsection reference.
+
+<a id="canonical-3311022121120010-2232333110300222-0010311210012321-3110220202310301-1322030220032332-0320313201131100-2312211002021202-2333232212132223"></a>
+
+## Next pages — initializers / 212011021010 / 4
+
+- [items.object.system_metadata.initializers.pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3301123013322303-3333000210020013-1203220200121020-1110012131110302-3200230130333001-1203202321003023-1002302230113003-3023311232320231)
+- [items.object.system_metadata.initializers.result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2233223021000222-1201110001112012-3010212330103120-0020303232133213-0223130011113110-1231311030013001-0200020112022003-3312120221021300)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-3301123013322303-3333000210020013-1203220200121020-1110012131110302-3200230130333001-1203202321003023-1002302230113003-3023311232320231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3232231333221303-3112301233003010-3311000013123012-2313031302113310-3233133312230310-2212011321101013-3230312313202311-0333000202111131"></a>
+
+## items.object.system_metadata.initializers.pending — pending / 100033131321 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232)
 - items.object.system_metadata.initializers.pending
 
-<a id="canonical-e7269a7c93daf6350ddf4108408227058332a74e017a5ce164bb65ef2eba8605"></a>
+<a id="canonical-3213021221221330-2103312233120311-0031313310010020-1000200202130011-2003030222131032-0001132211303201-1210232312113233-0232232220120011"></a>
 
 Type: `"list"`. Computed.
 
@@ -51,15 +604,15 @@ Pending is a list of initializers that must execute in order before this object 
 the last pending initializer is removed, and no failing result is set, the initializers struct will
 be set to nil and the object is considered as initialized and visible to all clients.
 
-<a id="canonical-d80288353076ab06bb181d08e12c2ec8b2cfbe2915cc386c87211d36b9a46bce"></a>
+<a id="canonical-3120000220200311-0300131222230012-2323012001310020-3201023002323020-2302303323320221-0111303003201230-2013020101310312-2321221012233032"></a>
 
-## Direct properties — items.object.system_metadata.initializers.pending / 5b334940f779 / 3
+## Direct properties — pending / 100033131321 / 3
 
-<a id="canonical-27fcb5f779a437fd6d83398fb9a9634e16e97c27054e07cd76ad8497828c8cbe"></a>
+<a id="canonical-0213333023113313-1321221003133331-1231200303212033-2321222112031032-0112322113300213-0011103200133031-1312223120102113-2002203020302332"></a>
 
-<a id="canonical-f2cd2169812bf5cfa0727992411b82cfd39924307b8ffa984355c0879b184280"></a>
+<a id="canonical-3302303102011221-2001022333113033-2200130213212102-1001012320023033-3103212102100300-1323203333222120-1003111130002013-2123012010022000"></a>
 
-## name property — items.object.system_metadata.initializers.pending / 5b334940f779 / 4
+## name property — pending / 100033131321 / 4
 
 Type: `"string"`. Computed.
 
@@ -75,101 +628,101 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-f31b77c6d21e2362abbf4b6e14d7b2d2fc190772c61470162e415ddacdf3e605"></a>
+<a id="canonical-3303012313133012-3102013202031202-2223233310231232-0110311323023102-3330012100131302-3012011013000112-0232100111313122-3031330332120011"></a>
 
-## Next pages — items.object.system_metadata.initializers.pending / 5b334940f779 / 5
+## Next pages — pending / 100033131321 / 5
 
-- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-002.md#canonical-99e4872bf9a3e543cf18bbafe0c128c8a8f922cf6fe695715029b95e44a2bdee)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-afac902a61501586c49bc4d808cee7e72b7055d46dd4c1c120216283f6629270"></a>
+<a id="canonical-2233223021000222-1201110001112012-3010212330103120-0020303232133213-0223130011113110-1231311030013001-0200020112022003-3312120221021300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-88dd90d0f4b14de0abb4cc40659cc448e17fc1a8ef2e52a321f2665220d95c91"></a>
+<a id="canonical-2020313121003100-3310230110313200-2223231030301000-1211213030101020-3201133330012220-3233023211022203-0201330212121102-0200312111302101"></a>
 
-## items.object.system_metadata.initializers.result — items.object.system_metadata.initializers.result / f7aaf0c19374 / 2
+## items.object.system_metadata.initializers.result — result / 300121031310 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-6b2a79c49bdb8022e6123c3c9b65430899eba4c3cdce0da3fb5aa24a03144383)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-002.md#canonical-99e4872bf9a3e543cf18bbafe0c128c8a8f922cf6fe695715029b95e44a2bdee)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232)
 - items.object.system_metadata.initializers.result
 
-<a id="canonical-40b2d22aa5545bc7edb167d58ffd9f1773455f58318e3f9e825aa26499239f4d"></a>
+<a id="canonical-1000230231020222-2211111011233013-3231230112133111-2033333121330113-1303101111331120-0301203203332132-2002112222021210-2121020321331031"></a>
 
 Type: `"single"`. Computed.
 
 Status is a return value for calls that don't return other objects.
 
-<a id="canonical-fb7a5d96159e73c9f1240e6b39437d79ad132b8aacf34cbcb96054c691bca5a9"></a>
+<a id="canonical-3323132211312112-0111213213033021-3301021000321223-0321100313311321-2231010302232022-2230330310302330-2321120011103012-2101233022112221"></a>
 
-## Direct properties — items.object.system_metadata.initializers.result / f7aaf0c19374 / 3
+## Direct properties — result / 300121031310 / 3
 
-<a id="canonical-f561fad416bb3f7e0bbf3b7415e0b821712b1a265534a58069944bf07194c2c1"></a>
+<a id="canonical-3311120133223110-0112232303331332-0023233303231310-0111320023200201-1301022301220212-1111031022112000-1221211010233300-1301211030023001"></a>
 
-<a id="canonical-68c35810d0ee563d3a6432e7cffa36b7cdf4d14ce6d57c780e614a11baec49ab"></a>
+<a id="canonical-1220300311200100-3100323211120331-0322121003023213-3033332203122313-3031331031011030-3212311113301320-0032120110220101-2322323010212223"></a>
 
-## code property — items.object.system_metadata.initializers.result / f7aaf0c19374 / 4
+## code property — result / 300121031310 / 4
 
 Type: `"number"`. Computed.
 
 Suggested HTTP return code for this status, 0 if not set.
 
-<a id="canonical-7fe0b39ab84b5f41362a4c9013d1af4113ed15d5c46ea9c48c116946afead738"></a>
+<a id="canonical-1333320023032122-2320102311331001-0312022210302100-0103310122331001-0103323101113111-3010123222213010-2030010112211012-2233322231130320"></a>
 
-<a id="canonical-00fc381ac046f3a764147ce2cd185b416c7553b552c1e294f13518b7b6cf53e5"></a>
+<a id="canonical-0000333003200122-3000101233032213-1210011013303202-3031012011231001-1230131111032311-1102300132022110-3301031101202313-2312303311033211"></a>
 
-## reason property — items.object.system_metadata.initializers.result / f7aaf0c19374 / 5
+## reason property — result / 300121031310 / 5
 
 Type: `"string"`. Computed.
 
 Human-readable description of why this operation is in the 'Failure' status. If this value is empty
 there is no information available.
 
-<a id="canonical-6d10e060e21ab13bd50d2956f3aa2fb8d5b084e30025cc3829a8340d01dc0937"></a>
+<a id="canonical-1231010032001200-3202012223010323-3111003102211112-3303222202332320-3111230020103203-0000021130300320-0221222003100031-0001313000210313"></a>
 
-<a id="canonical-789424c1708bdc95d2af5f5f2191f378b6d9a4403570052d1eace4f61a70b4a8"></a>
+<a id="canonical-1320211002103001-1300202331302111-3102223311331133-0201210133031320-2312312122101000-0311130000110231-0132223032103312-0122130023102220"></a>
 
-## status property — items.object.system_metadata.initializers.result / f7aaf0c19374 / 6
+## status property — result / 300121031310 / 6
 
 Type: `"string"`. Computed.
 
 Status of the operation. One of: 'Success' or 'Failure'.
 
-<a id="canonical-27578864285f5cd9d206a88dfdb5d3503cad5cabbabc60fee8b6b27f4ceea378"></a>
+<a id="canonical-0213111320201210-0220113311303121-3102001222202031-3331231131031100-0330223111302223-2322233012003332-3220231223021333-1030323222031320"></a>
 
-## Next pages — items.object.system_metadata.initializers.result / f7aaf0c19374 / 7
+## Next pages — result / 300121031310 / 7
 
-- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-002.md#canonical-99e4872bf9a3e543cf18bbafe0c128c8a8f922cf6fe695715029b95e44a2bdee)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.object.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-2ee7885c16a6c41fb66e5359a844283f28fbab4e916814336c8adb4b33ce4084"></a>
+<a id="canonical-0232321320201130-0112221230100133-2312123211031121-2220101002200333-0220332322231032-2101122001100303-1230202231231023-0303303210002010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1f1d15aeed53cc8076dafeb25a6c9c6245f9dac9ac26b02f66859a1b57264e1a"></a>
+<a id="canonical-0133013101112232-3231110330302000-1312312233322302-1122123021301202-1011332131223021-2230021223000233-1212201121220123-1113021210320122"></a>
 
-## items.object.system_metadata.labels — items.object.system_metadata.labels / f253febb7d3b / 2
+## items.object.system_metadata.labels — labels / 232313310323 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-6b2a79c49bdb8022e6123c3c9b65430899eba4c3cdce0da3fb5aa24a03144383)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
 - items.object.system_metadata.labels
 
-<a id="canonical-0bcb9d25c56f96b7de6a207a0a5817c61006debe6c7adc4e51c780e54c3f57c2"></a>
+<a id="canonical-0023302321310211-3011123321122313-3132122202001322-0022112001133012-0100001231322332-1230132231301032-1101301320003211-1030033311133002"></a>
 
 Type: `"single"`. Computed.
 
@@ -177,39 +730,39 @@ Map of string keys and values that can be used to organize and categorize (scope
 as chosen by the operator or software. Values here can be interpreted by software(backend or
 frontend) to enable certain behavior e.g. Things marked as soft-deleted(restorable).
 
-<a id="canonical-096d88b6d0d1989a5af5f751ae45ab22c234d796356f39b09796609c3522ad15"></a>
+<a id="canonical-0021123120202312-3100310121202122-1122331133131101-2232101122230202-3002031031132112-0311123303212300-2113211212002130-0311020222310111"></a>
 
-## Direct properties — items.object.system_metadata.labels / f253febb7d3b / 3
+## Direct properties — labels / 232313310323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a345c17b73b2a0a70dcd326b19a9075f2c9eff8a82117dd998b580e67199a508"></a>
+<a id="canonical-2203101130011323-1303230222002213-0031303103021223-0121222100131133-0230213233332022-2002010113313121-2120231120003212-1301212122110020"></a>
 
-## Next pages — items.object.system_metadata.labels / f253febb7d3b / 4
+## Next pages — labels / 232313310323 / 4
 
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-2aa3fa530d64b62c5fe9889177649a9b1ca81cf213d61fd992a542233211ce68"></a>
+<a id="canonical-0222220333221103-0031121023120230-1133322120202101-1313121021222123-0130222001303302-0103311201333121-2102221110020203-0302010130321220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0770d69f2699a0afb6cf0fabc414859786903d3c9b4f416505899cde04e314b0"></a>
+<a id="canonical-0013130031122133-0212212122002233-2312303300332223-3010011020112113-2012210003310330-2123103310011211-0011202121303132-0010320301102300"></a>
 
-## items.object.system_metadata.namespace — items.object.system_metadata.namespace / cddc9bf644d3 / 2
+## items.object.system_metadata.namespace — namespace / 331210103103 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-6b2a79c49bdb8022e6123c3c9b65430899eba4c3cdce0da3fb5aa24a03144383)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
 - items.object.system_metadata.namespace
 
-<a id="canonical-06aaa240001d9b8379715572ea969b79d8ef416be24077e1b789890b664889c6"></a>
+<a id="canonical-0012222222021000-0000013121232003-1321130111111302-3222211221231321-3120323310011223-3202100013133201-2313202120210023-1212102020213012"></a>
 
 Type: `"list"`. Computed.
 
@@ -224,37 +777,37 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-4ee2f6222b99a7b806c472e3347cf87c23b3258f9492617d76bc0ea432fdbdd8"></a>
+<a id="canonical-1032320233120202-0223212122132320-0012301013023203-0310133033201330-0203230302112033-2110210212011331-1312233000322210-0302333123313120"></a>
 
-## Direct properties — items.object.system_metadata.namespace / cddc9bf644d3 / 3
+## Direct properties — namespace / 331210103103 / 3
 
-<a id="canonical-4e6493cc1f999f9c20a7436290e195742172a0aac40dc163743bf4283b55c099"></a>
+<a id="canonical-1032121021033030-0133212121332130-0200221310031202-2100320121111310-0201130222002222-3010003130011203-1310032333100220-0323111130002121"></a>
 
-<a id="canonical-a1374b0a92abf3e1721de8a25c563c9cc0bb9be01818ef486cca7d57254582e1"></a>
+<a id="canonical-2201031310230022-2102222333033201-1302013132202202-1130111203302130-3000232321233200-0120012032331020-1230302213311113-0211101120023201"></a>
 
-## kind property — items.object.system_metadata.namespace / cddc9bf644d3 / 4
+## kind property — namespace / 331210103103 / 4
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-<a id="canonical-c90918569e14a85a2afdce69d9982ae3859ff5d6e4a579c7ac47758d7830b365"></a>
+<a id="canonical-3021002101201112-2132011022201122-0222333130321221-3121212002223203-2011213333113112-3210221113213013-2230101313112031-1320030023031211"></a>
 
-<a id="canonical-175136da837760d18862ebb6f3c72f06ef6479bc95c541ce63e8802ba5af40c6"></a>
+<a id="canonical-0113110103123122-2003131312003101-2020120232232312-3303301302330012-3233121013212330-2111301110013032-1203322020000223-2211223310003012"></a>
 
-## name property — items.object.system_metadata.namespace / cddc9bf644d3 / 5
+## name property — namespace / 331210103103 / 5
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-<a id="canonical-f1c9a4a07d90696b390fa15b034ea52d29c935845118b25f107ebb1d38c42050"></a>
+<a id="canonical-3301302122102200-1331210012211223-0321003322011123-0003103222110231-0221302103112010-1101012023021133-0100133223230131-0320301002001100"></a>
 
-<a id="canonical-8dc11dd237d73d365340860ab6a3c84c8c2710845c5ad56e080ffd97bffc2903"></a>
+<a id="canonical-2031300101313102-0313311303310312-1103100020120022-2312220330201030-2030021301002010-1130112231111232-0020003333312113-2333333002210003"></a>
 
-## namespace property — items.object.system_metadata.namespace / cddc9bf644d3 / 6
+## namespace property — namespace / 331210103103 / 6
 
 Type: `"string"`. Computed.
 
@@ -271,79 +824,79 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-38a2226f176f16aab130ce69c0a8686cbddf8bb01411898db197434d2e04b9ab"></a>
+<a id="canonical-0320220202021233-0113123301122222-2301030030321221-3000222012201230-2331313320232300-0110010120212031-2301211310031031-0232001023212223"></a>
 
-<a id="canonical-e1b67f211f5e7c18cae5bd25ec3b4bf6ef4cd160c8b125652b14219ba6a9b909"></a>
+<a id="canonical-3201231213330201-0133113213300120-3022321123310211-3230032310233312-3233103031011200-3020230102111211-0223011002012123-2212222123210021"></a>
 
-## tenant property — items.object.system_metadata.namespace / cddc9bf644d3 / 7
+## tenant property — namespace / 331210103103 / 7
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-<a id="canonical-19348bbc2becbb6442f33372ba7b2ad95c4e8158eaeb2c81e35b634fe01177ea"></a>
+<a id="canonical-0121031020232330-0223323023231210-1002330303031302-2322132302223121-1130103220011120-3222322302302001-3203112312031033-3200010113133222"></a>
 
-<a id="canonical-5e2a30e1ac24992c3c3011eb4475ff40a0cdd8b47b29952c6816b36ec2b28de7"></a>
+<a id="canonical-1132022203003201-2230021021210230-0330030001013223-1010131133331000-2200303131202310-1323022121110230-1220011223031232-3002230220313213"></a>
 
-## uid property — items.object.system_metadata.namespace / cddc9bf644d3 / 8
+## uid property — namespace / 331210103103 / 8
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-<a id="canonical-5fb6ed9af92fd724ad4a24f533a124384e708acad8b6d80f911f046f9f9e40c2"></a>
+<a id="canonical-1133231232312122-3321023331130210-2231102202103311-0303220102100320-1032130020223022-3120231231200033-2101013300101233-2133213210003002"></a>
 
-## Next pages — items.object.system_metadata.namespace / cddc9bf644d3 / 9
+## Next pages — namespace / 331210103103 / 9
 
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-7e6e17cd791887ed4d0db55c10f1688ab41c2dabce00a3e7c05bfea6906beeb3"></a>
+<a id="canonical-1332123201133031-1321012020133231-1031003123111130-0100330112202022-2310013002312223-3032000022033213-3000112333322212-2100122332322303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3be84a9fe14753b69087a6da1ad29100772b25fb7f96067c926b97dccfed190d"></a>
+<a id="canonical-0323322010222133-3201101311032312-2100201322123122-0122310221010000-1313022302113323-1333211200121330-2102122321133130-3033323101210031"></a>
 
-## items.object.system_metadata.owner_view — items.object.system_metadata.owner_view / ca96e2798127 / 2
+## items.object.system_metadata.owner_view — owner_view / 132120010213 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-6b2a79c49bdb8022e6123c3c9b65430899eba4c3cdce0da3fb5aa24a03144383)
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
 - items.object.system_metadata.owner_view
 
-<a id="canonical-a0e7b40d37dd980b0e7c1fd21b254a6d4a15044fd1f819e396264861b0ccaa91"></a>
+<a id="canonical-2200321323100031-0313313121200023-0032133001333102-0123021110221231-1022011100101033-3101332001213203-2112021210201201-2300303022222101"></a>
 
 Type: `"single"`. Computed.
 
 ViewRefType represents a reference to a view.
 
-<a id="canonical-2790ab469219d1fb1bf80c24711765c493c70d62856383ddd2e901c60ab5265a"></a>
+<a id="canonical-0213210022231012-2102012131013323-0123332000300210-1301011312113010-2103301300311202-2011120320033131-3102322100013012-0022231102121122"></a>
 
-## Direct properties — items.object.system_metadata.owner_view / ca96e2798127 / 3
+## Direct properties — owner_view / 132120010213 / 3
 
-<a id="canonical-8589f28c8836558e2b2bc3302ae1bdd12099492a4af5ba121a3cf418702c45c3"></a>
+<a id="canonical-2011202133022030-2020031211112032-0223022330030300-0222320123313101-0200212110210222-1022331123220102-0122033033100120-1300023010113003"></a>
 
-<a id="canonical-a628ca405cc6ca27d0f1f3147cdf07ac5ba1f9f292a2ff2373db0a705c8485fe"></a>
+<a id="canonical-2212022030221000-1130301230220213-3100330133030110-1330313300132230-1123220133213302-2102220233330203-1303312300221300-1130201020113332"></a>
 
-## kind property — items.object.system_metadata.owner_view / ca96e2798127 / 4
+## kind property — owner_view / 132120010213 / 4
 
 Type: `"string"`. Computed.
 
 Kind. Kind of the view object.
 
-<a id="canonical-8b400ac879b5509b90059b01b44ca1b55fcbb83942de9421b73734bfbf0bf5eb"></a>
+<a id="canonical-2023100000223020-1321231111002123-2100001121230001-2310103022012311-1133302323200321-1002313221100201-2313031303102333-2333002333113223"></a>
 
-<a id="canonical-e8dc1f8144df08e586b35076b75d9ae7b6886971aea0370e610e908291e686b9"></a>
+<a id="canonical-3220313001332001-1010313300203211-2012230311001312-2313113121223213-2312202012211301-2232220003130032-1201003221002002-2101321220122321"></a>
 
-## name property — items.object.system_metadata.owner_view / ca96e2798127 / 5
+## name property — owner_view / 132120010213 / 5
 
 Type: `"string"`. Computed.
 
@@ -360,11 +913,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-1120ea5704a8d5f08944dce88ea999f2018d7005a2d8a14373bac735a154fba7"></a>
+<a id="canonical-0101020032221113-0010222031113300-2021101031303220-2032222121213302-0001203113000011-2202312022011003-1303232230130311-2201111033232213"></a>
 
-<a id="canonical-6e400f12840a142727a9ef0415e2f63ed39fa0f7669834f23c5e2c9d2b24edc2"></a>
+<a id="canonical-1232100000330102-2010002201100213-0213222132330010-0111320233120332-3103213322003313-1212212003103302-0330113202302131-0223021032313002"></a>
 
-## namespace property — items.object.system_metadata.owner_view / ca96e2798127 / 6
+## namespace property — owner_view / 132120010213 / 6
 
 Type: `"string"`. Computed.
 
@@ -381,65 +934,65 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-44db5d9b0f873fb458d30b1529d7969f9e512b6f793b333d40b7b50ce0cd4b72"></a>
+<a id="canonical-1010312311312123-0033201303332310-1120310300230111-0221311321122133-2132110102231233-1321032303030331-1000231323110030-3200303110231302"></a>
 
-<a id="canonical-fcc6c5bbd5ffa3646c105819ae51b700507d6a7bd6294ef8ac6f1d1da1dab395"></a>
+<a id="canonical-3330301230112323-3111333322031210-1230010011200121-2232110123130000-1100133112221323-3112022110323320-2230123301310131-2201312223032111"></a>
 
-## uid property — items.object.system_metadata.owner_view / ca96e2798127 / 7
+## uid property — owner_view / 132120010213 / 7
 
 Type: `"string"`. Computed.
 
 UID. UID of the view object.
 
-<a id="canonical-8b8a1d87a572353979b100fa17affb2677fd709e5fa1a66ce761afb0c82c976e"></a>
+<a id="canonical-2023202201312013-2211130203110321-1321230100003322-0113223333230212-1313333113002132-1133220122121230-3213120122332300-3020023021131232"></a>
 
-## Next pages — items.object.system_metadata.owner_view / ca96e2798127 / 8
+## Next pages — owner_view / 132120010213 / 8
 
-- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-002.md#canonical-877448804fbc002b6806788021a0e670d7179f38b80a98f00469b87c1f686f82)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.object.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-9f1c2c7bdb366f4d4e91f49c44a8532f1c3abe65a9944ef6d3941b5c1acd7aba"></a>
+<a id="canonical-2133013002301323-3123031212331031-1032210133102130-1010222011030233-0130032223321211-2221211010323312-3103211001231130-0122303113222322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8df7efe3c94d5c00616319eb83067b03e1a2f0da484dc4f024f66bcc18e4a6b6"></a>
+<a id="canonical-2031331332333203-3021103111300000-1201120301213223-2003001213230003-3201220233003122-1020103130103300-0210331212233030-0120321022122312"></a>
 
-## items.owner_view — items.owner_view / 5468ffe86d53 / 2
+## items.owner_view — owner_view / 322012311103 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
 - items.owner_view
 
-<a id="canonical-dcadc76bdff1c3b3510abe16b29d68cd606e60675015d4e6429ac5d7170afd6e"></a>
+<a id="canonical-3130223130131223-3133330130032303-1101002223320112-2302213112203031-1200123212001213-1100011131103212-1002212230113113-0113002233311232"></a>
 
 Type: `"single"`. Computed.
 
 ViewRefType represents a reference to a view.
 
-<a id="canonical-0791952eec2149b0113a46032f338296f1b416f641ad12bc90447f9528fd5339"></a>
+<a id="canonical-0013210121110232-3230020110212300-0101032210120003-0233030320022112-3301231001123312-1001223101022330-2100101013332111-0220333111030321"></a>
 
-## Direct properties — items.owner_view / 5468ffe86d53 / 3
+## Direct properties — owner_view / 322012311103 / 3
 
-<a id="canonical-640b9955805dd2e29f2759bd4d4a9472f448ddf8da38ed20c837ff8d62b43438"></a>
+<a id="canonical-1210002321211111-2000113131023202-2133021311212331-1031102221101302-3310102031313320-3122032032310200-3020031333332031-1202231003100320"></a>
 
-<a id="canonical-0ffca0534b741a344fd1d2e881d074d8cd23e2235f1715589d5b1354e7495a30"></a>
+<a id="canonical-0033333022001103-1023131001220310-1033310131023220-2001310013103120-3031020332020203-1133011301111120-2131112301031110-3213102111220300"></a>
 
-## kind property — items.owner_view / 5468ffe86d53 / 4
+## kind property — owner_view / 322012311103 / 4
 
 Type: `"string"`. Computed.
 
 Kind. Kind of the view object.
 
-<a id="canonical-015b1f4361b04d55fd582da935c3095b111d75dd5e60b35af6dad073a4d2cdf8"></a>
+<a id="canonical-0001112301331003-1201230010311111-3331112002312221-0311300300211123-0101013113113131-1132120023031122-3312312231001303-2210310230313320"></a>
 
-<a id="canonical-0a89220293c34d2da2000743baf653a615f760099da0febef3e01a46bd1ae9b1"></a>
+<a id="canonical-0022202102020002-2103300310310231-2202000000131003-2322331211032212-0111331312000021-2131220033322332-3303320001221012-2331012232212301"></a>
 
-## name property — items.owner_view / 5468ffe86d53 / 5
+## name property — owner_view / 322012311103 / 5
 
 Type: `"string"`. Computed.
 
@@ -456,11 +1009,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-6dbd08b5c1512c8d7b8ebabfd6f2779ab3cd054d7a7d0548230c17f40c5dc9d6"></a>
+<a id="canonical-1231233100202311-3001110102302031-1323203223222333-3112330213132122-2303303100111031-1322133100111020-0203003001133310-0030113130213112"></a>
 
-<a id="canonical-1860766f776db32bf0968e190887dec24962e15abbe6ca98a65622429b1f2e20"></a>
+<a id="canonical-0120120013121233-1313123123030223-3300211220320121-0020201331323002-1021120232011122-2323321230222120-2212111202021002-2123013302320200"></a>
 
-## namespace property — items.owner_view / 5468ffe86d53 / 6
+## namespace property — owner_view / 322012311103 / 6
 
 Type: `"string"`. Computed.
 
@@ -477,56 +1030,56 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-bf6b7fe8a20fb7b50e198980d8475e7de5a7729cea6b2775932633c9c901ebe0"></a>
+<a id="canonical-2333122313333220-2202003323132311-0032012120212000-3120101311321331-3211221313022130-3222122302131311-2103021203033021-3021000132233200"></a>
 
-<a id="canonical-84a6cdb416275dd8fa153f6c519ce94e456372adbab453f93e958fbe2d9bf8c7"></a>
+<a id="canonical-2010221230312310-0112021311313120-3322011103331230-1101213032211032-1011120313022231-2322231011033321-0332211120332332-0231212333203013"></a>
 
-## uid property — items.owner_view / 5468ffe86d53 / 7
+## uid property — owner_view / 322012311103 / 7
 
 Type: `"string"`. Computed.
 
 UID. UID of the view object.
 
-<a id="canonical-b64a226fa3f975fe2bb4084cc9cce7e3f8f82ca792fbbb62699855358040a28e"></a>
+<a id="canonical-2312102202021233-2203332113113332-0223231000201030-3021303032133203-3320332002302213-2102332323231202-1221212011110311-2000100022022032"></a>
 
-## Next pages — items.owner_view / 5468ffe86d53 / 8
+## Next pages — owner_view / 322012311103 / 8
 
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba"></a>
+<a id="canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8bc88403024cae7ca7326d87387a53f6c91e90b0e4fbdbdd358ecb2a41db2b14"></a>
+<a id="canonical-2023302020100003-0002103022321330-2213030212312013-0320132211033312-3021013221002300-3210332331233131-0311203230230222-1001312302230110"></a>
 
-## items.system_metadata — items.system_metadata / da229eac8306 / 2
+## items.system_metadata — system_metadata / 223020030012 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
 - items.system_metadata
 
-<a id="canonical-fbf9d31e1277cfb4777d53ddcf1be885d2271d7c1d6873cfe06b9ace35387688"></a>
+<a id="canonical-3323332131030132-0102131330332310-1313133111033131-3033012332202011-3102021301311330-0131122013033033-3200122321223032-0311032013122020"></a>
 
 Type: `"single"`. Computed.
 
 SystemObjectGetMetaType is metadata generated or populated by the system for all persisted objects
 and cannot be updated directly by users.
 
-<a id="canonical-8d8737877444d565a829743410d7c72ef119495294748ed7a993bae6cdd90f60"></a>
+<a id="canonical-2031201303132013-1310101031111211-2220022113100310-0100311330130232-3301012110211102-2110131020323113-2221210323223212-3031312100331200"></a>
 
-## Direct properties — items.system_metadata / da229eac8306 / 3
+## Direct properties — system_metadata / 223020030012 / 3
 
-<a id="canonical-d156ad066a0335215b33bf80d1039c2fd3ba416ddd62e8a04b37e7326ca96e19"></a>
+<a id="canonical-3101111222310012-1222000303110201-1123030323332000-3101000321300233-3103232210011231-3131120232202200-1023031332130302-1230222112320121"></a>
 
-<a id="canonical-1e6f2bd744778927915fd1ebd8063944e7044b457d98e8dea7eb8cc49c8b933e"></a>
+<a id="canonical-0132123302233113-1010131320210213-2101113331013223-3120001203211010-3213001010231011-1331212032203132-2213322320303010-2130202321030332"></a>
 
-## creation_timestamp property — items.system_metadata / da229eac8306 / 4
+## creation_timestamp property — system_metadata / 223020030012 / 4
 
 Type: `"string"`. Computed.
 
@@ -534,31 +1087,31 @@ CreationTimestamp is a timestamp representing the server time when this object w
 not guaranteed to be set in happens-before order across separate operations. Clients may not set
 this value.
 
-<a id="canonical-dbe7e65fcbc5b82da466da72e29132f434e8308f803ce985eb1c1f12751a075c"></a>
+<a id="canonical-3123321332121133-3023301123200231-2210121231221302-3202210103023310-0310322003002033-2000033032212011-3223013001330102-1311012200131130"></a>
 
-<a id="canonical-c2735041e7951e9bd67a6665ca940cf6c4be114f0cc44ea781327f52ffedc543"></a>
+<a id="canonical-3002130311001001-3213211101322123-3112132212121211-3022211000303312-3010233201011033-0030301010322213-2001030213331102-3333323130111003"></a>
 
-## creator_class property — items.system_metadata / da229eac8306 / 5
+## creator_class property — system_metadata / 223020030012 / 5
 
 Type: `"string"`. Computed.
 
 Value identifying the class of the user or service which created this configuration object.
 
-<a id="canonical-31eecb18d371edf103fa8bd561feafe6eb3968cd278bc36f814173111f4bf64a"></a>
+<a id="canonical-0301323230230120-3103130132313301-0003332220233111-1201333222333212-3223032112203031-0213202330031233-2001100113030101-0133102333121022"></a>
 
-<a id="canonical-5053e61b252058e80bcdf3b50f1b29e72dfebb57e925cc5f67be8ce4f247c55f"></a>
+<a id="canonical-1100110332120123-0211020011203220-0023303133032311-0033012302213213-0231333223231113-3221021130301133-1213233220303210-3302101330111133"></a>
 
-## creator_id property — items.system_metadata / da229eac8306 / 6
+## creator_id property — system_metadata / 223020030012 / 6
 
 Type: `"string"`. Computed.
 
 Value identifying the exact user or service that created this configuration object.
 
-<a id="canonical-f9689973d7ab11ea22e93b94c2fd69fd4cdccaca9091e8328a4b20bc49b413f3"></a>
+<a id="canonical-3321122021211303-3113222301013222-0202322103232110-3002333112213331-1030313030223022-2100210132200302-2022102302002330-1021231001033303"></a>
 
-<a id="canonical-e98652c6e26eaec1eef87160a54695099f8d3969c75bfdafcce7e7767b242451"></a>
+<a id="canonical-3221201211023012-3202123222323001-3232332013011200-2211101221110021-2133203103211221-3013112333312233-3030321332131312-1323021002101101"></a>
 
-## deletion_timestamp property — items.system_metadata / da229eac8306 / 7
+## deletion_timestamp property — system_metadata / 223020030012 / 7
 
 Type: `"string"`. Computed.
 
@@ -566,11 +1119,11 @@ DeletionTimestamp is RFC 3339 date and time at which this resource will be delet
 set by the server when a graceful deletion is requested by the user, and is not directly settable by
 a client. The resource is expected to be deleted (no longer visible from resource lists, and not..
 
-<a id="canonical-eb733c20f3e48fb3d741c6392f74dd8c447f841909fdeb37a73e1437bd9278ec"></a>
+<a id="canonical-3223130303300200-3303321020332303-3113100130120321-0233131031312030-1010133320100121-0021333132230313-2213033201100313-2331210213203230"></a>
 
-<a id="canonical-405290743db4e857134d6abe8d60f36f7a82336ba7469c27a53eeb189bd681e7"></a>
+<a id="canonical-1000110221001310-0331231032201113-0103103112222332-2031120033031233-1322200203031223-2213101221300213-2211033232230120-2123311220013213"></a>
 
-## finalizers property — items.system_metadata / da229eac8306 / 8
+## finalizers property — system_metadata / 223020030012 / 8
 
 Type: `["list", "string"]`. Computed.
 
@@ -578,50 +1131,50 @@ Must be empty before the object is deleted from the registry. Each entry is an i
 responsible component that will remove the entry from the list. If the deletionTimestamp of the
 object is non-nil, entries in this list can only be removed.
 
-- [initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e): complete subsection reference.
+- [initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032): complete subsection reference.
 
-- [labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1c1c8839a4e412bc475a708b5cb8a5420d7c64a94ffbcc78cd42fd10a5d5eee6): complete subsection reference.
+- [labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0130013020200321-2210321001022330-1013112213002023-1130232022111002-0031133012102221-1033332330301320-3031100233310100-2211311132323212): complete subsection reference.
 
-<a id="canonical-068be60826a873b7fbd5c56770c232e2f6f4dcc31c4459fbb75dc5026144d680"></a>
+<a id="canonical-0012202332120020-0212222013032313-3323311130111213-1300300203023202-3312331031303003-0130101011213323-2313113130110002-1201101031122000"></a>
 
-<a id="canonical-00fbb25bcc00a6a2e30678a79bda6455b47e27b79aaa7d65aa157dd64dc8c49a"></a>
+<a id="canonical-0000332323021123-3030000022122202-3203001213202213-2123312212101111-2310133202132313-2122222213311211-2222011113313112-1031302030102122"></a>
 
-## modification_timestamp property — items.system_metadata / da229eac8306 / 9
+## modification_timestamp property — system_metadata / 223020030012 / 9
 
 Type: `"string"`. Computed.
 
 ModificationTimestamp is a timestamp representing the server time when this object was last
 modified.
 
-<a id="canonical-9a1ae02dc798c9a59e0ef36c1e21b24bdf098dcd2856c7b82982b5fde28df68c"></a>
+<a id="canonical-2122012232000231-3013212030212211-2132003233031230-0132020123021023-3133002120313031-0220111230132320-0221200223113331-3202203133122030"></a>
 
-<a id="canonical-8e76ba036a4553645afb56051e0bedce1dea169295f47aa70f2261b4cc312f42"></a>
+<a id="canonical-2032131223220003-1222101111031210-1122332311120011-0132002332313032-0131322201122102-2111331013222213-0033020212012310-3030030102331002"></a>
 
-## object_index property — items.system_metadata / da229eac8306 / 10
+## object_index property — system_metadata / 223020030012 / 10
 
 Type: `"number"`. Computed.
 
 Unique index for the object. Some objects need a unique integer index to be allocated for each
 object type. This field will be populated for all objects that need it and will be zero otherwise.
 
-- [owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7cbbd1175e2727f4299f7b5d62407786b1d56149eae6f69109f918b6a8104afb): complete subsection reference.
+- [owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330232331010113-1132021302133310-0221213313231131-1202100013132012-2301311112011021-3222321233122101-0021332101202312-2220010010223323): complete subsection reference.
 
-<a id="canonical-56370735295d422a9ec381396cd277a276d4f02bce4771a18462850c9a72362f"></a>
+<a id="canonical-1112031300130311-0221113110020222-2132300320010321-1230310213132202-1312311033000223-3032101313012201-2010120220110030-2122130203120233"></a>
 
-<a id="canonical-54f4a1f33bdba6fe5ac1d2bd066846e50904753a27075f964cc27fd17b328c2d"></a>
+<a id="canonical-1110331022013303-0323312322123332-1122300131022331-0012122010123211-0021001013110322-0213001311332112-1030300213333101-1323030220300231"></a>
 
-## tenant property — items.system_metadata / da229eac8306 / 11
+## tenant property — system_metadata / 223020030012 / 11
 
 Type: `"string"`. Computed.
 
 Tenant to which this configuration object belongs to. The value for this is found from presented
 credentials.
 
-<a id="canonical-3e661322f5688ff710c516107d8b4a38244c7ec7de0ed8c5e89de8072f2ac9ef"></a>
+<a id="canonical-0332121201030202-3311122020333313-0100301101120100-1331202310220320-0210103013323013-3132003231203011-3220213132200013-0233022230213233"></a>
 
-<a id="canonical-235117d40a0630238ebeb8052723719f9f220e4f31447678facd94a63b57cbae"></a>
+<a id="canonical-0203110101133110-0022001203000203-2032233223200011-0213020313012133-2133020200321033-0301101013121320-3322303121102212-0323111330232232"></a>
 
-## uid property — items.system_metadata / da229eac8306 / 12
+## uid property — system_metadata / 223020030012 / 12
 
 Type: `"string"`. Computed.
 
@@ -629,77 +1182,77 @@ Uid is the unique in time and space value for this object. It is generated by th
 successful creation of an object and is not allowed to change on Replace API. The value of is taken
 from uid field of ObjectMetaType, if provided.
 
-<a id="canonical-e553383005057d53a1bd1a1f7770e310672c06fbbe9cf0e01418ca711a45db8d"></a>
+<a id="canonical-3211110303200300-0011001113311103-2201233101220133-1313130032030100-1213023000123323-2332213033003200-0110012030221301-0122101131232031"></a>
 
-## Next pages — items.system_metadata / da229eac8306 / 13
+## Next pages — system_metadata / 223020030012 / 13
 
-- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e)
-- [items.system_metadata.labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1c1c8839a4e412bc475a708b5cb8a5420d7c64a94ffbcc78cd42fd10a5d5eee6)
-- [items.system_metadata.owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7cbbd1175e2727f4299f7b5d62407786b1d56149eae6f69109f918b6a8104afb)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032)
+- [items.system_metadata.labels](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0130013020200321-2210321001022330-1013112213002023-1130232022111002-0031133012102221-1033332330301320-3031100233310100-2211311132323212)
+- [items.system_metadata.owner_view](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330232331010113-1132021302133310-0221213313231131-1202100013132012-2301311112011021-3222321233122101-0021332101202312-2220010010223323)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e"></a>
+<a id="canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fd8c5af2f493bcf1430cf4d297707895ea9706761181d9372d392f0475f27334"></a>
+<a id="canonical-3331203011223302-3310210323303301-1003003033103102-2113130013202111-3222211300121312-0101200131210313-0231032102330010-1311330213030310"></a>
 
-## items.system_metadata.initializers — items.system_metadata.initializers / d2e3f86e0e48 / 2
+## items.system_metadata.initializers — initializers / 123200321020 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
 - items.system_metadata.initializers
 
-<a id="canonical-e0fff57ec3f45ae35f2ff8895289bffc542ae4e9bd38192d04fde852833387ee"></a>
+<a id="canonical-3200333333111332-3003331011223203-1133023333202021-1102202123333330-1110022232103221-2331032001210231-0010333132201102-2003030320133232"></a>
 
 Type: `"single"`. Computed.
 
 Initializers tracks the progress of initialization of a configuration object.
 
-<a id="canonical-4fc758d30365827ce9f3ceadd95dd7148964a89a26eb53097f047bb77c917acc"></a>
+<a id="canonical-1033301311203103-0003121120021330-3221330330322231-3121113131130110-2021121022202122-0212322311030021-1333001013232313-1330210113223030"></a>
 
-## Direct properties — items.system_metadata.initializers / d2e3f86e0e48 / 3
+## Direct properties — initializers / 123200321020 / 3
 
-- [pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-a74f18f1271c495d147c8e908746c5201fc21d6fc389bd940bb97c5d27178d23): complete subsection reference.
+- [pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2213103301203301-0213013010211131-0110133020322100-2013101230110200-0133300201311233-3003202123312110-0023232113301131-0213011320310203): complete subsection reference.
 
-- [result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-104b12cfa6047b3b60b478963739f6cfce17867e6e842da496cd41ecbb8c8836): complete subsection reference.
+- [result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0100102301023033-2212001013230323-1200231013202112-0313032133123033-3032011320121332-1232201002312210-2112303110013230-2323203020200312): complete subsection reference.
 
-<a id="canonical-c631460eaec93e0abee55c76a611a836256ab061fd6f35392cd2d73554fd70a7"></a>
+<a id="canonical-3012030110120032-2232302103320022-2332321111301312-2212010122200312-0211122223001201-3331123303110321-0230310231130311-1110333113002213"></a>
 
-## Next pages — items.system_metadata.initializers / d2e3f86e0e48 / 4
+## Next pages — initializers / 123200321020 / 4
 
-- [items.system_metadata.initializers.pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-a74f18f1271c495d147c8e908746c5201fc21d6fc389bd940bb97c5d27178d23)
-- [items.system_metadata.initializers.result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-104b12cfa6047b3b60b478963739f6cfce17867e6e842da496cd41ecbb8c8836)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata.initializers.pending](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2213103301203301-0213013010211131-0110133020322100-2013101230110200-0133300201311233-3003202123312110-0023232113301131-0213011320310203)
+- [items.system_metadata.initializers.result](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0100102301023033-2212001013230323-1200231013202112-0313032133123033-3032011320121332-1232201002312210-2112303110013230-2323203020200312)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-a74f18f1271c495d147c8e908746c5201fc21d6fc389bd940bb97c5d27178d23"></a>
+<a id="canonical-2213103301203301-0213013010211131-0110133020322100-2013101230110200-0133300201311233-3003202123312110-0023232113301131-0213011320310203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f12b9a034a7efc6f05b41808c1cf3efbc0c2b83e366613dd81ef0f48c3cb799c"></a>
+<a id="canonical-3301022321220003-1022133233301233-0011231001200020-3001303303323323-3000300223200332-0312121201033131-2001323300331020-3003302313212130"></a>
 
-## items.system_metadata.initializers.pending — items.system_metadata.initializers.pending / 2404c4dc2483 / 2
+## items.system_metadata.initializers.pending — pending / 313002102003 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
-- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
+- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032)
 - items.system_metadata.initializers.pending
 
-<a id="canonical-2626063209967fe3bda32b6525355cac5cb7e8436871d792cc53a7edae3b19e7"></a>
+<a id="canonical-0212021200120302-0021211213333203-2331220302231211-0211031111302230-1130231332201003-1220130131132102-3030110322133231-2232032301213213"></a>
 
 Type: `"list"`. Computed.
 
@@ -707,15 +1260,15 @@ Pending is a list of initializers that must execute in order before this object 
 the last pending initializer is removed, and no failing result is set, the initializers struct will
 be set to nil and the object is considered as initialized and visible to all clients.
 
-<a id="canonical-9435485fffbd4099ad02a227da66394e7555219176495dd95351046b8c14933e"></a>
+<a id="canonical-2110031110201133-3333233110002121-2231000222020213-3122121203211032-1311111102012101-1312102111313121-1103110100101223-2030011021030332"></a>
 
-## Direct properties — items.system_metadata.initializers.pending / 2404c4dc2483 / 3
+## Direct properties — pending / 313002102003 / 3
 
-<a id="canonical-55b8fab150b784817cf4d166129a44147b9e5990879c160d1e4410ec648ce8c4"></a>
+<a id="canonical-1111232033222301-1100231320102001-1330331031011212-0102212210100110-1323213211212100-2013213001120031-0132101001003230-1210203032203010"></a>
 
-<a id="canonical-d045dfddb9cf5890fa93a35864b7c7f51d3689f9ed82b367d1ad38fb7eff6d5c"></a>
+<a id="canonical-3100101131333131-2321303311202100-3322210322031120-1210231330133311-0131031220213321-3231200223031213-3101223103203323-1332333312311130"></a>
 
-## name property — items.system_metadata.initializers.pending / 2404c4dc2483 / 4
+## name property — pending / 313002102003 / 4
 
 Type: `"string"`. Computed.
 
@@ -731,99 +1284,99 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-5a068644efe2e4b79e3b0eedf45adfda7453b30e2cbfd52b8585c96601ca49f1"></a>
+<a id="canonical-1122001220121010-3233320232102313-2132032300323231-3310112231333122-1310110323030032-0230233331110223-2011201130211212-0001302210213301"></a>
 
-## Next pages — items.system_metadata.initializers.pending / 2404c4dc2483 / 5
+## Next pages — pending / 313002102003 / 5
 
-- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-104b12cfa6047b3b60b478963739f6cfce17867e6e842da496cd41ecbb8c8836"></a>
+<a id="canonical-0100102301023033-2212001013230323-1200231013202112-0313032133123033-3032011320121332-1232201002312210-2112303110013230-2323203020200312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1d31b64875122733c883624104b2102cf15f05e8befc814d79df1aa12d9f2847"></a>
+<a id="canonical-0131030123121020-1311010202130303-3020200312021001-0010230201000230-3301113300113220-2332333020011031-1321313301222201-0231213302201013"></a>
 
-## items.system_metadata.initializers.result — items.system_metadata.initializers.result / 1157ab669952 / 2
+## items.system_metadata.initializers.result — result / 121221211102 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
-- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
+- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032)
 - items.system_metadata.initializers.result
 
-<a id="canonical-e764da52e50848efbb1ab52820befcd88ebccb09416e8928f76853957692735e"></a>
+<a id="canonical-3213121031221102-3211002010203233-2323012223110220-0200233233303120-2032233030230021-1001123220210220-3313122011032111-1312210213031132"></a>
 
 Type: `"single"`. Computed.
 
 Status is a return value for calls that don't return other objects.
 
-<a id="canonical-843073392a6e1c8b90e8350c411d727e5c314a894518bd0c4fdcd7fcb7c178ed"></a>
+<a id="canonical-2010030013030321-0222123201302023-2100322003110030-1001013113021332-1130030110222021-1011012023310030-1033313031133330-2313300113203231"></a>
 
-## Direct properties — items.system_metadata.initializers.result / 1157ab669952 / 3
+## Direct properties — result / 121221211102 / 3
 
-<a id="canonical-4f1dec2668141d20df129d4d9363dc6ee685e87cc3363557bb322ba6b9820364"></a>
+<a id="canonical-1033013132300212-1220011001310200-3133010221311031-2103120331301232-3212201132201330-3003031203111113-2323030202232212-2321200200031210"></a>
 
-<a id="canonical-4a6d723bb42c7b9ca2279258cbe84659facacdc0d6da4d724815e8033eb72ddf"></a>
+<a id="canonical-1022123113020323-2310023013232130-2202021321021120-3023322010121121-3322302230313000-3112312210311302-1020011132200003-0332231302313133"></a>
 
-## code property — items.system_metadata.initializers.result / 1157ab669952 / 4
+## code property — result / 121221211102 / 4
 
 Type: `"number"`. Computed.
 
 Suggested HTTP return code for this status, 0 if not set.
 
-<a id="canonical-5005caf20fa9de05ce64fc2daff8d73c763b099b8f0a75d98af0b44fd55eb0d7"></a>
+<a id="canonical-1100001130223302-0033222131320011-3032121033300231-2233332031130330-1312032300212123-2033002213113121-2022330023101033-3111113223003113"></a>
 
-<a id="canonical-0a357e7dcaac13b32663be2de0036bcc9fbaa3ea9323ea3e68a1ea9cc91af71f"></a>
+<a id="canonical-0022031113321331-3022223001032303-0212120323320231-3200000312233030-2133232222033222-2103020332220332-1220220132222130-3021012233130133"></a>
 
-## reason property — items.system_metadata.initializers.result / 1157ab669952 / 5
+## reason property — result / 121221211102 / 5
 
 Type: `"string"`. Computed.
 
 Human-readable description of why this operation is in the 'Failure' status. If this value is empty
 there is no information available.
 
-<a id="canonical-e44f62feaddb4435569642afbf717cf04e6078e03602809e51e507532f566f89"></a>
+<a id="canonical-3210103312023332-2231312310100311-1112211210022233-2333130113303300-1032120013203200-0312000220002132-1101321100131103-0233111212332021"></a>
 
-<a id="canonical-ec174c414053e5259ede7955a333e9e3ecbf03fd189b4f15e12f6959001b4f10"></a>
+<a id="canonical-3230011310301001-1000110332110211-2132313213211111-2203030332213203-3230233300033331-0120212310330111-3201023312211121-0000012310330100"></a>
 
-## status property — items.system_metadata.initializers.result / 1157ab669952 / 6
+## status property — result / 121221211102 / 6
 
 Type: `"string"`. Computed.
 
 Status of the operation. One of: 'Success' or 'Failure'.
 
-<a id="canonical-ff35e456d081f0b90486abdbb2381b0b95ab40952254ddcb2053c31ad0053785"></a>
+<a id="canonical-3333031132101112-3100200133002321-0010201222233123-2302032001230023-2111222310002111-0202111031313023-0200110330030122-3100001103132011"></a>
 
-## Next pages — items.system_metadata.initializers.result / 1157ab669952 / 7
+## Next pages — result / 121221211102 / 7
 
-- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-7c1d718575f0bb7edd02972bb91c0ff8af9caa7eaa323a88b10c31b63b8bf30e)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata.initializers](data-sources--site_registrations_by_state--reference--group-003.md#canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-1c1c8839a4e412bc475a708b5cb8a5420d7c64a94ffbcc78cd42fd10a5d5eee6"></a>
+<a id="canonical-0130013020200321-2210321001022330-1013112213002023-1130232022111002-0031133012102221-1033332330301320-3031100233310100-2211311132323212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8ad8bed9a9d48e5f7d41c1072de9bba9fb2cdf86b8468512c23c066c0d6c84aa"></a>
+<a id="canonical-2022312023323121-2221311020321133-1331100130010013-0231322123232221-3323023031332012-2320101220110102-3002033000121230-0031123020102222"></a>
 
-## items.system_metadata.labels — items.system_metadata.labels / a0c052d3b052 / 2
+## items.system_metadata.labels — labels / 310323001102 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
 - items.system_metadata.labels
 
-<a id="canonical-981a2260cf39b33bf4529ea1f3d45d1b012c27f195877640d12befcf586f0c2e"></a>
+<a id="canonical-2120012202021200-3033032123030323-3310110221322201-3303311011310123-0001023002133301-2111201313121000-3101022332333033-1120123300300232"></a>
 
 Type: `"single"`. Computed.
 
@@ -831,62 +1384,62 @@ Map of string keys and values that can be used to organize and categorize (scope
 as chosen by the operator or software. Values here can be interpreted by software(backend or
 frontend) to enable certain behavior e.g. Things marked as soft-deleted(restorable).
 
-<a id="canonical-59205ea2870513a2c7a6c1b25d901d2189976df6464f2d3db3656989a99c97ba"></a>
+<a id="canonical-1121020011322202-2013001101032202-3013221230012302-1131210001310201-2021211312313312-1012103302310331-2303121112212021-2221213021132322"></a>
 
-## Direct properties — items.system_metadata.labels / a0c052d3b052 / 3
+## Direct properties — labels / 310323001102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d3bbb4470026f43701b199cc512940783ed2586a492828c2dfc0119c35268e7a"></a>
+<a id="canonical-3103232323101013-0000021233100313-0001230121213030-1101022110001320-0332310211201222-1021022002203002-3133300001012130-0311021220321322"></a>
 
-## Next pages — items.system_metadata.labels / a0c052d3b052 / 4
+## Next pages — labels / 310323001102 / 4
 
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
 
-<a id="canonical-7cbbd1175e2727f4299f7b5d62407786b1d56149eae6f69109f918b6a8104afb"></a>
+<a id="canonical-1330232331010113-1132021302133310-0221213313231131-1202100013132012-2301311112011021-3222321233122101-0021332101202312-2220010010223323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b9fa0a5cf4eeae1bbec94518f8de5ee99c51677f15bed3f7529f9d4345323762"></a>
+<a id="canonical-2321332200221130-3310323222320123-2332302110110120-3320313211323221-2130110112131333-0111233231033313-1102213321311003-1011030203131202"></a>
 
-## items.system_metadata.owner_view — items.system_metadata.owner_view / fc9476e858a0 / 2
+## items.system_metadata.owner_view — owner_view / 322011202200 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
-- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
-- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-5f68d9c7b6bc367983315aa81b9bf692573d859a7cbaaf2f55ceb4eb8801c66c)
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
 - items.system_metadata.owner_view
 
-<a id="canonical-2e76e92ce2c67503c6ee58b6c4cbeabe2ad804ad4b3f8cca7f37958f021d6d14"></a>
+<a id="canonical-0232131232210230-3202301213110003-3012323211202312-3010302332222332-0222312000102231-1023033320303022-1333031321112033-0002013112310110"></a>
 
 Type: `"single"`. Computed.
 
 ViewRefType represents a reference to a view.
 
-<a id="canonical-0569d4d3c80099e4532c1b498843abee7216827c94406dd4b45ebc694ebcfd3c"></a>
+<a id="canonical-0011122131103103-3020000021213210-1103023001231021-2020100322233232-1302011220021330-2110100012313110-2310113223301221-1032233033310330"></a>
 
-## Direct properties — items.system_metadata.owner_view / fc9476e858a0 / 3
+## Direct properties — owner_view / 322011202200 / 3
 
-<a id="canonical-dbb710c2e186beed0d35fe1eb8cf21ad44ee884736e4a6a4171139922063c757"></a>
+<a id="canonical-3123231301003002-3201201223323231-0031031133320132-2320303302012231-1010323220201013-0312321022122210-0113010103212102-0200120330131113"></a>
 
-<a id="canonical-d8cef537d3f283b29575edd0b1136655980a4ddf20bcfd19974ef6ae6c1a39b3"></a>
+<a id="canonical-3120303233110313-3103330220032302-2111131132313100-2301010312121111-2120002210313133-0200233033310121-2113103233122232-1230012203212303"></a>
 
-## kind property — items.system_metadata.owner_view / fc9476e858a0 / 4
+## kind property — owner_view / 322011202200 / 4
 
 Type: `"string"`. Computed.
 
 Kind. Kind of the view object.
 
-<a id="canonical-5ea5c115c0dcec04c31213bbc82ba79d6ddc006e182127897e77770f2c09626c"></a>
+<a id="canonical-1132221130010111-3000313032300010-3003010201032323-3020022322132131-1231313000001232-0120020102132021-1332131313130033-0230002112021230"></a>
 
-<a id="canonical-5ff47ae842783bb5dc7d4956313edf5fc35690a43edc0b63adb7e66f68265e4c"></a>
+<a id="canonical-1133331013223220-1002132003232311-3130133110211112-0301033231331133-3003111221002210-0332313000231203-2231231332121233-1220021211321030"></a>
 
-## name property — items.system_metadata.owner_view / fc9476e858a0 / 5
+## name property — owner_view / 322011202200 / 5
 
 Type: `"string"`. Computed.
 
@@ -903,11 +1456,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-f3291aa7e2891010d68e1b5fa64d5c96de9297c623f90f14d8552ae3760a97d5"></a>
+<a id="canonical-3303022101222213-3202202101000100-3112203201231133-2212103111302112-3132210221133012-0203332100330110-3120111102223203-1312002221133111"></a>
 
-<a id="canonical-561b1fa1b2c7fcae38a38c8e1476d9047b276a46ad724d65748ec7926dfcf04f"></a>
+<a id="canonical-1112012301332201-2302301333302232-0320220320302032-0110131231210010-1323021312221012-2231130210311211-1310203230132102-1231333033001033"></a>
 
-## namespace property — items.system_metadata.owner_view / fc9476e858a0 / 6
+## namespace property — owner_view / 322011202200 / 6
 
 Type: `"string"`. Computed.
 
@@ -924,19 +1477,19 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-240766e3f3c4d11552326242b526c1d11956e483ecd23eda4cc01736c9bc7dd9"></a>
+<a id="canonical-0210001312123203-3303301031010111-1102030212021002-2311021230013101-0121111232102003-3230310203323122-1030300001130312-3021233013313121"></a>
 
-<a id="canonical-ae468017fbc2bfe52c14856e21bd02cc4c4a5de5f46e111135ff595eabc9a034"></a>
+<a id="canonical-2232101220000113-3323300223333211-0230011020111232-0201233100023030-1030102211313211-3310123201010101-0311333311211132-2223302122000310"></a>
 
-## uid property — items.system_metadata.owner_view / fc9476e858a0 / 7
+## uid property — owner_view / 322011202200 / 7
 
 Type: `"string"`. Computed.
 
 UID. UID of the view object.
 
-<a id="canonical-e4cbcdc6987bdfbd772e3b86305c26aaab8b6954c375ab88ae5910bb0134b2e0"></a>
+<a id="canonical-3210302330313012-2120132331332331-1313023203232012-0300113002122222-2223202312211110-3003131122232020-2232112101002323-0001031023023200"></a>
 
-## Next pages — items.system_metadata.owner_view / fc9476e858a0 / 8
+## Next pages — owner_view / 322011202200 / 8
 
-- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-3ae60735a1fec18d77c2467983d01bce022e79f2c5e865874b8c735a149673ba)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3)
+- [items.system_metadata](data-sources--site_registrations_by_state--reference--group-003.md#canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)

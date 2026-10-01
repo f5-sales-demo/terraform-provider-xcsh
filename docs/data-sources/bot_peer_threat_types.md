@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_peer_threat_type
 
 # xcsh_bot_peer_threat_types landing
 
-<a id="canonical-87108d47396ce895c0d9b659f1d45c2967514dee0cd6d925cfc6ed3f040bf641"></a>
+<a id="canonical-2013010020311013-0321123032202111-3000312123121121-3301311011300221-1213110110313232-0030311231210211-3033301232310333-0010002333121001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1d2822af9c8ed756398de666c82495ab54a7952294e34110e5560d1433992135"></a>
+<a id="canonical-0131022002022233-2130203231131112-0321203132121212-3020021021112223-1110221321110202-2110320310010100-3211111200310110-0303212102010311"></a>
 
-## xcsh_bot_peer_threat_types — xcsh_bot_peer_threat_types / 52f0d239e3f6 / 2
+## xcsh_bot_peer_threat_types — xcsh_bot_peer_threat_types / 032132033312 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-b26d9d8ab1067cb53966be72b5e29f10edb873d5bdfa69d9f9eb0079ee4b5948"></a>
+<a id="canonical-2302123121312022-2301001213302311-0321121223321302-2311320221330100-3231232013033111-2331332212213121-3321322300001321-3232102311211020"></a>
 
-## Prerequisites — xcsh_bot_peer_threat_types / 52f0d239e3f6 / 3
+## Prerequisites — xcsh_bot_peer_threat_types / 032132033312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-e0e9a27e28f37df1b7732cfae314a6c0cf75d843c6fe5063f4c846ebc833a1a6"></a>
+<a id="canonical-3200322122021332-0220330313313301-2313130302303322-3203011022123000-3033131131201003-3012333211001203-3310302010123223-3020030322012212"></a>
 
-## Minimal configuration — xcsh_bot_peer_threat_types / 52f0d239e3f6 / 4
+## Minimal configuration — xcsh_bot_peer_threat_types / 032132033312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "bot_peer_threat_types_result" {
 }
 ```
 
-<a id="canonical-dc13780b81bae8362dcdad4a582bbbca65ac26be06d26a260f7b8bde8ae6efcb"></a>
+<a id="canonical-3130010313200023-2001232232200312-0231303122311022-1120022323233022-1211223002122332-0012310212220212-0033132320233132-2022321232333023"></a>
 
-## Root configuration — xcsh_bot_peer_threat_types / 52f0d239e3f6 / 5
+## Root configuration — xcsh_bot_peer_threat_types / 032132033312 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-13e46c2e3578c53a525fbe28b91886587fc5c4f9d7b069328b5913ae6e165bc3"></a>
+<a id="canonical-0103321012300232-0311132030110322-1102113323320220-2321012020121120-1333301130103321-3113230012210302-2023112101032232-1232011211233003"></a>
 
-## Next pages — xcsh_bot_peer_threat_types / 52f0d239e3f6 / 6
+## Next pages — xcsh_bot_peer_threat_types / 032132033312 / 6
 
-- [Property reference](../guides/data-sources--bot_peer_threat_types--reference--group-001.md#canonical-fe41abbeffdeb22d2d0f00d523f6ba4a5c0487f7ff396036ada01cc5a9aac87e)
-- [Examples](../guides/data-sources--bot_peer_threat_types--examples--group-001.md#canonical-537b48ea58dc8f1705e50d5b7fa96b05d81cf486cc6fc4e35a410e40a432474d)
+- [Property reference](../guides/data-sources--bot_peer_threat_types--reference--group-001.md#canonical-3332100122232332-3333313223020231-0231003300003111-0203331223221022-1130001020133313-3333032112000312-2231220001303011-2221222230201332)
+- [Examples](../guides/data-sources--bot_peer_threat_types--examples--group-001.md#canonical-1103132310203222-1120313020330113-0011321100311123-1333222112230011-3120013033102012-3030123330103203-1122100100321000-2210030210131031)

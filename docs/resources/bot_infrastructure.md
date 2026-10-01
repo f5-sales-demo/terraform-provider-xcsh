@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_infrastructure l
 
 # xcsh_bot_infrastructure landing
 
-<a id="canonical-aae65caac0c4aab59621523325e7f8203c0205db6a352330cd7f03cb7cbed28f"></a>
+<a id="canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8573968cf36d517af703dd80d7e68090de4fe83abb14a3136ee63ba0753c52d"></a>
+<a id="canonical-3320111303211220-3033031231110113-2233130003313120-0031133212200021-0031321033322003-2223230110220301-0312323212032322-0013110330110231"></a>
 
-## xcsh_bot_infrastructure — xcsh_bot_infrastructure / 35b96318ed3e / 2
+## xcsh_bot_infrastructure — xcsh_bot_infrastructure / 012032310332 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages Bot Infrastructure in F5 Distributed Cloud.
 
-<a id="canonical-74a9fbd822076e5930fcf09edbcdf0d6975aeecd64efdc0563ebbd3a7cf78e80"></a>
+<a id="canonical-1310222133233120-0202001312321121-0300333033002132-3123303133003112-2113112232323031-1210323331300011-1203322323310322-1330331320322000"></a>
 
-## Prerequisites — xcsh_bot_infrastructure / 35b96318ed3e / 3
+## Prerequisites — xcsh_bot_infrastructure / 012032310332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1e70e0b4342b890eb8a67992f26ad45c30f11a0785848e66f2abb543ebec8922"></a>
+<a id="canonical-0132130032002310-0310022320210032-2320221213212102-3302122231101130-0300330101220013-2011201020321212-3302222323111003-3223323020210202"></a>
 
-## Minimal configuration — xcsh_bot_infrastructure / 35b96318ed3e / 4
+## Minimal configuration — xcsh_bot_infrastructure / 012032310332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_bot_infrastructure" "example" {
 }
 ```
 
-<a id="canonical-6478d376f632c37a8a46f6ef38f738981390b1bab41aa44edb768af3ce94ef37"></a>
+<a id="canonical-1210132031031312-3312030230031322-2022101233123233-0320331303202120-0103210023012322-2310012222101032-3123131220223303-3032211032330313"></a>
 
-## Root configuration — xcsh_bot_infrastructure / 35b96318ed3e / 5
+## Root configuration — xcsh_bot_infrastructure / 012032310332 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-e4e9b5feb3bfd11fb5b0360560d9af551c193ceb5236e515e4a7073ade0bec14"></a>
+<a id="canonical-3210322123113332-2303233331010133-2311230003120011-1200312122331111-0130012103303223-1102031232110111-3210221300130322-3132002332300110"></a>
 
-## Next pages — xcsh_bot_infrastructure / 35b96318ed3e / 6
+## Next pages — xcsh_bot_infrastructure / 012032310332 / 6
 
-- [Property reference](../guides/resources--bot_infrastructure--reference--group-001.md#canonical-e561a7e41a50a82e651979a59c0ecb0c612a900a06a77b3600482ca3210b9251)
-- [Examples](../guides/resources--bot_infrastructure--examples--group-001.md#canonical-36d6491af31a05beff7c0249315f926bfa716836ea6d7027d1e8b1a7c662ad08)
-- [Import](../guides/resources--bot_infrastructure--lifecycle--group-001.md#canonical-322446d62d6e6bf6916696a98d8289b344ddfcd15baa2b2655f8e85ae2ed09d6)
-- [Timeouts](../guides/resources--bot_infrastructure--lifecycle--group-001.md#canonical-d3aff639de2e4c3c392ecb7a596842f46c956d36c27e5c84298a371ee4d57843)
+- [Property reference](../guides/resources--bot_infrastructure--reference--group-001.md#canonical-3211120122133210-0122110022200232-1211012113212211-2130003230230030-1201022221000022-0012221313230312-0000102002302203-0201002321021101)
+- [Examples](../guides/resources--bot_infrastructure--examples--group-001.md#canonical-0312311210210122-3303012200112332-3333133000021021-0301113321021223-3322130112200312-3222123113000213-3101322023012213-3012120222310020)
+- [Import](../guides/resources--bot_infrastructure--lifecycle--group-001.md#canonical-0302021010123112-0231123212233312-2101121221122221-2031200220212303-1010313133303101-1123222202230212-1111332032201122-3202323100213112)
+- [Timeouts](../guides/resources--bot_infrastructure--lifecycle--group-001.md#canonical-3103223333120321-3132023210300330-0321023230231322-1121122010023310-1230211112310312-3002133211302010-0221202203130132-3210311113201003)

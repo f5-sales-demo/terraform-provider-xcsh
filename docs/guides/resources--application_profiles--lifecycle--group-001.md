@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 # xcsh_application_profiles lifecycle
 
-<a id="canonical-338bb23e9d5cc47da4db36e3163347f188d4547c00c02410929f782b8d32418c"></a>
+<a id="canonical-0303202323020332-2131113030101331-2210312303123203-0112030310133301-2020311011101330-0000300002100100-2102213313200223-2031030210012030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9124ee8225db9f2758a731a740380981d011e203df08c2127278553b9fc1c302"></a>
+<a id="canonical-2101021032322002-0211312321330213-1120221303012213-1000032000212001-3100010132020003-3133002030020102-1302132011110323-2133300130030002"></a>
 
-## Import — Import / 72cd823e6db3 / 2
+## Import — Import / 033212312303 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../resources/application_profiles.md#canonical-00efa13c12be7b49cefa61c4d967fc1485e14838bc33c17bdcc66248df0d209c)
+- [xcsh_application_profiles](../resources/application_profiles.md#canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_application_profiles.example system/example
 ```
 
-<a id="canonical-f1c6e413460c2ffa52676f5e43d4353b9e7e9bf2ba4dc38455e4ebcd08e22f78"></a>
+<a id="canonical-3301301232100103-1012003002333322-1102121312331132-1003311003110323-2132133221233302-2322103130032010-1111321032233031-0020320202331320"></a>
 
-## Next pages — Import / 72cd823e6db3 / 3
+## Next pages — Import / 033212312303 / 3
 
-- [xcsh_application_profiles](../resources/application_profiles.md#canonical-00efa13c12be7b49cefa61c4d967fc1485e14838bc33c17bdcc66248df0d209c)
+- [xcsh_application_profiles](../resources/application_profiles.md#canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130)
 
-<a id="canonical-130f2b55446c962cc47192dbc460671ebc4f68ee4c3011c4847e977980096f0d"></a>
+<a id="canonical-0103003302231111-1010123021120230-3010130121023123-3010120012130132-2330103312203232-1030030001013010-2010133221131321-2000002112330031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b013b379813dcd9c3a8ee048a8251acbe127951ea05a254c6c3a4acb9fd452e3"></a>
+<a id="canonical-2300010323031321-2001033130312130-0322203232001020-2220021101223023-3201021321110132-2200112202111030-1230032210223023-2133311011023203"></a>
 
-## Timeouts — Timeouts / 122814e50223 / 2
+## Timeouts — Timeouts / 321100020203 / 2
 
 Breadcrumbs:
 
-- [xcsh_application_profiles](../resources/application_profiles.md#canonical-00efa13c12be7b49cefa61c4d967fc1485e14838bc33c17bdcc66248df0d209c)
+- [xcsh_application_profiles](../resources/application_profiles.md#canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--application_profiles--reference--group-001.md#canonical-90d932bd8f79925ec5d6b9945630df17fac61100dbca671694a7e9d6a95b4b80). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--application_profiles--reference--group-001.md#canonical-2100312103022331-2033132121021132-3011311223212110-1112030031330113-3322301201010000-3123302212130112-2110221332213112-2221112310232000). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-4ae023789c9f4f97036eb19f312bd74ed2def8c743f1673cb5eda2182ae4ac36"></a>
+<a id="canonical-1022320002031320-2130213310332113-0003123223012133-0301022331131032-3102313233203013-1003330112130330-2311323122020120-0222321022300312"></a>
 
-## Next pages — Timeouts / 122814e50223 / 3
+## Next pages — Timeouts / 321100020203 / 3
 
-- [xcsh_application_profiles](../resources/application_profiles.md#canonical-00efa13c12be7b49cefa61c4d967fc1485e14838bc33c17bdcc66248df0d209c)
+- [xcsh_application_profiles](../resources/application_profiles.md#canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130)

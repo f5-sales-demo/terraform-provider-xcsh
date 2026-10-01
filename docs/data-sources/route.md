@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_route landing."
 
 # xcsh_route landing
 
-<a id="canonical-ea42e1ea4cf100a20de1cf54455610a98c198155f1e50696dd3051675e64bcc7"></a>
+<a id="canonical-3222100232013222-1030330100002202-0031320130331110-1011111201002221-2030012120011111-3301321100122112-3131030011011213-1132121023303013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f2c4b71f115b18f8085b80486d432f3437c17a97e108524f007455225517cbcd"></a>
+<a id="canonical-3302301023130133-0101112301203320-0020112320001020-1231100302330310-0313300113222113-3201002011021033-0000131011110202-1111011330233031"></a>
 
-## xcsh_route — xcsh_route / 15d657738e87 / 2
+## xcsh_route — xcsh_route / 130320322013 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Manages route object in a given namespace. Route object is list of route rules. 
 condition to match incoming requests and actions to take on matching requests in F5 Distributed
 Cloud.
 
-<a id="canonical-790bdaad8fd41950c02e18a353ae650353e1e467ff57e2b1f435612ac26a178c"></a>
+<a id="canonical-1321002331222231-2033311001211100-3000023201202203-1103223212110003-1103320132101213-3333111332022301-3310031112010222-3002122201132030"></a>
 
-## Prerequisites — xcsh_route / 15d657738e87 / 3
+## Prerequisites — xcsh_route / 130320322013 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-383d0650b4eca485f3f5f69d027d19a940632d57c31633019af6067662d22362"></a>
+<a id="canonical-0320033100121100-2310323022102011-3303331133122131-0002133101212221-1000120302311113-3003011203030001-2122331200121312-1202310202031202"></a>
 
-## Minimal configuration — xcsh_route / 15d657738e87 / 4
+## Minimal configuration — xcsh_route / 130320322013 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "route_id" {
 }
 ```
 
-<a id="canonical-02a5da6357b480fb0b5feb9f86ca7a54bbf19d8103b8cf8582e821696e4300e2"></a>
+<a id="canonical-0002221131221203-1113231020003323-0023113332232133-2012302213221110-2323330121312001-0003232030332011-2002322002011221-1232100300003202"></a>
 
-## Root configuration — xcsh_route / 15d657738e87 / 5
+## Root configuration — xcsh_route / 130320322013 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ff67fb0a828e7fa7b6dc3b1480feaec5370b81854a4179a51fc9737bb65c9af4"></a>
+<a id="canonical-3333121333230022-2002203213332213-2312313003230110-2000333222323011-0313002320012011-1022100113212211-0133302113031323-2312113021223310"></a>
 
-## Next pages — xcsh_route / 15d657738e87 / 6
+## Next pages — xcsh_route / 130320322013 / 6
 
-- [Property reference](../guides/data-sources--route--reference--group-001.md#canonical-a6c77d69b7834e989d425e83281601a25261f73228caae96eeda7871db19dfbf)
-- [Examples](../guides/data-sources--route--examples--group-001.md#canonical-9391d20cfe41560e191bcd91f8e4b8422c2d0ad54f96e4235a550fc4f43c4447)
+- [Property reference](../guides/data-sources--route--reference--group-001.md#canonical-2212301313311221-2313200310322120-2131100211322003-0220011200012202-1102120133130302-0220302222322112-3232312213201301-3123012131332333)
+- [Examples](../guides/data-sources--route--examples--group-001.md#canonical-2103210131020030-3332100111120032-0121012330312101-3320321023201002-0230023100223111-1033211232100203-1122111100333010-3310033010101013)

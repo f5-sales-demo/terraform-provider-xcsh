@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_network_policy l
 
 # xcsh_bot_network_policy landing
 
-<a id="canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762"></a>
+<a id="canonical-0131231022333300-2321113231232321-2013223130013312-1311321020233021-2120000102000123-3300101133122113-2333131010121013-3020322100131202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b10aa8452d199962284840e7aa639891fc5f786dfb3b4abb20d823088bdbf387"></a>
+<a id="canonical-2301002222201011-0231012121211202-0220102010003213-2222120321202101-3330113313201231-3323032310222323-0200312002030020-2023312333032013"></a>
 
-## xcsh_bot_network_policy — xcsh_bot_network_policy / 66105fac6288 / 2
+## xcsh_bot_network_policy — xcsh_bot_network_policy / 223012022020 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Bot Network Policy resource in F5 Distributed Cloud for get bot network policy.
 configuration. (read-only data source)
 
-<a id="canonical-094a7c765fc9d618747429c3169494d76179029364938efc50ecbf6ff8699bb5"></a>
+<a id="canonical-0021102213301312-1133302131120120-1310131002213003-0112211021103113-1201132100022103-1210210320323330-1100323023331233-3320122121232311"></a>
 
-## Prerequisites — xcsh_bot_network_policy / 66105fac6288 / 3
+## Prerequisites — xcsh_bot_network_policy / 223012022020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-e8770ee286835d68b8f4e4f1db290f2be0e581f7ce2bdb056f1e435afda46418"></a>
+<a id="canonical-3220131300323202-2012200311311220-2320331032103301-3123022100330223-3200321120013313-3032022331230011-1233013210031122-3331221012100120"></a>
 
-## Minimal configuration — xcsh_bot_network_policy / 66105fac6288 / 4
+## Minimal configuration — xcsh_bot_network_policy / 223012022020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "bot_network_policy_id" {
 }
 ```
 
-<a id="canonical-b428ce77f118a1926acc4d27136819b76f971848965c46bb06b9d687b458a259"></a>
+<a id="canonical-2310022030321313-3301012022012102-1222303010310213-0103122001212313-1233211301201020-2112113010122323-0012232131122013-2310112022021121"></a>
 
-## Root configuration — xcsh_bot_network_policy / 66105fac6288 / 5
+## Root configuration — xcsh_bot_network_policy / 223012022020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-5d0d00cca3de54e360935ec326a96c2cb45d3773168c87980b8f048e99ef843c"></a>
+<a id="canonical-1131003100003030-2203313211103203-1200210311323003-0212222112300230-2310113103131303-0112203020132120-0023203300102032-2121323320100330"></a>
 
-## Next pages — xcsh_bot_network_policy / 66105fac6288 / 6
+## Next pages — xcsh_bot_network_policy / 223012022020 / 6
 
-- [Property reference](../guides/data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
-- [Examples](../guides/data-sources--bot_network_policy--examples--group-001.md#canonical-022ba32b36308c5407c9dc966cfe8e3dcde2eef6d9858ccd4c90ceb17cfa7059)
+- [Property reference](../guides/data-sources--bot_network_policy--reference--group-001.md#canonical-1000220123222103-1311203111200122-1310233113223010-2303233320132230-2023011120122200-0020202331302112-2201330132003322-1123131221011230)
+- [Examples](../guides/data-sources--bot_network_policy--examples--group-001.md#canonical-0002022322030223-0312030020301110-0013302131302112-1230333220320331-3031320232323312-3121201120303031-1030210030322301-1330332213001121)

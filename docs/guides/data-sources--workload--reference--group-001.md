@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
-<a id="canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd"></a>
+<a id="canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec8a4ff55e7e7a83b52fa2e26486e2779a36b0cfbd317ba919bdc95ccd8b8817"></a>
+<a id="canonical-3230202210333311-1132133213222003-2311023322023202-1210201232021313-2122031223003033-2331030113232221-0121233130211130-3031202320200113"></a>
 
-## Property reference — Property reference / dacf77bc523e / 2
+## Property reference — Property reference / 233011020332 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 - Property reference
 
-<a id="canonical-cf35b06ea1ea0d1465306ee6ad2ab1312730ffac2aeea938074c2a497c5eecc6"></a>
+<a id="canonical-3033031123001232-2201322200310110-1211030012323212-2231022223010301-0213030033332230-0222323222210320-0013103002221021-1330113232303012"></a>
 
-## Direct properties — Property reference / dacf77bc523e / 3
+## Direct properties — Property reference / 233011020332 / 3
 
-<a id="canonical-fd479db49ef7bedcfa1ecd726b0bbbf8d948e4f2d7faccc51633c8159340913a"></a>
+<a id="canonical-3331101321312310-2132331323323130-3322013230311302-1223002323233320-3121102032103302-3113332230303011-0112030330200111-2103100021010322"></a>
 
-<a id="canonical-d7fdf77fc159627591fe2f15df16792e8537d77e86dd3334c10936b6a7964954"></a>
+<a id="canonical-3113333133131333-3001112112021311-2101333202330111-3133011213210232-2011031331131332-2012313103030310-3001002103122312-2213211210211110"></a>
 
-## annotations property — Property reference / dacf77bc523e / 4
+## annotations property — Property reference / 233011020332 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c5eee35f5bb0610e55891b3d299ef5ed199a97c529fedd098d0106a77c69c46e"></a>
+<a id="canonical-3011323232031133-1123230012010032-1111202101230331-0221213233113231-0121212221133011-0221333231310021-2031000100122213-1330122130101232"></a>
 
-<a id="canonical-cf1f36fdd77e6642e333b2ade9f3eb3577ae28d8bd8501d2370eeae4777b33e8"></a>
+<a id="canonical-3033013303123331-3113133212121002-3203030323022231-3221330332230311-1313223202203120-2331201100013102-0313003232223210-1313132303033220"></a>
 
-## description property — Property reference / dacf77bc523e / 5
+## description property — Property reference / 233011020332 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,23 +118,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50dd48a811ec3ebb519eb826260f24605f1518e0277f61e83360d96b3bae552e"></a>
+<a id="canonical-1100313110202220-0101323003322323-1101213223200212-0212003302101200-1133011101203200-0213133312013220-0303120031211223-0323223211110232"></a>
 
-<a id="canonical-9e758e9ec9a438ceea3237190a5b96e4d17c1eb9b92b6c36f1ba8c966afe104d"></a>
+<a id="canonical-2132131120322132-3021221003203032-3222030203130121-0022112321123210-3101133001322321-2321022312300312-3301232220302112-1222333201001031"></a>
 
-## id property — Property reference / dacf77bc523e / 6
+## ID property — Property reference / 233011020332 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [job](data-sources--workload--reference--group-004.md#canonical-7350f554fe4d86d88468d1c9f06e5a182c8c9bdbd89f5cca6ed4489c26853e5d): complete subsection reference.
+- [job](data-sources--workload--reference--group-004.md#canonical-1303110033111110-3332103120123120-2010122031013021-3300123211220120-0230203021233123-3120213311303022-1232311010202130-0212201103321131): complete subsection reference.
 
-<a id="canonical-c4581ae32ce86d824a68ab3f551918441553427090886d4388fdbd1633507da9"></a>
+<a id="canonical-3010112001223203-0230322012312002-1022122022230333-1111012101201010-0111110310021300-2100202012311003-2020333123310112-0303110013312221"></a>
 
-<a id="canonical-e55a25540662fde1eecb527fec60bc5cfc5beb7da8ce32ea834d3ef3d4ee3673"></a>
+<a id="canonical-3211112202111110-0012120233313201-3232302311021333-3230120023301130-3330112332231331-2220303203023222-2003103103323303-3110323203121303"></a>
 
-## labels property — Property reference / dacf77bc523e / 7
+## labels property — Property reference / 233011020332 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -158,11 +158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-56b09ee03bbed25ec29e62f230ffc73add3a13a4c5bca39814efc3db2f74541f"></a>
+<a id="canonical-1112230021323200-0323233231021132-3002213212023302-0300333330130322-3131032201032210-3011233022032120-0110323330033123-0233131011100133"></a>
 
-<a id="canonical-35baab57680bb86f7f6d57f1de7cfd25d6a84d8e8d57e60d84d4f2a0adf8fa70"></a>
+<a id="canonical-0311232222231113-1220002323201233-1333123111133301-3132133033310211-3112222010312032-2031111332120031-2010311033022200-2231332033221300"></a>
 
-## name property — Property reference / dacf77bc523e / 8
+## name property — Property reference / 233011020332 / 8
 
 Type: `"string"`. Required.
 
@@ -218,11 +218,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ccd4e84f0f6beb90a965ab48f51dad4ade0c624c930563228d8dbd19b5314a08"></a>
+<a id="canonical-3030311032201033-0033122332232100-2221121122231020-3311013122311022-3132003012021030-2103001112030202-2031203123310121-2311030110220020"></a>
 
-<a id="canonical-e1759c20a908a17d5d194ff07889c90b952c869646de1b7602cf3e1ac33529b3"></a>
+<a id="canonical-3201131121300200-2221002022011331-1131012110333300-1320202130210023-2111023020122112-1012313201231312-0002303303320122-3003031102212303"></a>
 
-## namespace property — Property reference / dacf77bc523e / 9
+## namespace property — Property reference / 233011020332 / 9
 
 Type: `"string"`. Required.
 
@@ -271,8 +271,8 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025): complete subsection reference.
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211): complete subsection reference.
 
-- [simple_service](data-sources--workload--reference--group-016.md#canonical-5ff01a9f0b1ff1fcfc1fa389f29f4c0fb638d848ef363c6d333d0ba02b54fa04): complete subsection reference.
+- [simple_service](data-sources--workload--reference--group-016.md#canonical-1133330001222133-0023013333013330-3330013322032021-3302213310300033-2312032031201020-3233031203301231-0303033100232200-0223111033220010): complete subsection reference.
 
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497): complete subsection reference.
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113): complete subsection reference.

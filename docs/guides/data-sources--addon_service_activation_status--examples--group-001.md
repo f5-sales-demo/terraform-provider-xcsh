@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_addon_service_activa
 
 # xcsh_addon_service_activation_status examples
 
-<a id="canonical-d291fe604a5df6f19ada2116def1f779abd33918a13909945c2a13c9a8ccc44e"></a>
+<a id="canonical-3102210133321200-1022113133123301-2122312202010112-3132330133131321-2223310303210120-2201032100212110-1130022201033021-2220303030101032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8176b327f9d0cbdba516db6c08017fe7d329eec6610e403cf8a65ba7fd4621e8"></a>
+<a id="canonical-2001131223030213-3321310030233123-2211011231231230-0020000113333213-3103022132323012-1201003210000330-3320221211232213-3331101202013220"></a>
 
-## Examples — Examples / 89c1e6dba9c2 / 2
+## Examples — Examples / 312322213002 / 2
 
 Breadcrumbs:
 
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)
 - Examples
 
-<a id="canonical-02fe4098d12515bdef6b83afc1d205772b93d00a1401dd8ab5f8bafc25b32c6f"></a>
+<a id="canonical-0002333210002120-3101021101112331-3233122320032233-3001310200111313-0223210331000022-0110000131312022-2311332023223330-0211230302301233"></a>
 
-## Complete configurations — Examples / 89c1e6dba9c2 / 3
+## Complete configurations — Examples / 312322213002 / 3
 
-- [Data source](data-sources--addon_service_activation_status--examples--group-001.md#canonical-e72ddea9110096a8144263d97e89fa8fdbd62a3e166fde156fae42b0a566a726): valid configuration.
+- [Data source](data-sources--addon_service_activation_status--examples--group-001.md#canonical-3213023131322221-0101000021122220-0110100212033121-1332202133222033-3123311202220332-0112123331320111-1233223210022300-2211121222130212): valid configuration.
 
-<a id="canonical-e2ccd5ce07a047d69e52ff5e79b97b41ba13dcfeca4fa48f27981c5d981946ee"></a>
+<a id="canonical-3202303031113032-0013220010133112-2132110233331132-1321232113231001-2322010331303332-3022103322102033-0213212001301131-2120012110123232"></a>
 
-## Next pages — Examples / 89c1e6dba9c2 / 4
+## Next pages — Examples / 312322213002 / 4
 
-- [Data source](data-sources--addon_service_activation_status--examples--group-001.md#canonical-e72ddea9110096a8144263d97e89fa8fdbd62a3e166fde156fae42b0a566a726)
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
+- [Data source](data-sources--addon_service_activation_status--examples--group-001.md#canonical-3213023131322221-0101000021122220-0110100212033121-1332202133222033-3123311202220332-0112123331320111-1233223210022300-2211121222130212)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)
 
-<a id="canonical-e72ddea9110096a8144263d97e89fa8fdbd62a3e166fde156fae42b0a566a726"></a>
+<a id="canonical-3213023131322221-0101000021122220-0110100212033121-1332202133222033-3123311202220332-0112123331320111-1233223210022300-2211121222130212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-114a3926ceff578fcad8363e6feb00cd7679420d69b567fd46b91aebc33207aa"></a>
+<a id="canonical-0101102203210212-3032333311132033-3022312003120332-1233322300003031-1312132110020031-1221231112133331-1012232101223223-3003030200132222"></a>
 
-## Data source — Data source / 92a563d0e8c3 / 2
+## Data source — Data source / 310032203003 / 2
 
 Breadcrumbs:
 
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
-- [Examples](data-sources--addon_service_activation_status--examples--group-001.md#canonical-d291fe604a5df6f19ada2116def1f779abd33918a13909945c2a13c9a8ccc44e)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)
+- [Examples](data-sources--addon_service_activation_status--examples--group-001.md#canonical-3102210133321200-1022113133123301-2122312202010112-3132330133131321-2223310303210120-2201032100212110-1130022201033021-2220303030101032)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -80,9 +80,9 @@ output "addon_service_activation_state" {
 }
 ```
 
-<a id="canonical-97e03241079b0c23b7dcd940fa9e8a4a918121befb81e8aa53401bd32afe8cf3"></a>
+<a id="canonical-2113320003021001-0013212300300203-2313313031211000-3322213220221022-2101200102012332-3323200132202222-1103100001233103-0222333220303303"></a>
 
-## Next pages — Data source / 92a563d0e8c3 / 3
+## Next pages — Data source / 310032203003 / 3
 
-- [Examples](data-sources--addon_service_activation_status--examples--group-001.md#canonical-d291fe604a5df6f19ada2116def1f779abd33918a13909945c2a13c9a8ccc44e)
-- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506)
+- [Examples](data-sources--addon_service_activation_status--examples--group-001.md#canonical-3102210133321200-1022113133123301-2122312202010112-3132330133131321-2223310303210120-2201032100212110-1130022201033021-2220303030101032)
+- [xcsh_addon_service_activation_status](../data-sources/addon_service_activation_status.md#canonical-3102032331212202-3203311211020103-1033023113322232-1210322102130301-1301000332023311-0302213213132333-0001300202010110-3120132022110012)

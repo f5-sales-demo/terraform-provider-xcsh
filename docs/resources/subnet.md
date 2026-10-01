@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_subnet landing."
 
 # xcsh_subnet landing
 
-<a id="canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41"></a>
+<a id="canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc24e78f1cacf8e72b106a99a4c61bc5fc040e54e5da3ddf0195f184816473fb"></a>
+<a id="canonical-3330021032132033-0130223033203213-0223010012222121-2210301201233011-3330001000321110-3211312203313133-0001211133012010-2001121013033323"></a>
 
-## xcsh_subnet — xcsh_subnet / 814970675e8b / 2
+## xcsh_subnet — xcsh_subnet / 121311322023 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an
 interface of a vm/pod. it is created in user or shared namespace. configuration.
 
-<a id="canonical-fe2fef8b0958158dc5435e1d030c8e60c1ab679210b1d73cadd765de8c7bc11f"></a>
+<a id="canonical-3332023332332023-0021112001112031-3011100311320131-0003003020321200-3001222312132102-0100230131130330-2231311312113132-2030132330010133"></a>
 
-## Prerequisites — xcsh_subnet / 814970675e8b / 3
+## Prerequisites — xcsh_subnet / 121311322023 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3ccda1eb91d85a9f2d39f2be8e4792746f1ed07a5326d7946b2e23f30ae9274b"></a>
+<a id="canonical-0330303122013223-2101312011222133-0231032133022332-2032101321021310-1233013231001322-1103021231132110-1223023202033303-0022322102131023"></a>
 
-## Minimal configuration — xcsh_subnet / 814970675e8b / 4
+## Minimal configuration — xcsh_subnet / 121311322023 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_subnet" "example" {
 }
 ```
 
-<a id="canonical-5170a80b69cde496738c779c55b041741d4227b43745fd5e21b5a0ba248c9274"></a>
+<a id="canonical-1101130022200023-1221303132102112-1303203013132130-1111230010011310-0131100202132310-0313101133311132-0201231122002322-0210203021021310"></a>
 
-## Root configuration — xcsh_subnet / 814970675e8b / 5
+## Root configuration — xcsh_subnet / 121311322023 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-420b6cbf481f9c4d4944e90b823500f8b7b8518ee4e26088b1be787df151ad85"></a>
+<a id="canonical-1002002312302333-1020013321301031-1021101032210023-2002031100003320-2313232011012032-3210320212002020-2301233213201331-3301110122312011"></a>
 
-## Next pages — xcsh_subnet / 814970675e8b / 6
+## Next pages — xcsh_subnet / 121311322023 / 6
 
-- [Property reference](../guides/resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [Examples](../guides/resources--subnet--examples--group-001.md#canonical-673f0e65e6cb760bcb080dd331c2cf6d8f2132a3a7647cef482d76d0c71001a7)
-- [Import](../guides/resources--subnet--lifecycle--group-001.md#canonical-9fc872f637a726f17717c837d6f9dfdb4bbd0d6945a72c056ad96c2466fe7288)
-- [Timeouts](../guides/resources--subnet--lifecycle--group-001.md#canonical-2fdbf6f30a0ff5bbf312928ab0c0121753e7c749f51d3430e515f6c8fdf759fb)
+- [Property reference](../guides/resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [Examples](../guides/resources--subnet--examples--group-001.md#canonical-1213033300321211-3212302313120023-3023002000313103-0301300230331231-2033020103022203-2213121013303233-1020023113123100-3013010000012213)
+- [Import](../guides/resources--subnet--lifecycle--group-001.md#canonical-2133302013023312-0313221302123301-1313011330200313-3112332131333123-1023233100311221-1011221302300011-1222312112300210-1212333213022020)
+- [Timeouts](../guides/resources--subnet--lifecycle--group-001.md#canonical-0233312333123303-0022003333112323-3303010221022022-2300300001020113-1103321330131021-3311013103100300-3211011133123020-3331331311213323)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_data_type landing."
 
 # xcsh_data_type landing
 
-<a id="canonical-1cff15081e577df3cc4acee98c37a779281dfe15bfd78338a144f83da6db7bdc"></a>
+<a id="canonical-0130333301110020-0132111313313303-3030102230323221-2030031322131321-0220013133320111-2333311320030320-2201101033200331-2212312313233130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c828ab2119454762d59faa050a520eeb43b4f3a4afb35ceb55988a6ea362b99c"></a>
+<a id="canonical-3020022022230201-0121101110131202-3111213322220011-0022110200323223-1003231033032210-2233230311303223-1111212020221232-2203120223212130"></a>
 
-## xcsh_data_type — xcsh_data_type / 71f312f3765b / 2
+## xcsh_data_type — xcsh_data_type / 330313121123 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages data\_type creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-b66aa8c4f5464967cb4f64fedbfc8c04b9ef20a3d491374bd88a624ec6c844e5"></a>
+<a id="canonical-2312122222203010-3311101210211213-3023103312103332-3123333020300010-2321323302002203-3110210103131023-3120202212021032-3012302010103211"></a>
 
-## Prerequisites — xcsh_data_type / 71f312f3765b / 3
+## Prerequisites — xcsh_data_type / 330313121123 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-26f36bfdb65983a81ad5ccc49bc1000f420c2bb764763cda0437fe028b6dbf8e"></a>
+<a id="canonical-0212330312233331-2312112120032220-0122311130303010-2123300100000033-1002003002232313-1210131203303122-0010031333320002-2023123123332032"></a>
 
-## Minimal configuration — xcsh_data_type / 71f312f3765b / 4
+## Minimal configuration — xcsh_data_type / 330313121123 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_data_type" "example" {
 }
 ```
 
-<a id="canonical-a1c887252fa0bfdd863b68a938fa9661768de0e946566ff5913bcf5140562811"></a>
+<a id="canonical-2201302020130211-0233220023333131-2012032312202221-0320332221121201-1312203132003221-1012111212333311-2101032330331101-1000111202200101"></a>
 
-## Root configuration — xcsh_data_type / 71f312f3765b / 5
+## Root configuration — xcsh_data_type / 330313121123 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-290bbefabf77a76f0d761b29a99db10f096edb4648c5645cfd0faf0701e84563"></a>
+<a id="canonical-0221002323323322-2333131322131233-0031131201230221-2221213123010033-0021123231231012-1020301112101130-3331003322330013-0001322010111203"></a>
 
-## Next pages — xcsh_data_type / 71f312f3765b / 6
+## Next pages — xcsh_data_type / 330313121123 / 6
 
-- [Property reference](../guides/resources--data_type--reference--group-001.md#canonical-0b4bcef4cf9c0ef8b8a8c71ba751ea78d2753b38ce148712e866e6dc49645b88)
-- [Examples](../guides/resources--data_type--examples--group-001.md#canonical-f6fcb5b6928c9a403046c371b1e2041d0b724dd72cc231fccb0851e9f5346050)
-- [Import](../guides/resources--data_type--lifecycle--group-001.md#canonical-9a35c59b2f222d3733cc3f5fed11513984d6ffddf3e84f238fcea63a275f41d3)
-- [Timeouts](../guides/resources--data_type--lifecycle--group-001.md#canonical-3cbbb8c92b860749df4036ae205b8b2f50e705acdd543f1dd527b92118162937)
+- [Property reference](../guides/resources--data_type--reference--group-001.md#canonical-0023102330323310-3033213000323320-2320222030130123-2213110132221320-3102131103230320-3032011020130102-3220121232123130-1021121011232020)
+- [Examples](../guides/resources--data_type--examples--group-001.md#canonical-3312333023112312-2102203021221000-0300101230031301-2301320200100131-0023130210313113-0230300203013330-3023002011013221-3311031012001100)
+- [Import](../guides/resources--data_type--lifecycle--group-001.md#canonical-2122031130112123-0233020202310313-0303303003331133-3231010111010321-2010311233333131-3303322010330203-2033303222120322-0213113310013103)
+- [Timeouts](../guides/resources--data_type--lifecycle--group-001.md#canonical-0330232323203021-0223201200131021-3133100003122232-0200112320230233-1100321300112230-3131111003330131-3111021323210201-0120011202210313)

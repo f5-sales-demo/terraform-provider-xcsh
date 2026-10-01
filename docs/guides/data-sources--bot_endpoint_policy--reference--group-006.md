@@ -6,2077 +6,2034 @@ description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy 
 
 # xcsh_bot_endpoint_policy reference
 
-<a id="canonical-d409a24cb8becc15c6d37a038a85a09db62dd0584de131a41b43afa27947f901"></a>
+<a id="canonical-1033121231210031-3023330022320113-2012121303231221-2202330323120003-2123331301001233-0233003031002131-1301001120313232-3001001300120130"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 5fa133005cc3 / 4
+## Next pages — create / 223032030310 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.conversion](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-ec47de333b7da09ac4457fe4cf5d974fdafe72a21e893aaa6f9555dc5e4ef8bb)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.reset_miles](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-9060d51fa09399e078c77c7d6351ec8fe8fc4bcbac266a74722c960a2477060a)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.view_account](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-50847e208dbb9de02e9907e75020f55532fa4eff19a7bc023277d137be01bab3)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.guest_session](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-1333010010021323-2303200032322103-3111223210330231-3133022122313031-0320322211100012-0330312110300213-3310012322112121-3003232002120133)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-ec47de333b7da09ac4457fe4cf5d974fdafe72a21e893aaa6f9555dc5e4ef8bb"></a>
+<a id="canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9b6c4916d8179c5ba1f0c154410f6f11111face56f1fb4922db25f340bf9bed1"></a>
+<a id="canonical-2130111211031031-0310122030020321-1301220032110320-1002313022322111-2310121321231303-0303202033332210-0300313122002201-2021031033022231"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.conversion — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 6d1a82d9052c / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty — loyalty / 000011303003 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty
+
+<a id="canonical-1010231312313300-1110111313322201-2001223221121213-1303333311230330-1212330000133203-0310113332303300-0312122003121313-0331021231211320"></a>
+
+Type: `"single"`. Computed.
+
+Loyalty Category. Flow Label Loyalty Category.
+
+<a id="canonical-0112331110131322-1321211323210003-2110121011332033-0030210030200211-2222022330032233-3333210032013301-2012013323113032-0001313010121201"></a>
+
+## Direct properties — loyalty / 000011303003 / 3
+
+- [conversion](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3230101331320303-0323133122002122-3010101113333210-3033113121131033-3122333213022202-0132202103222222-1233211111113130-1132103233202323): complete subsection reference.
+
+- [reset_miles](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2100120031110133-2200210321213200-1320301313301331-1203110132302033-3220333010233023-2230021212221310-1302023021120022-0210131300120022): complete subsection reference.
+
+- [view_account](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1100201013320200-2031232321313200-0232212100133213-1100020033111111-0302332210323333-0121221323300002-0302131331010313-2332000123222303): complete subsection reference.
+
+<a id="canonical-3110002122021030-2320233230300111-3012310313220003-2022201122002131-2312023131001120-1031320103012210-0123100322332202-1321101333210001"></a>
+
+## Next pages — loyalty / 000011303003 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.conversion](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3230101331320303-0323133122002122-3010101113333210-3033113121131033-3122333213022202-0132202103222222-1233211111113130-1132103233202323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.reset_miles](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2100120031110133-2200210321213200-1320301313301331-1203110132302033-3220333010233023-2230021212221310-1302023021120022-0210131300120022)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.view_account](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1100201013320200-2031232321313200-0232212100133213-1100020033111111-0302332210323333-0121221323300002-0302131331010313-2332000123222303)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3230101331320303-0323133122002122-3010101113333210-3033113121131033-3122333213022202-0132202103222222-1233211111113130-1132103233202323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2123123010210112-3120011321301123-2201330030011110-1001003312330101-0101013322303211-1233013323102102-0231230211330310-0023332123323101"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.conversion — conversion / 312100110230 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.conversion
 
-<a id="canonical-f27bc51bd9a176cbf9435e7c3b83fab28bb7e94e551defdb6a8dc3fb0194af2d"></a>
+<a id="canonical-3302132330110123-3121220113123023-3321100311321330-0323200333222302-2023231332211032-1111013132333123-1222203130033323-0001211022330231"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-48f829b5b36388a9292bc3b2781f5c41449a83dfec7e5bcf5c83011532292ec6"></a>
+<a id="canonical-1020332002212311-2303120320202221-0221022330032302-1320013311301001-1010212220033133-3230133211233033-1130200300010111-0302022102323012"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 6d1a82d9052c / 3
+## Direct properties — conversion / 312100110230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f02f382b92c81ff08789260b053cbe6c0645f333deaf937a2a87e4f9d5d48cdc"></a>
+<a id="canonical-3300023303200223-2102302001333300-2013202102120023-0011033023321230-0012101133030303-3132223321031322-0222201332103321-3111311020303130"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 6d1a82d9052c / 4
+## Next pages — conversion / 312100110230 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-9060d51fa09399e078c77c7d6351ec8fe8fc4bcbac266a74722c960a2477060a"></a>
+<a id="canonical-2100120031110133-2200210321213200-1320301313301331-1203110132302033-3220333010233023-2230021212221310-1302023021120022-0210131300120022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93c638df55dbf043616eeae2946704bffd820f9eb64f5417cfcc621611d1a0e8"></a>
+<a id="canonical-2103301203203133-1111312333001003-1201123232223202-2110121300102333-3331200200332132-2312103311100113-3033303012020112-0101310122003220"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.reset_miles — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f4503c99d894 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.reset_miles — reset_miles / 212131202110 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.reset_miles
 
-<a id="canonical-436f6cf42bfc9bfb4b30eeb3f8d933db5e544540709e8eea447799aa05c166bc"></a>
+<a id="canonical-1003123312303310-0223333021233323-1023030032322303-3320312103033123-1132111010111000-1300213220323222-1010131321212222-0011300112122330"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for reset miles.
 
-<a id="canonical-64bf713d30a5cf6d949c53e63d22bec983f59f9987214cf7f93728c97ea9631a"></a>
+<a id="canonical-1210233313010331-0300221130331231-2110213011033212-0331020223323021-2003331121332121-2013020110303313-3321031302203021-1332222112030122"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f4503c99d894 / 3
+## Direct properties — reset_miles / 212131202110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7f350792c54915fe9da7a9bd77fd4c56a7a5fbc17b179931be93e7c5c3ae4dca"></a>
+<a id="canonical-1333031100132102-3011102101113332-2131221322212331-1313333110301112-2213221133233001-1323011321210301-2332210332133011-3003223210313022"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f4503c99d894 / 4
+## Next pages — reset_miles / 212131202110 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-50847e208dbb9de02e9907e75020f55532fa4eff19a7bc023277d137be01bab3"></a>
+<a id="canonical-1100201013320200-2031232321313200-0232212100133213-1100020033111111-0302332210323333-0121221323300002-0302131331010313-2332000123222303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6d477c605ad4a027ff7924aa0516b549bbd5381bb313a928cab69b57967be2bb"></a>
+<a id="canonical-1231101313301200-1122311022000213-3333132102102222-0011011223111021-2323311103200123-2303010322210220-3022231221231113-2112132332022323"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.view_account — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / af3e95d3d62d / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.view_account — view_account / 310331120231 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty.view_account
 
-<a id="canonical-5f1ac05ed36c6091c659330bc615ccdc490a586a22b154df08bdaf4f8a08d898"></a>
+<a id="canonical-1133012230001132-3103123012002101-3012112103030023-3012011130303130-1021002211201222-0202230111103133-0020233122331033-2022002031202120"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-66863a2b05d8cc08d9d5a1f587ef426f8615ba3870bdf5388ae37cde0b715cf5"></a>
+<a id="canonical-1212201203220223-0011312030300020-3121311122013311-2013323310021233-2012011123220320-1300233133110320-2022320313303132-0023130111303311"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / af3e95d3d62d / 3
+## Direct properties — view_account / 310331120231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-19963217e571d962de3a28738fb117a2a0c3398888621649a7b69160e4b63c6f"></a>
+<a id="canonical-0121211203020113-3211130131211202-3132032202201303-2033230101132202-2200300303212020-2020120201121021-2213231221011200-3210231203301233"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / af3e95d3d62d / 4
+## Next pages — view_account / 310331120231 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-b464f784d79c7dc9c44c06d6045f214bb052a77d0765bfe252222ca2bb9d8420)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.loyalty](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2310121033132010-3113213013313021-3010103000123112-0010113302011023-2300110222131331-0013121123333202-1102020202302202-2323213120100200)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85"></a>
+<a id="canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9342bbd3c2abc1d7fc51a57289408fa01a55bf591e1c68dd53fb1dd407d868e"></a>
+<a id="canonical-3121031002232331-0330022223300131-1333301101221113-0220211000203322-0001221111233311-2101320130122031-3111033323013131-1000133120122032"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 803e3eba618d / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list — mailing_list / 232212012031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list
 
-<a id="canonical-943f5b5c0f8fa61b8243e521b5558f4013c6527630100208862a4dc941a57bce"></a>
+<a id="canonical-2110033311231130-0033203322120123-2002100332110201-2311111120331000-0103301211021312-0300010000020020-2012022210313021-1001221113233032"></a>
 
 Type: `"single"`. Computed.
 
 Mailing List Category. Flow Label Mailing List Category.
 
-<a id="canonical-03aebcb0b20ea7f06e833d81d88eb6fabc3ef5322eac234562a6e181da8caa4b"></a>
+<a id="canonical-0003223223302300-2302003222133300-1232200303312001-3120203223123322-2330033233110302-0232223002031011-1202221232012001-3122203022221023"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 803e3eba618d / 3
+## Direct properties — mailing_list / 232212012031 / 3
 
-- [create_password](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-012107ed5b7663f178bd1dc99687513bc3836ac48b5f6202fcea9ab3c29db07a): complete subsection reference.
+- [create_password](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0001020100133231-1123131212033301-1320233101313021-2112201311010323-3003200312223010-2023113312020002-3330322221222303-3002213123001322): complete subsection reference.
 
-- [signup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-98edac472446d56ec38124547571d76939caef33b2db89c39338d83486321026): complete subsection reference.
+- [signup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2120323122301013-0210101231111232-3003200102101110-1311130131131221-0321302232330303-2302312320213003-2103032031200310-2012030201000212): complete subsection reference.
 
-- [unsubscribe](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c6721bf538a84abbd04a84c7a26a137ecfb4f19300e7036491c471372fa2236f): complete subsection reference.
+- [unsubscribe](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3012130201233311-0320222010222323-3100102220103013-2202122201031332-3033231033012103-0000321300031210-2101301013010313-0233220202031233): complete subsection reference.
 
-<a id="canonical-b66251a846029831272ca2b0c40ecbcba24dcf4b76e20fddd197d441729944e7"></a>
+<a id="canonical-2312120211012220-1012000221200301-0213023022022300-3010003230233023-2202103130331023-1312320200333131-3101211331101001-1302212110103213"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 803e3eba618d / 4
+## Next pages — mailing_list / 232212012031 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.create_password](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-012107ed5b7663f178bd1dc99687513bc3836ac48b5f6202fcea9ab3c29db07a)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.signup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-98edac472446d56ec38124547571d76939caef33b2db89c39338d83486321026)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.unsubscribe](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c6721bf538a84abbd04a84c7a26a137ecfb4f19300e7036491c471372fa2236f)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.create_password](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0001020100133231-1123131212033301-1320233101313021-2112201311010323-3003200312223010-2023113312020002-3330322221222303-3002213123001322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.signup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2120323122301013-0210101231111232-3003200102101110-1311130131131221-0321302232330303-2302312320213003-2103032031200310-2012030201000212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.unsubscribe](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3012130201233311-0320222010222323-3100102220103013-2202122201031332-3033231033012103-0000321300031210-2101301013010313-0233220202031233)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-012107ed5b7663f178bd1dc99687513bc3836ac48b5f6202fcea9ab3c29db07a"></a>
+<a id="canonical-0001020100133231-1123131212033301-1320233101313021-2112201311010323-3003200312223010-2023113312020002-3330322221222303-3002213123001322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47f7eff0e6310a7f51afa2d64067cfd47ad88f98d6bfb23990ca4560a36abef4"></a>
+<a id="canonical-1013331332333300-3212030100221333-1101223322023112-1000121330333110-1322312020332120-3112233323020321-2100302210111200-2203122223323310"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.create_password — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b9f96ac9bd98 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.create_password — create_password / 302123312120 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.create_password
 
-<a id="canonical-b4cb094c7ee2a3cde2cf44b6d68322c0ee56ebedcc070aa1548445a139119efd"></a>
+<a id="canonical-2310302300211030-1332320222033031-3202303310102312-3112200302023000-3232111232233231-3030001300222201-1110201010112201-0321010121323331"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for create password.
 
-<a id="canonical-823341e3158768ca1eaae2845e5c9945bf580b24b895c0b88aed33d2c5a58b37"></a>
+<a id="canonical-2002030310013203-0111201312203022-0132222232022010-1132113021211011-2333112000230210-2320211130002320-2022323103033102-3011221120230313"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b9f96ac9bd98 / 3
+## Direct properties — create_password / 302123312120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-601a0cce6e871b78092cd4ff2faf5e57b6cc61c30c6500a0771c97200bae7012"></a>
+<a id="canonical-1200012200303032-1232201301231320-0021023031103333-0233223311321113-2312303012013003-0030121100002200-1313013021130200-0023223213000102"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b9f96ac9bd98 / 4
+## Next pages — create_password / 302123312120 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-98edac472446d56ec38124547571d76939caef33b2db89c39338d83486321026"></a>
+<a id="canonical-2120323122301013-0210101231111232-3003200102101110-1311130131131221-0321302232330303-2302312320213003-2103032031200310-2012030201000212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9eaa859e741b7ff0782414db55f80a0f9f05f372412cd4d68776e1063a216d47"></a>
+<a id="canonical-2132222220112132-1310012313333300-1320021001103123-1111332000220033-2133001133031302-1001023031103112-2013131232010012-0322020112311013"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.signup — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / cc1d621a3208 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.signup — signup / 012203020020 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.signup
 
-<a id="canonical-584111d13cfc2422a8c6acf98f1121f8348ef6b6f853a8fe74127ece208eecb7"></a>
+<a id="canonical-1120100101013101-0330333002100202-2220301222303321-2033010102013320-0310203233122312-3320110322203332-1310010213323032-0200203232302313"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-704227bcfb5760cdd76b94a67b4eefd59b04cbf5fefa87af39d6ef3fc694b501"></a>
+<a id="canonical-1300100202132330-3323111312003031-3113122321102212-1323103232333111-2123001030233311-3332332220132233-0321311232330333-3012211023110001"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / cc1d621a3208 / 3
+## Direct properties — signup / 012203020020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3fd3165c90aa3032b92642a524101bc9b3a659e274467ea314f56ffb57fb2ff7"></a>
+<a id="canonical-0333310301121130-2100222203000302-2321021210022211-0210010001233021-2303221211213202-1310101213322203-0110331112333323-1113332302333313"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / cc1d621a3208 / 4
+## Next pages — signup / 012203020020 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c6721bf538a84abbd04a84c7a26a137ecfb4f19300e7036491c471372fa2236f"></a>
+<a id="canonical-3012130201233311-0320222010222323-3100102220103013-2202122201031332-3033231033012103-0000321300031210-2101301013010313-0233220202031233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff7b657d2a1d3a077e3bb1b5ecf6793ace354a9e622fd55545f65730a067fe82"></a>
+<a id="canonical-3333132312111331-0222013103220013-1332032323012311-3230331213210322-3032031110222132-1202023331111111-1011331211130300-2200121333322002"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.unsubscribe — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 095c59aa988d / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.unsubscribe — unsubscribe / 222221202031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list.unsubscribe
 
-<a id="canonical-b534f505445555db505e04bc73c8c748e136ff62fb5f10d21ee0a44d0a616f6c"></a>
+<a id="canonical-2311031033110011-1010111111113123-1100113200102330-1303302030131020-3201031233331202-3323113301003102-0132320022101031-0022120112331230"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for unsubscribe.
 
-<a id="canonical-a0a7d70997d0eb1352d9c23bb464d0c3494abce118068460a076619c46dfd5e7"></a>
+<a id="canonical-2200221331130021-2113310032230103-1102312130020323-2310121031003003-1021102223303201-0120001220101200-2200131212012130-1012313331113213"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 095c59aa988d / 3
+## Direct properties — unsubscribe / 222221202031 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0be31362d1676f4cf328598bc02386ef4bd9d3415f0a20540edd8ad7f4233524"></a>
+<a id="canonical-0023320301031202-3101121312331030-3303022011212023-3000020320123233-1023312131031001-1133002202001110-0032313120223113-3310020303110210"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 095c59aa988d / 4
+## Next pages — unsubscribe / 222221202031 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-41ac7a21b1b5cfa0134d8fe5f98bde84b286443ced9b2c9239dd8b9365c16d85)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.mailing_list](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1001223013220201-2301231130332200-0103103120333211-3321202331322010-2302201210100330-3231212302302102-0321313120232103-1211300112312011)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8"></a>
+<a id="canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32891daeca2671c6cae544997aad33a3b47aba609bb71d57175739b4f29155a2"></a>
+<a id="canonical-0302202101312232-3022021213013012-3022321110102121-1322223103032203-2310132223221200-2123231301311113-0113111303212310-3302210111112202"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0c914f69f2fe / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media — media / 122133023332 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media
 
-<a id="canonical-4b6d4c8b4c6c8ed595dbfc42ea9456e558dd6ff843c008990bb92704c4c0e876"></a>
+<a id="canonical-1023123110302023-1030123020323111-2111312333301002-3222211011123211-1120313112333320-1003300000202121-0023232102130010-3010300032201312"></a>
 
 Type: `"single"`. Computed.
 
 Media Category. Flow Label Media Category.
 
-<a id="canonical-0db140863827dbe2d2757e779cac4ad966a66e35a3af61a3bcaa791866ad8442"></a>
+<a id="canonical-0031230110002012-0320021331233202-3102131113321313-2130223010223121-1212221212320311-2203223312012203-2330222213210120-1212223120101002"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0c914f69f2fe / 3
+## Direct properties — media / 122133023332 / 3
 
-- [content](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5141ea89fe6516b58aa1834c65ab31b1ff79c8e1d88200b4e8f7a2698bafacbb): complete subsection reference.
+- [content](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1101100132222021-3332121101122311-2022220120031030-1211222303012301-3333132130203201-3120200200002310-3220331322021221-2023223322302323): complete subsection reference.
 
-- [play](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-76194d50a6cbc76be61d423ad87fc27caa3fd6d109953cdd545ab4e0dd7ea0d9): complete subsection reference.
+- [play](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1312012110311100-2212302330131223-3212013110020322-3120133330021330-2222033331123101-0021211103303131-1110112223103200-3131133222003121): complete subsection reference.
 
-- [record](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fe803f253feb59c01dcf0c666ae408934a47c6f4cca5cd2f8796423ddc533c0c): complete subsection reference.
+- [record](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3332200003330211-0333322311213000-0131303300301212-1222321000202103-1022101330123310-3030221130310233-2013211210020331-3130110303300030): complete subsection reference.
 
-<a id="canonical-d7f3458a5602d9c2ba04abd5f0a73bed5703ac146fddf155edf7b3926784c0fd"></a>
+<a id="canonical-3113330310112022-1112000231213002-2322001022233111-3300221303233231-1113000322300110-1233313133011111-3231331323032102-1213201030003331"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0c914f69f2fe / 4
+## Next pages — media / 122133023332 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.content](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5141ea89fe6516b58aa1834c65ab31b1ff79c8e1d88200b4e8f7a2698bafacbb)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.play](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-76194d50a6cbc76be61d423ad87fc27caa3fd6d109953cdd545ab4e0dd7ea0d9)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.record](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fe803f253feb59c01dcf0c666ae408934a47c6f4cca5cd2f8796423ddc533c0c)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.content](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1101100132222021-3332121101122311-2022220120031030-1211222303012301-3333132130203201-3120200200002310-3220331322021221-2023223322302323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.play](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1312012110311100-2212302330131223-3212013110020322-3120133330021330-2222033331123101-0021211103303131-1110112223103200-3131133222003121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.record](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3332200003330211-0333322311213000-0131303300301212-1222321000202103-1022101330123310-3030221130310233-2013211210020331-3130110303300030)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-5141ea89fe6516b58aa1834c65ab31b1ff79c8e1d88200b4e8f7a2698bafacbb"></a>
+<a id="canonical-1101100132222021-3332121101122311-2022220120031030-1211222303012301-3333132130203201-3120200200002310-3220331322021221-2023223322302323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4a83ccb6d3c01017119209ff0ed50ca6b43e68f3612b321078fe1d3419ed03dc"></a>
+<a id="canonical-1022200330302312-3103300001000113-0101210200213333-0032311100302212-2310033212203303-1201022303020100-1320333201310310-0121323100033130"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.content — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 37bb4eed1663 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.content — content / 323101121203 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.content
 
-<a id="canonical-319146bb20a7077adb08f09db445352164d11b57f636d0b852769f55ab0658c1"></a>
+<a id="canonical-0301210110122323-0200221300131322-3123002033002131-2310101103110201-1210310101231113-3312031231002320-1102131221331111-2223001211203001"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-cb321de8c19e3eee54013c240b45281a81c8680a3b23622f6acaa14d15b2ea34"></a>
+<a id="canonical-3023030201313220-3001213203323232-1110000103300210-0023101102200122-2001302012200022-0323020312020233-1222302222011031-0111230232220310"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 37bb4eed1663 / 3
+## Direct properties — content / 323101121203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-38c10b7240b82096f406c78ab0a07e64e5f30191741626be815bc5e4bee9b93e"></a>
+<a id="canonical-0320300100231302-1000232002002112-3310001230132022-2300220013321210-3211330300012101-1310011202122332-2001112330113210-2332322123210332"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 37bb4eed1663 / 4
+## Next pages — content / 323101121203 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-76194d50a6cbc76be61d423ad87fc27caa3fd6d109953cdd545ab4e0dd7ea0d9"></a>
+<a id="canonical-1312012110311100-2212302330131223-3212013110020322-3120133330021330-2222033331123101-0021211103303131-1110112223103200-3131133222003121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd794b2bdbbce8ce2284956f5a8cb78aa2dace032b13f804de5e0bcc09a53fbb"></a>
+<a id="canonical-3131132110230223-3123233032203032-0202201021111233-1122203023132022-2202312230320003-0223010333200010-3132113200233030-0021221103332323"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.play — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 710714ff51ff / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.play — play / 333311013333 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.play
 
-<a id="canonical-c1d2cece62d872b06480513b3621ba905d4220c089dee9103281b9e83ebd100a"></a>
+<a id="canonical-3001310230323032-1202312013022300-1210200011010323-0312020123222100-1131100202003000-2021313232210100-0302200123213220-0332233101000022"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-a85eee16e38c459a09290d44fe33c8d8faa24ef5c9650aedfa09a6439f5c454e"></a>
+<a id="canonical-2220113232320112-3203203010112122-0021022100311010-3332030330203120-3322220210323311-3021121100223231-3322002122121003-2133113010111032"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 710714ff51ff / 3
+## Direct properties — play / 333311013333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8ef161d7cc2cc73f918ff4e9e55778e3ee5825c2f18bf451b8fab857bd609c3f"></a>
+<a id="canonical-2032330112013113-3030023030130333-2101203333103221-3211111313203203-3232112002113002-3301202333101101-2320332223201113-2331120021300333"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 710714ff51ff / 4
+## Next pages — play / 333311013333 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-fe803f253feb59c01dcf0c666ae408934a47c6f4cca5cd2f8796423ddc533c0c"></a>
+<a id="canonical-3332200003330211-0333322311213000-0131303300301212-1222321000202103-1022101330123310-3030221130310233-2013211210020331-3130110303300030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d049ab07da379ec79c968e50d657e3520a66600dda599be46000d44167f6700e"></a>
+<a id="canonical-3100102122230013-3122031321323013-2130211220321100-3112111332031102-0022121212000031-3122112121233210-1200000031101001-1213331213000032"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.record — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b92a91406fa9 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.record — record / 100012332221 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media.record
 
-<a id="canonical-c99b101f1dfd8da2564609ba1c776b48f92f2987d8fba7e10e010ac89c1fcd0b"></a>
+<a id="canonical-3021212301000133-0131333120312202-1112101200212322-0130131312231020-3321023302212013-3120332322133201-0032000100223020-2130013330310023"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-a27956a4011bc5cbfebf0935e2c376ff90bfade5e6000f369b55695133223183"></a>
+<a id="canonical-2202132111122210-0001012330113023-3332233300210311-3202300313123333-2100233322313211-3212000000330312-2123111112211101-0303020203012003"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b92a91406fa9 / 3
+## Direct properties — record / 100012332221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-022e670c79b4a128399b74c78b4b2bf10b371a5fa21253efa3bc921e17879384"></a>
+<a id="canonical-0002023212130030-1321231022010220-0321212313103013-2023102302233301-0023031301221133-2202010211033233-2203233021020132-0113201321032010"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b92a91406fa9 / 4
+## Next pages — record / 100012332221 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1e8b01e0d4b8482835a04acc6ce0f19e134e2d797137e5e45bdade855c82c8f8)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.media](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0132202300013200-3110232010200220-0311220010223030-1230320033012132-0103103202311321-1301031332113210-1123312231322011-1130200230203320)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-441e15d27f02a3530783d14f6f8c71496a6e01d78fb5634a7b17a39d556d4c05"></a>
+<a id="canonical-1010013201113102-1333000222031103-0013200331011033-1233203013011021-1222123200013113-2033231112031022-1323011322032131-1111123110300011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-935a4be6602a52b010e652ad4e52cf50161dc4fae1641558110d8d3acc806f5d"></a>
+<a id="canonical-2103112210233212-1200022211022300-0100321211022231-1032110230331100-0112013130103322-3201121001111120-0101003120310322-3030200012331131"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 96aa8f2272b8 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous — miscellaneous / 020213022320 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous
 
-<a id="canonical-2cd1831b1d557ec30d1278fe2cc4aaa69a22b2b4e2466da1183f3e8ce508fd69"></a>
+<a id="canonical-0230310120030123-0131111113323003-0031010213203332-0230301022222212-2122020223022310-3202101212312201-0120033303322030-3211002033311221"></a>
 
 Type: `"single"`. Computed.
 
 Configuration parameter for miscellaneous.
 
-<a id="canonical-faf972fa2ff594228af6f028097bb078550f11e355d22a07fa83e8550fe48f1c"></a>
+<a id="canonical-3322332113023322-0233331121100202-2022331233000220-0021132323001320-1111003301013203-1111310202220013-3322200332201111-0033321020330130"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 96aa8f2272b8 / 3
+## Direct properties — miscellaneous / 020213022320 / 3
 
-- [contact_us](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c0fcf7d00f570081beb9bbf8e3ee10c12ec5a03380e94df3fb2eeaf36f00e262): complete subsection reference.
+- [contact_us](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3000333033133100-0033111300002001-2332232123233320-3203323201003001-0232301122000303-2000322110313303-3323023232223303-1233000032021202): complete subsection reference.
 
-- [ratings](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c35e938fb16e052335ef0955b15f2d07e72c86fb087585388ac19d798bdb97d1): complete subsection reference.
+- [ratings](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3003113221032033-2301123200110203-0311323300211111-2301113302310013-3213023020123323-0020131120110320-2022300121311321-2023312321133101): complete subsection reference.
 
-<a id="canonical-79edc697f6fd5204564d6a68c197e11b1af00f757dd9af1f0c5ee60fee436b90"></a>
+<a id="canonical-1321323130122113-3312333111020010-1112103112221220-3001211332010123-0122330000331311-1331312122330133-0030113232120033-3232100312232100"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 96aa8f2272b8 / 4
+## Next pages — miscellaneous / 020213022320 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.contact_us](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c0fcf7d00f570081beb9bbf8e3ee10c12ec5a03380e94df3fb2eeaf36f00e262)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.ratings](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c35e938fb16e052335ef0955b15f2d07e72c86fb087585388ac19d798bdb97d1)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.contact_us](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3000333033133100-0033111300002001-2332232123233320-3203323201003001-0232301122000303-2000322110313303-3323023232223303-1233000032021202)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.ratings](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3003113221032033-2301123200110203-0311323300211111-2301113302310013-3213023020123323-0020131120110320-2022300121311321-2023312321133101)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c0fcf7d00f570081beb9bbf8e3ee10c12ec5a03380e94df3fb2eeaf36f00e262"></a>
+<a id="canonical-3000333033133100-0033111300002001-2332232123233320-3203323201003001-0232301122000303-2000322110313303-3323023232223303-1233000032021202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-26bfab12e2b40a7b1783b22d87d44ef23cec0a048b0e525407f89f97eb51ad26"></a>
+<a id="canonical-0212233322230102-3202231000221323-0113200323020231-2013311010323302-0330323000220010-2023003211021110-0013332021332113-3223110122310212"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.contact_us — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ee01aac8b22e / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.contact_us — contact_us / 302023020232 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-441e15d27f02a3530783d14f6f8c71496a6e01d78fb5634a7b17a39d556d4c05)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1010013201113102-1333000222031103-0013200331011033-1233203013011021-1222123200013113-2033231112031022-1323011322032131-1111123110300011)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.contact_us
 
-<a id="canonical-aab92902dda6c120c1ea0440e19cc747ae4191a28fd6cb6d8a689074978d0fab"></a>
+<a id="canonical-2222232102210002-3131221230010200-3001322200101000-3201213030131013-2232100121012202-2033311230231231-2022122021001310-2113203100332223"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-311d2ca7d0852341e888bafb15cb3a43095110ce8802727052f22951a6f0a5d9"></a>
+<a id="canonical-0301013102302213-3100201102031001-3220202023223323-0111302303221003-0021110101003032-2020000213021300-1102330202211101-2212330022113121"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ee01aac8b22e / 3
+## Direct properties — contact_us / 302023020232 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ae3320eca4cea08b2a50e3631b4b99678f0dc84376013e4a3e2f0613687eb2d0"></a>
+<a id="canonical-2232030302003230-2210303222002023-0222110032031203-0123102321211213-2033003130201003-1312000103321022-0332023300120103-1220133223023100"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ee01aac8b22e / 4
+## Next pages — contact_us / 302023020232 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-441e15d27f02a3530783d14f6f8c71496a6e01d78fb5634a7b17a39d556d4c05)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1010013201113102-1333000222031103-0013200331011033-1233203013011021-1222123200013113-2033231112031022-1323011322032131-1111123110300011)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c35e938fb16e052335ef0955b15f2d07e72c86fb087585388ac19d798bdb97d1"></a>
+<a id="canonical-3003113221032033-2301123200110203-0311323300211111-2301113302310013-3213023020123323-0020131120110320-2022300121311321-2023312321133101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1ca077277544abd8f410dcc03f1f0b91e34ed86f0f67cfad5db055b1d2d0a091"></a>
+<a id="canonical-0130220013130213-1311101022233120-3310010031303000-0333013300232101-3203103231201233-0033121330332231-1131230011112301-3102310022002101"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.ratings — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 4b0c8ea42200 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.ratings — ratings / 221002020000 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-441e15d27f02a3530783d14f6f8c71496a6e01d78fb5634a7b17a39d556d4c05)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1010013201113102-1333000222031103-0013200331011033-1233203013011021-1222123200013113-2033231112031022-1323011322032131-1111123110300011)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous.ratings
 
-<a id="canonical-ffdd86e6ae52537416147688a590f45f91aa41028f7b5d806accc2dbf278fca7"></a>
+<a id="canonical-3333313120123212-2232110211031310-0112011013122020-2211210033101133-2101222210010002-2033132311312000-1222303030023123-3302132033302213"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-3eb1217c07087b4f427c4cdfe119118bd366e1eb40593b6b5561ce5bdffcf535"></a>
+<a id="canonical-0332230102011330-0013002013231033-1002133010303133-3201012101012023-3103121232013223-1000112103231223-1111120130321123-3133333033110311"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 4b0c8ea42200 / 3
+## Direct properties — ratings / 221002020000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ee3b393a37bb93f2e8a57a07e9a3ceb1c5293daab40efbb993b4e3b126130dec"></a>
+<a id="canonical-3232032303210322-0313232321033302-3220221113220013-3221220330322301-3011022103312222-2310003233232321-2103231032032301-0212010300313230"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 4b0c8ea42200 / 4
+## Next pages — ratings / 221002020000 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-441e15d27f02a3530783d14f6f8c71496a6e01d78fb5634a7b17a39d556d4c05)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.miscellaneous](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1010013201113102-1333000222031103-0013200331011033-1233203013011021-1222123200013113-2033231112031022-1323011322032131-1111123110300011)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1"></a>
+<a id="canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e867895386ee49ddb1ff8c96a6bae7e2c3fc509924ea10c5e95b5d86086fb405"></a>
+<a id="canonical-3220121320211103-2012323210213131-2301333320302112-2212232232133202-3003333011002121-0210322201003011-3221112311312012-0020123323100011"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / bcaa950d24a4 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management — profile_management / 003102102210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management
 
-<a id="canonical-3898f3124c5e1e5120bf3c99e6dabcb33605ac66f4b8a17f1541f64e367962bb"></a>
+<a id="canonical-0320212033030102-1030113201321101-0200233303302121-3212312223302303-0312001122301212-3310232022011333-0111100133121032-0312132112022323"></a>
 
 Type: `"single"`. Computed.
 
 Configuration parameter for profile management.
 
-<a id="canonical-a5a1afead36cc72c71fb8d6a65869644751739e65a86c5ce7039a69930c48c4d"></a>
+<a id="canonical-2211220122333222-3103123030130230-1301332320311222-1211201221121010-1311011303213212-1122201230113032-1300032122122121-0300301020301031"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / bcaa950d24a4 / 3
+## Direct properties — profile_management / 003102102210 / 3
 
-- [create](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2f379ab886be9439af6755e7692102097eae21097eb253c57979025868fe7dfd): complete subsection reference.
+- [create](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0233031321222320-2012233221100321-2233121311113213-1221020100020021-1332223202010021-1332230211033011-1321132100021120-1220333213313331): complete subsection reference.
 
-- [update](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5689a355ad5011f39ae97d897bc4405ce9ef21417a37c1687f185ed59a6cbc74): complete subsection reference.
+- [update](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1112202122031111-2231110001013303-2122322113312021-1323301010001130-3221323302011001-1322031330011220-1333012011323111-2122123023301310): complete subsection reference.
 
-- [view](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-9c17e549b00b8d43e05b2f33778df5f2f26ed2e5c58bc561347ae07637835891): complete subsection reference.
+- [view](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2130011332111021-2300002320311003-3200112302330303-1313203133113302-3302123231023211-3011202330111201-0310132232001312-0313200311202101): complete subsection reference.
 
-<a id="canonical-7f98a97046e0e9e5542b134f2d18e6507d61b97cf81c9c4bbac3d997f71b70f3"></a>
+<a id="canonical-1333212022211300-1012320032213211-1110022301031033-0231012032121100-1331120123211330-3320013021301023-2322300331212113-3313012313003303"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / bcaa950d24a4 / 4
+## Next pages — profile_management / 003102102210 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.create](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2f379ab886be9439af6755e7692102097eae21097eb253c57979025868fe7dfd)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.update](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5689a355ad5011f39ae97d897bc4405ce9ef21417a37c1687f185ed59a6cbc74)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.view](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-9c17e549b00b8d43e05b2f33778df5f2f26ed2e5c58bc561347ae07637835891)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.create](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0233031321222320-2012233221100321-2233121311113213-1221020100020021-1332223202010021-1332230211033011-1321132100021120-1220333213313331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.update](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1112202122031111-2231110001013303-2122322113312021-1323301010001130-3221323302011001-1322031330011220-1333012011323111-2122123023301310)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.view](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2130011332111021-2300002320311003-3200112302330303-1313203133113302-3302123231023211-3011202330111201-0310132232001312-0313200311202101)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-2f379ab886be9439af6755e7692102097eae21097eb253c57979025868fe7dfd"></a>
+<a id="canonical-0233031321222320-2012233221100321-2233121311113213-1221020100020021-1332223202010021-1332230211033011-1321132100021120-1220333213313331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4a538ed001ed943bc4a26b8a1799935631177ff878cb78b1f6c1f220cd9b6e89"></a>
+<a id="canonical-1022110320323100-0001323121100323-3010220212232022-0113212121031112-0301011313333320-1320302313202301-3312300133020200-3031212312322021"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.create — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / df306191beb3 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.create — create / 210123322303 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.create
 
-<a id="canonical-af6212307f883584483c633d78a926b4be3cf3a1999b11380d65d1b22cbbb69b"></a>
+<a id="canonical-2233120201020300-1333202003112010-1020033012030331-1320222102122310-2332033033032201-2121212301010320-0031121131012302-0230232323122123"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-0d79936a5dc9fe53d2c9768568bc5d0b201c176cd654351bf60b8b812eb9c3aa"></a>
+<a id="canonical-0031132121031222-1131302133321103-3102302113122011-1220233011310023-0200013001131230-3112111003110123-3312002320232001-0232232130032222"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / df306191beb3 / 3
+## Direct properties — create / 210123322303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-634adb80d926141d7abd8620cce122b4bdaa10b32a15594c6ca084978859d2ed"></a>
+<a id="canonical-1203102231232000-3121021201100131-1322233120120200-3030320102022310-2331222201002303-0222011111211030-1230220020102113-2020112131023231"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / df306191beb3 / 4
+## Next pages — create / 210123322303 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-5689a355ad5011f39ae97d897bc4405ce9ef21417a37c1687f185ed59a6cbc74"></a>
+<a id="canonical-1112202122031111-2231110001013303-2122322113312021-1323301010001130-3221323302011001-1322031330011220-1333012011323111-2122123023301310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b47e0617cfd6e7defa40cdb3a38670563bbeeca61d25761484133d3d958b4da"></a>
+<a id="canonical-0023101332001201-1330333112321331-3233221000303123-0322032012130011-1203232332323022-1201310211131201-1020100103033103-3121112023103122"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.update — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 257656f77bc7 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.update — update / 331313233013 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.update
 
-<a id="canonical-a0b796487b8db47d779d19cce52c5f6d3740aaf8c200d8936175319244d36b3d"></a>
+<a id="canonical-2200231321121020-1323203123101331-1313213101213030-3211023011331231-0313100022223320-3002000031202103-1201131103012102-1010310312230331"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-d0166a07d7e513dbb952b6b911dcc8a34644de98158c18754205cd3dbc3ce09f"></a>
+<a id="canonical-3100011212220013-3113321101033123-2321110223122321-0101313030202203-1012101031322120-0111203001201311-1002001130310331-2330033032002133"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 257656f77bc7 / 3
+## Direct properties — update / 331313233013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f0f1e54954fff599a07af5a5698b354b3dd7eb87b0d67b8b1369a4797a5fb380"></a>
+<a id="canonical-3300330132111021-1110333333112121-2200132233112211-1221202303111023-0331311332232013-2300311213232023-0103122122101321-1322113323032000"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 257656f77bc7 / 4
+## Next pages — update / 331313233013 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-9c17e549b00b8d43e05b2f33778df5f2f26ed2e5c58bc561347ae07637835891"></a>
+<a id="canonical-2130011332111021-2300002320311003-3200112302330303-1313203133113302-3302123231023211-3011202330111201-0310132232001312-0313200311202101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-440d8ba0291e50f82975c5b9395d08ba14f09403526943dd3f1557cb08aa5448"></a>
+<a id="canonical-1010003120232200-0221013211003320-0221131130112321-0321113100202322-0110330021100003-1102122110033131-0333011111133023-0020222211101020"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.view — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08cc80a5fccc / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.view — view / 221133303030 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management.view
 
-<a id="canonical-7f6024aab8d07d9e66a2d42b06a07c5a79b08a92674a36ffc1852c07b41ebf6f"></a>
+<a id="canonical-1333120002102222-2320310013312132-1212220231100223-0012220013301122-1321230020222102-1213102203123333-3001201102300013-2310013223331233"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-ee663b38ef00d0ee58640e1d0afe687180792903082ffe50ad1e930ab731708e"></a>
+<a id="canonical-3232121203230320-3233000031003232-1120121000320131-0022333212201301-2000132102210003-0020023333321100-2231013221030022-2313030113002032"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08cc80a5fccc / 3
+## Direct properties — view / 221133303030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4ac9d3006f0695d13582d7eacaa3dc93825c9ab9d353b1edb02ca940283c14af"></a>
+<a id="canonical-1022302131030000-1233001221113101-0311200231133222-3022220331302103-2002113021222321-3103110323013231-2300023022211000-0220033001102233"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08cc80a5fccc / 4
+## Next pages — view / 221133303030 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-18998b7af410f7cb43e2952b59dfd83ffcd2b677fd4c7aec55a46476354580a1)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.profile_management](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0120212120231322-3310010033133023-1003320221110223-1121313331200333-3330310223121313-3331103013223230-1111221012101312-0311101120002201)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c4dff3bd77603aff42bac6999519466f37308e9009333b6b52fbd44e3341029b"></a>
+<a id="canonical-3010313333032331-1313120003223333-1002232230122121-2111012110121233-0313030020322100-0021030303231223-1102332331101032-0303100100022123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5c29eaaa17070d3b1e4dacf02c15f2169cf90318aa34f6bc04288455f403e74d"></a>
+<a id="canonical-1130022132222222-0113001300310323-0132103122303300-0230011133020112-2130332100030120-2222031033122330-0010022020101111-3310000332131031"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ea3b9140fd88 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes — quotes / 100033312020 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes
 
-<a id="canonical-2295379f031de2ce22cfb9aff5b49302e97819084ce9a4974575d8163a3dd174"></a>
+<a id="canonical-0202211103132133-0003013132023032-0202303323212233-3311231021030002-3221132001210020-1030322122102113-1011131131200112-0322033131011310"></a>
 
 Type: `"single"`. Computed.
 
 Quotes Category. Flow Label Quotes Category.
 
-<a id="canonical-64c989405a6c856a24519909035ab581a64340823d7745ca8e90bd4039c309a5"></a>
+<a id="canonical-1210302120211000-1122123020111222-0210110121210021-0003112223112001-2212100310002002-0331131310113022-2032210023311000-0321300300212211"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ea3b9140fd88 / 3
+## Direct properties — quotes / 100033312020 / 3
 
-- [insurance_fire_request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-b7c8c91e0ca673ed07da6e1501cbafa10a22f93170654b7b8be7f9bc584a6717): complete subsection reference.
+- [insurance_fire_request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2313302030210132-0030221213033231-0013312212320111-0001302322332201-0022020233210301-1300121110231323-2023321333212330-1120102212130113): complete subsection reference.
 
-- [request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-f10dcf834afbb53ae8213fca1c59eff2a46d0b99dc209a8b3d18873fce8de42c): complete subsection reference.
+- [request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3301003130332003-1022332323110322-3220020103333022-0130112132333302-2210123100232121-3130020021222023-0331012020130333-3032203132100230): complete subsection reference.
 
-<a id="canonical-a80147c00f7b4e92a5b18f9bcfe0345f8c14ae70a014dd39d6c86a2daba2ecfa"></a>
+<a id="canonical-2220000110133000-0033132310322102-2211230120332123-3033320003101133-2030011022321300-2200011031310321-3112302012220231-2223220232303322"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ea3b9140fd88 / 4
+## Next pages — quotes / 100033312020 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.insurance_fire_request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-b7c8c91e0ca673ed07da6e1501cbafa10a22f93170654b7b8be7f9bc584a6717)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-f10dcf834afbb53ae8213fca1c59eff2a46d0b99dc209a8b3d18873fce8de42c)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.insurance_fire_request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2313302030210132-0030221213033231-0013312212320111-0001302322332201-0022020233210301-1300121110231323-2023321333212330-1120102212130113)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.request](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3301003130332003-1022332323110322-3220020103333022-0130112132333302-2210123100232121-3130020021222023-0331012020130333-3032203132100230)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-b7c8c91e0ca673ed07da6e1501cbafa10a22f93170654b7b8be7f9bc584a6717"></a>
+<a id="canonical-2313302030210132-0030221213033231-0013312212320111-0001302322332201-0022020233210301-1300121110231323-2023321333212330-1120102212130113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0f2bf3d316883af97fdfe64424022656cc6df6fc3f56cbeb91ed273e3ab5efcd"></a>
+<a id="canonical-0033022333033103-0112202003223321-1333313332121010-0210000202121112-3030123133123330-0333111230233223-2101323102130332-0322231132333031"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.insurance_fire_request — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b75d2f8889a0 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.insurance_fire_request — insurance_fire_request / 202020212200 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c4dff3bd77603aff42bac6999519466f37308e9009333b6b52fbd44e3341029b)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3010313333032331-1313120003223333-1002232230122121-2111012110121233-0313030020322100-0021030303231223-1102332331101032-0303100100022123)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.insurance_fire_request
 
-<a id="canonical-8cda3a8568feb0dba99235572172ccf5177c203fa796bf7707c34a4ff3294bfd"></a>
+<a id="canonical-2030312203222011-1220333223003123-2221210203111113-0201130230303311-0113133002000333-2213211223331313-0013300310221033-3303022110233331"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for insurance fire request.
 
-<a id="canonical-9561f656be00769c5b3055387c3e519d840da34d697b61a2a89229978813b82e"></a>
+<a id="canonical-2111120133121112-2332000013122130-1123030011110320-1330033211012131-2010003122031031-1221132312012202-2220210202212113-2020010323200232"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b75d2f8889a0 / 3
+## Direct properties — insurance_fire_request / 202020212200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cb65c906509fdc3e1542637a6f9b102c54aa1052e4cba117483ccce239834179"></a>
+<a id="canonical-3023121130210012-1100213331300332-0111100212031322-1233212301000230-1110222201001102-3210302322010113-1020033030303202-0321200310011321"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b75d2f8889a0 / 4
+## Next pages — insurance_fire_request / 202020212200 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c4dff3bd77603aff42bac6999519466f37308e9009333b6b52fbd44e3341029b)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3010313333032331-1313120003223333-1002232230122121-2111012110121233-0313030020322100-0021030303231223-1102332331101032-0303100100022123)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-f10dcf834afbb53ae8213fca1c59eff2a46d0b99dc209a8b3d18873fce8de42c"></a>
+<a id="canonical-3301003130332003-1022332323110322-3220020103333022-0130112132333302-2210123100232121-3130020021222023-0331012020130333-3032203132100230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-44c02a147d76cd4c9dcbcc12b2e7cd1cdbe96caa2994afebfef6d6aba22c7d8a"></a>
+<a id="canonical-1010300002220110-1331131230311030-2131302330300102-2302321330310130-3123322112302222-0221211022333223-3332331231122223-2202023013312022"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.request — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / c70bf2c61957 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.request — request / 301201211113 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c4dff3bd77603aff42bac6999519466f37308e9009333b6b52fbd44e3341029b)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3010313333032331-1313120003223333-1002232230122121-2111012110121233-0313030020322100-0021030303231223-1102332331101032-0303100100022123)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes.request
 
-<a id="canonical-069d968a388c729be624d67340f3d9e6dcc2c2adab12ccfede7081c9ef6748a1"></a>
+<a id="canonical-0012213121122022-0320203013022123-3212021031121303-1000330331213212-3130300230022231-2223010230303332-3132130020013021-3233121310202201"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-75d1fae914b29e21bdf9eb166e10d70dc55ec358af587688e1ca5aba2088f602"></a>
+<a id="canonical-1311310133223221-0110230221320201-2331332132230112-1232010031130031-3011113230031120-2233112013122020-3201302211222322-0200202033120002"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / c70bf2c61957 / 3
+## Direct properties — request / 301201211113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c73b50b6359757ba840ea36b573d515429f47cfe4f7481101d1c404879b075ed"></a>
+<a id="canonical-3013032311002312-0311211311132322-2010003222031223-1113033111011110-0221331013303332-1033131020010100-0131013010001020-1321230013113231"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / c70bf2c61957 / 4
+## Next pages — request / 301201211113 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c4dff3bd77603aff42bac6999519466f37308e9009333b6b52fbd44e3341029b)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.quotes](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3010313333032331-1313120003223333-1002232230122121-2111012110121233-0313030020322100-0021030303231223-1102332331101032-0303100100022123)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75"></a>
+<a id="canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8426f7eff2a76fe970cfaf7450d9ad3bf3a649fa633a8a657ccd771131899163"></a>
+<a id="canonical-2010021233133233-3302221312333221-1300303322331310-1100312122310323-3303221210213322-1203032220221211-1330303113130101-0301202121011203"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / e50ee9dab460 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search — search / 312223101200 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search
 
-<a id="canonical-00c0cfb45e3bc6ec2f3af1d71fc6eea9d1ab13bf76d2af91e7cad78f36f7dd41"></a>
+<a id="canonical-0000300030332310-1132032330123230-0233032233013113-0133301232322221-3101222301032333-1312310222332101-3213302231132033-0312331331311001"></a>
 
 Type: `"single"`. Computed.
 
 Flow Label Search Category. Flow Label Search Category.
 
-<a id="canonical-eeb5b9e0220de2a7db167a802fcde6197328843908ca42fc22ab43fa121649d1"></a>
+<a id="canonical-3232231123213200-0202003132022213-3123011213222000-0233303132120121-1303022020100321-0020302210023330-0202222310033322-0102011210213101"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / e50ee9dab460 / 3
+## Direct properties — search / 312223101200 / 3
 
-- [fare_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7e378a488b50305b1b90aac0c9324e0a5e7aca1f5503e9bbb019f5a158096618): complete subsection reference.
+- [fare_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1332031320221020-2023110003001123-0123210022223000-3021030210320022-1132132230220133-1111000332212323-2300012133112201-1120002112120120): complete subsection reference.
 
-- [find_user](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e05473580ccb94adc50ae61986c8f1888ab1ec35b81f6d745ea9a2ef2dea80ce): complete subsection reference.
+- [find_user](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3200111013031120-0030302321102231-3011002232120121-2012302033012020-2022230132300311-2320013312311310-1132222122023233-0231322220003032): complete subsection reference.
 
-- [flight_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5e82b438f160eafcb47d7881b5a3cb48f3a39bbaa498d6054ea375bb3fd5dc7e): complete subsection reference.
+- [flight_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1132200223100320-3301120032223330-2310133113202001-2311220330231020-3303220321232322-2210212031120011-1032220313112323-0333311131301332): complete subsection reference.
 
-- [location_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-96b4bfa8cd456597008138983fdc9516de5a4f29d90759ccade77ec1083e6363): complete subsection reference.
+- [location_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2112231023332220-3031101112112113-0000200103202120-0333313021110112-3132112210330221-3121001311213030-2231321313323001-0020033212031203): complete subsection reference.
 
-- [product_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a2482fcc8a31d36575ef75506431febd4e2b3d642a85a8857490220404a02111): complete subsection reference.
+- [product_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2202102002333030-2022030131031211-1311323313111100-1210030133322331-1032022303311210-0222201122202011-1310210002020010-0010220002010101): complete subsection reference.
 
-- [room_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7f5aa6041a13955fe5d71586f7a416b0da469e46c13a0d5bed4e7e2678ef98f2): complete subsection reference.
+- [room_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1333112222120010-0122010321111133-3211311301112012-3313221001122300-3122101221321012-3001032200311123-3231103213320212-1320323321203302): complete subsection reference.
 
-- [shipment_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0165c5adf0a7e84e2cac22c1eeb86e5ed7d22518a84c17f3e4604c6da037b15f): complete subsection reference.
+- [shipment_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0001121130112231-3300221332201032-0230223002023001-3232232012321132-3113310202110120-2220103001133303-3210120010301231-2200031323011133): complete subsection reference.
 
-- [ticket_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-8d177ad67cde95c25b61cdd7443ce985312ca9f09556f7fbc0253d14ce1e61b3): complete subsection reference.
+- [ticket_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2031011313223112-1330313221113002-1123120130313113-1010033032212011-0301023022213300-2111111233133323-3000021103310110-3032013212012303): complete subsection reference.
 
-<a id="canonical-4f35eb5470a04f3ec325e6ed82b4fea527d4cf9b9a9fc6ff45940d0b887c9681"></a>
+<a id="canonical-1033031132231110-1300220010330332-3003021132123231-2002231033322211-0213311030332123-2122213330123333-1011211000310023-2020133021122001"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / e50ee9dab460 / 4
+## Next pages — search / 312223101200 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.fare_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7e378a488b50305b1b90aac0c9324e0a5e7aca1f5503e9bbb019f5a158096618)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.find_user](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e05473580ccb94adc50ae61986c8f1888ab1ec35b81f6d745ea9a2ef2dea80ce)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.flight_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-5e82b438f160eafcb47d7881b5a3cb48f3a39bbaa498d6054ea375bb3fd5dc7e)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.location_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-96b4bfa8cd456597008138983fdc9516de5a4f29d90759ccade77ec1083e6363)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.product_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a2482fcc8a31d36575ef75506431febd4e2b3d642a85a8857490220404a02111)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.room_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7f5aa6041a13955fe5d71586f7a416b0da469e46c13a0d5bed4e7e2678ef98f2)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.shipment_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0165c5adf0a7e84e2cac22c1eeb86e5ed7d22518a84c17f3e4604c6da037b15f)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.ticket_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-8d177ad67cde95c25b61cdd7443ce985312ca9f09556f7fbc0253d14ce1e61b3)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.fare_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1332031320221020-2023110003001123-0123210022223000-3021030210320022-1132132230220133-1111000332212323-2300012133112201-1120002112120120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.find_user](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3200111013031120-0030302321102231-3011002232120121-2012302033012020-2022230132300311-2320013312311310-1132222122023233-0231322220003032)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.flight_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1132200223100320-3301120032223330-2310133113202001-2311220330231020-3303220321232322-2210212031120011-1032220313112323-0333311131301332)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.location_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2112231023332220-3031101112112113-0000200103202120-0333313021110112-3132112210330221-3121001311213030-2231321313323001-0020033212031203)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.product_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2202102002333030-2022030131031211-1311323313111100-1210030133322331-1032022303311210-0222201122202011-1310210002020010-0010220002010101)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.room_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1333112222120010-0122010321111133-3211311301112012-3313221001122300-3122101221321012-3001032200311123-3231103213320212-1320323321203302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.shipment_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0001121130112231-3300221332201032-0230223002023001-3232232012321132-3113310202110120-2220103001133303-3210120010301231-2200031323011133)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.ticket_search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2031011313223112-1330313221113002-1123120130313113-1010033032212011-0301023022213300-2111111233133323-3000021103310110-3032013212012303)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-7e378a488b50305b1b90aac0c9324e0a5e7aca1f5503e9bbb019f5a158096618"></a>
+<a id="canonical-1332031320221020-2023110003001123-0123210022223000-3021030210320022-1132132230220133-1111000332212323-2300012133112201-1120002112120120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-97962c8c1b66487192cc3049a1226ecc91fb69714a2991be4675e4ae58cced8d"></a>
+<a id="canonical-2113211202302030-0123121210201301-2102303003001021-2201020212323030-2101332312211301-1022022121012332-1012131132102232-1120303032312031"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.fare_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ace20591efb7 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.fare_search — fare_search / 210132332313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.fare_search
 
-<a id="canonical-f68f901fbeaf682fe175036bd5462f5c37eb72711a3da56edb0ecbfd107c9d41"></a>
+<a id="canonical-3312203321000133-2332223312200233-3201131100031223-3111101202331130-0313322313021301-0122033122111232-3123003230233331-0100133021311001"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for fare search.
 
-<a id="canonical-c9ccfb84fdabd91e1d72635bf10a1aac6a726f3bb35d4273a1b64818fc8f5996"></a>
+<a id="canonical-3021303033232010-3331222331210132-0131130212031123-3301002201222230-1222130212330323-2303113110021303-2201231210200120-3330203311212112"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ace20591efb7 / 3
+## Direct properties — fare_search / 210132332313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1da1c07fac03dc073add64f50b1b2afe9fc1cfa3afad5ae1ec6f958d50b8c839"></a>
+<a id="canonical-0131220130001333-2230000331300013-0322313112103311-0023012302223332-2133300130332203-2233223111223201-3230123321112031-1100232030200321"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ace20591efb7 / 4
+## Next pages — fare_search / 210132332313 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-e05473580ccb94adc50ae61986c8f1888ab1ec35b81f6d745ea9a2ef2dea80ce"></a>
+<a id="canonical-3200111013031120-0030302321102231-3011002232120121-2012302033012020-2022230132300311-2320013312311310-1132222122023233-0231322220003032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8711b451a0c7b238d111dbde1902589aead132cd21562966ffbe210b04cb6a68"></a>
+<a id="canonical-2013010123101101-2200301323020320-3101010131233132-0121000211202122-3222310103023031-0201111202211212-3333233202010023-0010302312221220"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.find_user — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 95ad66b5f421 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.find_user — find_user / 231133100201 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.find_user
 
-<a id="canonical-0499f9ded611c19ca48049a2c1370954b22cae28d3c3c5c50fdf9ca6f01375fa"></a>
+<a id="canonical-0010212133213132-3112010130012130-2210200010212202-3001031300211110-2302023022320220-3103300330113011-0033313321302212-3300010313113322"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-e8571569e762f7017a35922114737d573ad3f3d7b137ce951a7a48c2d47a836f"></a>
+<a id="canonical-3220111301111221-3213120233130001-1322031121020201-0110130313311113-0322310333033113-2301031330322111-0122132210203002-3110132220031233"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 95ad66b5f421 / 3
+## Direct properties — find_user / 231133100201 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-dbaeda6a2eef7f37380401aee446285c3998e0f381fcbbbcf31f81b02b77462d"></a>
+<a id="canonical-3123223231221222-0232323313330313-0320001000012232-3210101202201130-0321212032003303-2001333023232330-3303013320012300-0223131310120231"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 95ad66b5f421 / 4
+## Next pages — find_user / 231133100201 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-5e82b438f160eafcb47d7881b5a3cb48f3a39bbaa498d6054ea375bb3fd5dc7e"></a>
+<a id="canonical-1132200223100320-3301120032223330-2310133113202001-2311220330231020-3303220321232322-2210212031120011-1032220313112323-0333311131301332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37af0d447ceb5faa94c991fb9a259edc6f1d88b72e6cdb2c25b9fec7e65f4eca"></a>
+<a id="canonical-0313223300311010-1330322311332222-2110302121013323-2122021121323130-1233013120202313-0232123031230230-0211232133323013-3212113310323022"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.flight_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a17977e65bbc / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.flight_search — flight_search / 321211232330 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.flight_search
 
-<a id="canonical-7efdff39fd6ea897054393d4031485e3f842541a1c573f293cce40c336b1980f"></a>
+<a id="canonical-1332333133330321-3331123222202113-0011100321033110-0003011020113203-3320100211100122-0130111303330221-0330303210003003-0312230121200033"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for flight search.
 
-<a id="canonical-42b7e5c308913e453b8586f3bec393a7256ca225d81d21c69e390e5193011884"></a>
+<a id="canonical-1002231332113003-0020210103321011-0323201120123303-2332300321032213-0211123022020211-3120013102013012-2132032100321101-2103000101202010"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a17977e65bbc / 3
+## Direct properties — flight_search / 321211232330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-def6b3841e49cb626847064dd28cc4f1cf388e59e2bf7c4b9864a1e5f42b240e"></a>
+<a id="canonical-3132331223032010-0132102130231202-1220101300121031-3102203030103301-3033032020321121-3202233313301023-2120121022013211-3310022302100032"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a17977e65bbc / 4
+## Next pages — flight_search / 321211232330 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-96b4bfa8cd456597008138983fdc9516de5a4f29d90759ccade77ec1083e6363"></a>
+<a id="canonical-2112231023332220-3031101112112113-0000200103202120-0333313021110112-3132112210330221-3121001311213030-2231321313323001-0020033212031203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ab29f5c9b532feb63a6f5bf0aec9f23ec4f259e5ab211eacebb8e183c22256d"></a>
+<a id="canonical-0322230221331130-2123110302333223-1203221233112333-0022323021330203-3230103302112132-1122230201013222-3032232320320120-0330020202111231"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.location_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 38937c91bbca / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.location_search — location_search / 210123233022 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.location_search
 
-<a id="canonical-326f29f0602c867fcba17dfec7dda7e67aae581d2ac034e27086a71bc8fa2042"></a>
+<a id="canonical-0302123302213300-1200023020121333-3023220113313332-3013313122133212-1322223211200131-0222300003103202-1300201222130123-3020332202001002"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for location search.
 
-<a id="canonical-52b4f73056f61efd6b3b499cc5526dc659fce9dc83a6bb9a19934309db823584"></a>
+<a id="canonical-1102231033130300-1112331201323331-1223032310212130-3011110212313012-1121333032213130-2003221223232122-0121210310030021-3123200203112010"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 38937c91bbca / 3
+## Direct properties — location_search / 210123233022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fc55ce685e41397ea722c82dec37847355fae516054e085f60323880b400c858"></a>
+<a id="canonical-3330111130321220-1132100103211332-2213020230200231-3230031320101303-1111332232110112-0011103200201133-1200030203202000-2310000030201120"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 38937c91bbca / 4
+## Next pages — location_search / 210123233022 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-a2482fcc8a31d36575ef75506431febd4e2b3d642a85a8857490220404a02111"></a>
+<a id="canonical-2202102002333030-2022030131031211-1311323313111100-1210030133322331-1032022303311210-0222201122202011-1310210002020010-0010220002010101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9e644be29c2c9cbe1575ca4c48eeff0afa356f6cf7bc04abce8db2b727ede862"></a>
+<a id="canonical-2132121010233202-2130023021302332-0111131130221030-1020323233330022-3322031112331230-3313233000102223-3032203123022313-0213323132201202"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.product_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a35a421f74d2 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.product_search — product_search / 013313103102 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.product_search
 
-<a id="canonical-db2be2f379cd79c3d5ffeae2403df0dd5c5a1461d6f32950e2ddfeea0fbed412"></a>
+<a id="canonical-3123022332023303-1321303113213003-3111333332223202-1000033133003131-1130112201101201-3112330302211100-3202313133323222-0033233231100102"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for product search.
 
-<a id="canonical-3094748613126f05d9cba253c667cfaa5d2cf690b01a106b81ecd43d0ce88c90"></a>
+<a id="canonical-0300211013102012-0103010212330011-3121302322021103-3012121330332222-1131023033122100-2300012201001223-2001323031100331-0030322020302100"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a35a421f74d2 / 3
+## Direct properties — product_search / 013313103102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0c86752c5d338173750b21d289c9283e714de2ecb217d9c0fd7ad4210ec02799"></a>
+<a id="canonical-0030201213110230-1131030320011303-1311002302013102-2021302102200332-1301103132023230-2302011331213000-3331132231100201-0032300002132121"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / a35a421f74d2 / 4
+## Next pages — product_search / 013313103102 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-7f5aa6041a13955fe5d71586f7a416b0da469e46c13a0d5bed4e7e2678ef98f2"></a>
+<a id="canonical-1333112222120010-0122010321111133-3211311301112012-3313221001122300-3122101221321012-3001032200311123-3231103213320212-1320323321203302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-20ed1dbaa4d87da1e7cb267392e42875e1cb42809fdedf3f618a538c84985fc7"></a>
+<a id="canonical-0200323101312322-2210312013312201-3213302302121303-2102321002201311-3201302310022000-2133313231330333-1201202211032030-2010212011333013"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.room_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 63a95b1d0d15 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.room_search — room_search / 013100310111 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.room_search
 
-<a id="canonical-408f9708c8439952aef9dfb2a57f9bcd0547b090026a345f9ff0d11c559dccea"></a>
+<a id="canonical-1000203321130020-3020100321211102-2232332131332302-2211133321233031-0011101323002100-0002122203101133-2133330031010130-1111213130303222"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for room search.
 
-<a id="canonical-2f1a56a2f57b1e43a82523f18396ef52374e2170d5ca1c8d7e370e15d35eba40"></a>
+<a id="canonical-0233012211122202-3311132301321003-2220021102033301-2003211232331102-0313103202011300-3111302201302031-1332031300320111-3103113223221000"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 63a95b1d0d15 / 3
+## Direct properties — room_search / 013100310111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d38de197815386fedfa32bea48fb74ef2a6a8a531c38a8b886db333e01f36b24"></a>
+<a id="canonical-3103203132012113-2001110320123332-3133220302233222-1020332313103233-0222122220221103-0130032022202320-2012312303030332-0001330312230210"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 63a95b1d0d15 / 4
+## Next pages — room_search / 013100310111 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-0165c5adf0a7e84e2cac22c1eeb86e5ed7d22518a84c17f3e4604c6da037b15f"></a>
+<a id="canonical-0001121130112231-3300221332201032-0230223002023001-3232232012321132-3113310202110120-2220103001133303-3210120010301231-2200031323011133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-35717b0c71cf34688a3f2bc3191d1526f9f3c79e44bd939603e061c80dfeed43"></a>
+<a id="canonical-0311130113230030-1301303303101220-2022033302233003-0121013101110212-3321330330132132-1010233121032112-0003320012013020-0031333232311003"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.shipment_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8038d5c1ce7e / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.shipment_search — shipment_search / 300130321332 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.shipment_search
 
-<a id="canonical-5c45bd4f2fd2c1ceb739c6103784a03c99a3facceddd76afa71670bc04084c02"></a>
+<a id="canonical-1130101123311033-0233310230013032-2313032130120100-0313201022000330-2121220333223030-3231313113122233-2213011213002330-0010002010300002"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-f45f8d21bc9d75ee4ca9fddf30934d6ebad31d4c5a434874a1e3f6b327828af8"></a>
+<a id="canonical-3310113320310201-2330213113113232-1030222133313133-0300210310311232-2322310301311030-1122100310201310-2201320333122303-0213200220223320"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8038d5c1ce7e / 3
+## Direct properties — shipment_search / 300130321332 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d4486d6ceda431f73f654c150d738029998d9ac4d58a070a08422ee3f19c5956"></a>
+<a id="canonical-3110102012311230-3231221003013313-0333121110300111-0031130320000221-2121203121223010-3111202200130022-0020100202323203-3301213011211112"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8038d5c1ce7e / 4
+## Next pages — shipment_search / 300130321332 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-8d177ad67cde95c25b61cdd7443ce985312ca9f09556f7fbc0253d14ce1e61b3"></a>
+<a id="canonical-2031011313223112-1330313221113002-1123120130313113-1010033032212011-0301023022213300-2111111233133323-3000021103310110-3032013212012303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06d1b49eec95e9b417843f5d242b17044e4bd153e493b99cd9b3e0c7113c874b"></a>
+<a id="canonical-0012310123102132-3230211132212310-0113201003331131-0210022301130010-1032102331011103-3210210323212130-3121230332003013-0101033020131023"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.ticket_search — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 5fa2c66c55b1 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.ticket_search — ticket_search / 123011112301 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search.ticket_search
 
-<a id="canonical-21442acae9168c5ee6a627253a0ba83381d20fcb4dd35db5f54f3734a90571c5"></a>
+<a id="canonical-0201101002223022-3221011220301132-3212221202130211-0322002322200303-2001310200333023-1031310311312311-3311103303130310-2221001113013011"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for ticket search.
 
-<a id="canonical-511669edba15674f555389d19b43930413feccf77838dd0120c4f491fa05da01"></a>
+<a id="canonical-1101011212213231-2322011112131033-1111110320213101-2123100321030010-0103333230303313-1320032031310001-0200301033102101-3322001131220001"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 5fa2c66c55b1 / 3
+## Direct properties — ticket_search / 123011112301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-688d54c69a44ea92de8bc97d2ebd25894376afb1c430068bd3e0aa70ff78292c"></a>
+<a id="canonical-1220203111103012-2122101032222102-3132202330211331-0232233102112021-1003131222332301-3010030000122023-3103320022221300-3333132002210230"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 5fa2c66c55b1 / 4
+## Next pages — ticket_search / 123011112301 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a571de989f87134e6ece090aaf5be41525bd19b6a01006e9d4e6a4ebcbd24f75)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.search](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2211130131322120-2133201301031032-1232303200210022-2233112332100111-0211233101212312-2200010000123221-3110321222103223-3023310210331311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd"></a>
+<a id="canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ded0aeb80a900f0347101530ac5d4c3a016b9b789b9541e9db04cb4a335bb7a6"></a>
+<a id="canonical-3132310022322320-0022210000330003-1013010001110300-2230113110300322-0001122321231320-2123211110013221-3123001030231022-0303112323132212"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / da1507259842 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards — shopping_gift_cards / 021121201002 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards
 
-<a id="canonical-cde0c125a2ce0f3d9967196224c14cdd05deb7efa6a8e02b07e58d93d3839e51"></a>
+<a id="canonical-3031320030010211-2202303200330331-2121121301211202-0210300110303131-0011313223133233-2212222032000223-0013321120312103-3103200321321101"></a>
 
 Type: `"single"`. Computed.
 
 Flow Label Shopping &amp; Gift Cards Category.
 
-<a id="canonical-950ecb9f4b94373e985af415904e89e691646570321b567aafddf858b1a1c21d"></a>
+<a id="canonical-2111003230232133-1023211003130332-2120112233100111-2100103220213212-2101121012111300-0302012311121322-2233313133201120-2301220130020131"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / da1507259842 / 3
+## Direct properties — shopping_gift_cards / 021121201002 / 3
 
-- [gift_card_check_balance](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c01bcc719915db975cef7c4b5a167b00bc08facfd3ab707495f744687f731b13): complete subsection reference.
+- [gift_card_check_balance](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3000012330301301-2121011131232113-1130323313301023-1122011213230000-2330002033223033-3103222313001310-2111331310101220-1333130301230103): complete subsection reference.
 
-- [gift_card_make_purches_with_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7bcf267eca7d63764a87ce39b8315ec3effb746b41c579d7f8f04748d1a66988): complete subsection reference.
+- [gift_card_make_purches_with_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1323303302121332-3022133112031312-1022201330320321-2320030111323003-3233332313101223-1001301113213113-3320330010131020-3101221212212020): complete subsection reference.
 
-- [gift_card_purchase_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fce5fdf13faf29098e5e11c7e2c634576cf507df04ef2d3aeda12ce4b0b24830): complete subsection reference.
+- [gift_card_purchase_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3330321133313301-0333223302210021-2032113201013013-3202301203101113-1230331100133133-0010323302310322-3231220102303210-2300230210200300): complete subsection reference.
 
-- [shop_add_to_cart](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e6a0edfc19ffd5e58ae9bd6114f510931309cf95351a3699c45805a32c0dfdd0): complete subsection reference.
+- [shop_add_to_cart](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3212220032313330-0121333331113211-2022322123311201-0110331101002103-0103002130332111-0311012203122121-3010112000112203-0230003133313100): complete subsection reference.
 
-- [shop_apply_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-b9e0ad4e50584981cde64dc5b86b374d2f8e1b165944815df105843f32713f43): complete subsection reference.
+- [shop_apply_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2321320022311032-1100112010212001-3031321210313011-2320122303131031-0233203201230112-1121101020011131-3301001120100333-0302130103331003): complete subsection reference.
 
-- [shop_apply_promo_code](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-68b02c7e0853b23a0c3423dd685c396220e77bb1e9463f3eae2ba36ea92322ec): complete subsection reference.
+- [shop_apply_promo_code](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1220230002301332-0020110323020322-0030031002033131-1220113003211202-0200321313232301-3221101203330332-2232022322031232-2221020302023230): complete subsection reference.
 
-- [shop_checkout](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0e79e9e11977ef35f5d445789ed6ed87a9715def8be4f5b2089af01cc8a2ae55): complete subsection reference.
+- [shop_checkout](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0032132132213201-0121131332330311-3311311010111320-2132311232312013-2221130111313233-2023321033112302-0020212233000130-3020220222321111): complete subsection reference.
 
-- [shop_choose_seat](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c135841593e197a38ce73cb528234b0f706acfa791ebd9d0620a877854f4648a): complete subsection reference.
+- [shop_choose_seat](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3001031120100111-2103320121132203-2030321303302311-0220020310230033-1300122230332213-2101322331213100-1202002220131320-1110331012102022): complete subsection reference.
 
-- [shop_enter_drawing_submission](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e8a1f99f7072d73c6658f0a3dc2277a5f7468ac2a81b99b2ff3810a564e8e400): complete subsection reference.
+- [shop_enter_drawing_submission](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3220220133212133-1300130231130330-1212112033002203-3130020213132211-3313101220223002-2220012321212302-3333032001002211-1210322032100000): complete subsection reference.
 
-- [shop_hold_inventory](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-602b13448c03a78c76e62d75e1709c2fda6dc564a22342006634bda21f35d484): complete subsection reference.
+- [shop_hold_inventory](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1200022301031010-2030000322132030-1312321202311311-3201130021300233-3122123130111210-2202020310020000-1212031023312202-0133031131102010): complete subsection reference.
 
-- [shop_make_payment](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-9a5c5508f84b35d9f138a00f2830be017a37b5f19ed876bca6746ef82d6170c4): complete subsection reference.
+- [shop_make_payment](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2122113011110020-3320102303113121-3301032022000033-0220030023320001-1322031323113301-2132312013122330-2212131012323320-0231120113003010): complete subsection reference.
 
-- [shop_offer](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-570e369ce00ba79a6f8be9422f8458bb69991e5035a874ead2f2da642fffb3f1): complete subsection reference.
+- [shop_offer](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1113003203122130-3200002322132122-1233202332211002-0233201011202323-1221212101321100-0311222013103222-3102330231221210-0233333323033301): complete subsection reference.
 
-- [shop_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fb4891a9e6ad5040ee189b29156f6d72ac1491235088507271882d08beb0103b): complete subsection reference.
+- [shop_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3323102021012221-3212223111001000-3232012021230221-0111123312311302-2230011021010203-1100202011001302-1301202002310020-2332230001000323): complete subsection reference.
 
-- [shop_price_inquiry](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-303b7540214caf50f74d054b8de2d3ac21e16d89ff40680458142928c885d444): complete subsection reference.
+- [shop_price_inquiry](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0300032313111000-0201103022331100-3313103100111023-2031320231032230-0201320112312021-3333100012200010-1120011002210220-3020201131101010): complete subsection reference.
 
-- [shop_purchase_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-6a03c796b79a13232820be0490b1fc08e82737a9ec3b5210fe74e1cbb4d25a7b): complete subsection reference.
+- [shop_purchase_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1222000330132112-2313212201030203-0220020023320010-2100230133300020-3220021303132221-3230032311020100-3332131032013023-2310310211221323): complete subsection reference.
 
-- [shop_return](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-8b285c081b3a2c43d35208d8676c9684eed91b46c86a3a65726761097dcfa464): complete subsection reference.
+- [shop_return](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2023022011300020-0123032202301003-3103110200203120-1213123021122010-3232312101231012-3020122203221211-1302121312010021-1331303322101210): complete subsection reference.
 
-- [shop_schedule_pickup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3cf6b7ad75e43a9e3943600e5c3394f2eb8165e237a7629614f1a28c53926154): complete subsection reference.
+- [shop_schedule_pickup](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0330331223132231-1311321003222132-0321100312000032-1130030321103302-3223200112113202-0313221312022112-0110330122022030-1103210212011110): complete subsection reference.
 
-- [shop_track_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c3b0b31ea85edba235116e5c73b4c8027bdeb9ecc4884ab82a78750f1668b3ae): complete subsection reference.
+- [shop_track_order](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3003230023030132-2220113231232202-0311010112321130-1303231030200002-1323313223213230-3010202010222320-0222132013110033-0112122023032232): complete subsection reference.
 
-- [shop_update_quantity](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-58fd7fa73fbaafe522bdfb9883da34d1cc3abf8f96de55a17251ec52318f06a1): complete subsection reference.
+- [shop_update_quantity](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1120333113332213-0333232222333211-0202233133232120-2003312203103101-3030032223332033-2112313211112201-1302110132301102-0301203300122201): complete subsection reference.
 
-<a id="canonical-a09c6dbffbfb63ae85b07acc31f82fa4a4c8b01e11b42f9dd37723bcf74479ce"></a>
+<a id="canonical-2200213012312333-3323332312032232-2011230013223030-0301332002332210-2210302023000132-0101231002332131-3103131302032330-3313101013213032"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / da1507259842 / 4
+## Next pages — shopping_gift_cards / 021121201002 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c01bcc719915db975cef7c4b5a167b00bc08facfd3ab707495f744687f731b13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-7bcf267eca7d63764a87ce39b8315ec3effb746b41c579d7f8f04748d1a66988)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fce5fdf13faf29098e5e11c7e2c634576cf507df04ef2d3aeda12ce4b0b24830)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e6a0edfc19ffd5e58ae9bd6114f510931309cf95351a3699c45805a32c0dfdd0)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-b9e0ad4e50584981cde64dc5b86b374d2f8e1b165944815df105843f32713f43)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-68b02c7e0853b23a0c3423dd685c396220e77bb1e9463f3eae2ba36ea92322ec)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0e79e9e11977ef35f5d445789ed6ed87a9715def8be4f5b2089af01cc8a2ae55)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c135841593e197a38ce73cb528234b0f706acfa791ebd9d0620a877854f4648a)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-e8a1f99f7072d73c6658f0a3dc2277a5f7468ac2a81b99b2ff3810a564e8e400)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-602b13448c03a78c76e62d75e1709c2fda6dc564a22342006634bda21f35d484)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-9a5c5508f84b35d9f138a00f2830be017a37b5f19ed876bca6746ef82d6170c4)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-570e369ce00ba79a6f8be9422f8458bb69991e5035a874ead2f2da642fffb3f1)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-fb4891a9e6ad5040ee189b29156f6d72ac1491235088507271882d08beb0103b)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-303b7540214caf50f74d054b8de2d3ac21e16d89ff40680458142928c885d444)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-6a03c796b79a13232820be0490b1fc08e82737a9ec3b5210fe74e1cbb4d25a7b)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-8b285c081b3a2c43d35208d8676c9684eed91b46c86a3a65726761097dcfa464)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3cf6b7ad75e43a9e3943600e5c3394f2eb8165e237a7629614f1a28c53926154)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-c3b0b31ea85edba235116e5c73b4c8027bdeb9ecc4884ab82a78750f1668b3ae)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_update_quantity](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-58fd7fa73fbaafe522bdfb9883da34d1cc3abf8f96de55a17251ec52318f06a1)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3000012330301301-2121011131232113-1130323313301023-1122011213230000-2330002033223033-3103222313001310-2111331310101220-1333130301230103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1323303302121332-3022133112031312-1022201330320321-2320030111323003-3233332313101223-1001301113213113-3320330010131020-3101221212212020)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3330321133313301-0333223302210021-2032113201013013-3202301203101113-1230331100133133-0010323302310322-3231220102303210-2300230210200300)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3212220032313330-0121333331113211-2022322123311201-0110331101002103-0103002130332111-0311012203122121-3010112000112203-0230003133313100)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2321320022311032-1100112010212001-3031321210313011-2320122303131031-0233203201230112-1121101020011131-3301001120100333-0302130103331003)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1220230002301332-0020110323020322-0030031002033131-1220113003211202-0200321313232301-3221101203330332-2232022322031232-2221020302023230)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0032132132213201-0121131332330311-3311311010111320-2132311232312013-2221130111313233-2023321033112302-0020212233000130-3020220222321111)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3001031120100111-2103320121132203-2030321303302311-0220020310230033-1300122230332213-2101322331213100-1202002220131320-1110331012102022)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3220220133212133-1300130231130330-1212112033002203-3130020213132211-3313101220223002-2220012321212302-3333032001002211-1210322032100000)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1200022301031010-2030000322132030-1312321202311311-3201130021300233-3122123130111210-2202020310020000-1212031023312202-0133031131102010)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2122113011110020-3320102303113121-3301032022000033-0220030023320001-1322031323113301-2132312013122330-2212131012323320-0231120113003010)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1113003203122130-3200002322132122-1233202332211002-0233201011202323-1221212101321100-0311222013103222-3102330231221210-0233333323033301)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-3323102021012221-3212223111001000-3232012021230221-0111123312311302-2230011021010203-1100202011001302-1301202002310020-2332230001000323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-0300032313111000-0201103022331100-3313103100111023-2031320231032230-0201320112312021-3333100012200010-1120011002210220-3020201131101010)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-1222000330132112-2313212201030203-0220020023320010-2100230133300020-3220021303132221-3230032311020100-3332131032013023-2310310211221323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2023022011300020-0123032202301003-3103110200203120-1213123021122010-3232312101231012-3020122203221211-1302121312010021-1331303322101210)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0330331223132231-1311321003222132-0321100312000032-1130030321103302-3223200112113202-0313221312022112-0110330122022030-1103210212011110)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3003230023030132-2220113231232202-0311010112321130-1303231030200002-1323313223213230-3010202010222320-0222132013110033-0112122023032232)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_update_quantity](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1120333113332213-0333232222333211-0202233133232120-2003312203103101-3030032223332033-2112313211112201-1302110132301102-0301203300122201)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c01bcc719915db975cef7c4b5a167b00bc08facfd3ab707495f744687f731b13"></a>
+<a id="canonical-3000012330301301-2121011131232113-1130323313301023-1122011213230000-2330002033223033-3103222313001310-2111331310101220-1333130301230103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e08f24c5c1d25fbaaf0cb711956323495dbf90dfccdfd45d041a38d065ef233f"></a>
+<a id="canonical-3200203302103011-3001310211332322-2233003023130101-2111120302031021-1131233321003133-3030313331101131-0010012203203100-1211323302030333"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f33a9d18f55a / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance — gift_card_check_balance / 012033111122 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance
 
-<a id="canonical-4af0f8158fdd34098314cc5c3708635219ec56e2f234ae4cc4c155c055300157"></a>
+<a id="canonical-1022330033200111-2033313103100021-2003011030301130-0313002012031102-0121323011123202-3302031022321030-3010300111113000-1111030000011113"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for gift card check balance.
 
-<a id="canonical-bc96621f3223ffd108d8e39151694aa65b6142ce3a458ef7904d5d2561b4de87"></a>
+<a id="canonical-2330211212020133-0302020333333101-0020312032032101-1101122110222212-1123120110023032-0322101120323313-2100103111310211-1201231031322013"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f33a9d18f55a / 3
+## Direct properties — gift_card_check_balance / 012033111122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b40213341e58de1dd28c9e83da8b8a5f15a08838e15e364dcd5af3a333ffc82f"></a>
+<a id="canonical-2310000201030310-0132112031320131-3102203021322003-3122202320221133-0111220020200320-3201113203121031-3031112233032203-0303333330200233"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / f33a9d18f55a / 4
+## Next pages — gift_card_check_balance / 012033111122 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-7bcf267eca7d63764a87ce39b8315ec3effb746b41c579d7f8f04748d1a66988"></a>
+<a id="canonical-1323303302121332-3022133112031312-1022201330320321-2320030111323003-3233332313101223-1001301113213113-3320330010131020-3101221212212020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9d4171c110f7191285f97605d5b5b1bb2992638fdef3d9d2502c4e2574e2e140"></a>
+<a id="canonical-2131100113013001-0100331301210102-2011332113120011-3111231123012323-0221210212032033-3132330331213102-1100023010320211-1310320232011000"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 23e665cf8080 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card — gift_card_make_purches_with_card / 303320002000 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card
 
-<a id="canonical-dabb736adf0507630f9889b2060fa6cb17ec13a6e002a00a473098a56cd678f7"></a>
+<a id="canonical-3122232313031222-3133001100131203-0033212020212302-0012003322123023-0113323001032212-3200000222000022-1013030021202211-1230311213203313"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for gift card make purches with card.
 
-<a id="canonical-8b4b455b371fd43626bd8a52f73315cba1d81c0233c957107701270ab035e800"></a>
+<a id="canonical-2023102310111123-0313013331100312-0212233120221102-3313030301113023-2201312001300002-0303302111130100-1313000102130022-2300031132200000"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 23e665cf8080 / 3
+## Direct properties — gift_card_make_purches_with_card / 303320002000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-964f7ac24a2a1c08f9a191c7216082297b8169c6a0174bb1e79f326271129cb9"></a>
+<a id="canonical-2112103313223002-1022022201300020-3321220121013013-0201120020020221-1323200112213012-2200011310232301-3213213303021202-1301010221302321"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 23e665cf8080 / 4
+## Next pages — gift_card_make_purches_with_card / 303320002000 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-fce5fdf13faf29098e5e11c7e2c634576cf507df04ef2d3aeda12ce4b0b24830"></a>
+<a id="canonical-3330321133313301-0333223302210021-2032113201013013-3202301203101113-1230331100133133-0010323302310322-3231220102303210-2300230210200300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0003976801865c7a55deccdb9c519dcc41c867b7a9ab3cb34e4738819cdacb3d"></a>
+<a id="canonical-0000000321131220-0001201211301322-1111313230303123-2130110121313030-1001302012132313-2221222303302303-1032101303202001-2130312230230331"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ad256fe37b2e / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card — gift_card_purchase_card / 320313230232 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card
 
-<a id="canonical-8e863c302612f4e84b7b0e201511e367b1f0413f44fcdc9f8154baa4d9ee6053"></a>
+<a id="canonical-2032201203300300-0212010233103220-1023132300320200-0111010132031213-2301330010010333-1010333031302133-2001111023222210-3121323212001103"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for gift card purchase card.
 
-<a id="canonical-a5021adb4886a7da07a588c6dadc4ce89888c763d1343447c74347944adf57b1"></a>
+<a id="canonical-2211000201223123-1020201222133122-0013221120203012-3122313010303220-2120202030131203-3101031003101013-3013100310132110-1022313311132301"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ad256fe37b2e / 3
+## Direct properties — gift_card_purchase_card / 320313230232 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0ac391fdacb7f46a963ca244f013b3fc7c889d60eab2c0320b70f209a648e56d"></a>
+<a id="canonical-0022300321013331-2230231333101222-2112033022021010-3300010323033330-1330202021311200-3222230230000302-0023130033020021-2212102032111231"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / ad256fe37b2e / 4
+## Next pages — gift_card_purchase_card / 320313230232 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-e6a0edfc19ffd5e58ae9bd6114f510931309cf95351a3699c45805a32c0dfdd0"></a>
+<a id="canonical-3212220032313330-0121333331113211-2022322123311201-0110331101002103-0103002130332111-0311012203122121-3010112000112203-0230003133313100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f270b8418a08288e7a144179f86374b583a9dd7edf8998178722fb685abb1629"></a>
+<a id="canonical-3302130023201001-2022002002202032-1322011010011321-3320120313102311-2003222131311332-3133202121200113-2013020233231220-1122232301120221"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 47e2a594e694 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart — shop_add_to_cart / 211032122110 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart
 
-<a id="canonical-6aa56b6945c9a64bbc025248f6a015f3696d17a9a79a4891b232c8777ad7f7c2"></a>
+<a id="canonical-1222221112231221-1011302122121023-2330000211021020-3312220001113303-1221123101132221-2213212210202101-2302030230201313-1322311333133002"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop add to cart.
 
-<a id="canonical-6ca54486477662da2294049f8ae96ba6464318467fc2ffb1c042e7975341de9f"></a>
+<a id="canonical-1230221110102012-1013131212023122-0202211000102133-2022322112232212-1012100301201012-1333300233332301-3000100232132113-1103100131322133"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 47e2a594e694 / 3
+## Direct properties — shop_add_to_cart / 211032122110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-58c77c507d9dd60701c58093e3e52cb80874c7c7bed027d86f28b6df0cc3bc0c"></a>
+<a id="canonical-1120301313301100-1331213131120013-0001301120002103-3203321102302320-0020131030133013-2332310002133120-1233022023123133-0030300323300030"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 47e2a594e694 / 4
+## Next pages — shop_add_to_cart / 211032122110 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-b9e0ad4e50584981cde64dc5b86b374d2f8e1b165944815df105843f32713f43"></a>
+<a id="canonical-2321320022311032-1100112010212001-3031321210313011-2320122303131031-0233203201230112-1121101020011131-3301001120100333-0302130103331003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3bb4e930aadb46a18ae7938a131053ac033d51c207c36ef8be529a22382e0d0e"></a>
+<a id="canonical-0323231032210300-2222312310122201-2022321321032022-0103010011032230-0003033111013002-0013300312323320-2332110221220202-0320023200310032"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08e954f8a504 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card — shop_apply_gift_card / 332022110010 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card
 
-<a id="canonical-d09a89c6b6f656a342b47f9d5051d54283ad7c0e04ab47d0a54c79f9d9056327"></a>
+<a id="canonical-3100212220213012-2312331211122203-1002231013332131-1100110131111002-2003223113300032-0010222310133100-2211103013213321-3121001112030213"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop apply gift card.
 
-<a id="canonical-7cc84cfea9674ae9dcf8084158a638808286f2088c70d7aad8e129eb5484399a"></a>
+<a id="canonical-1330302010303332-2221121310223221-3130332000201001-1120221203202000-2002201233020020-2030130031132222-3120320102213223-1110201003212122"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08e954f8a504 / 3
+## Direct properties — shop_apply_gift_card / 332022110010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-eacc62ca057ebf2d3354f51c7a09b072ac4a52476035a99053a0a524804a37a5"></a>
+<a id="canonical-3222303012023022-0011133223330231-0303111033110130-1322002123001302-2230102211021013-1200031122212100-1103220022110210-2000102203132211"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 08e954f8a504 / 4
+## Next pages — shop_apply_gift_card / 332022110010 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-68b02c7e0853b23a0c3423dd685c396220e77bb1e9463f3eae2ba36ea92322ec"></a>
+<a id="canonical-1220230002301332-0020110323020322-0030031002033131-1220113003211202-0200321313232301-3221101203330332-2232022322031232-2221020302023230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9229e28a105f5dd45b6bc9ed1a7af9b4576d80cecd6a3459f170277ca25c7a09"></a>
+<a id="canonical-2102022132022022-0100113311313110-1123122330213231-0122132233212310-1113123120003032-3031122203101121-3301130002131330-2202113013220021"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8cb0864273ab / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code — shop_apply_promo_code / 100213032223 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code
 
-<a id="canonical-e5eaf9df3d7d579e14d21e4c7b2a19b8e4bcb5ff22f2338f9bffc70106b18597"></a>
+<a id="canonical-3211322233213133-0331133111132132-0110310201321030-1323022201212320-3210233023113333-0202330203032033-2123333330130001-0012230120112113"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop apply promo code.
 
-<a id="canonical-ab69ad09ed10d01ad51bc61cb66bedaf194e3080716df431c1024eadcbb9d121"></a>
+<a id="canonical-2223122122310021-3231010031000122-3111012330120130-2312122332312233-0121103203002000-1301123133100301-3001000210322231-3023232131010201"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8cb0864273ab / 3
+## Direct properties — shop_apply_promo_code / 100213032223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3d90b4f92d0fdca995e9576c650d944b00a5d859156cbc56a68d7f1283e433d4"></a>
+<a id="canonical-0331210023103321-0231003331302221-2111322111131230-1211003121101023-0000221131201121-0111123023301112-2212203113330102-2003321003033110"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 8cb0864273ab / 4
+## Next pages — shop_apply_promo_code / 100213032223 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-0e79e9e11977ef35f5d445789ed6ed87a9715def8be4f5b2089af01cc8a2ae55"></a>
+<a id="canonical-0032132132213201-0121131332330311-3311311010111320-2132311232312013-2221130111313233-2023321033112302-0020212233000130-3020220222321111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c22668674d2bb52b18d69a001572e04c1608eabeefe91f713ed475d54eaf4d4"></a>
+<a id="canonical-0330020212122012-1310310223231102-2301203112212200-0001111302320010-3001120020322223-3232333221013313-0103323110131131-1110322233103110"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b19a6c2ce731 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout — shop_checkout / 023032130301 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout
 
-<a id="canonical-519141a0a3ad3e24cb8a951194c47b2c0ef7ed843b949e9293448998e52e259e"></a>
+<a id="canonical-1101210110012200-2203223103320210-3023202221110101-2110301013230230-0032331332312010-0323211021322102-2103101020212120-3211023202112132"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop checkout.
 
-<a id="canonical-1c1ea3f82b8ad3bb41b14d29e6636c985aadb620d9be0aea6c7ba688851c52db"></a>
+<a id="canonical-0130013222033320-0223202231032323-1001230110310221-3212120312302120-1122223123120200-3121233200223222-1230132322122020-2011013011023123"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b19a6c2ce731 / 3
+## Direct properties — shop_checkout / 023032130301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9b5963b7a2e9adcc9764a661123ad213f7e3dcbd0e8af19d08cb40d57c25158c"></a>
+<a id="canonical-2123112112032313-2202322122313030-2113121022121201-0102032231020103-3313320331302331-0032202233012131-0020302310003111-1330021101112030"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / b19a6c2ce731 / 4
+## Next pages — shop_checkout / 023032130301 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-c135841593e197a38ce73cb528234b0f706acfa791ebd9d0620a877854f4648a"></a>
+<a id="canonical-3001031120100111-2103320121132203-2030321303302311-0220020310230033-1300122230332213-2101322331213100-1202002220131320-1110331012102022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b99af04551a7eca9b0c939bc98488e7798b2da5374fd780bdd3bf7e5d27001e9"></a>
+<a id="canonical-2321212233001011-1101221332302221-2300302103212330-2120102020321313-2120230231221103-1310333113200023-3131032333133211-3102130000013221"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 60d01d284fec / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat — shop_choose_seat / 022010333230 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat
 
-<a id="canonical-f5f7735e600bf8b2e0cf88111c9b2c055da04ee97e48021edfc7a579f35fff45"></a>
+<a id="canonical-3311331313031132-1200002333202302-3200303320200101-0130212302300011-1131220010323221-1332102000020132-3133301322111321-3303113333331011"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop choose seat.
 
-<a id="canonical-5b2695a9ac311d9a481f786e450f9f302c98d71d8a96635b03b90f0a3ffbb3ce"></a>
+<a id="canonical-1123021221112221-2230030101312122-1020013313201232-1011003321330300-0230212031130131-2022211212031123-0003232100330022-0333332323033032"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 60d01d284fec / 3
+## Direct properties — shop_choose_seat / 022010333230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8269b0f84fe0ba09b60b1bef08a1fbb56bacb9f4689d8794749bc62e56f33e61"></a>
+<a id="canonical-2002122123003320-1033320023220021-2312002301233233-0020220133232311-1223223023213310-1220213120132110-1310212330120232-1112330303321201"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 60d01d284fec / 4
+## Next pages — shop_choose_seat / 022010333230 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-e8a1f99f7072d73c6658f0a3dc2277a5f7468ac2a81b99b2ff3810a564e8e400"></a>
+<a id="canonical-3220220133212133-1300130231130330-1212112033002203-3130020213132211-3313101220223002-2220012321212302-3333032001002211-1210322032100000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0fa3bf213804764693e8cd295c76aa133f347b398fb35c491c3d5c2f9c3c6891"></a>
+<a id="canonical-0033220323330201-0320001013121012-2103322030310221-1130131222220103-0333031013230321-2033230311301021-0130033111300233-2130033012202101"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 67e5ed2c75c2 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission — shop_enter_drawing_submission / 023013113002 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission
 
-<a id="canonical-29c349cc0853a6cd31f09c327069e10cf6b5b9b49ca2cbbc52821b80f34dc452"></a>
+<a id="canonical-0221300310213030-0020110322123031-0301330021300302-1300122132010030-3312231123212310-2130220230232330-1102200201232000-3303103130101102"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop enter drawing submission.
 
-<a id="canonical-ac819780f33a7f45467323ab8dd0097ba5479dabac4e28d2581cd4195b15adae"></a>
+<a id="canonical-2230200121132000-3303032213331011-1012130302032223-2031310000211323-2211101321312223-2230103202203102-1120013031100121-1123011122312232"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 67e5ed2c75c2 / 3
+## Direct properties — shop_enter_drawing_submission / 023013113002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2d454e99758074615a6b8dad9bf2707b2ca97766de836bb97946b29ec6f9500a"></a>
+<a id="canonical-0231101110322121-1311200013101201-1122122320312231-2123330213001323-0230222113131212-3132200312232321-1321101223022132-3012332111000022"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 67e5ed2c75c2 / 4
+## Next pages — shop_enter_drawing_submission / 023013113002 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-602b13448c03a78c76e62d75e1709c2fda6dc564a22342006634bda21f35d484"></a>
+<a id="canonical-1200022301031010-2030000322132030-1312321202311311-3201130021300233-3122123130111210-2202020310020000-1212031023312202-0133031131102010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6949983e12fa68a4063989ab29d69284e6b2441862330c2e0eba1d5dabdcfc9c"></a>
+<a id="canonical-1221102121200332-0102332212202210-0012032120212223-0221311221022010-3212230210100120-1202030300300232-0032232201311131-2223313033302130"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0b501121c2dd / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory — shop_hold_inventory / 020130023131 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory
 
-<a id="canonical-e9dfb20bb1fd6f57074f3ec57c8782b1aa8b07e02bfa4bd909bae9600de057e2"></a>
+<a id="canonical-3221313323020023-2301333112331113-0013103303323011-1330201320022301-2222202300133200-0223332210233121-0021232232211200-0031320011133202"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop hold inventory.
 
-<a id="canonical-de9818f73b13aa07acd7e685e9ccdcba9ffcf89c537557212e5b78e3aa2114bc"></a>
+<a id="canonical-3132212001203313-0323010322220013-2230311332122011-3221303031302322-2133333033202130-1103131111130201-0232112313203203-2222020101102330"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0b501121c2dd / 3
+## Direct properties — shop_hold_inventory / 020130023131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5ee884cbf2199be96d1e8d0a78fa2439f2b921c5c26b96b5deb4feda302a92b9"></a>
+<a id="canonical-1132322020103023-3302012121233221-1231013220310022-1320332202100321-3302232102013011-3002122321122311-3132231033323122-0300022221022321"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0b501121c2dd / 4
+## Next pages — shop_hold_inventory / 020130023131 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-9a5c5508f84b35d9f138a00f2830be017a37b5f19ed876bca6746ef82d6170c4"></a>
+<a id="canonical-2122113011110020-3320102303113121-3301032022000033-0220030023320001-1322031323113301-2132312013122330-2212131012323320-0231120113003010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a277226ef32deff1f197814f712e1a9d35aa4eb0fae5cf1c59745b97c9fc766d"></a>
+<a id="canonical-2202131302021232-3303023132333301-3301211320011033-1301023201222131-0311222210322300-3322321130330130-1121131011232113-3021333013121231"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d17bda084fd3 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment — shop_make_payment / 002010333103 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment
 
-<a id="canonical-576954a047667c66a0fa5957671ce00ab424339a9232555848c9a72ff560f37a"></a>
+<a id="canonical-1113122111102200-1013121213301212-2200332211211113-1213013032000022-2310021003032122-2102030211111120-1020302122130233-3311120033031322"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop make payment.
 
-<a id="canonical-6e8ab37d5e2c5b76237233ba3901b28c769e4a49ef935f7ec844871bc8d8c414"></a>
+<a id="canonical-1232202223031331-1132023011231312-0203130203032322-0321000123022030-1312213210221021-3233210311331332-3020101020130123-3020312030100110"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d17bda084fd3 / 3
+## Direct properties — shop_make_payment / 002010333103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-57bad82b119ded31188a63ba87ad876346a4ab9aca5bc5a18807629f37c302df"></a>
+<a id="canonical-1113232231200223-0101213132310301-0120202212032322-2013223120131203-1012221022232122-3022112330112201-2020001312022133-0313300300023133"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d17bda084fd3 / 4
+## Next pages — shop_make_payment / 002010333103 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-570e369ce00ba79a6f8be9422f8458bb69991e5035a874ead2f2da642fffb3f1"></a>
+<a id="canonical-1113003203122130-3200002322132122-1233202332211002-0233201011202323-1221212101321100-0311222013103222-3102330231221210-0233333323033301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7997694fd180d227528dbeab6eff3a761648b45c999966bdccaaa75f8dd58ba9"></a>
+<a id="canonical-1321211312211033-3101200031020213-1102203123322223-1232333303221312-0112102023101130-2121212112122331-3030222222131133-2031311120232221"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d9b02b06cfc3 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer — shop_offer / 001230333003 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer
 
-<a id="canonical-8039725a3350e4fda7425968276b5747aaefec037ddfda70311a868dbae8118d"></a>
+<a id="canonical-2000032113021122-0303110032103331-2213100211211220-0213122311131013-2222323332300003-1331313331221300-0301012220122031-2322322001012031"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-0b82d838cffe3732c7391c2fbe54d46938a4d45910916330a901222276bd729b"></a>
+<a id="canonical-0023200231200320-3033333203130302-3013032101300233-2332111031101221-0320221031101121-0100210112030300-2221000102020202-1312233113022123"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d9b02b06cfc3 / 3
+## Direct properties — shop_offer / 001230333003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-58e2d4e89a18b27fcb18b60ae53b85d092b4c6cd4d9070035b88d9c50ec98968"></a>
+<a id="canonical-1120320231103220-2122012023021333-3023012023120022-3211032320113100-2102231030123031-1031210013000003-1123202031213011-0032302120211220"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / d9b02b06cfc3 / 4
+## Next pages — shop_offer / 001230333003 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-fb4891a9e6ad5040ee189b29156f6d72ac1491235088507271882d08beb0103b"></a>
+<a id="canonical-3323102021012221-3212223111001000-3232012021230221-0111123312311302-2230011021010203-1100202011001302-1301202002310020-2332230001000323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9c28ad641f147570a9232f384e854f005d69df8db1ccc562bb9b8df0414715c"></a>
+<a id="canonical-3121300220223112-1001330110131113-0022210203023303-2010322011103300-0011311221313320-3123013030301112-0223232123203133-0010011013011130"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 847f21c95100 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order — shop_order / 302111010000 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order
 
-<a id="canonical-87165d54e2ac99dbcab3ac0866c5571a818bcaebd1b992bbeb47b4a9a7108dbb"></a>
+<a id="canonical-2013011211311110-3202223021213123-3022230322300020-1212301111130122-2001202330223223-3101232121022323-3223101323102221-2213010020312323"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-c85b76773f7ea5553d94ed8fddd61658b12914f101344846c430d9332099f7c6"></a>
+<a id="canonical-3020112313121313-0333133222111111-0331211032312033-3131311201121120-2301022101103301-0001031010201012-3010030031210303-0200212133133012"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 847f21c95100 / 3
+## Direct properties — shop_order / 302111010000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f3596108e22b69cd72e4976a77ac275813139db501f46ff4d8e0d0d8b1a39771"></a>
+<a id="canonical-3303112112010020-3202022312213031-1302321021131222-1313223002131120-0103010321312311-0001331012333310-3120320031003120-2301220321131301"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 847f21c95100 / 4
+## Next pages — shop_order / 302111010000 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-303b7540214caf50f74d054b8de2d3ac21e16d89ff40680458142928c885d444"></a>
+<a id="canonical-0300032313111000-0201103022331100-3313103100111023-2031320231032230-0201320112312021-3333100012200010-1120011002210220-3020201131101010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e071d066d4d954b0032fd1d85be3023c87a653684803daa19f00e0afb703b20"></a>
+<a id="canonical-1332001301310012-1231103121111023-0000030233310131-2011233203000203-3020132212110312-2010200003312222-0121330000320022-3323130003230200"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 07b80dd079a5 / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry — shop_price_inquiry / 310013212211 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry
 
-<a id="canonical-69cf3be4c6ec5d512e281b6fc8e5a6c18c8ca3b665d804ef1a379b5b6f750501"></a>
+<a id="canonical-1221303303233210-3012323011311101-0232022001231233-3020321122123001-2030203022032312-1211312000103233-0122031321231123-1233131100110001"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop price inquiry.
 
-<a id="canonical-663c09ee95523770f036f0f90322c5c5ed95d2e6e6d00f51236ee7a54d2c607d"></a>
+<a id="canonical-1212033000213232-2111110203131300-3300031233003321-0003020230113011-3231211131023212-3212310000331101-0203123232132211-1031023012001331"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 07b80dd079a5 / 3
+## Direct properties — shop_price_inquiry / 310013212211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ae1eb63d17a840b3dc72c6ee3c0241bfe36562ea6f23a15259286bdf36acb023"></a>
+<a id="canonical-2232013223120331-0113222010002303-3130130230123232-0330000210012333-3203121112023222-1233020322011102-1121022012233133-0312223023000203"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 07b80dd079a5 / 4
+## Next pages — shop_price_inquiry / 310013212211 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-6a03c796b79a13232820be0490b1fc08e82737a9ec3b5210fe74e1cbb4d25a7b"></a>
+<a id="canonical-1222000330132112-2313212201030203-0220020023320010-2100230133300020-3220021303132221-3230032311020100-3332131032013023-2310310211221323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a55cb01b8e03336e17e6e07321bd3131d3c64fcdda45d82a74df82dc810d89d1"></a>
+<a id="canonical-2211113023000123-2032000303031232-0113321232001303-0201233103010301-3103301210333031-3122101131200222-1310313320023130-2001003120213101"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0aa4b200d1df / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card — shop_purchase_gift_card / 000031013133 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card
 
-<a id="canonical-3601b28120dab76feeb6d2380f660943adc07fd905ea446803ffb47323667f7a"></a>
+<a id="canonical-0312000123022001-0200312223131233-3232231231020320-0033121200211003-2231300013333121-0011322210101220-0003333323101303-0203121213331322"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop purchase gift card.
 
-<a id="canonical-32c46660494b7fbe40defdcb6b1ae4b3d179c7f5412b5275e483685f3450b514"></a>
+<a id="canonical-0302301012121200-1021102313332332-1000313233313023-1223012232102303-3101132130133311-1001022311021311-3210200312201133-0310110023110110"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0aa4b200d1df / 3
+## Direct properties — shop_purchase_gift_card / 000031013133 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fd05747b06ce09638b8b15a092164b4f3bc3e596e99305e3fca0ece3eb04c5c4"></a>
+<a id="canonical-3331001113101323-0012303200211203-2023202301112200-2102011210231033-0323300332112112-3221210300113203-3330220032303203-3223001030113010"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 0aa4b200d1df / 4
+## Next pages — shop_purchase_gift_card / 000031013133 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
-<a id="canonical-8b285c081b3a2c43d35208d8676c9684eed91b46c86a3a65726761097dcfa464"></a>
+<a id="canonical-2023022011300020-0123032202301003-3103110200203120-1213123021122010-3232312101231012-3020122203221211-1302121312010021-1331303322101210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c8bdce4ddd7f56c3088dc009c62ccb6635b60a9a6a62cc0fb301b2ad13a383c"></a>
+<a id="canonical-0330202331303210-3131311333111230-0300202031300000-2130120230302312-1203112312002221-2212221202303000-3323030001230222-3101032203200330"></a>
 
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 909c03e34f3d / 2
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return — shop_return / 320310330331 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return
 
-<a id="canonical-7daea13eaab2e67d40ad1f9b436114f24c501e02589581841d0a078101216f62"></a>
+<a id="canonical-1331223222010332-2222230232121331-1000223101332123-1003120101103302-1030110001320002-1120211120012010-0131002200132001-0001020112331202"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop return.
 
-<a id="canonical-398d107ed99bdfc7976541d707e760ebbb5afa0bab405b2c93f87e9ff25de6d5"></a>
+<a id="canonical-0321203101001332-3121212331333013-2113121110013113-0013321312003223-2323112233220023-2223100011230230-2103332013322133-3302113132123111"></a>
 
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 909c03e34f3d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-773134407decfb0869738b5a43eef532a1c3278fdaef172b4a0dddf66fea6b8f"></a>
-
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 909c03e34f3d / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-
-<a id="canonical-3cf6b7ad75e43a9e3943600e5c3394f2eb8165e237a7629614f1a28c53926154"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2bc9ac324315319e6ed87d5ad6799d4a825d9624b64bbc4d0cc142499158d96e"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 7ba6474b8226 / 2
-
-Breadcrumbs:
-
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup
-
-<a id="canonical-4fcfc104f7954d8cd485e859769d894bd82f7718cde774812a16b97a7934a104"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop schedule pickup.
-
-<a id="canonical-9784193d9c86fc4ff00aa149db2ca3f432315d7a70692284ab2d3d907d7fefa3"></a>
-
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 7ba6474b8226 / 3
+## Direct properties — shop_return / 320310330331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4e671d3ca7191a4815c7d3eb151c2071cfb57b27fa8619396243a7bb54141282"></a>
+<a id="canonical-1313030103101000-1331323033230020-1221130320231122-1003323233110302-2201300302132033-3122323301130223-1022003131313312-1233322212232033"></a>
 
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 7ba6474b8226 / 4
+## Next pages — shop_return / 320310330331 / 4
 
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-
-<a id="canonical-c3b0b31ea85edba235116e5c73b4c8027bdeb9ecc4884ab82a78750f1668b3ae"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-24f815e6e051947155560a1cfbac5d5682860711ee5e78e82dbd51d77a1ef3e8"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 645d75f9ff1a / 2
-
-Breadcrumbs:
-
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-a19d06c6acb78fe89eceb8f207e8e8348e5eecfbb5171261bb11f2427e65d205)
-- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-249d2f2857ea5aca9df9f732bdf394e4a20b8d561d483393caf049e10f457f4e)
-- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-43f98c1b3531595a730c6d46b2610c3a42e6fed4dc6063101435b567bf72af13)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-5e57f1c4a5e74158ef1c253a3f4db254e971dd577225cd2181e7afdc98e2af3d)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-2c8da0eae0c02df676a54777381efdf3fd3e6dfdf25e3b1535ac3e4ad9b4e7a6)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order
-
-<a id="canonical-ca17b56f545f3b79329fbd97fc992b0d864d2d56ccb5873a487033ca411f7531"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop track order.
-
-<a id="canonical-b207c71fa759b682f0afce965e760db506297f88fd907b38a4a71954a09532a9"></a>
-
-## Direct properties — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 645d75f9ff1a / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-e493c7686456a48bffecc5742ee5b6bed83c8788b91ac172b8cc00ebd69e7088"></a>
-
-## Next pages — endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.fl / 645d75f9ff1a / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-a9facb2301c2fd95cff0e4332ac087d44c2c29075051620b021062d3288195fd)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-38154a6190bec8d1fc40fab4f7821bafd82f9fad21eccdc4504f325c1f4bafed)
-
-<a id="canonical-58fd7fa73fbaafe522bdfb9883da34d1cc3abf8f96de55a17251ec52318f06a1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)

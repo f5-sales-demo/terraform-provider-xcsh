@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_origin_pool landing.
 
 # xcsh_origin_pool landing
 
-<a id="canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3"></a>
+<a id="canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a7bc106ad6a04f86cf2bf646ff563b0a8aee9b9c08664af8047f3f8fa5d573b3"></a>
+<a id="canonical-2213233001001222-3112220010332012-3033022333121012-3333111203230022-2022323221232130-0020121210223320-0010133303332033-2211311113032303"></a>
 
-## xcsh_origin_pool — xcsh_origin_pool / 726ce2e68a36 / 2
+## xcsh_origin_pool — xcsh_origin_pool / 321220220312 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load
 balancer targets.
 
-<a id="canonical-37a222c40015e9329987a6f5562bd0d519798fa41af1cf10ff0d574512d22d58"></a>
+<a id="canonical-0313220202023010-0000011132210302-2121201322123311-1112022331003111-0121132120332210-0122330130330100-3333003111131011-0102310202311120"></a>
 
-## Prerequisites — xcsh_origin_pool / 726ce2e68a36 / 3
+## Prerequisites — xcsh_origin_pool / 321220220312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-<a id="canonical-60d3cd70f52f6695aeb991c57831704d9a7a58def8e1e24761b9c0147b885601"></a>
+<a id="canonical-1200310330311300-3311023312122111-2232232121013011-1320030113001031-2122132211203132-3320320132021013-1201232130000110-1323202011120001"></a>
 
-## Minimal configuration — xcsh_origin_pool / 726ce2e68a36 / 4
+## Minimal configuration — xcsh_origin_pool / 321220220312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,15 +66,15 @@ output "origin_pool_id" {
 }
 ```
 
-<a id="canonical-62e9a281c0603aaae665f79dd6ef7204928383b9291f662b7785ca4f0542628a"></a>
+<a id="canonical-1202322122022001-3000120003222222-3212121133132131-3112323313020010-2102200320032321-0221013312120223-1313201130221033-0011100212022022"></a>
 
-## Root configuration — xcsh_origin_pool / 726ce2e68a36 / 5
+## Root configuration — xcsh_origin_pool / 321220220312 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-c7de3d97e2a4201b18359fd1745dd05820ce9ccfbc26dca45c425bb07d5a8275"></a>
+<a id="canonical-3013313203312113-3202221002000123-0120031121333101-1310113131001120-0200303221303033-2330021231302210-1130100211232300-1331112220021311"></a>
 
-## Next pages — xcsh_origin_pool / 726ce2e68a36 / 6
+## Next pages — xcsh_origin_pool / 321220220312 / 6
 
-- [Property reference](../guides/data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [Examples](../guides/data-sources--origin_pool--examples--group-001.md#canonical-26f5d1de6dbe2147a167989881c2a2c0a1193c72d01e2342c928c8e90c063e5e)
+- [Property reference](../guides/data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [Examples](../guides/data-sources--origin_pool--examples--group-001.md#canonical-0212331131013132-1231233202011013-2201121321202120-2001300222023000-2201012103301302-3100013202031002-3021022030203221-0030001203321132)

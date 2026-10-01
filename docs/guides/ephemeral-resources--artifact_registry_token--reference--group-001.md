@@ -6,70 +6,70 @@ description: "Complete grouped canonical reference for xcsh_artifact_registry_to
 
 # xcsh_artifact_registry_token reference
 
-<a id="canonical-a3dcfe8c172a2c5524817e37d40511bed73fd5a47e634a5bd12e0537f627528b"></a>
+<a id="canonical-2203313033322030-0113022202301111-0210200113320313-3110001101012332-3113033331112210-1332120310221123-3101023200110313-3312021311022023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-51f209a1082caf3fc68da6e40ec524e7497df6858c438276c09c490226d2d1e9"></a>
+<a id="canonical-1101330200212201-0020023022330333-3012203122123210-0032301102103213-1021133133122011-2030100320021312-3000213010210002-0212310231013221"></a>
 
-## Property reference — Property reference / 016091a6b31e / 2
+## Property reference — Property reference / 221223030132 / 2
 
 Breadcrumbs:
 
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)
 - Property reference
 
-<a id="canonical-18507fee86081077bd466c037936c4f6a9e9d8c9eae135843cbf81f67b76d492"></a>
+<a id="canonical-0120110013333232-2012002001001313-2331101212300003-1321031230103312-2221322131203021-3222320103112010-0330233320013312-1323131231102102"></a>
 
-## Direct properties — Property reference / 016091a6b31e / 3
+## Direct properties — Property reference / 221223030132 / 3
 
-<a id="canonical-01502a037ad2bc7b462e4e4575ebb80675f73b2193c02dba405e36a5246a926e"></a>
+<a id="canonical-0001110002220003-1322310223301323-1012023210321011-1311322323200012-1311331303230201-2103300002312322-1000113203122211-0210122221021232"></a>
 
-<a id="canonical-d1fade27bbf4b672581dd65ff0b32c6c2a1d602a100f5c12e5565c791c0d7897"></a>
+<a id="canonical-3101332231320213-2323331023121302-1120013131121133-3300230302301230-0222013112000222-0100003311300102-3211111211301321-0130003113202113"></a>
 
-## expiration_time property — Property reference / 016091a6b31e / 4
+## expiration_time property — Property reference / 221223030132 / 4
 
 Type: `"string"`. Computed, Sensitive.
 
 Expiration Time. Expiration time of the token.
 
-<a id="canonical-2182500de51358f6586a2efe68c14839373a7dd8a8ac9ae60d033b2e9143776f"></a>
+<a id="canonical-0201200211000031-3211010311203312-1120122202323332-1220300110200321-0313032213313120-2220223021223212-0031000303230232-2101100313131233"></a>
 
-<a id="canonical-b0004d5e98da08ed31e70c85917dc8d12d3b66b39a657ae39c77acbd571c00ac"></a>
+<a id="canonical-2300000010311132-2120312200203231-0301321300302011-2101133130203101-0231032312122303-2122121113223203-2130131322302331-1113013000002230"></a>
 
-## namespace property — Property reference / 016091a6b31e / 5
+## namespace property — Property reference / 221223030132 / 5
 
 Type: `"string"`. Required.
 
 Namespace. Namespace is used to scope the query.
 
-<a id="canonical-584e7d8345340d9ccdf2264d3b11f7a20b3d1f72a7ddb201d3a20dd611f8e4c9"></a>
+<a id="canonical-1120103213312003-1011031000312130-3031330202121031-0323010133132202-0023033101331302-2213313123020001-3103220200313112-0101332032103021"></a>
 
-<a id="canonical-8548f896eb013799b3d84ee5c4a1453f51c6e8480decaf72adf6a8f2b1c08478"></a>
+<a id="canonical-2011102033202112-3223000103132121-2303312010323211-3010220110110333-1101301232201020-0031323022331302-2231331222203302-2301300020101320"></a>
 
-## token property — Property reference / 016091a6b31e / 6
+## token property — Property reference / 221223030132 / 6
 
 Type: `"string"`. Computed, Sensitive.
 
 Access token for the F5 Artifact Registry (FAR) This token can be used to authenticate with FAR when
 pulling related images for Kubernetes bot infrastructure.
 
-<a id="canonical-fed7610ab5446014b4b4a5d8a865c025b67a1465831300d769b69785d8a39f84"></a>
+<a id="canonical-3332311312010022-2311101012000110-2310231022113120-2220121130000211-2312132201101211-2003010300003113-1221231221132011-3120220321332010"></a>
 
-## All schema paths — Property reference / 016091a6b31e / 7
+## All schema paths — Property reference / 221223030132 / 7
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `expiration_time` | [expiration_time](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-01502a037ad2bc7b462e4e4575ebb80675f73b2193c02dba405e36a5246a926e) |
-| `namespace` | [namespace](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-2182500de51358f6586a2efe68c14839373a7dd8a8ac9ae60d033b2e9143776f) |
-| `token` | [token](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-584e7d8345340d9ccdf2264d3b11f7a20b3d1f72a7ddb201d3a20dd611f8e4c9) |
+| `expiration_time` | [expiration_time](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-0001110002220003-1322310223301323-1012023210321011-1311322323200012-1311331303230201-2103300002312322-1000113203122211-0210122221021232) |
+| `namespace` | [namespace](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-0201200211000031-3211010311203312-1120122202323332-1220300110200321-0313032213313120-2220223021223212-0031000303230232-2101100313131233) |
+| `token` | [token](ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-1120103213312003-1011031000312130-3031330202121031-0323010133132202-0023033101331302-2213313123020001-3103220200313112-0101332032103021) |
 
-<a id="canonical-c0d90cc15042062830719d69eac2306f29bb0f59855cd6c81a74c9e065ee397c"></a>
+<a id="canonical-3000312100303001-1100100200120220-0300130121311221-3222300203001233-0221232300331121-2011113031123020-0122131030213200-1211323203211330"></a>
 
-## Next pages — Property reference / 016091a6b31e / 8
+## Next pages — Property reference / 221223030132 / 8
 
-- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-7bc402ebc64070ff4db3dbcdbe34d30a0f0786ef3344bee1fd37affdbc4fe9b1)
+- [xcsh_artifact_registry_token](../ephemeral-resources/artifact_registry_token.md#canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301)

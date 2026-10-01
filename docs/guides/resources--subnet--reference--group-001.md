@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_subnet reference."
 
 # xcsh_subnet reference
 
-<a id="canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d"></a>
+<a id="canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-72f4ff7552bf0bc40be9b0229a85648b0f76098b2f377d5e3227415fd6f53728"></a>
+<a id="canonical-1302331033331311-1102233300233010-0023322123000202-2122201112102023-0033131200212023-0233031313311132-0302021310011133-3112331103130220"></a>
 
-## Property reference — Property reference / f3e6cad424a5 / 2
+## Property reference — Property reference / 311002102211 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 - Property reference
 
-<a id="canonical-dec4d19eed3a6087069b647d3dd9381807ce7c0a9ad21259c6ab53dcf3352e1c"></a>
+<a id="canonical-3132301031012132-3231032212002013-0012212312101331-0331312103200120-0013303213300022-2122310201021121-3012222311033130-3303031102320130"></a>
 
-## Direct properties — Property reference / f3e6cad424a5 / 3
+## Direct properties — Property reference / 311002102211 / 3
 
-<a id="canonical-f93e41dd5f3480f19839b3a2e5fdba8d730a1da01104c3cda579ee29f1597f78"></a>
+<a id="canonical-3321033210013131-1133031020003301-2120032123032202-3211333123222031-1303002201312200-0101001030033031-2211132132320221-3301112113331320"></a>
 
-<a id="canonical-1cf061409ab40c3667ec9a4285ce4bde27cd54741622eb466433c42dcce5cca4"></a>
+<a id="canonical-0130330012011000-2122231000300312-1213323021221002-2011303210233132-0213303111101310-0112020232231012-1210030330100231-3030321130302210"></a>
 
-## annotations property — Property reference / f3e6cad424a5 / 4
+## annotations property — Property reference / 311002102211 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,15 +67,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-e5e31f9e35a62cfe043ad9308079cf11738a3a9d6defc94439bc2dcc488afa6a): complete subsection reference.
+- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-3211320301332132-0311221202303332-0010032231210300-2000132130330101-1303202203222131-1231323330211010-0321233002313030-1020202233221222): complete subsection reference.
 
-- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-a9582cfb760ca8ec54b1a5617289ee2b5efc90825f7dea6d28d3751d0dae5df0): complete subsection reference.
+- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-2221112002303323-1312003022203230-1110230122111201-1302202132320223-1132333021002002-1133133132221231-0220310313110131-0031223211313300): complete subsection reference.
 
-<a id="canonical-2a12cb8b8485e8e8364740edc2438500b7f0d7fdec458551ab48056d065f098a"></a>
+<a id="canonical-0222010230232023-2010201132203220-0312101310003231-3002100320110000-2313330031133331-3230101120111101-2223102000111231-0012113300212022"></a>
 
-<a id="canonical-e9d08cef453e274c7b12b5152739b867cb789d53e0ebffc2197ef6e532f4a34f"></a>
+<a id="canonical-3221310020303233-1011033202131030-1323010223110111-0213032123201213-3023132021311103-3200322333333002-0121133233123211-0302331022031033"></a>
 
-## description property — Property reference / f3e6cad424a5 / 5
+## description property — Property reference / 311002102211 / 5
 
 Type: `"string"`. Optional.
 
@@ -119,11 +119,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bf77f4a4d90629a7fdbad46b193126195631b39aae6ad948c0f1d2d9e57dd6e1"></a>
+<a id="canonical-2333131333102210-3121001202212213-3331232231101223-0121030102120121-1112030123032122-2232122231211020-3000330131023121-3211133131123201"></a>
 
-<a id="canonical-27e2a6d578d04754c2f969e721c714f1b316cf1c28af5947ee80db56b344856f"></a>
+<a id="canonical-0213320222123111-1320310010131110-3002332112213213-0201301301103301-2303011230330130-0220223311211013-3232200031231112-2303101020111233"></a>
 
-## disable property — Property reference / f3e6cad424a5 / 6
+## disable property — Property reference / 311002102211 / 6
 
 Type: `"bool"`. Optional.
 
@@ -146,27 +146,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2dbe7a7c7b9bb182e5c19e5ad4596b3b6a5f353f14c93870c0b304b83c6cc2d0"></a>
+<a id="canonical-0231233213221330-1323212323012002-3211300121321122-3110112112230323-1222113303110333-0110302103201300-3000230300102320-0330123030023100"></a>
 
-<a id="canonical-f38a27c260d309c290b0fee3abb3e66848791399ab39c5e92e083c583637bd44"></a>
+<a id="canonical-3303202202133002-1200310300213002-2100230033323203-2223230332121220-1020132101032121-2223032130113221-0232002003301120-0312031323311010"></a>
 
-## id property — Property reference / f3e6cad424a5 / 7
+## ID property — Property reference / 311002102211 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [isolated_nw](resources--subnet--reference--group-001.md#canonical-1371e14bd89a726283dc0310ab7e6a9c256dc0373013492eb7698da169d10d70): complete subsection reference.
+- [isolated_nw](resources--subnet--reference--group-001.md#canonical-0103130132011023-3120212213021202-2003313000030100-2223133212222130-0211123130000313-0300010310210232-2313122120312201-1221310100311300): complete subsection reference.
 
-<a id="canonical-5a91c640d94a94d61192ce9468a9ad94b1f4c33dfca8da4f607944222ddf46ca"></a>
+<a id="canonical-1122210130121000-3121102221103112-0101210230322110-1220222122312110-2301331030030331-3330222031221033-1200132110100202-0231313310123022"></a>
 
-<a id="canonical-6f060b10372e74132b9baa0d0db14ec79ac3854baf9f022b7328dd0956061f16"></a>
+<a id="canonical-1233001200230100-0313023213100103-0223212322220031-0031230110323013-2122300320111023-2233213300020223-1303022031310021-1112001201330112"></a>
 
-## labels property — Property reference / f3e6cad424a5 / 8
+## labels property — Property reference / 311002102211 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -187,11 +187,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e2816357b8b407206d2ba71da8e77f9e467578b5ff46cb66c173fd4a7f9ff53"></a>
+<a id="canonical-2132022001120311-1323202310001302-0012310223221301-3122203213133321-3210121311132023-1133331012302312-1230011303333110-2213332133331103"></a>
 
-<a id="canonical-a71a9f43140c9034a55afbf89ebccce5b32252ef77a9b12c9af13c93f2b220a5"></a>
+<a id="canonical-2213012221331003-0110003021000310-2211112233233320-2132233030303211-2303020211023233-1313222123010230-2122330103302103-3302230202002211"></a>
 
-## name property — Property reference / f3e6cad424a5 / 9
+## name property — Property reference / 311002102211 / 9
 
 Type: `"string"`. Required.
 
@@ -255,11 +255,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-26aabe97760dfcd73c3191e56244ccc2608d50798fa8b0aa3a0a1d5db8fa4693"></a>
+<a id="canonical-0212222223322113-1312003133303113-0330030121013211-1202101030303002-1200203111001321-2033222023002222-0322002201311131-2320332210122103"></a>
 
-<a id="canonical-d27c1e1d25ca8f34cf5524d368374206a53872882f6a9f05d44c201800cca745"></a>
+<a id="canonical-3102133001320131-0211302220330310-3033111102103103-1220031310020012-2211032013022020-0233122221330011-3110103002000120-0000303022131011"></a>
 
-## namespace property — Property reference / f3e6cad424a5 / 10
+## namespace property — Property reference / 311002102211 / 10
 
 Type: `"string"`. Required.
 
@@ -316,76 +316,76 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07): complete subsection reference.
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013): complete subsection reference.
 
-- [timeouts](resources--subnet--reference--group-001.md#canonical-b8a99f5e7c9237c1dee4eec2a987d37e971d8d352d728faf67c4fc3afe6f9985): complete subsection reference.
+- [timeouts](resources--subnet--reference--group-001.md#canonical-2320222121331132-1330210203133001-3132321032323002-2221201331031332-2113013120310311-0231130220332233-1213301033300322-3332123321212011): complete subsection reference.
 
-<a id="canonical-60723556ea12d501f0d8aeb2fbe044a22c920c6209bb2b70cb75156689559b86"></a>
+<a id="canonical-1200130203111112-3222010231110001-3300312022322302-3323320010102202-0230210200301202-0021232302231300-3023131101111212-2021111121232012"></a>
 
-## All schema paths — Property reference / f3e6cad424a5 / 11
+## All schema paths — Property reference / 311002102211 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--subnet--reference--group-001.md#canonical-f93e41dd5f3480f19839b3a2e5fdba8d730a1da01104c3cda579ee29f1597f78) |
-| `connect_to_layer2` | [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-177fb2b491bf84ff25227f48fe21e89e847f83338124e580698c145e5e746c54) |
-| `connect_to_layer2.layer2_intf_ref` | [connect_to_layer2.layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-d001432831972f359fac78681500ad4f728e21653032cb1855f361cbaa97a8c4) |
-| `connect_to_layer2.layer2_intf_ref.name` | [connect_to_layer2.layer2_intf_ref.name](resources--subnet--reference--group-001.md#canonical-e239b919e8f3d0934bde88519ce1b80a97ba47b6d03ebdb18a114d954cf854b2) |
-| `connect_to_layer2.layer2_intf_ref.namespace` | [connect_to_layer2.layer2_intf_ref.namespace](resources--subnet--reference--group-001.md#canonical-618dfe486abaebda3bd1acb2eac27af5294e35dfc3ea93f225d109d52af456ce) |
-| `connect_to_layer2.layer2_intf_ref.tenant` | [connect_to_layer2.layer2_intf_ref.tenant](resources--subnet--reference--group-001.md#canonical-38495da98676f8f5cd22e7d77b8f600af2db95fc06178d639a4a04831af300e4) |
-| `connect_to_slo` | [connect_to_slo](resources--subnet--reference--group-001.md#canonical-75878c7f3c8de8c76167228de54aa55b7f15b319e240065c603f350b555bc680) |
-| `description` | [description](resources--subnet--reference--group-001.md#canonical-2a12cb8b8485e8e8364740edc2438500b7f0d7fdec458551ab48056d065f098a) |
-| `disable` | [disable](resources--subnet--reference--group-001.md#canonical-bf77f4a4d90629a7fdbad46b193126195631b39aae6ad948c0f1d2d9e57dd6e1) |
-| `id` | [id](resources--subnet--reference--group-001.md#canonical-2dbe7a7c7b9bb182e5c19e5ad4596b3b6a5f353f14c93870c0b304b83c6cc2d0) |
-| `isolated_nw` | [isolated_nw](resources--subnet--reference--group-001.md#canonical-2de2f5710b3427fd948deadcef910268001112fb29403a2e91d54052bb19edc2) |
-| `labels` | [labels](resources--subnet--reference--group-001.md#canonical-5a91c640d94a94d61192ce9468a9ad94b1f4c33dfca8da4f607944222ddf46ca) |
-| `name` | [name](resources--subnet--reference--group-001.md#canonical-9e2816357b8b407206d2ba71da8e77f9e467578b5ff46cb66c173fd4a7f9ff53) |
-| `namespace` | [namespace](resources--subnet--reference--group-001.md#canonical-26aabe97760dfcd73c3191e56244ccc2608d50798fa8b0aa3a0a1d5db8fa4693) |
-| `site_subnet_params` | [site_subnet_params](resources--subnet--reference--group-001.md#canonical-2651de736895205154cbe6ecf6199654b5927cc7a0e2819283d449de50f256b3) |
-| `site_subnet_params.dhcp` | [site_subnet_params.dhcp](resources--subnet--reference--group-001.md#canonical-102166a5738ce4858544f3a4ca668b74cc6035f4aaa62e41ade97cadbbf0272e) |
-| `site_subnet_params.site` | [site_subnet_params.site](resources--subnet--reference--group-001.md#canonical-43e465669b32d157341ad8218ba2a46e9ccf90a8ce67ec1b8950889ac422fa60) |
-| `site_subnet_params.site.name` | [site_subnet_params.site.name](resources--subnet--reference--group-001.md#canonical-eff90ccc1dae1bf9a390f7d0e977a0a2dd974f8298f11b426dbcf5014890c77c) |
-| `site_subnet_params.site.namespace` | [site_subnet_params.site.namespace](resources--subnet--reference--group-001.md#canonical-fcd95523beb3f1c525def23a634f718519f55f30c6c3bfaafd71ccde9f9e3d4a) |
-| `site_subnet_params.site.tenant` | [site_subnet_params.site.tenant](resources--subnet--reference--group-001.md#canonical-dac2ecc595e5251f6d852f10e60a7062da372a3b2f5ab8776c4af4549d7f706a) |
-| `site_subnet_params.static_ip` | [site_subnet_params.static_ip](resources--subnet--reference--group-001.md#canonical-fbd720a80b4692574f7e262ca32f96a9ae49b8cd3f676ce9aa8dd3db53b91f78) |
-| `site_subnet_params.subnet_dhcp_server_params` | [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-d67171df47c63a740dc23920e5450f5c25573f8e9770c0529971eff4a66b1fd6) |
-| `site_subnet_params.subnet_dhcp_server_params.dhcp_networks` | [site_subnet_params.subnet_dhcp_server_params.dhcp_networks](resources--subnet--reference--group-001.md#canonical-afd521966e8a733327a53b67f50b2e90b93e062170aba84d0332e71542a1a1af) |
-| `site_subnet_params.subnet_dhcp_server_params.dhcp_networks.network_prefix` | [site_subnet_params.subnet_dhcp_server_params.dhcp_networks.network_prefix](resources--subnet--reference--group-001.md#canonical-44b3e1750ad9251ea0e54d1bda3163edf712d419009f2190c3e94cb866a424ec) |
-| `timeouts` | [timeouts](resources--subnet--reference--group-001.md#canonical-c7842296a76b7d246642b3595ec11ce87cf8f87d74bc1e0211cf5d2ae931ffe9) |
-| `timeouts.create` | [timeouts.create](resources--subnet--reference--group-001.md#canonical-3cedf4e4d53c5bc4037899a8598d57729ed112495222370f683f3c5be3974dc8) |
-| `timeouts.delete` | [timeouts.delete](resources--subnet--reference--group-001.md#canonical-27217832a5154be15fcc09387fa94d2b78b44f4ce86256de6d78d95a3c58edf6) |
-| `timeouts.read` | [timeouts.read](resources--subnet--reference--group-001.md#canonical-7b86f7671bedcec89bccdd98faec98581a528b0aa6906a15be19ddb2a433ea99) |
-| `timeouts.update` | [timeouts.update](resources--subnet--reference--group-001.md#canonical-6059d26ce8b789a5b19d1e72e2a0c20366c48654687517cb7033b8fddb6352a4) |
+| `annotations` | [annotations](resources--subnet--reference--group-001.md#canonical-3321033210013131-1133031020003301-2120032123032202-3211333123222031-1303002201312200-0101001030033031-2211132132320221-3301112113331320) |
+| `connect_to_layer2` | [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-0113133323022310-2101233320103333-0211020213331020-3332020132202132-2010133320030303-2001021032112000-1221203001101132-1132131012301110) |
+| `connect_to_layer2.layer2_intf_ref` | [connect_to_layer2.layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-3100000110030220-0301211302330311-2133223013201220-0111000022311033-1302203202011211-0300030230230120-1111330312013023-2222211322203010) |
+| `connect_to_layer2.layer2_intf_ref.name` | [connect_to_layer2.layer2_intf_ref.name](resources--subnet--reference--group-001.md#canonical-3202032123210121-3220330331002103-1023313220201101-2130320123200022-2113232210132312-3100033223312301-2022010110312111-1030332011102302) |
+| `connect_to_layer2.layer2_intf_ref.namespace` | [connect_to_layer2.layer2_intf_ref.namespace](resources--subnet--reference--group-001.md#canonical-1201203133321020-1222232232233122-0323310122302302-3222300213223311-0221103203113133-3003322221033302-0211310100213111-0222331011123032) |
+| `connect_to_layer2.layer2_intf_ref.tenant` | [connect_to_layer2.layer2_intf_ref.tenant](resources--subnet--reference--group-001.md#canonical-0320102111312221-2012131233203311-3031020232133113-1323203312000022-3302312321113330-0012011320311203-2122102200102003-0122330300003210) |
+| `connect_to_slo` | [connect_to_slo](resources--subnet--reference--group-001.md#canonical-1311201320301333-0330203132203013-1201121302022031-3211102222111123-1333011123030121-3202100000121130-1200033303110023-1111112330122000) |
+| `description` | [description](resources--subnet--reference--group-001.md#canonical-0222010230232023-2010201132203220-0312101310003231-3002100320110000-2313330031133331-3230101120111101-2223102000111231-0012113300212022) |
+| `disable` | [disable](resources--subnet--reference--group-001.md#canonical-2333131333102210-3121001202212213-3331232231101223-0121030102120121-1112030123032122-2232122231211020-3000330131023121-3211133131123201) |
+| `id` | [id](resources--subnet--reference--group-001.md#canonical-0231233213221330-1323212323012002-3211300121321122-3110112112230323-1222113303110333-0110302103201300-3000230300102320-0330123030023100) |
+| `isolated_nw` | [isolated_nw](resources--subnet--reference--group-001.md#canonical-0231320233111301-0023031002133331-2110203132223130-3233210100021220-0000010101023323-0221100003220232-2101311110001102-2323012132313002) |
+| `labels` | [labels](resources--subnet--reference--group-001.md#canonical-1122210130121000-3121102221103112-0101210230322110-1220222122312110-2301331030030331-3330222031221033-1200132110100202-0231313310123022) |
+| `name` | [name](resources--subnet--reference--group-001.md#canonical-2132022001120311-1323202310001302-0012310223221301-3122203213133321-3210121311132023-1133331012302312-1230011303333110-2213332133331103) |
+| `namespace` | [namespace](resources--subnet--reference--group-001.md#canonical-0212222223322113-1312003133303113-0330030121013211-1202101030303002-1200203111001321-2033222023002222-0322002201311131-2320332210122103) |
+| `site_subnet_params` | [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0212110131321303-1220211102001101-1110302332123230-3312012121121110-2311210213303013-2200320220012102-2003311010213132-1100330211122303) |
+| `site_subnet_params.dhcp` | [site_subnet_params.dhcp](resources--subnet--reference--group-001.md#canonical-0100020112122211-1303203032102011-2011101033032210-3022121220231310-3030120003113310-2222221202321001-2231322113302231-2323330002130232) |
+| `site_subnet_params.site` | [site_subnet_params.site](resources--subnet--reference--group-001.md#canonical-1003321012111212-2123030231011113-0310012231200201-2023220222101232-2130303321002220-3032121332300123-2021110020202122-3010020233221200) |
+| `site_subnet_params.site.name` | [site_subnet_params.site.name](resources--subnet--reference--group-001.md#canonical-3233332100303030-0131223201233321-2203210033133100-3221131322002202-3131211310332002-2120330101231002-1231233033110001-1020210030131330) |
+| `site_subnet_params.site.namespace` | [site_subnet_params.site.namespace](resources--subnet--reference--group-001.md#canonical-3330312111110203-2332230333013011-0211313233020322-1203103313012011-0121331111330300-3012300323332222-3331130130303132-2133213203311022) |
+| `site_subnet_params.site.tenant` | [site_subnet_params.site.tenant](resources--subnet--reference--group-001.md#canonical-3122300232303011-2111321102110133-1231201102330100-3212002213001202-3122031302220323-0233112223201313-1230102233101110-2131133313001222) |
+| `site_subnet_params.static_ip` | [site_subnet_params.static_ip](resources--subnet--reference--group-001.md#canonical-3323311302002220-0023101221021113-1033133202120230-2203023321122221-2232102123203031-0333121312303221-2222203131033123-1103232101331320) |
+| `site_subnet_params.subnet_dhcp_server_params` | [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-3112130113013133-1013301203221310-0031300203210200-3211101100331130-0211111303332032-2113130030001102-2121130132333310-2212122301333112) |
+| `site_subnet_params.subnet_dhcp_server_params.dhcp_networks` | [site_subnet_params.subnet_dhcp_server_params.dhcp_networks](resources--subnet--reference--group-001.md#canonical-2233311102012112-1232202213030303-0213221103231213-3311002302322100-2321033200120201-1300222322201031-0003030232130111-1002220122012233) |
+| `site_subnet_params.subnet_dhcp_server_params.dhcp_networks.network_prefix` | [site_subnet_params.subnet_dhcp_server_params.dhcp_networks.network_prefix](resources--subnet--reference--group-001.md#canonical-1010230332011311-0022312102110132-2200321110310123-3122030112033231-3313010231100121-0000213302012100-3003322110302320-1212221002103230) |
+| `timeouts` | [timeouts](resources--subnet--reference--group-001.md#canonical-3013201002022112-2213122313310210-1212100223031121-1132300101303220-1330332033201331-1310233001320002-0101303311310222-3221030133333221) |
+| `timeouts.create` | [timeouts.create](resources--subnet--reference--group-001.md#canonical-0330323133103210-3111033011233010-0003132021212220-1121203111131302-2132310101021021-1102020203130033-1220033303301123-3203211310313020) |
+| `timeouts.delete` | [timeouts.delete](resources--subnet--reference--group-001.md#canonical-0213020113200302-2211011110233201-1133303000210320-1333222110310223-1320231010331030-3220120211123132-1231132031211122-0330112032313312) |
+| `timeouts.read` | [timeouts.read](resources--subnet--reference--group-001.md#canonical-1323201233131213-0123323130323020-2123303031312120-3322323021201120-0122110220230022-2212210012220111-2332012131312302-2210030332222121) |
+| `timeouts.update` | [timeouts.update](resources--subnet--reference--group-001.md#canonical-1200112131021230-3220231320212211-2301213101321302-3202220030020003-1212301020121110-1220131101133023-1300030323203331-3123120311022210) |
 
-<a id="canonical-62741929d816f5a63462243874941cb91ccbb410b90196db6090c123100d2781"></a>
+<a id="canonical-1202131001210221-3120011233112212-0310120202100320-1310211001302321-0130302323100100-2321000121123123-1200210030010203-0100003102132001"></a>
 
-## Next pages — Property reference / f3e6cad424a5 / 12
+## Next pages — Property reference / 311002102211 / 12
 
-- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-e5e31f9e35a62cfe043ad9308079cf11738a3a9d6defc94439bc2dcc488afa6a)
-- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-a9582cfb760ca8ec54b1a5617289ee2b5efc90825f7dea6d28d3751d0dae5df0)
-- [isolated_nw](resources--subnet--reference--group-001.md#canonical-1371e14bd89a726283dc0310ab7e6a9c256dc0373013492eb7698da169d10d70)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [timeouts](resources--subnet--reference--group-001.md#canonical-b8a99f5e7c9237c1dee4eec2a987d37e971d8d352d728faf67c4fc3afe6f9985)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-3211320301332132-0311221202303332-0010032231210300-2000132130330101-1303202203222131-1231323330211010-0321233002313030-1020202233221222)
+- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-2221112002303323-1312003022203230-1110230122111201-1302202132320223-1132333021002002-1133133132221231-0220310313110131-0031223211313300)
+- [isolated_nw](resources--subnet--reference--group-001.md#canonical-0103130132011023-3120212213021202-2003313000030100-2223133212222130-0211123130000313-0300010310210232-2313122120312201-1221310100311300)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [timeouts](resources--subnet--reference--group-001.md#canonical-2320222121331132-1330210203133001-3132321032323002-2221201331031332-2113013120310311-0231130220332233-1213301033300322-3332123321212011)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-e5e31f9e35a62cfe043ad9308079cf11738a3a9d6defc94439bc2dcc488afa6a"></a>
+<a id="canonical-3211320301332132-0311221202303332-0010032231210300-2000132130330101-1303202203222131-1231323330211010-0321233002313030-1020202233221222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a4e8182ddcf047150b1d2fbdd373449c1b996cba4bbfa9b864aae64dd2daeb06"></a>
+<a id="canonical-2210322001200231-3130330010130111-0023013102332331-3103130310102130-0123212112302322-1023233322212320-1210222232121031-3102312232230012"></a>
 
-## connect_to_layer2 — connect_to_layer2 / f9d9713e721f / 2
+## connect_to_layer2 — connect_to_layer2 / 033213020133 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
 - connect_to_layer2
 
-<a id="canonical-177fb2b491bf84ff25227f48fe21e89e847f83338124e580698c145e5e746c54"></a>
+<a id="canonical-0113133323022310-2101233320103333-0211020213331020-3332020132202132-2010133320030303-2001021032112000-1221203001101132-1132131012301110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -407,9 +407,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-177fb2b491bf84ff25227f48fe21e89e847f83338124e580698c145e5e746c54)
-- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-75878c7f3c8de8c76167228de54aa55b7f15b319e240065c603f350b555bc680)
-- [isolated_nw](resources--subnet--reference--group-001.md#canonical-2de2f5710b3427fd948deadcef910268001112fb29403a2e91d54052bb19edc2)
+- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-0113133323022310-2101233320103333-0211020213331020-3332020132202132-2010133320030303-2001021032112000-1221203001101132-1132131012301110)
+- [connect_to_slo](resources--subnet--reference--group-001.md#canonical-1311201320301333-0330203132203013-1201121302022031-3211102222111123-1333011123030121-3202100000121130-1200033303110023-1111112330122000)
+- [isolated_nw](resources--subnet--reference--group-001.md#canonical-0231320233111301-0023031002133331-2110203132223130-3233210100021220-0000010101023323-0221100003220232-2101311110001102-2323012132313002)
 
 Select alternatives according to the provider validators above.
 
@@ -421,38 +421,38 @@ connect_to_layer2 {
 }
 ```
 
-<a id="canonical-2a250d7032d0982a88adf86034aadb2485d1b61d04fd4935565ba7617f2ad69c"></a>
+<a id="canonical-0222021100311300-0302310021200222-2020223133201200-0310222231230210-2011310123120131-0010333110210311-1112112322131201-1333022231122130"></a>
 
-## Direct properties — connect_to_layer2 / f9d9713e721f / 3
+## Direct properties — connect_to_layer2 / 033213020133 / 3
 
-- [layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-19850f44889484caa6308670edabec07f246ee08f653ed30e975fa6496d77230): complete subsection reference.
+- [layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-0121201100331010-2020211020103022-2212030020121300-3231222332300013-3302101232320020-3312110332310300-3221131133221210-2112311313020300): complete subsection reference.
 
-<a id="canonical-0a14ca5f2a222a7cd8692267d69ef69c781b569a8fd9bcddaac31a80a548a1b4"></a>
+<a id="canonical-0022011030221133-0222020202221330-3120122102021213-3112213233122130-1320012311122122-2033312123303131-2222300301222000-2211102022012310"></a>
 
-## Next pages — connect_to_layer2 / f9d9713e721f / 4
+## Next pages — connect_to_layer2 / 033213020133 / 4
 
-- [connect_to_layer2.layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-19850f44889484caa6308670edabec07f246ee08f653ed30e975fa6496d77230)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [connect_to_layer2.layer2_intf_ref](resources--subnet--reference--group-001.md#canonical-0121201100331010-2020211020103022-2212030020121300-3231222332300013-3302101232320020-3312110332310300-3221131133221210-2112311313020300)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-19850f44889484caa6308670edabec07f246ee08f653ed30e975fa6496d77230"></a>
+<a id="canonical-0121201100331010-2020211020103022-2212030020121300-3231222332300013-3302101232320020-3312110332310300-3221131133221210-2112311313020300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-baadeec0cb833628b835a89ee64b751d2d4169eca115bd1563c99ee7d7c4f80f"></a>
+<a id="canonical-2322223132323000-3023200303120220-2320031122202132-3212102313110131-0231100112213230-2201011123310111-1203302121323213-3113301033200033"></a>
 
-## connect_to_layer2.layer2_intf_ref — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 2
+## connect_to_layer2.layer2_intf_ref — layer2_intf_ref / 022301122101 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-e5e31f9e35a62cfe043ad9308079cf11738a3a9d6defc94439bc2dcc488afa6a)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-3211320301332132-0311221202303332-0010032231210300-2000132130330101-1303202203222131-1231323330211010-0321233002313030-1020202233221222)
 - connect_to_layer2.layer2_intf_ref
 
-<a id="canonical-d001432831972f359fac78681500ad4f728e21653032cb1855f361cbaa97a8c4"></a>
+<a id="canonical-3100000110030220-0301211302330311-2133223013201220-0111000022311033-1302203202011211-0300030230230120-1111330312013023-2222211322203010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -491,15 +491,15 @@ layer2_intf_ref {
 }
 ```
 
-<a id="canonical-25c134e297c298cbe247f481457a5cec748d899feda05d6239f265faa2c62eb0"></a>
+<a id="canonical-0211300103103202-2113300221203023-3202101333102001-1011132211303230-1310203120212133-3231220011311202-0321330212113322-2202301202322300"></a>
 
-## Direct properties — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 3
+## Direct properties — layer2_intf_ref / 022301122101 / 3
 
-<a id="canonical-e239b919e8f3d0934bde88519ce1b80a97ba47b6d03ebdb18a114d954cf854b2"></a>
+<a id="canonical-3202032123210121-3220330331002103-1023313220201101-2130320123200022-2113232210132312-3100033223312301-2022010110312111-1030332011102302"></a>
 
-<a id="canonical-cbd96c8b787df697e2ce5bc19cf581fca48e8a3eea976ce79758bd6c7e0bd0c0"></a>
+<a id="canonical-3023312112302023-1320133133122113-3202303211233001-2130331120013330-2210203220220332-3222211312303213-2113112023311230-1332002331003000"></a>
 
-## name property — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 4
+## name property — layer2_intf_ref / 022301122101 / 4
 
 Type: `"string"`. Optional.
 
@@ -560,11 +560,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-618dfe486abaebda3bd1acb2eac27af5294e35dfc3ea93f225d109d52af456ce"></a>
+<a id="canonical-1201203133321020-1222232232233122-0323310122302302-3222300213223311-0221103203113133-3003322221033302-0211310100213111-0222331011123032"></a>
 
-<a id="canonical-def326b02eb5f48862b1d06a61230397ed7c974c582d15072109d23cf7814ca1"></a>
+<a id="canonical-3132330302122300-0232231133102020-1202230131001222-1201020300032113-3231133021131030-1120023101110013-0201002131020330-3313200110302201"></a>
 
-## namespace property — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 5
+## namespace property — layer2_intf_ref / 022301122101 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -632,11 +632,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-38495da98676f8f5cd22e7d77b8f600af2db95fc06178d639a4a04831af300e4"></a>
+<a id="canonical-0320102111312221-2012131233203311-3031020232133113-1323203312000022-3302312321113330-0012011320311203-2122102200102003-0122330300003210"></a>
 
-<a id="canonical-5c4a9266b1d4ddbd307c6724ed3c67597d64416ae0f83cb82b1f46cd7494a641"></a>
+<a id="canonical-1130102221021212-2301311031312331-0300133012130210-3231033012131121-1331121010011222-3200332003302320-0223013310123031-1310211022121001"></a>
 
-## tenant property — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 6
+## tenant property — layer2_intf_ref / 022301122101 / 6
 
 Type: `"string"`. Computed.
 
@@ -690,30 +690,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d3701612d2eecc2a5feb2b0c9b1aa275b5f12de1695ea055f954aee90096a5fc"></a>
+<a id="canonical-3103130001120102-3102323230300222-1133322302230030-2123012222021311-2311330102313201-1221113222001111-3321111022323221-0000211222113330"></a>
 
-## Next pages — connect_to_layer2.layer2_intf_ref / 2ac7242b1691 / 7
+## Next pages — layer2_intf_ref / 022301122101 / 7
 
-- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-e5e31f9e35a62cfe043ad9308079cf11738a3a9d6defc94439bc2dcc488afa6a)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [connect_to_layer2](resources--subnet--reference--group-001.md#canonical-3211320301332132-0311221202303332-0010032231210300-2000132130330101-1303202203222131-1231323330211010-0321233002313030-1020202233221222)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-a9582cfb760ca8ec54b1a5617289ee2b5efc90825f7dea6d28d3751d0dae5df0"></a>
+<a id="canonical-2221112002303323-1312003022203230-1110230122111201-1302202132320223-1132333021002002-1133133132221231-0220310313110131-0031223211313300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a6eb95430601fd453c0ff60075b06723c48d5633b4ea4ad9d0765cb60281e68"></a>
+<a id="canonical-1322123223211110-0300120001333110-1103300033331200-0013112300121302-0330102031111203-0323103222102231-2131001312113023-1200022001321220"></a>
 
-## connect_to_slo — connect_to_slo / c66de15635df / 2
+## connect_to_slo — connect_to_slo / 111203113133 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
 - connect_to_slo
 
-<a id="canonical-75878c7f3c8de8c76167228de54aa55b7f15b319e240065c603f350b555bc680"></a>
+<a id="canonical-1311201320301333-0330203132203013-1201121302022031-3211102222111123-1333011123030121-3202100000121130-1200033303110023-1111112330122000"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -742,36 +742,36 @@ Terraform syntax:
 connect_to_slo = {}
 ```
 
-<a id="canonical-daf9d9d8a971bc6b767cec67fd70ad1df5ce0c2334adad7da40b5f538e2eccdf"></a>
+<a id="canonical-3122332131213120-2221130123301223-1312133032301213-3331130022310131-3311303200300203-0310223122311331-2210002311331103-2032023230303133"></a>
 
-## Direct properties — connect_to_slo / c66de15635df / 3
+## Direct properties — connect_to_slo / 111203113133 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7eaa563ca69e2064255455e7bad17ae31284c4508770fd3f42be287ed4cdd9b4"></a>
+<a id="canonical-1332222211120330-2212213202001210-0211111011113213-2322310113223203-0102201030101100-2013130033310333-1002233202201332-3110303131212310"></a>
 
-## Next pages — connect_to_slo / c66de15635df / 4
+## Next pages — connect_to_slo / 111203113133 / 4
 
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-1371e14bd89a726283dc0310ab7e6a9c256dc0373013492eb7698da169d10d70"></a>
+<a id="canonical-0103130132011023-3120212213021202-2003313000030100-2223133212222130-0211123130000313-0300010310210232-2313122120312201-1221310100311300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5d643b30d306aa6acf40254b4add2ac1490f207512de8dc03bbc5a6275f0ad8"></a>
+<a id="canonical-2311311210032303-0031030012222212-2230331000021110-2310223131022230-0110210033020013-1101023132203130-0003232330112212-0213113300223120"></a>
 
-## isolated_nw — isolated_nw / 24adf093b175 / 2
+## isolated_nw — isolated_nw / 210323011311 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
 - isolated_nw
 
-<a id="canonical-2de2f5710b3427fd948deadcef910268001112fb29403a2e91d54052bb19edc2"></a>
+<a id="canonical-0231320233111301-0023031002133331-2110203132223130-3233210100021220-0000010101023323-0221100003220232-2101311110001102-2323012132313002"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -800,36 +800,36 @@ Terraform syntax:
 isolated_nw = {}
 ```
 
-<a id="canonical-4979e19c5cd3d328ac274b6715e474022cd0e0b6dbf332cd9ce0e4bbe6c89d0b"></a>
+<a id="canonical-1021132132012130-1130310331030220-2230021310231213-0111321013100002-0230310032002312-3123330303023031-2130320032102323-3212302021310023"></a>
 
-## Direct properties — isolated_nw / 24adf093b175 / 3
+## Direct properties — isolated_nw / 210323011311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f68b0b33e9b1a369d2d5442bf7a56f1a5e4fc1839f6cd374faae66839f55c08f"></a>
+<a id="canonical-3312202300230303-3221230122031221-3102311110100223-3313221112330122-1132103330012003-2133123031031310-3322223212122003-2133111130002033"></a>
 
-## Next pages — isolated_nw / 24adf093b175 / 4
+## Next pages — isolated_nw / 210323011311 / 4
 
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07"></a>
+<a id="canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e29a4c76ef4b7118224fe5328d8cfc0cc8b70b637332bd7c183b3c5e8bcc8a1c"></a>
+<a id="canonical-3202212210301312-3233102313010120-0202103332110302-2031203033300030-3020231300231203-1303030223311330-0120032303301132-2023303020220130"></a>
 
-## site_subnet_params — site_subnet_params / 036df84074a4 / 2
+## site_subnet_params — site_subnet_params / 100013102210 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
 - site_subnet_params
 
-<a id="canonical-2651de736895205154cbe6ecf6199654b5927cc7a0e2819283d449de50f256b3"></a>
+<a id="canonical-0212110131321303-1220211102001101-1110302332123230-3312012121121110-2311210213303013-2200320220012102-2003311010213132-1100330211122303"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -891,47 +891,47 @@ site_subnet_params {
 }
 ```
 
-<a id="canonical-123fcfad4cde986a6366b298b950d934ba5f95e36808129ee5b314422617760a"></a>
+<a id="canonical-0102033330332231-1030313221201222-1203121223022120-2321110031210310-2322113321113203-1220002001022132-3211230301101002-0212011313120022"></a>
 
-## Direct properties — site_subnet_params / 036df84074a4 / 3
+## Direct properties — site_subnet_params / 100013102210 / 3
 
-- [dhcp](resources--subnet--reference--group-001.md#canonical-f3bc19ba66a279be70c80922fe5344738e836f5b80f60cde13148dc26b408596): complete subsection reference.
+- [dhcp](resources--subnet--reference--group-001.md#canonical-3303233001212322-1212220213212332-1300302000210202-3332110310101303-2032200312331123-2000331200303132-0103011020313002-1223100020112112): complete subsection reference.
 
-- [site](resources--subnet--reference--group-001.md#canonical-d22109e70234e89a219e7a15a2cba985ce8031fd67371c29d430cb7028f31247): complete subsection reference.
+- [site](resources--subnet--reference--group-001.md#canonical-3102020100213213-0002031032202122-0201213213220111-2202302322212011-3032200003013331-1213031301300221-3110030030231300-0220330301021013): complete subsection reference.
 
-- [static_ip](resources--subnet--reference--group-001.md#canonical-0063064d8d06464dbb2aea5807d07bc0ea6d54761a27d188d6fa569b466f99e0): complete subsection reference.
+- [static_ip](resources--subnet--reference--group-001.md#canonical-0000120300121031-2031001210121031-2323022232221120-0013310013233000-3222123111101312-0122021331012020-3112332211122123-1012123321213200): complete subsection reference.
 
-- [subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-ea423b760296ec89e9c123afdff76e84136cc137a2201050bc96f2cfc3a776a3): complete subsection reference.
+- [subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-3222100203231312-0002211232302021-3221300102032233-3133331312322010-0103123030010313-2202020001001100-2330211233023033-3003221313122203): complete subsection reference.
 
-<a id="canonical-9ded17abf80c0a123bdef78d05dfc4476fc121f4ef200b9fd406b09965d88bc6"></a>
+<a id="canonical-2131323101132223-3320003000220102-0323313233132031-0011313330101013-1233300102013310-3233020000232133-3110001223002121-1211312020233012"></a>
 
-## Next pages — site_subnet_params / 036df84074a4 / 4
+## Next pages — site_subnet_params / 100013102210 / 4
 
-- [site_subnet_params.dhcp](resources--subnet--reference--group-001.md#canonical-f3bc19ba66a279be70c80922fe5344738e836f5b80f60cde13148dc26b408596)
-- [site_subnet_params.site](resources--subnet--reference--group-001.md#canonical-d22109e70234e89a219e7a15a2cba985ce8031fd67371c29d430cb7028f31247)
-- [site_subnet_params.static_ip](resources--subnet--reference--group-001.md#canonical-0063064d8d06464dbb2aea5807d07bc0ea6d54761a27d188d6fa569b466f99e0)
-- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-ea423b760296ec89e9c123afdff76e84136cc137a2201050bc96f2cfc3a776a3)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params.dhcp](resources--subnet--reference--group-001.md#canonical-3303233001212322-1212220213212332-1300302000210202-3332110310101303-2032200312331123-2000331200303132-0103011020313002-1223100020112112)
+- [site_subnet_params.site](resources--subnet--reference--group-001.md#canonical-3102020100213213-0002031032202122-0201213213220111-2202302322212011-3032200003013331-1213031301300221-3110030030231300-0220330301021013)
+- [site_subnet_params.static_ip](resources--subnet--reference--group-001.md#canonical-0000120300121031-2031001210121031-2323022232221120-0013310013233000-3222123111101312-0122021331012020-3112332211122123-1012123321213200)
+- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-3222100203231312-0002211232302021-3221300102032233-3133331312322010-0103123030010313-2202020001001100-2330211233023033-3003221313122203)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-f3bc19ba66a279be70c80922fe5344738e836f5b80f60cde13148dc26b408596"></a>
+<a id="canonical-3303233001212322-1212220213212332-1300302000210202-3332110310101303-2032200312331123-2000331200303132-0103011020313002-1223100020112112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c9df28feea0aaf05d8163cfc8c766870fbea06946c16a6b4913aad0c94d5184c"></a>
+<a id="canonical-3021313302203332-3222002222330011-3120011203303330-2030131212201300-3323322200122110-1230011222122310-2101032222310030-2110311101201030"></a>
 
-## site_subnet_params.dhcp — site_subnet_params.dhcp / fd16e85df51a / 2
+## site_subnet_params.dhcp — dhcp / 113133110122 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
 - site_subnet_params.dhcp
 
-<a id="canonical-102166a5738ce4858544f3a4ca668b74cc6035f4aaa62e41ade97cadbbf0272e"></a>
+<a id="canonical-0100020112122211-1303203032102011-2011101033032210-3022121220231310-3030120003113310-2222221202321001-2231322113302231-2323330002130232"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -960,37 +960,37 @@ Terraform syntax:
 dhcp = {}
 ```
 
-<a id="canonical-16bf20e4ddffa64e45f5ad74c05d4012e8aa95afb916f6662abc4698a7c3ca92"></a>
+<a id="canonical-0112233302003210-3131333322121032-1011331122311310-3000113110000102-3220222221112233-2321011233121212-0222233010122120-2213300330222102"></a>
 
-## Direct properties — site_subnet_params.dhcp / fd16e85df51a / 3
+## Direct properties — dhcp / 113133110122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0d9131b70154935f6580e450be71bfcd943740cd4ef9c3e20bd9e6fac15b7537"></a>
+<a id="canonical-0031210103012313-0001111021031133-1211200032101100-2332130123333031-2110031310003031-1032332130033202-0023312132123322-3001112313110313"></a>
 
-## Next pages — site_subnet_params.dhcp / fd16e85df51a / 4
+## Next pages — dhcp / 113133110122 / 4
 
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-d22109e70234e89a219e7a15a2cba985ce8031fd67371c29d430cb7028f31247"></a>
+<a id="canonical-3102020100213213-0002031032202122-0201213213220111-2202302322212011-3032200003013331-1213031301300221-3110030030231300-0220330301021013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f0aa620f9737372acc2f94b9fc4543f28c671185593bdc870fd0355b26568859"></a>
+<a id="canonical-3300222212020033-2113031303130222-3030023321102321-3330101110033302-2030121301012011-1121032331302013-0033310003111123-0212111220201121"></a>
 
-## site_subnet_params.site — site_subnet_params.site / a86454f076f3 / 2
+## site_subnet_params.site — site / 330013123303 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
 - site_subnet_params.site
 
-<a id="canonical-43e465669b32d157341ad8218ba2a46e9ccf90a8ce67ec1b8950889ac422fa60"></a>
+<a id="canonical-1003321012111212-2123030231011113-0310012231200201-2023220222101232-2130303321002220-3032121332300123-2021110020202122-3010020233221200"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1029,15 +1029,15 @@ site {
 }
 ```
 
-<a id="canonical-c158aed9d914e2d24612884d963139246f2ac07590fa1da85068235f7f35aae0"></a>
+<a id="canonical-3001112022323121-3121011032023102-1012010220201031-2112030103210210-1233022230001311-2100332201312220-1100122002031133-1333031122223200"></a>
 
-## Direct properties — site_subnet_params.site / a86454f076f3 / 3
+## Direct properties — site / 330013123303 / 3
 
-<a id="canonical-eff90ccc1dae1bf9a390f7d0e977a0a2dd974f8298f11b426dbcf5014890c77c"></a>
+<a id="canonical-3233332100303030-0131223201233321-2203210033133100-3221131322002202-3131211310332002-2120330101231002-1231233033110001-1020210030131330"></a>
 
-<a id="canonical-31faf23f6fdc0641d84aad3206f26bed649dc7e772f3a020edd08c06ef7b3e66"></a>
+<a id="canonical-0301332233020333-1233313000121001-3120102222310302-0012330212233231-1210213130133213-1302330322000200-3231310020300012-3233132303321212"></a>
 
-## name property — site_subnet_params.site / a86454f076f3 / 4
+## name property — site / 330013123303 / 4
 
 Type: `"string"`. Optional.
 
@@ -1098,11 +1098,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fcd95523beb3f1c525def23a634f718519f55f30c6c3bfaafd71ccde9f9e3d4a"></a>
+<a id="canonical-3330312111110203-2332230333013011-0211313233020322-1203103313012011-0121331111330300-3012300323332222-3331130130303132-2133213203311022"></a>
 
-<a id="canonical-1948e4afe2b515ea9b52483e7a79adeb5c6517fb6af282959c395b537ea99704"></a>
+<a id="canonical-0121102032102233-3202231101113222-2123110210200332-1322132122313223-1130121101133323-1222330220022111-2130032111231103-1332222121130010"></a>
 
-## namespace property — site_subnet_params.site / a86454f076f3 / 5
+## namespace property — site / 330013123303 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1170,11 +1170,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dac2ecc595e5251f6d852f10e60a7062da372a3b2f5ab8776c4af4549d7f706a"></a>
+<a id="canonical-3122300232303011-2111321102110133-1231201102330100-3212002213001202-3122031302220323-0233112223201313-1230102233101110-2131133313001222"></a>
 
-<a id="canonical-829cb2803bead0708d757540331355567c6d359084c3fa1e140f0c4c0a057ee3"></a>
+<a id="canonical-2002213023022000-0323322231001300-2031131113111000-0303010311111112-1330123103112100-2010300333220132-0110003300301030-0022001113323203"></a>
 
-## tenant property — site_subnet_params.site / a86454f076f3 / 6
+## tenant property — site / 330013123303 / 6
 
 Type: `"string"`. Computed.
 
@@ -1228,31 +1228,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8e6cfb680caddd9fb7bed262c0c6fc863384cc060c9633af08b4d0823b68a0dd"></a>
+<a id="canonical-2032123033231220-0030223131312133-2313233231021202-3000301233302012-0303201030300012-0030211203032233-0020231031002002-0323122022003131"></a>
 
-## Next pages — site_subnet_params.site / a86454f076f3 / 7
+## Next pages — site / 330013123303 / 7
 
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-0063064d8d06464dbb2aea5807d07bc0ea6d54761a27d188d6fa569b466f99e0"></a>
+<a id="canonical-0000120300121031-2031001210121031-2323022232221120-0013310013233000-3222123111101312-0122021331012020-3112332211122123-1012123321213200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-17c34e499e8c3be0c86abd722b85e23328b1708fa16c03fc20674ed6ab871cd4"></a>
+<a id="canonical-0113300310321021-2132203003233200-3020122223311302-0223201132020303-0220230113002033-2201123000033330-0200121310323112-2223201301303110"></a>
 
-## site_subnet_params.static_ip — site_subnet_params.static_ip / 4cf2623c177f / 2
+## site_subnet_params.static_ip — static_ip / 033001131333 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
 - site_subnet_params.static_ip
 
-<a id="canonical-fbd720a80b4692574f7e262ca32f96a9ae49b8cd3f676ce9aa8dd3db53b91f78"></a>
+<a id="canonical-3323311302002220-0023101221021113-1033133202120230-2203023321122221-2232102123203031-0333121312303221-2222203131033123-1103232101331320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1281,37 +1281,37 @@ Terraform syntax:
 static_ip = {}
 ```
 
-<a id="canonical-f18f8c6cbd9d44e9ea6f7f3e2862de456d8d1f7144ce61ca7adddb838634b9a6"></a>
+<a id="canonical-3301203320301230-2331213110103221-3222123313330332-0220120231321011-1231203101331301-1010303212013022-1322313131232003-2012031023212212"></a>
 
-## Direct properties — site_subnet_params.static_ip / 4cf2623c177f / 3
+## Direct properties — static_ip / 033001131333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cc82a45abc9316ee980bbb1a8f031d7b47cf61c571a737e3b13109c1caf28e8b"></a>
+<a id="canonical-3030200222101122-2330210301123232-2120002323230122-2033000301311323-1013303312013011-1301221303133203-2301030100213001-3022330220322023"></a>
 
-## Next pages — site_subnet_params.static_ip / 4cf2623c177f / 4
+## Next pages — static_ip / 033001131333 / 4
 
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-ea423b760296ec89e9c123afdff76e84136cc137a2201050bc96f2cfc3a776a3"></a>
+<a id="canonical-3222100203231312-0002211232302021-3221300102032233-3133331312322010-0103123030010313-2202020001001100-2330211233023033-3003221313122203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c7dde8e06f745e26373d56ddf653d2af36fb961f224d3d30831a1c0f4d778f27"></a>
+<a id="canonical-3013313132203200-1233131011320212-0313033111123131-3312110331022233-0312332321120133-0202103103310300-2003012201300033-1031131320330213"></a>
 
-## site_subnet_params.subnet_dhcp_server_params — site_subnet_params.subnet_dhcp_server_params / f004c8b7d086 / 2
+## site_subnet_params.subnet_dhcp_server_params — subnet_dhcp_server_params / 231331002012 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
 - site_subnet_params.subnet_dhcp_server_params
 
-<a id="canonical-d67171df47c63a740dc23920e5450f5c25573f8e9770c0529971eff4a66b1fd6"></a>
+<a id="canonical-3112130113013133-1013301203221310-0031300203210200-3211101100331130-0211111303332032-2113130030001102-2121130132333310-2212122301333112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1344,39 +1344,39 @@ subnet_dhcp_server_params {
 }
 ```
 
-<a id="canonical-2cbbfbde6c92a67be872d36a20e31d4943fd25c13bff28e915b0baea86c13e95"></a>
+<a id="canonical-0230232333233132-1230210222121323-3220130231031222-0200320301311021-1003333102113001-0323333302203221-0111230023223222-2012300103322111"></a>
 
-## Direct properties — site_subnet_params.subnet_dhcp_server_params / f004c8b7d086 / 3
+## Direct properties — subnet_dhcp_server_params / 231331002012 / 3
 
-- [dhcp_networks](resources--subnet--reference--group-001.md#canonical-66eb4058179dbeead82491d262b598e029f11099fcaefe8d247eb9a4d03c57ed): complete subsection reference.
+- [dhcp_networks](resources--subnet--reference--group-001.md#canonical-1212322310001120-0113213123323222-3120021021013102-1202231121203200-0221330101002121-3330223233322031-0210133223212210-3100033011133231): complete subsection reference.
 
-<a id="canonical-41484cb039f55244ff173f384fb6af57797a4eb8e91ccff74d387e86fbcb0c40"></a>
+<a id="canonical-1001102010302300-0321331111021010-3333011303330320-1033231222331113-1321132210322320-3221013030333313-1031032013322012-3323302300301000"></a>
 
-## Next pages — site_subnet_params.subnet_dhcp_server_params / f004c8b7d086 / 4
+## Next pages — subnet_dhcp_server_params / 231331002012 / 4
 
-- [site_subnet_params.subnet_dhcp_server_params.dhcp_networks](resources--subnet--reference--group-001.md#canonical-66eb4058179dbeead82491d262b598e029f11099fcaefe8d247eb9a4d03c57ed)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params.subnet_dhcp_server_params.dhcp_networks](resources--subnet--reference--group-001.md#canonical-1212322310001120-0113213123323222-3120021021013102-1202231121203200-0221330101002121-3330223233322031-0210133223212210-3100033011133231)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-66eb4058179dbeead82491d262b598e029f11099fcaefe8d247eb9a4d03c57ed"></a>
+<a id="canonical-1212322310001120-0113213123323222-3120021021013102-1202231121203200-0221330101002121-3330223233322031-0210133223212210-3100033011133231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2d9c1c2b1ecd072b28c9c2ad7c33cf420242a1ffc8be06c7496a87e67d6f0a23"></a>
+<a id="canonical-0231213001300223-0132303100130223-0220302130022231-1330030330331002-0002100222013333-3020233200123013-1021122220133212-1331123300220203"></a>
 
-## site_subnet_params.subnet_dhcp_server_params.dhcp_networks — site_subnet_params.subnet_dhcp_server_params.dhcp_networks / a19478f73615 / 2
+## site_subnet_params.subnet_dhcp_server_params.dhcp_networks — dhcp_networks / 331303120111 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-3509922f191306f8fed1a1d4413b3945d8c1d8ab5ab3c4445ffd32053f182f07)
-- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-ea423b760296ec89e9c123afdff76e84136cc137a2201050bc96f2cfc3a776a3)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [site_subnet_params](resources--subnet--reference--group-001.md#canonical-0311002121020233-0121010300123320-3332310122013110-1001032303211011-3120300131202223-1122230330101010-1133333103020011-0333012002330013)
+- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-3222100203231312-0002211232302021-3221300102032233-3133331312322010-0103123030010313-2202020001001100-2330211233023033-3003221313122203)
 - site_subnet_params.subnet_dhcp_server_params.dhcp_networks
 
-<a id="canonical-afd521966e8a733327a53b67f50b2e90b93e062170aba84d0332e71542a1a1af"></a>
+<a id="canonical-2233311102012112-1232202213030303-0213221103231213-3311002302322100-2321033200120201-1300222322201031-0003030232130111-1002220122012233"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1424,15 +1424,15 @@ dhcp_networks {
 }
 ```
 
-<a id="canonical-fb2338213d2e665128fd0470fcd26ba9ff2c4f5dc73ea83d33ac31a0734b26fb"></a>
+<a id="canonical-3323020303200201-0331023212121101-0220333100101300-3330310212232221-3333023010331131-3013033222200331-0303223003012200-1303102302123323"></a>
 
-## Direct properties — site_subnet_params.subnet_dhcp_server_params.dhcp_networks / a19478f73615 / 3
+## Direct properties — dhcp_networks / 331303120111 / 3
 
-<a id="canonical-44b3e1750ad9251ea0e54d1bda3163edf712d419009f2190c3e94cb866a424ec"></a>
+<a id="canonical-1010230332011311-0022312102110132-2200321110310123-3122030112033231-3313010231100121-0000213302012100-3003322110302320-1212221002103230"></a>
 
-<a id="canonical-725162802d89341d5e0063d101926dfc8c1959ee4523493ed90b26185eed6c80"></a>
+<a id="canonical-1302110112022000-0231202103100131-1132000012033101-0001210212313330-2030012111213232-1011020310210332-3121002302120120-1132323112302000"></a>
 
-## network_prefix property — site_subnet_params.subnet_dhcp_server_params.dhcp_networks / a19478f73615 / 4
+## network_prefix property — dhcp_networks / 331303120111 / 4
 
 Type: `"string"`. Optional.
 
@@ -1471,30 +1471,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c181ac40bebf5532e4beba76c3806a614010c3b072c7a91bd0d90072f555b2a"></a>
+<a id="canonical-2130012001223010-0023322333111103-0232102332232213-1230032000122212-0110000100300323-0013023013222101-2331003121000013-0233111111230222"></a>
 
-## Next pages — site_subnet_params.subnet_dhcp_server_params.dhcp_networks / a19478f73615 / 5
+## Next pages — dhcp_networks / 331303120111 / 5
 
-- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-ea423b760296ec89e9c123afdff76e84136cc137a2201050bc96f2cfc3a776a3)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [site_subnet_params.subnet_dhcp_server_params](resources--subnet--reference--group-001.md#canonical-3222100203231312-0002211232302021-3221300102032233-3133331312322010-0103123030010313-2202020001001100-2330211233023033-3003221313122203)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
 
-<a id="canonical-b8a99f5e7c9237c1dee4eec2a987d37e971d8d352d728faf67c4fc3afe6f9985"></a>
+<a id="canonical-2320222121331132-1330210203133001-3132321032323002-2221201331031332-2113013120310311-0231130220332233-1213301033300322-3332123321212011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ae704981aaa763ba30fafe58c3adc209b33c76a372abc63448f31a45258bb27"></a>
+<a id="canonical-1122321300102120-0122222213120323-2203003322333211-2030032231300200-2123030330131222-0313022223301203-1010203303012210-1102112023230213"></a>
 
-## timeouts — timeouts / 1c99646801be / 2
+## timeouts — timeouts / 122000012332 / 2
 
 Breadcrumbs:
 
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
 - timeouts
 
-<a id="canonical-c7842296a76b7d246642b3595ec11ce87cf8f87d74bc1e0211cf5d2ae931ffe9"></a>
+<a id="canonical-3013201002022112-2213122313310210-1212100223031121-1132300101303220-1330332033201331-1310233001320002-0101303311310222-3221030133333221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1506,15 +1506,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-9e6409e1677589580d875ceee6e8623a11905b28fc51c1f02f6bd968c66624d0"></a>
+<a id="canonical-2132121000213201-1213131120211120-0031201311303232-3212322012020322-0101210011230220-3330110130013300-0233122331211220-3012121202103100"></a>
 
-## Direct properties — timeouts / 1c99646801be / 3
+## Direct properties — timeouts / 122000012332 / 3
 
-<a id="canonical-3cedf4e4d53c5bc4037899a8598d57729ed112495222370f683f3c5be3974dc8"></a>
+<a id="canonical-0330323133103210-3111033011233010-0003132021212220-1121203111131302-2132310101021021-1102020203130033-1220033303301123-3203211310313020"></a>
 
-<a id="canonical-30175bbee95b792ec775cea09dea987884bfaf59e09fcb6d3ce53dd16b857b76"></a>
+<a id="canonical-0300011311232332-3221112313210232-3013131130322200-2131322221201320-2010233322331121-3200213330231231-0330321103313101-1223201113231312"></a>
 
-## create property — timeouts / 1c99646801be / 4
+## create property — timeouts / 122000012332 / 4
 
 Type: `"string"`. Optional.
 
@@ -1522,11 +1522,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-27217832a5154be15fcc09387fa94d2b78b44f4ce86256de6d78d95a3c58edf6"></a>
+<a id="canonical-0213020113200302-2211011110233201-1133303000210320-1333222110310223-1320231010331030-3220120211123132-1231132031211122-0330112032313312"></a>
 
-<a id="canonical-8db87e4fba67f767749d733836e915cabfecfd2dccf3a097e10ee1bb6bd0dd2f"></a>
+<a id="canonical-2031232013321033-2322121333131213-1310213113030320-0312322101113022-2333323033310231-3030330322002113-3201003232012323-1223310031310233"></a>
 
-## delete property — timeouts / 1c99646801be / 5
+## delete property — timeouts / 122000012332 / 5
 
 Type: `"string"`. Optional.
 
@@ -1535,11 +1535,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-7b86f7671bedcec89bccdd98faec98581a528b0aa6906a15be19ddb2a433ea99"></a>
+<a id="canonical-1323201233131213-0123323130323020-2123303031312120-3322323021201120-0122110220230022-2212210012220111-2332012131312302-2210030332222121"></a>
 
-<a id="canonical-020126cbb20448e00c3a29efe658abce4d214351a514d737c6ecbc9592fa5bf0"></a>
+<a id="canonical-0002000102123023-2302001010203200-0030032202213233-3212112022233032-1031020110031101-2211011031130313-3012323023302111-2102332211233300"></a>
 
-## read property — timeouts / 1c99646801be / 6
+## read property — timeouts / 122000012332 / 6
 
 Type: `"string"`. Optional.
 
@@ -1548,11 +1548,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-6059d26ce8b789a5b19d1e72e2a0c20366c48654687517cb7033b8fddb6352a4"></a>
+<a id="canonical-1200112131021230-3220231320212211-2301213101321302-3202220030020003-1212301020121110-1220131101133023-1300030323203331-3123120311022210"></a>
 
-<a id="canonical-203689c323069b80ba20410f58c306efd798cc7df71f1e859831c5f882b9531b"></a>
+<a id="canonical-0200031220213003-0203001221232000-2322020010010033-1120300300123233-3113212030301331-3313013301322011-2120030130113320-2002232111030123"></a>
 
-## update property — timeouts / 1c99646801be / 7
+## update property — timeouts / 122000012332 / 7
 
 Type: `"string"`. Optional.
 
@@ -1560,9 +1560,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-25ce6d26911f6e4f22735be2de40732e0d1e9437127968c7d101dc01deca2d74"></a>
+<a id="canonical-0211303212310212-2101013312321033-0202130311233202-3132100013030232-0031013221100313-0102132112203013-3101000131300001-3132302202311310"></a>
 
-## Next pages — timeouts / 1c99646801be / 8
+## Next pages — timeouts / 122000012332 / 8
 
-- [Property reference](resources--subnet--reference--group-001.md#canonical-0af76c82047a5ef49e34e177ac5b41716ecac250d2abccdb52897da51dccc33d)
-- [xcsh_subnet](../resources/subnet.md#canonical-285e02e33caffc9b0ccb490d0d8dc76b095484047258d3416444a6aef03e3a41)
+- [Property reference](resources--subnet--reference--group-001.md#canonical-0022331312302002-0010132211323310-2132031032011313-2230112310011301-1232302230021100-3102222330303123-1102202113312211-0131303030030331)
+- [xcsh_subnet](../resources/subnet.md#canonical-0220113200023203-0330223333302123-0030302310210031-0031203130131223-0021111020100010-1302112031031001-1210101022122232-3300033203221001)

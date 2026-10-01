@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_code_base_integratio
 
 # xcsh_code_base_integration lifecycle
 
-<a id="canonical-e9857ac1ed338d3232223089b0ed5225775440e3451a7d20239c3c190e4506a7"></a>
+<a id="canonical-3221201113223001-3231030320310302-0302020203002021-2300323111020211-1313111010003203-1011012213310200-0203213003300121-0032101100122213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2cffdc3d5ea9691ffd72f89c5a93f7e15d883f6d17fd03d550cb01c68ce4b817"></a>
+<a id="canonical-0230333331300331-1132222112210133-3331130233202130-1122210333133201-1131202003331231-0113333100033111-1100302300013012-2030321023200113"></a>
 
-## Import — Import / 48f48841bdcf / 2
+## Import — Import / 100123313033 / 2
 
 Breadcrumbs:
 
-- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-e465430d1245d444ce5a873302696b28704064b47a369e63e1c6a0047c8a5cc2)
+- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_code_base_integration.example system/example
 ```
 
-<a id="canonical-3b8f243af510f0472c0520abfa194574c5e1d5e1096514c7e1852a702175073d"></a>
+<a id="canonical-0323203302100322-3311010033001013-0230001102002223-3322012110111310-3011320131113201-0021121101103013-3201201102221300-0201131100130331"></a>
 
-## Next pages — Import / 48f48841bdcf / 3
+## Next pages — Import / 100123313033 / 3
 
-- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-e465430d1245d444ce5a873302696b28704064b47a369e63e1c6a0047c8a5cc2)
+- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 
-<a id="canonical-2a574d849df264fa58f692225dd9561bc9e61888ae655e0bcb3d2ab2686d1468"></a>
+<a id="canonical-0222111310312010-2131330212103322-1120331221020202-1131312111120123-3021321201202020-2232121111320023-3023033102222302-1220123101101220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eb073849752405f0b7cd7ba25a7eae369fe2d9831de7da7e52fc87d0f29efb76"></a>
+<a id="canonical-3223001303201021-1311021000113300-2313303113232202-1122133222320312-2133320231212003-0131321331221332-1102333020133100-3302213233231312"></a>
 
-## Timeouts — Timeouts / 0f1091ac11c9 / 2
+## Timeouts — Timeouts / 223001013021 / 2
 
 Breadcrumbs:
 
-- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-e465430d1245d444ce5a873302696b28704064b47a369e63e1c6a0047c8a5cc2)
+- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--code_base_integration--reference--group-001.md#canonical-41f3c8550b8529fda8a9906a2b929b165847756bf3daba96287289d43c9b3323). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--code_base_integration--reference--group-001.md#canonical-1001330330201111-0023201102213331-2220222121001222-0223210221230112-1120101313111223-3303312223222112-0220130220213110-0330212303030203). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-1400816085338be2cda0a5abbaa75b0d7b743b2fbca1f6a3e098215873a68190"></a>
+<a id="canonical-0110000020011200-2011030320233202-3031220022112223-2322221311230031-1323131003230233-2330220133122203-3200212002011120-1303221220012100"></a>
 
-## Next pages — Timeouts / 0f1091ac11c9 / 3
+## Next pages — Timeouts / 223001013021 / 3
 
-- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-e465430d1245d444ce5a873302696b28704064b47a369e63e1c6a0047c8a5cc2)
+- [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)

@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_virtual_network life
 
 # xcsh_virtual_network lifecycle
 
-<a id="canonical-b77c9c94c6bab3e06ab6c7ae8d3916bb9df610d4412aec376cb1a98908fdd0d4"></a>
+<a id="canonical-2313133021302110-3012232223033200-1222231230132232-2031032101122323-2131331201003110-1001022232300313-1230230122212021-0020333131003110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c6a227413111ccc998ba59cf6d431f999cd306eb0a30da107f7dd40598826ea6"></a>
+<a id="canonical-3012220202131001-0301010130303021-2120232211213033-1231100301332121-2130310300123223-0022030031220100-1333133131100011-2120200212322212"></a>
 
-## Import — Import / 9a4c25d226e4 / 2
+## Import — Import / 310202123210 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_network](../resources/virtual_network.md#canonical-21f8cd52cc88675de24bb43345d87da0d8c4a374c7bc1f8c33fd0f7b6ebd5181)
+- [xcsh_virtual_network](../resources/virtual_network.md#canonical-0201332030311102-3030202012131131-3202102323100303-1011312013312200-3120301022031310-3013233001332030-0303333100331323-1232233111012001)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_virtual_network.example system/example
 ```
 
-<a id="canonical-b18cda76e5fbd36acbba88dc767b9958e7d6d5a8f3ed10e10eb7be5aa20818b9"></a>
+<a id="canonical-2301203031221312-3211332331031222-3023232220203130-1312132321211120-3213311231112220-3303323101003201-0032231323321122-2202002001202321"></a>
 
-## Next pages — Import / 9a4c25d226e4 / 3
+## Next pages — Import / 310202123210 / 3
 
-- [xcsh_virtual_network](../resources/virtual_network.md#canonical-21f8cd52cc88675de24bb43345d87da0d8c4a374c7bc1f8c33fd0f7b6ebd5181)
+- [xcsh_virtual_network](../resources/virtual_network.md#canonical-0201332030311102-3030202012131131-3202102323100303-1011312013312200-3120301022031310-3013233001332030-0303333100331323-1232233111012001)
 
-<a id="canonical-15d1f867c89c5630f849d88c02050fab6153880f566ef63a6babb8d7c56f904c"></a>
+<a id="canonical-0111310133201213-3020213011120300-3320102131202030-0002001100332223-1201110320200033-1112123233120322-1223222323203113-3011123321001030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-19fe9a5e55fda4eba7cfa3dba065eb8c1bf8a8a80f4fc980e24f86f29db8b41d"></a>
+<a id="canonical-0121333221221132-1111333122103223-2213303322033123-2200121132232030-0123332022202220-0033103330212000-3202103320123302-2131232023100131"></a>
 
-## Timeouts — Timeouts / cf0ea8dcfdb9 / 2
+## Timeouts — Timeouts / 313033312321 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_network](../resources/virtual_network.md#canonical-21f8cd52cc88675de24bb43345d87da0d8c4a374c7bc1f8c33fd0f7b6ebd5181)
+- [xcsh_virtual_network](../resources/virtual_network.md#canonical-0201332030311102-3030202012131131-3202102323100303-1011312013312200-3120301022031310-3013233001332030-0303333100331323-1232233111012001)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--virtual_network--reference--group-001.md#canonical-33cd972095a87e93a9a12c9064ff94de12937675103eebb6485a244ca2e1623e). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--virtual_network--reference--group-001.md#canonical-0303303121130200-2111222013322103-2221220102302100-1210333321103132-0102210313121311-0100033232232312-1020112202101030-2202320112020332). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-e53887bea3410a43e0a946371f489f47c80468db80d73a1b0ed5748e9d0a703a"></a>
+<a id="canonical-3211032020132332-2203100100221003-3200222110120313-0133102021331013-3020001012203123-2000311303220123-0032311113102032-2131002213000322"></a>
 
-## Next pages — Timeouts / cf0ea8dcfdb9 / 3
+## Next pages — Timeouts / 313033312321 / 3
 
-- [xcsh_virtual_network](../resources/virtual_network.md#canonical-21f8cd52cc88675de24bb43345d87da0d8c4a374c7bc1f8c33fd0f7b6ebd5181)
+- [xcsh_virtual_network](../resources/virtual_network.md#canonical-0201332030311102-3030202012131131-3202102323100303-1011312013312200-3120301022031310-3013233001332030-0303333100331323-1232233111012001)

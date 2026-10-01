@@ -6,25 +6,25 @@ description: "Complete grouped canonical reference for xcsh_site_upgrade_os life
 
 # xcsh_site_upgrade_os lifecycle
 
-<a id="canonical-028279c17021882b70ebec1f61e0cc1a398d0aff25c0456483a83acbae703e02"></a>
+<a id="canonical-0002200213213001-1300020120200223-1300322332300133-1201320030300122-0321203100223333-0211300010111210-2003222003223023-2232130003320002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ef9ed4f6c5a3128202720da443eb841d777d4e2a5286f7d84161a067565dacd5"></a>
+<a id="canonical-3233213231103312-3011220301022002-0002130200312210-1003322320100131-1313133110320222-1102201233133120-1001120122001213-1112113122303111"></a>
 
-## Lifecycle — Lifecycle / 042cbfa5c3d1 / 2
+## Lifecycle — Lifecycle / 221130033101 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_upgrade_os](../actions/site_upgrade_os.md#canonical-094cbfe1e9c98c0b0352113f3cdf16dc1917d92802e806ed418e980550d32637)
+- [xcsh_site_upgrade_os](../actions/site_upgrade_os.md#canonical-0021103023333201-3221302120300023-0003110201010333-0330313301123130-0121011331210220-0002322000123231-1001203221200011-1100310302120313)
 - Lifecycle
 
 Invoke this action using Terraform action triggers or `terraform apply -invoke`. The action executes its documented operation; it does not maintain a resource lifecycle. Inspect asynchronous operations separately where described by the API.
 
-<a id="canonical-1f62122c2a7eb49ad3999b732bb72f844e2a4ca529a16fc2c12ab4295ae75296"></a>
+<a id="canonical-0133120201020230-0222133223102122-3103212121231303-0223231302332010-1032022210302211-0221220112333002-3001022223100221-1122321311022112"></a>
 
-## Next pages — Lifecycle / 042cbfa5c3d1 / 3
+## Next pages — Lifecycle / 221130033101 / 3
 
-- [xcsh_site_upgrade_os](../actions/site_upgrade_os.md#canonical-094cbfe1e9c98c0b0352113f3cdf16dc1917d92802e806ed418e980550d32637)
+- [xcsh_site_upgrade_os](../actions/site_upgrade_os.md#canonical-0021103023333201-3221302120300023-0003110201010333-0330313301123130-0121011331210220-0002322000123231-1001203221200011-1100310302120313)

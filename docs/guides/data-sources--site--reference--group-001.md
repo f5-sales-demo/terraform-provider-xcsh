@@ -6,52 +6,52 @@ description: "Complete grouped canonical reference for xcsh_site reference."
 
 # xcsh_site reference
 
-<a id="canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7"></a>
+<a id="canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b91a8a0759ec02826d0a0c5483397d4801e2c9dfbe591314f08a97409bd8146d"></a>
+<a id="canonical-2321012220220013-1121323000022002-1231002200301110-2003032113311020-0001320230213133-2332112101030110-3300202221131000-2123312001101231"></a>
 
-## Property reference — Property reference / 0ba6da97e504 / 2
+## Property reference — Property reference / 211332110010 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 - Property reference
 
-<a id="canonical-730022ba1af59798222811d6f403a7f5cf05e36974cadd2fc699217454e98e9a"></a>
+<a id="canonical-1303000002022322-0122331121132120-0202022001013112-3310000322133311-3033001132031221-1310302231310233-3012212102011310-1110322120322122"></a>
 
-## Direct properties — Property reference / 0ba6da97e504 / 3
+## Direct properties — Property reference / 211332110010 / 3
 
-<a id="canonical-e1edcdbf0d8e265065623f86f5ffc7d0ac4b426006ea5460b423657198319e4b"></a>
+<a id="canonical-3201323130312333-0031203202121100-1211120203332012-3311333330133100-2230102310021200-0012322211101200-2310020312111301-2120030121321023"></a>
 
-<a id="canonical-306ea2be33e547ea5c8a34fea4778308e5b807e262722c17811f5bed26a5e97d"></a>
+<a id="canonical-0300123222022332-0303321110133222-1130202203103332-2210131320030020-3211232000133202-1202130202300113-2001013311233231-0212221132211331"></a>
 
-## address property — Property reference / 0ba6da97e504 / 4
+## address property — Property reference / 211332110010 / 4
 
 Type: `"string"`. Computed.
 
 Site's geographical address that can be used to determine its latitude and longitude.
 
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce): complete subsection reference.
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032): complete subsection reference.
 
-<a id="canonical-dc0f3d6568afbc546327f69ebc7aab839521db5a566ab77909efdee846c6e426"></a>
+<a id="canonical-3130003303311211-1220223323301110-1203021333122132-2330132222232003-2111020131231122-1112122223131321-0021323331323220-1012301232100212"></a>
 
-<a id="canonical-7aa57f9963d96bfad35d2c566f7a2c1d4e20c3fa59c9b8725990950d385cf3ff"></a>
+<a id="canonical-1322221113332121-1203312112233322-3103113102301112-1233132202300131-1032020030033322-1121302123201302-1121210021110031-0320113033033333"></a>
 
-## annotations property — Property reference / 0ba6da97e504 / 5
+## annotations property — Property reference / 211332110010 / 5
 
 Type: `["map", "string"]`. Computed.
 
 Annotations.
 
-<a id="canonical-a1189e7b3d5d87ce0774e7772c9424e9c26caa09523f393015324d9ba9f01db3"></a>
+<a id="canonical-2201012021321323-0331113120133032-0013131032131313-0230211002103221-3002123022220021-1102033303210300-0111030210312123-2221330001312303"></a>
 
-<a id="canonical-036705e69c175495326e167b5fb25c5f05b3f382a5f8692ddc25314bfc9a75be"></a>
+<a id="canonical-0003121300113212-2130011311102111-0302123201121323-1133230211301133-0011230333032002-2211332012210231-3130021103011023-3330212213112332"></a>
 
-## bgp_peer_address property — Property reference / 0ba6da97e504 / 6
+## bgp_peer_address property — Property reference / 211332110010 / 6
 
 Type: `"string"`. Computed.
 
@@ -59,22 +59,22 @@ Optional BGP peer address that can be used as parameter for BGP configuration wh
 to fetch BGP peer address from site Object. This can be used to change peer address per site in
 fleet.
 
-<a id="canonical-a25f5c93d8e980f4d4c967adb74a1ec317146e35fbb6b2ec61e35d81c2fecfae"></a>
+<a id="canonical-2202113311302103-3120322120003310-3110302112132231-2313102201323003-0113011012320311-3323231223023230-1201320311312001-3002333230332232"></a>
 
-<a id="canonical-f9d4035e931870b55ec0b1e4315d4f393c2d8032a3488c585bc0cd9c1f10cbed"></a>
+<a id="canonical-3321311000031132-2103012013002311-1132300023013210-0301113110330321-0330023120000302-2203102020301120-1123300030312130-0133010030233231"></a>
 
-## bgp_router_id property — Property reference / 0ba6da97e504 / 7
+## bgp_router_id property — Property reference / 211332110010 / 7
 
 Type: `"string"`. Computed.
 
 Optional BGP router ID that can be used as parameter for BGP configuration when BGP is configured to
 fetch BGP router ID from site object. This can be used to change router ID per site in a fleet.
 
-<a id="canonical-19981d07792ba1c659d6bec32bfe2fa0c9ee548db3f42cb47c4d7071e2590f62"></a>
+<a id="canonical-0121212001310013-1321022322013012-1121311223323003-0223333202332200-3021323211102031-2303331002302310-1330103113001301-3202112100331202"></a>
 
-<a id="canonical-34bbbf24a24c82e66d529cde45abda67f2609ff1d450e6c68fca955ef71c2d2a"></a>
+<a id="canonical-0310232323330210-2202103020023212-1231110221303132-1011222331221213-3302120021333301-3110110032123012-2033302221111132-3313013002310222"></a>
 
-## ce_site_mode property — Property reference / 0ba6da97e504 / 8
+## ce_site_mode property — Property reference / 211332110010 / 8
 
 Type: `"string"`. Computed.
 
@@ -85,29 +85,29 @@ Gateway CE DC Cloud Gateway CE CPE CE. Possible values are \`CE\_SITE\_MODE\_ING
 \`CE\_SITE\_MODE\_INGRESS\_GW\`, \`CE\_SITE\_MODE\_EGRESS\_GW\`, \`CE\_SITE\_MODE\_DC\_CLOUD\_GW\`,
 \`CE\_SITE\_MODE\_CPE\`. Defaults to \`CE\_SITE\_MODE\_INGRESS\_EGRESS\_GW\`.
 
-- [connected_re](data-sources--site--reference--group-001.md#canonical-85706de1aed9b2978a14e030cedde0be433104392d6a8841ea76bb2dfbeaa589): complete subsection reference.
+- [connected_re](data-sources--site--reference--group-001.md#canonical-2011130012313201-2232312123022113-2022011032000300-3032313132002332-1003030100100321-0231122220201001-3222131223230231-3323322222112021): complete subsection reference.
 
-- [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-70617853cc03e32ab5d93d5623a6b5794c6f8b550e5f402d8a1445c8bba394a4): complete subsection reference.
+- [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-1300120113201103-3030000332030222-2311312103311112-0203221223111321-1030123320231111-0032113310000231-2022011010113020-2323220321102210): complete subsection reference.
 
-- [coordinates](data-sources--site--reference--group-001.md#canonical-4acdcf69b09e0ea8e1684d40f9537429ddefa1d373e5328e2ea7fc7e4f2f9faf): complete subsection reference.
+- [coordinates](data-sources--site--reference--group-001.md#canonical-1022303130331221-2300213200322220-3201122010311000-3321110313100221-3131323322013103-1303321103022032-0232221333301332-1033023321332233): complete subsection reference.
 
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5): complete subsection reference.
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311): complete subsection reference.
 
-<a id="canonical-1aa0740fe289e6156b2f282987f1a6246707c082298b0c774cd1854c599498c2"></a>
+<a id="canonical-0122220013100033-3202202132120111-1223023302200221-2013330122120210-1213001330002002-0221202300301313-1030310120111030-1121211021203002"></a>
 
-<a id="canonical-a2b0deadf8799206d97c1ccf5f1ed880c4c0007de37d93a65b4d844c5eeeb7ca"></a>
+<a id="canonical-2202230031322231-3320132121020012-3121133001303033-1133013231202000-3010300000001331-3203133121032212-1123103120101030-1132323223133022"></a>
 
-## description property — Property reference / 0ba6da97e504 / 9
+## description property — Property reference / 211332110010 / 9
 
 Type: `"string"`. Computed.
 
 Description.
 
-<a id="canonical-4701dea9755d7fe85de1c270abf24ae95b80cf163833ffb93a880047d3bf799d"></a>
+<a id="canonical-1013000131322221-1311113113333220-1131320130021300-2223330210223221-1123200030330112-0320030333332321-0322202000001013-3103233313212131"></a>
 
-<a id="canonical-9a2bf0caa8ac5b4095375ee3179585865c8f0dc59dfd8fae3b0c87020cd1f2ac"></a>
+<a id="canonical-2122022333003022-2220223011231000-2111031311323203-0113211120112012-1130203300313011-2131333120332232-0323003020130002-0030310133022230"></a>
 
-## desired_pool_count property — Property reference / 0ba6da97e504 / 10
+## desired_pool_count property — Property reference / 211332110010 / 10
 
 Type: `"number"`. Computed.
 
@@ -115,41 +115,41 @@ Desired pool count represent desired number of worker(non master) nodes for manu
 cloud(AWS, GCP, Azure) sites. The desired count must be less than or equal to the maximum size of
 the scaling group for a given public cloud. One may also have to increase maximum scaling group..
 
-<a id="canonical-82b2541194a96edfb165a32a9d30c96aed7874085195254a19879db8f0948b8e"></a>
+<a id="canonical-2002230211100101-2110222112323133-2301121122030222-2131030030211222-3231132013100020-1101211102111022-0121201321312320-3300211020232032"></a>
 
-<a id="canonical-729171f833e8bdccdcbadd3d99129b189bd85a4d746e67890ce7c24b6cc25289"></a>
+<a id="canonical-1302210113013320-0303322023313030-3130232231310331-2121010221230120-2123312011221031-1310123212132021-0030321330021023-1230300211022021"></a>
 
-## global_access_k8s_enabled property — Property reference / 0ba6da97e504 / 11
+## global_access_k8s_enabled property — Property reference / 211332110010 / 11
 
 Type: `"bool"`. Computed.
 
 Enable or disable functionality flag
 
-<a id="canonical-6014e9e7b0c1ead19e0db77ea656d80dd997fffc494fca3ce3c928b055307cd9"></a>
+<a id="canonical-1200011032213213-2300300132223101-2132003123131332-2212111231200031-3121211333333330-1021103330220330-3203302102202300-1111030013303121"></a>
 
-<a id="canonical-33a5b89c05e8c6bd34613d951064d2248f188092280225ebf30b680fe07969b4"></a>
+<a id="canonical-0303221123202130-0011322030122331-0310120103312111-0100121031020210-2033012020002102-0220000202113223-3303002312200033-3200132112212310"></a>
 
-## id property — Property reference / 0ba6da97e504 / 12
+## ID property — Property reference / 211332110010 / 12
 
 Type: `"string"`. Computed.
 
 Unique identifier.
 
-<a id="canonical-835345b0849e849a4fca0028e140f836d025ddaa2439243203b4ab0ef49207c2"></a>
+<a id="canonical-2003110310112300-2010213220102122-1033302200000220-3201100033200312-3100021131312222-0210032102100302-0003231022230032-3310210200133002"></a>
 
-<a id="canonical-2c2911d674b3c44ac54ddee358d713e00ba1c958477d3b3e24289e1af2af983e"></a>
+<a id="canonical-0230022101013112-1310230330101022-3011103131323203-1120311301033200-0023220130211120-1013133103230332-0210022021320122-3302223321200332"></a>
 
-## inside_nameserver property — Property reference / 0ba6da97e504 / 13
+## inside_nameserver property — Property reference / 211332110010 / 13
 
 Type: `"string"`. Computed.
 
 Optional IPv4 DNS server to be used for name resolution in inside network.
 
-<a id="canonical-48127a41799ba8399ce5b39dd28f5814b7086fe1a340e21988e48491a45f5254"></a>
+<a id="canonical-1020010213221001-1321212322200321-2130321123032131-3102203311200110-2313002012333201-2203100032020121-2020321020102101-2210113311021110"></a>
 
-<a id="canonical-ae56f5f85d7053779e0b5885abfa0fbd7618b38a3c4c9baa9704ca9024dc5ddb"></a>
+<a id="canonical-2232111233113320-1131130011031313-2132002311202011-2223332200332331-1312012023032022-0330103021232222-2113001030222100-0210313011313123"></a>
 
-## inside_vip property — Property reference / 0ba6da97e504 / 14
+## inside_vip property — Property reference / 211332110010 / 14
 
 Type: `"string"`. Computed.
 
@@ -157,106 +157,106 @@ Optional Virtual IP to be used as automatic VIP for site local inside network. S
 'VIP' in advertise policy to see when Inside VIP is used. When configured, this is used as VIP
 (depending on advertise policy configuration).
 
-<a id="canonical-3520fb34b7065f08d4ffd16c39d742d83b4e731ca8e7a153b5c4c07fea78f724"></a>
+<a id="canonical-0311020033230310-2313001211330020-3110333331011230-0321311310023120-0323103213030130-2220321322011103-2311301030001333-3222132033130210"></a>
 
-<a id="canonical-9d8e4d2f84e82f38bc23a028c405d8d730d8e044280f70caa8f60dddc19e47a3"></a>
+<a id="canonical-2131203210310233-2010322002330320-2330020322000220-3010001131203113-0300312032001010-0220003313003022-2220331200313131-3001213210132203"></a>
 
-## ipsec_ssl_nodes_fqdn property — Property reference / 0ba6da97e504 / 15
+## ipsec_ssl_nodes_fqdn property — Property reference / 211332110010 / 15
 
 Type: `["list", "string"]`. Computed.
 
 FQDN resolves to responders node IP, if there are multiple nodes at site the resolution will give a
 list of all/some individual node IP. Multiple FQDN for same site is also allowed.
 
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380): complete subsection reference.
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000): complete subsection reference.
 
-<a id="canonical-b1b8e7293e1db75693f346144a4a8029ebd9f3884b8cff90d2f49bfc32ca5c23"></a>
+<a id="canonical-2301232032130221-0332013123131112-2103330310120110-1022102220000221-3223312133032020-1023203033332100-3102331021233330-0302302211300203"></a>
 
-<a id="canonical-f66c62de446b144b18d4368bd4fc4ce014bfd9ccec41ba4213ec843de36b29f7"></a>
+<a id="canonical-3312123012023132-1010122301101023-0120311003122023-3110333010303200-0110233331213030-3230100123221002-0103323020100331-3203122302213313"></a>
 
-## labels property — Property reference / 0ba6da97e504 / 16
+## labels property — Property reference / 211332110010 / 16
 
 Type: `["map", "string"]`. Computed.
 
 Labels.
 
-<a id="canonical-1a41503c77158a53a9f2b3fbce96d62a7038e6232fcf263f991f16bb1fe3e2ee"></a>
+<a id="canonical-0122100111000330-1313011120221103-2221330223033323-3032211231120222-1300032032120203-0233303302120333-2121013301122323-0133320332023232"></a>
 
-<a id="canonical-cef9baafbc1098d4858b7df280b7111301ba16d846c8b2ba6f4ea889f65e7dff"></a>
+<a id="canonical-3032332123222233-2330010021203110-2011202313313302-2000231301010103-0001232201123120-1012302023022322-1233103222202021-3312113213313333"></a>
 
-## local_access_k8s_enabled property — Property reference / 0ba6da97e504 / 17
+## local_access_k8s_enabled property — Property reference / 211332110010 / 17
 
 Type: `"bool"`. Computed.
 
 Enable or disable functionality flag
 
-<a id="canonical-e9309e289d7405c9e1feb14ace890f6ba6d00dea8387079db677ca2d214ad8ab"></a>
+<a id="canonical-3221030021320220-2131131000113021-3201333223011022-3032202100331223-2212310000313222-2003201300132131-2312131330220231-0201102231202223"></a>
 
-<a id="canonical-29e66ab56214e8ab84e661a4d212b4734111f3e39da56cd2b746bc16c7f1aad1"></a>
+<a id="canonical-0221321212222311-1202011032202223-2010321212012210-3102010223101303-1001010133033203-2131221112303102-2313101223300112-3013330122223101"></a>
 
-## local_k8s_access_enabled property — Property reference / 0ba6da97e504 / 18
+## local_k8s_access_enabled property — Property reference / 211332110010 / 18
 
 Type: `"bool"`. Computed.
 
 Lets user know if this site has local K8s cluster enabled via fleet configuration.
 
-- [main_nodes](data-sources--site--reference--group-001.md#canonical-e659811d82fb9727fa18dff418f5ce4c62d4b56265159514aabefeaf9e7885da): complete subsection reference.
+- [main_nodes](data-sources--site--reference--group-001.md#canonical-3212112120010131-2002332321130213-3322012031333310-0120331130321030-1202311023111202-1211011121110110-2222233233322233-2132132020113122): complete subsection reference.
 
-<a id="canonical-c226eeb4afcede522d549d37b6550101c32e498f21aed605aa213dd09e4648b1"></a>
+<a id="canonical-3002021232322310-2233303231321102-0231111021310313-2312111100010001-3003023210212033-0201223231120011-2222020103313100-2132101210202301"></a>
 
-<a id="canonical-9131cab63335ab28a8afd22acea5cac34eda1c551de0f16d56a6395409aa5ce9"></a>
+<a id="canonical-2101030130222312-0303031122230220-2220223331020222-3032221130223003-1032312201301111-0131320033011231-1112221203211110-0021222211303221"></a>
 
-## multus_enabled property — Property reference / 0ba6da97e504 / 19
+## multus_enabled property — Property reference / 211332110010 / 19
 
 Type: `"bool"`. Computed.
 
 Indicates that Multus cni is enabled on the site.
 
-<a id="canonical-0e081d1ccafdd9419b42618cc8fdb922b3f5ef98bdd1dacf1a6294bd271a75e0"></a>
+<a id="canonical-0032002001310130-3022333131211001-2123100212012030-3020333123210202-2303331132332120-2331310131223033-0122120221102331-0213012213113200"></a>
 
-<a id="canonical-e934758c72d28998a041198cbbba8516c4caf1623aed57f4c193e4bf2f3b65b2"></a>
+<a id="canonical-3221031013112030-1302310220212120-2200100101212030-2323232220110112-3010302233011202-0322323111133310-3001210332102333-0233032312112302"></a>
 
-## name property — Property reference / 0ba6da97e504 / 20
+## name property — Property reference / 211332110010 / 20
 
 Type: `"string"`. Required.
 
 Name of the Site to look up.
 
-<a id="canonical-af9323d78a9e8ffc49c410f7893d78eb6640d89165bb8896b720e2bb0485f404"></a>
+<a id="canonical-2233210302033113-2022213220333330-1021301001003313-2021033113203223-1212100031202101-1211232320202112-2313020032022323-0010201133100010"></a>
 
-<a id="canonical-f82349cf6ba50498f9c9a4554efaa11d24a10c043f9774ab3c07553bff184b54"></a>
+<a id="canonical-3320020310213033-1223221100102120-3321302122101111-1032332222010131-0210220100300010-0333211313102223-0330001311110323-3333012010231110"></a>
 
-## namespace property — Property reference / 0ba6da97e504 / 21
+## namespace property — Property reference / 211332110010 / 21
 
 Type: `"string"`. Required.
 
 Namespace of the Site.
 
-<a id="canonical-2adadabe99beccdf90de02352f631fa9f35524165e965077cea2b0c5fe147504"></a>
+<a id="canonical-0222312231222332-2121233230303133-2100313200020311-0233120301332221-3303111102100112-1132211211001313-3032220223003011-3332011013110010"></a>
 
-<a id="canonical-f76def806c7bbee79d08c9943e34333d11da1e721bb41f87d2bd8f8c4672d6c6"></a>
+<a id="canonical-3313123132332000-1230132323323213-2131002030212110-0332031003030331-0101312201321302-0123231001332013-3102233120332030-1012130231123012"></a>
 
-## operating_system_version property — Property reference / 0ba6da97e504 / 22
+## operating_system_version property — Property reference / 211332110010 / 22
 
 Type: `"string"`. Computed.
 
 Desired Operating System version for this site.
 
-<a id="canonical-68f168a53088bc8028e164f7ab3daed028e5dcf545dd6c4ea3cb432c58501fae"></a>
+<a id="canonical-1220330112202211-0300202023302000-0220320112103313-2223033122323100-0220321131303311-1011313112301032-2203302310030230-1120110001332232"></a>
 
-<a id="canonical-839024c7bae45d4a6cb512484b4bf5d69b28b977abfc471b35269b8d8548218f"></a>
+<a id="canonical-2003210002103013-2322321011311022-1230231101021020-1023102333113112-2123022023211313-2223333010130123-0311021221232031-2011102002012033"></a>
 
-## outside_nameserver property — Property reference / 0ba6da97e504 / 23
+## outside_nameserver property — Property reference / 211332110010 / 23
 
 Type: `"string"`. Computed.
 
 Optional IPv4 DNS server to be used for name resolution in outside network.
 
-<a id="canonical-221149bbf67ce805773daa5f9a85987564daa53ed7eb04ea21b573204cb1f906"></a>
+<a id="canonical-0202010110212323-3312133032200011-1313033122221133-2122201121201311-1210312222110332-3113322300103222-0201231113030200-1030230133210012"></a>
 
-<a id="canonical-56dc39521c5a620f4d892b3cb1609e6724f49c40f01f9127ecfcf082ca72c6ed"></a>
+<a id="canonical-1112313003211102-0130112212020033-1031202102230330-2301120021321213-0210331021301000-3300013321010213-3230333033002002-3022130230123231"></a>
 
-## outside_vip property — Property reference / 0ba6da97e504 / 24
+## outside_vip property — Property reference / 211332110010 / 24
 
 Type: `"string"`. Computed.
 
@@ -264,26 +264,26 @@ Optional Virtual IP to be used as automatic VIP for site local outside network. 
 for 'VIP' in advertise policy to see when Outside VIP is used. When configured, this is used as VIP
 (depending on advertise policy configuration).
 
-- [private_connectivity](data-sources--site--reference--group-001.md#canonical-c156e10b94775d615e04b930cd431c283b2f53cf610d0eb11028b58aa65a8c55): complete subsection reference.
+- [private_connectivity](data-sources--site--reference--group-001.md#canonical-3001111232010023-2110131311311201-1132001023210300-3031100301300220-0323023311033033-1201003100322301-0100022023112022-2212112220301111): complete subsection reference.
 
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf): complete subsection reference.
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033): complete subsection reference.
 
-<a id="canonical-0335e124f3d5cce1dc0ea4b921d8663f75562d0b8870e24ec3782f0fe6c6f6e9"></a>
+<a id="canonical-0003031132010210-3303311130303201-3130003222102321-0201312012120333-1311111202310023-2020130032021032-3003132002330033-3212301233123221"></a>
 
-<a id="canonical-ce0a2f6f894ad51dd500aec29fccb6389cc213fbd9921dfeaed5f83cba3591e8"></a>
+<a id="canonical-3032002202331233-2021102231110131-3111000022323002-2133303023120320-2130300201033323-3121210201313332-2232311133200330-2322031121013220"></a>
 
-## region property — Property reference / 0ba6da97e504 / 25
+## region property — Property reference / 211332110010 / 25
 
 Type: `"string"`. Computed.
 
 Cloud Region. A region is a set of datacenters deployed within a latency-defined perimeter and
 connected through a dedicated regional low-latency network.
 
-<a id="canonical-02a95bca7833ac30b241e3a1bad210e9d6f11c6886a0ea95d50cfac8559b3bd0"></a>
+<a id="canonical-0002222111233022-1320030322300300-2302100132032201-2322310201003221-3112330101301220-2012220032222111-3111003033223020-1111212303233100"></a>
 
-<a id="canonical-fb9010b5b7962aa586605450d2f35c82f06c878f1f05c9df661d243608a6307a"></a>
+<a id="canonical-3323210001002311-2313211202222211-2012120011101100-3102330311302002-3300123020132033-0133001130213133-1212013102100312-0020221203001322"></a>
 
-## site_state property — Property reference / 0ba6da97e504 / 26
+## site_state property — Property reference / 211332110010 / 26
 
 Type: `"string"`. Computed.
 
@@ -300,11 +300,11 @@ connected Regional Edge. Site is in process of upgrade. Possible values are \`ON
 \`UPDATING\_CLOUD\_RESOURCES\`, \`ERROR\_UPDATING\_CLOUD\_RESOURCES\`, \`ORCHESTRATION\_QUEUED\`,
 \`UPDATE\_QUEUED\`, \`DELETE\_QUEUED\`. Defaults to \`ONLINE\`.
 
-<a id="canonical-6167a55281b1adebaa5321f389f9703f9d67e09ebb1bdd8480e194145c732508"></a>
+<a id="canonical-1201121322111102-2001230122313223-2222110302013303-2021332113000333-2131121332002132-2323012331312010-2000320121100110-1130130302110020"></a>
 
-<a id="canonical-54f5a71a4b3ba99dd4585a2890b6bd7b85d613b70542388d76be48431af4dfc7"></a>
+<a id="canonical-1110331122130122-1023032322212131-3110112011220220-2100231223311323-2011311201032313-0011100203202031-1312233210201003-0122331031333013"></a>
 
-## site_subtype property — Property reference / 0ba6da97e504 / 27
+## site_subtype property — Property reference / 211332110010 / 27
 
 Type: `"string"`. Computed.
 
@@ -314,11 +314,11 @@ which is hidden from customer. Configuration will be propagated. CE running in K
 values are \`NO\_SUBTYPE\`, \`VES\_IO\_USE\_RE\`, \`VES\_IO\_CE\_IN\_K8S\`, \`VES\_IO\_HIDDEN\_RE\`.
 Defaults to \`NO\_SUBTYPE\`.
 
-<a id="canonical-ccb5d5c958daf8c6667deddbe8c3a0dee28c8dd02546a4b6a1a058b92e7c8c16"></a>
+<a id="canonical-3030231131113021-1120312233203012-1212133132313123-3220300322003132-3202203020313100-0211101222102312-2201220011202321-0232133020300112"></a>
 
-<a id="canonical-5116deaad5a6ac64009328bff82b0eeb2823f075a14c53ef9a4f0bc11525d518"></a>
+<a id="canonical-1101011231322222-3111221222301210-0000210302202333-3320022300323223-0220020333001311-2201103011033233-2122103300233001-0111021131110120"></a>
 
-## site_to_site_network_type property — Property reference / 0ba6da97e504 / 28
+## site_to_site_network_type property — Property reference / 211332110010 / 28
 
 Type: `"string"`. Computed.
 
@@ -336,22 +336,22 @@ is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
 \`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
 \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
 
-<a id="canonical-d3962261b2ea5474eaffc7140dad2425e5cc31053bad59d32931107256c06df1"></a>
+<a id="canonical-3103211202021201-2302322211101310-3222333330130110-0031223102100211-3211303003010011-0323223111213103-0221030101001302-1112300012313301"></a>
 
-<a id="canonical-ecf1cfe558124822b013706515b6f787e3d2d1a9d6649ba3f5554205d322fc5e"></a>
+<a id="canonical-3230330130333211-1120010210200202-2300010313001211-0111231233132013-3203310231012221-3112121021232203-3311111110020011-3103020233301132"></a>
 
-## site_to_site_tunnel_ip property — Property reference / 0ba6da97e504 / 29
+## site_to_site_tunnel_ip property — Property reference / 211332110010 / 29
 
 Type: `"string"`. Computed.
 
 Optionsl, VIP in the site\_to\_site\_network\_type configured above used for terminating IPsec/SSL
 tunnels created with SiteMeshGroup.
 
-<a id="canonical-865c7abe4173bd3309f9d4e91758ce01b30822cdc4b8385184db4254f080ecb4"></a>
+<a id="canonical-2012113013222332-1001130323310303-0021332131103221-0113112030320001-2303002002023031-3010232003201101-2010312310021110-3300200032302310"></a>
 
-<a id="canonical-e4c7d8b3bc06fcd5d72efa2b34f84b5f5f1d26f5dd56c0610b7e6baabfd6fd82"></a>
+<a id="canonical-3210301331202303-2330001233303111-3113023233220223-0310332010231133-1133013102123311-3131111230001201-0023133212232222-2333311233312002"></a>
 
-## site_type property — Property reference / 0ba6da97e504 / 30
+## site_type property — Property reference / 211332110010 / 30
 
 Type: `"string"`. Computed.
 
@@ -359,22 +359,22 @@ Type: `"string"`. Computed.
 Invalid type of site Regional Edge site Customer Edge site. Possible values are \`INVALID\`,
 \`REGIONAL\_EDGE\`, \`CUSTOMER\_EDGE\`, \`NGINX\_ONE\`.
 
-<a id="canonical-da3a4a09c93fd8c6b3e16ad8174a7b5c3bda5723f283773178b4b5e3ea0df4c9"></a>
+<a id="canonical-3122032210220021-3021033331203012-2303320112223120-0113102213231130-0323312211130203-3302200313130301-1320231023113203-3222003133103021"></a>
 
-<a id="canonical-94301f5539f572b29249b9e9696fd66a9f440566696813058492fcc457d9ea99"></a>
+<a id="canonical-2110030001331111-0321331113022302-2102102123213221-1221123331121222-2133101000111212-1221122001030011-2010210233303010-1113312132222121"></a>
 
-## tunnel_dead_timeout property — Property reference / 0ba6da97e504 / 31
+## tunnel_dead_timeout property — Property reference / 211332110010 / 31
 
 Type: `"number"`. Computed.
 
 Time interval, in millisec, within which any IPsec / SSL connection from the site going down is
 detected. When not set (== 0), a default value of 10000 msec will be used.
 
-<a id="canonical-c268d80ccfbe930dc6597915632d7fe89b853fa12ad6f1f6fa8295f33974c1d9"></a>
+<a id="canonical-3002122031200030-3033233221030031-3012112113210111-1203023113333220-2123201103332201-0222311233013312-3322200221113303-0321131030013121"></a>
 
-<a id="canonical-054e57cc023e56ca9ea5d4fa511412db45136048afe2f6d4ba15372f71d40814"></a>
+<a id="canonical-0011103211133030-0002033211123022-2132221131103322-1101011001023123-1011010312001020-2233320233123110-2322011103130233-1301311000200110"></a>
 
-## tunnel_type property — Property reference / 0ba6da97e504 / 32
+## tunnel_type property — Property reference / 211332110010 / 32
 
 Type: `"string"`. Computed.
 
@@ -385,13 +385,13 @@ being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possibl
 \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\_OR\_SSL\`, \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\`,
 \`SITE\_TO\_SITE\_TUNNEL\_SSL\`. Defaults to \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\_OR\_SSL\`.
 
-- [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-df84def868cc73d6ffffc568e2956d1cd463d618f8305e6d1e14656bd17948da): complete subsection reference.
+- [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-3133201031323320-1220303013033112-3333333330111220-3202211112310130-3110120331120120-3320030011321231-0132011012111223-3101132110203122): complete subsection reference.
 
-<a id="canonical-0da6daac52da255f4ceb0058d240712ab35f2fa0537796da15db2809b78a8528"></a>
+<a id="canonical-0031221231222230-1102312202111133-1030322300001120-3102100013010222-2303113302332200-1103131321123122-0111312302200021-2313202220110220"></a>
 
-<a id="canonical-d9e775ae9b93357357e10af0b43716a0f2e43adad8931c958f4d0a594f5bbfa4"></a>
+<a id="canonical-3121321313112232-2123210303111303-1113320100223300-2310031301122200-3302321003223122-3120210301302111-2033103100221121-1033112323332210"></a>
 
-## vip_vrrp_mode property — Property reference / 0ba6da97e504 / 33
+## vip_vrrp_mode property — Property reference / 211332110010 / 33
 
 Type: `"string"`. Computed.
 
@@ -399,21 +399,21 @@ Type: `"string"`. Computed.
 Invalid VRRP mode. Possible values are \`VIP\_VRRP\_INVALID\`, \`VIP\_VRRP\_ENABLE\`,
 \`VIP\_VRRP\_DISABLE\`. Defaults to \`VIP\_VRRP\_INVALID\`.
 
-<a id="canonical-87d6d3e2c20227eda681f15270abf438e902b42f95cad6ac9101d2ea51ec70c0"></a>
+<a id="canonical-2013311231033202-3002000202133231-2212200133011102-1300222333100320-3221000223100233-2111302231122230-2101000131023222-1101323013003000"></a>
 
-<a id="canonical-cf2e61e9e281fb4543b948ed55b18ac45a1b9e2a74690a08d46ffd386d6e0db9"></a>
+<a id="canonical-3033023212013221-3202200133231011-1003232110203231-1111230120223010-1122012321320222-1310122100220020-3110123333310320-1231123200312321"></a>
 
-## vm_enabled property — Property reference / 0ba6da97e504 / 34
+## vm_enabled property — Property reference / 211332110010 / 34
 
 Type: `"bool"`. Computed.
 
 Indicates that virtual machine support is enabled on the site.
 
-<a id="canonical-7952f9b08dceaec3194912b0c374b86877f72f5e1ce0c461e17ad52cceb5aefe"></a>
+<a id="canonical-1321110233212300-2031303222323003-0121102101022300-3003131023201220-1313331302331132-0130320030101201-3201132231110230-3032231122323332"></a>
 
-<a id="canonical-69ae41aa8687f8db70827d24c0b80f0c43f02d1475c36cd805da3d9cc99fd881"></a>
+<a id="canonical-1221223210012222-2012201333203123-1300200213310210-3000232000330030-1003330002310110-1311300312303120-0011312203312130-3021213331202001"></a>
 
-## volterra_software_override property — Property reference / 0ba6da97e504 / 35
+## volterra_software_override property — Property reference / 211332110010 / 35
 
 Type: `"string"`. Computed.
 
@@ -425,150 +425,150 @@ precedence. Software version in fleet will take precedence. Possible values are
 \`SITE\_SOFTWARE\_OVERRIDE\_SITE\`, \`SITE\_SOFTWARE\_OVERRIDE\_NEWER\`,
 \`SITE\_SOFTWARE\_OVERRIDE\_FLEET\`. Defaults to \`SITE\_SOFTWARE\_OVERRIDE\_SITE\`.
 
-<a id="canonical-8fc63d7b179ac1e136117eff334385f9ecc23bab19b1c3f248e7067ca5de601f"></a>
+<a id="canonical-2033301203311323-0113212230013201-0312010113323333-0303100320113321-3230300203232223-0121230130033302-1020321300121330-2211313212000133"></a>
 
-<a id="canonical-1783a0d4c4c8d43956304c84eee1282d2ab2eba196022ceb71fdc1077de1eb64"></a>
+<a id="canonical-0113200322003110-3010302031100321-1112030010302010-3232320102200231-0222230232232201-2112000202303223-1301333130010013-1331320132231210"></a>
 
-## volterra_software_version property — Property reference / 0ba6da97e504 / 36
+## volterra_software_version property — Property reference / 211332110010 / 36
 
 Type: `"string"`. Computed.
 
 Desired F5XC software version for this site, a string matching released set of software components.
 
-<a id="canonical-cdb226824a3a2bed0918ed3639bdf2cbd0a9c3fc5c390b83a7d80499591169d9"></a>
+<a id="canonical-3031230202122002-1022032202233231-0021012032310312-0321233133023023-3100222130033330-1130032100232003-2213312000102121-1121010112213121"></a>
 
-## All schema paths — Property reference / 0ba6da97e504 / 37
+## All schema paths — Property reference / 211332110010 / 37
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `address` | [address](data-sources--site--reference--group-001.md#canonical-e1edcdbf0d8e265065623f86f5ffc7d0ac4b426006ea5460b423657198319e4b) |
-| `admin_user_credentials` | [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-e9ad41bd99ba0698328622f3272de87770af5f50de03f53e1b0b77569e75c599) |
-| `admin_user_credentials.admin_password` | [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-b8b3bef1e8d1e9cbecc1d7f866dba33a7fa6389210c54aae7a64ba561c040a53) |
-| `admin_user_credentials.admin_password.blindfold_secret_info` | [admin_user_credentials.admin_password.blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-88ceed83ab3ef478c3f4830fae173388c2e9598eff9866cb8759c495673b43e0) |
-| `admin_user_credentials.admin_password.blindfold_secret_info.decryption_provider` | [admin_user_credentials.admin_password.blindfold_secret_info.decryption_provider](data-sources--site--reference--group-001.md#canonical-9fec5de6cc3a88d55daaccb0a910d15e62440660dd449eeb1f8bcd33b33de212) |
-| `admin_user_credentials.admin_password.blindfold_secret_info.location` | [admin_user_credentials.admin_password.blindfold_secret_info.location](data-sources--site--reference--group-001.md#canonical-90b1a0bd73f0f823a2753e959ccfbc3357050b2844372093dcda19d97a3fec1f) |
-| `admin_user_credentials.admin_password.blindfold_secret_info.store_provider` | [admin_user_credentials.admin_password.blindfold_secret_info.store_provider](data-sources--site--reference--group-001.md#canonical-3dbc5da04df28793b8be6bb5d80b15157be06159c8bcab4172dfae817a4992e4) |
-| `admin_user_credentials.admin_password.clear_secret_info` | [admin_user_credentials.admin_password.clear_secret_info](data-sources--site--reference--group-001.md#canonical-c14b3d6573633b52179abc4ae97c8eec1f6fabc9009487e4365ca473d9dafe00) |
-| `admin_user_credentials.admin_password.clear_secret_info.provider_ref` | [admin_user_credentials.admin_password.clear_secret_info.provider_ref](data-sources--site--reference--group-001.md#canonical-2033164fd940b85d87f97e7925f666ff6856a8d724c0fad265c5ad673ffd98db) |
-| `admin_user_credentials.admin_password.clear_secret_info.url` | [admin_user_credentials.admin_password.clear_secret_info.url](data-sources--site--reference--group-001.md#canonical-36daa3f0efc1ce8c564a9dfea21e13851ff10ad42515a779206837f0bf860028) |
-| `admin_user_credentials.ssh_key` | [admin_user_credentials.ssh_key](data-sources--site--reference--group-001.md#canonical-192d670828ae5d42869a91efb1eb542cb85817330626938523cd1bb6b868b96c) |
-| `annotations` | [annotations](data-sources--site--reference--group-001.md#canonical-dc0f3d6568afbc546327f69ebc7aab839521db5a566ab77909efdee846c6e426) |
-| `bgp_peer_address` | [bgp_peer_address](data-sources--site--reference--group-001.md#canonical-a1189e7b3d5d87ce0774e7772c9424e9c26caa09523f393015324d9ba9f01db3) |
-| `bgp_router_id` | [bgp_router_id](data-sources--site--reference--group-001.md#canonical-a25f5c93d8e980f4d4c967adb74a1ec317146e35fbb6b2ec61e35d81c2fecfae) |
-| `ce_site_mode` | [ce_site_mode](data-sources--site--reference--group-001.md#canonical-19981d07792ba1c659d6bec32bfe2fa0c9ee548db3f42cb47c4d7071e2590f62) |
-| `connected_re` | [connected_re](data-sources--site--reference--group-001.md#canonical-a7d91e199cdbd33164b316d6de5f60318841d45d797729c40eb6e444800ae63d) |
-| `connected_re.kind` | [connected_re.kind](data-sources--site--reference--group-001.md#canonical-4e21f5cc085189e431aa797b96ed0d73a4fe8207ed18def6de422d1be826c3b6) |
-| `connected_re.name` | [connected_re.name](data-sources--site--reference--group-001.md#canonical-aff8fca639bddead506db574f7a6ce6220b4732b11cd94457e8e32fd28dc84fc) |
-| `connected_re.namespace` | [connected_re.namespace](data-sources--site--reference--group-001.md#canonical-fe615b7fd5875de442912cb7e5a07567bea16475275136dd33bc5ada5520d2e9) |
-| `connected_re.tenant` | [connected_re.tenant](data-sources--site--reference--group-001.md#canonical-a8c28fd0d47b7670bcc7a91a2a4ee11afc565887537c04a67d70c210f63a10ca) |
-| `connected_re.uid` | [connected_re.uid](data-sources--site--reference--group-001.md#canonical-7b756f810be1acdadc0b89d87eb14c1016477bd2593b1b84387d94d5a9e941c3) |
-| `connected_re_for_config` | [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-97421362f29939bb8ef71a2031f1be9bbb20c90f0f51cfa1101f50771490e494) |
-| `connected_re_for_config.kind` | [connected_re_for_config.kind](data-sources--site--reference--group-001.md#canonical-f273285434b4b64d3c26f09179625ee704bb055e02bf77387de6afd347aef11d) |
-| `connected_re_for_config.name` | [connected_re_for_config.name](data-sources--site--reference--group-001.md#canonical-76e16a31ea9bdc0aae6ea34f9772ee6230bf9cd6d22a95d4ac2e6479eb2dfaee) |
-| `connected_re_for_config.namespace` | [connected_re_for_config.namespace](data-sources--site--reference--group-001.md#canonical-9c7ddb44bd40ffa4b50997bc591082f41b16152478f3a82a85672044d3b3fa87) |
-| `connected_re_for_config.tenant` | [connected_re_for_config.tenant](data-sources--site--reference--group-001.md#canonical-4daa101ef9a3786128e1b82b3dc91b94442d1420ae9dcda7a653261fb6a22eb4) |
-| `connected_re_for_config.uid` | [connected_re_for_config.uid](data-sources--site--reference--group-001.md#canonical-41f6e3f5f5f1a2c2e279508d3ada0b7db91bfa33c50ac1118e404fbd4c0205d4) |
-| `coordinates` | [coordinates](data-sources--site--reference--group-001.md#canonical-03b01fed26df694dbf42e985da27d2e75b3f306656a5bdd4816ea426cf76c736) |
-| `coordinates.latitude` | [coordinates.latitude](data-sources--site--reference--group-001.md#canonical-0bfe4b6ae704a43dd1ae9dc136d9477ea48e2a846916d4861bfbf9cacebde14c) |
-| `coordinates.longitude` | [coordinates.longitude](data-sources--site--reference--group-001.md#canonical-22a44e5606705a32814ee60eb588b4a5884942c98b850bcaea32d9b126a757ae) |
-| `default_underlay_network` | [default_underlay_network](data-sources--site--reference--group-001.md#canonical-a762a1a85bca5dbefaab87be71767cb764b9abada86afc9b6176b443cea0e0e8) |
-| `default_underlay_network.site_local_inside` | [default_underlay_network.site_local_inside](data-sources--site--reference--group-001.md#canonical-fe41799b0711b493e75b835e956c44a1b6395b60d9eb2ea09fd18d23c23065dc) |
-| `default_underlay_network.site_local_outside` | [default_underlay_network.site_local_outside](data-sources--site--reference--group-001.md#canonical-1253b80574300d4d0a3854f83dcd57f7f85d82d342be942f2c2cb258fb98e627) |
-| `description` | [description](data-sources--site--reference--group-001.md#canonical-1aa0740fe289e6156b2f282987f1a6246707c082298b0c774cd1854c599498c2) |
-| `desired_pool_count` | [desired_pool_count](data-sources--site--reference--group-001.md#canonical-4701dea9755d7fe85de1c270abf24ae95b80cf163833ffb93a880047d3bf799d) |
-| `global_access_k8s_enabled` | [global_access_k8s_enabled](data-sources--site--reference--group-001.md#canonical-82b2541194a96edfb165a32a9d30c96aed7874085195254a19879db8f0948b8e) |
-| `id` | [id](data-sources--site--reference--group-001.md#canonical-6014e9e7b0c1ead19e0db77ea656d80dd997fffc494fca3ce3c928b055307cd9) |
-| `inside_nameserver` | [inside_nameserver](data-sources--site--reference--group-001.md#canonical-835345b0849e849a4fca0028e140f836d025ddaa2439243203b4ab0ef49207c2) |
-| `inside_vip` | [inside_vip](data-sources--site--reference--group-001.md#canonical-48127a41799ba8399ce5b39dd28f5814b7086fe1a340e21988e48491a45f5254) |
-| `ipsec_ssl_nodes_fqdn` | [ipsec_ssl_nodes_fqdn](data-sources--site--reference--group-001.md#canonical-3520fb34b7065f08d4ffd16c39d742d83b4e731ca8e7a153b5c4c07fea78f724) |
-| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-71d124a4030aacd174f374d619778ec41f397171cd6a34b74db40be4f074075c) |
-| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2d608f33760dea286591a976a58d6a23adf9fd3459f458ae8b007c5cdebbde85) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-3a5f0d0538e4764a35eb84d26a4a96346bd8c93beea61011f9e1746868cc114e) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-d02e64fe3052930a946b69e9812d31b4c5a6ae36720436ca682e4a30fc18bb9e) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](data-sources--site--reference--group-001.md#canonical-bdb3194819542b209c7db0bcad89876c8a83d49de55a959a3d6da57701b9e058) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](data-sources--site--reference--group-001.md#canonical-84f262c0a2973f3e5431e5c78d5b51725eb2aada3e8427dc26bcfec9b934481b) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](data-sources--site--reference--group-001.md#canonical-bdfa3c7c4b9c935408578410a4fc3b402eefb161fc46c49f29440218b6b43aa7) |
-| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-7f4cd3224ac315d2989cfc1ac3891656dee07d004b5fc2c4997ec9c32cb143f0) |
-| `labels` | [labels](data-sources--site--reference--group-001.md#canonical-b1b8e7293e1db75693f346144a4a8029ebd9f3884b8cff90d2f49bfc32ca5c23) |
-| `local_access_k8s_enabled` | [local_access_k8s_enabled](data-sources--site--reference--group-001.md#canonical-1a41503c77158a53a9f2b3fbce96d62a7038e6232fcf263f991f16bb1fe3e2ee) |
-| `local_k8s_access_enabled` | [local_k8s_access_enabled](data-sources--site--reference--group-001.md#canonical-e9309e289d7405c9e1feb14ace890f6ba6d00dea8387079db677ca2d214ad8ab) |
-| `main_nodes` | [main_nodes](data-sources--site--reference--group-001.md#canonical-756f1e1a026215d585567ac0c026d9eed0d8ad0bc9f5c0f73845313eddbc3d14) |
-| `main_nodes.name` | [main_nodes.name](data-sources--site--reference--group-001.md#canonical-e3552c5824655418a6ab2bb64e153227f3a6e9857a63370e10f4d0a96f62d5d7) |
-| `main_nodes.sli_address` | [main_nodes.sli_address](data-sources--site--reference--group-001.md#canonical-c28e28e21851381098e47ff4a1e201b089dc920b7b14c1246bb62f9e3a1f5967) |
-| `main_nodes.slo_address` | [main_nodes.slo_address](data-sources--site--reference--group-001.md#canonical-47bb30fed57cc0f141d5fa281baa4842037b2f074cb937a6cc0b73d226074729) |
-| `multus_enabled` | [multus_enabled](data-sources--site--reference--group-001.md#canonical-c226eeb4afcede522d549d37b6550101c32e498f21aed605aa213dd09e4648b1) |
-| `name` | [name](data-sources--site--reference--group-001.md#canonical-0e081d1ccafdd9419b42618cc8fdb922b3f5ef98bdd1dacf1a6294bd271a75e0) |
-| `namespace` | [namespace](data-sources--site--reference--group-001.md#canonical-af9323d78a9e8ffc49c410f7893d78eb6640d89165bb8896b720e2bb0485f404) |
-| `operating_system_version` | [operating_system_version](data-sources--site--reference--group-001.md#canonical-2adadabe99beccdf90de02352f631fa9f35524165e965077cea2b0c5fe147504) |
-| `outside_nameserver` | [outside_nameserver](data-sources--site--reference--group-001.md#canonical-68f168a53088bc8028e164f7ab3daed028e5dcf545dd6c4ea3cb432c58501fae) |
-| `outside_vip` | [outside_vip](data-sources--site--reference--group-001.md#canonical-221149bbf67ce805773daa5f9a85987564daa53ed7eb04ea21b573204cb1f906) |
-| `private_connectivity` | [private_connectivity](data-sources--site--reference--group-001.md#canonical-443c7f09d056cf32a0c1f563d105c01a3bbb2a9676b07da28e5c6c0b4252db63) |
-| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](data-sources--site--reference--group-001.md#canonical-884826ddd9549ed200f72212ce746e3d098b33b597fe7a6f44e3d14149c81ca3) |
-| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](data-sources--site--reference--group-001.md#canonical-16385b40c01df2dd292b41761af77681a9599e8d4e9310c04c85ea14ade42fe5) |
-| `private_connectivity.cloud_link.state` | [private_connectivity.cloud_link.state](data-sources--site--reference--group-001.md#canonical-18c57637c245572d111dfc52d7c50378a084ff39f4bd521b3354c0e360832a97) |
-| `private_connectivity.private_network_name` | [private_connectivity.private_network_name](data-sources--site--reference--group-001.md#canonical-6bb2f74a9d0f645c0e6987a1352c46becc1351789a9e699524e624dd642f7098) |
-| `re_select` | [re_select](data-sources--site--reference--group-001.md#canonical-70af337bc649fc0197600ab7da9df9b1b426de15d2afa4c8212573ca0f8d4d88) |
-| `re_select.geo_proximity` | [re_select.geo_proximity](data-sources--site--reference--group-001.md#canonical-66c8c4bb05e8f25cf773729131aa627c4eddb5ff59cb6be18590475af11804c0) |
-| `re_select.specific_geography` | [re_select.specific_geography](data-sources--site--reference--group-001.md#canonical-207ca62280fb3c03ef9d3ac13e323a8b56fa4927562805beaa06ec7b7a09a9d7) |
-| `re_select.specific_re` | [re_select.specific_re](data-sources--site--reference--group-001.md#canonical-7e8edcd4b37f7b746b9b801b761e6fb6e97f29e9797ad49c3b67f84b94b24a7b) |
-| `re_select.specific_re.backup_re` | [re_select.specific_re.backup_re](data-sources--site--reference--group-001.md#canonical-3ccf72c32648e873c90685086acd852d65656fb3fdaee62ecd9339a4108fd037) |
-| `re_select.specific_re.primary_re` | [re_select.specific_re.primary_re](data-sources--site--reference--group-001.md#canonical-e008d4f98f96d72fb9c58b96aeee8c7dab95d20bac2055ecf8a823bc3b629be5) |
-| `region` | [region](data-sources--site--reference--group-001.md#canonical-0335e124f3d5cce1dc0ea4b921d8663f75562d0b8870e24ec3782f0fe6c6f6e9) |
-| `site_state` | [site_state](data-sources--site--reference--group-001.md#canonical-02a95bca7833ac30b241e3a1bad210e9d6f11c6886a0ea95d50cfac8559b3bd0) |
-| `site_subtype` | [site_subtype](data-sources--site--reference--group-001.md#canonical-6167a55281b1adebaa5321f389f9703f9d67e09ebb1bdd8480e194145c732508) |
-| `site_to_site_network_type` | [site_to_site_network_type](data-sources--site--reference--group-001.md#canonical-ccb5d5c958daf8c6667deddbe8c3a0dee28c8dd02546a4b6a1a058b92e7c8c16) |
-| `site_to_site_tunnel_ip` | [site_to_site_tunnel_ip](data-sources--site--reference--group-001.md#canonical-d3962261b2ea5474eaffc7140dad2425e5cc31053bad59d32931107256c06df1) |
-| `site_type` | [site_type](data-sources--site--reference--group-001.md#canonical-865c7abe4173bd3309f9d4e91758ce01b30822cdc4b8385184db4254f080ecb4) |
-| `tunnel_dead_timeout` | [tunnel_dead_timeout](data-sources--site--reference--group-001.md#canonical-da3a4a09c93fd8c6b3e16ad8174a7b5c3bda5723f283773178b4b5e3ea0df4c9) |
-| `tunnel_type` | [tunnel_type](data-sources--site--reference--group-001.md#canonical-c268d80ccfbe930dc6597915632d7fe89b853fa12ad6f1f6fa8295f33974c1d9) |
-| `vip_params_per_az` | [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-975f0278fcff1c3020efb711819a9649dbd67a542f1323be97b894196510cc61) |
-| `vip_params_per_az.az_name` | [vip_params_per_az.az_name](data-sources--site--reference--group-001.md#canonical-1f6a6d15bcd16477a7ead7934dc1921cae6bf26745769cd0ec5470f2cf07caa9) |
-| `vip_params_per_az.inside_vip` | [vip_params_per_az.inside_vip](data-sources--site--reference--group-001.md#canonical-116cafdd64a3ad1a3148440312334f88460ff8f1c845e6434aaea6d95ef69413) |
-| `vip_params_per_az.inside_vip_cname` | [vip_params_per_az.inside_vip_cname](data-sources--site--reference--group-001.md#canonical-48b73b24cd3401657f72e99bf5452ffa21824f42bbd8cf4032e8921dbd8740ba) |
-| `vip_params_per_az.inside_vip_v6` | [vip_params_per_az.inside_vip_v6](data-sources--site--reference--group-001.md#canonical-5d8ec8c07494b3c2bd4cbe454fddd165a2ae83c75a562e792ce81e7d5e2df967) |
-| `vip_params_per_az.outside_vip` | [vip_params_per_az.outside_vip](data-sources--site--reference--group-001.md#canonical-890522a3682f28c289c6a77fd10dd9f835634be8486588b6704dae66cfdf45ca) |
-| `vip_params_per_az.outside_vip_cname` | [vip_params_per_az.outside_vip_cname](data-sources--site--reference--group-001.md#canonical-45fb01b0f79b4ae640273c78e22d5c4a98e8657238a5b56547c3e48e2daf6c68) |
-| `vip_params_per_az.outside_vip_v6` | [vip_params_per_az.outside_vip_v6](data-sources--site--reference--group-001.md#canonical-ff7bc32c2422d83ce0bf8a126e4341f51e2bbdb1aeb15b516f015fc91e71014d) |
-| `vip_vrrp_mode` | [vip_vrrp_mode](data-sources--site--reference--group-001.md#canonical-0da6daac52da255f4ceb0058d240712ab35f2fa0537796da15db2809b78a8528) |
-| `vm_enabled` | [vm_enabled](data-sources--site--reference--group-001.md#canonical-87d6d3e2c20227eda681f15270abf438e902b42f95cad6ac9101d2ea51ec70c0) |
-| `volterra_software_override` | [volterra_software_override](data-sources--site--reference--group-001.md#canonical-7952f9b08dceaec3194912b0c374b86877f72f5e1ce0c461e17ad52cceb5aefe) |
-| `volterra_software_version` | [volterra_software_version](data-sources--site--reference--group-001.md#canonical-8fc63d7b179ac1e136117eff334385f9ecc23bab19b1c3f248e7067ca5de601f) |
+| `address` | [address](data-sources--site--reference--group-001.md#canonical-3201323130312333-0031203202121100-1211120203332012-3311333330133100-2230102310021200-0012322211101200-2310020312111301-2120030121321023) |
+| `admin_user_credentials` | [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-3221223110012331-2121232200122120-0302201202023303-0213023132201313-1300223311331100-3132000333110332-0123002313131112-2132131130112121) |
+| `admin_user_credentials.admin_password` | [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-2320230323323301-3220310132213023-3230300131133320-1212312322030322-1333221203202102-0100301110222232-1322121023221112-0130001000221103) |
+| `admin_user_credentials.admin_password.blindfold_secret_info` | [admin_user_credentials.admin_password.blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-2020303232312003-2223033233101320-3003331020030033-2232011303032020-3002322111212032-3333212012123023-2013112130102111-1213032310033200) |
+| `admin_user_credentials.admin_password.blindfold_secret_info.decryption_provider` | [admin_user_credentials.admin_password.blindfold_secret_info.decryption_provider](data-sources--site--reference--group-001.md#canonical-2133323011313212-3030032220203111-1131222230302300-2221010031011132-1202101000121200-3131101021323223-0133202330310303-2303033132020102) |
+| `admin_user_credentials.admin_password.blindfold_secret_info.location` | [admin_user_credentials.admin_password.blindfold_secret_info.location](data-sources--site--reference--group-001.md#canonical-2100230122002331-1303330033200203-2202131103322111-2130303323300303-1113001100230220-1010031302002103-3130312201213121-1322033332300133) |
+| `admin_user_credentials.admin_password.blindfold_secret_info.store_provider` | [admin_user_credentials.admin_password.blindfold_secret_info.store_provider](data-sources--site--reference--group-001.md#canonical-0331233011312200-1031330220132103-2320233212232311-3120002301110111-1323320012011121-3020233022231001-1302313322322001-1322102121023210) |
+| `admin_user_credentials.admin_password.clear_secret_info` | [admin_user_credentials.admin_password.clear_secret_info](data-sources--site--reference--group-001.md#canonical-3001102303311211-1303120303231102-0113212223301022-3221133020323230-0133123322233021-0000211020133210-0312113022101303-3121312233320000) |
+| `admin_user_credentials.admin_password.clear_secret_info.provider_ref` | [admin_user_credentials.admin_password.clear_secret_info.provider_ref](data-sources--site--reference--group-001.md#canonical-0200030301121033-3121100023201131-2013332113321321-0211331212123333-1220111222203113-0210300033223102-1211301122311213-0333333121203123) |
+| `admin_user_credentials.admin_password.clear_secret_info.url` | [admin_user_credentials.admin_password.clear_secret_info.url](data-sources--site--reference--group-001.md#canonical-0312312222033300-3233300130322030-1112102221313332-2202013201032011-0133330100223110-0211011122131321-0200122003133300-2333201200000220) |
+| `admin_user_credentials.ssh_key` | [admin_user_credentials.ssh_key](data-sources--site--reference--group-001.md#canonical-0121023112130020-0220223211311002-2012212221013233-2301322311100230-2320112001130303-0012021221032011-0203303101232312-2320122023211230) |
+| `annotations` | [annotations](data-sources--site--reference--group-001.md#canonical-3130003303311211-1220223323301110-1203021333122132-2330132222232003-2111020131231122-1112122223131321-0021323331323220-1012301232100212) |
+| `bgp_peer_address` | [bgp_peer_address](data-sources--site--reference--group-001.md#canonical-2201012021321323-0331113120133032-0013131032131313-0230211002103221-3002123022220021-1102033303210300-0111030210312123-2221330001312303) |
+| `bgp_router_id` | [bgp_router_id](data-sources--site--reference--group-001.md#canonical-2202113311302103-3120322120003310-3110302112132231-2313102201323003-0113011012320311-3323231223023230-1201320311312001-3002333230332232) |
+| `ce_site_mode` | [ce_site_mode](data-sources--site--reference--group-001.md#canonical-0121212001310013-1321022322013012-1121311223323003-0223333202332200-3021323211102031-2303331002302310-1330103113001301-3202112100331202) |
+| `connected_re` | [connected_re](data-sources--site--reference--group-001.md#canonical-2213312101320121-2130312331030301-1210230301123112-3132113312000301-2020100131101131-1321131302213010-0032231232101010-2000002232120331) |
+| `connected_re.kind` | [connected_re.kind](data-sources--site--reference--group-001.md#canonical-1032020133113030-0020110120213210-0301222213211323-2112323100311303-2210333220020013-3231012031323312-3132100202310123-3220021230032312) |
+| `connected_re.name` | [connected_re.name](data-sources--site--reference--group-001.md#canonical-2233332033302212-0321233131322231-1100123123111310-3313221230321202-0200231013030223-0101303121101011-1332203203023331-0220313020103330) |
+| `connected_re.namespace` | [connected_re.namespace](data-sources--site--reference--group-001.md#canonical-3332120111231333-3111201311313210-1002210102302313-3211220013111213-2332220112101311-0213110103123131-0303233011223122-1111020031023221) |
+| `connected_re.tenant` | [connected_re.tenant](data-sources--site--reference--group-001.md#canonical-2220300220333100-3110132313121300-2330301322210122-0222103232010122-3330111211202013-1103133000102212-1331130030020100-3312032201003022) |
+| `connected_re.uid` | [connected_re.uid](data-sources--site--reference--group-001.md#canonical-1323131112332001-0023320122303122-3130002320213120-1332230110300100-0112101313233102-1121032301232010-0320133121103111-2221322110013003) |
+| `connected_re_for_config` | [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-2113100201031202-3302212103212323-2032331301220200-0301330123322123-2323020030210033-0033110130332201-0100013311001313-0110210032102110) |
+| `connected_re_for_config.kind` | [connected_re_for_config.kind](data-sources--site--reference--group-001.md#canonical-3302130302201110-0310231023121031-0330021233002101-1321120211323213-0010232300111132-0002233313130320-1331321222333103-1013223233010131) |
+| `connected_re_for_config.name` | [connected_re_for_config.name](data-sources--site--reference--group-001.md#canonical-1312320112220301-3222212331300022-2232123222031033-2113130232321202-0300233321303112-3102022221113110-2230023212101321-3223023133223232) |
+| `connected_re_for_config.namespace` | [connected_re_for_config.namespace](data-sources--site--reference--group-001.md#canonical-2130133131231010-2331100033332210-2311002121132330-1121010020023310-0123011201110210-1320330322200222-2011121302001010-3103230333222013) |
+| `connected_re_for_config.tenant` | [connected_re_for_config.tenant](data-sources--site--reference--group-001.md#canonical-1031222201000132-3321220313201201-0220320123200223-0331302101232110-1010023101100200-2232213130312213-2212110302120133-2312220202322310) |
+| `connected_re_for_config.uid` | [connected_re_for_config.uid](data-sources--site--reference--group-001.md#canonical-1001331232033311-3311330122023002-3202132111002031-0322312200231331-2321012333220303-3011002230010101-2032100010332331-1030000200113110) |
+| `coordinates` | [coordinates](data-sources--site--reference--group-001.md#canonical-0003230001333231-0212313312211031-2333100232212011-3122021331023213-1123033303001212-1112221123313110-2001123222100212-3033131230130312) |
+| `coordinates.latitude` | [coordinates.latitude](data-sources--site--reference--group-001.md#canonical-0023333210231222-3213001022100331-3101223221313001-0312312110131332-2210203202222010-1221011231102012-0123332333213022-3032233132011030) |
+| `coordinates.longitude` | [coordinates.longitude](data-sources--site--reference--group-001.md#canonical-0202221010321112-0012130011220302-2001103232120032-2311202023102211-2020102110023021-2023201100233022-3222030231212301-0212221311132232) |
+| `default_underlay_network` | [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2213120222012220-1123302211312332-3322222320132332-1301131213302313-1210232122232231-2220122233302123-1201131223101003-3032220032003220) |
+| `default_underlay_network.site_local_inside` | [default_underlay_network.site_local_inside](data-sources--site--reference--group-001.md#canonical-3332100113212123-0013010123102103-3213112320031132-2111123010102201-2312032111231200-3121322302322200-2133310120310203-3002030012113130) |
+| `default_underlay_network.site_local_outside` | [default_underlay_network.site_local_outside](data-sources--site--reference--group-001.md#canonical-0102110323200011-1310030000311031-0022032011103320-0331303111133313-3320113120023103-1002233221100233-0230023023021120-3323212032120213) |
+| `description` | [description](data-sources--site--reference--group-001.md#canonical-0122220013100033-3202202132120111-1223023302200221-2013330122120210-1213001330002002-0221202300301313-1030310120111030-1121211021203002) |
+| `desired_pool_count` | [desired_pool_count](data-sources--site--reference--group-001.md#canonical-1013000131322221-1311113113333220-1131320130021300-2223330210223221-1123200030330112-0320030333332321-0322202000001013-3103233313212131) |
+| `global_access_k8s_enabled` | [global_access_k8s_enabled](data-sources--site--reference--group-001.md#canonical-2002230211100101-2110222112323133-2301121122030222-2131030030211222-3231132013100020-1101211102111022-0121201321312320-3300211020232032) |
+| `id` | [id](data-sources--site--reference--group-001.md#canonical-1200011032213213-2300300132223101-2132003123131332-2212111231200031-3121211333333330-1021103330220330-3203302102202300-1111030013303121) |
+| `inside_nameserver` | [inside_nameserver](data-sources--site--reference--group-001.md#canonical-2003110310112300-2010213220102122-1033302200000220-3201100033200312-3100021131312222-0210032102100302-0003231022230032-3310210200133002) |
+| `inside_vip` | [inside_vip](data-sources--site--reference--group-001.md#canonical-1020010213221001-1321212322200321-2130321123032131-3102203311200110-2313002012333201-2203100032020121-2020321020102101-2210113311021110) |
+| `ipsec_ssl_nodes_fqdn` | [ipsec_ssl_nodes_fqdn](data-sources--site--reference--group-001.md#canonical-0311020033230310-2313001211330020-3110333331011230-0321311310023120-0323103213030130-2220321322011103-2311301030001333-3222132033130210) |
+| `kubernetes_upgrade_drain` | [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1301310102102210-0003002222303101-1310330313103112-0121131320323010-0133032113011301-3031122203102313-1031231000233210-3300131000131130) |
+| `kubernetes_upgrade_drain.disable_upgrade_drain` | [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-0231120020330303-1312003132220220-1211210122211312-2211203112220203-2231332133310310-1121331011202232-2023000013301130-3132232331322011) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain` | [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-0322113300310011-0320321013121022-0311322320103102-1222102221120310-1223312030210323-3232221201000101-3321320113101220-1220303001011032) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-3100023212103332-0300110221030022-2110122312213221-2001023103012310-3011221222320312-1302001003123022-1220023210220300-3330012023232132) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](data-sources--site--reference--group-001.md#canonical-2331230301211020-0121111002230200-2130133123002330-2231202120131230-2022200331102131-3211112221112122-0331123122111313-0001232132001120) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](data-sources--site--reference--group-001.md#canonical-2010330212023000-2202211303330332-1110030132113013-2031112311011302-1132230222223122-0332201002133130-0212233033323021-2321031010200123) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](data-sources--site--reference--group-001.md#canonical-2331332203301330-1023213021031110-0020111320100100-2210333003231000-0232323323011201-3330101230102133-0221101000020120-2312231003222213) |
+| `kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-1333103031030202-1022300301113102-2120213033300122-3003202101121112-3132320013310000-1023113330023010-2121133230213003-0230230110033300) |
+| `labels` | [labels](data-sources--site--reference--group-001.md#canonical-2301232032130221-0332013123131112-2103330310120110-1022102220000221-3223312133032020-1023203033332100-3102331021233330-0302302211300203) |
+| `local_access_k8s_enabled` | [local_access_k8s_enabled](data-sources--site--reference--group-001.md#canonical-0122100111000330-1313011120221103-2221330223033323-3032211231120222-1300032032120203-0233303302120333-2121013301122323-0133320332023232) |
+| `local_k8s_access_enabled` | [local_k8s_access_enabled](data-sources--site--reference--group-001.md#canonical-3221030021320220-2131131000113021-3201333223011022-3032202100331223-2212310000313222-2003201300132131-2312131330220231-0201102231202223) |
+| `main_nodes` | [main_nodes](data-sources--site--reference--group-001.md#canonical-1311123301320122-0002120201113111-2011111213223000-3000021231213232-3100312022310023-3021331130003313-0320101103010332-3131233003310110) |
+| `main_nodes.name` | [main_nodes.name](data-sources--site--reference--group-001.md#canonical-3203111102301120-0210121111100120-2212222302232312-1032011103020213-3303221232212011-1322120303130032-0100331031002221-1233120231113113) |
+| `main_nodes.sli_address` | [main_nodes.sli_address](data-sources--site--reference--group-001.md#canonical-3002203202203202-0120110103200100-2120321013333310-2201320200012300-2021313021020023-1323011030010210-1223231202332132-0322013311211213) |
+| `main_nodes.slo_address` | [main_nodes.slo_address](data-sources--site--reference--group-001.md#canonical-1013232303003332-3111133030003301-1001311133220220-0123222210201002-0003132302330013-1030232103132212-3030002313033102-0212001310130221) |
+| `multus_enabled` | [multus_enabled](data-sources--site--reference--group-001.md#canonical-3002021232322310-2233303231321102-0231111021310313-2312111100010001-3003023210212033-0201223231120011-2222020103313100-2132101210202301) |
+| `name` | [name](data-sources--site--reference--group-001.md#canonical-0032002001310130-3022333131211001-2123100212012030-3020333123210202-2303331132332120-2331310131223033-0122120221102331-0213012213113200) |
+| `namespace` | [namespace](data-sources--site--reference--group-001.md#canonical-2233210302033113-2022213220333330-1021301001003313-2021033113203223-1212100031202101-1211232320202112-2313020032022323-0010201133100010) |
+| `operating_system_version` | [operating_system_version](data-sources--site--reference--group-001.md#canonical-0222312231222332-2121233230303133-2100313200020311-0233120301332221-3303111102100112-1132211211001313-3032220223003011-3332011013110010) |
+| `outside_nameserver` | [outside_nameserver](data-sources--site--reference--group-001.md#canonical-1220330112202211-0300202023302000-0220320112103313-2223033122323100-0220321131303311-1011313112301032-2203302310030230-1120110001332232) |
+| `outside_vip` | [outside_vip](data-sources--site--reference--group-001.md#canonical-0202010110212323-3312133032200011-1313033122221133-2122201121201311-1210312222110332-3113322300103222-0201231113030200-1030230133210012) |
+| `private_connectivity` | [private_connectivity](data-sources--site--reference--group-001.md#canonical-1010033013330021-3100111230330302-2200300133111203-3101001130000122-0323232302222112-1312230013312202-2032113012300023-1002110231231203) |
+| `private_connectivity.cloud_link` | [private_connectivity.cloud_link](data-sources--site--reference--group-001.md#canonical-2020102002123131-3121111021323102-0000331302020102-3032131012320331-0021202303032311-2113333213221233-1010320331011001-1021302001302203) |
+| `private_connectivity.cloud_link.name` | [private_connectivity.cloud_link.name](data-sources--site--reference--group-001.md#canonical-0112032011231000-3000013133023131-0221022310011312-0122331313122001-2221112121322031-1032210301003000-1030201132220110-2231321002333211) |
+| `private_connectivity.cloud_link.state` | [private_connectivity.cloud_link.state](data-sources--site--reference--group-001.md#canonical-0120301113120313-3002101111130231-0101013133301102-3113301100031320-2200201033330321-3310233111020123-0303111030003203-1200200302222113) |
+| `private_connectivity.private_network_name` | [private_connectivity.private_network_name](data-sources--site--reference--group-001.md#canonical-1223230233131022-2131003312101130-0032122120132201-0311023010122332-3030010311011320-2122213212212111-0210321202103131-1210023313002120) |
+| `re_select` | [re_select](data-sources--site--reference--group-001.md#canonical-1300223303031323-3012102133300001-2113120000222313-3122213133212301-2310021231320111-3102223322103020-0201021113033022-0033203110312020) |
+| `re_select.geo_proximity` | [re_select.geo_proximity](data-sources--site--reference--group-001.md#canonical-1212302030102323-0011322033021130-3313130313022101-0301222212021330-1032313123113333-1121302312233201-2011210010131122-3301012000103000) |
+| `re_select.specific_geography` | [re_select.specific_geography](data-sources--site--reference--group-001.md#canonical-0200133022120202-2000332303300003-3233213103223001-0332030203222023-1112332210210213-1112022000112332-2222001232301323-1322002122213113) |
+| `re_select.specific_re` | [re_select.specific_re](data-sources--site--reference--group-001.md#canonical-1332203231303110-2303133313231310-1223212320000123-1312013212332312-3221133302213221-1321132231102130-0323121333201023-2110230210221323) |
+| `re_select.specific_re.backup_re` | [re_select.specific_re.backup_re](data-sources--site--reference--group-001.md#canonical-0330303313023003-0212102032201303-3021001220110020-1222303120110231-1211121112332303-3331223232120232-3031210303212210-0100203331000313) |
+| `re_select.specific_re.primary_re` | [re_select.specific_re.primary_re](data-sources--site--reference--group-001.md#canonical-3200002031103321-2033211231130233-2321301120232112-2232323220301331-2223211131020023-2230020011113230-3320222002032330-0323120221233211) |
+| `region` | [region](data-sources--site--reference--group-001.md#canonical-0003031132010210-3303311130303201-3130003222102321-0201312012120333-1311111202310023-2020130032021032-3003132002330033-3212301233123221) |
+| `site_state` | [site_state](data-sources--site--reference--group-001.md#canonical-0002222111233022-1320030322300300-2302100132032201-2322310201003221-3112330101301220-2012220032222111-3111003033223020-1111212303233100) |
+| `site_subtype` | [site_subtype](data-sources--site--reference--group-001.md#canonical-1201121322111102-2001230122313223-2222110302013303-2021332113000333-2131121332002132-2323012331312010-2000320121100110-1130130302110020) |
+| `site_to_site_network_type` | [site_to_site_network_type](data-sources--site--reference--group-001.md#canonical-3030231131113021-1120312233203012-1212133132313123-3220300322003132-3202203020313100-0211101222102312-2201220011202321-0232133020300112) |
+| `site_to_site_tunnel_ip` | [site_to_site_tunnel_ip](data-sources--site--reference--group-001.md#canonical-3103211202021201-2302322211101310-3222333330130110-0031223102100211-3211303003010011-0323223111213103-0221030101001302-1112300012313301) |
+| `site_type` | [site_type](data-sources--site--reference--group-001.md#canonical-2012113013222332-1001130323310303-0021332131103221-0113112030320001-2303002002023031-3010232003201101-2010312310021110-3300200032302310) |
+| `tunnel_dead_timeout` | [tunnel_dead_timeout](data-sources--site--reference--group-001.md#canonical-3122032210220021-3021033331203012-2303320112223120-0113102213231130-0323312211130203-3302200313130301-1320231023113203-3222003133103021) |
+| `tunnel_type` | [tunnel_type](data-sources--site--reference--group-001.md#canonical-3002122031200030-3033233221030031-3012112113210111-1203023113333220-2123201103332201-0222311233013312-3322200221113303-0321131030013121) |
+| `vip_params_per_az` | [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-2113113300021320-3330333301300300-0200323323130101-2001212221121021-3123311213221110-0233010302032332-2113232021100121-1211010030301201) |
+| `vip_params_per_az.az_name` | [vip_params_per_az.az_name](data-sources--site--reference--group-001.md#canonical-0133122212310111-2330310112101313-2213322231132103-1031300121020130-2232122333021213-1011131221303100-3230111013003302-3033001330222221) |
+| `vip_params_per_az.inside_vip` | [vip_params_per_az.inside_vip](data-sources--site--reference--group-001.md#canonical-0101123022333131-1210220322310122-0301102010100003-0102030310332020-1012003333203301-3020101132121003-1022223222123121-1132331221100103) |
+| `vip_params_per_az.inside_vip_cname` | [vip_params_per_az.inside_vip_cname](data-sources--site--reference--group-001.md#canonical-1020231303230210-3031031000011211-1333130232212123-3311101102333322-0201200210331002-2323312030331000-0302322021020131-2331201310002322) |
+| `vip_params_per_az.inside_vip_v6` | [vip_params_per_az.inside_vip_v6](data-sources--site--reference--group-001.md#canonical-1131203230203000-1310211023033002-2331103023321011-1033313131011211-2202223220033013-1122111202321321-0230322001321331-1132023133211213) |
+| `vip_params_per_az.outside_vip` | [vip_params_per_az.outside_vip](data-sources--site--reference--group-001.md#canonical-2021001102022203-1220023302203002-2021301222131333-3101003131213320-0311120310233220-1020121120202312-1300103122321212-3033313310113022) |
+| `vip_params_per_az.outside_vip_cname` | [vip_params_per_az.outside_vip_cname](data-sources--site--reference--group-001.md#canonical-1011332300012300-3313212310223212-1000021303301320-3202023111301022-2120322012111302-0320221123111211-1013300332102032-0231223312301220) |
+| `vip_params_per_az.outside_vip_v6` | [vip_params_per_az.outside_vip_v6](data-sources--site--reference--group-001.md#canonical-3333132330030230-0210020231200330-3200233320220102-1232100310013311-0132022323312301-2232230111231101-1233000111333021-0132130100011031) |
+| `vip_vrrp_mode` | [vip_vrrp_mode](data-sources--site--reference--group-001.md#canonical-0031221231222230-1102312202111133-1030322300001120-3102100013010222-2303113302332200-1103131321123122-0111312302200021-2313202220110220) |
+| `vm_enabled` | [vm_enabled](data-sources--site--reference--group-001.md#canonical-2013311231033202-3002000202133231-2212200133011102-1300222333100320-3221000223100233-2111302231122230-2101000131023222-1101323013003000) |
+| `volterra_software_override` | [volterra_software_override](data-sources--site--reference--group-001.md#canonical-1321110233212300-2031303222323003-0121102101022300-3003131023201220-1313331302331132-0130320030101201-3201132231110230-3032231122323332) |
+| `volterra_software_version` | [volterra_software_version](data-sources--site--reference--group-001.md#canonical-2033301203311323-0113212230013201-0312010113323333-0303100320113321-3230300203232223-0121230130033302-1020321300121330-2211313212000133) |
 
-<a id="canonical-592b4f29b5be3c9b81336bbddff95a32dfe9a5208be519cbe5205446813fe1ef"></a>
+<a id="canonical-1121022310330221-2311233203302123-2001030312232331-3133332111220302-3133322122110200-2023321101213023-3211020011101012-2001033332013233"></a>
 
-## Next pages — Property reference / 0ba6da97e504 / 38
+## Next pages — Property reference / 211332110010 / 38
 
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce)
-- [connected_re](data-sources--site--reference--group-001.md#canonical-85706de1aed9b2978a14e030cedde0be433104392d6a8841ea76bb2dfbeaa589)
-- [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-70617853cc03e32ab5d93d5623a6b5794c6f8b550e5f402d8a1445c8bba394a4)
-- [coordinates](data-sources--site--reference--group-001.md#canonical-4acdcf69b09e0ea8e1684d40f9537429ddefa1d373e5328e2ea7fc7e4f2f9faf)
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
-- [main_nodes](data-sources--site--reference--group-001.md#canonical-e659811d82fb9727fa18dff418f5ce4c62d4b56265159514aabefeaf9e7885da)
-- [private_connectivity](data-sources--site--reference--group-001.md#canonical-c156e10b94775d615e04b930cd431c283b2f53cf610d0eb11028b58aa65a8c55)
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf)
-- [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-df84def868cc73d6ffffc568e2956d1cd463d618f8305e6d1e14656bd17948da)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032)
+- [connected_re](data-sources--site--reference--group-001.md#canonical-2011130012313201-2232312123022113-2022011032000300-3032313132002332-1003030100100321-0231122220201001-3222131223230231-3323322222112021)
+- [connected_re_for_config](data-sources--site--reference--group-001.md#canonical-1300120113201103-3030000332030222-2311312103311112-0203221223111321-1030123320231111-0032113310000231-2022011010113020-2323220321102210)
+- [coordinates](data-sources--site--reference--group-001.md#canonical-1022303130331221-2300213200322220-3201122010311000-3321110313100221-3131323322013103-1303321103022032-0232221333301332-1033023321332233)
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
+- [main_nodes](data-sources--site--reference--group-001.md#canonical-3212112120010131-2002332321130213-3322012031333310-0120331130321030-1202311023111202-1211011121110110-2222233233322233-2132132020113122)
+- [private_connectivity](data-sources--site--reference--group-001.md#canonical-3001111232010023-2110131311311201-1132001023210300-3031100301300220-0323023311033033-1201003100322301-0100022023112022-2212112220301111)
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033)
+- [vip_params_per_az](data-sources--site--reference--group-001.md#canonical-3133201031323320-1220303013033112-3333333330111220-3202211112310130-3110120331120120-3320030011321231-0132011012111223-3101132110203122)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce"></a>
+<a id="canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b0b02239927d4a9e68d8a72fea45347e6c26a9167f17de21f42e4237a71fb253"></a>
+<a id="canonical-2300230002020321-2102133110222132-1220312022130233-3222101103101332-1230021222210112-1333011331320201-3310023210020313-2213013323021103"></a>
 
-## admin_user_credentials — admin_user_credentials / ca2c0b4120e5 / 2
+## admin_user_credentials — admin_user_credentials / 100102003211 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - admin_user_credentials
 
-<a id="canonical-e9ad41bd99ba0698328622f3272de87770af5f50de03f53e1b0b77569e75c599"></a>
+<a id="canonical-3221223110012331-2121232200122120-0302201202023303-0213023132201313-1300223311331100-3132000333110332-0123002313131112-2132131130112121"></a>
 
 Type: `"single"`. Computed.
 
@@ -576,183 +576,183 @@ Setup user credentials to manage access to nodes belonging to the site. When con
 user will be setup and customers can access these nodes via either the node local WebUI or via SSH
 to access shell/CLI Ensure 'Node Local Services' are enabled to allow for required access.
 
-<a id="canonical-5274a1fed842ed7de2894964fa56cd4209a972cd3e5763f7cdf62123ca03f731"></a>
+<a id="canonical-1102131022013332-3120100232311331-3202202110211210-3322111230311002-0021222113023031-0332111312033313-3031331202010203-3022000333130301"></a>
 
-## Direct properties — admin_user_credentials / ca2c0b4120e5 / 3
+## Direct properties — admin_user_credentials / 100102003211 / 3
 
-- [admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d): complete subsection reference.
+- [admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231): complete subsection reference.
 
-<a id="canonical-192d670828ae5d42869a91efb1eb542cb85817330626938523cd1bb6b868b96c"></a>
+<a id="canonical-0121023112130020-0220223211311002-2012212221013233-2301322311100230-2320112001130303-0012021221032011-0203303101232312-2320122023211230"></a>
 
-<a id="canonical-149a9e0b0f94f4973806903c6925e13f790caae5f7aa85e717faaef83c5d5cb6"></a>
+<a id="canonical-0110212221320023-0033211033102113-0320001221000330-1221021132010333-1321003022223211-3313222220113213-0113332222323320-0330113111302312"></a>
 
-## ssh_key property — admin_user_credentials / ca2c0b4120e5 / 4
+## ssh_key property — admin_user_credentials / 100102003211 / 4
 
 Type: `"string"`. Computed.
 
 Provided Public SSH key can be used for accessing nodes of the site. When provided, customers can
 SSH to the nodes of this Customer Edge site using admin as the user.
 
-<a id="canonical-4240323ad1c49e41e63e176e0c222ff32117b9796c13e79cf7a94391ba6df93e"></a>
+<a id="canonical-1002100003020322-3101301021321001-3212033201131232-0030020202333303-0201011323211321-1230010332132130-3313222110032101-2322123133210332"></a>
 
-## Next pages — admin_user_credentials / ca2c0b4120e5 / 5
+## Next pages — admin_user_credentials / 100102003211 / 5
 
-- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d"></a>
+<a id="canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e10d7d13f31a72b858c870093ecc07d864248496a0796d0b0513a0c802ba82e"></a>
+<a id="canonical-0232010031133101-0333030122130223-2011203020130000-2103323030001331-2012100210201021-1222001321123100-2300110103220030-2000022322200232"></a>
 
-## admin_user_credentials.admin_password — admin_user_credentials.admin_password / f25d10df9a81 / 2
+## admin_user_credentials.admin_password — admin_password / 313321222001 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032)
 - admin_user_credentials.admin_password
 
-<a id="canonical-b8b3bef1e8d1e9cbecc1d7f866dba33a7fa6389210c54aae7a64ba561c040a53"></a>
+<a id="canonical-2320230323323301-3220310132213023-3230300131133320-1212312322030322-1333221203202102-0100301110222232-1322121023221112-0130001000221103"></a>
 
 Type: `"single"`. Computed.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-<a id="canonical-47f4071df58c373f14b1438483f1ed128d5fd32bc12c58033c92bee5c2c594b3"></a>
+<a id="canonical-1013331000130131-3311203003130333-0110230110032010-2003330132310102-2031113331030223-3001023011200003-0330210223323211-3002301121102303"></a>
 
-## Direct properties — admin_user_credentials.admin_password / f25d10df9a81 / 3
+## Direct properties — admin_password / 313321222001 / 3
 
-- [blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-d024cb02519b8127d763f5025f9722d5c1dac3d98a60299b1b9a3db3f8fd820b): complete subsection reference.
+- [blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-3100021030230002-1101212320010213-3113120333110002-1133211302023111-3001312230033121-2022120002212123-0123212203312303-3320333120020023): complete subsection reference.
 
-- [clear_secret_info](data-sources--site--reference--group-001.md#canonical-62e3aee84b3f8dc5c20f8e6cba1ac30305609d5e762311f0820888f4597e11f4): complete subsection reference.
+- [clear_secret_info](data-sources--site--reference--group-001.md#canonical-1202320322323220-1023033320313011-3002003320321230-2322012230030003-0011120021311132-1312020301013300-2002002020203310-1121133201013310): complete subsection reference.
 
-<a id="canonical-aa4c93b0bce7e59689d7ca18083587f04ca03c69ddf3a9b5996e920b071aebe0"></a>
+<a id="canonical-2222103021032300-2330321332112112-2021311330220120-0020031120133300-1030220003301221-3131330322212311-2121123221020023-0013012232233200"></a>
 
-## Next pages — admin_user_credentials.admin_password / f25d10df9a81 / 4
+## Next pages — admin_password / 313321222001 / 4
 
-- [admin_user_credentials.admin_password.blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-d024cb02519b8127d763f5025f9722d5c1dac3d98a60299b1b9a3db3f8fd820b)
-- [admin_user_credentials.admin_password.clear_secret_info](data-sources--site--reference--group-001.md#canonical-62e3aee84b3f8dc5c20f8e6cba1ac30305609d5e762311f0820888f4597e11f4)
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [admin_user_credentials.admin_password.blindfold_secret_info](data-sources--site--reference--group-001.md#canonical-3100021030230002-1101212320010213-3113120333110002-1133211302023111-3001312230033121-2022120002212123-0123212203312303-3320333120020023)
+- [admin_user_credentials.admin_password.clear_secret_info](data-sources--site--reference--group-001.md#canonical-1202320322323220-1023033320313011-3002003320321230-2322012230030003-0011120021311132-1312020301013300-2002002020203310-1121133201013310)
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-d024cb02519b8127d763f5025f9722d5c1dac3d98a60299b1b9a3db3f8fd820b"></a>
+<a id="canonical-3100021030230002-1101212320010213-3113120333110002-1133211302023111-3001312230033121-2022120002212123-0123212203312303-3320333120020023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-209c93ddac65293e9695327b662541168d3af1b68843d93af84749ad115d4b61"></a>
+<a id="canonical-0200213021033131-2230121102210332-2112211103021323-1212021110010112-2031032233012312-2020100331210322-3320101310212231-0101113110231201"></a>
 
-## admin_user_credentials.admin_password.blindfold_secret_info — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 2
+## admin_user_credentials.admin_password.blindfold_secret_info — blindfold_secret_info / 312120322312 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce)
-- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032)
+- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231)
 - admin_user_credentials.admin_password.blindfold_secret_info
 
-<a id="canonical-88ceed83ab3ef478c3f4830fae173388c2e9598eff9866cb8759c495673b43e0"></a>
+<a id="canonical-2020303232312003-2223033233101320-3003331020030033-2232011303032020-3002322111212032-3333212012123023-2013112130102111-1213032310033200"></a>
 
 Type: `"single"`. Computed.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-<a id="canonical-f3c1eb3c3e2588a58b5a508ad7ec6cd0a05b2a905722d9b594a964986efd58be"></a>
+<a id="canonical-3303300132230330-0332021120202211-2023112211002022-3113323012303100-2200112302222100-1113020231212311-2110222112102120-1232333111202332"></a>
 
-## Direct properties — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 3
+## Direct properties — blindfold_secret_info / 312120322312 / 3
 
-<a id="canonical-9fec5de6cc3a88d55daaccb0a910d15e62440660dd449eeb1f8bcd33b33de212"></a>
+<a id="canonical-2133323011313212-3030032220203111-1131222230302300-2221010031011132-1202101000121200-3131101021323223-0133202330310303-2303033132020102"></a>
 
-<a id="canonical-8733c257d3a48cf8826550ad38d80ba7bcecd1776811eb189ce1cd2c4494f421"></a>
+<a id="canonical-2013030330021113-3103221020303320-2002121111002231-0320312000232213-2330323031011313-1220010132230120-2130320130310230-1010211033100201"></a>
 
-## decryption_provider property — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 4
+## decryption_provider property — blindfold_secret_info / 312120322312 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the backend Secret
 Management service.
 
-<a id="canonical-90b1a0bd73f0f823a2753e959ccfbc3357050b2844372093dcda19d97a3fec1f"></a>
+<a id="canonical-2100230122002331-1303330033200203-2202131103322111-2130303323300303-1113001100230220-1010031302002103-3130312201213121-1322033332300133"></a>
 
-<a id="canonical-768801b0ff9e8d3a9a74cecd1d829718c1d309c363002ec6bcd7193c82c2cfd4"></a>
+<a id="canonical-1312202000012300-3333213220310322-2122131030323031-0131200221130120-3001310300213003-1203000002323012-2330311301210330-2002300230333110"></a>
 
-## location property — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 5
+## location property — blindfold_secret_info / 312120322312 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
 Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-<a id="canonical-3dbc5da04df28793b8be6bb5d80b15157be06159c8bcab4172dfae817a4992e4"></a>
+<a id="canonical-0331233011312200-1031330220132103-2320233212232311-3120002301110111-1323320012011121-3020233022231001-1302313322322001-1322102121023210"></a>
 
-<a id="canonical-64162a7021366b8820f25df609dcd4295c27fa0853e30cd5dcc053b87a5c8b6b"></a>
+<a id="canonical-1210011202221300-0201031212232020-0200330211313312-0021313031100221-1130021333220020-1103320300303111-3130300011032320-1322113020231223"></a>
 
-## store_provider property — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 6
+## store_provider property — blindfold_secret_info / 312120322312 / 6
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-1f3763d58b2b062b697bdee68b71fee7d8ada0a3118d2ed2bc20fcd3ce951f64"></a>
+<a id="canonical-0133031312033111-2023022300120223-1221132331323212-2023130133323213-3120223122002203-0101203102323102-2330020033303103-3032211101331210"></a>
 
-## Next pages — admin_user_credentials.admin_password.blindfold_secret_info / bb7172d98eb6 / 7
+## Next pages — blindfold_secret_info / 312120322312 / 7
 
-- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-62e3aee84b3f8dc5c20f8e6cba1ac30305609d5e762311f0820888f4597e11f4"></a>
+<a id="canonical-1202320322323220-1023033320313011-3002003320321230-2322012230030003-0011120021311132-1312020301013300-2002002020203310-1121133201013310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a93b4b780b8eb678133f3dc4882761b97f2626cfb31187a79f921aded7a67656"></a>
+<a id="canonical-2221032310231320-0023203223121320-0103033303313010-2020021312012321-1333021202123033-2303010120132213-2133210201223132-3113221213121112"></a>
 
-## admin_user_credentials.admin_password.clear_secret_info — admin_user_credentials.admin_password.clear_secret_info / 483c48944dae / 2
+## admin_user_credentials.admin_password.clear_secret_info — clear_secret_info / 211010312232 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-23cada312bda320b7efc68a617dd2908f73a2b8261f34adfc4988ae22d9199ce)
-- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [admin_user_credentials](data-sources--site--reference--group-001.md#canonical-0203302231220301-0223312203020023-1332333012202212-0113313102210020-3313032202232002-1201330310223133-3010212020223202-0231210121213032)
+- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231)
 - admin_user_credentials.admin_password.clear_secret_info
 
-<a id="canonical-c14b3d6573633b52179abc4ae97c8eec1f6fabc9009487e4365ca473d9dafe00"></a>
+<a id="canonical-3001102303311211-1303120303231102-0113212223301022-3221133020323230-0133123322233021-0000211020133210-0312113022101303-3121312233320000"></a>
 
 Type: `"single"`. Computed.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
 
-<a id="canonical-34cfef6e3272a0a299be050392a0d9184eb4afe9c3037885849add22db519664"></a>
+<a id="canonical-0310303332331232-0302130222002202-2121233200110003-2102220031210120-1032231022333221-3003000313202011-2010212231310202-3123110121121210"></a>
 
-## Direct properties — admin_user_credentials.admin_password.clear_secret_info / 483c48944dae / 3
+## Direct properties — clear_secret_info / 211010312232 / 3
 
-<a id="canonical-2033164fd940b85d87f97e7925f666ff6856a8d724c0fad265c5ad673ffd98db"></a>
+<a id="canonical-0200030301121033-3121100023201131-2013332113321321-0211331212123333-1220111222203113-0210300033223102-1211301122311213-0333333121203123"></a>
 
-<a id="canonical-8d6e879dd5fcd78529c9453d8acb299b409f466e84c36b6e5f669adc3ec46e71"></a>
+<a id="canonical-2031123220132131-3111333031132011-0221302110110331-2022302302212123-1000213310121232-2010300312231232-1133121221223130-0332301012321301"></a>
 
-## provider_ref property — admin_user_credentials.admin_password.clear_secret_info / 483c48944dae / 4
+## provider_ref property — clear_secret_info / 211010312232 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-36daa3f0efc1ce8c564a9dfea21e13851ff10ad42515a779206837f0bf860028"></a>
+<a id="canonical-0312312222033300-3233300130322030-1112102221313332-2202013201032011-0133330100223110-0211011122131321-0200122003133300-2333201200000220"></a>
 
-<a id="canonical-16bf9de96cfcfd0d8ef65b6eb8095da2cd375aa98aba75762ebcf602c1989d28"></a>
+<a id="canonical-0112233321313221-1230333033310031-2032331211231232-2320002111312202-3031031311222221-2022232213111312-0232233033120002-3001212021310220"></a>
 
-## url property — admin_user_credentials.admin_password.clear_secret_info / 483c48944dae / 5
+## URL property — clear_secret_info / 211010312232 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -760,484 +760,484 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
 Base64 decoding.
 
-<a id="canonical-95e8b2ea886521f4187e03579dfbafd9bf8aaa3d35171100da66b0bd5d2eddf9"></a>
+<a id="canonical-2111322023023222-2020121102013310-0120133200031113-2131332322333121-2333202222220331-0311011301010000-3122121223002331-1131023231313321"></a>
 
-## Next pages — admin_user_credentials.admin_password.clear_secret_info / 483c48944dae / 6
+## Next pages — clear_secret_info / 211010312232 / 6
 
-- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-14281ce1bce71d7253fe35157074f697cabb0b31626b218742d865e77d59a82d)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [admin_user_credentials.admin_password](data-sources--site--reference--group-001.md#canonical-0110022001303201-2330321301311302-1103333203110111-1300131033122113-3022232300230301-1202122302012013-1002312012113213-1331112122200231)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-85706de1aed9b2978a14e030cedde0be433104392d6a8841ea76bb2dfbeaa589"></a>
+<a id="canonical-2011130012313201-2232312123022113-2022011032000300-3032313132002332-1003030100100321-0231122220201001-3222131223230231-3323322222112021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-001d44dd068192e3075364fe423b769e7fc34a8bb903b0eae4b31c2c56950d8d"></a>
+<a id="canonical-0000013110103131-0012200121023203-0013110312103332-1002032313122132-1333300310222023-2321000323003222-3210230301300230-1112211100312031"></a>
 
-## connected_re — connected_re / 8c29edf84974 / 2
+## connected_re — connected_re / 332010211310 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - connected_re
 
-<a id="canonical-a7d91e199cdbd33164b316d6de5f60318841d45d797729c40eb6e444800ae63d"></a>
+<a id="canonical-2213312101320121-2130312331030301-1210230301123112-3132113312000301-2020100131101131-1321131302213010-0032231232101010-2000002232120331"></a>
 
 Type: `"list"`. Computed.
 
 Following fields are only for customer edge sites List of REs to which to which this CE initiates
 IPsec/SSL connection to.
 
-<a id="canonical-586336a80f10c3394781df31a0c16242437585220fb06c756ce7a6595706e12a"></a>
+<a id="canonical-1120120303122220-0033010030030321-1013200131330301-2200300112021002-1003131120110202-0033230012301311-1230321322121121-1113001232010222"></a>
 
-## Direct properties — connected_re / 8c29edf84974 / 3
+## Direct properties — connected_re / 332010211310 / 3
 
-<a id="canonical-4e21f5cc085189e431aa797b96ed0d73a4fe8207ed18def6de422d1be826c3b6"></a>
+<a id="canonical-1032020133113030-0020110120213210-0301222213211323-2112323100311303-2210333220020013-3231012031323312-3132100202310123-3220021230032312"></a>
 
-<a id="canonical-6ab17a8da48d6ff05218a7902f6f5d8cd3915aa3bf57c2e01ec504f13e83c7a7"></a>
+<a id="canonical-1222230113222031-2210203112333300-1102012022132100-0233123311312030-3103210111222203-2333111330023200-0132301100103301-0332200330132213"></a>
 
-## kind property — connected_re / 8c29edf84974 / 4
+## kind property — connected_re / 332010211310 / 4
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-<a id="canonical-aff8fca639bddead506db574f7a6ce6220b4732b11cd94457e8e32fd28dc84fc"></a>
+<a id="canonical-2233332033302212-0321233131322231-1100123123111310-3313221230321202-0200231013030223-0101303121101011-1332203203023331-0220313020103330"></a>
 
-<a id="canonical-39791b2682d08876cb0ad75fd909914e180700d3489d5b63f09c016057eaf55e"></a>
+<a id="canonical-0321132101230212-2002310020201312-3023002231131133-3121002121011032-0120001300003103-1020213111231203-3300213000011200-1113322233111132"></a>
 
-## name property — connected_re / 8c29edf84974 / 5
+## name property — connected_re / 332010211310 / 5
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-<a id="canonical-fe615b7fd5875de442912cb7e5a07567bea16475275136dd33bc5ada5520d2e9"></a>
+<a id="canonical-3332120111231333-3111201311313210-1002210102302313-3211220013111213-2332220112101311-0213110103123131-0303233011223122-1111020031023221"></a>
 
-<a id="canonical-c6eac0e908732b9b072724d31e2f0dc7c3abc269cdb7385d17b01fa0001e782e"></a>
+<a id="canonical-3012322230003221-0020130302232123-0013021302103103-0132023300313013-3003222330021221-3031231303201131-0113230001332200-0000013213200232"></a>
 
-## namespace property — connected_re / 8c29edf84974 / 6
+## namespace property — connected_re / 332010211310 / 6
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-<a id="canonical-a8c28fd0d47b7670bcc7a91a2a4ee11afc565887537c04a67d70c210f63a10ca"></a>
+<a id="canonical-2220300220333100-3110132313121300-2330301322210122-0222103232010122-3330111211202013-1103133000102212-1331130030020100-3312032201003022"></a>
 
-<a id="canonical-54ea0ae8e751e32d6d1607a3fb7f9f2653671f4a1dbaf5a23b476b5b8aa7fafc"></a>
+<a id="canonical-1110322200223220-3213110132030231-1231011200132203-3323133321330212-1103121301331022-0131232233112202-0323101312231123-2022221333223330"></a>
 
-## tenant property — connected_re / 8c29edf84974 / 7
+## tenant property — connected_re / 332010211310 / 7
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-<a id="canonical-7b756f810be1acdadc0b89d87eb14c1016477bd2593b1b84387d94d5a9e941c3"></a>
+<a id="canonical-1323131112332001-0023320122303122-3130002320213120-1332230110300100-0112101313233102-1121032301232010-0320133121103111-2221322110013003"></a>
 
-<a id="canonical-ca0abbd267799327eebb2d841cd8bd26c4775727a4dc313345366c810bd67b9a"></a>
+<a id="canonical-3022002223233102-1213132121030213-3232232302312010-0130312023310212-3010131311130213-2210313003010303-1011031212302001-0023311213232122"></a>
 
-## uid property — connected_re / 8c29edf84974 / 8
+## uid property — connected_re / 332010211310 / 8
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-<a id="canonical-b2b2b9e7ca95979ca046aaf78e9dd112759b10e8d7932e5418593a8f479d5b31"></a>
+<a id="canonical-2302230223213213-3022211121132130-2200101222223313-2032213131010102-1311212301003220-3113210302321110-0120112103222033-1013213111230301"></a>
 
-## Next pages — connected_re / 8c29edf84974 / 9
+## Next pages — connected_re / 332010211310 / 9
 
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-70617853cc03e32ab5d93d5623a6b5794c6f8b550e5f402d8a1445c8bba394a4"></a>
+<a id="canonical-1300120113201103-3030000332030222-2311312103311112-0203221223111321-1030123320231111-0032113310000231-2022011010113020-2323220321102210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2cb7755769172aa6f13602c9651bdfe44aa7580da5a3ae0a04064789c6744e26"></a>
+<a id="canonical-0230231313111113-1221011302222212-3301031200023021-1211012331333210-1022221311200031-2211220322320022-0010001210132021-3012131010320212"></a>
 
-## connected_re_for_config — connected_re_for_config / 2ee3e16e746c / 2
+## connected_re_for_config — connected_re_for_config / 123213101230 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - connected_re_for_config
 
-<a id="canonical-97421362f29939bb8ef71a2031f1be9bbb20c90f0f51cfa1101f50771490e494"></a>
+<a id="canonical-2113100201031202-3302212103212323-2032331301220200-0301330123322123-2323020030210033-0033110130332201-0100013311001313-0110210032102110"></a>
 
 Type: `"list"`. Computed.
 
 Valid only for CE site object List of REs which can send config to this CE site.
 
-<a id="canonical-e44461b8a284d5f223f30e18fd86ac8a953291d44b854ca390f0055e2c14ee76"></a>
+<a id="canonical-3210101012012320-2202201031113302-0203330300320120-3331201222302022-2111030221013110-1023201110302203-2100330000111132-0230011032321312"></a>
 
-## Direct properties — connected_re_for_config / 2ee3e16e746c / 3
+## Direct properties — connected_re_for_config / 123213101230 / 3
 
-<a id="canonical-f273285434b4b64d3c26f09179625ee704bb055e02bf77387de6afd347aef11d"></a>
+<a id="canonical-3302130302201110-0310231023121031-0330021233002101-1321120211323213-0010232300111132-0002233313130320-1331321222333103-1013223233010131"></a>
 
-<a id="canonical-77551cc606b17bb1e970b33dfdede4349c50cdaf657aada0657448eaec7ade3c"></a>
+<a id="canonical-1313111101303012-0012230113232301-3221130023030331-3331323132100310-2130110030312233-1211132222312200-1211131010203222-3230132231320330"></a>
 
-## kind property — connected_re_for_config / 2ee3e16e746c / 4
+## kind property — connected_re_for_config / 123213101230 / 4
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-<a id="canonical-76e16a31ea9bdc0aae6ea34f9772ee6230bf9cd6d22a95d4ac2e6479eb2dfaee"></a>
+<a id="canonical-1312320112220301-3222212331300022-2232123222031033-2113130232321202-0300233321303112-3102022221113110-2230023212101321-3223023133223232"></a>
 
-<a id="canonical-468b41bd96f62de716fc27ba400d71d5b96ad60228fc2e265778a589ec9231a9"></a>
+<a id="canonical-1012202310012331-2112331202313213-0112333002132322-1000003113013111-2321122231120002-0220333002320212-1113132022112021-3230210203012221"></a>
 
-## name property — connected_re_for_config / 2ee3e16e746c / 5
+## name property — connected_re_for_config / 123213101230 / 5
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-<a id="canonical-9c7ddb44bd40ffa4b50997bc591082f41b16152478f3a82a85672044d3b3fa87"></a>
+<a id="canonical-2130133131231010-2331100033332210-2311002121132330-1121010020023310-0123011201110210-1320330322200222-2011121302001010-3103230333222013"></a>
 
-<a id="canonical-4c2ac0837c29e66ac55fff9510b7f9ad8e213cb6febdb8925fcb2d2c577bc131"></a>
+<a id="canonical-1030022230002003-1330022132121222-3011113333332111-0100231333212231-2032020103302312-3332233123202102-1133302302310230-1113132330010301"></a>
 
-## namespace property — connected_re_for_config / 2ee3e16e746c / 6
+## namespace property — connected_re_for_config / 123213101230 / 6
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-<a id="canonical-4daa101ef9a3786128e1b82b3dc91b94442d1420ae9dcda7a653261fb6a22eb4"></a>
+<a id="canonical-1031222201000132-3321220313201201-0220320123200223-0331302101232110-1010023101100200-2232213130312213-2212110302120133-2312220202322310"></a>
 
-<a id="canonical-7819a377f63875c93a8ce3bf9aea3dc9d6e099afc10a1077e06d618d35f6a037"></a>
+<a id="canonical-1320012122031313-3312032013113021-0322203032032333-2122322203313021-3112320021212233-3001002201001313-3200123112012031-0311331222000313"></a>
 
-## tenant property — connected_re_for_config / 2ee3e16e746c / 7
+## tenant property — connected_re_for_config / 123213101230 / 7
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-<a id="canonical-41f6e3f5f5f1a2c2e279508d3ada0b7db91bfa33c50ac1118e404fbd4c0205d4"></a>
+<a id="canonical-1001331232033311-3311330122023002-3202132111002031-0322312200231331-2321012333220303-3011002230010101-2032100010332331-1030000200113110"></a>
 
-<a id="canonical-eefeb7482745ad2d3919db9d8dd3bad2084b891a92c27b9e7564e305b9b78d60"></a>
+<a id="canonical-3232333223131020-0213101122310231-0321012131232131-2031310323223102-0020102320210122-2102300213232132-1311121032030011-2321231320311200"></a>
 
-## uid property — connected_re_for_config / 2ee3e16e746c / 8
+## uid property — connected_re_for_config / 123213101230 / 8
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-<a id="canonical-7dad534a10b8dee15508cff9e4b3e44703e32a34929b2c06bb48333d91c94a3b"></a>
+<a id="canonical-1331223111031022-0100232031323201-1111002030333321-3210230332101013-0003320302220310-2102212302300012-2323102003030331-2101302110220323"></a>
 
-## Next pages — connected_re_for_config / 2ee3e16e746c / 9
+## Next pages — connected_re_for_config / 123213101230 / 9
 
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-4acdcf69b09e0ea8e1684d40f9537429ddefa1d373e5328e2ea7fc7e4f2f9faf"></a>
+<a id="canonical-1022303130331221-2300213200322220-3201122010311000-3321110313100221-3131323322013103-1303321103022032-0232221333301332-1033023321332233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9d4675188028a3a07ef0cee07d83202d15e09949d54a89155b501b74f5c8869f"></a>
+<a id="canonical-2131101213110120-2000022022032200-1332330030323200-1331200302000231-0111320021211021-3111102220210111-1123110001231310-3311302020122133"></a>
 
-## coordinates — coordinates / 259e297b2744 / 2
+## coordinates — coordinates / 132302131010 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - coordinates
 
-<a id="canonical-03b01fed26df694dbf42e985da27d2e75b3f306656a5bdd4816ea426cf76c736"></a>
+<a id="canonical-0003230001333231-0212313312211031-2333100232212011-3122021331023213-1123033303001212-1112221123313110-2001123222100212-3033131230130312"></a>
 
 Type: `"single"`. Computed.
 
 Coordinates of the site which provides the site physical location.
 
-<a id="canonical-c633d1b2bf3c2b1300a9b91faff022729896ea2bc9fde6035f167522170fb65f"></a>
+<a id="canonical-3012030331012302-2333033002230103-0000222123210133-2233330002021302-2120211232220223-3021333132120003-1133011213110202-0113003323121133"></a>
 
-## Direct properties — coordinates / 259e297b2744 / 3
+## Direct properties — coordinates / 132302131010 / 3
 
-<a id="canonical-0bfe4b6ae704a43dd1ae9dc136d9477ea48e2a846916d4861bfbf9cacebde14c"></a>
+<a id="canonical-0023333210231222-3213001022100331-3101223221313001-0312312110131332-2210203202222010-1221011231102012-0123332333213022-3032233132011030"></a>
 
-<a id="canonical-6bd143467efb68a469640a121b4a7f8364466177eeb9a83d9b178e2720de62cc"></a>
+<a id="canonical-1223310110031012-1332332312202210-1221121000220102-0123102213332003-1210101212011313-3232232122200331-2123011320320213-0200313212023030"></a>
 
-## latitude property — coordinates / 259e297b2744 / 4
+## latitude property — coordinates / 132302131010 / 4
 
 Type: `"number"`. Computed.
 
 Latitude. Latitude of the site location.
 
-<a id="canonical-22a44e5606705a32814ee60eb588b4a5884942c98b850bcaea32d9b126a757ae"></a>
+<a id="canonical-0202221010321112-0012130011220302-2001103232120032-2311202023102211-2020102110023021-2023201100233022-3222030231212301-0212221311132232"></a>
 
-<a id="canonical-a5cb23d9ee71cf0249425aa394eea0cf1cf0b2b89b448981d3c6ac27aa4fd850"></a>
+<a id="canonical-2211302302033121-3232130130330002-1021100211222203-2110323222003033-0130330023022320-2123101020212001-3103301222300213-2222103331201100"></a>
 
-## longitude property — coordinates / 259e297b2744 / 5
+## longitude property — coordinates / 132302131010 / 5
 
 Type: `"number"`. Computed.
 
 Longitude. Longitude of site location.
 
-<a id="canonical-05a6fffe1eb7fe136efd8582a486625ad607dc10c564b8e82dd56eed624fd3fa"></a>
+<a id="canonical-0011221233333332-0132231333320103-1232333120112002-2210201212021122-3112001331300100-3011121023203220-0231311112323231-1202103331033322"></a>
 
-## Next pages — coordinates / 259e297b2744 / 6
+## Next pages — coordinates / 132302131010 / 6
 
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5"></a>
+<a id="canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f0ae8d79b5f6ef382a2e1a98775b9dc0a9bd246809200c8ee4d8a14c06a419a9"></a>
+<a id="canonical-3300223220311321-2311331232330320-0222023201222120-1313112321313000-2221233102101220-0021020000302032-3210312022011030-0012221001212221"></a>
 
-## default_underlay_network — default_underlay_network / 248947760135 / 2
+## default_underlay_network — default_underlay_network / 131200010311 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - default_underlay_network
 
-<a id="canonical-a762a1a85bca5dbefaab87be71767cb764b9abada86afc9b6176b443cea0e0e8"></a>
+<a id="canonical-2213120222012220-1123302211312332-3322222320132332-1301131213302313-1210232122232231-2220122233302123-1201131223101003-3032220032003220"></a>
 
 Type: `"single"`. Computed.
 
 Optional, virtual network to be used as underlay for different overlay protocols (SRv6, IP-in-IP
 tunnels for DC Cluster Group) Default is site-local-outside network.
 
-<a id="canonical-41818ff3358b7f916a9bb79b5dd8192992ace84ec02df38c347ce478b2e8f3c0"></a>
+<a id="canonical-1001200120333303-0311202313332101-1222212323132123-1131312001210221-2102223032201032-3000023133032030-0310133032101320-2302322033033000"></a>
 
-## Direct properties — default_underlay_network / 248947760135 / 3
+## Direct properties — default_underlay_network / 131200010311 / 3
 
-- [site_local_inside](data-sources--site--reference--group-001.md#canonical-c53b690d07a2f0544045917d2d636e25819592d562dbee4db3193e96ce0bdc16): complete subsection reference.
+- [site_local_inside](data-sources--site--reference--group-001.md#canonical-3011032312210031-0013220233001110-1000101121011331-0231120312320211-2001211121023111-1202312332321031-2303012103322112-3032002331300112): complete subsection reference.
 
-- [site_local_outside](data-sources--site--reference--group-001.md#canonical-edf2dc101fc413ccf9719469478f853a6b9ee6be95908cd501c9d08f02df72c2): complete subsection reference.
+- [site_local_outside](data-sources--site--reference--group-001.md#canonical-3231330231300100-0133301001033030-3321130121101221-1013203320110322-1223213232122332-2111210020303111-0001302131002033-0002313313023002): complete subsection reference.
 
-<a id="canonical-f6c33b339dacb389149ff3918bfe1f6cfa93889830aa6dcb17bcea9ad3a28d4f"></a>
+<a id="canonical-3312300303230303-2131223023032021-0110213333032101-2023333201331230-3322210320202120-0300222212313023-0113233032222122-3103220220311033"></a>
 
-## Next pages — default_underlay_network / 248947760135 / 4
+## Next pages — default_underlay_network / 131200010311 / 4
 
-- [default_underlay_network.site_local_inside](data-sources--site--reference--group-001.md#canonical-c53b690d07a2f0544045917d2d636e25819592d562dbee4db3193e96ce0bdc16)
-- [default_underlay_network.site_local_outside](data-sources--site--reference--group-001.md#canonical-edf2dc101fc413ccf9719469478f853a6b9ee6be95908cd501c9d08f02df72c2)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [default_underlay_network.site_local_inside](data-sources--site--reference--group-001.md#canonical-3011032312210031-0013220233001110-1000101121011331-0231120312320211-2001211121023111-1202312332321031-2303012103322112-3032002331300112)
+- [default_underlay_network.site_local_outside](data-sources--site--reference--group-001.md#canonical-3231330231300100-0133301001033030-3321130121101221-1013203320110322-1223213232122332-2111210020303111-0001302131002033-0002313313023002)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-c53b690d07a2f0544045917d2d636e25819592d562dbee4db3193e96ce0bdc16"></a>
+<a id="canonical-3011032312210031-0013220233001110-1000101121011331-0231120312320211-2001211121023111-1202312332321031-2303012103322112-3032002331300112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1fc94c708df42b7ba704c7baa9c127842ac3b78b6ad50e2bf6d49497338afefe"></a>
+<a id="canonical-0133302110301300-2031331002231323-2213001030132322-2221300102132010-0222300323132023-1222311100320223-3312311021102113-0303202233323332"></a>
 
-## default_underlay_network.site_local_inside — default_underlay_network.site_local_inside / 0f83f95cad18 / 2
+## default_underlay_network.site_local_inside — site_local_inside / 113022310120 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311)
 - default_underlay_network.site_local_inside
 
-<a id="canonical-fe41799b0711b493e75b835e956c44a1b6395b60d9eb2ea09fd18d23c23065dc"></a>
+<a id="canonical-3332100113212123-0013010123102103-3213112320031132-2111123010102201-2312032111231200-3121322302322200-2133310120310203-3002030012113130"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-a39b977c924369289c3f1dbc1c638676a8fb5dca2b10d90ab38cb7a7ee4325df"></a>
+<a id="canonical-2203212321131330-2102100312210220-2130033301312330-0130120320121312-2220332311313022-0223010031210022-2303203023132213-3232100302113133"></a>
 
-## Direct properties — default_underlay_network.site_local_inside / 0f83f95cad18 / 3
+## Direct properties — site_local_inside / 113022310120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-47c998d9440fdf456d03f6100756dd99c8962558326321ba54c1cc6d215f42eb"></a>
+<a id="canonical-1013302121203121-1010003331331011-1231000333120100-0013111231312121-3020211202111120-0302120302012322-1110300130301231-0201113310023223"></a>
 
-## Next pages — default_underlay_network.site_local_inside / 0f83f95cad18 / 4
+## Next pages — site_local_inside / 113022310120 / 4
 
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-edf2dc101fc413ccf9719469478f853a6b9ee6be95908cd501c9d08f02df72c2"></a>
+<a id="canonical-3231330231300100-0133301001033030-3321130121101221-1013203320110322-1223213232122332-2111210020303111-0001302131002033-0002313313023002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-011a961210d0788ae6221bbbcc17b497e78fc66037588493a10eb325fb095def"></a>
+<a id="canonical-0001012221120102-0100310013202022-3212020201232323-3030011323102113-3213203330121200-0313112020102103-2201003223030211-3323002111313233"></a>
 
-## default_underlay_network.site_local_outside — default_underlay_network.site_local_outside / 726486fbdfc6 / 2
+## default_underlay_network.site_local_outside — site_local_outside / 332331333012 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311)
 - default_underlay_network.site_local_outside
 
-<a id="canonical-1253b80574300d4d0a3854f83dcd57f7f85d82d342be942f2c2cb258fb98e627"></a>
+<a id="canonical-0102110323200011-1310030000311031-0022032011103320-0331303111133313-3320113120023103-1002233221100233-0230023023021120-3323212032120213"></a>
 
 Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-fbc5f1ab08b5e5efcbc0fa019b96f628921eb4ea5e444a2cd6240a73fe211eac"></a>
+<a id="canonical-3323301133012223-0020231132113233-3023300033220001-2123211233120220-2102013223103222-1132101010220230-3112021000221303-3332020101322230"></a>
 
-## Direct properties — default_underlay_network.site_local_outside / 726486fbdfc6 / 3
+## Direct properties — site_local_outside / 332331333012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d9f0d1fe11f71547e89504df1865c467198bd2a9e53ee4dd2f95bcabbb7727dd"></a>
+<a id="canonical-3121330031013332-0101331301111013-3220211100103133-0120121130101213-0121202331022221-3211033232103131-0233211123302223-2323131302133131"></a>
 
-## Next pages — default_underlay_network.site_local_outside / 726486fbdfc6 / 4
+## Next pages — site_local_outside / 332331333012 / 4
 
-- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-bd17269542aad6bf8548924856fd769c4a855887d702aba855aa7688e63cf3f5)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [default_underlay_network](data-sources--site--reference--group-001.md#canonical-2331011302122111-1002222231122333-2011102021021020-1112333113122130-1022201111202013-3113000222232220-1111222213122020-3212033033033311)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380"></a>
+<a id="canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b842e292d01850b6f96da37b3b4596e29f0f777e02a59d4e87c4b3557e7332b0"></a>
+<a id="canonical-2320100232022102-3100012011002312-3321123122031323-0323101121123202-2133003313131332-0002221121311032-2013301023031111-1332130303022300"></a>
 
-## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 595e4ab1ef24 / 2
+## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 230132330210 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - kubernetes_upgrade_drain
 
-<a id="canonical-71d124a4030aacd174f374d619778ec41f397171cd6a34b74db40be4f074075c"></a>
+<a id="canonical-1301310102102210-0003002222303101-1310330313103112-0121131320323010-0133032113011301-3031122203102313-1031231000233210-3300131000131130"></a>
 
 Type: `"single"`. Computed.
 
 Specify how worker nodes within a site will be upgraded.
 
-<a id="canonical-264ccfad98aabdcf910472926a976f89805c2d4dc9b45f7c3fd3430e1d860e57"></a>
+<a id="canonical-0212103030332231-2120222223313033-2101001013022102-1222211312332021-2000113002311031-3021231011331330-0333310310030032-0131201200321113"></a>
 
-## Direct properties — kubernetes_upgrade_drain / 595e4ab1ef24 / 3
+## Direct properties — kubernetes_upgrade_drain / 230132330210 / 3
 
-- [disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-ca13617df8a83677d446be7c5da5ae092ccbc859c9108636bb38e5cb8962d002): complete subsection reference.
+- [disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-3022010312011331-3320222003121313-3110101223321330-1131221122320021-0230302330201121-3021010020120312-2323032032113023-2021120231000002): complete subsection reference.
 
-- [enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7): complete subsection reference.
+- [enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313): complete subsection reference.
 
-<a id="canonical-1d07f5d8c3c222fec85178bab6248433140becc90bfd381d1ded4dad510e2d62"></a>
+<a id="canonical-0131001333113120-3003300202023332-3020110113202322-2312021020100303-0110002332303021-0023333103200131-0131323110312231-1101003202311202"></a>
 
-## Next pages — kubernetes_upgrade_drain / 595e4ab1ef24 / 4
+## Next pages — kubernetes_upgrade_drain / 230132330210 / 4
 
-- [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-ca13617df8a83677d446be7c5da5ae092ccbc859c9108636bb38e5cb8962d002)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [kubernetes_upgrade_drain.disable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-3022010312011331-3320222003121313-3110101223321330-1131221122320021-0230302330201121-3021010020120312-2323032032113023-2021120231000002)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-ca13617df8a83677d446be7c5da5ae092ccbc859c9108636bb38e5cb8962d002"></a>
+<a id="canonical-3022010312011331-3320222003121313-3110101223321330-1131221122320021-0230302330201121-3021010020120312-2323032032113023-2021120231000002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4cbe7f175d6ec27f91d15a111ffe4ec339dbfa3ebd5818d9032f39d7969bfa73"></a>
+<a id="canonical-1030233213330113-1131123230021333-2101310111220101-0133333210323003-0321312333220332-2331112001203121-0003023303213113-2112212333221303"></a>
 
-## kubernetes_upgrade_drain.disable_upgrade_drain — kubernetes_upgrade_drain.disable_upgrade_drain / 925f6b2062bf / 2
+## kubernetes_upgrade_drain.disable_upgrade_drain — disable_upgrade_drain / 020012022333 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
 - kubernetes_upgrade_drain.disable_upgrade_drain
 
-<a id="canonical-2d608f33760dea286591a976a58d6a23adf9fd3459f458ae8b007c5cdebbde85"></a>
+<a id="canonical-0231120020330303-1312003132220220-1211210122211312-2211203112220203-2231332133310310-1121331011202232-2023000013301130-3132232331322011"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for disable upgrade drain.
 
-<a id="canonical-90adb9fc1e0a2b80093a9aa3b6d80d1f3f4dd1a1b00744a7ba1e2abe93431133"></a>
+<a id="canonical-2100223123213330-0132002202232000-0021032221222203-2312312000310133-0333103131012201-2300001310102213-2322013202222332-2103100301010303"></a>
 
-## Direct properties — kubernetes_upgrade_drain.disable_upgrade_drain / 925f6b2062bf / 3
+## Direct properties — disable_upgrade_drain / 020012022333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fe1a8890b4d91a9d1daa0928455d18a07f4789acc8313fe8cf2c75d06e0ff4d2"></a>
+<a id="canonical-3332012220202100-2310312101222131-0131222200210220-1011113101202200-1333101320212230-3020030103333220-3033023013113100-1232003333103102"></a>
 
-## Next pages — kubernetes_upgrade_drain.disable_upgrade_drain / 925f6b2062bf / 4
+## Next pages — disable_upgrade_drain / 020012022333 / 4
 
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7"></a>
+<a id="canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-75911ef22c23e8c1bd065c85bb0fddaec5ef926965a708801ab72927e0ceb75a"></a>
+<a id="canonical-1311210101323302-0230020332203001-2331001211302011-2323003331312232-3011323321021221-1211221300202000-0122231302210213-3200303223131122"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain — enable_upgrade_drain / 110133313301 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
 - kubernetes_upgrade_drain.enable_upgrade_drain
 
-<a id="canonical-3a5f0d0538e4764a35eb84d26a4a96346bd8c93beea61011f9e1746868cc114e"></a>
+<a id="canonical-0322113300310011-0320321013121022-0311322320103102-1222102221120310-1223312030210323-3232221201000101-3321320113101220-1220303001011032"></a>
 
 Type: `"single"`. Computed.
 
 Specify batch upgrade settings for worker nodes within a site.
 
-<a id="canonical-f0e51593439e44c06065a60ea1d224ab6f30eae1bebd01b294c24cd9f0dc4fba"></a>
+<a id="canonical-3300321101112103-1003213210103000-1200121122120032-2201310202102223-1233030032223201-2332233100012302-2110300210303121-3300313010332322"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 3
+## Direct properties — enable_upgrade_drain / 110133313301 / 3
 
-- [disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-7ef531d25473cd72819eeb0538adbfe6a417f7559226c5c97bee8689b757a761): complete subsection reference.
+- [disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-1332331103013102-1110130330311302-2001213232230011-0320223123333212-2210011333131111-2102021230113021-1323323220122021-2313111322131201): complete subsection reference.
 
-<a id="canonical-bdb3194819542b209c7db0bcad89876c8a83d49de55a959a3d6da57701b9e058"></a>
+<a id="canonical-2331230301211020-0121111002230200-2130133123002330-2231202120131230-2022200331102131-3211112221112122-0331123122111313-0001232132001120"></a>
 
-<a id="canonical-fe9a280a08a43c7655a7c008feadfb7c6976c02627dae9c4d6c9ba2d9c41a2cd"></a>
+<a id="canonical-3332212202200022-0020221003301312-1111221330000020-3332223133231330-1221131230000212-0213312232213010-3112302123220231-2130100122023031"></a>
 
-## drain_max_unavailable_node_count property — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 4
+## drain_max_unavailable_node_count property — enable_upgrade_drain / 110133313301 / 4
 
 Type: `"number"`. Computed.
 
 Node Batch Size Count. Exclusive with \[\]
 
-<a id="canonical-84f262c0a2973f3e5431e5c78d5b51725eb2aada3e8427dc26bcfec9b934481b"></a>
+<a id="canonical-2010330212023000-2202211303330332-1110030132113013-2031112311011302-1132230222223122-0332201002133130-0212233033323021-2321031010200123"></a>
 
-<a id="canonical-93ad187edf032404242831ae16ebea267190e3630aa4137113fd8d55ed1f63f7"></a>
+<a id="canonical-2103223101201332-3133000302100010-0210022003012232-0112322332220212-1301210032031203-0022221001031301-0103333120311111-3231013312033313"></a>
 
-## drain_max_unavailable_node_percentage property — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 5
+## drain_max_unavailable_node_percentage property — enable_upgrade_drain / 110133313301 / 5
 
 Type: `"number"`. Computed.
 
 Maximum percentage of nodes unavailable during upgrade draining.
 
-<a id="canonical-bdfa3c7c4b9c935408578410a4fc3b402eefb161fc46c49f29440218b6b43aa7"></a>
+<a id="canonical-2331332203301330-1023213021031110-0020111320100100-2210333003231000-0232323323011201-3330101230102133-0221101000020120-2312231003222213"></a>
 
-<a id="canonical-718e705f34b1418e83516b734c53a3285c0b95dbed6d11c1386b41a497e2765c"></a>
+<a id="canonical-1301203213001133-0310230110012032-2003110112231303-1030110322030220-1130002321113123-3231123101013001-0320122310012210-2113320213121130"></a>
 
-## drain_node_timeout property — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 6
+## drain_node_timeout property — enable_upgrade_drain / 110133313301 / 6
 
 Type: `"number"`. Computed.
 
@@ -1246,243 +1246,243 @@ indefinitely for all services on nodes to be upgraded gracefully before proceedi
 of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It
 is..
 
-- [enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-7bd7b26ed43a006e791c0da1f5f27aee208e676808311b8472454d6e3a8bb441): complete subsection reference.
+- [enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-1323311323021232-3110032200001232-1321013000312201-3311330213223232-0200203212131220-0020030101232010-1302101110311232-0322202323101001): complete subsection reference.
 
-<a id="canonical-e9aa6842406dc79908feb87f43fe6f99a9b0e84842f36d3157d64b5291d25872"></a>
+<a id="canonical-3221222212201002-1000123130132121-0020333223201333-1003333212332121-2221230032201020-1002330312310301-1113311210231102-2101310211201302"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain / 17364751fdf1 / 7
+## Next pages — enable_upgrade_drain / 110133313301 / 7
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-7ef531d25473cd72819eeb0538adbfe6a417f7559226c5c97bee8689b757a761)
-- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-7bd7b26ed43a006e791c0da1f5f27aee208e676808311b8472454d6e3a8bb441)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-1332331103013102-1110130330311302-2001213232230011-0320223123333212-2210011333131111-2102021230113021-1323323220122021-2313111322131201)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](data-sources--site--reference--group-001.md#canonical-1323311323021232-3110032200001232-1321013000312201-3311330213223232-0200203212131220-0020030101232010-1302101110311232-0322202323101001)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-7ef531d25473cd72819eeb0538adbfe6a417f7559226c5c97bee8689b757a761"></a>
+<a id="canonical-1332331103013102-1110130330311302-2001213232230011-0320223123333212-2210011333131111-2102021230113021-1323323220122021-2313111322131201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b320e7f6b1be8fbc66d28a7a24362954a945b658b24c193f3d8df022cbb72b66"></a>
+<a id="canonical-2303020032133312-2301233220332330-1212310220221322-0210031202211110-2221101123121120-2302103001210333-0331203133000202-3023231302231212"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 8519861bf1d7 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — disable_vega_upgrade_mode / 012333013113 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313)
 - kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode
 
-<a id="canonical-d02e64fe3052930a946b69e9812d31b4c5a6ae36720436ca682e4a30fc18bb9e"></a>
+<a id="canonical-3100023212103332-0300110221030022-2110122312213221-2001023103012310-3011221222320312-1302001003123022-1220023210220300-3330012023232132"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for disable vega upgrade mode.
 
-<a id="canonical-49c4d0c5fe8703d60f41635a01eef4c7403d4a7ce6fc25ece18a46c3bed8ea52"></a>
+<a id="canonical-1021301031003011-3332201300033112-0033100112031122-0001323233103013-1000033110221330-3212333002113230-3201202210123003-2332312032221102"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 8519861bf1d7 / 3
+## Direct properties — disable_vega_upgrade_mode / 012333013113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b855123b7d05a409997280b651e61dd593825a7433364435978bcee2dd24c22a"></a>
+<a id="canonical-2320111101020323-1331001122100021-2121130220002312-1101321201313111-2103200211221310-0303031210100311-2113202330323202-3131021030020222"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / 8519861bf1d7 / 4
+## Next pages — disable_vega_upgrade_mode / 012333013113 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-7bd7b26ed43a006e791c0da1f5f27aee208e676808311b8472454d6e3a8bb441"></a>
+<a id="canonical-1323311323021232-3110032200001232-1321013000312201-3311330213223232-0200203212131220-0020030101232010-1302101110311232-0322202323101001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-38d9d522bda59d6493e72c6727c3c8f0d99220ac56a0a9f6957866c7d0503013"></a>
+<a id="canonical-0320312131110202-2331221121311210-2103321302301213-0213300330203300-3121210202002230-1112220022213312-2111132012123013-3100110003000103"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 5ce59efcfda6 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — enable_vega_upgrade_mode / 333033312212 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-82ce9fbbef5339fa3591881ed6c4c9c12363dc591088c814863b0e183f8ad380)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [kubernetes_upgrade_drain](data-sources--site--reference--group-001.md#canonical-2002303221332323-3233110303213322-0311210120200132-3112301030213001-0203120331301121-0100202030200110-2012032300320120-0333202231032000)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313)
 - kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode
 
-<a id="canonical-7f4cd3224ac315d2989cfc1ac3891656dee07d004b5fc2c4997ec9c32cb143f0"></a>
+<a id="canonical-1333103031030202-1022300301113102-2120213033300122-3003202101121112-3132320013310000-1023113330023010-2121133230213003-0230230110033300"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for enable vega upgrade mode.
 
-<a id="canonical-96813e710bc7a6207032084c9ad092e93b60972f53cd3bf6d07f44fac2509b8c"></a>
+<a id="canonical-2112200103321301-0023301322120200-1300030200201030-2122310021023221-0323120021130233-1103303103233312-3100133310103322-3002110021232030"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 5ce59efcfda6 / 3
+## Direct properties — enable_vega_upgrade_mode / 333033312212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1018d271a965b5f084ea2ce3e6c004e417aee80df18716ff3011ce5fc7bcd0a4"></a>
+<a id="canonical-0100012031021301-2221121123113300-2010322202303203-3212300000103210-0113223232200031-3301201301123333-0300010130321133-3013233031002210"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 5ce59efcfda6 / 4
+## Next pages — enable_vega_upgrade_mode / 333033312212 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-430d1b9ac119b46e47b9b5d5eca859876eb9bf01baf6a028c5384dc1997894b7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](data-sources--site--reference--group-001.md#canonical-1003003101232122-3001012123101232-1013232123113111-3230222011212013-1232232123330001-2322331222000220-3011032010313001-2121132021102313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-e659811d82fb9727fa18dff418f5ce4c62d4b56265159514aabefeaf9e7885da"></a>
+<a id="canonical-3212112120010131-2002332321130213-3322012031333310-0120331130321030-1202311023111202-1211011121110110-2222233233322233-2132132020113122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3de74901a26a5008092f64681aa7781f01c2439224ae81666349cb0990ba40c0"></a>
+<a id="canonical-0331321310210001-2202122211000020-0021023312101220-0122221313200133-0001300210032102-0210223220011212-1203102130230021-2100232210003000"></a>
 
-## main_nodes — main_nodes / b00734719a44 / 2
+## main_nodes — main_nodes / 130121221010 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - main_nodes
 
-<a id="canonical-756f1e1a026215d585567ac0c026d9eed0d8ad0bc9f5c0f73845313eddbc3d14"></a>
+<a id="canonical-1311123301320122-0002120201113111-2011111213223000-3000021231213232-3100312022310023-3021331130003313-0320101103010332-3131233003310110"></a>
 
 Type: `"list"`. Computed.
 
 Connectivity information of main/master nodes to create a full mesh of Phobos services across all
 CEs in a site-mesh-group or dc-cluster-group.
 
-<a id="canonical-3ffb4a6e4beb3d4fb3fb1acebf8fdbd56cefe1ef64dd7bfe519553aafd8da9d1"></a>
+<a id="canonical-0333332310221232-1023322303311033-2303332301223032-2333203331233111-1230323332013233-1210313113233332-1101211111032222-3331203122213101"></a>
 
-## Direct properties — main_nodes / b00734719a44 / 3
+## Direct properties — main_nodes / 130121221010 / 3
 
-<a id="canonical-e3552c5824655418a6ab2bb64e153227f3a6e9857a63370e10f4d0a96f62d5d7"></a>
+<a id="canonical-3203111102301120-0210121111100120-2212222302232312-1032011103020213-3303221232212011-1322120303130032-0100331031002221-1233120231113113"></a>
 
-<a id="canonical-e450fac3e2ff8ae9841858ea12549c0627eeb5f1fdacf895d8fd9336a0521614"></a>
+<a id="canonical-3210110033223003-3202333320223221-2010012011203222-0102111021300012-0213323223113301-3331223033202111-3120333121030312-2200110201120110"></a>
 
-## name property — main_nodes / b00734719a44 / 4
+## name property — main_nodes / 130121221010 / 4
 
 Type: `"string"`. Computed.
 
 Name of the master/main node on the site.
 
-<a id="canonical-c28e28e21851381098e47ff4a1e201b089dc920b7b14c1246bb62f9e3a1f5967"></a>
+<a id="canonical-3002203202203202-0120110103200100-2120321013333310-2201320200012300-2021313021020023-1323011030010210-1223231202332132-0322013311211213"></a>
 
-<a id="canonical-14436289c4e5b6cde170f0bd29b38454f561105173dea7b3aa2a00d05995264b"></a>
+<a id="canonical-0110100312022021-3010321123123031-3201130033002331-0221230320101110-3311120101001101-1303313222132303-2222022200003100-1121211102121023"></a>
 
-## sli_address property — main_nodes / b00734719a44 / 5
+## sli_address property — main_nodes / 130121221010 / 5
 
 Type: `"string"`. Computed.
 
 Site Local Inside IP addresses. Site Local Inside IP address.
 
-<a id="canonical-47bb30fed57cc0f141d5fa281baa4842037b2f074cb937a6cc0b73d226074729"></a>
+<a id="canonical-1013232303003332-3111133030003301-1001311133220220-0123222210201002-0003132302330013-1030232103132212-3030002313033102-0212001310130221"></a>
 
-<a id="canonical-9f651c65f5d37dab9ddd68b842d4820a9a922fc970c879ba60402d72274d304f"></a>
+<a id="canonical-2133121101301211-3311310313312223-2131313112202320-1002311020020022-2122210202333021-1300302013212322-1200100002311302-0213103103001033"></a>
 
-## slo_address property — main_nodes / b00734719a44 / 6
+## slo_address property — main_nodes / 130121221010 / 6
 
 Type: `"string"`. Computed.
 
 Site Local Outside IP addresses. Site Local Outside IP address.
 
-<a id="canonical-164fe5508f18c8c0a87aa4e124db587ec58d0b25f587e1a3a22ac405e353301a"></a>
+<a id="canonical-0112103332111100-2033012030203000-2220132222103201-0210312311201332-3011203100230211-3311201332012203-2202022230100011-3203110303000122"></a>
 
-## Next pages — main_nodes / b00734719a44 / 7
+## Next pages — main_nodes / 130121221010 / 7
 
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-c156e10b94775d615e04b930cd431c283b2f53cf610d0eb11028b58aa65a8c55"></a>
+<a id="canonical-3001111232010023-2110131311311201-1132001023210300-3031100301300220-0323023311033033-1201003100322301-0100022023112022-2212112220301111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-45d82b37f402bb509eca3d35a19995c20b15617a3a215d69e6e1ac0c6c8c6350"></a>
+<a id="canonical-1011312002230313-3310000223231100-2132302203310311-2201212121113002-0023011112011322-0322020111311221-3212320122300030-1230203012031100"></a>
 
-## private_connectivity — private_connectivity / 5f3f2a894878 / 2
+## private_connectivity — private_connectivity / 202110201320 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - private_connectivity
 
-<a id="canonical-443c7f09d056cf32a0c1f563d105c01a3bbb2a9676b07da28e5c6c0b4252db63"></a>
+<a id="canonical-1010033013330021-3100111230330302-2200300133111203-3101001130000122-0323232302222112-1312230013312202-2032113012300023-1002110231231203"></a>
 
 Type: `"single"`. Computed.
 
 Private Connectivity Information like ADN network name and cloud link information.
 
-<a id="canonical-161606edddaf54fa71353a7d4c9aec4bbbfa4231f5bf5865c4196366e50f28e7"></a>
+<a id="canonical-0112011200123231-3131223311103322-1301031103221331-1030212232301023-2323332210020301-3311233311201211-3010012112031212-3211003302203213"></a>
 
-## Direct properties — private_connectivity / 5f3f2a894878 / 3
+## Direct properties — private_connectivity / 202110201320 / 3
 
-- [cloud_link](data-sources--site--reference--group-001.md#canonical-fa4ff091cf94068909ed95a1cf7f77d2565b2a4d745ed6b91782ee04d701bc18): complete subsection reference.
+- [cloud_link](data-sources--site--reference--group-001.md#canonical-3322103333002101-3033211000122021-0021323121112201-3033133313133102-1112112302221031-1310113231122321-0113200232320010-3113000123300120): complete subsection reference.
 
-<a id="canonical-6bb2f74a9d0f645c0e6987a1352c46becc1351789a9e699524e624dd642f7098"></a>
+<a id="canonical-1223230233131022-2131003312101130-0032122120132201-0311023010122332-3030010311011320-2122213212212111-0210321202103131-1210023313002120"></a>
 
-<a id="canonical-29a6558eea567136d081b2d545589711fee9fa28bde7101d68460863135b3667"></a>
+<a id="canonical-0221221211112032-3222111213010312-3100200123023111-1011112021130101-3332322133220220-2331321301000131-1220101200201203-0103112303121213"></a>
 
-## private_network_name property — private_connectivity / 5f3f2a894878 / 4
+## private_network_name property — private_connectivity / 202110201320 / 4
 
 Type: `"string"`. Computed.
 
 ADN Network Name for private access connectivity to F5XC ADN.
 
-<a id="canonical-f68dcddb65e4607f0c0aa323f37a1bc79c78812a2a3903d53a99379fa1f5de77"></a>
+<a id="canonical-3312203130313123-1211321012001333-0030002222030203-3303132201233013-2130132020010222-0222032100033111-0322212103132133-2201331131321313"></a>
 
-## Next pages — private_connectivity / 5f3f2a894878 / 5
+## Next pages — private_connectivity / 202110201320 / 5
 
-- [private_connectivity.cloud_link](data-sources--site--reference--group-001.md#canonical-fa4ff091cf94068909ed95a1cf7f77d2565b2a4d745ed6b91782ee04d701bc18)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [private_connectivity.cloud_link](data-sources--site--reference--group-001.md#canonical-3322103333002101-3033211000122021-0021323121112201-3033133313133102-1112112302221031-1310113231122321-0113200232320010-3113000123300120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-fa4ff091cf94068909ed95a1cf7f77d2565b2a4d745ed6b91782ee04d701bc18"></a>
+<a id="canonical-3322103333002101-3033211000122021-0021323121112201-3033133313133102-1112112302221031-1310113231122321-0113200232320010-3113000123300120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-35a34540500ab9acd624680b8d69aa2b7b875dfd3e61b305b1b1d718e9425840"></a>
+<a id="canonical-0311220310111000-1100002223212230-3112021012200023-2031122122220223-1323201311313331-0332120123030011-2301230131130120-3221100211201000"></a>
 
-## private_connectivity.cloud_link — private_connectivity.cloud_link / 6cc4e0789b83 / 2
+## private_connectivity.cloud_link — cloud_link / 132021232003 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [private_connectivity](data-sources--site--reference--group-001.md#canonical-c156e10b94775d615e04b930cd431c283b2f53cf610d0eb11028b58aa65a8c55)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [private_connectivity](data-sources--site--reference--group-001.md#canonical-3001111232010023-2110131311311201-1132001023210300-3031100301300220-0323023311033033-1201003100322301-0100022023112022-2212112220301111)
 - private_connectivity.cloud_link
 
-<a id="canonical-884826ddd9549ed200f72212ce746e3d098b33b597fe7a6f44e3d14149c81ca3"></a>
+<a id="canonical-2020102002123131-3121111021323102-0000331302020102-3032131012320331-0021202303032311-2113333213221233-1010320331011001-1021302001302203"></a>
 
 Type: `"single"`. Computed.
 
 Information related to cloud link used by the site.
 
-<a id="canonical-917c04c957cff44abf04ae9d249c47431d8e36f759ce76e4e71aae6f5bfa01ca"></a>
+<a id="canonical-2101133000103021-1113303333101022-2333001022322131-0210213010131003-0131203203123313-1121303213123210-3213012222321233-1123332200013022"></a>
 
-## Direct properties — private_connectivity.cloud_link / 6cc4e0789b83 / 3
+## Direct properties — cloud_link / 132021232003 / 3
 
-<a id="canonical-16385b40c01df2dd292b41761af77681a9599e8d4e9310c04c85ea14ade42fe5"></a>
+<a id="canonical-0112032011231000-3000013133023131-0221022310011312-0122331313122001-2221112121322031-1032210301003000-1030201132220110-2231321002333211"></a>
 
-<a id="canonical-f195e8ea78b831fca3de6560b29b3d15eada9acd5f4baa6784abc6df5212c2e1"></a>
+<a id="canonical-3301211132203222-1320232003013330-2203313212111200-2302212303310111-3222312221223031-1133102322221213-2010222330123133-1102010230023201"></a>
 
-## name property — private_connectivity.cloud_link / 6cc4e0789b83 / 4
+## name property — cloud_link / 132021232003 / 4
 
 Type: `"string"`. Computed.
 
 Name of the the CloudLink used with this site.
 
-<a id="canonical-18c57637c245572d111dfc52d7c50378a084ff39f4bd521b3354c0e360832a97"></a>
+<a id="canonical-0120301113120313-3002101111130231-0101013133301102-3113301100031320-2200201033330321-3310233111020123-0303111030003203-1200200302222113"></a>
 
-<a id="canonical-2ff1da39c77b3113c01758a85e5cb747893427edc68753678ea244aa45087293"></a>
+<a id="canonical-0233330131220321-3013132303010103-3000011311202220-1132113023131013-2021031002133231-3012201311031213-2032220210102222-1011002013022103"></a>
 
-## state property — private_connectivity.cloud_link / 6cc4e0789b83 / 5
+## state property — cloud_link / 132021232003 / 5
 
 Type: `"string"`. Computed.
 
@@ -1492,170 +1492,170 @@ corresponding Direct Connect connections are down - DEGRADED: Degraded Some of D
 connections with the CloudLink are down .. Possible values are \`UP\`, \`DOWN\`, \`DEGRADED\`,
 \`NOT\_APPLICABLE\`. Defaults to \`UP\`.
 
-<a id="canonical-616527c61aa89e78b6f61db7ec97c23d712605919b4957c89503f56c4ee661d1"></a>
+<a id="canonical-1201121102133012-0122222021321320-2312331201312313-3230211330020331-1301021200112101-2123102111133020-2111000333111230-1032321212013101"></a>
 
-## Next pages — private_connectivity.cloud_link / 6cc4e0789b83 / 6
+## Next pages — cloud_link / 132021232003 / 6
 
-- [private_connectivity](data-sources--site--reference--group-001.md#canonical-c156e10b94775d615e04b930cd431c283b2f53cf610d0eb11028b58aa65a8c55)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [private_connectivity](data-sources--site--reference--group-001.md#canonical-3001111232010023-2110131311311201-1132001023210300-3031100301300220-0323023311033033-1201003100322301-0100022023112022-2212112220301111)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf"></a>
+<a id="canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5c0bcdb23f05a2b3a6da9cd5bd6b78c5718427f164b6f3790180e3f3ec40af7"></a>
+<a id="canonical-2211300023303123-0203330011220223-0322123122213031-1123311223132030-1113012010021333-0112102312330313-2100012000320333-0332301000223313"></a>
 
-## re_select — re_select / 4107c10d9067 / 2
+## re_select — re_select / 003121001213 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - re_select
 
-<a id="canonical-70af337bc649fc0197600ab7da9df9b1b426de15d2afa4c8212573ca0f8d4d88"></a>
+<a id="canonical-1300223303031323-3012102133300001-2113120000222313-3122213133212301-2310021231320111-3102223322103020-0201021113033022-0033203110312020"></a>
 
 Type: `"single"`. Computed.
 
 Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).
 
-<a id="canonical-a0d46a0a3ca2b1e73b7ceb2aa894cab677d8a80546fa1f7b92968341611958c3"></a>
+<a id="canonical-2200311012220022-0330220223013213-0323133032230222-2220211030222312-1313312022200011-1012332201331323-2102211220031001-1201012111203003"></a>
 
-## Direct properties — re_select / 4107c10d9067 / 3
+## Direct properties — re_select / 003121001213 / 3
 
-- [geo_proximity](data-sources--site--reference--group-001.md#canonical-10697e7fd4b237fcef69b0318bae85b7915929089c33981884ae7f73ef6d19f2): complete subsection reference.
+- [geo_proximity](data-sources--site--reference--group-001.md#canonical-0100122113321333-3110230203133330-3233122123000301-2023223220112313-2101112102210020-2130030321200120-2010223213331303-3233123101213302): complete subsection reference.
 
-<a id="canonical-207ca62280fb3c03ef9d3ac13e323a8b56fa4927562805beaa06ec7b7a09a9d7"></a>
+<a id="canonical-0200133022120202-2000332303300003-3233213103223001-0332030203222023-1112332210210213-1112022000112332-2222001232301323-1322002122213113"></a>
 
-<a id="canonical-74b85430b108139de7ff53072072663485d163869b2b7bdb85fdfe43b0d22b01"></a>
+<a id="canonical-1310232011100300-2301002001032131-3213333311030013-0200130212120310-2011310112032012-2123022313233123-2011333133321003-2300310202230001"></a>
 
-## specific_geography property — re_select / 4107c10d9067 / 4
+## specific_geography property — re_select / 003121001213 / 4
 
 Type: `"string"`. Computed.
 
 Geographic selection for the site's Regional Edge connections.
 
-- [specific_re](data-sources--site--reference--group-001.md#canonical-bc13544c9925f4dc422bf5332c386ecfdd85f08790ad987547f455ff5ee54cfc): complete subsection reference.
+- [specific_re](data-sources--site--reference--group-001.md#canonical-2330010311101030-2121021133103130-1002022333110303-0230032012323033-3131201133002013-2100223121201311-1013331011113333-1132321110303330): complete subsection reference.
 
-<a id="canonical-ab00c55acc50067d040ffac7e559f6cbe3952a04c7466c4d1538fb3bc0d4bd58"></a>
+<a id="canonical-2223000030111122-3030110000121331-0010003333223013-3211112133123023-3203211102220010-3013101212301031-0111032033230323-3000311023311120"></a>
 
-## Next pages — re_select / 4107c10d9067 / 5
+## Next pages — re_select / 003121001213 / 5
 
-- [re_select.geo_proximity](data-sources--site--reference--group-001.md#canonical-10697e7fd4b237fcef69b0318bae85b7915929089c33981884ae7f73ef6d19f2)
-- [re_select.specific_re](data-sources--site--reference--group-001.md#canonical-bc13544c9925f4dc422bf5332c386ecfdd85f08790ad987547f455ff5ee54cfc)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [re_select.geo_proximity](data-sources--site--reference--group-001.md#canonical-0100122113321333-3110230203133330-3233122123000301-2023223220112313-2101112102210020-2130030321200120-2010223213331303-3233123101213302)
+- [re_select.specific_re](data-sources--site--reference--group-001.md#canonical-2330010311101030-2121021133103130-1002022333110303-0230032012323033-3131201133002013-2100223121201311-1013331011113333-1132321110303330)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-10697e7fd4b237fcef69b0318bae85b7915929089c33981884ae7f73ef6d19f2"></a>
+<a id="canonical-0100122113321333-3110230203133330-3233122123000301-2023223220112313-2101112102210020-2130030321200120-2010223213331303-3233123101213302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eb0e70d132ad7abd9930a16423cc65840af159c3ff1bb3bf24962baf2cd4b530"></a>
+<a id="canonical-3223003213003101-0302223113222331-2121030022011210-0203303012112010-0022330111213003-3333012323032333-0210211202232233-0230311023110300"></a>
 
-## re_select.geo_proximity — re_select.geo_proximity / 5d9054224b35 / 2
+## re_select.geo_proximity — geo_proximity / 020210230311 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033)
 - re_select.geo_proximity
 
-<a id="canonical-66c8c4bb05e8f25cf773729131aa627c4eddb5ff59cb6be18590475af11804c0"></a>
+<a id="canonical-1212302030102323-0011322033021130-3313130313022101-0301222212021330-1032313123113333-1121302312233201-2011210010131122-3301012000103000"></a>
 
 Type: `["object", {}]`. Computed.
 
 Configuration parameter for geo proximity.
 
-<a id="canonical-7e2fefe76ea807b7de5728c01b5b25c3d8f923736fad61ac10544ac50d7e147f"></a>
+<a id="canonical-1332023332333213-1232222000132313-3132111302203000-0123112302113003-3120332102031303-1233223112012230-0100111010223011-0031133201101333"></a>
 
-## Direct properties — re_select.geo_proximity / 5d9054224b35 / 3
+## Direct properties — geo_proximity / 020210230311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-710b1b8821908644ce49dfa7b2136d374a59c11e3f09fc6332421813f1a3cdf0"></a>
+<a id="canonical-1301002301232020-0201210020121010-3032102131332213-2302010312310313-1022112130010132-0333002133301203-0302100201200103-3301220330313300"></a>
 
-## Next pages — re_select.geo_proximity / 5d9054224b35 / 4
+## Next pages — geo_proximity / 020210230311 / 4
 
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-bc13544c9925f4dc422bf5332c386ecfdd85f08790ad987547f455ff5ee54cfc"></a>
+<a id="canonical-2330010311101030-2121021133103130-1002022333110303-0230032012323033-3131201133002013-2100223121201311-1013331011113333-1132321110303330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a4db68423c9bb56b6421b1acab86cdd9272c976d20132871f016c8e9c9e15401"></a>
+<a id="canonical-2210312312201002-0330212323111223-1210020123012230-2223201230313121-0213023021131231-0200010302201301-3300011230203221-3021320111100001"></a>
 
-## re_select.specific_re — re_select.specific_re / 34b331f45a46 / 2
+## re_select.specific_re — specific_re / 331011221012 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033)
 - re_select.specific_re
 
-<a id="canonical-7e8edcd4b37f7b746b9b801b761e6fb6e97f29e9797ad49c3b67f84b94b24a7b"></a>
+<a id="canonical-1332203231303110-2303133313231310-1223212320000123-1312013212332312-3221133302213221-1321132231102130-0323121333201023-2110230210221323"></a>
 
 Type: `"single"`. Computed.
 
 Select specific REs. This is useful when a site needs to deterministically connect to a set of REs.
 A site will always be connected to 2 REs.
 
-<a id="canonical-35cc57e7ea65f5eca41d26233df5b66b84a7b1d2c9bdcf32be74ff92663e285e"></a>
+<a id="canonical-0311303011133213-3222121133113230-2210013102120203-0331331123121223-2010221323013102-3021233130330302-2332131033332102-1212033202201132"></a>
 
-## Direct properties — re_select.specific_re / 34b331f45a46 / 3
+## Direct properties — specific_re / 331011221012 / 3
 
-<a id="canonical-3ccf72c32648e873c90685086acd852d65656fb3fdaee62ecd9339a4108fd037"></a>
+<a id="canonical-0330303313023003-0212102032201303-3021001220110020-1222303120110231-1211121112332303-3331223232120232-3031210303212210-0100203331000313"></a>
 
-<a id="canonical-8ece63d4dcefb215f1b7064aff2c5897b44f89d49c3689b0e83db9c05fe6f9d5"></a>
+<a id="canonical-2032303212033110-3130323323020111-3301231300121022-3333023011202113-2310103320213110-2130031220212300-3220033123213000-1133321233213111"></a>
 
-## backup_re property — re_select.specific_re / 34b331f45a46 / 4
+## backup_re property — specific_re / 331011221012 / 4
 
 Type: `"string"`. Computed.
 
 Select backup RE for this site, cannot be the same as Primary RE.
 
-<a id="canonical-e008d4f98f96d72fb9c58b96aeee8c7dab95d20bac2055ecf8a823bc3b629be5"></a>
+<a id="canonical-3200002031103321-2033211231130233-2321301120232112-2232323220301331-2223211131020023-2230020011113230-3320222002032330-0323120221233211"></a>
 
-<a id="canonical-6963efa47a408a541ac7ea324f7b0b9e623884792e2853c9c0f6f6e2e1f60cfe"></a>
+<a id="canonical-1221120332332210-1322100020221110-0122301332220302-1033132300232132-1202032020101321-0232022011033021-3000331233123202-3201331200303332"></a>
 
-## primary_re property — re_select.specific_re / 34b331f45a46 / 5
+## primary_re property — specific_re / 331011221012 / 5
 
 Type: `"string"`. Computed.
 
 Primary RE Geography. Select primary RE for this site.
 
-<a id="canonical-3ae14db0bc3a749886be8275ba24529a6b69ee2b9915b875171228e04772ff40"></a>
+<a id="canonical-0322320110312300-2330032213102120-2012233220021311-2322021011022122-1223122132320223-2121011123201311-0113010202203200-1013130233331000"></a>
 
-## Next pages — re_select.specific_re / 34b331f45a46 / 6
+## Next pages — specific_re / 331011221012 / 6
 
-- [re_select](data-sources--site--reference--group-001.md#canonical-b1e08c929b5c34e6b18d034595249b5dd6e81bb071980608b29fbe99c33a6fcf)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [re_select](data-sources--site--reference--group-001.md#canonical-2301320020302102-2123113003103212-2301203100031011-2111021021231131-3112322001232300-1301212000120020-2302213323322121-3003032212333033)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
 
-<a id="canonical-df84def868cc73d6ffffc568e2956d1cd463d618f8305e6d1e14656bd17948da"></a>
+<a id="canonical-3133201031323320-1220303013033112-3333333330111220-3202211112310130-3110120331120120-3320030011321231-0132011012111223-3101132110203122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-16e95d98cda368c090c0f29ab479fe28268dd54a4624f70328d5e746fde71bf7"></a>
+<a id="canonical-0112322111312120-3031220312203000-2100300033022122-2310132133320220-0212203131111022-1012021033130003-0220311132131012-3331321301233313"></a>
 
-## vip_params_per_az — vip_params_per_az / a91dafe5a3b4 / 2
+## vip_params_per_az — vip_params_per_az / 321122032310 / 2
 
 Breadcrumbs:
 
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
 - vip_params_per_az
 
-<a id="canonical-975f0278fcff1c3020efb711819a9649dbd67a542f1323be97b894196510cc61"></a>
+<a id="canonical-2113113300021320-3330333301300300-0200323323130101-2001212221121021-3123311213221110-0233010302032332-2113232021100121-1211010030301201"></a>
 
 Type: `"list"`. Computed.
 
@@ -1663,83 +1663,83 @@ Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation
 advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined
 will be used to publish to external systems like K8s, Consul.
 
-<a id="canonical-c1c46ad40995a793d00d0a190bb3f3508d570c296c10fc821734bb35cb2a3a9b"></a>
+<a id="canonical-3001301012223110-0021211122132103-3100003100220121-0023230333031100-2031111300300221-1230010033302002-0113031023230311-3023022203222123"></a>
 
-## Direct properties — vip_params_per_az / a91dafe5a3b4 / 3
+## Direct properties — vip_params_per_az / 321122032310 / 3
 
-<a id="canonical-1f6a6d15bcd16477a7ead7934dc1921cae6bf26745769cd0ec5470f2cf07caa9"></a>
+<a id="canonical-0133122212310111-2330310112101313-2213322231132103-1031300121020130-2232122333021213-1011131221303100-3230111013003302-3033001330222221"></a>
 
-<a id="canonical-f115aba2fd05acdafabfc57fb7fdded65a590a5ea3a5d7c4c1560973a6e6973e"></a>
+<a id="canonical-3301011122232202-3331001122303122-3322233330111333-2313333131323112-1122112100221132-2203221131133010-3001111200211303-2212321221130332"></a>
 
-## az_name property — vip_params_per_az / a91dafe5a3b4 / 4
+## az_name property — vip_params_per_az / 321122032310 / 4
 
 Type: `"string"`. Computed.
 
 AZ Name. Name of the Availability zone.
 
-<a id="canonical-116cafdd64a3ad1a3148440312334f88460ff8f1c845e6434aaea6d95ef69413"></a>
+<a id="canonical-0101123022333131-1210220322310122-0301102010100003-0102030310332020-1012003333203301-3020101132121003-1022223222123121-1132331221100103"></a>
 
-<a id="canonical-4efd5df04688ba46d13193f15d213dff1b8e310b8647353103120c4610562e64"></a>
+<a id="canonical-1032333111313300-1012202023221012-3101030121033301-1131020103313333-0123203203010023-2012101303110301-0003010200301012-0100111202321210"></a>
 
-## inside_vip property — vip_params_per_az / a91dafe5a3b4 / 5
+## inside_vip property — vip_params_per_az / 321122032310 / 5
 
 Type: `["list", "string"]`. Computed.
 
 Inside VIP(s). List of Inside VIPs for an AZ.
 
-<a id="canonical-48b73b24cd3401657f72e99bf5452ffa21824f42bbd8cf4032e8921dbd8740ba"></a>
+<a id="canonical-1020231303230210-3031031000011211-1333130232212123-3311101102333322-0201200210331002-2323312030331000-0302322021020131-2331201310002322"></a>
 
-<a id="canonical-bce71f78c96a399d4eb5e217b905a82554857c9bac9f76e4426b6a635d47ced8"></a>
+<a id="canonical-2330321301331320-3021122203212131-1032231132020113-2321001122200211-1110201113302123-2230213313123210-1002122312221203-1131101330323120"></a>
 
-## inside_vip_cname property — vip_params_per_az / a91dafe5a3b4 / 6
+## inside_vip_cname property — vip_params_per_az / 321122032310 / 6
 
 Type: `"string"`. Computed.
 
 CNAME value for the inside VIP, These are usually public cloud generated CNAME.
 
-<a id="canonical-5d8ec8c07494b3c2bd4cbe454fddd165a2ae83c75a562e792ce81e7d5e2df967"></a>
+<a id="canonical-1131203230203000-1310211023033002-2331103023321011-1033313131011211-2202223220033013-1122111202321321-0230322001321331-1132023133211213"></a>
 
-<a id="canonical-349265228c4af380d0bc0ebd990c197e07dd9706fce5378d1893953e8d300849"></a>
+<a id="canonical-0310210212110202-2030102233032000-3100233000322331-2121003001211332-0013313121130012-3330321103132031-0120210321110332-2031030000201021"></a>
 
-## inside_vip_v6 property — vip_params_per_az / a91dafe5a3b4 / 7
+## inside_vip_v6 property — vip_params_per_az / 321122032310 / 7
 
 Type: `["list", "string"]`. Computed.
 
 Optional list of Inside IPv6 VIPs for an AZ.
 
-<a id="canonical-890522a3682f28c289c6a77fd10dd9f835634be8486588b6704dae66cfdf45ca"></a>
+<a id="canonical-2021001102022203-1220023302203002-2021301222131333-3101003131213320-0311120310233220-1020121120202312-1300103122321212-3033313310113022"></a>
 
-<a id="canonical-a33de05972e60ad5e794c8e727291b63e9b8faab5a3c44a371858ef22e5d3182"></a>
+<a id="canonical-2203033132001121-1302321200223111-3213211030203213-0213022101231203-3221232033222223-1122033010102203-1301201120323302-0232113103012002"></a>
 
-## outside_vip property — vip_params_per_az / a91dafe5a3b4 / 8
+## outside_vip property — vip_params_per_az / 321122032310 / 8
 
 Type: `["list", "string"]`. Computed.
 
 Outside VIP(s). List of Outside VIPs for an AZ.
 
-<a id="canonical-45fb01b0f79b4ae640273c78e22d5c4a98e8657238a5b56547c3e48e2daf6c68"></a>
+<a id="canonical-1011332300012300-3313212310223212-1000021303301320-3202023111301022-2120322012111302-0320221123111211-1013300332102032-0231223312301220"></a>
 
-<a id="canonical-8886eac8bac78e1a8aa298fe68ee7da57c2253c185905dd7aaebfe9e79f4b08c"></a>
+<a id="canonical-2020201232223020-2322301320320122-2022220221203332-1220323213312211-1330020211033001-2011210011313113-2222322333322132-1321331023002030"></a>
 
-## outside_vip_cname property — vip_params_per_az / a91dafe5a3b4 / 9
+## outside_vip_cname property — vip_params_per_az / 321122032310 / 9
 
 Type: `"string"`. Computed.
 
 CNAME value for the outside VIP These are usually public cloud generated CNAME.
 
-<a id="canonical-ff7bc32c2422d83ce0bf8a126e4341f51e2bbdb1aeb15b516f015fc91e71014d"></a>
+<a id="canonical-3333132330030230-0210020231200330-3200233320220102-1232100310013311-0132022323312301-2232230111231101-1233000111333021-0132130100011031"></a>
 
-<a id="canonical-5a1280ac6e176b832b7399813a2a2fde03a01a36ba696ba8cea54ceb2e5b8914"></a>
+<a id="canonical-1122010220002230-1232011312232003-0223130321212001-0322022202333132-0003220001220312-2322122112232220-3032221110303223-0232112320210110"></a>
 
-## outside_vip_v6 property — vip_params_per_az / a91dafe5a3b4 / 10
+## outside_vip_v6 property — vip_params_per_az / 321122032310 / 10
 
 Type: `["list", "string"]`. Computed.
 
 Optional list of Outside IPv6 VIPs for an AZ.
 
-<a id="canonical-88eb2ee63aa464571f759314d866ca3f525bf854a03b54dd45ac4977a7b75efe"></a>
+<a id="canonical-2020322302323212-0322221012101113-0133131121030110-3120121230220333-1102112333201110-2200032311103131-1011223010211313-2213231311323332"></a>
 
-## Next pages — vip_params_per_az / a91dafe5a3b4 / 11
+## Next pages — vip_params_per_az / 321122032310 / 11
 
-- [Property reference](data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [xcsh_site](../data-sources/site.md#canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8)
+- [Property reference](data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [xcsh_site](../data-sources/site.md#canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120)

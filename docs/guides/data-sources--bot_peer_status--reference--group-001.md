@@ -6,59 +6,59 @@ description: "Complete grouped canonical reference for xcsh_bot_peer_status refe
 
 # xcsh_bot_peer_status reference
 
-<a id="canonical-af5bdebbe653a239e2a54201e0a334a1c2e085d044d39db19e057bf1f650b4a5"></a>
+<a id="canonical-2233112331322323-3212110322020321-3202221110020001-3200220303102201-3002320020113100-1010310321312301-2132001113233301-3312110023102211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4e820beb052ce3ad973d42ad060de0bcab4a99bf22a52b621e87733997869e71"></a>
+<a id="canonical-1032200200233223-0011023032032231-2113033110022231-0012003132002330-2223102221212333-0202221102231202-0132201313030321-2113201221321301"></a>
 
-## Property reference — Property reference / 24cba557fdb3 / 2
+## Property reference — Property reference / 111333312303 / 2
 
 Breadcrumbs:
 
-- [xcsh_bot_peer_status](../data-sources/bot_peer_status.md#canonical-67ec1acf92d1d20d9c08be3fef0b7bd8125ef46625bfa7cae7978e9ffcf45de4)
+- [xcsh_bot_peer_status](../data-sources/bot_peer_status.md#canonical-1213323001223033-2102310131020031-2130002023320333-3233002313233120-0102113233101212-0211233322133022-3213211320322133-3330331011313210)
 - Property reference
 
-<a id="canonical-a92e3a9be66afbdb85e585c905ff1600b2b681286a9386c8d4945010b272a81e"></a>
+<a id="canonical-2221023203222123-3212122233233123-2011321120113021-0011333301120000-2302231220010220-1222210320123020-3110211011000100-2302130222200132"></a>
 
-## Direct properties — Property reference / 24cba557fdb3 / 3
+## Direct properties — Property reference / 111333312303 / 3
 
-<a id="canonical-f9b3795a891ee9100fcbff80225ed5395310882a110fb57df8fd538348d8a296"></a>
+<a id="canonical-3321230313211122-2021013232210100-0033302333332000-0202113231110321-1103010020200222-0101003323111331-3320333111032003-1020312022022112"></a>
 
-<a id="canonical-3d161e273df3032eabf94de9299dff13102bdc70ddad9260713485e28244f1ad"></a>
+<a id="canonical-0331011201320213-0331330300030232-2223332110313221-0221213133330103-0100022331301300-3131223121021200-1301031020113202-2002101033012231"></a>
 
-## has_peers property — Property reference / 24cba557fdb3 / 4
+## has_peers property — Property reference / 111333312303 / 4
 
 Type: `"bool"`. Computed.
 
 Has peers status. The tenat has peers or not.
 
-<a id="canonical-5ba9311c720c30e5393e946217850a7c46054b5583f34ebcadb6d3d87de05839"></a>
+<a id="canonical-1123222103010130-1302003003003211-0321033221101202-0113201100221330-1012001110231111-2003330310322330-2231231231033120-1331320011200321"></a>
 
-<a id="canonical-eb1af8a54159ce1522a6c6471f689fd62070fa641f128702b6066bc18613ffee"></a>
+<a id="canonical-3223012233202211-1001112130320111-0202221230121013-0133122021333112-0200130033221210-0133010220130002-2312001212233001-2012010333333232"></a>
 
-## namespace property — Property reference / 24cba557fdb3 / 5
+## namespace property — Property reference / 111333312303 / 5
 
 Type: `"string"`. Required.
 
 Namespace. namespace is used to scope the query. Only virtual\_host in given namespace will be
 considered.
 
-<a id="canonical-6f35c6b1052a7ea11ff45c51ba87c182b072eedd8687034275fa68dbe4973c40"></a>
+<a id="canonical-1233031130122301-0011022213322201-0133331011301101-2322201330012002-2300130232323131-2012201300031002-1311332212203123-3210211303301000"></a>
 
-## All schema paths — Property reference / 24cba557fdb3 / 6
+## All schema paths — Property reference / 111333312303 / 6
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `has_peers` | [has_peers](data-sources--bot_peer_status--reference--group-001.md#canonical-f9b3795a891ee9100fcbff80225ed5395310882a110fb57df8fd538348d8a296) |
-| `namespace` | [namespace](data-sources--bot_peer_status--reference--group-001.md#canonical-5ba9311c720c30e5393e946217850a7c46054b5583f34ebcadb6d3d87de05839) |
+| `has_peers` | [has_peers](data-sources--bot_peer_status--reference--group-001.md#canonical-3321230313211122-2021013232210100-0033302333332000-0202113231110321-1103010020200222-0101003323111331-3320333111032003-1020312022022112) |
+| `namespace` | [namespace](data-sources--bot_peer_status--reference--group-001.md#canonical-1123222103010130-1302003003003211-0321033221101202-0113201100221330-1012001110231111-2003330310322330-2231231231033120-1331320011200321) |
 
-<a id="canonical-e980362c93901987883cd746efe8f57ff88d1327cf902967339e196878dbaa72"></a>
+<a id="canonical-3221200003120230-2103210001212013-2020033031131012-3233322033111333-3320203101030213-3033210002211213-0303213201211220-1320312322221302"></a>
 
-## Next pages — Property reference / 24cba557fdb3 / 7
+## Next pages — Property reference / 111333312303 / 7
 
-- [xcsh_bot_peer_status](../data-sources/bot_peer_status.md#canonical-67ec1acf92d1d20d9c08be3fef0b7bd8125ef46625bfa7cae7978e9ffcf45de4)
+- [xcsh_bot_peer_status](../data-sources/bot_peer_status.md#canonical-1213323001223033-2102310131020031-2130002023320333-3233002313233120-0102113233101212-0211233322133022-3213211320322133-3330331011313210)

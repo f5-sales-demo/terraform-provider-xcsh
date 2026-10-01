@@ -6,62 +6,62 @@ description: "Complete grouped canonical reference for xcsh_site_registration re
 
 # xcsh_site_registration reference
 
-<a id="canonical-b894edd5f71c8e0dd62fda7420a5fb0ac3186df32f033ed0b50b08a89478d898"></a>
+<a id="canonical-2320211032313111-3313013020320031-3112023331221310-0200221133230022-3003012012313303-0233000303323100-2311002300202220-2110132031202120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6a5269ea376bba0ba67c92fe985a382ee162528047818e224e96491fccac25d2"></a>
+<a id="canonical-1222110212213222-0313122323220023-2212133021023332-2120112203200232-3201120211022000-1013200120320202-1032211210210133-3030223002113102"></a>
 
-## Property reference — Property reference / e3455772718d / 2
+## Property reference — Property reference / 130213012031 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registration](../data-sources/site_registration.md#canonical-29e210d357a5bdcac6bb8895520d01f565fe4c298fee3fb79b2fce630978c912)
+- [xcsh_site_registration](../data-sources/site_registration.md#canonical-0221320201003103-1113221123313022-3012232320202111-1102003100013311-1211333210300221-2033323203332313-2123023330321203-0021132030210102)
 - Property reference
 
-<a id="canonical-79694e20c7fdd85f92ff09eb9da7a837dfcfa79544a21db78c82092fa9e2cbe3"></a>
+<a id="canonical-1321122110320200-3013333131201133-2102333300213223-2131221322200313-3133303322132111-1010220201312313-2030200200210233-2221320230233203"></a>
 
-## Direct properties — Property reference / e3455772718d / 3
+## Direct properties — Property reference / 130213012031 / 3
 
-<a id="canonical-aec9ad90c0e4fdc0e1cbc2ecea72c408007b996f26cd55222f19e9330c0fa14f"></a>
+<a id="canonical-2232302122312100-3000321033313000-3201302330023230-3222130230100020-0000132321211233-0212303111110202-0233012132210303-0030003322011033"></a>
 
-<a id="canonical-a45f92890b90387327442c6a6383aaa2a32b535053dfe7a18e6b0aa12afb2809"></a>
+<a id="canonical-2210113321022021-0023210003201303-0213101002301222-1203200322222202-2203022311031100-1103313332132201-2032122300222201-0222332302200021"></a>
 
-## cluster_name property — Property reference / e3455772718d / 4
+## cluster_name property — Property reference / 130213012031 / 4
 
 Type: `"string"`. Computed.
 
 Cluster name the CE registered with, as reported in its passport. Equals \`site\_name\` for a
 correctly configured site.
 
-<a id="canonical-350ba6ea57b8bfcdcf1e48f037a87aad25d25d9994df8b84aab1978821b580ea"></a>
+<a id="canonical-0311002322123222-1113232023333031-3033013210203300-0313222013222231-0211310211312121-2110313320232010-2222230121132020-0201231120003222"></a>
 
-<a id="canonical-5f70a32713ccc8e275572e2f80a25ec8f993d2d774c9195f1d660984d08541c8"></a>
+<a id="canonical-1133130022030213-0103303030203202-1311111302320233-2000220211323020-3321210331023113-1310302101211133-0131121200212010-3100201110013020"></a>
 
-## cluster_size property — Property reference / e3455772718d / 5
+## cluster_size property — Property reference / 130213012031 / 5
 
 Type: `"number"`. Computed.
 
 Number of nodes the CE reported for its cluster (1 for a single-node site, 3 for a three-node site).
 
-<a id="canonical-fa579a82631ec69205ec49094aad8469c02f98a5ab7f304ecb07789408fb9dc3"></a>
+<a id="canonical-3322111321222002-1203013230122102-0011323010210021-1022223120101221-3000023321202211-2223133303001032-3023001313202110-0020332321313003"></a>
 
-<a id="canonical-116e1a40e862d1d4edc68796feaf165c562dd2e51a5f611733a0d90dd7a09d91"></a>
+<a id="canonical-0101123201221000-3220120231013110-3231301220132112-3332223301121130-1112023131023211-0122113312010113-0303220031210031-3113220021312101"></a>
 
-## found property — Property reference / e3455772718d / 6
+## found property — Property reference / 130213012031 / 6
 
 Type: `"bool"`. Computed.
 
 Whether a registration was resolved. \`false\` (with no error) while the CE has not registered yet —
 gate an approval's \`count\` on this.
 
-<a id="canonical-443b29fc9489a0cdc3e207e85a0bb3f5e82c031e20d8c6ebb34286c7e9104767"></a>
+<a id="canonical-1010032302213330-2110202122003031-3003320200133220-1122002323033311-3220023000030132-0200312030123223-2303100220123013-3221010010131213"></a>
 
-<a id="canonical-d91b60e69b352ab4914a817491b8749f4600b2029f16430935529b4ffa9bac2e"></a>
+<a id="canonical-3121012312003212-2123031102222310-2101102220011310-2101232013102133-1012000023020002-2133011210030021-0311110221231033-3322212322300232"></a>
 
-## hostname property — Property reference / e3455772718d / 7
+## hostname property — Property reference / 130213012031 / 7
 
 Type: `"string"`. Optional, Computed.
 
@@ -69,21 +69,21 @@ Node hostname used to pick one registration when a multi-node site has several. 
 single-node site; when omitted, the resolved node's hostname is returned here. Hostnames are only
 unique within a site.
 
-<a id="canonical-48f42d52eb3d001879f9d93ac7da9a42b8a07241932bd070dfc9ca1d60a80b88"></a>
+<a id="canonical-1020331002311102-3223033100000120-1321332131210322-3013312221221002-2320220013021001-2103022331001300-3133302130220131-1200222000232020"></a>
 
-<a id="canonical-8ecc802ed18868e54e56b84e8e05d3652d159467f4cc1d97f20d80b5b614b177"></a>
+<a id="canonical-2032303020000232-3101202012203211-1032111223201032-2032001131031211-0231011121101213-3310303001312113-3302003120002311-2312011023011313"></a>
 
-## id property — Property reference / e3455772718d / 8
+## ID property — Property reference / 130213012031 / 8
 
 Type: `"string"`. Computed.
 
 Identifier of this lookup: the registration name when one is found, otherwise null.
 
-<a id="canonical-193026a36589f07744daf09dd5df9dfba417e0e61fd5239fba98f41bbd2f479d"></a>
+<a id="canonical-0121030002122203-1211202133001313-1010312233002131-3111313321313323-2210011332003212-0133311102032133-2322212033100123-2331023310132131"></a>
 
-<a id="canonical-bbf53a4beaa9c70aedd0db442ba0a5e046fc56ecfa69599043e0b8cb93bcabb1"></a>
+<a id="canonical-2323331103221023-3222222130130022-3231310031231010-0223220022113200-1012333011123230-3322122111212100-1003320023203023-2103233022232301"></a>
 
-## instance_id property — Property reference / e3455772718d / 9
+## instance_id property — Property reference / 130213012031 / 9
 
 Type: `"string"`. Computed.
 
@@ -91,22 +91,22 @@ Infrastructure instance identifier reported by the CE registration
 (\`get\_spec.infra.instance\_id\`). This distinguishes rebuilt nodes that reuse the same site and
 hostname.
 
-<a id="canonical-59f589bcf85990144ef8aa61c42601925237721557f4eb6b0ca660ea17c4a305"></a>
+<a id="canonical-1121331120212330-3320112121000110-1032332022221201-3010021200012102-1102031313020111-1113331032231223-0030221212003222-0113301022030011"></a>
 
-<a id="canonical-6cc1b20467ff9273c0c94faacf10003324b4b00b378a5979e315e1bb12092bf1"></a>
+<a id="canonical-1230300123020010-1213333321021303-3000302110332222-3033010000000303-0210231023000023-0313202211211321-3203011132012323-0102002102233301"></a>
 
-## name property — Property reference / e3455772718d / 10
+## name property — Property reference / 130213012031 / 10
 
 Type: `"string"`. Computed.
 
 Registration name (\`r-&lt;uuid&gt;\`) to pass to \`xcsh\_registration\_approval\`. Null when
 \`found\` is \`false\`.
 
-<a id="canonical-d069f563f997fcb0fcc0c404752d234fa45f3bfae4e6408a682d4e61cb0978e8"></a>
+<a id="canonical-3100122133111203-3321211333302300-3330300030100010-1311023102031033-2210113303233322-3210321210002022-1220023110321201-3023002113203220"></a>
 
-<a id="canonical-4aba3ee446a3501d84dfce6451a3fc6ac5136871133f4a46f6244a7318578709"></a>
+<a id="canonical-1022232203323210-1012220311000131-2010313330321210-1101220333301222-3011010312201301-0103033310221012-3312021010221303-0120111320130021"></a>
 
-## namespace property — Property reference / e3455772718d / 11
+## namespace property — Property reference / 130213012031 / 11
 
 Type: `"string"`. Optional, Computed.
 
@@ -120,71 +120,71 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-a2abb2396946b59d43c6167d695cdeb256278bae031e07166ffb49d75aaf0bc0"></a>
+<a id="canonical-2202222323020321-1221101223112131-1003301201121331-1221113031322302-1112021320232232-0003013200130112-1233332310213113-1122223300233000"></a>
 
-<a id="canonical-4ec098f57d628889b455fe6704082267fb48904e7cc1c0746839aad6dca82832"></a>
+<a id="canonical-1032300021203311-1331120220202021-2310111133321213-0010002002021213-3323102021001032-1330300130001310-1220032122223112-3130222002200302"></a>
 
-## provider_type property — Property reference / e3455772718d / 12
+## provider_type property — Property reference / 130213012031 / 12
 
 Type: `"string"`. Computed.
 
 Infrastructure provider the CE reported, e.g. \`AZURE\`, \`AWS\`, \`GCP\`, \`VMWARE\`.
 
-<a id="canonical-bd96ec30d28ccf43382431b60a2e0daed347dcafbe798b7b30f4c36485c3ae7f"></a>
+<a id="canonical-2331211232300300-3102203030331003-0320021003012312-0022023200312232-3103101331302233-2332132120231323-0300331030031210-2011300322321333"></a>
 
-<a id="canonical-273e9e1a785349ce7fc30416657d7032dfa3d85b9916cc5e35a9cb57acbbe775"></a>
+<a id="canonical-0213033221320122-1320110310213032-1333300300100112-1211133113000302-3133220331201123-2121011230301132-0311222130231113-2230232332131311"></a>
 
-## site_name property — Property reference / e3455772718d / 13
+## site_name property — Property reference / 130213012031 / 13
 
 Type: `"string"`. Required.
 
 Name of the F5 XC site whose CE registration should be resolved. Matched against each registration's
 \`get\_spec.passport.cluster\_name\`.
 
-<a id="canonical-4f81c64a81f3f1cf529547b26527331c0bd87c535e7ca98278d55c088eb77fec"></a>
+<a id="canonical-1033200130121022-2001330333013033-1102211110132302-1211021303030130-0023312013301103-1132133022212002-1320311111300020-2032231313333230"></a>
 
-<a id="canonical-6dfbdba4fb0f136b59b8f832226e132e7cfae0b67b85caa56e16abd0cc22bc0a"></a>
+<a id="canonical-1231332331232210-3323003301031223-1121232033200302-0202123201030232-1330332232002312-1323201130222211-1232011222233100-3030020223300022"></a>
 
-## state property — Property reference / e3455772718d / 14
+## state property — Property reference / 130213012031 / 14
 
 Type: `"string"`. Computed.
 
 Current registration state, e.g. \`PENDING\` (awaiting approval) or \`ONLINE\` (node admitted and
 healthy).
 
-<a id="canonical-f2a2fc680ef54b4da46b5be2ed0391652e963e3839c5095664ccf785979112e4"></a>
+<a id="canonical-3302220233301220-0032331110231031-2210122311233202-3231000321011211-0232211203320320-0321301100211112-1210303033132011-2113210101023210"></a>
 
-<a id="canonical-b5703dd14e702956959cc39de5de9aba6b774afe5d421cd7079e4dbbd8917da0"></a>
+<a id="canonical-2311130003313101-1032130002211112-2111213030032131-3211313221222322-1223131310223332-1131100201303113-0013213210312323-3120210113312200"></a>
 
-## uid property — Property reference / e3455772718d / 15
+## uid property — Property reference / 130213012031 / 15
 
 Type: `"string"`. Computed.
 
 Unique identifier of the registration (the \`&lt;uuid&gt;\` part of the name).
 
-<a id="canonical-aa68de8bbf25c0d91fb5c341ea8d5fc8d47b8b394c85767f8784d83a1e0c8907"></a>
+<a id="canonical-2222122031322023-2333021130003121-0133231130031001-3222203111333020-3110132320230321-1030201113121333-2013201031200322-0132003020210013"></a>
 
-## All schema paths — Property reference / e3455772718d / 16
+## All schema paths — Property reference / 130213012031 / 16
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `cluster_name` | [cluster_name](data-sources--site_registration--reference--group-001.md#canonical-aec9ad90c0e4fdc0e1cbc2ecea72c408007b996f26cd55222f19e9330c0fa14f) |
-| `cluster_size` | [cluster_size](data-sources--site_registration--reference--group-001.md#canonical-350ba6ea57b8bfcdcf1e48f037a87aad25d25d9994df8b84aab1978821b580ea) |
-| `found` | [found](data-sources--site_registration--reference--group-001.md#canonical-fa579a82631ec69205ec49094aad8469c02f98a5ab7f304ecb07789408fb9dc3) |
-| `hostname` | [hostname](data-sources--site_registration--reference--group-001.md#canonical-443b29fc9489a0cdc3e207e85a0bb3f5e82c031e20d8c6ebb34286c7e9104767) |
-| `id` | [id](data-sources--site_registration--reference--group-001.md#canonical-48f42d52eb3d001879f9d93ac7da9a42b8a07241932bd070dfc9ca1d60a80b88) |
-| `instance_id` | [instance_id](data-sources--site_registration--reference--group-001.md#canonical-193026a36589f07744daf09dd5df9dfba417e0e61fd5239fba98f41bbd2f479d) |
-| `name` | [name](data-sources--site_registration--reference--group-001.md#canonical-59f589bcf85990144ef8aa61c42601925237721557f4eb6b0ca660ea17c4a305) |
-| `namespace` | [namespace](data-sources--site_registration--reference--group-001.md#canonical-d069f563f997fcb0fcc0c404752d234fa45f3bfae4e6408a682d4e61cb0978e8) |
-| `provider_type` | [provider_type](data-sources--site_registration--reference--group-001.md#canonical-a2abb2396946b59d43c6167d695cdeb256278bae031e07166ffb49d75aaf0bc0) |
-| `site_name` | [site_name](data-sources--site_registration--reference--group-001.md#canonical-bd96ec30d28ccf43382431b60a2e0daed347dcafbe798b7b30f4c36485c3ae7f) |
-| `state` | [state](data-sources--site_registration--reference--group-001.md#canonical-4f81c64a81f3f1cf529547b26527331c0bd87c535e7ca98278d55c088eb77fec) |
-| `uid` | [uid](data-sources--site_registration--reference--group-001.md#canonical-f2a2fc680ef54b4da46b5be2ed0391652e963e3839c5095664ccf785979112e4) |
+| `cluster_name` | [cluster_name](data-sources--site_registration--reference--group-001.md#canonical-2232302122312100-3000321033313000-3201302330023230-3222130230100020-0000132321211233-0212303111110202-0233012132210303-0030003322011033) |
+| `cluster_size` | [cluster_size](data-sources--site_registration--reference--group-001.md#canonical-0311002322123222-1113232023333031-3033013210203300-0313222013222231-0211310211312121-2110313320232010-2222230121132020-0201231120003222) |
+| `found` | [found](data-sources--site_registration--reference--group-001.md#canonical-3322111321222002-1203013230122102-0011323010210021-1022223120101221-3000023321202211-2223133303001032-3023001313202110-0020332321313003) |
+| `hostname` | [hostname](data-sources--site_registration--reference--group-001.md#canonical-1010032302213330-2110202122003031-3003320200133220-1122002323033311-3220023000030132-0200312030123223-2303100220123013-3221010010131213) |
+| `id` | [id](data-sources--site_registration--reference--group-001.md#canonical-1020331002311102-3223033100000120-1321332131210322-3013312221221002-2320220013021001-2103022331001300-3133302130220131-1200222000232020) |
+| `instance_id` | [instance_id](data-sources--site_registration--reference--group-001.md#canonical-0121030002122203-1211202133001313-1010312233002131-3111313321313323-2210011332003212-0133311102032133-2322212033100123-2331023310132131) |
+| `name` | [name](data-sources--site_registration--reference--group-001.md#canonical-1121331120212330-3320112121000110-1032332022221201-3010021200012102-1102031313020111-1113331032231223-0030221212003222-0113301022030011) |
+| `namespace` | [namespace](data-sources--site_registration--reference--group-001.md#canonical-3100122133111203-3321211333302300-3330300030100010-1311023102031033-2210113303233322-3210321210002022-1220023110321201-3023002113203220) |
+| `provider_type` | [provider_type](data-sources--site_registration--reference--group-001.md#canonical-2202222323020321-1221101223112131-1003301201121331-1221113031322302-1112021320232232-0003013200130112-1233332310213113-1122223300233000) |
+| `site_name` | [site_name](data-sources--site_registration--reference--group-001.md#canonical-2331211232300300-3102203030331003-0320021003012312-0022023200312232-3103101331302233-2332132120231323-0300331030031210-2011300322321333) |
+| `state` | [state](data-sources--site_registration--reference--group-001.md#canonical-1033200130121022-2001330333013033-1102211110132302-1211021303030130-0023312013301103-1132133022212002-1320311111300020-2032231313333230) |
+| `uid` | [uid](data-sources--site_registration--reference--group-001.md#canonical-3302220233301220-0032331110231031-2210122311233202-3231000321011211-0232211203320320-0321301100211112-1210303033132011-2113210101023210) |
 
-<a id="canonical-721b093f77674105560534bc869ff3145b8d681718ee28c7b4b4f8234adc4b9b"></a>
+<a id="canonical-1302012300210333-1313121310010011-1112001103102330-2012213333030110-1123203112200113-0120323202203013-2310231033200203-1022313010232123"></a>
 
-## Next pages — Property reference / e3455772718d / 17
+## Next pages — Property reference / 130213012031 / 17
 
-- [xcsh_site_registration](../data-sources/site_registration.md#canonical-29e210d357a5bdcac6bb8895520d01f565fe4c298fee3fb79b2fce630978c912)
+- [xcsh_site_registration](../data-sources/site_registration.md#canonical-0221320201003103-1113221123313022-3012232320202111-1102003100013311-1211333210300221-2033323203332313-2123023330321203-0021132030210102)

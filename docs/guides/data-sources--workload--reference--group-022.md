@@ -6,26 +6,1279 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
-<a id="canonical-6b37aa57c6679830c76bec3ad2eedc923bb0bbd78855e7cb8f9d85cc6da5184f"></a>
+<a id="canonical-0001310231113010-2300222132331331-1202322233202001-3132330301222132-0023333212323030-0221102011110130-0122220211010300-2331201130231301"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.custom_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 2
+## namespace property — trusted_ca / 012001310310 / 5
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0320131211121030-0231301311123301-2321121201301031-2103332310203211-2002131233310110-0113233130313203-0322113013201111-3202321211133003"></a>
+
+<a id="canonical-3321011233221212-1201002032013112-0302212112203230-0312021322103231-1002332110030022-3011012023200131-1012033320311322-1321300331200203"></a>
+
+## tenant property — trusted_ca / 012001310310 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-2113003322330323-1332201003313220-1301021113001130-1320300101312012-3112222120223120-1003021001323123-1103310101030211-3030023032203222"></a>
+
+## Next pages — trusted_ca / 012001310310 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls](data-sources--workload--reference--group-021.md#canonical-2120202120230123-1300020120013231-2032223101233223-1023310302320101-2320320032132221-0031023101132320-2230232211332312-0332131011020102)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-0030111210231013-2222220121122130-2010310023010310-1130132313031002-1330222301322013-1210011310321303-2232121032200102-2310010213332002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1110210021122010-3131213031231131-1001222213221302-0132031330322332-2113321332032311-0002013313013030-3002010101103120-0001200020233302"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls.xfcc_disabled — xfcc_disabled / 310221202223 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params](data-sources--workload--reference--group-021.md#canonical-0020221002300310-3320210022331231-2110020220012113-3303311310321122-1023231100033031-3133012031200203-1002323202122123-3323330220103313)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls](data-sources--workload--reference--group-021.md#canonical-2120202120230123-1300020120013231-2032223101233223-1023310302320101-2320320032132221-0031023101132320-2230232211332312-0332131011020102)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls.xfcc_disabled
+
+<a id="canonical-3203312331230212-0022231112012232-0201200221212231-0211111031100113-1020313300212121-3231110213333133-1003132331212301-0331122322200312"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2132202011000201-2021010231100120-0030130132223200-2203133210101313-2200332033311003-0230023311221022-2103111002000313-1013330223230311"></a>
+
+## Direct properties — xfcc_disabled / 310221202223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3000221322022310-1113021132100210-1010201123321012-3003002331021310-3003130131000233-1020220232002333-3010113213111322-0303121021100102"></a>
+
+## Next pages — xfcc_disabled / 310221202223 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls](data-sources--workload--reference--group-021.md#canonical-2120202120230123-1300020120013231-2032223101233223-1023310302320101-2320320032132221-0031023101132320-2230232211332312-0332131011020102)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-3221100202303211-1330113112311332-1132323132323111-2020203132010123-0100312032302132-3010031232110212-2323021103032020-2102132331230010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0022111030003201-2031132021213312-3021313331131313-2122100322023100-0220221303113113-2332032222123110-1000200102233320-3323100231212000"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls.xfcc_options — xfcc_options / 120103331322 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params](data-sources--workload--reference--group-021.md#canonical-0020221002300310-3320210022331231-2110020220012113-3303311310321122-1023231100033031-3133012031200203-1002323202122123-3323330220103313)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls](data-sources--workload--reference--group-021.md#canonical-2120202120230123-1300020120013231-2032223101233223-1023310302320101-2320320032132221-0031023101132320-2230232211332312-0332131011020102)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls.xfcc_options
+
+<a id="canonical-3033003333232321-1322001101201210-0020223321032031-3302033013002231-1013112203123300-2302110002301322-0131032032110323-0213010222331110"></a>
+
+Type: `"single"`. Computed.
+
+X-Forwarded-Client-Cert header elements to be added to requests.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3132333300221013-1300300323202122-1333330032031323-1032223333131331-1200331203213323-3201212231011313-3000001332120110-3110100202112202"></a>
+
+## Direct properties — xfcc_options / 120103331322 / 3
+
+<a id="canonical-0031322011101203-0312300020230301-3002131012031120-1201310331301030-1201100312100211-0121132233302330-0100110123111101-1020333201231202"></a>
+
+<a id="canonical-3333000112110221-3010032202112213-1003120322113003-3300031333330001-0012203232221120-0213031323013213-2303000032331233-1011202101331002"></a>
+
+## xfcc_header_elements property — xfcc_options / 120103331322 / 4
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum: XFCC\_NONE|XFCC\_CERT|XFCC\_CHAIN|XFCC\_SUBJECT|XFCC\_URI|XFCC\_DNS\]
+X-Forwarded-Client-Cert header elements to be added to requests. Possible values are \`XFCC\_NONE\`,
+\`XFCC\_CERT\`, \`XFCC\_CHAIN\`, \`XFCC\_SUBJECT\`, \`XFCC\_URI\`, \`XFCC\_DNS\`. Defaults to
+\`XFCC\_NONE\`.
+
+Upstream description:
+
+X-Forwarded-Client-Cert header elements to be added to requests.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
+    "ves.io.schema.rules.repeated.items.enum.not_in": "[0]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
+    "ves.io.schema.rules.repeated.items.enum.not_in": "[0]"
+  }
+}
+```
+
+<a id="canonical-3130223122223012-2201031001301111-1330223222202313-3022312012313210-2113232100210211-3312220201110200-1132011100123320-0220303302203022"></a>
+
+## Next pages — xfcc_options / 120103331322 / 5
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params.use_mtls](data-sources--workload--reference--group-021.md#canonical-2120202120230123-1300020120013231-2032223101233223-1023310302320101-2320320032132221-0031023101132320-2230232211332312-0332131011020102)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3101131201103221-3023001230203323-3022023022000033-1302032213132230-1011011133200320-3011022211312300-3210202311002303-0210130230022113"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters — tls_parameters / 121320313102 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters
+
+<a id="canonical-0103223033033133-2133130101020020-3033101100330100-3323031133022120-3113110221332132-3023032211123300-0012111230333020-3010133030032332"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for tls parameters.
+
+Upstream description:
+
+Inline TLS parameters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-mtls_choice": "[\"no_mtls\",\"use_mtls\"]"
+}
+```
+
+<a id="canonical-3001312212132201-1133200200332121-0331130333010022-1222230110012323-0033130032002212-0133113003202303-2231331012332000-3110101232111021"></a>
+
+## Direct properties — tls_parameters / 121320313102 / 3
+
+- [no_mtls](data-sources--workload--reference--group-022.md#canonical-3231200111230001-0232113102222133-3103130022103033-3000222111220333-2002100110103310-2313323033112231-3312011302333313-2030332210211321): complete subsection reference.
+
+- [tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001): complete subsection reference.
+
+- [tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332): complete subsection reference.
+
+- [use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322): complete subsection reference.
+
+<a id="canonical-3232101223111101-2023013322312123-3221322120311132-2130013102012133-0331300001101312-0021332201032222-2123113302123212-0002020111131101"></a>
+
+## Next pages — tls_parameters / 121320313102 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.no_mtls](data-sources--workload--reference--group-022.md#canonical-3231200111230001-0232113102222133-3103130022103033-3000222111220333-2002100110103310-2313323033112231-3312011302333313-2030332210211321)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-3231200111230001-0232113102222133-3103130022103033-3000222111220333-2002100110103310-2313323033112231-3312011302333313-2030332210211321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0200023310101310-0301333211012120-1222200003321202-0333020133020120-0013113222030112-1101312312011011-0211312222312210-3112202201320013"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.no_mtls — no_mtls / 002303330103 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.no_mtls
+
+<a id="canonical-3203111113333010-2001103000233223-3212233233122122-0110033120133103-2132032232212131-3001110110303101-0232112322012101-0303230130120100"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2321223322302210-0102231000000130-0221200310221133-0013000011101023-1220201100013200-3131203003300212-3033222023103103-2133212310122330"></a>
+
+## Direct properties — no_mtls / 002303330103 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2110212003200031-1203210011210021-0333010030212231-1310322212203033-1211210122123221-1223022122232110-3202013331131203-0212231003333021"></a>
+
+## Next pages — no_mtls / 002303330103 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1220001031213312-3020200120013200-3310021201233320-0202320301203130-3323002211212120-2301133130031221-3201120331012113-0100131230021301"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates — tls_certificates / 300032322331 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates
+
+<a id="canonical-3003313211202113-2021100011112331-2013113002121110-1230132120122202-1001333111220123-0130103022032000-2012030320023012-0222011311030003"></a>
+
+Type: `"list"`. Computed.
+
+Users can add one or more certificates that share the same set of domains. For example, domain.com
+and \*.domain.com - but use different signature algorithms.
+
+Upstream description:
+
+Users can add one or more certificates that share the same set of domains. For example, domain.com
+and \*.domain.com - but use different signature algorithms.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+<a id="canonical-0330200022230010-3230133011212210-2032223103002203-3122232233212220-3313210111023031-2100300101101301-3111110232212310-1010131101031200"></a>
+
+## Direct properties — tls_certificates / 300032322331 / 3
+
+<a id="canonical-0021320233012323-1220012022030003-0331031132103220-3022022033230312-3111311003020110-2001221131131231-2320330301202330-3133233100032100"></a>
+
+<a id="canonical-3113300131021001-0311323101230232-1011300113023221-2220220210233311-1220230000233330-2103321013201120-1212310332032023-1300021230232321"></a>
+
+## certificate_url property — tls_certificates / 300032322331 / 4
+
+Type: `"string"`. Computed.
+
+TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
+
+Upstream description:
+
+TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.certificate_url": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.certificate_url": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+- [custom_hash_algorithms](data-sources--workload--reference--group-022.md#canonical-0232323111210030-2222131202223002-1211111033031030-3032033203332223-0312232001123030-0222030200031310-1123300111221303-0312303221022212): complete subsection reference.
+
+<a id="canonical-0230200013123230-2303103233120212-1013322212233010-0113331221120210-3301302011202101-3112311111312030-1133323212301023-1323022323210020"></a>
+
+<a id="canonical-1223233202020330-0103200220203332-2210003312201233-3102010213001133-2311313031301311-2100301302313110-1212020033021210-3003312020222103"></a>
+
+## description_spec property — tls_certificates / 300032322331 / 5
+
+Type: `"string"`. Computed.
+
+Description. Description for the certificate.
+
+- [disable_ocsp_stapling](data-sources--workload--reference--group-022.md#canonical-1101301113313023-1230011023121231-0220312222031231-1100013220330120-1003301213110123-2022202213001332-0313001302220030-2332211303000222): complete subsection reference.
+
+- [private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022): complete subsection reference.
+
+- [use_system_defaults](data-sources--workload--reference--group-022.md#canonical-0233103130232303-0221321110230320-2111122030231332-1221212230221303-3221122020101003-2032122221233310-0132331130032110-2211011120331321): complete subsection reference.
+
+<a id="canonical-2221000201013232-2122301211300102-0303231001122012-1312211121121223-1220303323102322-2321130133220231-2331201102312100-2311310323121032"></a>
+
+## Next pages — tls_certificates / 300032322331 / 6
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.custom_hash_algorithms](data-sources--workload--reference--group-022.md#canonical-0232323111210030-2222131202223002-1211111033031030-3032033203332223-0312232001123030-0222030200031310-1123300111221303-0312303221022212)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.disable_ocsp_stapling](data-sources--workload--reference--group-022.md#canonical-1101301113313023-1230011023121231-0220312222031231-1100013220330120-1003301213110123-2022202213001332-0313001302220030-2332211303000222)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.use_system_defaults](data-sources--workload--reference--group-022.md#canonical-0233103130232303-0221321110230320-2111122030231332-1221212230221303-3221122020101003-2032122221233310-0132331130032110-2211011120331321)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-0232323111210030-2222131202223002-1211111033031030-3032033203332223-0312232001123030-0222030200031310-1123300111221303-0312303221022212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3120332003233031-2013111230013132-2321113132320231-3210313320323321-3101323122013330-2131302123113100-1101011123121031-3201113013221321"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.custom_hash_algorithms — custom_hash_algorithms / 330123200002 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.custom_hash_algorithms
+
+<a id="canonical-0331100012101331-2211133103020003-0220130103213332-2023000311022321-3313201333200010-3010223111202102-2200100010312211-2200003301323300"></a>
+
+Type: `"single"`. Computed.
+
+Specifies the hash algorithms to be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3020212220320033-0220320010021130-0103221000033122-1203321130131300-2112322112213113-0012003300011331-2203121012322032-1232100122112101"></a>
+
+## Direct properties — custom_hash_algorithms / 330123200002 / 3
+
+<a id="canonical-2100112101203002-0303321001103002-1002103103121332-0012330100030332-0222002030221100-2100302332230312-1031133021112111-3122003010111230"></a>
+
+<a id="canonical-3022133121121303-3331030033011200-1000110223302333-3120033131130013-1133312230321331-2013232031330212-0210102211103030-2201120332032122"></a>
+
+## hash_algorithms property — custom_hash_algorithms / 330123200002 / 4
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum: INVALID\_HASH\_ALGORITHM|SHA256|SHA1\] Ordered list of hash algorithms to be used. Possible
+values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
+\`INVALID\_HASH\_ALGORITHM\`.
+
+Upstream description:
+
+Ordered list of hash algorithms to be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2223100122310000-3320300030321312-2302333030023132-0223231220210331-1020213001322221-3030011103120322-1313010112022003-1310230123111212"></a>
+
+## Next pages — custom_hash_algorithms / 330123200002 / 5
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-1101301113313023-1230011023121231-0220312222031231-1100013220330120-1003301213110123-2022202213001332-0313001302220030-2332211303000222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2000312113103211-3112201000010330-1220322133101022-2221311222122231-1213133011320102-2122011013332121-3321332202023330-3331032233202012"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.disable_ocsp_stapling — disable_ocsp_stapling / 223200300121 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.disable_ocsp_stapling
+
+<a id="canonical-2223311031031320-2320102303003323-2232112022023123-3320222100233132-3111223322123311-1311032100111132-2102232032222023-1313202112223112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable ocsp stapling.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0021030203321121-1121233322012030-1110001002231212-2010100231033011-3311013200012211-1220331133300132-1020210221201112-3032222100232333"></a>
+
+## Direct properties — disable_ocsp_stapling / 223200300121 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3020203030022331-2232111201232221-2033222103330113-3020330231222001-1231203121032111-1010230101130232-2110112110202210-0021220321011321"></a>
+
+## Next pages — disable_ocsp_stapling / 223200300121 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0021310211230011-3330223133131033-2213103212020333-2210122320002110-0320112033222330-1231022212132213-0013031002122101-0323211210222230"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key — private_key / 131100131102 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key
+
+<a id="canonical-2210122223330221-3331012122201003-1221231113232132-2132130120131203-1213320112322333-3023101321313130-1331031210131101-1013333330312010"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-2311122303203032-3202211003220010-0210121220102220-0011330212311303-1031202132121123-0010300331111310-0201222103213102-2233133232302101"></a>
+
+## Direct properties — private_key / 131100131102 / 3
+
+- [blindfold_secret_info](data-sources--workload--reference--group-022.md#canonical-3030313223210003-0033301220330230-1003132301012121-0102312101313033-3211212133302000-1313001103132033-0010113112332203-2300321312203330): complete subsection reference.
+
+- [clear_secret_info](data-sources--workload--reference--group-022.md#canonical-2201012012103103-2032210223330200-3023213332221130-1002110130103222-0013222322233031-3000020202220333-1301332020002223-3302322213000211): complete subsection reference.
+
+<a id="canonical-0312101013120312-2303331223331320-2102031212022103-1133302203102210-2022223113022202-0030033101303030-3230002031001322-3030000231300003"></a>
+
+## Next pages — private_key / 131100131102 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info](data-sources--workload--reference--group-022.md#canonical-3030313223210003-0033301220330230-1003132301012121-0102312101313033-3211212133302000-1313001103132033-0010113112332203-2300321312203330)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.clear_secret_info](data-sources--workload--reference--group-022.md#canonical-2201012012103103-2032210223330200-3023213332221130-1002110130103222-0013222322233031-3000020202220333-1301332020002223-3302322213000211)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-3030313223210003-0033301220330230-1003132301012121-0102312101313033-3211212133302000-1313001103132033-0010113112332203-2300321312203330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0022131010020230-1031033003321302-1030223230200211-2313013212103131-2031023222201022-1101003203120202-1332100211031012-1203210213221200"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info — blindfold_secret_info / 113220032110 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info
+
+<a id="canonical-0101331023123223-0303103333102132-1132031121121100-2013231130331231-3023110033303003-1322002032321220-1202303031031300-0203311201021022"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3210333320131210-0102233303103321-2102332112033321-3321213221223021-1203131303310321-1031322010203032-3232213130231122-3012103311322200"></a>
+
+## Direct properties — blindfold_secret_info / 113220032110 / 3
+
+<a id="canonical-0221302202202311-2312021112030122-1033320110003031-1313323212201022-3132033121000203-3201321300012222-1010022032322121-0020130321231031"></a>
+
+<a id="canonical-3003323111221211-3133120010102112-2330321033303210-2033103323221302-3033322230223302-3323302200200100-2132013212230320-0300231322102333"></a>
+
+## decryption_provider property — blindfold_secret_info / 113220032110 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3322012211223222-1210111022020221-1030230233020032-0232332131233333-3220221311133330-1030103300122030-0311133113010023-1322233031313332"></a>
+
+<a id="canonical-2032121301110212-1100201030201020-2221032302022020-3311011122320203-0333000322110101-2101033201101011-3133021212032013-1212013222201013"></a>
+
+## location property — blindfold_secret_info / 113220032110 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Upstream description:
+
+Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "content",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 131072,
+    "metadata": {
+      "category": "content",
+      "confidence": 1.0,
+      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
+      "source": "manual-override",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 4
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-0320303220330002-1312233031023110-2330032231000301-0002311112100332-1220332122000113-3311133023313112-2323103113132333-1113213223311012"></a>
+
+<a id="canonical-0021310303232300-3322231333331003-3200312313010300-2322322233223132-3130122203213323-1001211112201030-0023003321013000-1132211122100002"></a>
+
+## store_provider property — blindfold_secret_info / 113220032110 / 6
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Upstream description:
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1330221021122233-2000232010100223-0233130212121003-1231300130112321-0013123303220120-2103113201023211-2223102120022212-1031321202012310"></a>
+
+## Next pages — blindfold_secret_info / 113220032110 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-2201012012103103-2032210223330200-3023213332221130-1002110130103222-0013222322233031-3000020202220333-1301332020002223-3302322213000211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1332112100012302-2213211132032113-0122110213303020-2313012130000121-1000120200221202-1312333323030121-2302120102032332-3231103312123301"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.clear_secret_info — clear_secret_info / 212231132202 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key.clear_secret_info
+
+<a id="canonical-0102311301131101-3011313100302001-2110103021301311-1022311113010333-3222230310220130-1200221220023122-1332102120121221-1120120321231330"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1202231130123221-2100231112313033-0110013130003301-2330101131213101-0300201023200131-1212133232333122-3210322303202231-2322100302320213"></a>
+
+## Direct properties — clear_secret_info / 212231132202 / 3
+
+<a id="canonical-3203021113110202-2120031113232232-3122011022031330-2031131302020323-0211201202201302-0201212311003230-0300311221000030-1001133211222233"></a>
+
+<a id="canonical-3130333302212122-1132021122110310-2030111331031130-0232302300322312-0022002322202012-3201010201010132-2012232120013323-2323112113002303"></a>
+
+## provider_ref property — clear_secret_info / 212231132202 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-3023112100132300-1231001321333001-1011010003331002-1223313111100003-3220322200010332-3303002300322132-0300321011300101-0103131023103102"></a>
+
+<a id="canonical-0131300211232200-3103020301333022-1011130011021333-3023123302103131-0320130023300112-2111003203302120-3100313111301013-1110230200313221"></a>
+
+## URL property — clear_secret_info / 212231132202 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
+Base64 decoding.
+
+Upstream description:
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
+Base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-2213010132202112-2201233130300023-1322130300332331-0033211020131000-1212301110331133-3013102002132132-0223123133002330-2333013331222303"></a>
+
+## Next pages — clear_secret_info / 212231132202 / 6
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.private_key](data-sources--workload--reference--group-022.md#canonical-2000300020301313-0322332230111120-0301330331223200-3201132103312013-3200033102320123-1213320002213032-3123220302222201-3220313111200022)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-0233103130232303-0221321110230320-2111122030231332-1221212230221303-3221122020101003-2032122221233310-0132331130032110-2211011120331321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3101230232033033-3220020212321030-2301030123303131-1303103223111332-0022001001213211-0121021133031200-3302010210012332-1033301032111200"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.use_system_defaults — use_system_defaults / 230011220113 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates.use_system_defaults
+
+<a id="canonical-1121022301303133-1003001200203111-0133031202200122-3321013302131120-0131212333223130-2133321113023203-2123121332302031-3021313112223203"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for use system defaults.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3112311102230201-3110300203302312-3000320120023103-2000311200023123-0323113323113010-2021001132021221-2031300330130011-0022322213102012"></a>
+
+## Direct properties — use_system_defaults / 230011220113 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2123212011222220-0023222220100011-1110122000210032-2010131010002013-3102300230202000-0002313020332213-1231210223331132-2003012002103112"></a>
+
+## Next pages — use_system_defaults / 230011220113 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_certificates](data-sources--workload--reference--group-022.md#canonical-2303102321200322-2223331031221031-0020113022300133-0320303032102020-2302213222211223-0230212333332330-2211002133222000-3201213130120001)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1211232110200112-0032310013021111-0200113003112322-0302231330012033-0033112220020331-0202023333000122-1320322113200100-1202213223100201"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config — tls_config / 323111112311 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config
+
+<a id="canonical-0211200320101132-1223312110111222-2021323102000113-2000113212211301-0101232002003011-1212312132211330-0222023132200301-2211200220130013"></a>
+
+Type: `"single"`. Computed.
+
+Defines various OPTIONS to configure TLS configuration parameters.
+
+Upstream description:
+
+This defines various OPTIONS to configure TLS configuration parameters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"custom_security\",\"default_security\",\"low_security\",\"medium_security\"]"
+}
+```
+
+<a id="canonical-3130311111220033-2123100310120000-0333300322330220-3012202133133300-0131113123211103-3123201331313011-2220333222302200-1011121203223212"></a>
+
+## Direct properties — tls_config / 323111112311 / 3
+
+- [custom_security](data-sources--workload--reference--group-022.md#canonical-2332213000011030-1321022302023322-2323312323211221-0332201321023300-3133020101230333-2331220111100201-0122301132201122-2133212130100220): complete subsection reference.
+
+- [default_security](data-sources--workload--reference--group-022.md#canonical-1220230112020013-1033230003322103-0101003222112232-3220022221022230-0302020013133203-2310303101032220-2100201003333220-0331123003121221): complete subsection reference.
+
+- [low_security](data-sources--workload--reference--group-022.md#canonical-1311013302002031-1111003303111231-0332030020020121-3132203323333033-1320031023100030-0212020303123103-3330301230332201-2022332032200232): complete subsection reference.
+
+- [medium_security](data-sources--workload--reference--group-022.md#canonical-3030033000021223-3111020010232202-3201313030123120-0300333312120333-3301222030031012-2133333111322021-3001313131113123-0120332013132213): complete subsection reference.
+
+<a id="canonical-2111200221320230-1213220112002121-1111000212230333-1021232111132222-3310120333022202-3010201231102312-2201232322033222-3232320112003301"></a>
+
+## Next pages — tls_config / 323111112311 / 4
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.custom_security](data-sources--workload--reference--group-022.md#canonical-2332213000011030-1321022302023322-2323312323211221-0332201321023300-3133020101230333-2331220111100201-0122301132201122-2133212130100220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.default_security](data-sources--workload--reference--group-022.md#canonical-1220230112020013-1033230003322103-0101003222112232-3220022221022230-0302020013133203-2310303101032220-2100201003333220-0331123003121221)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.low_security](data-sources--workload--reference--group-022.md#canonical-1311013302002031-1111003303111231-0332030020020121-3132203323333033-1320031023100030-0212020303123103-3330301230332201-2022332032200232)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.medium_security](data-sources--workload--reference--group-022.md#canonical-3030033000021223-3111020010232202-3201313030123120-0300333312120333-3301222030031012-2133333111322021-3001313131113123-0120332013132213)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-2332213000011030-1321022302023322-2323312323211221-0332201321023300-3133020101230333-2331220111100201-0122301132201122-2133212130100220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1223031322221113-3012121321200300-3013122332300322-3102323231302102-0323230023233113-2020111132133023-2033213120113030-1231221101201033"></a>
+
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.custom_security — custom_security / 333332210331 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.custom_security
 
-<a id="canonical-6acb655df79c463a0d2a4bc8074afb10fbab82c9912455482cf77566f6d2d31c"></a>
+<a id="canonical-1222302312111131-3313213010120322-0031022210233020-0013102233230100-3323222320023021-2101021011111020-0230331313111212-3312310231030130"></a>
 
 Type: `"single"`. Computed.
 
@@ -48,15 +1301,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b258dbf59917a075bec71d78bedd68fd268298f7fe3b9eb861cf7f6db5d3c836"></a>
+<a id="canonical-2302112031233311-2121011322001311-2332301301311320-2332313112203331-0212200221203313-3332032321322320-1201303313331231-2311310330200312"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 3
+## Direct properties — custom_security / 333332210331 / 3
 
-<a id="canonical-8dba1018372a1325f27d7853fd2d5f2aa0d85beac972f1267c5a10578336a245"></a>
+<a id="canonical-2031232201000120-0313022201030211-3302133113201103-3331023111330222-2200312011233222-3021130233010212-1330112201001113-2003031222021011"></a>
 
-<a id="canonical-3262130fd098118d7c791776ec5e38acaa26da427c99419279fd48aa669a42c4"></a>
+<a id="canonical-0302120201030033-3100212001012031-1330132101131312-3230113203202230-2222021231221002-1330212110012102-1321333110202222-1212212210023010"></a>
 
-## cipher_suites property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 4
+## cipher_suites property — custom_security / 333332210331 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -96,50 +1349,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0092e51e5b5da57a762ab0870ab6308cbb5eb6b45423e1aeb44af7236ba34117"></a>
+<a id="canonical-0000210232110132-1123113122111322-1312022223002013-0022231203002030-2323113223122310-1110020332012232-2310102233130203-1223220310010113"></a>
 
-<a id="canonical-dc7381936786b6042ea18b10160682d19ac47ec6ac99d5cd93781b00a2533c34"></a>
+<a id="canonical-3130130320012103-1213201223120010-0232220120230100-0112001220023101-2122301013323012-2230212131113031-2103132001230000-2202110303300310"></a>
 
-## max_version property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 5
-
-Type: `"string"`. Computed.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-43f08c09737b0b71365ae90191089fb720893f62c75aa700d255afad473166b6"></a>
-
-<a id="canonical-8263c5dd2cae5a44e48332747447e58a3b6936bae51d51ea01dc12250719de87"></a>
-
-## min_version property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 6
+## max_version property — custom_security / 333332210331 / 5
 
 Type: `"string"`. Computed.
 
@@ -174,39 +1388,78 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-71f6dc5be4f855e55cb5c5c7f230a5e18f2c896befb3c97c2b48dc060fcc1360"></a>
+<a id="canonical-1003330020300021-1303132300231301-0312112232210001-2101002021332313-0200202103331202-3013112222130000-3102111122332231-1013030112122312"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3f5c13ffe93d / 7
+<a id="canonical-2002120330113131-0230223211221010-3210200303021310-1310101332112022-0323122103122322-3211013111013222-0001313001020211-0013012131322013"></a>
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+## min_version property — custom_security / 333332210331 / 6
 
-<a id="canonical-68b162074fb03e93110ea5aee82a92ac322077e3b4cd13a890843fe83d6c3669"></a>
+Type: `"string"`. Computed.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Upstream description:
+
+TlsProtocol is enumeration of supported TLS versions
+
+F5 Distributed Cloud will choose the optimal TLS version.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1301331231301123-3210332011113211-1130231130113013-3302030022113201-2033023020211223-3233230330211330-0223102031300012-0033303001031200"></a>
+
+## Next pages — custom_security / 333332210331 / 7
+
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-1220230112020013-1033230003322103-0101003222112232-3220022221022230-0302020013133203-2310303101032220-2100201003333220-0331123003121221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c59fc9178ec191d78ced9e43b7203ba724bced79ba9152739b4737cd474177f2"></a>
+<a id="canonical-3011213330210113-2032300121013113-2030323121321003-2313020003232213-0210233032311321-2322210111021303-2123101303133031-1013100113133302"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.default_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 324164eb80fc / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.default_security — default_security / 322320003330 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.default_security
 
-<a id="canonical-528e076deb03d642ef2e818c917f5811ac5f242017cbd1f09c11f5174e829199"></a>
+<a id="canonical-1102203200131231-3223000331121002-3233023220012030-2101133311200101-2230113302100200-0113302331013300-2130010133110113-1032200221012121"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -229,45 +1482,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9630f937cfad9f60950e7a6c2b53d5138dc9a41a3d4ae2f3ed88d2c1274f6b75"></a>
+<a id="canonical-2112030033210313-3033223121331200-2111003213221230-0223110331110103-2031302122100122-0331102232023303-3231202031023001-0213103312231311"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 324164eb80fc / 3
+## Direct properties — default_security / 322320003330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-33f3c3a5826992c3605e69c12b082035960ce9cce27164034ef6b98f92276d14"></a>
+<a id="canonical-0303330330032211-2002122121023003-1200113212213001-0223002002000311-2112003032213030-3202130112100003-1032331223212033-2102021312310110"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 324164eb80fc / 4
+## Next pages — default_security / 322320003330 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-751f208d550f356d3e308219de8fbfcf7834b40c262336d3fcc6cfa18af8e82e"></a>
+<a id="canonical-1311013302002031-1111003303111231-0332030020020121-3132203323333033-1320031023100030-0212020303123103-3330301230332201-2022332032200232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b93f08e960723b033d43070f5d6751d3847a5cd18b3f42a67a6b1172c98ef45"></a>
+<a id="canonical-2023210333002032-2112001302032300-0303311003001300-3311311213110131-0320101322113031-0120230333100222-1213221223010113-0230212032331011"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.low_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / cdd82528bcdd / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.low_security — low_security / 022023303131 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.low_security
 
-<a id="canonical-5787639bf4689548a4b19c207dd107a288731d3ddb88989855a331c8770067a0"></a>
+<a id="canonical-1113201312032123-3310122021111020-2210230121300200-1331310100132202-2020130301310331-3123202021202120-1111220303013020-1313000012132200"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -290,45 +1543,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-610f22fbe3938670fd5d101a9b2cf9fc8589cb5fb8b2855a78bf6aec1e8b5c82"></a>
+<a id="canonical-1201003302023323-3203210320121300-3331113101000122-2123023033213330-2011202130231133-2320230220111122-1320233312223230-0132202311302002"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / cdd82528bcdd / 3
+## Direct properties — low_security / 022023303131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5f3cbbd4f4089a2692e90a709c1855ab1251fe7ae46892c80f0ffafd3608ebba"></a>
+<a id="canonical-1133033023233110-3310002021220212-2102322100221300-2130012011112223-0102110133321322-3210122021023020-0033003333223331-0312002032232322"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / cdd82528bcdd / 4
+## Next pages — low_security / 022023303131 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-cc3c026bd5204ba2e1dcc6d830ff663ff1a8c3469ffd5e89c1ddd5db18f877a7"></a>
+<a id="canonical-3030033000021223-3111020010232202-3201313030123120-0300333312120333-3301222030031012-2133333111322021-3001313131113123-0120332013132213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-53584805e3edb5e73ef5d2b37fd4ac517cafbacf05f6b531814c381755746f9e"></a>
+<a id="canonical-1103112010200011-3203323123113213-0332331131022303-1333311022301101-1330223323223033-0011331223110301-2001103003200113-1111131012332132"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.medium_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7786f906cea3 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.medium_security — medium_security / 001230322203 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config.medium_security
 
-<a id="canonical-51a44fbb018465fb6cba520cb3fa788e4fbec74ce58f8c695d4fa9640ac02b5c"></a>
+<a id="canonical-1101221010332323-0001201012113323-1230232211020030-2303332213202032-1033233230131030-3211203320301221-1131103322211210-0022300002231130"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -351,44 +1604,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a7529ea2ae6abd2a11e8d45fc86866e18e3dd7d20d758d50fad8c9b50ace56b4"></a>
+<a id="canonical-2213110221322202-2232122223310222-0101322031101133-3020122012123201-2032033131133102-0031131120311100-3322312030212311-0022303211122310"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7786f906cea3 / 3
+## Direct properties — medium_security / 001230322203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6e8a73d8d17d26d4bbc9cf9a1207b725c6523c971736a779b2f1d0163bb09d3c"></a>
+<a id="canonical-1232202213033120-3101133102123110-2323302130332122-0102001323130211-3012110203302113-0113031222131321-2302330131000112-0323230021310330"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7786f906cea3 / 4
+## Next pages — medium_security / 001230322203 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-021.md#canonical-d6e93062fa3efd6d52325cf5c6017f02b76e0d639d5c6f04a7d6267e69fc123e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.tls_config](data-sources--workload--reference--group-022.md#canonical-3112322103001202-3322033233311231-1102030211303311-3012000113330002-2313123200311203-2131113012330010-2213311202121332-1221333001020332)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a"></a>
+<a id="canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-af197f5d09fbdf59a1332a5408e151f14f40f2ad8c59c5007af854967c339c20"></a>
+<a id="canonical-2233012113331131-0021332331331121-2201030302221110-0020320111013301-1033100033022231-2030112130110000-1322332011102112-1330030321300200"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1f4ba69fc863 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls — use_mtls / 213330201203 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls
 
-<a id="canonical-cda18e2e51af9591d74c5e9dac50753cdf59c7f6bafe15086d3871be8551d37c"></a>
+<a id="canonical-3031220120320232-1101223321112101-3113103011322131-2230110013110330-3133112130133312-2322333201110020-1231032013012332-2011110131031330"></a>
 
 Type: `"single"`. Computed.
 
@@ -410,15 +1663,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fe66c9acee500ec4f54a7bfca7c2be4554e2dcf4424307ec70600dc5c3f2c1ec"></a>
+<a id="canonical-3332121230212230-3232110000323010-3311102213233330-2213300223321011-1110320231303310-1002100300133230-1300120000313011-3003330230013230"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1f4ba69fc863 / 3
+## Direct properties — use_mtls / 213330201203 / 3
 
-<a id="canonical-cb24a6eadb233c9606a04783761fe58d3adf7eaa842dc27cbb917a86fa54ab0f"></a>
+<a id="canonical-3023021022123222-3123020303302112-0012220010132003-1312013332112031-0322313313322222-2010023130021330-2323210113222012-3322111022230033"></a>
 
-<a id="canonical-599bcbd7e673cb672a8ade0f03895f178e8325cb34f23215e9e1bb54ab45f7b0"></a>
+<a id="canonical-1121212330233113-3212130330231213-0222202231320033-0003202111330113-2032200302113023-0310330203020111-3221320123231110-2223101133132300"></a>
 
-## client_certificate_optional property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1f4ba69fc863 / 4
+## client_certificate_optional property — use_mtls / 213330201203 / 4
 
 Type: `"bool"`. Computed.
 
@@ -444,17 +1697,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [crl](data-sources--workload--reference--group-022.md#canonical-72f8f253ec2e64e30a90946f459dda3e213814b4a36a48952ba33840a2a28d9e): complete subsection reference.
+- [crl](data-sources--workload--reference--group-022.md#canonical-1302332033021103-3230023212103203-0022210021101233-1011213131220332-0201032001102310-2203122210202111-0223220303201000-2202220220312132): complete subsection reference.
 
-- [no_crl](data-sources--workload--reference--group-022.md#canonical-333376c044f37321a4531b04db3b198f97899f04e714648e8b2fba27934430cd): complete subsection reference.
+- [no_crl](data-sources--workload--reference--group-022.md#canonical-0303030313123000-1010330313030201-2210110301230010-3123032301212033-2113202121330010-3213011012102032-2023023323220213-2103101003003031): complete subsection reference.
 
-- [trusted_ca](data-sources--workload--reference--group-022.md#canonical-22e24ecff0b8e0395a12187b1f1864d8ec87a24df06196f67e0129b0c956248b): complete subsection reference.
+- [trusted_ca](data-sources--workload--reference--group-022.md#canonical-0202320210323033-3300232032000321-1122010201201323-0133012012103120-3230201322021031-3300120121123312-1332000102212300-3021111202102023): complete subsection reference.
 
-<a id="canonical-9c47696a61040dfeb334acd951b3c637d4a2f72982db024ec990ef30f6716484"></a>
+<a id="canonical-2130101312211222-1201001000313332-2303031022303121-1101230330120313-3110220233130221-2002312300021032-3021210032330300-3312130112102010"></a>
 
-<a id="canonical-9002d6dd459bdac9a87106bca2ecff404560ebd3633284d4a414fcdb80a54330"></a>
+<a id="canonical-2100000231123131-1011212331223021-2220130100122330-2202323033331000-1011120032233103-1203030220103110-2210011033303123-2000221110030300"></a>
 
-## trusted_ca_url property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1f4ba69fc863 / 5
+## trusted_ca_url property — use_mtls / 213330201203 / 5
 
 Type: `"string"`. Computed.
 
@@ -505,48 +1758,48 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [xfcc_disabled](data-sources--workload--reference--group-022.md#canonical-3c97dbf4020434089401c870af1d07cc2fe5aa949cbaf0e2062efceef2d2ef43): complete subsection reference.
+- [xfcc_disabled](data-sources--workload--reference--group-022.md#canonical-0330211331233310-0002001003100020-2110000130201300-2233013100133030-0233321122222110-2130232233003202-0012023233303232-3302310232331003): complete subsection reference.
 
-- [xfcc_options](data-sources--workload--reference--group-022.md#canonical-4dcf4fd42a31b544cce87014bcd79512d1a09305484d7f5f9ca570e993e54629): complete subsection reference.
+- [xfcc_options](data-sources--workload--reference--group-022.md#canonical-1031303310333110-0222030123111010-3030322013000110-2330311321110102-3101220021030011-1020103113331133-2130221113003221-2103321110120221): complete subsection reference.
 
-<a id="canonical-9ad94add6d53311edf32b11fc70ba64d36b7ce867c92003894a9ca50a00655b0"></a>
+<a id="canonical-2122312110223131-1231110303010132-3133030223010133-3013002322121031-0312231330322012-1330210200000320-2110222130221100-2200001211112300"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1f4ba69fc863 / 6
+## Next pages — use_mtls / 213330201203 / 6
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.crl](data-sources--workload--reference--group-022.md#canonical-72f8f253ec2e64e30a90946f459dda3e213814b4a36a48952ba33840a2a28d9e)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.no_crl](data-sources--workload--reference--group-022.md#canonical-333376c044f37321a4531b04db3b198f97899f04e714648e8b2fba27934430cd)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.trusted_ca](data-sources--workload--reference--group-022.md#canonical-22e24ecff0b8e0395a12187b1f1864d8ec87a24df06196f67e0129b0c956248b)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_disabled](data-sources--workload--reference--group-022.md#canonical-3c97dbf4020434089401c870af1d07cc2fe5aa949cbaf0e2062efceef2d2ef43)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_options](data-sources--workload--reference--group-022.md#canonical-4dcf4fd42a31b544cce87014bcd79512d1a09305484d7f5f9ca570e993e54629)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.crl](data-sources--workload--reference--group-022.md#canonical-1302332033021103-3230023212103203-0022210021101233-1011213131220332-0201032001102310-2203122210202111-0223220303201000-2202220220312132)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.no_crl](data-sources--workload--reference--group-022.md#canonical-0303030313123000-1010330313030201-2210110301230010-3123032301212033-2113202121330010-3213011012102032-2023023323220213-2103101003003031)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.trusted_ca](data-sources--workload--reference--group-022.md#canonical-0202320210323033-3300232032000321-1122010201201323-0133012012103120-3230201322021031-3300120121123312-1332000102212300-3021111202102023)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_disabled](data-sources--workload--reference--group-022.md#canonical-0330211331233310-0002001003100020-2110000130201300-2233013100133030-0233321122222110-2130232233003202-0012023233303232-3302310232331003)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_options](data-sources--workload--reference--group-022.md#canonical-1031303310333110-0222030123111010-3030322013000110-2330311321110102-3101220021030011-1020103113331133-2130221113003221-2103321110120221)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-72f8f253ec2e64e30a90946f459dda3e213814b4a36a48952ba33840a2a28d9e"></a>
+<a id="canonical-1302332033021103-3230023212103203-0022210021101233-1011213131220332-0201032001102310-2203122210202111-0223220303201000-2202220220312132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc4f9e0c9f4d4cf9d71cba70a1aaa943a2d93745e7637dd2e174aff0da1c70a5"></a>
+<a id="canonical-3030103321320030-2133103110303321-3113013023221300-2201222222211003-2202312103131011-3213120313313102-3201131022333300-3122013013002211"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.crl — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.crl — crl / 323003133131 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.crl
 
-<a id="canonical-0570c35e362cfe2b11ad702c272d817ac94cdc32ce7ae45efe66044e52329975"></a>
+<a id="canonical-0011130030031132-0312023033320223-0101223113000230-0213023120011322-3021103031300302-3032132232101132-3332121200101032-1102030221211311"></a>
 
 Type: `"single"`. Computed.
 
@@ -571,15 +1824,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a0e28731403e838aac6c7b5aa5271e26412eb4dc6a4bdb1d69f75a0f8f397910"></a>
+<a id="canonical-2200320220130301-1000033220032022-2230123013231122-2211021301320212-1001023223103130-1222102331230131-1221331311220033-2033032113210100"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 3
+## Direct properties — crl / 323003133131 / 3
 
-<a id="canonical-002b0eea3ee540ee7eb72b3e88838b34362954fc4c18afad58d052c1ac225a4e"></a>
+<a id="canonical-0000022300323222-0332321110003232-1332231302230332-2020200320230310-0312022111103330-1030012022332231-1120310011023001-2230020211221032"></a>
 
-<a id="canonical-7d8adedadd39dfac0e36f25254bf9bcf7fa417a18d8019d8ad7644a268c7f70d"></a>
+<a id="canonical-1331202231323122-3131032131332230-0032031233021102-1110233321233033-1333221001132201-2031200001213120-2231131210102202-1220301333130031"></a>
 
-## name property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 4
+## name property — crl / 323003133131 / 4
 
 Type: `"string"`. Computed.
 
@@ -632,11 +1885,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-554957003175362ca415aa5ca62b928e86cc595dfc02abf8db9bae860442be8a"></a>
+<a id="canonical-1111102111130000-0301131103120230-2210011122221130-2212022321022032-2012303011211131-3330000222233320-3123212322322012-0010100223322022"></a>
 
-<a id="canonical-4849ebfa75e070e2c79d2eab6d95c7f14e5db23cdb6f7d7ed4f38a7c095337e0"></a>
+<a id="canonical-1020102132233322-1311320013003202-3013213102322223-1231211130133301-1032113123020330-3123123313311332-3110330320221330-0021110303133200"></a>
 
-## namespace property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 5
+## namespace property — crl / 323003133131 / 5
 
 Type: `"string"`. Computed.
 
@@ -696,11 +1949,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5aafc0d4dcd6edcaa5afa17c7d22b2d005d3024a7b509f6709101e0e552e907e"></a>
+<a id="canonical-1122223330003110-3130311232313022-2211223322011330-1331020223023100-0011310300021022-1323110021331213-0021010001320032-1111023221001332"></a>
 
-<a id="canonical-d8f593722efe717a37ebf93b5134e8306c4bd18e66ca28ce819c5bfe94c0b9b5"></a>
+<a id="canonical-3120331121031302-0232333213011322-0313322333210323-1101031032200300-1230102331012032-1212302202203032-2001213011233332-2110300023212311"></a>
 
-## tenant property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 6
+## tenant property — crl / 323003133131 / 6
 
 Type: `"string"`. Computed.
 
@@ -746,39 +1999,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-565bc80f2833858a75415abccc13c329e65a3a1ac036b4346d63574f5aae4623"></a>
+<a id="canonical-1112112330200033-0220030320112022-1311100111222330-3030010330030221-3212112203220122-3000031223100310-1231120311131033-1122223210120203"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2afa3cec37dd / 7
+## Next pages — crl / 323003133131 / 7
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-333376c044f37321a4531b04db3b198f97899f04e714648e8b2fba27934430cd"></a>
+<a id="canonical-0303030313123000-1010330313030201-2210110301230010-3123032301212033-2113202121330010-3213011012102032-2023023323220213-2103101003003031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c00e3103deea2f3eaf13baabc9e462c1aa0cb989e5aec3bca4f3c5421a9e823a"></a>
+<a id="canonical-3000003203010003-3132322202330332-2233010323222223-3021321012023001-2222003023212021-3211223230032330-2210330330111002-0122213220020322"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.no_crl — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / e091db9e0d7c / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.no_crl — no_crl / 213200311330 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.no_crl
 
-<a id="canonical-5819afbdee6d159c7f5690d780d155686be6420cf4239962ce85a5e7819df95a"></a>
+<a id="canonical-1120012122332331-3232123101112130-1333111221003113-2000310111111220-1223321210020030-3310020321211202-3032201122113213-2001213133211122"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -801,45 +2054,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8469cb6728f680d9d18742f71346e6d9be7ad9073f8e183fc6d6a3304938b19c"></a>
+<a id="canonical-2010122130231213-0220331220003121-3101201310023313-0103101232123121-2332132231210013-0333203201200333-3012311222030300-1021032023012130"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / e091db9e0d7c / 3
+## Direct properties — no_crl / 213200311330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c445604adce41f91b55b251046a3e649c4d5d78adea6ada340ca0a0c7617ac87"></a>
+<a id="canonical-3010101112001022-3130321001332101-2311112302110100-1012220332121021-3010311131132022-3132221222312203-1000302200220030-1312011322302013"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / e091db9e0d7c / 4
+## Next pages — no_crl / 213200311330 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-22e24ecff0b8e0395a12187b1f1864d8ec87a24df06196f67e0129b0c956248b"></a>
+<a id="canonical-0202320210323033-3300232032000321-1122010201201323-0133012012103120-3230201322021031-3300120121123312-1332000102212300-3021111202102023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-04c27ca98c641eae4c19b08e1a4ed9be471e4c1e9831ac7c5647a88de308201a"></a>
+<a id="canonical-0010300213302221-2030121001322232-1030012123002032-0122103231212332-1013013210300132-2120030122301330-1112101322202031-3203002002000122"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.trusted_ca — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.trusted_ca — trusted_ca / 330310300021 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.trusted_ca
 
-<a id="canonical-75aeb548d5d238ae0c54cd159a4c95a208ea2472daed6aec97e5f7fe4264a6a0"></a>
+<a id="canonical-1311223223111020-3111310203202232-0030111030310111-2122103021112202-0020322202101302-3122323112223230-2113321133133332-1002121022122200"></a>
 
 Type: `"single"`. Computed.
 
@@ -864,15 +2117,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-60b521d3a944c0ca7bd70d45e6d8f69026a15a0da607ee3db1fa268afa9e270a"></a>
+<a id="canonical-1200231102013103-2221101030003022-1323311300311011-3212312033122100-0212220111220031-2212001332320331-2301332202122022-3322213202130022"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 3
+## Direct properties — trusted_ca / 330310300021 / 3
 
-<a id="canonical-40d9ae9a82b9539241eacc8760ad5776ef889736a69240fd90553692bdc416d3"></a>
+<a id="canonical-1000312122322122-2002232111032102-1001322230302013-1200223111131312-3233202021130312-2212210210003331-2100111103122102-2331301001123103"></a>
 
-<a id="canonical-ffa231da4da3b885f4c1c111064d90e00f20c98519d84e29f99f826c6846386b"></a>
+<a id="canonical-3333220203013122-1031220323202011-3310300130010101-0012103121003200-0033020030212011-0121312010320221-3321213320021230-1220101203201223"></a>
 
-## name property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 4
+## name property — trusted_ca / 330310300021 / 4
 
 Type: `"string"`. Computed.
 
@@ -925,11 +2178,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9b01a34f6e7b73877050f4de1b33278770ee2973f0bb55a7f37233b340d6fe5e"></a>
+<a id="canonical-2123000122031033-1232132313032013-1300110033103132-0123030302132013-1300323202211303-3300232311112213-3303130203032303-1000311233321132"></a>
 
-<a id="canonical-c64ba6d3e910162f4ba92ed2f162328e39563774a34d531e822e3b40dd3d4ef8"></a>
+<a id="canonical-3012102322123103-3221010001120233-1023222102323102-3301120203022032-0321111203131310-2203103111030132-2002023203231000-3131033110323320"></a>
 
-## namespace property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 5
+## namespace property — trusted_ca / 330310300021 / 5
 
 Type: `"string"`. Computed.
 
@@ -989,11 +2242,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-11e5db2f01153e91b291a43d945549d096860b59d5329a17ced432791d4bc945"></a>
+<a id="canonical-0101321131230233-0001011103322101-2302210122100331-2110111110213100-2112201200231121-3111030221220113-3032311003021321-0131102330211011"></a>
 
-<a id="canonical-4923ff944949a7ea1cdfe406d8b5e52ac4088aee43b66bd5cf728899573ee65d"></a>
+<a id="canonical-1021020333332110-1021102122133222-0130313332100012-3120231132110222-3010002020223232-1003231212233111-3033130220202121-1113033232121131"></a>
 
-## tenant property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 6
+## tenant property — trusted_ca / 330310300021 / 6
 
 Type: `"string"`. Computed.
 
@@ -1039,39 +2292,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d55f9e937a696a6ed605915ba7ec406298c9bf0f57c9359eb384248cdc50a9c9"></a>
+<a id="canonical-3111113321322103-1322122112221232-3112001121011123-2213323010001202-2120302123330033-1113302103112132-2303201002102030-3130110022213021"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ca51bff34c09 / 7
+## Next pages — trusted_ca / 330310300021 / 7
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-3c97dbf4020434089401c870af1d07cc2fe5aa949cbaf0e2062efceef2d2ef43"></a>
+<a id="canonical-0330211331233310-0002001003100020-2110000130201300-2233013100133030-0233321122222110-2130232233003202-0012023233303232-3302310232331003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-beb8a946023c3cbc800dd2c4004f747e92dc8d20e8a3c9486b7036841df6fd06"></a>
+<a id="canonical-2332232022211012-0002033003302330-2000003131023010-0000103313101332-2102313020310200-3220220330211020-1223130003122010-0131331233310012"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_disabled — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / b75b30cf54e9 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_disabled — xfcc_disabled / 303311103221 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_disabled
 
-<a id="canonical-3327079b4471342e8c6498402cff344b4e23481bf7ec6298a35e3d215284baca"></a>
+<a id="canonical-0303021300132123-1010130103100232-2030121021201000-0230333303101023-1032020310200123-3313323012022120-2203113203310201-1102201023223022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1094,45 +2347,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1cc9d245d8c6da42cc0b7ed3bc6f489ea86872d43fc98b2b649b49c8389e4d74"></a>
+<a id="canonical-0130302131021011-3120301231221002-3030002313323103-2330123310202132-2220122013023110-0333302120230223-1210212310213020-0320213210311310"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / b75b30cf54e9 / 3
+## Direct properties — xfcc_disabled / 303311103221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4a89912c8ff432976943662f182b8b02bcab454dc71bbc882d7e6d562d2cded8"></a>
+<a id="canonical-1022202121010230-2033331003022113-1221100312120233-0120022320230002-2330222310111031-3013012323302020-0231133212311112-0231023031323120"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / b75b30cf54e9 / 4
+## Next pages — xfcc_disabled / 303311103221 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-4dcf4fd42a31b544cce87014bcd79512d1a09305484d7f5f9ca570e993e54629"></a>
+<a id="canonical-1031303310333110-0222030123111010-3030322013000110-2330311321110102-3101220021030011-1020103113331133-2130221113003221-2103321110120221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d208d8fcefc6bb15aa3daf0e76823e75bb305397fdbca23ca2e2adcce600c120"></a>
+<a id="canonical-3102002031203330-3233301223230111-2222033122330032-1312200203321311-2323030011032113-3331233022020330-2202320222313030-3212000030010200"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_options — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d39289590816 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_options — xfcc_options / 112100200112 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-020.md#canonical-92118fa3f0734d579f2e8a192ad8683688d7dab049fa27b13c9aa605f29d51ad)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-021.md#canonical-046ebc3bda3ee61d4f97bc91221bb74207478726685c4f094e266e35303744b3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-021.md#canonical-2102010120332203-3300130310311113-2133023220220121-0222312012200312-2020311331222300-1021332202132301-0330212222120011-3302213111012231)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-022.md#canonical-0010123223300323-3122033232120131-1033211323302101-0202012323131002-0013101320130212-1220113010330021-1032021212320311-0300031310102303)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls.xfcc_options
 
-<a id="canonical-792069e2afd28b5a13f7d9894e22aa070816f467a5c1b4acf715ed8510cbb79c"></a>
+<a id="canonical-1321020012213202-2233310220231122-0103331331212021-1032020222220013-0020011233101213-2211300123102230-3313011132312011-0100302323132130"></a>
 
 Type: `"single"`. Computed.
 
@@ -1151,15 +2404,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f8e19ce109a2c3d939d98bc655242d0147e90cc1370b5690dd8f1765ea1a7f0"></a>
+<a id="canonical-0233203201213032-0100212202300331-2103213121202330-1211110210023100-0110133221003030-0103130023111221-0031312033011312-1132220122133300"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d39289590816 / 3
+## Direct properties — xfcc_options / 112100200112 / 3
 
-<a id="canonical-6f3e1a2d4a5ab6d111a1ac1cc8887f8e3952e8a2e296c278b08b82442e9512de"></a>
+<a id="canonical-1233033201220231-1022112223123101-0101220122300130-3020202013332032-0321110232202202-3202211230021320-2300202320021010-0232211101023132"></a>
 
-<a id="canonical-1f9e69fbfe9fd3bc95b2e73da7f6f3686a1941c73fc8cb284730aa3745dcce54"></a>
+<a id="canonical-0133213212213323-3332213331032330-2111230232130331-2213331233031220-1222012110013013-0333302030230220-1013030022220313-1011313030321110"></a>
 
-## xfcc_header_elements property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d39289590816 / 4
+## xfcc_header_elements property — xfcc_options / 112100200112 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -1195,36 +2448,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-48b78ed66f2f68b1bd8c925b71784126ebb924c8a1e8d60e7d4c45dc66be6c99"></a>
+<a id="canonical-1020231320323112-1233023312202301-2331203021021123-1301132010010212-3223232102103020-2201322031120032-1331103010113130-1212233212302121"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d39289590816 / 5
+## Next pages — xfcc_options / 112100200112 / 5
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-f01ebb9827d06cd0a121e1e00bb67b5540bc1dd54a05af7de08fc923b2f75d7a)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters.use_mtls](data-sources--workload--reference--group-022.md#canonical-3300013223232120-0213310012303100-2201020132013200-0023231213231111-1000233001313111-1022001122331331-3200203330210203-2302331311311322)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44"></a>
+<a id="canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-788a7c53e489af02dd0da5a51269aa1b7452d291002754926736ddc507adbe76"></a>
+<a id="canonical-1320202213301103-3210202122330002-3131003122112211-0102122122220123-1310110231022101-0000021311102102-1213031231313011-0013223123321312"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert — https_auto_cert / 210200312031 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert
 
-<a id="canonical-a5ea66b40b4c45efd17328993f38ca287f8fa97fba4d8f60ec230bf0602b5d77"></a>
+<a id="canonical-2211322212122310-0023103010113233-3101130302202121-0333032030220220-1333203322211333-2322103120331200-3230020300233300-1200022311311313"></a>
 
 Type: `"single"`. Computed.
 
@@ -1248,15 +2501,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e200faf20074f35de51fb79940e6a236f00ef79e0627200fd300234211f3538c"></a>
+<a id="canonical-3202000033223302-0000131033031131-3211013323132121-1000321222020312-3300003233132132-0012021302000033-3103000002031002-0101330311032030"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 3
+## Direct properties — https_auto_cert / 210200312031 / 3
 
-<a id="canonical-5157140c88ed3eb7f3d62be9c8dc28aa921b8381adf573797d75d4efa9a7e66b"></a>
+<a id="canonical-1101111301100030-2020323103322313-3303311202233221-3020313002202222-2102012320032001-2231331113031321-1331131131103233-2221221332121223"></a>
 
-<a id="canonical-3862a320e25256e992b0898182b6058b363075729d7a607ad4fd9adad3ac5c16"></a>
+<a id="canonical-0320120222030200-3202110211123221-2102230020212001-2002231200112023-0312030013111302-2131132212001322-3110333121223122-3103223011300112"></a>
 
-## add_hsts property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 4
+## add_hsts property — https_auto_cert / 210200312031 / 4
 
 Type: `"bool"`. Computed.
 
@@ -1275,11 +2528,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4e81f36c0249ef004bac64563b68c3116671ebc7d6136a75def454c76f0e33ba"></a>
+<a id="canonical-1032200133031230-0002102132330000-1023223012101112-0323122030030101-1212130132233013-3112010312221311-3132331011103013-1233003203032322"></a>
 
-<a id="canonical-3e25cf37572c6e0e1a2f9a3e9dad6b16ee5071917d2a5f218a3894f4de4d60f6"></a>
+<a id="canonical-0332021130330313-1113023012320032-0122023321220332-2131223112230112-3232110013012101-1331022211330201-2022032021103310-3132103112003312"></a>
 
-## append_server_name property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 5
+## append_server_name property — https_auto_cert / 210200312031 / 5
 
 Type: `"string"`. Computed.
 
@@ -1322,13 +2575,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3): complete subsection reference.
+- [coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103): complete subsection reference.
 
-<a id="canonical-c060bb8fc8e4f08d8064f7175e4d36174ccf66c6d5b4a69041343c6a1ea29957"></a>
+<a id="canonical-3000120023232033-3020321033002031-2000121033130113-1132103103120113-1030303312123012-3111231022122100-1001031003301222-0132220221211113"></a>
 
-<a id="canonical-b61e2f96be675515dfb32de584a30c46f1c70e0c45f5e7e1278c242a3aed0b29"></a>
+<a id="canonical-2312013202332112-2332121311110111-3133230302313211-2010220300301012-3301301300320030-1011331132133201-0213203002100222-0322323100230221"></a>
 
-## connection_idle_timeout property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 6
+## connection_idle_timeout property — https_auto_cert / 210200312031 / 6
 
 Type: `"number"`. Computed.
 
@@ -1372,21 +2625,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_header](data-sources--workload--reference--group-022.md#canonical-d3b41aaef4b68df394be86e89509b6f47e8db37ea825a386e54cbca50af67ffa): complete subsection reference.
+- [default_header](data-sources--workload--reference--group-022.md#canonical-3103231001222232-3310231220313303-2110233220123220-2111002123123310-1332203123031332-2220021122032012-3211103023302211-0022331213333322): complete subsection reference.
 
-- [default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-53ca9f4cbe3ce11cb17ec776e35d6399fc8ea35de66c1280f6087a97bf37f76f): complete subsection reference.
+- [default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-1103302221331030-2332033032010130-2301133230131312-3203113112032121-3330203222031131-3212123001022000-3312002013222113-2333031333131233): complete subsection reference.
 
-- [disable_path_normalize](data-sources--workload--reference--group-022.md#canonical-ee3627d95268155aa7ec8e4cb7c8da0ca532b9abce82d843b9dcb872be7ebdc6): complete subsection reference.
+- [disable_path_normalize](data-sources--workload--reference--group-022.md#canonical-3232031202133121-1102122001111122-2213323020321030-2313302031220030-2211030223212223-3032200231201003-2321313023201302-2332133223313012): complete subsection reference.
 
-- [enable_path_normalize](data-sources--workload--reference--group-022.md#canonical-d80af29b8130accac43ef298443483cb53a95c5274bd61e8efaa5e20c0d4b02e): complete subsection reference.
+- [enable_path_normalize](data-sources--workload--reference--group-022.md#canonical-3120002233022123-2001030022303022-3010033233022120-1010031020033023-1103222111301102-1310233112013220-3233222211320200-3000311023000232): complete subsection reference.
 
-- [http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38): complete subsection reference.
+- [http_protocol_options](data-sources--workload--reference--group-022.md#canonical-3103012111223102-2323200023212331-0010133311323102-1302201311002220-0233003131123331-1001102120301011-3332012213301122-1001000212330320): complete subsection reference.
 
-<a id="canonical-b59c52af096957f98e01b05bec6548a41adf196baf8fd2742da9d54aa2cd9b62"></a>
+<a id="canonical-2311213011022233-0021122111133321-2032000123001123-3230121110202210-0122313301211223-2233203331021310-0231222131111022-2202303121231202"></a>
 
-<a id="canonical-98d1b7efb353c463317b854249c5c232c0860781b4109c320b534969d65b74eb"></a>
+<a id="canonical-2120310123133233-2303110330101203-0301132320111002-1021301130020302-3000201200132001-2310010021300302-0023110310211221-3112112313103223"></a>
 
-## http_redirect property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 7
+## http_redirect property — https_auto_cert / 210200312031 / 7
 
 Type: `"bool"`. Computed.
 
@@ -1409,17 +2662,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_mtls](data-sources--workload--reference--group-022.md#canonical-120264537e890821082bbc2433af30fc6ddac7601ff4de2b9f3241e1c97d6429): complete subsection reference.
+- [no_mtls](data-sources--workload--reference--group-023.md#canonical-0102000212101103-1332202100200201-0020022323300210-0303223303003330-1231312230131200-0133331031320223-2133030210013201-3021133112100221): complete subsection reference.
 
-- [non_default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-cd9bea2d395c62b620a7e929de128930cdb0bf97832ba0847b1c65422c912a9d): complete subsection reference.
+- [non_default_loadbalancer](data-sources--workload--reference--group-023.md#canonical-3031212332220231-0321113012022312-0200221332210221-3132010220210300-3031230023332113-2003022322002010-1323013012111002-0230210102222131): complete subsection reference.
 
-- [pass_through](data-sources--workload--reference--group-022.md#canonical-d9c14ec6b5955fad7d3fd7dd87d25048200447bdb08461e00633753ca1866017): complete subsection reference.
+- [pass_through](data-sources--workload--reference--group-023.md#canonical-3121300110323012-2311211111332231-1331033331133131-2013310211001020-0200001010132331-2300201012013200-0012030313110330-2201201212000113): complete subsection reference.
 
-<a id="canonical-249d08658781b3d9f219bf8b480a29de5cc9fb1d627574faf137f67224c2a215"></a>
+<a id="canonical-0210213100201211-2013200123033121-3302012123332023-1020002202213132-1130302133230131-1202131113103322-3301031333121302-0210300222020111"></a>
 
-<a id="canonical-7102587b2ea65f929698fc095dbabc4922c6ffcd951b85149e64b66bb743bff0"></a>
+<a id="canonical-1301000211201323-0232221211332102-2112212033300021-1131232223301021-0202301233333031-2111012320110110-2132121023121223-2313100323333300"></a>
 
-## port property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 8
+## port property — https_auto_cert / 210200312031 / 8
 
 Type: `"number"`. Computed.
 
@@ -1461,11 +2714,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b946764e3d06fe9a6f03ac51f946a77213e8c04385b577c7cf78a5f129cc377f"></a>
+<a id="canonical-2321101213121032-0331001233322122-1233000322301101-3321101222131302-0103322030001003-2011231113133013-3033132022113301-0221303003131333"></a>
 
-<a id="canonical-781699786751cafd7a624ff11d0474f32a59cdf919cd4f8c59bf1b8aabd9a8a0"></a>
+<a id="canonical-1320011221211320-1213110130223331-1322120210333301-0131001013103303-0222112130313321-0121303110332030-1121233301232022-2223312122202200"></a>
 
-## port_ranges property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 9
+## port_ranges property — https_auto_cert / 210200312031 / 9
 
 Type: `"string"`. Computed.
 
@@ -1516,11 +2769,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c04a94e3ba093b7f2ffa577dd27c06b67626ecd1af0c57126c5717f7f2f6e06a"></a>
+<a id="canonical-3000102221103203-2322002103231333-0233332211131331-3102133000122312-1312021232303101-2233003011130102-1230111301133313-3302331232001222"></a>
 
-<a id="canonical-0c3f7343eb9c97136c18e708fa81b89f3a34efd68bba7c72504fc83013b5f2c9"></a>
+<a id="canonical-0030033313031003-3223213021130103-1230012032130020-3322200123202133-0322031032333112-2023232213301302-1100103330200300-0103231133023021"></a>
 
-## server_name property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 10
+## server_name property — https_auto_cert / 210200312031 / 10
 
 Type: `"string"`. Computed.
 
@@ -1563,52 +2816,52 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490): complete subsection reference.
+- [tls_config](data-sources--workload--reference--group-023.md#canonical-2323123020222323-0201333323111230-1231221203230030-3330100031210233-0222100010111322-3313102010313113-3112021331102313-2133301202102100): complete subsection reference.
 
-- [use_mtls](data-sources--workload--reference--group-022.md#canonical-feafac3c30f911a98096a4b3d0da61b9fe41e35c73a4efce957bc606373292cd): complete subsection reference.
+- [use_mtls](data-sources--workload--reference--group-023.md#canonical-3332223322300330-0300332101012221-2000211222102303-3100312212012321-3332100132031130-1303221032333032-2111132330120012-0313030221023031): complete subsection reference.
 
-<a id="canonical-f1132fc8e1047013ec5511450ec4f8c68b6214a4084565efb03860de7ca9640d"></a>
+<a id="canonical-3301010302333020-3201001013000103-3230111101011011-0032301033203012-2023120201102210-0020101112113233-2300032012003132-1330222112100031"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 8a3b5a920d8d / 11
+## Next pages — https_auto_cert / 210200312031 / 11
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_header](data-sources--workload--reference--group-022.md#canonical-d3b41aaef4b68df394be86e89509b6f47e8db37ea825a386e54cbca50af67ffa)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-53ca9f4cbe3ce11cb17ec776e35d6399fc8ea35de66c1280f6087a97bf37f76f)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.disable_path_normalize](data-sources--workload--reference--group-022.md#canonical-ee3627d95268155aa7ec8e4cb7c8da0ca532b9abce82d843b9dcb872be7ebdc6)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.enable_path_normalize](data-sources--workload--reference--group-022.md#canonical-d80af29b8130accac43ef298443483cb53a95c5274bd61e8efaa5e20c0d4b02e)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.no_mtls](data-sources--workload--reference--group-022.md#canonical-120264537e890821082bbc2433af30fc6ddac7601ff4de2b9f3241e1c97d6429)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.non_default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-cd9bea2d395c62b620a7e929de128930cdb0bf97832ba0847b1c65422c912a9d)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.pass_through](data-sources--workload--reference--group-022.md#canonical-d9c14ec6b5955fad7d3fd7dd87d25048200447bdb08461e00633753ca1866017)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.use_mtls](data-sources--workload--reference--group-022.md#canonical-feafac3c30f911a98096a4b3d0da61b9fe41e35c73a4efce957bc606373292cd)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_header](data-sources--workload--reference--group-022.md#canonical-3103231001222232-3310231220313303-2110233220123220-2111002123123310-1332203123031332-2220021122032012-3211103023302211-0022331213333322)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_loadbalancer](data-sources--workload--reference--group-022.md#canonical-1103302221331030-2332033032010130-2301133230131312-3203113112032121-3330203222031131-3212123001022000-3312002013222113-2333031333131233)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.disable_path_normalize](data-sources--workload--reference--group-022.md#canonical-3232031202133121-1102122001111122-2213323020321030-2313302031220030-2211030223212223-3032200231201003-2321313023201302-2332133223313012)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.enable_path_normalize](data-sources--workload--reference--group-022.md#canonical-3120002233022123-2001030022303022-3010033233022120-1010031020033023-1103222111301102-1310233112013220-3233222211320200-3000311023000232)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-3103012111223102-2323200023212331-0010133311323102-1302201311002220-0233003131123331-1001102120301011-3332012213301122-1001000212330320)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.no_mtls](data-sources--workload--reference--group-023.md#canonical-0102000212101103-1332202100200201-0020022323300210-0303223303003330-1231312230131200-0133331031320223-2133030210013201-3021133112100221)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.non_default_loadbalancer](data-sources--workload--reference--group-023.md#canonical-3031212332220231-0321113012022312-0200221332210221-3132010220210300-3031230023332113-2003022322002010-1323013012111002-0230210102222131)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.pass_through](data-sources--workload--reference--group-023.md#canonical-3121300110323012-2311211111332231-1331033331133131-2013310211001020-0200001010132331-2300201012013200-0012030313110330-2201201212000113)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-023.md#canonical-2323123020222323-0201333323111230-1231221203230030-3330100031210233-0222100010111322-3313102010313113-3112021331102313-2133301202102100)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.use_mtls](data-sources--workload--reference--group-023.md#canonical-3332223322300330-0300332101012221-2000211222102303-3100312212012321-3332100132031130-1303221032333032-2111132330120012-0313030221023031)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3"></a>
+<a id="canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2316d4c9454dab063ea2db4197b70f87ee7d26341a02a3eb0b298a71ba619cbd"></a>
+<a id="canonical-0203011231103021-1011103122230012-0332220231231001-2113231300332013-3232133102120310-0122000222033223-0023022120221301-2322120121302331"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7402e69a3501 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options — coalescing_options / 212203110001 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options
 
-<a id="canonical-fa0b70a82788c338e5b7daa7ec4e7f6739c7125803b55d78747353f5d854d691"></a>
+<a id="canonical-3322002313002220-0213202030030320-3211231331222213-3230103213331213-0321301301021120-0003231111311320-1310130311033311-3120111031122101"></a>
 
 Type: `"single"`. Computed.
 
@@ -1632,48 +2885,48 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0300919c9f9308405f3d636abae420984787ced7ad686db2b454d42c78651f4e"></a>
+<a id="canonical-0003000021012130-2133210300201000-1133033112031222-2322321002002120-1013201330323113-2231122012312302-2310111031100230-1320121101331032"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7402e69a3501 / 3
+## Direct properties — coalescing_options / 212203110001 / 3
 
-- [default_coalescing](data-sources--workload--reference--group-022.md#canonical-5201342e894197f233b2b1bbe754534bad098516c0409857c15f811fee364185): complete subsection reference.
+- [default_coalescing](data-sources--workload--reference--group-022.md#canonical-1102000103100232-2021100121133302-0303230223012323-3213111011031023-2231002120110112-3000100021201113-3001113320010133-3232031210012011): complete subsection reference.
 
-- [strict_coalescing](data-sources--workload--reference--group-022.md#canonical-327b4a58fade3884b979cffdfbdb7ae2669cc13274bf1404855d26b4a97ce450): complete subsection reference.
+- [strict_coalescing](data-sources--workload--reference--group-022.md#canonical-0302132310221120-3322313203202010-2321132130333331-3323312313223202-1212213030010302-1310233301100010-2011113102122310-2221133032101100): complete subsection reference.
 
-<a id="canonical-49f66cea3d211ce2956c73974af7eb882462c07828c24fefb2bebf8b2c3e1aff"></a>
+<a id="canonical-1021331212303222-0331020101303202-2111123013032113-1022331332232020-0210120230001320-0220300210333233-2302233223332023-0230033201223333"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7402e69a3501 / 4
+## Next pages — coalescing_options / 212203110001 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.default_coalescing](data-sources--workload--reference--group-022.md#canonical-5201342e894197f233b2b1bbe754534bad098516c0409857c15f811fee364185)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.strict_coalescing](data-sources--workload--reference--group-022.md#canonical-327b4a58fade3884b979cffdfbdb7ae2669cc13274bf1404855d26b4a97ce450)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.default_coalescing](data-sources--workload--reference--group-022.md#canonical-1102000103100232-2021100121133302-0303230223012323-3213111011031023-2231002120110112-3000100021201113-3001113320010133-3232031210012011)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.strict_coalescing](data-sources--workload--reference--group-022.md#canonical-0302132310221120-3322313203202010-2321132130333331-3323312313223202-1212213030010302-1310233301100010-2011113102122310-2221133032101100)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-5201342e894197f233b2b1bbe754534bad098516c0409857c15f811fee364185"></a>
+<a id="canonical-1102000103100232-2021100121133302-0303230223012323-3213111011031023-2231002120110112-3000100021201113-3001113320010133-3232031210012011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f617bba6d43b267ad7c63706414c6bf9cc1511c5ba881e521621a7c49cd8db94"></a>
+<a id="canonical-3312011323232212-3110032302121322-3113301203130012-1001103012233321-3030011101013011-2322202001321102-0112020122133010-2130312031232110"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.default_coalescing — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d2015c3c4813 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.default_coalescing — default_coalescing / 033010200103 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.default_coalescing
 
-<a id="canonical-f429c5beaceb9c8e0959f3081ef50e34754742264d2642e73c136f090d7c803e"></a>
+<a id="canonical-3310022130112332-2230322321302032-0021112133030020-0132331100320310-1311101310020212-1031021210023213-0330010312330021-0031133020000332"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1696,44 +2949,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-900e59ddf555a27684f29a6a69d1240776ff595b180fb5fa60f5fb230c475476"></a>
+<a id="canonical-2100003211213131-3311111122021312-2010330221221222-1221310102100013-1312333311211123-0120003323113322-1200331133230203-0030101311101312"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d2015c3c4813 / 3
+## Direct properties — default_coalescing / 033010200103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-04d8fadb470b6ef390226a586fef9554e18328a870229c69d8431f6acaf2331c"></a>
+<a id="canonical-0010312033223123-1013002312323303-2100020212221120-1233323321111110-3201200302202220-1300020221301221-3120100301331222-3022330203030130"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d2015c3c4813 / 4
+## Next pages — default_coalescing / 033010200103 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-327b4a58fade3884b979cffdfbdb7ae2669cc13274bf1404855d26b4a97ce450"></a>
+<a id="canonical-0302132310221120-3322313203202010-2321132130333331-3323312313223202-1212213030010302-1310233301100010-2011113102122310-2221133032101100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a65cc6e057226e42c113d32f428b71f4c56395606e6a6b098c35a364edcb4b2f"></a>
+<a id="canonical-2212113030123200-1113020212321002-3001010331030233-1002202313013310-3011120321111200-1232122212230021-2030031122031210-3231302310230233"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.strict_coalescing — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c40d2a2b74dc / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.strict_coalescing — strict_coalescing / 022313103130 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options.strict_coalescing
 
-<a id="canonical-9884f5415d0b12153834b56fa2710ac3bb8cb6ef58130aee45a4b466af96f908"></a>
+<a id="canonical-2120201033111001-1131002301020111-0320031023111233-2202130100223003-2323203023123233-1120010300223232-1011221023101212-2233211233210020"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1756,43 +3009,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ef1375ba38f5c6750a32fc539693472cf970ade835f63707f8a3aa136fe25bee"></a>
+<a id="canonical-3233010313112322-0320331130121311-0022030233301103-2112210310130230-3321130022313220-0311331203130013-3320220322220103-1233320211233232"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c40d2a2b74dc / 3
+## Direct properties — strict_coalescing / 022313103130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6f833a77a311d7c711b9ad42bb163d502708022c589601d16c51548989adce70"></a>
+<a id="canonical-1233200303221313-2203010131133013-0101232122311002-2323011203311100-0213002000020230-1120211200013101-1230110111102021-2021223130321300"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c40d2a2b74dc / 4
+## Next pages — strict_coalescing / 022313103130 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-e8a706cdd6d34906194aa827f83f7f9cc3eccaacf8f51cc93d72f33aca0c6dd3)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.coalescing_options](data-sources--workload--reference--group-022.md#canonical-3220221300123031-3112310310210012-0121102222200213-3320033313332130-3003323030222230-3320331101303021-0331130233030322-3022003012313103)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-d3b41aaef4b68df394be86e89509b6f47e8db37ea825a386e54cbca50af67ffa"></a>
+<a id="canonical-3103231001222232-3310231220313303-2110233220123220-2111002123123310-1332203123031332-2220021122032012-3211103023302211-0022331213333322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7bfafcd6916061ee8085139691be362fcb7ea91feedf081582b22546ed411038"></a>
+<a id="canonical-1323332233303112-2101120012013232-2000201101032112-2101233203120233-3023133222210133-3232313300200111-2002230202111012-3231100101000320"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_header — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4e591e6d55bc / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_header — default_header / 123111112330 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_header
 
-<a id="canonical-c6027ef2c5837f9f5dc06498d7ae1f9199e3fa16f526655ab299c243d6afc40c"></a>
+<a id="canonical-3012000213323302-3011200313332133-1131300012102120-3113223201332101-2121320333220112-3311021212111122-2302212130021003-3112223330100030"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1815,43 +3068,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05d39ff1e5173b0d390e6f483b01efa72712a8b895fa872b2887bc7f0e4e1573"></a>
+<a id="canonical-0011310321333301-3211011303230031-0321003212331020-0323000132332213-0213010222202320-2111332220130223-0220201323301333-0032103201111303"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4e591e6d55bc / 3
+## Direct properties — default_header / 123111112330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9541e379eb48480084e5fdc309ee66fe8c419a4e97398d3771c42e7804042c1f"></a>
+<a id="canonical-2111100132031321-3223102010200000-2010321133313003-0021323212123332-2030100121221032-2113032120310313-1301301002321320-0010001002300133"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4e591e6d55bc / 4
+## Next pages — default_header / 123111112330 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-53ca9f4cbe3ce11cb17ec776e35d6399fc8ea35de66c1280f6087a97bf37f76f"></a>
+<a id="canonical-1103302221331030-2332033032010130-2301133230131312-3203113112032121-3330203222031131-3212123001022000-3312002013222113-2333031333131233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1d229b2a1d692f448d2affce1f7d13053362d49becd293e79d23946e7977280"></a>
+<a id="canonical-3201310202212302-2201311221023310-1020310222333330-3201331331010300-1103031202311021-2332303102210332-1321310203211012-3213211313022000"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_loadbalancer — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d29dc49ee2cf / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_loadbalancer — default_loadbalancer / 213232023033 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.default_loadbalancer
 
-<a id="canonical-c992aa982a9184912e2fb33148e12b342ef4b196510616187ad4195786032c85"></a>
+<a id="canonical-3021210222222120-0222210120102101-0232023323030301-1020320102230310-0232331023012112-1101001201120120-1322311001211113-2012000302302011"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1874,43 +3127,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-58edcea64a1ee96c11b243dee75ce9e946c15dfae0c5074bab7100e781e22a82"></a>
+<a id="canonical-1120323130322212-1022013232211230-0101230210033132-3213113032213221-1012300111313322-3200301100131023-2223130100003213-2001320202222002"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d29dc49ee2cf / 3
+## Direct properties — default_loadbalancer / 213232023033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5e1afb24d0df11b7cfeaf6539e4a24d8290e1cbfa0817c75b28a8cd46b247d79"></a>
+<a id="canonical-1132012233230210-3100313301012313-3033322233121103-2132102202103120-0221003201302333-2200200113301311-2302202220303110-1223021013311321"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / d29dc49ee2cf / 4
+## Next pages — default_loadbalancer / 213232023033 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-ee3627d95268155aa7ec8e4cb7c8da0ca532b9abce82d843b9dcb872be7ebdc6"></a>
+<a id="canonical-3232031202133121-1102122001111122-2213323020321030-2313302031220030-2211030223212223-3032200231201003-2321313023201302-2332133223313012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1f80210a8bbee1fc39543b744efa42209aee4211b751af3555339ed07c10afde"></a>
+<a id="canonical-0133200002010022-2023233232013330-0321111003231310-1032332210020200-2122323210020101-2313110122330311-1111030321323100-1330010022333132"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.disable_path_normalize — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7620f1d3f3d0 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.disable_path_normalize — disable_path_normalize / 310333033100 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.disable_path_normalize
 
-<a id="canonical-7a61b8951d6ed82f5d05b4cb12ef11cc903b09accd4eeac0ea319418cc8d3a94"></a>
+<a id="canonical-1322120123202111-0131123231200233-1131001123103023-0102323301013030-2100032300212230-3031103232223000-3222030121100120-3030203103222110"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1933,43 +3186,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c14a9966f5af3672b6dc2fec3d75aac7e6c2f1f6e8db895b1b8c199060bdf230"></a>
+<a id="canonical-3001102221211212-3311223303121302-2312313002333230-0331131122223013-3212300233013312-3220312320211123-0123203001212100-1200233133020300"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7620f1d3f3d0 / 3
+## Direct properties — disable_path_normalize / 310333033100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-256a88aff2350a4d8805784909781db238803c331f6079b2a85b2238c1569aea"></a>
+<a id="canonical-0211122220202233-3302031100221031-2020001113201021-0021132001312302-0320200003300303-0133120013212302-2220112302020320-3001111221223222"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 7620f1d3f3d0 / 4
+## Next pages — disable_path_normalize / 310333033100 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-d80af29b8130accac43ef298443483cb53a95c5274bd61e8efaa5e20c0d4b02e"></a>
+<a id="canonical-3120002233022123-2001030022303022-3010033233022120-1010031020033023-1103222111301102-1310233112013220-3233222211320200-3000311023000232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-188c24f0230f99eaf92919092f42385592bd752896d1d03e667b5ec9e5313920"></a>
+<a id="canonical-0120203002103300-0203003321213222-3321022101210021-0233100203201111-2102233113110220-2112310131000332-1212132311323021-3211030103210200"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.enable_path_normalize — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 15e07c49738f / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.enable_path_normalize — enable_path_normalize / 102113032033 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.enable_path_normalize
 
-<a id="canonical-8b61ddd1024c2755a52c9d0eb7b552d512078d5b688fc3a702058c626d3c5a65"></a>
+<a id="canonical-2023120131313101-0002103002131111-2211023021310032-2313231111023111-0102001320311123-1220203330032213-0002001120301202-1231033011221211"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1992,43 +3245,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-12c392e566225e5ae93f8d422a3f6e3b95180f8a6a1ab40fa3104e62aa9f5123"></a>
+<a id="canonical-0102300321023211-1212020211321122-3221033320311002-0222033312320323-2111012000332022-1222012223100033-2203010010321202-2222213311010203"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 15e07c49738f / 3
+## Direct properties — enable_path_normalize / 102113032033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f87d3a4224a5edf31f9af64fadf6c79840d0dc3153cc6dc91e26b7eb1c4a0b0d"></a>
+<a id="canonical-3320133103221002-0210221132313303-0133212233121033-2231331230132120-1000310031300301-1103303012313021-0132021223133223-0130102200230031"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 15e07c49738f / 4
+## Next pages — enable_path_normalize / 102113032033 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38"></a>
+<a id="canonical-3103012111223102-2323200023212331-0010133311323102-1302201311002220-0233003131123331-1001102120301011-3332012213301122-1001000212330320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-28258527fd23990566d6df8204d28eccacfb78775a5fae5ea520454467a13300"></a>
+<a id="canonical-0220021120110213-3331020321210011-1212311231332002-0010310220323030-2230332313201313-1122113322321132-2211020010111010-1213220103030000"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 209821083259 / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options — http_protocol_options / 002003021121 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options
 
-<a id="canonical-ecd89205673ab449c4481815d231186311a9f357573e8bd9da407b4dd158cceb"></a>
+<a id="canonical-3230312021020011-1213032223101021-3010102001200111-3102030101201203-0101222133031113-1113033220233121-3122100013231031-3101112030303223"></a>
 
 Type: `"single"`. Computed.
 
@@ -2048,51 +3301,51 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1308d9afbfc76b206061d8060f77773660f37b3a3275c2d0bbcda229490d7668"></a>
+<a id="canonical-0103002031212233-2333301312230200-1200120131200012-0033131313130312-1200330313230322-0302131130023100-2323303122020221-1021003113121220"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 209821083259 / 3
+## Direct properties — http_protocol_options / 002003021121 / 3
 
-- [http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea): complete subsection reference.
+- [http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-3211312311101322-0011233123001133-2222321232121121-1130131311030122-1331023130321112-0202213032010323-2000222320222013-2310033313303222): complete subsection reference.
 
-- [http_protocol_enable_v1_v2](data-sources--workload--reference--group-022.md#canonical-4273619d9c1c3239c81b4dbc0305b731d71922b80d94528625862ebd5212a7f0): complete subsection reference.
+- [http_protocol_enable_v1_v2](data-sources--workload--reference--group-023.md#canonical-1002130312012131-2130013003020321-3020012310312330-0003001123130301-3113012102022320-0031211011022012-0211201202322331-1102010222133300): complete subsection reference.
 
-- [http_protocol_enable_v2_only](data-sources--workload--reference--group-022.md#canonical-e35890a083713808d2a568844186375c7ed1f78cde3620e8b4f3b5902812077d): complete subsection reference.
+- [http_protocol_enable_v2_only](data-sources--workload--reference--group-023.md#canonical-3203112021002200-2003130103200020-3102221112202010-1001201203131130-1332310133132030-3132031202003220-2310330323112100-0220010200131331): complete subsection reference.
 
-<a id="canonical-28b52b6bdf732958bd4eb814a5f22e60507462deb31b7806e7562b7f758724ea"></a>
+<a id="canonical-0220231102231223-3133130302211120-2331103223200110-2211330202321200-1100131012023132-2303012313200012-3213111202231333-1311201302103222"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 209821083259 / 4
+## Next pages — http_protocol_options / 002003021121 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_v2](data-sources--workload--reference--group-022.md#canonical-4273619d9c1c3239c81b4dbc0305b731d71922b80d94528625862ebd5212a7f0)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v2_only](data-sources--workload--reference--group-022.md#canonical-e35890a083713808d2a568844186375c7ed1f78cde3620e8b4f3b5902812077d)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-3211312311101322-0011233123001133-2222321232121121-1130131311030122-1331023130321112-0202213032010323-2000222320222013-2310033313303222)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_v2](data-sources--workload--reference--group-023.md#canonical-1002130312012131-2130013003020321-3020012310312330-0003001123130301-3113012102022320-0031211011022012-0211201202322331-1102010222133300)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v2_only](data-sources--workload--reference--group-023.md#canonical-3203112021002200-2003130103200020-3102221112202010-1001201203131130-1332310133132030-3132031202003220-2310330323112100-0220010200131331)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea"></a>
+<a id="canonical-3211312311101322-0011233123001133-2222321232121121-1130131311030122-1331023130321112-0202213032010323-2000222320222013-2310033313303222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6c1ef61234085a556cbf910c9ea2f2f507a158ad060496b6a467426bc48f3148"></a>
+<a id="canonical-1230013233120102-0310002011221111-1230233321010030-2132220233023311-0013220111202231-0012001021122312-2210121310021223-3010203303011020"></a>
 
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb3294784bba / 2
+## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only — http_protocol_enable_v1_only / 132010232322 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [stateful_service](data-sources--workload--reference--group-017.md#canonical-2132303011012103-3220213303333100-0323112032103022-2013230102321010-3022210221311323-0233232113013303-1322202323231301-3212322330102113)
+- [stateful_service.advertise_options](data-sources--workload--reference--group-017.md#canonical-2031021020201310-1033011221123311-0101031100313233-2003312312021132-1232222222022302-3032300332013210-2302212320011133-1111233212001220)
+- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-1022213130002111-1013210322013321-1133330230031233-1133100000003020-0332013302021302-0032122302100211-2023110210133002-1211310111330220)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-1220310313301222-1022021330323111-3000020103020220-0001323023100101-1212003022023123-2103220331130211-1221230310000302-1003233331103333)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-0102110102031213-1121223312110232-2131020030001132-1300230131002230-2121033300310012-3210001131010120-0310232322332121-2033221232113110)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-2312300331220231-0102030301212313-0030310003113303-2011030032133010-3321200100201222-0012310323122220-1122203212020211-1333030130110230)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-3120032122030013-2103202012301201-3331001221002131-1221031330101133-3201220221020011-0212213033013002-3102212233210301-0200220030321010)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-3103012111223102-2323200023212331-0010133311323102-1302201311002220-0233003131123331-1001102120301011-3332012213301122-1001000212330320)
 - stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only
 
-<a id="canonical-50ec55b7199dadf15814e707c0e9b4a84fd93bb7cfce0e5f7beb9740affab335"></a>
+<a id="canonical-1100323011112313-0121213122313301-1120011032130013-3000322123102220-1033312103232313-3033303200321133-1323322321131000-2233332223030311"></a>
 
 Type: `"single"`. Computed.
 
@@ -2111,1126 +3364,22 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c9ea727f183bd5d3080d12eacb97578bf535e1acac1f4780005184c04fa6cbe2"></a>
+<a id="canonical-3021322213021333-0120032331113103-0020003101023222-3023211311132023-3311031132012230-2230013310132000-0000110120103000-1033221230233202"></a>
 
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb3294784bba / 3
+## Direct properties — http_protocol_enable_v1_only / 132010232322 / 3
 
-- [header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07): complete subsection reference.
+- [header_transformation](data-sources--workload--reference--group-022.md#canonical-0313000213023230-1103132333313023-2122323321233320-3113020132003202-0112333312000310-2012012221020031-1121331233130323-0313023300320013): complete subsection reference.
 
-<a id="canonical-2971c9a895f08e54ba5a69c542906ec3a63a945770a314a00fb98f8c917a152b"></a>
+<a id="canonical-0221130130212220-2111330020321110-2322112212213011-1002210012323003-2212032221101113-1300220301102200-0033232120332030-2101132201110223"></a>
 
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb3294784bba / 4
+## Next pages — http_protocol_enable_v1_only / 132010232322 / 4
 
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-0313000213023230-1103132333313023-2122323321233320-3113020132003202-0112333312000310-2012012221020031-1121331233130323-0313023300320013)
+- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-3103012111223102-2323200023212331-0010133311323102-1302201311002220-0233003131123331-1001102120301011-3332012213301122-1001000212330320)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-08fb733596996e63e59b0d4084e2b1fca131cbf87910315883d4ce101e07f273"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 418333d3203c / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation
-
-<a id="canonical-66ace451fdd4f0ece4267cd17cbde9d69ee73aa5391fc8aa8dc593dcd2ccf2d5"></a>
-
-Type: `"single"`. Computed.
-
-Header Transformation OPTIONS for HTTP/1.1 request/response headers.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-header_transformation_choice": "[\"default_header_transformation\",\"preserve_case_header_transformation\",\"proper_case_header_transformation\"]"
-}
-```
-
-<a id="canonical-9018ce1aa1d3b598ddda014b56ddb2a7b9617a4224bf69f4395b5e6a6cab133e"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 418333d3203c / 3
-
-- [default_header_transformation](data-sources--workload--reference--group-022.md#canonical-a2de1ed99c2545917c4a63b4fa5b40e416e5df47ec2a1340e434fab9627721f0): complete subsection reference.
-
-- [preserve_case_header_transformation](data-sources--workload--reference--group-022.md#canonical-7280b26d8fcbfa471956567517363fa2570e1188197e10da6326fc39df015285): complete subsection reference.
-
-- [proper_case_header_transformation](data-sources--workload--reference--group-022.md#canonical-bb55e10202b6ccc43a9e5ee8394239016bb7eb363956e4c8fa314e9d89f61a74): complete subsection reference.
-
-<a id="canonical-efd0541201ce94371ebecdce8e6c60dcd39215a5dd111199b62ce153ed44c611"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 418333d3203c / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation](data-sources--workload--reference--group-022.md#canonical-a2de1ed99c2545917c4a63b4fa5b40e416e5df47ec2a1340e434fab9627721f0)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation](data-sources--workload--reference--group-022.md#canonical-7280b26d8fcbfa471956567517363fa2570e1188197e10da6326fc39df015285)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation](data-sources--workload--reference--group-022.md#canonical-bb55e10202b6ccc43a9e5ee8394239016bb7eb363956e4c8fa314e9d89f61a74)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-a2de1ed99c2545917c4a63b4fa5b40e416e5df47ec2a1340e434fab9627721f0"></a>
+<a id="canonical-0313000213023230-1103132333313023-2122323321233320-3113020132003202-0112333312000310-2012012221020031-1121331233130323-0313023300320013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-d81dce3449348d3776a41354632cda4bca5b6f2e7c5816f02e9a1d276c7dd232"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f84f7f332643 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation
-
-<a id="canonical-c46ed05c7dcc880ac07b0e048fb45f509c26b5f1b12058966b2e47a6d349021c"></a>
-
-Type: `["object", {}]`. Computed.
-
-Use the platform's current default HTTP header transformation behavior.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-262e36e9d93e3bf85aae78a9d5fe0d1b7f0089ce4231ef45c45f4923f64795bb"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f84f7f332643 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-5a936a26c99c49720775332fc49d9f3f86480a56328f9a05b63923ad59e8ea31"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f84f7f332643 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-7280b26d8fcbfa471956567517363fa2570e1188197e10da6326fc39df015285"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-11e9794170c542ae66bbf6ff046567fe39b1d34fa339e070363d20eaf1ace23a"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3e02ef2f363d / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation
-
-<a id="canonical-02f366164c8c37c3e6a1d30dd8ed55b9c22c84acb0eed1c27c80ea693ef35790"></a>
-
-Type: `["object", {}]`. Computed.
-
-Preserve HTTP header-name case when upstream case must remain unchanged.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-bc5381cdf5fa550a13b94f973a81b76a90829d35c0a58711f06984de988c94e4"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3e02ef2f363d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-80ff45ea7d44857a81890cc587c31487b3e44c51c96af21b5c33f4eb438841b8"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3e02ef2f363d / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-bb55e10202b6ccc43a9e5ee8394239016bb7eb363956e4c8fa314e9d89f61a74"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ab07f59306cbf162b1c1109f75ce0ffefb91e246790cc8b6265ff67348d867c8"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3671f9ca527b / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only](data-sources--workload--reference--group-022.md#canonical-e5db547a05bdb05faae6e6595c77531a7d2dce56229ce13b80ab8a87b43f7cea)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation
-
-<a id="canonical-0741817a194cfae0554b9ac6c1a272bbf755d27dab1efa3f50ebadf33d655b94"></a>
-
-Type: `["object", {}]`. Computed.
-
-Transform HTTP header names to proper case when explicit transformation is required.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-e4ab4377bdfd8703a8f0127ee5ab69229eabc277a7c122732ef81bc925370b8a"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3671f9ca527b / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-f39c1db1a15ee9bf78beb9676076d65445540338dae5000c97fbdb81a85de7aa"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3671f9ca527b / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--workload--reference--group-022.md#canonical-370272ec537bfdcb9aef9bf8d721e0e216ff6034861a920d59f6f73b372f0e07)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-4273619d9c1c3239c81b4dbc0305b731d71922b80d94528625862ebd5212a7f0"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-8a85481b93fa9a45bc270065d0eb90ae644c9ddb6bfb05cf13732f2201a2ea67"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_v2 — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 0aef0b57bcea / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v1_v2
-
-<a id="canonical-e840d801150db55075f2d24ea960786bee568ec84ca1e8f9445b3c73f7fef137"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for http protocol enable v1 v2.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-c8a5a3d78951770399d37bc9c2d7fa7e33d6fbe5910a512efcc73afe7f952a91"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 0aef0b57bcea / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3be0f660b3ecbad28a509fa38173dd41a967ad27a9bb689dac135cf8cb3f6bf3"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 0aef0b57bcea / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-e35890a083713808d2a568844186375c7ed1f78cde3620e8b4f3b5902812077d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6903bae07c1cfa5aab04dfb0efd81ed192dc015cc89d5421d9b82c0f0b300760"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v2_only — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c5a0def67660 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options.http_protocol_enable_v2_only
-
-<a id="canonical-92c72d05c6549dac6404d1c97f9121bc87c120b55c9057db91c161fab1deff63"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for http protocol enable v2 only.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-cf3e7d83401b3e831fc8ac0310b833e73981b231287ba2f332c8ddf856bdce3c"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c5a0def67660 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-c20c18dd5348c3ad94beb2e023ee8e7496ca07c4b09ddcb3c69d7c378a515edf"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / c5a0def67660 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.http_protocol_options](data-sources--workload--reference--group-022.md#canonical-d3195ad2bb80b9bd047f5ed2728750a82f0dd6fd41498c45fe1a7c5a41026f38)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-120264537e890821082bbc2433af30fc6ddac7601ff4de2b9f3241e1c97d6429"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-afa9342f23e6cd6dc383475f15df71f73cb78b4615c2e94806ac8e39e086d565"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.no_mtls — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f547b8594707 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.no_mtls
-
-<a id="canonical-150d9ab6c8ddbb8856017989a7eddd1ab58e5410c072597fcbd7bd6f0742ea7b"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-23b6fb4626dabe3ff4897dcfbfc34eace02726b343c19c51da2002a041700944"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f547b8594707 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-debc5478eae61d44ff050103291b75f102ce33d5ff9230104fa4a97206754b10"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / f547b8594707 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-cd9bea2d395c62b620a7e929de128930cdb0bf97832ba0847b1c65422c912a9d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-bfe85aeabab65f7ac4442433bd61d776bc5b3ecb186f3794d4817584c9289c2c"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.non_default_loadbalancer — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 569927182d3d / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.non_default_loadbalancer
-
-<a id="canonical-de9272ff5c430c45d0be289c98e22ab4b3dfd8469ee934b45b4cf37c1bb593f2"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for non default loadbalancer.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0cf4a4939956177d5c92cd6ed001d1a85648587c1829149efb65a2ed6f1f0a04"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 569927182d3d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-d6e18060b6b05ff5fefa1316dc14ad0b8056b87f7f585bd05bebdf1b4ac5edd9"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 569927182d3d / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-d9c14ec6b5955fad7d3fd7dd87d25048200447bdb08461e00633753ca1866017"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1a00a079b46477596f42358a1e0d7c31588737db625e94238342e17680e5a7e4"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.pass_through — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1ca11982d23c / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.pass_through
-
-<a id="canonical-177bf40f7e5c578178c33bedf3a5c7bbdd52642cdb48bf87d36f21aa07324c47"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for pass through.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-c40c352f732449e8e4cf96041cd8f24858d2ffb30708d0c7f115271a46a52cd4"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1ca11982d23c / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-357b968176a6570b730c2dc58be9526968d6be6532c4ed75d45aceee6748ee0e"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 1ca11982d23c / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-13847f793d4f7d87ea1825a855f95b195db3d1dbb79eaaae6417dfbf2c81ca3f"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb8d703df2d9 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config
-
-<a id="canonical-fe340f5cd9558fc45246b0485f21a06470b3ccb2c81926b12985d8041c5a9aa6"></a>
-
-Type: `"single"`. Computed.
-
-Defines various OPTIONS to configure TLS configuration parameters.
-
-Upstream description:
-
-This defines various OPTIONS to configure TLS configuration parameters.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-choice": "[\"custom_security\",\"default_security\",\"low_security\",\"medium_security\"]"
-}
-```
-
-<a id="canonical-8fe8d6a5baf2ec59574be087bcaf45d7452c20f204e2e1db4e5a8b993c3e3378"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb8d703df2d9 / 3
-
-- [custom_security](data-sources--workload--reference--group-022.md#canonical-f9523198c0158504f833f7cd2678ee85723513849ddb2579feed4b1a52c265ca): complete subsection reference.
-
-- [default_security](data-sources--workload--reference--group-022.md#canonical-a444e6a1cec524d232debd37bb63babe88dfc8e3e1add493ea05f36439fdc6d7): complete subsection reference.
-
-- [low_security](data-sources--workload--reference--group-022.md#canonical-0746c0bfc3abae7df9472011ca63c9df59eae0a8940e31483341773737d0527a): complete subsection reference.
-
-- [medium_security](data-sources--workload--reference--group-022.md#canonical-5ea74c4f888da4075e3fbdf65096adcb5e794b6f8a6f002e47fd0aa09aa270ae): complete subsection reference.
-
-<a id="canonical-e3d90e98a2babe72f1dd8236d56a7d531fd9547046beb9c0b1171287294a703c"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / eb8d703df2d9 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.custom_security](data-sources--workload--reference--group-022.md#canonical-f9523198c0158504f833f7cd2678ee85723513849ddb2579feed4b1a52c265ca)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.default_security](data-sources--workload--reference--group-022.md#canonical-a444e6a1cec524d232debd37bb63babe88dfc8e3e1add493ea05f36439fdc6d7)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.low_security](data-sources--workload--reference--group-022.md#canonical-0746c0bfc3abae7df9472011ca63c9df59eae0a8940e31483341773737d0527a)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.medium_security](data-sources--workload--reference--group-022.md#canonical-5ea74c4f888da4075e3fbdf65096adcb5e794b6f8a6f002e47fd0aa09aa270ae)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-f9523198c0158504f833f7cd2678ee85723513849ddb2579feed4b1a52c265ca"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d3fa67bac29327116be75e211998bb415387474c87029c43f7a78d49a29cea06"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.custom_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.custom_security
-
-<a id="canonical-ca095ffbce0c50778d0a07b67fb0f5bd9ccdc5e380f1931d4edf6c58830be211"></a>
-
-Type: `"single"`. Computed.
-
-Defines TLS protocol config including min/max versions and allowed ciphers.
-
-Upstream description:
-
-This defines TLS protocol config including min/max versions and allowed ciphers.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-8954ef228bf4b035b4b9779837955b7e1c3f1fa233f766cae32c57b75355cb43"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 3
-
-<a id="canonical-18732e27ca37e99938b635f0a88502b940b26dad80e216a4278239f6425790ed"></a>
-
-<a id="canonical-d051e8fe7b855d8f4abcea69201c5b25d89f63f875caa1c85665e152e5f7b941"></a>
-
-## cipher_suites property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 4
-
-Type: `["list", "string"]`. Computed.
-
-The TLS listener will only support the specified cipher list.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-631c74f5ea751f4421da5406818b599c56e0d9a8026cdb8c755027ef1e08c60e"></a>
-
-<a id="canonical-22c43a8580bd5e6a01c6d7bf78361ae2845a380ea257290a5878a693ca69e0db"></a>
-
-## max_version property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 5
-
-Type: `"string"`. Computed.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-c6e7ea7cf1c313bf4b251627a165b76ba12ff2116e606c8c4ecbfca497cd0a23"></a>
-
-<a id="canonical-7959792d110a132bf66e00a12bd3d29d10936c5699b367b16106b764eebb60bf"></a>
-
-## min_version property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 6
-
-Type: `"string"`. Computed.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-c75911d37f5a7c93b0ea447114ba1299602073540c86ded8b57a98f8069ef4b3"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / ed3de5614021 / 7
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-a444e6a1cec524d232debd37bb63babe88dfc8e3e1add493ea05f36439fdc6d7"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-dbfe0a0eae81e956d0968415a71d2592d782025126310d4a5f09755d0626a12e"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.default_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4481e76c33e3 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.default_security
-
-<a id="canonical-02d377ec1ce5518c39f2c76017268e7aee128925ad2a426d1028365b17e784b8"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3a0b765c96ffbaf37bd427d069bc3b084f8ee9a3d8a00aa351b13e27f8492220"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4481e76c33e3 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-03e92df40b769419e5f3ecdf0c57081c375e798f78ef3a3a4f2eb18519fe9322"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 4481e76c33e3 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-0746c0bfc3abae7df9472011ca63c9df59eae0a8940e31483341773737d0527a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-af3e222531bc95de4d73420027aac792d672b8e8d88a3ef13872719f3b51a783"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.low_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3b360ef5e151 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.low_security
-
-<a id="canonical-eae70d905803bf08abe34acb5fe8d0b3d161e31d310b51c969d780b79cbd6023"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-768761ca02abbbae958d7d6025a5f134b6c60a2e985fb095a1f89fc743ddcc91"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3b360ef5e151 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-d2ce7acb684e3f87483ceb96523bd329b003aa9ad90293e946b5c68fcf67508f"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3b360ef5e151 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-5ea74c4f888da4075e3fbdf65096adcb5e794b6f8a6f002e47fd0aa09aa270ae"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-8b4d0b8524a42df396c5a9689d6dc262359bf959ae1cd24ef1f2ab50c4e43fd9"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.medium_security — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2e7f6f4c1b30 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config.medium_security
-
-<a id="canonical-bacee3d43d7dbf5702d0381af0041e7b43fc10cd6b25346b20ec39d36f2a152c"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6f41d2c6607a3d207f0feed464f0e4edd6613c9ce1b154c67fcb4052d6629a45"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2e7f6f4c1b30 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-85593bc6abafc0d324dba0a920d1b74a6d02b8c872d7ca593064a249cd87ac34"></a>
-
-## Next pages — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 2e7f6f4c1b30 / 4
-
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.tls_config](data-sources--workload--reference--group-022.md#canonical-bb6c8abb21ffb56c6da63b0cfc40d92f2a40457af7484dd7d627d4b79fc62490)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-feafac3c30f911a98096a4b3d0da61b9fe41e35c73a4efce957bc606373292cd"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-88e91d1addc79445ce4540670b0bc9c7ee321b84d36d2fc611dd58b0b103a74b"></a>
-
-## stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.use_mtls — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3226130dc64a / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [stateful_service](data-sources--workload--reference--group-016.md#canonical-9ecc5193e89f3fd03b58e4ca87b12e44ca929d7b2fb971f37a8bbb71e6ebc497)
-- [stateful_service.advertise_options](data-sources--workload--reference--group-016.md#canonical-8d2488744f1696f511350def83db625e6eaaa2b2cec3e1e4b29b815f55be6068)
-- [stateful_service.advertise_options.advertise_on_public](data-sources--workload--reference--group-020.md#canonical-4a9dc0954793a1f95ff2c36f5f4000c83e1f22720e6b24258b5247c265d15f28)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-020.md#canonical-68d37c6a4a27ced5c021322801ecb411660ca2db93a3d72569b3403243bfd4ff)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-020.md#canonical-1251236759af652e9d20c05e70b1d0ac993f0d06e405d11834bbaf998fa6e5d4)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-020.md#canonical-b6c3da2d123319b70cd035f38530e7c4f981086a06d3b6a85a8e62257f31c52c)
-- [stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-022.md#canonical-d839a30793886c61fd06909d6937c45fe1a29205269cf1c2d29af93120a0ce44)
-- stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert.use_mtls
-
-<a id="canonical-878c5bf9d642d38989c8904c5d406f0a0d1a003fd744ad88f71f5cb48f712ab6"></a>
-
-Type: `"single"`. Computed.
-
-Validation context for downstream client TLS connections.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-crl_choice": "[\"crl\",\"no_crl\"]",
-  "x-ves-oneof-field-trusted_ca_choice": "[\"trusted_ca\",\"trusted_ca_url\"]",
-  "x-ves-oneof-field-xfcc_header": "[\"xfcc_disabled\",\"xfcc_options\"]"
-}
-```
-
-<a id="canonical-67420dbbcc9ca9e20d6f14e68a3cebbd91280fd9a37c880903a8b262e575f0f8"></a>
-
-## Direct properties — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3226130dc64a / 3
-
-<a id="canonical-97664577882bc42921172c1b9f5fc25af0abd58585afe4ba894855d9cefa2182"></a>
-
-<a id="canonical-a6a308a755ff711665891784eb0122250558ccc1b4c11782ef6c0191b3928aa2"></a>
-
-## client_certificate_optional property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3226130dc64a / 4
-
-Type: `"bool"`. Computed.
-
-Client certificate is optional. If the client has provided a certificate, the load balancer will
-verify it. If certification verification fails, the connection will be terminated.
-
-Upstream description:
-
-Client certificate is optional. If the client has provided a certificate, the load balancer will
-verify it. If certification verification fails, the connection will be terminated. If the client
-does not provide a certificate, the connection will be accepted.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [crl](data-sources--workload--reference--group-023.md#canonical-72c9ae85c6d7c1c9441815f4287691df1e2e2984d0e9850bb106edcba3233093): complete subsection reference.
-
-- [no_crl](data-sources--workload--reference--group-023.md#canonical-65f7b89b229ae56736233e983d6ee84a3ea49139621115cd4fc0526e39a3d497): complete subsection reference.
-
-- [trusted_ca](data-sources--workload--reference--group-023.md#canonical-c25f679cf13053c21e8478bd715145451461b80c6055eba199793e7b405917b3): complete subsection reference.
-
-<a id="canonical-a0ec6978a8fd14e9fe3e0d0aaad8e1c50f6dfc822a7d5a2537238bb4cc637607"></a>
-
-<a id="canonical-91baadf52b28a9749ff59572a4ed3c0492c024503ed82556f8806a28435ccb03"></a>
-
-## trusted_ca_url property — stateful_service.advertise_options.advertise_on_public.multi_ports.ports.http_lo / 3226130dc64a / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
-
-Upstream description:
-
-Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 131072,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 131072,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 131072,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.min_bytes": "1",
-    "ves.io.schema.rules.string.truststore_url": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.min_bytes": "1",
-    "ves.io.schema.rules.string.truststore_url": "true"
-  }
-}
-```
-
-- [xfcc_disabled](data-sources--workload--reference--group-023.md#canonical-212ea2af65c31256d594f079baeb4d219b208bb2e8bbab3c9c9819f3a2431ca3): complete subsection reference.
-
-- [xfcc_options](data-sources--workload--reference--group-023.md#canonical-633e70a684fd7390b2777fe958b675b0d21a9abc3e7ee2ad6a239c93f3c92472): complete subsection reference.

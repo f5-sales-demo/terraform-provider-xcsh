@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_malicious_user_mitig
 
 # xcsh_malicious_user_mitigation reference
 
-<a id="canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1"></a>
+<a id="canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-24a8a6f15d485af349bc4425291171692f322eb03c04b3b02e940490b0c6eee3"></a>
+<a id="canonical-0210222022123301-1131102011223303-1021233010100211-0221010113011221-0233030202322300-0330001023032300-0232211000102100-2300301232323203"></a>
 
-## Property reference — Property reference / 7dc19f615073 / 2
+## Property reference — Property reference / 120111001303 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 - Property reference
 
-<a id="canonical-83667a64d2a81a7efb9959f8d7628d547c55052f8cad1913b1a0668ef32dbee2"></a>
+<a id="canonical-2003121213221210-3102222001221332-3323212111213320-3113120220311110-1330111100110233-2030223101210103-2301220012122032-3303023123323202"></a>
 
-## Direct properties — Property reference / 7dc19f615073 / 3
+## Direct properties — Property reference / 120111001303 / 3
 
-<a id="canonical-cb2846d2d634b88f3e5528efe2ba2ee089e47a9182dbf95a168287f085588780"></a>
+<a id="canonical-3023022010123102-3112031023202033-0332111102203233-3202232202323200-2021321013222101-2002312333211122-0112200220133300-2011112020132000"></a>
 
-<a id="canonical-0ef8a7ef70f3a2f6af10c46835d41efedda3ddddb8f5ab281bf352ce11a0f1a6"></a>
+<a id="canonical-0032332022133233-1300330322023312-2233010030101220-0311311001323332-3131220331313131-2320331122230220-0123330311023032-0101220033012212"></a>
 
-## annotations property — Property reference / 7dc19f615073 / 4
+## annotations property — Property reference / 120111001303 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-454bf37e19d59436479a1688b2550b71ad2387e9f21d06169fb6d408e0732533"></a>
+<a id="canonical-1011102333031332-0121311121100312-1013212201122020-2302111100231301-2231020320133221-3302013100120112-2133231231100020-3200130302110303"></a>
 
-<a id="canonical-9113d32bc3fe06ccc3c8f033aa38d3e6cd0a3d3c2390ba26ee37c22d8514964f"></a>
+<a id="canonical-2101010331030223-3003333200123030-3003302033000303-2222032031033212-3031002203310330-0203210023220212-3232031330020231-2011011021121033"></a>
 
-## description property — Property reference / 7dc19f615073 / 5
+## description property — Property reference / 120111001303 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-efe055887b9a86966368f48cf380ddfe5164c8536c784a218a1e33f6dd8a9d50"></a>
+<a id="canonical-3233320011112020-1323212220122112-1203122033102030-3303200031313332-1101121030201103-1230132010220201-2022013203033312-3131202221311100"></a>
 
-<a id="canonical-2a7ed5a7c3b4cb5e87b039bb71723609692dab1ca84e8b894467ffc9daf3a931"></a>
+<a id="canonical-0222133231112213-3003231030231132-2013230003212323-1301130203120021-1221023122230130-2220103220232021-1010121333333021-3122330322210301"></a>
 
-## disable property — Property reference / 7dc19f615073 / 6
+## disable property — Property reference / 120111001303 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,25 +142,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a2b486d0b0479ad7d6d4f9631dd2b299aae37ba476d8b49f3652eacf024ef839"></a>
+<a id="canonical-2202231020123100-2300101321223113-3112311033211203-0131310223022121-2222320313232210-1312312023102133-0312110232223033-0002103233200321"></a>
 
-<a id="canonical-27c5267ed173d96968b327b70fb85a82ba4bd8f84fd769dbeff6892439f57efc"></a>
+<a id="canonical-0213301102121332-3101130331211221-1220230302132313-0033232011222002-2322102331203320-1033311312213123-3233331220210210-0321331113323330"></a>
 
-## id property — Property reference / 7dc19f615073 / 7
+## ID property — Property reference / 120111001303 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-a3cfd9a5414ba6294420b02bb30aa515895135a095b6ed9ecb0b1186ccc23b0e"></a>
+<a id="canonical-2203303331212211-1001102322120221-1010020023000223-2303002222110111-2021110103112200-2111231232312132-3023002301012012-3030300203230032"></a>
 
-<a id="canonical-96fd9f2416c5153fa211af1332cb9c4aadba30e46f9725a41a588cac37b2262c"></a>
+<a id="canonical-2112333121330210-0112301101110333-2202010122330103-0302302321301022-2231232203003210-1233211302112210-0122112020302230-0313230202120230"></a>
 
-## labels property — Property reference / 7dc19f615073 / 8
+## labels property — Property reference / 120111001303 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -181,13 +181,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec): complete subsection reference.
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230): complete subsection reference.
 
-<a id="canonical-c537e776c0e06ede8e54dc139bf31b948248d17552d1cbfb647140822fd5ec1c"></a>
+<a id="canonical-3011031332131312-3000320012323132-2032111031300103-2123330301232110-2002102031011311-1102310130233323-1210130110002002-0233311132300130"></a>
 
-<a id="canonical-cdf55c930599c86f5a4a8d0be019867b34f7f2c209d885434d6e64a124b3fc04"></a>
+<a id="canonical-3031331111302103-0011212130201233-1122102220310023-3200012120121323-0310331333023002-0021312020111003-1031123212102201-0210230333300010"></a>
 
-## name property — Property reference / 7dc19f615073 / 9
+## name property — Property reference / 120111001303 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4454a874fe1a931d372c009b3af8b2c65785d38610d8c1b42255fbe731d5c384"></a>
+<a id="canonical-1010111022201310-3332012221030131-0313023000002123-0322332023023012-1113201131032012-0100312030012310-0202111133233213-0301311130032010"></a>
 
-<a id="canonical-718ac6750e7608019f810e8c2fc873cc8ea5c162f87d4e412a35c46683cce50f"></a>
+<a id="canonical-1301202230121311-0032131200200001-2133200100322030-0233302013033030-2032221130011202-3320133110321001-0222031130101212-2003303032110033"></a>
 
-## namespace property — Property reference / 7dc19f615073 / 10
+## namespace property — Property reference / 120111001303 / 10
 
 Type: `"string"`. Required.
 
@@ -312,64 +312,64 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-955ad4ebf252780b24cb8db4b64412cd8d8b8383f4ae33233547a54e893a0716): complete subsection reference.
+- [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-2111112231103223-3302110213200023-0210302320312310-2312101001023031-2031202320032003-3310223203030203-0311101322111032-2021032200130112): complete subsection reference.
 
-<a id="canonical-3215dcb3171c6fa3728fbe6708744b3b0c7c027fd10b7f4e5cdd98a4bc682215"></a>
+<a id="canonical-0302011131302303-0113013012332203-1302203323321213-0020131010230323-0030133000021333-3101002313331032-1130313121202210-2330122002020111"></a>
 
-## All schema paths — Property reference / 7dc19f615073 / 11
+## All schema paths — Property reference / 120111001303 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--malicious_user_mitigation--reference--group-001.md#canonical-cb2846d2d634b88f3e5528efe2ba2ee089e47a9182dbf95a168287f085588780) |
-| `description` | [description](resources--malicious_user_mitigation--reference--group-001.md#canonical-454bf37e19d59436479a1688b2550b71ad2387e9f21d06169fb6d408e0732533) |
-| `disable` | [disable](resources--malicious_user_mitigation--reference--group-001.md#canonical-efe055887b9a86966368f48cf380ddfe5164c8536c784a218a1e33f6dd8a9d50) |
-| `id` | [id](resources--malicious_user_mitigation--reference--group-001.md#canonical-a2b486d0b0479ad7d6d4f9631dd2b299aae37ba476d8b49f3652eacf024ef839) |
-| `labels` | [labels](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3cfd9a5414ba6294420b02bb30aa515895135a095b6ed9ecb0b1186ccc23b0e) |
-| `mitigation_type` | [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-1858ae903a9d60ca48822a5ec06673fcbd6b18a99988caaee6b2b6b5d4b39861) |
-| `mitigation_type.rules` | [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-72d05b5877d48d2bc52c49c785ca21dd23b02ba4202058919de58a2f31ba07fa) |
-| `mitigation_type.rules.mitigation_action` | [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-dec53abc665bdb360c4b84e1702c77eeacde47238372622605f92392b4b9f24b) |
-| `mitigation_type.rules.mitigation_action.block_temporarily` | [mitigation_type.rules.mitigation_action.block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-1702a0b2f1f32baa4bb74dc25db8cb5803bd1a671228d305e3538bf0a6c0b2fc) |
-| `mitigation_type.rules.mitigation_action.captcha_challenge` | [mitigation_type.rules.mitigation_action.captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-0f1916e934b3dfd11bc400503c91d49adafcbd60d1226074b7b458052e3bb0ca) |
-| `mitigation_type.rules.mitigation_action.javascript_challenge` | [mitigation_type.rules.mitigation_action.javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-5143a2b6971bf4d0bf8047e2592bc068fa9dba5a83b73ae6baecbe00286206ba) |
-| `mitigation_type.rules.threat_level` | [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3b75c9d8008b82e2d2534ea338a899a5f7ec9628f9d611d63f838ff78bd6c96c) |
-| `mitigation_type.rules.threat_level.high` | [mitigation_type.rules.threat_level.high](resources--malicious_user_mitigation--reference--group-001.md#canonical-91f1d17966d4f8636290166c50a623d830707b69e6ab58ae14f56bb4da6b4b4d) |
-| `mitigation_type.rules.threat_level.low` | [mitigation_type.rules.threat_level.low](resources--malicious_user_mitigation--reference--group-001.md#canonical-e489aa61e99f73736cc1d27bf03dc7350e3c2b01b5210deeeef1e70040464132) |
-| `mitigation_type.rules.threat_level.medium` | [mitigation_type.rules.threat_level.medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-e6446b8cd7161ea021d76fe26a3476b943b704d42a84e2cfa30724f8e842e8b8) |
-| `name` | [name](resources--malicious_user_mitigation--reference--group-001.md#canonical-c537e776c0e06ede8e54dc139bf31b948248d17552d1cbfb647140822fd5ec1c) |
-| `namespace` | [namespace](resources--malicious_user_mitigation--reference--group-001.md#canonical-4454a874fe1a931d372c009b3af8b2c65785d38610d8c1b42255fbe731d5c384) |
-| `timeouts` | [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-e7d8c81d563c08fa731ff3f71dcfa170d1f556527df74d232aa4bd7b250cccd6) |
-| `timeouts.create` | [timeouts.create](resources--malicious_user_mitigation--reference--group-001.md#canonical-b0d585d69b64ddbb842a9ae1645c6139f96a15745ef88d72f46ad805ae1a8565) |
-| `timeouts.delete` | [timeouts.delete](resources--malicious_user_mitigation--reference--group-001.md#canonical-e7a3b4eb388a4f649e45c743b594520b720ee65095c0378f56982740e4a21129) |
-| `timeouts.read` | [timeouts.read](resources--malicious_user_mitigation--reference--group-001.md#canonical-7e51834809c34cadcf25b8d691db6ad389608ae42a3eb9b8955f0be3831527ea) |
-| `timeouts.update` | [timeouts.update](resources--malicious_user_mitigation--reference--group-001.md#canonical-232a462da6d6e03c3aa9d2f5d26e101381f76ec9fae14f8ce58ca2bbff070d98) |
+| `annotations` | [annotations](resources--malicious_user_mitigation--reference--group-001.md#canonical-3023022010123102-3112031023202033-0332111102203233-3202232202323200-2021321013222101-2002312333211122-0112200220133300-2011112020132000) |
+| `description` | [description](resources--malicious_user_mitigation--reference--group-001.md#canonical-1011102333031332-0121311121100312-1013212201122020-2302111100231301-2231020320133221-3302013100120112-2133231231100020-3200130302110303) |
+| `disable` | [disable](resources--malicious_user_mitigation--reference--group-001.md#canonical-3233320011112020-1323212220122112-1203122033102030-3303200031313332-1101121030201103-1230132010220201-2022013203033312-3131202221311100) |
+| `id` | [id](resources--malicious_user_mitigation--reference--group-001.md#canonical-2202231020123100-2300101321223113-3112311033211203-0131310223022121-2222320313232210-1312312023102133-0312110232223033-0002103233200321) |
+| `labels` | [labels](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203303331212211-1001102322120221-1010020023000223-2303002222110111-2021110103112200-2111231232312132-3023002301012012-3030300203230032) |
+| `mitigation_type` | [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120112022322100-0322213112003022-1020200202221132-3000121213033330-2331122301202221-2121202030222232-3212230223122311-3110230321201201) |
+| `mitigation_type.rules` | [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-1302310011231120-1313311020310223-3011023010213013-2011302202013131-0203230002232210-0200020011202101-2131321120220233-0301232200133322) |
+| `mitigation_type.rules.mitigation_action` | [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-3132301103222330-1212112331230312-0030102320103201-1300023013133232-2230313210130203-2003130212020212-0011332102032102-2310232133021023) |
+| `mitigation_type.rules.mitigation_action.block_temporarily` | [mitigation_type.rules.mitigation_action.block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-0113000222002302-3301330302232222-1023231310313002-1131232030231120-0003233101221213-0102022031030011-3203110320233300-2212300023023330) |
+| `mitigation_type.rules.mitigation_action.captcha_challenge` | [mitigation_type.rules.mitigation_action.captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-0033012101123221-0310230331333101-0123301000001100-0330210131102122-3122333023311200-3101020212001310-2313231011200011-0232032323003022) |
+| `mitigation_type.rules.mitigation_action.javascript_challenge` | [mitigation_type.rules.mitigation_action.javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-1101100322022312-2113012333103100-2333200010133202-1121022330001220-3322213123221122-2003231303223212-2322323023320000-0220120200122322) |
+| `mitigation_type.rules.threat_level` | [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-0323131130213120-0000202320023202-3102110310322203-0320222021212211-3313323021120220-3321311201013112-0333200320333313-2023311230211230) |
+| `mitigation_type.rules.threat_level.high` | [mitigation_type.rules.threat_level.high](resources--malicious_user_mitigation--reference--group-001.md#canonical-2101330131011321-1212311033201203-1202210001121230-1100221202033120-0300130013231221-3212222311202232-0110331112232310-3122122310231031) |
+| `mitigation_type.rules.threat_level.low` | [mitigation_type.rules.threat_level.low](resources--malicious_user_mitigation--reference--group-001.md#canonical-3210202122221201-3221213313031303-1230300131021323-3300033130130311-0032033002230001-2311020100313232-3232330132130000-1000101210010302) |
+| `mitigation_type.rules.threat_level.medium` | [mitigation_type.rules.threat_level.medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-3212101012232030-3113011201322200-0201311312333202-1222031013122321-1003231300103110-0222201032023033-2203001302103320-3220100232202320) |
+| `name` | [name](resources--malicious_user_mitigation--reference--group-001.md#canonical-3011031332131312-3000320012323132-2032111031300103-2123330301232110-2002102031011311-1102310130233323-1210130110002002-0233311132300130) |
+| `namespace` | [namespace](resources--malicious_user_mitigation--reference--group-001.md#canonical-1010111022201310-3332012221030131-0313023000002123-0322332023023012-1113201131032012-0100312030012310-0202111133233213-0301311130032010) |
+| `timeouts` | [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-3213312030200131-1112033000203322-1303013333033313-0131303322011300-3101331111121102-1331331310310203-0222221023311323-0211003030303112) |
+| `timeouts.create` | [timeouts.create](resources--malicious_user_mitigation--reference--group-001.md#canonical-2300311120113112-2123121031312323-2010022221223201-1210113012010321-3321122201111310-1132332020311302-3310122231200011-2232012220111211) |
+| `timeouts.delete` | [timeouts.delete](resources--malicious_user_mitigation--reference--group-001.md#canonical-3213220323103223-0320202210331210-2132101130131003-2311211011020023-1302003232121100-2111300003132033-1112212002131000-3210220201010221) |
+| `timeouts.read` | [timeouts.read](resources--malicious_user_mitigation--reference--group-001.md#canonical-1332110120031020-0021300310302231-3033021123203112-2101312312223103-2021120020223210-0222033223212320-2111113300233203-2003011102133222) |
+| `timeouts.update` | [timeouts.update](resources--malicious_user_mitigation--reference--group-001.md#canonical-0203022210120231-2212311232000330-0322222131023311-3102123201000103-2001331312323021-3322320110332030-3211203022022323-3333001300312120) |
 
-<a id="canonical-ff90724fe6c010303088502b0f0e68a04bad04bd56a418ca95b577637df173b9"></a>
+<a id="canonical-3333210013021033-3212300001000300-0300202011000223-0033003212202200-1023223100102331-1112221001203022-2111231113131203-1331330113032321"></a>
 
-## Next pages — Property reference / 7dc19f615073 / 12
+## Next pages — Property reference / 120111001303 / 12
 
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-955ad4ebf252780b24cb8db4b64412cd8d8b8383f4ae33233547a54e893a0716)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [timeouts](resources--malicious_user_mitigation--reference--group-001.md#canonical-2111112231103223-3302110213200023-0210302320312310-2312101001023031-2031202320032003-3310223203030203-0311101322111032-2021032200130112)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec"></a>
+<a id="canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-57d4acdbd3d15fc6e80f526e6cf10989739f5e6605dbde413178e01517e7ac3a"></a>
+<a id="canonical-1113311022303123-3103310111333012-3220003311021232-1230330100212021-1303213311321212-0011312331321001-0301132032000111-0113321322300322"></a>
 
-## mitigation_type — mitigation_type / 84f27f88e802 / 2
+## mitigation_type — mitigation_type / 202032200002 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
 - mitigation_type
 
-<a id="canonical-1858ae903a9d60ca48822a5ec06673fcbd6b18a99988caaee6b2b6b5d4b39861"></a>
+<a id="canonical-0120112022322100-0322213112003022-1020200202221132-3000121213033330-2331122301202221-2121202030222232-3212230223122311-3110230321201201"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -412,38 +412,38 @@ mitigation_type {
 }
 ```
 
-<a id="canonical-7bf23e61110428c7260996c61c1d93cd0504ff3dbc028cddc4ad2a95a82023df"></a>
+<a id="canonical-1323330203321201-0101001002203013-0212002121123012-0130013121033031-0011001033330331-2330000220303131-3010223102222111-2220020002033133"></a>
 
-## Direct properties — mitigation_type / 84f27f88e802 / 3
+## Direct properties — mitigation_type / 202032200002 / 3
 
-- [rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73): complete subsection reference.
+- [rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303): complete subsection reference.
 
-<a id="canonical-569472e471258ee16762e96edb270cbaeee5d588e9104373ab3cea9b67c7c724"></a>
+<a id="canonical-1112211013023210-1301021120323201-1213120232211232-3123021300302322-3232321131112020-3221010010031303-2223033032222123-1213301330130210"></a>
 
-## Next pages — mitigation_type / 84f27f88e802 / 4
+## Next pages — mitigation_type / 202032200002 / 4
 
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73"></a>
+<a id="canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-81aea79ab430733764f87535017d53d5821ceb3ba91bab001438f93957245907"></a>
+<a id="canonical-2001223222132122-2310030013030313-1210332013110311-0001133111033111-2002013032230323-2221012322230000-0110032033210321-1113021011210013"></a>
 
-## mitigation_type.rules — mitigation_type.rules / a51b443d41a8 / 2
+## mitigation_type.rules — rules / 033110012220 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
 - mitigation_type.rules
 
-<a id="canonical-72d05b5877d48d2bc52c49c785ca21dd23b02ba4202058919de58a2f31ba07fa"></a>
+<a id="canonical-1302310011231120-1313311020310223-3011023010213013-2011302202013131-0203230002232210-0200020011202101-2131321120220233-0301232200133322"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -496,42 +496,42 @@ rules {
 }
 ```
 
-<a id="canonical-cb7de900517d2f41c67b6bf10f64239060945717375296c5e4f8c585d175b162"></a>
+<a id="canonical-3023133132210000-1101133102331001-3012132312233301-0033121002032100-1200211011130113-0313110221123011-3210332030112011-3101131123011202"></a>
 
-## Direct properties — mitigation_type.rules / a51b443d41a8 / 3
+## Direct properties — rules / 033110012220 / 3
 
-- [mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b): complete subsection reference.
+- [mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323): complete subsection reference.
 
-- [threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949): complete subsection reference.
+- [threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021): complete subsection reference.
 
-<a id="canonical-4604ef11b6d652567ba73c974388b2db833826498aae697b8f51d55eb4f661a9"></a>
+<a id="canonical-1012001032330101-2312311211021112-1323221303302113-1003202023023123-2003032002121021-2022223212211323-2033110131111132-2310331212012221"></a>
 
-## Next pages — mitigation_type.rules / a51b443d41a8 / 4
+## Next pages — rules / 033110012220 / 4
 
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b"></a>
+<a id="canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f98cfe05dd618f0bb02189d960f8e864ffc0eea5a4b47732ea22ec817358fad5"></a>
+<a id="canonical-3321203033320011-3131120120330023-2300020120213121-1200332032201210-3333300032322211-2210231013130302-3222020232302001-1303112033223111"></a>
 
-## mitigation_type.rules.mitigation_action — mitigation_type.rules.mitigation_action / 35791eb9f7cd / 2
+## mitigation_type.rules.mitigation_action — mitigation_action / 232133133031 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
 - mitigation_type.rules.mitigation_action
 
-<a id="canonical-dec53abc665bdb360c4b84e1702c77eeacde47238372622605f92392b4b9f24b"></a>
+<a id="canonical-3132301103222330-1212112331230312-0030102320103201-1300023013133232-2230313210130203-2003130212020212-0011332102032102-2310232133021023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -570,46 +570,46 @@ mitigation_action {
 }
 ```
 
-<a id="canonical-5d1c1be8d5329776b71a7dfe13bcef2b91888ffa87f9c231abbb9c97c985d08f"></a>
+<a id="canonical-1131013001233220-3111030221131312-2313012213313332-0103233032330223-2101202020333322-2013332130020301-2223232321302113-3021201131002033"></a>
 
-## Direct properties — mitigation_type.rules.mitigation_action / 35791eb9f7cd / 3
+## Direct properties — mitigation_action / 232133133031 / 3
 
-- [block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-5681d27777fa206d2524741433e2de2863f046b4cc3047c4f45243ed1262ed95): complete subsection reference.
+- [block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-1112200131021313-1313332202001231-0211021013100110-0303320231320220-1203330010122310-3030030010133010-3310110210033231-0102120232312111): complete subsection reference.
 
-- [captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-df120dbb94864fec613b74ccf8b1631d44298a3a3c52884a69d2fa78fc664759): complete subsection reference.
+- [captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-3133010200312323-2110201210333230-1201032313103030-3320230112030131-1010022120220322-0330110220201022-1221310233221320-3330121210131121): complete subsection reference.
 
-- [javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-de0e67e82df8c26de8478d46d05298ed6ebdc50b95fd905dc871f7f10be7c4db): complete subsection reference.
+- [javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-3132003212133220-0231332030021231-3220101320311012-3100110221203231-1232233130110023-2111333121001131-3020130133133301-0023321330103123): complete subsection reference.
 
-<a id="canonical-2a5070a9b7c5e72abc6100d59e34fcc29584d7439b69fc96d94dd489d9cd50ab"></a>
+<a id="canonical-0222110013002221-2313301132130222-2330120100003111-2132031033303002-2111201031131003-2123122133302112-3121103131102021-3121303111002223"></a>
 
-## Next pages — mitigation_type.rules.mitigation_action / 35791eb9f7cd / 4
+## Next pages — mitigation_action / 232133133031 / 4
 
-- [mitigation_type.rules.mitigation_action.block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-5681d27777fa206d2524741433e2de2863f046b4cc3047c4f45243ed1262ed95)
-- [mitigation_type.rules.mitigation_action.captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-df120dbb94864fec613b74ccf8b1631d44298a3a3c52884a69d2fa78fc664759)
-- [mitigation_type.rules.mitigation_action.javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-de0e67e82df8c26de8478d46d05298ed6ebdc50b95fd905dc871f7f10be7c4db)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.mitigation_action.block_temporarily](resources--malicious_user_mitigation--reference--group-001.md#canonical-1112200131021313-1313332202001231-0211021013100110-0303320231320220-1203330010122310-3030030010133010-3310110210033231-0102120232312111)
+- [mitigation_type.rules.mitigation_action.captcha_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-3133010200312323-2110201210333230-1201032313103030-3320230112030131-1010022120220322-0330110220201022-1221310233221320-3330121210131121)
+- [mitigation_type.rules.mitigation_action.javascript_challenge](resources--malicious_user_mitigation--reference--group-001.md#canonical-3132003212133220-0231332030021231-3220101320311012-3100110221203231-1232233130110023-2111333121001131-3020130133133301-0023321330103123)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-5681d27777fa206d2524741433e2de2863f046b4cc3047c4f45243ed1262ed95"></a>
+<a id="canonical-1112200131021313-1313332202001231-0211021013100110-0303320231320220-1203330010122310-3030030010133010-3310110210033231-0102120232312111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b07280ab9d07ec540365be81a632bfda83d0281c2e3749492b4794890890283"></a>
+<a id="canonical-0323001302200022-2321310013323011-1000031211233220-0122120302233331-2220033100022001-3002320313102110-2102231013211020-2100202100022003"></a>
 
-## mitigation_type.rules.mitigation_action.block_temporarily — mitigation_type.rules.mitigation_action.block_temporarily / 81317a89a5bb / 2
+## mitigation_type.rules.mitigation_action.block_temporarily — block_temporarily / 202122112323 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
 - mitigation_type.rules.mitigation_action.block_temporarily
 
-<a id="canonical-1702a0b2f1f32baa4bb74dc25db8cb5803bd1a671228d305e3538bf0a6c0b2fc"></a>
+<a id="canonical-0113000222002302-3301330302232222-1023231310313002-1131232030231120-0003233101221213-0102022031030011-3203110320233300-2212300023023330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -638,39 +638,39 @@ Terraform syntax:
 block_temporarily = {}
 ```
 
-<a id="canonical-e07fb0e8ab044f3be50509f3278804b09b44edea081c21da52fdbd4a2d4ff299"></a>
+<a id="canonical-3200133323003220-2223001010330323-3211001100213303-0213202000102300-2123101032313222-0020013002013122-1102333123311022-0231103333022121"></a>
 
-## Direct properties — mitigation_type.rules.mitigation_action.block_temporarily / 81317a89a5bb / 3
+## Direct properties — block_temporarily / 202122112323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-540085911b6a99157c7cc6d00a5cc5272bdff47ce9da8fd9b9bad2632419a88a"></a>
+<a id="canonical-1110000020112101-0123122221210111-1330133030123100-0022113030110213-0223313333101330-3221312220333121-2321232231021203-0210012122202022"></a>
 
-## Next pages — mitigation_type.rules.mitigation_action.block_temporarily / 81317a89a5bb / 4
+## Next pages — block_temporarily / 202122112323 / 4
 
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-df120dbb94864fec613b74ccf8b1631d44298a3a3c52884a69d2fa78fc664759"></a>
+<a id="canonical-3133010200312323-2110201210333230-1201032313103030-3320230112030131-1010022120220322-0330110220201022-1221310233221320-3330121210131121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ce7445f2b6be5476f7d9d070cb65ca59befdc32f2276a87a732839cd8ac6b0a6"></a>
+<a id="canonical-3032131010113302-2312233211101312-3313312131001300-3023121130221121-2332333130030233-0202131222201322-1303022003213031-2022301223002212"></a>
 
-## mitigation_type.rules.mitigation_action.captcha_challenge — mitigation_type.rules.mitigation_action.captcha_challenge / 03f2a5aacbca / 2
+## mitigation_type.rules.mitigation_action.captcha_challenge — captcha_challenge / 222230233022 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
 - mitigation_type.rules.mitigation_action.captcha_challenge
 
-<a id="canonical-0f1916e934b3dfd11bc400503c91d49adafcbd60d1226074b7b458052e3bb0ca"></a>
+<a id="canonical-0033012101123221-0310230331333101-0123301000001100-0330210131102122-3122333023311200-3101020212001310-2313231011200011-0232032323003022"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -699,39 +699,39 @@ Terraform syntax:
 captcha_challenge = {}
 ```
 
-<a id="canonical-e46201c2ea06ff9ddd27fe4583a1595096f70a48f97965c0f5d57fdb630fcf6c"></a>
+<a id="canonical-3210120200013002-3222001233332131-3131021333321011-2003220111211100-2112331300221020-3321132112113000-3311311113333123-1203003330331230"></a>
 
-## Direct properties — mitigation_type.rules.mitigation_action.captcha_challenge / 03f2a5aacbca / 3
+## Direct properties — captcha_challenge / 222230233022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-78c883dd20659e62494fb29a45a3222cded4eb66b166d07fb129d70c0eaf86af"></a>
+<a id="canonical-1320302020033131-0200121121321202-1021103323022122-1011220302020230-3132311032231212-2301121231001333-2301022131130030-0032223320122233"></a>
 
-## Next pages — mitigation_type.rules.mitigation_action.captcha_challenge / 03f2a5aacbca / 4
+## Next pages — captcha_challenge / 222230233022 / 4
 
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-de0e67e82df8c26de8478d46d05298ed6ebdc50b95fd905dc871f7f10be7c4db"></a>
+<a id="canonical-3132003212133220-0231332030021231-3220101320311012-3100110221203231-1232233130110023-2111333121001131-3020130133133301-0023321330103123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-145b86ed5a0f722bb16ba8f8c52a552ae88409213351192260d2279927de3ff6"></a>
+<a id="canonical-0110112320123231-1122003313020223-2301122322203320-3011022211110222-3220201000210201-0303110101210202-1200310202132121-0213313203333312"></a>
 
-## mitigation_type.rules.mitigation_action.javascript_challenge — mitigation_type.rules.mitigation_action.javascript_challenge / 47d16025105c / 2
+## mitigation_type.rules.mitigation_action.javascript_challenge — javascript_challenge / 021101001130 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
 - mitigation_type.rules.mitigation_action.javascript_challenge
 
-<a id="canonical-5143a2b6971bf4d0bf8047e2592bc068fa9dba5a83b73ae6baecbe00286206ba"></a>
+<a id="canonical-1101100322022312-2113012333103100-2333200010133202-1121022330001220-3322213123221122-2003231303223212-2322323023320000-0220120200122322"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -760,38 +760,38 @@ Terraform syntax:
 javascript_challenge = {}
 ```
 
-<a id="canonical-3abdf91a752cdc23b98cb8d8d69b8a3784af9ac654c6ba38ad77a488c3f81c2c"></a>
+<a id="canonical-0322233133210122-1311023031300203-2321203023203120-3112212320220313-2010223321223012-1110301223220320-2231131322102020-3003332001300230"></a>
 
-## Direct properties — mitigation_type.rules.mitigation_action.javascript_challenge / 47d16025105c / 3
+## Direct properties — javascript_challenge / 021101001130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b68795ce707ed6a174e67d51a81f04d803c27030f5861fa2db7c1a39e1d90ad8"></a>
+<a id="canonical-2312201321113032-1300133231122201-1310321213311101-2220013300103120-0003300213000300-3311201201332202-3123133001220321-3201312100223120"></a>
 
-## Next pages — mitigation_type.rules.mitigation_action.javascript_challenge / 47d16025105c / 4
+## Next pages — javascript_challenge / 021101001130 / 4
 
-- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-647b639c89946475992f17bb28836301729effc02229c80ff085a4d82ab5817b)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.mitigation_action](resources--malicious_user_mitigation--reference--group-001.md#canonical-1210132312032130-2021211012101311-2121023301132323-0220200312030001-1302213233333000-0202022130200033-3300201122103120-0222231120011323)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949"></a>
+<a id="canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5fead9cfe57101810a2f31a2d29a172b19a3760d62196bc4e52d302131cf88b8"></a>
+<a id="canonical-1133322231213033-3211130100012001-0022023303012202-3102212201130223-0121220313120031-1202012112233010-3211023103000201-0301303320202320"></a>
 
-## mitigation_type.rules.threat_level — mitigation_type.rules.threat_level / 5bf6aca58a8a / 2
+## mitigation_type.rules.threat_level — threat_level / 221120222022 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
 - mitigation_type.rules.threat_level
 
-<a id="canonical-3b75c9d8008b82e2d2534ea338a899a5f7ec9628f9d611d63f838ff78bd6c96c"></a>
+<a id="canonical-0323131130213120-0000202320023202-3102110310322203-0320222021212211-3313323021120220-3321311201013112-0333200320333313-2023311230211230"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -830,46 +830,46 @@ threat_level {
 }
 ```
 
-<a id="canonical-259d1e9e01a76d20a0c3a4f7163a5221ea05e1a5ef4b8b29dbf7f75ec0595efc"></a>
+<a id="canonical-0211213101322132-0001221312310200-2200300322103313-0112032211020201-3222001132012211-3233102320230221-3123331333131132-3000112111323330"></a>
 
-## Direct properties — mitigation_type.rules.threat_level / 5bf6aca58a8a / 3
+## Direct properties — threat_level / 221120222022 / 3
 
-- [high](resources--malicious_user_mitigation--reference--group-001.md#canonical-10fe7b69666edaaef09db27deda2a4044031ff22bab35041ef52721ee11a5b53): complete subsection reference.
+- [high](resources--malicious_user_mitigation--reference--group-001.md#canonical-0100333213231221-1212123231222232-3300213123021331-3231220222100010-1000030133330202-2322230311001001-3233110213020132-3201012211231103): complete subsection reference.
 
-- [low](resources--malicious_user_mitigation--reference--group-001.md#canonical-c65a2fcb9aedaa742a16f4b94421829c0d7596e401c46dbbdf918c901e60d946): complete subsection reference.
+- [low](resources--malicious_user_mitigation--reference--group-001.md#canonical-3012112202333023-2122323122221310-0222011233102321-1010020120022130-0031131121123210-0001301012312323-3133210120302100-0132120031211012): complete subsection reference.
 
-- [medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-0d6f1d940d1a4a097443dbe087c47972714f78cf0b81c53cb7120a5f405fce22): complete subsection reference.
+- [medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-0031123301312110-0031012210220021-1310100331233200-2013301013211302-1301103313203033-0023200130110330-2313010200221133-1000113330320202): complete subsection reference.
 
-<a id="canonical-cac022300835d06083c20e8cdeaf50384528d92753caed1843154a295abb080c"></a>
+<a id="canonical-3022300002020300-0020031131001200-2003300200322030-3132223311000320-1011022031210213-1103302232310120-1003011110220221-1122232300200030"></a>
 
-## Next pages — mitigation_type.rules.threat_level / 5bf6aca58a8a / 4
+## Next pages — threat_level / 221120222022 / 4
 
-- [mitigation_type.rules.threat_level.high](resources--malicious_user_mitigation--reference--group-001.md#canonical-10fe7b69666edaaef09db27deda2a4044031ff22bab35041ef52721ee11a5b53)
-- [mitigation_type.rules.threat_level.low](resources--malicious_user_mitigation--reference--group-001.md#canonical-c65a2fcb9aedaa742a16f4b94421829c0d7596e401c46dbbdf918c901e60d946)
-- [mitigation_type.rules.threat_level.medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-0d6f1d940d1a4a097443dbe087c47972714f78cf0b81c53cb7120a5f405fce22)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.threat_level.high](resources--malicious_user_mitigation--reference--group-001.md#canonical-0100333213231221-1212123231222232-3300213123021331-3231220222100010-1000030133330202-2322230311001001-3233110213020132-3201012211231103)
+- [mitigation_type.rules.threat_level.low](resources--malicious_user_mitigation--reference--group-001.md#canonical-3012112202333023-2122323122221310-0222011233102321-1010020120022130-0031131121123210-0001301012312323-3133210120302100-0132120031211012)
+- [mitigation_type.rules.threat_level.medium](resources--malicious_user_mitigation--reference--group-001.md#canonical-0031123301312110-0031012210220021-1310100331233200-2013301013211302-1301103313203033-0023200130110330-2313010200221133-1000113330320202)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-10fe7b69666edaaef09db27deda2a4044031ff22bab35041ef52721ee11a5b53"></a>
+<a id="canonical-0100333213231221-1212123231222232-3300213123021331-3231220222100010-1000030133330202-2322230311001001-3233110213020132-3201012211231103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-deb179f75060e7ba2d55e7a9d8a4c8d79efbe0090ed9c95cf385ac009490904b"></a>
+<a id="canonical-3132230113213313-1100120032132322-0231111132132221-3120221030203113-2132332332000021-0032312130211130-3303201122300000-2110210021001023"></a>
 
-## mitigation_type.rules.threat_level.high — mitigation_type.rules.threat_level.high / cc8591331f68 / 2
+## mitigation_type.rules.threat_level.high — high / 030301331220 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
 - mitigation_type.rules.threat_level.high
 
-<a id="canonical-91f1d17966d4f8636290166c50a623d830707b69e6ab58ae14f56bb4da6b4b4d"></a>
+<a id="canonical-2101330131011321-1212311033201203-1202210001121230-1100221202033120-0300130013231221-3212222311202232-0110331112232310-3122122310231031"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -898,39 +898,39 @@ Terraform syntax:
 high = {}
 ```
 
-<a id="canonical-5e5a61579d8bc44000fb37e9971210bbe99127afde86b81e11418defa9741504"></a>
+<a id="canonical-1132112212011113-2131202330101000-0000332303133221-2113010201002323-3221210102132233-3132201223200132-0101100120313233-2221131001110010"></a>
 
-## Direct properties — mitigation_type.rules.threat_level.high / cc8591331f68 / 3
+## Direct properties — high / 030301331220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-dd7f46aab30e0280180fbb2220ec30855241489096f72698a7e91cbae06524d2"></a>
+<a id="canonical-3131133310122222-2303003200022000-0120003323230202-0200323003002011-1102100110202100-2112331302122120-2213322101302322-3200121102103102"></a>
 
-## Next pages — mitigation_type.rules.threat_level.high / cc8591331f68 / 4
+## Next pages — high / 030301331220 / 4
 
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-c65a2fcb9aedaa742a16f4b94421829c0d7596e401c46dbbdf918c901e60d946"></a>
+<a id="canonical-3012112202333023-2122323122221310-0222011233102321-1010020120022130-0031131121123210-0001301012312323-3133210120302100-0132120031211012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0a12ba5dead29dec1888a4285a38d536d320410a43355e82eeaae4d842a3ca5c"></a>
+<a id="canonical-0022010223221131-3222310221313230-0120202022100220-1122032031110312-3103020010010022-1003031111322002-3232222232103120-1002220330221130"></a>
 
-## mitigation_type.rules.threat_level.low — mitigation_type.rules.threat_level.low / 6f221d4867ad / 2
+## mitigation_type.rules.threat_level.low — low / 102012132231 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
 - mitigation_type.rules.threat_level.low
 
-<a id="canonical-e489aa61e99f73736cc1d27bf03dc7350e3c2b01b5210deeeef1e70040464132"></a>
+<a id="canonical-3210202122221201-3221213313031303-1230300131021323-3300033130130311-0032033002230001-2311020100313232-3232330132130000-1000101210010302"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -959,39 +959,39 @@ Terraform syntax:
 low = {}
 ```
 
-<a id="canonical-40f330fbb53cf460e8b4885f4111900e6036a38edb44d8f9c9493688e78a1697"></a>
+<a id="canonical-1000330303003323-2311033033101200-3220231020201133-1001010121000032-1200031222032032-3123101031203321-3021102103122020-3213202201122113"></a>
 
-## Direct properties — mitigation_type.rules.threat_level.low / 6f221d4867ad / 3
+## Direct properties — low / 102012132231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a2ed36b2bdc3b4462f8c2f75cfd203515c6cf784c8f01c36f87e02f59b11df73"></a>
+<a id="canonical-2202323103122302-2331300323101012-0233203002331311-3033310200031101-1130123033132010-3020330001300312-3320133200023311-2123010131331303"></a>
 
-## Next pages — mitigation_type.rules.threat_level.low / 6f221d4867ad / 4
+## Next pages — low / 102012132231 / 4
 
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-0d6f1d940d1a4a097443dbe087c47972714f78cf0b81c53cb7120a5f405fce22"></a>
+<a id="canonical-0031123301312110-0031012210220021-1310100331233200-2013301013211302-1301103313203033-0023200130110330-2313010200221133-1000113330320202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-108d2f6df3229b13a27ad62a0acbdb6bf0a25a5d7771cbe72364511b3ffd8b32"></a>
+<a id="canonical-0100203102331231-3303020221230103-2202132231120222-0022302331231223-3300220211221131-1313130130233213-0203121011010123-0333333120230302"></a>
 
-## mitigation_type.rules.threat_level.medium — mitigation_type.rules.threat_level.medium / fcd632568083 / 2
+## mitigation_type.rules.threat_level.medium — medium / 111220002003 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-18837081a8150c1ba590aedacdb79d81919a9b235f1736af59596cf7c5821fec)
-- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-a3b833d323fdab6d7a2b4b6c163974ddac79a90e00f89f06aafa62927ff9ff73)
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [mitigation_type](resources--malicious_user_mitigation--reference--group-001.md#canonical-0120200313002001-2220011100300123-2211210022323122-3031231321312001-2101212221230203-1133011303122233-1121112112303313-3011200201333230)
+- [mitigation_type.rules](resources--malicious_user_mitigation--reference--group-001.md#canonical-2203232003033103-0203333122231231-1322022310231230-0112032113103131-2230132122210032-0000332021330012-2222332212022102-1333332133331303)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
 - mitigation_type.rules.threat_level.medium
 
-<a id="canonical-e6446b8cd7161ea021d76fe26a3476b943b704d42a84e2cfa30724f8e842e8b8"></a>
+<a id="canonical-3212101012232030-3113011201322200-0201311312333202-1222031013122321-1003231300103110-0222201032023033-2203001302103320-3220100232202320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1020,36 +1020,36 @@ Terraform syntax:
 medium = {}
 ```
 
-<a id="canonical-22b5e72dc5c9636f9cc4a198dafa4460936304d45baa1fcbee8136947c15f2af"></a>
+<a id="canonical-0202231132130231-3011302112031233-2130301022012120-3122332210101200-2103120300103110-1123222201333023-3232200103122110-1330011133022233"></a>
 
-## Direct properties — mitigation_type.rules.threat_level.medium / fcd632568083 / 3
+## Direct properties — medium / 111220002003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b5e900fafaf89c5a3758421b399e8c9f87dcaf0f76da4b2df9ee803289dfd130"></a>
+<a id="canonical-2311322100003322-3322332021301122-0313112010020123-0321213220302133-2013313022330033-1312312210230231-3321323220000302-2021313331010300"></a>
 
-## Next pages — mitigation_type.rules.threat_level.medium / fcd632568083 / 4
+## Next pages — medium / 111220002003 / 4
 
-- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-fd989a8b1386aced4e911ba6e82cb0556924f7dcce33a1d9327f41facc677949)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [mitigation_type.rules.threat_level](resources--malicious_user_mitigation--reference--group-001.md#canonical-3331212021222023-0103201222303231-1032210101232212-3220023023001111-1221021033133130-3032030322013121-0302133310013322-3030121313211021)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
 
-<a id="canonical-955ad4ebf252780b24cb8db4b64412cd8d8b8383f4ae33233547a54e893a0716"></a>
+<a id="canonical-2111112231103223-3302110213200023-0210302320312310-2312101001023031-2031202320032003-3310223203030203-0311101322111032-2021032200130112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e9109bf3c258ce41129b9975fe3c6eae34a231680590a8d878a505b4063c559"></a>
+<a id="canonical-2032210100212333-0330021120303210-0101022123212113-1133320330123222-3203102202030112-2000112100222031-2013202211001123-1000120330111121"></a>
 
-## timeouts — timeouts / 9dbce0c7628a / 2
+## timeouts — timeouts / 301312022022 / 2
 
 Breadcrumbs:
 
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
 - timeouts
 
-<a id="canonical-e7d8c81d563c08fa731ff3f71dcfa170d1f556527df74d232aa4bd7b250cccd6"></a>
+<a id="canonical-3213312030200131-1112033000203322-1303013333033313-0131303322011300-3101331111121102-1331331310310203-0222221023311323-0211003030303112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1061,15 +1061,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-f5f50d3b2a5903bbbf1ab481e302012a7f14766f8b2d73cc8016109e7a35c7a7"></a>
+<a id="canonical-3311331100310323-0222112100032323-2333012223102001-3203000200010222-1333011013121233-2023023113033030-2000011201002132-1322031130132213"></a>
 
-## Direct properties — timeouts / 9dbce0c7628a / 3
+## Direct properties — timeouts / 301312022022 / 3
 
-<a id="canonical-b0d585d69b64ddbb842a9ae1645c6139f96a15745ef88d72f46ad805ae1a8565"></a>
+<a id="canonical-2300311120113112-2123121031312323-2010022221223201-1210113012010321-3321122201111310-1132332020311302-3310122231200011-2232012220111211"></a>
 
-<a id="canonical-724ed66a6c47150ede8d337b3b12c16ec9e4388ae8e304667737d16a5c65924b"></a>
+<a id="canonical-1302103231121222-1230101301110032-3132203103031323-0323010230011232-3021321003202022-3220320300101212-1313031331011222-1130121121021023"></a>
 
-## create property — timeouts / 9dbce0c7628a / 4
+## create property — timeouts / 301312022022 / 4
 
 Type: `"string"`. Optional.
 
@@ -1077,11 +1077,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-e7a3b4eb388a4f649e45c743b594520b720ee65095c0378f56982740e4a21129"></a>
+<a id="canonical-3213220323103223-0320202210331210-2132101130131003-2311211011020023-1302003232121100-2111300003132033-1112212002131000-3210220201010221"></a>
 
-<a id="canonical-49e27c76c8cdfff0e63d1c3647f3cb8f2fedfd6b5ee9fc057e829e8ad7b054bb"></a>
+<a id="canonical-1021320213301312-3020303133333300-3212033101300312-1013330330232033-0233323133311223-1132322133300011-1332200221322022-3113230011102323"></a>
 
-## delete property — timeouts / 9dbce0c7628a / 5
+## delete property — timeouts / 301312022022 / 5
 
 Type: `"string"`. Optional.
 
@@ -1090,11 +1090,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-7e51834809c34cadcf25b8d691db6ad389608ae42a3eb9b8955f0be3831527ea"></a>
+<a id="canonical-1332110120031020-0021300310302231-3033021123203112-2101312312223103-2021120020223210-0222033223212320-2111113300233203-2003011102133222"></a>
 
-<a id="canonical-b80ea1db6654f1955706c52b1152b70daf4d177542d58a7d240c2138f35d8d9f"></a>
+<a id="canonical-2320003222013123-1212111033012111-1113001230110223-0101110223130031-2233103101131311-1002311120221331-0210003002010320-3303113120312133"></a>
 
-## read property — timeouts / 9dbce0c7628a / 6
+## read property — timeouts / 301312022022 / 6
 
 Type: `"string"`. Optional.
 
@@ -1103,11 +1103,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-232a462da6d6e03c3aa9d2f5d26e101381f76ec9fae14f8ce58ca2bbff070d98"></a>
+<a id="canonical-0203022210120231-2212311232000330-0322222131023311-3102123201000103-2001331312323021-3322320110332030-3211203022022323-3333001300312120"></a>
 
-<a id="canonical-604d0306a82c979d0e4312ffc4ecfd6eea78ddd928c530d1acaaf7377ef169b0"></a>
+<a id="canonical-1200103100030012-2220023021132131-0032100301023333-3010323033311232-3222132031313121-0220301103003101-2230222233130313-1332330112212300"></a>
 
-## update property — timeouts / 9dbce0c7628a / 7
+## update property — timeouts / 301312022022 / 7
 
 Type: `"string"`. Optional.
 
@@ -1115,9 +1115,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-f2e512f2a0648655d6f2f661f9dd838988e01d8e022ccdfc3b16caaa2917f46c"></a>
+<a id="canonical-3302321101023302-2200121020121111-3112330233121201-3321313120032021-2020320001312032-0002023030313330-0323011230222222-0221011333101230"></a>
 
-## Next pages — timeouts / 9dbce0c7628a / 8
+## Next pages — timeouts / 301312022022 / 8
 
-- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db)
+- [Property reference](resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [xcsh_malicious_user_mitigation](../resources/malicious_user_mitigation.md#canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123)

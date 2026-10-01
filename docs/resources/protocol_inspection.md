@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_protocol_inspection 
 
 # xcsh_protocol_inspection landing
 
-<a id="canonical-cc98a9fefd84f27d9c16e221f4eabbdce6b90ff1e1bacd91433bb7d65f1ebb12"></a>
+<a id="canonical-3030212022213332-3331201033021331-2130011232020201-3310322223233130-3212232100333301-3201232230312101-1003032323133112-1133013223230102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aed4749ae4457329e17438cc00f6a30d774d6dd355e88dd305ed920205f37ddf"></a>
+<a id="canonical-2232311013102122-3210101113030221-3201131003203030-0000331222030031-1313103112313103-1111322020313103-0011323121020002-0011330313313133"></a>
 
-## xcsh_protocol_inspection — xcsh_protocol_inspection / 44f022b8f9f6 / 2
+## xcsh_protocol_inspection — xcsh_protocol_inspection / 232033213312 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages Protocol Inspection Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-<a id="canonical-4a36dc84a481f7f8e66acce548d7f37f1721c1c91d943fc01f5c2ba32bb99d97"></a>
+<a id="canonical-1022031231302010-2210200133133320-3212122230303211-1020311333031333-0113020130013021-0131211003333000-0133113002232203-0223232121312113"></a>
 
-## Prerequisites — xcsh_protocol_inspection / 44f022b8f9f6 / 3
+## Prerequisites — xcsh_protocol_inspection / 232033213312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c52f2f1ed72a8813a8923ebbcf6d166887d819291c4078b2d5274d2ac2a11475"></a>
+<a id="canonical-3011023302330132-3113022220200103-2220210203322323-3033123101121220-2013312001210221-0130100013202302-3111021310310222-3002220101101311"></a>
 
-## Minimal configuration — xcsh_protocol_inspection / 44f022b8f9f6 / 4
+## Minimal configuration — xcsh_protocol_inspection / 232033213312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_protocol_inspection" "example" {
 }
 ```
 
-<a id="canonical-629c3ae00fe0454a4700a4f46a188c91767af2215a40e7ce7cdabd429f881270"></a>
+<a id="canonical-1202213003223200-0033320010111022-1013000022103310-1222012020302101-1312132233020201-1122100032133032-1330312223311002-2133202001021300"></a>
 
-## Root configuration — xcsh_protocol_inspection / 44f022b8f9f6 / 5
+## Root configuration — xcsh_protocol_inspection / 232033213312 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-e3feaf4fd874a207d3048b9a106097d408b0acf73ca952026bce4bb371bd0ec2"></a>
+<a id="canonical-3203333222331033-3120131022020013-3103001020232122-0100120021133110-0020230022303313-0330222111020002-1223303210232303-1301233100323002"></a>
 
-## Next pages — xcsh_protocol_inspection / 44f022b8f9f6 / 6
+## Next pages — xcsh_protocol_inspection / 232033213312 / 6
 
-- [Property reference](../guides/resources--protocol_inspection--reference--group-001.md#canonical-e4364e9cdf919f8070e0c9ff68ce35d1ccf1e8b653ca9312621219bdcca91de8)
-- [Examples](../guides/resources--protocol_inspection--examples--group-001.md#canonical-daa07a474b657dbd62339295ce1f9bb6e4e70833d976326d48460822d296ef4f)
-- [Import](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-49e74acc2efc92347f83c9fbfaa202d79c981fe9f204a191bef4ac39c40e649b)
-- [Timeouts](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-3cc7b5304d8da3de2835b6f2803fe8cd1d321bc60e7bd2279e7900fee659dd68)
+- [Property reference](../guides/resources--protocol_inspection--reference--group-001.md#canonical-3210031210322130-3133210121332000-1300320030213333-1220303203113101-3030330132202312-1103302221030102-1202010201212331-3030222101313220)
+- [Examples](../guides/resources--protocol_inspection--examples--group-001.md#canonical-3122220013221013-1023121113312331-1202030321022111-3032013321232312-3210321300200303-3121131203021231-1020101200200202-3102211232331033)
+- [Import](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-1021321310223030-0232333021020310-1333200330213323-3322220200023113-2130212001333221-3302001022012101-2332331022300321-3010003212102123)
+- [Timeouts](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-0330301323110300-1031203122033132-0220031123123302-2000033332203031-0131030201233012-0032132331020213-2132132100003332-3212112131311220)

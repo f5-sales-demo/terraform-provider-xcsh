@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_cdn_cache_rule refer
 
 # xcsh_cdn_cache_rule reference
 
-<a id="canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481"></a>
+<a id="canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a12e216c7bd0aa207075a08fddfd46be4e9491a031cec1009c3b8220e6112be9"></a>
+<a id="canonical-2201023202011230-1323310022220200-1300131122002033-3131333110122332-1032211021012200-0301303230010000-2130032320020200-3212010102233221"></a>
 
-## Property reference — Property reference / 616950b09b03 / 2
+## Property reference — Property reference / 230021230003 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 - Property reference
 
-<a id="canonical-ea3beba3a6b9f7ba411951b5c6b7dac64fd986dc0ee3ef1f12e5b5044d3ac5a8"></a>
+<a id="canonical-3222032332232203-2212232133132322-1001012111012311-3012231331223012-1033312120123130-0032320332330133-0102321123110010-1031032230112220"></a>
 
-## Direct properties — Property reference / 616950b09b03 / 3
+## Direct properties — Property reference / 230021230003 / 3
 
-<a id="canonical-1569f9e7c9da44e33a2c92ab10602e4dbfa3e79ade7d9f2100911841712cd568"></a>
+<a id="canonical-0111122133213213-3021312210103203-0322023021022223-0100120002321031-2333220332132122-3132133121330201-0000210101201001-1301023031111220"></a>
 
-<a id="canonical-fd6fa38684807f70a856cd6bae3dbde7044093aa4d4af6b8555d660ddd421f35"></a>
+<a id="canonical-3331123322032012-2010200013331300-2220111230311223-2232033123313213-0010100021032222-1031102233122320-1111113112120031-3131100201330311"></a>
 
-## annotations property — Property reference / 616950b09b03 / 4
+## annotations property — Property reference / 230021230003 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,13 +67,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e): complete subsection reference.
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032): complete subsection reference.
 
-<a id="canonical-1dcdc2ccf6188a8815020cb6f1124a9b4bcc65fd7ea6c35f729a5f0441f70e67"></a>
+<a id="canonical-0131303130023030-3312012020222020-0111000200302312-3301010210222123-1023303012113331-1332221230031133-1302212211330010-1001331300321213"></a>
 
-<a id="canonical-0c20e1f75b63fc5e6d3c8f14dca284fcfa1e8f8f0e5cd0c9e84c79cc098bad77"></a>
+<a id="canonical-0030020032013313-1123120333301132-1231033020330110-3130220220103330-3322013220332033-0032113031003021-3220103013213030-0021202322311313"></a>
 
-## description property — Property reference / 616950b09b03 / 5
+## description property — Property reference / 230021230003 / 5
 
 Type: `"string"`. Optional.
 
@@ -117,11 +117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5242aca943748c1e6d851c5d73e6923ce2e9a2cb951b8c83f9aeb96e814cc7c1"></a>
+<a id="canonical-1102100222302221-1003131020300132-1231201101301131-1303321221020330-3202322122023023-2111012320302003-3321223223211232-2001103030133001"></a>
 
-<a id="canonical-06283b8a90f8bc33ae267807ad4743855a56f28f3e1fb0a6a961bb1a6f9d0f57"></a>
+<a id="canonical-0012022003232022-2100332023300303-2232021213200013-2231101310032011-1122111233022033-0332013323002212-2221120123230122-1233213100331113"></a>
 
-## disable property — Property reference / 616950b09b03 / 6
+## disable property — Property reference / 230021230003 / 6
 
 Type: `"bool"`. Optional.
 
@@ -144,25 +144,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fdd5ba85973ae7ff449624fb4013fd43788de7cf575ed92bbba353e06f4ac12e"></a>
+<a id="canonical-3331311123222011-2113032232133333-1010211202103323-1000010333311003-1320203132133033-1113113231210223-2323220311033200-1233102230010232"></a>
 
-<a id="canonical-de449a3598d6f21e799af10631673d7fe5d028e4d46aa17de8841eb4c65a4fe2"></a>
+<a id="canonical-3132101021220311-2120311233020132-1321212233010012-0301121303311333-3211310002203210-3110122222011331-3220201001322310-3012112210333202"></a>
 
-## id property — Property reference / 616950b09b03 / 7
+## ID property — Property reference / 230021230003 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-b2680fabaacf78cbe0a1a6cc9225af4e387346e4d9355f3ad9da4108032fdf34"></a>
+<a id="canonical-2302122000332223-2222303313203023-3200220122123030-2102021122331032-0320130310123210-3121031111330322-3121312210010020-0003023331330310"></a>
 
-<a id="canonical-423ccc4e3dbac2c9959e8be9b49145f60ebe514a2b2601543a13eccb7808c5d6"></a>
+<a id="canonical-1002033030301032-0331232230023021-2111213220233221-2310210110113312-0032233211011022-0223021200011110-0322010332303023-1320002030113112"></a>
 
-## labels property — Property reference / 616950b09b03 / 8
+## labels property — Property reference / 230021230003 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6a64dde82d0d134533b731465b5c4300952708e4224623c8fa7ccaa8a2631635"></a>
+<a id="canonical-1222121031313220-0231003101031011-0303231303011012-1123113010030000-2111021300203210-0202101202033020-3322133030222220-2202120301120311"></a>
 
-<a id="canonical-319b01123b76ad03e1f33974aa52ec277e63feeec5f8a491c1aad479985644ba"></a>
+<a id="canonical-0301212300010102-0323131222310003-3201330303211310-2222110232300213-1332120333323232-3011332022102101-3001222231101321-2120111210102322"></a>
 
-## name property — Property reference / 616950b09b03 / 9
+## name property — Property reference / 230021230003 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6360402ed01cb85e62ada773158071c0d91e2b02659724704296c646cd2d50af"></a>
+<a id="canonical-1203120010000232-3100013023201132-1202223122131303-0111200013013000-3121013202230002-1211211302101300-1002211230121012-3031023111002233"></a>
 
-<a id="canonical-c8d84b613ad9d094c25159d5d8e5e1f277690d2d2c444ddbfcd686e36283be32"></a>
+<a id="canonical-3020312010231201-0322312131002110-3002110111213111-3120321132013302-1313122100310231-0230101010313123-3330311220123203-1202200323320302"></a>
 
-## namespace property — Property reference / 616950b09b03 / 10
+## namespace property — Property reference / 230021230003 / 10
 
 Type: `"string"`. Required.
 
@@ -312,116 +312,116 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-663cb96ecde51e43bfa858046ce1016c061e90dd3d1d52335ae31d2a63ed7b6c): complete subsection reference.
+- [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-1212033023211232-3031321101321003-2333222011200010-1230320100011230-0012013221003131-0331013111020303-1122320301310222-1203323113231230): complete subsection reference.
 
-<a id="canonical-2e84784d05a3b6843d1d714240bf584e60a21acbf5096d88f98bbccffe7e58cd"></a>
+<a id="canonical-0232201013201031-0011220323122010-0331013113011002-1000233311201032-1200220201223023-3311002112312020-3321202323303033-3332133211203031"></a>
 
-## All schema paths — Property reference / 616950b09b03 / 11
+## All schema paths — Property reference / 230021230003 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--cdn_cache_rule--reference--group-001.md#canonical-1569f9e7c9da44e33a2c92ab10602e4dbfa3e79ade7d9f2100911841712cd568) |
-| `cache_rules` | [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-5afc149ab9dcbda183181b20e36cd2af09baa98e75cd67c89c4908ec036310bd) |
-| `cache_rules.cache_bypass` | [cache_rules.cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-01e592a1218b78453bcd4d652d3ac543e1f137dd76aa476189c69517930127be) |
-| `cache_rules.eligible_for_cache` | [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-c273a99a60c7b6c618116eef1eea638a40e78823bdfd2831104787f8b8da1c6e) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-d85f21e5a7acd632dbebdf3cef72b03473b0e73905925d7088cd7b75c912f69f) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_override` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_override](resources--cdn_cache_rule--reference--group-001.md#canonical-28f8c4f0f2497ca115081eaa5ce21d539db4fd40440165eda18bb5bf459cc171) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_ttl` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_ttl](resources--cdn_cache_rule--reference--group-001.md#canonical-2ac656b4c3328119ccba5524568dacecf7d80ceb2316ef9f7758181b38d1de99) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.ignore_response_cookie` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.ignore_response_cookie](resources--cdn_cache_rule--reference--group-001.md#canonical-7f26a7f366f991a5b1f422dd286d9d994800f02bbb719b2989f36533696f1d4d) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_uri` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-8070fa9ef069534a684bc742e00e1cf55b8527febb389f6f49a789a80eb351fa) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_override` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_override](resources--cdn_cache_rule--reference--group-001.md#canonical-f0eff59d3d9d34ba5a689278c491f3bc3734da0aa4be1ea88d98a4c16f9cf46d) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_ttl` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_ttl](resources--cdn_cache_rule--reference--group-001.md#canonical-210688d569242332ca455f5043824c312145599a9367b4e962d6e6ec6db2247a) |
-| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.ignore_response_cookie` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.ignore_response_cookie](resources--cdn_cache_rule--reference--group-001.md#canonical-81e130c2f3b0bc0e638f8da4e33ecc43bce3b28ab23b923afb8c274ae246b571) |
-| `cache_rules.rule_expression_list` | [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-85425e671a4ffce2105a46e72522c42400f9f543f04bb4eea1cf0711b0c17623) |
-| `cache_rules.rule_expression_list.cache_rule_expression` | [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-99522e78351d70677f1ad7fb7d6cc54553df8f336256ca67d62ccd6e6f56c8fd) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-ceed7b8c2ca0d7c0dc6e033aa26987152b82a402be9f73d512596af0f7cd1ae9) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.name` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.name](resources--cdn_cache_rule--reference--group-001.md#canonical-0239f7d2a30e795d70d2b1db61f2d5f5b03ebe678d1cb8282e649aeddced7033) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-d05227e641efe763d07f1724ac56e6a7bda5fddf8594273d2b8fcc719951595f) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-f18a4c70f18da4df31ec46e1b2e7fda0ca4fbfcc8f2e60085a385362862c54d2) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-fc322c9c2cc06df20de1528ece60b3631c67235652ed8cbfad1c409be95d79a6) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-936f2b931b46d19c074e8a9a2088a5fae17f35ccacef689068943806f7264e39) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-1a1e9f4c8af7aa4e04beb56f0351c84e627d998cfadf116511b672623e80e71a) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-e4083cc075003ab6506f677ca88277755d2a617b45c09cb8986374de82650020) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-8649f8e4972424926846efc696debc8298a31acb0ef931b0bb9254555b7e09b1) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-e1b71edb958c1e05f09f00f7516a1d6c42a5270a3ad577d1968d1c98ff4d439e) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-a2e405f55870e5281a198420d830a55a267fd0abe47309c309390ff6e0470c0e) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-0f1763deadd03e3ecdac756cc3094e8eabdd6a85f8145e7c44eff1663a8033ae) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-d90bd0aba97ceda9b760af95925e9f71e05194c944c54979bb8b91b9ba0f5ce2) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.name` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.name](resources--cdn_cache_rule--reference--group-001.md#canonical-8c02612e8c5b4853baedd726897ffeaac40321ac291c34d708b72064a2174046) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-a7ce510e23fba4dbe2c02582b82ed6ea9932f2522b0d4d3eb2b8ecfdd4f7b17c) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-b0132b6287b3a5bafecf64786e1290696a43b15b3a3dcab943d33d95290cbfe9) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-99b390b1f596396d09ea49abc677d2eab26e8143690ebb5ee2966dbf39c6b7c9) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-38503109d4f206d4c7941dadbc42dbc4c02b49f3dc82dc0786d7daf16169483f) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-80798151163cb4f5ff45553159923eedac944050254ccdea4ef6d34a41354196) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-c19e759eed9dd3c1aca1f2b0265d087a92ee586079b1a732175746647d98b565) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-9749ed5f0b41d2577022d23d8d4d92c55e8b4469204ed43f32e003ed5a1fd54a) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-1140b64dd09510b28bbe959d423d4c4d6a38ebaca23d934471d831f94cc242ec) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-61b676711d71962f3e4249887cdcd7f1821bc8566d7c7108c3d13e32ad9a85da) |
-| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-cef8396b9e26f2aad66156266558d0cb021e403ace37b18b85994d326a28ae7f) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match` | [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-ac2414fdca8fbe59ac1a50552e1e08bd954e1375c2650e5af9c46afa6713d280) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-97080f2ef4fe51d49de860751347e6f65c960c19e8f2765c88981f0ec28230a9) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-2780694750eb385f126de6e2f595443a337c4cc65d6bb8c5383ad9c8e51718db) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-f82b9a1bc74e7d1cb8e2c985b54d39bd45e3f15896938b3b57662619dec53bb3) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-5dd917e5331e5724abac6a304785338fb9327b0c26632e0788566fa8bc80e9f5) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-147c2f488f551f3f056f5b2085b7c0d7c616f6ace2d4cdea8c99352f7f0a249e) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-b703c063d59349dc3e6b949834637b56f487619797e412f8f54d4d98bc9235c7) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-ca46f6830b240ac9da363a2179f4c0ad1fd961a4656e9706069fb4d44e97361e) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-5a1748e3638b84d1326d34ebf8d3fa9d2a16a6f727e39ed063bc442e0cc71a63) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-ef58be7319efc3ab9dad821b8d2537c2af3debc6794c4782aadcd6045c2bdd07) |
-| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-5f392aea846a547ddb2a0a5040a6dcb55d7ef2e7b16172a304f1bb330698c09d) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-b5770c6fb04ca3a11ab2d076cb01173fc5921f56206095de7381b468da8eb4be) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.key` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.key](resources--cdn_cache_rule--reference--group-001.md#canonical-a5f1d3b15fd729f9f38f784e81c2c217c50fd0ea147454f6e3a5a0bf69b54c7d) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-75365384f1a39c26db9608d27aadfd85259aa13f64d9a66437429a690f8fa1e8) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-7e8aa7f00fd8791ab35428d57386535ce46a3c9810d66b979261c87adf43eefb) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-c5ebeccbe286b7100cb3ca622864f8a941867283e0c77f862b59ed587f542981) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-0505d6caf37d12d2003c02bed140fef2ae19c6869d5b3a20984a9b0eede3b60d) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-4716e9ef00b2432bab902171bf2dc06d1388f2ca39a1c44617b041d1804e5921) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-b3bd86873295d1ee37c2df47ff90628c20c0a301e632589f145a11690addbab5) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-35f37fc82b0934ed464c4ab429ad8a8be9c523c7e474510bddbd93e1a42560ce) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-c47bae5aa6861944e82bcea02bb9a543da82daa4d700d9a1e0f18ccb03db01c9) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-f5785559c6cb4ed6594e1aeee96c3f705f7ae6c17baf8ebf3c28e0f2151ffca0) |
-| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-b4f6eaf217eb3fe40670437f52771cbaf15de494bd3a0080db04a6028de1280a) |
-| `cache_rules.rule_expression_list.expression_name` | [cache_rules.rule_expression_list.expression_name](resources--cdn_cache_rule--reference--group-001.md#canonical-7700b8dac73ea01e4fecfe50d45560a03e096ca7caf268ac720577f8a25ae26d) |
-| `cache_rules.rule_name` | [cache_rules.rule_name](resources--cdn_cache_rule--reference--group-001.md#canonical-c843afd6613a9e6adb3fdc3fdf4eba05e4ea1dff1cfe072a25c04cb34c9de8a7) |
-| `description` | [description](resources--cdn_cache_rule--reference--group-001.md#canonical-1dcdc2ccf6188a8815020cb6f1124a9b4bcc65fd7ea6c35f729a5f0441f70e67) |
-| `disable` | [disable](resources--cdn_cache_rule--reference--group-001.md#canonical-5242aca943748c1e6d851c5d73e6923ce2e9a2cb951b8c83f9aeb96e814cc7c1) |
-| `id` | [id](resources--cdn_cache_rule--reference--group-001.md#canonical-fdd5ba85973ae7ff449624fb4013fd43788de7cf575ed92bbba353e06f4ac12e) |
-| `labels` | [labels](resources--cdn_cache_rule--reference--group-001.md#canonical-b2680fabaacf78cbe0a1a6cc9225af4e387346e4d9355f3ad9da4108032fdf34) |
-| `name` | [name](resources--cdn_cache_rule--reference--group-001.md#canonical-6a64dde82d0d134533b731465b5c4300952708e4224623c8fa7ccaa8a2631635) |
-| `namespace` | [namespace](resources--cdn_cache_rule--reference--group-001.md#canonical-6360402ed01cb85e62ada773158071c0d91e2b02659724704296c646cd2d50af) |
-| `timeouts` | [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-43ee98d5b7c3c2f607cbf601911a8af9b7990f3a8de411d6c884a32c565f9039) |
-| `timeouts.create` | [timeouts.create](resources--cdn_cache_rule--reference--group-001.md#canonical-a457eab41a1ac3b922bd953eed8b5f67187078ac18edde77ee5e2b7853268f4d) |
-| `timeouts.delete` | [timeouts.delete](resources--cdn_cache_rule--reference--group-001.md#canonical-e68778ca0c3ed2e5d8f45e96c1ea0d1c219e83eae43ace3006cac4ddd525f07c) |
-| `timeouts.read` | [timeouts.read](resources--cdn_cache_rule--reference--group-001.md#canonical-1e1535909b9c412e57afaf60b1472b865a61f3aa7431d16527a93940577f49a6) |
-| `timeouts.update` | [timeouts.update](resources--cdn_cache_rule--reference--group-001.md#canonical-d14c588390847ac4898eed1d9d116b2c6a55d3072f6e4a1dc2d8e689cacb382d) |
+| `annotations` | [annotations](resources--cdn_cache_rule--reference--group-001.md#canonical-0111122133213213-3021312210103203-0322023021022223-0100120002321031-2333220332132122-3132133121330201-0000210101201001-1301023031111220) |
+| `cache_rules` | [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-1122333001102122-2321313023312201-2003012001230200-3203123031022233-0021232222212032-1311303112133020-2130102100203230-0003120301002331) |
+| `cache_rules.cache_bypass` | [cache_rules.cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-0001321121022201-0201202313201011-0323303110311211-0231032230111003-3201330103133131-1312222210131201-2021301221110113-2103000102132332) |
+| `cache_rules.eligible_for_cache` | [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3002130322212122-1200301323123012-0120010112323233-0132322212032022-1000321320200203-2331333102200301-0100101320133320-2320312201301232) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-3120113302013211-2213223031120302-3123322331330330-3233130223000310-1303230032130321-0011210211311300-2020303113231311-3021010233122133) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_override` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_override](resources--cdn_cache_rule--reference--group-001.md#canonical-0220332030103300-3302102113302201-0111002001322222-1130320201311103-2131231033311000-1010000112113231-2201202323112333-1011213030011301) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_ttl` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_ttl](resources--cdn_cache_rule--reference--group-001.md#canonical-0222301211122310-3003030220010121-3030232211110210-1112203122303230-3313312000303223-0203011232332133-1313112001200123-0320310131322121) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.ignore_response_cookie` | [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.ignore_response_cookie](resources--cdn_cache_rule--reference--group-001.md#canonical-1333021222133303-1212332121012211-2301331002023131-0220123121312121-1020000033000223-2323130121230221-2021330312110303-1221123301311031) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_uri` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-2000130033222132-3300122111031022-1220102330131002-3200003201303311-1123201102133332-2323032021331233-1021221320212220-0032230311013322) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_override` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_override](resources--cdn_cache_rule--reference--group-001.md#canonical-3300323333112131-0331213103102322-1122122021021320-3010210133032330-0313031031220022-2210233201322220-2031212022103001-1233213033101231) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_ttl` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_ttl](resources--cdn_cache_rule--reference--group-001.md#canonical-0201001220203111-1221021002030302-3022101111331100-1003200210300301-0201101111212122-2103121323103221-1202311232123230-1231230202101322) |
+| `cache_rules.eligible_for_cache.scheme_proxy_host_uri.ignore_response_cookie` | [cache_rules.eligible_for_cache.scheme_proxy_host_uri.ignore_response_cookie](resources--cdn_cache_rule--reference--group-001.md#canonical-2001320103003002-3303230023300032-1203203320312210-3203033230301003-2330320323022022-2302032321020322-3323203002131022-3202101223111301) |
+| `cache_rules.rule_expression_list` | [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-2011100211321213-0122103333303202-0100112210123213-0211020230100210-0000332133111003-3300102323103232-2201303300130101-2300300113120203) |
+| `cache_rules.rule_expression_list.cache_rule_expression` | [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-2121110202321320-0311013113001213-1333012231133323-1331123030111011-1103313320330303-1202111230221213-3112023030311232-1233111230203331) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-3032323113232030-0230220031133000-3130123200030322-2202122120130111-0223200222100002-2332213313033111-0102112112223300-3313303101223221) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.name` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.name](resources--cdn_cache_rule--reference--group-001.md#canonical-0002032133133102-2203003213211131-1300310223013123-1201330231113311-2300033223321213-2031013023200220-0232121021223231-3130323113000303) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-3100110202133212-1001323332131203-3100133301130210-2230111232122213-2331221133313133-2011211002130331-0223203330301301-2121110111211133) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-3301202210301300-3301203122103133-0301323010123201-2302321333312200-3022103323333030-2033023212000020-1122032011031202-2012023011103102) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-3330030202302130-0230300012313302-0031320111022032-3032120023031203-0130121302031112-1102323120302333-2231013010002123-3221113113212212) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-2103123302232103-0123101231012130-0013103220222122-0200202022113322-3201133303113030-2230323312202100-1220211003200012-3313021210320321) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-0122013221331030-2022331322221032-0010233223111233-0003110130201032-1202133121212030-3322313301011211-0101231213021202-0332200032130122) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-3210002003303000-1311000003222312-1100123312131330-2220200213131311-1131022212011323-1011300021302320-2120120313103132-2002121100000200) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-2012102133203210-2113021002102102-1220101232333012-2112313223302002-2120220301223023-0032332103012300-2323210211101111-1123133200212301) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-3201231301323123-2111203001320011-3300213300003313-1101122201311230-1002221102130022-0322311113133101-2112203101302120-3333103110032132) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-2202321000113311-1120130032110220-0122012120100200-3120030022111122-0212133331002223-3210130300213003-0021032100333312-3200101300300032) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-0033011312033132-2231310003320332-3031223013111230-3003002110322032-2223313112222011-3320011011321330-1010323333011212-0322200003032232) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-3121002331002223-2221133032312221-2313120022332111-2102113221331301-3200110121103021-1010301110211321-2323202321012321-2322003311303202) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.name` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.name](resources--cdn_cache_rule--reference--group-001.md#canonical-2030000212010232-2030112310201103-2322323131130212-2021133333322222-3010000302012230-0221013003103113-0020231302001210-2202011310001012) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2213303211010032-0203332322103123-3202300002112002-2320023231123222-2121030233021102-0223003110310332-2302232032303331-3110331323011330) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-2300010302231202-2013230322112322-3332303312101320-1232010221001221-1222100323011123-0322033130222321-1003310303312111-0221003023333221) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-2121230321002301-3311211203211231-0021322210212223-3012131331023222-2302123220011003-1221003223231132-3202211212312333-0321301223133021) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-0320110003010021-3110330200123110-3013211001312231-2330100231233010-3000022310213303-3130200231300013-2012311331223301-1201122110200333) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-2000132120011101-0112033023103311-3333101111110301-1121210203323231-2230211010001100-0211103030313222-1032331231031022-1001031110012112) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-3001213213112132-3231213131033001-2230220133022300-0212113100201322-2102323211201200-1321230122130302-0113111310121210-1331212023111211) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-2113102132311133-0023100131021113-1300020231020331-2031103121023011-1132202310101221-0200103231100333-0302320000033231-1122013331111022) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-0101100023121031-3100211101002302-2023233221112131-1002033110301031-1222032032232230-2202033121031010-1301312003013321-1030300210023230) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-1201231213121301-0131130121120233-0332100210212020-1330313031133301-2002012330201112-1231133013010020-3003310103320302-2231212220113122) |
+| `cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-3032332003211223-2132021233022222-3112120111120212-1211112031003023-0002013210000322-3032031323012023-2011212110310302-1222022022321333) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match` | [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-2230021001103331-3022203323321121-2230012211001111-0232013200202331-2111103201031311-3002121100321122-3321301012223322-1213010331022000) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2113002000330232-3310333211013110-2131322012001311-0103101332123312-1130211200300121-3220330213121130-2020212001330032-3002200203002221) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-0213200012211013-1100322303201133-0102123132123202-3311211110100322-0303133010303012-1131122323203011-0320032231213020-3211011301203123) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-3320022321220123-3013103213310130-2320320230212011-2311103103212331-1011320333011120-2112210320230323-1113121202120121-3132301103232303) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-1131312101133211-0303013211130210-2223223012220300-1013201103032033-2321030213230030-0212120302320013-2020111212332220-2330200032213311) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-0110133002331020-2033111101330333-0011123311230200-2011231330003113-3012011233122230-3202311030313222-2030212103110233-1333002202102132) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-2313000330001203-3111210310213130-0332122321102120-0310120313231112-3310201312012113-2113321001023320-3311103110312120-2330210203113013) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-3022101233122003-0023021000223021-3122031203220201-1321331030002231-0133312112012210-1211123221130012-0012213323103110-1032211303120132) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-1122011310203203-1203202320103101-0302123103103223-3320310333222131-0222011222123313-0213320321323100-1203233010100232-0030301301221203) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-3233112023321303-0121323330032223-2131223120020123-2031021103133002-2233033132233012-1321103010132002-2222313031120010-1130022331310013) |
+| `cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-1133032102223222-2010122211101331-3123022200221100-1000221231302311-1131133233023213-2301120113022203-0010330123230303-0012212030002131) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-2311131300301233-2300103022032201-0122230231001312-3023000101130333-3011210201331112-0200120021113132-1303200123101220-3122203223102332) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.key` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.key](resources--cdn_cache_rule--reference--group-001.md#canonical-2211330131032301-1133311302213321-3303203313201032-2001300230020113-3011003331003222-0110131011103312-3203221122002333-1221231110301331) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-1311031211032010-3301220321300212-3123211200203102-1322223133312011-0211212222010333-1210312122121210-0313100221221221-0033203322013220) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.contains` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.contains](resources--cdn_cache_rule--reference--group-001.md#canonical-1332202222133300-0033312013210122-2303111002203111-1303201211031130-3210122203302120-0100311212232113-2102120130201322-3133100332323323) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_contain` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_contain](resources--cdn_cache_rule--reference--group-001.md#canonical-3011322332303023-3202201223130100-0030230330221202-0220121033202221-1001201213022003-3200301313332012-0223112132311120-1333111002212001) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_end_with` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_end_with](resources--cdn_cache_rule--reference--group-001.md#canonical-0011001131123022-3303133101023102-0000033000022332-3101100033323302-2232012130122012-2131112303220200-2120102221230032-3231320323120031) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_equal` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_equal](resources--cdn_cache_rule--reference--group-001.md#canonical-1013011232213233-0000230210030223-2223210002011301-2333023130001231-0103202033023022-0321220130101012-0113230010013101-2000103211210201) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_start_with` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_start_with](resources--cdn_cache_rule--reference--group-001.md#canonical-2303233120122013-0302211131013232-0313300231331013-3333210012022030-0200300022030001-3212030211202133-0110112201011221-0022313123222311) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.endswith` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.endswith](resources--cdn_cache_rule--reference--group-001.md#canonical-0311330313333020-0223002103103231-1012103010222310-0221223120222023-3221301102033013-3210131011010023-3131233121033201-2210021112003032) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.equals` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.equals](resources--cdn_cache_rule--reference--group-001.md#canonical-3010132322321122-2212201201211010-3220022330322200-0223232122111003-3122200231222210-3113000031212201-3200330120303023-0003312300013021) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.match_regex` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.match_regex](resources--cdn_cache_rule--reference--group-001.md#canonical-3311132011111121-3012302310323112-1121103201223232-3221123003331300-1133132232123001-1323223320322333-0330022032003302-0111013333302200) |
+| `cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.startswith` | [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.startswith](resources--cdn_cache_rule--reference--group-001.md#canonical-2310331232223302-0113322303333210-0012130010031333-1102131301302322-3301113132102110-2331032200002000-3123001022120002-2031320102200022) |
+| `cache_rules.rule_expression_list.expression_name` | [cache_rules.rule_expression_list.expression_name](resources--cdn_cache_rule--reference--group-001.md#canonical-1313000023203122-3013033222000132-1033323033321100-3110111112002200-0332002112302213-3022330212202230-1302001113133320-2202112232021231) |
+| `cache_rules.rule_name` | [cache_rules.rule_name](resources--cdn_cache_rule--reference--group-001.md#canonical-3020100322333112-1201032221321222-3123033331300333-3133103223220011-3210322201313333-0130333200130222-0211300010302303-1030213132202213) |
+| `description` | [description](resources--cdn_cache_rule--reference--group-001.md#canonical-0131303130023030-3312012020222020-0111000200302312-3301010210222123-1023303012113331-1332221230031133-1302212211330010-1001331300321213) |
+| `disable` | [disable](resources--cdn_cache_rule--reference--group-001.md#canonical-1102100222302221-1003131020300132-1231201101301131-1303321221020330-3202322122023023-2111012320302003-3321223223211232-2001103030133001) |
+| `id` | [id](resources--cdn_cache_rule--reference--group-001.md#canonical-3331311123222011-2113032232133333-1010211202103323-1000010333311003-1320203132133033-1113113231210223-2323220311033200-1233102230010232) |
+| `labels` | [labels](resources--cdn_cache_rule--reference--group-001.md#canonical-2302122000332223-2222303313203023-3200220122123030-2102021122331032-0320130310123210-3121031111330322-3121312210010020-0003023331330310) |
+| `name` | [name](resources--cdn_cache_rule--reference--group-001.md#canonical-1222121031313220-0231003101031011-0303231303011012-1123113010030000-2111021300203210-0202101202033020-3322133030222220-2202120301120311) |
+| `namespace` | [namespace](resources--cdn_cache_rule--reference--group-001.md#canonical-1203120010000232-3100013023201132-1202223122131303-0111200013013000-3121013202230002-1211211302101300-1002211230121012-3031023111002233) |
+| `timeouts` | [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-1003323221203111-2313300330023312-0013302333120001-2101012220223321-2313212100330322-2031321001013112-3020201022030230-1112113321000321) |
+| `timeouts.create` | [timeouts.create](resources--cdn_cache_rule--reference--group-001.md#canonical-2210111332222310-0122012230032321-0202233121110332-3231202311331213-0120130013202230-0120323131321313-3232113202231320-1103021220331031) |
+| `timeouts.delete` | [timeouts.delete](resources--cdn_cache_rule--reference--group-001.md#canonical-3212201313203022-0030033231023211-3120331011322112-3001322200310130-0201213220033222-3210032230320300-0012302230103131-3111021133001330) |
+| `timeouts.read` | [timeouts.read](resources--cdn_cache_rule--reference--group-001.md#canonical-0132011103112100-2123213010010232-1113223322331200-2301101302232012-1122120133032222-1310030131011211-0213222103211000-1113133310212212) |
+| `timeouts.update` | [timeouts.update](resources--cdn_cache_rule--reference--group-001.md#canonical-3101103011202003-2100201013223010-2021203232310131-2131010112230230-1222111131030013-0233123210220131-3002312032122021-3022302303200231) |
 
-<a id="canonical-f54c3823144e409bb843eea531cc2a8b05a856ca8dd5d5e5c3a07e56ee95f287"></a>
+<a id="canonical-3311103003200203-0110103210002123-2320100332322211-0301303002222023-0011222011123022-2031311131113211-3003220013321112-3232211133022013"></a>
 
-## Next pages — Property reference / 616950b09b03 / 12
+## Next pages — Property reference / 230021230003 / 12
 
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-663cb96ecde51e43bfa858046ce1016c061e90dd3d1d52335ae31d2a63ed7b6c)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [timeouts](resources--cdn_cache_rule--reference--group-001.md#canonical-1212033023211232-3031321101321003-2333222011200010-1230320100011230-0012013221003131-0331013111020303-1122320301310222-1203323113231230)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e"></a>
+<a id="canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d4de794d49d4a365152d0fe1a40d19fe77553ab563b7f498221db9f4c4bc7146"></a>
+<a id="canonical-3110313213211031-1021311022031211-0111023100333201-2210003101213332-1313111103222311-1203231333102120-0202013123213310-3010233013011012"></a>
 
-## cache_rules — cache_rules / 5a33461324f2 / 2
+## cache_rules — cache_rules / 010302103302 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
 - cache_rules
 
-<a id="canonical-5afc149ab9dcbda183181b20e36cd2af09baa98e75cd67c89c4908ec036310bd"></a>
+<a id="canonical-1122333001102122-2321313023312201-2003012001230200-3203123031022233-0021232222212032-1311303112133020-2130102100203230-0003120301002331"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -462,21 +462,21 @@ cache_rules {
 }
 ```
 
-<a id="canonical-cc01963e1cf8ce2f8240f752377839c48431b5a3ce91901b13bf53e87602361b"></a>
+<a id="canonical-3030000121120332-0130332030320233-2002100033131102-0313132003213010-2010030123112203-3032210121000123-0103233311033220-1312000203120123"></a>
 
-## Direct properties — cache_rules / 5a33461324f2 / 3
+## Direct properties — cache_rules / 010302103302 / 3
 
-- [cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-9a1dcb9f1512c822a2e7410523809c593e7bc00ffe3297e1320d2d46144546e6): complete subsection reference.
+- [cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-2122013130232133-0111010230200202-2202321310010011-0203200021301121-0332132330000033-3332030221133201-0302003102311012-0110101110123212): complete subsection reference.
 
-- [eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090): complete subsection reference.
+- [eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100): complete subsection reference.
 
-- [rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e): complete subsection reference.
+- [rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232): complete subsection reference.
 
-<a id="canonical-c843afd6613a9e6adb3fdc3fdf4eba05e4ea1dff1cfe072a25c04cb34c9de8a7"></a>
+<a id="canonical-3020100322333112-1201032221321222-3123033331300333-3133103223220011-3210322201313333-0130333200130222-0211300010302303-1030213132202213"></a>
 
-<a id="canonical-28c0b7f810142c579892e31fff9a1de8a051f3fdece5461083cb219c76936aec"></a>
+<a id="canonical-0220300023133320-0100011002301113-2120210232030133-3333212201313220-2200110133033331-3230321110120100-2003302302012130-1312210312223230"></a>
 
-## rule_name property — cache_rules / 5a33461324f2 / 4
+## rule_name property — cache_rules / 010302103302 / 4
 
 Type: `"string"`. Optional.
 
@@ -527,34 +527,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bb1648ba7f76edf0507cd3578d1077ceb5c935e842acdbb81a6e2dde966c7b57"></a>
+<a id="canonical-2323011210202322-1333131232313300-1100133031031113-2031010013133032-2311302103113220-1002223031232320-0122123202313132-2112123013231113"></a>
 
-## Next pages — cache_rules / 5a33461324f2 / 5
+## Next pages — cache_rules / 010302103302 / 5
 
-- [cache_rules.cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-9a1dcb9f1512c822a2e7410523809c593e7bc00ffe3297e1320d2d46144546e6)
-- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.cache_bypass](resources--cdn_cache_rule--reference--group-001.md#canonical-2122013130232133-0111010230200202-2202321310010011-0203200021301121-0332132330000033-3332030221133201-0302003102311012-0110101110123212)
+- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-9a1dcb9f1512c822a2e7410523809c593e7bc00ffe3297e1320d2d46144546e6"></a>
+<a id="canonical-2122013130232133-0111010230200202-2202321310010011-0203200021301121-0332132330000033-3332030221133201-0302003102311012-0110101110123212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c663fd9fe197e8944427bcb21bac44deee2f63796fff00ea9b1ff2bd1aeca559"></a>
+<a id="canonical-3012120333312133-3201211332202110-1010021323302302-0123223010103132-3232023312031321-1233333300003222-2123013333022331-0122323022111121"></a>
 
-## cache_rules.cache_bypass — cache_rules.cache_bypass / a0342f04e67b / 2
+## cache_rules.cache_bypass — cache_bypass / 001032121323 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
 - cache_rules.cache_bypass
 
-<a id="canonical-01e592a1218b78453bcd4d652d3ac543e1f137dd76aa476189c69517930127be"></a>
+<a id="canonical-0001321121022201-0201202313201011-0323303110311211-0231032230111003-3201330103133131-1312222210131201-2021301221110113-2103000102132332"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -583,37 +583,37 @@ Terraform syntax:
 cache_bypass = {}
 ```
 
-<a id="canonical-14d2a0321e36ab7a763c4bafadb3683ce38b70270643ca851e28d485a1e535d5"></a>
+<a id="canonical-0110310222000302-0132031222231322-1312033010232233-2231230312200330-3203202313000213-0012100330222011-0132022031102011-2201321103113111"></a>
 
-## Direct properties — cache_rules.cache_bypass / a0342f04e67b / 3
+## Direct properties — cache_bypass / 001032121323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5f607e1eff1e53b0c37507d30f5277dff9fdd869e3c259e9a1f7df180cd056f4"></a>
+<a id="canonical-1133120013320132-3333013211032300-3003131100133103-0033110213133133-3321333131201221-3203300211213221-2201331331330120-0030310011123310"></a>
 
-## Next pages — cache_rules.cache_bypass / a0342f04e67b / 4
+## Next pages — cache_bypass / 001032121323 / 4
 
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090"></a>
+<a id="canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e6f826a295bde67e2205dc6af2dcdd61d809aef16141ddcea0f03caaee068e70"></a>
+<a id="canonical-3212332002122202-2111233132121332-0202001131301222-3302313031311201-3120002122323301-1201100131313032-2200330003302222-3232001220321300"></a>
 
-## cache_rules.eligible_for_cache — cache_rules.eligible_for_cache / 613699e4dde2 / 2
+## cache_rules.eligible_for_cache — eligible_for_cache / 321031313202 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
 - cache_rules.eligible_for_cache
 
-<a id="canonical-c273a99a60c7b6c618116eef1eea638a40e78823bdfd2831104787f8b8da1c6e"></a>
+<a id="canonical-3002130322212122-1200301323123012-0120010112323233-0132322212032022-1000321320200203-2331333102200301-0100101320133320-2320312201301232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -652,42 +652,42 @@ eligible_for_cache {
 }
 ```
 
-<a id="canonical-69b3724b16669ad8b44810de09b80816118285f56b775335a2e868fa5f6fb246"></a>
+<a id="canonical-1221230313021023-0112121221223120-2310102001003132-0021232000200112-0101200220113311-1223131311030311-2202322012203322-1133123323021012"></a>
 
-## Direct properties — cache_rules.eligible_for_cache / 613699e4dde2 / 3
+## Direct properties — eligible_for_cache / 321031313202 / 3
 
-- [scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-7bb19ae02699d3c749b7f402452383f0dd8b3356c652db7eeaef4bcdb66d94c6): complete subsection reference.
+- [scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-1323230121223200-0212212131033013-1021231333100002-1011020320033300-3131202303031112-3012110231231332-3222323310233031-2312123121103012): complete subsection reference.
 
-- [scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-dd207207d50bc998fdede2eb95dc74888d484a8c9941d179d05454ab110ff766): complete subsection reference.
+- [scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-3131020013020013-3111002330212120-3331323132023223-2111313013102020-2031102010222030-2121100131011321-3100111011102223-0101003333131212): complete subsection reference.
 
-<a id="canonical-113f20f5a8341ada2dc43ef53f7fb600ca3f59379d19e510cbb82308f2e2ff6d"></a>
+<a id="canonical-0101033302003311-2220031001223122-0231301003323311-0333133323120000-3022033311210313-2131012132110100-3023232002030020-3302320233331231"></a>
 
-## Next pages — cache_rules.eligible_for_cache / 613699e4dde2 / 4
+## Next pages — eligible_for_cache / 321031313202 / 4
 
-- [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-7bb19ae02699d3c749b7f402452383f0dd8b3356c652db7eeaef4bcdb66d94c6)
-- [cache_rules.eligible_for_cache.scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-dd207207d50bc998fdede2eb95dc74888d484a8c9941d179d05454ab110ff766)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.eligible_for_cache.scheme_proxy_host_request_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-1323230121223200-0212212131033013-1021231333100002-1011020320033300-3131202303031112-3012110231231332-3222323310233031-2312123121103012)
+- [cache_rules.eligible_for_cache.scheme_proxy_host_uri](resources--cdn_cache_rule--reference--group-001.md#canonical-3131020013020013-3111002330212120-3331323132023223-2111313013102020-2031102010222030-2121100131011321-3100111011102223-0101003333131212)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-7bb19ae02699d3c749b7f402452383f0dd8b3356c652db7eeaef4bcdb66d94c6"></a>
+<a id="canonical-1323230121223200-0212212131033013-1021231333100002-1011020320033300-3131202303031112-3012110231231332-3222323310233031-2312123121103012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bd84f28810e123ffad8d21a8b60800a18262fce155ac2d6a67803dd65611ab04"></a>
+<a id="canonical-2331201033022020-0100320102033333-2231203102012220-2312002000002201-2002120233303201-1111223002311222-1213200003313112-1112010122230010"></a>
 
-## cache_rules.eligible_for_cache.scheme_proxy_host_request_uri — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 2
+## cache_rules.eligible_for_cache.scheme_proxy_host_request_uri — scheme_proxy_host_request_uri / 213131122112 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100)
 - cache_rules.eligible_for_cache.scheme_proxy_host_request_uri
 
-<a id="canonical-d85f21e5a7acd632dbebdf3cef72b03473b0e73905925d7088cd7b75c912f69f"></a>
+<a id="canonical-3120113302013211-2213223031120302-3123322331330330-3233130223000310-1303230032130321-0011210211311300-2020303113231311-3021010233122133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -724,15 +724,15 @@ scheme_proxy_host_request_uri {
 }
 ```
 
-<a id="canonical-18df878a4f8eb542987ebfbebb79fe08c16e55837fcfb2fc9dd566240fdc4091"></a>
+<a id="canonical-0120313320132022-1033203223111002-2120133223332332-2323132133320020-3001123211112003-1333303323023330-2131311112120210-0033313010002101"></a>
 
-## Direct properties — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 3
+## Direct properties — scheme_proxy_host_request_uri / 213131122112 / 3
 
-<a id="canonical-28f8c4f0f2497ca115081eaa5ce21d539db4fd40440165eda18bb5bf459cc171"></a>
+<a id="canonical-0220332030103300-3302102113302201-0111002001322222-1130320201311103-2131231033311000-1010000112113231-2201202323112333-1011213030011301"></a>
 
-<a id="canonical-59c30af35ed47e4dcffc6f3f94adcb697c4671f49737d6f9551d6824c18d35ec"></a>
+<a id="canonical-1121300300223303-1132311013321031-3033333012330333-2110223130231221-1330101213013310-2113031331123321-1111013112200210-3001203103113230"></a>
 
-## cache_override property — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 4
+## cache_override property — scheme_proxy_host_request_uri / 213131122112 / 4
 
 Type: `"bool"`. Optional.
 
@@ -755,11 +755,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ac656b4c3328119ccba5524568dacecf7d80ceb2316ef9f7758181b38d1de99"></a>
+<a id="canonical-0222301211122310-3003030220010121-3030232211110210-1112203122303230-3313312000303223-0203011232332133-1313112001200123-0320310131322121"></a>
 
-<a id="canonical-2d9b69f1b0f0d876c99e711f5ff4dbdc070387bed3a5512f2f66b7632a997423"></a>
+<a id="canonical-0231212312213301-2300330031201312-3021213213010133-1133331031233130-0013000320132332-3103221111010233-0233121223131203-0222212113100203"></a>
 
-## cache_ttl property — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 5
+## cache_ttl property — scheme_proxy_host_request_uri / 213131122112 / 5
 
 Type: `"string"`. Optional.
 
@@ -802,11 +802,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7f26a7f366f991a5b1f422dd286d9d994800f02bbb719b2989f36533696f1d4d"></a>
+<a id="canonical-1333021222133303-1212332121012211-2301331002023131-0220123121312121-1020000033000223-2323130121230221-2021330312110303-1221123301311031"></a>
 
-<a id="canonical-500e153c76ec743e3d20bfc55d832a5f1b65f3ea086bec80a623313b9ef9f33b"></a>
+<a id="canonical-1100003201110330-1312323013100332-0331020023333011-1131200302221133-0123121133033222-0020122332302000-2212020303010323-2132332133030323"></a>
 
-## ignore_response_cookie property — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 6
+## ignore_response_cookie property — scheme_proxy_host_request_uri / 213131122112 / 6
 
 Type: `"bool"`. Optional.
 
@@ -826,32 +826,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2102524b33d695b7b77ee3b4624a37c6f8583ae15cecc7a49de9226ce18998b2"></a>
+<a id="canonical-0201000211021023-0303311221112313-2313133232032310-1202102203133012-3320112003223201-1130323030132210-2131322102021230-3201202121202302"></a>
 
-## Next pages — cache_rules.eligible_for_cache.scheme_proxy_host_request_uri / 53076a9dd696 / 7
+## Next pages — scheme_proxy_host_request_uri / 213131122112 / 7
 
-- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-dd207207d50bc998fdede2eb95dc74888d484a8c9941d179d05454ab110ff766"></a>
+<a id="canonical-3131020013020013-3111002330212120-3331323132023223-2111313013102020-2031102010222030-2121100131011321-3100111011102223-0101003333131212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-22e8d7d3fd9c0309c743f44b19a7c6d8e435a80b12cb381911751f7677ac4925"></a>
+<a id="canonical-0202322031133103-3331213000030021-3013100333101023-0121221330123120-3210031122200023-0102302303200121-0101131101331312-1313223010210211"></a>
 
-## cache_rules.eligible_for_cache.scheme_proxy_host_uri — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 2
+## cache_rules.eligible_for_cache.scheme_proxy_host_uri — scheme_proxy_host_uri / 213313101100 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100)
 - cache_rules.eligible_for_cache.scheme_proxy_host_uri
 
-<a id="canonical-8070fa9ef069534a684bc742e00e1cf55b8527febb389f6f49a789a80eb351fa"></a>
+<a id="canonical-2000130033222132-3300122111031022-1220102330131002-3200003201303311-1123201102133332-2323032021331233-1021221320212220-0032230311013322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -888,15 +888,15 @@ scheme_proxy_host_uri {
 }
 ```
 
-<a id="canonical-6b72bdf7e721b05f18acff128d8f9b514d442a14ae774aa372ebc9bc1db3fc40"></a>
+<a id="canonical-1223130223313313-3213020123001133-0120223033330102-2031203321231101-1031101002220110-2232131310222203-1302322330212330-0131230333301000"></a>
 
-## Direct properties — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 3
+## Direct properties — scheme_proxy_host_uri / 213313101100 / 3
 
-<a id="canonical-f0eff59d3d9d34ba5a689278c491f3bc3734da0aa4be1ea88d98a4c16f9cf46d"></a>
+<a id="canonical-3300323333112131-0331213103102322-1122122021021320-3010210133032330-0313031031220022-2210233201322220-2031212022103001-1233213033101231"></a>
 
-<a id="canonical-aa09ff72adcb50e107da074989ebc2d5a339cc577114452c8bf4911189199531"></a>
+<a id="canonical-2222002133331302-2231302311003201-0013312200131021-2021322330023111-2203032130301113-1301011010110230-2023331021010101-2021012121110301"></a>
 
-## cache_override property — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 4
+## cache_override property — scheme_proxy_host_uri / 213313101100 / 4
 
 Type: `"bool"`. Optional.
 
@@ -919,11 +919,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-210688d569242332ca455f5043824c312145599a9367b4e962d6e6ec6db2247a"></a>
+<a id="canonical-0201001220203111-1221021002030302-3022101111331100-1003200210300301-0201101111212122-2103121323103221-1202311232123230-1231230202101322"></a>
 
-<a id="canonical-9f21267c801bf0239c315248abff80de87ebf83a488334bc9a1d2d8506694021"></a>
+<a id="canonical-2133020102121330-2000012333000203-2130030111021020-2223333320003132-2013322333200322-1020200303102330-2122013102312011-0012122110000201"></a>
 
-## cache_ttl property — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 5
+## cache_ttl property — scheme_proxy_host_uri / 213313101100 / 5
 
 Type: `"string"`. Optional.
 
@@ -966,11 +966,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-81e130c2f3b0bc0e638f8da4e33ecc43bce3b28ab23b923afb8c274ae246b571"></a>
+<a id="canonical-2001320103003002-3303230023300032-1203203320312210-3203033230301003-2330320323022022-2302032321020322-3323203002131022-3202101223111301"></a>
 
-<a id="canonical-ad0f51ff614ca53b0705241ab2ebe69a73a9aa4e10c8c46834f480c14e152b7e"></a>
+<a id="canonical-2231003311013333-1201103022110323-0013001102100122-2302322332122122-1303222122221032-0100302030101220-0310331020003001-1032011102231332"></a>
 
-## ignore_response_cookie property — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 6
+## ignore_response_cookie property — scheme_proxy_host_uri / 213313101100 / 6
 
 Type: `"bool"`. Optional.
 
@@ -990,31 +990,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-71290d92592c4d72754d16abcec54b1e4ba296fda0c0226e1700ebd2159f63ec"></a>
+<a id="canonical-1301022100312102-1121023010311302-1311103101122223-3032301110230132-1023220221123331-2200300002021232-0113000032233102-0111213312033230"></a>
 
-## Next pages — cache_rules.eligible_for_cache.scheme_proxy_host_uri / 7c1c4b9f7450 / 7
+## Next pages — scheme_proxy_host_uri / 213313101100 / 7
 
-- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-ebbb44b9c3fd7b4317bd0acf420193e284f7cf77ecc4c44582dc3abd38b94090)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.eligible_for_cache](resources--cdn_cache_rule--reference--group-001.md#canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e"></a>
+<a id="canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-454c2ffc81ca59d09441879d0144c98738029e00ca4fa12470a6d36259571886"></a>
+<a id="canonical-1011103002333330-2001302211213100-2110100120132131-0001101030212013-0320000221320000-3022103322010210-1300221231031202-1121111301202012"></a>
 
-## cache_rules.rule_expression_list — cache_rules.rule_expression_list / 285910683d2b / 2
+## cache_rules.rule_expression_list — rule_expression_list / 122003310223 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
 - cache_rules.rule_expression_list
 
-<a id="canonical-85425e671a4ffce2105a46e72522c42400f9f543f04bb4eea1cf0711b0c17623"></a>
+<a id="canonical-2011100211321213-0122103333303202-0100112210123213-0211020230100210-0000332133111003-3300102323103232-2201303300130101-2300300113120203"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1081,17 +1081,17 @@ rule_expression_list {
 }
 ```
 
-<a id="canonical-6ea52c05cf33b314ac855432ec93fcfc5cb34362c7c41c389bf25dca030041ce"></a>
+<a id="canonical-1232221102300011-3033030323030110-2230201111100302-3230210333303330-1130230310031202-3013301001300320-2123330211313022-0003000010013032"></a>
 
-## Direct properties — cache_rules.rule_expression_list / 285910683d2b / 3
+## Direct properties — rule_expression_list / 122003310223 / 3
 
-- [cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5): complete subsection reference.
+- [cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211): complete subsection reference.
 
-<a id="canonical-7700b8dac73ea01e4fecfe50d45560a03e096ca7caf268ac720577f8a25ae26d"></a>
+<a id="canonical-1313000023203122-3013033222000132-1033323033321100-3110111112002200-0332002112302213-3022330212202230-1302001113133320-2202112232021231"></a>
 
-<a id="canonical-2a6dff5a803e7295ea059c8d862cb4bdc011a167f100c9abaccf7a3bbfab8c86"></a>
+<a id="canonical-0222123133331122-2000033213022111-3222001121302031-2012023023102331-3000010122011213-3301000030212223-2230303313220323-2333222320302012"></a>
 
-## expression_name property — cache_rules.rule_expression_list / 285910683d2b / 4
+## expression_name property — rule_expression_list / 122003310223 / 4
 
 Type: `"string"`. Optional.
 
@@ -1138,33 +1138,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-46e1d32c12d9b30c521e7428d55ff9865a4dd565386ffc8893a116aa3ed94022"></a>
+<a id="canonical-1012320131030230-0102312123030030-1102013213100220-3111113333212012-1122103131111211-0320123333302020-2103220101122222-0332312110000202"></a>
 
-## Next pages — cache_rules.rule_expression_list / 285910683d2b / 5
+## Next pages — rule_expression_list / 122003310223 / 5
 
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5"></a>
+<a id="canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f51bf8699b14b2962ea23c4835babc36507268162500a86baa6cc9027c1b257a"></a>
+<a id="canonical-3311012333201221-2123011023022112-0232220203301020-0311232223300312-1100130212200112-0211000022201223-2222123030210002-1330012302111322"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression — cache_rules.rule_expression_list.cache_rule_expression / e1c3622c2250 / 2
+## cache_rules.rule_expression_list.cache_rule_expression — cache_rule_expression / 023002021100 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
 - cache_rules.rule_expression_list.cache_rule_expression
 
-<a id="canonical-99522e78351d70677f1ad7fb7d6cc54553df8f336256ca67d62ccd6e6f56c8fd"></a>
+<a id="canonical-2121110202321320-0311013113001213-1333012231133323-1331123030111011-1103313320330303-1202111230221213-3112023030311232-1233111230203331"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1218,49 +1218,49 @@ cache_rule_expression {
 }
 ```
 
-<a id="canonical-20158a8c9967fe12a3741e17aa6286c0d81203e6686d0862c200fa49dcc6f1e8"></a>
+<a id="canonical-0200011120222030-2121121333320102-2203131001320113-2222120220123000-3120010200033212-1220123100201202-3002000033221021-3130301233013220"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression / e1c3622c2250 / 3
+## Direct properties — cache_rule_expression / 023002021100 / 3
 
-- [cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0986b7db601d9bbc10f0249d7b2aab0bff189fbc3f6b38cfad5fd7ace17bb9e8): complete subsection reference.
+- [cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220): complete subsection reference.
 
-- [cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-fdab340a8ec0b9e25e1f8f6e84ac9ca4526af1cec6f1db355af281236495975d): complete subsection reference.
+- [cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131): complete subsection reference.
 
-- [path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-42434708340d777587211e8f1879f43a3ed3e21f55faed301bcc2accfc877827): complete subsection reference.
+- [path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213): complete subsection reference.
 
-- [query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-5e7f47d34af0ab20e193109b18292e36903ac8e35cf30c238aed231f3a4e68b4): complete subsection reference.
+- [query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310): complete subsection reference.
 
-<a id="canonical-c99a343ff03c49247180da684ebd4b5879bac1e50e6592f68c9d2c334d246787"></a>
+<a id="canonical-3021212203100333-3300033010210210-1301200031221220-1032233110231120-1321232230013211-0032121121023312-2030213102300303-1031021012132013"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression / e1c3622c2250 / 4
+## Next pages — cache_rule_expression / 023002021100 / 4
 
-- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0986b7db601d9bbc10f0249d7b2aab0bff189fbc3f6b38cfad5fd7ace17bb9e8)
-- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-fdab340a8ec0b9e25e1f8f6e84ac9ca4526af1cec6f1db355af281236495975d)
-- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-42434708340d777587211e8f1879f43a3ed3e21f55faed301bcc2accfc877827)
-- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-5e7f47d34af0ab20e193109b18292e36903ac8e35cf30c238aed231f3a4e68b4)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220)
+- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131)
+- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213)
+- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-0986b7db601d9bbc10f0249d7b2aab0bff189fbc3f6b38cfad5fd7ace17bb9e8"></a>
+<a id="canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c508f8462f0397b329cbe488652c29b5a3164a864f9dca331745db4fbe8c560e"></a>
+<a id="canonical-3011002033201012-0233000321132303-0221302332102020-1211023002212311-2203011210222012-1033213130220303-0113101131231033-2332203011120032"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.cache_headers — cache_rules.rule_expression_list.cache_rule_expression.cache_headers / 0d52afb60c11 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.cache_headers — cache_headers / 231200300101 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
 - cache_rules.rule_expression_list.cache_rule_expression.cache_headers
 
-<a id="canonical-ceed7b8c2ca0d7c0dc6e033aa26987152b82a402be9f73d512596af0f7cd1ae9"></a>
+<a id="canonical-3032323113232030-0230220031133000-3130123200030322-2202122120130111-0223200222100002-2332213313033111-0102112112223300-3313303101223221"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1308,15 +1308,15 @@ cache_headers {
 }
 ```
 
-<a id="canonical-92866f6ccf0ef941ffe6826380c9aaac72c747243dbb4c6dbe7f2c34644ce0fd"></a>
+<a id="canonical-2102201212331230-3033003233211001-3333321220021203-2000302122222230-1302301310130210-0331232310301231-2332133302300310-1210103032003331"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.cache_headers / 0d52afb60c11 / 3
+## Direct properties — cache_headers / 231200300101 / 3
 
-<a id="canonical-0239f7d2a30e795d70d2b1db61f2d5f5b03ebe678d1cb8282e649aeddced7033"></a>
+<a id="canonical-0002032133133102-2203003213211131-1300310223013123-1201330231113311-2300033223321213-2031013023200220-0232121021223231-3130323113000303"></a>
 
-<a id="canonical-3fe57d17ef6ce7174b7d3c2dd53c109618b810cd25b543750d2b21fd34f06892"></a>
+<a id="canonical-0333321113310113-3233123032130113-1023133103300231-3111033001002112-0120232001003031-0211231110031311-0031022302013331-0310330012202102"></a>
 
-## name property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers / 0d52afb60c11 / 4
+## name property — cache_headers / 231200300101 / 4
 
 Type: `"string"`. Optional.
 
@@ -1370,37 +1370,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-5834bcb6a558eeb6bcd5e49eae32dc2d355180e2614d762a8a14f99edf3c4407): complete subsection reference.
+- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-1120031023302312-2211112032322312-2330311132102132-2232030231300231-0311110120003202-1201103113120222-2022011033212132-3133033010100013): complete subsection reference.
 
-<a id="canonical-94946aaba5580e60812089ad0bee3eff957b457462ff0663095ee2bf8a698104"></a>
+<a id="canonical-2110211012222223-2211112000321200-2001020020212231-0023323203323333-2111132310111310-1202333300121203-0021113232022333-2022122120010010"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.cache_headers / 0d52afb60c11 / 5
+## Next pages — cache_headers / 231200300101 / 5
 
-- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-5834bcb6a558eeb6bcd5e49eae32dc2d355180e2614d762a8a14f99edf3c4407)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-1120031023302312-2211112032322312-2330311132102132-2232030231300231-0311110120003202-1201103113120222-2022011033212132-3133033010100013)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-5834bcb6a558eeb6bcd5e49eae32dc2d355180e2614d762a8a14f99edf3c4407"></a>
+<a id="canonical-1120031023302312-2211112032322312-2330311132102132-2232030231300231-0311110120003202-1201103113120222-2022011033212132-3133033010100013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6f344b8fd215828e4675878abc7a25a85fb302973d0260c77c51986cb0def367"></a>
+<a id="canonical-1233031010232033-3102011120022032-1012131120132022-2330132202112220-1133230300022113-0331000212003013-1330110121201230-2300313233031213"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator — operator / 333020130203 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0986b7db601d9bbc10f0249d7b2aab0bff189fbc3f6b38cfad5fd7ace17bb9e8)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220)
 - cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator
 
-<a id="canonical-d05227e641efe763d07f1724ac56e6a7bda5fddf8594273d2b8fcc719951595f"></a>
+<a id="canonical-3100110202133212-1001323332131203-3100133301130210-2230111232122213-2331221133313133-2011211002130331-0223203330301301-2121110111211133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1505,92 +1505,92 @@ operator {
 }
 ```
 
-<a id="canonical-0a0df019d652b3a56476b5ab9852d0b20bd24d8daff4b543865193b2d3a0de7e"></a>
+<a id="canonical-0022003133000121-3112110223032211-1210131223112223-2120110231002302-0023310210312031-2233331023111003-2012110121032302-3103220031321332"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 3
+## Direct properties — operator / 333020130203 / 3
 
-<a id="canonical-f18a4c70f18da4df31ec46e1b2e7fda0ca4fbfcc8f2e60085a385362862c54d2"></a>
+<a id="canonical-3301202210301300-3301203122103133-0301323010123201-2302321333312200-3022103323333030-2033023212000020-1122032011031202-2012023011103102"></a>
 
-<a id="canonical-fecd46d63e4409a6792d23afeba9f6cc8bd3793236da26f2e3c6fae01d312099"></a>
+<a id="canonical-3332303110123112-0332101000212212-1321023102032233-3223222133123030-2023310313210302-0312312202123302-3203301233223200-0131030102002121"></a>
 
-## contains property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 4
+## contains property — operator / 333020130203 / 4
 
 Type: `"string"`. Optional.
 
 Exclusive with \[DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals
 MatchRegex Startswith\] The header value must include the specified value as a substring.
 
-<a id="canonical-fc322c9c2cc06df20de1528ece60b3631c67235652ed8cbfad1c409be95d79a6"></a>
+<a id="canonical-3330030202302130-0230300012313302-0031320111022032-3032120023031203-0130121302031112-1102323120302333-2231013010002123-3221113113212212"></a>
 
-<a id="canonical-585526912bcc3470f490cb48fa97bd386c3a240464ca5a1be23c8d75fe000401"></a>
+<a id="canonical-1120111102122101-0223303003101300-3310210030231020-3322211323310320-1230032202100010-1210302211220123-3202033020311311-3332000000100001"></a>
 
-## does_not_contain property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 5
+## does_not_contain property — operator / 333020130203 / 5
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The header value must not include the specified value as a substring.
 
-<a id="canonical-936f2b931b46d19c074e8a9a2088a5fae17f35ccacef689068943806f7264e39"></a>
+<a id="canonical-2103123302232103-0123101231012130-0013103220222122-0200202022113322-3201133303113030-2230323312202100-1220211003200012-3313021210320321"></a>
 
-<a id="canonical-9b14a682ef3765b738c011ed0af8f42f704fc97934c927ffc56a500c245fd760"></a>
+<a id="canonical-2123011022122002-3233031312112313-0320300001013231-0022332033100233-1300103330211321-0310302102133333-3011122211000030-0210113331131200"></a>
 
-## does_not_end_with property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 6
+## does_not_end_with property — operator / 333020130203 / 6
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The header value must not end with the specified value.
 
-<a id="canonical-1a1e9f4c8af7aa4e04beb56f0351c84e627d998cfadf116511b672623e80e71a"></a>
+<a id="canonical-0122013221331030-2022331322221032-0010233223111233-0003110130201032-1202133121212030-3322313301011211-0101231213021202-0332200032130122"></a>
 
-<a id="canonical-5877b1b42222f37516565e51226210ad5598659f92e188bc19dc22ca84749691"></a>
+<a id="canonical-1120131323012310-0202020233031311-0112111211321101-0202120201002231-1111212012112133-2102320120202330-0121313002023022-2010131021122101"></a>
 
-## does_not_equal property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 7
+## does_not_equal property — operator / 333020130203 / 7
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The header value must not match the specified value.
 
-<a id="canonical-e4083cc075003ab6506f677ca88277755d2a617b45c09cb8986374de82650020"></a>
+<a id="canonical-3210002003303000-1311000003222312-1100123312131330-2220200213131311-1131022212011323-1011300021302320-2120120313103132-2002121100000200"></a>
 
-<a id="canonical-5d0b9f79e70d4e2040e720ee55a44b808c20698d964e175250fa6e2a5327a87c"></a>
+<a id="canonical-1131002321331321-3213003110320200-1000321302003232-1111221010232000-2030020012212031-2112103201131102-1100332212320222-1103021322201330"></a>
 
-## does_not_start_with property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 8
+## does_not_start_with property — operator / 333020130203 / 8
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex
 Startswith\] The header value must not begin with the specified value.
 
-<a id="canonical-8649f8e4972424926846efc696debc8298a31acb0ef931b0bb9254555b7e09b1"></a>
+<a id="canonical-2012102133203210-2113021002102102-1220101232333012-2112313223302002-2120220301223023-0032332103012300-2323210211101111-1123133200212301"></a>
 
-<a id="canonical-0aa5bd3213756739de1a529119144004f7f8de7d59acfe8423447f0ea19e8a8d"></a>
+<a id="canonical-0022221123310302-0103131112130321-3132012211022101-0121011010000010-3313332031321331-1121223033322010-0203101013330032-2201213220222031"></a>
 
-## endswith property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 9
+## endswith property — operator / 333020130203 / 9
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals
 MatchRegex Startswith\] The header value must end with the specified value.
 
-<a id="canonical-e1b71edb958c1e05f09f00f7516a1d6c42a5270a3ad577d1968d1c98ff4d439e"></a>
+<a id="canonical-3201231301323123-2111203001320011-3300213300003313-1101122201311230-1002221102130022-0322311113133101-2112203101302120-3333103110032132"></a>
 
-<a id="canonical-8e054ead18abe5bd062d9f5419b762c569dcacd5ce690f4ae859844fca6fe0fd"></a>
+<a id="canonical-2032001110322231-0120222332112331-0012023121331110-0121231312023011-1221313022303111-3032122100331022-3220112120101033-3022123332003331"></a>
 
-## equals property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 10
+## equals property — operator / 333020130203 / 10
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 MatchRegex Startswith\] The header value must exactly match the specified value.
 
-<a id="canonical-a2e405f55870e5281a198420d830a55a267fd0abe47309c309390ff6e0470c0e"></a>
+<a id="canonical-2202321000113311-1120130032110220-0122012120100200-3120030022111122-0212133331002223-3210130300213003-0021032100333312-3200101300300032"></a>
 
-<a id="canonical-b42d2516214b3b93c63fc7fc7930faec9e0104fda350d902c3c2d5e5629197f7"></a>
+<a id="canonical-2310023102110112-0201102303232103-3012033330133330-1321030033223230-2132000100103331-2203110031210002-3003300231113211-1202210121133313"></a>
 
-## match_regex property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 11
+## match_regex property — operator / 333020130203 / 11
 
 Type: `"string"`. Optional.
 
@@ -1605,44 +1605,44 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-0f1763deadd03e3ecdac756cc3094e8eabdd6a85f8145e7c44eff1663a8033ae"></a>
+<a id="canonical-0033011312033132-2231310003320332-3031223013111230-3003002110322032-2223313112222011-3320011011321330-1010323333011212-0322200003032232"></a>
 
-<a id="canonical-699fe98b3eeb89b8b4701325c44c14693aec68715feb8aba6e6712b556dfd771"></a>
+<a id="canonical-1221213332212023-0332322320212320-2310130001030211-3010103001101221-0322323012201301-1133322320222322-1232121301022311-1112313331131301"></a>
 
-## startswith property — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 12
+## startswith property — operator / 333020130203 / 12
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 Equals MatchRegex\] The header value must begin with the specified value.
 
-<a id="canonical-1ebc4912c78f626aafb1018780f3562ea1ea5bc1ece83087d894435aa66e0738"></a>
+<a id="canonical-0132233010210102-3013203312021222-2233230100012013-2000330311120232-2201322211233001-3230322003002013-3120211010031122-2212123200130320"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator / 781fa1fc8723 / 13
+## Next pages — operator / 333020130203 / 13
 
-- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0986b7db601d9bbc10f0249d7b2aab0bff189fbc3f6b38cfad5fd7ace17bb9e8)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.cache_headers](resources--cdn_cache_rule--reference--group-001.md#canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-fdab340a8ec0b9e25e1f8f6e84ac9ca4526af1cec6f1db355af281236495975d"></a>
+<a id="canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2005a9ebf517f8a74f303df7e800cd0925251213cfe4c536d3adb60b6ba19f5b"></a>
+<a id="canonical-0200001122213223-3311011333202213-1033030003313313-3220000030310021-0211021101020103-3033321030110312-3103223123120023-1223220121331123"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher / be084bd9b4af / 2
+## cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher — cookie_matcher / 312123102233 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
 - cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher
 
-<a id="canonical-d90bd0aba97ceda9b760af95925e9f71e05194c944c54979bb8b91b9ba0f5ce2"></a>
+<a id="canonical-3121002331002223-2221133032312221-2313120022332111-2102113221331301-3200110121103021-1010301110211321-2323202321012321-2322003311303202"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1705,15 +1705,15 @@ cookie_matcher {
 }
 ```
 
-<a id="canonical-92a676e0a4037decf39af9b809d04687ce25649cf54bcbe4e1e4cfe4fc6f591d"></a>
+<a id="canonical-2102221213123200-2210000313313230-3303212233212320-0021310010122013-3032021112102130-3311102330233210-3201321030333210-3330123311210131"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher / be084bd9b4af / 3
+## Direct properties — cookie_matcher / 312123102233 / 3
 
-<a id="canonical-8c02612e8c5b4853baedd726897ffeaac40321ac291c34d708b72064a2174046"></a>
+<a id="canonical-2030000212010232-2030112310201103-2322323131130212-2021133333322222-3010000302012230-0221013003103113-0020231302001210-2202011310001012"></a>
 
-<a id="canonical-f2f15f20061248cf0a97ad0f5a07832ac842a537ee05ff7fe276b4ab5f8ddcbe"></a>
+<a id="canonical-3302330111330200-0012010210203033-0022211322310033-1122001320030222-3020100222110313-3232001133331333-3202131223102223-1133203131302332"></a>
 
-## name property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher / be084bd9b4af / 4
+## name property — cookie_matcher / 312123102233 / 4
 
 Type: `"string"`. Optional.
 
@@ -1781,37 +1781,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-ffe694caed217d7f8c46c6a4fe916b74939a200d9d12b4f68d83189dc440f5bf): complete subsection reference.
+- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-3333321221103022-3231020113311333-2030101230122210-3332210112231310-2103212202000031-2131010223103312-2031200301202131-3010100033112333): complete subsection reference.
 
-<a id="canonical-bdbf658ccb856342bfa2924710abbbb5f8d8d082ac8e9bc31a80ba74d3c05fdc"></a>
+<a id="canonical-2331233312112030-3023201112031002-2333220221021013-0100222323232311-3320312031002002-2230203221233003-0122200023221310-3103300011333130"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher / be084bd9b4af / 5
+## Next pages — cookie_matcher / 312123102233 / 5
 
-- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-ffe694caed217d7f8c46c6a4fe916b74939a200d9d12b4f68d83189dc440f5bf)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-3333321221103022-3231020113311333-2030101230122210-3332210112231310-2103212202000031-2131010223103312-2031200301202131-3010100033112333)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-ffe694caed217d7f8c46c6a4fe916b74939a200d9d12b4f68d83189dc440f5bf"></a>
+<a id="canonical-3333321221103022-3231020113311333-2030101230122210-3332210112231310-2103212202000031-2131010223103312-2031200301202131-3010100033112333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d8f86fd24446fe161b67ecc268156623d0171c7267550d194cd1b16c7f2bd8d8"></a>
+<a id="canonical-3120332012333102-1010101233320112-0123121332303002-1220011112120203-3100011301301302-1213111100310121-1030310123011230-1333022331203120"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator — operator / 112020230101 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-fdab340a8ec0b9e25e1f8f6e84ac9ca4526af1cec6f1db355af281236495975d)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131)
 - cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator
 
-<a id="canonical-a7ce510e23fba4dbe2c02582b82ed6ea9932f2522b0d4d3eb2b8ecfdd4f7b17c"></a>
+<a id="canonical-2213303211010032-0203332322103123-3202300002112002-2320023231123222-2121030233021102-0223003110310332-2302232032303331-3110331323011330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1916,92 +1916,92 @@ operator {
 }
 ```
 
-<a id="canonical-f7ac067a4c89f6ec88b2ef56857a5f1da839be19e0a62c879d07c640b4cab10e"></a>
+<a id="canonical-3313223000121322-1030202133123230-2020230232331112-2011132211330131-2220032123320121-3200221202302013-2131001330121000-2310302223010032"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 3
+## Direct properties — operator / 112020230101 / 3
 
-<a id="canonical-b0132b6287b3a5bafecf64786e1290696a43b15b3a3dcab943d33d95290cbfe9"></a>
+<a id="canonical-2300010302231202-2013230322112322-3332303312101320-1232010221001221-1222100323011123-0322033130222321-1003310303312111-0221003023333221"></a>
 
-<a id="canonical-661302d074c7125ffb08903e242215fea40b846e09d24f6970a3addeabb0c822"></a>
+<a id="canonical-1212010300023100-1310301301021133-3323002021000332-0210020201113332-2210002320101232-0021310210331221-1300220322313132-2223230030200202"></a>
 
-## contains property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 4
+## contains property — operator / 112020230101 / 4
 
 Type: `"string"`. Optional.
 
 Exclusive with \[DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals
 MatchRegex Startswith\] The cookie value must include the specified value as a substring.
 
-<a id="canonical-99b390b1f596396d09ea49abc677d2eab26e8143690ebb5ee2966dbf39c6b7c9"></a>
+<a id="canonical-2121230321002301-3311211203211231-0021322210212223-3012131331023222-2302123220011003-1221003223231132-3202211212312333-0321301223133021"></a>
 
-<a id="canonical-2dd2a4eedcf36f8fba6310251ff875472db4f79becb768c3154c7584d5b534f4"></a>
+<a id="canonical-0231310222103232-3130330312332033-2322120301000211-0133332013111013-0231231033132123-3230231312203003-0111103013112010-3111231103103310"></a>
 
-## does_not_contain property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 5
+## does_not_contain property — operator / 112020230101 / 5
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The cookie value must not include the specified value as a substring.
 
-<a id="canonical-38503109d4f206d4c7941dadbc42dbc4c02b49f3dc82dc0786d7daf16169483f"></a>
+<a id="canonical-0320110003010021-3110330200123110-3013211001312231-2330100231233010-3000022310213303-3130200231300013-2012311331223301-1201122110200333"></a>
 
-<a id="canonical-67b2a11cf1d016c0815a32cbebcc51386d7665031b149fb30ce06fd36ae4ac37"></a>
+<a id="canonical-1213230222010130-3301310001123000-2001112203023023-3223303011010320-1231131212110003-0123011021332303-0030320012333103-1222321022300313"></a>
 
-## does_not_end_with property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 6
+## does_not_end_with property — operator / 112020230101 / 6
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The cookie value must not end with the specified value.
 
-<a id="canonical-80798151163cb4f5ff45553159923eedac944050254ccdea4ef6d34a41354196"></a>
+<a id="canonical-2000132120011101-0112033023103311-3333101111110301-1121210203323231-2230211010001100-0211103030313222-1032331231031022-1001031110012112"></a>
 
-<a id="canonical-c32547dceaa6cea383dfedea22fa705789f6adff21dbe9fee8ec0891e5cc5694"></a>
+<a id="canonical-3003021110133130-3222221230322203-2003313332313222-0202332213001113-2021331222313333-0201312332213332-3220323000202101-3211303011122110"></a>
 
-## does_not_equal property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 7
+## does_not_equal property — operator / 112020230101 / 7
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The cookie value must not match the specified value.
 
-<a id="canonical-c19e759eed9dd3c1aca1f2b0265d087a92ee586079b1a732175746647d98b565"></a>
+<a id="canonical-3001213213112132-3231213131033001-2230220133022300-0212113100201322-2102323211201200-1321230122130302-0113111310121210-1331212023111211"></a>
 
-<a id="canonical-57e20664bc6de20c11498ea5e29eb0c3525d6e0895bf2c01d53eef042af6a30d"></a>
+<a id="canonical-1113320200121210-2330123132020030-0101102120322211-3202213223003003-1102113112320020-2111233302300001-3111033232330010-0222331222030031"></a>
 
-## does_not_start_with property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 8
+## does_not_start_with property — operator / 112020230101 / 8
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex
 Startswith\] The cookie value must not begin with the specified value.
 
-<a id="canonical-9749ed5f0b41d2577022d23d8d4d92c55e8b4469204ed43f32e003ed5a1fd54a"></a>
+<a id="canonical-2113102132311133-0023100131021113-1300020231020331-2031103121023011-1132202310101221-0200103231100333-0302320000033231-1122013331111022"></a>
 
-<a id="canonical-3db6ca25dea57a72c8e4e697719a239f7d9f0ccdc7386da806882d5c5aa9551a"></a>
+<a id="canonical-0331231230220211-3132221113221302-3020321032122113-1301212202032133-1331213300303031-3013032012312220-0012202002311130-1122222111110122"></a>
 
-## endswith property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 9
+## endswith property — operator / 112020230101 / 9
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals
 MatchRegex Startswith\] The cookie value must end with the specified value.
 
-<a id="canonical-1140b64dd09510b28bbe959d423d4c4d6a38ebaca23d934471d831f94cc242ec"></a>
+<a id="canonical-0101100023121031-3100211101002302-2023233221112131-1002033110301031-1222032032232230-2202033121031010-1301312003013321-1030300210023230"></a>
 
-<a id="canonical-cfd4a34cd3c78fa5d989ee874b12a294574196543c2b9ae51d410471d06bf16b"></a>
+<a id="canonical-3033311022031030-3103301320332211-3121202132322013-1023010222022110-1113100121121110-0330022321223211-0131100100101301-3100122333011223"></a>
 
-## equals property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 10
+## equals property — operator / 112020230101 / 10
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 MatchRegex Startswith\] The cookie value must exactly match the specified value.
 
-<a id="canonical-61b676711d71962f3e4249887cdcd7f1821bc8566d7c7108c3d13e32ad9a85da"></a>
+<a id="canonical-1201231213121301-0131130121120233-0332100210212020-1330313031133301-2002012330201112-1231133013010020-3003310103320302-2231212220113122"></a>
 
-<a id="canonical-6b5a8015db7236fc75755c73bc1d0b2677174d86a0786e976a57f09c1ae642ab"></a>
+<a id="canonical-1223112220000111-3123130203123330-1311131111301303-2330013100230212-1313011310312012-2200132012322113-1222111333002130-0122321210022223"></a>
 
-## match_regex property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 11
+## match_regex property — operator / 112020230101 / 11
 
 Type: `"string"`. Optional.
 
@@ -2017,44 +2017,44 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-cef8396b9e26f2aad66156266558d0cb021e403ace37b18b85994d326a28ae7f"></a>
+<a id="canonical-3032332003211223-2132021233022222-3112120111120212-1211112031003023-0002013210000322-3032031323012023-2011212110310302-1222022022321333"></a>
 
-<a id="canonical-05da840a8396a0b245fe5b529e630a2c9937d1e1f925a0ed2375d508c9eb18a3"></a>
+<a id="canonical-0011312220100022-2003211222002302-1011333211231102-2132120300220230-2121031331013201-3321021122003231-0203131131110020-3021322301202203"></a>
 
-## startswith property — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 12
+## startswith property — operator / 112020230101 / 12
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 Equals MatchRegex\] The cookie value must begin with the specified value.
 
-<a id="canonical-557bbaf3fd07105dd0317989e1bea4a306a6b5091bc519051b919112c566293c"></a>
+<a id="canonical-1111132323223303-3331001301001131-3100030113212021-3201233222102203-0012221223110021-0123301101210011-0123210121010102-3011121202210330"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator / cec36d588b11 / 13
+## Next pages — operator / 112020230101 / 13
 
-- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-fdab340a8ec0b9e25e1f8f6e84ac9ca4526af1cec6f1db355af281236495975d)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher](resources--cdn_cache_rule--reference--group-001.md#canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-42434708340d777587211e8f1879f43a3ed3e21f55faed301bcc2accfc877827"></a>
+<a id="canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-492028b53528297318948736f9b9ac3b280f67f5c5b8187917357493b7ead3fc"></a>
+<a id="canonical-1021020002202311-0311022002211303-0120211020130312-3321232122300323-0220003312133311-3011232001201321-0113031113102103-2313322231033330"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.path_match — cache_rules.rule_expression_list.cache_rule_expression.path_match / 8ec95dd151c4 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.path_match — path_match / 310111013010 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
 - cache_rules.rule_expression_list.cache_rule_expression.path_match
 
-<a id="canonical-ac2414fdca8fbe59ac1a50552e1e08bd954e1375c2650e5af9c46afa6713d280"></a>
+<a id="canonical-2230021001103331-3022203323321121-2230012211001111-0232013200202331-2111103201031311-3002121100321122-3321301012223322-1213010331022000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2081,41 +2081,41 @@ path_match {
 }
 ```
 
-<a id="canonical-a735370ea94083786735d86b2e821fc05b2df9db4824c7f77f5b03db3ddaebc0"></a>
+<a id="canonical-2213031103130032-2221100020031320-1213031131201223-0232200201333000-1123023133213123-1020021030133313-1333112300033123-0331312232233000"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.path_match / 8ec95dd151c4 / 3
+## Direct properties — path_match / 310111013010 / 3
 
-- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-b224d5eab5f11dee639fa776bd1f51131e2b9cb1117c07c649815e93512d62dd): complete subsection reference.
+- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2302021031113222-2311330101313232-1203213322131312-2331013311010103-0132022321302301-0101133000133012-1021200111322103-1101023112023131): complete subsection reference.
 
-<a id="canonical-5685f28375af20403613a26f299c47c32bda68bfb8867bf91033d70f0983689a"></a>
+<a id="canonical-1112201133022003-1311223302001000-0312010322021233-0221213010133003-0223312212202333-2320201213233321-0100030331130033-0021200312202122"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.path_match / 8ec95dd151c4 / 4
+## Next pages — path_match / 310111013010 / 4
 
-- [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-b224d5eab5f11dee639fa776bd1f51131e2b9cb1117c07c649815e93512d62dd)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.path_match.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2302021031113222-2311330101313232-1203213322131312-2331013311010103-0132022321302301-0101133000133012-1021200111322103-1101023112023131)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-b224d5eab5f11dee639fa776bd1f51131e2b9cb1117c07c649815e93512d62dd"></a>
+<a id="canonical-2302021031113222-2311330101313232-1203213322131312-2331013311010103-0132022321302301-0101133000133012-1021200111322103-1101023112023131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1a206ea0a6e38a0923e7125f63761762f1545c48780b475d8db8f253546bb18b"></a>
+<a id="canonical-0122020012322200-2212320320220021-0203321301021133-1203131201131202-3301111011301020-1320002310131131-2031232033021103-1110122323012023"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.path_match.operator — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.path_match.operator — operator / 131230032011 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-42434708340d777587211e8f1879f43a3ed3e21f55faed301bcc2accfc877827)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213)
 - cache_rules.rule_expression_list.cache_rule_expression.path_match.operator
 
-<a id="canonical-97080f2ef4fe51d49de860751347e6f65c960c19e8f2765c88981f0ec28230a9"></a>
+<a id="canonical-2113002000330232-3310333211013110-2131322012001311-0103101332123312-1130211200300121-3220330213121130-2020212001330032-3002200203002221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2220,15 +2220,15 @@ operator {
 }
 ```
 
-<a id="canonical-731c1ef7aacb96dc4e766ae0e6eb435af246b45d820e502256d03798fbc92201"></a>
+<a id="canonical-1303013001323313-2222302321123130-1032131212223200-3212322310031122-3302101223101131-2002003211000202-1112310003132120-3323302102020001"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 3
+## Direct properties — operator / 131230032011 / 3
 
-<a id="canonical-2780694750eb385f126de6e2f595443a337c4cc65d6bb8c5383ad9c8e51718db"></a>
+<a id="canonical-0213200012211013-1100322303201133-0102123132123202-3311211110100322-0303133010303012-1131122323203011-0320032231213020-3211011301203123"></a>
 
-<a id="canonical-2f07a0ce83687b52445948038fb79ced58145eecad6bb5d5f3406da38b7f4ca6"></a>
+<a id="canonical-0233001322003032-2003122013231102-1010112110200003-2033231321303231-1120011011323230-2231122323113111-3303100012312203-2023133310302212"></a>
 
-## contains property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 4
+## contains property — operator / 131230032011 / 4
 
 Type: `"string"`. Optional.
 
@@ -2236,77 +2236,77 @@ Exclusive with \[DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith End
 MatchRegex Startswith\] The path must include the specified value as a substring, up to the
 filename.
 
-<a id="canonical-f82b9a1bc74e7d1cb8e2c985b54d39bd45e3f15896938b3b57662619dec53bb3"></a>
+<a id="canonical-3320022321220123-3013103213310130-2320320230212011-2311103103212331-1011320333011120-2112210320230323-1113121202120121-3132301103232303"></a>
 
-<a id="canonical-53b46d1cd04d984ef7c320f5af67f5acea81b8aef015877fa552fbc95090209a"></a>
+<a id="canonical-1103231012310130-3100103121201032-3313300302003311-2233121333112230-3222200123202232-3300011120131333-2211110233233021-1100210002002122"></a>
 
-## does_not_contain property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 5
+## does_not_contain property — operator / 131230032011 / 5
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The path must not include the specified value as a substring, up to the filename.
 
-<a id="canonical-5dd917e5331e5724abac6a304785338fb9327b0c26632e0788566fa8bc80e9f5"></a>
+<a id="canonical-1131312101133211-0303013211130210-2223223012220300-1013201103032033-2321030213230030-0212120302320013-2020111212332220-2330200032213311"></a>
 
-<a id="canonical-40be5bd9ae7db6b21b96547688bb57e284e07277c1ab07dd6f05782f68a03a7d"></a>
+<a id="canonical-1000233211233121-2232133123122302-0123211211101312-2020232311133202-2010320013021313-3001222300133131-1233001113200233-1220220003221331"></a>
 
-## does_not_end_with property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 6
+## does_not_end_with property — operator / 131230032011 / 6
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The path must not end with the specified value, up to the filename.
 
-<a id="canonical-147c2f488f551f3f056f5b2085b7c0d7c616f6ace2d4cdea8c99352f7f0a249e"></a>
+<a id="canonical-0110133002331020-2033111101330333-0011123311230200-2011231330003113-3012011233122230-3202311030313222-2030212103110233-1333002202102132"></a>
 
-<a id="canonical-6494e720493af011dfa74f794a87198b650bbccb8f41c4ece4bb17946bd8587a"></a>
+<a id="canonical-1210211032130200-1021032233000101-3133221310331321-1022201301212023-1211002323303023-2033100130103230-3210232301132110-1223312011201322"></a>
 
-## does_not_equal property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 7
+## does_not_equal property — operator / 131230032011 / 7
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The path must not match the specified value, up to the filename.
 
-<a id="canonical-b703c063d59349dc3e6b949834637b56f487619797e412f8f54d4d98bc9235c7"></a>
+<a id="canonical-2313000330001203-3111210310213130-0332122321102120-0310120313231112-3310201312012113-2113321001023320-3311103110312120-2330210203113013"></a>
 
-<a id="canonical-6fd8255f45ced69cf03436a15c28fc25ebdeed8ec360390f2bb6b1ea12a07032"></a>
+<a id="canonical-1233312002111133-1011303231122130-3300031003122201-1130022033300211-3223313232312032-3003120003210033-0223231223013222-0102220013000302"></a>
 
-## does_not_start_with property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 8
+## does_not_start_with property — operator / 131230032011 / 8
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex
 Startswith\] The path must not begin with the specified value, up to the filename.
 
-<a id="canonical-ca46f6830b240ac9da363a2179f4c0ad1fd961a4656e9706069fb4d44e97361e"></a>
+<a id="canonical-3022101233122003-0023021000223021-3122031203220201-1321331030002231-0133312112012210-1211123221130012-0012213323103110-1032211303120132"></a>
 
-<a id="canonical-d657c0719f12b736f14b7d42ab89b05dce3aaccdde5912e5c28b66e419a03bef"></a>
+<a id="canonical-3112111330001301-2133010223130312-3301102313311002-2223202123001131-3032032222303031-3132112101023211-3002202312123210-0121220003233233"></a>
 
-## endswith property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 9
+## endswith property — operator / 131230032011 / 9
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals
 MatchRegex Startswith\] The path must end with the specified value, up to the filename.
 
-<a id="canonical-5a1748e3638b84d1326d34ebf8d3fa9d2a16a6f727e39ed063bc442e0cc71a63"></a>
+<a id="canonical-1122011310203203-1203202320103101-0302123103103223-3320310333222131-0222011222123313-0213320321323100-1203233010100232-0030301301221203"></a>
 
-<a id="canonical-3c8df0dce87489cd62f007438ec377c71f38bb720ce1a0805b359aada8b7acc3"></a>
+<a id="canonical-0330203133003130-3220131020213031-1202330000131003-2032300313133013-0133032023231302-0030320122002000-1123031121222231-2220231322303003"></a>
 
-## equals property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 10
+## equals property — operator / 131230032011 / 10
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 MatchRegex Startswith\] The path must exactly match the specified value, up to the filename.
 
-<a id="canonical-ef58be7319efc3ab9dad821b8d2537c2af3debc6794c4782aadcd6045c2bdd07"></a>
+<a id="canonical-3233112023321303-0121323330032223-2131223120020123-2031021103133002-2233033132233012-1321103010132002-2222313031120010-1130022331310013"></a>
 
-<a id="canonical-065dbc4dc30b690a954e5c076e887648696d8c570d17e8a9b2f0b66c09b18380"></a>
+<a id="canonical-0012113123301031-3003002312210022-2111103211300013-1232202013121020-1221123120301113-0031011332202221-2302330023121230-0021230120032000"></a>
 
-## match_regex property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 11
+## match_regex property — operator / 131230032011 / 11
 
 Type: `"string"`. Optional.
 
@@ -2321,44 +2321,44 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-5f392aea846a547ddb2a0a5040a6dcb55d7ef2e7b16172a304f1bb330698c09d"></a>
+<a id="canonical-1133032102223222-2010122211101331-3123022200221100-1000221231302311-1131133233023213-2301120113022203-0010330123230303-0012212030002131"></a>
 
-<a id="canonical-3e36dfe0c30c3002d1567f3c197218d12256beaf04161e8d99a9cbb17780a21b"></a>
+<a id="canonical-0332031231333200-3003003003000002-3101111213330330-0121130201203101-0202111223322233-0010011201322031-2121222130232301-1313200022020123"></a>
 
-## startswith property — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 12
+## startswith property — operator / 131230032011 / 12
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 Equals MatchRegex\] The path must begin with the specified value, up to the filename.
 
-<a id="canonical-ad8c8413bf80592a9bb0fc5022f02e0de89fbe921c1e477cc3fc81d070052bf8"></a>
+<a id="canonical-2231203020100103-2333200011210222-2123230033301100-0202330002320031-3220213323322102-0130013210131330-3003333020013100-1300001102233320"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.path_match.operator / c5715576c385 / 13
+## Next pages — operator / 131230032011 / 13
 
-- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-42434708340d777587211e8f1879f43a3ed3e21f55faed301bcc2accfc877827)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.path_match](resources--cdn_cache_rule--reference--group-001.md#canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-5e7f47d34af0ab20e193109b18292e36903ac8e35cf30c238aed231f3a4e68b4"></a>
+<a id="canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9bcf507525530ec9a3caddba55045621c8e66181102f9d8e345f5bf263471ec8"></a>
+<a id="canonical-2123303311001311-0211110300323021-2203302231312322-1111001011120201-3020321212012001-0100023321312032-0310113311233302-1203101301323020"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.query_parameters — cache_rules.rule_expression_list.cache_rule_expression.query_parameters / b666190e1b04 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.query_parameters — query_parameters / 003201230010 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
 - cache_rules.rule_expression_list.cache_rule_expression.query_parameters
 
-<a id="canonical-b5770c6fb04ca3a11ab2d076cb01173fc5921f56206095de7381b468da8eb4be"></a>
+<a id="canonical-2311131300301233-2300103022032201-0122230231001312-3023000101130333-3011210201331112-0200120021113132-1303200123101220-3122203223102332"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2416,15 +2416,15 @@ query_parameters {
 }
 ```
 
-<a id="canonical-fc53370ea272ff14bc28f988def24f4cb3d902c4cce954de4535553d3b974847"></a>
+<a id="canonical-3330110303130032-2202130233330110-2330022033212020-3132330210331030-2303312100023010-3030322111103132-1011031111110331-0323211310201013"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.query_parameters / b666190e1b04 / 3
+## Direct properties — query_parameters / 003201230010 / 3
 
-<a id="canonical-a5f1d3b15fd729f9f38f784e81c2c217c50fd0ea147454f6e3a5a0bf69b54c7d"></a>
+<a id="canonical-2211330131032301-1133311302213321-3303203313201032-2001300230020113-3011003331003222-0110131011103312-3203221122002333-1221231110301331"></a>
 
-<a id="canonical-e1913692021f20b88af5c390279af81d581a09abfc31d387d41f29309afbd6e6"></a>
+<a id="canonical-3201210103122102-0002013302002320-2022331130032100-0213212233200131-1120012200212223-3330030131032013-3110013302210300-2122332331123212"></a>
 
-## key property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters / b666190e1b04 / 4
+## key property — query_parameters / 003201230010 / 4
 
 Type: `"string"`. Optional.
 
@@ -2479,37 +2479,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-890d36bde9c41cf0e1ad1400ecdec59a7d76f3edfef48d5e3fa968cafa55d22d): complete subsection reference.
+- [operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2021003103122331-3221301001303300-3201223101100000-3230313230112122-1331131233033231-3332331020311132-0333222112203022-3322111131020231): complete subsection reference.
 
-<a id="canonical-ce8b868018eb5dfc4acfe5a283357a51c678213104597c5f47901b674a37caf9"></a>
+<a id="canonical-3032202320122000-0120322311313330-1022303332112202-2003031113221101-3012132002010301-0010112113301133-1013210001231213-1022031330223321"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.query_parameters / b666190e1b04 / 5
+## Next pages — query_parameters / 003201230010 / 5
 
-- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-890d36bde9c41cf0e1ad1400ecdec59a7d76f3edfef48d5e3fa968cafa55d22d)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator](resources--cdn_cache_rule--reference--group-001.md#canonical-2021003103122331-3221301001303300-3201223101100000-3230313230112122-1331131233033231-3332331020311132-0333222112203022-3322111131020231)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-890d36bde9c41cf0e1ad1400ecdec59a7d76f3edfef48d5e3fa968cafa55d22d"></a>
+<a id="canonical-2021003103122331-3221301001303300-3201223101100000-3230313230112122-1331131233033231-3332331020311132-0333222112203022-3322111131020231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-edb757e10f91156b999f676d6d1acff61e7e38a7566e50e41cdb1a8c45dc61b4"></a>
+<a id="canonical-3231231311133201-0033210101111223-2121213312131231-1231012230333312-0132133203202213-1112123211003210-0130312301222030-1011313012012310"></a>
 
-## cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 2
+## cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator — operator / 101311001001 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-9038feb6b4b2bd3acd855e50198087c999e4b6ef507b31cdf45a768e4ec7504e)
-- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-d4483c9db2d9f910cd4ad73455317199bf6bff3336fd3fc087659dddee9d2d6e)
-- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-cff8e3de8ceaaff4cdabd1c026998ff6257c2cc914d2c03aeab3aac2b926e2a5)
-- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-5e7f47d34af0ab20e193109b18292e36903ac8e35cf30c238aed231f3a4e68b4)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [cache_rules](resources--cdn_cache_rule--reference--group-001.md#canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032)
+- [cache_rules.rule_expression_list](resources--cdn_cache_rule--reference--group-001.md#canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232)
+- [cache_rules.rule_expression_list.cache_rule_expression](resources--cdn_cache_rule--reference--group-001.md#canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211)
+- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310)
 - cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator
 
-<a id="canonical-75365384f1a39c26db9608d27aadfd85259aa13f64d9a66437429a690f8fa1e8"></a>
+<a id="canonical-1311031211032010-3301220321300212-3123211200203102-1322223133312011-0211212222010333-1210312122121210-0313100221221221-0033203322013220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2614,92 +2614,92 @@ operator {
 }
 ```
 
-<a id="canonical-9feed4ff9a90a06c9910f633151082f72c1295cc950f715397b91b05c36d8f58"></a>
+<a id="canonical-2133323231103333-2122210022001230-2121010033120303-0111010020023313-0230010221113030-2111003313011103-2113232101230011-3003123120331120"></a>
 
-## Direct properties — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 3
+## Direct properties — operator / 101311001001 / 3
 
-<a id="canonical-7e8aa7f00fd8791ab35428d57386535ce46a3c9810d66b979261c87adf43eefb"></a>
+<a id="canonical-1332202222133300-0033312013210122-2303111002203111-1303201211031130-3210122203302120-0100311212232113-2102120130201322-3133100332323323"></a>
 
-<a id="canonical-9e97224eb66fa681038f25dba6571fc01e170af1b4671254012133ee0912eca7"></a>
+<a id="canonical-2132211302021032-2312123322122001-0003203302113123-2212111301333000-0132011300223301-2310121301021110-0001020103033232-0021010232302213"></a>
 
-## contains property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 4
+## contains property — operator / 101311001001 / 4
 
 Type: `"string"`. Optional.
 
 Exclusive with \[DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals
 MatchRegex Startswith\] The query parameter value must include the specified value as a substring.
 
-<a id="canonical-c5ebeccbe286b7100cb3ca622864f8a941867283e0c77f862b59ed587f542981"></a>
+<a id="canonical-3011322332303023-3202201223130100-0030230330221202-0220121033202221-1001201213022003-3200301313332012-0223112132311120-1333111002212001"></a>
 
-<a id="canonical-4003407946b7d3c4475304b84e745dd1f200d6413f1f28d90d9204792bec4f68"></a>
+<a id="canonical-1000000310001321-1012231331033010-1013110300102320-1032131011313101-3302000031121001-0333013302203121-0031210200101321-0223323010331220"></a>
 
-## does_not_contain property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 5
+## does_not_contain property — operator / 101311001001 / 5
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The query parameter value must not include the specified value as a substring.
 
-<a id="canonical-0505d6caf37d12d2003c02bed140fef2ae19c6869d5b3a20984a9b0eede3b60d"></a>
+<a id="canonical-0011001131123022-3303133101023102-0000033000022332-3101100033323302-2232012130122012-2131112303220200-2120102221230032-3231320323120031"></a>
 
-<a id="canonical-e9f56f50961ba7fe73647dd93b7270537c92cf8444c1922589776a251183d0a4"></a>
+<a id="canonical-3221331112331100-2112012322133332-1303121013313121-0323130213001103-1330210230332010-1010300121020211-2021131312220211-0101200331002210"></a>
 
-## does_not_end_with property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 6
+## does_not_end_with property — operator / 101311001001 / 6
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The query parameter value must not end with the specified value.
 
-<a id="canonical-4716e9ef00b2432bab902171bf2dc06d1388f2ca39a1c44617b041d1804e5921"></a>
+<a id="canonical-1013011232213233-0000230210030223-2223210002011301-2333023130001231-0103202033023022-0321220130101012-0113230010013101-2000103211210201"></a>
 
-<a id="canonical-add301a8443a749be8045128dd369e56c2e9a00494b865a729f623d02093090c"></a>
+<a id="canonical-2231310300012220-1010032213102123-3220001011010220-3131031221321112-3002322122000010-2110232012112213-0221331202033100-0200210300210030"></a>
 
-## does_not_equal property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 7
+## does_not_equal property — operator / 101311001001 / 7
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex
 Startswith\] The query parameter value must not match the specified value.
 
-<a id="canonical-b3bd86873295d1ee37c2df47ff90628c20c0a301e632589f145a11690addbab5"></a>
+<a id="canonical-2303233120122013-0302211131013232-0313300231331013-3333210012022030-0200300022030001-3212030211202133-0110112201011221-0022313123222311"></a>
 
-<a id="canonical-33f99e7c7781fd6dedb55cd9fff5c1939e8b82a42b43a2bdabc238e568cf9834"></a>
+<a id="canonical-0303332121321330-1313200133311231-3231231111303121-3333331130012103-2132202320022210-0223100322022331-2223300203203211-1220303321200310"></a>
 
-## does_not_start_with property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 8
+## does_not_start_with property — operator / 101311001001 / 8
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex
 Startswith\] The query parameter value must not begin with the specified value.
 
-<a id="canonical-35f37fc82b0934ed464c4ab429ad8a8be9c523c7e474510bddbd93e1a42560ce"></a>
+<a id="canonical-0311330313333020-0223002103103231-1012103010222310-0221223120222023-3221301102033013-3210131011010023-3131233121033201-2210021112003032"></a>
 
-<a id="canonical-38965001197dfe6a81cb33ab2a65410aaeaad3947c7a3e38e8a513a026f3da0d"></a>
+<a id="canonical-0320211211000001-0121133133321222-2001302303032223-0222121110010022-2232222231032110-1330132203320320-3220221101032200-0212330331220031"></a>
 
-## endswith property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 9
+## endswith property — operator / 101311001001 / 9
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals
 MatchRegex Startswith\] The query parameter value must end with the specified value.
 
-<a id="canonical-c47bae5aa6861944e82bcea02bb9a543da82daa4d700d9a1e0f18ccb03db01c9"></a>
+<a id="canonical-3010132322321122-2212201201211010-3220022330322200-0223232122111003-3122200231222210-3113000031212201-3200330120303023-0003312300013021"></a>
 
-<a id="canonical-37c4e52023ab7559b3a7e4a5f4c89c113471300ca96f9113794e131e412777df"></a>
+<a id="canonical-0313301032110200-0203222313111121-2303221332102211-3310302021300101-0310130103000030-2221123321010103-1321103201030132-1001021313133133"></a>
 
-## equals property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 10
+## equals property — operator / 101311001001 / 10
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 MatchRegex Startswith\] The query parameter value must exactly match the specified value.
 
-<a id="canonical-f5785559c6cb4ed6594e1aeee96c3f705f7ae6c17baf8ebf3c28e0f2151ffca0"></a>
+<a id="canonical-3311132011111121-3012302310323112-1121103201223232-3221123003331300-1133132232123001-1323223320322333-0330022032003302-0111013333302200"></a>
 
-<a id="canonical-8c9515ca9403e3fb121741ce625092d9fcf97b4dadacbda1d068c8477792f7d7"></a>
+<a id="canonical-2030211101113022-2110000332033323-0102011310013032-1202110021023121-3330332113231031-2231223023312201-3100122030201013-1313210233133113"></a>
 
-## match_regex property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 11
+## match_regex property — operator / 101311001001 / 11
 
 Type: `"string"`. Optional.
 
@@ -2715,41 +2715,41 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-b4f6eaf217eb3fe40670437f52771cbaf15de494bd3a0080db04a6028de1280a"></a>
+<a id="canonical-2310331232223302-0113322303333210-0012130010031333-1102131301302322-3301113132102110-2331032200002000-3123001022120002-2031320102200022"></a>
 
-<a id="canonical-c89ed2758e677bbde2496de4a52a03a2ba0081c79eefed6cfcfb55531995c26f"></a>
+<a id="canonical-3020213231021311-2032121313232331-3202102112313210-2211022200032202-2322000020013013-2132323332311230-3330332311111103-0121211130021233"></a>
 
-## startswith property — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 12
+## startswith property — operator / 101311001001 / 12
 
 Type: `"string"`. Optional.
 
 Exclusive with \[Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith
 Equals MatchRegex\] The query parameter value must begin with the specified value.
 
-<a id="canonical-c3f2b511617ac223571026a4174a1a5c9386bf281768fc116ff844575a1f56ef"></a>
+<a id="canonical-3003330223110101-1201132230020203-1113010002122210-0113102201221130-2103201223330220-0113122033300101-1233332010101113-1122013311123233"></a>
 
-## Next pages — cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator / 9ac1bd475041 / 13
+## Next pages — operator / 101311001001 / 13
 
-- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-5e7f47d34af0ab20e193109b18292e36903ac8e35cf30c238aed231f3a4e68b4)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [cache_rules.rule_expression_list.cache_rule_expression.query_parameters](resources--cdn_cache_rule--reference--group-001.md#canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
 
-<a id="canonical-663cb96ecde51e43bfa858046ce1016c061e90dd3d1d52335ae31d2a63ed7b6c"></a>
+<a id="canonical-1212033023211232-3031321101321003-2333222011200010-1230320100011230-0012013221003131-0331013111020303-1122320301310222-1203323113231230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e7a9fdfb68429419a40c281c732fb43b58e2e2d5b97e0a70b5bf7b7170f1ef8"></a>
+<a id="canonical-0232132221333133-2312201002211001-2122100030022001-3013030233231003-2311203202320231-1123211332002213-0023112333132313-0113003301323320"></a>
 
-## timeouts — timeouts / 658babed0e04 / 2
+## timeouts — timeouts / 323100320010 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
 - timeouts
 
-<a id="canonical-43ee98d5b7c3c2f607cbf601911a8af9b7990f3a8de411d6c884a32c565f9039"></a>
+<a id="canonical-1003323221203111-2313300330023312-0013302333120001-2101012220223321-2313212100330322-2031321001013112-3020201022030230-1112113321000321"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2761,15 +2761,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-9506bc264f1c385b09922b3850d9e69270e57a2012d104524f8cecabc8222d92"></a>
+<a id="canonical-2111001223300212-1033013003201123-0021210202230320-1100312132122102-1300321113220200-0102310100101102-1033203032302223-3020020202312102"></a>
 
-## Direct properties — timeouts / 658babed0e04 / 3
+## Direct properties — timeouts / 323100320010 / 3
 
-<a id="canonical-a457eab41a1ac3b922bd953eed8b5f67187078ac18edde77ee5e2b7853268f4d"></a>
+<a id="canonical-2210111332222310-0122012230032321-0202233121110332-3231202311331213-0120130013202230-0120323131321313-3232113202231320-1103021220331031"></a>
 
-<a id="canonical-e6578a51e1b961e3d93fc2e12c9dffb602514f169d5de347f214ccebecc41bed"></a>
+<a id="canonical-3212111320221101-3201232112013203-3121033330023201-0230213133332312-0002110110330112-2131113132031013-3302011030303223-3230301001233231"></a>
 
-## create property — timeouts / 658babed0e04 / 4
+## create property — timeouts / 323100320010 / 4
 
 Type: `"string"`. Optional.
 
@@ -2777,11 +2777,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-e68778ca0c3ed2e5d8f45e96c1ea0d1c219e83eae43ace3006cac4ddd525f07c"></a>
+<a id="canonical-3212201313203022-0030033231023211-3120331011322112-3001322200310130-0201213220033222-3210032230320300-0012302230103131-3111021133001330"></a>
 
-<a id="canonical-9de239a0a67ca131d5d232531573d36aa8671d21f7a7558e1f54a6fe76ea4871"></a>
+<a id="canonical-2131320203212200-2212133022010301-3111310203021103-0111130331031222-2220121301310201-3313221311112032-0133111022123332-1312322210201301"></a>
 
-## delete property — timeouts / 658babed0e04 / 5
+## delete property — timeouts / 323100320010 / 5
 
 Type: `"string"`. Optional.
 
@@ -2790,11 +2790,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-1e1535909b9c412e57afaf60b1472b865a61f3aa7431d16527a93940577f49a6"></a>
+<a id="canonical-0132011103112100-2123213010010232-1113223322331200-2301101302232012-1122120133032222-1310030131011211-0213222103211000-1113133310212212"></a>
 
-<a id="canonical-36b0b219eff7ca36e58ed0e4031203be8510f45a2cc91edba1e9a030938826da"></a>
+<a id="canonical-0312230023020121-3233331330220312-3211203231003210-0003010200032332-2011010033101122-0230302101323123-2201322122000300-2103202002123122"></a>
 
-## read property — timeouts / 658babed0e04 / 6
+## read property — timeouts / 323100320010 / 6
 
 Type: `"string"`. Optional.
 
@@ -2803,11 +2803,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-d14c588390847ac4898eed1d9d116b2c6a55d3072f6e4a1dc2d8e689cacb382d"></a>
+<a id="canonical-3101103011202003-2100201013223010-2021203232310131-2131010112230230-1222111131030013-0233123210220131-3002312032122021-3022302303200231"></a>
 
-<a id="canonical-d9231815561c396412c02ff6a4ac6f2ce3badd4eb52072440edcf8da530c2ec9"></a>
+<a id="canonical-3121020301200111-1112013003211210-0102300002333312-2210223012330230-3203232231311032-2311020013021010-0032313033203122-1103003002323021"></a>
 
-## update property — timeouts / 658babed0e04 / 7
+## update property — timeouts / 323100320010 / 7
 
 Type: `"string"`. Optional.
 
@@ -2815,9 +2815,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-f763fe21ade38f60e654649cc3b40116dc985126bb3245a8c783c5567fba3a84"></a>
+<a id="canonical-3313120333320201-2231320320331200-3212111012102130-3003231000010112-3130212011010212-2323030210112220-3013200330111112-1333232203222010"></a>
 
-## Next pages — timeouts / 658babed0e04 / 8
+## Next pages — timeouts / 323100320010 / 8
 
-- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
-- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081)
+- [Property reference](resources--cdn_cache_rule--reference--group-001.md#canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001)
+- [xcsh_cdn_cache_rule](../resources/cdn_cache_rule.md#canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001)

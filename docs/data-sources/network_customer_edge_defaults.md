@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_customer_edg
 
 # xcsh_network_customer_edge_defaults landing
 
-<a id="canonical-8c8aceca215153c5d6cbb0356d721adf1b2910c6b46462a618d6991aacfa7f50"></a>
+<a id="canonical-2030202230323022-0201110111033011-3112302323000311-1231130201223133-0123022101003012-2310121012022212-0120311221210122-2230332213331100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b9b60c317f0f7f400b27583c9f2440dd15ccca8e34df73c9b388685f01b9c99a"></a>
+<a id="canonical-2321231200300301-1333003313331000-0023021311200330-2133021010003131-0111303030222032-0310313313033021-2303202012201133-0001232130212122"></a>
 
-## xcsh_network_customer_edge_defaults — xcsh_network_customer_edge_defaults / 394b47679358 / 2
+## xcsh_network_customer_edge_defaults — xcsh_network_customer_edge_defaults / 121321031120 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Default DNS and NTP destinations for Customer Edge firewall rules. Values are bu
 pinned OpenAPI release; this data source performs no network request. Ports and traffic direction
 are not encoded in the manifest.
 
-<a id="canonical-71ee489f53cb23edfcc31c48c543c9fe060226dd03af2a2099c437f8d333ae8f"></a>
+<a id="canonical-1301323210202133-1103302302033231-3330300301301020-3011100330213332-0012000202123131-0003223302220200-2121301003133320-3103030322322033"></a>
 
-## Prerequisites — xcsh_network_customer_edge_defaults / 394b47679358 / 3
+## Prerequisites — xcsh_network_customer_edge_defaults / 121321031120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-275890c671e8ca80543695fec45a8439dbe2aea886d67c74b3d01ead32762fb2"></a>
+<a id="canonical-0213112021003012-1301322030222000-1110031221113332-3010112220100321-3123320222322220-2012311213301310-2303310001322231-0302131202332302"></a>
 
-## Minimal configuration — xcsh_network_customer_edge_defaults / 394b47679358 / 4
+## Minimal configuration — xcsh_network_customer_edge_defaults / 121321031120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -68,15 +68,15 @@ output "customer_edge_default_egress" {
 }
 ```
 
-<a id="canonical-9bbf0c30dad858bd869df6e3c3edf4d8f4276a65cdd19f9b79d6b867799fcf05"></a>
+<a id="canonical-2123233300300300-3122312011202331-2012213133123203-3003323133103120-3310021312221211-3031310121332123-1321311223201213-1321213330330011"></a>
 
-## Root configuration — xcsh_network_customer_edge_defaults / 394b47679358 / 5
+## Root configuration — xcsh_network_customer_edge_defaults / 121321031120 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3086729dc0bfdc3fcf8df8f47a924ac138dac956a1e4ea292e2be01a0b605f94"></a>
+<a id="canonical-0300201213022131-3000233331300333-3033203133203310-1322210210223001-0320312230211112-2201321032220221-0232022332000122-0023120011332110"></a>
 
-## Next pages — xcsh_network_customer_edge_defaults / 394b47679358 / 6
+## Next pages — xcsh_network_customer_edge_defaults / 121321031120 / 6
 
-- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference--group-001.md#canonical-9d1fe2e704b8f5c9223fc878a892d37925ab8d4550c772fa254b3648116a6364)
-- [Examples](../guides/data-sources--network_customer_edge_defaults--examples--group-001.md#canonical-dad5520819a51e807e7cbd81ab2c891d213a43f84c729fcbc54363d4cf27c7dc)
+- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference--group-001.md#canonical-2131013332023213-0010232033113021-0202033330201320-2220210231031321-0211222320311011-1100301313023322-0211102303121020-0101122212031210)
+- [Examples](../guides/data-sources--network_customer_edge_defaults--examples--group-001.md#canonical-3122311111020020-0121221101322000-1332133023312001-2223023020210131-0201032210033320-1030130221333023-3011100312033110-3033021330133130)

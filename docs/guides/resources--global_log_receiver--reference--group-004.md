@@ -6,19 +6,551 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver reference
 
-<a id="canonical-41a7211c8515bba1bb941d2a1f63b05ffc589cd601dce8a13fb6471f7f139929"></a>
+<a id="canonical-2031310313332332-0013213312111003-3212111223022003-2033002210310113-2131223302012103-0110213221322323-3332113131332330-3123220001302000"></a>
 
-## qradar_receiver.use_tls.disable_verify_hostname — qradar_receiver.use_tls.disable_verify_hostname / ce2f4b33c078 / 2
+## qradar_receiver.compression — compression / 332121310111 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- qradar_receiver.compression
+
+<a id="canonical-0300123130230212-0210212003303202-3200011320133021-0102110230222223-3030323320223300-0030201030311113-0031112321032233-0032000210221331"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for compression.
+
+Upstream description:
+
+Compression Type.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
+    "compression_gzip"),
+  validators.ConflictingObjectAttributes("compression_default",
+    "compression_none"),
+  validators.ConflictingObjectAttributes("compression_gzip",
+    "compression_none")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-compression_choice": "[\"compression_default\",\"compression_gzip\",\"compression_none\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2123003110003331-1323321013010220-0013001313122023-0231322020332210-3220001023110313-1333101300020310-2033133013013210-3012220313212013"></a>
+
+## Direct properties — compression / 332121310111 / 3
+
+- [compression_default](resources--global_log_receiver--reference--group-004.md#canonical-2023010203320113-1101133302213122-2103033320220301-0022312303013010-3220223133220330-1320310321112312-1310331310220133-3132301032203110): complete subsection reference.
+
+- [compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-1300332030231231-3321313200311020-3012231130131233-3333210332302203-3222313113213321-2121110030311330-1201303020301220-3021111103333011): complete subsection reference.
+
+- [compression_none](resources--global_log_receiver--reference--group-004.md#canonical-1220131201021112-1303302203110223-3303230233131122-0013032331223111-0012230010212130-1010311132222223-1200130323213000-0001322221200002): complete subsection reference.
+
+<a id="canonical-0230331210131131-3031313332330230-0301202101313023-1333001332310313-0120303111112230-0102311020333100-2311300132112100-3212331333103020"></a>
+
+## Next pages — compression / 332121310111 / 4
+
+- [qradar_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-2023010203320113-1101133302213122-2103033320220301-0022312303013010-3220223133220330-1320310321112312-1310331310220133-3132301032203110)
+- [qradar_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-1300332030231231-3321313200311020-3012231130131233-3333210332302203-3222313113213321-2121110030311330-1201303020301220-3021111103333011)
+- [qradar_receiver.compression.compression_none](resources--global_log_receiver--reference--group-004.md#canonical-1220131201021112-1303302203110223-3303230233131122-0013032331223111-0012230010212130-1010311132222223-1200130323213000-0001322221200002)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-2023010203320113-1101133302213122-2103033320220301-0022312303013010-3220223133220330-1320310321112312-1310331310220133-3132301032203110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3012122301221333-2302223022222220-1031131010120203-1112322000232211-1220211032013303-0221001212121333-2201023211302100-0031321213113030"></a>
+
+## qradar_receiver.compression.compression_default — compression_default / 021021321223 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- qradar_receiver.compression.compression_default
+
+<a id="canonical-2222302002300322-1300312202111210-1330022331023221-3332012210021132-0023331300303200-1221133232321121-1120213331010002-0002222101001232"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for compression default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_default = {}
+```
+
+<a id="canonical-0213213001231021-0122313123232000-2220212111002012-2203212012320232-0000012020301200-2222021121302021-3321201221132323-2103131201031303"></a>
+
+## Direct properties — compression_default / 021021321223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3131120300210113-0222103111231021-3133120121201012-3032202012303220-3100231003102310-3301120333200220-1221223232330123-0312102132212231"></a>
+
+## Next pages — compression_default / 021021321223 / 4
+
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-1300332030231231-3321313200311020-3012231130131233-3333210332302203-3222313113213321-2121110030311330-1201303020301220-3021111103333011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2023101101020202-3111022323323100-0000232202211221-2223300001130110-2002132231312121-3133222131220001-1022122012323100-2212002132230331"></a>
+
+## qradar_receiver.compression.compression_gzip — compression_gzip / 322333033232 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- qradar_receiver.compression.compression_gzip
+
+<a id="canonical-3001210031003331-1120010333231111-2230100202002110-3233022230230201-2333303212222232-2133301011121123-0233131003303211-2202330010302200"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_gzip = {}
+```
+
+<a id="canonical-2002000033031231-2100132012003323-0232021223223131-1130301330010212-0013333130302023-2222011313012330-1010231230221030-2130322332013331"></a>
+
+## Direct properties — compression_gzip / 322333033232 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2311012313010112-1101211012313303-2123003012022200-2103101312120012-3213200112331220-1111222022303000-3002023000210323-3330011111110122"></a>
+
+## Next pages — compression_gzip / 322333033232 / 4
+
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-1220131201021112-1303302203110223-3303230233131122-0013032331223111-0012230010212130-1010311132222223-1200130323213000-0001322221200002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0320030131021010-3302010123323222-3103330002201212-1202020201212210-3011300231333123-0212331322220032-2302131010110012-0210133231331200"></a>
+
+## qradar_receiver.compression.compression_none — compression_none / 310332101102 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- qradar_receiver.compression.compression_none
+
+<a id="canonical-0002020103233212-0203321120022222-1101230000013021-1210000210221231-0313110201001101-1330022333110020-0002023102313020-3011103322131212"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for compression none.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_none = {}
+```
+
+<a id="canonical-2220132113030311-2002131303120100-0211302311300121-1132303101132313-1322231301211023-2222322313300122-0201122222112003-0033012203220310"></a>
+
+## Direct properties — compression_none / 310332101102 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1333002130302320-3202320332111011-1111231010301230-1320123211320301-2330200322223230-2211001301100323-1021030012310111-2302003331322123"></a>
+
+## Next pages — compression_none / 310332101102 / 4
+
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-0333030003010101-1102331120011301-3023322233120221-1332221330232103-0110203322122232-0233200210022200-0211212203313232-2301331121322003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3203101202110301-0110322302310320-3031121210023112-0013133220201002-2230202323222101-3211221230033301-0111130321000003-2010121131122133"></a>
+
+## qradar_receiver.no_tls — no_tls / 131020021101 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- qradar_receiver.no_tls
+
+<a id="canonical-2011101121131031-2021332220303111-3233201131210220-2333212131300233-1222222330201202-3101133121102322-2202021000020111-1232000333200131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_tls = {}
+```
+
+<a id="canonical-2213313222212203-0123201033103222-0011302230111122-2012221302033213-2130203322012122-3210201321323200-1011233003132210-1013230302131123"></a>
+
+## Direct properties — no_tls / 131020021101 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2013210321321122-1222331302030030-2230312001233013-1203113323300103-0013030010212012-0102200120300101-2032120103003323-3110031102112320"></a>
+
+## Next pages — no_tls / 131020021101 / 4
+
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3303003230131221-1023122110210223-3003011203213323-2310001130003321-3210330120333320-2310003133123310-2312120111322222-2220313023330012"></a>
+
+## qradar_receiver.use_tls — use_tls / 222331011333 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- qradar_receiver.use_tls
+
+<a id="canonical-0233303223131023-0121300303011220-0100201323130200-1300032001302221-3020012001133222-1210003303303120-0323113312302012-3111113130232112"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+TLS Parameters for client connection to the endpoint.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
+    "enable_verify_certificate"),
+  validators.ConflictingObjectAttributes("disable_verify_hostname",
+    "enable_verify_hostname"),
+  validators.ConflictingObjectAttributes("mtls_disabled",
+    "mtls_enable"),
+  validators.ConflictingObjectAttributes("no_ca",
+    "trusted_ca_url")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ca_choice": "[\"no_ca\",\"trusted_ca_url\"]",
+  "x-ves-oneof-field-mtls_choice": "[\"mtls_disabled\",\"mtls_enable\"]",
+  "x-ves-oneof-field-verify_certificate": "[\"disable_verify_certificate\",\"enable_verify_certificate\"]",
+  "x-ves-oneof-field-verify_hostname": "[\"disable_verify_hostname\",\"enable_verify_hostname\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+use_tls {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3020211312233011-3210123021212203-0301233220303102-2200232203102111-1101022031113323-1012132223223032-3203021321311320-3100331200311322"></a>
+
+## Direct properties — use_tls / 222331011333 / 3
+
+- [disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2333120331333210-3311110122102111-3023223323023311-2301120221203023-0223220232230133-3200301011013300-0000232301112110-3121001001213230): complete subsection reference.
+
+- [disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-0102232122102220-0201011030200002-0222223111213123-3013233002212320-1330131302231033-1002113333111131-3303300221311223-0121323310030013): complete subsection reference.
+
+- [enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2033003220021233-1330221230121232-1323010030200330-1323303123223021-0031312031230332-3323131130232123-0201200013113003-3331010301212132): complete subsection reference.
+
+- [enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2122213023332330-0202131022100311-0032013001310020-3112202103301211-2233223121000000-0013023221121301-1330221213120020-3331223220113030): complete subsection reference.
+
+- [mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0231303000231222-0012321302102313-3320232202102121-1230321331103302-3332013001012123-0322021212130322-2133312302100130-1211020201302123): complete subsection reference.
+
+- [mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130): complete subsection reference.
+
+- [no_ca](resources--global_log_receiver--reference--group-004.md#canonical-1312130321213230-0132213121032011-1330313022131132-0010313132020220-0011000010113303-1020122333111230-3200210122313121-1113132023223333): complete subsection reference.
+
+<a id="canonical-3203122322221121-2201321003222222-1230012021220301-2120232002222320-0021310330311223-2012303332311020-3302203320221322-0211331323033011"></a>
+
+<a id="canonical-1000003022111310-0202210022212333-0132313222100122-2113321130111321-2113133122312013-1210301221033233-3300200013200120-0000102312331030"></a>
+
+## trusted_ca_url property — use_tls / 222331011333 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Upstream description:
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(131072),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  }
+}
+```
+
+<a id="canonical-1133123031021122-0031123101100203-3132001221330001-2122203031110323-1320010110322302-3210100112021333-1332320013001111-0201201311323202"></a>
+
+## Next pages — use_tls / 222331011333 / 5
+
+- [qradar_receiver.use_tls.disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2333120331333210-3311110122102111-3023223323023311-2301120221203023-0223220232230133-3200301011013300-0000232301112110-3121001001213230)
+- [qradar_receiver.use_tls.disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-0102232122102220-0201011030200002-0222223111213123-3013233002212320-1330131302231033-1002113333111131-3303300221311223-0121323310030013)
+- [qradar_receiver.use_tls.enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2033003220021233-1330221230121232-1323010030200330-1323303123223021-0031312031230332-3323131130232123-0201200013113003-3331010301212132)
+- [qradar_receiver.use_tls.enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2122213023332330-0202131022100311-0032013001310020-3112202103301211-2233223121000000-0013023221121301-1330221213120020-3331223220113030)
+- [qradar_receiver.use_tls.mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0231303000231222-0012321302102313-3320232202102121-1230321331103302-3332013001012123-0322021212130322-2133312302100130-1211020201302123)
+- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130)
+- [qradar_receiver.use_tls.no_ca](resources--global_log_receiver--reference--group-004.md#canonical-1312130321213230-0132213121032011-1330313022131132-0010313132020220-0011000010113303-1020122333111230-3200210122313121-1113132023223333)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-2333120331333210-3311110122102111-3023223323023311-2301120221203023-0223220232230133-3200301011013300-0000232301112110-3121001001213230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3000302012021132-1313311310302221-2103232002133330-2331023212220330-0230211200301211-1100020332122133-3322230022330010-0303313111303222"></a>
+
+## qradar_receiver.use_tls.disable_verify_certificate — disable_verify_certificate / 211002023131 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- qradar_receiver.use_tls.disable_verify_certificate
+
+<a id="canonical-3132221033311332-2323012221020000-2013321311102230-1220011322023111-0312312321031013-1223332101310200-1012201010031103-1120133111212213"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for disable verify certificate.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_verify_certificate = {}
+```
+
+<a id="canonical-3221311102331103-1113201132131322-3120003221101220-1321001003022113-0001232320303011-2031023030302221-2133100333231033-3231031122120331"></a>
+
+## Direct properties — disable_verify_certificate / 211002023131 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3002300233110012-2013203200331012-2221330310102011-0303311000301133-1021310122223223-0330220033333211-3113120322210232-3213113110110232"></a>
+
+## Next pages — disable_verify_certificate / 211002023131 / 4
+
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-0102232122102220-0201011030200002-0222223111213123-3013233002212320-1330131302231033-1002113333111131-3303300221311223-0121323310030013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1001221302010130-2011011123232201-2323211001310222-0133120323001133-3330112021303112-0001313032202201-0333231210130133-1333010321210221"></a>
+
+## qradar_receiver.use_tls.disable_verify_hostname — disable_verify_hostname / 030330001320 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.disable_verify_hostname
 
-<a id="canonical-4f9b833de127ee59b2229bc1b4e6622c2d0d1526fca8969b8c4b2bb72a21448d"></a>
+<a id="canonical-1033212320030331-3201021332321121-2302020221233001-2310321212020230-0231003101110212-3330222021122123-2030102302232313-0222020110102031"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -47,38 +579,38 @@ Terraform syntax:
 disable_verify_hostname = {}
 ```
 
-<a id="canonical-2e09dddcc28d538d7ae475997d5c84120d5d9f880b1b541882b8a07ac5b64c5b"></a>
+<a id="canonical-0232002131313130-3002203111032031-1322321013112121-1331113020100102-0031113121332020-0023012311100120-2002232022001322-3011231210301123"></a>
 
-## Direct properties — qradar_receiver.use_tls.disable_verify_hostname / ce2f4b33c078 / 3
+## Direct properties — disable_verify_hostname / 030330001320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-830f32f22dbd2428da405db7eaf67bf16db8f41d773a7d3b4861e00310e965cc"></a>
+<a id="canonical-2003003303023302-0231233102100220-3122100011312313-3222331213233301-1231232033100131-1313032213310323-1020120132000003-0100322112113030"></a>
 
-## Next pages — qradar_receiver.use_tls.disable_verify_hostname / ce2f4b33c078 / 4
+## Next pages — disable_verify_hostname / 030330001320 / 4
 
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-8f0e826f7ca6c66e7b10c83c7bcdbac90dd8db3efb75cb9b218075c3fd13199e"></a>
+<a id="canonical-2033003220021233-1330221230121232-1323010030200330-1323303123223021-0031312031230332-3323131130232123-0201200013113003-3331010301212132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8fd1cbf21b295f86583154d734d0a76cb2c1516005e73dc12c494a86c3539551"></a>
+<a id="canonical-2033310130233302-0123022111332012-1120030111103113-0310310022131230-2302300111011200-0011321303313001-0230102110222012-3003110321111101"></a>
 
-## qradar_receiver.use_tls.enable_verify_certificate — qradar_receiver.use_tls.enable_verify_certificate / 89ee4e9eb370 / 2
+## qradar_receiver.use_tls.enable_verify_certificate — enable_verify_certificate / 213223031300 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.enable_verify_certificate
 
-<a id="canonical-d32705e9616d742f8b5360459e09b8304f56a09a27910b1de3dc1783dbc41670"></a>
+<a id="canonical-3103021300113221-1201123113100233-2023110312001011-2132002123200300-1033111222002122-0213210100230131-3203313001132003-3123301001121300"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -107,38 +639,38 @@ Terraform syntax:
 enable_verify_certificate = {}
 ```
 
-<a id="canonical-aec53a83f8170dd62e9195e709adf35083bf0b0f8da33e0034ce5907d8d24020"></a>
+<a id="canonical-2232301103222003-3320011300313112-0232210121113213-0021223133031100-2003233300230033-2031220303320000-0310303211210013-3120310210000200"></a>
 
-## Direct properties — qradar_receiver.use_tls.enable_verify_certificate / 89ee4e9eb370 / 3
+## Direct properties — enable_verify_certificate / 213223031300 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d85ed3638776769ac631788488345018495cdc9920d9fb08f1494aff94db32ad"></a>
+<a id="canonical-3120113231031203-2013131213122122-3012030113202010-2020031011000120-1021113031302121-0200312133230020-3301102110223333-2110312303022231"></a>
 
-## Next pages — qradar_receiver.use_tls.enable_verify_certificate / 89ee4e9eb370 / 4
+## Next pages — enable_verify_certificate / 213223031300 / 4
 
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-9a9cbfbc2274a4350e1c1d08d6893c65afad9000072e96717ca67608fdae85cc"></a>
+<a id="canonical-2122213023332330-0202131022100311-0032013001310020-3112202103301211-2233223121000000-0013023221121301-1330221213120020-3331223220113030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47275d6a2aa2392d94c7f041abeac7b0205dfe0457a92862bd1f02c75a711b5f"></a>
+<a id="canonical-1013021311311222-0222220203210231-2110301333001001-2223322230132300-0200113133320010-1113222102201202-2331013300023013-1122130101231133"></a>
 
-## qradar_receiver.use_tls.enable_verify_hostname — qradar_receiver.use_tls.enable_verify_hostname / ec1b1510a9c1 / 2
+## qradar_receiver.use_tls.enable_verify_hostname — enable_verify_hostname / 010022213001 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.enable_verify_hostname
 
-<a id="canonical-d68c229a317c9fbe11c0266984635fdcd28f4b02d7fc9f7ed9b38392a820e83c"></a>
+<a id="canonical-3112203002022122-0301133021332332-0101300002121221-2010120311333130-3102203310230002-3113333021331332-3121230320032102-2220020032200330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -167,38 +699,38 @@ Terraform syntax:
 enable_verify_hostname = {}
 ```
 
-<a id="canonical-168d9f663bab5a2e17d1d5016ce9793daaa1117b09544dea5b1b7af955bf9e5a"></a>
+<a id="canonical-0112203121331212-0323222311220232-0113310131110001-1230322113210331-2222220101011323-0021111010313222-1123012313223321-1111233321321122"></a>
 
-## Direct properties — qradar_receiver.use_tls.enable_verify_hostname / ec1b1510a9c1 / 3
+## Direct properties — enable_verify_hostname / 010022213001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-08e1a204217216214234b8d9e0da3ee3dd606263def8e626a73671ce30e652b4"></a>
+<a id="canonical-0020320122020010-0201130201120201-1002031023203121-3200312203323203-3131120012021203-3132332032120212-2213031213013032-0300321211022310"></a>
 
-## Next pages — qradar_receiver.use_tls.enable_verify_hostname / ec1b1510a9c1 / 4
+## Next pages — enable_verify_hostname / 010022213001 / 4
 
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-2dcc0b6a06e724b7f8ba24996ce7d4f2fe1c119b3a26673a9fdb241c65221c9b"></a>
+<a id="canonical-0231303000231222-0012321302102313-3320232202102121-1230321331103302-3332013001012123-0322021212130322-2133312302100130-1211020201302123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-644917f6693867a13528d73636ba4bf03e04fd72a63020cce772b9701ba65935"></a>
+<a id="canonical-1210102101133312-1221032012132201-0311022031130312-0312232210233300-0332001033311302-2212030002003030-3213130223211300-0123221211210311"></a>
 
-## qradar_receiver.use_tls.mtls_disabled — qradar_receiver.use_tls.mtls_disabled / e62b4bc0d1d2 / 2
+## qradar_receiver.use_tls.mtls_disabled — mtls_disabled / 300031013102 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.mtls_disabled
 
-<a id="canonical-2ccf5178084023329694cc9be9ba0cdd6d4f3e1fd87b763d2a34d0334c283341"></a>
+<a id="canonical-0230303311011320-0020100002030302-2112211030302123-3221232200303131-1231103303320133-3120132313120331-0222031031000303-1030022003031001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -227,38 +759,38 @@ Terraform syntax:
 mtls_disabled = {}
 ```
 
-<a id="canonical-afee704f2d0fcb6b79b88feab96ed3a563859e90a4f5a4c9f39cb2a20985dd25"></a>
+<a id="canonical-2233323213001033-0231003330231223-1321232020333222-2321123231032211-1203201121322100-2210331122103021-3303213023022202-0021201131310211"></a>
 
-## Direct properties — qradar_receiver.use_tls.mtls_disabled / e62b4bc0d1d2 / 3
+## Direct properties — mtls_disabled / 300031013102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-64f10cd1b045d3cc677624de60c8e7110b7126d647599fb2d868a588d2e7d6e5"></a>
+<a id="canonical-1210330100303101-2300101131033030-1213131202103132-1200302032130101-0023130102123112-1013112121332302-3120122022112020-3102321331123211"></a>
 
-## Next pages — qradar_receiver.use_tls.mtls_disabled / e62b4bc0d1d2 / 4
+## Next pages — mtls_disabled / 300031013102 / 4
 
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-c0ff8cfb35ba02bb45894dd440a666929540a78e3b2fc206dcb62f94a888d75c"></a>
+<a id="canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d341d90c771f51d9b8e47b8472a305a962e943b058654785700d2768cbd819ee"></a>
+<a id="canonical-3103100131210030-1313013311013121-2320321013232010-1302220300112221-1202322110032300-1120121110132011-1300003102131220-3023312001213232"></a>
 
-## qradar_receiver.use_tls.mtls_enable — qradar_receiver.use_tls.mtls_enable / a5416cac782a / 2
+## qradar_receiver.use_tls.mtls_enable — mtls_enable / 223013200222 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.mtls_enable
 
-<a id="canonical-4fd443a8823e3b8d2db1105b7ee5a1605f2d76ba93011dde30b0a8463a068935"></a>
+<a id="canonical-1033311010032220-2002033203232031-0231230101001123-1332321122011200-1133023113122322-2103000101313132-0300230022201012-0322001220210311"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -285,15 +817,15 @@ mtls_enable {
 }
 ```
 
-<a id="canonical-452413e3cf6e7f53dc1de4e540668283f99c0fe83c5cfbdee5c4cff66257453e"></a>
+<a id="canonical-1011021001033203-3033123213331103-3130013132103211-1000121220022003-3321213000333220-0330113033233132-3211301030333312-1202111310110332"></a>
 
-## Direct properties — qradar_receiver.use_tls.mtls_enable / a5416cac782a / 3
+## Direct properties — mtls_enable / 223013200222 / 3
 
-<a id="canonical-288e09876078c9c7e41732c1c913e15df6bdae41626295c7d1fe455e248cb601"></a>
+<a id="canonical-0220203200212013-1200132030213013-3210011303023001-3021010332011131-3312233122321001-1202120221113013-3101333210111132-0210203023120001"></a>
 
-<a id="canonical-30ee326318c9b40a916a570bc3bcee2aed828f1ebbd1e9381be56a9f94c8e526"></a>
+<a id="canonical-0300323203021203-0120302123100022-2101122211130023-3003233032320222-3231200220330132-2323310132210320-0123321112222133-2110302032110212"></a>
 
-## certificate property — qradar_receiver.use_tls.mtls_enable / a5416cac782a / 4
+## certificate property — mtls_enable / 223013200222 / 4
 
 Type: `"string"`. Optional.
 
@@ -350,36 +882,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c): complete subsection reference.
+- [key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330): complete subsection reference.
 
-<a id="canonical-e8e151dd57fbb47a1263fdc58c1268aee6bab601b02feceae176b58a5013fc3b"></a>
+<a id="canonical-3220320111013131-1113332323101322-0102120333313011-2030010212202232-3212232223120001-2300023332303222-3201131223112022-1100010333300323"></a>
 
-## Next pages — qradar_receiver.use_tls.mtls_enable / a5416cac782a / 5
+## Next pages — mtls_enable / 223013200222 / 5
 
-- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c"></a>
+<a id="canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5657e57602e5699ad73d6507f9bc9b47988e6565bfb8441081d39c670deac7a"></a>
+<a id="canonical-3011121113321113-1200023211122121-2231130331121100-1333212330212310-1321202032121112-1123332320101001-0020013103213012-1300313222301322"></a>
 
-## qradar_receiver.use_tls.mtls_enable.key_url — qradar_receiver.use_tls.mtls_enable.key_url / a7e7de8d039a / 2
+## qradar_receiver.use_tls.mtls_enable.key_url — key_url / 203100032122 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-c0ff8cfb35ba02bb45894dd440a666929540a78e3b2fc206dcb62f94a888d75c)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130)
 - qradar_receiver.use_tls.mtls_enable.key_url
 
-<a id="canonical-ddd89468fa2fc7b7e756bd08f7ae3d7d0668a913fadf290165c8d225c7bd285f"></a>
+<a id="canonical-3131312021101220-3322023330132313-3213111223310020-3313223203311331-0012122022210103-3322313302210001-1211302031020211-3013233102201133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -414,44 +946,44 @@ key_url {
 }
 ```
 
-<a id="canonical-85d3d1ece90145e67dec8ad5d2e34bea40e0dc4cc86faf2ba56126e5de560e13"></a>
+<a id="canonical-2011310331013230-3221000110113212-1331323020223111-3102320310233222-1000320031301030-3020123322330223-2211120102123211-3132111200320103"></a>
 
-## Direct properties — qradar_receiver.use_tls.mtls_enable.key_url / a7e7de8d039a / 3
+## Direct properties — key_url / 203100032122 / 3
 
-- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-bba40eaacfd90f345394b48a05243d63ce18f0061c74b290e0efdec2b2e8482e): complete subsection reference.
+- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2323221000322222-3033312100330310-1103211023102022-0011021003311203-3032012033000012-0130131023022100-3200323331323002-2302322010200232): complete subsection reference.
 
-- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-8ad893a5ff9d5c6d1c557e41aa39ac1c03643af1806a28a2ea2de93f142e78ae): complete subsection reference.
+- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2022312021032211-3333213111301231-0130111113321001-2222032122300130-0003121003223301-2000122202202202-3222023132210333-0110023213202232): complete subsection reference.
 
-<a id="canonical-c623164741ea1dcdca0143914f36a05a5e3f93fa8986e36a397c5a8c7503ca29"></a>
+<a id="canonical-3012020301121013-1001322201313031-3022000110032101-1033031222001122-1132033321033322-2021201232031222-0321133011222030-1311000330220221"></a>
 
-## Next pages — qradar_receiver.use_tls.mtls_enable.key_url / a7e7de8d039a / 4
+## Next pages — key_url / 203100032122 / 4
 
-- [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-bba40eaacfd90f345394b48a05243d63ce18f0061c74b290e0efdec2b2e8482e)
-- [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-8ad893a5ff9d5c6d1c557e41aa39ac1c03643af1806a28a2ea2de93f142e78ae)
-- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-c0ff8cfb35ba02bb45894dd440a666929540a78e3b2fc206dcb62f94a888d75c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2323221000322222-3033312100330310-1103211023102022-0011021003311203-3032012033000012-0130131023022100-3200323331323002-2302322010200232)
+- [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2022312021032211-3333213111301231-0130111113321001-2222032122300130-0003121003223301-2000122202202202-3222023132210333-0110023213202232)
+- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-bba40eaacfd90f345394b48a05243d63ce18f0061c74b290e0efdec2b2e8482e"></a>
+<a id="canonical-2323221000322222-3033312100330310-1103211023102022-0011021003311203-3032012033000012-0130131023022100-3200323331323002-2302322010200232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-42a191ae878e027cc4b1769afb26586149ad162750935ca4d3c57612e8b1f7ac"></a>
+<a id="canonical-1002220121012232-2013203200021330-3010230113122122-3323021211201201-1021223101120213-1100210311302210-3103301113120102-3220230133132230"></a>
 
-## qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 2
+## qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — blindfold_secret_info / 030122012203 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-c0ff8cfb35ba02bb45894dd440a666929540a78e3b2fc206dcb62f94a888d75c)
-- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130)
+- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330)
 - qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info
 
-<a id="canonical-e1f3a5055a60a03a45f360fe86de5eadfdc419d2a8650d4500387928bb0a4893"></a>
+<a id="canonical-3201330322110011-1122120022000322-1011330312003332-2012313211322231-3331301001213102-2220121100311011-0000032013210220-2323002210202103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -484,15 +1016,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-19740e03ae71c23572c0dacdbf702d3c1888b4174e0b7953f7dac5871adc8b9c"></a>
+<a id="canonical-0121131000320003-2232130130020311-1302300031223031-2333130002310330-0120202023100113-1032002313211103-3313312230112013-0122313020232130"></a>
 
-## Direct properties — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 3
+## Direct properties — blindfold_secret_info / 030122012203 / 3
 
-<a id="canonical-f39a35629264016bc29edcd5349c45b77601608c8eba4ae1aa53d4ad8c3f7351"></a>
+<a id="canonical-3303212203111202-2102121000011223-3002213231303111-0310213010112313-1312000112002030-2032232210223201-2222110331102231-2030033313031101"></a>
 
-<a id="canonical-da7201301623879f8758f3d5613e190d620300d1660a49710732f4c8ddf7ab6d"></a>
+<a id="canonical-3122130200010300-0112020320132133-2013112033033111-1201033201210031-1202000300003101-1212002210211301-0013030233103020-3131331322231231"></a>
 
-## decryption_provider property — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 4
+## decryption_provider property — blindfold_secret_info / 030122012203 / 4
 
 Type: `"string"`. Optional.
 
@@ -522,11 +1054,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e37cb2e1939a543d7e220582f8bb6c515324993e9b2fb042131ecd904571750"></a>
+<a id="canonical-0232031330230232-0121032122111003-3113320202001120-0233202323123011-0111030210212103-3221230233230010-0201030132303121-0010111301131100"></a>
 
-<a id="canonical-4f3e153d3eace9227656eb402fbbe1844ae177346498dab933cc9418af3a2c51"></a>
+<a id="canonical-1033033201110331-0332223032210202-1312111232231000-0233232332012010-1022320113130310-1210212031222321-0303303021100120-2233032202301101"></a>
 
-## location property — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 5
+## location property — blindfold_secret_info / 030122012203 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -583,11 +1115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7f112b088cae47d575c21e312c8c5ab879047676e4be8509bb423d8d59c4c517"></a>
+<a id="canonical-1333010102230020-2030223210133111-1311300201320301-0230203011222320-1321001013121312-3210233220110021-2323100203312031-1121301030110113"></a>
 
-<a id="canonical-6cd96fbb986038f4587ec9cda924edf13d740128c155b8385b33738f7a942678"></a>
+<a id="canonical-1230312112332323-2120120003203310-1120133230213031-2221021032313301-0331131000010220-3001111123200320-1123030313032033-1322211002121320"></a>
 
-## store_provider property — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 6
+## store_provider property — blindfold_secret_info / 030122012203 / 6
 
 Type: `"string"`. Optional.
 
@@ -622,34 +1154,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1541ba5434e3c559fd45269c8dab2502a35375b2cde93b8703ac1511fff05f8f"></a>
+<a id="canonical-0111100123221110-0310320330111121-3331101102122130-2031222302110002-2203110313112302-3031322103232013-0003223001110101-3333330011332033"></a>
 
-## Next pages — qradar_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / c8216f31a1a3 / 7
+## Next pages — blindfold_secret_info / 030122012203 / 7
 
-- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-8ad893a5ff9d5c6d1c557e41aa39ac1c03643af1806a28a2ea2de93f142e78ae"></a>
+<a id="canonical-2022312021032211-3333213111301231-0130111113321001-2222032122300130-0003121003223301-2000122202202202-3222023132210333-0110023213202232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-150a9f24f415364cea60bd0a78473847d6b920184a669c30f00b64cadc444af1"></a>
+<a id="canonical-0111002221330210-3310011103121030-3222120023310022-1320101303201013-3112232102000120-1022121221300300-3300002312103022-3130101010223301"></a>
 
-## qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info — qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 214e85d5a4e9 / 2
+## qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info — clear_secret_info / 311122103221 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-c0ff8cfb35ba02bb45894dd440a666929540a78e3b2fc206dcb62f94a888d75c)
-- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [qradar_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-3000333320303323-0311232200022323-1011202110313110-1000221212122102-2111100022132032-0323023330020012-3130231202332110-2220202031131130)
+- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330)
 - qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info
 
-<a id="canonical-ba777ebebe1e762bab61fefec3f2e718983411c6f8c75f0ceee6e3de4be6d3d2"></a>
+<a id="canonical-2322131313322332-2332013213120223-2223120133323332-3003330232130120-2120031001013012-3320301311330030-3232321232033132-1023321231033102"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -682,26 +1214,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-4e9f16267a2ba893363a2559b0aa306c9bec5440391e7c7ad54babe172e5540a"></a>
+<a id="canonical-1032213301120212-1322022322202103-0312032202111121-2300222203001230-2123323011101000-0321013213301322-3111102322233201-1302321111100022"></a>
 
-## Direct properties — qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 214e85d5a4e9 / 3
+## Direct properties — clear_secret_info / 311122103221 / 3
 
-<a id="canonical-e7e41ea75efbbc6eb8b0a1c8ae74e701d88a5c11cbd4a3471741fd3b8676f3db"></a>
+<a id="canonical-3213321001322213-1132332323301232-2320230022013020-2232131032130001-3120202211300101-3023311022031013-0113100133310323-2012131233033123"></a>
 
-<a id="canonical-b40238a7ff9b4a957441f075679a7907f1c7d7cc6cca8dc114462ad59881ff21"></a>
+<a id="canonical-2310000203202213-3333212310222111-1310100133001311-1213212213210013-3301301331133030-1230302220313001-0110101202223111-2120200133330201"></a>
 
-## provider_ref property — qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 214e85d5a4e9 / 4
+## provider_ref property — clear_secret_info / 311122103221 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-4ea7321cbbaa30978e08b6430cbef1bedcadb919643d25915320da73e38e9659"></a>
+<a id="canonical-1032221303020130-2323222203002113-2032002023121003-0030233233012332-3130223123210121-1210033102112101-1103020031221303-3203203221121121"></a>
 
-<a id="canonical-f3210f81405c9580480e9c024849108b2f822e5bd4e2283c6c81ea06b2784e93"></a>
+<a id="canonical-3303020100332001-1000113021112000-1020003221300002-1020102101002023-0233200202321123-3110320202200330-1230200132220012-2302132010322103"></a>
 
-## url property — qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 214e85d5a4e9 / 5
+## URL property — clear_secret_info / 311122103221 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -769,32 +1301,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22e351c4c57ca589c7707fd4558d91f0f798a4519dbcff509902f15f542b14a7"></a>
+<a id="canonical-0202320311013010-3011133022112021-3013130013333110-1111203121013300-3313212022101101-2131233033331100-2121000233011133-1110022301102213"></a>
 
-## Next pages — qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 214e85d5a4e9 / 6
+## Next pages — clear_secret_info / 311122103221 / 6
 
-- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3ebb89456e9ede425569764c0aa1ae9d8620a3e8f9a8939d8f04131231fd033c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-0332232320211011-1232213231321002-1111122113121030-0022220122322131-2012020022033220-3321222021032131-2033001001030102-0301333100030330)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-767399ec1e9d93857cdca75e04dde228050045f3486bf56ce091add95778baff"></a>
+<a id="canonical-1312130321213230-0132213121032011-1330313022131132-0010313132020220-0011000010113303-1020122333111230-3200210122313121-1113132023223333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7b65d7c5e1fab280eec805f1f257706b1745a61a11e4581600a666713844d87c"></a>
+<a id="canonical-1323121131133011-3201332223022000-3232302000113301-3302111313001223-0113101122120122-0101321011200112-0000221212121301-0320101031201330"></a>
 
-## qradar_receiver.use_tls.no_ca — qradar_receiver.use_tls.no_ca / 5cccfe176f54 / 2
+## qradar_receiver.use_tls.no_ca — no_ca / 011312331110 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-afb382cb3e4d5e62efc324cc347c6ce43343131b41944fdb2dca84647cc5f8be)
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
 - qradar_receiver.use_tls.no_ca
 
-<a id="canonical-48c73cf291156d0aee472374eef6f3d78c46ad2daf836077640228d47a24c454"></a>
+<a id="canonical-1020301303303302-2101011112310022-3232101302031310-3232331233033113-2030101222310231-2233200312001313-1210000202203110-1322021030101110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -823,36 +1355,36 @@ Terraform syntax:
 no_ca = {}
 ```
 
-<a id="canonical-eb7ab25fc1423c12ad916befc98bc6e06f2804326dc5be5777134ed70457be70"></a>
+<a id="canonical-3223132223021133-3001100203300102-2231210112233233-3021202330123200-1233022000100302-1231301123321113-1313010310323113-0010111323321300"></a>
 
-## Direct properties — qradar_receiver.use_tls.no_ca / 5cccfe176f54 / 3
+## Direct properties — no_ca / 011312331110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2a9eece68b28cd14d67cf4c2c1cc19d4d3c0d947110e0ef17469f31578ed8154"></a>
+<a id="canonical-0222213232303212-2023022030310110-3112133033103002-3001303001213110-3103300031211013-0101003200323301-1310122133030111-1320323120011110"></a>
 
-## Next pages — qradar_receiver.use_tls.no_ca / 5cccfe176f54 / 4
+## Next pages — no_ca / 011312331110 / 4
 
-- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-003.md#canonical-8380b97319f78370786be39917d8af086bd5a1781bbfcc2f916aa7c688f7a19f)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [qradar_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-2003200023211303-0121331320031300-1320122332032121-0113312022330020-1223311122011320-0123233330300233-2101122222133012-2020331322012133)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-6e273b67339140e7d510ed896f832f6e797c61fd0cdd910df908cae2e7cda8a5"></a>
+<a id="canonical-1232021303231213-0303210110003213-3111010032312021-1233200302331232-1321133012013331-0030313121010031-3321002030223202-3213303122202211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d11dc535d9d29bd04bf0e65a85aa4ffe96655291c8a78ef925613eb888aaebb2"></a>
+<a id="canonical-3101013130110311-3121310221233100-1023330032121122-2011222210333332-2112121111022101-3020221320323321-0211120103322320-2020222232232302"></a>
 
-## request_logs — request_logs / 9ae83cdd6181 / 2
+## request_logs — request_logs / 313112012001 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - request_logs
 
-<a id="canonical-96ffebd451cfc47ca3cf925b357317d8d707c87a71bd79f2455049437290fa25"></a>
+<a id="canonical-2112333332233110-1101303330101330-2203303321021123-0311130301133120-3113001330201322-1301233113213302-1011110010211003-1302210033220211"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -893,41 +1425,41 @@ request_logs {
 }
 ```
 
-<a id="canonical-59e6625d067fc90377fce06ef581f6b3748b1c07c23826e7f9859092a1ab105d"></a>
+<a id="canonical-1121321212021131-0012133330210003-1313333032001232-3311200133122303-1310202301300013-3002032002123213-3321201121002102-2201222301001131"></a>
 
-## Direct properties — request_logs / 9ae83cdd6181 / 3
+## Direct properties — request_logs / 313112012001 / 3
 
-- [sampled](resources--global_log_receiver--reference--group-004.md#canonical-776962a514d990ad5756d585a2c8962bb79f71e5b655a07e3abe30a1e238cb2d): complete subsection reference.
+- [sampled](resources--global_log_receiver--reference--group-004.md#canonical-1313122112022211-0110312121002231-1113111231112011-2202302021120223-2313213313013211-2312111122001332-0322233203002201-3202032030230231): complete subsection reference.
 
-- [unsampled](resources--global_log_receiver--reference--group-004.md#canonical-f1d887fbe49a8c4e222f2c7b9390542f8fe3b44e4c8cb17b9409e968db4e68a2): complete subsection reference.
+- [unsampled](resources--global_log_receiver--reference--group-004.md#canonical-3301312020133323-3210212220301032-0202023302301323-2103210011100233-2033320323101032-1030203023011323-2110002132211220-3123103212202202): complete subsection reference.
 
-<a id="canonical-e35b3ad21104db11f436f04d3fced02ee01ccdf16e84c98607f70fac5dd341db"></a>
+<a id="canonical-3203112303223102-0101001031230101-3310031233001031-0333303231000232-3200013030313301-1232201030212012-0013331300332230-1131310310013123"></a>
 
-## Next pages — request_logs / 9ae83cdd6181 / 4
+## Next pages — request_logs / 313112012001 / 4
 
-- [request_logs.sampled](resources--global_log_receiver--reference--group-004.md#canonical-776962a514d990ad5756d585a2c8962bb79f71e5b655a07e3abe30a1e238cb2d)
-- [request_logs.unsampled](resources--global_log_receiver--reference--group-004.md#canonical-f1d887fbe49a8c4e222f2c7b9390542f8fe3b44e4c8cb17b9409e968db4e68a2)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [request_logs.sampled](resources--global_log_receiver--reference--group-004.md#canonical-1313122112022211-0110312121002231-1113111231112011-2202302021120223-2313213313013211-2312111122001332-0322233203002201-3202032030230231)
+- [request_logs.unsampled](resources--global_log_receiver--reference--group-004.md#canonical-3301312020133323-3210212220301032-0202023302301323-2103210011100233-2033320323101032-1030203023011323-2110002132211220-3123103212202202)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-776962a514d990ad5756d585a2c8962bb79f71e5b655a07e3abe30a1e238cb2d"></a>
+<a id="canonical-1313122112022211-0110312121002231-1113111231112011-2202302021120223-2313213313013211-2312111122001332-0322233203002201-3202032030230231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d78903108b53ea25815148dd04988bc1c8290322dbc767437a7862f948c27c91"></a>
+<a id="canonical-3113202100030100-2023110332220211-2001110110203131-0010212020233001-3020022100030202-3123301312131003-1322132012023321-1020300213302101"></a>
 
-## request_logs.sampled — request_logs.sampled / 370d79e63d1e / 2
+## request_logs.sampled — sampled / 321203310132 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-6e273b67339140e7d510ed896f832f6e797c61fd0cdd910df908cae2e7cda8a5)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-1232021303231213-0303210110003213-3111010032312021-1233200302331232-1321133012013331-0030313121010031-3321002030223202-3213303122202211)
 - request_logs.sampled
 
-<a id="canonical-49288d41fbbc0005931dd8b84d537ab8efd7dad5764a0b3b06b940fe090a5068"></a>
+<a id="canonical-1021022020311001-3323233000000011-2103013131202320-1031110313222320-3233311331223111-1312102200230323-0012232110003332-0021002211001220"></a>
 
 Type: `["object", {}]`. Optional, Computed.
 
@@ -956,37 +1488,37 @@ Terraform syntax:
 sampled = {}
 ```
 
-<a id="canonical-0915eb7b7be7e58a29a8ea9f207aa35d305b819bd9e70d9337d1264621912f03"></a>
+<a id="canonical-0021011132231323-1323321332112022-0221222032222133-0200132222031131-0300112320012123-3121321300312103-0313310102121012-0201210102330003"></a>
 
-## Direct properties — request_logs.sampled / 370d79e63d1e / 3
+## Direct properties — sampled / 321203310132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-86844f0b5c90a9add6a4d0f8f70bf86be9cc770fcc737734e46eeadfa60b361f"></a>
+<a id="canonical-2012201010330023-1130210022212231-3112221031003320-3313002333201223-3221303013130033-3030130313130310-3210123232223133-2212002303120133"></a>
 
-## Next pages — request_logs.sampled / 370d79e63d1e / 4
+## Next pages — sampled / 321203310132 / 4
 
-- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-6e273b67339140e7d510ed896f832f6e797c61fd0cdd910df908cae2e7cda8a5)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-1232021303231213-0303210110003213-3111010032312021-1233200302331232-1321133012013331-0030313121010031-3321002030223202-3213303122202211)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-f1d887fbe49a8c4e222f2c7b9390542f8fe3b44e4c8cb17b9409e968db4e68a2"></a>
+<a id="canonical-3301312020133323-3210212220301032-0202023302301323-2103210011100233-2033320323101032-1030203023011323-2110002132211220-3123103212202202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-13a6775128ab243f36d7702f560173531dd56b28ac83ffb350d15678d2822e9c"></a>
+<a id="canonical-0103221213131101-0220222302100333-0312311313000233-1112000113031103-0131311112230220-2230200333332303-1100310111121320-3102200202322130"></a>
 
-## request_logs.unsampled — request_logs.unsampled / 225861955389 / 2
+## request_logs.unsampled — unsampled / 211111032021 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-6e273b67339140e7d510ed896f832f6e797c61fd0cdd910df908cae2e7cda8a5)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-1232021303231213-0303210110003213-3111010032312021-1233200302331232-1321133012013331-0030313121010031-3321002030223202-3213303122202211)
 - request_logs.unsampled
 
-<a id="canonical-539479257245b2ac7ef9072fa9880adb71eb2e8bda9147516f66e30816aba888"></a>
+<a id="canonical-1103211013210211-1302101123022230-1332332100130233-2221202000223123-1301322302322023-3122210110131101-1233121232030020-0112222322202020"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1015,36 +1547,36 @@ Terraform syntax:
 unsampled = {}
 ```
 
-<a id="canonical-34debec94685772fe9788a4af6fa5682fb72848662d8a8c760169758e7241ab2"></a>
+<a id="canonical-0310313223323021-1012201113130233-3221132020221022-3312332211122002-3323130220102012-1202312022203013-1200011221131120-3213021001222302"></a>
 
-## Direct properties — request_logs.unsampled / 225861955389 / 3
+## Direct properties — unsampled / 211111032021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-52f44e366809af9c30d73607cc6a28ca58509197a4b91961fb069565b9606436"></a>
+<a id="canonical-1102331010320312-1220002122332130-0300311303120013-3030122202203022-1120110021012113-2210232101211201-3323001221111211-2321120012100312"></a>
 
-## Next pages — request_logs.unsampled / 225861955389 / 4
+## Next pages — unsampled / 211111032021 / 4
 
-- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-6e273b67339140e7d510ed896f832f6e797c61fd0cdd910df908cae2e7cda8a5)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [request_logs](resources--global_log_receiver--reference--group-004.md#canonical-1232021303231213-0303210110003213-3111010032312021-1233200302331232-1321133012013331-0030313121010031-3321002030223202-3213303122202211)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a"></a>
+<a id="canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93d8c4803db0315daea622b844dc3866393e9a267bfc4ec18172501de980226c"></a>
+<a id="canonical-2103312030102000-0331230003011131-2232221202022320-1010313003201212-0321033221220212-1323333010323001-2001130211000131-3221200002021230"></a>
 
-## s3_receiver — s3_receiver / dbf1b6751be4 / 2
+## s3_receiver — s3_receiver / 131101233210 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - s3_receiver
 
-<a id="canonical-98cdd3955d05bfc85f5d3bccc0c658806fb0dc88e48cebda63bbd2b3f7fb1a31"></a>
+<a id="canonical-2120303131032111-1131001123333020-1133113103233030-3000301211202000-1233230031302020-3210203032233122-1203232331022303-3313332301220301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1078,17 +1610,17 @@ s3_receiver {
 }
 ```
 
-<a id="canonical-a0735e21706f72e8286214dbafbaafad65045259dcceec9adf463dd497752522"></a>
+<a id="canonical-2200130311320201-1300123313023220-0220120201103123-2233232222332231-1211001011021121-3130303232302122-3133101203313110-2113131102110202"></a>
 
-## Direct properties — s3_receiver / dbf1b6751be4 / 3
+## Direct properties — s3_receiver / 131101233210 / 3
 
-- [aws_cred](resources--global_log_receiver--reference--group-004.md#canonical-6f968a1001ea518338fbc1af8f0e272b789c5b017b825ea4c632948ed7a9ae9a): complete subsection reference.
+- [aws_cred](resources--global_log_receiver--reference--group-004.md#canonical-1233211220220100-0001322211012003-0320332330012233-2033003202130223-1320213011230001-1323200211322210-3012030221102032-3113222122322122): complete subsection reference.
 
-<a id="canonical-6d21b580fb56aaadb89b712b9c747e177041cf64f58c634a2e99011a380d7606"></a>
+<a id="canonical-1231020123112000-3323111222222231-2320212313010223-2130131013320113-1300100130331210-3311203012031022-0232212100010122-0320003113120012"></a>
 
-<a id="canonical-7ac5895cd6e07ab71cceaea63fba3745ba6261c09e20de4765bec27dae186997"></a>
+<a id="canonical-1322301120211130-3112320013222313-0130303222322212-0333232203131011-2322120212013000-2132020031321013-1211233230021331-2232012012212113"></a>
 
-## aws_region property — s3_receiver / dbf1b6751be4 / 4
+## aws_region property — s3_receiver / 131101233210 / 4
 
 Type: `"string"`. Optional.
 
@@ -1186,13 +1718,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80): complete subsection reference.
+- [batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000): complete subsection reference.
 
-<a id="canonical-a797e04524711153ff5cd63f3c98c2ede426dd2dffbb1a6e2700ee219a955cad"></a>
+<a id="canonical-2213211332001011-0210130101011103-3333113031120333-0330212030023231-3210021231310231-3333232301221232-0213000032320201-2122211111302231"></a>
 
-<a id="canonical-3acce252e6eafcc21d0a125285c59f5e629b8fb5db7312f7a316c8bd30a52d35"></a>
+<a id="canonical-0322303032021102-3212322233303002-0131002201021102-2011301121331132-1202212320332311-3123130301023313-2203011230202331-0300221102310311"></a>
 
-## bucket property — s3_receiver / dbf1b6751be4 / 5
+## bucket property — s3_receiver / 131101233210 / 5
 
 Type: `"string"`. Optional.
 
@@ -1250,39 +1782,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473): complete subsection reference.
+- [compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303): complete subsection reference.
 
-- [filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60): complete subsection reference.
+- [filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200): complete subsection reference.
 
-<a id="canonical-e47849c4b8f00ec57e10c3ec8e7fc983e9ff021e64b54fadbc2cf1acf9eae7dc"></a>
+<a id="canonical-3210132010213010-2320330000323011-1332010030033230-2032133330212003-3221333300020132-1210231110332231-2330023033012230-3321322232133130"></a>
 
-## Next pages — s3_receiver / dbf1b6751be4 / 6
+## Next pages — s3_receiver / 131101233210 / 6
 
-- [s3_receiver.aws_cred](resources--global_log_receiver--reference--group-004.md#canonical-6f968a1001ea518338fbc1af8f0e272b789c5b017b825ea4c632948ed7a9ae9a)
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
-- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.aws_cred](resources--global_log_receiver--reference--group-004.md#canonical-1233211220220100-0001322211012003-0320332330012233-2033003202130223-1320213011230001-1323200211322210-3012030221102032-3113222122322122)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
+- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-6f968a1001ea518338fbc1af8f0e272b789c5b017b825ea4c632948ed7a9ae9a"></a>
+<a id="canonical-1233211220220100-0001322211012003-0320332330012233-2033003202130223-1320213011230001-1323200211322210-3012030221102032-3113222122322122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50333c6453dee44eae8aa56e5a01bdc5bcb69fc58ddcbd230740590af05d7127"></a>
+<a id="canonical-1100030303301210-1103313232101032-2232202222111232-1122000123313011-2330231221333011-2031313023310203-0013100011210022-3300113113010213"></a>
 
-## s3_receiver.aws_cred — s3_receiver.aws_cred / 3889f07455cc / 2
+## s3_receiver.aws_cred — aws_cred / 131011113030 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
 - s3_receiver.aws_cred
 
-<a id="canonical-360da9dd58f72ef7414fdc7e065f5800de27df80a9de5e7502c222c41c4b57ce"></a>
+<a id="canonical-0312003122213131-1120331302323313-1001103331301332-0012113311200000-3132021331332000-2221313211321311-0002300202023010-0130102311133032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1321,15 +1853,15 @@ aws_cred {
 }
 ```
 
-<a id="canonical-3be0adcf7a5d10c6ec8fa020524aa091adb775c38ad0502f3021fc4bf251526f"></a>
+<a id="canonical-0323320022313033-1322113101003012-3230203322000200-1102102222002101-2231231313113003-2022310011000233-0300020133301023-3302110111021233"></a>
 
-## Direct properties — s3_receiver.aws_cred / 3889f07455cc / 3
+## Direct properties — aws_cred / 131011113030 / 3
 
-<a id="canonical-b82e89a0a13105428e709babbd60d9ad61fa4c2ce92a826ba6431f245c7037d9"></a>
+<a id="canonical-2320023220212200-2201030100111002-2032130021232223-2331120031212231-1201332210300230-3221022220021223-2212100301330210-1130130003133121"></a>
 
-<a id="canonical-932966bfb2bd003718779ba6eaff8bf7106071dc6667e055d0416c44295476cf"></a>
+<a id="canonical-2103022112122333-2302233100000313-0120131321232212-3222333320233313-0100120013013130-1212121332001111-3100100112301010-0221111013123033"></a>
 
-## name property — s3_receiver.aws_cred / 3889f07455cc / 4
+## name property — aws_cred / 131011113030 / 4
 
 Type: `"string"`. Optional.
 
@@ -1390,11 +1922,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d9c8d4dd96ac25b9526c9c83293cdac9ce223075a86a8ca0d90fd225ea8def76"></a>
+<a id="canonical-3121302031103131-2112223002112321-1102123021302003-0221033031223021-3032020203001311-2220122220302200-3121003331020211-3222203132331312"></a>
 
-<a id="canonical-944e551e5f67f6f9b968252c68c6815e84f63c53e17d09c661ef933414a374a8"></a>
+<a id="canonical-2110103211110132-1133121333123321-2321122002110230-1220301220011132-2010331203301103-3201133100213012-1201323321030310-0110220313102220"></a>
 
-## namespace property — s3_receiver.aws_cred / 3889f07455cc / 5
+## namespace property — aws_cred / 131011113030 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1462,11 +1994,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c1be9fe782ef9d4a8b8af3b60b6a7e0e3979899f638e408dadc9666ad35f1a26"></a>
+<a id="canonical-3001233221333213-2002323321311022-2023202233032312-0023122213320032-0321132120212133-1203203210002031-2231302112121222-3103113301220212"></a>
 
-<a id="canonical-1f4e690f5f776bf4abdcf0579b1d74c78d100bac4bfb69169e83c485df75a77c"></a>
+<a id="canonical-0133103212210033-1133131312233310-2223313033001113-2123013113103013-2031010000232230-1023332312210112-2132200330102011-3133131122131330"></a>
 
-## tenant property — s3_receiver.aws_cred / 3889f07455cc / 6
+## tenant property — aws_cred / 131011113030 / 6
 
 Type: `"string"`. Computed.
 
@@ -1520,31 +2052,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0b42f4a67a40b351ca42329234c30d5e383ff02ee8fb4e296d8dad2f26538a62"></a>
+<a id="canonical-0023100233102212-1322100023031101-3022100203022102-0310300300311132-0320033333000232-3220332310320221-1231203122310233-0212110320221202"></a>
 
-## Next pages — s3_receiver.aws_cred / 3889f07455cc / 7
+## Next pages — aws_cred / 131011113030 / 7
 
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80"></a>
+<a id="canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5321a6218e27bc39dc07a7daddee07ea807cee4f87acf9fafe41d96102e0b86d"></a>
+<a id="canonical-1103020122120201-2032021323300321-3130001322133122-3131323200133222-2000133032321033-2013223033213322-3332100131211201-0002320023201231"></a>
 
-## s3_receiver.batch — s3_receiver.batch / 7e50bedc9557 / 2
+## s3_receiver.batch — batch / 313021111113 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
 - s3_receiver.batch
 
-<a id="canonical-bdf8d81a9cebcdae80cbdbbc8fad8f5bb8b603e4dbb50fd6467d427ba3c11908"></a>
+<a id="canonical-2331332031200122-2130322330312232-2000302331232330-2033223120331123-2320231200033210-3123231100333112-1012133110021323-2203300101210020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1585,15 +2117,15 @@ batch {
 }
 ```
 
-<a id="canonical-10f7d56ac779b6f8ffbde775d6d269bf5089392b2e3c748b3e52d1bea0d5db0f"></a>
+<a id="canonical-0100331331111222-3013132123123320-3333233132131311-3112310212212333-1100202103210223-0232033013102023-0332110231012332-2200311131230033"></a>
 
-## Direct properties — s3_receiver.batch / 7e50bedc9557 / 3
+## Direct properties — batch / 313021111113 / 3
 
-<a id="canonical-17447f59dc56619bf93243782e5d1f640099c67d69a9c441024c68ee533c425c"></a>
+<a id="canonical-0113101013331121-3130111212012123-3321030210031320-0232113101331210-0000212130121331-1221222130101001-0002103012203232-1103033010021130"></a>
 
-<a id="canonical-348d6d1663ce6bfb6c111c2fb3f66a3006ece2ce51345640ed90c4bb9c2e4025"></a>
+<a id="canonical-0310203112310112-1203303212233323-1230010101300233-2303331212220300-0012323032023032-1101031011121000-3231210030102323-2130023210000211"></a>
 
-## max_bytes property — s3_receiver.batch / 7e50bedc9557 / 4
+## max_bytes property — batch / 313021111113 / 4
 
 Type: `"number"`. Optional.
 
@@ -1646,13 +2178,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-39721f9927286b8d88f7469480ad57a74c04e2d490795129dc22111c3e9b9d7e): complete subsection reference.
+- [max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0321130201332121-0213022012232031-2020331310122110-2000223111132213-1030001032023110-2100132111010221-3130020201010130-0332212321311332): complete subsection reference.
 
-<a id="canonical-40fedb927c48c0c9cdcdb8649927ca42fff3ef01a39f82afebeb2b5ccd60372a"></a>
+<a id="canonical-1000333231232102-1330102030003021-3031303123201210-2121021330221002-3333330332330001-2203213320022233-3223322302231130-3031120003130222"></a>
 
-<a id="canonical-fbec20c3889d2808ce79466127e0bc8575d15b7cf370973b090013b2ed082fd0"></a>
+<a id="canonical-3323323002003003-2020213102200020-3032132110121201-0213320023302011-1311310111231330-3303130021130323-0021000001032302-3231002002333100"></a>
 
-## max_events property — s3_receiver.batch / 7e50bedc9557 / 5
+## max_events property — batch / 313021111113 / 5
 
 Type: `"number"`. Optional.
 
@@ -1705,13 +2237,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-3e157be0d337d56878d16f3145f68560833074da1d3cb64dc1f19acb4832028f): complete subsection reference.
+- [max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0332011113233200-3103031331111220-1320310112330301-1011331220111200-2003030013103122-0131033023121031-3001330121223023-1020030200022033): complete subsection reference.
 
-<a id="canonical-ef9d7456399de37923513d4d09ee6ccebeaa988b81050cbaa72f70f45943b2ab"></a>
+<a id="canonical-3233213113101112-0321213132031321-0203110103311031-0021323212303032-2332222221202023-2001001100302322-2213023313003310-1121100323022223"></a>
 
-<a id="canonical-45c73ee9c0a3d9b93fb3a8751b59ceab5a0300378f600b82eeda7ba2f823edd3"></a>
+<a id="canonical-1011301303323221-3000220331212321-0333230322201311-0123112130322223-1122000300000313-2033120000232002-3232312213232202-3320020332313103"></a>
 
-## timeout_seconds property — s3_receiver.batch / 7e50bedc9557 / 6
+## timeout_seconds property — batch / 313021111113 / 6
 
 Type: `"string"`. Optional.
 
@@ -1753,37 +2285,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-43027bee588f2d95cbed5beaab6b6bc8cb1a289b951628aa0280d5c467083726): complete subsection reference.
+- [timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-1003000213233232-1120203302312111-3023323111233222-2223122312233020-3023012202202123-2111011202202222-0002200031113010-1213002003130212): complete subsection reference.
 
-<a id="canonical-ef548e0e8814d314966d91fdb1afe52a296c6d8c78575aad8773a06f690220a4"></a>
+<a id="canonical-3233111020320032-2020011031030110-2112123121013331-2301223332110222-0221123012312030-1320111311222231-2013130322001233-1221000202002210"></a>
 
-## Next pages — s3_receiver.batch / 7e50bedc9557 / 7
+## Next pages — batch / 313021111113 / 7
 
-- [s3_receiver.batch.max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-39721f9927286b8d88f7469480ad57a74c04e2d490795129dc22111c3e9b9d7e)
-- [s3_receiver.batch.max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-3e157be0d337d56878d16f3145f68560833074da1d3cb64dc1f19acb4832028f)
-- [s3_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-43027bee588f2d95cbed5beaab6b6bc8cb1a289b951628aa0280d5c467083726)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.batch.max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0321130201332121-0213022012232031-2020331310122110-2000223111132213-1030001032023110-2100132111010221-3130020201010130-0332212321311332)
+- [s3_receiver.batch.max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0332011113233200-3103031331111220-1320310112330301-1011331220111200-2003030013103122-0131033023121031-3001330121223023-1020030200022033)
+- [s3_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-1003000213233232-1120203302312111-3023323111233222-2223122312233020-3023012202202123-2111011202202222-0002200031113010-1213002003130212)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-39721f9927286b8d88f7469480ad57a74c04e2d490795129dc22111c3e9b9d7e"></a>
+<a id="canonical-0321130201332121-0213022012232031-2020331310122110-2000223111132213-1030001032023110-2100132111010221-3130020201010130-0332212321311332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-58b5d521b6e7e9e7065c4e1af70538beaa36abc988f3189a3024cc2bbf5dbdcc"></a>
+<a id="canonical-1120231131110201-2312321332213213-0012113010320122-3313001103202332-2222031222233021-2020330301202122-0300021030300223-2333113123313030"></a>
 
-## s3_receiver.batch.max_bytes_disabled — s3_receiver.batch.max_bytes_disabled / 3131de0e96d6 / 2
+## s3_receiver.batch.max_bytes_disabled — max_bytes_disabled / 003221123112 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
 - s3_receiver.batch.max_bytes_disabled
 
-<a id="canonical-cbb2a8ba7a3a0dbf97e4aa47e74132fd0778b02460a89afae24f6e4e560a4492"></a>
+<a id="canonical-3023230222202322-1322032200312333-2113321022221013-3213100103023331-0013132023000210-1200222021223322-3202103312321032-1112002210102102"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1812,38 +2344,38 @@ Terraform syntax:
 max_bytes_disabled = {}
 ```
 
-<a id="canonical-b3bb03edd69ef6e9123dcd28d1b43b4c8688a783474d5dc85b43e64536db64da"></a>
+<a id="canonical-2303232300033231-3112213233123221-0102033130310220-3101231003231030-2012202022132003-1013103111313020-1123100332121011-0312312312103122"></a>
 
-## Direct properties — s3_receiver.batch.max_bytes_disabled / 3131de0e96d6 / 3
+## Direct properties — max_bytes_disabled / 003221123112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-358698cbdfe1031abcd44ad4619b9ccfca321212398a5a44ed345f64910cb8eb"></a>
+<a id="canonical-0311201221203023-3133320100030122-2330311010223110-1201212321303033-3022030201020102-0321202211221010-3231031011331210-2101003023203223"></a>
 
-## Next pages — s3_receiver.batch.max_bytes_disabled / 3131de0e96d6 / 4
+## Next pages — max_bytes_disabled / 003221123112 / 4
 
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-3e157be0d337d56878d16f3145f68560833074da1d3cb64dc1f19acb4832028f"></a>
+<a id="canonical-0332011113233200-3103031331111220-1320310112330301-1011331220111200-2003030013103122-0131033023121031-3001330121223023-1020030200022033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-408bdec0b0e37b86861beee43e7507aa387035661ab0f30b61709a2403b4276f"></a>
+<a id="canonical-1000202331323000-2300320313232012-2012012332323210-0332131100132222-0320130003111212-0122230033030023-1201130021220210-0003231002131233"></a>
 
-## s3_receiver.batch.max_events_disabled — s3_receiver.batch.max_events_disabled / ebcfb4fa8551 / 2
+## s3_receiver.batch.max_events_disabled — max_events_disabled / 332220111101 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
 - s3_receiver.batch.max_events_disabled
 
-<a id="canonical-0aa9a475a0eab4f753db62fc914c1d1fb1de9c5b5dafc703b8f799e8aaa1483b"></a>
+<a id="canonical-0022222122101311-2200322223103313-1103312312023330-2101103001310133-2301313221301123-1131223330130003-2320331321213220-2222220110200323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1872,38 +2404,38 @@ Terraform syntax:
 max_events_disabled = {}
 ```
 
-<a id="canonical-cd7e98c4aac364018de3509b03c7e82442c70d1e7acef62cfedca481d2981d5f"></a>
+<a id="canonical-3031133221203010-2222300312100001-2031320311002123-0003301332200210-1002301300310132-1322303233120230-3332313022102001-3102212001311133"></a>
 
-## Direct properties — s3_receiver.batch.max_events_disabled / ebcfb4fa8551 / 3
+## Direct properties — max_events_disabled / 332220111101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8306f15a51cc9a3cce1f8e80ebed968951cc7942710ad25f6a297c0ed4ffab13"></a>
+<a id="canonical-2003001233011122-1101303021220330-3032013320322000-3223323121122021-1101303013211002-1301002231021133-1222022113300032-3110333322230103"></a>
 
-## Next pages — s3_receiver.batch.max_events_disabled / ebcfb4fa8551 / 4
+## Next pages — max_events_disabled / 332220111101 / 4
 
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-43027bee588f2d95cbed5beaab6b6bc8cb1a289b951628aa0280d5c467083726"></a>
+<a id="canonical-1003000213233232-1120203302312111-3023323111233222-2223122312233020-3023012202202123-2111011202202222-0002200031113010-1213002003130212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd393f793911218c3334da8583415fcb297458cad97998da4265b5b5ca4878d9"></a>
+<a id="canonical-3031032103331321-0321010102012030-0303031031222011-2003100111333023-0221131011203022-3121132121203122-1002121123112311-3022102013203121"></a>
 
-## s3_receiver.batch.timeout_seconds_default — s3_receiver.batch.timeout_seconds_default / ad57d6684c50 / 2
+## s3_receiver.batch.timeout_seconds_default — timeout_seconds_default / 122010301100 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
 - s3_receiver.batch.timeout_seconds_default
 
-<a id="canonical-b6fada739c10de424d81fae0e3a4a721030d60918fc2017776ec7d7e5ebd76d5"></a>
+<a id="canonical-2312332231221303-2130010031321002-1031200133223200-3203221022130201-0003003112002101-2033300200011313-1312323013311332-1132233113123111"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1932,37 +2464,37 @@ Terraform syntax:
 timeout_seconds_default = {}
 ```
 
-<a id="canonical-ed0e955b27cd98fc06b4e89ac88be85ad9b62ef78bba56a3a007121841deb327"></a>
+<a id="canonical-3231003221111123-0213303121203330-0012231032202122-3020202332201122-3121231202323313-2023232211122203-2200001301020120-1001313223030213"></a>
 
-## Direct properties — s3_receiver.batch.timeout_seconds_default / ad57d6684c50 / 3
+## Direct properties — timeout_seconds_default / 122010301100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a2de91605c71277cda1b803d5bb62e4754bfe4a6a08ea2573d1df8146a33abfd"></a>
+<a id="canonical-2202313221011200-1130130102131330-3122012320000331-1123231202321013-1110233332102212-2200203222021113-0331013133200110-1222030322233331"></a>
 
-## Next pages — s3_receiver.batch.timeout_seconds_default / ad57d6684c50 / 4
+## Next pages — timeout_seconds_default / 122010301100 / 4
 
-- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-a6aafc5f4b0a4e8f2d73ca920571f037f0efb3ea8fbb78eec7ae21e465ed5b80)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-2212222233301133-1023002210322033-0231130330222102-0011130133000313-3300323323033222-2033232313203232-3013223202013210-1211323111232000)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473"></a>
+<a id="canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a8e3f32cfb658f37a9d06e0a9bd95f2e8780c2b10f2e35134656d2abe7ff56a"></a>
+<a id="canonical-0322203203330302-3033231211203303-1322213100123200-2221233121113302-3220132000300223-0100330232031101-0310121112310222-2332133333111222"></a>
 
-## s3_receiver.compression — s3_receiver.compression / 78afbf144826 / 2
+## s3_receiver.compression — compression / 011010200212 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
 - s3_receiver.compression
 
-<a id="canonical-4590c6532e21e05ee5fd2b3c9836d3bbf913e2340cc47fb8e2be9b305f84b076"></a>
+<a id="canonical-1011210030121103-0232020132001132-3211333102230330-2120031231032323-3321010332020310-0030301013332320-3202233221230300-1133201023001312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2005,45 +2537,45 @@ compression {
 }
 ```
 
-<a id="canonical-ba7b99377c673e0a672cef5fd5e8f0c627e49bd0880277afbf2f20bb622d581c"></a>
+<a id="canonical-2322132321210313-1330121303320022-1213023032331133-3111322033003012-0213321021233100-2020000213132233-2333023302002323-1202023111200130"></a>
 
-## Direct properties — s3_receiver.compression / 78afbf144826 / 3
+## Direct properties — compression / 011010200212 / 3
 
-- [compression_default](resources--global_log_receiver--reference--group-004.md#canonical-ae02bd26b40968654d52d970ac7b761667f0f9e7f31161703a2360636c5d057a): complete subsection reference.
+- [compression_default](resources--global_log_receiver--reference--group-004.md#canonical-2232000223310212-2310002112201211-1031110231211300-2230132313120112-1213330033213213-3303010112011300-0322020312001203-1230113100111322): complete subsection reference.
 
-- [compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-280d3506aa9573d2ad9a2167897e13f5ce77fe61cf746b921156b9daa6b42dc5): complete subsection reference.
+- [compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-0220003103110012-2222211113033102-2231212202011213-2021133201033311-3032131333321201-3033131012232102-0101111223213122-2212231002313011): complete subsection reference.
 
-- [compression_none](resources--global_log_receiver--reference--group-004.md#canonical-de8d86ea46fdeba0d5a98da662b169d37e135df0e178358431b9571a316e0724): complete subsection reference.
+- [compression_none](resources--global_log_receiver--reference--group-004.md#canonical-3132203120123222-1012333132232200-3111222120312212-1202230112213103-1332010311313300-3201132003112010-0301232111130122-0301123200130210): complete subsection reference.
 
-<a id="canonical-003afe227ffddcd73ed1c495171b9127cbd191268463e4fb334d5b62698365d7"></a>
+<a id="canonical-0000032233320202-1333333131303113-0332310130102111-0113012321010213-3023310121010212-2010120332103323-0303103111231202-1221200312113113"></a>
 
-## Next pages — s3_receiver.compression / 78afbf144826 / 4
+## Next pages — compression / 011010200212 / 4
 
-- [s3_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-ae02bd26b40968654d52d970ac7b761667f0f9e7f31161703a2360636c5d057a)
-- [s3_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-280d3506aa9573d2ad9a2167897e13f5ce77fe61cf746b921156b9daa6b42dc5)
-- [s3_receiver.compression.compression_none](resources--global_log_receiver--reference--group-004.md#canonical-de8d86ea46fdeba0d5a98da662b169d37e135df0e178358431b9571a316e0724)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-2232000223310212-2310002112201211-1031110231211300-2230132313120112-1213330033213213-3303010112011300-0322020312001203-1230113100111322)
+- [s3_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-0220003103110012-2222211113033102-2231212202011213-2021133201033311-3032131333321201-3033131012232102-0101111223213122-2212231002313011)
+- [s3_receiver.compression.compression_none](resources--global_log_receiver--reference--group-004.md#canonical-3132203120123222-1012333132232200-3111222120312212-1202230112213103-1332010311313300-3201132003112010-0301232111130122-0301123200130210)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-ae02bd26b40968654d52d970ac7b761667f0f9e7f31161703a2360636c5d057a"></a>
+<a id="canonical-2232000223310212-2310002112201211-1031110231211300-2230132313120112-1213330033213213-3303010112011300-0322020312001203-1230113100111322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ed81734f5b9364969b58e042884cdd73925bee58389648d95ae75f6c1caffe13"></a>
+<a id="canonical-3231200113031033-1123210312102112-2123112032001002-2020103031311303-2102112332321120-0320211210203121-1122321311331230-0130223333320103"></a>
 
-## s3_receiver.compression.compression_default — s3_receiver.compression.compression_default / f7a22fdf16ac / 2
+## s3_receiver.compression.compression_default — compression_default / 313301122230 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
 - s3_receiver.compression.compression_default
 
-<a id="canonical-c7b1efcde10d1778b36208f0299ff09a18af1763e519e01c68e2c8231a577221"></a>
+<a id="canonical-3013230132333031-3201003101131320-2303120200203300-0221213333002122-0120223301131203-3211012132000130-1220320230200203-0122111313020201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2072,38 +2604,38 @@ Terraform syntax:
 compression_default = {}
 ```
 
-<a id="canonical-0a464a2edf06254add5e6397f5bcc7b2b9482fcb22094a65d42bfaa003b00fc9"></a>
+<a id="canonical-0022101210220232-3133001202111022-3131113212032113-3311233030132302-2321102002333023-0202002110221211-3110022333222200-0003230000333021"></a>
 
-## Direct properties — s3_receiver.compression.compression_default / f7a22fdf16ac / 3
+## Direct properties — compression_default / 313301122230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-968a642999a6c24b1a801fe9d4d5087dcac27e43e21377b683fc3fa961938c45"></a>
+<a id="canonical-2112202212100221-2121221230021023-0122200001333221-3110311100201331-3022300213321003-3202010313132312-2003333003332221-1201210320301011"></a>
 
-## Next pages — s3_receiver.compression.compression_default / f7a22fdf16ac / 4
+## Next pages — compression_default / 313301122230 / 4
 
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-280d3506aa9573d2ad9a2167897e13f5ce77fe61cf746b921156b9daa6b42dc5"></a>
+<a id="canonical-0220003103110012-2222211113033102-2231212202011213-2021133201033311-3032131333321201-3033131012232102-0101111223213122-2212231002313011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5f33dc29aafb0778e07ec89526c985c8f5f515d72dd2d81348a55f39e00b388d"></a>
+<a id="canonical-1133030331300221-2222332300131320-3200133230202111-0212302120113020-3311331101113113-0231310231200103-1020221111330321-3200002303202031"></a>
 
-## s3_receiver.compression.compression_gzip — s3_receiver.compression.compression_gzip / dbcfe42b1a98 / 2
+## s3_receiver.compression.compression_gzip — compression_gzip / 022301222120 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
 - s3_receiver.compression.compression_gzip
 
-<a id="canonical-4e087c2708ac279e0483d974147609c51ef7c2e10f86ed7cc3a32750cd0e4f0c"></a>
+<a id="canonical-1032002013300213-0020223002132132-0010200331211310-0110131200213011-0132331330023201-0033201232311330-3003220302131100-3031003210330030"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2132,38 +2664,38 @@ Terraform syntax:
 compression_gzip = {}
 ```
 
-<a id="canonical-7d5629d27adb2ad82190c472b629d73feb90d9438cc382a646f1896806297ddf"></a>
+<a id="canonical-1331111202213102-1322312302223120-0201210030101302-2312022131130333-3223210031211003-2030300320022212-1012330120211220-0012022113313133"></a>
 
-## Direct properties — s3_receiver.compression.compression_gzip / dbcfe42b1a98 / 3
+## Direct properties — compression_gzip / 022301222120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b265d329b295d844448f6d7ca2f411f02e6cafa070df93406ff77f9a08fee7f7"></a>
+<a id="canonical-2302121131030221-2302211131201010-1010203312311330-2202331001013300-0232123022332200-1300313321031000-1233331313332122-0020333232133313"></a>
 
-## Next pages — s3_receiver.compression.compression_gzip / dbcfe42b1a98 / 4
+## Next pages — compression_gzip / 022301222120 / 4
 
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-de8d86ea46fdeba0d5a98da662b169d37e135df0e178358431b9571a316e0724"></a>
+<a id="canonical-3132203120123222-1012333132232200-3111222120312212-1202230112213103-1332010311313300-3201132003112010-0301232111130122-0301123200130210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-95946047b3ae1d9d5384d971469aff776cd5ddcd2781647fd5bb4ebaede62a5b"></a>
+<a id="canonical-2111211012001013-2303223201312131-1103201031211301-1012212233331313-1230311131313031-0213200112101333-3111232310322322-3231321202221123"></a>
 
-## s3_receiver.compression.compression_none — s3_receiver.compression.compression_none / 50c2e67857b1 / 2
+## s3_receiver.compression.compression_none — compression_none / 132011132301 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
 - s3_receiver.compression.compression_none
 
-<a id="canonical-758601a3bebe9feba5612dfc189eeb7644d21929b67704253396b136a958e0a6"></a>
+<a id="canonical-1311201200012203-2332233221333223-2211120102313330-0120213232231312-1010310201210221-2312131300100211-0303211223010312-2221112032002212"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2192,37 +2724,37 @@ Terraform syntax:
 compression_none = {}
 ```
 
-<a id="canonical-7b7c314f506df740a1f7c902b616d2189c93c9c58594b5748ce1affab3eb0f14"></a>
+<a id="canonical-1323133003011033-1100123133131000-2201331330210002-2312011231020120-2130210330213011-2011211023111310-2030320122333322-2303322300330110"></a>
 
-## Direct properties — s3_receiver.compression.compression_none / 50c2e67857b1 / 3
+## Direct properties — compression_none / 132011132301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7140c3cedeacc86f4e2850860b19c68bf87e432f34963af9474d00743177c91e"></a>
+<a id="canonical-1301100030033032-3132223030201233-1032022011002012-0023012130122023-3320133210030233-0310211203223321-1013103100001310-0301131330210132"></a>
 
-## Next pages — s3_receiver.compression.compression_none / 50c2e67857b1 / 4
+## Next pages — compression_none / 132011132301 / 4
 
-- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-95f0a5ae4a8c69ce985419c3b9068ce21cc25dfdf0e98c99c6e008984a145473)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60"></a>
+<a id="canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-975278c5fd84e9694be3937255a26d5d2ebf97f68c6acc40c74f275095e3bd4f"></a>
+<a id="canonical-2113110213203011-3331201032211221-1023320321031302-1111220212311131-0232233321133312-2030122230301000-3013103302131100-2111320323311033"></a>
 
-## s3_receiver.filename_options — s3_receiver.filename_options / caa5e38e271e / 2
+## s3_receiver.filename_options — filename_options / 203202130132 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
 - s3_receiver.filename_options
 
-<a id="canonical-86e3ebf382b11b5eeded21c840fddf2b276a706b528ff3c7c0bf87b8d6fe8beb"></a>
+<a id="canonical-2012320332233303-2002230101231132-3231323102013020-1000333131330223-0213122213001223-1102203333033013-3000233320132320-3112333220233223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2262,15 +2794,15 @@ filename_options {
 }
 ```
 
-<a id="canonical-f6dd538ae7a18929483a3b9898cb593c38f0ae4a88b92e0044a0d24bc0d5b218"></a>
+<a id="canonical-3312313111032022-3213220120210221-1020032203232120-2120302311210330-0320330022321022-2020232102320000-1010220031021023-3000311123020120"></a>
 
-## Direct properties — s3_receiver.filename_options / caa5e38e271e / 3
+## Direct properties — filename_options / 203202130132 / 3
 
-<a id="canonical-0a1bae5b8759f660604956a5842184ce78846f24f2703ca14c5e333b218a0404"></a>
+<a id="canonical-0022012322321123-2013112133121200-1200102111122211-2010020120103032-1320201012330210-3302130003302201-1030113203030323-0201202200100010"></a>
 
-<a id="canonical-afbe4f9614a6a03c089146e5585173965544ebe5dd6d0299d075d21ecc561524"></a>
+<a id="canonical-2233233210332112-0110221222000330-0020210110123211-1120110113032112-1111101032233211-3131123100022121-3100131131020132-3030111201110210"></a>
 
-## custom_folder property — s3_receiver.filename_options / caa5e38e271e / 4
+## custom_folder property — filename_options / 203202130132 / 4
 
 Type: `"string"`. Optional.
 
@@ -2321,38 +2853,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [log_type_folder](resources--global_log_receiver--reference--group-004.md#canonical-e257aa7ad91d4ff42d50825b34fdec81f1bb39a4389b9b26265c619141db8ce6): complete subsection reference.
+- [log_type_folder](resources--global_log_receiver--reference--group-004.md#canonical-3202111322221322-3121013110333310-0231110020021123-0310333132302001-3301232303212210-0320212321230212-0212113012012101-1001312320303212): complete subsection reference.
 
-- [no_folder](resources--global_log_receiver--reference--group-004.md#canonical-52fbaaaaa8cf41d1a9510a1b87261620f1f2d9925330a838e78a73653e249ff2): complete subsection reference.
+- [no_folder](resources--global_log_receiver--reference--group-004.md#canonical-1102332322222222-2220303310013101-2221110100220123-2013021201120200-3301330231212102-1103030022200320-3213202213031211-0332021021333302): complete subsection reference.
 
-<a id="canonical-ca7cd8b0abc167bd0dde97f1f7113f8bff6e0aa3d98bab8797e0a71200a3e5dd"></a>
+<a id="canonical-3022133031202300-2223300112132331-0031313221133301-3313010103332023-3333123200222203-3121202322232013-2113320022130102-0000220332113131"></a>
 
-## Next pages — s3_receiver.filename_options / caa5e38e271e / 5
+## Next pages — filename_options / 203202130132 / 5
 
-- [s3_receiver.filename_options.log_type_folder](resources--global_log_receiver--reference--group-004.md#canonical-e257aa7ad91d4ff42d50825b34fdec81f1bb39a4389b9b26265c619141db8ce6)
-- [s3_receiver.filename_options.no_folder](resources--global_log_receiver--reference--group-004.md#canonical-52fbaaaaa8cf41d1a9510a1b87261620f1f2d9925330a838e78a73653e249ff2)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.filename_options.log_type_folder](resources--global_log_receiver--reference--group-004.md#canonical-3202111322221322-3121013110333310-0231110020021123-0310333132302001-3301232303212210-0320212321230212-0212113012012101-1001312320303212)
+- [s3_receiver.filename_options.no_folder](resources--global_log_receiver--reference--group-004.md#canonical-1102332322222222-2220303310013101-2221110100220123-2013021201120200-3301330231212102-1103030022200320-3213202213031211-0332021021333302)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-e257aa7ad91d4ff42d50825b34fdec81f1bb39a4389b9b26265c619141db8ce6"></a>
+<a id="canonical-3202111322221322-3121013110333310-0231110020021123-0310333132302001-3301232303212210-0320212321230212-0212113012012101-1001312320303212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2aaa14bbb266b7b6108aa38042d559f8fa262ba2e7c23276f1498839451bf23a"></a>
+<a id="canonical-0222222201102323-2302121223132312-0100202222032000-1002311111213320-3322021202232202-3213300203021312-3301102120200321-1011012333020322"></a>
 
-## s3_receiver.filename_options.log_type_folder — s3_receiver.filename_options.log_type_folder / 202c268a8aa9 / 2
+## s3_receiver.filename_options.log_type_folder — log_type_folder / 202220222221 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200)
 - s3_receiver.filename_options.log_type_folder
 
-<a id="canonical-382f0914670ed237ff1629d0cb2d7866f86c4f0d57187fcd9a61eb25c970f997"></a>
+<a id="canonical-0320023300210110-1213003231020313-3333011202213100-3023023113201212-3320123010330031-1113012013333031-2122120132230211-3021130033212113"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2381,38 +2913,38 @@ Terraform syntax:
 log_type_folder = {}
 ```
 
-<a id="canonical-47428be3f21a910254f6571ad64c3292c585c6586fc1e4d9098f12d19cdb1df5"></a>
+<a id="canonical-1013100220233203-3302012221010002-1110331211130122-3112103003022102-3011201130121120-1233300132103121-0021203301023101-2130312301313311"></a>
 
-## Direct properties — s3_receiver.filename_options.log_type_folder / 202c268a8aa9 / 3
+## Direct properties — log_type_folder / 202220222221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0c09f40da82d2dc4e96f77e0d930b3f907f8d54ddc8e92d375b469930ac6c2e0"></a>
+<a id="canonical-0030002133100031-2220023102313010-3221123313133200-3121030023033321-0013332031111031-3130203221023103-1311231012212103-0022301230023200"></a>
 
-## Next pages — s3_receiver.filename_options.log_type_folder / 202c268a8aa9 / 4
+## Next pages — log_type_folder / 202220222221 / 4
 
-- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-52fbaaaaa8cf41d1a9510a1b87261620f1f2d9925330a838e78a73653e249ff2"></a>
+<a id="canonical-1102332322222222-2220303310013101-2221110100220123-2013021201120200-3301330231212102-1103030022200320-3213202213031211-0332021021333302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-11062add4670fd3d20e3531686c1febf57d305ef7fbfdb9951ff66d88df28ee4"></a>
+<a id="canonical-0101001202223131-1012130033310331-0200320311030112-2012300133322333-1113310300113233-1333233331232121-1101333312123120-2031330220323210"></a>
 
-## s3_receiver.filename_options.no_folder — s3_receiver.filename_options.no_folder / 5b24f5fad607 / 2
+## s3_receiver.filename_options.no_folder — no_folder / 332231120013 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-bf56c64665781b931da6f4c5b53da70995427fed0ac9dcdc9cc103366e6dce5a)
-- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [s3_receiver](resources--global_log_receiver--reference--group-004.md#canonical-2333111230121012-1211132001232103-0131221233103011-2311033122130021-2111100213333231-0022302131303130-2130300100030312-1232123130321122)
+- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200)
 - s3_receiver.filename_options.no_folder
 
-<a id="canonical-ef88a8c0d36dba5ea49fb0246de27d5541fab013170aa8594041189f4c32db1d"></a>
+<a id="canonical-3233202022203000-3103123123221132-2210213323000210-1231320213311111-1001332223000103-0113002222201121-1000100101202133-1030030231230131"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2441,36 +2973,36 @@ Terraform syntax:
 no_folder = {}
 ```
 
-<a id="canonical-e8c46caa54d0e2ce35e5e4093795caa585bd02569c5ee77c8731442c3849a996"></a>
+<a id="canonical-3220301012302222-1110310032023032-0311321132100021-0313211130222211-2011233100021112-2130113232131330-2013030110100230-0320102122212112"></a>
 
-## Direct properties — s3_receiver.filename_options.no_folder / 5b24f5fad607 / 3
+## Direct properties — no_folder / 332231120013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b126a6cba5c5685cf14a29f39f27e57ff5add4071ca7ee4e2a6c820a5cda853a"></a>
+<a id="canonical-2301021222123023-2211301112201130-3301102202213303-2133021332111333-3311223131100013-0130221332321032-0222123020020022-1130312220110322"></a>
 
-## Next pages — s3_receiver.filename_options.no_folder / 5b24f5fad607 / 4
+## Next pages — no_folder / 332231120013 / 4
 
-- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-34c26c494c3b61ac2dbed7833412854d0037fee053977e348d7b6ada7ba33b60)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [s3_receiver.filename_options](resources--global_log_receiver--reference--group-004.md#canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-e5289c97403a4948d700a4317e634154970ec974a599dc422156e5ba5ab04c9a"></a>
+<a id="canonical-3211022021302113-1000032210211020-3113000022100301-1332120310011110-2113003230211310-2211212131301002-0201111232112322-1122230010302122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7bbf48d74b476dfc36d6f9b4dc3691c3969c2b68630f43239a42dd6a6d8f187f"></a>
+<a id="canonical-1323233310203113-1023101312313330-0312311233212310-3130031221013003-2112213002231220-1203003310030203-2122100231311222-1231203301201333"></a>
 
-## security_events — security_events / 2aa18ec3e9a0 / 2
+## security_events — security_events / 300332212200 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - security_events
 
-<a id="canonical-659531f836a283f5296910f5d1b17bd5537ae8c7d9e849c962f9784e820ed92f"></a>
+<a id="canonical-1211211103013320-0312220220033311-0221122101003311-3101230113233111-1103132232203013-3121322010213021-1202332113201032-2002003231210233"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2499,36 +3031,36 @@ Terraform syntax:
 security_events = {}
 ```
 
-<a id="canonical-b560b3dac97caad253f770468a3532b747cff244f322291916c75ff85e1d2a37"></a>
+<a id="canonical-2311120023033122-3021133022223102-1103331313001012-2022031103022313-1013303333021010-3303020202210121-0112301311333320-1132013102220313"></a>
 
-## Direct properties — security_events / 2aa18ec3e9a0 / 3
+## Direct properties — security_events / 300332212200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cc50e5de2d744bacd22da41488c495af4cacb147101bd8ef155c4da09bffd708"></a>
+<a id="canonical-3030110032113132-0231131010232230-3102023122100110-2020301021112233-1030223023011013-0100012331203233-0111113010312200-2123333331130020"></a>
 
-## Next pages — security_events / 2aa18ec3e9a0 / 4
+## Next pages — security_events / 300332212200 / 4
 
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc"></a>
+<a id="canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-332c86884e17d5eca012f407c6993292ca32bf0f114f63e2fdd86783bc52832a"></a>
+<a id="canonical-0303023020122020-1032011331113230-2200010233100013-3012212103022102-3022030223330033-0101103312033202-3331312012132003-2330110220030222"></a>
 
-## splunk_receiver — splunk_receiver / 4abbffd71316 / 2
+## splunk_receiver — splunk_receiver / 311301030112 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - splunk_receiver
 
-<a id="canonical-fb1b9a8e316ed284345f44f335ee6101b9a45ab3fe45ee70bcf5b8e162f38684"></a>
+<a id="canonical-3323012321222032-0301123231022010-0310113310103303-0311323212010001-2321221011222303-3332101132321300-2330331123203201-1202330320122010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2564,19 +3096,19 @@ splunk_receiver {
 }
 ```
 
-<a id="canonical-c565215881b89d9b63ed9acf1df4f17f7d09bee4db45a189067f062ca2624cba"></a>
+<a id="canonical-3011121102011120-2001232021312123-1203323121223033-0131331033011333-1331002123323210-3123101122012021-0012133300120230-2202120210302322"></a>
 
-## Direct properties — splunk_receiver / 4abbffd71316 / 3
+## Direct properties — splunk_receiver / 311301030112 / 3
 
-- [batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7): complete subsection reference.
+- [batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313): complete subsection reference.
 
-- [compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b): complete subsection reference.
+- [compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223): complete subsection reference.
 
-<a id="canonical-e5851b75a525da0092d6935fa27402027ae96bbcf06309ff30be488f8d1001a5"></a>
+<a id="canonical-3211201101231311-2211021131220000-2102311221031133-2202131000020002-1322322112232330-3300120300213333-0300233210202033-2031010000012211"></a>
 
-<a id="canonical-dfc13def61365204804473291535042782af84a7168309597cbf3fd41c3a3a9c"></a>
+<a id="canonical-3133300103313233-1201031211020010-2000101013030221-0111031100100213-2002223320102213-0112200300211121-1330233303333110-0130032203222130"></a>
 
-## endpoint property — splunk_receiver / 4abbffd71316 / 4
+## endpoint property — splunk_receiver / 311301030112 / 4
 
 Type: `"string"`. Optional.
 
@@ -2629,42 +3161,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_tls](resources--global_log_receiver--reference--group-004.md#canonical-b4f2780ba5ddf0d91736eef8370979bc0bb2be2ceedd4535872b999f72894ede): complete subsection reference.
+- [no_tls](resources--global_log_receiver--reference--group-004.md#canonical-2310330213200023-2211313133003121-0113031232323320-0313002113212330-0023230223320230-3232313110110311-2013022321212133-1302202110323132): complete subsection reference.
 
-- [splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4): complete subsection reference.
+- [splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310): complete subsection reference.
 
-- [use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16): complete subsection reference.
+- [use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112): complete subsection reference.
 
-<a id="canonical-48970f48fc5593a2dc0cb70e751beb0d1911d92bb2c2b4ea3ebc4bce02ef28d5"></a>
+<a id="canonical-1020211300331020-3330111121032202-3130003023130032-1311012332230031-0121010131210223-2302300223103222-0332233010233032-0002323302203111"></a>
 
-## Next pages — splunk_receiver / 4abbffd71316 / 5
+## Next pages — splunk_receiver / 311301030112 / 5
 
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
-- [splunk_receiver.no_tls](resources--global_log_receiver--reference--group-004.md#canonical-b4f2780ba5ddf0d91736eef8370979bc0bb2be2ceedd4535872b999f72894ede)
-- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
+- [splunk_receiver.no_tls](resources--global_log_receiver--reference--group-004.md#canonical-2310330213200023-2211313133003121-0113031232323320-0313002113212330-0023230223320230-3232313110110311-2013022321212133-1302202110323132)
+- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7"></a>
+<a id="canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06e4590f02873ee61f6405be519ad166e80e5d680a154353a9e46b8470a790cf"></a>
+<a id="canonical-0012321011210033-0002201303323212-0133121000112332-1101212231011212-3220003211311220-0022011110031103-2221321012232010-1300221321003033"></a>
 
-## splunk_receiver.batch — splunk_receiver.batch / ae45bc9bdfbc / 2
+## splunk_receiver.batch — batch / 212331332330 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
 - splunk_receiver.batch
 
-<a id="canonical-c1471a21b791cf1bb6a2c863e16adfd752f23f357c31ef2f9f173567305e1c9d"></a>
+<a id="canonical-3001101301220201-2313210130330123-2312220230201203-3201122231333113-1102330203330311-1330030132330233-2133011303111213-0300113201302131"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2705,15 +3237,15 @@ batch {
 }
 ```
 
-<a id="canonical-ab11a03b15ad44a127c4e7a81831cecaab2c9f5213d2b312ba1d321ec39dc106"></a>
+<a id="canonical-2223010122000323-0111223110102201-0213301032132220-0120030130323022-2223023021331102-0103310223030102-2322013103020132-3003213130010012"></a>
 
-## Direct properties — splunk_receiver.batch / ae45bc9bdfbc / 3
+## Direct properties — batch / 212331332330 / 3
 
-<a id="canonical-eaf3cb71e9a4e312888811f1528bd842ca2cda18b86a6115d5a556c0b06a32ec"></a>
+<a id="canonical-3222330330231301-3221221032030102-2020202001013301-1102202331201002-3022023031220120-2320122212010111-3111221111123000-2300122203023230"></a>
 
-<a id="canonical-d7c02e8eb3ff72a8524e6c96d81738596327a3315c2206ff7eb4ecfac4e6a32a"></a>
+<a id="canonical-3113300002322032-2303333313022220-1102103212302112-3120011303201121-1203021322030301-1130020200123333-1332231032303322-3010321222030222"></a>
 
-## max_bytes property — splunk_receiver.batch / ae45bc9bdfbc / 4
+## max_bytes property — batch / 212331332330 / 4
 
 Type: `"number"`. Optional.
 
@@ -2766,13 +3298,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-ad92509d900eae359e46168e25636a24a0cde6a2d560c91c27a52fbc03ef2eae): complete subsection reference.
+- [max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-2231210211002131-2100003222320311-2132101201122032-0211120312220210-2200303132122202-3111120030210130-0213221102332330-0003323302322232): complete subsection reference.
 
-<a id="canonical-72d188c991408e0ec24a1ac287e519723ec074c105526ea7d58cd33a6a59b68b"></a>
+<a id="canonical-1302310120203021-2101100020320032-3002102201223002-2013321101211302-0332300013103001-0011110212322213-3111203031030322-1222112123122023"></a>
 
-<a id="canonical-a6bce6b700183520b9aee8ad064f39cdf2e9bc016682a0ff3842c1e915459fb6"></a>
+<a id="canonical-2212233032122313-0000012003110200-2321223232202231-0012103303213031-3302322123300001-1212200222003333-0320100230013221-0111101121332312"></a>
 
-## max_events property — splunk_receiver.batch / ae45bc9bdfbc / 5
+## max_events property — batch / 212331332330 / 5
 
 Type: `"number"`. Optional.
 
@@ -2825,13 +3357,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-8901938663e63600b16e5a6a67f5535c55365e30b8688906b910392dd0281eed): complete subsection reference.
+- [max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-2021000121032012-1203321203120000-2301123211221222-1213331111031130-1111031211320300-2320122020210012-2321010003210231-3100022001323231): complete subsection reference.
 
-<a id="canonical-d262aefb22a399726a9cdcb840d96cd62768bacb2beda8d0997b84e39a420fb3"></a>
+<a id="canonical-3102120222323323-0202220321211302-1222213031302320-1000312112303112-0213122023223023-0223323122203100-2121132320103203-2122100200332303"></a>
 
-<a id="canonical-9cb5fac64107e5d7ccb9fd10024ba260eac0624c9957376c8cda9b3caf72e428"></a>
+<a id="canonical-2130231133223012-1001001332113113-3030232133310100-0002102322021200-3222300012021030-2121111303131230-2030312221230330-2233130232100220"></a>
 
-## timeout_seconds property — splunk_receiver.batch / ae45bc9bdfbc / 6
+## timeout_seconds property — batch / 212331332330 / 6
 
 Type: `"string"`. Optional.
 
@@ -2873,37 +3405,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-f85006a9bf77bb332d0239aca057515946f8a2343cb93ae971a2b4deef34eb3f): complete subsection reference.
+- [timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-3320110000122221-2333131323230303-0231000203212230-2200111311011121-1012332022020310-0330232103223221-1301220223103132-3233031032230333): complete subsection reference.
 
-<a id="canonical-a7bc85893d65c4c7aeb36dbf2ff162f2f9599aa8615fb58cf79ba45bb78f64a0"></a>
+<a id="canonical-2213233020112021-0331121130103013-2232230312312333-0233330112023302-3321112121222220-1201113323112030-3313212322101123-2313203312102200"></a>
 
-## Next pages — splunk_receiver.batch / ae45bc9bdfbc / 7
+## Next pages — batch / 212331332330 / 7
 
-- [splunk_receiver.batch.max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-ad92509d900eae359e46168e25636a24a0cde6a2d560c91c27a52fbc03ef2eae)
-- [splunk_receiver.batch.max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-8901938663e63600b16e5a6a67f5535c55365e30b8688906b910392dd0281eed)
-- [splunk_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-f85006a9bf77bb332d0239aca057515946f8a2343cb93ae971a2b4deef34eb3f)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.batch.max_bytes_disabled](resources--global_log_receiver--reference--group-004.md#canonical-2231210211002131-2100003222320311-2132101201122032-0211120312220210-2200303132122202-3111120030210130-0213221102332330-0003323302322232)
+- [splunk_receiver.batch.max_events_disabled](resources--global_log_receiver--reference--group-004.md#canonical-2021000121032012-1203321203120000-2301123211221222-1213331111031130-1111031211320300-2320122020210012-2321010003210231-3100022001323231)
+- [splunk_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-3320110000122221-2333131323230303-0231000203212230-2200111311011121-1012332022020310-0330232103223221-1301220223103132-3233031032230333)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-ad92509d900eae359e46168e25636a24a0cde6a2d560c91c27a52fbc03ef2eae"></a>
+<a id="canonical-2231210211002131-2100003222320311-2132101201122032-0211120312220210-2200303132122202-3111120030210130-0213221102332330-0003323302322232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ce9d2ee06a1b51cf115cc5942805287a804cd5366a455c9da87ba4d592c946aa"></a>
+<a id="canonical-3032213102323200-1222012311013033-0101113030112110-0220001102201322-2000103031110312-1222101111302131-2220132322103111-2102302110122222"></a>
 
-## splunk_receiver.batch.max_bytes_disabled — splunk_receiver.batch.max_bytes_disabled / 55bf0deb0731 / 2
+## splunk_receiver.batch.max_bytes_disabled — max_bytes_disabled / 322300130301 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
 - splunk_receiver.batch.max_bytes_disabled
 
-<a id="canonical-5c4fae142eaa826ae8be2c12fa2811e570c6aedd9bc3301b7fd9bc3a16458620"></a>
+<a id="canonical-1130103322320110-0232222220021222-3220233202300102-3322022001013211-1300301222323131-2123300303000123-1333312123300322-0112101120120200"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2932,38 +3464,38 @@ Terraform syntax:
 max_bytes_disabled = {}
 ```
 
-<a id="canonical-454b38561a499cf7ae33c94b5ca29975093d1179717e48731f1fbad0d0356e15"></a>
+<a id="canonical-1011102303201112-0122102121303313-2232030330211023-1130220221211311-0021033101011321-1301133210201303-0133013323223100-3100031112320111"></a>
 
-## Direct properties — splunk_receiver.batch.max_bytes_disabled / 55bf0deb0731 / 3
+## Direct properties — max_bytes_disabled / 322300130301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-aa8c6f4b1e4e0de97fa284a346dcae6305e5189f18d3138cf8f147c432a85cbd"></a>
+<a id="canonical-2222203012331023-0132103200313221-1333220220102203-1012313022321203-0011321101202133-0120310301032030-3320330110133010-0302222011302331"></a>
 
-## Next pages — splunk_receiver.batch.max_bytes_disabled / 55bf0deb0731 / 4
+## Next pages — max_bytes_disabled / 322300130301 / 4
 
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-8901938663e63600b16e5a6a67f5535c55365e30b8688906b910392dd0281eed"></a>
+<a id="canonical-2021000121032012-1203321203120000-2301123211221222-1213331111031130-1111031211320300-2320122020210012-2321010003210231-3100022001323231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9f53f06dbac7e7c75eb44dc6ec5a13d632c26f3e171f9cb7f30c32adfe56ab7"></a>
+<a id="canonical-3121331103330012-3123223013321330-1311322310103130-1232301122010331-1203023002123303-3201130133213023-1333030030030222-3133321112222313"></a>
 
-## splunk_receiver.batch.max_events_disabled — splunk_receiver.batch.max_events_disabled / a1d479f26f22 / 2
+## splunk_receiver.batch.max_events_disabled — max_events_disabled / 330212330202 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
 - splunk_receiver.batch.max_events_disabled
 
-<a id="canonical-25e006c7b18fc39898fb1dee5c38391c17f865456cada20ba9d2b94c58e5d6c7"></a>
+<a id="canonical-0211320000123013-2301203330032120-2120332301313232-1130032003210130-0113332012111011-1230223122020023-2221310223211030-1120321131123013"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2992,38 +3524,38 @@ Terraform syntax:
 max_events_disabled = {}
 ```
 
-<a id="canonical-da271165d01cd3b575204f7512d34dd44c80d21fc0a20c4f0914f6ebb796cbbe"></a>
+<a id="canonical-3122021301011211-3100013031032311-1311020010331311-0102310310313110-1030200031020133-3000220200301033-0021011033123223-2313211230232332"></a>
 
-## Direct properties — splunk_receiver.batch.max_events_disabled / a1d479f26f22 / 3
+## Direct properties — max_events_disabled / 330212330202 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d05e4316e7fafbe493d9cc4bee738770c48f81a853969e32cdd3ba1cfbc1770f"></a>
+<a id="canonical-3100113210030112-3213332233233210-2103312130301023-3232130320131300-3010203320012220-1103211221320302-3031310323220130-3323300113130033"></a>
 
-## Next pages — splunk_receiver.batch.max_events_disabled / a1d479f26f22 / 4
+## Next pages — max_events_disabled / 330212330202 / 4
 
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-f85006a9bf77bb332d0239aca057515946f8a2343cb93ae971a2b4deef34eb3f"></a>
+<a id="canonical-3320110000122221-2333131323230303-0231000203212230-2200111311011121-1012332022020310-0330232103223221-1301220223103132-3233031032230333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ee874cdd0c89bdc71747e8c66ef0e574d87346078203202a13147fbb261027a"></a>
+<a id="canonical-0332322013103031-3100302021233130-1301131013322030-1212323300321113-1031201303101200-1320020003020002-2201030110133323-2302120100021322"></a>
 
-## splunk_receiver.batch.timeout_seconds_default — splunk_receiver.batch.timeout_seconds_default / 602509904e08 / 2
+## splunk_receiver.batch.timeout_seconds_default — timeout_seconds_default / 210010320020 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
 - splunk_receiver.batch.timeout_seconds_default
 
-<a id="canonical-029661d6a5df9aba6c6500f22d7fd257e6f1e85faf5dbc4c236b8b544cc87946"></a>
+<a id="canonical-0002211212013112-2211313321222322-1230121100003302-0231133331021113-3212330132201133-2233113123301030-0203122320231110-1030302013211012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3052,37 +3584,37 @@ Terraform syntax:
 timeout_seconds_default = {}
 ```
 
-<a id="canonical-a3cbbfb694b55c680b54087a0bead81693da96451fd198814b447a3fa5db17eb"></a>
+<a id="canonical-2203302323332312-2110231111301220-0023111000201322-0023322231200112-2103312221121011-0133310121202001-1023101013220333-2211312301133223"></a>
 
-## Direct properties — splunk_receiver.batch.timeout_seconds_default / 602509904e08 / 3
+## Direct properties — timeout_seconds_default / 210010320020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3d5d9a872edd343ed3503406a2314de79f658461490ca4540b6b8070710b2202"></a>
+<a id="canonical-0331113121222013-0232313103100332-3103110003100012-2202030110313213-2133121120101201-1021003022101110-0023122320001300-1301002302020002"></a>
 
-## Next pages — splunk_receiver.batch.timeout_seconds_default / 602509904e08 / 4
+## Next pages — timeout_seconds_default / 210010320020 / 4
 
-- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-ca4d644cccea924550952235e390d89edefae94e589f98fe058e0a18238f49f7)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.batch](resources--global_log_receiver--reference--group-004.md#canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b"></a>
+<a id="canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32954872735eebd036e84fa20922333c2b929eb78daef44e42eb46b5fd54931d"></a>
+<a id="canonical-0302211110201302-1303113232233100-0312322010332202-0021020203030330-0223210221322313-2031223233101032-1002322310122311-3331111021030131"></a>
 
-## splunk_receiver.compression — splunk_receiver.compression / 81c295e4aa21 / 2
+## splunk_receiver.compression — compression / 321022220201 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
 - splunk_receiver.compression
 
-<a id="canonical-1b493ef3b1b46fef2d7d03a282836703a63aea025f0d78d0fc6308a5d70ea70c"></a>
+<a id="canonical-0123102103323303-2301231012333233-0231133100032202-2002200312130003-2212032232220002-1133003113203100-3330120300202211-3113003222130030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3125,45 +3657,45 @@ compression {
 }
 ```
 
-<a id="canonical-10d4fed9b41062baa2f79086b7b8a6915662a65f594f92aa44727ce79eaedffe"></a>
+<a id="canonical-0100311033323121-2310010012022322-2202331321002012-2313232022122101-1112120222121133-1121103321022222-1010130213303213-2132223231333332"></a>
 
-## Direct properties — splunk_receiver.compression / 81c295e4aa21 / 3
+## Direct properties — compression / 321022220201 / 3
 
-- [compression_default](resources--global_log_receiver--reference--group-004.md#canonical-24bc54b7c20c3ae2d2adc7927f9c925ebaa11656b917dc8e078f4046f4a15b14): complete subsection reference.
+- [compression_default](resources--global_log_receiver--reference--group-004.md#canonical-0210233011102313-3002003003223202-3102223130132102-1333213021021132-2322220101121112-2321011331302032-0013203310001012-3310220111230110): complete subsection reference.
 
-- [compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-b5af0cf0da3df199f325966e18102bb8704fec5fb6fcf899dd2d3ae09cff7439): complete subsection reference.
+- [compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-2311223300303300-3122033133012121-3303021121121232-0120010002232320-1300103332301133-2312333033202121-3131023103223200-2130333313100321): complete subsection reference.
 
-- [compression_none](resources--global_log_receiver--reference--group-004.md#canonical-4a8a99d2e2d3aae4b7366ff66f1f6057f6e0c46fb20d21bc68ad931e57289963): complete subsection reference.
+- [compression_none](resources--global_log_receiver--reference--group-004.md#canonical-1022202221213102-3202310322223210-2313031212333312-1233013312001113-3312320030101233-2302003102012330-1220223121030132-1113022021211203): complete subsection reference.
 
-<a id="canonical-f3cfbb346d4e342e72496e76c7835c07f6e563d0697b023c84fb407d248950b2"></a>
+<a id="canonical-3303303323230310-1231103203100232-1302102112321312-3013200311300013-3312321112033100-1221132300020330-2010332310001331-0210202111002302"></a>
 
-## Next pages — splunk_receiver.compression / 81c295e4aa21 / 4
+## Next pages — compression / 321022220201 / 4
 
-- [splunk_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-24bc54b7c20c3ae2d2adc7927f9c925ebaa11656b917dc8e078f4046f4a15b14)
-- [splunk_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-b5af0cf0da3df199f325966e18102bb8704fec5fb6fcf899dd2d3ae09cff7439)
-- [splunk_receiver.compression.compression_none](resources--global_log_receiver--reference--group-004.md#canonical-4a8a99d2e2d3aae4b7366ff66f1f6057f6e0c46fb20d21bc68ad931e57289963)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-0210233011102313-3002003003223202-3102223130132102-1333213021021132-2322220101121112-2321011331302032-0013203310001012-3310220111230110)
+- [splunk_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-2311223300303300-3122033133012121-3303021121121232-0120010002232320-1300103332301133-2312333033202121-3131023103223200-2130333313100321)
+- [splunk_receiver.compression.compression_none](resources--global_log_receiver--reference--group-004.md#canonical-1022202221213102-3202310322223210-2313031212333312-1233013312001113-3312320030101233-2302003102012330-1220223121030132-1113022021211203)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-24bc54b7c20c3ae2d2adc7927f9c925ebaa11656b917dc8e078f4046f4a15b14"></a>
+<a id="canonical-0210233011102313-3002003003223202-3102223130132102-1333213021021132-2322220101121112-2321011331302032-0013203310001012-3310220111230110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-42216fbbfc90b6ee16825c48b1821bb2348385af08183b60d78cf90c79b7b35e"></a>
+<a id="canonical-1002020112332323-3330210023123232-0112200211301020-2301200201232302-0310200320112233-0020012003231200-3113203033210030-1321231323031132"></a>
 
-## splunk_receiver.compression.compression_default — splunk_receiver.compression.compression_default / 32e81b3f5267 / 2
+## splunk_receiver.compression.compression_default — compression_default / 033311021213 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
 - splunk_receiver.compression.compression_default
 
-<a id="canonical-dfa316a46dae8cacb9e6f214b3f95d0f67cd1b04f6fe9f28b27ac21d66e58875"></a>
+<a id="canonical-3133220301122210-1231223220302230-2321321233020110-2303332111310033-1213303101230010-3312333221330220-2302132230020131-1212321120201311"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3192,38 +3724,38 @@ Terraform syntax:
 compression_default = {}
 ```
 
-<a id="canonical-cbfea3f0eeb8ab537b2506a6d5dceb6286f2ca0a02766701333db8cee37eb9be"></a>
+<a id="canonical-3023333222033300-3232232022231103-1323021100122212-3111313032231202-2012330230220022-0002131212130001-0303033123203032-3203133223212332"></a>
 
-## Direct properties — splunk_receiver.compression.compression_default / 32e81b3f5267 / 3
+## Direct properties — compression_default / 033311021213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ce44edb5ff6ed61be929e4d4702bbf8fbd19b68a8a5d874eed906743d9f9e90b"></a>
+<a id="canonical-3032101032312311-3333123231120123-3221022132103110-1300022323332033-2331012123122022-2022113120131032-3231210012131003-3121332132210023"></a>
 
-## Next pages — splunk_receiver.compression.compression_default / 32e81b3f5267 / 4
+## Next pages — compression_default / 033311021213 / 4
 
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-b5af0cf0da3df199f325966e18102bb8704fec5fb6fcf899dd2d3ae09cff7439"></a>
+<a id="canonical-2311223300303300-3122033133012121-3303021121121232-0120010002232320-1300103332301133-2312333033202121-3131023103223200-2130333313100321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f0c5789ec97dda274bb83ae9aa1d5d650eb323e93c8ea4e98958dd981f879364"></a>
+<a id="canonical-3300301113202132-3021133131220213-1023232003223221-2222013111311211-0032230302033221-0330203222103221-2021112031312120-0133201321031210"></a>
 
-## splunk_receiver.compression.compression_gzip — splunk_receiver.compression.compression_gzip / f46051a180ac / 2
+## splunk_receiver.compression.compression_gzip — compression_gzip / 220120002230 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
 - splunk_receiver.compression.compression_gzip
 
-<a id="canonical-cfe25a144e62b6bb06b1c2f2924509e56f71fed60e3f8a42819b40556d441d21"></a>
+<a id="canonical-3033320211220110-1032120223122323-0012230130023302-2102101100213211-1233130133323112-0032033320221002-2001212310001111-1231101001310201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3252,38 +3784,38 @@ Terraform syntax:
 compression_gzip = {}
 ```
 
-<a id="canonical-ca0d65e35537009fef459d182fa80595fa19b446941f3d7e2c7cc1861794d894"></a>
+<a id="canonical-3022003112113203-1111031300002133-3233101121310120-0233222000112111-3322012123101012-2110013303311332-0230133030012012-0113211031202110"></a>
 
-## Direct properties — splunk_receiver.compression.compression_gzip / f46051a180ac / 3
+## Direct properties — compression_gzip / 220120002230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bb6e8398f276b8b28a48ac282cb5cfd2d1dc947d38fed9362195d697cafa6d9a"></a>
+<a id="canonical-2323123220032120-3302131223202302-2022102022300220-0230231130333102-3101313021101331-0320333231210312-0201211131122113-3022332212312122"></a>
 
-## Next pages — splunk_receiver.compression.compression_gzip / f46051a180ac / 4
+## Next pages — compression_gzip / 220120002230 / 4
 
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-4a8a99d2e2d3aae4b7366ff66f1f6057f6e0c46fb20d21bc68ad931e57289963"></a>
+<a id="canonical-1022202221213102-3202310322223210-2313031212333312-1233013312001113-3312320030101233-2302003102012330-1220223121030132-1113022021211203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d0f89c12133ec1703c90c0ae4c2fe41a7063a9b682bdd5e35d0acc0729d9a4a8"></a>
+<a id="canonical-3100332021300102-0103033230011300-0330210030002232-1030023332100122-1300120322212312-2002233131113203-1131002230300013-0221312122102220"></a>
 
-## splunk_receiver.compression.compression_none — splunk_receiver.compression.compression_none / d3d8faa5187f / 2
+## splunk_receiver.compression.compression_none — compression_none / 221101201333 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
 - splunk_receiver.compression.compression_none
 
-<a id="canonical-e7b573e722897774b1c3bf03ba3708204736b3fd0aa72d43341e0d07b90edcbc"></a>
+<a id="canonical-3213231113033213-0202202113131310-2301300323330003-2322031300200200-1013031223033331-0022221302311003-0310013200310013-2321003231302330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3312,37 +3844,37 @@ Terraform syntax:
 compression_none = {}
 ```
 
-<a id="canonical-0887b62672137189341d522159d3918654622fda57c8101ac16c626271515bc3"></a>
+<a id="canonical-0020201323120212-1302010313012021-0310013111020201-1121310321012012-1110120202333122-1113302001000122-3001123012021202-1301110111233003"></a>
 
-## Direct properties — splunk_receiver.compression.compression_none / d3d8faa5187f / 3
+## Direct properties — compression_none / 221101201333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c7609b7b7f9e875723718e94e0268bc0ef3e5e1c5e7f1a984bd624b1d82486ae"></a>
+<a id="canonical-3013120021231323-1333213220131113-0203130120322110-3200021220233000-3233033211320130-1132133301222120-1023311202102301-3120021020122232"></a>
 
-## Next pages — splunk_receiver.compression.compression_none / d3d8faa5187f / 4
+## Next pages — compression_none / 221101201333 / 4
 
-- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-846f7d694c2da08ec68e7d29dd8e2800a9c920fa093b351a8976458ae5848e2b)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-b4f2780ba5ddf0d91736eef8370979bc0bb2be2ceedd4535872b999f72894ede"></a>
+<a id="canonical-2310330213200023-2211313133003121-0113031232323320-0313002113212330-0023230223320230-3232313110110311-2013022321212133-1302202110323132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9a12f233e1b801f8b19368438b3bde4f133c3ca945b304f7ba4afa5614ef13c4"></a>
+<a id="canonical-2122010233020303-3201232000013320-2301210312201003-2023032331321033-0103033003302221-1011230300103313-2322102233221112-0110323301033010"></a>
 
-## splunk_receiver.no_tls — splunk_receiver.no_tls / 18f285a2112b / 2
+## splunk_receiver.no_tls — no_tls / 220201010223 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
 - splunk_receiver.no_tls
 
-<a id="canonical-b281fbaea4c06ff5d7d18dde54d97f90237349ad13bef7453d3b14c45bf89abe"></a>
+<a id="canonical-2302200133232232-2210300012333311-3113310120313132-1110312113332100-0203130310212231-0103233233131011-0331032301103010-1123332021222332"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3371,37 +3903,37 @@ Terraform syntax:
 no_tls = {}
 ```
 
-<a id="canonical-9aa88c0ff79af0413bf2f5df00c1f7f1dd2d8e9ae48d8eeb0c0d7e41f81d70f5"></a>
+<a id="canonical-2122222020300033-3313212233001001-0323330233113133-0000300133133301-3131023120322122-3210203120323223-0030003113321001-3320013113003311"></a>
 
-## Direct properties — splunk_receiver.no_tls / 18f285a2112b / 3
+## Direct properties — no_tls / 220201010223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7adb695062fdffe24a11fa510c601dcb70de3b3586ba7d24c8264cfd6007fbac"></a>
+<a id="canonical-1322312312211100-1202333133333202-1022010133221101-0030120001313023-1300313203230311-2012232213310210-3020021210303331-1200001333232230"></a>
 
-## Next pages — splunk_receiver.no_tls / 18f285a2112b / 4
+## Next pages — no_tls / 220201010223 / 4
 
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4"></a>
+<a id="canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b4271e66f912e0ada389e76dc20e20c7d4180af8550ad7f5a24678b48d4e2bf0"></a>
+<a id="canonical-2310021301321212-3321010232002231-2203202132131231-3002003202003013-3110012000223320-1111002231133311-2202101213202310-2031103202233300"></a>
 
-## splunk_receiver.splunk_hec_token — splunk_receiver.splunk_hec_token / 5f5dd425609f / 2
+## splunk_receiver.splunk_hec_token — splunk_hec_token / 021112002133 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
 - splunk_receiver.splunk_hec_token
 
-<a id="canonical-2682a8104a181900fc201f21f24d9457a0938ddefe6389cc002bffc8ee409c89"></a>
+<a id="canonical-0212200222200100-1022012001210000-3330020001330201-3302103121101113-2200210320313132-3332120320213030-0000022333333020-3232100021302021"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3436,42 +3968,42 @@ splunk_hec_token {
 }
 ```
 
-<a id="canonical-dc34b0250c4a8c72ddc38e2929d84854cb2aee4acc098dd4a2c9662c92d543e7"></a>
+<a id="canonical-3130031023000211-0030102220301302-3131300320320221-0221312010201110-3023022232321022-3030002120313110-2202302112120230-2102311110033213"></a>
 
-## Direct properties — splunk_receiver.splunk_hec_token / 5f5dd425609f / 3
+## Direct properties — splunk_hec_token / 021112002133 / 3
 
-- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-6e8fc6f69c41a0e2ecbf62dd1706bb284ceaf691030e9bf7c8505ebf29af54dd): complete subsection reference.
+- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1232203330123312-2130100122003202-3230233312023131-0113001223230220-1030322233122101-0003003221233313-3020110011322333-0221223311103131): complete subsection reference.
 
-- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-c96b95d816dccb5adde425c580e1ef807635ffa88c468dbe310e9cbccd359cb6): complete subsection reference.
+- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-3021122321113120-0112313030231122-3131321002113011-2000320132332000-1312031133332220-2030101220312332-0301003221302330-3031031121302312): complete subsection reference.
 
-<a id="canonical-9dded3fe9ab330cae62aa41e6634973933b536422dae0cffdf2ca4bff90b0517"></a>
+<a id="canonical-2131313231033332-2122230303003022-3212022222100132-1212031021130321-0303231103121002-0231223200303333-3133023022102333-3321002300110113"></a>
 
-## Next pages — splunk_receiver.splunk_hec_token / 5f5dd425609f / 4
+## Next pages — splunk_hec_token / 021112002133 / 4
 
-- [splunk_receiver.splunk_hec_token.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-6e8fc6f69c41a0e2ecbf62dd1706bb284ceaf691030e9bf7c8505ebf29af54dd)
-- [splunk_receiver.splunk_hec_token.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-c96b95d816dccb5adde425c580e1ef807635ffa88c468dbe310e9cbccd359cb6)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.splunk_hec_token.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1232203330123312-2130100122003202-3230233312023131-0113001223230220-1030322233122101-0003003221233313-3020110011322333-0221223311103131)
+- [splunk_receiver.splunk_hec_token.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-3021122321113120-0112313030231122-3131321002113011-2000320132332000-1312031133332220-2030101220312332-0301003221302330-3031031121302312)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-6e8fc6f69c41a0e2ecbf62dd1706bb284ceaf691030e9bf7c8505ebf29af54dd"></a>
+<a id="canonical-1232203330123312-2130100122003202-3230233312023131-0113001223230220-1030322233122101-0003003221233313-3020110011322333-0221223311103131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d0679e28395d8c717bcb3e69bcad23a57e4462a903371bb431a5e34d8e43475"></a>
+<a id="canonical-1031001213213202-2003211131203013-0113233023033212-2123302231020322-1113321010120222-2100030313012323-1003012211320310-3120321003101311"></a>
 
-## splunk_receiver.splunk_hec_token.blindfold_secret_info — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 2
+## splunk_receiver.splunk_hec_token.blindfold_secret_info — blindfold_secret_info / 221323021321 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310)
 - splunk_receiver.splunk_hec_token.blindfold_secret_info
 
-<a id="canonical-57461e608facc239debefbb723332acbd4ad14e1ac0364e3730e1d740b3ce52a"></a>
+<a id="canonical-1113101201321200-2033223030020321-3132233233232313-0203030302223023-3110223101103201-2230000312103203-1303003201311310-0023033032110222"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3504,15 +4036,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-91628562c9c279e6b823d5ff2833f6345d6cf822df083fbba28a11c16177407e"></a>
+<a id="canonical-2101120220111202-3021300213213212-2320020331113333-0220030333120310-1131123033200202-3133002003332323-2202202201013001-1201131310001332"></a>
 
-## Direct properties — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 3
+## Direct properties — blindfold_secret_info / 221323021321 / 3
 
-<a id="canonical-940f9ada56b643b49e54e003bf07de5edf32fbeb8f46196de574c4460eb26f08"></a>
+<a id="canonical-2110003321223122-1112231210032310-2132111032000003-2333001331321132-3133030233233223-2033101201211231-3211131030101012-0032230212330020"></a>
 
-<a id="canonical-f1f12cd89edb6ff1a65e59b2c745ad9ec1bccc4bfd6a36425f0ebb8c930f0fe2"></a>
+<a id="canonical-3301330102303120-2132312312333301-2212113211212302-3013101122312132-3001233030301023-3331122203121002-1133003223232030-2103003300333202"></a>
 
-## decryption_provider property — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 4
+## decryption_provider property — blindfold_secret_info / 221323021321 / 4
 
 Type: `"string"`. Optional.
 
@@ -3542,11 +4074,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b51a10ad9d354ab7fbc11d4607d270f3b0a222e5368f3e991b460c40d2912d1a"></a>
+<a id="canonical-2311012201002231-2131031110222313-3323300101311012-0013310213003303-2300220202023211-0312203303322121-0123101200301000-3102210102310122"></a>
 
-<a id="canonical-4e63e47fd3dcfc275804eca1599a3ea0bfe78e8cb615f1c4b2baaffc810d681e"></a>
+<a id="canonical-1032120332101333-3103313033300213-1120001032302201-1121212203322200-2333321320322030-2312011133013010-2302232222333330-2001003112200132"></a>
 
-## location property — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 5
+## location property — blindfold_secret_info / 221323021321 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3603,11 +4135,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-121f28ba70c8faa98484498c2e4ecf51d639d6749e0f3f7520182808fb3106d6"></a>
+<a id="canonical-0102013302202322-1300302033222221-2010201010212030-0232103230331101-3112032131121310-2132003303331311-0200012002200020-3323030100123112"></a>
 
-<a id="canonical-9d5fba6e5f763013782da1761660925b31f89d2f3faf9d73db67af19b5db29fc"></a>
+<a id="canonical-2131113323221232-1133131203000103-1320023122011312-0112120021021123-0301332021310233-0333223321311303-3123121322330121-2311312302213330"></a>
 
-## store_provider property — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 6
+## store_provider property — blindfold_secret_info / 221323021321 / 6
 
 Type: `"string"`. Optional.
 
@@ -3642,32 +4174,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b3645e35863e45f3229818726bec05e882196d997882261001d1ef7b52186ade"></a>
+<a id="canonical-2303121011320311-2012033210113303-0202212001201302-1223323000113220-2002012112312121-1320200202120100-0001310132331323-1102012012223132"></a>
 
-## Next pages — splunk_receiver.splunk_hec_token.blindfold_secret_info / edc8eaa7b279 / 7
+## Next pages — blindfold_secret_info / 221323021321 / 7
 
-- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-c96b95d816dccb5adde425c580e1ef807635ffa88c468dbe310e9cbccd359cb6"></a>
+<a id="canonical-3021122321113120-0112313030231122-3131321002113011-2000320132332000-1312031133332220-2030101220312332-0301003221302330-3031031121302312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e73e37fba6bbc81cbc37c51afb9ddb3b7a63f9dc4325bce0fa836b95119754e0"></a>
+<a id="canonical-3213033203133323-2212232330200130-2330031330110122-3323213131230323-1322120333213130-1003021123303200-3322200312232111-0101211311103200"></a>
 
-## splunk_receiver.splunk_hec_token.clear_secret_info — splunk_receiver.splunk_hec_token.clear_secret_info / 9c6b25f2dbe0 / 2
+## splunk_receiver.splunk_hec_token.clear_secret_info — clear_secret_info / 330231233200 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310)
 - splunk_receiver.splunk_hec_token.clear_secret_info
 
-<a id="canonical-e83e26cf4a2f57d8ab52b9121ef66da240bd98326caf9702fba425082c3f1578"></a>
+<a id="canonical-3220033202123033-1022023311133120-2223110223210102-0132331212312202-1000233121200302-1230223321130002-3323221002110020-0230033301111320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3700,26 +4232,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-9545d88f5f160b350b3b694b1f3ce9459e2367344a8ea0de5b05182735d2b334"></a>
+<a id="canonical-2111101131202033-1133011200230311-0023032312211023-0133033032211011-2132020312130310-1022203222003132-1123001101200213-0311310223030310"></a>
 
-## Direct properties — splunk_receiver.splunk_hec_token.clear_secret_info / 9c6b25f2dbe0 / 3
+## Direct properties — clear_secret_info / 330231233200 / 3
 
-<a id="canonical-473eb03f325ecd6f4de42066a46926d84849aecb87f8478b685768e0ec332985"></a>
+<a id="canonical-1013033223000333-0302113230311233-1031321002001212-2210122102123120-1020102122323023-2013332010132023-1220111312203200-3230030302212011"></a>
 
-<a id="canonical-7434f7209b49a630bb89adfe376c83d54609b1521607d1ab53a0008280938131"></a>
+<a id="canonical-1310031033130200-2123102122120300-2323202122313332-0313123020033111-1012002123011102-0112001331012223-1103220000002002-2000210320010301"></a>
 
-## provider_ref property — splunk_receiver.splunk_hec_token.clear_secret_info / 9c6b25f2dbe0 / 4
+## provider_ref property — clear_secret_info / 330231233200 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-904411f569e303c99e65116433215d7ac5b5c2d05a391ac50a1a2c106d7f00ce"></a>
+<a id="canonical-2100101001013311-1221320300033021-2132121101011210-0303020111311322-3011231130023100-1122032101223011-0022012202300100-1231133300003032"></a>
 
-<a id="canonical-02a681dc71af5536b3c9ae568c9b0352f22d73cbe6fc1e80110e0b90062fc66e"></a>
+<a id="canonical-0002221220013130-1301223311110312-2303302122321112-2030212300031102-3302023113033023-3212333001322000-0101003200232100-0012023330121232"></a>
 
-## url property — splunk_receiver.splunk_hec_token.clear_secret_info / 9c6b25f2dbe0 / 5
+## URL property — clear_secret_info / 330231233200 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -3787,31 +4319,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80dd20dd9af5679b5204cf26f5e95d49642718d3f475fac0c96397b84abd0f09"></a>
+<a id="canonical-2000313102003131-2122331112132123-1102001030330212-3311322111311021-1210021301203103-3310131133223000-3021120321132320-1022233100330021"></a>
 
-## Next pages — splunk_receiver.splunk_hec_token.clear_secret_info / 9c6b25f2dbe0 / 6
+## Next pages — clear_secret_info / 330231233200 / 6
 
-- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-00f14b7c8b85d910d187e54c2467f87ec091fb9843551340f711318a936ff5b4)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.splunk_hec_token](resources--global_log_receiver--reference--group-004.md#canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16"></a>
+<a id="canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7ce991a4cbab15437b281223614e03e035de590b1ff23f46d31aa602eee10c5b"></a>
+<a id="canonical-1330322121012210-3023222301111003-1323022001020203-1201103200033200-0311313211210023-0133330203331012-3103012222120002-3232320100301123"></a>
 
-## splunk_receiver.use_tls — splunk_receiver.use_tls / 9615fa0b0ad7 / 2
+## splunk_receiver.use_tls — use_tls / 002300223113 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
 - splunk_receiver.use_tls
 
-<a id="canonical-7118da65c46bcb27083a7c2113124a1011ea27e103fce4f6a4e07176cf8a6f3f"></a>
+<a id="canonical-1301012031221211-3010122330230213-0020032213300201-0103010210220100-0101322202133201-0003333032103312-2210320013011312-3033202212330333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3855,29 +4387,29 @@ use_tls {
 }
 ```
 
-<a id="canonical-1e97ebf0f85b72bafbba3d132e6b9cca01a1a49e9da66a5e9dde69f2865e1f32"></a>
+<a id="canonical-0132211332233300-3320112313022322-3323232203310103-0232122321303022-0001220122102132-2131221212221132-2131313212213302-2012113201330302"></a>
 
-## Direct properties — splunk_receiver.use_tls / 9615fa0b0ad7 / 3
+## Direct properties — use_tls / 002300223113 / 3
 
-- [disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-a7989bb0e2f7aeb6d1b0df33770b295afeead9ff236e010630cc2b882c4178c4): complete subsection reference.
+- [disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2213212021232300-3202331322322312-3101230031330303-1313002302211122-3332322231213333-0203123200010012-0300303002232020-0230100113203010): complete subsection reference.
 
-- [disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-b50e0e4e4764f2d74719eeed6950e225f50364ec79bebc0e51cd8c3bf50d0510): complete subsection reference.
+- [disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2311003200321032-1013121033023113-1013012132323231-1221110032020211-3311000312103230-1321233223300032-1101303120300323-3311003100110100): complete subsection reference.
 
-- [enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-b7d7a361d4bad3c511bd07aa32bc91b8ff78087b234dc3d0e501fa258845612e): complete subsection reference.
+- [enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2313311322031201-3110232231033011-0101233100132222-0302233021012320-3333132000201323-0203103130033100-3211000133220211-2020101112010232): complete subsection reference.
 
-- [enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-b65f542cd10722d06523438ba7183a4400083f00b51e57d2c0545bd5750b8339): complete subsection reference.
+- [enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2312113311100230-3101001302023100-1211020310032023-2213012003221010-0000002003330000-2311013211133102-3000111011233111-1311002320030321): complete subsection reference.
 
-- [mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0616c097866073006cea266b3887df8e4463074f4c118de1c5581b3fc39a6a3d): complete subsection reference.
+- [mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0012011230002113-2012120013030000-1230322202121223-0320201331332032-1010120300131033-1030010120313201-3011112001230333-3003212212220331): complete subsection reference.
 
-- [mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d): complete subsection reference.
+- [mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131): complete subsection reference.
 
-- [no_ca](resources--global_log_receiver--reference--group-004.md#canonical-c1472a8850948a825f58954e9ed3fd126f57a851b7f23beb60fe2afe3d059040): complete subsection reference.
+- [no_ca](resources--global_log_receiver--reference--group-004.md#canonical-3001101302222020-1100211020222002-1133112021111032-2132310333310102-1233111322201101-2313330203233223-1200333202223332-0331001121001000): complete subsection reference.
 
-<a id="canonical-28170a913c4dbf1420e7e6c974a930d0561432f4fa303acc4e966258f6f88cc9"></a>
+<a id="canonical-0220011300222101-0330103123330110-0200321332123021-1310222103003100-1112011003023310-3322030003223030-1032211212021120-3312332020303021"></a>
 
-<a id="canonical-8c7f4d82a424145aafd3544b9d8c9936f08c98f82426975bbfaab48da5de6baf"></a>
+<a id="canonical-2030133310312002-2210021001101122-2233310311101023-2131203021210312-3300203021203320-0210021221131123-2333222223102031-2211313212232233"></a>
 
-## trusted_ca_url property — splunk_receiver.use_tls / 9615fa0b0ad7 / 4
+## trusted_ca_url property — use_tls / 002300223113 / 4
 
 Type: `"string"`. Optional.
 
@@ -3933,39 +4465,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d4d32917fe8d74a8848a2e3be72999de72a778e3c1189ceff3b0c7f6fd160d0f"></a>
+<a id="canonical-3110310302210113-3332203113102220-2010202202320323-3213022121213132-1302221313203203-3001012021303233-3303230030133312-3331011200310033"></a>
 
-## Next pages — splunk_receiver.use_tls / 9615fa0b0ad7 / 5
+## Next pages — use_tls / 002300223113 / 5
 
-- [splunk_receiver.use_tls.disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-a7989bb0e2f7aeb6d1b0df33770b295afeead9ff236e010630cc2b882c4178c4)
-- [splunk_receiver.use_tls.disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-b50e0e4e4764f2d74719eeed6950e225f50364ec79bebc0e51cd8c3bf50d0510)
-- [splunk_receiver.use_tls.enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-b7d7a361d4bad3c511bd07aa32bc91b8ff78087b234dc3d0e501fa258845612e)
-- [splunk_receiver.use_tls.enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-b65f542cd10722d06523438ba7183a4400083f00b51e57d2c0545bd5750b8339)
-- [splunk_receiver.use_tls.mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0616c097866073006cea266b3887df8e4463074f4c118de1c5581b3fc39a6a3d)
-- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d)
-- [splunk_receiver.use_tls.no_ca](resources--global_log_receiver--reference--group-004.md#canonical-c1472a8850948a825f58954e9ed3fd126f57a851b7f23beb60fe2afe3d059040)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls.disable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2213212021232300-3202331322322312-3101230031330303-1313002302211122-3332322231213333-0203123200010012-0300303002232020-0230100113203010)
+- [splunk_receiver.use_tls.disable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2311003200321032-1013121033023113-1013012132323231-1221110032020211-3311000312103230-1321233223300032-1101303120300323-3311003100110100)
+- [splunk_receiver.use_tls.enable_verify_certificate](resources--global_log_receiver--reference--group-004.md#canonical-2313311322031201-3110232231033011-0101233100132222-0302233021012320-3333132000201323-0203103130033100-3211000133220211-2020101112010232)
+- [splunk_receiver.use_tls.enable_verify_hostname](resources--global_log_receiver--reference--group-004.md#canonical-2312113311100230-3101001302023100-1211020310032023-2213012003221010-0000002003330000-2311013211133102-3000111011233111-1311002320030321)
+- [splunk_receiver.use_tls.mtls_disabled](resources--global_log_receiver--reference--group-004.md#canonical-0012011230002113-2012120013030000-1230322202121223-0320201331332032-1010120300131033-1030010120313201-3011112001230333-3003212212220331)
+- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131)
+- [splunk_receiver.use_tls.no_ca](resources--global_log_receiver--reference--group-004.md#canonical-3001101302222020-1100211020222002-1133112021111032-2132310333310102-1233111322201101-2313330203233223-1200333202223332-0331001121001000)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-a7989bb0e2f7aeb6d1b0df33770b295afeead9ff236e010630cc2b882c4178c4"></a>
+<a id="canonical-2213212021232300-3202331322322312-3101230031330303-1313002302211122-3332322231213333-0203123200010012-0300303002232020-0230100113203010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-09a7b4ffadb8b2702d4a6779a176d1396c0d926b7caad8527681c2f98ed76f46"></a>
+<a id="canonical-0021221323103333-2231232023021300-0231102212131321-2201131231010321-1230003121021223-1330222231201102-1312200130023321-2032311312331012"></a>
 
-## splunk_receiver.use_tls.disable_verify_certificate — splunk_receiver.use_tls.disable_verify_certificate / 2ba1ea1dfb76 / 2
+## splunk_receiver.use_tls.disable_verify_certificate — disable_verify_certificate / 013133231312 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.disable_verify_certificate
 
-<a id="canonical-42f8dca5d2d72391b3197e5792b6128ab58ea99508067df58668bae2796d6730"></a>
+<a id="canonical-1002332031302211-3102311302032101-2303012113321113-2102231201022022-2311203222212111-0020001213313311-2012122023223202-1321123112130300"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3994,38 +4526,38 @@ Terraform syntax:
 disable_verify_certificate = {}
 ```
 
-<a id="canonical-e5b66a9889ca0719775e81f8a0a5bfbed0618325eda3d0a05d87e9d0fd4a1cbe"></a>
+<a id="canonical-3211231212222120-2021302200130121-1313113220013320-2200221123332332-3100120120030211-3231220331002200-1131201332213100-3331102201302332"></a>
 
-## Direct properties — splunk_receiver.use_tls.disable_verify_certificate / 2ba1ea1dfb76 / 3
+## Direct properties — disable_verify_certificate / 013133231312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e45fb21e4a89542dc3c7a4798040837a71b7995a1e98f9b782f8f30629a6bebc"></a>
+<a id="canonical-3210113323020132-1022202111100231-3003301322101321-2000100020031322-1301231321211122-0132212033212313-2002332033030012-0221221223322330"></a>
 
-## Next pages — splunk_receiver.use_tls.disable_verify_certificate / 2ba1ea1dfb76 / 4
+## Next pages — disable_verify_certificate / 013133231312 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-b50e0e4e4764f2d74719eeed6950e225f50364ec79bebc0e51cd8c3bf50d0510"></a>
+<a id="canonical-2311003200321032-1013121033023113-1013012132323231-1221110032020211-3311000312103230-1321233223300032-1101303120300323-3311003100110100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0cd4e6169f7a4ec7784ef84a2ec26c300c623b54844d368177b22daedc3fad8d"></a>
+<a id="canonical-0030311032120112-2133132210323013-1320103233201022-0232300212300300-0030120203231110-2010103103122001-1313230202312232-3130033322312031"></a>
 
-## splunk_receiver.use_tls.disable_verify_hostname — splunk_receiver.use_tls.disable_verify_hostname / 71dc2ea9a429 / 2
+## splunk_receiver.use_tls.disable_verify_hostname — disable_verify_hostname / 222122100221 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.disable_verify_hostname
 
-<a id="canonical-3729d93ffc5c174d0c6fe5e5a7ec4d1bc39439e354bd532346f48bdf4796772d"></a>
+<a id="canonical-0313022131210333-3330113001131031-0030123332113211-2213323010310123-3003211003213203-1110233111030203-1012331020233133-1013211213130231"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4054,38 +4586,38 @@ Terraform syntax:
 disable_verify_hostname = {}
 ```
 
-<a id="canonical-809b6cb32475530cd17f018ba23070500a30618995a37b5e6b51cdcc02773296"></a>
+<a id="canonical-2000212312302303-0210131111030030-3101133300012023-2202030013001100-0022030012012021-2111220313231132-1223110130313030-0002131303022112"></a>
 
-## Direct properties — splunk_receiver.use_tls.disable_verify_hostname / 71dc2ea9a429 / 3
+## Direct properties — disable_verify_hostname / 222122100221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b4361205bf6e70e9a30773050ff5c3c41df6ed6a8513f8620b5fa3c76f339ed5"></a>
+<a id="canonical-2310031201020011-2333123213003221-2203001313030011-0033331130033010-0131331232311222-2011010333201202-0023113322033013-1233030321323111"></a>
 
-## Next pages — splunk_receiver.use_tls.disable_verify_hostname / 71dc2ea9a429 / 4
+## Next pages — disable_verify_hostname / 222122100221 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-b7d7a361d4bad3c511bd07aa32bc91b8ff78087b234dc3d0e501fa258845612e"></a>
+<a id="canonical-2313311322031201-3110232231033011-0101233100132222-0302233021012320-3333132000201323-0203103130033100-3211000133220211-2020101112010232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ae4af302f7f21bcbfff1ab2ce62067bfb2fb759f850027802b2a159bb55f532"></a>
+<a id="canonical-1122321022330300-0233133302012330-2333333301222302-3032120200121323-3323023323131121-3320110000021320-0002230222011121-2323111133110302"></a>
 
-## splunk_receiver.use_tls.enable_verify_certificate — splunk_receiver.use_tls.enable_verify_certificate / b93ede43f9ba / 2
+## splunk_receiver.use_tls.enable_verify_certificate — enable_verify_certificate / 100333212322 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.enable_verify_certificate
 
-<a id="canonical-bd46ced2f7755992356f32697fe2f0c65019bf5bb0259f19cc3299988eabbe45"></a>
+<a id="canonical-2331101230323102-3313131111212102-0311123303021221-1333320233003012-1100012123331123-2300021121330121-3030030221212120-2032222323321011"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4114,38 +4646,38 @@ Terraform syntax:
 enable_verify_certificate = {}
 ```
 
-<a id="canonical-2999c77666204b0f4314fcd1566720a5f9d58ddf493a95b84b72c59466bfac21"></a>
+<a id="canonical-0221212130131312-1212020010230033-1003011033303101-1112121302002211-3321311120313133-1021032221112320-1023130230112110-1212233322300201"></a>
 
-## Direct properties — splunk_receiver.use_tls.enable_verify_certificate / b93ede43f9ba / 3
+## Direct properties — enable_verify_certificate / 100333212322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e3c7d6034d58ea8982a2c74eecea54614ee0dd065be048071dc551a1f56214e2"></a>
+<a id="canonical-3203301331120003-1031112032222021-2002220230131032-3230322211101201-1032320031310012-1123320010200013-0131301111012201-3311120201103202"></a>
 
-## Next pages — splunk_receiver.use_tls.enable_verify_certificate / b93ede43f9ba / 4
+## Next pages — enable_verify_certificate / 100333212322 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-b65f542cd10722d06523438ba7183a4400083f00b51e57d2c0545bd5750b8339"></a>
+<a id="canonical-2312113311100230-3101001302023100-1211020310032023-2213012003221010-0000002003330000-2311013211133102-3000111011233111-1311002320030321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-10ef75ec8f8605aaa7438587b1b0522775a18267ef7355739917b39bea8ac95c"></a>
+<a id="canonical-0100323313113230-2033201200112222-2213100320112013-2301230011020213-1311220120021213-3233130311111303-2121011323032123-3222202230211130"></a>
 
-## splunk_receiver.use_tls.enable_verify_hostname — splunk_receiver.use_tls.enable_verify_hostname / c11fac10c23f / 2
+## splunk_receiver.use_tls.enable_verify_hostname — enable_verify_hostname / 010030020333 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.enable_verify_hostname
 
-<a id="canonical-f4ee9544287aed0cc15e0373b3d41c80fde1419dfdd21a8cc7639fcbe3964043"></a>
+<a id="canonical-3310323221111010-0220132232310030-3001113200031303-2303311001302000-3331320110012131-3331310201222030-3013120321333023-3203211210001003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4174,38 +4706,38 @@ Terraform syntax:
 enable_verify_hostname = {}
 ```
 
-<a id="canonical-bf85710bd0a148f1606a8264f5babac62ebfccdf78da50a7642bad71b8c08661"></a>
+<a id="canonical-2333201113010023-3100220110203301-1200122220021210-3311232223223012-0232233330303133-1320312211002213-1210022322311301-2320300020121201"></a>
 
-## Direct properties — splunk_receiver.use_tls.enable_verify_hostname / c11fac10c23f / 3
+## Direct properties — enable_verify_hostname / 010030020333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-133cc84287b64698889f3e93bbb2e760ee0ae36684e25b5e186633aa651b8433"></a>
+<a id="canonical-0103033030201002-2013231210122120-2020213303322103-2323230232131200-3232002232031212-2010320211231132-0120121203032222-1211012320100303"></a>
 
-## Next pages — splunk_receiver.use_tls.enable_verify_hostname / c11fac10c23f / 4
+## Next pages — enable_verify_hostname / 010030020333 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-0616c097866073006cea266b3887df8e4463074f4c118de1c5581b3fc39a6a3d"></a>
+<a id="canonical-0012011230002113-2012120013030000-1230322202121223-0320201331332032-1010120300131033-1030010120313201-3011112001230333-3003212212220331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d58ca958b82d1afe0ff09d316c9806731e6aaf1ac1ca0d715db348cb2e82de1d"></a>
+<a id="canonical-3111203022211120-2320023101223332-0033330021310301-1230212000121303-0132122222330122-3001302200311301-1131230310203023-0232200231320131"></a>
 
-## splunk_receiver.use_tls.mtls_disabled — splunk_receiver.use_tls.mtls_disabled / 086dc1917888 / 2
+## splunk_receiver.use_tls.mtls_disabled — mtls_disabled / 210113202020 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.mtls_disabled
 
-<a id="canonical-0864644e4f60cd1403d0d0fef033eb1a8117a6e0c797659906e81a618f9c9429"></a>
+<a id="canonical-0020121012101032-1033120030310110-0003310031003332-3300030332230122-2001011322123200-3013211312112121-0012322001221201-2033213021100221"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4234,38 +4766,38 @@ Terraform syntax:
 mtls_disabled = {}
 ```
 
-<a id="canonical-ef44aae7221ad7db7e63ce2b7b06fed50b3def60eea573fc412aa524700f5f2d"></a>
+<a id="canonical-3233101022223213-0202012231133123-1332120330320223-1323001233323111-0023033132331200-3232221113033330-1001022222110210-1300003311330231"></a>
 
-## Direct properties — splunk_receiver.use_tls.mtls_disabled / 086dc1917888 / 3
+## Direct properties — mtls_disabled / 210113202020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-88422c491ff5c5b0009cbcd7b41ff3e289a644a87f0c880483bdf6982ad2ee9d"></a>
+<a id="canonical-2020100202301021-0133331130112300-0000213023303113-2310013333033202-2021221210102220-1333003020200010-2003233133122120-0222310232322131"></a>
 
-## Next pages — splunk_receiver.use_tls.mtls_disabled / 086dc1917888 / 4
+## Next pages — mtls_disabled / 210113202020 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d"></a>
+<a id="canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7da91e5e07c669f488bd226b4a6aa9d2d3d98b6bf33a28a3e93dcaeadc200240"></a>
+<a id="canonical-1331222101321132-0013301212213310-2020233102021223-1022122222213102-3103312120231223-3303032202202203-3221033130223222-3130020000021000"></a>
 
-## splunk_receiver.use_tls.mtls_enable — splunk_receiver.use_tls.mtls_enable / 3c78abf3c017 / 2
+## splunk_receiver.use_tls.mtls_enable — mtls_enable / 330330000113 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.mtls_enable
 
-<a id="canonical-24b78d71d3f4b039ba68644a6cf5d8745b36af98880f831f8f766246b63175fc"></a>
+<a id="canonical-0210231320311301-3103331023000321-2322122012101022-1230331131201310-1123031222332120-2020003320030133-2033131212021012-2312030113113330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4292,15 +4824,15 @@ mtls_enable {
 }
 ```
 
-<a id="canonical-9cdbee6e3a85017d0cbfe7f3016ec6488c83d7c995928acf6be704ec81268de4"></a>
+<a id="canonical-2130312332321232-0322201100011331-0030233332133303-0001123230121020-2030200331133021-2111210220223033-1223321300103230-2001021220313210"></a>
 
-## Direct properties — splunk_receiver.use_tls.mtls_enable / 3c78abf3c017 / 3
+## Direct properties — mtls_enable / 330330000113 / 3
 
-<a id="canonical-fb33cc747b25f1f877fc4f7d245dcb4d2371e525c60c618e78cb6678b9e43366"></a>
+<a id="canonical-3323030330301310-1323021133013320-1313333010331331-0210113130231031-0203130132110211-3012003012012032-1320302312121320-2321321003031212"></a>
 
-<a id="canonical-c776620efcb9e6d91543c315224b01acb91109e41786ebdaa83acd9d3af7cdcf"></a>
+<a id="canonical-3013131212020032-3330232132123121-0111100330030111-0202102300012230-2321010100213210-0113201232233122-2220032230312131-0322331330313033"></a>
 
-## certificate property — splunk_receiver.use_tls.mtls_enable / 3c78abf3c017 / 4
+## certificate property — mtls_enable / 330330000113 / 4
 
 Type: `"string"`. Optional.
 
@@ -4357,36 +4889,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e): complete subsection reference.
+- [key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032): complete subsection reference.
 
-<a id="canonical-ad001ec30ce90875179e307d2338e77d2f8441e41690793b1665ef3efead92f1"></a>
+<a id="canonical-2231000001323003-0030322100201311-0113213203001331-0203032032131331-0233201010013210-0112210013210323-0112121132330332-3332223121023301"></a>
 
-## Next pages — splunk_receiver.use_tls.mtls_enable / 3c78abf3c017 / 5
+## Next pages — mtls_enable / 330330000113 / 5
 
-- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e"></a>
+<a id="canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-38599eab8f596c095b9454c65d8d67a93455ad39bac88506d89d11817de02422"></a>
+<a id="canonical-0320112121322223-2033112112300021-1123211011103012-1131203112132221-0310111122310321-2322302020110012-3120213101012001-1331320002100202"></a>
 
-## splunk_receiver.use_tls.mtls_enable.key_url — splunk_receiver.use_tls.mtls_enable.key_url / 886ac37ecab3 / 2
+## splunk_receiver.use_tls.mtls_enable.key_url — key_url / 133230222303 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131)
 - splunk_receiver.use_tls.mtls_enable.key_url
 
-<a id="canonical-41ccbb0fe7b78fcff2204af295ad003330d9140e3fd228d39d6679e978abfb04"></a>
+<a id="canonical-1001303023230033-3213231320333033-3302020010223302-2111223100000303-0300312101100032-0333310202203103-2131121213213221-1320222333230010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4421,44 +4953,44 @@ key_url {
 }
 ```
 
-<a id="canonical-41f5c058d93641b107213a57237d1b8bfa8c90519e70da86a61eca1ce6154797"></a>
+<a id="canonical-1001331130001120-3121031210012301-0013020103221113-0203133101232023-3322203021001101-2132130031222012-2212013230220130-3212011110132113"></a>
 
-## Direct properties — splunk_receiver.use_tls.mtls_enable.key_url / 886ac37ecab3 / 3
+## Direct properties — key_url / 133230222303 / 3
 
-- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1f4c493548aba41f45f24e5535dedc9fb4a7f3f8f9586a0efa4ec66e75ff5770): complete subsection reference.
+- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-0133103010210311-1020222322100133-1011330210321111-0311313231302133-2310221333033320-3321112012220032-3322103230121232-1311333311131300): complete subsection reference.
 
-- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-923574a2cafed5e2b53804912333a8e082ddab881cee98eb9adb8e3ef0f3009e): complete subsection reference.
+- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2102031113102202-3022333231113202-2311032000102101-0203030322203200-2002313122232020-0130323221203223-2122312320320332-3300330300002132): complete subsection reference.
 
-<a id="canonical-62ba2d7e5c9ed7106fbf6c7224418f79fd7ff6af38f4fc3e4d40d736586f4fbd"></a>
+<a id="canonical-1202232202311332-1130213231130100-1233233312301302-0210100120331321-3331133333122233-0320331033300332-1031100031130312-1120123310332331"></a>
 
-## Next pages — splunk_receiver.use_tls.mtls_enable.key_url / 886ac37ecab3 / 4
+## Next pages — key_url / 133230222303 / 4
 
-- [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1f4c493548aba41f45f24e5535dedc9fb4a7f3f8f9586a0efa4ec66e75ff5770)
-- [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-923574a2cafed5e2b53804912333a8e082ddab881cee98eb9adb8e3ef0f3009e)
-- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-0133103010210311-1020222322100133-1011330210321111-0311313231302133-2310221333033320-3321112012220032-3322103230121232-1311333311131300)
+- [splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-2102031113102202-3022333231113202-2311032000102101-0203030322203200-2002313122232020-0130323221203223-2122312320320332-3300330300002132)
+- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-1f4c493548aba41f45f24e5535dedc9fb4a7f3f8f9586a0efa4ec66e75ff5770"></a>
+<a id="canonical-0133103010210311-1020222322100133-1011330210321111-0311313231302133-2310221333033320-3321112012220032-3322103230121232-1311333311131300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0304971a5d61f7e3fb6400d0b71ddbed52933faacf09b481eff625e513898363"></a>
+<a id="canonical-0003001021130122-1131120133133203-3323121000003100-2313013131233231-1102210303332222-3033002123102001-3233331202113211-0103202120031203"></a>
 
-## splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 2
+## splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — blindfold_secret_info / 102122123032 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d)
-- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131)
+- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032)
 - splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info
 
-<a id="canonical-c9ddeb955d97e9fc656c63db00643a21f9ab3a17349f7776c06c8bf4e8a43b2e"></a>
+<a id="canonical-3021313132232111-1131211332213330-1211123012033123-0000121003220201-3321222303220113-0310213313131312-3000123020233310-3220221003230232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4491,15 +5023,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-a036eef2e310a93aa314bd1519c3ed7bf57ed3078bfc4d63cbde4df22ff1a5b4"></a>
+<a id="canonical-2200031232323302-3203010022210322-2203011023310111-0121300332311323-3311133231030013-2023333010311203-3023313210313302-0233330122112310"></a>
 
-## Direct properties — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 3
+## Direct properties — blindfold_secret_info / 102122123032 / 3
 
-<a id="canonical-c33abc8f9e60ff16dee592184afbc06590fb4e830ca587625fe65830ab846a1d"></a>
+<a id="canonical-3003032223302033-2132120033330112-3132321121020120-1022332330001211-2100332310322003-0030221120131202-1133321211200300-2223201012220131"></a>
 
-<a id="canonical-144cb61fe35473131744af5c9f8449a63868e79b695a81fe0a9766e8b8d2d0e3"></a>
+<a id="canonical-0110103023120133-3203111013030103-0113101022331130-2133201010212212-0320122032132123-1221112220013332-0022211312123220-2320310231003203"></a>
 
-## decryption_provider property — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 4
+## decryption_provider property — blindfold_secret_info / 102122123032 / 4
 
 Type: `"string"`. Optional.
 
@@ -4529,11 +5061,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fc42af6e99c47db47dbaefbdaba3625ddbae87ae5769aa724f4aab567a7cb68a"></a>
+<a id="canonical-3330100222331232-2121301013312310-1331232232332331-2223220312021131-3123223220132232-1113122122221302-1033102222231112-1322133023122022"></a>
 
-<a id="canonical-d756481b72fffd07c7173aede8439387da8e6de60ab75d66d839cc13e47bc81d"></a>
+<a id="canonical-3113111210200123-1302333333310013-3013011303223231-3220100321032013-3122203212313212-0022231311311212-3120032130300103-3210132330200131"></a>
 
-## location property — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 5
+## location property — blindfold_secret_info / 102122123032 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -4590,11 +5122,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-54787a02bd5ee4ba94caa9151a1968a1146879adbec40be99cba27333724dd8d"></a>
+<a id="canonical-1110132013220002-2331113232102322-2110302222210111-0122012112202201-0110122013212231-2332301000233221-2130232202130303-0313021031312031"></a>
 
-<a id="canonical-3264116aedcb13709d9c0f7f5d2c961344e205f598d0f29a37273a90cb1e81c6"></a>
+<a id="canonical-0302121001011222-3231302301031300-2131213000331333-1131023021120103-1010320200113311-2120310033022122-0313021303222100-3023013220013012"></a>
 
-## store_provider property — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 6
+## store_provider property — blindfold_secret_info / 102122123032 / 6
 
 Type: `"string"`. Optional.
 
@@ -4629,34 +5161,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-250b10f750a2910acc2c1945f0e20983095b909a51d418afca6a019ef26e29e2"></a>
+<a id="canonical-0211002301003313-1100220221010022-3030023001211011-3300320200212003-0021112321002122-1101311001202233-3022122200012132-3302123202213202"></a>
 
-## Next pages — splunk_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info / bf883249a6ce / 7
+## Next pages — blindfold_secret_info / 102122123032 / 7
 
-- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-923574a2cafed5e2b53804912333a8e082ddab881cee98eb9adb8e3ef0f3009e"></a>
+<a id="canonical-2102031113102202-3022333231113202-2311032000102101-0203030322203200-2002313122232020-0130323221203223-2122312320320332-3300330300002132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9b03ba2505769fb6f7e9264fca6f0fde41b81c3270c6e70e8e139b995c0fd532"></a>
+<a id="canonical-2123000323220211-0011131221332312-3313322102121033-3022123300333132-1001232001300302-1300301232130032-2032010321232121-1130003331110302"></a>
 
-## splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info — splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 2bf192df6fd6 / 2
+## splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info — clear_secret_info / 313312333112 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-25f65665e9943db6c394c8d9199f325038545883904ce45bf77710da2b545d5d)
-- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [splunk_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-004.md#canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131)
+- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032)
 - splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info
 
-<a id="canonical-acfb92f4416909150b63b228ee2ea8951080118297595129945851956c5866ff"></a>
+<a id="canonical-2230332321023310-1001122100210111-0023120323020220-3232023222202111-0100200001012002-2113112111010221-2110112011012111-1230112012123333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4689,26 +5221,26 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-308ac3e00158659a904f442206e8cc37b6098eb3a338e11862e9be415754cb50"></a>
+<a id="canonical-0300202230033200-0001112012112122-2100103310100202-0012322030300313-2312002120322303-2203032032010120-1202322123321001-1113111030231100"></a>
 
-## Direct properties — splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 2bf192df6fd6 / 3
+## Direct properties — clear_secret_info / 313312333112 / 3
 
-<a id="canonical-49d6705015364669ca2f9e36921feaacd455d70fb5eecdfa20aa2ba2acb68790"></a>
+<a id="canonical-1021311213001100-0111031210121221-3022023321320312-2102013332222230-3110111131130033-2311323230313322-0200222202232202-2230231220132100"></a>
 
-<a id="canonical-186c26133f1c0e4ecf2687aee0cbd4b3b8c3a79a40708e1bc69aebf3ee659b72"></a>
+<a id="canonical-0120123002120103-0333013000321032-3033021220132232-3200302331102303-2320300322132122-1000130020320123-3012212232233303-3232121121231302"></a>
 
-## provider_ref property — splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 2bf192df6fd6 / 4
+## provider_ref property — clear_secret_info / 313312333112 / 4
 
 Type: `"string"`. Optional.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-a43b8dcb5726e90f3df1fa5cb97017114d5dbb6421e65ef4cfe9d7389da2d8e9"></a>
+<a id="canonical-2210032320313023-1113021232210033-0331330133221130-2321130001130101-1031113123231210-0201321211323310-3033322131130320-2131220231203221"></a>
 
-<a id="canonical-da1c267824cf9056b1194bbc988a1249a9396dda90a7945c3e1967d41eab49d1"></a>
+<a id="canonical-3122013002121320-0210303321001112-2301012110232330-2120202201021021-2221032112313122-2100221321101130-0332012112133110-0132222310213101"></a>
 
-## url property — splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 2bf192df6fd6 / 5
+## URL property — clear_secret_info / 313312333112 / 5
 
 Type: `"string"`. Optional, Sensitive.
 
@@ -4776,32 +5308,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-983b48b63b540a2d3b044ad494b99d24bc1f574617ea0e259f006914b3307340"></a>
+<a id="canonical-2120032310202312-0323111000220231-0323001010223110-2110232121310210-2330013311131012-0113322200320211-2133000012210110-2303030013031000"></a>
 
-## Next pages — splunk_receiver.use_tls.mtls_enable.key_url.clear_secret_info / 2bf192df6fd6 / 6
+## Next pages — clear_secret_info / 313312333112 / 6
 
-- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-6d4e349f5aa73509dd93a564c07514ea29534698797f643440ee1a47b07b940e)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-c1472a8850948a825f58954e9ed3fd126f57a851b7f23beb60fe2afe3d059040"></a>
+<a id="canonical-3001101302222020-1100211020222002-1133112021111032-2132310333310102-1233111322201101-2313330203233223-1200333202223332-0331001121001000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8d91fe4b1c87d2fcf242a6831006d2592ff2f32420ac6dc38bd91d51a0f94830"></a>
+<a id="canonical-2031210133321023-0130201331023330-3302100222122003-0100001231021121-0233330233030210-0200223012313003-2023312101311101-2200332110200300"></a>
 
-## splunk_receiver.use_tls.no_ca — splunk_receiver.use_tls.no_ca / 1a8053c63936 / 2
+## splunk_receiver.use_tls.no_ca — no_ca / 301203210312 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-7d67c978d6feb3f69e05312941f8bb07957fbcfa0f320a8bdc357182fe47d0dc)
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [splunk_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
 - splunk_receiver.use_tls.no_ca
 
-<a id="canonical-062a1d9f5f92804e70b7e4e4f9d33394c0ab1bf800344b81db7abe19426b7e89"></a>
+<a id="canonical-0012022201312133-1133210220001032-1300231332103210-3321310303032110-3000222301233320-0000031010232001-3123132223320121-1002122313322021"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4830,36 +5362,36 @@ Terraform syntax:
 no_ca = {}
 ```
 
-<a id="canonical-de3c815f90f418cef33b62b46f8fa490c5e2e258d090f068bd366e2dca00d456"></a>
+<a id="canonical-3132033020011133-2100331001203032-3303032312022310-1233203322102100-3011320232021120-3100210033001220-2331031212320231-3022000031101112"></a>
 
-## Direct properties — splunk_receiver.use_tls.no_ca / 1a8053c63936 / 3
+## Direct properties — no_ca / 301203210312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6695505ea705ef1550457d3c3a499e6d4c0f07c7c43d53c3b4116a9356a2e426"></a>
+<a id="canonical-1212211111001132-2213001132330111-1100101113310330-0322102121321231-1030003300133013-3010033111033003-2310010112222103-1112220232100212"></a>
 
-## Next pages — splunk_receiver.use_tls.no_ca / 1a8053c63936 / 4
+## Next pages — no_ca / 301203210312 / 4
 
-- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-4ed5cae570490891206e70d84992200c025f681a40a3b59b103a93b455bead16)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [splunk_receiver.use_tls](resources--global_log_receiver--reference--group-004.md#canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-df52257dd419eb2d77d607a0f7da206f3cfaeade103803f055d0759b33652f1c"></a>
+<a id="canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b32ed5554d22997ad142ab11d481d945c0aa47d0ff4684be1f56fd87cd3df4f0"></a>
+<a id="canonical-2303023231111111-1031020221211322-3101100222230101-3110200131211011-3000222210133100-3333101220102332-0133111233312013-3031033133103300"></a>
 
-## sumo_logic_receiver — sumo_logic_receiver / 1fea4831721c / 2
+## sumo_logic_receiver — sumo_logic_receiver / 030113020130 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - sumo_logic_receiver
 
-<a id="canonical-57a21bb6254769a1d2dbfcd710557e3a02117ebe180a98dab044b7e56a1cd57a"></a>
+<a id="canonical-1113220201232312-0211101312212201-3102312333303113-0100111113320322-0002010113322332-0120002221203122-2300101023133211-1222013031111322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4890,38 +5422,38 @@ sumo_logic_receiver {
 }
 ```
 
-<a id="canonical-a84e3dd286a495f5e87297b4574ea1ac891ff9530b55f65490431301e2157b1f"></a>
+<a id="canonical-2220103203313102-2012221021113311-3220130221132310-1113103222012230-2021013333211103-0023111133121110-2100100301030001-3202011113230133"></a>
 
-## Direct properties — sumo_logic_receiver / 1fea4831721c / 3
+## Direct properties — sumo_logic_receiver / 030113020130 / 3
 
-- [url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c): complete subsection reference.
+- [url](resources--global_log_receiver--reference--group-004.md#canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030): complete subsection reference.
 
-<a id="canonical-de7db98d5da1ca8c25a1298ee16e7c00f3f740e966732f2d69af90006ef4ee1e"></a>
+<a id="canonical-3132133123212031-1131220130222030-0211220102212032-3201123213300000-3303331310003221-1212130302330231-1221223321000000-1232331032320132"></a>
 
-## Next pages — sumo_logic_receiver / 1fea4831721c / 4
+## Next pages — sumo_logic_receiver / 030113020130 / 4
 
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c"></a>
+<a id="canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1f3a7d61c3778a38137096bf670065c21bc183bb092a3b6ee37e7edcef89e12"></a>
+<a id="canonical-3201330322133112-0130031313202203-2001031300211223-3312130000121130-0201233001200323-2300210222032312-3232031332133231-3032332021320102"></a>
 
-## sumo_logic_receiver.url — sumo_logic_receiver.url / a6b6625a45b7 / 2
+## sumo_logic_receiver.URL — URL / 112210112313 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-df52257dd419eb2d77d607a0f7da206f3cfaeade103803f055d0759b33652f1c)
-- sumo_logic_receiver.url
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
+- sumo_logic_receiver.URL
 
-<a id="canonical-3d9899cec85e0af859bb3625d82e7bf53153d782e183faf1256b300988afcea7"></a>
+<a id="canonical-0331212021213032-3020113200223320-1121232303120211-3120023213233311-0301110331132002-3201200333223301-0211122303000021-2020223330322213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4956,42 +5488,42 @@ url {
 }
 ```
 
-<a id="canonical-1cec53b4e95d5775db6480ad071c95f3cd61a5e99026f03d65c56d150bb6fa4e"></a>
+<a id="canonical-0130323011032310-3221113111131311-3123121020002231-0013013021113303-3031120122113221-2100021233000331-1211301112310111-0023231233221032"></a>
 
-## Direct properties — sumo_logic_receiver.url / a6b6625a45b7 / 3
+## Direct properties — URL / 112210112313 / 3
 
-- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-6ac10c60ac5f15cd23dcbe5298983f7e27d26e8c6551af25939eccd40aaf5a9a): complete subsection reference.
+- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122): complete subsection reference.
 
-- [clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-d93ba7196cb5b0d5f5e9efa9e4d32324a714319035f541dc9c4e496d618fa4c0): complete subsection reference.
+- [clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3121032322130121-1230231123003111-3311322132332221-3210310302030210-2213011003012100-0311331110013130-2130103210211231-1201203322103000): complete subsection reference.
 
-<a id="canonical-7ef4dc61bc176c436e8f89d3b510408b5fab0e3bea8a0c82f5dba59b99f29b93"></a>
+<a id="canonical-1332331031301201-2330011312301003-1232203320213103-2311010010002023-1133222300320323-3222202200302002-3311312322112123-2121330221232103"></a>
 
-## Next pages — sumo_logic_receiver.url / a6b6625a45b7 / 4
+## Next pages — URL / 112210112313 / 4
 
-- [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-6ac10c60ac5f15cd23dcbe5298983f7e27d26e8c6551af25939eccd40aaf5a9a)
-- [sumo_logic_receiver.url.clear_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-d93ba7196cb5b0d5f5e9efa9e4d32324a714319035f541dc9c4e496d618fa4c0)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-df52257dd419eb2d77d607a0f7da206f3cfaeade103803f055d0759b33652f1c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+- [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122)
+- [sumo_logic_receiver.url.clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3121032322130121-1230231123003111-3311322132332221-3210310302030210-2213011003012100-0311331110013130-2130103210211231-1201203322103000)
+- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
-<a id="canonical-6ac10c60ac5f15cd23dcbe5298983f7e27d26e8c6551af25939eccd40aaf5a9a"></a>
+<a id="canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1acda9c34b8e8b3f8d797da7d073397ddd9c8f8fea2c369de5e60b431c0b54e9"></a>
+<a id="canonical-0122303122213003-1023203220230333-2031132113312213-3100130303211331-3131213020332033-3222023003122131-3211321200231003-0130002311103221"></a>
 
-## sumo_logic_receiver.url.blindfold_secret_info — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 2
+## sumo_logic_receiver.URL.blindfold_secret_info — blindfold_secret_info / 222020333133 / 2
 
 Breadcrumbs:
 
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-df52257dd419eb2d77d607a0f7da206f3cfaeade103803f055d0759b33652f1c)
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c)
-- sumo_logic_receiver.url.blindfold_secret_info
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
+- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030)
+- sumo_logic_receiver.URL.blindfold_secret_info
 
-<a id="canonical-c48f5a01429254024d35757e6a64c9dd8c35eeb091c3623781dcf071fa758168"></a>
+<a id="canonical-3010203311220001-1002210211100002-1031031113111332-1222121030213131-2030031132322300-2101300312020313-2001313033001301-3322131120011220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5024,15 +5556,15 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-340bc4047a6eab41bccb168b5e16e647dc574afde2d1986aa982b7d9ab1b8f77"></a>
+<a id="canonical-0310002330100010-1322123222231001-2330302301122023-1132011232121013-3130111310223331-3202310121201222-2221200223133121-2223012320331313"></a>
 
-## Direct properties — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 3
+## Direct properties — blindfold_secret_info / 222020333133 / 3
 
-<a id="canonical-557011d8be9f502df7b4d48f474f279cca7df60c80b4fb5ca93a6d6cae72cbaf"></a>
+<a id="canonical-1111130001013120-2332213311000231-3313231031102033-1013103302132130-3022133133120030-2000231033231130-2221032212311230-2232130230232233"></a>
 
-<a id="canonical-c659aef2e31003dfab3c04c411c79a281a7420a84967e737cf3029fdd430beaa"></a>
+<a id="canonical-3012112122323302-3203010000033133-2223033000103010-0101301321220220-0122131002002220-1021121332130313-3033030002213331-3110030023322222"></a>
 
-## decryption_provider property — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 4
+## decryption_provider property — blindfold_secret_info / 222020333133 / 4
 
 Type: `"string"`. Optional.
 
@@ -5062,343 +5594,4 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ccb715f32ca0dbec020f267e9aff477d70409c84d0fc5f08ff59c6ac5920ba0a"></a>
-
-<a id="canonical-ca3f7ed524c49227688a80dacc08661dadacf7bfbafd490e05dc429789c7e834"></a>
-
-## location property — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 5
-
-Type: `"string"`. Optional, Sensitive.
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-ea1fce7fa6816ad3d92b7c3594ad703c2aba2ce9c1dcb5833c35f073cd82e6b9"></a>
-
-<a id="canonical-96661da2de8251cf8167a9e58a961394dc14d760f155f9387f876329c2b77d8e"></a>
-
-## store_provider property — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 6
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6f31581fbecdbf015195c72beb5c33147564c545e0aff886190a1ccc3dacbaa4"></a>
-
-## Next pages — sumo_logic_receiver.url.blindfold_secret_info / 3438b9a88fdf / 7
-
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-
-<a id="canonical-d93ba7196cb5b0d5f5e9efa9e4d32324a714319035f541dc9c4e496d618fa4c0"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b5b2f8ca984b4345a03f57b2bfc103455b8243e0ba6855b2d2aa05995e381082"></a>
-
-## sumo_logic_receiver.url.clear_secret_info — sumo_logic_receiver.url.clear_secret_info / 5f706c2e10b6 / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-df52257dd419eb2d77d607a0f7da206f3cfaeade103803f055d0759b33652f1c)
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c)
-- sumo_logic_receiver.url.clear_secret_info
-
-<a id="canonical-ec7cd7a0c7ef02691629cb04e2b7daef48b87e2872490280c88a052518674ddc"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-clear_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3a164850cd4f8fb70da8c9d07def9312ca4924118e7d3c8f0d892d76aa954db5"></a>
-
-## Direct properties — sumo_logic_receiver.url.clear_secret_info / 5f706c2e10b6 / 3
-
-<a id="canonical-b5a17ee2fef8f3307cb491173855f504161c0d00c4a1d77b40dc8d216087a005"></a>
-
-<a id="canonical-6995736202d5cc61dfb2ac2543e72c19fa620f1035b5a7e79e29be839c5ba3f3"></a>
-
-## provider_ref property — sumo_logic_receiver.url.clear_secret_info / 5f706c2e10b6 / 4
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-<a id="canonical-b96b908c64bb4aaf146d471472120c4d61710248301713c680fadf35db8f6e42"></a>
-
-<a id="canonical-6f82f3c98ce19f48ddb6497d5a51a26cf21ba2c309cb6e69f6990a2dd4b6d4cf"></a>
-
-## url property — sumo_logic_receiver.url.clear_secret_info / 5f706c2e10b6 / 5
-
-Type: `"string"`. Optional, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
-
-Upstream description:
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 131072,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 131072
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
-    "maxLength": 131072,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
-    "validation": {
-      "rfc": "RFC 3986"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-48575248f864d80c8d71eee896675f4436cdbc79c981b5273e49973bafc3a75f"></a>
-
-## Next pages — sumo_logic_receiver.url.clear_secret_info / 5f706c2e10b6 / 6
-
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-65b9f150f5a1b681ad37ea4cb5fdd86cccd4749c7819e4ca2683b66167b8358c)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-
-<a id="canonical-b033c7a246a27eb370c6377276894c7f70ffadc4a31122de2469c3da4f67269e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-cca04dbad1606cecf605181183297f683766b741d7e16f792164d67f57e3bd12"></a>
-
-## timeouts — timeouts / 4bbc0e5e0f29 / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- timeouts
-
-<a id="canonical-bb47a848a11d9b79d4850a974bbd6f26976cee7d8d0507ef2e5d09056637be46"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Terraform syntax:
-
-```terraform
-timeouts {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-dfe81079ef704c4f274225093ebc7b6e7515db1f6ae4175960c6023c25e2de95"></a>
-
-## Direct properties — timeouts / 4bbc0e5e0f29 / 3
-
-<a id="canonical-9c40a0322f216b50634cd8e029b9fad8448a4723710a512c1fad4ce33cbf3ec7"></a>
-
-<a id="canonical-77334e0c5979e4f5aaf97c2cb23026533133a050a0471bee65c66b5cc9267ade"></a>
-
-## create property — timeouts / 4bbc0e5e0f29 / 4
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-d9677401247c9b3f864faffd7516b38bf55d775ca3dbd30def1ffa5d93566cc2"></a>
-
-<a id="canonical-cc718e54b4d6e96bd6bc671fcf7b7fe56d3250da000258312214d3378a3086fb"></a>
-
-## delete property — timeouts / 4bbc0e5e0f29 / 5
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
-saved into state before the destroy operation occurs.
-
-<a id="canonical-6929bfd1c3d65bd24f8f4c65d5437286ad423f708f691ee865d82defc1aad248"></a>
-
-<a id="canonical-4f9ad4db01e592d2b4f2ccdac8d4319081c9e052a537f7a09b10567d9f0bb6a9"></a>
-
-## read property — timeouts / 4bbc0e5e0f29 / 6
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
-is enabled.
-
-<a id="canonical-37163117f6099b0724406c3ed50e8319cf499ab579d8eb84c292423f92762ad2"></a>
-
-<a id="canonical-64353acf42e8bc300cee57c62d6dcfad2ca6a5c0a98154ad6a269e683c0a73af"></a>
-
-## update property — timeouts / 4bbc0e5e0f29 / 7
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-de8b3bf1be6c7f72183897d70161488792ef3567e1ea1a1f0b9c12c36d8a0dfc"></a>
-
-## Next pages — timeouts / 4bbc0e5e0f29 / 8
-
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5)
+<a id="canonical-3030231301113303-0230220031233230-0002003302121332-2122333310131331-1300100021302010-3100333011330020-3333112130122230-1121020023220022"></a>

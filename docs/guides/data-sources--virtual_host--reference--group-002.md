@@ -6,30 +6,208 @@ description: "Complete grouped canonical reference for xcsh_virtual_host referen
 
 # xcsh_virtual_host reference
 
-<a id="canonical-b44a5f0e013d4eb6d4920f0f584203f6ac0f4c183e3290e0cb0290edd0ea436b"></a>
+<a id="canonical-2322323222020011-0201203223111000-0013011001112001-2013202130102112-0020122321110000-0322230202101022-3323031132113121-1332231330120032"></a>
 
-## Next pages — captcha_challenge / 4bbc8cbfcf5d / 6
+## Next pages — buffer_policy / 300213133121 / 6
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705"></a>
+<a id="canonical-3030320121132033-0113101012333213-2333033121300031-3102221202303210-3222022210330032-0103332033311333-0233333333103003-0313010030101011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7271caa7f1b7bb7c445b90437bded4399c011685b1462a0bad37a5770d5ab076"></a>
+<a id="canonical-3200123123002102-0101133303213301-0210302020213322-3100011331220220-1001010300323312-2321011010211132-0120121233332111-3323310312132022"></a>
 
-## coalescing_options — coalescing_options / f9ab8a71023b / 2
+## captcha_challenge — captcha_challenge / 233330331131 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- captcha_challenge
+
+<a id="canonical-0323333321111013-0223212113102021-0320213033023313-3002301101200322-2122100233212230-0130313033323212-2101021122013300-0032223213002013"></a>
+
+Type: `"single"`. Computed.
+
+\[OneOf: captcha\_challenge, js\_challenge, no\_challenge; Default: no\_challenge\] Enables
+loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With
+this feature enabled, only clients that pass the captcha challenge will be allowed to complete the
+HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect..
+
+Upstream description:
+
+Enables loadbalancer to perform captcha challenge
+
+Captcha challenge will be based on Google Recaptcha.
+
+With this feature enabled, only clients that pass the captcha challenge will be allowed to complete
+the HTTP request.
+
+When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML
+page on every new HTTP request. This HTML page will have captcha challenge embedded in it. Client
+will be allowed to make the request only if the captcha challenge is successful. Loadbalancer will
+tag response header with a cookie to avoid Captcha challenge for subsequent requests.
+
+CAPTCHA is mainly used as a security check to ensure only human users can pass through. Generally,
+computers or bots are not capable of solving a captcha.
+
+You can enable either Javascript challenge or Captcha challenge on a virtual host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [captcha_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0323333321111013-0223212113102021-0320213033023313-3002301101200322-2122100233212230-0130313033323212-2101021122013300-0032223213002013)
+- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-1233322231003110-0102032003010110-2120003213121113-1012123200113212-2002113320322202-0133131333003033-3333000122301333-0101331330331000)
+- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0333002331231113-1021121120232222-1021202203033121-0100301010000210-0311202222011232-1313320122120233-3202220223102123-3332002100110330)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-3333010131331312-3103203131312233-3102300333110122-2113013220203212-0223203223310110-1101231311331233-0230231132321332-2302133200311110"></a>
+
+## Direct properties — captcha_challenge / 233330331131 / 3
+
+<a id="canonical-2313032031202002-2323131312322312-2012100013033132-0213022300212313-1011321123333012-0020300030213123-3101311313011100-2031113312310121"></a>
+
+<a id="canonical-1013210301200212-1223223132100112-1123030020220330-2331321201330202-2333032300132130-1212223103000010-3322230301332123-1013123132133110"></a>
+
+## cookie_expiry property — captcha_challenge / 233330331131 / 4
+
+Type: `"number"`. Computed.
+
+Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
+challenge.
+
+Upstream description:
+
+Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
+challenge.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 86400,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "86400"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "86400"
+  }
+}
+```
+
+<a id="canonical-1023303000202202-2310101312302113-1011223101331311-3010012200021300-3013231231232321-0113313113231313-0012331330211003-2203131202210321"></a>
+
+<a id="canonical-3303230231232321-2132232220020201-3201233201113323-0111320202000200-0020023023332132-0220312031220201-2022313202230211-2133121013111120"></a>
+
+## custom_page property — captcha_challenge / 233330331131 / 5
+
+Type: `"string"`. Computed.
+
+Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in Base64 format.
+
+Upstream description:
+
+Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+"PHA+IFBsZWFzZSBXYWl0IDwvcD4="
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 65536,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 65536,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-2310102211330032-0001033110322312-3110210200330033-1120100200033312-2230003310300120-0332030221003200-3023000221003231-3100322210031223"></a>
+
+## Next pages — captcha_challenge / 233330331131 / 6
+
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+
+<a id="canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1302130130222213-3301231323231330-1010112321001003-1323313231100321-2130000101122011-2301101202220023-2231031322111313-0031112223001312"></a>
+
+## coalescing_options — coalescing_options / 130100020323 / 2
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - coalescing_options
 
-<a id="canonical-c32e9c2c91a02111b18820cf076c03b93d03a47dbb3f60320151bbfd9fa07fe1"></a>
+<a id="canonical-3003023221300230-2101220002010101-2301202002003033-0013123000032321-0331000322101331-2323033312000302-0001110123233331-2133220013333201"></a>
 
 Type: `"single"`. Computed.
 
@@ -53,41 +231,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6ff7280f4d67a69ed5160c120b15f247c5890bfaee74ebc573d36561a1106519"></a>
+<a id="canonical-1233331302200033-1031121322122132-3111011200300102-0023011133021013-3011202100233322-3232131032233011-1303310312111201-2201010012110121"></a>
 
-## Direct properties — coalescing_options / f9ab8a71023b / 3
+## Direct properties — coalescing_options / 130100020323 / 3
 
-- [default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-048fc51421dbbf93ae1fea03e94c403679fa7f70d4eeb3dc728211718f6b8388): complete subsection reference.
+- [default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-0010203330110110-0201312323332103-2232013332220003-3221103010000312-1321332213331300-3110323223033130-1302200201011301-2033122320032020): complete subsection reference.
 
-- [strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-4fac4a25c0252217c336ab079e0700b60c76bf41255efd64454963a23bc5a17b): complete subsection reference.
+- [strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-1033223010220211-3000021102020113-3003031222230013-2132001300002312-0030131223331001-0211113233311210-1011102112032202-0323301122011323): complete subsection reference.
 
-<a id="canonical-bc82de1a04963dd60cdd46674f9221bcf5d00bf6d1e9cd6d73eb9343cb3e8339"></a>
+<a id="canonical-2330200231320122-0010211203313112-0030313110121213-1033210202012330-3311310000233312-3101322130311231-1303322321031003-3023033220030321"></a>
 
-## Next pages — coalescing_options / f9ab8a71023b / 4
+## Next pages — coalescing_options / 130100020323 / 4
 
-- [coalescing_options.default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-048fc51421dbbf93ae1fea03e94c403679fa7f70d4eeb3dc728211718f6b8388)
-- [coalescing_options.strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-4fac4a25c0252217c336ab079e0700b60c76bf41255efd64454963a23bc5a17b)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [coalescing_options.default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-0010203330110110-0201312323332103-2232013332220003-3221103010000312-1321332213331300-3110323223033130-1302200201011301-2033122320032020)
+- [coalescing_options.strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-1033223010220211-3000021102020113-3003031222230013-2132001300002312-0030131223331001-0211113233311210-1011102112032202-0323301122011323)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-048fc51421dbbf93ae1fea03e94c403679fa7f70d4eeb3dc728211718f6b8388"></a>
+<a id="canonical-0010203330110110-0201312323332103-2232013332220003-3221103010000312-1321332213331300-3110323223033130-1302200201011301-2033122320032020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8f89a8c54b8bf483566f56d2219681243e746b7b5620a3fb7ebcdd382267737"></a>
+<a id="canonical-3320332021222030-1110232023331020-0311121233111231-0202012112200102-1003321310122313-2311120200220333-2313322330313103-2002021213130313"></a>
 
-## coalescing_options.default_coalescing — coalescing_options.default_coalescing / e631ed4bd9dc / 2
+## coalescing_options.default_coalescing — default_coalescing / 102331213130 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011)
 - coalescing_options.default_coalescing
 
-<a id="canonical-3e141c92a8b3542f5a934497060e5c156eaade44f25b9aa40b5917412391d941"></a>
+<a id="canonical-0332011001302102-2220230311100233-1122210310102113-0012003211300111-1232222231321010-3302112321222210-0023112101131001-0203210131211001"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -110,37 +288,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a70204448a9322abb210f1a8934f2d98269150e3b8a8a5f5134d319cd6e2df88"></a>
+<a id="canonical-2213000200101010-2022210302022223-2302010033012220-2103103302312120-0212210111003203-2320222022113311-0103103103012130-3112320231332020"></a>
 
-## Direct properties — coalescing_options.default_coalescing / e631ed4bd9dc / 3
+## Direct properties — default_coalescing / 102331213130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5d97046407a2921d9a06af7c658d826094c70a5d05232a9594de9d98b956ce53"></a>
+<a id="canonical-1131211300101210-0013220221020131-2122001222331330-1211203120021200-2110301300221131-0011020302222111-2110313221312120-2321111230321103"></a>
 
-## Next pages — coalescing_options.default_coalescing / e631ed4bd9dc / 4
+## Next pages — default_coalescing / 102331213130 / 4
 
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4fac4a25c0252217c336ab079e0700b60c76bf41255efd64454963a23bc5a17b"></a>
+<a id="canonical-1033223010220211-3000021102020113-3003031222230013-2132001300002312-0030131223331001-0211113233311210-1011102112032202-0323301122011323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b8c99654e505addd010fd311644c5e08cf46f2a8688eccabc5243ee4c4833e5"></a>
+<a id="canonical-2023203021211211-1032110011223131-3100010033310301-0112101030113200-2030331012330222-2012202032303022-2330110210033232-1030102003033211"></a>
 
-## coalescing_options.strict_coalescing — coalescing_options.strict_coalescing / e56d9669c508 / 2
+## coalescing_options.strict_coalescing — strict_coalescing / 122130110020 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011)
 - coalescing_options.strict_coalescing
 
-<a id="canonical-f93a8970153609fab7ae74d14e444c62c2a215e08b02f13b3247f25e29f30bee"></a>
+<a id="canonical-3321032220211300-0111031200213322-2313223213103101-1032101010301202-3002220201113200-2023000233010323-0302101333021132-0221330300233232"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -163,36 +341,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1dd42c1c4515aaf2e1893054d41146abac9fea55d1ac45a84cac51c63e6d49d"></a>
+<a id="canonical-3301313110023001-3010110111222233-0232012021030011-1031100101101222-2322302133322211-1131012230101122-2010302230110130-1203321231102131"></a>
 
-## Direct properties — coalescing_options.strict_coalescing / e56d9669c508 / 3
+## Direct properties — strict_coalescing / 122130110020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e6f87c1a92fd25569d7264993b95eb51bdaff47f638c81d85010e3754296e76d"></a>
+<a id="canonical-3212332013300122-2102333102111112-2131130212102121-0323211132231101-2331223333101333-1203203020013120-1100010032031311-1002211232131231"></a>
 
-## Next pages — coalescing_options.strict_coalescing / e56d9669c508 / 4
+## Next pages — strict_coalescing / 122130110020 / 4
 
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-175e663c8201caf980e21bdc50984a06a8b563d7d07c88dfceb91ced493567cd"></a>
+<a id="canonical-0113113212120330-2002000130223321-2000320201233130-1100212010220012-2220231112033113-3100133020203133-3032232101303231-1021031112133031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ac5dc2024732ca4eec08c850e6147b99d26c9592552365ee3e15770af2de30a1"></a>
+<a id="canonical-2230113130020002-1013030230221032-3230002030201100-3212011013232121-3102123021112102-1111020312113232-0332011113130022-3302313203002201"></a>
 
-## compression_params — compression_params / 75c87527cf84 / 2
+## compression_params — compression_params / 021330332010 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - compression_params
 
-<a id="canonical-371420dea8f387a112f8045b268676bd8537814a14e5c594eab27903140dce19"></a>
+<a id="canonical-0313011002003132-2220330320132201-0102332000101123-0212201213122331-2011031320011022-0110321130112110-3222230213210003-0110003130320121"></a>
 
 Type: `"single"`. Computed.
 
@@ -216,7 +394,7 @@ accept-encoding is “gzip;q=0,\*;q=1”, the filter will not compress. But if t
 “identity”. A response contains a content-encoding header. A response contains a cache-control
 header whose value includes “no-transform”. A response contains a transfer-encoding header whose
 value includes “gzip”. A response does not contain a content-type value that matches one of the
-selected mime-types, which default to application/javascript, application/JSON,
+selected mime-types, which default to application/JavaScript, application/JSON,
 application/xhtml+XML, image/svg+XML, text/CSS, text/HTML, text/plain, text/XML. Neither
 content-length nor transfer-encoding headers are present in the response. Response size is smaller
 than 30 bytes (only applicable when transfer-encoding is not chunked).
@@ -244,15 +422,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6219ca084694f36c08e6727e1475ce76c4615e663be9c879faa965bd44de20c7"></a>
+<a id="canonical-1202012130220020-1012211033031230-0020321213021332-0110131130321312-3010120111321212-0323322130201321-3322222112112331-1010313202003013"></a>
 
-## Direct properties — compression_params / 75c87527cf84 / 3
+## Direct properties — compression_params / 021330332010 / 3
 
-<a id="canonical-6290ae6c6709f11f19438b38fd66d40436b1fb2937cbf04c3dfbf2a9ea373223"></a>
+<a id="canonical-1202210022321230-1213002133010133-0121100320230320-3331121231100010-0312230133230221-0313302333001030-0331332333022221-3222031303020203"></a>
 
-<a id="canonical-42bf82c080828128833eff45fac857a64d46728941a62e01133a6e1d2efd20ba"></a>
+<a id="canonical-1002233320023000-2000200220010220-2003033233331011-3322302011132212-1031101213022021-1001221202320001-0103032212320131-0232333102002322"></a>
 
-## content_length property — compression_params / 75c87527cf84 / 4
+## content_length property — compression_params / 021330332010 / 4
 
 Type: `"number"`. Computed.
 
@@ -292,23 +470,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d977c3567a3a070c269757e513b5ef7c90a7d747129ab0b47bb62f1b208a3e11"></a>
+<a id="canonical-3121131330031112-1322032200130030-0212211311133211-0103231132331330-2100221331131013-0102212223002310-1323231202330123-0200202203320101"></a>
 
-<a id="canonical-1eaa17eb0844c23f7afb816f8b2d1461050a83119c3d930b9f3bb77f57a46584"></a>
+<a id="canonical-0132222201133223-0020101030020333-1322332320011233-2023023101101201-0011002220030101-2130033121030023-2133032323131333-1113221012112010"></a>
 
-## content_type property — compression_params / 75c87527cf84 / 5
+## content_type property — compression_params / 021330332010 / 5
 
 Type: `["list", "string"]`. Computed.
 
 Set of strings that allows specifying which mime-types yield compression When this field is not
-defined, compression will be applied to the following mime-types: 'application/javascript'
+defined, compression will be applied to the following mime-types: 'application/JavaScript'
 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
 'text/XML'.
 
 Upstream description:
 
 Set of strings that allows specifying which mime-types yield compression When this field is not
-defined, compression will be applied to the following mime-types: "application/javascript"
+defined, compression will be applied to the following mime-types: "application/JavaScript"
 "application/JSON", "application/xhtml+XML" "image/svg+XML" "text/CSS" "text/HTML" "text/plain"
 "text/XML"
 
@@ -350,11 +528,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d823396df1bc90ad06f0272c574aae4e320929beba249e756b5e16967f61f94"></a>
+<a id="canonical-2031200203032112-3133012330210022-3100123300021302-3011131022223210-3203020021022123-3223220210213213-1112231132011221-1213331201332110"></a>
 
-<a id="canonical-ca7f0541871ef34f12448b57ee314911c607e05f4f0ee887babe9ce68572d2cb"></a>
+<a id="canonical-3022133300111001-2013013233031033-0102101020231113-3232030110210101-3012001332001133-1033003232202013-2322233221303212-2011130231023023"></a>
 
-## disable_on_etag_header property — compression_params / 75c87527cf84 / 6
+## disable_on_etag_header property — compression_params / 021330332010 / 6
 
 Type: `"bool"`. Computed.
 
@@ -379,11 +557,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7842ee8f6db8a9c5d3337853b35502a1bf9fa5a401bebfe132db88bad7801677"></a>
+<a id="canonical-1320100232322033-1231232022213011-3103030313201103-2303111100022201-2333213322112210-0001233223333201-0302312320202322-3113200001121313"></a>
 
-<a id="canonical-de58ece1491c0e0e7d795a4d91386556eee3e2574d1048dbaeee75a4368fbfa6"></a>
+<a id="canonical-3132112032303201-1021013000320032-1331132111221031-2101032012111112-3232320332021113-1031010010203123-2232323213112210-0312203323332212"></a>
 
-## remove_accept_encoding_header property — compression_params / 75c87527cf84 / 7
+## remove_accept_encoding_header property — compression_params / 021330332010 / 7
 
 Type: `"bool"`. Computed.
 
@@ -408,30 +586,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f8e26652b8eb68fd2c8ac3e0083d1f232f2a9c2221ce58d58d58b525aaf6184"></a>
+<a id="canonical-1033203202121211-0223203223122033-3102302022300332-0000200331013302-0302330222213002-0202013032112031-1120311120231102-1122223312012010"></a>
 
-## Next pages — compression_params / 75c87527cf84 / 8
+## Next pages — compression_params / 021330332010 / 8
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-a4ecd779378b174be7fa310c13ecda6cf2402208e2a96236ae26a14b61393c5b"></a>
+<a id="canonical-2210323031131321-0313202301131023-3213332203010030-0103323031221230-3302100002020020-3202222112020312-2232021222011023-1201032103301123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-45fc1da0b414b8eaa674f4697da0d87b0168a04b168c725beb6bdaf598fc1970"></a>
+<a id="canonical-1011333001312200-2310011023203222-2212131033101221-1331220031201323-0001122022001023-0112203013021123-3223122331223311-2120333001211300"></a>
 
-## cors_policy — cors_policy / 8ed924f6fcd0 / 2
+## cors_policy — cors_policy / 331233303100 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - cors_policy
 
-<a id="canonical-8029f76942051a56649d4af7cfb097baa2d2b95163103c177bf9ac7bdcabc600"></a>
+<a id="canonical-2000022133131221-1002001101221112-1210213110223313-3033230021132322-2202310223211101-1203010003300113-1323332122301323-3130222330120000"></a>
 
 Type: `"single"`. Computed.
 
@@ -484,15 +662,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ed8207c04197b0a33b26ad27d2da230d8ee30c3f61518ca213c46fca4dad25e"></a>
+<a id="canonical-2032312002001330-0010012113230022-0303230212223102-1331023122020300-3120323203003003-3312011101203022-0201033010123330-2210312231021132"></a>
 
-## Direct properties — cors_policy / 8ed924f6fcd0 / 3
+## Direct properties — cors_policy / 331233303100 / 3
 
-<a id="canonical-84829179233191f2cb737ea0aeb5f0c87ec1be9a5f6f913b93011f1f735f7e8e"></a>
+<a id="canonical-2010200221011321-0203030121013302-3023130313322200-2232231133003020-1332300123322122-1133123321010323-2103000101330133-1303113313322032"></a>
 
-<a id="canonical-3c64955738884d1861532ca2e623b0fed0aab733550b64b11276db5f2ca50afe"></a>
+<a id="canonical-0330121021111113-0320202010310120-1201110302302202-3212020323003332-3100222223130303-1111002312102301-0102131231231133-0230221100223332"></a>
 
-## allow_credentials property — cors_policy / 8ed924f6fcd0 / 4
+## allow_credentials property — cors_policy / 331233303100 / 4
 
 Type: `"bool"`. Computed.
 
@@ -511,11 +689,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ff53a860e055ee96273bae6bb4c34cc5cb8d29f141e34129ca0aea3ecca00dd4"></a>
+<a id="canonical-3333110322201200-3200111132322112-0213032322321223-2310300310303011-3023203102213301-1001320310010221-3022002232220332-3030220000313110"></a>
 
-<a id="canonical-a12a8ddf04999a42b564d0e226029d0b6d6201213ac2e5afa92ac4c77a0215b0"></a>
+<a id="canonical-2201022220313133-0010212121221002-2311121031003202-0212000221310023-1231120200010201-0322300232112233-2221022230103013-1322000201112300"></a>
 
-## allow_headers property — cors_policy / 8ed924f6fcd0 / 5
+## allow_headers property — cors_policy / 331233303100 / 5
 
 Type: `"string"`. Computed.
 
@@ -544,11 +722,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c50f9fbf03cc3fe20f50d762d93d29fd19a737f48cb5f7b28ead3ecc4552c43b"></a>
+<a id="canonical-3011003321332333-0003303003333202-0033110031131202-3121033102213331-0121221303133310-2030231133132302-2032223103323030-1011110230100323"></a>
 
-<a id="canonical-2720a837ef19338260be44ab7a3c109a3707d21e2a9de51631bdce95a2ff9629"></a>
+<a id="canonical-0213020022200313-3233012103032002-1200233210102223-1322033001002122-0313001331020132-0222213132110112-0301233130322111-2202333321120221"></a>
 
-## allow_methods property — cors_policy / 8ed924f6fcd0 / 6
+## allow_methods property — cors_policy / 331233303100 / 6
 
 Type: `"string"`. Computed.
 
@@ -583,11 +761,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4bb5aea485eb7effdff0031033a673dbc0262b899a4e4e49b8011b3a05111834"></a>
+<a id="canonical-1023231122322210-2011322313323333-3133330000030100-0303221213033123-3000021202232021-2122103210321021-2320000101230322-0011010101200310"></a>
 
-<a id="canonical-41690f612be5cb41d8e06d58a96e42fb200b201073ffd1f37da33c00ee0b69fd"></a>
+<a id="canonical-1001122100331201-0223321130231001-3120320012311120-2221123210023323-0200002302000100-1303333331013303-1331220303300000-3232002312213331"></a>
 
-## allow_origin property — cors_policy / 8ed924f6fcd0 / 7
+## allow_origin property — cors_policy / 331233303100 / 7
 
 Type: `["list", "string"]`. Computed.
 
@@ -637,11 +815,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4cb72b296e1985049897043ce56a3d24cabb822e6739537cd7c2c2aa05b0654e"></a>
+<a id="canonical-1030231302230221-1232012120110010-2120211300100330-3211122203310210-3022232320020232-1213032111031330-3113300230022222-0011230012111032"></a>
 
-<a id="canonical-ead107381a5886d608bb32cf70844ac7e9b5c9c154b7730a095309b1ed76477c"></a>
+<a id="canonical-3222310100130320-0122112020123112-0020232303023033-1300201010223013-3221231130213001-1110231313030022-0021110300212301-3231131210131330"></a>
 
-## allow_origin_regex property — cors_policy / 8ed924f6fcd0 / 8
+## allow_origin_regex property — cors_policy / 331233303100 / 8
 
 Type: `["list", "string"]`. Computed.
 
@@ -693,11 +871,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4797bd6b552dfa313b4d5eb82d6f3614f420cfa148a0bab291de8026a8a9415"></a>
+<a id="canonical-3210132113233112-2311110231332203-0103231031113223-2002311233031201-1033100200303322-0110202200232223-0221013132200002-1222202221100111"></a>
 
-<a id="canonical-5d0c9611605e3d9d7374633b005000180f97efa305c4c51d8cb46de7fa09f15b"></a>
+<a id="canonical-1131003021120101-1200113203312131-1303131012030323-0000110000000120-0033211332332203-0011301030110131-2030231012313213-3322002133011123"></a>
 
-## disabled property — cors_policy / 8ed924f6fcd0 / 9
+## disabled property — cors_policy / 331233303100 / 9
 
 Type: `"bool"`. Computed.
 
@@ -722,11 +900,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bc1a8a5df6d1f0a3ec1f313d07c52ed36e25f2754d563fa1e412df3a52975e54"></a>
+<a id="canonical-2330012220221131-3312310133002203-3230013303010331-0013301102323103-1232021133021311-1031111203332201-3210010231330322-1102211311321110"></a>
 
-<a id="canonical-ba1f8cddbbd43e2a5a678c9f936355fe039d3c4bb401bf13ef37a5a3c4dd6e91"></a>
+<a id="canonical-2322013320303131-2323311003320222-1122121320302133-2103120311113332-0003213103301023-2310000123330103-3233031322112203-3010313112322101"></a>
 
-## expose_headers property — cors_policy / 8ed924f6fcd0 / 10
+## expose_headers property — cors_policy / 331233303100 / 10
 
 Type: `"string"`. Computed.
 
@@ -755,11 +933,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fa2a338e7cd18a2e1dfc2979f53a7626d2ef38b97a5e57f48485b1e2f78c9998"></a>
+<a id="canonical-3322022203032032-1330310120220232-0131333002211321-3311032213120212-3102323303202321-1322113211133310-2010201123013202-3313203021212120"></a>
 
-<a id="canonical-09151968e19039d0aa4aa33aaa2d3575cfcc923fa706de9c3aab2a1c90d1e344"></a>
+<a id="canonical-0021011101211220-3201210003213100-2222102222030322-2222023103111311-3033303021020333-2213001231322130-0322222302220130-2100310132031010"></a>
 
-## maximum_age property — cors_policy / 8ed924f6fcd0 / 11
+## maximum_age property — cors_policy / 331233303100 / 11
 
 Type: `"number"`. Computed.
 
@@ -806,30 +984,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c9f3f6c32f900e46176b7642f15b1ee099912e027d8efb400394034c72040f5e"></a>
+<a id="canonical-3021330333123003-0233210000321012-0113122313121002-3301112301323200-2121210102320002-1331203233231000-0003211000031030-1302001000331132"></a>
 
-## Next pages — cors_policy / 8ed924f6fcd0 / 12
+## Next pages — cors_policy / 331233303100 / 12
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6"></a>
+<a id="canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-20c5d706cc295cdcc1af44a9f8a5debeb9fd870fc21bee64350172788dfd0b77"></a>
+<a id="canonical-0200301131130012-3030022111303130-3001223310102221-3320221131322332-2321333120130033-3002012332321210-0311000113021320-2031333100231313"></a>
 
-## csrf_policy — csrf_policy / 895ceb6f9198 / 2
+## csrf_policy — csrf_policy / 123321012120 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - csrf_policy
 
-<a id="canonical-cdadf81518d323a24c95b4a540fcc368734f947f5e5277f695854487b8b7b400"></a>
+<a id="canonical-3031223133200111-0120310302032202-1030211123102211-1000333030031220-1303103321101333-1132110213133312-2111201110102013-2320231323100000"></a>
 
 Type: `"single"`. Computed.
 
@@ -866,44 +1044,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e56498341ab4674d9de68334e8309a3e7017f798cfd8511a6a095a8880449fbc"></a>
+<a id="canonical-3211121021200310-0122231012131031-2131321220030310-3220030021220332-1300011333132120-3033312011010122-1222002111222020-2000101021332330"></a>
 
-## Direct properties — csrf_policy / 895ceb6f9198 / 3
+## Direct properties — csrf_policy / 123321012120 / 3
 
-- [all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-eb74a18bb4fe665817f1bec0ae41acb9a2d0940ae9b8fdffd978d306d6a2f184): complete subsection reference.
+- [all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-3223131022012023-2310333212121120-0113330123323000-2232100122302321-2202310021100022-3221232033313333-3121132031030012-3112220233012010): complete subsection reference.
 
-- [custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-cc6c25ab1e1e8494959d6aba2c79ff0e618d7a7c15dfd5b25954f45826b99ab3): complete subsection reference.
+- [custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-3030123002112223-0132013220102110-2111213112222322-0230132133330032-1201203113221330-0111313331112302-1121111033101120-0212232121222303): complete subsection reference.
 
-- [disabled](data-sources--virtual_host--reference--group-002.md#canonical-808e20cabaae3c21d26c3fba2a36e4d48ff4f3ac0b4f916ec63e3a44c6eb0c58): complete subsection reference.
+- [disabled](data-sources--virtual_host--reference--group-002.md#canonical-2000203202003022-2322223203300201-3102123003332322-0222031232103110-2033331033032230-0023103321011232-3012033203221010-3012322300301120): complete subsection reference.
 
-<a id="canonical-01943169fae44f6eaaafe26ea08f005b0bd7fab0d29953b5ebdc84282cdc7027"></a>
+<a id="canonical-0001211003011221-3322321010331232-2222223332021232-2200203300001123-0023311333222300-3102212111032311-3223313020100220-0230313013000213"></a>
 
-## Next pages — csrf_policy / 895ceb6f9198 / 4
+## Next pages — csrf_policy / 123321012120 / 4
 
-- [csrf_policy.all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-eb74a18bb4fe665817f1bec0ae41acb9a2d0940ae9b8fdffd978d306d6a2f184)
-- [csrf_policy.custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-cc6c25ab1e1e8494959d6aba2c79ff0e618d7a7c15dfd5b25954f45826b99ab3)
-- [csrf_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-808e20cabaae3c21d26c3fba2a36e4d48ff4f3ac0b4f916ec63e3a44c6eb0c58)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [csrf_policy.all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-3223131022012023-2310333212121120-0113330123323000-2232100122302321-2202310021100022-3221232033313333-3121132031030012-3112220233012010)
+- [csrf_policy.custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-3030123002112223-0132013220102110-2111213112222322-0230132133330032-1201203113221330-0111313331112302-1121111033101120-0212232121222303)
+- [csrf_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-2000203202003022-2322223203300201-3102123003332322-0222031232103110-2033331033032230-0023103321011232-3012033203221010-3012322300301120)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-eb74a18bb4fe665817f1bec0ae41acb9a2d0940ae9b8fdffd978d306d6a2f184"></a>
+<a id="canonical-3223131022012023-2310333212121120-0113330123323000-2232100122302321-2202310021100022-3221232033313333-3121132031030012-3112220233012010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-190a8417d085cd5190fb90fd8f085f1c93fcecc691aedd5e3a8fa48580ffc1b5"></a>
+<a id="canonical-0121002220100113-3100201130311101-2100332321003331-2033002011330130-2103333032303012-2101223231311132-0322203322102011-2000333330012311"></a>
 
-## csrf_policy.all_load_balancer_domains — csrf_policy.all_load_balancer_domains / ecd21618bbe0 / 2
+## csrf_policy.all_load_balancer_domains — all_load_balancer_domains / 012023233200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
 - csrf_policy.all_load_balancer_domains
 
-<a id="canonical-5ac40d12ac1fe90bcc33d902c65d860f2fc9abffd31636611b3fa5bb80f57249"></a>
+<a id="canonical-1122301000310102-2230013332210023-3030030331210002-3012113120120033-0233302122233333-3103011203121201-0123033322112323-2000331113021021"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -926,37 +1104,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2618da9fff76ee9372b0463b5bdc64c377918b809679175583609dbe53e9c16"></a>
+<a id="canonical-3102120120312221-3333331312323221-0313022300101203-2311233130121030-0313132101202320-0021121321011311-1120031200213123-3211033221300112"></a>
 
-## Direct properties — csrf_policy.all_load_balancer_domains / ecd21618bbe0 / 3
+## Direct properties — all_load_balancer_domains / 012023233200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-47f50f0ad712d01d6cfc8c395ef220b7cdd38be4afb32770b14795557b47694e"></a>
+<a id="canonical-1013331100330022-3113010231000131-1230333020300321-1132330202002313-3031310320233210-2233230302131300-2301101321111111-1323101312211032"></a>
 
-## Next pages — csrf_policy.all_load_balancer_domains / ecd21618bbe0 / 4
+## Next pages — all_load_balancer_domains / 012023233200 / 4
 
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-cc6c25ab1e1e8494959d6aba2c79ff0e618d7a7c15dfd5b25954f45826b99ab3"></a>
+<a id="canonical-3030123002112223-0132013220102110-2111213112222322-0230132133330032-1201203113221330-0111313331112302-1121111033101120-0212232121222303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad49b8ae92863e361a08070294fd486c588e7d3d6a7c7c2dcbd67e39a630aec3"></a>
+<a id="canonical-2231102123202232-2102201203320312-0122002000130002-2110333110201230-1120203213310331-1222133013300231-3023311213320321-2212030022323003"></a>
 
-## csrf_policy.custom_domain_list — csrf_policy.custom_domain_list / 97b0457a15f0 / 2
+## csrf_policy.custom_domain_list — custom_domain_list / 132201113300 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
 - csrf_policy.custom_domain_list
 
-<a id="canonical-778a7081ef1667154c4681cb407fd72b0276d3ec3293af36f7baca1494ec9b19"></a>
+<a id="canonical-1313202213002001-3233011212130111-1030101220013023-1000133331130223-0002131231033230-0302210322330312-3313232230220110-2110323021230121"></a>
 
 Type: `"single"`. Computed.
 
@@ -975,15 +1153,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d7eddc4c6cae9e4adf92ddf070901385857cd679cb6224d403cd1fb89157bc7a"></a>
+<a id="canonical-3113323131301030-1230223221321022-3133210231313300-1300210001032011-2011133031121321-3023120202103110-0003303101332320-2101111323301322"></a>
 
-## Direct properties — csrf_policy.custom_domain_list / 97b0457a15f0 / 3
+## Direct properties — custom_domain_list / 132201113300 / 3
 
-<a id="canonical-17c09f70e87d350f220aef66cca398ca17a6a17d797ec069d5560c8c36c58a9e"></a>
+<a id="canonical-0113300021331300-3220133103110033-0202002232331212-3030220321203022-0113221222011331-1321133230001221-3111111200302030-0312301120222132"></a>
 
-<a id="canonical-ec2e41aabb82e0a6273f1bf4af5822895babb68f2b7c692decab8207d10a2ff0"></a>
+<a id="canonical-3230023210012222-2323200232002212-0213033301233310-2233112002022021-1123222323122033-0223133012210231-3230222320020013-3101002202333300"></a>
 
-## domains property — csrf_policy.custom_domain_list / 97b0457a15f0 / 4
+## domains property — custom_domain_list / 132201113300 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -1041,31 +1219,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-79e1f1dde973eb31112541a44b0b8c38423117ccd57172d97ee773227f8147c8"></a>
+<a id="canonical-1321320133013131-3221130332230301-0101021110012210-1023002320300320-1002030101133030-3111130113023121-1332321313030202-1333200110133020"></a>
 
-## Next pages — csrf_policy.custom_domain_list / 97b0457a15f0 / 5
+## Next pages — custom_domain_list / 132201113300 / 5
 
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-808e20cabaae3c21d26c3fba2a36e4d48ff4f3ac0b4f916ec63e3a44c6eb0c58"></a>
+<a id="canonical-2000203202003022-2322223203300201-3102123003332322-0222031232103110-2033331033032230-0023103321011232-3012033203221010-3012322300301120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9696cbd87b9259dba07910b4f40c3773d68c31682a298da963f20cfdf6684e43"></a>
+<a id="canonical-2112211230233120-1323210211213123-2200132101002310-3310003003131303-3112203003011220-0222022120312221-1203330200303331-3312122010321003"></a>
 
-## csrf_policy.disabled — csrf_policy.disabled / 04b308d172a3 / 2
+## csrf_policy.disabled — disabled / 310113022203 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
 - csrf_policy.disabled
 
-<a id="canonical-3b3eb6a71fc1dbaba2504303bef46edf3f7dbb756b68df9ecac48b74387c31fe"></a>
+<a id="canonical-0323033223122213-0133300131232223-2202110010030003-2332331012323133-0333133123231311-1223122031332132-3022301020231310-0320133003013332"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1088,36 +1266,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-648b8a70d8233c101eb66ba60e114310dee5220ed28dbf3bdc18c94e56a4634f"></a>
+<a id="canonical-1210202320221300-3120020303300100-0132231212232212-0032010110030100-3132321102020032-3102203123330323-3130012030211032-1112221012031033"></a>
 
-## Direct properties — csrf_policy.disabled / 04b308d172a3 / 3
+## Direct properties — disabled / 310113022203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ada641010ab8b7a3f24e440ce95ba565e7edc6013cfa4f371dd1c7f57ebac33c"></a>
+<a id="canonical-2231221210010001-0022232023132203-3302103210100030-3221112322111211-3213323130120001-0330332210330313-0131310130133311-1332232230030330"></a>
 
-## Next pages — csrf_policy.disabled / 04b308d172a3 / 4
+## Next pages — disabled / 310113022203 / 4
 
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-2ba5db0f8ddd27b58c29095c0986c994d4d2c03100a06100429e44c738a20fe4"></a>
+<a id="canonical-0223221131230033-2031313102132311-2030022100211130-0021201230212110-3110310230000301-0000220012010000-1002213210103013-0320220200333210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eae2fedfe9f5574236fcda53b5d99d2563d487674a738e72f20536b8f21a7209"></a>
+<a id="canonical-3222320233323133-3221331111131002-0312333031221103-2311312121310211-1203311020131213-1022130320321302-3302001103122320-3302012213020021"></a>
 
-## default_header — default_header / c3bb3353a51f / 2
+## default_header — default_header / 110322110133 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - default_header
 
-<a id="canonical-1db43c5339da33f1c2a8f4536a86d2286e9309f41d9b07058244c35b01325b12"></a>
+<a id="canonical-0131231003301103-0321312203033301-3002222033101103-1222201231020220-1232210300213310-0131212300130011-2002101030031123-0001030211230102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1140,36 +1318,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b89620b6ef92598f989a4c9b788c6609728f292db31164d836915bd6bf63242a"></a>
+<a id="canonical-2320211202002312-3233210211212033-2120212210302123-1320203012120021-1302203302210231-2303010112103120-0312210111233112-2333120302100222"></a>
 
-## Direct properties — default_header / c3bb3353a51f / 3
+## Direct properties — default_header / 110322110133 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f6ee5194ef0f0056e0cfa98049eaaa8a9647698f8e6eaad3c01016bb6f849034"></a>
+<a id="canonical-3312323211012110-3233003300001112-3200303322212000-1021322222222022-2112101312212033-2032123222223103-3000010001122323-1233201021000310"></a>
 
-## Next pages — default_header / c3bb3353a51f / 4
+## Next pages — default_header / 110322110133 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-be86a1bd888037fdc3242c0d59516ab12221888e99a192b774b252f4409bcb2d"></a>
+<a id="canonical-2332201222012331-2020200003133331-3003021002300031-1121110112222301-0202020120202032-2121220121022313-1310230211023310-1000212330230231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dcaea92fe90aade79f7b4524924a7d00e941623c153e16738da222cffb78be09"></a>
+<a id="canonical-3130223222210233-3221002222313213-2133132310110210-2102102213310000-3221100112020330-0111033201121303-2031220202023033-3323132023320021"></a>
 
-## default_loadbalancer — default_loadbalancer / 30209d056ac9 / 2
+## default_loadbalancer — default_loadbalancer / 001112223021 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - default_loadbalancer
 
-<a id="canonical-2393bca9603456e5118af941fbb8a44800e59cf3bfa0ba99f0e7fed04e27f438"></a>
+<a id="canonical-0203210323302221-1200031011123211-0101202233211001-3323232022101020-0000321121303303-2333220023222121-3300321333323100-1032021333100320"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1195,41 +1373,41 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2393bca9603456e5118af941fbb8a44800e59cf3bfa0ba99f0e7fed04e27f438)
-- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-4c2f3a3c6f3ec034edc006c8cbff7413f0ac22898e8d8ea3779a2d86f956d9c3)
+- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-0203210323302221-1200031011123211-0101202233211001-3323232022101020-0000321121303303-2333220023222121-3300321333323100-1032021333100320)
+- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-1030023303220330-1233033230000310-3231300000123020-3023333313100103-3300223002022021-2032203120322203-1313212202312012-3321111231213003)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-011f56aa3df83a362a7b9763c471cc4c4d156b7de0fc220c2d48e22a5df704cf"></a>
+<a id="canonical-0001013311122222-0331332003220312-0222132321131203-3010130130301030-1031011112231331-3200333002020030-0231102032020222-1131331300103033"></a>
 
-## Direct properties — default_loadbalancer / 30209d056ac9 / 3
+## Direct properties — default_loadbalancer / 001112223021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-df1eb554a9c6bcd9ac8a40714f67e366cf2b5cdd2fe77f59508aa80a6e345d5e"></a>
+<a id="canonical-3133013223111110-2221301223303121-2230202210001301-1033121332031212-3033022311303131-0233321313331121-1100202222200022-1232031011311132"></a>
 
-## Next pages — default_loadbalancer / 30209d056ac9 / 4
+## Next pages — default_loadbalancer / 001112223021 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-fbdf7fd14ab032fa59e6f0edf908260deddc86d23ea5ac6cb183d78a9e97ca96"></a>
+<a id="canonical-3323313313333101-1022230003023322-1121321233003231-3321002002120031-3231313020123102-0332221122301230-2301200331132022-2132211330222112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ffd894f0c96f4d10359d0b7f0c2749af212839650e04ac465ae630559d1b00e2"></a>
+<a id="canonical-3333312021103300-3021123310310100-0311213100231333-0030021310212233-0201022003211211-0032001022301012-1122321203001111-2131012300003202"></a>
 
-## disable_path_normalize — disable_path_normalize / 5cd819958434 / 2
+## disable_path_normalize — disable_path_normalize / 211120100310 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - disable_path_normalize
 
-<a id="canonical-f1495d990daaf02cc2afa0a7d57e14e4e49d847696ade3fe5b735d2a24114f2c"></a>
+<a id="canonical-3301102111312121-0031222233000230-3002223322002213-3111133201103210-3210213120101312-2112223132033332-1123130311310222-0210010110330230"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1255,41 +1433,41 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-f1495d990daaf02cc2afa0a7d57e14e4e49d847696ade3fe5b735d2a24114f2c)
-- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-212b027873cc3a831d39cc1391c20838522a550bc2066de82e60509f37e8dd36)
+- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-3301102111312121-0031222233000230-3002223322002213-3111133201103210-3210213120101312-2112223132033332-1123130311310222-0210010110330230)
+- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-0201022300021320-1303303003222003-0131032130300103-2101300200200320-1102022211110023-3002001212313220-0232120011002133-0313322031310312)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-6abee2fff0f9111831d0901bb64790ac3005c3f3fecb08acd5a8f4bc2c797548"></a>
+<a id="canonical-1222233232023333-3300332101010120-0301310021000123-2312101321002230-0300001130033303-3332302300202230-3111222033102330-0230132113111020"></a>
 
-## Direct properties — disable_path_normalize / 5cd819958434 / 3
+## Direct properties — disable_path_normalize / 211120100310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2326cd8b0827438e4c6a41507bf8b8e297b129129306fd1db611c4c8c9cd1f18"></a>
+<a id="canonical-0203021230312023-0020021310032032-1030122210011100-1323332023203202-2113230102210102-2103001233310131-2312010130103020-3021303101330120"></a>
 
-## Next pages — disable_path_normalize / 5cd819958434 / 4
+## Next pages — disable_path_normalize / 211120100310 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-b8e8c7fcb7321f9bdf837de330392a7f4162a7567cf7f68cb61c12c9040bbf3e"></a>
+<a id="canonical-2320322030133330-2313030201332123-3133200313313203-0300032102221333-1001120222131112-1330331333122030-2312013001023021-0010002323330332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-79da8405b4dbf01b8c64346a339c83eac5af4d6a4c33153c8e450bd74c25a660"></a>
+<a id="canonical-1321312220100011-2310312333000123-2030121003101222-0303213020033222-3011223310311222-1030030301110330-2032101100233113-1030021122121200"></a>
 
-## dynamic_reverse_proxy — dynamic_reverse_proxy / 60a946224b54 / 2
+## dynamic_reverse_proxy — dynamic_reverse_proxy / 020210231110 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - dynamic_reverse_proxy
 
-<a id="canonical-f6043a214957e33bb842cdc42d48bdeced74065fac3db0a95d4b8b7525ac0d2e"></a>
+<a id="canonical-3312001003220201-1021111332030323-2320100230313010-0231102023313230-3231131000121133-2230033123002221-1131102320231311-0211223000310232"></a>
 
 Type: `"single"`. Computed.
 
@@ -1330,15 +1508,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb368df40ebaa89720c6dfce5cf14a3d9b74628610f60ca90a56141f479ff891"></a>
+<a id="canonical-3023031220313310-0032232222202113-0200301231333032-1130330110220331-2123131012022012-0100331200302221-0022111201100133-1013213333202101"></a>
 
-## Direct properties — dynamic_reverse_proxy / 60a946224b54 / 3
+## Direct properties — dynamic_reverse_proxy / 020210231110 / 3
 
-<a id="canonical-e5a1e7b3d67d861fe2d459e042014203b8b0925e74099b4b5e7858883db3e19c"></a>
+<a id="canonical-3211220132132303-3112133120120133-3202311011213200-1002000110020003-2320230021021132-1310002121231023-1132132011202020-0331230332012130"></a>
 
-<a id="canonical-6c20df35134d46de7d7765f662ff62fae2a37716ef9d58ead200b68b7cb03e90"></a>
+<a id="canonical-1230020031330311-0103103110123132-1331131312113312-1202333312023322-3202220313130112-3233213111203222-3102000023122023-1330230003322100"></a>
 
-## connection_timeout property — dynamic_reverse_proxy / 60a946224b54 / 4
+## connection_timeout property — dynamic_reverse_proxy / 020210231110 / 4
 
 Type: `"number"`. Computed.
 
@@ -1380,13 +1558,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-f0c2c0c57fd92f1734eb1583703b944b947b46b14f013f468ffdba7facd4d5db): complete subsection reference.
+- [resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-3300300230003011-1333312102330113-0310322301112003-1300032321101023-2110132310122301-1033000103331012-2033333123221333-2230311031113123): complete subsection reference.
 
-<a id="canonical-c47035729c92719f9f6b7f688971663d09b481dbd9155844a3157c983fe93717"></a>
+<a id="canonical-3010130003111302-2130210213012133-2133122313331220-2021130112120331-0021231020013123-3121011111201010-2203011113302120-0333322103130113"></a>
 
-<a id="canonical-d9917964190c43c08a72c74c83c9c6ec5ca1d77a6f31c3eb966ebe54cdd9372e"></a>
+<a id="canonical-3121210113211210-0121003010033000-2022130230131030-2003302130123230-1130220131131322-1233030130033223-2112123223321110-3031312103130232"></a>
 
-## resolution_network_type property — dynamic_reverse_proxy / 60a946224b54 / 5
+## resolution_network_type property — dynamic_reverse_proxy / 020210231110 / 5
 
 Type: `"string"`. Computed.
 
@@ -1484,11 +1662,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-950fdfc61208072977d6af5de3fdbaf966ce149ba87804eadc5f3a4e60882029"></a>
+<a id="canonical-2111003331333012-0102002000130221-1313311222331131-3203333123223321-1212303201102123-2220132000103222-3130113303221032-1200202002000221"></a>
 
-<a id="canonical-bc47563b09b2c57b10adce875ce5c55d8067e6357a3d407ce93d85078214d748"></a>
+<a id="canonical-2330101311120323-0021230230111323-0100223130322013-1130321130111131-2000121332120311-1322033110001330-3221033120110013-2002011031131020"></a>
 
-## resolve_endpoint_dynamically property — dynamic_reverse_proxy / 60a946224b54 / 6
+## resolve_endpoint_dynamically property — dynamic_reverse_proxy / 020210231110 / 6
 
 Type: `"bool"`. Computed.
 
@@ -1530,32 +1708,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0efca7ffcf92344132099d2683d6dd29c0a95ceaec4ad5810699cca0867b28c9"></a>
+<a id="canonical-0032333022133333-3033210203101001-0302002121310212-2003311231310221-3000222111303222-3230102231112001-0012212130302200-2012132302203021"></a>
 
-## Next pages — dynamic_reverse_proxy / 60a946224b54 / 7
+## Next pages — dynamic_reverse_proxy / 020210231110 / 7
 
-- [dynamic_reverse_proxy.resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-f0c2c0c57fd92f1734eb1583703b944b947b46b14f013f468ffdba7facd4d5db)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [dynamic_reverse_proxy.resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-3300300230003011-1333312102330113-0310322301112003-1300032321101023-2110132310122301-1033000103331012-2033333123221333-2230311031113123)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-f0c2c0c57fd92f1734eb1583703b944b947b46b14f013f468ffdba7facd4d5db"></a>
+<a id="canonical-3300300230003011-1333312102330113-0310322301112003-1300032321101023-2110132310122301-1033000103331012-2033333123221333-2230311031113123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aa46644ff8952ee23551b6369922e28d7743b262f669e13dd388147ce9cdcbb3"></a>
+<a id="canonical-2222101212101033-3320211102323202-0311110123120312-2121020232022031-1313100323021202-3312122132010331-3103202001101330-3221303130232303"></a>
 
-## dynamic_reverse_proxy.resolution_network — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 2
+## dynamic_reverse_proxy.resolution_network — resolution_network / 320002213320 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-b8e8c7fcb7321f9bdf837de330392a7f4162a7567cf7f68cb61c12c9040bbf3e)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-2320322030133330-2313030201332123-3133200313313203-0300032102221333-1001120222131112-1330331333122030-2312013001023021-0010002323330332)
 - dynamic_reverse_proxy.resolution_network
 
-<a id="canonical-cf1d00a7a61beb8a113ba4d1e32f7bb283d45cd78545778b536153cd25931693"></a>
+<a id="canonical-3033013100002213-2212012332232022-0101032322103101-3203023313232302-2003311011303113-2011101113132023-1103120111033031-0211210301122103"></a>
 
 Type: `"list"`. Computed.
 
@@ -1582,15 +1760,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f08d3ec7099f2e40940f7b1ede7d5f6ffdaa9c282c76cf6a4067cd0d153c7459"></a>
+<a id="canonical-3300203103323013-0021213302321000-2110003313230132-3132133111331233-3331222221300220-0230131230331222-1000121330310031-0111033013101121"></a>
 
-## Direct properties — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 3
+## Direct properties — resolution_network / 320002213320 / 3
 
-<a id="canonical-f07149fa8f2d9cdd3a298e448d433bdc0f751f56d0f725911b39005d53a4f784"></a>
+<a id="canonical-3300130110213322-2033023121303131-0322022120321010-2031100303233130-0033131101331112-3100331302112101-0123032100001131-1103221033132010"></a>
 
-<a id="canonical-17c964cc5f1aeb924403ee9a612cdec9fc024c26a0495446f952e61c15fbff9e"></a>
+<a id="canonical-0113302112103030-1133012232232102-1010000332322122-1201023031323021-3330000210300212-2200102111101012-3321110232120130-0111332333332132"></a>
 
-## kind property — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 4
+## kind property — resolution_network / 320002213320 / 4
 
 Type: `"string"`. Computed.
 
@@ -1625,11 +1803,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3ec1ac8ea14ff42ee1e21e69cf21b5b0129c5e2188f5cedcbd040fbef5b2f3a9"></a>
+<a id="canonical-0332300122302032-2201103333100232-3201320201321221-3033020123112300-0102213011320201-2020331130323130-2331001000332332-3311230233032221"></a>
 
-<a id="canonical-61ae629d771b778ccfe81cff6081ecd43112ed47c988692112f53f5e54c0145d"></a>
+<a id="canonical-1201223212022131-1313012313132030-3033322001303333-1200200132303110-0301010232311013-3021202012210201-0102331103331132-1110300001101131"></a>
 
-## name property — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 5
+## name property — resolution_network / 320002213320 / 5
 
 Type: `"string"`. Computed.
 
@@ -1664,11 +1842,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cc347ae2de0c9ba2ce2089216708fa54aa46aa705a0aab508c052a82d25e998c"></a>
+<a id="canonical-3030031013223202-3132003021232202-3032020020210201-1213002033221110-2222101222221300-1122002222231100-2030001102222002-3102113221212030"></a>
 
-<a id="canonical-3ccbdead157fe51fc6dcdab7754171883854cb134b8a06b8b6e2b3a66a3dabca"></a>
+<a id="canonical-0330302331322231-0111133332110133-3012313031222313-1311100113012020-0320111030230103-1023202200122320-2312320223032212-1222033122233022"></a>
 
-## namespace property — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 6
+## namespace property — resolution_network / 320002213320 / 6
 
 Type: `"string"`. Computed.
 
@@ -1718,11 +1896,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a967b1bf8cd5e74019bab82995c55b7862ee2e0dc55b165079c7d4a0b3df56f3"></a>
+<a id="canonical-2221121323012333-2030311132131000-0121232223200221-2111301111231320-1202323202320031-3011112301121100-1321301331102200-2303313311123303"></a>
 
-<a id="canonical-cb89fd70dc339c451c5bdc12695a7a5023a741263893ff2a3d417b7cb66ff880"></a>
+<a id="canonical-3023202133311300-3130030321301011-0130112331300102-1221112213221100-0203221310010212-0320210333330222-0331100113231330-2312123333202000"></a>
 
-## tenant property — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 7
+## tenant property — resolution_network / 320002213320 / 7
 
 Type: `"string"`. Computed.
 
@@ -1757,11 +1935,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5e2dd412116bff9bb84497ecac6c8abc4aa9ddfec2054a6ad5f1af68da403e58"></a>
+<a id="canonical-1132023131100102-0101122333332123-2320101021133230-2230123020222330-1022222131313332-3002001110221222-3111330122331220-3122100003321120"></a>
 
-<a id="canonical-6898dc874cb12d7fad468adcc302633392456f32bd5f4c507fabfba0835fb37e"></a>
+<a id="canonical-1220212031302013-1030230102311333-2231101220223130-3003000212030303-2102101112330302-2331113310301100-1333222333232200-2003113323031332"></a>
 
-## uid property — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 8
+## uid property — resolution_network / 320002213320 / 8
 
 Type: `"string"`. Computed.
 
@@ -1796,30 +1974,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f3ff0b19cf6cdd711fcb99833286b964dbc2b29b41bcddf37afee0d293bfa65"></a>
+<a id="canonical-1033033333002301-2130331230313113-0101333023212120-0303022012232112-1031233002230221-2310012330313133-0313223332320031-0221032333221211"></a>
 
-## Next pages — dynamic_reverse_proxy.resolution_network / c28266e029f8 / 9
+## Next pages — resolution_network / 320002213320 / 9
 
-- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-b8e8c7fcb7321f9bdf837de330392a7f4162a7567cf7f68cb61c12c9040bbf3e)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-2320322030133330-2313030201332123-3133200313313203-0300032102221333-1001120222131112-1330331333122030-2312013001023021-0010002323330332)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-1171379e2864a9edbff9631c19170289cd393aea92e23cbd8fbf34b9e78ce7e2"></a>
+<a id="canonical-0101130103132132-0220121022213231-2333332112030130-0121011300022021-3031032103223222-2102320203302331-2033233303102321-3213203032133202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c22c293a5c0523d21ae7443ff42422b247e75798d136104175f2d512826caeed"></a>
+<a id="canonical-3002023002210322-1130001102033102-0122321310100333-3310021002022302-1013321311132120-3101031201001001-1311330231110102-2002123022323231"></a>
 
-## enable_path_normalize — enable_path_normalize / f1f9181f1220 / 2
+## enable_path_normalize — enable_path_normalize / 013301020200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - enable_path_normalize
 
-<a id="canonical-212b027873cc3a831d39cc1391c20838522a550bc2066de82e60509f37e8dd36"></a>
+<a id="canonical-0201022300021320-1303303003222003-0131032130300103-2101300200200320-1102022211110023-3002001212313220-0232120011002133-0313322031310312"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1842,36 +2020,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5bc15fd706689125a3a64b708d15c965392ed052af342362be332e165a2cf24b"></a>
+<a id="canonical-1123300111333113-0012122021010211-2203221210231300-2031011130211211-0321023231001102-2233031002031202-2332030302320112-1122023033021023"></a>
 
-## Direct properties — enable_path_normalize / f1f9181f1220 / 3
+## Direct properties — enable_path_normalize / 013301020200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fa3f0338a1769a2b3c42727ab8a57a07c05be9444fac19fc982015d3588f96c7"></a>
+<a id="canonical-3322033300030320-2201131221220223-0330100213021322-2320221113220013-3000112332211010-1033223001213330-2120020001113103-1120203321123013"></a>
 
-## Next pages — enable_path_normalize / f1f9181f1220 / 4
+## Next pages — enable_path_normalize / 013301020200 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a"></a>
+<a id="canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa081e08ee24e661a37cf513733a49a0c70411c459b9620256bc2786d13133b6"></a>
+<a id="canonical-3322002001320020-3232021032121201-2203133033110103-1303032210212200-3013001001013010-1121232112020002-1112233002132012-3101030103032312"></a>
 
-## http_protocol_options — http_protocol_options / 07af33c02e60 / 2
+## http_protocol_options — http_protocol_options / 300002321200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - http_protocol_options
 
-<a id="canonical-b45f4704e2098f4f35efec5d0287a0adbcf1b6ca5844e04cb7e65a575ff1f297"></a>
+<a id="canonical-2310113310130010-3202002120331033-0311323332301131-0002201322002231-2330330123123022-1120101032001030-2313321211221113-1133330133022113"></a>
 
 Type: `"single"`. Computed.
 
@@ -1891,44 +2069,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-88b0860debd39ac248fa227427a71e449f60889beea9a80c2c80bb1fdf26485f"></a>
+<a id="canonical-2020230020120031-3223310321223002-1020332202021310-0213221301321010-2133120020202123-3232222122200030-0230200023230133-3133021210201133"></a>
 
-## Direct properties — http_protocol_options / 07af33c02e60 / 3
+## Direct properties — http_protocol_options / 300002321200 / 3
 
-- [http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663): complete subsection reference.
+- [http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203): complete subsection reference.
 
-- [http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-e4615db49948d7f7dc2b1e8986626f9b1717d65ef69de767979a2ed9c5f55d7f): complete subsection reference.
+- [http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-3210120111312310-2121102031133313-3130022301322021-2012120212332123-0113011331121132-3312213132131213-2113212202323121-3011331111311333): complete subsection reference.
 
-- [http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-4ed09f400e59cb797d729ddf580fbf8d0e82aa1027b500586c5ba49a39784795): complete subsection reference.
+- [http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-1032310021331000-0032112130231321-1331130221313133-1120003323332031-0032200222220100-0213231100001120-1230112322102122-0321132010132111): complete subsection reference.
 
-<a id="canonical-8b0d00cb0ffd4f1da7c0227a6e243b0f00703c54c2090135abbb2474ebf7424a"></a>
+<a id="canonical-2023003100003023-0033333110330131-2213300002021322-1232021003230033-0000130003301110-3002002100010311-2223232302101310-3223331310021022"></a>
 
-## Next pages — http_protocol_options / 07af33c02e60 / 4
+## Next pages — http_protocol_options / 300002321200 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
-- [http_protocol_options.http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-e4615db49948d7f7dc2b1e8986626f9b1717d65ef69de767979a2ed9c5f55d7f)
-- [http_protocol_options.http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-4ed09f400e59cb797d729ddf580fbf8d0e82aa1027b500586c5ba49a39784795)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
+- [http_protocol_options.http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-3210120111312310-2121102031133313-3130022301322021-2012120212332123-0113011331121132-3312213132131213-2113212202323121-3011331111311333)
+- [http_protocol_options.http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-1032310021331000-0032112130231321-1331130221313133-1120003323332031-0032200222220100-0213231100001120-1230112322102122-0321132010132111)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663"></a>
+<a id="canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fe8c0a8f15e8292f00476aa72731f78fe5d2298b9676f1ed6ced4a7bf012b43f"></a>
+<a id="canonical-3332203000222033-0111322002210233-0000101312222213-0213030133132033-3211310202212023-2112131233013231-1230323110221323-3300010223100333"></a>
 
-## http_protocol_options.http_protocol_enable_v1_only — http_protocol_options.http_protocol_enable_v1_only / bb3128490d40 / 2
+## http_protocol_options.http_protocol_enable_v1_only — http_protocol_enable_v1_only / 102100311000 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
 - http_protocol_options.http_protocol_enable_v1_only
 
-<a id="canonical-9833a9ba874394cd9e5a7523b486c7b43695475ffa606ec8c3e547d734d06aa1"></a>
+<a id="canonical-2120030322212322-2013100321103031-2132112213110203-2310201230132310-0312211110131133-3322120012323020-3003321110133113-0310310012222201"></a>
 
 Type: `"single"`. Computed.
 
@@ -1947,39 +2125,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-60ebd700745393fa500486b6a8e7bde7f2431fa51e508f878ffeb30375055847"></a>
+<a id="canonical-1200322331130000-1310110321033322-1100001020122312-2220321323313213-3302100301332211-0132110020332013-2033333223030003-1311001111201013"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_only / bb3128490d40 / 3
+## Direct properties — http_protocol_enable_v1_only / 102100311000 / 3
 
-- [header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0): complete subsection reference.
+- [header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200): complete subsection reference.
 
-<a id="canonical-94cdc8edf7ba459d75bc5fffc586db628834fec641708cda66bca5a4409051ef"></a>
+<a id="canonical-2110303130203231-3313232210112131-1311233011333333-3011201231231202-2020031033323012-1001130020303122-1212233022112210-1000210011013233"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_only / bb3128490d40 / 4
+## Next pages — http_protocol_enable_v1_only / 102100311000 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0"></a>
+<a id="canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9435fce6b98d6052ba9b077834392a211ad246ea36781ff95c0bf1d5ddf8ef27"></a>
+<a id="canonical-2110031133303212-2321203112001102-2322212300131320-0310032102220201-0122310210123222-0312132001333321-1130002333013111-3131332032330213"></a>
 
-## http_protocol_options.http_protocol_enable_v1_only.header_transformation — http_protocol_options.http_protocol_enable_v1_only.header_transformation / 991fc9a00707 / 2
+## http_protocol_options.http_protocol_enable_v1_only.header_transformation — header_transformation / 220000130013 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
 - http_protocol_options.http_protocol_enable_v1_only.header_transformation
 
-<a id="canonical-18fadd1917758db465a449070d23ff247f1c36cb5795e9aa020f738bb4d29fed"></a>
+<a id="canonical-0120332231310121-0113131120312310-1211221010210013-0031020333330210-1333013003123023-1113211132212222-0002003313032023-2310310221333231"></a>
 
 Type: `"single"`. Computed.
 
@@ -1999,46 +2177,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ced0aa96ba44bf02357d1cc81824d328c53b5c97d6f39547bd619e7da1053495"></a>
+<a id="canonical-3032310022222112-2322101023330002-0311133101303020-0120021031030220-3011032311302113-3112330321111013-2331120121321331-2201001103102111"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_only.header_transformation / 991fc9a00707 / 3
+## Direct properties — header_transformation / 220000130013 / 3
 
-- [default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-41cb8bc5c2a61ce033cff92e51a9533a0e88987bed6978e114868474c55d8e70): complete subsection reference.
+- [default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1001302320233011-3002221201303200-0303303333210232-1101222111030322-0032202021201323-3231122113203201-0110201220101310-3011113120321300): complete subsection reference.
 
-- [preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1c0d5cb862a0d57860cae9fe1ef095f640e996c12e909be00935f87aef1069c8): complete subsection reference.
+- [preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130003111302320-1202220031111320-1200302232213332-0132330021113312-1000322121123001-0232210021233200-0021031133201322-3233010012213020): complete subsection reference.
 
-- [proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-607e7d05879303692c6bfa4eab7c422d7b9a747ac47ce76bb585243887d0be06): complete subsection reference.
+- [proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1200133213310011-2013210300031221-0230122333221032-2223133010020231-1323212213101322-3010133032131223-2311201102100320-2013310023320012): complete subsection reference.
 
-<a id="canonical-8f0dff0984b95bc9b12d638a5deb5e232c0745d2de97e50b90f6e1cfb7e5d4c0"></a>
+<a id="canonical-2033003133330021-2010232111233021-2301023112032022-1131322311320203-0230001310113102-3132211332110023-2100331232013033-2313321131103000"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_only.header_transformation / 991fc9a00707 / 4
+## Next pages — header_transformation / 220000130013 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-41cb8bc5c2a61ce033cff92e51a9533a0e88987bed6978e114868474c55d8e70)
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1c0d5cb862a0d57860cae9fe1ef095f640e996c12e909be00935f87aef1069c8)
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-607e7d05879303692c6bfa4eab7c422d7b9a747ac47ce76bb585243887d0be06)
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1001302320233011-3002221201303200-0303303333210232-1101222111030322-0032202021201323-3231122113203201-0110201220101310-3011113120321300)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130003111302320-1202220031111320-1200302232213332-0132330021113312-1000322121123001-0232210021233200-0021031133201322-3233010012213020)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1200133213310011-2013210300031221-0230122333221032-2223133010020231-1323212213101322-3010133032131223-2311201102100320-2013310023320012)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-41cb8bc5c2a61ce033cff92e51a9533a0e88987bed6978e114868474c55d8e70"></a>
+<a id="canonical-1001302320233011-3002221201303200-0303303333210232-1101222111030322-0032202021201323-3231122113203201-0110201220101310-3011113120321300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae2bc2084b9835823c1988e3b806699850e510a7f0ef962e99c210f30e077a8f"></a>
+<a id="canonical-2232022330020020-1023212003112002-0330012120203203-2320001212212120-1100321101002213-3300323321120232-2121300201003303-0032001313222033"></a>
 
-## http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation — http_protocol_options.http_protocol_enable_v1_only.header_transformation.default / b243001d4db4 / 2
+## http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation — default_header_transformation / 013110312310 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
 - http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation
 
-<a id="canonical-0c6687e127d595e890513e3869fd455127341febe2cfffb2c49d783d250f5773"></a>
+<a id="canonical-0030121220133201-0213311121113220-2100110103320320-1221333110111101-0213031001333223-3202303333332302-3010213113200331-0211003311131303"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2057,39 +2235,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eefa9338ebf5bba00a70eeb82fc887bd9e6f974ab53a820f8a06edee8f39cc8f"></a>
+<a id="canonical-3232332221030320-3223331123232200-0022130032322320-0233302020132331-2132123321131022-2311032220020033-2022001232313232-2033032130302033"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_only.header_transformation.default / b243001d4db4 / 3
+## Direct properties — default_header_transformation / 013110312310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4c6d6ec712aefb9086d3b6f31616da4e0df00d0474715ba6ae708d80b27fec9e"></a>
+<a id="canonical-1030123112323013-0102223233232100-2012310323123303-0112011231221032-0031330000310010-1310130111232212-2232130020312000-2302133332302132"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_only.header_transformation.default / b243001d4db4 / 4
+## Next pages — default_header_transformation / 013110312310 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-1c0d5cb862a0d57860cae9fe1ef095f640e996c12e909be00935f87aef1069c8"></a>
+<a id="canonical-0130003111302320-1202220031111320-1200302232213332-0132330021113312-1000322121123001-0232210021233200-0021031133201322-3233010012213020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-af6f3416044a40b9cca45c49bb147410a7ae39c4f164b7515b9844b10bbc2c4d"></a>
+<a id="canonical-2233123303100112-0010102210002321-3030221011301021-2323011013100100-2213223203213010-3301121023131101-1123212010102301-0023233002301031"></a>
 
-## http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation — http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserv / b0dd290c94cc / 2
+## http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation — preserve_case_header_transformation / 003021103030 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
 - http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation
 
-<a id="canonical-aff6b9d1cb32a877251a31259db00b624d56832f65fadfd9446c1d766ad9190b"></a>
+<a id="canonical-2233331223213101-3023030222201313-0211012203010211-2131230000231202-1031111220030233-1211332231333121-1010123001311312-1222312101210023"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2108,39 +2286,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e94a2c8439f191f43fb2d2045478f3c10d41354f6dad2a15e82456fbd1709c9f"></a>
+<a id="canonical-3221102202302010-0321330121013310-0333230231020010-1110132033033001-0031100103111033-1231223102220111-3220021011123323-3101130021302133"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserv / b0dd290c94cc / 3
+## Direct properties — preserve_case_header_transformation / 003021103030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c361a82cab1a681cc505dfb390449e9dc0a5565d81ccc35001d75ff06a8007b0"></a>
+<a id="canonical-3003120122200230-2223012212200130-3011001131332303-2100101021322131-3000221111121131-2001303030031100-0001311311333300-1222200000132300"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserv / b0dd290c94cc / 4
+## Next pages — preserve_case_header_transformation / 003021103030 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-607e7d05879303692c6bfa4eab7c422d7b9a747ac47ce76bb585243887d0be06"></a>
+<a id="canonical-1200133213310011-2013210300031221-0230122333221032-2223133010020231-1323212213101322-3010133032131223-2311201102100320-2013310023320012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bec2af4cb47f1621c8927e226ebe437d144989a6611b158761be0ead8a50b29c"></a>
+<a id="canonical-2332300222331030-2310133301120201-3020210213320202-1232233210031331-0110102120212212-1201012301112013-1201233200322231-2022110023022130"></a>
 
-## http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation — http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_ / e34b10636027 / 2
+## http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation — proper_case_header_transformation / 120312000213 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9c9834a7469389ea3bddb844767983bb98ff7f6d59075a6b38d03830ca24b663)
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2130212003102213-1012210320213222-0323313123201010-1312132120032323-2120333313331231-1121001311221223-0320310003200300-3022021023121203)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
 - http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation
 
-<a id="canonical-6c82bf72820a713ac74edbccd8cea0198b52713a73de406a11fb5dddf2c6061b"></a>
+<a id="canonical-1230200223331302-2002002213010322-3013103231233030-3120303222000121-2023110213010322-1303313210001222-0101332311313131-3302301200120123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2159,37 +2337,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47f55800df92148f1486d7046aa842bbdd660d39a9854d8ecda241ac249dec1a"></a>
+<a id="canonical-1013331111200000-3133210201102033-0110201231130010-1222222010022323-3131121200310321-2221201110312032-3031220210012230-0210213132300122"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_ / e34b10636027 / 3
+## Direct properties — proper_case_header_transformation / 120312000213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6d77fd610927000ea8cbf9e83779732805190ec9611e804833fe1eb46f75ff0b"></a>
+<a id="canonical-1231131333311201-0021021300000032-2220302333213220-0313132113030220-0011012100323021-1201013220001020-0303333201322310-1233131133330023"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_ / e34b10636027 / 4
+## Next pages — proper_case_header_transformation / 120312000213 / 4
 
-- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1ced60db1e4c104ff5541537f5222408725a15d7403e49e41c562c4e695171e0)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0130323112003123-0132103001001033-3311111001110313-3311020202100020-1302112201113113-1000033210213210-0130111202301032-1221110113013200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-e4615db49948d7f7dc2b1e8986626f9b1717d65ef69de767979a2ed9c5f55d7f"></a>
+<a id="canonical-3210120111312310-2121102031133313-3130022301322021-2012120212332123-0113011331121132-3312213132131213-2113212202323121-3011331111311333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-684e90b4538155070fa6038e70a1d1f1deee176cdcfde707a3ed7b7abe246db8"></a>
+<a id="canonical-1220103221002310-1103200111110013-0033221200032032-1300220131013301-3132323201131230-3130333132130013-2203323113231322-2332021012312320"></a>
 
-## http_protocol_options.http_protocol_enable_v1_v2 — http_protocol_options.http_protocol_enable_v1_v2 / f4abe590d9dd / 2
+## http_protocol_options.http_protocol_enable_v1_v2 — http_protocol_enable_v1_v2 / 210031213131 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
 - http_protocol_options.http_protocol_enable_v1_v2
 
-<a id="canonical-f3864f1653d1cbfa6f9f59ddef8d0f91c7b05dc135119d8066c8cee45587be64"></a>
+<a id="canonical-3303201210330112-1103310130233322-1233213311213131-3233203100332101-3013230011313001-0311010121312000-1212302030323210-1111201323321210"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2212,37 +2390,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2d4cf47b4dc7449a5a2476cb9aaef1d891c28918e2423fc0b0cad3d68b6b0255"></a>
+<a id="canonical-0231103033101323-1031301310102122-1122021013123023-2122223233013120-2101300220210120-3202100203333000-2300302231033112-2023122300021111"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v1_v2 / f4abe590d9dd / 3
+## Direct properties — http_protocol_enable_v1_v2 / 210031213131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-df1a6ec42886e84460a1225a2bbc9b32d2d0e89fb33181105971bbc6a5af6c18"></a>
+<a id="canonical-3133012212323010-0220201232201010-1200220102021122-0223233021230302-3102310032202133-2303030120010100-1121130123233012-2211223312300120"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v1_v2 / f4abe590d9dd / 4
+## Next pages — http_protocol_enable_v1_v2 / 210031213131 / 4
 
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4ed09f400e59cb797d729ddf580fbf8d0e82aa1027b500586c5ba49a39784795"></a>
+<a id="canonical-1032310021331000-0032112130231321-1331130221313133-1120003323332031-0032200222220100-0213231100001120-1230112322102122-0321132010132111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-88465396276a1c6e8cf3dc8e1c3d346145f6ba6931c572dd6c72252d05b98bff"></a>
+<a id="canonical-2020101211032112-0213122201301232-2030330331302032-0130033103101201-1011331223221221-0301301113023131-1230130202110231-0011232120233333"></a>
 
-## http_protocol_options.http_protocol_enable_v2_only — http_protocol_options.http_protocol_enable_v2_only / db29c0425afd / 2
+## http_protocol_options.http_protocol_enable_v2_only — http_protocol_enable_v2_only / 100211223331 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
 - http_protocol_options.http_protocol_enable_v2_only
 
-<a id="canonical-a540c67759efc43fe558b6900c86cf50d3322032559d16284126f2258ae6a92b"></a>
+<a id="canonical-2211100030121313-1121323330100333-3211112023122100-0030201230331100-3103030202000302-1111213101120220-1001021233020211-2022321222210223"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2265,36 +2443,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-43c016290ef34b93e795933146a2539ea1d33f7762f27b5c4b1de901ed35fd47"></a>
+<a id="canonical-1003300001120221-0032330310232103-3213211121030301-1012220211032132-2201310303331313-1202330213231130-1023013132210001-3231031133311013"></a>
 
-## Direct properties — http_protocol_options.http_protocol_enable_v2_only / db29c0425afd / 3
+## Direct properties — http_protocol_enable_v2_only / 100211223331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-64d416a3c3157071e0f3bb5fffad7a580261ae268a2e3b53937d381443287cb5"></a>
+<a id="canonical-1210311001122203-3003011113001301-3200330323231133-3333223113221120-0002120122320212-2022023203231103-2103133103200110-1003022013302311"></a>
 
-## Next pages — http_protocol_options.http_protocol_enable_v2_only / db29c0425afd / 4
+## Next pages — http_protocol_enable_v2_only / 100211223331 / 4
 
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-35d4e92967faff2a93e6f02288638f65dd0c817f65630593c95b78f48dc76894"></a>
+<a id="canonical-0311311032210221-1213332233330222-2103321233000202-2020120320331211-3131003020011333-1211120300112103-3021112313203310-2031301312202110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8200c9ac67d1f96169542f49efc382740827b2e6b75970bc18d1243905c9e23d"></a>
+<a id="canonical-2002000030212230-1213310133211201-1221111002331021-3233300320021310-0020021323023212-2313112113002330-0120310102100321-0011302132020331"></a>
 
-## js_challenge — js_challenge / 48555fa5a117 / 2
+## js_challenge — js_challenge / 221122010113 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - js_challenge
 
-<a id="canonical-6fead0d412383114980e7657466e05e6825f8ea21f77f0cfff01ac7f11f7cf40"></a>
+<a id="canonical-1233322231003110-0102032003010110-2120003213121113-1012123200113212-2002113320322202-0133131333003033-3333000122301333-0101331330331000"></a>
 
 Type: `"single"`. Computed.
 
@@ -2341,15 +2519,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c61bb215311ad6d3f1fdeb36421509444ba6c554b7acb0beae5610c8013a34ad"></a>
+<a id="canonical-3012012323020111-0301012231123103-3301333132230312-1002011100211010-1023221230111110-2313223023002332-2232111201003020-0001032203102231"></a>
 
-## Direct properties — js_challenge / 48555fa5a117 / 3
+## Direct properties — js_challenge / 221122010113 / 3
 
-<a id="canonical-b75ff2bc483ebbc39c86f7c34209b74f2722de6a8f099e345f6e5b3b45c4b421"></a>
+<a id="canonical-2313113333022330-1020033223233003-2130201233133003-1002002123131033-0213020231321222-2033002121320310-1133123211230323-1011301023100201"></a>
 
-<a id="canonical-33f08854886d78b36ab77e47e6a43d085dae38f229bf67c7efa1c89e037a327e"></a>
+<a id="canonical-0303330020201110-2020123113202303-1222231313321013-3212221003310020-1131223203203302-0221233312133013-3233220130202132-0003132203021332"></a>
 
-## cookie_expiry property — js_challenge / 48555fa5a117 / 4
+## cookie_expiry property — js_challenge / 221122010113 / 4
 
 Type: `"number"`. Computed.
 
@@ -2394,11 +2572,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-72b10fbea2de566816df88f765778ed2f47b9a6374dc48679741c29304d5eee5"></a>
+<a id="canonical-1302230100332332-2202313211121220-0112313320203313-1211131320323102-3310132321221203-1310313010201213-2113100130022103-0010311132323211"></a>
 
-<a id="canonical-b81b97bae8ec501fa79dd63d9e94ee36dbe4f19ef6d47b6127a21cc186ded4dd"></a>
+<a id="canonical-2320012321132322-3220323011000133-2213213131120331-2132211032320312-3123321033012132-3312311013231201-0213220201303001-2012313231103131"></a>
 
-## custom_page property — js_challenge / 48555fa5a117 / 5
+## custom_page property — js_challenge / 221122010113 / 5
 
 Type: `"string"`. Computed.
 
@@ -2447,11 +2625,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-13628b4d5e0b945a16120939f3d9f9e772006c9b0439ff155a3b3cb356efabac"></a>
+<a id="canonical-0103120220231031-1132002321101122-0112010200210321-3303312133213213-1302000012302123-0010032133330111-1122032303302303-1112323322232230"></a>
 
-<a id="canonical-50fac4a9dcd94423d014a35e8bcd6e771389845c8ae5418e533e23d9a926000f"></a>
+<a id="canonical-1100332230102221-3130312110100203-3100011022031132-2023303112321313-0103202120101130-2022321110012032-1103033202033121-2221021200000033"></a>
 
-## js_script_delay property — js_challenge / 48555fa5a117 / 6
+## js_script_delay property — js_challenge / 221122010113 / 6
 
 Type: `"number"`. Computed.
 
@@ -2490,30 +2668,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ae02e8a4838fa27df06a49c777bf283eb42fb3959376ffabc408611ff02f489d"></a>
+<a id="canonical-2232000232202210-2003203322021331-3300122210213013-1313233302200332-2310023323032111-2103131233332223-3010002012010133-3300023310202131"></a>
 
-## Next pages — js_challenge / 48555fa5a117 / 7
+## Next pages — js_challenge / 221122010113 / 7
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-6fd9adf9858ac044d27f69605c0da0afab5ae1521dd18568d820e2c4370a249b"></a>
+<a id="canonical-1233312122313321-2011202230001010-3102133312211200-1130003122002233-2223112232011102-0131310120111220-3120020032023010-0313002202102123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6e99993fec0e8625d21ba4cc029732feccb077490bcdd570638e74ef6263715f"></a>
+<a id="canonical-1232212121210333-3230003220120211-3102012322103030-0002211303023332-3030230013131021-0023303131111300-1203203213103233-1202120313011133"></a>
 
-## no_authentication — no_authentication / 76886c10f6c1 / 2
+## no_authentication — no_authentication / 010033123001 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - no_authentication
 
-<a id="canonical-524320b0777e1f50d78a30949d30b94597acbf8a2389b0c8271854f1eef75fd4"></a>
+<a id="canonical-1102100302002300-1313133201331100-3113202203002110-2131030023211011-2113223023332022-0203202123003020-0213012011103301-3232331311333110"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2536,36 +2714,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f92c940c414a3360a317d9c469e216923b4ef6a8f95b5c8764cae08e25b9aa4"></a>
+<a id="canonical-1033210230211000-3010011022030312-0022030113312130-1012213202011221-0203231032331222-2033211123113020-1312103022320020-3202112321222210"></a>
 
-## Direct properties — no_authentication / 76886c10f6c1 / 3
+## Direct properties — no_authentication / 010033123001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0c0244050864385ff33ae889a6157b11074463317b7cf833b84473f21dd260fc"></a>
+<a id="canonical-0030000210100011-0020121003201133-3303032232202021-2212011113230101-0013101012030301-1323133033200303-2320101013033302-0131310212003330"></a>
 
-## Next pages — no_authentication / 76886c10f6c1 / 4
+## Next pages — no_authentication / 010033123001 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-d44525cc14415a80f6e329d02112bdf067ba82809fab4500bda9866ea672ad6f"></a>
+<a id="canonical-3110101102113030-0110100111222000-3312320302213100-0201010223313300-1213232220022000-2133222310110000-2331222120121232-2212130222311233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c5c6412254800e0ff70328f26ea982022432a026975c05ab67ff3a325ffc61f"></a>
+<a id="canonical-0030113012100102-0211102000003200-3333130003022033-0212322221200200-0202100302220002-1221131130001122-2312133333032203-0211333330120133"></a>
 
-## no_challenge — no_challenge / 1f65a31c164f / 2
+## no_challenge — no_challenge / 013001121033 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - no_challenge
 
-<a id="canonical-3f0bdb5749658baa498a33d910c44024358aa16e77e1a62fe2a2b49bfe09053c"></a>
+<a id="canonical-0333002331231113-1021121120232222-1021202203033121-0100301010000210-0311202222011232-1313320122120233-3202220223102123-3332002100110330"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2588,36 +2766,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67019a4d94f7c54fa680d95271e7b820ddde84af0d5d4cc51b0a75ac57c8385e"></a>
+<a id="canonical-1213000121221031-2110331330111033-2212200031211102-1301321323200200-3131313220102233-0031113110303011-0123002213112230-1113302003201132"></a>
 
-## Direct properties — no_challenge / 1f65a31c164f / 3
+## Direct properties — no_challenge / 013001121033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b51072b75cf38e4f3e0554e363f613d1c60fec873f653f04f2b791c64e76c882"></a>
+<a id="canonical-2311010013022313-1130330320321033-0332001111103203-1203331201033101-3012003332302013-0333121103330010-3302231321013012-1032131230202002"></a>
 
-## Next pages — no_challenge / 1f65a31c164f / 4
+## Next pages — no_challenge / 013001121033 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-545aca29b311fea151c0f133136e8abac4d81e741b6298394ac83aad08e117f3"></a>
+<a id="canonical-1110112230220221-2303010133322201-1101300033010303-0103123220222322-3010312001321310-0123120221200321-1022302003222231-0020320101133303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7d0a768744b3b5860c41ab364cd54d7894d8067b75faa9378cddb55d19868e77"></a>
+<a id="canonical-1331002213122013-1010230323112012-0030100122230312-1030311110311320-2110312000121323-1311332222210313-2030313123111131-0121201220321313"></a>
 
-## no_request_limit_per_connection — no_request_limit_per_connection / f2a5ff002326 / 2
+## no_request_limit_per_connection — no_request_limit_per_connection / 000002030212 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - no_request_limit_per_connection
 
-<a id="canonical-aab4430cdc26268dd04c870fd9a8040e5206acac957535669f5b3b0ec91639e3"></a>
+<a id="canonical-2222231010030030-3130021202122031-3100103020130033-3121222000100032-1102001222302230-2111131103111212-2133112303230032-3021011203213203"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2640,36 +2818,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-777bbfad370a53517bf0a3465b6cccf239031818d3c19433c6081365bce9bea7"></a>
+<a id="canonical-1313132323332231-0313002211031101-1323330022031012-1123123030303302-0321000301200120-3103300121100303-3012002001031211-2330322123322213"></a>
 
-## Direct properties — no_request_limit_per_connection / f2a5ff002326 / 3
+## Direct properties — no_request_limit_per_connection / 000002030212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-146f2dbdc2b53e7576bf2d34169e6d03015c671120f9e497efa518a6c90dee1d"></a>
+<a id="canonical-0110123302312331-3002231103321311-1312233302310310-0112213212310003-0001113012130101-0200332132102113-3233221101202212-3021003132320131"></a>
 
-## Next pages — no_request_limit_per_connection / f2a5ff002326 / 4
+## Next pages — no_request_limit_per_connection / 000002030212 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-8b5b859bf066db8c50680f61439eb6236af261b0f24ab581d2fa842959be914d"></a>
+<a id="canonical-2023112320112123-3300121231232030-1100122000331201-1003213223120203-1222330212012300-3302102223112001-3102332220100221-1121233221011031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-63515cb86ad271ebfe84a5f01ffe1e2166292468d0da4c7b9ad9a5525f3c2afd"></a>
+<a id="canonical-1203110111302320-1222310213013223-3332201022113300-0133333201320201-1212022102101220-3100312210301323-2122312122111102-1133033002223331"></a>
 
-## non_default_loadbalancer — non_default_loadbalancer / fb41eae8af3c / 2
+## non_default_loadbalancer — non_default_loadbalancer / 322022330330 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - non_default_loadbalancer
 
-<a id="canonical-4c2f3a3c6f3ec034edc006c8cbff7413f0ac22898e8d8ea3779a2d86f956d9c3"></a>
+<a id="canonical-1030023303220330-1233033230000310-3231300000123020-3023333313100103-3300223002022021-2032203120322203-1313212202312012-3321111231213003"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2692,36 +2870,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c9de42337ac185cc9f486fd9bee4a1ce0ccc0ec6b2aba4f7086f789013cafbcf"></a>
+<a id="canonical-3021313210020303-1322300120113030-2133102012333121-2332321022013032-0030303000323012-2302222322103313-0020123313202100-0103302233233033"></a>
 
-## Direct properties — non_default_loadbalancer / fb41eae8af3c / 3
+## Direct properties — non_default_loadbalancer / 322022330330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2d742bd5d5a31cbe76ccbc492e54dfd2c588991363b5244f8ca42f3b183e90bb"></a>
+<a id="canonical-0231131002233111-3111220301302332-1312303023301021-0232111031333102-3011202021210103-1203231102101033-2030221002330323-0120033221002323"></a>
 
-## Next pages — non_default_loadbalancer / fb41eae8af3c / 4
+## Next pages — non_default_loadbalancer / 322022330330 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-62dbd01f9aad94f490c77cc7b4d61c54a4fe212c25d4796a116058d8f3256475"></a>
+<a id="canonical-1202312331000133-2122223121103310-2100301313303013-2310311201301110-2210333202010230-0211311013211222-0101120011203120-3303021112101311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f80ed0538157b5f6ec26b9cae9b9a289148d77cd22917fe6b67573ee0b940702"></a>
+<a id="canonical-3320003231001103-2001111323113312-3230021223213022-3221232122022021-0110203113133031-0202210113333212-2312131113033232-0023211000130002"></a>
 
-## pass_through — pass_through / 8e10fd46fb17 / 2
+## pass_through — pass_through / 101233230113 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - pass_through
 
-<a id="canonical-85b1046ead71ab45112df5f0a65c1bb1a1473365aa0626737f0354f3b3cc8339"></a>
+<a id="canonical-2011230100101232-2231130122231011-0101023133113300-2212113001232301-2201101303031211-2222001202121303-1333000311103303-2303303020030321"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2744,36 +2922,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e4b1ac6dfd464c0fcce92e250ad3cc83c986e7277f24e5c0a17f1a81b8796cb"></a>
+<a id="canonical-2132102301223012-3133311012103000-3330303221023202-1100223103303020-0330212012321302-1313330210321130-0022011333012220-0123201321123023"></a>
 
-## Direct properties — pass_through / 8e10fd46fb17 / 3
+## Direct properties — pass_through / 101233230113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6905d2324ab530e2d2a1d6a821a7bbb00ce476dbde754d0caa7624918d25e9ba"></a>
+<a id="canonical-1221001131020302-1022231103003202-3102220131122220-0201221323232300-0030321013123123-3132131110310030-2222131202102101-2031021132212322"></a>
 
-## Next pages — pass_through / 8e10fd46fb17 / 4
+## Next pages — pass_through / 101233230113 / 4
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-5fd02a3e53a4014bceaf5d9ab95dd66a94fd084b4552ea6670553171736272ca"></a>
+<a id="canonical-1133310002220332-1103221000011023-3032223311312122-2321113131121222-2110333100201023-1011110232221212-1300111103011301-1303120213023022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc1f6d892626e3e6a5da8bcab894dfe6976304fdbaef086e4c31a2db67d39d9c"></a>
+<a id="canonical-3330013312312021-0212021232033212-2211312220233022-2320211031333212-2113120300103331-2322323300201232-1030030122023123-1213310321312130"></a>
 
-## rate_limiter_allowed_prefixes — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 2
+## rate_limiter_allowed_prefixes — rate_limiter_allowed_prefixes / 113130002001 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - rate_limiter_allowed_prefixes
 
-<a id="canonical-3df10ea042418c3f98638797c2a3b88c40e51e055f8603cc7a55497bc592e0d4"></a>
+<a id="canonical-0331330100322200-1002100120300333-2120120320132113-3002220323202030-1000321101320011-1133201200033030-1322111110211323-3011210232003110"></a>
 
 Type: `"list"`. Computed.
 
@@ -2816,15 +2994,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b37ae45c1b206f320603cb57d858d6312ac12104d35caf597033ec7403d3e22"></a>
+<a id="canonical-0223031322321011-3001230200123303-0200120003302311-1331201120311203-0102223001020100-1031031130223311-2113000303323013-1000033103320202"></a>
 
-## Direct properties — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 3
+## Direct properties — rate_limiter_allowed_prefixes / 113130002001 / 3
 
-<a id="canonical-c32a11b6486b38446933a6e0cee529eb85881650a40dbb74c17caccbccbd1bcd"></a>
+<a id="canonical-3003022201012312-1020122303201010-1221030322123200-3032321102213223-2011202001121100-2210003123231310-3001133022303023-3030233101233031"></a>
 
-<a id="canonical-c2769792d21c1ab3c87d5a9896903dd2dd57b41c41b2281cc9dafae7935b0b04"></a>
+<a id="canonical-3002131221132102-3102013001222303-3020133111222120-2112210003313102-3131111323100130-1001230202200130-3021312233223213-2103112300230010"></a>
 
-## kind property — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 4
+## kind property — rate_limiter_allowed_prefixes / 113130002001 / 4
 
 Type: `"string"`. Computed.
 
@@ -2859,11 +3037,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b031c297824dadaf3e516dd6e2ddbe026cd7a1c24de5502b90a06fe0c32f16f3"></a>
+<a id="canonical-2300030130022113-2002103122312233-0332110112313112-3202313123320002-1230311322013002-1031321111000223-2100220012333200-3003023301123303"></a>
 
-<a id="canonical-4cc2354ab26643d22530f2e3bb2b0bfb1dcaff74157ab8c6dc87aac91dc1cf31"></a>
+<a id="canonical-1030300203111022-2302121210033102-0211030033023203-2323022300233323-0131302233331310-0111132223203012-3130201322223021-0131300130330301"></a>
 
-## name property — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 5
+## name property — rate_limiter_allowed_prefixes / 113130002001 / 5
 
 Type: `"string"`. Computed.
 
@@ -2898,11 +3076,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1bfb76bfafe95aa8ae00f1e222a4b40c38f1b93219ec9ce365095142c488984b"></a>
+<a id="canonical-0123332313122333-2233322111222220-2232000033013202-0202221023100030-0320330123210302-0121323021303203-1211002111011002-3010202021201023"></a>
 
-<a id="canonical-0be2a00310db4a432924d5d8b0854683d195cdff8093e9b977147beb84ee61e9"></a>
+<a id="canonical-0023320222000003-0100312310221003-0221021031113120-2300201110122003-3101211130313333-2000210332212321-1313011013233223-2010323212013221"></a>
 
-## namespace property — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 6
+## namespace property — rate_limiter_allowed_prefixes / 113130002001 / 6
 
 Type: `"string"`. Computed.
 
@@ -2952,11 +3130,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3e7b9f690462aeb52e5e7ace32ee8a75e3249673b13336a421cbde62b57cf228"></a>
+<a id="canonical-0332132321331221-0010120222322311-0232113213223032-0302323220221311-3203021021121303-2301030303122210-0201302331321202-2311133033020220"></a>
 
-<a id="canonical-bd3a07b31e24a4919a81042d06fe93e65397f5873422a4f9e96a5709ff4c40b9"></a>
+<a id="canonical-2331032200132303-0132021022102101-2122200100100231-0012333221033212-1103211333112013-0310020222103321-3221122211130021-3333103010002321"></a>
 
-## tenant property — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 7
+## tenant property — rate_limiter_allowed_prefixes / 113130002001 / 7
 
 Type: `"string"`. Computed.
 
@@ -2991,11 +3169,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-83723f6796b6275b05d97800db3fe6b8204312861395c8453e4b6c113a37263b"></a>
+<a id="canonical-2003130203331213-2112231202131123-0011312113200000-3123033332122320-0200100301022012-0103211130201011-0332102312300101-0322031302120323"></a>
 
-<a id="canonical-20f6497d7c5cd7e8f3aa2df309fcea8808939bbb14d932932f7992962e8b9705"></a>
+<a id="canonical-0200331210211331-1330113031133220-3303222202313303-0021333032222020-0020210321232323-0110312103022103-0233132121022112-0232202321130011"></a>
 
-## uid property — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 8
+## uid property — rate_limiter_allowed_prefixes / 113130002001 / 8
 
 Type: `"string"`. Computed.
 
@@ -3030,30 +3208,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-931da60bd9fc9712dfa1dd58b77910a0111e712c9f440841ab034fa73e484ca2"></a>
+<a id="canonical-2103013122120023-3121333021130102-3133220131311120-2313132101002200-0101013213010230-2133101000201001-2223000310332213-0332102010302202"></a>
 
-## Next pages — rate_limiter_allowed_prefixes / 36ad8e5dc081 / 9
+## Next pages — rate_limiter_allowed_prefixes / 113130002001 / 9
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a"></a>
+<a id="canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae8f6e65011f685c24bca3709661c52cf21abfde273f1570a231198e0c86b5c6"></a>
+<a id="canonical-2232203312321211-0001013312201130-0210233022031300-2112120130110230-3302012223333132-0213033301111300-2202030101212032-0030201223113012"></a>
 
-## request_cookies_to_add — request_cookies_to_add / 4d56eccd5396 / 2
+## request_cookies_to_add — request_cookies_to_add / 303111032112 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - request_cookies_to_add
 
-<a id="canonical-776363ebebcb6241a454d9d20e337a98552f267a3928361042306ab6e36a8d62"></a>
+<a id="canonical-1313120312033223-3223302312021001-2210111031213102-0032030313222120-1111023302121322-0321022003120100-1002030012222312-3203122220311202"></a>
 
 Type: `"list"`. Computed.
 
@@ -3099,15 +3277,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e147941278baf34a7904bfa0a87c03c1215b6957ee76d61d01c9f73a84e43e10"></a>
+<a id="canonical-3201101321100102-1320232233031022-1321001023332200-2220133000033001-0201112312211113-3232131231120131-0001302133130322-2010321003320100"></a>
 
-## Direct properties — request_cookies_to_add / 4d56eccd5396 / 3
+## Direct properties — request_cookies_to_add / 303111032112 / 3
 
-<a id="canonical-e45782640e78e648f2df05a60e62701df398125c24406ef4a1833b98fc219d60"></a>
+<a id="canonical-3210111320021210-0032132032121020-3302313300112212-0032120213000131-3303212001021130-0210100012323310-2201200303232120-3330020121311200"></a>
 
-<a id="canonical-86657e55759d8ecc78dada7b7242024bd95a3ed2d7116411be2fcf237f7936ce"></a>
+<a id="canonical-2012121113321111-1311213120323030-1320312231221323-1302100200021023-3121112203323102-3113010112100101-2332023330330203-1333132103123032"></a>
 
-## name property — request_cookies_to_add / 4d56eccd5396 / 4
+## name property — request_cookies_to_add / 303111032112 / 4
 
 Type: `"string"`. Computed.
 
@@ -3166,11 +3344,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db16ce1f8cb2e7429ec56120c0a6bb4fb75baa8a4892dac0b05d43f9e7445a25"></a>
+<a id="canonical-3123011230320133-2030230232131002-2132301112010200-3000221223231033-2313112322222022-1020210231223000-2300113110033321-3213101011220211"></a>
 
-<a id="canonical-b993630a0e3ba295fef2a0d3bb2256f85cb3e858cc8742a731e9b755a96c268c"></a>
+<a id="canonical-2321210312030022-0032032322022111-3332330222003103-2323020211123320-1130230332201120-3030201310022213-0301322123131111-2221123002122030"></a>
 
-## overwrite property — request_cookies_to_add / 4d56eccd5396 / 5
+## overwrite property — request_cookies_to_add / 303111032112 / 5
 
 Type: `"bool"`. Computed.
 
@@ -3195,13 +3373,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827): complete subsection reference.
+- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213): complete subsection reference.
 
-<a id="canonical-ca57d9fe157c450b5949a03bf5077280f9394dc61b739388b856ecf32d670b43"></a>
+<a id="canonical-3022111331213332-0111133010110023-1121102122000323-3311001313022000-3321032110313012-0123130321032020-2320111232303303-0231121300231003"></a>
 
-<a id="canonical-f3ad310ef050a2b80da00f1a271481f56e6762e8d3acb05aa5349a8fc8c289e4"></a>
+<a id="canonical-3303223103010032-3300110022022320-0031220000330122-0213011020013311-1232121312023220-3103223023001122-2211031021222033-3020300220213210"></a>
 
-## value property — request_cookies_to_add / 4d56eccd5396 / 6
+## value property — request_cookies_to_add / 303111032112 / 6
 
 Type: `"string"`. Computed.
 
@@ -3242,32 +3420,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05ec6c8772a4874c76e6ede7e918a615f2e7bc7491edaea87a543d1e8e13d6f6"></a>
+<a id="canonical-0011323012302013-1302221020131030-1312321232313213-3221012022120111-3302321323301310-2101323122322220-1322111003310132-2032010331123312"></a>
 
-## Next pages — request_cookies_to_add / 4d56eccd5396 / 7
+## Next pages — request_cookies_to_add / 303111032112 / 7
 
-- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827"></a>
+<a id="canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90fb73c509d6ef423f9a349cad8de46e265810f0e16a58643b1486625aef34a5"></a>
+<a id="canonical-2100332313033011-0021311232331002-0333212203102130-2231203132101232-0212112001003300-3201122211201210-0323011020121202-1122323303102211"></a>
 
-## request_cookies_to_add.secret_value — request_cookies_to_add.secret_value / 0d22eec30166 / 2
+## request_cookies_to_add.secret_value — secret_value / 300300011212 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022)
 - request_cookies_to_add.secret_value
 
-<a id="canonical-3ace17affd7cf4b8d293f5a6990cd1108ac8924d2361f5293ad4dbc71bbec36a"></a>
+<a id="canonical-0322303201132233-3331133033102320-3102210333112212-2121003031010100-2022302021021031-0203120133110221-0322311031233013-0123233230031222"></a>
 
 Type: `"single"`. Computed.
 
@@ -3287,42 +3465,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f9fe942cc964f26766af069636d3bb3dcb0f6590be7fafa0395a951b1b237a8f"></a>
+<a id="canonical-3321333221100230-3021121033021213-1212223300122112-0312310323230331-3023003312112100-2332133322332200-0321112221110123-0123020313222033"></a>
 
-## Direct properties — request_cookies_to_add.secret_value / 0d22eec30166 / 3
+## Direct properties — secret_value / 300300011212 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-fa0e803c81eb65e2ca639498d65a8e95f3f8139aad2f1982988b54ce11ce7d0c): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3322003220000330-2001322312113202-3022120321102120-3112112220322111-3303332001032122-2231023301212002-2120202311103032-0101303213310030): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-4901b76acfce9c6f9c8c13299efb9d0447c1af0834abbc094683d1316016cb5e): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-1021000123131222-3033303221301233-2130203001030221-2132332321310010-1013300122330020-0310222323300021-1012200331010301-1200011230231132): complete subsection reference.
 
-<a id="canonical-e1243e097531c02fe3db119792c5de444b9366f530f47133ccf840753aa80e2d"></a>
+<a id="canonical-3201021003320021-1311030130000233-3203312301012113-2102301131321010-1023210312123311-0300331013010303-3030332010001311-0322222000320231"></a>
 
-## Next pages — request_cookies_to_add.secret_value / 0d22eec30166 / 4
+## Next pages — secret_value / 300300011212 / 4
 
-- [request_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-fa0e803c81eb65e2ca639498d65a8e95f3f8139aad2f1982988b54ce11ce7d0c)
-- [request_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-4901b76acfce9c6f9c8c13299efb9d0447c1af0834abbc094683d1316016cb5e)
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3322003220000330-2001322312113202-3022120321102120-3112112220322111-3303332001032122-2231023301212002-2120202311103032-0101303213310030)
+- [request_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-1021000123131222-3033303221301233-2130203001030221-2132332321310010-1013300122330020-0310222323300021-1012200331010301-1200011230231132)
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-fa0e803c81eb65e2ca639498d65a8e95f3f8139aad2f1982988b54ce11ce7d0c"></a>
+<a id="canonical-3322003220000330-2001322312113202-3022120321102120-3112112220322111-3303332001032122-2231023301212002-2120202311103032-0101303213310030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc4c2e4d4eec2d3d5b5db49fbffdc0cfb244c05f3042393a796933f0072804c8"></a>
+<a id="canonical-3330103002321031-1032323002310331-1123113123102133-2333333130003033-2302101030001133-0300100203210322-1321122103033300-0013022000103020"></a>
 
-## request_cookies_to_add.secret_value.blindfold_secret_info — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 2
+## request_cookies_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 301110132122 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a)
-- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022)
+- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213)
 - request_cookies_to_add.secret_value.blindfold_secret_info
 
-<a id="canonical-52f95755b6912b1e92c4e0d76abeb5a1133956a8c87efcda1b23cbbf5a73a8c1"></a>
+<a id="canonical-1102332111131111-2312210102230132-2102301032003113-1222233223112201-0103032111122220-3020133233303122-0123020330232333-1122130322203001"></a>
 
 Type: `"single"`. Computed.
 
@@ -3341,15 +3519,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a09fb7672cf285d89eb2e2c46a2fe37c472e5d9e4d57cde4e940538e6818707f"></a>
+<a id="canonical-2200213323131213-0230330220113120-2132230232023010-1222023332031330-1013023211312132-1031111330313210-3221100011032032-1220012013001333"></a>
 
-## Direct properties — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 3
+## Direct properties — blindfold_secret_info / 301110132122 / 3
 
-<a id="canonical-05581b4822299bb277086ad9fe01b41d47c077324caf2195d0f31508f9392c63"></a>
+<a id="canonical-0011112001231020-0202022121232302-1313002012223121-3332000123100131-1013300013130302-1030223302012111-3100330301110020-3321032102301203"></a>
 
-<a id="canonical-5acedfea4209fa4c2fa8b71c096788d8827b69305a70fab31dc2f877c706612a"></a>
+<a id="canonical-1122303231333222-1002002133221030-0233222023130130-0021121320203120-2002132312210300-1122130033222303-0131300233201313-3013001212010222"></a>
 
-## decryption_provider property — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 4
+## decryption_provider property — blindfold_secret_info / 301110132122 / 4
 
 Type: `"string"`. Computed.
 
@@ -3379,11 +3557,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e381fb78cd600e45a9715ff4208ec325ad9208dc008782e0860c23a0668a09ef"></a>
+<a id="canonical-3203200133231320-3031120000321011-2221130111333310-0200203230030211-2231210200203130-0000201320023200-2012003002032200-1212202200213233"></a>
 
-<a id="canonical-cbb76e15e04ef4409fa0348dd82a7a176dcc49fba800408873ba851729a8c4bf"></a>
+<a id="canonical-3023231312320111-3200103233101000-2133220003102031-3120022213220113-1231303010213323-2220000010002020-1303232220110113-0221222030102333"></a>
 
-## location property — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 5
+## location property — blindfold_secret_info / 301110132122 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -3432,11 +3610,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3df4cef01ebaa6c38fc3863a4ee397bd40adc35a695c4a8fdf0a67de20b31920"></a>
+<a id="canonical-0331331030323300-0132232222123003-2033300320120322-1032320321132331-1000223130031122-1221113010222033-3133002212133132-0200230301210200"></a>
 
-<a id="canonical-df698715c92ab062a6b0d825709b1dab601f392cd92dae5e8f82d135a5bd057c"></a>
+<a id="canonical-3133122120130111-3021022223001202-2212230031200211-1300212301312223-1200013303210230-3121023122321132-2033200231010311-2211233100111330"></a>
 
-## store_provider property — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 6
+## store_provider property — blindfold_secret_info / 301110132122 / 6
 
 Type: `"string"`. Computed.
 
@@ -3471,32 +3649,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-257f5eeccc0e900d80d72259159d7a6f8161ec67ea2f0302f240228df755d81a"></a>
+<a id="canonical-0211133311323230-3030003221000031-2000311302021121-0111213113221233-2001120132301213-3222023300030002-3302100002022031-3313111131200122"></a>
 
-## Next pages — request_cookies_to_add.secret_value.blindfold_secret_info / 4b232dc5479a / 7
+## Next pages — blindfold_secret_info / 301110132122 / 7
 
-- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4901b76acfce9c6f9c8c13299efb9d0447c1af0834abbc094683d1316016cb5e"></a>
+<a id="canonical-1021000123131222-3033303221301233-2130203001030221-2132332321310010-1013300122330020-0310222323300021-1012200331010301-1200011230231132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8041535229f2e08c3ad15781c2be0080eed72d4486e40700fbfcb59aa7baec39"></a>
+<a id="canonical-2000100111031102-0221330232002030-0322310111132001-3002233200002000-3232311302311010-2012321000130000-3323333023112122-2213232232300321"></a>
 
-## request_cookies_to_add.secret_value.clear_secret_info — request_cookies_to_add.secret_value.clear_secret_info / 4a2f4f9caf5e / 2
+## request_cookies_to_add.secret_value.clear_secret_info — clear_secret_info / 213022331132 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a)
-- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022)
+- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213)
 - request_cookies_to_add.secret_value.clear_secret_info
 
-<a id="canonical-c8da37600829c08f39ee7d0ab75668cd8c969595274f315c7b0875bef889f4a8"></a>
+<a id="canonical-3020312203131200-0020022130002033-0321323213310022-2313111212203031-2030211221112111-0213103303011130-1323002013112332-3320202133102220"></a>
 
 Type: `"single"`. Computed.
 
@@ -3515,26 +3693,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1ca51b02413e8de8692203a4a23ef9837c1eac651106327427be94ecf9995030"></a>
+<a id="canonical-0130221101230002-1001033220313220-1221020200032210-2202033233212003-1330013222301211-0101001203021310-0213233221103230-3321212111000300"></a>
 
-## Direct properties — request_cookies_to_add.secret_value.clear_secret_info / 4a2f4f9caf5e / 3
+## Direct properties — clear_secret_info / 213022331132 / 3
 
-<a id="canonical-ee9c03b5f191210deab87d5a2f5b939c98eb689e3c03bb63a2b674684349d07c"></a>
+<a id="canonical-3232213000032311-3301210102010031-3222232013311122-0233112321032130-2120322312202132-0330000323231203-2202231213101220-1003102131001330"></a>
 
-<a id="canonical-bd79e4c250e0ac5376d6e919aadc0d75de60bf0f8f39495a5088fb7bed5aace3"></a>
+<a id="canonical-2331132132103002-1100320022301103-1312311232210121-2222313000311311-3132120023330033-2033032110211122-1100202033231323-3231112222303203"></a>
 
-## provider_ref property — request_cookies_to_add.secret_value.clear_secret_info / 4a2f4f9caf5e / 4
+## provider_ref property — clear_secret_info / 213022331132 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-30e6d50dbd1aeb401bf4a9ceccca5e3f17b0c7166168d3ce25ee05acef773de5"></a>
+<a id="canonical-0300321231110031-2331012232231000-0123331022213032-3030302211320333-0113230030130112-1201122031033032-0211323200112230-3233131303313211"></a>
 
-<a id="canonical-50083344fe9b152c32bb7d8aaa71bf29252da78d413cf4267c6d0532cc2c4228"></a>
+<a id="canonical-1100002003031010-3332212301110230-0302232313312022-2222130123330221-0211023122132031-1001033033100212-1330123100110302-3030023010020220"></a>
 
-## url property — request_cookies_to_add.secret_value.clear_secret_info / 4a2f4f9caf5e / 5
+## URL property — clear_secret_info / 213022331132 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -3594,30 +3772,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-27f743ad87a52ae7744fe45e1f10eb5cfbd4f7a235ca5ecf847904be00fac7e1"></a>
+<a id="canonical-0213331310032231-2013221102223213-1310103332101132-0133010032231130-3323311033132202-0311302211323033-2010132100102332-0000332230133201"></a>
 
-## Next pages — request_cookies_to_add.secret_value.clear_secret_info / 4a2f4f9caf5e / 6
+## Next pages — clear_secret_info / 213022331132 / 6
 
-- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-a9186495b6512e9113ebccb27ba1a6f2ce7e2932d981d4347a9113229be71827)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2221012012102111-2312110102322101-0103322330302302-1323220122123302-3032133202210302-3121200131100310-1322210101030202-2123321301200213)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17"></a>
+<a id="canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-efe13d2b93f834bf24dc53ce376b3b02e5fa2e9fe95212a458deb3f730e1e8c4"></a>
+<a id="canonical-3233320103310223-2103332003102333-0210313011033032-0313122303230002-3211332202322133-3221110201022210-1120313223033313-0300320132203010"></a>
 
-## request_headers_to_add — request_headers_to_add / 600960a4776e / 2
+## request_headers_to_add — request_headers_to_add / 221013131232 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - request_headers_to_add
 
-<a id="canonical-26f55a0b540c1767ac9b07c40e8f4d69de61898fa7f681101abb116b5799e1be"></a>
+<a id="canonical-0212331111220023-1110003001131213-2230212300133010-0032203310311221-3132120120212033-2213331220010100-0122232301011223-1113212132012332"></a>
 
 Type: `"list"`. Computed.
 
@@ -3663,15 +3841,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aa5b3011644ba1619d94fcda565e2b38714fcc9a88550bed63bf0e1c5ca8f61f"></a>
+<a id="canonical-2222112303000101-1210102322011201-2131211033303122-1112113202230320-1301103330302122-2020111100233231-1203233300320130-1130222033120133"></a>
 
-## Direct properties — request_headers_to_add / 600960a4776e / 3
+## Direct properties — request_headers_to_add / 221013131232 / 3
 
-<a id="canonical-150fa57524d7a8ed0fb6638718868e11fac55a371cdad49f444470143b1ec33b"></a>
+<a id="canonical-0111003322111311-0210311322203231-0033231212032013-0120201220320101-3322301111220313-0130312231102133-1010101013000110-0323013230030323"></a>
 
-<a id="canonical-1cdffaafe5fd04721b988f6a81787dd5df19d7f0193a592001132f3461bdcfae"></a>
+<a id="canonical-0130313333222233-3211333100101302-0123212020331222-2001132013313111-3133012131133300-0121032211210200-0001010302330310-1201233130332232"></a>
 
-## append property — request_headers_to_add / 600960a4776e / 4
+## append property — request_headers_to_add / 221013131232 / 4
 
 Type: `"bool"`. Computed.
 
@@ -3696,11 +3874,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8713a7dbf6b637110187b3da378c7c2a820ad1793813663875a19162c9f91a20"></a>
+<a id="canonical-2013010322133123-3312231203130101-0001201323033122-0313203013300222-2002002231011321-0320010312120320-1311220121011202-3021332101220200"></a>
 
-<a id="canonical-309acc6d1e54f89bb16cb3204ff2b8a5538903c9b1a59fbe42e44324a1c2484d"></a>
+<a id="canonical-0300212230301231-0132111033202123-2301123023030200-1033330223202211-1103202100033021-2301221121332332-1002321010030210-2201300210201031"></a>
 
-## name property — request_headers_to_add / 600960a4776e / 5
+## name property — request_headers_to_add / 221013131232 / 5
 
 Type: `"string"`. Computed.
 
@@ -3757,13 +3935,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237): complete subsection reference.
+- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313): complete subsection reference.
 
-<a id="canonical-02a786784f681246896724d233dbb7d4ad6a8af1d80faca325b6b737a3161557"></a>
+<a id="canonical-0002221320121320-1033122001021012-2021121302103102-0303312323133110-2231122220223301-3120003322302203-0211231223130313-2203011201111113"></a>
 
-<a id="canonical-cc0c003ddecb7210c5343c1ffc489a6a74698a1bd045f24636a734e126762be0"></a>
+<a id="canonical-3030003000000331-3132302313020100-3011031003300133-3330102021221222-1310122120220123-3100101133021012-0312221303103201-0212131202233200"></a>
 
-## value property — request_headers_to_add / 600960a4776e / 6
+## value property — request_headers_to_add / 221013131232 / 6
 
 Type: `"string"`. Computed.
 
@@ -3804,32 +3982,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f01ce5fafe7a12d881a4640bbbe19f4403e56972ecfa4e3b715a5375365c56da"></a>
+<a id="canonical-3300013032113322-3332132201023120-2001221012100023-2323320121331010-0003321112211302-3230332210320323-1301112211031311-0312113011123122"></a>
 
-## Next pages — request_headers_to_add / 600960a4776e / 7
+## Next pages — request_headers_to_add / 221013131232 / 7
 
-- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237"></a>
+<a id="canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b89d82b9f9512fac9aeebf99ab537aca2dd1368c4d980d554a8a951ca7fa6038"></a>
+<a id="canonical-2320213120022321-3321110102332230-2122323223332121-2223110313223022-0231310103122030-1031212000311111-1022202221110130-2213332212000320"></a>
 
-## request_headers_to_add.secret_value — request_headers_to_add.secret_value / 11eed3915629 / 2
+## request_headers_to_add.secret_value — secret_value / 210111120221 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113)
 - request_headers_to_add.secret_value
 
-<a id="canonical-5740343d46afc111b586fdf4a27bb2d742613296ba2a753a429a2cb20a2d184e"></a>
+<a id="canonical-1113100003100331-1012223330010101-2311201233313310-2202132323023113-1002120103022112-2322022213110322-1002212202302302-0022023101201032"></a>
 
 Type: `"single"`. Computed.
 
@@ -3849,42 +4027,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b8226dd355bd5ba47f7a5141bdd18cb836fb2a200df22bd2ffd38b94572adaee"></a>
+<a id="canonical-2320020212313103-1111233111232210-1333132211011001-2331310120302320-0312332302220200-0031330202233102-3333310320232110-1113022231223232"></a>
 
-## Direct properties — request_headers_to_add.secret_value / 11eed3915629 / 3
+## Direct properties — secret_value / 210111120221 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-8f743425336a9e443fd9567906359c267f14a164e0a2e03dc8771bfcabce0f0a): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-2033131003100211-0303122221321010-0333312111121321-0012031121300212-1333011022011210-3200220232000331-3020131301233330-2223303200330022): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-c5de48ce6aab4993d57f779a6a5a3bd93a1870a69155fba411348ceb0b4ed92b): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3011313210203032-1222222310212103-3111133313132122-1222112203233121-0322012013002212-2101111133232210-0101031020303223-0023103231210223): complete subsection reference.
 
-<a id="canonical-a4c58b752670f375dd1a1460c1a38caf72222e7d5adce8f5eec32b425488bd86"></a>
+<a id="canonical-2210301120231311-0212130033031311-3131012201101200-3001220320302233-1302020202321331-1122313032203311-3232300302231002-1110202023312012"></a>
 
-## Next pages — request_headers_to_add.secret_value / 11eed3915629 / 4
+## Next pages — secret_value / 210111120221 / 4
 
-- [request_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-8f743425336a9e443fd9567906359c267f14a164e0a2e03dc8771bfcabce0f0a)
-- [request_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-c5de48ce6aab4993d57f779a6a5a3bd93a1870a69155fba411348ceb0b4ed92b)
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-2033131003100211-0303122221321010-0333312111121321-0012031121300212-1333011022011210-3200220232000331-3020131301233330-2223303200330022)
+- [request_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3011313210203032-1222222310212103-3111133313132122-1222112203233121-0322012013002212-2101111133232210-0101031020303223-0023103231210223)
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-8f743425336a9e443fd9567906359c267f14a164e0a2e03dc8771bfcabce0f0a"></a>
+<a id="canonical-2033131003100211-0303122221321010-0333312111121321-0012031121300212-1333011022011210-3200220232000331-3020131301233330-2223303200330022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b33f553dd1090bc8bfb8c50586c0bd7105fadcfb5fb839e4623a7e36e6d3f0e5"></a>
+<a id="canonical-2303033311110331-3101002100233020-2333232030110011-2012300023311301-0011332231303323-1133232003213210-1202032213320312-3212310333003211"></a>
 
-## request_headers_to_add.secret_value.blindfold_secret_info — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 2
+## request_headers_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 202322310323 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17)
-- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113)
+- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313)
 - request_headers_to_add.secret_value.blindfold_secret_info
 
-<a id="canonical-54225ff1210bf59e5bee19125a3975bc0f933b09f5994560ba87649a13132fa4"></a>
+<a id="canonical-1110020211333301-0201002333112132-1123323201210102-1122032113112330-0033210303230021-3311212110111200-2322201312102122-0103010302332210"></a>
 
 Type: `"single"`. Computed.
 
@@ -3903,15 +4081,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-11ca88c73172733b0a900730b44222daed753e0ab20a69ef6440ca524a07def3"></a>
+<a id="canonical-0101302220203013-0301130213030323-0022210000130300-2310100202023122-3231131103320022-2302002212213233-1210100030221102-1022001331323303"></a>
 
-## Direct properties — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 3
+## Direct properties — blindfold_secret_info / 202322310323 / 3
 
-<a id="canonical-e9c01de1a21d6586e4061e0525a4a9164a9ae4d77405ae6fe4b1ba58fbdb3114"></a>
+<a id="canonical-3221300001313201-2202013112112012-3210001201320011-0211221022210112-1022212232103113-1310001122321233-3210230123221120-3323312303010110"></a>
 
-<a id="canonical-a1ea8bb8e9326fd5ffa59603ec79f73df730dc8dfce3bf4efde7b0f3bf17d6e4"></a>
+<a id="canonical-2201322220232320-3221030212333111-3333221121120003-3230132133130331-3313030031302031-3330320323331032-3331321323003303-2333011331123210"></a>
 
-## decryption_provider property — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 4
+## decryption_provider property — blindfold_secret_info / 202322310323 / 4
 
 Type: `"string"`. Computed.
 
@@ -3941,11 +4119,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5c114e6cd26190fa44a798355e58f43301c62dc7dc9ac76974b0fa34e0aa7276"></a>
+<a id="canonical-1130010110321230-3102120121003322-1010221321200311-1132112033100303-0001301202313013-3130212230131221-1310230033220310-3200222213021312"></a>
 
-<a id="canonical-6eb92ad6b2d62844dcf06fa36f4428f8662e4acb5a83435fb970e571fdc91205"></a>
+<a id="canonical-1232232102223112-2302311202201010-3130330012332203-1233101002203320-1212023210223023-1122200310031133-2321130032111301-3331302101020011"></a>
 
-## location property — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 5
+## location property — blindfold_secret_info / 202322310323 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -3994,11 +4172,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f349c5437f0c0da90b078d429fe8e4bc6cb2a0c910fa462ab930f9e91c6af3c9"></a>
+<a id="canonical-3303102130111003-1333003000312221-0023001320311002-2133322032102330-1230230222003021-0100332210120222-2321030033213221-0130122233033021"></a>
 
-<a id="canonical-3526b50a9a568335617273a2907cb5a3120a049f36ca1d90878b5a0ab97b2b51"></a>
+<a id="canonical-0311021223110022-2122111220030311-1201130213032202-2100133023112203-0102002200102133-0312302201312100-2013202311220022-2321132302231101"></a>
 
-## store_provider property — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 6
+## store_provider property — blindfold_secret_info / 202322310323 / 6
 
 Type: `"string"`. Computed.
 
@@ -4033,32 +4211,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3c75daafbb9ccdc52aecb50fac0ee26c0b3759a45e32fd006d4996c654e6e62c"></a>
+<a id="canonical-0330131131222233-2323213030313011-0222323023110033-2230003232021230-0023031311212210-1132030233310000-1231102121123012-1110321232120230"></a>
 
-## Next pages — request_headers_to_add.secret_value.blindfold_secret_info / 2607d58bad3b / 7
+## Next pages — blindfold_secret_info / 202322310323 / 7
 
-- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-c5de48ce6aab4993d57f779a6a5a3bd93a1870a69155fba411348ceb0b4ed92b"></a>
+<a id="canonical-3011313210203032-1222222310212103-3111133313132122-1222112203233121-0322012013002212-2101111133232210-0101031020303223-0023103231210223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd2def864f59d26777ffa5eecedae750025e928676a9b3dc67a5b1c8c99fd652"></a>
+<a id="canonical-3031023132332012-1033112131021213-1313333322113232-3032312232131100-0002113221022012-1312222123033130-1213221123013020-3021213331121102"></a>
 
-## request_headers_to_add.secret_value.clear_secret_info — request_headers_to_add.secret_value.clear_secret_info / 4e8dbf68ae47 / 2
+## request_headers_to_add.secret_value.clear_secret_info — clear_secret_info / 122022321013 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17)
-- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113)
+- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313)
 - request_headers_to_add.secret_value.clear_secret_info
 
-<a id="canonical-d95670bb6d4565add1fce8be201c50beab20bb7f5f3e2e7b8d0cb20a534595f1"></a>
+<a id="canonical-3121111213002323-1231101112112231-3101333032202332-0200013011002332-2223020023231333-1133033202321323-2031003023020022-1103101121113301"></a>
 
 Type: `"single"`. Computed.
 
@@ -4077,26 +4255,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6fafca8ab81dfa5e03468b7d9833888165255e7d93c9dd5cfc79294d891a7ce5"></a>
+<a id="canonical-1233223330222022-2320013133221132-0003101220231331-2120030320202001-1211021111321331-2103302131311130-3330132102211031-2021012213303211"></a>
 
-## Direct properties — request_headers_to_add.secret_value.clear_secret_info / 4e8dbf68ae47 / 3
+## Direct properties — clear_secret_info / 122022321013 / 3
 
-<a id="canonical-60e847c190b9013c5fcb1e18e177d86929a2a95f18e11cfce57f110bacf6e198"></a>
+<a id="canonical-1200322010133001-2100232100010330-1133302301320120-3201131331201221-0221220222211133-0120320101303330-3211133301010023-2230331232012120"></a>
 
-<a id="canonical-3ed8676fc993f84a7273f87eabedbcd8104c5eeaa35b4ca04350eb3acb16387e"></a>
+<a id="canonical-0332312012131233-3021210333201022-1302130333201332-2223323123303120-0100103011323222-2203112310302200-1003110032230322-3023011203201332"></a>
 
-## provider_ref property — request_headers_to_add.secret_value.clear_secret_info / 4e8dbf68ae47 / 4
+## provider_ref property — clear_secret_info / 122022321013 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-bc2757555e16a04d04a9c067567a0c9e3a6fc6a6685fc5a364d1c0a0a5961a21"></a>
+<a id="canonical-2330021311131111-1132011222001031-0010222130001213-1112132200302132-0322123330122212-1220113330112203-1210310130002200-2211211201220201"></a>
 
-<a id="canonical-f0f068ee066607a5fdc33298ed70bc19419c50cb60c517c4cab4668470e7c1c1"></a>
+<a id="canonical-3300330012203232-0012121200132211-3331300303022120-3231130023300121-1001213011003023-1200301101133010-3022231012122010-1300321330013001"></a>
 
-## url property — request_headers_to_add.secret_value.clear_secret_info / 4e8dbf68ae47 / 5
+## URL property — clear_secret_info / 122022321013 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -4156,30 +4334,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c5c05bcff604ed4145eed9a24b2a5a1e193c6f5b84bb3a711d5be82cdcb1040"></a>
+<a id="canonical-2130113000112330-3333120010323110-0110113232312122-0210230222112201-3201210330123311-2320102323032213-0101311123322002-3031302301001000"></a>
 
-## Next pages — request_headers_to_add.secret_value.clear_secret_info / 4e8dbf68ae47 / 6
+## Next pages — clear_secret_info / 122022321013 / 6
 
-- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-7c39b8ee87886e7c0ff1dc26677823961aae1f765b7bb4749e0973f57d17f237)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1330032123203232-2013202012321330-0033330131300212-1213132002032112-0122223201331312-1123132323101310-2132002113033311-1331011333020313)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca"></a>
+<a id="canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c32dbd54789be4f166612ece66efbeb8854581c7aa0ccc7dae53d0ef225cb045"></a>
+<a id="canonical-3003023123311110-1320212332103301-1212120102323032-1212323323322320-2011101120013013-2222003030301331-2232110331003233-0202113023001011"></a>
 
-## response_cookies_to_add — response_cookies_to_add / 14623d8ff481 / 2
+## response_cookies_to_add — response_cookies_to_add / 203333102001 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - response_cookies_to_add
 
-<a id="canonical-17981b85dfe84272d2b1d9bc88eacf351c9df395da7ca5a8e0ba26aef6c236ec"></a>
+<a id="canonical-0113212001232011-3133322010021302-3102230131212330-2020322230330311-0130213133032111-3122133022112220-3200232202122232-3312300203123230"></a>
 
 Type: `"list"`. Computed.
 
@@ -4227,15 +4405,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c5abb8d364481ff5de21a628222d058f51f6565abc415397c8484d91abb00cc4"></a>
+<a id="canonical-3011222323203103-1210102001333311-3132020122120220-0202023100112033-1101331211121122-2330100111032113-3020102010312101-2223230000303010"></a>
 
-## Direct properties — response_cookies_to_add / 14623d8ff481 / 3
+## Direct properties — response_cookies_to_add / 203333102001 / 3
 
-<a id="canonical-011487866e5765de3cc2bc6d450b7b0deea30f43b0534d45d91c55e00726a158"></a>
+<a id="canonical-0001011020132012-1232111312113132-0330300223301231-1011002313230031-3232220300331003-2300110310311011-3121013011113200-0013021222011120"></a>
 
-<a id="canonical-135f1de5a0280cbbab5e1cfc41f2c186de92cf02645b23fb705a990e5d0d8544"></a>
+<a id="canonical-0103113301313211-2200022000302323-2223113201303330-1001330230012012-3132210230330002-1210112302033323-1300112221210032-1131003120111010"></a>
 
-## add_domain property — response_cookies_to_add / 14623d8ff481 / 4
+## add_domain property — response_cookies_to_add / 203333102001 / 4
 
 Type: `"string"`. Computed.
 
@@ -4283,11 +4461,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3bf67dabc90db0a5629e82dec41e68054af9f24bfbc7b6a73318e698a19b4a42"></a>
+<a id="canonical-0323331213312223-3021003123002211-1202213220023132-3010013212200011-1022332133021023-3323301323122213-0303012032122120-2201212310221002"></a>
 
-<a id="canonical-0c1b3ffa1cbf7e98feaacd79b48d82fd1d35b3db4ea1e686e12f1a9b14e2e3cf"></a>
+<a id="canonical-0030012303333322-0130233313322120-3332222230311321-2310203120023331-0131031123033123-1032220132122012-3201023301222123-0110320232033033"></a>
 
-## add_expiry property — response_cookies_to_add / 14623d8ff481 / 5
+## add_expiry property — response_cookies_to_add / 203333102001 / 5
 
 Type: `"string"`. Computed.
 
@@ -4328,15 +4506,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-df6445affadfd15e9efd02775342309f3ad27296dcb98c885cc4f4d19d317352): complete subsection reference.
+- [add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-3133121010112233-3322313331011132-2132333100021313-1103100203002133-0322310213022112-3130232120302020-1130301033103101-2131030113031102): complete subsection reference.
 
-- [add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-70180bf2b7f2ec3bbc8644918e761495463c65413347faa4d3d940aad4325735): complete subsection reference.
+- [add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-1300012000233302-2313330232300323-2330201210102101-2032131201102111-1012033012111001-0303101333222210-3103312110002222-3110030211130311): complete subsection reference.
 
-<a id="canonical-2536a2a964bafba71b5445f16485b16af98f557e08d7576da5bee42e0a52138c"></a>
+<a id="canonical-0211031222022221-1210232233232213-0123111010113301-1210201123011222-3321203311111332-0020311311131231-2211233232100232-0022110201032030"></a>
 
-<a id="canonical-78b9e43fb2c5c8091e4a32cbc1e82e1ccd6aadd7dc0249290a5334d448a610df"></a>
+<a id="canonical-1320232132100333-2302301130200021-0132102203023023-3001322002320130-3031122222313113-3130000210210221-0022110303103110-1020221201003133"></a>
 
-## add_path property — response_cookies_to_add / 14623d8ff481 / 6
+## add_path property — response_cookies_to_add / 203333102001 / 6
 
 Type: `"string"`. Computed.
 
@@ -4379,31 +4557,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [add_secure](data-sources--virtual_host--reference--group-002.md#canonical-5d56dadfb40e1a504d8ef98256ab959b7a1f10afa38907fa075bb2c3a50fd515): complete subsection reference.
+- [add_secure](data-sources--virtual_host--reference--group-002.md#canonical-1131111231223133-2310003201221100-1031203233212002-1112222321112123-1322013301002233-2203202100133322-0013112323023003-2211003331110111): complete subsection reference.
 
-- [ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-dcd1fb425d0375f68c2a082f85c82cc7f3161668e28dfcf2858dd747be9684f3): complete subsection reference.
+- [ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-3130310133231002-1131000313113312-2030022200200233-2011302002303013-3303011201121220-3202203133303302-2011203131131013-2332211220103303): complete subsection reference.
 
-- [ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-8c84c2a48ee05e55166489cb3f8056f6fff46f654b5435afc4450f7025ead3a0): complete subsection reference.
+- [ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-2030201030022210-2032320011321111-0112121020213023-0333200011123312-3333331012331211-1023111003112233-3010101100331300-0211322231032200): complete subsection reference.
 
-- [ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-97d76ba907d1d7a6c478e5ce616f82dd1ac3143b48bf622bad3c78518e293100): complete subsection reference.
+- [ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-2113311312232221-0013310131132212-3010132032113032-1201123320023131-0122300301100323-1020233312020223-2231033013201101-2032022103010000): complete subsection reference.
 
-- [ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-677437dc5e40c011762254304b49f58ffbf91a902d636e887a0325cbcbad3247): complete subsection reference.
+- [ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-1213131003133130-1132100030000101-1312020211100300-1023102133112033-3323332101222100-0231120312322020-1322000302113023-3023223103021013): complete subsection reference.
 
-- [ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-c713dd8098a7a2a206de31fa4bb1aa3045c2852e849d40ded49049859fed3884): complete subsection reference.
+- [ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-3013010331312000-2120221322022202-0012313203013322-1023230122220300-1011300220110232-2010213110003132-3110210010212011-2133323103202010): complete subsection reference.
 
-- [ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-52976862d593914fe989839d746b46627e4cd481a48fae17d4b27b2ea6684fe8): complete subsection reference.
+- [ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-1102211312201202-3111210321011033-3221202120032131-1310122310121202-1332103031102001-2210203322320113-3110230213230232-2212122010333220): complete subsection reference.
 
-- [ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-3cba5f5b1260bfb1ed7a0ea1f6a54485741b16bb405ea1e9fc29a31f36b33ab3): complete subsection reference.
+- [ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-0330232211331123-0102120023332301-3231132200322201-3312221110102011-1310012301122323-1000113222013221-3330022122030133-0312230303222303): complete subsection reference.
 
-- [ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-63fc5e5dc86dd4c8193879c07b95eb9ce203acf07c49f8456627338b106ab052): complete subsection reference.
+- [ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-1203333011321131-3020123131103020-0121032013213000-1323211132232130-3202000322303300-1330102133201011-1212021303032023-0100122223001102): complete subsection reference.
 
-- [ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-1373b8ded53f8b9262b40dee124c7fc2bec4a0c88881f4a2d33cc70cfd062542): complete subsection reference.
+- [ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-0103130323203132-3111033320232102-1202231000313232-0102103013333002-2332301022003020-2020200133102202-3103033030130030-3331001202111002): complete subsection reference.
 
-<a id="canonical-6bfac342c9a702da62e016157179940809832e204d8d3b1b6641f2024b7c4a0c"></a>
+<a id="canonical-1223332230031002-3021221300023122-1202320001120111-1301132121100020-0021200302320200-1031203103230123-1212100133020002-1023133010220030"></a>
 
-<a id="canonical-b10d45df2b890a50cd0f0b9e13fd9cfb968f28005c9741088240228087dfd737"></a>
+<a id="canonical-2301003110113133-0223202100221100-3031003300232132-0103333121303323-2112203302200000-1130211310010020-2002100002022000-2013313331130313"></a>
 
-## max_age_value property — response_cookies_to_add / 14623d8ff481 / 7
+## max_age_value property — response_cookies_to_add / 203333102001 / 7
 
 Type: `"number"`. Computed.
 
@@ -4443,11 +4621,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0f93d81a288807991fbff83e22dfafaadecc8e404c08f1c090aac28b45789ec7"></a>
+<a id="canonical-0033210331200122-0220202000132121-0133233333200332-0202313322332222-3132303020321000-1030002033013000-2100222230022023-1011132021323013"></a>
 
-<a id="canonical-e23a3c7dbb53ceddb9f66f95411b36c6a068b1b92bba5b6e3e7b4981a6e87051"></a>
+<a id="canonical-3202032203301331-2323110330323131-2321331212332111-1001012303123012-2200122023012321-0223232211231232-0332132310212001-2212322013001101"></a>
 
-## name property — response_cookies_to_add / 14623d8ff481 / 8
+## name property — response_cookies_to_add / 203333102001 / 8
 
 Type: `"string"`. Computed.
 
@@ -4506,11 +4684,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1d53b0e3f0d5cdba0424ecd2cf062970df72e7a2e374fefbb49aee2e3a41ee14"></a>
+<a id="canonical-0131110323003203-3300311130312322-0010021032303102-3033001202211300-3133130232132202-3203131033323323-2310212232320232-0322100132320110"></a>
 
-<a id="canonical-e1d2813171e49d33a592a8285bbf84a7bfe21401b5b581f8d45f07d701c0d725"></a>
+<a id="canonical-3201310220010301-1301321021310303-2211210222200220-1123233320102213-2333320201100001-2311231120013320-3110113300133113-0001300031130211"></a>
 
-## overwrite property — response_cookies_to_add / 14623d8ff481 / 9
+## overwrite property — response_cookies_to_add / 203333102001 / 9
 
 Type: `"bool"`. Computed.
 
@@ -4535,19 +4713,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-4ed6efcb1b920e92bea7379735d5bdb71c5c3adf6a09a60171bae81d97e4e3d9): complete subsection reference.
+- [samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-1032311232333023-0123210200322102-2332221303132113-0311311123312313-0130113003223133-1222002122120001-1301232232200131-2113321032033121): complete subsection reference.
 
-- [samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-af582aaeab33f9bfe179152325f15f5629b2a2a30467f3e41ab826b674bfcceb): complete subsection reference.
+- [samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-2233112002222232-2223030333212333-3201132101110203-0211330111331112-0221230222022203-0010121333033210-0122232002122312-1310233330303223): complete subsection reference.
 
-- [samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-7a8677ea4bef03cd2d3328ef1f10a0ddf2a11738e483554dc10c4d7b5e115480): complete subsection reference.
+- [samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-1322201213133222-1023323300033031-0231030302203233-0133010022003131-3302220101130320-3210200311111031-3001003010311323-1132010111102000): complete subsection reference.
 
-- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e): complete subsection reference.
+- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132): complete subsection reference.
 
-<a id="canonical-1e9a9fa0163187ad338fe527297e6786d6aabe1cf5159f7ab0cf1f392e18e517"></a>
+<a id="canonical-0132212221332200-0112030120132231-0303203332110213-0221133212132012-3112222223320130-3311011121331322-2300303301330321-0232012032110113"></a>
 
-<a id="canonical-e17d4a81ee36f98b94b60880400a337afca609f5992ada9bb3b5b79542b653eb"></a>
+<a id="canonical-3201133110222001-3232031233212023-2110231200202000-1000002203031322-3330221200213311-2121022231222123-2303231123132111-1002231211033223"></a>
 
-## value property — response_cookies_to_add / 14623d8ff481 / 10
+## value property — response_cookies_to_add / 203333102001 / 10
 
 Type: `"string"`. Computed.
 
@@ -4588,47 +4766,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f068938ca654c53f398faebfee564e9ac4493c9e06bc702a8ec4252a12cb6897"></a>
+<a id="canonical-3300122021032030-2212111030110333-0321203322322333-3232111210322122-3010102103302132-0012233013000222-2032301002110222-0102302312202113"></a>
 
-## Next pages — response_cookies_to_add / 14623d8ff481 / 11
+## Next pages — response_cookies_to_add / 203333102001 / 11
 
-- [response_cookies_to_add.add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-df6445affadfd15e9efd02775342309f3ad27296dcb98c885cc4f4d19d317352)
-- [response_cookies_to_add.add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-70180bf2b7f2ec3bbc8644918e761495463c65413347faa4d3d940aad4325735)
-- [response_cookies_to_add.add_secure](data-sources--virtual_host--reference--group-002.md#canonical-5d56dadfb40e1a504d8ef98256ab959b7a1f10afa38907fa075bb2c3a50fd515)
-- [response_cookies_to_add.ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-dcd1fb425d0375f68c2a082f85c82cc7f3161668e28dfcf2858dd747be9684f3)
-- [response_cookies_to_add.ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-8c84c2a48ee05e55166489cb3f8056f6fff46f654b5435afc4450f7025ead3a0)
-- [response_cookies_to_add.ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-97d76ba907d1d7a6c478e5ce616f82dd1ac3143b48bf622bad3c78518e293100)
-- [response_cookies_to_add.ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-677437dc5e40c011762254304b49f58ffbf91a902d636e887a0325cbcbad3247)
-- [response_cookies_to_add.ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-c713dd8098a7a2a206de31fa4bb1aa3045c2852e849d40ded49049859fed3884)
-- [response_cookies_to_add.ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-52976862d593914fe989839d746b46627e4cd481a48fae17d4b27b2ea6684fe8)
-- [response_cookies_to_add.ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-3cba5f5b1260bfb1ed7a0ea1f6a54485741b16bb405ea1e9fc29a31f36b33ab3)
-- [response_cookies_to_add.ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-63fc5e5dc86dd4c8193879c07b95eb9ce203acf07c49f8456627338b106ab052)
-- [response_cookies_to_add.ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-1373b8ded53f8b9262b40dee124c7fc2bec4a0c88881f4a2d33cc70cfd062542)
-- [response_cookies_to_add.samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-4ed6efcb1b920e92bea7379735d5bdb71c5c3adf6a09a60171bae81d97e4e3d9)
-- [response_cookies_to_add.samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-af582aaeab33f9bfe179152325f15f5629b2a2a30467f3e41ab826b674bfcceb)
-- [response_cookies_to_add.samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-7a8677ea4bef03cd2d3328ef1f10a0ddf2a11738e483554dc10c4d7b5e115480)
-- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add.add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-3133121010112233-3322313331011132-2132333100021313-1103100203002133-0322310213022112-3130232120302020-1130301033103101-2131030113031102)
+- [response_cookies_to_add.add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-1300012000233302-2313330232300323-2330201210102101-2032131201102111-1012033012111001-0303101333222210-3103312110002222-3110030211130311)
+- [response_cookies_to_add.add_secure](data-sources--virtual_host--reference--group-002.md#canonical-1131111231223133-2310003201221100-1031203233212002-1112222321112123-1322013301002233-2203202100133322-0013112323023003-2211003331110111)
+- [response_cookies_to_add.ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-3130310133231002-1131000313113312-2030022200200233-2011302002303013-3303011201121220-3202203133303302-2011203131131013-2332211220103303)
+- [response_cookies_to_add.ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-2030201030022210-2032320011321111-0112121020213023-0333200011123312-3333331012331211-1023111003112233-3010101100331300-0211322231032200)
+- [response_cookies_to_add.ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-2113311312232221-0013310131132212-3010132032113032-1201123320023131-0122300301100323-1020233312020223-2231033013201101-2032022103010000)
+- [response_cookies_to_add.ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-1213131003133130-1132100030000101-1312020211100300-1023102133112033-3323332101222100-0231120312322020-1322000302113023-3023223103021013)
+- [response_cookies_to_add.ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-3013010331312000-2120221322022202-0012313203013322-1023230122220300-1011300220110232-2010213110003132-3110210010212011-2133323103202010)
+- [response_cookies_to_add.ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-1102211312201202-3111210321011033-3221202120032131-1310122310121202-1332103031102001-2210203322320113-3110230213230232-2212122010333220)
+- [response_cookies_to_add.ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-0330232211331123-0102120023332301-3231132200322201-3312221110102011-1310012301122323-1000113222013221-3330022122030133-0312230303222303)
+- [response_cookies_to_add.ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-1203333011321131-3020123131103020-0121032013213000-1323211132232130-3202000322303300-1330102133201011-1212021303032023-0100122223001102)
+- [response_cookies_to_add.ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-0103130323203132-3111033320232102-1202231000313232-0102103013333002-2332301022003020-2020200133102202-3103033030130030-3331001202111002)
+- [response_cookies_to_add.samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-1032311232333023-0123210200322102-2332221303132113-0311311123312313-0130113003223133-1222002122120001-1301232232200131-2113321032033121)
+- [response_cookies_to_add.samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-2233112002222232-2223030333212333-3201132101110203-0211330111331112-0221230222022203-0010121333033210-0122232002122312-1310233330303223)
+- [response_cookies_to_add.samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-1322201213133222-1023323300033031-0231030302203233-0133010022003131-3302220101130320-3210200311111031-3001003010311323-1132010111102000)
+- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-df6445affadfd15e9efd02775342309f3ad27296dcb98c885cc4f4d19d317352"></a>
+<a id="canonical-3133121010112233-3322313331011132-2132333100021313-1103100203002133-0322310213022112-3130232120302020-1130301033103101-2131030113031102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf6b21181f4c1de1c3ec23e9f7a24eaa0a0c6ad066b1c3852d00786b5710bd90"></a>
+<a id="canonical-2333122302010120-0133103001313201-3003323002033221-3313220210322222-0022003012223100-1212230130032011-0231000013201223-1113010023312100"></a>
 
-## response_cookies_to_add.add_httponly — response_cookies_to_add.add_httponly / 564775f1dca3 / 2
+## response_cookies_to_add.add_httponly — add_httponly / 330131302203 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.add_httponly
 
-<a id="canonical-fd83576e95d9adfcf52962b924aae8efba61eaa93cc123ef02a56646ad0eae1b"></a>
+<a id="canonical-3331200311131232-2111312122313330-3311022112022321-0210222232203233-2322120132222221-0330300102033233-0002221112121012-2231003222320123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4651,37 +4829,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89a43937dc4f43e78c590711f9c3cca5b2d41285d3d382f2a59c7cd90f9fb545"></a>
+<a id="canonical-2021221003210313-3130103310033213-2030112100130101-3321300330302211-2302311001022011-3103310320023302-2211213013303121-0033213323111011"></a>
 
-## Direct properties — response_cookies_to_add.add_httponly / 564775f1dca3 / 3
+## Direct properties — add_httponly / 330131302203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-28f188b0c768cabcb6c3cd79d1e8d35aa4b10ebb5b8b1a384ce2f29a866ddfe7"></a>
+<a id="canonical-0220330120202300-3013122030222330-2312300330311321-3101322031031122-2210230100322323-1123202301220320-1030320233022122-2012123131333213"></a>
 
-## Next pages — response_cookies_to_add.add_httponly / 564775f1dca3 / 4
+## Next pages — add_httponly / 330131302203 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-70180bf2b7f2ec3bbc8644918e761495463c65413347faa4d3d940aad4325735"></a>
+<a id="canonical-1300012000233302-2313330232300323-2330201210102101-2032131201102111-1012033012111001-0303101333222210-3103312110002222-3110030211130311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90e5cbc8425d037d06b3ce3f5881040deb8d82d753ca807028c9a19117cc7771"></a>
+<a id="canonical-2100321130233020-1002113100031331-0012230330320333-1120200100100031-3223203120023113-1103302220001300-0220302122012101-0113303013131301"></a>
 
-## response_cookies_to_add.add_partitioned — response_cookies_to_add.add_partitioned / 4481e5c61be8 / 2
+## response_cookies_to_add.add_partitioned — add_partitioned / 301201233220 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.add_partitioned
 
-<a id="canonical-8cd7289149232ac0bc0c748d4dbce4eee4c86b46e6720c2540aaff0e22ef8360"></a>
+<a id="canonical-2030311302202101-1021020302223000-2330003013102031-1031233032103232-3210302012231012-3212130200300211-1000222233330032-0202323320031200"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4704,37 +4882,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c0bce3130e21e1070c4206575edcfd4dbd1cfd88bb530ab4f934f72f77d66db5"></a>
+<a id="canonical-3000233032030103-0032020132010013-0030100200121113-1132313033311031-2331013033312020-2323110300222310-3321031033130233-1313311212312311"></a>
 
-## Direct properties — response_cookies_to_add.add_partitioned / 4481e5c61be8 / 3
+## Direct properties — add_partitioned / 301201233220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-38f46b74ae162002964113f55d7f154d9c2a3e419bb552c458a5af87e3793965"></a>
+<a id="canonical-0320331012231310-2232011202000002-2112100101033311-1131133301111031-2130022203321001-2123231111023010-1120221122332013-3203132103211211"></a>
 
-## Next pages — response_cookies_to_add.add_partitioned / 4481e5c61be8 / 4
+## Next pages — add_partitioned / 301201233220 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-5d56dadfb40e1a504d8ef98256ab959b7a1f10afa38907fa075bb2c3a50fd515"></a>
+<a id="canonical-1131111231223133-2310003201221100-1031203233212002-1112222321112123-1322013301002233-2203202100133322-0013112323023003-2211003331110111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6cd2de17d0a90cb19dfd60835ac1e7755c1ccf93f928a26a7de2da76ade40698"></a>
+<a id="canonical-1230310231320113-3100222100302301-2131333112002003-1122300132131311-1130013030332103-3321022022021222-1331320231221312-2231321000122120"></a>
 
-## response_cookies_to_add.add_secure — response_cookies_to_add.add_secure / ae826160a760 / 2
+## response_cookies_to_add.add_secure — add_secure / 120022131200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.add_secure
 
-<a id="canonical-c3930e9d64b1409e15f88f20a6d5cbf23c146efa5e95e788e8477b564b719404"></a>
+<a id="canonical-3003210300322131-1210230110002132-0111332020330200-2212311130233302-0330011012323322-1132211132132020-3220101313231112-1023130121100010"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4757,37 +4935,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0c18d4d8bb3a27dfe58338b947aec6914cb4ec847af75060f2f4c3eaa46552cb"></a>
+<a id="canonical-0030012031103120-2323032202133133-3211200303202321-1013223230122101-1030231032302010-1322331311001200-3302331030033222-2210121111023023"></a>
 
-## Direct properties — response_cookies_to_add.add_secure / ae826160a760 / 3
+## Direct properties — add_secure / 120022131200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a89202e95a1615dffd6656deede174a3380bccdf31a118eb603ab699393bc023"></a>
+<a id="canonical-2220210200023221-1122011201113133-3331121211123132-3231320113102203-0320002330303133-0301220101203223-1200032223122121-0321032330000203"></a>
 
-## Next pages — response_cookies_to_add.add_secure / ae826160a760 / 4
+## Next pages — add_secure / 120022131200 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-dcd1fb425d0375f68c2a082f85c82cc7f3161668e28dfcf2858dd747be9684f3"></a>
+<a id="canonical-3130310133231002-1131000313113312-2030022200200233-2011302002303013-3303011201121220-3202203133303302-2011203131131013-2332211220103303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-15735b853061f28d64811017892e2ec8f54ffaa2a162467bbfa1042b86f463ce"></a>
+<a id="canonical-0111130311232011-0300120133022031-1210200101000113-2021023202323020-3311103333222202-2201120210121323-2333220100100223-2012331012033032"></a>
 
-## response_cookies_to_add.ignore_domain — response_cookies_to_add.ignore_domain / abf9c3199f14 / 2
+## response_cookies_to_add.ignore_domain — ignore_domain / 012121330110 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_domain
 
-<a id="canonical-b066e999199324b697316b24e7884e28c05f2cab883479d3c00dd2cef2677dd6"></a>
+<a id="canonical-2300121232212121-0121210302102312-2113030112230210-3213202010320220-3000113302302223-2020031013213103-3000003131023032-3302121313313112"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4810,37 +4988,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c74cfe2b180b420e27c5eaff35fbc09bcccdf422ebad89a37cd5ec24a60e2275"></a>
+<a id="canonical-3013103033320223-0120002310020032-0213301132223333-0311332330002123-3030303133100202-3223223120212203-1330311132300210-2212003202021311"></a>
 
-## Direct properties — response_cookies_to_add.ignore_domain / abf9c3199f14 / 3
+## Direct properties — ignore_domain / 012121330110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c47e556afa5ba9dee9430f5dbdb3bcd41e29f1819bd38657e5d2747eec4e6b7c"></a>
+<a id="canonical-3010133211111222-3322112322213132-3221100300331131-2331230323303110-0132022133012001-2123310320121113-3211310213101332-3230103212231330"></a>
 
-## Next pages — response_cookies_to_add.ignore_domain / abf9c3199f14 / 4
+## Next pages — ignore_domain / 012121330110 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-8c84c2a48ee05e55166489cb3f8056f6fff46f654b5435afc4450f7025ead3a0"></a>
+<a id="canonical-2030201030022210-2032320011321111-0112121020213023-0333200011123312-3333331012331211-1023111003112233-3010101100331300-0211322231032200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e1584d6cd209eb5241be8390a6077fdad7cf500c17c34dd857e57e16e460db6"></a>
+<a id="canonical-0232011120103112-3031020021322311-0210012332200321-0022120013133331-2231133033110000-3001133003103131-2011133211133201-1232101200312312"></a>
 
-## response_cookies_to_add.ignore_expiry — response_cookies_to_add.ignore_expiry / 44c05e3d26b3 / 2
+## response_cookies_to_add.ignore_expiry — ignore_expiry / 033102122303 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_expiry
 
-<a id="canonical-1dc8ff42b29f50cf3871db46b643f8920b41ba8d67b1ae77d92e59b9d1bc7b91"></a>
+<a id="canonical-0131302033331002-2302213311003033-0320130131231012-2312100333202102-0023100123222031-1213230122321313-3121023211212321-3101233013232101"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4863,37 +5041,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cf8e9562a4293ad0ec7d794f1f1fa3303ffab600e571ee973ddef7bf3378a557"></a>
+<a id="canonical-3033203221111202-2210022103223100-3230133113211033-0133013322030300-0333332223120000-3211130132322113-0331313233132333-0303132022111113"></a>
 
-## Direct properties — response_cookies_to_add.ignore_expiry / 44c05e3d26b3 / 3
+## Direct properties — ignore_expiry / 033102122303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-42f9d989238cc76523f2cc4c33b2de0328cafe3f60e3d92939d13fe80fb31f00"></a>
+<a id="canonical-1002332131212021-0203203030131211-0203330230301030-0303230231320003-0220302233320333-1200320331210221-0321310103333220-0033230301330000"></a>
 
-## Next pages — response_cookies_to_add.ignore_expiry / 44c05e3d26b3 / 4
+## Next pages — ignore_expiry / 033102122303 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-97d76ba907d1d7a6c478e5ce616f82dd1ac3143b48bf622bad3c78518e293100"></a>
+<a id="canonical-2113311312232221-0013310131132212-3010132032113032-1201123320023131-0122300301100323-1020233312020223-2231033013201101-2032022103010000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aa0727d0c7012e8d8c01c7854a6fbb4c53f997538faaa68019e776077974a0be"></a>
+<a id="canonical-2222001302133100-3013000102322031-2030000130132011-1022123323231030-1103332121131103-2033222222122000-0121321313120013-1321131022002332"></a>
 
-## response_cookies_to_add.ignore_httponly — response_cookies_to_add.ignore_httponly / cf99c9340b63 / 2
+## response_cookies_to_add.ignore_httponly — ignore_httponly / 031000231203 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_httponly
 
-<a id="canonical-3132e64a1698f2d98eac60ebac4bd742fc48de7affaa7d8ed8d33d963c57e7b6"></a>
+<a id="canonical-0301030232121022-0112212033023121-2032223012003223-2230102331131002-3330102031321322-3333222213312032-3120310303312112-0330111332132312"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4916,37 +5094,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e2e7a36d6226f30c3f8eb8e24670d6a4ae3e1d76f0db44fb28e9fc256ff132a6"></a>
+<a id="canonical-3202321322031231-1202021233030030-0333203223203202-1012130031122210-2232033201311312-3300312310103323-0220322133300211-1233330103022212"></a>
 
-## Direct properties — response_cookies_to_add.ignore_httponly / cf99c9340b63 / 3
+## Direct properties — ignore_httponly / 031000231203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9811bb9894336d19f50132473fe43c9970782c81ed0ca794731f212a36fb28c3"></a>
+<a id="canonical-2120010123232120-2110030312310121-3311000103021013-0333321003302121-1300132002302001-3231003022132110-1303013302010222-0312332302203003"></a>
 
-## Next pages — response_cookies_to_add.ignore_httponly / cf99c9340b63 / 4
+## Next pages — ignore_httponly / 031000231203 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-677437dc5e40c011762254304b49f58ffbf91a902d636e887a0325cbcbad3247"></a>
+<a id="canonical-1213131003133130-1132100030000101-1312020211100300-1023102133112033-3323332101222100-0231120312322020-1322000302113023-3023223103021013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-543b5d0c88a85d5deaf796f668eedaefd3e0d0b24c328ef6f8d75261b905c710"></a>
+<a id="canonical-1110032311310030-2020222011311131-3222331321123312-1220323231223233-3103320031002302-1030030220323312-3320311311021201-2321001130130100"></a>
 
-## response_cookies_to_add.ignore_max_age — response_cookies_to_add.ignore_max_age / ea7c909bf8ab / 2
+## response_cookies_to_add.ignore_max_age — ignore_max_age / 212333202223 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_max_age
 
-<a id="canonical-76ffce866c875853bf94bf4fa1a3c66a79f771b474cb2f443f6450745934362c"></a>
+<a id="canonical-1312333330322012-1230201311201103-2333211023331033-2201220330121222-1321331313012310-1310302302331010-0333121011001310-1121031003120230"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4969,37 +5147,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8d15505750332e4415219fa940706b57dc1d32c9e8c0bbe603dd8c190a64e3ac"></a>
+<a id="canonical-2031011111001113-1100030302321010-0111020121332221-1000130012231113-3130013103023021-3220300023233212-0003313120300121-0022121032032230"></a>
 
-## Direct properties — response_cookies_to_add.ignore_max_age / ea7c909bf8ab / 3
+## Direct properties — ignore_max_age / 212333202223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c1821938e028a4e2cb6da9b5b1b8a9707321819f9a2c33b715e4f8059bd837be"></a>
+<a id="canonical-3001200201210320-3200022022103202-3023123122212311-2301232022211300-1303020120012133-2122023003032313-0111321033200011-2123312003132332"></a>
 
-## Next pages — response_cookies_to_add.ignore_max_age / ea7c909bf8ab / 4
+## Next pages — ignore_max_age / 212333202223 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-c713dd8098a7a2a206de31fa4bb1aa3045c2852e849d40ded49049859fed3884"></a>
+<a id="canonical-3013010331312000-2120221322022202-0012313203013322-1023230122220300-1011300220110232-2010213110003132-3110210010212011-2133323103202010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c106c831d68e397c9dbac324fd91476f99a4b82bfc70aaf9232c84a4efcfbc45"></a>
+<a id="canonical-3001001230200301-3112203203211330-2131232230030210-3331210110131233-2121221023200223-3330130022223321-0203023020102210-3233303323301011"></a>
 
-## response_cookies_to_add.ignore_partitioned — response_cookies_to_add.ignore_partitioned / 993709084abb / 2
+## response_cookies_to_add.ignore_partitioned — ignore_partitioned / 002010222323 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_partitioned
 
-<a id="canonical-d48dd46198ec4b23225c1b7cc7c746d6827e9ca9113da41d7d706e9fb1ab6eae"></a>
+<a id="canonical-3110203131101201-2120323010230203-0202113001231330-3013301310123112-2002133221302221-0101033122100131-1331130012322133-2301222312322232"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5022,37 +5200,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-78d316e00cae7f1dc4dc89ddbbf5704bfb8e88df6042bbc938b5c0205c98835b"></a>
+<a id="canonical-1320310301123200-0030223213330131-3010313020213131-2323331113001023-3323203220203133-1200100223233021-0320231130000200-1130212020031123"></a>
 
-## Direct properties — response_cookies_to_add.ignore_partitioned / 993709084abb / 3
+## Direct properties — ignore_partitioned / 002010222323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-49182643848528c4ef501aa166214319a49524f8e1326e827c77e8fd74ce4c9c"></a>
+<a id="canonical-1021012002121003-2010201102203010-3233110001222201-1212020110030121-2210211102103320-3201030212322002-1330131332203331-1310303210302130"></a>
 
-## Next pages — response_cookies_to_add.ignore_partitioned / 993709084abb / 4
+## Next pages — ignore_partitioned / 002010222323 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-52976862d593914fe989839d746b46627e4cd481a48fae17d4b27b2ea6684fe8"></a>
+<a id="canonical-1102211312201202-3111210321011033-3221202120032131-1310122310121202-1332103031102001-2210203322320113-3110230213230232-2212122010333220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6ad4f3d8e41e99b223a8964c827afe14bdd1972207da704f0f5dc29720156c24"></a>
+<a id="canonical-1222311033033120-3210013221212302-0203222021121030-2002132233320110-2331310121130202-0013312213001033-0033113130022113-0200011112300210"></a>
 
-## response_cookies_to_add.ignore_path — response_cookies_to_add.ignore_path / 2e85b05ad86f / 2
+## response_cookies_to_add.ignore_path — ignore_path / 112231201233 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_path
 
-<a id="canonical-9ce19d337e3b49d0aa5d71e7b32ea5e176d2c3601a2cf7dd6cbfeb63ec7462fe"></a>
+<a id="canonical-2130320121310303-1332032310213100-2222113113013213-2303023222113201-1312310230031200-0122023033133131-1230233332231203-3230131012023332"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5075,37 +5253,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-354db91cae737eccb493b71f8db886dafab87d01cfc7403262f4f3096fb96368"></a>
+<a id="canonical-0311103123210130-2232130313323030-2310210323130133-2031232020123122-3322232013310001-3033301310000302-1202331033030021-1233232112031220"></a>
 
-## Direct properties — response_cookies_to_add.ignore_path / 2e85b05ad86f / 3
+## Direct properties — ignore_path / 112231201233 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2a3a5e4296d15d4cd7b2dfe9f82fb3ec03e6bf9d7b6af934a040d9c14cfbabf7"></a>
+<a id="canonical-0222032211321002-2112310111311030-3113230231333221-3320023323033230-0003321223332131-1323122233210310-2200100031213001-1030332322233313"></a>
 
-## Next pages — response_cookies_to_add.ignore_path / 2e85b05ad86f / 4
+## Next pages — ignore_path / 112231201233 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-3cba5f5b1260bfb1ed7a0ea1f6a54485741b16bb405ea1e9fc29a31f36b33ab3"></a>
+<a id="canonical-0330232211331123-0102120023332301-3231132200322201-3312221110102011-1310012301122323-1000113222013221-3330022122030133-0312230303222303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6e366ab329fa17ca443c1d8546aea9fcda68523fa6f8a330d421527f6adeb4d1"></a>
+<a id="canonical-1232031212222303-0221332201133022-1010033001312011-1012223222213330-3122122011020333-2212332022030300-3110020111021333-1222313223103101"></a>
 
-## response_cookies_to_add.ignore_samesite — response_cookies_to_add.ignore_samesite / f5d9989f9e66 / 2
+## response_cookies_to_add.ignore_samesite — ignore_samesite / 213321321212 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_samesite
 
-<a id="canonical-c9e199a0e79fdfc4d4d76c5e2da178ea9d4909db78064b7fdd838aeb56eb9741"></a>
+<a id="canonical-3021320121212200-3213213331333010-3110311312301132-0231220113203222-2131102100213123-1320001210231333-3131200320223223-1112322321131001"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5128,37 +5306,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bc2958142a0acff4a388e44f3464e69522a2e278d7eee6959b6d6b320ebfd578"></a>
+<a id="canonical-2330022111200110-0222002230333310-2203202032101033-0310121032122111-0202220232021320-3113323232122111-2123123112230302-0032233331111320"></a>
 
-## Direct properties — response_cookies_to_add.ignore_samesite / f5d9989f9e66 / 3
+## Direct properties — ignore_samesite / 213321321212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-486f20542269931c5db1dba771cd3bd5a9a753e681ef5cef8a307e91bc0b0f64"></a>
+<a id="canonical-1020123302001110-0202122121030130-1131230131232213-1301303103233111-2221221311033212-2001323311303233-2022030013322101-2330002300331210"></a>
 
-## Next pages — response_cookies_to_add.ignore_samesite / f5d9989f9e66 / 4
+## Next pages — ignore_samesite / 213321321212 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-63fc5e5dc86dd4c8193879c07b95eb9ce203acf07c49f8456627338b106ab052"></a>
+<a id="canonical-1203333011321131-3020123131103020-0121032013213000-1323211132232130-3202000322303300-1330102133201011-1212021303032023-0100122223001102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-17414098e55a531550a15db91e3b0b733f87def05db004b80eed3fc990c8abf3"></a>
+<a id="canonical-0113100110002120-3211112211030111-1100220111312321-0132032300231303-0333201331323300-1131230000102320-0032323103333021-2100302022233303"></a>
 
-## response_cookies_to_add.ignore_secure — response_cookies_to_add.ignore_secure / 9430547cf7b3 / 2
+## response_cookies_to_add.ignore_secure — ignore_secure / 133033132303 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_secure
 
-<a id="canonical-b20668cc5c116e9a8f819f6ee02c8f3f52a5556e29778696858fa93a4c8a994e"></a>
+<a id="canonical-2302001212203030-1130010112322122-2033200121331232-3200023020330333-1102221111111232-0221131320122112-2011203322210322-1030202221211032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5181,37 +5359,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-12265b8c8f44ae274f58ec785ce429037ec0a225188dcff0c66b2fb5e037736d"></a>
+<a id="canonical-0102021211232030-2033101022320213-1033112032301320-1130321002210003-1332300022020211-0120203130333300-3012122302332311-3200031313031231"></a>
 
-## Direct properties — response_cookies_to_add.ignore_secure / 9430547cf7b3 / 3
+## Direct properties — ignore_secure / 133033132303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fe39897ffb4ff73ea2bd945b6922c11acaec5d83e05605214dc2136397d951ec"></a>
+<a id="canonical-3332032120211333-3323103333130332-2202233121101123-1221020230010122-3022323011312003-3200111200110201-1031300201031203-2113312111013230"></a>
 
-## Next pages — response_cookies_to_add.ignore_secure / 9430547cf7b3 / 4
+## Next pages — ignore_secure / 133033132303 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-1373b8ded53f8b9262b40dee124c7fc2bec4a0c88881f4a2d33cc70cfd062542"></a>
+<a id="canonical-0103130323203132-3111033320232102-1202231000313232-0102103013333002-2332301022003020-2020200133102202-3103033030130030-3331001202111002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-78c6eda6c82e2f62ea0140e3c7272742a6d272647501e0b4afb4dc7cba2e439c"></a>
+<a id="canonical-1320301232312212-3020023202331202-3222000110003203-3013021302131002-2212310213021210-1311000132002310-2233231031301330-2322023210032130"></a>
 
-## response_cookies_to_add.ignore_value — response_cookies_to_add.ignore_value / dbf9fda2a755 / 2
+## response_cookies_to_add.ignore_value — ignore_value / 220222131111 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.ignore_value
 
-<a id="canonical-eadc1c8a157361ab2d134135565ab4f9a1cf303efaa0fa4f711d092c089d2c3d"></a>
+<a id="canonical-3222313001302022-0111130312012223-0231010310010311-1112112223103321-2201303303000332-3322220033221033-1301013100210230-0020213102300331"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5234,37 +5412,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb316c4f4a8705b6aabe4bd7d60a71b434782606a497390a2055aae52b9c385e"></a>
+<a id="canonical-3023030112301033-1022201300112312-2222233210233113-3112002213012310-0310132002120012-2210211303210022-0200111122223211-0223213003201132"></a>
 
-## Direct properties — response_cookies_to_add.ignore_value / dbf9fda2a755 / 3
+## Direct properties — ignore_value / 220222131111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b07e255f8603640d050fc8e610b7dcb2d3aab25618cf00bd5d88d15ff9120977"></a>
+<a id="canonical-2300133202111133-2012000312100031-0011003330203212-0100231331302302-3103222223021112-0120303300002331-1131202031011133-3321010200211313"></a>
 
-## Next pages — response_cookies_to_add.ignore_value / dbf9fda2a755 / 4
+## Next pages — ignore_value / 220222131111 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-4ed6efcb1b920e92bea7379735d5bdb71c5c3adf6a09a60171bae81d97e4e3d9"></a>
+<a id="canonical-1032311232333023-0123210200322102-2332221303132113-0311311123312313-0130113003223133-1222002122120001-1301232232200131-2113321032033121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6750d69cbcfdf09ce00f6daf1fa668639857e5a47b888aac72ca5c7df4113f32"></a>
+<a id="canonical-1213110031122130-2330333133002130-3200003312312233-0133221212201203-2120111332112210-1323202020222230-1302302211301331-3310010103330302"></a>
 
-## response_cookies_to_add.samesite_lax — response_cookies_to_add.samesite_lax / 57ac74b59647 / 2
+## response_cookies_to_add.samesite_lax — samesite_lax / 231121121013 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.samesite_lax
 
-<a id="canonical-8f6665d32428f36ebf9519e3b83ff2250dc648a553546931270f3d4539fc8072"></a>
+<a id="canonical-2033121212113103-0210022033031232-2333211101213203-2320033333020211-0031301210202211-1103111012210301-0213003303311011-0321333020001302"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5287,37 +5465,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a194ae5bc52464d6454f47fea92981a2b5e3099a6c8884031944f2c51c6579a3"></a>
+<a id="canonical-2201211022321123-3011021012103112-1011103310133332-2221022120012202-2311320300212122-1230202020100003-0121101033023011-0130121113212203"></a>
 
-## Direct properties — response_cookies_to_add.samesite_lax / 57ac74b59647 / 3
+## Direct properties — samesite_lax / 231121121013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-995ac87f0519f39afc3066f82f64a1ee15da24d5596e3531dc6c72fd46f684ef"></a>
+<a id="canonical-2121112230201333-0011012133032122-3330030012123320-0233121022013232-0111312202103111-1121123203110301-3130123013023331-1012331220103233"></a>
 
-## Next pages — response_cookies_to_add.samesite_lax / 57ac74b59647 / 4
+## Next pages — samesite_lax / 231121121013 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-af582aaeab33f9bfe179152325f15f5629b2a2a30467f3e41ab826b674bfcceb"></a>
+<a id="canonical-2233112002222232-2223030333212333-3201132101110203-0211330111331112-0221230222022203-0010121333033210-0122232002122312-1310233330303223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-65238420e1c960f97d304d32b1ec60b7e8f08daaccfac4b89a0c315794dc5535"></a>
+<a id="canonical-1211020320100200-3201302112003321-1331030010310302-2301323012002313-3220330020312222-3030332230102320-2122003003011113-2110313011110311"></a>
 
-## response_cookies_to_add.samesite_none — response_cookies_to_add.samesite_none / 46774e2a0795 / 2
+## response_cookies_to_add.samesite_none — samesite_none / 022200132111 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.samesite_none
 
-<a id="canonical-e8e123bb1258d25d91711149df2d072d31fa7cfd2e20b0ca2098dc20e25442c0"></a>
+<a id="canonical-3220320102032323-0102112031021131-2101130101011021-3133023100130231-0301332213303331-0232020023003022-0200212031300200-3202111010023000"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5340,37 +5518,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-547da51c9d54f71e00b120bf64417c921a6ba71514dbf9d1e344139a20bd8053"></a>
+<a id="canonical-1110133122110130-2131111033130132-0000230102002333-1210100113302102-0122122322130111-0110312333213101-3203101001032122-0200233120001103"></a>
 
-## Direct properties — response_cookies_to_add.samesite_none / 46774e2a0795 / 3
+## Direct properties — samesite_none / 022200132111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-560aa1d367a826374441c317381a7a4e1024b9a97696ee6eb23b07ce0a3134f4"></a>
+<a id="canonical-1112002222013103-1213222002120313-1010100130030113-0320012213221032-0100021023212221-1312211232321232-2302032300133032-0022030103103310"></a>
 
-## Next pages — response_cookies_to_add.samesite_none / 46774e2a0795 / 4
+## Next pages — samesite_none / 022200132111 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-7a8677ea4bef03cd2d3328ef1f10a0ddf2a11738e483554dc10c4d7b5e115480"></a>
+<a id="canonical-1322201213133222-1023323300033031-0231030302203233-0133010022003131-3302220101130320-3210200311111031-3001003010311323-1132010111102000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ab9e192ea981b381d015967432c581f37eb3e10132bc719e901a75b3f81cd8ba"></a>
+<a id="canonical-2223213201210232-2221200123032001-3100011121121310-0302301120013303-1332230332010001-0302233013012132-2100012213112303-3320013031202322"></a>
 
-## response_cookies_to_add.samesite_strict — response_cookies_to_add.samesite_strict / 5319744a1d23 / 2
+## response_cookies_to_add.samesite_strict — samesite_strict / 102201310203 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.samesite_strict
 
-<a id="canonical-087a07a0b62cc9931167e5e530af13abddd1b61e4c8a1975cfafc4f04112d7ed"></a>
+<a id="canonical-0020132200132200-2312023030212103-0101121332113211-0300223301032223-3131310123120132-1030202201211311-3033223330103300-1001010231133231"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -5393,37 +5571,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-94d5f3985c53c8e6718ca2f0d1b84e37b56386adf4950e9f2133a6aa92042cfa"></a>
+<a id="canonical-2110311133032120-1130110330203212-1301203022023300-3101232010320313-2311120320122231-3310211100322133-0201030322122222-2102001002303322"></a>
 
-## Direct properties — response_cookies_to_add.samesite_strict / 5319744a1d23 / 3
+## Direct properties — samesite_strict / 102201310203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4a7340b919403dfdbbf4570df249997d87d24041f18a88cc0ad9594bdb2c8ebc"></a>
+<a id="canonical-1022130310002321-0121100003313331-2323331011130031-3302102121211331-2013310210001001-3301202220203030-0022312111211023-3123023020322330"></a>
 
-## Next pages — response_cookies_to_add.samesite_strict / 5319744a1d23 / 4
+## Next pages — samesite_strict / 102201310203 / 4
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e"></a>
+<a id="canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-273bcbfa29571b0dd800d9d0680bce42ae6416122cbc707008b82a1ba2e5039e"></a>
+<a id="canonical-0213032330233322-0221111301230031-3120000031213100-1220002330321002-2232121001120102-0230233013001300-0020232002220123-2202321100032132"></a>
 
-## response_cookies_to_add.secret_value — response_cookies_to_add.secret_value / 054fb72850de / 2
+## response_cookies_to_add.secret_value — secret_value / 022011003132 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
 - response_cookies_to_add.secret_value
 
-<a id="canonical-2ca057e45985a0698098d6f385c06b7a2aad949748ba83aea794394def5630a6"></a>
+<a id="canonical-0230220011133210-1121201122001221-2000212031123303-2011300012231322-0222223121102113-1020232220032232-2213211003211031-3233111203002212"></a>
 
 Type: `"single"`. Computed.
 
@@ -5443,42 +5621,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-238345d78191548d7bde1daa7f056af6c32e874960afda3db31ef4aeb3c68ec9"></a>
+<a id="canonical-0203200310113113-2001210111102031-1323313201312222-1333001112223312-3003023220131021-1200223331220331-2303013233102232-2303301220323021"></a>
 
-## Direct properties — response_cookies_to_add.secret_value / 054fb72850de / 3
+## Direct properties — secret_value / 022011003132 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-f0795365701d228ffe8381608648a45a8165b86878fb2794f9d46d637c28cc53): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3300132111031211-1300013102022033-3332200320011200-2012102022101122-2001121123201220-1320332302132110-3321311012311203-1330022030301103): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-129efa49d8426d313689bd71fffd4fddcc835b5c5c4acc26dfacd1b596e14a89): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-0102213233221021-3120100212310301-0312202123311301-3333333110333131-3030200311231130-1130102230300212-3133223031012311-2112320110222021): complete subsection reference.
 
-<a id="canonical-6416fa4a29510d628170f66ad744963a4555a700c1ff5eb5729224252c4b0a90"></a>
+<a id="canonical-1210011233221022-0221110100311202-2001130033121222-3113101021120322-1011111122130000-3001333311322311-1302210202100211-0230102300222100"></a>
 
-## Next pages — response_cookies_to_add.secret_value / 054fb72850de / 4
+## Next pages — secret_value / 022011003132 / 4
 
-- [response_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-f0795365701d228ffe8381608648a45a8165b86878fb2794f9d46d637c28cc53)
-- [response_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-129efa49d8426d313689bd71fffd4fddcc835b5c5c4acc26dfacd1b596e14a89)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3300132111031211-1300013102022033-3332200320011200-2012102022101122-2001121123201220-1320332302132110-3321311012311203-1330022030301103)
+- [response_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-0102213233221021-3120100212310301-0312202123311301-3333333110333131-3030200311231130-1130102230300212-3133223031012311-2112320110222021)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-f0795365701d228ffe8381608648a45a8165b86878fb2794f9d46d637c28cc53"></a>
+<a id="canonical-3300132111031211-1300013102022033-3332200320011200-2012102022101122-2001121123201220-1320332302132110-3321311012311203-1330022030301103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-158cff970d759bdae48fb1b8d020a6f064fa08861cdf822e1a1bd5640060fb89"></a>
+<a id="canonical-0111203033332113-0031131121233122-3210203323012320-3100020022123300-1210332200202012-0130313320020232-0122012331111210-0000120033232021"></a>
 
-## response_cookies_to_add.secret_value.blindfold_secret_info — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 2
+## response_cookies_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 330223111102 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132)
 - response_cookies_to_add.secret_value.blindfold_secret_info
 
-<a id="canonical-19093bc3844ce31e8a3ab853fa57c213aa26ed286bbf25692ca2885a4a0bd762"></a>
+<a id="canonical-0121002103233003-2010103032030132-2022032223201103-3322111330020103-2222021232310220-1223233302111221-0230220220201122-1022002331131202"></a>
 
 Type: `"single"`. Computed.
 
@@ -5497,15 +5675,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-69f268f718d994f34883c56725aa470719965286ecee631d0b9afc3134c90343"></a>
+<a id="canonical-1221330212203313-0120312121103303-1020200330111213-0211222210130013-0121211211022012-3230323212030131-0023212233300301-0310302100031003"></a>
 
-## Direct properties — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 3
+## Direct properties — blindfold_secret_info / 330223111102 / 3
 
-<a id="canonical-065db219601c23acfcea759748e9ec121416bcfe971d30d6b0dbd67cefadf4c2"></a>
+<a id="canonical-0012113123020121-1200013002032230-3330322213112113-1020322132300102-0110011223303332-2113013103003112-2300312331121330-3233223133103002"></a>
 
-<a id="canonical-bad90930dae7513966f7854361ca47511d3d1e9f28564dd64ce68d3edb94b405"></a>
+<a id="canonical-2322312100210300-3122321311010321-1212331320111003-1201302210131101-0131033101322133-0220111210313112-1030321220310332-3123211023100011"></a>
 
-## decryption_provider property — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 4
+## decryption_provider property — blindfold_secret_info / 330223111102 / 4
 
 Type: `"string"`. Computed.
 
@@ -5535,11 +5713,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-326a745d61583c35108a2badf56536c6bbb59656902ec89c3f359b407eebc247"></a>
+<a id="canonical-0302122213101131-1201112003300311-0100202202232231-3311121103123012-2323231121121112-2100023230202130-0333031121231000-1332322330021013"></a>
 
-<a id="canonical-5f0c55a7fa4c3314e853f3463fccbebd26e5f76ac4c663fab0d76194b5fd7d8b"></a>
+<a id="canonical-1133003011112213-3322103003030110-3220110333031012-0333303023322331-0212321133131222-3010301212033322-2300311312012110-2311333113312023"></a>
 
-## location property — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 5
+## location property — blindfold_secret_info / 330223111102 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -5588,11 +5766,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-48da01f788c114232ee5bf78d95c6d206dd0234b3e633443165636811b0bb6a1"></a>
+<a id="canonical-1020312200013313-2020300101100203-0232321123331320-3121113012310200-1231310002031023-0332120303101003-0112111203122001-0123002323122201"></a>
 
-<a id="canonical-41fc1826d9335ad0e5e9c27b87ebdc858b9be0c701d3b0fb06bb8e9c61dd80ce"></a>
+<a id="canonical-1001333001200212-3121030311223100-3211322130021323-2013322331302011-2023212332003013-0001310323003323-0012232320322130-1201313120003032"></a>
 
-## store_provider property — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 6
+## store_provider property — blindfold_secret_info / 330223111102 / 6
 
 Type: `"string"`. Computed.
 
@@ -5627,32 +5805,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ddad7a81d54a4c690d4c8aad36d67b7134aee8f51f5e01d01731a9769cbe5335"></a>
+<a id="canonical-3131223113222001-3111102210301221-0031103020222231-0312311213231301-0310223232203311-0133113200013100-0113030122211312-2130233211030311"></a>
 
-## Next pages — response_cookies_to_add.secret_value.blindfold_secret_info / 0e3eedf2b552 / 7
+## Next pages — blindfold_secret_info / 330223111102 / 7
 
-- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-129efa49d8426d313689bd71fffd4fddcc835b5c5c4acc26dfacd1b596e14a89"></a>
+<a id="canonical-0102213233221021-3120100212310301-0312202123311301-3333333110333131-3030200311231130-1130102230300212-3133223031012311-2112320110222021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da677e83db00ea9bb7f26a77b5977c9f4510afe2350e07e6611636a0f6a68bab"></a>
+<a id="canonical-3122121313322003-3123000032222123-2313330212221313-2311211313302133-1011010022333202-0311003200133212-1201011203122200-3312221220232223"></a>
 
-## response_cookies_to_add.secret_value.clear_secret_info — response_cookies_to_add.secret_value.clear_secret_info / da147a47442a / 2
+## response_cookies_to_add.secret_value.clear_secret_info — clear_secret_info / 101310100222 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132)
 - response_cookies_to_add.secret_value.clear_secret_info
 
-<a id="canonical-f7a61bad0e5adc48004bd76fac09c27970f693dabd18642affd7d98567a441f2"></a>
+<a id="canonical-3313221201232231-0032112231301020-0000102331131233-2230002130021321-1300331221033122-2331012012100222-3333311331212011-1213221010013302"></a>
 
 Type: `"single"`. Computed.
 
@@ -5671,26 +5849,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9b3d16e7cbdf1b580b29c420f390a764e4b2c84ff8d2add29d66e80653fbc4da"></a>
+<a id="canonical-2123033101123213-3023313301231120-0023022130100200-3303210022131210-3210230230201033-3320310222313102-2131121232200012-1103332330103122"></a>
 
-## Direct properties — response_cookies_to_add.secret_value.clear_secret_info / da147a47442a / 3
+## Direct properties — clear_secret_info / 101310100222 / 3
 
-<a id="canonical-9c410b6c15fe7c5aab1e431b24ad655e7e1ff17a3cac42a311e1eb0acf60bbbd"></a>
+<a id="canonical-2130100100231230-0111333213301122-2223013210030123-0210223112111132-1332013333011322-0330223010022203-0101320132230022-3033120023232331"></a>
 
-<a id="canonical-00eea4bdedc6af42d4472cb428cf51cca597495adb83b09403cc0fd924734bf8"></a>
+<a id="canonical-0000323222102331-3231301222331002-3110101302302310-0220303311013030-2211211310211122-3123200323002110-0003303000333121-0210130310233320"></a>
 
-## provider_ref property — response_cookies_to_add.secret_value.clear_secret_info / da147a47442a / 4
+## provider_ref property — clear_secret_info / 101310100222 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-bac287308f8c015a9581a10cbd104827ab61ebfad306700be94aabbf26b644a2"></a>
+<a id="canonical-2322300220130300-2033203000011122-2111200122010030-2331010010200213-2223120132233322-3103001213000023-3221102222232333-0212231210102202"></a>
 
-<a id="canonical-f7c175cb7d13abc33166c4a4d0279fdf0197288b49670a2c825cca9e6daf2210"></a>
+<a id="canonical-3313300113113023-1331010322233003-0301121230102210-3100021321333133-0001211302202023-1021121300220230-2002113030222132-1231223302020100"></a>
 
-## url property — response_cookies_to_add.secret_value.clear_secret_info / da147a47442a / 5
+## URL property — clear_secret_info / 101310100222 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -5750,30 +5928,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fc8d62439a504de585c7930ceecd130c258bb34d5f774213184298c08e4c53ea"></a>
+<a id="canonical-3330203112021003-2122110010313211-2011301321030030-3232303101030030-0211202323031031-1133131310020103-0120100221203000-2032103011033222"></a>
 
-## Next pages — response_cookies_to_add.secret_value.clear_secret_info / da147a47442a / 6
+## Next pages — clear_secret_info / 101310100222 / 6
 
-- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-f7a6dc08794b99c07a7bbed7702c5ae0b03f9721464a0d3dd16a16e37c86bf5e)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3313221231300020-1321102321213000-1322132323323113-1300023011223200-2300033321130201-1012102200310331-3101122201123203-1330201223331132)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597"></a>
+<a id="canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ed03db55074128718f30451ffd43eed42ebd5311ae9a2ef80b302f505692f3d2"></a>
+<a id="canonical-3231000331231111-0013100102201301-2033030010110133-3331100332323110-0232233111030101-2232212202323320-0023030002331100-1112210233033102"></a>
 
-## response_headers_to_add — response_headers_to_add / 227dcdc24582 / 2
+## response_headers_to_add — response_headers_to_add / 300210112002 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - response_headers_to_add
 
-<a id="canonical-11881322be9bcd571d044f37f73bc11d8882cbc7f5d8624d981b5ed46b1ca462"></a>
+<a id="canonical-0101202001030202-2332212330311113-0131001010330313-3313032330010131-2020200230233013-3311312012021031-2120012311323110-1223013022101202"></a>
 
 Type: `"list"`. Computed.
 
@@ -5819,15 +5997,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d6e86b73ce466c3136a3e05660434c558d0cad358db4b6e5f22513f3054c3d14"></a>
+<a id="canonical-3112322012231303-3032101212300301-0312220332001112-1200100310301111-2031003022310311-2031231023123211-3302021101033303-0011103003310110"></a>
 
-## Direct properties — response_headers_to_add / 227dcdc24582 / 3
+## Direct properties — response_headers_to_add / 300210112002 / 3
 
-<a id="canonical-f30f676fcc8389dbd06d4858dde7008bafd2e05784b5969af8f0bce5cc37a7a3"></a>
+<a id="canonical-3303003312131233-3030200320213123-3100123110201120-3131321300002023-2233310232001113-2010231121122122-3320330023303211-3030031322132203"></a>
 
-<a id="canonical-c0a80d46a91bed3948967f589aa85fb7babdbe318bda3c554b94a4475983f944"></a>
+<a id="canonical-3000222000311012-2221012332310321-1020211213331120-2122222011332313-2322233123320301-2023312203301111-1023211022101013-1121200333211010"></a>
 
-## append property — response_headers_to_add / 227dcdc24582 / 4
+## append property — response_headers_to_add / 300210112002 / 4
 
 Type: `"bool"`. Computed.
 
@@ -5852,11 +6030,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-835c0dc5e4dfd8f6a6ef3faedd57e29f6d0988f388033bc8a44c1facfed9cbf4"></a>
+<a id="canonical-2003113000313011-3210313331203312-2212323303332232-3131111332022133-1231002120203303-2020000303233020-2210103001332230-3332312130233310"></a>
 
-<a id="canonical-0f7cd6ee0c29316db2b91c52dbbffb56c5bb12818cb7e6731e4b610dc06bf2f6"></a>
+<a id="canonical-0033133031123232-0030022103011231-2302232101301102-3123233333231112-3011232301022001-2030231332121303-0132102312010031-3000122333023312"></a>
 
-## name property — response_headers_to_add / 227dcdc24582 / 5
+## name property — response_headers_to_add / 300210112002 / 5
 
 Type: `"string"`. Computed.
 
@@ -5913,13 +6091,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98): complete subsection reference.
+- [secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3101230321222032-3323212212032112-0000210100132300-2200202302113313-3202033223320201-3113222013230022-1120310312103300-3330002320302120): complete subsection reference.
 
-<a id="canonical-fadbfd5f0d1ea02eaf762a6750864c3df116f170c5744c17604f3edc245c39f3"></a>
+<a id="canonical-3322312333311133-0031013222000232-2233131202221213-1100201210300331-3301011233011300-3011131010300113-1200103303323130-0210113003213303"></a>
 
-<a id="canonical-eb1d32b00391f35a28cb6f93597fff964fc2e848ece58acfe6b3a0c1441d4590"></a>
+<a id="canonical-3223013103022300-0003210133031122-0220302312332103-1121133333332112-1033300232201020-3230321120223033-3212230322003001-1010013110112100"></a>
 
-## value property — response_headers_to_add / 227dcdc24582 / 6
+## value property — response_headers_to_add / 300210112002 / 6
 
 Type: `"string"`. Computed.
 
@@ -5960,32 +6138,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-231dfe75b4c7c17eabfa8ae2dc31836881dfc12d93f14446456568771862e3a5"></a>
+<a id="canonical-0203013133321311-2310301330011332-2223332220223202-3130030120031220-2001313330010231-2103330110101012-1011121112201313-0120120232032211"></a>
 
-## Next pages — response_headers_to_add / 227dcdc24582 / 7
+## Next pages — response_headers_to_add / 300210112002 / 7
 
-- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3101230321222032-3323212212032112-0000210100132300-2200202302113313-3202033223320201-3113222013230022-1120310312103300-3330002320302120)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98"></a>
+<a id="canonical-3101230321222032-3323212212032112-0000210100132300-2200202302113313-3202033223320201-3113222013230022-1120310312103300-3330002320302120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da12cac4758f6d3acc7160ab08b735fd07487ef08b3f59412c17dbf6b1c342da"></a>
+<a id="canonical-3122010230223010-1311203312310322-3030130112002223-0020231303113331-0013102013323300-2023033311211001-0230011331233312-2301300310023122"></a>
 
-## response_headers_to_add.secret_value — response_headers_to_add.secret_value / 04fa90fc5ee8 / 2
+## response_headers_to_add.secret_value — secret_value / 333011323220 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113)
 - response_headers_to_add.secret_value
 
-<a id="canonical-d03a128181625d7bb378cd4b6bfda94f95fde6b90e53990e73477f7128ec1552"></a>
+<a id="canonical-3100032201022001-2001120211311323-2303132030311023-1223333122211033-2111333132122321-0032110321210032-1303101313331301-0220323001111102"></a>
 
 Type: `"single"`. Computed.
 
@@ -6005,42 +6183,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d78a0015d853a9b3eec362bb9357af6f86e641f0f04f8853d6b3068927886f49"></a>
+<a id="canonical-3113202200000111-3120110322212303-3232300312022323-2103111322331233-2012321210013300-3300103320201103-3112230300122021-0213202012331021"></a>
 
-## Direct properties — response_headers_to_add.secret_value / 04fa90fc5ee8 / 3
+## Direct properties — secret_value / 333011323220 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-866b56ef7b9da9b671d6cf4905518ad7b37093c458e1a36098f3e0abd394c5ca): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-2012122311123233-1323213122212312-1301311230331021-0011110120223113-2303130021033010-1120320122031200-2120330332002223-3103211030113022): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-346f350d338ff03bab753fbd2037658858ada529b6b57def04242e62109efcf3): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-0310123303110031-0303203333000323-2223131103332331-0200031312112020-1120223122110221-2312231113313233-0010021002321202-0100213233303303): complete subsection reference.
 
-<a id="canonical-870afd00020ac443f443fef0babedbfb650c867a24db5b3e093135a31a7c287e"></a>
+<a id="canonical-2013002233310000-0002002230101003-3310100333323300-2322233231233323-1211003020121322-0210312311230332-0021030103112203-0122133002201332"></a>
 
-## Next pages — response_headers_to_add.secret_value / 04fa90fc5ee8 / 4
+## Next pages — secret_value / 333011323220 / 4
 
-- [response_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-866b56ef7b9da9b671d6cf4905518ad7b37093c458e1a36098f3e0abd394c5ca)
-- [response_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-346f350d338ff03bab753fbd2037658858ada529b6b57def04242e62109efcf3)
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [response_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-2012122311123233-1323213122212312-1301311230331021-0011110120223113-2303130021033010-1120320122031200-2120330332002223-3103211030113022)
+- [response_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-0310123303110031-0303203333000323-2223131103332331-0200031312112020-1120223122110221-2312231113313233-0010021002321202-0100213233303303)
+- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-866b56ef7b9da9b671d6cf4905518ad7b37093c458e1a36098f3e0abd394c5ca"></a>
+<a id="canonical-2012122311123233-1323213122212312-1301311230331021-0011110120223113-2303130021033010-1120320122031200-2120330332002223-3103211030113022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-df5aa5f2864f19afeaa6b9e132d0ea0391d8d91b658cfcd18117cf242370aaf7"></a>
+<a id="canonical-3133112222113302-2012103301212233-3222221223213201-0302310032220003-2101312031210123-1211203033303101-2001011330330210-0203130022223313"></a>
 
-## response_headers_to_add.secret_value.blindfold_secret_info — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 2
+## response_headers_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 100101203321 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597)
-- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113)
+- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3101230321222032-3323212212032112-0000210100132300-2200202302113313-3202033223320201-3113222013230022-1120310312103300-3330002320302120)
 - response_headers_to_add.secret_value.blindfold_secret_info
 
-<a id="canonical-386b75b7fd8f7280081c41be1fcdb60631afb5c37b8a2d5713592c88d5da4d6f"></a>
+<a id="canonical-0320122313112313-3331203313022000-0020013010012332-0133303123120012-0301223323113003-1323202202311113-0103112102302020-3111312210311233"></a>
 
 Type: `"single"`. Computed.
 
@@ -6059,15 +6237,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4341e3c4e0e9002d29f8cf25753520dcef02a3f3d7310f48c2bd11e388b18c56"></a>
+<a id="canonical-1003100132033010-3200322100000231-0221332030330211-1311031102003130-3233000222033303-3113030100331020-3002233101013203-2020230120301112"></a>
 
-## Direct properties — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 3
+## Direct properties — blindfold_secret_info / 100101203321 / 3
 
-<a id="canonical-b9a23ffd647f88ae03e760dcc8452bd7bc8ac42d931e6b8fa803233c6f16b0fd"></a>
+<a id="canonical-2321220203333331-1210133320202232-0003321312003130-3020101102233113-2330202230100231-2103013212232033-2220000302030330-1233011223003331"></a>
 
-<a id="canonical-323b0ccd6e8a2e3b8becb1a78435766340247cee33a21f006bc83b6981a69cc0"></a>
+<a id="canonical-0302032300303031-1232202202320323-2023323023012213-2010031113121203-1000021013303232-0303220201330000-1223302003231221-2001221221303000"></a>
 
-## decryption_provider property — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 4
+## decryption_provider property — blindfold_secret_info / 100101203321 / 4
 
 Type: `"string"`. Computed.
 
@@ -6097,845 +6275,4 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c0fa0232605aeb5695b7eefd27ad0834230706328e89c335614947964e6cbeb4"></a>
-
-<a id="canonical-261c5904016cf53de02b245f8281f072e513fe74195419eba227c28f6f955946"></a>
-
-## location property — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 5
-
-Type: `"string"`. Computed, Sensitive.
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-52d08406d242b8f5d41b8c841b40a8a60f3957da13de6c32e24386f391f502d0"></a>
-
-<a id="canonical-1963a8b370299b84db0b24502f6199adeed3db286fedecacfb806b684df1b596"></a>
-
-## store_provider property — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 6
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-ce7a789f671b83070eddba2a5691d2dda42119a5d62303b53ab126d1741e19f8"></a>
-
-## Next pages — response_headers_to_add.secret_value.blindfold_secret_info / 7b8c784118f9 / 7
-
-- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-
-<a id="canonical-346f350d338ff03bab753fbd2037658858ada529b6b57def04242e62109efcf3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-8cbb89dacb5740d25d8a8a03a3c78376a9d277942e3332dfd1742b2d089d57cc"></a>
-
-## response_headers_to_add.secret_value.clear_secret_info — response_headers_to_add.secret_value.clear_secret_info / cab4e7ad7e9a / 2
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597)
-- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98)
-- response_headers_to_add.secret_value.clear_secret_info
-
-<a id="canonical-dc289188951f310f7fe23d2757c0cc29c4c73dce1d00bd497516d40a0fa1cf6f"></a>
-
-Type: `"single"`. Computed.
-
-ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-89309b39dc1cdc2b16261a7d28169380ce63a853816961a64e31e491cc2795b2"></a>
-
-## Direct properties — response_headers_to_add.secret_value.clear_secret_info / cab4e7ad7e9a / 3
-
-<a id="canonical-dcd6c6b972da1cf0a1ffb013a98e77b069e2f82e223d3d215c3ee6e548da1287"></a>
-
-<a id="canonical-f4ea8a7a76eebfcd56debbb815c79bc5b85e40e1547bfc27f42ee5e8eacd83fc"></a>
-
-## provider_ref property — response_headers_to_add.secret_value.clear_secret_info / cab4e7ad7e9a / 4
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-<a id="canonical-c94c007a7e846c42bbfaf244eb21ea7af9fc29b60259362c0269258c805939fa"></a>
-
-<a id="canonical-24f735f111bfb350a62afa61cf63a2bcc63e58d720053198b972e7c2a26d8f1a"></a>
-
-## url property — response_headers_to_add.secret_value.clear_secret_info / cab4e7ad7e9a / 5
-
-Type: `"string"`. Computed, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
-
-Upstream description:
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 131072,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 131072
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
-    "maxLength": 131072,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
-    "validation": {
-      "rfc": "RFC 3986"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-9ad745c141bd2c4eb85c29c3e53b5a4f3966a983aeac734835f3e42d5be2eb7e"></a>
-
-## Next pages — response_headers_to_add.secret_value.clear_secret_info / cab4e7ad7e9a / 6
-
-- [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d1b39a8efb9a6396009107b0a08b25f7e23ebe21d7a87b0a58d364f0fc0b8c98)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-
-<a id="canonical-4934cf1290ecb6b5c3257959b6affcf382a8a9611d4070478d2b7a96a328bd49"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3497aa6befd53bec1e8e040ce46595ea3697b8596534c8d04f07d05bd7cf214b"></a>
-
-## retry_policy — retry_policy / 293ed874fffe / 2
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- retry_policy
-
-<a id="canonical-d9c0aee6ce40c260e86d51530ab8d2bba6f46075b3bf88617d4fa05b846d9051"></a>
-
-Type: `"single"`. Computed.
-
-Retry policy configuration for route destination.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-cea6ee7a5a067af9356e1e970c583c3f5b6808f684b1983b03d4ceea76268b31"></a>
-
-## Direct properties — retry_policy / 293ed874fffe / 3
-
-- [back_off](data-sources--virtual_host--reference--group-002.md#canonical-e706c1ce08a49ebf7ef3150208cc45a5f95ecffae3fe6e7e23fc93a4d670fbb9): complete subsection reference.
-
-<a id="canonical-68daadb14e4d16961d60a4e2f7e551d42a5f58561c959fe0549a1f0d524f13de"></a>
-
-<a id="canonical-88ce950a569c7f2920f1c592e567744dc722278e1030be48035b293019275267"></a>
-
-## num_retries property — retry_policy / 293ed874fffe / 4
-
-Type: `"number"`. Computed.
-
-Specifies the allowed number of retries. Retries can be done any number of times. An exponential
-back-off algorithm is used between each retry. Defaults to \`1\`.
-
-Upstream description:
-
-Specifies the allowed number of retries. Defaults to 1. Retries can be done any number of times. An
-exponential back-off algorithm is used between each retry.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 8,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "8"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "8"
-  }
-}
-```
-
-<a id="canonical-3894889d54a7b1b23f4013773a2f2f1821abd0328c35a5017c0df1a2d9900cbb"></a>
-
-<a id="canonical-e9b72df5787422a2299af23a4bb5377f8baeb0ce0536d31ef5298571e09ecabb"></a>
-
-## per_try_timeout property — retry_policy / 293ed874fffe / 5
-
-Type: `"number"`. Computed.
-
-Specifies a non-zero timeout per retry attempt. In milliseconds.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 600000,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "600000"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "600000"
-  }
-}
-```
-
-<a id="canonical-9928b281c0798e6c8b32d624cb409569496fb93c8293b1f1d4c47acb1f2b6d50"></a>
-
-<a id="canonical-2be9ca06a2d3bf19e3cb807215808d12ed5e3fe787f4d353d15433bb2e524828"></a>
-
-## retriable_status_codes property — retry_policy / 293ed874fffe / 6
-
-Type: `["list", "number"]`. Computed.
-
-HTTP status codes that should trigger a retry in addition to those specified by retry\_on.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-7c75f6412705bde23f13c3b0a02dd161cebf3e523ad6ab8fc58a90bb55abd7b6"></a>
-
-<a id="canonical-c88f9fb82ab2248bb74d6a1007d24756c1fad4011e47376af91fb0ec7e79d07e"></a>
-
-## retry_condition property — retry_policy / 293ed874fffe / 7
-
-Type: `["list", "string"]`. Computed.
-
-Specifies the conditions under which retry takes place. Retries can be on different types of
-condition depending on application requirements. For example, network failure, all 5xx response
-codes, idempotent 4xx response codes, etc The possible values are '5xx' : Retry will be done if
-the..
-
-Upstream description:
-
-Specifies the conditions under which retry takes place. Retries can be on different types of
-condition depending on application requirements. For example, network failure, all 5xx response
-codes, idempotent 4xx response codes, etc
-
-The possible values are
-
-"5xx" : Retry will be done if the upstream server responds with any 5xx response code, or does not
-respond at all (disconnect/reset/read timeout).
-
-"gateway-error" : Retry will be done only if the upstream server responds with 502, 503 or 504
-responses (Included in 5xx)
-
-"connect-failure" : Retry will be done if the request fails because of a connection failure to the
-upstream server (connect timeout, etc.). (Included in 5xx)
-
-"refused-stream" : Retry is done if the upstream server resets the stream with a REFUSED\_STREAM
-error code (Included in 5xx)
-
-"retriable-4xx" : Retry is done if the upstream server responds with a retriable 4xx response code.
-The only response code in this category is HTTP CONFLICT (409)
-
-"retriable-status-codes" : Retry is done if the upstream server responds with any response code
-matching one defined in retriable\_status\_codes field
-
-"reset" : Retry is done if the upstream server does not respond at all (disconnect/reset/read
-timeout.)
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 7,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 7,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"5xx\\\",\\\"gateway-error\\\",\\\"connect-failure\\\",\\\"refused-stream\\\",\\\"retriable-4xx\\\",\\\"retriable-status-codes\\\",\\\"reset\\\"]",
-    "ves.io.schema.rules.repeated.max_items": "7",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"5xx\\\",\\\"gateway-error\\\",\\\"connect-failure\\\",\\\"refused-stream\\\",\\\"retriable-4xx\\\",\\\"retriable-status-codes\\\",\\\"reset\\\"]",
-    "ves.io.schema.rules.repeated.max_items": "7",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-3f30443f8994c76ffbf1c6e73def16de0a6a6176672f57e1ac8ffb4e4796f6da"></a>
-
-## Next pages — retry_policy / 293ed874fffe / 8
-
-- [retry_policy.back_off](data-sources--virtual_host--reference--group-002.md#canonical-e706c1ce08a49ebf7ef3150208cc45a5f95ecffae3fe6e7e23fc93a4d670fbb9)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-
-<a id="canonical-e706c1ce08a49ebf7ef3150208cc45a5f95ecffae3fe6e7e23fc93a4d670fbb9"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-8052c6fc7cff4d2ff61e1eaf8232de255bdb4c034be3bad2333ba880ccd4fae1"></a>
-
-## retry_policy.back_off — retry_policy.back_off / 2ae1840cf403 / 2
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [retry_policy](data-sources--virtual_host--reference--group-002.md#canonical-4934cf1290ecb6b5c3257959b6affcf382a8a9611d4070478d2b7a96a328bd49)
-- retry_policy.back_off
-
-<a id="canonical-90137b1f1dd9c158c985781b156e4912b77324a7f9b5cd9c9c92e0651e9f5b6f"></a>
-
-Type: `"single"`. Computed.
-
-Specifies parameters that control retry back off.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-71e000aa6e870548fa5c431af8d94f1d61156bfac2d839fab6c9198fb5110658"></a>
-
-## Direct properties — retry_policy.back_off / 2ae1840cf403 / 3
-
-<a id="canonical-a378be87197252a3eecd1438eec0aac7d9f5ba3889c3e863e1088f675c0cbd61"></a>
-
-<a id="canonical-f553d0225fb6a90219e31e63e8fb46813444b1c7bc8787c79d25e429c0fd07a2"></a>
-
-## base_interval property — retry_policy.back_off / 2ae1840cf403 / 4
-
-Type: `"number"`. Computed.
-
-Specifies the base interval between retries in milliseconds.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "0"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gt": "0"
-  }
-}
-```
-
-<a id="canonical-ac68f6a4f19a9e0e9129e1b937d73e308c1f52ad45dfc34b1ad23da891c32052"></a>
-
-<a id="canonical-8084123bfe9deff584c7f876401e9d63df82089445b28d5db0cabbc889a87435"></a>
-
-## max_interval property — retry_policy.back_off / 2ae1840cf403 / 5
-
-Type: `"number"`. Computed.
-
-Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must
-be greater than or equal to the base\_interval if set. The times the base\_interval. Defaults to
-\`10\`.
-
-Upstream description:
-
-Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must
-be greater than or equal to the base\_interval if set. The default is 10 times the base\_interval.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-ba4e25c006d648858a2cad3627ad8fcd0324ddddad2ba66e1f6556379c55b934"></a>
-
-## Next pages — retry_policy.back_off / 2ae1840cf403 / 6
-
-- [retry_policy](data-sources--virtual_host--reference--group-002.md#canonical-4934cf1290ecb6b5c3257959b6affcf382a8a9611d4070478d2b7a96a328bd49)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-
-<a id="canonical-e51606ec3c960457562b22f8d862e9f0eb68742c034a1b4373e9a7b926a9d694"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ec4912e6caff6a510cc338b58852da66d7df36694f5b9f1b1f0a46618c76df0b"></a>
-
-## routes — routes / 41209979738f / 2
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- routes
-
-<a id="canonical-825bb61962da8698fa4c81ae326a69be2af94e3f6712315b000abdfd2fd05dbe"></a>
-
-Type: `"list"`. Computed.
-
-HTTP routing rules that match incoming requests based on path, headers, or query parameters and
-forward them to appropriate backend origin pools.
-
-Upstream description:
-
-The list of routes that will be matched, in order, for incoming requests. The first route that
-matches will be used. Currently route object is redundant in case of TCP proxy but required. For
-TCP\_PROXY/TCP\_PROXY\_WITH\_SNI/SMA\_PROXY VirtualHosts, the route object only specifies the
-cluster/weighted-cluster as route destination without any match condition. In other words, match
-condition in route object is ignored for TCP\_PROXY/TCP\_PROXY\_WITH\_SNI/SMA\_PROXY VirtualHosts.
-Routes used for TCP\_PROXY/TCP\_PROXY\_WITH\_SNI/SMA\_PROXY VirtualHosts cannot have DirectResponse
-or Redirect as actions.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "256"
-  }
-}
-```
-
-<a id="canonical-e3e927a755eb9d3150d629a042f412fed0a97f066ba53c5a4a74aac2aa72c8ae"></a>
-
-## Direct properties — routes / 41209979738f / 3
-
-<a id="canonical-6b232fa48bd96afb2945ddf3cb824d058d3c9ba6462543821c3a6b08eaa2c083"></a>
-
-<a id="canonical-fa879cce75762d15faeea9cf35938ce3656fe7634222de0fcddeeafd8383474b"></a>
-
-## kind property — routes / 41209979738f / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. 'route').
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-a2c384541714a0ae946ef06a5d333077eec8a1c5ebbd45e48625f62f552ce378"></a>
-
-<a id="canonical-73dfa1b947fa86653dd28affbf8f36c086360a80596076cc4347cd9fd9907530"></a>
-
-## name property — routes / 41209979738f / 5
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-245a46803a727013bfb5d6cc8cd5d667cdab7d6fdbea2ab4a55c6b945b327cda"></a>
-
-<a id="canonical-cce19764f6ffb816f9e81be4a3cbb05bab14d1ca879743cfba6c155acc4f61a7"></a>
-
-## namespace property — routes / 41209979738f / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f8ce44d497bbb69aacec032256df3fe040ad350767792a4d9f4bc73a4d58f3e6"></a>
-
-<a id="canonical-e0a3ab2e61b49e578f3b165623c9f3dab60417d967baa31475bb2d26987a31f0"></a>
-
-## tenant property — routes / 41209979738f / 7
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-dbf4e4162c3876182e186c9ad869252efecf79988a20498f7aeb3b029b3ba2e8"></a>
+<a id="canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310"></a>

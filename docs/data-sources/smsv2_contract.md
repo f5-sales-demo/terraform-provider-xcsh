@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_smsv2_contract landi
 
 # xcsh_smsv2_contract landing
 
-<a id="canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d"></a>
+<a id="canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-554902648499e34549f5e371116738499c9549650146e34bd3458fd2a2b2cd75"></a>
+<a id="canonical-1111102100021210-2010212132031011-1021331132031301-0101121303201021-2130211110211211-0001101232031023-3103101120333102-2202230230311311"></a>
 
-## xcsh_smsv2_contract — xcsh_smsv2_contract / 05febd154682 / 2
+## xcsh_smsv2_contract — xcsh_smsv2_contract / 011110122002 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Publishes the immutable clean-break SMSv2 AWS, Azure, and KVM capability contracts compiled into
 this provider release.
 
-<a id="canonical-86509fe3898e696e804509b1164f17a6446a8d67db942a6b603eb7d38eb7147a"></a>
+<a id="canonical-2012110021333203-2021203212211232-2000101100212301-0112103301132212-1010122220311213-3123211002221223-1200033223133103-2032231301101322"></a>
 
-## Prerequisites — xcsh_smsv2_contract / 05febd154682 / 3
+## Prerequisites — xcsh_smsv2_contract / 011110122002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c162798dec8b2e3130b921d612bc21349cc72ae04e4d8caefd6a32f3e32c2ac8"></a>
+<a id="canonical-3001120213212031-3230202302320301-0300232102013112-0102233002010310-2130301302223200-1032103120302232-3331122203023303-3203023002223020"></a>
 
-## Minimal configuration — xcsh_smsv2_contract / 05febd154682 / 4
+## Minimal configuration — xcsh_smsv2_contract / 011110122002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -68,15 +68,15 @@ output "smsv2_contract" {
 }
 ```
 
-<a id="canonical-251e5fb5d297e45f9f7c3e36e3d6d062c9f8f3f14c7ffb86ffcdacb83b1b3bf2"></a>
+<a id="canonical-0211013211332311-3102211332101133-2133133003320312-3203311231001202-3021332033033301-1030133333232012-3333303122302320-0323012303233302"></a>
 
-## Root configuration — xcsh_smsv2_contract / 05febd154682 / 5
+## Root configuration — xcsh_smsv2_contract / 011110122002 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-694e2d55ef8e7159096af27303c19b3b93d54c03ece52365d536a7d430ade7e5"></a>
+<a id="canonical-1221103202311111-3233203213011121-0021122233021303-0003300121230323-2103311110300003-3230321102031211-3111031222133110-0300223132133211"></a>
 
-## Next pages — xcsh_smsv2_contract / 05febd154682 / 6
+## Next pages — xcsh_smsv2_contract / 011110122002 / 6
 
-- [Property reference](../guides/data-sources--smsv2_contract--reference--group-001.md#canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419)
-- [Examples](../guides/data-sources--smsv2_contract--examples--group-001.md#canonical-ccf6768914d16112d2da6e223c8d15a789508b84132428ac17ca8c306d5e420c)
+- [Property reference](../guides/data-sources--smsv2_contract--reference--group-001.md#canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121)
+- [Examples](../guides/data-sources--smsv2_contract--examples--group-001.md#canonical-3030331213122021-0110310112010102-3102312212320202-0330203101112213-2021110020232010-0103021002202230-0113302220300300-1231113210020030)

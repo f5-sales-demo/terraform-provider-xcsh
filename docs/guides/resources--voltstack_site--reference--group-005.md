@@ -6,25 +6,170 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
-<a id="canonical-9640ee246b162d6fc57ba4a4ce94250d8498f1af2ffbb0fc6d2f77e2d7b59360"></a>
+<a id="canonical-3210213020011333-0233323330210212-3201123302012310-2030221002121311-0221011310303203-1302222303120101-3203320011221121-3323202021332202"></a>
 
-## tenant property — custom_network_config.interface_list.interfaces.tunnel_interface.tunnel / c44c09d54213 / 6
+## custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.cluster_static_ip — cluster_static_ip / 332130012232 / 2
 
-Type: `"string"`. Computed.
+Breadcrumbs:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.interface_list](resources--voltstack_site--reference--group-003.md#canonical-0100203223120222-0230103002031132-0332203202020213-0212233113013100-3330311013022230-0332030200210121-2020333030213323-0133002123021131)
+- [custom_network_config.interface_list.interfaces](resources--voltstack_site--reference--group-003.md#canonical-3323232300012332-3233133221220120-1001103003112132-0332100111102230-2023131333013233-0131310021221101-0000121002122332-2202120030322211)
+- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-1012322230030023-3000301300302131-3203221332301322-2103012002021321-0111030132311312-3313233303332202-2323030121333310-3100101233000101)
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip](resources--voltstack_site--reference--group-004.md#canonical-0201332103101310-0131121012221230-2030111132322122-3320003020121002-0321232233301130-2013120022103301-0112121302232331-2330000322001012)
+- custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.cluster_static_ip
+
+<a id="canonical-0212120311220100-0222302031320020-3010003210212101-3331012321030332-1313231003222000-0231201232031200-0211202300233002-3023013031120121"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for cluster.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cluster_static_ip {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3313320003021202-2122220303312020-1223203022200023-2330130213123111-3233230332211020-0210301332132331-1232332111000202-2202122203120331"></a>
+
+## Direct properties — cluster_static_ip / 332130012232 / 3
+
+<a id="canonical-3113232020002333-0101203000103201-0030012221031323-3223200213133123-2033121333011002-2010201020013301-2003233222101122-0031310301000111"></a>
+
+<a id="canonical-0212301333122132-2203332100213301-0230312201233023-1002211200223211-3022203200001021-1131033330123032-0133023221011331-1121333311111303"></a>
+
+## interface_ip_map property — cluster_static_ip / 332130012232 / 4
+
+Type: `["map", "string"]`. Optional.
+
+Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  }
+}
+```
+
+<a id="canonical-3302002311320321-1111221202233232-1210020321120332-1232130312121333-3232333210033221-1123330013132300-1001010332220021-3022302213002133"></a>
+
+## Next pages — cluster_static_ip / 332130012232 / 5
+
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip](resources--voltstack_site--reference--group-004.md#canonical-0201332103101310-0131121012221230-2030111132322122-3320003020121002-0321232233301130-2013120022103301-0112121302232331-2330000322001012)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1310022322011031-1033323233223213-3310333231023311-3000233230332023-3311301311013330-0323210113010020-2013000203230123-3202101120120102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1123311231303133-0032331031003120-3020131322302300-3020220223120322-0130212213023322-3110131110223023-2221033322213230-0033011330002032"></a>
+
+## custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.node_static_ip — node_static_ip / 211331202011 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.interface_list](resources--voltstack_site--reference--group-003.md#canonical-0100203223120222-0230103002031132-0332203202020213-0212233113013100-3330311013022230-0332030200210121-2020333030213323-0133002123021131)
+- [custom_network_config.interface_list.interfaces](resources--voltstack_site--reference--group-003.md#canonical-3323232300012332-3233133221220120-1001103003112132-0332100111102230-2023131333013233-0131310021221101-0000121002122332-2202120030322211)
+- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-1012322230030023-3000301300302131-3203221332301322-2103012002021321-0111030132311312-3313233303332202-2323030121333310-3100101233000101)
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip](resources--voltstack_site--reference--group-004.md#canonical-0201332103101310-0131121012221230-2030111132322122-3320003020121002-0321232233301130-2013120022103301-0112121302232331-2330000322001012)
+- custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.node_static_ip
+
+<a id="canonical-0321203320202120-3201132023311221-1230121110332103-1122123201131023-1231303320021302-0112123231121231-0320200131020203-2001120202320120"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for a node.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node_static_ip {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0033101303231210-0102221132133133-3333022001112312-1321223310223133-2110031102011123-3123123121120223-2030201200132003-0110201112221012"></a>
+
+## Direct properties — node_static_ip / 211331202011 / 3
+
+<a id="canonical-1220330103312112-1133112131023310-3103031323213201-3322003122333033-3302330113231300-1013233030202330-1021133201032332-3320331331131122"></a>
+
+<a id="canonical-3322103131231221-0001133010233010-3313112132220331-2220020202002013-2221210021323131-2132122032011111-2001111213130223-3331012110330112"></a>
+
+## default_gw property — node_static_ip / 211331202011 / 4
+
+Type: `"string"`. Optional.
+
+Default Gateway. IP address of the default gateway.
 
 Upstream description:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
+IP address of the default gateway.
 
 Provider validators and defaults (from schema source):
 
 ```go
 Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
+  stringvalidator.LengthAtMost(1024),
+  validators.IPValidator(),
 }
 ```
 
@@ -32,15 +177,12 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
-  "maxLength": 64,
   "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
     "category": "discovery",
     "constraintType": "string",
     "deterministic": true,
-    "maxLength": 64,
+    "format": "ip",
+    "maxLength": 1024,
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
@@ -54,646 +196,40 @@ Receipt-pinned upstream constraints:
     "update": false
   },
   "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
+    "ves.io.schema.rules.string.ip": "true"
   },
   "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
+    "ves.io.schema.rules.string.ip": "true"
   }
 }
 ```
 
-<a id="canonical-9ce84fb3aba4e5cb93843f5eb554fed167694d07bf132332d4fd3bd7acde63d3"></a>
+<a id="canonical-0101303102220223-2102210322210233-3121202201123302-2121210020323102-0120031212331030-2100301201332231-1001220103322022-0333312033213312"></a>
 
-## Next pages — custom_network_config.interface_list.interfaces.tunnel_interface.tunnel / c44c09d54213 / 7
+<a id="canonical-2131210332303032-0023201203302111-2300002032303120-2103213111332302-3000333103030211-1300121220213031-0133010230302311-3223001002030012"></a>
 
-- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-46eac30bc0c70c9de3a7ec7a931822791531ed76f7bf3fa2bb319ff4d046f011)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-98bc5a3ff6af9ad3923d6256482ee1a24488a99197c1ef373363351e35883a30"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ce14360d1deee7601b22421afe6117c4431d4fb4f6611e0bd2ee5a1373170513"></a>
-
-## custom_network_config.no_forward_proxy — custom_network_config.no_forward_proxy / c1b5606b03d1 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.no_forward_proxy
-
-<a id="canonical-23383989bc68272f151feca2b6761dc033a3afc86a41d524d217d1a3c6ba2c48"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no forward proxy.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_forward_proxy = {}
-```
-
-<a id="canonical-724849809ba9daf2fda79774fa11d13d5477cf1f9ea529b82bdc98e292c47433"></a>
-
-## Direct properties — custom_network_config.no_forward_proxy / c1b5606b03d1 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-f7bf4328855f86b8726db2198534d69686a253efaf50de288f68ef00eb8ea753"></a>
-
-## Next pages — custom_network_config.no_forward_proxy / c1b5606b03d1 / 4
-
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-d4f86e83fa178d4f00eff02424ec5da13c6bdb3bc807f2f5912809d2e67b0359"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ae3e8011f3e39d4c4131e7292db15bbf9bd2294db4d7e9eca515e8261701a0ce"></a>
-
-## custom_network_config.no_global_network — custom_network_config.no_global_network / cedf8be2ca6f / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.no_global_network
-
-<a id="canonical-e489ffdf14a21bdcc3e7b3fbb866afb74564957793f187dced08d87c470a2cab"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no global network.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_global_network = {}
-```
-
-<a id="canonical-5c47cbbe4a6e8587ac7dfef9eb918374c965905013c9c4caca87c255efa06c6a"></a>
-
-## Direct properties — custom_network_config.no_global_network / cedf8be2ca6f / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-38a9eb89ff8abf6c4cbd3f80c8b705b4be30fb0ec59bcabb7c9e32c2d4858355"></a>
-
-## Next pages — custom_network_config.no_global_network / cedf8be2ca6f / 4
-
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-4d403ca6e8c9501d6b8716a1318e34ab9946407fcc2cbe306da83168aff71e27"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-747928fc2692a4d6c6135be22b33f46766c1f3e5099fc7ee0af107b32c00350e"></a>
-
-## custom_network_config.no_network_policy — custom_network_config.no_network_policy / 136b50a1aff3 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.no_network_policy
-
-<a id="canonical-603c47e654045ed57731097feade81990e26055ad56eca194e63b78f87ac5a0b"></a>
-
-Type: `["object", {}]`. Optional.
-
-Policy configuration for this feature.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_network_policy = {}
-```
-
-<a id="canonical-c8d104746b04d9b009bdf6cce91e32c328da6361abc3b241baa51dea6ffe6810"></a>
-
-## Direct properties — custom_network_config.no_network_policy / 136b50a1aff3 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-5f25d5ac68fd8ea137615977608e53eb152e7e9b14dc393797a28c1040a319f1"></a>
-
-## Next pages — custom_network_config.no_network_policy / 136b50a1aff3 / 4
-
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c6b28df73fcff01db85eded04b82d1b8addbcfe272c05d006e21fc022b53af5b"></a>
-
-## custom_network_config.sli_config — custom_network_config.sli_config / 6f88683bce35 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.sli_config
-
-<a id="canonical-a4ff480e6285fcfea431f548de1a201baf3bdbd37c4a88a26db09dfac80b5268"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Site local inside network configuration.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_static_routes",
-    "static_routes"),
-  validators.ConflictingObjectAttributes("no_v6_static_routes",
-    "static_v6_routes")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-static_route_choice": "[\"no_static_routes\",\"static_routes\"]",
-  "x-ves-oneof-field-static_v6_route_choice": "[\"no_v6_static_routes\",\"static_v6_routes\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-sli_config {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0954ac2225d2c5f827d9cb3a6086762b9739e26b4a9b5958424185e6d212b74f"></a>
-
-## Direct properties — custom_network_config.sli_config / 6f88683bce35 / 3
-
-- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-809abf6dd6d4973c108cabf0893fd364206229d34daa017ec7338da2b7539ea5): complete subsection reference.
-
-- [no_v6_static_routes](resources--voltstack_site--reference--group-005.md#canonical-a6d1f7ecef13d5a9bddb10d41973aa9f487cdcf06f482f40b59f4d45dc88046c): complete subsection reference.
-
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1): complete subsection reference.
-
-- [static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623): complete subsection reference.
-
-<a id="canonical-3106e18b9b4b621eb108e18f77f2f092241e220344eded9a628c6333894f676d"></a>
-
-## Next pages — custom_network_config.sli_config / 6f88683bce35 / 4
-
-- [custom_network_config.sli_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-809abf6dd6d4973c108cabf0893fd364206229d34daa017ec7338da2b7539ea5)
-- [custom_network_config.sli_config.no_v6_static_routes](resources--voltstack_site--reference--group-005.md#canonical-a6d1f7ecef13d5a9bddb10d41973aa9f487cdcf06f482f40b59f4d45dc88046c)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-809abf6dd6d4973c108cabf0893fd364206229d34daa017ec7338da2b7539ea5"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a98c4514e70e55c8d757ffd0465c7a82c477f0239ffbb271529510d07c1a5608"></a>
-
-## custom_network_config.sli_config.no_static_routes — custom_network_config.sli_config.no_static_routes / 92a62d36b7ae / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- custom_network_config.sli_config.no_static_routes
-
-<a id="canonical-624a76dd627213e823383837fb4d755ae6e37a0662ae59a12174c6dfc32f04cd"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no static routes.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_static_routes = {}
-```
-
-<a id="canonical-dabd94d8d414bb0e252766eb731808cf08f76b990e228c269d78b743390edbb1"></a>
-
-## Direct properties — custom_network_config.sli_config.no_static_routes / 92a62d36b7ae / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-a7dfba7c4b5437860a0dddaa4caac28a6826550f5431f50ca1a5ce84fce61a34"></a>
-
-## Next pages — custom_network_config.sli_config.no_static_routes / 92a62d36b7ae / 4
-
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-a6d1f7ecef13d5a9bddb10d41973aa9f487cdcf06f482f40b59f4d45dc88046c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ecc4e8008148fde457d814c77b7599dbabef585d8dfe95f8cdbac19bbb12575a"></a>
-
-## custom_network_config.sli_config.no_v6_static_routes — custom_network_config.sli_config.no_v6_static_routes / b69d9ea55a2d / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- custom_network_config.sli_config.no_v6_static_routes
-
-<a id="canonical-20ccfb7ad48642d1e5eafddd3f11bd2716e78499470c8bcf4dd71a52d0dcb9b3"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no v6 static routes.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_v6_static_routes = {}
-```
-
-<a id="canonical-9f7cf62788570670eea7b3e16f63c33a203241db14dde513832b8a95d6cce0d6"></a>
-
-## Direct properties — custom_network_config.sli_config.no_v6_static_routes / b69d9ea55a2d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-16bfc318e340d41dd14d0144b1da6acb8545555187ab7f7fe1c1e7506299fd7c"></a>
-
-## Next pages — custom_network_config.sli_config.no_v6_static_routes / b69d9ea55a2d / 4
-
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ed7cb6f60e60267fa59aa393f8300992a60f29e706736f54a2c554c187098a69"></a>
-
-## custom_network_config.sli_config.static_routes — custom_network_config.sli_config.static_routes / 4d46a773ab08 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- custom_network_config.sli_config.static_routes
-
-<a id="canonical-ed88f51e89ac89ce5fcdb15aff715b05c4700420676c649e0cf9bf6e1480680d"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for static routes.
-
-Upstream description:
-
-List of static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_routes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0a9467ef0cb19e1b4c15a97ede78d9d23cd7fd61db2d7c6a0e2a1e4e98bcbbe9"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes / 4d46a773ab08 / 3
-
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51): complete subsection reference.
-
-<a id="canonical-fb3ee985fb9db0de957ad262f4b44781c179e31e7e12f0adcd85705230c9b0ea"></a>
-
-## Next pages — custom_network_config.sli_config.static_routes / 4d46a773ab08 / 4
-
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c50665f57e6a47ec9ddb4da59f92eafbaea31b85776472fb2caacdd3579c36a1"></a>
-
-## custom_network_config.sli_config.static_routes.static_routes — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- custom_network_config.sli_config.static_routes.static_routes
-
-<a id="canonical-d9e5272daf05c698aff07b246b99ed89729dab067adbdf807f1cc733563f1290"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Static Routes. List of static routes.
-
-Upstream description:
-
-List of static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
-  validators.RequiredOneOfListObjectAttributes("default_gateway",
-    "ip_address",
-    "node_interface"),
-  validators.ConflictingListObjectAttributes("default_gateway",
-    "ip_address"),
-  validators.ConflictingListObjectAttributes("default_gateway",
-    "node_interface"),
-  validators.ConflictingListObjectAttributes("ip_address",
-    "node_interface")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_routes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-957c158104d76f8f096478a70f67fce85fb0728b3d49616fc119dc9f1480470c"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 3
-
-<a id="canonical-7203dbfa0800e57be3d68239197c5c466549f70838d69ba4eb64e5adb0e713f3"></a>
-
-<a id="canonical-848dc011eda8e9d83855e3138c4b5366f0ba48b43c1f48a0b2a7f68e4108e32d"></a>
-
-## attrs property — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 4
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum:
-ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
-List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
-Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
-\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
-Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
-
-Upstream description:
-
-List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(4),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-197cea805d8ca80b849f2c28923d3996e24846c24323050afc00836e0d746af2): complete subsection reference.
-
-<a id="canonical-a0e2a00c9613edc700d7c7ee73ec4d61b2fcdebf3d38ead2747ae357732a3d35"></a>
-
-<a id="canonical-d2d606d4e9ee2f457909bd3e318dc8066be1a2a4020bf75ca737e89c214424a3"></a>
-
-## ip_address property — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 5
+## dns_server property — node_static_ip / 211331202011 / 5
 
 Type: `"string"`. Optional.
 
-Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
-IP Address.
+DNS server address for the static interface configuration.
 
-Upstream description:
+<a id="canonical-3110032312221023-1103103301332033-1030122002003310-3233302112123320-3202013021321333-1310222201233231-2210212012122313-2031201213011023"></a>
 
-Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
-IP Address.
+<a id="canonical-2232033331131122-1013020030123300-0303002133313112-2320331321321321-1333233322210010-1201103031221332-3321102021330231-2233113212201101"></a>
+
+## ip_address property — node_static_ip / 211331202011 / 6
+
+Type: `"string"`. Optional.
+
+IP address of the interface and prefix length.
 
 Provider validators and defaults (from schema source):
 
 ```go
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
-  validators.IPv4Validator(),
+  validators.CIDRValidator(),
 }
 ```
 
@@ -705,7 +241,7 @@ Receipt-pinned upstream constraints:
     "category": "discovery",
     "constraintType": "string",
     "deterministic": true,
-    "format": "ipv4",
+    "format": "cidr",
     "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
     "maxLength": 1024,
     "metadata": {
@@ -717,58 +253,6 @@ Receipt-pinned upstream constraints:
     "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
   },
   "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  }
-}
-```
-
-<a id="canonical-f8d77fbd9d49128b8e4d64df0536361a67c52dc9624f075bb03209c7b6e27386"></a>
-
-<a id="canonical-141e4dbef0473b85ecefb392fc94c6aeca2d09edc8aa08942d0afe70a93bbcc2"></a>
-
-## ip_prefixes property — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 6
-
-Type: `["list", "string"]`. Optional.
-
-List of route prefixes that have common next hop and attributes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 256,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
     "create": true,
     "minimum_config": true,
     "read": false,
@@ -776,1587 +260,43 @@ Receipt-pinned upstream constraints:
   },
   "x-validation-rules": {
     "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
+    "ves.io.schema.rules.string.ip_prefix": "true"
   },
   "x-ves-validation-rules": {
     "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
+    "ves.io.schema.rules.string.ip_prefix": "true"
   }
 }
 ```
 
-- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca): complete subsection reference.
+<a id="canonical-1003010031103101-3322131003232011-3320302000122312-1333321213301102-3032010313323201-0123031331000001-3021120210231120-3300330223133313"></a>
 
-<a id="canonical-3912ff759f72e4aa234c68cbe19d1d4812317ec2634cd0d41a7d4ebbe31d6702"></a>
+## Next pages — node_static_ip / 211331202011 / 7
 
-## Next pages — custom_network_config.sli_config.static_routes.static_routes / 633005f0a4ff / 7
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip](resources--voltstack_site--reference--group-004.md#canonical-0201332103101310-0131121012221230-2030111132322122-3320003020121002-0321232233301130-2013120022103301-0112121302232331-2330000322001012)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-- [custom_network_config.sli_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-197cea805d8ca80b849f2c28923d3996e24846c24323050afc00836e0d746af2)
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-197cea805d8ca80b849f2c28923d3996e24846c24323050afc00836e0d746af2"></a>
+<a id="canonical-0220322301001222-3022112332322211-2232333231020032-0201320212231012-3331231230023133-1032013112021312-1002130020322021-3220133323211300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a62ab617f6982a669385c667494cfa5838330e598d980e3d363c3e609bcf44de"></a>
+<a id="canonical-3332101000123221-0012030000033331-0111000023233133-3322303010010312-0032312332223320-3133201010202121-0221322331331320-2023033211111020"></a>
 
-## custom_network_config.sli_config.static_routes.static_routes.default_gateway — custom_network_config.sli_config.static_routes.static_routes.default_gateway / a6debfcf6245 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- custom_network_config.sli_config.static_routes.static_routes.default_gateway
-
-<a id="canonical-89e659466a1756dbe7b6a78391fc8c5674d6ac12fe7a955966cb20b0f4453f21"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for default gateway.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default_gateway = {}
-```
-
-<a id="canonical-99fa53baa22d09fac3371c54a8bb7e9d6b4a38accc7715a2e6a8dc06d38ec31e"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes.static_routes.default_gateway / a6debfcf6245 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-283890d60ceb2fcd68f918a57ad3ef1ddc3e61cb3cc9b861e58d5ed8681f3edd"></a>
-
-## Next pages — custom_network_config.sli_config.static_routes.static_routes.default_gateway / a6debfcf6245 / 4
-
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-407b403341820e92937480484ea4f5681443547e6602e13d54d268c908f6e9d9"></a>
-
-## custom_network_config.sli_config.static_routes.static_routes.node_interface — custom_network_config.sli_config.static_routes.static_routes.node_interface / 9405d8748819 / 2
+## custom_network_config.interface_list.interfaces.tunnel_interface.tunnel — tunnel / 311110020103 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- custom_network_config.sli_config.static_routes.static_routes.node_interface
-
-<a id="canonical-401c8e80562a0b2c694f54497fbd715607a952a06442f380fe32d8a3c9f374ce"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-On multinode site, this type holds the information about per node interfaces.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-node_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2a236978d3af1510c80dce258935e4ecd59bbf038afa0d66d831713af03ee90c"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes.static_routes.node_interface / 9405d8748819 / 3
-
-- [list](resources--voltstack_site--reference--group-005.md#canonical-6e093de46046983c3c430cd59412f5673746856a633bed74e9489049c22e1555): complete subsection reference.
-
-<a id="canonical-b37440d4b309abf9b3b2c93afd7436ae6ace424275d22185305dde7c270b31e9"></a>
-
-## Next pages — custom_network_config.sli_config.static_routes.static_routes.node_interface / 9405d8748819 / 4
-
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-6e093de46046983c3c430cd59412f5673746856a633bed74e9489049c22e1555)
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-6e093de46046983c3c430cd59412f5673746856a633bed74e9489049c22e1555"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-4eaad0845373ccea08ef9312e89c72898cee777e7927b1a0bb56dd073c3a21eb"></a>
-
-## custom_network_config.sli_config.static_routes.static_routes.node_interface.list — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 706b57e22dd1 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca)
-- custom_network_config.sli_config.static_routes.static_routes.node_interface.list
-
-<a id="canonical-0d47c7cef8251bf78c14e191215b0b6a1030f3e277bb6dc2316dfda42dac946e"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-On a multinode site, this list holds the nodes and corresponding networking\_interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 8,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 8,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "8"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "8"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-a76a6b1a1b3aee5d7f352e297d0240d7dd42baf430d9c996f71fbfb2f7aafe07"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 706b57e22dd1 / 3
-
-- [interface](resources--voltstack_site--reference--group-005.md#canonical-340a57fbc0e14f2b2a9a126045853ab78dfbf144f5a3f84d4b5c709891d5f0a1): complete subsection reference.
-
-<a id="canonical-2a4bf94abc2cd38a2722a15bf92b1faf62e88c9ea17c1f25be63452845fd698a"></a>
-
-<a id="canonical-61cdb36ea92d8807bf5ef637a5c7d615a78198451059dba4fc37d1fa6226aecc"></a>
-
-## node property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 706b57e22dd1 / 4
-
-Type: `"string"`. Optional.
-
-Node. Node name on this site.
-
-Upstream description:
-
-Node name on this site.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f4441f0b80f241cc1fac1ad4171dac4b9e29ed1263c946d70bfee23980296b6f"></a>
-
-## Next pages — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 706b57e22dd1 / 5
-
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-340a57fbc0e14f2b2a9a126045853ab78dfbf144f5a3f84d4b5c709891d5f0a1)
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-340a57fbc0e14f2b2a9a126045853ab78dfbf144f5a3f84d4b5c709891d5f0a1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ec41383424ef432c47e1329fa614ea7c79c0fc8e820a19b0bde3bca8e499f0bd"></a>
-
-## custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-c48797194375e292796f076575a8890764a6d851e5284e17a29c8a3fee7bdbe1)
-- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-ddc9aed50af99cda4d259956d7cc86eaa614b423c4a07edd12e2920e16c29e51)
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-bd7b21abb04917793d1581503f7eaf0aecddb936eb6a8b4f41bb4782b562adca)
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-6e093de46046983c3c430cd59412f5673746856a633bed74e9489049c22e1555)
-- custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface
-
-<a id="canonical-ebaf595e7d54243f089e7e0b9111a84989eb56d97f4aabc9ab993d7032e7c485"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Interface. Interface reference on this node.
-
-Upstream description:
-
-Interface reference on this node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-68a3eedd1cf3e3f281bd0ee39ab5ba110384a82fe2acb453875557d847f82925"></a>
-
-## Direct properties — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 3
-
-<a id="canonical-2e0dd958018067fb3385be0371d5bd3193db9d2256476ee390a1abbc4addb782"></a>
-
-<a id="canonical-78a6b85b535773a8e90e2eacdf0209183500fdd608c51455d905b0b20d549793"></a>
-
-## kind property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. 'route').
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-987248bad02b84bc7ddaa2fb8f4113105c960cbee45885fd21104d44af5ef244"></a>
-
-<a id="canonical-6d278e47676386f89f2df26c8a213856b16dacd67a825cb6842091d6dad1d637"></a>
-
-## name property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 5
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-7d51b0c93ed725fcd539ee242368808dde884b0453583d9ba6f73106f506b4c6"></a>
-
-<a id="canonical-ba71aff7b1c904cc3e7e8c137858709c10f4a8fb9e6c2d216594407d3fd06f86"></a>
-
-## namespace property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 6
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2d1e01c3ad6c43bc410d75c39d99d4a08a3430a8e968c790c0eb214981bd1ae9"></a>
-
-<a id="canonical-427d8822d63725ed2c2f144ea1ae689b52d96722f784e8a8979cfc429af1525e"></a>
-
-## tenant property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 7
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-dbe15467d27c234e62ae6cb3a10d8e30c9284af7b492d6b35aa9f0af47ada888"></a>
-
-<a id="canonical-4271274bec1ba7d362b8f6bb1e8c62b7ae1266af0eb8519a2b75387d36d2177b"></a>
-
-## uid property — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 8
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-cc25f48b7eeffc633fbccf1f4289616be2c05ba89371dbf0678bbf7d630485c8"></a>
-
-## Next pages — custom_network_config.sli_config.static_routes.static_routes.node_interface.list / 36b58bde88cb / 9
-
-- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-6e093de46046983c3c430cd59412f5673746856a633bed74e9489049c22e1555)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-fbae371d777d429c1fb846d3f1109b227f6d8884f5a34c139a1d3ee5fb5a38de"></a>
-
-## custom_network_config.sli_config.static_v6_routes — custom_network_config.sli_config.static_v6_routes / 7aa96c2a37ae / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- custom_network_config.sli_config.static_v6_routes
-
-<a id="canonical-5ca0d3033e0c7f2974959859e9a94b94b6b310ae6f142338303eea29aed2cdd8"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for static v6 routes.
-
-Upstream description:
-
-List of IPv6 static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_v6_routes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-b88f3a7aea0783b35cec994c5479324309464b9d06bee4abcf9d0c1dbd500a6d"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes / 7aa96c2a37ae / 3
-
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06): complete subsection reference.
-
-<a id="canonical-6d0738bb51f00b88b4fa7a28086a137382df6410c398131b90864a465d5d6586"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes / 7aa96c2a37ae / 4
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-93e9123bc2e9dbc3c042dcc5b8a11b234d3d444737210bb0c9f92ee42729c3fb"></a>
-
-## custom_network_config.sli_config.static_v6_routes.static_routes — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- custom_network_config.sli_config.static_v6_routes.static_routes
-
-<a id="canonical-55a139aacf6a5c34a5e59d5d0568f6e29a9123549b4553f2c1e4494929c3a17f"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Static IPv6 Routes. List of IPv6 static routes.
-
-Upstream description:
-
-List of IPv6 static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
-  validators.RequiredOneOfListObjectAttributes("default_gateway",
-    "ip_address",
-    "node_interface"),
-  validators.ConflictingListObjectAttributes("default_gateway",
-    "ip_address"),
-  validators.ConflictingListObjectAttributes("default_gateway",
-    "node_interface"),
-  validators.ConflictingListObjectAttributes("ip_address",
-    "node_interface")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_routes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-9a7cd6625041237e139393e3368b0a73b86fda5f1332e2317675c6b551f1ea39"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 3
-
-<a id="canonical-1fc7baa8cee1694457922f1b3e1fccd02c9287c00469b0af6c38bfaa18e8be92"></a>
-
-<a id="canonical-5f20d89e91bc1b008cd9b71156857ff92b15dc9409f205b5f45ba50dca7abfa0"></a>
-
-## attrs property — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 4
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum:
-ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
-List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
-Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
-\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
-Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
-
-Upstream description:
-
-List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(4),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-08aa96c218ea720f000217a4448531bfd662ddc1107b526e9dd66d6cbb61eaef): complete subsection reference.
-
-<a id="canonical-e3e00fbfe8e77b99cd312bf760514f0669ac36d8aa02347799e5dcf9eb602bb0"></a>
-
-<a id="canonical-244957664dfc49b00b8583464e3cc226e95785143c5ef860fe2cde7e4b825faf"></a>
-
-## ip_address property — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 5
-
-Type: `"string"`. Optional.
-
-Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
-IP Address.
-
-Upstream description:
-
-Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
-IP Address.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(7, 1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-83f1285c7e8a7b13b6aaf54923422f4a7cb2e2f397c6bac61f4fc25bf5d91372"></a>
-
-<a id="canonical-daefff0809cd59026f58e0146a92ac3778827759fe7f70f8ff1027a71366dcf2"></a>
-
-## ip_prefixes property — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 6
-
-Type: `["list", "string"]`. Optional.
-
-List of IPv6 route prefixes that have common next hop and attributes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 256,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e): complete subsection reference.
-
-<a id="canonical-1c9c45a8c65ae2adf89b647835c935bddcae4d1d8939109b75c56ee41255f85e"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes.static_routes / 4d2cb21279ef / 7
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-08aa96c218ea720f000217a4448531bfd662ddc1107b526e9dd66d6cbb61eaef)
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-08aa96c218ea720f000217a4448531bfd662ddc1107b526e9dd66d6cbb61eaef"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-51c6839e243e714ba1ac820609203c9f398f61332f0c07adbce5d5786dd82de2"></a>
-
-## custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway — custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway / 90148c0448ba / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway
-
-<a id="canonical-f6d904daf3c995b0a2809fddd65f31571cfa230ba1bb667357f345c7c51fd7cf"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for default gateway.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default_gateway = {}
-```
-
-<a id="canonical-5a78957d414e2ea04a3cc0b21fa82d299d9c03f0878170c74d3752f6b933b0b8"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway / 90148c0448ba / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-ea0b34d6d8bee9199ab430666ec760d5a4e5fda109c85c43727c267cfe6c22ff"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway / 90148c0448ba / 4
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-232cf10bacf7a9c93a5e599abbca54ac161635556129232e1abc10c78a0b3544"></a>
-
-## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface / ff44c67381a8 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface
-
-<a id="canonical-253fc8676373f1cd483f1f79f6cfb69194050167207e52c6b061d6ae87b28f62"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-On multinode site, this type holds the information about per node interfaces.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-node_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-4f279596d6825f93980b9bbbe0b8939216b3dcc0897ccd1c3152fd4c95413587"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface / ff44c67381a8 / 3
-
-- [list](resources--voltstack_site--reference--group-005.md#canonical-61e90ba6be956618cd709a44a2e41cbb27165ad4362580b696a2927a87e09901): complete subsection reference.
-
-<a id="canonical-d01ae33902f394f2a9dd5860e220f4df788ba3719da1749b5ca41bcc028ad596"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface / ff44c67381a8 / 4
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-61e90ba6be956618cd709a44a2e41cbb27165ad4362580b696a2927a87e09901)
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-61e90ba6be956618cd709a44a2e41cbb27165ad4362580b696a2927a87e09901"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-881a0b1c5867ed6da7987ec4f68796d592871e57b7485909ab1e6141fe765644"></a>
-
-## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / c168f15052ff / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e)
-- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list
-
-<a id="canonical-9028c21771d72d2061aba05a22b816e02395da0a163d88cbc96cd6ef5a54ee7b"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-On a multinode site, this list holds the nodes and corresponding networking\_interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 8,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 8,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "8"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "8"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-331d9ca779786a85b45ef1aee02a4496e66e7dc89111e3f5400a050bcc300582"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / c168f15052ff / 3
-
-- [interface](resources--voltstack_site--reference--group-005.md#canonical-491b30d81de3eba2a81822215f4f280adcb06fa599548f8f581d32eeb0260160): complete subsection reference.
-
-<a id="canonical-98bf61651493ff6a53d35bb914f35fa531b0d5928060a97c8ec2632f7e6b6b7f"></a>
-
-<a id="canonical-df67ce5f2afdb31898a8c4d17636430b847b53f062873176facc93856eb38ee6"></a>
-
-## node property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / c168f15052ff / 4
-
-Type: `"string"`. Optional.
-
-Node. Node name on this site.
-
-Upstream description:
-
-Node name on this site.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-d3d81a8b5afdb247d68e59489495ee35fc4b429303d42261b707db8969b89de7"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / c168f15052ff / 5
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-491b30d81de3eba2a81822215f4f280adcb06fa599548f8f581d32eeb0260160)
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-491b30d81de3eba2a81822215f4f280adcb06fa599548f8f581d32eeb0260160"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-9fb003244657d07117dc4135cc00ad09f475c8438f7122047100593bdb35020b"></a>
-
-## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-52c4bcf944cffb9290503355074177e6a9b567b4e6b7d7f4750c38f9d2544fb7)
-- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f3891df5be4e55ad6b85231b7a431ff2bf9509ecaa69e32535a50edda05bf623)
-- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-08fc4eead66092017102f59b51f7c7c83e0819d44c6eb0470fb6f14d89d43c06)
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0924c56fe5ca6fec65642cd5877d7a3cf9c4cbd42f2343c935ff76eefac2a76e)
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-61e90ba6be956618cd709a44a2e41cbb27165ad4362580b696a2927a87e09901)
-- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface
-
-<a id="canonical-5d972b0888cf33b96b67777a13fce0df7f6ab9889e3392344c0ed8eb3e612e50"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Interface. Interface reference on this node.
-
-Upstream description:
-
-Interface reference on this node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-61deb5719c8390cfc1e0be640fa905363bdc57e30221129a46ad6fff72d67c8a"></a>
-
-## Direct properties — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 3
-
-<a id="canonical-c5988d5b42239fb301a865be7201871997e68cdbb075c3993537fab9c82ac122"></a>
-
-<a id="canonical-d09b25eba8701c4910a0b881bc52a9a21b8df624d763d1933bb13af42e2269f9"></a>
-
-## kind property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. 'route').
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6b6606b48084751c197b178555179935e0d3338ba841644ef19dc1735b6af65a"></a>
-
-<a id="canonical-3febaf2aabd021317fb3b30ca69b693bde36acc067811394b1617e5701c9034b"></a>
-
-## name property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 5
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-7b2f599c57fa61657ebc8b4766015d5cdab9386a592f47bfced75126cf759daf"></a>
-
-<a id="canonical-2f9b09c743ee1f1176cda98812f6417316a3119a5f6aab38e73e8079492098e2"></a>
-
-## namespace property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 6
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-80b993ffdd7caa8d787a4df901c9d69855d5e764e996b6aed04db5a4514e73bf"></a>
-
-<a id="canonical-b8811e61814442ceee0b361b38a21d7e356ed16913dab81499ffc9e3015983ca"></a>
-
-## tenant property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 7
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-196bc73c8c5219e583e25662629d1c1bea99cf3cbca76d2acc6f2c30f335210a"></a>
-
-<a id="canonical-51c7f07f1b6c80a318598eb6e9414608111a28b6165e80687806bfd3569d9ab0"></a>
-
-## uid property — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 8
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-7f4a878c18e15ec1547786c614aee2a37aea57e72bab967f2f085a0363994a43"></a>
-
-## Next pages — custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.l / 64cc415d097f / 9
-
-- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-61e90ba6be956618cd709a44a2e41cbb27165ad4362580b696a2927a87e09901)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d20755103000d21da1d27d84d5e90bcf18eb6c135278413bd8a64a23b22b4ef5"></a>
-
-## custom_network_config.slo_config — custom_network_config.slo_config / 77643edbe768 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.slo_config
-
-<a id="canonical-28f288b7be7c33770b55279a21e76f681398df2b58546a07fb6ea88678d9a490"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Site Local Network Configuration. Site local network configuration.
-
-Upstream description:
-
-Site local network configuration.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("dc_cluster_group",
-    "no_dc_cluster_group"),
-  validators.ConflictingObjectAttributes("no_static_routes",
-    "static_routes"),
-  validators.ConflictingObjectAttributes("no_static_v6_routes",
-    "static_v6_routes")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-dc_cluster_group_choice": "[\"dc_cluster_group\",\"no_dc_cluster_group\"]",
-  "x-ves-oneof-field-static_route_choice": "[\"no_static_routes\",\"static_routes\"]",
-  "x-ves-oneof-field-static_v6_route_choice": "[\"no_static_v6_routes\",\"static_v6_routes\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-slo_config {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-e3680226c3b7cf86453edca8463bd9d4783df529be7e4e4dc58301cf7f288f97"></a>
-
-## Direct properties — custom_network_config.slo_config / 77643edbe768 / 3
-
-- [dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-9dcb72b3a7654aff237e5950b5ea167656fcc55801c66ea988535d59dc23c132): complete subsection reference.
-
-- [labels](resources--voltstack_site--reference--group-005.md#canonical-c45772491b62780d0b2f3eb3540e77d411908e2b17ba9c2a98f3a051b792e779): complete subsection reference.
-
-- [no_dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-dc815ffc33530b0f4722045a09b8a35a909e4d7e0e91fcb4b2e1114a0dfdb2c5): complete subsection reference.
-
-- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-1c9d65435f57551a4b6394ddbae032c9a74bfaecc7b79c7dd79d625af23c08c6): complete subsection reference.
-
-- [no_static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f400355fb47be5b7f3f36bc266ec32ddb48dc98a9e5a29a5279d3c264725ca79): complete subsection reference.
-
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8): complete subsection reference.
-
-- [static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db): complete subsection reference.
-
-<a id="canonical-eeb85e901c4a8764dc5509d3fd01fd54d1910b088e302292dbcc31a8ee5007f8"></a>
-
-## Next pages — custom_network_config.slo_config / 77643edbe768 / 4
-
-- [custom_network_config.slo_config.dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-9dcb72b3a7654aff237e5950b5ea167656fcc55801c66ea988535d59dc23c132)
-- [custom_network_config.slo_config.labels](resources--voltstack_site--reference--group-005.md#canonical-c45772491b62780d0b2f3eb3540e77d411908e2b17ba9c2a98f3a051b792e779)
-- [custom_network_config.slo_config.no_dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-dc815ffc33530b0f4722045a09b8a35a909e4d7e0e91fcb4b2e1114a0dfdb2c5)
-- [custom_network_config.slo_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-1c9d65435f57551a4b6394ddbae032c9a74bfaecc7b79c7dd79d625af23c08c6)
-- [custom_network_config.slo_config.no_static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-f400355fb47be5b7f3f36bc266ec32ddb48dc98a9e5a29a5279d3c264725ca79)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-9dcb72b3a7654aff237e5950b5ea167656fcc55801c66ea988535d59dc23c132"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-5d7b6543f734476fc85b5ec695239b4b54faa0913de8d30cae19fd29f995fd7a"></a>
-
-## custom_network_config.slo_config.dc_cluster_group — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.dc_cluster_group
-
-<a id="canonical-79af8ea5e432faadb2721b1a8192b432f7d4c7533c440d4e861280810bd58cf5"></a>
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.interface_list](resources--voltstack_site--reference--group-003.md#canonical-0100203223120222-0230103002031132-0332203202020213-0212233113013100-3330311013022230-0332030200210121-2020333030213323-0133002123021131)
+- [custom_network_config.interface_list.interfaces](resources--voltstack_site--reference--group-003.md#canonical-3323232300012332-3233133221220120-1001103003112132-0332100111102230-2023131333013233-0131310021221101-0000121002122332-2202120030322211)
+- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-1012322230030023-3000301300302131-3203221332301322-2103012002021321-0111030132311312-3313233303332202-2323030121333310-3100101233000101)
+- custom_network_config.interface_list.interfaces.tunnel_interface.tunnel
+
+<a id="canonical-3103020031132120-1022020110101203-2321120223211320-3232031023132223-2133233300111230-0112012102323333-0121001030303220-3310023303232002"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2390,20 +330,20 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-dc_cluster_group {
+tunnel {
   # Configure direct properties listed below.
 }
 ```
 
-<a id="canonical-13804f29765ce40a689c4b33641e11c2552366af838fe86dabc73f7d2f6ccfab"></a>
+<a id="canonical-1100103201022110-0301122210210201-0013020020001011-3210012121120321-0212033001102132-0021103030011231-3213122032330201-3213112223312211"></a>
 
-## Direct properties — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 3
+## Direct properties — tunnel / 311110020103 / 3
 
-<a id="canonical-ff2276f8666cf716806f1cd69dd347d1428437544861159bd8185cff7c9fd37d"></a>
+<a id="canonical-3230332201102221-3020133200313330-3101012121303130-3323021012003110-1002122323123131-0122311100331312-1302210230013113-2202320313321212"></a>
 
-<a id="canonical-8bd2d43aa5c14db5c7c02899df40334ac77c0f9ccf6f0868aa31696d51f4bf5b"></a>
+<a id="canonical-1321133033302010-3032100200332032-3203011313333103-0102112311331310-3132011121000001-2110310021121132-0323001012000113-0202303120101212"></a>
 
-## name property — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 4
+## name property — tunnel / 311110020103 / 4
 
 Type: `"string"`. Optional.
 
@@ -2464,11 +404,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-602823d08b88f0d7f21f1361c0a7370a3b29b0033947cc68227c93a45290439d"></a>
+<a id="canonical-0033023211012121-1013302232000132-1111133032233130-0223220203220330-3001213013211201-2023310211021102-3221333013113211-2110233102230102"></a>
 
-<a id="canonical-5e0f7707720749c0f434ae634478db2c891598d6641cc89456b5f5841b4c86e6"></a>
+<a id="canonical-1231233112320331-1302222333110302-1133011312221233-1132322310310221-3120311321210301-0330310333221031-3332012123210321-3300301020333131"></a>
 
-## namespace property — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 5
+## namespace property — tunnel / 311110020103 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -2536,11 +476,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1628020c831b96fa825f4a79907ee5ff93601cd9f168e63a08fb36d566639ac2"></a>
+<a id="canonical-2331313233023101-2310233123230133-0020223320210301-1311300121212013-3122211312211331-1203212203111312-2211022033033220-3200020030231233"></a>
 
-<a id="canonical-b67645c5ae7ee70a8cb83782f2cab336e6df2bc5a3c9831d414c950fc348737a"></a>
+<a id="canonical-2112100032320210-1223011202311233-3011132322102210-3032211002110031-2010212033012233-0233332323003330-1231023313133202-3113231121031200"></a>
 
-## tenant property — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 6
+## tenant property — tunnel / 311110020103 / 6
 
 Type: `"string"`. Computed.
 
@@ -2594,92 +534,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8db9942ddb22193abf16b9694542bda148be20484939bdd7a226a553386dd6e"></a>
+<a id="canonical-2130322010332303-2223221032113023-2103201003331132-2311111033323101-1213122110310013-2333010302030302-3110333103233113-2230313212033103"></a>
 
-## Next pages — custom_network_config.slo_config.dc_cluster_group / eb00243eb4f8 / 7
+## Next pages — tunnel / 311110020103 / 7
 
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-1012322230030023-3000301300302131-3203221332301322-2103012002021321-0111030132311312-3313233303332202-2323030121333310-3100101233000101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-c45772491b62780d0b2f3eb3540e77d411908e2b17ba9c2a98f3a051b792e779"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-a33668223d30bd79d787c6d0c008ab9c109b1d1d69860708b238cd7fc8847222"></a>
-
-## custom_network_config.slo_config.labels — custom_network_config.slo_config.labels / ade3c53a3450 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.labels
-
-<a id="canonical-6065dee1647bc9e840f7b4a8f5aad74a1cde1f8b336db392d205c0cb3bd9d0d0"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Add Labels for this network, these labels can be used in firewall policy.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-labels {}
-```
-
-<a id="canonical-1972b9f74582ca75e959c8d7841a74e4c2b16bc82f0f17ad957e65fd0621686b"></a>
-
-## Direct properties — custom_network_config.slo_config.labels / ade3c53a3450 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-effbc6c5ba6ea563615d8939526c89f4b97ffe0c31787811a99d4b5dbfdd8a7b"></a>
-
-## Next pages — custom_network_config.slo_config.labels / ade3c53a3450 / 4
-
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-dc815ffc33530b0f4722045a09b8a35a909e4d7e0e91fcb4b2e1114a0dfdb2c5"></a>
+<a id="canonical-2120233011220333-3312223321223103-2102033112021112-1020023232012202-1010202022212101-2113300132330313-0303120303110132-0311202003220300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9f916e24f664ddeac2ea3f82afa12e4c57c2ce19b45a0adc136c4b5e299d923a"></a>
+<a id="canonical-3032011003120031-0131323232131200-0123020210020122-3332120101133010-1003013110332310-3312120101320023-3102323211220103-1303011300110103"></a>
 
-## custom_network_config.slo_config.no_dc_cluster_group — custom_network_config.slo_config.no_dc_cluster_group / 3168d20b593d / 2
+## custom_network_config.no_forward_proxy — no_forward_proxy / 122300033101 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.no_dc_cluster_group
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.no_forward_proxy
 
-<a id="canonical-c29935fa820d1e5a64f4c5b303b820ab5424cf72e1362fc13ea7a63ee476ba3e"></a>
+<a id="canonical-0203032003212021-2330122002130233-0111013332302202-2312131201313000-0303220322333020-1222100131110210-3102011331012203-3012232202301020"></a>
 
 Type: `["object", {}]`. Optional.
 
-Enable this option
+Configuration parameter for no forward proxy.
 
 Upstream description:
 
@@ -2701,41 +584,237 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-no_dc_cluster_group = {}
+no_forward_proxy = {}
 ```
 
-<a id="canonical-9a66f6e2f6f1fe41c95773262206945b5d78fac562f48adaca4bef9264b78987"></a>
+<a id="canonical-1302102010212000-2123222131223302-3331221321131310-3322010131010331-1110131330330133-2132221102212320-0223313021203202-2102301013100303"></a>
 
-## Direct properties — custom_network_config.slo_config.no_dc_cluster_group / 3168d20b593d / 3
+## Direct properties — no_forward_proxy / 122300033101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-07f1b9934bd92d6f26337bcd087a15a1f57733b0bcade15bdeca6125856e2999"></a>
+<a id="canonical-3313233310030220-2011113320122320-1302123123020121-2011031031122112-2012220211033233-2233110031320220-2033122032330000-3223203222131103"></a>
 
-## Next pages — custom_network_config.slo_config.no_dc_cluster_group / 3168d20b593d / 4
+## Next pages — no_forward_proxy / 122300033101 / 4
 
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-1c9d65435f57551a4b6394ddbae032c9a74bfaecc7b79c7dd79d625af23c08c6"></a>
+<a id="canonical-3110332012322003-3322011320311033-0000323333000210-0210323011312201-0330122331230323-3020001333023311-2101022000213102-3212132300031121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-10c8e5f5ebcd3ee207a3177c3fb8ae145e4abadef00cc2cea886f6325f944652"></a>
+<a id="canonical-2232033220000101-3303320321311030-1001030132130221-0231230111232333-2123310202211031-2310311332213230-2211011132200212-0113000122003032"></a>
 
-## custom_network_config.slo_config.no_static_routes — custom_network_config.slo_config.no_static_routes / 1827449db3f7 / 2
+## custom_network_config.no_global_network — no_global_network / 320230221233 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.no_static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.no_global_network
 
-<a id="canonical-6c010a8fab4a55fd7e6a4d2e6fe8b96305e5d56af17534848ebcad956b4b6c92"></a>
+<a id="canonical-3210202133333133-0110220201233130-3003321323033323-2320121222332313-1011121021111313-2103330120133130-3231002031201330-1013002202302223"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no global network.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_global_network = {}
+```
+
+<a id="canonical-1130101330232332-1022123220112013-2230133133323321-3223210120031310-3021121121001100-0103302130103022-3022201330021111-3233220012301222"></a>
+
+## Direct properties — no_global_network / 320230221233 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0320222132232021-3333202223331230-1030233103332000-3020231300112310-2332030033230032-3011212330222323-1330213203023002-3110201120031111"></a>
+
+## Next pages — no_global_network / 320230221233 / 4
+
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1031100003302212-3220302111000131-1223201301122201-0301203203102223-2121101210001333-3030023023320300-1231222003011220-2233331301320213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1310132102203330-0212210222103112-3012010311233202-0223030333101213-1212300133033211-0021213330133232-0022330100132303-0230000003110032"></a>
+
+## custom_network_config.no_network_policy — no_network_policy / 220122333303 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.no_network_policy
+
+<a id="canonical-1200033010133212-1110001011323111-1313030100211333-3222313220012121-0032021200111122-3111123230220121-1032120323132033-2013223011220023"></a>
+
+Type: `["object", {}]`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_network_policy = {}
+```
+
+<a id="canonical-3020310100101310-1223001031212300-0021233133123030-3221013203023003-0220312212031201-2223300323021001-2322221101313222-1233333212200100"></a>
+
+## Direct properties — no_network_policy / 220122333303 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1133021131112230-1220333120322201-0313120111211313-1200203211033223-0111023213322123-0110313003210313-2113220220300100-1000220301213301"></a>
+
+## Next pages — no_network_policy / 220122333303 / 4
+
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3012230220313313-0333303333000131-2320113231323100-1023200231012320-2231312330333202-1302300011310000-1232020133300002-0223110322331123"></a>
+
+## custom_network_config.sli_config — sli_config / 032330320311 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.sli_config
+
+<a id="canonical-2210333310200032-1202201133303332-2210030133111020-3132012202000123-2233032331233103-1330102220202202-1231230021313322-3020002311021220"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Site local inside network configuration.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("no_static_routes",
+    "static_routes"),
+  validators.ConflictingObjectAttributes("no_v6_static_routes",
+    "static_v6_routes")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-static_route_choice": "[\"no_static_routes\",\"static_routes\"]",
+  "x-ves-oneof-field-static_v6_route_choice": "[\"no_v6_static_routes\",\"static_v6_routes\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+sli_config {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0021111022300202-0211310230113320-0213312130230322-1200201213120223-2113032132021223-1022212311211120-1002100120113212-3102010223131033"></a>
+
+## Direct properties — sli_config / 032330320311 / 3
+
+- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2000212223331231-3112311021130330-0100203022233300-2021033331031210-0200120202213103-1031222200011332-3013030320312202-2313110321322211): complete subsection reference.
+
+- [no_v6_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2212310133133230-3233010331112221-2331312301003110-0121130322222133-1020133031303300-1233102002331000-2311213310311011-3130202000101230): complete subsection reference.
+
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201): complete subsection reference.
+
+- [static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203): complete subsection reference.
+
+<a id="canonical-0301001232012023-2123102312020132-2301002032012033-1313330233002102-0210013202020003-1010323132312122-1202203012030303-2021103312131231"></a>
+
+## Next pages — sli_config / 032330320311 / 4
+
+- [custom_network_config.sli_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2000212223331231-3112311021130330-0100203022233300-2021033331031210-0200120202213103-1031222200011332-3013030320312202-2313110321322211)
+- [custom_network_config.sli_config.no_v6_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2212310133133230-3233010331112221-2331312301003110-0121130322222133-1020133031303300-1233102002331000-2311213310311011-3130202000101230)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-2000212223331231-3112311021130330-0100203022233300-2021033331031210-0200120202213103-1031222200011332-3013030320312202-2313110321322211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2221203010110110-3213003211113020-3113111333333100-1012113013222002-3010131333000203-2133332323021301-1102211101003100-1330012211120020"></a>
+
+## custom_network_config.sli_config.no_static_routes — no_static_routes / 031223132232 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- custom_network_config.sli_config.no_static_routes
+
+<a id="canonical-1202102213123131-1202130201033220-0203032003200313-3323103113111122-3212320313220012-1202223211212201-0201131030123133-3003023300103031"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2764,42 +843,42 @@ Terraform syntax:
 no_static_routes = {}
 ```
 
-<a id="canonical-bb0799072ea2313adbf5ea99b74f966e533f0d538e52477edb1a006aedba24b0"></a>
+<a id="canonical-3122233121103120-3110011023230032-0211021312123223-1303012000203033-0020331312232121-0032020220300212-2131132023131003-0321003231232301"></a>
 
-## Direct properties — custom_network_config.slo_config.no_static_routes / 1827449db3f7 / 3
+## Direct properties — no_static_routes / 031223132232 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5468f011c335bd781216bd1221b94b5ffccc8e7abe0758176087d7a8f6cbf9c7"></a>
+<a id="canonical-2213313323221330-1023111003132012-0022003131312222-1030222230022022-1220021211110033-1110030133110030-2201221130322010-3330321201220310"></a>
 
-## Next pages — custom_network_config.slo_config.no_static_routes / 1827449db3f7 / 4
+## Next pages — no_static_routes / 031223132232 / 4
 
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-f400355fb47be5b7f3f36bc266ec32ddb48dc98a9e5a29a5279d3c264725ca79"></a>
+<a id="canonical-2212310133133230-3233010331112221-2331312301003110-0121130322222133-1020133031303300-1233102002331000-2311213310311011-3130202000101230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e837d9274b37a50520ef5b1ebbb77c6e84e5740a31cd50bba86bfa47770495f7"></a>
+<a id="canonical-3230301032200000-2001102033313210-1113312001103013-1323131121213123-2223323311201131-2031333221113320-3031232230012123-2323010211131122"></a>
 
-## custom_network_config.slo_config.no_static_v6_routes — custom_network_config.slo_config.no_static_v6_routes / cdfada481a0c / 2
+## custom_network_config.sli_config.no_v6_static_routes — no_v6_static_routes / 221111220231 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.no_static_v6_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- custom_network_config.sli_config.no_v6_static_routes
 
-<a id="canonical-e0b07a7fcfe688245dbdcd1d05eaea633ac8fd836ad0ecda95899c5ee7328ee9"></a>
+<a id="canonical-0200303033231322-3110201210023101-3211322233313131-0333010123310213-0112321320102121-1013003020233033-1031311301221102-3100313023212303"></a>
 
 Type: `["object", {}]`. Optional.
 
-Configuration parameter for no static v6 routes.
+Configuration parameter for no v6 static routes.
 
 Upstream description:
 
@@ -2821,41 +900,41 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-no_static_v6_routes = {}
+no_v6_static_routes = {}
 ```
 
-<a id="canonical-492000017c114a7931e708fb57ee103248dbcde6c23ad5c14d81448d2a6ac1cf"></a>
+<a id="canonical-2133133033120213-2020111300121300-3232221323033201-1233120330030322-0200030210013123-0110313132110103-2003022320222111-3112303032003112"></a>
 
-## Direct properties — custom_network_config.slo_config.no_static_v6_routes / cdfada481a0c / 3
+## Direct properties — no_v6_static_routes / 221111220231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d6d4f8188524fa7a4ddbffdebdbad91919dee4123ea4b09706a5969f63025783"></a>
+<a id="canonical-0112233330030120-3203100031100131-3101103100011010-2301312212223023-2011101111111101-2013222313331333-3201300132131100-1202212133311330"></a>
 
-## Next pages — custom_network_config.slo_config.no_static_v6_routes / cdfada481a0c / 4
+## Next pages — no_v6_static_routes / 221111220231 / 4
 
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8"></a>
+<a id="canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a1ef778952af4ccf26d1f0b12e525b6948f1131315487c80b3acf06aab528fae"></a>
+<a id="canonical-3231133023123312-0032120002121333-2211212222032103-3320030000212102-2212003302213213-0012130312331110-2202301111103001-2013002120221221"></a>
 
-## custom_network_config.slo_config.static_routes — custom_network_config.slo_config.static_routes / a3a2a69a14e0 / 2
+## custom_network_config.sli_config.static_routes — static_routes / 130322230020 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- custom_network_config.sli_config.static_routes
 
-<a id="canonical-3cb538ce0ede163333092d92304ddecde5d22ad49daa8829f068de50f7587aab"></a>
+<a id="canonical-3231202033110132-2021223020213032-1133303123011122-3333130111230011-3010130000100200-1213123012102132-0030332123331232-0110200012200031"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2892,40 +971,40 @@ static_routes {
 }
 ```
 
-<a id="canonical-9b4a565b50508fff7bb89b5482c18ea208061469c761c0c6df256830109bedd8"></a>
+<a id="canonical-0022211012133233-0030230121320123-1030011122211332-3132132031213102-0330311333311201-3123023113301222-0032022201321032-2120233023233221"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes / a3a2a69a14e0 / 3
+## Direct properties — static_routes / 130322230020 / 3
 
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711): complete subsection reference.
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101): complete subsection reference.
 
-<a id="canonical-a006dee0a45e3d183a2691d40988c50dec2138feee34be6e95ab6a56cfc62113"></a>
+<a id="canonical-3323033232212011-3323213123003132-2111132231021202-3310231010132001-3001132132030132-1332010233002231-3031201113001102-0300302123003222"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes / a3a2a69a14e0 / 4
+## Next pages — static_routes / 130322230020 / 4
 
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711"></a>
+<a id="canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-caf782fe47de1b674fc8662dc98f8c62894886d001a46e93f1ec2e67182ddb06"></a>
+<a id="canonical-3011001212113311-1332122210133230-2131312310312211-2133210232223323-2232220301232011-1313121013023323-0230222230313103-1113213003122201"></a>
 
-## custom_network_config.slo_config.static_routes.static_routes — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 2
+## custom_network_config.sli_config.static_routes.static_routes — static_routes / 330022103333 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- custom_network_config.slo_config.static_routes.static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- custom_network_config.sli_config.static_routes.static_routes
 
-<a id="canonical-576c2b71f995d1b5f2216cfcff0067663e2a4157aa373bd670bbea8fa3ce2dd1"></a>
+<a id="canonical-3121321102130231-2233001130122120-2233330013230210-1223212132312021-1302213122230012-1322312331332000-1333013030130303-1112033301022100"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2998,15 +1077,15 @@ static_routes {
 }
 ```
 
-<a id="canonical-bf66fcbe3995486ffcc64b1e234fdcc946f3e6b3317be4c39643656fc90ba368"></a>
+<a id="canonical-2111133001112001-0010311312332033-0021121013202213-0033121333303220-1133230013022023-0331102112011233-3001012131302133-0110200010130030"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 3
+## Direct properties — static_routes / 330022103333 / 3
 
-<a id="canonical-ab0b712fd4bb58afa00ff3910d05fea2d9c6fa7d2bd4d64bb0e99615f1b349ad"></a>
+<a id="canonical-1302000331233322-0020000032111323-3203311220020321-0121133011301012-1211102133130020-0320311221232210-3223121032112231-2300321301033303"></a>
 
-<a id="canonical-c8264b0025dc4564ca24528e3996ea8e19faea9303fc75da31a5fb60a4e8c958"></a>
+<a id="canonical-2010203130000101-3231222032213120-0320111132030103-2030102311031212-3300232210202310-0330013310202200-2302221333122032-1001002032030231"></a>
 
-## attrs property — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 4
+## attrs property — static_routes / 330022103333 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3063,13 +1142,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-fe4a08ed1cd84f14409ac0b08f30a576962e5d34d194ac94cc6ff7fd4565e7ef): complete subsection reference.
+- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0121133032222000-1131203022200023-2010213302300220-2102033103212112-3202102010123002-1003020300110022-3330000020031232-0031131012223302): complete subsection reference.
 
-<a id="canonical-6d1333befaadbf194ef6c8de02bdd6126cd2ba16afbccbae13e9e7590bfc3da9"></a>
+<a id="canonical-2200320222000030-2112010332313013-0000311330133232-1303323010311201-2302333031322333-0331032032223102-1310132232031113-1303022203310311"></a>
 
-<a id="canonical-f340db1c63339cb05148439a3e59de2ddfd18b65bb72a4549d8ccae94accfd7f"></a>
+<a id="canonical-3102311200123110-3221323202331011-1321002123310332-0301203130200012-1223320122022210-0002002333131130-2213031332202130-0201101002102203"></a>
 
-## ip_address property — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 5
+## ip_address property — static_routes / 330022103333 / 5
 
 Type: `"string"`. Optional.
 
@@ -3124,11 +1203,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d9ba98a591ec7aaa13505ac8a1756098a7b1a210d0bfa5721f1b531f7ccd1b7"></a>
+<a id="canonical-3320311313332331-2131102101022023-2032103112103133-0011031203120122-1213301102313021-1202103300131123-2300030200213013-2312320213032012"></a>
 
-<a id="canonical-657dcc72a4fc1db41233e79e004d931871e4efb2fb14e10dd18435e7bca8a9b6"></a>
+<a id="canonical-0110013210312332-3300101303232011-3230323323032102-3330211030122232-3022023100213231-3020222200202110-0231002233321300-2221032323303002"></a>
 
-## ip_prefixes property — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 6
+## ip_prefixes property — static_routes / 330022103333 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -3184,38 +1263,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1): complete subsection reference.
+- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022): complete subsection reference.
 
-<a id="canonical-5b9b8dbadaf8ce35493f83c5500581e2156269745aa6478adbff2cc560f76583"></a>
+<a id="canonical-0321010233331311-2133130232102222-0203103012203023-3201213101311020-0102030113323002-1203103031003110-0122133110322323-3203013112130002"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes.static_routes / 367ccac93993 / 7
+## Next pages — static_routes / 330022103333 / 7
 
-- [custom_network_config.slo_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-fe4a08ed1cd84f14409ac0b08f30a576962e5d34d194ac94cc6ff7fd4565e7ef)
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0121133032222000-1131203022200023-2010213302300220-2102033103212112-3202102010123002-1003020300110022-3330000020031232-0031131012223302)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-fe4a08ed1cd84f14409ac0b08f30a576962e5d34d194ac94cc6ff7fd4565e7ef"></a>
+<a id="canonical-0121133032222000-1131203022200023-2010213302300220-2102033103212112-3202102010123002-1003020300110022-3330000020031232-0031131012223302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-885db528414fd8a1dd37fba73a8960641e645a4d2b6502cddcb6aa0acb8119a6"></a>
+<a id="canonical-2212022223120113-3312212002221212-2103201130121213-1021103033221120-0320030300321121-2031212000320331-0312033003321200-2123303310103132"></a>
 
-## custom_network_config.slo_config.static_routes.static_routes.default_gateway — custom_network_config.slo_config.static_routes.static_routes.default_gateway / 0e212a7af896 / 2
+## custom_network_config.sli_config.static_routes.static_routes.default_gateway — default_gateway / 303312021011 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- custom_network_config.slo_config.static_routes.static_routes.default_gateway
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- custom_network_config.sli_config.static_routes.static_routes.default_gateway
 
-<a id="canonical-1d1dfca8497a8ac65192b92de84aa890038eb7ef8cc1881fca79d84b6115ed83"></a>
+<a id="canonical-2021321211211012-1222011311123123-3213231222132003-2101333020301112-1310311222300102-3332132221111121-1212302302002300-3310101103330201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3244,40 +1323,40 @@ Terraform syntax:
 default_gateway = {}
 ```
 
-<a id="canonical-9400b8253d3292caace4da4daef4fe0b243dcc7d39b111ff374aa5a5bb66b9f9"></a>
+<a id="canonical-2121332211032322-2202023100213322-3003031301301110-2220232313322131-1223102203202230-3030131301112202-3212222031300012-3103203230030132"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes.static_routes.default_gateway / 0e212a7af896 / 3
+## Direct properties — default_gateway / 303312021011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7eaed53c517e8ca3fd10147d9807752516746d10442263e66c0d5a1456e7cb0e"></a>
+<a id="canonical-0220032021003112-0030322302333031-1220332101202211-1322310332330131-3130033212013023-0330302123201201-3211203111323120-1220013303323131"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes.static_routes.default_gateway / 0e212a7af896 / 4
+## Next pages — default_gateway / 303312021011 / 4
 
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1"></a>
+<a id="canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c266f435f7381ba1bd74e9335834b9ae941fdb1d4027500d8aff8f3f101869cf"></a>
+<a id="canonical-1000132310000303-1001200200322102-2103131020001020-1032221033111220-0110100311101332-1212000232010331-1110310212203021-0020331232213121"></a>
 
-## custom_network_config.slo_config.static_routes.static_routes.node_interface — custom_network_config.slo_config.static_routes.static_routes.node_interface / 1b8c65849e82 / 2
+## custom_network_config.sli_config.static_routes.static_routes.node_interface — node_interface / 131020200121 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- custom_network_config.slo_config.static_routes.static_routes.node_interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- custom_network_config.sli_config.static_routes.static_routes.node_interface
 
-<a id="canonical-cd125dcd0c1991171c7ed7f6f63da9a116f760c0a98c6f3048ffe11397377678"></a>
+<a id="canonical-1000013020322000-1112022200230230-1221103311101021-1333233113011112-0013222111022200-1210100233032000-3332030231202203-3021330313103032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3304,42 +1383,42 @@ node_interface {
 }
 ```
 
-<a id="canonical-393e8e1e8b66d5ea36a2036df37b8b91ad62c899982dbd61aaaee13d7aa6b708"></a>
+<a id="canonical-0222020312211320-3103223301110100-3020003130320211-2021031132103230-3111212323330003-2022332200311212-3120030113010322-3300033232210030"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes.static_routes.node_interface / 1b8c65849e82 / 3
+## Direct properties — node_interface / 131020200121 / 3
 
-- [list](resources--voltstack_site--reference--group-005.md#canonical-5668c5ed12c75cd564c81c42737792d83568302ddcc235dbbee4be04c8e817ef): complete subsection reference.
+- [list](resources--voltstack_site--reference--group-005.md#canonical-1232002103313210-1200101221200330-0330100300303111-2110010233111213-0313101220111222-1203032332311310-3221102021001021-3002023201111111): complete subsection reference.
 
-<a id="canonical-6499c2eff0eff6321db575d623f485ee59aeace4d004c4bf6c75ea804892dda6"></a>
+<a id="canonical-2303131010003110-2303002122233321-2303230230210322-3331131003122232-1222303210021002-1311310202012011-0300113131321330-0213002303013221"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes.static_routes.node_interface / 1b8c65849e82 / 4
+## Next pages — node_interface / 131020200121 / 4
 
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-5668c5ed12c75cd564c81c42737792d83568302ddcc235dbbee4be04c8e817ef)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1232002103313210-1200101221200330-0330100300303111-2110010233111213-0313101220111222-1203032332311310-3221102021001021-3002023201111111)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-5668c5ed12c75cd564c81c42737792d83568302ddcc235dbbee4be04c8e817ef"></a>
+<a id="canonical-1232002103313210-1200101221200330-0330100300303111-2110010233111213-0313101220111222-1203032332311310-3221102021001021-3002023201111111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eab8d560d658e2be338aab21f2c1f3f57df4503e1a4d5144f3eaf92bc153d8fa"></a>
+<a id="canonical-1032222231002010-1103130330303222-0020323321030102-3220213013022021-2030323213131332-1321021323012200-2323111231310013-0330032202013223"></a>
 
-## custom_network_config.slo_config.static_routes.static_routes.node_interface.list — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / e97ae8ad819a / 2
+## custom_network_config.sli_config.static_routes.static_routes.node_interface.list — list / 320202313101 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1)
-- custom_network_config.slo_config.static_routes.static_routes.node_interface.list
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022)
+- custom_network_config.sli_config.static_routes.static_routes.node_interface.list
 
-<a id="canonical-ccdd4a6c5d5c857e719c3fc90288c657b56dfa1845284039d61891f5f3c0d071"></a>
+<a id="canonical-0031101330133032-3320021101233313-2030011032012101-0201112300231222-0100030033033202-1313232312313002-0301123133312210-0231223021101232"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3384,17 +1463,17 @@ list {
 }
 ```
 
-<a id="canonical-5932ca13af378b3229eabf0046ea8d8debb3bc542d0d821581f353b66b03c810"></a>
+<a id="canonical-2213122212230122-0123032232321131-1333031102320221-1331000210003113-3131100223223310-0300312130212112-3313013323332302-3313222233320013"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / e97ae8ad819a / 3
+## Direct properties — list / 320202313101 / 3
 
-- [interface](resources--voltstack_site--reference--group-005.md#canonical-c4477d9635c838040a8b3a50f40eab6336a4107bd7241508e26f464d2961d4cc): complete subsection reference.
+- [interface](resources--voltstack_site--reference--group-005.md#canonical-0310002211133323-3000320110330223-0222212201021200-1011201103222313-2031332333011010-3311220333201031-1023113013002120-2101311133002201): complete subsection reference.
 
-<a id="canonical-81af40251f26a64b24c1146929a5b1f982de32a69a990a3235b452eefeb3728c"></a>
+<a id="canonical-0222102333211022-2330023031032022-0213020222011123-3321022301332233-1202322020302132-2201133001330211-2332120310110220-1011333112212022"></a>
 
-<a id="canonical-b78d566fd35b0e8723e727a04c558f1594bad2b6229a5ffa153aeac256bc1b93"></a>
+<a id="canonical-1201303123031232-2221023120200013-2333113233120313-2211301331120111-2213200121201011-0100112131232210-3330031331013322-1202021222323030"></a>
 
-## node property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / e97ae8ad819a / 4
+## node property — list / 320202313101 / 4
 
 Type: `"string"`. Optional.
 
@@ -3427,37 +1506,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d812ec444903bdbd062f70780f84f161c0912920fae57fedcac775e066111a72"></a>
+<a id="canonical-3310101001330023-2000330210013030-0133223001223110-0113013122301023-2132022132310102-1203302110123113-0023333232020321-2000022112231233"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / e97ae8ad819a / 5
+## Next pages — list / 320202313101 / 5
 
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-c4477d9635c838040a8b3a50f40eab6336a4107bd7241508e26f464d2961d4cc)
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-0310002211133323-3000320110330223-0222212201021200-1011201103222313-2031332333011010-3311220333201031-1023113013002120-2101311133002201)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-c4477d9635c838040a8b3a50f40eab6336a4107bd7241508e26f464d2961d4cc"></a>
+<a id="canonical-0310002211133323-3000320110330223-0222212201021200-1011201103222313-2031332333011010-3311220333201031-1023113013002120-2101311133002201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-53a86d3b062a0466458b7648f5ccb9d0eeddb2c01072ad9bbb30a6db9478ba55"></a>
+<a id="canonical-3230100103200310-0210323310030230-1013320103022133-2212011032221330-1321300033302032-2002002201212300-2331320323302220-3210212133002331"></a>
 
-## custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 2
+## custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface — interface / 313220203023 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-6abfcebe752a50d12c61f6b5cc2f19110939b3c423db66cbdc917ef5d0fda2c8)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-92a10b51afe6251cdd045abd6a528236e54929b61c354092ca613542d0ea7711)
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-a0a74c86fa820fc4ccbb222ab23d17c122ac313feb27ed1af5f2d1aa5fce91a1)
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-5668c5ed12c75cd564c81c42737792d83568302ddcc235dbbee4be04c8e817ef)
-- custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3010201321130121-1003131132022102-1321123300131211-1311222020210013-1210221231201101-3211022010320113-2202213020220333-3232132331233201)
+- [custom_network_config.sli_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3131302122323111-0022332121303122-1031021121211112-3113303020123222-2212011023100203-3010220013323131-0102320221020032-0112300221321101)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2331132302012223-2300102101131321-0331011120011100-0333133222330022-3230313123210312-3223122220231033-1001232310132002-2311120222313022)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1232002103313210-1200101221200330-0330100300303111-2110010233111213-0313101220111222-1203032332311310-3221102021001021-3002023201111111)
+- custom_network_config.sli_config.static_routes.static_routes.node_interface.list.interface
 
-<a id="canonical-39cb63c92c65c489d3ff6a650030f8a7e699e4e3e7bc65aa00d5c73c30fdffdf"></a>
+<a id="canonical-3223223311211132-1331111002100333-0020213213320023-2101010122201021-2021322311123121-1333102222233021-2223212103311300-0302321330102011"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3506,15 +1585,15 @@ interface {
 }
 ```
 
-<a id="canonical-b3e8f7cd9abcff53012ad6fe6edae029b069b0a19700f40bbf10daecbcf83c9e"></a>
+<a id="canonical-1220220332323131-0130330332033302-2001233100323203-2122231123220101-0003201022200233-3202223023101103-2013111111133120-1013332002210211"></a>
 
-## Direct properties — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 3
+## Direct properties — interface / 313220203023 / 3
 
-<a id="canonical-a9b5e6f1c744758c1dec62710002b5a8dd1eeea3e399881f9b7944237a3b5b66"></a>
+<a id="canonical-0232003131211120-0001200012133323-0303201123320003-1301311123310301-2103312321310202-1112101312323203-2100220122232330-1022313123132002"></a>
 
-<a id="canonical-b7f915852aea1ab59a4be2b9118a5395a4814cd066e3eba6e60718777a7cd899"></a>
+<a id="canonical-1320221223201123-1103111313032220-3221003202322230-3133000200210120-0311000033313112-0020301101101111-3121001123002302-0031111021132103"></a>
 
-## kind property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 4
+## kind property — interface / 313220203023 / 4
 
 Type: `"string"`. Computed.
 
@@ -3549,11 +1628,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-458388a0030bad860aa716d6fdcc71f617e6fec24a94d2b52720b7ad9fddf6cb"></a>
+<a id="canonical-2120130210202322-3100022320102330-1331312222023323-2033100101030100-1130211200302332-3210112020113331-0201010010311010-2233113233021010"></a>
 
-<a id="canonical-e8d402ed66f4e55baac50db86c7df3d83a518ce70b49caaa229a16751e9ef4e0"></a>
+<a id="canonical-1231021320321013-1213120320123320-2133023133021230-2022020103201112-2301123122303112-1322200211302312-2010020021013112-3122310131120313"></a>
 
-## name property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 5
+## name property — interface / 313220203023 / 5
 
 Type: `"string"`. Optional.
 
@@ -3588,11 +1667,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4814bbd4d3b06679a779cb6efbabd991189aa96b5b3d782e373c3c988716a40d"></a>
+<a id="canonical-1331110123003021-0332311302113330-3111032132320210-0203122020002031-3132202010230010-1103112003312123-2212331303010012-3311001223103012"></a>
 
-<a id="canonical-01d738870287671f77d2ec33b834b04719e28eed3cd8bacb8152c1b4092b09d2"></a>
+<a id="canonical-2322130122333313-2301302100103030-0332133220300103-1320112013002130-0100331022203323-2132123002310201-1211211010001331-0333310012332012"></a>
 
-## namespace property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 6
+## namespace property — interface / 313220203023 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -3652,11 +1731,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4fab20d6f9fcdf5906970376861eb79ab8a99861b526738f1de38299b82f97b"></a>
+<a id="canonical-0231013200013003-2231123010032330-1001003113113003-2131212131102200-2022031003002220-3221122030132100-3000322302011021-2001233101223221"></a>
 
-<a id="canonical-43b74696b054481a64b8b88b9b0071540ec7b5b77292defb16c55c30924f9563"></a>
+<a id="canonical-1002133120200202-3112031302113231-0230023301101032-2201223212202123-1102312112130202-3313201032202220-2113213033301002-2122330111021132"></a>
 
-## tenant property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 7
+## tenant property — interface / 313220203023 / 7
 
 Type: `"string"`. Computed.
 
@@ -3691,11 +1770,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a7cd58126913f8cad86e7403a5f987ca4968bfacb24ae1a78f82dd6f459e0f2"></a>
+<a id="canonical-3123320111101213-3102133002031032-1202223212302303-2201003120320300-3021022010223313-2310210231122303-1122222133002233-1013223122202020"></a>
 
-<a id="canonical-48c72a2b537b57cd7ae14d2e0cdb925dfa49f3e7e9a53f958c4157f1e5614959"></a>
+<a id="canonical-1002130102131023-3230012322133103-1202232033122323-0132203012022313-2232010212122233-0032232011012122-0223131103201331-0312310201131323"></a>
 
-## uid property — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 8
+## uid property — interface / 313220203023 / 8
 
 Type: `"string"`. Computed.
 
@@ -3730,32 +1809,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a859b30deedb25137b639a370696e8137932bdeb0e8b528775bf74fe36f6606f"></a>
+<a id="canonical-3030021133102023-1332323333301203-0333233030330133-1002202112011223-3202300011232220-2103130131233300-1213202323331331-1203001020113020"></a>
 
-## Next pages — custom_network_config.slo_config.static_routes.static_routes.node_interface.list / 2de1133840dd / 9
+## Next pages — interface / 313220203023 / 9
 
-- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-5668c5ed12c75cd564c81c42737792d83568302ddcc235dbbee4be04c8e817ef)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1232002103313210-1200101221200330-0330100300303111-2110010233111213-0313101220111222-1203032332311310-3221102021001021-3002023201111111)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db"></a>
+<a id="canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d2f7236f0755b9fffa2d4c805bc2668311ec490b6726f5f2afe35fe26a7ea9c"></a>
+<a id="canonical-3323223203130131-1313133110022130-0133232010123103-3301010021230202-1333123120202010-3311220310300103-2122013103323211-3323112203203132"></a>
 
-## custom_network_config.slo_config.static_v6_routes — custom_network_config.slo_config.static_v6_routes / dc97594039ec / 2
+## custom_network_config.sli_config.static_v6_routes — static_v6_routes / 022203132232 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- custom_network_config.slo_config.static_v6_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- custom_network_config.sli_config.static_v6_routes
 
-<a id="canonical-e1ca88e3eb08b5fe064456366979f23e8bb9cc670bd230b1e932c3d7f9d54342"></a>
+<a id="canonical-1130220031030003-0332003013330221-1310211121201121-3221222110232110-2312230301002232-1233011002030320-0300033232220221-2232310230313120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3792,40 +1871,40 @@ static_v6_routes {
 }
 ```
 
-<a id="canonical-82de8ad5d564bf24a8a44c60c385a3e5b974bbb0c61e7f023d0c79af90cbd928"></a>
+<a id="canonical-2320203303221322-3222001320032303-1130323021211030-1110132103021003-0021101210232131-0012233232102223-3033213100300131-2331110000221231"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes / dc97594039ec / 3
+## Direct properties — static_v6_routes / 022203132232 / 3
 
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44): complete subsection reference.
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012): complete subsection reference.
 
-<a id="canonical-6a21d5c18570e62dceaa3d2b4b35f81f9507c5947247d734dcc552bc60d2586f"></a>
+<a id="canonical-1231001303202323-1101330000232020-2310332213220220-0020122201031303-2002313312100100-3003212001030123-2100201210221012-1131113112112012"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes / dc97594039ec / 4
+## Next pages — static_v6_routes / 022203132232 / 4
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44"></a>
+<a id="canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d6cfffec943d1538df41ba05c3e0aabfb12d077c97fffc49c37f399844f68ade"></a>
+<a id="canonical-2103322101020323-3002322131233003-3000100231303011-2320220101230203-1031033110101013-0313020100232300-3021332102323210-0213022130033323"></a>
 
-## custom_network_config.slo_config.static_v6_routes.static_routes — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 2
+## custom_network_config.sli_config.static_v6_routes.static_routes — static_routes / 010213213233 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- custom_network_config.slo_config.static_v6_routes.static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- custom_network_config.sli_config.static_v6_routes.static_routes
 
-<a id="canonical-846cb5d0a1e3af2b2f458c9b853ded947293f33b04a79ab635839bdc1b73494d"></a>
+<a id="canonical-1111220103212222-3033122211300310-2211321121311131-0011122033123202-2122210102031110-2123101111033302-3001321010211021-0221300322011333"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3898,15 +1977,15 @@ static_routes {
 }
 ```
 
-<a id="canonical-39a038477a75b6be25d58558db511c95be01c6e850b795b12321d6fb76f56d55"></a>
+<a id="canonical-2122133031121202-1100100102031332-0103210321033203-0312202300221303-2320123331221133-0103030232020301-1312131130122311-1101330132220321"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 3
+## Direct properties — static_routes / 010213213233 / 3
 
-<a id="canonical-e70b6d2fb4317cc97197a8966ee450847598ca9551383bf3372b3255e1882304"></a>
+<a id="canonical-0133301323222220-3032320112211010-1113210202330123-0332013330303100-0230210220133000-0010122123002233-1230032023332222-0120322023322102"></a>
 
-<a id="canonical-b45708047b1003d09d06ef93ca470b6e01d80c2ddcbd8f8c3ccb81b2c4cc00de"></a>
+<a id="canonical-1133020031202132-2101233001230000-2030312123130101-1112201113333321-0223011131302110-0021330200112311-3310112322110031-3022132223332200"></a>
 
-## attrs property — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 4
+## attrs property — static_routes / 010213213233 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -3963,13 +2042,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-32971433455f253d4678dd35214c16cd795b6b3de1df02080e65e3aa0f682731): complete subsection reference.
+- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0020222221123002-0120322213020033-0000000201132210-1010201103012333-3112120231313001-0100132311021232-2131311212311230-2323120132223233): complete subsection reference.
 
-<a id="canonical-ab14c69d9226857e871d422042e4e3c4fe0ba5750fd87ca15786e4c254b246e2"></a>
+<a id="canonical-3203320000332333-3220321313232121-3031030102233313-1200110110330012-1221223003123120-2222000203101313-2121321131303321-3223120002232300"></a>
 
-<a id="canonical-74596e953c2da8b1454b4fada85dfbc1d651373f8ad9046084063b2be3420ab2"></a>
+<a id="canonical-0210102111131212-1031333010212300-0023201120031012-1032033030020212-3221111320110110-0330113233201200-3332023031321332-1023200211332233"></a>
 
-## ip_address property — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 5
+## ip_address property — static_routes / 010213213233 / 5
 
 Type: `"string"`. Optional.
 
@@ -4024,11 +2103,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7d4823fae492494125184893abbcc9868e4075fab130328492f668a4434cae9f"></a>
+<a id="canonical-2003330102201130-1332202213230103-2312222233111021-0203100202331022-1330230232023303-2113301223223012-0133103330021123-3311312101031302"></a>
 
-<a id="canonical-9eccddc7fef310c2c6ace4797a2a7b5b9af0d2213a11516914109431d9e927ed"></a>
+<a id="canonical-3122323333330020-0021303111210002-1233112032000110-1222210222300313-1320200213131121-3332133313003320-3333010002132213-0103121231303302"></a>
 
-## ip_prefixes property — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 6
+## ip_prefixes property — static_routes / 010213213233 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -4084,38 +2163,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0): complete subsection reference.
+- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232): complete subsection reference.
 
-<a id="canonical-c8ae32d9dbd55fc4d2042e808f810645d557286b6ca22aa37d6e035adddd8681"></a>
+<a id="canonical-0130213010112220-3012112232022231-3320212312101320-0311302103112331-3130223210310131-2021032101002123-1311301112323210-0102111133201132"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes.static_routes / 8a127be87ca6 / 7
+## Next pages — static_routes / 010213213233 / 7
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-32971433455f253d4678dd35214c16cd795b6b3de1df02080e65e3aa0f682731)
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0020222221123002-0120322213020033-0000000201132210-1010201103012333-3112120231313001-0100132311021232-2131311212311230-2323120132223233)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-32971433455f253d4678dd35214c16cd795b6b3de1df02080e65e3aa0f682731"></a>
+<a id="canonical-0020222221123002-0120322213020033-0000000201132210-1010201103012333-3112120231313001-0100132311021232-2131311212311230-2323120132223233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-061e42d3e3166c5b6f6d6618ab819f42441edc36d25024a2106debca34095d51"></a>
+<a id="canonical-1101301220032132-0210033213011023-2201223020020012-0021020003302133-0321203312010303-0233003000132231-2330321131111320-1231312002313202"></a>
 
-## custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway — custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway / a4e484c68863 / 2
+## custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway — default_gateway / 001010202322 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- custom_network_config.sli_config.static_v6_routes.static_routes.default_gateway
 
-<a id="canonical-29dff930e8ca3cf7b7ae2f362a76ce0f9f13c4123a0a1b3fa28da6d3ae76c103"></a>
+<a id="canonical-3312312100103122-3303302121112300-2202200021333131-3112113303011113-0130332202030023-2201232312121303-1113330310113013-3011013331133033"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4144,40 +2223,40 @@ Terraform syntax:
 default_gateway = {}
 ```
 
-<a id="canonical-5b2ac0dbfb0dd0fdb9bf8306b0a90ef8892a0b137b66dede1336ac0dee08a42a"></a>
+<a id="canonical-1122132021111331-1001103202322200-1022033030002302-0133222002310221-2131213000033300-2013200113003013-1031031311023312-2321030323002320"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway / a4e484c68863 / 3
+## Direct properties — default_gateway / 001010202322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cb5222a5c1636f65178474c5831f9ffe9686f6d6adeceab15fa26c4d52b2d388"></a>
+<a id="canonical-3222002303103112-3120233232210121-2122231003001212-1232301312003111-2210321133312201-0021302011301003-1302133002121330-3332123002023333"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway / a4e484c68863 / 4
+## Next pages — default_gateway / 001010202322 / 4
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0"></a>
+<a id="canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-743fc92dd8fea0520b47a8c7c8eccab1ea2802edfda4206117ef6165c62c5d02"></a>
+<a id="canonical-0203023033010023-2230331322213021-0322113211212122-2323302211102230-0112011203111111-1201022102030232-0122233001003013-2022002303111010"></a>
 
-## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface / 8e57a95602c6 / 2
+## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface — node_interface / 130320012220 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface
 
-<a id="canonical-ca81cbfb752554bb1dd08926115c7d5912142a473fd187b8ae546f8d48f1bdec"></a>
+<a id="canonical-0211033330201213-1203130333013031-1020033301331321-3312303323122101-2110001100011213-0200133211023012-2300120131122232-2013230220331202"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4204,42 +2283,42 @@ node_interface {
 }
 ```
 
-<a id="canonical-203e49784d1d7a4bb137f9766d6a856c533d619d114eb310570cf639d5b3ae2c"></a>
+<a id="canonical-1033021321112112-3112200211332103-2120002321232323-3200232021032102-0112230331303000-2021133030310130-0301110233311030-2111100103112013"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface / 8e57a95602c6 / 3
+## Direct properties — node_interface / 130320012220 / 3
 
-- [list](resources--voltstack_site--reference--group-005.md#canonical-55d5b52aceafc209c35351164e88b7994055024062b237c058dc1c141688dda1): complete subsection reference.
+- [list](resources--voltstack_site--reference--group-005.md#canonical-1201322100232212-2332211112120120-3031130021221010-2202321001302323-0213011211223110-0312021120002312-2112220221021322-2013320021210001): complete subsection reference.
 
-<a id="canonical-e81b76e18bbab9fe28e014c7fcee58bc5ae818466feae4126ad38e0f61c72d5d"></a>
+<a id="canonical-3100012232030321-0002330321103302-2221313111201200-3202020033103133-1320202322031301-2131220113102123-1130221001233030-0002202231112112"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface / 8e57a95602c6 / 4
+## Next pages — node_interface / 130320012220 / 4
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-55d5b52aceafc209c35351164e88b7994055024062b237c058dc1c141688dda1)
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1201322100232212-2332211112120120-3031130021221010-2202321001302323-0213011211223110-0312021120002312-2112220221021322-2013320021210001)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-55d5b52aceafc209c35351164e88b7994055024062b237c058dc1c141688dda1"></a>
+<a id="canonical-1201322100232212-2332211112120120-3031130021221010-2202321001302323-0213011211223110-0312021120002312-2112220221021322-2013320021210001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fabf4831bfe99e15fe34d0fc9af1de1ec84c893b348c475eb1628c5bbd16d8a8"></a>
+<a id="canonical-2020012200230130-1120121332311231-2213212013323010-3312201321123111-2102201301321113-2313102011210021-2223013212011001-3332131211121010"></a>
 
-## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6be1649ea392 / 2
+## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list — list / 110011023333 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0)
-- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232)
+- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list
 
-<a id="canonical-95a76cc93b551f2d75e0cefb92f8da59a4f5ee0d6e413e0ab665360c234f78ad"></a>
+<a id="canonical-2100022030020113-1301311302310200-1201222322001122-0202232001123200-0203211131220022-0112033120203023-3021123031123233-1122111032321323"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4284,17 +2363,17 @@ list {
 }
 ```
 
-<a id="canonical-17970a789752fffc9ca1974c72c97642bbe9c26116f7d24484c390f54efabe52"></a>
+<a id="canonical-0303013121302213-1321132012222011-2310113233012232-3200022210102112-3212123213313020-2101010132033311-1000002200110023-3030030000112002"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6be1649ea392 / 3
+## Direct properties — list / 110011023333 / 3
 
-- [interface](resources--voltstack_site--reference--group-005.md#canonical-8860474bbe0d47024f585cb987022d972d479915cc4c47550b60d9aadba7d1ae): complete subsection reference.
+- [interface](resources--voltstack_site--reference--group-005.md#canonical-1021012303003120-0131320332232202-2220012002020201-1133103302200022-3130230012332211-2121111020332033-1120013103023232-2300021200011200): complete subsection reference.
 
-<a id="canonical-40966f127294b8d2ca8adc559fedea20cf5d8cb0012296cc7bbea1db7a24c4b9"></a>
+<a id="canonical-2120233312011211-0110210333331222-1103310311232321-0110330311332211-0301230031112102-2000120022211330-2032300212030233-1332122312231333"></a>
 
-<a id="canonical-a08e8032f5b85451c0df1096bcebaa27442648a7ef2d031f41ba1d0cf930fd5a"></a>
+<a id="canonical-3133121330321133-0222333123030120-2120222030103101-1312031210030023-2010132311033300-1202201303011312-3322303021032011-1232230320323212"></a>
 
-## node property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6be1649ea392 / 4
+## node property — list / 110011023333 / 4
 
 Type: `"string"`. Optional.
 
@@ -4327,37 +2406,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c25a61ca6487ef446b7c129066d4ce30ba808cdd9c7976a0fc5c2a7ee650d669"></a>
+<a id="canonical-3103312001222023-1122333123021013-3112203211211020-2110211132320311-3330102310022103-0003311002021201-2313001331232021-1221232021313213"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6be1649ea392 / 5
+## Next pages — list / 110011023333 / 5
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-8860474bbe0d47024f585cb987022d972d479915cc4c47550b60d9aadba7d1ae)
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-1021012303003120-0131320332232202-2220012002020201-1133103302200022-3130230012332211-2121111020332033-1120013103023232-2300021200011200)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-8860474bbe0d47024f585cb987022d972d479915cc4c47550b60d9aadba7d1ae"></a>
+<a id="canonical-1021012303003120-0131320332232202-2220012002020201-1133103302200022-3130230012332211-2121111020332033-1120013103023232-2300021200011200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7150b517e8e352c16043f68ad2e28d52d3ee8da2aa5daa2133fd53b7691a62ff"></a>
+<a id="canonical-2133230000030210-1012111331001301-0113313010010311-3030000022310021-3310131130201003-2033130102020010-1301000011210323-3123031100020023"></a>
 
-## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 2
+## custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface — interface / 113100211333 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-9e1ad2299d79e738428247be342f25c14573ed8775efe498cb1abef5f2c4a67a)
-- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-4359c1858179f211f728adbf73d0e23a4aca69e6988790974244d24d1160a5db)
-- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-e3c97111a59faa3beff3b93f44542e8339558e8ade6b28ec9f4d82f4c9296b44)
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-e01ac3daa1731c7c47dbbbb99fa5ae5e74110d51385bcf8a7d2aa1db52a05aa0)
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-55d5b52aceafc209c35351164e88b7994055024062b237c058dc1c141688dda1)
-- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.sli_config](resources--voltstack_site--reference--group-005.md#canonical-1102301023303321-1010303333232102-2100110003031111-0013100113133212-2221231112132310-3212231331133310-1311003003203321-3102111010332313)
+- [custom_network_config.sli_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3303202101313311-2332103211112231-1223201102030123-1322100301333302-2333211100213230-2222122132030211-0311221100323131-2200112333120203)
+- [custom_network_config.sli_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0020333010323222-3112120021020001-1301000233112123-1101331330133020-0332002001213110-1030123223001013-0033231233011031-2021311003300012)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-0021021030111233-3211302212333230-1211121002303111-2013133113220330-3321301030233110-0233020310033021-0311333313123232-3322300222131232)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1201322100232212-2332211112120120-3031130021221010-2202321001302323-0213011211223110-0312021120002312-2112220221021322-2013320021210001)
+- custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list.interface
 
-<a id="canonical-a61ceeeb2f44bbad40fe213d9ab93ae6bfb46dc84ee94a9a1179bd83b9dc09d4"></a>
+<a id="canonical-1131211302230020-2020303303032321-1223121313131322-0103333032003133-1333122223212020-2132030321020310-1030003231203223-0332120102321100"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4406,15 +2485,15 @@ interface {
 }
 ```
 
-<a id="canonical-d34a3074e90a389e1f4ad9d3cb1c580f63f19e7485321cd1eb87d6ea232d6594"></a>
+<a id="canonical-1201313223111301-2130200321003033-3001320023321210-0033222100110312-0323313011133203-0002020101022122-1012223112333333-1302311213302022"></a>
 
-## Direct properties — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 3
+## Direct properties — interface / 113100211333 / 3
 
-<a id="canonical-47c4dad5980536a9ccf7bbce25668500f5eba9399a0923c226c83d5b4c7f2c55"></a>
+<a id="canonical-3011212020311123-1002020321332303-0001222012112332-1302000120130121-2113321220303123-2300131130032121-0311031333222321-3020022230010202"></a>
 
-<a id="canonical-4a65e062d84baa7a3083262293209e1701346308bd90a314020d3d5da83cb685"></a>
+<a id="canonical-3100212302113223-2220130001301021-0100220023202001-2330110222212202-0123203133120210-3113120331012103-0323230103223310-0232020212213321"></a>
 
-## kind property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 4
+## kind property — interface / 113100211333 / 4
 
 Type: `"string"`. Computed.
 
@@ -4449,11 +2528,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3c328a3fc27655132d5e2941c134ed799064ba21b8a0b9051658fb85f1041eaa"></a>
+<a id="canonical-1223121200122310-2000201013110130-0121132301132011-1111011321210311-3200310303032023-2220100112101032-3301213130011303-1123122233121122"></a>
 
-<a id="canonical-5ffe81754914353fb2219c0a1a0840da600e24812b7484562fe88a5d94135529"></a>
+<a id="canonical-0333322322330222-2223310002010301-1333230323030030-2212212312210323-3132031222303000-1213200101032110-2301120113321113-0001302100031023"></a>
 
-## name property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 5
+## name property — interface / 113100211333 / 5
 
 Type: `"string"`. Optional.
 
@@ -4488,11 +2567,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-297bb953561e2ae7ec7f8d2cd4f7261b874d7f9690fead5e6d53333baaacd536"></a>
+<a id="canonical-1323023311212130-1113332212011211-1332233020231013-1212000111311130-3122232103201222-1121023310132333-3032311311010212-3033131121312233"></a>
 
-<a id="canonical-4840231622cd2a76e2c605e40f05f5eed302a0db70c143b7c5661e81e2434bb4"></a>
+<a id="canonical-0233212300213013-1003323201330101-1312303122212020-0102331210011303-0112220301012122-1133122222230320-3213033220001321-1021020021203202"></a>
 
-## namespace property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 6
+## namespace property — interface / 113100211333 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -4552,11 +2631,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-573acaa49dde8ec6ea7c9f0fff8b7cace1d019797caf3799e68a3fa9f3cc59a7"></a>
+<a id="canonical-2000232121033333-3131133022222031-1320132210313321-0001302131122120-1111311132131210-3221211223122232-3100103123112210-1101103213032333"></a>
 
-<a id="canonical-55f36fe7cfe90a5abd79de9f10900d3f29be46c58016d18ccc3faf651be20315"></a>
+<a id="canonical-2320200101321201-2001101010023032-3232002303120123-0320220201311332-0311123231011221-0103312223200110-2121333330213203-0001112120033022"></a>
 
-## tenant property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 7
+## tenant property — interface / 113100211333 / 7
 
 Type: `"string"`. Computed.
 
@@ -4591,11 +2670,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4c7870005935a5d6c296893ef09b307fef01097f8226fb54e76f40a7da3f0a9d"></a>
+<a id="canonical-0121122330130330-2030110201213211-2003320211121202-1202213101300123-3222212130330330-2330221312310222-3030123302300300-3303031102010022"></a>
 
-<a id="canonical-5022225dfe73b7551732646bb7bf13a2ab99e9525f0a48639c9784c3d418303b"></a>
+<a id="canonical-1101301333001333-0123123020002203-0120112120322312-3221100110120020-0101012202202312-0112113220001220-1320001223333103-1112213121222300"></a>
 
-## uid property — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 8
+## uid property — interface / 113100211333 / 8
 
 Type: `"string"`. Computed.
 
@@ -4630,165 +2709,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7fdb7d4cdb8acbd6c984a21dd5f47a156cbde19f51906f93852c30d66b040638"></a>
+<a id="canonical-1333102220132030-0120320111323001-1110131320123012-0110223232022203-1322322211133213-0223222321121333-0233002011220003-1203212110221003"></a>
 
-## Next pages — custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.l / 6d5fcbbedd75 / 9
+## Next pages — interface / 113100211333 / 9
 
-- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-55d5b52aceafc209c35351164e88b7994055024062b237c058dc1c141688dda1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.sli_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1201322100232212-2332211112120120-3031130021221010-2202321001302323-0213011211223110-0312021120002312-2112220221021322-2013320021210001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-347d07f4aa76a18174d77fd12792b7fd6ddb0a0e131714c9e0cdc995d9dd2b04"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-8998d9d66fe012a8f49ee0ada4f41c8af901051612e37cd47e81918e0eb0528e"></a>
-
-## custom_network_config.sm_connection_public_ip — custom_network_config.sm_connection_public_ip / 05d8e32d5e36 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.sm_connection_public_ip
-
-<a id="canonical-af0956a23f3c13d523b03d3f4c4a0ce7e659badf9248340b3c710984a66ea292"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-sm_connection_public_ip = {}
-```
-
-<a id="canonical-44fc1215de57a3b3d518c4a7b9128adc19e031e69955cbebc26bc28603e85120"></a>
-
-## Direct properties — custom_network_config.sm_connection_public_ip / 05d8e32d5e36 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-31343cbddfebc15778b6aa28ea3a480e17b72020e4550a31f1fc83484ecb1e14"></a>
-
-## Next pages — custom_network_config.sm_connection_public_ip / 05d8e32d5e36 / 4
-
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-d9ec4aaebd7b2323da05050164acd7c7581009d53407445f2091efdb5fddae1b"></a>
+<a id="canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2584716d5b5676c13ea4961e27ff25c282d41851b191c00fb439b0952295f67a"></a>
+<a id="canonical-3102001311110100-0300000031020131-2201310213312010-3111322100233033-0120322312300103-1102132010010323-3120221210220203-2302022310323311"></a>
 
-## custom_network_config.sm_connection_pvt_ip — custom_network_config.sm_connection_pvt_ip / 9396035f7905 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- custom_network_config.sm_connection_pvt_ip
-
-<a id="canonical-d34b457af4526ac22d41f25425ce99276e8dc79cbe9400c8cff46f2636d43837"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-sm_connection_pvt_ip = {}
-```
-
-<a id="canonical-67ae2c8ede45195cfa4864aba979097c9b06860cf708b680bd55c362ecae294a"></a>
-
-## Direct properties — custom_network_config.sm_connection_pvt_ip / 9396035f7905 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-026861d8e388497c3c31357ee2cecf83c59e7acf2d68341dfcebe0d2827402f7"></a>
-
-## Next pages — custom_network_config.sm_connection_pvt_ip / 9396035f7905 / 4
-
-- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-875fc1888b0d1e9356602920438ee6e95e0b97b44f0f5a6e97f623a33321d8c1)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d4935fa902b7c2473c2a5da1ed93750f9602c8185f5d057680731f0a97bc1c03"></a>
-
-## custom_storage_config — custom_storage_config / c9928723634f / 2
+## custom_network_config.slo_config — slo_config / 312332131220 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- custom_storage_config
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.slo_config
 
-<a id="canonical-8605869d88c061c89b1499645865246d196168c6c00ec0bf498bdd97583c7f6f"></a>
+<a id="canonical-0220330220202313-2332133003031313-0023111102132122-0201321312331220-0103212031330223-1120111012220013-3323123222202012-1320312122102100"></a>
 
 Type: `"object"`. single nested block, Optional.
 
-\[OneOf: custom\_storage\_config, default\_storage\_config; Default: default\_storage\_config\]
-VssStorageConfiguration.
+Site Local Network Configuration. Site local network configuration.
+
+Upstream description:
+
+Site local network configuration.
 
 Provider validators and defaults (from schema source):
 
 ```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("default_storage_class",
-    "storage_class_list"),
+Validators: []validator.Object{validators.ConflictingObjectAttributes("dc_cluster_group",
+    "no_dc_cluster_group"),
   validators.ConflictingObjectAttributes("no_static_routes",
     "static_routes"),
-  validators.ConflictingObjectAttributes("no_storage_device",
-    "storage_device_list"),
-  validators.ConflictingObjectAttributes("no_storage_interfaces",
-    "storage_interface_list")}
+  validators.ConflictingObjectAttributes("no_static_v6_routes",
+    "static_v6_routes")}
 ```
 
 Receipt-pinned upstream constraints:
@@ -4801,85 +2764,394 @@ Receipt-pinned upstream constraints:
     "read": false,
     "update": false
   },
+  "x-ves-oneof-field-dc_cluster_group_choice": "[\"dc_cluster_group\",\"no_dc_cluster_group\"]",
   "x-ves-oneof-field-static_route_choice": "[\"no_static_routes\",\"static_routes\"]",
-  "x-ves-oneof-field-storage_class_choice": "[\"default_storage_class\",\"storage_class_list\"]",
-  "x-ves-oneof-field-storage_device_choice": "[\"no_storage_device\",\"storage_device_list\"]",
-  "x-ves-oneof-field-storage_interface_choice": "[\"no_storage_interfaces\",\"storage_interface_list\"]"
+  "x-ves-oneof-field-static_v6_route_choice": "[\"no_static_v6_routes\",\"static_v6_routes\"]"
 }
 ```
-
-OneOf alternatives in this subsection:
-
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-8605869d88c061c89b1499645865246d196168c6c00ec0bf498bdd97583c7f6f)
-- [default_storage_config](resources--voltstack_site--reference--group-008.md#canonical-c100f681d91edf2d377878aaf241bdb0647f59d432a2651a5b36c4da9c98f6d9)
-
-Select alternatives according to the provider validators above.
 
 Terraform syntax:
 
 ```terraform
-custom_storage_config {
+slo_config {
   # Configure direct properties listed below.
 }
 ```
 
-<a id="canonical-e2bbf46af98655edcc24481b63e8217da17726379f2ee9aa92cc7d821e75b75c"></a>
+<a id="canonical-3203122000020212-3003231330332012-1011033231302220-1012032331213110-1320033133110221-2332133210321031-3011200300013033-1333022020332113"></a>
 
-## Direct properties — custom_storage_config / c9928723634f / 3
+## Direct properties — slo_config / 312332131220 / 3
 
-- [default_storage_class](resources--voltstack_site--reference--group-005.md#canonical-73669716997241983e0ae046b0430041077057b06359181eccd356c3e3c6cfef): complete subsection reference.
+- [dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-2131302313022303-2213121110223333-0203133211211100-2311322201121312-1112333030111120-0001301212322221-2020110311311121-3130020330010302): complete subsection reference.
 
-- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-b4d75e2ed369e19ae0cb55dbbc20925c2074c8084bfdfc121d2fa36a992ce8ec): complete subsection reference.
+- [labels](resources--voltstack_site--reference--group-005.md#canonical-3010111313021021-0123120213200031-0023023303322303-1110003213133110-0101210020320223-0113232221300222-2120330322001101-2313210232131321): complete subsection reference.
 
-- [no_storage_device](resources--voltstack_site--reference--group-005.md#canonical-33e463a6608d72edd8e57ebe5f9a4b2c433a91662d0ab26f964c3813d8ce48a4): complete subsection reference.
+- [no_dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-3130200111333330-0303110300230033-1013020200101122-0021232022031122-2100213210311332-0032210133302310-2302320101011022-0031333123023011): complete subsection reference.
 
-- [no_storage_interfaces](resources--voltstack_site--reference--group-005.md#canonical-862cbb7f15193ae85399ddea4ba03b438a4bc96f88f55647611bdd19d802bcf9): complete subsection reference.
+- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-0130213112111003-1133111311110122-1023120321103131-2322320003023021-2213102333223230-3013231321301331-3113213112021122-3302033000203012): complete subsection reference.
 
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a): complete subsection reference.
+- [no_static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3310000003111133-2310132332112313-3303330312233002-1212323003023131-2310203130212022-2132112202212211-0213213103300212-1013021130221321): complete subsection reference.
 
-- [storage_class_list](resources--voltstack_site--reference--group-005.md#canonical-e0ae1a1e35a34c03930df0f57bfcbedbc5f0465ea38c6de68c853d4c27620ace): complete subsection reference.
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020): complete subsection reference.
 
-- [storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-c060815b4ab3fde701039359636a3b27bc82a9a3ff810c8c5508e88a5d7e0679): complete subsection reference.
+- [static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123): complete subsection reference.
 
-- [storage_interface_list](resources--voltstack_site--reference--group-007.md#canonical-b08755996fc0dd1370f5b1a65cec228ba0784ab7c0614c94d52d969da31ee93f): complete subsection reference.
+<a id="canonical-3232232011322100-0130102220131210-3130111100213103-3331000133311110-3101210100230020-2032030002022102-3123303003012220-3232110000133320"></a>
 
-<a id="canonical-057f8b2d9992c2953f1f6e81182f131e928008457d20ac2a2b51301ff2633f2a"></a>
+## Next pages — slo_config / 312332131220 / 4
 
-## Next pages — custom_storage_config / c9928723634f / 4
+- [custom_network_config.slo_config.dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-2131302313022303-2213121110223333-0203133211211100-2311322201121312-1112333030111120-0001301212322221-2020110311311121-3130020330010302)
+- [custom_network_config.slo_config.labels](resources--voltstack_site--reference--group-005.md#canonical-3010111313021021-0123120213200031-0023023303322303-1110003213133110-0101210020320223-0113232221300222-2120330322001101-2313210232131321)
+- [custom_network_config.slo_config.no_dc_cluster_group](resources--voltstack_site--reference--group-005.md#canonical-3130200111333330-0303110300230033-1013020200101122-0021232022031122-2100213210311332-0032210133302310-2302320101011022-0031333123023011)
+- [custom_network_config.slo_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-0130213112111003-1133111311110122-1023120321103131-2322320003023021-2213102333223230-3013231321301331-3113213112021122-3302033000203012)
+- [custom_network_config.slo_config.no_static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-3310000003111133-2310132332112313-3303330312233002-1212323003023131-2310203130212022-2132112202212211-0213213103300212-1013021130221321)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-- [custom_storage_config.default_storage_class](resources--voltstack_site--reference--group-005.md#canonical-73669716997241983e0ae046b0430041077057b06359181eccd356c3e3c6cfef)
-- [custom_storage_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-b4d75e2ed369e19ae0cb55dbbc20925c2074c8084bfdfc121d2fa36a992ce8ec)
-- [custom_storage_config.no_storage_device](resources--voltstack_site--reference--group-005.md#canonical-33e463a6608d72edd8e57ebe5f9a4b2c433a91662d0ab26f964c3813d8ce48a4)
-- [custom_storage_config.no_storage_interfaces](resources--voltstack_site--reference--group-005.md#canonical-862cbb7f15193ae85399ddea4ba03b438a4bc96f88f55647611bdd19d802bcf9)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [custom_storage_config.storage_class_list](resources--voltstack_site--reference--group-005.md#canonical-e0ae1a1e35a34c03930df0f57bfcbedbc5f0465ea38c6de68c853d4c27620ace)
-- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-c060815b4ab3fde701039359636a3b27bc82a9a3ff810c8c5508e88a5d7e0679)
-- [custom_storage_config.storage_interface_list](resources--voltstack_site--reference--group-007.md#canonical-b08755996fc0dd1370f5b1a65cec228ba0784ab7c0614c94d52d969da31ee93f)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-73669716997241983e0ae046b0430041077057b06359181eccd356c3e3c6cfef"></a>
+<a id="canonical-2131302313022303-2213121110223333-0203133211211100-2311322201121312-1112333030111120-0001301212322221-2020110311311121-3130020330010302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4ef36fd3474891641cf71ff077d2e518278f4f57bb31f74edb19bcf1cb083737"></a>
+<a id="canonical-1131132312111003-3313031010131233-3020112311323012-2111020321231023-1110332222002101-0331322031030030-2232012133310221-3321211133311322"></a>
 
-## custom_storage_config.default_storage_class — custom_storage_config.default_storage_class / 32730285aebb / 2
+## custom_network_config.slo_config.dc_cluster_group — dc_cluster_group / 033223103320 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.default_storage_class
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.dc_cluster_group
 
-<a id="canonical-40c9adb8a5d57b2a6c068fedb0214dc6628fc02f9a5c67a29db5e4bddb98be19"></a>
+<a id="canonical-1321223320322211-3210030233222231-2302130201230122-2001210223100302-3313311030131103-0330101000311032-2012010220002001-0023311120303311"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+dc_cluster_group {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0103200010330221-1312113032100022-1220213010230303-1210013201013002-1111020312122233-2003203332201231-2223301303331331-0233123030332223"></a>
+
+## Direct properties — dc_cluster_group / 033223103320 / 3
+
+<a id="canonical-3333020213123320-1212123033130112-2000123301303112-2131310310133101-1002201003131110-1020120101112123-3120012011303333-1330213331031331"></a>
+
+<a id="canonical-2023310231100322-2211300110312311-3013300002202121-3133100003031022-3013133000332130-3033123300201220-2222030112211231-1101331023331123"></a>
+
+## name property — dc_cluster_group / 033223103320 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-1200022002033100-2023202033003113-3302013301031201-3000221303130022-0323022123000003-0321101330301220-0202133021032210-1102210010032131"></a>
+
+<a id="canonical-1132003313130013-1302001310213000-3310031022321203-1010132031230230-2021011121203112-1210013030202110-1112231133112010-0123103020123212"></a>
+
+## namespace property — dc_cluster_group / 033223103320 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0112022000020030-2003012321123322-2002113310221321-2100133232113333-2103120001303121-3301122032120322-0020332303123111-1212120321223002"></a>
+
+<a id="canonical-2312131210113011-2232133232130022-2030232003132002-3302302223030312-3212313302233011-2203302120030131-1001103021110033-3003102013031322"></a>
+
+## tenant property — dc_cluster_group / 033223103320 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3320312321211002-3131230202012103-2223330112232112-2110111002233122-0110202332020010-2010210321233131-1322020212221111-0303201231311232"></a>
+
+## Next pages — dc_cluster_group / 033223103320 / 7
+
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-3010111313021021-0123120213200031-0023023303322303-1110003213133110-0101210020320223-0113232221300222-2120330322001101-2313210232131321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2203031212200202-0331030023311321-3113201330123100-3000002022232130-0100212301310131-1221201200130020-2302032030311333-3020201013020202"></a>
+
+## custom_network_config.slo_config.labels — labels / 032203101100 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.labels
+
+<a id="canonical-1200121131323201-1210132330213220-1000331323102220-3311222231131022-0130313201332023-0303123123032102-3102001130003023-0323312131003100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Add Labels for this network, these labels can be used in firewall policy.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+labels {}
+```
+
+<a id="canonical-0121130223213313-1011200230221311-3221112130203113-2010012213103210-3002230112233020-0233003301132231-2111133212113331-0012020112201223"></a>
+
+## Direct properties — labels / 032203101100 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3233332330123011-2322123222111203-1201113120210321-1102123020213310-2321133333320030-0301132013200101-2221213110231131-2333313120221323"></a>
+
+## Next pages — labels / 032203101100 / 4
+
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-3130200111333330-0303110300230033-1013020200101122-0021232022031122-2100213210311332-0032210133302310-2302320101011022-0031333123023011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2133210112320210-3312121031313222-3002322203332002-2233220102321030-1113300230320121-2310112200223130-0103123010231132-0221213121020322"></a>
+
+## custom_network_config.slo_config.no_dc_cluster_group — no_dc_cluster_group / 002311210331 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.no_dc_cluster_group
+
+<a id="canonical-3002212103113322-2002003101321122-1210331030112303-0003232002002223-1110021030331302-3201031202333001-0332221322120332-3210131223220332"></a>
 
 Type: `["object", {}]`. Optional.
 
-Configuration parameter for default storage class.
+Enable this option
 
 Upstream description:
 
@@ -4901,40 +3173,41 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-default_storage_class = {}
+no_dc_cluster_group = {}
 ```
 
-<a id="canonical-4fcf58ad1bd015d0f78158800a6dad6ffb18861ea32dcb5493fcc5b0499fd224"></a>
+<a id="canonical-2122121233123202-3312330133321001-3021111313030212-0202001221101123-1131132033223011-1202331020223122-3022102332332102-1210231320212013"></a>
 
-## Direct properties — custom_storage_config.default_storage_class / 32730285aebb / 3
+## Direct properties — no_dc_cluster_group / 002311210331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e4c277f3a14260d3a710dfa57ad0b7b7767f4049eeaa7824149e4160a9651d5a"></a>
+<a id="canonical-0013330123212103-1023312102311233-0212030313233031-0020132201112201-3311131303032300-2330223132011123-3132302212010211-2011123202212121"></a>
 
-## Next pages — custom_storage_config.default_storage_class / 32730285aebb / 4
+## Next pages — no_dc_cluster_group / 002311210331 / 4
 
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-b4d75e2ed369e19ae0cb55dbbc20925c2074c8084bfdfc121d2fa36a992ce8ec"></a>
+<a id="canonical-0130213112111003-1133111311110122-1023120321103131-2322320003023021-2213102333223230-3013231321301331-3113213112021122-3302033000203012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c923ffbe4c1ebc6c96a30b7db84db6f1fb73f45ef2649eeaa86318e38935817c"></a>
+<a id="canonical-0100302032113311-3223303103323202-0013220301131330-0333232022320110-1132102223223132-3300003030023032-2220201233120302-1133211010121102"></a>
 
-## custom_storage_config.no_static_routes — custom_storage_config.no_static_routes / f61943244e28 / 2
+## custom_network_config.slo_config.no_static_routes — no_static_routes / 213123033313 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.no_static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.no_static_routes
 
-<a id="canonical-7bfca05b4960e7c60652dcd0f8f6ec1a19075e27984bb565a18583a3aad03f8b"></a>
+<a id="canonical-1230000100222033-2223102211113331-1332122210310232-1233322023211203-0011321131111222-3301131103102010-2032233022312111-1223102312302102"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4963,41 +3236,42 @@ Terraform syntax:
 no_static_routes = {}
 ```
 
-<a id="canonical-8242ec5878f0868f0c3eb0794c8c188d6945de5e149e0b7fef93d097b81e2cba"></a>
+<a id="canonical-2323001321210013-0232220203010322-3123331132222121-2313103321121232-1103033300311103-2032110210131332-3123012200001222-3231232202102300"></a>
 
-## Direct properties — custom_storage_config.no_static_routes / f61943244e28 / 3
+## Direct properties — no_static_routes / 213123033313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b47736fba9b4d38cca1316a4a6c405486be481e71751e7088a6e43eaccf7a062"></a>
+<a id="canonical-1110122033000101-3003031123311320-0102011223310102-0201232110231133-3330303020321322-2332001311200113-1200201331132220-3312302333213013"></a>
 
-## Next pages — custom_storage_config.no_static_routes / f61943244e28 / 4
+## Next pages — no_static_routes / 213123033313 / 4
 
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-33e463a6608d72edd8e57ebe5f9a4b2c433a91662d0ab26f964c3813d8ce48a4"></a>
+<a id="canonical-3310000003111133-2310132332112313-3303330312233002-1212323003023131-2310203130212022-2132112202212211-0213213103300212-1013021130221321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-da244fbdaabec6352d6fa0380946b9672c1e2b9884abfeea80966d935c4ec8b4"></a>
+<a id="canonical-3220031331210213-1023031322110011-0200323311230132-2323231313301232-2010321113100022-0301303111002323-2220122333221013-1313001021113313"></a>
 
-## custom_storage_config.no_storage_device — custom_storage_config.no_storage_device / 2ef57c7f60b0 / 2
+## custom_network_config.slo_config.no_static_v6_routes — no_static_v6_routes / 102001220030 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.no_storage_device
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.no_static_v6_routes
 
-<a id="canonical-61b255e938b38fbfff86ecfc3b77995a833f4aa9a763ef152f95c7cc0cd58b1f"></a>
+<a id="canonical-3200230013221333-3033321220200210-1131233130310131-0011322232221203-0322302033312003-1222310032303122-2111202121301132-3213030220323221"></a>
 
 Type: `["object", {}]`. Optional.
 
-Configuration parameter for no storage device.
+Configuration parameter for no static v6 routes.
 
 Upstream description:
 
@@ -5019,99 +3293,41 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-no_storage_device = {}
+no_static_v6_routes = {}
 ```
 
-<a id="canonical-c433c67f490790be287e79ebcadac93ff2e461fe44ba8a304838e1ea565c0383"></a>
+<a id="canonical-1021020000000001-1330010110221321-0301321300203323-1113323201000302-1020312330313212-3002032231113001-1031200110102031-0222122230013033"></a>
 
-## Direct properties — custom_storage_config.no_storage_device / 2ef57c7f60b0 / 3
+## Direct properties — no_static_v6_routes / 102001220030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b12acb2f45b4c5c02dcc1e52c531e427469c799f063e0a8c80ddaab71366fba4"></a>
+<a id="canonical-3112311033200120-2011021033221322-1031312333333132-2331232231210121-0121313232100102-0332221023002113-0012221121122133-1203000211132003"></a>
 
-## Next pages — custom_storage_config.no_storage_device / 2ef57c7f60b0 / 4
+## Next pages — no_static_v6_routes / 102001220030 / 4
 
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-862cbb7f15193ae85399ddea4ba03b438a4bc96f88f55647611bdd19d802bcf9"></a>
+<a id="canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-50623bce8d529b6a75894480c39bf77cddc8d604f156202cf8e46a7c5a8ce9e2"></a>
+<a id="canonical-2201323313132021-1102223310303033-0212310133002301-0232110211231221-1020330101030103-0111102013302000-2303223033001222-2223110220332232"></a>
 
-## custom_storage_config.no_storage_interfaces — custom_storage_config.no_storage_interfaces / c2bb372cb4b8 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.no_storage_interfaces
-
-<a id="canonical-a75ec8292bbe8e959a416e3df6111cd5a85b30e4225f280942deaadded67ebd1"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no storage interfaces.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_storage_interfaces = {}
-```
-
-<a id="canonical-d1cad161b331fb8dfbeeb3bae162f2df50bfa217eb1faf4df968f03c7d968aa6"></a>
-
-## Direct properties — custom_storage_config.no_storage_interfaces / c2bb372cb4b8 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-a58c9668546323d26cac67d81db3eebd216b3a7e33d44d2a6801cec715d34a00"></a>
-
-## Next pages — custom_storage_config.no_storage_interfaces / c2bb372cb4b8 / 4
-
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-
-<a id="canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0e2f128d394ddab2e1f1d28d40dcdce349dc4734da1e7d46d836fbe40d2ca8ea"></a>
-
-## custom_storage_config.static_routes — custom_storage_config.static_routes / f74f69b139ed / 2
+## custom_network_config.slo_config.static_routes — static_routes / 212201103200 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.static_routes
 
-<a id="canonical-a0d6c9a707813d207672d575548697125fec898bed14fa122b062a14701e4545"></a>
+<a id="canonical-0330231103203032-0032313201120303-0303002102312102-0300103131323031-3211310202223110-2131222220200221-3300122031321100-3313112013222223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5148,39 +3364,40 @@ static_routes {
 }
 ```
 
-<a id="canonical-7387a34e4e7d6dfae72513df6380757ecd263e2b0b54dbff008a21e8790dbe07"></a>
+<a id="canonical-2123102211121123-1100110020333333-1323232021231110-2002300120322202-0020001201101221-3013120130003012-3133021112200300-0100212332313120"></a>
 
-## Direct properties — custom_storage_config.static_routes / f74f69b139ed / 3
+## Direct properties — static_routes / 212201103200 / 3
 
-- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac): complete subsection reference.
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101): complete subsection reference.
 
-<a id="canonical-24ed0d287eb46d1f722bd12df61b464cb81035a099ded28d910f28c21da5aa00"></a>
+<a id="canonical-2200001231323200-2210113203310120-0322021221013110-0021202030110031-3230020103203332-3232031023321232-2111222312221112-3033301202010103"></a>
 
-## Next pages — custom_storage_config.static_routes / f74f69b139ed / 4
+## Next pages — static_routes / 212201103200 / 4
 
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac"></a>
+<a id="canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-695f5424f0da33197558d0c5b370fbe8e4361ed4313a3f512dd70089a0bda1fd"></a>
+<a id="canonical-3022331320023332-1013313201231213-1033302012120231-3021203320301202-2021102020123100-0001221012322103-3301323002321213-0120023131230012"></a>
 
-## custom_storage_config.static_routes.static_routes — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 2
+## custom_network_config.slo_config.static_routes.static_routes — static_routes / 302103212103 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- custom_storage_config.static_routes.static_routes
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- custom_network_config.slo_config.static_routes.static_routes
 
-<a id="canonical-d8b7b85a2c1989b0082941df2ad6dde35fbb27eafa9bd8c148ad3ff64418f812"></a>
+<a id="canonical-1113123002231301-3321211131012311-3302020112303330-3333000012131212-0332022210011113-2222031303233112-1300232332222033-2203303202313101"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5253,15 +3470,15 @@ static_routes {
 }
 ```
 
-<a id="canonical-1c8095a2a2510b2f681134f5d32b0c0894c39f1cd11b5f8b3592ddf5fc2e945f"></a>
+<a id="canonical-2333121233302332-0321211110201233-3330301210230132-0203103331303021-1012330332122303-0301132332103003-2112100312111233-3021002322031220"></a>
 
-## Direct properties — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 3
+## Direct properties — static_routes / 302103212103 / 3
 
-<a id="canonical-58df575444e367076f10a4d4004cad913b4b238fdc5aee9eaa507be2f68f5def"></a>
+<a id="canonical-2223002313010233-3110232311202233-2200003333032101-0031001133322202-3121301233221331-0223311031121023-2300322121120111-3301230310212231"></a>
 
-<a id="canonical-f8da7a41c11ca2234176768b4b370dc27ec622544e8311f1deea379a97cf30d9"></a>
+<a id="canonical-3020021210230000-0211313010111210-3022021011022032-0321211232222032-0121332232222103-0003333013113122-0301221133231200-2210322030211120"></a>
 
-## attrs property — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 4
+## attrs property — static_routes / 302103212103 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -5318,13 +3535,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-285195e51b838d678fb6675711cc63c23d826fe8103218b423c2a3566677e98e): complete subsection reference.
+- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-3332102200203231-0130312010330110-1000212230002300-2033030022111312-2112023211310310-3101211022302110-3030123333133331-1011121132133233): complete subsection reference.
 
-<a id="canonical-80094a14b38a327a9e5fefe13209be788476b84e292b414473b8d8d5889d1fda"></a>
+<a id="canonical-1231010303032332-3322223123330121-1032331230203132-0002233131120102-1230310223220112-2233233030232232-0103322132131121-0023333003312221"></a>
 
-<a id="canonical-aae8446d1779d0cfe0fa21ac33e9d7b2bcf59f6ec11522d9267aeb0fb5315d29"></a>
+<a id="canonical-3303100031230130-1203030321302300-1101102010032122-0332112131320231-3133310120231211-2323130222101110-2131203030223221-1022303033311333"></a>
 
-## ip_address property — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 5
+## ip_address property — static_routes / 302103212103 / 5
 
 Type: `"string"`. Optional.
 
@@ -5379,11 +3596,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-18783e58c858c8eeef1b67e32a81dadc10e8223dab1693279412df3ee5e9e3a8"></a>
+<a id="canonical-1331212322212022-1121013230132222-2201031100112230-2022011311120021-2022132301220201-0031002333221113-0201330123110301-3313303031012313"></a>
 
-<a id="canonical-3827e7b8fae91c8017e627369c67b55ab8db601f4e5b1bb8bc39ef21e34cbbcd"></a>
+<a id="canonical-1211133130301302-2210333001312310-0102030332132132-0000103121030120-1301321032332302-3323011032010031-3101201003113213-2330222022212312"></a>
 
-## ip_prefixes property — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 6
+## ip_prefixes property — static_routes / 302103212103 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -5439,37 +3656,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f): complete subsection reference.
+- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201): complete subsection reference.
 
-<a id="canonical-230a4c46d746e16d2013cd106f36fe53d83bd9e4a93fb2312c5f7bd1597e1a54"></a>
+<a id="canonical-1123212320312322-3122332030320311-1021033320033011-1100001120013202-0111120212211310-1122221210132022-3123333302303011-1200331312112003"></a>
 
-## Next pages — custom_storage_config.static_routes.static_routes / 6478da75a4fe / 7
+## Next pages — static_routes / 302103212103 / 7
 
-- [custom_storage_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-285195e51b838d678fb6675711cc63c23d826fe8103218b423c2a3566677e98e)
-- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-3332102200203231-0130312010330110-1000212230002300-2033030022111312-2112023211310310-3101211022302110-3030123333133331-1011121132133233)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-285195e51b838d678fb6675711cc63c23d826fe8103218b423c2a3566677e98e"></a>
+<a id="canonical-3332102200203231-0130312010330110-1000212230002300-2033030022111312-2112023211310310-3101211022302110-3030123333133331-1011121132133233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b2c0b0b5cbdaa24b0726e03d324ebfef3ea04c22f3745a8713c8a81f099afd62"></a>
+<a id="canonical-2020113123110220-1001103331202201-3131031333232213-0322202112001210-0132121011221031-0223121100023031-3130231222220022-3023200101212212"></a>
 
-## custom_storage_config.static_routes.static_routes.default_gateway — custom_storage_config.static_routes.static_routes.default_gateway / 513b8d688fd0 / 2
+## custom_network_config.slo_config.static_routes.static_routes.default_gateway — default_gateway / 132233202112 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- custom_storage_config.static_routes.static_routes.default_gateway
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- custom_network_config.slo_config.static_routes.static_routes.default_gateway
 
-<a id="canonical-c3513bf8725fc5a1ff9c66e3971e9fbb98a4617b2b9c3820cbeec0e5cd36427a"></a>
+<a id="canonical-0131013133302220-1021132220223012-1101210223210231-3220102222202100-0003203223133233-2030300120200133-3022132131201023-1201011132312003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5498,39 +3716,40 @@ Terraform syntax:
 default_gateway = {}
 ```
 
-<a id="canonical-b3b712eefc631165fe203d233c46f0f9ed7b6e11299f944b3c91353f2486e95e"></a>
+<a id="canonical-2110000023200211-0331030221023022-2230321031221031-2232331033320023-0210033130301331-0321230101013333-0313102222112211-2323121223213321"></a>
 
-## Direct properties — custom_storage_config.static_routes.static_routes.default_gateway / 513b8d688fd0 / 3
+## Direct properties — default_gateway / 132233202112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a5911c588d613d168fc8139b91ca676bdfa7b0ead138f4fca8967532018fceec"></a>
+<a id="canonical-1332223231110330-1101133220302203-3331010001101331-2120001313110211-0112131012310100-1010020212033212-1230003111220110-1112321330230032"></a>
 
-## Next pages — custom_storage_config.static_routes.static_routes.default_gateway / 513b8d688fd0 / 4
+## Next pages — default_gateway / 132233202112 / 4
 
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f"></a>
+<a id="canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-139a3e658567462d83bcef3ab512757a024a3c7f1d7ec64ec51c1c868fa365f3"></a>
+<a id="canonical-3002121233100311-3313032001232201-2331131032210303-1120031023212232-2110013331230131-1000021311000031-2022333320330333-0100012012213033"></a>
 
-## custom_storage_config.static_routes.static_routes.node_interface — custom_storage_config.static_routes.static_routes.node_interface / 9fcd4dc321b4 / 2
+## custom_network_config.slo_config.static_routes.static_routes.node_interface — node_interface / 201021322002 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- custom_storage_config.static_routes.static_routes.node_interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- custom_network_config.slo_config.static_routes.static_routes.node_interface
 
-<a id="canonical-c661046290790ac25dfaad560c006ab96588f348251b3c3acb671d8a1b6bc732"></a>
+<a id="canonical-3031010211313031-0030012121010113-0130133231133312-3312033122212201-0112331312003000-2221203012330300-1020333332010103-2113031313121320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5557,41 +3776,42 @@ node_interface {
 }
 ```
 
-<a id="canonical-e6865c25c1fac17bc052203043cd9b174304ab9940e458ca1e9421d08a4e2284"></a>
+<a id="canonical-0321033220320132-2023121231113222-0312220200031231-3303132320232101-2231120230202121-2120023123311201-2222223232010331-1322221223130020"></a>
 
-## Direct properties — custom_storage_config.static_routes.static_routes.node_interface / 9fcd4dc321b4 / 3
+## Direct properties — node_interface / 201021322002 / 3
 
-- [list](resources--voltstack_site--reference--group-005.md#canonical-be8b4d161b24a345969011d3e255e7c87b1ba7adc86dcc90ccd62fc0c1147c39): complete subsection reference.
+- [list](resources--voltstack_site--reference--group-005.md#canonical-1112122030113231-0102301311303111-1210302001301002-1303131321023120-0311122003000231-3130300203113123-2332321023320010-3020322001133233): complete subsection reference.
 
-<a id="canonical-fd6224e15927341af40ef4e5d9787c45856031cebb175cd4f7a1b585a2012ca5"></a>
+<a id="canonical-1210212130023233-3300323333120302-0131231113113112-0203331020113232-1121223222303210-3100001030102333-1230131132222000-1020210231312212"></a>
 
-## Next pages — custom_storage_config.static_routes.static_routes.node_interface / 9fcd4dc321b4 / 4
+## Next pages — node_interface / 201021322002 / 4
 
-- [custom_storage_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-be8b4d161b24a345969011d3e255e7c87b1ba7adc86dcc90ccd62fc0c1147c39)
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1112122030113231-0102301311303111-1210302001301002-1303131321023120-0311122003000231-3130300203113123-2332321023320010-3020322001133233)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-be8b4d161b24a345969011d3e255e7c87b1ba7adc86dcc90ccd62fc0c1147c39"></a>
+<a id="canonical-1112122030113231-0102301311303111-1210302001301002-1303131321023120-0311122003000231-3130300203113123-2332321023320010-3020322001133233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ed1f8b98dde89109dbd4ba898b6c362be8fa5d0d5169267fb8c41ed4fa9cbf91"></a>
+<a id="canonical-3222232031111200-3112112032022332-0303202222230201-3302300133033311-1331331011000332-0122103111011010-3303322233210223-3001110331203322"></a>
 
-## custom_storage_config.static_routes.static_routes.node_interface.list — custom_storage_config.static_routes.static_routes.node_interface.list / 2d53f28d6a67 / 2
+## custom_network_config.slo_config.static_routes.static_routes.node_interface.list — list / 223120012122 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f)
-- custom_storage_config.static_routes.static_routes.node_interface.list
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201)
+- custom_network_config.slo_config.static_routes.static_routes.node_interface.list
 
-<a id="canonical-8fd3f036fb8923f67cbb7305df449f93cb461f52515ab67ba2df403df94675be"></a>
+<a id="canonical-3030313110221230-1131113020111332-1301213003333021-0002202030121113-2311123133220120-1011022010000321-3112012021013311-3303300031001301"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5636,17 +3856,17 @@ list {
 }
 ```
 
-<a id="canonical-931400735ba50a502df54d07a26b39645ddc0b29092cd78abd0651c0da85a75d"></a>
+<a id="canonical-1121030230220103-2233031320230302-0221322223330000-1012322220312031-3223230323301110-0231003120020111-2001330311032312-1223000330200100"></a>
 
-## Direct properties — custom_storage_config.static_routes.static_routes.node_interface.list / 2d53f28d6a67 / 3
+## Direct properties — list / 223120012122 / 3
 
-- [interface](resources--voltstack_site--reference--group-005.md#canonical-5b9dfe139a63ef9b2a25f424d839d0e8b80b4f47d8475c01efc54fdc770eefed): complete subsection reference.
+- [interface](resources--voltstack_site--reference--group-005.md#canonical-3010101313312112-0311302003200010-0022202303221100-3310003222231203-0312221001001323-3113021001110020-3202123310121031-0221120131103030): complete subsection reference.
 
-<a id="canonical-7342e102ad58dd748eb879d7291f5585489fcd8f787a0d7a7856ddaed9c8936e"></a>
+<a id="canonical-2001223310000211-0133021222121023-0210300101101221-0221221123013321-2002313203022212-2122212100220302-0311231011023232-3332230313022030"></a>
 
-<a id="canonical-9b74daf3a460bf45a2358dacfe0526b61fcdc39c0aadc1c3d271a5c8a060701b"></a>
+<a id="canonical-2313203111121233-3103112300322013-0203321302132200-1030111120330111-2110232231022312-0202212211333322-0111032232223002-1112233001232103"></a>
 
-## node property — custom_storage_config.static_routes.static_routes.node_interface.list / 2d53f28d6a67 / 4
+## node property — list / 223120012122 / 4
 
 Type: `"string"`. Optional.
 
@@ -5679,36 +3899,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5574a7d3da529b1c9d4ed2ef50bbcef5c29f1e4f0b9ba490af70c9a690d131c1"></a>
+<a id="canonical-3120010232301010-1021000323312331-0012023313001320-0033201033011201-3000210102210200-3322321113333231-3022301313113200-1212010101221302"></a>
 
-## Next pages — custom_storage_config.static_routes.static_routes.node_interface.list / 2d53f28d6a67 / 5
+## Next pages — list / 223120012122 / 5
 
-- [custom_storage_config.static_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-5b9dfe139a63ef9b2a25f424d839d0e8b80b4f47d8475c01efc54fdc770eefed)
-- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-3010101313312112-0311302003200010-0022202303221100-3310003222231203-0312221001001323-3113021001110020-3202123310121031-0221120131103030)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-5b9dfe139a63ef9b2a25f424d839d0e8b80b4f47d8475c01efc54fdc770eefed"></a>
+<a id="canonical-3010101313312112-0311302003200010-0022202303221100-3310003222231203-0312221001001323-3113021001110020-3202123310121031-0221120131103030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-527cacf9a405feb9f43ecd66141ba0a6985ad6ea6316027ab7ecf7d9f96117f4"></a>
+<a id="canonical-1103222012310323-0012022200101212-1011202313121020-3311303023213100-3232313123023000-0100130222312123-2323030022123123-2110132023221111"></a>
 
-## custom_storage_config.static_routes.static_routes.node_interface.list.interface — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 2
+## custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface — interface / 032010003131 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-041fe8c1177b48214534dec8dc0bec1bd46a48157c395c9b90a8c06be735a59a)
-- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-b0d140fa20189a1c9b8c9b2cb32bf52fb7db59252e0d0d94ac76305ea30916ac)
-- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-93101fb9c0c5a17d937d526c31ba3496ff6a6c78046f16fb4d3e1ffe8dce7e0f)
-- [custom_storage_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-be8b4d161b24a345969011d3e255e7c87b1ba7adc86dcc90ccd62fc0c1147c39)
-- custom_storage_config.static_routes.static_routes.node_interface.list.interface
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-1222233330322332-1311022211003101-0230120133122311-3030023301210101-0021032123033010-0203312312123023-3130210113323311-3100333122023020)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2102220100231101-2233321202110130-3131001011222331-1222110220020312-3211102102212312-0130031110002102-3022120103111002-3100322213130101)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-2200221310302012-3322200200333010-3030232302020222-2302033101133001-0202223003010333-3223021332310122-3311330231012222-1133303221012201)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1112122030113231-0102301311303111-1210302001301002-1303131321023120-0311122003000231-3130300203113123-2332321023320010-3020322001133233)
+- custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface
 
-<a id="canonical-b1a4eeb9ec3d936b1cdf8f92b3817dedbce1e2181d8cda7d9557ef3378fe9df9"></a>
+<a id="canonical-0321302312033021-0230121130102021-3103333312221211-0000030033202213-3212212132103203-3213233012112222-0000311130130330-0300333133333133"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5757,15 +3978,15 @@ interface {
 }
 ```
 
-<a id="canonical-fe31091f26ac2db1c361d6c0a8ade2c4066906fe4d3aeeadb7c95c8250764676"></a>
+<a id="canonical-2303322033133031-2122233033331103-0001022231123332-1232312232000221-2300122123002201-2113000033100023-2333010031223230-2330332003302132"></a>
 
-## Direct properties — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 3
+## Direct properties — interface / 032010003131 / 3
 
-<a id="canonical-8b5c5bffe25e9b2dbda775dc2a702c21728cb6c8a20b1425e97d1a46f2af804e"></a>
+<a id="canonical-2221231132123301-3013101013112030-0131323012021301-0000000223112220-3131013232322203-3203212120200133-2123132110100203-1322032311231212"></a>
 
-<a id="canonical-83ed99201e73b25549d4fc1cc4a0289b5ef7e0600e1bde4d2cd824cfc450c0e6"></a>
+<a id="canonical-2313332101112011-0222322201222311-2122102332022321-0101202211032111-2210200110303100-1212320332232212-3212001301201313-1322133031202121"></a>
 
-## kind property — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 4
+## kind property — interface / 032010003131 / 4
 
 Type: `"string"`. Computed.
 
@@ -5800,11 +4021,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-04789d0811b2ac5100ec41e007b9b2fe59994c7ed84ab030b6bac9268a40fed2"></a>
+<a id="canonical-1011200320202200-0003002322312012-0022221301123112-3331303013013312-0113321233323002-1022211031022311-0213020023132231-2133313133123023"></a>
 
-<a id="canonical-f651f37830a2c7b96a60734300ab0a4b1c38d3cf445c9c2875a884bdc43bc728"></a>
+<a id="canonical-3220311000023231-1212331032111123-2222301100312320-1230133133033120-0322110120303213-0023102130222222-0202212201121311-0132213233103200"></a>
 
-## name property — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 5
+## name property — interface / 032010003131 / 5
 
 Type: `"string"`. Optional.
 
@@ -5839,11 +4060,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-07066e77adf8dd95bb6a682030ed47e1ecfec7195d7a9cdc309e471801222bbe"></a>
+<a id="canonical-1020011023233110-3103230012121321-2213132130231232-3323222331212101-0120212222211223-1123033113200232-0313033003302120-2013011222100031"></a>
 
-<a id="canonical-049489b1bb8bdd4b5d24b23c590be62e1b885f600697ca82a8b496d6ece3a42e"></a>
+<a id="canonical-0001311303202013-0002201312130133-1313310232300303-2320031023001013-0121320220323231-0330312023223023-2001110230012310-0021022300213102"></a>
 
-## namespace property — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 6
+## namespace property — interface / 032010003131 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -5903,11 +4124,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e521464accebeef5849dc0ef17e7686913c9f20c2d03a868de417ffbfb02d85"></a>
+<a id="canonical-2210332223020031-1233213330313311-2100122113000313-1220120132231321-2223202221212012-0123110212130320-3301313203200221-2123200233211323"></a>
 
-<a id="canonical-1451521d18f02a7469faaadff51ed548175645ca12d082d63dc6efba572c3ee6"></a>
+<a id="canonical-1003231310122112-2300111010200122-1210232023202023-2123000013011110-0032301323112313-1302210231323323-0112301111300300-2102103321111203"></a>
 
-## tenant property — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 7
+## tenant property — interface / 032010003131 / 7
 
 Type: `"string"`. Computed.
 
@@ -5942,11 +4163,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9621f663253d547ba3b351357e90bbcfa1242f9684554ed3c36b6720d51d9b98"></a>
+<a id="canonical-0022133031112001-0212210103332030-2231201232131000-0322113321201330-2210211220233322-3023021022320122-1320332002313112-3310112132003302"></a>
 
-<a id="canonical-b869297675b58044f24668f25de42d0d0b0cfd1c934e4b8281bbd618f4f4ba86"></a>
+<a id="canonical-1020301302220223-1103132311133031-1322320110310232-0030312321021131-3322102133033213-3221221103332111-2030100111133301-3211120110211121"></a>
 
-## uid property — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 8
+## uid property — interface / 032010003131 / 8
 
 Type: `"string"`. Computed.
 
@@ -5981,35 +4202,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ae7294814eb5977534726ee1213c55348f2714ec4158f2c452be8da4df50826e"></a>
+<a id="canonical-2220112123030031-3232312302110103-1323120321220313-0012211232200103-1321030223313223-0032202311022013-1311233313103332-0312331212001233"></a>
 
-## Next pages — custom_storage_config.static_routes.static_routes.node_interface.list.interface / 0f6e26f2317e / 9
+## Next pages — interface / 032010003131 / 9
 
-- [custom_storage_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-be8b4d161b24a345969011d3e255e7c87b1ba7adc86dcc90ccd62fc0c1147c39)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1112122030113231-0102301311303111-1210302001301002-1303131321023120-0311122003000231-3130300203113123-2332321023320010-3020322001133233)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-e0ae1a1e35a34c03930df0f57bfcbedbc5f0465ea38c6de68c853d4c27620ace"></a>
+<a id="canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-70e71ee20cf5e314e4badf961e4ee16a149bf13b59cf25f6e4cddd6570ff44d6"></a>
+<a id="canonical-1031023313020312-3300131111232133-3333220231103020-0011233002121220-0301013230102100-2312130212331133-0222333203113332-0212221332222130"></a>
 
-## custom_storage_config.storage_class_list — custom_storage_config.storage_class_list / 194d7c7e8cd8 / 2
+## custom_network_config.slo_config.static_v6_routes — static_v6_routes / 100003213230 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- custom_storage_config.storage_class_list
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- custom_network_config.slo_config.static_v6_routes
 
-<a id="canonical-971723a60e45a5b5425fc91e425c50e16b8216dbf432532c60a83f4c7dc42863"></a>
+<a id="canonical-3201302220203203-3223002023113332-0012101011120312-1221132133020332-2023232130301213-0023310203002301-3221030230033113-3321311110031002"></a>
 
 Type: `"object"`. single nested block, Optional.
 
-Add additional custom storage classes in Kubernetes for this fleet.
+Configuration parameter for static v6 routes.
+
+Upstream description:
+
+List of IPv6 static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
+```
 
 Receipt-pinned upstream constraints:
 
@@ -6027,26 +4259,1670 @@ Receipt-pinned upstream constraints:
 Terraform syntax:
 
 ```terraform
-storage_class_list {
+static_v6_routes {
   # Configure direct properties listed below.
 }
 ```
 
-<a id="canonical-4b15c108838760691a4e9ebc79cc02cb5d42949d5919cf6de531103d0139141f"></a>
+<a id="canonical-2002313220223111-3111121023330210-2220221010301200-3003201122033211-2321131023232300-3012013213330002-0331003013212233-2100302331210220"></a>
 
-## Direct properties — custom_storage_config.storage_class_list / 194d7c7e8cd8 / 3
+## Direct properties — static_v6_routes / 100003213230 / 3
 
-- [storage_classes](resources--voltstack_site--reference--group-005.md#canonical-f0dd8ae1ed52d721e52531f94ab23974df15c76f232962d465a16dd35fee2c6f): complete subsection reference.
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010): complete subsection reference.
 
-<a id="canonical-ae88a70d1fb891cdd2640317c416d93382e5a2e7072333164c08e5aaa9d385ab"></a>
+<a id="canonical-1222020131113001-2011130032120231-3032222203310223-1023031133200133-2111001330112110-1302101331130310-3130301111022330-1200310211201233"></a>
 
-## Next pages — custom_storage_config.storage_class_list / 194d7c7e8cd8 / 4
+## Next pages — static_v6_routes / 100003213230 / 4
 
-- [custom_storage_config.storage_class_list.storage_classes](resources--voltstack_site--reference--group-005.md#canonical-f0dd8ae1ed52d721e52531f94ab23974df15c76f232962d465a16dd35fee2c6f)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-5c3fbbbbb6e0e498ac091fef1a6bfafc186f2c323883fb2cf7e510f312242af3)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
-<a id="canonical-f0dd8ae1ed52d721e52531f94ab23974df15c76f232962d465a16dd35fee2c6f"></a>
+<a id="canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3112303333333230-2110033101110320-3133100123220011-3003320022222333-2301023100131330-2113333333301021-3003133303212120-1010331220223132"></a>
+
+## custom_network_config.slo_config.static_v6_routes.static_routes — static_routes / 322013302212 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- custom_network_config.slo_config.static_v6_routes.static_routes
+
+<a id="canonical-2010123023113100-2201320322330223-0233101120302123-2011033132312110-1302210333030323-0010221321222312-0311200321233130-0123130310211031"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Static IPv6 Routes. List of IPv6 static routes.
+
+Upstream description:
+
+List of IPv6 static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
+  validators.RequiredOneOfListObjectAttributes("default_gateway",
+    "ip_address",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "ip_address"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("ip_address",
+    "node_interface")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0321220003201013-1322131123122332-0211311120111120-3123110101302111-2332000130123220-1100231321112301-0203020131123323-1312331112311111"></a>
+
+## Direct properties — static_routes / 322013302212 / 3
+
+<a id="canonical-3213002312310233-2310030113303021-1301211322202112-1232321011002010-1311212030222111-1101032003233303-0313022303021111-3201202002030010"></a>
+
+<a id="canonical-2310111300200010-1323010000033100-2131001232332103-3022101300231232-0001312000300231-3130233120332030-0330302320012302-3010303000003132"></a>
+
+## attrs property — static_routes / 322013302212 / 4
+
+Type: `["list", "string"]`. Optional.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
+\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
+Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeAtMost(4),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0302211301100303-1011113302110331-1012132031310311-0201103001123031-1321112312230331-3201313300020020-0032121132032222-0033122002130301): complete subsection reference.
+
+<a id="canonical-2223011030122131-2102021220111332-2013013110020200-1002321032033010-3332002322111311-0033312013302201-1113201232103002-1110230210123202"></a>
+
+<a id="canonical-1310112112322111-0330023122202301-1011102310332231-2220113133233001-3112110103130333-2022312100101200-2010001203230223-3203100200222302"></a>
+
+## ip_address property — static_routes / 322013302212 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Upstream description:
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(7, 1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-1331102002033322-3210210210211001-0211012010202103-2223233030212012-2032100013113322-2301030003022010-2102331212202210-1003103022322133"></a>
+
+<a id="canonical-2132303031313013-3332330301003002-3012223032101321-1322022213231123-2122330031020201-0322010111011221-0110010021100301-3121322102133231"></a>
+
+## ip_prefixes property — static_routes / 322013302212 / 6
+
+Type: `["list", "string"]`. Optional.
+
+List of IPv6 route prefixes that have common next hop and attributes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 256,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [node_interface](resources--voltstack_site--reference--group-005.md#canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200): complete subsection reference.
+
+<a id="canonical-3020223203023121-3123311111333010-3102001002322000-2033200100121011-3111111302201223-1230220202222203-1331123200031122-3131313120122001"></a>
+
+## Next pages — static_routes / 322013302212 / 7
+
+- [custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0302211301100303-1011113302110331-1012132031310311-0201103001123031-1321112312230331-3201313300020020-0032121132032222-0033122002130301)
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0302211301100303-1011113302110331-1012132031310311-0201103001123031-1321112312230331-3201313300020020-0032121132032222-0033122002130301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0012013210023103-3203011212301123-1233123112120120-2223200121331002-1010013231300312-3102110002102202-0100123132233022-0310002111311101"></a>
+
+## custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway — default_gateway / 301220201203 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- custom_network_config.slo_config.static_v6_routes.static_routes.default_gateway
+
+<a id="canonical-0221313333210300-3220302203303313-2313223202330312-0222131230320033-2133010330100102-0322002201230333-2202203122123103-2232131230010003"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for default gateway.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+default_gateway = {}
+```
+
+<a id="canonical-1123022230003123-3323003131003331-2321233320030012-2300222100323320-2021022200230103-1323121231323132-0103031222300031-3232002022100222"></a>
+
+## Direct properties — default_gateway / 301220201203 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3023110202022211-3001120312331211-0113201013103011-2003013321333332-2112201233123112-2231323032222301-1133220212301031-1102230231032020"></a>
+
+## Next pages — default_gateway / 301220201203 / 4
+
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1310033330210231-3120333222001102-0023101322203013-3020323030222301-3222022000023231-3331221002001201-0113323312011211-3012023011310002"></a>
+
+## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface — node_interface / 111200023012 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface
+
+<a id="canonical-3022200130233323-1311021111102323-0131310020210212-0101113013311121-0102011002221013-0333310120132320-2232111012332031-1020330123313230"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+On multinode site, this type holds the information about per node interfaces.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node_interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0200033210211320-1031013113221023-2301031333211312-1231122220111230-1103033112012131-0101103223030100-1113003033120321-3111230322320230"></a>
+
+## Direct properties — node_interface / 111200023012 / 3
+
+- [list](resources--voltstack_site--reference--group-005.md#canonical-1111311123110222-3032223330020021-3003110311010112-1032202023132121-1000111100021000-1202230203133000-1120313001300110-0112202031312201): complete subsection reference.
+
+<a id="canonical-3220012313123201-2023232223213332-0220320001103013-3330323211202330-1122322001201012-1233322232100102-1222310320320033-1201301302311131"></a>
+
+## Next pages — node_interface / 111200023012 / 4
+
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1111311123110222-3032223330020021-3003110311010112-1032202023132121-1000111100021000-1202230203133000-1120313001300110-0112202031312201)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1111311123110222-3032223330020021-3003110311010112-1032202023132121-1000111100021000-1202230203133000-1120313001300110-0112202031312201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3322233310200301-2333322121320111-3332031031003330-2122330131320132-3020103020210323-0310203010131132-2301120220301123-2331011231202220"></a>
+
+## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list — list / 213222032102 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200)
+- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list
+
+<a id="canonical-2111221312303021-0323111101330231-1311320030323323-2102332031221121-2210331132320031-1232100103320022-2312121103120030-0203103313202231"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+On a multinode site, this list holds the nodes and corresponding networking\_interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "8"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "8"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0113211300221320-2113110233333330-2130220121131030-1302302113121002-2323322130021201-0112331331021010-2010300321003311-1032332223321102"></a>
+
+## Direct properties — list / 213222032102 / 3
+
+- [interface](resources--voltstack_site--reference--group-005.md#canonical-2020120010131023-2332003110130002-1033112011302321-2013000202312113-0231101321210111-3030103010131111-0023120031212222-3123221331012232): complete subsection reference.
+
+<a id="canonical-1000211212330102-1302211023203102-3022202231301111-2133323132220200-3033113120302300-0001020221123030-1323233222013123-1322021030102321"></a>
+
+<a id="canonical-2200203220000302-3311232011101101-3000313301002112-2330322322220213-1010021210202213-3233023100030133-1001232201310030-3321030033311122"></a>
+
+## node property — list / 213222032102 / 4
+
+Type: `"string"`. Optional.
+
+Node. Node name on this site.
+
+Upstream description:
+
+Node name on this site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3002112212013022-1210201332331010-1223133001022100-1212311030320300-2322200020303131-2130132113122200-3330113002221332-3212110031121221"></a>
+
+## Next pages — list / 213222032102 / 5
+
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface](resources--voltstack_site--reference--group-005.md#canonical-2020120010131023-2332003110130002-1033112011302321-2013000202312113-0231101321210111-3030103010131111-0023120031212222-3123221331012232)
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-2020120010131023-2332003110130002-1033112011302321-2013000202312113-0231101321210111-3030103010131111-0023120031212222-3123221331012232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1301110023110113-3220320311023001-1200100333122022-3102320220311102-3103323220312202-2222113122220201-0303333111032313-1221012212023333"></a>
+
+## custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface — interface / 233231311311 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [custom_network_config.slo_config](resources--voltstack_site--reference--group-005.md#canonical-2132012231020221-2131132132130320-1002200210132332-0310023302113001-1011130332312013-1311323332102120-3023012223323311-3302301022121322)
+- [custom_network_config.slo_config.static_v6_routes](resources--voltstack_site--reference--group-005.md#canonical-1003112130012011-2001132133020101-3313022022312333-1303310032020322-1022302212213212-2120201321002113-1002101031021031-0101120022113123)
+- [custom_network_config.slo_config.static_v6_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-3203302113010101-2211213322220323-3233330323210333-1010111002322003-0321111120322022-3132122302203230-2133103120023310-3021022112231010)
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface](resources--voltstack_site--reference--group-005.md#canonical-3200012230033122-2201130301301330-1013312323232321-2133221122321132-1310010100311101-0320112330332022-1331022222013123-1102220011222200)
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1111311123110222-3032223330020021-3003110311010112-1032202023132121-1000111100021000-1202230203133000-1120313001300110-0112202031312201)
+- custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list.interface
+
+<a id="canonical-2212013032323223-0233101023232231-1000333202010331-2122232103223212-2333231012313020-1032322110222122-0101132123312003-2321313000213110"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Interface. Interface reference on this node.
+
+Upstream description:
+
+Interface reference on this node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3103102203001310-3221002203202132-0133102231213103-3023013011200033-1203330121321310-2011030201303101-3223201331123222-0203023112112110"></a>
+
+## Direct properties — interface / 233231311311 / 3
+
+<a id="canonical-1013301031223111-2120001103122221-3030331323233032-0211121220110000-3311322322210321-2122002102033002-0212302003311123-1030133302301111"></a>
+
+<a id="canonical-1022121132001202-3120102322221322-0300200302120202-2103020021320113-0001031012030020-2331210022030110-0002003103311131-2220033023122011"></a>
+
+## kind property — interface / 233231311311 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. "route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0330030220220333-3002131211110103-0231113202211001-3001031032311321-2100121023220201-2320220023210011-0112112033232011-3301001001322222"></a>
+
+<a id="canonical-1133333220011311-1021011003110333-2302020121300022-0122002010003122-1200003202102001-0223131020101112-0233322020221131-2110010311110221"></a>
+
+## name property — interface / 233231311311 / 5
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0221132323211103-1112013202223213-3230133320310230-3110331302120123-2013103113332112-2100333222311132-1231110303030323-2222223031110312"></a>
+
+<a id="canonical-1020100002030112-0202303102221312-3202301200113210-0033001133113232-3103000222003123-1300300110032313-3011121201322001-3202100310232310"></a>
+
+## namespace property — interface / 233231311311 / 6
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1113032230222210-2131313220323012-3222133021330033-3333202313302230-3201310001211321-1330223303132121-3212202203332221-3303303011212213"></a>
+
+<a id="canonical-1111330312333213-3033322100221122-2331132131322133-0100210000310333-0221233210123011-2000011231012030-3030033322331211-0123320200030111"></a>
+
+## tenant property — interface / 233231311311 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1030132013000000-1121031122113112-3002211220210332-3300212303001333-3233000100211333-2002021233231110-3213123310002213-3122033300222131"></a>
+
+<a id="canonical-1100020202021131-3332130323131111-0113030212101223-2313233301032202-2223212132211102-1133002210201203-2130211320103003-3110012003000323"></a>
+
+## uid property — interface / 233231311311 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1333312313311030-3123202230233112-3021201022020131-3111331013220111-1230233132012133-1101210012332103-2011023003003112-1223001000120320"></a>
+
+## Next pages — interface / 233231311311 / 9
+
+- [custom_network_config.slo_config.static_v6_routes.static_routes.node_interface.list](resources--voltstack_site--reference--group-005.md#canonical-1111311123110222-3032223330020021-3003110311010112-1032202023132121-1000111100021000-1202230203133000-1120313001300110-0112202031312201)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0310133100133310-2222131222012001-1310311313333101-0213210223133331-1231312300220032-0103011301103021-3200303130212111-3121313102230010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2021212031213112-1233320001022220-3310213232002231-2210331001302022-3321000100110112-0102320313303110-1332200121012032-0032230011022032"></a>
+
+## custom_network_config.sm_connection_public_ip — sm_connection_public_ip / 023111320312 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.sm_connection_public_ip
+
+<a id="canonical-2233002111122202-0333033001033111-0203230003310333-1030102200303213-3212112123223133-2102102003100023-0330130100212010-2212123222022102"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+sm_connection_public_ip = {}
+```
+
+<a id="canonical-1010333001020111-3132111322032303-3111012030102213-2321010220223130-0121320003013212-2121111130233223-3002122330022012-0003322011010200"></a>
+
+## Direct properties — sm_connection_public_ip / 023111320312 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0301031003302331-3133322330011113-1320231222220220-3222032210200032-0113231302000200-3210111100220301-3301333020031020-1032302301320110"></a>
+
+## Next pages — sm_connection_public_ip / 023111320312 / 4
+
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-3121323010222232-2331132302030203-3122001100110001-1210223031133013-1120010000213111-0310001310101133-0200210132333123-1133313122320123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0211201013011231-1123111213123001-0332221021120132-0213333302113002-2002311001201101-2301210130000033-2310032123002111-0202211133121322"></a>
+
+## custom_network_config.sm_connection_pvt_ip — sm_connection_pvt_ip / 113313210011 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- custom_network_config.sm_connection_pvt_ip
+
+<a id="canonical-3103102310111322-3310110212223002-0231100133021110-0211303221210213-1232203130132130-2332211000003020-3033331012330212-0312311003200313"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+sm_connection_pvt_ip = {}
+```
+
+<a id="canonical-1213223202302032-3132101101211130-3322102012102223-2221132100211330-2123001220120030-3313002023122000-2331111130031202-3230223202211022"></a>
+
+## Direct properties — sm_connection_pvt_ip / 113313210011 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0002122012013120-3203202010211330-0330030103111332-3202303230332003-3011213213223033-0231122003100131-3330322332003102-2002131000023313"></a>
+
+## Next pages — sm_connection_pvt_ip / 113313210011 / 4
+
+- [custom_network_config](resources--voltstack_site--reference--group-003.md#canonical-2013113330012020-2023003101322103-1112120002210200-1003203232123221-1132002321132310-1033003311221232-2113331202032203-0303020131203001)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3110210311332221-0002231330021013-0330022211312201-3231210313110033-2112000230200120-1133113100111312-2000130301330022-2113233001300003"></a>
+
+## custom_storage_config — custom_storage_config / 020312031033 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- custom_storage_config
+
+<a id="canonical-2012001120122131-2020300012013020-2123011021211210-1120121102101231-0121120112203012-3000003230002333-1021202331312113-1120033013331233"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+\[OneOf: custom\_storage\_config, default\_storage\_config; Default: default\_storage\_config\]
+VssStorageConfiguration.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("default_storage_class",
+    "storage_class_list"),
+  validators.ConflictingObjectAttributes("no_static_routes",
+    "static_routes"),
+  validators.ConflictingObjectAttributes("no_storage_device",
+    "storage_device_list"),
+  validators.ConflictingObjectAttributes("no_storage_interfaces",
+    "storage_interface_list")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-static_route_choice": "[\"no_static_routes\",\"static_routes\"]",
+  "x-ves-oneof-field-storage_class_choice": "[\"default_storage_class\",\"storage_class_list\"]",
+  "x-ves-oneof-field-storage_device_choice": "[\"no_storage_device\",\"storage_device_list\"]",
+  "x-ves-oneof-field-storage_interface_choice": "[\"no_storage_interfaces\",\"storage_interface_list\"]"
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-2012001120122131-2020300012013020-2123011021211210-1120121102101231-0121120112203012-3000003230002333-1021202331312113-1120033013331233)
+- [default_storage_config](resources--voltstack_site--reference--group-009.md#canonical-3001000033122001-3121013231330231-0313132013202222-3302100123312300-1210133311213110-0302220212110122-1123031230103122-2130212033123121)
+
+Select alternatives according to the provider validators above.
+
+Terraform syntax:
+
+```terraform
+custom_storage_config {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3202232333101222-3321201211113231-3030021010200123-1203322002011331-2201131302120313-2133023232212222-2102303013312002-0132131123131130"></a>
+
+## Direct properties — custom_storage_config / 020312031033 / 3
+
+- [default_storage_class](resources--voltstack_site--reference--group-005.md#canonical-1303121221130112-2121130210012120-0332002232001012-2300100300001001-0013130011132300-1203112101200132-3030310311123003-3203301230333233): complete subsection reference.
+
+- [no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2310311311320232-3103122132012122-3200302311113123-2330020021021130-0200131030200020-1023333133300102-0131023322031222-2121023032203230): complete subsection reference.
+
+- [no_storage_device](resources--voltstack_site--reference--group-005.md#canonical-0303321012032212-1200203113023231-3120321113322332-1133212210230230-1003032221011212-0231002223021233-2112103003200103-3120303210202210): complete subsection reference.
+
+- [no_storage_interfaces](resources--voltstack_site--reference--group-005.md#canonical-2012023023231333-0111012103223220-1103212131313222-1023220003231003-2022102330211233-2020331111121013-1201012331310121-3120000223303321): complete subsection reference.
+
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122): complete subsection reference.
+
+- [storage_class_list](resources--voltstack_site--reference--group-006.md#canonical-3200223201220132-0311220310300003-2103003133003311-1323333023323123-3011330010121132-2203203012313212-2030201103311030-0213120200223032): complete subsection reference.
+
+- [storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321): complete subsection reference.
+
+- [storage_interface_list](resources--voltstack_site--reference--group-008.md#canonical-2300201311112121-1233300031310103-1300331123012212-1130323002022023-2200132010222313-3000120110302110-3111023121122131-2203013232210333): complete subsection reference.
+
+<a id="canonical-0011133320230231-2121210230022111-0333013312322001-0120023301030132-2102200000201011-1331020022300222-0223110103000133-3302120303330222"></a>
+
+## Next pages — custom_storage_config / 020312031033 / 4
+
+- [custom_storage_config.default_storage_class](resources--voltstack_site--reference--group-005.md#canonical-1303121221130112-2121130210012120-0332002232001012-2300100300001001-0013130011132300-1203112101200132-3030310311123003-3203301230333233)
+- [custom_storage_config.no_static_routes](resources--voltstack_site--reference--group-005.md#canonical-2310311311320232-3103122132012122-3200302311113123-2330020021021130-0200131030200020-1023333133300102-0131023322031222-2121023032203230)
+- [custom_storage_config.no_storage_device](resources--voltstack_site--reference--group-005.md#canonical-0303321012032212-1200203113023231-3120321113322332-1133212210230230-1003032221011212-0231002223021233-2112103003200103-3120303210202210)
+- [custom_storage_config.no_storage_interfaces](resources--voltstack_site--reference--group-005.md#canonical-2012023023231333-0111012103223220-1103212131313222-1023220003231003-2022102330211233-2020331111121013-1201012331310121-3120000223303321)
+- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122)
+- [custom_storage_config.storage_class_list](resources--voltstack_site--reference--group-006.md#canonical-3200223201220132-0311220310300003-2103003133003311-1323333023323123-3011330010121132-2203203012313212-2030201103311030-0213120200223032)
+- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
+- [custom_storage_config.storage_interface_list](resources--voltstack_site--reference--group-008.md#canonical-2300201311112121-1233300031310103-1300331123012212-1130323002022023-2200132010222313-3000120110302110-3111023121122131-2203013232210333)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1303121221130112-2121130210012120-0332002232001012-2300100300001001-0013130011132300-1203112101200132-3030310311123003-3203301230333233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1032330312333103-1013102021011210-0130331301333300-1313310232110120-0213203310331113-2323030133131032-3123012123303301-3023002003130313"></a>
+
+## custom_storage_config.default_storage_class — default_storage_class / 201122322323 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- custom_storage_config.default_storage_class
+
+<a id="canonical-1000302122312320-2211311113230222-1230001220333231-2300020110313012-1202203330000233-2122113012132202-2131231132102331-3123212023320121"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for default storage class.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+default_storage_class = {}
+```
+
+<a id="canonical-1033303311202231-0123310001113100-3313200111202000-0022123122311233-3323012020120132-2203023130231110-2103333030112300-1021213331020210"></a>
+
+## Direct properties — default_storage_class / 201122322323 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3210300213133303-2201100212003103-2213010031332211-1322310023132313-1312133310001021-3232222213200210-0110213210011200-2221121101311122"></a>
+
+## Next pages — default_storage_class / 201122322323 / 4
+
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-2310311311320232-3103122132012122-3200302311113123-2330020021021130-0200131030200020-1023333133300102-0131023322031222-2121023032203230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3021020333332332-1030013223301230-2112220300231331-2320103123123301-3323130333101132-3302121021323222-2220120301203203-2021031120011330"></a>
+
+## custom_storage_config.no_static_routes — no_static_routes / 021010320220 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- custom_storage_config.no_static_routes
+
+<a id="canonical-1323333022001123-1021120032133012-0012110231303100-3320331232300122-0121001311320213-2120102323111211-2201201120032203-2222310003332023"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no static routes.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_static_routes = {}
+```
+
+<a id="canonical-2002100232301120-1320330020122033-0030033223001321-1030203001202031-1221101131321132-0110213200231333-3233210331002113-2320013202302322"></a>
+
+## Direct properties — no_static_routes / 021010320220 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2310131303123323-2221231031032030-3022010301122210-2212301000111020-1223321020013213-0113110132130020-2022123210033222-3030331322001202"></a>
+
+## Next pages — no_static_routes / 021010320220 / 4
+
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0303321012032212-1200203113023231-3120321113322332-1133212210230230-1003032221011212-0231002223021233-2112103003200103-3120303210202210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3122021010332331-2222233230120311-0231123322000320-0021101223211213-0230013202232120-2010222333323222-2000211212312103-1130103230202310"></a>
+
+## custom_storage_config.no_storage_device — no_storage_device / 133312002300 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- custom_storage_config.no_storage_device
+
+<a id="canonical-1201230211113221-0320230320332333-3333201232303330-0323131321211122-2003033310222221-2213120332330111-0233211130133030-0030311120230133"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no storage device.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_storage_device = {}
+```
+
+<a id="canonical-3010030330121333-1021001321002332-0220133213213223-3022312230210333-3302321012013332-1010232220220300-1020032032013222-1112113000032003"></a>
+
+## Direct properties — no_storage_device / 133312002300 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2301022230230233-1011231030113000-0231303001321102-3011030132100213-1012213013212133-0012033200222030-2000313122222313-0103121233232210"></a>
+
+## Next pages — no_storage_device / 133312002300 / 4
+
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-2012023023231333-0111012103223220-1103212131313222-1023220003231003-2022102330211233-2020331111121013-1201012331310121-3120000223303321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1100120203233032-2031110221231222-1311202110102000-3003212333131330-3131302031120010-3301111202000230-3320321012221330-1122203032213202"></a>
+
+## custom_storage_config.no_storage_interfaces — no_storage_interfaces / 023023102320 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- custom_storage_config.no_storage_interfaces
+
+<a id="canonical-2213113230200221-0223233220322111-2122100112320331-3312010101303111-2220112303003210-0202113302200021-1002313222223131-3231121332233101"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no storage interfaces.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_storage_interfaces = {}
+```
+
+<a id="canonical-3101302231011201-2303030133232031-3323323223032322-3201120233023133-1100233322020113-3223013322331031-3321122033000330-1331211220222212"></a>
+
+## Direct properties — no_storage_interfaces / 023023102320 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2211203021121220-1110120302033102-1230223012133120-0131230332322331-0201122303221332-0303311010310222-1220000130323013-0111310310220000"></a>
+
+## Next pages — no_storage_interfaces / 023023102320 / 4
+
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0032023301022031-0321103131222302-3201330131022031-1000313031303203-1021313010130310-3122013213311012-3120031233233210-0031023022203222"></a>
+
+## custom_storage_config.static_routes — static_routes / 230103213231 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- custom_storage_config.static_routes
+
+<a id="canonical-2200311230212213-0013200103310200-1312130231111311-1110201221130102-1133323020212023-3231011033220102-0223001202220110-1300013210111011"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for static routes.
+
+Upstream description:
+
+List of static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1303201322031032-1032133112313322-3213021101033133-1203200013111332-3031021203320223-0023111031233333-0000202202013220-1321003123320013"></a>
+
+## Direct properties — static_routes / 230103213231 / 3
+
+- [static_routes](resources--voltstack_site--reference--group-005.md#canonical-2300310110003322-0200012021220130-2123203021230230-2303022333110233-2313312311210211-0232003100312110-2230131203001132-2203002101122230): complete subsection reference.
+
+<a id="canonical-0210323100310220-1332231012310133-1302022331010231-3312012310121030-2320010003112200-2121313231022031-2101003302203002-0131221122220000"></a>
+
+## Next pages — static_routes / 230103213231 / 4
+
+- [custom_storage_config.static_routes.static_routes](resources--voltstack_site--reference--group-005.md#canonical-2300310110003322-0200012021220130-2123203021230230-2303022333110233-2313312311210211-0232003100312110-2230131203001132-2203002101122230)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-2300310110003322-0200012021220130-2123203021230230-2303022333110233-2313312311210211-0232003100312110-2230131203001132-2203002101122230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1221113311100210-3300312203030121-1311112031003011-2303130033233220-3210031201323110-0301032203331101-0231311300002021-2200233122013331"></a>
+
+## custom_storage_config.static_routes.static_routes — static_routes / 131122103332 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122)
+- custom_storage_config.static_routes.static_routes
+
+<a id="canonical-3120231323201122-0230012120212300-0020022110013133-0222311231313203-1133232302133222-3322212331203001-1020223103333312-1010012033200102"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Static Routes. List of static routes.
+
+Upstream description:
+
+List of static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
+  validators.RequiredOneOfListObjectAttributes("default_gateway",
+    "ip_address",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "ip_address"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("ip_address",
+    "node_interface")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0130200021112202-2202110100230233-1220010103103311-3103022300300020-2110300321330130-3101012311332023-0311210231313311-3330023221101133"></a>
+
+## Direct properties — static_routes / 131122103332 / 3
+
+<a id="canonical-1120313311131110-1010320312130013-1233010022103110-0000103022312101-0323102302032033-3130112232322132-2222110013233202-3312203311313233"></a>
+
+<a id="canonical-3320312213221001-3001013022020203-1001131213122023-1023031300313002-1332301202021110-1032200301013301-3132322203132122-2113303303003121"></a>
+
+## attrs property — static_routes / 131122103332 / 4
+
+Type: `["list", "string"]`. Optional.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
+\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
+Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeAtMost(4),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032): complete subsection reference.
+
+<a id="canonical-2000002110220110-2303202203021322-2132113332333201-0302002123321320-2010131223201032-0221022310011010-1303232031203111-2020213101333122"></a>
+
+<a id="canonical-2222322010101231-0113132131003033-3200332202012230-0303322131132302-2330331121331232-3001011102023121-0212132232230033-2311030111310221"></a>
+
+## ip_address property — static_routes / 131122103332 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Upstream description:
+
+Exclusive with \[default\_gateway node\_interface\] Traffic matching the IP prefixes is sent to this
+IP Address.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(7, 1024),
+  validators.IPv4Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-0120132003321120-3020112030203232-3233012312133203-0222200131223130-0100322002020331-2223011221030213-2110010231330332-3211322132032220"></a>
+
+<a id="canonical-0320021332132320-3322322101302000-0113321202130312-2130121323111122-2320312312000133-1032112301232320-2330032132330201-3203103023233031"></a>
+
+## ip_prefixes property — static_routes / 131122103332 / 6
+
+Type: `["list", "string"]`. Optional.
+
+List of route prefixes that have common next hop and attributes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 256,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033): complete subsection reference.
+
+<a id="canonical-0203002210301012-3113101232011231-0200010330310100-1233031233321103-3120032331213210-2221033323020301-0230113313233101-1121133201221110"></a>
+
+## Next pages — static_routes / 131122103332 / 7
+
+- [custom_storage_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032)
+- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033)
+- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_alert_gen_policy lan
 
 # xcsh_alert_gen_policy landing
 
-<a id="canonical-a1aae63c73737fe28891b8dddcd40970e1ba1214a48d75c4ae655469cca81541"></a>
+<a id="canonical-2201222232120330-1303130313333202-2020210123203131-3130311000211300-3201232201020110-2210203113113010-2232121111101221-3030222001111001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-397e5e2147fc4814f76f37cfedd870f8a815dff72bc5941992d55ced23d3e68e"></a>
+<a id="canonical-0321133211320201-1013333010200110-3313123303133033-3231312013003320-2220011131333313-0223301121100121-2102311111303231-0203310332122032"></a>
 
-## xcsh_alert_gen_policy — xcsh_alert_gen_policy / c4e9aa96b278 / 2
+## xcsh_alert_gen_policy — xcsh_alert_gen_policy / 211223021320 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages Alert Generation Policy in F5 Distributed Cloud.
 
-<a id="canonical-e702e9a38f6702b155ea2df87fc401cae9afaaeedc051146fbed12a84ca529ba"></a>
+<a id="canonical-3213000232212203-2033121300022301-1111322202313320-1333301000013022-3221223322223232-3130001101011012-3323323101022220-1030221102212322"></a>
 
-## Prerequisites — xcsh_alert_gen_policy / c4e9aa96b278 / 3
+## Prerequisites — xcsh_alert_gen_policy / 211223021320 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-0c8b757c54631b400af580b7ca01575261850d1a0388f28aa5d175b23afafdec"></a>
+<a id="canonical-0030202313111330-1110120301231000-0022331120002313-3022000111131102-1201201100310122-0003202033022022-2211310113112302-0322332233313230"></a>
 
-## Minimal configuration — xcsh_alert_gen_policy / c4e9aa96b278 / 4
+## Minimal configuration — xcsh_alert_gen_policy / 211223021320 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,17 +56,17 @@ resource "xcsh_alert_gen_policy" "example" {
 }
 ```
 
-<a id="canonical-3e71ff1e41cf2c47553aae6b70df9f9d7a0f2c03c1a4e70c5e874d204d435b0e"></a>
+<a id="canonical-0332130133330132-1001303302301013-1111032222321223-1300313321332131-1322003302300003-3001221032130030-1132201310310200-1031100311230032"></a>
 
-## Root configuration — xcsh_alert_gen_policy / c4e9aa96b278 / 5
+## Root configuration — xcsh_alert_gen_policy / 211223021320 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-4cb63fdb7af5bd73492484f76334e0aac331416e41e85d5f656b1433d6839886"></a>
+<a id="canonical-1030231203333123-1322331123311303-1021021020103313-1203031032002222-3003030110011232-1001322011311133-1211122301100303-3112200321202012"></a>
 
-## Next pages — xcsh_alert_gen_policy / c4e9aa96b278 / 6
+## Next pages — xcsh_alert_gen_policy / 211223021320 / 6
 
-- [Property reference](../guides/resources--alert_gen_policy--reference--group-001.md#canonical-17ec4655f437510f18a5ab3c4e0b2710c50f8dd33e3adde8ef55402086569933)
-- [Examples](../guides/resources--alert_gen_policy--examples--group-001.md#canonical-7fd687224e91550528fa39bd463f5c448de431f0363111f202eaf62154fd297f)
-- [Import](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-53449129ad12f0eb78a15cd536169b009ea5e30c6376054473ad2a1729808e46)
-- [Timeouts](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-a3bd1f56deba8fbdde007203f5b82bbf9fea60c4ecac6aa8965eb97cfc8a35d7)
+- [Property reference](../guides/resources--alert_gen_policy--reference--group-001.md#canonical-0113323010121111-3310031311010033-0120221122230330-1032002302130100-3011003320313103-0332032231313220-3233111110000200-2012111221210303)
+- [Examples](../guides/resources--alert_gen_policy--examples--group-001.md#canonical-1333311220130202-1032210111110011-0220332203212331-1012033311301010-2031321003013300-0312030101013302-0002322233120201-1110333102211333)
+- [Import](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-1103101021010221-2231010233003223-1320220111303111-0312011221230000-2132221132030030-1203131200111010-1303223102220113-0221200020321012)
+- [Timeouts](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-2203233101331112-3132232220332331-3132000013020003-3311232002232333-2133322212003010-3230223012222220-2112113223211330-3330202203113113)

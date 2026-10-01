@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_access_active_sessio
 
 # xcsh_access_active_session landing
 
-<a id="canonical-4033739913ba1c6085f12486a3986623b110d98373ef67466a8b65704eed74cb"></a>
+<a id="canonical-1000030313032121-0103232201301200-2011330102102012-2203212012120203-2301010031212003-1303323312131012-1222202312111300-1032323113103023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-177fed81c4b02e57e79071acee3e7baa8adbf2094e8fc442ce53ec2cea8b5453"></a>
+<a id="canonical-0113133332312001-3010230002321113-3213210013012230-3232033213232222-2022312333020021-1032203330101002-3032110332300230-3222202311101103"></a>
 
-## xcsh_access_active_session — xcsh_access_active_session / 80a748d1428b / 2
+## xcsh_access_active_session — xcsh_access_active_session / 310110022023 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-<a id="canonical-5ff8590703c05e5425ea2d0178846976a4193aefbccd6f5fdbcd2eea77843e31"></a>
+<a id="canonical-1133332011210013-0003300011321110-0211322202310001-1320201012211312-2210012103223233-2330303112331133-3123303102323222-1313201003320301"></a>
 
-## Prerequisites — xcsh_access_active_session / 80a748d1428b / 3
+## Prerequisites — xcsh_access_active_session / 310110022023 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-01895b2d2aa5eb8461303ae8c2ba781b0d48ae935a1d669ef8224ceda773b783"></a>
+<a id="canonical-0001202111230231-0222221132232010-1201030003223220-3002232213200123-0031102022322103-1122013112122132-3320020210303231-2213130323132003"></a>
 
-## Minimal configuration — xcsh_access_active_session / 80a748d1428b / 4
+## Minimal configuration — xcsh_access_active_session / 310110022023 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,15 +58,15 @@ output "access_active_session_result" {
 }
 ```
 
-<a id="canonical-2a3547a5e329e1c2d8b5dcdd33f978ce8d89a4d98aeb44a45e8fab3dd9940fac"></a>
+<a id="canonical-0222031110132211-3203022132013002-3120231131303131-0303332113203032-2031202122103121-2022322310102210-1132203322230331-3121211000332230"></a>
 
-## Root configuration — xcsh_access_active_session / 80a748d1428b / 5
+## Root configuration — xcsh_access_active_session / 310110022023 / 5
 
 Required root properties: `id`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2eebb26a37ed22ca88054cb7914f5c1bf54c124606d81785d06b8c80e35235b4"></a>
+<a id="canonical-0232322323021222-0313323102023022-2020001110302313-2101103311300123-3311103001021012-0012312001132011-3100122320302000-3203110203112310"></a>
 
-## Next pages — xcsh_access_active_session / 80a748d1428b / 6
+## Next pages — xcsh_access_active_session / 310110022023 / 6
 
-- [Property reference](../guides/data-sources--access_active_session--reference--group-001.md#canonical-f9145d41000cc5377b88dd55e2dfd831d018e430e7e6108f72457e70d726428d)
-- [Examples](../guides/data-sources--access_active_session--examples--group-001.md#canonical-1fae4c0e495ede3a8cc200a71a1345278a488be35029641220310fefd9671a9e)
+- [Property reference](../guides/data-sources--access_active_session--reference--group-001.md#canonical-3321011011311001-0000003030110313-1323202031311111-3202313331200301-3100012032100300-3213321201002033-1302101113321300-3113021210022031)
+- [Examples](../guides/data-sources--access_active_session--examples--group-001.md#canonical-0133223210300032-1021113231320322-2030300200002213-0122010310110213-2022102020233203-1100022112100102-0200030100333233-3121121301222132)

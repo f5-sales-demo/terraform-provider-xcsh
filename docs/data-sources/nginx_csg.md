@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_nginx_csg landing."
 
 # xcsh_nginx_csg landing
 
-<a id="canonical-c410c59f0b8d71705523fc80bce3a448bc2e5b40e768ceaa424debd127388095"></a>
+<a id="canonical-3010010030112133-0023203113011300-1111020333302000-2330320322101020-2330023211231000-3213122030322222-1002103132233101-0213032020002111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bd2f8ae0660ae882054100f05958079dfea926ee745631462f9b3f8b9e07f445"></a>
+<a id="canonical-2331023320223200-1212002232202002-0011100100003300-1121112000132131-3332222102123232-1310111203011012-0233212303332023-2132001333101011"></a>
 
-## xcsh_nginx_csg — xcsh_nginx_csg / 69c1aa49dc31 / 2
+## xcsh_nginx_csg — xcsh_nginx_csg / 102131300301 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Nginx Csg resource in F5 Distributed Cloud for get nginx csg configuration. configuration.
 (read-only data source)
 
-<a id="canonical-46458e078527e27c2a737f72ede5566c78b5d8f3188155d402dc92ba89bc5762"></a>
+<a id="canonical-1012101120320013-2011021332021330-0222130313331302-3231321111121230-1320231131203303-0120200111113110-0002313021022322-2021233011131202"></a>
 
-## Prerequisites — xcsh_nginx_csg / 69c1aa49dc31 / 3
+## Prerequisites — xcsh_nginx_csg / 102131300301 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c60b29251e0d14becd810a0d62200ff4b862d3c70bbbb4bf4457f17cfa38cd62"></a>
+<a id="canonical-3012002302210211-0132003101102332-3031200100220031-1202020000333310-2320120231033013-0023232323102333-1010111333011330-3322032030311202"></a>
 
-## Minimal configuration — xcsh_nginx_csg / 69c1aa49dc31 / 4
+## Minimal configuration — xcsh_nginx_csg / 102131300301 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "nginx_csg_id" {
 }
 ```
 
-<a id="canonical-d864f8bbe07350ddd91c949c7d66b64255d2480bdfb01f0bfcc99536aea3f1e3"></a>
+<a id="canonical-3120121033202323-3200130311003131-3121013021102130-1331121223121002-1111310210200023-3133230001330023-3330302121110312-2232220333013203"></a>
 
-## Root configuration — xcsh_nginx_csg / 69c1aa49dc31 / 5
+## Root configuration — xcsh_nginx_csg / 102131300301 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0570c9c6154932ae98b29b57076bc041ea8253617798ec369b4aaff81c8b7fcb"></a>
+<a id="canonical-0011130030213012-0111102103022232-2120230221231113-0013122330001001-3222200211031201-1313212032300312-2123102222333320-0130202313333023"></a>
 
-## Next pages — xcsh_nginx_csg / 69c1aa49dc31 / 6
+## Next pages — xcsh_nginx_csg / 102131300301 / 6
 
-- [Property reference](../guides/data-sources--nginx_csg--reference--group-001.md#canonical-d475c7367cf5faac52b1c3c5588be6a77c688dee95c47c7e686b714ba7ed1ac0)
-- [Examples](../guides/data-sources--nginx_csg--examples--group-001.md#canonical-086165534725127b74852bb823de8e81842f7adbfe62b524f29a1fbc2ee653b6)
+- [Property reference](../guides/data-sources--nginx_csg--reference--group-001.md#canonical-3110131130130312-1330331133222230-1102230130033011-1120202332122213-1330122020313232-2111301013301332-1220122313011023-2213323101223000)
+- [Examples](../guides/data-sources--nginx_csg--examples--group-001.md#canonical-0020120112111103-1013021101021323-1310201102232320-0203313220322001-2010023313223123-3332120223110210-3302212201332330-0232321211032312)

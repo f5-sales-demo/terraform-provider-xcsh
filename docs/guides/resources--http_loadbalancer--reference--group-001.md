@@ -6,32 +6,32 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-94b4d5b45c140f447678a0a06e4e71718643f40b80e3f8675c3128b7dac4eb2f"></a>
+<a id="canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d1fd6db45299eb51cf36d21446b25b6afe74df8799646350fc9b5b84e44b2a57"></a>
+<a id="canonical-3101333112312310-1102212132231101-3033031231020110-1012230211231222-3332131031332013-2121121012031100-3330212311232010-3210102302221113"></a>
 
-## Property reference — Property reference / e36a9d4438cd / 2
+## Property reference — Property reference / 101003203031 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-7b45dee760877c1f305714c7dd9c6975c40a205aed3ea2fb9502895dc70ebd63)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - Property reference
 
-<a id="canonical-b6ffe58a1262d07ab7e15e715aadc4a93665d07bdef46d7d70710efa57cb1699"></a>
+<a id="canonical-2312333332112022-0102120231001322-2313320111321301-1122223130102221-0312121131001323-3132331012311331-1300130100323322-1113302301122121"></a>
 
-## Direct properties — Property reference / e36a9d4438cd / 3
+## Direct properties — Property reference / 101003203031 / 3
 
-- [active_service_policies](resources--http_loadbalancer--reference--group-004.md#canonical-45c816f1b70a39912fe4d4cd1e4922a2d552905b7502d2c7b4e5d846d8dbba3e): complete subsection reference.
+- [active_service_policies](resources--http_loadbalancer--reference--group-004.md#canonical-1011302001123301-2313002203212101-0233321031103031-0132102102022202-3111110221001123-1311000231023013-2310321131201012-3120312323220332): complete subsection reference.
 
-<a id="canonical-9cb1054cf28ac28b57b3877cb2ec5f9b6905a4afc113bb35d616ed235e1ddbb3"></a>
+<a id="canonical-2130230100111030-3302202230022023-1113230320131330-2302323011332123-1221001122102233-3001010323230311-3112011232310203-1132013131232303"></a>
 
-<a id="canonical-0a159d28fdf185ce747f2dcf7114c1f5a1ef99a2d1ac92eac8056906efc35295"></a>
+<a id="canonical-0022011121310220-3331330120113032-1310133302313033-1301011030013311-2201323321212202-3101223021023222-3020001112210012-3233300311022111"></a>
 
-## add_location property — Property reference / e36a9d4438cd / 4
+## add_location property — Property reference / 101003203031 / 4
 
 Type: `"bool"`. Optional, Computed.
 
@@ -57,30 +57,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [advertise_custom](resources--http_loadbalancer--reference--group-004.md#canonical-889ffa3e60dd17feee86ae3bcee07ee8938f2abb4e13aedfc088e05b482b2185): complete subsection reference.
+- [advertise_custom](resources--http_loadbalancer--reference--group-004.md#canonical-2020213333220332-1200313101133332-3232201222320323-3032320013323220-2103203302222323-1032010322323133-3000202032001123-1020022302012011): complete subsection reference.
 
-- [advertise_dualstack_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-2b6b25016f9c9da773dad6bae4734bfe7b891c3106abbaf0558aef1d29c4d71c): complete subsection reference.
+- [advertise_dualstack_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-0223122302110001-1233213021312213-1303312231122322-3210130310233332-1323202101300301-0012222323223300-1111202232330131-0221301031130130): complete subsection reference.
 
-- [advertise_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-8e3272b86153911cab6a4209bcdf57278316716883e499f3b33c289070b441b5): complete subsection reference.
+- [advertise_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-2032030213022320-1201110321010130-2223122210020021-2330313311130213-2003011213011220-2003321021213303-2303033002202100-1300231010012311): complete subsection reference.
 
-- [advertise_on_public_default_vip](resources--http_loadbalancer--reference--group-004.md#canonical-da3a88c278b67c687361856cade6be473dd54723d187c266d2f0210405903bda): complete subsection reference.
+- [advertise_on_public_default_vip](resources--http_loadbalancer--reference--group-004.md#canonical-3122032220203002-1320231213301220-1303120120111230-2231321223321013-0331311110130203-3101201330021212-3102330002010010-0011210003233122): complete subsection reference.
 
-- [advertise_v6_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-9fa1ab7d46fd1cd4bbb0f4a75e7c47b560ec8fae253abe3988bc2e1df850ea24): complete subsection reference.
+- [advertise_v6_on_public](resources--http_loadbalancer--reference--group-004.md#canonical-2133220122231331-1012333101303110-2323230033102213-1132133010132311-1200323020332232-0211032223320321-2020233002320131-3320110032220210): complete subsection reference.
 
-<a id="canonical-10aaef5202242e8f91a6a3a11363f04f92482996d6685e0c63471334b4c23983"></a>
+<a id="canonical-0100222232331102-0002021002322033-2101221222032201-0103120333001033-2102102002212112-3112122011320030-1203101301030310-2310300203212003"></a>
 
-<a id="canonical-3322407d5dae6cb7397527e7bead08aab9669ad45cf6ead207a643b36e38fb75"></a>
+<a id="canonical-0303020210001331-1131223212302313-0321131102133213-2332223100202222-2321121221223110-1130331232223102-0013221210032303-1232032033231311"></a>
 
-## annotations property — Property reference / e36a9d4438cd / 5
+## annotations property — Property reference / 101003203031 / 5
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -109,51 +109,51 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [api_protection_rules](resources--http_loadbalancer--reference--group-004.md#canonical-3b1381d64777b4f5a89a689f219cfa952e950413ffd1efdf2b31880c6aa4a85c): complete subsection reference.
+- [api_protection_rules](resources--http_loadbalancer--reference--group-004.md#canonical-0323010320013112-1013131323103311-2220212212202133-0201213033222111-0232211100100103-3333310132333133-0223030120200030-1222221022201130): complete subsection reference.
 
-- [api_rate_limit](resources--http_loadbalancer--reference--group-006.md#canonical-1b01b31912bf2f089b589729fddac8f3f71d81998021584e3f8cf211ba1d9592): complete subsection reference.
+- [api_rate_limit](resources--http_loadbalancer--reference--group-006.md#canonical-0123000123030121-0102233302330020-2123112021130221-3331312230203303-3313013120012121-2000020111201032-0333203033020101-2322013121112102): complete subsection reference.
 
-- [api_specification](resources--http_loadbalancer--reference--group-008.md#canonical-e39f46ee17d4d8075f3d741ef024d557ae4090d0ab94a0b4063a8cce9d955c10): complete subsection reference.
+- [api_specification](resources--http_loadbalancer--reference--group-009.md#canonical-3203213310123232-0113311031200013-1133033113100132-3300021031111113-2232100021003100-2223211022002310-0012032220303032-2131211111300100): complete subsection reference.
 
-- [api_testing](resources--http_loadbalancer--reference--group-010.md#canonical-699d08bedad7c6a3db855143b0dfa0f5040e8efa4d08cd58dccbf39afde96a71): complete subsection reference.
+- [api_testing](resources--http_loadbalancer--reference--group-010.md#canonical-1221213100202332-3122311330122203-3123201111011003-2300313322003311-0010003220323322-1031002030311120-3130302333032122-3331322112221301): complete subsection reference.
 
-- [app_firewall](resources--http_loadbalancer--reference--group-010.md#canonical-bff9954daed615e67cb6a3932ebf85a6050831ca3225573c0776c74dd5eb1f8f): complete subsection reference.
+- [app_firewall](resources--http_loadbalancer--reference--group-010.md#canonical-2333332121111031-2232311201113212-1330231222032103-0232233320112212-0011002003013022-0302021111130330-0013131230131031-3111322301332033): complete subsection reference.
 
-- [blocked_clients](resources--http_loadbalancer--reference--group-010.md#canonical-3a2e92765af87c3d276d5f20a62319b47649d669158cdc32c4fb394dd3035716): complete subsection reference.
+- [blocked_clients](resources--http_loadbalancer--reference--group-010.md#canonical-0322023221021312-1122332013300331-0213123111330200-2212020301212310-1312102131121221-0111203031300302-3010332303211031-3103000311130112): complete subsection reference.
 
-- [bot_defense](resources--http_loadbalancer--reference--group-010.md#canonical-1ceefcd7848fe72af6e57cd67c1eb345d75bbcf89c9565f6706954be2fbb26cc): complete subsection reference.
+- [bot_defense](resources--http_loadbalancer--reference--group-011.md#canonical-0130323233303113-2010203332130222-3312321113303112-1330013223031011-3113112323303320-2130211112113312-1300122111102332-0233232302123030): complete subsection reference.
 
-- [bot_defense_advanced_protection](resources--http_loadbalancer--reference--group-012.md#canonical-c97868542280c86c9322eccdb6092ef736f7e9c0f70d01a8ccbbbfeabcdc263d): complete subsection reference.
+- [bot_defense_advanced_protection](resources--http_loadbalancer--reference--group-013.md#canonical-3021132012201110-0202200030201230-2103020232303031-2312002102323313-0312331332213000-3313003100012220-3030232323333222-2330313002120331): complete subsection reference.
 
-- [caching_policy](resources--http_loadbalancer--reference--group-014.md#canonical-d20150bcbc1a30a287cae322ba14c8cf07c2866aab4bca3a45ecca53fbc870fd): complete subsection reference.
+- [caching_policy](resources--http_loadbalancer--reference--group-014.md#canonical-3102000111002330-2330012203002202-2013302232030202-2322011030203033-0013300220121222-2223102330220322-1011323030221103-3323302013003331): complete subsection reference.
 
-- [captcha_challenge](resources--http_loadbalancer--reference--group-014.md#canonical-fd05a1137cab68c6922bcd30d9888aeee26a67af28a835d3b19f4d7b6e67bbb2): complete subsection reference.
+- [captcha_challenge](resources--http_loadbalancer--reference--group-014.md#canonical-3331001122010103-1330222312203012-2102022330310300-3121202020223232-3202122212132233-0220222003113103-2301213310311323-1232121323232302): complete subsection reference.
 
-- [client_side_defense](resources--http_loadbalancer--reference--group-014.md#canonical-354a75b4365663abe51f2bf7166a7658702f51f87b9dd01d146f09ceac63c1aa): complete subsection reference.
+- [client_side_defense](resources--http_loadbalancer--reference--group-014.md#canonical-0311102213112310-0312111212032223-3211013302233313-0112122213121120-1300023311013320-1323213131000131-0110123300213032-2230120330012222): complete subsection reference.
 
-- [cookie_stickiness](resources--http_loadbalancer--reference--group-014.md#canonical-faaa86207cf7661dbbb4ee2619564b3e45dd1f0a02c98c62148376af44cd3e95): complete subsection reference.
+- [cookie_stickiness](resources--http_loadbalancer--reference--group-015.md#canonical-3322222220120200-1330331312120131-2323231032320212-0121111210230332-1011313101330022-0002302120301202-0110200313122233-1010303103322111): complete subsection reference.
 
-- [cors_policy](resources--http_loadbalancer--reference--group-014.md#canonical-98b1bc48ab39bfd42acdddd7722ced6b2d8018703544313e54793d9a49e8306d): complete subsection reference.
+- [cors_policy](resources--http_loadbalancer--reference--group-015.md#canonical-2120230123301020-2223032123333110-0222303131313113-1302023032311223-0231200001201300-0311101003010332-1110132103312122-1021322003001231): complete subsection reference.
 
-- [csrf_policy](resources--http_loadbalancer--reference--group-014.md#canonical-c9a870f8ec486129a3bfb92e157af90b7ed2f407741b40a6ff596b41269bd975): complete subsection reference.
+- [csrf_policy](resources--http_loadbalancer--reference--group-015.md#canonical-3021222013003320-3230102012010221-2203233323210232-0111132233210023-1332310233100013-1310012310002212-3333112112231001-0212212331211311): complete subsection reference.
 
-- [data_guard_rules](resources--http_loadbalancer--reference--group-014.md#canonical-3442b1c895a9f57fa1bf6b5e124c769e15a335cd5a6ebc494c98b2dc3d1f9ca9): complete subsection reference.
+- [data_guard_rules](resources--http_loadbalancer--reference--group-015.md#canonical-0310100223013020-2111222133111333-2201233312231132-0102103013122132-0111220303113031-1122123223301021-1030212023023130-0331013321302221): complete subsection reference.
 
-- [ddos_mitigation_rules](resources--http_loadbalancer--reference--group-015.md#canonical-d727335d761aa12d3d7e0cdefe2c946a177e7d8479702d7506c618125c21fc92): complete subsection reference.
+- [ddos_mitigation_rules](resources--http_loadbalancer--reference--group-015.md#canonical-3113021303031131-1312012222010231-0331133200303132-3332023021101222-0113133213312010-1321130002311311-0012301201200102-1130020133302102): complete subsection reference.
 
-- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-c5364c4bd5cda7551a10e887854412a029f9be946b9e974764fe3c1ac76ed345): complete subsection reference.
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011): complete subsection reference.
 
-- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-2e2c6f117545e8507f9a557e78ac7c1395c119a6fefa3b39e4e67a70cc292675): complete subsection reference.
+- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-0232023012330101-1311101132201100-1333212211111332-1320223013300103-2111300101212212-3332332203230321-3210321213221300-3030022102121311): complete subsection reference.
 
-- [default_route_pools](resources--http_loadbalancer--reference--group-017.md#canonical-2b8c60fa9dceb82aef881e64259e895cadc5174aabddb1c7bc55794ad8d2c41f): complete subsection reference.
+- [default_route_pools](resources--http_loadbalancer--reference--group-018.md#canonical-0223203012003322-2131303223200222-3233202001321210-0211213220211130-2231301101131022-2223313123013013-2330111113211022-3120310230100133): complete subsection reference.
 
-- [default_sensitive_data_policy](resources--http_loadbalancer--reference--group-017.md#canonical-865cc01ec6425b69dc0f336f2b1df4508cba7e06e1863d551ccd67564a9f8773): complete subsection reference.
+- [default_sensitive_data_policy](resources--http_loadbalancer--reference--group-018.md#canonical-2012113030000132-3012100211231221-3130003303031233-0223013133101100-2030232213320012-3201201203311111-0130303112131112-1022213320131303): complete subsection reference.
 
-<a id="canonical-946220f7bfd68cabd201b52e1d70f728bec64098d8bded6af54439372c6a5e79"></a>
+<a id="canonical-2110120202003313-2333311220302223-3102000123110232-0131130033130220-2332301210002120-3120233132311222-3311101003210313-0230122211321321"></a>
 
-<a id="canonical-c9c85fb9c5348d2b70b1ae25604cba75fe3b17e6aa7ec54578d20d18f54bd64b"></a>
+<a id="canonical-3021302011332321-3011031020310223-1300230122320211-1200103023221311-3332032301133212-2222133230111011-1320310200310120-3311102331121023"></a>
 
-## description property — Property reference / e36a9d4438cd / 6
+## description property — Property reference / 101003203031 / 6
 
 Type: `"string"`. Optional.
 
@@ -197,11 +197,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2cab1ec389f070ee508b3e799e092d3b1a9a6408b8676bc92947052a4427adc"></a>
+<a id="canonical-3302302223013230-0320213300130032-3211002023033213-2121320021023103-2301222122121000-2023201213122330-2102211013001102-2210100213223130"></a>
 
-<a id="canonical-9f0be39dd7145a1d390450447917f193faf861d8ff5e18c11fbb7aeb3cc0c0d8"></a>
+<a id="canonical-2133002332032131-3113011011220131-0321001011001010-1321011333012103-3322332012013120-3333113201203001-0133232313223223-0330300030003120"></a>
 
-## disable property — Property reference / e36a9d4438cd / 7
+## disable property — Property reference / 101003203031 / 7
 
 Type: `"bool"`. Optional.
 
@@ -224,39 +224,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_api_definition](resources--http_loadbalancer--reference--group-017.md#canonical-1b55f3059b0d40854d39c4144a9207fcf3f11031231709c548cd57f59eedb026): complete subsection reference.
+- [disable_api_definition](resources--http_loadbalancer--reference--group-018.md#canonical-0123111133030011-2123003110002011-1031032130100110-1022210200133330-3303330101000301-0203011300213011-1020303111133311-2132323123000212): complete subsection reference.
 
-- [disable_api_discovery](resources--http_loadbalancer--reference--group-017.md#canonical-2e06259edaa0293b9b5a461b956cd0a71e61ff8a95f34885a81c11c6239f00ff): complete subsection reference.
+- [disable_api_discovery](resources--http_loadbalancer--reference--group-018.md#canonical-0232001202112132-3122220002210323-2123112210120123-2111123031002213-0132120133332022-2111330310202011-2220013001013012-0203213300003333): complete subsection reference.
 
-- [disable_api_testing](resources--http_loadbalancer--reference--group-017.md#canonical-f789378c079cb5e3adaa3102def219654d096f04b8c8a2cb49e577b8a9d534a7): complete subsection reference.
+- [disable_api_testing](resources--http_loadbalancer--reference--group-018.md#canonical-3313202103132030-0013213023113203-2231222203010002-3132330201211211-1031002112330010-2320302022023023-1021321113132320-2221311103102213): complete subsection reference.
 
-- [disable_bot_defense](resources--http_loadbalancer--reference--group-017.md#canonical-db0f00840fedd3d4d10fca6b6e6a38c90e6d3c86f97d953ed4754b50821630fb): complete subsection reference.
+- [disable_bot_defense](resources--http_loadbalancer--reference--group-018.md#canonical-3123003300002010-0033323131033110-3101003330221223-1232122203203021-0032123103302012-3321133121110332-3110131110231100-2002011203003323): complete subsection reference.
 
-- [disable_caching](resources--http_loadbalancer--reference--group-017.md#canonical-b944ef368907204f33191c57e912db818db4f0d91232de5993ce8c168e2f8289): complete subsection reference.
+- [disable_caching](resources--http_loadbalancer--reference--group-018.md#canonical-2321101032330312-2021001302001033-0303012101301113-3221010231232001-2031231033003121-0102030231321121-2103303220300112-2032023320022021): complete subsection reference.
 
-- [disable_client_side_defense](resources--http_loadbalancer--reference--group-017.md#canonical-9ae7b6d81df251cf2b47e0945f1a03143010e544df39ca300e07b415f04488f0): complete subsection reference.
+- [disable_client_side_defense](resources--http_loadbalancer--reference--group-018.md#canonical-2122321323123120-0131330211013033-0223101332002110-1133012200030110-0300010032111010-3133032130220300-0032001323100111-3300101020203300): complete subsection reference.
 
-- [disable_ip_reputation](resources--http_loadbalancer--reference--group-017.md#canonical-626bc9a9e1f5a8dbcff2cfc47f51f44452f307d56b7e4446911d766b3cdaaa42): complete subsection reference.
+- [disable_ip_reputation](resources--http_loadbalancer--reference--group-018.md#canonical-1202122330212221-3201331122203123-3033330230333010-1333110133101010-1102330300133111-1223133210101012-2101013113121223-0330312222221002): complete subsection reference.
 
-- [disable_malicious_user_detection](resources--http_loadbalancer--reference--group-017.md#canonical-c6b6bcee92fa30fbd299d474868a4374a98620ff5e7a8c91390225b379dfd71a): complete subsection reference.
+- [disable_malicious_user_detection](resources--http_loadbalancer--reference--group-018.md#canonical-3012231223303232-2102332203003323-3102212131101310-2012202210031310-2221201202003333-1132132220302101-0321000202112303-1321313331130122): complete subsection reference.
 
-- [disable_malware_protection](resources--http_loadbalancer--reference--group-017.md#canonical-73fd4dd9ed35740311b05e7c058fa47c122713897fcd26a1db5a9492c44f1311): complete subsection reference.
+- [disable_malware_protection](resources--http_loadbalancer--reference--group-018.md#canonical-1303333110313121-3231031113100003-0101230011321330-0011203322101330-0102021301032021-1333303102122201-3123112221102102-3010103301030101): complete subsection reference.
 
-- [disable_rate_limit](resources--http_loadbalancer--reference--group-017.md#canonical-c48e1d3b25523022258a53db20abda4b84439f175704d24090277c6e2ae78317): complete subsection reference.
+- [disable_rate_limit](resources--http_loadbalancer--reference--group-018.md#canonical-3010203201310323-0211110203000202-0211202211033123-0200222331221023-2010100321330113-1113001031021000-2100021313301232-0222321320030113): complete subsection reference.
 
-- [disable_threat_mesh](resources--http_loadbalancer--reference--group-017.md#canonical-a144aa0b53927f9806853d0586a2b3c5b599fac28431d3cf714604a41e03584b): complete subsection reference.
+- [disable_threat_mesh](resources--http_loadbalancer--reference--group-018.md#canonical-2201101022220023-1103210213332120-0012201103310011-2012220223033011-2311212133223002-2010030131033033-1301101200102210-0132000311201023): complete subsection reference.
 
-- [disable_trust_client_ip_headers](resources--http_loadbalancer--reference--group-017.md#canonical-8472f96112920b65bd27a1c5e159bbf163ddeb4a5ca3802a1d9872ad3c0607ab): complete subsection reference.
+- [disable_trust_client_ip_headers](resources--http_loadbalancer--reference--group-018.md#canonical-2010130233211201-0102210200231211-2331021322013011-3201112123233301-1203313132231022-1130220320000222-0131212013022231-0330001200132223): complete subsection reference.
 
-- [disable_waf](resources--http_loadbalancer--reference--group-017.md#canonical-2d3dceada3af713c60e3a5c97f2df4fffd6ce15af8979fc63fd04464363b4849): complete subsection reference.
+- [disable_waf](resources--http_loadbalancer--reference--group-018.md#canonical-0231033130322231-2203223313010330-1200320322113021-1333023133103333-3331123032011122-3320211321333012-0333310010101210-0312032310201021): complete subsection reference.
 
-- [do_not_advertise](resources--http_loadbalancer--reference--group-017.md#canonical-b29f363d3a20a25f933614c6079ff33efdf1edf8965dfa2ff873b90ad86f557d): complete subsection reference.
+- [do_not_advertise](resources--http_loadbalancer--reference--group-018.md#canonical-2302213303120331-0322020022021133-2103031201103012-0013213333030332-3331330132313320-2112113133220233-3320130323210022-3120123311111331): complete subsection reference.
 
-<a id="canonical-73b74109d9a83a993f67dcc5ce9dd42df91233391d69ba08cd52b7577f0b8880"></a>
+<a id="canonical-1303231310010021-3121222003222121-0333121331303011-3032213131100231-3321010203030321-0131122123220020-3031110223131113-1333002320202000"></a>
 
-<a id="canonical-d969beda9d433423251c5e70837c74a6e86806a5187452fc6f52aa452e117716"></a>
+<a id="canonical-3121122123323122-2131100303100203-0211013011321300-2003133013102212-3220122000122211-0120131011023330-1233110222221011-0232010113130112"></a>
 
-## domains property — Property reference / e36a9d4438cd / 8
+## domains property — Property reference / 101003203031 / 8
 
 Type: `["list", "string"]`. Required.
 
@@ -337,57 +337,57 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_api_discovery](resources--http_loadbalancer--reference--group-017.md#canonical-c92592437695ce4e484e16cf1b000e2558346e492b9be3ef743d389861095739): complete subsection reference.
+- [enable_api_discovery](resources--http_loadbalancer--reference--group-018.md#canonical-3021021121021003-1312211130321032-1020103201123033-0123000000320211-1120031012321021-0223212332033233-1310033103202120-1201002111130321): complete subsection reference.
 
-- [enable_challenge](resources--http_loadbalancer--reference--group-018.md#canonical-402b08ef1e68bc5d4cd755fa7d308044f7c196ea49abd373321f605d815aebee): complete subsection reference.
+- [enable_challenge](resources--http_loadbalancer--reference--group-018.md#canonical-1000022300203233-0132122023301131-1030311311113322-1331030020001010-3313300121123222-1021222331031303-0302013312001131-2001112232233232): complete subsection reference.
 
-- [enable_ip_reputation](resources--http_loadbalancer--reference--group-018.md#canonical-ad9abe471b9e2c134289301619d5e2e343addf7ac9c75b2ef21b2ab519e4a2bb): complete subsection reference.
+- [enable_ip_reputation](resources--http_loadbalancer--reference--group-018.md#canonical-2231212223321013-0123213202300103-1002202103000112-0121311132023203-1003223131331322-3021301311230232-3302012302222311-0121321022022323): complete subsection reference.
 
-- [enable_malicious_user_detection](resources--http_loadbalancer--reference--group-018.md#canonical-92c71e787d6f8b942b2de2f570db9e12d25adfadafb90be4dab1428b72d246e8): complete subsection reference.
+- [enable_malicious_user_detection](resources--http_loadbalancer--reference--group-018.md#canonical-2102301301321320-1331123320232110-0223023132023311-1300312321320102-3102112231332231-2233232100233210-3122230110022023-1302310210123220): complete subsection reference.
 
-- [enable_threat_mesh](resources--http_loadbalancer--reference--group-018.md#canonical-d5e845d5425c1311e52b352f9fa4ea398545c1b66ec415406320486cbd25daef): complete subsection reference.
+- [enable_threat_mesh](resources--http_loadbalancer--reference--group-018.md#canonical-3111322010113111-1002113001030101-3211022303110233-2133221032220321-2011101130012312-1232301001111000-1203020010201230-2331021131223233): complete subsection reference.
 
-- [enable_trust_client_ip_headers](resources--http_loadbalancer--reference--group-018.md#canonical-8b81ab46828f74c3866c9e65d4068c4c9adac39de02d860dc0b15ed239a98e8f): complete subsection reference.
+- [enable_trust_client_ip_headers](resources--http_loadbalancer--reference--group-018.md#canonical-2023200122231012-2002203313103003-2012123021321211-3110001220301030-2122312230032131-3200023120120031-3000230111323102-0321222120322033): complete subsection reference.
 
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-13765b09fae8733d02c20565cbeec906e4a91070c52e2eac1b36668592698cd6): complete subsection reference.
+- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112): complete subsection reference.
 
-- [http](resources--http_loadbalancer--reference--group-018.md#canonical-e1f14d7c9b8e8fb184d02bb2a0fe678d962de127c1841a842aff87500721227b): complete subsection reference.
+- [http](resources--http_loadbalancer--reference--group-018.md#canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323): complete subsection reference.
 
-- [https](resources--http_loadbalancer--reference--group-018.md#canonical-39b9182405c802b182e6b914337b4da12ad4bf0ded160b49869796b301f98012): complete subsection reference.
+- [https](resources--http_loadbalancer--reference--group-019.md#canonical-0321232101200210-0011302000022301-2002321223210110-0303132310312201-0222311023330031-3231011200231021-2012211321122303-0001332120000102): complete subsection reference.
 
-- [https_auto_cert](resources--http_loadbalancer--reference--group-019.md#canonical-f313e867726d0c24f875066fcaa917f4348e2e777a0878e92631065393f60aa8): complete subsection reference.
+- [https_auto_cert](resources--http_loadbalancer--reference--group-020.md#canonical-3303010332201213-1302123100300210-3320131100121233-3022222101133310-0310203202321313-1322002013203221-0212030100121103-2103331200222220): complete subsection reference.
 
-<a id="canonical-e0a070fe83beb7497f3a08fc597b077634f7cb92a662b6b81604bee4308d821b"></a>
+<a id="canonical-3200220013003332-2003233223131021-1333032200203330-1121132300131312-0310331330232102-2212120223122320-0112001023323210-0300203120020123"></a>
 
-<a id="canonical-32ebd3866ffce66ccfc61cdb2f4ffa1728235fd1556487c6855b3efb060e968b"></a>
+<a id="canonical-0302322331032012-1233333032121230-3033301201303123-0233103333220113-0220020311333101-1111121020133012-2011112303323323-0012003221122023"></a>
 
-## id property — Property reference / e36a9d4438cd / 9
+## ID property — Property reference / 101003203031 / 9
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [js_challenge](resources--http_loadbalancer--reference--group-019.md#canonical-1a9d02dfd2c57fd3a9e31ecff2bb82960607e7bd4a61e0a621dd4cbbf874f729): complete subsection reference.
+- [js_challenge](resources--http_loadbalancer--reference--group-020.md#canonical-0122213100023133-3102301113333103-2221320301323033-3302232320022112-0012001332132331-1022120132002212-0201313110302323-3320131033130221): complete subsection reference.
 
-- [jwt_validation](resources--http_loadbalancer--reference--group-019.md#canonical-4df32e93b4fba0c762fa6eaf59f4319cb5b4db3f51b42644a5d38a9c0965d3ff): complete subsection reference.
+- [jwt_validation](resources--http_loadbalancer--reference--group-020.md#canonical-1031330302322103-2310332322003013-1202332212322233-1121331003012130-2311231031230333-1101231002121010-2211310320222130-0021121131033333): complete subsection reference.
 
-- [l7_ddos_action_block](resources--http_loadbalancer--reference--group-020.md#canonical-7851e2010afcdabe3e06b86c00ca2119a78dc076e9788767f1d31b1ba8a5e3f0): complete subsection reference.
+- [l7_ddos_action_block](resources--http_loadbalancer--reference--group-020.md#canonical-1320110132020001-0022333031222332-0332001223201230-0000302202010121-2213203130001312-3221132020131213-3301310301230123-2220221132033300): complete subsection reference.
 
-- [l7_ddos_action_default](resources--http_loadbalancer--reference--group-020.md#canonical-dacd16fe43e99c16d648b347417ec881594427f7192ce07760ccb0a434933ebf): complete subsection reference.
+- [l7_ddos_action_default](resources--http_loadbalancer--reference--group-020.md#canonical-3122303101123332-1003322121300112-3112102023031013-1001133230202001-1121101002133313-0121023032001313-1200303023002210-0310210303322333): complete subsection reference.
 
-- [l7_ddos_action_js_challenge](resources--http_loadbalancer--reference--group-020.md#canonical-5c2a0de006a63bfb8d7a46ca1a9ddaeb0faf0bc4cc2c75baf932466b1c4b9a8d): complete subsection reference.
+- [l7_ddos_action_js_challenge](resources--http_loadbalancer--reference--group-020.md#canonical-1130022200313200-0012221203233323-2031132210123022-0122213131223223-0033223300233010-3030023013112322-3321030210121223-0130102321222031): complete subsection reference.
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-a5261dd749d091cf720a2544f603c93cba5bd20eafe6068a8958d6f4e7b2ac25): complete subsection reference.
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211): complete subsection reference.
 
-<a id="canonical-c81013319e241b63ffa38e888de2b32d143ec1a5c1dd5c5051fcb8352777304f"></a>
+<a id="canonical-3020010001030301-2132021001231203-3333220320322020-2031320223030231-0110033230012211-3001313111301100-1101333023200311-0213131303001033"></a>
 
-<a id="canonical-79dbd3d4a01ee391918597e98f496dfc7f9d399154f032cb8c9416eed597d52a"></a>
+<a id="canonical-1321312331033110-2200013232032101-2101201121133221-2033102112313330-1333213103212101-1110330003023023-2030211001123232-3111211331110222"></a>
 
-## labels property — Property reference / e36a9d4438cd / 10
+## labels property — Property reference / 101003203031 / 10
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -408,19 +408,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [least_active](resources--http_loadbalancer--reference--group-020.md#canonical-d01e18784c2ea24048b46a4e90708b3edcd19fab94a6a493e19cf7822cb11fb8): complete subsection reference.
+- [least_active](resources--http_loadbalancer--reference--group-021.md#canonical-3100013201201320-1030023222021000-1020231012221032-2100130020230332-3130310121332223-2110221222102103-3201213033132002-0230230101332320): complete subsection reference.
 
-- [malware_protection_settings](resources--http_loadbalancer--reference--group-020.md#canonical-82051da6fa8592d3703f6f8ebe7726692a2cc0a847b7f51741c8239f1a7a7fba): complete subsection reference.
+- [malware_protection_settings](resources--http_loadbalancer--reference--group-021.md#canonical-2002001101312212-3322201121023103-1300033312332032-2332131302121221-0222023030002220-1013231333110113-1001302002032133-0122132213332322): complete subsection reference.
 
-- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-13bbd000e2c68826bf1c0be37491cfc06816379212a16f2fa40ba4bf550b2cee): complete subsection reference.
+- [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232): complete subsection reference.
 
-- [multi_lb_app](resources--http_loadbalancer--reference--group-021.md#canonical-0ae28b3b2b8df4f8ce2c8e04c0176280fe9c9128fb14f292dee21e7534b1c785): complete subsection reference.
+- [multi_lb_app](resources--http_loadbalancer--reference--group-022.md#canonical-0022320220230323-0223203133103320-3032023020320010-3000011312022000-3332213021010220-3323011033022102-3132320201321311-0310230130132011): complete subsection reference.
 
-<a id="canonical-0ae0a02b0490ea85f6248345d30e6832cbff1908feadbedefb7e34c9657b32ee"></a>
+<a id="canonical-0022320022000223-0010210032222011-3312021020031011-3103003212200302-3023333301210020-3332223123323132-3323133203103021-1211132303023232"></a>
 
-<a id="canonical-969130477f9672416057070d3636e4529c8e076d751a2b9000bf042dc24b4d98"></a>
+<a id="canonical-2112210103001013-1333211213021001-1200111300130031-0312031232101102-2130203200131231-1311012202232100-0000233300100231-3002102310312120"></a>
 
-## name property — Property reference / e36a9d4438cd / 11
+## name property — Property reference / 101003203031 / 11
 
 Type: `"string"`. Required.
 
@@ -484,11 +484,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0ef0f979913fddb8df4ac380214ef1a460f3081857292c39366faaeb05f45670"></a>
+<a id="canonical-0032330033211321-2101033331312320-3133102230032000-0201103233012210-1200330300200120-1113022102300321-0312123322223223-0011331011121300"></a>
 
-<a id="canonical-68c95b7e7f8001c178508df05b4796595b76552fca72ed2a3c6ef239b7a81320"></a>
+<a id="canonical-1220302111231332-1333200000013001-1320110020313300-1123101321121121-1123131211110233-3022130232310222-0330123233020321-2313222001030200"></a>
 
-## namespace property — Property reference / e36a9d4438cd / 12
+## namespace property — Property reference / 101003203031 / 12
 
 Type: `"string"`. Required.
 
@@ -545,46 +545,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-91668e9b3365ea876e1816b4b40472e96059f8303e3a32daf41ba574857d4efe): complete subsection reference.
+- [no_challenge](resources--http_loadbalancer--reference--group-022.md#canonical-2101121220322123-0303121132222013-1232012001122310-2310001013023221-1200112133200300-0332032203023122-3310012322111310-2011133110323332): complete subsection reference.
 
-- [no_service_policies](resources--http_loadbalancer--reference--group-021.md#canonical-67a5b67e1c9362160c1235a278e79e0e6a99c2fc8595e33cad1c274c07dc323d): complete subsection reference.
+- [no_service_policies](resources--http_loadbalancer--reference--group-022.md#canonical-1213221123121332-0130210312020112-0030010203112202-1320321321320032-1222212130023330-2011211132030330-2231013002131030-0013313003020331): complete subsection reference.
 
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-27f040f8cfe68609b89b4390ae69c1789f9aad0d772f1040ff41a92c5dbc8670): complete subsection reference.
+- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-022.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300): complete subsection reference.
 
-- [policy_based_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-79948879354188eafa8c0e802af344409a251cdd860384e8fc6ff710a41d9715): complete subsection reference.
+- [policy_based_challenge](resources--http_loadbalancer--reference--group-022.md#canonical-1321211020201321-0311100120203222-3322203000322000-0222330310101000-2122021101303131-2012000320103220-3330123333130100-2210013121130111): complete subsection reference.
 
-- [protected_cookies](resources--http_loadbalancer--reference--group-022.md#canonical-31e37d7fd8ec4dc8fe24670a3a9a6042ac21493ba23b1d0f7d8652cf6147642f): complete subsection reference.
+- [protected_cookies](resources--http_loadbalancer--reference--group-023.md#canonical-0301320313311333-3120323010313020-3332021012130022-0322212212001002-2230020110210323-2202032301310033-1331201211023033-1201101312100233): complete subsection reference.
 
-- [random](resources--http_loadbalancer--reference--group-023.md#canonical-766379fb930c44ad5e5e2c04133a6bc22837ba32ed08ce5c0423109576169e15): complete subsection reference.
+- [random](resources--http_loadbalancer--reference--group-023.md#canonical-1312120313213323-2103003010102231-1132113202300010-0103032212233002-0220031323220302-3231002030321130-0010020301002111-1312011221320111): complete subsection reference.
 
-- [rate_limit](resources--http_loadbalancer--reference--group-023.md#canonical-7cb6dc89026b3071da1cc7ef34ceaf2acccfcbfeb82b7751ead0e13de0ea160b): complete subsection reference.
+- [rate_limit](resources--http_loadbalancer--reference--group-023.md#canonical-1330231231302021-0002122303001301-3122013030133233-0310303222330222-3030303330233332-2320022313131101-3222310032010331-3200322201120023): complete subsection reference.
 
-- [ring_hash](resources--http_loadbalancer--reference--group-023.md#canonical-f3ff5d1ad828b5311f35bfb1f7876549c6ba1748e43ab9dbeef4e660faa6143c): complete subsection reference.
+- [ring_hash](resources--http_loadbalancer--reference--group-024.md#canonical-3303333311310122-3120022023110301-0133031123332301-3313201312111021-3012232201131020-3210032223213123-3232331032121200-3322221201100330): complete subsection reference.
 
-- [round_robin](resources--http_loadbalancer--reference--group-023.md#canonical-d88720185138bfbe63c4c4e5b159d2d0fbff7267924d86c7e5b8c5c2744a23f9): complete subsection reference.
+- [round_robin](resources--http_loadbalancer--reference--group-024.md#canonical-3120201302000120-1101032023332332-1203301030103211-2301112131023100-3323333313021213-2102103120123013-3211232030113002-1310102202033321): complete subsection reference.
 
-- [routes](resources--http_loadbalancer--reference--group-023.md#canonical-541a918f6992f609cb9368685dbf07fc29f8bb8b9a72694ced412793a3b8fb50): complete subsection reference.
+- [routes](resources--http_loadbalancer--reference--group-024.md#canonical-1110012221012033-1221210233120021-3023210312201220-1131233300133330-0221332023232023-2122130212211030-3231100102132103-2203232033231100): complete subsection reference.
 
-- [sensitive_data_disclosure_rules](resources--http_loadbalancer--reference--group-026.md#canonical-c47009539eef3bdcdb8d2b7bb2e345b80b42d65bebf56615f0a60ba75fe78afe): complete subsection reference.
+- [sensitive_data_disclosure_rules](resources--http_loadbalancer--reference--group-026.md#canonical-3010130000211103-2132323303233130-3123203102231323-2302320310112320-0023100231121123-3223331112120111-3300221200232213-1133321320223332): complete subsection reference.
 
-- [sensitive_data_policy](resources--http_loadbalancer--reference--group-026.md#canonical-f0e4b12924ffd6a5474ec9ccc1e5f3bb10984f997a330e17cd29b09c63f46f08): complete subsection reference.
+- [sensitive_data_policy](resources--http_loadbalancer--reference--group-026.md#canonical-3300321023010221-0210333331122211-1013103230213030-3001321133032323-0100212010332121-1322030300320113-3031022123002130-1203331012330020): complete subsection reference.
 
-- [service_policies_from_namespace](resources--http_loadbalancer--reference--group-026.md#canonical-f8e76b68a32f7686ffecdddc1f58ed7947137696e500423d54f0161e3b096a55): complete subsection reference.
+- [service_policies_from_namespace](resources--http_loadbalancer--reference--group-026.md#canonical-3320321312231220-2203023313122012-3333323031313130-0133112032311321-1013010313122112-3211000010020331-1110330001120132-0323002112221111): complete subsection reference.
 
-- [single_lb_app](resources--http_loadbalancer--reference--group-026.md#canonical-740ee67d743653650e483c667a0cdd4213e3aec04c7b984a7c4b1bf22d3dae63): complete subsection reference.
+- [single_lb_app](resources--http_loadbalancer--reference--group-026.md#canonical-1310003232121331-1310031211031211-0032102003301212-1322003031311002-0103320322323000-1030132321201022-1330102301233302-0231033122321203): complete subsection reference.
 
-- [slow_ddos_mitigation](resources--http_loadbalancer--reference--group-026.md#canonical-ffd5840bac3442e8871f0e6732a39bf72a5cf7ca9d57813bb3e3f7dac2c7c03a): complete subsection reference.
+- [slow_ddos_mitigation](resources--http_loadbalancer--reference--group-027.md#canonical-3333311120100023-2230031010023220-2013013300321213-0302220321233313-0222113033133022-2131111320010323-2303320333133122-3002301330000322): complete subsection reference.
 
-- [source_ip_stickiness](resources--http_loadbalancer--reference--group-026.md#canonical-1855ab42bff48be1c839dbc02e86ba75469ba9ba572e6e12d5a69afa2ba6d8c0): complete subsection reference.
+- [source_ip_stickiness](resources--http_loadbalancer--reference--group-027.md#canonical-0120111122231002-2333331020233201-3020032131233000-0232201223221311-1012212322212322-1113023212320102-3111221221223322-0223221231203000): complete subsection reference.
 
-- [system_default_timeouts](resources--http_loadbalancer--reference--group-026.md#canonical-d544b47e171fe74c0dd1c3e1bb390b65307469826b276b138f3f4d3d59ebc155): complete subsection reference.
+- [system_default_timeouts](resources--http_loadbalancer--reference--group-027.md#canonical-3111101023101332-0113013332131030-0031310130033201-2323032100231211-0300131012212002-1223021312230103-2033033310310331-1121322330011111): complete subsection reference.
 
-- [timeouts](resources--http_loadbalancer--reference--group-026.md#canonical-0d031c5e02b9b01edc14906dd7d479341ac318e527a84ba537a24a689885ff3a): complete subsection reference.
+- [timeouts](resources--http_loadbalancer--reference--group-027.md#canonical-0031000301301132-0002232123000132-3130011021001231-3113311013210310-0122300301203211-0213222010232211-0313220210221220-2120201133330322): complete subsection reference.
 
-- [trusted_clients](resources--http_loadbalancer--reference--group-026.md#canonical-e0af00365f8f0ebfccab32942f6b2726b0806a55ec8ea4b3b523dd7cebb7e4c9): complete subsection reference.
+- [trusted_clients](resources--http_loadbalancer--reference--group-027.md#canonical-3200223300000312-1133203300322333-3030222303022110-0233122302130212-2300200012221111-3230203222102303-2311020331311330-3223231332103021): complete subsection reference.
 
-- [user_id_client_ip](resources--http_loadbalancer--reference--group-026.md#canonical-fe1f51e76f8a4491a2c7ef8f9cc82d6a6df68859896b3b9775334e6f613cac00): complete subsection reference.
+- [user_id_client_ip](resources--http_loadbalancer--reference--group-027.md#canonical-3332013311013213-1233202210102101-2202301332332033-2130302002311222-1231331220201121-2021122303232113-1311030310321233-1201033022300000): complete subsection reference.
 
-- [user_identification](resources--http_loadbalancer--reference--group-026.md#canonical-0e0670b13d60febf0c438e4f8a73b5794f67bb35ecad84e1001cef3948fb2a2b): complete subsection reference.
+- [user_identification](resources--http_loadbalancer--reference--group-027.md#canonical-0032001213002301-0331120033322333-0030100320321033-2022130323111321-1033121323230311-3230223120103201-0000013032330321-1020332302220223): complete subsection reference.
 
-- [waf_exclusion](resources--http_loadbalancer--reference--group-026.md#canonical-86635926dff9a406ce1b9e922504e4198e3c10c37ace3a589dca358b0134d051): complete subsection reference.
+- [waf_exclusion](resources--http_loadbalancer--reference--group-027.md#canonical-2012120311210212-3133332122100012-3032012321322102-0211001032100121-2032033001003003-1322303203221120-2131302203112023-0001031031001101): complete subsection reference.

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_k8s_pod_security_pol
 
 # xcsh_k8s_pod_security_policy landing
 
-<a id="canonical-36f29df3c9c08e8147f6d5102e2fa3a66d82fbfbb99ed811ed591f69ee6ab6ec"></a>
+<a id="canonical-0312330221313303-3021300020322001-1013331231110100-0232023322032212-1231200233233323-2321213231200101-3231112101331221-3232122223123230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e6b6271e6900d593e018012bbe5ee1bfc7359c7a3a1d2d235e081804dbbacd5"></a>
+<a id="canonical-1332122312021301-3212210000311121-0332000120000102-2323321132320123-3330130311213013-2203220131023102-0311320020012000-1031232322303111"></a>
 
-## xcsh_k8s_pod_security_policy — xcsh_k8s_pod_security_policy / 9ddb9b458d2f / 2
+## xcsh_k8s_pod_security_policy — xcsh_k8s_pod_security_policy / 101120310233 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_policy will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-<a id="canonical-08ff58a7d7c3fe7eb3f252150f92ccf55d9d27e8220ef8cf90ab1c991647efda"></a>
+<a id="canonical-0020333311202213-3113300333321332-2303330211020111-0033210230303311-1131213102133220-0202003233203033-2100222301302121-0112101332333122"></a>
 
-## Prerequisites — xcsh_k8s_pod_security_policy / 9ddb9b458d2f / 3
+## Prerequisites — xcsh_k8s_pod_security_policy / 101120310233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3a3bace979c8739e1427671eb170db99ca64c16a2de5d9a617f6fe7b10c49f07"></a>
+<a id="canonical-0322032322303221-1321302013032132-0110021312130132-2301130031232121-3022121030011222-0231321131212212-0113331233321323-0100301021330013"></a>
 
-## Minimal configuration — xcsh_k8s_pod_security_policy / 9ddb9b458d2f / 4
+## Minimal configuration — xcsh_k8s_pod_security_policy / 101120310233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "k8s_pod_security_policy_id" {
 }
 ```
 
-<a id="canonical-19b7d0cd97482d6ff38bea8df25ddcebd773991de5f1f08b0254ac11c94968d0"></a>
+<a id="canonical-0121231331003031-2113102002311233-3303202332222031-3302113131303223-3113130321210131-3211330133002023-0002111022300101-3021102112203100"></a>
 
-## Root configuration — xcsh_k8s_pod_security_policy / 9ddb9b458d2f / 5
+## Root configuration — xcsh_k8s_pod_security_policy / 101120310233 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-bdab74ddf73393b9c9b4b78c736ba7d281305c13dfce641d544df9276b41eaf9"></a>
+<a id="canonical-2331222313103131-3313030321032321-3021231023132030-1303122322133102-2001030011300103-3133303212100131-1110103133210213-1223100132223321"></a>
 
-## Next pages — xcsh_k8s_pod_security_policy / 9ddb9b458d2f / 6
+## Next pages — xcsh_k8s_pod_security_policy / 101120310233 / 6
 
-- [Property reference](../guides/data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-184ccdb883ac5057158a4e9183a15e9800253e32c385953e20b54c27443f4ac7)
-- [Examples](../guides/data-sources--k8s_pod_security_policy--examples--group-001.md#canonical-94881518bbc37debae300d89fbdc06722ac20767c40925cad906ca38d7b59aa1)
+- [Property reference](../guides/data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-0120103030312320-2003223011001113-0111202210322101-2003220111322120-0000021103320302-3003201121110332-0200231110300213-1010033310223013)
+- [Examples](../guides/data-sources--k8s_pod_security_policy--examples--group-001.md#canonical-2110202001110120-2323300313313223-2232030000312021-3323313000121302-0222300200131213-3010002102113022-3121001230220320-3113231121222201)

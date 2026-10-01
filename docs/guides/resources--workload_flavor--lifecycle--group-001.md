@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_workload_flavor life
 
 # xcsh_workload_flavor lifecycle
 
-<a id="canonical-bb25a902a65154102fe6fba37a0e1a02fb70da7846800fcd33caac5f95a9d72b"></a>
+<a id="canonical-2323021122210002-2212110111100100-0233321233232203-1322003201220002-3323130031221320-1012200000333031-0303302222301133-2111222131130223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cdf3d169b45bd450cdeefe8f76720f127e249aa4e1a1384063d2df75f154b36b"></a>
+<a id="canonical-3031330331011221-2310112331101100-3031323233322033-1312130200330102-1332021021222210-3201220103201000-1203310231331311-3301111023031223"></a>
 
-## Import — Import / b7bde1076c37 / 2
+## Import — Import / 001312300313 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-4dfec73998823e83c8926da172edff562c2f4bfac621f1a18b414eca82495d01)
+- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-1031333230130321-2120200203322003-3020210212312201-1302323133331112-0230023310233322-3012020133012201-2023100110323022-2002102111310001)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_workload_flavor.example system/example
 ```
 
-<a id="canonical-9f9348a2ec028c89293fc89cb39cad5a85f0f4367385965a49aaa16568d516ee"></a>
+<a id="canonical-2133210310202202-3230000220302021-0221033330202130-2303213022311122-2011330033100312-1303201121121122-1021222222011211-1220311101123232"></a>
 
-## Next pages — Import / b7bde1076c37 / 3
+## Next pages — Import / 001312300313 / 3
 
-- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-4dfec73998823e83c8926da172edff562c2f4bfac621f1a18b414eca82495d01)
+- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-1031333230130321-2120200203322003-3020210212312201-1302323133331112-0230023310233322-3012020133012201-2023100110323022-2002102111310001)
 
-<a id="canonical-c864a07acee5fa8627617f1c184f76a1d78f9103620170accde6da36bfd42bde"></a>
+<a id="canonical-3020121022001322-3032321133222012-0213120113330130-0120103313122201-3113203321010003-1202000113002230-3031321231220312-2333311002233132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c9caaa6c7c11d0bb5343966a5c35ebfb8bff73f1eb35857330167f7db999175f"></a>
+<a id="canonical-3021302222221230-1330010131002323-1103100321121222-1130031132233323-2023333313033301-3223031120111303-0300011213331331-2321212101131133"></a>
 
-## Timeouts — Timeouts / ff52c20166c3 / 2
+## Timeouts — Timeouts / 000112123003 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-4dfec73998823e83c8926da172edff562c2f4bfac621f1a18b414eca82495d01)
+- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-1031333230130321-2120200203322003-3020210212312201-1302323133331112-0230023310233322-3012020133012201-2023100110323022-2002102111310001)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--workload_flavor--reference--group-001.md#canonical-ee9efcd2d4239a14ebfa0eb13f721e5d7db0428bf5c7247669283ef549818122). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--workload_flavor--reference--group-001.md#canonical-3232213233303102-3110020321220110-3223332200322301-0333130201321131-1331230010022023-3311301302101312-1221022003323311-1021200120010202). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-a62073bb4099514af85cfdb5df257e589c84e9ef6415950a24dda092f75b02cb"></a>
+<a id="canonical-2212020013032323-1000212111011022-3320113033312311-3133021113321120-2130201032213233-1210011121110022-0210313122002102-3313112300023023"></a>
 
-## Next pages — Timeouts / ff52c20166c3 / 3
+## Next pages — Timeouts / 000112123003 / 3
 
-- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-4dfec73998823e83c8926da172edff562c2f4bfac621f1a18b414eca82495d01)
+- [xcsh_workload_flavor](../resources/workload_flavor.md#canonical-1031333230130321-2120200203322003-3020210212312201-1302323133331112-0230023310233322-3012020133012201-2023100110323022-2002102111310001)

@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_api_crawler referenc
 
 # xcsh_api_crawler reference
 
-<a id="canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b"></a>
+<a id="canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c2231993ea9f69d7bbb661d34943fb4c235f12f2cd35694a7a852380669b4c3f"></a>
+<a id="canonical-3002020301212103-3222213312213113-2323231212013103-1021100333231030-0203113301023302-3031031112211022-1322201102032000-1212212310300333"></a>
 
-## Property reference — Property reference / bc165e95dabb / 2
+## Property reference — Property reference / 211131222323 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 - Property reference
 
-<a id="canonical-729d9a0c3d2afc723ae583e2eb9ebba54f41cae4c7fdfacf450493f8fb9ba94c"></a>
+<a id="canonical-1302213121220030-0331022233301302-0322321120033202-3223213223232211-1033100130223210-3013333133223033-1011001021033320-3323212322211030"></a>
 
-## Direct properties — Property reference / bc165e95dabb / 3
+## Direct properties — Property reference / 211131222323 / 3
 
-<a id="canonical-0090ac99960f8c6aded64d213a5e67c37459e04f9810e16d86dd92117f0bdc84"></a>
+<a id="canonical-0000210022302121-2112003320301222-3132311210310201-0322113212133003-1310112132001033-2120010032011231-2012313121020101-1333002331302010"></a>
 
-<a id="canonical-04305f173e6ac2b11fdf5403d0c229ea4dcdba0ffeef720adfc8f7a347aa591c"></a>
+<a id="canonical-0010030011330113-0332122230022301-0133313311100003-3100300202213222-1031303123220033-3332323313020022-3133302033132203-1013222211210130"></a>
 
-## annotations property — Property reference / bc165e95dabb / 4
+## annotations property — Property reference / 211131222323 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -37,7 +37,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -66,11 +66,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1a0357878db29d0484e93f81b5cf794c21c49c44a8721f820555c7ef670c5bff"></a>
+<a id="canonical-0122000311132013-2031230221310010-2010322103332001-2311303313211030-0201301021301010-2220130201332002-0011111130133233-1213003011233333"></a>
 
-<a id="canonical-89d23e36b88f6a987f2dc39a1b01f5bcc826b4c2580084947999a7599cc14a00"></a>
+<a id="canonical-2021310203320312-2320203312222120-1333023130032122-0123000133112330-3020021223103002-1120000020102110-1321212122131121-2130300110220000"></a>
 
-## description property — Property reference / bc165e95dabb / 5
+## description property — Property reference / 211131222323 / 5
 
 Type: `"string"`. Computed.
 
@@ -118,23 +118,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44): complete subsection reference.
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010): complete subsection reference.
 
-<a id="canonical-3332c2697586df75d4c43298d5f4609558e2ffe7029108caaa947cb2a963238e"></a>
+<a id="canonical-0303030230021221-1311201231331311-3110301003022120-3111331012002111-1120320233333213-0002210100203022-2222211013302302-2221120302032032"></a>
 
-<a id="canonical-2d3cf6e203717564e3236563aa16697eb8e7764ec12db88485ad670077f0aa87"></a>
+<a id="canonical-0231033033123202-0003130113111210-3203020312111203-2222011212211332-2320321313121032-3001023123202010-2011223112130000-1313330022222013"></a>
 
-## id property — Property reference / bc165e95dabb / 6
+## ID property — Property reference / 211131222323 / 6
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-b9edbb06fc93cd02781b85df1c3c1c22e493a27feb44ad28285a1acf71199390"></a>
+<a id="canonical-2321323123230012-3330210330310002-1320012320113133-0130033001300202-3210210322021333-3223101022310220-0220112201223033-1301012121032100"></a>
 
-<a id="canonical-7c5a1035a3a25131b2a18ec7c783038f36feaba73249c214bb5fae4ef7b0f77c"></a>
+<a id="canonical-1330112201000311-2203220211010301-2302220120323013-3013200300032033-0312333222232213-0302102130020110-2323113322321032-3313230033131330"></a>
 
-## labels property — Property reference / bc165e95dabb / 7
+## labels property — Property reference / 211131222323 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -158,11 +158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc5e41cad83ab29d80e48e4d2fe1862859820c2a2221081c3971e45019e3406f"></a>
+<a id="canonical-3130113210013022-3120032223022131-2000321020321031-0233320120120220-1121200200300222-0202020100200130-0321130132101100-0121320310001233"></a>
 
-<a id="canonical-c5fe158ee844be1cd344ce5cc3f8cf4a48f1a0ed6e7dca423cce6afa23886d03"></a>
+<a id="canonical-3011333201112032-3220101023320130-3103101030321130-3003332030331022-1020330122003231-1232133130221002-0330303212223322-0203202012310003"></a>
 
-## name property — Property reference / bc165e95dabb / 8
+## name property — Property reference / 211131222323 / 8
 
 Type: `"string"`. Required.
 
@@ -218,11 +218,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dd1c6eee23935035d8b87c11ec9d40cb5ae75e3c9902d149a5b1ab40b48f4eb5"></a>
+<a id="canonical-3131013012323232-0203210311000311-3120232013300101-3230213110003023-1122321311320330-2121000231011021-2211230122231000-2310203310322311"></a>
 
-<a id="canonical-453b0c7bd6a24db98fdf60e1496c2721e96e1731401922d5a08689043871ef77"></a>
+<a id="canonical-1011032300301323-3112220210312321-2033313312003201-1021123002130201-3221123201130301-1000012102023111-2200201220210010-0320130132331313"></a>
 
-## namespace property — Property reference / bc165e95dabb / 9
+## namespace property — Property reference / 211131222323 / 9
 
 Type: `"string"`. Required.
 
@@ -271,57 +271,57 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-544fca49c043b83efb0e426a0fc77dd47d26bcc0713d34fbb96814c002c27f0d"></a>
+<a id="canonical-1110103330221021-3000100323200332-3323003210021222-0033301313313110-1331021223303000-1301033103103323-2321122001103000-0002300213330031"></a>
 
-## All schema paths — Property reference / bc165e95dabb / 10
+## All schema paths — Property reference / 211131222323 / 10
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](data-sources--api_crawler--reference--group-001.md#canonical-0090ac99960f8c6aded64d213a5e67c37459e04f9810e16d86dd92117f0bdc84) |
-| `description` | [description](data-sources--api_crawler--reference--group-001.md#canonical-1a0357878db29d0484e93f81b5cf794c21c49c44a8721f820555c7ef670c5bff) |
-| `domains` | [domains](data-sources--api_crawler--reference--group-001.md#canonical-dd9ebf993d0fc9fef2ccb0fb462c227af362017a76e438faeb306a402e0653a8) |
-| `domains.domain` | [domains.domain](data-sources--api_crawler--reference--group-001.md#canonical-7da2ffa3293801b55aaa6b9ae6e96b5f958e9d98cd11c4901c0db947d3593497) |
-| `domains.simple_login` | [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-235d945f69ea549313b3bb49801e2c82c40dc2da895a173e1f8de9d90ca9e312) |
-| `domains.simple_login.password` | [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1434a77895e660d6faced17cd07e414de650edc09aaa76677a3781d0a68f409e) |
-| `domains.simple_login.password.blindfold_secret_info` | [domains.simple_login.password.blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-bbcea523b89cc0a1707137a7540b79ed974b1fa24682cab3f59f78653c742280) |
-| `domains.simple_login.password.blindfold_secret_info.decryption_provider` | [domains.simple_login.password.blindfold_secret_info.decryption_provider](data-sources--api_crawler--reference--group-001.md#canonical-08ddde8f793010b320ca09fab69c15faea82cfade85297d91f722d69244e6875) |
-| `domains.simple_login.password.blindfold_secret_info.location` | [domains.simple_login.password.blindfold_secret_info.location](data-sources--api_crawler--reference--group-001.md#canonical-b94f299942041840401e84df61a1d3ec6e359b827186c899480086eff571bd97) |
-| `domains.simple_login.password.blindfold_secret_info.store_provider` | [domains.simple_login.password.blindfold_secret_info.store_provider](data-sources--api_crawler--reference--group-001.md#canonical-fa25fbda81b9e779c0fbe532294316baabca4a581538dccfa104e95997fc560a) |
-| `domains.simple_login.password.clear_secret_info` | [domains.simple_login.password.clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-00140828af538ea9c6cf85db012aa698ccd8d669b0e12ab0f63a31e7d0d8e399) |
-| `domains.simple_login.password.clear_secret_info.provider_ref` | [domains.simple_login.password.clear_secret_info.provider_ref](data-sources--api_crawler--reference--group-001.md#canonical-167642f0d04eab8252b7e201e613e81d1671fce69645e4f8b97207fd3227457c) |
-| `domains.simple_login.password.clear_secret_info.url` | [domains.simple_login.password.clear_secret_info.url](data-sources--api_crawler--reference--group-001.md#canonical-63d361e4ad2d7f425f7c65b76d0e2768dd65e2d95b128a5d9da4299af88819ac) |
-| `domains.simple_login.user` | [domains.simple_login.user](data-sources--api_crawler--reference--group-001.md#canonical-a0656c4bc75e1ce52614f4a949e660a241783931a5ee7a9b52dcf891ba8f4d46) |
-| `id` | [id](data-sources--api_crawler--reference--group-001.md#canonical-3332c2697586df75d4c43298d5f4609558e2ffe7029108caaa947cb2a963238e) |
-| `labels` | [labels](data-sources--api_crawler--reference--group-001.md#canonical-b9edbb06fc93cd02781b85df1c3c1c22e493a27feb44ad28285a1acf71199390) |
-| `name` | [name](data-sources--api_crawler--reference--group-001.md#canonical-dc5e41cad83ab29d80e48e4d2fe1862859820c2a2221081c3971e45019e3406f) |
-| `namespace` | [namespace](data-sources--api_crawler--reference--group-001.md#canonical-dd1c6eee23935035d8b87c11ec9d40cb5ae75e3c9902d149a5b1ab40b48f4eb5) |
+| `annotations` | [annotations](data-sources--api_crawler--reference--group-001.md#canonical-0000210022302121-2112003320301222-3132311210310201-0322113212133003-1310112132001033-2120010032011231-2012313121020101-1333002331302010) |
+| `description` | [description](data-sources--api_crawler--reference--group-001.md#canonical-0122000311132013-2031230221310010-2010322103332001-2311303313211030-0201301021301010-2220130201332002-0011111130133233-1213003011233333) |
+| `domains` | [domains](data-sources--api_crawler--reference--group-001.md#canonical-3131213223332121-0331003330213332-3302303023003323-1012023002021322-3303120200011322-1312321003203322-3223030012221000-0232001211032220) |
+| `domains.domain` | [domains.domain](data-sources--api_crawler--reference--group-001.md#canonical-1331220233332203-0221032000012311-1122222212232122-3212322112231133-2111203221312120-3031010130102100-0130003123211013-3103112103102113) |
+| `domains.simple_login` | [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0203113121101133-1221322211102103-0103230323231021-2000013202302002-3010003130023122-2021112201130332-0133203132213121-0030222132030102) |
+| `domains.simple_login.password` | [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-0110031022131320-2111321212003112-3322303231011330-3100133210011031-3212110032313000-2122222213121213-1322031320013100-2212203310002132) |
+| `domains.simple_login.password.blindfold_secret_info` | [domains.simple_login.password.blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-2323303222110203-2320213030002201-1300130103132213-1110002313213231-2113102301332202-1012200230222303-3311213313201211-0330131002022000) |
+| `domains.simple_login.password.blindfold_secret_info.decryption_provider` | [domains.simple_login.password.blindfold_secret_info.decryption_provider](data-sources--api_crawler--reference--group-001.md#canonical-0020313131322033-1321030001002303-0200302200213322-2312213001113322-3222200230332231-3220110221133121-0133130202311221-0210103212201311) |
+| `domains.simple_login.password.blindfold_secret_info.location` | [domains.simple_login.password.blindfold_secret_info.location](data-sources--api_crawler--reference--group-001.md#canonical-2321103302212121-1002001001201000-1000013220103133-1201220131033230-1232031121232002-1301201230202121-1020000020123233-3311130123312113) |
+| `domains.simple_login.password.blindfold_secret_info.store_provider` | [domains.simple_login.password.blindfold_secret_info.store_provider](data-sources--api_crawler--reference--group-001.md#canonical-3322021133233122-2001232132131321-3000332332110302-0221100301122322-2223302210221120-0111032031303033-2201001032211121-2113333011120022) |
+| `domains.simple_login.password.clear_secret_info` | [domains.simple_login.password.clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-0000011000200220-2233110320322221-3012303320113123-0001022222122120-3030312031121221-2300320102222300-3312032203013213-3100312032032121) |
+| `domains.simple_login.password.clear_secret_info.provider_ref` | [domains.simple_login.password.clear_secret_info.provider_ref](data-sources--api_crawler--reference--group-001.md#canonical-0112131210023300-3100103222232002-1102231332020001-3212010332200131-0112130133303212-2112101132103320-2321130200133331-0302021310111330) |
+| `domains.simple_login.password.clear_secret_info.url` | [domains.simple_login.password.clear_secret_info.url](data-sources--api_crawler--reference--group-001.md#canonical-1203310312013210-2231023113331002-1133133012112313-1231003202131220-3131121132023121-1123010220221131-2131221002212122-3320202001212230) |
+| `domains.simple_login.user` | [domains.simple_login.user](data-sources--api_crawler--reference--group-001.md#canonical-2200121112301023-3013113201303211-0212011033102221-1021321212002202-1001132003210301-2211323213222123-1102313033202101-2322203310311012) |
+| `id` | [id](data-sources--api_crawler--reference--group-001.md#canonical-0303030230021221-1311201231331311-3110301003022120-3111331012002111-1120320233333213-0002210100203022-2222211013302302-2221120302032032) |
+| `labels` | [labels](data-sources--api_crawler--reference--group-001.md#canonical-2321323123230012-3330210330310002-1320012320113133-0130033001300202-3210210322021333-3223101022310220-0220112201223033-1301012121032100) |
+| `name` | [name](data-sources--api_crawler--reference--group-001.md#canonical-3130113210013022-3120032223022131-2000321020321031-0233320120120220-1121200200300222-0202020100200130-0321130132101100-0121320310001233) |
+| `namespace` | [namespace](data-sources--api_crawler--reference--group-001.md#canonical-3131013012323232-0203210311000311-3120232013300101-3230213110003023-1122321311320330-2121000231011021-2211230122231000-2310203310322311) |
 
-<a id="canonical-2a179a437d02ff47eedab4a82b577e6abdd9b06dd99669da4019b9b7ca333e76"></a>
+<a id="canonical-0222011321221003-1331000233331013-3232312223102220-0223111313321222-2331312123001231-3121211212213122-1000012123212313-3022030303321312"></a>
 
-## Next pages — Property reference / bc165e95dabb / 11
+## Next pages — Property reference / 211131222323 / 11
 
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 
-<a id="canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44"></a>
+<a id="canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e2e202f3864d68a777fe39e4d93768a9c0722ede566675dfa9febbd3f54dcb09"></a>
+<a id="canonical-3202320200023303-2012103112202213-1313333203213210-3121031312202221-3000130202323132-1112121213113133-2221333223233103-3311103130230021"></a>
 
-## domains — domains / 808f217d4604 / 2
+## domains — domains / 133110120010 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
 - domains
 
-<a id="canonical-dd9ebf993d0fc9fef2ccb0fb462c227af362017a76e438faeb306a402e0653a8"></a>
+<a id="canonical-3131213223332121-0331003330213332-3302303023003323-1012023002021322-3303120200011322-1312321003203322-3223030012221000-0232001211032220"></a>
 
 Type: `"list"`. Computed.
 
@@ -366,15 +366,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a56a81a1b9165fec80c8086ab73686ad81d29827027ac597d63d5374537ad01e"></a>
+<a id="canonical-2211122220012201-2321011211333230-2000302000201222-2313031220122231-2001310221200213-0002132230112113-3112033111031310-1103132231000132"></a>
 
-## Direct properties — domains / 808f217d4604 / 3
+## Direct properties — domains / 133110120010 / 3
 
-<a id="canonical-7da2ffa3293801b55aaa6b9ae6e96b5f958e9d98cd11c4901c0db947d3593497"></a>
+<a id="canonical-1331220233332203-0221032000012311-1122222212232122-3212322112231133-2111203221312120-3031010130102100-0130003123211013-3103112103102113"></a>
 
-<a id="canonical-bfd3f35072b3823fd358d208e0ffe7b66e43c6c306f8d23114d93a7af0307e90"></a>
+<a id="canonical-2333310333031100-1302230320020333-3103112031020020-3200333332132312-1232100330123003-0012332031020301-0110312103221322-3300030013322100"></a>
 
-## domain property — domains / 808f217d4604 / 4
+## domain property — domains / 133110120010 / 4
 
 Type: `"string"`. Computed.
 
@@ -416,34 +416,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31): complete subsection reference.
+- [simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301): complete subsection reference.
 
-<a id="canonical-4402bef8272e6ccd28bc20efd8e3b33f2f4c55413436cd4f6fb7f1de9e565f17"></a>
+<a id="canonical-1010000223323320-0213023212303031-0220233002003233-3120320323030333-0233103011111001-0310031230311033-1233231333013132-2132111211330113"></a>
 
-## Next pages — domains / 808f217d4604 / 5
+## Next pages — domains / 133110120010 / 5
 
-- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 
-<a id="canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31"></a>
+<a id="canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5f5e10618d1a9023bde8fb4f85ecf658774022ed2cf5dc71300146b4a49daed"></a>
+<a id="canonical-3011331132010012-0120310122210002-0323313220332310-3320113230331211-2013131000020232-3102303311313013-0103000001101223-1022102131223231"></a>
 
-## domains.simple_login — domains.simple_login / ac8eeaeb5a91 / 2
+## domains.simple_login — simple_login / 322311222101 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
 - domains.simple_login
 
-<a id="canonical-235d945f69ea549313b3bb49801e2c82c40dc2da895a173e1f8de9d90ca9e312"></a>
+<a id="canonical-0203113121101133-1221322211102103-0103230323231021-2000013202302002-3010003130023122-2021112201130332-0133203132213121-0030222132030102"></a>
 
 Type: `"single"`. Computed.
 
@@ -462,17 +462,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fb730a9cef23cd35ac18dabd6edeac8320e746f622cd5aa813a2a0649229ceb3"></a>
+<a id="canonical-3323130300222130-3233020330310311-2230012031222331-1232313222302003-0200321310123312-0202303111222220-0103220222001210-2102022130322303"></a>
 
-## Direct properties — domains.simple_login / ac8eeaeb5a91 / 3
+## Direct properties — simple_login / 322311222101 / 3
 
-- [password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2): complete subsection reference.
+- [password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302): complete subsection reference.
 
-<a id="canonical-a0656c4bc75e1ce52614f4a949e660a241783931a5ee7a9b52dcf891ba8f4d46"></a>
+<a id="canonical-2200121112301023-3013113201303211-0212011033102221-1021321212002202-1001132003210301-2211323213222123-1102313033202101-2322203310311012"></a>
 
-<a id="canonical-b3ebc3bdb59d5c09d4574523cf7b95d8a6dd63c75b17b605a36172a1b5595b5c"></a>
+<a id="canonical-2303322330032331-2311213111300021-3110111310110203-3033132321113120-2212313112033013-1123011323120011-2203120113022201-2311112111231130"></a>
 
-## user property — domains.simple_login / ac8eeaeb5a91 / 4
+## user property — simple_login / 322311222101 / 4
 
 Type: `"string"`. Computed.
 
@@ -515,33 +515,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e805e64e8ce35e81e357ab09cfa8e13f01d9660a68e86bd39044eb82292b7269"></a>
+<a id="canonical-3220001132121032-2030320311322001-3203111322230021-3033222032010333-0001312112120022-1220322012233103-2100101032232002-0221022313021221"></a>
 
-## Next pages — domains.simple_login / ac8eeaeb5a91 / 5
+## Next pages — simple_login / 322311222101 / 5
 
-- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2)
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 
-<a id="canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2"></a>
+<a id="canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-68b08d22188fc10ef64e133bcec6ecc64594b0ed856aa9e705f0785839b2102d"></a>
+<a id="canonical-1220230020310202-0120203330010032-3312103201030323-3032301232303012-1011211023003231-2011122222213213-0011330013201120-0321230201000231"></a>
 
-## domains.simple_login.password — domains.simple_login.password / 7c06f7042eea / 2
+## domains.simple_login.password — password / 001002323222 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
-- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
+- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301)
 - domains.simple_login.password
 
-<a id="canonical-1434a77895e660d6faced17cd07e414de650edc09aaa76677a3781d0a68f409e"></a>
+<a id="canonical-0110031022131320-2111321212003112-3322303231011330-3100133210011031-3212110032313000-2122222213121213-1322031320013100-2212203310002132"></a>
 
 Type: `"single"`. Computed.
 
@@ -561,43 +561,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b077731c046c49c9a889a90c412d157b01fc2014079a0ee969b01850e453366a"></a>
+<a id="canonical-2300131313030130-0010123010213021-2220202122210030-1001023101111323-0001333002000110-0013212200323221-1221230001201100-3210110303121222"></a>
 
-## Direct properties — domains.simple_login.password / 7c06f7042eea / 3
+## Direct properties — password / 001002323222 / 3
 
-- [blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-7ff42553a8a803158baaf54654b9dff4b001276c95e28cdb9d8231da13a6b8d4): complete subsection reference.
+- [blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-1333331002111103-2220222000030111-2023222233111012-1110232131333310-2300000102131230-2111320220303123-2131200203013122-0103221223203110): complete subsection reference.
 
-- [clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-3ab32d8cb66385b672c3ffbe720bc251fbf50ccf200d45e03d317d97f5d893af): complete subsection reference.
+- [clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-0322230302312030-2312120320112312-1302300333332332-1302002330021101-3323331100303033-0200003110113200-0331030113312113-3311312021032233): complete subsection reference.
 
-<a id="canonical-19fa5fc3064b8aa2af5cdc43f31ee69b2513a7ff100500738ad5de0492b0c588"></a>
+<a id="canonical-0121332211333003-0012102320222202-2233113031301003-3303013232122123-0211010322133333-0100001100001303-2022311131320010-2102230030112020"></a>
 
-## Next pages — domains.simple_login.password / 7c06f7042eea / 4
+## Next pages — password / 001002323222 / 4
 
-- [domains.simple_login.password.blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-7ff42553a8a803158baaf54654b9dff4b001276c95e28cdb9d8231da13a6b8d4)
-- [domains.simple_login.password.clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-3ab32d8cb66385b672c3ffbe720bc251fbf50ccf200d45e03d317d97f5d893af)
-- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains.simple_login.password.blindfold_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-1333331002111103-2220222000030111-2023222233111012-1110232131333310-2300000102131230-2111320220303123-2131200203013122-0103221223203110)
+- [domains.simple_login.password.clear_secret_info](data-sources--api_crawler--reference--group-001.md#canonical-0322230302312030-2312120320112312-1302300333332332-1302002330021101-3323331100303033-0200003110113200-0331030113312113-3311312021032233)
+- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 
-<a id="canonical-7ff42553a8a803158baaf54654b9dff4b001276c95e28cdb9d8231da13a6b8d4"></a>
+<a id="canonical-1333331002111103-2220222000030111-2023222233111012-1110232131333310-2300000102131230-2111320220303123-2131200203013122-0103221223203110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7fecc9ba9fc682a16e949f0e3086cf98542619173cdf11cced7e0624056c2cba"></a>
+<a id="canonical-1333323030212322-2133301220022201-1232211021330032-0300201230332120-1110021201210113-0330313301013030-3231133200120210-0011123002302322"></a>
 
-## domains.simple_login.password.blindfold_secret_info — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 2
+## domains.simple_login.password.blindfold_secret_info — blindfold_secret_info / 101210101203 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
-- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31)
-- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
+- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301)
+- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302)
 - domains.simple_login.password.blindfold_secret_info
 
-<a id="canonical-bbcea523b89cc0a1707137a7540b79ed974b1fa24682cab3f59f78653c742280"></a>
+<a id="canonical-2323303222110203-2320213030002201-1300130103132213-1110002313213231-2113102301332202-1012200230222303-3311213313201211-0330131002022000"></a>
 
 Type: `"single"`. Computed.
 
@@ -616,15 +616,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-65575004328e000a7a8a33432b2caa1dafea5987339ee83b73666147732bc030"></a>
+<a id="canonical-1211111311000010-0302203200000022-1322202203031003-0223023022220131-2233322211212013-0303213232200323-1303121212011013-1303022330000300"></a>
 
-## Direct properties — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 3
+## Direct properties — blindfold_secret_info / 101210101203 / 3
 
-<a id="canonical-08ddde8f793010b320ca09fab69c15faea82cfade85297d91f722d69244e6875"></a>
+<a id="canonical-0020313131322033-1321030001002303-0200302200213322-2312213001113322-3222200230332231-3220110221133121-0133130202311221-0210103212201311"></a>
 
-<a id="canonical-e5544868dda2c14ba29a618bb0ea0140b0ba7ce6a75888e6db9ae4fe5eccac2d"></a>
+<a id="canonical-3211111010201220-3131220230011023-2202212212012023-2300322200011000-2300232213303212-2213112020203212-3123212232103332-1132303022300231"></a>
 
-## decryption_provider property — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 4
+## decryption_provider property — blindfold_secret_info / 101210101203 / 4
 
 Type: `"string"`. Computed.
 
@@ -654,11 +654,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b94f299942041840401e84df61a1d3ec6e359b827186c899480086eff571bd97"></a>
+<a id="canonical-2321103302212121-1002001001201000-1000013220103133-1201220131033230-1232031121232002-1301201230202121-1020000020123233-3311130123312113"></a>
 
-<a id="canonical-95e30c14e4035c59d7aee4ce75d93ac43730b06a82922f1fad22015baef4c598"></a>
+<a id="canonical-2111320300300110-3210000311301121-3113223232103032-1311312103223010-0313030023001222-2002210202330133-2231020200011123-2232331030112120"></a>
 
-## location property — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 5
+## location property — blindfold_secret_info / 101210101203 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -707,11 +707,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fa25fbda81b9e779c0fbe532294316baabca4a581538dccfa104e95997fc560a"></a>
+<a id="canonical-3322021133233122-2001232132131321-3000332332110302-0221100301122322-2223302210221120-0111032031303033-2201001032211121-2113333011120022"></a>
 
-<a id="canonical-db64e0dbfd99b772a30404480756d919454aaf964b26b8550778d0ab79719c62"></a>
+<a id="canonical-3123121032003123-3331212123131302-2203001000101020-0013111231210121-1011102222332112-1023021223201111-0013132031002223-1321130121301202"></a>
 
-## store_provider property — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 6
+## store_provider property — blindfold_secret_info / 101210101203 / 6
 
 Type: `"string"`. Computed.
 
@@ -746,33 +746,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f0880e5cbd081a2adf058ffcdb63a88547e264b69c873ae2bf2825017dfd7130"></a>
+<a id="canonical-3300202000321130-2331002001220222-3133001120333330-3123120322202011-1013320212102312-2130201303223202-2333022002110001-1331333113010300"></a>
 
-## Next pages — domains.simple_login.password.blindfold_secret_info / 3c0cfe464463 / 7
+## Next pages — blindfold_secret_info / 101210101203 / 7
 
-- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
 
-<a id="canonical-3ab32d8cb66385b672c3ffbe720bc251fbf50ccf200d45e03d317d97f5d893af"></a>
+<a id="canonical-0322230302312030-2312120320112312-1302300333332332-1302002330021101-3323331100303033-0200003110113200-0331030113312113-3311312021032233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-26193e6f733517b07d202d5d87f052c90285b493197bdc699600f167db6e55c2"></a>
+<a id="canonical-0212012103321233-1303031101132300-1331020002311131-2013330011023021-0002201123102103-0121132331301221-2112000033011213-3123123211113002"></a>
 
-## domains.simple_login.password.clear_secret_info — domains.simple_login.password.clear_secret_info / ddc5af52688d / 2
+## domains.simple_login.password.clear_secret_info — clear_secret_info / 110212202031 / 2
 
 Breadcrumbs:
 
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
-- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [domains](data-sources--api_crawler--reference--group-001.md#canonical-d627055a7582c05efef412a79b2ed1dfa360e2e277934617f2b77eea539baa44)
-- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-18b74863581441bff5c54b83116973d3048a1c605f9bf473fd89fd2381951d31)
-- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)
+- [Property reference](data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [domains](data-sources--api_crawler--reference--group-001.md#canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010)
+- [domains.simple_login](data-sources--api_crawler--reference--group-001.md#canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301)
+- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302)
 - domains.simple_login.password.clear_secret_info
 
-<a id="canonical-00140828af538ea9c6cf85db012aa698ccd8d669b0e12ab0f63a31e7d0d8e399"></a>
+<a id="canonical-0000011000200220-2233110320322221-3012303320113123-0001022222122120-3030312031121221-2300320102222300-3312032203013213-3100312032032121"></a>
 
 Type: `"single"`. Computed.
 
@@ -791,26 +791,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47abef36161605bb6fc13c099fd66fa42ae82e3239856e385e7dcbd8fe2f1c2c"></a>
+<a id="canonical-1013222332330312-0112011200112323-1233300103300021-2133311212332210-0222322002320302-0321201112320320-1132133130233120-3332023301300230"></a>
 
-## Direct properties — domains.simple_login.password.clear_secret_info / ddc5af52688d / 3
+## Direct properties — clear_secret_info / 110212202031 / 3
 
-<a id="canonical-167642f0d04eab8252b7e201e613e81d1671fce69645e4f8b97207fd3227457c"></a>
+<a id="canonical-0112131210023300-3100103222232002-1102231332020001-3212010332200131-0112130133303212-2112101132103320-2321130200133331-0302021310111330"></a>
 
-<a id="canonical-6b694ad21159ae7f4435ba6c8487c51ba63631923593b76b00e29d241a2c3f3a"></a>
+<a id="canonical-1223122110223102-0101112122321333-1010031123221230-2010201330110123-2212031203012102-0311210323131223-0000320221310210-0122023003330322"></a>
 
-## provider_ref property — domains.simple_login.password.clear_secret_info / ddc5af52688d / 4
+## provider_ref property — clear_secret_info / 110212202031 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-63d361e4ad2d7f425f7c65b76d0e2768dd65e2d95b128a5d9da4299af88819ac"></a>
+<a id="canonical-1203310312013210-2231023113331002-1133133012112313-1231003202131220-3131121132023121-1123010220221131-2131221002212122-3320202001212230"></a>
 
-<a id="canonical-0a88df739dfa5381f7645d14fc5c9e4c432c3fa60b5c03262a5b1625cd57e7f9"></a>
+<a id="canonical-0022202031331303-2131332211032001-3313121011310110-3330113021321030-1003023003332212-0023113000030212-0222112301120211-3031111332133321"></a>
 
-## url property — domains.simple_login.password.clear_secret_info / ddc5af52688d / 5
+## URL property — clear_secret_info / 110212202031 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -870,9 +870,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a739eeb84747b25f3be8401d01476248b02c33da05b7b2e75f25749bfc59aee2"></a>
+<a id="canonical-2213032132322320-1013101323021133-0323322010000131-0001101312021020-2300023003033122-0011231323023213-1133021113102123-3330112122323202"></a>
 
-## Next pages — domains.simple_login.password.clear_secret_info / ddc5af52688d / 6
+## Next pages — clear_secret_info / 110212202031 / 6
 
-- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-528513b9857e0aeb2c4d3027dcf9e433395ccc55e93646b269278f3468a1edb2)
-- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5)
+- [domains.simple_login.password](data-sources--api_crawler--reference--group-001.md#canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302)
+- [xcsh_api_crawler](../data-sources/api_crawler.md#canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211)

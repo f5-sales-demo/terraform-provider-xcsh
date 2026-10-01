@@ -22,6 +22,15 @@ def run(*args: str) -> bytes:
     ).stdout
 
 
+def version_tuple(tag: str) -> tuple[int, ...]:
+    """Parse a validated semantic provider version."""
+    match = VERSION.fullmatch(tag)
+    if match is None:
+        message = "invalid stable provider version"
+        raise ValueError(message)
+    return tuple(map(int, match.groups()))
+
+
 def select(releases: list[dict]) -> list[str]:
     """Select stable immutable providers whose immutable docs snapshot exists."""
     published = {
@@ -34,10 +43,10 @@ def select(releases: list[dict]) -> list[str]:
             tag
             for tag in published
             if VERSION.fullmatch(tag)
-            and tuple(map(int, VERSION.fullmatch(tag).groups())) >= (12, 0, 6)
+            and version_tuple(tag) >= (12, 0, 6)
             and "documentation-" + tag in published
         ),
-        key=lambda tag: tuple(map(int, VERSION.fullmatch(tag).groups())),
+        key=version_tuple,
     )
 
 

@@ -6,22 +6,94 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
-<a id="canonical-22569355dc3c3cdffa40fb79465e6d8c6315de34f343f52db94e7bb4881e6a71"></a>
+<a id="canonical-2131120010111213-1301202120121113-2123121013330011-2312011022022121-2223333303313210-2103032231213232-0003031010211201-2120033110300321"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router — aws.not_managed.node_list.interface_list.ipv6_auto_config.router / efd992cecc16 / 2
+## Next pages — ipv6_auto_config / 112132231101 / 4
+
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.host](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0231013123310001-0101211211320231-3320031230320011-0112210322110222-2300232321000021-0031202103120021-1221331023102023-2132022032313331)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0231013123310001-0101211211320231-3320031230320011-0112210322110222-2300232321000021-0031202103120021-1221331023102023-2132022032313331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2103231133333122-1011120201102110-1313003323202112-2113303212023030-1111022322213123-0320333200100233-3332000112000300-3200201213213110"></a>
+
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.host — host / 303202321112 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- aws.not_managed.node_list.interface_list.ipv6_auto_config.host
+
+<a id="canonical-3311201231133012-3131201001213033-1211331023021131-3310023033330312-1003323130100222-3220003231310302-2312301020013112-3020232021100112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Hostname or IP address of the target server.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1101303122003203-0110311303103000-0322120131320230-2033122313220003-1131133233300303-3000223000311031-0201311031113201-3200232131313302"></a>
+
+## Direct properties — host / 303202321112 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3133320001333001-3232333101201200-3123213021111100-3000023322012110-0012303130212202-0321110333000301-1202030223011220-2211332112313121"></a>
+
+## Next pages — host / 303202321112 / 4
+
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0202111221031111-3130033003303133-3322100033231321-1012113212312030-1203011131320310-3303100333110231-2321103213232310-2020013212221301"></a>
+
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router — router / 303230300112 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router
 
-<a id="canonical-b6076e8da6fb4c9200f58f5b3bf9fa362f0e3ccdf5bf1708579ef20dbd23630f"></a>
+<a id="canonical-2312001312322031-2212332310302102-0000331120331123-0323332133220312-0233003203303031-3311233301130020-1113213233020031-2331020312030033"></a>
 
 Type: `"single"`. Computed.
 
@@ -41,17 +113,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a7e7673a7e907b5eb6d5f5ffc1e1901bd4605fabf4ebf514867a067250abe00"></a>
+<a id="canonical-1122133213121303-2213322100132311-3223123111331133-3330013201210001-2331101200113322-2333103223331101-1020121322001213-0211002223320000"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router / efd992cecc16 / 3
+## Direct properties — router / 303230300112 / 3
 
-- [dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16): complete subsection reference.
+- [dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112): complete subsection reference.
 
-<a id="canonical-5a973d42a24eef275fbc2dc8ea82a7180d229886a2f727636cb93f24a3c63840"></a>
+<a id="canonical-1122211303311002-2202103232330213-1133233002313020-3222200222130120-0031020221202012-2202331302131203-1230232103330210-2203301203201000"></a>
 
-<a id="canonical-2288a7f74de95b651814b06506f1e5ab6ab2cfcedbf69870f5ee657eb6cfa659"></a>
+<a id="canonical-0202202022133313-1031322111231211-0120011023001211-0012330132112223-1222230230333032-3123331221201300-3311323212111332-2312303322121121"></a>
 
-## network_prefix property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router / efd992cecc16 / 4
+## network_prefix property — router / 303230300112 / 4
 
 Type: `"string"`. Computed.
 
@@ -96,40 +168,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0): complete subsection reference.
+- [stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300): complete subsection reference.
 
-<a id="canonical-097ee9e013b372720fd1409eb5544af508e9efe02192f40804c8a632a495c8ba"></a>
+<a id="canonical-0021133232213200-0103230313021302-0033310110002132-2311111010223311-0020322132333200-0201210233100020-0010302022120302-2210211130202322"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router / efd992cecc16 / 5
+## Next pages — router / 303230300112 / 5
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16"></a>
+<a id="canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f0cc4bcb85872e8d831f1cf553dd50d9a37499b9cc57c58180bd385014058d2b"></a>
+<a id="canonical-3300303010233023-2011201302322031-2003013301303311-1103313111003121-2203131021212321-3030111330112001-2000233103201100-0110001120310223"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / 5871b3b778ec / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — dns_config / 231313203230 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
 
-<a id="canonical-a8964787567c9694dd7de710ed044df6d9cd250ac9a2172772ee06b7384478f2"></a>
+<a id="canonical-2220211210132013-1112133021122110-3131133132130100-3231001010313312-3121303102110022-3021220201130213-1302323200122313-0320101013203302"></a>
 
 Type: `"single"`. Computed.
 
@@ -149,47 +221,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f1fadcc489fdf0a710f31c13129cf18dbe41a03a2dab843cba47e6a4091dfa76"></a>
+<a id="canonical-3301332231303010-2021333133002213-0100330301300103-0102213033012031-2332100122000322-0231222320100330-2322101332122210-0021013133221312"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / 5871b3b778ec / 3
+## Direct properties — dns_config / 231313203230 / 3
 
-- [configured_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6a71898e337fadb4b48011f972a9aedcbc116f838b28e42da87a13e927cdcef1): complete subsection reference.
+- [configured_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1222130120212032-0303133322312310-2310200001013321-1302222122323130-2330010112332003-2023022032100231-2220132201033221-0213303130323301): complete subsection reference.
 
-- [local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7): complete subsection reference.
+- [local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213): complete subsection reference.
 
-<a id="canonical-1f00728f388d5ac3c4d02885802515d38f24e1fd725df45a3ff06ae2244eabcd"></a>
+<a id="canonical-0133000013022033-0320203111223003-3010310002202011-2000021101113103-2033021032013331-1302113133101122-0333330012223202-0210103222233031"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config / 5871b3b778ec / 4
+## Next pages — dns_config / 231313203230 / 4
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6a71898e337fadb4b48011f972a9aedcbc116f838b28e42da87a13e927cdcef1)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1222130120212032-0303133322312310-2310200001013321-1302222122323130-2330010112332003-2023022032100231-2220132201033221-0213303130323301)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-6a71898e337fadb4b48011f972a9aedcbc116f838b28e42da87a13e927cdcef1"></a>
+<a id="canonical-1222130120212032-0303133322312310-2310200001013321-1302222122323130-2330010112332003-2023022032100231-2220132201033221-0213303130323301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f036331760d04edc9e0a87034abe6bf19be25292fc7921df5ccec811e3a13244"></a>
+<a id="canonical-3300031203030113-1200310010323130-2132002220130003-1022233212233301-2123320211022102-3330132102013133-1130303230200101-3203220103021010"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.conf / 48f5d9f40a00 / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — configured_list / 331000220000 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list
 
-<a id="canonical-a2ec9737748cd18520b1bd4ed00698cd9212ee9dc1f3100e13bdd5862c7cf4f0"></a>
+<a id="canonical-2202323021130313-1310203031012011-0200230123311032-3100001221203031-2102010232322131-3001330301000032-0103233131112012-0230133033103300"></a>
 
 Type: `"single"`. Computed.
 
@@ -208,15 +280,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-45e29459875479e55d1d280dd2d789b601d3717a023a4d17c84cf8b868b12274"></a>
+<a id="canonical-1011320221101121-2013111013213211-1131013102200031-3102311320212312-0001310313011322-0002032210310113-3020103033202320-1220230102021310"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.conf / 48f5d9f40a00 / 3
+## Direct properties — configured_list / 331000220000 / 3
 
-<a id="canonical-12ea3c9a51d06b1c6feaad331613a0208b226c3aaf504800dcc99d75e37bf80d"></a>
+<a id="canonical-0102322203302122-1101310012230130-1233322222310303-0112010322000200-2023020212300322-2233110010200000-3130302121311311-3203132333200031"></a>
 
-<a id="canonical-6b22cee8902a9ebd5aaa11ea50159346bbd527ef5ef5ade80f50cf7fbf6f0450"></a>
+<a id="canonical-1223020230323220-2100022221322331-1122222201013222-1100011121031012-2323311102133233-1132331122313220-0033110030331333-2333123300101100"></a>
 
-## dns_list property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.conf / 48f5d9f40a00 / 4
+## dns_list property — configured_list / 331000220000 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -264,37 +336,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e866a1484bdc563e45062150cf2625361883e7ea2fdd5c5e01486eb165f50118"></a>
+<a id="canonical-3220121222011020-1023313011120332-1011001202011100-3033021202110312-0120200332133222-0233313111301132-0001102012322301-1211331100010120"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.conf / 48f5d9f40a00 / 5
+## Next pages — configured_list / 331000220000 / 5
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7"></a>
+<a id="canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-785d8d30f9ec0347bea4c37ab36d58ec787c9c895f8cb2b4d0623dd16c1b3070"></a>
+<a id="canonical-1320113120310300-3321323000031013-2332221030031322-2303123111203230-1320133021302021-1133203023022310-3100120203313101-1230012303001300"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 6a0ad40891de / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — local_dns / 002021013132 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns
 
-<a id="canonical-a6235097c1cc0b9dba03a7d1876b6ebdb63946084df7dd7ea615d6895f411973"></a>
+<a id="canonical-2212020311002113-3001303000232131-2322000322133101-2013122312322331-2312032110120020-1031331331311332-2212011131122021-1133100101211303"></a>
 
 Type: `"single"`. Computed.
 
@@ -314,15 +386,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-90d842bf1eb1584039214366c3d28b818977a52599fed64e55a5012fc8bf6387"></a>
+<a id="canonical-2100312010022333-0132230111201000-0321020110031212-3003310220232001-2021131322110211-2121333231121032-1111221100010233-3020233312032013"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 6a0ad40891de / 3
+## Direct properties — local_dns / 002021013132 / 3
 
-<a id="canonical-2574bb8f8cf8ab7d96eb93851e39e1bb614ccf5d07623080793e54bc0abb4e60"></a>
+<a id="canonical-0211131023232033-2030332022231331-2112322321032011-0132032132012323-1201103030331131-0013120203002000-1321033211102330-0022232310321200"></a>
 
-<a id="canonical-86784451df88956b63596e2154b122b2fc0b7b0a87dd6af568454d2dc2ab358d"></a>
+<a id="canonical-2012132010101101-3133202021111223-1203112112320201-1110230102022302-3330002313230022-2013313112223311-1220101110310231-3002222303112031"></a>
 
-## configured_address property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 6a0ad40891de / 4
+## configured_address property — local_dns / 002021013132 / 4
 
 Type: `"string"`. Computed.
 
@@ -365,44 +437,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-615647db3041834a2887746e63a5b7b021b4923e4c277fde0828ef19726f8dab): complete subsection reference.
+- [first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1201111210133123-0300100120031022-0220201313101232-1203221123132300-0201231021020332-1030021313333132-0020022032330121-1302123320312223): complete subsection reference.
 
-- [last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-754640a87bc14039b8f3b522fe83164c5e99f6158690e2c05fa5468e26563d09): complete subsection reference.
+- [last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1311101210002220-1323300110000321-2320330323110202-3332200301121030-1132212133120111-2012210032023000-1133221110122032-0212111203310021): complete subsection reference.
 
-<a id="canonical-41affe6cbde83f89e2f3592e985e93ee45dc150f713b0134a8d9cce91a18d267"></a>
+<a id="canonical-1001223333321230-2331322003332021-3202330311210232-2120113221033232-1011313001110033-1301032300010310-2220312130303221-0122012031021213"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 6a0ad40891de / 5
+## Next pages — local_dns / 002021013132 / 5
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-615647db3041834a2887746e63a5b7b021b4923e4c277fde0828ef19726f8dab)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-754640a87bc14039b8f3b522fe83164c5e99f6158690e2c05fa5468e26563d09)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1201111210133123-0300100120031022-0220201313101232-1203221123132300-0201231021020332-1030021313333132-0020022032330121-1302123320312223)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1311101210002220-1323300110000321-2320330323110202-3332200301121030-1132212133120111-2012210032023000-1133221110122032-0212111203310021)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-615647db3041834a2887746e63a5b7b021b4923e4c277fde0828ef19726f8dab"></a>
+<a id="canonical-1201111210133123-0300100120031022-0220201313101232-1203221123132300-0201231021020332-1030021313333132-0020022032330121-1302123320312223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-284ff24e913319d549294f1220c3343f910edaf38f8175122f56d4b1599f35f9"></a>
+<a id="canonical-0220103333021032-2101030301213111-1021022110330102-0200300303100333-2101003231223303-2033200113110102-0233111231102301-1121213303113321"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / cddc508729b8 / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — first_address / 201302212320 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address
 
-<a id="canonical-412a9b1e047ca8bd77de69bed9884754d0f99f3398c0c6c30eb21f01b1a5980a"></a>
+<a id="canonical-1001022221230132-0010133022202331-1313313212212332-3121202010131110-3100332121330303-2120300030123003-0032230201330001-2301221121200022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -425,44 +497,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-561f50cc84ecbea3fc2d95456be772348f37a30b48e95cd345464f3597a851c7"></a>
+<a id="canonical-1112013311003030-2010323023322203-3330023121111011-1223321313020310-2033031322030023-1020322111303103-1011101210330311-2113222011013013"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / cddc508729b8 / 3
+## Direct properties — first_address / 201302212320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d225d868c334b75538affb47966b4c5d4ec3f6d3daf9e0c2e9710d6f9fe7b1b4"></a>
+<a id="canonical-3102021131201220-3003031023131111-0320223333231013-2112122310301131-1032300333123103-3122332132003002-3221130100311233-2133321323012310"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / cddc508729b8 / 4
+## Next pages — first_address / 201302212320 / 4
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-754640a87bc14039b8f3b522fe83164c5e99f6158690e2c05fa5468e26563d09"></a>
+<a id="canonical-1311101210002220-1323300110000321-2320330323110202-3332200301121030-1132212133120111-2012210032023000-1133221110122032-0212111203310021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae2d0b4295a32b65e016ac978e647d5b2c80c0685de9aab71c7925a72c983e05"></a>
+<a id="canonical-2232023100231002-2111220302231211-3200011222302113-2032121013311123-0230200030001220-1131322122222313-0130132102112213-0230212003320011"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 671bf1ee50e3 / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address — last_address / 323211003203 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-c6a43f054330e60a3afc78ddb0506018c0dcaf4a1bfad30808f073c93e82fb16)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3012221003330011-1003030032120022-0322333013203131-2300110012000120-3000313022331022-0123332231030020-0020330013033021-0332200233230112)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address
 
-<a id="canonical-8d01ea17ae0c2ac433f4b053ac160632015cfb2f1e2d10100efc2624eee57e71"></a>
+<a id="canonical-2031000132220113-2232003002223010-0303331023001103-2230011200120302-0001113033230233-0132023101000100-0032333002120210-3232321113321301"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -485,42 +557,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-301ba6d1566a4a70c7ac01e1065e2e692b9f3beb3fc97e4908f5ed05c854b0b5"></a>
+<a id="canonical-0300012322123101-1112122210221300-3013223000013201-0012113202321221-0223213303233223-0333302113321021-0020331132310011-3020111023002311"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 671bf1ee50e3 / 3
+## Direct properties — last_address / 323211003203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-04a2f352bf5e531731a3a89edb91d066ee0701c5821d2415940ef5981c366389"></a>
+<a id="canonical-0010220233031102-2333113211030113-0301220322202132-3123210131001212-3232001300013011-2002013102100111-2110003233112120-0130031212032021"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.loca / 671bf1ee50e3 / 4
+## Next pages — last_address / 323211003203 / 4
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bb191101bf11131b2e1897c09be43f825b1cc5a16663e4bf45cf5b1973574aa7)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2323012101010001-2333010101030123-0232012021133000-2123321003332002-1123013030112201-1212120332102333-1011303311230121-1303111310222213)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0"></a>
+<a id="canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b7c803e12c5247f73893b5e91db22e8068cf97e0e9376d8f0ae38e515bdc08f"></a>
+<a id="canonical-2023133020000332-0102301102101333-1303202103231132-2101312302023220-0012203033211332-0032210313123120-3300223203203211-0111233130002033"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 36084ae1427b / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful — stateful / 320110021323 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
 
-<a id="canonical-6d724ecc71b1c08d1fccb4ec4c1e6e9b5136165c926229351887bbab438dc674"></a>
+<a id="canonical-1231130210323030-1301230130002031-0133303023103230-1030013212322123-1101031201121130-2102120202210311-0120201323232223-1003203130121310"></a>
 
 Type: `"single"`. Computed.
 
@@ -540,21 +612,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5fab5bf0925350ea36160c5cd7925249ccfadae47c944da70a065f9072845173"></a>
+<a id="canonical-1133222311233300-2102110311003222-0312011200301130-3113210211021021-3030332231223210-1330211010312213-0022001211332100-1302201011011303"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 36084ae1427b / 3
+## Direct properties — stateful / 320110021323 / 3
 
-- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-70bdf3eba54cdcfb4b636017afaf9331e85067d2ce0a0c6bf0e5835c853623e7): complete subsection reference.
+- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1300233133033223-2211103031303323-1023120312000113-2233223321030301-3220110012133102-3032002200301223-3300321120031130-2011031202033213): complete subsection reference.
 
-- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-fc9247ebb87ac8f42a56b9419e9d99a7b84b4ff1e17e7f832d032b8515f0b1c4): complete subsection reference.
+- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3330210210133223-2320132230203310-0222111223211001-2132213121212213-2320102310333301-3201133213332003-0231000302232011-0111330023013010): complete subsection reference.
 
-- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-796692084501f3508cf624db28b78c6df90c6e915292603b099bc741f0b996c9): complete subsection reference.
+- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1321121221020020-1011000133031100-2030331202103123-0220231320301231-3321003012322101-1102210212000323-0021212330131001-3300232121123021): complete subsection reference.
 
-<a id="canonical-c168472a623ed70aedf8debc4c2c22834616df63f647c2399eaafdc7812d956e"></a>
+<a id="canonical-3001122010130222-1202033231130022-3231332031322330-1030023002022003-1012011231331203-3312101330020321-2132222233313013-2001023121111232"></a>
 
-<a id="canonical-7d0688391ea7502d3b1d0937740c76f8fd9c1ad3158fcfbf006a900c8b83bfe6"></a>
+<a id="canonical-1331001220200321-0132221311000231-0323013100210313-1310003013123320-3331213001223103-0111203330332333-0000122221000030-2023200323333212"></a>
 
-## fixed_ip_map property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 36084ae1427b / 4
+## fixed_ip_map property — stateful / 320110021323 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -591,43 +663,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-cfe2973e923143d7c953b420525f2a0c571372c8ff3574b95b5d0379dfaea0a4): complete subsection reference.
+- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3033320221130332-2102030110033113-3021110323100200-1102113302220030-1113010313023020-3333031113102321-1123113100031321-3133223222002210): complete subsection reference.
 
-<a id="canonical-a31b8a43fd0121cc18376a7c31297152369b1aa341fe8ce5d4142ba3c1a39f37"></a>
+<a id="canonical-2203012320221003-3331000102013030-0120031312221330-0301022113011102-0312212301222203-1001333220303211-3110011002232203-3001220321330313"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful / 36084ae1427b / 5
+## Next pages — stateful / 320110021323 / 5
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-70bdf3eba54cdcfb4b636017afaf9331e85067d2ce0a0c6bf0e5835c853623e7)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-fc9247ebb87ac8f42a56b9419e9d99a7b84b4ff1e17e7f832d032b8515f0b1c4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-796692084501f3508cf624db28b78c6df90c6e915292603b099bc741f0b996c9)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-cfe2973e923143d7c953b420525f2a0c571372c8ff3574b95b5d0379dfaea0a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1300233133033223-2211103031303323-1023120312000113-2233223321030301-3220110012133102-3032002200301223-3300321120031130-2011031202033213)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3330210210133223-2320132230203310-0222111223211001-2132213121212213-2320102310333301-3201133213332003-0231000302232011-0111330023013010)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1321121221020020-1011000133031100-2030331202103123-0220231320301231-3321003012322101-1102210212000323-0021212330131001-3300232121123021)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3033320221130332-2102030110033113-3021110323100200-1102113302220030-1113010313023020-3333031113102321-1123113100031321-3133223222002210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-70bdf3eba54cdcfb4b636017afaf9331e85067d2ce0a0c6bf0e5835c853623e7"></a>
+<a id="canonical-1300233133033223-2211103031303323-1023120312000113-2233223321030301-3220110012133102-3032002200301223-3300321120031130-2011031202033213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-242c8e9a5439f42b2eadf4a96c927d9505bd81db080aa4278728fe636a2e4c93"></a>
+<a id="canonical-0210023020322122-1110032133100223-0232223133102221-1230210213312111-0011233120013123-0020002222100213-2013022033321203-1222023210302103"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / c3b00a2a6697 / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end — automatic_from_end / 022212122113 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end
 
-<a id="canonical-64952cfc2320161a5c8a3055993eebda1e7da9fe99585058294df989b3ec7792"></a>
+<a id="canonical-1210211102303330-0203020001120122-1130202203001111-2121033232233122-0132133122213332-2121112011001120-0221103133212021-2303323013132102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -650,43 +722,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2b85eb13227a6b9c12ab96ead0fd4288bb6e013bd1f1a9725f6e2e20b77e422"></a>
+<a id="canonical-3302232011322301-0302021322122321-3001022223211232-2231003331100220-2023231232000103-2331013301222113-0211331232023202-0023131332100202"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / c3b00a2a6697 / 3
+## Direct properties — automatic_from_end / 022212122113 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8e70a36c25ce43b10e2f6af13326984cec6dc0f824d2adac88f52897a1084e37"></a>
+<a id="canonical-2032130022031230-0211303210032301-0032023312223301-0303021221201030-3230123130003320-0210310222312230-2020331102202113-2201002010320313"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / c3b00a2a6697 / 4
+## Next pages — automatic_from_end / 022212122113 / 4
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-fc9247ebb87ac8f42a56b9419e9d99a7b84b4ff1e17e7f832d032b8515f0b1c4"></a>
+<a id="canonical-3330210210133223-2320132230203310-0222111223211001-2132213121212213-2320102310333301-3201133213332003-0231000302232011-0111330023013010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-43c6dd88616ccdecb2b1286e935df35a9e76fbebde8304fdbdd0b00ab898d49c"></a>
+<a id="canonical-1003301231312020-1201123030313230-2302230102201232-2103113133031122-2132131233233223-3132200300103331-2331310023000022-2320212031102130"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / e687f07f1d3e / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start — automatic_from_start / 133301310332 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start
 
-<a id="canonical-1777e945c9b25f5a8b477ab1ae7ccb36f46fbad90739a6230223875c1f4ee8d6"></a>
+<a id="canonical-0113131332211011-3021230211331122-2023101313222301-2232133030230312-3310123323223121-0013032122120203-0002020320131130-0133103232203112"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -709,43 +781,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5c7145b796381c7fe9f45f800df69f5ab179578c47709e2b10b04344b2767262"></a>
+<a id="canonical-1130130110112313-2112032001301333-3221331011332000-0031331221331122-2301132111132030-1013130021320223-0100230010031010-2302131213021202"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / e687f07f1d3e / 3
+## Direct properties — automatic_from_start / 133301310332 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-545a2c27cdcc816cf164cae2724efc3f7f1e01101feacc4d016a2d8498aee246"></a>
+<a id="canonical-1110112202300213-3031303020011230-3301121030223202-1302103233300333-1333013200010100-0133322230301031-0001122202312010-2120223232021012"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automa / e687f07f1d3e / 4
+## Next pages — automatic_from_start / 133301310332 / 4
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-796692084501f3508cf624db28b78c6df90c6e915292603b099bc741f0b996c9"></a>
+<a id="canonical-1321121221020020-1011000133031100-2030331202103123-0220231320301231-3321003012322101-1102210212000323-0021212330131001-3300232121123021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a1c747202bafd33c9a283ecbfccd571677a72fc6a866a419f7d22ada66488c9c"></a>
+<a id="canonical-2201301310130200-0223223331030330-2122022003323023-3330303111130112-1313221302333012-2220121222100121-3313310202223122-1212102020302130"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / 3c5af94ade8f / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks — dhcp_networks / 102231322033 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks
 
-<a id="canonical-9d1a489855294f1968cfe01910b59277bb60190238b8d3cdb862bcb5f06275b5"></a>
+<a id="canonical-2131012210202120-1111022110330121-1220303332000121-0100231121021313-2323120001210002-0320232031033031-2320120223302311-3300120213112311"></a>
 
 Type: `"list"`. Computed.
 
@@ -791,15 +863,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f9bc78e0c9c5a0afd2f0ef42e079d563dcfc4c8e2f00846aceb23e5205120e6"></a>
+<a id="canonical-1233212330132032-0030213011220022-3331023300323310-0232001321311112-0331303330103020-3202330000201012-2230322302033211-0200110102003212"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / 3c5af94ade8f / 3
+## Direct properties — dhcp_networks / 102231322033 / 3
 
-<a id="canonical-06ccd04bed379e5837c7c06bb191b5d798ef9c57ae4c5f8ee35a1ad0f06fc522"></a>
+<a id="canonical-0012303031001023-3231031321321120-0313301330001223-2301210123113113-2120323321301113-2232103011332032-3203112201223100-3300123330110202"></a>
 
-<a id="canonical-30fd279194045847bd47f0e24a0147e9a1a7cd50e3c5d463f5fd9c75bcbf4d6a"></a>
+<a id="canonical-0300333102132101-2110001011201013-2331101333003202-1022000110133221-2201221330311100-3203301131101203-3311333121301311-2330233310311222"></a>
 
-## network_prefix property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / 3c5af94ade8f / 4
+## network_prefix property — dhcp_networks / 102231322033 / 4
 
 Type: `"string"`. Computed.
 
@@ -838,11 +910,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-768439079809c393f6c3c46c2cfef2a95aececf06bd9037b6da3ff4a868dd221"></a>
+<a id="canonical-1312201003210013-2120002130032103-3312300330101230-0230333233022221-1122323032303300-1223312100031323-1231220333331022-2012203131020201"></a>
 
-<a id="canonical-82e7ca15c36a7a9360c09734b8f6db53c53102e7e06149eeecbe4109fb57f4ac"></a>
+<a id="canonical-2002321330220111-3003122213222103-1200300021130310-2320331231231103-3011030100023213-3200120110213232-3230233210010021-3323111333102230"></a>
 
-## pool_settings property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / 3c5af94ade8f / 5
+## pool_settings property — dhcp_networks / 102231322033 / 5
 
 Type: `"string"`. Computed.
 
@@ -878,41 +950,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-20d4e442735098f34785c4f98e4dd55c81c65a8bb77ccc3d48e60371fd263cf8): complete subsection reference.
+- [pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0200311032101002-1303110021203303-1013201130103321-2032103131111130-2001301211222023-2313133030300331-1020321200031301-3331021203303320): complete subsection reference.
 
-<a id="canonical-3d09f8cbcbffc609c69b48652f4863be5ac5afcef04b391bce4ce7ab06cc8fda"></a>
+<a id="canonical-0331002133203023-3023333330120021-3012212310201211-0233102012032332-1122301122333032-3300102303210123-3032103032132223-0012303020333122"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / 3c5af94ade8f / 6
+## Next pages — dhcp_networks / 102231322033 / 6
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-20d4e442735098f34785c4f98e4dd55c81c65a8bb77ccc3d48e60371fd263cf8)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0200311032101002-1303110021203303-1013201130103321-2032103131111130-2001301211222023-2313133030300331-1020321200031301-3331021203303320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-20d4e442735098f34785c4f98e4dd55c81c65a8bb77ccc3d48e60371fd263cf8"></a>
+<a id="canonical-0200311032101002-1303110021203303-1013201130103321-2032103131111130-2001301211222023-2313133030300331-1020321200031301-3331021203303320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e182cd386c5bf71cb0db1ebd280e2ef2fe22f8d070ba5aa8ffa287052bbdedc7"></a>
+<a id="canonical-3201200230310320-1230112333130130-2300312301322331-0220003202323302-3332020233203100-1300232211222220-3333220220130011-0223233132313013"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / df7130b8dc1e / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — pools / 232031300132 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-796692084501f3508cf624db28b78c6df90c6e915292603b099bc741f0b996c9)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1321121221020020-1011000133031100-2030331202103123-0220231320301231-3321003012322101-1102210212000323-0021212330131001-3300232121123021)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
 
-<a id="canonical-041eb8e0bcd33047d8509c0cd3e3a56601ddabb0844911e201e6dfb33ae255a4"></a>
+<a id="canonical-0010013223203200-2330310303001013-3120110021300030-3103320322111212-0001313122232300-2010102101013202-0001321231332303-0322320211112210"></a>
 
 Type: `"list"`. Computed.
 
@@ -953,15 +1025,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d70da400ebb05b2ab5a6a88f82da78926753c9572fb299cf9d6107b017ecffaf"></a>
+<a id="canonical-3113003122100000-3223230011230222-2311221222202033-2002312213202102-1213110330211113-0233230221213033-2131120100132300-0113323033332233"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / df7130b8dc1e / 3
+## Direct properties — pools / 232031300132 / 3
 
-<a id="canonical-8a92fc7a5cea6bba082599f96aacd68c89c9e67a2ff1dce4769dd1c2f321cb34"></a>
+<a id="canonical-2022210233301322-1130322212232322-0020021121213321-1222223031122030-2021302132121322-0233330131303210-1312213131013002-3303020130230310"></a>
 
-<a id="canonical-46b07e42d655c727e08c77b920f68de1a43b32ff7099963fab42fc2f2bfd551e"></a>
+<a id="canonical-1012230013321002-3112111130130213-3200203013132321-0200331220313201-2210032303023333-1300212121120333-2223100233300233-0223333111110132"></a>
 
-## end_ip property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / df7130b8dc1e / 4
+## end_ip property — pools / 232031300132 / 4
 
 Type: `"string"`. Computed.
 
@@ -1004,11 +1076,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8dd16d1fb9f86102dc02eae8a3d394f68682a8517d40a98461a3ce1a94c5e5cd"></a>
+<a id="canonical-2031310112310133-2321332012010002-3130000232223220-2203310321103312-2012200222201101-1331100022212010-1201220330320122-2110301132113031"></a>
 
-<a id="canonical-18909e15a017097c43fb4df497724bc99be8cbbb284369a08fab648bd068fd83"></a>
+<a id="canonical-0120210021320111-2200011300211330-1003332310313310-2113130210233021-2123322030232323-0220100312212200-2033222312102023-3100122033312003"></a>
 
-## start_ip property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / df7130b8dc1e / 5
+## start_ip property — pools / 232031300132 / 5
 
 Type: `"string"`. Computed.
 
@@ -1051,37 +1123,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0d81f25d8657935d647355cb520e8e1e48a7c78035a49db23ccec643347364a0"></a>
+<a id="canonical-0031200133021131-2012111321031131-1210130311113023-1102003220320132-1020221330132000-0311221021312302-0330303230121003-0310130312102200"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_n / df7130b8dc1e / 6
+## Next pages — pools / 232031300132 / 6
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-796692084501f3508cf624db28b78c6df90c6e915292603b099bc741f0b996c9)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1321121221020020-1011000133031100-2030331202103123-0220231320301231-3321003012322101-1102210212000323-0021212330131001-3300232121123021)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-cfe2973e923143d7c953b420525f2a0c571372c8ff3574b95b5d0379dfaea0a4"></a>
+<a id="canonical-3033320221130332-2102030110033113-3021110323100200-1102113302220030-1113010313023020-3333031113102321-1123113100031321-3133223222002210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-17399a9013de07b3a75da5610f3345a3ea0cbda20f3aee4ad7459c14bc590c0c"></a>
+<a id="canonical-0113032121222100-0103313200132303-2213113122111201-0033030310112203-3222003023312202-0033032232321022-3113101121300110-2330112100300030"></a>
 
-## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interf / 24577646c550 / 2
+## aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — interface_ip_map / 101230111100 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-52b288aba7eb0ccfb61426163e002d3f8dbab4323d3c13eb3e5a5b5fde407038)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-003.md#canonical-779b1d6c25c411e663977c5a3dbf0ae7a810e04a9c6678e648f630263ee5f5a4)
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1102230220202223-2213322300303033-2312011002120112-0332000002310333-2031232223100302-0331033001033223-0332112211231133-3132100013000320)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1313212301311230-0211301001013212-1203211313301122-0331233300223213-2220010032001022-2130121213203212-1020331203000212-0332321133112210)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
 - aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
 
-<a id="canonical-6f52ca67ee957db948e3d4f30ef011af965787246e5f1b6a6fe7ae43756ac75a"></a>
+<a id="canonical-1233110230221213-3232211113312321-1020320331103303-0032330001012233-2112111320130210-1232113301231222-1233321322321003-1311122230131122"></a>
 
 Type: `"single"`. Computed.
 
@@ -1100,15 +1172,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a194c8df3608f92ae782fc6a69b1e9d85290a7f09716ff4813d43bd5159cfde7"></a>
+<a id="canonical-2201211030203133-0312002033210222-3213200233301222-1221230132213120-1102210022133300-2113011233331020-0103311003233111-0111213033313213"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interf / 24577646c550 / 3
+## Direct properties — interface_ip_map / 101230111100 / 3
 
-<a id="canonical-594783177f69e8deb4aa5e15baf9697fe2189b03cb535e77d559fd906e1f726e"></a>
+<a id="canonical-1121101320030113-1333122132203132-2310222211320111-2322332112211333-3202012021230003-3023110311321313-3111112133312100-1232013313021232"></a>
 
-<a id="canonical-a04df03b1b2ce01074b262f59e4cd2bc0e99cff910cdf600db4debc75c8fb2af"></a>
+<a id="canonical-2200103133000323-0123023032000100-1310230212023311-2132103031022330-0032212130333321-0100303133120000-3123103132233013-1130203323022233"></a>
 
-## interface_ip_map property — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interf / 24577646c550 / 4
+## interface_ip_map property — interface_ip_map / 101230111100 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -1143,34 +1215,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9061d5dfa6ef684dc6aaeb37dc293583e750f370b42233f0b608816188515ee8"></a>
+<a id="canonical-2100120131113133-2212323312201031-3012222232230313-3130022103112003-3213110033031300-2310020203033300-2312002020011201-2020110111323220"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interf / 24577646c550 / 5
+## Next pages — interface_ip_map / 101230111100 / 5
 
-- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-45f8cd28bd358420c676646d34af1ac40b83f713d532fa7b81a1cd1dcb43b5b0)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1011332030310220-2331031120100200-3012131212101231-0310223301223010-0023200333130103-3111030233221323-2001220130310131-3023100323112300)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-435b0278a3eedb776722af86c8aed64951423575022b7a4085c0c59a15ba1d40"></a>
+<a id="canonical-1003112300021320-2203323231231313-1213020222332012-3020223231121021-1101100203111311-0002022313221000-2011300030112122-0111232201311000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e571e5812f68008daa883b516c2882d3d2a56d80afca34c7b53ca991ca1a722e"></a>
+<a id="canonical-3211130132112001-0233122000002031-2222202003231101-1230022020023103-3102221112312000-2233302203103013-2311033022212101-3022012213020232"></a>
 
-## aws.not_managed.node_list.interface_list.monitor — aws.not_managed.node_list.interface_list.monitor / 9ac804cb7cd5 / 2
+## aws.not_managed.node_list.interface_list.monitor — monitor / 302313303111 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.monitor
 
-<a id="canonical-2b6c97f898dbd92db480fe951b07cac41340c0f7f115ae6af0da4067758f397f"></a>
+<a id="canonical-0223123021133320-2120312331210231-2310200033322111-0123001330223010-0103100030003313-3301011122321222-3300312210001213-1311203303211333"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1189,40 +1261,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6312f98306baaa0cb308cd193aea2c05d71f1be4fc003709e12e86cddcb0599f"></a>
+<a id="canonical-1203010233212003-0012232222220030-2303002030310121-0322322202300011-3113013301233210-3330000003130021-3201023220123031-3130230011212133"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.monitor / 9ac804cb7cd5 / 3
+## Direct properties — monitor / 302313303111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2bfb9186af2b5a8fd90563fa1e8aefb229c9e4ffecdc0e93b0649f73b7d03da8"></a>
+<a id="canonical-0223332321012012-2233022311222033-3121001112033322-0132202232332302-0221302132103333-3230313000322103-2300121021331303-2313310003312220"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.monitor / 9ac804cb7cd5 / 4
+## Next pages — monitor / 302313303111 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-7f2013db48acc0388182dfdc0966b3b2ed2283fc44d91762c789800a3fe206db"></a>
+<a id="canonical-1333020001033123-1020223030000320-2001200231333130-0021121223032302-3231020220033330-1010312101131202-3013202120000022-0333320200123123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f2e59829df110887c314a6d37a39b0133cde7509d3af4e6d262f1bc0f781d0a"></a>
+<a id="canonical-2033023211212002-2131330101002020-1330030110221231-0313220321230001-0303303132131100-2131032233103212-3102120233012330-0033132001310022"></a>
 
-## aws.not_managed.node_list.interface_list.monitor_disabled — aws.not_managed.node_list.interface_list.monitor_disabled / b0e6edf06dbc / 2
+## aws.not_managed.node_list.interface_list.monitor_disabled — monitor_disabled / 330012312330 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.monitor_disabled
 
-<a id="canonical-06836bca28e1fcb033d0c19d6ff30346138ed62276e12e5fd6f09cb84b914a7a"></a>
+<a id="canonical-0012200312233022-0220320133302300-0303310030012131-1233330300031012-0103203231120202-1312320102321133-3112330021302320-1023210110221322"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1245,40 +1317,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-400d180d6267fcd1cb3c67cbbb8e2d6392221f4e02ae75ec0821244a9f2c7118"></a>
+<a id="canonical-1000003101200031-1202121333303101-3023033012133023-2323203202311203-2102020201331032-0002223213113230-0020020102101022-2133023013010120"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.monitor_disabled / b0e6edf06dbc / 3
+## Direct properties — monitor_disabled / 330012312330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-10140c88f416008ac820295b4a0148a25ff6a48aae930b9a4deabd480b6d7668"></a>
+<a id="canonical-0100011000302020-3310011200002022-3020020002211123-1022000110202202-1133331222102022-2232210300232122-1031322223311020-0023123113121220"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.monitor_disabled / b0e6edf06dbc / 4
+## Next pages — monitor_disabled / 330012312330 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-6fd4cb11a8978a039b74b2749c52ea22393431638d4f5f76696e302e7b839f4c"></a>
+<a id="canonical-1233311030230101-2220211320220003-2123131023021310-2130110232220202-0321031003011203-2031103311331312-1221123203000232-1323200321331030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cbc199915d6ed1c417af665f02b870d59929546758326601e8fac14a870ede3c"></a>
+<a id="canonical-3023300121212101-1131123231013010-0113223312121133-0002232013003111-2121022111101213-1120030212120001-3220332230011022-2013003231320330"></a>
 
-## aws.not_managed.node_list.interface_list.network_option — aws.not_managed.node_list.interface_list.network_option / 476763f9c4e0 / 2
+## aws.not_managed.node_list.interface_list.network_option — network_option / 332130103200 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.network_option
 
-<a id="canonical-6d02cd5ea1eefba434d16dc3dab0128375119498183ba1c6b2e79601e36caaaa"></a>
+<a id="canonical-1231000230311132-2201323233232210-0310310112313003-3122230001022003-1311010121102120-0120032322013012-2302321321120001-3203123022222222"></a>
 
 Type: `"single"`. Computed.
 
@@ -1309,45 +1381,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-60bcdf93f05cd55c80a35f5447d8ccd11e254d57497007cfade55c25b0132fc0"></a>
+<a id="canonical-1200233031332103-3300113031111130-2000220311331110-1013312030303101-0132021110311113-1021130000133033-2231321111300211-2300010302333000"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.network_option / 476763f9c4e0 / 3
+## Direct properties — network_option / 332130103200 / 3
 
-- [site_local_inside_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f06413b91665ad59bd1658a97bdb5a27237db3eaecc9773925b58cb4f6251d20): complete subsection reference.
+- [site_local_inside_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3300121001032321-0112121122311121-2331011211202221-1323312311220213-0203133123033222-3230302113130321-0211231120302310-3312021101310200): complete subsection reference.
 
-- [site_local_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0f245f02e688690308d58c68005f307414f47c2f96d76f6a4917eeadb0fbdf85): complete subsection reference.
+- [site_local_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0033021011330002-3212202012210003-0020311120301220-0000113303001310-0110331013300233-2112311312331222-1021011332322231-2300332331332011): complete subsection reference.
 
-<a id="canonical-af01e52c6c1ecd3c33f7ac41014ba4066131853bfe227746f44fce864adf047b"></a>
+<a id="canonical-2233000132110230-1230013230310330-0303331322301001-0001102322100012-1201030120110323-3332020213131012-3310103330322012-1022313300101323"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.network_option / 476763f9c4e0 / 4
+## Next pages — network_option / 332130103200 / 4
 
-- [aws.not_managed.node_list.interface_list.network_option.site_local_inside_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f06413b91665ad59bd1658a97bdb5a27237db3eaecc9773925b58cb4f6251d20)
-- [aws.not_managed.node_list.interface_list.network_option.site_local_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0f245f02e688690308d58c68005f307414f47c2f96d76f6a4917eeadb0fbdf85)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.network_option.site_local_inside_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3300121001032321-0112121122311121-2331011211202221-1323312311220213-0203133123033222-3230302113130321-0211231120302310-3312021101310200)
+- [aws.not_managed.node_list.interface_list.network_option.site_local_network](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0033021011330002-3212202012210003-0020311120301220-0000113303001310-0110331013300233-2112311312331222-1021011332322231-2300332331332011)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-f06413b91665ad59bd1658a97bdb5a27237db3eaecc9773925b58cb4f6251d20"></a>
+<a id="canonical-3300121001032321-0112121122311121-2331011211202221-1323312311220213-0203133123033222-3230302113130321-0211231120302310-3312021101310200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f3028d69cbeda9153c6b25eb0c6248f3a834a7a60d114003311a14bc3cc35967"></a>
+<a id="canonical-3303000220311221-3023323122210111-0330122302113223-0030120210203303-2220031022132212-0031010110000003-0301012201102330-0330300311211213"></a>
 
-## aws.not_managed.node_list.interface_list.network_option.site_local_inside_network — aws.not_managed.node_list.interface_list.network_option.site_local_inside_networ / b0550c15f937 / 2
+## aws.not_managed.node_list.interface_list.network_option.site_local_inside_network — site_local_inside_network / 011133210313 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6fd4cb11a8978a039b74b2749c52ea22393431638d4f5f76696e302e7b839f4c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1233311030230101-2220211320220003-2123131023021310-2130110232220202-0321031003011203-2031103311331312-1221123203000232-1323200321331030)
 - aws.not_managed.node_list.interface_list.network_option.site_local_inside_network
 
-<a id="canonical-02c69edda252a60b40e591e2072d753e7734ffe3b90b52b5a0807c4f2643a99e"></a>
+<a id="canonical-0002301221323131-2202110222120023-1000321121013202-0013023113110332-1313031033333203-2321002311022311-2200200013301033-0212100322212132"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1370,41 +1442,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a37014d2dc5a14a30233dbeb1ed040d3ba8311ae4cacb80e358a04980e188aa2"></a>
+<a id="canonical-2203130001103102-3130112201102203-0002030331233223-0132310010003103-2322200301012232-1030223023200032-0311202200102120-0032012020222202"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.network_option.site_local_inside_networ / b0550c15f937 / 3
+## Direct properties — site_local_inside_network / 011133210313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3377e484603ed9396e4d897a634a42f547626fba91cc86df9cada9d56db7ea14"></a>
+<a id="canonical-0303131332102010-1200033231210321-1232103120211322-1203102210023311-1013120212332322-2101303020123133-2130223122213111-1231231332220110"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.network_option.site_local_inside_networ / b0550c15f937 / 4
+## Next pages — site_local_inside_network / 011133210313 / 4
 
-- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6fd4cb11a8978a039b74b2749c52ea22393431638d4f5f76696e302e7b839f4c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1233311030230101-2220211320220003-2123131023021310-2130110232220202-0321031003011203-2031103311331312-1221123203000232-1323200321331030)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-0f245f02e688690308d58c68005f307414f47c2f96d76f6a4917eeadb0fbdf85"></a>
+<a id="canonical-0033021011330002-3212202012210003-0020311120301220-0000113303001310-0110331013300233-2112311312331222-1021011332322231-2300332331332011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-de6930f324918f1390a56ce73fc3c14472b656ab031322127dd494cd9b6822fb"></a>
+<a id="canonical-3132122103003303-0210210120330103-2100221112303213-0333300330011010-1302231211122223-0003010302020102-1331311021103031-2123122002023323"></a>
 
-## aws.not_managed.node_list.interface_list.network_option.site_local_network — aws.not_managed.node_list.interface_list.network_option.site_local_network / 94fc5b2ace47 / 2
+## aws.not_managed.node_list.interface_list.network_option.site_local_network — site_local_network / 022230321013 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6fd4cb11a8978a039b74b2749c52ea22393431638d4f5f76696e302e7b839f4c)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1233311030230101-2220211320220003-2123131023021310-2130110232220202-0321031003011203-2031103311331312-1221123203000232-1323200321331030)
 - aws.not_managed.node_list.interface_list.network_option.site_local_network
 
-<a id="canonical-8dea779a365b3161aa505453e79ddc42362e9a5b147a0484fa5dad98a9819c4e"></a>
+<a id="canonical-2031322213132122-0312112303011201-2222110011101103-3213213131301002-0312023221221123-0110132200102010-3322113122312120-2221200121301032"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1427,40 +1499,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-21b28a047503562b5082011b6472bc3a198f4e1465d3dfb1fc466d850c8fba1d"></a>
+<a id="canonical-0201230220220010-1311000311120223-1100200200010123-1210130223300322-0121203310320110-1211310331332301-3330101212312011-0030203323220131"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.network_option.site_local_network / 94fc5b2ace47 / 3
+## Direct properties — site_local_network / 022230321013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a8127424c69a6c0353be1b8e372668aedf100525c756084a21054dcbf629acc1"></a>
+<a id="canonical-2220010213100210-3012212212300003-1103233201232032-0313021212202232-3133010000110211-3013111200201022-0201001110313023-3312022122303001"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.network_option.site_local_network / 94fc5b2ace47 / 4
+## Next pages — site_local_network / 022230321013 / 4
 
-- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-6fd4cb11a8978a039b74b2749c52ea22393431638d4f5f76696e302e7b839f4c)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1233311030230101-2220211320220003-2123131023021310-2130110232220202-0321031003011203-2031103311331312-1221123203000232-1323200321331030)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-61d8d25fe8aa1236e6f3acbe35f59f0f78b04f3270e3e9f635aea547094b57d0"></a>
+<a id="canonical-1201312031021133-3220222201020312-3212330322302332-0311331121330033-1320230010330302-1300320332213312-0311223222111013-0021102311133100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7bfa7d9977cfef3a359ed8333ba9f29a47e403e7412f93eb40488fdb33759a67"></a>
+<a id="canonical-1323332213312121-1313303332330322-0311213231200303-0323222133022122-1013321000033213-1001023321033223-1000102020333123-0303131121221213"></a>
 
-## aws.not_managed.node_list.interface_list.no_ipv4_address — aws.not_managed.node_list.interface_list.no_ipv4_address / a84e7cd76fa5 / 2
+## aws.not_managed.node_list.interface_list.no_ipv4_address — no_ipv4_address / 311312332211 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.no_ipv4_address
 
-<a id="canonical-9239687eedbbc7e1b67ef200fa3eb362244565599dee8b791cb21ec145cb3d3d"></a>
+<a id="canonical-2102032112201332-3231232330133201-2312133233020000-3322033223031202-0210101112111121-2131323220231321-0130230201323001-1011302303310331"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1483,40 +1555,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b5f6a51048ea84b7bc1f854cd2bfe5d56eb2d5a2024e948b1d6a7413bf87056a"></a>
+<a id="canonical-2311331222110100-1020322220102313-2330013320111030-3102233332113111-1232230231112202-0002103221102023-0131122213100103-2333201300111222"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.no_ipv4_address / a84e7cd76fa5 / 3
+## Direct properties — no_ipv4_address / 311312332211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d35148b6b733a85edc7a07992cde16f757f3925e028352956389021b0c3c7869"></a>
+<a id="canonical-3103110110202312-2313030322201132-3130132200132121-0230313201123313-1113330321021132-0002200311022111-1203202100020123-0030033013201221"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.no_ipv4_address / a84e7cd76fa5 / 4
+## Next pages — no_ipv4_address / 311312332211 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-f14ecd1798cb09ac80b4c511a01bd244ee5f3430b209847f0ba2883b6a0fbb91"></a>
+<a id="canonical-3301103230310113-2120302300212230-2000231030110101-2200012331021010-3232113303100300-2302002120101333-0023220220200323-1222003323232101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-98dc341326c2b49cd35cc366723827efeb5e81302aa2ec64e29868597d34b539"></a>
+<a id="canonical-2120313003100103-0212300223102130-3103113030031212-1302032002133233-3223113220010300-0222220232301210-3202212012201121-1331031023110321"></a>
 
-## aws.not_managed.node_list.interface_list.no_ipv6_address — aws.not_managed.node_list.interface_list.no_ipv6_address / 3285bf169ae6 / 2
+## aws.not_managed.node_list.interface_list.no_ipv6_address — no_ipv6_address / 011221223212 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.no_ipv6_address
 
-<a id="canonical-dd86fe2f3df75b1e2d8e44c5533f9dcad0fd2485b68daf9c071cd6adb86d3972"></a>
+<a id="canonical-3131201233320233-0331331311230132-0231203210103011-1103033321313022-3100333102102011-2312203122332130-0013013031122231-2320123103211302"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1539,40 +1611,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dac245de6c5429b6c72c7da4152ba8f5bd7feba2ecc8a38657f74a5a90d13e2b"></a>
+<a id="canonical-3122300210113132-1230111002212312-3013023013312210-0111022322203311-2331133332232202-3230302022032012-1113331310221122-2100310103320223"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.no_ipv6_address / 3285bf169ae6 / 3
+## Direct properties — no_ipv6_address / 011221223212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2e4d34cbc416bd1d6daa7ada9a4faa30649777a6794e52a9274836a6b54e5de1"></a>
+<a id="canonical-0232103103103023-3010011223310131-1231222213223122-2122103322220300-1210211313132212-1321103211022221-0213102003122212-2311103211313201"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.no_ipv6_address / 3285bf169ae6 / 4
+## Next pages — no_ipv6_address / 011221223212 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-a7423d9370303fe286670b603c3566e4ff7b5a86a100308d39f313a6d1c4f926"></a>
+<a id="canonical-2213100203312103-1300030003333202-2012121300231200-0330031112123210-3333132311222012-2201000003002031-0321330301032212-3101301033210212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f4846abb9d2abdd936fa6125379f05d488f2cabca12676620ec2e88b2ebc3890"></a>
+<a id="canonical-3310201012222323-2131022223313121-0312332212010211-0313213300113110-2020330230222330-2201021213121202-0032300232202023-0232233003202100"></a>
 
-## aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_dis / 880df037fa86 / 2
+## aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled — site_to_site_connectivity_interface_disabled / 031333222012 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
 
-<a id="canonical-5d2af599d12de5950be480c932f8562e3c431545c8cf6f098cd6935c2eb7024f"></a>
+<a id="canonical-1131022233112121-3101023132112111-0023321020003021-0302332011120232-0330100301111011-3020303312330021-2030311221031130-0232231300021033"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1595,40 +1667,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9bea7ab85de4d675e70014c1941008e6ae3b3eee5c3e051b58a44ad33393bbbb"></a>
+<a id="canonical-2123322213222320-1131321031121311-3213000001103001-2110010000203212-2232032303323232-1130033200110123-1120221010223103-0303210323232323"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_dis / 880df037fa86 / 3
+## Direct properties — site_to_site_connectivity_interface_disabled / 031333222012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f6dca05d21ca978cad8c5732bccf001e396123a4924f822893bddcb2bfdf6d35"></a>
+<a id="canonical-3312313022001131-0201302221132030-2231203011130302-2330303300000132-0321120102032210-2102103320020220-2103233131302302-2333313312310311"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_dis / 880df037fa86 / 4
+## Next pages — site_to_site_connectivity_interface_disabled / 031333222012 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-ecf2f498087a2ff2077b099ed40e98413617e53b7df7ea0af604272c1b5fe71d"></a>
+<a id="canonical-3230330233102120-0020132202333302-0013132300212132-3110003221201001-0312011332110323-1331331332220022-3312001002130230-0123113332130131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a20abb3372549531e188a311ec856467e73187983b0f6bd6489828b929f5fad"></a>
+<a id="canonical-1322020022232303-0313021110211103-0132012020220301-0132302011121012-1332130301201321-2003230033122331-1210202120022023-2102213311332231"></a>
 
-## aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ena / fb5211554a95 / 2
+## aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — site_to_site_connectivity_interface_enabled / 111110222111 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
 
-<a id="canonical-e206b5603dd526609224d3025ea06f4ef8087f2ac24b027b6a4c0f72883be29c"></a>
+<a id="canonical-3202001223111200-0331311102121200-2102021031030002-1132220012331032-3320002013330222-3002102300021323-1222103000331302-2020032332022130"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1651,40 +1723,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a2c671b41ec459f82e8a35d9270162a5bc9806158c23777be1f73a0ba36025a8"></a>
+<a id="canonical-2202301213012310-0132301011213320-0232202203113121-0213000112022211-2330212000120111-2030020313131323-3201331303220023-2203120002112220"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ena / fb5211554a95 / 3
+## Direct properties — site_to_site_connectivity_interface_enabled / 111110222111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-86a1e6316ae7d75fac7087decdec2b3565ad37204bd101e3d8e3b9031f2ae924"></a>
+<a id="canonical-2012220132120301-1222321331131133-2230130020133132-3031323002230311-1211223103130200-1023310100013203-3120320323210003-0133022232210210"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.site_to_site_connectivity_interface_ena / fb5211554a95 / 4
+## Next pages — site_to_site_connectivity_interface_enabled / 111110222111 / 4
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-a2986406fc71975325d46ec91b796b7ef95f62999f84f4e2a62c84aa33b9c73a"></a>
+<a id="canonical-2202212012100012-3330130121131103-0211311012323021-0123132112231332-3321113312022121-2133201033103202-2212023020102222-0303232130130322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e7d2ccce48d341134258da35fc1185b1dd25de9af9360932fe6f34bd939e48c"></a>
+<a id="canonical-2032133102303030-3210203103100101-0310021120312203-1133300101201123-0131310211313221-2233210312002103-0233321233031023-3121032132102030"></a>
 
-## aws.not_managed.node_list.interface_list.static_ip — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 2
+## aws.not_managed.node_list.interface_list.static_ip — static_ip / 322230320210 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.static_ip
 
-<a id="canonical-f08bb951fd491694a0b26af293d9d969b05c79516e89ed56f2597605f9149b5b"></a>
+<a id="canonical-3300202323211101-3331102101122110-2200230212223302-2103312131211221-2300113013211101-1232202132311112-3302112113120011-3321011021231123"></a>
 
 Type: `"single"`. Computed.
 
@@ -1703,15 +1775,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ee781092e27636918165d0ca1c5474e156f9b676c0730226679cedc809beaf29"></a>
+<a id="canonical-3232132001002102-3202131203122101-2001121131003022-0130111013103201-1112332123121312-3000130300020212-1213213032313020-0021233222330221"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 3
+## Direct properties — static_ip / 322230320210 / 3
 
-<a id="canonical-6baba347eefec92e2283c66c4889e3fd0cc4860b566f888e6f738ca31353593f"></a>
+<a id="canonical-1223222322031013-3232333230210232-0202200330121230-1020202132033331-0030301020120023-1112123320202032-1233130320302203-0103110311210333"></a>
 
-<a id="canonical-33ea7729ef23da6c232575f3a8b8bf4b7fe2db0140468988dfb9913597f9c61b"></a>
+<a id="canonical-0303322213130221-3233020331221230-0203021113113303-2220232023331023-1333320231230001-1000101220212020-3133232121010311-2113332130120123"></a>
 
-## default_gw property — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 4
+## default_gw property — static_ip / 322230320210 / 4
 
 Type: `"string"`. Computed.
 
@@ -1752,21 +1824,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3ab70a5567b21d22c92ce4222b5cc4fcce76a3a49df6eb0c278b21a1fcc44057"></a>
+<a id="canonical-0322231300221111-1213230201310202-3021023032100202-0223113030103330-3032131222032210-2131331232230030-0213202302012201-3330301010001113"></a>
 
-<a id="canonical-e94086e88563a5999a2808253e0b2dab718d12c008f3895d3768082a0fa19e8d"></a>
+<a id="canonical-3221100020123220-2011120322112121-2122022000200211-0332002302312223-1301203101023000-0020330320211131-0313122000200222-0033220121322031"></a>
 
-## dns_server property — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 5
+## dns_server property — static_ip / 322230320210 / 5
 
 Type: `"string"`. Computed.
 
 DNS server address for the static interface configuration.
 
-<a id="canonical-edeaf55bd3f73a1a1485023d276ff94f818f3eebf51597e4bda7bc82810e570a"></a>
+<a id="canonical-3231322233111123-3103331303220122-0110201100020331-0213123333211033-2001203303323223-3311011121133210-2331221323302002-2001003211130022"></a>
 
-<a id="canonical-3bbfe2f7c12d24abd59da7df11e72b35f701383192b8919c0e0cd404c6d39c35"></a>
+<a id="canonical-0323233332023313-3001023102102223-3111213122133133-0101321302230311-3313000103200301-2102232021012130-0032003031100010-3012310321300311"></a>
 
-## ip_address property — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 6
+## ip_address property — static_ip / 322230320210 / 6
 
 Type: `"string"`. Computed.
 
@@ -1808,34 +1880,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a567d4d9eb62100499384d5201196bb59195d1df6a8e8c646231ebad58ffa1ed"></a>
+<a id="canonical-2211121331103121-3223120201000010-2121032010311102-0001012112232311-2101211131013133-1222203220301210-1202030132232231-1120333322013231"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.static_ip / b03096eace24 / 7
+## Next pages — static_ip / 322230320210 / 7
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-f83b37045d398833196e06e4a8ac3898b15f6b9993c02b2132ce3d11064303ff"></a>
+<a id="canonical-3320032303130010-1131032120200303-0121123200123210-2220223003202120-2301113312232121-2103300002230201-0302303203310101-0012100300033333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-05464ffbfa8d4792f41d86f7da918c82800ebca05b7ce492d968cfed803b97e3"></a>
+<a id="canonical-0011101210333323-3322203110132102-3310013120123313-3122210120302002-2000003223302200-1123133032102102-3121122030333231-2000032321133203"></a>
 
-## aws.not_managed.node_list.interface_list.static_ipv6_address — aws.not_managed.node_list.interface_list.static_ipv6_address / 89301ad87c51 / 2
+## aws.not_managed.node_list.interface_list.static_ipv6_address — static_ipv6_address / 312013301101 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.static_ipv6_address
 
-<a id="canonical-1d69072a730404d8a7326d231f28e0461dc9af74cf83aec3e0c6fc7a84627d36"></a>
+<a id="canonical-0131122100130222-1303001000103120-2213030212310203-0133022032001012-0131302122331310-3033200322323003-3200301233301322-2010120213310312"></a>
 
 Type: `"single"`. Computed.
 
@@ -1859,45 +1931,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-192a83d28c2c7aaccd1d32dde8cf7ef7189933818f7cb2cb7660b5ec696273b9"></a>
+<a id="canonical-0121022220033102-2030023013222230-3031013103023131-3220303313323313-0120212103032001-2033133023023023-1312120023113230-1221120213032321"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.static_ipv6_address / 89301ad87c51 / 3
+## Direct properties — static_ipv6_address / 312013301101 / 3
 
-- [cluster_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1ff6ee8a8fb986b11e68fdbe44e5b57d5daa865953d0289a7db378ae0d45178b): complete subsection reference.
+- [cluster_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0133331232322022-2033232120122301-0132122033312332-1010321123111331-1131222220121121-1103310002202122-1331230313202232-0031101101132023): complete subsection reference.
 
-- [node_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-5c1caed8dbe81a635d2a8618e9fe75e6036b98c1dd730fd488d3407a35aeca7d): complete subsection reference.
+- [node_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1130013022323120-3123322001221203-1131022220120120-3221333213113212-0003122321203001-3131130300333110-2020310310001322-0311223230221331): complete subsection reference.
 
-<a id="canonical-4add2656f05060c91f854cd821e0f86989416408e0b207ec5b46681736e7e475"></a>
+<a id="canonical-1022313102121112-3300110012003021-0133201110303120-0201320033201221-2021100112100020-3200230200133230-1123101212200113-0312321332101311"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.static_ipv6_address / 89301ad87c51 / 4
+## Next pages — static_ipv6_address / 312013301101 / 4
 
-- [aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1ff6ee8a8fb986b11e68fdbe44e5b57d5daa865953d0289a7db378ae0d45178b)
-- [aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-5c1caed8dbe81a635d2a8618e9fe75e6036b98c1dd730fd488d3407a35aeca7d)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0133331232322022-2033232120122301-0132122033312332-1010321123111331-1131222220121121-1103310002202122-1331230313202232-0031101101132023)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1130013022323120-3123322001221203-1131022220120120-3221333213113212-0003122321203001-3131130300333110-2020310310001322-0311223230221331)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-1ff6ee8a8fb986b11e68fdbe44e5b57d5daa865953d0289a7db378ae0d45178b"></a>
+<a id="canonical-0133331232322022-2033232120122301-0132122033312332-1010321123111331-1131222220121121-1103310002202122-1331230313202232-0031101101132023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-26ae8d0c103a86d99b673dac4c132f078ab2a2f7c6c6d32b58763785b163f1b1"></a>
+<a id="canonical-0212223220310030-0100032220123121-2123121303312230-1030010302330013-2022230222023313-3012301231030223-1120131203132011-2301120333012301"></a>
 
-## aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip — aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip / af24ed82ca07 / 2
+## aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip — cluster_static_ip / 200230220013 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f83b37045d398833196e06e4a8ac3898b15f6b9993c02b2132ce3d11064303ff)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3320032303130010-1131032120200303-0121123200123210-2220223003202120-2301113312232121-2103300002230201-0302303203310101-0012100300033333)
 - aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip
 
-<a id="canonical-4be94a5db48e3888ebc5f4c43ba83c24283fd0c03d933bd98c5e5daf8851ed31"></a>
+<a id="canonical-1023322110221131-2310203203202020-3223301133103010-0323222003300210-0220033331003000-0331210303233121-2030113211312233-2020110132310301"></a>
 
 Type: `"single"`. Computed.
 
@@ -1916,15 +1988,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fdc496a4f03088b7a159180355ab140a8f2dde70c946027d5db5a6e924bb34dc"></a>
+<a id="canonical-3331301021122210-3300030020202313-2201112101200003-1111222301100022-2033023131321300-3021101200021331-1131231122123221-0210232303103130"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip / af24ed82ca07 / 3
+## Direct properties — cluster_static_ip / 200230220013 / 3
 
-<a id="canonical-7244a7d60768e4acb3ccb7613c6b723af8d2ad7940f845b78c3a90227fefcac5"></a>
+<a id="canonical-1302101022133112-0013122032102230-2303303023131201-0330122313020322-3320310222311321-1000332010112313-2030032221000202-1333323330223011"></a>
 
-<a id="canonical-0467ad0de3970573a1cbb516744a3b075e04523d02a212681de880b8815e1660"></a>
+<a id="canonical-0010121322310031-3203211300111303-2201302323110112-1310102203230013-1132001011020331-0002220201021220-0131322020002320-2001113201121200"></a>
 
-## interface_ip_map property — aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip / af24ed82ca07 / 4
+## interface_ip_map property — cluster_static_ip / 200230220013 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -1953,35 +2025,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6c08fa57f83c5ed42202e4c050dc9ed9276a9b6829c975ea730614080803b08a"></a>
+<a id="canonical-1230002033221113-3320033011323110-0202000232103000-1100313021323121-0213122221231220-0221302113113222-1303001201100020-0020000323002022"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip / af24ed82ca07 / 5
+## Next pages — cluster_static_ip / 200230220013 / 5
 
-- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f83b37045d398833196e06e4a8ac3898b15f6b9993c02b2132ce3d11064303ff)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3320032303130010-1131032120200303-0121123200123210-2220223003202120-2301113312232121-2103300002230201-0302303203310101-0012100300033333)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-5c1caed8dbe81a635d2a8618e9fe75e6036b98c1dd730fd488d3407a35aeca7d"></a>
+<a id="canonical-1130013022323120-3123322001221203-1131022220120120-3221333213113212-0003122321203001-3131130300333110-2020310310001322-0311223230221331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1132acd6a71066de9b27d8dca591be3a06c4b35f4961d93d6f77e72a348d6f8"></a>
+<a id="canonical-3201010302223031-1222130100121231-3221230213312031-3022112101233203-2200123010230311-3310211201312103-3112331313321302-2203102031123320"></a>
 
-## aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 2
+## aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip — node_static_ip / 221330101210 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f83b37045d398833196e06e4a8ac3898b15f6b9993c02b2132ce3d11064303ff)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3320032303130010-1131032120200303-0121123200123210-2220223003202120-2301113312232121-2103300002230201-0302303203310101-0012100300033333)
 - aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip
 
-<a id="canonical-f9cf64fe8953e39407421d9fe30b44fa578321c61d65c72742b962c9e8e33a74"></a>
+<a id="canonical-3321303312103332-2021110332032110-0013100201312133-3203002310103322-1113200302013012-0131121130130213-1002232112023021-3220320303221310"></a>
 
 Type: `"single"`. Computed.
 
@@ -2000,15 +2072,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d21aab8a098c9656e721d67e921f3965eccef93d799cca4531ef802fb25ab7fc"></a>
+<a id="canonical-3102012222232022-0021203021121112-3213020131121332-2102013303211211-3230303233210331-1321213030221011-0301323320000233-2302112223133330"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 3
+## Direct properties — node_static_ip / 221330101210 / 3
 
-<a id="canonical-695bbe309d5d6247195d4f7706b44064138b5cded7fbd6bdf04d2806c5ad821c"></a>
+<a id="canonical-1221112323320300-2131113112021013-0121113110331313-0012231010001210-0103202311303132-3113332331122331-3300103102200012-3011223120020130"></a>
 
-<a id="canonical-157f98b6fb064c5e87d99adeab0440c7b30258f6498f8a8e666b7f38a0c28a35"></a>
+<a id="canonical-0111133321202312-3323001210301132-2013312121223132-2223001010003013-2303000211203312-1021203320222032-1212122313330320-2200300220220311"></a>
 
-## default_gw property — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 4
+## default_gw property — node_static_ip / 221330101210 / 4
 
 Type: `"string"`. Computed.
 
@@ -2049,21 +2121,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7a4788a66230dac9187ca22d7adda8c7d5bf098d76b1f462f0dc2d37e393c68f"></a>
+<a id="canonical-1322101320202212-1202030031223021-0120133022020231-1322313122203013-3111233300212031-1312230133101202-3300313002310313-3203210330122033"></a>
 
-<a id="canonical-0ed9eb59bd40762155d999e422fb29523034902473bee138a4823c743a93483f"></a>
+<a id="canonical-0032312132231121-2331100013120201-1111312121213210-0202332302211102-0300031021000210-1303233232010320-2210200203301310-0322210310200333"></a>
 
-## dns_server property — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 5
+## dns_server property — node_static_ip / 221330101210 / 5
 
 Type: `"string"`. Computed.
 
 DNS server address for the static interface configuration.
 
-<a id="canonical-b9581d754c8e955527cf90219efe29ea26ccd2e3d0d651211fa25ef59d269e20"></a>
+<a id="canonical-2321112001311311-1030203221111111-0213303321000201-2132333202213222-0212303031023203-3100311211010201-0133220211323311-2131021221320200"></a>
 
-<a id="canonical-ccecf8464b8d9e0bad561e9b6f84e755f946aad1a3650a0214cd1914cce994b3"></a>
+<a id="canonical-3030323033201012-1023203121320023-2231111201322123-1233201032131111-3321101222223101-2203121100220002-0110303101210110-3030322121102303"></a>
 
-## ip_address property — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 6
+## ip_address property — node_static_ip / 221330101210 / 6
 
 Type: `"string"`. Computed.
 
@@ -2105,34 +2177,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ab3bea8a5bf700d6de6a2b91ccd25f40dd2b1499775f9941b5a7db6381738c15"></a>
+<a id="canonical-2223032332222022-1123331300003112-3132122202232101-3030310211331000-3131022301102121-1313113321211001-2311221331231203-2001130320300111"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip / 21e2bba7c464 / 7
+## Next pages — node_static_ip / 221330101210 / 7
 
-- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f83b37045d398833196e06e4a8ac3898b15f6b9993c02b2132ce3d11064303ff)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3320032303130010-1131032120200303-0121123200123210-2220223003202120-2301113312232121-2103300002230201-0302303203310101-0012100300033333)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-ae4737053069c6fef88cc461a1bd82687816da9d46ae8b4afc746d36098e1e8a"></a>
+<a id="canonical-2232101303130011-0300122130123332-3320203030101201-2201233120021220-1320011231222131-1012223220231022-3330131012310312-0021203201322022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-001b3cbcf0a3ae069a27296c350e8025ec4981c49101d750c72f530775f34855"></a>
+<a id="canonical-0000012303302330-3300220322320012-2122021302211230-0311003220000211-3230102120013010-2101000131131100-3013023311030013-1311330310201111"></a>
 
-## aws.not_managed.node_list.interface_list.vlan_interface — aws.not_managed.node_list.interface_list.vlan_interface / c58967e3cc39 / 2
+## aws.not_managed.node_list.interface_list.vlan_interface — vlan_interface / 320330300321 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-62d5e21dcfa4f3b673848d97041cca00221aead04682eaa3e75a721f89c53efd)
-- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-9e877b450151e45f8031915280d2cc7e4438aa897be0937e31d80ebc197d4c74)
-- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-3dd518bfbe188f49a40fd3d6109f7941986faaf44f07a34009db964c8fd72637)
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [aws](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1202311132020131-3033221033032312-1303201020312113-0010013030220000-0202012232223100-1012200232222203-3213112213020133-2021301103323331)
+- [aws.not_managed](data-sources--securemesh_site_v2--reference--group-003.md#canonical-2132201313231011-0001110132101133-2000030121011102-2000310230301332-1010032022222021-1323320021031332-0301312000322330-0121133110301310)
+- [aws.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0331311101202333-2332012020331021-2210003331033112-0100213313211001-2120123322223310-1033001322031000-0021312321121030-2033311302120313)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
 - aws.not_managed.node_list.interface_list.vlan_interface
 
-<a id="canonical-f71134d3319f5de1637ae382300f674820f3c9522e25610500b8116d40cd0382"></a>
+<a id="canonical-3313010103103103-0301213311313201-1203132232032002-0300003312131020-0200330330211102-0232021112010011-0000232001011231-1000303100032002"></a>
 
 Type: `"single"`. Computed.
 
@@ -2151,15 +2223,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5eb23ac44d711997c416f4426bea8bd14f770d913df28e21b3e67142f1913c05"></a>
+<a id="canonical-1132230203223010-1031130101212113-3010011233101002-1223322220233101-1033131300312101-0331330220320201-2303321213011002-3301210103300011"></a>
 
-## Direct properties — aws.not_managed.node_list.interface_list.vlan_interface / c58967e3cc39 / 3
+## Direct properties — vlan_interface / 320330300321 / 3
 
-<a id="canonical-56e9cda959d3f232e4d5c90a426f7b5a84d478dde17c20f746791cf05969fb7e"></a>
+<a id="canonical-1112322130312221-1121310333020302-3210311130210022-1002123313231122-2010311013203131-3201133002003313-1012132101303300-1121122133231332"></a>
 
-<a id="canonical-a2c4ba776cdf57afed4b376ea85a8e1d87288c8a7a73c965050e05bdf64ea10d"></a>
+<a id="canonical-2202301023221313-1230313311132233-3231102303131232-2220112220320131-2013022020302022-1322130330211211-0011003200112331-3312103222010031"></a>
 
-## device property — aws.not_managed.node_list.interface_list.vlan_interface / c58967e3cc39 / 4
+## device property — vlan_interface / 320330300321 / 4
 
 Type: `"string"`. Computed.
 
@@ -2202,11 +2274,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-737846a7ecc39feb2df8a36db52e375f149f508bc4c00d195636e0fd6c170c29"></a>
+<a id="canonical-1303132010122213-3230300321333223-0231332022031231-2311023203131133-0110213311002023-3010300000310121-1112031232003331-1230011300300221"></a>
 
-<a id="canonical-225b6debfb7aa17ed56a240bd877d07ce027734b27ff6d54d70522f2f827c090"></a>
+<a id="canonical-0202112312313223-3323132222011332-3111122202100023-3120131331001330-3200021313031023-0213333312311110-3113001102023302-3320021330002100"></a>
 
-## vlan_id property — aws.not_managed.node_list.interface_list.vlan_interface / c58967e3cc39 / 5
+## vlan_id property — vlan_interface / 320330300321 / 5
 
 Type: `"number"`. Computed.
 
@@ -2246,30 +2318,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2e224ce2f04f93328936811e070a4cd0c85379389c7dbab12f3e81eef4a4f2a"></a>
+<a id="canonical-3102320202103032-0233001033210303-0220210312200101-3200130022103031-0030201103132103-2021301331232223-0102330332200132-3233102210330222"></a>
 
-## Next pages — aws.not_managed.node_list.interface_list.vlan_interface / c58967e3cc39 / 6
+## Next pages — vlan_interface / 320330300321 / 6
 
-- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1986b0335bb03c8d16100141de8484858cb687890657c98ecb716b831b69358f)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [aws.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-003.md#canonical-0121201223000303-1123230003302031-0112010000011001-3132201020102011-2030231220132021-0012111330212032-3023130112232003-0123122103112033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9"></a>
+<a id="canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4354da929131770d377bd00f951f2c3d036e7cd9987733acabe201aaf5c618f2"></a>
+<a id="canonical-1003111031222102-2101030113130031-0313132331000033-2111013302300331-0003123213303121-2120131303032230-2223320200012222-3311301201203302"></a>
 
-## azure — azure / 623aeb1dec99 / 2
+## Azure — Azure / 013132302121 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- azure
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- Azure
 
-<a id="canonical-ea94d149342ac9231b16e09e3cf9bf5ae99c7440ee415e56b87e1e9d99ac1f91"></a>
+<a id="canonical-3222211031011021-0310022230210203-0123011232002132-0330332123331122-3221213013101000-3232100111321112-2320133201322131-2121223001332101"></a>
 
 Type: `"single"`. Computed.
 
@@ -2293,38 +2365,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8b50f1492b71f4f1a8ada0a2f1761996deb5e0310def97002e9d10b81e799139"></a>
+<a id="canonical-2023110033011021-0223130133103301-2220223122002202-3301131201212112-3132231132000301-0031323321130000-0232213101002320-0132132121010321"></a>
 
-## Direct properties — azure / 623aeb1dec99 / 3
+## Direct properties — Azure / 013132302121 / 3
 
-- [not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf): complete subsection reference.
+- [not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033): complete subsection reference.
 
-<a id="canonical-eaf5e578d0cc9bee1bfca238872cf76362d76fbc217dcbe5e7fccaf42897fdb0"></a>
+<a id="canonical-3222331132111320-3100303021233232-0123333022020320-2013023033131203-1202311312332330-0201133130233211-3213333030223310-0220211333312300"></a>
 
-## Next pages — azure / 623aeb1dec99 / 4
+## Next pages — Azure / 013132302121 / 4
 
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf"></a>
+<a id="canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3f9969d92c867dba094073d99bf707509507402ba3e4ed9a830e084988f185f8"></a>
+<a id="canonical-0333212112213121-0230201213312322-0021100013033121-2123331300131100-2111001310000223-2203321032312122-2003003200201021-2020330120113320"></a>
 
-## azure.not_managed — azure.not_managed / c232abe26f20 / 2
+## Azure.not_managed — not_managed / 320212330200 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- azure.not_managed
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- Azure.not_managed
 
-<a id="canonical-4cfbf4b059ec1c4f0f70ea55a9dadcc767003039c95d4feef4f370f0bae81a82"></a>
+<a id="canonical-1030332333102300-1121323001301033-0033130032221111-2221312231303013-1213000003000321-3021113110333232-3310330313003300-2322322001222002"></a>
 
 Type: `"single"`. Computed.
 
@@ -2349,39 +2421,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-726a94036d78817a360823edd54a1724630a1c15a35b276a94bb998f17dfda4d"></a>
+<a id="canonical-1302122221100003-1231132020011322-0312002002033231-3111102201130210-1203002201300111-2203112302131222-2110232321212033-0113313331221031"></a>
 
-## Direct properties — azure.not_managed / c232abe26f20 / 3
+## Direct properties — not_managed / 320212330200 / 3
 
-- [node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b): complete subsection reference.
+- [node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323): complete subsection reference.
 
-<a id="canonical-7ba577e2cf364a84039c1a20a3b856e7187aa34cd072aa629f879926b22e75a5"></a>
+<a id="canonical-1323221113133202-3033031210222010-0003213001220200-2203232011123213-0120132222031030-3100130222221202-2133201321210212-2302023213112211"></a>
 
-## Next pages — azure.not_managed / c232abe26f20 / 4
+## Next pages — not_managed / 320212330200 / 4
 
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b"></a>
+<a id="canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-df37f70b0d1c174312f12f367688c1c4b27f1ce6a08c4425e646ecafc0966b08"></a>
+<a id="canonical-3133031333130023-0031013001131003-0102330102330312-1312202030013010-2302133301303212-2200203010100211-3212101232302233-3000211212230020"></a>
 
-## azure.not_managed.node_list — azure.not_managed.node_list / 55f82bdc4500 / 2
+## Azure.not_managed.node_list — node_list / 313010110000 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- azure.not_managed.node_list
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- Azure.not_managed.node_list
 
-<a id="canonical-9c1da7b54a83ceede44cbda16f90b817c0de25b62b546c96adbe982700345561"></a>
+<a id="canonical-2130013122132311-1022200330323231-3210103023312201-1233210023200113-3000313202112312-0223111012302112-2231233221200213-0000031011111201"></a>
 
 Type: `"list"`. Computed.
 
@@ -2427,15 +2499,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-956dfaf3611a8ff1f5c26cb13310948626b1561844f32f475d8aba5fee727551"></a>
+<a id="canonical-2111123133223303-1201012220333301-3311300212302301-0303010021102012-0212230111120120-1010330302331013-1131202223221133-3232130213111101"></a>
 
-## Direct properties — azure.not_managed.node_list / 55f82bdc4500 / 3
+## Direct properties — node_list / 313010110000 / 3
 
-<a id="canonical-1b81db9c2df533616ffd33930e66925a16d396a4af7921487fadeba127da53d0"></a>
+<a id="canonical-0123200131232130-0231331103031201-1233333103032103-0032121221021122-0112310321122210-2233132102011020-1333223132232201-0213312211033100"></a>
 
-<a id="canonical-ad89206910b6c9de14fd68b71c6a6aa73b12b0eb6ca5f424fdbadbb0c59aa840"></a>
+<a id="canonical-2231202102001221-0100231230213132-0110333112202313-0130122212222213-0323010223003223-1230221133100210-3331232231232300-3011212222201000"></a>
 
-## hostname property — azure.not_managed.node_list / 55f82bdc4500 / 4
+## hostname property — node_list / 313010110000 / 4
 
 Type: `"string"`. Computed.
 
@@ -2482,13 +2554,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4): complete subsection reference.
+- [interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110): complete subsection reference.
 
-<a id="canonical-26d01f50e53e31ad53a7fe0b451a4de74918d8d5ea0c6da4f45b435ab23b2885"></a>
+<a id="canonical-0212310001331100-3211033203012231-1103221333320023-1011012210313213-1021012031203111-3222003012312210-3310112310031122-2302032302202011"></a>
 
-<a id="canonical-e911cfb02b7eda2f4b623f21de95145ceca9b6d7476fcccb8de5fe480b7e31c8"></a>
+<a id="canonical-3221010130332300-0223133231220233-1023120203330201-3132211101101130-3230222123123113-1013123330303023-2031321133321020-0023133203013020"></a>
 
-## public_ip property — azure.not_managed.node_list / 55f82bdc4500 / 5
+## public_ip property — node_list / 313010110000 / 5
 
 Type: `"string"`. Computed.
 
@@ -2529,11 +2601,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-afb64f82bbb3a492d7f19b6e5e79f769e3f54c9e96e9df4e2b639e12695dead1"></a>
+<a id="canonical-2233231210332002-2323230322102102-3113330121231232-1132132133131221-3203331110302132-2112322131331032-0223120321320102-1221113132223101"></a>
 
-<a id="canonical-74c46c5fc87d1da9685b9923235f6ca7fc81bef29b50f7f21ae20d4a79eb280a"></a>
+<a id="canonical-1310301012301133-3020133101312221-1220112321210203-0203113312302213-3330200123323302-2123110033133302-0122320200311022-1321322302200022"></a>
 
-## type property — azure.not_managed.node_list / 55f82bdc4500 / 6
+## type property — node_list / 313010110000 / 6
 
 Type: `"string"`. Computed.
 
@@ -2577,34 +2649,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e5bb559e4f1d49a66b799e539ad9aa0769b17ce94c8a49dbacde7d272edd8458"></a>
+<a id="canonical-3211232311112132-1033013110212212-1223132121321103-2122312122220013-1221230113303221-1030202210213123-2230313213310213-0232313120101120"></a>
 
-## Next pages — azure.not_managed.node_list / 55f82bdc4500 / 7
+## Next pages — node_list / 313010110000 / 7
 
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4"></a>
+<a id="canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d2b41ba46fc3a19f450149ce64c53d4f108c0af569936612cb2eb00f6323de53"></a>
+<a id="canonical-3102231001232210-1233300322012133-1011000110213032-1210301103311033-0100203000223311-1221210312120102-3023023223000033-1203020331321103"></a>
 
-## azure.not_managed.node_list.interface_list — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 2
+## Azure.not_managed.node_list.interface_list — interface_list / 311333223303 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- azure.not_managed.node_list.interface_list
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- Azure.not_managed.node_list.interface_list
 
-<a id="canonical-77a5c713028b49626308e52c9f923872f59a4a7c22df89127a4a8a6e2a3013b0"></a>
+<a id="canonical-1313221130130103-0002202310211202-1203002032110230-2133210203201302-3311212210221330-0202313320210102-1322102220221232-0222030001032300"></a>
 
 Type: `"list"`. Computed.
 
@@ -2644,55 +2716,55 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-849656a1ae2d5bc71dbcf9220a404f12e6ad11f8f5bfac581862b5a600c79b9a"></a>
+<a id="canonical-2010211211122201-2232023111233013-0131233033210202-0022100010330102-3212223101013320-3311233322301120-0120120223112212-0000301321232122"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 3
+## Direct properties — interface_list / 311333223303 / 3
 
-- [bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120): complete subsection reference.
+- [bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200): complete subsection reference.
 
-<a id="canonical-41fc2404a5dbf6e6c8a9795ceef93c76e973370f2d4060c7f55bfe15587c00fb"></a>
+<a id="canonical-1001333002100010-2211312333123212-3020222113211130-3232332103301312-3221130303130033-0231100012003013-3311112333320111-1120133000003323"></a>
 
-<a id="canonical-cadd2b624e62461e6fab62222bdf4e6b4e65379218b35dc9c15f641a6ba76e67"></a>
+<a id="canonical-3022313102231202-1032120210120132-1233222312020202-0223313310321223-1032121103132102-0120230311313021-3001113312100122-1223221312321213"></a>
 
-## description_spec property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 4
+## description_spec property — interface_list / 311333223303 / 4
 
 Type: `"string"`. Computed.
 
 Interface Description. Description for this Interface.
 
-- [dhcp_client](data-sources--securemesh_site_v2--reference--group-004.md#canonical-ec2f1007869b26454342c797bebf002abcb0107f58a7ded003151f4483372c97): complete subsection reference.
+- [dhcp_client](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3230023301000013-2012212302121011-1003100230132113-2332233300000222-2330230001001333-1120221331323100-0003011101331010-2003031302302113): complete subsection reference.
 
-- [dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5): complete subsection reference.
+- [dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311): complete subsection reference.
 
-- [ethernet_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-090f985a66d65a3f7bc47d22c062b2f3867a88900c4e70be4085804b9d8687e1): complete subsection reference.
+- [ethernet_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-0021003321201122-1212311211220333-1323301013310202-3000120223023303-2012132220202100-0030103213002332-1000201120001023-2131201220133201): complete subsection reference.
 
-- [ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f28881d424ce9e5b22535af335b73f96509f38266e92d88c0c6b16aa5d5f97f0): complete subsection reference.
+- [ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3302202020013110-0210303221321123-0202110311223303-0311231303332112-1100213303200212-1232210231202030-0030122301122222-1131113321133300): complete subsection reference.
 
-<a id="canonical-61416a983cfb329c5ae2f6f9b5c8a214f0f102671c41aa3d855960bb33ef420c"></a>
+<a id="canonical-1201100112222120-0330332303022130-1122320233123321-2311302022020110-3300330100021213-0130100122220331-2011112112002323-0303323310020030"></a>
 
-<a id="canonical-37185cc8608edc3f87fb5afcba3d9f53fb5d5d2e641a725830974d8ba8d1fbdc"></a>
+<a id="canonical-0313012011303020-1200203231300333-2013332311223330-2322033121331103-3323113111310232-1210012213021120-0300211310312023-2220310133233130"></a>
 
-## is_management property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 5
+## is_management property — interface_list / 311333223303 / 5
 
 Type: `"bool"`. Computed.
 
 Configuration for is\_management.
 
-<a id="canonical-7677474e7d44d371131b65eac6bf908a1658ea8134088992fdff6ec01d3ac803"></a>
+<a id="canonical-1312131310131032-1331101031031301-0103012312113222-3012233321002022-0112112032222001-0310002020212102-3331333312323000-0131032230200003"></a>
 
-<a id="canonical-9d2c05fcb2496c9ddec8b203e9ac57ae43486997d5c9687e3f947b3e8aa5f76b"></a>
+<a id="canonical-2131023000113330-2302102112302131-3132302023020003-3221223011132232-1003102012212113-3111302112201332-0333211013230332-2022221133131223"></a>
 
-## is_primary property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 6
+## is_primary property — interface_list / 311333223303 / 6
 
 Type: `"bool"`. Computed.
 
 Configuration for is\_primary.
 
-<a id="canonical-e3e43710b39465e84cb55c855961dcf80046bff460eb899451605207052ad852"></a>
+<a id="canonical-3203321003130100-2303211012113220-1030231111302011-1121120131303320-0000101223333310-1200322320212110-1101120011020013-0011022231201102"></a>
 
-<a id="canonical-adba4c9fc3087f58dfc5c66d0cf9530c3132e7860e6bc58e3826802f816c44ea"></a>
+<a id="canonical-2231232210302133-3003002013331120-3133301130121231-0030332111030030-0301030232132012-0032122330112032-0320021220000233-2001123010103222"></a>
 
-## labels property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 7
+## labels property — interface_list / 311333223303 / 7
 
 Type: `["map", "string"]`. Computed.
 
@@ -2725,15 +2797,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [monitor](data-sources--securemesh_site_v2--reference--group-005.md#canonical-5ddf703fe5bc40836cbb04234626a21f97024ca8b26fb47ea1c894bd0fa8313d): complete subsection reference.
+- [monitor](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1131313313000333-3211233010002003-1230232300100203-1012021222020133-2113000210302220-2302123323101332-2201302021102331-0033222003010331): complete subsection reference.
 
-- [monitor_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-7043227ef39fe0fab7950c13d8e1eec407cb357a8cace441f83bc6b90fc2a7f8): complete subsection reference.
+- [monitor_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1300100302021332-3303213332003322-2313211100300103-3120320132323010-0013302303111322-2030223032101001-3320032330122321-0033300222133320): complete subsection reference.
 
-<a id="canonical-9a9a396559ed2986857cb02c2a3ba298a78966e2ddb6a2d20936b2d642e3b139"></a>
+<a id="canonical-2122212203211211-1121323102212012-2011133023000230-0222032322022120-2213202112123202-3131231222023102-0021031223023112-1002320323010321"></a>
 
-<a id="canonical-04e8b1c4688d52b2eb5f57f41f07272801bcb69a08df407fa53bb9cfc22728ed"></a>
+<a id="canonical-0010322023013010-1220203111022302-3223113311133310-0133001302130220-0001233023122122-0020313310001333-2211032323213033-3002021302203231"></a>
 
-## mtu property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 8
+## mtu property — interface_list / 311333223303 / 8
 
 Type: `"number"`. Computed.
 
@@ -2775,11 +2847,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22942ea9902a5cbdd7627689465deb56acd5e40d8bcbf9fa7b8ae601c6b506cd"></a>
+<a id="canonical-0202211002322221-2100022211302331-3113120213122021-1012113132231112-2230311132100031-2023302333213322-1323202232120001-3012231100123031"></a>
 
-<a id="canonical-f6873cdbe8b733adcc384e8956a8b7dcf5ee849cac9936d495260ba005510518"></a>
+<a id="canonical-3312201303303123-3220231303032231-3030032010322021-1112222023133130-3311323220102130-2230212103123110-2111021200232200-0011110100110120"></a>
 
-## name property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 9
+## name property — interface_list / 311333223303 / 9
 
 Type: `"string"`. Computed.
 
@@ -2834,17 +2906,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [network_option](data-sources--securemesh_site_v2--reference--group-005.md#canonical-5feadc0aab7a9599e78466cc47e4e2f6d7d508a415aad723a1f92b9b1f114587): complete subsection reference.
+- [network_option](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1133322231300022-2223132221112121-3213201012123030-1013321032023312-3113311100202210-0111222231130203-2201332102232123-0133010110112013): complete subsection reference.
 
-- [no_ipv4_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-73f0da8cba75b9e5252ab6fca046fa47316d79544fdbf28eca5dacdd10d69a56): complete subsection reference.
+- [no_ipv4_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1303330031222030-2322131123213211-0211022223123330-2200101233221013-0301123113211110-1033312333022032-3022113122303131-0100311221221112): complete subsection reference.
 
-- [no_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-6cabf27523313c6ef6b48eb3ade98a9646dfbcdc150879ff144617fea98af889): complete subsection reference.
+- [no_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1230222333021311-0203030103301232-3312231020322303-2231322120222112-1012313323303130-0111002013213333-0110101201133332-2221202233202021): complete subsection reference.
 
-<a id="canonical-662aa51b81991d33f14851a39b5fa745f9569a1c1b527a635f9a1b5de833f880"></a>
+<a id="canonical-1212022222110123-2001212101310303-3301102011012203-2123113322131011-3321111221220130-0123110213221203-1133212201231131-3220030333202000"></a>
 
-<a id="canonical-7e3f883a1d641ada6bcfc22f00112053cddc962dcf5afc86d388a11afa1a18ff"></a>
+<a id="canonical-1332033320200322-0131121001223122-1223303330020233-0000010102001103-3031313021120231-3033112233302012-3103202022010122-3322012201203333"></a>
 
-## priority property — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 10
+## priority property — interface_list / 311333223303 / 10
 
 Type: `"number"`. Computed.
 
@@ -2892,59 +2964,59 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-f6c130164366cef04494034ee60c5c5921e74e3f97f09f07979127aff4aac0a3): complete subsection reference.
+- [site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3312300103000112-1003121230323300-1010211000031032-3212003011301121-0201321310320333-2113330021330013-2113210102132233-3310222230002203): complete subsection reference.
 
-- [site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-7c750903b25966510fdcde5251090b324d52c0a9d1f9d9f04c012f7ace19033b): complete subsection reference.
+- [site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1330131100210003-2302112112121101-0033313031321102-1101002100230302-1031110230002221-3101332131213300-1030000102331322-3032012100030323): complete subsection reference.
 
-- [static_ip](data-sources--securemesh_site_v2--reference--group-005.md#canonical-96acb7525e7ac27fdf0a0517fcb4832b634a3ae91e4d0f1530adb221e3e72711): complete subsection reference.
+- [static_ip](data-sources--securemesh_site_v2--reference--group-005.md#canonical-2112223023131102-1132132230021333-3133002200110113-3330231020030223-1203102203223221-0132103100330111-0300223123020201-3203321302130101): complete subsection reference.
 
-- [static_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-6562fb6314edbbd084c0c9ad8c060494260c971567b05fe585a34808e545fcf0): complete subsection reference.
+- [static_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1211120233231203-0110323123233100-2010300030212231-2030001200102110-0212003021130111-1213230011333211-2011220310200020-3211101133303300): complete subsection reference.
 
-- [vlan_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-f2e8113760599f5c8a8e677df3947ae1e6d067f1359a39f5a252a070184b8583): complete subsection reference.
+- [vlan_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3302322001010313-1200112121331130-2022203212131331-3303211013223201-3212310012133301-0311212203213311-2202110222001300-0120102320112003): complete subsection reference.
 
-<a id="canonical-0ffc92e2225b8fdba9d88ca45f78671b06c769fe7267edcc7fd6457d0c842de3"></a>
+<a id="canonical-0033333021023202-0202112320333123-2221312020302210-1133132012130123-0012301312213332-1302121332313030-1333311210111331-0030201002313203"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list / 938ad6d7faf3 / 11
+## Next pages — interface_list / 311333223303 / 11
 
-- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120)
-- [azure.not_managed.node_list.interface_list.dhcp_client](data-sources--securemesh_site_v2--reference--group-004.md#canonical-ec2f1007869b26454342c797bebf002abcb0107f58a7ded003151f4483372c97)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [azure.not_managed.node_list.interface_list.ethernet_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-090f985a66d65a3f7bc47d22c062b2f3867a88900c4e70be4085804b9d8687e1)
-- [azure.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-004.md#canonical-f28881d424ce9e5b22535af335b73f96509f38266e92d88c0c6b16aa5d5f97f0)
-- [azure.not_managed.node_list.interface_list.monitor](data-sources--securemesh_site_v2--reference--group-005.md#canonical-5ddf703fe5bc40836cbb04234626a21f97024ca8b26fb47ea1c894bd0fa8313d)
-- [azure.not_managed.node_list.interface_list.monitor_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-7043227ef39fe0fab7950c13d8e1eec407cb357a8cace441f83bc6b90fc2a7f8)
-- [azure.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-005.md#canonical-5feadc0aab7a9599e78466cc47e4e2f6d7d508a415aad723a1f92b9b1f114587)
-- [azure.not_managed.node_list.interface_list.no_ipv4_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-73f0da8cba75b9e5252ab6fca046fa47316d79544fdbf28eca5dacdd10d69a56)
-- [azure.not_managed.node_list.interface_list.no_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-6cabf27523313c6ef6b48eb3ade98a9646dfbcdc150879ff144617fea98af889)
-- [azure.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-f6c130164366cef04494034ee60c5c5921e74e3f97f09f07979127aff4aac0a3)
-- [azure.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-7c750903b25966510fdcde5251090b324d52c0a9d1f9d9f04c012f7ace19033b)
-- [azure.not_managed.node_list.interface_list.static_ip](data-sources--securemesh_site_v2--reference--group-005.md#canonical-96acb7525e7ac27fdf0a0517fcb4832b634a3ae91e4d0f1530adb221e3e72711)
-- [azure.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-6562fb6314edbbd084c0c9ad8c060494260c971567b05fe585a34808e545fcf0)
-- [azure.not_managed.node_list.interface_list.vlan_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-f2e8113760599f5c8a8e677df3947ae1e6d067f1359a39f5a252a070184b8583)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200)
+- [azure.not_managed.node_list.interface_list.dhcp_client](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3230023301000013-2012212302121011-1003100230132113-2332233300000222-2330230001001333-1120221331323100-0003011101331010-2003031302302113)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [azure.not_managed.node_list.interface_list.ethernet_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-0021003321201122-1212311211220333-1323301013310202-3000120223023303-2012132220202100-0030103213002332-1000201120001023-2131201220133201)
+- [azure.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3302202020013110-0210303221321123-0202110311223303-0311231303332112-1100213303200212-1232210231202030-0030122301122222-1131113321133300)
+- [azure.not_managed.node_list.interface_list.monitor](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1131313313000333-3211233010002003-1230232300100203-1012021222020133-2113000210302220-2302123323101332-2201302021102331-0033222003010331)
+- [azure.not_managed.node_list.interface_list.monitor_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1300100302021332-3303213332003322-2313211100300103-3120320132323010-0013302303111322-2030223032101001-3320032330122321-0033300222133320)
+- [azure.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1133322231300022-2223132221112121-3213201012123030-1013321032023312-3113311100202210-0111222231130203-2201332102232123-0133010110112013)
+- [azure.not_managed.node_list.interface_list.no_ipv4_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1303330031222030-2322131123213211-0211022223123330-2200101233221013-0301123113211110-1033312333022032-3022113122303131-0100311221221112)
+- [azure.not_managed.node_list.interface_list.no_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1230222333021311-0203030103301232-3312231020322303-2231322120222112-1012313323303130-0111002013213333-0110101201133332-2221202233202021)
+- [azure.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3312300103000112-1003121230323300-1010211000031032-3212003011301121-0201321310320333-2113330021330013-2113210102132233-3310222230002203)
+- [azure.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1330131100210003-2302112112121101-0033313031321102-1101002100230302-1031110230002221-3101332131213300-1030000102331322-3032012100030323)
+- [azure.not_managed.node_list.interface_list.static_ip](data-sources--securemesh_site_v2--reference--group-005.md#canonical-2112223023131102-1132132230021333-3133002200110113-3330231020030223-1203102203223221-0132103100330111-0300223123020201-3203321302130101)
+- [azure.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1211120233231203-0110323123233100-2010300030212231-2030001200102110-0212003021130111-1213230011333211-2011220310200020-3211101133303300)
+- [azure.not_managed.node_list.interface_list.vlan_interface](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3302322001010313-1200112121331130-2022203212131331-3303211013223201-3212310012133301-0311212203213311-2202110222001300-0120102320112003)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120"></a>
+<a id="canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-18dbf1dc93bcef253363fee28a335d5ef50e8b258252a69703eddeb222419e93"></a>
+<a id="canonical-0120312333013130-2103233032330211-0303120333323202-2022030311311132-3311003220230211-2002110222122113-0003323131322302-0202100121322103"></a>
 
-## azure.not_managed.node_list.interface_list.bond_interface — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 2
+## Azure.not_managed.node_list.interface_list.bond_interface — bond_interface / 022223112220 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- azure.not_managed.node_list.interface_list.bond_interface
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- Azure.not_managed.node_list.interface_list.bond_interface
 
-<a id="canonical-2a147396789d6f608ddca63b1ee2e5bcdcace13bfe3bbd0cce8decaf33faa020"></a>
+<a id="canonical-0222011013032112-1320213112331200-2031313022120323-0132320232112330-3130223032010323-3332032323310030-3032203132302233-0303332222000200"></a>
 
 Type: `"single"`. Computed.
 
@@ -2968,17 +3040,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7e3821c54b14df8873be2d74d8da7e2e0dc48a2b516514a131d54f4101e1d6a0"></a>
+<a id="canonical-1332032002013011-1023011031332020-1303233202311310-3120312213320232-0031301020220223-1101121101102201-0301311110331001-0001320131122200"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 3
+## Direct properties — bond_interface / 022223112220 / 3
 
-- [active_backup](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2705aec5e7d10380fa9e206b2b6b751ab1e28f2e3ff450b052126613db5d683a): complete subsection reference.
+- [active_backup](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0213001122323011-3213310100032000-3322213202001223-0223122313110122-2301320220330232-0333331011002300-1102010212120103-3123113112200322): complete subsection reference.
 
-<a id="canonical-45c08178f02658adfd3b0f4b452c3368bc05ccdc6f534dc5d76c2d944a775d37"></a>
+<a id="canonical-1011300020011320-3300021211202231-3331032300331023-1011023003031220-2330001130303130-1233110310313011-3113123002312110-1022131311310313"></a>
 
-<a id="canonical-ff3babd61567c8e3f8ffa8ecfcbbb7afc63355a7bd8277701fcce9ccb1507630"></a>
+<a id="canonical-3333032322233112-0111121330203203-3320333322203230-3330232323132233-3012030311112213-2331200213131300-0133303032213030-2301110013120300"></a>
 
-## devices property — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 4
+## devices property — bond_interface / 022223112220 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -3026,13 +3098,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [lacp](data-sources--securemesh_site_v2--reference--group-004.md#canonical-849d387d6700ca86cc20795bfb4bfa6d8d5866e9119ac686b01158d7a232f0d7): complete subsection reference.
+- [lacp](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2010213103201331-1213000030222012-3030020013211123-3323102333221231-2031112012123221-0101212230122012-2300010111203113-2202030233003113): complete subsection reference.
 
-<a id="canonical-014ba048fd2c30fff4e84108901ddae1a249cc1dfb39c1c2e1d992497d244f1c"></a>
+<a id="canonical-0001102322001020-3331023003003333-3310322010010020-2100013131223201-2202102130300131-3323032130013002-3201312121021021-1331021010330130"></a>
 
-<a id="canonical-3e5342356016d26c5774a8f2838461b64a573a438f14c3f2b0ee0b20ab070b33"></a>
+<a id="canonical-0332110310020311-1200011231021230-1113131022203302-2003201012012312-1022111303221003-2033011030033302-2300323200230200-2223001300230303"></a>
 
-## link_polling_interval property — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 5
+## link_polling_interval property — bond_interface / 022223112220 / 5
 
 Type: `"number"`. Computed.
 
@@ -3077,11 +3149,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ca77c97c1932d0837a5681ba7b971454615db3a922d0eb81e81dea0a45044c7e"></a>
+<a id="canonical-3022131330211330-0121030231002003-1322111220012322-1323211301101110-1201113123032221-0202310032232001-3220013132220022-1011001010301332"></a>
 
-<a id="canonical-c3f75dd5b133a0f7eb045eaabd3d488b6bd34265fbb75a45895c6cbec0241e5a"></a>
+<a id="canonical-3003331311313111-2301030322003313-3223001011322222-2331033110202023-1223310310021211-3323231311221011-2021113012302332-3000021001321122"></a>
 
-## link_up_delay property — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 6
+## link_up_delay property — bond_interface / 022223112220 / 6
 
 Type: `"number"`. Computed.
 
@@ -3122,11 +3194,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-33e02a9450ddd2673e816fde9b142bab490367eb3b50015691e31fae45449f2c"></a>
+<a id="canonical-0303320002222110-1100313131021213-0332200112333132-2123011002232223-1021000312133223-0323110000011112-2101320301332232-1011101021330230"></a>
 
-<a id="canonical-169fb11b363477cf0ed4562ce09d0aaaedafaa928968643a49b38c2076c7bb20"></a>
+<a id="canonical-0112213323010123-0312031013133033-0032311011120230-3200213100222222-3231223322222102-2021122012100322-1021230320300200-1312301323230200"></a>
 
-## name property — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 7
+## name property — bond_interface / 022223112220 / 7
 
 Type: `"string"`. Computed.
 
@@ -3183,37 +3255,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8260b82f86643b7ea9059fa67301ce9835b62005c72dd37b701fca2cfab698e4"></a>
+<a id="canonical-2002120023200233-2012121003231332-2221001121332212-1303000130322120-0311231202000011-3013023131031323-1300013330220230-3322231221203210"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.bond_interface / 534af82ab5a8 / 8
+## Next pages — bond_interface / 022223112220 / 8
 
-- [azure.not_managed.node_list.interface_list.bond_interface.active_backup](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2705aec5e7d10380fa9e206b2b6b751ab1e28f2e3ff450b052126613db5d683a)
-- [azure.not_managed.node_list.interface_list.bond_interface.lacp](data-sources--securemesh_site_v2--reference--group-004.md#canonical-849d387d6700ca86cc20795bfb4bfa6d8d5866e9119ac686b01158d7a232f0d7)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.bond_interface.active_backup](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0213001122323011-3213310100032000-3322213202001223-0223122313110122-2301320220330232-0333331011002300-1102010212120103-3123113112200322)
+- [azure.not_managed.node_list.interface_list.bond_interface.lacp](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2010213103201331-1213000030222012-3030020013211123-3323102333221231-2031112012123221-0101212230122012-2300010111203113-2202030233003113)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-2705aec5e7d10380fa9e206b2b6b751ab1e28f2e3ff450b052126613db5d683a"></a>
+<a id="canonical-0213001122323011-3213310100032000-3322213202001223-0223122313110122-2301320220330232-0333331011002300-1102010212120103-3123113112200322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-491eb839dd3f526d73b07f70c981d5e960497f253bde465e68aadc0f44fcdc76"></a>
+<a id="canonical-1021013223200321-3131033311021231-1303230013331300-3021200131113221-1200102113330211-0323313210121132-1220222231300033-1010333031301312"></a>
 
-## azure.not_managed.node_list.interface_list.bond_interface.active_backup — azure.not_managed.node_list.interface_list.bond_interface.active_backup / c78c231d4528 / 2
+## Azure.not_managed.node_list.interface_list.bond_interface.active_backup — active_backup / 013110110220 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120)
-- azure.not_managed.node_list.interface_list.bond_interface.active_backup
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200)
+- Azure.not_managed.node_list.interface_list.bond_interface.active_backup
 
-<a id="canonical-191d48e54f57520df8702eb6c4ac0b0f27c5b95759ac63e6b7676eae08d07e41"></a>
+<a id="canonical-0121013110203211-1033111311020031-3320130002322312-3010223000230033-0213301123211113-1121223012033212-2313121312322232-0020310013321001"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3236,41 +3308,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d31f9416c93352d930476aa52a0a60553a269f3463aa98556f575eb2ae5b6ca7"></a>
+<a id="canonical-3103013321100112-3021030311023121-0300101312222211-0222002212001111-0322021221330310-1203222221201111-1233111311322302-2232112312302213"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.bond_interface.active_backup / c78c231d4528 / 3
+## Direct properties — active_backup / 013110110220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0f10aa15ba0ee0909b77ff142c9e9692a8373c27b52d9f506f9a7759422597c6"></a>
+<a id="canonical-0033010022220111-2322003232002100-2123131333330110-0230213221122102-2220031303300213-2311023121331100-1233212213131121-1002021121133012"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.bond_interface.active_backup / c78c231d4528 / 4
+## Next pages — active_backup / 013110110220 / 4
 
-- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-849d387d6700ca86cc20795bfb4bfa6d8d5866e9119ac686b01158d7a232f0d7"></a>
+<a id="canonical-2010213103201331-1213000030222012-3030020013211123-3323102333221231-2031112012123221-0101212230122012-2300010111203113-2202030233003113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-021aabeee68858f85d7406e6dcfa6f990777b639310a2e160e63060e5711f3f9"></a>
+<a id="canonical-0002012222233232-3212202011203320-1131131000123212-3130332212332121-0013131323120321-0301002202320112-0032120300120032-1113010133033321"></a>
 
-## azure.not_managed.node_list.interface_list.bond_interface.lacp — azure.not_managed.node_list.interface_list.bond_interface.lacp / 8a3125cf2a8c / 2
+## Azure.not_managed.node_list.interface_list.bond_interface.lacp — lacp / 303302222030 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120)
-- azure.not_managed.node_list.interface_list.bond_interface.lacp
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200)
+- Azure.not_managed.node_list.interface_list.bond_interface.lacp
 
-<a id="canonical-521f66035d1fe8360b2684214cef32b688e8be67bfe98dd9eca59801a433c044"></a>
+<a id="canonical-1102013312120003-1131013332200312-0023021220100201-1030323303022312-2020322023321213-2333322120313121-3230221121200001-2210030330001010"></a>
 
 Type: `"single"`. Computed.
 
@@ -3293,15 +3365,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7f63af2289b6d5787b4810713ddd67ee6263abeb680c62446ba33870989b1101"></a>
+<a id="canonical-1333120322330202-2021231231111320-1323102001001301-0331313112133232-1202120322233223-1220003012021010-1223220303201300-2120212301010001"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.bond_interface.lacp / 8a3125cf2a8c / 3
+## Direct properties — lacp / 303302222030 / 3
 
-<a id="canonical-2046ad353cdae0fff7a358e4b905363a4893299022c67e07a8a526120b01ed6b"></a>
+<a id="canonical-0200101222310311-0330312232003333-3313220311203210-2321001103120322-1020210302212100-0202301213320013-2220221102120102-0023000132311223"></a>
 
-<a id="canonical-f1d86761fe1361c66a43280ef46440497c8e3da645ae1c19e56c882ec9121a27"></a>
+<a id="canonical-3301312012131201-3332010312013012-1222100302200032-3310121010001021-1330203203312212-1011223201300121-3211123020200232-3021010201220213"></a>
 
-## rate property — azure.not_managed.node_list.interface_list.bond_interface.lacp / 8a3125cf2a8c / 4
+## rate property — lacp / 303302222030 / 4
 
 Type: `"number"`. Computed.
 
@@ -3340,34 +3412,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3ad390545eb16da8539b1ec7e1f2cafd4af7cd4bcad3db76b8534955798c4dcc"></a>
+<a id="canonical-0322310321001110-1132230112312220-1103212301323013-3201330230223331-1022331330311023-3022310331231312-2320110310211111-1321203010313030"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.bond_interface.lacp / 8a3125cf2a8c / 5
+## Next pages — lacp / 303302222030 / 5
 
-- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-762b7593925ee8be744996f68862e495cc84e1095de99535dcd073d1dc837120)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-004.md#canonical-1312022313112103-2102113232202332-1310102121123312-2020120232102111-3030201032010021-1131322121110311-3130310013033101-3130200313010200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-ec2f1007869b26454342c797bebf002abcb0107f58a7ded003151f4483372c97"></a>
+<a id="canonical-3230023301000013-2012212302121011-1003100230132113-2332233300000222-2330230001001333-1120221331323100-0003011101331010-2003031302302113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f66e9bf4912d88cd37eb9a65d315b008e1f7c5d399a06d17a66e44d04b0e9386"></a>
+<a id="canonical-3312123221233310-2101023120203031-0313322321221211-3103011123000020-3201331330113103-2121220012310113-2212123210103100-1023003221032012"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_client — azure.not_managed.node_list.interface_list.dhcp_client / c3d8917d074f / 2
+## Azure.not_managed.node_list.interface_list.dhcp_client — dhcp_client / 133100131033 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- azure.not_managed.node_list.interface_list.dhcp_client
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- Azure.not_managed.node_list.interface_list.dhcp_client
 
-<a id="canonical-857bcd700814400a98c8e3dd96f7b8c13c25a9d0f2ff472d9921ea73b061fd08"></a>
+<a id="canonical-2011132330311300-0020011010000022-2120302032033131-2112331323203001-0330021122213100-3302333310130231-2121020132221303-2300120133310020"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3390,40 +3462,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-40576a1d5a8f5bfc548069614433fe8322e2c5b759b74d042ac1205f9798a6b0"></a>
+<a id="canonical-1000111312220131-1122203311233330-1110200012211201-1010030333322003-0202320230112313-1121231310310010-0222300102001133-2113212022122300"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_client / c3d8917d074f / 3
+## Direct properties — dhcp_client / 133100131033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-46909fa75129cbdb1e764666d701c28c6cc535e3dfbf1d7c81582fc96ce4662f"></a>
+<a id="canonical-1012210021332213-1101022130233123-0132131210121212-3113000130022030-1230301103113203-3133233301311330-2001112002333021-1230321012120233"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_client / c3d8917d074f / 4
+## Next pages — dhcp_client / 133100131033 / 4
 
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5"></a>
+<a id="canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bdb8d29701a107915e7be91dccb13f1478be632ed9f6bed942f9dd6b8ae5edf4"></a>
+<a id="canonical-2331232031022113-0001220100132101-1132132332210131-3030230103330110-1320233212030232-3121331223323121-1002332131311223-2022321132313310"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server — azure.not_managed.node_list.interface_list.dhcp_server / 065473fc9824 / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server — dhcp_server / 333021200210 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- azure.not_managed.node_list.interface_list.dhcp_server
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- Azure.not_managed.node_list.interface_list.dhcp_server
 
-<a id="canonical-162cc1b43aee1924c434c419e08d14d8d8b440b0e8ffd0e2e36402cd16367f7e"></a>
+<a id="canonical-0112023030012310-0322323201210210-3010031030100121-3200203101103120-3120231010002300-3220333331003202-3203121000023031-0112031213331332"></a>
 
 Type: `"single"`. Computed.
 
@@ -3441,31 +3513,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-feb5868b1386e0db264c72445bb838e953f702bcfb0a009af3f403cbb6fbae85"></a>
+<a id="canonical-3332231120122023-0103201232003123-0212103013021010-1123232003203221-1103331300022330-3323002200002122-3303331000033023-2312332322322011"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server / 065473fc9824 / 3
+## Direct properties — dhcp_server / 333021200210 / 3
 
-- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-edd8b7caf8b314140ad0d097f95ab8e41bbf5d7182e0016b2d6136a4f5131b27): complete subsection reference.
+- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3231312023133022-3320230301100110-0022310031002113-3321112223203210-0123233311311301-2002320000011223-0231120103122210-3311010301230213): complete subsection reference.
 
-- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9279070dc41101cc03d9abbbbad361970df0fbaa7418a73ca5a5176c5432053e): complete subsection reference.
+- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2102132100130031-3010010100013030-0003312122232323-2322310312012113-0031330033232222-1310012022130330-2211221101131230-1110030200110332): complete subsection reference.
 
-- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3): complete subsection reference.
+- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103): complete subsection reference.
 
-<a id="canonical-0a0d7b05ea7e941253115b013e52fd126a0234d59cce8d42cf7623697a4c896e"></a>
+<a id="canonical-0022003113230011-3222133221100102-1103010111230001-0332110233310102-1222000203103111-2130303220311002-3033131202031221-1322103020211232"></a>
 
-<a id="canonical-5361a84b82fa698d0a27f29bc709b16a68b3b9d57505a62c758add66fab03eac"></a>
+<a id="canonical-1103120122201023-2002332212212031-0022021333022123-3013002123011222-1220230323213111-1311001122120230-1311202231311212-3322230003322230"></a>
 
-## dhcp_option82_tag property — azure.not_managed.node_list.interface_list.dhcp_server / 065473fc9824 / 4
+## dhcp_option82_tag property — dhcp_server / 333021200210 / 4
 
 Type: `"string"`. Computed.
 
 DHCP option 82 tag.
 
-<a id="canonical-df1f2c5ef48535430e4754e9447cff9883e3ae9222eba535a13081a4ba150c14"></a>
+<a id="canonical-3133013302301132-3310201103111003-0032101311103221-1010133033332120-2003320322322102-0202322322110311-2201030020012210-2322011100300110"></a>
 
-<a id="canonical-32fbc29a3f6f8225f21cd946a0dcec48641032ec125886fd07f4be713728b8b6"></a>
+<a id="canonical-0302332330022122-0333123320020211-3302013031211012-2200313032301020-1210010003023230-0102112020123331-0013331023321301-0313022023202312"></a>
 
-## fixed_ip_map property — azure.not_managed.node_list.interface_list.dhcp_server / 065473fc9824 / 5
+## fixed_ip_map property — dhcp_server / 333021200210 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -3496,41 +3568,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-278edb6bddc8da55cf5368a99fe34416b2ae1030d13ac81cdc586a86aa03a255): complete subsection reference.
+- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-005.md#canonical-0213203231231223-3131302031221111-3033110312202221-2133320310100112-2302223201000300-3101032230200130-3130112012222012-2222000322021111): complete subsection reference.
 
-<a id="canonical-4bc987a8f7b7cf1187da78fa6717dd874d233ddf28128874d2e7d03ce5e791e4"></a>
+<a id="canonical-1023302120132220-3313231330330101-2013312213203322-1213011331312013-1031020303313133-0220010220201310-3102321331000330-3211321321013210"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server / 065473fc9824 / 6
+## Next pages — dhcp_server / 333021200210 / 6
 
-- [azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-edd8b7caf8b314140ad0d097f95ab8e41bbf5d7182e0016b2d6136a4f5131b27)
-- [azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9279070dc41101cc03d9abbbbad361970df0fbaa7418a73ca5a5176c5432053e)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- [azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](data-sources--securemesh_site_v2--reference--group-004.md#canonical-278edb6bddc8da55cf5368a99fe34416b2ae1030d13ac81cdc586a86aa03a255)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3231312023133022-3320230301100110-0022310031002113-3321112223203210-0123233311311301-2002320000011223-0231120103122210-3311010301230213)
+- [azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2102132100130031-3010010100013030-0003312122232323-2322310312012113-0031330033232222-1310012022130330-2211221101131230-1110030200110332)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- [azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](data-sources--securemesh_site_v2--reference--group-005.md#canonical-0213203231231223-3131302031221111-3033110312202221-2133320310100112-2302223201000300-3101032230200130-3130112012222012-2222000322021111)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-edd8b7caf8b314140ad0d097f95ab8e41bbf5d7182e0016b2d6136a4f5131b27"></a>
+<a id="canonical-3231312023133022-3320230301100110-0022310031002113-3321112223203210-0123233311311301-2002320000011223-0231120103122210-3311010301230213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2935074effb89af9d15765a356200a0a1670eb686f2d86c153630db86d0d9f29"></a>
+<a id="canonical-0221031100131032-3333232021223321-3101111312112203-1112020000220022-0112130032231220-1233023120123001-1103120300312320-1231003121330221"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 3479563935ee / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — automatic_from_end / 032103113232 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- Azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end
 
-<a id="canonical-2c386d6e6bd4cecdc60f20538a9a9a0a023e030b294ecb5a289e8ee78f3d4ce5"></a>
+<a id="canonical-0230032012311232-1223311030323031-3012003302001103-2022212221220022-0002033200030023-0221103230231122-0220213220323213-2033033110303211"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3553,41 +3625,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4ad80c45bda694d76099dbbdaf4f34adf9ef2c96a73c5cdee1c96e155b54657"></a>
+<a id="canonical-2210223120003010-1123312212211031-1312002121312323-3122331033031022-3133213233023021-1222130330113031-3232013021123201-1111231110121113"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 3479563935ee / 3
+## Direct properties — automatic_from_end / 032103113232 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bc63a084414affa28ed581f2c6763e289759d9b82eabcb30b480488a97f2acfa"></a>
+<a id="canonical-2330120322002010-1001102233332202-2032311120013302-3012131203320220-2113112131212320-0232222330230300-2310200010202022-2113330222303322"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_end / 3479563935ee / 4
+## Next pages — automatic_from_end / 032103113232 / 4
 
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-9279070dc41101cc03d9abbbbad361970df0fbaa7418a73ca5a5176c5432053e"></a>
+<a id="canonical-2102132100130031-3010010100013030-0003312122232323-2322310312012113-0031330033232222-1310012022130330-2211221101131230-1110030200110332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c647067644fa7afd561235430687972b812ec1c5dcf10884f2bae4ccd533ecfa"></a>
+<a id="canonical-3012101300121312-1010332213223331-1112010203111003-0012201321130223-2001023230013011-3130330100202010-3302232232103030-3111030332303322"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 208b51f79e21 / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — automatic_from_start / 331321320201 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- Azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start
 
-<a id="canonical-dd0a3d74de53ea04670b417d1343cf34d593e37b93b253c8a760db87774509c6"></a>
+<a id="canonical-3131002203311310-3132110332220010-1213002310011331-0103100330330310-3111210332031323-2103230211033020-2213120031232013-1313101100213012"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3610,41 +3682,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-68c2b0b89ffb7a9ee68f6ebdb251985c58cb8ef80a24d2c9c710f7bd8916546b"></a>
+<a id="canonical-1220300223002320-2133332313222132-3212203312322331-2302110121201130-1120302320323320-0022021031023021-3013010033132331-2021011211101223"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 208b51f79e21 / 3
+## Direct properties — automatic_from_start / 331321320201 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-497a24cc6f129f75a2a3fce01c839b55e77644cc4897b8c7f8c4dcb605074d11"></a>
+<a id="canonical-1021132202103030-1233010221331311-2202220333303200-0130200321231111-3213131210103030-1020211323203013-3320301031302312-0011001310310101"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.automatic_from_start / 208b51f79e21 / 4
+## Next pages — automatic_from_start / 331321320201 / 4
 
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3"></a>
+<a id="canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-baa005335359de4babe68f53b741ce99045f7a027b3dc7545d76ca1a13e0501f"></a>
+<a id="canonical-2322220000110303-1103112131321023-2223321220331103-2313100130322121-0010113313220002-1323033130131110-1131131230220122-0103320011000133"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — dhcp_networks / 030332212102 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks
 
-<a id="canonical-4c4003e72de7748f0543e012a1196f159b490a391d7d5445a809aa023c1e1d72"></a>
+<a id="canonical-1030100000033213-0231321313102033-0011100332000102-2201012112330111-2123102100220321-0131133111101011-2220002122220002-0330013201311302"></a>
 
 Type: `"list"`. Computed.
 
@@ -3690,15 +3762,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4dceea4470892657ad81aa56fee63ecfe7d95bb3e9d88a9d41fc5ffd43d9a1a4"></a>
+<a id="canonical-1031303232221010-1300202102121113-2231200122221112-3332321203323033-3213312111232303-3221312020222131-1001333011333331-1003312122012210"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 3
+## Direct properties — dhcp_networks / 030332212102 / 3
 
-<a id="canonical-9538dcce8a0a297ed7a4543c9add9a24d87949061cb115501b2c451b252cc353"></a>
+<a id="canonical-2111032031303032-2022002202211332-3113221011100330-2122313121220210-3120132110210012-0130230101111100-0123023010110123-0211023030031103"></a>
 
-<a id="canonical-c159f51acc724804ec788373e44b1db97a984f0678e5da3242173abfab12cf74"></a>
+<a id="canonical-3001112133110122-3030130210200010-3230132020031303-3210102301312321-1322212010330012-1320321131220302-1002011303222333-2223010230331310"></a>
 
-## dgw_address property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 4
+## dgw_address property — dhcp_networks / 030332212102 / 4
 
 Type: `"string"`. Computed.
 
@@ -3741,11 +3813,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-57c4391fd0137cd0944c8b96d923283b95087a5cd682c1a32046ff6b917b6bb7"></a>
+<a id="canonical-1113301003210133-3100010313303100-2110103020232112-3121020302200323-2111002013221130-3112200230012203-0200101233331223-2101132312232313"></a>
 
-<a id="canonical-bcee99ab2e16bddde3dd6e9451867e804c4c318e776421f1ce90d38bf938ec61"></a>
+<a id="canonical-2330323221212223-0232011223313131-3203313112322110-1101201213322000-1030103003012032-1313121002013301-3032210031032023-3321032032301201"></a>
 
-## dns_address property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 5
+## dns_address property — dhcp_networks / 030332212102 / 5
 
 Type: `"string"`. Computed.
 
@@ -3788,15 +3860,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bf398ba71d67f6930cd5f2134e8ed9ff54e6b54b9c51bfe31d61bfa1fce9190e): complete subsection reference.
+- [first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2333032120232213-0131121333122103-0030311133020103-1032203231213333-1110321223111023-2130110123333203-0131120123332201-3330322101210032): complete subsection reference.
 
-- [last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-a33bab602483fbbd9ba1ce750187f04c7f8469831d51b6ce886ddfad8afa56c3): complete subsection reference.
+- [last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2203032322231200-0210200333232331-2123220130321311-0001201333001030-1333201012212003-0131110123123032-2020123131332231-2022332211123003): complete subsection reference.
 
-<a id="canonical-ec6794675e5034c73e401019f288112cd73d7c9abf2a3b7ed4e734038ecb39c0"></a>
+<a id="canonical-3230121321101213-1132110003103013-0332100001000121-3302202001010230-3113033113302122-2333022203231332-3110321303100003-2032302303213000"></a>
 
-<a id="canonical-35ec017d9e43a7c7dfd4a85600aa12b4ddfe24dc259a30bb330fbb57e2cf4611"></a>
+<a id="canonical-0311323000011331-2132100322133013-3133311022201112-0000222201022310-3131333202103130-0211212203002323-0303003323231113-3202303310120101"></a>
 
-## network_prefix property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 6
+## network_prefix property — dhcp_networks / 030332212102 / 6
 
 Type: `"string"`. Computed.
 
@@ -3835,11 +3907,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4b176a63761a999ee33399835404ea8ddb43e2cc944d55e2508c50969e0c1ed1"></a>
+<a id="canonical-1023011312221203-1312012221212132-3203030321212003-1110001032222031-3123100332023030-2110103111113202-1100203011002112-2132003001323101"></a>
 
-<a id="canonical-008928988bd3264ba0dec43983f27fe61e1df96b9f5c13c8eb2475149e341dea"></a>
+<a id="canonical-0000202102202120-2023310302121023-2200313230100321-2003330213333212-0132013133211223-2133113001033020-3223021013110110-2132031001313222"></a>
 
-## pool_settings property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 7
+## pool_settings property — dhcp_networks / 030332212102 / 7
 
 Type: `"string"`. Computed.
 
@@ -3875,44 +3947,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-b652ba6948599502bf1091be7bb174f9685f1f1ac6b56e105ec016be4f815564): complete subsection reference.
+- [pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2312110223221221-1020112121110002-2333010021012332-1323230113103321-1220113301330122-3012231112320100-1132300001122332-1033200111111210): complete subsection reference.
 
-- [same_as_dgw](data-sources--securemesh_site_v2--reference--group-004.md#canonical-e1a41012aaac162747b0550232352f09e654a541e9cda44f232ae5a587306e05): complete subsection reference.
+- [same_as_dgw](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3201221001000102-2222223001120213-1013230011110002-0302031102330021-3212111022111001-3221303122101033-0203022232112211-2013030012320011): complete subsection reference.
 
-<a id="canonical-3b8cf4f06016d6c66c25c75ee5e38532496901aebcb766c83fcf4183d56444df"></a>
+<a id="canonical-0323203033103300-1200011231123012-1230021130131132-3211320320110302-1021122100012232-2330231312123020-0333303310012003-3111121010103133"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks / c8691933e992 / 8
+## Next pages — dhcp_networks / 030332212102 / 8
 
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-bf398ba71d67f6930cd5f2134e8ed9ff54e6b54b9c51bfe31d61bfa1fce9190e)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-a33bab602483fbbd9ba1ce750187f04c7f8469831d51b6ce886ddfad8afa56c3)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-b652ba6948599502bf1091be7bb174f9685f1f1ac6b56e105ec016be4f815564)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-004.md#canonical-e1a41012aaac162747b0550232352f09e654a541e9cda44f232ae5a587306e05)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2333032120232213-0131121333122103-0030311133020103-1032203231213333-1110321223111023-2130110123333203-0131120123332201-3330322101210032)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2203032322231200-0210200333232331-2123220130321311-0001201333001030-1333201012212003-0131110123123032-2020123131332231-2022332211123003)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2312110223221221-1020112121110002-2333010021012332-1323230113103321-1220113301330122-3012231112320100-1132300001122332-1033200111111210)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3201221001000102-2222223001120213-1013230011110002-0302031102330021-3212111022111001-3221303122101033-0203022232112211-2013030012320011)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-bf398ba71d67f6930cd5f2134e8ed9ff54e6b54b9c51bfe31d61bfa1fce9190e"></a>
+<a id="canonical-2333032120232213-0131121333122103-0030311133020103-1032203231213333-1110321223111023-2130110123333203-0131120123332201-3330322101210032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1e30aa6c5f0a2459fb5264e20a441d0401aec3fcd72e40bbc8ad2e80df804662"></a>
+<a id="canonical-0132030022221230-1133002202101121-3323110212103202-0022101001310010-0001223230033330-3113023210002323-3020223102322000-3133200010121202"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addre / a9b96971bdc6 / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — first_address / 130123313012 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
 
-<a id="canonical-13b2a6b1428708bf42df91ea1462ce4cb0fecf953c5693967cdd2eb517add3bf"></a>
+<a id="canonical-0103230222122301-1002201300202333-1002313321013222-0110120230321030-2300333230332111-0330111221032112-1330313102322311-0113223131032333"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3935,42 +4007,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e11497fa451e7766813b5605b5791b60b1b12e7812a84329dcf0cb04152aaa14"></a>
+<a id="canonical-3201011021133322-1011013213131212-2001032311120011-2311132101231200-2301230102321320-0102222010030221-3130330030230010-0111022222220110"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addre / a9b96971bdc6 / 3
+## Direct properties — first_address / 130123313012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6d369a1afbd00371e384bb18ddb92e90f48b28cb26f7e890b19334a9c5946767"></a>
+<a id="canonical-1231031221220122-3323310000031301-3203201023230120-3131232102322100-3310202302203023-0212331332202100-2301210303102221-3011211012131213"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_addre / a9b96971bdc6 / 4
+## Next pages — first_address / 130123313012 / 4
 
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-a33bab602483fbbd9ba1ce750187f04c7f8469831d51b6ce886ddfad8afa56c3"></a>
+<a id="canonical-2203032322231200-0210200333232331-2123220130321311-0001201333001030-1333201012212003-0131110123123032-2020123131332231-2022332211123003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7634adda24480fb4a053da5e3c48ea8c1cace582a00e7eeb3bd4fe1802f8abbc"></a>
+<a id="canonical-1312031022313122-0210102000332310-2200110331221132-0330102032222030-0130223032112002-2200003213323223-0323311033320120-0002332022232330"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addres / f04e242efcec / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address — last_address / 023233303230 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
 
-<a id="canonical-a2d8feee8310512286cc8a5f31bf637f865240d6345eed1d247889533d307caf"></a>
+<a id="canonical-2202312033323232-2003010011010202-2012303020221133-0301233312031333-2012110210003112-0310113232310131-0210132020211103-0331030013302233"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3993,42 +4065,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-96129a458091e0cf6cf178a86cf290a1831819647af0b859c1e19500079e54a7"></a>
+<a id="canonical-2112010221221011-2000210132003033-1230330113202220-1230330221002201-2003012001211210-1322330023201121-3001320121110000-0013213211102213"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addres / f04e242efcec / 3
+## Direct properties — last_address / 023233303230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6581160aac1370d6ed490178fd6993960c03058cb367d7ad0c0bb0d4aad346af"></a>
+<a id="canonical-1211200101120022-2230010313003112-3231102100011320-3331122121032112-0030000300112030-2303121331132231-0030002323003110-2222310310122233"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_addres / f04e242efcec / 4
+## Next pages — last_address / 023233303230 / 4
 
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-b652ba6948599502bf1091be7bb174f9685f1f1ac6b56e105ec016be4f815564"></a>
+<a id="canonical-2312110223221221-1020112121110002-2333010021012332-1323230113103321-1220113301330122-3012231112320100-1132300001122332-1033200111111210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4909a7f2791eb95226adad571f36c271240a4c0950818703b9714e28a438889a"></a>
+<a id="canonical-1021002122133302-1321013223211102-0212223122311113-0133031230021301-0210002210300021-1100200120130003-2321130110320220-2210032020202122"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools — pools / 332012202132 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
 
-<a id="canonical-e831ec958ef6a3a4d055c812b60d286415f05fa8e78ccb29cdac55b8288543da"></a>
+<a id="canonical-3220030132302111-2032331222032210-3100111130200102-2312003102201210-0111330011332220-3213203030230221-3031223011112320-0220201110033122"></a>
 
 Type: `"list"`. Computed.
 
@@ -4069,15 +4141,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-59ebb5497974b5aba3430a41c159b51a54770f3acdcb331c93b7d79e678e72cc"></a>
+<a id="canonical-1121322323111021-1321131023112223-2203100300221001-3001112123110122-1110131300330322-3031302303030130-2103231331132132-1213203213023030"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 3
+## Direct properties — pools / 332012202132 / 3
 
-<a id="canonical-67fba329b57ccd2cc6355a5320ff973205e97bcaf145686d0761133ae81b6c67"></a>
+<a id="canonical-1213332322030221-2311133030310230-3012031111221103-0200333321130302-0011322113233022-3301101112201231-0013120101030322-3220012312301213"></a>
 
-<a id="canonical-ba64672cced124b7e58b6395b9a49f9ba74cc434d51f5377de09abc0668fc84d"></a>
+<a id="canonical-2322121012130230-3032310102102313-3211202312032111-2321221021332123-2213103030100310-3111013311031313-3132002122233000-1212203330201031"></a>
 
-## end_ip property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 4
+## end_ip property — pools / 332012202132 / 4
 
 Type: `"string"`. Computed.
 
@@ -4120,21 +4192,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ab438901de775a49346c742aebed72c3f25426d51c08839b7ebab0101316999c"></a>
+<a id="canonical-2223100320210001-3132131311221021-0310123013100222-3223323113023003-3302111002123111-0130002020032123-1332232223000100-0103011221212130"></a>
 
-<a id="canonical-ca89b5f8fe35476c82a8a204d3745bb4e7bbea75888d1942da3d932faaf2c006"></a>
+<a id="canonical-3022202123113320-3332031110131230-2002222022020010-3103131011232310-3213232332221311-2020203101211002-3122033121030233-2222330230000012"></a>
 
-## exclude property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 5
+## exclude property — pools / 332012202132 / 5
 
 Type: `"bool"`. Computed.
 
 Exclude this address range from DHCP allocation.
 
-<a id="canonical-d6728a0e166069eb755b0d59a9c294b1985047365cf3918bb9369a17009cf42d"></a>
+<a id="canonical-3112130220220032-0112120012213223-1311112300311121-2221300221102301-2120110010130312-1130330321012023-2321031221220113-0000213033100231"></a>
 
-<a id="canonical-9b2f562859c4a8f72f5d09a96de897c2491c221c88b6db16b1f735b75ee5116e"></a>
+<a id="canonical-2123023311120220-1121301022203313-0233113100212221-1231322021133002-1021013002020130-2020231231230112-2301331303112313-1132321101011232"></a>
 
-## start_ip property — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 6
+## start_ip property — pools / 332012202132 / 6
 
 Type: `"string"`. Computed.
 
@@ -4177,36 +4249,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-020e37084324e6d77e623cb71adb74ff36c87156a1dd9218f6dc22ae38ed1fa8"></a>
+<a id="canonical-0002003203130020-1003021032123113-1332120203302313-0122312313103333-0312302013011112-2201313121020120-3312313002022232-0320323101332220"></a>
 
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools / ff0e58f8689e / 7
+## Next pages — pools / 332012202132 / 7
 
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 
-<a id="canonical-e1a41012aaac162747b0550232352f09e654a541e9cda44f232ae5a587306e05"></a>
+<a id="canonical-3201221001000102-2222223001120213-1013230011110002-0302031102330021-3212111022111001-3221303122101033-0203022232112211-2013030012320011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-310214b5e039cfa170a499e3b5c160cd2a96cb501f5df65b96875e8f53335c04"></a>
+<a id="canonical-0301000201102311-3200032130332201-1300221021213203-2311300112003031-0222211230231100-0133113133121123-2112201311322033-1103030311300010"></a>
 
-## azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw / e10092a324bd / 2
+## Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw — same_as_dgw / 220302102331 / 2
 
 Breadcrumbs:
 
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0020122133011221-1213033210121110-3133203312000032-1311221201230000-2333130202300010-2132002120101312-2033013031212212-3122103003303121)
+- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2030111322112020-3332023121223220-1110001210322333-0023013121333330-0220202000203020-2233311312123232-1010221200332332-2022322000003033)
+- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2100030312311201-3121222012313110-1013011110011020-2210322003200020-3000320130023013-0111113313233202-1213221213111312-1231332213100323)
+- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-3110310023102310-3303131013221013-2030030013013300-2023033110233113-0210333201301023-0311103121013123-3031132132310012-1102212323013110)
+- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0232210202031132-1322211132030002-0100022103201131-0222123111132120-2013233002221310-1103102212100330-2003320122221002-0231220120102311)
+- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2130310120001112-3131122031013220-3003023123203301-1032012300132202-0210113203321120-1201330310201221-2010102331033112-3132031000033103)
+- Azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
 
-<a id="canonical-4e27ddc6b7b42b4f241ea400a6b6d4aecd01eeb0f7f066649932dce9a0dbeeeb"></a>
+<a id="canonical-1032021331313012-2313231002231033-0210013222100000-2212231231102232-3031000132322300-3313330012121210-2121030231303221-2200312332323223"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -4229,291 +4301,8 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fbea57a4d69e9055bdb398acd3afa943fe759db153b348194774efa87c257138"></a>
+<a id="canonical-3323322211132210-3112213221001111-2331230321202230-3103223322211003-3332131121312301-1103230310200121-1013131032332220-1330021113010320"></a>
 
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw / e10092a324bd / 3
+## Direct properties — same_as_dgw / 220302102331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-7cfbcde40389cd5430c6805ae6b2b0aafdd9c645c9d810744fe0360b824fa0fb"></a>
-
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw / e10092a324bd / 4
-
-- [azure.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-004.md#canonical-9cd18056dd68d1e8c32db8f14e1b07a2245e3e5861f34869844bd3d6de3403d3)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-278edb6bddc8da55cf5368a99fe34416b2ae1030d13ac81cdc586a86aa03a255"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d10a7c028db78975be91c80e7c505ae9f8b530dbf601249dca71ef22ed55d536"></a>
-
-## azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map — azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 7243992843de / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map
-
-<a id="canonical-1dc6568161674d01e71a9fb1c3a0f0ae1c872b694873705a59d4dbc5b22b2968"></a>
-
-Type: `"single"`. Computed.
-
-Interface IPv4 Assignments. Specify static IPv4 addresses per node.
-
-Upstream description:
-
-Specify static IPv4 addresses per node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-5472e7b326d4e744e046221b2b15c4588682812003e87b9998c4a87a1d0e32c1"></a>
-
-## Direct properties — azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 7243992843de / 3
-
-<a id="canonical-a91efc3e9b810e2a068a867d2b7c24c9a180eb5a2f8c4c352265bfdf62f43d11"></a>
-
-<a id="canonical-0487397dd451ec056883bbdb21ed5133d00d6ef95dd841af33384d7647be81a7"></a>
-
-## interface_ip_map property — azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 7243992843de / 4
-
-Type: `["map", "string"]`. Computed.
-
-Specify static IPv4 addresses per site:node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv4": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv4": "true"
-  }
-}
-```
-
-<a id="canonical-19ffb9c11da9cc36c93874baf89c2881ccbf964dc664c90789a35c20e760e3cf"></a>
-
-## Next pages — azure.not_managed.node_list.interface_list.dhcp_server.interface_ip_map / 7243992843de / 5
-
-- [azure.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-004.md#canonical-2e92235e7a95e3021029385d2a6d579887bc2a74534a643c83e1aa422da184b5)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-090f985a66d65a3f7bc47d22c062b2f3867a88900c4e70be4085804b9d8687e1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c6094261aaa3fce8e48a349eacc201bd5f5c652ceaeff7fd3b80a7c167ab2aba"></a>
-
-## azure.not_managed.node_list.interface_list.ethernet_interface — azure.not_managed.node_list.interface_list.ethernet_interface / 451de1e2a736 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- azure.not_managed.node_list.interface_list.ethernet_interface
-
-<a id="canonical-177f1bc8ce8b40d1b47032ea197a47d8bcf8127bbe65d7dd6e8b184272835bf4"></a>
-
-Type: `"single"`. Computed.
-
-Configuration parameter for ethernet interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2e27fee3229948230480c90a7246d71650c1eda34c44bf3fb5e4b1bef1ddcbe9"></a>
-
-## Direct properties — azure.not_managed.node_list.interface_list.ethernet_interface / 451de1e2a736 / 3
-
-<a id="canonical-29ab2daaf2bf0ff850c43f692e6b9ceaeef792e3e7641fed08e5b3c9fb4ec3a3"></a>
-
-<a id="canonical-3d806d9fda49ce7e62f64cad1a0f8afaa5e87139b8cf43a0e19b9101b4a89ff8"></a>
-
-## device property — azure.not_managed.node_list.interface_list.ethernet_interface / 451de1e2a736 / 4
-
-Type: `"string"`. Computed.
-
-Select an Ethernet device from the discovered interfaces to configure. Once configured, this
-interface will be part of this sites dataplane and can participate in the networking services
-configured on this site.
-
-Upstream description:
-
-Select an Ethernet device from the discovered interfaces to configure. Once configured, this
-interface will be part of this sites dataplane and can participate in the networking services
-configured on this site.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "false",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "false",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-06e2579e960c3ea59217b723a264861e4af3bc67d568f74f7192ab5f3b9bca57"></a>
-
-<a id="canonical-ebc346d966b89660545895a9bf54b94f4b1b6ec9eef9b240ebf036f4ab651eb1"></a>
-
-## mac property — azure.not_managed.node_list.interface_list.ethernet_interface / 451de1e2a736 / 5
-
-Type: `"string"`. Computed.
-
-MAC Address. Configuration parameter for mac
-
-Upstream description:
-
-Configuration parameter for mac
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "mac-address",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.mac": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.mac": "true"
-  }
-}
-```
-
-<a id="canonical-de33c16cfc6d2c76819183817df9cae08d57b3c95c5dfdfe7cdf5cf6c22e45a7"></a>
-
-## Next pages — azure.not_managed.node_list.interface_list.ethernet_interface / 451de1e2a736 / 6
-
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-
-<a id="canonical-f28881d424ce9e5b22535af335b73f96509f38266e92d88c0c6b16aa5d5f97f0"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c55c9c2416dd253bac4a53c370432de7a23d7b18a9f415d9cd271c7ed6a1daf0"></a>
-
-## azure.not_managed.node_list.interface_list.ipv6_auto_config — azure.not_managed.node_list.interface_list.ipv6_auto_config / 8626bdfbf1d0 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [azure](data-sources--securemesh_site_v2--reference--group-004.md#canonical-0869f169673e4654df8f600e75a61b00bf722c049e0984768f1cd9a6da4c3cd9)
-- [azure.not_managed](data-sources--securemesh_site_v2--reference--group-004.md#canonical-8c57a588fe2d9ae854064ebf0b1d9ffc288808c8afd766ee44a60fbe8ae800cf)
-- [azure.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-90336d61d9a86dd447154148a4e83808c0e1c2c7155f7be267a675766dfa743b)
-- [azure.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-004.md#canonical-d4d0b4b4f3747a478c3071f08b3d4bd724fe1c4b354d91dbcd79ed06529bb1d4)
-- azure.not_managed.node_list.interface_list.ipv6_auto_config
-
-<a id="canonical-dd8645020f054db18aeb01e34fa4773be1ee259c8f9ea804d6e4778434743843"></a>
-
-Type: `"single"`. Computed.
-
-IPV6AutoConfigType.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-autoconfig_choice": "[\"host\",\"router\"]"
-}
-```

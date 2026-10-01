@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_subnet landing."
 
 # xcsh_subnet landing
 
-<a id="canonical-8cbfe9ffe7960aa3ec7fb3ac468c961c045fe194bd2557431e65ef71f6ef1624"></a>
+<a id="canonical-2030233332213333-3213211200222203-3230133323032230-1012203021120130-0010113332012110-2331021111131003-0132121132331301-3312323301120210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e50d647089daadd83db09b365dcedf523d72270b23600f85d8683e19528a9394"></a>
+<a id="canonical-3211003112101300-2021312222313120-0331230021230312-1131303231331102-0331130202130023-0203120000332011-3120122003320121-1102202221032110"></a>
 
-## xcsh_subnet — xcsh_subnet / 385a57a68741 / 2
+## xcsh_subnet — xcsh_subnet / 221220131001 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an
 interface of a vm/pod. it is created in user or shared namespace. configuration.
 
-<a id="canonical-76b12b9ea1d0e6ad5329d7798342d8cf61120e29c170bdb8144d3b4cd900b9eb"></a>
+<a id="canonical-1312230102232132-2201310032122231-1103022131131321-2003100231203033-1201010200320221-3001130023312320-0110103103231030-3121000023213223"></a>
 
-## Prerequisites — xcsh_subnet / 385a57a68741 / 3
+## Prerequisites — xcsh_subnet / 221220131001 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-678020b58dc1a3358f26e6cb8ea52df5c4670b726433c6c05d3b8afa8f6dfcdf"></a>
+<a id="canonical-1213200002002311-2031300122030311-2033021232123023-2032221102313311-3010121300231302-1210030330123000-1131032320223322-2033123133303133"></a>
 
-## Minimal configuration — xcsh_subnet / 385a57a68741 / 4
+## Minimal configuration — xcsh_subnet / 221220131001 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "subnet_id" {
 }
 ```
 
-<a id="canonical-893d94f9ad83682c10898ea366216f73a6500d07b98da321d6e7d2d75b53d2fe"></a>
+<a id="canonical-2021033121103321-2231200312200230-0100202120322203-1212020112331303-2212110000310013-2321203122030201-3112321331023113-1123110331023332"></a>
 
-## Root configuration — xcsh_subnet / 385a57a68741 / 5
+## Root configuration — xcsh_subnet / 221220131001 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-22ac28d9f0c94b26a49090e077ee37154794af4f730ce2daf6ee1e23fdc75676"></a>
+<a id="canonical-0202223002203121-3300302110230212-2210210021003200-1313323203130111-1013211022331033-1303003032023122-3312323201320203-3331301311121312"></a>
 
-## Next pages — xcsh_subnet / 385a57a68741 / 6
+## Next pages — xcsh_subnet / 221220131001 / 6
 
-- [Property reference](../guides/data-sources--subnet--reference--group-001.md#canonical-526725bd256a2af8a3f5474393f882f10468685417a7ce3018001dc9419ec1e0)
-- [Examples](../guides/data-sources--subnet--examples--group-001.md#canonical-79d8e319da7c705c323908e69b3050b9dbfa8c2f97c84a0b8f524d43826ab865)
+- [Property reference](../guides/data-sources--subnet--reference--group-001.md#canonical-1102121302112331-0211122202223320-2203331110131003-2103332020023301-0010122012201110-0113221330320300-0120000001313021-1001213230013200)
+- [Examples](../guides/data-sources--subnet--examples--group-001.md#canonical-1321312032030121-3122133013001130-0302032100203212-2123030011002321-3123332220300233-2113302010220023-2033110210311003-2002122223201211)

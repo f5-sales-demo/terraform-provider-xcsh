@@ -6,437 +6,9 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
-<a id="canonical-403589b1465936cf5278dec49d1d397c14dd3c9843d842c54a686ec820135483"></a>
+<a id="canonical-2200202330032001-2201313330332121-0320032021113312-3123230123222320-2023012133220010-0312031201333211-0112200303120113-0033021210033122"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 40d6e4750c2c / 7
-
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-d7e654f0d96f665293b19ab80b310bb70cf41bd6d32068cd65ffac82fb134936)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-6f1b39b7d16fd9d8a4737bb0c4fefab43db418fb409a93d67b085aae4cc30ed1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f8491aa6b229265f9d2d8b375e01ddac79f966237cbb24cfd2369c4343ed82d7"></a>
-
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.route_direct_response — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 0bcc06f7ed60 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-d7e654f0d96f665293b19ab80b310bb70cf41bd6d32068cd65ffac82fb134936)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.route_direct_response
-
-<a id="canonical-8b2bc83f55ad339a56679b02d8c543eeda8dbb8d486370ee97ab296cd25d0030"></a>
-
-Type: `"single"`. Computed.
-
-Send this direct response in case of route match action is direct response.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-86fa2c311c158f327147ffad84755657a35dd59162c5557c017f1164aef148d8"></a>
-
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 0bcc06f7ed60 / 3
-
-<a id="canonical-c91b648d5e1a36d979a6b46b5580a9a8b1bfa373fd81dbbda2eb1e47c30e6394"></a>
-
-<a id="canonical-3a4d0b93ac1603265e38f0133b78c999b5c37c8e341efbf23984297d2505ce90"></a>
-
-## response_body_encoded property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 0bcc06f7ed60 / 4
-
-Type: `"string"`. Computed.
-
-Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML.
-
-Upstream description:
-
-Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
-Denied &lt;/p&gt;". Base64 encoded string URL for this is
-string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 65536,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 65536
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 65536,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "65536",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "65536",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-e1c4dd0e49a9ef8db8d46b81469568cb78cc3999557a9e90e25e581b2bb123b6"></a>
-
-<a id="canonical-8f7320976870556613bd7834d8fb8134799d296241751cf462b7c0e20d6b4a8d"></a>
-
-## response_code property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 0bcc06f7ed60 / 5
-
-Type: `"number"`. Computed.
-
-Response Code. Response code to send.
-
-Upstream description:
-
-Response code to send.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 599,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 100
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "100",
-    "ves.io.schema.rules.uint32.lte": "599"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "100",
-    "ves.io.schema.rules.uint32.lte": "599"
-  }
-}
-```
-
-<a id="canonical-f00e38b5461fcfc64947a2989622c45040d3baf590135e993d1339828dd61da0"></a>
-
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 0bcc06f7ed60 / 6
-
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-d7e654f0d96f665293b19ab80b310bb70cf41bd6d32068cd65ffac82fb134936)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d6055a9d1a219d8ea68d84047d11546fb1a7dd2f1bc40bbb7f344322ec6c3d31"></a>
-
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / acfa74d6b45a / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route
-
-<a id="canonical-c3ee2e582cee6ac8114ad0794e1ae099f5bce500e0a478d13012d6658b972657"></a>
-
-Type: `"single"`. Computed.
-
-Redirect route matches on path, incoming header, incoming port and/or HTTP method and redirects the
-matching traffic to a different URL.
-
-Upstream description:
-
-A redirect route matches on path, incoming header, incoming port and/or HTTP method and redirects
-the matching traffic to a different URL.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6de6ebea69efb6c4cf83bf02a7f71f1ef6ef1632e7e8fc0b971762426047b42d"></a>
-
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / acfa74d6b45a / 3
-
-- [headers](data-sources--workload--reference--group-008.md#canonical-f34272fc6cda27c84136d6665616825ac4688590dbdb8a207285c17de9b2cedc): complete subsection reference.
-
-<a id="canonical-086756341cc177edc8c768941132d0346f154c13f28e1d2fbf2f9d5d1fd327cb"></a>
-
-<a id="canonical-6b49450d55be4d3ae05bd0e24391ffb9d91ea20fb83d280292a80055d921379b"></a>
-
-## http_method property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / acfa74d6b45a / 4
-
-Type: `"string"`. Computed.
-
-\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Specifies the HTTP method
-used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`, \`HEAD\`,
-\`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
-\`ANY\`.
-
-Upstream description:
-
-Specifies the HTTP method used to access a resource.
-
-Any HTTP Method.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "ANY",
-  "enum": [
-    "ANY",
-    "GET",
-    "HEAD",
-    "POST",
-    "PUT",
-    "DELETE",
-    "CONNECT",
-    "OPTIONS",
-    "TRACE",
-    "PATCH",
-    "COPY"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [incoming_port](data-sources--workload--reference--group-008.md#canonical-23b17183d9782bc281be1775fd6fd125241fe0daa4639d0db1345d0cfe8d3cb2): complete subsection reference.
-
-- [path](data-sources--workload--reference--group-008.md#canonical-745d5c44a40fbd19b160e1d81d3bca451f90a07040f4c62c013b070ffeba186b): complete subsection reference.
-
-- [route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18): complete subsection reference.
-
-<a id="canonical-f46340cc2694c84d2917678e0eb46e4d50f58fb432235a0c172f5e6200c0a8b7"></a>
-
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / acfa74d6b45a / 5
-
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers](data-sources--workload--reference--group-008.md#canonical-f34272fc6cda27c84136d6665616825ac4688590dbdb8a207285c17de9b2cedc)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-23b17183d9782bc281be1775fd6fd125241fe0daa4639d0db1345d0cfe8d3cb2)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path](data-sources--workload--reference--group-008.md#canonical-745d5c44a40fbd19b160e1d81d3bca451f90a07040f4c62c013b070ffeba186b)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-f34272fc6cda27c84136d6665616825ac4688590dbdb8a207285c17de9b2cedc"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-b3610c9b327468180b025fbe99042c512e07f5d6bdfdf9c63256631d72a6f49c"></a>
-
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers
-
-<a id="canonical-b06fbf5e289056ef2da72cc51f891d31bb0dcd4d02be09926819ae4c3402287c"></a>
-
-Type: `"list"`. Computed.
-
-Headers. List of (key, value) headers.
-
-Upstream description:
-
-List of (key, value) headers.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minItems": 0,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-2ad3a4cdddff6b8be2921b6d185da5cd851d9f0ce70f15ab6328a1fda0d76083"></a>
-
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 3
-
-<a id="canonical-7f8c938b6951e89e2e38bf96df6039e6748f5dea6306c69fc796183775ebed74"></a>
-
-<a id="canonical-5f3c09509d368490aa06adc952be5df5110d4f773d26b328890444d126c4f52a"></a>
-
-## exact property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[presence regex\] Header value to match exactly.
-
-Upstream description:
-
-Exclusive with \[presence regex\] Header value to match exactly.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 256
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "256",
-    "ves.io.schema.rules.string.not_empty": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "256",
-    "ves.io.schema.rules.string.not_empty": "true"
-  }
-}
-```
-
-<a id="canonical-acceb1cbfd2e8001eda6b3209c77dc442efeda8ecbac209d2c2217d1be5a33e8"></a>
-
-<a id="canonical-f39a4fb8f726249c106b2ca426a1b244a11c7239dd9903887d960f9832331026"></a>
-
-## invert_match property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 5
-
-Type: `"bool"`. Computed.
-
-Invert the result of the match to detect missing header or non-matching value.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-8c5958c3e65b2bd1a67249af981c27ac6e106f44d74f5f9bba2a2531a533ad73"></a>
-
-<a id="canonical-fa3297ad315539b1e124496fec406d3f733f65dd78bb2ebf3b7a5bdcdd7d6206"></a>
-
-## name property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 6
+## name property — headers / 012220312021 / 6
 
 Type: `"string"`. Computed.
 
@@ -502,11 +74,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-15d29c1298e76c38412a2bc4c9f6dca93aa98af07af0f9cc4814c8a24e4c11a9"></a>
+<a id="canonical-3321302233231302-1302113203202010-2230033301221030-3330130003300222-3121220101021022-2030123213001033-1330101231330313-0203323232303203"></a>
 
-<a id="canonical-29c757dd019bfc5bcad6ea23c622deb33a112832727a8bd478121fe248a217d9"></a>
+<a id="canonical-2032332012021020-2011320300101111-0102013301212202-3000030031022003-0302032113121202-1332102322321211-1322113133223031-1130210031130003"></a>
 
-## presence property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 7
+## presence property — headers / 012220312021 / 7
 
 Type: `"bool"`. Computed.
 
@@ -529,11 +101,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4683150186d38be049b87a6cd4e213f5181ed4f51f3378ed40286b550ea78998"></a>
+<a id="canonical-2003201321213322-2320012223030011-0213010301123211-2201000302023123-0200000201210011-2100010023103333-1101132011202211-2002311230210310"></a>
 
-<a id="canonical-67087e234485758cb4e7c2ae102d8ba2a764e8966ada3b8f43186f4771359aef"></a>
+<a id="canonical-2032332103001332-2210301103022200-2131000322032321-1310313210220013-1023012200330232-1200103133030301-3022012000100300-2033120311112200"></a>
 
-## regex property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 8
+## regex property — headers / 012220312021 / 8
 
 Type: `"string"`. Computed.
 
@@ -580,38 +152,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-57f7bf132da03e503e755951e84b1200af5400c2302d41c0da489d709f5ec615"></a>
+<a id="canonical-0220201000111230-2201123202320032-3320200021033031-3020311201131133-3212322012200322-3111003223311333-2100233211011323-3332310123011300"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / d611735c1a34 / 9
+## Next pages — headers / 012220312021 / 9
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-23b17183d9782bc281be1775fd6fd125241fe0daa4639d0db1345d0cfe8d3cb2"></a>
+<a id="canonical-1220223331102112-3311030110330320-3312022010122030-0323002023012210-2211120031010111-3202221103032312-3113313102103213-0311102310032123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-935d484c30b5d8038225e6f1d81af1d3690cabc7bcbf7b717acb144d1805bb79"></a>
+<a id="canonical-2100230113130233-1132300111201122-1000220312230213-0233032013222010-0000000231221130-3011130013133231-0232311122023031-3301231033100130"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9d32055100a0 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port — incoming_port / 210201111232 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port
 
-<a id="canonical-ce6511af99bf8b291d311f7228a37afd4d91cc41ef72aab654e64354bd45625b"></a>
+<a id="canonical-2331302323211003-3110222303103001-2231231002023301-0210101121322323-1332121031033323-0300300301003001-2023132123231301-0310330233132011"></a>
 
 Type: `"single"`. Computed.
 
@@ -631,17 +203,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-72488afac7beea1c7c6d463045cf38e14d4c1b6e8a699d37723bf99b3b5f97ae"></a>
+<a id="canonical-2313312120321032-2311323331123010-0001111232102203-3023321301303031-3301022011122012-1013332033130020-3003130203033031-1021112310300023"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9d32055100a0 / 3
+## Direct properties — incoming_port / 210201111232 / 3
 
-- [no_port_match](data-sources--workload--reference--group-008.md#canonical-a4bfdb21e2aad4c0d58e0f18401117ebc17b5bd8f0f07401c5672d6487113bd8): complete subsection reference.
+- [no_port_match](data-sources--workload--reference--group-008.md#canonical-2001211111311033-1222220210301102-0100200031231121-1222030230303223-1013230103331323-3303013212300223-3011212010131132-1220332003033010): complete subsection reference.
 
-<a id="canonical-e0a6c5a1456cc2e77da1e313398937069aaec6cb6f9f2b6af26a3ddeac0ed5a8"></a>
+<a id="canonical-3203203021230303-2232112201331010-3202100102030130-3323131310032212-1030033022002000-0113223002303022-3133112132010013-3012202030122301"></a>
 
-<a id="canonical-5b5594b47ea07b59a982058e3d188ec551cd34c8093565cdeaaf912c0abf38c0"></a>
+<a id="canonical-0300213232031300-2201112312301101-1122220003100222-0101311201210213-2023232202030300-0210323231100111-1000031230112210-2000020030220031"></a>
 
-## port property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9d32055100a0 / 4
+## port property — incoming_port / 210201111232 / 4
 
 Type: `"number"`. Computed.
 
@@ -683,11 +255,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-08c974fcebe664467d950a55b7b6a58f030a70a86a8c8c9138b2eab416439886"></a>
+<a id="canonical-0221202323102323-2123011130303001-1223311231002001-0333022132211012-0313013003301300-3221220200130033-0012123111230133-1113012322211122"></a>
 
-<a id="canonical-7babff1a7f9bb4c0cc7158088c8be6aa2b7af8536ef373a16658a40b5d434c94"></a>
+<a id="canonical-0201131313120332-0123123121230033-1321210122023201-3213311112120020-1030031302021122-1222010120000011-1030233310331322-0310220001330020"></a>
 
-## port_ranges property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9d32055100a0 / 5
+## port_ranges property — incoming_port / 210201111232 / 5
 
 Type: `"string"`. Computed.
 
@@ -734,40 +306,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2790aab54b3cf6db8945e0b4438145af89979f20bd5f35f4d61f6f9a410cd8f"></a>
+<a id="canonical-0202010301012122-2031101323010111-3132021023013130-0300200213012310-2011300231331301-1301221033012101-2203111333133211-2121232121011103"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9d32055100a0 / 6
+## Next pages — incoming_port / 210201111232 / 6
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match](data-sources--workload--reference--group-008.md#canonical-a4bfdb21e2aad4c0d58e0f18401117ebc17b5bd8f0f07401c5672d6487113bd8)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port.no_port_match](data-sources--workload--reference--group-008.md#canonical-2001211111311033-1222220210301102-0100200031231121-1222030230303223-1013230103331323-3303013212300223-3011212010131132-1220332003033010)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-a4bfdb21e2aad4c0d58e0f18401117ebc17b5bd8f0f07401c5672d6487113bd8"></a>
+<a id="canonical-2001211111311033-1222220210301102-0100200031231121-1222030230303223-1013230103331323-3303013212300223-3011212010131132-1220332003033010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-64e5ac6691ceefff687d311ffc711e744067badffa74015318888ca5caa5be9a"></a>
+<a id="canonical-1012231321213222-1021201101100030-2011202311312131-3200011200202030-3010220102031311-0200030222030310-3133102203200301-1123133122323331"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cadc7b0eedee / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port.no_port_match — no_port_match / 201332030322 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-23b17183d9782bc281be1775fd6fd125241fe0daa4639d0db1345d0cfe8d3cb2)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-1220223331102112-3311030110330320-3312022010122030-0323002023012210-2211120031010111-3202221103032312-3113313102103213-0311102310032123)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port.no_port_match
 
-<a id="canonical-2d2ed7538458231799f438bc70f96b86273d33de6e188059ca4ec872ee735d98"></a>
+<a id="canonical-0321203022211013-3012130100111211-2323333322212111-2000231110023030-0201212033303222-0002322302013301-0032220022320033-0321101312231012"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -790,44 +362,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d76df789a17e4d9bfa04761e68dd459db3aacf49aad930159a5348c32dfc6cec"></a>
+<a id="canonical-0303310330033013-2020032231200301-1320322013201233-2013033200212122-2003130021111133-3312201103131330-2201220012021033-0303023212011003"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cadc7b0eedee / 3
+## Direct properties — no_port_match / 201332030322 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9634f68e2f2ecb0fbaa62ed24019bba6358f4644dbfd11284b3db9c0d5d3166a"></a>
+<a id="canonical-1101003102211121-2021033322203102-2123021211200032-1202201303133110-0312010301212132-2021000210020023-2022233022000213-1230320222310222"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cadc7b0eedee / 4
+## Next pages — no_port_match / 201332030322 / 4
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-23b17183d9782bc281be1775fd6fd125241fe0daa4639d0db1345d0cfe8d3cb2)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-1220223331102112-3311030110330320-3312022010122030-0323002023012210-2211120031010111-3202221103032312-3113313102103213-0311102310032123)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-745d5c44a40fbd19b160e1d81d3bca451f90a07040f4c62c013b070ffeba186b"></a>
+<a id="canonical-3112303221220112-3220200323222331-3031032321232031-3231213031300132-0222021122010321-3010200221120330-1303033103030000-0212303111301332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a4de5a735b5ed3d2eb05f6506fc0afc5d811aa787fc1a91021fb044a1d18b52d"></a>
+<a id="canonical-1223212303213202-3100223103230323-0010122313012200-2332230132032330-0321020203020303-0110211201210210-3212031221230200-3003230122231331"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.path — path / 131100300230 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.path
 
-<a id="canonical-ba1f0dac27e6138b7e0629f604ab5e76b10ba7069d27fff23a78d828f60f1fb5"></a>
+<a id="canonical-2311031322232310-0210033330301313-0102302212022230-3133022323013033-3213002110010302-0003333320222330-2210320001131120-0011321133132101"></a>
 
 Type: `"single"`. Computed.
 
@@ -847,15 +419,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c741c159ab183cec256d98d04c0d8e6765c98bec42838fff4dac94bee7ce70c0"></a>
+<a id="canonical-0231131202120002-0133130321231203-3312121020101012-0100121233000123-1102000132313121-2110231000110103-2002112330133000-3220223313212222"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 3
+## Direct properties — path / 131100300230 / 3
 
-<a id="canonical-fc6a9b946c4d0bcd386201fd9c5a395d4790ceebaf9e77eae81f3729e9ea5d3d"></a>
+<a id="canonical-1313303201332102-0213230133121101-0132300023031223-3231120230013212-3230122131303203-3312320002103133-3111111211320312-0312223130000331"></a>
 
-<a id="canonical-0e38a6c74c068a0659a2363dd48367eaf43b074f90b4f8be51ab678b51fdbb84"></a>
+<a id="canonical-2102232121013100-2330211200103201-2021330013220322-1322330311220221-0303222102221203-2323332100122120-1201321100310333-0220200110203021"></a>
 
-## path property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 4
+## path property — path / 131100300230 / 4
 
 Type: `"string"`. Computed.
 
@@ -900,11 +472,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dec4c84b865d0f9827ed0cee7653486cf4c834c173fd10829a0f3c7ed9331530"></a>
+<a id="canonical-2303013023110032-2102232010231123-0012130123032310-1301312013203130-1322112100003100-3203323113223311-3011000300030220-2320230202103220"></a>
 
-<a id="canonical-1577c3011b1a837ded6da677382ec9c9f6411da0a205eb0eb8536bfe86526a9d"></a>
+<a id="canonical-1302213303222121-2223200303101033-0300320333020200-3131110310030003-2311003302100301-0213210100320221-2003211023101101-2120102231311103"></a>
 
-## prefix property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 5
+## prefix property — path / 131100300230 / 5
 
 Type: `"string"`. Computed.
 
@@ -947,11 +519,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e105736d950db001b6b79e6643116f0ba417501e2a4080b3429c6d55511c27d6"></a>
+<a id="canonical-2303201322102013-1032122223001310-0300032030013230-2302323030133102-2102100210221032-2010332220111201-0332133212021222-3130323213312322"></a>
 
-<a id="canonical-cf4c18f4f3671da2a2994f2a88041a8c7a1217ae64188cae7a38a0f1f8a2c981"></a>
+<a id="canonical-2101023332213212-0011100300222211-3101222101321323-3131320302112131-3210323111031232-3102202333013200-3231321031123200-2202131331030011"></a>
 
-## regex property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 6
+## regex property — path / 131100300230 / 6
 
 Type: `"string"`. Computed.
 
@@ -1004,38 +576,1036 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-569379bbdaf647572ede4e8813a649230b751a00b7abd654d5499788683514e9"></a>
+<a id="canonical-1000031120212301-1012112103123033-1102132031323010-2131013103211330-0110313103302120-1003312010023011-1022122012323020-0200010311102003"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c3e6a2922da2 / 7
+## Next pages — path / 131100300230 / 7
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18"></a>
+<a id="canonical-1233012303212313-3101123331213120-2210130313232300-3010333233222310-0331231001203323-1000212221033112-1323002011222232-1030300300323101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bdf29537b51304e8873579beab61f65570cbdd8ae068d51c0ea250dcd0d5e9d5"></a>
+<a id="canonical-3320102101222212-2302022102121133-2131023120230313-1132000131312230-1321332112120203-1330232302103033-3102031221301003-1003323120023113"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.route_direct_response — route_direct_response / 331332311200 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route.route_direct_response
+
+<a id="canonical-2023022330200333-1111223103032122-1112121321230002-3120301110033232-3122203123232031-1020120313003232-2113222302211230-3102113100000300"></a>
+
+Type: `"single"`. Computed.
+
+Send this direct response in case of route match action is direct response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2012332202300301-0130011120330302-1301101333332231-2010131111121113-2203113131112101-1202301111111330-0001133301011210-2232330110203120"></a>
+
+## Direct properties — route_direct_response / 331332311200 / 3
+
+<a id="canonical-3021012312102031-1132012203123121-1321221223101223-1111200022212220-2301233322031303-3331200131232331-2202322301321013-3003003212032110"></a>
+
+<a id="canonical-0322103100232103-2230011200030212-1132032033000103-0323132030212121-2311300313302032-0310013233233302-0321201002211331-0211001130322100"></a>
+
+## response_body_encoded property — route_direct_response / 331332311200 / 4
+
+Type: `"string"`. Computed.
+
+Response body to send. Currently supported URL schemes is string:/// for which message should be
+encoded in Base64 format. The message can be either plain text or HTML.
+
+Upstream description:
+
+Response body to send. Currently supported URL schemes is string:/// for which message should be
+encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
+Denied &lt;/p&gt;". Base64 encoded string URL for this is
+string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 65536,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 65536
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 65536,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-3201301031310032-1021222132332031-2320311012232001-1012211112203023-1320303003212121-1111132221322100-3202113211200123-0223230102032312"></a>
+
+<a id="canonical-2033130302002113-1220130011111212-0103233113200310-3120332320010310-1321213102211202-1001131101303310-1202231330003202-0031122310222031"></a>
+
+## response_code property — route_direct_response / 331332311200 / 5
+
+Type: `"number"`. Computed.
+
+Response Code. Response code to send.
+
+Upstream description:
+
+Response code to send.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 599,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 100
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "100",
+    "ves.io.schema.rules.uint32.lte": "599"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "100",
+    "ves.io.schema.rules.uint32.lte": "599"
+  }
+}
+```
+
+<a id="canonical-3300003203202311-1012013330333012-1021101322022120-2112020230101100-1000310323223311-2100010311322121-0331010303212002-2031311201312200"></a>
+
+## Next pages — route_direct_response / 331332311200 / 6
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.direct_response_route](data-sources--workload--reference--group-007.md#canonical-3113321211103300-3121123312121102-2103230121222320-0023030100232313-0030331001233112-3103020012203031-1211333322302002-3323010310210312)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3112001111222131-0122020121312032-2212203120100010-1331010111101233-2301221331310233-0123301000232323-1333031010030202-3230123003310301"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route — redirect_route / 311223101122 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route
+
+<a id="canonical-3003323202321120-0230323212223020-0101102231001321-1032012232002121-3311233032110000-3200221013203101-0300010231121211-2023211302121113"></a>
+
+Type: `"single"`. Computed.
+
+Redirect route matches on path, incoming header, incoming port and/or HTTP method and redirects the
+matching traffic to a different URL.
+
+Upstream description:
+
+A redirect route matches on path, incoming header, incoming port and/or HTTP method and redirects
+the matching traffic to a different URL.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1231321232233222-1221323323123010-3033200323330002-2213331301330132-3312323301120302-3213322033300023-2113011312021002-1200101323100231"></a>
+
+## Direct properties — redirect_route / 311223101122 / 3
+
+- [headers](data-sources--workload--reference--group-008.md#canonical-3303100213023330-1230312202133020-1001031231121212-1112011220021122-3010122020112100-3123312320220200-1302201130011331-3221230230323130): complete subsection reference.
+
+<a id="canonical-0020121311120310-0130300113133231-3020301312202110-0101030231000310-1233011110300103-3302203201310233-2333023321311131-0133310302133023"></a>
+
+<a id="canonical-1223102110110031-1111233210310322-3200112331003202-1003210133332321-3121013222020033-2320033102200002-2102222000001111-3121020103132123"></a>
+
+## http_method property — redirect_route / 311223101122 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Specifies the HTTP method
+used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`, \`HEAD\`,
+\`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
+\`ANY\`.
+
+Upstream description:
+
+Specifies the HTTP method used to access a resource.
+
+Any HTTP Method.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "ANY",
+  "enum": [
+    "ANY",
+    "GET",
+    "HEAD",
+    "POST",
+    "PUT",
+    "DELETE",
+    "CONNECT",
+    "OPTIONS",
+    "TRACE",
+    "PATCH",
+    "COPY"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [incoming_port](data-sources--workload--reference--group-008.md#canonical-0203230113012003-3121132002233002-2001233201131311-3331123331010211-0210013332003122-2210120321310031-2301031011310030-3332203103302302): complete subsection reference.
+
+- [path](data-sources--workload--reference--group-008.md#canonical-1310113111301010-2210003323310121-2301120032013120-0131032330221011-0133210022001300-1000331030120230-0001032300130033-3332232201201223): complete subsection reference.
+
+- [route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120): complete subsection reference.
+
+<a id="canonical-3310120310003030-0212211030201031-0221011312132032-0032231012321031-1100331120332310-0302020311220030-0113023311321202-0000300022202313"></a>
+
+## Next pages — redirect_route / 311223101122 / 5
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers](data-sources--workload--reference--group-008.md#canonical-3303100213023330-1230312202133020-1001031231121212-1112011220021122-3010122020112100-3123312320220200-1302201130011331-3221230230323130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-0203230113012003-3121132002233002-2001233201131311-3331123331010211-0210013332003122-2210120321310031-2301031011310030-3332203103302302)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path](data-sources--workload--reference--group-008.md#canonical-1310113111301010-2210003323310121-2301120032013120-0131032330221011-0133210022001300-1000331030120230-0001032300130033-3332232201201223)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-3303100213023330-1230312202133020-1001031231121212-1112011220021122-3010122020112100-3123312320220200-1302201130011331-3221230230323130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2303120100302123-0302131012200120-0023000211332332-2121001002301101-0232001333113112-2331333133213012-0302111212030131-1302221233102130"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers — headers / 113001220310 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.headers
+
+<a id="canonical-2300123323331132-0220210011123233-0231221302303011-0133202101310301-2323003130311031-0002233200212102-1220012122321030-0310000202201330"></a>
+
+Type: `"list"`. Computed.
+
+Headers. List of (key, value) headers.
+
+Upstream description:
+
+List of (key, value) headers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 0,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0222310322103031-3131333312232023-3202210201231231-0120113122113031-2011013121330030-3213003301112223-1203022022013331-2200311312002003"></a>
+
+## Direct properties — headers / 113001220310 / 3
+
+<a id="canonical-1333203021032023-1221110132202132-0232032023332112-3133120003213212-1310203311313222-1203001230122133-3013211201200313-1311322332311310"></a>
+
+<a id="canonical-1133033000211100-2131031220102100-2222001222313021-1102233211313311-0101003110331313-0331021223030220-2021001010103101-0212301033110222"></a>
+
+## exact property — headers / 113001220310 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[presence regex\] Header value to match exactly.
+
+Upstream description:
+
+Exclusive with \[presence regex\] Header value to match exactly.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.not_empty": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.not_empty": "true"
+  }
+}
+```
+
+<a id="canonical-2230303223013023-3331023220000001-3231221223030200-2130131331301010-0232333231222032-3023223002002131-0230020201133101-2332112203033220"></a>
+
+<a id="canonical-3303212210332320-3313021202102130-0100122302302210-0212220123021010-2201013013020321-3131212100032020-1331211200332120-0302030301000212"></a>
+
+## invert_match property — headers / 113001220310 / 5
+
+Type: `"bool"`. Computed.
+
+Invert the result of the match to detect missing header or non-matching value.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2030112111203003-3212112302233101-2212130210212233-2120013002132230-1232010012331010-3113103311332123-2322022202110301-2211030322311303"></a>
+
+<a id="canonical-3322030221132231-0301111103212301-3201021010211233-3230100012310333-1303033312113131-1320232302322333-0323132211233130-3131133112020012"></a>
+
+## name property — headers / 113001220310 / 6
+
+Type: `"string"`. Computed.
+
+Name. Name of the header.
+
+Upstream description:
+
+Name of the header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.http_header_field": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.http_header_field": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-0111310221300102-2120321312300320-1001022202233010-3021331231302221-0322222120223300-1322330033213030-1020011030202202-1032103001012221"></a>
+
+<a id="canonical-0221301311133131-0001212333301123-3022311232220203-3012020231322303-0322010102200302-1302132220233110-1320010201333202-1020220201133121"></a>
+
+## presence property — headers / 113001220310 / 7
+
+Type: `"bool"`. Computed.
+
+Exclusive with \[exact regex\] If true, check for presence of header.
+
+Upstream description:
+
+Exclusive with \[exact regex\] If true, check for presence of header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012200301110001-2012310320233200-1021232013221230-3110320201033311-0120013231103311-0133030313203231-1000022012231111-0032221320212120"></a>
+
+<a id="canonical-1213002013320203-1010201113112030-2310321330022232-0100023120232202-2213121032202112-1222312203232033-1003012012331013-1301031121223233"></a>
+
+## regex property — headers / 113001220310 / 8
+
+Type: `"string"`. Computed.
+
+Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+
+Upstream description:
+
+Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-1113331323330103-0231220003321100-0332131111211101-3220102301020000-2233111000003002-0300023110013000-3122102021311300-2133113230120111"></a>
+
+## Next pages — headers / 113001220310 / 9
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-0203230113012003-3121132002233002-2001233201131311-3331123331010211-0210013332003122-2210120321310031-2301031011310030-3332203103302302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2103113110201030-0300231131200003-2002021132123301-3120012233013103-1221003022233013-2330233313231301-1322302301101031-0120001123231321"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port — incoming_port / 110100002200 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port
+
+<a id="canonical-3032121101012233-2121233320230221-0131030101331302-0220220313223331-1031210130301001-3233130222222312-1110321210031110-2331101112021123"></a>
+
+Type: `"single"`. Computed.
+
+Port match of the request can be a range or a specific port.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-port_match": "[\"no_port_match\",\"port\",\"port_ranges\"]"
+}
+```
+
+<a id="canonical-1302102020223322-3013233232220130-1330123110120300-1011303303203201-1031103001231232-2022122121310313-1302032333212123-0323113321132232"></a>
+
+## Direct properties — incoming_port / 110100002200 / 3
+
+- [no_port_match](data-sources--workload--reference--group-008.md#canonical-2210233331230201-3202222231103000-3111203200330120-1000010101133223-3001132311233120-3300330013100001-3011121302311210-2013010103233120): complete subsection reference.
+
+<a id="canonical-3200221230112201-1011123030023213-1331220132030103-0321202103130012-2122223230123023-1233213302231222-3302122203313132-2230003231112220"></a>
+
+<a id="canonical-1123111121102310-1332220013231121-2221200200112032-0331012020323011-1101303103103020-0021031112113031-3222223321010230-0022233303203000"></a>
+
+## port property — incoming_port / 110100002200 / 4
+
+Type: `"number"`. Computed.
+
+Exclusive with \[no\_port\_match port\_ranges\] Exact Port to match.
+
+Upstream description:
+
+Exclusive with \[no\_port\_match port\_ranges\] Exact Port to match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-0020302113103330-3223321212101012-1331211100221111-2313231222112033-0003002213002220-1222203020302101-0320230232222310-0112100321202012"></a>
+
+<a id="canonical-1323222333330122-1333212323103000-3030130111200020-2030202332122222-0223132233201103-1232330313032201-1212112022100023-1131100310302110"></a>
+
+## port_ranges property — incoming_port / 110100002200 / 5
+
+Type: `"string"`. Computed.
+
+Exclusive with \[no\_port\_match port\] Port range to match.
+
+Upstream description:
+
+Exclusive with \[no\_port\_match port\] Port range to match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 32,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "32",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "32",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range": "true"
+  }
+}
+```
+
+<a id="canonical-3302132100222223-1110230330331231-2320211011320023-1010032001101122-3320212113213302-0023311133031133-1031120133123321-2210010030312033"></a>
+
+## Next pages — incoming_port / 110100002200 / 6
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match](data-sources--workload--reference--group-008.md#canonical-2210233331230201-3202222231103000-3111203200330120-1000010101133223-3001132311233120-3300330013100001-3011121302311210-2013010103233120)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-2210233331230201-3202222231103000-3111203200330120-1000010101133223-3001132311233120-3300330013100001-3011121302311210-2013010103233120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1210321122301212-2101303232333333-1220133103010133-3330130101321310-1000121323223133-3322131000011103-0120202020302211-3022221123322122"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match — no_port_match / 003232313232 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-0203230113012003-3121132002233002-2001233201131311-3331123331010211-0210013332003122-2210120321310031-2301031011310030-3332203103302302)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port.no_port_match
+
+<a id="canonical-0231023231131103-2010112002030113-2121331003202330-1300332112232012-0213033103033132-1232012020001121-3022103230201302-3232130311312120"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3113123133132021-2201133210312123-3322001013120132-1220313110112131-2303222230331021-2222312103000111-2122110310203003-0231333012303230"></a>
+
+## Direct properties — no_port_match / 003232313232 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2112031033122032-0233023230230033-2322221202323102-1000012123232212-0311203310121010-3123333101010220-1023033123213000-3111310301121222"></a>
+
+## Next pages — no_port_match / 003232313232 / 4
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.incoming_port](data-sources--workload--reference--group-008.md#canonical-0203230113012003-3121132002233002-2001233201131311-3331123331010211-0210013332003122-2210120321310031-2301031011310030-3332203103302302)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-1310113111301010-2210003323310121-2301120032013120-0131032330221011-0133210022001300-1000331030120230-0001032300130033-3332232201201223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2210313211221303-1123113231033102-3223001133121100-1233300022333011-3120010122221320-1333300122210100-0201332300101022-0131012023110231"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path — path / 210202312202 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.path
+
+<a id="canonical-2322013300312230-0213321201032023-1332001202213312-0010222311321312-2301002322130012-2131021333333302-0322132031200220-3312003301332311"></a>
+
+Type: `"single"`. Computed.
+
+Path match of the URI can be either be, Prefix match or exact match or regular expression match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-path_match": "[\"path\",\"prefix\",\"regex\"]"
+}
+```
+
+<a id="canonical-3013100130011121-2223012003303230-0211123121203100-1030003120321213-1211302120233230-1002200320333333-1031223021102332-3213303213003000"></a>
+
+## Direct properties — path / 210202312202 / 3
+
+<a id="canonical-3330122221232110-1230103100233031-0320120200013331-2130112203211131-1013210030323223-2233213213133222-3220013303130221-3221322211310331"></a>
+
+<a id="canonical-0032032022123013-1030001220220012-1121220203120331-3110200312133222-3310032300131033-2100231033202332-1101222312132023-1101333123232010"></a>
+
+## path property — path / 210202312202 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Upstream description:
+
+Exclusive with \[prefix regex\] Exact path value to match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[/a-zA-Z0-9._-]+$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3132301030201023-2012113100332120-0213323100303232-1312110310201230-3310302003103001-1303333101002002-2122003303301332-3121030301110300"></a>
+
+<a id="canonical-0111131330030001-0123012220031331-3231123122121313-0320023230213021-3312100101312200-2202001132230032-2320110312233332-2012110212222131"></a>
+
+## prefix property — path / 210202312202 / 5
+
+Type: `"string"`. Computed.
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Upstream description:
+
+Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-3201001113031231-2111003123000001-2312231321321212-1003010112330023-2210011311000132-0222100020002303-1002213012311111-1101013002133112"></a>
+
+<a id="canonical-3033103001203310-3303121301312202-2202212110330222-2020001001222030-1322010201132232-1210012020302232-1322032022003301-3320220230212001"></a>
+
+## regex property — path / 210202312202 / 6
+
+Type: `"string"`. Computed.
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths).
+
+Upstream description:
+
+Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
+all paths)
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-1112210313212323-3122331210131113-0232313210322020-0103221210210203-0023131101220000-2313222331121110-3111102121132020-1220031101103221"></a>
+
+## Next pages — path / 210202312202 / 7
+
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
+<a id="canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2331330221110313-2311010300103220-2013031113212332-2223120133121111-1300302331312022-3200122031110130-0032220211003130-3100311132213111"></a>
+
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect — route_redirect / 122303312330 / 2
+
+Breadcrumbs:
+
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect
 
-<a id="canonical-b1ef1d77bdb7238cb05acad24b55ebe50518e3c4a2fd567cb7086a246ef1c731"></a>
+<a id="canonical-2301323301311313-2331231302032030-2300112230223102-1023111132233211-0011012032033010-2202333111121330-2313002012220210-1232330130130301"></a>
 
 Type: `"single"`. Computed.
 
@@ -1056,15 +1626,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-92e645cd950498c2988170d831b46bb83d683d34d259e3a5f942042554f563cd"></a>
+<a id="canonical-2102321210113031-2111001021203002-2120200113003120-0301231012232320-0331122003310310-3102112132032211-3321100200100211-1110331112033031"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 3
+## Direct properties — route_redirect / 122303312330 / 3
 
-<a id="canonical-87db6b85607a3f816a9360af707a9e372a83fab9bf376f270f887458916f6614"></a>
+<a id="canonical-2013312312232011-1200132203332001-1222210312002233-1300132221320313-0222200333222321-2333031312330213-0033202013101120-2101123312120110"></a>
 
-<a id="canonical-ed7bd4737a7e33d8d162039a4599457f998404bafc93bdc3650286c6a4351230"></a>
+<a id="canonical-3231132331101303-1322133203033120-3101120200032122-1011212110111333-2121201000102322-3330210323313003-1211000220123012-2210031101020300"></a>
 
-## host_redirect property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 4
+## host_redirect property — route_redirect / 122303312330 / 4
 
 Type: `"string"`. Computed.
 
@@ -1093,11 +1663,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ddaf4c1c8bf08d33ee5acca69bdf2c270b08aae3a3adaa1a583f0147bb37869c"></a>
+<a id="canonical-3131223310300130-2023330020310303-3232112230302212-2123313302300213-0023002022223203-2203223122220122-1120033300011013-2323031320122130"></a>
 
-<a id="canonical-54998d45a6ce7d96c3756df9342b51ce839b992aee390baf8d4daf66f923d14d"></a>
+<a id="canonical-1110212120311011-2212303213312112-3003131112313321-0310022311013032-2003212321210222-3232032100232233-2031103122331212-3321020331011031"></a>
 
-## path_redirect property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 5
+## path_redirect property — route_redirect / 122303312330 / 5
 
 Type: `"string"`. Computed.
 
@@ -1140,11 +1710,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c1db08c0657d5bee29c22a9bb15ff5630d00359e5e6f06f94ce554d26ec72dd0"></a>
+<a id="canonical-3001312300203000-1211133111233232-0221300202222123-2301113333111203-0031000003112132-1132123300123321-1030321111103102-1232301302313100"></a>
 
-<a id="canonical-15d5a606653c4aa80b11b75b40c346b93bde0246a48cd180e2518a18b11c3fe5"></a>
+<a id="canonical-0111311122120012-1211033010222220-0023010123131123-1000300310122321-0323313200021012-2210203031012000-3202110120220120-2301013003333211"></a>
 
-## prefix_rewrite property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 6
+## prefix_rewrite property — route_redirect / 122303312330 / 6
 
 Type: `"string"`. Computed.
 
@@ -1191,11 +1761,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-216d0523a757a5f4dc0921f7c3f20a9a0783f411140a806ee81d5e4f47007ca3"></a>
+<a id="canonical-0201123100110203-2213111322113310-3130002102013313-3003330200222122-0013200333100101-0110002220001232-3220013111321033-1013000013302203"></a>
 
-<a id="canonical-f13d87d3aac86198644d6b00831a782ace8bc28adc68980f42572c7985216d01"></a>
+<a id="canonical-3301033120133103-2222302012012120-1210103112230000-2003012213200222-3032202330022022-3130122021200033-1002111302301321-2011020112310001"></a>
 
-## proto_redirect property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 7
+## proto_redirect property — route_redirect / 122303312330 / 7
 
 Type: `"string"`. Computed.
 
@@ -1242,13 +1812,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [remove_all_params](data-sources--workload--reference--group-008.md#canonical-6dae1914b0d869e395968d41d5b5fc7edb6f27739cd7447b6aa3ca6512fae3b1): complete subsection reference.
+- [remove_all_params](data-sources--workload--reference--group-008.md#canonical-1231223201210110-2300312012213203-2111211220311001-3111231133301332-3123123302131303-2130311310101323-1222220330221211-0102332232032301): complete subsection reference.
 
-<a id="canonical-6738e02d4fbd2d0380a2f7dc5442cd7ab71e51009e06533b9ae2325727c8a26a"></a>
+<a id="canonical-1213032032000231-1033233102310003-2000220233133130-1110100230311322-2313013211010000-2132001211030323-2122320203021113-0213302022021222"></a>
 
-<a id="canonical-71cd6c727c042d80ae8eeb8761bb86d913107d2d833ecca960f75131d2ce8fa5"></a>
+<a id="canonical-1301303112301302-1330001002312000-2232203232232013-1201232320123121-0103010013310231-2003033230302221-1200331311010301-3102303220332211"></a>
 
-## replace_params property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 8
+## replace_params property — route_redirect / 122303312330 / 8
 
 Type: `"string"`. Computed.
 
@@ -1293,11 +1863,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-69cb673ab6352ee905a95b8654e164787f4ebff81af4ee27287a3dc68ea27a45"></a>
+<a id="canonical-1221302312130322-2312031102323221-0011222111232012-1110320112101320-1333103223333320-0122331032320213-0220132203313012-2032220213221011"></a>
 
-<a id="canonical-2b6ed3368bc83cce93a2bbf645f47df4501f79cf91724881603e65f9796023b6"></a>
+<a id="canonical-0223123231030312-2023302003303032-2103220223233312-1011331013313310-1100013313213033-2101130210202001-1200033212113321-1321120002032312"></a>
 
-## response_code property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 9
+## response_code property — route_redirect / 122303312330 / 9
 
 Type: `"number"`. Computed.
 
@@ -1333,43 +1903,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [retain_all_params](data-sources--workload--reference--group-008.md#canonical-873e44ea780363304c858b0b6153feccfbd36c3e6588b57c66e33e8c9e29104c): complete subsection reference.
+- [retain_all_params](data-sources--workload--reference--group-008.md#canonical-2013033210103222-1320000312030300-1030201120230023-1201110333323030-3323310312300332-1211202023111330-1212320303322030-2132022101001030): complete subsection reference.
 
-<a id="canonical-3a5e8cd612f1334bf54e54d803f2b68d8b8ba139746451a904cdc0be9a707798"></a>
+<a id="canonical-0322113220303112-0102330103031023-3311103211103120-0003330223122031-2023202322010321-1310121011012221-0010303130002332-2122130013132120"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / c10e9c6b3dbc / 10
+## Next pages — route_redirect / 122303312330 / 10
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params](data-sources--workload--reference--group-008.md#canonical-6dae1914b0d869e395968d41d5b5fc7edb6f27739cd7447b6aa3ca6512fae3b1)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params](data-sources--workload--reference--group-008.md#canonical-873e44ea780363304c858b0b6153feccfbd36c3e6588b57c66e33e8c9e29104c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params](data-sources--workload--reference--group-008.md#canonical-1231223201210110-2300312012213203-2111211220311001-3111231133301332-3123123302131303-2130311310101323-1222220330221211-0102332232032301)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params](data-sources--workload--reference--group-008.md#canonical-2013033210103222-1320000312030300-1030201120230023-1201110333323030-3323310312300332-1211202023111330-1212320303322030-2132022101001030)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-6dae1914b0d869e395968d41d5b5fc7edb6f27739cd7447b6aa3ca6512fae3b1"></a>
+<a id="canonical-1231223201210110-2300312012213203-2111211220311001-3111231133301332-3123123302131303-2130311310101323-1222220330221211-0102332232032301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8e081fd57f5187555fac247b8a65a024b5d98f7c6bb66a3129199f5135baa62d"></a>
+<a id="canonical-2032002001333111-1333110120131111-1133223002101323-2022121122000210-2311312120331330-1223231212220301-0221012121331101-0311232222120231"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / b63a5a293dbf / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params — remove_all_params / 022103312333 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.remove_all_params
 
-<a id="canonical-4e40b32f07183333f246c17bcd17cdb7fb0abbaa7dac37557b5ff1ee789ce834"></a>
+<a id="canonical-1032100023030233-0013012003030303-3302101230011323-3031011330312313-3323002223232222-1331223003131111-1323113333013232-1320213032200310"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1392,45 +1962,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-09f70d0a9c8fed36d16016ad426d03712af9c45e92dcabbbea405fc89e351700"></a>
+<a id="canonical-0021331300310022-2130203332310312-3101120001122231-1002123100031301-0222332130101132-2102313022232323-3222100011333020-2132031101130000"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / b63a5a293dbf / 3
+## Direct properties — remove_all_params / 022103312333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e5edb0bf386dfd87936118e0025c9c72d0d533640e35f06dc42d1dea49e31f30"></a>
+<a id="canonical-3211323123002333-0320123133312013-2103120101203200-0002113021301302-3100311103031210-0032031133001231-3010023101313222-1021320301330300"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / b63a5a293dbf / 4
+## Next pages — remove_all_params / 022103312333 / 4
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-873e44ea780363304c858b0b6153feccfbd36c3e6588b57c66e33e8c9e29104c"></a>
+<a id="canonical-2013033210103222-1320000312030300-1030201120230023-1201110333323030-3323310312300332-1211202023111330-1212320303322030-2132022101001030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-95672a4b958e12d132717b63df00d2000b8b80655ef15489cfce9fdff8055d36"></a>
+<a id="canonical-2111121302221023-2111203201023101-0302130113231203-3133000031020000-0023202320001211-1132330111102021-3033303221333133-3320001111310312"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 51512bab0dd3 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params — retain_all_params / 222300313103 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-610b06066040c7fc9f728e970640a9895280a77086b1fc0104d83cf4cea3741e)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route](data-sources--workload--reference--group-008.md#canonical-1201002300120012-1200100030133330-2133130220322113-0012100022212021-1102200022131300-2012230133300001-0010312003303310-3032220313100132)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect.retain_all_params
 
-<a id="canonical-fecc5ed190cb4c7fde6d4a7e87442c6d35fc11639e57642a1508497247379511"></a>
+<a id="canonical-3332303011323101-2100302310301333-3132123110221332-2013101002301231-0311333001011203-2132111312100222-0111002010211302-1013031321110101"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1453,43 +2023,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-85dc5f5790a33018ca35edc3daf863762c3b9528b1762f0c6de900534b9ce11a"></a>
+<a id="canonical-2011313011331113-2100220303000120-3022031132313003-3122332012031312-0230032321110220-2301131202330030-1231322100001103-1023213032010122"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 51512bab0dd3 / 3
+## Direct properties — retain_all_params / 222300313103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1bc5bb8d31930fa7a2b64bacd18d99c1621a4878965a604180868250931c7d9e"></a>
+<a id="canonical-0123301123232031-0301210300332213-2202231210232230-3101203121213001-1202012210201320-2112112212001001-2000201220021100-2103013013312132"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 51512bab0dd3 / 4
+## Next pages — retain_all_params / 222300313103 / 4
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-777fe1102aeb952d0dcfc9ea7ebaaacd51eb2198f903fc5979749fc4b8a6db18)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.redirect_route.route_redirect](data-sources--workload--reference--group-008.md#canonical-1313133332010100-0222322321110231-0031303330213222-1332232222223031-1101322302012120-3321000333301121-1321131021333010-2320221231230120)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869"></a>
+<a id="canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-81486e3fdb32b6d6174eeb657df66a130907f3a6c3f13288e35a5763db295b01"></a>
+<a id="canonical-2001102012320333-3123030223123112-0113103232231211-1331331212220103-0021001333032212-3003330103022020-3203112211131203-3123022111230001"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9e60fa1980c0 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route — simple_route / 012120003000 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route
 
-<a id="canonical-3c84a5f83b7a847c8eda8edcb122f52db648e7cb780ef9615ecfc476ef16927a"></a>
+<a id="canonical-0330201022113320-0323132220101330-2032312220323130-2301020233110231-2312102032133023-1320003233211201-1132303330101312-3233011221021322"></a>
 
 Type: `"single"`. Computed.
 
@@ -1515,19 +2085,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5e19d9c31705edd7e754ac6ab65a3cb1d57d7f893a359d002f4b82f34af03020"></a>
+<a id="canonical-1132012131213003-0113001132313113-3213111022301222-2312112203302301-3111133113332021-0322031121310000-0233102320023303-1022330003000200"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9e60fa1980c0 / 3
+## Direct properties — simple_route / 012120003000 / 3
 
-- [auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-d558e55d212e2169c910d96dcd194abaab38184dfd5277ce62f9e5a6f76b739a): complete subsection reference.
+- [auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-3111112032111131-0201023202011221-3021010031211231-3031012110222322-2223032001201031-3331110213133032-1202332132112212-3313122313032122): complete subsection reference.
 
-- [disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-04ddc259d7c90f22f09c6fb75fa17f3b70e8c3faa3a5e5a7a0c9baa648eeb1cd): complete subsection reference.
+- [disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-0010313130021121-3113302100330202-3300213012332313-1133220113330323-1300322030033322-2203221132112213-2200302123222212-1020323223013031): complete subsection reference.
 
-<a id="canonical-c34d7c3bb2cf7a9264a913a7013d59b8e0f5116beb1390bb5ee8a04860f41736"></a>
+<a id="canonical-3003103113300323-2302303313222102-1210222101032213-0001033111212320-3200331101011223-3223010321002323-1132322022001020-1200331001130312"></a>
 
-<a id="canonical-c13ba23486941025bd0bbb4c1920610e9d6448638596bb4c3aee69aba09a7ee7"></a>
+<a id="canonical-3001032322020310-2012211001000211-2331002323231030-0121020012010032-2131121010201203-2011211223231030-0322323212212223-2200212213323213"></a>
 
-## host_rewrite property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9e60fa1980c0 / 4
+## host_rewrite property — simple_route / 012120003000 / 4
 
 Type: `"string"`. Computed.
 
@@ -1570,11 +2140,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-14999a4d91fb7cd9cf1d82c79bb9a5b3511f500da4774ded16cd26c1a8606fc3"></a>
+<a id="canonical-0110212121221031-2101332313303121-3033013120023013-2123232122112303-1101013311000031-2210131310313231-0112303102123001-2220120012333003"></a>
 
-<a id="canonical-05448b0eeba5f156f3729fa57eef07465842cc678bf0d5a06836ee61c98b6ba1"></a>
+<a id="canonical-0011101020230032-3223221133011112-3303130221332211-1332323300131012-1120100230301213-2023330031112200-1220031232321201-3021202312232201"></a>
 
-## http_method property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9e60fa1980c0 / 5
+## http_method property — simple_route / 012120003000 / 5
 
 Type: `"string"`. Computed.
 
@@ -1616,43 +2186,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [path](data-sources--workload--reference--group-008.md#canonical-53fe9ff0fee3228a9c160e6b8a1288167767fe31ec1b395e0951f77cbbad08cc): complete subsection reference.
+- [path](data-sources--workload--reference--group-008.md#canonical-1103333221333300-3332320302022022-2130011200321223-2022010220200112-1313121333320301-3230012303211132-0021110133131330-2323223100203030): complete subsection reference.
 
-<a id="canonical-91c77e3af87d914f7b8c4b55aa8c2ace987d027ab919215ba2d5f624d7fa7f1f"></a>
+<a id="canonical-2101301313320322-3320133121011033-1323203010231111-2222203002223032-2120133100021322-2321012102011123-2202311133120210-3113332213330133"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 9e60fa1980c0 / 6
+## Next pages — simple_route / 012120003000 / 6
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-d558e55d212e2169c910d96dcd194abaab38184dfd5277ce62f9e5a6f76b739a)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-04ddc259d7c90f22f09c6fb75fa17f3b70e8c3faa3a5e5a7a0c9baa648eeb1cd)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.path](data-sources--workload--reference--group-008.md#canonical-53fe9ff0fee3228a9c160e6b8a1288167767fe31ec1b395e0951f77cbbad08cc)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-3111112032111131-0201023202011221-3021010031211231-3031012110222322-2223032001201031-3331110213133032-1202332132112212-3313122313032122)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-0010313130021121-3113302100330202-3300213012332313-1133220113330323-1300322030033322-2203221132112213-2200302123222212-1020323223013031)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.path](data-sources--workload--reference--group-008.md#canonical-1103333221333300-3332320302022022-2130011200321223-2022010220200112-1313121333320301-3230012303211132-0021110133131330-2323223100203030)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-d558e55d212e2169c910d96dcd194abaab38184dfd5277ce62f9e5a6f76b739a"></a>
+<a id="canonical-3111112032111131-0201023202011221-3021010031211231-3031012110222322-2223032001201031-3331110213133032-1202332132112212-3313122313032122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1fe8f79c35c2c90aa8ef95ead81987b3421bbb7c7b081b85a5b558ee2512ca47"></a>
+<a id="canonical-0133322033132130-0311300230210022-2220323321113222-3120012120132303-1002012323231330-1323002001232011-2211231111203232-0211010230221013"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cba75057cc37 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite — auto_host_rewrite / 111330300313 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.auto_host_rewrite
 
-<a id="canonical-9061c7218b6e9094fc05d26f6c26e0e3fcf34da1136448e2242e0526f85f146b"></a>
+<a id="canonical-2100120130130201-2023123221002110-3330001131021233-1230021232003203-3330330310312201-0103121010203202-0210023200110212-3320113301101223"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1675,44 +2245,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f7837b3e6899edccab07de3a4a3b0536652542fc129dea4707228945aaa4afdb"></a>
+<a id="canonical-3313200313230332-1220212132313030-2223001331320322-1022032300110312-1211021110023330-0102213132221013-0013020220211011-2222221022333123"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cba75057cc37 / 3
+## Direct properties — auto_host_rewrite / 111330300313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a191d63a06a7a9b08af545915e18bad712662612c7b22e5f645cde82eca0f036"></a>
+<a id="canonical-2201210131120322-0012221322212300-2022331110112101-1132012023223113-0102121202120102-3013230202321133-1210113031322002-3230220033000312"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / cba75057cc37 / 4
+## Next pages — auto_host_rewrite / 111330300313 / 4
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-04ddc259d7c90f22f09c6fb75fa17f3b70e8c3faa3a5e5a7a0c9baa648eeb1cd"></a>
+<a id="canonical-0010313130021121-3113302100330202-3300213012332313-1133220113330323-1300322030033322-2203221132112213-2200302123222212-1020323223013031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bef20ded10d881de6d890f0471956e9bf04d28425c10819937267892bfe23b5f"></a>
+<a id="canonical-2332330200313231-0100312020013132-1231202100330010-1301211112322123-3300103102201002-1130010020012121-0313021213202102-2333320203231133"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 088b611b7084 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite — disable_host_rewrite / 012313002010 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.disable_host_rewrite
 
-<a id="canonical-035ff484cc36258dbb045a6b889e6525464cb9926a94901f48c9c718087d77e3"></a>
+<a id="canonical-0003113333102010-3030031202112031-2323001011221223-2020213212110211-1012103023212102-1222211021000133-1020302130130120-0020133113133203"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1735,44 +2305,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d5e76f4d8427fddebefc84a92f8d8942affa1d0567cd4b6da2da821721fbaaa9"></a>
+<a id="canonical-3111321312331031-2010021333313132-2332333020102221-0233203120211002-2233332201310011-1213303110231231-2202312220020113-0201332322222221"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 088b611b7084 / 3
+## Direct properties — disable_host_rewrite / 012313002010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-afd502c8f5e932b3ff2ad979c2a2865821f3d52030d267a6bbf033d076e759c9"></a>
+<a id="canonical-2233311100023020-3311322103022303-3333022231211321-3002220220121120-0201330331110200-0300310212132212-2323330003033100-1312321311213021"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 088b611b7084 / 4
+## Next pages — disable_host_rewrite / 012313002010 / 4
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-53fe9ff0fee3228a9c160e6b8a1288167767fe31ec1b395e0951f77cbbad08cc"></a>
+<a id="canonical-1103333221333300-3332320302022022-2130011200321223-2022010220200112-1313121333320301-3230012303211132-0021110133131330-2323223100203030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-99df83fee97511309f33fe2b1bfadf8adbdfe9baeae587ad93497cbc46d49c6f"></a>
+<a id="canonical-2121313320033332-3221131101010300-2133030333320223-0123332231332022-3123313332212322-3222321120132231-2103102113302330-1012311021301233"></a>
 
-## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.path — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 2
+## service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.path — path / 312312001012 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-7aee7d3f01b8589d73b60b2b9ba278f9df11405cd3f693ab4300b3a9cfbf189c)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-834006c937eaad6c8f1af05c2ebf1bd39aa6ba171e7d68395eaafc99f2b23801)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-d355696c587815652ac9eb7f34afc67c59702436c2082b5011e8d692aedcf066)
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer](data-sources--workload--reference--group-005.md#canonical-1322323213310333-0001232011202131-1303231200230223-2123220213203321-3133010110001130-3103331221032223-1003000023032221-3033233301202130)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-007.md#canonical-2003100000123021-0313322222311230-2033012233001130-0232233301233103-2122221223220113-0132133112200321-1132222233302121-3302230203200001)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes](data-sources--workload--reference--group-007.md#canonical-3103111112211230-1120132001111211-0222302132231333-0310223330121330-1121130002100312-3002002002231100-0101322031122102-2232313033001212)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
 - service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route.path
 
-<a id="canonical-905773bdd39294157cb07495b78df292871e23a7e8d9388bd2515527e7d5dc22"></a>
+<a id="canonical-2100111313032331-3103210221100111-1330230013102111-2313203133022102-2013013202032213-3220312103202023-3102110111110213-3213311131300202"></a>
 
 Type: `"single"`. Computed.
 
@@ -1792,15 +2362,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-73af67274a922bec86694dab8bbe487f904c819028f6176f6c515b54ec7f4e7b"></a>
+<a id="canonical-1303223312130213-1022210202233230-2012122110312223-2023233210201333-2100103020012100-0220331201131233-1230110111231110-3230133310321323"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 3
+## Direct properties — path / 312312001012 / 3
 
-<a id="canonical-efc3d25556e970a6565d33c523b0e946512431365031cf47f4a5b7a17d02ec74"></a>
+<a id="canonical-3233300331021111-1112322113002212-1112113103033011-0203230032211012-1101021003010312-1100030130331013-3310221123132201-1331000232301310"></a>
 
-<a id="canonical-f2ab27c533f874967693ec780c91afa147c6c4ef44cf43fd22b16343a24501a2"></a>
+<a id="canonical-3302222302133011-0303332013102112-1312210332301320-0030210122332201-1013301230103233-1010303310033331-0202230112031003-2202101100012202"></a>
 
-## path property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 4
+## path property — path / 312312001012 / 4
 
 Type: `"string"`. Computed.
 
@@ -1845,11 +2415,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-df9e781939791f2062b15164c39c0b52c5701fe52cd0da4251743e6df08a267b"></a>
+<a id="canonical-3133213213200121-0321132101330200-1202230111011210-3003213000231102-3011130001333211-0230310031221002-1101131003321231-3300202202121323"></a>
 
-<a id="canonical-21617b7291b6d92c241fe3a03aa60682272ef69ff10f0c86817ec3a9edc144b4"></a>
+<a id="canonical-0201120113231302-2101231231210230-0210013332032200-0322221200122002-0213023233122133-3301003300302012-2001133230032221-3231300110102310"></a>
 
-## prefix property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 5
+## prefix property — path / 312312001012 / 5
 
 Type: `"string"`. Computed.
 
@@ -1892,11 +2462,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3b9f070257b3ae34abc2600b7ba95459203b1717f59404578a6735e135775fb2"></a>
+<a id="canonical-0323213300130002-1113230322320310-2223300212000023-1323222111101121-0200032301130113-3311211000101113-2022121303113201-0311131311332302"></a>
 
-<a id="canonical-3a98bc65aee4c3ed8ba707de1afdec5d72474e8ab382176c6c0794f19d9512dc"></a>
+<a id="canonical-0322212023301211-2232321030033231-2023221300133132-0122333132301131-1302101310322022-2303200201131230-1230001321103301-2131211101023130"></a>
 
-## regex property — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 6
+## regex property — path / 312312001012 / 6
 
 Type: `"string"`. Computed.
 
@@ -1949,34 +2519,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e57e6ab338f34bb0e304e74c9978c091be7cc00acd77da23d601c4039e9a6bb5"></a>
+<a id="canonical-3211133212222303-0320330310232300-3203001032131030-2121132030002101-2332133030000022-3031131331220203-3112000130100003-2132212212232311"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_rout / 7a732bdb6046 / 7
+## Next pages — path / 312312001012 / 7
 
-- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-3459a5e4944ffe06d04b9f59b34abcb30fe13bff696f6bb79e1cbd4f58384869)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.http_loadbalancer.specific_routes.routes.simple_route](data-sources--workload--reference--group-008.md#canonical-0310112122113210-2110103333320012-3100102321331121-2303102223302303-0033320103233333-1221123312232313-2132013023311033-1120032010201221)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-7c613d4efb08afb76c10e5423143ef3447c3a5c0c851a6306c101db9750216aa"></a>
+<a id="canonical-1330120103311032-3323002022332313-1230010032111002-0301100332330310-1013300322113000-3020110122120300-1230010001312321-1311000201122222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-628f7addcc0116d4bd6658ff6d2d079a99c3fcfc91b9081dd8b3482fbe352272"></a>
+<a id="canonical-1202203313223131-3030000101123110-2331121211203333-1231023100132122-2121300333303330-2101232100200131-3120230310200233-2332031102021302"></a>
 
-## service.advertise_options.advertise_custom.ports.port — service.advertise_options.advertise_custom.ports.port / 34da10fb04c4 / 2
+## service.advertise_options.advertise_custom.ports.port — port / 332300103010 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
 - service.advertise_options.advertise_custom.ports.port
 
-<a id="canonical-2649a479112b4632f8a45916668304dbb50d2482e027b729070fad5be07dcba1"></a>
+<a id="canonical-0212102122101321-0101022310120302-3320221011210112-1212200300103123-2311003102102002-3200021323130221-0013003322311123-3200133130232201"></a>
 
 Type: `"single"`. Computed.
 
@@ -1999,17 +2569,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-45ccef440b444ad17594cd1db50888379099476c8d7ef8b088a673a4d27616b9"></a>
+<a id="canonical-1011303032331010-0023101010223101-1311211030310131-2311002020200313-2100212110131230-2031133233202300-2020221213032210-3102131201122321"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.port / 34da10fb04c4 / 3
+## Direct properties — port / 332300103010 / 3
 
-- [info](data-sources--workload--reference--group-008.md#canonical-1469fbc807dfc79c795510f925d081e814a20e0543978f334f37577fa55b62c0): complete subsection reference.
+- [info](data-sources--workload--reference--group-008.md#canonical-0110122133233020-0013313330132130-1321111101003321-0211310020013220-0110220200320011-1003211320330303-1033031311131333-2211112312023000): complete subsection reference.
 
-<a id="canonical-7a85698b3e022d210ebb5cfa84c1a8456b637ee90408d59b5fb042863d1910e8"></a>
+<a id="canonical-1322201112212023-0332000202310201-0032232311303322-2010300122201011-1223120313323221-0010002031112123-1133230010022012-0331012101003220"></a>
 
-<a id="canonical-3b78d30b6853a91fad442aad889ee93bb63dec067836f28ea671f5cf4b2e2aa5"></a>
+<a id="canonical-0323132031030023-1220110322210133-2231101002222231-2020213232210323-2312033132300012-1320031233022032-2212130133113033-1023023202222211"></a>
 
-## name property — service.advertise_options.advertise_custom.ports.port / 34da10fb04c4 / 4
+## name property — port / 332300103010 / 4
 
 Type: `"string"`. Computed.
 
@@ -2065,36 +2635,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-70107504f047aaac910d9ede88b93cc216b29d9b27b4b9baa3d46caec39bf76c"></a>
+<a id="canonical-1300010013110010-3300101322222230-2101003121323132-2020232103303002-0112230221312123-0213231023212322-2203311012302232-3003212333131230"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.port / 34da10fb04c4 / 5
+## Next pages — port / 332300103010 / 5
 
-- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-1469fbc807dfc79c795510f925d081e814a20e0543978f334f37577fa55b62c0)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-0110122133233020-0013313330132130-1321111101003321-0211310020013220-0110220200320011-1003211320330303-1033031311131333-2211112312023000)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-1469fbc807dfc79c795510f925d081e814a20e0543978f334f37577fa55b62c0"></a>
+<a id="canonical-0110122133233020-0013313330132130-1321111101003321-0211310020013220-0110220200320011-1003211320330303-1033031311131333-2211112312023000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cf841c7e550d52bb7229b0fab5cc8fe722e6ab364059c2b759078f6c78f576e3"></a>
+<a id="canonical-3033201001301332-1111003111022323-1302022123003322-2311303020333213-0202321222230312-1000112130022313-1121001320331230-1320331113123203"></a>
 
-## service.advertise_options.advertise_custom.ports.port.info — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 2
+## service.advertise_options.advertise_custom.ports.port.info — info / 113031303133 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-7c613d4efb08afb76c10e5423143ef3447c3a5c0c851a6306c101db9750216aa)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-1330120103311032-3323002022332313-1230010032111002-0301100332330310-1013300322113000-3020110122120300-1230010001312321-1311000201122222)
 - service.advertise_options.advertise_custom.ports.port.info
 
-<a id="canonical-a1c4464445c08b648d0c19fcc064d7e413b2b14c443f8ea4196838d53d660cbc"></a>
+<a id="canonical-2201301010121010-1011300020231210-2031003001213330-3000121031133210-0103230223011030-1010033320322210-0121122003203111-0331121200302330"></a>
 
 Type: `"single"`. Computed.
 
@@ -2118,15 +2688,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0cb5e4fa4f94b3b16ed70e5b615281865d423f3beccfdfc47711f41267c0bf3b"></a>
+<a id="canonical-0030231132103322-1033211023032301-1232311300321123-1201110220012012-1131100203330323-3230303331333010-1313010133100102-1213300023330323"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 3
+## Direct properties — info / 113031303133 / 3
 
-<a id="canonical-f28781fa8cf6143025c315395dd8c435996381abb4a419e9865ebd96f8f6d18d"></a>
+<a id="canonical-3302201320013322-2030331201100300-0211300301110321-1131312030100311-2121120320012223-2310221001213221-2012113223312112-3320331231012031"></a>
 
-<a id="canonical-76798a3a6953d004e5ad0ebf21624f407660bc8fed59774349727a9ec731ab55"></a>
+<a id="canonical-1312132120220322-1221110331000010-3211223100322333-0201120210331000-1312120023302033-3231112113131003-1021130213222132-3013030122231111"></a>
 
-## port property — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 4
+## port property — info / 113031303133 / 4
 
 Type: `"number"`. Computed.
 
@@ -2172,11 +2742,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cbdea9a2bc415d5e12cb67b62d715d572bbc2687d711ae783c451b1dfcafed6d"></a>
+<a id="canonical-3023313222212202-2330100111311132-0102302312132312-0231130111311113-0223233002122013-3113010122321320-0330101101230131-3330223332311231"></a>
 
-<a id="canonical-cd15d5aac97020ef347bff3d95f85e66c682da615906bc185a107af7fdd169af"></a>
+<a id="canonical-3031011131112222-3021130002003233-0310132333330331-2111332011321212-3012200231221201-1121001223300120-1122010013223313-3331310112212233"></a>
 
-## protocol property — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 5
+## protocol property — info / 113031303133 / 5
 
 Type: `"string"`. Computed.
 
@@ -2223,13 +2793,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [same_as_port](data-sources--workload--reference--group-008.md#canonical-6416dad6164e60438be49e73aee1113d07f90d583e1f45ba587b447098356974): complete subsection reference.
+- [same_as_port](data-sources--workload--reference--group-008.md#canonical-1210011231223112-0112103212001003-2023321021321303-2232320101010331-0013332100311120-0332013310112322-1120132310101300-2120031112211310): complete subsection reference.
 
-<a id="canonical-fbf8ee012642f0ac53f7b39c33858549427da50ce16efc5c528e2b83a2fb37ac"></a>
+<a id="canonical-3323332032320001-0212100233002230-1103331323032130-0303201120111021-1002133122110030-3201123233301130-1102203202232003-2202332303132230"></a>
 
-<a id="canonical-2ad79fdc93ff867eb6b23ecd83ecb4348c71987dc4a71e7d5cbe40befea07d60"></a>
+<a id="canonical-0222311321333130-2103333320121332-2312230203323031-2003323023100310-2030130121201331-3010221301321331-1130233210002332-3332220013311200"></a>
 
-## target_port property — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 6
+## target_port property — info / 113031303133 / 6
 
 Type: `"number"`. Computed.
 
@@ -2272,37 +2842,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6c3b8523ec5f523ff54ad16eee61972651432c5414d28f93069beaaf8b4f08fd"></a>
+<a id="canonical-1230032320110203-3230113311020333-3311102231011232-3232120121130212-1101100302301110-0110310220332103-0012212332222233-2023103300203331"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.port.info / ba846a5cdcdf / 7
+## Next pages — info / 113031303133 / 7
 
-- [service.advertise_options.advertise_custom.ports.port.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-6416dad6164e60438be49e73aee1113d07f90d583e1f45ba587b447098356974)
-- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-7c613d4efb08afb76c10e5423143ef3447c3a5c0c851a6306c101db9750216aa)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.port.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-1210011231223112-0112103212001003-2023321021321303-2232320101010331-0013332100311120-0332013310112322-1120132310101300-2120031112211310)
+- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-1330120103311032-3323002022332313-1230010032111002-0301100332330310-1013300322113000-3020110122120300-1230010001312321-1311000201122222)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-6416dad6164e60438be49e73aee1113d07f90d583e1f45ba587b447098356974"></a>
+<a id="canonical-1210011231223112-0112103212001003-2023321021321303-2232320101010331-0013332100311120-0332013310112322-1120132310101300-2120031112211310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e647fa1c8b7065f4e84ca5c191646088e65e4ca254f172ebf7fa5f5c21f7bfc"></a>
+<a id="canonical-0232121013332201-3020231300121133-1032201030221130-0121011210120020-2032121132103022-0211103301130232-2333133322113311-3002013313233330"></a>
 
-## service.advertise_options.advertise_custom.ports.port.info.same_as_port — service.advertise_options.advertise_custom.ports.port.info.same_as_port / 65ddb1b48de7 / 2
+## service.advertise_options.advertise_custom.ports.port.info.same_as_port — same_as_port / 231020313213 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-7c613d4efb08afb76c10e5423143ef3447c3a5c0c851a6306c101db9750216aa)
-- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-1469fbc807dfc79c795510f925d081e814a20e0543978f334f37577fa55b62c0)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [service.advertise_options.advertise_custom.ports.port](data-sources--workload--reference--group-008.md#canonical-1330120103311032-3323002022332313-1230010032111002-0301100332330310-1013300322113000-3020110122120300-1230010001312321-1311000201122222)
+- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-0110122133233020-0013313330132130-1321111101003321-0211310020013220-0110220200320011-1003211320330303-1033031311131333-2211112312023000)
 - service.advertise_options.advertise_custom.ports.port.info.same_as_port
 
-<a id="canonical-a4a78636f9289feb3b5fe4fa6f01ac8199c28d09028dbfc17b83f9245d8632e6"></a>
+<a id="canonical-2210221320120312-3321022021333223-0323113332103322-1233000122302001-2121300220310021-0002203123333001-1323200333210210-1131201203023212"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2325,40 +2895,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0cdb9377ff6802d9b6b05d8af5866036a4813390523d35ff519cbd5d53124448"></a>
+<a id="canonical-0030312321031313-3333122000023121-2312230011312022-3311201212000312-2210200103032100-1102033103113333-1101213023311131-1103010210101020"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.port.info.same_as_port / 65ddb1b48de7 / 3
+## Direct properties — same_as_port / 231020313213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-06e6ff3377f633a2a6c943dd287a8e194aa8a78406b04841891a722b0acc3b3f"></a>
+<a id="canonical-0012321233330303-1313331203032202-2212302110033131-0220132220320121-1022222022132010-0012230010201001-2021012213020223-0022303003230333"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.port.info.same_as_port / 65ddb1b48de7 / 4
+## Next pages — same_as_port / 231020313213 / 4
 
-- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-1469fbc807dfc79c795510f925d081e814a20e0543978f334f37577fa55b62c0)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports.port.info](data-sources--workload--reference--group-008.md#canonical-0110122133233020-0013313330132130-1321111101003321-0211310020013220-0110220200320011-1003211320330303-1033031311131333-2211112312023000)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-671edfd9f0410a2c5d55e0e8ca6a82232079d713e8ffed70a89baf527d62d65d"></a>
+<a id="canonical-1213013231333121-3300100100220230-1131111132003220-3022122220020203-0200132131130103-3220333332311300-2220212322331102-1331120231121131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3915f8335b9e42c27ac809b4e02418d29d8021304edfa5df390e3c77de0a5d27"></a>
+<a id="canonical-0321011133200303-1123213210023002-1322302000212310-3200021001203102-2131200002010300-1032313322113133-0321003203301313-3132002211310213"></a>
 
-## service.advertise_options.advertise_custom.ports.tcp_loadbalancer — service.advertise_options.advertise_custom.ports.tcp_loadbalancer / 7f4acf3841ea / 2
+## service.advertise_options.advertise_custom.ports.tcp_loadbalancer — tcp_loadbalancer / 032010013222 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-fe3574b4f2af2fc6d8f8000c8ef6e8baa5bd8847f507f148a99a7c6940e27c62)
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_custom](data-sources--workload--reference--group-005.md#canonical-3332031113102310-3302223302333012-3120332000000030-2032331232202322-2211233120201013-3311001333011020-2221212213301221-1000320213301202)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
 - service.advertise_options.advertise_custom.ports.tcp_loadbalancer
 
-<a id="canonical-a57c6741a39ab3371d49dca3c4ebcb0d5296e4da5d5019b59bc3503979ae7409"></a>
+<a id="canonical-2211133012131001-2203212223030313-0131102131302203-3010322330230031-1102211232103122-1131110001212311-2123300311000321-1321223213100021"></a>
 
 Type: `"single"`. Computed.
 
@@ -2381,15 +2951,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8160fa8a2b4ed910d3f0a8e8eefe1affdd5d79e435061e237cbba2b083de2099"></a>
+<a id="canonical-2001120033222022-0223103231210100-3103330022203220-3232333201223333-3131113113213210-0311001201320203-1330232322022300-2003313202002121"></a>
 
-## Direct properties — service.advertise_options.advertise_custom.ports.tcp_loadbalancer / 7f4acf3841ea / 3
+## Direct properties — tcp_loadbalancer / 032010013222 / 3
 
-<a id="canonical-2ef1cdff325e4dbe120df1b612d20916b3989eea2e3c805c9b7b793b0fa009e1"></a>
+<a id="canonical-0232330130313333-0302113210312332-0102003133012312-0102310200210112-2303212021323222-0232033020001130-2123132313210323-0033220000213201"></a>
 
-<a id="canonical-b5bff061155a88dcfad1006ad706805ead5dbf79efb305b0279c6ebbaf043e5e"></a>
+<a id="canonical-2311233333001201-0111112220203130-3322310100001222-3113001220001132-2231113123331321-3233230300112300-0213213012322323-2233001003321132"></a>
 
-## domains property — service.advertise_options.advertise_custom.ports.tcp_loadbalancer / 7f4acf3841ea / 4
+## domains property — tcp_loadbalancer / 032010013222 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -2441,11 +3011,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cf61bdb8892d8353c6ae58136bbc1bd202723bb48d75eae1f8837dd761bae626"></a>
+<a id="canonical-3033120123312320-2021023120031103-3012223211200103-1223233001233102-0002130203232310-2031131132223201-3320200313313113-1201232232120212"></a>
 
-<a id="canonical-9c91a169e0da64d7422fdff03c7af10595068e3401ac45c52ecb5ccc2948847f"></a>
+<a id="canonical-2130210122011221-3200312212103113-1002023331333300-0330132233010011-2111001220320310-0001223010113011-0232302311303030-0221102020101333"></a>
 
-## with_sni property — service.advertise_options.advertise_custom.ports.tcp_loadbalancer / 7f4acf3841ea / 5
+## with_sni property — tcp_loadbalancer / 032010013222 / 5
 
 Type: `"bool"`. Computed.
 
@@ -2464,32 +3034,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67a66724ec8349ea68cab1e7368350ea462fa299893faa65ca3215969fcf1902"></a>
+<a id="canonical-1213221212130210-3230200310213222-1220302223013213-0312200311003222-1012023322022121-2021033322221211-3022030201112112-2133303301210002"></a>
 
-## Next pages — service.advertise_options.advertise_custom.ports.tcp_loadbalancer / 7f4acf3841ea / 6
+## Next pages — tcp_loadbalancer / 032010013222 / 6
 
-- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-d2f2640345dbdf8a6ca20b7b3a2ceb6c31007e44a4f25546827758c4a23df912)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_custom.ports](data-sources--workload--reference--group-005.md#canonical-3102330212100003-1011312331332022-1230220200231323-0322023032231230-0301000013321010-2210330211111012-2002131311203010-2202033133210102)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db"></a>
+<a id="canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-db9b3c6b3a7586242bccea602096d6fc3f435e13e9bf2c9e614ac5b2a130d174"></a>
+<a id="canonical-3123212303301223-0322131120120210-0223303032221200-0200211231123330-0333100311320103-3221233302302132-1201102230112302-2201030031011310"></a>
 
-## service.advertise_options.advertise_in_cluster — service.advertise_options.advertise_in_cluster / e4b6f881d60e / 2
+## service.advertise_options.advertise_in_cluster — advertise_in_cluster / 200131120032 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
 - service.advertise_options.advertise_in_cluster
 
-<a id="canonical-48829fd45f7cfd0af5b4afe3b00ad19cae5f94e529cfa0e6fa96361224328954"></a>
+<a id="canonical-1020200221333110-1133133033310022-3311231022333203-2300002231012130-2232113321103211-0221303322003212-3322211203120102-0210030220211110"></a>
 
 Type: `"single"`. Computed.
 
@@ -2509,43 +3079,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fb07e372ca31f900ed2bcd76ba37b3b940cebbbf35dfcb2975d6e2670fe7a644"></a>
+<a id="canonical-3323001332031302-3022030133210000-3231022330311312-2322031323032321-1000303223232333-0311313330230221-1311311232021213-0033321322121010"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster / e4b6f881d60e / 3
+## Direct properties — advertise_in_cluster / 200131120032 / 3
 
-- [multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5): complete subsection reference.
+- [multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311): complete subsection reference.
 
-- [port](data-sources--workload--reference--group-008.md#canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b): complete subsection reference.
+- [port](data-sources--workload--reference--group-008.md#canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123): complete subsection reference.
 
-<a id="canonical-b8158aa0367b9acbf20587eae8c73321f200437a00a026f59944875a49144444"></a>
+<a id="canonical-2320011120222200-0312132321223023-3302001120133222-3220301303030201-3302000010031322-0000220002123311-2121101020131122-1021011010101010"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster / e4b6f881d60e / 4
+## Next pages — advertise_in_cluster / 200131120032 / 4
 
-- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5)
-- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311)
+- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5"></a>
+<a id="canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-504bbe30346e67ccb00e4cdcd61ef5c04a3129e16289874e1cfb31fffd265b28"></a>
+<a id="canonical-1100102323320300-0310123212133030-2300003210303130-3112013233113000-1022030102213201-1202202120131032-0130332303013333-3331021211230220"></a>
 
-## service.advertise_options.advertise_in_cluster.multi_ports — service.advertise_options.advertise_in_cluster.multi_ports / fe97b46eecca / 2
+## service.advertise_options.advertise_in_cluster.multi_ports — multi_ports / 123232303022 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
 - service.advertise_options.advertise_in_cluster.multi_ports
 
-<a id="canonical-99a7e5160b419caa5f44ff41873354fdd87edcf449ea279c6360b21e45415f55"></a>
+<a id="canonical-2121221332110112-0023100121302222-1133101033331001-2013030311103331-3120133231303310-1021322202132130-1203120023020132-1011100111331111"></a>
 
 Type: `"single"`. Computed.
 
@@ -2568,41 +3138,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7af470bcd785f88114beb3488deefcbeb52c16fb818db8d734f79aa3c1e0dd30"></a>
+<a id="canonical-1322331013002330-3113201133202001-0110233223031020-2031323233302332-2311023001123323-2001203123203113-0310331321222203-3001320031310300"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.multi_ports / fe97b46eecca / 3
+## Direct properties — multi_ports / 123232303022 / 3
 
-- [ports](data-sources--workload--reference--group-008.md#canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb): complete subsection reference.
+- [ports](data-sources--workload--reference--group-008.md#canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323): complete subsection reference.
 
-<a id="canonical-04ebeffa1f36defe6102a95ef3b3c391cbdaeadc86fe92737e571f69780428d0"></a>
+<a id="canonical-0010322332333322-0133031231323332-1201000222211132-3303230330032101-3023312232223130-2012333221021303-1332111301331221-1320001002203100"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.multi_ports / fe97b46eecca / 4
+## Next pages — multi_ports / 123232303022 / 4
 
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb"></a>
+<a id="canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8527738e5e82d1ea02e6edfb52a4dfb9291bf56c7b041b0f827f72a9b0e0c0b4"></a>
+<a id="canonical-2011021313032032-1132200231013222-0002321232313323-1102221031332321-0221012333111230-1323001001230033-2002133313022221-2300320030002310"></a>
 
-## service.advertise_options.advertise_in_cluster.multi_ports.ports — service.advertise_options.advertise_in_cluster.multi_ports.ports / 2e708d2b587a / 2
+## service.advertise_options.advertise_in_cluster.multi_ports.ports — ports / 022311201322 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311)
 - service.advertise_options.advertise_in_cluster.multi_ports.ports
 
-<a id="canonical-dcc9d5e56f77acb7e675aac7f1a369c6b54751917cfc7bb450915a0c879d907b"></a>
+<a id="canonical-3130302131113211-1233131322302313-3212131122223013-3301220312213012-2311101311012101-1330333013232310-1100210111220030-2013213121001323"></a>
 
 Type: `"list"`. Computed.
 
@@ -2645,17 +3215,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bc2a3f0458a0d684001d2b7b291bc0dbe5a8f9be6e8763315420a1233ee12159"></a>
+<a id="canonical-2330022203330010-1120220031122010-0000013102231323-0221012330003123-3211222033212332-1232201312030301-1110020022010203-0332320102011121"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.multi_ports.ports / 2e708d2b587a / 3
+## Direct properties — ports / 022311201322 / 3
 
-- [info](data-sources--workload--reference--group-008.md#canonical-751c853afedaab2c95f58599722f9954d9912782fdc282230e7bb093874ecbb5): complete subsection reference.
+- [info](data-sources--workload--reference--group-008.md#canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311): complete subsection reference.
 
-<a id="canonical-95aabf619818441aea8ea6c9ff75724ff1c5c871e0dde6755c083a569d87ffe9"></a>
+<a id="canonical-2111222223331201-2120012010100122-3222203222123021-3333131113021033-3301301130201301-3200313132121311-1130002003221112-2131201333333221"></a>
 
-<a id="canonical-9002ac4eda3251a12b9e8e64b83c57a11c04cb5c16e12dbaf6de458dfcaf4582"></a>
+<a id="canonical-2100000222301032-3122030211012201-0223213220321210-2320033011132201-0130001030231130-0112320102312322-3312313210112031-3330223310112002"></a>
 
-## name property — service.advertise_options.advertise_in_cluster.multi_ports.ports / 2e708d2b587a / 4
+## name property — ports / 022311201322 / 4
 
 Type: `"string"`. Computed.
 
@@ -2711,36 +3281,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eb1e551fe13824452676337d052ebbbf05d5ce48d0977386eed1e0fac6179c54"></a>
+<a id="canonical-3223013211110133-3201032002101011-0212131203031331-0011023223232333-0011311130321020-3100211313032012-3232310132003322-3012011321301110"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.multi_ports.ports / 2e708d2b587a / 5
+## Next pages — ports / 022311201322 / 5
 
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-751c853afedaab2c95f58599722f9954d9912782fdc282230e7bb093874ecbb5)
-- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311)
+- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-751c853afedaab2c95f58599722f9954d9912782fdc282230e7bb093874ecbb5"></a>
+<a id="canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-209feb0d58367853eb3542dac64d93260ef87d9ccf65d25c5f5ed21d01cd6cbb"></a>
+<a id="canonical-0200213332230031-1120031213201103-3223031110023122-3012103121030212-0032332013312130-3033121131021130-1133113231020131-0001303112302323"></a>
 
-## service.advertise_options.advertise_in_cluster.multi_ports.ports.info — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 2
+## service.advertise_options.advertise_in_cluster.multi_ports.ports.info — info / 002012322300 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5)
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323)
 - service.advertise_options.advertise_in_cluster.multi_ports.ports.info
 
-<a id="canonical-5bb2c54e3087524fd9ae01ace93ad5fcc1e92bd7cc39e2a956f30fe1dc1dd10b"></a>
+<a id="canonical-1123230230111032-0300201311021033-3121223200012230-3221032231113330-3001322102233113-3030032132022221-1112330300333201-3130013131010023"></a>
 
 Type: `"single"`. Computed.
 
@@ -2764,15 +3334,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8dfaa1c602098296c9fd5109d7579a6eea89aefd6113db4db75a529b35e87203"></a>
+<a id="canonical-2031332222013012-0002002120022112-3021333111010021-3113111321221232-3222202122323331-1201010331231031-2313112211022123-0311322013020003"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 3
+## Direct properties — info / 002012322300 / 3
 
-<a id="canonical-c6f9db44b439773c8832ed4d0734453ff31fb89fba187d928707d2611aa08e17"></a>
+<a id="canonical-3012332131231010-2310032113130330-2020030232311031-0013031010110333-3303013323202133-2322012013312102-2013001331021201-0122220020320113"></a>
 
-<a id="canonical-b3d856c88771bbad9c2ed234fd3181af2303ff8273ad5fdf655aa0d6b02c3f37"></a>
+<a id="canonical-2303312011123020-2013130123232231-2130023231020310-3331030120012233-0203000333332002-1303223111333133-1211112222003112-2300023003330313"></a>
 
-## port property — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 4
+## port property — info / 002012322300 / 4
 
 Type: `"number"`. Computed.
 
@@ -2818,11 +3388,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6473a6f0cf3b9ca41613307c7ee73a3a3554ab67bc7c2780b8f0a1f3e9517bf5"></a>
+<a id="canonical-1210130322123300-3033032321302210-0112010303001330-1332321303220322-0311111022231213-2330133002132000-2320330022013303-3221110113233311"></a>
 
-<a id="canonical-8813f5b2cbe345b47fa515e20bbb4809986f5b9845f2c81013586c9bf33494c7"></a>
+<a id="canonical-2020010333112302-3023320310112310-1333221101113202-0023232310200021-2120123311232120-1011330230200100-0103112012302123-3303031021103013"></a>
 
-## protocol property — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 5
+## protocol property — info / 002012322300 / 5
 
 Type: `"string"`. Computed.
 
@@ -2869,13 +3439,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [same_as_port](data-sources--workload--reference--group-008.md#canonical-f6b39c4ae1d4fa0d2b93580fd4aa69c7f634cfeb35d32b1c6865155e4321b1f7): complete subsection reference.
+- [same_as_port](data-sources--workload--reference--group-008.md#canonical-3312230321301022-3201311033220031-0223210311200033-3110222212213013-3312031030333223-0311310302230130-1220121101111132-1003020123013313): complete subsection reference.
 
-<a id="canonical-39b7555cebe0aac0bf11f469f3eeca226f490b4c1f8646e6b666ac83ac27661a"></a>
+<a id="canonical-0321231311111130-3223320022223000-2333010133101221-3303323230220202-1233102100231030-0133201210123212-2312121222302003-2230021312120122"></a>
 
-<a id="canonical-9fcc412ff0ed2f47b52ec7ff524dac25c0ca137e2d5c1eb0a1dd91aed4b0b639"></a>
+<a id="canonical-2133303010010233-3300323102331013-2311023230133333-1102103122300211-3000302201031332-0231113001322300-2201313121012232-3110230023120321"></a>
 
-## target_port property — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 6
+## target_port property — info / 002012322300 / 6
 
 Type: `"number"`. Computed.
 
@@ -2918,37 +3488,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eb213cf5ab50525da27d49060cc26d9ae70c048f865af4a69908fd4454dfe311"></a>
+<a id="canonical-3223020103303311-2223110011021131-2202133110210012-0030300212312122-3213003000102033-2012112233102212-2121002033311010-1110313332030101"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.multi_ports.ports.info / 2fd4b7086eb0 / 7
+## Next pages — info / 002012322300 / 7
 
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-f6b39c4ae1d4fa0d2b93580fd4aa69c7f634cfeb35d32b1c6865155e4321b1f7)
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-3312230321301022-3201311033220031-0223210311200033-3110222212213013-3312031030333223-0311310302230130-1220121101111132-1003020123013313)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-f6b39c4ae1d4fa0d2b93580fd4aa69c7f634cfeb35d32b1c6865155e4321b1f7"></a>
+<a id="canonical-3312230321301022-3201311033220031-0223210311200033-3110222212213013-3312031030333223-0311310302230130-1220121101111132-1003020123013313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-86d332cc0c54b4e5bca6f84916b848ac511bf93f1a67a71c299eda9990f516dd"></a>
+<a id="canonical-2012310303023030-0030111023103211-2330221233201021-0112232010202230-1101012333210333-0122121322130130-0221213231222121-2100331101123131"></a>
 
-## service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port — service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_po / 9aa510fdc31e / 2
+## service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port — same_as_port / 333130030132 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-3b7228e326eea6861f6be0cd35dbf0bc149a0346cce737edba94e0a003445cb5)
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-606cc9d2f6a469bc9a9898eed59d27edf06fd060703f716f1762dc7de45cbdfb)
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-751c853afedaab2c95f58599722f9954d9912782fdc282230e7bb093874ecbb5)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [service.advertise_options.advertise_in_cluster.multi_ports](data-sources--workload--reference--group-008.md#canonical-0323130202203203-0212323222122012-0133122332003031-0311312333002330-0110212200031012-3030321303133231-2322211032002200-0003101011302311)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-1200123030213102-3312221012212330-2122212021203232-3111213102133231-3300123331001200-1300033313011233-0113120231301331-3210113023313323)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311)
 - service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port
 
-<a id="canonical-6ac7622572109b132d4cfbf442ba405eeb07b7e25dfd1cd9f59d2f17b9c19763"></a>
+<a id="canonical-1222301312020211-1302010021230103-0231103033233310-1002232210001132-3223001323133202-1131333101303121-3311213102330113-2321300121131203"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2971,39 +3541,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-74a27f055bdf4cf1416aba8128ffe7c7eafb07a2766581ea3ef55f0236e43252"></a>
+<a id="canonical-1310220213330011-1123313310303301-1001122223222001-0220333332133013-3222332300132202-1312121120013222-0332331111330002-0312321003021102"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_po / 9aa510fdc31e / 3
+## Direct properties — same_as_port / 333130030132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cb4f66c8225eb6ed9d69c1a40de90e3609ac3278b17bfce9e068f8656741c3bc"></a>
+<a id="canonical-3023103312123020-0202113223123231-2131122130012210-0031322100320312-0021223003021320-2301132333303221-3200122033201211-1213100130032330"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_po / 9aa510fdc31e / 4
+## Next pages — same_as_port / 333130030132 / 4
 
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-751c853afedaab2c95f58599722f9954d9912782fdc282230e7bb093874ecbb5)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info](data-sources--workload--reference--group-008.md#canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b"></a>
+<a id="canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-443d7b82cf74ff43aee318a5ddd93c7e5f1eadb7fdc03c74766de5189d08ece4"></a>
+<a id="canonical-1010033113232002-3033131033331003-2232320301202211-3131312103301332-1133013222312313-3331300003301310-1312123132110120-2131002032303210"></a>
 
-## service.advertise_options.advertise_in_cluster.port — service.advertise_options.advertise_in_cluster.port / 227b93901b3e / 2
+## service.advertise_options.advertise_in_cluster.port — port / 210001230332 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
 - service.advertise_options.advertise_in_cluster.port
 
-<a id="canonical-3a2b54b9ed01165760290e2e57ab525e1a50bdbec38f6a57d67325f425878e0b"></a>
+<a id="canonical-0322022311102321-3231000101121113-1200022100320232-1113222311021132-0122110023312332-3003203312221113-3112130302113310-0211201320320023"></a>
 
 Type: `"single"`. Computed.
 
@@ -3026,41 +3596,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af297c2c7c148a163c11dbf9b7b3d23647f4ab249144f6e9f378a7791fcb1a3a"></a>
+<a id="canonical-2233022113300230-1330011020220112-0330010131233321-2313230331020312-1013331022230210-2101101033123221-3303132022131321-0133302301220322"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.port / 227b93901b3e / 3
+## Direct properties — port / 210001230332 / 3
 
-- [info](data-sources--workload--reference--group-008.md#canonical-508dfbd6f6a5491264f85e66edd2cc3c275652694bd85829f55bc03b2c7e4ea0): complete subsection reference.
+- [info](data-sources--workload--reference--group-008.md#canonical-1100203133233112-3312221110210102-1210332011321212-3231310230300330-0213111211021221-1023312011200221-3311112330000323-0230133210322200): complete subsection reference.
 
-<a id="canonical-d06f153257e7ba2ea6ba1a024975caf580fabca219dfe1f7483ff9a818041444"></a>
+<a id="canonical-3100123301110302-1113321323220232-2212232201220002-1021131130223311-2000332223302202-0121313332013313-1020033333212220-0120001001101010"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.port / 227b93901b3e / 4
+## Next pages — port / 210001230332 / 4
 
-- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-508dfbd6f6a5491264f85e66edd2cc3c275652694bd85829f55bc03b2c7e4ea0)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-1100203133233112-3312221110210102-1210332011321212-3231310230300330-0213111211021221-1023312011200221-3311112330000323-0230133210322200)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-508dfbd6f6a5491264f85e66edd2cc3c275652694bd85829f55bc03b2c7e4ea0"></a>
+<a id="canonical-1100203133233112-3312221110210102-1210332011321212-3231310230300330-0213111211021221-1023312011200221-3311112330000323-0230133210322200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a9289ee74397788ff39854d3d64f6db089176aa42ea2f13c8fa4e9b7760d8f6"></a>
+<a id="canonical-0322210220213232-1310032113132020-3333032120111031-0331121033123123-0020210113122222-1002322202330103-3020332210322123-1313120031203312"></a>
 
-## service.advertise_options.advertise_in_cluster.port.info — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 2
+## service.advertise_options.advertise_in_cluster.port.info — info / 132312230221 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123)
 - service.advertise_options.advertise_in_cluster.port.info
 
-<a id="canonical-671470e2a26be39b7269b05a819c6e721599df283c9f25e1c5a8a9798d520843"></a>
+<a id="canonical-1213011013003202-2202122332032123-1302122123001122-2001213012321302-0111212131330220-0330213302113201-3011222022211321-2031110200201003"></a>
 
 Type: `"single"`. Computed.
 
@@ -3084,15 +3654,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6e9010534b969df57f611d9a4a8138e445e7d2e7e7969e7fed2d3847536a70b0"></a>
+<a id="canonical-1232210001001103-1023211221313311-1333120101312122-1022200103203210-1011321331023213-3213211221321333-3231023103201013-1103122213002300"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 3
+## Direct properties — info / 132312230221 / 3
 
-<a id="canonical-2e1577e526632a9739f41610d6278a4118a60b8ea5fa036e66df9b034e23bf4f"></a>
+<a id="canonical-0232011113133211-0212120302222113-0321331001120100-3112021320221001-0120221200232032-2211332200031232-1212313321230003-1032020323331033"></a>
 
-<a id="canonical-784e4f0b522fb5380b1738bf107e8ab3f06d3c4f020431c595f436e6d93bfb42"></a>
+<a id="canonical-1320103210330023-1102023323110320-0023011303202333-0100133220222303-3300123103301033-0002001003013011-2111331003123212-3121032333231002"></a>
 
-## port property — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 4
+## port property — info / 132312230221 / 4
 
 Type: `"number"`. Computed.
 
@@ -3138,11 +3708,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d81148bbecbc398c7bd8a0b722cea941f03de0728c3b50be9fddfcaf36ac6f4a"></a>
+<a id="canonical-3120010110202323-3230233003212030-1323312022002313-0202303222211001-3300033132001302-2030032311002332-2133313133302233-0312223012331022"></a>
 
-<a id="canonical-7f7987265024ba27751e25b2bbea572164cb0d8e5ff9473d47a69760b2c4f38d"></a>
+<a id="canonical-1333132120130212-1100021023220213-1311013202112302-2323322211130201-1210302300312032-1133332110130331-1013221221131200-2302301033032031"></a>
 
-## protocol property — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 5
+## protocol property — info / 132312230221 / 5
 
 Type: `"string"`. Computed.
 
@@ -3189,13 +3759,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [same_as_port](data-sources--workload--reference--group-008.md#canonical-44df07f856f561260870cf5a27187354d97551cc940c733baafccb7ae8eeaf40): complete subsection reference.
+- [same_as_port](data-sources--workload--reference--group-008.md#canonical-1010313300133320-1112331112010212-0020130030331122-0213012013031110-3121131111013030-2110003013030323-2222333030231322-3220323222331000): complete subsection reference.
 
-<a id="canonical-64a72817101a713fda93d7bc5020531ae882fe2d0cb3d32c581caa82e74d8ca3"></a>
+<a id="canonical-1210221302200113-0100012213010333-3122210331132330-1100020011030122-3220200233320231-0030230331030230-1120013022222002-3213103120302203"></a>
 
-<a id="canonical-f05fc62e929714118f6752542589c905ba4635e20d44d1d48c0162ad5d47fd5e"></a>
+<a id="canonical-3300113330120232-2102211301100101-2033121311021110-0211202130210011-2322101203113202-0031101031013110-2030000112022231-1131101333311132"></a>
 
-## target_port property — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 6
+## target_port property — info / 132312230221 / 6
 
 Type: `"number"`. Computed.
 
@@ -3238,36 +3808,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e8cbac9a0148e8d9d49566c88ec7166fbb74d1d3c34e544196541dd6961ca7e"></a>
+<a id="canonical-2132203023223021-2200011020322031-2131102111121230-2020323013011212-3323231310310131-0330031032111010-0121121110013131-1221120130221332"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.port.info / 04f10b7b6b29 / 7
+## Next pages — info / 132312230221 / 7
 
-- [service.advertise_options.advertise_in_cluster.port.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-44df07f856f561260870cf5a27187354d97551cc940c733baafccb7ae8eeaf40)
-- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.port.info.same_as_port](data-sources--workload--reference--group-008.md#canonical-1010313300133320-1112331112010212-0020130030331122-0213012013031110-3121131111013030-2110003013030323-2222333030231322-3220323222331000)
+- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-44df07f856f561260870cf5a27187354d97551cc940c733baafccb7ae8eeaf40"></a>
+<a id="canonical-1010313300133320-1112331112010212-0020130030331122-0213012013031110-3121131111013030-2110003013030323-2222333030231322-3220323222331000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6485dcafd87dfdd0f59c42a0cb5faa44c19f2cd0b1fd26bbd8786d9a754efe9e"></a>
+<a id="canonical-1210201131302233-3120133133313100-3311213010022200-3023113322221010-3001213302303100-2301333102122323-3120132012312122-1311103233322132"></a>
 
-## service.advertise_options.advertise_in_cluster.port.info.same_as_port — service.advertise_options.advertise_in_cluster.port.info.same_as_port / 1e620c2dfd7f / 2
+## service.advertise_options.advertise_in_cluster.port.info.same_as_port — same_as_port / 023133311333 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-9d22595127cd5d0e2ed99473331e76f716d729f28680fb396db73663194f15db)
-- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-ab753dfa0757cc6eb78321f6b0da20bf777027d579bb9021434710affa18439b)
-- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-508dfbd6f6a5491264f85e66edd2cc3c275652694bd85829f55bc03b2c7e4ea0)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_in_cluster](data-sources--workload--reference--group-008.md#canonical-2131020211211101-0213303111310032-0232312121101303-0303013213123313-0112311302213302-2012200033230321-1231231303121203-0121103301113123)
+- [service.advertise_options.advertise_in_cluster.port](data-sources--workload--reference--group-008.md#canonical-2223131103313322-0013111330301232-2313200302013312-2300312202002333-1313130002133111-1321232321000201-1003101301002233-3322012010032123)
+- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-1100203133233112-3312221110210102-1210332011321212-3231310230300330-0213111211021221-1023312011200221-3311112330000323-0230133210322200)
 - service.advertise_options.advertise_in_cluster.port.info.same_as_port
 
-<a id="canonical-acffff78840cd3764ae4c60aeab46e39b7f7893a22afdc07c0019826499e8b4d"></a>
+<a id="canonical-2230333333331320-2010003031031312-1022321030120022-3222231012320321-2313331320210322-0202223331300013-3000000121200212-1021213220231031"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3290,38 +3860,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-18a36cb2b93255a0aa11992208544549e24db6a4c22edbd0e3226a2be980ce6b"></a>
+<a id="canonical-0120220312302302-2321030211112200-2222010121210202-0020111010111021-3202103123122210-3002023231233100-3203020212220223-3221200030321223"></a>
 
-## Direct properties — service.advertise_options.advertise_in_cluster.port.info.same_as_port / 1e620c2dfd7f / 3
+## Direct properties — same_as_port / 023133311333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3e5fecda20a4a21d391e6e84b283c559a9e1e32344bb1a27b2a5e6d606275354"></a>
+<a id="canonical-0332113332303122-0200221022020131-0321013212322010-2302200330111121-2221320132030203-1010232301220213-2302221132123112-0012021311031110"></a>
 
-## Next pages — service.advertise_options.advertise_in_cluster.port.info.same_as_port / 1e620c2dfd7f / 4
+## Next pages — same_as_port / 023133311333 / 4
 
-- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-508dfbd6f6a5491264f85e66edd2cc3c275652694bd85829f55bc03b2c7e4ea0)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_in_cluster.port.info](data-sources--workload--reference--group-008.md#canonical-1100203133233112-3312221110210102-1210332011321212-3231310230300330-0213111211021221-1023312011200221-3311112330000323-0230133210322200)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c"></a>
+<a id="canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-751ed9accfd600225b5c3a2437517cfdc18c1ddc5f2d7ba062b60b10acfbaa27"></a>
+<a id="canonical-1311013231212230-3033311200000202-1123113003220210-0313110113303331-3001203001313130-1133023113232200-1202231200230100-2230332322220213"></a>
 
-## service.advertise_options.advertise_on_public — service.advertise_options.advertise_on_public / b4dc7bb18fd7 / 2
+## service.advertise_options.advertise_on_public — advertise_on_public / 230120333113 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
 - service.advertise_options.advertise_on_public
 
-<a id="canonical-02d105c9585ee30e59977a406ed9b959e398dd9967b4fe5aba40aaf5da13441c"></a>
+<a id="canonical-0002310100113021-1120113232030032-1121211313221000-1232312123211121-3203212031312121-1213231033321122-2322100022223311-3122010310100130"></a>
 
 Type: `"single"`. Computed.
 
@@ -3341,43 +3911,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dfc46ed8f0b3b9feaddb7a079c80da39b0f6c6d87d9d8ee8e16326394f7345e4"></a>
+<a id="canonical-3133301012323120-3300230323213332-2231312313220013-2130200031220321-2300331230123120-1331213120323220-3201120302120321-1033130310113210"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public / b4dc7bb18fd7 / 3
+## Direct properties — advertise_on_public / 230120333113 / 3
 
-- [multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286): complete subsection reference.
+- [multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012): complete subsection reference.
 
-- [port](data-sources--workload--reference--group-012.md#canonical-a12bf02272720e68e73b00969912e4531958e55ac3c63866089f14cf774f7a3e): complete subsection reference.
+- [port](data-sources--workload--reference--group-012.md#canonical-2201022333000202-1302130200321220-3213032300002112-2121010232101103-0121112032111122-3003301203201212-0020213301103033-1313103313220332): complete subsection reference.
 
-<a id="canonical-e68155207b7258126d3f38718379067a8621ba7ac7a614a7c881f7a7e38945e0"></a>
+<a id="canonical-3212200111110200-1323130211200102-1231033303201301-2003132100121322-2012020123221322-3013221201102213-3020200133132213-3203202110113200"></a>
 
-## Next pages — service.advertise_options.advertise_on_public / b4dc7bb18fd7 / 4
+## Next pages — advertise_on_public / 230120333113 / 4
 
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.port](data-sources--workload--reference--group-012.md#canonical-a12bf02272720e68e73b00969912e4531958e55ac3c63866089f14cf774f7a3e)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.port](data-sources--workload--reference--group-012.md#canonical-2201022333000202-1302130200321220-3213032300002112-2121010232101103-0121112032111122-3003301203201212-0020213301103033-1313103313220332)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286"></a>
+<a id="canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b7ec56436ecf61317224d3101abfaaa13676f7bf3c6ffabe6fa07f6802d75e4d"></a>
+<a id="canonical-2313323011121003-1232303312010301-1302021031030100-0122233322222201-0312131233132333-0330123333222332-1233220013331220-0002311311321031"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports — service.advertise_options.advertise_on_public.multi_ports / 9fac50a9b80a / 2
+## service.advertise_options.advertise_on_public.multi_ports — multi_ports / 222123200022 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
 - service.advertise_options.advertise_on_public.multi_ports
 
-<a id="canonical-5eac8c381b1970cf830b43bdfb6fe8efa3c114b4ec804730cc56c5d33fc2a663"></a>
+<a id="canonical-1132223020300320-0123012113003033-2003002310032331-3323123332203233-2203300101102310-3230200010130300-3030111230113103-0333300222121203"></a>
 
 Type: `"single"`. Computed.
 
@@ -3400,41 +3970,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c75c5a01cc78469afc37732b1f5e525b7d522813714c13383959c355817ed6b4"></a>
+<a id="canonical-3013113011220001-3030132010122122-3330031313030223-0133113211021123-1331110202200103-1301103001030320-0321112130031111-2001133231122310"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports / 9fac50a9b80a / 3
+## Direct properties — multi_ports / 222123200022 / 3
 
-- [ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8): complete subsection reference.
+- [ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120): complete subsection reference.
 
-<a id="canonical-a93860307222136c96bc263b8acfaccf389c715fd559ed46aeff0fdb4572c06e"></a>
+<a id="canonical-2221032012000300-1302020201031230-2112233002120323-2022303322303033-0320213013011133-3111112132311012-2232333300333123-1011130230001232"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports / 9fac50a9b80a / 4
+## Next pages — multi_ports / 222123200022 / 4
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8"></a>
+<a id="canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b0aef087f98cd19b0b613cda56e31c2773c77a261b44e84bec3bbb58c19682a6"></a>
+<a id="canonical-2300223233002013-3321203031012123-0023120103303122-1112320301300213-1303301313220212-0123101032201023-3230032323231120-3001211220022212"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports — service.advertise_options.advertise_on_public.multi_ports.ports / d5cc1c3dbf98 / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports — ports / 033123332120 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
 - service.advertise_options.advertise_on_public.multi_ports.ports
 
-<a id="canonical-f69694509e36bbb03ff27de047e690dde0ed050808dfe977266760645aa01b0f"></a>
+<a id="canonical-3312211221101100-2132031223232300-0333330213313200-1013321221003131-3200323100110020-0020313332211313-0212121312001210-1122220001230033"></a>
 
 Type: `"list"`. Computed.
 
@@ -3477,48 +4047,48 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2813b3900c273c23bd1fc19f97d9e4eb1bf9d4fc098c52ad40f5dade90b87f31"></a>
+<a id="canonical-0220010323032100-0030021303300203-2331013330012133-2113312132103223-0123332131103330-0021203011022231-1000331131223132-2100232013330301"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports / d5cc1c3dbf98 / 3
+## Direct properties — ports / 033123332120 / 3
 
-- [http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1): complete subsection reference.
+- [http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301): complete subsection reference.
 
-- [port](data-sources--workload--reference--group-012.md#canonical-3cb34f707d2dbec6123bc41dddc1fc07d5517460301bdffdd7cdfb2fbda20733): complete subsection reference.
+- [port](data-sources--workload--reference--group-012.md#canonical-0330230310331300-1331023123323012-0102032330100131-3131300133300013-3111110113101200-0300012331333331-3113303133230233-2331220200130303): complete subsection reference.
 
-- [tcp_loadbalancer](data-sources--workload--reference--group-012.md#canonical-c35ed97785ea91f129e6fb702179520fb87869491603605ee0f31354741b57cc): complete subsection reference.
+- [tcp_loadbalancer](data-sources--workload--reference--group-012.md#canonical-3003113231211313-2011322221013301-0221321233231300-0201132111020033-2320132012211021-0112000312001132-3200330301031110-1310012311133030): complete subsection reference.
 
-<a id="canonical-fcd2eecf7a403d42c06f8d0f4f485a5dd0332969641edafead4231916bb46059"></a>
+<a id="canonical-3330310232323033-1322100003311002-3000123320310033-1033102011221131-3100030302211221-1210013231223332-2231100203012101-1223231012001121"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports / d5cc1c3dbf98 / 4
+## Next pages — ports / 033123332120 / 4
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.port](data-sources--workload--reference--group-012.md#canonical-3cb34f707d2dbec6123bc41dddc1fc07d5517460301bdffdd7cdfb2fbda20733)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.tcp_loadbalancer](data-sources--workload--reference--group-012.md#canonical-c35ed97785ea91f129e6fb702179520fb87869491603605ee0f31354741b57cc)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.port](data-sources--workload--reference--group-012.md#canonical-0330230310331300-1331023123323012-0102032330100131-3131300133300013-3111110113101200-0300012331333331-3113303133230233-2331220200130303)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.tcp_loadbalancer](data-sources--workload--reference--group-012.md#canonical-3003113231211313-2011322221013301-0221321233231300-0201132111020033-2320132012211021-0112000312001132-3200330301031110-1310012311133030)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1"></a>
+<a id="canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-08f31f569d631f43bab394c507a01289081a34a264dacfac5e6670e6d8d100fa"></a>
+<a id="canonical-0020330301331112-2131120301331003-2322230321103011-0013220001022021-0020012203102202-1210312230332230-1132121213003212-3120310100003322"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / cb724c9e1355 / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer — http_loadbalancer / 213201031111 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer
 
-<a id="canonical-fe27fff3463248c00dbfb66fda6b5266b7ba6abff4eaf0f2bd2e912ad42426aa"></a>
+<a id="canonical-3332021333333303-1012030210203000-0031233323121233-3122122311021212-2313232212222333-3310322233003302-2331023221010222-3110021002122222"></a>
 
 Type: `"single"`. Computed.
 
@@ -3543,17 +4113,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bf9222fd1b6e01eb7ab3a7c5a1bd50dc4ae9e402558ec3c2deaf45184b463518"></a>
+<a id="canonical-2333210202023331-0123123200013223-1322230322133011-2201233111003130-1022322132100002-1111203230033002-3132223310110120-1023101203110120"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / cb724c9e1355 / 3
+## Direct properties — http_loadbalancer / 213201031111 / 3
 
-- [default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50): complete subsection reference.
+- [default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100): complete subsection reference.
 
-<a id="canonical-8e2e41c68ac0122aee883245b715c537e9eba2bf44e74455173b5e432f2841ce"></a>
+<a id="canonical-2032023210013012-2022300001020222-3232202003021011-2313011130110313-3221322322022333-1010321310101111-0113032311321003-0233022010013032"></a>
 
-<a id="canonical-aabd5cd573058bcb6020a5c7db93002fcd066243f9ca017b31f9fe24afa5f1d2"></a>
+<a id="canonical-2222233111303111-1303001120233023-1200020022113013-3123210300000233-3031001212021003-3321302200011323-0301332133320210-2233221133013102"></a>
 
-## domains property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / cb724c9e1355 / 4
+## domains property — http_loadbalancer / 213201031111 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -3624,49 +4194,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [http](data-sources--workload--reference--group-008.md#canonical-45600eb7238b372a39221db2939141c5b76227188be6c31728d84de9918dc6ba): complete subsection reference.
+- [http](data-sources--workload--reference--group-008.md#canonical-1011120000322313-0203202303130222-0321020201312302-2103210110013011-2313120202130120-2023321230030113-0220312010313221-2101203130122322): complete subsection reference.
 
-- [https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758): complete subsection reference.
+- [https](data-sources--workload--reference--group-008.md#canonical-1222321333022313-0131122211222120-3203023132311031-0223132013021320-3213031131013303-3013023321330231-0022112233333002-3110332101131120): complete subsection reference.
 
-- [https_auto_cert](data-sources--workload--reference--group-010.md#canonical-3c6fe7acbb3e7d43101bb33001feeb507501240dfc6045bf42be34bbd5c362a4): complete subsection reference.
+- [https_auto_cert](data-sources--workload--reference--group-010.md#canonical-0330123332132230-2323033213311003-0100012323030300-0001333232231100-1311000102100031-3330120010112333-1002233203102323-3111300312022210): complete subsection reference.
 
-- [specific_routes](data-sources--workload--reference--group-011.md#canonical-30327ed3011b3335416b21fd86305c3cd5b23a9eb80a4d5c2ccc09979303187b): complete subsection reference.
+- [specific_routes](data-sources--workload--reference--group-011.md#canonical-0300030213323103-0001012303030311-1001122302013331-2012030011300330-3111230203222132-2320002210311130-0230303000212113-2103000301201323): complete subsection reference.
 
-<a id="canonical-51dd44c05a36d4ad0c7fc44357e377020adecd2a7cc9ceef1317c00168d69fff"></a>
+<a id="canonical-1101313110103000-1122031231102231-0030133330101003-1113320313130002-0022313230310222-1330302130323233-0103011330000001-1220311221333333"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / cb724c9e1355 / 5
+## Next pages — http_loadbalancer / 213201031111 / 5
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.http](data-sources--workload--reference--group-008.md#canonical-45600eb7238b372a39221db2939141c5b76227188be6c31728d84de9918dc6ba)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-010.md#canonical-3c6fe7acbb3e7d43101bb33001feeb507501240dfc6045bf42be34bbd5c362a4)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-011.md#canonical-30327ed3011b3335416b21fd86305c3cd5b23a9eb80a4d5c2ccc09979303187b)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.http](data-sources--workload--reference--group-008.md#canonical-1011120000322313-0203202303130222-0321020201312302-2103210110013011-2313120202130120-2023321230030113-0220312010313221-2101203130122322)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-1222321333022313-0131122211222120-3203023132311031-0223132013021320-3213031131013303-3013023321330231-0022112233333002-3110332101131120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https_auto_cert](data-sources--workload--reference--group-010.md#canonical-0330123332132230-2323033213311003-0100012323030300-0001333232231100-1311000102100031-3330120010112333-1002233203102323-3111300312022210)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.specific_routes](data-sources--workload--reference--group-011.md#canonical-0300030213323103-0001012303030311-1001122302013331-2012030011300330-3111230203222132-2320002210311130-0230303000212113-2103000301201323)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50"></a>
+<a id="canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37861fb069dd4cb531f82a0b3f2caff25bbd78b405e147395321210610077c22"></a>
+<a id="canonical-0313201201332300-1221313110302311-0301332002220023-0333023022333302-1123233113202310-0011320110130321-1103020102010012-0100001313300202"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 0066c2970710 / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route — default_route / 211300130100 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route
 
-<a id="canonical-48cea4e4effa466c15e59dbf69150e3ff6973e623db965442e9620efbf5ab567"></a>
+<a id="canonical-1020303222103210-3233332210121230-0111321121312333-1221011100320333-3312211303321202-0331232112111010-0232211202003233-2333112223111213"></a>
 
 Type: `"single"`. Computed.
 
@@ -3690,19 +4260,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6b835b1f94e2da0999e977bada383f8fb460c2bc9e45bc1d771cdae3eacc58f5"></a>
+<a id="canonical-1223200311230133-2110320231220021-2121322113132322-3122032003332033-2310120030022330-2132101123300131-1313013031223203-3222303011203311"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 0066c2970710 / 3
+## Direct properties — default_route / 211300130100 / 3
 
-- [auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-94244114990cf4af0f96c9013717cc86e14cf95fff7f1000cd40dbf21fcd2321): complete subsection reference.
+- [auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-2110021010010110-2121003033102233-0033211230210001-0313011330302012-3201103033211133-3333133301000000-3031100031233302-0133303102030201): complete subsection reference.
 
-- [disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-155a0f81c5480c9f1c280323d2e7447e24622935faf8c1b4c7cd14e3cd6139c7): complete subsection reference.
+- [disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-0111112200332001-3011102000302133-0130022000030203-3102321310101332-0210120202210311-3322332030012310-3013303101103203-3031120103213013): complete subsection reference.
 
-<a id="canonical-2da9ace63a3e5cef7dddd6a0c527945695edbaf6069982947251c6db6a0835d7"></a>
+<a id="canonical-0231222122303212-0322033211303233-1331313131122200-3011021321101112-2111323123223312-0012212120022110-1302110130123123-1222002003113113"></a>
 
-<a id="canonical-fb6254e64367c064fbdf79839c41003738984c7ac71d280ac3f2198d2313eae3"></a>
+<a id="canonical-3323120211103212-1003121330001210-3323313313212003-2130100100000313-0320212010301322-3013013102200022-3003330201212031-0203010332223203"></a>
 
-## host_rewrite property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 0066c2970710 / 4
+## host_rewrite property — default_route / 211300130100 / 4
 
 Type: `"string"`. Computed.
 
@@ -3745,39 +4315,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3406006fc2f8f85a8d8d1c42a586faacd42d87c2c8608a570f85b3a42b9e0053"></a>
+<a id="canonical-0310001200001233-3002332033201122-2031203101301002-2211201233222230-3110023120133002-3020120020221113-0033201123032210-0223213200001103"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 0066c2970710 / 5
+## Next pages — default_route / 211300130100 / 5
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-94244114990cf4af0f96c9013717cc86e14cf95fff7f1000cd40dbf21fcd2321)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-155a0f81c5480c9f1c280323d2e7447e24622935faf8c1b4c7cd14e3cd6139c7)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.auto_host_rewrite](data-sources--workload--reference--group-008.md#canonical-2110021010010110-2121003033102233-0033211230210001-0313011330302012-3201103033211133-3333133301000000-3031100031233302-0133303102030201)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.disable_host_rewrite](data-sources--workload--reference--group-008.md#canonical-0111112200332001-3011102000302133-0130022000030203-3102321310101332-0210120202210311-3322332030012310-3013303101103203-3031120103213013)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-94244114990cf4af0f96c9013717cc86e14cf95fff7f1000cd40dbf21fcd2321"></a>
+<a id="canonical-2110021010010110-2121003033102233-0033211230210001-0313011330302012-3201103033211133-3333133301000000-3031100031233302-0133303102030201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-62bc95e0b468ea64d11276b598f0c768fd081ccc224ea248594b7e41122afe62"></a>
+<a id="canonical-1202233021113200-2310122032221210-3101010213122311-2120330030131220-3331002001303030-0202103222021020-1121102313321001-0102022233321202"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.auto_host_rewrite — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / c2c0b4fb483b / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.auto_host_rewrite — auto_host_rewrite / 332310200323 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.auto_host_rewrite
 
-<a id="canonical-241961ff54ffe3463f614443016f1ae5e0a4fffbe6cc3c8d9540d0b8d51dcd3d"></a>
+<a id="canonical-0210012112013333-1110333332031012-0333120110101003-0001123301223211-3200221033333323-3212303003302031-2111100031002320-3111013130310331"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3800,43 +4370,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f34b398bbc839311f0bd5e8209933dcf8859be548c897ca2278dcdb793d5e7d3"></a>
+<a id="canonical-3303102303212023-2330200321030101-3300233111322002-0021210303313033-2020112123321110-2030202113302202-0213203130312313-2103311132133103"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / c2c0b4fb483b / 3
+## Direct properties — auto_host_rewrite / 332310200323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-41bff2f1d19035466390e927e8afbf639cf21eb848543cf8269d075154bd3560"></a>
+<a id="canonical-1001233333023301-3101210003111012-1203210032210213-3220223323331203-2130330201322320-1020111003303320-0212213100131101-1110233103111200"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / c2c0b4fb483b / 4
+## Next pages — auto_host_rewrite / 332310200323 / 4
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-155a0f81c5480c9f1c280323d2e7447e24622935faf8c1b4c7cd14e3cd6139c7"></a>
+<a id="canonical-0111112200332001-3011102000302133-0130022000030203-3102321310101332-0210120202210311-3322332030012310-3013303101103203-3031120103213013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-88e9c3b21af8cc3a24c2192244717bf5cd2d9d13aa3a70113bc4eb15c6ecf2ac"></a>
+<a id="canonical-2020322130032302-0122332030300322-0210300201210202-1010130113233311-3031023121310103-2222032213000101-0323301032230111-3012323033022230"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.disable_host_rewrite — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / e83b3b31634e / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.disable_host_rewrite — disable_host_rewrite / 030112031032 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route.disable_host_rewrite
 
-<a id="canonical-226b655e5bdce79798e985cdfc3e8da3d7e59fc68df4460aba34f445db8d9cc4"></a>
+<a id="canonical-0202122312111132-1123313032132113-2120322120113031-3330033220312203-3113321121333012-2031331010120022-2322031033101011-3123203121303010"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3859,42 +4429,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2093dd1728f5f3a0d3c877502330de94d4bfb1a53579c442ab0ea6a930394425"></a>
+<a id="canonical-0200210331310113-0220331133032200-3103302013131100-0203030031322110-3110233323012211-0311132130101002-2223003222122221-0300032110100211"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / e83b3b31634e / 3
+## Direct properties — disable_host_rewrite / 030112031032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f4139f4d0c00fc70bc43be2c604247ad405fcbea09b7874f960089b249542ef9"></a>
+<a id="canonical-3310010321331031-0030000033301300-2330100323320230-1200100210132231-1000113330233222-0021231320131033-2112000020212302-1021111002323321"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / e83b3b31634e / 4
+## Next pages — disable_host_rewrite / 030112031032 / 4
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-8a013f734db838b60bb754f8b4400742c1fa325ad9136f756530d2ce762cca50)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.default_route](data-sources--workload--reference--group-008.md#canonical-2022000103331303-1031232003202312-0023231311103320-2310100000131002-3001332203021122-3121010312331311-1211030031023032-1312023030221100)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-45600eb7238b372a39221db2939141c5b76227188be6c31728d84de9918dc6ba"></a>
+<a id="canonical-1011120000322313-0203202303130222-0321020201312302-2103210110013011-2313120202130120-2023321230030113-0220312010313221-2101203130122322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f4c04cbc58d8d93e4e74d63fc881e30ef177da4bb39a76567f7a461bb22788a"></a>
+<a id="canonical-2033103000103023-3011203120312103-3210321310311203-3330202001320300-3233011313312210-2323032122131211-1213331322101201-2323020213202022"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.http — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.http — http / 332021000113 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.http
 
-<a id="canonical-c4434f7b858b37be3cd49ce8aac3d92eb08c6c34c4c15115a42963bea86b8e07"></a>
+<a id="canonical-3010100310331323-2011202303132332-0330311021303220-2222300331210232-2300203012300310-3010300111010111-2210022112032332-2220122320320013"></a>
 
 Type: `"single"`. Computed.
 
@@ -3918,15 +4488,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2d7c20126bda5180f972040c0172a28ce4509128b5a516e41ed7c4c447df513d"></a>
+<a id="canonical-0231133002000102-1223312211012000-3321130200100030-0001130222022030-3210110021010220-2311221101123210-0132311330103010-1013313311010331"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 3
+## Direct properties — http / 332021000113 / 3
 
-<a id="canonical-b232fc4e3c7ce5376e1b4e587385ff1c78f41b8051976e2edc23a1ec89c66f0c"></a>
+<a id="canonical-2302030233301032-0330133032110313-1232012310321120-1303201133330130-1320331001232000-1101211312320232-3130020322013230-2021301212330030"></a>
 
-<a id="canonical-3774ff9f985bc5debefb54fa72838bcdf4f76bcb4725686392f6c3172dfc3bd6"></a>
+<a id="canonical-0313131033332133-2120112330113132-2332332311103322-1302200320233031-3310331312233023-1013021112201203-2102331230030113-0231333003233112"></a>
 
-## dns_volterra_managed property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 4
+## dns_volterra_managed property — http / 332021000113 / 4
 
 Type: `"bool"`. Computed.
 
@@ -3953,11 +4523,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-469caf3d93d992e4dd24e14125a73616dfd386b689c3717c391e611669d84ced"></a>
+<a id="canonical-1012213022330331-2103312121023210-3131021032011001-0211221303120112-3133310320122312-2021300313011330-0321013212010112-1221312010303231"></a>
 
-<a id="canonical-9ae9eafd7840d1e6a472fc27078610f1112aeef6a8ff3b76304129be1407f19a"></a>
+<a id="canonical-2122322132223331-1320100031013212-2210130233300213-0013201201003301-0101022232323312-2220333303231312-0300100102212332-0110001333012122"></a>
 
-## port property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 5
+## port property — http / 332021000113 / 5
 
 Type: `"number"`. Computed.
 
@@ -3999,11 +4569,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0d463038f71231113aa63b884455a20ae83816424b4e6d1a79be3b693582077d"></a>
+<a id="canonical-0031101203000320-3313010203010101-0322221203232020-1010111122020022-3220032001121002-1023103212310122-1321233203231221-0311200200131331"></a>
 
-<a id="canonical-a203de81cea638bd8c2f2c3260bae948a212e2f9b9f6925353968b0b4438f802"></a>
+<a id="canonical-2202000331322001-3032221203202331-2030023302300302-1200232232211020-2202010232023321-2321331221021103-1103211220230023-1010032033200002"></a>
 
-## port_ranges property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 6
+## port_ranges property — http / 332021000113 / 6
 
 Type: `"string"`. Computed.
 
@@ -4054,36 +4624,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b869196877af18f57c3c48cff300a2bdc3f3bf20481067192c5fbe906af99269"></a>
+<a id="canonical-2320122101211220-1313223301203311-1330033010203033-3303000022022331-3003330323330200-1020010012130121-0230113323322100-1222332121021221"></a>
 
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 96ce45f89017 / 7
+## Next pages — http / 332021000113 / 7
 
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
 
-<a id="canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758"></a>
+<a id="canonical-1222321333022313-0131122211222120-3203023132311031-0223132013021320-3213031131013303-3013023321330231-0022112233333002-3110332101131120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-efffe083382b39d890468181287b0ec27b072bbc9d05aa4d84389316772661c3"></a>
+<a id="canonical-3233333332002003-0320022303213120-2100101220012001-0220132300323002-1323001302232330-2131001122221031-2010032021030112-1313021212013003"></a>
 
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 2
+## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https — https / 330302311213 / 2
 
 Breadcrumbs:
 
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+- [Property reference](data-sources--workload--reference--group-001.md#canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031)
+- [service](data-sources--workload--reference--group-005.md#canonical-1202331303220203-0201220210302110-3230233130203212-0211012200301123-2132232223102021-1100310220330100-0330302132103311-3331131002000211)
+- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-1230023000110022-1010223003013010-1333020121230231-2221232101221211-2130003313320013-0210002201312132-3102123003022022-3202000301213333)
+- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-1310110010122033-2210320003110123-0220310131330230-1101011120230112-0132203111212320-2110123230130221-3300230123133301-1202011310100130)
+- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-3131133232121020-0203302310121231-1131113230212030-2111103313010330-2131230112223203-2311311213122322-2023221000002321-0122010021022012)
+- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-0021133101121333-1210320223100220-3133030021012212-1301020332003023-2213120102203020-0023301100331122-2210121303201321-0211331333333120)
+- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-3023111120210202-0313023112032123-2033210311120213-3000313003000213-2203112012310120-3112303221031323-1313230112020333-0022201322102301)
 - service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https
 
-<a id="canonical-6aa5736598525f3b8c3e4ba5a46da71cd5664c07045106b111bdfe1e9f95243c"></a>
+<a id="canonical-1222221113031211-2120110211330323-2030033210232211-2210123122130130-3111121210300013-0010110100122301-0101233133320132-2133211102100330"></a>
 
 Type: `"single"`. Computed.
 
@@ -4107,15 +4677,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50a6846da4cc8c4971e53d425450d4a39550690f1002b5f6c83885d22090a029"></a>
+<a id="canonical-1100221220101231-2210303020301021-1301321103311002-1110110031102203-2111110012210033-0100000223113312-3020032020113102-0200210022000221"></a>
 
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 3
+## Direct properties — https / 330302311213 / 3
 
-<a id="canonical-2919c0100ef6afbea06be4be046d855e19b04de5826dac665f86fa9a9cad7062"></a>
+<a id="canonical-0221012130000100-0032331222332332-2200122332102332-0010123120111132-0121230010313211-2002123122301212-1133201233222122-2130223113001202"></a>
 
-<a id="canonical-784e82c10d8a0e64d16751c33383c724dcc5cda704a00dd6a329e3985a31fcf1"></a>
+<a id="canonical-1320103220023001-0031202200321210-3101121311013003-0303200330130210-3130301130312213-0010220000313112-2203022132032120-1122030133303301"></a>
 
-## add_hsts property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 4
+## add_hsts property — https / 330302311213 / 4
 
 Type: `"bool"`. Computed.
 
@@ -4134,11 +4704,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a320f058d16820cdb84e3607c5144be79f71c68fd9a28fe12079d84e6ab5e9a5"></a>
+<a id="canonical-2203020033001120-3101122002003031-2320103203120013-3011011010233213-2133130130122033-3121220220333201-0200132131201032-1222231132212211"></a>
 
-<a id="canonical-1bb751237fb163001fed3c8252c980ec459ae389653b469f44ec3665009bae3d"></a>
+<a id="canonical-0123231311010203-1333230112030000-0133323103302002-1102302120003230-1011212232032021-1211032310122133-1010323003121211-0000212322320331"></a>
 
-## append_server_name property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 5
+## append_server_name property — https / 330302311213 / 5
 
 Type: `"string"`. Computed.
 
@@ -4181,452 +4751,6 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87): complete subsection reference.
+- [coalescing_options](data-sources--workload--reference--group-009.md#canonical-1021033321200220-2122123222010113-3330010201103233-2103020220030330-2021200120310310-1302033032023022-1321103303100000-3212020230312013): complete subsection reference.
 
-<a id="canonical-0b952290a511ac1d89176ea96fb374f45e1267489973cad12ee72fde7dd27fdd"></a>
-
-<a id="canonical-4ae0cff30cdd2ee38b9dfebd41512e774da3c55a88d968a20bb0e37670c1f9b3"></a>
-
-## connection_idle_timeout property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 6
-
-Type: `"number"`. Computed.
-
-The idle timeout for downstream connections. The idle timeout is defined as the period in which
-there are no active requests. When the idle timeout is reached the connection will be closed.
-
-Upstream description:
-
-The idle timeout for downstream connections. The idle timeout is defined as the period in which
-there are no active requests. When the idle timeout is reached the connection will be closed. Note
-that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive. This is
-specified in milliseconds. The default value is 2 minutes.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 600000,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "600000"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "600000"
-  }
-}
-```
-
-- [default_header](data-sources--workload--reference--group-008.md#canonical-7457085cf0da0ee561b8ff93ea1d126b21698ce974ee4acc6fc30185432857d8): complete subsection reference.
-
-- [default_loadbalancer](data-sources--workload--reference--group-009.md#canonical-c17febba60e59e71e0c97c21de0dbad4e533bab108b791d79bacb74bcba01eec): complete subsection reference.
-
-- [disable_path_normalize](data-sources--workload--reference--group-009.md#canonical-e24f56068cfbc79e78760d6b5d18999dcdaffb8812860363cdee839f858f145e): complete subsection reference.
-
-- [enable_path_normalize](data-sources--workload--reference--group-009.md#canonical-32a942bf61be073e001e64217411263bf6b6e632da520c55e627d358303d51c8): complete subsection reference.
-
-- [http_protocol_options](data-sources--workload--reference--group-009.md#canonical-6800266df44556232a0ae5fb5fb8ae633a0e9c70f834cb3e8ac413369e6ae809): complete subsection reference.
-
-<a id="canonical-f1b37a50d02dbf53532f9a099602b9923b0da18eae3c00c88607d128c5395b4c"></a>
-
-<a id="canonical-3d0f7be5832c0c8c46965aff96c41e1b42b202eb38a12748d98ff03f2c26dd05"></a>
-
-## http_redirect property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 7
-
-Type: `"bool"`. Computed.
-
-HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.
-
-Upstream description:
-
-Redirect HTTP traffic to HTTPS.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [non_default_loadbalancer](data-sources--workload--reference--group-009.md#canonical-47ba5e756987d3ffa1322289780f5bdf28b35d3daeea7da8721b009cf49d8c2f): complete subsection reference.
-
-- [pass_through](data-sources--workload--reference--group-009.md#canonical-afd0c2ea1dc2dbd7ccb915a076e791d2d67777db7a8e37bfa4f695051f467a6c): complete subsection reference.
-
-<a id="canonical-46f0e3ee529424a0da2386de27ad501f8c5e294d7527bcdecdd07d04682856eb"></a>
-
-<a id="canonical-1f9064cd19f32c04c6873670e2d66c168d74e1f3f98d261fbb712bac0c892585"></a>
-
-## port property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 8
-
-Type: `"number"`. Computed.
-
-Exclusive with \[port\_ranges\] HTTPS port to Listen.
-
-Upstream description:
-
-Exclusive with \[port\_ranges\] HTTPS port to Listen.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-bd0be61a0a05a3056670d5f9d649fca701f3a3dcba234072de5b8c5aa54a08fe"></a>
-
-<a id="canonical-dc23e0a3c2146294b47ab05a9e1732f4cef70581047acdf6c290bff2e7f371bf"></a>
-
-## port_ranges property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 9
-
-Type: `"string"`. Computed.
-
-Exclusive with \[port\] A string containing a comma separated list of port ranges. Each port range
-consists of a single port or two ports separated by '-'.
-
-Upstream description:
-
-Exclusive with \[port\] A string containing a comma separated list of port ranges. Each port range
-consists of a single port or two ports separated by "-".
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 512,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 512,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "512",
-    "ves.io.schema.rules.string.max_ports": "64",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.unique_port_range_list": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "512",
-    "ves.io.schema.rules.string.max_ports": "64",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.unique_port_range_list": "true"
-  }
-}
-```
-
-<a id="canonical-ef6ad8215d85b81e99c9cdb3b96b9543e719402b2d6f443b112d6db5f4a6ff29"></a>
-
-<a id="canonical-f8b416ed9eed2f91bd7017d0af1ec26e060673ff794029f8768d9074d7fe16d0"></a>
-
-## server_name property — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 10
-
-Type: `"string"`. Computed.
-
-Exclusive with \[append\_server\_name default\_header pass\_through\] Define the header value for
-the header name “server”. This will overwrite existing values, if any, for the server header.
-
-Upstream description:
-
-Exclusive with \[append\_server\_name default\_header pass\_through\] Define the header value for
-the header name “server”. This will overwrite existing values, if any, for the server header.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 8096,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 8096,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "8096"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "8096"
-  }
-}
-```
-
-- [tls_cert_params](data-sources--workload--reference--group-009.md#canonical-fa55d26d81706f6376fab9a26b13baf7022243e71883ee06dc2c093196e44083): complete subsection reference.
-
-- [tls_parameters](data-sources--workload--reference--group-009.md#canonical-ccb6358bafbe4fd33ea49ce251d3f0473136052ee3906207ff885267e7a59217): complete subsection reference.
-
-<a id="canonical-75e56f7737e1cc1972b53c4291e4f55c90ce13990db19614e103cd145eb1007f"></a>
-
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 2b318df32d67 / 11
-
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.default_header](data-sources--workload--reference--group-008.md#canonical-7457085cf0da0ee561b8ff93ea1d126b21698ce974ee4acc6fc30185432857d8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.default_loadbalancer](data-sources--workload--reference--group-009.md#canonical-c17febba60e59e71e0c97c21de0dbad4e533bab108b791d79bacb74bcba01eec)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.disable_path_normalize](data-sources--workload--reference--group-009.md#canonical-e24f56068cfbc79e78760d6b5d18999dcdaffb8812860363cdee839f858f145e)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.enable_path_normalize](data-sources--workload--reference--group-009.md#canonical-32a942bf61be073e001e64217411263bf6b6e632da520c55e627d358303d51c8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.http_protocol_options](data-sources--workload--reference--group-009.md#canonical-6800266df44556232a0ae5fb5fb8ae633a0e9c70f834cb3e8ac413369e6ae809)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.non_default_loadbalancer](data-sources--workload--reference--group-009.md#canonical-47ba5e756987d3ffa1322289780f5bdf28b35d3daeea7da8721b009cf49d8c2f)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.pass_through](data-sources--workload--reference--group-009.md#canonical-afd0c2ea1dc2dbd7ccb915a076e791d2d67777db7a8e37bfa4f695051f467a6c)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_cert_params](data-sources--workload--reference--group-009.md#canonical-fa55d26d81706f6376fab9a26b13baf7022243e71883ee06dc2c093196e44083)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.tls_parameters](data-sources--workload--reference--group-009.md#canonical-ccb6358bafbe4fd33ea49ce251d3f0473136052ee3906207ff885267e7a59217)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-40101d2b7ae928ee4d4ee5a19c93a0fc10f3d89dc99d6cea659f04dbc8bc0489"></a>
-
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / aabee42da0f4 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758)
-- service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options
-
-<a id="canonical-4677a0e27e2be322ce3d0e768ae7d7e27a36336ec98dddf7ecb0f436937ce7dc"></a>
-
-Type: `"single"`. Computed.
-
-TLS connection coalescing configuration (not compatible with mTLS).
-
-Upstream description:
-
-TLS connection coalescing configuration (not compatible with mTLS)
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-coalescing_choice": "[\"default_coalescing\",\"strict_coalescing\"]"
-}
-```
-
-<a id="canonical-a414bf8d4548e15d497efe6c492aa5cfba8150f2e14203a9c3cf1da189db8c1e"></a>
-
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / aabee42da0f4 / 3
-
-- [default_coalescing](data-sources--workload--reference--group-008.md#canonical-e06e2d999c96a9c18c3c5016ff86b80bc415364d3bb56b81c8828fd6fcf6cd40): complete subsection reference.
-
-- [strict_coalescing](data-sources--workload--reference--group-008.md#canonical-5a5b3ee3cc158302f6e2204cc1ae98f16a7fa4b09d7316a2d2721e6f665a7c24): complete subsection reference.
-
-<a id="canonical-5889c6c64e96796cbdd5fbcd1f8d696b9fde403cb8530a7589b53567894fd2e9"></a>
-
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / aabee42da0f4 / 4
-
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.default_coalescing](data-sources--workload--reference--group-008.md#canonical-e06e2d999c96a9c18c3c5016ff86b80bc415364d3bb56b81c8828fd6fcf6cd40)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.strict_coalescing](data-sources--workload--reference--group-008.md#canonical-5a5b3ee3cc158302f6e2204cc1ae98f16a7fa4b09d7316a2d2721e6f665a7c24)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-e06e2d999c96a9c18c3c5016ff86b80bc415364d3bb56b81c8828fd6fcf6cd40"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-9538345fd57ed8c805ad97a0e7ad97102795763fe5f5a166dc71694db6151707"></a>
-
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.default_coalescing — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 300164db9a0d / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87)
-- service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.default_coalescing
-
-<a id="canonical-a27e3c9baef8b4e0e1d873a7bedef0a3c35278a1a63ee1738566916a76594611"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for default coalescing.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-07e79454f1793dd09000b76ad73331ba4b31c977c598aad29804dd44372f4061"></a>
-
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 300164db9a0d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-82aff7c4d614db2541768d3f8c9d706397190d1c089f76388d5e520630d49fd4"></a>
-
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 300164db9a0d / 4
-
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-5a5b3ee3cc158302f6e2204cc1ae98f16a7fa4b09d7316a2d2721e6f665a7c24"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6bf76b2397e7d65786c8390abe35486ffcfb0fa073627247cd87642b8b1c455b"></a>
-
-## service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.strict_coalescing — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 5ae822841cd4 / 2
-
-Breadcrumbs:
-
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-- [Property reference](data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
-- [service](data-sources--workload--reference--group-005.md#canonical-62f73a2321a24c94ecbdc8e6251a0c5b9ebab48950d28f103cc9e4f5fd742025)
-- [service.advertise_options](data-sources--workload--reference--group-005.md#canonical-6c2c050a44ac31c47f219b2da9b91a659c0f7e07240a1d9ed26c328ae20319ff)
-- [service.advertise_options.advertise_on_public](data-sources--workload--reference--group-008.md#canonical-7450468fa4e0351b28d1df2c51158b161e8d59b8946ec729f0b1b7f16217441c)
-- [service.advertise_options.advertise_on_public.multi_ports](data-sources--workload--reference--group-008.md#canonical-dd7ee64823cb466d5d5ec98c954f713c9db16ae3b5d676ba8ba400b91a109286)
-- [service.advertise_options.advertise_on_public.multi_ports.ports](data-sources--workload--reference--group-008.md#canonical-097d167f64e2b428df3091a67123e0cba76128c80bc50f5aa467387925f7ffd8)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer](data-sources--workload--reference--group-008.md#canonical-cb558922372d639b8f935627c0dc3027a3586d18d6ce937b77b1623f0a87a4b1)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https](data-sources--workload--reference--group-008.md#canonical-6ae7f2b71d6a5a98e32ded4d2b787278e735d1f3c72f9f2d0a5affc2d4f91758)
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87)
-- service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options.strict_coalescing
-
-<a id="canonical-885f9d89e9a35939306fdcb6aca890859e78c48c20328a0e45af9fa4d45b07af"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for strict coalescing.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-8b5881885fd49fe1fb2bf2bd4d252060b32f84cf5b4b467e10b9cb7636b51e4b"></a>
-
-## Direct properties — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 5ae822841cd4 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-39e7e2ae21e32171b3e699f016c9a18ad5cdb77af34bb1c3aa58d8156494f0a5"></a>
-
-## Next pages — service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalance / 5ae822841cd4 / 4
-
-- [service.advertise_options.advertise_on_public.multi_ports.ports.http_loadbalancer.https.coalescing_options](data-sources--workload--reference--group-008.md#canonical-493f98289a6ea117fc1214ef9322833c89818d34723ce2ca794f3400e622cd87)
-- [xcsh_workload](../data-sources/workload.md#canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50)
-
-<a id="canonical-7457085cf0da0ee561b8ff93ea1d126b21698ce974ee4acc6fc30185432857d8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
+<a id="canonical-0023211102022100-2211010122300131-2021011312322221-1233230313103310-1132010212131020-2121130330223101-0232321302333132-1331310213333131"></a>

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bot_detection_rule l
 
 # xcsh_bot_detection_rule landing
 
-<a id="canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052"></a>
+<a id="canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4a7bf070cc83aaccb190b134b20e9b42530551c18834f0fb55436e874043d1ba"></a>
+<a id="canonical-1022132333001300-3030200322223030-2301210023010310-2302003221231002-1103001111013001-2020031033003323-1111100312322013-1000100331012322"></a>
 
-## xcsh_bot_detection_rule — xcsh_bot_detection_rule / c4ddc57be508 / 2
+## xcsh_bot_detection_rule — xcsh_bot_detection_rule / 132332110020 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule.
 configuration. (read-only data source)
 
-<a id="canonical-a2f9d1b62086a94062ec42e8194abf0081efa040e7b085e19f72119ac4a2663d"></a>
+<a id="canonical-2202332131012312-0200201222211000-1202323010023220-0121102223330000-2001323322001000-3213230020113201-2133130201012122-3010220212120331"></a>
 
-## Prerequisites — xcsh_bot_detection_rule / c4ddc57be508 / 3
+## Prerequisites — xcsh_bot_detection_rule / 132332110020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-b895922567357243e9ff3daeda9a52ce5316d141ce8a44dc703576ed0769b27b"></a>
+<a id="canonical-2320211121020211-1213031113021003-3221333303312232-3122212211023032-1103011231011001-3032202210103130-1300031113123231-0013122123021323"></a>
 
-## Minimal configuration — xcsh_bot_detection_rule / c4ddc57be508 / 4
+## Minimal configuration — xcsh_bot_detection_rule / 132332110020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "bot_detection_rule_id" {
 }
 ```
 
-<a id="canonical-69d03cfa4281cf700922904cbbafdf9ae92020cda7ba5f3fca5134b31117ed0d"></a>
+<a id="canonical-1221310003303322-1002200130331300-0021020221001030-2323223331332122-3221020002003031-2213232211330333-3022110103102303-0101011332310031"></a>
 
-## Root configuration — xcsh_bot_detection_rule / c4ddc57be508 / 5
+## Root configuration — xcsh_bot_detection_rule / 132332110020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-99adbdade33065dabf6932960e7fa0353c2c80b77449c990c77e3fc0cdffcdd7"></a>
+<a id="canonical-2121223123312231-3203030012113122-2333122103022112-0032133322000311-0330023020002313-1310102130212100-3013133203333000-3031333330313113"></a>
 
-## Next pages — xcsh_bot_detection_rule / c4ddc57be508 / 6
+## Next pages — xcsh_bot_detection_rule / 132332110020 / 6
 
-- [Property reference](../guides/data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
-- [Examples](../guides/data-sources--bot_detection_rule--examples--group-001.md#canonical-ae5f7faec0025da533bf32857ec6eece19301ba3f0323f8e2964ccac10dfbf02)
+- [Property reference](../guides/data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [Examples](../guides/data-sources--bot_detection_rule--examples--group-001.md#canonical-2232113313332232-3000000211312211-0303233303022011-1332301232323032-0121030001232203-3300030203332032-0221121030302230-0100313323330002)

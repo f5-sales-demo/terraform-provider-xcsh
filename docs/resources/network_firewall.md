@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_firewall lan
 
 # xcsh_network_firewall landing
 
-<a id="canonical-024ddce0e2a1491081bdd9b5fa829cc2057bdaba914b6c85173f71e5817a007f"></a>
+<a id="canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-494c216c554ecf9290286fabd44e0a2f4230a0d692f0f38bb5f751f258f447f6"></a>
+<a id="canonical-1021103002011230-1111103230332102-2100022012332223-3110103200220233-1002030022003112-2102330033032023-2311331311013302-1120331010133312"></a>
 
-## xcsh_network_firewall — xcsh_network_firewall / c473d1d90e00 / 2
+## xcsh_network_firewall — xcsh_network_firewall / 312100320000 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users
 in system namespace. configuration.
 
-<a id="canonical-aeef1e1004afd8e378a7993aedc2d3f2445a9d3c504cdf707f1cb68f1eeb12ef"></a>
+<a id="canonical-2232323301320100-0010223331203203-1320221321210322-3231300231033302-1010112221310330-1100103031331300-1333013023122033-0132322301023233"></a>
 
-## Prerequisites — xcsh_network_firewall / c473d1d90e00 / 3
+## Prerequisites — xcsh_network_firewall / 312100320000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-4c2e4e24f0fb036e6e429f5755245af049025dbae4ebc77cf89ef00ea2e731f6"></a>
+<a id="canonical-1030023210320210-3300332300031232-1232100221331113-1111021011223300-1021000211312322-3210322330131330-3320213233000032-2202321303013312"></a>
 
-## Minimal configuration — xcsh_network_firewall / c473d1d90e00 / 4
+## Minimal configuration — xcsh_network_firewall / 312100320000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_network_firewall" "example" {
 }
 ```
 
-<a id="canonical-4a24fa562de7d0f3c14f71ac0ca88f9b24463888db6cce91d01571af3678f6e7"></a>
+<a id="canonical-1022021033221112-0231321331003303-3001103313012230-0030222020332123-0210101203202020-3123123030322101-3100011113012233-0312132033123213"></a>
 
-## Root configuration — xcsh_network_firewall / c473d1d90e00 / 5
+## Root configuration — xcsh_network_firewall / 312100320000 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-7e0e21884ca44d21e78a905879478a693705b24b2dce97df39d5fe17569482f0"></a>
+<a id="canonical-1332003202012020-1030221010310201-3213202221001120-1321101320221221-0313001123021023-0231303221133133-0321311133320113-1112211020023300"></a>
 
-## Next pages — xcsh_network_firewall / c473d1d90e00 / 6
+## Next pages — xcsh_network_firewall / 312100320000 / 6
 
-- [Property reference](../guides/resources--network_firewall--reference--group-001.md#canonical-5de78ed01fec1f0a650d1483809406b68da66108bb8763e4fd5c2309047dff04)
-- [Examples](../guides/resources--network_firewall--examples--group-001.md#canonical-4d393ee01a4205be78f085b1fd174118f811c4d3aef74db20b437356a1fa0aa1)
-- [Import](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-3e3abc62914d512e29685590aa5d0358e6c9aab5b040a2af0eadbef2c68de363)
-- [Timeouts](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-673f7ac9a575f532f891576211a2bb959c6bd0a34c8acc76b0aabfcde516ebac)
+- [Property reference](../guides/resources--network_firewall--reference--group-001.md#canonical-1131321320323100-0133323001330022-1211003101102003-2000211000122312-2031221212010020-2323201312033210-3331113002030021-0010133133330010)
+- [Examples](../guides/resources--network_firewall--examples--group-001.md#canonical-1031032103323200-0122100200112332-1320330020112301-3331011310010120-3320010130103103-2232331310312302-0023100313031112-2201332200222201)
+- [Import](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-0332032223301202-2101103111010232-0221122011112100-2222113100031120-3212302122222311-2300100022022233-0032223123323302-3012203132031203)
+- [Timeouts](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-1213033313223021-2211131133110302-3320210111131202-0101220223232111-2130122331002203-1030202230301312-2300222223333031-3211011232232230)

@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_container_registry l
 
 # xcsh_container_registry lifecycle
 
-<a id="canonical-6edf4058074763fd900a5411e3721e51635c0bbc1e94e2a670af0074386a1d1a"></a>
+<a id="canonical-1232313310001120-0013101312033331-2100002211100101-3203130201321101-1203113000232330-0132211032022212-1300223300001310-0320122201310122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1b2bb6427feb8415822f3dae2d4fbcf81ebedc8e061bafbedce065a8e6d16b2d"></a>
+<a id="canonical-0123022323121002-1333322320100111-2002023303312232-0231103323303320-0132233231302032-0012012322332332-3130320012112220-3212310112230231"></a>
 
-## Import — Import / deddf510ec5f / 2
+## Import — Import / 010032301133 / 2
 
 Breadcrumbs:
 
-- [xcsh_container_registry](../resources/container_registry.md#canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe)
+- [xcsh_container_registry](../resources/container_registry.md#canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_container_registry.example system/example
 ```
 
-<a id="canonical-f6b7728e485e7032d6c693bb352f309ea6a83fb2e0d4943e80e06180dac029ac"></a>
+<a id="canonical-3312231313022032-1020113213000302-3112301221032323-0311023303002132-2212222003332302-3200311021100332-2000320012012000-3122300002212230"></a>
 
-## Next pages — Import / deddf510ec5f / 3
+## Next pages — Import / 010032301133 / 3
 
-- [xcsh_container_registry](../resources/container_registry.md#canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe)
+- [xcsh_container_registry](../resources/container_registry.md#canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332)
 
-<a id="canonical-b2934a713eac4941a9af207121dadad563b28673bbb4dffd3b32379eb25d1e2c"></a>
+<a id="canonical-2302210310221301-0332223010211001-2221223302001301-0201312231223111-1203230220121303-2323231031333331-0323030203132132-2302113101320230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1f27bf656e755f79dcf1006d83709250db66815f1a2acf7738f1ff5abbfddd26"></a>
+<a id="canonical-0133021323331211-1232131111331321-3130330100001231-2003130021021100-3123121220011133-0122022230331313-0320330133331122-2323333131310212"></a>
 
-## Timeouts — Timeouts / 831fba8fd57d / 2
+## Timeouts — Timeouts / 203331111331 / 2
 
 Breadcrumbs:
 
-- [xcsh_container_registry](../resources/container_registry.md#canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe)
+- [xcsh_container_registry](../resources/container_registry.md#canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--container_registry--reference--group-001.md#canonical-9f566e8474c98272d7a45bdda4a03ebc7c8aaa0c8a664de216696b684c915244). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--container_registry--reference--group-001.md#canonical-2133111212322010-1310302120021302-3113221011233131-2210220003322330-1330202222220030-2022121210313202-0112122112231220-1030210111021010). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-41a01d64f1be1177f260dbe1049bd2769834f7d7e55dc79710e04652c7cd2e4b"></a>
+<a id="canonical-1001220001311210-3301233201011313-3302120031233201-0010212331021312-2120031033133113-3211113130132113-0100320010121102-3013303102321023"></a>
 
-## Next pages — Timeouts / 831fba8fd57d / 3
+## Next pages — Timeouts / 203331111331 / 3
 
-- [xcsh_container_registry](../resources/container_registry.md#canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe)
+- [xcsh_container_registry](../resources/container_registry.md#canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332)

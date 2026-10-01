@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_api_crawler landing.
 
 # xcsh_api_crawler landing
 
-<a id="canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5"></a>
+<a id="canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a9d0c995267d28a2017cd8da2586adf3d28fe348ce48064322198e2bbfbe36e7"></a>
+<a id="canonical-2221310030212111-0212133102202202-0001133031203122-0211201222313303-3102203332031020-3032102000121003-0202012120320223-2333233203123213"></a>
 
-## xcsh_api_crawler — xcsh_api_crawler / 2520eebd8ba7 / 2
+## xcsh_api_crawler — xcsh_api_crawler / 233120232213 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a API Crawler resource in F5 Distributed Cloud.
 
-<a id="canonical-320227868d3e61e2ad3dced2f3b8a9c495ec6cc94775013e2d53b0d7c669b49d"></a>
+<a id="canonical-0302000202132012-2031033212013202-2231033130323102-3303232022213010-2111323012303021-1013131100010332-0231110323003113-3012122123102131"></a>
 
-## Prerequisites — xcsh_api_crawler / 2520eebd8ba7 / 3
+## Prerequisites — xcsh_api_crawler / 233120232213 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-69b5213da288b7bdcaf8df9061c42f5f2bca69e79caa08bd6a5f29efe50b0269"></a>
+<a id="canonical-1221231102010331-2202202023132331-3022332031332100-1201301002331133-0223302212213213-2130222200202331-1222113302213233-3211002300021221"></a>
 
-## Minimal configuration — xcsh_api_crawler / 2520eebd8ba7 / 4
+## Minimal configuration — xcsh_api_crawler / 233120232213 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "api_crawler_id" {
 }
 ```
 
-<a id="canonical-cd1098b370fc23e002bee930bfdc33a113442bcbe986cc3a3bb973a6c57dfb7b"></a>
+<a id="canonical-3031010021202303-1300333002033200-0002233232210300-2333313003032201-0103101002233023-3221201230300322-0323232113032212-3011133133231323"></a>
 
-## Root configuration — xcsh_api_crawler / 2520eebd8ba7 / 5
+## Root configuration — xcsh_api_crawler / 233120232213 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-598954dfabc0c17cb4a521b77c11919fc6ddce16ea2f1cd2ca99604b63e4e07b"></a>
+<a id="canonical-1121202111103133-2223300030011330-2310221102012313-1330010121012133-3012313130320112-3222023301303102-3022212112001023-1203321032001323"></a>
 
-## Next pages — xcsh_api_crawler / 2520eebd8ba7 / 6
+## Next pages — xcsh_api_crawler / 233120232213 / 6
 
-- [Property reference](../guides/data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
-- [Examples](../guides/data-sources--api_crawler--examples--group-001.md#canonical-cff911ec166cbf5a694bf3603257154d58c94c5d4bb92d5158a71f07ff81a815)
+- [Property reference](../guides/data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [Examples](../guides/data-sources--api_crawler--examples--group-001.md#canonical-3033332101013230-0112123023331122-1221102333031200-0302111301111031-1120302110301131-1023232102311101-1120221301330013-3333200122200111)

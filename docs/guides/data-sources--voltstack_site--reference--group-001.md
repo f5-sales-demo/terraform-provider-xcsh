@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
-<a id="canonical-e470a441d6b912928efcdc07d60d4246ea07c1af02f2c30de1baf077d03bc94d"></a>
+<a id="canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a1832e2ebd30e6bf644ef483cfea81ce7edd0477601a538a56455282a4b586b"></a>
+<a id="canonical-0322012003023202-3223310300321223-3312101032331020-0330333222200130-3213323131001013-1312000122110320-2211121011110220-0222102311201223"></a>
 
-## Property reference — Property reference / dca415f1cc0e / 2
+## Property reference — Property reference / 330130300032 / 2
 
 Breadcrumbs:
 
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-c525865a5846597c8c6439442678872b265504c5c370bcbfc927c71f5fd956c0)
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
 - Property reference
 
-<a id="canonical-32b77d208a683d50d8761c7885ad380c4bead08ebc7edcbbac6c103ddd6b13ad"></a>
+<a id="canonical-0302231313310200-2022122003311100-3120131201301320-2011223103200030-1023322231002032-2330133231302323-2230123001000331-3131122301032231"></a>
 
-## Direct properties — Property reference / dca415f1cc0e / 3
+## Direct properties — Property reference / 330130300032 / 3
 
-<a id="canonical-b6560301ef60cbf56f397a35e76d447d395550c8be6abf6124df8511ca535439"></a>
+<a id="canonical-2312111200030001-3233120030233311-1233032113220311-3213123110101331-0321111111003020-2332122223331201-0210313320110101-3022110311100321"></a>
 
-<a id="canonical-aac56ef396c725f29daa52ad62b4a3c5c255bf6029268705166c630e0629ef3b"></a>
+<a id="canonical-2222301112323303-2112301302113302-2131222211022231-1202231022033011-3002111123331200-0221021220130011-0112123012030032-0012022132330323"></a>
 
-## address property — Property reference / dca415f1cc0e / 4
+## address property — Property reference / 330130300032 / 4
 
 Type: `"string"`. Computed.
 
@@ -66,13 +66,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [allow_all_usb](data-sources--voltstack_site--reference--group-003.md#canonical-15ca2f85166bf6f2513a872b2eb8f5a33ee38dbd1020dbba22f5ab2581ceca41): complete subsection reference.
+- [allow_all_usb](data-sources--voltstack_site--reference--group-003.md#canonical-0111302202332011-0112122333123302-1101032220130223-0232232033112203-0332320320312331-0100020031232322-0202331122230211-2001303230221001): complete subsection reference.
 
-<a id="canonical-43481634809129f115d05774252762b12f7f93bb264b9852a25cdbf7546e01d4"></a>
+<a id="canonical-1003102001120310-2000210102213301-0111310011131310-0211021312022301-0233133321032323-0212102321201102-2202113031233313-1110123200013110"></a>
 
-<a id="canonical-3f8762b19d04db1bfab9836488e50f677fddc010fc54e16112371314fa5b8f99"></a>
+<a id="canonical-0333201312022301-2131001031230123-3322232120031210-2020321100331213-1333313130000100-3330111032011201-0102031301030110-3322112320332121"></a>
 
-## annotations property — Property reference / dca415f1cc0e / 5
+## annotations property — Property reference / 330130300032 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -80,7 +80,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -109,33 +109,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [blocked_services](data-sources--voltstack_site--reference--group-003.md#canonical-783b4dfdca6ef33d971d2ce952c8737ad6191aa6ba84e38b40ba6613aaa25a7d): complete subsection reference.
+- [blocked_services](data-sources--voltstack_site--reference--group-003.md#canonical-1320032310313331-3022123233030331-2113013102303221-1102302013031322-3112012101222212-2322201032032023-1000232212120103-2222220211221331): complete subsection reference.
 
-- [bond_device_list](data-sources--voltstack_site--reference--group-003.md#canonical-a903f3c7d122d62463f14d95ae5f76c866ffebca5bd9cc4ada1a20d304c9c149): complete subsection reference.
+- [bond_device_list](data-sources--voltstack_site--reference--group-003.md#canonical-2221000333033013-3101020231120210-1203330110312111-2232113313123020-1212333332233022-1123312130301022-3122012202003103-0010302130011021): complete subsection reference.
 
-- [coordinates](data-sources--voltstack_site--reference--group-003.md#canonical-18431d3ef94a93baf7da4e2d6c03203828618e5a3ab8bdabda22b8107b8ac6b3): complete subsection reference.
+- [coordinates](data-sources--voltstack_site--reference--group-003.md#canonical-0120100301310332-3321102221032322-3313312210320231-1230000302000320-0220120120321122-0322232023312223-3122020223200100-1323202230122303): complete subsection reference.
 
-- [custom_dns](data-sources--voltstack_site--reference--group-003.md#canonical-d6e518bfc3dd33924cce2c65ca1c6336785f5dc60b930f93f30e14165b2215e1): complete subsection reference.
+- [custom_dns](data-sources--voltstack_site--reference--group-003.md#canonical-3112321101202333-3003313103032102-1030303202301211-3022013012030312-1320113311313012-0023210300332103-3303003201100112-1123020201113201): complete subsection reference.
 
-- [custom_network_config](data-sources--voltstack_site--reference--group-003.md#canonical-a2bbd12fb6e2064bcd5a324f010ef68909fc4d537defdf39eb8bd3c89b389061): complete subsection reference.
+- [custom_network_config](data-sources--voltstack_site--reference--group-003.md#canonical-2202232331010233-2312320200121023-3031112203021033-0001003233122021-0021333010311103-1331323331330321-3223202331033020-2123032021001201): complete subsection reference.
 
-- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-7af1528a6af6a1f523e053cb7663436e0917d93055eb3ad078fbe31b54766fc8): complete subsection reference.
+- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-1322330111022022-1222331222013311-0203320011033023-1312120310031232-0021011331210300-1111322303223100-1320332332030123-1110131212333020): complete subsection reference.
 
-- [default_blocked_services](data-sources--voltstack_site--reference--group-008.md#canonical-e7461357edce11f12d0bf91666f7de842d4a7a9a7de54f1d105fa715d6d0dd34): complete subsection reference.
+- [default_blocked_services](data-sources--voltstack_site--reference--group-008.md#canonical-3213101201031113-3231303201013301-0231002333210112-1212331331322010-0231102213222122-1331321110330131-0100113322130111-3112310031310310): complete subsection reference.
 
-- [default_network_config](data-sources--voltstack_site--reference--group-008.md#canonical-9db08e9b7350ea2f3b245d9c8ae5ec65a693a262eadb83b937738ffb97a9e5fc): complete subsection reference.
+- [default_network_config](data-sources--voltstack_site--reference--group-008.md#canonical-2131230020322123-1303110032220233-0323021011312130-2022321132301211-2212210322021202-3222312320032321-0313130320333323-2113222132113330): complete subsection reference.
 
-- [default_sriov_interface](data-sources--voltstack_site--reference--group-008.md#canonical-0c5a585d2f3a3f2fc6968a6451277b8da248e4486792f317bc8a8a20635d8762): complete subsection reference.
+- [default_sriov_interface](data-sources--voltstack_site--reference--group-008.md#canonical-0030112211201131-0233032203330233-3012211220221210-1101021313232031-2202102032101020-1213210233030113-2330202220220200-1203113120131202): complete subsection reference.
 
-- [default_storage_config](data-sources--voltstack_site--reference--group-008.md#canonical-093d4cd30332a4e713564955e87e1d8cd326edd84d20a2e9d2add38a9f8ad72d): complete subsection reference.
+- [default_storage_config](data-sources--voltstack_site--reference--group-008.md#canonical-0021033110303103-0003030222103213-0103111210211111-3220133201312030-3103021232313120-1031020022023221-3102223131032022-2133202231130231): complete subsection reference.
 
-- [deny_all_usb](data-sources--voltstack_site--reference--group-008.md#canonical-122c1c62a1d45d8e3d23caa84a6df93f5500a77608120fdc365587e23d261fd4): complete subsection reference.
+- [deny_all_usb](data-sources--voltstack_site--reference--group-008.md#canonical-0102023001301202-2201311011312032-0331020330222220-1022123133210333-1111000022131312-0020010200333130-0312111120133202-0331021201333110): complete subsection reference.
 
-<a id="canonical-a48330c8e1551f0af069bc7e82646b17dc49043f833cd99cd9e70bdb646ddf7a"></a>
+<a id="canonical-2210200303003020-3201111101330022-3300122123301332-2002121012230113-3130102100100333-2003033031212130-3121321300233123-1210123131331322"></a>
 
-<a id="canonical-37e0d4a6d301bd930bdb54cd65700ad115e5e39d617cc8103a51f89a5261a594"></a>
+<a id="canonical-0313320031102212-3103000123312103-0023312311103031-1211130000223101-0111321132032131-1201133030200100-0322110133202122-1102120122112110"></a>
 
-## description property — Property reference / dca415f1cc0e / 6
+## description property — Property reference / 330130300032 / 6
 
 Type: `"string"`. Computed.
 
@@ -183,35 +183,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_gpu](data-sources--voltstack_site--reference--group-008.md#canonical-877efc4bc245d7bf1e70e3ad612b9045a1d3b4f1e6d7aa79f6398a1d2e6c30c1): complete subsection reference.
+- [disable_gpu](data-sources--voltstack_site--reference--group-008.md#canonical-2013133233301023-3002101131132333-0132130032032231-1201022321001011-2201310323103301-3212311322221321-3312032120220131-0232123003003001): complete subsection reference.
 
-- [disable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-4f021921de86fc6066d7cc47cc7c0989f8efbd6c658897a7c5021c1939c60c98): complete subsection reference.
+- [disable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-1033000201210201-3132201233301200-1212311330301013-3030133000212021-3320323323311230-1211202021132213-3011000201300121-0321301200302120): complete subsection reference.
 
-- [enable_gpu](data-sources--voltstack_site--reference--group-008.md#canonical-f12c3308ffd3dedef1d42f9a057b93a343b9f7da682291ee8a15b4586c3c913a): complete subsection reference.
+- [enable_gpu](data-sources--voltstack_site--reference--group-008.md#canonical-3301023003030020-3333310331323132-3301311002332122-0011132321032203-1003232133133122-1220020221013232-2022011123101120-1230033021010322): complete subsection reference.
 
-- [enable_vgpu](data-sources--voltstack_site--reference--group-008.md#canonical-5df00ec180f956bffc6b4be796878e17c59d72e865c90a0a8d1ca05d429253fb): complete subsection reference.
+- [enable_vgpu](data-sources--voltstack_site--reference--group-008.md#canonical-1131330000323001-2000332111122333-3330122310233213-2112201320320113-3011213113023220-1211302100220022-2031013022001131-1002210211033323): complete subsection reference.
 
-- [enable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-983e8b21e1ec1033b0103e4c7a1f367075194d4096aa8f67badbffca8bf31712): complete subsection reference.
+- [enable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102): complete subsection reference.
 
-<a id="canonical-180469419e0d533cd49d764f9358b5479e1eec261a8194cd36a42dd55b7ff7c9"></a>
+<a id="canonical-0120001012211001-2132003111030330-3110213113121033-2103112023111013-2132013232300212-0122200121103031-0312221002313111-1123133333133021"></a>
 
-<a id="canonical-464138968aeda770a5f76a27e35d5eba887c3415be4a763b4980048f73600741"></a>
+<a id="canonical-1012100103202112-2022323122131300-2211331312220213-3203113111322322-2020133003100111-2332102213120323-1021200000102033-1303120000131001"></a>
 
-## id property — Property reference / dca415f1cc0e / 7
+## ID property — Property reference / 330130300032 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [k8s_cluster](data-sources--voltstack_site--reference--group-008.md#canonical-5eb2f7e3ddad0c8098df76d0e8d3eb412d9bf62bd1de42414277d6007534e26c): complete subsection reference.
+- [k8s_cluster](data-sources--voltstack_site--reference--group-008.md#canonical-1132230233133203-3131223100302000-2120313313123100-3220310332231001-0231212333120223-3101313210021001-1002131331120000-1311031032021230): complete subsection reference.
 
-- [kubernetes_upgrade_drain](data-sources--voltstack_site--reference--group-008.md#canonical-f877c8559c460480be99ad74a5c57b8fdc9f3785845575f8fae1e50846e3995c): complete subsection reference.
+- [kubernetes_upgrade_drain](data-sources--voltstack_site--reference--group-009.md#canonical-3320131330201111-2130101200102000-2332212122311310-2211301113232033-3130213303132011-2010111113113320-3322320132110020-1012320321211130): complete subsection reference.
 
-<a id="canonical-a45a3b7b2f677fd2131a997b92b90a3e2f4be421889da3acbb859e70ecff302d"></a>
+<a id="canonical-2210112203231323-0233121313333102-0103012221211323-2102232100220332-0233102332100201-2020213122032230-2323201121321300-3230333303000231"></a>
 
-<a id="canonical-84b6623aa63ee20d97bbce76d6f2cd3bfea8d37c8d220e9c826a242ae63c3f85"></a>
+<a id="canonical-2010231212020322-2212033232020031-2113232330321312-3112330230310323-3332222031031330-2031020200322130-2002122202100222-3212033003332011"></a>
 
-## labels property — Property reference / dca415f1cc0e / 8
+## labels property — Property reference / 330130300032 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -235,19 +235,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [local_control_plane](data-sources--voltstack_site--reference--group-008.md#canonical-074fedc0e78e2fe7b8b8cba87435c45f51880c6a1d76b5be7a85d0904f514280): complete subsection reference.
+- [local_control_plane](data-sources--voltstack_site--reference--group-009.md#canonical-0013103332313000-3213203202333213-2320232030232220-1310031130101133-1101202000301222-0131131223112332-1322201131002100-1033110110022000): complete subsection reference.
 
-- [log_receiver](data-sources--voltstack_site--reference--group-009.md#canonical-50c701645a62b74a0ef3a5b0527f69b38d4685d66f5c40ed2a742cc015b587b7): complete subsection reference.
+- [log_receiver](data-sources--voltstack_site--reference--group-009.md#canonical-1100301300011210-1122120223131022-0032330322112300-1102133312212303-2031101220113112-1233113010003231-0222131002303000-0111231120132313): complete subsection reference.
 
-- [logs_streaming_disabled](data-sources--voltstack_site--reference--group-009.md#canonical-50a19fa81e3567c071c56c45969bd9631a50031ab64e99f68a3981b65f12af91): complete subsection reference.
+- [logs_streaming_disabled](data-sources--voltstack_site--reference--group-009.md#canonical-1100220121332220-0132031112133000-1301301112301011-2112212331211203-0122110000030122-2312103221213312-2022032120012312-1133010222332101): complete subsection reference.
 
-- [master_node_configuration](data-sources--voltstack_site--reference--group-009.md#canonical-43ac5fc6c50ea5ab410ae17a760b8be1308b94745f377e19781f4caa5374b05b): complete subsection reference.
+- [master_node_configuration](data-sources--voltstack_site--reference--group-009.md#canonical-1003223011333012-3011003222112223-1001002232011322-1312002320233201-0300202321101310-1133031313320121-1320013310302222-1103131023001123): complete subsection reference.
 
-<a id="canonical-5b6050092de29fd94d7f6c19cdca64a3eea3fd3682d01eb6e7ef675a06dc35b8"></a>
+<a id="canonical-1123120011000021-0231320221333121-1031133312300121-3031302212102203-3232220333310312-2002310001322312-3213323312131122-0012313003112320"></a>
 
-<a id="canonical-73d86929739df0b37fbd4434e661a885f9fbbaca2458e7443bf2bee8da8911fa"></a>
+<a id="canonical-1303312012210221-1303213133002303-1333233110100310-3212120122202011-3321332323223022-0210112032131010-0323330223323220-3122202101013322"></a>
 
-## name property — Property reference / dca415f1cc0e / 9
+## name property — Property reference / 330130300032 / 9
 
 Type: `"string"`. Required.
 
@@ -303,11 +303,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d407318e3a7ae5876e89e1fc413795a44f4da8bfc9f3ff516b9439f4bc659ea4"></a>
+<a id="canonical-3110001303012032-0322132232112013-1232202132013330-1001031321112210-1033103122202333-3021330333331101-1223211003213310-2330121121322210"></a>
 
-<a id="canonical-2dc15065b62040868566f59631a79b8a534d2b64bbcd6d515620a9078bb416de"></a>
+<a id="canonical-0231300111001211-2312020010002012-2011121233112112-0301221321232022-1103103102231210-2323303112311101-1112020022210013-2023231001123132"></a>
 
-## namespace property — Property reference / dca415f1cc0e / 10
+## namespace property — Property reference / 330130300032 / 10
 
 Type: `"string"`. Required.
 
@@ -356,27 +356,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_bond_devices](data-sources--voltstack_site--reference--group-009.md#canonical-1821b16b75027c2ba838b2ee0ece1cbc1bc9f397cf5a263538b839a6f53f64e4): complete subsection reference.
+- [no_bond_devices](data-sources--voltstack_site--reference--group-009.md#canonical-0120020123011223-1311000213300223-2220032023023232-0032303201302330-0123302133032113-3033112202120311-0320232003212212-3311033312103210): complete subsection reference.
 
-- [no_k8s_cluster](data-sources--voltstack_site--reference--group-009.md#canonical-95766e90509223e430f27a346b3dadade1ae3ee4386baa2a652f8b2a741a573c): complete subsection reference.
+- [no_k8s_cluster](data-sources--voltstack_site--reference--group-009.md#canonical-2111131212322100-1100210202033210-0300330213220310-1223033122312231-3201223203323210-0320122322220222-1211023320230222-1310012211130330): complete subsection reference.
 
-- [no_local_control_plane](data-sources--voltstack_site--reference--group-009.md#canonical-79cf117dd5b3f3194bd236124ef6a31556e3c1805f4c2ab48064434c1a7b2bea): complete subsection reference.
+- [no_local_control_plane](data-sources--voltstack_site--reference--group-009.md#canonical-1321303301011331-3111230333030121-1023310203120102-1032331222030111-1112320330012000-1133103002222310-2000121010031030-0122132302233222): complete subsection reference.
 
-- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-c68631f4a2c69397e59b3b8bc1b369582b6bc95af9c269ac5b32da9a345ae28a): complete subsection reference.
+- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-3012201203013310-2202301221032113-3211212303232023-3001230312211120-0223122330211122-3321300212212230-1123030231222122-0310112232022022): complete subsection reference.
 
-- [os](data-sources--voltstack_site--reference--group-009.md#canonical-d04a7772f57dd114a68678b0130f6613df5ef337a7444cc2a60f96dd1befc6cb): complete subsection reference.
+- [os](data-sources--voltstack_site--reference--group-009.md#canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023): complete subsection reference.
 
-- [sriov_interfaces](data-sources--voltstack_site--reference--group-009.md#canonical-539f39e53540d3d5f2b1c575b3bbfd381fd22d7eb5aa117bd8a5660f05d81ad0): complete subsection reference.
+- [sriov_interfaces](data-sources--voltstack_site--reference--group-010.md#canonical-1103213303213211-0311100031033111-3302230130111311-2303232333310320-0133310202311332-2311222201011323-3120221112120033-0011312001223100): complete subsection reference.
 
-- [sw](data-sources--voltstack_site--reference--group-009.md#canonical-dfb31ba96b2d5a71625a57f3a22d7d04c58f53983362297d97cbd10e96c73ef6): complete subsection reference.
+- [sw](data-sources--voltstack_site--reference--group-010.md#canonical-3133230301232221-1223023111221301-1202112211133303-2202023113310010-3011203311032120-0303120202211331-2113302331010032-2112301303323312): complete subsection reference.
 
-- [usb_policy](data-sources--voltstack_site--reference--group-009.md#canonical-6b3bcfe958943ca6de6f5324892b713b60459ce829b7164c23fba924583017d1): complete subsection reference.
+- [usb_policy](data-sources--voltstack_site--reference--group-010.md#canonical-1223032330333221-1120211003302212-3132123311030210-2021022313010323-1200101121303220-0221231301121030-0203332322210210-1120030001133101): complete subsection reference.
 
-<a id="canonical-97a182eb47a80c6fb8830eeb3c8b45ea55e385ccbbc0ca24079a730f112e31f4"></a>
+<a id="canonical-2113220120023223-1013222000301233-2320200300323223-0330202310113222-1111320320113030-2323300030220210-0013212213030033-0101023203013310"></a>
 
-<a id="canonical-0efde9b59cc890c040b7bf84ca08d8a7b47704efce3c24dfbd8e8b935069347e"></a>
+<a id="canonical-0032333132212311-2130302021003000-1000231323332010-3022002031202213-2310131300103233-3032033002103133-2331203220232103-1100122103101332"></a>
 
-## volterra_certified_hw property — Property reference / dca415f1cc0e / 11
+## volterra_certified_hw property — Property reference / 330130300032 / 11
 
 Type: `"string"`. Computed.
 
@@ -420,13 +420,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [waf_signatures](data-sources--voltstack_site--reference--group-009.md#canonical-5d176cdf4bc826837f7e0219c9acc47d6a8b24b94f26d46b2b52202c2d0463e7): complete subsection reference.
+- [waf_signatures](data-sources--voltstack_site--reference--group-010.md#canonical-1131011312303133-1023302002122003-1333133200020121-3021223030101331-1222202302102321-1033021231101223-0223110202000230-0231001012033213): complete subsection reference.
 
-<a id="canonical-ebf97a06d0e557eada351eeb9b7ebd7ecf403c0c75363de9b8c94b8a31bef33d"></a>
+<a id="canonical-3223332113220012-3100321111133222-3122031101323223-2123133223311332-3033100003300030-1311031203313221-2320302110232022-0301233233030331"></a>
 
-<a id="canonical-d2bfb4ec91a8201d8ed0753022d6b3b64a415f662516412dba769cb0206767a1"></a>
+<a id="canonical-3102233323103230-2101222002000131-2032310013110300-0202311223032312-1022100111331212-0211011210010231-2322131221302300-0200121312132201"></a>
 
-## worker_nodes property — Property reference / dca415f1cc0e / 12
+## worker_nodes property — Property reference / 330130300032 / 12
 
 Type: `["list", "string"]`. Computed.
 

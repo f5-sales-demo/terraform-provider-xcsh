@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_app_type landing."
 
 # xcsh_app_type landing
 
-<a id="canonical-a8407eb1efb2ca1dacc63939149c3ba5bda3fedc3204bcc1b84ff7225a913692"></a>
+<a id="canonical-2220100013322301-3233230230220131-2230301203210321-0110213003232211-2331220333323130-0302001023303001-2320103333130202-1122210103122102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4a5039dbbba34bd197689d5ad1b41d3a3e2f8f6a8d4da649df3f8dc059a0062e"></a>
+<a id="canonical-1022110003213123-2323220310233101-2113122021311122-3101231001310322-0332023320331222-2031103122121021-3133033320313000-1121220000120232"></a>
 
-## xcsh_app_type — xcsh_app_type / 53d5728980ea / 2
+## xcsh_app_type — xcsh_app_type / 202120003222 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed
 Cloud.
 
-<a id="canonical-092819d7cb0415810e1af5c2336187a5124fcf6a4109ad0903115ed7bd3453c7"></a>
+<a id="canonical-0021022001213113-3023001001112001-0032012233113002-0303120120132211-0102103330331222-1001002122310021-0003010111323113-2331031011033013"></a>
 
-## Prerequisites — xcsh_app_type / 53d5728980ea / 3
+## Prerequisites — xcsh_app_type / 202120003222 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-c20756fb67b22f67a589eeb248217b5ecb3eb734266a254c2ff44ae388298bb2"></a>
+<a id="canonical-3002001311123323-1213230202331213-2211202132322302-1020020113231132-3023033223130310-0212122202111030-0233331010223203-2020022120232302"></a>
 
-## Minimal configuration — xcsh_app_type / 53d5728980ea / 4
+## Minimal configuration — xcsh_app_type / 202120003222 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_app_type" "example" {
 }
 ```
 
-<a id="canonical-fb6c705e5f6a8f55794cb12a7b534e20f50c3d45d9041ef8ffd7ffe8949f939a"></a>
+<a id="canonical-3323123013001132-1133122220331111-1321103023010222-1323110310320200-3311003003311011-3121001001323320-3333311333333220-2110213321032122"></a>
 
-## Root configuration — xcsh_app_type / 53d5728980ea / 5
+## Root configuration — xcsh_app_type / 202120003222 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1adb0d8b2e04f2e448d3440c8e58683fb22012e00c6db4cefdd95ea24de8167d"></a>
+<a id="canonical-0122312300312023-0232001033023210-1020310310100030-2032112012200333-2302020001023200-0030123123103032-3331312111322202-1031322001121331"></a>
 
-## Next pages — xcsh_app_type / 53d5728980ea / 6
+## Next pages — xcsh_app_type / 202120003222 / 6
 
-- [Property reference](../guides/resources--app_type--reference--group-001.md#canonical-841debb259db374e58022de533dff86777952c5a097831b4bcdff0ae78059c78)
-- [Examples](../guides/resources--app_type--examples--group-001.md#canonical-f7b9298394e83b8e4a094f5b90535372a175dda62f0fa6b17e5bb40ccf6b6b6d)
-- [Import](../guides/resources--app_type--lifecycle--group-001.md#canonical-ab258ec5a93ee1df71192e632b797ccc4b4b30bfbb21b13b9c0678be62a3aa05)
-- [Timeouts](../guides/resources--app_type--lifecycle--group-001.md#canonical-41f605c431033c6ade1a121ab4c7178617f1f7adec16124a4da7e946b8e889e9)
+- [Property reference](../guides/resources--app_type--reference--group-001.md#canonical-2010013132232302-1121312303131032-1120000202313211-0303313333201213-1313211102301122-0021132003012310-2330313333002232-1320001121301320)
+- [Examples](../guides/resources--app_type--examples--group-001.md#canonical-3313232102212003-2110322003232032-1022002110331123-2100110311031302-2201131131312212-0233003322122301-1332112323100030-3033122312231231)
+- [Import](../guides/resources--app_type--lifecycle--group-001.md#canonical-2223021120323011-2221033232013133-1301012102321203-0223132113303030-1023102303002333-2323020123010323-2130001213202332-1202220322220011)
+- [Timeouts](../guides/resources--app_type--lifecycle--group-001.md#canonical-1001331200113010-0301000303301222-3132012201020122-2310301301132012-0113330133132231-3230011201021022-1031221332211012-2320322020213221)

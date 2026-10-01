@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_advertise_policy lif
 
 # xcsh_advertise_policy lifecycle
 
-<a id="canonical-e8762eed9866c7d9b818c0b610031bc1cb3884723df97984e623ebd057ca215d"></a>
+<a id="canonical-3220131202323231-2120121230133121-2320012030002312-0100000301233001-3023032020101302-0331332113212010-3212020332233100-1113302202011131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c19fa5bfc93ee9cd2ba9aa3276658e5534cf9f87514ff407f8563ff106738a59"></a>
+<a id="canonical-3001213322112333-3021033232213031-0223222122220302-1312121120321111-0310303321332013-1101103333100013-3320111203333301-0012130320221121"></a>
 
-## Import — Import / 6a2694299e6b / 2
+## Import — Import / 022121321223 / 2
 
 Breadcrumbs:
 
-- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00)
+- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_advertise_policy.example system/example
 ```
 
-<a id="canonical-0529d13ad2fdf6d20ece46cbdd21dc54f0e25b34fa4c04ccc4f0e132e2fcec90"></a>
+<a id="canonical-0011022131010322-3102333133123102-0032303210123023-3131020131301110-3300320211230310-3322103000103030-3010330032010302-3202333032302100"></a>
 
-## Next pages — Import / 6a2694299e6b / 3
+## Next pages — Import / 022121321223 / 3
 
-- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00)
+- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000)
 
-<a id="canonical-718e0bc0254f3269f39143ee0424f73f46eaa95940030d8cc8eeefc71002fe68"></a>
+<a id="canonical-1301203200233000-0211103303021221-3303210110033232-0010021033130333-1012322222211121-1000000300312030-3020323232333013-0100000233321220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7334946ed8ffc633823600d21b116e96998694b6229f688f36a15ac97dbe3282"></a>
+<a id="canonical-1303031021101232-3120333330120303-2002031200003102-0123010112322112-2121201221102312-0202213312202033-0312220111223021-1331233203022002"></a>
 
-## Timeouts — Timeouts / 1c6db12e8496 / 2
+## Timeouts — Timeouts / 023220102112 / 2
 
 Breadcrumbs:
 
-- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00)
+- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--advertise_policy--reference--group-001.md#canonical-43f161effa9d2d50609bf9656eb56f7c91b255f77e6da0c988f8f6aeb3ff54af). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--advertise_policy--reference--group-001.md#canonical-1003330112013233-3322213102311100-1200212333211211-1232231112331330-2101230211113313-1332123122003021-2020332033122232-2303333311102233). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-7fffbd9b12d5d051093512d1e05ea26d6b686cdf7fa9a601f62096b5c6546389"></a>
+<a id="canonical-1333333323312123-0102311131001101-0021031101023101-3200113222021231-1223122012303133-1333222122120001-3312020021122311-3012111012032021"></a>
 
-## Next pages — Timeouts / 1c6db12e8496 / 3
+## Next pages — Timeouts / 023220102112 / 3
 
-- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00)
+- [xcsh_advertise_policy](../resources/advertise_policy.md#canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000)

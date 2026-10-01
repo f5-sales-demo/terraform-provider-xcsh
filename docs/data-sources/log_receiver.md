@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_log_receiver landing
 
 # xcsh_log_receiver landing
 
-<a id="canonical-442ee10ad438a227b1ada43bcfe36c2313a2037062235cef8ab995cae280a352"></a>
+<a id="canonical-1010023232010022-3110032022020213-2301223122100323-3033320312300203-0103220200031300-1202020311303233-2022232121113022-3202200022031102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b3a6f08afb02db1c34a30efe79cd9fc74065b5610ad98d0d30d7653d4b520977"></a>
+<a id="canonical-2303221233002022-3323000231230130-0310220300323332-1321303121333013-1000121123111201-0022312120310031-0300311312110331-1023110200211313"></a>
 
-## xcsh_log_receiver — xcsh_log_receiver / eb42317e6cf9 / 2
+## xcsh_log_receiver — xcsh_log_receiver / 133212303321 / 2
 
 Breadcrumbs:
 
@@ -22,17 +22,17 @@ Breadcrumbs:
 
 Manages new Log Receiver object in F5 Distributed Cloud.
 
-<a id="canonical-e425c4408934a2db3a504b34fa88582b9ee8a7c7d0d40732d17aadd0d8ca8624"></a>
+<a id="canonical-3210021130101000-2021031022023123-0322110010230310-3322202011200223-2132322022133013-3100311000130302-3101132222313100-3120302220120210"></a>
 
-## Prerequisites — xcsh_log_receiver / eb42317e6cf9 / 3
+## Prerequisites — xcsh_log_receiver / 133212303321 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-cbe0581ec73e0dea760dd8148166db31335a44de85fff7a9da55cee9d6f28cf3"></a>
+<a id="canonical-3023320011200132-3013033200313222-1312003131200110-2001121231230301-0303112210103132-2011333333132221-3122111130323221-3112330220303303"></a>
 
-## Minimal configuration — xcsh_log_receiver / eb42317e6cf9 / 4
+## Minimal configuration — xcsh_log_receiver / 133212303321 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "log_receiver_id" {
 }
 ```
 
-<a id="canonical-993e503f892d2de1d239620757f228c3409566c03793af0756a55b811f873257"></a>
+<a id="canonical-2121033211000333-2021023102313201-3102032112020013-1113330202203003-1000211112123000-0313210322330013-1112221111232001-0133201303021113"></a>
 
-## Root configuration — xcsh_log_receiver / eb42317e6cf9 / 5
+## Root configuration — xcsh_log_receiver / 133212303321 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-035a0a1f6cddea60dd3600e5e78bc6c0bdf4a94a7131670bcb8856340f761b11"></a>
+<a id="canonical-0003112200220133-1230313132221200-3131031200003211-3213202330123000-2331331022211022-1301030112130023-3023202011120310-0033131201230101"></a>
 
-## Next pages — xcsh_log_receiver / eb42317e6cf9 / 6
+## Next pages — xcsh_log_receiver / 133212303321 / 6
 
-- [Property reference](../guides/data-sources--log_receiver--reference--group-001.md#canonical-72ddf5904e939117996ebb0df85159b509473e049321d2b4345c22a8d61761af)
-- [Examples](../guides/data-sources--log_receiver--examples--group-001.md#canonical-ab16e03ee0393ef7f87f0a8f8a383f10816d2968a2662d94cd2abdabf08be7bd)
+- [Property reference](../guides/data-sources--log_receiver--reference--group-001.md#canonical-1302313133112100-1032210321010113-2121123223230031-3320110111212311-0021101303320010-2103020131022310-0310113002022220-3112011312012233)
+- [Examples](../guides/data-sources--log_receiver--examples--group-001.md#canonical-2223011232000332-3200032103323313-3320133300222033-2022032003330100-2001123102211220-2202121202312110-3031022223312223-3300202332132331)

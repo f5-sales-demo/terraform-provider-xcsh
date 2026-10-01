@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_bigip_virtual_server
 
 # xcsh_bigip_virtual_server landing
 
-<a id="canonical-5de83ca3dfb9cf73d57be7ed86f617e30ad06fc103f2f9653fda1240ecf86f88"></a>
+<a id="canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-24de24625eee055743109c5e39f3ceb57a92779c4ad2aa256c9a6fb04c0eca89"></a>
+<a id="canonical-0210313202101202-1132323200111113-1003010021301132-0321330330322311-1322210213132130-1022310222220211-1230212212332300-1030003230222021"></a>
 
-## xcsh_bigip_virtual_server — xcsh_bigip_virtual_server / f63bc12fcef6 / 2
+## xcsh_bigip_virtual_server — xcsh_bigip_virtual_server / 023330323312 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a BIG-IP Virtual Server resource in F5 Distributed Cloud for big-ip virtual server
 specification. configuration. (read-only data source)
 
-<a id="canonical-28ea7014f5ec6621d982eb4188228c1f4b6579c3c7049f844bd2adbdd74f239a"></a>
+<a id="canonical-0220322213000110-3311323012120201-3121200232231001-2020020220300133-1023121113213003-3013001021332010-1023310222312331-3113103302032122"></a>
 
-## Prerequisites — xcsh_bigip_virtual_server / f63bc12fcef6 / 3
+## Prerequisites — xcsh_bigip_virtual_server / 023330323312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-82c5c4eb9eb35320530f3150e829304b20edada6eadbfc2a01b4a7be32187e50"></a>
+<a id="canonical-2002301130103223-2132230311030200-1103003303011100-3220022103001023-0200323122312212-3222312333300222-0001231022132332-0302012013321100"></a>
 
-## Minimal configuration — xcsh_bigip_virtual_server / f63bc12fcef6 / 4
+## Minimal configuration — xcsh_bigip_virtual_server / 023330323312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "bigip_virtual_server_id" {
 }
 ```
 
-<a id="canonical-e343a6382cc7ba4fd36968b521a6bdca0fe3a4791eb0a76d785d8de8e68c7c19"></a>
+<a id="canonical-3203100322120320-0230301323221033-3103122112202311-0201221223313022-0033320322101321-0132230022131231-1320113120313220-3212203013300121"></a>
 
-## Root configuration — xcsh_bigip_virtual_server / f63bc12fcef6 / 5
+## Root configuration — xcsh_bigip_virtual_server / 023330323312 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-9ef672cc3a7b71af2d2adf0492eb81c92150e831429369513dec1ba29ac47557"></a>
+<a id="canonical-2132331213023030-0322132313012233-0231022231330010-2102322320013021-0201110032200301-1002210312211101-0331323001232202-2122301013111113"></a>
 
-## Next pages — xcsh_bigip_virtual_server / f63bc12fcef6 / 6
+## Next pages — xcsh_bigip_virtual_server / 023330323312 / 6
 
-- [Property reference](../guides/data-sources--bigip_virtual_server--reference--group-001.md#canonical-3c4f044f14de66769dee96461aaa25d45d7892c0fc761f5b76498185321c197f)
-- [Examples](../guides/data-sources--bigip_virtual_server--examples--group-001.md#canonical-803e305ddcc14d26305861439a5a6225a5a00bb0c19fe90bd14bec7fbdf53bd9)
+- [Property reference](../guides/data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [Examples](../guides/data-sources--bigip_virtual_server--examples--group-001.md#canonical-2000033203001131-3130300110310212-0300112012011003-2122112212020211-2211220000232300-3001213332210023-3101102332301333-2331331103233121)

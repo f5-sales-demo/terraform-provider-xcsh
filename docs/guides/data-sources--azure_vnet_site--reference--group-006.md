@@ -6,23 +6,475 @@ description: "Complete grouped canonical reference for xcsh_azure_vnet_site refe
 
 # xcsh_azure_vnet_site reference
 
-<a id="canonical-4064bd98763e6e3e93519fb11227d6c1a8aee49cda27d8ca4d8525b96de19338"></a>
+<a id="canonical-0222220002211003-2121121211222112-1333031122211230-0101223011020002-0021203000003012-3232013023031033-3012011211021332-2210000021310113"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.blindfold_secret_info — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.connections — connections / 110002030103 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-6ce8e5b6f4d03779cec0058e7cbac6dded02139d92f1cd3a16254724c7654fbb)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-005.md#canonical-51b1ff4f98ef8a3b44521b61c6a0f2c6841ca187ea397e3a6a583e7fba8fe100)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-005.md#canonical-df2dbf4f80a90c6182064e66dceaaeb134c52ad6442e0065f745c89e7a250559)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- ingress_egress_gw_ar.hub.express_route_enabled.connections
+
+<a id="canonical-2122001311113203-1221301130030332-1110211000032211-0201111103011311-1203113103110203-0132032312133312-2102031220120013-2322202220012022"></a>
+
+Type: `"list"`. Computed.
+
+Add the ExpressRoute Circuit Connections to this site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+<a id="canonical-3113302213212231-3233300102103001-0220231003023110-3003320303132311-1000232002231230-1220200120032111-1113011233000003-3333112320320122"></a>
+
+## Direct properties — connections / 110002030103 / 3
+
+<a id="canonical-1330110101010132-3031120310300123-3312033123322311-3311212020313111-3200311232202221-1212011211130110-2003103300032233-3210303200020011"></a>
+
+<a id="canonical-2212031013230211-0022321121230221-0301201022101310-2320323011001022-3332201023332333-3200332110112120-1220221311203101-3111133111101130"></a>
+
+## circuit_id property — connections / 110002030103 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[other\_subscription\] ExpressRoute Circuit is in same subscription as the site.
+
+Upstream description:
+
+Exclusive with \[other\_subscription\] ExpressRoute Circuit is in same subscription as the site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512"
+  }
+}
+```
+
+- [metadata](data-sources--azure_vnet_site--reference--group-006.md#canonical-3101321023312132-0322011333012022-3223110121001300-2310020113132230-0333300003111223-1301312203120011-2302030023123302-0221101231201222): complete subsection reference.
+
+- [other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000): complete subsection reference.
+
+<a id="canonical-3112230223223102-2311101230310201-2032101201303220-3101030113112331-1212210101022323-3312233022123122-3132220203112332-0030033201232202"></a>
+
+<a id="canonical-3011032130203321-1301310301023212-2030133221100030-3231321002120312-2133100021210111-3103110320021211-2311201013120000-3332231220202302"></a>
+
+## weight property — connections / 110002030103 / 5
+
+Type: `"number"`. Computed.
+
+The weight (or priority) for the routes received from this connection. The. Defaults to \`10\`.
+
+Upstream description:
+
+The weight (or priority) for the routes received from this connection. The default value is 10.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "load-balancing",
+    "constraintType": "number",
+    "maximum": 100,
+    "metadata": {
+      "confidence": 0.8,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3012131223013001-0103010303132001-1011330203033220-2211113311122102-3301112030002110-2222311300201132-1213112021032003-3231013010120211"></a>
+
+## Next pages — connections / 110002030103 / 6
+
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.metadata](data-sources--azure_vnet_site--reference--group-006.md#canonical-3101321023312132-0322011333012022-3223110121001300-2310020113132230-0333300003111223-1301312203120011-2302030023123302-0221101231201222)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+
+<a id="canonical-3101321023312132-0322011333012022-3223110121001300-2310020113132230-0333300003111223-1301312203120011-2302030023123302-0221101231201222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2001301211210023-0122111330010313-0133320203221310-0100012111223331-1010033230320113-1321320121000103-2303030000330323-3102202110010303"></a>
+
+## ingress_egress_gw_ar.hub.express_route_enabled.connections.metadata — metadata / 322301211003 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- ingress_egress_gw_ar.hub.express_route_enabled.connections.metadata
+
+<a id="canonical-2330030110132122-0133211332101230-2030022003130010-0213320133031103-3113023232013111-3211101232022033-2233330133202311-2131320132301323"></a>
+
+Type: `"single"`. Computed.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during
+create..
+
+Upstream description:
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during create
+and replace APIs.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0212202111311320-2132232220211101-1311132121232133-1010021010333030-0323202012033212-3130310300203013-0322312322023023-0132122000113233"></a>
+
+## Direct properties — metadata / 322301211003 / 3
+
+<a id="canonical-3201301102310022-0232131032301301-3303300220213300-0110102132310323-1301311302103203-3323023123300121-0102330130000332-2301013313110330"></a>
+
+<a id="canonical-2033011223213020-3233311223312100-0012212222332010-3021121302333303-1113332323203112-2323322103300102-0211132013232213-2102302333201110"></a>
+
+## description_spec property — metadata / 322301211003 / 4
+
+Type: `"string"`. Computed.
+
+Description. Human readable description.
+
+<a id="canonical-3102103211010003-2323120021020003-1032130133013102-2030203303201103-0320133232222301-0222131113030310-2133130203030003-0112313020333011"></a>
+
+<a id="canonical-3221230031030202-3201330313232333-2312111111021112-1222131321223021-3200111113022300-3201020320203110-0332213333311132-0021110101023320"></a>
+
+## name property — metadata / 322301211003 / 5
+
+Type: `"string"`. Computed.
+
+Name of the message. The value of name has to follow DNS-1035 format.
+
+Upstream description:
+
+This is the name of the message. The value of name has to follow DNS-1035 format.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  }
+}
+```
+
+<a id="canonical-0032031020132102-0120320033120210-0230132020011220-3323032110223103-0101330222122313-0101332230311212-3113123322212131-1010313011322130"></a>
+
+## Next pages — metadata / 322301211003 / 6
+
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+
+<a id="canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2011130033201012-0310111333320230-0133222131022112-0321332210031322-3011220301300332-2311313021132020-0113331003220230-2311031321210333"></a>
+
+## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription — other_subscription / 113013113300 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription
+
+<a id="canonical-2111233200132113-1333230302230022-2232231133321312-1222121213310323-2121322121111113-3000001032302103-0332302122220121-2231222210201330"></a>
+
+Type: `"single"`. Computed.
+
+Express Route Circuit Config From Other Subscription.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0232310320202312-2232233221201023-0221223332333032-3301220030000001-3030310313212302-3213332331313301-1303200113210001-3021023222013330"></a>
+
+## Direct properties — other_subscription / 113013113300 / 3
+
+- [authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121): complete subsection reference.
+
+<a id="canonical-0230113033011312-0331103013212020-1210033110113023-1322200003311221-0330202302011021-3333023231311023-0322232212333113-1001232112110210"></a>
+
+<a id="canonical-2330012001111033-3201220332130102-1333203112232333-0330112201110132-3223032222111131-1233121113222213-2203033301103303-0303212303311211"></a>
+
+## circuit_id property — other_subscription / 113013113300 / 4
+
+Type: `"string"`. Computed.
+
+Circuit ID. Circuit ID.
+
+Upstream description:
+
+Circuit ID.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512"
+  }
+}
+```
+
+<a id="canonical-2330112231110013-2030020022223110-3131122032023112-3102311100231231-2313121333030331-1220022223332333-3330200313122303-0123002131200223"></a>
+
+## Next pages — other_subscription / 113013113300 / 5
+
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+
+<a id="canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0232213333103113-0210121210023223-3023030311323002-1330301221322132-3301221232012302-0233202231333113-3223221203330332-3000123220122010"></a>
+
+## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key — authorized_key / 023220321331 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000)
+- ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key
+
+<a id="canonical-3301222332200202-1211120011001033-2211302000030301-0223320010213220-1321100011032202-3122202201210310-1033230121203222-0121120323320231"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-3332232332321301-2012022330212032-1123311232202003-3022133332110321-3310032123220120-2110113000303113-2032303033023000-1022130221232111"></a>
+
+## Direct properties — authorized_key / 023220321331 / 3
+
+- [blindfold_secret_info](data-sources--azure_vnet_site--reference--group-006.md#canonical-2320131313120110-2023132023100112-1202332121032020-3003131020333220-0123103100320033-2233222110012313-0221010302123313-1200001201203000): complete subsection reference.
+
+- [clear_secret_info](data-sources--azure_vnet_site--reference--group-006.md#canonical-1221131313131313-1200103010012233-3123312010213103-3011113232002001-3302221230100012-2111100012032102-1210220003103023-1010210010220012): complete subsection reference.
+
+<a id="canonical-2132310112231220-1223103100333032-3033321011201113-1303013223002320-0313300032031103-1332001033302000-1201121312211311-1123003321222333"></a>
+
+## Next pages — authorized_key / 023220321331 / 4
+
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.blindfold_secret_info](data-sources--azure_vnet_site--reference--group-006.md#canonical-2320131313120110-2023132023100112-1202332121032020-3003131020333220-0123103100320033-2233222110012313-0221010302123313-1200001201203000)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.clear_secret_info](data-sources--azure_vnet_site--reference--group-006.md#canonical-1221131313131313-1200103010012233-3123312010213103-3011113232002001-3302221230100012-2111100012032102-1210220003103023-1010210010220012)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+
+<a id="canonical-2320131313120110-2023132023100112-1202332121032020-3003131020333220-0123103100320033-2233222110012313-0221010302123313-1200001201203000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1000121023312120-1312033212320332-2103110121332301-0102021331123001-2220223232102130-3122021331203022-1031201102112321-1231320121030320"></a>
+
+## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.blindfold_secret_info — blindfold_secret_info / 302232212001 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121)
 - ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.blindfold_secret_info
 
-<a id="canonical-5868a5951725e76be735867caf00a52b90339253731333c16b2b04e680c38a8f"></a>
+<a id="canonical-1120122022112111-0113021132131223-3213031120121330-2233000022110223-2100030321021103-1303010303033001-1223022300103212-2000300320222033"></a>
 
 Type: `"single"`. Computed.
 
@@ -41,15 +493,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0cc50259db9e9f2d3223dae309686988a4128f93c4196a61eb1e7a04cb68a8c9"></a>
+<a id="canonical-0030301100021121-3123213221330231-0302020331223203-0021122012212020-2210010220332103-3010012112221201-3223013213220010-3023122022203021"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 3
+## Direct properties — blindfold_secret_info / 302232212001 / 3
 
-<a id="canonical-bfb23ddcfe275c02c7328de53f3c8a925c62f4c562534ccefead7964444726c3"></a>
+<a id="canonical-2333230203313130-3332021311300002-3013030220313211-0333033020222102-1130120233103011-1202110310303032-3332223113211210-1010101302123003"></a>
 
-<a id="canonical-3eecbc74b37f8c530e23ee0486b6d7b44da00cee53042397237b50ed4c1ab626"></a>
+<a id="canonical-0332323023301310-2303133320301103-0032020332320010-2012231231132310-1031220000303232-1103001002032113-0203132311003231-1030012223120212"></a>
 
-## decryption_provider property — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 4
+## decryption_provider property — blindfold_secret_info / 302232212001 / 4
 
 Type: `"string"`. Computed.
 
@@ -79,11 +531,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-687af310fc1b63ed5e13ddf9066744d2da0260f03542afedff0c9ead574e9f9b"></a>
+<a id="canonical-1220132233030100-3330012312033231-1132010331313321-0012121310103102-3122000212003300-0311100222333231-3333003021322231-1113103221332123"></a>
 
-<a id="canonical-4f346726197800321e36dcf36b59047c2ba8cd8c3fb031af9254536f30f7464e"></a>
+<a id="canonical-1033031012130212-0121132000000302-0132031231303303-1223112100101330-0223222030312030-0333230003012233-2102111011031233-0300331310121032"></a>
 
-## location property — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 5
+## location property — blindfold_secret_info / 302232212001 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -132,11 +584,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d70317339a129825de8774d443aabf4eb1b0a160f1f2f2aef31a1b37c0820eee"></a>
+<a id="canonical-3113000301130303-2122010221200211-3132201313103110-1003222223331032-2301230022011200-3301330233022232-3303012201230313-3000200200323232"></a>
 
-<a id="canonical-c5665bc2197f4dd8430b2f3867c2176fa5a89ede0d6db7c52f2f18cc1deec244"></a>
+<a id="canonical-3011121211233002-0121133310313120-1003002302330320-1213300201131233-2211222021323132-0031123123133011-0233023301203030-0131323230021010"></a>
 
-## store_provider property — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 6
+## store_provider property — blindfold_secret_info / 302232212001 / 6
 
 Type: `"string"`. Computed.
 
@@ -171,36 +623,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-411acba06ae8e4caf90f839cbe9690d178a667e7f1397990dd168949a203c756"></a>
+<a id="canonical-1001012230232200-1222322032103022-3321003320032130-2332211221003101-1320221212133213-3301032113212100-3131011220211021-2202000330131112"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / b55c91cae981 / 7
+## Next pages — blindfold_secret_info / 302232212001 / 7
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-005.md#canonical-df2dbf4f80a90c6182064e66dceaaeb134c52ad6442e0065f745c89e7a250559)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-69777777604c41afdbd849d3c55ee081f2a6c4069540639264a034cb44904a06"></a>
+<a id="canonical-1221131313131313-1200103010012233-3123312010213103-3011113232002001-3302221230100012-2111100012032102-1210220003103023-1010210010220012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cc2b15aba18a95097d60a2744e882462eb011ba142a01509f3b8f5e8794cb695"></a>
+<a id="canonical-3030022301112223-2201202221110021-1331120022021310-1032202002101202-3223000101232201-1002220001110021-3303232033113220-1321103023122111"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.clear_secret_info — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / 5213ef6721a9 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.clear_secret_info — clear_secret_info / 121302012221 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-6ce8e5b6f4d03779cec0058e7cbac6dded02139d92f1cd3a16254724c7654fbb)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-005.md#canonical-51b1ff4f98ef8a3b44521b61c6a0f2c6841ca187ea397e3a6a583e7fba8fe100)
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-005.md#canonical-df2dbf4f80a90c6182064e66dceaaeb134c52ad6442e0065f745c89e7a250559)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections](data-sources--azure_vnet_site--reference--group-005.md#canonical-1230322032112312-3310310003131321-3032300000112032-1330232230123131-3231000201032131-2102330130310322-0112021110130210-3013121110332323)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription](data-sources--azure_vnet_site--reference--group-006.md#canonical-1101230133331033-2120323320220323-1010110201231201-3012220033023012-2010013022012013-3222032113320322-1222112003321333-2322203332010000)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121)
 - ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key.clear_secret_info
 
-<a id="canonical-991535880a4c0bed47506ac20e0321cee2e18874307d6acd4cff079565abf28c"></a>
+<a id="canonical-2121011103112020-0022103000233231-1013110012223002-0032000302013032-3202320120201310-0300133112223031-1030333300132111-1211222333022030"></a>
 
 Type: `"single"`. Computed.
 
@@ -219,26 +671,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6b87ed6c97f40b08d53ea2ba1f1a62602c037aa543e61415cd072c86b1718585"></a>
+<a id="canonical-1223201332311230-2113331000230020-3111033222022322-0133012212021200-0230000313222211-1003321201100111-3031001302302012-2301130120112011"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / 5213ef6721a9 / 3
+## Direct properties — clear_secret_info / 121302012221 / 3
 
-<a id="canonical-8168ee82defa97b3dd6e60ff5d38643bf5fd2c6c8832952309b8dfb6927ab830"></a>
+<a id="canonical-2001122032322002-3132332221132303-3131123212003333-1131032012100323-3311333102301230-2020030221110203-0021232031332312-2102132223200300"></a>
 
-<a id="canonical-86ba90d3b6c834f40cd4890954d9392204d8c49bd9eb566f00a8ed093378cf44"></a>
+<a id="canonical-2012232221003103-2312302003103310-0030311020210021-1110312103210202-0010312030102123-3121322311121233-0000222032310021-0303132030331010"></a>
 
-## provider_ref property — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / 5213ef6721a9 / 4
+## provider_ref property — clear_secret_info / 121302012221 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-c06c8f604e947b882989214eccf12ed829fe867800092a2675cc3fd705e66054"></a>
+<a id="canonical-3000123020331200-1032211013232020-0221202102011032-3030330102323120-0221333220121320-0000002102220212-1311303003333113-0011321212001110"></a>
 
-<a id="canonical-3d40647efce67ae4e8424929b37fd68988aa532193497b551f407d17de7c4b1d"></a>
+<a id="canonical-0331100012101332-3330321213223210-3220100210210221-2303133331122021-2020222211030201-2103102113231111-0133100013310113-3132133010230131"></a>
 
-## url property — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / 5213ef6721a9 / 5
+## URL property — clear_secret_info / 121302012221 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -298,33 +750,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c7a496a547eea36c53e28ccbd6f296acb2d06476d097db11efaae22d60df7301"></a>
+<a id="canonical-3013221021122211-1013323222031230-1103320220303023-3112330221122230-2302310012101312-3100211331230101-3233222232020231-1200313313030001"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.au / 5213ef6721a9 / 6
+## Next pages — clear_secret_info / 121302012221 / 6
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-005.md#canonical-df2dbf4f80a90c6182064e66dceaaeb134c52ad6442e0065f745c89e7a250559)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.connections.other_subscription.authorized_key](data-sources--azure_vnet_site--reference--group-006.md#canonical-3133023123331033-2000222100301201-2002001210321212-3130322222322301-0310301102223112-1010023200001211-3313101130202132-1322021100111121)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-8b3fd92aacfcb186818fbd2890ea4b7fa6fd03bd4af97c65aaa065c4dbbbacd5"></a>
+<a id="canonical-2023033331210222-2230333023012012-2001203323310220-2100322210231333-2212333100032331-1022332113301211-2222220012113010-3123232322303111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d48642cf2f5bb27d722942cef5ec7898171af7aaf86cf01e9f9f1f48bd6a5161"></a>
+<a id="canonical-3110201210023033-0233112323021331-1302022110023032-3311323013202120-0113012233132222-3320123033000132-2133213301331020-2331122211011201"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server — ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server / d992ee05c9c0 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server — do_not_advertise_to_route_server / 001130213000 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server
 
-<a id="canonical-db4636e5aee7a770591d9fa773a18a381bffd89bd82a2e631fc5f875d5d52677"></a>
+<a id="canonical-3123101203123211-2232321322131300-1121013121332213-1303220120220320-0123333331202123-3120022202321203-0133301133201311-3111311102121313"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -347,39 +799,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-19aa58b7f593fd3fbd05861a4ac0864f12403318aeadfc38738408bec8153d0a"></a>
+<a id="canonical-0121222211202313-3311210333310333-2331001120120122-1022300020121033-0102100003030120-2232223133300320-1303201000202332-3020011103310022"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server / d992ee05c9c0 / 3
+## Direct properties — do_not_advertise_to_route_server / 001130213000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e8c8541ad569b446ac028c4947aeaef77bd555425c24463ee83d2b2b1f8b7738"></a>
+<a id="canonical-3220302011100122-3111122123101012-2230000220301021-1013223222323313-1323311111111002-1130021010120332-3220033102230223-0133202313130320"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.do_not_advertise_to_route_server / d992ee05c9c0 / 4
+## Next pages — do_not_advertise_to_route_server / 001130213000 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684"></a>
+<a id="canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4e1f2cf316a7cb29e597119b6382ea72e98ccc4750192a3af03b43bc4fb100a7"></a>
+<a id="canonical-1032013302303303-0112221330230221-3211211301012123-1203200232221302-3221203030301013-1100012102220322-3300032310032330-1033230100002213"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet / f940f30abb97 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet — gateway_subnet / 002223232113 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet
 
-<a id="canonical-71e95bc4f1b5d0c9cbd820c6080d948e4b4a1a911601a7d993d23b683fa4df16"></a>
+<a id="canonical-1301322111233010-3301231131003021-3023312002003012-0020003121102032-1023102201222101-0112000122133121-2103310203231220-0333221031330112"></a>
 
 Type: `"single"`. Computed.
 
@@ -403,47 +855,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8b5b3d7ccf1aca8644891b4c9188b0828fb4ba7c1ea5ff2cfdacebca75b02721"></a>
+<a id="canonical-2023112303311330-3033012230222012-1010202101231030-2101202023002002-2033231023221330-0132221133330230-3331223032233022-1311230002130201"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet / f940f30abb97 / 3
+## Direct properties — gateway_subnet / 002223232113 / 3
 
-- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-96641229840dde3d88f6c74c8461f472fc785d3cf513e2e806d2af5844778198): complete subsection reference.
+- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-2112121001020221-2010003131320331-2020331230131030-2010120133101302-3330132011310330-3311010332023220-0012310222331120-1010131320012120): complete subsection reference.
 
-- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-98f16a6fe0757fd25f213260ebab152839253bcf465a74d0020e1439d9f72ccb): complete subsection reference.
+- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2120330112221233-3200131113333102-1133020103021200-3223222301110220-0321021103233033-1012112213103100-0002003201100321-3121331302303023): complete subsection reference.
 
-- [subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-5efb590e6cbcaab93c6586701cf195bf240c0b6b6d37bf6c0bae2ae3dc994bea): complete subsection reference.
+- [subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-1132332311210032-1230233022222321-0330121120121300-0130330121112333-0210003000231223-1231031323331230-0023223202223203-3130212110233222): complete subsection reference.
 
-<a id="canonical-ea2c69757aed77870e5c0e5e60b6a9ee2aa400387f195c5c72a14fd370731a36"></a>
+<a id="canonical-3222023012211311-1322323113132013-0032113000321132-1200231222213232-0222221000000320-1333012111301130-1302220110333103-1300130301220312"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet / f940f30abb97 / 4
+## Next pages — gateway_subnet / 002223232113 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-96641229840dde3d88f6c74c8461f472fc785d3cf513e2e806d2af5844778198)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-98f16a6fe0757fd25f213260ebab152839253bcf465a74d0020e1439d9f72ccb)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-5efb590e6cbcaab93c6586701cf195bf240c0b6b6d37bf6c0bae2ae3dc994bea)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-2112121001020221-2010003131320331-2020331230131030-2010120133101302-3330132011310330-3311010332023220-0012310222331120-1010131320012120)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2120330112221233-3200131113333102-1133020103021200-3223222301110220-0321021103233033-1012112213103100-0002003201100321-3121331302303023)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-1132332311210032-1230233022222321-0330121120121300-0130330121112333-0210003000231223-1231031323331230-0023223202223203-3130212110233222)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-96641229840dde3d88f6c74c8461f472fc785d3cf513e2e806d2af5844778198"></a>
+<a id="canonical-2112121001020221-2010003131320331-2020331230131030-2010120133101302-3330132011310330-3311010332023220-0012310222331120-1010131320012120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0709e0cc13a9f06d5c9eb42202c676c35afad6e6b3f46882123ba0fd54c5d591"></a>
+<a id="canonical-0013002132003030-0103222133001231-1130213223100202-0002301213123003-1122332231123212-2303331012202002-0102032322003331-1110301131112101"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto / d629f4366a36 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto — auto / 031212220312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
 - ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto
 
-<a id="canonical-065bfaa6075076b177589026413129606088c373ce242fbc6bf1e64bb3f82f5c"></a>
+<a id="canonical-0012112333222212-0013110013122301-1313112021000212-1001030102211200-1200202030031303-3032021002332330-1223330132121023-2303332002331130"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -466,40 +918,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5e5398ebd2541ca5c1a13b2318f1d894c2755ea3c975ced09399073031c9d9cf"></a>
+<a id="canonical-1132110321203223-3102111001302211-3001220103230203-0120330131202110-3002131111322203-3021131130323100-2103212100130300-0301302131213033"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto / d629f4366a36 / 3
+## Direct properties — auto / 031212220312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fbb5320f31f993aeadf45a2a31fe113de4cca0b49864593f26a18430506b1af9"></a>
+<a id="canonical-3323231103020033-0301332121032232-2231331011220222-0301333201010331-3210303022002310-2120121011210333-0212220120100300-1100122301223321"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.auto / d629f4366a36 / 4
+## Next pages — auto / 031212220312 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-98f16a6fe0757fd25f213260ebab152839253bcf465a74d0020e1439d9f72ccb"></a>
+<a id="canonical-2120330112221233-3200131113333102-1133020103021200-3223222301110220-0321021103233033-1012112213103100-0002003201100321-3121331302303023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-80c963d44b45d4193040e78b3602aff8188665fa37e57b90e9baba51dab573c2"></a>
+<a id="canonical-2000302112033110-1023101131100121-0300100032132023-0312000222333320-0120201212113322-0313321113232100-3221232223221101-3122231113033002"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet / f82c6b056737 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet — subnet / 001112130313 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
 - ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet
 
-<a id="canonical-3e3714cc6589f40017e6e7dd9dd63a23ada4310449659882a50d92e6df6aa992"></a>
+<a id="canonical-0332031301103030-1211202133100000-0113321232133131-2131311203220203-2231221003010010-1021121121202002-2211003121023212-3133122222212102"></a>
 
 Type: `"single"`. Computed.
 
@@ -524,15 +976,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-731f8f3bd498972d7763024e3abbe28abf7e36257f7cf87eb03b114831261910"></a>
+<a id="canonical-1303013320330323-3110212021130231-1313120300021032-0322232332022022-2333133203120211-1333133033201332-2300032301011020-0301021201210100"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet / f82c6b056737 / 3
+## Direct properties — subnet / 001112130313 / 3
 
-<a id="canonical-938135a4e2031a4c4bf2c1496700603d7fe3de22243a63a5da24dfd6dc60ecaa"></a>
+<a id="canonical-2103200103112210-3202000301221030-1023330230011021-1213000012000331-1333320331320202-0210032212032211-3122021031333112-3130120032302222"></a>
 
-<a id="canonical-2a49b1268cdab39928c021b1ce1530960b66a8c0360797fe2f2c8fc2c3a82eda"></a>
+<a id="canonical-0222102123010212-2030312223032121-0220300002012301-3032011103002112-0023121222203000-0312001321133332-0233023020333002-3003222002323122"></a>
 
-## subnet_resource_grp property — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet / f82c6b056737 / 4
+## subnet_resource_grp property — subnet / 001112130313 / 4
 
 Type: `"string"`. Computed.
 
@@ -573,38 +1025,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-adb4a96b4b837795ec89610d6541239b1b59552be25559c0d1f818c7e7397b05): complete subsection reference.
+- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-2231231022211223-1023200313132111-3230202112010031-1211100102032123-0123112111110223-3202111111213000-3101332001203013-3213032113230011): complete subsection reference.
 
-<a id="canonical-869594fe95a6a2315fdde93e35963cfcdc07dbf9d6a584d4b0fdeb2f250b30f5"></a>
+<a id="canonical-2012211121103332-2111221222020301-1133313132210332-0311211203303330-3130001331233321-3112221120103110-2300333132230233-0211002303003311"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet / f82c6b056737 / 5
+## Next pages — subnet / 001112130313 / 5
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-adb4a96b4b837795ec89610d6541239b1b59552be25559c0d1f818c7e7397b05)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-2231231022211223-1023200313132111-3230202112010031-1211100102032123-0123112111110223-3202111111213000-3101332001203013-3213032113230011)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-adb4a96b4b837795ec89610d6541239b1b59552be25559c0d1f818c7e7397b05"></a>
+<a id="canonical-2231231022211223-1023200313132111-3230202112010031-1211100102032123-0123112111110223-3202111111213000-3101332001203013-3213032113230011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3786ba410ae9fdff2c6cb47bc0de58da2d4c8d3a6967bc7be3d0a6e30548c879"></a>
+<a id="canonical-0313201223221001-0022322133313333-0230123023101323-3000313211203122-0231103020310322-1221121323301323-3203310022123203-0011102030201321"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resource_group — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resour / 92648aa38152 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resource_group — vnet_resource_group / 220320011102 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-98f16a6fe0757fd25f213260ebab152839253bcf465a74d0020e1439d9f72ccb)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2120330112221233-3200131113333102-1133020103021200-3223222301110220-0321021103233033-1012112213103100-0002003201100321-3121331302303023)
 - ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resource_group
 
-<a id="canonical-52481be121ecbe98be3754a2a9f1715c4f0dbec16183a04224e5457ba03d0c30"></a>
+<a id="canonical-1102102001233201-0201323023322120-2332031311102202-2221330113011130-1033003123323001-1201200322001002-0210321110111323-2200033100300300"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -627,40 +1079,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-74bd7796339482bc37a2874b2378b01e8c7caf8dfda3db8ed934e008aaf23b3c"></a>
+<a id="canonical-1310233113132112-0303211020022330-0313220220131023-0203132023000132-2030133022332031-3331220331232032-3121031032000020-2222330203230330"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resour / 92648aa38152 / 3
+## Direct properties — vnet_resource_group / 220320011102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0fc32221f21d1927707c57352930ef1ae80b611388e2d36e702b54db27cac86c"></a>
+<a id="canonical-0033300302020201-3302013101210213-1300133011130311-0221030032330122-3220002312010103-2020320231031232-1300022311103123-0213302230201230"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet.vnet_resour / 92648aa38152 / 4
+## Next pages — vnet_resource_group / 220320011102 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-98f16a6fe0757fd25f213260ebab152839253bcf465a74d0020e1439d9f72ccb)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2120330112221233-3200131113333102-1133020103021200-3223222301110220-0321021103233033-1012112213103100-0002003201100321-3121331302303023)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-5efb590e6cbcaab93c6586701cf195bf240c0b6b6d37bf6c0bae2ae3dc994bea"></a>
+<a id="canonical-1132332311210032-1230233022222321-0330121120121300-0130330121112333-0210003000231223-1231031323331230-0023223202223203-3130212110233222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-038127496446fca2a6ec43cdf772b580bdab3f9162251b9de8b1a3d3f73b27ae"></a>
+<a id="canonical-0003200102131021-1210101233302202-2212323010033031-3313130223112000-2331222303332101-1202021101232131-3220230122033103-3313032302132232"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param / 5ea805926d0d / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param — subnet_param / 210212310031 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
 - ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param
 
-<a id="canonical-2f6184df51c153076fae61db0468d13fcc41106fe5587a6da765fe2e9fbeac16"></a>
+<a id="canonical-0233120120103133-1101300111030013-1233223212013123-0010122031010333-3030100101001233-3211112013221231-2213121133320232-2133233222300112"></a>
 
 Type: `"single"`. Computed.
 
@@ -679,15 +1131,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fa8b369f7b1f141da3d32f95096ae709e8691e2f7267fc6e45686961ccbc3b7c"></a>
+<a id="canonical-3322202303122133-1323013301100131-2203310302332111-0021122232130021-3220122101320233-1302121333301232-1011122012211201-3030233003231330"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param / 5ea805926d0d / 3
+## Direct properties — subnet_param / 210212310031 / 3
 
-<a id="canonical-d2f7ab292866f8b23da9f9aa062ed6a7b0c2cc9bbdcb7f4ae8cbcde2fd73e46d"></a>
+<a id="canonical-3102331322230221-0220121233202302-0331222133212222-0012023231122213-2300300230302123-2331302313331022-3220302330313202-3331130332101231"></a>
 
-<a id="canonical-cbb2c5f869b5497765f2e92aeb806e7a6812dd28a5d3faa88219a9ac003a5712"></a>
+<a id="canonical-3023230230113320-1221231110211313-1211330232210222-3223200012321322-1220010231310220-2211310333222220-2002012122212230-0000032211130102"></a>
 
-## ipv4 property — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param / 5ea805926d0d / 4
+## IPv4 property — subnet_param / 210212310031 / 4
 
 Type: `"string"`. Computed.
 
@@ -731,33 +1183,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05570b017ecebf3bf7da1a297be6292b4a6a0fc8f8ac5ec667b07d57df4247fd"></a>
+<a id="canonical-0011111300230001-1332303223330323-3313312201220221-1323321202210223-1022122200333020-3320223011323012-1213230013311113-3133100210133331"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet.subnet_param / 5ea805926d0d / 5
+## Next pages — subnet_param / 210212310031 / 5
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-2e6e73f8071e94139791f37a1ff2701840b8a1e164b8aef1929579cf0e701684)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.gateway_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-0232123213033320-0013013221100103-2113210133031322-0133330213000120-1000232022013201-1210232022323301-2102211113213033-0032130001122010)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862"></a>
+<a id="canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f07ef72f623c86e88abe948dd366014976ec25786244f630cbf39abd58d69e4f"></a>
+<a id="canonical-3300133233130233-1202033020123220-2022233221102031-3103121200011021-1312323002111320-1202101033120300-3023330321222331-1120311221321033"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet / 62f43d122f98 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet — route_server_subnet / 010202332120 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet
 
-<a id="canonical-a1bc6e4ec0e0891345f4b6591e716a604a14bdf34dfdf0240fec6df70542856b"></a>
+<a id="canonical-2201233012321032-3000320020210103-1011331023121121-0132130112221200-1022011023313303-1031333133000210-0033323012313313-0011100220111223"></a>
 
 Type: `"single"`. Computed.
 
@@ -781,47 +1233,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec23df0d40521e21433e4cc6ec30e62a491b9ecd5cd2580a73fb4b4c4f22b1bc"></a>
+<a id="canonical-3230020331330031-1000110201320201-1003033210303012-3230030032120222-1021012321323031-1130310211200022-1303332310231030-1033020223012330"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet / 62f43d122f98 / 3
+## Direct properties — route_server_subnet / 010202332120 / 3
 
-- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-52b5928aee3004d37f768900daddff3b151b3a83b0984d6f613dfeb57d6455bd): complete subsection reference.
+- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-1102231121022022-3232030000103103-1333131220210000-3122313133330323-0111012303222003-2300212010311233-1201033133322311-1331121011112331): complete subsection reference.
 
-- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-e581022db77f8d9b3a2003006ade38e71fbdfa4a7b36ede85c9b18dc97ca8535): complete subsection reference.
+- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311): complete subsection reference.
 
-- [subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-8b2754e031ca410dc9bd92c7230d5a7007fe7577af277fd615d608cd46994430): complete subsection reference.
+- [subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-2023021311103200-0301302210010031-3021233121023013-0203003111221300-0013333213111313-2233021313333112-0111311200203031-1012212110100300): complete subsection reference.
 
-<a id="canonical-13cb3e1c6ef04fbd95dcf60261929ec19ed519a5b71f0d36f7bd8322b2415e13"></a>
+<a id="canonical-0103302303320130-1232330010332331-2111313033120002-1201210221323001-2132311101212211-2313013300310312-3313233120030202-2302100111320103"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet / 62f43d122f98 / 4
+## Next pages — route_server_subnet / 010202332120 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-52b5928aee3004d37f768900daddff3b151b3a83b0984d6f613dfeb57d6455bd)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-e581022db77f8d9b3a2003006ade38e71fbdfa4a7b36ede85c9b18dc97ca8535)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-8b2754e031ca410dc9bd92c7230d5a7007fe7577af277fd615d608cd46994430)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-1102231121022022-3232030000103103-1333131220210000-3122313133330323-0111012303222003-2300212010311233-1201033133322311-1331121011112331)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-2023021311103200-0301302210010031-3021233121023013-0203003111221300-0013333213111313-2233021313333112-0111311200203031-1012212110100300)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-52b5928aee3004d37f768900daddff3b151b3a83b0984d6f613dfeb57d6455bd"></a>
+<a id="canonical-1102231121022022-3232030000103103-1333131220210000-3122313133330323-0111012303222003-2300212010311233-1201033133322311-1331121011112331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5ac6c217ab511e6cafcdb923c099fa0a5af2933ead9d158d6b6bfd4b819c7b36"></a>
+<a id="canonical-1122301230020113-2223110101321230-2233303123210203-3000212133220022-1122330221030332-2231213101112031-1223122333311023-2001213013230312"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto / 8c575c4c31da / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto — auto / 103003013122 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
 - ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto
 
-<a id="canonical-1f3f9ee632afb7e7c4a1010e94a16f2df1b490573625de7a15c6d56dcaaebb4f"></a>
+<a id="canonical-0133033321323212-0302223323133213-3010220100010032-2110220112330231-3301231021001113-0312021131321322-0111301231111231-3022223223231033"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -844,40 +1296,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a50883a9f31d09925111685f1355ce4cdfd5103581a35930b81ac77ece7d30c"></a>
+<a id="canonical-0022110020200322-2133030131002121-0211010101122011-3301031111303210-3031333111010003-1120012203112103-0023200122301313-3230321331030030"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto / 8c575c4c31da / 3
+## Direct properties — auto / 103003013122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-65f62244f4e74330fd29abd0cb8f23c7803837697c02f411b3839d4e03c57b93"></a>
+<a id="canonical-1211331202021010-3310321310030300-3331022122233100-3023203302033013-2000032003131221-1330000233100101-2303200321311032-0003301113232103"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.auto / 8c575c4c31da / 4
+## Next pages — auto / 103003013122 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-e581022db77f8d9b3a2003006ade38e71fbdfa4a7b36ede85c9b18dc97ca8535"></a>
+<a id="canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-33fb606d4aab5f98bfe84f336316cb6c06df1a8feee14d40164887725a4eb717"></a>
+<a id="canonical-0303332312001231-1022222311332120-2333322010330303-1203011230231230-0012313301222033-3232320110311000-0112102020131302-1122103223130113"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet / 69118afa6582 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet — subnet / 332212112002 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
 - ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet
 
-<a id="canonical-41be28b7ddb91f84f10a01c31830143bb4f2172f8434c6c60a071f44086c0e6a"></a>
+<a id="canonical-1001233202202313-3131232101332010-3301002200013003-0120030001100323-2310330201130233-2010031030123012-0022001301331010-0020123000321222"></a>
 
 Type: `"single"`. Computed.
 
@@ -902,15 +1354,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-25ab77f37e3bd97721422536dd9922aaf4f5fda96fe41d5cb41132a3dfd7e2d9"></a>
+<a id="canonical-0211222313133303-1332032331211313-0201100202110312-3131212102022222-3310331133312221-1233321001311130-2310010103022203-3133311332023121"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet / 69118afa6582 / 3
+## Direct properties — subnet / 332212112002 / 3
 
-<a id="canonical-23d25ea4aa9074f1a579343be8828c473e7cf97e115543e6cc195a6cd56e743c"></a>
+<a id="canonical-0203310211322210-2222210013103301-2211132103100323-3220200220301013-0332133033211332-0101111110033212-3030012111221230-3111123213100330"></a>
 
-<a id="canonical-cfbd9736932c50ff16b5833c08d90f2ecdd3073b50832bedfab7cc21aa563d32"></a>
+<a id="canonical-3033233121130312-2103023011003333-0112231120030330-0020312100330232-3031310300130323-1100200302233231-3322231330300201-2222111203310302"></a>
 
-## subnet_resource_grp property — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet / 69118afa6582 / 4
+## subnet_resource_grp property — subnet / 332212112002 / 4
 
 Type: `"string"`. Computed.
 
@@ -951,38 +1403,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-72b3b64eb62b8c68b88a574f371bc95cbd8bbcdebf3e41d32649700e609f247e): complete subsection reference.
+- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-1302230323121032-2312022320301220-2320202211131033-0313012330211130-2331202323303132-2333033210013103-0212102113000032-1200213302101332): complete subsection reference.
 
-<a id="canonical-5c96a6a6130c65d2d26c7ea268003e056b48ae62a765539c255d78fdf8c7385c"></a>
+<a id="canonical-1130211222122212-0103003012113102-3102123013322202-1220000003320011-1223102022321202-2213121111032130-0211113113203331-3320301303201130"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet / 69118afa6582 / 5
+## Next pages — subnet / 332212112002 / 5
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-72b3b64eb62b8c68b88a574f371bc95cbd8bbcdebf3e41d32649700e609f247e)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-1302230323121032-2312022320301220-2320202211131033-0313012330211130-2331202323303132-2333033210013103-0212102113000032-1200213302101332)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-72b3b64eb62b8c68b88a574f371bc95cbd8bbcdebf3e41d32649700e609f247e"></a>
+<a id="canonical-1302230323121032-2312022320301220-2320202211131033-0313012330211130-2331202323303132-2333033210013103-0212102113000032-1200213302101332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a0171ce76b026c1aa1d04d9606c9dce74cb95a363337ff641483358f12711fcb"></a>
+<a id="canonical-2200011301303213-1223000212300122-2201310010312112-0012302131303213-1030232111220312-0303031333331210-0110200303112033-0102130101333023"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_resource_group — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_r / 0bc0d5c40568 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_resource_group — vnet_resource_group / 301000111220 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-e581022db77f8d9b3a2003006ade38e71fbdfa4a7b36ede85c9b18dc97ca8535)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311)
 - ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_resource_group
 
-<a id="canonical-d84d2cd4362d4caaf385a69885f9b526a2e8572b2b41a96a35c5953f4245965a"></a>
+<a id="canonical-3120103102303110-0312023110302222-3303201122122120-2011332123110212-2202322011130223-0223100122211222-0311301121110333-1002101121121122"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1005,40 +1457,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-28ecbd9ab143eafd224825cbd992c14067b405e66f308f608dc731f54e534475"></a>
+<a id="canonical-0220323023312122-2301100332223331-0202102002113023-3121210230011000-1213231000113212-1233030020331200-2031301303013311-1032110310101311"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_r / 0bc0d5c40568 / 3
+## Direct properties — vnet_resource_group / 301000111220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4f46e08943c09058ef5e53cfff87b237855aee35f63c510830e64402296553bb"></a>
+<a id="canonical-1033101232002021-1003300021001120-3233113211033033-3333201323020313-2011112232320311-3312033011010020-0300321210100002-0221121111032323"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet.vnet_r / 0bc0d5c40568 / 4
+## Next pages — vnet_resource_group / 301000111220 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-e581022db77f8d9b3a2003006ade38e71fbdfa4a7b36ede85c9b18dc97ca8535)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-8b2754e031ca410dc9bd92c7230d5a7007fe7577af277fd615d608cd46994430"></a>
+<a id="canonical-2023021311103200-0301302210010031-3021233121023013-0203003111221300-0013333213111313-2233021313333112-0111311200203031-1012212110100300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ada9d448d3f7c78711a060913ae7181e3d822c7c78d8a4d6ff2899f811167cea"></a>
+<a id="canonical-2231222131101020-3103331330132013-0101220012002101-0322321301200132-0331200202301330-1320312022103112-3333022021213320-0101011213303222"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param / 3b8d59c01990 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param — subnet_param / 300001212100 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
 - ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param
 
-<a id="canonical-4ed7696880322d396b1e81762fa66d5bfb5fb8090ee8bf7a7d75cdc3b3632f51"></a>
+<a id="canonical-1032311312211220-2000030202310321-1223013220011312-0233221212311123-3323113323200021-0032322023331322-1331131130313003-2303120302331101"></a>
 
 Type: `"single"`. Computed.
 
@@ -1057,15 +1509,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3cd50e5411417786a463e256e8b21413bc86ddcd5043d39418e28a103e3114df"></a>
+<a id="canonical-0330311100321110-0101100113132012-2210120332021112-3220230201100103-2330201231313031-1100100331032110-0120320220220100-0332030101103133"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param / 3b8d59c01990 / 3
+## Direct properties — subnet_param / 300001212100 / 3
 
-<a id="canonical-898fe0eb4f11ad86513a676825cd74ebac286836d84152ec3962fb378469feb5"></a>
+<a id="canonical-2021203332003223-1033010122312012-1101032212131220-0211303113103223-2230022012200312-3120100111023230-0321120233230313-2010122133322311"></a>
 
-<a id="canonical-ede32acdf74b15c8cda9fb94b029984a11256031e14704b360416b2efed1c798"></a>
+<a id="canonical-3231320302223031-3313102301113020-3031222133232110-2300022121201022-0101021112000301-3201101300102303-1200100112230232-3332310130132120"></a>
 
-## ipv4 property — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param / 3b8d59c01990 / 4
+## IPv4 property — subnet_param / 300001212100 / 4
 
 Type: `"string"`. Computed.
 
@@ -1109,33 +1561,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-02d70cabde5bac72b2f9f1fe3c1a670afe8c755a431277956a1be4223ffeaf29"></a>
+<a id="canonical-0002311300302223-3132112322301302-2302332133013332-0330012212130022-3332203013111122-1003010213132111-1222012332100202-0333333222330221"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet.subnet_param / 3b8d59c01990 / 5
+## Next pages — subnet_param / 300001212100 / 5
 
-- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5a902fd21a77e5ef701cc29f8a337368c9081de008a21d43003df2dd8e2c862)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled.route_server_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-299278ea065d5b3db3d839922a4b47db34f8cd9b753d64361f5a360120c8d2e9"></a>
+<a id="canonical-0221210213203222-0012113111230331-2303312003212102-0222102310133123-0310332030312123-1311033112100312-0133112203120001-0200302031023221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-692f32d0bdfc9808e2738999d3d5d5ebd2fc1d7b70cd64f6e04d8e39c64e2b6b"></a>
+<a id="canonical-1221023303023100-2331333021200020-3202130320212121-3103311131113223-3102333001311323-1300303112103312-3200103120320321-3012103202231223"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_route — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_ro / 67c3ff63dcb8 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_route — site_registration_over_express_route / 120331302320 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_route
 
-<a id="canonical-13fd89a153eac70038a2957e179f034eb8a622f746422332fceed1b2b98574a4"></a>
+<a id="canonical-0103333120212201-1103322230130000-0320220221111332-0113213300031032-2320221202023313-1012100202030302-3330323231012302-2321201113102210"></a>
 
 Type: `"single"`. Computed.
 
@@ -1154,15 +1606,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b961235cbd7c9e415ffbe54599e48a8f4ed6db6897a5e4cdc92cbb6d4fa8e143"></a>
+<a id="canonical-2321120102031130-2331133021321001-1133332332111011-2121321020222033-1032311231231220-2113221132103031-3021023023231231-1033222032011003"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_ro / 67c3ff63dcb8 / 3
+## Direct properties — site_registration_over_express_route / 120331302320 / 3
 
-<a id="canonical-7017b3f9ae77b2f2767f6f7c0cd4fc46064b27703e5e7773c72d110ac26ec8d6"></a>
+<a id="canonical-1300011323033321-2232131323023302-1312133312331330-0030311033301012-0012102302131300-0332113213131303-3013023101010022-3002123230203112"></a>
 
-<a id="canonical-f7b1f464c3f366f3d0a1c47d058edbe1bdd49d4f12c683a23684368ff3a02c1a"></a>
+<a id="canonical-3313230133101210-3003330312123303-3100220130101331-0011203231233201-2331311021311033-0102301220032202-0312201003122033-3303220002300122"></a>
 
-## cloudlink_network_name property — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_ro / 67c3ff63dcb8 / 4
+## cloudlink_network_name property — site_registration_over_express_route / 120331302320 / 4
 
 Type: `"string"`. Computed.
 
@@ -1205,33 +1657,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5ef14163e077e35426d7915d5ef2d5ad72ab0d72bfaa8a4c83bd32531fd1ea35"></a>
+<a id="canonical-1132330110011203-3200131332031110-0212311321011131-1132330231112231-1302222300311302-2333222220221030-2003233103021103-0133310132220311"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_express_ro / 67c3ff63dcb8 / 5
+## Next pages — site_registration_over_express_route / 120331302320 / 5
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-fa5a94ca7a39b2d36fc2759b911feb90e360b9105d49563df9d195b3c8b998fe"></a>
+<a id="canonical-3322112221103022-1322032123023103-1233300213112123-2101013332232100-3203120023210100-1131102111120331-3321310121112303-3020232121203332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c476e2a12ead58a97c544d501eea9d483fc1cff2c4d8c9fa2e8522df2de65f0f"></a>
+<a id="canonical-3010131232022201-0232223111202221-1330111010311100-0132322221311020-0333300130333302-3010312030213322-0232201102023133-0231321211330033"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet / 4be1513a9b23 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet — site_registration_over_internet / 032221230203 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet
 
-<a id="canonical-d4bc921f96af03a8bda0df97efde807cd1c04533bf10318f37e3d2203649d21b"></a>
+<a id="canonical-3110233021020133-2112223300032220-2331220031332113-3233313220001330-3101300010110303-2333010003012033-0313320331020200-0312102131020123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1254,39 +1706,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f42897aa60b300f55210c50f42cb5fa56925884e1675c0ed0c19fa8047c8eb1b"></a>
+<a id="canonical-3310022021132222-1200230300003311-1102010030110033-1002302311332211-1221021120201032-0112131130003231-0030012133222000-1013302032230123"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet / 4be1513a9b23 / 3
+## Direct properties — site_registration_over_internet / 032221230203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-052f066fdf136b4cd892e7ff0a72b1ab052b938ef2145a04426646cb96bf53a8"></a>
+<a id="canonical-0011023300121233-3133010312231030-3120210232133333-0022130223012223-0011022321032032-3302011011220010-1002121210123023-2112233311032220"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.site_registration_over_internet / 4be1513a9b23 / 4
+## Next pages — site_registration_over_internet / 032221230203 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-c5430ea326d3a0e63f9d8011d6bc6a8aa46668371d4c21e9817c8d4947740b2e"></a>
+<a id="canonical-3011100300322203-0212310322003212-0333213120000101-3112233012222022-2210121212200313-0131103002013221-2001133020311021-1013131000230232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b848d25d62e40d042ed1954a38e8452e750f67f4936b360d432b6de0321cc257"></a>
+<a id="canonical-2320102031021131-1202321000310010-0232310121111022-0320322010110232-1311003312133310-2103122303120031-1003022312313200-0302013030021113"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az / 3d0c9cd7a631 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az — sku_ergw1az / 311322120301 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az
 
-<a id="canonical-f5bc3c8dca35336d2f168029da0195b493bc4e41d16fd4dd9cc150e1e0701a27"></a>
+<a id="canonical-3311233003302031-3022031103031231-0233011220000221-3122000121112310-2103233010321001-3101123331103131-2130300111003201-3200130001220213"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1309,39 +1761,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-db2634d6a1eec69c4c97098fe0575d100614f9149b625891ea7e1123644d0561"></a>
+<a id="canonical-3123021203103112-2201323230122130-1030211300212033-3200111311310100-0012011033210110-2123120211202101-3222133201010203-1210103100111201"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az / 3d0c9cd7a631 / 3
+## Direct properties — sku_ergw1az / 311322120301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d97ac88c4920726f68f249f09645e823e3519dcc888d9fde84638bcbc62de6c2"></a>
+<a id="canonical-3121132230202030-1021020013021233-1220330210213300-2112101132200203-3203110121313030-2020203121333132-2010120320233023-3012023132123002"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw1az / 3d0c9cd7a631 / 4
+## Next pages — sku_ergw1az / 311322120301 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-aad40f15c0a8bfb1b5fd48281b49ceec4dd12e554d021a431c09c5c570bb97fa"></a>
+<a id="canonical-2222311000330111-3000222023332301-2311333110200220-0123102130323230-1031310102321111-1031000201221003-0130002130113011-1300232321133322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2be5141f318e349cf9dccc5dd1f18f1c2fea7892cca501e2216e9f23c848d9de"></a>
+<a id="canonical-0223321101100133-0301203203102130-3321313030301131-3101330120330130-0233322213202102-3030221100013202-0201123221330203-3020102031213132"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az / f88fe4204715 / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az — sku_ergw2az / 020010130111 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az
 
-<a id="canonical-a500d1a767a49aa6c330566328841ba0b9f174467c236704ad6df81e89ca3743"></a>
+<a id="canonical-2211000031012213-1213221021222212-3003030011121203-0220201001232200-2321330113101012-1330020312130010-2231123133200132-2021302203131003"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1364,39 +1816,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-34f14f77d0afd11afc3069fd0c49e41c87a076813c05f7f4faec27163e916390"></a>
+<a id="canonical-0310330110331313-3100223331010122-3330030012213331-0030102132100130-2013220013122001-0330001133133310-3322323002130112-0332210112032100"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az / f88fe4204715 / 3
+## Direct properties — sku_ergw2az / 020010130111 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-17deb82963eb3f89cccef8e8a1f00e56c41c8bc44186adbd19dc394134a390d8"></a>
+<a id="canonical-0113313223200221-1203322303332021-3030303233203220-2201330000321112-3010013020233010-1001201222312331-0121313003211001-0310220321003120"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.sku_ergw2az / f88fe4204715 / 4
+## Next pages — sku_ergw2az / 020010130111 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-259b6cdc06ea3436858053d9c540e2da17f985c597c8a108a157046f71159958"></a>
+<a id="canonical-0211212312303130-0012322203100312-2011200011033121-3011100032023122-0113332120113011-2113302022010020-2201111300101233-1301011121211120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8607a08649ee844305ef3844bbb5b7cca2fef803a0fdb9bd690964983fc0e161"></a>
+<a id="canonical-2012001322002012-1021323220101003-0011323303201010-2323231123133030-2202333233200003-2200333123212331-1221002112102120-0333300032011201"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf — ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf / 5eb45e121c4e / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf — sku_high_perf / 010201301032 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf
 
-<a id="canonical-5994c16f1b1f2df1fce7b48aea80d5d43c5143bd31a0375dd165fa90f9b76ed6"></a>
+<a id="canonical-1121211030011233-0123013302313301-3330321323102022-3222200031113110-0330110110032331-0301220003131131-3101121133222100-3321231312323112"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1419,39 +1871,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-78dfcdf964248c394e956e97da2a6c720949698a611650671ede861ca3f8cc92"></a>
+<a id="canonical-1320313330313321-1210021020300321-1032211112322113-3122022212301302-0021102112212022-1201011211001213-0132313220120130-2203332030302102"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf / 5eb45e121c4e / 3
+## Direct properties — sku_high_perf / 010201301032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-32538a9dbb3b9b33a9e17df9141f8b89fc4b15e456e7ad83319494ec01b4e741"></a>
+<a id="canonical-0302110320222131-2323032321230303-2221320113313321-0110013320232021-3330102301113210-1112321322312003-0301211021103230-0001231032131001"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.sku_high_perf / 5eb45e121c4e / 4
+## Next pages — sku_high_perf / 010201301032 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-647fd346ef093b5ddf530586a56202953953f81023603e85f6041ed7b47ab228"></a>
+<a id="canonical-1210133331031012-3233002103231131-3133110300112012-2211120200022111-0321110333200100-0203120003322011-3312001001323113-2310132223020220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-38106af50fdcca5c311310910c75097d86e08b89764359aab7ae6e644d7fb6ca"></a>
+<a id="canonical-0320010012223311-0033313030221130-0301010301002101-0030131100211331-2012320020232021-1312100311212222-2313223212321210-1031133323123022"></a>
 
-## ingress_egress_gw_ar.hub.express_route_enabled.sku_standard — ingress_egress_gw_ar.hub.express_route_enabled.sku_standard / f0c6598f678a / 2
+## ingress_egress_gw_ar.hub.express_route_enabled.sku_standard — sku_standard / 203312132022 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
 - ingress_egress_gw_ar.hub.express_route_enabled.sku_standard
 
-<a id="canonical-9b5720f60528f8eb6e7545c04344403f3942f47eb0eeca72e0f1bf52427119a3"></a>
+<a id="canonical-2123111302003312-0011022033203223-1232131110113000-1003101010000333-0321100233101332-2300323230221302-3200330123331102-1002130101212203"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1474,38 +1926,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3011b456edd8bbda647317db986b2dae7a440fef5c4126071e2f86758cc531fa"></a>
+<a id="canonical-0300010123101112-3231312023233122-1210130301133123-2120122302312232-1322101000333233-1130100102120013-0132023320121311-2030301103013322"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.express_route_enabled.sku_standard / f0c6598f678a / 3
+## Direct properties — sku_standard / 203312132022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-69b85d6caadce79d4d79c806e3523d59211bf0f4577739b7b28854ed2fa5706a"></a>
+<a id="canonical-1221232011311230-2222313032132131-1031132130200012-3203110203311121-0201012333003310-1113131303212313-2302202011103231-0233221113001222"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.express_route_enabled.sku_standard / f0c6598f678a / 4
+## Next pages — sku_standard / 203312132022 / 4
 
-- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-da86de1bea8911eb9d7f0c9f2cfff8345b7a717714f16e8c4bf74c9cac38f675)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.express_route_enabled](data-sources--azure_vnet_site--reference--group-005.md#canonical-3122201231320123-3222202101013223-2131133300302133-0230333333200310-1123132213011313-0110330112322030-1023331310302130-2230032033121311)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85"></a>
+<a id="canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9931fcbfe69b6ce52d59c36554c1bdd93a56e1b893fa4a7ba5b08b790d37505f"></a>
+<a id="canonical-2121030133302333-3212212312303211-0231112130031211-1110300123313121-0322111232012320-2103332210221323-2211230020231321-0031031311001133"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets — ingress_egress_gw_ar.hub.spoke_vnets / df0e380c08d7 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets — spoke_vnets / 003000203113 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
 - ingress_egress_gw_ar.hub.spoke_vnets
 
-<a id="canonical-47c07db7908af6ab9b51a5c2c74dc6e9979cdfe56c1309f73c93e4b2f53af1e8"></a>
+<a id="canonical-1013300013312313-2100202233122223-2123110122113002-3013103130123221-2113213031333211-1230010300213313-0330210332102302-3311032233013220"></a>
 
 Type: `"list"`. Computed.
 
@@ -1549,49 +2001,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-200456e0a143a1c50d236418f08079ceb12522bf09a7cb1c5e47d5d82a9c8431"></a>
+<a id="canonical-0200001011123200-2201100322013011-0031020312100120-3300200013213032-2301021102022333-0021221330230130-1132101331113120-0222213020100301"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets / df0e380c08d7 / 3
+## Direct properties — spoke_vnets / 003000203113 / 3
 
-- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-a8ba1366a491e8ad9ae4fedafb979e77b87022ef96137a55f011939b2eb33417): complete subsection reference.
+- [auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-2220232201031212-2210210132202231-2122321033323122-3323211321321313-2320130002023233-2112010313221111-3300010121032123-0232230303100113): complete subsection reference.
 
-- [labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-85582baa4e1a04b33d2ef3b8feadcfc30381da40cc977e8a3006db25e9852ac9): complete subsection reference.
+- [labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-2011112002232222-1032012200102303-0331023233032320-3332223130333003-0003200131221000-3030211313322022-0300001231230211-3221201102223021): complete subsection reference.
 
-- [manual](data-sources--azure_vnet_site--reference--group-006.md#canonical-3e3483f8772fc289ac74f5205c83076443261e8becabdc8d365af6ba48b2bb5c): complete subsection reference.
+- [manual](data-sources--azure_vnet_site--reference--group-006.md#canonical-0332031020033320-1313023330022021-2230131033110200-1130200300131210-1003021201322023-3230222331302031-0312112233122322-1020230223231130): complete subsection reference.
 
-- [vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f): complete subsection reference.
+- [vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033): complete subsection reference.
 
-<a id="canonical-645063d1585202e616b41857d5e517bf276edf60ee4b462334ef9f0ace3e2ded"></a>
+<a id="canonical-1210110012033101-1120110200023212-0112231001201113-3111321101132333-0213123231331200-3232102310120203-0310323321330022-3032033202313231"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets / df0e380c08d7 / 4
+## Next pages — spoke_vnets / 003000203113 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-a8ba1366a491e8ad9ae4fedafb979e77b87022ef96137a55f011939b2eb33417)
-- [ingress_egress_gw_ar.hub.spoke_vnets.labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-85582baa4e1a04b33d2ef3b8feadcfc30381da40cc977e8a3006db25e9852ac9)
-- [ingress_egress_gw_ar.hub.spoke_vnets.manual](data-sources--azure_vnet_site--reference--group-006.md#canonical-3e3483f8772fc289ac74f5205c83076443261e8becabdc8d365af6ba48b2bb5c)
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets.auto](data-sources--azure_vnet_site--reference--group-006.md#canonical-2220232201031212-2210210132202231-2122321033323122-3323211321321313-2320130002023233-2112010313221111-3300010121032123-0232230303100113)
+- [ingress_egress_gw_ar.hub.spoke_vnets.labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-2011112002232222-1032012200102303-0331023233032320-3332223130333003-0003200131221000-3030211313322022-0300001231230211-3221201102223021)
+- [ingress_egress_gw_ar.hub.spoke_vnets.manual](data-sources--azure_vnet_site--reference--group-006.md#canonical-0332031020033320-1313023330022021-2230131033110200-1130200300131210-1003021201322023-3230222331302031-0312112233122322-1020230223231130)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-a8ba1366a491e8ad9ae4fedafb979e77b87022ef96137a55f011939b2eb33417"></a>
+<a id="canonical-2220232201031212-2210210132202231-2122321033323122-3323211321321313-2320130002023233-2112010313221111-3300010121032123-0232230303100113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-341a886ceef293e1e8471d123952b5725fa03665f6076292343d396d0922f4c4"></a>
+<a id="canonical-0310012220201230-3232330221033201-3220101301310102-0321110223111302-1133220003121211-3312001312022102-0310033103211231-0021020233103010"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.auto — ingress_egress_gw_ar.hub.spoke_vnets.auto / 869a9508b371 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.auto — auto / 002023031301 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
 - ingress_egress_gw_ar.hub.spoke_vnets.auto
 
-<a id="canonical-aaff1def33186de96e90e039c46d9ccc74ce215b0c1385d0829c524550d0d707"></a>
+<a id="canonical-2222333301313233-0303012012313221-1232210032000321-3010123121303030-1310303202011123-0030010320113100-2002213011021011-1100310031130013"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1614,39 +2066,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dc0ccf36cabfc6ad81f6d402d1df1ad5015e9714fea01f6a864828f49f11aa14"></a>
+<a id="canonical-3130003030330312-3022233330122231-2001331231100002-3101313301223111-0001113221130110-3332220001331222-2012102002203310-2133010122220110"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.auto / 869a9508b371 / 3
+## Direct properties — auto / 002023031301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f16b0766fbaf05dfd2cfb3712d5b104e6f7a7df3126b3291d26b49759f9dfece"></a>
+<a id="canonical-3301122300131212-3323223300113133-3102303323031301-0231112301001032-1233132213313303-0102122303022101-3102122310211311-2133213133323032"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.auto / 869a9508b371 / 4
+## Next pages — auto / 002023031301 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-85582baa4e1a04b33d2ef3b8feadcfc30381da40cc977e8a3006db25e9852ac9"></a>
+<a id="canonical-2011112002232222-1032012200102303-0331023233032320-3332223130333003-0003200131221000-3030211313322022-0300001231230211-3221201102223021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-454ed3b1ecb4da6447b5bd1c231bb19da444e82da613e3efdc9a1c7d458d557f"></a>
+<a id="canonical-1011103231032301-3230231031221210-1013231123310130-0203012323012131-2210101032200231-2212010332033233-3130212201301331-1011203111111333"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.labels — ingress_egress_gw_ar.hub.spoke_vnets.labels / 462e12678a43 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.labels — labels / 121320221003 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
 - ingress_egress_gw_ar.hub.spoke_vnets.labels
 
-<a id="canonical-a214d2be2b7bf10223498b6005f6b0dc0e75219058212764dbdf669ef9d5d2a2"></a>
+<a id="canonical-2202011031022332-0223132333010002-0203102120231200-0011331223003130-0032131102012100-1120020102131210-3123313312122132-3321311131022202"></a>
 
 Type: `"single"`. Computed.
 
@@ -1671,39 +2123,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-02f8bed488827df97744e8ddd9a87b73a70d70d5de526a0944ee1e164a685f89"></a>
+<a id="canonical-0002332023323110-2020200213313321-1313101032203131-3121222013231303-2213003113003111-3132110212220021-1010323201320112-1022122011332021"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.labels / 462e12678a43 / 3
+## Direct properties — labels / 121320221003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-979279e1ac8be37e9caeb97867cd6f695a950f12f96c2830bf466447b8f97fef"></a>
+<a id="canonical-2113210213213201-2230202332031332-2130223223211320-1213303112331221-1122211100330102-3321123002200300-2333101212101013-2320332113333233"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.labels / 462e12678a43 / 4
+## Next pages — labels / 121320221003 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-3e3483f8772fc289ac74f5205c83076443261e8becabdc8d365af6ba48b2bb5c"></a>
+<a id="canonical-0332031020033320-1313023330022021-2230131033110200-1130200300131210-1003021201322023-3230222331302031-0312112233122322-1020230223231130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae0bb69df7af3bf26faaa280c710ca46e4f74d07ac5f096c7c05beb006ce1d17"></a>
+<a id="canonical-2232002323122131-3313223303233302-1233222222022000-3013010030221012-3210331310310013-2230113300211230-1330001123322300-0012303201310113"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.manual — ingress_egress_gw_ar.hub.spoke_vnets.manual / d8b8d85b5c92 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.manual — manual / 112311302102 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
 - ingress_egress_gw_ar.hub.spoke_vnets.manual
 
-<a id="canonical-d3b23d0dc0799d59004c1a08c766ff3a4513afcdc1c54f2f22109aafc06af8a8"></a>
+<a id="canonical-3103230203310031-3000132121311121-0000103001220020-3013121233330322-1011010322333031-3001301110330233-0202010021222233-3000122233202220"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1726,39 +2178,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d36f60a626237ab4752f9be25a1b8d1709d6ced4ff60f53f65f2464c5a83dd1a"></a>
+<a id="canonical-3103123312002212-0212020313222310-1311023321233202-1122012320310113-0021311230323110-3333120033110333-1211330210121030-1122200331310122"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.manual / d8b8d85b5c92 / 3
+## Direct properties — manual / 112311302102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0df691f090fb5247172327be4d6f0e0ac4f4ce74720d8b645cad9752ca6e4eb8"></a>
+<a id="canonical-0031331221013300-2100332311021013-0113020302132332-1031123300320022-3010331030321310-1302003120231210-1130223121131102-3022123210322320"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.manual / d8b8d85b5c92 / 4
+## Next pages — manual / 112311302102 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f"></a>
+<a id="canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a76a8735f0d141547dcd7e3584d9cc8bc59d40d5ec38955ef36ccd9969f3b641"></a>
+<a id="canonical-2213122220130311-3300310110011110-1331303113320311-2010312130302023-3011213110003111-3230032021111132-3303123030312121-1221330323121001"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.vnet — ingress_egress_gw_ar.hub.spoke_vnets.vnet / 62763c2c05f3 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.vnet — vnet / 023000113303 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
 - ingress_egress_gw_ar.hub.spoke_vnets.vnet
 
-<a id="canonical-ec92ce10e72dd8921bd94a38af7b17dd16453b14fc841d52c827abd33e16aa93"></a>
+<a id="canonical-3230210230320100-3213023131202102-0123312110220320-2233132301133131-0112101103230110-3330201001311102-3020021322233103-0332011222222103"></a>
 
 Type: `"single"`. Computed.
 
@@ -1778,19 +2230,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b4bfd816b0f93ceafab6d4e1811194382a820ff78ca45df4ebe6a67009f3aab5"></a>
+<a id="canonical-2310233331200112-2300332103303222-3322231231103201-2001010121100320-0222200200333313-2030221011313310-3223321222121300-0021330322222311"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.vnet / 62763c2c05f3 / 3
+## Direct properties — vnet / 023000113303 / 3
 
-- [f5_orchestrated_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-0284c4b889b12b922cfa6ed0b320f66f5cde4dd44fd8d93dbc7b9a6dce5185cb): complete subsection reference.
+- [f5_orchestrated_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-0002201030102320-2021230102232102-0230332212323100-2303020033121233-1130313210313110-1033312031210331-2330132321221231-3032110120113023): complete subsection reference.
 
-- [manual_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-ed247a5c4a0d3a22e0e4d6dbb343601a826033fa8629aff1b3d73b623ca11cff): complete subsection reference.
+- [manual_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-3231021013221130-1022003103220202-3200321031123123-2303100312000122-2002120003033322-2012022122333301-2303311303231202-0330220101303333): complete subsection reference.
 
-<a id="canonical-fafc4272759764d086fff81c5e7d0a463c77555bc9eddb5716c9dcf81634ba81"></a>
+<a id="canonical-3322333010021302-1311211312103100-2012333333200130-1132133100221012-0330131311111123-3021323131231113-0112302131303320-0112031023222001"></a>
 
-<a id="canonical-fd58092cb3dfdd30aa8d70cc88c1f30792d317e6803fb4d429931e6fd4a0787d"></a>
+<a id="canonical-3331112000210230-2303313331310300-2222203113003030-2020300133030013-2102310301133212-2000033323103110-0221210301321233-3110220013201331"></a>
 
-## resource_group property — ingress_egress_gw_ar.hub.spoke_vnets.vnet / 62763c2c05f3 / 4
+## resource_group property — vnet / 023000113303 / 4
 
 Type: `"string"`. Computed.
 
@@ -1837,11 +2289,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9cc7a05a76aa3fb7d467781bade71a2d59455e1c056d900863f8d3f3672e2147"></a>
+<a id="canonical-2130301322001122-1312222203332313-3110121313200123-2231321301220231-1121101111320130-0011123121000020-1203332031033303-1213023202011013"></a>
 
-<a id="canonical-77c05d5b70dc92fb1b5064d951584374545146259416c1a2e3ed003a4206281f"></a>
+<a id="canonical-1313300011311123-1300313021023323-0123110012103121-1101112010031310-1110110110120211-2110011230012202-3203323100000322-1002001202200133"></a>
 
-## vnet_name property — ingress_egress_gw_ar.hub.spoke_vnets.vnet / 62763c2c05f3 / 5
+## vnet_name property — vnet / 023000113303 / 5
 
 Type: `"string"`. Computed.
 
@@ -1888,36 +2340,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24c24ef2418bbbd0f49725b22ca07562d685f4ed0029900c8768fd11fed4847f"></a>
+<a id="canonical-0210300210323302-1001202323233100-3310211302112302-0230220013111202-3112201133103231-0000022121000030-2013122033310101-3332311020101333"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.vnet / 62763c2c05f3 / 6
+## Next pages — vnet / 023000113303 / 6
 
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-0284c4b889b12b922cfa6ed0b320f66f5cde4dd44fd8d93dbc7b9a6dce5185cb)
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-ed247a5c4a0d3a22e0e4d6dbb343601a826033fa8629aff1b3d73b623ca11cff)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-0002201030102320-2021230102232102-0230332212323100-2303020033121233-1130313210313110-1033312031210331-2330132321221231-3032110120113023)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing](data-sources--azure_vnet_site--reference--group-006.md#canonical-3231021013221130-1022003103220202-3200321031123123-2303100312000122-2002120003033322-2012022122333301-2303311303231202-0330220101303333)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-0284c4b889b12b922cfa6ed0b320f66f5cde4dd44fd8d93dbc7b9a6dce5185cb"></a>
+<a id="canonical-0002201030102320-2021230102232102-0230332212323100-2303020033121233-1130313210313110-1033312031210331-2330132321221231-3032110120113023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3b2e8acc4d50b2e4855551599761303c58dd6e58263984ca81168326c12a22d9"></a>
+<a id="canonical-0323023220223030-1031110023023210-2011111111011121-2113120103000330-1120313112321120-0212032120103022-2001011220030212-3001022202023121"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing — ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing / deb6025b2222 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing — f5_orchestrated_routing / 112302020202 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033)
 - ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing
 
-<a id="canonical-0d73c86874a38505b71099f9341b3dd3e44c82a38c4915ee76a58ab76fc98ffb"></a>
+<a id="canonical-0031130330201220-1310220320110011-2313010021213321-0310012303313103-3210103020022203-2030102101113232-1312221120222313-1233302120333323"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1940,40 +2392,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1aac30718019ee655355fd378d5a86607af5f41663a2dbee193ec84986471c7c"></a>
+<a id="canonical-0122223003001301-2000012132321211-1103111133310313-2031112220121200-1322331133100112-1203220231233232-0121033230201021-2012101301301330"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing / deb6025b2222 / 3
+## Direct properties — f5_orchestrated_routing / 112302020202 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1332ac4383e122ed102cb14a35937c4cdcd9e18aeb0cdda29b2b10ad67751bb5"></a>
+<a id="canonical-0103030222301003-2003320102023231-0100023023011022-0311210313301030-3130312132012022-3223003031312202-2123022301002231-1213131101232311"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.vnet.f5_orchestrated_routing / deb6025b2222 / 4
+## Next pages — f5_orchestrated_routing / 112302020202 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-ed247a5c4a0d3a22e0e4d6dbb343601a826033fa8629aff1b3d73b623ca11cff"></a>
+<a id="canonical-3231021013221130-1022003103220202-3200321031123123-2303100312000122-2002120003033322-2012022122333301-2303311303231202-0330220101303333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9967cc294a369214df3a965480098ef96b3b7f280ccd9679aa790e0ece4b5367"></a>
+<a id="canonical-2121121330300221-1022031221020110-3133032221121110-2000002120323321-1223032313330220-0030303121121321-2222132100320032-3032102311031213"></a>
 
-## ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing — ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing / 2d4346235f16 / 2
+## ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing — manual_routing / 020311330112 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-49de7737a02c1c4c5e112eb01ede09af9877a10ecb21c13da95c573cae2af7c6)
-- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-7981ce90f70a82a13fe90fb257dea70672c33353817df24e4fef3e41afd38a85)
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.hub](data-sources--azure_vnet_site--reference--group-005.md#canonical-1021313213130313-2200023001301030-1132010102322300-0132313200212233-2120131322010032-3023020130010331-2221113011130330-2232022233133012)
+- [ingress_egress_gw_ar.hub.spoke_vnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-1321200130322100-3313002220022201-0333322100332302-1113313222130012-1302300303031103-2001133133021032-1033323303321001-2233310320222011)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033)
 - ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing
 
-<a id="canonical-f6a9686c3660a85c77169546b84b460783dc475a62cb48649a042126ec4c4f3f"></a>
+<a id="canonical-3312222112201230-0312120022201130-1313011221111012-2320102310120013-2003313010131122-1202302310201210-2122001002010212-3230103010330333"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1996,37 +2448,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b822b8c9fec1ba3a3fce3af4a684adfceb2fd9a9a61bc8d6ddce5de67fba1b5"></a>
+<a id="canonical-0223200202232030-2133323001232203-2203333032032233-1022122010223133-3032230233312122-2122120123302031-1231313032113132-1213332322012311"></a>
 
-## Direct properties — ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing / 2d4346235f16 / 3
+## Direct properties — manual_routing / 020311330112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9c702aa792c46e10df5714e4a4ae4977ef02370107f6a30c7110f76e12fe5a8c"></a>
+<a id="canonical-2130130002222213-2102301012320100-3133111301103210-2210223210211313-3233000203130001-0013331222030030-1301010033131232-0102333211222030"></a>
 
-## Next pages — ingress_egress_gw_ar.hub.spoke_vnets.vnet.manual_routing / 2d4346235f16 / 4
+## Next pages — manual_routing / 020311330112 / 4
 
-- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-614f2623089b68c4bb1d3a119611a59a42a92d94174288530516fbe8663c5a8f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.hub.spoke_vnets.vnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-1201103302120203-0020212312203010-2323013103220101-2112010122112122-1002222102312110-0113100220201103-0011011233233220-1212033011222033)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67"></a>
+<a id="canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-126b95779e8e162cb81bfc1c43b9c4ce5e34fbb9c9b1472e474636626b55d9f7"></a>
+<a id="canonical-0102122321111313-2132203201120230-2320012333300130-1003232130103032-1132031033232321-3021230110130232-1013101203121202-1223111131213313"></a>
 
-## ingress_egress_gw_ar.inside_static_routes — ingress_egress_gw_ar.inside_static_routes / c69a311a887c / 2
+## ingress_egress_gw_ar.inside_static_routes — inside_static_routes / 012220201330 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.inside_static_routes
 
-<a id="canonical-de6d9b7a29b0bd7b78a3165d5f8c7a09ab67260d167a7ab6077404d212d70636"></a>
+<a id="canonical-3132123121231322-0221230023311323-1320220301121131-1133203013220021-2223121302120031-0112132213222312-0013131000103102-0102311300120312"></a>
 
 Type: `"single"`. Computed.
 
@@ -2049,39 +2501,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f9704f43b4488e61b5e9db24fbe87c1df5a4146bc01b4d968a590afc699ecf82"></a>
+<a id="canonical-3321130010331003-2310102020321201-2311322131230210-3323322013300131-3311221001101223-3000012310312112-2022112100223330-1221213230332002"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes / c69a311a887c / 3
+## Direct properties — inside_static_routes / 012220201330 / 3
 
-- [static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501): complete subsection reference.
+- [static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001): complete subsection reference.
 
-<a id="canonical-0ab39fa04e4f17914ea46ff3d56d32782960df5aae0e929424edc760ae51059a"></a>
+<a id="canonical-0022230321332200-1032103301132101-1032221012333303-3111123103021320-0221120031331122-2232003221022110-0210323130131200-2232110100112122"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes / c69a311a887c / 4
+## Next pages — inside_static_routes / 012220201330 / 4
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501"></a>
+<a id="canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eaa9f6ae16af2ecfcc8ebdd5c75869ed80502b4bd8a0879bf739d5ce9b00f829"></a>
+<a id="canonical-3222222133122232-0112223302323033-3030203223313111-3013112012213231-2000110002231023-3120220020132123-3313032131113032-2123000033200221"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list — ingress_egress_gw_ar.inside_static_routes.static_route_list / ae5802607dfc / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list — static_route_list / 120013313330 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list
 
-<a id="canonical-a28509feeeeac188be2aa3328f9bf7a21018cfb10fbd71ea0b399fa3b460b674"></a>
+<a id="canonical-2202201100213332-3232322230012020-2332022222030302-2033212333132202-0100012030332301-0033233113013222-0023032121332203-2310120023121310"></a>
 
 Type: `"list"`. Computed.
 
@@ -2128,17 +2580,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-307b047237025ce7b94ffab2ccffb433eddc7e07d1fb952ae8dfada5f588ba06"></a>
+<a id="canonical-0300132300101302-0313000211303213-2321103333222302-3030333323100303-3231313013320013-3101332321110222-3220313322312211-3311202023220012"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list / ae5802607dfc / 3
+## Direct properties — static_route_list / 120013313330 / 3
 
-- [custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b): complete subsection reference.
+- [custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023): complete subsection reference.
 
-<a id="canonical-debe3651f631b26c30174b0a99a0f5886c41e8c253399880c582957ff7b895da"></a>
+<a id="canonical-3132233203121101-3312030123021230-0300011310230022-2121220033112020-1230100132203002-1103032121202000-3011200221111333-3313232021113122"></a>
 
-<a id="canonical-85f414afa94ae75113e0ed7ee7f59a409051e21a481b75f41b5e58d652e4415e"></a>
+<a id="canonical-2011331001102233-2221102232131101-0103320032311332-3213331121221000-2100110132020122-1020012313113310-0123113211203112-1102321010011132"></a>
 
-## simple_static_route property — ingress_egress_gw_ar.inside_static_routes.static_route_list / ae5802607dfc / 4
+## simple_static_route property — static_route_list / 120013313330 / 4
 
 Type: `"string"`. Computed.
 
@@ -2179,34 +2631,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-089a4bd2c371998ba1d3be8b0ee9d3a43df426ad82dac97c7d1338b0de863ded"></a>
+<a id="canonical-0020212210233102-3003130121212023-2201310323322023-0032322131032210-0331331002122231-2002312230211330-1331010303202300-3132201203313231"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list / ae5802607dfc / 5
+## Next pages — static_route_list / 120013313330 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b"></a>
+<a id="canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4049771cc4325aa3beafa26ef3b2da5b1d25a2f7bc66c08cf1b2e7b60b372a1b"></a>
+<a id="canonical-1000102113130130-3010030211222203-2332223322021232-3303230231221123-0131021122023313-2330121230002030-3301230232132312-0023031302220123"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route / 2545ba1bdfff / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route — custom_static_route / 012331333333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route
 
-<a id="canonical-169d9a01712ba702de077ed869d99bf2becdcb835136962de062b1b136c6f1ed"></a>
+<a id="canonical-0112213121220001-1301022322130002-3132001313323120-1221312121233302-2332303130232003-1101031221120231-3200120223012301-0312301233013231"></a>
 
 Type: `"single"`. Computed.
 
@@ -2225,15 +2677,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8334358779c0a798ce054f8aaf2818839f7bf4b7aa065e810920cd1c6ed39ec"></a>
+<a id="canonical-3320030310031120-1313213000221321-2030320011103320-2222330220012020-0321331323331023-1322220012113220-0100210200303101-3012323103213230"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route / 2545ba1bdfff / 3
+## Direct properties — custom_static_route / 012331333333 / 3
 
-<a id="canonical-ec4a945280f291220a109c7ac5034ec891eb36aac1fd4a9dbc3b7c7a88a8aab7"></a>
+<a id="canonical-3230102221101102-2000330221010202-0022010021301322-3011000310323020-2101322303122222-3001333110222131-2330032313301322-2020222022222313"></a>
 
-<a id="canonical-713652cf13aa3d53bb76cf790a32468fb4d51226a830ea3d75d90b470598ae21"></a>
+<a id="canonical-1301031211023033-0103222203311103-2323131230331321-0022030210122033-2310311101020212-2220030032220331-1311312100231013-0011212022320201"></a>
 
-## attrs property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route / 2545ba1bdfff / 4
+## attrs property — custom_static_route / 012331333333 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -2279,43 +2731,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5cc6fd8430f5f15f527a5b95acc80d01682cfbfe926eacf6e6c31bf60774115): complete subsection reference.
+- [labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111303012333120-1003003311330111-3311021322112321-1122303020003100-0112200230332333-3221021232223033-1232123003012333-1200131310010111): complete subsection reference.
 
-- [nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7): complete subsection reference.
+- [nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213): complete subsection reference.
 
-- [subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e): complete subsection reference.
+- [subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232): complete subsection reference.
 
-<a id="canonical-9299bff2910d4bc0f490de89db2d9ba1f6a9614494a1cd0e34922f0504ffc45a"></a>
+<a id="canonical-2102212123333302-2101003110233000-3310210031322021-3123023121232201-3312222112011010-2110220130310032-0310210202330011-0010333330101122"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route / 2545ba1bdfff / 5
+## Next pages — custom_static_route / 012331333333 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-d5cc6fd8430f5f15f527a5b95acc80d01682cfbfe926eacf6e6c31bf60774115)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.labels](data-sources--azure_vnet_site--reference--group-006.md#canonical-3111303012333120-1003003311330111-3311021322112321-1122303020003100-0112200230332333-3221021232223033-1232123003012333-1200131310010111)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-d5cc6fd8430f5f15f527a5b95acc80d01682cfbfe926eacf6e6c31bf60774115"></a>
+<a id="canonical-3111303012333120-1003003311330111-3311021322112321-1122303020003100-0112200230332333-3221021232223033-1232123003012333-1200131310010111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-22b77f13f1eaf2073fea3ff460db977ab70e2a1efffcc6b8ee555e25967e6778"></a>
+<a id="canonical-0202231313330103-3301322233020013-0333322203333310-1200312321131322-2313003202220132-3333333030122320-3232111111320211-2112133212131320"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.labels — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 70469fd061d0 / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.labels — labels / 310012013100 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.labels
 
-<a id="canonical-738216325238379a507c253059b278fcbe21ff0921f806bc783c103316b4e5a9"></a>
+<a id="canonical-1303200201120302-1102032003132122-1100133002110300-1121230213203330-2332020133330021-0201332000122330-1320033001000303-0112231032112221"></a>
 
 Type: `"single"`. Computed.
 
@@ -2334,40 +2786,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-31bddbe90f5256fd2460aaa924ac65b5ce146c2320a3930a520c0c3ea13ae301"></a>
+<a id="canonical-0301233131233221-0033110211123331-0210120022222221-0210223012112311-3032011012300203-0200220321030022-1102003000300332-2201032232030001"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 70469fd061d0 / 3
+## Direct properties — labels / 310012013100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d4e1a10ef7b30438a2f7d6461b520b3f105cb4878fc6471617864e3911a4a72b"></a>
+<a id="canonical-3110320122010032-3313230300100320-2202331331121012-0123110200230333-0100113023102013-2033301210130112-0113201210320321-0101221022130223"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 70469fd061d0 / 4
+## Next pages — labels / 310012013100 / 4
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7"></a>
+<a id="canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dbf9d6e388307e5c111f9809a31d525e47793e4dbb89aa3e4597f8c64a86d481"></a>
+<a id="canonical-3123332131123203-2020030013321130-0101013321200021-2203013111021132-1013132103321031-2323202122220332-1011211333203012-1022201231102001"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 0fa80684267c / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 201002121330 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop
 
-<a id="canonical-62cbf967861ffb5ce3396c8a19a60e1bc2e68b78d2f60fbe082348c60ec3bd3b"></a>
+<a id="canonical-1202302333211213-2012013333231130-3203032112302022-0121221200320123-3002321220231320-3102331200332332-0020020310203012-0032300323310323"></a>
 
 Type: `"single"`. Computed.
 
@@ -2390,19 +2842,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-75737426f3c34d778c7af08d653250997e1c5e61518a57c853a2a5f5d8f8b91e"></a>
+<a id="canonical-1311130313100212-3303300310311313-2030132233002031-1211030211002121-1332013011321201-1101202211133020-1103220222113311-3120332023210132"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 0fa80684267c / 3
+## Direct properties — nexthop / 201002121330 / 3
 
-- [interface](data-sources--azure_vnet_site--reference--group-006.md#canonical-c9bf0dd837e0d5657ad3c30a97a2e18f4e435d0d2a3fc8860017b1918ebf30b0): complete subsection reference.
+- [interface](data-sources--azure_vnet_site--reference--group-006.md#canonical-3021233300313120-0313320031111211-1322310330030022-2113220232012033-1032100311310031-0222033330202012-0000011323012101-2032233303002300): complete subsection reference.
 
-- [nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff): complete subsection reference.
+- [nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333): complete subsection reference.
 
-<a id="canonical-469b308520778422587c986a5bfb94ca1b58f30bf38af39696c5d5000ecead08"></a>
+<a id="canonical-1012212303002011-0200131320100202-1120133021201222-1123332321103022-0123112033030023-3303202233032112-2112301131110000-0032303222310020"></a>
 
-<a id="canonical-3fa2886eae81aea5b7ed84d07583335fe7a24e1243de78d1da9946bd5a716ad9"></a>
+<a id="canonical-0333220220201232-2232200122322211-2313323120103100-1311200303031133-3213220210320102-1003313213203101-3122212110122331-1122130112223121"></a>
 
-## type property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 0fa80684267c / 4
+## type property — nexthop / 201002121330 / 4
 
 Type: `"string"`. Computed.
 
@@ -2440,37 +2892,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-78d0fa5d6f6b38baed9d2e941f422c3c69ce2c2fe7e8f65573110b02243c7ced"></a>
+<a id="canonical-1320310033221131-1233122303202322-3231213102322110-0133100202300330-1221303202300233-3213322033121111-1303010100230002-0210033013303231"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 0fa80684267c / 5
+## Next pages — nexthop / 201002121330 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--azure_vnet_site--reference--group-006.md#canonical-c9bf0dd837e0d5657ad3c30a97a2e18f4e435d0d2a3fc8860017b1918ebf30b0)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--azure_vnet_site--reference--group-006.md#canonical-3021233300313120-0313320031111211-1322310330030022-2113220232012033-1032100311310031-0222033330202012-0000011323012101-2032233303002300)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-c9bf0dd837e0d5657ad3c30a97a2e18f4e435d0d2a3fc8860017b1918ebf30b0"></a>
+<a id="canonical-3021233300313120-0313320031111211-1322310330030022-2113220232012033-1032100311310031-0222033330202012-0000011323012101-2032233303002300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ca456e5b7692de6dce23906f32ddb65c85a58b35c4ab2d99fc4f87ca891cc2d4"></a>
+<a id="canonical-3022101112321123-1312210231321231-3032020321001233-0302313123121130-2011221120230311-3010222302312121-3330103320133022-2021013030023110"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.interface — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 101113210333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.interface
 
-<a id="canonical-462dc121ec314481d0ee17aab52aa2700925ec3a18d71e89fb69c251eb30b0a7"></a>
+<a id="canonical-1012023130010201-3230030110102001-3100323201132222-2311022222021300-0021021132300322-0120311301322021-3323122130021101-3223030023002213"></a>
 
 Type: `"list"`. Computed.
 
@@ -2511,15 +2963,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bdbe5bb169078c09547cb5a2b859cc1d0f4e55e8fb4de6ec12c519713dbcf3a3"></a>
+<a id="canonical-2331233211232301-1221001320300021-1110133023112202-2320112130300131-0033103211113220-3323103132123230-0102301101211301-0331233033032203"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 3
+## Direct properties — interface / 101113210333 / 3
 
-<a id="canonical-88429411747a1440522b89a4e8513666c0ee32fe16ecdec86804d80c62a0a3bd"></a>
+<a id="canonical-2020100221100101-1310132201101000-1102022320212210-3220110103121212-3000323203023332-0112323031323020-1220001031200030-1202220022032331"></a>
 
-<a id="canonical-aac938235b0d4552208744a49a428960d558079f5ecb78ba888fae88a6dd5655"></a>
+<a id="canonical-2222302103200203-1123003110111102-0200201310102210-2122100220211200-3111112000132133-1132302313202322-2020203322322020-2212313111121111"></a>
 
-## kind property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 4
+## kind property — interface / 101113210333 / 4
 
 Type: `"string"`. Computed.
 
@@ -2554,11 +3006,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5874d32c7bef7938e0bafca9f8d84e0e3af21a6d95b9f4a49a34cf30c056a191"></a>
+<a id="canonical-1120131031030230-1323323313210320-3200232233302221-3320312010320032-0322330201221231-2111232133102210-2122031030330300-3000111222012101"></a>
 
-<a id="canonical-74eda759f51719f8b5ae0cbae6f0dc4075e4f9b31f94e25136c8aafe68924a1d"></a>
+<a id="canonical-1310323122131121-3311011301213320-2311223200302322-3212330031301000-1311321033212303-0133211032021101-0312302022223332-1220210210220131"></a>
 
-## name property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 5
+## name property — interface / 101113210333 / 5
 
 Type: `"string"`. Computed.
 
@@ -2593,11 +3045,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c86df88a9dbd2f02eee5fe50fbfe76077883a8b63f0b282995616e8f9ed542f5"></a>
+<a id="canonical-3020123133202022-2131233102330002-3232321133321100-3323333213120013-1320200322202312-0333002302200221-2111120112322033-2132311110023311"></a>
 
-<a id="canonical-e8e67a07285c6709705a0fff8f8662294f0d831ae528bf1117353c7c74b5808b"></a>
+<a id="canonical-3220321213220013-0220113012130021-1300112200333333-2033201212020221-1033003120030122-3211022023330101-0113031103301330-1310231120002023"></a>
 
-## namespace property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 6
+## namespace property — interface / 101113210333 / 6
 
 Type: `"string"`. Computed.
 
@@ -2647,11 +3099,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-75912e643db8fb09c8f17f2d2812822e31d706fd6ce046bc61688f39ddae1d95"></a>
+<a id="canonical-1311210102321210-0331232033230021-3020330113330231-0220010220020232-0301311300123331-1230320010122330-1201122020330321-3131223201312111"></a>
 
-<a id="canonical-755c6dfdb191c743b333f95a0b3cfdb79de94c2c8c09471b21c069f11764465b"></a>
+<a id="canonical-1311113012313331-2301210130131003-2303030333211122-0023033033312313-2131322110300230-2030002110130123-0201300012213301-0113121010121123"></a>
 
-## tenant property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 7
+## tenant property — interface / 101113210333 / 7
 
 Type: `"string"`. Computed.
 
@@ -2686,11 +3138,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cec4b057c8a62bbe87d855e8813ec12b208f4a73b4139f891530ae2db42dda0b"></a>
+<a id="canonical-3032301023001113-3020221202232332-2013312011113220-2001033230010223-0200203310221303-2310010321332021-0111030022320231-2310023131220023"></a>
 
-<a id="canonical-a3d56c96078fbaa2a5db9d08de0a428d7003e6ab8ece54880cd45b82af77a8c0"></a>
+<a id="canonical-2203311112302112-0013203323222202-2211312321310020-3132002210022031-1300000332122223-2032303211102020-0030311011232002-2233131322203000"></a>
 
-## uid property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 8
+## uid property — interface / 101113210333 / 8
 
 Type: `"string"`. Computed.
 
@@ -2725,35 +3177,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c619f64a8991b9c90c3e2207367a6504cde90704dfed5c2e05f96ace5653603"></a>
+<a id="canonical-2130120121331210-2220212101232130-2100300332020200-1303121322121100-1030313221001300-1031333231113002-3200113321122230-3211121103120003"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / f29b0145793f / 9
+## Next pages — interface / 101113210333 / 9
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff"></a>
+<a id="canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c9b975fd49609eecdbe4a1df914779606ad4a5c8ef32566578ca8496ca7637c4"></a>
+<a id="canonical-3021232113113331-1021120021323230-3123321022013133-2101101313211200-1222311022113020-3233030211121211-1320302220102112-3022131203133010"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / fd760c9d1bfd / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 213101233331 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
 
-<a id="canonical-af99394e7faafc27b85bb08cbee7bf66189bda321eb83009e96b976a9fd6ac6f"></a>
+<a id="canonical-2233212103211032-1333222233300213-2320112323002030-2332321323331212-0120212331220302-0132232003000021-3221122321131222-2133311222301233"></a>
 
 Type: `"single"`. Computed.
 
@@ -2773,49 +3225,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0efa39deeb88cfcd9422b5ffd32a12f500ceaa17d12b5cdb494e2f40a5a5aefc"></a>
+<a id="canonical-0032332203213132-3223202030333031-2110020223113333-3103022201023311-0000303222220113-3101022311303123-1021103202331000-2211221122323330"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / fd760c9d1bfd / 3
+## Direct properties — nexthop_address / 213101233331 / 3
 
-- [dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f): complete subsection reference.
+- [dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333): complete subsection reference.
 
-- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-43e04c3036f0169ceaf3c03fe0752e9e8f166d73b14dcaeada686a8f3402b6ef): complete subsection reference.
+- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-1003320010300300-0312330001122130-3222330330000333-3200131102322132-2033011212311303-2301103130223222-3122122012222033-0310000223123233): complete subsection reference.
 
-- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-03a8a76b9a22d099b6867a9f4950462506e49a0a89c01f09bc0f9996902ad364): complete subsection reference.
+- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-0003222022131223-2122020231002121-2312201213222133-1021110010120211-0012321021220022-2021300001330021-2330003321212112-2100022231031210): complete subsection reference.
 
-<a id="canonical-83c90fb46df39da985a7532a7682cdd27c0443c0e85c457be297ca855d656368"></a>
+<a id="canonical-2003302100332310-1231330321312221-2011221311030222-1312200230313102-1330001010033000-3220113010111323-3202211330222011-1131121112031220"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / fd760c9d1bfd / 4
+## Next pages — nexthop_address / 213101233331 / 4
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-43e04c3036f0169ceaf3c03fe0752e9e8f166d73b14dcaeada686a8f3402b6ef)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-03a8a76b9a22d099b6867a9f4950462506e49a0a89c01f09bc0f9996902ad364)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-1003320010300300-0312330001122130-3222330330000333-3200131102322132-2033011212311303-2301103130223222-3122122012222033-0310000223123233)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-0003222022131223-2122020231002121-2312201213222133-1021110010120211-0012321021220022-2021300001330021-2330003321212112-2100022231031210)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f"></a>
+<a id="canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-29c77404c0e9251cea372a58576d7494768b91295cd052384576dec2687e41c1"></a>
+<a id="canonical-0221301313100010-3000322102110130-3222031302221120-1113123113102110-1312202321010221-1130310011020320-1011131231323002-1220133210013001"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d2b3895e425d / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 113210021131 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack
 
-<a id="canonical-ddd4be72bb40f003f241719cc9309f920234340e55ff7de32c03fdcc304fc3d2"></a>
+<a id="canonical-3131311023321302-2323100033000003-3302100113012130-3021030021332102-0002031003100032-1111333313313203-0230000333313030-0300103330033102"></a>
 
 Type: `"single"`. Computed.
 
@@ -2834,47 +3286,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5ee160402693176f137e22db8b9c8fe1b1873f9ee410e5c8b02c74f46ddaab44"></a>
+<a id="canonical-1132320112001000-0212210301131233-0103133202023123-2023213020333201-2301201303332132-3210010032113020-2300023013103310-1231312222231010"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d2b3895e425d / 3
+## Direct properties — dual_stack / 113210021131 / 3
 
-- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-50d96774483931c74fe58f6f8bbca556acec749c85fb012a9331a07edaec245b): complete subsection reference.
+- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-1100312112131310-1020032103013013-1033321120331233-2023233022111112-2230323013102130-2011332300010222-2103030122001332-3122323002101123): complete subsection reference.
 
-- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-17afbfef1f198d621cda563fd6e135ef85de947e112753f81bd9550294dd8b83): complete subsection reference.
+- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-0113223323333233-0133012120311202-0130312211120333-3112320103113233-2011313221101332-0101021311033320-0123312111110002-2110313120232003): complete subsection reference.
 
-<a id="canonical-d378fd7990183f7cf66e7920c658185249a46b7e801de7edb052726a15e21ce8"></a>
+<a id="canonical-3103132033311321-2100012003331330-3312123213210200-3012112001201102-1021221012231332-2000013132133231-2300110213021222-0111320201303220"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d2b3895e425d / 4
+## Next pages — dual_stack / 113210021131 / 4
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-50d96774483931c74fe58f6f8bbca556acec749c85fb012a9331a07edaec245b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-17afbfef1f198d621cda563fd6e135ef85de947e112753f81bd9550294dd8b83)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-1100312112131310-1020032103013013-1033321120331233-2023233022111112-2230323013102130-2011332300010222-2103030122001332-3122323002101123)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-0113223323333233-0133012120311202-0130312211120333-3112320103113233-2011313221101332-0101021311033320-0123312111110002-2110313120232003)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-50d96774483931c74fe58f6f8bbca556acec749c85fb012a9331a07edaec245b"></a>
+<a id="canonical-1100312112131310-1020032103013013-1033321120331233-2023233022111112-2230323013102130-2011332300010222-2103030122001332-3122323002101123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06105894004754a300cb4ab49b1aa35bb6dfd2090d72ce0688779b9ef83974b4"></a>
+<a id="canonical-0012010011202110-0000101311102203-0000302310222310-2123012222031123-2312313331020021-0031130230320012-2020131321232132-3320032113102310"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e9ebd166e855 / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 121232201111 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4
 
-<a id="canonical-d2c333c558a2eb479349d767fbd2463f29ecc951b835641add46a7cd76b7a931"></a>
+<a id="canonical-3102300303033011-1120220232231013-2103102131131213-3323310210120333-0221323030211101-2320031112100122-3131101222133031-1312231322210301"></a>
 
 Type: `"single"`. Computed.
 
@@ -2897,15 +3349,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b7fe920fac9b1b85eb5cf0567bec186b64c06b847b4c57ea2c74758e9a2f53f2"></a>
+<a id="canonical-2313333221020033-2230212301232011-3223113033001112-1323323001201223-1210300012232010-1323103011133222-0230131013112032-2122023311033302"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e9ebd166e855 / 3
+## Direct properties — IPv4 / 121232201111 / 3
 
-<a id="canonical-47b91ad405e511f1a3477b066478057e12b40612930b5bf2420110a89343dd32"></a>
+<a id="canonical-1013232101223110-0011321101013301-2203101313230012-1210132000111332-0102231000120102-2103002311233302-1002000101002220-2103100331310302"></a>
 
-<a id="canonical-0bc272b03cd5869a6d9f5d2d1464df847c933b62583f7ddc480399deece9dd30"></a>
+<a id="canonical-0023300213022300-0330311120122122-1231213311310231-0110121031332010-1330210303231202-1120033313313130-1020000321213132-3230322131310300"></a>
 
-## addr property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e9ebd166e855 / 4
+## addr property — IPv4 / 121232201111 / 4
 
 Type: `"string"`. Computed.
 
@@ -2942,37 +3394,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3477538bf0e4f3434543a0d0d531b487857337ebdbbf6a0c688d1a25c94d1559"></a>
+<a id="canonical-0310131311032023-3300321033031003-1011100322003100-3111030123102013-2011130303133223-3123233312220030-1220203101220211-3021103101111121"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e9ebd166e855 / 5
+## Next pages — IPv4 / 121232201111 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-17afbfef1f198d621cda563fd6e135ef85de947e112753f81bd9550294dd8b83"></a>
+<a id="canonical-0113223323333233-0133012120311202-0130312211120333-3112320103113233-2011313221101332-0101021311033320-0123312111110002-2110313120232003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-698095712ea0e31c668a0793307357fa10b8a18605dd64d769935b7687779e17"></a>
+<a id="canonical-1221200021111301-0232220032030130-1212202200132103-0300130311133322-0100232022012012-0011313112103113-1221210311231312-2013131321320113"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / b361db8601b6 / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 201200012312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6
 
-<a id="canonical-34cb782153e104ae2a9d63cee9473a51f07f79aa48c233b3b09065295bddbe67"></a>
+<a id="canonical-0310302313200201-1103320100102232-0222213112033032-3221101303221101-3300133313212222-1020300203032303-2300210012110221-1123313123321213"></a>
 
 Type: `"single"`. Computed.
 
@@ -2995,15 +3447,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-146805bb44f7842a0f6eb89a15bd7dad8c350a4989193035f3a507bc81ee6332"></a>
+<a id="canonical-0110122000112323-1010331320100222-0033123223202122-0111233113312231-2030031100221021-2021012103000311-3303221100132330-2001323212030302"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / b361db8601b6 / 3
+## Direct properties — IPv6 / 201200012312 / 3
 
-<a id="canonical-049f4ce4fc76b7e94a836a523addedc8228a80336a20d35947b4a4b52decbb55"></a>
+<a id="canonical-0010213310303210-3330131223133221-1022200312221102-0322313132313020-0202202220000303-1222020031031121-1013231022102311-0231323023231111"></a>
 
-<a id="canonical-9f370a6d3fdf9d4d3214cbf2d65df934c257d47cc6bbcfb27b372f576c9979d9"></a>
+<a id="canonical-2133031300221231-0333313321311031-0302011030233302-3112113133210310-3002111331101330-3012232330332302-1323031302331113-1230212113213121"></a>
 
-## addr property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / b361db8601b6 / 4
+## addr property — IPv6 / 201200012312 / 4
 
 Type: `"string"`. Computed.
 
@@ -3048,36 +3500,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-94401054a62c627f6d7a62bd1d92c40ffafaf3923b6a9571e23bcce843199345"></a>
+<a id="canonical-2110100001001110-2212023012021333-1231132212022331-0131210230100033-3322332233032102-0323122221111301-3202032330303220-1003012121031011"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / b361db8601b6 / 5
+## Next pages — IPv6 / 201200012312 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-845ebdfaca5a8882dcfb7b91fc6b5ba3704c5b4f15dcd7b381c99caa19c70f3f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](data-sources--azure_vnet_site--reference--group-006.md#canonical-2010113223313322-3022112220202002-3130332313232101-3330122311232203-1300103011231033-0111313031132303-2001302121302222-0121301300330333)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-43e04c3036f0169ceaf3c03fe0752e9e8f166d73b14dcaeada686a8f3402b6ef"></a>
+<a id="canonical-1003320010300300-0312330001122130-3222330330000333-3200131102322132-2033011212311303-2301103130223222-3122122012222033-0310000223123233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-28a718465dfb9bad6dd7043b14ccaa53ad82103b4a449b35b27ac841a5997720"></a>
+<a id="canonical-0220221301201012-1131332321232231-1231311300100323-0110303022221103-2231200201000323-1022101021230311-2302132230201001-2211212113130200"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 509b5213765b / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 010313121123 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
 
-<a id="canonical-7ea2c88a3b1143202de707b632b0a0dcd99e346e88a87185b938770c275abe27"></a>
+<a id="canonical-1332220230202022-0323010110030200-0231321300132312-0302230022003130-3121213203101232-2020222013012011-2321032013130030-0213112223320213"></a>
 
 Type: `"single"`. Computed.
 
@@ -3100,15 +3552,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-68db531eff17ad1bf3d54eef531664a591f8396a11b6fd62534118675c181fbf"></a>
+<a id="canonical-1220312311030132-3333011322310123-3303311110323233-1103011212102211-2101332003211222-0101231233311202-1103100101201213-1130012001332333"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 509b5213765b / 3
+## Direct properties — IPv4 / 010313121123 / 3
 
-<a id="canonical-817abbce9b6e25541b49786fe624c406791754294bf3d1f1d26e01ec7d237118"></a>
+<a id="canonical-2001132223233032-2123123202111110-0123102113201233-3212021030100012-1321011311100221-1023330331013301-3102123200013230-1331020313010120"></a>
 
-<a id="canonical-414abb7b9b6697ca1deef3456d6113231c58d7f05a7e1b8bba29f3897608ae2a"></a>
+<a id="canonical-1001102223231323-2123121221133022-0131323233031011-1231120101030203-0130112031133300-1122133201232023-2322022133032021-1312002022320222"></a>
 
-## addr property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 509b5213765b / 4
+## addr property — IPv4 / 010313121123 / 4
 
 Type: `"string"`. Computed.
 
@@ -3145,36 +3597,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2bd56ed8ca56fe4e3953b804cb4edeeadf06e85a1cd67735236ac4cc6d22da9a"></a>
+<a id="canonical-0223311112323120-3022111233321032-0321110323200010-3023103231323222-3133001232201122-0130311213130311-0203122230103030-1231020231222122"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 509b5213765b / 5
+## Next pages — IPv4 / 010313121123 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-03a8a76b9a22d099b6867a9f4950462506e49a0a89c01f09bc0f9996902ad364"></a>
+<a id="canonical-0003222022131223-2122020231002121-2312201213222133-1021110010120211-0012321021220022-2021300001330021-2330003321212112-2100022231031210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4a1137902bad1365944192e0364e7f4d86fa87009006d01334a5e502885d5f90"></a>
+<a id="canonical-1022010103132100-0223223101031211-2110100121023200-0312103213331031-2012332220130000-2100001231000103-0310221132110002-2020113111332100"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e6d6155fd968 / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 113331211220 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-3c9e9f2095d33a7de9def368989327d7808339129d972e6bbe86b92376940ee7)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--azure_vnet_site--reference--group-006.md#canonical-0330213221330200-2111310303221331-3221313233031220-2120210302133113-2000200303210102-2131211302321223-2332201223210203-1312211000323213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
 
-<a id="canonical-7716db93203f86a53369105bb362887f47a36363e1d7c404edf825fc13d0e893"></a>
+<a id="canonical-1313011231232103-0200033320122211-0303122101001123-2303120220201333-1013220312031203-3201311330100010-3231332002113330-0103310032202103"></a>
 
 Type: `"single"`. Computed.
 
@@ -3197,15 +3649,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-060a00147a426bce72f3d5cf248265ab81b492b0ff4992eb3337790fee97e0d8"></a>
+<a id="canonical-0012002200000110-1322100212233032-1302330331113033-0210200212112223-2001231021022300-3333102121023223-0303031313210033-3232211332003120"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e6d6155fd968 / 3
+## Direct properties — IPv6 / 113331211220 / 3
 
-<a id="canonical-d7e785fe968446b3ca91833d06e939e73e66eb861112e2819fe030693d258365"></a>
+<a id="canonical-3113321320113332-2112201010122303-3022210120030331-0012322103213213-0332121232232012-0101010232022001-2133320003001221-0331021120031211"></a>
 
-<a id="canonical-fe889001b47cbda51fe6e14cf194945108fac0b954f7c89a4300faae4234203a"></a>
+<a id="canonical-3332202021000001-2310133023312211-0133321232011030-3301211021101101-0020332230002321-1110331330202122-1003000033222232-1002031002000322"></a>
 
-## addr property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e6d6155fd968 / 4
+## addr property — IPv6 / 113331211220 / 4
 
 Type: `"string"`. Computed.
 
@@ -3250,34 +3702,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3b934a5c3b1f4061e072b3c2f56c594ef7a372839171f5ddf910c45db0d3251f"></a>
+<a id="canonical-0323210310221130-0323013310001201-3200130223033002-3311123011211032-3313220313022003-2101130133113131-3321010030101131-2300310302110133"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e6d6155fd968 / 5
+## Next pages — IPv6 / 113331211220 / 5
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-975131928a9cf3abaa26925ec83180f8619ad4d33e709348f18eb202921b4cff)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](data-sources--azure_vnet_site--reference--group-006.md#canonical-2113110103012102-2022213033032223-2222021221021132-3020030120003320-1201212231103103-0332130021031020-3301203223020002-2102012310303333)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e"></a>
+<a id="canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5896d51675257cdf21d65759185b4c7f0762ac875a1540cf9de0a5e1bac6ef9f"></a>
+<a id="canonical-1120211231110112-1311021113303133-0201311211131121-0120112310301333-0013120222302013-1122011110003033-2131320022113201-2322301232332133"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e075ae8afb1b / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets — subnets / 202233230123 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
 - ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets
 
-<a id="canonical-f897ac39a7e041227fd4efbeba7f49c7fdc04956c200e9589f165b5bf6cadfa8"></a>
+<a id="canonical-3320211322300321-2213320010010202-1333311032332332-2322133310213013-3331300010211112-3002000032211120-2133011211231123-3312302231332220"></a>
 
 Type: `"list"`. Computed.
 
@@ -3320,45 +3772,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0205d7a5ba5946b7692b69e48f23988b6eebae7ec16c4b7a08d0c8d6290911f"></a>
+<a id="canonical-3200020011311322-1123221121101223-1312210223122132-1020330203212020-2312323223223213-3230011230102313-2200203100302031-1202210021010133"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e075ae8afb1b / 3
+## Direct properties — subnets / 202233230123 / 3
 
-- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-23dfcc2bec7e0dde98d0bd03c18859a1c1cbf924d9a675707ee417b6e1173d9c): complete subsection reference.
+- [ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-0203313330300223-3230133200313132-2120310023310003-3001202011212201-3001302333210210-3121221213111300-1332321001132312-3201011303312130): complete subsection reference.
 
-- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-782e6a60baa5a4eec46d0e28c4574b27f7bcc90355629d79e9e19786364b60a8): complete subsection reference.
+- [ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-1320023212221200-2322221122103232-3010123100320220-3010111310230213-3313233030210003-1111120221311321-3221320121132012-0312102312002220): complete subsection reference.
 
-<a id="canonical-5073a8eac296fc1caca1e5fcbe863dae5acbf16adfeb22c9b40daa0fd1dcf879"></a>
+<a id="canonical-1100130322203222-3002211233300130-2230220132113330-2332201203312232-1122302333011222-3133322302023021-2310003122220033-3101313033201321"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / e075ae8afb1b / 4
+## Next pages — subnets / 202233230123 / 4
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-23dfcc2bec7e0dde98d0bd03c18859a1c1cbf924d9a675707ee417b6e1173d9c)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-782e6a60baa5a4eec46d0e28c4574b27f7bcc90355629d79e9e19786364b60a8)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](data-sources--azure_vnet_site--reference--group-006.md#canonical-0203313330300223-3230133200313132-2120310023310003-3001202011212201-3001302333210210-3121221213111300-1332321001132312-3201011303312130)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](data-sources--azure_vnet_site--reference--group-006.md#canonical-1320023212221200-2322221122103232-3010123100320220-3010111310230213-3313233030210003-1111120221311321-3221320121132012-0312102312002220)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-23dfcc2bec7e0dde98d0bd03c18859a1c1cbf924d9a675707ee417b6e1173d9c"></a>
+<a id="canonical-0203313330300223-3230133200313132-2120310023310003-3001202011212201-3001302333210210-3121221213111300-1332321001132312-3201011303312130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7facc6b19cbf7258545af99a40b04422df6268c72cf666ba70ca5e0dc6f7d128"></a>
+<a id="canonical-1333223030122301-2130233313021120-1110112233212122-1000230010100202-3133120212203013-0230331212122322-1300302211320031-3012331331010220"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 754b05ce2f8a / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 303202332022 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4
 
-<a id="canonical-402547f13663617cb33902dc2f513870cb354be8f59a07e919964ef468b26b78"></a>
+<a id="canonical-1000021110133301-0312120312011330-2303032100023130-0233110103201300-3023031110233220-3311212200133221-0121211210323310-1220230212231320"></a>
 
 Type: `"single"`. Computed.
 
@@ -3377,15 +3829,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a5269010322fb727da28412208aafa5d2d30f7c9fe29999e88643dbc3c458fe1"></a>
+<a id="canonical-2211021221000100-0302023323130213-3122022010010202-0020222233221131-0231030033133021-3332022121212132-2020121003312330-0330101120333201"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 754b05ce2f8a / 3
+## Direct properties — IPv4 / 303202332022 / 3
 
-<a id="canonical-5513391607e8f8ea251c05e1de30ded2a9aaf05ad5e1303fd047e92017e8e314"></a>
+<a id="canonical-1111010303210112-0013322033203222-0211013000113201-3132030031323102-2221222233001122-3111320103000333-3100101332210200-0113322032030110"></a>
 
-<a id="canonical-ebe748f22260bda174451a0885c21583b6dd6e0ee948d5ef70bc843b27a724b1"></a>
+<a id="canonical-3223321310203302-0202120023312201-1310101101220020-2011300201112003-2312313112320032-3221102031113233-1300233020100323-0213221302102301"></a>
 
-## plen property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 754b05ce2f8a / 4
+## plen property — IPv4 / 303202332022 / 4
 
 Type: `"number"`. Computed.
 
@@ -3421,11 +3873,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-72aacb5391e3581e8d9c24a1fb1bb3422119c845b3eed191bcdf80e31d8c132f"></a>
+<a id="canonical-1302222230231103-2101320311200132-2031213002102201-3323012323031002-0201012130201011-2303323231012101-2330313320003203-0131203001030233"></a>
 
-<a id="canonical-cdb68b3d618e406863ae39c37bfea20d830ef4d2d180ef7c7c62ff79de9212ba"></a>
+<a id="canonical-3031231220230331-1201203210001220-1203223203213003-1323333222020031-2003003233103102-3101200032331330-1330120233331321-3132210201022322"></a>
 
-## prefix property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 754b05ce2f8a / 5
+## prefix property — IPv4 / 303202332022 / 5
 
 Type: `"string"`. Computed.
 
@@ -3462,35 +3914,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-65f8ecda04e022d0a1ed7ddefc60e0189f3a389e565a5bd56d576fe4ed8cd1a6"></a>
+<a id="canonical-1211332032303122-0010320002023100-2201323113313132-3330120032000120-2133032203202132-1112112211233111-1231111312333210-3231203031012212"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / 754b05ce2f8a / 6
+## Next pages — IPv4 / 303202332022 / 6
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-782e6a60baa5a4eec46d0e28c4574b27f7bcc90355629d79e9e19786364b60a8"></a>
+<a id="canonical-1320023212221200-2322221122103232-3010123100320220-3010111310230213-3313233030210003-1111120221311321-3221320121132012-0312102312002220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-61e819517701db4629e3c003021f8ed664eb3205046e42eaf6001bd41bd69d1b"></a>
+<a id="canonical-1201322001211101-1313000131231012-0221320330000003-0002013320323112-1210322303020011-0010123210023222-3312000001233110-0123311221310123"></a>
 
-## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6 — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d679c7a73c1f / 2
+## ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 221303300133 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-9f508b120e0aab82c790e7a53bad089d5b00aac91b98ed8e3471bba7b9197a67)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-220355e757a9c7e9c6021b05ab03d6a2ed4312e1b30744a3a4de7cf9f22b3501)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-cdbca5162fb6706b88feb932d97c892088e4f8ab7465b88bfb2e27dd2a6f494b)
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e)
-- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [ingress_egress_gw_ar.inside_static_routes](data-sources--azure_vnet_site--reference--group-006.md#canonical-2133110020230102-0032002222232002-3013210032132211-0323223100202131-1123000022223021-0123212032312032-0310130123232213-2321012113221213)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list](data-sources--azure_vnet_site--reference--group-006.md#canonical-0202000311113213-1113222130133221-3012000201230011-2223000331122202-3231100301023201-2303001310102203-2210313213303321-3302022303110001)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route](data-sources--azure_vnet_site--reference--group-006.md#canonical-3031233022110112-0233231213001223-2020333223210302-3121133020210200-2020321033202223-1310121123202023-3323023202133131-0222123310211023)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232)
+- ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6
 
-<a id="canonical-29eaa6597dc389986c87df38d3ffa0dbd270fff28d7ade0de011e1be700aee96"></a>
+<a id="canonical-0221322222121121-1331300320212120-1230201331330320-3103333322003123-3102130033333302-2031132231320031-3200010132012332-1300002232322112"></a>
 
 Type: `"single"`. Computed.
 
@@ -3509,15 +3961,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-845e658ad19394bdf50e27ded4fdbfcb82328596064020d04eddca70ddb807ad"></a>
+<a id="canonical-2010113212112022-3101210321102331-3311003202133132-3110333123333023-2002030220112112-0012100002003100-1032313130221300-3131232000132231"></a>
 
-## Direct properties — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d679c7a73c1f / 3
+## Direct properties — IPv6 / 221303300133 / 3
 
-<a id="canonical-e7a00d77e6c857259b26276d5ebe95520ac2e31cbfa3cfd48e6518160559306f"></a>
+<a id="canonical-3213220000311313-3212302011130211-2123021202131231-1132233221111102-0022300232030130-2333220330333110-2032121101200112-0011112103001233"></a>
 
-<a id="canonical-fd53cb4dfbf8f5b6a7931e55034703fdc5448c43399dd25b3f6fdb555d8375c3"></a>
+<a id="canonical-3331110330231031-3323332033112312-2213210301321111-0003101300033331-3011101020301003-0321213131021123-0333123331231111-1131200313113003"></a>
 
-## plen property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d679c7a73c1f / 4
+## plen property — IPv6 / 221303300133 / 4
 
 Type: `"number"`. Computed.
 
@@ -3553,11 +4005,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-58a0246c4af046f1c14209e834e21d04646fe0af7ff59bc6ae4f067b07e884fd"></a>
+<a id="canonical-1120220002101230-1022330010123301-3001100200213220-0310320201310010-1210123332002233-1333331121233012-2232103300121323-0013322020103331"></a>
 
-<a id="canonical-0971aa8bd89d5ae152287118ca4d1a4a952d1186f8008a48b4142a650d2b5ad1"></a>
+<a id="canonical-0021130122222023-3120213111223201-1102022013010120-3022103101221022-2111023101012012-3320000020221020-2310011002221211-0031022311223101"></a>
 
-## prefix property — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d679c7a73c1f / 5
+## prefix property — IPv6 / 221303300133 / 5
 
 Type: `"string"`. Computed.
 
@@ -3602,31 +4054,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec15f74a9dedbfbc364e44a00cc00d221042554af060ea6abf83aee660d19da9"></a>
+<a id="canonical-3230011133131022-2131323123332330-0312103210102200-0030300000310202-0100100211111022-3300120032221222-2333200322323212-1200310121312221"></a>
 
-## Next pages — ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route. / d679c7a73c1f / 6
+## Next pages — IPv6 / 221303300133 / 6
 
-- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-aa4ee012108051db66573444e1787d8b76ce01c0e4894f203f31ab87d6d16f6e)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar.inside_static_routes.static_route_list.custom_static_route.subnets](data-sources--azure_vnet_site--reference--group-006.md#canonical-2222103232000102-0100200011013123-1212111303101010-3201132013312023-1312303200013000-3210202110330200-0333030122232013-3112310112331232)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-1adc55cf4e964eca81eda4ae9033b5497809c0dd2e417faee5856f72d7912936"></a>
+<a id="canonical-0122313011113033-1032211210323022-2001323122102232-2100030323111021-1320002130003131-0232100113332232-3211201112331302-3113210102210312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-75e774510f31e743ff8de421f0f1e2eb8ea1586b951dcc9718b198cd965afc08"></a>
+<a id="canonical-1311321313101101-0033030132131003-3333203132100201-3300330132023223-2032220111201223-2111013130302113-0120230121203031-2112112233300020"></a>
 
-## ingress_egress_gw_ar.no_dc_cluster_group — ingress_egress_gw_ar.no_dc_cluster_group / 3b64e17e5c92 / 2
+## ingress_egress_gw_ar.no_dc_cluster_group — no_dc_cluster_group / 133211302102 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_dc_cluster_group
 
-<a id="canonical-ad989afa3d942c21ffa6334b2ac2d7939eb78ba66bed0571f5bdbe973dc949c8"></a>
+<a id="canonical-2231212021223322-0331211002300201-3333221203031023-0222300231132103-2132231320232212-1223323100111301-3311233123322113-0331302110213020"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3649,37 +4101,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-25e43b887e8368cad2d485f3a47144c4cfa18c4187049ca2682cb6e6c69b49e1"></a>
+<a id="canonical-0211321003232020-1332200312203022-3102311020113303-2210130110103010-3033220120301001-2013001021302202-1220023023123212-3012212310213201"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_dc_cluster_group / 3b64e17e5c92 / 3
+## Direct properties — no_dc_cluster_group / 133211302102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-54dbf1f8c00d374e4ebbcd4478c72de3148fb4067fe3d33ba2e211a222782fc3"></a>
+<a id="canonical-1110312333013320-3000003103131032-1032232330311010-1320301302313203-0110203323100012-1333320331030323-2202320201012202-0202132002333003"></a>
 
-## Next pages — ingress_egress_gw_ar.no_dc_cluster_group / 3b64e17e5c92 / 4
+## Next pages — no_dc_cluster_group / 133211302102 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-9104b6a30f4a654bf9bcdc4f16f1561bf3b0e8ee75a843ef3c1de495ac60ea7e"></a>
+<a id="canonical-2101001023122203-0033102212111023-3321233031301033-0112330111120123-3303230032203232-1311222010033233-0330013132102111-2230120032221332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7c54427aaa34b09e599cfc27fe5178c05de7d54def960d7c5c1f497d77be70ca"></a>
+<a id="canonical-1330111010021322-2222031023002132-1121213033300213-3332110113203000-1131321331111031-3233211200311330-1130013310211331-1313233213003022"></a>
 
-## ingress_egress_gw_ar.no_forward_proxy — ingress_egress_gw_ar.no_forward_proxy / aa7da71f703e / 2
+## ingress_egress_gw_ar.no_forward_proxy — no_forward_proxy / 013313000332 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_forward_proxy
 
-<a id="canonical-f1c923e9f085c1da4f7e0afb4bf11693c27c46ef6dc59c823128764f8120e188"></a>
+<a id="canonical-3301302102033221-3300201130013122-1033133200223323-1023330101122103-3002133010123233-1231301121302002-0301022013121033-2001020032012020"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3702,37 +4154,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e731e8716488fff17ef7be4e1e17ccd18b9901b5195dec7f47153ea99d497fbe"></a>
+<a id="canonical-3213030132201301-1210202033333301-1332331323321032-0132011330303101-2023212100012311-0121113132301333-1013011103322221-2131102113332332"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_forward_proxy / aa7da71f703e / 3
+## Direct properties — no_forward_proxy / 013313000332 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fa0b5d0a3cf83af10fafffb5fa68c184608beeb0a9ecdea8c891b8553f6c3a2f"></a>
+<a id="canonical-3322002311310022-0330332003223301-0033223333332311-3322122030012010-1200202332322300-2221323031322220-3020210123201111-0333123003220233"></a>
 
-## Next pages — ingress_egress_gw_ar.no_forward_proxy / aa7da71f703e / 4
+## Next pages — no_forward_proxy / 013313000332 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-ae5945d1bb672f90650e08c6886fd4978545223f3e8e51d824d7579ae7d2f074"></a>
+<a id="canonical-2232112110113101-2323121302332100-1211003200203012-2020123331102113-2011101102020333-0332203211013120-0210311311132122-3213310233001310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7deaf2f8f9f4ff24221e3bdb01f5b0428e48e11d672bd96cda143bf85f59cf4f"></a>
+<a id="canonical-1331322233023320-3321331033330210-0202013203233123-0001331123001002-2032102032010131-1213022331211230-3122011003233320-1133112130331033"></a>
 
-## ingress_egress_gw_ar.no_global_network — ingress_egress_gw_ar.no_global_network / 63af2994f289 / 2
+## ingress_egress_gw_ar.no_global_network — no_global_network / 211033022021 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_global_network
 
-<a id="canonical-50f141db4edb52b799cf9c4823eacf0e308f60368faa94aa311ecdd7ad936fe9"></a>
+<a id="canonical-1100330110013123-1032312311022313-2121303321301020-0203322230330032-0300203312000312-2033222221102222-0301013230313113-2231210312333221"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3755,37 +4207,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-30b088951d707e110b0376ebe94938f32cb5ed7156d083c06db416ba39f0c1f5"></a>
+<a id="canonical-0300230020202111-0131130013320101-0023000313123223-3221102103203303-0230231132311301-1112310020033000-1231231001122322-0321330030013311"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_global_network / 63af2994f289 / 3
+## Direct properties — no_global_network / 211033022021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-970fb166ba71e66ae76959a73f2ee36faf88b334e188fe3cff0c09f2be3406b6"></a>
+<a id="canonical-2113003323011212-2322130132121222-3213122111212213-0333023232031233-2233202023030310-3201202033320330-3333003000213302-2332031000122312"></a>
 
-## Next pages — ingress_egress_gw_ar.no_global_network / 63af2994f289 / 4
+## Next pages — no_global_network / 211033022021 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-b1ffdac3082b8b06a008d52c4072ccac2a90903b13767ca88f126b4ca6138998"></a>
+<a id="canonical-2301333331223003-0020022320230012-2200002031110230-1000130230302230-0222210021000323-0103131213302220-2033010212231030-2212010320212120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5cb6735c55157ae99a28ba6386f754c9424d4220f00a004301cee0978dc4e706"></a>
+<a id="canonical-1130231213031130-1111011113223221-2122022023221203-2012331311103021-1002103110020200-3300002200001003-0001303232002113-2031301032130012"></a>
 
-## ingress_egress_gw_ar.no_inside_static_routes — ingress_egress_gw_ar.no_inside_static_routes / 2f935a333072 / 2
+## ingress_egress_gw_ar.no_inside_static_routes — no_inside_static_routes / 030303001302 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_inside_static_routes
 
-<a id="canonical-7ed02a93e2881c457b9e06360a3a4cfbe5c447f523235b91d6326ca170d1aec5"></a>
+<a id="canonical-1332310002222103-3202202001301011-1323213200120312-0022032210303323-3211301010133311-0203020311232101-3112030212302201-1300310122323011"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3808,37 +4260,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d534e6534491f1bffde07e87fcf20e1fc5d165aef4321ee41964da5e7471fc2b"></a>
+<a id="canonical-3111031032121103-1010210133012333-3331320013322013-3330330200320133-3011310112112232-3310030201323210-0121121031221132-1310130133300223"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_inside_static_routes / 2f935a333072 / 3
+## Direct properties — no_inside_static_routes / 030303001302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9b0f33abb20b4a2a5c0aaae05467fe93a6c6b866a9ffda0a425ee0813e5210fa"></a>
+<a id="canonical-2123003303032223-2302002310220222-1130002222223200-1110121333322103-2212301223201212-2221333331220022-1002113232002001-0332110201003322"></a>
 
-## Next pages — ingress_egress_gw_ar.no_inside_static_routes / 2f935a333072 / 4
+## Next pages — no_inside_static_routes / 030303001302 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-fdda130c92b94013b60116a4bbba0410e68076b4a47c6dc701bcc29bbb1bb8ad"></a>
+<a id="canonical-3331312201030030-2102232110000103-2312000101122210-2323232200100100-3212200013122310-2210133012313013-0001233030022123-2323012323202231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-330b5e7a79d6306fea015972445f56cab3c4b48c06b26c2be1f214117f1f7e3d"></a>
+<a id="canonical-0303002311321322-1321311203001233-3222000111211302-1010113311123022-2303301023102030-0012230212300223-3201330201100101-1333013313320331"></a>
 
-## ingress_egress_gw_ar.no_network_policy — ingress_egress_gw_ar.no_network_policy / 58a2b121f1c9 / 2
+## ingress_egress_gw_ar.no_network_policy — no_network_policy / 020133013021 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_network_policy
 
-<a id="canonical-6ea0184306068b04594322903cf70012378688d97f2a2b32a9b5641f677cf72d"></a>
+<a id="canonical-1232220001201003-0012001220230010-1121100302022100-0330331300000102-0313201220203121-1333022202230302-2221231112100133-1213133033130231"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3861,37 +4313,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-336f5befdad1478ad5b05b3f4e981dff1a42794d8389bd2c8b6b6a1ebf6c0f9c"></a>
+<a id="canonical-0303123311233233-3122310110132022-3111230011230333-1032212001313333-0122100213211031-2003202123310230-2023122312220132-2333123000332130"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_network_policy / 58a2b121f1c9 / 3
+## Direct properties — no_network_policy / 020133013021 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b891f9bc78e4a8f897fec171d771c24be327719e310a36e2bab24c0be2a52577"></a>
+<a id="canonical-2320210133212330-1320321022203320-2113333230011301-3113130130021023-3203021313012132-0301002203123202-2322230210300023-3202221102111313"></a>
 
-## Next pages — ingress_egress_gw_ar.no_network_policy / 58a2b121f1c9 / 4
+## Next pages — no_network_policy / 020133013021 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-6a379509da9c1ee5a61e9229fb3c0c0b629543b3a032d49ff588e2d82f923fb3"></a>
+<a id="canonical-1222031321110021-3122213001323211-2212013221020221-3323033000300023-1202211110032303-2200030231102133-3311202032023120-0233210203332303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5217f3374552e88ebbf300e10fe72e46bf2ed3b67faa5b613d7f68eb427f53cb"></a>
+<a id="canonical-1102011333030313-1011110232202032-2323330300003201-0033321302321012-2333023231032312-1333222211231201-0331133312203223-1002133311033023"></a>
 
-## ingress_egress_gw_ar.no_outside_static_routes — ingress_egress_gw_ar.no_outside_static_routes / 8a31c7d7137f / 2
+## ingress_egress_gw_ar.no_outside_static_routes — no_outside_static_routes / 311301031333 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.no_outside_static_routes
 
-<a id="canonical-c5c86bcf77f8dc73f2e6cfe64bb6572bede4840749b81c277df16d2d87e4c42e"></a>
+<a id="canonical-3011302012233033-1313332031301303-3302321230333212-1023231211130223-3231321020100013-1021232001300213-1331330112310231-2013321030100232"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3914,37 +4366,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb90b38b141dd798a54f2ec3385f8c5b19866b6beac2731185dcc7b7b96d1b10"></a>
+<a id="canonical-3023210023032023-0110013131132120-2211103302323003-0320113320301123-0121201212231223-3222300213030101-2011313030132313-2321123101230100"></a>
 
-## Direct properties — ingress_egress_gw_ar.no_outside_static_routes / 8a31c7d7137f / 3
+## Direct properties — no_outside_static_routes / 311301031333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d5d3396e9fac513d29642abcefbb3c088d20c8c476dc41a8692944f3956c2ed8"></a>
+<a id="canonical-3111310303211232-2133223011010331-0221121002222330-3233232303300020-2031020030203010-1312313010012220-1221022110103303-2111123002323120"></a>
 
-## Next pages — ingress_egress_gw_ar.no_outside_static_routes / 8a31c7d7137f / 4
+## Next pages — no_outside_static_routes / 311301031333 / 4
 
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
 
-<a id="canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c"></a>
+<a id="canonical-0301332221030113-2231320220003100-0121223000301012-0100011110302031-0120322021303223-1103033132113331-0130013200110001-1200020003302130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c881d193f074ff8da2bfdcb04fcc1d9bc3a0ac9c4894bf1d05b908b9e5e6235f"></a>
+<a id="canonical-3020200131012103-3300131033332031-2202233331302300-1033303001312123-3003220022302130-1020211023330131-0011232100202321-3211321202031133"></a>
 
-## ingress_egress_gw_ar.node — ingress_egress_gw_ar.node / 428bcbd35dfa / 2
+## ingress_egress_gw_ar.node — node / 310311313322 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
+- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-1330232102102121-2311132211103111-1010023103323200-1323210323002133-2233321031322213-1333221233013013-0332233233111031-2332010010210310)
+- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-2210100210332112-1233221121133301-0120203222303210-2221022223110220-0313230312203322-2232200300001103-2301220003133113-1333232230300113)
+- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-2301120333003113-2003322233223332-3022013100223130-0210232002323221-3330102133112033-3332121202112233-3321203100031002-1120211021323111)
 - ingress_egress_gw_ar.node
 
-<a id="canonical-25c13f12f7f930acb95474df27adf6b0837844c74071a11f5e27119d8875a071"></a>
+<a id="canonical-0211300103330102-3313332103002230-2321111013103133-0213223133122300-2003132010103013-1000130122010133-1132021301012131-2020131122001301"></a>
 
 Type: `"single"`. Computed.
 
@@ -3963,15 +4415,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fe392a94681de0b6ae86e1a50f0333376e6003825793054fb964d69736e70efa"></a>
+<a id="canonical-3332032102222110-1220013132002312-2232201232012211-0033000303030313-1232120000032002-1113210300111033-2321121031122113-0312321300323322"></a>
 
-## Direct properties — ingress_egress_gw_ar.node / 428bcbd35dfa / 3
+## Direct properties — node / 310311313322 / 3
 
-<a id="canonical-a06c495a3e72e58fc2ee45effc70b35f6edaa1e8ca3c7e56af5e79fe8aeabd36"></a>
+<a id="canonical-2200123010211122-0332130232112033-3002323210113233-3330130023031133-1232312222013220-3022033013321112-2233113213213332-2022322223310312"></a>
 
-<a id="canonical-afcbb2dded939cce1f49e17a9eaf95399e60f12bed82aa31fdec5ab2450d7b57"></a>
+<a id="canonical-2233302323023131-3231210321303032-0133102132011322-2132223321110321-2132120033010223-3231200222220301-3331323011222302-1011003113231113"></a>
 
-## fault_domain property — ingress_egress_gw_ar.node / 428bcbd35dfa / 4
+## fault_domain property — node / 310311313322 / 4
 
 Type: `"number"`. Computed.
 
@@ -4010,13 +4462,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f): complete subsection reference.
+- [inside_subnet](data-sources--azure_vnet_site--reference--group-007.md#canonical-3330030013323030-2230320232322330-0111110010112011-2103000333233233-1022000330022023-1032102021023223-1010012012322133-1001022100211133): complete subsection reference.
 
-<a id="canonical-b1d6575166d93f4e55c86fbe1b07bae5946f06e1ca7d53a716fbdf07ac54cfa1"></a>
+<a id="canonical-2301311211131101-1212312103331032-1111302012332332-0123001323223211-2110123300123201-3022133111032213-0112332331330013-2230111030332201"></a>
 
-<a id="canonical-3e6590a967b848949f0815305aff2925c5298366420b9695df33c529804e54b9"></a>
+<a id="canonical-0332121121002221-1213232010202110-2133002001110300-1122333302210211-3011022120031212-1002002321122111-3133030330110221-2000103211102321"></a>
 
-## node_number property — ingress_egress_gw_ar.node / 428bcbd35dfa / 5
+## node_number property — node / 310311313322 / 5
 
 Type: `"number"`. Computed.
 
@@ -4043,13 +4495,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [outside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-6eb4bbb8a8881bd84845936e87bdcdfab71c34c1f2381c80c4a05e990a714fd8): complete subsection reference.
+- [outside_subnet](data-sources--azure_vnet_site--reference--group-007.md#canonical-1232231023232320-2220202001233120-1020101121031232-2013233130313322-2313013003103001-3302032001302000-3010220011322121-0022130110333120): complete subsection reference.
 
-<a id="canonical-68c20489c95eed2a89d98d1f6643f3c21c585a22112a79af607f6a635b9721ce"></a>
+<a id="canonical-1220300200102021-3021113232310222-2021312120310133-1212100333033002-0130112011220202-0101022213212233-1200133312221203-1123211302013032"></a>
 
-<a id="canonical-039479b803e266c728affb93efa957e75d24dc5926ea90e5ed976de368c5461c"></a>
+<a id="canonical-0003211013212320-0003320212123013-0220223333232103-3233222111133213-1131021031301121-0212322221003211-3231211312313203-1220301110120130"></a>
 
-## update_domain property — ingress_egress_gw_ar.node / 428bcbd35dfa / 6
+## update_domain property — node / 310311313322 / 6
 
 Type: `"number"`. Computed.
 
@@ -4087,587 +4539,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-e2d48700679d4fede3101f8d8091e90e5a58480eccb5f22a9d3d00570f16be75"></a>
-
-## Next pages — ingress_egress_gw_ar.node / 428bcbd35dfa / 7
-
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- [ingress_egress_gw_ar.node.outside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-6eb4bbb8a8881bd84845936e87bdcdfab71c34c1f2381c80c4a05e990a714fd8)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-12573c7a1123803dbe48e9414ebd4466c869f96e80fbe554b9dfa1cadf0a99b0"></a>
-
-## ingress_egress_gw_ar.node.inside_subnet — ingress_egress_gw_ar.node.inside_subnet / ba1bf079ebd0 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- ingress_egress_gw_ar.node.inside_subnet
-
-<a id="canonical-3d6b160e845751007db01e375282cd74347f5922678e8e5c2be428c8e2a25b9f"></a>
-
-Type: `"single"`. Computed.
-
-Configuration parameter for inside subnet.
-
-Upstream description:
-
-Parameters for Azure subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-choice": "[\"subnet\",\"subnet_param\"]"
-}
-```
-
-<a id="canonical-3baf376d9ced76e6bb1af0582263954067982e5a4d8d3d4632bcaec0b901391a"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.inside_subnet / ba1bf079ebd0 / 3
-
-- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-cce6b587f21a6707cd9ef0ad85110fc3e4bc6f5892f3b4ef054f79d9572afc60): complete subsection reference.
-
-- [subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-4b93f047b4e39752a556cb5a764f229c61abc6878b9d33e1dde2ba5ee1337c44): complete subsection reference.
-
-<a id="canonical-531e46b1ce99d53ce5760ef545ca6b762364d2db4e9963a65270c63fb9a48665"></a>
-
-## Next pages — ingress_egress_gw_ar.node.inside_subnet / ba1bf079ebd0 / 4
-
-- [ingress_egress_gw_ar.node.inside_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-cce6b587f21a6707cd9ef0ad85110fc3e4bc6f5892f3b4ef054f79d9572afc60)
-- [ingress_egress_gw_ar.node.inside_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-006.md#canonical-4b93f047b4e39752a556cb5a764f229c61abc6878b9d33e1dde2ba5ee1337c44)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-cce6b587f21a6707cd9ef0ad85110fc3e4bc6f5892f3b4ef054f79d9572afc60"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0b6df857892ac6c61236d1e87d6294c6934311e94ecdea1aabf0f44fef8086e7"></a>
-
-## ingress_egress_gw_ar.node.inside_subnet.subnet — ingress_egress_gw_ar.node.inside_subnet.subnet / 733c7e7882d6 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- ingress_egress_gw_ar.node.inside_subnet.subnet
-
-<a id="canonical-ca54452e3fbbf75f33c338e49c53c40839ce3ad197b641703c648f755a307a33"></a>
-
-Type: `"single"`. Computed.
-
-Subnet specification for network segmentation.
-
-Upstream description:
-
-Parameters for Azure subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-resource_group_choice": "[\"subnet_resource_grp\",\"vnet_resource_group\"]"
-}
-```
-
-<a id="canonical-50958e8dff8d1bf128d0d118255fbcaa262936f007b309a9d57724981b629fb0"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.inside_subnet.subnet / 733c7e7882d6 / 3
-
-<a id="canonical-80b2c35955c7f81e92e8bcd6297d32365ef3c758ff3acb1dfb5770fa19cfd2e7"></a>
-
-<a id="canonical-fe70fa34acaf84d1f2f0301454ed1fe1113af8b1efb788bd1be482462b8b7e11"></a>
-
-## subnet_name property — ingress_egress_gw_ar.node.inside_subnet.subnet / 733c7e7882d6 / 4
-
-Type: `"string"`. Computed.
-
-Subnet Name. Name of existing subnet.
-
-Upstream description:
-
-Name of existing subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```
-
-<a id="canonical-2fe5d9a08fb7f38f697c4e12629082c2df1a036d5aff7d97a62bf7ce49d35b20"></a>
-
-<a id="canonical-a8abf562ebd9c3a0829238e9de9c78258d95a1c7d240f6490de161514579865d"></a>
-
-## subnet_resource_grp property — ingress_egress_gw_ar.node.inside_subnet.subnet / 733c7e7882d6 / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[vnet\_resource\_group\] Specify name of Resource Group.
-
-Upstream description:
-
-Exclusive with \[vnet\_resource\_group\] Specify name of Resource Group.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```
-
-- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-8a856bde273a85a6d4fc42f8154e838a3b05e3d73d761b97db6e34cd0c789eb1): complete subsection reference.
-
-<a id="canonical-a466055d2ab0ea8357f7914f332147637f7c1e165cdaf9ee21256753744b4c17"></a>
-
-## Next pages — ingress_egress_gw_ar.node.inside_subnet.subnet / 733c7e7882d6 / 6
-
-- [ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-8a856bde273a85a6d4fc42f8154e838a3b05e3d73d761b97db6e34cd0c789eb1)
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-8a856bde273a85a6d4fc42f8154e838a3b05e3d73d761b97db6e34cd0c789eb1"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-586ae527add7c9e5cfe2f052bb8fc9d19b8017bedc3b7a21216d8ab65b7fa987"></a>
-
-## ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group — ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group / 12674864979d / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- [ingress_egress_gw_ar.node.inside_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-cce6b587f21a6707cd9ef0ad85110fc3e4bc6f5892f3b4ef054f79d9572afc60)
-- ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group
-
-<a id="canonical-d1654d53d4d2351d32ee42759ab51141ed284883ce0e975b601af47b893fb451"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for vnet resource group.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-48eb2723377b3a92c0a6c4780f6d0319e4df27137e5eb5d14af03b23de18220e"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group / 12674864979d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-d9aaeea527b8f63f216a0ae5aaac27a0682b0a00a2298438cf6f46593a0db03e"></a>
-
-## Next pages — ingress_egress_gw_ar.node.inside_subnet.subnet.vnet_resource_group / 12674864979d / 4
-
-- [ingress_egress_gw_ar.node.inside_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-cce6b587f21a6707cd9ef0ad85110fc3e4bc6f5892f3b4ef054f79d9572afc60)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-4b93f047b4e39752a556cb5a764f229c61abc6878b9d33e1dde2ba5ee1337c44"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-bf8b79387fcd5b9d3479654e0a24bc8dcb48b193e70b3ad31b3b9b53105d0795"></a>
-
-## ingress_egress_gw_ar.node.inside_subnet.subnet_param — ingress_egress_gw_ar.node.inside_subnet.subnet_param / e8fa52450ae1 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- ingress_egress_gw_ar.node.inside_subnet.subnet_param
-
-<a id="canonical-9bdc510ef92e4220301971b255683d473a842402c1c83b474d41945466944813"></a>
-
-Type: `"single"`. Computed.
-
-Parameters for creating a new cloud subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-42b4f9d183b566481c13a7595d4f135cfac0f41b52ab1f029d013a08fcde4e85"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.inside_subnet.subnet_param / e8fa52450ae1 / 3
-
-<a id="canonical-18ef7d940e22d4d3267f29c0766400d5f7abcb823c005207ebe0c8c8296dfd2d"></a>
-
-<a id="canonical-967c00e36eaceb37d866b8985a93d4157c46f9a2d40970cf6a0d971d129d7806"></a>
-
-## ipv4 property — ingress_egress_gw_ar.node.inside_subnet.subnet_param / e8fa52450ae1 / 4
-
-Type: `"string"`. Computed.
-
-IPv4 Subnet. IPv4 subnet prefix for this subnet.
-
-Upstream description:
-
-IPv4 subnet prefix for this subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "format": "ipv4",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  }
-}
-```
-
-<a id="canonical-f49b957886cf47a5a56a8ca0b480463559b2628f8f4d4c052cf50b91e6f38302"></a>
-
-## Next pages — ingress_egress_gw_ar.node.inside_subnet.subnet_param / e8fa52450ae1 / 5
-
-- [ingress_egress_gw_ar.node.inside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-fc307eccace2eebc155045859303fbef4a03c28b4e4892eb44186e9f4129095f)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-6eb4bbb8a8881bd84845936e87bdcdfab71c34c1f2381c80c4a05e990a714fd8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-e0e001946c478b30553a1e4d187013d69b6c2d553ceaa94fdf92a4d4363669e2"></a>
-
-## ingress_egress_gw_ar.node.outside_subnet — ingress_egress_gw_ar.node.outside_subnet / bb710820c267 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- ingress_egress_gw_ar.node.outside_subnet
-
-<a id="canonical-1abb798706dc191aee3c16c77043b6ebaca73257e96f1758a7b37a908775ec48"></a>
-
-Type: `"single"`. Computed.
-
-Configuration parameter for outside subnet.
-
-Upstream description:
-
-Parameters for Azure subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-choice": "[\"subnet\",\"subnet_param\"]"
-}
-```
-
-<a id="canonical-a692ae5189c54407dbc6390a726bf0526175361f35b15ba164a0b21e1d21e1a4"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.outside_subnet / bb710820c267 / 3
-
-- [subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-c673d7e0eddf5d3bd34759dbd162a4df3472bc4b707851df6dc2c5241013ef22): complete subsection reference.
-
-- [subnet_param](data-sources--azure_vnet_site--reference--group-007.md#canonical-19869e022df63d74bf5588a1237604083ab102636b007651178e44543affc895): complete subsection reference.
-
-<a id="canonical-241bfb66d05a152c4d544beec0452045847556acb2aa6a801eea907217331157"></a>
-
-## Next pages — ingress_egress_gw_ar.node.outside_subnet / bb710820c267 / 4
-
-- [ingress_egress_gw_ar.node.outside_subnet.subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-c673d7e0eddf5d3bd34759dbd162a4df3472bc4b707851df6dc2c5241013ef22)
-- [ingress_egress_gw_ar.node.outside_subnet.subnet_param](data-sources--azure_vnet_site--reference--group-007.md#canonical-19869e022df63d74bf5588a1237604083ab102636b007651178e44543affc895)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-c673d7e0eddf5d3bd34759dbd162a4df3472bc4b707851df6dc2c5241013ef22"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-928a5fed2cdb123720cab1b5b40135c1a038494f8abfa4e4acae756e494e34cf"></a>
-
-## ingress_egress_gw_ar.node.outside_subnet.subnet — ingress_egress_gw_ar.node.outside_subnet.subnet / fb8b7e2b8874 / 2
-
-Breadcrumbs:
-
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-- [Property reference](data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
-- [ingress_egress_gw_ar](data-sources--azure_vnet_site--reference--group-005.md#canonical-b163f0d783eafafeca1d0adc24b82ee9fc49f58ffe6625aff98d034258949ed5)
-- [ingress_egress_gw_ar.node](data-sources--azure_vnet_site--reference--group-006.md#canonical-31fa9317ade280d019ac0c4610154c8d18e89ceb533de5fd1c1e050160203c9c)
-- [ingress_egress_gw_ar.node.outside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-6eb4bbb8a8881bd84845936e87bdcdfab71c34c1f2381c80c4a05e990a714fd8)
-- ingress_egress_gw_ar.node.outside_subnet.subnet
-
-<a id="canonical-8b4e6194b44d45070c12bfd673e732f1e3028a2188a43c0207af22e012e8598f"></a>
-
-Type: `"single"`. Computed.
-
-Subnet specification for network segmentation.
-
-Upstream description:
-
-Parameters for Azure subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-resource_group_choice": "[\"subnet_resource_grp\",\"vnet_resource_group\"]"
-}
-```
-
-<a id="canonical-58159c9593cbd973696c6c54654ec37da107f9fd32be311692051ce59e8787fb"></a>
-
-## Direct properties — ingress_egress_gw_ar.node.outside_subnet.subnet / fb8b7e2b8874 / 3
-
-<a id="canonical-40717a2886d0017f2ec0c47c9535a223dde53b82f916e24cc02987df5d1e1a81"></a>
-
-<a id="canonical-d52770fa4b1a63e91bcf0e747882913fdf5a69857174e070390d157c258b683f"></a>
-
-## subnet_name property — ingress_egress_gw_ar.node.outside_subnet.subnet / fb8b7e2b8874 / 4
-
-Type: `"string"`. Computed.
-
-Subnet Name. Name of existing subnet.
-
-Upstream description:
-
-Name of existing subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```
-
-<a id="canonical-07ea6b995a4c28132d4a82863e0ccd738cdf3ba2107341964362420f77db4a6c"></a>
-
-<a id="canonical-8139f4b91a994b904b379189af57f07d589fae214fe50c8f2795ca40d6661abe"></a>
-
-## subnet_resource_grp property — ingress_egress_gw_ar.node.outside_subnet.subnet / fb8b7e2b8874 / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[vnet\_resource\_group\] Specify name of Resource Group.
-
-Upstream description:
-
-Exclusive with \[vnet\_resource\_group\] Specify name of Resource Group.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```
-
-- [vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-0fa8f0ae3fafc41f2f09c97d40476503e477bfa6436d43e35713e54332bbe2d4): complete subsection reference.
-
-<a id="canonical-dded8ccb417329edd96a7f9f0aac805ff3ac6e0d85e480475ac8dea440592b5e"></a>
-
-## Next pages — ingress_egress_gw_ar.node.outside_subnet.subnet / fb8b7e2b8874 / 6
-
-- [ingress_egress_gw_ar.node.outside_subnet.subnet.vnet_resource_group](data-sources--azure_vnet_site--reference--group-006.md#canonical-0fa8f0ae3fafc41f2f09c97d40476503e477bfa6436d43e35713e54332bbe2d4)
-- [ingress_egress_gw_ar.node.outside_subnet](data-sources--azure_vnet_site--reference--group-006.md#canonical-6eb4bbb8a8881bd84845936e87bdcdfab71c34c1f2381c80c4a05e990a714fd8)
-- [xcsh_azure_vnet_site](../data-sources/azure_vnet_site.md#canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934)
-
-<a id="canonical-0fa8f0ae3fafc41f2f09c97d40476503e477bfa6436d43e35713e54332bbe2d4"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

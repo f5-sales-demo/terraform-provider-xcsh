@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_cdn_purge_command li
 
 # xcsh_cdn_purge_command lifecycle
 
-<a id="canonical-f3319a8679df95d813cc6a0822f851b187726880c8aaa536048996eaf6c32c79"></a>
+<a id="canonical-3303030121222012-1321313321113120-0103303012220020-0202332011012301-2013130212202000-3020222222110312-0010202121123222-3312300302301321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-028709633b3c02b7a4fbf071382cc8abc5b030e6b14969a3bcbd3836f44e8ec4"></a>
+<a id="canonical-0002201300211203-0323033000022313-2210332333001301-0320023030202223-3011230003003212-2301102112212203-2330233103200312-3310103220323010"></a>
 
-## Import — Import / ada6f7b42c24 / 2
+## Import — Import / 231002300210 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0b2a857dd2a4345307f28b391793f77c7f11e893b8493fb53ba1965b5e2bf425)
+- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_cdn_purge_command.example system/example
 ```
 
-<a id="canonical-428dadae2c7849e2d31a4c3904dc6e05c99756cbe3f9f81dda77cd0edacdb092"></a>
+<a id="canonical-1002203122312232-0230132010213202-3103012210300321-0010313012320011-3021211311123023-3203332133200131-3122131330310032-3122303123002102"></a>
 
-## Next pages — Import / ada6f7b42c24 / 3
+## Next pages — Import / 231002300210 / 3
 
-- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0b2a857dd2a4345307f28b391793f77c7f11e893b8493fb53ba1965b5e2bf425)
+- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211)
 
-<a id="canonical-13b19cc2b9cf89506b7e83acfcfd7eb70c50670975026bf9f0b60bfef63dfd10"></a>
+<a id="canonical-0103230121303002-2321303320211100-1223133220032230-3330333113322313-0030110012130021-1311000212233321-3300231200233332-3312033133310100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-de51ddfb840f5d8732243be0f0031a9474c2c334460fc5f5564b20407da62ee4"></a>
+<a id="canonical-3132110131313323-2010003311312013-0302021003233200-3300000301222110-1310300230030310-1012003330113311-1112102302001000-1331221202323210"></a>
 
-## Timeouts — Timeouts / 93b8e514186f / 2
+## Timeouts — Timeouts / 011001201233 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0b2a857dd2a4345307f28b391793f77c7f11e893b8493fb53ba1965b5e2bf425)
+- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--cdn_purge_command--reference--group-001.md#canonical-eef4dff2562f1da55e129e79de7875759900b6f01d4d0c312f3576415159f622). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--cdn_purge_command--reference--group-001.md#canonical-3232331031333302-1112023301312211-1132010221321321-3132132013111311-2121000023123300-0131103100300301-0233031113121001-1101112133120202). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-99532e8e72c1865893ec26835ba22c49c360eb64947f8acc0d9addff53ae4b57"></a>
+<a id="canonical-2121110302322032-1302300120121120-2103323002122003-1123220202301021-3003120032231210-2110133320223030-0031212231313333-1103223210231113"></a>
 
-## Next pages — Timeouts / 93b8e514186f / 3
+## Next pages — Timeouts / 011001201233 / 3
 
-- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0b2a857dd2a4345307f28b391793f77c7f11e893b8493fb53ba1965b5e2bf425)
+- [xcsh_cdn_purge_command](../resources/cdn_purge_command.md#canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211)

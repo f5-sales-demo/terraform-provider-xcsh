@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_zone landing."
 
 # xcsh_dns_zone landing
 
-<a id="canonical-02bc847e36c00371c54bc379ac1dbb58c1c0a02c7c78750a8c5190f02a02af5d"></a>
+<a id="canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ab819fba5262c16be6f2ca7295b06b6ed0c0adf9f65a2efe81e319767c12f5b7"></a>
+<a id="canonical-2223200121332322-1102120230011223-3212330230221302-2111230012231232-3100300022313321-3312112202323332-2001320301211312-1330010233112313"></a>
 
-## xcsh_dns_zone — xcsh_dns_zone / 53e427031169 / 2
+## xcsh_dns_zone — xcsh_dns_zone / 000301011221 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed
 Cloud.
 
-<a id="canonical-ae8ca94b5a0f42738a1cf8783a8c65fcee1259c7d5bc3f1076dec53af37d9682"></a>
+<a id="canonical-2232203022211023-1122003310021303-2022013033201320-0322203012113330-3232010211213013-3111233003330100-1312313230110322-3303133121122002"></a>
 
-## Prerequisites — xcsh_dns_zone / 53e427031169 / 3
+## Prerequisites — xcsh_dns_zone / 000301011221 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `dns_load_balancer`.
 
 - dns_load_balancer: Geographic or weighted DNS routing
 
-<a id="canonical-59297d8fd69b1daff8994065860ecfae713a1393f40d4442616ed6dc65db53d5"></a>
+<a id="canonical-1121022113312033-3112212301312233-3320212110001211-2012003230332232-1301032201032103-3310003110101002-1201123231123130-1211312311033111"></a>
 
-## Minimal configuration — xcsh_dns_zone / 53e427031169 / 4
+## Minimal configuration — xcsh_dns_zone / 000301011221 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -79,15 +79,15 @@ output "dns_zone_id" {
 }
 ```
 
-<a id="canonical-75d1ed77fc756d063cb58cdee5d83cdcc9872938da8a2bf3aa65a422d8927d64"></a>
+<a id="canonical-1311310132311313-3330131112310012-0330231120303132-3211312003303130-3021201302210320-3122202202233303-2222121122100202-3120210213311210"></a>
 
-## Root configuration — xcsh_dns_zone / 53e427031169 / 5
+## Root configuration — xcsh_dns_zone / 000301011221 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ff5298a3152eb452f992b1008bd07c580d0beaff17a3705afdc81e684f5af9fd"></a>
+<a id="canonical-3333110221202203-0111023223101102-3321210223010000-2023310013301120-0031002332223333-0113220313001122-3331302001321220-1033112233213331"></a>
 
-## Next pages — xcsh_dns_zone / 53e427031169 / 6
+## Next pages — xcsh_dns_zone / 000301011221 / 6
 
-- [Property reference](../guides/data-sources--dns_zone--reference--group-001.md#canonical-78018855a314933db8c9e2b1edd52e65b80fdeff100fdff7b9f615ac179d2205)
-- [Examples](../guides/data-sources--dns_zone--examples--group-001.md#canonical-17f8d062238fb35a54de166b256b564642f2aadc0f23fe04b8a8b988b597ea70)
+- [Property reference](../guides/data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [Examples](../guides/data-sources--dns_zone--examples--group-001.md#canonical-0113332031001202-0203203323031122-1110313201121223-0211122311121012-1002330222223130-0033020333320010-2320222023212020-2311211332221300)

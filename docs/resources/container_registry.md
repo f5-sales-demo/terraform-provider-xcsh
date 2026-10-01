@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_container_registry l
 
 # xcsh_container_registry landing
 
-<a id="canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe"></a>
+<a id="canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9639f9e7f51de94f94f0ec0f66f70b25fceba00026c613a0c1e7ab9fe08469f0"></a>
+<a id="canonical-2112032133213213-3311013132211033-2110330032300033-1212331300230211-3330322322000000-0212301201032200-3001321322232133-3200201012213300"></a>
 
-## xcsh_container_registry — xcsh_container_registry / d3f97d96b0f2 / 2
+## xcsh_container_registry — xcsh_container_registry / 211223003302 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry
 configuration.
 
-<a id="canonical-6fc0a0d8a103814bd240e66109438b4435a8bb66780d56df5bfff83af7238c73"></a>
+<a id="canonical-1233300022003120-2201000320011023-3102100032121201-0021100320231010-0311222023231212-1320003111123133-1123333333200322-3313020320301303"></a>
 
-## Prerequisites — xcsh_container_registry / d3f97d96b0f2 / 3
+## Prerequisites — xcsh_container_registry / 211223003302 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-e7c94816c408fc9dad469753f1c55d7dd900ad9425f9e4744791cd89095c47f5"></a>
+<a id="canonical-3213302110200112-3010002033302131-2231101221131103-3301301111311331-3121000022312110-0211332132101310-1013210130312021-0021113010133311"></a>
 
-## Minimal configuration — xcsh_container_registry / d3f97d96b0f2 / 4
+## Minimal configuration — xcsh_container_registry / 211223003302 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,17 +62,17 @@ resource "xcsh_container_registry" "example" {
 }
 ```
 
-<a id="canonical-49eb0f54b07df09a7b113de37bd08b3f86074c919f7fd4e3df49aa587029a7c5"></a>
+<a id="canonical-1021322300331110-2300133133002122-1323010103313203-1323310020230333-2012001310302101-2133133331103203-3133102122221120-1300022122133011"></a>
 
-## Root configuration — xcsh_container_registry / d3f97d96b0f2 / 5
+## Root configuration — xcsh_container_registry / 211223003302 / 5
 
 Required root properties: `name`, `namespace`, `registry`, `user_name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-d5b8c00e34e22bacfa55202566000b5b23475075267d900f9f5a21932545e9eb"></a>
+<a id="canonical-3111232030000032-0310320202232230-3322111102000211-1212000000231123-0203101311001311-0212133121000033-2133112202012103-0211101132213223"></a>
 
-## Next pages — xcsh_container_registry / d3f97d96b0f2 / 6
+## Next pages — xcsh_container_registry / 211223003302 / 6
 
-- [Property reference](../guides/resources--container_registry--reference--group-001.md#canonical-4e616e01aa1598e2fc141ba33f7c752da2e7a66e59191d4c102a8adb6557faa3)
-- [Examples](../guides/resources--container_registry--examples--group-001.md#canonical-1e63b61b2b9f3be1491b1d0413dd9d88c1be39585fc6f879c3342853a1ae68f4)
-- [Import](../guides/resources--container_registry--lifecycle--group-001.md#canonical-6edf4058074763fd900a5411e3721e51635c0bbc1e94e2a670af0074386a1d1a)
-- [Timeouts](../guides/resources--container_registry--lifecycle--group-001.md#canonical-b2934a713eac4941a9af207121dadad563b28673bbb4dffd3b32379eb25d1e2c)
+- [Property reference](../guides/resources--container_registry--reference--group-001.md#canonical-1032120112320001-2222011121203202-3330011001232203-0333133013110231-2202321322121232-1121012101311030-0100022220223123-1211111333222203)
+- [Examples](../guides/resources--container_registry--examples--group-001.md#canonical-0132120323120123-0223213303233201-1021012301310010-0103313121312020-3001233203211120-1133301233201321-3003031002201103-2201223212203310)
+- [Import](../guides/resources--container_registry--lifecycle--group-001.md#canonical-1232313310001120-0013101312033331-2100002211100101-3203130201321101-1203113000232330-0132211032022212-1300223300001310-0320122201310122)
+- [Timeouts](../guides/resources--container_registry--lifecycle--group-001.md#canonical-2302210310221301-0332223010211001-2221223302001301-0201312231223111-1203230220121303-2323231031333331-0323030203132132-2302113101320230)

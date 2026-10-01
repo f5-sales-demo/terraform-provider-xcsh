@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_site landing."
 
 # xcsh_site landing
 
-<a id="canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8"></a>
+<a id="canonical-3103121123130212-2311101033212231-0302320211230210-2003212033020122-0110200112201132-1223021030222031-3113123130220130-2002110333013120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1d96a51b99879e8b656ba87f4d6182243bb503488911696fc5f2d257d85980af"></a>
+<a id="canonical-0131211222110123-2121201321322023-1211122322201333-1031120120020210-0323231100031020-2021010112211233-3011330231021113-3120112120002233"></a>
 
-## xcsh_site — xcsh_site / e3babb2bd3fc / 2
+## xcsh_site — xcsh_site / 022331033330 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data
 source)
 
-<a id="canonical-adc0c5ed77cc38fc2d0ca854e76a4fe5852005aba9ef4862d989061e89941668"></a>
+<a id="canonical-2231300030113231-1313303003203330-0231003022201110-3213122210333211-2011020000112223-2221323310201202-3121202100120132-2021211001121220"></a>
 
-## Prerequisites — xcsh_site / e3babb2bd3fc / 3
+## Prerequisites — xcsh_site / 022331033330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `virtual_site`.
 
 - virtual_site: Logical grouping of physical sites
 
-<a id="canonical-84e7e9c8b87a56bc6fc1c9669efb7d4fc13d3fc7a5718a0f37d92cbf419f56a8"></a>
+<a id="canonical-2010321332213020-2320132211122330-1233300130211212-2132332313311033-3001033103333013-2211130120220033-0313312102302333-1001213311122220"></a>
 
-## Minimal configuration — xcsh_site / e3babb2bd3fc / 4
+## Minimal configuration — xcsh_site / 022331033330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,15 +66,15 @@ output "site_id" {
 }
 ```
 
-<a id="canonical-75077b3e28272c881acb1012ad7d314a9c9efb0adfe78176edf9bd138a718b8a"></a>
+<a id="canonical-1311001313230332-0220021302302020-0122302301000102-2231133103011022-2130213233230022-3133321320011312-3231332123310103-2022130120232022"></a>
 
-## Root configuration — xcsh_site / e3babb2bd3fc / 5
+## Root configuration — xcsh_site / 022331033330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-66709d5f6a3d4084599ab9827630827f9a4892b47be226b98c179f1114b99db1"></a>
+<a id="canonical-1212130021311133-1222033110002010-1121212223212002-1312030020021333-2122102021022310-1323320202122321-2030011321330101-0110232121312301"></a>
 
-## Next pages — xcsh_site / e3babb2bd3fc / 6
+## Next pages — xcsh_site / 022331033330 / 6
 
-- [Property reference](../guides/data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
-- [Examples](../guides/data-sources--site--examples--group-001.md#canonical-5dcb0b1f7736d456c2ca9b82b4d4af76c43b08bfe5a9a9e4f3f086ed99c8371a)
+- [Property reference](../guides/data-sources--site--reference--group-001.md#canonical-3311133011300230-0321223031200101-3103113120002330-0012013133321103-2130230313302033-2301110320110320-0033300331010032-0312301003103313)
+- [Examples](../guides/data-sources--site--examples--group-001.md#canonical-1131302300230133-1313031231101112-3002302221232002-2310311022331312-3010032300202333-3211222122213210-3303330020123231-2121302003130122)

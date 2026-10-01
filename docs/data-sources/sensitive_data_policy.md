@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_sensitive_data_polic
 
 # xcsh_sensitive_data_policy landing
 
-<a id="canonical-b99cef409e9dd36f90bead99171d0e4c451e4223833ed625f792b1c61c5daa20"></a>
+<a id="canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-709906cbe4a1fe6268b19fb7a33171016461cdb25077ef134f5a115806428e2b"></a>
+<a id="canonical-1300212100123023-3210220133321202-1220230121332313-2203030113010001-1210120130312302-1100131332330103-1033112201011120-0012100220320223"></a>
 
-## xcsh_sensitive_data_policy — xcsh_sensitive_data_policy / b523e818067f / 2
+## xcsh_sensitive_data_policy — xcsh_sensitive_data_policy / 012000121333 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages sensitive\_data\_policy creates a new object in the storage backend for metadata.namespace
 in F5 Distributed Cloud.
 
-<a id="canonical-16055801940fd64bc7ccf15e3d3cab43537213d782997b61134b6bde819fd263"></a>
+<a id="canonical-0112001111200001-2110003331121023-3013303033011132-0331033022231003-1103130201033113-2002212113231201-0103102312233132-2001213331021203"></a>
 
-## Prerequisites — xcsh_sensitive_data_policy / b523e818067f / 3
+## Prerequisites — xcsh_sensitive_data_policy / 012000121333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-e2c53a6e6643e6586dc79ef1bf02e0d6fa52fc07a7589b4f5851157b494abbd0"></a>
+<a id="canonical-3202301103221232-1212100332121120-1231301321323301-2333000232003112-3322110233300013-2213112021231033-1120110101111323-1021102223233100"></a>
 
-## Minimal configuration — xcsh_sensitive_data_policy / b523e818067f / 4
+## Minimal configuration — xcsh_sensitive_data_policy / 012000121333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +62,15 @@ output "sensitive_data_policy_id" {
 }
 ```
 
-<a id="canonical-72f2a5f9af268c1a7e8a44d96814a7bc13ea02f258a1146a445b0f93bb33cb98"></a>
+<a id="canonical-1302330222113321-2233021220300122-1332202210103121-1220011022132330-0103322200023302-1120220101101222-1010112300332103-2323030330232120"></a>
 
-## Root configuration — xcsh_sensitive_data_policy / b523e818067f / 5
+## Root configuration — xcsh_sensitive_data_policy / 012000121333 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-edfbb7e8041ac080e72286e82fc51ac2b3897d8861ecc4330df2c3b6b100837f"></a>
+<a id="canonical-3231332323133220-0010012230002000-3213020220123220-0233301101223002-2303202113312020-1201323030100303-0031330230032312-2301000020031333"></a>
 
-## Next pages — xcsh_sensitive_data_policy / b523e818067f / 6
+## Next pages — xcsh_sensitive_data_policy / 012000121333 / 6
 
-- [Property reference](../guides/data-sources--sensitive_data_policy--reference--group-001.md#canonical-86a29b3194d50ff67495d3075172b43382c2563aef377018db9add9b0f5caf8f)
-- [Examples](../guides/data-sources--sensitive_data_policy--examples--group-001.md#canonical-dc5a4d74e8b698d6a613694d8df01710e3f8a93a09db35642dad8f6088734943)
+- [Property reference](../guides/data-sources--sensitive_data_policy--reference--group-001.md#canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033)
+- [Examples](../guides/data-sources--sensitive_data_policy--examples--group-001.md#canonical-3130112210311310-3220231221203112-2212010312211031-2031330001130100-3203332022210322-0021312303111210-0231223120331200-2020130310211003)

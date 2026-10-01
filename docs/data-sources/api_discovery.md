@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_api_discovery landin
 
 # xcsh_api_discovery landing
 
-<a id="canonical-dbc9e0c75609c449fddf4d0cc2b1bfe4578e8f7f1db459cd2588b04a7a86f2a8"></a>
+<a id="canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5801c6442584df6e1079a510ea4409dc8d00b375ce279c0538f6281474a8c8e"></a>
+<a id="canonical-2211200001301210-1002112010313312-3201001321221101-0032221010002131-3020310000230313-1130320213213000-1103203312022001-1013102220302032"></a>
 
-## xcsh_api_discovery — xcsh_api_discovery / 9ec7404ebd4a / 2
+## xcsh_api_discovery — xcsh_api_discovery / 103223311022 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages API discovery creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-9b4f8ef3e0db3c498de7c9b195c5d0b412a32f8834ffe00731edcc49fd57f9c2"></a>
+<a id="canonical-2123103320323303-3200312303301021-2031321330212301-2111301131002310-0102220302332020-0310333332000013-0301323130301021-3331111333213002"></a>
 
-## Prerequisites — xcsh_api_discovery / 9ec7404ebd4a / 3
+## Prerequisites — xcsh_api_discovery / 103223311022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-a5ae7d6b0fbd9758c6f8aff068d12ab50d0b81af02a04707c8ef5f69e1e53a58"></a>
+<a id="canonical-2211223213311223-0033233121131120-3012332022333300-1220310102222311-0031002320012233-0002220010130013-3020323311331221-3201321103221120"></a>
 
-## Minimal configuration — xcsh_api_discovery / 9ec7404ebd4a / 4
+## Minimal configuration — xcsh_api_discovery / 103223311022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "api_discovery_id" {
 }
 ```
 
-<a id="canonical-6f76c9e0cd1465770145c4f867e34fb9861364a9806ec4f4dc198e05a128b1ea"></a>
+<a id="canonical-1233131230213200-3031011012111313-0001101130103320-1213320310332321-2012010312102221-2000123230103310-3130012120320011-2201022023013222"></a>
 
-## Root configuration — xcsh_api_discovery / 9ec7404ebd4a / 5
+## Root configuration — xcsh_api_discovery / 103223311022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-054e2641c023519dbc7a3da7d5af25bf36968e80fbe8ca27cf97972bdc9a914e"></a>
+<a id="canonical-0011103202121001-3000020311012131-2330132203312213-3111223302112333-0312211220322000-3323322030220213-3033211321130223-3130212221011032"></a>
 
-## Next pages — xcsh_api_discovery / 9ec7404ebd4a / 6
+## Next pages — xcsh_api_discovery / 103223311022 / 6
 
-- [Property reference](../guides/data-sources--api_discovery--reference--group-001.md#canonical-1f0ff0303fc3ca83f14ad6309047cfbe032c19f845366b31dfa90ad8354282f4)
-- [Examples](../guides/data-sources--api_discovery--examples--group-001.md#canonical-f19e1d4dd41f135517981f417fb0513dc02fa573b8a6f2bd5378f259eec47ed7)
+- [Property reference](../guides/data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [Examples](../guides/data-sources--api_discovery--examples--group-001.md#canonical-3301213201311031-3110013301031111-0113212001331001-1333230011010331-3000023322111303-2320221233022331-1103132033021121-3232301013323113)

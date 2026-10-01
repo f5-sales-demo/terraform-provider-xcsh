@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_registration landing
 
 # xcsh_registration landing
 
-<a id="canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1"></a>
+<a id="canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4bef301e08a9664e0930eef5d62840ba40fb31d94a46fa39f2e63603e00071c1"></a>
+<a id="canonical-1023323303000132-0020222112121032-0021030032323311-3112022010002322-1000332303013121-1022101233220321-3302321203120003-3200000013013001"></a>
 
-## xcsh_registration — xcsh_registration / ec73786d331a / 2
+## xcsh_registration — xcsh_registration / 123103030122 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Registration resource in F5 Distributed Cloud for vpm creates registration using this
 message, never used by users. configuration.
 
-<a id="canonical-53901e7ac1f8a9ea94da9a15cbae1c7e7c23d2eeaca7a9b0b958dbd9b4e24ede"></a>
+<a id="canonical-1103210001321322-3001332022213222-2110312221220111-3023223201301332-1330020331023232-2230221322212300-2321112031233121-2310320210323132"></a>
 
-## Prerequisites — xcsh_registration / ec73786d331a / 3
+## Prerequisites — xcsh_registration / 123103030122 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-caefeda44a5d3c6228c82a43b82be2436b1847a49df5969064c4b9539bdb1c4c"></a>
+<a id="canonical-3022323332312210-1022113103301202-0220302002221003-2320022332021003-1223012010132210-2131331121122100-1210301023211103-2123312301301030"></a>
 
-## Minimal configuration — xcsh_registration / ec73786d331a / 4
+## Minimal configuration — xcsh_registration / 123103030122 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "registration_id" {
 }
 ```
 
-<a id="canonical-c159c17d3f0042561f6fc9a91468ad358d693cfd2d5291eef93ea4ab1ba443c4"></a>
+<a id="canonical-3001112130011331-0333000010021112-0133123330212221-0110122022310311-2031122103303331-0231110221013232-3321033222102223-0123221010033010"></a>
 
-## Root configuration — xcsh_registration / ec73786d331a / 5
+## Root configuration — xcsh_registration / 123103030122 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3df3cb2de0727668a0d7fa825c6abd816c71fd00789e3bc367cd562406e5dfe7"></a>
+<a id="canonical-0331330330230231-3200130213121220-2200311333222002-1130122223312001-1230130133310000-1320213203233003-1213303111120210-0012321131333213"></a>
 
-## Next pages — xcsh_registration / ec73786d331a / 6
+## Next pages — xcsh_registration / 123103030122 / 6
 
-- [Property reference](../guides/data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
-- [Examples](../guides/data-sources--registration--examples--group-001.md#canonical-308dd2706c143d052513a67a5ad0066da2434e408835e3cde8ea716d8d0bf9f7)
+- [Property reference](../guides/data-sources--registration--reference--group-001.md#canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012)
+- [Examples](../guides/data-sources--registration--examples--group-001.md#canonical-0300203131021300-1230011003310011-0211010322121322-1122310000121231-2202100310321000-2020031132033031-3220322213011231-2031002333213313)

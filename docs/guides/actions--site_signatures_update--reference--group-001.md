@@ -6,58 +6,58 @@ description: "Complete grouped canonical reference for xcsh_site_signatures_upda
 
 # xcsh_site_signatures_update reference
 
-<a id="canonical-93d629fdfa3cd299d906173b156c98b1b70aa3c0bfa0665fac781e3cef9f1ce2"></a>
+<a id="canonical-2103311202213331-3322033031022121-3121001201130323-0111123021202301-2313002222033000-2333220012121133-2230132001320330-3233213301303202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b20a6505b1ffac9585483afefdd399f1a06301c9a3c7d62792af69e323544ea9"></a>
+<a id="canonical-2302002212110011-2301333322302111-2011102003223332-3331310321213301-2200120300013021-2203301331120213-2102223312213203-0203111010322221"></a>
 
-## Property reference — Property reference / a91f2dc8e369 / 2
+## Property reference — Property reference / 302032031221 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_signatures_update](../actions/site_signatures_update.md#canonical-997cfc6e0541d9b7078c9e8c892fe43f791342c6fe0d09cd7f128fc478b34edf)
+- [xcsh_site_signatures_update](../actions/site_signatures_update.md#canonical-2121133033301232-0011100131212313-0013203021322030-2021023332100333-1321010310023012-3332003100213031-1333010220333010-1320230310323133)
 - Property reference
 
-<a id="canonical-1bc103caacadc32327bd5acb34899f759ae0443dd516ec068b3a8b1ecfaef918"></a>
+<a id="canonical-0123300100033022-2230223130030203-0213233111223023-0310202121331311-2122320010100331-3111011232300012-2023032220230132-3033223233210120"></a>
 
-## Direct properties — Property reference / a91f2dc8e369 / 3
+## Direct properties — Property reference / 302032031221 / 3
 
-<a id="canonical-350c6398cccfa867d72c8134c3404ccfa767b5956eba29392e327487e71dece4"></a>
+<a id="canonical-0311003012032120-3030303322201213-3113023020010310-3003100010303033-2213121323112111-1232232202210321-0232030213102013-3213013132303210"></a>
 
-<a id="canonical-ea727518d975895a57ba98948793620da59a2ff84e9c34536feff51c668e0bb0"></a>
+<a id="canonical-3222130213110120-3121131120211122-1113232221202110-2013210312020031-2211212202333320-1032213003101103-1233323333110130-1212203200232300"></a>
 
-## namespace property — Property reference / a91f2dc8e369 / 4
+## namespace property — Property reference / 302032031221 / 4
 
 Type: `"string"`. Required.
 
 Namespace Namespace of the site to update signatures for.
 
-<a id="canonical-e4ac627445800871c47b477cd7fbc66ed577d0fab5d11c87a034bf28baf20c55"></a>
+<a id="canonical-3210223012021310-1011200000201301-3010132310131330-3113332330121232-3111131331003322-2311310101302013-2200031023330220-2322330200301111"></a>
 
-<a id="canonical-94370a394e7a79eeb85c21613d3ae2c1c29f6e38c2e1b46efed5f6601df02620"></a>
+<a id="canonical-2110031300220321-1032132213213232-2320113002011201-0331032232023001-3002213312320320-3002320123101232-3332311133121200-0131330002120200"></a>
 
-## site_names property — Property reference / a91f2dc8e369 / 5
+## site_names property — Property reference / 302032031221 / 5
 
 Type: `["list", "string"]`. Optional.
 
 List of site names to update. If empty, no sites will be updated.
 
-<a id="canonical-5f8331ce0419da18a26bb97fe282a69c4e103ef8ed2c60ac3efc2b2802bd62fa"></a>
+<a id="canonical-1133200303013032-0010012131220120-2202122323211333-3202200222122130-1032010003323320-3231023012002230-0332333002230220-0002233112023322"></a>
 
-## All schema paths — Property reference / a91f2dc8e369 / 6
+## All schema paths — Property reference / 302032031221 / 6
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `namespace` | [namespace](actions--site_signatures_update--reference--group-001.md#canonical-350c6398cccfa867d72c8134c3404ccfa767b5956eba29392e327487e71dece4) |
-| `site_names` | [site_names](actions--site_signatures_update--reference--group-001.md#canonical-e4ac627445800871c47b477cd7fbc66ed577d0fab5d11c87a034bf28baf20c55) |
+| `namespace` | [namespace](actions--site_signatures_update--reference--group-001.md#canonical-0311003012032120-3030303322201213-3113023020010310-3003100010303033-2213121323112111-1232232202210321-0232030213102013-3213013132303210) |
+| `site_names` | [site_names](actions--site_signatures_update--reference--group-001.md#canonical-3210223012021310-1011200000201301-3010132310131330-3113332330121232-3111131331003322-2311310101302013-2200031023330220-2322330200301111) |
 
-<a id="canonical-ee9360ea9bd09f8d62d870f88926478da7f0d02a4133848eaee90c3b3bc27cc5"></a>
+<a id="canonical-3232210312003222-2123310021332031-1202312013003320-2021021210132031-2213330031000222-1001030320102032-2232322100300323-0323300213303011"></a>
 
-## Next pages — Property reference / a91f2dc8e369 / 7
+## Next pages — Property reference / 302032031221 / 7
 
-- [xcsh_site_signatures_update](../actions/site_signatures_update.md#canonical-997cfc6e0541d9b7078c9e8c892fe43f791342c6fe0d09cd7f128fc478b34edf)
+- [xcsh_site_signatures_update](../actions/site_signatures_update.md#canonical-2121133033301232-0011100131212313-0013203021322030-2021023332100333-1321010310023012-3332003100213031-1333010220333010-1320230310323133)

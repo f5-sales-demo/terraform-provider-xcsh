@@ -6,18 +6,484 @@ description: "Complete grouped canonical reference for xcsh_aws_vpc_site referen
 
 # xcsh_aws_vpc_site reference
 
-<a id="canonical-f84f3a0c5590124a7cc539e873d270d1f0206f2498e27428b2ab0caf8869ed38"></a>
+<a id="canonical-3211301123013230-1203100031000122-0010122022200233-1330333120230032-1003331230202031-1023231102032131-1033223103313012-0011222111120033"></a>
 
-## ingress_egress_gw.inside_static_routes — ingress_egress_gw.inside_static_routes / ab2cb62ca34d / 2
+## namespace property — global_vn / 321213021022 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1113222021111113-3102303102131233-0200300331120030-1113030321333030-1303031101130202-0120301021322020-1331320020320230-1030100330211311"></a>
+
+<a id="canonical-3010313113132302-3212112121311212-2133332101310002-1212301030200303-1212131023010110-3230302122211212-0322301003131213-0312022100223122"></a>
+
+## tenant property — global_vn / 321213021022 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3013112312221313-3033033301313310-3233111030102003-2202322003222310-3310200333301121-1020330201210230-2213001331330032-3222232010210111"></a>
+
+## Next pages — global_vn / 321213021022 / 7
+
+- [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_vpc_site--reference--group-002.md#canonical-2210203120222300-0302312202231103-0301231011130312-3010133212000303-0030212033332212-3133000122020130-2302222112203213-3111200230232232)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+
+<a id="canonical-3333112200022311-2133223212010101-3230211221110023-3121110323000232-2133113222312032-0100112123230121-0030203222120223-0322323111333131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2123012011321320-3100032012010232-0320022111130202-2320000101200210-1201203110130310-1231311210002320-0020330001333302-0232103010033202"></a>
+
+## ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr — slo_to_global_dr / 330301203122 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.global_network_list](resources--aws_vpc_site--reference--group-002.md#canonical-0110112001213332-2233201102333212-1321232102201102-3213031203300330-1210310211301200-3133010302300211-1313222203301301-0033103200013221)
+- [ingress_egress_gw.global_network_list.global_network_connections](resources--aws_vpc_site--reference--group-002.md#canonical-3333302222033232-1233003332200333-3010013003100320-2301133331212231-2202321233313221-1031311123033011-1031232031331103-3022132100300121)
+- ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr
+
+<a id="canonical-1201302112113130-3321213332021112-3031103301023000-1023320011311021-2230331230203120-3211322130132001-2131101312002300-3113001033110121"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Global network reference for direct connection.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+slo_to_global_dr {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3313132300033222-1202312133123313-3001321220102132-0313121201212220-0021101133313030-0331100123131232-3331220330231322-2322333311020232"></a>
+
+## Direct properties — slo_to_global_dr / 330301203122 / 3
+
+- [global_vn](resources--aws_vpc_site--reference--group-003.md#canonical-3122332101100020-0213310100310111-3213313231301122-3131221313111020-0133212322101312-2332202230332300-1312231011003131-0331030111023031): complete subsection reference.
+
+<a id="canonical-0300022131020003-0223223032312032-0313131301321110-2130020002321103-1221032333201003-3021312103121120-2100300120301323-3310333333021332"></a>
+
+## Next pages — slo_to_global_dr / 330301203122 / 4
+
+- [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--aws_vpc_site--reference--group-003.md#canonical-3122332101100020-0213310100310111-3213313231301122-3131221313111020-0133212322101312-2332202230332300-1312231011003131-0331030111023031)
+- [ingress_egress_gw.global_network_list.global_network_connections](resources--aws_vpc_site--reference--group-002.md#canonical-3333302222033232-1233003332200333-3010013003100320-2301133331212231-2202321233313221-1031311123033011-1031232031331103-3022132100300121)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+
+<a id="canonical-3122332101100020-0213310100310111-3213313231301122-3131221313111020-0133212322101312-2332202230332300-1312231011003131-0331030111023031"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3130022012011030-1123203321000303-1121303133221302-2201021223123023-0122110323323130-1113112230230102-2300003012100022-3011022103330221"></a>
+
+## ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn — global_vn / 133323211201 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.global_network_list](resources--aws_vpc_site--reference--group-002.md#canonical-0110112001213332-2233201102333212-1321232102201102-3213031203300330-1210310211301200-3133010302300211-1313222203301301-0033103200013221)
+- [ingress_egress_gw.global_network_list.global_network_connections](resources--aws_vpc_site--reference--group-002.md#canonical-3333302222033232-1233003332200333-3010013003100320-2301133331212231-2202321233313221-1031311123033011-1031232031331103-3022132100300121)
+- [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_vpc_site--reference--group-003.md#canonical-3333112200022311-2133223212010101-3230211221110023-3121110323000232-2133113222312032-0100112123230121-0030203222120223-0322323111333131)
+- ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn
+
+<a id="canonical-2013321103011120-0232123132221100-1031303132213121-0201221230302330-1220012010030213-2313222101213222-0022010113110103-2203301210122010"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+global_vn {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1102121310032112-2321302203213330-2213030332212213-2230323213212230-2122321130100200-2231213111122023-1323030121001323-1000033130103300"></a>
+
+## Direct properties — global_vn / 133323211201 / 3
+
+<a id="canonical-0210120203320230-0020321300330230-1130300331033100-0001211131201301-1200122231320012-1313302031102031-3000203331210132-3021101230103011"></a>
+
+<a id="canonical-1333022322000223-2022101313130302-0111310000303211-2003200303120310-0201203203230331-0120121102332320-0332001302023330-0302000022013302"></a>
+
+## name property — global_vn / 133323211201 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-3222202120220213-1221312102222323-3000201222323101-0022221000023001-3210300002003233-2020200020112231-3312313222200133-3010312321001001"></a>
+
+<a id="canonical-3131322200213313-1213130131333001-3033030200013123-0232322211011222-0200203231130012-3332322122030302-0333013223313132-0303200331302123"></a>
+
+## namespace property — global_vn / 133323211201 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1011110031000132-1201333210033132-1103332233301032-0020232033232313-0221323212331132-3102133323230032-2103310323203233-0103310102202012"></a>
+
+<a id="canonical-2213303231220303-2001233000102032-1022220133330331-1113001122020331-2022210000120303-1220033131323120-2123032321211310-1110110333132013"></a>
+
+## tenant property — global_vn / 133323211201 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0333122220121230-3330211330223301-3101233233233200-1032322213101213-0303330321331100-3131122211122133-0120113031112101-0031111021220320"></a>
+
+## Next pages — global_vn / 133323211201 / 7
+
+- [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_vpc_site--reference--group-003.md#canonical-3333112200022311-2133223212010101-3230211221110023-3121110323000232-2133113222312032-0100112123230121-0030203222120223-0322323111333131)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+
+<a id="canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3320103303220030-1111210001021022-1330301103213220-1303310213003101-3300020012330210-2120320213100220-2302222300302233-2020122132310320"></a>
+
+## ingress_egress_gw.inside_static_routes — inside_static_routes / 023022031031 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.inside_static_routes
 
-<a id="canonical-a5606b1c89d944d06ecaabc8f41092a81119f5574f205b165cd6b225c2e23f5f"></a>
+<a id="canonical-2211120012230130-2021312110103100-1232302222233020-3310010021022220-0101012133111113-1033020011230112-1130311223020211-3002320203331133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -54,39 +520,39 @@ inside_static_routes {
 }
 ```
 
-<a id="canonical-01ba29a8fb719c6c21e1b67674a9189986a28ca2130f2e140fdca03530669468"></a>
+<a id="canonical-0001232202212220-3323130121301230-0201320123121312-1310222101202121-2012220220302202-0103003302320110-0033313022000311-0300121221101220"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes / ab2cb62ca34d / 3
+## Direct properties — inside_static_routes / 023022031031 / 3
 
-- [static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd): complete subsection reference.
+- [static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331): complete subsection reference.
 
-<a id="canonical-f963d7b4b7970ab65df99b05035637920653395a352c486c8bd27f6724094292"></a>
+<a id="canonical-3321120331132310-2313211300222312-1131332121230011-0003111203132102-0012110303211122-0311023010201230-2023310213331213-0210002110022102"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes / ab2cb62ca34d / 4
+## Next pages — inside_static_routes / 023022031031 / 4
 
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd"></a>
+<a id="canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c8540172e5bef14ded1b08c80b065b2e347d686a643e29132e1a1229819276d"></a>
+<a id="canonical-0030201110000113-0232112332330110-3132310123002030-2000230012112302-3203101331122012-2212100332022101-0302320122010202-2120012102131231"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list — ingress_egress_gw.inside_static_routes.static_route_list / b6900f8c91dd / 2
+## ingress_egress_gw.inside_static_routes.static_route_list — static_route_list / 203021013131 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
 - ingress_egress_gw.inside_static_routes.static_route_list
 
-<a id="canonical-c50d100519e47b3228832b654ea4551c1587ac15cb708723e4c481a9a114a90e"></a>
+<a id="canonical-3011003101000011-0121321013230302-0220200302231211-1032221011110130-0111201322300111-3023130020130203-3210301020012221-2201011022210032"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -148,17 +614,17 @@ static_route_list {
 }
 ```
 
-<a id="canonical-87e63ddfc228ab3a5d6d09a0c131f685b8c95df0097ebf16886e659a42c37313"></a>
+<a id="canonical-2013321203313133-3002022022230322-1131123100212200-3001030133122011-2320302111313300-0021133223330112-2020123212112122-1002300313030103"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list / b6900f8c91dd / 3
+## Direct properties — static_route_list / 203021013131 / 3
 
-- [custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82): complete subsection reference.
+- [custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002): complete subsection reference.
 
-<a id="canonical-bb87f072a634453a021eac7bb787dc033adbc3a0847ce10d031f96cc5e65469f"></a>
+<a id="canonical-2323201333001302-2212031010110322-0002013222301323-2313201331300003-0322312330032200-2010133032010031-0003013321123030-1132121110122133"></a>
 
-<a id="canonical-3b61b07af2b7bc7b79a866c4f8fcce178202a157d7b5bfa2617429c89bd3bd0f"></a>
+<a id="canonical-0323120123001322-3302231323301323-1321222012123010-3320333030320113-2002000222011113-3113231123332202-1201131002213020-2123310323310033"></a>
 
-## simple_static_route property — ingress_egress_gw.inside_static_routes.static_route_list / b6900f8c91dd / 4
+## simple_static_route property — static_route_list / 203021013131 / 4
 
 Type: `"string"`. Optional.
 
@@ -199,34 +665,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af54c1fc121fe8ac627a25761fb76d90ef6acbc3cae8730cd4a0fe488f7909c1"></a>
+<a id="canonical-2233111030013330-0102013332202230-1202132202111312-0133231312312100-3233122230233003-3022322013030030-3110220033321020-2033132100213001"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list / b6900f8c91dd / 5
+## Next pages — static_route_list / 203021013131 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82"></a>
+<a id="canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-275dffd4d26f420ed1671bd34f7099c1de7d890f73a9e5e11dacab9a43c42a9e"></a>
+<a id="canonical-0213113133333110-3102123310020032-3101121301233103-1033130021213001-3132133120210033-1303222132113201-0131223022232122-1003301002222132"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route / 29c3423ad75c / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route — custom_static_route / 032231131130 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route
 
-<a id="canonical-6cc64cebefac3bf9ac7eaeff2ae84b123b49472482c4827c4aa3b84e0f97cbed"></a>
+<a id="canonical-1230301210303223-3233223003233321-2230133222323333-0222322010230102-0323102110130210-2002301020021330-1022220323201032-0033211330233231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -259,15 +725,15 @@ custom_static_route {
 }
 ```
 
-<a id="canonical-9093d2c4c001c52eea2aa98e3280881cf7ee1648fb61cdf65cd71542438d158e"></a>
+<a id="canonical-2100210331023010-3000000130110232-3222022222212032-0302200020200130-3313323201121020-3323120130313312-1130311301111002-1003203101112032"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route / 29c3423ad75c / 3
+## Direct properties — custom_static_route / 032231131130 / 3
 
-<a id="canonical-71e910f387a21fa1ce9a2c1bdcef21f6c772f644ffd1938c7b6acb819f46067e"></a>
+<a id="canonical-1301322101003303-2013220201332201-3032212202300123-3130323302013312-3013130233121010-3333310121032030-1323122230232001-2133101200121332"></a>
 
-<a id="canonical-66650e16edb6d0cbdf6f969bfc2c1861cf20fe728f40c07c93bbd91785c02632"></a>
+<a id="canonical-1212121100320112-3231231231003023-3133123321122123-3330023001201201-3033020033321302-2033100030001330-2103232331210113-2011300002120302"></a>
 
-## attrs property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route / 29c3423ad75c / 4
+## attrs property — custom_static_route / 032231131130 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -321,43 +787,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [labels](resources--aws_vpc_site--reference--group-003.md#canonical-f62f059e8e7bcfc4da90bfa6f931d283a3d3216143e3297b8184f7db6de96817): complete subsection reference.
+- [labels](resources--aws_vpc_site--reference--group-003.md#canonical-3312023300112132-2032132330333010-3122210023332212-3321030131022003-2203310302011201-1003320302211323-2001201033133123-1231322112200113): complete subsection reference.
 
-- [nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f): complete subsection reference.
+- [nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033): complete subsection reference.
 
-- [subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a): complete subsection reference.
+- [subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122): complete subsection reference.
 
-<a id="canonical-bc9ede9b03616bc13dfb311039418ebc449859cedd95666a22ebebd79553521f"></a>
+<a id="canonical-2330213231322123-0003120112233001-0331332303010100-0321100120322330-1010212011213032-3131211112121222-0202322332233113-2111110311020133"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route / 29c3423ad75c / 5
+## Next pages — custom_static_route / 032231131130 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels](resources--aws_vpc_site--reference--group-003.md#canonical-f62f059e8e7bcfc4da90bfa6f931d283a3d3216143e3297b8184f7db6de96817)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels](resources--aws_vpc_site--reference--group-003.md#canonical-3312023300112132-2032132330333010-3122210023332212-3321030131022003-2203310302011201-1003320302211323-2001201033133123-1231322112200113)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-f62f059e8e7bcfc4da90bfa6f931d283a3d3216143e3297b8184f7db6de96817"></a>
+<a id="canonical-3312023300112132-2032132330333010-3122210023332212-3321030131022003-2203310302011201-1003320302211323-2001201033133123-1231322112200113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dde7d741a1dcda1e1b4a762b20d37a6cdfb350db306602ea279d943cb7cc6f63"></a>
+<a id="canonical-3131321331131001-2201313031220132-0123102213120223-0200310313221230-3133230311003123-0300121200023222-0213213121100330-2313303012331203"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.lab / edb17568b8ab / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels — labels / 122023202223 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.labels
 
-<a id="canonical-99ad057a07128bf1a92c30779bf02d1ee2676e7ff763569612e330d40ef440fb"></a>
+<a id="canonical-2121223100111322-0013010220233301-2221023003001313-2123330002310132-3202121312321333-3313120311122112-0102320303003110-0032331010003323"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -382,40 +848,40 @@ Terraform syntax:
 labels {}
 ```
 
-<a id="canonical-11167bd4266ce4ad032812d8c8c8f0726a9da2ca4275e5006d4e9d9324d08c21"></a>
+<a id="canonical-0101011213233110-0212123032102231-0003022001023120-3020302033001302-1222213122023022-1002131132110000-1231103221312103-0210310020300201"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.lab / edb17568b8ab / 3
+## Direct properties — labels / 122023202223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-277e9ce7f6932286c4f83963a12774395c4c0be0a360497b7a90b80429b03a7c"></a>
+<a id="canonical-0213133221303213-3312210302022012-3010332003211203-2201021313100321-1130103000233200-2203120010211323-1322210023200010-0221230003221330"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.lab / edb17568b8ab / 4
+## Next pages — labels / 122023202223 / 4
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f"></a>
+<a id="canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e45a5c6ade93122ec75b54917200d0056fcd1c47e8181c93cd6181e2ec0dac0a"></a>
+<a id="canonical-3210112211301222-3132210301020232-3013112311102101-1302000031000011-1233303101301013-3220012001302103-3031120120013202-3230003122300022"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e82cfec317c4 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 300301133010 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop
 
-<a id="canonical-182bd0bee04b6a9e71c7b729458084e59a6192bf956686d79576fd4cbe151961"></a>
+<a id="canonical-0120022331002332-3200102312222132-1301301323130221-1011200020103211-2122120121022333-2111121220123113-2111131233311030-2332011101211201"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -446,19 +912,19 @@ nexthop {
 }
 ```
 
-<a id="canonical-bf6a128b5588f5f16b0e4a8f78fac62853def8966e1db67f4f1226677d5a3aca"></a>
+<a id="canonical-2333122201022023-1111202033113301-1223003210222033-1320332230120220-1103313233202112-1232013123121333-1033010202121213-1331112203223022"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e82cfec317c4 / 3
+## Direct properties — nexthop / 300301133010 / 3
 
-- [interface](resources--aws_vpc_site--reference--group-003.md#canonical-f77584c013fcfdd39d8d289502aa0688e910dbcf95ac7a6a2c8c1e4210f5734b): complete subsection reference.
+- [interface](resources--aws_vpc_site--reference--group-003.md#canonical-3313131120103000-0103333033313103-2131203102202111-0002222200122020-3221010031233033-2111223013221222-0230203001321002-0100331113031023): complete subsection reference.
 
-- [nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976): complete subsection reference.
+- [nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312): complete subsection reference.
 
-<a id="canonical-7b56a56c928bb2775179dbb8b1aca9eb1a1b731e9252feb3075645fe349b301d"></a>
+<a id="canonical-1323111222111230-2102202323021313-1101132131232320-2301223022213223-0122012313030132-2102110233322303-0013111210113332-0310212303000131"></a>
 
-<a id="canonical-b15aba85472b2939c3ce72adf98d84c161c8248259a14407a8f17b878e6499f4"></a>
+<a id="canonical-2301112223222011-1013022302210321-3003303213022231-3321203120103001-1201302002102002-1121220110100013-2220330113232013-2032121021213310"></a>
 
-## type property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e82cfec317c4 / 4
+## type property — nexthop / 300301133010 / 4
 
 Type: `"string"`. Optional.
 
@@ -506,37 +972,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-da41084db9934e79fa5e19214a10d71b76650ef6a768305c55360deb20e9b9c0"></a>
+<a id="canonical-3122100100201031-2321210310321321-3322113201210201-1022010031130123-1312121100323312-2213122003001130-1111031200313223-0200322123213000"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e82cfec317c4 / 5
+## Next pages — nexthop / 300301133010 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_vpc_site--reference--group-003.md#canonical-f77584c013fcfdd39d8d289502aa0688e910dbcf95ac7a6a2c8c1e4210f5734b)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_vpc_site--reference--group-003.md#canonical-3313131120103000-0103333033313103-2131203102202111-0002222200122020-3221010031233033-2111223013221222-0230203001321002-0100331113031023)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-f77584c013fcfdd39d8d289502aa0688e910dbcf95ac7a6a2c8c1e4210f5734b"></a>
+<a id="canonical-3313131120103000-0103333033313103-2131203102202111-0002222200122020-3221010031233033-2111223013221222-0230203001321002-0100331113031023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e576aec3d69478fe1de030df05d0169eb65ab9c87a93b2fd512897f7565c6ce2"></a>
+<a id="canonical-3211131222323003-3112211013203332-0131320003003133-0011310001122132-2312112223213020-1322210323023331-1101022021133313-1112113012303202"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 133320300203 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.interface
 
-<a id="canonical-ee4805351a57f430acd51e1d18019899709fcd74843ba8446ddc9d260ded627f"></a>
+<a id="canonical-3232102000110311-0122111333100300-2230311101320131-0120000121202121-1300213330311310-2010032322201010-1231313021310212-0031323112021333"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -585,15 +1051,15 @@ interface {
 }
 ```
 
-<a id="canonical-68c4ec3f8df81961624fda38a979f6cf51982f18a69a79f32aa3ff013804d64a"></a>
+<a id="canonical-1220301032300333-2031332001211201-1202103331220320-2221132133123033-1101212002330120-2212212213213303-0222220333330001-0320001031121022"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 3
+## Direct properties — interface / 133320300203 / 3
 
-<a id="canonical-67f8cd4c959a9f8da0883bd05d6509d8101185f64a79d9a91c2e8f20857ef910"></a>
+<a id="canonical-1213332030311030-2111212221332031-2200202003233100-1131121100213120-0100010120113312-1022132131212221-0130023220330200-2011133233210100"></a>
 
-<a id="canonical-95e8a580b5f2ab83e10f9b542deb606bb32dcf0649d64b45a2730b916a862b82"></a>
+<a id="canonical-2111322022112000-2311330222232003-3201003321231110-0231322312001223-2303023130330012-1021311210231011-2202130300232101-1222201202232002"></a>
 
-## kind property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 4
+## kind property — interface / 133320300203 / 4
 
 Type: `"string"`. Computed.
 
@@ -628,11 +1094,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bd079428cf3085f25be045f04ef3761b51220c969e0d97d785374525a8f75e07"></a>
+<a id="canonical-2331001321100220-3033030020113302-1123320010113300-1032330313120123-1101020200302112-2132003121133113-2011031310110211-2220331311320013"></a>
 
-<a id="canonical-6ffb5c5b3643cd337c943e309cff18728feb25007406ce9551d780521d40e7bd"></a>
+<a id="canonical-1233332311301123-0312100330310303-1330211003320300-2130333301201302-2033322302110000-1310001230322111-1101311320001102-0131100032132331"></a>
 
-## name property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 5
+## name property — interface / 133320300203 / 5
 
 Type: `"string"`. Optional.
 
@@ -667,11 +1133,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bcdf9c7bcbdf4ac7e1ac9c3c1093ca743b31fc9ee554864186909c0dee29a897"></a>
+<a id="canonical-2330313321301323-3023313310223013-3201223021300330-0100210330221310-0323030133302132-3211111020121001-2012210021300031-3232022122202113"></a>
 
-<a id="canonical-2c2ac4f67239c30db9c23d314a9978e44740c3287c8d5c57e968dcc2f5087a6e"></a>
+<a id="canonical-0230022230103312-1302032130030031-2321300203310301-1022212113203210-1013100030030220-1330203111301113-3221122031303002-3311002013221232"></a>
 
-## namespace property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 6
+## namespace property — interface / 133320300203 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -731,11 +1197,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-162708a0a727c1351244d41d16ffa804979c98eea50894236870bcaf395291d5"></a>
+<a id="canonical-0112021300202200-2213021330010311-0102101031100131-0112333322200010-2113213021203232-2211002021100203-1220130023302233-0321110221013111"></a>
 
-<a id="canonical-4db266e43e037a43180bc9a00fe6ceb4e1ebd7344361792fd37b85bf074e886e"></a>
+<a id="canonical-1031230212123210-0332000313221003-0120002330212200-0033321230322310-3201322331130310-1003120113210233-3103132320112333-0013103220201232"></a>
 
-## tenant property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 7
+## tenant property — interface / 133320300203 / 7
 
 Type: `"string"`. Computed.
 
@@ -770,11 +1236,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-313a4ee9deb415f24a011b4d83a318f46302b8e021a644b8ad5473e16f342b80"></a>
+<a id="canonical-0301032210323221-3132231001113302-1022000101231031-2003220301203310-1203000223203200-0201221210102320-2231111013033201-1233031002232000"></a>
 
-<a id="canonical-a6e27af2f498e5c87f0e862b9ab9612b31a802e3c1a05a0fa37f2c10de4b4786"></a>
+<a id="canonical-2212320213223302-3310212032113020-1333003220120223-2122232112010223-0301222000023203-3001220011220033-2203133302300100-3132102310132012"></a>
 
-## uid property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 8
+## uid property — interface / 133320300203 / 8
 
 Type: `"string"`. Computed.
 
@@ -809,35 +1275,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-107f4ae041589a60bb0b029f6bc4cb046c9aff89afc5947c067e63d7c181708c"></a>
+<a id="canonical-0100133310223200-1001112021221200-2323002300022133-1223301030230010-1230212233332021-2233301121101330-0012133212033113-3001200113002030"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f558617f8c23 / 9
+## Next pages — interface / 133320300203 / 9
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976"></a>
+<a id="canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c43b94f7b542fab6e78725f423056ba5377f5e91f608a0c5eac8d45226b8822c"></a>
+<a id="canonical-3010032321103313-2311100233222312-3213201302113310-0203001112232211-0313133311322101-3312002022003011-3222302031101102-0212232020020230"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 5b16f4b6f218 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 231233020120 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
 
-<a id="canonical-bec0fecdbafac0a8825f3f1b6913196a7459f909e8652f460175362fd05ab060"></a>
+<a id="canonical-2332300033323031-2322332230002220-2002113303330123-1221010301211222-1310112133210021-3220121102331012-0001131103120233-3100112223001200"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -876,49 +1342,49 @@ nexthop_address {
 }
 ```
 
-<a id="canonical-7ae2c1eacf9e24c4ac34d0bca0f66a378638512c64d7de827c092df82b6b3ffb"></a>
+<a id="canonical-1322320230013222-3033213202103010-2230031031002330-2200331212220313-2012032011010230-1210311331322002-1330002102313320-0223122303333323"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 5b16f4b6f218 / 3
+## Direct properties — nexthop_address / 231233020120 / 3
 
-- [dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762): complete subsection reference.
+- [dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202): complete subsection reference.
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-e7298c81e7ef2c8881893527d7dca846aa1a85f8b44042ba63f1349ca0f1c37f): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-3213022120302001-3213323302302020-2001202103110213-3113313022201012-2222012220113320-2310100010022322-1203330103102130-2200330130031333): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-ac2fc076fec1d5c7554e5d2f5898c825377a922f5501566beb96994e583e760a): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-2230023330001312-3332300131113013-1111103211310233-1120212030200211-0313132221020233-1111000111121223-3223211221211032-1120033213120022): complete subsection reference.
 
-<a id="canonical-0027cd7b508ea42557466840ea81d3cb1ffd3dde90e565381d6900ec04d94337"></a>
+<a id="canonical-0000021330311323-1100203222100211-1113101212201000-3222200131033023-0133333103313132-2100321112110320-0131122100003230-0010312110030313"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 5b16f4b6f218 / 4
+## Next pages — nexthop_address / 231233020120 / 4
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-e7298c81e7ef2c8881893527d7dca846aa1a85f8b44042ba63f1349ca0f1c37f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-ac2fc076fec1d5c7554e5d2f5898c825377a922f5501566beb96994e583e760a)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-3213022120302001-3213323302302020-2001202103110213-3113313022201012-2222012220113320-2310100010022322-1203330103102130-2200330130031333)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-2230023330001312-3332300131113013-1111103211310233-1120212030200211-0313132221020233-1111000111121223-3223211221211032-1120033213120022)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762"></a>
+<a id="canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d7a63ca76b62f28cf9f92d12657f4b91043ef1820c8b970406ae1aa17bce3ab1"></a>
+<a id="canonical-3113221203302213-1223120233022030-3321332102310102-1211133310232101-0010033233012002-0030202321130010-0012223201222201-1323303203222301"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f34715e7a34b / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 321322031023 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack
 
-<a id="canonical-35d9444279af1d592ce8b96610d2fc64490d56a1b29e1cc2bf6e6057e2d100f7"></a>
+<a id="canonical-0311312110101002-1321223301311121-0230322023211212-0100310233301210-1021003111122201-2302213201303002-2333123212001113-3202310100003313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -945,47 +1411,47 @@ dual_stack {
 }
 ```
 
-<a id="canonical-5799f6d7844092edfdea054cffd4cc14cda8c7394bbd2115f333f3ce70578b4a"></a>
+<a id="canonical-1113212133123113-2010100021023231-3331322200111030-3333311030300110-3031222030130321-1023233102010111-3303030333033032-1300111320231022"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f34715e7a34b / 3
+## Direct properties — dual_stack / 321322031023 / 3
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-31f8b54c7fb80c02a3b864dbc49aad8c873a993071d97e6cb06e2a4c788ecd1c): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-0301332023111030-1333232000300002-2203232012103123-3010212222312030-2013032221210300-1301312113321230-2300123202221030-1320203230310130): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0a0cd18855b4e4e8ab1620a6790006341a78e20f21367c31d6d7472cbbc57145): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0022003031012020-1111231032103220-2223011202002212-1321000000120310-0122132032020033-0201031213300301-3112311310130230-2323301113011011): complete subsection reference.
 
-<a id="canonical-749f7d3a3411a67aac4ac0b78de3fc600136eb83facb04363102d455030e1a78"></a>
+<a id="canonical-1310213313310322-0310010122121322-2230102230002313-2031320333301200-0001031232232003-3322302300100312-0301000231101111-0003003201221320"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / f34715e7a34b / 4
+## Next pages — dual_stack / 321322031023 / 4
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-31f8b54c7fb80c02a3b864dbc49aad8c873a993071d97e6cb06e2a4c788ecd1c)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0a0cd18855b4e4e8ab1620a6790006341a78e20f21367c31d6d7472cbbc57145)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-0301332023111030-1333232000300002-2203232012103123-3010212222312030-2013032221210300-1301312113321230-2300123202221030-1320203230310130)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0022003031012020-1111231032103220-2223011202002212-1321000000120310-0122132032020033-0201031213300301-3112311310130230-2323301113011011)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-31f8b54c7fb80c02a3b864dbc49aad8c873a993071d97e6cb06e2a4c788ecd1c"></a>
+<a id="canonical-0301332023111030-1333232000300002-2203232012103123-3010212222312030-2013032221210300-1301312113321230-2300123202221030-1320203230310130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1ef79d4b1a43b7b133433bdff13c6d47c1e5685143cb137d0eb9227d954cd2b"></a>
+<a id="canonical-3201323313213110-2301221003231323-0103031003032331-3333010330123110-1330013211122011-0110033023010313-3100322321020213-3121111030310223"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 482e1adc9905 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 313021210011 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4
 
-<a id="canonical-a92468aceaa83423ed319a5e0680122244e8333aeea5d64dc384eb4f96b3c3da"></a>
+<a id="canonical-2221021012202230-3222222003100203-3231030121221132-0012200001020202-1010322003030322-3232221131121031-3003201032231033-2112230330033122"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1016,15 +1482,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-b3abdd0295d5a61d6e720587c0a100f01ec98bec67fb9794b1ff434b78e8eb90"></a>
+<a id="canonical-2303222331310002-2111311122120131-1232130200112013-3000220100003300-0132302120233230-1213332321132110-2301333310031023-1320322032232100"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 482e1adc9905 / 3
+## Direct properties — IPv4 / 313021210011 / 3
 
-<a id="canonical-a1bc9647e2eb715cdb46cc3d01d562afd93b2906521b733c3d1c3c807b8aaeb6"></a>
+<a id="canonical-2201233021121013-3202322313011130-3123101230300331-0001311112022233-3121032302210012-1102012313030330-0331013003302000-1323202222322312"></a>
 
-<a id="canonical-772583a2c4e8363a729420e2867ae724996d80f04a8d22741157636d84d53191"></a>
+<a id="canonical-1313021120032202-3010322003120322-1302211002003202-2012132232130210-2121123120003300-1022203102021310-0101111312031231-2010311103012101"></a>
 
-## addr property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 482e1adc9905 / 4
+## addr property — IPv4 / 313021210011 / 4
 
 Type: `"string"`. Optional.
 
@@ -1070,37 +1536,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b8afa134fe1e5d45ea4aa65dc2354d025630934335a0767c51f6673b85e4d7b"></a>
+<a id="canonical-0223202233220103-1033320132113110-1132221022221211-3130020311103100-0211120300210310-0303112200131213-3011013312121303-2320113210311323"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 482e1adc9905 / 5
+## Next pages — IPv4 / 313021210011 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-0a0cd18855b4e4e8ab1620a6790006341a78e20f21367c31d6d7472cbbc57145"></a>
+<a id="canonical-0022003031012020-1111231032103220-2223011202002212-1321000000120310-0122132032020033-0201031213300301-3112311310130230-2323301113011011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-942ee420654b10fab84ae1dcb92b8f7429e6e2f709f29ca0ead52a37097c1ffc"></a>
+<a id="canonical-2110023232100200-1211102301003322-2320102232013130-2321022320331310-0221321232023313-0021330221302200-3222311102220313-0021133001333330"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e6683c4dd0e8 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 103131003220 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6
 
-<a id="canonical-381edbdcecfe3151472d8526cdf6a4fe720937176990736dca336a2b285fd9c3"></a>
+<a id="canonical-0320013231233130-3230333203011101-1013023120110212-3031331222103332-1302002103130113-1221210013031231-3022030312220223-0220113331213003"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1131,15 +1597,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-2751aae882e0508a8f244d337292d108497ea9577d9e65a20a3d908b4dc23453"></a>
+<a id="canonical-0213110122223220-2002320011002022-2033021010310303-1302210231010020-1021133222211113-1331213212112202-0022033121002023-1031300203101103"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e6683c4dd0e8 / 3
+## Direct properties — IPv6 / 103131003220 / 3
 
-<a id="canonical-a1ae9e5e9129f2ddb43b674a538308440e441c4909f5b36653aa81a4640bf648"></a>
+<a id="canonical-2201223221321132-2101022133023131-2310032312131022-1103200300201010-0032101001301021-0021331123031212-1103222220012210-1210002333121020"></a>
 
-<a id="canonical-0dad1a93964e85f37dd88ca75d7cca80242e9dfb3697400ba00cb00cbffec8ae"></a>
+<a id="canonical-0031223101222103-2112103220113303-1331312020302213-1131133030222000-0210023221313323-0312211310000023-2200003023000030-2333333230202232"></a>
 
-## addr property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e6683c4dd0e8 / 4
+## addr property — IPv6 / 103131003220 / 4
 
 Type: `"string"`. Optional.
 
@@ -1193,36 +1659,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ad620e2c8a6c98d761655bb26ec7f2373ae40870405e0f7f6c960a2dbeaae05e"></a>
+<a id="canonical-2231120200320230-2022123021203113-1201121111232302-1232301333020313-0322321000201300-1000113200331333-1230211200220231-2332222232001132"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / e6683c4dd0e8 / 5
+## Next pages — IPv6 / 103131003220 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-205f72e54677f6e398fd8378892a9782bdc2ff09b4ad8bced89a1ad21715c762)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-0200113313023211-1012131333123203-2120333120031320-2021022221132002-2331300233330021-2310223120233032-3120212201223102-0113011130131202)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-e7298c81e7ef2c8881893527d7dca846aa1a85f8b44042ba63f1349ca0f1c37f"></a>
+<a id="canonical-3213022120302001-3213323302302020-2001202103110213-3113313022201012-2222012220113320-2310100010022322-1203330103102130-2200330130031333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4aa2e16b72b832899f73b7d15d2afbd44a512bd04bcdc4ddd4ad59deb7febc7d"></a>
+<a id="canonical-1022220232011223-1302232003022021-2133130323133101-1131022233233110-1022110102233100-1023303130103131-3110223111213132-2313333223301331"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2aa23bfbf831 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 332333200301 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
 
-<a id="canonical-31b1809dc53fd0bffe5be7691b8b410fe84993fbad7ad3ba965bb8c813bd609d"></a>
+<a id="canonical-0301230120002131-3011033331002333-3332112332131221-0123202310010033-3220102121033323-2231132231032322-2112112323203020-0103233112002131"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1253,15 +1719,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-e9abda94b91410f422f7ba025c6293bc1761fccd9dad44b4bc2ab48c86e082ce"></a>
+<a id="canonical-3221222331222110-2321011001003310-0202331323220002-1130120221032330-0113120133303031-2131223110102310-2330022223102030-2012320020023032"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2aa23bfbf831 / 3
+## Direct properties — IPv4 / 332333200301 / 3
 
-<a id="canonical-767b8430aeb5df5879074ea43f73cc6f3517fdb92e80638c048b18ee3ad742bf"></a>
+<a id="canonical-1312132320100300-2232231131331120-1321001310322210-0333130330301233-0311011333312321-0232200012032030-0010202301203232-0322311310022333"></a>
 
-<a id="canonical-6f600c7f198c68594f6faefcde9cd277b0e58781b649f9091c17d8f386e76096"></a>
+<a id="canonical-1233120000301333-0121203012201121-1033123322323330-3132213031021313-2300321120132001-2312102133210021-0130011331203303-2012321312002112"></a>
 
-## addr property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2aa23bfbf831 / 4
+## addr property — IPv4 / 332333200301 / 4
 
 Type: `"string"`. Optional.
 
@@ -1307,36 +1773,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-65b730a9bd6b7424ee60db318287f3fec78dcc91696c435a789bc5694d74165d"></a>
+<a id="canonical-1211231303002221-2331122313100210-3232120031230301-2002201333033332-3013203130302101-1221123010031122-1320212330111221-1031131001121131"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2aa23bfbf831 / 5
+## Next pages — IPv4 / 332333200301 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-ac2fc076fec1d5c7554e5d2f5898c825377a922f5501566beb96994e583e760a"></a>
+<a id="canonical-2230023330001312-3332300131113013-1111103211310233-1120212030200211-0313132221020233-1111000111121223-3223211221211032-1120033213120022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-78e405a2d90f69c140bb2d9015f29ce5a72d3f3a7a1e1767654a48dbd4ecbd30"></a>
+<a id="canonical-1320321000112202-3121003312213001-1000232302312100-0111330221303211-2213023103330322-1322013201131213-1211102210203123-3110323023310300"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2461b5d6a3e0 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 311222033200 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-84d2b38463512fae24cac1b6336f0972d49158b24f79138660dbdd2a2a6e694f)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2010310223032010-1203110102332232-0210302230012312-0303123300211302-3110210111202302-1033132101032012-1200312331310222-0222123212211033)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
 
-<a id="canonical-7e45b8b14b7faaa45a1ffbc7b9fe8ad158b8b257c6461bc34815c56896f79714"></a>
+<a id="canonical-1332101123202301-1023133322222210-1122013333233013-2321333220223101-1120232023021113-3012101201233003-1020011130111220-2112331321130110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1367,15 +1833,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-0bf69c9f334dc0cc4580133d67fe4b9aeb616c7e6bd5912edc4e30532c81a4a8"></a>
+<a id="canonical-0023331221302133-0303103130003030-1011200001030331-1213333210232122-3223120112301332-1223311121010232-3130103203001103-0230200122102220"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2461b5d6a3e0 / 3
+## Direct properties — IPv6 / 311222033200 / 3
 
-<a id="canonical-3d4fb5b8d2b870ed33efbd3ac235371023b07357b224b41cd81d2b24f4471f06"></a>
+<a id="canonical-0331103323112320-3102232013003231-0303323323310322-3002031103130100-0203230013031113-2302021023100130-3120013102230210-3310101301330012"></a>
 
-<a id="canonical-785be18e6424feba21e6a55977dbb10746a54481f883a7fcea3a1dbf06195c66"></a>
+<a id="canonical-1320112332012032-1210021033322322-0201321222111121-1313312323010013-1012221110102001-3320200322133330-3222032201312333-0012012111301212"></a>
 
-## addr property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2461b5d6a3e0 / 4
+## addr property — IPv6 / 311222033200 / 4
 
 Type: `"string"`. Optional.
 
@@ -1429,34 +1895,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c4a4f7065bb803f2c6ac8d71b73cab5629d4529cd9fde889090fc2269e346363"></a>
+<a id="canonical-3010221033130012-1123232000033302-3012223020311301-2313033022231112-0221311011022130-3121333132202021-0021003330020212-2132031012031203"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nex / 2461b5d6a3e0 / 5
+## Next pages — IPv6 / 311222033200 / 5
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-5591cfa51feef509e13d87120de2d22e1e50d7ff31d8ac9c8805c74f76198976)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-1111210130332211-0133323233110021-3201033120130102-0031320231020232-0132110031133333-0301312022302130-2020001130131033-1312012120211312)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a"></a>
+<a id="canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-68b3af29bbd82708ae5b5760d9e480966f36f3859d6d61284130908ac0cf6d86"></a>
+<a id="canonical-1220230322330221-2323312002130020-2232112311131200-3121321020002112-1233031233032011-2131123112010220-1001030021002022-3000303312312012"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 92c4e1075c4e / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets — subnets / 001311301032 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
 - ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets
 
-<a id="canonical-943228c37b9e8d5b74cd3a9ece22f578ada06421ee425c92942209ca029405db"></a>
+<a id="canonical-2110030202203003-1323213220311123-1310303103222132-3032020233111320-2231220012100201-3232100211302102-2110020200213022-0002211000113123"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1514,45 +1980,45 @@ subnets {
 }
 ```
 
-<a id="canonical-93405880ce16bcc54032d3f351316512dc534d7d74ec3afa2bef1c5aabedd31a"></a>
+<a id="canonical-2103100011202000-3032011223303011-1000030231033303-1101030112110102-3130110310311331-1310323003223322-0223323301301122-2223323131030122"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 92c4e1075c4e / 3
+## Direct properties — subnets / 001311301032 / 3
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-4291b6444469c48bd2527f6f45836c06a23e811f62c76fe9063641b245130985): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-1002210123121010-1010122130102023-3102110213331233-1011200312300012-2202033220010133-1202301312333221-0012031210012302-1011010300212011): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-1683774089788acda688a2802a4ea856fc24d483cf675a99b65d1a1cd3c64680): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0112200313131000-2021132020223031-2212202022022000-0222103222201112-3330021031102003-3033121311222121-2312113101220130-3103301210122000): complete subsection reference.
 
-<a id="canonical-566fb61c1c1e252e3c12c9f42f174584e2d76d39d6a6653ad1fde1dbbea73e6e"></a>
+<a id="canonical-1112123323120130-0130013202110232-0330010230213310-0233011310112010-3202311312310321-3112221212110322-3101333132013123-2332221303321232"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 92c4e1075c4e / 4
+## Next pages — subnets / 001311301032 / 4
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-4291b6444469c48bd2527f6f45836c06a23e811f62c76fe9063641b245130985)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-1683774089788acda688a2802a4ea856fc24d483cf675a99b65d1a1cd3c64680)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-1002210123121010-1010122130102023-3102110213331233-1011200312300012-2202033220010133-1202301312333221-0012031210012302-1011010300212011)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0112200313131000-2021132020223031-2212202022022000-0222103222201112-3330021031102003-3033121311222121-2312113101220130-3103301210122000)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-4291b6444469c48bd2527f6f45836c06a23e811f62c76fe9063641b245130985"></a>
+<a id="canonical-1002210123121010-1010122130102023-3102110213331233-1011200312300012-2202033220010133-1202301312333221-0012031210012302-1011010300212011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4fb1bf0e9774232cf80d34a3c73571081f97798b8b6240a405ea58952898bdd5"></a>
+<a id="canonical-1033230123330032-2113131002030230-3320003103102203-3013031113010020-0133211313212023-2023120210002210-0011322211202111-0220212023313111"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 777a758a5c6d / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 202211301231 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4
 
-<a id="canonical-8d5223e129a1aec3639c924d68aa2a7f74545113f2f6fccd4b977d1aff3119ad"></a>
+<a id="canonical-2031110202033201-0221220122323003-1203213021021031-1220222202221333-1310111011010103-3302331233303031-1023211313310122-3333030101212231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1579,15 +2045,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-468118d86cdef221fc63817b9209e29d55aba88cbbdfb8617b914d5d615fe763"></a>
+<a id="canonical-1012200101203120-1230313233020201-3330120320011323-2102002132022131-1111222322202030-2323313323201201-1323210110311131-1201113332131203"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 777a758a5c6d / 3
+## Direct properties — IPv4 / 202211301231 / 3
 
-<a id="canonical-0141159f9caa23578ce3f4f65d98e3d7193327d671567cc415d05fee10e13bd7"></a>
+<a id="canonical-0001100101112133-2130222202031113-2030320333103312-1131212032033113-0121030302133112-1301111213303010-0111310011333232-0100320103233113"></a>
 
-<a id="canonical-d9c93f6a66ae45989082091564395106a8728cc22afd488442032a2c5d722e63"></a>
+<a id="canonical-3121302103331222-1212223210112120-2100200200210111-1210032111010012-2220130220303002-0222333110202010-1002000302220230-1131130202321203"></a>
 
-## plen property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 777a758a5c6d / 4
+## plen property — IPv4 / 202211301231 / 4
 
 Type: `"number"`. Optional.
 
@@ -1631,11 +2097,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-140ff040033ffa09be72f8b57b30b528ce9fef250fb0c10c6267739f395c6f4a"></a>
+<a id="canonical-0110003333001000-0003033333220021-2332130233202311-1323030023110220-3032213332330211-0033230030010030-1202121313032133-0321113012331022"></a>
 
-<a id="canonical-3ad3f26a117e09298f6bb5577c5e29bf65ffdca1a8e240c0111cdd4c1337d998"></a>
+<a id="canonical-0322310333021222-0101133200210221-2033122323111113-1330113202212333-1211333331302201-2220320210003000-0101013031311030-0103031331212120"></a>
 
-## prefix property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 777a758a5c6d / 5
+## prefix property — IPv4 / 202211301231 / 5
 
 Type: `"string"`. Optional.
 
@@ -1681,35 +2147,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0e7346d2d66ba97aaf7adc94f48e8c752dff92a7e9d601883e349f1580fdbe2b"></a>
+<a id="canonical-0032130310123102-3112122322211322-2233132231302110-3310203220301311-0231333321022213-3221311200012020-0332031021330111-2000333123320223"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 777a758a5c6d / 6
+## Next pages — IPv4 / 202211301231 / 6
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-1683774089788acda688a2802a4ea856fc24d483cf675a99b65d1a1cd3c64680"></a>
+<a id="canonical-0112200313131000-2021132020223031-2212202022022000-0222103222201112-3330021031102003-3033121311222121-2312113101220130-3103301210122000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a07422e22d0b3987bced7ced326b2cb407b5915496009a53c5b36b81d96b5e78"></a>
+<a id="canonical-2200131002023202-0231002303212013-2330323113303231-0302122302302310-0013231121011110-2112000021221103-3011230312232001-3121122311321320"></a>
 
-## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6 — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 644c93bb2b21 / 2
+## ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 232302230201 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-002.md#canonical-1afb25b9eb991ec8584c6d82821d18e17630c3578c77cc41ce2fb1774c6abf4e)
-- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-9a2bcf5d5c738854af32a44d341bb72b52da6ced2dc24425ef5aa2deeb952abd)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-a4460fb664a0ee9064c3bb332b141bcedda29c884b98a9301cfcdeed56c52f82)
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a)
-- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.inside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0122332302112321-3223212101323020-1120103012312002-2002013101203201-1312030030031113-2030131330301001-3032023323011313-1030122223331032)
+- [ingress_egress_gw.inside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-2122022330331131-1130130320201110-2233030222101031-0310012323130223-1102312212303231-0231300210100211-3233112222023132-3223211102222331)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-2210101200332312-1210220032322100-1210300323230303-0223011001233032-3131220221302020-1023212022210300-0130333031323231-1112301102332002)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122)
+- ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6
 
-<a id="canonical-8a84201813ee223da47e2dced75059518443e6a95e5e3b6490a59f662025dc75"></a>
+<a id="canonical-2022201002000120-0103323202020331-2210133202313032-3113110011211101-2010100332122221-1132113203231210-2100221121331212-0200021131301311"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1736,15 +2202,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-5555a32539d0fa61001682a412fb1e603a074c81a8c837db342d124760ff61db"></a>
+<a id="canonical-1111111122030211-0321310033221201-0000011220022210-0102332301321200-0322001310302001-2220302003133123-0310023101021013-1200333312013123"></a>
 
-## Direct properties — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 644c93bb2b21 / 3
+## Direct properties — IPv6 / 232302230201 / 3
 
-<a id="canonical-86762f21cc00edf46fd6f4a3480782549106a4c1484446addcf336755983d969"></a>
+<a id="canonical-2012131202330201-3030000032313310-1233311233102203-1020001320021110-2101001222103001-1020101010122231-3130330303121311-1121200331211221"></a>
 
-<a id="canonical-915092acb50ccd3ea9ba3b16445815ffba35bb30f03032f27fd609c3c26edaa4"></a>
+<a id="canonical-2101110021022230-2311003030310332-2221232203230112-1010112001113333-2322031123230300-3300030003023302-1333311200213003-3002123231222210"></a>
 
-## plen property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 644c93bb2b21 / 4
+## plen property — IPv6 / 232302230201 / 4
 
 Type: `"number"`. Optional.
 
@@ -1788,11 +2254,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-596951496729ecf35c4293b67f66291f0b8daed0884d91aa5a46c96d4a9e85ea"></a>
+<a id="canonical-1121122111011021-1213022132303303-1130100221032312-1333121202210133-0023203122323100-2020103121012222-1122101230211231-1022213220113222"></a>
 
-<a id="canonical-f2a0300f219f9049a54809c3de749967708aeadd8df28d7730ec42fc7c109efd"></a>
+<a id="canonical-3302220003000033-0201213321001021-2211102000213003-3132131021211213-1300202232223131-2031330220311313-0300323010023330-1330010021323331"></a>
 
-## prefix property — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 644c93bb2b21 / 5
+## prefix property — IPv6 / 232302230201 / 5
 
 Type: `"string"`. Optional.
 
@@ -1846,31 +2312,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3771694aa684c0924b98f1bb1ccd206db3f9e7aee242b099b91c1669f50b57b7"></a>
+<a id="canonical-0313130112211022-2212201030002102-1023212033012323-0130303102001231-2303332132132232-3202100223002121-2321013001121221-3311002311132313"></a>
 
-## Next pages — ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.sub / 644c93bb2b21 / 6
+## Next pages — IPv6 / 232302230201 / 6
 
-- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-63f22d68a558d400ce64caeb11af03b6615abc7c1cb1015c579b5631f7f4eb5a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-1203330202311220-2211112031100000-3032121030223223-0101223300032312-1201112223301330-0130230100011130-1113212311120301-3313331032231122)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-925db483a8d11cc7301a046cbd60e34288e2be0b4b2956b9c174f80e93f2cb80"></a>
+<a id="canonical-2102113123102003-2220310101303013-0300012200101230-2331120032031002-2020320223320023-1023022111122321-3001131033200032-2103330230232000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4212bf5fc0213973092bd54a5989b7ce667c7eb8bbc6ee0fb71f68d65d83c61a"></a>
+<a id="canonical-1002010223331133-3000020103211303-0021022331111022-1121202123133032-1212133013322320-2323301232320033-2313013312203112-1131200330120122"></a>
 
-## ingress_egress_gw.no_dc_cluster_group — ingress_egress_gw.no_dc_cluster_group / 2f75cdea7e31 / 2
+## ingress_egress_gw.no_dc_cluster_group — no_dc_cluster_group / 322213320301 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_dc_cluster_group
 
-<a id="canonical-d6773f99d42ee2de2b1e848da04bfbdcc52131ab61cb4fcb6069b38b847299cb"></a>
+<a id="canonical-3112131303332121-3110023232023132-0223013220102031-2200102333233130-3011020103012223-1201302310333023-1200122123032023-2010130221213023"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1899,37 +2365,37 @@ Terraform syntax:
 no_dc_cluster_group = {}
 ```
 
-<a id="canonical-e6db75a30c98902b39d467919eb46ddd97ad2a4b3bc109b0e469a1d29320b98a"></a>
+<a id="canonical-3212312313112203-0030212021000223-0321311012132101-2132231012313131-2113223102221023-0323300100212300-3210122122013102-2103020023212022"></a>
 
-## Direct properties — ingress_egress_gw.no_dc_cluster_group / 2f75cdea7e31 / 3
+## Direct properties — no_dc_cluster_group / 322213320301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d2e11cc340fa229b36f441ebf2934ecc03d8f2d58460eeaab5ceabf0661399aa"></a>
+<a id="canonical-3102320101303003-1000332202022123-0312331010013223-3302210310323030-0003312033023111-2010120032322222-2311303222233300-1212010321212222"></a>
 
-## Next pages — ingress_egress_gw.no_dc_cluster_group / 2f75cdea7e31 / 4
+## Next pages — no_dc_cluster_group / 322213320301 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-304079dda7dd5d59b838510f594d8679fe4d9b033527672f60df99dfe6b3e501"></a>
+<a id="canonical-0300100013213131-2213313111311121-2320032011010033-1121103120121321-3332103121230003-0311021312130233-1200313321213133-3212230332110001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-86fe8e3ecd4a38bc67dd1f3ef0b72e9d1ade16bb01ab4be0bdc63dd422e41747"></a>
+<a id="canonical-2012333220320332-3031102203202330-1213313101330332-3300231302322131-0122313201122323-0001222310233200-2331301203313110-0202321001131013"></a>
 
-## ingress_egress_gw.no_forward_proxy — ingress_egress_gw.no_forward_proxy / 3beb18ed2e52 / 2
+## ingress_egress_gw.no_forward_proxy — no_forward_proxy / 323102321102 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_forward_proxy
 
-<a id="canonical-26cf3c496a59097682f36cce9bba072eb0216cda05d2945b5031c2e8d114a5d9"></a>
+<a id="canonical-0212303303301021-1222112100211312-2002330312303032-2123232200130232-2300020112303122-0011310221101123-1100030130023220-3101011022113121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1958,37 +2424,37 @@ Terraform syntax:
 no_forward_proxy = {}
 ```
 
-<a id="canonical-4b47b51d2db695067edd1208bf7f4b918b06318afa8767335cc6250f7a47c497"></a>
+<a id="canonical-1023101323110131-0231231221110012-1332313101020020-2333133310232101-2023001203012022-3322201312130303-1130301202110033-1322101330102113"></a>
 
-## Direct properties — ingress_egress_gw.no_forward_proxy / 3beb18ed2e52 / 3
+## Direct properties — no_forward_proxy / 323102321102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8c2d87690ca78113f190ed7f4a58d90bf4570bf359b5c06b923daee697dda76e"></a>
+<a id="canonical-2030023120131221-0030221320010103-3301210032311333-1022112031210023-3310111300233303-1121231130001223-2102033122323212-2113313122131232"></a>
 
-## Next pages — ingress_egress_gw.no_forward_proxy / 3beb18ed2e52 / 4
+## Next pages — no_forward_proxy / 323102321102 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-b373260e05977dec450fb878a00d0aac7028b0bdcc82fcffee8f6ede03a51058"></a>
+<a id="canonical-2303130302120032-0011211313313230-1011003323201320-2200003100222230-1300022023002331-3030200233303333-3232203312323132-0003221101001120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c11a70ddfcd482708ba76652985c6aa425491e1be85484ff1d15445d5f3d2783"></a>
+<a id="canonical-3001012213003131-3330311020021300-2023221312121102-2120113012222210-0211102101320123-3220111020103333-0131011110101131-1133033102132003"></a>
 
-## ingress_egress_gw.no_global_network — ingress_egress_gw.no_global_network / 5ebd574b0fe3 / 2
+## ingress_egress_gw.no_global_network — no_global_network / 102300333203 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_global_network
 
-<a id="canonical-7880605a489b3619ce26517dd1c5092ffa1c25b32a4e04e83b02b56658bd8f1f"></a>
+<a id="canonical-1320200012001122-1020212303120121-3032021211011331-3101301100210233-3322013002112303-0222103200103220-0323000223111212-1120233120330133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2017,37 +2483,37 @@ Terraform syntax:
 no_global_network = {}
 ```
 
-<a id="canonical-7a7d330114de3a5f0d1fe978eda50fa2277c44c03a136dcfb070134dcc460251"></a>
+<a id="canonical-1322133103030001-0110313203221133-0031013332211320-3231221100332202-0213133010103000-0322010312313033-2300130001031031-3030101200021101"></a>
 
-## Direct properties — ingress_egress_gw.no_global_network / 5ebd574b0fe3 / 3
+## Direct properties — no_global_network / 102300333203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2449a2c0abd5bc44edc0ca27d415cd4e7e92ce22aa28f561e2a9a860be16878d"></a>
+<a id="canonical-0210102122023000-2223311123301010-3231300030220213-3110011130311032-1332210230320202-2222022033111201-3202222122201200-2332011220132031"></a>
 
-## Next pages — ingress_egress_gw.no_global_network / 5ebd574b0fe3 / 4
+## Next pages — no_global_network / 102300333203 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-7f08c3dd89dc58192ae4aabb1edee5c4690eab8217a210fb8632de2eb1cf4aa5"></a>
+<a id="canonical-1333002030033131-2021313011200121-0222321022222323-0132313232113010-1221003222232002-0113220201003323-2012030231320232-2301303310222211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0cc6a74417cca143257c21fbfce16920c9524b48d6beb35f322a71bf47ca4684"></a>
+<a id="canonical-0030301222131010-0113303022011003-0211133002013323-3330320112210200-3021110210231020-3112233223031133-0302022213012333-1013302210122010"></a>
 
-## ingress_egress_gw.no_inside_static_routes — ingress_egress_gw.no_inside_static_routes / b127cd010c92 / 2
+## ingress_egress_gw.no_inside_static_routes — no_inside_static_routes / 000100302102 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_inside_static_routes
 
-<a id="canonical-190dab5db21f8b7a151c256c051a3d766ef6353fb68e52ad93a31d79c4fcc6f3"></a>
+<a id="canonical-0121003122231131-2302013320231322-0111013002111230-0011012203311312-1232331203110333-2312203211022231-2103220301311321-3010333030123303"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2076,37 +2542,37 @@ Terraform syntax:
 no_inside_static_routes = {}
 ```
 
-<a id="canonical-7704d6b5bc6df7d0889cb07c21e2914246a8be2a6a70ebca2a2c24dceb56130b"></a>
+<a id="canonical-1313001031122311-2330123133133100-2020213023001330-0201320221011002-1012222023320222-1222130032233022-0222023002103130-3223111201030023"></a>
 
-## Direct properties — ingress_egress_gw.no_inside_static_routes / b127cd010c92 / 3
+## Direct properties — no_inside_static_routes / 000100302102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f9ca7dc820b64d72c1f368a34b64172859b0a2768be689e98a32c7319f11e2f7"></a>
+<a id="canonical-3321302213313020-0200231210311302-3001330312202203-1023121001130220-1121230022021312-2023321220213221-2022030230130301-2133010132023313"></a>
 
-## Next pages — ingress_egress_gw.no_inside_static_routes / b127cd010c92 / 4
+## Next pages — no_inside_static_routes / 000100302102 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-3f8d154444742593f7621c73fc280a8494f1eda2ed613ddca74c3f4fa208a26e"></a>
+<a id="canonical-0333203101111010-1010131002112103-3313120201301303-3330022000222010-2110330132312202-3231120103313130-2213103003331033-2202002022021232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddcaa502769e807a578a0d71f89543eb3b7522ff4797fdd154b68be1bd651d24"></a>
+<a id="canonical-3131302222110002-1312213220001322-1113202200311301-3320211110033223-0323131102023333-1013211333313101-1110231220233201-2331121101310210"></a>
 
-## ingress_egress_gw.no_network_policy — ingress_egress_gw.no_network_policy / 5db798ed0778 / 2
+## ingress_egress_gw.no_network_policy — no_network_policy / 323100131320 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_network_policy
 
-<a id="canonical-84b626f40401db77af6111d03bbdf845c3e9f0e5e3ad34f34252686db60f5032"></a>
+<a id="canonical-2010231202123310-0010000131231313-2233120101013100-0323233133201011-3003322133003211-3203223103103303-1002110212201231-2312003311000302"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2135,37 +2601,37 @@ Terraform syntax:
 no_network_policy = {}
 ```
 
-<a id="canonical-a93f958f570def3a9156cb1e2b66bafada8084bba20717dd0975da0c1c5dce1a"></a>
+<a id="canonical-2221033321112033-1113003132330322-2101111230230132-0223121223223322-3122200020102323-2202001301133131-0021131131220030-0130113130320122"></a>
 
-## Direct properties — ingress_egress_gw.no_network_policy / 5db798ed0778 / 3
+## Direct properties — no_network_policy / 323100131320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a247ef7bd8a1ba19b4ce35e559c57661b37471a40a613fb3d3eef7e7842b2a2b"></a>
+<a id="canonical-2202101332331323-3120220123220121-2310303203113211-1121301113121201-2303131013012210-0022120103332303-3103323233133213-2010022302220223"></a>
 
-## Next pages — ingress_egress_gw.no_network_policy / 5db798ed0778 / 4
+## Next pages — no_network_policy / 323100131320 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-e6a7038350d6bdb13a48ed189a70488534b464456f1cd2c9ec10ea58a9a3dd51"></a>
+<a id="canonical-3212221300032003-1100311223312301-0322102032310120-2122130010202011-0310231012101011-1233013031023021-3230010032221120-2221220331311101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a288887990122738e43a2c42ccee85e6555b793f2798ffe5890ca5dde90d8535"></a>
+<a id="canonical-2202202020201321-2100010202130320-3210032202301002-3030323220113212-1111112313210333-0213212033333211-2021003022113131-3221003120110311"></a>
 
-## ingress_egress_gw.no_outside_static_routes — ingress_egress_gw.no_outside_static_routes / ba9bc6fb5c3d / 2
+## ingress_egress_gw.no_outside_static_routes — no_outside_static_routes / 332311300331 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.no_outside_static_routes
 
-<a id="canonical-a2103abfb7a59716f79ff41db6489204399823c85742c4412864bd9e9c8a457b"></a>
+<a id="canonical-2202010003222333-2313221121130112-3313213333100131-2312102021020010-0321212002033020-1113100230101001-0220121023312132-2130202210111323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2194,37 +2660,37 @@ Terraform syntax:
 no_outside_static_routes = {}
 ```
 
-<a id="canonical-2c9a8c26ea211f4c58adb62b8e6c13832bc23dafc6ec501790e6fcfe3a58695e"></a>
+<a id="canonical-0230212220300212-3222020101331030-1120223123120223-2032123001032003-0223300203312233-3012323011000113-2100321233303332-0322112012211132"></a>
 
-## Direct properties — ingress_egress_gw.no_outside_static_routes / ba9bc6fb5c3d / 3
+## Direct properties — no_outside_static_routes / 332311300331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-24bc8259faca02592ebf73cb04372ff9894abd385c84c3e14e6a7e47313e3366"></a>
+<a id="canonical-0210233020021121-3322302200021121-0232233313033023-0010031302333321-2021102223310320-1130201030033201-1032122213321013-0301033203031212"></a>
 
-## Next pages — ingress_egress_gw.no_outside_static_routes / ba9bc6fb5c3d / 4
+## Next pages — no_outside_static_routes / 332311300331 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82"></a>
+<a id="canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd099b4046bea4dee43ef1de133b0e815f44b7d2c2d87907cbf32b1685ee148e"></a>
+<a id="canonical-3131002121231000-1012233222103132-3210033233013132-0103032300322001-1133101023133102-3002312013210013-3023330302230112-2011323201102032"></a>
 
-## ingress_egress_gw.outside_static_routes — ingress_egress_gw.outside_static_routes / 4fc36b7be230 / 2
+## ingress_egress_gw.outside_static_routes — outside_static_routes / 132332020300 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.outside_static_routes
 
-<a id="canonical-ffd7063c32f5664763e7d19290177c80948eda25b25c2caf7b29f5fd553a1ad8"></a>
+<a id="canonical-3333311300120330-0302331112121013-1203321331012102-2100011313302000-2110203231220211-2302113002302233-1323022133113331-1111032201223120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2261,39 +2727,39 @@ outside_static_routes {
 }
 ```
 
-<a id="canonical-dc823c262d891223dd4c461a2d57dac6694c38488fb228145571899d865f66e2"></a>
+<a id="canonical-3130200203300212-0231202101020203-3131103010120122-0231111331223012-1221103003201020-2033230202200110-1111130120212131-2012113312123202"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes / 4fc36b7be230 / 3
+## Direct properties — outside_static_routes / 132332020300 / 3
 
-- [static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f): complete subsection reference.
+- [static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033): complete subsection reference.
 
-<a id="canonical-fb39b8c36d1c9de11e12510df31effad77a5564a42c85bd15a3d1af3172345e6"></a>
+<a id="canonical-3323032123203003-1231013021313201-0132010211010031-3303013233332231-1313221111121022-1002302011233101-1122033101223303-0113020310113212"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes / 4fc36b7be230 / 4
+## Next pages — outside_static_routes / 132332020300 / 4
 
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f"></a>
+<a id="canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1b20bdc0c1f3c70be9b91f1d404d746810303b74ef878e668537b3891e734922"></a>
+<a id="canonical-0123020023313000-3001330330130023-3221232101330131-1000103113101220-0100030003231310-3233201320321212-2011031323032021-0132130310210202"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list — ingress_egress_gw.outside_static_routes.static_route_list / 0df4624a228e / 2
+## ingress_egress_gw.outside_static_routes.static_route_list — static_route_list / 102202022032 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
 - ingress_egress_gw.outside_static_routes.static_route_list
 
-<a id="canonical-3df3a03596be2ce68ba780d4bdee89340cfc298ca293e24f00ad74732ec79b12"></a>
+<a id="canonical-0331330322000311-2112233202303212-2023221320003110-2331323220210310-0030333002212030-2202210332021033-0000223113101303-0232301321230102"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2355,17 +2821,17 @@ static_route_list {
 }
 ```
 
-<a id="canonical-30d45675f53dd128da019a6aed1f8ba957356ccc23dbc4b3eea31c9d74e5ea2e"></a>
+<a id="canonical-0300311011121311-3311033131010220-3122000121221222-3231013320232221-1113031112303030-0203312330102303-3232220301302131-1310321132220232"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list / 0df4624a228e / 3
+## Direct properties — static_route_list / 102202022032 / 3
 
-- [custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995): complete subsection reference.
+- [custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111): complete subsection reference.
 
-<a id="canonical-f0894809dd82ab5c0360d4db6f012b77c551951d3d2fb8f4b20378d73500944e"></a>
+<a id="canonical-3300202110200021-3131200222231130-0003120031103123-1233000102231313-3011110121110131-0331023323203310-2302000313203113-0311000021101032"></a>
 
-<a id="canonical-63b7b789a7eb296e5a4d95ca0a5b7a2512a2aaf4c3f725297f08561ff8d65808"></a>
+<a id="canonical-1203231323132021-2213322302211232-1122103121113022-0022112313220211-0102220222223310-3003331302110221-1333002011120133-3320311211200020"></a>
 
-## simple_static_route property — ingress_egress_gw.outside_static_routes.static_route_list / 0df4624a228e / 4
+## simple_static_route property — static_route_list / 102202022032 / 4
 
 Type: `"string"`. Optional.
 
@@ -2406,34 +2872,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b755e369a2a1f2bd0936958c48c599d69cde0b10f7e92da890f2fc341ef501b5"></a>
+<a id="canonical-2313111132031221-2202220133022331-0021031221112030-1020301121213112-2130313200230100-3313322102312220-2100330233300310-0132331100012311"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list / 0df4624a228e / 5
+## Next pages — static_route_list / 102202022032 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995"></a>
+<a id="canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa47806638a9a1a2aa9565642d0e3120f396703fb34505b048c728945b6f13b2"></a>
+<a id="canonical-3322101320001212-0320222122012202-2222211112111210-0231003203010200-3303211213000333-2303101100112300-1020301302202110-1123123301032302"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route / 993079c665ba / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 301212112322 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route
 
-<a id="canonical-d244c24557b2ee4400d26cf0bcf20962677945b17d676f77d51d0bc232e68a0e"></a>
+<a id="canonical-3102101030021011-1113230232321010-0000310212303300-2330330200211202-1213132110112301-1331121312331313-3111013100233002-0302321220220032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2466,15 +2932,15 @@ custom_static_route {
 }
 ```
 
-<a id="canonical-a80e1d708273615ee5b1db04c5047c4974a7cb78f7c8c4f5f683a88a06416e2b"></a>
+<a id="canonical-2220003201311300-2002130312011132-3211230131230010-3011001013301021-1310221330231320-3313302030103311-3312200322202022-0012100112320223"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route / 993079c665ba / 3
+## Direct properties — custom_static_route / 301212112322 / 3
 
-<a id="canonical-65259d049942a3dc6a9b772b1afb811404b6dbce21e021dfc80d56995afec8f8"></a>
+<a id="canonical-1211021121310010-2121100222033130-1222212313130223-0122332320010110-0010231231233032-0201320002013133-3020003111122121-1122333230203320"></a>
 
-<a id="canonical-83065508880f376ad682f576668972244c05b162c7e899fa9a60bf2a1c7cc5a0"></a>
+<a id="canonical-2003001211110020-2020003303131222-3112200233111312-1212202113020210-1030001123011202-3013322021213322-2122120023330222-0130133030112200"></a>
 
-## attrs property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route / 993079c665ba / 4
+## attrs property — custom_static_route / 301212112322 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -2528,43 +2994,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [labels](resources--aws_vpc_site--reference--group-003.md#canonical-c34cb4951ac4800b9f5287b9fd7d873fa430b6cdd813f082f10bf0bbbb2d75e2): complete subsection reference.
+- [labels](resources--aws_vpc_site--reference--group-003.md#canonical-3003103023102111-0122301020000023-2133110220132321-3331133120130333-2210030023123031-3120010333002002-3301002333002323-2323023113113202): complete subsection reference.
 
-- [nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda): complete subsection reference.
+- [nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122): complete subsection reference.
 
-- [subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd): complete subsection reference.
+- [subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331): complete subsection reference.
 
-<a id="canonical-f894b943600446a76c2f33451ea563c18e36204bdecdd2adf089a00afe18a1a4"></a>
+<a id="canonical-3320211023211003-1200001010122213-1230023303031011-0132221112033001-2032031202001023-3132303131022231-3300202122000022-3332012022012210"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route / 993079c665ba / 5
+## Next pages — custom_static_route / 301212112322 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels](resources--aws_vpc_site--reference--group-003.md#canonical-c34cb4951ac4800b9f5287b9fd7d873fa430b6cdd813f082f10bf0bbbb2d75e2)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels](resources--aws_vpc_site--reference--group-003.md#canonical-3003103023102111-0122301020000023-2133110220132321-3331133120130333-2210030023123031-3120010333002002-3301002333002323-2323023113113202)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-c34cb4951ac4800b9f5287b9fd7d873fa430b6cdd813f082f10bf0bbbb2d75e2"></a>
+<a id="canonical-3003103023102111-0122301020000023-2133110220132321-3331133120130333-2210030023123031-3120010333002002-3301002333002323-2323023113113202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f7d02d38b7fbbbc1f42354f2b81be24f71f8c6f00e44aace53e83cece22d5630"></a>
+<a id="canonical-3313310002310320-2313332323233001-3310020311103302-2320012332021033-1301332030123300-0032101022223032-1103322003303230-3202023111120300"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.la / b07b677f5da7 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels — labels / 133311312213 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels
 
-<a id="canonical-dea97b8d643120497762ccd4cc7fb6afbe329833eb2968cb8e383cacdcd88033"></a>
+<a id="canonical-3132222113232031-1210030102001021-1313120230303110-3030133323122233-2332030221200303-3223022112203023-2032032003302230-3130312020000303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2589,40 +3055,40 @@ Terraform syntax:
 labels {}
 ```
 
-<a id="canonical-7a59ef7e3f5653adfa670c3737f64bf329bcbc98c58c0a7f11f8841aae91f871"></a>
+<a id="canonical-1322112132331332-0333111211032231-3322121300300313-0313331210233303-0221233023302120-3011203000221333-0101332020100122-2232210133201301"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.la / b07b677f5da7 / 3
+## Direct properties — labels / 133311312213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d93aac8622c96ff4f0ce35e9a8ebabfd1fbc84b51961b7e77e6af7d5f0bca937"></a>
+<a id="canonical-3121032222302012-0202302112333310-3300303203113221-2220322322233331-0133233020102311-0121120123133213-1332122233133111-3300233022210313"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.la / b07b677f5da7 / 4
+## Next pages — labels / 133311312213 / 4
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda"></a>
+<a id="canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3d5208b9b5e7d78ce010ae86c1f7632f092eae439b0da90c6fe9ab875941e046"></a>
+<a id="canonical-0331110200202321-2311321331132030-3200010022322012-3001331312030233-0021023222321003-2123003122210030-1233322122232013-1121100132001012"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / b44237979a7b / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 211321221323 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop
 
-<a id="canonical-c06dd6dec234901f45d0ec9cf91961922280a5aa07e7504e652490ccd476c896"></a>
+<a id="canonical-3000123131123132-3002031021000133-1011310032302130-3321012112012102-0202200022112222-0013321311001032-1211021021003030-3110131230202112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2653,19 +3119,19 @@ nexthop {
 }
 ```
 
-<a id="canonical-688261de2732165091e644030b01f08c415de07d093d7f4fadd1dfb8a459c5d5"></a>
+<a id="canonical-1220200212013132-0213030201121100-2101321210100003-0023000133002030-1001113132001331-0021033113331033-2231310131332320-2210112130113111"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / b44237979a7b / 3
+## Direct properties — nexthop / 211321221323 / 3
 
-- [interface](resources--aws_vpc_site--reference--group-003.md#canonical-8805a6a0d01ad65493ef00391657f509f0c108959736bbbf4a396d7feb1088e4): complete subsection reference.
+- [interface](resources--aws_vpc_site--reference--group-003.md#canonical-2020001122122200-3100012231121110-2103323300000321-0112111333110021-3300300100202111-2113031223232333-1022032112311333-3223010020203210): complete subsection reference.
 
-- [nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83): complete subsection reference.
+- [nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003): complete subsection reference.
 
-<a id="canonical-8c6cd3f779d74dbc55c5b8b273d876e2b6c11f0190d08bb27f90e908a242471e"></a>
+<a id="canonical-2030123031033313-1321311310312330-1111301123202302-1303312013123202-2312300101330001-2100310020232302-1333210032210020-2202100210130132"></a>
 
-<a id="canonical-d8b318548ef9040aa5c8478af76f6290846949b5c050f7e28a1984aacb85c08d"></a>
+<a id="canonical-3120230301201110-2032332100100022-2211302010132022-3313123312022100-2010122110212311-3000110033133202-2022012120102222-3023201130002031"></a>
 
-## type property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / b44237979a7b / 4
+## type property — nexthop / 211321221323 / 4
 
 Type: `"string"`. Optional.
 
@@ -2713,37 +3179,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-664a9377dd0321ef3cea5ac3bcaa8944d08c44d5b559bb71af8d7e1b8c651d4b"></a>
+<a id="canonical-1212102221031313-3131000302013233-0330322211223003-2330222220211010-3100203010103111-2311112123231301-2233203113320123-2030121101311023"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / b44237979a7b / 5
+## Next pages — nexthop / 211321221323 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_vpc_site--reference--group-003.md#canonical-8805a6a0d01ad65493ef00391657f509f0c108959736bbbf4a396d7feb1088e4)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_vpc_site--reference--group-003.md#canonical-2020001122122200-3100012231121110-2103323300000321-0112111333110021-3300300100202111-2113031223232333-1022032112311333-3223010020203210)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-8805a6a0d01ad65493ef00391657f509f0c108959736bbbf4a396d7feb1088e4"></a>
+<a id="canonical-2020001122122200-3100012231121110-2103323300000321-0112111333110021-3300300100202111-2113031223232333-1022032112311333-3223010020203210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f7adfb47b72995623935dd3ffd7089bff4f45b8afd9ab35748588c9255959850"></a>
+<a id="canonical-3313223133231013-2313022121111202-0321031131310333-3331130020212333-3310331011232022-3331212223031113-1020112020302102-1111211121201100"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 130230010113 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface
 
-<a id="canonical-45fb85ba639b337583e617ab21d6b6571b6ad7f915da24e3c25f3783b9a907b4"></a>
+<a id="canonical-1011332320112322-1203212303031311-2003321201132223-0201311223121113-0123122231133321-0111312202103203-3002113303132003-2321222100132310"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2792,15 +3258,15 @@ interface {
 }
 ```
 
-<a id="canonical-423505780f5a7cee6533570936f98ebd7e56e0f0cca7d2667f9ab5152a81bb75"></a>
+<a id="canonical-1002031100111320-0033112213303232-1211030311130021-0312332120322331-1332111232003300-3030221331021212-1333212223110111-0222200123231311"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 3
+## Direct properties — interface / 130230010113 / 3
 
-<a id="canonical-965dc1f7372427da2ecba4e3af9944da279332e00c11f4248fa39e230ef82d46"></a>
+<a id="canonical-2112113130013313-0313021002133122-0232302322103203-2233212110103122-0213210303023200-0030010133100210-2033220321320203-0032332002311012"></a>
 
-<a id="canonical-6706028dabb7943a1bdba1fcd9e425c566fd1b672661dcbadc9e510a4a89028b"></a>
+<a id="canonical-1213001200022031-2223231321100322-0123312322013330-3121321002113011-1212333101231213-0212120131302322-3130213211010022-1022202100022023"></a>
 
-## kind property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 4
+## kind property — interface / 130230010113 / 4
 
 Type: `"string"`. Computed.
 
@@ -2835,11 +3301,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22e00cbe093a9d255a3f0f3f6d212f63f96da3c255a5ca5244e2067768150925"></a>
+<a id="canonical-0202320000302332-0021032221310211-1122033300330333-1231020102331203-3321123122033002-1111221130221102-1010320200121313-1220011100210211"></a>
 
-<a id="canonical-a67adc4299b2a9519a2d5d789314f999376cfcd9de38000e5e095eef952df602"></a>
+<a id="canonical-2212132231301002-2121230222211101-2122023111311320-2103011033212121-0313123033303121-3132032000000032-1132002111323233-2111023133120002"></a>
 
-## name property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 5
+## name property — interface / 130230010113 / 5
 
 Type: `"string"`. Optional.
 
@@ -2874,11 +3340,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-991be531ebdca6fb47711465e70e986dfeb28b8245d11182e20cc89e37c8f271"></a>
+<a id="canonical-2121012332110301-3223313022123323-1013130101101211-3213003221201231-3332230220232002-1011310101012002-3202003030202132-0313302033021301"></a>
 
-<a id="canonical-05b0b07ce397f33316677b419c47fb47c541ec2701acf7fcddac6b4974d4318d"></a>
+<a id="canonical-0011230023001330-3203211333030303-0112121313231001-2130101333231013-3011100132300213-0001223033133330-3131223012231021-1310311003012031"></a>
 
-## namespace property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 6
+## namespace property — interface / 130230010113 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2938,11 +3404,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4d098eeddf8077b640703b0974197a61dd30fc286860ea16122711aceb0f1191"></a>
+<a id="canonical-1031002120323231-3133200013132312-1000130003230021-1310012113221201-3131030033300220-1220120032220112-0102021301012230-3223003301012101"></a>
 
-<a id="canonical-b7797fffaa5a7485ec03ada97ef7c9ad65dd74ce01da79a421ac0528c1cae6d2"></a>
+<a id="canonical-2313132113333333-2222112213102011-3230000322312221-1332331330212231-1211313113103032-0001312213212210-0201223000110220-3001302232123102"></a>
 
-## tenant property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 7
+## tenant property — interface / 130230010113 / 7
 
 Type: `"string"`. Computed.
 
@@ -2977,11 +3443,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4b808fd6dcf10c03da556d92eabc460679104ccfcc17d1058c531c20aa2fb957"></a>
+<a id="canonical-1023200020333112-3130330100300003-3122111112312102-3222233010120012-1321010010303033-3030011331010011-2030110301300200-2222023323211113"></a>
 
-<a id="canonical-5dad961cfbd1298998a403dff1d2f8b1781489b1e7a3ecf84c1e767c73288390"></a>
+<a id="canonical-1131223121120130-3323310102212021-2120221000033133-3301310233202301-1320011020212301-3213220332303320-1030013213121330-1303022020032100"></a>
 
-## uid property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 8
+## uid property — interface / 130230010113 / 8
 
 Type: `"string"`. Computed.
 
@@ -3016,35 +3482,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-75aff037b58c2d4e3d794020179f5169867c6237d37fcdd9a45a81666814181f"></a>
+<a id="canonical-1311223333000313-2311203002311032-0331132110000200-0113213311011221-2012133012020313-3103133330313121-2210112220011212-1220011001200133"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 27d1c672c117 / 9
+## Next pages — interface / 130230010113 / 9
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83"></a>
+<a id="canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4cce79932a0c5602b01cacf7a641c8fa6ea651e365e62dba14e373600365cc94"></a>
+<a id="canonical-1030303213212103-0222003011120002-2300013022303313-2212100130203322-1232221211013203-1211321202312322-0110320313031200-0003121130302110"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / ad123ae8719d / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 322013012131 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
 
-<a id="canonical-215f73204f16bac87d1b9b5abceba8068a1c42137e34cd4592959d6217f74e11"></a>
+<a id="canonical-0201113313030200-1033011223223020-1331012321231122-2330322322200012-2022013010020103-1332031030311011-2102211121311202-0113331310320101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3083,49 +3549,49 @@ nexthop_address {
 }
 ```
 
-<a id="canonical-7fd592c8810fdc27ca9dca4691b1ba9d20d2b7f861f9a3a09e15b63b98ae58e2"></a>
+<a id="canonical-1333311121023020-2001003331300213-3022213130221012-2101230123222131-0200310223133320-1201332122032200-2132011123120323-2120223211203202"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / ad123ae8719d / 3
+## Direct properties — nexthop_address / 322013012131 / 3
 
-- [dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434): complete subsection reference.
+- [dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310): complete subsection reference.
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-eb1e5a91497d9e865169b8200d751aad647aec51fb6de6f2adf2893509869512): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-3223013211222101-1021133121322012-1101122123200200-0031131101222231-1210132232301101-3323123132123302-2231330220210311-0021201221110102): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-d322946330d4800a75bd4709ffb368d48586b8efefc1d35f5b9d49000b071eb0): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-3103020221101203-0300311020000022-1311233110130021-3333230312203110-2011201223203233-3233300131031133-1123213110210000-0023001301322300): complete subsection reference.
 
-<a id="canonical-9b25e6f0ec2cd95e20e28e8eec5fcdaedefad711b3e984db37e81b7274f557e8"></a>
+<a id="canonical-2123021132123300-3230023031211132-0200320220322032-3230113330312232-3132332231130101-2303322120103123-0313322001231302-1310331111133220"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / ad123ae8719d / 4
+## Next pages — nexthop_address / 322013012131 / 4
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-eb1e5a91497d9e865169b8200d751aad647aec51fb6de6f2adf2893509869512)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-d322946330d4800a75bd4709ffb368d48586b8efefc1d35f5b9d49000b071eb0)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-3223013211222101-1021133121322012-1101122123200200-0031131101222231-1210132232301101-3323123132123302-2231330220210311-0021201221110102)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-3103020221101203-0300311020000022-1311233110130021-3333230312203110-2011201223203233-3233300131031133-1123213110210000-0023001301322300)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434"></a>
+<a id="canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7230a36147fc995eea681dca80a14a6be9efa7c4e180c681de615fcb01dde442"></a>
+<a id="canonical-1302030022031201-1013333021211132-3222122001313022-2000220110221223-3221323322133010-3201200030122001-3132120111333023-0001313132101002"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / e0255970c06b / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 130030001223 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack
 
-<a id="canonical-a2f5b97f3e7bc049d9a8c28458802614e465696da2d9ad7f8bd30ac409ce4be8"></a>
+<a id="canonical-2202331123211333-0332132330001021-3121222030022010-1120200002120110-3210121112211231-2202312122311333-2023310300223010-0021303210233220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3152,47 +3618,47 @@ dual_stack {
 }
 ```
 
-<a id="canonical-154ae5f8be14a3f46692b725fc43bff5e5d0df49779988202cc5de57e40d709e"></a>
+<a id="canonical-0111102232113320-2332011022033310-1212210223130211-3330100323333311-3211310031331021-1313212120200200-0230301131321113-3210003113002132"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / e0255970c06b / 3
+## Direct properties — dual_stack / 130030001223 / 3
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-450a510f9e0eabb755750da0d9e20d5801585674921c8268bcafc882e9b2401c): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-1011002211010033-2132003222232313-1111131100312200-3121320200311120-0001112011121310-2102013020021220-2330223330202002-3221230210000130): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0514c96a6934735b246751fed014bac120ad414013c92fa0100a66f30690da5c): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0011011030211222-1221031013031123-0210121311013332-3100011023223001-0200223110011000-0103302102332200-0100002212123303-0012210031221130): complete subsection reference.
 
-<a id="canonical-9eadc865a44503eb9748476f8ffbdd9631764e4bcbb0e3a978e5a51b458fdbfd"></a>
+<a id="canonical-2132223130201211-2210101100033223-2113102010131233-2033332331312112-0301131210321023-3023230032032221-1320321122110123-1011203331233331"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / e0255970c06b / 4
+## Next pages — dual_stack / 130030001223 / 4
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-450a510f9e0eabb755750da0d9e20d5801585674921c8268bcafc882e9b2401c)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0514c96a6934735b246751fed014bac120ad414013c92fa0100a66f30690da5c)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-1011002211010033-2132003222232313-1111131100312200-3121320200311120-0001112011121310-2102013020021220-2330223330202002-3221230210000130)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-0011011030211222-1221031013031123-0210121311013332-3100011023223001-0200223110011000-0103302102332200-0100002212123303-0012210031221130)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-450a510f9e0eabb755750da0d9e20d5801585674921c8268bcafc882e9b2401c"></a>
+<a id="canonical-1011002211010033-2132003222232313-1111131100312200-3121320200311120-0001112011121310-2102013020021220-2330223330202002-3221230210000130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3d3a490e7c0aefd8ec3f3075bdead12f19ab2f566896eca91906fb4fd3b184e7"></a>
+<a id="canonical-0331032210210032-1330002232333120-3230033303001311-2331322231010233-0121222302331112-1220211232302221-0121001233231033-3103230120103213"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 524d776b4f02 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 122310330002 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4
 
-<a id="canonical-3bd5d9fe4ca016cf65f1afb1cca07203e031d6b8d9df4bd8f0a20fac5f227b0c"></a>
+<a id="canonical-0323311131213332-1030220001123033-1211330122332301-3030220013020003-3200030131122320-3121313310233120-3300220200332230-1133020213230030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3223,15 +3689,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-7b749b4d0486a641965d33bd665c9ffa0d78131348efeeabcefd717c2e1f9c37"></a>
+<a id="canonical-1323131021231031-0010201222121001-2112113103032331-1212113021333322-0031132001030103-1020323332322223-3032333113011330-0232013321300313"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 524d776b4f02 / 3
+## Direct properties — IPv4 / 122310330002 / 3
 
-<a id="canonical-f1ce4c631268d57a97e2cfdc675a9e7982e377cd9ca2e34f21b465179497e420"></a>
+<a id="canonical-3301303210301203-0102122031111322-2113320230333130-1213112221321321-2002320313133031-2130220232031033-0201231012110113-2110211332100200"></a>
 
-<a id="canonical-b077b7a22b0aae7150d8fc2ab6a3d172fbd140d9a36dcbbc377a463a1ae06238"></a>
+<a id="canonical-2300131323132202-0223002222321301-1100312033300222-2312220331011302-3323310110003121-2203123130232330-0313132210120322-0122320012020320"></a>
 
-## addr property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 524d776b4f02 / 4
+## addr property — IPv4 / 122310330002 / 4
 
 Type: `"string"`. Optional.
 
@@ -3277,37 +3743,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-36b9bce206e088c996a16cb3d804c4d8328dd2bd613f5f072aefc02668bef5a6"></a>
+<a id="canonical-0312232123303202-0012320020203021-2112220112302303-3120001030103120-0302203131022331-1201033311330013-0222323330000212-1220233233112212"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 524d776b4f02 / 5
+## Next pages — IPv4 / 122310330002 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-0514c96a6934735b246751fed014bac120ad414013c92fa0100a66f30690da5c"></a>
+<a id="canonical-0011011030211222-1221031013031123-0210121311013332-3100011023223001-0200223110011000-0103302102332200-0100002212123303-0012210031221130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6dba2cd0d38c093ea2b213b53bb3f930c58bd425e04ffec105ce9c2cf10d443a"></a>
+<a id="canonical-1231232202303100-3103203000210332-2202230201032311-0323230333210300-3011202331100211-3200103333323001-0011303221300230-3301003110100322"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / c91cddecb9d8 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 323023213120 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6
 
-<a id="canonical-597d8929af9fe9ec5df440071a1f0e6b279c618df863f0bf2f40d71d5f03cfaf"></a>
+<a id="canonical-1121133120210221-2233213332213230-1131331010000013-0122013300321223-0213213012012031-3320120333002333-0233100031130131-1133000330332233"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3338,15 +3804,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-200bbccab094950d26dba3ec692468df185a00a274622108d47c56bc76d8e259"></a>
+<a id="canonical-0200002323303022-2300211021110031-0212312322033230-1221021012203133-0120112200002202-1310120202010020-3110133011122330-1312312032021121"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / c91cddecb9d8 / 3
+## Direct properties — IPv6 / 323023213120 / 3
 
-<a id="canonical-7c337cec75ea276d0862e71ba582270a0bd79b71f99549e248535c38ae32492f"></a>
+<a id="canonical-1330030313303230-1311322202131231-0020120232130123-2211200202130022-0023311321231301-3321211110213202-1020110311300320-2232030210210233"></a>
 
-<a id="canonical-e193dadfdcd5c6b1163d094f2635c423ae156fed76d78472d8c4993fb2b9150e"></a>
+<a id="canonical-3201210331223133-3130311130122301-0112033100211033-0212031130100203-2232011112333231-1312311320101302-3120301021210333-2302232101110032"></a>
 
-## addr property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / c91cddecb9d8 / 4
+## addr property — IPv6 / 323023213120 / 4
 
 Type: `"string"`. Optional.
 
@@ -3400,36 +3866,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7921e1fc3cd5d961f5908cb3d405f1145335cd49b68a107072a3933c19242367"></a>
+<a id="canonical-1321020132013330-0330311131211201-3311210020302303-3110001133010110-1103031130311021-2312202201001300-1302220321030330-0121021002031213"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / c91cddecb9d8 / 5
+## Next pages — IPv6 / 323023213120 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-8858e4fc945f6c0f9ec0611044d91618a95ffc6e544d13182ae0d84d4bc21434)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_vpc_site--reference--group-003.md#canonical-2020112032103330-2110113312300033-2132300012010100-1010312101120120-2221113333301232-1110103101030120-0222320031201031-1023300201100310)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-eb1e5a91497d9e865169b8200d751aad647aec51fb6de6f2adf2893509869512"></a>
+<a id="canonical-3223013211222101-1021133121322012-1101122123200200-0031131101222231-1210132232301101-3323123132123302-2231330220210311-0021201221110102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1c31ad3a4a3e0be5390512fd87ca1b24aa3ddc0eb45280a9e533b34f83e2b96b"></a>
+<a id="canonical-0130030122310322-1022033200233211-0321001101023331-2013302201230210-2222033131300032-2310110220002221-3211030323031033-2003320223211223"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 699c44a7d3c9 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 221331033021 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
 
-<a id="canonical-1d8a1a2671855cdabe3325ef93a8519aaf2a76017c82e3f7c29dccdfe0cf1a5c"></a>
+<a id="canonical-0131202201220212-1301201111303122-2332030302113233-2103222011012122-2233022213120001-1330200232033313-3002213130303133-3200303301221130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3460,15 +3926,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-bfa890ca815de35cde9d8c361075ce58a48b65b2f0a00fa1097dde3464db0061"></a>
+<a id="canonical-2333222021003022-2001113132031130-3132213120300312-0100131130321120-2210202312112302-3300220000332201-0021133131320310-1210312300001201"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 699c44a7d3c9 / 3
+## Direct properties — IPv4 / 221331033021 / 3
 
-<a id="canonical-f6267bedbec12a85c3cb23cb8cf438811a50cf809ba6367c163635439082e730"></a>
+<a id="canonical-3312021213233231-2332300102222011-3003302302033023-2030331003202001-0122110030332000-2123221203121330-0112031203111003-2100200232130300"></a>
 
-<a id="canonical-7f116d7e1671159a9bb5c243306a40ab40462c89c6de010e7d3cd0de5dd60b3e"></a>
+<a id="canonical-1333010112311332-0112130101112122-2123231130021003-0300122210002223-1000101202302021-3012313200010032-1331033031003132-1131311200230332"></a>
 
-## addr property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 699c44a7d3c9 / 4
+## addr property — IPv4 / 221331033021 / 4
 
 Type: `"string"`. Optional.
 
@@ -3514,36 +3980,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2d547a6bbf694a686cd6e89a1bd1df00d07b1bf44f8c606c71ffe67d4ae4392f"></a>
+<a id="canonical-0231111013221223-2333122110221220-1230311232202122-0123310131330000-3100132301233310-1033203012001230-1301333332121331-1022321003210233"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / 699c44a7d3c9 / 5
+## Next pages — IPv4 / 221331033021 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-d322946330d4800a75bd4709ffb368d48586b8efefc1d35f5b9d49000b071eb0"></a>
+<a id="canonical-3103020221101203-0300311020000022-1311233110130021-3333230312203110-2011201223203233-3233300131031133-1123213110210000-0023001301322300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9c358f57ff9f5478901d4e61d2d6a5413044b5d5907930f7e840613d29aaa31b"></a>
+<a id="canonical-2130031120331113-3333213311101320-2100013110321201-3102311222111001-0300101023113111-2100132103003313-3220100012010331-0221222222030123"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / fade94b00348 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 230000031020 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-86d5b3d9c00d22a157ba2e6db3dc2449ac54456c3364e4d499771280b5abfcda)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_vpc_site--reference--group-003.md#canonical-2012311123033121-3000003102022201-1113232202321231-2303313002101021-2230111010111230-0303121032103110-2121131301022000-2311222333303122)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
 
-<a id="canonical-8c4def8d382958f7ca1496bccca59dbac1f4af6b136f1f151697cd57705f4c2b"></a>
+<a id="canonical-2030103132332031-0320022111203313-3022011021122330-3030221121312322-3001331022331223-0103123301330111-0112211330311113-1300113310300223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3574,15 +4040,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-1a501b1f68413774bc75e611b574d1f4383516ad224d3300a26b211dadef0a7b"></a>
+<a id="canonical-0122110001230133-1220100103131310-2330131132120101-2311131031013310-0320031101122231-0202103103030000-2202122302010131-2231323300221323"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / fade94b00348 / 3
+## Direct properties — IPv6 / 230000031020 / 3
 
-<a id="canonical-66e85147055518049801c20bb408ee177af87528a7af8e16f14c69a5eecdb722"></a>
+<a id="canonical-1212322011011013-0011111101200010-2120000130020023-2310002032320113-1322332013110220-2213223320320112-3301103012212211-3232303123130202"></a>
 
-<a id="canonical-31996bf7e8494936fc2c85cb8f82bb7d3cd230e7b2653afa6bc0c88f6119a8f4"></a>
+<a id="canonical-0301212112233313-3220102110210312-3330023020113023-2033200223231331-0330310203003213-2302121103223322-1223300030202033-1201012122203310"></a>
 
-## addr property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / fade94b00348 / 4
+## addr property — IPv6 / 230000031020 / 4
 
 Type: `"string"`. Optional.
 
@@ -3636,34 +4102,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fe602c83dbe06a75e9ce9903c1a6a47361a8a79167fc4f8782d98b58b52f6176"></a>
+<a id="canonical-3332120002302003-3123320012221311-3221303221210003-3001221222101303-1201222022132101-1213333010332013-2002312120231120-2311023312011312"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.ne / fade94b00348 / 5
+## Next pages — IPv6 / 230000031020 / 5
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-dfffc81cf265b7fcec9894391dfb2d000f8084f9abc15b0338d1e0c183089e83)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_vpc_site--reference--group-003.md#canonical-3133333330200130-3302121123133330-3230212021100321-0131332302310000-0033200020103321-2223300111230003-0320310132003001-2003002021322003)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd"></a>
+<a id="canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-51841cf5f49086f3875f18d11eed193c4047fa55b09c9f25eb9405b10c6a3312"></a>
+<a id="canonical-1101201001303311-3310210020123303-2013113301203101-0132323101210330-1000101333221111-2300213021330211-3223211000112301-0030122203030102"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 95b3565563bb / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets — subnets / 111112032323 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
 - ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets
 
-<a id="canonical-3e6899f1d0812d39deb9b8b952c82fa774e26b1475a9a3536270293dca13fb5f"></a>
+<a id="canonical-0332122021213301-3100200102310321-3132232123202321-1102302002332213-1310320212230110-1311222122031103-1202130002210331-3022010333231133"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3721,45 +4187,45 @@ subnets {
 }
 ```
 
-<a id="canonical-844a7027177ab811885287f47bc7599410088efae2453c8a4bab46721281be48"></a>
+<a id="canonical-2010102213000213-0113132223200101-2020110220133310-1323301311212110-0100002020323322-3202101103302022-1023222310121302-0102200123321020"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 95b3565563bb / 3
+## Direct properties — subnets / 111112032323 / 3
 
-- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-aa279a663829768deee52061f29f85279a89c4aa37b74792e86ea43b3a56096f): complete subsection reference.
+- [ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-2222021321221212-0320022113122031-3232321102001201-3302213320110213-2122202130102222-0313231310132102-3220123222100323-0322111200211233): complete subsection reference.
 
-- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-40e36de51943010ed36edc594b78d8617b8098939bddeb59ea480e2a5a3a827a): complete subsection reference.
+- [ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-1000320312313211-0121100300010032-3103123231301121-1023132031201201-1323200021202103-2123313132231121-3222102000320222-1122032220021322): complete subsection reference.
 
-<a id="canonical-3882c8929fadd2754a288f900a8b203ace16b861440ed76114eb855d73dc9dde"></a>
+<a id="canonical-0320200230202102-2133223131021311-1022022020332100-0022202302000322-3032011223201201-1010003231131201-0110322320111131-1303313021313132"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 95b3565563bb / 4
+## Next pages — subnets / 111112032323 / 4
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-aa279a663829768deee52061f29f85279a89c4aa37b74792e86ea43b3a56096f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-40e36de51943010ed36edc594b78d8617b8098939bddeb59ea480e2a5a3a827a)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_vpc_site--reference--group-003.md#canonical-2222021321221212-0320022113122031-3232321102001201-3302213320110213-2122202130102222-0313231310132102-3220123222100323-0322111200211233)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_vpc_site--reference--group-003.md#canonical-1000320312313211-0121100300010032-3103123231301121-1023132031201201-1323200021202103-2123313132231121-3222102000320222-1122032220021322)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-aa279a663829768deee52061f29f85279a89c4aa37b74792e86ea43b3a56096f"></a>
+<a id="canonical-2222021321221212-0320022113122031-3232321102001201-3302213320110213-2122202130102222-0313231310132102-3220123222100323-0322111200211233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47d32e7dffe756e29173b14714de4cab268a8fc0a158c232eefdddb84be6689c"></a>
+<a id="canonical-1013310302321331-3333321311123202-2101130323011013-0110313210302223-0212202220333000-2201112030020302-3232333131312320-1023321212202130"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 70d891e70712 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 321300130102 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4
 
-<a id="canonical-728cde474a74a3ca766bfb85c37780dc5b3006316a024db6f96727cc6a3c7c76"></a>
+<a id="canonical-1302203031321013-1022131022033022-1312122333232011-3003131320003130-1123030000120301-1222000210312312-3321121302133030-1222033013301312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3786,15 +4252,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-050c647e2f058ba727568df2de503db005659821e6d09aba532ee6f95934cf00"></a>
+<a id="canonical-0011003012101332-0233001120232213-0213111220313302-3132110003312300-0011121121200201-3212310021222322-1103023232123321-1121031030330000"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 70d891e70712 / 3
+## Direct properties — IPv4 / 321300130102 / 3
 
-<a id="canonical-93e4a3c0b93465869c57c442210eca3dca88f1b1555a8e1ad86bdff508a7801b"></a>
+<a id="canonical-2103321022033000-2321031012112012-2130111330101002-0201003230220331-3022202033012301-1111112220320122-3120122331333311-0020221320000123"></a>
 
-<a id="canonical-40d1d0ed6f5cae2ded22bb08983bf2675dba943f86bcc9be83292c2160e1903a"></a>
+<a id="canonical-1000310131003231-1233113022320231-3231020223230020-2120032333021213-1131232221100333-2012233030212332-2003022102300201-1200320121000322"></a>
 
-## plen property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 70d891e70712 / 4
+## plen property — IPv4 / 321300130102 / 4
 
 Type: `"number"`. Optional.
 
@@ -3838,11 +4304,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f65720438783c81ae21e41f61dafd5e457abf5ddc2c9e86ec6311c8d20f4bad7"></a>
+<a id="canonical-3312111302001003-2013200330200122-3202013210013312-0131223331113210-1113222333113131-3002302132201232-3012030101302031-0200331023223113"></a>
 
-<a id="canonical-ee64fdee4f3f695ab28760230e3b946bdf5ff0ef6ee78a1c2c61026556aea65b"></a>
+<a id="canonical-3232121033313232-1033033312211122-2302201312000203-0032032321101223-3133113333003233-1232321320220130-0230120100021211-1112223222121123"></a>
 
-## prefix property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 70d891e70712 / 5
+## prefix property — IPv4 / 321300130102 / 5
 
 Type: `"string"`. Optional.
 
@@ -3888,35 +4354,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e7e9d115ad2a966154d2572df83b52e33548542cd6aff2f9c60c9675fc86623"></a>
+<a id="canonical-0232133221310101-1122310222211212-0111103102111302-3133200323110232-0303111020111002-3031122233330233-2130120030211213-1133302012120203"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / 70d891e70712 / 6
+## Next pages — IPv4 / 321300130102 / 6
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-40e36de51943010ed36edc594b78d8617b8098939bddeb59ea480e2a5a3a827a"></a>
+<a id="canonical-1000320312313211-0121100300010032-3103123231301121-1023132031201201-1323200021202103-2123313132231121-3222102000320222-1122032220021322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6f297e99b76c73c3817a1cfb4b13f08532d39142062e7f991295438c9db9232c"></a>
+<a id="canonical-1233022113322121-2313123013033003-2001132201303323-1023010333002011-0302310321011002-0012023213332121-0102211110032030-2131232102030230"></a>
 
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6 — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / af855d7cf5a7 / 2
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 133033112213 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-1ea0761fe40447fc341a79661e00c0840e83fdb02340b9cf43ceee94e82b7b82)
-- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-c7acefded25f486cc5d966b0f30ce0cd784d41de94bd9721ebaf2ccfb527fb4f)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-46b5e9b2ba5be6b9e79f76f876cbb3992aaba7a52cd67a6a1de4d2f492e8e995)
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.outside_static_routes](resources--aws_vpc_site--reference--group-003.md#canonical-0132220013120133-3210001010133330-0310012213211212-0132000030002010-0032200333312300-0203100023213033-1003303232322110-3220022313232002)
+- [ingress_egress_gw.outside_static_routes.static_route_list](resources--aws_vpc_site--reference--group-003.md#canonical-3013223032333132-3102113310201230-3011312112122300-3303003032003031-1320103110013132-2110233121130201-3223223302303033-2311021333231033)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](resources--aws_vpc_site--reference--group-003.md#canonical-1012231132212302-2322112332122321-3213213313123320-1312302323032121-0222222322132211-0230311213221222-0131321031023310-2102322032212111)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6
 
-<a id="canonical-e0eda02837310212f8b8752aa89c87a9faa2b168f99ec58abbbb6d7977c8ba93"></a>
+<a id="canonical-3200323122000220-0313030100020102-3320232013110222-2220213020132221-3322220223011220-3321213230112022-2323232312311321-1313302023222103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3943,15 +4409,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-528f621b11b854a3a0b97e30816c05f51ee139dd7e941ca2b595cc4b61eed8ba"></a>
+<a id="canonical-1102203312020123-0101232011102203-2200232113320300-2001123000113311-0132320103213131-1332211001302202-2311211130301023-1201323231202322"></a>
 
-## Direct properties — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / af855d7cf5a7 / 3
+## Direct properties — IPv6 / 133033112213 / 3
 
-<a id="canonical-305815cb695398bc8e03096c55fbb7b288c355fece775f9f8cf25c10a1ef0869"></a>
+<a id="canonical-0300112001113023-1221110321202330-2032000300211230-1111332323132302-2020300311113332-3032131311332133-2030330211300100-2201323300201221"></a>
 
-<a id="canonical-a4fa89ea35a70caf3109f8a0266091f3bf387200cdea8216cadd90e6770eeb7d"></a>
+<a id="canonical-2210332220213222-0311221300302233-0301002133202200-0212120021013303-2333032013020000-3031322220020112-3022313121003212-1313003232231331"></a>
 
-## plen property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / af855d7cf5a7 / 4
+## plen property — IPv6 / 133033112213 / 4
 
 Type: `"number"`. Optional.
 
@@ -3995,11 +4461,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-589adb9e3b6a96dea4231b9a76361866d893f874beea3e76f0ee5ba25e875bc5"></a>
+<a id="canonical-1120212231232132-0323122221123132-2210020301232122-1312031201201212-3120210333201310-2332322203321312-3300323211232202-1132201311233011"></a>
 
-<a id="canonical-f3f052a46ed2a92ec1e11689aed0ac5414570d89f1ab2a9ed4963b0ba0835f93"></a>
+<a id="canonical-3303330011022210-1232310222210232-3001320101122021-2232310022301110-0110111300312021-3301222302222132-3110211203230023-2200200311332103"></a>
 
-## prefix property — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / af855d7cf5a7 / 5
+## prefix property — IPv6 / 133033112213 / 5
 
 Type: `"string"`. Optional.
 
@@ -4053,31 +4519,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-52218f35b1d5bc55a31ec9bf977c311e4eea70468923cd6db3556af3f8fabdfd"></a>
+<a id="canonical-1102020120330311-2301311123301111-2203013230212333-2113133003010132-1032322213001012-2021020330311231-2303111112223303-3320332223313331"></a>
 
-## Next pages — ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.su / af855d7cf5a7 / 6
+## Next pages — IPv6 / 133033112213 / 6
 
-- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-8da9bef164795a01b309da45e1d5c9f03460357a80791a6b29ff96dd014d2cbd)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_vpc_site--reference--group-003.md#canonical-2031222123323301-1210132111220001-2303002131221011-3201311130213300-0310120003111322-2000132101221223-0221333321123131-0001103102302331)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61"></a>
+<a id="canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-34d67c8cbd0ab63326e4aa1dc9f28a45fc567f2d7c089d053c8206a6c41c1ef0"></a>
+<a id="canonical-0310311213302030-2331002223120303-0212321022220131-3021330220221011-3330111213330231-1330002021310011-0330200200122212-3010013001323300"></a>
 
-## ingress_egress_gw.performance_enhancement_mode — ingress_egress_gw.performance_enhancement_mode / 70c06722c4a0 / 2
+## ingress_egress_gw.performance_enhancement_mode — performance_enhancement_mode / 020230102200 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.performance_enhancement_mode
 
-<a id="canonical-b06dd12e5b5cd5e86f9564c8f50a91a9212db50adb646f28a80aaa0fca75147e"></a>
+<a id="canonical-2300123131010232-1123113031113220-1233211112103020-3311002221012221-0201023123110022-3123121012330220-2220002222220033-3022131101101332"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4112,42 +4578,42 @@ performance_enhancement_mode {
 }
 ```
 
-<a id="canonical-8ef1d2c3e59b6ca48422f03ca50dc95dec82c9b7616a4fdf902c2f9b97d2bbaa"></a>
+<a id="canonical-2032330131023003-3211212312302210-2010020233000330-2211003130211131-3230200230212313-1201122210333133-2100023002332123-2113310223232222"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode / 70c06722c4a0 / 3
+## Direct properties — performance_enhancement_mode / 020230102200 / 3
 
-- [perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5): complete subsection reference.
+- [perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211): complete subsection reference.
 
-- [perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567): complete subsection reference.
+- [perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213): complete subsection reference.
 
-<a id="canonical-6d5e1968bf57edbb1faae19ce3dfadbb12541dfc991775f0d367eaa6b4f5a95c"></a>
+<a id="canonical-1231113201211220-2333111332312323-0133222232012130-3203313322312323-0102111001313330-2121011313113300-3103121332222212-2310331122211130"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode / 70c06722c4a0 / 4
+## Next pages — performance_enhancement_mode / 020230102200 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5"></a>
+<a id="canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e635c2ed6b65991f2f37d522d6d001f1bba81273993b14828ba5a3ed642452d5"></a>
+<a id="canonical-3212031130023231-1223121121210133-0233031331110202-3112310000013301-2323222001021303-2121032301102002-2023221122033231-1210021011023111"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced / 63673f973867 / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced — perf_mode_l3_enhanced / 211303201213 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced
 
-<a id="canonical-d488a275cfd0d912bda8c1083137ea5d5a60ee8a3e679ba46a68d2e930ee77fb"></a>
+<a id="canonical-3110202022021311-3033310031210102-2331222030010020-0301031332221131-1122120032322022-0332121321232210-1222122031023221-0300323213133323"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4186,43 +4652,43 @@ perf_mode_l3_enhanced {
 }
 ```
 
-<a id="canonical-79bf53716ab1b0fdb9e2f2c7c51a92694a0badde9b1cb3c3c6013160656d2c5c"></a>
+<a id="canonical-1321233311031301-1222230123003331-2321320233023013-3011012221021221-1022002322313132-2123013023033003-3012000103011200-1211123102301130"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced / 63673f973867 / 3
+## Direct properties — perf_mode_l3_enhanced / 211303201213 / 3
 
-- [jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-b562098e143ab3843671242a154f43e1c0732628ac6be70e92f01ad645f0d8b4): complete subsection reference.
+- [jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-2311120200212032-0110032223032010-0312130102100222-0111103310033201-3000130302120220-2230122332130032-2102330001223112-1011330031202310): complete subsection reference.
 
-- [no_jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-9829a83c1b525e8a1c3801bffdbf888507e21ac168d162735eb239202730aaba): complete subsection reference.
+- [no_jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-2120022122200330-0123110211322022-0130032000012333-3331233320202011-0013320201223001-1220310112021303-1132230203210200-0213030022222322): complete subsection reference.
 
-<a id="canonical-2298abd1c88c20d2cf91a4776aeb10e4966c7c7d32e6ba19308d6ddab6fb08cf"></a>
+<a id="canonical-0202212022233101-3020203002003102-3033210122101313-1222322301003210-2112123013301331-0302321223220121-0300203112313122-2312332300203033"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced / 63673f973867 / 4
+## Next pages — perf_mode_l3_enhanced / 211303201213 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-b562098e143ab3843671242a154f43e1c0732628ac6be70e92f01ad645f0d8b4)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-9829a83c1b525e8a1c3801bffdbf888507e21ac168d162735eb239202730aaba)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-2311120200212032-0110032223032010-0312130102100222-0111103310033201-3000130302120220-2230122332130032-2102330001223112-1011330031202310)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--aws_vpc_site--reference--group-003.md#canonical-2120022122200330-0123110211322022-0130032000012333-3331233320202011-0013320201223001-1220310112021303-1132230203210200-0213030022222322)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-b562098e143ab3843671242a154f43e1c0732628ac6be70e92f01ad645f0d8b4"></a>
+<a id="canonical-2311120200212032-0110032223032010-0312130102100222-0111103310033201-3000130302120220-2230122332130032-2102330001223112-1011330031202310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e2e6b4a16b1effdbc87587b29aaceb0736a82f6da9630837902c7e75aaa42875"></a>
+<a id="canonical-3202321223102201-1223013233333123-3020131120132302-2122223032230013-0312222002331231-2221120300200313-2100023013321311-2222221002201311"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 93236eb28ac5 / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — jumbo / 230220223011 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo
 
-<a id="canonical-668e586a47df6cf8006bcbf478fd3849c4c5e76b47211b1affc1098570c6c198"></a>
+<a id="canonical-1212203211201222-1013313312303320-0000122330233310-1320333103201021-3010301132131223-1013020101230122-3333300100212011-1300301230012120"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4251,39 +4717,39 @@ Terraform syntax:
 jumbo = {}
 ```
 
-<a id="canonical-079f178e204a9db93cb33a184a9fd262e29d2b43333b686e37dc8896c89f40aa"></a>
+<a id="canonical-0013213301132032-0200102221312321-0330230303220120-1022213331021202-3202213102231003-0303032312201232-0313313020202112-3020213310002222"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 93236eb28ac5 / 3
+## Direct properties — jumbo / 230220223011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f9a777197e8d649370d9dea62ac767b7fda084c05e7e4a0d0259b9b4833ff4e5"></a>
+<a id="canonical-3321221313130121-1332203112102103-1300312131322212-0222301312132313-3331220020103000-1132133210220031-0002112123212310-2003033333103211"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 93236eb28ac5 / 4
+## Next pages — jumbo / 230220223011 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-9829a83c1b525e8a1c3801bffdbf888507e21ac168d162735eb239202730aaba"></a>
+<a id="canonical-2120022122200330-0123110211322022-0130032000012333-3331233320202011-0013320201223001-1220310112021303-1132230203210200-0213030022222322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1aa1ca01f9fb0b250e5f10e1c67fc432fb65134da2c0762595eed68f74e243e5"></a>
+<a id="canonical-0122220130220001-3321332300230211-0032113301003201-3012133330100302-3323121101031031-2202300013120211-2111323231122033-1310320210033211"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 9b43e8a95d6a / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — no_jumbo / 222111311222 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo
 
-<a id="canonical-cbd193e1a954636156b52e0a1495b39d2d5bef036228778b324a99a85c43b62a"></a>
+<a id="canonical-3023310121033201-2221111012031201-1112231102320022-0110211123032131-0231112332330003-1202022013132023-0302102221212220-1130100323120222"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4312,38 +4778,38 @@ Terraform syntax:
 no_jumbo = {}
 ```
 
-<a id="canonical-1dcc47065907ca334276467b5d31ca9d67d19f9166a471ac854073408ccf05ee"></a>
+<a id="canonical-0131303010130012-1121001330220303-1002131210121323-1131030130222131-1213310121332101-1212221013012230-2011100013031000-2030303300113232"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 9b43e8a95d6a / 3
+## Direct properties — no_jumbo / 222111311222 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-798ca80bf7e1c6e5d6c0dd06357154302331fe1f123ce193091d527db4e90512"></a>
+<a id="canonical-1321203022200023-3313320130123211-3112300031310012-0311130111100300-0203030133320133-0102033032012103-0021013111021331-2310322100110102"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / 9b43e8a95d6a / 4
+## Next pages — no_jumbo / 222111311222 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-d84282dbd041405405881c4a839259a8821f6eca4b78a2543ac03593c94138a5)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l3_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-3120100220023123-3100100110001110-0011202001301022-2003210211212220-2002013312323022-1023132022021110-0322300003112103-3021100103202211)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567"></a>
+<a id="canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-94e60190afbc20f836d589f7449bd0c85a4da6590fb22dad048422f37a929077"></a>
+<a id="canonical-2110321200012100-2233233002003320-0312311120213313-1010212331003020-1122103122121121-0033230202312231-0010201002023303-1322210221001313"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced / b9e7eba6d991 / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced — perf_mode_l7_enhanced / 221231212101 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced
 
-<a id="canonical-91199c3fd0ce7467d7b9c2db23e862a5727a55a178826d824626537b50c8cdf9"></a>
+<a id="canonical-2101012121300333-3100303213101213-3113232130023123-0203322012022211-1302132211112201-1320200212312002-1012021211031323-1100302030313321"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4382,43 +4848,43 @@ perf_mode_l7_enhanced {
 }
 ```
 
-<a id="canonical-20457d03e65afe4bb2436a8c7f1eb5196d2d6457063cbe7ac8fb738d9a8b10a5"></a>
+<a id="canonical-0200101113310003-3212112233321023-2302100312222030-1333013223110121-1231023112101113-0012033023321322-3020332313032031-2122202301002211"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced / b9e7eba6d991 / 3
+## Direct properties — perf_mode_l7_enhanced / 221231212101 / 3
 
-- [jumbo_disabled](resources--aws_vpc_site--reference--group-003.md#canonical-e4bd78fa6313b891fabf436f63ee25385a7116c937fb0f58f0aad3027f1cd5f3): complete subsection reference.
+- [jumbo_disabled](resources--aws_vpc_site--reference--group-003.md#canonical-3210233113203322-1203010323202101-3322233310031233-1203323202110320-1122130101123021-0313332300331120-3300222231030002-1333013031113303): complete subsection reference.
 
-- [jumbo_enabled](resources--aws_vpc_site--reference--group-003.md#canonical-ac7315802124b184cc372f3569a181f90dd6dc7ffb49c59a8863e9670e56e3f6): complete subsection reference.
+- [jumbo_enabled](resources--aws_vpc_site--reference--group-003.md#canonical-2230130301112000-0201021023012010-3030031302330311-1221220120013321-0031311231301333-3323102130112122-2020120332211213-0032111232033312): complete subsection reference.
 
-<a id="canonical-f817ec44ca946e36271a24a209935a8e2accb49dab5a5f3c7fbffcb440704da5"></a>
+<a id="canonical-3320011332301010-3022211012320312-0213012202102202-0021210311222032-0222303023102131-2223112211330330-1333233333302310-1000130010312211"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced / b9e7eba6d991 / 4
+## Next pages — perf_mode_l7_enhanced / 221231212101 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--aws_vpc_site--reference--group-003.md#canonical-e4bd78fa6313b891fabf436f63ee25385a7116c937fb0f58f0aad3027f1cd5f3)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--aws_vpc_site--reference--group-003.md#canonical-ac7315802124b184cc372f3569a181f90dd6dc7ffb49c59a8863e9670e56e3f6)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--aws_vpc_site--reference--group-003.md#canonical-3210233113203322-1203010323202101-3322233310031233-1203323202110320-1122130101123021-0313332300331120-3300222231030002-1333013031113303)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--aws_vpc_site--reference--group-003.md#canonical-2230130301112000-0201021023012010-3030031302330311-1221220120013321-0031311231301333-3323102130112122-2020120332211213-0032111232033312)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-e4bd78fa6313b891fabf436f63ee25385a7116c937fb0f58f0aad3027f1cd5f3"></a>
+<a id="canonical-3210233113203322-1203010323202101-3322233310031233-1203323202110320-1122130101123021-0313332300331120-3300222231030002-1333013031113303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b488da3da4c45b0b19cd1ec6e4fc73b4a730f990f8d639a27fcf0bdd13d603eb"></a>
+<a id="canonical-2310202031220331-2210301011230023-0121303101323012-3210333013032310-2213030033212100-3320311203212202-1333303300233131-0103311200033223"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disab / 37f0fc421942 / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — jumbo_disabled / 100201211002 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled
 
-<a id="canonical-867572b25cc62986bba5858f3dbb56fe635993e64face12bd65a437252b63483"></a>
+<a id="canonical-2012131113022302-1130301202212012-2323221120112033-0331232311123332-1203112121033212-1033223032010223-3112112210031302-1102231203102003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4447,39 +4913,39 @@ Terraform syntax:
 jumbo_disabled = {}
 ```
 
-<a id="canonical-3395b0aaf79a502c3fb20bec77d98a949a7b319b0b0f3e1cfb9c5077daae667b"></a>
+<a id="canonical-0303211123002222-3313212211000230-0333230200233230-1313312120222110-2122132303012123-0023003303320130-3323213011001313-3122223212121323"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disab / 37f0fc421942 / 3
+## Direct properties — jumbo_disabled / 100201211002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7a8da33cf9cc3d939d87079f1a2a11ff83c383ac6d328a6870732242176607dd"></a>
+<a id="canonical-1322203122030330-3321303003312103-2131201300132133-0122022201013333-2003300320032230-1231030220221220-1300130302021002-0113121200133131"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disab / 37f0fc421942 / 4
+## Next pages — jumbo_disabled / 100201211002 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-ac7315802124b184cc372f3569a181f90dd6dc7ffb49c59a8863e9670e56e3f6"></a>
+<a id="canonical-2230130301112000-0201021023012010-3030031302330311-1221220120013321-0031311231301333-3323102130112122-2020120332211213-0032111232033312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad6a45b59908c91cb07291236bb308eec77e9e2c935918a24d8b961aa9d3c9df"></a>
+<a id="canonical-2231122210112311-2121002030210130-2300130221010203-1223230300203232-3013133221320230-2103112101202202-1031202321120122-2221310330213133"></a>
 
-## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabl / 0900c45cae8c / 2
+## ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — jumbo_enabled / 113022322030 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-9f12e89fc9a44e49873a593cf1db009ec014c5c5b5caffc3b5c8ce1a25c68d61)
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [ingress_egress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-003.md#canonical-2133010232202133-3021221010321021-2013032211210330-3301312300002132-3000011030113011-2311302233333003-2311302030320122-0211301220311201)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213)
 - ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled
 
-<a id="canonical-33bbc6f224d7aa8abdaecdb13103f06c0168e42696baf2e5316e193a94eff624"></a>
+<a id="canonical-0303232330123302-0210311322222022-2331223230312301-0301000333001230-0001122032100212-2112232233023211-0301123201210322-2110323333120210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4508,37 +4974,37 @@ Terraform syntax:
 jumbo_enabled = {}
 ```
 
-<a id="canonical-03b9df239052a83a06e27459591be2849da07c26b8b07b835266432c90c37cb4"></a>
+<a id="canonical-0003232131330203-2100110222200322-0012320213101121-1121012332022010-2131220013300212-2320230013232003-1102121210030230-2100300313302310"></a>
 
-## Direct properties — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabl / 0900c45cae8c / 3
+## Direct properties — jumbo_enabled / 113022322030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a66f3d97ca51f327db1f419309beaf0d7e74b9d03abef61fbc067aee994d9619"></a>
+<a id="canonical-2212123303312113-3022110133030213-3123013310012103-0021233222330031-1332131023213100-0322233233120133-2330001213223232-2121103121120121"></a>
 
-## Next pages — ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabl / 0900c45cae8c / 4
+## Next pages — jumbo_enabled / 113022322030 / 4
 
-- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-2ee504f1e3db3a4d9a55e77323c34dac294dda69b7c7c26ee0921adca957f567)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw.performance_enhancement_mode.perf_mode_l7_enhanced](resources--aws_vpc_site--reference--group-003.md#canonical-0232321100103301-3203312303221031-2122111132131303-0203300310312230-0221103131221221-2313301330021232-3200210201223130-2221111333111213)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-8245ef1b9ec742f19a0f2e280e11739d80e7622dbdf423a8363c438ac16c8992"></a>
+<a id="canonical-2002101132330123-2132301310023301-2122003302320220-0032010113032131-2000321312020231-2331331002032220-0312033010032022-3001123020212102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-755d7b9aa4e7445116c34aa4fdfe66ade94cad4216590453477043c3c0977d1e"></a>
+<a id="canonical-1311113113232122-2210321310101101-0112300310222210-3331333212122231-3221103022311002-0112112100101103-1013130010033003-3000211313310132"></a>
 
-## ingress_egress_gw.sm_connection_public_ip — ingress_egress_gw.sm_connection_public_ip / 3a9893552741 / 2
+## ingress_egress_gw.sm_connection_public_ip — sm_connection_public_ip / 111102131001 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.sm_connection_public_ip
 
-<a id="canonical-4f419771b4a9131069cad1b1b5864a8be99ec0dd2aac52e3687e1800ea84de03"></a>
+<a id="canonical-1033100121131301-2310222101030100-1221302231012301-2311201210222023-3221213230003131-0222223011023203-1220133201200000-3222201031320003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4567,37 +5033,37 @@ Terraform syntax:
 sm_connection_public_ip = {}
 ```
 
-<a id="canonical-36ea27d8d7b14bc4fa12126b979f8454542d3ff9650a1ae9e01540c7ec569fb1"></a>
+<a id="canonical-0312322202133120-3113230110233010-3322010201021223-2113213320101110-1110023103333321-1211002201223221-3200011110003013-3230111221332301"></a>
 
-## Direct properties — ingress_egress_gw.sm_connection_public_ip / 3a9893552741 / 3
+## Direct properties — sm_connection_public_ip / 111102131001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7b650aed1c0291bcc3edac96bea33dd97484088c7b6d94555e60e3cf171d39b2"></a>
+<a id="canonical-1323121100223231-0130000221012330-3003323122302112-2332220303313121-1310201000202030-1323123121101111-1132120032033033-0113013103212302"></a>
 
-## Next pages — ingress_egress_gw.sm_connection_public_ip / 3a9893552741 / 4
+## Next pages — sm_connection_public_ip / 111102131001 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-8a09e1f2df9a35b9e17192f57980319cd9e580ea183832a4d46d0012d6e36149"></a>
+<a id="canonical-2022002132013302-3133212203112321-3201130121023311-1321200003012130-3121321120003222-0120032003022210-3110123100000102-3112320312011021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f3a664120c4c4790e18fec9cb9b0349a04b7a29baa08adf463241d4a7056255"></a>
+<a id="canonical-0233032212121001-0200301030101321-0032012033323021-3023212300031021-2200102313220221-2322220020223133-1012030210013110-2213001112021111"></a>
 
-## ingress_egress_gw.sm_connection_pvt_ip — ingress_egress_gw.sm_connection_pvt_ip / 55b073fd2151 / 2
+## ingress_egress_gw.sm_connection_pvt_ip — sm_connection_pvt_ip / 333102011101 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
 - ingress_egress_gw.sm_connection_pvt_ip
 
-<a id="canonical-f8f8c373817ef37f923920090b76b35ac8b8c72c9e990f2ebc8213062ab160d4"></a>
+<a id="canonical-3320332030031303-2001133233031333-2102032102000021-0023131223031122-3020232030130230-2132212100330232-2330200201030012-0222230112003110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4626,36 +5092,36 @@ Terraform syntax:
 sm_connection_pvt_ip = {}
 ```
 
-<a id="canonical-48d088682f5e95fc08341db3eade7650d11ca334e659d560c8a03031b0d07268"></a>
+<a id="canonical-1020310020201220-0233113221113330-0020031001312303-3222313213121100-3101013022030310-3212112131111200-3020220003000301-2300310013021220"></a>
 
-## Direct properties — ingress_egress_gw.sm_connection_pvt_ip / 55b073fd2151 / 3
+## Direct properties — sm_connection_pvt_ip / 333102011101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3b53a410a211adb21280aa0fc191c690a5d1799c69ffba51e7a9db600947d5ce"></a>
+<a id="canonical-0323110322100100-2202010122312302-0102200022220033-3001210130122100-2211310113212130-1221333323221101-3213222131231200-0021101331113032"></a>
 
-## Next pages — ingress_egress_gw.sm_connection_pvt_ip / 55b073fd2151 / 4
+## Next pages — sm_connection_pvt_ip / 333102011101 / 4
 
-- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-3154c8449a356123e727c1e31d23b173a71b972d47ed39cceb566352b559a08a)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
+- [ingress_egress_gw](resources--aws_vpc_site--reference--group-002.md#canonical-0301111030201010-2122031112010203-3213021330013203-0131020323011303-2213012321130231-1013323103213030-3223111212031102-2311112122002022)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
-<a id="canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb"></a>
+<a id="canonical-0333332022003321-0130333001220102-3300331112302201-3222032002202120-2012011102331101-3213012110100103-2022011031100003-2201121222303323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6ad9a3e21634fa34a1895f4ec7ab991941dfbe3bc13ca0bc3f9ffcf760ae5fe8"></a>
+<a id="canonical-1222312122033202-0112031033220310-2201202111331032-3013222321210121-1001313323320323-3001033022002330-0333213333303313-1200223211333220"></a>
 
-## ingress_gw — ingress_gw / 77ed93789a0c / 2
+## ingress_gw — ingress_gw / 132021220030 / 2
 
 Breadcrumbs:
 
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-0301233321013203-1300103011022100-2111131023322220-0102222101012002-2322331200110113-3123301012113021-1201332322031122-0103122213110330)
 - ingress_gw
 
-<a id="canonical-673064a09e6a2668846219b579341e6df28ae8d7a84d2c33fa7479cf571b751e"></a>
+<a id="canonical-1213030012102200-2132122202121220-2010120201212311-1321031001321231-3302202232203113-2220103102300303-3322131013213033-1113012313110132"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4693,17 +5159,17 @@ ingress_gw {
 }
 ```
 
-<a id="canonical-d3191765d04f6504c5ed2cb96e953eb13ae64cfec87bf30761a790a833213b43"></a>
+<a id="canonical-3103012101131211-3100103312110010-3011323102302321-1232211103322301-0322321210303332-3020132333030013-1201221321002220-0303020103231003"></a>
 
-## Direct properties — ingress_gw / 77ed93789a0c / 3
+## Direct properties — ingress_gw / 132021220030 / 3
 
-- [allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8): complete subsection reference.
+- [allowed_vip_port](resources--aws_vpc_site--reference--group-004.md#canonical-2202312332212100-1031132303122122-1232023011302122-2222323223002320-2301112220203003-1311230220303301-1223300032132002-0201022012133120): complete subsection reference.
 
-<a id="canonical-19b85bdb753522a6d4c17aa65abde9e10d52ddc913ad2c3605c16d389c05dd5b"></a>
+<a id="canonical-0121232011233123-1311031102022212-3110300113222212-1122233132213201-0031110231313021-0103223102300312-0011300112310320-2130001131311123"></a>
 
-<a id="canonical-62516fe96e2aba02a2b36fc7a8dca6ade8a0f86635e9de66597ad1befbe55e64"></a>
+<a id="canonical-1202110112333221-1232022223220002-2202230312333013-2220313022122231-3220220033201212-0311322131321212-1121132231012332-3323321111321210"></a>
 
-## aws_certified_hw property — ingress_gw / 77ed93789a0c / 4
+## aws_certified_hw property — ingress_gw / 132021220030 / 4
 
 Type: `"string"`. Optional.
 
@@ -4761,431 +5227,6 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [az_nodes](resources--aws_vpc_site--reference--group-004.md#canonical-bc6cc2703fabd08d9aa7a7cb7be83e08640f98ae12f7c2610a4c69c813f5f964): complete subsection reference.
+- [az_nodes](resources--aws_vpc_site--reference--group-004.md#canonical-2330123030021300-0333222331002031-2122221322133023-1323322003320020-1210003321202232-0102331330021201-0022103012213020-0103331133211210): complete subsection reference.
 
-- [performance_enhancement_mode](resources--aws_vpc_site--reference--group-004.md#canonical-d755f6778136034ceb42d5cb5880580f5684cf6e38a0f35d217a6caad2f8c7a8): complete subsection reference.
-
-<a id="canonical-fc28c54825cd4f6e5efb82257d617b673c57ee296b1cc9641ec7e4c6db7351db"></a>
-
-## Next pages — ingress_gw / 77ed93789a0c / 5
-
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- [ingress_gw.az_nodes](resources--aws_vpc_site--reference--group-004.md#canonical-bc6cc2703fabd08d9aa7a7cb7be83e08640f98ae12f7c2610a4c69c813f5f964)
-- [ingress_gw.performance_enhancement_mode](resources--aws_vpc_site--reference--group-004.md#canonical-d755f6778136034ceb42d5cb5880580f5684cf6e38a0f35d217a6caad2f8c7a8)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6432943caa325aa87fb7ce46f494c443c6a4706282a294d7c297d7c2be9d74d4"></a>
-
-## ingress_gw.allowed_vip_port — ingress_gw.allowed_vip_port / b55a63c2343b / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- ingress_gw.allowed_vip_port
-
-<a id="canonical-c90fa5a4224d92f808c329b82eec9b69a8d6b6017ecf70129f7b1152412e8583"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use
-the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
-
-Upstream description:
-
-This defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client
-can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_ports",
-    "disable_allowed_vip_port"),
-  validators.ConflictingObjectAttributes("custom_ports",
-    "use_http_https_port"),
-  validators.ConflictingObjectAttributes("custom_ports",
-    "use_http_port"),
-  validators.ConflictingObjectAttributes("custom_ports",
-    "use_https_port"),
-  validators.ConflictingObjectAttributes("disable_allowed_vip_port",
-    "use_http_https_port"),
-  validators.ConflictingObjectAttributes("disable_allowed_vip_port",
-    "use_http_port"),
-  validators.ConflictingObjectAttributes("disable_allowed_vip_port",
-    "use_https_port"),
-  validators.ConflictingObjectAttributes("use_http_https_port",
-    "use_http_port"),
-  validators.ConflictingObjectAttributes("use_http_https_port",
-    "use_https_port"),
-  validators.ConflictingObjectAttributes("use_http_port",
-    "use_https_port")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-port_choice": "[\"custom_ports\",\"disable_allowed_vip_port\",\"use_http_https_port\",\"use_http_port\",\"use_https_port\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-allowed_vip_port {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-5f0bcc06a603677a75205395a3a432bc524472a18a355a4952e34560b98224bc"></a>
-
-## Direct properties — ingress_gw.allowed_vip_port / b55a63c2343b / 3
-
-- [custom_ports](resources--aws_vpc_site--reference--group-003.md#canonical-cc71034dd4f1349fa5a4ebbed99c4dea5a154cdae165cbc374da0f123e707504): complete subsection reference.
-
-- [disable_allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-09e6324abf690e4bf8e621820d0bea9999207d5f01133746075679e2d8f37e6b): complete subsection reference.
-
-- [use_http_https_port](resources--aws_vpc_site--reference--group-003.md#canonical-d6d876eccc4b754c6d1039bf508dbc758a2516a880409b018b097d12a01149f8): complete subsection reference.
-
-- [use_http_port](resources--aws_vpc_site--reference--group-003.md#canonical-f34ce9e6772a2c6a5a65862f06fbce4cd4de288fc048e55de831d120b83f2824): complete subsection reference.
-
-- [use_https_port](resources--aws_vpc_site--reference--group-003.md#canonical-3a57a193d5cf5d26cd580fc6f232894634230c18117dcbb168227f55b1e427bd): complete subsection reference.
-
-<a id="canonical-5930b8552059c3b0efc4d45e57abd67d1e012ad0f9d92ea0e5f7ec1024cd36fc"></a>
-
-## Next pages — ingress_gw.allowed_vip_port / b55a63c2343b / 4
-
-- [ingress_gw.allowed_vip_port.custom_ports](resources--aws_vpc_site--reference--group-003.md#canonical-cc71034dd4f1349fa5a4ebbed99c4dea5a154cdae165cbc374da0f123e707504)
-- [ingress_gw.allowed_vip_port.disable_allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-09e6324abf690e4bf8e621820d0bea9999207d5f01133746075679e2d8f37e6b)
-- [ingress_gw.allowed_vip_port.use_http_https_port](resources--aws_vpc_site--reference--group-003.md#canonical-d6d876eccc4b754c6d1039bf508dbc758a2516a880409b018b097d12a01149f8)
-- [ingress_gw.allowed_vip_port.use_http_port](resources--aws_vpc_site--reference--group-003.md#canonical-f34ce9e6772a2c6a5a65862f06fbce4cd4de288fc048e55de831d120b83f2824)
-- [ingress_gw.allowed_vip_port.use_https_port](resources--aws_vpc_site--reference--group-003.md#canonical-3a57a193d5cf5d26cd580fc6f232894634230c18117dcbb168227f55b1e427bd)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-cc71034dd4f1349fa5a4ebbed99c4dea5a154cdae165cbc374da0f123e707504"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0829475a28d93e1dc50eeb3d55c41c5106d0419d2755e5e56a3f1d2d84d639f8"></a>
-
-## ingress_gw.allowed_vip_port.custom_ports — ingress_gw.allowed_vip_port.custom_ports / b4a9d3d549ad / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- ingress_gw.allowed_vip_port.custom_ports
-
-<a id="canonical-2da8adf8c1e911e99f25f17dbdbf761c1f6b6a346830baf523b33e696db8f664"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Custom Ports. List of Custom port.
-
-Upstream description:
-
-List of Custom port.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("port_ranges")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_ports {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-b433fb74eaa06e9c7089dd68099a3df2d0e88213126400aa831a7979025ac7f0"></a>
-
-## Direct properties — ingress_gw.allowed_vip_port.custom_ports / b4a9d3d549ad / 3
-
-<a id="canonical-0ca6a1abbbe8fadda423c937c017f88a463527493fe0fde4c80b31d78105d182"></a>
-
-<a id="canonical-71556dffd984e6f70b54a28515ddbdaeffa0731cda948e9459deaea197b2e854"></a>
-
-## port_ranges property — ingress_gw.allowed_vip_port.custom_ports / b4a9d3d549ad / 4
-
-Type: `"string"`. Optional.
-
-Port Ranges. Port Ranges.
-
-Upstream description:
-
-Port Ranges.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 512),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 512,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 512,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "512",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.port_range_list": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "512",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.port_range_list": "true"
-  }
-}
-```
-
-<a id="canonical-41b19154fd4c669042bd04d9b353077150b348048a044ce643a63feb6f2c76de"></a>
-
-## Next pages — ingress_gw.allowed_vip_port.custom_ports / b4a9d3d549ad / 5
-
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-09e6324abf690e4bf8e621820d0bea9999207d5f01133746075679e2d8f37e6b"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-5baeed114410604910cb3f8d375b524568775573dde18ebdf68cea6271bef0ef"></a>
-
-## ingress_gw.allowed_vip_port.disable_allowed_vip_port — ingress_gw.allowed_vip_port.disable_allowed_vip_port / f0eabc291091 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- ingress_gw.allowed_vip_port.disable_allowed_vip_port
-
-<a id="canonical-0fa474b2bb8bfce99b97a7de49e681b4f6942efae1fa670447ff7428102be086"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_allowed_vip_port = {}
-```
-
-<a id="canonical-355f7a32c89683fa397c8f5da4bbd93dd7874be74e491b032b90685baa780d99"></a>
-
-## Direct properties — ingress_gw.allowed_vip_port.disable_allowed_vip_port / f0eabc291091 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-f71583f1219230849569211373d9950bd1b39e6977d824c716990ae9b0c33480"></a>
-
-## Next pages — ingress_gw.allowed_vip_port.disable_allowed_vip_port / f0eabc291091 / 4
-
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-d6d876eccc4b754c6d1039bf508dbc758a2516a880409b018b097d12a01149f8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-52320531d1cc10205d09c734699e8f116e800e4a11dcc8617944d3275abd3737"></a>
-
-## ingress_gw.allowed_vip_port.use_http_https_port — ingress_gw.allowed_vip_port.use_http_https_port / 9e47c048089c / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- ingress_gw.allowed_vip_port.use_http_https_port
-
-<a id="canonical-f77a87fbb6d87fe365edf63021f384dc34a2818ea25ba67518bff2df4950d3af"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-use_http_https_port = {}
-```
-
-<a id="canonical-ce5c23919acd1f9e9cd036370520baa8a68c583f48846e97394f0edd08ffe626"></a>
-
-## Direct properties — ingress_gw.allowed_vip_port.use_http_https_port / 9e47c048089c / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-63d5714697bb4f9bf6c1b7c86cb77fa243c4e9d2fcea3d5567ac3ab37bfe7cc3"></a>
-
-## Next pages — ingress_gw.allowed_vip_port.use_http_https_port / 9e47c048089c / 4
-
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-f34ce9e6772a2c6a5a65862f06fbce4cd4de288fc048e55de831d120b83f2824"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-26ce1bd780739d539d8f35811ace92a5050c4bcc575b8d3e3a9b8605de576f2a"></a>
-
-## ingress_gw.allowed_vip_port.use_http_port — ingress_gw.allowed_vip_port.use_http_port / 5ef587038e50 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-- [Property reference](resources--aws_vpc_site--reference--group-001.md#canonical-31bf91e3704c52909574bea812a91182baf60517dbc465c961fba35a136a753c)
-- [ingress_gw](resources--aws_vpc_site--reference--group-003.md#canonical-3ff8a0f91cfc1a12f0f56ca1ea38289886152f51e71944138a14d403a166acfb)
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- ingress_gw.allowed_vip_port.use_http_port
-
-<a id="canonical-8bf2432399d25b296b89ea498eb8e67b31c4a291770e51f4be6cb28f8fd884e0"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-use_http_port = {}
-```
-
-<a id="canonical-7d32354c095a517c8fc56fce268ae58b753665f91d816949bea67634185a5e0e"></a>
-
-## Direct properties — ingress_gw.allowed_vip_port.use_http_port / 5ef587038e50 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-b9e20a73c2538cc6e45215d64a44d29eb336272937b330685812d502717951e7"></a>
-
-## Next pages — ingress_gw.allowed_vip_port.use_http_port / 5ef587038e50 / 4
-
-- [ingress_gw.allowed_vip_port](resources--aws_vpc_site--reference--group-003.md#canonical-a2dbe9904d7b369a6e2c5c9aaaeeb0b8b15a88c375b28cf16bc0e782212867d8)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-596185b78dcd7c81fad398b9cb95469116ab1857588f8fec08d4b5deb27d1d75)
-
-<a id="canonical-3a57a193d5cf5d26cd580fc6f232894634230c18117dcbb168227f55b1e427bd"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
+- [performance_enhancement_mode](resources--aws_vpc_site--reference--group-004.md#canonical-3113111133121313-2001031200031030-3223100231113023-1120200011200033-1112201030331232-0320220033031131-0201132212302222-3102332030132220): complete subsection reference.

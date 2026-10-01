@@ -6,42 +6,316 @@ description: "Complete grouped canonical reference for xcsh_dns_proxy reference.
 
 # xcsh_dns_proxy reference
 
-<a id="canonical-0b6367e63d7e9a3a0cfc8de4c8d47cbaa55db70ba4bddbcc158d0d3da9a5f7d2"></a>
+<a id="canonical-0003300001221301-0233101223313210-3231101323220312-0031212222232301-0200111001212212-3223022213013032-2212123220222032-1011213202110001"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where / 6d5e952296d6 / 6
+## proxy_advertisement.advertise_custom.advertise_where — advertise_where / 020221123112 / 2
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-64cad82be0b9729c28ad2caec0ed571d5167a65c50865c5ae234f216cc2787b7)
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-bc85bf57f08c03a2d77a6d61eff33c6119ccc05ccc69e954c7a9df611d2108b3)
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-58ffa668c93929171fa32ce6e8cad94a6d7acc87c7c420fc64ae00b2e72e587b)
-- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-3fa02dda6c2cf1ab054c037552de464ad85510fe3096f8358bc981e7e2306c8b)
-- [proxy_advertisement.advertise_custom.advertise_where.use_default_port](resources--dns_proxy--reference--group-002.md#canonical-96c4edf8994da1e38c347e3702f02883bc62d3195ceb0a99c7865bf7821da37f)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-9913484b063cdc95a027af29b400730c1268977168fbc50afae97345195b30ae)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-d893ad774dbda1e1c44ddb1f685e238f0ab412a959b195d2a3c5862a5c12c3a4)
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+Breadcrumbs:
 
-<a id="canonical-64cad82be0b9729c28ad2caec0ed571d5167a65c50865c5ae234f216cc2787b7"></a>
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- proxy_advertisement.advertise_custom.advertise_where
+
+<a id="canonical-3003223223300310-3011211031123323-1201331300020311-1200221300002310-1212102011313022-0133233033320023-2032300332031222-1201323323221333"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Where should this load balancer be available.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "advertise_on_public"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "advertise_v6_on_public"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "site"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "virtual_network"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "virtual_site"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "advertise_v6_on_public"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "site"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "virtual_network"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "virtual_site"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("advertise_on_public",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
+    "site"),
+  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
+    "virtual_network"),
+  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
+    "virtual_site"),
+  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("port",
+    "port_ranges"),
+  validators.ConflictingListObjectAttributes("port",
+    "use_default_port"),
+  validators.ConflictingListObjectAttributes("port_ranges",
+    "use_default_port"),
+  validators.ConflictingListObjectAttributes("site",
+    "virtual_network"),
+  validators.ConflictingListObjectAttributes("site",
+    "virtual_site"),
+  validators.ConflictingListObjectAttributes("site",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("site",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("virtual_network",
+    "virtual_site"),
+  validators.ConflictingListObjectAttributes("virtual_network",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("virtual_network",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("virtual_site",
+    "virtual_site_with_vip"),
+  validators.ConflictingListObjectAttributes("virtual_site",
+    "vk8s_service"),
+  validators.ConflictingListObjectAttributes("virtual_site_with_vip",
+    "vk8s_service")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+advertise_where {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0232313222320012-1321122021101330-0001321200300000-3020003130223002-1231113322312122-3100232301330032-3213202022230100-0123231312031113"></a>
+
+## Direct properties — advertise_where / 020221123112 / 3
+
+- [advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-1210302231200223-3200232113022130-0220223102302232-3000323111130131-1101121322121130-1100201211301122-3202031033020112-3030021320132313): complete subsection reference.
+
+- [advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2330201123331113-3300203000032202-3113132212311201-3233330303301201-0121303030001130-3030122132211110-3013222131331201-0131020100202303): complete subsection reference.
+
+- [advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-1120333322121220-3021032102210113-0133220302303212-3220302231211022-1231132230302013-3013301002003330-1210223200002302-3213023211201323): complete subsection reference.
+
+<a id="canonical-1130132230110332-0321221103110123-1232002310000133-0231111301020130-3313133233232222-0200023030020230-3220013132333001-3132312310322112"></a>
+
+<a id="canonical-2030303033030210-1133030010223321-2022001320100011-2133331120321210-1032103200001001-3022200323301310-3131300101022310-1313333201123013"></a>
+
+## port property — advertise_where / 020221123112 / 4
+
+Type: `"number"`. Optional.
+
+Exclusive with \[port\_ranges use\_default\_port\] Port to Listen.
+
+Upstream description:
+
+Exclusive with \[port\_ranges use\_default\_port\] Port to Listen.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-3033003112303210-0110122122110233-1123031230332003-0211010200133120-0221230301003030-0311033232101012-1101200131002012-1311022033000223"></a>
+
+<a id="canonical-3213222313000313-0102312321101231-3013031312123000-0021332001123331-1232020002333130-1112310223121203-0212113010011030-2323113212131003"></a>
+
+## port_ranges property — advertise_where / 020221123112 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[port use\_default\_port\] A string containing a comma separated list of port
+ranges. Each port range consists of a single port or two ports separated by '-'.
+
+Upstream description:
+
+Exclusive with \[port use\_default\_port\] A string containing a comma separated list of port
+ranges. Each port range consists of a single port or two ports separated by "-".
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 512),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512",
+    "ves.io.schema.rules.string.max_ports": "64",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.unique_port_range_list": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "512",
+    "ves.io.schema.rules.string.max_ports": "64",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.unique_port_range_list": "true"
+  }
+}
+```
+
+- [site](resources--dns_proxy--reference--group-002.md#canonical-0333220002313122-1230023033012223-0011103000031311-1102313210121022-3120111101003332-0300211233200311-2023302120013213-3202030012302023): complete subsection reference.
+
+- [use_default_port](resources--dns_proxy--reference--group-002.md#canonical-2112301032313320-2121103122013203-2030031013320313-0002330002202003-2330120231030121-1130322300222121-3013201211233313-2002013122031333): complete subsection reference.
+
+- [virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322): complete subsection reference.
+
+- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2121010310201023-0012033031302111-2200021322330221-2310000013030030-0102122021131301-1220332330110022-3322322113031011-0121112303002232): complete subsection reference.
+
+- [virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-3120210322311313-1031233122013201-3010103131230133-1220113202032033-0022231001022221-1121230121113102-2203301120120222-1130010230032210): complete subsection reference.
+
+- [vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333): complete subsection reference.
+
+<a id="canonical-0023120312133212-0331133221220322-0030333020313210-3020311013302322-2211113123130023-2210233131233030-0111203100310331-2221221133133102"></a>
+
+## Next pages — advertise_where / 020221123112 / 6
+
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-1210302231200223-3200232113022130-0220223102302232-3000323111130131-1101121322121130-1100201211301122-3202031033020112-3030021320132313)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2330201123331113-3300203000032202-3113132212311201-3233330303301201-0121303030001130-3030122132211110-3013222131331201-0131020100202303)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-1120333322121220-3021032102210113-0133220302303212-3220302231211022-1231132230302013-3013301002003330-1210223200002302-3213023211201323)
+- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-0333220002313122-1230023033012223-0011103000031311-1102313210121022-3120111101003332-0300211233200311-2023302120013213-3202030012302023)
+- [proxy_advertisement.advertise_custom.advertise_where.use_default_port](resources--dns_proxy--reference--group-002.md#canonical-2112301032313320-2121103122013203-2030031013320313-0002330002202003-2330120231030121-1130322300222121-3013201211233313-2002013122031333)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2121010310201023-0012033031302111-2200021322330221-2310000013030030-0102122021131301-1220332330110022-3322322113031011-0121112303002232)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-3120210322311313-1031233122013201-3010103131230133-1220113202032033-0022231001022221-1121230121113102-2203301120120222-1130010230032210)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+
+<a id="canonical-1210302231200223-3200232113022130-0220223102302232-3000323111130131-1101121322121130-1100201211301122-3202031033020112-3030021320132313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-897b84999f7fc554d2ed8d8292d1e2debc5d899eea7c4d4311054ed6f74a9a8f"></a>
+<a id="canonical-2021132320102121-2133133330111110-3102323120312002-2102310132023132-2330113120212132-3222133010311003-0101001110323112-3313102221222033"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 25d6c7767da7 / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public — advertise_dualstack_on_public / 131213312213 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public
 
-<a id="canonical-a7641a638b7e2ad7d0d958b3e8bf9f6ca75e9142b47a5d99a19bfb221cd67294"></a>
+<a id="canonical-2213121001221203-2023133202223113-3100312111202303-3220233321331230-2213113221011002-2310132211312121-2201212333230202-0130311213022110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -74,41 +348,41 @@ advertise_dualstack_on_public {
 }
 ```
 
-<a id="canonical-ae6f6741d930c62635500c79c7307fb3430f1b80bd6c389c4a2396bd8f07601b"></a>
+<a id="canonical-2232123312131001-3121030030120212-0311110000301321-3013030013332303-1003003301232000-2331123003202130-1022020321122331-2033001312000123"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 25d6c7767da7 / 3
+## Direct properties — advertise_dualstack_on_public / 131213312213 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-1703c22f7a8cae07908d21011cbd9be16233699e214ddea10e37eec0d506b163): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-0113000330020233-1322203022320013-2100203102010001-0130233121233201-1202030312212132-0201103131322201-0032031332323000-3111001223011203): complete subsection reference.
 
-<a id="canonical-7c491633fab67113f442c163717078a222793c98625889b0496fc7f39e8e73e5"></a>
+<a id="canonical-1330102101120303-3322231213010103-3310100230011203-1301130013202202-0202132103302120-1202112020212300-1021123330133303-2132203213033211"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 25d6c7767da7 / 4
+## Next pages — advertise_dualstack_on_public / 131213312213 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-1703c22f7a8cae07908d21011cbd9be16233699e214ddea10e37eec0d506b163)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-0113000330020233-1322203022320013-2100203102010001-0130233121233201-1202030312212132-0201103131322201-0032031332323000-3111001223011203)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-1703c22f7a8cae07908d21011cbd9be16233699e214ddea10e37eec0d506b163"></a>
+<a id="canonical-0113000330020233-1322203022320013-2100203102010001-0130233121233201-1202030312212132-0201103131322201-0032031332323000-3111001223011203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-17bf717d2dca5e43b1b1a704cdaf179d3ebe0012eeb9b6589ebc4f9113de9480"></a>
+<a id="canonical-0113233313011331-0231302211321003-2301230122130010-3031223301132131-0332233200000102-3232232123121120-2132233010332101-0103313221102000"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip — public_ip / 132121322100 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-64cad82be0b9729c28ad2caec0ed571d5167a65c50865c5ae234f216cc2787b7)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-1210302231200223-3200232113022130-0220223102302232-3000323111130131-1101121322121130-1100201211301122-3202031033020112-3030021320132313)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip
 
-<a id="canonical-11084f7e0f4cdf6e7666142a08909d716fe03fc1f1156d2de318f9e4076fcc39"></a>
+<a id="canonical-0101002010331332-0033103031331232-1312121201100222-0020210021311301-1233320003333001-3301011112310231-3203012033213210-0013123330300321"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -147,15 +421,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-03831e9325caed6fe85504be9357b53628ad60f1537301b72b2e41a6b58cff2d"></a>
+<a id="canonical-0003200301322103-0211302232311233-3220111100102332-2103111323110312-0220223112003301-1103130300012313-0223023210012212-2311203033330231"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 3
+## Direct properties — public_ip / 132121322100 / 3
 
-<a id="canonical-11094d4841274368b88bc4cc91415afab2376a73c5b17625a57080e151b0c053"></a>
+<a id="canonical-0101002110311020-1001021310031220-2320202330103030-2101100111223322-2302031312221303-3011230113120211-2211130020003201-1101230030001103"></a>
 
-<a id="canonical-67cc2663bdf31bbc9f08aea799ecbddae1a47fbd7a02df1d0a9d0cf9328f67d8"></a>
+<a id="canonical-1213303002121203-2331330301232330-2133002022322213-2121323023313122-3201221013332331-1322000231330131-0022213100303321-0302203312133120"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 4
+## name property — public_ip / 132121322100 / 4
 
 Type: `"string"`. Optional.
 
@@ -216,11 +490,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4cefeeb8898061a3fe573fdb24c517c281b42c0a47d7b2b3b390910b62effc9a"></a>
+<a id="canonical-1030323332322320-2021200012012203-3332111303333123-0210301101133002-2001231002300022-1013311323022303-2303210021010023-1202323333302122"></a>
 
-<a id="canonical-742c8dec87b8f64f0220aa30f7356b669d71973c3458ae55cb07501b04120403"></a>
+<a id="canonical-1310023020313230-2013232033121033-0002020022220300-3313031112231212-2131130121130330-0310112022321111-3023001311000123-0010010200100003"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 5
+## namespace property — public_ip / 132121322100 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -288,11 +562,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b25816f2199967924d641dc202e6b39fcd653042fcc1cad92cc0399b18f9cebe"></a>
+<a id="canonical-2302112001123302-0121212112132102-1031121001313002-0002321223032133-3031121103001002-3330300130223121-0230300003212123-0120332130322332"></a>
 
-<a id="canonical-61cad18409d28f649b356ff25558b6855bd9648390684df2f4e4b818ea56ae88"></a>
+<a id="canonical-1201302231012010-0021310220331210-2123031112333302-1111112023122011-1123312112102003-2100122010313302-3310321023200120-3222111222322020"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 6
+## tenant property — public_ip / 132121322100 / 6
 
 Type: `"string"`. Computed.
 
@@ -346,33 +620,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-57bfd3202284ef4a296fcbe1dafa1b0660f39203034fbac9fc93d4de1dfe0794"></a>
+<a id="canonical-1113233331030200-0202201032331022-0221123330233201-3122332201230012-1200330321020003-0003103323223021-3330210331103132-0131333200132110"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_publ / 94461d799e90 / 7
+## Next pages — public_ip / 132121322100 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-64cad82be0b9729c28ad2caec0ed571d5167a65c50865c5ae234f216cc2787b7)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-1210302231200223-3200232113022130-0220223102302232-3000323111130131-1101121322121130-1100201211301122-3202031033020112-3030021320132313)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-bc85bf57f08c03a2d77a6d61eff33c6119ccc05ccc69e954c7a9df611d2108b3"></a>
+<a id="canonical-2330201123331113-3300203000032202-3113132212311201-3233330303301201-0121303030001130-3030122132211110-3013222131331201-0131020100202303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4916b588716d5747d39a5617cc93c0d016ea9fd61d0f834616776984efe78510"></a>
+<a id="canonical-1021011223112020-1301123111131013-3103212211120113-3030210330003100-0112322221333112-0131003320031012-0112131312212010-3233321320110100"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_on_public — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public / 9c48f21908d2 / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_on_public — advertise_on_public / 012100203102 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_on_public
 
-<a id="canonical-b1c364f236d2079d77104c457b2d7c8854d76cdea96a02b48e233943dabd888d"></a>
+<a id="canonical-2301300312103302-0312310200132131-1313010010301011-1323023113302020-1110311312303132-2221122200022310-2032020303211003-3122233120202031"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -405,41 +679,41 @@ advertise_on_public {
 }
 ```
 
-<a id="canonical-7c8f3c2358a975df32c9fa99dd06ee4b5e27b66bfd622ff51bd57cc4b3895cfe"></a>
+<a id="canonical-1330203303300203-1120222113113133-0302302133222121-3131001232321023-1132021323121223-3331120202333311-0123311113303010-2303202111303332"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public / 9c48f21908d2 / 3
+## Direct properties — advertise_on_public / 012100203102 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-d7b57da53805912a818c5bcc3f608ceff2445233061bd42daad3b252afddae6b): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-3113231113312211-0320001121010222-2001203011233030-0333120020303233-3302101011020303-0012012331100231-2222310323021102-2233313122321223): complete subsection reference.
 
-<a id="canonical-a32c56c68b404e2d9337c8c1d60bdd2ec11e0e5971d841afc787b297472188a1"></a>
+<a id="canonical-2203023011123012-2023100010320231-2103031330203001-3112002331310232-3001013200321121-1301312010012233-3013201323022113-1013020120202201"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public / 9c48f21908d2 / 4
+## Next pages — advertise_on_public / 012100203102 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-d7b57da53805912a818c5bcc3f608ceff2445233061bd42daad3b252afddae6b)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-3113231113312211-0320001121010222-2001203011233030-0333120020303233-3302101011020303-0012012331100231-2222310323021102-2233313122321223)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-d7b57da53805912a818c5bcc3f608ceff2445233061bd42daad3b252afddae6b"></a>
+<a id="canonical-3113231113312211-0320001121010222-2001203011233030-0333120020303233-3302101011020303-0012012331100231-2222310323021102-2233313122321223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-334be8893668433f1c52ddca3f1f55dfd80db774823785ad38f5614eec5e5452"></a>
+<a id="canonical-0303102332202021-0312122010030333-0130110231313022-0333013311113133-3120003123131310-2002031320112231-0320331112011032-3230113211101102"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip — public_ip / 303100210233 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-bc85bf57f08c03a2d77a6d61eff33c6119ccc05ccc69e954c7a9df611d2108b3)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2330201123331113-3300203000032202-3113132212311201-3233330303301201-0121303030001130-3030122132211110-3013222131331201-0131020100202303)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip
 
-<a id="canonical-5572bc785157d47d707cc86fa6f795731f428b660bca7640329f72bae52788d6"></a>
+<a id="canonical-1111130223301320-1101111331101331-1300133030201233-2212331321111303-0133100220231212-0023302213121000-0302213313022322-3211021320203112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -478,15 +752,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-e318dbb0ed4c1051c284b4dcdfdfa5a3a760ca82fcbf5a7dff8e065972180415"></a>
+<a id="canonical-3203012031232300-3231103001001101-3002201023103130-3133313322112203-2213120030222002-3330233311221331-3333203200121121-1302012000100111"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 3
+## Direct properties — public_ip / 303100210233 / 3
 
-<a id="canonical-ed4719e0ad2b20a22cb2fbbfe283d2db8c56adefd89028c5c1dfc0c1f70e2057"></a>
+<a id="canonical-3231101301213200-2231022302002202-0230230233232333-3202200331023123-2030111222313233-3120210002203011-3001313330003001-3313003202001113"></a>
 
-<a id="canonical-6f3968e348bef7ab24fb69254894074bcba84814377ede8893e3a634604a6163"></a>
+<a id="canonical-1233032112203203-1020233233132223-0210332312210211-1020211000131023-3023222010200110-0313133231322020-2103320322120310-1200102212011203"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 4
+## name property — public_ip / 303100210233 / 4
 
 Type: `"string"`. Optional.
 
@@ -547,11 +821,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a28ac0787e0339d51e9ded30eda8f426e5a19a05831f55d3692bcc1a37be817f"></a>
+<a id="canonical-2202202230001320-1332000303213111-0132213132310300-3231222033100212-3211220121220011-2003013311113103-1221022330300122-0313233220011333"></a>
 
-<a id="canonical-8695ab09044288cc50ab2583d036f8ab36fc3776c7e333d67ecccea769f2bc87"></a>
+<a id="canonical-2012211122230021-0010100220203030-1100222302112003-3100031233202223-0312333003131312-3013320303033112-1332303030322213-1221330223302013"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 5
+## namespace property — public_ip / 303100210233 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -619,11 +893,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fb884ae872ac642f18b7ccd1eaba791fd22db37bc9f9604a64fbed6e475dd56d"></a>
+<a id="canonical-3323202010223220-1302223012100233-0120231330303101-3222232213210133-3102023123031323-3021332112001022-1210332332311232-1013113131111231"></a>
 
-<a id="canonical-5d9faeb6035c5a0c99f1871d70ac08e16a40bc092b97c53eb8463d0fc30372ee"></a>
+<a id="canonical-1131213322322312-0003113011220030-2121330120130131-1300223000203201-1222100023300021-0223211330110332-2320101203310033-3003000313023232"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 6
+## tenant property — public_ip / 303100210233 / 6
 
 Type: `"string"`. Computed.
 
@@ -677,33 +951,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-01554bfc377d5074710513423419897a6facaac8feaa7748f940220481edc2f5"></a>
+<a id="canonical-0001111110233330-0313133111001310-1301001101031002-0310012120211322-1233223022223020-3332222213131020-3321100002020010-2001323130023311"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ / 3e96decd092f / 7
+## Next pages — public_ip / 303100210233 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-bc85bf57f08c03a2d77a6d61eff33c6119ccc05ccc69e954c7a9df611d2108b3)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2330201123331113-3300203000032202-3113132212311201-3233330303301201-0121303030001130-3030122132211110-3013222131331201-0131020100202303)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-58ffa668c93929171fa32ce6e8cad94a6d7acc87c7c420fc64ae00b2e72e587b"></a>
+<a id="canonical-1120333322121220-3021032102210113-0133220302303212-3220302231211022-1231132230302013-3013301002003330-1210223200002302-3213023211201323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b2d189641c92cfc3704acf43d3fcdf31c05e4b2629245a3f73e81cecd01d0578"></a>
+<a id="canonical-2302310120211210-0130210230333003-1300102230331003-3103333031330301-3000113210230212-0221021011220333-1303322001303230-3100013100111320"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public / b4504fdbacc2 / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public — advertise_v6_on_public / 312322303002 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public
 
-<a id="canonical-a6c78f7a1b02d8235566e7ce4e656d383c20351cd653474860d430d92deb1f09"></a>
+<a id="canonical-2212301320331322-0123000231200203-1111121232133032-1032121112310320-0330020003110130-3112110310131020-1200311003003121-0231322301330021"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -736,41 +1010,41 @@ advertise_v6_on_public {
 }
 ```
 
-<a id="canonical-1e5fd6113f60936f107b7cfbcc3235a828c762ec5b7d0bc8beac5146bd58a3de"></a>
+<a id="canonical-0132113331120101-0333120021031233-0100132313303323-3030030203112220-0220301312023230-1123133100233020-2332223011011012-2331112022033132"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public / b4504fdbacc2 / 3
+## Direct properties — advertise_v6_on_public / 312322303002 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-e188f7510df75d77342c9f1f91c10b5c29e5906a45174f94cc3d5bb884bc69cd): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-3201202033131101-0031331311311313-0310023021330133-2101300100231130-0221321121001222-1011011310332110-3030033111232320-2010233012213031): complete subsection reference.
 
-<a id="canonical-51f5c7bef63cbc681a36e92def5d50ec5512515a7bc38d53c10424409b62c69c"></a>
+<a id="canonical-1101331130132332-3312033023301220-0122031232210231-3233113111003230-1111010211011122-1323300320311103-3001001002101000-2123120230122130"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public / b4504fdbacc2 / 4
+## Next pages — advertise_v6_on_public / 312322303002 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-e188f7510df75d77342c9f1f91c10b5c29e5906a45174f94cc3d5bb884bc69cd)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-3201202033131101-0031331311311313-0310023021330133-2101300100231130-0221321121001222-1011011310332110-3030033111232320-2010233012213031)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-e188f7510df75d77342c9f1f91c10b5c29e5906a45174f94cc3d5bb884bc69cd"></a>
+<a id="canonical-3201202033131101-0031331311311313-0310023021330133-2101300100231130-0221321121001222-1011011310332110-3030033111232320-2010233012213031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-db01cf8e36fe16d3f80992210e6b9a18de3876a87973b9e9d5f56f7f2ecd03ff"></a>
+<a id="canonical-3123000130332032-0312333201123103-3320002121020201-0032122321220120-3132032013122220-1321130323213221-3111331112331333-0232303100033333"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 2
+## proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip — public_ip / 103231100211 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-58ffa668c93929171fa32ce6e8cad94a6d7acc87c7c420fc64ae00b2e72e587b)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-1120333322121220-3021032102210113-0133220302303212-3220302231211022-1231132230302013-3013301002003330-1210223200002302-3213023211201323)
 - proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip
 
-<a id="canonical-a9872ef0ff295e13a5e00d9b527465190f208baea7e11e5a91565945bbd03180"></a>
+<a id="canonical-2221201302323300-3333022111320103-2211320000312123-1102131012110121-0033020020232232-2213320101321122-2101111211211011-2323310003012000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -809,15 +1083,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-b7a59a99e35f447057886f114b25030a00497203641798162d5af470fe4d962e"></a>
+<a id="canonical-2313221121222121-3203113310101300-1113202012330101-1023021100030022-0000102113020003-1210011321200112-0231112233101300-3332103121120232"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 3
+## Direct properties — public_ip / 103231100211 / 3
 
-<a id="canonical-e112615451bf5885220006e59ff915d919a9aa587f8490b21f688eade504fbd0"></a>
+<a id="canonical-3201010212011110-1101233311202011-0202000000123211-2133332101113121-0121222122221120-1333201021002302-0133122020322231-3211001033233100"></a>
 
-<a id="canonical-e89f4b739ae17e03313b179d28ae0ffcc4713f9f649576da22d77520dfd1c437"></a>
+<a id="canonical-3220213310231303-2122320113320003-0301032301132131-0220223200333330-3010130103332133-1210211113123122-0202311313110200-3133310130100313"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 4
+## name property — public_ip / 103231100211 / 4
 
 Type: `"string"`. Optional.
 
@@ -878,11 +1152,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d26825daf0c1d61a576bfb20b210415d5da7a544b4f210e6fe89f28379c5e40b"></a>
+<a id="canonical-3102122002113122-3300300131120122-1113122333230200-2302010010011131-1131221322111010-2310330201003212-3332202133022003-1321301132100023"></a>
 
-<a id="canonical-93212a3f9f3387c9408474d4e03a750f3ff0406bfc9061005dd47f741d568295"></a>
+<a id="canonical-2103020102220333-2133030320133021-1000201013103110-3200032213110033-0333330010001223-3330210012010000-1131311013331310-0131111220022111"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 5
+## namespace property — public_ip / 103231100211 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -950,11 +1224,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-88c077842f33179ed99ab72540ef2cd9c2bcac8eb586354e8c134d034a37d5c3"></a>
+<a id="canonical-2020300013132010-0233030301132132-3121212223130211-1000323302303121-3002233022302032-2311201203111032-2030010310310003-1022031331113003"></a>
 
-<a id="canonical-484223424b2114a5692977083b1092a3f303e8bd8dad670b2e3f7693afc00957"></a>
+<a id="canonical-1020100202031002-1023020101102211-1221022113130020-0323010021022203-3303000332202331-2031223112130023-0232033313122103-2233300000211113"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 6
+## tenant property — public_ip / 103231100211 / 6
 
 Type: `"string"`. Computed.
 
@@ -1008,33 +1282,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b21bc8b4b95501c737998cae87a7dc3243acee3b61e01da324102d6efd43bec"></a>
+<a id="canonical-0223020123302023-1023211111000130-1303132121203022-3220132213313003-0210032230323203-2312013200013122-0302100100023112-3233311003233230"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.publ / 5859844ed425 / 7
+## Next pages — public_ip / 103231100211 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-58ffa668c93929171fa32ce6e8cad94a6d7acc87c7c420fc64ae00b2e72e587b)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-1120333322121220-3021032102210113-0133220302303212-3220302231211022-1231132230302013-3013301002003330-1210223200002302-3213023211201323)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-3fa02dda6c2cf1ab054c037552de464ad85510fe3096f8358bc981e7e2306c8b"></a>
+<a id="canonical-0333220002313122-1230023033012223-0011103000031311-1102313210121022-3120111101003332-0300211233200311-2023302120013213-3202030012302023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0fddfa23a731deb3872b949a0d6420ee102c83f1c3c912a6b9d0d7287a55d86c"></a>
+<a id="canonical-0033313133220203-2213030131322303-2013022321102122-0031121002003232-0100023020033301-3003302101022212-2321310031130220-1322111131201230"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.site — proxy_advertisement.advertise_custom.advertise_where.site / a88da27f7a38 / 2
+## proxy_advertisement.advertise_custom.advertise_where.site — site / 133313220320 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.site
 
-<a id="canonical-b7c58531fe2ef386616ed925862a3713e7d6b6d126aa278f80f03e53a9c8328e"></a>
+<a id="canonical-2313301120110301-3332023233032012-1201123231210211-2012022203130103-3213311223123101-0212222202132033-2000330003321103-2221302003022032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1067,15 +1341,15 @@ site {
 }
 ```
 
-<a id="canonical-3bce9a28be49401d996cddb592922727b2a6bacaee5c18d317e1e14a7e489884"></a>
+<a id="canonical-0323303221220220-2332102110000131-2121123031312311-2102210202130213-2302221223223022-3232113001203103-0113320132011022-1332102021202010"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.site / a88da27f7a38 / 3
+## Direct properties — site / 133313220320 / 3
 
-<a id="canonical-e15601da128dfc99ceb371f45bc9d21d0c9514d31e9ca783e88b2afec468909a"></a>
+<a id="canonical-3201111200013122-0102203133302121-3032230313013310-1123302131020131-0030211101103103-0132213022132003-3220202302223332-3010122021002122"></a>
 
-<a id="canonical-8d544444552c3cd99924b970f82c7b6d0fe356c730f2cfcd27635246913f78fe"></a>
+<a id="canonical-2031111010101010-1111023003303121-2121021023211300-3320023013231231-0033320311123013-0300330230333031-0213120311021012-2101033313203332"></a>
 
-## ip property — proxy_advertisement.advertise_custom.advertise_where.site / a88da27f7a38 / 4
+## ip property — site / 133313220320 / 4
 
 Type: `"string"`. Optional.
 
@@ -1121,11 +1395,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5135e3c354d4932d78b6b94782a17ce4e586c0f871e0e194c1d1ef310f636f85"></a>
+<a id="canonical-1101031132033003-1110311021030231-1320231223211013-2002220113303210-3211201230003320-1301320032012110-3001310132330301-0033120312332011"></a>
 
-<a id="canonical-fdda124f13a18df217f2a1e78eefcfa5a9ca55b54c0400a25b5bf39e9c897603"></a>
+<a id="canonical-3331312201021033-0103220120313302-0113330222013213-2032323330332211-2221302211112311-1030001000002202-1123112333032132-2130202113120003"></a>
 
-## network property — proxy_advertisement.advertise_custom.advertise_where.site / a88da27f7a38 / 5
+## network property — site / 133313220320 / 5
 
 Type: `"string"`. Optional.
 
@@ -1186,37 +1460,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site](resources--dns_proxy--reference--group-002.md#canonical-5930e7e923213b21b50ba0d3a3b8a9505ffff1eba8131a547be062291bce87de): complete subsection reference.
+- [site](resources--dns_proxy--reference--group-002.md#canonical-1121030032133221-0203020103230201-2311002322003103-2203232022211100-1133333333013223-2220010301221110-1323320012020221-0123303220133132): complete subsection reference.
 
-<a id="canonical-572634aa9d1b007629bfb8a2e9290f50d5be515c98d013f30eb41280cc922834"></a>
+<a id="canonical-1113021203102222-2131012300001312-0221233323202202-3221022100331100-3111233211011130-2120310001033303-0032231001022000-3030210202200310"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.site / a88da27f7a38 / 6
+## Next pages — site / 133313220320 / 6
 
-- [proxy_advertisement.advertise_custom.advertise_where.site.site](resources--dns_proxy--reference--group-002.md#canonical-5930e7e923213b21b50ba0d3a3b8a9505ffff1eba8131a547be062291bce87de)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.site.site](resources--dns_proxy--reference--group-002.md#canonical-1121030032133221-0203020103230201-2311002322003103-2203232022211100-1133333333013223-2220010301221110-1323320012020221-0123303220133132)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-5930e7e923213b21b50ba0d3a3b8a9505ffff1eba8131a547be062291bce87de"></a>
+<a id="canonical-1121030032133221-0203020103230201-2311002322003103-2203232022211100-1133333333013223-2220010301221110-1323320012020221-0123303220133132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89deefbe202ce54abe9264045b10306c20055e1a9cad135b7d42e5d2a58764fc"></a>
+<a id="canonical-2021313232332332-0200023032111022-2332210212100010-1123010003001230-0200001111320122-2130223101031123-1331100232113102-2211201312103330"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.site.site — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 2
+## proxy_advertisement.advertise_custom.advertise_where.site.site — site / 213011331301 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-3fa02dda6c2cf1ab054c037552de464ad85510fe3096f8358bc981e7e2306c8b)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-0333220002313122-1230023033012223-0011103000031311-1102313210121022-3120111101003332-0300211233200311-2023302120013213-3202030012302023)
 - proxy_advertisement.advertise_custom.advertise_where.site.site
 
-<a id="canonical-d9189e4a4c191823dc0ada305436900ea3e670bf4565b7ce2e8dbc12af7bdbb4"></a>
+<a id="canonical-3121012021321022-1030012101200203-3130002231220300-1110031221000032-2203321213002333-1011121123133032-0232203123300102-2233132331232310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1255,15 +1529,15 @@ site {
 }
 ```
 
-<a id="canonical-4b9694cdc223ea3c91ac8ccd1a1aca73d852849288dc39912310982cf8a49d3b"></a>
+<a id="canonical-1023211221103031-3002020332220330-2101223020303031-0122012230221303-3120110220102102-2020313003212101-0203010021200230-3320221021310323"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 3
+## Direct properties — site / 213011331301 / 3
 
-<a id="canonical-77aff12486af39edcb0a4a8fe18d1de8eeafbef6652213c45349efc8379a8b24"></a>
+<a id="canonical-1313223333010210-2012223303213231-3023002210222033-3201203101313220-3232223323323312-1211020201033010-1103102132333020-0313212220230210"></a>
 
-<a id="canonical-c76d42a15cbdfcb466e32ff553ad05b324cc0e76ab3d38c897e27c2e129ea28f"></a>
+<a id="canonical-3013123110022201-1130233133302310-1212320302333311-1103223100112303-0210303000321312-2223033103203020-2113320213300232-0102213222022033"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 4
+## name property — site / 213011331301 / 4
 
 Type: `"string"`. Optional.
 
@@ -1324,11 +1598,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6def463b6ea00e2b552ae2ac79e74a3eb48b43bcfad0404b01ee12edb65139ae"></a>
+<a id="canonical-1231323310120323-1232220000320223-1111022232022230-1321321310220332-2310202310032330-3322310010001023-0001323201023231-2312110103212232"></a>
 
-<a id="canonical-17f6443707a2cd41eb6c10fa2dce4418578d36a74d443ec567c140d7378a4e4f"></a>
+<a id="canonical-0113331210100313-0013220230311001-3223123001003322-0231303210100120-1113203103122213-1031101003323011-1213300110003113-0313202210321033"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 5
+## namespace property — site / 213011331301 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1396,11 +1670,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1003845a00905ac39fa1368262e207fa45a445abb3d9945a1294d3facc73bb5f"></a>
+<a id="canonical-0100000320101122-0000210011223003-2133220103122002-1202320200133322-1011221010112223-2303312121101122-0102211031033322-3030130323231133"></a>
 
-<a id="canonical-ac4495fe1bde6fbf2b396fb855a8942ddf0527907e6138a2d2ab43a5c52410e8"></a>
+<a id="canonical-2230101021113332-0123313212332333-0223032112332320-1111222021100231-3133001102132100-1332120103202202-3102222310032211-3011021001003220"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 6
+## tenant property — site / 213011331301 / 6
 
 Type: `"string"`. Computed.
 
@@ -1454,33 +1728,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eb29bd718a359166020aa0316306ea0485d64c18559f184426f84e57edff1fce"></a>
+<a id="canonical-3223022123311301-2022031121011212-0002002222000301-1203001232220010-2011311210300120-1111213301201010-0212332010321113-3231333301333032"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.site.site / edf1049c5f71 / 7
+## Next pages — site / 213011331301 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-3fa02dda6c2cf1ab054c037552de464ad85510fe3096f8358bc981e7e2306c8b)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.site](resources--dns_proxy--reference--group-002.md#canonical-0333220002313122-1230023033012223-0011103000031311-1102313210121022-3120111101003332-0300211233200311-2023302120013213-3202030012302023)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-96c4edf8994da1e38c347e3702f02883bc62d3195ceb0a99c7865bf7821da37f"></a>
+<a id="canonical-2112301032313320-2121103122013203-2030031013320313-0002330002202003-2330120231030121-1130322300222121-3013201211233313-2002013122031333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e86178743bfa3cd7b68a9c0a216dcd30a558e8dc68f896584744a91fc7b9c255"></a>
+<a id="canonical-3220120113201310-0323332203303113-2312202221300022-0201123130310300-2211112032203130-1220332021121120-1013101022210133-3013232130021111"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.use_default_port — proxy_advertisement.advertise_custom.advertise_where.use_default_port / b20387638a6a / 2
+## proxy_advertisement.advertise_custom.advertise_where.use_default_port — use_default_port / 120320221222 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.use_default_port
 
-<a id="canonical-5f5f98d3d133309f4aa0b1a0462bd32e2599cb8fbe061121f8196b0ba451be71"></a>
+<a id="canonical-1133113321203103-3101030303002133-1022220023012200-1012022331030232-0211212130232033-2332001201010201-3320012112230023-2210110123321301"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1509,39 +1783,39 @@ Terraform syntax:
 use_default_port = {}
 ```
 
-<a id="canonical-c4c05cc1ecb495e6013fba0831170b1316efebf4559af3775dbda4946a6522a9"></a>
+<a id="canonical-3010300011303001-3230231021113212-0001033323220020-0301011300230103-0112323332233310-1111212233031313-1131233122102110-1222121102022221"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.use_default_port / b20387638a6a / 3
+## Direct properties — use_default_port / 120320221222 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b0c8024b9856f13919ce4f9cd5c7698906615a9a355f157b89649da52ddb934e"></a>
+<a id="canonical-2300302000021023-2120111233010321-0121303210332130-3111301312212021-0012120111222122-0311113301111323-2021121021312211-0231312321031032"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.use_default_port / b20387638a6a / 4
+## Next pages — use_default_port / 120320221222 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa"></a>
+<a id="canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-366fe9059be55ccfa51d6e9a600e47b34d4df30056159625bc2b1e0ee1334e26"></a>
+<a id="canonical-0312123332210011-2123321111303033-2211013112322122-1200003210132303-1031103133030000-1112011121120211-2330022301320032-3201030310320212"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_network — proxy_advertisement.advertise_custom.advertise_where.virtual_network / fde7cdf473aa / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_network — virtual_network / 331013032222 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_network
 
-<a id="canonical-ca180aa443b2a8bbc323d0aaa827c63017c4471510953fe633e231bf59e1620b"></a>
+<a id="canonical-3022012000222210-1003230222202323-3003020331002222-2220021330120300-0113301010130111-0100211103333212-0303320203012333-1121320112020023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1579,19 +1853,19 @@ virtual_network {
 }
 ```
 
-<a id="canonical-941066cd110129095fe3042a4bab1e6501fa594db2bc5d00d02ad7cf193a7dd8"></a>
+<a id="canonical-2110010012123031-0101000102210021-1133320300100222-1023222301321211-0001332211211031-2302233011310000-3100022231133033-0121032213313120"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_network / fde7cdf473aa / 3
+## Direct properties — virtual_network / 331013032222 / 3
 
-- [default_v6_vip](resources--dns_proxy--reference--group-002.md#canonical-686a41e2d41155267a43a47f0fe1b7bcb1407ade37bf187781922674256e3ef0): complete subsection reference.
+- [default_v6_vip](resources--dns_proxy--reference--group-002.md#canonical-1220122210013202-3110010111110212-1322100322101333-0033320123132330-2301100013223132-0313233301201313-2001210202121310-0211123203323300): complete subsection reference.
 
-- [default_vip](resources--dns_proxy--reference--group-002.md#canonical-a3afdc6cfce1ca0445d6b83c2cff4a265bc4f6ba752a9a6eb2a446caf9b2faf3): complete subsection reference.
+- [default_vip](resources--dns_proxy--reference--group-002.md#canonical-2203223331301230-3330320130220010-1011311223200330-0230333310220212-1123301033122322-1311022221221232-2302221010123022-3321230233223303): complete subsection reference.
 
-<a id="canonical-d49927a0d8bb4e63bacf2b11dcb1b43940a8cca2e170f231831259c5035957d4"></a>
+<a id="canonical-3110212102132200-3120232310321203-2322303302230101-3130230123100321-1000222030302202-3201130033020301-2003010211213011-0003112111133110"></a>
 
-<a id="canonical-0d879956a708061ace19c2af2b8d15f4030be6fe6a96703b0e142c0a605cfa54"></a>
+<a id="canonical-0031201321211112-2213002000120122-3032012130022233-0223203101113310-0003002332123332-1222211213000323-0032011002300022-1200113033221110"></a>
 
-## specific_v6_vip property — proxy_advertisement.advertise_custom.advertise_where.virtual_network / fde7cdf473aa / 4
+## specific_v6_vip property — virtual_network / 331013032222 / 4
 
 Type: `"string"`. Optional.
 
@@ -1641,11 +1915,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6c007d4d9dcdc87043df472f9954090212c2845eb86a5ebc6dd16e6781d20006"></a>
+<a id="canonical-1230000013311031-2131303130201300-1003313310130233-2121111000210002-0102300220101132-2320122211322330-1231310112321213-2001310200000012"></a>
 
-<a id="canonical-67d58847e60d29f133709de9693f2bc9c2bc73fde28b85f7435795c1f06d18ff"></a>
+<a id="canonical-1213311120201013-3212003102213301-0303130021313221-1221033302233021-3002233013033331-3202202320113313-1003111321113001-3300123101203333"></a>
 
-## specific_vip property — proxy_advertisement.advertise_custom.advertise_where.virtual_network / fde7cdf473aa / 5
+## specific_vip property — virtual_network / 331013032222 / 5
 
 Type: `"string"`. Optional.
 
@@ -1695,39 +1969,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_network](resources--dns_proxy--reference--group-002.md#canonical-5467480a7decd867142bb237804d84e083a45d76ed8be61576e35788b998d3b8): complete subsection reference.
+- [virtual_network](resources--dns_proxy--reference--group-002.md#canonical-1110121310200022-1331323031201213-0110022323020313-2000103120103200-2003221011311312-3231202332120111-1312320311132020-2321212031032320): complete subsection reference.
 
-<a id="canonical-ff89d8978eada4bd047c1ca4317c6e0b4521ffc1ac310236a19f6ce05b140c00"></a>
+<a id="canonical-3333202131202113-2032223122102331-0010133001302210-0301133012320023-1011020133333001-2230030100020312-2201213312303200-1123011000300000"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_network / fde7cdf473aa / 6
+## Next pages — virtual_network / 331013032222 / 6
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--dns_proxy--reference--group-002.md#canonical-686a41e2d41155267a43a47f0fe1b7bcb1407ade37bf187781922674256e3ef0)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip](resources--dns_proxy--reference--group-002.md#canonical-a3afdc6cfce1ca0445d6b83c2cff4a265bc4f6ba752a9a6eb2a446caf9b2faf3)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-5467480a7decd867142bb237804d84e083a45d76ed8be61576e35788b998d3b8)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--dns_proxy--reference--group-002.md#canonical-1220122210013202-3110010111110212-1322100322101333-0033320123132330-2301100013223132-0313233301201313-2001210202121310-0211123203323300)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip](resources--dns_proxy--reference--group-002.md#canonical-2203223331301230-3330320130220010-1011311223200330-0230333310220212-1123301033122322-1311022221221232-2302221010123022-3321230233223303)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-1110121310200022-1331323031201213-0110022323020313-2000103120103200-2003221011311312-3231202332120111-1312320311132020-2321212031032320)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-686a41e2d41155267a43a47f0fe1b7bcb1407ade37bf187781922674256e3ef0"></a>
+<a id="canonical-1220122210013202-3110010111110212-1322100322101333-0033320123132330-2301100013223132-0313233301201313-2001210202121310-0211123203323300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f3df03796f5adb3e71b2b2f01748bd4fb71ef6cbc7c432805afde60d31741932"></a>
+<a id="canonical-3303313300031321-1233112231230332-1301230223023300-0113102023311033-2313013233123023-3013301003022000-1122333132120031-0301131001210302"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_ / 53b9ca55018f / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip — default_v6_vip / 111100012033 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip
 
-<a id="canonical-a3a080da6bf6bf1d679090a57dc285c8b8fc0d12dd821615a71c9e06b47f54c4"></a>
+<a id="canonical-2203220020003122-1223331223330131-1213210021002211-1331300220113020-2320333000310102-3131200201120111-2213013021320012-2310133311103010"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1756,40 +2030,40 @@ Terraform syntax:
 default_v6_vip = {}
 ```
 
-<a id="canonical-0c3e0a0de4999d026bb0c663c901fdd31c1aabaadd705271ef622680bfa42c8c"></a>
+<a id="canonical-0030033200220031-3210212121310002-1223230030121203-3021000133313103-0130012222232222-3131130011021301-3233120202122000-2333221002302030"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_ / 53b9ca55018f / 3
+## Direct properties — default_v6_vip / 111100012033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-afa9060cf664d63d7898e78d4484c9386360fe670c63180ce186d37de8615767"></a>
+<a id="canonical-2233222100120030-3312121031120331-1320212032132031-1010201030210320-1203120033321213-0030120301200030-3201201231031331-3220120111131213"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_ / 53b9ca55018f / 4
+## Next pages — default_v6_vip / 111100012033 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-a3afdc6cfce1ca0445d6b83c2cff4a265bc4f6ba752a9a6eb2a446caf9b2faf3"></a>
+<a id="canonical-2203223331301230-3330320130220010-1011311223200330-0230333310220212-1123301033122322-1311022221221232-2302221010123022-3321230233223303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3fe9df8cb19bf093ccb8b94330b6d32a5101d92591c394c14ba00d5cca91a1c6"></a>
+<a id="canonical-0333322131332030-2301212333002103-3030232023211003-0300231231030222-1101000131210211-2101300321103001-1023220000311130-3022210122013012"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip / ca3f48794129 / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip — default_vip / 132110010221 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip
 
-<a id="canonical-c21dbdc282a723ea9812674157896af46b68f66583b7e6a984c90b3e884849cd"></a>
+<a id="canonical-3002013123313002-2002221302033222-2120010212131001-1113202112223310-1223122033121211-2003231332122221-2010302100230332-2020102010213031"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1818,40 +2092,40 @@ Terraform syntax:
 default_vip = {}
 ```
 
-<a id="canonical-ae8dac7194251d992416fa15c0e262e0e421e1e0b72d1989e65de1487a6050af"></a>
+<a id="canonical-2232203122301301-2110021101312121-0210011233220111-3000320212023200-3210020132013200-2313023101212021-3212113132011020-1322120011002233"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip / ca3f48794129 / 3
+## Direct properties — default_vip / 132110010221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0252d806f0c594526e25782465bf1a2ccbc3296b6578d9f59b7e600f6751444d"></a>
+<a id="canonical-0002110231200012-3300301121101102-1232021113200210-1211233301220230-3023300302211223-1211132031213311-2123133212000033-1213110110101031"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip / ca3f48794129 / 4
+## Next pages — default_vip / 132110010221 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-5467480a7decd867142bb237804d84e083a45d76ed8be61576e35788b998d3b8"></a>
+<a id="canonical-1110121310200022-1331323031201213-0110022323020313-2000103120103200-2003221011311312-3231202332120111-1312320311132020-2321212031032320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5824d363e93fdb0a43396b6a5da78caf931f1c638698b2e0a16ce61749c0cfbe"></a>
+<a id="canonical-1120021031031203-3221033331230022-1003032112231222-1131221320302233-2103013301301203-2012212023023200-2201123032120113-1021300030332332"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network — virtual_network / 120310001131 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network
 
-<a id="canonical-2a9de88859f038ac8ded12e10682a96da16a07008d95111d990b620184ffbe6b"></a>
+<a id="canonical-0222213132202020-1121330003202230-2031323101023201-0012200222211231-2201122200130000-2031211101010131-2121002312020001-2010333323321223"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1890,15 +2164,15 @@ virtual_network {
 }
 ```
 
-<a id="canonical-458de8ec829af9cbd50f68a3dc3778dfe5b4c462b4d487bfbea1941f1ddb1317"></a>
+<a id="canonical-1011203132203230-2002212233213023-3111003312202203-3130031313203133-3211231030101202-2310311020132333-2332220121100133-0131312301030113"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 3
+## Direct properties — virtual_network / 120310001131 / 3
 
-<a id="canonical-c031840ba96dcdcdafd7e0ee0234712af69cfb45c5405abc91416b6c6c643fa6"></a>
+<a id="canonical-3000030120100023-2221123130313031-2233311332003232-0002031013010222-3312213033231011-3011100011222330-2101100112231230-1230121003332212"></a>
 
-<a id="canonical-3d1e88bd2756f14209c590a6fa83c361d92da0e5ff7e6c49229fde5666c2da7d"></a>
+<a id="canonical-0331013220202331-0213111233011002-0021301121002212-3322200330031201-3121023122003211-3333133212301021-0202213331321112-1212300231221331"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 4
+## name property — virtual_network / 120310001131 / 4
 
 Type: `"string"`. Optional.
 
@@ -1959,11 +2233,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6787810ebb2262130927f15b05f04e2a7da9a9da547a0a7c73ccf677a1d24d67"></a>
+<a id="canonical-1213201320010032-2323020212020103-0021021333011123-0011330010320222-1331222122213122-1110132200221330-1303303033121313-2201310210311213"></a>
 
-<a id="canonical-b1d5f2e052c2a9443080e0ece102c42cb8958ef6b60ef39f04b68963cc6159dd"></a>
+<a id="canonical-2301311133023200-1102300222211010-0300200032003230-3201000230100230-2320211120323312-2312003233032133-0010231220211203-3030120111213131"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 5
+## namespace property — virtual_network / 120310001131 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -2031,11 +2305,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a20fdeb4ab0de52ec011db347e14f3306bbb31c94c121a4eeb0511439d5d7de0"></a>
+<a id="canonical-2202003331322310-2223003132110232-3000010131230310-1332011033030300-1223232303013021-1030010201221032-3223001101011003-2131113113313200"></a>
 
-<a id="canonical-f233e9f1e6ef412afb1bb51928f2bf8713e2885a9e9795a45dafcea777ef506e"></a>
+<a id="canonical-3302030332213301-3212323310010222-3323012323110121-0220330223332013-0103320220201122-2132211321112210-1131223330322213-1313323311001232"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 6
+## tenant property — virtual_network / 120310001131 / 6
 
 Type: `"string"`. Computed.
 
@@ -2089,33 +2363,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7e39a66842be9105b71673df6d91f0513e8f9a76f14f39b4bd98a2249565c117"></a>
+<a id="canonical-1332032122121220-1002233221010011-2313011213033133-1231210133001101-0332203321221312-3301103303212310-2331212022020210-2111121130010113"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_net / ced7c163405d / 7
+## Next pages — virtual_network / 120310001131 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-b448646677519bce2a1a9bfe3e0f5cb2c136e8074cae4328fccb54e8224e1efa)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--dns_proxy--reference--group-002.md#canonical-2310102012101212-1313110121233032-0222012221233332-0332003311302302-3001031232200013-1030223210030220-3330302311103220-0202103201323322)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-9913484b063cdc95a027af29b400730c1268977168fbc50afae97345195b30ae"></a>
+<a id="canonical-2121010310201023-0012033031302111-2200021322330221-2310000013030030-0102122021131301-1220332330110022-3322322113031011-0121112303002232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bf081ef5984700f9e8a6e4a4f04de9e71aa79222b38d4d1deb38fef47f2e5221"></a>
+<a id="canonical-2333002001323311-2120101300003321-3220221232102210-3300103132213213-0122221321020202-2303203110310131-3223032033323310-1333023211020201"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_site — proxy_advertisement.advertise_custom.advertise_where.virtual_site / 546bbf845cba / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_site — virtual_site / 201011302322 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_site
 
-<a id="canonical-80f7220d364accf1332d905e392a4603f713feae2747d3af7e21c1399a2d856e"></a>
+<a id="canonical-2000331302020031-0312102230303301-0303023121001132-0321022210120003-3313010333322232-0213101331032233-1332020130010321-2122023120111232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2148,15 +2422,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-b15a4f5dae4be98a137157cd0f350b5cb5b04a346b1690ece70d4a652c3e34d6"></a>
+<a id="canonical-2301112210331131-2232102332212022-0103130111133031-0033031100231130-2311230010220310-1223011221003230-3213003110221211-0230033203103112"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_site / 546bbf845cba / 3
+## Direct properties — virtual_site / 201011302322 / 3
 
-<a id="canonical-578d4a435d89ee492fd765f8d10c91ca82875b57fbb975f0e3edfce083fe9d58"></a>
+<a id="canonical-1113203110221003-1131202132321021-0233311312113320-3101003021013022-2002201311231113-3323232113113300-3203323133303200-2003333221311120"></a>
 
-<a id="canonical-4a447f830626db94c06c3be582a7515665b98287fe768c99e3536e78f7a97063"></a>
+<a id="canonical-1022101013332003-0012021231232110-3000123003233211-2002221311011112-1211232120022013-3332131220302121-3203110312321320-3313222113001203"></a>
 
-## network property — proxy_advertisement.advertise_custom.advertise_where.virtual_site / 546bbf845cba / 4
+## network property — virtual_site / 201011302322 / 4
 
 Type: `"string"`. Optional.
 
@@ -2217,37 +2491,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-8cdbc4604008aae295c1e68cfed201d03703c1798ba70f62ace966a3d5001b60): complete subsection reference.
+- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2030312330101200-1000002022223202-2111300132122030-3332310200013100-0313000330011321-2023221300331202-2230322112122203-3111000001231200): complete subsection reference.
 
-<a id="canonical-2c738ffc401efe9aae78d37066a16065714df1f396a80c21952d976f1db4a8b4"></a>
+<a id="canonical-0230130320333330-1000013233322122-2232132031031300-1212220112001211-1301103133013303-2112222000300201-2111023121131233-0131231022202310"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_site / 546bbf845cba / 5
+## Next pages — virtual_site / 201011302322 / 5
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-8cdbc4604008aae295c1e68cfed201d03703c1798ba70f62ace966a3d5001b60)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2030312330101200-1000002022223202-2111300132122030-3332310200013100-0313000330011321-2023221300331202-2230322112122203-3111000001231200)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-8cdbc4604008aae295c1e68cfed201d03703c1798ba70f62ace966a3d5001b60"></a>
+<a id="canonical-2030312330101200-1000002022223202-2111300132122030-3332310200013100-0313000330011321-2023221300331202-2230322112122203-3111000001231200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90401cc744d77aa553d5b1a2cd2a20683b80154b1fa94ba3649ce7ca45c9f166"></a>
+<a id="canonical-2100100001303013-1010311313222211-1103311123012202-3031022202001220-0323200001111023-0133222110232203-1210213032133022-1011302133011212"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site — virtual_site / 102312323021 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-9913484b063cdc95a027af29b400730c1268977168fbc50afae97345195b30ae)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2121010310201023-0012033031302111-2200021322330221-2310000013030030-0102122021131301-1220332330110022-3322322113031011-0121112303002232)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site
 
-<a id="canonical-09402303b6b01b815aa84d443c46ff61a60b7de64ac603ae39938a7b20c0cc88"></a>
+<a id="canonical-0021100002030003-2312230001232001-1122222010311010-0330101233331201-2212002313313212-1022301200032232-0321210320221323-0200300030302020"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2286,15 +2560,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-f06f90958b0b053270920f7077778e383a558aaa67b5a7539b2e7e32fbef2180"></a>
+<a id="canonical-3300123321002111-2023002300110302-1300210200331300-1313131320320320-0322111120222222-1213231122131103-2123023213320302-3323323302012000"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 3
+## Direct properties — virtual_site / 102312323021 / 3
 
-<a id="canonical-c8d6931a620e726cdd38925b4b89a9e2166a787c60104a7e2566d9fad553a15f"></a>
+<a id="canonical-3020311221030122-1202003213021230-3131032021021123-1023202122213202-0112122213201330-1200010010221332-0211121231213322-3111110322011133"></a>
 
-<a id="canonical-f55d75b0d7301a19940fb5ad62e15614aa712080c09970518a7fd17396df1186"></a>
+<a id="canonical-3311113113112300-3113030001220121-2110003323112231-1202320111120110-2222130102002000-3000212113001101-2022133331011303-2112313301012012"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 4
+## name property — virtual_site / 102312323021 / 4
 
 Type: `"string"`. Optional.
 
@@ -2355,11 +2629,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-07a0d737c704d127a93b0fe18632fad4b10f2bdaff8efcc67a918cba5e05e255"></a>
+<a id="canonical-0013220031130313-3013001031010213-2221032300333201-2012030233223110-2301003302233122-3333203233303012-1322210120302322-1132001132021111"></a>
 
-<a id="canonical-d908c5154a1424f4a9eb0f4a981de5669444775643cf3d6c74556b674be0d706"></a>
+<a id="canonical-3121002030110111-1022011002103310-2221322300331022-2120013132111212-2110101013131112-1003303303311230-1310111112231213-1023320031130012"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 5
+## namespace property — virtual_site / 102312323021 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -2427,11 +2701,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-138e49748931f123595157123f5ce1d62e5feb8d33ca4d94361f31bc328dfcdb"></a>
+<a id="canonical-0103203210211310-2021030133010203-1121110111130102-0333113032013112-0232113332232031-0303302210312110-0312013303012330-0302203133303123"></a>
 
-<a id="canonical-9d778a490f0c1860d9da3194916564f681092f453c04be6720644e1b06ee860b"></a>
+<a id="canonical-2131131320221021-0033003001201200-3121312203012110-2101121112103312-2001002102331011-0330001023321213-0200121010320123-0012323220120023"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 6
+## tenant property — virtual_site / 102312323021 / 6
 
 Type: `"string"`. Computed.
 
@@ -2485,33 +2759,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-733aacc8ba6182ffd2722f18d4adbc6d9680c9baafbb912b10d9725acab32f95"></a>
+<a id="canonical-1303032222303020-2322120120023333-3102130202330120-3110223123301231-2112200030212322-2233232321010223-0100312113021122-3022230302332111"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site / 55b2534b6ec9 / 7
+## Next pages — virtual_site / 102312323021 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-9913484b063cdc95a027af29b400730c1268977168fbc50afae97345195b30ae)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-2121010310201023-0012033031302111-2200021322330221-2310000013030030-0102122021131301-1220332330110022-3322322113031011-0121112303002232)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-d893ad774dbda1e1c44ddb1f685e238f0ab412a959b195d2a3c5862a5c12c3a4"></a>
+<a id="canonical-3120210322311313-1031233122013201-3010103131230133-1220113202032033-0022231001022221-1121230121113102-2203301120120222-1130010230032210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-98b64b747231e8ab76ff074b5e6896db76ed10201962fbdf6f7f03b4f570829d"></a>
+<a id="canonical-2120231210231310-1302030132202223-1312333300131023-1132122021123123-1312323101000200-0121120233233133-1233133300032310-3311130020022131"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip / d6bad3c69863 / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip — virtual_site_with_vip / 301221201203 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip
 
-<a id="canonical-ba0195b00537a658c98fdc01ca2466f9dea9e5b21bc6d130cd3a18263f9fbb21"></a>
+<a id="canonical-2322000121112300-0011031322121120-3021203331300001-3022021012123321-3132222132112302-0123301231010300-3031032201200212-0333213323230201"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2544,15 +2818,15 @@ virtual_site_with_vip {
 }
 ```
 
-<a id="canonical-cd0e09914290634d113dfeebdc37dfa2f11f9c38cbcb1cd27c574c9760aed259"></a>
+<a id="canonical-3031003200212101-1002210012031031-0101033133323223-3130031331332202-3301013321300320-3023302301303102-1330111310302113-1200223231021121"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip / d6bad3c69863 / 3
+## Direct properties — virtual_site_with_vip / 301221201203 / 3
 
-<a id="canonical-9e923eca821102d5f6f93f785d8fba93b67b822c1596c159acaae132417f7eed"></a>
+<a id="canonical-2132210203323022-2002010100023111-3312332103331320-1131203323222103-2312132320020230-0111211230011121-2230222232010302-1001133313323231"></a>
 
-<a id="canonical-091dd89ef09c2b0c548e81edc97119fc3e197be3d68c490fcab27fea077065f3"></a>
+<a id="canonical-0021013131202132-3300213002230030-1110203220013231-3021130101213330-0332012113233203-3112203010210033-3022230213333222-0013130012113303"></a>
 
-## ip property — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip / d6bad3c69863 / 4
+## ip property — virtual_site_with_vip / 301221201203 / 4
 
 Type: `"string"`. Optional.
 
@@ -2598,11 +2872,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a02d4095eff145223445c3826b66bb6ec60c16612df06fc05101f93efea6e4eb"></a>
+<a id="canonical-2200023110002111-3233330110110202-0310101130032002-1223121223231232-3012003001121201-0231330012333000-1101000133210332-3332221232103223"></a>
 
-<a id="canonical-e035d4a063be91c151fb62c325bd976ed3ab6833031ef84c6b1e774b7eccfa46"></a>
+<a id="canonical-3200031131102200-1203233221013001-1101332312023003-0211233121131232-3103222312200303-0003013233201030-1223013213131023-1332303033221012"></a>
 
-## network property — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip / d6bad3c69863 / 5
+## network property — virtual_site_with_vip / 301221201203 / 5
 
 Type: `"string"`. Optional.
 
@@ -2644,37 +2918,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-360c5ac17323824df96c791a2469c2015b8af13ac47a9515d88bde5c6bd2ef3b): complete subsection reference.
+- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-0312003011223001-1303020320021031-3321123013210122-0210122130020001-1123202233010322-3010132221110111-3120202331321130-1223310232330323): complete subsection reference.
 
-<a id="canonical-07103b9da6f360e086a535f6e155b5cff792bc1a66f03b830f8ef22e90892629"></a>
+<a id="canonical-0013010003232131-2212330312003200-2012221103113312-3201111123113033-3313210223300122-1212330003232003-0033203233020232-2100202102120221"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip / d6bad3c69863 / 6
+## Next pages — virtual_site_with_vip / 301221201203 / 6
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-360c5ac17323824df96c791a2469c2015b8af13ac47a9515d88bde5c6bd2ef3b)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-0312003011223001-1303020320021031-3321123013210122-0210122130020001-1123202233010322-3010132221110111-3120202331321130-1223310232330323)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-360c5ac17323824df96c791a2469c2015b8af13ac47a9515d88bde5c6bd2ef3b"></a>
+<a id="canonical-0312003011223001-1303020320021031-3321123013210122-0210122130020001-1123202233010322-3010132221110111-3120202331321130-1223310232330323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4536b115b93568e6d8ff46e68433b935fb7876605118e6e5c6a118750762aee9"></a>
+<a id="canonical-1011031223010111-2321031112203212-3120333310123212-2010030323210311-3323132013121200-1101012032123211-3012220101201311-0013120222323221"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 2
+## proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site — virtual_site / 102001231300 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-d893ad774dbda1e1c44ddb1f685e238f0ab412a959b195d2a3c5862a5c12c3a4)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-3120210322311313-1031233122013201-3010103131230133-1220113202032033-0022231001022221-1121230121113102-2203301120120222-1130010230032210)
 - proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site
 
-<a id="canonical-df4d46bad32448ed50b9d8dc0ce0878b51c94b79f545c5a817574dee7ed90666"></a>
+<a id="canonical-3133103110122322-3103021010203231-1100232131203130-0030320020132023-1101302110231321-3311101130112220-0113111310313232-1332312100121212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2713,15 +2987,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-f8c9f84e2c0e70e9801ce7d3a77a7e5e55a40b447b83c9a20f62a3084a95b0dd"></a>
+<a id="canonical-3320302133201032-0230003213003221-2000013032133103-2213132213321132-1111221000231010-1323200330212202-0033120222030020-1022211123003131"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 3
+## Direct properties — virtual_site / 102001231300 / 3
 
-<a id="canonical-b86bd2ce52276a614a1c7ce0cc61c6e33c8d8f61524fd8d38304e37478881fee"></a>
+<a id="canonical-2320122331023032-1102021312221201-1022013013303200-3030120130123203-0330203120331201-1102103331203103-2003001032031310-1320202001333232"></a>
 
-<a id="canonical-d15e644d240a190b09837432742709bfe8d8e2a29b8680c36fcdb3ea7830d4ea"></a>
+<a id="canonical-3101113212101031-0210002201210023-0021200313100302-1310021300212333-3220312032022202-2123201220003003-1233303123033222-1320030031103222"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 4
+## name property — virtual_site / 102001231300 / 4
 
 Type: `"string"`. Optional.
 
@@ -2782,11 +3056,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-456a3a4c5b5e61cbfa61dadf9b6cd37d1a8d69ddf16d994cab7e6d0c98898d23"></a>
+<a id="canonical-1011122203221030-1123113212013023-3322120131223133-2123123031031331-0122203112213131-3301123121211030-2223133212310030-2120202120310203"></a>
 
-<a id="canonical-e9369ddba26150905cc41d1d3dbeb88a7c824918df1acb7969d40ccf9ee35469"></a>
+<a id="canonical-3221031221313123-2202120111002100-1130301001310131-0331233223202022-1330200210210120-3133012230231321-1221311000303033-2132320311101221"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 5
+## namespace property — virtual_site / 102001231300 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -2854,11 +3128,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-497f3aeca106c9f756058fae79f15c55e2e340f0cbaffbb93483fd4806ce4eea"></a>
+<a id="canonical-1021133303223230-2201001230213313-1112001120332232-1321330111301111-3202320310003300-3023223333232321-0310200333311020-0012303210323222"></a>
 
-<a id="canonical-7c8f17417ff19a7c3acf1abe819603f96d0808561b0ef2cbfce003616ee00129"></a>
+<a id="canonical-1330203301131001-1333330121221330-0322303301222332-2001211200033321-1231002000201112-0123003233023023-3330320000031201-1232320000010221"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 6
+## tenant property — virtual_site / 102001231300 / 6
 
 Type: `"string"`. Computed.
 
@@ -2912,33 +3186,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-057ed77e0dddb29d97bcf38d8dfe62afd1b95f66f78c84f4cb6c2330641e8ae9"></a>
+<a id="canonical-0011133231131332-0031313123022131-2113233033032031-2031333212022233-3101232111331212-3313203020103310-3023123002030300-1210013220223221"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtu / d5eede481b70 / 7
+## Next pages — virtual_site / 102001231300 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-d893ad774dbda1e1c44ddb1f685e238f0ab412a959b195d2a3c5862a5c12c3a4)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--dns_proxy--reference--group-002.md#canonical-3120210322311313-1031233122013201-3010103131230133-1220113202032033-0022231001022221-1121230121113102-2203301120120222-1130010230032210)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f"></a>
+<a id="canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3da7d7702fd4927f4f0e4daf257122d357d454ef3179570d364c4f3ab57d1743"></a>
+<a id="canonical-0331221331131300-0233311021021333-1033003210312233-0211130102023103-1113311011103233-0301132111130031-0312103010330322-2311133101131003"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.vk8s_service — proxy_advertisement.advertise_custom.advertise_where.vk8s_service / 8764d5008c2d / 2
+## proxy_advertisement.advertise_custom.advertise_where.vk8s_service — vk8s_service / 000020300231 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
 - proxy_advertisement.advertise_custom.advertise_where.vk8s_service
 
-<a id="canonical-1c58c9d224bcdceac97b955e16352b9dc4c9f6fa2294881dbca976f50eaa1df3"></a>
+<a id="canonical-0130112030213102-0210233031303222-3021132321111132-0112031102232131-3010302133123322-0202211020200131-2330222113123311-0032222201313303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2979,44 +3253,44 @@ vk8s_service {
 }
 ```
 
-<a id="canonical-27fdb596491684952c5791e7a3ec3a71b2720ffa89e7b5c5e5f6840f185a83fe"></a>
+<a id="canonical-0213333123112112-1021011220102111-0230111321013213-2203323003221301-2302130200333322-2021321323113011-3211331220100033-0120112220033332"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.vk8s_service / 8764d5008c2d / 3
+## Direct properties — vk8s_service / 000020300231 / 3
 
-- [site](resources--dns_proxy--reference--group-002.md#canonical-f8fc8f7ea1112fb638cc7fd95e0b9621b026217cc41723dc277db04f88ce01ac): complete subsection reference.
+- [site](resources--dns_proxy--reference--group-002.md#canonical-3320333020331332-2201010102332312-0320303013333121-1132002321120201-2300021202011330-3010011302033130-0213133123001033-2020303200012230): complete subsection reference.
 
-- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-d3445ce38a4f4189c1df5967fae48e74287cc11f56fc05b5f1ca748b2da76871): complete subsection reference.
+- [virtual_site](resources--dns_proxy--reference--group-002.md#canonical-3103101011303203-2022103310012021-3001313311211213-3322321020321310-0220133030010133-1112333000112311-3301302213102023-0231221312201301): complete subsection reference.
 
-<a id="canonical-aac4ae1c7f76c151b8771cb5bf43cc4c9064ba20aa599d587b416df82a5ac1bd"></a>
+<a id="canonical-2222301022320130-1333131230011101-2320131301302311-2333100330301030-2100121023220200-2222112121311120-1323100112313320-0222112230012331"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.vk8s_service / 8764d5008c2d / 4
+## Next pages — vk8s_service / 000020300231 / 4
 
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site](resources--dns_proxy--reference--group-002.md#canonical-f8fc8f7ea1112fb638cc7fd95e0b9621b026217cc41723dc277db04f88ce01ac)
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-d3445ce38a4f4189c1df5967fae48e74287cc11f56fc05b5f1ca748b2da76871)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site](resources--dns_proxy--reference--group-002.md#canonical-3320333020331332-2201010102332312-0320303013333121-1132002321120201-2300021202011330-3010011302033130-0213133123001033-2020303200012230)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site](resources--dns_proxy--reference--group-002.md#canonical-3103101011303203-2022103310012021-3001313311211213-3322321020321310-0220133030010133-1112333000112311-3301302213102023-0231221312201301)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-f8fc8f7ea1112fb638cc7fd95e0b9621b026217cc41723dc277db04f88ce01ac"></a>
+<a id="canonical-3320333020331332-2201010102332312-0320303013333121-1132002321120201-2300021202011330-3010011302033130-0213133123001033-2020303200012230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-49ad639f32b12cf4d030ee3953145f9dc77309183bf0a7bf22dfcf2592985012"></a>
+<a id="canonical-1021223112032133-0302230102303310-3100030032320321-1103011011332131-3013130300210120-0323330022132333-0202313330330211-2102212011000102"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 2
+## proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site — site / 213212233010 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333)
 - proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site
 
-<a id="canonical-816dc0ebd210ac2f405d272ec230ca9abf5e29b4afb0119c5dfc682bc51cd352"></a>
+<a id="canonical-2001123130003223-3102010022300233-1000113102130232-3002030030222122-2333113202212310-2233230001012130-1131333012200223-3011013031031102"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3055,15 +3329,15 @@ site {
 }
 ```
 
-<a id="canonical-8ed577a0ac553521d88e851ba82d2cac91e70a17ed948461bfe897a537bcdba2"></a>
+<a id="canonical-2032311113132200-2230111103110201-3120203220110123-2220023102302230-2101321300220113-3231211020101201-2333322021132211-0313233031232202"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 3
+## Direct properties — site / 213212233010 / 3
 
-<a id="canonical-01a5e2a26a8c19bbe58f87099d36a3fa66461477065911c64e39af3332ddf986"></a>
+<a id="canonical-0001221132022202-1222203001212323-3211203320130021-2131031222033322-1212101201101313-0012112101013012-1032032122330303-0302313133212012"></a>
 
-<a id="canonical-4095cb9c59fa0c535064942b10a7b825645498b1d65b7964665bc4b6c1b16226"></a>
+<a id="canonical-1000211130232130-1121332200301103-1100121021100223-0100221323200211-1210111021202301-3112112313211210-1212112330102312-3001230112020212"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 4
+## name property — site / 213212233010 / 4
 
 Type: `"string"`. Optional.
 
@@ -3124,11 +3398,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4c54e33544a462d7c433d431d47d8b87fe01fe6ae7e5acaf43d5dc6d3813b49b"></a>
+<a id="canonical-1030111032030311-1010221012023113-3010030331100301-3110133120232013-3332000133321222-3213321122302233-1003311131301231-0320010323102123"></a>
 
-<a id="canonical-aec168063d171a01609de3d2fd99ab1ed1611e15155407f49722dbaa7ce15232"></a>
+<a id="canonical-2232300112200012-0331011301220001-1200213132033102-3331212122230132-3101120101320111-0111111000133310-2113020231232222-1330320111020302"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 5
+## namespace property — site / 213212233010 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3196,11 +3470,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7c81efcd329b307a7328698d378d8eefe4948e50b0359fa297f72265b16adfc9"></a>
+<a id="canonical-1330200132333031-0302212303001322-1303022012212031-0313203120323233-3210211020321100-2300031121332202-2113331302021211-2301122231333021"></a>
 
-<a id="canonical-4dd105b25a897e1281f9d43b96824bd99377455f31b6c7d77ec0f6aa19862d65"></a>
+<a id="canonical-1031310100112302-1122202113320102-2001332131100323-2112200210233121-2103131310111133-0301231230133113-1332300033122222-0121201202311211"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 6
+## tenant property — site / 213212233010 / 6
 
 Type: `"string"`. Computed.
 
@@ -3254,34 +3528,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e8934244a2ee68fe504f397a47635ea912dcce71621726cd2429295080d93b6f"></a>
+<a id="canonical-3220210310021010-2202323212203332-1100103303211322-1013120311322221-0102313030321301-1202011302123031-0210022102211100-2000312103231233"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site / 20dd589e6bc4 / 7
+## Next pages — site / 213212233010 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-d3445ce38a4f4189c1df5967fae48e74287cc11f56fc05b5f1ca748b2da76871"></a>
+<a id="canonical-3103101011303203-2022103310012021-3001313311211213-3322321020321310-0220133030010133-1112333000112311-3301302213102023-0231221312201301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aa0ebfb64af63db93a5edd0026a576601bf7c57d4f1c20c083de2a78619601dc"></a>
+<a id="canonical-2222003223332312-1022331203312321-0322113231310000-0212221113121200-0123331330111331-1033013002003000-2003313202221320-1201211200013130"></a>
 
-## proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 2
+## proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site — virtual_site / 221002200111 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-ec8ca912df59a88bf2b5ef3ab1b37246ecc9f41b954a2a8a77f5a4f1eef02a91)
-- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-2649d97a7a81981f3f12b33ef51981bfca3e3d05ed2fd7dcf620fdae2ae71fa8)
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_custom](resources--dns_proxy--reference--group-001.md#canonical-3230203022210102-3133112122202023-3302231132330322-2301230313021012-3230302133100123-2111102202222022-1313331122103301-3232330002222101)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--dns_proxy--reference--group-001.md#canonical-0212102131211322-1322200121200133-0333010223030332-3311012120012333-3022033203310011-3231023331133130-3312020033312232-0222321301332220)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333)
 - proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site
 
-<a id="canonical-282ac9db2580842dfffd6856c0507080a3b3614e351ccd2da6f590227cbf0496"></a>
+<a id="canonical-0220022230213123-0211200020100231-3333333112201112-3000110013002000-2203230312011032-0311013030310231-2212331121000202-1330233300102112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3320,15 +3594,15 @@ virtual_site {
 }
 ```
 
-<a id="canonical-cf105c3d9be8a6c1690785afdb2c0315eefd724e5eba7c59466bd32f1ed6ed3c"></a>
+<a id="canonical-3033010011300331-2123322022123001-1221001320112233-3123023000030111-3232333113021032-1132232213301121-1012122331030233-0132311232310330"></a>
 
-## Direct properties — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 3
+## Direct properties — virtual_site / 221002200111 / 3
 
-<a id="canonical-085baa29e23b35a322523acf8e20d810188aed1e5a51cce28d9a3150b05a8289"></a>
+<a id="canonical-0020112322220221-3202032303112203-0202110203223033-2032020031200100-0120202232310132-1122110130303202-2031212203011100-2300112220022021"></a>
 
-<a id="canonical-86cb4cf2d014dc1ced8b26027a7ffe2a6946311464d906b0b23fa3afe7e0b7dd"></a>
+<a id="canonical-2012302310303302-3100011031300130-3231202302120002-1322133333320222-1221101203010110-1210312100122300-2302033322032233-3213320023133131"></a>
 
-## name property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 4
+## name property — virtual_site / 221002200111 / 4
 
 Type: `"string"`. Optional.
 
@@ -3389,11 +3663,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e1550638810dc5e6659da8ab7de9e6c3d57d4e3c38dddfc8f99e62ec9aef5cc"></a>
+<a id="canonical-0232011111001203-2020010031301132-1212112131222022-2313313221321230-0331111331103203-3003203131313330-2033212132120232-3021223233113030"></a>
 
-<a id="canonical-dff5c96f2c8d3426661a85e86348cd070f93dc410336a43ad22554094c93993b"></a>
+<a id="canonical-3133331130211233-0230203103100212-1212012220113220-1203102030310013-0033210331301001-0003031222100322-3102021111100021-1030210321210323"></a>
 
-## namespace property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 5
+## namespace property — virtual_site / 221002200111 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3461,11 +3735,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-03f76c87d493070fb330c35464806b73c7513eeb4321fea25b45af6ee7454fdb"></a>
+<a id="canonical-0003331312302013-3110210300130033-2303030030031110-1210200012231303-3013110103323223-1003020133322202-1123101122331232-3213101110333123"></a>
 
-<a id="canonical-582619906f79af55ac1f800acf8112bb41daf7bdde11b35090ad21787ea6158b"></a>
+<a id="canonical-1120021201212100-1233132122331111-2230013320000022-3033200101022323-1001312233132331-3132010123031100-2100223102011320-1332221201112023"></a>
 
-## tenant property — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 6
+## tenant property — virtual_site / 221002200111 / 6
 
 Type: `"string"`. Computed.
 
@@ -3519,31 +3793,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3fd80405ecca61c104e6c84231082eab9d5adc11b6f0b5a9e0d8b3846b97c205"></a>
+<a id="canonical-0333312000100011-3230302212013001-0010321230201002-0301002002322223-2131112231300101-2312330023112221-3200312023032010-1223211330020011"></a>
 
-## Next pages — proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site / 02c094a42815 / 7
+## Next pages — virtual_site / 221002200111 / 7
 
-- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-fd22c2efb9959a92cb3da99b917df0844bd4bf08a80b9f4522b22aa495a9223f)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--dns_proxy--reference--group-002.md#canonical-3331020230023233-2321211121222102-3023033122212123-2101133133002010-1023311023330020-2220002321331011-0202230202222210-2111222102020333)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-36e413c3804a479487c72a00782daad55ec340e06316387ea5579e5f34a9cdb2"></a>
+<a id="canonical-0312321001033003-2000102210132110-2013301302220000-1320023122223111-1132300310003200-1203011203201332-2211111321321133-0310222130312302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fdb227ca0498717e8152a120582482ea80a8a161668380570f58013b342f03ce"></a>
+<a id="canonical-3331230202133022-0010212013011332-2001110222010200-1120021020023222-2000222022011201-1212200320001113-0033112000010323-0310023300033032"></a>
 
-## proxy_advertisement.advertise_dualstack_on_public — proxy_advertisement.advertise_dualstack_on_public / 68a22f864e1a / 2
+## proxy_advertisement.advertise_dualstack_on_public — advertise_dualstack_on_public / 201210320122 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_dualstack_on_public
 
-<a id="canonical-c820766fcdd4fb770c94ca5c5b0fd54f15cafcf06975ec25ae613b56da319ba7"></a>
+<a id="canonical-3020020013121233-3031311033231313-0030211030221130-1123003331111033-0111302233303300-1221131132300211-2232120103231112-3122030121232213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3576,39 +3850,39 @@ advertise_dualstack_on_public {
 }
 ```
 
-<a id="canonical-a77acbc5c2c2e09949a07e5ceda86957cafa2e4ab215632c46cc5195ad67e7cb"></a>
+<a id="canonical-2213132230233011-3002300232002121-1021220013321130-3231222012211113-3022332202321022-2302011112030230-1012303011012111-2231121332133023"></a>
 
-## Direct properties — proxy_advertisement.advertise_dualstack_on_public / 68a22f864e1a / 3
+## Direct properties — advertise_dualstack_on_public / 201210320122 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-ae0a6e5ecf36d39dce752c50aa846df247f8be5004f33b1110040c33ad8ba86b): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-2232002212321132-3033031231032131-3032131102301100-2222201012313302-1013332023321100-0010330303230101-0100001000300303-2231202322201223): complete subsection reference.
 
-<a id="canonical-0a7b2f28633c162b3e05222ed627085fc1ad640093a28b692b3e7289ae1a51c0"></a>
+<a id="canonical-0022132302330220-1203033001120223-0332001102020232-3112021300201133-3001223112100000-2103220220231221-0223033213022021-2232012211013000"></a>
 
-## Next pages — proxy_advertisement.advertise_dualstack_on_public / 68a22f864e1a / 4
+## Next pages — advertise_dualstack_on_public / 201210320122 / 4
 
-- [proxy_advertisement.advertise_dualstack_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-ae0a6e5ecf36d39dce752c50aa846df247f8be5004f33b1110040c33ad8ba86b)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_dualstack_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-2232002212321132-3033031231032131-3032131102301100-2222201012313302-1013332023321100-0010330303230101-0100001000300303-2231202322201223)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-ae0a6e5ecf36d39dce752c50aa846df247f8be5004f33b1110040c33ad8ba86b"></a>
+<a id="canonical-2232002212321132-3033031231032131-3032131102301100-2222201012313302-1013332023321100-0010330303230101-0100001000300303-2231202322201223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8611e5af2a31613c231fd9714a11b0497d6d772b5146b2876f388af3bf63da50"></a>
+<a id="canonical-2012010132112233-0222030112010330-0203013331211301-1022010123001021-1331123113130223-1101101223022013-1233032020223303-2333120331221100"></a>
 
-## proxy_advertisement.advertise_dualstack_on_public.public_ip — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 2
+## proxy_advertisement.advertise_dualstack_on_public.public_ip — public_ip / 030321122310 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-36e413c3804a479487c72a00782daad55ec340e06316387ea5579e5f34a9cdb2)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-0312321001033003-2000102210132110-2013301302220000-1320023122223111-1132300310003200-1203011203201332-2211111321321133-0310222130312302)
 - proxy_advertisement.advertise_dualstack_on_public.public_ip
 
-<a id="canonical-a399c938bb8bc4d822898858f8dc4f3971560e4f446651ece4993faa82d7388a"></a>
+<a id="canonical-2203212130210320-2323202330103120-0202202120201120-3320313010330321-1301111200321033-1010121211013230-3210212103332222-2002311303202022"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3647,15 +3921,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-ffeb122d05fd6ee4ba46738d31334a04b8c154726fe68bbbe67fd6145eb49076"></a>
+<a id="canonical-3333322301020231-0011333112323210-2322101213032031-0301030310220010-2320300111101302-1233321220232323-3212133331120110-1132231021001312"></a>
 
-## Direct properties — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 3
+## Direct properties — public_ip / 030321122310 / 3
 
-<a id="canonical-a9dd5c6d15f11d94e5e2833f807625c04df13673f9e2d1092cd2aa176874bd80"></a>
+<a id="canonical-2221313111301231-0111330101312110-3211320220030333-2000131202113000-1031330103121303-3321320231010021-0230310222220113-1220131023312000"></a>
 
-<a id="canonical-c1b55e95bb2f6aec927d79538b5b2756bb70d2b430d025c9362e7420c359e615"></a>
+<a id="canonical-3001231111322111-2323023312223230-2102133113211103-2023112302131112-2323130031022310-0300310002113021-0312023213100200-3003112132120111"></a>
 
-## name property — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 4
+## name property — public_ip / 030321122310 / 4
 
 Type: `"string"`. Optional.
 
@@ -3716,11 +3990,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b047659fcd0e096390aea5439f39590cd885aa1e6c4abe0b578edc3b72c5795f"></a>
+<a id="canonical-2300101312112133-3031003200211203-2100223222111003-2133032111210030-3120201122220132-1230102223320023-1113203231300323-1302301113211133"></a>
 
-<a id="canonical-dbef9e7136eca56c0b48d5693bf6bc4314de917dc9ca8e5d624e106b5ebdfca9"></a>
+<a id="canonical-3123323321321301-0312323022111230-0023102031111221-0323331223301003-0110313221011331-3021302220321131-1202103201001223-1132233133302221"></a>
 
-## namespace property — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 5
+## namespace property — public_ip / 030321122310 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3788,11 +4062,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ca1694eaf86b6d6eaab67ef64be2eb57269c82a0f08177f558e092ff0033f687"></a>
+<a id="canonical-3022011221103222-3320122312311232-2222231213323312-1023320232231113-0212213020022200-3300200113133311-1120320021023333-0000030333122013"></a>
 
-<a id="canonical-0ccf228594ed5cef81c612284b502f6ad922edbf426b5482ab69fcb2b6e3eeed"></a>
+<a id="canonical-0030303302022011-2110323111303233-2001301201020220-1023110002331222-3121020232312333-1002122311102002-2223122133302302-2312320332323231"></a>
 
-## tenant property — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 6
+## tenant property — public_ip / 030321122310 / 6
 
 Type: `"string"`. Computed.
 
@@ -3846,31 +4120,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec7820b5491d1a211d40630a6b8aff32b216d575c42e41e397beac1424917229"></a>
+<a id="canonical-3230132002002311-1021013101220201-0131100012030022-1223202233330302-2302011231111311-3010023210013203-2113233222300110-0210210113020221"></a>
 
-## Next pages — proxy_advertisement.advertise_dualstack_on_public.public_ip / a66f913396b4 / 7
+## Next pages — public_ip / 030321122310 / 7
 
-- [proxy_advertisement.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-36e413c3804a479487c72a00782daad55ec340e06316387ea5579e5f34a9cdb2)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_dualstack_on_public](resources--dns_proxy--reference--group-002.md#canonical-0312321001033003-2000102210132110-2013301302220000-1320023122223111-1132300310003200-1203011203201332-2211111321321133-0310222130312302)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-a8cfb9d394509b726e0d82c9c369b0980923800bee81478d2a1193a893c5ab94"></a>
+<a id="canonical-2220303323213103-2110110021231302-1232003120023021-3003122123002120-0021020320000023-3232200110132031-0222010121032220-2103301122232110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-925294dd0f47b9a79556eb2d9b7296533ee1e50fe95838ddec6a0b8319906380"></a>
+<a id="canonical-2102110221103131-0033101323212213-2111111232230231-2123130221121103-0332320132110033-3221112003203131-3230122200232003-0121210012032000"></a>
 
-## proxy_advertisement.advertise_on_public — proxy_advertisement.advertise_on_public / 3b217d4ff6ff / 2
+## proxy_advertisement.advertise_on_public — advertise_on_public / 103333123333 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_on_public
 
-<a id="canonical-54e8f45ac32b59b60a7ae822690d0b26ab76fa220d1a6bdadab1c0923a818d69"></a>
+<a id="canonical-1110322033101122-3003022311212312-0022132232200202-1221003100230212-2223131233220202-0031012212233122-3122230130002102-0322200120311221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3903,39 +4177,39 @@ advertise_on_public {
 }
 ```
 
-<a id="canonical-a89f9c283f3f187cd813a89fd2f72a075ac8d859515139e2a4b4a81b66901957"></a>
+<a id="canonical-2220213321300220-0333033301201330-3120010322202133-3102331302220013-1122302031201121-1101110103213202-2210231022200123-1212210001211113"></a>
 
-## Direct properties — proxy_advertisement.advertise_on_public / 3b217d4ff6ff / 3
+## Direct properties — advertise_on_public / 103333123333 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-6505eb32d6e1fdc9f49d2ae0efa31b982b1890148b4bb602e890f5f656edc4a1): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-1211001132230302-3112320133313021-3310213102223200-3233220301232120-0223012021000110-2023102323120002-3220210033113312-1112323130102201): complete subsection reference.
 
-<a id="canonical-b99352d18495e602eebaecf3cac14fcfe02f4665c9a8aed3bc999c9a398a4b85"></a>
+<a id="canonical-2321210311023101-2010211132120002-3232232232303303-3022300110333033-3200023310121211-3021222022323103-2330212121302122-0321202210232011"></a>
 
-## Next pages — proxy_advertisement.advertise_on_public / 3b217d4ff6ff / 4
+## Next pages — advertise_on_public / 103333123333 / 4
 
-- [proxy_advertisement.advertise_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-6505eb32d6e1fdc9f49d2ae0efa31b982b1890148b4bb602e890f5f656edc4a1)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-1211001132230302-3112320133313021-3310213102223200-3233220301232120-0223012021000110-2023102323120002-3220210033113312-1112323130102201)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-6505eb32d6e1fdc9f49d2ae0efa31b982b1890148b4bb602e890f5f656edc4a1"></a>
+<a id="canonical-1211001132230302-3112320133313021-3310213102223200-3233220301232120-0223012021000110-2023102323120002-3220210033113312-1112323130102201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4109a198e92101b565957ad4f5b3592fc85809198f24be868b7810dadaa575c5"></a>
+<a id="canonical-1001002122012120-3221020100012311-1211211113223110-3311230311210233-3020112000210121-2033021023322012-2023132001003122-3122221113113011"></a>
 
-## proxy_advertisement.advertise_on_public.public_ip — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 2
+## proxy_advertisement.advertise_on_public.public_ip — public_ip / 110202123103 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-a8cfb9d394509b726e0d82c9c369b0980923800bee81478d2a1193a893c5ab94)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2220303323213103-2110110021231302-1232003120023021-3003122123002120-0021020320000023-3232200110132031-0222010121032220-2103301122232110)
 - proxy_advertisement.advertise_on_public.public_ip
 
-<a id="canonical-c124cd17917e7d5cfdee0b0c59b8f7c7e8c01c31f9df7d4edea0c3c37f85a77c"></a>
+<a id="canonical-3001021030310113-2101133213311130-3331323200230030-1121232033133013-3220300001300301-3321313313311032-3132220030033003-1333201122131330"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3974,15 +4248,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-864a24613d0c81187193de045b058814079bae67ad246cf3d414a2f318779df1"></a>
+<a id="canonical-2012102202101201-0331003020010120-1301210331320010-1123001120200110-0013212322321213-2231021012303303-3110011022023303-0120131321313301"></a>
 
-## Direct properties — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 3
+## Direct properties — public_ip / 110202123103 / 3
 
-<a id="canonical-b78ba0d652c45de3b5e0e29ca94e4bb3cbb98c8deba1ab635b5f1640ac223e37"></a>
+<a id="canonical-2313202322003112-1102301011313203-2311320032022130-2221103210232303-3023232120302031-3223220122231203-1123113301121000-2230020203320313"></a>
 
-<a id="canonical-9df15582dcf1c5814b6a0519b9b0a3b4c0bde4df886bec47fe0a7dcce908f534"></a>
+<a id="canonical-2131330111112002-3130330130112001-1023122200110121-2321230022032310-3000233132103133-2020122332301013-3332002213313030-3221002033110310"></a>
 
-## name property — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 4
+## name property — public_ip / 110202123103 / 4
 
 Type: `"string"`. Optional.
 
@@ -4043,11 +4317,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d0654a9912e1315803ede06839c8a8ac78561d358bf9bfabbcdcbf71e50563f2"></a>
+<a id="canonical-3100121110222121-0102320103011120-0003323132001220-0321302022202230-1320111201310311-2023332123332223-2330313023331301-3211001112033302"></a>
 
-<a id="canonical-4f938793df42959a276e22bf3686d20c2b1b84ebc90942fb63899372f8d903b5"></a>
+<a id="canonical-1033210320132103-3133100221112122-0213123202022333-0312201231020030-0223012320103223-3021002110023323-1203202121031302-3320312100032311"></a>
 
-## namespace property — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 5
+## namespace property — public_ip / 110202123103 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -4115,11 +4389,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-52b1b257ecbfda48770df3db0ff3568b2c941a9ece75c1dbdf2c86f7d5e03b55"></a>
+<a id="canonical-1102230123021113-3230233331221020-1313003133033123-0033330311122023-0230211001222132-3032131130013123-3133023020123313-3111320003231111"></a>
 
-<a id="canonical-2a7284236cdc9ce7a834842e77c069635863d3c0eaa03dc8c9b3bbad6511c26d"></a>
+<a id="canonical-0222130220100203-1230313021303213-2220031020100232-1313300012211203-1120120331033000-3222220003313020-3021230323232231-1211010130021231"></a>
 
-## tenant property — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 6
+## tenant property — public_ip / 110202123103 / 6
 
 Type: `"string"`. Computed.
 
@@ -4173,31 +4447,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c93b72ed4d15d43a0ff2002ab0614b874f71cf8801df3a3eb098044827c9d1a9"></a>
+<a id="canonical-3021032313023231-1031011131100322-0033330200000222-2300120110232013-1033130130332020-0001313303220332-2300212000101020-0213302131012221"></a>
 
-## Next pages — proxy_advertisement.advertise_on_public.public_ip / 7761fe5226d3 / 7
+## Next pages — public_ip / 110202123103 / 7
 
-- [proxy_advertisement.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-a8cfb9d394509b726e0d82c9c369b0980923800bee81478d2a1193a893c5ab94)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_on_public](resources--dns_proxy--reference--group-002.md#canonical-2220303323213103-2110110021231302-1232003120023021-3003122123002120-0021020320000023-3232200110132031-0222010121032220-2103301122232110)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-d9018890345e9c38927c60cd2abc03a1c13887da81cdf0e2d11570f102d379da"></a>
+<a id="canonical-3121000120202100-0310113221300320-2102133012003031-0222233000032201-3001032020133122-2001303133003202-3101011113003301-0002310313213122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-663e42683ba4e9ffe009ff1ae3fd11948c60b5a76bcae6838931fb79b34ce3ae"></a>
+<a id="canonical-1212033210021220-0323221032213333-3200002133330122-3203333101012110-2030120023112213-1223302232122003-2021030133231321-2303103032032232"></a>
 
-## proxy_advertisement.advertise_on_public_default_dualstack_vip — proxy_advertisement.advertise_on_public_default_dualstack_vip / 7197410c4100 / 2
+## proxy_advertisement.advertise_on_public_default_dualstack_vip — advertise_on_public_default_dualstack_vip / 003010010000 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_on_public_default_dualstack_vip
 
-<a id="canonical-84d2d13d5761b42c5c7e54727bc052b67717e3b2adbb8be52d66b2aa667f398a"></a>
+<a id="canonical-2010310231010331-1113120123100230-1130133211101302-1323300011022312-1313011332032302-2231232320233211-0231121223022222-1212133303212022"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4226,37 +4500,37 @@ Terraform syntax:
 advertise_on_public_default_dualstack_vip = {}
 ```
 
-<a id="canonical-518faa1a378e6f1e2a1f8097f8180b6263cfb3dbfecfac8fb4a4e8bd4993c324"></a>
+<a id="canonical-1101203322220122-0313203212330132-0222013320002113-3320012000231202-1203303323033123-3332303322302033-2310221032202331-1021210330030210"></a>
 
-## Direct properties — proxy_advertisement.advertise_on_public_default_dualstack_vip / 7197410c4100 / 3
+## Direct properties — advertise_on_public_default_dualstack_vip / 003010010000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3a83a5ecec1438ec9355a2490513e81bb9b4535b162a3122d465a8b41810331f"></a>
+<a id="canonical-0322200322113230-3230011003203230-2103111122021021-0011010332200123-2321231011031123-0112022203010202-3110121122202310-0120010003030133"></a>
 
-## Next pages — proxy_advertisement.advertise_on_public_default_dualstack_vip / 7197410c4100 / 4
+## Next pages — advertise_on_public_default_dualstack_vip / 003010010000 / 4
 
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-a8dabdd0094f62327d00befc565720566f64203ef5501c846fa47158a9d172f0"></a>
+<a id="canonical-2220312223313100-0021103312020302-1331000023323330-1112111302001112-1233121002000332-3311110001302010-1233221013011120-2221310113023300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9aaf59fb8c5489b5503ae407c75f3699ebbdf1f4ac0f4d451956fda08dbb1a9f"></a>
+<a id="canonical-2122223311213323-2030111020212311-1100032232100013-3013113303122121-3223233133013310-2230003310311011-0121111233312200-2031232301222133"></a>
 
-## proxy_advertisement.advertise_on_public_default_ipv6_vip — proxy_advertisement.advertise_on_public_default_ipv6_vip / 4aed38b9fae6 / 2
+## proxy_advertisement.advertise_on_public_default_ipv6_vip — advertise_on_public_default_ipv6_vip / 232133223212 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_on_public_default_ipv6_vip
 
-<a id="canonical-7e48d8055fe6a2f1f4fd140f85356ddc41192d400af831537768ccc5e4db340f"></a>
+<a id="canonical-1332102031200011-1133321222023301-3310333101100033-2011031112313130-1001012102311000-0022332003011103-1313122030303011-3210312303100033"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4285,37 +4559,37 @@ Terraform syntax:
 advertise_on_public_default_ipv6_vip = {}
 ```
 
-<a id="canonical-34cf72c094c8f60164aaaa7c9390510b2c8dce704d268d92c68a564df49ef245"></a>
+<a id="canonical-0310303313023000-2110302033120001-1210222222221330-2103210011010023-0230203130321300-1031021220312102-3012202211121031-3310213233021011"></a>
 
-## Direct properties — proxy_advertisement.advertise_on_public_default_ipv6_vip / 4aed38b9fae6 / 3
+## Direct properties — advertise_on_public_default_ipv6_vip / 232133223212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-efdbee77f69cbf3dedf1ccd5b0b49c8773f0b0f759f4cabaff7ff9aa24d68f29"></a>
+<a id="canonical-3233312332321313-3312213023330331-3231330130303111-2300231021302013-1303330023003313-1121331030222322-3333133333212222-0210311220330221"></a>
 
-## Next pages — proxy_advertisement.advertise_on_public_default_ipv6_vip / 4aed38b9fae6 / 4
+## Next pages — advertise_on_public_default_ipv6_vip / 232133223212 / 4
 
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-6a8eec7071e18f350fff1d62d082b941c2c8761c5e70f805cf71c559c9691d27"></a>
+<a id="canonical-1222203232301300-1301320120330311-0033333301311202-3100200223211001-3002302013120130-1132130033200011-3033130130111121-3021122101310213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2604592fcd063abb085330918bb27f036617adedeb29cdfee46eb110faa2d07c"></a>
+<a id="canonical-0212001011210233-3031001203222323-0020110303002101-2023230213330003-1212011322313231-3223022130313332-3210123223010100-3322220231001330"></a>
 
-## proxy_advertisement.advertise_on_public_default_vip — proxy_advertisement.advertise_on_public_default_vip / 7b4f74d2075b / 2
+## proxy_advertisement.advertise_on_public_default_vip — advertise_on_public_default_vip / 310200131123 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_on_public_default_vip
 
-<a id="canonical-b229c26418bda71329600f5016b949b398b760327bbb18e88c8da04c9c067adb"></a>
+<a id="canonical-2302022130021210-0120233122130103-0221120000331100-0112232110212303-2120231312000302-1323232301203220-2030203122001030-2130001213223123"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4344,37 +4618,37 @@ Terraform syntax:
 advertise_on_public_default_vip = {}
 ```
 
-<a id="canonical-a023f5a7995195188aa7617353c3aa07963573cbd564c224086d798147de48f4"></a>
+<a id="canonical-2200020333112213-2121110121110120-2022221312011303-1103300322220013-2112031113033023-3111121030020210-0020123113212001-1013313210203310"></a>
 
-## Direct properties — proxy_advertisement.advertise_on_public_default_vip / 7b4f74d2075b / 3
+## Direct properties — advertise_on_public_default_vip / 310200131123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-494525d4d608bbaa6bdcbb9c349ecd8bdc6167e4a5dbcdbcc8d040232d2d3426"></a>
+<a id="canonical-1021101102113110-3112002023232222-1223313023232130-0310213230312023-3130120112133210-2211312330312330-3020310010000203-0231023103100212"></a>
 
-## Next pages — proxy_advertisement.advertise_on_public_default_vip / 7b4f74d2075b / 4
+## Next pages — advertise_on_public_default_vip / 310200131123 / 4
 
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-049a38713e827da66813f326a1263c600ce757ba01a9f6926640be9f17033e1b"></a>
+<a id="canonical-0010212203201301-0332200213312212-1220010333030212-2201021203301200-0030321311132322-0001222133122102-1212100023322133-0113000303320123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-eddd3746234660b90d80d7dd056d5d113cc8ca6e06b900bfe21be5248e2f9459"></a>
+<a id="canonical-3231313103131012-0203101212002321-0031200031133131-0011123111310101-0330302030221232-0012232100002333-3202012332110210-2032023321101121"></a>
 
-## proxy_advertisement.advertise_v6_on_public — proxy_advertisement.advertise_v6_on_public / d9f49701df2b / 2
+## proxy_advertisement.advertise_v6_on_public — advertise_v6_on_public / 000131330223 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.advertise_v6_on_public
 
-<a id="canonical-526771c2166cf95233da0632290598a5d30732d85bd6cb7985c8fb5238dd3ff2"></a>
+<a id="canonical-1102121313013002-0112123033211102-0303312200120302-0221001121202211-3103001303023120-1123311230231321-2011302033231102-0320313103333302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4407,39 +4681,39 @@ advertise_v6_on_public {
 }
 ```
 
-<a id="canonical-64ce2f7dc030077db41d62adab25580a7da9e3ef29c4ef86dc037e5b856f757b"></a>
+<a id="canonical-1210303202331331-3000030000131331-2310013112022231-2223021111200022-1331222132033233-0221301032332012-3130000313321123-2011123313111323"></a>
 
-## Direct properties — proxy_advertisement.advertise_v6_on_public / d9f49701df2b / 3
+## Direct properties — advertise_v6_on_public / 000131330223 / 3
 
-- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-e8ff2182ce91ef6f77c4029199659476992d2129aab22902aec5ac79ee675aeb): complete subsection reference.
+- [public_ip](resources--dns_proxy--reference--group-002.md#canonical-3220333302012002-3032210132331233-1313301000022101-2121121121101312-2121023102010221-2222230202210002-2232301122301321-3232121311223223): complete subsection reference.
 
-<a id="canonical-73c867a4110be3b9894ed73d5264f5f9f57be5d1b6599fc4c95d07590e57f2ba"></a>
+<a id="canonical-1303302012132210-0101002332032321-2021103231130331-1102121033113321-3311132332113101-2312112121333010-3021113100131121-0032111333022322"></a>
 
-## Next pages — proxy_advertisement.advertise_v6_on_public / d9f49701df2b / 4
+## Next pages — advertise_v6_on_public / 000131330223 / 4
 
-- [proxy_advertisement.advertise_v6_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-e8ff2182ce91ef6f77c4029199659476992d2129aab22902aec5ac79ee675aeb)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_v6_on_public.public_ip](resources--dns_proxy--reference--group-002.md#canonical-3220333302012002-3032210132331233-1313301000022101-2121121121101312-2121023102010221-2222230202210002-2232301122301321-3232121311223223)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-e8ff2182ce91ef6f77c4029199659476992d2129aab22902aec5ac79ee675aeb"></a>
+<a id="canonical-3220333302012002-3032210132331233-1313301000022101-2121121121101312-2121023102010221-2222230202210002-2232301122301321-3232121311223223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6e2d102b12c76dfc6dc3ef5be1f983494bb1f718ba040bfcb963bd93f269e018"></a>
+<a id="canonical-1232023101000223-0102301312313330-1231300332331123-3201332120031021-1023230133130120-2322001000233330-2321120323312103-3302122132000120"></a>
 
-## proxy_advertisement.advertise_v6_on_public.public_ip — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 2
+## proxy_advertisement.advertise_v6_on_public.public_ip — public_ip / 101301031221 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [proxy_advertisement.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-049a38713e827da66813f326a1263c600ce757ba01a9f6926640be9f17033e1b)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [proxy_advertisement.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-0010212203201301-0332200213312212-1220010333030212-2201021203301200-0030321311132322-0001222133122102-1212100023322133-0113000303320123)
 - proxy_advertisement.advertise_v6_on_public.public_ip
 
-<a id="canonical-f024433cd07fd0cb19ee3eb5768761ab712f94233cb1360b5314239281394069"></a>
+<a id="canonical-3300021010030330-3100133331003023-0121323203322311-1312201312012223-1301023321100203-0330230103120023-1103011002032102-2001032110001221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4478,15 +4752,15 @@ public_ip {
 }
 ```
 
-<a id="canonical-a25fcadfeeceb466a921cc2214a043019e61e8b4e86506741b6fcf51ab8e1735"></a>
+<a id="canonical-2202113330223133-3232303223101212-2221020130300202-0110220010030001-2132120132202310-3220121100121310-0123123330331101-2223203201130311"></a>
 
-## Direct properties — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 3
+## Direct properties — public_ip / 101301031221 / 3
 
-<a id="canonical-1ffcb351004491851561252a220ee66520830cd6fe224ae85736de2055f7c0fc"></a>
+<a id="canonical-0133333023031101-0000101021012011-0111120102110222-0202003232121211-0200200300303112-3332020210223220-1113031231320200-1111331330003330"></a>
 
-<a id="canonical-a28bebfb84e34a2598c80ea5a29185956e24b921d1ba912a48c02e30934358cc"></a>
+<a id="canonical-2202202332233323-2010320310220211-2120302000322211-2202210120112111-1232021023210201-3101232221010222-1020300002320300-2103100311203030"></a>
 
-## name property — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 4
+## name property — public_ip / 101301031221 / 4
 
 Type: `"string"`. Optional.
 
@@ -4547,11 +4821,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e374814a597d550ec06cd74f075717af41293ed89621631a73d72eac3f689819"></a>
+<a id="canonical-3203131020011022-1121133111110032-3000123031131033-0013111301132233-1001022103323120-2112020112030122-1303311302322230-0333122021200121"></a>
 
-<a id="canonical-49525dc8560fb614d32a8fe225e4df34572edbb67b57518bb9e3f036f443245a"></a>
+<a id="canonical-1021110211313020-1112003323120110-3103022220333202-0211321031330310-1113023231232312-1323111311012023-2321320333000312-3310100302101122"></a>
 
-## namespace property — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 5
+## namespace property — public_ip / 101301031221 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -4619,11 +4893,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d00b56add2a6f0fc5431966cda55582552dcda0f0e49a45ac143822d5b32d4ea"></a>
+<a id="canonical-3100002311122231-3102221233003330-1110030121121230-3122111111200211-1102313031220033-0032102122101122-3001100320020231-1123030231103222"></a>
 
-<a id="canonical-cacf6552c3bf3bed453ebfdd7b787bb24c507acb982f66baa6c246b037337f70"></a>
+<a id="canonical-3022303312111102-3003233303233231-1011033223333131-1323132013232302-1030110013223023-2120023312122322-2212300210122300-0313030313331300"></a>
 
-## tenant property — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 6
+## tenant property — public_ip / 101301031221 / 6
 
 Type: `"string"`. Computed.
 
@@ -4677,31 +4951,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-31ad6353415cf6660c770ba7b3ef4276afcbbc20ec912d12bd6bc47d02ef4d7a"></a>
+<a id="canonical-0301223112031103-1001113033121212-0030131300232213-2303323310021312-2233302323300200-3230210102310102-2331122330101331-0002323310311322"></a>
 
-## Next pages — proxy_advertisement.advertise_v6_on_public.public_ip / 846480471369 / 7
+## Next pages — public_ip / 101301031221 / 7
 
-- [proxy_advertisement.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-049a38713e827da66813f326a1263c600ce757ba01a9f6926640be9f17033e1b)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement.advertise_v6_on_public](resources--dns_proxy--reference--group-002.md#canonical-0010212203201301-0332200213312212-1220010333030212-2201021203301200-0030321311132322-0001222133122102-1212100023322133-0113000303320123)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-3bb4e78ed32c4a8cda0a7dc8a0f096120494038738f8935d0887a0697ff759b7"></a>
+<a id="canonical-0323231032132032-3103023010222030-3122002213313020-2200330021120102-0010211000032013-0320332021031131-0020201322001221-1333331311212313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-35095e136aec04eeb34696011d5c1184bfea35f2252bf39326b514f9ed4a6feb"></a>
+<a id="canonical-0311002111320103-1222323000103232-2303101221120001-0131113001012010-2333322203113302-0211022333032103-0212231101103321-3231102212333223"></a>
 
-## proxy_advertisement.do_not_advertise — proxy_advertisement.do_not_advertise / 29e186a1495a / 2
+## proxy_advertisement.do_not_advertise — do_not_advertise / 220110211122 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
 - proxy_advertisement.do_not_advertise
 
-<a id="canonical-c5f205abf9af66657cec11a7dc597469311c4d34a70223a22586b71ab4272fe7"></a>
+<a id="canonical-3011330200112223-3321223312121211-1330323001012213-3130112113101221-0301013010310310-2213000202032202-0211201223130122-2310021302333213"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4730,36 +5004,36 @@ Terraform syntax:
 do_not_advertise = {}
 ```
 
-<a id="canonical-668b0575061c6d4ad62a49def41d23ceb2cfba878f71e89cc918ebe887d7fd0b"></a>
+<a id="canonical-1212202300111311-0012013012311022-3112022210213132-3310013102033032-2302303323222013-2033130132202130-3021012032233220-2013311333310023"></a>
 
-## Direct properties — proxy_advertisement.do_not_advertise / 29e186a1495a / 3
+## Direct properties — do_not_advertise / 220110211122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-75b49efc527344177520da1fa463353806cad3868e5b039df9c7fe265062717a"></a>
+<a id="canonical-1311231021323330-1102130310100113-1311020031220133-2210120303110320-0012302231032012-2032112300032131-3321301333320212-1100120213011322"></a>
 
-## Next pages — proxy_advertisement.do_not_advertise / 29e186a1495a / 4
+## Next pages — do_not_advertise / 220110211122 / 4
 
-- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-52507c9a61455520770b06df7e652c9d48cd01b1dabe747f532d8221b6b9bc6c)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [proxy_advertisement](resources--dns_proxy--reference--group-001.md#canonical-1102110013302122-1201101111110200-1313002300123133-1332121102302131-1020303100012301-3122233213101333-1103023120020201-2312232123301230)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
 
-<a id="canonical-fbff3022aa3c1cd24e5dd973753c2686428fb896d6a2c568f5465e06f7e025a5"></a>
+<a id="canonical-3323333303000202-2222033001303102-1032113131211303-1311033002122012-1002203323202112-3112220230111220-3311101211320012-3313320002112211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-94b92ee94a47ed37c84d5d0f1a035cea77ac7613636915cb5c87601d00dd3703"></a>
+<a id="canonical-2110232102323221-1022101332310313-3020103111310033-0122000311303222-1313223013120103-1203122101113023-1130201312000131-0000313103130003"></a>
 
-## timeouts — timeouts / 7501344e2b85 / 2
+## timeouts — timeouts / 103202232011 / 2
 
 Breadcrumbs:
 
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
 - timeouts
 
-<a id="canonical-997c29c6fbf12e74d56064161260a45cd928709c531cea946edcba3d30f6c84f"></a>
+<a id="canonical-2121133002213012-3323330102321310-3111120012100112-0102120022101130-3121022013002130-1103013032222110-1232313023220331-0300331230201033"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4771,15 +5045,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-0337220a868e6a0fa08755ebde2a6805d52065f21c3e2b613e20d836d1b5e512"></a>
+<a id="canonical-0003031302020022-2012203212220033-2200201311113223-3132022212200011-3111020012113302-0130033202231201-0332020031200312-3101231132110102"></a>
 
-## Direct properties — timeouts / 7501344e2b85 / 3
+## Direct properties — timeouts / 103202232011 / 3
 
-<a id="canonical-20885ebbf11b16653e443eeec8970c4b82e7092737a15d02b1ec79e2d425a301"></a>
+<a id="canonical-0200202011322323-3301012301121211-0332101003323232-3020211300301023-2002321300210213-0313220111310002-2301323013213202-3110021122030001"></a>
 
-<a id="canonical-74e7d6297c13d705bd3469badf3ec4bfc982383df89a4b86d19dfb4be0b69e1b"></a>
+<a id="canonical-1310321331120221-1330010331130011-2331031012212322-3133033230102333-3021200203200331-3320212210232012-3101213133231023-3200231221320123"></a>
 
-## create property — timeouts / 7501344e2b85 / 4
+## create property — timeouts / 103202232011 / 4
 
 Type: `"string"`. Optional.
 
@@ -4787,11 +5061,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-4a7058d79099b37eba4630afe530deacae2cc48bf3eb179d2c8553cac4d018e8"></a>
+<a id="canonical-1022130011203113-2100212123031332-2322101203002233-3211030031322230-2232023030102023-3303322301132131-0230201111033022-3010310001203220"></a>
 
-<a id="canonical-3fa11e81efceda8d6c4de463c8b2899878bab7a7ad5fa46177148be59eb002aa"></a>
+<a id="canonical-0333220101322001-3233303231222031-1230103132101203-3020230220212120-1320232223132213-2231113322101201-1313011020233211-2132230000022222"></a>
 
-## delete property — timeouts / 7501344e2b85 / 5
+## delete property — timeouts / 103202232011 / 5
 
 Type: `"string"`. Optional.
 
@@ -4800,11 +5074,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-8578c36fe6e7f1710d75d1f34a97521a7629e3364861d0c4a3e5de6e4841c23e"></a>
+<a id="canonical-2011132030031233-3212321333011301-0031131131013303-1022211311020122-1312022132030312-1020120131003010-2203321131321232-1020100130020332"></a>
 
-<a id="canonical-4916affb9b3bac723e021d78de508ffcf466b385b10e93fb67be57b6878964cc"></a>
+<a id="canonical-1021011222333323-2123032322301302-0332000201311320-3132110020333330-3310121223032011-2301003221033323-1213233211132312-2013202112103030"></a>
 
-## read property — timeouts / 7501344e2b85 / 6
+## read property — timeouts / 103202232011 / 6
 
 Type: `"string"`. Optional.
 
@@ -4813,11 +5087,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-ed5cfbbef02441248562d4b562ab0be69b540b31e8754582b125f8cf2a23a3e4"></a>
+<a id="canonical-3231113033232332-3300021010010210-2011120231102311-1202222300233212-2123111000230301-3220131110112002-2301021133203033-0222020322033210"></a>
 
-<a id="canonical-2a50b8f57e6cac75bf50e199bc5335644752fc05d138e4b921e5200901fe6a4f"></a>
+<a id="canonical-0222110023203311-1332123022301311-2333110032012121-2330110303111210-1013110233300011-3101032032102321-0201321102000021-0001333212221033"></a>
 
-## update property — timeouts / 7501344e2b85 / 7
+## update property — timeouts / 103202232011 / 7
 
 Type: `"string"`. Optional.
 
@@ -4825,9 +5099,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-d151631ab403597b90637b73d12d67d3c0a6dbdaf8ca9a8bfbae4a7a817b1bc4"></a>
+<a id="canonical-3101110112030122-2310000311211323-2100120313231303-3101023112133103-3000221231233122-3320302221222023-3323223210221322-2001132301233010"></a>
 
-## Next pages — timeouts / 7501344e2b85 / 8
+## Next pages — timeouts / 103202232011 / 8
 
-- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
-- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a)
+- [Property reference](resources--dns_proxy--reference--group-001.md#canonical-3303213222031312-1332303332303100-2111101031113012-1202300313121231-0133112331330001-0002220333121132-1331120002013332-3233312011312210)
+- [xcsh_dns_proxy](../resources/dns_proxy.md#canonical-1233100033001301-0003110332210023-3123330320331003-3311310010021030-2113023300031313-2100021000202101-1031321333010001-3220022131100122)

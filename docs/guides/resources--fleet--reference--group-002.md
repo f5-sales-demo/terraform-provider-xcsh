@@ -6,34 +6,159 @@ description: "Complete grouped canonical reference for xcsh_fleet reference."
 
 # xcsh_fleet reference
 
-<a id="canonical-4824df377aac37e161d65bfb90c7bf24b591bdc008d51b3919db949a0da4bd54"></a>
+<a id="canonical-2011121302312100-3121101013202013-2301233033002101-3223100013110310-1003123132023112-1310310010003010-2013333330200023-2120120213310332"></a>
 
-## Next pages — blocked_services / 133cd21a4170 / 5
+## network_type property — blocked_services / 012210011300 / 4
 
-- [blocked_services.dns](resources--fleet--reference--group-002.md#canonical-e9f97568c4c941cee7a36ec8405fa8918ab7fdea73ed7b643a7c56ec86def790)
-- [blocked_services.ssh](resources--fleet--reference--group-002.md#canonical-768f1513dc197b11aac930556b08489ca520a72802757283fbd4a13c6ea9ff14)
-- [blocked_services.web_user_interface](resources--fleet--reference--group-002.md#canonical-bc32b24af35722067ab10e5ef7198410b1c4d59dbf11422dbca441e86d049a18)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+Type: `"string"`. Optional.
 
-<a id="canonical-e9f97568c4c941cee7a36ec8405fa8918ab7fdea73ed7b643a7c56ec86def790"></a>
+\[Enum:
+VIRTUAL\_NETWORK\_SITE\_LOCAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE|VIRTUAL\_NETWORK\_PER\_SITE|VIRTUAL\_NETWORK\_PUBLIC|VIRTUAL\_NETWORK\_GLOBAL|VIRTUAL\_NETWORK\_SITE\_SERVICE|VIRTUAL\_NETWORK\_VER\_INTERNAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE|VIRTUAL\_NETWORK\_IP\_AUTO|VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK|VIRTUAL\_NETWORK\_SRV6\_NETWORK|VIRTUAL\_NETWORK\_IP\_FABRIC|VIRTUAL\_NETWORK\_SEGMENT|VIRTUAL\_NETWORK\_MANAGEMENT\]
+Different types of virtual networks understood by the system Virtual-network of type
+VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside) network. This is an insecure
+network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type
+is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
+\`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\`, \`VIRTUAL\_NETWORK\_PER\_SITE\`,
+\`VIRTUAL\_NETWORK\_PUBLIC\`, \`VIRTUAL\_NETWORK\_GLOBAL\`, \`VIRTUAL\_NETWORK\_SITE\_SERVICE\`,
+\`VIRTUAL\_NETWORK\_VER\_INTERNAL\`, \`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE\`,
+\`VIRTUAL\_NETWORK\_IP\_AUTO\`, \`VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK\`,
+\`VIRTUAL\_NETWORK\_SRV6\_NETWORK\`, \`VIRTUAL\_NETWORK\_IP\_FABRIC\`,
+\`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
+\`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
+
+Upstream description:
+
+Different types of virtual networks understood by the system
+
+Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside)
+network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls
+Virtual-network of this type is local to every site. Two virtual networks of this type on different
+sites are neither related nor connected.
+
+Constraints: There can be atmost one virtual network of this type in a given site. This network type
+is supported on CE sites. This network is created automatically and present on all sites
+Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE is a private network inside site. It
+is a secure network and is not connected to public network. Virtual-network of this type is local to
+every site. Two virtual networks of this type on different sites are neither related nor connected.
+
+Constraints: There can be atmost one virtual network of this type in a given site. This network type
+is supported on CE sites. This network is created during provisioning of site User defined per-site
+virtual network. Scope of this virtual network is limited to the site. This is not yet supported
+Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC directly connects to the public internet.
+Virtual-network of this type is local to every site. Two virtual networks of this type on different
+sites are neither related nor connected.
+
+Constraints: There can be atmost one virtual network of this type in a given site. This network type
+is supported on RE sites only It is an internally created by the system. They must not be created by
+user Virtual Networks with global scope across different sites in F5XC domain. An example global
+virtual-network called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
+
+Constraints: It is currently only supported as internally created by the system. VK8s service
+network for a given tenant. Used to advertise a virtual host only to vk8s pods for that tenant
+Constraints: It is an internally created by the system. Must not be created by user VER internal
+network for the site. It can only be used for virtual hosts with SMA\_PROXY type proxy Constraints:
+It is an internally created by the system. Must not be created by user Virtual-network of type
+VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE represents both VIRTUAL\_NETWORK\_SITE\_LOCAL and
+VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
+
+Constraints: This network type is only meaningful in an advertise policy When virtual-network of
+type VIRTUAL\_NETWORK\_IP\_AUTO is selected for an endpoint, VER will try to determine the network
+based on the provided IP address
+
+Constraints: This network type is only meaningful in an endpoint
+
+VoltADN Private Network is used on F5 Distributed Cloud RE(s) to connect to customer private
+networks This network is created by opening a support ticket
+
+This network is per site srv6 network VER IP Fabric network for the site. This Virtual network type
+is used for exposing virtual host on IP Fabric network on the VER site or for endpoint in IP Fabric
+network Constraints: It is an internally created by the system. Must not be created by user
+Virtual-network of type VIRTUAL\_NETWORK\_SEGMENT for segment interface Virtual-network of type
+VIRTUAL\_NETWORK\_MANAGEMENT is used for management purposes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL",
+    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
+    "VIRTUAL_NETWORK_PER_SITE",
+    "VIRTUAL_NETWORK_PUBLIC",
+    "VIRTUAL_NETWORK_GLOBAL",
+    "VIRTUAL_NETWORK_SITE_SERVICE",
+    "VIRTUAL_NETWORK_VER_INTERNAL",
+    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
+    "VIRTUAL_NETWORK_IP_AUTO",
+    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
+    "VIRTUAL_NETWORK_SRV6_NETWORK",
+    "VIRTUAL_NETWORK_IP_FABRIC",
+    "VIRTUAL_NETWORK_SEGMENT",
+    "VIRTUAL_NETWORK_MANAGEMENT"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "VIRTUAL_NETWORK_SITE_LOCAL",
+  "enum": [
+    "VIRTUAL_NETWORK_SITE_LOCAL",
+    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
+    "VIRTUAL_NETWORK_PER_SITE",
+    "VIRTUAL_NETWORK_PUBLIC",
+    "VIRTUAL_NETWORK_GLOBAL",
+    "VIRTUAL_NETWORK_SITE_SERVICE",
+    "VIRTUAL_NETWORK_VER_INTERNAL",
+    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
+    "VIRTUAL_NETWORK_IP_AUTO",
+    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
+    "VIRTUAL_NETWORK_SRV6_NETWORK",
+    "VIRTUAL_NETWORK_IP_FABRIC",
+    "VIRTUAL_NETWORK_SEGMENT",
+    "VIRTUAL_NETWORK_MANAGEMENT"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [ssh](resources--fleet--reference--group-002.md#canonical-1312203301110103-3130012113230101-2222302103001111-1223002010202130-2211020022130220-0002131113022003-3323311022010330-1232222133330110): complete subsection reference.
+
+- [web_user_interface](resources--fleet--reference--group-002.md#canonical-2330030223021022-3303111302020012-1322230100321132-3313012120100100-2301301031112131-2333010110020231-2330221010013220-1231001021220120): complete subsection reference.
+
+<a id="canonical-1020021031330313-1322223003133201-1201311211233323-2100301323330210-2311210123313000-0020311101230321-0121312321102122-0031221023311110"></a>
+
+## Next pages — blocked_services / 012210011300 / 5
+
+- [blocked_services.dns](resources--fleet--reference--group-002.md#canonical-3221332113111220-3010302110013032-3213220312323020-1000113322202101-2022231333313222-1303323113231210-0322133011123230-2012313233132100)
+- [blocked_services.ssh](resources--fleet--reference--group-002.md#canonical-1312203301110103-3130012113230101-2222302103001111-1223002010202130-2211020022130220-0002131113022003-3323311022010330-1232222133330110)
+- [blocked_services.web_user_interface](resources--fleet--reference--group-002.md#canonical-2330030223021022-3303111302020012-1322230100321132-3313012120100100-2301301031112131-2333010110020231-2330221010013220-1231001021220120)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+
+<a id="canonical-3221332113111220-3010302110013032-3213220312323020-1000113322202101-2022231333313222-1303323113231210-0322133011123230-2012313233132100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f3e3a323300f98a0441133347775b0e7284a4b171717e5c9e5f695b6cf0d9b22"></a>
+<a id="canonical-3303320322030203-0300003321202200-1010010103030310-1313131123003213-0220102210230113-0113011332113021-3211331221112312-3033003121230202"></a>
 
-## blocked_services.dns — blocked_services.dns / eb4d0f4caf9d / 2
+## blocked_services.dns — dns / 103022332131 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
 - blocked_services.dns
 
-<a id="canonical-c10f7e7efc999629ad076c971c91c44c6bd6934562eb3b98d3c8e2fa09bca5f8"></a>
+<a id="canonical-3001003313321332-3330212121120221-2231001312302113-0130210130101030-1223311221031011-1202322303232120-3103302032023322-0021233022113320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -62,37 +187,37 @@ Terraform syntax:
 dns = {}
 ```
 
-<a id="canonical-3baf0dab007567a7095595e9fe6f6c5bd5f03defae05bb0aba6fc123a2eb100f"></a>
+<a id="canonical-0323223300312223-0000131112132213-0021111121113221-3332123312301123-3111330003313233-2232001123230022-2322123330010203-2202322301000033"></a>
 
-## Direct properties — blocked_services.dns / eb4d0f4caf9d / 3
+## Direct properties — dns / 103022332131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4448d08f18186c54326fd7593182e31bd75b2c8d8d83f4a1a65c24d2cae89a22"></a>
+<a id="canonical-1010102031002033-0120012012301110-0302123331131121-0301200232030123-3113112302302031-2031200333102201-2212113002103102-3022322021220202"></a>
 
-## Next pages — blocked_services.dns / eb4d0f4caf9d / 4
+## Next pages — dns / 103022332131 / 4
 
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-768f1513dc197b11aac930556b08489ca520a72802757283fbd4a13c6ea9ff14"></a>
+<a id="canonical-1312203301110103-3130012113230101-2222302103001111-1223002010202130-2211020022130220-0002131113022003-3323311022010330-1232222133330110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e1d3b87b0d61339e7e78a156b1105c074a15ee83565376e767e0b0f24ca2df88"></a>
+<a id="canonical-3201310323201323-0031120103032132-1332132022011112-2301010011300013-1022011132322003-1112110313123213-1213320023003302-1030220231332020"></a>
 
-## blocked_services.ssh — blocked_services.ssh / 5a3aa21abf35 / 2
+## blocked_services.ssh — ssh / 012223330311 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
 - blocked_services.ssh
 
-<a id="canonical-32afd442276ed413c0330a7ef0df23e2268e8e5c7c4f0eb73946c6100252224c"></a>
+<a id="canonical-0302223331101002-0213123231100103-3000030300221332-3300313302033202-0212203220321130-1330103300322313-0321101230120100-0002110202021030"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -121,37 +246,37 @@ Terraform syntax:
 ssh = {}
 ```
 
-<a id="canonical-00eaaab85293346f23679e8fedfde0125f28a07c5abe90633fbb158d2e0eb0a6"></a>
+<a id="canonical-0000322222222320-1102210303101233-0203121321322033-3231333132000102-1133022022001330-1122233221001203-0333232301112031-0232003223002212"></a>
 
-## Direct properties — blocked_services.ssh / 5a3aa21abf35 / 3
+## Direct properties — ssh / 012223330311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b0dff62c9221170ce67f3656794b992d0d2419a1a254cd1f09ea6b9cfadeb1bd"></a>
+<a id="canonical-2300313333120230-2102020101130030-3212133303121112-1321102321210231-0031021001212201-2202111030310133-0021322212232130-3322313223012331"></a>
 
-## Next pages — blocked_services.ssh / 5a3aa21abf35 / 4
+## Next pages — ssh / 012223330311 / 4
 
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-bc32b24af35722067ab10e5ef7198410b1c4d59dbf11422dbca441e86d049a18"></a>
+<a id="canonical-2330030223021022-3303111302020012-1322230100321132-3313012120100100-2301301031112131-2333010110020231-2330221010013220-1231001021220120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b03eb7dce548c0391fd5270b52546ecb96e486b246a2fd66c438164058bd7f70"></a>
+<a id="canonical-2300033223133130-3211102030000321-0133311102130023-1102111012323023-2112321020122302-1012220233311212-3010032001121000-1120233113331300"></a>
 
-## blocked_services.web_user_interface — blocked_services.web_user_interface / 696302deb7ec / 2
+## blocked_services.web_user_interface — web_user_interface / 313223133230 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
 - blocked_services.web_user_interface
 
-<a id="canonical-5b376e36687067a41f384e9b91ec9abc8bbe0acbb56b90b30cd67a4d83cee24f"></a>
+<a id="canonical-1123031312320312-1220130012132210-0133032010322123-2101323021222330-2023233200223023-2311122321002303-0030311213221031-2003303232021033"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -180,36 +305,36 @@ Terraform syntax:
 web_user_interface = {}
 ```
 
-<a id="canonical-fb8eff30b6a377620b30e4427d28fa18f73ed0e50aa759fe89c5e009ca2fa783"></a>
+<a id="canonical-3323203233330300-2312220313131202-0023030032101002-1331022033220120-3313033231003211-0022221311213332-2021301132000021-3022023322132003"></a>
 
-## Direct properties — blocked_services.web_user_interface / 696302deb7ec / 3
+## Direct properties — web_user_interface / 313223133230 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-457aec5c64fd9aec0b26d0751459fbd73a6c5b564d5959550170887b108262f2"></a>
+<a id="canonical-1011132232301130-1210333121223230-0023021231001311-0110112133233113-0322123011231112-1031112111211111-0001130020201323-0100200212023302"></a>
 
-## Next pages — blocked_services.web_user_interface / 696302deb7ec / 4
+## Next pages — web_user_interface / 313223133230 / 4
 
-- [blocked_services](resources--fleet--reference--group-001.md#canonical-6a97758cec25e40f0955dfad6ad390b3ed4989ec29accf52af9593619343596f)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [blocked_services](resources--fleet--reference--group-001.md#canonical-1222211313112030-3230021132100033-0021111131332231-1222310321002303-3231102120213230-0221223030331102-2233211121031201-2103100311211233)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-51c90dd8a67fb1ce21ae1dec5a8ff48b84edb403be963bbab7912f7718909b3d"></a>
+<a id="canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3194d7234ce7ba0de4f92c53852a423b13689ed836ccf72000df002f9859185a"></a>
+<a id="canonical-0301211031130203-1030321323220031-3210332102301103-2011022210020323-0103122021323120-0312303033130200-0000313300000233-2120112101201122"></a>
 
-## bond_device_list — bond_device_list / 97800f87e5c5 / 2
+## bond_device_list — bond_device_list / 201332113011 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - bond_device_list
 
-<a id="canonical-d6f4fcde44eebbc9015f9223080391343690de95a665759806a0264cbe00fe92"></a>
+<a id="canonical-3112331033303132-1010323223233021-0001113321020203-0020000321010310-0312210031322111-2212121113112120-0012220002121030-2332000033322102"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -241,8 +366,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [bond_device_list](resources--fleet--reference--group-002.md#canonical-d6f4fcde44eebbc9015f9223080391343690de95a665759806a0264cbe00fe92)
-- [no_bond_devices](resources--fleet--reference--group-002.md#canonical-af89e5997094bf29a67e421689e9aeb639ac189ee8706aa5e45126b37ea852ec)
+- [bond_device_list](resources--fleet--reference--group-002.md#canonical-3112331033303132-1010323223233021-0001113321020203-0020000321010310-0312210031322111-2212121113112120-0012220002121030-2332000033322102)
+- [no_bond_devices](resources--fleet--reference--group-002.md#canonical-2233202132112121-1300211023330221-2212133210020112-2021322122322312-0321223001202132-3220130012222211-3210110102122303-1332222011023230)
 
 Select alternatives according to the provider validators above.
 
@@ -254,38 +379,38 @@ bond_device_list {
 }
 ```
 
-<a id="canonical-ffe0be0ab7e9306ca7069a9617db9eb575322d3e11f0703729894a002bafe304"></a>
+<a id="canonical-3333320023320022-2313322103001230-2213001221222112-0113312321322311-1311030202310332-0101330013000313-0221202110220000-0223223332030010"></a>
 
-## Direct properties — bond_device_list / 97800f87e5c5 / 3
+## Direct properties — bond_device_list / 201332113011 / 3
 
-- [bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717): complete subsection reference.
+- [bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113): complete subsection reference.
 
-<a id="canonical-776ed353f0d2b7f0270a0aa043ba603bd06f7ef796a27bb08c5c936c2a3e9760"></a>
+<a id="canonical-1313123231031103-3300310223133300-0213002200222200-1003232212000323-3100123313323313-2112220213232300-2030113021031230-0222033221131200"></a>
 
-## Next pages — bond_device_list / 97800f87e5c5 / 4
+## Next pages — bond_device_list / 201332113011 / 4
 
-- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717"></a>
+<a id="canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c676059ca87cc5ee34a9797717d8f3219c608c0cf70f60bcbf76e81cab91b96b"></a>
+<a id="canonical-3012131200112130-2220133030113232-0310222113211313-0113312033030201-2130120020300030-3313003312002330-2333131232200130-2223210123211223"></a>
 
-## bond_device_list.bond_devices — bond_device_list.bond_devices / c12b6034ca4e / 2
+## bond_device_list.bond_devices — bond_devices / 031030221032 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [bond_device_list](resources--fleet--reference--group-002.md#canonical-51c90dd8a67fb1ce21ae1dec5a8ff48b84edb403be963bbab7912f7718909b3d)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [bond_device_list](resources--fleet--reference--group-002.md#canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331)
 - bond_device_list.bond_devices
 
-<a id="canonical-efb0005235c408ef9515f518ef4d7fc8c9caf6d482232ca4fd2ec794ac57b9e8"></a>
+<a id="canonical-3233230000001102-0311301000203233-2111011133110120-3233103113333020-3021302233123110-2002020302302210-3331023230132110-2230111323213220"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -354,17 +479,17 @@ bond_devices {
 }
 ```
 
-<a id="canonical-00984291adcac37deb9d7a45bb5d3e047211cffe2412d8f6a362794a4efeb466"></a>
+<a id="canonical-0000212010022101-2231302230031331-3223213113221011-2323113103320010-1302010130333332-0210010231203312-2203120213211022-1032333223101212"></a>
 
-## Direct properties — bond_device_list.bond_devices / c12b6034ca4e / 3
+## Direct properties — bond_devices / 031030221032 / 3
 
-- [active_backup](resources--fleet--reference--group-002.md#canonical-b8a0d22dbc6fdff01933ddfb75eeabcde1203845d591159bb1b42e6b75cc2d42): complete subsection reference.
+- [active_backup](resources--fleet--reference--group-002.md#canonical-2320220031020231-2330123331333300-0121030331313323-1311323222233031-3201020003201011-3111210101112123-2301231002321223-1311303002311002): complete subsection reference.
 
-<a id="canonical-524703ff6ac8163dc14967d057a4912b453d237b8187e15bc9426d61c9ae2d9e"></a>
+<a id="canonical-1102101300033333-1222302001120331-3001102112133100-1113221021010223-1011033102031323-2001201332011123-3021100212311201-3021223202312132"></a>
 
-<a id="canonical-c7a072b72dfb8880dc91fa4db67476b6074fbacb98a1bedeb01052cfb1904769"></a>
+<a id="canonical-3013220013022313-0231332320202000-3130210133221031-2312131013122312-0013103323223023-2120220123323132-2300010011023033-2301210010131221"></a>
 
-## devices property — bond_device_list.bond_devices / c12b6034ca4e / 4
+## devices property — bond_devices / 031030221032 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -420,13 +545,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [lacp](resources--fleet--reference--group-002.md#canonical-6e774d8752b82e28e08c204b03ad6efd6cb2bfdc902914b466ebf0e75de525ab): complete subsection reference.
+- [lacp](resources--fleet--reference--group-002.md#canonical-1232131310312013-1102232002320220-3200203002001023-0003223112323331-1230230223333130-2100022101102310-1212322333003213-1131321102112223): complete subsection reference.
 
-<a id="canonical-e88713fad803eebf278e30f6ee80810fb3188d1db2d6fc1d001c4b76c7710dbb"></a>
+<a id="canonical-3220201301033322-3120000332322333-0213203203003312-3232200020010033-2303012020310131-2302311233300131-0000013010231312-3013130100312323"></a>
 
-<a id="canonical-d25a781aa5722223b805649499a85f7733bb2230b89c197988a148815854bcf3"></a>
+<a id="canonical-3102112213200122-2211130202020203-2320001112102110-2121222011331313-0303232302020300-2320213001211321-2020220110202001-1120111023303303"></a>
 
-## link_polling_interval property — bond_device_list.bond_devices / c12b6034ca4e / 5
+## link_polling_interval property — bond_devices / 031030221032 / 5
 
 Type: `"number"`. Optional.
 
@@ -479,11 +604,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-96753f1b330510955259383557a2650ab39183d60d81e53c6a20c4aed233ddfb"></a>
+<a id="canonical-2112131103330123-0303001101002111-1102112103200311-1113220212110022-2303210120033112-0031200132110330-1222020030102232-3102030331313323"></a>
 
-<a id="canonical-43c4cd263e98db91151cba5009843e22b82304999b5d824c18967f2e22d5fdb9"></a>
+<a id="canonical-1003301030310212-0332212031232101-0111013023221100-0021201003320202-2320020300102121-2123113120021030-0120211213330232-0202311133312321"></a>
 
-## link_up_delay property — bond_device_list.bond_devices / c12b6034ca4e / 6
+## link_up_delay property — bond_devices / 031030221032 / 6
 
 Type: `"number"`. Optional.
 
@@ -532,11 +657,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9fbd33687ce415c853daf219106a006f53398180dc1b213af70fd3a590da3717"></a>
+<a id="canonical-2133233103031220-1330321001113020-1103312233020121-0100122200001233-1103032120012000-3130012302010322-3313003331032211-2100312203130113"></a>
 
-<a id="canonical-4799c64114858031d542f6c7709bf4716d72cb6f8c0d2c37db34122fefc913a5"></a>
+<a id="canonical-1013212130121001-0110201120000301-3111100233123013-1300212333101301-1231130230231233-2030003102300313-3123031001020233-3233302101032211"></a>
 
-## name property — bond_device_list.bond_devices / c12b6034ca4e / 7
+## name property — bond_devices / 031030221032 / 7
 
 Type: `"string"`. Optional.
 
@@ -601,34 +726,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-191e8b6461a47e467e37f27039db73c127724d7f8b29c4770fcccae74ffe050d"></a>
+<a id="canonical-0121013220231210-1201221013321012-1332031333021300-0321312313033001-0213130210311333-2023022130101313-0033303030223213-1033333200110031"></a>
 
-## Next pages — bond_device_list.bond_devices / c12b6034ca4e / 8
+## Next pages — bond_devices / 031030221032 / 8
 
-- [bond_device_list.bond_devices.active_backup](resources--fleet--reference--group-002.md#canonical-b8a0d22dbc6fdff01933ddfb75eeabcde1203845d591159bb1b42e6b75cc2d42)
-- [bond_device_list.bond_devices.lacp](resources--fleet--reference--group-002.md#canonical-6e774d8752b82e28e08c204b03ad6efd6cb2bfdc902914b466ebf0e75de525ab)
-- [bond_device_list](resources--fleet--reference--group-002.md#canonical-51c90dd8a67fb1ce21ae1dec5a8ff48b84edb403be963bbab7912f7718909b3d)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [bond_device_list.bond_devices.active_backup](resources--fleet--reference--group-002.md#canonical-2320220031020231-2330123331333300-0121030331313323-1311323222233031-3201020003201011-3111210101112123-2301231002321223-1311303002311002)
+- [bond_device_list.bond_devices.lacp](resources--fleet--reference--group-002.md#canonical-1232131310312013-1102232002320220-3200203002001023-0003223112323331-1230230223333130-2100022101102310-1212322333003213-1131321102112223)
+- [bond_device_list](resources--fleet--reference--group-002.md#canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-b8a0d22dbc6fdff01933ddfb75eeabcde1203845d591159bb1b42e6b75cc2d42"></a>
+<a id="canonical-2320220031020231-2330123331333300-0121030331313323-1311323222233031-3201020003201011-3111210101112123-2301231002321223-1311303002311002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3e4f243268d4707b3cdbb5c794e112dded3bcf9ec15b26c5206f20688bbd330a"></a>
+<a id="canonical-0332103302100302-1220311013001323-0330312323113013-2110320101023131-3231032330332132-3001112302123011-0200123302001220-2023233103030022"></a>
 
-## bond_device_list.bond_devices.active_backup — bond_device_list.bond_devices.active_backup / f4d591c2de70 / 2
+## bond_device_list.bond_devices.active_backup — active_backup / 300231321300 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [bond_device_list](resources--fleet--reference--group-002.md#canonical-51c90dd8a67fb1ce21ae1dec5a8ff48b84edb403be963bbab7912f7718909b3d)
-- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [bond_device_list](resources--fleet--reference--group-002.md#canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331)
+- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113)
 - bond_device_list.bond_devices.active_backup
 
-<a id="canonical-9e5eb926e877b7f81625a0977d7a5091a63b69dc6ccfbcd3de680f94ed82fa06"></a>
+<a id="canonical-2132113223210212-3220131323133320-0112021122002113-1331132211002101-2212032312213130-1230303323303103-3132122000332110-3231200233220012"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -657,38 +782,38 @@ Terraform syntax:
 active_backup = {}
 ```
 
-<a id="canonical-0ca2d432c6cf8f33cd8bf3f73cc4577481570fe3096e68e6ee0a4216eabcc17d"></a>
+<a id="canonical-0030220231100302-3012303320330303-3031202333033313-0330301011131310-2001111300333203-0021123212203212-3232002210020112-3222233030011331"></a>
 
-## Direct properties — bond_device_list.bond_devices.active_backup / f4d591c2de70 / 3
+## Direct properties — active_backup / 300231321300 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-66de2002d7b0f2fcaefd90cd9addb945d617389345cd7db7e332424e172c8da4"></a>
+<a id="canonical-1212313202000002-3113230033023330-2232333121003031-2122313123211011-3112011303202103-1011303113312313-3203030210021032-0113023020312210"></a>
 
-## Next pages — bond_device_list.bond_devices.active_backup / f4d591c2de70 / 4
+## Next pages — active_backup / 300231321300 / 4
 
-- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-6e774d8752b82e28e08c204b03ad6efd6cb2bfdc902914b466ebf0e75de525ab"></a>
+<a id="canonical-1232131310312013-1102232002320220-3200203002001023-0003223112323331-1230230223333130-2100022101102310-1212322333003213-1131321102112223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90f7a55c3dc769a9f46761e2b36db5cf2753372f9a1a82877139ba5c508b1b92"></a>
+<a id="canonical-2100331322111130-0331301312212221-3310121312013202-2303123123113033-0213110303130233-2122012220022013-1301032123221130-1100202301232102"></a>
 
-## bond_device_list.bond_devices.lacp — bond_device_list.bond_devices.lacp / 5b4c4c2ce0af / 2
+## bond_device_list.bond_devices.lacp — lacp / 023032002233 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [bond_device_list](resources--fleet--reference--group-002.md#canonical-51c90dd8a67fb1ce21ae1dec5a8ff48b84edb403be963bbab7912f7718909b3d)
-- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [bond_device_list](resources--fleet--reference--group-002.md#canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331)
+- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113)
 - bond_device_list.bond_devices.lacp
 
-<a id="canonical-f7eec160d6a831ff7e1c522b917e67e71f313484edeb812d14748ad2e1497f8c"></a>
+<a id="canonical-3313323230011200-3112222003013333-1332013011020223-2101133212133213-0133030103102010-3231322320010231-0110131020223102-3201102113332030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -725,15 +850,15 @@ lacp {
 }
 ```
 
-<a id="canonical-ff18d3ad88cf2abbf00dcdc13d16e868f7979b5baab89130c4f67e12adc5d458"></a>
+<a id="canonical-3333012031032231-2020303302222323-3300003130313001-0331011232201220-3313211321231123-2222232021010300-3010331213320102-2231301131101120"></a>
 
-## Direct properties — bond_device_list.bond_devices.lacp / 5b4c4c2ce0af / 3
+## Direct properties — lacp / 023032002233 / 3
 
-<a id="canonical-19149360635e75b2b530fd690183c032b222a06877ff861d9fa2d4f5f59f4b6d"></a>
+<a id="canonical-0121011021031200-1203113213112302-2311030033311221-0001200330000302-2302020222001220-1313333320120131-2133220231103311-3311213310231231"></a>
 
-<a id="canonical-118e66b76704211bcff7f3711bba4c6cb5c4a509e3ec64f99aef62a7f1130463"></a>
+<a id="canonical-0101203212122313-1213001002010123-3033331333031301-0123232210301230-2311301022110021-3203323012103321-2122323312022213-3301010300101203"></a>
 
-## rate property — bond_device_list.bond_devices.lacp / 5b4c4c2ce0af / 4
+## rate property — lacp / 023032002233 / 4
 
 Type: `"number"`. Optional.
 
@@ -780,30 +905,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7fd8987435c9323a55eabd5166da5ccfa96e43cb4b606ba003f150b373bcd07c"></a>
+<a id="canonical-1333312021201310-0311302103020322-1111322223311101-1212312211303033-2221123210033023-1023120012232200-0003330111002303-1303233031001330"></a>
 
-## Next pages — bond_device_list.bond_devices.lacp / 5b4c4c2ce0af / 5
+## Next pages — lacp / 023032002233 / 5
 
-- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-c8f4fd52089ef86ccddc6fdd4148e9c27b7a4c29832ec47cc5c8f08669fe7717)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [bond_device_list.bond_devices](resources--fleet--reference--group-002.md#canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-a8156c5491eb298ebda885fbff5c7c44a0913dddc39143494557eabceea08563"></a>
+<a id="canonical-2220011112301110-2101322302212032-2331222020113323-3333113013301010-2200210103313131-3003210110031021-1011111332222330-3232220020111203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5f56fec6ff38333b35dff905ce310a2b4382023aeee13e467703f14aa1a87850"></a>
+<a id="canonical-1133111233323012-3333032003030323-0311313333210011-3032030100220223-1003200200020322-3232320103321012-1313000333011022-2201222013201100"></a>
 
-## dc_cluster_group — dc_cluster_group / e2461af5e3e9 / 2
+## dc_cluster_group — dc_cluster_group / 331132033221 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - dc_cluster_group
 
-<a id="canonical-ea785c94ebbd4cca04543d3d6e66782c26123daca8d6bc5d47f5bf5e05bee390"></a>
+<a id="canonical-3222132011302110-3223233110303022-0010111003310331-1232121213200230-0212010203312230-2220311223301131-1013331123331132-0011233232032100"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -837,9 +962,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [dc_cluster_group](resources--fleet--reference--group-002.md#canonical-ea785c94ebbd4cca04543d3d6e66782c26123daca8d6bc5d47f5bf5e05bee390)
-- [dc_cluster_group_inside](resources--fleet--reference--group-002.md#canonical-d7388d424eee59bb3cf2c40996e79250b7f6a50d67768142871c7409e4e85c9d)
-- [no_dc_cluster_group](resources--fleet--reference--group-002.md#canonical-305750f6b8495e14bfa7faa9b9ac0f801ea25a1729571c25cdd5d1c4c16e69df)
+- [dc_cluster_group](resources--fleet--reference--group-002.md#canonical-3222132011302110-3223233110303022-0010111003310331-1232121213200230-0212010203312230-2220311223301131-1013331123331132-0011233232032100)
+- [dc_cluster_group_inside](resources--fleet--reference--group-002.md#canonical-3113032020311002-1032323211212323-0330330230100021-2112321321021100-2313331222110031-1213131220011002-2013013013100021-3210322011302131)
+- [no_dc_cluster_group](resources--fleet--reference--group-002.md#canonical-0300111311003312-2320102111320110-2333221333222221-2321223000332000-0132220211220113-0221111301300211-3031311131013010-3001123212213133)
 
 Select alternatives according to the provider validators above.
 
@@ -851,15 +976,15 @@ dc_cluster_group {
 }
 ```
 
-<a id="canonical-6f76db6e0116a38314845429435fcd53ad5a3605bffa6efe665f035238c2d172"></a>
+<a id="canonical-1233131231231232-0001011222032003-0110201011100221-1003113330311103-2231112203120011-2333332212323332-1212113300031102-0320300231011302"></a>
 
-## Direct properties — dc_cluster_group / e2461af5e3e9 / 3
+## Direct properties — dc_cluster_group / 331132033221 / 3
 
-<a id="canonical-117455ab6c7107fe689f0cb9b009302ad9332fb3b78b560ad62a0419b01487d8"></a>
+<a id="canonical-0101131011112223-1230130100133332-1220213300302321-2300002103000222-3121030302332303-2313202311120022-3112022200100121-2300011020133120"></a>
 
-<a id="canonical-dbf37be5e8ff17b1ef65efb08b5d44da782568cdb12834dc589e305fad68b705"></a>
+<a id="canonical-3123330313233211-3220333301132301-3233121132332300-2023113110103122-1320021112203031-2301022003103130-1120213203001133-2231122023130011"></a>
 
-## name property — dc_cluster_group / e2461af5e3e9 / 4
+## name property — dc_cluster_group / 331132033221 / 4
 
 Type: `"string"`. Optional.
 
@@ -920,11 +1045,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9f10988f5f52d8bef5b00af613b1bec183ff8daa3de34ec73346a8417b49bcf7"></a>
+<a id="canonical-2133010021202033-1133110231202332-3311230000223312-0103230123323001-2003333320312222-0331320310323013-0303101222201001-1323102123303313"></a>
 
-<a id="canonical-b929b6393317f8998a61c877257ab5627036bf86b03e34a6a87b0d7810b7c931"></a>
+<a id="canonical-2321022123120321-0303011333202121-2022120130201313-0211132223111202-1300031223332012-2300033203102212-2220132300311320-0100231330210301"></a>
 
-## namespace property — dc_cluster_group / e2461af5e3e9 / 5
+## namespace property — dc_cluster_group / 331132033221 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -992,11 +1117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8be976c2d0e3a835c1e4221cfe940820eb00c5bcf39c12bc690eb19229a5bbe2"></a>
+<a id="canonical-2023322113123002-3100320322200311-3001321002020130-3332211000200200-3223000030112330-3303213001022330-1221003223012102-0221221123233202"></a>
 
-<a id="canonical-28a242ba42de3958a2cb3d00b3eb5afca1162c4a8ddce60a0272dd454d0af012"></a>
+<a id="canonical-0220220210022322-1002313203211120-2202302303310000-2303322311223330-2201011202301022-2031313032120022-0002130231311011-1031002233000102"></a>
 
-## tenant property — dc_cluster_group / e2461af5e3e9 / 6
+## tenant property — dc_cluster_group / 331132033221 / 6
 
 Type: `"string"`. Computed.
 
@@ -1050,30 +1175,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a4808da64a53150e33a7e9f7108e57a6ee08599d338110b47c9893f22d04605b"></a>
+<a id="canonical-2210200020312212-1022110301110032-0303221332213313-0100203211132212-3232002011212131-0303200101002310-1330212021033302-0231001012001123"></a>
 
-## Next pages — dc_cluster_group / e2461af5e3e9 / 7
+## Next pages — dc_cluster_group / 331132033221 / 7
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-4ae9b77ddff6d8fbe7167465347d3472c315520e1693b3c6ea03e3c8130f508f"></a>
+<a id="canonical-1022322123131331-3133331231203323-3213011213101211-0310133103101302-3003011111020032-0112210323033012-3222000332033020-0103003311002033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ee8f44fe978dea31ff2c73c7bf098d14a1752d0537051104d43737bd9fe4965"></a>
+<a id="canonical-0332322033101033-3221132031322203-0133330230130330-1323330021203101-1022011311023100-1103130011010100-1031100313031323-3121333210211211"></a>
 
-## dc_cluster_group_inside — dc_cluster_group_inside / be6e3eba6009 / 2
+## dc_cluster_group_inside — dc_cluster_group_inside / 232212000021 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - dc_cluster_group_inside
 
-<a id="canonical-d7388d424eee59bb3cf2c40996e79250b7f6a50d67768142871c7409e4e85c9d"></a>
+<a id="canonical-3113032020311002-1032323211212323-0330330230100021-2112321321021100-2313331222110031-1213131220011002-2013013013100021-3210322011302131"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1112,15 +1237,15 @@ dc_cluster_group_inside {
 }
 ```
 
-<a id="canonical-b150b8a6b7b8fd0c1560a7e31d17d01bf99df42489dbb9d392f90a893796b603"></a>
+<a id="canonical-2301110023202212-2313232033310030-0111120022133203-0131011331000123-3321213133100210-2021312323213103-2102332100222021-0313211223120003"></a>
 
-## Direct properties — dc_cluster_group_inside / be6e3eba6009 / 3
+## Direct properties — dc_cluster_group_inside / 232212000021 / 3
 
-<a id="canonical-85ef35987666fcef75d6c5d9292d6ad3b8d7fffd2325b655fa2c14bd52de334e"></a>
+<a id="canonical-2011323303112120-1312121233303233-1311311230113121-0221023112223103-2320311333333331-0203021123121111-3322023001102331-1102313203031032"></a>
 
-<a id="canonical-7710a8719de9a6be8c1cae34731bd8318636a6e2ee171c8b3062a2632f9d602d"></a>
+<a id="canonical-1313010022201301-2131322122122332-2030013022320310-1303012331200301-2012031222123202-3232011301302023-0300120222021203-0233213112000231"></a>
 
-## name property — dc_cluster_group_inside / be6e3eba6009 / 4
+## name property — dc_cluster_group_inside / 232212000021 / 4
 
 Type: `"string"`. Optional.
 
@@ -1181,11 +1306,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-90a0c188394ab001125a9ad26a66ee3c484d55b66905962ac47c10ea1c0479c1"></a>
+<a id="canonical-2100220030012020-0321102223000001-0102112221223102-1222121232320330-1020103111112312-1221001121120222-3010133001003222-0130001013213001"></a>
 
-<a id="canonical-1717b5b2127785125d70588d9c471f64520db2e0d0c84b246d8191703a5feda9"></a>
+<a id="canonical-0113011323112302-0102131320110102-1131130011202031-2130101301331210-1102003123023200-3100302010230210-1231200121011300-0322113332312221"></a>
 
-## namespace property — dc_cluster_group_inside / be6e3eba6009 / 5
+## namespace property — dc_cluster_group_inside / 232212000021 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -1253,11 +1378,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8633f8343febdb49c8fd2c6f7a5fffaf59d5958499eca02ccb8639c59784eda5"></a>
+<a id="canonical-2012030333200310-0333322331231021-3020333102301233-1322113333332233-1121311121112010-2121323022000230-3023201203213011-2113201032312211"></a>
 
-<a id="canonical-4f40ac03b155b06d09851f6e5583ad8bf2dcebc10287330c00bed59b801455ad"></a>
+<a id="canonical-1033100022300003-2301111123001231-0021201101331232-1111200322312023-3302313032233001-0002201303030030-0000233231112123-2000011011112231"></a>
 
-## tenant property — dc_cluster_group_inside / be6e3eba6009 / 6
+## tenant property — dc_cluster_group_inside / 232212000021 / 6
 
 Type: `"string"`. Computed.
 
@@ -1311,30 +1436,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e733a728d50350d80386abc772700fefbe15c0db65fc39808d8788b5bc517cb9"></a>
+<a id="canonical-3213030322130220-3111000311003120-0003201222233013-1302130000333233-2332011130003123-1211333003212000-2031201320202311-2330110113302321"></a>
 
-## Next pages — dc_cluster_group_inside / be6e3eba6009 / 7
+## Next pages — dc_cluster_group_inside / 232212000021 / 7
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-f408aab60f432ad21626ed326f86b47229253e65115eb2eac015d6e7593204f7"></a>
+<a id="canonical-3310002022222312-0033100302223102-0112021232310302-1233201223101302-0221021103321211-0101113223023222-3000011131123213-1121030200103313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d317f4ea069db64d095e23089132d0a9b17940e07596e710858b0047db80ce94"></a>
+<a id="canonical-3103011333103222-0012213123121031-0021113202030020-2101030231002221-2301132110003200-1311211232130100-2011202300001013-3123200030322110"></a>
 
-## default_config — default_config / e876508e78f1 / 2
+## default_config — default_config / 203213203301 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - default_config
 
-<a id="canonical-2af4ded82fb31ddcaac369739df1ad90cc313036f9c0e188699d7d60f2e051f9"></a>
+<a id="canonical-0222331031323120-0233230301313130-2222300312211303-2131330122312100-3030030103000312-3321300032012020-1221213113311200-3302320011013321"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1360,9 +1485,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [default_config](resources--fleet--reference--group-002.md#canonical-2af4ded82fb31ddcaac369739df1ad90cc313036f9c0e188699d7d60f2e051f9)
-- [device_list](resources--fleet--reference--group-002.md#canonical-e0ea2efc3b7c31fd5a71ae27e992e44760ee8d422eed5cd594765164089eadb7)
-- [interface_list](resources--fleet--reference--group-002.md#canonical-4a4b698279ff0f98428b2935438a8cbb8bf67ae0282b09729c810070c9e7a49b)
+- [default_config](resources--fleet--reference--group-002.md#canonical-0222331031323120-0233230301313130-2222300312211303-2131330122312100-3030030103000312-3321300032012020-1221213113311200-3302320011013321)
+- [device_list](resources--fleet--reference--group-002.md#canonical-3200322202323330-0323133003013331-1122130122320213-3221210232101013-1200323220311002-0232323111303111-2110131211011210-0020213222312313)
+- [interface_list](resources--fleet--reference--group-002.md#canonical-1022102312212002-1321333300332120-1002202302210311-1003202220302323-2023331213223200-0220022300211302-2130200100001300-3021321322102123)
 
 Select alternatives according to the provider validators above.
 
@@ -1372,36 +1497,36 @@ Terraform syntax:
 default_config = {}
 ```
 
-<a id="canonical-818bd0acec405e31e181e813f4a87e3ba22be9a644f914e9b99430fabc2447d4"></a>
+<a id="canonical-2001202331002230-3230100011320301-3201200132200103-3310222013320323-2202022332212212-1010332101103221-2321211003003322-2330021010133110"></a>
 
-## Direct properties — default_config / e876508e78f1 / 3
+## Direct properties — default_config / 203213203301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ee7a7554509839d9f7a47c19f82164dc8697edf5487b954a5a7a31bac5f3c32c"></a>
+<a id="canonical-3232132213111110-1100212003213121-3313221013300121-3320020112103130-2012211332313311-1020132321111022-1122132203012322-3011330330030230"></a>
 
-## Next pages — default_config / e876508e78f1 / 4
+## Next pages — default_config / 203213203301 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-39e0721784456474c166b87766c385cdafa1285483adb504e75a5e9fe8aa9371"></a>
+<a id="canonical-0321320013020113-2010101112101310-3001121223201313-1212300320113031-2233220102201110-2003223123110010-3213112211322133-3220222221031301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1a0599f4092cd3827cfb7f1a4f611cf108bd560b35833516ec717d63e99491bf"></a>
+<a id="canonical-0122001121213310-0021023031032002-1330332313330122-1033120101303301-0020233111120023-0311200303110112-3230130113311203-3221211021012333"></a>
 
-## default_sriov_interface — default_sriov_interface / cb1815aff48e / 2
+## default_sriov_interface — default_sriov_interface / 223333102032 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - default_sriov_interface
 
-<a id="canonical-d8b697cfdf5f08fef0980e66accb2b4fd4efb742ff0b390355312944e8c237ed"></a>
+<a id="canonical-3120231221133033-3133113300203332-3300212000321212-2230302302231033-3110323323131002-3333002303210003-1111030102211010-3220300203133231"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1427,8 +1552,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [default_sriov_interface](resources--fleet--reference--group-002.md#canonical-d8b697cfdf5f08fef0980e66accb2b4fd4efb742ff0b390355312944e8c237ed)
-- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-1aa5dbb2713fa5f114ae6165ef4b850f1922244dfcb047c9bae34345301df9d4)
+- [default_sriov_interface](resources--fleet--reference--group-002.md#canonical-3120231221133033-3133113300203332-3300212000321212-2230302302231033-3110323323131002-3333002303210003-1111030102211010-3220300203133231)
+- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-0122221131232302-1301033322113301-0110223212011211-3233102320110033-0121020202101031-3330230010133021-2322320310031011-0300013133213110)
 
 Select alternatives according to the provider validators above.
 
@@ -1438,36 +1563,36 @@ Terraform syntax:
 default_sriov_interface = {}
 ```
 
-<a id="canonical-1fbfb196f114a40f5a7571d56b8feae426f492787ad53de7833257158b9e87f1"></a>
+<a id="canonical-0133233323012112-3301011022100033-1122131113013111-1223203332223210-0212331021021320-1322311103313213-2003030211130111-2023213220133301"></a>
 
-## Direct properties — default_sriov_interface / cb1815aff48e / 3
+## Direct properties — default_sriov_interface / 223333102032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bf0d88244c71231fd8ae4d4887af129a7df83fb9bf4ce93edb69c6aa3ea83925"></a>
+<a id="canonical-2333003120200210-1030130102030133-3120223210311020-2013223301022122-1331332003332321-2333103032210332-3123122130122222-0332222003210211"></a>
 
-## Next pages — default_sriov_interface / cb1815aff48e / 4
+## Next pages — default_sriov_interface / 223333102032 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-b519b74545b0c70bd2e86bb26ab51f7b6e4d56ec062b14ef4390106d26383010"></a>
+<a id="canonical-2311012123131011-1011230030130023-3102322012232302-1222231101331323-1232103111123230-0012022301103233-1003210001001231-0212032003000100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8482c70d2ef890441bf1632d81e5eabad2801f6e7228c52d4ba7dac3fcdc4291"></a>
+<a id="canonical-2010200230130031-0232332021001010-0123330112030231-2001321132222322-3102200001331232-1302022030110231-1023221331223003-3330313010022101"></a>
 
-## default_storage_class — default_storage_class / b77286616540 / 2
+## default_storage_class — default_storage_class / 120112111000 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - default_storage_class
 
-<a id="canonical-eed09e31ee054f5b9aeb6096c8cb62afe9e1c35b50c24142b2dcdb7cbefbe61c"></a>
+<a id="canonical-3232310021320301-3232001110331123-2122322312002112-3020302312022233-3221320130031123-1100300210011002-2302313031231330-2332332332120130"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1493,8 +1618,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [default_storage_class](resources--fleet--reference--group-002.md#canonical-eed09e31ee054f5b9aeb6096c8cb62afe9e1c35b50c24142b2dcdb7cbefbe61c)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-aac0b2f79acb7a15afc301b7f3a50755163d2e5e7953a62913abaf5050949e98)
+- [default_storage_class](resources--fleet--reference--group-002.md#canonical-3232310021320301-3232001110331123-2122322312002112-3020302312022233-3221320130031123-1100300210011002-2302313031231330-2332332332120130)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-2222300023023313-2122302313220111-2233300300012313-3303221100131111-0112033102321132-1321110322120221-0103222322331100-1100211021322120)
 
 Select alternatives according to the provider validators above.
 
@@ -1504,36 +1629,36 @@ Terraform syntax:
 default_storage_class = {}
 ```
 
-<a id="canonical-0524a9a283fc300fd459634947fc472512ca25bb26b6913324572e1055a1de8e"></a>
+<a id="canonical-0011021022212202-2003333003000033-3110112112031021-1013333010130211-0102302202112323-0212231221010303-0210111302320100-1111220131322032"></a>
 
-## Direct properties — default_storage_class / b77286616540 / 3
+## Direct properties — default_storage_class / 120112111000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9fda8914c5a06d30318bdc4af6c8ecee1ea11ca442cc0fa7722952cbaf254386"></a>
+<a id="canonical-2133312220210110-3011220012310300-0301202331301022-3312302032303232-0132220101302210-1002303000332213-1302022111023023-2233021110032012"></a>
 
-## Next pages — default_storage_class / b77286616540 / 4
+## Next pages — default_storage_class / 120112111000 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-8643889543f2b9b1ce29e52d76b7057c7e41e19a74827b7ff74eab7619639738"></a>
+<a id="canonical-2012100320202111-1003330223212301-3032022132110231-1312231300111330-1332100132012122-1310200213231333-3313103222231312-0121120321130320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-13df2a64dea0299c10f2798c19b86351e9cf9dc99d15a342c1d531f76195ee3c"></a>
+<a id="canonical-0103313302221210-3132220002212130-0100330213212030-0121232012031101-3221303321313021-2131011122031002-3001311103013313-1201211132320330"></a>
 
-## deny_all_usb — deny_all_usb / 2436d5899fcf / 2
+## deny_all_usb — deny_all_usb / 202121333033 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - deny_all_usb
 
-<a id="canonical-cda8d71228efbcd20187173834fe8393887e2250e76378ab87f6892e4271db3c"></a>
+<a id="canonical-3031222031130102-0220323323303102-0001201301130320-0310333220032103-2020133202021100-3213120313202223-2013331220210232-1002130131230330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1562,36 +1687,36 @@ Terraform syntax:
 deny_all_usb = {}
 ```
 
-<a id="canonical-973d23d7ba18d69fc2ac8324b1d61540487f1feb3384773b57aaf452d47f3e4c"></a>
+<a id="canonical-2113033102033113-2322012031122133-3002223020030210-2301311201111000-1020133301333223-0303201013130323-1113222233101102-3110133303321030"></a>
 
-## Direct properties — deny_all_usb / 2436d5899fcf / 3
+## Direct properties — deny_all_usb / 202121333033 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d3e1b2c59a12aa02c6379ffadc3928d4a90225cc848421c72ce11ad400548ee0"></a>
+<a id="canonical-3103320123023011-2122010222220002-3012031321333322-3130032102203110-2221000202113030-2010201002013013-0230320101223110-0000111020323200"></a>
 
-## Next pages — deny_all_usb / 2436d5899fcf / 4
+## Next pages — deny_all_usb / 202121333033 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-d8c812327bc50c891fb3f0faee847413de41c529225e52728413f5a01e42a033"></a>
+<a id="canonical-3120302001020302-1323301100302021-0133230333003322-3232201013100103-3132100130110221-0202113211021302-2010010333112200-0132100222000303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fbecf9ef5b14e5d2139adc5ccaf19eee11ae8b3379d0ca0ff61d6f41ddc2841d"></a>
+<a id="canonical-3323323033213233-1123011032113102-0103212231301130-3022330121323232-0101223220230303-1321310030220033-3312013112331001-3131300220100131"></a>
 
-## device_list — device_list / e7da72f03bba / 2
+## device_list — device_list / 330003232322 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - device_list
 
-<a id="canonical-e0ea2efc3b7c31fd5a71ae27e992e44760ee8d422eed5cd594765164089eadb7"></a>
+<a id="canonical-3200322202323330-0323133003013331-1122130122320213-3221210232101013-1200323220311002-0232323111303111-2110131211011210-0020213222312313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1618,38 +1743,38 @@ device_list {
 }
 ```
 
-<a id="canonical-cadf3d2c548bef8aded6aaccc720c63e87839d80c8b3c5523d84b765b9f01a5d"></a>
+<a id="canonical-3022313303310230-1110202332332022-3132311222223030-3013020030120332-2013200321312000-3020230330111102-0331201023131211-2321330001221131"></a>
 
-## Direct properties — device_list / e7da72f03bba / 3
+## Direct properties — device_list / 330003232322 / 3
 
-- [devices](resources--fleet--reference--group-002.md#canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211): complete subsection reference.
+- [devices](resources--fleet--reference--group-002.md#canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101): complete subsection reference.
 
-<a id="canonical-7962735e02284dfb453243e615c0c241eb7c9ecc69a1ceea19f1a686cde3894f"></a>
+<a id="canonical-1321120213031132-0002022010313323-1011030210033212-0111300030021001-3223133021323030-1221220130323222-0121330122122012-3031320320211033"></a>
 
-## Next pages — device_list / e7da72f03bba / 4
+## Next pages — device_list / 330003232322 / 4
 
-- [device_list.devices](resources--fleet--reference--group-002.md#canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [device_list.devices](resources--fleet--reference--group-002.md#canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211"></a>
+<a id="canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cb4e12c6d76188f0cd8dfa51f29651a421a79f4c9508476dc9deeda5acd29385"></a>
+<a id="canonical-3023103201023012-3113120120203300-3031203133221101-3302211211012210-0201221321331030-2111002010131231-3021313232312211-2230310221032011"></a>
 
-## device_list.devices — device_list.devices / 3bdc26c24a2b / 2
+## device_list.devices — devices / 300210220223 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [device_list](resources--fleet--reference--group-002.md#canonical-d8c812327bc50c891fb3f0faee847413de41c529225e52728413f5a01e42a033)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [device_list](resources--fleet--reference--group-002.md#canonical-3120302001020302-1323301100302021-0133230333003322-3232201013100103-3132100130110221-0202113211021302-2010010333112200-0132100222000303)
 - device_list.devices
 
-<a id="canonical-2d3521d60b56bc9189d09e8360da968e70ad6047bd94c388f081341f8f896127"></a>
+<a id="canonical-0231031102013112-0023111223302101-2021310021322003-1200312221122032-1300223112001013-2331211030032020-3300200103100133-2033202112010213"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1707,15 +1832,15 @@ devices {
 }
 ```
 
-<a id="canonical-bf7c9b19f9bcf45ab3ded5bd0e88a410a651d61a920dae51d3611919d6a15d33"></a>
+<a id="canonical-2333133021230121-3321233033101122-2303313231112331-0032202022100100-2212110131120122-2102003122321101-3103120101210121-3112220111310303"></a>
 
-## Direct properties — device_list.devices / 3bdc26c24a2b / 3
+## Direct properties — devices / 300210220223 / 3
 
-<a id="canonical-50b626e48550558197f2b705a69eaa37e153aa3cc062d29f55e50771036e278d"></a>
+<a id="canonical-1100231202123210-2011110011112001-2113330223130011-2212213222220313-3201110322220330-3000120231022133-1111321100131301-0003123202132031"></a>
 
-<a id="canonical-8b546f84673e6f26777e62ba923dc3057f9c5cdca15d31da3958018781ff735f"></a>
+<a id="canonical-2023111012332010-1213033212330212-1313133212022322-2102033130030011-1333213011303130-2201113103013122-0321112000012013-2001333313031133"></a>
 
-## name property — device_list.devices / 3bdc26c24a2b / 4
+## name property — devices / 300210220223 / 4
 
 Type: `"string"`. Optional.
 
@@ -1770,13 +1895,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [network_device](resources--fleet--reference--group-002.md#canonical-2b8957656db499c96e12bef9edf437aa59bdbfbd634b8a591793216943b5e234): complete subsection reference.
+- [network_device](resources--fleet--reference--group-002.md#canonical-0223202111131211-1231231021213021-1232010223323321-3231331003132222-1121233123332331-1203102320221121-0113210302011221-1003231132020310): complete subsection reference.
 
-<a id="canonical-a59cfb324dbfa1a1cac6521b29734af0848f138ec8cfbd53af95c4065655026f"></a>
+<a id="canonical-2211213033230302-1031233322012201-3022301211020123-0221130310223300-2010203301032032-3020303323311103-2233211130100012-1112111100021233"></a>
 
-<a id="canonical-96cddf41f98b63b97177e407ac24485fa124fcc6d27cd496a7ab284b3b54d549"></a>
+<a id="canonical-2112303131331001-3321202312032321-1301131332100013-2230021010201133-2201021033303012-3102133031102112-2213222302201023-0323111031111021"></a>
 
-## owner property — device_list.devices / 3bdc26c24a2b / 5
+## owner property — devices / 300210220223 / 5
 
 Type: `"string"`. Optional.
 
@@ -1827,33 +1952,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4feaec41ef919d94f46b55bfd77a6af77cb8d3607dcb82f2da2f3ff39e047977"></a>
+<a id="canonical-1033322232301001-3233210121312110-3310122311112333-3113132212223313-1330232031031200-1331302320023302-3122023303333303-2132001013211313"></a>
 
-## Next pages — device_list.devices / 3bdc26c24a2b / 6
+## Next pages — devices / 300210220223 / 6
 
-- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-2b8957656db499c96e12bef9edf437aa59bdbfbd634b8a591793216943b5e234)
-- [device_list](resources--fleet--reference--group-002.md#canonical-d8c812327bc50c891fb3f0faee847413de41c529225e52728413f5a01e42a033)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-0223202111131211-1231231021213021-1232010223323321-3231331003132222-1121233123332331-1203102320221121-0113210302011221-1003231132020310)
+- [device_list](resources--fleet--reference--group-002.md#canonical-3120302001020302-1323301100302021-0133230333003322-3232201013100103-3132100130110221-0202113211021302-2010010333112200-0132100222000303)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-2b8957656db499c96e12bef9edf437aa59bdbfbd634b8a591793216943b5e234"></a>
+<a id="canonical-0223202111131211-1231231021213021-1232010223323321-3231331003132222-1121233123332331-1203102320221121-0113210302011221-1003231132020310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d5e12ae6ecdc6e8cdf50b4d0f2eb8425505cdd4a08e32e3bc1313decf2726e55"></a>
+<a id="canonical-3111320102223212-3230313012322030-3133110023103100-3302322320100211-1100113031311022-0020320302320323-3001030103313230-3302130212321111"></a>
 
-## device_list.devices.network_device — device_list.devices.network_device / 70a32dffe3c3 / 2
+## device_list.devices.network_device — network_device / 333332033003 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [device_list](resources--fleet--reference--group-002.md#canonical-d8c812327bc50c891fb3f0faee847413de41c529225e52728413f5a01e42a033)
-- [device_list.devices](resources--fleet--reference--group-002.md#canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [device_list](resources--fleet--reference--group-002.md#canonical-3120302001020302-1323301100302021-0133230333003322-3232201013100103-3132100130110221-0202113211021302-2010010333112200-0132100222000303)
+- [device_list.devices](resources--fleet--reference--group-002.md#canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101)
 - device_list.devices.network_device
 
-<a id="canonical-6f6a686cdc27e3d7d9159d17e9409539c6d58bda101effcd1a6f0c93ea064fc6"></a>
+<a id="canonical-1233122212201230-3130021332033113-3121011121310113-3221100021110321-3012311120233122-0100013233333031-0122123300302103-3222001210333012"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1898,17 +2023,17 @@ network_device {
 }
 ```
 
-<a id="canonical-4bece6aac9c32059f632a55179913b143e5ae4abb251c93a0ae8f35a7c694c25"></a>
+<a id="canonical-1023323032122222-3021300302001121-3312030222111101-1321210103230110-0332112232102223-2302110130210322-0022322033031122-1330122110300211"></a>
 
-## Direct properties — device_list.devices.network_device / 70a32dffe3c3 / 3
+## Direct properties — network_device / 333332033003 / 3
 
-- [interface](resources--fleet--reference--group-002.md#canonical-99fc1a40b8574f9be60f06b3c1ce08bcd90a79402cc6c64458e548412b364dae): complete subsection reference.
+- [interface](resources--fleet--reference--group-002.md#canonical-2121333001221000-2320111310332123-3212003300122303-3001303200202330-3121002213211000-0230301230121010-1120321110201001-0223031210312232): complete subsection reference.
 
-<a id="canonical-ad9661816ce9ae8b91ef66930b18862753e4f4d39c40b4c8dcdab09ad80c5f74"></a>
+<a id="canonical-2231211212012001-1230322122322023-2101323312122103-0023012020120213-1103321033103103-2130100023103020-3130312223002122-3120003011331310"></a>
 
-<a id="canonical-cdafd984a051071239dd06b39c905b980e356cc1ef411b98f7154f80d832c225"></a>
+<a id="canonical-3031223331212010-2200110100130102-0321313100122303-2130210011232120-0032031112303001-3233100101232120-3313011110332000-3120030230020211"></a>
 
-## use property — device_list.devices.network_device / 70a32dffe3c3 / 4
+## use property — network_device / 333332033003 / 4
 
 Type: `"string"`. Optional.
 
@@ -1959,34 +2084,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-35a7d4e9e6ed4eea6aec2aae755fae3154b71b5d75022f91fb74e8c916134a6e"></a>
+<a id="canonical-0311221331103221-3212323110323222-1222323002222232-1311113322320301-1110231301231131-1311000202332101-3323131032203021-0112010310221232"></a>
 
-## Next pages — device_list.devices.network_device / 70a32dffe3c3 / 5
+## Next pages — network_device / 333332033003 / 5
 
-- [device_list.devices.network_device.interface](resources--fleet--reference--group-002.md#canonical-99fc1a40b8574f9be60f06b3c1ce08bcd90a79402cc6c64458e548412b364dae)
-- [device_list.devices](resources--fleet--reference--group-002.md#canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [device_list.devices.network_device.interface](resources--fleet--reference--group-002.md#canonical-2121333001221000-2320111310332123-3212003300122303-3001303200202330-3121002213211000-0230301230121010-1120321110201001-0223031210312232)
+- [device_list.devices](resources--fleet--reference--group-002.md#canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-99fc1a40b8574f9be60f06b3c1ce08bcd90a79402cc6c64458e548412b364dae"></a>
+<a id="canonical-2121333001221000-2320111310332123-3212003300122303-3001303200202330-3121002213211000-0230301230121010-1120321110201001-0223031210312232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f6eb40982b612144a627f01a6008f0b717379654e0f963963ca71b24fa80a905"></a>
+<a id="canonical-3312322310002120-0223120102011010-2212021333000122-1200002033002313-0113031321121110-3200332112032112-0330221301230210-3322200022210011"></a>
 
-## device_list.devices.network_device.interface — device_list.devices.network_device.interface / ef2f0f98f051 / 2
+## device_list.devices.network_device.interface — interface / 212033001101 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [device_list](resources--fleet--reference--group-002.md#canonical-d8c812327bc50c891fb3f0faee847413de41c529225e52728413f5a01e42a033)
-- [device_list.devices](resources--fleet--reference--group-002.md#canonical-bec8cc0b0c1be5c47e242eead59bf84005fa0da82673d65a622a4e34a2ffc211)
-- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-2b8957656db499c96e12bef9edf437aa59bdbfbd634b8a591793216943b5e234)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [device_list](resources--fleet--reference--group-002.md#canonical-3120302001020302-1323301100302021-0133230333003322-3232201013100103-3132100130110221-0202113211021302-2010010333112200-0132100222000303)
+- [device_list.devices](resources--fleet--reference--group-002.md#canonical-2332302030300023-0030012332113010-1332021002323222-3111212333201000-0011332200312220-0212130331121122-1202022210320310-2202333330020101)
+- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-0223202111131211-1231231021213021-1232010223323321-3231331003132222-1121233123332331-1203102320221121-0113210302011221-1003231132020310)
 - device_list.devices.network_device.interface
 
-<a id="canonical-d0603db303505c8ef8366b59a8903d1693906264d2efb37d1fdb2c3a42cd38d6"></a>
+<a id="canonical-3100120003312303-0003110011302032-3320031212231121-2220210003310112-2103210012021210-3102323323031331-0133312302300322-1002303103203112"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2047,15 +2172,15 @@ interface {
 }
 ```
 
-<a id="canonical-48b443c7181b6b6e8aa2960f3aff4aff466cec6a9ae7baebc5551f3a1085e022"></a>
+<a id="canonical-1020231010033013-0120012312231232-2022220221120033-0322333310223333-1012123032301222-2122321323223223-3011111101330322-0100201132000202"></a>
 
-## Direct properties — device_list.devices.network_device.interface / ef2f0f98f051 / 3
+## Direct properties — interface / 212033001101 / 3
 
-<a id="canonical-461064d4cc1182f940b67c9ffe8ceb271e1b51b4f8ba48bbd3012a0b478896fb"></a>
+<a id="canonical-1012010012103110-3030010120023321-1000231213302133-3332203032230213-0132012311012310-3320232210202323-3103000102220023-1013202021123323"></a>
 
-<a id="canonical-1b21685e9fcb2cbdd057a16ead832aea33a10a7facdad340ba2c4f01a8630795"></a>
+<a id="canonical-0123020112201132-2133302302302331-3100111322011232-2231200302223222-0303220100221333-2230312231031000-2322023010330001-2220120300132111"></a>
 
-## kind property — device_list.devices.network_device.interface / ef2f0f98f051 / 4
+## kind property — interface / 212033001101 / 4
 
 Type: `"string"`. Computed.
 
@@ -2090,11 +2215,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-efff50170807798660b71e5f6a53447e4aa1585d4687cb06757aeffd8f874038"></a>
+<a id="canonical-3233333311000113-0020001313212012-1200231301321133-1222110310101332-1022220111201131-1012201330230012-1311132232333331-2033201310000320"></a>
 
-<a id="canonical-5996261a67c68e8e0a6f920ebebf3178d1fd3da3e36628498211288afc15e948"></a>
+<a id="canonical-1121211202120122-1213301220322032-0022123321020032-2332233303011320-3101333103312203-3203121202201021-2002010102202022-3330011132211020"></a>
 
-## name property — device_list.devices.network_device.interface / ef2f0f98f051 / 5
+## name property — interface / 212033001101 / 5
 
 Type: `"string"`. Optional.
 
@@ -2129,11 +2254,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a727f666499e59121a26dbc7f4a18530dab9f7ac878380dd499133b622d92d09"></a>
+<a id="canonical-2213021333121212-1021213211210102-0122021231233013-3310220120110300-3122232133132230-2013200320003131-1021210103032312-0202312102310021"></a>
 
-<a id="canonical-9894a3a7719bd82be0859ad9ef4bcfac1a7b8cc50333fa8d3fd191b9b60c8b03"></a>
+<a id="canonical-2120211022032213-1301212331200223-3200201121223121-3233102330332230-0122132320303011-0003030333222031-0333310121012321-2312003020230003"></a>
 
-## namespace property — device_list.devices.network_device.interface / ef2f0f98f051 / 6
+## namespace property — interface / 212033001101 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -2193,11 +2318,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ce738f541cc0beff7395226ec9b2b7e2bed072dc0ffaee0c1316f87316e832b"></a>
+<a id="canonical-0230321303203311-1001303000233233-3313032111020212-3230212302231332-0223323100130231-3000333322323200-3001030112332013-0301123220030223"></a>
 
-<a id="canonical-59884910f3ab1d72feb199fbbb538f1fda0ae0ed99fcb2ef4cff2e0e57bb9adf"></a>
+<a id="canonical-1121202010210100-3303222301311302-3332230121213323-2323110320330133-3122002232003231-2121333023023233-1030333302320032-1113232321223133"></a>
 
-## tenant property — device_list.devices.network_device.interface / ef2f0f98f051 / 7
+## tenant property — interface / 212033001101 / 7
 
 Type: `"string"`. Computed.
 
@@ -2232,11 +2357,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2fa4fdf4c4a03627a6358d91288a3d323dc9557706052aceffe211f45be94c62"></a>
+<a id="canonical-0233221033313310-3010220003120213-2212031120312101-0220202203310302-0331302111111313-0012001102223032-3333320201013310-1123322110301202"></a>
 
-<a id="canonical-f6ef6e2ad78b7767f3d6fa31a451045dac9bdca4877897740248d257ff91ac96"></a>
+<a id="canonical-3312323312320222-3113202313131213-3303311233220301-2210110100101131-2230212331302210-2013132021131310-0002102031021113-3333210122302112"></a>
 
-## uid property — device_list.devices.network_device.interface / ef2f0f98f051 / 8
+## uid property — interface / 212033001101 / 8
 
 Type: `"string"`. Computed.
 
@@ -2271,30 +2396,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8d0a8b1fa9879cdccddc5b1c736bb95745879118cf85fa8755cdd742131e7d9"></a>
+<a id="canonical-3320310022202301-3322212013213031-3030313130112301-3013031223232111-1310112013210101-2030332011332220-1311113031311310-0201030132133121"></a>
 
-## Next pages — device_list.devices.network_device.interface / ef2f0f98f051 / 9
+## Next pages — interface / 212033001101 / 9
 
-- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-2b8957656db499c96e12bef9edf437aa59bdbfbd634b8a591793216943b5e234)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [device_list.devices.network_device](resources--fleet--reference--group-002.md#canonical-0223202111131211-1231231021213021-1232010223323321-3231331003132222-1121233123332331-1203102320221121-0113210302011221-1003231132020310)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-1b3a5bfd1dfadfe6e0885816410305d81a80cdad6116c269273c917bce7e8343"></a>
+<a id="canonical-0123032211233331-0131332231333212-3200202011200112-1001000300113120-0122200030312231-1201011230021221-0213033021011323-3032133220031003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93ffc087669167519b08eabf1d6f7f93a98bbe22a6a7d2289884dab4e2d7a5fe"></a>
+<a id="canonical-2103333330002013-1212210112131101-2123002032222333-0131123313332103-2221202323320202-2212221331020220-2120201031222310-3202311322113332"></a>
 
-## disable_gpu — disable_gpu / 8d328ee7890c / 2
+## disable_gpu — disable_gpu / 321320210030 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - disable_gpu
 
-<a id="canonical-273c9ae58535ab800df5c4b52b43706a0e0bf08bea30ba01684ff4b5fbcac87c"></a>
+<a id="canonical-0213033021223211-2011031122232000-0031331130102311-0223100313001222-0032002333002023-3222030023220001-1220103333102311-3323302230201330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2320,9 +2445,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_gpu](resources--fleet--reference--group-002.md#canonical-273c9ae58535ab800df5c4b52b43706a0e0bf08bea30ba01684ff4b5fbcac87c)
-- [enable_gpu](resources--fleet--reference--group-002.md#canonical-a0ce803d41a88699778aac5cfcfdf29bf2e0bcc821216f38b1c95313e879eda2)
-- [enable_vgpu](resources--fleet--reference--group-002.md#canonical-8a49041fefa8f979e0be44ff5d479735988a3f1172c05139c337d41ddacd460c)
+- [disable_gpu](resources--fleet--reference--group-002.md#canonical-0213033021223211-2011031122232000-0031331130102311-0223100313001222-0032002333002023-3222030023220001-1220103333102311-3323302230201330)
+- [enable_gpu](resources--fleet--reference--group-002.md#canonical-2200303220000331-1001222020122121-1313202222301130-3330333133022123-3302320023303020-0201020112330320-2301302111030103-3220132132312202)
+- [enable_vgpu](resources--fleet--reference--group-002.md#canonical-2022102100100133-3233222033211321-3200233210103333-1131101321130311-2120202203330101-1302300011010321-3003031331100131-3122303110120030)
 
 Select alternatives according to the provider validators above.
 
@@ -2332,36 +2457,36 @@ Terraform syntax:
 disable_gpu = {}
 ```
 
-<a id="canonical-ce0086e7c56de379d06607e5d89547ba16c4cd0cc936b5bf409eed20184dc53d"></a>
+<a id="canonical-3032000020123213-3011123132031321-3100121200133211-3120211110132322-0112301030310030-3021031223112333-1000213232310200-0120103130110331"></a>
 
-## Direct properties — disable_gpu / 8d328ee7890c / 3
+## Direct properties — disable_gpu / 321320210030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-07023378003a4e5a1b924c0b73161931aa356e1d3817b82f8114468ae8beac70"></a>
+<a id="canonical-0013000203031320-0000032210321122-0123210210300023-1303011201210301-2222031112320131-0320011323200233-2001011010122022-3220233222301300"></a>
 
-## Next pages — disable_gpu / 8d328ee7890c / 4
+## Next pages — disable_gpu / 321320210030 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-0cdf79b581c68d230805be43993a64ee5dcfe96ac81609eb67217b2410e598a0"></a>
+<a id="canonical-0030313313212311-2001301220310203-0020001123321003-2121032212103232-1131303332211222-3020011200213223-1213020113230210-0100321121202200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9a6fa42a4733572c2a034f9d34745a48f66acc40b75a9da91080158644423590"></a>
+<a id="canonical-2122123322100222-1013030311130230-0222000310332131-0310131011221020-3312122230301000-2313112221312221-0100200001112012-1010100203112100"></a>
 
-## disable_log_anonymization — disable_log_anonymization / b1be69c3251c / 2
+## disable_log_anonymization — disable_log_anonymization / 300302110130 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - disable_log_anonymization
 
-<a id="canonical-99072fd1e5f4f967ef9fdb47b1930b9b0f50d46a3609fa9c1843baf13dc382c1"></a>
+<a id="canonical-2121001302333101-3211331033211213-3233213331231013-2301210300232123-0033110031101222-0312002133222130-0120100323223301-0331300320023001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2387,8 +2512,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_log_anonymization](resources--fleet--reference--group-002.md#canonical-99072fd1e5f4f967ef9fdb47b1930b9b0f50d46a3609fa9c1843baf13dc382c1)
-- [enable_log_anonymization](resources--fleet--reference--group-002.md#canonical-e0e20339cf1eac3e84b1ed29cedffbfa3edd781961abd3f3d88a6471c84dd443)
+- [disable_log_anonymization](resources--fleet--reference--group-002.md#canonical-2121001302333101-3211331033211213-3233213331231013-2301210300232123-0033110031101222-0312002133222130-0120100323223301-0331300320023001)
+- [enable_log_anonymization](resources--fleet--reference--group-002.md#canonical-3200320200030321-3033013222300332-2010230132310221-3032313333233322-0332313113200121-1201222331033303-3120202212101301-3020103131101003)
 
 Select alternatives according to the provider validators above.
 
@@ -2398,36 +2523,36 @@ Terraform syntax:
 disable_log_anonymization = {}
 ```
 
-<a id="canonical-c943ffb569e13486355ee3cc96032b25dfa3251ba5ac6bd6a876b7a051893e50"></a>
+<a id="canonical-3021100333332311-1221320103102012-0311113232033030-2112000302230211-3133220302110123-2211223012233112-2220131223132200-1101202103321100"></a>
 
-## Direct properties — disable_log_anonymization / b1be69c3251c / 3
+## Direct properties — disable_log_anonymization / 300302110130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-acc785cc73d035bd3bf24641c856d66e2e2b2f90301fb75f2296c42b83ad1c9a"></a>
+<a id="canonical-2230301320113030-1303310003112331-0323330210121001-3020111231121232-0232022302332100-0300013323131133-0202211230100223-2003223101302122"></a>
 
-## Next pages — disable_log_anonymization / b1be69c3251c / 4
+## Next pages — disable_log_anonymization / 300302110130 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-3904874165a1ef727a4f8ff00d8b5a126ccfc4977500dc375a5c5c689ac1c621"></a>
+<a id="canonical-0321001020131001-1211220132331302-1322103320333300-0031202311220102-1230303330102113-1311000031300313-1122113011301220-2122300130120201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8dc7f6b2e0b7b2a4e05b9940348613edaba97769b0fe81634b19ccd264c9af72"></a>
+<a id="canonical-2031301333122302-3200231323022210-3200112321211000-0310201201033231-2223222113131221-2300333220011203-1023012130303102-1210302122331302"></a>
 
-## disable_vm — disable_vm / 7669d1fd6df7 / 2
+## disable_vm — disable_vm / 333112313313 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - disable_vm
 
-<a id="canonical-ecf67a92c47a58bb32c2a6707a2cda35fbea70b25a4dd9f779c987d9a5418e1f"></a>
+<a id="canonical-3230331213222102-3010132211202323-0302300222121300-1322023031220311-3323322213002302-1122103131213313-1321302120133121-2211100120320133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2452,8 +2577,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [disable_vm](resources--fleet--reference--group-002.md#canonical-ecf67a92c47a58bb32c2a6707a2cda35fbea70b25a4dd9f779c987d9a5418e1f)
-- [enable_vm](resources--fleet--reference--group-002.md#canonical-30d153fffb1b0bd92be3f9a98f966c1a386aae419ca40a2b5d9d98dc9321d2ae)
+- [disable_vm](resources--fleet--reference--group-002.md#canonical-3230331213222102-3010132211202323-0302300222121300-1322023031220311-3323322213002302-1122103131213313-1321302120133121-2211100120320133)
+- [enable_vm](resources--fleet--reference--group-002.md#canonical-0300310111033333-3323012300233121-0223320333212221-2033211212300122-0320122222321001-2130221000220223-1131213121203130-2103020131022232)
 
 Select alternatives according to the provider validators above.
 
@@ -2463,36 +2588,36 @@ Terraform syntax:
 disable_vm = {}
 ```
 
-<a id="canonical-5e5c18d4e2dc060ef0f2eff115485a1c52a2338e0615627f945701bfcc165cb2"></a>
+<a id="canonical-1132113001203110-3202313000120032-3300330232333301-0111102011220130-1102220203032032-0012011112021333-2110111300012333-3030011211302302"></a>
 
-## Direct properties — disable_vm / 7669d1fd6df7 / 3
+## Direct properties — disable_vm / 333112313313 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ddd8bd46438643ed14299c634c98ef63b8e65d96b2412de0e9624b1107d6c7e5"></a>
+<a id="canonical-3131312023311012-1003201210033231-0110022121301203-1030212032331203-2320321211312112-2302100102313200-3221120210230101-0013311230133211"></a>
 
-## Next pages — disable_vm / 7669d1fd6df7 / 4
+## Next pages — disable_vm / 333112313313 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-0205c6ba7929d8e95a82a34b489cee522a02ce75dfbbbea61460c97cdeb47934"></a>
+<a id="canonical-0002001130122322-1321022131203221-1122200222031023-1020213032321102-0222000230321311-3133232323322212-0110120030211330-3132231013210310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5aeddde34c60e6762bb06eee4e1643d63911274d1286992413e32569479302ba"></a>
+<a id="canonical-1122323131313203-1030120032121312-0223230012323232-1032011210033112-0321010102131031-0102201221210210-0103320302111221-1013210300022322"></a>
 
-## enable_gpu — enable_gpu / d36c3b11499b / 2
+## enable_gpu — enable_gpu / 010110212123 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - enable_gpu
 
-<a id="canonical-a0ce803d41a88699778aac5cfcfdf29bf2e0bcc821216f38b1c95313e879eda2"></a>
+<a id="canonical-2200303220000331-1001222020122121-1313202222301130-3330333133022123-3302320023303020-0201020112330320-2301302111030103-3220132132312202"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2521,36 +2646,36 @@ Terraform syntax:
 enable_gpu = {}
 ```
 
-<a id="canonical-51657c5775cd8047cff6f6f3d799cf076ba4a6b9f6cd97a628dcefd3599f66ec"></a>
+<a id="canonical-1101121113301113-1311303120001013-3033331233123303-3113212130330013-1223221022122321-3312303121132212-0220313032333103-1121213312123230"></a>
 
-## Direct properties — enable_gpu / d36c3b11499b / 3
+## Direct properties — enable_gpu / 010110212123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8b86ad3ccd9919b70061bc52556dd63bd9ed9d5be6d5516b2ed56bee41849d1e"></a>
+<a id="canonical-2023201222310330-3031212101212313-0000120123301102-1111123131120323-3121323121311123-3212311111011223-0232311112233232-1001201021310132"></a>
 
-## Next pages — enable_gpu / d36c3b11499b / 4
+## Next pages — enable_gpu / 010110212123 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-70701e28574e291f7bfa0aaa45bad6d40165ac73a4121c875f4b6fea4ece932c"></a>
+<a id="canonical-1300130001320220-1113103202210133-1323332200222222-1011232231123110-0001121122301303-2210010201302013-1133102312333222-1032303221030230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c667753039fdc296d1715f3a1b5dde432b1dfafc28b128d3a13f5bbf8fa4a58"></a>
+<a id="canonical-0330121213131103-0003213331300221-1231011301113303-2201231131313210-0302230131332233-3002202301022031-0322010333112323-3320332210221120"></a>
 
-## enable_log_anonymization — enable_log_anonymization / 4ae7ab95d788 / 2
+## enable_log_anonymization — enable_log_anonymization / 211131132020 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - enable_log_anonymization
 
-<a id="canonical-e0e20339cf1eac3e84b1ed29cedffbfa3edd781961abd3f3d88a6471c84dd443"></a>
+<a id="canonical-3200320200030321-3033013222300332-2010230132310221-3032313333233322-0332313113200121-1201222331033303-3120202212101301-3020103131101003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2579,36 +2704,36 @@ Terraform syntax:
 enable_log_anonymization = {}
 ```
 
-<a id="canonical-d55ec654e1064d2ce2c4ce2773bdfb049bc291626e1abe75c0191c24bcfa975e"></a>
+<a id="canonical-3111113230121110-3201001210310230-3202301030320213-1303233133230010-2123300221011202-1232012223321311-3000012101300210-2330332221131132"></a>
 
-## Direct properties — enable_log_anonymization / 4ae7ab95d788 / 3
+## Direct properties — enable_log_anonymization / 211131132020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-926c30dfa631039b5fc4da737040a07ffb001b99c52b975676cd3f36546a17ab"></a>
+<a id="canonical-2102123003003133-2212030100032123-1133301031221303-1300100022001333-3323000001232121-3011022321131112-1312303103330312-1110122201132223"></a>
 
-## Next pages — enable_log_anonymization / 4ae7ab95d788 / 4
+## Next pages — enable_log_anonymization / 211131132020 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-0ba113417dd322922714de6fd64f4975669552d3e9b96ef7fe2a01f57fde4284"></a>
+<a id="canonical-0023220101031001-1331310302022102-0213011031321233-3112103310211311-1212211111023103-3221232112323313-3332022200013311-1333313210022010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-136516511fcb4603b3561adbdc39ac4c98092b96f8519816e7a501be31ff46f5"></a>
+<a id="canonical-0103121101121101-0133302310120003-2303111201223123-3130032122301030-2120002102232112-3320110121200112-3213221100012332-0301333310123311"></a>
 
-## enable_vgpu — enable_vgpu / b3a2f365242b / 2
+## enable_vgpu — enable_vgpu / 121102100223 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - enable_vgpu
 
-<a id="canonical-8a49041fefa8f979e0be44ff5d479735988a3f1172c05139c337d41ddacd460c"></a>
+<a id="canonical-2022102100100133-3233222033211321-3200233210103333-1131101321130311-2120202203330101-1302300011010321-3003031331100131-3122303110120030"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2641,15 +2766,15 @@ enable_vgpu {
 }
 ```
 
-<a id="canonical-4858930e7d1a11465487d013243b7b177a7b2f2c8aaadf9518a444b25e8c53df"></a>
+<a id="canonical-1020112021030032-1331012201011012-1110201331000103-0210032313230113-1322132302330230-2022222231332111-0120221010102302-1132203011033133"></a>
 
-## Direct properties — enable_vgpu / b3a2f365242b / 3
+## Direct properties — enable_vgpu / 121102100223 / 3
 
-<a id="canonical-8b917d7f3895a0044be46081e412b403792265781a3d85773e3c536a1223feb4"></a>
+<a id="canonical-2023210113311333-0320211122000010-1023321012002001-3210010223100003-1321020212111320-0122033120111313-0332033011031222-0102020333322310"></a>
 
-<a id="canonical-53244540b28e04fcbd9af43fba417ca46308ad14c4957098162086d174d4cfc5"></a>
+<a id="canonical-1103021010111000-2302203200103330-2331212233100333-2322100113302210-1203002022310110-3010211113002120-0112020020123101-1310311030333011"></a>
 
-## feature_type property — enable_vgpu / b3a2f365242b / 4
+## feature_type property — enable_vgpu / 121102100223 / 4
 
 Type: `"string"`. Optional.
 
@@ -2695,11 +2820,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4b76a8a73da3b73f1d5605238f6d1055d949426b11398aed19044462fca30b66"></a>
+<a id="canonical-1023131222202213-0331220323130333-0131111200110203-2033123101001111-3121102110021223-0101032120223231-0121001010101202-3330220300231212"></a>
 
-<a id="canonical-91b8651bc0dcaf725b7848933f336e10fd9e7af67be78c1234250d4070e46b9c"></a>
+<a id="canonical-2101232012110123-3000313022331302-1123132010202103-0333030312320100-3331213213223312-1323321320300102-0310021100311000-1300321012232130"></a>
 
-## server_address property — enable_vgpu / b3a2f365242b / 5
+## server_address property — enable_vgpu / 121102100223 / 5
 
 Type: `"string"`. Optional.
 
@@ -2738,11 +2863,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-14cbb9a06e7877ae057d17ad45568da18820d64e3814f42e24574a6e21296dfe"></a>
+<a id="canonical-0110302323212200-1232132013132232-0011133101132231-1011111220312201-2020020031121032-0320011033100232-0210111310221232-0201022112313332"></a>
 
-<a id="canonical-763446caf9f6904424ccbed76344ee9c8442549c6d533dc3250328959a2115eb"></a>
+<a id="canonical-1312031010123022-3321331221001010-0210303023323113-1203101032322130-2010100211102130-1231110303313003-0211000302202111-2122020101113223"></a>
 
-## server_port property — enable_vgpu / b3a2f365242b / 6
+## server_port property — enable_vgpu / 121102100223 / 6
 
 Type: `"number"`. Optional.
 
@@ -2793,30 +2918,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c29a60c75ffa8200ae76360d7204442938cfb201464d99e26979fcdbb5181863"></a>
+<a id="canonical-3002212212003013-1133332220020000-2232131203120031-1302001010100221-0320303323020001-1012103121213202-1221132133303123-2311012001201203"></a>
 
-## Next pages — enable_vgpu / b3a2f365242b / 7
+## Next pages — enable_vgpu / 121102100223 / 7
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-3a7d7361e54b7a7f248f5fa61458fd7e181f92f3712c92302c4da7638c0af9f3"></a>
+<a id="canonical-0322133113031201-3211102313221333-0210203311332212-0110112033311332-0120013321023303-1301023021020300-0230103122131203-2030002233213303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-35f941c5a7f6bdb694f6f9fa99460f0618c933d4efdced927582bc4b6dab1783"></a>
+<a id="canonical-0311332110013011-2213331223312312-2110331233213322-2121101200330012-0120302103033110-3233313032312102-1311200223301023-1231222301132003"></a>
 
-## enable_vm — enable_vm / d1804ed40b71 / 2
+## enable_vm — enable_vm / 311000231301 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - enable_vm
 
-<a id="canonical-30d153fffb1b0bd92be3f9a98f966c1a386aae419ca40a2b5d9d98dc9321d2ae"></a>
+<a id="canonical-0300310111033333-3323012300233121-0223320333212221-2033211212300122-0320122222321001-2130221000220223-1131213121203130-2103020131022232"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2845,36 +2970,36 @@ Terraform syntax:
 enable_vm = {}
 ```
 
-<a id="canonical-5c64ed722d883d3ef2b6d5481790ea1c7a2995f8ea86c4b492262c12efb63abb"></a>
+<a id="canonical-1130121032311302-0231202003310332-3302231231111020-0113210032220130-1322022121113320-3222201230102310-2102021202300102-3233231203222323"></a>
 
-## Direct properties — enable_vm / d1804ed40b71 / 3
+## Direct properties — enable_vm / 311000231301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e56e9df3ad5bfaebc490205e66cee3a89407c8761ca5b9ae883c80d1ce113bf1"></a>
+<a id="canonical-3211123221313303-2231112333223223-3010210002001132-1212303232032220-2110001330201312-0130221123212232-2020033020003101-3032010103233301"></a>
 
-## Next pages — enable_vm / d1804ed40b71 / 4
+## Next pages — enable_vm / 311000231301 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-ff836b8717083785fcc763cf98298a2a5b4213a5691c3bba50f99e9fdc6f502a"></a>
+<a id="canonical-3333200312232013-0113002003132011-3330301312033033-2120022120220222-1123100201032211-1221013003232322-1100332121322133-3130123311000222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6cf7dd74ad41a1ebd4a544406b89dddf9df4cab696312ef24604863809b58145"></a>
+<a id="canonical-1230331331311310-2231100122013223-3110221110101000-1223202131313133-2131331030222312-2112030102323302-1012001020120320-0021231120011011"></a>
 
-## inside_virtual_network — inside_virtual_network / 414100225023 / 2
+## inside_virtual_network — inside_virtual_network / 020211000203 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - inside_virtual_network
 
-<a id="canonical-9ae9d1b7dcc436c96673bc95239adbd4039ed61c258ab78facea55c2c7f1399c"></a>
+<a id="canonical-2122322131012313-3130301003123021-1212130323302111-0203212231233110-0003213231120130-0211202223132033-2230322211113002-3013330103212130"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2919,15 +3044,15 @@ inside_virtual_network {
 }
 ```
 
-<a id="canonical-bb396843778a4ca651fa5921ae36c44039a3c741bd40b5f3794a68a316beb426"></a>
+<a id="canonical-2323032112201003-1313202210302212-1101332211210201-2232031230101000-0321220330131001-2331100023113303-1321102212202203-0112233223100212"></a>
 
-## Direct properties — inside_virtual_network / 414100225023 / 3
+## Direct properties — inside_virtual_network / 020211000203 / 3
 
-<a id="canonical-ac338635710b7f514f34d7f2dc149f85630caa0845b7dcca04996d6eac96aa08"></a>
+<a id="canonical-2230030320120311-1301002313331101-1033031031133302-3130011021332011-1203003022220020-1011231331303022-0010212112311232-2230211222220020"></a>
 
-<a id="canonical-1e233437780da5d2985f8035e23ce3420943aa1a7646614c53a025a241f1cb00"></a>
+<a id="canonical-0132020303100313-1320003122113102-2120113320000311-3202033032031002-0021100322220122-1312101212011030-1103220002112202-1001330130230000"></a>
 
-## kind property — inside_virtual_network / 414100225023 / 4
+## kind property — inside_virtual_network / 020211000203 / 4
 
 Type: `"string"`. Computed.
 
@@ -2962,11 +3087,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-452d250abf99bab662a16913ee85d94d1f776b3995096f5358311292d9036ac3"></a>
+<a id="canonical-1011023102110022-2333212123222312-1202220112210103-3232201131211031-0133131312230321-2111002112331103-1120030101022102-3121000312223003"></a>
 
-<a id="canonical-357a2141d80673ca3300382229c1573b0d3219c1c7bb34d7341418ffe8329015"></a>
+<a id="canonical-0311132202011001-3120001213033022-0303000003200202-0221300111130323-0031030201213001-3013232303103113-0310011001203333-3220030221000111"></a>
 
-## name property — inside_virtual_network / 414100225023 / 5
+## name property — inside_virtual_network / 020211000203 / 5
 
 Type: `"string"`. Optional.
 
@@ -3001,11 +3126,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-952a0a2e74b8b47ab07f188578d8467f8cdf7c18336a46010ac7e915db5ef98f"></a>
+<a id="canonical-2111022200220232-1310232023101322-2300133301202011-1320312010121333-2030313313300120-0303122210120001-0022301332210111-3123113233212033"></a>
 
-<a id="canonical-7fbd1316b90382f08b4a266ea315bb9237b6b52c88b565e418881e80ff935a31"></a>
+<a id="canonical-1333233101030112-2321000320023300-2023102202121232-2203011123232102-0313231223110230-2020231112113210-0120202001322000-3333210311220301"></a>
 
-## namespace property — inside_virtual_network / 414100225023 / 6
+## namespace property — inside_virtual_network / 020211000203 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -3065,11 +3190,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ab272073f93d4b6b494faa7fcdc3bced20d4e68c530d3a3640ee64d9c3f6773"></a>
+<a id="canonical-2022230213020013-0333210331102312-2310211033222213-3330313003233032-3102003110321220-3011030031032203-1210003232121031-2130033312131303"></a>
 
-<a id="canonical-13c1ef1edabc5b4d051794d3ce46556aac45d002aa424cf047c4fae5264b782b"></a>
+<a id="canonical-0103300132330132-3122233011231031-0011011321103103-3032101211111222-2230101131000002-2222100210303300-1013301033223211-0212102313200223"></a>
 
-## tenant property — inside_virtual_network / 414100225023 / 7
+## tenant property — inside_virtual_network / 020211000203 / 7
 
 Type: `"string"`. Computed.
 
@@ -3104,11 +3229,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e9ab759ddde1e9a3d5ebcb1e0bb15fc7f65e4e86c9e7e1dc641fa8bf6705403a"></a>
+<a id="canonical-3221222313112131-3131320132212203-3111322330230132-0023230111333013-3312113210322012-3021321332013130-1210013322202333-1213001110000322"></a>
 
-<a id="canonical-abc6adb95f7e5719fdb5f9fd13cc1c9e3529a39762c58ed741ec26e142779029"></a>
+<a id="canonical-2223301222312321-1133133211130121-3331231133213331-0103303001302132-0311022122032113-1202301120323113-1001323002123201-1002131321000221"></a>
 
-## uid property — inside_virtual_network / 414100225023 / 8
+## uid property — inside_virtual_network / 020211000203 / 8
 
 Type: `"string"`. Computed.
 
@@ -3143,30 +3268,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1c28fc4ecaa128070f438ea00645b5995138ea7a42bddf183d683ce6e61c6761"></a>
+<a id="canonical-0130022033301032-3022220102200013-0033100320322200-0012101123112121-1101032032221322-1002233131330120-0331122003303212-3212013012131201"></a>
 
-## Next pages — inside_virtual_network / 414100225023 / 9
+## Next pages — inside_virtual_network / 020211000203 / 9
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-8fded61b07484d6b4cb7278257551fb9fbae015181ec40bd2bb38d864b381672"></a>
+<a id="canonical-2033313231120123-0013102010311223-1030231302132002-1113111101332321-3323223200011101-2001323010002331-0223230320312012-1023032001121302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e6a251dfce02b90f71245ce49f4a07291384c3df8427686bbeafe0b53791f586"></a>
+<a id="canonical-3212220211013133-3032000223210033-1301021011303210-2133102200130221-0103201030033133-2010021312201223-2332223332002311-0313210133112012"></a>
 
-## interface_list — interface_list / 6200e7ec56eb / 2
+## interface_list — interface_list / 323011123223 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - interface_list
 
-<a id="canonical-4a4b698279ff0f98428b2935438a8cbb8bf67ae0282b09729c810070c9e7a49b"></a>
+<a id="canonical-1022102312212002-1321333300332120-1002202302210311-1003202220302323-2023331213223200-0220022300211302-2130200100001300-3021321322102123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3199,38 +3324,38 @@ interface_list {
 }
 ```
 
-<a id="canonical-611a1f9c30ea16f1f730e3ae220b92dc91d93a83a53b2eaf27bc58b0495f62c8"></a>
+<a id="canonical-1201012201332130-0300322201123301-3313030032032232-0202002321023130-2101312103222003-2211032302322233-0213233011202300-1021113312023020"></a>
 
-## Direct properties — interface_list / 6200e7ec56eb / 3
+## Direct properties — interface_list / 323011123223 / 3
 
-- [interfaces](resources--fleet--reference--group-002.md#canonical-26396345d52d32840f896de334b8f8aa1635b2640c9b2f6f1f986bc71585f0bf): complete subsection reference.
+- [interfaces](resources--fleet--reference--group-002.md#canonical-0212032112031011-3111023103022010-0033202112313203-0310232033202222-0112031123021210-0030212302331233-0133212012233013-0111201133002333): complete subsection reference.
 
-<a id="canonical-59089909d7ed00efe19d4bc745fe6a3c602d7a56b5cd957e5d8504d4c050f53b"></a>
+<a id="canonical-1121002021210021-3113323100003233-3201213110233013-1011333212220330-1200023113221112-2311303121111332-1131201100103110-3000110033110323"></a>
 
-## Next pages — interface_list / 6200e7ec56eb / 4
+## Next pages — interface_list / 323011123223 / 4
 
-- [interface_list.interfaces](resources--fleet--reference--group-002.md#canonical-26396345d52d32840f896de334b8f8aa1635b2640c9b2f6f1f986bc71585f0bf)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [interface_list.interfaces](resources--fleet--reference--group-002.md#canonical-0212032112031011-3111023103022010-0033202112313203-0310232033202222-0112031123021210-0030212302331233-0133212012233013-0111201133002333)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-26396345d52d32840f896de334b8f8aa1635b2640c9b2f6f1f986bc71585f0bf"></a>
+<a id="canonical-0212032112031011-3111023103022010-0033202112313203-0310232033202222-0112031123021210-0030212302331233-0133212012233013-0111201133002333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f357e020dfab3b0295951adef0a531706f12f3304df4f854ccf7d8dc1ba9ae11"></a>
+<a id="canonical-3303111332000200-3133222303230002-2111211101223132-3300221103011300-1233010233030300-1031331033201110-3030331331203130-0123222122320101"></a>
 
-## interface_list.interfaces — interface_list.interfaces / 2c835573e477 / 2
+## interface_list.interfaces — interfaces / 130332101313 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [interface_list](resources--fleet--reference--group-002.md#canonical-8fded61b07484d6b4cb7278257551fb9fbae015181ec40bd2bb38d864b381672)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [interface_list](resources--fleet--reference--group-002.md#canonical-2033313231120123-0013102010311223-1030231302132002-1113111101332321-3323223200011101-2001323010002331-0223230320312012-1023032001121302)
 - interface_list.interfaces
 
-<a id="canonical-adfcbaeab029791d1386946c72ee21901c65af3f4110431b324ae7915393e8a6"></a>
+<a id="canonical-2231333023223222-2300022113210131-0103201221101230-1302323202012100-0130121122330333-1001010010030123-0302102232132101-1103210332202212"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3290,15 +3415,15 @@ interfaces {
 }
 ```
 
-<a id="canonical-ea7653e3f7989496fa7550d3c3c6a39c73aeac6cc6210dd488c664f544f93290"></a>
+<a id="canonical-3222131211033203-3313212021102112-3322131111003103-3003301222032130-1303223222301230-3012020100313110-2020301212103311-1010332103022100"></a>
 
-## Direct properties — interface_list.interfaces / 2c835573e477 / 3
+## Direct properties — interfaces / 130332101313 / 3
 
-<a id="canonical-060b2c4172341b0f1160a472e8371681c0f1a349960e7c0119c523965415d000"></a>
+<a id="canonical-0012002302301001-1302031001230033-0101120022101302-3220031301122001-3000330122031021-2112003213300001-0121301102032112-1110011131000000"></a>
 
-<a id="canonical-8a13c9bba49f0ea1b5d69750d9083488a1bf62e3b780513b7fc86405a5b5de27"></a>
+<a id="canonical-2022010330212323-2210213300322201-2311311221131100-3121002003102020-2201233312023203-2313200011010323-1333302012100011-2211231131320213"></a>
 
-## name property — interface_list.interfaces / 2c835573e477 / 4
+## name property — interfaces / 130332101313 / 4
 
 Type: `"string"`. Optional.
 
@@ -3359,11 +3484,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-40a6cbebbc83bfbcafc2fbc82b15d9d25748270b0096bde8b6b647963c728b1f"></a>
+<a id="canonical-1000221230233223-2330200323332330-2233300233233020-0223011131213102-1113102002130023-0000211223313220-2312231210132112-0330130220230133"></a>
 
-<a id="canonical-403e6960557146be2a59ac51b475f5174b383bc6f46cf4f3ce85c9e7f003ccb6"></a>
+<a id="canonical-1000033212211200-1111130110122332-0222112122301101-2310131133110113-1023032003233012-3310123033103303-3032201130213213-3300000330302312"></a>
 
-## namespace property — interface_list.interfaces / 2c835573e477 / 5
+## namespace property — interfaces / 130332101313 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3431,11 +3556,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1d0c0432b2aa48e559fbf76283ad1a47503e62f37f7ee4b103dbfd905d2c3829"></a>
+<a id="canonical-0131003000100302-2302222210203211-1121332333131202-2003223101221013-1100033212023303-1333133232102301-0003312333312100-1131023003200221"></a>
 
-<a id="canonical-3e3aee8acf2780f93d84b7eda783a4eaaf130b2eb7f0966823a18c8b6fd9f115"></a>
+<a id="canonical-0332032232322022-3033021320003321-0331201023133231-2213200322103222-2233010300230232-2313330021121220-0203220120302023-1233312133010111"></a>
 
-## tenant property — interface_list.interfaces / 2c835573e477 / 6
+## tenant property — interfaces / 130332101313 / 6
 
 Type: `"string"`. Computed.
 
@@ -3489,30 +3614,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e24475891a3e1ca37f4feb9f82adc1905b6e63b109b6d09e92dfed75ec256907"></a>
+<a id="canonical-3202101013112021-0122033201302203-1333103332232133-2002223130012100-1123123212032301-0021231231002132-2102313332311311-3230021112210013"></a>
 
-## Next pages — interface_list.interfaces / 2c835573e477 / 7
+## Next pages — interfaces / 130332101313 / 7
 
-- [interface_list](resources--fleet--reference--group-002.md#canonical-8fded61b07484d6b4cb7278257551fb9fbae015181ec40bd2bb38d864b381672)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [interface_list](resources--fleet--reference--group-002.md#canonical-2033313231120123-0013102010311223-1030231302132002-1113111101332321-3323223200011101-2001323010002331-0223230320312012-1023032001121302)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0"></a>
+<a id="canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddee0df1b901a8b00c06fe665284c5d4e434398f686404e0561ea18a79d5eaa7"></a>
+<a id="canonical-3131323200313301-2321000122202300-0030001233321212-1102201030113110-3210031003212033-1220121000103200-1112013222012022-1321311132222213"></a>
 
-## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 360f19b8488d / 2
+## kubernetes_upgrade_drain — kubernetes_upgrade_drain / 232010202031 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - kubernetes_upgrade_drain
 
-<a id="canonical-8971871d1d85a395101679abfde54551f500f5fb7e2ad2ac287b841f29168b8b"></a>
+<a id="canonical-2021130120130131-0131201122032111-0100011213212223-3331321110111101-3311000033113323-1332022231022230-0220132320100133-0221011220232023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3547,41 +3672,41 @@ kubernetes_upgrade_drain {
 }
 ```
 
-<a id="canonical-3b6ffbd34f12fd3fc99897db34c06a44ab185bd9ee97c114874ade6ba7b8e2d6"></a>
+<a id="canonical-0323123333233103-1033010233310333-3021212021133123-0310300012221010-2223012011233121-3232211330010110-2013102231321223-2213232032023112"></a>
 
-## Direct properties — kubernetes_upgrade_drain / 360f19b8488d / 3
+## Direct properties — kubernetes_upgrade_drain / 232010202031 / 3
 
-- [disable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-e84b585bfc0a67491cae23624d2e8779930c665f9384fa75cbd5af9ecf25e884): complete subsection reference.
+- [disable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-3220102311201123-3330002212131021-0130223202031202-1031023220131321-2103003012121133-2103201033221311-3023311122332132-3033021132202010): complete subsection reference.
 
-- [enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da): complete subsection reference.
+- [enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122): complete subsection reference.
 
-<a id="canonical-343107eb3f914c75aa63688cacc03e41d76faa9d050317e03e76cf5ffde9273f"></a>
+<a id="canonical-0310030100133223-0333210110301311-2222120312202030-2230300003321001-3113123322222131-0011000301133200-0332131230331133-3331322102130333"></a>
 
-## Next pages — kubernetes_upgrade_drain / 360f19b8488d / 4
+## Next pages — kubernetes_upgrade_drain / 232010202031 / 4
 
-- [kubernetes_upgrade_drain.disable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-e84b585bfc0a67491cae23624d2e8779930c665f9384fa75cbd5af9ecf25e884)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [kubernetes_upgrade_drain.disable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-3220102311201123-3330002212131021-0130223202031202-1031023220131321-2103003012121133-2103201033221311-3023311122332132-3033021132202010)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-e84b585bfc0a67491cae23624d2e8779930c665f9384fa75cbd5af9ecf25e884"></a>
+<a id="canonical-3220102311201123-3330002212131021-0130223202031202-1031023220131321-2103003012121133-2103201033221311-3023311122332132-3033021132202010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-94eecff42bca9c8c270d9d8e357afed6ae9a5cb54d061b22b115c4d4a3971fc9"></a>
+<a id="canonical-2110323230333310-0223302221302030-0213003121312032-0311132233323112-2232212211302311-1031001201230202-2301011130103110-2203211301333021"></a>
 
-## kubernetes_upgrade_drain.disable_upgrade_drain — kubernetes_upgrade_drain.disable_upgrade_drain / 90f5a3a5c80e / 2
+## kubernetes_upgrade_drain.disable_upgrade_drain — disable_upgrade_drain / 221130200032 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
 - kubernetes_upgrade_drain.disable_upgrade_drain
 
-<a id="canonical-6cc4b3f1ad1bba8b4abcdf7599c6d80a8eb454be535932e8d05329a6eba685e1"></a>
+<a id="canonical-1230301023033301-2231012323222023-1022233031331311-2121301231200022-2032231011102332-1103112103023220-3100110302212212-3223221220113201"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3610,37 +3735,37 @@ Terraform syntax:
 disable_upgrade_drain = {}
 ```
 
-<a id="canonical-7e01a0622a53e2484afc4bc6a40f860415f3c9911ed7ce7f0c787f8b2b25c6c7"></a>
+<a id="canonical-1332000122001202-0222110332021020-1022333010233012-2210003320120010-0111330330212101-0132311330321333-0030132013332023-0223021130123013"></a>
 
-## Direct properties — kubernetes_upgrade_drain.disable_upgrade_drain / 90f5a3a5c80e / 3
+## Direct properties — disable_upgrade_drain / 221130200032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d08ce6701c4f117d54c3f7bf22d24543d746dc273a08e4a6b24843d7aa36684a"></a>
+<a id="canonical-3100203032121300-0130103301011331-1110300333132333-0202310210111003-3113101231300213-0322002032102212-2302102010033113-2222031212201022"></a>
 
-## Next pages — kubernetes_upgrade_drain.disable_upgrade_drain / 90f5a3a5c80e / 4
+## Next pages — disable_upgrade_drain / 221130200032 / 4
 
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da"></a>
+<a id="canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3d060f3bb13a32106456387492deffba2034ea43c9cb956c82a16e3661075c16"></a>
+<a id="canonical-0331001200330323-2301032203020100-1210111203201310-2102313233332322-0200031032221003-3021302321111230-2002220112320312-1201001311300112"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain — enable_upgrade_drain / 333321000210 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
 - kubernetes_upgrade_drain.enable_upgrade_drain
 
-<a id="canonical-a00f954692d8e0dc3de8bed04fac73c41e53ad8399e108d6a8058f0e39876b74"></a>
+<a id="canonical-2200003321111012-2102312032003130-0331322023323100-1033223013033010-0132110322312003-2121320100203112-2220001120330032-0321201312231310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3679,17 +3804,17 @@ enable_upgrade_drain {
 }
 ```
 
-<a id="canonical-10087828fcf4a092e812c1cbd1ced83e4149148e46112c8388afd53a3251f508"></a>
+<a id="canonical-0100002013200220-3330331022002102-3220010230013023-3101303231200332-1001102101102032-1012010102302003-2020223331110322-0302110133110020"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 3
+## Direct properties — enable_upgrade_drain / 333321000210 / 3
 
-- [disable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-5fa077d9fd59c0adb90fd7e221898fa5cf322c77d22e717a582d6c2406b6db40): complete subsection reference.
+- [disable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-1133220013133121-3331112130002231-2321003331133202-0201202120332211-3033030202301313-3102023213011322-1120023112300210-0012231231231000): complete subsection reference.
 
-<a id="canonical-36ce0a30946235e41ff09963ca5f8575a54242bc7a2c5ba6284cc49b8d91f211"></a>
+<a id="canonical-0312303200220300-2110120203113210-0133330021211203-3022113320111311-2211100210022330-1322023011232212-0220103030102123-2031210133020101"></a>
 
-<a id="canonical-29958a2428587dfbc8d389647dbc829fc0fd43f50d94bfe59e1f2ffaa8aac8f7"></a>
+<a id="canonical-0221211120220210-0220112013313323-3020310320211210-1331233020022133-3000333110033311-0031211023333211-2132013302333322-2220222230203313"></a>
 
-## drain_max_unavailable_node_count property — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 4
+## drain_max_unavailable_node_count property — enable_upgrade_drain / 333321000210 / 4
 
 Type: `"number"`. Optional.
 
@@ -3740,21 +3865,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7c2ad584dfacb5c77461e1413d8031ec8ead54fdc04930a8b23557497c04f778"></a>
+<a id="canonical-1330022231112010-3133223023113013-1310120132011001-0331200003013230-2032223111103331-3000102103002220-2302031111131021-1330001033131320"></a>
 
-<a id="canonical-c4bea4934d9a5df423b6991fbe5618497738c3e036f98d50704d8a5fbb773f31"></a>
+<a id="canonical-3010233222102103-1031212211313310-0203231221210133-2332111201201021-1313032030033200-0312332120311100-1300103120221133-2323131303330301"></a>
 
-## drain_max_unavailable_node_percentage property — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 5
+## drain_max_unavailable_node_percentage property — enable_upgrade_drain / 333321000210 / 5
 
 Type: `"number"`. Optional.
 
 Maximum percentage of nodes unavailable during upgrade draining.
 
-<a id="canonical-fb333a6f902b4ced29c9dcaec51a7b9601908a1932ada889fe02b3d28b8dedda"></a>
+<a id="canonical-3323030303221233-2100022310303231-0221302131302232-3011012213232112-0001210020220121-0302223122202021-3332000223033102-2023203132313122"></a>
 
-<a id="canonical-67af4263dd320b11c5f13331898e2d2ca2a3de432c9350c4473d3e3c06759b42"></a>
+<a id="canonical-1213223310021203-3131030200230101-3011330103030301-2021203202310230-2202220331321003-0230210311003010-1013033103320330-0012131121231002"></a>
 
-## drain_node_timeout property — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 6
+## drain_node_timeout property — enable_upgrade_drain / 333321000210 / 6
 
 Type: `"number"`. Optional.
 
@@ -3813,36 +3938,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [enable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-e0b46aa2bc834bba081b953b52c8cfd9835215285dd2f116088966e632f5292a): complete subsection reference.
+- [enable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-3200231012222202-2330200310232322-0020012321110323-1102302030333121-2003110201110220-1131310233010112-0020202112123212-0302331102210222): complete subsection reference.
 
-<a id="canonical-474ec79d644e48b89df3c485211df0eefcc186a64b09d3e702af77c661197a1a"></a>
+<a id="canonical-1013103230132131-1210103210202320-2131330330102011-0201013133003232-3330300120122212-1023002131033213-0002223313133012-1201012113220122"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain / a21d08ff9024 / 7
+## Next pages — enable_upgrade_drain / 333321000210 / 7
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-5fa077d9fd59c0adb90fd7e221898fa5cf322c77d22e717a582d6c2406b6db40)
-- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-e0b46aa2bc834bba081b953b52c8cfd9835215285dd2f116088966e632f5292a)
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-1133220013133121-3331112130002231-2321003331133202-0201202120332211-3033030202301313-3102023213011322-1120023112300210-0012231231231000)
+- [kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--fleet--reference--group-002.md#canonical-3200231012222202-2330200310232322-0020012321110323-1102302030333121-2003110201110220-1131310233010112-0020202112123212-0302331102210222)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-5fa077d9fd59c0adb90fd7e221898fa5cf322c77d22e717a582d6c2406b6db40"></a>
+<a id="canonical-1133220013133121-3331112130002231-2321003331133202-0201202120332211-3033030202301313-3102023213011322-1120023112300210-0012231231231000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6c6e7c3cc77aef8e200d1996ddce4ad569d3cdf3c58702383714de2926971834"></a>
+<a id="canonical-1230123213300330-3013132232332032-0200003101212112-3131303210223111-1221310330313303-3011201300020320-0313011031320221-0212211301200310"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / d0322973808c / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — disable_vega_upgrade_mode / 130320002030 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122)
 - kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode
 
-<a id="canonical-f34e0b9358558c9291923df0593b4a5c6709e1acaf15234f01808a0ca6244345"></a>
+<a id="canonical-3303103200232103-1120111120302102-2101210203313300-1121032310221130-1213002132012230-2233011102031033-0001200020220030-2212021010031011"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3871,38 +3996,38 @@ Terraform syntax:
 disable_vega_upgrade_mode = {}
 ```
 
-<a id="canonical-aa7ea949b2fad0382261bb4ddd95e5fd60811412a1d4182d4f4dce4c10fcaa7b"></a>
+<a id="canonical-2222133222211021-2302332231000320-0202120123231031-3131211132113331-1200200101100102-2201311001200231-1033103130321030-0100333022221323"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / d0322973808c / 3
+## Direct properties — disable_vega_upgrade_mode / 130320002030 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-45327b1aa254e70af201a350807594b00e84af5a510df7c937fb78aaaa29d7b4"></a>
+<a id="canonical-1011030213230122-2202111032130022-3302000122031100-2000131121102300-0032201022331122-1101003133133021-0313332313202222-2222022131132310"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode / d0322973808c / 4
+## Next pages — disable_vega_upgrade_mode / 130320002030 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-e0b46aa2bc834bba081b953b52c8cfd9835215285dd2f116088966e632f5292a"></a>
+<a id="canonical-3200231012222202-2330200310232322-0020012321110323-1102302030333121-2003110201110220-1131310233010112-0020202112123212-0302331102210222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-44601b442b32cd33b4902d911ebf551419937a38d12d1dc0496013831376ce10"></a>
+<a id="canonical-1010120001231010-0223030230310303-2310210002312101-0132233311110110-0121210313220320-3101023101313000-1021120001032003-0103131230320100"></a>
 
-## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 882b0212b6a9 / 2
+## kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — enable_vega_upgrade_mode / 010223122221 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-b3fca42c2aeb5b7061fe19294dfc4fa35eebac01b348c2d9c5f4431c9390a0b0)
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [kubernetes_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2303333022100230-0222322311231300-1201333201210221-1031333010332203-1132322322300001-2303102030023121-3011331010030130-2103210022002300)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122)
 - kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode
 
-<a id="canonical-017aede9719bc56d21cee86108ef29f624c7b54df33d740a9d975f12b4eb2bf0"></a>
+<a id="canonical-0001132232313221-1301212330111231-0201303232201201-0020323302213312-0210301323111031-3303033113100022-2131211311330102-2310322302233300"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3931,36 +4056,36 @@ Terraform syntax:
 enable_vega_upgrade_mode = {}
 ```
 
-<a id="canonical-ae31b8388888885cae46791f31e3ee14a5b236ac62fe98205e080e9e4c7f89e8"></a>
+<a id="canonical-2232030123200320-2020202020201130-2232101213210133-0301320332320110-2211230203122230-1202333221200200-1132002000322132-1030133320213220"></a>
 
-## Direct properties — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 882b0212b6a9 / 3
+## Direct properties — enable_vega_upgrade_mode / 010223122221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-472f62c00da36ca1b09d703241d0c9b5b2b1d6c4444105fce42c7c1c24875705"></a>
+<a id="canonical-1013023312023000-0031220312302201-2300213113000302-1001310030212311-2302230131123010-1010100100113330-3210023013300130-0210201311130011"></a>
 
-## Next pages — kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode / 882b0212b6a9 / 4
+## Next pages — enable_vega_upgrade_mode / 010223122221 / 4
 
-- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-a8c73ced4f029f2c0e788981894e2555182ebab3ec4027c2418f58becd41a5da)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [kubernetes_upgrade_drain.enable_upgrade_drain](resources--fleet--reference--group-002.md#canonical-2220301303303231-1033000221330230-0032132020212001-2021103202111111-0120023223222303-3230100002133002-1001203311202332-3031100122113122)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-3df1cf1ed4f9c70511a4f38579ec1cd5749aa8984001404520bc464ea9f2010f"></a>
+<a id="canonical-0331330130330132-3110332130130011-0101221033032011-1321323001303111-1310212222202120-1000000110001011-0200233010121032-2221330200010033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9b97f7d6d29829d3cdcf454166a99ce0388969a3ded97ca17d0512a508e26a37"></a>
+<a id="canonical-2123211333133112-3102212002213103-3031303310111001-1212222121303200-0320202112212203-3132312113302201-1331001101022211-0020320212220313"></a>
 
-## log_receiver — log_receiver / 7f43023dd9c6 / 2
+## log_receiver — log_receiver / 033131213012 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - log_receiver
 
-<a id="canonical-cdde11d2c6386cf836477713fa0f15f368ede2ca31331edfaa3c9cc48a69c523"></a>
+<a id="canonical-3031313201013102-3012032012303320-0312101313130103-3322003301113303-1220323132023022-0301030301323133-2222033021303010-2022122130110203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3993,8 +4118,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [log_receiver](resources--fleet--reference--group-002.md#canonical-cdde11d2c6386cf836477713fa0f15f368ede2ca31331edfaa3c9cc48a69c523)
-- [logs_streaming_disabled](resources--fleet--reference--group-002.md#canonical-9d2cc920b55903be230ee5dbd1edcc516d596a464f975c019d15bc5a2ebb13fb)
+- [log_receiver](resources--fleet--reference--group-002.md#canonical-3031313201013102-3012032012303320-0312101313130103-3322003301113303-1220323132023022-0301030301323133-2222033021303010-2022122130110203)
+- [logs_streaming_disabled](resources--fleet--reference--group-002.md#canonical-2131023030210200-2311112100032332-0203003232113123-3101323130301101-1231112112221012-1033211311300001-2131011123301122-0232232301033323)
 
 Select alternatives according to the provider validators above.
 
@@ -4006,15 +4131,15 @@ log_receiver {
 }
 ```
 
-<a id="canonical-18b1fe5bec85c270e08d9fc7e25e9f80854002fd12a11f4fa41e7459a93c0d18"></a>
+<a id="canonical-0120230133321123-3230201130021300-3200203121333013-3202113221332000-2011100000023331-0102220101331033-2210013213101121-2221033000310120"></a>
 
-## Direct properties — log_receiver / 7f43023dd9c6 / 3
+## Direct properties — log_receiver / 033131213012 / 3
 
-<a id="canonical-5c217248f8b9d89732195d0304c4edfd9bf698c7b494a724b39adc44f31978a2"></a>
+<a id="canonical-1130020113021020-3320232131202113-0302012111310003-0010301032313331-2123331221203013-2310211022130210-2303212231301010-3303012113202202"></a>
 
-<a id="canonical-1664cdf34b0b9f9f1f5391b674de412e3638a899c45cffbb490a3403628281c7"></a>
+<a id="canonical-0112121030313303-1023002321332133-0133110321012312-1310313210010232-0312032022202121-3010113033332323-1021002203100003-1202200220013013"></a>
 
-## name property — log_receiver / 7f43023dd9c6 / 4
+## name property — log_receiver / 033131213012 / 4
 
 Type: `"string"`. Optional.
 
@@ -4075,11 +4200,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e3028909862a366bedc1854cb5f7e3431b9df0955a84e46cc439326ddae0dd21"></a>
+<a id="canonical-3203000220210021-2012022203121223-3231300120111030-2311331332031003-0123213133002111-1122201032101230-3010032103021231-3122320031310201"></a>
 
-<a id="canonical-b447ca272389db07955434ea6e36c7e880e4c73ce9f6cc66db92ff3aba87481b"></a>
+<a id="canonical-2310101330220213-0203202131230013-2111111003103222-1232031230133220-2000321030130330-3221331230301212-3123210233330322-2322201310200123"></a>
 
-## namespace property — log_receiver / 7f43023dd9c6 / 5
+## namespace property — log_receiver / 033131213012 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -4147,11 +4272,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-56ba50b3e7908d57ec4a2b8edddd6b9f7c11dcb0f7d8e98f327ad0263e54796a"></a>
+<a id="canonical-1112232211002303-3213210020311113-3230102202232032-3131313112232133-1330010131302300-3313312032212033-0302132231000212-0332111013211222"></a>
 
-<a id="canonical-c3cca3e9af5f1d38809c4995e67ffd8e3d55f2614d9c2c1f19ee8be6bd3fd9a0"></a>
+<a id="canonical-3003303022033221-2233113301310320-2000213010212111-3212133333312032-0331111133021201-1031213002300133-0121323220233212-2331033331212200"></a>
 
-## tenant property — log_receiver / 7f43023dd9c6 / 6
+## tenant property — log_receiver / 033131213012 / 6
 
 Type: `"string"`. Computed.
 
@@ -4205,30 +4330,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7a151cf1a92e5df1d1c28ad6b251c8c42de83d0eafe32c82a9c8b271fb2934c2"></a>
+<a id="canonical-1322011101303301-2221023211313301-3101300220223112-2302110130203010-0231322003310032-2233320302302002-2221302023021301-3323022103103002"></a>
 
-## Next pages — log_receiver / 7f43023dd9c6 / 7
+## Next pages — log_receiver / 033131213012 / 7
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-e69db08b22b6264d05d3610c2282151e0a7e3259540950b8051276833640ac65"></a>
+<a id="canonical-3212213123002023-0202231202121031-0011310312010030-0202200201110132-0022133203021121-1110002111002320-0011010213122003-0312100022301211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f83881d150b65c4b888e56d806e2e5a6fc35d85944cfc8144f4f816d0018de3d"></a>
+<a id="canonical-3320032020013101-1100231211301023-2020203211123120-0012320232112212-3330031131201121-1010303330200110-1033103320011231-0000012031320331"></a>
 
-## logs_streaming_disabled — logs_streaming_disabled / 3c9f18c4988d / 2
+## logs_streaming_disabled — logs_streaming_disabled / 301021202031 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - logs_streaming_disabled
 
-<a id="canonical-9d2cc920b55903be230ee5dbd1edcc516d596a464f975c019d15bc5a2ebb13fb"></a>
+<a id="canonical-2131023030210200-2311112100032332-0203003232113123-3101323130301101-1231112112221012-1033211311300001-2131011123301122-0232232301033323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4257,36 +4382,36 @@ Terraform syntax:
 logs_streaming_disabled = {}
 ```
 
-<a id="canonical-d48c47a9b2c2f1d684a0c52a8e133d0c59324af717b759791fdc0e667674f889"></a>
+<a id="canonical-3110203010132221-2302300233013112-2010220030110222-2032010303310030-1121030210223313-0113231311211321-0133313000321212-1312131033202021"></a>
 
-## Direct properties — logs_streaming_disabled / 3c9f18c4988d / 3
+## Direct properties — logs_streaming_disabled / 301021202031 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ab3001e36a9c582ff75fcbf582aad56d5dc58d218e29f526cbe64311aa4dc301"></a>
+<a id="canonical-2223030000013203-1222213011200233-3313113330233311-2002222231111231-1131301120310201-2032022133110212-3023321210030101-2222103130030001"></a>
 
-## Next pages — logs_streaming_disabled / 3c9f18c4988d / 4
+## Next pages — logs_streaming_disabled / 301021202031 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-fb55531a73258d6b540e94ca88f87f2ddeb571685940897e2797a550f3524359"></a>
+<a id="canonical-3323111111030122-1303021120311223-1110003221103022-2020332013330231-3132231113011220-1121100020211332-0213211322111100-3303110210031121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32f3b33ce45307de79b30ab8cbb556a67d960321bb646eb77513d6ede86d892c"></a>
+<a id="canonical-0302330323030330-3210110300133132-1321230300222320-3023231111122212-1331211200030201-2323121012322313-1311010331123231-3220123120210230"></a>
 
-## network_connectors — network_connectors / c8c3b69edf0d / 2
+## network_connectors — network_connectors / 213231330031 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - network_connectors
 
-<a id="canonical-af5794e2f807506b7281a6dd584b78fa4736c40260ad523014d4daa50cc18a94"></a>
+<a id="canonical-2233111321103202-3320001311001223-1302200122123131-1120102313203322-1013031230100002-1200223111020300-0110311031222211-0030300120222110"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4339,15 +4464,15 @@ network_connectors {
 }
 ```
 
-<a id="canonical-772dc68df6c4c376feab9717a07371836036d6a7d2e732a0684e5bfd2163834d"></a>
+<a id="canonical-1313023130122031-3312301030031312-3332222321130113-2200130313012003-1200031231122213-3102321303022200-1220103211233331-0201120320031031"></a>
 
-## Direct properties — network_connectors / c8c3b69edf0d / 3
+## Direct properties — network_connectors / 213231330031 / 3
 
-<a id="canonical-a8be39c2444f316208cadb5c3ef98801cc063f14a1ff3a2abd19880b7fa7cb1b"></a>
+<a id="canonical-2220233203213002-1010103303011202-0020302231231130-0332332120200001-3030001203330110-2201333303220222-2331012120200023-1333221330230123"></a>
 
-<a id="canonical-87fafaf35fe8f6ac2fb3ed993297c75dd23e524dd8410b39963525df791e3b4a"></a>
+<a id="canonical-2013332233223303-1133322033122230-0233230332312121-0302211330131131-3102033211021031-3120100100230321-2112031102113133-1321013203231022"></a>
 
-## kind property — network_connectors / c8c3b69edf0d / 4
+## kind property — network_connectors / 213231330031 / 4
 
 Type: `"string"`. Computed.
 
@@ -4382,11 +4507,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6af5848aa73f4c847716fae45b1f68c143137825548114addc45c44cf089b43e"></a>
+<a id="canonical-1222331120102022-2213033310302010-1313011233223210-1123013312203001-1003010313200211-1110200101102231-3130101130101030-3300202123100332"></a>
 
-<a id="canonical-4907ff751600119d4a8f3f73cf014a59efb4bc49b170a9584b2327ebb9e69052"></a>
+<a id="canonical-1021001333331311-0112000001012131-1022203303331303-3033000110221121-3233231023301021-2301130022211120-1023020302133223-2321321221001102"></a>
 
-## name property — network_connectors / c8c3b69edf0d / 5
+## name property — network_connectors / 213231330031 / 5
 
 Type: `"string"`. Optional.
 
@@ -4421,11 +4546,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0fa5f44d612335468c6b6aff809126615555b71eb1ddca02b9f54dbfd6149268"></a>
+<a id="canonical-0033221133101031-1201020303111012-2030122312223333-2000210102121201-1111111123130132-2301313130220002-2321331110312333-3112011021021220"></a>
 
-<a id="canonical-4fb35ed3068a49692eb1854d6ef376deb403a7edf50150e74136fa7c02f3a479"></a>
+<a id="canonical-1033230311323103-0012202210211221-0232230120111031-1232330313123132-2310000322133231-3311000111003213-1001031233221330-0002330322101321"></a>
 
-## namespace property — network_connectors / c8c3b69edf0d / 6
+## namespace property — network_connectors / 213231330031 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -4485,11 +4610,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ee43e22e2b96d0091eebc03a116f98be72353cc41138e7a4bbb5a659c900cd50"></a>
+<a id="canonical-3232100332020232-0223211231000021-0132322330000322-0101123321202332-1302031103303010-0101032032132210-2323231122121121-3021000030311100"></a>
 
-<a id="canonical-cf63de0dca0700761e9678f8e23537ee147b69162a67e737dbc1a4b4c25e385d"></a>
+<a id="canonical-3033120331320031-3022001300001312-0132211213203320-3202031103133232-0110132312210112-0222121332130313-3123300122102310-3002113203201131"></a>
 
-## tenant property — network_connectors / c8c3b69edf0d / 7
+## tenant property — network_connectors / 213231330031 / 7
 
 Type: `"string"`. Computed.
 
@@ -4524,11 +4649,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2296be840e97b073edb7b9913b47060652e6037bbbb04c8958bff3a289bc4b8"></a>
+<a id="canonical-3102022112233220-1000322113230013-0332312313232121-0103231013001200-1211023212000313-2323232300103020-2111202333330322-0220212330102320"></a>
 
-<a id="canonical-55476e94e54572f3a61937033e9840fe6dc6dcca7d486c3a519a1a6550e7cecb"></a>
+<a id="canonical-1111101312322110-3211101113023303-2212012103130003-0332212010003332-1231301231303022-1331102012300322-1101212201221211-1100321330323023"></a>
 
-## uid property — network_connectors / c8c3b69edf0d / 8
+## uid property — network_connectors / 213231330031 / 8
 
 Type: `"string"`. Computed.
 
@@ -4563,30 +4688,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bafd2855c76da592c08cae42d0a0e744d5a3e3f20df3e1a643cd2edcca1739bb"></a>
+<a id="canonical-2322333102201111-3013123122112102-3000203022321002-3100220032131010-3111220332033302-0031330332012212-1003303102323130-3022011303212323"></a>
 
-## Next pages — network_connectors / c8c3b69edf0d / 9
+## Next pages — network_connectors / 213231330031 / 9
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-917086161f81fec62e50a56057d44ce7779fed3b60c6158a50c95e18eadb9b67"></a>
+<a id="canonical-2101130020120112-0133200133323012-0232110022111200-1113311010303213-1313213332310323-1200301201112022-1100302111320120-3222312321231213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-08c423aa0b459483bf279117db7a5e5e6da4b42e3dfe1495e654b1686f0032fa"></a>
+<a id="canonical-0020301002032222-0023101121102003-2333021321010113-3123132211321132-1231221023100232-0331333201102111-3212111023011220-1233000003023322"></a>
 
-## network_firewall — network_firewall / 7d3a471c8b5d / 2
+## network_firewall — network_firewall / 013020231131 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - network_firewall
 
-<a id="canonical-b89363f2032712c62d7729bf8ac837db6a3a230bf154d751646bd385b85b7679"></a>
+<a id="canonical-2320210312033302-0003021301023012-0231131302212333-2022302003133123-1222032202030023-3301111031131101-1210122331032011-2320112313121321"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4641,15 +4766,15 @@ network_firewall {
 }
 ```
 
-<a id="canonical-5e74c8aadbcdec0f83d8d5cd8e2c3dd1590636a26769a0a1fb38c9c37b6bb50d"></a>
+<a id="canonical-1132131030202222-3123303132300033-2003312031113031-2032023003313101-1121001203122202-1213122122002201-3323032030213003-1323122323110031"></a>
 
-## Direct properties — network_firewall / 7d3a471c8b5d / 3
+## Direct properties — network_firewall / 013020231131 / 3
 
-<a id="canonical-2b321283d83180a8a128aa132ba0f635199e6109c14234ac4c8033ddb9e30f38"></a>
+<a id="canonical-0223030201022003-3120030120002220-2201022022220103-0223220033120311-0121213212010021-3001100203102230-1030200003033131-2321320300330320"></a>
 
-<a id="canonical-d03371baf0221facfbbb746b231103a4bc37ea08b3234bb4c08bc4b2caa9d60d"></a>
+<a id="canonical-3100030313012322-3300020201332230-3323232313101223-0203010100032210-2330031332220020-2303020310232310-3000202330102302-3022222131120031"></a>
 
-## kind property — network_firewall / 7d3a471c8b5d / 4
+## kind property — network_firewall / 013020231131 / 4
 
 Type: `"string"`. Computed.
 
@@ -4684,11 +4809,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-49155735b25eb6dbd87efc3f75e29fc676be1f14e78b6d31fbe385d6ecf9089c"></a>
+<a id="canonical-1021011111130311-2302113223123123-3120133233300333-1311320221333012-1312233201330110-3213202312310301-3323320320113112-3230332100202130"></a>
 
-<a id="canonical-cbb3821335e5a474795ca1c5119ab826f99c38c79be087310e7ec2a461ec0a22"></a>
+<a id="canonical-3023230320020103-0311321122101310-1321113022013011-0101212223200212-3321213003203013-2123320020130301-0032133230022210-1201323000220202"></a>
 
-## name property — network_firewall / 7d3a471c8b5d / 5
+## name property — network_firewall / 013020231131 / 5
 
 Type: `"string"`. Optional.
 
@@ -4723,11 +4848,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6c5ab9ef49b485f0b6f0967202af552615de41f1a5ca1d5cb3900545f301d7d"></a>
+<a id="canonical-3012301122232132-3310212310201133-0023123300211213-0200022233111102-1201113132100133-0122113022013111-3023032100001110-1133030001311331"></a>
 
-<a id="canonical-a27afb7269d0c52fbe2a3b2ef77708920aaa25fa6894c31458771be1f4c15eaa"></a>
+<a id="canonical-2202132233231302-1221310030110233-2332022203230232-3313131300202102-0022222202113322-1220211030030110-1120131301233201-3310300111322222"></a>
 
-## namespace property — network_firewall / 7d3a471c8b5d / 6
+## namespace property — network_firewall / 013020231131 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -4787,11 +4912,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b611583647f93ef74c4b2a9afbb00a5d6332c059103eed6b10e3d918d5769a80"></a>
+<a id="canonical-2312010111200312-1013332103323313-1030102302222122-3323230000221131-1203030230001121-0100033232311223-0100320331210120-3111131221222000"></a>
 
-<a id="canonical-59ad74a6328b1c609526b9202a45ce776d62f64d44ce143f295d2c43f8d92042"></a>
+<a id="canonical-1121223113102212-0302202301301200-2111021223210200-0222101130321313-1231120233121031-1010303201100333-0221113102301003-3320312102001002"></a>
 
-## tenant property — network_firewall / 7d3a471c8b5d / 7
+## tenant property — network_firewall / 013020231131 / 7
 
 Type: `"string"`. Computed.
 
@@ -4826,11 +4951,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-00424eedf504520efa160409f8152d60e714ba132e5ed888accb7fa455e2c5d9"></a>
+<a id="canonical-0000100210323231-3311001011020032-3322011200100021-3320011102311200-3213011023220103-0232113231202020-2230302313332210-1111320230113121"></a>
 
-<a id="canonical-45980da5427b424a179bbb3b8b0656eae50df24538dfe3605a5f22f09f52ae23"></a>
+<a id="canonical-1011212000312211-1002132310021022-0113212323230323-2023001211123222-3211003133021011-0320313332031200-1122113302023300-2133110222320203"></a>
 
-## uid property — network_firewall / 7d3a471c8b5d / 8
+## uid property — network_firewall / 013020231131 / 8
 
 Type: `"string"`. Computed.
 
@@ -4865,30 +4990,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8ed0f5041587dba7382277badd3f7085591dda96168f5638e3ed071d65dac74d"></a>
+<a id="canonical-2032310033110010-0111201331232213-0320020213132322-3131033313002011-1121013131222112-0112203311120320-3203323100130131-1211312230131031"></a>
 
-## Next pages — network_firewall / 7d3a471c8b5d / 9
+## Next pages — network_firewall / 013020231131 / 9
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-e3e1473959428b2588fe02d236e1647fd23b202356dcfb55d20c97fa2e6f17e1"></a>
+<a id="canonical-3203320110130321-1121100220230211-2020333200023102-0312320112101333-3102032302000203-1112313033231111-3102003021133322-0232123301133201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fced9d6910b00c4426b3771708ac97ceb85b2bbd4e8c1a36083b868cdef5425a"></a>
+<a id="canonical-3330323121311221-0100230000301010-0212230313130113-0020223021133032-2320112302232331-1032203001220312-0020032320122030-3132331110021122"></a>
 
-## no_bond_devices — no_bond_devices / af73eb42427d / 2
+## no_bond_devices — no_bond_devices / 100210021331 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - no_bond_devices
 
-<a id="canonical-af89e5997094bf29a67e421689e9aeb639ac189ee8706aa5e45126b37ea852ec"></a>
+<a id="canonical-2233202132112121-1300211023330221-2212133210020112-2021322122322312-0321223001202132-3220130012222211-3210110102122303-1332222011023230"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4917,36 +5042,36 @@ Terraform syntax:
 no_bond_devices = {}
 ```
 
-<a id="canonical-5b2588714d393197089abcb2b606dcf983720a92db032b29eb9c79951db35992"></a>
+<a id="canonical-1123021120201301-1031032103012113-0020212223302302-2312001231303321-2003130200222102-3123000302230221-3223213013212111-0131230311212102"></a>
 
-## Direct properties — no_bond_devices / af73eb42427d / 3
+## Direct properties — no_bond_devices / 100210021331 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fc7ecd589a6e9d47eccab230fb2a04a870f6f74248956f9f82b7a12cbea22224"></a>
+<a id="canonical-3330133230311120-2122123221311013-3230302223020300-3323022200102220-1300331233131002-1020211112332133-2002231322010230-2332220202020210"></a>
 
-## Next pages — no_bond_devices / af73eb42427d / 4
+## Next pages — no_bond_devices / 100210021331 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-c2b28909dab56b08f193341580a018bedf81f18d2ada71c1098f29e2a4878160"></a>
+<a id="canonical-3002230220210021-3122231112230020-3301210303100111-2000220001202332-3133200133012031-0222312213013001-0021203302213202-2210201320011200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f6176c13112cd737f730dde9edce391a58dc54fbdc414a2cbd9ebec577d4e88"></a>
+<a id="canonical-0233120113123001-0301010230311303-1333130300313132-2132313032032101-2211203130111033-2331301001102202-3023312132233230-1113133110322020"></a>
 
-## no_dc_cluster_group — no_dc_cluster_group / 1d2ef8b02456 / 2
+## no_dc_cluster_group — no_dc_cluster_group / 230002101112 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - no_dc_cluster_group
 
-<a id="canonical-305750f6b8495e14bfa7faa9b9ac0f801ea25a1729571c25cdd5d1c4c16e69df"></a>
+<a id="canonical-0300111311003312-2320102111320110-2333221333222221-2321223000332000-0132220211220113-0221111301300211-3031311131013010-3001123212213133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4975,36 +5100,36 @@ Terraform syntax:
 no_dc_cluster_group = {}
 ```
 
-<a id="canonical-7de38621455a446dc15e44fe5a2f739c1805bf90e761e9c463aa28bb59cf75fb"></a>
+<a id="canonical-1331320320120201-1011112210101231-3001113210103332-1122023313032130-0120001123332100-3213120132213010-1203222202202323-1121303313113323"></a>
 
-## Direct properties — no_dc_cluster_group / 1d2ef8b02456 / 3
+## Direct properties — no_dc_cluster_group / 230002101112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-30d9fced49d92d5b4437058d451cd41278de9430348f7314281c8ab19b44dd82"></a>
+<a id="canonical-0300312133303231-1021312102311123-1010031300112031-1011013031100102-1320313221100300-0310203313030110-0220013020222301-2123101031312002"></a>
 
-## Next pages — no_dc_cluster_group / 1d2ef8b02456 / 4
+## Next pages — no_dc_cluster_group / 230002101112 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-7bfedf647d6488cf41b8b8a93ba5e3859a1b5bf73fe41b2b6c85e198f8287d67"></a>
+<a id="canonical-1323333231331210-1331121020203033-1001232023202221-0323221132032011-2122012311233313-0333321001230223-1230201132012120-3320022013311213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3e76854742cdde838cfcca582407131a6940779b95b549f491eb501dd75b7c96"></a>
+<a id="canonical-0332131220111013-1002303131322003-2030333030221120-0210001301030122-1221100013132123-2111231110213310-2101322311000131-3113112313302112"></a>
 
-## no_storage_device — no_storage_device / fd812e2d2c29 / 2
+## no_storage_device — no_storage_device / 023102300221 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - no_storage_device
 
-<a id="canonical-28b1e2e906684aa694e1bb68c060bc08f7118725fa0d5e4d450d2b1c1eee1139"></a>
+<a id="canonical-0220230132023221-0012122010222212-2110320123231220-3000120023300020-3313010120130211-3322003111321031-1011003102230130-0132323201010321"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5030,8 +5155,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [no_storage_device](resources--fleet--reference--group-002.md#canonical-28b1e2e906684aa694e1bb68c060bc08f7118725fa0d5e4d450d2b1c1eee1139)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-68f57ce684d63f235b10bdc4bfd45d3b879dc8cc2e2bc8db8f84c948e982b7dd)
+- [no_storage_device](resources--fleet--reference--group-002.md#canonical-0220230132023221-0012122010222212-2110320123231220-3000120023300020-3313010120130211-3322003111321031-1011003102230130-0132323201010321)
+- [storage_device_list](resources--fleet--reference--group-003.md#canonical-1220331113303212-2010311203330203-1123010023313010-2333311011310323-2013213130203030-0232022330203123-2033201030211020-3221200223133131)
 
 Select alternatives according to the provider validators above.
 
@@ -5041,36 +5166,36 @@ Terraform syntax:
 no_storage_device = {}
 ```
 
-<a id="canonical-a38f6fb025ee9070bcda43a554e1cf33f8355f38034aa2d3fb788710b18ac46a"></a>
+<a id="canonical-2203203312332300-0211323221001300-2330312210032211-1110320130330303-3320031111330320-0003102222023103-3323132020130100-2301202230101222"></a>
 
-## Direct properties — no_storage_device / fd812e2d2c29 / 3
+## Direct properties — no_storage_device / 023102300221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-56f08923d7a77de6aabece0b1fefba5898347c23172c7a94d36d662dec7a7a54"></a>
+<a id="canonical-1112330020210203-3113221313313212-2222233230320023-0133323323221120-2120031013300203-0113023013222110-3103123112120231-3230132213221110"></a>
 
-## Next pages — no_storage_device / fd812e2d2c29 / 4
+## Next pages — no_storage_device / 023102300221 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-c94745f0bc638d751358bc861580c67e9a3a85171a44abe6f03990a8127968ec"></a>
+<a id="canonical-3021101310113300-2330120320311311-0103112023302012-0111200030121332-2122032220110113-0122101022233212-3300032121002220-0102132112203230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-679913a46d84e5030d98c2790bcaddbf4a315fe35545a303716da1fa0ef1c4a5"></a>
+<a id="canonical-1213212101032210-1231201032110003-0031212030021321-0023302231312333-1022030111333203-1111101122030003-1301123122013322-0032330130102211"></a>
 
-## no_storage_interfaces — no_storage_interfaces / c03eca8d1e54 / 2
+## no_storage_interfaces — no_storage_interfaces / 203101321110 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - no_storage_interfaces
 
-<a id="canonical-1e96319fe137aeb87ecaa02341cc28a13b5aa7d7f70f279d04b68c68baea807a"></a>
+<a id="canonical-0132211203012133-3201031322322320-1332302222000203-1001303002202201-0323112222133113-3313003302132131-0010231220301220-2322322220001322"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5096,8 +5221,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [no_storage_interfaces](resources--fleet--reference--group-002.md#canonical-1e96319fe137aeb87ecaa02341cc28a13b5aa7d7f70f279d04b68c68baea807a)
-- [storage_interface_list](resources--fleet--reference--group-004.md#canonical-abde75c3848a86f8fac961cec1ea5eb4baf07f3d441f29cca9d305a37ab7c837)
+- [no_storage_interfaces](resources--fleet--reference--group-002.md#canonical-0132211203012133-3201031322322320-1332302222000203-1001303002202201-0323112222133113-3313003302132131-0010231220301220-2322322220001322)
+- [storage_interface_list](resources--fleet--reference--group-004.md#canonical-2223313213113003-2010202220123320-3322302112013032-3001322211322310-2322330013330331-1010013302213030-2221310300112203-1322231330200313)
 
 Select alternatives according to the provider validators above.
 
@@ -5107,36 +5232,36 @@ Terraform syntax:
 no_storage_interfaces = {}
 ```
 
-<a id="canonical-b2c7a50f159825db23dc4be8bb2fc2787d1aa3f43a21d94fa619b5220c4c3520"></a>
+<a id="canonical-2302301322110033-0111212002113123-0203313010233220-2323023330021320-1331012222033310-0322020131211033-2212012123110202-0030103003110200"></a>
 
-## Direct properties — no_storage_interfaces / c03eca8d1e54 / 3
+## Direct properties — no_storage_interfaces / 203101321110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f5f8b951bbf5a33863949314d902949e4025f33b46f83a2bb94ad411522e553a"></a>
+<a id="canonical-3311332023211101-2323331122030320-1203211021030110-3121000221102132-1000021133030323-1012332003220223-2321102231100101-1102023211110322"></a>
 
-## Next pages — no_storage_interfaces / c03eca8d1e54 / 4
+## Next pages — no_storage_interfaces / 203101321110 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-ad162335f354a460814f7dfc264820728c5dda3f75efcbcb98990ba30d3bd05c"></a>
+<a id="canonical-2231011202030311-3303111022101200-2001103313313330-0212102002001302-2030113131220333-1311323330233023-2120212100232203-0031032331001130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-76cecccaf107b6a55ded61c5cae71612266896fe0a4b40ced5c670d5a9921350"></a>
+<a id="canonical-1312303230303022-3301001323122211-1131323112013011-3022321301120102-0212122021123332-0022102310003032-3111301213003111-2221210201031100"></a>
 
-## no_storage_static_routes — no_storage_static_routes / 72452c1c9c05 / 2
+## no_storage_static_routes — no_storage_static_routes / 013021300011 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - no_storage_static_routes
 
-<a id="canonical-ff0fc0bb88dba7eac3a72f77e9da989250b2cd2aa24707a217aa5fdf49fdd67d"></a>
+<a id="canonical-3333003330002323-2020312322133222-3003221302331313-3221312221202102-1100230230310222-2202101300132202-0113222211333133-1021333131121331"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5162,8 +5287,8 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [no_storage_static_routes](resources--fleet--reference--group-002.md#canonical-ff0fc0bb88dba7eac3a72f77e9da989250b2cd2aa24707a217aa5fdf49fdd67d)
-- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-f0a29d64ab6d2465e8f1351c8716c9d7320d650e2542ff5d009cfdd3842125a5)
+- [no_storage_static_routes](resources--fleet--reference--group-002.md#canonical-3333003330002323-2020312322133222-3003221302331313-3221312221202102-1100230230310222-2202101300132202-0113222211333133-1021333131121331)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211)
 
 Select alternatives according to the provider validators above.
 
@@ -5173,36 +5298,36 @@ Terraform syntax:
 no_storage_static_routes = {}
 ```
 
-<a id="canonical-16e2f7248aab15911d34b1727b42d86e4a98b3bde8460df7b5b886f4ad90393e"></a>
+<a id="canonical-0112320233130210-2022222301112101-0131031023011302-1323100231201232-1022212023032331-3220101200313313-2311232020123310-2231210003210332"></a>
 
-## Direct properties — no_storage_static_routes / 72452c1c9c05 / 3
+## Direct properties — no_storage_static_routes / 013021300011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4cff368b43567db57b5715ca4801f59c55d611b03ca8dc245c41d1a6e97470e4"></a>
+<a id="canonical-1030333303122023-1003111213312311-1323111301113022-1020000133112130-1111311201012300-0330222031300210-1130100131012212-3221131013003210"></a>
 
-## Next pages — no_storage_static_routes / 72452c1c9c05 / 4
+## Next pages — no_storage_static_routes / 013021300011 / 4
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-ebf5a068c5d6d88d88f119f0df953517979070c881eac65fe6c7d2a99066adb1"></a>
+<a id="canonical-3223331122001220-3011311231202031-2020330101213300-3133211103110113-2113210013003020-2001322230121133-3212301331022221-2100121222312301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2231413536d70fa3ab31e4ca1f42a29b16c0c1961051ab85538095807054922b"></a>
+<a id="canonical-0202030110010311-0312311300332203-2223030132103022-0133100222022123-0112300030012112-0100110122232011-1103200021112000-1300111021020223"></a>
 
-## outside_virtual_network — outside_virtual_network / 4775640de83a / 2
+## outside_virtual_network — outside_virtual_network / 003132200322 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - outside_virtual_network
 
-<a id="canonical-d860e456781b5398db5261f12a005cf0088d63ace1b2f5af138331076ff9fbce"></a>
+<a id="canonical-3120120032101112-1320012311032120-3123110212013301-0222000011303300-0020203112032230-3201230233112233-0103200303010013-1233332133233032"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5247,15 +5372,15 @@ outside_virtual_network {
 }
 ```
 
-<a id="canonical-9d7a11d466ac1ec0c46aaed739efef868dfbc16826c6667f46dd5827dab67d12"></a>
+<a id="canonical-2131132201013110-1212223001323000-3010122222323113-0321323332332012-2031332330011220-0212301212121333-1012313111200213-3122231213310102"></a>
 
-## Direct properties — outside_virtual_network / 4775640de83a / 3
+## Direct properties — outside_virtual_network / 003132200322 / 3
 
-<a id="canonical-13e7b8845642c9ed87abc41dd0c1cd779b51484707b3b5e04056d9df9d24e1d5"></a>
+<a id="canonical-0103321323202010-1112100230213231-2013222330100131-3100300130311313-2123110110201013-0013230323113200-1000111231213133-2131021032013111"></a>
 
-<a id="canonical-00dfa2fe5a4a7c052a515d2ae2bdfa64d82ef574691a7ffb1d3ebcd46abdd039"></a>
+<a id="canonical-0000313322023332-1122102213300011-0222110111310222-3202233133221210-3120023233111310-1221012213333323-0131033223303110-1222233131000321"></a>
 
-## kind property — outside_virtual_network / 4775640de83a / 4
+## kind property — outside_virtual_network / 003132200322 / 4
 
 Type: `"string"`. Computed.
 
@@ -5290,11 +5415,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d53330cf4c54d008222d99292a92e3cc7c6c78948b5977343912741e60d27d4f"></a>
+<a id="canonical-3111030303003033-1030111031000020-0202023121210221-0222210232033030-1330123013202110-2023112113130310-0321010213100132-1200310213311033"></a>
 
-<a id="canonical-ad9dd86901ed04c0499a1e46374c3daf9bc0ef205100f249e7e2695959043a3d"></a>
+<a id="canonical-2231213131201221-0001323100103000-1021212201321012-0313103003312233-2123300032330200-1101000033021021-3213320212211121-1121001003220331"></a>
 
-## name property — outside_virtual_network / 4775640de83a / 5
+## name property — outside_virtual_network / 003132200322 / 5
 
 Type: `"string"`. Optional.
 
@@ -5329,11 +5454,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a5d396383704c636696fd44c2bce72f0c4a178a8b2ad570c1bde3fddd96f314"></a>
+<a id="canonical-1122113103211203-2003130010301203-1212211233311010-3002233032130233-0030102201132022-2023022231111300-3001233132033331-3131211233030110"></a>
 
-<a id="canonical-064fe12b4d34ff639ae3748e04511242e3d8c531ca33d0fa33883ea2fe0cba25"></a>
+<a id="canonical-0012103332010223-1031031033331203-2122320313102032-0010110101021002-3203312030110301-3022030331003322-0303202003322202-3332003023220211"></a>
 
-## namespace property — outside_virtual_network / 4775640de83a / 6
+## namespace property — outside_virtual_network / 003132200322 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -5393,11 +5518,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2618273b457b2be388765cf48a853d91087d603cb0748b91082b3240a6d20fc4"></a>
+<a id="canonical-0212012002130323-1011132302233203-2020131211303310-2022201103312101-0020133112000330-2300131020232101-0020022303021000-2212310200333010"></a>
 
-<a id="canonical-a1f3207ff883360d173f3066183efe08cda5ea2012b3026d34f80d57563fb5ef"></a>
+<a id="canonical-2201330302001333-3320200303120031-0113033303001212-0120033233320020-3031221132220200-0102230300021231-0310332000311113-1112033323113233"></a>
 
-## tenant property — outside_virtual_network / 4775640de83a / 7
+## tenant property — outside_virtual_network / 003132200322 / 7
 
 Type: `"string"`. Computed.
 
@@ -5432,11 +5557,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-460f246f6b3723cede68144eb61a6cc1746a692f73620919cfd7a2713c0d9eff"></a>
+<a id="canonical-1012003302101233-1223031302033032-3132122001101032-2312012212303001-1310122212210233-1303120200210121-3033311322021301-0330003121323333"></a>
 
-<a id="canonical-50a41dd05067eeb331fa173b2176b21275aa577b3ba59eaa54ae3162c7111c97"></a>
+<a id="canonical-1100221001313100-1100121332322303-0301332201130323-0201131223020102-1311222211131323-0323221121322222-1110223203011202-3013010101302113"></a>
 
-## uid property — outside_virtual_network / 4775640de83a / 8
+## uid property — outside_virtual_network / 003132200322 / 8
 
 Type: `"string"`. Computed.
 
@@ -5471,30 +5596,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2f154e896fbf03262bfe200b62664ac8a078876ac8bcd8be5b19b73479ca045f"></a>
+<a id="canonical-0233011110322021-1233233300030212-0223333202000023-1202121210223020-2200132020131222-3020233031202332-1123012123130310-1321302200101133"></a>
 
-## Next pages — outside_virtual_network / 4775640de83a / 9
+## Next pages — outside_virtual_network / 003132200322 / 9
 
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff"></a>
+<a id="canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-25cd28825576366860b69b33e78456e3476269a6f0840163997f673cbb599bf7"></a>
+<a id="canonical-0211303102202002-1111131203121220-1200231221230303-3213201011123203-1013120212212212-3300201000011203-2121133312130330-2323112121233313"></a>
 
-## performance_enhancement_mode — performance_enhancement_mode / 835c544b1f56 / 2
+## performance_enhancement_mode — performance_enhancement_mode / 102301331112 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - performance_enhancement_mode
 
-<a id="canonical-cc5d743c067f55f909e04676cac0bfe81cf7c386b2c03a22c9e66efac39d25d4"></a>
+<a id="canonical-3030113113100330-0012133311113321-0021320010121312-3022300023333220-0130331330032012-2302300003220202-3021321212323322-3003213102113110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5529,41 +5654,41 @@ performance_enhancement_mode {
 }
 ```
 
-<a id="canonical-0502a99b56c6692ab26d94f44b84f65daa239b640f21772b3fa3d4c1b2847a46"></a>
+<a id="canonical-0011000222212123-1112301212210222-2302123121103310-1023201033121131-2222020321231210-0033020113130223-0333220331103001-2302201013221012"></a>
 
-## Direct properties — performance_enhancement_mode / 835c544b1f56 / 3
+## Direct properties — performance_enhancement_mode / 102301331112 / 3
 
-- [perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3): complete subsection reference.
+- [perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103): complete subsection reference.
 
-- [perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43): complete subsection reference.
+- [perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003): complete subsection reference.
 
-<a id="canonical-2dbd7d667b4b958126f53e4b066c2cf3430b4f14b83170f175daa8966db0f5ea"></a>
+<a id="canonical-0231233113311212-1323102321112001-0212331103321023-0012123002303303-1003002310330110-2320030113003301-1311312222202112-1231230033113222"></a>
 
-## Next pages — performance_enhancement_mode / 835c544b1f56 / 4
+## Next pages — performance_enhancement_mode / 102301331112 / 4
 
-- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3)
-- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103)
+- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3"></a>
+<a id="canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ef745da5e7280531d3019c970190e6b3246f9699b2235de5720d0be22ec6a9f1"></a>
+<a id="canonical-3233131011312211-3213022000110301-3103000121302113-0001210032122303-0210123321122121-2302020311313211-1302003100233202-0232301222213301"></a>
 
-## performance_enhancement_mode.perf_mode_l3_enhanced — performance_enhancement_mode.perf_mode_l3_enhanced / dddb8c81a04a / 2
+## performance_enhancement_mode.perf_mode_l3_enhanced — perf_mode_l3_enhanced / 200122001022 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
 - performance_enhancement_mode.perf_mode_l3_enhanced
 
-<a id="canonical-e392a62667b95a4c7cc7cb7bf8af98f5642daed8540a13377bf4dfaf2ad9ab69"></a>
+<a id="canonical-3203210222120212-1213232111221030-1330301330231323-3320223321203311-1210023122323120-1110002201030313-1323331031332233-0222312122231221"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5602,42 +5727,42 @@ perf_mode_l3_enhanced {
 }
 ```
 
-<a id="canonical-0c0e35e266f07d367080ae5d80be466213eea5a626098b6ad440b9a40a72117c"></a>
+<a id="canonical-0030003203113202-1212330013310312-1300200022321131-2000233210121202-0103323222112212-0212002120231222-3110100023212210-0022130201011330"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l3_enhanced / dddb8c81a04a / 3
+## Direct properties — perf_mode_l3_enhanced / 200122001022 / 3
 
-- [jumbo](resources--fleet--reference--group-002.md#canonical-41b45fcd9b5b377967f7fb0096fc13c846efb9fec87c881748880f190b775fe7): complete subsection reference.
+- [jumbo](resources--fleet--reference--group-002.md#canonical-1001231011333031-2123112303131321-1213331333230000-2112333001033020-1012323323213332-3020133020200113-1020202000330121-0023131311333213): complete subsection reference.
 
-- [no_jumbo](resources--fleet--reference--group-002.md#canonical-ec8712ea7350a685b01294d460128ecc383c5f9c42c7b0ec2c76743ca7476470): complete subsection reference.
+- [no_jumbo](resources--fleet--reference--group-002.md#canonical-3230201301023222-1303110022122011-2300010221103110-1200010220323030-0320033011332130-1002301323003230-0230131213100330-2213101312101300): complete subsection reference.
 
-<a id="canonical-36fcba42c195b2d833b24a8ba687a61803bbcfca43351f5a87e7af9cc9d0aeff"></a>
+<a id="canonical-0312333023221002-3001211123023120-0303230210222023-2212201322120120-0003232330333022-1003031101331122-2013321322332130-3021310022323333"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l3_enhanced / dddb8c81a04a / 4
+## Next pages — perf_mode_l3_enhanced / 200122001022 / 4
 
-- [performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--fleet--reference--group-002.md#canonical-41b45fcd9b5b377967f7fb0096fc13c846efb9fec87c881748880f190b775fe7)
-- [performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--fleet--reference--group-002.md#canonical-ec8712ea7350a685b01294d460128ecc383c5f9c42c7b0ec2c76743ca7476470)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l3_enhanced.jumbo](resources--fleet--reference--group-002.md#canonical-1001231011333031-2123112303131321-1213331333230000-2112333001033020-1012323323213332-3020133020200113-1020202000330121-0023131311333213)
+- [performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo](resources--fleet--reference--group-002.md#canonical-3230201301023222-1303110022122011-2300010221103110-1200010220323030-0320033011332130-1002301323003230-0230131213100330-2213101312101300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-41b45fcd9b5b377967f7fb0096fc13c846efb9fec87c881748880f190b775fe7"></a>
+<a id="canonical-1001231011333031-2123112303131321-1213331333230000-2112333001033020-1012323323213332-3020133020200113-1020202000330121-0023131311333213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3fddb2762cb0c88d4cc6a76c7755902f22f2c020c15c4a934d5293acda0402a8"></a>
+<a id="canonical-0333313123021312-0230230030202031-1030301222131230-1313111121000233-0202330230000200-3001113010222103-1031110221032230-3122001000022220"></a>
 
-## performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 57303d296693 / 2
+## performance_enhancement_mode.perf_mode_l3_enhanced.jumbo — jumbo / 022112122103 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103)
 - performance_enhancement_mode.perf_mode_l3_enhanced.jumbo
 
-<a id="canonical-b969da8e75f76b8b687839c477f6fad1b110a4cef9616bfa8caecd6e9560c118"></a>
+<a id="canonical-2321122131222032-1311331312232023-1220132003213010-1313331233223101-2301010022103032-3321120112233322-2030223230311232-2111120030010120"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5666,38 +5791,38 @@ Terraform syntax:
 jumbo = {}
 ```
 
-<a id="canonical-b0a2326005c65900c99b567aec0d56645728d7da1e0f1b031435e7694952c717"></a>
+<a id="canonical-2300220203021200-0011301211210000-3021212311121322-3230003111121210-1113022031133122-0132003301230003-0110031132131221-1021110230130113"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 57303d296693 / 3
+## Direct properties — jumbo / 022112122103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-99eb3d5490677c00df8098d3310c1114499a79f23bd8016953971de391dd1f41"></a>
+<a id="canonical-2121322303311110-2100121313300000-3133200021203103-0301003001010110-1021212213213302-0323312000011221-1103211301313203-2101313101331001"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l3_enhanced.jumbo / 57303d296693 / 4
+## Next pages — jumbo / 022112122103 / 4
 
-- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-ec8712ea7350a685b01294d460128ecc383c5f9c42c7b0ec2c76743ca7476470"></a>
+<a id="canonical-3230201301023222-1303110022122011-2300010221103110-1200010220323030-0320033011332130-1002301323003230-0230131213100330-2213101312101300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b29264ae18c19317c9deb1687add3d6eb207403d440261d1cbfe9aec1bba27e8"></a>
+<a id="canonical-2302210212102232-0120300121030113-3021313223011220-1322313103311232-2302001310000331-1010000212013101-3023333221223230-0123232202133220"></a>
 
-## performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / b294b66f8c75 / 2
+## performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo — no_jumbo / 123320301311 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103)
 - performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo
 
-<a id="canonical-297459f3ffca55cc3e4c77bd37977ec27656b62a7ccbfb1b6929e7059d20a28d"></a>
+<a id="canonical-0221131011213303-3333302211113030-0332103013132331-0313211313323002-1312111223120222-1330302333230123-1221022132130011-2131020022022031"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5726,37 +5851,37 @@ Terraform syntax:
 no_jumbo = {}
 ```
 
-<a id="canonical-cb4b7d0c96dbc2b016b9422c12ba357a6143c32b3eb8192c5ea5f7405e219109"></a>
+<a id="canonical-3023102313310030-2112312330022300-0112232110020230-0102232203111322-1201100330030223-0332232001210230-1132221133131000-1132020121010021"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / b294b66f8c75 / 3
+## Direct properties — no_jumbo / 123320301311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e5bb5634d578ec785df0c356ed1f3617f099cff0f3a2a2f1e31574e2bc107cf6"></a>
+<a id="canonical-3211232311120310-3111132032301320-1131330030031112-3231013303120113-3300212130333300-3303220222023301-3203011113103202-2330010013303312"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo / b294b66f8c75 / 4
+## Next pages — no_jumbo / 123320301311 / 4
 
-- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-68a421caf5c56a3b82aca8524b998b38047f1c3105bb011ce2046a357c005bd3)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l3_enhanced](resources--fleet--reference--group-002.md#canonical-1220221002013022-3311301112220323-2002223022201102-1023212120230320-0010133301300301-0011232300010130-3202001012220311-1330000011233103)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43"></a>
+<a id="canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f168cd8a861906650ca0d3a0c553193ccc5fc027d988ceeac934b465921b6763"></a>
+<a id="canonical-3301122030312022-2012012100121211-0030220031032200-3011110301210330-3030113330000213-3121202030323222-3021031023101211-2102012312131203"></a>
 
-## performance_enhancement_mode.perf_mode_l7_enhanced — performance_enhancement_mode.perf_mode_l7_enhanced / 46e24a718dd9 / 2
+## performance_enhancement_mode.perf_mode_l7_enhanced — perf_mode_l7_enhanced / 130120313121 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
 - performance_enhancement_mode.perf_mode_l7_enhanced
 
-<a id="canonical-127d441a67d9d59de6de2c12c49c294756fde2d2b3498a5f7638edea73e3fa11"></a>
+<a id="canonical-0102133110100122-1213312131112131-3212313202300102-3010213002211013-1112333132023102-2303102120221133-1312032032313222-1303320333220101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5795,42 +5920,42 @@ perf_mode_l7_enhanced {
 }
 ```
 
-<a id="canonical-7ea9225c0113fe0de9710e78a6c3bcc9d9808cf1db88531c5a7cbe9fd76afe38"></a>
+<a id="canonical-1332222102021130-0001010333320031-3221130100321320-2212300323303021-3121200020303301-3123202011030130-1122133023322133-3113122233320320"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l7_enhanced / 46e24a718dd9 / 3
+## Direct properties — perf_mode_l7_enhanced / 130120313121 / 3
 
-- [jumbo_disabled](resources--fleet--reference--group-002.md#canonical-8731ca3360f797d8978d8da7eab6be2991cfb415bc267c3c554679362775d8a7): complete subsection reference.
+- [jumbo_disabled](resources--fleet--reference--group-002.md#canonical-2013030130220303-1200331321133120-2113203120312213-3222231223320221-2101303323100111-2330021213300330-1111101213210312-0213131131202213): complete subsection reference.
 
-- [jumbo_enabled](resources--fleet--reference--group-002.md#canonical-72f0932b3c6f9ce47a6589729026c23e35b92ffe9e059d5e5f8ee9e61325e968): complete subsection reference.
+- [jumbo_enabled](resources--fleet--reference--group-002.md#canonical-1302330021030223-0330123321303210-1322121120211302-2100021230020332-0311232102333332-2132001121311132-1133203232213212-0103021132211220): complete subsection reference.
 
-<a id="canonical-f7f24fdfab370e9da71cc665d83db7a3cd0f37e1f26ede1a8d2f8da4feeeba63"></a>
+<a id="canonical-3313330210333133-2223031300322131-2213013030121211-3120033123132203-3031003303133201-3302123231320122-2031023320312210-3332323223221203"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l7_enhanced / 46e24a718dd9 / 4
+## Next pages — perf_mode_l7_enhanced / 130120313121 / 4
 
-- [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--fleet--reference--group-002.md#canonical-8731ca3360f797d8978d8da7eab6be2991cfb415bc267c3c554679362775d8a7)
-- [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--fleet--reference--group-002.md#canonical-72f0932b3c6f9ce47a6589729026c23e35b92ffe9e059d5e5f8ee9e61325e968)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled](resources--fleet--reference--group-002.md#canonical-2013030130220303-1200331321133120-2113203120312213-3222231223320221-2101303323100111-2330021213300330-1111101213210312-0213131131202213)
+- [performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled](resources--fleet--reference--group-002.md#canonical-1302330021030223-0330123321303210-1322121120211302-2100021230020332-0311232102333332-2132001121311132-1133203232213212-0103021132211220)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-8731ca3360f797d8978d8da7eab6be2991cfb415bc267c3c554679362775d8a7"></a>
+<a id="canonical-2013030130220303-1200331321133120-2113203120312213-3222231223320221-2101303323100111-2330021213300330-1111101213210312-0213131131202213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-862ad454a14168f0cbe82f13141880e50fc02a5654ac72d63013c9ec27f08a6c"></a>
+<a id="canonical-2012022231101110-2201100112203300-3023322002330103-0110012020003211-0033300002221112-1110223013023112-0300010330213230-0213330020221230"></a>
 
-## performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / e59b36901b3c / 2
+## performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled — jumbo_disabled / 210001230330 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003)
 - performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled
 
-<a id="canonical-bb3cd0e21ba80a3674212b84797ebddec2a42f32abd036f5a5510336efdfd614"></a>
+<a id="canonical-2323033031003202-0123222000220312-1310020102232010-1321133223313132-3002221002330302-2223310003123311-2211110100030312-3233313331120110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5859,38 +5984,38 @@ Terraform syntax:
 jumbo_disabled = {}
 ```
 
-<a id="canonical-877c6b1ecc74ad540c20418c399f044d1f0e153107766e0adbd2f580b1f33cc8"></a>
+<a id="canonical-2013133012230132-3030131022311110-0030020010012030-0321213300101031-0133003201110301-0013131212320022-3123310233112000-2301330303303020"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / e59b36901b3c / 3
+## Direct properties — jumbo_disabled / 210001230330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-76bccd8ef3a1ef1e91920991d32ccace68cfdcfc9b426239809457bf50dc30bc"></a>
+<a id="canonical-1312233030312032-3303220132330132-2101210200212101-3103023030223032-1220303331303330-2123100212020321-2000211011132333-1100313003002330"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled / e59b36901b3c / 4
+## Next pages — jumbo_disabled / 210001230330 / 4
 
-- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-72f0932b3c6f9ce47a6589729026c23e35b92ffe9e059d5e5f8ee9e61325e968"></a>
+<a id="canonical-1302330021030223-0330123321303210-1322121120211302-2100021230020332-0311232102333332-2132001121311132-1133203232213212-0103021132211220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a3d75caf4c2ee5e10d3ab6dfb82a4a58aaa0d1f474661b8e36b064dab11e8694"></a>
+<a id="canonical-2203311311302233-1030023232113201-0031032223123133-2320022210221120-2222220031013310-1310121201232032-0312230012103122-2301013220122110"></a>
 
-## performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / 5a33dfc44674 / 2
+## performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled — jumbo_enabled / 301010121310 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-3839c5e410e10cfb7034e4a56e6c05dcf39dfd4936bba7e3e253c7f17c10fcff)
-- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [performance_enhancement_mode](resources--fleet--reference--group-002.md#canonical-0320032130113210-0100320100303323-1300031032102211-1232123000113130-3303213133311021-0312232322133203-3202110330133301-1330010033303333)
+- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003)
 - performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled
 
-<a id="canonical-d0513dc3a8a00814d954b44b757155e0589b70d03b918e5480633ec0b34aea58"></a>
+<a id="canonical-3100110103313003-2220220000200110-3121111023101023-1311130111113200-1120212313003100-0323210120321110-2000120303323000-2303102232221120"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5919,36 +6044,36 @@ Terraform syntax:
 jumbo_enabled = {}
 ```
 
-<a id="canonical-d3c98fa4455abc9d7eaffdabd40954e8528bf75416481e02cafc245cd33dc82e"></a>
+<a id="canonical-3103302120332210-1011112223302131-1332223333312223-3110002111103220-1102202333131110-0112102001320002-3022333002101130-3103033130200232"></a>
 
-## Direct properties — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / 5a33dfc44674 / 3
+## Direct properties — jumbo_enabled / 301010121310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-74a3d8f03598ecbd10f1bf199314c2a52fb8e947643d3de17b72c22467f41a3c"></a>
+<a id="canonical-1310220331203300-0311212032302331-0100330123330121-2103011030022211-0233232032211013-1210033103313201-1323130230020210-1213331001220330"></a>
 
-## Next pages — performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled / 5a33dfc44674 / 4
+## Next pages — jumbo_enabled / 301010121310 / 4
 
-- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-4675956d6dc6f338560e76207ae63d01928394c7bbe41eb6b2314054b77ccb43)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [performance_enhancement_mode.perf_mode_l7_enhanced](resources--fleet--reference--group-002.md#canonical-1012131121111231-1231301233030320-1112003213120200-1322321203310001-2102200321103013-2323321001322312-2302030110001110-2313133030231003)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-041b0767cc899be9804f15aa4eade24e06041aa19412ec8a5029f8932a306989"></a>
+<a id="canonical-0010012300131213-3030202121233221-2000103301112222-1032223132021032-0012001001222201-2110010232302022-1100022133202103-0222030012212021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-10fa588e76801a2207047702beef85b99e0dc133a65007a12121cba7f0be9932"></a>
+<a id="canonical-0100332211202032-1312200001220202-0013001013130002-2332323320112321-2132003130010303-2212110000132201-0201020130232213-3300233221210302"></a>
 
-## sriov_interfaces — sriov_interfaces / d4352004f5ef / 2
+## sriov_interfaces — sriov_interfaces / 001033113233 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - sriov_interfaces
 
-<a id="canonical-1aa5dbb2713fa5f114ae6165ef4b850f1922244dfcb047c9bae34345301df9d4"></a>
+<a id="canonical-0122221131232302-1301033322113301-0110223212011211-3233102320110033-0121020202101031-3330230010133021-2322320310031011-0300013133213110"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5975,38 +6100,38 @@ sriov_interfaces {
 }
 ```
 
-<a id="canonical-cabbc4d7a8b64f855aea21ea45aa014f63c4c07155af3fefa029dfc142bead4f"></a>
+<a id="canonical-3022232330103113-2220231210332011-1122322202013222-1011222200011033-1203301030001301-1111223303333233-2200022131333001-1002233222311033"></a>
 
-## Direct properties — sriov_interfaces / d4352004f5ef / 3
+## Direct properties — sriov_interfaces / 001033113233 / 3
 
-- [sriov_interface](resources--fleet--reference--group-002.md#canonical-a05ce371b58b22d6c9cc205e2135385ce377ba71052b7715a6caf69a9a8e4738): complete subsection reference.
+- [sriov_interface](resources--fleet--reference--group-002.md#canonical-2200113032031301-2311202302023112-3021303002001132-0201031103201130-3203131323221301-0011022313130111-2212302233122122-2122203210130320): complete subsection reference.
 
-<a id="canonical-0a9609ea41c42c2a568e1a256520561a7de25b4de704d68a7db698999b82cf3e"></a>
+<a id="canonical-0022211200213222-1001301002300222-1112203201220211-1211020011120122-1331320211231031-3213001031122022-1331231221202121-2123200230330332"></a>
 
-## Next pages — sriov_interfaces / d4352004f5ef / 4
+## Next pages — sriov_interfaces / 001033113233 / 4
 
-- [sriov_interfaces.sriov_interface](resources--fleet--reference--group-002.md#canonical-a05ce371b58b22d6c9cc205e2135385ce377ba71052b7715a6caf69a9a8e4738)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [sriov_interfaces.sriov_interface](resources--fleet--reference--group-002.md#canonical-2200113032031301-2311202302023112-3021303002001132-0201031103201130-3203131323221301-0011022313130111-2212302233122122-2122203210130320)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-a05ce371b58b22d6c9cc205e2135385ce377ba71052b7715a6caf69a9a8e4738"></a>
+<a id="canonical-2200113032031301-2311202302023112-3021303002001132-0201031103201130-3203131323221301-0011022313130111-2212302233122122-2122203210130320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9bd684b9e3d8f6f740a856153f5c4962285fa2a8ec100665df564cac0d72e622"></a>
+<a id="canonical-2123311220102321-3203312033123313-1000222011120111-0333113010211202-0220113322022220-3230010000121211-3133111210302230-0031130232120202"></a>
 
-## sriov_interfaces.sriov_interface — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 2
+## sriov_interfaces.sriov_interface — sriov_interface / 303310333200 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-041b0767cc899be9804f15aa4eade24e06041aa19412ec8a5029f8932a306989)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-0010012300131213-3030202121233221-2000103301112222-1032223132021032-0012001001222201-2110010232302022-1100022133202103-0222030012212021)
 - sriov_interfaces.sriov_interface
 
-<a id="canonical-15ddc56b11fafc30a3485c1af305026961dfda73b840b7fcb0c1b9eb07340d55"></a>
+<a id="canonical-0111313130111223-0101332233300300-2203102011300122-3303001100021221-1201313331221303-2320100023133330-2300300123213223-0013031000311111"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -6057,15 +6182,15 @@ sriov_interface {
 }
 ```
 
-<a id="canonical-ad047b34c1a5d152ff15e1d0fa4d3bbe03bf6d7122765c0366706eb37cba7699"></a>
+<a id="canonical-2231001013230310-3001221131011102-3333011132013100-3322103103232332-0003233312311301-0202131211300003-1212130012322303-1330232213122121"></a>
 
-## Direct properties — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 3
+## Direct properties — sriov_interface / 303310333200 / 3
 
-<a id="canonical-9bf749d8a4b0e116b8a12840476886ff9fc66271f2c1d618bfe177ef850ef8d7"></a>
+<a id="canonical-2123331310213120-2210230032010112-2320220102201000-1013122020123333-2133301212021301-3302300131120120-2333320113133233-2011003233203113"></a>
 
-<a id="canonical-1e4b9efbc996619dfb570c2367575abca3af8281cdccb8181fb199800b74e523"></a>
+<a id="canonical-0132102321323323-3021211212012131-3323111300300203-1213111311222330-2203223320022001-3031303023200120-0133230121212000-0023131032110203"></a>
 
-## interface_name property — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 4
+## interface_name property — sriov_interface / 303310333200 / 4
 
 Type: `"string"`. Optional.
 
@@ -6104,11 +6229,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8b7dab7417a839c9377b05c4ea7f1c465bf2b32262a1c8729b77efc1e7b40514"></a>
+<a id="canonical-2023133122231310-0113222003213021-0313132300113010-3222133301301012-1123330223030202-1202220130201302-2123131332333001-3213231000110110"></a>
 
-<a id="canonical-0320509d31b9b9c87647e3f4e83f5a66a2f763d6912f1438e1ed5b641a166448"></a>
+<a id="canonical-0003020011002131-0301232123213020-1312101332033310-3220033311221212-2202331312033112-2101023301100320-3201323111231210-0122011212101020"></a>
 
-## number_of_vfio_vfs property — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 5
+## number_of_vfio_vfs property — sriov_interface / 303310333200 / 5
 
 Type: `"number"`. Optional.
 
@@ -6127,11 +6252,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f239eb5b61082319879cae4b60ae050bda64ce9dc0f3b16fc7663764b360565"></a>
+<a id="canonical-1233020321322311-2312010020020301-2120132130223210-2312002232001100-2331221210303221-3130003303230112-3330131212031312-1023031200111211"></a>
 
-<a id="canonical-f8ea7bbcf2f7eba46cd89be9943cdff9518a34234c5163b1210eda4178da4c6c"></a>
+<a id="canonical-3320322213232330-3302331332232210-1230312021233221-2110033031333321-1101202203100203-1030110112032301-0201003231221001-1320312210301230"></a>
 
-## number_of_vfs property — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 6
+## number_of_vfs property — sriov_interface / 303310333200 / 6
 
 Type: `"number"`. Optional.
 
@@ -6160,30 +6285,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bf398a167c32aff61d3db4bebb63e009709c78d9f06bc3dba0fe642909b8c1fc"></a>
+<a id="canonical-2333032120220112-1330030222333312-0131033123102332-2323120332000021-1300213013203121-3300122330033123-2200333212100221-0021232030013330"></a>
 
-## Next pages — sriov_interfaces.sriov_interface / 831bcbcf4fe0 / 7
+## Next pages — sriov_interface / 303310333200 / 7
 
-- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-041b0767cc899be9804f15aa4eade24e06041aa19412ec8a5029f8932a306989)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [sriov_interfaces](resources--fleet--reference--group-002.md#canonical-0010012300131213-3030202121233221-2000103301112222-1032223132021032-0012001001222201-2110010232302022-1100022133202103-0222030012212021)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb"></a>
+<a id="canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ca13db3d9b42522265124966abf6252a2a323e5f30e86b0c79643306bc0c28fb"></a>
+<a id="canonical-3022010331230331-2123100211020202-1211010210211212-2223331202110222-0222030203321133-0300322012230030-1321121003030012-2330003002203323"></a>
 
-## storage_class_list — storage_class_list / fb8b555f9071 / 2
+## storage_class_list — storage_class_list / 113321001301 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
 - storage_class_list
 
-<a id="canonical-aac0b2f79acb7a15afc301b7f3a50755163d2e5e7953a62913abaf5050949e98"></a>
+<a id="canonical-2222300023023313-2122302313220111-2233300300012313-3303221100131111-0112033102321132-1321110322120221-0103222322331100-1100211021322120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -6210,38 +6335,38 @@ storage_class_list {
 }
 ```
 
-<a id="canonical-7686b1f3fd655c4b52f3066901147a0f59ea3c3489391e48fd07c368b715206d"></a>
+<a id="canonical-1312201223013303-3331121111301023-1102330300121221-0001011013220033-1121322203300310-2021032101321020-3331001330031220-2313011102001231"></a>
 
-## Direct properties — storage_class_list / fb8b555f9071 / 3
+## Direct properties — storage_class_list / 113321001301 / 3
 
-- [storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046): complete subsection reference.
+- [storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012): complete subsection reference.
 
-<a id="canonical-a4f0d0bce5fcbf712b76c97493cbb7d4587e73f568b0ea6c198db08a02b37bda"></a>
+<a id="canonical-2210330031002330-3211333023331301-0223131230211310-2103302323133110-1120133213033311-1220230032221230-0121203123002022-0002230313233122"></a>
 
-## Next pages — storage_class_list / fb8b555f9071 / 4
+## Next pages — storage_class_list / 113321001301 / 4
 
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046"></a>
+<a id="canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-93ee171c25282ff574779c16beef0b9269d5d4a582d3dead1f15a64a8037885d"></a>
+<a id="canonical-2103323201130130-0211022002333311-1310131321300112-2332323300232102-1221311131102211-2002310331322231-0133011122121022-2000031320201131"></a>
 
-## storage_class_list.storage_classes — storage_class_list.storage_classes / 52e57990f908 / 2
+## storage_class_list.storage_classes — storage_classes / 210033210020 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
 - storage_class_list.storage_classes
 
-<a id="canonical-7c9f9a9b595d198f1cf6ff18bb977da4e620a8ef9276605d3ca171548bee5d97"></a>
+<a id="canonical-1330213321222123-1121113101212033-0130331233330120-2323211313312210-3212020022203233-2102131212001131-0330220113011110-2023323211312113"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -6312,15 +6437,15 @@ storage_classes {
 }
 ```
 
-<a id="canonical-e7d88a002cdce358bcc529d661e35de73faaac2917091f2d981583b6c48784d0"></a>
+<a id="canonical-3213312020220000-0230313032031120-2330301102213112-1201320311313213-0333222222300221-0113002101330231-2120011120032312-3010201320103100"></a>
 
-## Direct properties — storage_class_list.storage_classes / 52e57990f908 / 3
+## Direct properties — storage_classes / 210033210020 / 3
 
-<a id="canonical-a931bc2f14b1817e73885700885ac1c2e9a1c49012a7e14697908f35571812b9"></a>
+<a id="canonical-2221030123300233-0110230120011332-1303202011130000-2020112230013002-3221220130102100-0102221332011012-2113210020330311-1113012001022321"></a>
 
-<a id="canonical-1e59c0dcd9304dc65da46e74c1d551a30cfb8669d4fbd194095b8d1e7720d13c"></a>
+<a id="canonical-0132112130003130-3121030010313012-1131221012321310-3001311111012203-0030332320121221-3110332331012110-0021112320310132-1313020031010330"></a>
 
-## advanced_storage_parameters property — storage_class_list.storage_classes / 52e57990f908 / 4
+## advanced_storage_parameters property — storage_classes / 210033210020 / 4
 
 Type: `["map", "string"]`. Optional.
 
@@ -6357,11 +6482,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a27d5bb56df4619b592e90ed92fb03bd5e904555ffe071c67c9043460b64359d"></a>
+<a id="canonical-2202133111232311-1231331012012123-1121023221003231-2102332300032331-1132210010111111-3333320013013012-1330210010031012-0023121003112131"></a>
 
-<a id="canonical-d17abadd93341235bc81b7f26a1a70f71ddc5c80e9b28eefc700a3d5e8edc5b6"></a>
+<a id="canonical-3101132223223131-2103031001020311-2330200123133302-1222012213003313-0131313011302000-3221230220323233-3013000022033111-3220323130112312"></a>
 
-## allow_volume_expansion property — storage_class_list.storage_classes / 52e57990f908 / 5
+## allow_volume_expansion property — storage_classes / 210033210020 / 5
 
 Type: `"bool"`. Optional.
 
@@ -6384,13 +6509,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_storage](resources--fleet--reference--group-002.md#canonical-c3647f7070a2a4e989eda7fd0514b0de2745a8292afe81e47f9c05d7e24e2ae9): complete subsection reference.
+- [custom_storage](resources--fleet--reference--group-002.md#canonical-3003121013331300-1300220222103221-2021323122133331-0011011023003132-0213101122200221-0222333220013210-1333213000113113-3202103202223221): complete subsection reference.
 
-<a id="canonical-34758fd3dd1cb18bfee403782ca133545af7dcefb895d079f2886cccd50e6456"></a>
+<a id="canonical-0310131120333103-3131013023012023-3332321000031320-0230220103031110-1122331331303233-2320211131001321-3302202012303030-3111003212101112"></a>
 
-<a id="canonical-e2686faf321882cdcfc45bd23097f270d02a1d2cdabf6cb2107abc00b75a5bd1"></a>
+<a id="canonical-3202122012332233-0302012020023031-3033301011233102-0300211333021300-3100022201310230-3122233312302302-0100132223300000-2313112211233101"></a>
 
-## default_storage_class property — storage_class_list.storage_classes / 52e57990f908 / 6
+## default_storage_class property — storage_classes / 210033210020 / 6
 
 Type: `"bool"`. Optional.
 
@@ -6409,11 +6534,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5886d054f6c2d1f5536f4467cb59c2f64f0211289d510d78ef9e824c781b4da3"></a>
+<a id="canonical-1120201231001110-3312300231013311-1103123310101213-3023112130023312-1033000201010220-2131110100311320-3233213220021030-1320012310312203"></a>
 
-<a id="canonical-b87e3337388aafdadf61c3347dddf5c8ff924f596eb1c9a01edaab6387a72807"></a>
+<a id="canonical-2320133203030313-0320202222333122-3133120130030310-1331313133113020-3333210210331121-1232230130212200-0132312222231203-2013221302200013"></a>
 
-## description_spec property — storage_class_list.storage_classes / 52e57990f908 / 7
+## description_spec property — storage_classes / 210033210020 / 7
 
 Type: `"string"`. Optional.
 
@@ -6427,17 +6552,17 @@ Validators: []validator.String{
 }
 ```
 
-- [hpe_storage](resources--fleet--reference--group-002.md#canonical-8ec85aa174bfa2b21b423aef6417f1c2bafff87766a85d46894c026ac2ca7347): complete subsection reference.
+- [hpe_storage](resources--fleet--reference--group-002.md#canonical-2032302011222201-1310233322022302-0123100203223233-1210011333013002-2322333333201313-1212222011311012-2021103000021222-3002302213031013): complete subsection reference.
 
-- [netapp_trident](resources--fleet--reference--group-002.md#canonical-84f0d91dde04c2f023858a5e9e201a2ee44988b662591b515c129b44d937ad12): complete subsection reference.
+- [netapp_trident](resources--fleet--reference--group-002.md#canonical-2010330031210131-3132001030023300-0203201120221132-2132020001220232-3210102120202312-1202112101231101-1130010221231010-3121031322310102): complete subsection reference.
 
-- [pure_service_orchestrator](resources--fleet--reference--group-002.md#canonical-5444418fff16072f984d665e765a2dd792abee62ad2a371b40ab9d29a161fc58): complete subsection reference.
+- [pure_service_orchestrator](resources--fleet--reference--group-002.md#canonical-1110101010012033-3333011200130233-2120103112121132-1312112202313113-2102222332321202-2231022203130123-1000222321310221-2201120133301120): complete subsection reference.
 
-<a id="canonical-69f0252e7c9049f3da764911bb8ddedfa4ad6e5df28cf5da33fc5eeb7c565423"></a>
+<a id="canonical-1221330002110232-1330210010213303-3122131210210101-2323203131323133-2210223112321131-3302203033113122-0303333011323223-1330111211100203"></a>
 
-<a id="canonical-c132ea1c000b56c844f95ab0d3e597e2be1ef13793158bda6a4979c99e3d3cab"></a>
+<a id="canonical-3001030232220130-0000002311123020-1010332111222300-3103321121133202-2332013233010313-2103011120233122-1222102113213021-2132033103302223"></a>
 
-## reclaim_policy property — storage_class_list.storage_classes / 52e57990f908 / 8
+## reclaim_policy property — storage_classes / 210033210020 / 8
 
 Type: `"string"`. Optional.
 
@@ -6486,11 +6611,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5ad8c5169bc0e2507276c4874489a75bcca51962a0603632b9e327937ac00b2d"></a>
+<a id="canonical-1122312030110112-2123300032021100-1302131230102013-1010202122131123-3030221101211202-2200120003120302-2321320302132103-1322300000230231"></a>
 
-<a id="canonical-6cc38f8ef94458564a3972a776f07b825f3410389253da715c3560a53cd3347b"></a>
+<a id="canonical-1230300320332032-3321101011201112-1022032113022213-1312330013232002-1133031001000320-2102110331221301-1130031112002211-0330310303101323"></a>
 
-## storage_class_name property — storage_class_list.storage_classes / 52e57990f908 / 9
+## storage_class_name property — storage_classes / 210033210020 / 9
 
 Type: `"string"`. Optional.
 
@@ -6538,11 +6663,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-45b2d2bb467fbc34f14f8afa0d8d069b8b5a891c043acbfa69eb1e671d017f9b"></a>
+<a id="canonical-1011230231022323-1012133323300310-3301103320223322-0031203100122123-2023112220210130-0010032230233322-1221322301321213-0131000113332123"></a>
 
-<a id="canonical-c9a6d2238506f53ea40c45286482ac71ec1f74ae425e42e3eeeae3da1d0906b5"></a>
+<a id="canonical-3021221231020203-2011001233110332-2210003010110220-1210200222301301-3230013313102232-1002113210023203-3232322232033122-0131002100122311"></a>
 
-## storage_device property — storage_class_list.storage_classes / 52e57990f908 / 10
+## storage_device property — storage_classes / 210033210020 / 10
 
 Type: `"string"`. Optional.
 
@@ -6597,36 +6722,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-29464e801f7a30f05423bdee559516f30673f7d8b8094536a7b2d9e5e187e85e"></a>
+<a id="canonical-0221101210322000-0133132203003300-1110020323313232-1111211101123303-0012130333133120-2320002110110312-2213230231213211-3201201332201132"></a>
 
-## Next pages — storage_class_list.storage_classes / 52e57990f908 / 11
+## Next pages — storage_classes / 210033210020 / 11
 
-- [storage_class_list.storage_classes.custom_storage](resources--fleet--reference--group-002.md#canonical-c3647f7070a2a4e989eda7fd0514b0de2745a8292afe81e47f9c05d7e24e2ae9)
-- [storage_class_list.storage_classes.hpe_storage](resources--fleet--reference--group-002.md#canonical-8ec85aa174bfa2b21b423aef6417f1c2bafff87766a85d46894c026ac2ca7347)
-- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-84f0d91dde04c2f023858a5e9e201a2ee44988b662591b515c129b44d937ad12)
-- [storage_class_list.storage_classes.pure_service_orchestrator](resources--fleet--reference--group-002.md#canonical-5444418fff16072f984d665e765a2dd792abee62ad2a371b40ab9d29a161fc58)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes.custom_storage](resources--fleet--reference--group-002.md#canonical-3003121013331300-1300220222103221-2021323122133331-0011011023003132-0213101122200221-0222333220013210-1333213000113113-3202103202223221)
+- [storage_class_list.storage_classes.hpe_storage](resources--fleet--reference--group-002.md#canonical-2032302011222201-1310233322022302-0123100203223233-1210011333013002-2322333333201313-1212222011311012-2021103000021222-3002302213031013)
+- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-2010330031210131-3132001030023300-0203201120221132-2132020001220232-3210102120202312-1202112101231101-1130010221231010-3121031322310102)
+- [storage_class_list.storage_classes.pure_service_orchestrator](resources--fleet--reference--group-002.md#canonical-1110101010012033-3333011200130233-2120103112121132-1312112202313113-2102222332321202-2231022203130123-1000222321310221-2201120133301120)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-c3647f7070a2a4e989eda7fd0514b0de2745a8292afe81e47f9c05d7e24e2ae9"></a>
+<a id="canonical-3003121013331300-1300220222103221-2021323122133331-0011011023003132-0213101122200221-0222333220013210-1333213000113113-3202103202223221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8162fee3ce16e3a7c3cca67f9ed4b3c1b879b9fad0739c7a05028b74f007cfc2"></a>
+<a id="canonical-2001120233323203-3032011232032213-3003303022121333-2132311023033001-2320132123213322-3100130321301322-0011000220231310-3300001330333002"></a>
 
-## storage_class_list.storage_classes.custom_storage — storage_class_list.storage_classes.custom_storage / 03b5dc325982 / 2
+## storage_class_list.storage_classes.custom_storage — custom_storage / 030211212002 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
 - storage_class_list.storage_classes.custom_storage
 
-<a id="canonical-cfd7db69750447be25501242b25ad2d49ae983e72b4eda012b0fc8d6f4b9fb44"></a>
+<a id="canonical-3033311331231221-1311001010132332-0211110001021002-2302112231023110-2122322120033213-0223103231220001-0223003330203112-3310232133231010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -6654,15 +6779,15 @@ custom_storage {
 }
 ```
 
-<a id="canonical-a4ad938d60fbcf0b2ecfd5676711975c84174c332218f4b583380a037714d16b"></a>
+<a id="canonical-2210223121032031-1200332330330023-0232303331111213-1213010121131130-2010011310300303-0202012033102311-2003032000220003-1313011031011223"></a>
 
-## Direct properties — storage_class_list.storage_classes.custom_storage / 03b5dc325982 / 3
+## Direct properties — custom_storage / 030211212002 / 3
 
-<a id="canonical-06ae72c98ab4bc17a4aafff2b08a7fd1527c08a8f39d8fbec958692b68c4bce5"></a>
+<a id="canonical-0012223213023021-2022231023300113-2210222233333302-2300202213333101-1102133000202220-3303213120332332-3021112012210223-1220301023303211"></a>
 
-<a id="canonical-3f86ecb966c51583d5e9c617dc84177cb8e20ba854eff91d0a46dd3f7df87e56"></a>
+<a id="canonical-0333201232302321-1212301101112003-3111322130120113-3130201001131330-2320320200232220-1110323333210131-0022101231310333-1331332013321112"></a>
 
-## yaml property — storage_class_list.storage_classes.custom_storage / 03b5dc325982 / 4
+## yaml property — custom_storage / 030211212002 / 4
 
 Type: `"string"`. Optional.
 
@@ -6719,32 +6844,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0f6bd6dc598316c5aae0ccf0795605f8edf1f73e17c42483904c4426cf8daf5c"></a>
+<a id="canonical-0033122331123130-1121200301123011-2222320030303300-1321111200113320-3231330133130332-0113301002102003-2100103010100212-3033203122331130"></a>
 
-## Next pages — storage_class_list.storage_classes.custom_storage / 03b5dc325982 / 5
+## Next pages — custom_storage / 030211212002 / 5
 
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-8ec85aa174bfa2b21b423aef6417f1c2bafff87766a85d46894c026ac2ca7347"></a>
+<a id="canonical-2032302011222201-1310233322022302-0123100203223233-1210011333013002-2322333333201313-1212222011311012-2021103000021222-3002302213031013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2875b088c9068ab4832500000b761cdda7bc7f6b48ced202bb9d0c6e4ca25fa8"></a>
+<a id="canonical-0220131123002020-3021001220222310-2003021100000000-0023131201303131-2213233013331223-1020303231020002-2323213100301232-1030220211332220"></a>
 
-## storage_class_list.storage_classes.hpe_storage — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 2
+## storage_class_list.storage_classes.hpe_storage — hpe_storage / 211103123112 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
 - storage_class_list.storage_classes.hpe_storage
 
-<a id="canonical-0ce20e695a3ae2e2443d077133baea3518615d2f75fd4be94e4c38c7f7ad078b"></a>
+<a id="canonical-0030320200321221-1122032232023202-1010033100131301-0303232232220311-0120120111310233-1311333110233221-1032103003203013-3313223100132023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -6771,15 +6896,15 @@ hpe_storage {
 }
 ```
 
-<a id="canonical-01c23aedf887d8e6ce4076eaed379e3928efcdf8c70767d51ecd443d21e9ed24"></a>
+<a id="canonical-0001300203223231-3320201331203212-3032100013123222-3231031321320321-0220323330313320-3013001312133111-0132303110100331-0201322132310210"></a>
 
-## Direct properties — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 3
+## Direct properties — hpe_storage / 211103123112 / 3
 
-<a id="canonical-c9ab33f50e2c59871d14ed554694f56819526e28fde39d68951df5e9af3adb11"></a>
+<a id="canonical-3021222303033311-0032023011212013-0131011032311111-1012211033111220-0121110212320220-3331320321311220-2111013133113221-2233032231230101"></a>
 
-<a id="canonical-eff91276bac384d25bcb741b29230ff711ba8642ea40af33d4f5346b4bb97443"></a>
+<a id="canonical-3233332101021312-2322300320103102-1123302313100123-0221020300333313-0101232220121002-3222100022330303-3110331103101223-1023232113101003"></a>
 
-## allow_mutations property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 4
+## allow_mutations property — hpe_storage / 211103123112 / 4
 
 Type: `"string"`. Optional.
 
@@ -6824,11 +6949,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-530c0f9a5c0ac3e2207140849f6dd715d210409f6ff8b6f6c47af0f63b903fd0"></a>
+<a id="canonical-1103003000332122-1130002230033202-0200130110002010-2133123131130111-3102010010002133-1233332023123312-3010132233003312-0323210003333100"></a>
 
-<a id="canonical-f2d7fa581a068c558e69cd6cf117961cb9f62892726ccd939a36a5b82886e1d8"></a>
+<a id="canonical-3302311333221120-0122001220301111-2032122130311230-3301011321120130-2321331202202102-1302123030312103-2122031222112320-0220201232013120"></a>
 
-## allow_overrides property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 5
+## allow_overrides property — hpe_storage / 211103123112 / 5
 
 Type: `"string"`. Optional.
 
@@ -6877,11 +7002,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3c9e319c9d3ab2182e55e40447ff220120c0797720c1fc9e470a5ae24eabd76e"></a>
+<a id="canonical-0330213203012130-2131032223020120-0232111132100010-1013333302020001-0200300013211313-0200300133302132-1013002211223202-1032222331131232"></a>
 
-<a id="canonical-0462f57fa25dd1b6aa1a02b9eb4b7fb16d2a667c65418e692db125e58469976e"></a>
+<a id="canonical-0010120233111333-2202113131012312-2222012200022321-3223102313332301-1231022212121330-1211100120321221-0231230102113211-2010122121131232"></a>
 
-## dedupe_enabled property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 6
+## dedupe_enabled property — hpe_storage / 211103123112 / 6
 
 Type: `"bool"`. Optional.
 
@@ -6900,11 +7025,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-26eda3f34ce38df21d99cc3ceb6c2c18db059ce81b127c8bc7a9e9f9c88e0741"></a>
+<a id="canonical-0212323122033303-1030320320313302-0131212130300330-3223123002300120-3123001121303220-0123010213302023-3013222132213321-3020203200131001"></a>
 
-<a id="canonical-bc328ef54ac8c036b3c9c12990f531d344d6aaac2d85d33268108cdec46eb096"></a>
+<a id="canonical-2330030220323311-1022302030000312-2303302130010221-2100331103013103-1010311222222230-0231201131030302-1220010020303132-3010123223002112"></a>
 
-## description_spec property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 7
+## description_spec property — hpe_storage / 211103123112 / 7
 
 Type: `"string"`. Optional.
 
@@ -6919,11 +7044,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-8ed6190891c7adf83c4c8675752492c0456fcdbe322bb2f58f3bb0eb48d08de3"></a>
+<a id="canonical-2032311201210020-2101301322313320-0330103020121311-1311021021023000-1011123330312332-0302022323023311-2033032323003223-1020310020313203"></a>
 
-<a id="canonical-019c54be9bb9f23f53a70c7b3c10ba67d90410f81a8804f2b4d12b96ad05bd27"></a>
+<a id="canonical-0001213011102332-2123232133020333-1103221300301323-0330010023221213-3121001001003320-0122202000103302-2310310102232112-2231001123310213"></a>
 
-## destroy_on_delete property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 8
+## destroy_on_delete property — hpe_storage / 211103123112 / 8
 
 Type: `"bool"`. Optional.
 
@@ -6943,11 +7068,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e7bce3a2ea6094dc4801062723386a110b3ffc751449b61a5f9304a9deb6d676"></a>
+<a id="canonical-3213233032032202-3222120021103130-1020000100120213-0203032012220101-0023033333301311-0110102123120122-1133210300102221-3132231231121312"></a>
 
-<a id="canonical-52933a38c47698fb366eafd83cd763510ef269db38aa9bfd56de51fed17624d1"></a>
+<a id="canonical-1102210303220320-3010131221203323-0312123222333120-0330311312031101-0032330212213123-0320222221233331-1112313211013332-3101131202103101"></a>
 
-## encrypted property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 9
+## encrypted property — hpe_storage / 211103123112 / 9
 
 Type: `"bool"`. Optional.
 
@@ -6966,11 +7091,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10af22f76c9991d5c81f1f2ac0943d67ef55e4e9b447e2a64058a8c046e68577"></a>
+<a id="canonical-0100223302023313-1230212121013111-3020013301330222-3000211003311213-3233111132103221-2310101332022212-1000112022203000-1012321220111313"></a>
 
-<a id="canonical-14da3daa7b432be25da2c4d9375ffb4afea2a42379f2892c13f6258359d612ab"></a>
+<a id="canonical-0110312203312222-1323100302233202-1131220230103121-0313113333231022-3332220222100203-1321330220210230-0103331202112003-1121311201022223"></a>
 
-## folder property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 10
+## folder property — hpe_storage / 211103123112 / 10
 
 Type: `"string"`. Optional.
 
@@ -7015,11 +7140,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3ddbfcece73898c1f3f6a0d965a53b5a03915bb363edc4e2bd768bfe886bdaa5"></a>
+<a id="canonical-0331312333303230-3213032021203001-3303331222003121-1211221103231122-0003210111232303-1203323130103202-2331131220233332-2020122331222211"></a>
 
-<a id="canonical-b6b322f520bb58bda262c3759393f760b5a1b12f62e11edbc5c9ccc146566f9c"></a>
+<a id="canonical-2312230302023311-0200232311202331-2202120230031311-2103210333131200-2311220123010233-1202320101323123-3011302130303001-1012111212332130"></a>
 
-## limit_iops property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 11
+## limit_iops property — hpe_storage / 211103123112 / 11
 
 Type: `"string"`. Optional.
 
@@ -7053,11 +7178,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-008a1457805c9475764d820c695bee7c481da381ab898d45115c254ffd286d05"></a>
+<a id="canonical-0000202201101113-2000113021101311-1312103120020030-1221112332321330-1020013122032001-2223202120311011-0101113002111033-3331022012310011"></a>
 
-<a id="canonical-8c4031f8aa42b13e251c47f7af220a56fc8ee850b690f2a57625e5361b2ce56f"></a>
+<a id="canonical-2030100003013320-2222100223010332-0211013010133313-2233020200221112-3330203232201100-2312210033022211-1312021132110312-0123023032111233"></a>
 
-## limit_mbps property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 12
+## limit_mbps property — hpe_storage / 211103123112 / 12
 
 Type: `"string"`. Optional.
 
@@ -7091,11 +7216,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b63b5de793c756a5c30abe2897e55a9b142de97d9b2a60de2e441bfe978b730a"></a>
+<a id="canonical-2312032311313213-2103301311122211-3003002223320220-2113321111222123-0110023132211331-2123022212003132-0232101001233332-2113202313030022"></a>
 
-<a id="canonical-e2f0cf70cb8a6b3ba3b56d7cafddeee6575abca52109a59678aa24661cf0e2e8"></a>
+<a id="canonical-3202330030331300-3023202212230323-2203231112311330-2233313132323212-1113112223302211-0201002122112112-1320222202101212-0130330032023220"></a>
 
-## performance_policy property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 13
+## performance_policy property — hpe_storage / 211103123112 / 13
 
 Type: `"string"`. Optional.
 
@@ -7144,11 +7269,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5b63700ec49e787421d1bac29c8c11e397839ced4123e1162ea0600bfb00230e"></a>
+<a id="canonical-1123120313000032-3010213213201310-0201310123223002-2130203001013203-2113200321303231-1001020332010112-0232220012000023-3323000002030032"></a>
 
-<a id="canonical-82db755749da09644e309b0ab7e8cd0ca0db348d5440730e2deaa805ccff5d6e"></a>
+<a id="canonical-2002312313111113-1021312200211210-1032030021230022-2313322030310030-2200312303102031-1110100013030032-0231322222200011-3030333311311232"></a>
 
-## pool property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 14
+## pool property — hpe_storage / 211103123112 / 14
 
 Type: `"string"`. Optional.
 
@@ -7193,11 +7318,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5cef584e58123d437bf413f7a163c26b3667e517011170ebd2bbd12ddb65b1f0"></a>
+<a id="canonical-1130323311201032-1120010203311003-1323331001033313-2201120330021223-0312121332110113-0001010113003223-3102232331010231-3123121123013300"></a>
 
-<a id="canonical-d578b4e5bad133467f325607bfa778768ae7636dc0f3df4ade19290dd512f8bc"></a>
+<a id="canonical-3111132023103211-2322310103031012-1333030211120013-2333221313201312-2022321312031231-3000330331331022-3132012102210031-3111010233202330"></a>
 
-## protection_template property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 15
+## protection_template property — hpe_storage / 211103123112 / 15
 
 Type: `"string"`. Optional.
 
@@ -7242,11 +7367,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-336e90e0d05f3fead6d401bb2a9d3434614107c941124a59421bb44634511fff"></a>
+<a id="canonical-0303123221003200-3100113303333222-3112311000012323-0222213103100310-1201100100133021-1001010210221121-1002012323101012-0310110101333333"></a>
 
-<a id="canonical-80b3b47b14871d951693020115fe3c3d9228d0156829046686bd7bfefd7a467a"></a>
+<a id="canonical-2000230323101323-0110201301312111-0112210300020001-0111333203300331-2102022031000111-1220022100101212-2012233113233332-3331132210121322"></a>
 
-## secret_name property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 16
+## secret_name property — hpe_storage / 211103123112 / 16
 
 Type: `"string"`. Optional.
 
@@ -7292,11 +7417,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8984cbd50286959391aab60c68dcb2e42033d3ec232cad359686599208f6e904"></a>
+<a id="canonical-2021201030233111-0002201221112103-2101222223120030-1220313023023210-0200030331033230-0203023022310311-2112201211212102-0020331232210010"></a>
 
-<a id="canonical-b6cdff1949fc0c83f654af42b02b72f0cb26c49b5a11cff580078d6fc4ecdda7"></a>
+<a id="canonical-2312303133330121-1021333000302003-3312111022331002-2300022313023300-3023021230102123-1122010130333311-2000001320311233-3010323031312213"></a>
 
-## secret_namespace property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 17
+## secret_namespace property — hpe_storage / 211103123112 / 17
 
 Type: `"string"`. Optional.
 
@@ -7341,11 +7466,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-69429462027a8a7c2e51959ae67a2600b9d93694e41e069e3b59050c88350cb0"></a>
+<a id="canonical-1221100221101202-0002132220221330-0232110121112122-3212132202120000-2321312103122110-3210013200122132-0323112100110030-2020031100302300"></a>
 
-<a id="canonical-c981cf38814a0324009d8d077f94a66f08ab7307ddf3655b7853e3e5186fb7cf"></a>
+<a id="canonical-3021200130330320-2001102200030210-0000213120310013-1333211022121233-0020222313030013-3131330312111123-1320110332033211-0120123323133033"></a>
 
-## sync_on_detach property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 18
+## sync_on_detach property — hpe_storage / 211103123112 / 18
 
 Type: `"bool"`. Optional.
 
@@ -7365,11 +7490,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93727d6b3d8ddfcd866023e948ddf9fa4feec21b416ef6b50487a05f556b445b"></a>
+<a id="canonical-2103130213311223-0331203131333031-2012120002033221-1020313133213322-1033323230020123-1001123233122311-0010201322001133-1111122310101123"></a>
 
-<a id="canonical-8e4678b1c50f612a6755aba2c60edbe0d96c62d2a1e48a6f1af7aa14217d821e"></a>
+<a id="canonical-2032101213202301-3011003312010222-1213111122232202-3012003231233200-3121123012023102-2201321020221233-0122331322220110-0201133120020132"></a>
 
-## thick property — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 19
+## thick property — hpe_storage / 211103123112 / 19
 
 Type: `"bool"`. Optional.
 
@@ -7388,32 +7513,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dae68da5c68befd6468f46f1cb537563f18866726df3db3a1ca32e693fdb4090"></a>
+<a id="canonical-3122321220312211-3012202332333112-1012203310123301-3023110313111203-3301202012121302-1231330331230322-0130220302321221-0333312310002100"></a>
 
-## Next pages — storage_class_list.storage_classes.hpe_storage / 86f5499536d6 / 20
+## Next pages — hpe_storage / 211103123112 / 20
 
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-84f0d91dde04c2f023858a5e9e201a2ee44988b662591b515c129b44d937ad12"></a>
+<a id="canonical-2010330031210131-3132001030023300-0203201120221132-2132020001220232-3210102120202312-1202112101231101-1130010221231010-3121031322310102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae2e5e0b8ebb53a6c5809bbcd591ffd32a77cf2c0af52e5ddb1a95e87c0d6a5c"></a>
+<a id="canonical-2232023211320023-2032232311032212-3011200021232330-3111210133333103-0222131330330230-0022331102321131-3123012221113220-1330003112221130"></a>
 
-## storage_class_list.storage_classes.netapp_trident — storage_class_list.storage_classes.netapp_trident / 0ca5c0f91405 / 2
+## storage_class_list.storage_classes.netapp_trident — netapp_trident / 332101100011 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
 - storage_class_list.storage_classes.netapp_trident
 
-<a id="canonical-e5ed56a08ab5fd2a957e6f30445ed47c09cde002d047ac168eba253eed48e5f4"></a>
+<a id="canonical-3211323111122200-2022231133310222-2111133212330300-1010113231101330-0021303132000002-3100101322300112-2032232202110332-3231102032113310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -7440,17 +7565,17 @@ netapp_trident {
 }
 ```
 
-<a id="canonical-bb23cefbf5c9bf6b8c8c5759faaf5192f3730a6d86bb472a271f044801edd9b9"></a>
+<a id="canonical-2323020330323323-3311302123331223-2030203011131121-3322223311012102-3303130300221231-2012232310130222-0213013300101020-0001323131212321"></a>
 
-## Direct properties — storage_class_list.storage_classes.netapp_trident / 0ca5c0f91405 / 3
+## Direct properties — netapp_trident / 332101100011 / 3
 
-- [selector](resources--fleet--reference--group-002.md#canonical-6d976137e91b288a5b5a38463e74bcbdb677babddd82ea84249415a1a1b11583): complete subsection reference.
+- [selector](resources--fleet--reference--group-002.md#canonical-1231211312010313-3221012302202022-1123112203201012-0332131023302331-2312131323222331-3131200232222010-0210211001112201-2201230101112003): complete subsection reference.
 
-<a id="canonical-7b82a2f0e26e166ee0c87fdd626b3e0937802e54776fe8d7536bf7ae60b7fe0f"></a>
+<a id="canonical-1323200222023300-3202123201121232-3200302013333131-1202122303320021-0313200002321110-1313123332203113-1103122333132232-1200231333320033"></a>
 
-<a id="canonical-456f7dc7a7cba7d94a64622ab40720fa59f639c3d0ec8115889f0e254a38c696"></a>
+<a id="canonical-1011123313313013-2213302322133121-1022121012020222-2310001302003322-1121331203213003-3100323020010111-2020213300320211-1022032030122112"></a>
 
-## storage_pools property — storage_class_list.storage_classes.netapp_trident / 0ca5c0f91405 / 4
+## storage_pools property — netapp_trident / 332101100011 / 4
 
 Type: `"string"`. Optional.
 
@@ -7496,34 +7621,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5f2b3e8ce7864a2865029dce62bd56693eaf9293aec6624767517d545a42be4c"></a>
+<a id="canonical-1133022303322030-3213201210220220-1211000221313032-1202233111121221-0332223321022103-2232301212021013-1213110113311110-1122100223321030"></a>
 
-## Next pages — storage_class_list.storage_classes.netapp_trident / 0ca5c0f91405 / 5
+## Next pages — netapp_trident / 332101100011 / 5
 
-- [storage_class_list.storage_classes.netapp_trident.selector](resources--fleet--reference--group-002.md#canonical-6d976137e91b288a5b5a38463e74bcbdb677babddd82ea84249415a1a1b11583)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes.netapp_trident.selector](resources--fleet--reference--group-002.md#canonical-1231211312010313-3221012302202022-1123112203201012-0332131023302331-2312131323222331-3131200232222010-0210211001112201-2201230101112003)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-6d976137e91b288a5b5a38463e74bcbdb677babddd82ea84249415a1a1b11583"></a>
+<a id="canonical-1231211312010313-3221012302202022-1123112203201012-0332131023302331-2312131323222331-3131200232222010-0210211001112201-2201230101112003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3187cc68a37e73ac01d99d176bafe791c8f1678abe1ba505e4863f09f0688645"></a>
+<a id="canonical-0301201330301220-2203133213032230-0001312121310113-1223223332132101-3020330112132022-2332012322110011-3210201203330021-3300122020121011"></a>
 
-## storage_class_list.storage_classes.netapp_trident.selector — storage_class_list.storage_classes.netapp_trident.selector / c48461d1b751 / 2
+## storage_class_list.storage_classes.netapp_trident.selector — selector / 310123131101 / 2
 
 Breadcrumbs:
 
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-84f0d91dde04c2f023858a5e9e201a2ee44988b662591b515c129b44d937ad12)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_class_list](resources--fleet--reference--group-002.md#canonical-1011213213131132-0031210023033030-3201313200022303-1022122313230202-0210113023121010-0230320300003311-2023233020031113-2133031023233023)
+- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-3020330102001101-3202000123022113-2313200323220022-0020122022311010-3210010202222310-3202201033010302-3033012303001033-2322132100001012)
+- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-2010330031210131-3132001030023300-0203201120221132-2132020001220232-3210102120202312-1202112101231101-1130010221231010-3121031322310102)
 - storage_class_list.storage_classes.netapp_trident.selector
 
-<a id="canonical-6c07db8b59814b2b7893613aaa573a624c38feb6672b0b2d1b8d8b0adf7a2a95"></a>
+<a id="canonical-1230001331232023-1121200110230223-1320210312010322-2222111303221202-1030032033322312-1213022300230231-0123203120230022-3133132202222111"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -7554,617 +7679,21 @@ Terraform syntax:
 selector {}
 ```
 
-<a id="canonical-171bf05b029ab3761d4bc399289c89abecc5f787fba8b1eb987383455621bc1b"></a>
+<a id="canonical-0113012333001123-0002212223031312-0131102330032121-0220213020212223-3230301133132013-3323222023013223-2120130320031011-1112020123300123"></a>
 
-## Direct properties — storage_class_list.storage_classes.netapp_trident.selector / c48461d1b751 / 3
+## Direct properties — selector / 310123131101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cd8b97cf7076e0a86d3e1501c720438b26d05601104c0e28955d24f6e68c37c0"></a>
+<a id="canonical-3031202321133033-1300131232002220-1231033201110001-3013020010032023-0212310011120001-0100103000320220-2111113102103312-3212203003133000"></a>
 
-## Next pages — storage_class_list.storage_classes.netapp_trident.selector / c48461d1b751 / 4
+## Next pages — selector / 310123131101 / 4
 
-- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-84f0d91dde04c2f023858a5e9e201a2ee44988b662591b515c129b44d937ad12)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
+- [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-2010330031210131-3132001030023300-0203201120221132-2132020001220232-3210102120202312-1202112101231101-1130010221231010-3121031322310102)
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
-<a id="canonical-5444418fff16072f984d665e765a2dd792abee62ad2a371b40ab9d29a161fc58"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2aecf50a5f19b682c60f952ae8fd087f629843e2bab2a14ce01e9d8439468454"></a>
-
-## storage_class_list.storage_classes.pure_service_orchestrator — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_class_list](resources--fleet--reference--group-002.md#canonical-459e775e0d90b3cce1de02b34a6b7b22245cb6442ce300f58bbc83579f34bbcb)
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- storage_class_list.storage_classes.pure_service_orchestrator
-
-<a id="canonical-92387332f70bc6a9e53d9c8734d6417b2084d6c4af42b8c27fc5f30f81483bc9"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Storage class Device configuration for Pure Service Orchestrator.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-pure_service_orchestrator {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-b48187a16687723b38a50495ca7d792cba362c64f66e2018330f336f2e296ada"></a>
-
-## Direct properties — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 3
-
-<a id="canonical-24129632c22e833517c09f6f7fed65faa46dce6c5ae22db4e6b13b17cec623b6"></a>
-
-<a id="canonical-990fd8e70d1663831be7b99e8461ef721aef56e2543bbeeab5884a1fa51c0016"></a>
-
-## backend property — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: block|file\] Defines type of Pure storage backend block or file. The volume will have the
-aspects defined in the chosen virtual pool. Possible values are \`block\`, \`file\`.
-
-Upstream description:
-
-Defines type of Pure storage backend block or file. The volume will have the aspects defined in the
-chosen virtual pool.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("block",
-    "file"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "enum": [
-    "block",
-    "file"
-  ],
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.in": "[\\\"block\\\",\\\"file\\\"]"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.in": "[\\\"block\\\",\\\"file\\\"]"
-  }
-}
-```
-
-<a id="canonical-6c1edae025669ddf5a722ef50c378a95e0b8e1f58ad6e31b40b0422103ab7b98"></a>
-
-<a id="canonical-341c58728f8222480aac67d8b3187fdce138ad7877b6069dd98a980d909189b1"></a>
-
-## bandwidth_limit property — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 5
-
-Type: `"string"`. Optional.
-
-It must be between 1 MB/s and 512 GB/s. Enter the size as a number (bytes must be multiple of 512)
-or number with a single character unit symbol. Valid unit symbols are K, M, G, representing KiB,
-MiB, and GiB.
-
-Upstream description:
-
-It must be between 1 MB/s and 512 GB/s. Enter the size as a number (bytes must be multiple of 512)
-or number with a single character unit symbol. Valid unit symbols are K, M, G, representing KiB,
-MiB, and GiB.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(12),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 12,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 12,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "12"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "12"
-  }
-}
-```
-
-<a id="canonical-162d3c96732092f4a5a636a4653b74cb1c95f8e5b21c8421d90ee74c351b4c9d"></a>
-
-<a id="canonical-6dfbee05057d8edcb6e21860594e1904cfd19ed60cee2f9d2e5aca8010d8ebb2"></a>
-
-## iops_limit property — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 6
-
-Type: `"number"`. Optional.
-
-Enable IOPS limitation. It must be between 100 and 100 million. If value is 0, IOPS limit is not
-defined.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  validators.Int64RangeSetValidator(
-    validators.Int64Range{Minimum: 0, Maximum: 0},
-    validators.Int64Range{Minimum: 100, Maximum: 100000000},
-  ),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 100000000,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.ranges": "0,100-100000000"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.ranges": "0,100-100000000"
-  }
-}
-```
-
-<a id="canonical-f51aa1786775bf6da8a30561dac890c8a7895c3f125638a499f4335e39c77903"></a>
-
-## Next pages — storage_class_list.storage_classes.pure_service_orchestrator / 44b268787238 / 7
-
-- [storage_class_list.storage_classes](resources--fleet--reference--group-002.md#canonical-c8f12051e201b297b783ba0a0868ad44e4122ab4e284f132cf1b304fba790046)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-
-<a id="canonical-989eca577f306456b1a808c31b1988677bbb594fcacce6a85f042e4951dab251"></a>
+<a id="canonical-1110101010012033-3333011200130233-2120103112121132-1312112202313113-2102222332321202-2231022203130123-1000222321310221-2201120133301120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-69ee89faaf8ee61d1dba2cb6d7d4e47fc91353e692e052408c91964ab360aeda"></a>
-
-## storage_device_list — storage_device_list / 942b7cd0ecc0 / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- storage_device_list
-
-<a id="canonical-68f57ce684d63f235b10bdc4bfd45d3b879dc8cc2e2bc8db8f84c948e982b7dd"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Add additional custom storage classes in Kubernetes for this fleet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-storage_device_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-69d003fc1f8bdc53628b96ece0ed0e8e9f8cc29c30e19d98e201f415e47057ce"></a>
-
-## Direct properties — storage_device_list / 942b7cd0ecc0 / 3
-
-- [storage_devices](resources--fleet--reference--group-002.md#canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369): complete subsection reference.
-
-<a id="canonical-68f58a389184e6c0415aafc603166e3bf60036aa423f1521b6aa85f63a26901c"></a>
-
-## Next pages — storage_device_list / 942b7cd0ecc0 / 4
-
-- [storage_device_list.storage_devices](resources--fleet--reference--group-002.md#canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-
-<a id="canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1f27e11870336a3c7e444a0c1185d792909284b07e0f677cfcbe2ca9d8209763"></a>
-
-## storage_device_list.storage_devices — storage_device_list.storage_devices / fe28753070a9 / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-989eca577f306456b1a808c31b1988677bbb594fcacce6a85f042e4951dab251)
-- storage_device_list.storage_devices
-
-<a id="canonical-b329a485c3723c769226035c47e51b84ca526d8270aae686d45f259e53a4f965"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-List of Storage Devices. List of custom storage devices.
-
-Upstream description:
-
-List of custom storage devices.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("storage_device"),
-  validators.ConflictingListObjectAttributes("custom_storage",
-    "hpe_storage"),
-  validators.ConflictingListObjectAttributes("custom_storage",
-    "netapp_trident"),
-  validators.ConflictingListObjectAttributes("custom_storage",
-    "pure_service_orchestrator"),
-  validators.ConflictingListObjectAttributes("hpe_storage",
-    "netapp_trident"),
-  validators.ConflictingListObjectAttributes("hpe_storage",
-    "pure_service_orchestrator"),
-  validators.ConflictingListObjectAttributes("netapp_trident",
-    "pure_service_orchestrator")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-storage_devices {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-b79af0720e466ad99476449bc7d028d468f34eaccb84a15726ab97cb534c1982"></a>
-
-## Direct properties — storage_device_list.storage_devices / fe28753070a9 / 3
-
-<a id="canonical-f4349d215c3678daaa4cc5a4296d24ca4d04d23779fe2311abacb28a1b09ddc1"></a>
-
-<a id="canonical-07ae6c4242a52aab997d2b5296bf9d106d5d8a4a66e50719124da712f7c66f8b"></a>
-
-## advanced_advanced_parameters property — storage_device_list.storage_devices / fe28753070a9 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Advanced Parameters. Map of parameter name and string value.
-
-Upstream description:
-
-Map of parameter name and string value.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.max_len": "128",
-    "ves.io.schema.rules.map.values.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.max_len": "128",
-    "ves.io.schema.rules.map.values.string.min_len": "1"
-  }
-}
-```
-
-- [custom_storage](resources--fleet--reference--group-002.md#canonical-611374474afaa4fc1dd5dd8b69189833cacc4feec92435778ca159ca2932e1cf): complete subsection reference.
-
-- [hpe_storage](resources--fleet--reference--group-002.md#canonical-3d22894c75dd7fbacace9c29569e97b7e7f9e8ac159d7c74cd40e547598fd937): complete subsection reference.
-
-- [netapp_trident](resources--fleet--reference--group-003.md#canonical-a9610e3c935176d058f02c806103b3c7ef7234cd2d1fc5d26351cb372eb305cb): complete subsection reference.
-
-- [pure_service_orchestrator](resources--fleet--reference--group-004.md#canonical-02b188fbd08df4634f53310c47e1459dbcbcbf07675d4d48c3343bdad2ba9044): complete subsection reference.
-
-<a id="canonical-730922ec66266d5fc6d8f38792a91cfc68c0d2f22772041f3853aab16e90f9f4"></a>
-
-<a id="canonical-f3de109d86e3e1ab9f918d335933704c632e1c0ae1f65089b3a07828173e876b"></a>
-
-## storage_device property — storage_device_list.storage_devices / fe28753070a9 / 5
-
-Type: `"string"`. Optional.
-
-Storage Device. Storage device and device unit.
-
-Upstream description:
-
-Storage device and device unit.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```
-
-<a id="canonical-895312049b9525b006b1b33e647b5fc3c74e3a4385a0ba6017f67857606f2200"></a>
-
-## Next pages — storage_device_list.storage_devices / fe28753070a9 / 6
-
-- [storage_device_list.storage_devices.custom_storage](resources--fleet--reference--group-002.md#canonical-611374474afaa4fc1dd5dd8b69189833cacc4feec92435778ca159ca2932e1cf)
-- [storage_device_list.storage_devices.hpe_storage](resources--fleet--reference--group-002.md#canonical-3d22894c75dd7fbacace9c29569e97b7e7f9e8ac159d7c74cd40e547598fd937)
-- [storage_device_list.storage_devices.netapp_trident](resources--fleet--reference--group-003.md#canonical-a9610e3c935176d058f02c806103b3c7ef7234cd2d1fc5d26351cb372eb305cb)
-- [storage_device_list.storage_devices.pure_service_orchestrator](resources--fleet--reference--group-004.md#canonical-02b188fbd08df4634f53310c47e1459dbcbcbf07675d4d48c3343bdad2ba9044)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-989eca577f306456b1a808c31b1988677bbb594fcacce6a85f042e4951dab251)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-
-<a id="canonical-611374474afaa4fc1dd5dd8b69189833cacc4feec92435778ca159ca2932e1cf"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7ab0d532e5a677353d2ce31c07e487bbd60a75dc8163bbf7e4fad3fb3709924d"></a>
-
-## storage_device_list.storage_devices.custom_storage — storage_device_list.storage_devices.custom_storage / 7dadf3aab59d / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-989eca577f306456b1a808c31b1988677bbb594fcacce6a85f042e4951dab251)
-- [storage_device_list.storage_devices](resources--fleet--reference--group-002.md#canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369)
-- storage_device_list.storage_devices.custom_storage
-
-<a id="canonical-10614eab16f3b1921c6a9a96803e2f93a5a0062c62e60e5668e8b4506f66d11c"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for custom storage.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_storage = {}
-```
-
-<a id="canonical-d73814c44f39370fe90f8a99c8b5fa6090e21a4c278153d63f887eea2bfd74b9"></a>
-
-## Direct properties — storage_device_list.storage_devices.custom_storage / 7dadf3aab59d / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-7a1e8456c3c2f40407d239149b881cbbaaf9798051273b4eaf3a958ffb4d37db"></a>
-
-## Next pages — storage_device_list.storage_devices.custom_storage / 7dadf3aab59d / 4
-
-- [storage_device_list.storage_devices](resources--fleet--reference--group-002.md#canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369)
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-
-<a id="canonical-3d22894c75dd7fbacace9c29569e97b7e7f9e8ac159d7c74cd40e547598fd937"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-38f7a3d9b41c9407f422ba5d35750c7bc6e29c2a977ee70ef8bc557ae67944d0"></a>
-
-## storage_device_list.storage_devices.hpe_storage — storage_device_list.storage_devices.hpe_storage / 1aeb90c98c0c / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-796406566bcae64745ba2b16932161d375fb7e68f997fdc7783547fe8611aa9d)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-f6846a0e8eea9a63b350fc210b88d4323acde598409b5a08a6e982a650bfd8f0)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-989eca577f306456b1a808c31b1988677bbb594fcacce6a85f042e4951dab251)
-- [storage_device_list.storage_devices](resources--fleet--reference--group-002.md#canonical-59d0c2e4b77dacefecf90993c426cbbaeb92f39be02e0a19d6a2e3d9c831d369)
-- storage_device_list.storage_devices.hpe_storage
-
-<a id="canonical-706c886464eddd7fc46afe0a030faa669f8617478fe3d97a3ec0a21bbb19edca"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for hpe storage.
-
-Upstream description:
-
-Device configuration for HPE Storage.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("api_server_port",
-    "username")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-hpe_storage {
-  # Configure direct properties listed below.
-}
-```

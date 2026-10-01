@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_bgp reference."
 
 # xcsh_bgp reference
 
-<a id="canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc"></a>
+<a id="canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ea460c7824a00c51ee3929454a06893b53eb8dcbd2321bf868aca82d4f6a0548"></a>
+<a id="canonical-3222101200301320-0210220000301101-3232032102211011-1022001220210323-1103322320313023-3102030201233320-1220223022200231-1033122200111020"></a>
 
-## Property reference — Property reference / a2ca6f03f464 / 2
+## Property reference — Property reference / 000333101210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 - Property reference
 
-<a id="canonical-15e030f23334f77b9e07e1b4966344d7d81a09200129328053e8d3918304b9e3"></a>
+<a id="canonical-0111320003003302-0303031033131323-2132001332012310-2112120310103113-3120012200210200-0001022103022000-1103322031032101-2003001023213203"></a>
 
-## Direct properties — Property reference / a2ca6f03f464 / 3
+## Direct properties — Property reference / 000333101210 / 3
 
-<a id="canonical-ead45fa5cae9153c4c5a37790e7bc7e31e0c2c6501271d66ffad97dd71c77a0e"></a>
+<a id="canonical-3222311011332211-3022322101110330-1030112203131321-0032132330133203-0132003002301211-0001021301311212-3333223121133131-1301301313220032"></a>
 
-<a id="canonical-36399cb2f1059c63675c3cd4da51d2e79b5191d45045d527e6df1081f9bf07ae"></a>
+<a id="canonical-0312032121302302-3301001121301203-1213113003303110-3122110131023213-2123110121013110-1100101131110213-3212313301002001-3321233300132232"></a>
 
-## annotations property — Property reference / a2ca6f03f464 / 4
+## annotations property — Property reference / 000333101210 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,13 +67,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465): complete subsection reference.
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211): complete subsection reference.
 
-<a id="canonical-96d175eaee91ca8ea1a2d292d9966cf57c3d25f2848a270516dc55c3961510bf"></a>
+<a id="canonical-2112310113113222-3232210130222032-2201220231022102-3121211212303311-1330033102113302-2010202202130011-0112313011113003-2112011101002333"></a>
 
-<a id="canonical-5b8fa4ea7c863223a125f1c1ad452eab8f2796ca81931f3b39d6bf74188726ac"></a>
+<a id="canonical-1123203322103222-1330201203020203-2201021133013001-2231101102322223-2033021321123022-2001210301330323-0321311223331310-0120201302122230"></a>
 
-## description property — Property reference / a2ca6f03f464 / 5
+## description property — Property reference / 000333101210 / 5
 
 Type: `"string"`. Optional.
 
@@ -117,11 +117,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-45f3b23167012f772dd5d8c46caaf185757d50a73960d4d354a0fb7e29751066"></a>
+<a id="canonical-1011330323020301-1213000102331313-0231311131203010-1230222233012011-1311133111002213-0321120031103103-1110220033231332-0221131101001212"></a>
 
-<a id="canonical-fd6d282151a1aec37347b02f76984161e5e65bae0977b3630deb0efaac804d74"></a>
+<a id="canonical-3331123102200201-1101220122323003-1303101323000233-1312212010011201-3211321211232232-0021131323031203-0031322300323322-2230200010311310"></a>
 
-## disable property — Property reference / a2ca6f03f464 / 6
+## disable property — Property reference / 000333101210 / 6
 
 Type: `"bool"`. Optional.
 
@@ -144,25 +144,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5a4aa5d4a120e0b2f9d37636a012e9dceb16fe61e82a35b77d152fdfa73a4977"></a>
+<a id="canonical-1122102222113110-2201020032002302-3321310313120312-2200010232213130-3223011233321201-3220022203112313-1331011102333133-2213032210211313"></a>
 
-<a id="canonical-e2dfe3e056d0ef531e22a576978d96bad835a0b1e9dff53337334af9d3c9c774"></a>
+<a id="canonical-3202313332033200-1112310032331103-0132020222111312-2113203121122322-3120031122002301-3221313333110303-0313030310223321-3103302130131310"></a>
 
-## id property — Property reference / a2ca6f03f464 / 7
+## ID property — Property reference / 000333101210 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-eb6edf2a0a30d6c7331a458cf44f7df21204e147059efebbc4d236468571ae44"></a>
+<a id="canonical-3223123231330222-0022030031123013-0303012210112030-3310103313313302-0102001032011013-0011213233322323-3010310203121012-2011130122321010"></a>
 
-<a id="canonical-70311fe524f38ae0140d81a7b27de61f9141c6ece365b20cd077d8ef13b8508b"></a>
+<a id="canonical-1300030101333211-0210330320223200-0110003120012213-2302133132120133-2101100130123230-3203121123020030-3100131331203233-0103232011002023"></a>
 
-## labels property — Property reference / a2ca6f03f464 / 8
+## labels property — Property reference / 000333101210 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bb75c8b2866ef908404293ef81adf26231bbf6e268013773dfa014144e716de7"></a>
+<a id="canonical-2323131130202302-2012123233210020-1000100221033233-2001223133021202-0301232333123202-1220000103131303-3133220001100110-1032130112313213"></a>
 
-<a id="canonical-124e87dd2385e2d5053fd96dafd0d237d40da0350d6046c39ad7a12b0e5e6271"></a>
+<a id="canonical-0102103220133131-0203201132023111-0011033331211231-2233310031020313-3110003122000311-0031120010123003-2122311322010223-0032113212021301"></a>
 
-## name property — Property reference / a2ca6f03f464 / 9
+## name property — Property reference / 000333101210 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c8e8e6024e5d308e097ccc611278b3b0eb3404034eea68e254958387770f50f9"></a>
+<a id="canonical-3020322032120002-1032113103002032-0021133030301201-0102132023032300-3223031000100003-1032322212203202-1110211120032013-1313003311003321"></a>
 
-<a id="canonical-b8feaa3f3c940fa60a598bd81cb1d5006532687cd72e4c925b2c68ff1aa650d7"></a>
+<a id="canonical-2320333222220333-0330211000332212-0022112120233120-0130230131110000-1211030212201330-3113023210302102-1123023012203333-0122221211003113"></a>
 
-## namespace property — Property reference / a2ca6f03f464 / 10
+## namespace property — Property reference / 000333101210 / 10
 
 Type: `"string"`. Required.
 
@@ -312,148 +312,148 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213): complete subsection reference.
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103): complete subsection reference.
 
-- [timeouts](resources--bgp--reference--group-001.md#canonical-f09bbcefdb3d000d17aea209da85cf650c0c55df309b01717b7c4b34ae89314f): complete subsection reference.
+- [timeouts](resources--bgp--reference--group-001.md#canonical-3300212323303233-3123033100000031-0113223222020021-3122201130331211-0030003011113133-0300212300011301-1323133010230310-2232202103011033): complete subsection reference.
 
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed): complete subsection reference.
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231): complete subsection reference.
 
-<a id="canonical-09c9009dc9a0001f1c2b8a016bf92be803c072ba420ca6856a77ccc9225fa566"></a>
+<a id="canonical-0021302100002131-3021220000000133-0130022320220001-1223332102233220-0003300013022322-1002003022122011-1222131330303021-0202113322111212"></a>
 
-## All schema paths — Property reference / a2ca6f03f464 / 11
+## All schema paths — Property reference / 000333101210 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--bgp--reference--group-001.md#canonical-ead45fa5cae9153c4c5a37790e7bc7e31e0c2c6501271d66ffad97dd71c77a0e) |
-| `bgp_parameters` | [bgp_parameters](resources--bgp--reference--group-001.md#canonical-36ea4f1dee24c0f4814c1ae5d4da83d76afa25f4903c93ec3530e05ff5c5c31b) |
-| `bgp_parameters.asn` | [bgp_parameters.asn](resources--bgp--reference--group-001.md#canonical-a414488956bc214e737ed52f072786672b2e212c5b083598bd89db5caa4bdf9f) |
-| `bgp_parameters.from_site` | [bgp_parameters.from_site](resources--bgp--reference--group-001.md#canonical-978b1d05b50930adfb079fe1b14b23d3a708d96d2a037d58150ca78ba4c6d0ff) |
-| `bgp_parameters.ip_address` | [bgp_parameters.ip_address](resources--bgp--reference--group-001.md#canonical-faa40a4955698771f81f6a3b2d7c2b991e5b7d691d5a83b0c295a6a812e25e55) |
-| `bgp_parameters.local_address` | [bgp_parameters.local_address](resources--bgp--reference--group-001.md#canonical-32d767cb782abceb065613e530dae1a67ae4d88e5b93ed873f70d9d34ceba80e) |
-| `description` | [description](resources--bgp--reference--group-001.md#canonical-96d175eaee91ca8ea1a2d292d9966cf57c3d25f2848a270516dc55c3961510bf) |
-| `disable` | [disable](resources--bgp--reference--group-001.md#canonical-45f3b23167012f772dd5d8c46caaf185757d50a73960d4d354a0fb7e29751066) |
-| `id` | [id](resources--bgp--reference--group-001.md#canonical-5a4aa5d4a120e0b2f9d37636a012e9dceb16fe61e82a35b77d152fdfa73a4977) |
-| `labels` | [labels](resources--bgp--reference--group-001.md#canonical-eb6edf2a0a30d6c7331a458cf44f7df21204e147059efebbc4d236468571ae44) |
-| `name` | [name](resources--bgp--reference--group-001.md#canonical-bb75c8b2866ef908404293ef81adf26231bbf6e268013773dfa014144e716de7) |
-| `namespace` | [namespace](resources--bgp--reference--group-001.md#canonical-c8e8e6024e5d308e097ccc611278b3b0eb3404034eea68e254958387770f50f9) |
-| `peers` | [peers](resources--bgp--reference--group-001.md#canonical-bd0847406a70497cbe8e3c5a35dadb25e46dd9c9a3445e0c1f40d7bb05285ae4) |
-| `peers.bfd_disabled` | [peers.bfd_disabled](resources--bgp--reference--group-001.md#canonical-782499ec191d3b4ecf19e46296b7c4cf09d25be6e400d735180b17133e3d2ffd) |
-| `peers.bfd_enabled` | [peers.bfd_enabled](resources--bgp--reference--group-001.md#canonical-0a30eb89eca83e6a826e570c53eb21d8c01fcd67ba6f64497f0cadd987e999bf) |
-| `peers.bfd_enabled.multiplier` | [peers.bfd_enabled.multiplier](resources--bgp--reference--group-001.md#canonical-19992874207e5b398b0c30e6504cabdf5a699c6315658aa29a714b8223305a86) |
-| `peers.bfd_enabled.receive_interval_milliseconds` | [peers.bfd_enabled.receive_interval_milliseconds](resources--bgp--reference--group-001.md#canonical-25c968a49a62d6cd36a47ba8211c5de20a78bf80eb05d195c161521e382b4226) |
-| `peers.bfd_enabled.transmit_interval_milliseconds` | [peers.bfd_enabled.transmit_interval_milliseconds](resources--bgp--reference--group-001.md#canonical-0494500542d0cafcfd6b0904292e4ae67619b7d21df861023bcdefe6086955a6) |
-| `peers.disable_spec` | [peers.disable_spec](resources--bgp--reference--group-001.md#canonical-79f746d35a2e2260501f560918f8af59cf20bf5b93d5ea4b9a7851602472ce31) |
-| `peers.ebgp_multihop_disabled` | [peers.ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-3dff417b72e32f2cf74395786c49984b309fbef19a2b30ca46db17e652d53d25) |
-| `peers.ebgp_multihop_enabled` | [peers.ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-74f601a65d17d93d0c783d4fc18d58e4f0ae371e1b30411e48fd8e2cfa876424) |
-| `peers.external` | [peers.external](resources--bgp--reference--group-001.md#canonical-80960c20ffc2cf6696f62c345f5bac78dc548e0942b857ce44c8cdc7f27aa0e4) |
-| `peers.external.address` | [peers.external.address](resources--bgp--reference--group-001.md#canonical-9eef0f07c2641e1d30bf04056f9a1a9efc38f671cbc35165710fd0144d50c5a5) |
-| `peers.external.address_ipv6` | [peers.external.address_ipv6](resources--bgp--reference--group-001.md#canonical-b2cadc2b616fc98d5322308e6c30e1fa924b141282a41c8dc585e6bcbf0c87ab) |
-| `peers.external.asn` | [peers.external.asn](resources--bgp--reference--group-001.md#canonical-67b051c3a6f7b7562f16cab0d31cd1c4d37455a225c90eefccd1d01140650d52) |
-| `peers.external.default_gateway` | [peers.external.default_gateway](resources--bgp--reference--group-001.md#canonical-5735f9241bf6e59e72ad6939f21da39ead8d00b60f908e6e29bb10978a00df6c) |
-| `peers.external.default_gateway_v6` | [peers.external.default_gateway_v6](resources--bgp--reference--group-001.md#canonical-07bb4a3c1ed6fb99fcb8b97dd5da14bcdd4e282eb76cbbf468574ce472522a88) |
-| `peers.external.disable_spec` | [peers.external.disable_spec](resources--bgp--reference--group-001.md#canonical-186c5e7b11aba3cf5dddc42e4440c2a61a7ec764a56fcc8d0194466e11577594) |
-| `peers.external.disable_v6` | [peers.external.disable_v6](resources--bgp--reference--group-001.md#canonical-720049b609606087e1b03346494e2232d0052d78c8a17c907b9c53f8bab5139f) |
-| `peers.external.external_connector` | [peers.external.external_connector](resources--bgp--reference--group-001.md#canonical-39f01a4b72cfc57f7a265c3dcdd1b9f35f0809060fe70edd32e2e9350194a120) |
-| `peers.external.family_inet` | [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-76dcd523905caef67f5925689ed944c4cc8eaa84041e12d2df959512b2fb54f3) |
-| `peers.external.family_inet.disable_spec` | [peers.external.family_inet.disable_spec](resources--bgp--reference--group-001.md#canonical-766ad2144a093b3384de6e5da46b35392f19487d7ae9a1203615afec350109b2) |
-| `peers.external.family_inet.enable` | [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-cf6e2c354b38afb9f85e6af8949101c6fd85cf83d9ab70ce1dc3db008bc19153) |
-| `peers.external.family_inet.enable.aggregation` | [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-a9b90364ed860c3d0acf345da43963e1c2dc42e6658dbe29b54e60ce1ad62350) |
-| `peers.external.family_inet.enable.aggregation.ip_prefix` | [peers.external.family_inet.enable.aggregation.ip_prefix](resources--bgp--reference--group-001.md#canonical-232bca7740fc672073b9b650450b904d4a5f93ebfadfc8320303deffa6ce1c3d) |
-| `peers.external.family_inet.enable.aggregation.options` | [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-ba32da36fafeba658ca91a5051e1270ed9d203b7ab854d47cc995bd5e1a4e5f8) |
-| `peers.external.family_inet.enable.aggregation.options.summary_only` | [peers.external.family_inet.enable.aggregation.options.summary_only](resources--bgp--reference--group-001.md#canonical-bb5602cf94e4f44280e2e13480390ff06683179f75d262907e5fb298bb177a03) |
-| `peers.external.from_site` | [peers.external.from_site](resources--bgp--reference--group-001.md#canonical-fe12b9930c6c54ca1429d3d4e78765dedbbb4f9acbbbd2528813f1909a60d0ef) |
-| `peers.external.from_site_v6` | [peers.external.from_site_v6](resources--bgp--reference--group-001.md#canonical-f102674908c5ccdaff0b2bca2b046b9b4b5a020008c215c28122113189b05c17) |
-| `peers.external.interface` | [peers.external.interface](resources--bgp--reference--group-001.md#canonical-aae76cf84158e0c2e3753227dcab6f24c0a211a853b9c471dcd995282643610a) |
-| `peers.external.interface.name` | [peers.external.interface.name](resources--bgp--reference--group-001.md#canonical-c4b526bf4631325c26deeeb67cba9bd1d6a65f0c8f14109fb94c52839b40e725) |
-| `peers.external.interface.namespace` | [peers.external.interface.namespace](resources--bgp--reference--group-001.md#canonical-cfbae23f2698e2d83fd775c28f7529feed312e64baa46c6973ef703207c155b1) |
-| `peers.external.interface.tenant` | [peers.external.interface.tenant](resources--bgp--reference--group-001.md#canonical-06433f66032b508600c00c9043f01998210f0c79ab077f7aec8c260c30f6c651) |
-| `peers.external.interface_list` | [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-c42d003f1eb88514778c2e4a42907204b1fb3b6f8b419baabe522658d1a5f665) |
-| `peers.external.interface_list.interfaces` | [peers.external.interface_list.interfaces](resources--bgp--reference--group-001.md#canonical-7ee06c60f5a17fcaec904c4517df799f771be8c18a37d42c61594f3e8e29fe3d) |
-| `peers.external.interface_list.interfaces.name` | [peers.external.interface_list.interfaces.name](resources--bgp--reference--group-001.md#canonical-81b414a1f245d75e625992effec830274ce0734d5098f515e1ea1c5b37519dbd) |
-| `peers.external.interface_list.interfaces.namespace` | [peers.external.interface_list.interfaces.namespace](resources--bgp--reference--group-001.md#canonical-1d2c174e5a7c5e2248f1729d0eac5d5e01d72c28fc060bacbebf0b93d2012ef0) |
-| `peers.external.interface_list.interfaces.tenant` | [peers.external.interface_list.interfaces.tenant](resources--bgp--reference--group-001.md#canonical-b5a5d12df8c7ff52ee00841ae74697844083534b920b9d2006f23269447bbd56) |
-| `peers.external.md5_auth_key` | [peers.external.md5_auth_key](resources--bgp--reference--group-001.md#canonical-0a923ffa0774c0002ee23886596ba4e45d3d1e53c1bc7c1afbc03fcc17575d98) |
-| `peers.external.no_authentication` | [peers.external.no_authentication](resources--bgp--reference--group-001.md#canonical-fd74d1c01bea9e52c14e5cb1763085819cae5028850bf0d9906cac6d5ed84099) |
-| `peers.external.port` | [peers.external.port](resources--bgp--reference--group-001.md#canonical-f659cfcc83450431e5a30f4cb15864c19db82aa14ace3bfdf7bb8985e826c2e8) |
-| `peers.external.subnet_begin_offset` | [peers.external.subnet_begin_offset](resources--bgp--reference--group-001.md#canonical-5d2c1b0f9de01746aa51f1897d27d552ec5da048a4287e83b7d4cf42753e849f) |
-| `peers.external.subnet_begin_offset_v6` | [peers.external.subnet_begin_offset_v6](resources--bgp--reference--group-001.md#canonical-c6448247d8274d2346f27b6a9b68aed0a490aa69581e277d12f9e5d0b974f1d2) |
-| `peers.external.subnet_end_offset` | [peers.external.subnet_end_offset](resources--bgp--reference--group-001.md#canonical-083f0951844e22ef130e12c43c37cdf531790751422513f09c2bf9886924885a) |
-| `peers.external.subnet_end_offset_v6` | [peers.external.subnet_end_offset_v6](resources--bgp--reference--group-001.md#canonical-ce2afcba806c7dda78e7da514bccbe5801d1737d3f7e27ffe9d41b412bef74ec) |
-| `peers.label` | [peers.label](resources--bgp--reference--group-001.md#canonical-58fab825420856145462647128d426c05012d2c7e169bc8f68dfb79263d5d793) |
-| `peers.metadata` | [peers.metadata](resources--bgp--reference--group-001.md#canonical-db25932d7966153cad9eb1b9ad4220526cf6f3f41877a75498c8565e775095f0) |
-| `peers.metadata.description_spec` | [peers.metadata.description_spec](resources--bgp--reference--group-001.md#canonical-b9bb4ab58f8a45f9e5b280535a947da5e88102f8875410b8f1d8585cb24f047c) |
-| `peers.metadata.name` | [peers.metadata.name](resources--bgp--reference--group-001.md#canonical-a1ca7e6f7df60d76a62943b1aff1f7f61968c3ac0a5a46261008833c8822a3fb) |
-| `peers.passive_mode_disabled` | [peers.passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-a622f2e6aaba2d9a88017cf989055c0df7c5afa6486ac0bd8ed2d5b426b5391a) |
-| `peers.passive_mode_enabled` | [peers.passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-65b755a4b28214a2ea9993b80fcbd833b40bf795bff24a3268be3c203d770181) |
-| `peers.routing_policies` | [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-6a17463248e11b86469bbae9cc1f3ecc50a764dfc750e9d86a4ce19fb1038557) |
-| `peers.routing_policies.route_policy` | [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-ca75b3634258ba1de04a148d6e5f580ce5cb3ddba4715bfbf34855890dde02b3) |
-| `peers.routing_policies.route_policy.all_nodes` | [peers.routing_policies.route_policy.all_nodes](resources--bgp--reference--group-001.md#canonical-9262c28b3afa865833ac98b7f892add76f39f1a35b7dd0a14e757c4863103990) |
-| `peers.routing_policies.route_policy.inbound` | [peers.routing_policies.route_policy.inbound](resources--bgp--reference--group-001.md#canonical-eec26d532d2f85a521590d08bfbd54abc6d249d174a4dfb9d0e259c779af820b) |
-| `peers.routing_policies.route_policy.node_name` | [peers.routing_policies.route_policy.node_name](resources--bgp--reference--group-001.md#canonical-90ced0998da2d14ee20793236e2e3b79fe432fced1b4b7dd4c7a950b3a7ac9d9) |
-| `peers.routing_policies.route_policy.node_name.node` | [peers.routing_policies.route_policy.node_name.node](resources--bgp--reference--group-001.md#canonical-86f42fd15fe8cd32d40989a16ff8b65e8182f339e9c4599125307dc03672ab95) |
-| `peers.routing_policies.route_policy.object_refs` | [peers.routing_policies.route_policy.object_refs](resources--bgp--reference--group-001.md#canonical-2d2b69405f688b5bc69b52c1c82e1836714d861fa2abbaedf5f18da56544c74c) |
-| `peers.routing_policies.route_policy.object_refs.kind` | [peers.routing_policies.route_policy.object_refs.kind](resources--bgp--reference--group-001.md#canonical-f3400eb833e33ddb272f851761f9429b8bc9a25f51c6b2af96bcd221fbfcbaaf) |
-| `peers.routing_policies.route_policy.object_refs.name` | [peers.routing_policies.route_policy.object_refs.name](resources--bgp--reference--group-001.md#canonical-e7b1248ea2b85ec40da05f8f2832d3e6efe9f29a02c72ce4682fcefcb9b2e271) |
-| `peers.routing_policies.route_policy.object_refs.namespace` | [peers.routing_policies.route_policy.object_refs.namespace](resources--bgp--reference--group-001.md#canonical-22ec6834516f8f5c057dc0b4e86308823744e3f87669f5e40930cd8b07438ac8) |
-| `peers.routing_policies.route_policy.object_refs.tenant` | [peers.routing_policies.route_policy.object_refs.tenant](resources--bgp--reference--group-001.md#canonical-a0c18ee72b07aeb845e8d5b5822760090bb35baab239e573cfd982bd85abd1e0) |
-| `peers.routing_policies.route_policy.object_refs.uid` | [peers.routing_policies.route_policy.object_refs.uid](resources--bgp--reference--group-001.md#canonical-d62cc791180ba59b1fa979fc6d63781ae0888c367d5b2b0eb7701391b8175c4a) |
-| `peers.routing_policies.route_policy.outbound` | [peers.routing_policies.route_policy.outbound](resources--bgp--reference--group-001.md#canonical-5ed6c8ea63a04a848966dab022ae0486e2f206f22f2ca58992525562019a14b4) |
-| `timeouts` | [timeouts](resources--bgp--reference--group-001.md#canonical-c97be875b057c4e28d91512abb2f0b92591c2069b2571e75709269a95f635267) |
-| `timeouts.create` | [timeouts.create](resources--bgp--reference--group-001.md#canonical-016e750f5178b0913139fd09d46b5fcf8267f9238dd28f58429802cb1721ac87) |
-| `timeouts.delete` | [timeouts.delete](resources--bgp--reference--group-001.md#canonical-73c1f9a6d70e49512770b28f9c47c40c5d7a63c8fcaea9edcd27e9f91b71cfc9) |
-| `timeouts.read` | [timeouts.read](resources--bgp--reference--group-001.md#canonical-278a812ddea3e9d10e7d5c4ecb5ff28a757a2e3cb02d7447fabdf8282497ced7) |
-| `timeouts.update` | [timeouts.update](resources--bgp--reference--group-001.md#canonical-65ab51973a1d79a0ce11d55b5cd1b616bec5b30e833e718c4d3aa9e8cdc0be1c) |
-| `where` | [where](resources--bgp--reference--group-001.md#canonical-e84d409f7fe08bcff7e23b2848254557635d61705d99b61f0ccea6c10924238b) |
-| `where.site` | [where.site](resources--bgp--reference--group-001.md#canonical-ec095faf8b1bea7f30585ec5c9e78519f13dcadcb80170853654f10f2c6fd832) |
-| `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-6b0f5c69f3452ed61c69a9dee73f72073e52d885351337e46fcfb455a7ca6216) |
-| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-9c048eaf77b5c5d0a752ffb01e734f7e8c786cd0d598ac53642cde0569472438) |
-| `where.site.network_type` | [where.site.network_type](resources--bgp--reference--group-001.md#canonical-5d8dbeacbb16c40951031161e287e0cd42da32293ce8faddc77fd908ba5a5497) |
-| `where.site.ref` | [where.site.ref](resources--bgp--reference--group-001.md#canonical-4a76677c4616759f5f3a6d9e79e9c10a9f1b11b14389fcb96c9bf1fb675e14a7) |
-| `where.site.ref.kind` | [where.site.ref.kind](resources--bgp--reference--group-001.md#canonical-69de9891df396026339015bc8b2ed13c580a3fc07a1e560bb8af53266c52d4bf) |
-| `where.site.ref.name` | [where.site.ref.name](resources--bgp--reference--group-001.md#canonical-c03df7694fd63e45ad60f12c426c583d8272536fe03db2ba923a020cf62c4711) |
-| `where.site.ref.namespace` | [where.site.ref.namespace](resources--bgp--reference--group-001.md#canonical-9db9781b72291855a4ce21299d4587b4e8af8231b2c567bf5576e8458eda3562) |
-| `where.site.ref.tenant` | [where.site.ref.tenant](resources--bgp--reference--group-001.md#canonical-19078964e5ad5c8ca4dc392dd2b61238c7ef9ff22f1c0c2e75513e7c69c5d5b0) |
-| `where.site.ref.uid` | [where.site.ref.uid](resources--bgp--reference--group-001.md#canonical-f7158375e28df115ad17692809849b1cfbcbdbeda30ebe8f22bf4e50347107ba) |
-| `where.virtual_site` | [where.virtual_site](resources--bgp--reference--group-001.md#canonical-5f56f369d2d75506a18b022e3ae39d67d4b132392ca7cf9895147335d97ee051) |
-| `where.virtual_site.disable_internet_vip` | [where.virtual_site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-3077fd4e2adf942ae9b21122432a0d080a13620b3dcd17fddb9e4fe4e172cf3c) |
-| `where.virtual_site.enable_internet_vip` | [where.virtual_site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-c3ee5a652e697e87a8c6af9b59d77a064fce1d7f7c7112c5da7b6290a8b67e95) |
-| `where.virtual_site.network_type` | [where.virtual_site.network_type](resources--bgp--reference--group-001.md#canonical-168aeab8149d664fe4bdde8b541601a3c581024a04247681255205ee77da7da4) |
-| `where.virtual_site.ref` | [where.virtual_site.ref](resources--bgp--reference--group-001.md#canonical-1214283505415477b779106f3d6a5de19e621d7ad23d17ad9e48a2c76b48ceb2) |
-| `where.virtual_site.ref.kind` | [where.virtual_site.ref.kind](resources--bgp--reference--group-002.md#canonical-0e3ffbcc9dcade2a8373f5bc6391e871857e6d774b54154e48198a018a4cc02c) |
-| `where.virtual_site.ref.name` | [where.virtual_site.ref.name](resources--bgp--reference--group-002.md#canonical-947b96f34277781a2083f1597c04a27694a4657ec146b18ee43065633b34f60c) |
-| `where.virtual_site.ref.namespace` | [where.virtual_site.ref.namespace](resources--bgp--reference--group-002.md#canonical-cec6ab3c637feb75beddc9f3e4482918771e9d9009063ef6faa6c26a95491dc4) |
-| `where.virtual_site.ref.tenant` | [where.virtual_site.ref.tenant](resources--bgp--reference--group-002.md#canonical-1f60238c9fdf7e06f6bd0e6d1285729baaafaa4ca34095d1b0a9bed58d0e0820) |
-| `where.virtual_site.ref.uid` | [where.virtual_site.ref.uid](resources--bgp--reference--group-002.md#canonical-d1419ee4c9cb18225a3b9779ea78d35b5d49b31d8f1ec39d49513caad3eac5fd) |
+| `annotations` | [annotations](resources--bgp--reference--group-001.md#canonical-3222311011332211-3022322101110330-1030112203131321-0032132330133203-0132003002301211-0001021301311212-3333223121133131-1301301313220032) |
+| `bgp_parameters` | [bgp_parameters](resources--bgp--reference--group-001.md#canonical-0312322210330131-3232021030003310-2001103001223211-3110312220033113-1222332202113310-2100033021033230-0311030032001133-3311301130030123) |
+| `bgp_parameters.asn` | [bgp_parameters.asn](resources--bgp--reference--group-001.md#canonical-2210011010202021-1112233002011032-1303133231110233-0013021320121213-0223023202010230-1123002003112120-2331202131231130-2222102331332133) |
+| `bgp_parameters.from_site` | [bgp_parameters.from_site](resources--bgp--reference--group-001.md#canonical-2113202301310011-2311002103002231-3323001321333201-2301102302033103-2213002031211231-0222000313311120-0111003022132023-2210301231003333) |
+| `bgp_parameters.ip_address` | [bgp_parameters.ip_address](resources--bgp--reference--group-001.md#canonical-3322221000221021-1111122120131301-3320013312220323-0231133002232121-0132112313311221-0131112220032300-3002211122122220-0102320211321111) |
+| `bgp_parameters.local_address` | [bgp_parameters.local_address](resources--bgp--reference--group-001.md#canonical-0302311312133023-1320022223303223-0012111201033211-0300312232012212-1322321031202032-1123210332312013-0333130031213103-1030322322200032) |
+| `description` | [description](resources--bgp--reference--group-001.md#canonical-2112310113113222-3232210130222032-2201220231022102-3121211212303311-1330033102113302-2010202202130011-0112313011113003-2112011101002333) |
+| `disable` | [disable](resources--bgp--reference--group-001.md#canonical-1011330323020301-1213000102331313-0231311131203010-1230222233012011-1311133111002213-0321120031103103-1110220033231332-0221131101001212) |
+| `id` | [id](resources--bgp--reference--group-001.md#canonical-1122102222113110-2201020032002302-3321310313120312-2200010232213130-3223011233321201-3220022203112313-1331011102333133-2213032210211313) |
+| `labels` | [labels](resources--bgp--reference--group-001.md#canonical-3223123231330222-0022030031123013-0303012210112030-3310103313313302-0102001032011013-0011213233322323-3010310203121012-2011130122321010) |
+| `name` | [name](resources--bgp--reference--group-001.md#canonical-2323131130202302-2012123233210020-1000100221033233-2001223133021202-0301232333123202-1220000103131303-3133220001100110-1032130112313213) |
+| `namespace` | [namespace](resources--bgp--reference--group-001.md#canonical-3020322032120002-1032113103002032-0021133030301201-0102132023032300-3223031000100003-1032322212203202-1110211120032013-1313003311003321) |
+| `peers` | [peers](resources--bgp--reference--group-001.md#canonical-2331002010131000-1222130010211330-2332203203301122-0311312231230211-3210123131213021-2203101011320030-0133100031132323-0011022011223210) |
+| `peers.bfd_disabled` | [peers.bfd_disabled](resources--bgp--reference--group-001.md#canonical-1320021021213230-0121013103231032-3033012132101202-2112231330103033-0021310211233212-3210000031130311-0120002301130103-0332033102333331) |
+| `peers.bfd_enabled` | [peers.bfd_enabled](resources--bgp--reference--group-001.md#canonical-0022030032232021-3230222003321222-2002123211130030-1103322302013120-3000013330311213-2322123312101021-1333003022313121-2013322121212333) |
+| `peers.bfd_enabled.multiplier` | [peers.bfd_enabled.multiplier](resources--bgp--reference--group-001.md#canonical-0121212102201310-0200133211230321-2023003003003212-1100103022233133-1122122121301203-0111121120222202-2122130110232002-0203030011222012) |
+| `peers.bfd_enabled.receive_interval_milliseconds` | [peers.bfd_enabled.receive_interval_milliseconds](resources--bgp--reference--group-001.md#canonical-0211302112202210-2122120231123031-0312221013232220-0201013011313202-0022132023332000-3223001131012111-3001120111020132-0320022310020212) |
+| `peers.bfd_enabled.transmit_interval_milliseconds` | [peers.bfd_enabled.transmit_interval_milliseconds](resources--bgp--reference--group-001.md#canonical-0010211011000011-1002310030223330-3331122300210010-0221023210223212-1312012123133102-0131332012010002-0323303132333212-0020122111112212) |
+| `peers.disable_spec` | [peers.disable_spec](resources--bgp--reference--group-001.md#canonical-1321331310123103-1122023202021200-1100013311120021-0120332022331121-3033020023331123-2103311132221023-2122132011011200-0210130230320301) |
+| `peers.ebgp_multihop_disabled` | [peers.ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-0331333310011323-1302320302330230-3313100321111320-1230102121201023-0300213323323301-2122022303003022-1012312301133212-1102311103310211) |
+| `peers.ebgp_multihop_enabled` | [peers.ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-1310331200012212-1131011331210331-0030132003311033-3001203111203210-3300223203130132-0123030010010132-1020333120320230-3322201312100210) |
+| `peers.external` | [peers.external](resources--bgp--reference--group-001.md#canonical-2000211200300200-3333300230331212-2112331202300310-1133112322301320-3130111020320021-1002232011133032-1010302030313013-3302132222003210) |
+| `peers.external.address` | [peers.external.address](resources--bgp--reference--group-001.md#canonical-2132323300330013-3002121001320131-0300233300100011-1233212201222132-3330032033121301-3023300311011211-1301003331000110-1031110030112211) |
+| `peers.external.address_ipv6` | [peers.external.address_ipv6](resources--bgp--reference--group-001.md#canonical-2302302231300223-1201123330212031-1103020203002032-1230030032013322-2102102301100102-2002221001302031-3011201132122330-2333003020132223) |
+| `peers.external.asn` | [peers.external.asn](resources--bgp--reference--group-001.md#canonical-1213230011013003-2212331323131112-0233011230222300-3103013031013010-3103131011112202-0211302100323233-3030310131000101-1000121100311102) |
+| `peers.external.default_gateway` | [peers.external.default_gateway](resources--bgp--reference--group-001.md#canonical-1113031133210210-0123331232112132-1302223112210321-3302013122032132-2231203100002312-0033210020321232-0221232301002113-2022000031331230) |
+| `peers.external.default_gateway_v6` | [peers.external.default_gateway_v6](resources--bgp--reference--group-001.md#canonical-0013232310220330-0132311233232121-3330232023211331-3111312201102330-3131103202200232-2313123023233310-1220111310303210-1302110202222020) |
+| `peers.external.disable_spec` | [peers.external.disable_spec](resources--bgp--reference--group-001.md#canonical-0120123011321323-0101222322033033-1131313130100232-1010100030022212-0122133230131210-2211123330302031-0001211010121232-0101111313112110) |
+| `peers.external.disable_v6` | [peers.external.disable_v6](resources--bgp--reference--group-001.md#canonical-1302000010212312-0021120012002013-3201230003031012-1021103202020302-3100001102311320-3020220113302100-1323213011033320-2322231101032133) |
+| `peers.external.external_connector` | [peers.external.external_connector](resources--bgp--reference--group-001.md#canonical-0321330001221023-1302303330111333-1322021211300331-3031310123213303-1133002000210012-0033321300323131-0302320232210311-0001211022010200) |
+| `peers.external.family_inet` | [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-1312313031110203-2100113022323312-1333112102111220-2132312110103010-3030203222222010-0010013201023102-3133211121110102-2302332311103303) |
+| `peers.external.family_inet.disable_spec` | [peers.external.family_inet.disable_spec](resources--bgp--reference--group-001.md#canonical-1312122231020110-1022002103230303-2010313212321131-2210122303110321-0233012110201331-1322322122010200-0312011122333230-0311000100212302) |
+| `peers.external.family_inet.enable` | [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-3033123202300311-1023032022332321-3320113212223320-2110210100013012-3331201130332003-3121222313003032-0131300331230000-2023300121011103) |
+| `peers.external.family_inet.enable.aggregation` | [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-2221232100031210-3231201200300331-0022303303101131-2210032112033201-3002313010023212-1211203123320221-2311103212003032-0122311202031100) |
+| `peers.external.family_inet.enable.aggregation.ip_prefix` | [peers.external.family_inet.enable.aggregation.ip_prefix](resources--bgp--reference--group-001.md#canonical-0203022330221313-1000333012130200-1303232123121100-1011002321001031-1022113321033223-3322313330200302-0003000331323333-2212303201300331) |
+| `peers.external.family_inet.enable.aggregation.options` | [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-2322030231220312-3322333223221211-2030222101221100-1101320102130032-3121310200032313-2223201110311013-3030212111233111-3201221032113320) |
+| `peers.external.family_inet.enable.aggregation.options.summary_only` | [peers.external.family_inet.enable.aggregation.options.summary_only](resources--bgp--reference--group-001.md#canonical-2323111200023033-2110321033101002-2000320232010310-2000032100333300-1212200301132133-1311310212022100-1332113323022120-2323011313220003) |
+| `peers.external.from_site` | [peers.external.from_site](resources--bgp--reference--group-001.md#canonical-3332010223212103-0030123011103022-0110022131033110-3213201312113132-3123232310332122-3023232331021102-2020010333012100-2122120031003233) |
+| `peers.external.from_site_v6` | [peers.external.from_site_v6](resources--bgp--reference--group-001.md#canonical-3301000212131021-0020301130303122-3333002302233022-0223001012232123-1023112200020000-0020300201113002-2001020201010301-2021230011300113) |
+| `peers.external.interface` | [peers.external.interface](resources--bgp--reference--group-001.md#canonical-2222321312303320-1001112032003002-3203131103020213-3130222312330210-3000220201012220-1103232130101301-3130312121110220-0212100312010022) |
+| `peers.external.interface.name` | [peers.external.interface.name](resources--bgp--reference--group-001.md#canonical-3010231102122333-1012030103021130-0212313232322312-1330232221233101-3112221211330030-2033011001002133-2321103011022003-2123100032130211) |
+| `peers.external.interface.namespace` | [peers.external.interface.namespace](resources--bgp--reference--group-001.md#canonical-3033232232020333-0212212032023120-0333311313113002-2033131102213332-3231030102321210-2322221012301221-1303323313000302-0013300111112301) |
+| `peers.external.interface.tenant` | [peers.external.interface.tenant](resources--bgp--reference--group-001.md#canonical-0012100303331212-0003022311002012-0000300000302100-1003330001212120-0201003300301321-2223001313331322-3230203002120030-0300331230121101) |
+| `peers.external.interface_list` | [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-3010023100000333-0132232020110110-1313203002321022-1002210013020010-2301332303231233-2023100121232222-2332110202121120-3101221133121211) |
+| `peers.external.interface_list.interfaces` | [peers.external.interface_list.interfaces](resources--bgp--reference--group-001.md#canonical-1332320012301200-3311220113333022-3230210010301011-0113313313212133-1313012332203001-2022031331100230-1201112110330332-2032022133320331) |
+| `peers.external.interface_list.interfaces.name` | [peers.external.interface_list.interfaces.name](resources--bgp--reference--group-001.md#canonical-2001231001102201-3302101131131132-1202112121023233-3332302003000213-1030320013031031-1100212033110111-3201322201301123-0313110121312331) |
+| `peers.external.interface_list.interfaces.namespace` | [peers.external.interface_list.interfaces.namespace](resources--bgp--reference--group-001.md#canonical-0131023001131032-1122133011320202-1020330113022131-0032223011311132-0001311302300220-3330001200232230-2332233300232103-3102000102323300) |
+| `peers.external.interface_list.interfaces.tenant` | [peers.external.interface_list.interfaces.tenant](resources--bgp--reference--group-001.md#canonical-2311221131010231-3320301333331102-3232000020100122-3213101221132010-1000200311031023-2102002321310200-0012330203021221-1010132323311112) |
+| `peers.external.md5_auth_key` | [peers.external.md5_auth_key](resources--bgp--reference--group-001.md#canonical-0022210203333322-0013131030000000-0232320203202012-1121122322103210-1131033101321103-3001233013300122-3323300003333030-0113111311312120) |
+| `peers.external.no_authentication` | [peers.external.no_authentication](resources--bgp--reference--group-001.md#canonical-3331131031013000-0123322221321102-3001103211302301-1312030020112001-2130223211000220-2011002333003121-2100123022301231-1132312010002121) |
+| `peers.external.port` | [peers.external.port](resources--bgp--reference--group-001.md#canonical-3312112130333030-2003101100100301-3211220300331030-2301112012103001-2131232002222201-1022303203233331-3313232320212011-3220021230023220) |
+| `peers.external.subnet_begin_offset` | [peers.external.subnet_begin_offset](resources--bgp--reference--group-001.md#canonical-1131023001230033-2131320001131012-2222110133012021-1331021331111102-3230113122001020-2210022013322003-2313311030331002-1311033220102133) |
+| `peers.external.subnet_begin_offset_v6` | [peers.external.subnet_begin_offset_v6](resources--bgp--reference--group-001.md#canonical-3012101020021013-3120021310310203-1012330213231222-2123122022323100-2210210022221221-1120013202131331-0102332132113100-2321131033013102) |
+| `peers.external.subnet_end_offset` | [peers.external.subnet_end_offset](resources--bgp--reference--group-001.md#canonical-0020033300211101-2010103202023233-0103003201023010-0330031330313311-0301132100131101-1002021101033300-2130022333212020-1221021020201122) |
+| `peers.external.subnet_end_offset_v6` | [peers.external.subnet_end_offset_v6](resources--bgp--reference--group-001.md#canonical-3032022233302322-2000123013313122-1320321331221101-1023303023321120-0001310113031331-0333133202133333-3221311001231001-0223323313103230) |
+| `peers.label` | [peers.label](resources--bgp--reference--group-001.md#canonical-1120332223200211-1002002011120110-1110120212101301-0220311002123000-1100010231023013-3201122123302033-1220313323132102-1203311131132103) |
+| `peers.metadata` | [peers.metadata](resources--bgp--reference--group-001.md#canonical-3123021121030231-1321121201110330-2231213223012321-2231100202001102-1230331233033310-0120131322131110-2120302011121132-1313110021113300) |
+| `peers.metadata.description_spec` | [peers.metadata.description_spec](resources--bgp--reference--group-001.md#canonical-2321232310222311-2033202210113321-3211230220001103-1122211013312211-3220200100023320-2013111001002320-3301312011201130-2302103300101330) |
+| `peers.metadata.name` | [peers.metadata.name](resources--bgp--reference--group-001.md#canonical-2201302213321233-1331331200311312-2212022110032301-2233330133133312-0121122030032230-0022112210120212-0100002020030330-2020020222033323) |
+| `peers.passive_mode_disabled` | [peers.passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-2212020233023212-2222232202312122-2020000113303321-2021001111300031-3313301122332212-1020122230002331-2032310231112310-0212231103210122) |
+| `peers.passive_mode_enabled` | [peers.passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-1211231311112210-2302200201102202-3222212121032320-0033302331200303-2310002333132111-2333330210220302-1220233203300200-0331131300012001) |
+| `peers.routing_policies` | [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-1222011310120302-1020320101232012-1012212323223221-3030013303323030-1100221312103133-3013110032213120-1222103032012133-2301000320111113) |
+| `peers.routing_policies.route_policy` | [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-3022131123031203-1002112023220131-3200102201102031-1232113311200030-3211302303313123-2210130111233323-3303102011112021-0031313200022303) |
+| `peers.routing_policies.route_policy.all_nodes` | [peers.routing_policies.route_policy.all_nodes](resources--bgp--reference--group-001.md#canonical-2102120230022023-0322332220121120-0303223021202313-3320210222313113-1233032133012203-1123133131002201-1032131113301020-1203010003212100) |
+| `peers.routing_policies.route_policy.inbound` | [peers.routing_policies.route_policy.inbound](resources--bgp--reference--group-001.md#canonical-3232300212311103-0231023320112211-0201112100310020-2333233111102223-3012310210213101-1310221031332321-3100320211213013-1321223320020023) |
+| `peers.routing_policies.route_policy.node_name` | [peers.routing_policies.route_policy.node_name](resources--bgp--reference--group-001.md#canonical-2100303231002121-2031220231011032-3202001321030203-1232023203231321-3332100302333032-3101231023133131-1030132221110023-0322132230213121) |
+| `peers.routing_policies.route_policy.node_name.node` | [peers.routing_policies.route_policy.node_name.node](resources--bgp--reference--group-001.md#canonical-2012331002333101-1133322030310302-3110002120212201-1233332023121132-2001200233030321-3221301011212101-0211030013313000-0312130222232111) |
+| `peers.routing_policies.route_policy.object_refs` | [peers.routing_policies.route_policy.object_refs](resources--bgp--reference--group-001.md#canonical-0231022312211000-1133122020231123-3012212311023001-3020023201200312-1301103120120133-2202222323223231-3311330120312211-1211101030131030) |
+| `peers.routing_policies.route_policy.object_refs.kind` | [peers.routing_policies.route_policy.object_refs.kind](resources--bgp--reference--group-001.md#canonical-3303100000322320-0303320303313123-0213023320110113-1201332110022123-2023302122021133-1101301223022233-2112233031020201-3323333023222233) |
+| `peers.routing_policies.route_policy.object_refs.name` | [peers.routing_policies.route_policy.object_refs.name](resources--bgp--reference--group-001.md#canonical-3213230102102032-2202232011323010-0031220011332033-0220030231033212-3233322133022122-0002301302303210-1220023330323330-2321230232021301) |
+| `peers.routing_policies.route_policy.object_refs.namespace` | [peers.routing_policies.route_policy.object_refs.namespace](resources--bgp--reference--group-001.md#canonical-0202323012200310-1101123320331130-0011133130002310-3220120300202002-0313101032033320-1312122133113210-0021030030312023-0013100320223020) |
+| `peers.routing_policies.route_policy.object_refs.tenant` | [peers.routing_policies.route_policy.object_refs.tenant](resources--bgp--reference--group-001.md#canonical-2200300120323213-0223001322322320-1011322031112311-2002021312000021-0023230311232222-2302032132111303-3033312120022331-2011222331013200) |
+| `peers.routing_policies.route_policy.object_refs.uid` | [peers.routing_policies.route_policy.object_refs.uid](resources--bgp--reference--group-001.md#canonical-3112023030132101-0120002322112123-0133222113213330-1231120313200122-3200202020300312-1331112302230032-2313130001032101-2320011311301022) |
+| `peers.routing_policies.route_policy.outbound` | [peers.routing_policies.route_policy.outbound](resources--bgp--reference--group-001.md#canonical-1132311230203222-1203220010222010-2021121231222300-0202223200102012-3202330200123302-0233023022112021-2102110211111202-0001212201102310) |
+| `timeouts` | [timeouts](resources--bgp--reference--group-001.md#canonical-3021132332201311-2300111330103202-2031210111010222-2323023300232102-1121013002001221-2302111301321311-1300210212212221-1133120311021213) |
+| `timeouts.create` | [timeouts.create](resources--bgp--reference--group-001.md#canonical-0001123213110033-1101132023002101-0301032133310021-3110122311333033-2002121333210203-2031310220331120-1002212000023023-0113020122302013) |
+| `timeouts.delete` | [timeouts.delete](resources--bgp--reference--group-001.md#canonical-1303300133212212-3113003210211101-0213130023022033-2130101330100030-1131132212033020-3330223222213231-3031021332213321-0123130130333021) |
+| `timeouts.read` | [timeouts.read](resources--bgp--reference--group-001.md#canonical-0213202220010231-3132220332213101-0032133111301032-3023113333022022-1311132202320330-2300023113101013-3322233133200220-0210211330323113) |
+| `timeouts.update` | [timeouts.update](resources--bgp--reference--group-001.md#canonical-1211222311012113-0322013113212200-3032010131111123-1130310123120112-2332301123030032-2003033213012030-1031032222213220-3031300023320130) |
+| `where` | [where](resources--bgp--reference--group-001.md#canonical-3220103110002133-1333320020233033-3313320203230220-1020021110111113-1203113112011300-1131212123120133-0030303222123001-0021021002032023) |
+| `where.site` | [where.site](resources--bgp--reference--group-001.md#canonical-3230002111332233-2023012332221333-0300112011323011-3021321320110121-3301033130223130-2320000113002011-0312111033010033-0230123331200302) |
+| `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-1223003311301221-3303101102323112-0130122122213132-3213033313020013-0332110231202011-0311010303133210-1233303323101111-2213302212020112) |
+| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-2130001020322233-1313231130113100-2213110233332300-0132130310331332-2030132012303100-3111212022301103-1210023031320011-1221101302100320) |
+| `where.site.network_type` | [where.site.network_type](resources--bgp--reference--group-001.md#canonical-1131203123322230-2323011230100021-1101000301011201-3202201332003031-1002312203020221-0330322033223131-3013133331210020-2322112211102113) |
+| `where.site.ref` | [where.site.ref](resources--bgp--reference--group-001.md#canonical-1022131212131330-1012011213112133-1133032212312132-1321322130010022-2133012301012301-1003202133302321-1230212333013323-1213113201102213) |
+| `where.site.ref.kind` | [where.site.ref.kind](resources--bgp--reference--group-001.md#canonical-1221313221202101-3133032112000212-0303210001112330-2023023231010330-1120002203333000-1322013211120023-2320223311030212-1230110231102333) |
+| `where.site.ref.name` | [where.site.ref.name](resources--bgp--reference--group-001.md#canonical-3000033133131221-1033311203321011-2231120033010230-1002123011200331-2002130211031233-3200033123022322-2102032200020030-3312023010130101) |
+| `where.site.ref.namespace` | [where.site.ref.namespace](resources--bgp--reference--group-001.md#canonical-2131232113200123-1302022101201111-2210303202010221-2131101120132310-3220223320020301-2302301112132333-1111131232201011-2032312203111202) |
+| `where.site.ref.tenant` | [where.site.ref.tenant](resources--bgp--reference--group-001.md#canonical-0121001320211210-3211223111302030-2210313003210231-3102231201020320-3013323321333302-0233013000300232-1311110103321330-1221301131112300) |
+| `where.site.ref.uid` | [where.site.ref.uid](resources--bgp--reference--group-001.md#canonical-3313011120031311-3202203133010111-2231011312210220-0021201021230130-3323302331233231-2203003223322033-0202233310321100-0310130100132322) |
+| `where.virtual_site` | [where.virtual_site](resources--bgp--reference--group-001.md#canonical-1133111233031221-3102311311110012-2201202300020232-0322320321311213-3110230103020321-0230221330332120-2111011013030311-3121133232001101) |
+| `where.virtual_site.disable_internet_vip` | [where.virtual_site.disable_internet_vip](resources--bgp--reference--group-002.md#canonical-0300131333311032-0222313321100222-3221230201010202-1003022200310020-0022010312020023-0331303101133331-3123213210333210-3201130230330330) |
+| `where.virtual_site.enable_internet_vip` | [where.virtual_site.enable_internet_vip](resources--bgp--reference--group-002.md#canonical-3003323211221211-0232122113322013-2220301222332123-1121311313220012-1033303201311333-1330130101023011-3122132312022100-2220231213322111) |
+| `where.virtual_site.network_type` | [where.virtual_site.network_type](resources--bgp--reference--group-001.md#canonical-0112202232222320-0110213112121033-3210233131322023-1110011200012203-3011200100021022-0010021013122001-0211110200113232-1313312213312210) |
+| `where.virtual_site.ref` | [where.virtual_site.ref](resources--bgp--reference--group-002.md#canonical-0102011002200311-0011100111101313-2313132101001233-0331122211313201-2132120201311322-3102033101132231-2132102022023013-1223102030322302) |
+| `where.virtual_site.ref.kind` | [where.virtual_site.ref.kind](resources--bgp--reference--group-002.md#canonical-0032033333233030-2131302231320222-2003130333112330-1203210132201301-2011133212311313-1023111001111032-1020012120220001-2022103030000230) |
+| `where.virtual_site.ref.name` | [where.virtual_site.ref.name](resources--bgp--reference--group-002.md#canonical-2110132321123303-1002131313200122-0200200333011121-1330001022021312-2110221012111332-3001101223012032-3210030012111203-0323031033120030) |
+| `where.virtual_site.ref.namespace` | [where.virtual_site.ref.namespace](resources--bgp--reference--group-002.md#canonical-3032301222230330-1203133332231311-2332313130213303-3210102002210120-1313013221312100-0021001203323312-3322221230021222-2111102101313010) |
+| `where.virtual_site.ref.tenant` | [where.virtual_site.ref.tenant](resources--bgp--reference--group-002.md#canonical-0133120002032030-2133313313320012-3312233100321231-0102201113022123-2222223322221030-2203100021113101-2300222123323111-2031003200200200) |
+| `where.virtual_site.ref.uid` | [where.virtual_site.ref.uid](resources--bgp--reference--group-002.md#canonical-3101100121323210-3021302301200202-1122032321131321-3222132031031123-1131102123030131-2033013230032131-1021110103302222-3103322230113331) |
 
-<a id="canonical-e6ca8eb3e3a8d085ebb9db8c1871dfb07de58f76979374d2f71534d8560eda93"></a>
+<a id="canonical-3212302220322303-3203222031002011-3223232131232030-0120130131332300-1331321120331312-2113210313103102-3313011103103120-1112003231222103"></a>
 
-## Next pages — Property reference / a2ca6f03f464 / 12
+## Next pages — Property reference / 000333101210 / 12
 
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [timeouts](resources--bgp--reference--group-001.md#canonical-f09bbcefdb3d000d17aea209da85cf650c0c55df309b01717b7c4b34ae89314f)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [timeouts](resources--bgp--reference--group-001.md#canonical-3300212323303233-3123033100000031-0113223222020021-3122201130331211-0030003011113133-0300212300011301-1323133010230310-2232202103011033)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465"></a>
+<a id="canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3ebdcb5f6f1c6a67c5535043c32b7853bf7b2e7ac670b184b4e7b23de0cd293a"></a>
+<a id="canonical-0332233130231133-1233013012221213-3011110311001003-3003022313201103-2333132302321322-3012130023012010-2310321323020331-3200303102210322"></a>
 
-## bgp_parameters — bgp_parameters / 7fcf0bc032da / 2
+## bgp_parameters — bgp_parameters / 300003023122 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
 - bgp_parameters
 
-<a id="canonical-36ea4f1dee24c0f4814c1ae5d4da83d76afa25f4903c93ec3530e05ff5c5c31b"></a>
+<a id="canonical-0312322210330131-3232021030003310-2001103001223211-3110312220033113-1222332202113310-2100033021033230-0311030032001133-3311301130030123"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -497,15 +497,15 @@ bgp_parameters {
 }
 ```
 
-<a id="canonical-120f54b5f2aef42c71ef1e01720cfc6a5b751b4bb58fcf2c3c70b0b3477e3e23"></a>
+<a id="canonical-0102003311102311-3302223233100230-1301323301320001-1302003033301222-1123131101231023-2311203330330230-0330130023002303-1013133203320203"></a>
 
-## Direct properties — bgp_parameters / 7fcf0bc032da / 3
+## Direct properties — bgp_parameters / 300003023122 / 3
 
-<a id="canonical-a414488956bc214e737ed52f072786672b2e212c5b083598bd89db5caa4bdf9f"></a>
+<a id="canonical-2210011010202021-1112233002011032-1303133231110233-0013021320121213-0223023202010230-1123002003112120-2331202131231130-2222102331332133"></a>
 
-<a id="canonical-c7361fcba4edbf657860369304234e16010215ea36de41b8ea1e5e817bde1f74"></a>
+<a id="canonical-3013031201333023-2210323123331211-1320120003122103-0010020310320112-0001000201113222-0312313210012320-3222013211322001-1323313201331310"></a>
 
-## asn property — bgp_parameters / 7fcf0bc032da / 4
+## asn property — bgp_parameters / 300003023122 / 4
 
 Type: `"number"`. Optional.
 
@@ -555,13 +555,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [from_site](resources--bgp--reference--group-001.md#canonical-63b4d7f9673247ca49d40e7cd5f96e1e5b46a38e96613f1c9333f2eca32d4ae5): complete subsection reference.
+- [from_site](resources--bgp--reference--group-001.md#canonical-1203231031133321-1213030210133022-1021311000321330-3111332112320132-1123101222032032-2112120103330130-2103030333023230-2203023110223211): complete subsection reference.
 
-<a id="canonical-faa40a4955698771f81f6a3b2d7c2b991e5b7d691d5a83b0c295a6a812e25e55"></a>
+<a id="canonical-3322221000221021-1111122120131301-3320013312220323-0231133002232121-0132112313311221-0131112220032300-3002211122122220-0102320211321111"></a>
 
-<a id="canonical-9df22027a589cd01324e329e6e82d06795ba2e3a97bb7c97c1c7d050b0d03b1e"></a>
+<a id="canonical-2131330202000213-2211202130310001-0302103203022132-1232200231001213-2111232202320322-2113232313302113-3001301331001100-2300310003230132"></a>
 
-## ip_address property — bgp_parameters / 7fcf0bc032da / 5
+## ip_address property — bgp_parameters / 300003023122 / 5
 
 Type: `"string"`. Optional.
 
@@ -614,35 +614,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [local_address](resources--bgp--reference--group-001.md#canonical-3a9bffb1d0854a84e4498f26b96ee050853dc310cecdda3c9b19ded6f9b18e78): complete subsection reference.
+- [local_address](resources--bgp--reference--group-001.md#canonical-0322212333332301-3100201110222010-3210102120330212-2321123232001100-2011033130030100-3032303131220330-2123012131323112-3321230120321320): complete subsection reference.
 
-<a id="canonical-831cb4bc6d1bf75e6852639c841d1d6fe469813862fb2711b3c7d0bd0c26fc2a"></a>
+<a id="canonical-2003013023102330-1231012333131132-1220110212032130-2010013101311233-3210122120010320-1202332302130101-2303301331002331-0030021233300222"></a>
 
-## Next pages — bgp_parameters / 7fcf0bc032da / 6
+## Next pages — bgp_parameters / 300003023122 / 6
 
-- [bgp_parameters.from_site](resources--bgp--reference--group-001.md#canonical-63b4d7f9673247ca49d40e7cd5f96e1e5b46a38e96613f1c9333f2eca32d4ae5)
-- [bgp_parameters.local_address](resources--bgp--reference--group-001.md#canonical-3a9bffb1d0854a84e4498f26b96ee050853dc310cecdda3c9b19ded6f9b18e78)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [bgp_parameters.from_site](resources--bgp--reference--group-001.md#canonical-1203231031133321-1213030210133022-1021311000321330-3111332112320132-1123101222032032-2112120103330130-2103030333023230-2203023110223211)
+- [bgp_parameters.local_address](resources--bgp--reference--group-001.md#canonical-0322212333332301-3100201110222010-3210102120330212-2321123232001100-2011033130030100-3032303131220330-2123012131323112-3321230120321320)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-63b4d7f9673247ca49d40e7cd5f96e1e5b46a38e96613f1c9333f2eca32d4ae5"></a>
+<a id="canonical-1203231031133321-1213030210133022-1021311000321330-3111332112320132-1123101222032032-2112120103330130-2103030333023230-2203023110223211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0d729a765d36fedb702d587f35b27991004bb96657d59c16dbf133ab3e8807da"></a>
+<a id="canonical-0031130221221312-1131031233323123-1300023111201333-0311230213212101-0000102323211212-1113311121300112-3123330103032223-0332202000133122"></a>
 
-## bgp_parameters.from_site — bgp_parameters.from_site / 91153466b111 / 2
+## bgp_parameters.from_site — from_site / 121223010101 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211)
 - bgp_parameters.from_site
 
-<a id="canonical-978b1d05b50930adfb079fe1b14b23d3a708d96d2a037d58150ca78ba4c6d0ff"></a>
+<a id="canonical-2113202301310011-2311002103002231-3323001321333201-2301102302033103-2213002031211231-0222000313311120-0111003022132023-2210301231003333"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -671,37 +671,37 @@ Terraform syntax:
 from_site = {}
 ```
 
-<a id="canonical-dabb0cb2be1eebd552e3e44780aa590bc3efe331d7a8a320c65eb5da4891345b"></a>
+<a id="canonical-3122232300302302-2332013232233111-1102320332101013-2000222211210023-3003323332030301-3113222022030200-3012113223113122-1020210103101123"></a>
 
-## Direct properties — bgp_parameters.from_site / 91153466b111 / 3
+## Direct properties — from_site / 121223010101 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-11b904a670d3b1088195f1107bee205de122e4e393b5095243d0a8b803cfb8b9"></a>
+<a id="canonical-0101232100102212-1300310323010020-2001211133010100-1323323202001131-3201020232103203-2103231100211102-1003310022202320-0003303323202321"></a>
 
-## Next pages — bgp_parameters.from_site / 91153466b111 / 4
+## Next pages — from_site / 121223010101 / 4
 
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-3a9bffb1d0854a84e4498f26b96ee050853dc310cecdda3c9b19ded6f9b18e78"></a>
+<a id="canonical-0322212333332301-3100201110222010-3210102120330212-2321123232001100-2011033130030100-3032303131220330-2123012131323112-3321230120321320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-72b74e0765bc91f36127a39e6f5200ab7225d9f5e3ca1b8380dfbdf60ce802e6"></a>
+<a id="canonical-1302231310320013-1211233021013303-1201021322032132-1233110200002223-1302021131213311-3203302201232003-2000313323313312-0030322000023212"></a>
 
-## bgp_parameters.local_address — bgp_parameters.local_address / 1a31b2a0c138 / 2
+## bgp_parameters.local_address — local_address / 220030010320 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211)
 - bgp_parameters.local_address
 
-<a id="canonical-32d767cb782abceb065613e530dae1a67ae4d88e5b93ed873f70d9d34ceba80e"></a>
+<a id="canonical-0302311312133023-1320022223303223-0012111201033211-0300312232012212-1322321031202032-1123210332312013-0333130031213103-1030322322200032"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -730,36 +730,36 @@ Terraform syntax:
 local_address = {}
 ```
 
-<a id="canonical-ec00fd748fdef96446dce348348befc4e56a0f73d08c75570044220d953114d6"></a>
+<a id="canonical-3230000033311310-2033313233211210-1012313032031020-0310202332333010-3211122200331303-3100203013111113-0000101002020031-2111030101103112"></a>
 
-## Direct properties — bgp_parameters.local_address / 1a31b2a0c138 / 3
+## Direct properties — local_address / 220030010320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7f1ee9d211792baf4370141a883946ce2f7b7bbd38d07ce579b6eb32f3ef8332"></a>
+<a id="canonical-1333013232213102-0101132102232233-1003130001100122-2020032110123032-0233132313232331-0320310013303211-1321231232230302-3303323320030302"></a>
 
-## Next pages — bgp_parameters.local_address / 1a31b2a0c138 / 4
+## Next pages — local_address / 220030010320 / 4
 
-- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-d30f89abfb3bcd2816487185f399e481a1d04f005852d935b50153fb1f63c465)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [bgp_parameters](resources--bgp--reference--group-001.md#canonical-3103003320212223-3323032330310220-0112102013012011-3303212132102001-2201310010330000-1120110231210311-2311000111033323-0133120330101211)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213"></a>
+<a id="canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-49deaf302e4536d50a127143f9ac65a1e02f6f0eda706f8755515aba5899c7cc"></a>
+<a id="canonical-1021313222330300-0232101103123111-0022010213011003-3321223012112201-3200023312330032-3122130012332013-1111110111222322-1120212130133030"></a>
 
-## peers — peers / 73419caabb8d / 2
+## peers — peers / 222223232031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
 - peers
 
-<a id="canonical-bd0847406a70497cbe8e3c5a35dadb25e46dd9c9a3445e0c1f40d7bb05285ae4"></a>
+<a id="canonical-2331002010131000-1222130010211330-2332203203301122-0311312231230211-3210123131213021-2203101011320030-0133100031132323-0011022011223210"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -825,27 +825,27 @@ peers {
 }
 ```
 
-<a id="canonical-f492d36039696172cc1d29b5f7a24b3f0142f7aa2f6f4d6381bc294b00a8e1f1"></a>
+<a id="canonical-3310210231031200-0321122112011302-3030013102212311-3313220210230333-0001100233132222-0233123310311203-2001233002211023-0000222032013301"></a>
 
-## Direct properties — peers / 73419caabb8d / 3
+## Direct properties — peers / 222223232031 / 3
 
-- [bfd_disabled](resources--bgp--reference--group-001.md#canonical-876749d3b751137ccaf0a115e7081a00e7216a7f0b74acfeb8c5d3a979c8d934): complete subsection reference.
+- [bfd_disabled](resources--bgp--reference--group-001.md#canonical-2013121310213103-2313110101031330-3022330022010111-3213002001220000-3213020112221333-0023131022303332-2320301131032221-1321302031210310): complete subsection reference.
 
-- [bfd_enabled](resources--bgp--reference--group-001.md#canonical-55792024d68e0c83fab75a1962dec885d4d0bddb89824ece282383726ee51219): complete subsection reference.
+- [bfd_enabled](resources--bgp--reference--group-001.md#canonical-1111132102000210-3112203200302003-3322231311220121-1202313230202011-3110310023313123-2021200210323032-0220020320031302-1232321101020121): complete subsection reference.
 
-- [disable_spec](resources--bgp--reference--group-001.md#canonical-ed04fad1dcfdd41a884ce0cba5a2d45546fd25404e40013a5d7be7a4d474d2eb): complete subsection reference.
+- [disable_spec](resources--bgp--reference--group-001.md#canonical-3231001033223101-3130333131100122-2020103032003023-2211220231101111-1012333102111000-1032100000010322-1131132332132210-3110131031023223): complete subsection reference.
 
-- [ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-17fb2a9f0433a69a5b3428b8896a647da038255dcb929ea94202b599a2256cd8): complete subsection reference.
+- [ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-0113332302222133-0010030322122122-1123031002202320-2021122212101331-2200032002111131-3023210221322221-1002000223112121-2202021112303120): complete subsection reference.
 
-- [ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-31cdb70dc13c2e3531f401e112c247b5948c581cfab23cc52190a9f24e39225a): complete subsection reference.
+- [ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-0301303123130031-3001033002320311-0301331000013201-0102300210132311-2110203011200130-3322230203303011-0201210022213302-1032032102021122): complete subsection reference.
 
-- [external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d): complete subsection reference.
+- [external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331): complete subsection reference.
 
-<a id="canonical-58fab825420856145462647128d426c05012d2c7e169bc8f68dfb79263d5d793"></a>
+<a id="canonical-1120332223200211-1002002011120110-1110120212101301-0220311002123000-1100010231023013-3201122123302033-1220313323132102-1203311131132103"></a>
 
-<a id="canonical-3a01f9f8f61da9a524c244e14ac6767bd6b9b6545bd89bb5df598a91a91eb680"></a>
+<a id="canonical-0322000133213320-3312013122212211-0210300210103201-1022301213121323-3112232123121110-1123312021232311-3133112120222101-2221013223122000"></a>
 
-## label property — peers / 73419caabb8d / 4
+## label property — peers / 222223232031 / 4
 
 Type: `"string"`. Optional.
 
@@ -880,49 +880,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](resources--bgp--reference--group-001.md#canonical-52fb9e3af2530d09851ee01126edb5040e88ed74eb98c11791f84bcdca262c88): complete subsection reference.
+- [metadata](resources--bgp--reference--group-001.md#canonical-1102332321320322-3302110300310021-2011013232000101-0212323123110010-0032202032311310-3223212030010113-2101332010233031-3022021202302020): complete subsection reference.
 
-- [passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-c1a9a4695efa46c9ef4a837c1c55941d0acb8ded656aec28cfe495c2765cc781): complete subsection reference.
+- [passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-3001222122101221-1132332210123021-3233102220031330-0130111121100131-0022302320313231-1211122232300220-3033321021113002-1312113030132001): complete subsection reference.
 
-- [passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-2e632c57ee5785748f675de1ccff92ae451e4e90b98917e9ff50ab60fcec0ccd): complete subsection reference.
+- [passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-0232120302301113-3232111320111310-2033121311313201-3030333321022232-1011013210322100-2321202101133221-3333110022231200-3330323000303031): complete subsection reference.
 
-- [routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237): complete subsection reference.
+- [routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313): complete subsection reference.
 
-<a id="canonical-01ddde48a0f79cb4ed4d08e98ec3ae7192db679d735f26b7de39dc6e2127b506"></a>
+<a id="canonical-0001313131321020-2200331321302310-3231103100203221-2032300322321301-2102312312132131-1303113302122313-3132032131301232-0201021323110012"></a>
 
-## Next pages — peers / 73419caabb8d / 5
+## Next pages — peers / 222223232031 / 5
 
-- [peers.bfd_disabled](resources--bgp--reference--group-001.md#canonical-876749d3b751137ccaf0a115e7081a00e7216a7f0b74acfeb8c5d3a979c8d934)
-- [peers.bfd_enabled](resources--bgp--reference--group-001.md#canonical-55792024d68e0c83fab75a1962dec885d4d0bddb89824ece282383726ee51219)
-- [peers.disable_spec](resources--bgp--reference--group-001.md#canonical-ed04fad1dcfdd41a884ce0cba5a2d45546fd25404e40013a5d7be7a4d474d2eb)
-- [peers.ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-17fb2a9f0433a69a5b3428b8896a647da038255dcb929ea94202b599a2256cd8)
-- [peers.ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-31cdb70dc13c2e3531f401e112c247b5948c581cfab23cc52190a9f24e39225a)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.metadata](resources--bgp--reference--group-001.md#canonical-52fb9e3af2530d09851ee01126edb5040e88ed74eb98c11791f84bcdca262c88)
-- [peers.passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-c1a9a4695efa46c9ef4a837c1c55941d0acb8ded656aec28cfe495c2765cc781)
-- [peers.passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-2e632c57ee5785748f675de1ccff92ae451e4e90b98917e9ff50ab60fcec0ccd)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.bfd_disabled](resources--bgp--reference--group-001.md#canonical-2013121310213103-2313110101031330-3022330022010111-3213002001220000-3213020112221333-0023131022303332-2320301131032221-1321302031210310)
+- [peers.bfd_enabled](resources--bgp--reference--group-001.md#canonical-1111132102000210-3112203200302003-3322231311220121-1202313230202011-3110310023313123-2021200210323032-0220020320031302-1232321101020121)
+- [peers.disable_spec](resources--bgp--reference--group-001.md#canonical-3231001033223101-3130333131100122-2020103032003023-2211220231101111-1012333102111000-1032100000010322-1131132332132210-3110131031023223)
+- [peers.ebgp_multihop_disabled](resources--bgp--reference--group-001.md#canonical-0113332302222133-0010030322122122-1123031002202320-2021122212101331-2200032002111131-3023210221322221-1002000223112121-2202021112303120)
+- [peers.ebgp_multihop_enabled](resources--bgp--reference--group-001.md#canonical-0301303123130031-3001033002320311-0301331000013201-0102300210132311-2110203011200130-3322230203303011-0201210022213302-1032032102021122)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.metadata](resources--bgp--reference--group-001.md#canonical-1102332321320322-3302110300310021-2011013232000101-0212323123110010-0032202032311310-3223212030010113-2101332010233031-3022021202302020)
+- [peers.passive_mode_disabled](resources--bgp--reference--group-001.md#canonical-3001222122101221-1132332210123021-3233102220031330-0130111121100131-0022302320313231-1211122232300220-3033321021113002-1312113030132001)
+- [peers.passive_mode_enabled](resources--bgp--reference--group-001.md#canonical-0232120302301113-3232111320111310-2033121311313201-3030333321022232-1011013210322100-2321202101133221-3333110022231200-3330323000303031)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-876749d3b751137ccaf0a115e7081a00e7216a7f0b74acfeb8c5d3a979c8d934"></a>
+<a id="canonical-2013121310213103-2313110101031330-3022330022010111-3213002001220000-3213020112221333-0023131022303332-2320301131032221-1321302031210310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec96e28d419e9f2e0bb5280580ff462230986bab534aaa26cce488af467213e2"></a>
+<a id="canonical-3230211232022031-1001213221330232-0023231102200011-2000333310120202-0300212012232223-1103102222220212-3030321020202233-1012130201033202"></a>
 
-## peers.bfd_disabled — peers.bfd_disabled / 32011f1f4360 / 2
+## peers.bfd_disabled — bfd_disabled / 013310031200 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.bfd_disabled
 
-<a id="canonical-782499ec191d3b4ecf19e46296b7c4cf09d25be6e400d735180b17133e3d2ffd"></a>
+<a id="canonical-1320021021213230-0121013103231032-3033012132101202-2112231330103033-0021310211233212-3210000031130311-0120002301130103-0332033102333331"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -951,37 +951,37 @@ Terraform syntax:
 bfd_disabled = {}
 ```
 
-<a id="canonical-448a8fc9e4bf12562f7158869a2535ef58118c6f0d6ef2e58ba9c4a6567ce104"></a>
+<a id="canonical-1010202220333021-3210233301021112-0233130111202012-2122021103113233-1120010120301233-0031123233023211-2023222130102212-1112133032010010"></a>
 
-## Direct properties — peers.bfd_disabled / 32011f1f4360 / 3
+## Direct properties — bfd_disabled / 013310031200 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-401ae6926719f30e030519cbfcd289d3a5a7d3656ebd418c59c28cac321bfc67"></a>
+<a id="canonical-1000012232122102-1213012133030032-0003001101213023-3330310220213103-2211221331031211-1232233110012030-1121300220302230-0302012333301213"></a>
 
-## Next pages — peers.bfd_disabled / 32011f1f4360 / 4
+## Next pages — bfd_disabled / 013310031200 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-55792024d68e0c83fab75a1962dec885d4d0bddb89824ece282383726ee51219"></a>
+<a id="canonical-1111132102000210-3112203200302003-3322231311220121-1202313230202011-3110310023313123-2021200210323032-0220020320031302-1232321101020121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a21899e3ea9adb1c2483ed716abe894b20c15d67aa0aa1885b95cd8001dc493"></a>
+<a id="canonical-1322020120212132-0332222122312301-3002102003323113-0112222332202110-2302003001113112-1322220022220120-2011232111303120-0000013130102103"></a>
 
-## peers.bfd_enabled — peers.bfd_enabled / 6bfc80db8bb4 / 2
+## peers.bfd_enabled — bfd_enabled / 312320232310 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.bfd_enabled
 
-<a id="canonical-0a30eb89eca83e6a826e570c53eb21d8c01fcd67ba6f64497f0cadd987e999bf"></a>
+<a id="canonical-0022030032232021-3230222003321222-2002123211130030-1103322302013120-3000013330311213-2322123312101021-1333003022313121-2013322121212333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1020,15 +1020,15 @@ bfd_enabled {
 }
 ```
 
-<a id="canonical-4cf91a158935e54cc2e1912456d631c4130d3c66629b9b43786a5daa5baeccf4"></a>
+<a id="canonical-1030332101220111-2021031132111030-3002320121010210-1112311203013010-0103003103301212-1202212321231003-1320122211312222-1123223230303310"></a>
 
-## Direct properties — peers.bfd_enabled / 6bfc80db8bb4 / 3
+## Direct properties — bfd_enabled / 312320232310 / 3
 
-<a id="canonical-19992874207e5b398b0c30e6504cabdf5a699c6315658aa29a714b8223305a86"></a>
+<a id="canonical-0121212102201310-0200133211230321-2023003003003212-1100103022233133-1122122121301203-0111121120222202-2122130110232002-0203030011222012"></a>
 
-<a id="canonical-20427281dc0c656583f76ee4e10cb061931c18b2119e9cbc8a412576468d5fab"></a>
+<a id="canonical-0200100213022001-3130003012111211-2003331312323210-3201003023001201-2103013001202302-0101213221302330-2022100102111312-1012203111332223"></a>
 
-## multiplier property — peers.bfd_enabled / 6bfc80db8bb4 / 4
+## multiplier property — bfd_enabled / 312320232310 / 4
 
 Type: `"number"`. Optional.
 
@@ -1081,11 +1081,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-25c968a49a62d6cd36a47ba8211c5de20a78bf80eb05d195c161521e382b4226"></a>
+<a id="canonical-0211302112202210-2122120231123031-0312221013232220-0201013011313202-0022132023332000-3223001131012111-3001120111020132-0320022310020212"></a>
 
-<a id="canonical-13548599339a2b88d1334732db02c8e3f7f0943a513cd4f61f2dd2643b4fc8f1"></a>
+<a id="canonical-0103111020112121-0303212202232020-3101030310130302-3123000230203203-3313330021100322-1101033031103312-0133023131021210-0323103330203301"></a>
 
-## receive_interval_milliseconds property — peers.bfd_enabled / 6bfc80db8bb4 / 5
+## receive_interval_milliseconds property — bfd_enabled / 312320232310 / 5
 
 Type: `"number"`. Optional.
 
@@ -1134,11 +1134,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0494500542d0cafcfd6b0904292e4ae67619b7d21df861023bcdefe6086955a6"></a>
+<a id="canonical-0010211011000011-1002310030223330-3331122300210010-0221023210223212-1312012123133102-0131332012010002-0323303132333212-0020122111112212"></a>
 
-<a id="canonical-008d9fd5163860aaa6e3e0b917d12324f0cf34b2a3a58ba61b7b4a11270ccd79"></a>
+<a id="canonical-0000203121333111-0112032012002222-2212320332002321-0113310102030210-3300303303102302-2203221120232212-0123132310220101-0213003030311321"></a>
 
-## transmit_interval_milliseconds property — peers.bfd_enabled / 6bfc80db8bb4 / 6
+## transmit_interval_milliseconds property — bfd_enabled / 312320232310 / 6
 
 Type: `"number"`. Optional.
 
@@ -1187,31 +1187,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1abc415c5a3589b24d1f6eb89b156460397816a0661ba41217405d5051fab027"></a>
+<a id="canonical-0122233010011130-1122031120212302-1031013312322320-2123011112101200-0321132001122200-1212012322100102-0113100011311100-1101332223000213"></a>
 
-## Next pages — peers.bfd_enabled / 6bfc80db8bb4 / 7
+## Next pages — bfd_enabled / 312320232310 / 7
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-ed04fad1dcfdd41a884ce0cba5a2d45546fd25404e40013a5d7be7a4d474d2eb"></a>
+<a id="canonical-3231001033223101-3130333131100122-2020103032003023-2211220231101111-1012333102111000-1032100000010322-1131132332132210-3110131031023223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a023f48eacfbd9afa39a20c3ffef7305a8c88332a1d129e22a15e4229d2113d0"></a>
+<a id="canonical-2200020333102032-2230332331212233-2203212202003003-3333323313030011-2220302020030302-2201310102213202-0222011132100202-2131020101033100"></a>
 
-## peers.disable_spec — peers.disable_spec / 747ad1d29c14 / 2
+## peers.disable_spec — disable_spec / 310221300110 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.disable_spec
 
-<a id="canonical-79f746d35a2e2260501f560918f8af59cf20bf5b93d5ea4b9a7851602472ce31"></a>
+<a id="canonical-1321331310123103-1122023202021200-1100013311120021-0120332022331121-3033020023331123-2103311132221023-2122132011011200-0210130230320301"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1223,37 +1223,37 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-ee0253267c02b335158c6da0c59da1319dfe9cebc70a1738d96763f4ddfcca44"></a>
+<a id="canonical-3232000211030212-1330000223030311-0111203012312200-3011213122010301-2131333221303223-3013002201130320-3121121312033310-3131333030221010"></a>
 
-## Direct properties — peers.disable_spec / 747ad1d29c14 / 3
+## Direct properties — disable_spec / 310221300110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9dbda64272181145d65bf8cae1b0086126f12a29f56e1c38abc635168d51cb10"></a>
+<a id="canonical-2131233122121002-1302012001011011-3112112333203022-3201230000201201-0212330102220221-3311123201300320-2223301203110112-2031110130230100"></a>
 
-## Next pages — peers.disable_spec / 747ad1d29c14 / 4
+## Next pages — disable_spec / 310221300110 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-17fb2a9f0433a69a5b3428b8896a647da038255dcb929ea94202b599a2256cd8"></a>
+<a id="canonical-0113332302222133-0010030322122122-1123031002202320-2021122212101331-2200032002111131-3023210221322221-1002000223112121-2202021112303120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89c9b21f6cf58cd53acc0da5486be30f59c5c331a988b2f0b78fe9cc4f7f79b7"></a>
+<a id="canonical-2021302123020133-1230331120303111-0322303000312211-1020122332030033-1121301130030301-2221202023023300-2313203332213030-1033133313212313"></a>
 
-## peers.ebgp_multihop_disabled — peers.ebgp_multihop_disabled / 9a3a63e36663 / 2
+## peers.ebgp_multihop_disabled — ebgp_multihop_disabled / 320312121203 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.ebgp_multihop_disabled
 
-<a id="canonical-3dff417b72e32f2cf74395786c49984b309fbef19a2b30ca46db17e652d53d25"></a>
+<a id="canonical-0331333310011323-1302320302330230-3313100321111320-1230102121201023-0300213323323301-2122022303003022-1012312301133212-1102311103310211"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1282,37 +1282,37 @@ Terraform syntax:
 ebgp_multihop_disabled = {}
 ```
 
-<a id="canonical-15a411efb90dfbc3aa7511272433ca1b7ef5f3904d62329140a48ae53f2d590e"></a>
+<a id="canonical-0111221001013233-2321003133233003-2222131101010213-0210030330220123-1332331133032100-1031120203022101-1000221020223211-0333023111210032"></a>
 
-## Direct properties — peers.ebgp_multihop_disabled / 9a3a63e36663 / 3
+## Direct properties — ebgp_multihop_disabled / 320312121203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1e89cf3af51562150e78ac160d7d7ca363e79a126fa106aa26d28ee8ead2061b"></a>
+<a id="canonical-0132202130330322-3311011112020111-0032132022300112-0031133113302203-1203321321220102-1233220100122222-0212310220323220-3222310200120123"></a>
 
-## Next pages — peers.ebgp_multihop_disabled / 9a3a63e36663 / 4
+## Next pages — ebgp_multihop_disabled / 320312121203 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-31cdb70dc13c2e3531f401e112c247b5948c581cfab23cc52190a9f24e39225a"></a>
+<a id="canonical-0301303123130031-3001033002320311-0301331000013201-0102300210132311-2110203011200130-3322230203303011-0201210022213302-1032032102021122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a5afa2c9e7681a0d4b0248b076d4e7d101e7aaeeb0c9677c00e7b8e8588ed256"></a>
+<a id="canonical-2211223322023021-3213122001220031-1023000210202300-1312311032133101-0001321322223232-2300302112131330-0000321323203220-1120203231021112"></a>
 
-## peers.ebgp_multihop_enabled — peers.ebgp_multihop_enabled / 456f763614a7 / 2
+## peers.ebgp_multihop_enabled — ebgp_multihop_enabled / 031201102213 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.ebgp_multihop_enabled
 
-<a id="canonical-74f601a65d17d93d0c783d4fc18d58e4f0ae371e1b30411e48fd8e2cfa876424"></a>
+<a id="canonical-1310331200012212-1131011331210331-0030132003311033-3001203111203210-3300223203130132-0123030010010132-1020333120320230-3322201312100210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1341,37 +1341,37 @@ Terraform syntax:
 ebgp_multihop_enabled = {}
 ```
 
-<a id="canonical-a1b1f06d964f015ef675581e18b4921300a195c131b57f7bc9eabf32895149de"></a>
+<a id="canonical-2201230133001231-2112103300011132-3312131111200132-0120231021020103-0000220121113001-0301231113331323-3021322223330302-2021110110213132"></a>
 
-## Direct properties — peers.ebgp_multihop_enabled / 456f763614a7 / 3
+## Direct properties — ebgp_multihop_enabled / 031201102213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7176e4cba06bfc6be6be89baf51158a32c720c0f69a459193f4c297f3f39b654"></a>
+<a id="canonical-1301131232103023-2200122333301223-3212233220212322-3311010111202203-0230130200300033-1221221011210121-0333103002211333-0333032123121110"></a>
 
-## Next pages — peers.ebgp_multihop_enabled / 456f763614a7 / 4
+## Next pages — ebgp_multihop_enabled / 031201102213 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d"></a>
+<a id="canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06104b350c7b09de5d55db6c4297031f3e649ce21bb8cb8ec374f356d677d4b5"></a>
+<a id="canonical-0012010010230311-0030132300213132-1131111131231230-1002211300030133-0332121021303202-0123232030232032-3003131033031112-3112131331102311"></a>
 
-## peers.external — peers.external / c09315f81a6c / 2
+## peers.external — external / 332001221230 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.external
 
-<a id="canonical-80960c20ffc2cf6696f62c345f5bac78dc548e0942b857ce44c8cdc7f27aa0e4"></a>
+<a id="canonical-2000211200300200-3333300230331212-2112331202300310-1133112322301320-3130111020320021-1002232011133032-1010302030313013-3302132222003210"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1489,15 +1489,15 @@ external {
 }
 ```
 
-<a id="canonical-6b03af143741be426d67029d79c0a11c35add57a13c683ac752f3746f35a958a"></a>
+<a id="canonical-1223000322330110-0313100123321002-1231121300022131-1321300022010130-0311223131111322-0103301220032230-1311023303131012-3303112221112022"></a>
 
-## Direct properties — peers.external / c09315f81a6c / 3
+## Direct properties — external / 332001221230 / 3
 
-<a id="canonical-9eef0f07c2641e1d30bf04056f9a1a9efc38f671cbc35165710fd0144d50c5a5"></a>
+<a id="canonical-2132323300330013-3002121001320131-0300233300100011-1233212201222132-3330032033121301-3023300311011211-1301003331000110-1031110030112211"></a>
 
-<a id="canonical-26372e2b65e87d123dae7663680d0ff5181a5336e2ff36d1a509e3faa1f3958f"></a>
+<a id="canonical-0212031302320223-1211322013310102-0331223213121203-1220003100333311-0120012211030312-3202333303123101-2211002132033322-2201330321112033"></a>
 
-## address property — peers.external / c09315f81a6c / 4
+## address property — external / 332001221230 / 4
 
 Type: `"string"`. Optional.
 
@@ -1549,11 +1549,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b2cadc2b616fc98d5322308e6c30e1fa924b141282a41c8dc585e6bcbf0c87ab"></a>
+<a id="canonical-2302302231300223-1201123330212031-1103020203002032-1230030032013322-2102102301100102-2002221001302031-3011201132122330-2333003020132223"></a>
 
-<a id="canonical-95e0af31c764970c749455984566a513dca1b7373099cf147cac8ba556865c8a"></a>
+<a id="canonical-2111320022330301-3013121021130030-1310211011112120-1011121222110103-3130220123130313-0300212130330110-1330223020232211-1112201211302022"></a>
 
-## address_ipv6 property — peers.external / c09315f81a6c / 5
+## address_ipv6 property — external / 332001221230 / 5
 
 Type: `"string"`. Optional.
 
@@ -1605,11 +1605,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67b051c3a6f7b7562f16cab0d31cd1c4d37455a225c90eefccd1d01140650d52"></a>
+<a id="canonical-1213230011013003-2212331323131112-0233011230222300-3103013031013010-3103131011112202-0211302100323233-3030310131000101-1000121100311102"></a>
 
-<a id="canonical-e5c345bd73adc028cc0d35389c31905240568ab1a1f7451542fd4c2fe4c6551a"></a>
+<a id="canonical-3211300310112331-1303223130000220-3030003103110320-2130030121001102-1000111220222301-2201331310110111-1002333110300233-3210301211110122"></a>
 
-## asn property — peers.external / c09315f81a6c / 6
+## asn property — external / 332001221230 / 6
 
 Type: `"number"`. Optional.
 
@@ -1659,31 +1659,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_gateway](resources--bgp--reference--group-001.md#canonical-a646f5fc0dd73e913662fbc465e40f8410a709c32712d25f342cd0b504d61e63): complete subsection reference.
+- [default_gateway](resources--bgp--reference--group-001.md#canonical-2212101233113330-0031311303322101-0312120233233010-1211321000332010-0100221300213003-0213010231021133-0310023031002311-0010311201321203): complete subsection reference.
 
-- [default_gateway_v6](resources--bgp--reference--group-001.md#canonical-b0f35b8b45c6585728635d4195faec20aeb242f5235fcf0a6ffd2cb70c1f7a1d): complete subsection reference.
+- [default_gateway_v6](resources--bgp--reference--group-001.md#canonical-2300330311232023-1011301211201113-0220120311311001-2111332232300200-2232230210023311-0203113330330022-1233333102302313-0030013313220131): complete subsection reference.
 
-- [disable_spec](resources--bgp--reference--group-001.md#canonical-452850a3a85857a1e767da0ce1c98d01bda2bb7b2a6176469de2f56ebcfdb196): complete subsection reference.
+- [disable_spec](resources--bgp--reference--group-001.md#canonical-1011022011002203-2220112011132201-3213121331220030-3201302120310001-2331220223231323-0222120113121012-2131320233111232-2330333123012112): complete subsection reference.
 
-- [disable_v6](resources--bgp--reference--group-001.md#canonical-07d74e96c103df0914494917f1d06561253fa6c6128e4df2f9027c8ce1af9541): complete subsection reference.
+- [disable_v6](resources--bgp--reference--group-001.md#canonical-0013311310322112-3001000331330021-0110102110210113-3301310012111201-0211033322123012-0102203210313302-3321000213302030-3201223321111001): complete subsection reference.
 
-- [external_connector](resources--bgp--reference--group-001.md#canonical-cf6b5c386f3628f9c02d77b5e0736035d940a68a9344484c3804695e142c9e68): complete subsection reference.
+- [external_connector](resources--bgp--reference--group-001.md#canonical-3033122311300320-1233031202203321-3000023113132311-3200130312000311-3121100022122022-2103101010201030-0320001012211132-0110023021321220): complete subsection reference.
 
-- [family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723): complete subsection reference.
+- [family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203): complete subsection reference.
 
-- [from_site](resources--bgp--reference--group-001.md#canonical-1ecb569671cc8878688ef58287367d62058abff3418187699d5ebb0320a65caa): complete subsection reference.
+- [from_site](resources--bgp--reference--group-001.md#canonical-0132302311122112-1301303020201320-1220203233112002-2013031213311202-0011202223333303-1001200120131221-2131113223230003-0200221211302222): complete subsection reference.
 
-- [from_site_v6](resources--bgp--reference--group-001.md#canonical-1d91b8da6411f7c0b9edb7ac3a926eaa540ead94045b2cad5aa9f9a4d0348afe): complete subsection reference.
+- [from_site_v6](resources--bgp--reference--group-001.md#canonical-0131210123203122-1210010133133000-2321323123132230-0322210212322222-1110003222312110-0010112302302231-1122222133212210-3100031020223332): complete subsection reference.
 
-- [interface](resources--bgp--reference--group-001.md#canonical-eb06dea74455712226ef475ea1308bdc0fc5d05efb6651ec7f380e69996445f9): complete subsection reference.
+- [interface](resources--bgp--reference--group-001.md#canonical-3223001231322213-1010111113010202-0212323310131132-2201030020233130-0033301131001132-3323121211013230-1333032000321221-2121121010113321): complete subsection reference.
 
-- [interface_list](resources--bgp--reference--group-001.md#canonical-2903ae4c579626921f7623ed7d51905b15a3fc16dad5e1da393cde86f4ca0741): complete subsection reference.
+- [interface_list](resources--bgp--reference--group-001.md#canonical-0221000322321030-1113211202122102-0133131202033231-1331110121001123-0111220333300112-3122311132013122-0321033031322012-3310302200131001): complete subsection reference.
 
-<a id="canonical-0a923ffa0774c0002ee23886596ba4e45d3d1e53c1bc7c1afbc03fcc17575d98"></a>
+<a id="canonical-0022210203333322-0013131030000000-0232320203202012-1121122322103210-1131033101321103-3001233013300122-3323300003333030-0113111311312120"></a>
 
-<a id="canonical-d3f24c72f1281af421d01c2a026aad2362aed2bf4591e35da7633c34c3098486"></a>
+<a id="canonical-3103330210301302-3301022001223310-0201310001300222-0002122222310203-1202223231022333-1011210132031131-2213120303300310-3003002120102012"></a>
 
-## md5_auth_key property — peers.external / c09315f81a6c / 7
+## md5_auth_key property — external / 332001221230 / 7
 
 Type: `"string"`. Optional.
 
@@ -1716,13 +1716,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_authentication](resources--bgp--reference--group-001.md#canonical-3cac5b771dcbb41fae494da03d3dfcce71418891b846b57ad003ac2b0e980d12): complete subsection reference.
+- [no_authentication](resources--bgp--reference--group-001.md#canonical-0330223011231313-0131302323100133-2232102110312200-0331033133303032-1301100120202101-2320101223111322-3100000322300223-0032212000310102): complete subsection reference.
 
-<a id="canonical-f659cfcc83450431e5a30f4cb15864c19db82aa14ace3bfdf7bb8985e826c2e8"></a>
+<a id="canonical-3312112130333030-2003101100100301-3211220300331030-2301112012103001-2131232002222201-1022303203233331-3313232320212011-3220021230023220"></a>
 
-<a id="canonical-97486c19c0e26628eb6e7616b497ca1f9ae4599ccb30999e2e5a31c98259ae12"></a>
+<a id="canonical-2113102012300121-3000320212120220-3223123213120112-2310211330220133-2122321011212130-3023030021212132-0232112203013021-2002112122320102"></a>
 
-## port property — peers.external / c09315f81a6c / 8
+## port property — external / 332001221230 / 8
 
 Type: `"number"`. Optional.
 
@@ -1774,11 +1774,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5d2c1b0f9de01746aa51f1897d27d552ec5da048a4287e83b7d4cf42753e849f"></a>
+<a id="canonical-1131023001230033-2131320001131012-2222110133012021-1331021331111102-3230113122001020-2210022013322003-2313311030331002-1311033220102133"></a>
 
-<a id="canonical-581b8927b9ba20e6d3ec7e33e05265aab0f8ce219d88f78b400eb78759c662ad"></a>
+<a id="canonical-1120012320210213-2321232202003212-3103323013320303-3200110212112222-2300332030320201-2131202033132023-1000003223132013-1121301212022231"></a>
 
-## subnet_begin_offset property — peers.external / c09315f81a6c / 9
+## subnet_begin_offset property — external / 332001221230 / 9
 
 Type: `"number"`. Optional.
 
@@ -1831,11 +1831,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6448247d8274d2346f27b6a9b68aed0a490aa69581e277d12f9e5d0b974f1d2"></a>
+<a id="canonical-3012101020021013-3120021310310203-1012330213231222-2123122022323100-2210210022221221-1120013202131331-0102332132113100-2321131033013102"></a>
 
-<a id="canonical-5ec875434c7db6f88fa2a6935cf4598071528001dd6726921236440c5d67a891"></a>
+<a id="canonical-1132302013111003-1030133123123320-2033220222122103-1130331011212000-1301110220000001-3131121302122102-0102031210100030-1131121322202101"></a>
 
-## subnet_begin_offset_v6 property — peers.external / c09315f81a6c / 10
+## subnet_begin_offset_v6 property — external / 332001221230 / 10
 
 Type: `"number"`. Optional.
 
@@ -1888,11 +1888,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-083f0951844e22ef130e12c43c37cdf531790751422513f09c2bf9886924885a"></a>
+<a id="canonical-0020033300211101-2010103202023233-0103003201023010-0330031330313311-0301132100131101-1002021101033300-2130022333212020-1221021020201122"></a>
 
-<a id="canonical-ab7e2cf47b9ecec87fdcb74d45403615beffa9572328f7fae7ea5b4a02dd6850"></a>
+<a id="canonical-2223133202303310-1323213230323020-1333313023131031-1011100003120111-2332333322211113-0203022033133322-3213322211231022-0002313112201100"></a>
 
-## subnet_end_offset property — peers.external / c09315f81a6c / 11
+## subnet_end_offset property — external / 332001221230 / 11
 
 Type: `"number"`. Optional.
 
@@ -1945,11 +1945,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ce2afcba806c7dda78e7da514bccbe5801d1737d3f7e27ffe9d41b412bef74ec"></a>
+<a id="canonical-3032022233302322-2000123013313122-1320321331221101-1023303023321120-0001310113031331-0333133202133333-3221311001231001-0223323313103230"></a>
 
-<a id="canonical-f6ce467152aa94c8f5f621e80f00e948f550d712431cbfdbac75ab58cba63f5c"></a>
+<a id="canonical-3312303210121301-1102222221103020-3311331202013220-0033000032211020-3311110031130102-1003013023333123-2230131122231120-3023221203331130"></a>
 
-## subnet_end_offset_v6 property — peers.external / c09315f81a6c / 12
+## subnet_end_offset_v6 property — external / 332001221230 / 12
 
 Type: `"number"`. Optional.
 
@@ -2002,43 +2002,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-334ea779e3f2d125549900d8e8aac2f35e74667c363e115dce131bf74618eba1"></a>
+<a id="canonical-0303103222131321-3203330231010211-1110212100003120-3220222230023303-1132131012121330-0312033201011131-3032010301233313-1012012032232201"></a>
 
-## Next pages — peers.external / c09315f81a6c / 13
+## Next pages — external / 332001221230 / 13
 
-- [peers.external.default_gateway](resources--bgp--reference--group-001.md#canonical-a646f5fc0dd73e913662fbc465e40f8410a709c32712d25f342cd0b504d61e63)
-- [peers.external.default_gateway_v6](resources--bgp--reference--group-001.md#canonical-b0f35b8b45c6585728635d4195faec20aeb242f5235fcf0a6ffd2cb70c1f7a1d)
-- [peers.external.disable_spec](resources--bgp--reference--group-001.md#canonical-452850a3a85857a1e767da0ce1c98d01bda2bb7b2a6176469de2f56ebcfdb196)
-- [peers.external.disable_v6](resources--bgp--reference--group-001.md#canonical-07d74e96c103df0914494917f1d06561253fa6c6128e4df2f9027c8ce1af9541)
-- [peers.external.external_connector](resources--bgp--reference--group-001.md#canonical-cf6b5c386f3628f9c02d77b5e0736035d940a68a9344484c3804695e142c9e68)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [peers.external.from_site](resources--bgp--reference--group-001.md#canonical-1ecb569671cc8878688ef58287367d62058abff3418187699d5ebb0320a65caa)
-- [peers.external.from_site_v6](resources--bgp--reference--group-001.md#canonical-1d91b8da6411f7c0b9edb7ac3a926eaa540ead94045b2cad5aa9f9a4d0348afe)
-- [peers.external.interface](resources--bgp--reference--group-001.md#canonical-eb06dea74455712226ef475ea1308bdc0fc5d05efb6651ec7f380e69996445f9)
-- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-2903ae4c579626921f7623ed7d51905b15a3fc16dad5e1da393cde86f4ca0741)
-- [peers.external.no_authentication](resources--bgp--reference--group-001.md#canonical-3cac5b771dcbb41fae494da03d3dfcce71418891b846b57ad003ac2b0e980d12)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.default_gateway](resources--bgp--reference--group-001.md#canonical-2212101233113330-0031311303322101-0312120233233010-1211321000332010-0100221300213003-0213010231021133-0310023031002311-0010311201321203)
+- [peers.external.default_gateway_v6](resources--bgp--reference--group-001.md#canonical-2300330311232023-1011301211201113-0220120311311001-2111332232300200-2232230210023311-0203113330330022-1233333102302313-0030013313220131)
+- [peers.external.disable_spec](resources--bgp--reference--group-001.md#canonical-1011022011002203-2220112011132201-3213121331220030-3201302120310001-2331220223231323-0222120113121012-2131320233111232-2330333123012112)
+- [peers.external.disable_v6](resources--bgp--reference--group-001.md#canonical-0013311310322112-3001000331330021-0110102110210113-3301310012111201-0211033322123012-0102203210313302-3321000213302030-3201223321111001)
+- [peers.external.external_connector](resources--bgp--reference--group-001.md#canonical-3033122311300320-1233031202203321-3000023113132311-3200130312000311-3121100022122022-2103101010201030-0320001012211132-0110023021321220)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [peers.external.from_site](resources--bgp--reference--group-001.md#canonical-0132302311122112-1301303020201320-1220203233112002-2013031213311202-0011202223333303-1001200120131221-2131113223230003-0200221211302222)
+- [peers.external.from_site_v6](resources--bgp--reference--group-001.md#canonical-0131210123203122-1210010133133000-2321323123132230-0322210212322222-1110003222312110-0010112302302231-1122222133212210-3100031020223332)
+- [peers.external.interface](resources--bgp--reference--group-001.md#canonical-3223001231322213-1010111113010202-0212323310131132-2201030020233130-0033301131001132-3323121211013230-1333032000321221-2121121010113321)
+- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-0221000322321030-1113211202122102-0133131202033231-1331110121001123-0111220333300112-3122311132013122-0321033031322012-3310302200131001)
+- [peers.external.no_authentication](resources--bgp--reference--group-001.md#canonical-0330223011231313-0131302323100133-2232102110312200-0331033133303032-1301100120202101-2320101223111322-3100000322300223-0032212000310102)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-a646f5fc0dd73e913662fbc465e40f8410a709c32712d25f342cd0b504d61e63"></a>
+<a id="canonical-2212101233113330-0031311303322101-0312120233233010-1211321000332010-0100221300213003-0213010231021133-0310023031002311-0010311201321203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0f4bf35c06344cd40cd03262750b312258c1f740b3672dff737a05ecbe66191b"></a>
+<a id="canonical-0033102333031130-0012031010303110-0030310003021202-1311002303010202-1120300133131000-2303121302313333-1303132200113230-2332121201210123"></a>
 
-## peers.external.default_gateway — peers.external.default_gateway / cacc4a75fe82 / 2
+## peers.external.default_gateway — default_gateway / 131133322002 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.default_gateway
 
-<a id="canonical-5735f9241bf6e59e72ad6939f21da39ead8d00b60f908e6e29bb10978a00df6c"></a>
+<a id="canonical-1113031133210210-0123331232112132-1302223112210321-3302013122032132-2231203100002312-0033210020321232-0221232301002113-2022000031331230"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2067,38 +2067,38 @@ Terraform syntax:
 default_gateway = {}
 ```
 
-<a id="canonical-3c19e081080c74a1757e34e0d84221c4dbf3ab9ddbb0df9a7690f86e4f79be5f"></a>
+<a id="canonical-0330012132002001-0020003013102201-1311133203103200-3120100202013010-3123330322232131-3123230031332122-1312210033201232-1033132123321133"></a>
 
-## Direct properties — peers.external.default_gateway / cacc4a75fe82 / 3
+## Direct properties — default_gateway / 131133322002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-85591f6f14c62029021eaad47cfcce7fbe1a3fce06fd33f8dd19ac1f21a73653"></a>
+<a id="canonical-2011112101331233-0110301202000221-0002013222223110-1330333030321333-2332012203333032-0012333103033320-3131012122300133-0201221303121103"></a>
 
-## Next pages — peers.external.default_gateway / cacc4a75fe82 / 4
+## Next pages — default_gateway / 131133322002 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-b0f35b8b45c6585728635d4195faec20aeb242f5235fcf0a6ffd2cb70c1f7a1d"></a>
+<a id="canonical-2300330311232023-1011301211201113-0220120311311001-2111332232300200-2232230210023311-0203113330330022-1233333102302313-0030013313220131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3299a485ef1428a9b3094945613c4c47fc748a69163fa896c0bd85f359801728"></a>
+<a id="canonical-0302212122102011-3233011002202221-2303002110211011-1201033010301013-3330131020221221-0112033322202112-3000233120113303-1121200001130220"></a>
 
-## peers.external.default_gateway_v6 — peers.external.default_gateway_v6 / 08cd7bcc6dfc / 2
+## peers.external.default_gateway_v6 — default_gateway_v6 / 303012313330 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.default_gateway_v6
 
-<a id="canonical-07bb4a3c1ed6fb99fcb8b97dd5da14bcdd4e282eb76cbbf468574ce472522a88"></a>
+<a id="canonical-0013232310220330-0132311233232121-3330232023211331-3111312201102330-3131103202200232-2313123023233310-1220111310303210-1302110202222020"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2127,38 +2127,38 @@ Terraform syntax:
 default_gateway_v6 = {}
 ```
 
-<a id="canonical-48b727b805ba7cf6bcc8761886c95deffd27e02caa84ee1dba0dce28a332b4b2"></a>
+<a id="canonical-1020231302132320-0011232213303312-2330302013120120-2012302111313233-3331021332000230-2222201032320131-2322003130320220-2203030223102302"></a>
 
-## Direct properties — peers.external.default_gateway_v6 / 08cd7bcc6dfc / 3
+## Direct properties — default_gateway_v6 / 303012313330 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ee0712fffe9550c7dc7ed8cbb1abed67dc4a633445e2d68e5e6d152c58384a9b"></a>
+<a id="canonical-3232001301023333-3332211111003013-3130133231203023-2301222332311213-3130102212030310-1011320231122032-1132123101110230-1120032010222123"></a>
 
-## Next pages — peers.external.default_gateway_v6 / 08cd7bcc6dfc / 4
+## Next pages — default_gateway_v6 / 303012313330 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-452850a3a85857a1e767da0ce1c98d01bda2bb7b2a6176469de2f56ebcfdb196"></a>
+<a id="canonical-1011022011002203-2220112011132201-3213121331220030-3201302120310001-2331220223231323-0222120113121012-2131320233111232-2330333123012112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2518e089dae712c4cc52078e20327f051cfddde984fd42f9b9c26921e29cd71b"></a>
+<a id="canonical-0211012032002021-3122321301023010-3030110200132032-0200030213330011-0130333131313221-2010333110023321-2321300212210201-3202213031130123"></a>
 
-## peers.external.disable_spec — peers.external.disable_spec / a7c95a1c5daf / 2
+## peers.external.disable_spec — disable_spec / 013011312233 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.disable_spec
 
-<a id="canonical-186c5e7b11aba3cf5dddc42e4440c2a61a7ec764a56fcc8d0194466e11577594"></a>
+<a id="canonical-0120123011321323-0101222322033033-1131313130100232-1010100030022212-0122133230131210-2211123330302031-0001211010121232-0101111313112110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2170,38 +2170,38 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-b180997d819ea23455e4c86a86882ce0be98832a1aab0d8afaaf47fc73778e0c"></a>
+<a id="canonical-2301200021211331-2001213222020310-1111321030201222-2012202002303200-2332212020030222-0122222300312022-3322223310133330-1303131320320030"></a>
 
-## Direct properties — peers.external.disable_spec / a7c95a1c5daf / 3
+## Direct properties — disable_spec / 013011312233 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-aa46cd3b7cf4d41ece8f5795f41729d3d7de5c445b085aac3e2bbd998548c410"></a>
+<a id="canonical-2222101230310323-1330331031100132-3032203311132111-3310011302213103-3113313211301010-1123002011222230-0332022323312121-2011102030100100"></a>
 
-## Next pages — peers.external.disable_spec / a7c95a1c5daf / 4
+## Next pages — disable_spec / 013011312233 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-07d74e96c103df0914494917f1d06561253fa6c6128e4df2f9027c8ce1af9541"></a>
+<a id="canonical-0013311310322112-3001000331330021-0110102110210113-3301310012111201-0211033322123012-0102203210313302-3321000213302030-3201223321111001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d96fa531a463c46f321bc9366e705ff97cb778ab3f5420987396f6d38d1f041e"></a>
+<a id="canonical-3121123322110301-2210120330101233-0302012330210312-1232130011333321-1330231313202223-0333111002002120-1303211233123103-2031013300100132"></a>
 
-## peers.external.disable_v6 — peers.external.disable_v6 / 85e50dd33cc6 / 2
+## peers.external.disable_v6 — disable_v6 / 310303303012 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.disable_v6
 
-<a id="canonical-720049b609606087e1b03346494e2232d0052d78c8a17c907b9c53f8bab5139f"></a>
+<a id="canonical-1302000010212312-0021120012002013-3201230003031012-1021103202020302-3100001102311320-3020220113302100-1323213011033320-2322231101032133"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2230,38 +2230,38 @@ Terraform syntax:
 disable_v6 = {}
 ```
 
-<a id="canonical-2ed230164b3f6c3208a16f79d4762eb25bd638673d0d80a4d0af1f3d39222a75"></a>
+<a id="canonical-0232310203000112-1023033312300302-0020220112331321-3110131202322302-1123311203201213-0331003120002210-3100223301330331-0321020202221311"></a>
 
-## Direct properties — peers.external.disable_v6 / 85e50dd33cc6 / 3
+## Direct properties — disable_v6 / 310303303012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1af0e0b22896046362ca047f5cac0b4c4ba058d362759f5ede5bbe571fe4ef46"></a>
+<a id="canonical-0122330032002302-0220211200101203-1202302200101333-1130223000231030-1023220011203103-1202131121331132-3132112323321113-0133321032331012"></a>
 
-## Next pages — peers.external.disable_v6 / 85e50dd33cc6 / 4
+## Next pages — disable_v6 / 310303303012 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-cf6b5c386f3628f9c02d77b5e0736035d940a68a9344484c3804695e142c9e68"></a>
+<a id="canonical-3033122311300320-1233031202203321-3000023113132311-3200130312000311-3121100022122022-2103101010201030-0320001012211132-0110023021321220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c68a3359a878ac315a3221e4d441817165c97af1f9bed17fc78270a58a1fe47"></a>
+<a id="canonical-0030122022030311-2122201320223003-0111220302020132-1031101001200113-0112113021132233-0133212332310113-3330132002130022-1120220133321013"></a>
 
-## peers.external.external_connector — peers.external.external_connector / 4da720193f9b / 2
+## peers.external.external_connector — external_connector / 012103332123 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.external_connector
 
-<a id="canonical-39f01a4b72cfc57f7a265c3dcdd1b9f35f0809060fe70edd32e2e9350194a120"></a>
+<a id="canonical-0321330001221023-1302303330111333-1322021211300331-3031310123213303-1133002000210012-0033321300323131-0302320232210311-0001211022010200"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2290,38 +2290,38 @@ Terraform syntax:
 external_connector = {}
 ```
 
-<a id="canonical-8e0011290431e71033f8e97523363e282d284990269fc6c18e43db977fffdb1f"></a>
+<a id="canonical-2032000001010221-0010030132130100-0303332032211311-0203031203320220-0231022010212100-0212213330123001-2032100331232113-1333333331230133"></a>
 
-## Direct properties — peers.external.external_connector / 4da720193f9b / 3
+## Direct properties — external_connector / 012103332123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-81aab1021f472102bd8e8f7cdb7684049dda207699f889538be3780c01893fcf"></a>
+<a id="canonical-2001222223010002-0133101302010002-2331203220331330-3123131220100010-2131312202001312-2121332020211103-2023320313200030-0001202103333033"></a>
 
-## Next pages — peers.external.external_connector / 4da720193f9b / 4
+## Next pages — external_connector / 012103332123 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723"></a>
+<a id="canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1cdbf70b9b0a35b38ad640ed54bb12277873be58c077437a2c4eb98d1bad4f43"></a>
+<a id="canonical-0130312333130023-2123002203112303-2022311210003231-1110232301020213-1320130323321120-3000131310031322-0230103223212031-0123223110331003"></a>
 
-## peers.external.family_inet — peers.external.family_inet / 46ff26154d37 / 2
+## peers.external.family_inet — family_inet / 011110310313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.family_inet
 
-<a id="canonical-76dcd523905caef67f5925689ed944c4cc8eaa84041e12d2df959512b2fb54f3"></a>
+<a id="canonical-1312313031110203-2100113022323312-1333112102111220-2132312110103010-3030203222222010-0010013201023102-3133211121110102-2302332311103303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2360,43 +2360,43 @@ family_inet {
 }
 ```
 
-<a id="canonical-46948acc5aedd39befa641fc5227745a6341e75713b99c378dc988567a4f653a"></a>
+<a id="canonical-1012211020223030-1122323131032123-3233221210013330-1102021313101122-1203100132131113-0103232121300313-2031302120201112-1322103312110322"></a>
 
-## Direct properties — peers.external.family_inet / 46ff26154d37 / 3
+## Direct properties — family_inet / 011110310313 / 3
 
-- [disable_spec](resources--bgp--reference--group-001.md#canonical-e1e0ab6938bd5c350cbab53cceb0fc531df7a95f6a6b46b895250dc89a70a1ca): complete subsection reference.
+- [disable_spec](resources--bgp--reference--group-001.md#canonical-3201320022231221-0320233111300311-0030232223110330-3032230033301103-0131331322211133-1222122310122320-2111021100313020-2122130022013022): complete subsection reference.
 
-- [enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1): complete subsection reference.
+- [enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301): complete subsection reference.
 
-<a id="canonical-d0fd322ff6a8876c57e645081f7bee62cd4ceadd7aa3f6794124397fb544d23f"></a>
+<a id="canonical-3100333103020233-3312222020131230-1113321210110020-0133132332321202-3031103032223131-1322220333121321-1001021003211333-2311101031020333"></a>
 
-## Next pages — peers.external.family_inet / 46ff26154d37 / 4
+## Next pages — family_inet / 011110310313 / 4
 
-- [peers.external.family_inet.disable_spec](resources--bgp--reference--group-001.md#canonical-e1e0ab6938bd5c350cbab53cceb0fc531df7a95f6a6b46b895250dc89a70a1ca)
-- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet.disable_spec](resources--bgp--reference--group-001.md#canonical-3201320022231221-0320233111300311-0030232223110330-3032230033301103-0131331322211133-1222122310122320-2111021100313020-2122130022013022)
+- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-e1e0ab6938bd5c350cbab53cceb0fc531df7a95f6a6b46b895250dc89a70a1ca"></a>
+<a id="canonical-3201320022231221-0320233111300311-0030232223110330-3032230033301103-0131331322211133-1222122310122320-2111021100313020-2122130022013022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9b42e3efafb5afb7330e5153cdbcaab7899624dead6c0b527b8b1b373adb20e5"></a>
+<a id="canonical-2123100232033233-2233231122332313-0303003211011103-3031233022222313-2021211202103132-2231123000231102-1323202301230313-0322312302003211"></a>
 
-## peers.external.family_inet.disable_spec — peers.external.family_inet.disable_spec / e3c068f24224 / 2
+## peers.external.family_inet.disable_spec — disable_spec / 330210020210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
 - peers.external.family_inet.disable_spec
 
-<a id="canonical-766ad2144a093b3384de6e5da46b35392f19487d7ae9a1203615afec350109b2"></a>
+<a id="canonical-1312122231020110-1022002103230303-2010313212321131-2210122303110321-0233012110201331-1322322122010200-0312011122333230-0311000100212302"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2408,39 +2408,39 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-bde401d5fe11a5c71f76148c59f77c17ec1e34315ccc492e3d2f438e82ceaa95"></a>
+<a id="canonical-2331321000013111-3332010122113013-0133131201102030-1121331313300113-3230013203100301-1130303010210232-0331023310032032-2002303222222111"></a>
 
-## Direct properties — peers.external.family_inet.disable_spec / e3c068f24224 / 3
+## Direct properties — disable_spec / 330210020210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-51960d9ca1946339ad584a0305e1d05fb66275d0f024e57dfcf12f979d5d5b0e"></a>
+<a id="canonical-1101211200312130-2201211012030321-2231112010220003-0011320131001133-2312120213113100-3300021032111331-3330330102332113-2131113111230032"></a>
 
-## Next pages — peers.external.family_inet.disable_spec / e3c068f24224 / 4
+## Next pages — disable_spec / 330210020210 / 4
 
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1"></a>
+<a id="canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6b1781456a3ff5edbba7f8ec755f50a58f823576c9d378e3bb7ef2dc0fdbb23d"></a>
+<a id="canonical-1223011320011011-1222033333113231-2323221333203230-1311113311002211-2033200203111312-3021310313203203-2323133233023130-0033312323020331"></a>
 
-## peers.external.family_inet.enable — peers.external.family_inet.enable / 3746048d7137 / 2
+## peers.external.family_inet.enable — enable / 203113010313 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
 - peers.external.family_inet.enable
 
-<a id="canonical-cf6e2c354b38afb9f85e6af8949101c6fd85cf83d9ab70ce1dc3db008bc19153"></a>
+<a id="canonical-3033123202300311-1023032022332321-3320113212223320-2110210100013012-3331201130332003-3121222313003032-0131300331230000-2023300121011103"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2471,41 +2471,41 @@ enable {
 }
 ```
 
-<a id="canonical-464f704af3fd598d4a000f7d0c5282ee7fa83d22a16811019c5a58d8d976eb19"></a>
+<a id="canonical-1012103313001022-3303333111212031-1022000000331331-0030110220023232-1333222003310202-2201122001010001-2130112211203120-3121131232230121"></a>
 
-## Direct properties — peers.external.family_inet.enable / 3746048d7137 / 3
+## Direct properties — enable / 203113010313 / 3
 
-- [aggregation](resources--bgp--reference--group-001.md#canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7): complete subsection reference.
+- [aggregation](resources--bgp--reference--group-001.md#canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313): complete subsection reference.
 
-<a id="canonical-922840bd7f235c88a75ebadd9851481482f4ce4f590aefd8dd61819990e4c4c1"></a>
+<a id="canonical-2102022010002331-1333020311302020-2213113223223131-2120110110200110-2002331030321033-1121002232333120-3131120120012121-2100321030103001"></a>
 
-## Next pages — peers.external.family_inet.enable / 3746048d7137 / 4
+## Next pages — enable / 203113010313 / 4
 
-- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7"></a>
+<a id="canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9a23a9d6f48a58219b03340e76009b4d545be259606d540ed46423d36a728813"></a>
+<a id="canonical-2122020322213112-3310202211200201-2123000303100032-1312000021231031-1110112332021121-1200123111100032-3110121002033103-1222130220200103"></a>
 
-## peers.external.family_inet.enable.aggregation — peers.external.family_inet.enable.aggregation / d895a7bc0f42 / 2
+## peers.external.family_inet.enable.aggregation — aggregation / 233000331002 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301)
 - peers.external.family_inet.enable.aggregation
 
-<a id="canonical-a9b90364ed860c3d0acf345da43963e1c2dc42e6658dbe29b54e60ce1ad62350"></a>
+<a id="canonical-2221232100031210-3231201200300331-0022303303101131-2210032112033201-3002313010023212-1211203123320221-2311103212003032-0122311202031100"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2551,15 +2551,15 @@ aggregation {
 }
 ```
 
-<a id="canonical-0fa43c30122b03acb99fbb7e79ebd418412952b49cc2e3822b16f494b0455ca7"></a>
+<a id="canonical-0033221003300300-0102022300032230-2321213323231332-1321322331100120-1001022111022310-2130300232032002-0223011233102110-2300101111302213"></a>
 
-## Direct properties — peers.external.family_inet.enable.aggregation / d895a7bc0f42 / 3
+## Direct properties — aggregation / 233000331002 / 3
 
-<a id="canonical-232bca7740fc672073b9b650450b904d4a5f93ebfadfc8320303deffa6ce1c3d"></a>
+<a id="canonical-0203022330221313-1000333012130200-1303232123121100-1011002321001031-1022113321033223-3322313330200302-0003000331323333-2212303201300331"></a>
 
-<a id="canonical-7462634d2064efa87fe620c7aaa9ba1f16880461f341386f33ca176491fddc48"></a>
+<a id="canonical-1310120212031031-0200121032332220-1333321202003013-2222222123220133-0112202000101201-3303100103201233-0303302201131210-2101333131301020"></a>
 
-## ip_prefix property — peers.external.family_inet.enable.aggregation / d895a7bc0f42 / 4
+## ip_prefix property — aggregation / 233000331002 / 4
 
 Type: `"string"`. Optional.
 
@@ -2598,38 +2598,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [options](resources--bgp--reference--group-001.md#canonical-e8a42f27a8a35ab8ae3ae44945160c49a4ef723afa024e61f13c15a87c069aef): complete subsection reference.
+- [options](resources--bgp--reference--group-001.md#canonical-3220221002330213-2220220311222320-2232032232101021-1011011200301021-2210323313020322-3322000210321201-3301033001112220-1330001221223233): complete subsection reference.
 
-<a id="canonical-830980c80af9dcecb32e6e68e81cad28f2fdd578627c151bf189187e5d791773"></a>
+<a id="canonical-2003002120003020-0022332131303230-2303023212321220-3220013022310220-3302333131111320-1202133001110123-3301202101201332-1131132101131303"></a>
 
-## Next pages — peers.external.family_inet.enable.aggregation / d895a7bc0f42 / 5
+## Next pages — aggregation / 233000331002 / 5
 
-- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-e8a42f27a8a35ab8ae3ae44945160c49a4ef723afa024e61f13c15a87c069aef)
-- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-3220221002330213-2220220311222320-2232032232101021-1011011200301021-2210323313020322-3322000210321201-3301033001112220-1330001221223233)
+- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-e8a42f27a8a35ab8ae3ae44945160c49a4ef723afa024e61f13c15a87c069aef"></a>
+<a id="canonical-3220221002330213-2220220311222320-2232032232101021-1011011200301021-2210323313020322-3322000210321201-3301033001112220-1330001221223233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b94f12caf5bde23334f9ce155976785a566d3e014665531b8e0d3f5eec2f3020"></a>
+<a id="canonical-2321103301023022-3311233132020303-0310332130320111-1121131213201122-1112123103320001-1012121111030123-2032003103331132-3230023303000200"></a>
 
-## peers.external.family_inet.enable.aggregation.options — peers.external.family_inet.enable.aggregation.options / 2f010f3e5fab / 2
+## peers.external.family_inet.enable.aggregation.options — options / 033211332223 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1)
-- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301)
+- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313)
 - peers.external.family_inet.enable.aggregation.options
 
-<a id="canonical-ba32da36fafeba658ca91a5051e1270ed9d203b7ab854d47cc995bd5e1a4e5f8"></a>
+<a id="canonical-2322030231220312-3322333223221211-2030222101221100-1101320102130032-3121310200032313-2223201110311013-3030212111233111-3201221032113320"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2677,43 +2677,43 @@ options {
 }
 ```
 
-<a id="canonical-3afe14467a298551956fdd52baf818a9c85dd713c75eb37328f993e7933739a4"></a>
+<a id="canonical-0322333201101012-1322022120111101-2111123331311102-2322332001202221-3020113131130103-3013113223031303-0220332121033213-2103031303212210"></a>
 
-## Direct properties — peers.external.family_inet.enable.aggregation.options / 2f010f3e5fab / 3
+## Direct properties — options / 033211332223 / 3
 
-- [summary_only](resources--bgp--reference--group-001.md#canonical-9dc70108ff6fcaf4998fb3af6fe33aae835f8805a1e16c468267349c5dba50e0): complete subsection reference.
+- [summary_only](resources--bgp--reference--group-001.md#canonical-2131301300010020-3333123330223310-2121203323032233-1233320303222232-2003113320200011-2201320112301012-2002121303102130-1131232211003200): complete subsection reference.
 
-<a id="canonical-abddc1708decef12fd4a6f14ce9ae1f3091bdd455e1e438ebcbb4fb682605181"></a>
+<a id="canonical-2223313130011300-2031323032330102-3331102212330110-3032212232013303-0021012331311011-1132013210032032-2330232310332312-2002120011012001"></a>
 
-## Next pages — peers.external.family_inet.enable.aggregation.options / 2f010f3e5fab / 4
+## Next pages — options / 033211332223 / 4
 
-- [peers.external.family_inet.enable.aggregation.options.summary_only](resources--bgp--reference--group-001.md#canonical-9dc70108ff6fcaf4998fb3af6fe33aae835f8805a1e16c468267349c5dba50e0)
-- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet.enable.aggregation.options.summary_only](resources--bgp--reference--group-001.md#canonical-2131301300010020-3333123330223310-2121203323032233-1233320303222232-2003113320200011-2201320112301012-2002121303102130-1131232211003200)
+- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-9dc70108ff6fcaf4998fb3af6fe33aae835f8805a1e16c468267349c5dba50e0"></a>
+<a id="canonical-2131301300010020-3333123330223310-2121203323032233-1233320303222232-2003113320200011-2201320112301012-2002121303102130-1131232211003200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-be9a98f5f4158bd9826dd332dcb5a718efc597757e5e04c37a7cd3bd4f3eadc4"></a>
+<a id="canonical-2332212221203311-3310011120233121-2002123131030302-3130231122130120-3233301121131311-1332113200103003-1322133031032331-1033033222313010"></a>
 
-## peers.external.family_inet.enable.aggregation.options.summary_only — peers.external.family_inet.enable.aggregation.options.summary_only / dfdaf74270eb / 2
+## peers.external.family_inet.enable.aggregation.options.summary_only — summary_only / 100213003223 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-17990b54071d42aee51e0f36a42f7682fd212499ef8c8bd09f74c8c345283723)
-- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-091d6ab92d05531d903ad477b582104d2b7e2233bd1d9b3e7c92fca870c658f1)
-- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-d995918f335683e8599728563615dc2c0fff0f4c8974343bccd382f88167ffb7)
-- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-e8a42f27a8a35ab8ae3ae44945160c49a4ef723afa024e61f13c15a87c069aef)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.family_inet](resources--bgp--reference--group-001.md#canonical-0113212100231110-0013013110022232-3211013200330312-2210023313122002-3331020102102121-3233203020233100-2133131030203003-1011022003130203)
+- [peers.external.family_inet.enable](resources--bgp--reference--group-001.md#canonical-0021013112222321-0231001111030131-2100032231101313-2311200201001031-0223133202020303-2331013121230332-1330210233302220-1300301211203301)
+- [peers.external.family_inet.enable.aggregation](resources--bgp--reference--group-001.md#canonical-3121211121012033-0303111220033220-1121211302201112-0312011131300230-0033333300331030-2021131003100323-3030310320023320-2001121333332313)
+- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-3220221002330213-2220220311222320-2232032232101021-1011011200301021-2210323313020322-3322000210321201-3301033001112220-1330001221223233)
 - peers.external.family_inet.enable.aggregation.options.summary_only
 
-<a id="canonical-bb5602cf94e4f44280e2e13480390ff06683179f75d262907e5fb298bb177a03"></a>
+<a id="canonical-2323111200023033-2110321033101002-2000320232010310-2000032100333300-1212200301132133-1311310212022100-1332113323022120-2323011313220003"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2742,38 +2742,38 @@ Terraform syntax:
 summary_only {}
 ```
 
-<a id="canonical-fda86d6246d16320e0f8c3d2a76f7289f6a694543d54e969662248764313320e"></a>
+<a id="canonical-3331222012311202-1012310112030200-3200332030033102-2213123313022021-3312221221101110-0331111032211221-1212020210201312-1003010303020032"></a>
 
-## Direct properties — peers.external.family_inet.enable.aggregation.options.summary_only / dfdaf74270eb / 3
+## Direct properties — summary_only / 100213003223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f6d4b6cf3009571702a7c1e697db3d3999641145ff5f17132cfdd325c05f02d4"></a>
+<a id="canonical-3312311023123033-0300002111130113-0002221330013212-2113312303310321-2121121001011011-3333113301130103-0230333131030211-3000113300023110"></a>
 
-## Next pages — peers.external.family_inet.enable.aggregation.options.summary_only / dfdaf74270eb / 4
+## Next pages — summary_only / 100213003223 / 4
 
-- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-e8a42f27a8a35ab8ae3ae44945160c49a4ef723afa024e61f13c15a87c069aef)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.family_inet.enable.aggregation.options](resources--bgp--reference--group-001.md#canonical-3220221002330213-2220220311222320-2232032232101021-1011011200301021-2210323313020322-3322000210321201-3301033001112220-1330001221223233)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-1ecb569671cc8878688ef58287367d62058abff3418187699d5ebb0320a65caa"></a>
+<a id="canonical-0132302311122112-1301303020201320-1220203233112002-2013031213311202-0011202223333303-1001200120131221-2131113223230003-0200221211302222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7e0ba7280979da20dc1803da66c5be39dae28dc01c870a09709193b0e2a7df13"></a>
+<a id="canonical-1332002322130220-0021132131220200-3130012000033122-1212301123320321-3122320220313000-0130201300220021-1300210121032300-3202221331330103"></a>
 
-## peers.external.from_site — peers.external.from_site / 63c8ddf33eca / 2
+## peers.external.from_site — from_site / 330303323022 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.from_site
 
-<a id="canonical-fe12b9930c6c54ca1429d3d4e78765dedbbb4f9acbbbd2528813f1909a60d0ef"></a>
+<a id="canonical-3332010223212103-0030123011103022-0110022131033110-3213201312113132-3123232310332122-3023232331021102-2020010333012100-2122120031003233"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2802,38 +2802,38 @@ Terraform syntax:
 from_site = {}
 ```
 
-<a id="canonical-31c72f35f9231bccb3f2b29efad6a06fd06349479e3c80da33e6a1831ad1776d"></a>
+<a id="canonical-0301301302330311-3321020301233030-2303330223022132-3322311222001233-3100120310211013-2132033020003122-0303321222012003-0122310113131231"></a>
 
-## Direct properties — peers.external.from_site / 63c8ddf33eca / 3
+## Direct properties — from_site / 330303323022 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-ddaf649ddf9ae840cca2e9574e84b6ce422815397662492c17a95c080c5180e9"></a>
+<a id="canonical-3131223312102131-3133212232201000-3030220232211113-1032201023123032-1002022001110321-1312120210210230-0113222111300020-0030110120003221"></a>
 
-## Next pages — peers.external.from_site / 63c8ddf33eca / 4
+## Next pages — from_site / 330303323022 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-1d91b8da6411f7c0b9edb7ac3a926eaa540ead94045b2cad5aa9f9a4d0348afe"></a>
+<a id="canonical-0131210123203122-1210010133133000-2321323123132230-0322210212322222-1110003222312110-0010112302302231-1122222133212210-3100031020223332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-be90ef42f13ab50e579dde94cb121ece5b4d68f245e41592e712cd98fb83d105"></a>
+<a id="canonical-2332210032331002-3301032223110032-1113213131322110-3023010201323032-1123103112203302-1011321001112102-3213010230312120-3323200331010011"></a>
 
-## peers.external.from_site_v6 — peers.external.from_site_v6 / 732bffcc1346 / 2
+## peers.external.from_site_v6 — from_site_v6 / 303001031012 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.from_site_v6
 
-<a id="canonical-f102674908c5ccdaff0b2bca2b046b9b4b5a020008c215c28122113189b05c17"></a>
+<a id="canonical-3301000212131021-0020301130303122-3333002302233022-0223001012232123-1023112200020000-0020300201113002-2001020201010301-2021230011300113"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2862,38 +2862,38 @@ Terraform syntax:
 from_site_v6 = {}
 ```
 
-<a id="canonical-3a1b56832aa00bc72c88e8b6a17319cbcdb69b415ccbaee8c40b009e0068941e"></a>
+<a id="canonical-0322012311122003-0222220000233013-0230202032202312-2201130301213023-3031231221231001-1130302322323220-3010002300002132-0000122021100132"></a>
 
-## Direct properties — peers.external.from_site_v6 / 732bffcc1346 / 3
+## Direct properties — from_site_v6 / 303001031012 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-801e301b90bb092a3b4cf4128a740e84501328ffd0da44dca50b51c4f6336850"></a>
+<a id="canonical-2000013203000123-2100232300210222-0323103033100102-2022131000322010-1100010302203333-3100312210103130-2211002311013010-3312030312201100"></a>
 
-## Next pages — peers.external.from_site_v6 / 732bffcc1346 / 4
+## Next pages — from_site_v6 / 303001031012 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-eb06dea74455712226ef475ea1308bdc0fc5d05efb6651ec7f380e69996445f9"></a>
+<a id="canonical-3223001231322213-1010111113010202-0212323310131132-2201030020233130-0033301131001132-3323121211013230-1333032000321221-2121121010113321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d93326f2f0fbe981a1b218711682140a7378c311b4e1839fd87409d0de71ff61"></a>
+<a id="canonical-3121030302123302-3300332332212001-2201230201201301-0112200201100022-1303132030030101-2310320120032133-3120131000213100-3132130133331201"></a>
 
-## peers.external.interface — peers.external.interface / 5fddaa0c81c8 / 2
+## peers.external.interface — interface / 003020013020 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.interface
 
-<a id="canonical-aae76cf84158e0c2e3753227dcab6f24c0a211a853b9c471dcd995282643610a"></a>
+<a id="canonical-2222321312303320-1001112032003002-3203131103020213-3130222312330210-3000220201012220-1103232130101301-3130312121110220-0212100312010022"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2932,15 +2932,15 @@ interface {
 }
 ```
 
-<a id="canonical-89261f05c0e032d3fcd8e784cf737b4ec71d0e1f34f37e107281b2f3c02a2f39"></a>
+<a id="canonical-2021021201330011-3000320003023103-3330312032132010-3033130313231032-3013013100320133-0310330313320100-1302200123023303-3000022202330321"></a>
 
-## Direct properties — peers.external.interface / 5fddaa0c81c8 / 3
+## Direct properties — interface / 003020013020 / 3
 
-<a id="canonical-c4b526bf4631325c26deeeb67cba9bd1d6a65f0c8f14109fb94c52839b40e725"></a>
+<a id="canonical-3010231102122333-1012030103021130-0212313232322312-1330232221233101-3112221211330030-2033011001002133-2321103011022003-2123100032130211"></a>
 
-<a id="canonical-35ca253e6f3333d3cdebab67a5033342b1a52043876c63929099f21367451701"></a>
+<a id="canonical-0311302202110332-1233030303033103-3031322322231213-2211000303031002-2301221102001003-2013123012032102-2100212133020103-1213101101130001"></a>
 
-## name property — peers.external.interface / 5fddaa0c81c8 / 4
+## name property — interface / 003020013020 / 4
 
 Type: `"string"`. Optional.
 
@@ -3001,11 +3001,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cfbae23f2698e2d83fd775c28f7529feed312e64baa46c6973ef703207c155b1"></a>
+<a id="canonical-3033232232020333-0212212032023120-0333311313113002-2033131102213332-3231030102321210-2322221012301221-1303323313000302-0013300111112301"></a>
 
-<a id="canonical-7f21c45022d620ed54f2d02759027858fb343483faf5f4a79dc27b5df0af97a3"></a>
+<a id="canonical-1333020130101100-0202311202003231-1110330231000213-1121000213201120-3323031003102003-3322331133102213-2131300213231131-3300223321132203"></a>
 
-## namespace property — peers.external.interface / 5fddaa0c81c8 / 5
+## namespace property — interface / 003020013020 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3073,11 +3073,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-06433f66032b508600c00c9043f01998210f0c79ab077f7aec8c260c30f6c651"></a>
+<a id="canonical-0012100303331212-0003022311002012-0000300000302100-1003330001212120-0201003300301321-2223001313331322-3230203002120030-0300331230121101"></a>
 
-<a id="canonical-15d03456011ac44bdad9e1ade256c23224b14a425fcb3d468232f1bc4c0702eb"></a>
+<a id="canonical-0111310003101112-0001012230101023-3122312132012231-3202111230020302-0210230110221002-1133302303311012-2002030233012330-1030001300023223"></a>
 
-## tenant property — peers.external.interface / 5fddaa0c81c8 / 6
+## tenant property — interface / 003020013020 / 6
 
 Type: `"string"`. Computed.
 
@@ -3131,32 +3131,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6bd720f44bd63a6413a29b7c12a5849038ae0c7902de2d2abf94cd506918bd05"></a>
+<a id="canonical-1223311302003310-1023311203221210-0103220221231330-0102221120102100-0320223200301321-0002313202310222-2333211030311100-1221012023310011"></a>
 
-## Next pages — peers.external.interface / 5fddaa0c81c8 / 7
+## Next pages — interface / 003020013020 / 7
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-2903ae4c579626921f7623ed7d51905b15a3fc16dad5e1da393cde86f4ca0741"></a>
+<a id="canonical-0221000322321030-1113211202122102-0133131202033231-1331110121001123-0111220333300112-3122311132013122-0321033031322012-3310302200131001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b723ba99c2d948f6fa240cce447f325951fe4ba77987f97f5159f7caf9ca404d"></a>
+<a id="canonical-2313020323222121-3002312110203312-3322021000303032-1010133303021121-1101333210232213-1321201333211333-1101112133133022-3321302210001031"></a>
 
-## peers.external.interface_list — peers.external.interface_list / f246874ce3fb / 2
+## peers.external.interface_list — interface_list / 103032033323 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.interface_list
 
-<a id="canonical-c42d003f1eb88514778c2e4a42907204b1fb3b6f8b419baabe522658d1a5f665"></a>
+<a id="canonical-3010023100000333-0132232020110110-1313203002321022-1002210013020010-2301332303231233-2023100121232222-2332110202121120-3101221133121211"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3193,40 +3193,40 @@ interface_list {
 }
 ```
 
-<a id="canonical-a096571a64f0e8cfc4f84982797265d0aada399921d6cf0f627dffa1135337b5"></a>
+<a id="canonical-2200211211130122-1210330032203033-3010332010212002-1321130212113100-2222312203212121-0201311230330033-1202133133332201-0103110303132311"></a>
 
-## Direct properties — peers.external.interface_list / f246874ce3fb / 3
+## Direct properties — interface_list / 103032033323 / 3
 
-- [interfaces](resources--bgp--reference--group-001.md#canonical-23a885f7ff70a402c4041f7ebfb79bd58f94eca58d4dee18a51c58adb6495400): complete subsection reference.
+- [interfaces](resources--bgp--reference--group-001.md#canonical-0203222020113313-3333130022100002-3010001001331332-2333231321233111-2033211032302211-2031103132320120-2211013011202231-2312102111100000): complete subsection reference.
 
-<a id="canonical-ba32a12838c2e0242c5b1cd0f24efbdfab8070f1d69a5a816223e5b94f173199"></a>
+<a id="canonical-2322030222010220-0320300232000210-0230112301303100-3302103233233133-2223200013003301-3112212211222001-1202020332112321-1033011303012121"></a>
 
-## Next pages — peers.external.interface_list / f246874ce3fb / 4
+## Next pages — interface_list / 103032033323 / 4
 
-- [peers.external.interface_list.interfaces](resources--bgp--reference--group-001.md#canonical-23a885f7ff70a402c4041f7ebfb79bd58f94eca58d4dee18a51c58adb6495400)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.interface_list.interfaces](resources--bgp--reference--group-001.md#canonical-0203222020113313-3333130022100002-3010001001331332-2333231321233111-2033211032302211-2031103132320120-2211013011202231-2312102111100000)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-23a885f7ff70a402c4041f7ebfb79bd58f94eca58d4dee18a51c58adb6495400"></a>
+<a id="canonical-0203222020113313-3333130022100002-3010001001331332-2333231321233111-2033211032302211-2031103132320120-2211013011202231-2312102111100000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8054476af2fc0516cd4115288f3d0a0d2ad20b8215cc47c9e29bad4161c13a32"></a>
+<a id="canonical-2000111010131222-3302333000110112-3031100101110220-2033033100220031-0222310200232002-0111303010133021-3202212322311001-1201300103220302"></a>
 
-## peers.external.interface_list.interfaces — peers.external.interface_list.interfaces / 41c68ee30370 / 2
+## peers.external.interface_list.interfaces — interfaces / 320300031300 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-2903ae4c579626921f7623ed7d51905b15a3fc16dad5e1da393cde86f4ca0741)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-0221000322321030-1113211202122102-0133131202033231-1331110121001123-0111220333300112-3122311132013122-0321033031322012-3310302200131001)
 - peers.external.interface_list.interfaces
 
-<a id="canonical-7ee06c60f5a17fcaec904c4517df799f771be8c18a37d42c61594f3e8e29fe3d"></a>
+<a id="canonical-1332320012301200-3311220113333022-3230210010301011-0113313313212133-1313012332203001-2022031331100230-1201112110330332-2032022133320331"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3290,15 +3290,15 @@ interfaces {
 }
 ```
 
-<a id="canonical-d5e6aef76f35124c49766a17bf1d909f8616a408a0d4f14769611a0992d1373e"></a>
+<a id="canonical-3111321222323313-1233031101021030-1021131212220113-2333013121002133-2012011222100020-2200311033011013-1221120101220021-2102310103130332"></a>
 
-## Direct properties — peers.external.interface_list.interfaces / 41c68ee30370 / 3
+## Direct properties — interfaces / 320300031300 / 3
 
-<a id="canonical-81b414a1f245d75e625992effec830274ce0734d5098f515e1ea1c5b37519dbd"></a>
+<a id="canonical-2001231001102201-3302101131131132-1202112121023233-3332302003000213-1030320013031031-1100212033110111-3201322201301123-0313110121312331"></a>
 
-<a id="canonical-c73b1aa52c550cfae499ef223a5cd39538e384e3a16a423fb6e19a27462fbf34"></a>
+<a id="canonical-3013032301222211-0230111100303322-3210212132330202-0322113031032111-0320320320103203-2201122210020333-2312320121220213-1012023323330310"></a>
 
-## name property — peers.external.interface_list.interfaces / 41c68ee30370 / 4
+## name property — interfaces / 320300031300 / 4
 
 Type: `"string"`. Optional.
 
@@ -3359,11 +3359,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1d2c174e5a7c5e2248f1729d0eac5d5e01d72c28fc060bacbebf0b93d2012ef0"></a>
+<a id="canonical-0131023001131032-1122133011320202-1020330113022131-0032223011311132-0001311302300220-3330001200232230-2332233300232103-3102000102323300"></a>
 
-<a id="canonical-d9391ae539622d68967c9a0f63e2d55ad75206a095715a0f18e1fed4d462ce7c"></a>
+<a id="canonical-3121032101223211-0321120202311220-2112133021220033-1203320231111122-3113110200122200-2111130111220033-0120320133323110-3110120230321330"></a>
 
-## namespace property — peers.external.interface_list.interfaces / 41c68ee30370 / 5
+## namespace property — interfaces / 320300031300 / 5
 
 Type: `"string"`. Optional, Computed.
 
@@ -3431,11 +3431,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b5a5d12df8c7ff52ee00841ae74697844083534b920b9d2006f23269447bbd56"></a>
+<a id="canonical-2311221131010231-3320301333331102-3232000020100122-3213101221132010-1000200311031023-2102002321310200-0012330203021221-1010132323311112"></a>
 
-<a id="canonical-866b1fc60b6d9f91872d5832e9281accebc07ec8598c82f173fb2ae9b1130c41"></a>
+<a id="canonical-2012122301333012-0023123121332101-2013023111200302-3221022001223030-3223300013323020-1121203020023301-1303332302223221-2301010300301001"></a>
 
-## tenant property — peers.external.interface_list.interfaces / 41c68ee30370 / 6
+## tenant property — interfaces / 320300031300 / 6
 
 Type: `"string"`. Computed.
 
@@ -3489,32 +3489,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b09dd236eb71ad98dfa05a22704b746f0625980252cce57fc43fa20351704a4c"></a>
+<a id="canonical-2300213131020312-3223130122312120-3133220011220202-1300102313101233-0012021121200002-1102303032111333-3010033322020003-1101130010221030"></a>
 
-## Next pages — peers.external.interface_list.interfaces / 41c68ee30370 / 7
+## Next pages — interfaces / 320300031300 / 7
 
-- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-2903ae4c579626921f7623ed7d51905b15a3fc16dad5e1da393cde86f4ca0741)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external.interface_list](resources--bgp--reference--group-001.md#canonical-0221000322321030-1113211202122102-0133131202033231-1331110121001123-0111220333300112-3122311132013122-0321033031322012-3310302200131001)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-3cac5b771dcbb41fae494da03d3dfcce71418891b846b57ad003ac2b0e980d12"></a>
+<a id="canonical-0330223011231313-0131302323100133-2232102110312200-0331033133303032-1301100120202101-2320101223111322-3100000322300223-0032212000310102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-540cb2e4203cd09062d358c89f9593752a801e0ff181f7675b36bc65f0035dd2"></a>
+<a id="canonical-1110003023023210-0200033031002100-1202310311203020-2133211121031311-0222200001320033-3301200133131213-1123031223301211-3300000311313102"></a>
 
-## peers.external.no_authentication — peers.external.no_authentication / 209b1d30cbb3 / 2
+## peers.external.no_authentication — no_authentication / 030030232303 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
 - peers.external.no_authentication
 
-<a id="canonical-fd74d1c01bea9e52c14e5cb1763085819cae5028850bf0d9906cac6d5ed84099"></a>
+<a id="canonical-3331131031013000-0123322221321102-3001103211302301-1312030020112001-2130223211000220-2011002333003121-2100123022301231-1132312010002121"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3543,37 +3543,37 @@ Terraform syntax:
 no_authentication = {}
 ```
 
-<a id="canonical-c67d4c01a6e015581d17409438c98bcda2cfdef8a1537f1099d4143187792e5d"></a>
+<a id="canonical-3012133110300001-2212320001111120-0131011310002110-0320302120233031-2202303331323320-2201110313330100-2121311001100301-2013132102321131"></a>
 
-## Direct properties — peers.external.no_authentication / 209b1d30cbb3 / 3
+## Direct properties — no_authentication / 030030232303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-743b495811cadd10d33bcaf4d4aba59ecc19b54c4e53a9628547d4ca7f21e723"></a>
+<a id="canonical-1310032310211120-0101302231310100-3103032330223310-3110222322112132-3030012123111030-1032110322211202-2011101331103022-1333020132130203"></a>
 
-## Next pages — peers.external.no_authentication / 209b1d30cbb3 / 4
+## Next pages — no_authentication / 030030232303 / 4
 
-- [peers.external](resources--bgp--reference--group-001.md#canonical-0180206faa4bc2d9ecaf83351c94870bec7d85bdaf798fa86439ddd5dc29c13d)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.external](resources--bgp--reference--group-001.md#canonical-0001200002001233-2222102330023121-3230223320030311-0130211020130023-3230133120112331-2233132120332220-1210032131313111-3130022130010331)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-52fb9e3af2530d09851ee01126edb5040e88ed74eb98c11791f84bcdca262c88"></a>
+<a id="canonical-1102332321320322-3302110300310021-2011013232000101-0212323123110010-0032202032311310-3223212030010113-2101332010233031-3022021202302020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0e17c3a78e95b1721cf20e9de648de64114b34820642e5d982bc7383d8004010"></a>
+<a id="canonical-0032011330032213-2032211123011302-0130330200322131-3212102031321210-0101102303102002-0012100232113121-2002233013032003-3120000010000100"></a>
 
-## peers.metadata — peers.metadata / 5e2d887c5210 / 2
+## peers.metadata — metadata / 133011020100 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.metadata
 
-<a id="canonical-db25932d7966153cad9eb1b9ad4220526cf6f3f41877a75498c8565e775095f0"></a>
+<a id="canonical-3123021121030231-1321121201110330-2231213223012321-2231100202001102-1230331233033310-0120131322131110-2120302011121132-1313110021113300"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3616,15 +3616,15 @@ metadata {
 }
 ```
 
-<a id="canonical-86d8d06305bc50c08f7028ffb907527a7e0496fa330379537e5c87e17a073696"></a>
+<a id="canonical-2012312031001203-0011233011003000-2033130002203333-2321001311021322-1332001021123322-0303000313211103-1332113020133201-1322001303122112"></a>
 
-## Direct properties — peers.metadata / 5e2d887c5210 / 3
+## Direct properties — metadata / 133011020100 / 3
 
-<a id="canonical-b9bb4ab58f8a45f9e5b280535a947da5e88102f8875410b8f1d8585cb24f047c"></a>
+<a id="canonical-2321232310222311-2033202210113321-3211230220001103-1122211013312211-3220200100023320-2013111001002320-3301312011201130-2302103300101330"></a>
 
-<a id="canonical-04984409e8c7780f90be1cba9a01a8ea3c06db8021d69fc19b565d8eaff7ef59"></a>
+<a id="canonical-0010212010100021-3220301313200033-2100233201302322-2122000122203222-0330001231232000-0201311221333001-2123111211312032-2233331332331121"></a>
 
-## description_spec property — peers.metadata / 5e2d887c5210 / 4
+## description_spec property — metadata / 133011020100 / 4
 
 Type: `"string"`. Optional.
 
@@ -3638,11 +3638,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-a1ca7e6f7df60d76a62943b1aff1f7f61968c3ac0a5a46261008833c8822a3fb"></a>
+<a id="canonical-2201302213321233-1331331200311312-2212022110032301-2233330133133312-0121122030032230-0022112210120212-0100002020030330-2020020222033323"></a>
 
-<a id="canonical-48bdd0dffc7979535210703ccc5fd86da7314317f824ecc7e380d8c73415f5d5"></a>
+<a id="canonical-1020233131003133-3330132113211103-1102010013000330-3030113331201231-2213030110030113-3320021032303013-3203200031203013-0310011133113111"></a>
 
-## name property — peers.metadata / 5e2d887c5210 / 5
+## name property — metadata / 133011020100 / 5
 
 Type: `"string"`. Optional.
 
@@ -3709,31 +3709,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-15458e0d96ef85652ba12d2a20a2e032d58bd7843e7cea00b691df2495bdfe48"></a>
+<a id="canonical-0111101120320031-2112323320111211-0223220102310222-0200220232000302-3111202331132010-0332133032220000-2312210131330210-2111233133321020"></a>
 
-## Next pages — peers.metadata / 5e2d887c5210 / 6
+## Next pages — metadata / 133011020100 / 6
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-c1a9a4695efa46c9ef4a837c1c55941d0acb8ded656aec28cfe495c2765cc781"></a>
+<a id="canonical-3001222122101221-1132332210123021-3233102220031330-0130111121100131-0022302320313231-1211122232300220-3033321021113002-1312113030132001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8029998f2d878470e2d844d805bee53da9cd0fcc54b5f03456cb2275becbd483"></a>
+<a id="canonical-2000022121212033-0231201320101300-3202312010103120-0011233232110331-2221303100333030-1110231133000310-1112302302021311-2332302331102003"></a>
 
-## peers.passive_mode_disabled — peers.passive_mode_disabled / fceda8716dc4 / 2
+## peers.passive_mode_disabled — passive_mode_disabled / 130112313010 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.passive_mode_disabled
 
-<a id="canonical-a622f2e6aaba2d9a88017cf989055c0df7c5afa6486ac0bd8ed2d5b426b5391a"></a>
+<a id="canonical-2212020233023212-2222232202312122-2020000113303321-2021001111300031-3313301122332212-1020122230002331-2032310231112310-0212231103210122"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3762,37 +3762,37 @@ Terraform syntax:
 passive_mode_disabled = {}
 ```
 
-<a id="canonical-d44104e6b8dec65e5e15644caab5d9a00a3cf8fc19618308498b2a43b9b7f99f"></a>
+<a id="canonical-3110100100103212-2320313230121132-1132011112101030-2222231131212200-0022033033203330-0121120120030020-1021202302221003-2321231333212133"></a>
 
-## Direct properties — peers.passive_mode_disabled / fceda8716dc4 / 3
+## Direct properties — passive_mode_disabled / 130112313010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a5d0a946b1b470ed9fa1d7ad45e8854271bf10e1ad22e7a00c03d1a006de1a47"></a>
+<a id="canonical-2211310022211012-2301231013003231-2133220131132231-1011322020111002-1301233301003201-2231020232132200-0030000331012200-0012313201221013"></a>
 
-## Next pages — peers.passive_mode_disabled / fceda8716dc4 / 4
+## Next pages — passive_mode_disabled / 130112313010 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-2e632c57ee5785748f675de1ccff92ae451e4e90b98917e9ff50ab60fcec0ccd"></a>
+<a id="canonical-0232120302301113-3232111320111310-2033121311313201-3030333321022232-1011013210322100-2321202101133221-3333110022231200-3330323000303031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-96c0bd0a3b6ac3b97ab31249cd7f01538524d75307a2d42e3e6fe627d7a0c37e"></a>
+<a id="canonical-2112300023310022-0323122230032321-1322230301021021-3031133300011103-2011021031131103-0013220231100232-0332123332120213-3113220030031332"></a>
 
-## peers.passive_mode_enabled — peers.passive_mode_enabled / ae1c25f570cb / 2
+## peers.passive_mode_enabled — passive_mode_enabled / 331113003023 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.passive_mode_enabled
 
-<a id="canonical-65b755a4b28214a2ea9993b80fcbd833b40bf795bff24a3268be3c203d770181"></a>
+<a id="canonical-1211231311112210-2302200201102202-3222212121032320-0033302331200303-2310002333132111-2333330210220302-1220233203300200-0331131300012001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3821,37 +3821,37 @@ Terraform syntax:
 passive_mode_enabled = {}
 ```
 
-<a id="canonical-abf19c8c14740c16540a71471f45e4d509b5487e0d593214a8fb4a3e524517c1"></a>
+<a id="canonical-2223330121302030-0110131000300112-1110002213011013-0133101132103111-0021231110201332-0031112103020110-2220332310220332-1102101101133001"></a>
 
-## Direct properties — peers.passive_mode_enabled / ae1c25f570cb / 3
+## Direct properties — passive_mode_enabled / 331113003023 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e729226867e69e614a3a7e11c005a3173056064bcf72efad58a659dd36beae56"></a>
+<a id="canonical-3213022102021220-1213321221321201-1022032213320101-3000001122030113-0300111200121023-3033130232332231-1120221211213131-0312233222321112"></a>
 
-## Next pages — peers.passive_mode_enabled / ae1c25f570cb / 4
+## Next pages — passive_mode_enabled / 331113003023 / 4
 
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237"></a>
+<a id="canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a88f723c014fac16dac77a1714878a48a177897b0ad7417422904c88382ad76"></a>
+<a id="canonical-0322202033130203-3000011033223001-1231223013132201-1301102013202210-2022011313202113-2300223113100113-1002022100103020-2003200222311312"></a>
 
-## peers.routing_policies — peers.routing_policies / 0bd1157c33ea / 2
+## peers.routing_policies — routing_policies / 133003033222 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
 - peers.routing_policies
 
-<a id="canonical-6a17463248e11b86469bbae9cc1f3ecc50a764dfc750e9d86a4ce19fb1038557"></a>
+<a id="canonical-1222011310120302-1020320101232012-1012212323223221-3030013303323030-1100221312103133-3013110032213120-1222103032012133-2301000320111113"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3878,39 +3878,39 @@ routing_policies {
 }
 ```
 
-<a id="canonical-86c899eb9df1cd3405266e1e27cf9c2d9cd731166412162461fe4d3b61abe2a2"></a>
+<a id="canonical-2012302021213223-2131330130310310-0011021212320132-0213303321300231-2130311303010112-1210010201120210-1201333210310323-1201222332022202"></a>
 
-## Direct properties — peers.routing_policies / 0bd1157c33ea / 3
+## Direct properties — routing_policies / 133003033222 / 3
 
-- [route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76): complete subsection reference.
+- [route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312): complete subsection reference.
 
-<a id="canonical-253f85d111e82bd6df86cd172e076874dbcf772b5f2d6e114a6dacd3e0d1c119"></a>
+<a id="canonical-0211033320113101-0101322002233112-3133201230310113-0232001312201310-3123303313130223-1133023112320101-1022123122303103-3200310130010121"></a>
 
-## Next pages — peers.routing_policies / 0bd1157c33ea / 4
+## Next pages — routing_policies / 133003033222 / 4
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76"></a>
+<a id="canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c3f1b9f180f253dc4fd8e2ed6bdf1bb16a20ba5a1f3a0ef5ac2fbe68724c84bd"></a>
+<a id="canonical-3003330123213301-2000330211033130-1033312032023231-1223313301232301-1222020023221122-0133032200323311-2230023323321220-1302103020102331"></a>
 
-## peers.routing_policies.route_policy — peers.routing_policies.route_policy / 610dcdddf1fd / 2
+## peers.routing_policies.route_policy — route_policy / 313133013331 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
 - peers.routing_policies.route_policy
 
-<a id="canonical-ca75b3634258ba1de04a148d6e5f580ce5cb3ddba4715bfbf34855890dde02b3"></a>
+<a id="canonical-3022131123031203-1002112023220131-3200102201102031-1232113311200030-3211302303313123-2210130111233323-3303102011112021-0031313200022303"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3969,52 +3969,52 @@ route_policy {
 }
 ```
 
-<a id="canonical-a6c5e53acacc7755b2acff4a89a86b0e5a837a64fa9d442cdb683085cfabaf28"></a>
+<a id="canonical-2212301132110322-3022303013131111-2302223033331022-2021222012230032-1122200313221210-3322213110100230-3123122003002011-3033222322330220"></a>
 
-## Direct properties — peers.routing_policies.route_policy / 610dcdddf1fd / 3
+## Direct properties — route_policy / 313133013331 / 3
 
-- [all_nodes](resources--bgp--reference--group-001.md#canonical-e09b7e2805711fcfbcbf8c2e1bf096fbe4a41cca07f73478c4ad93b6f33d104c): complete subsection reference.
+- [all_nodes](resources--bgp--reference--group-001.md#canonical-3200212313320220-0011130101333033-2330233320300232-0123330021123323-3210221001303022-0013331303101320-3010223121032312-3303033101001030): complete subsection reference.
 
-- [inbound](resources--bgp--reference--group-001.md#canonical-3d59fc25285f20f9033218d4fdeaf29bb70c3adbfdda5606a70a328782e9903f): complete subsection reference.
+- [inbound](resources--bgp--reference--group-001.md#canonical-0331112133300211-0220113302003321-0003030201203110-3331322233022123-2313003003223123-3331312211120012-2213002203022013-2002322121000333): complete subsection reference.
 
-- [node_name](resources--bgp--reference--group-001.md#canonical-2b2f186f07ca3fb790da2505fabaecc04ae601bc7be4aa161a3a843f373e3fe8): complete subsection reference.
+- [node_name](resources--bgp--reference--group-001.md#canonical-0223023301201233-0013302203332313-2100312202110011-3322232232303000-1022321200012330-1323321022220112-0122032220100333-0313033203333220): complete subsection reference.
 
-- [object_refs](resources--bgp--reference--group-001.md#canonical-cc94b72ad637f0eebfcc9eb69042018ec2d022bd600fb359b6241a3d50c28bdb): complete subsection reference.
+- [object_refs](resources--bgp--reference--group-001.md#canonical-3030211023130222-3112031333003232-2333303021322312-2100100200012032-3002310002022331-1200003323031121-2312021001220331-1100300220233123): complete subsection reference.
 
-- [outbound](resources--bgp--reference--group-001.md#canonical-e9ffb27c3b0021664b3a87141a364cdbe60257453cc3f9fa1c641a915267a079): complete subsection reference.
+- [outbound](resources--bgp--reference--group-001.md#canonical-3221333323021330-0323000002011212-1023032220130110-0122031210303123-3212000211131011-0330300333213322-0130121001222101-1102121322001321): complete subsection reference.
 
-<a id="canonical-ffa3484522b13a4730c06155716e57bfbc922b82037927134d2a2e54de91d350"></a>
+<a id="canonical-3333220310201011-0202230103221013-0300300012011111-1301123211132333-2330210202232002-0003132102130103-1031022202321110-3132210131031100"></a>
 
-## Next pages — peers.routing_policies.route_policy / 610dcdddf1fd / 4
+## Next pages — route_policy / 313133013331 / 4
 
-- [peers.routing_policies.route_policy.all_nodes](resources--bgp--reference--group-001.md#canonical-e09b7e2805711fcfbcbf8c2e1bf096fbe4a41cca07f73478c4ad93b6f33d104c)
-- [peers.routing_policies.route_policy.inbound](resources--bgp--reference--group-001.md#canonical-3d59fc25285f20f9033218d4fdeaf29bb70c3adbfdda5606a70a328782e9903f)
-- [peers.routing_policies.route_policy.node_name](resources--bgp--reference--group-001.md#canonical-2b2f186f07ca3fb790da2505fabaecc04ae601bc7be4aa161a3a843f373e3fe8)
-- [peers.routing_policies.route_policy.object_refs](resources--bgp--reference--group-001.md#canonical-cc94b72ad637f0eebfcc9eb69042018ec2d022bd600fb359b6241a3d50c28bdb)
-- [peers.routing_policies.route_policy.outbound](resources--bgp--reference--group-001.md#canonical-e9ffb27c3b0021664b3a87141a364cdbe60257453cc3f9fa1c641a915267a079)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy.all_nodes](resources--bgp--reference--group-001.md#canonical-3200212313320220-0011130101333033-2330233320300232-0123330021123323-3210221001303022-0013331303101320-3010223121032312-3303033101001030)
+- [peers.routing_policies.route_policy.inbound](resources--bgp--reference--group-001.md#canonical-0331112133300211-0220113302003321-0003030201203110-3331322233022123-2313003003223123-3331312211120012-2213002203022013-2002322121000333)
+- [peers.routing_policies.route_policy.node_name](resources--bgp--reference--group-001.md#canonical-0223023301201233-0013302203332313-2100312202110011-3322232232303000-1022321200012330-1323321022220112-0122032220100333-0313033203333220)
+- [peers.routing_policies.route_policy.object_refs](resources--bgp--reference--group-001.md#canonical-3030211023130222-3112031333003232-2333303021322312-2100100200012032-3002310002022331-1200003323031121-2312021001220331-1100300220233123)
+- [peers.routing_policies.route_policy.outbound](resources--bgp--reference--group-001.md#canonical-3221333323021330-0323000002011212-1023032220130110-0122031210303123-3212000211131011-0330300333213322-0130121001222101-1102121322001321)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-e09b7e2805711fcfbcbf8c2e1bf096fbe4a41cca07f73478c4ad93b6f33d104c"></a>
+<a id="canonical-3200212313320220-0011130101333033-2330233320300232-0123330021123323-3210221001303022-0013331303101320-3010223121032312-3303033101001030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-12bf04853fabfa4ca2e2bd7c265878569b8863afe8ed4b7a46d56fb401b3ab6e"></a>
+<a id="canonical-0102233300102011-0333222333221030-2202320223311330-0212112013201112-2123202012032233-3220323110231322-1012311112332310-0001230322231232"></a>
 
-## peers.routing_policies.route_policy.all_nodes — peers.routing_policies.route_policy.all_nodes / b54c434c7a68 / 2
+## peers.routing_policies.route_policy.all_nodes — all_nodes / 103013221220 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
 - peers.routing_policies.route_policy.all_nodes
 
-<a id="canonical-9262c28b3afa865833ac98b7f892add76f39f1a35b7dd0a14e757c4863103990"></a>
+<a id="canonical-2102120230022023-0322332220121120-0303223021202313-3320210222313113-1233032133012203-1123133131002201-1032131113301020-1203010003212100"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4043,39 +4043,39 @@ Terraform syntax:
 all_nodes = {}
 ```
 
-<a id="canonical-84e55040bf7567c91f263a800839d7c68852e61780ba1f7eef078322d6d200f8"></a>
+<a id="canonical-2010321111001000-2333131112133021-0133021203222000-0020032131133012-2020110232120113-2000232201331332-3233001320030202-3112310200003320"></a>
 
-## Direct properties — peers.routing_policies.route_policy.all_nodes / b54c434c7a68 / 3
+## Direct properties — all_nodes / 103013221220 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7dc1ec2b6ebee16fece4a0859495a28c2d0ea02b4fb4fa19ab72d540c63e706d"></a>
+<a id="canonical-1331300132300223-1232233232011233-3230321022002011-2110211122022030-0231003222000223-1033231033220121-2223130231111000-3012033213001231"></a>
 
-## Next pages — peers.routing_policies.route_policy.all_nodes / b54c434c7a68 / 4
+## Next pages — all_nodes / 103013221220 / 4
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-3d59fc25285f20f9033218d4fdeaf29bb70c3adbfdda5606a70a328782e9903f"></a>
+<a id="canonical-0331112133300211-0220113302003321-0003030201203110-3331322233022123-2313003003223123-3331312211120012-2213002203022013-2002322121000333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa72acfe46c83cdf41b2b12720dc832a0cb137d95751a9150fbc4872d75dab27"></a>
+<a id="canonical-3322130222303332-1012302003303133-1001230223010213-0200313020030222-0030230103133121-1113110122210111-0033233010201302-3113113122230213"></a>
 
-## peers.routing_policies.route_policy.inbound — peers.routing_policies.route_policy.inbound / b24c017a5824 / 2
+## peers.routing_policies.route_policy.inbound — inbound / 132211200210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
 - peers.routing_policies.route_policy.inbound
 
-<a id="canonical-eec26d532d2f85a521590d08bfbd54abc6d249d174a4dfb9d0e259c779af820b"></a>
+<a id="canonical-3232300212311103-0231023320112211-0201112100310020-2333233111102223-3012310210213101-1310221031332321-3100320211213013-1321223320020023"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4104,39 +4104,39 @@ Terraform syntax:
 inbound = {}
 ```
 
-<a id="canonical-48374e419caf837f3d507a0176cc9a8456a45212b9f7ea3b9cf1fc4a68b5ac9d"></a>
+<a id="canonical-1020031310321001-2130223320031333-0331110013220001-1312303021222010-1112221011020102-2321331332220323-2130330133301022-1220231122302131"></a>
 
-## Direct properties — peers.routing_policies.route_policy.inbound / b24c017a5824 / 3
+## Direct properties — inbound / 132211200210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a44574417905d9b66f01a3df7af401b516dd2bbef293bf8f42309a056b60b0f2"></a>
+<a id="canonical-2210101113101001-1321001131212312-1233000122033133-1322331000012311-0112313102232332-3302210323332033-1002030021220011-1223120023003302"></a>
 
-## Next pages — peers.routing_policies.route_policy.inbound / b24c017a5824 / 4
+## Next pages — inbound / 132211200210 / 4
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-2b2f186f07ca3fb790da2505fabaecc04ae601bc7be4aa161a3a843f373e3fe8"></a>
+<a id="canonical-0223023301201233-0013302203332313-2100312202110011-3322232232303000-1022321200012330-1323321022220112-0122032220100333-0313033203333220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6f598a8427bde37180db773c5fb70101c2b5b22b91e66bda0a2f540c12cc7599"></a>
+<a id="canonical-1233112120222010-0213233132031301-2000312313130330-1133231300010001-3002231123020223-2101321212233122-0022023311100030-0102303013112121"></a>
 
-## peers.routing_policies.route_policy.node_name — peers.routing_policies.route_policy.node_name / 31bb8275684d / 2
+## peers.routing_policies.route_policy.node_name — node_name / 131112201031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
 - peers.routing_policies.route_policy.node_name
 
-<a id="canonical-90ced0998da2d14ee20793236e2e3b79fe432fced1b4b7dd4c7a950b3a7ac9d9"></a>
+<a id="canonical-2100303231002121-2031220231011032-3202001321030203-1232023203231321-3332100302333032-3101231023133131-1030132221110023-0322132230213121"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4163,15 +4163,15 @@ node_name {
 }
 ```
 
-<a id="canonical-86263fb1e706fa7bc432d5783d4e10292ce27a187d1f83cca499ebfc56522aca"></a>
+<a id="canonical-2012021203332301-3213001233221323-3010030231111320-0331103201000221-0230320213220120-1331013320033030-2210212132233330-1112110202223022"></a>
 
-## Direct properties — peers.routing_policies.route_policy.node_name / 31bb8275684d / 3
+## Direct properties — node_name / 131112201031 / 3
 
-<a id="canonical-86f42fd15fe8cd32d40989a16ff8b65e8182f339e9c4599125307dc03672ab95"></a>
+<a id="canonical-2012331002333101-1133322030310302-3110002120212201-1233332023121132-2001200233030321-3221301011212101-0211030013313000-0312130222232111"></a>
 
-<a id="canonical-c5524cc10a3f57b5e57de15527d46a8ebab53d57d4bdbcf364d28f8fef1b82e2"></a>
+<a id="canonical-3011110210303001-0022033311132311-3211133132011111-0213311012222032-2322231103311113-3110233123303303-1210310220332033-3233012320023202"></a>
 
-## node property — peers.routing_policies.route_policy.node_name / 31bb8275684d / 4
+## node property — node_name / 131112201031 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -4190,33 +4190,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-46d732b31dcc87e55efd86d2813a1d3b0c05034e11476cbefb55a19667bf4f57"></a>
+<a id="canonical-1012311303022303-0131303020133211-1132333120123102-2001032201310323-0030001100031032-0101101312302332-3323111122012112-1213233310331113"></a>
 
-## Next pages — peers.routing_policies.route_policy.node_name / 31bb8275684d / 5
+## Next pages — node_name / 131112201031 / 5
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-cc94b72ad637f0eebfcc9eb69042018ec2d022bd600fb359b6241a3d50c28bdb"></a>
+<a id="canonical-3030211023130222-3112031333003232-2333303021322312-2100100200012032-3002310002022331-1200003323031121-2312021001220331-1100300220233123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-63e1f37ef1b7de23739145fac44513e6cdd87178fd50aaf36e5c568f985c889f"></a>
+<a id="canonical-1203320133031332-3301231331320203-1303210110113322-3010101101033212-3031312013011320-3331110022223303-1232113011122033-2120113020202133"></a>
 
-## peers.routing_policies.route_policy.object_refs — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 2
+## peers.routing_policies.route_policy.object_refs — object_refs / 220202312310 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
 - peers.routing_policies.route_policy.object_refs
 
-<a id="canonical-2d2b69405f688b5bc69b52c1c82e1836714d861fa2abbaedf5f18da56544c74c"></a>
+<a id="canonical-0231022312211000-1133122020231123-3012212311023001-3020023201200312-1301103120120133-2202222323223231-3311330120312211-1211101030131030"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4271,15 +4271,15 @@ object_refs {
 }
 ```
 
-<a id="canonical-1627f7e2516e23f894383d70cf75496614a2699036390c53fff5cc2642e47207"></a>
+<a id="canonical-0112021333133202-1101123202033320-2110032003311300-3033131110211212-0110220212212100-0312032100301103-3333331130300212-1002321013020013"></a>
 
-## Direct properties — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 3
+## Direct properties — object_refs / 220202312310 / 3
 
-<a id="canonical-f3400eb833e33ddb272f851761f9429b8bc9a25f51c6b2af96bcd221fbfcbaaf"></a>
+<a id="canonical-3303100000322320-0303320303313123-0213023320110113-1201332110022123-2023302122021133-1101301223022233-2112233031020201-3323333023222233"></a>
 
-<a id="canonical-e1fd57f9a262c9685cb200046d4244d4e9b0cbed09df772687ce14077f13e50e"></a>
+<a id="canonical-3201333111133321-2202120230211220-1130230200000010-1231100210103110-3221230030233231-0021313313130212-2013303201100013-1333010332110032"></a>
 
-## kind property — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 4
+## kind property — object_refs / 220202312310 / 4
 
 Type: `"string"`. Computed.
 
@@ -4314,11 +4314,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e7b1248ea2b85ec40da05f8f2832d3e6efe9f29a02c72ce4682fcefcb9b2e271"></a>
+<a id="canonical-3213230102102032-2202232011323010-0031220011332033-0220030231033212-3233322133022122-0002301302303210-1220023330323330-2321230232021301"></a>
 
-<a id="canonical-f31917b98d6e639977f61e61803e1b93f990a381d5a5614f6a1905b288d4a15c"></a>
+<a id="canonical-3303012101132321-2031123212032121-1313331201321201-2000033201232103-3321210022032001-3111221112011033-1222012100112302-2020311022011130"></a>
 
-## name property — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 5
+## name property — object_refs / 220202312310 / 5
 
 Type: `"string"`. Optional.
 
@@ -4353,11 +4353,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-22ec6834516f8f5c057dc0b4e86308823744e3f87669f5e40930cd8b07438ac8"></a>
+<a id="canonical-0202323012200310-1101123320331130-0011133130002310-3220120300202002-0313101032033320-1312122133113210-0021030030312023-0013100320223020"></a>
 
-<a id="canonical-e0d6c08b032fe9ba38cbc65a92dd7f821a7b936ef28285441c39b57d6718e2c7"></a>
+<a id="canonical-3200311230002023-0003023332212322-0320302330121122-2102313113332002-0122132321031232-3302200220111010-0130032123111331-1213012032023013"></a>
 
-## namespace property — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 6
+## namespace property — object_refs / 220202312310 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -4417,11 +4417,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a0c18ee72b07aeb845e8d5b5822760090bb35baab239e573cfd982bd85abd1e0"></a>
+<a id="canonical-2200300120323213-0223001322322320-1011322031112311-2002021312000021-0023230311232222-2302032132111303-3033312120022331-2011222331013200"></a>
 
-<a id="canonical-1ffe1a06ba3c0ce4bf13ebac4c41697e9462aa87b7597cdac92b41a318b6ff9b"></a>
+<a id="canonical-0133333201220012-2322033000303210-2333010332232230-1030100112211332-2110120222222013-2313112113303122-3021022310012203-0120231233332123"></a>
 
-## tenant property — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 7
+## tenant property — object_refs / 220202312310 / 7
 
 Type: `"string"`. Computed.
 
@@ -4456,11 +4456,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d62cc791180ba59b1fa979fc6d63781ae0888c367d5b2b0eb7701391b8175c4a"></a>
+<a id="canonical-3112023030132101-0120002322112123-0133222113213330-1231120313200122-3200202020300312-1331112302230032-2313130001032101-2320011311301022"></a>
 
-<a id="canonical-ebfd1365732162eb4b276ec40bf7ac910b34e3c3be0ce8bc2d9fefbc5af884d0"></a>
+<a id="canonical-3223333101031211-1303020112023223-1023021312323010-0023331322302101-0023031032033003-2332003032202330-0231213332332330-1122332020103100"></a>
 
-## uid property — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 8
+## uid property — object_refs / 220202312310 / 8
 
 Type: `"string"`. Computed.
 
@@ -4495,33 +4495,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8197f6f0487b3ba4cd8713eba3d6af1c0cc301082853070d3a3149d1a52d86b2"></a>
+<a id="canonical-2001211333123300-1020132303232210-3031201301033223-2203311222330130-0030300300010020-0220110300130031-0322030110213101-2211023120122302"></a>
 
-## Next pages — peers.routing_policies.route_policy.object_refs / 8d99b9a22db4 / 9
+## Next pages — object_refs / 220202312310 / 9
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-e9ffb27c3b0021664b3a87141a364cdbe60257453cc3f9fa1c641a915267a079"></a>
+<a id="canonical-3221333323021330-0323000002011212-1023032220130110-0122031210303123-3212000211131011-0330300333213322-0130121001222101-1102121322001321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fc69b42869e78a58a43093d8264b75a79086225bb5c33e9bbc1df74bd8f0d65a"></a>
+<a id="canonical-3330122123100220-1221321320221120-2210030021033120-0212102313112213-2100201202021123-2311300303322123-2330013133131023-3120330031121122"></a>
 
-## peers.routing_policies.route_policy.outbound — peers.routing_policies.route_policy.outbound / d31e0dd82cf5 / 2
+## peers.routing_policies.route_policy.outbound — outbound / 312002303311 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [peers](resources--bgp--reference--group-001.md#canonical-de0b7ceae426a94f87042f2e1b6567af391a200416720136a14355517801e213)
-- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-2a70b2436216c882f96148c75dc8cde2ccd68b000f8b1380779b5657f827c237)
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [peers](resources--bgp--reference--group-001.md#canonical-3132002313303222-3210021222211033-2013001002330232-0123121112132233-0321012202000010-0112130200010312-2201100311111101-1320000132020103)
+- [peers.routing_policies](resources--bgp--reference--group-001.md#canonical-0222130023021003-1202011230202002-3321120110203013-1131302030313202-3030311220230000-0033202301032000-1313212311121113-3320021330020313)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
 - peers.routing_policies.route_policy.outbound
 
-<a id="canonical-5ed6c8ea63a04a848966dab022ae0486e2f206f22f2ca58992525562019a14b4"></a>
+<a id="canonical-1132311230203222-1203220010222010-2021121231222300-0202223200102012-3202330200123302-0233023022112021-2102110211111202-0001212201102310"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4550,36 +4550,36 @@ Terraform syntax:
 outbound = {}
 ```
 
-<a id="canonical-78e0b1ce8a74891f5a1f76884a54cd0fd1a1e38762d5212cfa3c44405fadc63a"></a>
+<a id="canonical-1320320023013032-2022131020210133-1122013313122020-1022111030310033-3101220132032013-1202311102010230-3322033010101000-1133223130120322"></a>
 
-## Direct properties — peers.routing_policies.route_policy.outbound / d31e0dd82cf5 / 3
+## Direct properties — outbound / 312002303311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-eb3e5f638556e4272a5d501f52d871c032ae536397122b5230dee5c7341f9036"></a>
+<a id="canonical-3223033211331203-2011111232100213-0222113111000133-1102312013013000-0302223211031203-2113010202231102-0300313232113013-0310013321000312"></a>
 
-## Next pages — peers.routing_policies.route_policy.outbound / d31e0dd82cf5 / 4
+## Next pages — outbound / 312002303311 / 4
 
-- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-1a33bcd706123209f579564d8b039790cb950d3419f08f6eb8032eaea031dd76)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [peers.routing_policies.route_policy](resources--bgp--reference--group-001.md#canonical-0122030323303113-0012010203020021-3311132111121031-2023000321132100-3023211100310310-0121330020331232-2320000302322232-2200030131311312)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-f09bbcefdb3d000d17aea209da85cf650c0c55df309b01717b7c4b34ae89314f"></a>
+<a id="canonical-3300212323303233-3123033100000031-0113223222020021-3122201130331211-0030003011113133-0300212300011301-1323133010230310-2232202103011033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32f639e3b05516f939d7e63d51f777bdb3fa865b9e85b07cd982c2fbbca47176"></a>
+<a id="canonical-0302331203213203-2300111101123321-0321311332120331-1101331313132331-2303332220121123-2132201123001330-3121200230023323-2330221013011312"></a>
 
-## timeouts — timeouts / 5a690096f965 / 2
+## timeouts — timeouts / 211233211211 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
 - timeouts
 
-<a id="canonical-c97be875b057c4e28d91512abb2f0b92591c2069b2571e75709269a95f635267"></a>
+<a id="canonical-3021132332201311-2300111330103202-2031210111010222-2323023300232102-1121013002001221-2302111301321311-1300210212212221-1133120311021213"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4591,15 +4591,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-b41840e26ddabc02f23b85ed9b10ef906de9aa4e3e884ccf514cd8ab46598480"></a>
+<a id="canonical-2310012010003202-1231312223300002-3302032320113231-2123010032332100-1231322122221032-0332202010303033-1101103031202223-1012112120102000"></a>
 
-## Direct properties — timeouts / 5a690096f965 / 3
+## Direct properties — timeouts / 211233211211 / 3
 
-<a id="canonical-016e750f5178b0913139fd09d46b5fcf8267f9238dd28f58429802cb1721ac87"></a>
+<a id="canonical-0001123213110033-1101132023002101-0301032133310021-3110122311333033-2002121333210203-2031310220331120-1002212000023023-0113020122302013"></a>
 
-<a id="canonical-d4a0757867b98676dacfc7001205464b10e15a4b2d95a3ef69f297fb524f2448"></a>
+<a id="canonical-3110220013111320-1213232120121312-3122303330130000-0102001110121023-0100320111221023-0231211122033233-1221330221133323-1102103302101020"></a>
 
-## create property — timeouts / 5a690096f965 / 4
+## create property — timeouts / 211233211211 / 4
 
 Type: `"string"`. Optional.
 
@@ -4607,11 +4607,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-73c1f9a6d70e49512770b28f9c47c40c5d7a63c8fcaea9edcd27e9f91b71cfc9"></a>
+<a id="canonical-1303300133212212-3113003210211101-0213130023022033-2130101330100030-1131132212033020-3330223222213231-3031021332213321-0123130130333021"></a>
 
-<a id="canonical-d4a288ba16b2b77704e3b26f4a77b8c2045d6dcc0859dc478d843764999f2332"></a>
+<a id="canonical-3110220220202322-0112230223131313-0010320323021233-1022131323203002-0010113112313030-0020112131301013-2031201003131210-2121213302030302"></a>
 
-## delete property — timeouts / 5a690096f965 / 5
+## delete property — timeouts / 211233211211 / 5
 
 Type: `"string"`. Optional.
 
@@ -4620,11 +4620,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-278a812ddea3e9d10e7d5c4ecb5ff28a757a2e3cb02d7447fabdf8282497ced7"></a>
+<a id="canonical-0213202220010231-3132220332213101-0032133111301032-3023113333022022-1311132202320330-2300023113101013-3322233133200220-0210211330323113"></a>
 
-<a id="canonical-5ef3e3793e91a405d51a4cfd38276b0e33f33eae7e025a2695b897484a34dd49"></a>
+<a id="canonical-1132330332031321-0332210122100011-3111012210303331-0320021312230032-0303330303322232-1332000211220212-2111232021131020-1022031031311021"></a>
 
-## read property — timeouts / 5a690096f965 / 6
+## read property — timeouts / 211233211211 / 6
 
 Type: `"string"`. Optional.
 
@@ -4633,11 +4633,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-65ab51973a1d79a0ce11d55b5cd1b616bec5b30e833e718c4d3aa9e8cdc0be1c"></a>
+<a id="canonical-1211222311012113-0322013113212200-3032010131111123-1130310123120112-2332301123030032-2003033213012030-1031032222213220-3031300023320130"></a>
 
-<a id="canonical-d095fcc4b10811c4a2f8211d951951db3cd42aba90ab0334922b8a5dcddc8fb5"></a>
+<a id="canonical-3100211133303010-2301002001013010-2202332002010131-2111012111013123-0330311002222322-2100222300030310-2102022320221131-3031313020332311"></a>
 
-## update property — timeouts / 5a690096f965 / 7
+## update property — timeouts / 211233211211 / 7
 
 Type: `"string"`. Optional.
 
@@ -4645,30 +4645,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-f7173ed64092ae5b8623c89a2bfe899d8fa74aa62c88037b43ea728d43d281a2"></a>
+<a id="canonical-3313011303323112-1000210222321123-2012020330202122-0223333220212131-2033221310222212-0230202000031323-1003322213022031-1003310220012202"></a>
 
-## Next pages — timeouts / 5a690096f965 / 8
+## Next pages — timeouts / 211233211211 / 8
 
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed"></a>
+<a id="canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bbd9c4c42af8bc58678632f358f46e0e19937176e4994d6bc94d6c3e6eefea1a"></a>
+<a id="canonical-2323312130103010-0222332023301120-1213201203023303-1120331012320032-0121210313011312-3210212110311223-3021103112300332-1232323332220122"></a>
 
-## where — where / 1477344f0ecd / 2
+## where — where / 103300323031 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
 - where
 
-<a id="canonical-e84d409f7fe08bcff7e23b2848254557635d61705d99b61f0ccea6c10924238b"></a>
+<a id="canonical-3220103110002133-1333320020233033-3313320203230220-1020021110111113-1203113112011300-1131212123120133-0030303222123001-0021021002032023"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4709,41 +4709,41 @@ where {
 }
 ```
 
-<a id="canonical-75e465698ddd49df448c2cd25e01f0cb4a90747088cd0c27fdb6bea31316ef72"></a>
+<a id="canonical-1311321012111221-2031313110213133-1010203002303102-1132000133003023-1022210013101300-2020303100300213-3331231223322203-0103011232331302"></a>
 
-## Direct properties — where / 1477344f0ecd / 3
+## Direct properties — where / 103300323031 / 3
 
-- [site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909): complete subsection reference.
+- [site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021): complete subsection reference.
 
-- [virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0): complete subsection reference.
+- [virtual_site](resources--bgp--reference--group-001.md#canonical-0231022200202313-2033330230223132-0302221102233021-2022123222113212-2201231331231000-0221210311023333-0121201210301213-2231101310213200): complete subsection reference.
 
-<a id="canonical-f23f0e3b8a0a448733096264b4655b56d8d2c7863124b8c3c760b8c181dd7dc3"></a>
+<a id="canonical-3302033300320323-2022002210102013-0303002112021210-2310121111231112-3120310230132012-0301021023203003-3013120023203001-2001313113313003"></a>
 
-## Next pages — where / 1477344f0ecd / 4
+## Next pages — where / 103300323031 / 4
 
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
+- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-0231022200202313-2033330230223132-0302221102233021-2022123222113212-2201231331231000-0221210311023333-0121201210301213-2231101310213200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909"></a>
+<a id="canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-369fcf2003a0bc5d39a96883ae7a87f02735333b9d90acf067ff0cc485421016"></a>
+<a id="canonical-0312213330330200-0003220023301131-0321222112202003-2232132220133300-0213031103030323-2131210022303300-1213333300303010-2011100201000112"></a>
 
-## where.site — where.site / 976f93d84ba4 / 2
+## where.site — site / 312010232210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
 - where.site
 
-<a id="canonical-ec095faf8b1bea7f30585ec5c9e78519f13dcadcb80170853654f10f2c6fd832"></a>
+<a id="canonical-3230002111332233-2023012332221333-0300112011323011-3021321320110121-3301033130223130-2320000113002011-0312111033010033-0230123331200302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4783,19 +4783,19 @@ site {
 }
 ```
 
-<a id="canonical-ea77c82c8bb78d8983f284de517df0ca639b180f036990b526b7d04a3fc1141e"></a>
+<a id="canonical-3222131330200230-2023231320312021-2003330220103132-1101133133003022-1203212301200033-0003122121002311-0212231331001022-0333300101100132"></a>
 
-## Direct properties — where.site / 976f93d84ba4 / 3
+## Direct properties — site / 312010232210 / 3
 
-- [disable_internet_vip](resources--bgp--reference--group-001.md#canonical-8460a9112de7a8dd3b478bf7cd0039228e25d492e827202bc8c47cfef0c0e4d2): complete subsection reference.
+- [disable_internet_vip](resources--bgp--reference--group-001.md#canonical-2010120022210101-0231321322203131-0323101320233313-3031000003210202-2032021131102102-3220021302000223-3020301013303332-3300300032103102): complete subsection reference.
 
-- [enable_internet_vip](resources--bgp--reference--group-001.md#canonical-d7cf1b748d93a1b7e586abe5bb799e18eef9903bc63f04335d974e86700be643): complete subsection reference.
+- [enable_internet_vip](resources--bgp--reference--group-001.md#canonical-3113303301231310-2031210322012313-3211201222233211-2323132121320120-3232332121000323-3012033300100303-1131211310322012-1300002332121003): complete subsection reference.
 
-<a id="canonical-5d8dbeacbb16c40951031161e287e0cd42da32293ce8faddc77fd908ba5a5497"></a>
+<a id="canonical-1131203123322230-2323011230100021-1101000301011201-3202201332003031-1002312203020221-0330322033223131-3013133331210020-2322112211102113"></a>
 
-<a id="canonical-5241a122b37b89dd802d88601ba721788576108c8de084e9ef43242ff9ff7241"></a>
+<a id="canonical-1102100122010202-2303132320213131-2000023120201200-0123221302011320-2011131201002030-2031320020103221-3233100302100233-3321333313021001"></a>
 
-## network_type property — where.site / 976f93d84ba4 / 4
+## network_type property — site / 312010232210 / 4
 
 Type: `"string"`. Optional.
 
@@ -4914,37 +4914,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ref](resources--bgp--reference--group-001.md#canonical-1a7054091b06c5b365e4b8a10708f53254b6771674433377ab278d03768413a9): complete subsection reference.
+- [ref](resources--bgp--reference--group-001.md#canonical-0122130011100021-0123001230112303-1211321023202201-0013002033110302-1110231213130112-1310100303031313-2223021320310003-1312201001032221): complete subsection reference.
 
-<a id="canonical-db4e3adec7bc323e98cf7b90e5d2f95f1d8381589eefe7ff205b4bdca5a46aea"></a>
+<a id="canonical-3123103203223132-3013233003020332-2120303313232100-3211310233211133-0131200320011120-2132323332133333-0200112310233130-2211221012223222"></a>
 
-## Next pages — where.site / 976f93d84ba4 / 5
+## Next pages — site / 312010232210 / 5
 
-- [where.site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-8460a9112de7a8dd3b478bf7cd0039228e25d492e827202bc8c47cfef0c0e4d2)
-- [where.site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-d7cf1b748d93a1b7e586abe5bb799e18eef9903bc63f04335d974e86700be643)
-- [where.site.ref](resources--bgp--reference--group-001.md#canonical-1a7054091b06c5b365e4b8a10708f53254b6771674433377ab278d03768413a9)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [where.site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-2010120022210101-0231321322203131-0323101320233313-3031000003210202-2032021131102102-3220021302000223-3020301013303332-3300300032103102)
+- [where.site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-3113303301231310-2031210322012313-3211201222233211-2323132121320120-3232332121000323-3012033300100303-1131211310322012-1300002332121003)
+- [where.site.ref](resources--bgp--reference--group-001.md#canonical-0122130011100021-0123001230112303-1211321023202201-0013002033110302-1110231213130112-1310100303031313-2223021320310003-1312201001032221)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-8460a9112de7a8dd3b478bf7cd0039228e25d492e827202bc8c47cfef0c0e4d2"></a>
+<a id="canonical-2010120022210101-0231321322203131-0323101320233313-3031000003210202-2032021131102102-3220021302000223-3020301013303332-3300300032103102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4c9a2487c64fc1722ad15a00e42ab80de6ed70aabf0f1644dd07e01bc8a65649"></a>
+<a id="canonical-1030212202102013-3012103330011302-0222310111220000-3210022223200031-3212323113002222-2333003301121010-3131001332000123-3020221211121021"></a>
 
-## where.site.disable_internet_vip — where.site.disable_internet_vip / 293e305267a4 / 2
+## where.site.disable_internet_vip — disable_internet_vip / 110212132210 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
 - where.site.disable_internet_vip
 
-<a id="canonical-6b0f5c69f3452ed61c69a9dee73f72073e52d885351337e46fcfb455a7ca6216"></a>
+<a id="canonical-1223003311301221-3303101102323112-0130122122213132-3213033313020013-0332110231202011-0311010303133210-1233303323101111-2213302212020112"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4973,38 +4973,38 @@ Terraform syntax:
 disable_internet_vip = {}
 ```
 
-<a id="canonical-8e782c8eb684ab830680aa2c54f8add4b1bd9fd8480eb1cba009c1af8b089eec"></a>
+<a id="canonical-2032132002302032-2312201022232003-0012200022220230-1110332022313110-2301233121333120-1020003223013023-2200002130012233-2023002021323230"></a>
 
-## Direct properties — where.site.disable_internet_vip / 293e305267a4 / 3
+## Direct properties — disable_internet_vip / 110212132210 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-12ce99c1423ad77f04eda72cbc42e45e42e2e71e322d742a6a73502ababfea07"></a>
+<a id="canonical-0102303221213001-1002032231131333-0010323122130230-2330100232101132-1002320232130132-0302023113100222-1222130311000222-2322233332220013"></a>
 
-## Next pages — where.site.disable_internet_vip / 293e305267a4 / 4
+## Next pages — disable_internet_vip / 110212132210 / 4
 
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-d7cf1b748d93a1b7e586abe5bb799e18eef9903bc63f04335d974e86700be643"></a>
+<a id="canonical-3113303301231310-2031210322012313-3211201222233211-2323132121320120-3232332121000323-3012033300100303-1131211310322012-1300002332121003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2d49118966f8de91b9d4ee0d15762ff8fc2911e1750893f7fc55b8050f693fdf"></a>
+<a id="canonical-0231102101012021-1212332031322101-2321311032320031-0111131202333320-3330022101013201-1311002021033313-3330111123200011-0033122103333133"></a>
 
-## where.site.enable_internet_vip — where.site.enable_internet_vip / 180b8fd663c3 / 2
+## where.site.enable_internet_vip — enable_internet_vip / 311212033003 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
 - where.site.enable_internet_vip
 
-<a id="canonical-9c048eaf77b5c5d0a752ffb01e734f7e8c786cd0d598ac53642cde0569472438"></a>
+<a id="canonical-2130001020322233-1313231130113100-2213110233332300-0132130310331332-2030132012303100-3111212022301103-1210023031320011-1221101302100320"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5033,38 +5033,38 @@ Terraform syntax:
 enable_internet_vip = {}
 ```
 
-<a id="canonical-b4f13eef0172406f460408c70f370e64eee2f0971f9982b608244d5eaaa06ca8"></a>
+<a id="canonical-2310330103323233-0001130210001233-1012001000203013-0033031300321210-3232320233002113-0133212120022312-0020021010311132-2222220012302220"></a>
 
-## Direct properties — where.site.enable_internet_vip / 180b8fd663c3 / 3
+## Direct properties — enable_internet_vip / 311212033003 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-90f08730c139926f56699036787425515d970729e7be4307e2273df005f1eba4"></a>
+<a id="canonical-2100330020130300-3001032121021233-1112122121000312-1320131002111101-1131211300130221-3213233210030013-3202021303313300-0011330132232210"></a>
 
-## Next pages — where.site.enable_internet_vip / 180b8fd663c3 / 4
+## Next pages — enable_internet_vip / 311212033003 / 4
 
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-1a7054091b06c5b365e4b8a10708f53254b6771674433377ab278d03768413a9"></a>
+<a id="canonical-0122130011100021-0123001230112303-1211321023202201-0013002033110302-1110231213130112-1310100303031313-2223021320310003-1312201001032221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1b97ac06a438edf1054a76577529bf7db5c586efb63ea9072b2c707f49cd8a35"></a>
+<a id="canonical-0123211322300012-2210032032313301-0011102213121113-1311022123331331-2311301120123233-2312033222210013-0223023013001333-1021303120220311"></a>
 
-## where.site.ref — where.site.ref / 1d86af477471 / 2
+## where.site.ref — ref / 101313101301 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
 - where.site.ref
 
-<a id="canonical-4a76677c4616759f5f3a6d9e79e9c10a9f1b11b14389fcb96c9bf1fb675e14a7"></a>
+<a id="canonical-1022131212131330-1012011213112133-1133032212312132-1321322130010022-2133012301012301-1003202133302321-1230212333013323-1213113201102213"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -5115,15 +5115,15 @@ ref {
 }
 ```
 
-<a id="canonical-66b111ee30e7f1c89b46ee0f658e68a333e00f2849236a82ce19b9f49c1f8179"></a>
+<a id="canonical-1212230101013232-0300321333013020-2123101232320033-1211203212202203-0303320000330220-1021020312222002-3032012123213310-2130013320011321"></a>
 
-## Direct properties — where.site.ref / 1d86af477471 / 3
+## Direct properties — ref / 101313101301 / 3
 
-<a id="canonical-69de9891df396026339015bc8b2ed13c580a3fc07a1e560bb8af53266c52d4bf"></a>
+<a id="canonical-1221313221202101-3133032112000212-0303210001112330-2023023231010330-1120002203333000-1322013211120023-2320223311030212-1230110231102333"></a>
 
-<a id="canonical-7d9e71984cf065bf2196ce39e37e13ca1020dbaf76023bc54ceb56ee4eeb87d5"></a>
+<a id="canonical-1331213213012120-1030330012112333-0201211230320321-3203133201033022-0100020031232233-1312000203233011-1030322311123232-1032322320133111"></a>
 
-## kind property — where.site.ref / 1d86af477471 / 4
+## kind property — ref / 101313101301 / 4
 
 Type: `"string"`. Computed.
 
@@ -5158,11 +5158,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c03df7694fd63e45ad60f12c426c583d8272536fe03db2ba923a020cf62c4711"></a>
+<a id="canonical-3000033133131221-1033311203321011-2231120033010230-1002123011200331-2002130211031233-3200033123022322-2102032200020030-3312023010130101"></a>
 
-<a id="canonical-086bea79fee6946aaea379846d95f2d2b9d7f0348912e60f849c92abbd8df3ea"></a>
+<a id="canonical-0020122332221321-3332321221101222-2232220313212010-1231211133023102-2321311333000310-2021010232120033-2010213021022223-2331203133033222"></a>
 
-## name property — where.site.ref / 1d86af477471 / 5
+## name property — ref / 101313101301 / 5
 
 Type: `"string"`. Optional.
 
@@ -5197,11 +5197,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9db9781b72291855a4ce21299d4587b4e8af8231b2c567bf5576e8458eda3562"></a>
+<a id="canonical-2131232113200123-1302022101201111-2210303202010221-2131101120132310-3220223320020301-2302301112132333-1111131232201011-2032312203111202"></a>
 
-<a id="canonical-9eb4caa6af720863166bafaafafaeec8f3bec376a60431ad063e78afa15611d8"></a>
+<a id="canonical-2132231030222212-2233130200201203-0112122322332222-3322332232323020-3303233230031312-2212001003012231-0012033213202233-2201111201013120"></a>
 
-## namespace property — where.site.ref / 1d86af477471 / 6
+## namespace property — ref / 101313101301 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -5261,11 +5261,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-19078964e5ad5c8ca4dc392dd2b61238c7ef9ff22f1c0c2e75513e7c69c5d5b0"></a>
+<a id="canonical-0121001320211210-3211223111302030-2210313003210231-3102231201020320-3013323321333302-0233013000300232-1311110103321330-1221301131112300"></a>
 
-<a id="canonical-5c15f0a20c1b84db012b2ba2070c3866557eba8ffee2545b6bf66169eb59ca5b"></a>
+<a id="canonical-1130011133002202-0030012320103123-0001022302232202-0013003003201212-1111133223222033-3332320211101123-1223331212011221-3223112130221123"></a>
 
-## tenant property — where.site.ref / 1d86af477471 / 7
+## tenant property — ref / 101313101301 / 7
 
 Type: `"string"`. Computed.
 
@@ -5300,11 +5300,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f7158375e28df115ad17692809849b1cfbcbdbeda30ebe8f22bf4e50347107ba"></a>
+<a id="canonical-3313011120031311-3202203133010111-2231011312210220-0021201021230130-3323302331233231-2203003223322033-0202233310321100-0310130100132322"></a>
 
-<a id="canonical-953f6f7584e00b17a9f4375370fbd0a5cf048de66a6e8c6c3875353205c0a23d"></a>
+<a id="canonical-2111033312331311-2010320000230113-2221331003131103-1300332331002211-3033001020313212-1222123220301230-0320131103110302-0011300022020331"></a>
 
-## uid property — where.site.ref / 1d86af477471 / 8
+## uid property — ref / 101313101301 / 8
 
 Type: `"string"`. Computed.
 
@@ -5339,31 +5339,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f311e058a18009f90975bc44b0582a6f1e15e8d1ecd5d137e873041d3c0dc8cb"></a>
+<a id="canonical-3303010132001120-2201200000213321-0021131123301010-2300112002221233-0132011132203101-3230311131010313-3220130300100131-0330003130203023"></a>
 
-## Next pages — where.site.ref / 1d86af477471 / 9
+## Next pages — ref / 101313101301 / 9
 
-- [where.site](resources--bgp--reference--group-001.md#canonical-c34e26c59f4a8d14b773b856c8a8d862ec965ebf78910087c5c083b3f023e909)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
+- [where.site](resources--bgp--reference--group-001.md#canonical-3003103202123011-2133102220310110-2313130323201112-3020222031201202-3230211211322333-1320210100002013-3011300020032303-3300020332210021)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
 
-<a id="canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0"></a>
+<a id="canonical-0231022200202313-2033330230223132-0302221102233021-2022123222113212-2201231331231000-0221210311023333-0121201210301213-2231101310213200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4fd9b4d043dd818682005069e48af835dea4aa3198f3ba22dc5f0d331d5f5cfd"></a>
+<a id="canonical-1033312123103100-1003313120012012-2002000011001221-3210202233200311-3132221022220301-2120330323220202-3130113300310303-0131113311303331"></a>
 
-## where.virtual_site — where.virtual_site / 6921a1f7c2e2 / 2
+## where.virtual_site — virtual_site / 331330023202 / 2
 
 Breadcrumbs:
 
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
+- [xcsh_bgp](../resources/bgp.md#canonical-3310110230203031-0323100203221200-2312202022333201-2213220303201313-0321312110122102-3032233203123111-2211311331302223-2201000110103200)
+- [Property reference](resources--bgp--reference--group-001.md#canonical-0222022111032003-2132031113023131-2122301210220323-1120011021332102-1232011202301021-3013311310110100-1303130223213123-1323030111303030)
+- [where](resources--bgp--reference--group-001.md#canonical-3310113311010321-2211233202102322-3001232112032331-0322032021203310-0031203331133113-2121220003210231-0303000101131332-1233013013233231)
 - where.virtual_site
 
-<a id="canonical-5f56f369d2d75506a18b022e3ae39d67d4b132392ca7cf9895147335d97ee051"></a>
+<a id="canonical-1133111233031221-3102311311110012-2201202300020232-0322320321311213-3110230103020321-0230221330332120-2111011013030311-3121133232001101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5403,334 +5403,12 @@ virtual_site {
 }
 ```
 
-<a id="canonical-298003a927b20154070660f7f2510cb3eb9b1433d787c36a003d5e8562154416"></a>
+<a id="canonical-0221200000032221-0213230200011110-0013001212003313-3302110100302303-3223212301100303-3113201330031222-0000033111322011-1202011110100112"></a>
 
-## Direct properties — where.virtual_site / 6921a1f7c2e2 / 3
+## Direct properties — virtual_site / 331330023202 / 3
 
-- [disable_internet_vip](resources--bgp--reference--group-001.md#canonical-81dbef89654de46c659d68543f2e9e88fde44a0ca528795c285ab8fa380cdd89): complete subsection reference.
+- [disable_internet_vip](resources--bgp--reference--group-002.md#canonical-2001312332332021-1211103132101230-1211213112201110-0333023221322020-3331321010220030-2211022013211130-0220112223203322-0320003031312021): complete subsection reference.
 
-- [enable_internet_vip](resources--bgp--reference--group-001.md#canonical-d683d73af230f214d2a939338b74549cd4d0292d709a5b4b3cf61e53945127db): complete subsection reference.
+- [enable_internet_vip](resources--bgp--reference--group-002.md#canonical-3112200331130322-3302030033020110-3102222103210303-2023131011102130-3110310002210231-1300212211231023-0330331201321103-2110110102133123): complete subsection reference.
 
-<a id="canonical-168aeab8149d664fe4bdde8b541601a3c581024a04247681255205ee77da7da4"></a>
-
-<a id="canonical-7a134628bac1b9819c66ae244261e242c7fe2a8304a9f5223d50c2355928fad6"></a>
-
-## network_type property — where.virtual_site / 6921a1f7c2e2 / 4
-
-Type: `"string"`. Optional.
-
-\[Enum:
-VIRTUAL\_NETWORK\_SITE\_LOCAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE|VIRTUAL\_NETWORK\_PER\_SITE|VIRTUAL\_NETWORK\_PUBLIC|VIRTUAL\_NETWORK\_GLOBAL|VIRTUAL\_NETWORK\_SITE\_SERVICE|VIRTUAL\_NETWORK\_VER\_INTERNAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE|VIRTUAL\_NETWORK\_IP\_AUTO|VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK|VIRTUAL\_NETWORK\_SRV6\_NETWORK|VIRTUAL\_NETWORK\_IP\_FABRIC|VIRTUAL\_NETWORK\_SEGMENT|VIRTUAL\_NETWORK\_MANAGEMENT\]
-Different types of virtual networks understood by the system Virtual-network of type
-VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside) network. This is an insecure
-network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type
-is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
-\`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\`, \`VIRTUAL\_NETWORK\_PER\_SITE\`,
-\`VIRTUAL\_NETWORK\_PUBLIC\`, \`VIRTUAL\_NETWORK\_GLOBAL\`, \`VIRTUAL\_NETWORK\_SITE\_SERVICE\`,
-\`VIRTUAL\_NETWORK\_VER\_INTERNAL\`, \`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE\`,
-\`VIRTUAL\_NETWORK\_IP\_AUTO\`, \`VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK\`,
-\`VIRTUAL\_NETWORK\_SRV6\_NETWORK\`, \`VIRTUAL\_NETWORK\_IP\_FABRIC\`,
-\`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
-\`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
-
-Upstream description:
-
-Different types of virtual networks understood by the system
-
-Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside)
-network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls
-Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created automatically and present on all sites
-Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE is a private network inside site. It
-is a secure network and is not connected to public network. Virtual-network of this type is local to
-every site. Two virtual networks of this type on different sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created during provisioning of site User defined per-site
-virtual network. Scope of this virtual network is limited to the site. This is not yet supported
-Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC directly connects to the public internet.
-Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on RE sites only It is an internally created by the system. They must not be created by
-user Virtual Networks with global scope across different sites in F5XC domain. An example global
-virtual-network called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
-
-Constraints: It is currently only supported as internally created by the system. VK8s service
-network for a given tenant. Used to advertise a virtual host only to vk8s pods for that tenant
-Constraints: It is an internally created by the system. Must not be created by user VER internal
-network for the site. It can only be used for virtual hosts with SMA\_PROXY type proxy Constraints:
-It is an internally created by the system. Must not be created by user Virtual-network of type
-VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE represents both VIRTUAL\_NETWORK\_SITE\_LOCAL and
-VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
-
-Constraints: This network type is only meaningful in an advertise policy When virtual-network of
-type VIRTUAL\_NETWORK\_IP\_AUTO is selected for an endpoint, VER will try to determine the network
-based on the provided IP address
-
-Constraints: This network type is only meaningful in an endpoint
-
-VoltADN Private Network is used on F5 Distributed Cloud RE(s) to connect to customer private
-networks This network is created by opening a support ticket
-
-This network is per site srv6 network VER IP Fabric network for the site. This Virtual network type
-is used for exposing virtual host on IP Fabric network on the VER site or for endpoint in IP Fabric
-network Constraints: It is an internally created by the system. Must not be created by user
-Virtual-network of type VIRTUAL\_NETWORK\_SEGMENT for segment interface Virtual-network of type
-VIRTUAL\_NETWORK\_MANAGEMENT is used for management purposes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-    "VIRTUAL_NETWORK_PER_SITE",
-    "VIRTUAL_NETWORK_PUBLIC",
-    "VIRTUAL_NETWORK_GLOBAL",
-    "VIRTUAL_NETWORK_SITE_SERVICE",
-    "VIRTUAL_NETWORK_VER_INTERNAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-    "VIRTUAL_NETWORK_IP_AUTO",
-    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
-    "VIRTUAL_NETWORK_SRV6_NETWORK",
-    "VIRTUAL_NETWORK_IP_FABRIC",
-    "VIRTUAL_NETWORK_SEGMENT",
-    "VIRTUAL_NETWORK_MANAGEMENT"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VIRTUAL_NETWORK_SITE_LOCAL",
-  "enum": [
-    "VIRTUAL_NETWORK_SITE_LOCAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-    "VIRTUAL_NETWORK_PER_SITE",
-    "VIRTUAL_NETWORK_PUBLIC",
-    "VIRTUAL_NETWORK_GLOBAL",
-    "VIRTUAL_NETWORK_SITE_SERVICE",
-    "VIRTUAL_NETWORK_VER_INTERNAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-    "VIRTUAL_NETWORK_IP_AUTO",
-    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
-    "VIRTUAL_NETWORK_SRV6_NETWORK",
-    "VIRTUAL_NETWORK_IP_FABRIC",
-    "VIRTUAL_NETWORK_SEGMENT",
-    "VIRTUAL_NETWORK_MANAGEMENT"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [ref](resources--bgp--reference--group-001.md#canonical-94909ec24effc463241234e2357c02b3300c684e22b3b1427adeb09b9159d4f5): complete subsection reference.
-
-<a id="canonical-050fed638c1be2318dc89fb3899bade1d41241ff70c5f0f0b447ef23c8fa024e"></a>
-
-## Next pages — where.virtual_site / 6921a1f7c2e2 / 5
-
-- [where.virtual_site.disable_internet_vip](resources--bgp--reference--group-001.md#canonical-81dbef89654de46c659d68543f2e9e88fde44a0ca528795c285ab8fa380cdd89)
-- [where.virtual_site.enable_internet_vip](resources--bgp--reference--group-001.md#canonical-d683d73af230f214d2a939338b74549cd4d0292d709a5b4b3cf61e53945127db)
-- [where.virtual_site.ref](resources--bgp--reference--group-001.md#canonical-94909ec24effc463241234e2357c02b3300c684e22b3b1427adeb09b9159d4f5)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-
-<a id="canonical-81dbef89654de46c659d68543f2e9e88fde44a0ca528795c285ab8fa380cdd89"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-46bf0775ff7ce1d69add6455d9e3fe6432622ac6a19ef16299d30f4be239b9a7"></a>
-
-## where.virtual_site.disable_internet_vip — where.virtual_site.disable_internet_vip / fe71df0a5969 / 2
-
-Breadcrumbs:
-
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- where.virtual_site.disable_internet_vip
-
-<a id="canonical-3077fd4e2adf942ae9b21122432a0d080a13620b3dcd17fddb9e4fe4e172cf3c"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_internet_vip = {}
-```
-
-<a id="canonical-56d57d1b704e0c54df5b87598ea90829377b0d01866bc87e66bda9c26ad53a75"></a>
-
-## Direct properties — where.virtual_site.disable_internet_vip / fe71df0a5969 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-be26e7062884f8e5e96241d1fe6bf962efd05e038073d49ea101219e72a16210"></a>
-
-## Next pages — where.virtual_site.disable_internet_vip / fe71df0a5969 / 4
-
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-
-<a id="canonical-d683d73af230f214d2a939338b74549cd4d0292d709a5b4b3cf61e53945127db"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3513262ab3c6b0a446ce220718b9c11ba86a45a7a034215a2d6e8400668b65e5"></a>
-
-## where.virtual_site.enable_internet_vip — where.virtual_site.enable_internet_vip / 7bc5c1bf3b55 / 2
-
-Breadcrumbs:
-
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- where.virtual_site.enable_internet_vip
-
-<a id="canonical-c3ee5a652e697e87a8c6af9b59d77a064fce1d7f7c7112c5da7b6290a8b67e95"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_internet_vip = {}
-```
-
-<a id="canonical-4becd317ff8932e47a64036fe950046b7db82d4aca900297ac7877950e32e92d"></a>
-
-## Direct properties — where.virtual_site.enable_internet_vip / 7bc5c1bf3b55 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1d3899c9b16e312ca33386cdf4dd767a16faee65259edc88da2c86e0985eacbf"></a>
-
-## Next pages — where.virtual_site.enable_internet_vip / 7bc5c1bf3b55 / 4
-
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-
-<a id="canonical-94909ec24effc463241234e2357c02b3300c684e22b3b1427adeb09b9159d4f5"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7db91af78586816186300c110436f0bd6ece6c374e546f150aaf1c49d25c3177"></a>
-
-## where.virtual_site.ref — where.virtual_site.ref / cc6a2a8af6e1 / 2
-
-Breadcrumbs:
-
-- [xcsh_bgp](../resources/bgp.md#canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0)
-- [Property reference](resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
-- [where](resources--bgp--reference--group-001.md#canonical-f45f5139a5be24bac1b963bd3a3898f40d8fd7d799a0392d3301177e6f1c7bed)
-- [where.virtual_site](resources--bgp--reference--group-001.md#canonical-2d2a08b78ff2cade32a52bc98a6ea5e6a1b7db40299352ff19864c67ad4749e0)
-- where.virtual_site.ref
-
-<a id="canonical-1214283505415477b779106f3d6a5de19e621d7ad23d17ad9e48a2c76b48ceb2"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Reference. A virtual\_site direct reference.
-
-Upstream description:
-
-A virtual\_site direct reference.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ref {
-  # Configure direct properties listed below.
-}
-```
+<a id="canonical-0112202232222320-0110213112121033-3210233131322023-1110011200012203-3011200100021022-0010021013122001-0211110200113232-1313312213312210"></a>

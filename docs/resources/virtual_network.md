@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_virtual_network land
 
 # xcsh_virtual_network landing
 
-<a id="canonical-21f8cd52cc88675de24bb43345d87da0d8c4a374c7bc1f8c33fd0f7b6ebd5181"></a>
+<a id="canonical-0201332030311102-3030202012131131-3202102323100303-1011312013312200-3120301022031310-3013233001332030-0303333100331323-1232233111012001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-faba0277830c910bb581c60bf3f42c01fbae52f0b3b53e2ab158852ed55975cb"></a>
+<a id="canonical-3322232200021313-2003003021010023-2311200130120023-3303331002300001-3323223211023300-2303231103320222-2301112020110232-3111112113113023"></a>
 
-## xcsh_virtual_network — xcsh_virtual_network / ed4c72be6b34 / 2
+## xcsh_virtual_network — xcsh_virtual_network / 233212230310 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages virtual network in given namespace in F5 Distributed Cloud.
 
-<a id="canonical-b5b4c787ac98041a865dcc8b11f35fdbc56307c2bbfbe6463bd6cfda966b8683"></a>
+<a id="canonical-2311231030132013-2230212000100122-2012113130302023-0101330311333123-3011120300133002-2323332332121012-0323311230333122-2112122320122003"></a>
 
-## Prerequisites — xcsh_virtual_network / ed4c72be6b34 / 3
+## Prerequisites — xcsh_virtual_network / 233212230310 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Optional integrations: `network_connector`.
 
 - network_connector: Connect to external networks
 
-<a id="canonical-438f3ad15b38a48ef5b8901462103ea5ebfec7984060f986879109fbea485b5e"></a>
+<a id="canonical-1003203303223101-1123032022102032-3311232021000110-1202010003322211-3223333230132120-1000120033212012-2013210100213323-3222102011231132"></a>
 
-## Minimal configuration — xcsh_virtual_network / ed4c72be6b34 / 4
+## Minimal configuration — xcsh_virtual_network / 233212230310 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,17 +62,17 @@ resource "xcsh_virtual_network" "example" {
 }
 ```
 
-<a id="canonical-0ac5fff443668b3a23032ff355ae53da138a3934a1c03964935b92113f7b92db"></a>
+<a id="canonical-0022301133333310-1003121220230322-0203000302333303-1111223211033122-0103202203210310-2201300003211210-2103112321020101-0333132321023123"></a>
 
-## Root configuration — xcsh_virtual_network / ed4c72be6b34 / 5
+## Root configuration — xcsh_virtual_network / 233212230310 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-58729813761853841f7bf72622c5e7511ea47b7c7dd4716de44995fc004b1ffb"></a>
+<a id="canonical-1120130221200103-1312012011032010-0133132333130212-0202301132131101-0132221013231330-1331311013011231-3210102121113330-0000102301333323"></a>
 
-## Next pages — xcsh_virtual_network / ed4c72be6b34 / 6
+## Next pages — xcsh_virtual_network / 233212230310 / 6
 
-- [Property reference](../guides/resources--virtual_network--reference--group-001.md#canonical-3ea74abf82db9443d83a671d5f5b828b070ed4def044e50a05a69761fc5a0ccf)
-- [Examples](../guides/resources--virtual_network--examples--group-001.md#canonical-1136a78de868fce47dd66a1ef294d0b019c86f62b789f3df9e913d18ecb8cca1)
-- [Import](../guides/resources--virtual_network--lifecycle--group-001.md#canonical-b77c9c94c6bab3e06ab6c7ae8d3916bb9df610d4412aec376cb1a98908fdd0d4)
-- [Timeouts](../guides/resources--virtual_network--lifecycle--group-001.md#canonical-15d1f867c89c5630f849d88c02050fab6153880f566ef63a6babb8d7c56f904c)
+- [Property reference](../guides/resources--virtual_network--reference--group-001.md#canonical-0332221310222333-2002312321101003-3120032212130131-1133112320022023-0013003231103132-3300101032110022-0011221221131201-3330112200303033)
+- [Examples](../guides/resources--virtual_network--examples--group-001.md#canonical-0101031222132031-3220122033303210-1331311212220132-3302211031002300-0121302012331202-2313202133033133-2132210103310120-3230232030302201)
+- [Import](../guides/resources--virtual_network--lifecycle--group-001.md#canonical-2313133021302110-3012232223033200-1222231230132232-2031032101122323-2131331201003110-1001022232300313-1230230122212021-0020333131003110)
+- [Timeouts](../guides/resources--virtual_network--lifecycle--group-001.md#canonical-0111310133201213-3020213011120300-3320102131202030-0002001100332223-1201110320200033-1112123233120322-1223222323203113-3011123321001030)

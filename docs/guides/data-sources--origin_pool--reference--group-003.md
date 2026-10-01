@@ -6,112 +6,28 @@ description: "Complete grouped canonical reference for xcsh_origin_pool referenc
 
 # xcsh_origin_pool reference
 
-<a id="canonical-5efb4fb94b4c809c70e84d33b4bf6f5193d709d6f0f4bbcc9509b9d29b123d44"></a>
-
-## max_version property — use_tls.tls_config.custom_security / 152a8c3d3608 / 5
-
-Type: `"string"`. Computed.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6aea64e3f4141fb6afed6bca2e593f3ae94692b01eb6937ecef1e09d060ad803"></a>
-
-<a id="canonical-20d540e01609928a694093dbbe5e727ca3f9f9cf8e6a1614b4a4af6d5f321d87"></a>
-
-## min_version property — use_tls.tls_config.custom_security / 152a8c3d3608 / 6
-
-Type: `"string"`. Computed.
-
-\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
-versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
-\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "TLS_AUTO",
-  "enum": [
-    "TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-e6ad15f911738061d01b2e031d35cdc91a05f001ea86374607d9ed2cf32b1fd6"></a>
-
-## Next pages — use_tls.tls_config.custom_security / 152a8c3d3608 / 7
-
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-
-<a id="canonical-e10ddec2c169d411673281ecd0e3768de11e78dc82c3cbe5df78ae3e01b868f4"></a>
+<a id="canonical-3112023032132312-1132010002311002-3003320230110132-1123303202301332-0312123102222332-0303130310001332-1123133313201330-2001030020320211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-67d32210fb07c8b6c71360df8d6a6e198d09d6cb9f6fe8bc7aaf8b2782114d89"></a>
+<a id="canonical-1111032321120231-0221011122022210-2302132130100112-0333211321000020-0310101011132022-3301132231223031-1231013133023100-1301121103300222"></a>
 
-## use_tls.tls_config.default_security — use_tls.tls_config.default_security / 9f864137d9fb / 2
+## use_tls.disable_session_key_caching — disable_session_key_caching / 010000201011 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- use_tls.tls_config.default_security
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.disable_session_key_caching
 
-<a id="canonical-c5750f2ebdac13019022f0410f5a4cbddbd24e5dcba7f0ecd2b14cb5fee40e51"></a>
+<a id="canonical-2003010311021311-0332020301111223-3123232101102112-3103113001010103-0333200233003302-2102011021303311-1112312022322313-1302011130230300"></a>
 
 Type: `["object", {}]`. Computed.
 
-Enable this option
+Configuration parameter for disable session key caching.
 
 Upstream description:
 
@@ -130,42 +46,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-844dc0b6a0e73b92c292dde571188f4ccc75d54c25692a49f896fd8de18d80a7"></a>
+<a id="canonical-3221320010121102-1132332101122000-3123232211021300-0323121031300203-3002322232302030-2210210032311311-0313232313221210-3030210233111131"></a>
 
-## Direct properties — use_tls.tls_config.default_security / 9f864137d9fb / 3
+## Direct properties — disable_session_key_caching / 010000201011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-87921f3c548939d5493e0dfd197e283ba9ada1f9d922f605ca21501061250e99"></a>
+<a id="canonical-1211322320000030-2010021032133102-0132212013200210-1112313202011331-2131100222132303-3212320312330133-3120231320200010-2231310001031003"></a>
 
-## Next pages — use_tls.tls_config.default_security / 9f864137d9fb / 4
+## Next pages — disable_session_key_caching / 010000201011 / 4
 
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-9ac2ef49f7189dd822e97a3500009ae9c2fd82baf9309688b2687bd65c942604"></a>
+<a id="canonical-3302331001011103-0032210313332130-2330101100323023-3233031132332300-3233222030222021-0231223303003021-1220133302031312-1211313003212132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-816496f683f9cdff61a3b1ac19cbf2de214b235fe103b341e3eab490e51b1284"></a>
+<a id="canonical-0022231102112330-3102122103033320-3012201030203013-3122310111030022-1120322202100212-2100001321030033-0300003120212102-1013210220022132"></a>
 
-## use_tls.tls_config.low_security — use_tls.tls_config.low_security / 5feaec5a3859 / 2
+## use_tls.disable_sni — disable_sni / 033011221303 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- use_tls.tls_config.low_security
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.disable_sni
 
-<a id="canonical-c13090001ba1f5b8c2bbf8fb98758498ecd3dba66575c48ff25fcdfca2d3634d"></a>
+<a id="canonical-1212122200212010-3013213213022221-3021312132133231-1021313013010111-3031231222111033-0211300322212000-2333213222123033-2220012003130200"></a>
 
 Type: `["object", {}]`. Computed.
 
-Enable this option
+Configuration parameter for disable sni.
 
 Upstream description:
 
@@ -184,91 +99,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ed69015149c6b1cb4cbcd85bd1183450637635509c0fd256cda936729750d09d"></a>
+<a id="canonical-2003003211100331-0121112122322103-1310003220310133-1331023233203121-1000303320231213-3321330311010202-3133020103112123-2103320203012031"></a>
 
-## Direct properties — use_tls.tls_config.low_security / 5feaec5a3859 / 3
+## Direct properties — disable_sni / 033011221303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-065d831c94b1e1fa38ec189718484ece9fb35abaf576047c321ec769cd2891bd"></a>
+<a id="canonical-2110313003112231-1112221131000321-0100100030001111-0230300103232322-3020300102203023-1022000322012323-3020110123000222-2002003320123203"></a>
 
-## Next pages — use_tls.tls_config.low_security / 5feaec5a3859 / 4
+## Next pages — disable_sni / 033011221303 / 4
 
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-e2d24761b77ce5bf0879ae9b51565441ad80979c03812f8afefea3d1da6609e9"></a>
+<a id="canonical-2033030130120230-2002013012023100-2300101011010123-0023110121222313-2002022101100132-1200212102011022-0232110202003010-1021021323033132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32fcff685268091e66c37f6e40880834ca20792c1f123067b6396908d5fe3ea1"></a>
+<a id="canonical-1023010031312301-2010122110010103-2023303212000232-0133331230022111-0312321230310313-3020322330210322-2302000221113313-1013032223223322"></a>
 
-## use_tls.tls_config.medium_security — use_tls.tls_config.medium_security / a48b066dda8f / 2
-
-Breadcrumbs:
-
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- use_tls.tls_config.medium_security
-
-<a id="canonical-6d9c5f7bcc6d4877d32a0f35f62570e59b3cef5fbb17b90053d3b8b95e181cee"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-01d94118a83fe9867fc9b722ed277dc4d73b75a3900d70db634951640ec8728a"></a>
-
-## Direct properties — use_tls.tls_config.medium_security / a48b066dda8f / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2289f72ddd2b41bf567a0bf4981bbed8a381664bd44b7542e8443609febabc01"></a>
-
-## Next pages — use_tls.tls_config.medium_security / a48b066dda8f / 4
-
-- [use_tls.tls_config](data-sources--origin_pool--reference--group-002.md#canonical-c2a519ac8e9a21aaa54b2ffbcd56547e228bd2cffb1c99145c7a0f215ab109e7)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-
-<a id="canonical-ee6ab69ff991ac412a360f9da33ef7822a4a9d6c9331f477e8de86d579bf9d49"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-ebb8d89c94cb4f3b6d26dfde7b015d66c798c36d3b43c77aa6352417559671cd"></a>
-
-## use_tls.use_host_header_as_sni — use_tls.use_host_header_as_sni / f4bbdcb288c9 / 2
+## use_tls.no_mtls — no_mtls / 002212131120 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- use_tls.use_host_header_as_sni
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.no_mtls
 
-<a id="canonical-c20b08bc3ea0a185ca2886e94f8bfbd6e4be658be476dd5466f33bc62b712007"></a>
+<a id="canonical-2121302331023120-3120231203230320-1111220312012332-1030122211200213-2330101321313131-1023131222221102-0300313213311031-0111103120033123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -291,37 +152,555 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dbf8ed6e3376434e34556108a28c5a7458b11723c407d9885d26ead25d396b84"></a>
+<a id="canonical-3012010003232330-0222002301202111-1000121333200123-3010032133233300-3131012300022123-1323201303221300-0200312230111300-2200113332120210"></a>
 
-## Direct properties — use_tls.use_host_header_as_sni / f4bbdcb288c9 / 3
+## Direct properties — no_mtls / 002212131120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8b6f789099fdaf6fbfba11e9412422fd5ac59457b1c39dbe71880ffc215ced60"></a>
+<a id="canonical-1120122321101123-3201211330003123-0100313002111300-0122320330233321-3003130120211312-2120312021302011-1120102031130101-1220222333121323"></a>
 
-## Next pages — use_tls.use_host_header_as_sni / f4bbdcb288c9 / 4
+## Next pages — no_mtls / 002212131120 / 4
 
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4"></a>
+<a id="canonical-3133102211002303-3032200122321120-0210020232102320-2021111001013011-1213213100231100-2122021233030322-3321111131233310-0313010303321021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-aace979b033eada8260524de5edfd6a056dc742196fcb0f0a0195e3068bea554"></a>
+<a id="canonical-0111033122311213-1102130331320121-1111200223130102-1310211110211023-0233230312103133-2001033321130231-0322030220322132-1320210303223002"></a>
 
-## use_tls.use_mtls — use_tls.use_mtls / 14febe60c760 / 2
+## use_tls.skip_server_verification — skip_server_verification / 303033032303 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.skip_server_verification
+
+<a id="canonical-3331020311210023-1121220230320302-1302202211103233-2310322312021232-3132220231332313-3321331123311103-3200303312312113-2001130112031321"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3033223301112111-0213312133200200-3001230033233300-1333030230023100-0110122001231321-1302200100222113-3321203200312322-0312100212130001"></a>
+
+## Direct properties — skip_server_verification / 303033032303 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1230003000101233-2113030020313020-1031013302020331-1222212021132013-0100033001010232-1230000232133110-3121300022103301-2312132001203301"></a>
+
+## Next pages — skip_server_verification / 303033032303 / 4
+
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1202332303021122-0011211232000002-0122201310011200-3000011213310031-0332230321002301-1013210222010100-2322332112103031-3022330331331332"></a>
+
+## use_tls.tls_config — tls_config / 011130033300 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.tls_config
+
+<a id="canonical-2221121021212003-3311211133031031-3322231011231023-2021100112101121-1130032323313321-1022313211131100-1033020031230122-2332321020033203"></a>
+
+Type: `"single"`. Computed.
+
+Defines various OPTIONS to configure TLS configuration parameters.
+
+Upstream description:
+
+This defines various OPTIONS to configure TLS configuration parameters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "tls",
+    "constraintType": "object",
+    "deterministic": true,
+    "metadata": {
+      "category": "tls",
+      "confidence": 0.99,
+      "note": "Required when use_tls is selected — API returns 400 if nil",
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"custom_security\",\"default_security\",\"low_security\",\"medium_security\"]"
+}
+```
+
+<a id="canonical-0132031310132202-1001000320012202-2302230223122312-1302002323202332-3311201112322331-3010130210332012-3210011330312022-2312210312221313"></a>
+
+## Direct properties — tls_config / 011130033300 / 3
+
+- [custom_security](data-sources--origin_pool--reference--group-003.md#canonical-1330233100130232-3232102231013300-0032311102013312-1222000110023213-0200330121002332-3302110021020222-0033012322220102-0213123123130201): complete subsection reference.
+
+- [default_security](data-sources--origin_pool--reference--group-003.md#canonical-3201003131323002-3001122131100101-1213030220013230-3100320313122031-3201013213203130-2002300330233211-3133132022320332-0001232012203310): complete subsection reference.
+
+- [low_security](data-sources--origin_pool--reference--group-003.md#canonical-2122300232331021-3313012021313120-0202322113220311-0000000021223221-3002333120022322-3321030021122020-2302122013233112-1130211002120010): complete subsection reference.
+
+- [medium_security](data-sources--origin_pool--reference--group-003.md#canonical-3202310210131201-2313133032112333-0020132122322123-1101111211101001-2231200021132130-0003200102332022-3332333222033101-3122121200213221): complete subsection reference.
+
+<a id="canonical-1120112000102220-2222001220210213-1300030212013231-0021331020301123-3121321001000301-3333322022033330-3100311222321131-0113313202023331"></a>
+
+## Next pages — tls_config / 011130033300 / 4
+
+- [use_tls.tls_config.custom_security](data-sources--origin_pool--reference--group-003.md#canonical-1330233100130232-3232102231013300-0032311102013312-1222000110023213-0200330121002332-3302110021020222-0033012322220102-0213123123130201)
+- [use_tls.tls_config.default_security](data-sources--origin_pool--reference--group-003.md#canonical-3201003131323002-3001122131100101-1213030220013230-3100320313122031-3201013213203130-2002300330233211-3133132022320332-0001232012203310)
+- [use_tls.tls_config.low_security](data-sources--origin_pool--reference--group-003.md#canonical-2122300232331021-3313012021313120-0202322113220311-0000000021223221-3002333120022322-3321030021122020-2302122013233112-1130211002120010)
+- [use_tls.tls_config.medium_security](data-sources--origin_pool--reference--group-003.md#canonical-3202310210131201-2313133032112333-0020132122322123-1101111211101001-2231200021132130-0003200102332022-3332333222033101-3122121200213221)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-1330233100130232-3232102231013300-0032311102013312-1222000110023213-0200330121002332-3302110021020222-0033012322220102-0213123123130201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3001033323333132-3120031013113310-1131100003320211-2233123022203331-0121200121033222-3223313211223100-1003300111113033-2310021230033320"></a>
+
+## use_tls.tls_config.custom_security — custom_security / 033103120020 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- use_tls.tls_config.custom_security
+
+<a id="canonical-3103212201032200-3132123333012101-3303303013300030-2113221030022312-3111111231031111-1130120113103330-2101111111302113-3003322113131103"></a>
+
+Type: `"single"`. Computed.
+
+Defines TLS protocol config including min/max versions and allowed ciphers.
+
+Upstream description:
+
+This defines TLS protocol config including min/max versions and allowed ciphers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1113211320321322-0321222330133031-1020113100103322-2000002123232210-2303111031100311-3201310113001101-2201022130010213-3123332330111123"></a>
+
+## Direct properties — custom_security / 033103120020 / 3
+
+<a id="canonical-1133310020130221-0011030031032112-0230300021102011-3333000223122333-2102211003312202-3033132231022221-3013102330002300-3113023000223230"></a>
+
+<a id="canonical-2011200232011212-3110231033023130-0201232232201012-0010300321332233-1322120210101002-3023231300331232-3231132110000012-0013203132211333"></a>
+
+## cipher_suites property — custom_security / 033103120020 / 4
+
+Type: `["list", "string"]`. Computed.
+
+The TLS listener will only support the specified cipher list.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3323313112120033-2112103233111132-3132310012221221-0100020120032033-1221231132003020-3012032210330030-0023120100120310-3223220112113200"></a>
+
+<a id="canonical-1132332310332321-1023103020002130-1300322010310303-2310233312331101-2103311300213112-3300331023233030-2111002123213102-2123010203311010"></a>
+
+## max_version property — custom_security / 033103120020 / 5
+
+Type: `"string"`. Computed.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Upstream description:
+
+TlsProtocol is enumeration of supported TLS versions
+
+F5 Distributed Cloud will choose the optimal TLS version.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1222322212103203-3310011001332312-2233323112233022-0232112103330322-3221101221022300-0132231221031332-3032330132002131-0012002231200003"></a>
+
+<a id="canonical-0200311110003200-0112002121022022-1221100021033123-2332113213021330-2203332133213033-2032122201120110-2310221022331231-1133030201312013"></a>
+
+## min_version property — custom_security / 033103120020 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Upstream description:
+
+TlsProtocol is enumeration of supported TLS versions
+
+F5 Distributed Cloud will choose the optimal TLS version.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3212223101113321-0101130320001201-3100012302320003-0131031130313021-0122001133000001-3222201203131012-0013312132310230-3303022301333112"></a>
+
+## Next pages — custom_security / 033103120020 / 7
+
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-3201003131323002-3001122131100101-1213030220013230-3100320313122031-3201013213203130-2002300330233211-3133132022320332-0001232012203310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1213310302020100-3323001330202312-3013010312003133-2031122212320121-2031002131123023-2133123332202330-1322223320230213-2002010110312021"></a>
+
+## use_tls.tls_config.default_security — default_security / 031331213323 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- use_tls.tls_config.default_security
+
+<a id="canonical-3011131100330232-2331223001030001-2100020233001001-0033112210302331-3123310210321131-3023221333003230-3102230110302311-3332321000321101"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2010103130002312-2200321303232102-3002210231313211-1301012020331030-3030131131111030-0211122102221021-3320211233312031-3201203120002213"></a>
+
+## Direct properties — default_security / 031331213323 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2013210201330330-1110202103213111-1021033200313331-0121133202200323-2221223122013321-3121020233120011-3022020111000100-1201021100322121"></a>
+
+## Next pages — default_security / 031331213323 / 4
+
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-2122300232331021-3313012021313120-0202322113220311-0000000021223221-3002333120022322-3321030021122020-2302122013233112-1130211002120010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2001121021123312-2003332130313333-1201220323012230-0121302333023132-0201102302031133-3201000323031001-3203322223102100-3211012301022010"></a>
+
+## use_tls.tls_config.low_security — low_security / 112203201121 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- use_tls.tls_config.low_security
+
+<a id="canonical-3001030021000000-0123220133112320-3002232333203323-2120131120102120-3230310331232212-1211131130102033-3302113330313330-2202310312031031"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3231122100011101-1021301223013023-1030233031201123-3101012003101100-1203131203111100-2130003331021112-3031222103121302-2113110031002131"></a>
+
+## Direct properties — low_security / 112203201121 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0012113120030130-2110230132013322-0320323001202113-0120102010323032-2133230311222322-3311131200101330-0302013230131221-3031022021012331"></a>
+
+## Next pages — low_security / 112203201121 / 4
+
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-3202310210131201-2313133032112333-0020132122322123-1101111211101001-2231200021132130-0003200102332022-3332333222033101-3122121200213221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0302333033331220-1102122000210132-1212300313331232-1000202000200310-3022020013210230-0133010203001213-2312032112210020-3111333203322201"></a>
+
+## use_tls.tls_config.medium_security — medium_security / 123131222033 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- use_tls.tls_config.medium_security
+
+<a id="canonical-1231213011331323-3030123110201313-3103022200330311-3312021113003211-2123033032331133-2323011323210000-1103310323202321-1132012001303232"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0001312110010120-2220033332212012-1333302123130202-3231021313313010-3113032313112203-2100003113003123-1203102111011210-0032302013022022"></a>
+
+## Direct properties — medium_security / 123131222033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0202202133130231-3131022310012333-1112132200233310-2120012323323120-2203200112121023-3110102313111002-3220101003120021-3332232223300001"></a>
+
+## Next pages — medium_security / 123131222033 / 4
+
+- [use_tls.tls_config](data-sources--origin_pool--reference--group-003.md#canonical-3002221101212230-2032212202012222-2211102302333323-3031111211101332-0202202331023033-3323013021210110-1130132200330201-1122230100213213)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-3232122223122133-3321210122301001-0222031200332131-2203033233132002-0222102221311230-2103030133101313-3220313220123111-1321233321311021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3223232031202130-2110302310330323-1231021231333132-1323000111311212-3013212030031231-0323100330131322-2212031102100113-1111211213013031"></a>
+
+## use_tls.use_host_header_as_sni — use_host_header_as_sni / 230220203021 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- use_tls.use_host_header_as_sni
+
+<a id="canonical-3002002300202330-0332220022012011-3022022020123221-1033202333233112-3210233212112023-3210131231311110-1212330303233012-0223130102000013"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option. Defaults to \`map\[\]\`. Server applies default when omitted.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3123332032311232-0303131210031032-0310111112010020-2202203011221310-1120230101130203-3010001331212020-1131021232223102-1131032112232010"></a>
+
+## Direct properties — use_host_header_as_sni / 230220203021 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2023123313202100-2121333122331233-2333232201013221-1001021002023331-1122301121101113-2301300321312332-1301202000333330-0201113032311200"></a>
+
+## Next pages — use_host_header_as_sni / 230220203021 / 4
+
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+
+<a id="canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2222303221132123-0003033222312220-0212001102103132-1132313331122200-1112313013100201-2112333023003300-2200012111320300-1220233222111110"></a>
+
+## use_tls.use_mtls — use_mtls / 120030131200 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
 - use_tls.use_mtls
 
-<a id="canonical-0f346614982ab588cb8d9246cbc97e266e36e0c8366073f7430f747b56cc15fe"></a>
+<a id="canonical-0033031012120110-2120022223112020-3023203121021012-3023302113320212-1232031232003020-0312120013033313-1003003313101323-1112303001113332"></a>
 
 Type: `"single"`. Computed.
 
@@ -344,39 +723,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4b51b82bc97767324f162b773047a4b5e161894613f9b7b7c77e53ad0670a6d"></a>
+<a id="canonical-3210231101232002-2330211313121303-0210330112022313-1303001013221023-1132011201202110-1201033321231323-1330131332110322-3100121300221231"></a>
 
-## Direct properties — use_tls.use_mtls / 14febe60c760 / 3
+## Direct properties — use_mtls / 120030131200 / 3
 
-- [tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa): complete subsection reference.
+- [tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222): complete subsection reference.
 
-<a id="canonical-5a8e1b96c1835d29182c8b8653cf2025f6a278e1996ac87b91ecac308d6b4a26"></a>
+<a id="canonical-1122203201232112-3001200311310221-0120023020232012-1103303302000211-3312220213203201-2121122230201323-2101323022300300-2031122310220212"></a>
 
-## Next pages — use_tls.use_mtls / 14febe60c760 / 4
+## Next pages — use_mtls / 120030131200 / 4
 
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa"></a>
+<a id="canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-678f8fbb9d8146d5105ecd443fd0b6632d8573450827554eed69ab64d61b29c6"></a>
+<a id="canonical-1213203320332323-2131200110123111-0100113230311010-0333310023121203-0231201113031011-0020021311111032-3231122122231210-3112012302213012"></a>
 
-## use_tls.use_mtls.tls_certificates — use_tls.use_mtls.tls_certificates / 4f3c8a0b7df1 / 2
+## use_tls.use_mtls.tls_certificates — tls_certificates / 002313313301 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
 - use_tls.use_mtls.tls_certificates
 
-<a id="canonical-a29af6c5b34ccbcdc00e3100b01209edc7c556e83645109a6c7b5d1b798fe4be"></a>
+<a id="canonical-2202212233123011-2303103030233031-3000003203010000-2300010200213231-3013301111123220-0312101101002122-1230132311310123-1321203332102332"></a>
 
 Type: `"list"`. Computed.
 
@@ -423,15 +802,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ebdb515fdbc2a9100393cae82675b28a445fb1d74a6276511e2e31f587431ac9"></a>
+<a id="canonical-3223312311011133-3123300222210100-0003210330223220-0212131123022022-1010113323013113-1022120213121101-0132023203013311-2013100301223021"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates / 4f3c8a0b7df1 / 3
+## Direct properties — tls_certificates / 002313313301 / 3
 
-<a id="canonical-6bf4457816c58543f658047eef705cf665bc5b979c4289e9977ecc39b440c046"></a>
+<a id="canonical-1223331010111320-0112301120111003-3312112000101332-3233130011303312-1211233011232113-2130100220213221-2113133230300321-2310100030001012"></a>
 
-<a id="canonical-0cb0c2ed9137b705c7ca9d31e4002b600bf00e28f0a20fbc9bcfacaaa5785730"></a>
+<a id="canonical-0030230030023231-2101031323130011-3013302221310301-3210000002231200-0023330000320220-3300220200332330-2123303322302222-2211132011130300"></a>
 
-## certificate_url property — use_tls.use_mtls.tls_certificates / 4f3c8a0b7df1 / 4
+## certificate_url property — tls_certificates / 002313313301 / 4
 
 Type: `"string"`. Computed.
 
@@ -484,55 +863,55 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_hash_algorithms](data-sources--origin_pool--reference--group-003.md#canonical-a729f4cf87e2fb53c86a0f08b6f365fd2903dc3d64a38e9aaa0a3a7e27ca01a2): complete subsection reference.
+- [custom_hash_algorithms](data-sources--origin_pool--reference--group-003.md#canonical-2213022133103033-2013320233231103-3020122200330020-2312330312113331-0221000331300331-1210220320322122-2222002203221332-0213302200012202): complete subsection reference.
 
-<a id="canonical-4d9fece768216abeb0c8758bc61e52e44bf71ce8ee0876f5d9e52e06fa6ab939"></a>
+<a id="canonical-1031213332303213-1220020112222332-2300302013112023-3012013211023210-1023331301303220-3232002013123311-3121321102320012-3322122223210321"></a>
 
-<a id="canonical-4df371535af6ec48fda7ed87e2f82b423779f30812ca0fb6378484ada284eb2b"></a>
+<a id="canonical-1031330313011103-1122331232301020-3331221332312013-3202332002231002-0313132133030020-0102302200332312-0313201020102231-2202201032230223"></a>
 
-## description_spec property — use_tls.use_mtls.tls_certificates / 4f3c8a0b7df1 / 5
+## description_spec property — tls_certificates / 002313313301 / 5
 
 Type: `"string"`. Computed.
 
 Description. Description for the certificate.
 
-- [disable_ocsp_stapling](data-sources--origin_pool--reference--group-003.md#canonical-989b4f858eb34fa638659b4b6a8b28f7f2d70c559c8a2728584542a5d482e31c): complete subsection reference.
+- [disable_ocsp_stapling](data-sources--origin_pool--reference--group-003.md#canonical-2120212310332011-2032230310332212-0320121121231023-1222202302203313-3302311300301111-2130202202130220-1120101110022211-3110200232030130): complete subsection reference.
 
-- [private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6): complete subsection reference.
+- [private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212): complete subsection reference.
 
-- [use_system_defaults](data-sources--origin_pool--reference--group-003.md#canonical-477766cd2e725607fa528bee83ebe0c2199da7b28a95e41c2ecc9b4cfeb37f65): complete subsection reference.
+- [use_system_defaults](data-sources--origin_pool--reference--group-003.md#canonical-1013131312123031-0232130211120013-3322110220233232-2003322332003002-0121213122132302-2022211132100130-0232303021231030-3332230313331211): complete subsection reference.
 
-<a id="canonical-6299c0563d71dac2507dfcd8828e15e066aaf0e1bf432ddb4f7a3a7db07ff0eb"></a>
+<a id="canonical-1202212130001112-0331130131223002-1100133133303120-2002203201113200-1212222233003201-2333100302313123-1033132203221331-2300133333003223"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates / 4f3c8a0b7df1 / 6
+## Next pages — tls_certificates / 002313313301 / 6
 
-- [use_tls.use_mtls.tls_certificates.custom_hash_algorithms](data-sources--origin_pool--reference--group-003.md#canonical-a729f4cf87e2fb53c86a0f08b6f365fd2903dc3d64a38e9aaa0a3a7e27ca01a2)
-- [use_tls.use_mtls.tls_certificates.disable_ocsp_stapling](data-sources--origin_pool--reference--group-003.md#canonical-989b4f858eb34fa638659b4b6a8b28f7f2d70c559c8a2728584542a5d482e31c)
-- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6)
-- [use_tls.use_mtls.tls_certificates.use_system_defaults](data-sources--origin_pool--reference--group-003.md#canonical-477766cd2e725607fa528bee83ebe0c2199da7b28a95e41c2ecc9b4cfeb37f65)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates.custom_hash_algorithms](data-sources--origin_pool--reference--group-003.md#canonical-2213022133103033-2013320233231103-3020122200330020-2312330312113331-0221000331300331-1210220320322122-2222002203221332-0213302200012202)
+- [use_tls.use_mtls.tls_certificates.disable_ocsp_stapling](data-sources--origin_pool--reference--group-003.md#canonical-2120212310332011-2032230310332212-0320121121231023-1222202302203313-3302311300301111-2130202202130220-1120101110022211-3110200232030130)
+- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212)
+- [use_tls.use_mtls.tls_certificates.use_system_defaults](data-sources--origin_pool--reference--group-003.md#canonical-1013131312123031-0232130211120013-3322110220233232-2003322332003002-0121213122132302-2022211132100130-0232303021231030-3332230313331211)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-a729f4cf87e2fb53c86a0f08b6f365fd2903dc3d64a38e9aaa0a3a7e27ca01a2"></a>
+<a id="canonical-2213022133103033-2013320233231103-3020122200330020-2312330312113331-0221000331300331-1210220320322122-2222002203221332-0213302200012202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ea6c682668817241c4e3dc8cf9d53c82cc1266e3a1be7c9089a010adf9a36557"></a>
+<a id="canonical-3222123012200212-1220200113021001-3010320331302030-3321311103302002-3030010212123203-2201233213302100-2021220001002231-3321220312111113"></a>
 
-## use_tls.use_mtls.tls_certificates.custom_hash_algorithms — use_tls.use_mtls.tls_certificates.custom_hash_algorithms / 58866d2d0bbe / 2
+## use_tls.use_mtls.tls_certificates.custom_hash_algorithms — custom_hash_algorithms / 023100232332 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
 - use_tls.use_mtls.tls_certificates.custom_hash_algorithms
 
-<a id="canonical-684b88b355351a4a22cce93e1d8c5b03175c68bd2b20c1d3db8ebc83b8031bce"></a>
+<a id="canonical-1220102320202303-1111031101221022-0202303032210332-0131203011230003-0113113012202331-0223020030013103-3123203223302003-2320000301233032"></a>
 
 Type: `"single"`. Computed.
 
@@ -551,15 +930,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-aea3b44daea7b6216290828f9c5b4281e8d52e64ebffdfd503be739f21716f20"></a>
+<a id="canonical-2232220323101031-2232221323120201-1202210020022033-2130112310022001-3220311102321210-3223333331333111-0003233213032133-0201130112330200"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.custom_hash_algorithms / 58866d2d0bbe / 3
+## Direct properties — custom_hash_algorithms / 023100232332 / 3
 
-<a id="canonical-681a9b2747b2968c16530872de047c272e7db9e36c2855533b6133bccf449080"></a>
+<a id="canonical-1220012221230213-1013230221122030-0112110300201302-3132001013300213-0232133123213203-1230022011111103-0323120103032330-3033101021002000"></a>
 
-<a id="canonical-217769d52407383120192e8f34bd3ef9828a16270562eb1b8d41ec3bd37fa4e9"></a>
+<a id="canonical-0201131312213111-0210001303200301-0200012102322033-0310233103323321-2002202201120213-0011120232230123-2031100132300323-3103133322103221"></a>
 
-## hash_algorithms property — use_tls.use_mtls.tls_certificates.custom_hash_algorithms / 58866d2d0bbe / 4
+## hash_algorithms property — custom_hash_algorithms / 023100232332 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -611,33 +990,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cc067f6cff4e395fcc3c1898357c2dcc5aaf9bcdc0053d047051bea7d69c1313"></a>
+<a id="canonical-3030001213331230-3333103203211133-3030033001202120-0311133002313030-1122223321233031-3000001103310010-1300110123322213-3112213001030103"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.custom_hash_algorithms / 58866d2d0bbe / 5
+## Next pages — custom_hash_algorithms / 023100232332 / 5
 
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-989b4f858eb34fa638659b4b6a8b28f7f2d70c559c8a2728584542a5d482e31c"></a>
+<a id="canonical-2120212310332011-2032230310332212-0320121121231023-1222202302203313-3302311300301111-2130202202130220-1120101110022211-3110200232030130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-89e30d0ae29bb205cec6b5604e68a6bd6e20ca1c640792f7b01a05d9cb9156de"></a>
+<a id="canonical-2021320300310022-3202212323020011-3032301223111200-1032122022122331-1232020030220130-1210001321023313-2300012200113121-3023210111123132"></a>
 
-## use_tls.use_mtls.tls_certificates.disable_ocsp_stapling — use_tls.use_mtls.tls_certificates.disable_ocsp_stapling / 922cdfd42e3b / 2
+## use_tls.use_mtls.tls_certificates.disable_ocsp_stapling — disable_ocsp_stapling / 311002320323 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
 - use_tls.use_mtls.tls_certificates.disable_ocsp_stapling
 
-<a id="canonical-149fbfb6cd2c91dc9a3b8cd1ce7ec2d5eb578cb77e2a6df6ec3cdd2b706d11a5"></a>
+<a id="canonical-0110213323332312-3031023021013130-2122032320303101-3032133230023111-3223111320302313-1332022212313312-3230033031310223-1300123101012211"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -660,39 +1039,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b351ef8ec2ec5cc26cd6184ea06c9d85ca72ce96007735baded33364ef030f85"></a>
+<a id="canonical-2303110132332032-3002323011303002-1230311201201032-2200123021312011-3022130230322112-0000131303112322-3132310303031210-3233000300332011"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.disable_ocsp_stapling / 922cdfd42e3b / 3
+## Direct properties — disable_ocsp_stapling / 311002320323 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-eccd4ffd646feade8ce2f249906e44e359001cb5077f35ed046be8df220f5743"></a>
+<a id="canonical-3230303110333331-1210123332223132-2030320233021021-2100123210103203-1121000001302311-0013133303113231-0010122332203133-0202003311131003"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.disable_ocsp_stapling / 922cdfd42e3b / 4
+## Next pages — disable_ocsp_stapling / 311002320323 / 4
 
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6"></a>
+<a id="canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c35df3309e63bda22abda5ce4d3f780d0d0b93193a89e1ed952f418938c4d0d8"></a>
+<a id="canonical-3003113133030300-2132120323312202-0222233122113032-1031033313200031-0031002321030121-0322202132013231-2111023310012021-0320301031003120"></a>
 
-## use_tls.use_mtls.tls_certificates.private_key — use_tls.use_mtls.tls_certificates.private_key / 7d458cd08e6c / 2
+## use_tls.use_mtls.tls_certificates.private_key — private_key / 310020321230 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
 - use_tls.use_mtls.tls_certificates.private_key
 
-<a id="canonical-b1732eb9dd6a32b5d31b815d62921ae1a28a36980c48d58e3e0c03b1864df707"></a>
+<a id="canonical-2301130302322321-3131122203022311-3103012320011131-1202210201223201-2202202203122120-0030102031112032-0332003000032301-2012103133130013"></a>
 
 Type: `"single"`. Computed.
 
@@ -712,44 +1091,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-53c7dae043e7c00369fd5f375d183a78f66a318c3a9e3d0b6e66ce2d021a9b53"></a>
+<a id="canonical-1103301331223200-1003321330000003-1221333111330313-1131012003221320-3312122203012030-0322213203310023-1232121230320231-0002012221231103"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.private_key / 7d458cd08e6c / 3
+## Direct properties — private_key / 310020321230 / 3
 
-- [blindfold_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-794404b4a7c142fead4d4af3904f1abb1b86b0176483ec794d0297320253b011): complete subsection reference.
+- [blindfold_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-1321101000102310-2213300110023332-2231103110223303-2100103301222323-0123201223000113-1210200332301321-1031000221130302-0002110323000101): complete subsection reference.
 
-- [clear_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-1323e1b0aec22b7c575382495f9f4103c1cd4c1df5a670852eba621b9bc56a24): complete subsection reference.
+- [clear_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-0103020332012300-2232300202231330-1113110320021021-1133213310010003-3001303110300131-3311221213002011-0232232212020123-2123301112220210): complete subsection reference.
 
-<a id="canonical-c4fb3fcef4755becda1a09a3e0041b7402000d4b1e5a747e2816285bce934504"></a>
+<a id="canonical-3010332303333032-3310131111233230-3122012200212203-3200001001231310-0002000000311023-0132112213101332-0220011202201123-3032210310110010"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.private_key / 7d458cd08e6c / 4
+## Next pages — private_key / 310020321230 / 4
 
-- [use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-794404b4a7c142fead4d4af3904f1abb1b86b0176483ec794d0297320253b011)
-- [use_tls.use_mtls.tls_certificates.private_key.clear_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-1323e1b0aec22b7c575382495f9f4103c1cd4c1df5a670852eba621b9bc56a24)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-1321101000102310-2213300110023332-2231103110223303-2100103301222323-0123201223000113-1210200332301321-1031000221130302-0002110323000101)
+- [use_tls.use_mtls.tls_certificates.private_key.clear_secret_info](data-sources--origin_pool--reference--group-003.md#canonical-0103020332012300-2232300202231330-1113110320021021-1133213310010003-3001303110300131-3311221213002011-0232232212020123-2123301112220210)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-794404b4a7c142fead4d4af3904f1abb1b86b0176483ec794d0297320253b011"></a>
+<a id="canonical-1321101000102310-2213300110023332-2231103110223303-2100103301222323-0123201223000113-1210200332301321-1031000221130302-0002110323000101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9ca52e35ff5ad5a2f0308c8f2bf295f24c3a91bef3458190d11c14b4bbe30c24"></a>
+<a id="canonical-2130221102320311-3333112231112202-3300030020302033-0223330221113302-1030032221012332-3303101120012100-3101013001102310-2323320300300210"></a>
 
-## use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 2
+## use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info — blindfold_secret_info / 130101303022 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212)
 - use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info
 
-<a id="canonical-0bc2c65a471923680f4f12d039bdefa3feb01c50911905d43f5c7a712aaec55c"></a>
+<a id="canonical-0023300230121122-1013012102031220-0033103301023100-0321233132332203-3332230001301100-2101012100113110-0333113013221301-0222223230111130"></a>
 
 Type: `"single"`. Computed.
 
@@ -768,15 +1147,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c31c69d9f5d8ebbe9369ae21ece1099ab12aca0bd2aa618daeba3c5aa1f10c2c"></a>
+<a id="canonical-3003013012213121-3311312032232332-2103122122320201-3230320100212122-2301022230220023-3102222212012031-2232232203301122-2201330100300230"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 3
+## Direct properties — blindfold_secret_info / 130101303022 / 3
 
-<a id="canonical-31cdd92d4a02b81e01641424eafe7a427cf3bc093dd434a6b9ac3a2ef9a6b19c"></a>
+<a id="canonical-0301303131210231-1022000223200132-0001121001100210-3222333213221002-1330330323300021-0331311003102212-2321223003220232-3321221223012130"></a>
 
-<a id="canonical-25e77306fbcf1e0d4b77216072ca0a292b213d33404961662082a68293d52ab6"></a>
+<a id="canonical-0211321313030012-3323303301320031-1023131302011200-1302302200220221-0223020103310303-1000102112011212-0200200222122002-2103311102222312"></a>
 
-## decryption_provider property — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 4
+## decryption_provider property — blindfold_secret_info / 130101303022 / 4
 
 Type: `"string"`. Computed.
 
@@ -806,11 +1185,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-40058bad8044c39aa39ea7306cbaa56a291adbe4d7cb11f4b5ca7ad88b4a827f"></a>
+<a id="canonical-1000001120232231-2000101030032122-2203213222130300-1230232222111222-0221012231233210-3113302301013310-2311302213223120-2023102220021333"></a>
 
-<a id="canonical-2d3b4039c09924a4ffcb20bec70090b81587a8fa45a90836416678cacf80f62d"></a>
+<a id="canonical-0231032310000321-3000212102102210-3333302302002332-3013000021002320-0111201322203322-1011222100200312-1001121213203022-3033200033120231"></a>
 
-## location property — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 5
+## location property — blindfold_secret_info / 130101303022 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -859,11 +1238,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b02fc2c42495e8d2c7e43f89bb8439a05c839c926130dde9965304f8228db9b1"></a>
+<a id="canonical-2300023330023010-0210211132203102-3013321003332021-2323201003212200-1130200321302102-1201030031313221-2112110300103320-0202203123212301"></a>
 
-<a id="canonical-a23f156663bb633353e35e318723c12c1d61f73d51b95cc55b8f6cab05df0ce2"></a>
+<a id="canonical-2202033301111212-1203232312030303-1103320311320301-2013020330010230-0131120133130331-1101232111303011-1123203312302223-0011313300303202"></a>
 
-## store_provider property — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 6
+## store_provider property — blindfold_secret_info / 130101303022 / 6
 
 Type: `"string"`. Computed.
 
@@ -898,34 +1277,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-73e9aae0d79b98f5925dbfab7d564b767e2bb424d5e7326b179962055be10780"></a>
+<a id="canonical-1303322122223200-3113212321203311-2102113123332223-1331111210231312-1332022323100210-3111321303021223-0113212112020011-1123320100132000"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.private_key.blindfold_secret_info / 5d397f711cca / 7
+## Next pages — blindfold_secret_info / 130101303022 / 7
 
-- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-1323e1b0aec22b7c575382495f9f4103c1cd4c1df5a670852eba621b9bc56a24"></a>
+<a id="canonical-0103020332012300-2232300202231330-1113110320021021-1133213310010003-3001303110300131-3311221213002011-0232232212020123-2123301112220210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-70809c84bb841d1e9807c88a6e93c2812c8c770ed2096134ce863da442c6054b"></a>
+<a id="canonical-1300200021302010-2323201001310132-2120001330202022-1232210330022001-0230203013130032-3102002112010310-3032201203312210-1002301200111023"></a>
 
-## use_tls.use_mtls.tls_certificates.private_key.clear_secret_info — use_tls.use_mtls.tls_certificates.private_key.clear_secret_info / e8230645a34c / 2
+## use_tls.use_mtls.tls_certificates.private_key.clear_secret_info — clear_secret_info / 101122031030 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212)
 - use_tls.use_mtls.tls_certificates.private_key.clear_secret_info
 
-<a id="canonical-b35db8718c720029c6d5d29bbc4545d28b6a4366d002602072bba872dd92595c"></a>
+<a id="canonical-2303113123201301-2030130200000221-3012311131022123-2330101110113102-2023122210031212-3100000212000200-1302232322201302-3131210211211130"></a>
 
 Type: `"single"`. Computed.
 
@@ -944,26 +1323,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-acec2d99939859e3b0821d65b9bca28ae2dd58b65ff2e2183269056280b6f1ff"></a>
+<a id="canonical-2230323002312121-2103212011213203-2300200201311211-2321233022022022-3202313111202312-1133330232020120-0302122100111202-2000231233013333"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.private_key.clear_secret_info / e8230645a34c / 3
+## Direct properties — clear_secret_info / 101122031030 / 3
 
-<a id="canonical-1463db5e88b3a0b63020cce221f33ba3efa7e7d2ae9b48156ca66f7a9b3b935a"></a>
+<a id="canonical-0110120331231132-2020230322002312-0300020030303202-0201330303232203-3233221332133102-2232212310200111-1230221212331322-2123032321031122"></a>
 
-<a id="canonical-f9afc4c653216dd9f80ffbb56d8a9b16a36ad4942dd482cacbca0d7cb08f1b66"></a>
+<a id="canonical-3321223330103012-1103020112313121-3320003333232311-1231202221230112-2203122231102110-0231311020023022-3023302200311330-2300203301231212"></a>
 
-## provider_ref property — use_tls.use_mtls.tls_certificates.private_key.clear_secret_info / e8230645a34c / 4
+## provider_ref property — clear_secret_info / 101122031030 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-2e8d8abd9bf87deb4d4a2c069114da28278d4ae7cfea35521a4fe58e7d86fcbb"></a>
+<a id="canonical-0232203120222331-2123332013313223-1031102202300012-2101011031220220-0213203110223213-3033322203111102-0122103332112032-1331201233302323"></a>
 
-<a id="canonical-036e1372cce2973c97f98463706fa4b05540f1d4d9b69e2bf5bfe8748a947be2"></a>
+<a id="canonical-0003123201031302-3030320221130330-2113332120101203-1300123322102300-1111100033013110-3121231221320223-3311233332201310-2022211013233202"></a>
 
-## url property — use_tls.use_mtls.tls_certificates.private_key.clear_secret_info / e8230645a34c / 5
+## URL property — clear_secret_info / 101122031030 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -1023,33 +1402,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b98787d472d68679cf09e8905e53c1e033b5ebf51b8ac8bdbfd9baebfa7844df"></a>
+<a id="canonical-2321201320133110-1302311220121321-3033002132202100-1132110330013200-0303231132233311-0123202230202331-2333312123223223-3322132010103133"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.private_key.clear_secret_info / e8230645a34c / 6
+## Next pages — clear_secret_info / 101122031030 / 6
 
-- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-722a2f29d8b92c6f24731e33a0aee2a67386037ce43295e735d76abf3a451ee6)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates.private_key](data-sources--origin_pool--reference--group-003.md#canonical-1302022202330221-3120232102301233-0210130301320303-2200223232022212-1303201200031330-3210030221113213-0311311312222333-0322101101323212)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-477766cd2e725607fa528bee83ebe0c2199da7b28a95e41c2ecc9b4cfeb37f65"></a>
+<a id="canonical-1013131312123031-0232130211120013-3322110220233232-2003322332003002-0121213122132302-2022211132100130-0232303021231030-3332230313331211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-23342d5be9f2e756bfe2a484ede8826e43e0dc038d9822234db7a702c9256d36"></a>
+<a id="canonical-0203031002311123-3221330232131112-2333320222102010-3231322020021232-1003320031300003-2031212002020203-1031231322130002-3021021112310312"></a>
 
-## use_tls.use_mtls.tls_certificates.use_system_defaults — use_tls.use_mtls.tls_certificates.use_system_defaults / 385bae0091f1 / 2
+## use_tls.use_mtls.tls_certificates.use_system_defaults — use_system_defaults / 000021013301 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-9bb1add53564965f7909c14ef6c20942943fe963998a8fae10af5890794500f4)
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_mtls](data-sources--origin_pool--reference--group-003.md#canonical-2123230122313111-0311121021121133-1321002130011032-3312300200211002-2110033332211203-2121202220332232-0100223311202100-1321101100003310)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
 - use_tls.use_mtls.tls_certificates.use_system_defaults
 
-<a id="canonical-0dd264dc74dd02d6c6772ad179c25d09b07186f944ac68805712e989ed35438a"></a>
+<a id="canonical-0031310212103130-1310313100023112-3012131302223101-1321300211310021-2300130120123321-1010223012202000-1113010232212021-3231031110032022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1072,37 +1451,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-addc2ee223d7194390c6983b8c841444f687a5500e660bee6b04a99f73ec5939"></a>
+<a id="canonical-2231313002323202-0203311301211003-2100301221200323-2030201001101010-3312201322111100-0032121200233232-1223001022212133-1303323011210321"></a>
 
-## Direct properties — use_tls.use_mtls.tls_certificates.use_system_defaults / 385bae0091f1 / 3
+## Direct properties — use_system_defaults / 000021013301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8dceee2fef2bdfb10d15aa5800df96c217d93f47b78701f0339e4d9e6f5d0aea"></a>
+<a id="canonical-2031303232320233-3233022331332301-0031011122221120-0000313321123002-0113312103331013-2313201300013300-0303213210312132-1233113100223222"></a>
 
-## Next pages — use_tls.use_mtls.tls_certificates.use_system_defaults / 385bae0091f1 / 4
+## Next pages — use_system_defaults / 000021013301 / 4
 
-- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-735a632e2b844714a313bdff7fef4c12040d3589e6db5eed37329277f22f35aa)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_mtls.tls_certificates](data-sources--origin_pool--reference--group-003.md#canonical-1303112212030232-0223201010130110-2203010323313333-1333323310300102-0010003103112021-3212312311323231-0313030221021313-3302023303112222)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-f472d6715b700c85a732b254a994a203cf5881758a17fbe358df6ac4c344cbb8"></a>
+<a id="canonical-3310130231121301-1123130000302011-2213030223021110-2221211022020003-3033112020011311-2022011333233203-1120313312223010-3003101030232320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-475245f52b80778640618647182b037a8c9f8b3ea8dce93e31ac2431e151f2bc"></a>
+<a id="canonical-1013110210113311-0223200013132012-1000120120121013-0120022300031322-2030213320230332-2220313032210332-0301223002100301-3201110133022330"></a>
 
-## use_tls.use_mtls_obj — use_tls.use_mtls_obj / 87fb0e11ee37 / 2
+## use_tls.use_mtls_obj — use_mtls_obj / 010132320313 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
 - use_tls.use_mtls_obj
 
-<a id="canonical-e9b82aaf4d40d19d0dd6129e5295cb2354db76e8a3fdf1a2d8995ca824db1b02"></a>
+<a id="canonical-3221232002222233-1031100031012131-0031311201022132-1102211130230203-1110312313123220-2203333133012202-3120212111302220-0210312301230002"></a>
 
 Type: `"single"`. Computed.
 
@@ -1127,15 +1506,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-96556ac969d36d09a1b55e828aa960529c70aaa8c3c8d5eb859df59a5059d5fb"></a>
+<a id="canonical-2112111112223021-1221310312310021-2201231111322002-2022222112001102-2130130022222220-3003302031113223-2011213133112122-1100112131113323"></a>
 
-## Direct properties — use_tls.use_mtls_obj / 87fb0e11ee37 / 3
+## Direct properties — use_mtls_obj / 010132320313 / 3
 
-<a id="canonical-1d3173eb5b6d404e7fcff9829de97af321daafbd2a05078a13e047418a2434c4"></a>
+<a id="canonical-0131030113033223-1123123110001032-1333303333212002-2131322113223303-0201312222332331-0222001100132022-0103320010131001-2022021003103010"></a>
 
-<a id="canonical-a01432810bf864542b7bc36ed4ba2fff35bb7d42ccdaf6023259ebf91df44f16"></a>
+<a id="canonical-2200011003022001-0023332012101110-0223132330031232-3110232202333333-0311232313311002-3030312233120002-0302112132233321-0131331010330112"></a>
 
-## name property — use_tls.use_mtls_obj / 87fb0e11ee37 / 4
+## name property — use_mtls_obj / 010132320313 / 4
 
 Type: `"string"`. Computed.
 
@@ -1188,11 +1567,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-50a019137ac6b00d0cc7f139008452ef9a762b58846017f1eebc0a281a9b4deb"></a>
+<a id="canonical-1100220001210103-1322301223000031-0030301333010321-0000201011023233-2122131202231120-2010120001133301-3232233000220220-0122212310313223"></a>
 
-<a id="canonical-3da63a96ca132a4ada7da748456c1df9b208913bc7d718e3f55dd1e3c88d59b6"></a>
+<a id="canonical-0331221203222112-3022010302221022-3122133122131020-1011123001313321-2302002021010323-3013311301203203-3311113131013203-3020203111212312"></a>
 
-## namespace property — use_tls.use_mtls_obj / 87fb0e11ee37 / 5
+## namespace property — use_mtls_obj / 010132320313 / 5
 
 Type: `"string"`. Computed.
 
@@ -1252,11 +1631,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-30d23ba80f9859e8cbe84697ed88d8ceb8f2c4a44d9db7dd8e402aa1c76f0be7"></a>
+<a id="canonical-0300310203232220-0033212011213220-3023322010122113-3231202031203032-2320330230102210-1031213123133131-2032100002222201-3013123300233213"></a>
 
-<a id="canonical-3f00d88a4c7d7051686a0af0656e5cfdd8679991d0b3722b0b384ec09d3dcdd7"></a>
+<a id="canonical-0333000031202022-1030133113001101-1220122200223300-1211123211303331-3120121321212101-3100230313020223-0023032010323000-2131033130313113"></a>
 
-## tenant property — use_tls.use_mtls_obj / 87fb0e11ee37 / 6
+## tenant property — use_mtls_obj / 010132320313 / 6
 
 Type: `"string"`. Computed.
 
@@ -1302,31 +1681,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-62bdf7f60fb8cce4201465ece7fd092f0fdfe058a2ea8a3ecb7f26733908e6f6"></a>
+<a id="canonical-1202233133133312-0033232030303210-0200011012113230-3213333100210233-0033313332001120-2202322220220332-3023133302121303-0321002032123312"></a>
 
-## Next pages — use_tls.use_mtls_obj / 87fb0e11ee37 / 7
+## Next pages — use_mtls_obj / 010132320313 / 7
 
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-c7b40a7716cf88d82d712cf8500afb716a8e232257eea09c3dd9275012f1da94"></a>
+<a id="canonical-3013231000221313-0112303320203120-0231130102303320-1100002233231301-1222203202030202-1113323222002130-0331312102131100-0102330131222110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e9bbe228e136374f60d54d9182d76320fec4af23364be9270754b25ff9dd0fd7"></a>
+<a id="canonical-3221232332020220-3201031203131033-1200311110312101-2002311312030200-3332301022330203-0312102332210213-0013111023021133-3321313100333113"></a>
 
-## use_tls.use_server_verification — use_tls.use_server_verification / 5e13796dd416 / 2
+## use_tls.use_server_verification — use_server_verification / 123131100112 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
 - use_tls.use_server_verification
 
-<a id="canonical-bebb4a53c8164ad7c4c02190a8dcd00c3c1ace20f0fd356de1e486c6d19ab187"></a>
+<a id="canonical-2332232310221103-3020011210223113-3010300002012100-2220313031000030-0330012230320200-3300333103111231-3201321020123012-3101212223012013"></a>
 
 Type: `"single"`. Computed.
 
@@ -1350,17 +1729,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c505e3566859db3c1fe071c5576f785ad6a8afac2292c2c381433be8d3a403e"></a>
+<a id="canonical-2130110011320311-1212201121312303-3001333200130130-1111131233132011-2231122220223322-3002022102300230-0320011003032332-2031032210000332"></a>
 
-## Direct properties — use_tls.use_server_verification / 5e13796dd416 / 3
+## Direct properties — use_server_verification / 123131100112 / 3
 
-- [trusted_ca](data-sources--origin_pool--reference--group-003.md#canonical-41190345e7b5c22578092ac24db15e0c509029a3f28ca55806e77f021bea9d12): complete subsection reference.
+- [trusted_ca](data-sources--origin_pool--reference--group-003.md#canonical-1001012100031011-3213231130020211-1320002102223002-1031230111320030-1100210002212203-3302203022111120-0012321313330002-0123322221310102): complete subsection reference.
 
-<a id="canonical-96c01ceb7f4ebbd48a8596cbdd103e13566d9d7836b5f24cc413dd27006847d6"></a>
+<a id="canonical-2112300001303223-1333103223233110-2022201121123023-3131010003320103-1112123121311320-0312231133021030-3010010331310213-0000122010133112"></a>
 
-<a id="canonical-edf7278443eca7977da90ef9ba2d15b054b72ccc665d91652a709b62109a6f3d"></a>
+<a id="canonical-3231331302132010-1003323022132113-1331222100323321-2322023101112300-1110231302303030-1212113121011211-0222130021231202-0100212212330331"></a>
 
-## trusted_ca_url property — use_tls.use_server_verification / 5e13796dd416 / 4
+## trusted_ca_url property — use_server_verification / 123131100112 / 4
 
 Type: `"string"`. Computed.
 
@@ -1413,33 +1792,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7275a011ec89e87e575df4c18951876491749db19965b1cdfe1b15307f2e5506"></a>
+<a id="canonical-1302131122000101-3230202132201332-1113113133103001-2021110120131210-2101131021312301-2121121123013031-3332012301110300-1333023211110012"></a>
 
-## Next pages — use_tls.use_server_verification / 5e13796dd416 / 5
+## Next pages — use_server_verification / 123131100112 / 5
 
-- [use_tls.use_server_verification.trusted_ca](data-sources--origin_pool--reference--group-003.md#canonical-41190345e7b5c22578092ac24db15e0c509029a3f28ca55806e77f021bea9d12)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_server_verification.trusted_ca](data-sources--origin_pool--reference--group-003.md#canonical-1001012100031011-3213231130020211-1320002102223002-1031230111320030-1100210002212203-3302203022111120-0012321313330002-0123322221310102)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-41190345e7b5c22578092ac24db15e0c509029a3f28ca55806e77f021bea9d12"></a>
+<a id="canonical-1001012100031011-3213231130020211-1320002102223002-1031230111320030-1100210002212203-3302203022111120-0012321313330002-0123322221310102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-917f9859155b38b28f87b18f8ce1bb64019434d87569dad21b4c4d2051c069ae"></a>
+<a id="canonical-2101133321201121-0111112303202302-2033201323012033-2030320123231210-0001211003103120-1311122131223102-0123103010310200-1101300012212232"></a>
 
-## use_tls.use_server_verification.trusted_ca — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 2
+## use_tls.use_server_verification.trusted_ca — trusted_ca / 320223030233 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [use_tls.use_server_verification](data-sources--origin_pool--reference--group-003.md#canonical-c7b40a7716cf88d82d712cf8500afb716a8e232257eea09c3dd9275012f1da94)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [use_tls.use_server_verification](data-sources--origin_pool--reference--group-003.md#canonical-3013231000221313-0112303320203120-0231130102303320-1100002233231301-1222203202030202-1113323222002130-0331312102131100-0102330131222110)
 - use_tls.use_server_verification.trusted_ca
 
-<a id="canonical-bff194d9658aaf88a849ab751fb12c652207312511980351bc97903175f16314"></a>
+<a id="canonical-2333330121103121-1211202222332020-2220102122231311-0133230102301211-0202001303010211-0101212000031101-2330211321000301-1311330112030110"></a>
 
 Type: `"single"`. Computed.
 
@@ -1464,15 +1843,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4ca551832f208aece716abdd733b08d0f036c2e4b88cb885d30f0c4e09f12b1c"></a>
+<a id="canonical-1030221111012003-0233020020223230-3213011222233131-1303032300203100-3300031230023210-2320203023202011-3103003300301032-0021330102230130"></a>
 
-## Direct properties — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 3
+## Direct properties — trusted_ca / 320223030233 / 3
 
-<a id="canonical-d113973a5129a55f5add759edd047decb0b30a371b8cde00f579818ad8337201"></a>
+<a id="canonical-3101010321130322-1101022122111133-1122313113112132-3131001013313230-2300230300220313-0123203031320000-3311132120012022-3120030313020001"></a>
 
-<a id="canonical-4004457c52fadcc90318bf866b0a651f085bdb9283372d80569b2b4ab73bd936"></a>
+<a id="canonical-1000001010111330-1102332231303021-0003012023332012-1223002212110133-0020112331232102-2003031302312000-1112212302231022-2313032331210312"></a>
 
-## name property — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 4
+## name property — trusted_ca / 320223030233 / 4
 
 Type: `"string"`. Computed.
 
@@ -1525,11 +1904,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb97b259f27fab6a07b05e2ebf66d5783bd889bdf5cb099fd90ca44cea41d3be"></a>
+<a id="canonical-3023211323021121-3302133322231222-0013230011320232-2333121231111320-0323312020212331-3311302300212133-3121003022101030-3222100131032332"></a>
 
-<a id="canonical-2ea948c5bc5ef919712ff0bc056c65a6cdd25cc478650322d96044fff7de2445"></a>
+<a id="canonical-0232222110203011-2330113233210121-1301023333002330-0011123012112212-3031310211303010-1320121100030202-3121120010103333-3313313202101011"></a>
 
-## namespace property — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 5
+## namespace property — trusted_ca / 320223030233 / 5
 
 Type: `"string"`. Computed.
 
@@ -1589,11 +1968,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1d487250e05a8dc4961fc0761087200cbea168e251f49c9dbf02a720389f579d"></a>
+<a id="canonical-0131102013021100-3200112220313010-2112013330001312-0100201302000030-2332220112203202-1101331021302131-2333000222130200-0320213311132131"></a>
 
-<a id="canonical-b68a5d594312c059b4edb600a6fa0b7867f3ea780a137feeebc322316570eada"></a>
+<a id="canonical-2312202211311121-1003010230001121-2310323123120000-2212332200231320-1213330332221320-0022010313333232-3223300302020301-1211130032223122"></a>
 
-## tenant property — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 6
+## tenant property — trusted_ca / 320223030233 / 6
 
 Type: `"string"`. Computed.
 
@@ -1639,31 +2018,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ccb14718f3ff83a69cb37694fdeaaa53afab01889eb01ce18eb127c448b9f4cb"></a>
+<a id="canonical-3030230110130120-3303333320032212-2130230313122110-3331322222221103-2233222300012020-2132230001303201-2032230102133010-1020232133103023"></a>
 
-## Next pages — use_tls.use_server_verification.trusted_ca / 005140e2b32f / 7
+## Next pages — trusted_ca / 320223030233 / 7
 
-- [use_tls.use_server_verification](data-sources--origin_pool--reference--group-003.md#canonical-c7b40a7716cf88d82d712cf8500afb716a8e232257eea09c3dd9275012f1da94)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls.use_server_verification](data-sources--origin_pool--reference--group-003.md#canonical-3013231000221313-0112303320203120-0231130102303320-1100002233231301-1222203202030202-1113323222002130-0331312102131100-0102330131222110)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
 
-<a id="canonical-7ec79861964ba697e5bc1eb86c5d87001c9a94a4fbb1bbfe59cf314c1d5158bf"></a>
+<a id="canonical-1332301321201201-2112102322122113-3211233001322320-1230113120130000-0130212221102210-3323230123233332-1121303303011030-0131110111202333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dd1d3d7b10664dbc60a54660b3527d3ce71cd0fb6dd3e902119ccddcdfe824c1"></a>
+<a id="canonical-3131013103311323-0100121210312330-1200221110121200-2303110213310330-3213013031003323-1231310332210002-0101213030313130-3133322002103001"></a>
 
-## use_tls.volterra_trusted_ca — use_tls.volterra_trusted_ca / ad49312cafbf / 2
+## use_tls.volterra_trusted_ca — volterra_trusted_ca / 023022332333 / 2
 
 Breadcrumbs:
 
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
-- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)
+- [Property reference](data-sources--origin_pool--reference--group-001.md#canonical-0103220113112230-2012100232223113-1023222131101333-0330000000001221-3000302121221221-1110013322303122-0231312123220320-3022030100223303)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
 - use_tls.volterra_trusted_ca
 
-<a id="canonical-b69cb6f54b4f0012f752ba3b6616c5dde146fbb3d468b2764403169e85c0329b"></a>
+<a id="canonical-2312213023123311-1023103300000102-3313110223220323-1212011230113131-3201101233232303-3110122023021312-1010000301122132-2011300003022123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1687,15 +2066,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-808e6f3dbc0fabe849f94b464acf1a48d3b92993878b0a2891f42210c8e0152c"></a>
+<a id="canonical-2000203212330331-2330003322233220-1021332110231012-1022303301221020-3103232102212103-2013202300220220-2101331002020100-3020320001110230"></a>
 
-## Direct properties — use_tls.volterra_trusted_ca / ad49312cafbf / 3
+## Direct properties — volterra_trusted_ca / 023022332333 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-70d1616400244d93dd58b4d8b0b78523e1f6764c77878785e57b30fb86cf8637"></a>
+<a id="canonical-1300310112011210-0000021010312103-3131112023103120-2300231320110203-3201331213121030-1313201320132011-3211132303003323-2012303320120313"></a>
 
-## Next pages — use_tls.volterra_trusted_ca / ad49312cafbf / 4
+## Next pages — volterra_trusted_ca / 023022332333 / 4
 
-- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-e8bc8540eeeed3deca5240a7eb530532ba669c77c29f5c9d57749d49d8dc57f1)
-- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3)
+- [use_tls](data-sources--origin_pool--reference--group-002.md#canonical-3220233020111000-3232323231033132-3022110210002213-3223110300110302-2322121221301313-3002213311302131-1113131021311021-3120313011133301)
+- [xcsh_origin_pool](../data-sources/origin_pool.md#canonical-3103011022300321-3200033030203023-3322013132331030-0120200333302110-1012310120003032-1223333313230200-2333321302032332-1311021030332203)

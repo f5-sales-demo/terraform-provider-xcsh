@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_api_discovery landin
 
 # xcsh_api_discovery landing
 
-<a id="canonical-fff0c8d1271786e411169d435430f2430b433fc66759a1a7fca2bad027a99fb4"></a>
+<a id="canonical-3333330030203101-0213011320123210-0101011221311003-1110030033021003-0023100303333012-1213112122012213-3330220223223100-0213222121332310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-03400f7f027ae9a70eca0fa98fa5fc0e06cd4db117954d4613195900112e58a5"></a>
+<a id="canonical-0003100000331333-0002132232212213-0032302200332221-2033221133300032-0012303110312301-0113211110311012-0103012111210000-0101023211202211"></a>
 
-## xcsh_api_discovery — xcsh_api_discovery / f56936e36999 / 2
+## xcsh_api_discovery — xcsh_api_discovery / 320312212121 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages API discovery creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-e280e62362ceba01c7896d1d56ba70b85ca77ca18bea198ffc15ab8a724b2c1a"></a>
+<a id="canonical-3202200032120203-1202303223220001-3013202112310131-1112232213002320-1130221313302201-2023322201212033-3330011122232022-1302102302300122"></a>
 
-## Prerequisites — xcsh_api_discovery / f56936e36999 / 3
+## Prerequisites — xcsh_api_discovery / 320312212121 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-90f94afce14ad453fce18dbced02610a0373c02eda3e8f6462502735a02f7a6f"></a>
+<a id="canonical-2100332110223330-3201102231101103-3330320120312330-3231000212010022-0003130330000232-3122033220331210-1202110002130311-2200023313221233"></a>
 
-## Minimal configuration — xcsh_api_discovery / f56936e36999 / 4
+## Minimal configuration — xcsh_api_discovery / 320312212121 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_api_discovery" "example" {
 }
 ```
 
-<a id="canonical-3349fdef81cead2c2baa7b10c842411fd818836acaec16ff61c1a4c1345d9f68"></a>
+<a id="canonical-0303102133313233-2001303222310230-0223222213230100-3020100210010133-3120012020031222-3022323001123333-1201300122103001-0310113121331220"></a>
 
-## Root configuration — xcsh_api_discovery / f56936e36999 / 5
+## Root configuration — xcsh_api_discovery / 320312212121 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-a7a470df8194f2f246deb345d86d0a13e45a81a2624b9546d01a2e5f68f32f47"></a>
+<a id="canonical-2213221013003133-2001211033023302-1012313223031011-3120123100220103-3210112220012202-1202102321111012-3100012202321133-1220330302331013"></a>
 
-## Next pages — xcsh_api_discovery / f56936e36999 / 6
+## Next pages — xcsh_api_discovery / 320312212121 / 6
 
-- [Property reference](../guides/resources--api_discovery--reference--group-001.md#canonical-575bca73ed45a994813627df03f207d6700fcf5d58cbd77144034ddaffad7a83)
-- [Examples](../guides/resources--api_discovery--examples--group-001.md#canonical-93f0346c60bede5e7e23ca2c25083fbc71af112c5b402b831fcc7c6ea64733a4)
-- [Import](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-75d7cc9e6fedb06de3d4ad194cc8a9b7d5bd9d541f44dd5efa44042fff6fc79d)
-- [Timeouts](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-0709184a68e01a860b032b1c5564ee0183d91f635046e59c85a8cc806e41e4ad)
+- [Property reference](../guides/resources--api_discovery--reference--group-001.md#canonical-1113112330221303-3231101122212110-2001031202133133-0003330200133112-1300003330331131-1120302331131301-1010000310313122-3333223113222003)
+- [Examples](../guides/resources--api_discovery--examples--group-001.md#canonical-2103330003101230-1200233231321132-1332020330220230-0211002003332330-1301223301010230-1123100002232003-0133303013301232-2212101303032210)
+- [Import](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-1311311330302132-1233323123001231-3203311022310121-1030302022212313-3111233121311110-0133101031311132-3322101000100233-3333123330132131)
+- [Timeouts](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-0013002101201022-1220320001222012-0023000302230130-1111121032320001-2003312101331203-1100101232112130-2011222030302000-1232100132102231)

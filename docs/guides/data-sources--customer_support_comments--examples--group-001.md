@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_customer_support_com
 
 # xcsh_customer_support_comments examples
 
-<a id="canonical-1c092da3a2fc15c8a044fa74e96c07cccf0a472cacfd51c5a35a965d897c73bd"></a>
+<a id="canonical-0130002102312203-2202333001113020-2200101033221310-3221123000133030-3033002210130230-2230333111013011-2203112221121131-2021133013032331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-860ddc9abcbb9a7ea48d8cb00c7ce7a5f37d25baa11ad4b521ab49a1541a3ed5"></a>
+<a id="canonical-2012003131302122-2330232321221332-2210203120302300-0030133032132211-3303133102112322-2201012231102311-0201222310212201-1110012203323111"></a>
 
-## Examples — Examples / 1a83b8e20447 / 2
+## Examples — Examples / 320200101013 / 2
 
 Breadcrumbs:
 
-- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5)
+- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-3233331010300203-0002001013222330-0201130211303202-2232020123310031-2211320023331130-0033233023122313-1203101322331330-3321120232032311)
 - Examples
 
-<a id="canonical-daf170c9edd478acf575a6f990d5d544fd242c64230e1bf3de13fd7d3cfb398d"></a>
+<a id="canonical-3122330113003021-3231311013202230-3311131122123321-2100311131111010-3331021002301210-0203003201233303-3132010333311331-0330332303212031"></a>
 
-## Complete configurations — Examples / 1a83b8e20447 / 3
+## Complete configurations — Examples / 320200101013 / 3
 
-- [Data source](data-sources--customer_support_comments--examples--group-001.md#canonical-be738ca7ab3c443085cfa972336f8cbf387fe97aab10c1e4dc5206455befa9f9): valid configuration.
+- [Data source](data-sources--customer_support_comments--examples--group-001.md#canonical-2332130320302213-2223033010100300-2011303322211302-0303123320302333-0320133332211322-2223010030013210-3130110200121011-1123323322213321): valid configuration.
 
-<a id="canonical-1d8524607b9d116d795ad80935e0d08f1ace59833681f33f8d58befcdcd6cb0b"></a>
+<a id="canonical-0131201102101200-1323213101011231-1321112231200021-0311320031002033-0122303211212003-0312200133030333-2031112023323330-3130311230230023"></a>
 
-## Next pages — Examples / 1a83b8e20447 / 4
+## Next pages — Examples / 320200101013 / 4
 
-- [Data source](data-sources--customer_support_comments--examples--group-001.md#canonical-be738ca7ab3c443085cfa972336f8cbf387fe97aab10c1e4dc5206455befa9f9)
-- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5)
+- [Data source](data-sources--customer_support_comments--examples--group-001.md#canonical-2332130320302213-2223033010100300-2011303322211302-0303123320302333-0320133332211322-2223010030013210-3130110200121011-1123323322213321)
+- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-3233331010300203-0002001013222330-0201130211303202-2232020123310031-2211320023331130-0033233023122313-1203101322331330-3321120232032311)
 
-<a id="canonical-be738ca7ab3c443085cfa972336f8cbf387fe97aab10c1e4dc5206455befa9f9"></a>
+<a id="canonical-2332130320302213-2223033010100300-2011303322211302-0303123320302333-0320133332211322-2223010030013210-3130110200121011-1123323322213321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-63007a682e6bc604fec9c6e99b859d3bbd75a8ae474b378bd1cd947c7db7e075"></a>
+<a id="canonical-1203000013221220-0232122330120010-3332302130123221-2123201121310323-2331131122202232-1013102303132023-3101303121101330-1331231332001311"></a>
 
-## Data source — Data source / 64fb26faf633 / 2
+## Data source — Data source / 332233120303 / 2
 
 Breadcrumbs:
 
-- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5)
-- [Examples](data-sources--customer_support_comments--examples--group-001.md#canonical-1c092da3a2fc15c8a044fa74e96c07cccf0a472cacfd51c5a35a965d897c73bd)
+- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-3233331010300203-0002001013222330-0201130211303202-2232020123310031-2211320023331130-0033233023122313-1203101322331330-3321120232032311)
+- [Examples](data-sources--customer_support_comments--examples--group-001.md#canonical-0130002102312203-2202333001113020-2200101033221310-3221123000133030-3033002210130230-2230333111013011-2203112221121131-2021133013032331)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-8303a27948606dd88b701d2be8b9b7ddd50f53ebbc2465d8210dc85e6e790761"></a>
+<a id="canonical-2003000322021321-1020120012313120-2023130001310223-3220232123133131-3111003311033223-2330021012113120-0201003130201132-1232132100131201"></a>
 
-## Next pages — Data source / 64fb26faf633 / 3
+## Next pages — Data source / 332233120303 / 3
 
-- [Examples](data-sources--customer_support_comments--examples--group-001.md#canonical-1c092da3a2fc15c8a044fa74e96c07cccf0a472cacfd51c5a35a965d897c73bd)
-- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5)
+- [Examples](data-sources--customer_support_comments--examples--group-001.md#canonical-0130002102312203-2202333001113020-2200101033221310-3221123000133030-3033002210130230-2230333111013011-2203112221121131-2021133013032331)
+- [xcsh_customer_support_comments](../data-sources/customer_support_comments.md#canonical-3233331010300203-0002001013222330-0201130211303202-2232020123310031-2211320023331130-0033233023122313-1203101322331330-3321120232032311)

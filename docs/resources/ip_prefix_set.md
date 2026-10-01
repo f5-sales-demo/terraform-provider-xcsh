@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_ip_prefix_set landin
 
 # xcsh_ip_prefix_set landing
 
-<a id="canonical-5a49cde9dc0a3a39ff028cd9a8304b00e480fb0bbedc342df01389fd1e3f30ae"></a>
+<a id="canonical-1122102130313221-3130002203220321-3333000220303121-2220030010230000-3210200033230023-2332313003100231-3300010320213331-0132033303002232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b64232522b84f92e276469da2721b3476e568f98f777c1f254f125fc104b10aa"></a>
+<a id="canonical-2312100203021102-0223201033210232-0213121012213122-0213020123031013-1232111220332120-3313131330013302-1110330102113330-0100102301002222"></a>
 
-## xcsh_ip_prefix_set — xcsh_ip_prefix_set / 53f1c0c1062d / 2
+## xcsh_ip_prefix_set — xcsh_ip_prefix_set / 300100120231 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages ip\_prefix\_set creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-6d5a12991a172f9ee723c0bb28ca23903bd931c5aac24ad6e092667faefb7ea8"></a>
+<a id="canonical-1231112201022121-0122011302332132-3213020330002323-0220302202032100-0323312103013011-2222300210223112-3200210212121333-2232332313322220"></a>
 
-## Prerequisites — xcsh_ip_prefix_set / 53f1c0c1062d / 3
+## Prerequisites — xcsh_ip_prefix_set / 300100120231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-96c4f3a22792a2792951a19461d5237403334a05fb6d431423e58606b556129b"></a>
+<a id="canonical-2112301033032202-0213210222021321-0221110122012110-1201311102031310-0003030310220011-3323123110030110-0203321120120012-2311111201022123"></a>
 
-## Minimal configuration — xcsh_ip_prefix_set / 53f1c0c1062d / 4
+## Minimal configuration — xcsh_ip_prefix_set / 300100120231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_ip_prefix_set" "example" {
 }
 ```
 
-<a id="canonical-f0bfa0fec5c2d204803b1735087dc82b9ccdb657808ef6ec9bf7822984d147d5"></a>
+<a id="canonical-3300233322003332-3011300231020010-2000032301130311-0020133130200223-2130303123121113-2000203233123230-2123331320020221-2010310110133111"></a>
 
-## Root configuration — xcsh_ip_prefix_set / 53f1c0c1062d / 5
+## Root configuration — xcsh_ip_prefix_set / 300100120231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-d6f4e8602c2a0bf9ed59d726ee091b1ad912d196c3a5f469eedf4e10ed4ce864"></a>
+<a id="canonical-3112331032201200-0230022200233321-3231112131130212-3232002101230122-3121010231012112-3003221133101221-3232313310320100-3231103032201210"></a>
 
-## Next pages — xcsh_ip_prefix_set / 53f1c0c1062d / 6
+## Next pages — xcsh_ip_prefix_set / 300100120231 / 6
 
-- [Property reference](../guides/resources--ip_prefix_set--reference--group-001.md#canonical-e43df77cb707b03d9ea017a3256270c1386b0044a471db509c179d9d4a2c87e9)
-- [Examples](../guides/resources--ip_prefix_set--examples--group-001.md#canonical-663015d63e3a93116ac51fd9a7e4beaa6cb87aac18bd9ffbdc01f28309a6c55e)
-- [Import](../guides/resources--ip_prefix_set--lifecycle--group-001.md#canonical-27139af5b9b634db45df1796498b1c8f426e5cd150ddac446c20e7bcf89ad306)
-- [Timeouts](../guides/resources--ip_prefix_set--lifecycle--group-001.md#canonical-2baddc4b33b66191ebd6e79ad77556cf483aab47bad1398675f48723bc3f1db0)
+- [Property reference](../guides/resources--ip_prefix_set--reference--group-001.md#canonical-3210033133131330-2313001323000331-2132220001132203-0211120213003001-0320122300001010-2210130131231100-2130011321312131-1022023020133221)
+- [Examples](../guides/resources--ip_prefix_set--examples--group-001.md#canonical-1212030001113112-0332032221030101-1222301101333121-2213321023322222-1230232013222230-0120233121333323-3130000133022003-0021221230111132)
+- [Import](../guides/resources--ip_prefix_set--lifecycle--group-001.md#canonical-0213010321223311-2321231203103123-1011313301132112-1021202301302033-1002123211303101-1100313122301010-1230020032132330-3320212231030012)
+- [Timeouts](../guides/resources--ip_prefix_set--lifecycle--group-001.md#canonical-0223223131301023-0303231212012101-3223311232132122-3113131111123033-1020032222231013-2322310103212012-1311331020130203-2330033301312300)

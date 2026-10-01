@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_crl landing."
 
 # xcsh_crl landing
 
-<a id="canonical-96a63453b75e823f71de872f51de2a086a64ac241ba947a0a9c61f4a01cb3404"></a>
+<a id="canonical-2112221203101103-2313113220020333-1301313220130233-1101313202220020-1222121022300210-0123222110132200-2221301201331022-0001302303100010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8adc524340cd43915ebf905ace004e93446ea4cf59f0daaba3bc34ab59c6da95"></a>
+<a id="canonical-2022313011021003-1000303110032101-1132233321001122-3032000010322103-1010123222103033-1121330031222223-2203233003102223-1121301231222111"></a>
 
-## xcsh_crl — xcsh_crl / 66fa7f8f8f57 / 2
+## xcsh_crl — xcsh_crl / 203320331113 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages a CRL resource in F5 Distributed Cloud for api to create crl object. configuration.
 
-<a id="canonical-718f21ca98187aee5e9c013b7a2424ced8ad0b9669b77790b87fc7eb640c11e9"></a>
+<a id="canonical-1301203302013022-2120012013223232-1132213000010323-1322021002103032-3120223100232112-1221231313132100-2320133330133223-1210003001013221"></a>
 
-## Prerequisites — xcsh_crl / 66fa7f8f8f57 / 3
+## Prerequisites — xcsh_crl / 203320331113 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3a2e92437c3ffcd0771f4c0ec29a65c4032fdc04c8b48ea8295e843b8e7bf2ab"></a>
+<a id="canonical-0322023221021003-1330033333303100-1313013310300032-3002212212113010-0003023331300010-3020231020322220-0221113220100323-2032132333022223"></a>
 
-## Minimal configuration — xcsh_crl / 66fa7f8f8f57 / 4
+## Minimal configuration — xcsh_crl / 203320331113 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,17 +61,17 @@ resource "xcsh_crl" "example" {
 }
 ```
 
-<a id="canonical-297dcb3e80db8e05663db7727ac2c065717123d56507d7b3f5191502fd2eeee8"></a>
+<a id="canonical-0221133130230332-2000312320320011-1212033123131302-1322300230001211-1301130102033111-1211001331132303-3311012101110002-3331023232323220"></a>
 
-## Root configuration — xcsh_crl / 66fa7f8f8f57 / 5
+## Root configuration — xcsh_crl / 203320331113 / 5
 
 Required root properties: `name`, `namespace`, `refresh_interval`, `server_address`, `server_port`, `timeout`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-8cf35974edc429df77ed8bdbfac7dd23c9450f677e25bce887eb6ac8a232daea"></a>
+<a id="canonical-2030330311211310-3231301002213133-1313323120233123-3322301331310203-3021101100331213-1332021123303220-2013322312223020-2202030231223222"></a>
 
-## Next pages — xcsh_crl / 66fa7f8f8f57 / 6
+## Next pages — xcsh_crl / 203320331113 / 6
 
-- [Property reference](../guides/resources--crl--reference--group-001.md#canonical-0a1bcf7add556b43d14c3820e55e0a6110324a87da60186d84fa20c107de9d30)
-- [Examples](../guides/resources--crl--examples--group-001.md#canonical-f4b8e81c172d26ed2416d6b64fa100e009639d05b196f13650b51e15b65a999e)
-- [Import](../guides/resources--crl--lifecycle--group-001.md#canonical-f502346e8d8fab0b4cb599b242976f9f11c6047005af1de64ede7e105392498c)
-- [Timeouts](../guides/resources--crl--lifecycle--group-001.md#canonical-c626d01c0a67a27c85bb7d977d174d1b7407011f0150d66aae8856bd345a1889)
+- [Property reference](../guides/resources--crl--reference--group-001.md#canonical-0022012330331322-3131111112231003-3101103003200200-3211113200221201-0100030210222013-3122120001201231-2010332202003001-0013313221310300)
+- [Examples](../guides/resources--crl--examples--group-001.md#canonical-3310232032200130-0113023102123231-0210011231122312-1033220100003200-0021120321310011-2301211233010312-1100231101320111-2312112221212132)
+- [Import](../guides/resources--crl--lifecycle--group-001.md#canonical-3311000203101232-2031203322230023-1030231121212302-1002211312332133-0101301200101300-0011223301313212-1032313213320100-1103210210212030)
+- [Timeouts](../guides/resources--crl--lifecycle--group-001.md#canonical-3012021231000130-0022121322021330-2011232313312113-1331011310310123-1310001300010133-0001110031121222-2232202011122331-0310112201202021)

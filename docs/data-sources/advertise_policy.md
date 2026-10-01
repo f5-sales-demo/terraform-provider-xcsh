@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_advertise_policy lan
 
 # xcsh_advertise_policy landing
 
-<a id="canonical-77ee33ff70b16dfe904993ef2a4855e549c025f272b16e2a9e8fc0423965ca2a"></a>
+<a id="canonical-1313323203033333-1300230112313332-2100102121033233-0222102011113211-1021300002113302-1302230112320222-2132203330001002-0321121130220222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ed8472d3a190fc29ce09d4981355e77ba278aec007f3b90bb0394f64122dad58"></a>
+<a id="canonical-3231201013023103-2201210033300221-3032002131102120-0103111132131323-2202132022323000-0013330323210023-2300032110331210-0102023122311120"></a>
 
-## xcsh_advertise_policy — xcsh_advertise_policy / 17173258e110 / 2
+## xcsh_advertise_policy — xcsh_advertise_policy / 112032010100 / 2
 
 Breadcrumbs:
 
@@ -24,15 +24,15 @@ Manages a Advertise Policy resource in F5 Distributed Cloud for advertise\_polic
 how and where a service represented by a given virtual\_host object is advertised to consumers.
 configuration.
 
-<a id="canonical-6827282011d6d5931e39640a9e29ea952efab90af612bffe48156eb7a38107ec"></a>
+<a id="canonical-1220021302200200-0101311231112103-0132032112100022-2132022132222111-0232332223210022-3312010223333332-1020011112322313-2203200100133230"></a>
 
-## Prerequisites — xcsh_advertise_policy / 17173258e110 / 3
+## Prerequisites — xcsh_advertise_policy / 112032010100 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8370a8b0d609a980452cb4522262e80e05320bdaba764d5e95240989e3a4724f"></a>
+<a id="canonical-2003130022202300-3112002122212000-1011023023101102-0202120232200032-0011030200233122-2322131210311132-2111021000212021-3203221013021033"></a>
 
-## Minimal configuration — xcsh_advertise_policy / 17173258e110 / 4
+## Minimal configuration — xcsh_advertise_policy / 112032010100 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +61,15 @@ output "advertise_policy_id" {
 }
 ```
 
-<a id="canonical-c21a1a6fc686397ecf3782394d4bbd307d8668f82067c78b1550a8c20c3296df"></a>
+<a id="canonical-3002012201221233-3012201203211332-3033031320020321-1031102323310300-1331201212203320-0200121330132023-0111110022203002-0030030221123133"></a>
 
-## Root configuration — xcsh_advertise_policy / 17173258e110 / 5
+## Root configuration — xcsh_advertise_policy / 112032010100 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-e773137e0af83dc22053ce27d7da79c86645ab2ad3d6c0004a36134caccecb84"></a>
+<a id="canonical-3213130301031332-0022332003313002-0200110330320213-3113312213213020-1212101122230222-3103311230000000-1022031201031030-2230303230232010"></a>
 
-## Next pages — xcsh_advertise_policy / 17173258e110 / 6
+## Next pages — xcsh_advertise_policy / 112032010100 / 6
 
-- [Property reference](../guides/data-sources--advertise_policy--reference--group-001.md#canonical-c4a8545fdd17da3cdb3ef89ede55dd3f490b1b6a1e1ad35e3f19bc23129b3595)
-- [Examples](../guides/data-sources--advertise_policy--examples--group-001.md#canonical-c122cffd8cafcc703c56445d899d66062863b9857605e22c90abff36dee4d815)
+- [Property reference](../guides/data-sources--advertise_policy--reference--group-001.md#canonical-3010222011101133-3131011331220330-3123033233202132-3132111131310333-1021002301231222-0132012231031132-0333012123300203-0102212303112111)
+- [Examples](../guides/data-sources--advertise_policy--examples--group-001.md#canonical-3001020230333331-2030223330301300-0330111210101131-2021213112120012-0220120323212011-1312001132020230-2100222333330312-3132321031200111)

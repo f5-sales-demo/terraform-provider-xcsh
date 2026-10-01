@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_partner_customer_sup
 
 # xcsh_partner_customer_support_comments examples
 
-<a id="canonical-0c592772aba34f4eca08e8e3c45c89ef32f6b5aed46eeddfc3751a68e5555237"></a>
+<a id="canonical-0030112102131302-2223220310331032-3022002032203203-3010113020213233-0302331223112232-3110123232313133-3003131101221220-3211111111020313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a0fd8443d6ad937617286c50187044ad6fd861d51813a5e8335e177354fa283e"></a>
+<a id="canonical-2200333120101003-3112223121031312-0113022012301100-0120130010102231-1233312012013111-0120010322113220-0303113201131303-1110332202200332"></a>
 
-## Examples — Examples / 5838465bd084 / 2
+## Examples — Examples / 112331002010 / 2
 
 Breadcrumbs:
 
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
 - Examples
 
-<a id="canonical-805eb4504b99570e00232cc60ff0c1ed19be77de1d98405d860de2ba915e1b42"></a>
+<a id="canonical-2000113223101100-1023212111130032-0000020302303012-0033330030013231-0121233213133132-0131212010001131-2012003132022322-2101113201231002"></a>
 
-## Complete configurations — Examples / 5838465bd084 / 3
+## Complete configurations — Examples / 112331002010 / 3
 
-- [Data source](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-96b8cc45399418ab1f2785f0445083a7803dccafaccdaeda14373eb67f126916): valid configuration.
+- [Data source](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-2112232030301011-0321211001202223-0133021320113300-1010110020032213-2000033130302233-2230303122323122-0110031303322312-1333010212210112): valid configuration.
 
-<a id="canonical-0009f5c772e206953def6992f2f710fe963a12c4a84050bccfa357854afe9740"></a>
+<a id="canonical-0000002133113013-1302320200122111-0331323312212102-3302331301003332-2112032201023010-2220100011002330-3033220311132011-1022333221131000"></a>
 
-## Next pages — Examples / 5838465bd084 / 4
+## Next pages — Examples / 112331002010 / 4
 
-- [Data source](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-96b8cc45399418ab1f2785f0445083a7803dccafaccdaeda14373eb67f126916)
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [Data source](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-2112232030301011-0321211001202223-0133021320113300-1010110020032213-2000033130302233-2230303122323122-0110031303322312-1333010212210112)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
 
-<a id="canonical-96b8cc45399418ab1f2785f0445083a7803dccafaccdaeda14373eb67f126916"></a>
+<a id="canonical-2112232030301011-0321211001202223-0133021320113300-1010110020032213-2000033130302233-2230303122323122-0110031303322312-1333010212210112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f49ace9b5b1e859481a5ce203e34291791f1612cf5dd7d9191fd9c148e679673"></a>
+<a id="canonical-3310212230322123-1123013220112110-2001221130320200-0332031002210113-2101330112010230-3311313113312101-2101333121300110-2032121321121303"></a>
 
-## Data source — Data source / 0a9192279089 / 2
+## Data source — Data source / 021321002021 / 2
 
 Breadcrumbs:
 
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
-- [Examples](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0c592772aba34f4eca08e8e3c45c89ef32f6b5aed46eeddfc3751a68e5555237)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
+- [Examples](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0030112102131302-2223220310331032-3022002032203203-3010113020213233-0302331223112232-3110123232313133-3003131101221220-3211111111020313)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "partner_customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-4682964892ec6110cb0f7a2668ad5a8f3e3d3254093a9eefdf7a15ead3591a64"></a>
+<a id="canonical-1012200221121020-2102323012010100-3023003313220212-1220223111222033-0332033103021110-0021032221323233-3133132201113222-3103112101221210"></a>
 
-## Next pages — Data source / 0a9192279089 / 3
+## Next pages — Data source / 021321002021 / 3
 
-- [Examples](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0c592772aba34f4eca08e8e3c45c89ef32f6b5aed46eeddfc3751a68e5555237)
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [Examples](data-sources--partner_customer_support_comments--examples--group-001.md#canonical-0030112102131302-2223220310331032-3022002032203203-3010113020213233-0302331223112232-3110123232313133-3003131101221220-3211111111020313)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)

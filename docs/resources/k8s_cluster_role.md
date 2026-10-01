@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster_role lan
 
 # xcsh_k8s_cluster_role landing
 
-<a id="canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b"></a>
+<a id="canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c2578ceaf5d9f0667ac9cdabef64a88c507b957c2a57bf990924bc66e65a4ef"></a>
+<a id="canonical-0230021113203032-2233113121330012-1213223021303122-2332331210222020-3011001323211113-3002221113233321-2100210210233012-1232121122103233"></a>
 
-## xcsh_k8s_cluster_role — xcsh_k8s_cluster_role / 310ebcdb2072 / 2
+## xcsh_k8s_cluster_role — xcsh_k8s_cluster_role / 312302001302 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages k8s\_cluster\_role will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-<a id="canonical-6cccea18c43f864ea98b6fac2b46a5063d5eb979e263d37f77dfe5c990a269b4"></a>
+<a id="canonical-1230303032220120-3010033320121032-2221202312332230-0223101222110012-0331113223211321-3202120331031333-1313313332113021-2100220212212310"></a>
 
-## Prerequisites — xcsh_k8s_cluster_role / 310ebcdb2072 / 3
+## Prerequisites — xcsh_k8s_cluster_role / 312302001302 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-f1f383ecaef765948d6c031214bb6d0b441986900a57c43dbf1bb38d0cfefc81"></a>
+<a id="canonical-3301330320033230-2232331312112110-2031123000030102-0110232312310023-1010012120122100-0022111330100331-2333012323032031-0030333233302001"></a>
 
-## Minimal configuration — xcsh_k8s_cluster_role / 310ebcdb2072 / 4
+## Minimal configuration — xcsh_k8s_cluster_role / 312302001302 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_k8s_cluster_role" "example" {
 }
 ```
 
-<a id="canonical-91fe4c83e687303efedc31d87b6932068c8ece514434ded67fab2ef94c574d79"></a>
+<a id="canonical-2101333210302003-3212201303000332-3332313003013120-1323122103020012-2030203230321101-1010031031323112-1333222302323321-1030111310311321"></a>
 
-## Root configuration — xcsh_k8s_cluster_role / 310ebcdb2072 / 5
+## Root configuration — xcsh_k8s_cluster_role / 312302001302 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-765fed01d6f84eac3c3fb649e014ff4e5631c5a2eeb95cbc0748e4af9d892f46"></a>
+<a id="canonical-1312113332310001-3112332010322230-0330033323121021-3200011033331032-1112030130112202-3232232111302330-0013102032102233-2131202102331012"></a>
 
-## Next pages — xcsh_k8s_cluster_role / 310ebcdb2072 / 6
+## Next pages — xcsh_k8s_cluster_role / 312302001302 / 6
 
-- [Property reference](../guides/resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [Examples](../guides/resources--k8s_cluster_role--examples--group-001.md#canonical-ce3a232593bab97db089ecb898a23d4a4451bfae8bbddb21d8687777b9b1d0e0)
-- [Import](../guides/resources--k8s_cluster_role--lifecycle--group-001.md#canonical-75409b56538408d86ccab6f08f31d82e11a455d18c722da77bc0c922acc45ecb)
-- [Timeouts](../guides/resources--k8s_cluster_role--lifecycle--group-001.md#canonical-0659617a6c0ee175253adc808b2f682c45968122c1fd2aa9c04e894e5ed49401)
+- [Property reference](../guides/resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [Examples](../guides/resources--k8s_cluster_role--examples--group-001.md#canonical-3032032202030211-2103232223211331-2300202132302320-2120220203311022-1010110123332232-2023233131230201-3120122013131313-2321230131003200)
+- [Import](../guides/resources--k8s_cluster_role--lifecycle--group-001.md#canonical-1311100021231112-1103201000203120-1230302223123300-2033030131200232-0101221011113101-2030130202312213-1323300030210202-2230301011323023)
+- [Timeouts](../guides/resources--k8s_cluster_role--lifecycle--group-001.md#canonical-0012112112011322-1230003232011311-0211032231302000-2023023312200230-1011211220010202-3001333102222221-3000103220211032-1132311021100001)

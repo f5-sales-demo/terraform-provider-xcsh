@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster landing.
 
 # xcsh_k8s_cluster landing
 
-<a id="canonical-2f8408128bac4154d293c68f236e0ceda708f0d32acbd5c5f0e51cfa3164bce6"></a>
+<a id="canonical-0233201000200102-2023223010011110-3102210330122033-0203123200303231-2213002033003103-0222302331113011-3300321101303322-0301121023303212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-23d930555a32057cb56f5a4f45ca885f442834c132f2e0393b8527cab40b1c3c"></a>
+<a id="canonical-0203312103001111-1122030200111330-2311123311221033-1011302220201133-1010022003103001-0302330232000321-0323201102133022-2310002301300330"></a>
 
-## xcsh_k8s_cluster — xcsh_k8s_cluster / 483d5c44c02b / 2
+## xcsh_k8s_cluster — xcsh_k8s_cluster / 101030000223 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages k8s\_cluster will create the object in the storage backend for namespace metadata.namespace
 in F5 Distributed Cloud.
 
-<a id="canonical-416f5f1607f8b8e44327d6c7fb0ca1ce54f3eb42e8f0cb6ce52f30f76474a923"></a>
+<a id="canonical-1001123311330112-0013332023203210-1003021331123013-3323003022013032-1110330332231002-3220330030231230-3211023303003313-1210131022210203"></a>
 
-## Prerequisites — xcsh_k8s_cluster / 483d5c44c02b / 3
+## Prerequisites — xcsh_k8s_cluster / 101030000223 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-a41d1995225891a0ff32a47b8a79b2cd8f11225d4d6c7d1ef8fddefdf9bec42d"></a>
+<a id="canonical-2210013101212111-0202112021012200-3333030222101323-2022132123023031-2033010102021131-1031123013310132-3320333131323331-3321233230100231"></a>
 
-## Minimal configuration — xcsh_k8s_cluster / 483d5c44c02b / 4
+## Minimal configuration — xcsh_k8s_cluster / 101030000223 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_k8s_cluster" "example" {
 }
 ```
 
-<a id="canonical-1cd1bfb0b91934f1caefec389f1dbe1a0cc5053780740e8f9273bec57430b45c"></a>
+<a id="canonical-0130310123332300-2321012103103301-3022323332300320-2133013123320122-0030301100110313-2000131000322033-2102130323323011-1310030023101130"></a>
 
-## Root configuration — xcsh_k8s_cluster / 483d5c44c02b / 5
+## Root configuration — xcsh_k8s_cluster / 101030000223 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ecb8e23332d8dbe2881a7e589f4b93d247831ab5d1e0fdc5c4940527a7521891"></a>
+<a id="canonical-3230232032020303-0302312031233202-2020012213321120-2133102321033102-1013200301222311-3101320033313011-3010211000110213-2213110201202101"></a>
 
-## Next pages — xcsh_k8s_cluster / 483d5c44c02b / 6
+## Next pages — xcsh_k8s_cluster / 101030000223 / 6
 
-- [Property reference](../guides/resources--k8s_cluster--reference--group-001.md#canonical-90f1e9cc519426a194ab7e4acdb90f791c068205f7aaf5c13bfe9ca7fe982476)
-- [Examples](../guides/resources--k8s_cluster--examples--group-001.md#canonical-369842889ab7ce2a0ae26413e95efe2ebe911e63b57fd9106d5a694ca13ad942)
-- [Import](../guides/resources--k8s_cluster--lifecycle--group-001.md#canonical-b2d53ccfb7f4a2575f10ed7cb7d637dde88cbd5605e1499816a8e110abf8a198)
-- [Timeouts](../guides/resources--k8s_cluster--lifecycle--group-001.md#canonical-f9e06870da9ab5fdd76f79578308fd2f79e3342c8398d21305f34047939b8dbe)
+- [Property reference](../guides/resources--k8s_cluster--reference--group-001.md#canonical-2100330132213030-1101211002122201-2110222313321022-3031232100331321-0130001220020011-3313222233113001-0323333221302213-3332212002101312)
+- [Examples](../guides/resources--k8s_cluster--examples--group-001.md#canonical-0312212010022020-2122231330320222-0022320212100103-3221113233320232-2332210101321203-2311133331210100-1231112212211030-2201032231211002)
+- [Import](../guides/resources--k8s_cluster--lifecycle--group-001.md#canonical-2302311103303033-2313331022021113-1133010032311330-2313311203133131-3220203023311112-0011320110212120-0112222032010100-2223332022012120)
+- [Timeouts](../guides/resources--k8s_cluster--lifecycle--group-001.md#canonical-3321320012201300-3122212223113331-3113123313211113-2003002033310233-1321320303100230-2003212031020103-0011330310001013-2103212320312332)

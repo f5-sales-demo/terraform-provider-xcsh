@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 l
 
 # xcsh_securemesh_site_v2 landing
 
-<a id="canonical-cf134a3bd4d44ad284286867a84f381180caf1b4d78022ad5b1b080803ffc441"></a>
+<a id="canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e78fe7aff62871cb60674227d4fedd6befdec11588c2364a5ef2a2118a965e13"></a>
+<a id="canonical-3213203332132233-3312022013013023-1200121310020213-3110333231311223-3233313230010111-2020300203121022-1132330222020101-2022211211320103"></a>
 
-## xcsh_securemesh_site_v2 — xcsh_securemesh_site_v2 / baa760b82814 / 2
+## xcsh_securemesh_site_v2 — xcsh_securemesh_site_v2 / 232002200110 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites
 with security and networking controls.
 
-<a id="canonical-0ad282e961286728e8e2d0457a13ec6cdd5e3d4c0807995802a67b281c0e0555"></a>
+<a id="canonical-0022310220023221-1201022012130220-3220320231001011-1322010332301230-3131113203311030-0020001321211120-0002221213230220-0130003200111111"></a>
 
-## Prerequisites — xcsh_securemesh_site_v2 / baa760b82814 / 3
+## Prerequisites — xcsh_securemesh_site_v2 / 232002200110 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-ca462458d2277307a50220f7516ffddf4bcc0bc59967cff60b9f7cc445a12aa6"></a>
+<a id="canonical-3022101202101120-3102021313030013-2211000202003313-1101123333313133-1023303000233011-2121121330333312-0023213313303010-1011220102222212"></a>
 
-## Minimal configuration — xcsh_securemesh_site_v2 / baa760b82814 / 4
+## Minimal configuration — xcsh_securemesh_site_v2 / 232002200110 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "securemesh_site_v2_id" {
 }
 ```
 
-<a id="canonical-d322362c64f027d96676cf5e411bf8ec7e945a6fa392aff9998ba9e6667ecd07"></a>
+<a id="canonical-3103020203120230-1210330002133121-1212131230331132-1001012333203230-1332211011221233-2203210222333321-2121202322213212-1212133230310013"></a>
 
-## Root configuration — xcsh_securemesh_site_v2 / baa760b82814 / 5
+## Root configuration — xcsh_securemesh_site_v2 / 232002200110 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ab15355bd88bce750c569ca13b89cae111fbf8c619d3214ef929758f3921fbde"></a>
+<a id="canonical-2223011103111123-3120202330321311-0030111221302201-0323202130223201-0101332333203012-0121310302011032-3321022113112033-0321020133233132"></a>
 
-## Next pages — xcsh_securemesh_site_v2 / baa760b82814 / 6
+## Next pages — xcsh_securemesh_site_v2 / 232002200110 / 6
 
-- [Property reference](../guides/data-sources--securemesh_site_v2--reference--group-001.md#canonical-46ac4384a3ca0b62d8075b9c924d0fcfd2957353fe73c01a0f81c5acc436f882)
-- [Examples](../guides/data-sources--securemesh_site_v2--examples--group-001.md#canonical-dd1bd31a95e67d7324b79547dcf212c3ece23b79f1d8be24343b53effe8e03f7)
+- [Property reference](../guides/data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [Examples](../guides/data-sources--securemesh_site_v2--examples--group-001.md#canonical-3131012331030122-2111321213311303-0210231321111013-3130330201023003-3230320203231321-3301312023320210-0310032311033233-3332203200033313)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_network_policy landi
 
 # xcsh_network_policy landing
 
-<a id="canonical-f38a470b0a5f76b756805cb3c7f8aafe56d7b84dc1961a59aee5b03d000a7016"></a>
+<a id="canonical-3303202210130023-0022113313122313-1112200011302303-3013332022223332-1112311323201031-3001211201221121-2232321123000331-0000002213000112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-331ad5eeb0e456594dc7280c9c4cf801acbf0680605ca4520a8bd113c25cd090"></a>
+<a id="canonical-0303012231113232-2300321011121121-1031301302200030-2130103033200001-2230233300122000-1200113022101102-0022202331010103-3002113031002100"></a>
 
-## xcsh_network_policy — xcsh_network_policy / f0573e00138a / 2
+## xcsh_network_policy — xcsh_network_policy / 000001032022 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages new network policy with configured parameters in specified namespace in F5 Distributed
 Cloud.
 
-<a id="canonical-4416d95e68ffd3e5a913485f199dfe05c369af3d3fc7e813051c79f274e3225e"></a>
+<a id="canonical-1010011231211132-1220333331033211-2221010310201133-0121213133320011-3003122122330331-0333301332200103-0011013013213302-1310320302021132"></a>
 
-## Prerequisites — xcsh_network_policy / f0573e00138a / 3
+## Prerequisites — xcsh_network_policy / 000001032022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-e4e311ff477fd946ee4be60b5ae4f03d8bdedb887e6fe1d08cc6cbbe9925758d"></a>
+<a id="canonical-3210320301013333-1013133331211012-3232102332120023-1122321033000331-2023313231232020-1332123332013100-2030301230232332-2121021113112031"></a>
 
-## Minimal configuration — xcsh_network_policy / f0573e00138a / 4
+## Minimal configuration — xcsh_network_policy / 000001032022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_network_policy" "example" {
 }
 ```
 
-<a id="canonical-bc2dc903a2fe6f78c1f404cb2becf06a1058407b35867c2839e0d73bd4458eed"></a>
+<a id="canonical-2330023130210003-2202333212331320-3001331000103023-0223323033001222-0100112010001323-0311201213300220-0321320031130323-3110101120323231"></a>
 
-## Root configuration — xcsh_network_policy / f0573e00138a / 5
+## Root configuration — xcsh_network_policy / 000001032022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-c60eddc608fae064af4751015d57137939283cfab90d7fa63e0957c99a8158a7"></a>
+<a id="canonical-3012003231313012-0020332232001210-2233101311010001-1131111301031321-0321022003303322-2321003113332212-0332002111133021-2122200111202213"></a>
 
-## Next pages — xcsh_network_policy / f0573e00138a / 6
+## Next pages — xcsh_network_policy / 000001032022 / 6
 
-- [Property reference](../guides/resources--network_policy--reference--group-001.md#canonical-5af3803b7443432c13c3a16926914991b434f7699a5f87eaec9a797ca463d013)
-- [Examples](../guides/resources--network_policy--examples--group-001.md#canonical-ed842b56a95a4e0145e96ee3d036d74fdbe1d9e6ffda6cefc8267078b0b528a9)
-- [Import](../guides/resources--network_policy--lifecycle--group-001.md#canonical-238d2d12ec7fab35259efa2a18d886812d265e9dc5a3d8fabe54fd84d3dc112a)
-- [Timeouts](../guides/resources--network_policy--lifecycle--group-001.md#canonical-b7dab1a1112d50d39cdc49509ab0a31c4d8be4a4a7974d9dc6cacef06cecd014)
+- [Property reference](../guides/resources--network_policy--reference--group-001.md#canonical-1122330320000323-1310100310030230-0103300322011221-0212210110212101-2310031033131221-2122113320133222-3230212213211330-2210120331000103)
+- [Examples](../guides/resources--network_policy--examples--group-001.md#canonical-3231201002231112-2221112210320001-1011322112323203-3100031231131033-3123320131213212-3333312212303233-3020021213001320-2300231102202221)
+- [Import](../guides/resources--network_policy--lifecycle--group-001.md#canonical-0203203102310102-3230133322230311-0211213233220222-0120312020122001-0231021211322131-3011220331203322-2332111033312010-3103313001010222)
+- [Timeouts](../guides/resources--network_policy--lifecycle--group-001.md#canonical-2313312223012201-0101023111003103-2130313010211100-2122230022030130-1031202332102210-2213211310312131-3012302230323300-1230323031000110)

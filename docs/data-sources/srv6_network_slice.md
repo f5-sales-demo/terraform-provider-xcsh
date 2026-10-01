@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_srv6_network_slice l
 
 # xcsh_srv6_network_slice landing
 
-<a id="canonical-01eb91def3bc993a7ab14854fcd32915db33e69c6c189dc0599a4ae5db267c6b"></a>
+<a id="canonical-0001322321013132-3303233021210322-1322230110201110-3330310302210111-3123030332122130-1230012021313000-1121212210223211-3123021213301223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-782baef6572ae7e35811ae1c67168e31c7d2cc015b365659acdbcf6622838ee7"></a>
+<a id="canonical-1320022322323312-1113022232133203-1120010122320130-1213011220320301-3013310230300001-1123031211121121-2230312330331212-0202200320323213"></a>
 
-## xcsh_srv6_network_slice — xcsh_srv6_network_slice / 7057f7b40947 / 2
+## xcsh_srv6_network_slice — xcsh_srv6_network_slice / 231000211013 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages srv6\_network\_slice creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-<a id="canonical-b0836d7705045e7434ed76fbb9cc6517b3423081f0e2b73fc4bf9f127be8e080"></a>
+<a id="canonical-2300200312311313-0011001011321310-0310323113123323-2321303012110113-2303100203002001-3300320223130333-3010233321330102-1323322032002000"></a>
 
-## Prerequisites — xcsh_srv6_network_slice / 7057f7b40947 / 3
+## Prerequisites — xcsh_srv6_network_slice / 231000211013 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3c81f6e5004778850ba21a6b833a6ff11de6535288732305398732f0661f6862"></a>
+<a id="canonical-0330200133123211-0000101313202011-0023220201221223-2003032212333301-0131321211031102-2020130302030011-0321201303023300-1212013312201202"></a>
 
-## Minimal configuration — xcsh_srv6_network_slice / 7057f7b40947 / 4
+## Minimal configuration — xcsh_srv6_network_slice / 231000211013 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "srv6_network_slice_id" {
 }
 ```
 
-<a id="canonical-d04fe8eedef32340506833ce5784294d2538c7d5d2bcda754f0652a6ffed879a"></a>
+<a id="canonical-3100103332203232-3132330302031000-1100122003033032-1113201002211031-0211032030133111-3102233031221311-1033001211022212-3333323120132122"></a>
 
-## Root configuration — xcsh_srv6_network_slice / 7057f7b40947 / 5
+## Root configuration — xcsh_srv6_network_slice / 231000211013 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-5141db31c468f7013b2d9f56a8e420628bca4b6c5c4505463da1760ccd2fb51d"></a>
+<a id="canonical-1101100131230301-3010122033130001-0323023121331112-2220321002001202-2023302210231230-1130101100111012-0331220113120030-3031023323110131"></a>
 
-## Next pages — xcsh_srv6_network_slice / 7057f7b40947 / 6
+## Next pages — xcsh_srv6_network_slice / 231000211013 / 6
 
-- [Property reference](../guides/data-sources--srv6_network_slice--reference--group-001.md#canonical-ceae08b891b45a658e6ab9b9d513560c18aeedd96150bf1affbd3770714da82d)
-- [Examples](../guides/data-sources--srv6_network_slice--examples--group-001.md#canonical-b2b705b70a59b78ad13e1fbdde0f0af4ac8ab79472c63dc8818b8fb18de8c11a)
+- [Property reference](../guides/data-sources--srv6_network_slice--reference--group-001.md#canonical-3032223200202320-2101231011221211-2032122223212321-3111010311120030-0120223232313121-1201110023330122-3333233103131300-1301103122200231)
+- [Examples](../guides/data-sources--srv6_network_slice--examples--group-001.md#canonical-2302231300112313-0022112123132022-3101033201332331-3132003300223310-2230202223132110-1302301203313020-2001202320332301-2031322030010122)

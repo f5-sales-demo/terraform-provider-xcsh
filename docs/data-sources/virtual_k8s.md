@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_virtual_k8s landing.
 
 # xcsh_virtual_k8s landing
 
-<a id="canonical-0148db5af8d910e157c059c0db0b323f7791d6e9d01c95201d415ea9704f837e"></a>
+<a id="canonical-0001102031231122-3320312101003201-1113300011213000-3123002303020333-1313210131123221-3100013021110200-0131100111322221-1300103320031332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-66083e5d61fc69364dea5dd2574c5932c2321c060ec9337b64293ba04c2ebe1f"></a>
+<a id="canonical-1212002003321131-1201333012210312-1031322211313102-1113103011210302-3002030201300012-0032302103031323-1210022103232200-1030023223320133"></a>
 
-## xcsh_virtual_k8s — xcsh_virtual_k8s / 47c10fb865b0 / 2
+## xcsh_virtual_k8s — xcsh_virtual_k8s / 232012112300 / 2
 
 Breadcrumbs:
 
@@ -23,9 +23,9 @@ Breadcrumbs:
 Manages virtual\_k8s will create the object in the storage backend for namespace metadata.namespace
 in F5 Distributed Cloud.
 
-<a id="canonical-0a810d6c5f871ed9e087166f0203d00d59f552bff8c486c7d0a1d30f161e3555"></a>
+<a id="canonical-0022200100311230-1133201301323121-3200201301121233-0002000331000031-1121331111022333-3320301020123013-3100220131030033-0112013203111111"></a>
 
-## Prerequisites — xcsh_virtual_k8s / 47c10fb865b0 / 3
+## Prerequisites — xcsh_virtual_k8s / 232012112300 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +35,9 @@ Optional integrations: `workload`.
 
 - workload: Container workloads in this namespace
 
-<a id="canonical-f1151e259eb409ae83c2d41c39e86789893708cb50556128378b846d9b42e3c1"></a>
+<a id="canonical-3301011101320211-2132231000212232-2003300231100130-0321322012132021-2021031300203023-1100111112010220-0313202320101231-2123100232033001"></a>
 
-## Minimal configuration — xcsh_virtual_k8s / 47c10fb865b0 / 4
+## Minimal configuration — xcsh_virtual_k8s / 232012112300 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,15 +66,15 @@ output "virtual_k8s_id" {
 }
 ```
 
-<a id="canonical-ce4b9a6d4c3a87370a11f35a3f55f811ba6ce44a08dca28f1ecfd6dd2a2389b7"></a>
+<a id="canonical-3032102321221231-1030032220130313-0022010133031122-0333111133200101-2322123032101022-0020313022022033-0132303331123131-0222020320212313"></a>
 
-## Root configuration — xcsh_virtual_k8s / 47c10fb865b0 / 5
+## Root configuration — xcsh_virtual_k8s / 232012112300 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-9ee4924caafa5d1a3a5bd3b7036e64e738d21d4a854682f8093d134daa914e51"></a>
+<a id="canonical-2132321021021030-2222332211310122-0322112331032313-0003123212103213-0320310201311022-2011101220023320-0021033101031031-2222210110321101"></a>
 
-## Next pages — xcsh_virtual_k8s / 47c10fb865b0 / 6
+## Next pages — xcsh_virtual_k8s / 232012112300 / 6
 
-- [Property reference](../guides/data-sources--virtual_k8s--reference--group-001.md#canonical-6430b8a0d84baaea3ec220faf51e4b844976a149d4122fc1303f4649e3aeea1c)
-- [Examples](../guides/data-sources--virtual_k8s--examples--group-001.md#canonical-c39a52aefa52ab272de791fa63cb96987fe1981f36e2b0473eae32b77dc43ad8)
+- [Property reference](../guides/data-sources--virtual_k8s--reference--group-001.md#canonical-1210030023202200-3120102322223222-0332300202003322-3311013210232010-1021131222011021-3110010202333001-0300033310121021-3203223232220130)
+- [Examples](../guides/data-sources--virtual_k8s--examples--group-001.md#canonical-3003212211022232-3322110222230213-0231321321013322-1203302321122120-1333320121200133-0312320223001013-0332223203022313-1331301003223120)

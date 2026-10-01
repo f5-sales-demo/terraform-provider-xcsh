@@ -6,36 +6,933 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
-<a id="canonical-9dd1370f6ad42110a3557c536ed5368150c25a37a783d9d01c3a9ffbae479bd4"></a>
+<a id="canonical-3022333121323131-2110030033003312-3010023203013302-1122101312132303-2222320313322023-3130320221300020-1312313000010100-2221032300232201"></a>
 
-## Next pages — blocked_clients / d242ae1a4cdf / 10
+## api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters.allow_additional_parameters — allow_additional_parameters / 220011001202 / 2
 
-- [blocked_clients.bot_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-a50a91f48f5009c57fe80afca029ee6a6f73abf255da1b37f018a311496e98e5)
-- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-017e08a116e7b1d2ab78e4d3f0bd5dc5fd9de77a221c8c74f81ddf180a3e9b8f)
-- [blocked_clients.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-a0800c1e7ec633a290825977d56239e8fc6884a8764a77c7e044aceb6015db37)
-- [blocked_clients.skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-a2464a9d2e7a6d789619971e9f65e9165e3cd233adb79fdd2537c5a0a9726037)
-- [blocked_clients.waf_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-7835e37f3afa0217718dfbbeeeeeb60e407d642aafeff7fe43d0ef55c61d8fdf)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+Breadcrumbs:
 
-<a id="canonical-a50a91f48f5009c57fe80afca029ee6a6f73abf255da1b37f018a311496e98e5"></a>
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [api_specification](resources--cdn_loadbalancer--reference--group-005.md#canonical-3010132111313002-2022320021321211-2210100222202312-1123233131321130-0220000321012023-1012110310113330-2331213333023232-1123012202210312)
+- [api_specification.validation_custom_list](resources--cdn_loadbalancer--reference--group-006.md#canonical-0232212211000012-3311313113110113-2330211310230303-2211201320310023-2330131112201112-0122323101322112-0122213300313111-3222211223111133)
+- [api_specification.validation_custom_list.settings](resources--cdn_loadbalancer--reference--group-006.md#canonical-2320111231222321-2013310323203122-1210010313233001-1312322222323020-2111100203003203-0200223323302132-3320102112223211-0123310010313233)
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom](resources--cdn_loadbalancer--reference--group-006.md#canonical-3022031303303303-3010313201332222-1013011001111002-2111030012011001-0312312321003123-3110200101010203-2000131311323113-3331322012132322)
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters](resources--cdn_loadbalancer--reference--group-006.md#canonical-1000200113012312-1213233230310003-3331010123211031-2312011301332111-3202110021022322-3133012130322101-1133001121322212-3123212230310110)
+- api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters.allow_additional_parameters
+
+<a id="canonical-3013102213321312-2000123002132120-2311223110230121-2303111020232131-1033102312111022-0302202120011132-0301010021310302-2133133322113003"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for allow additional parameters.
+
+Terraform syntax:
+
+```terraform
+allow_additional_parameters = {}
+```
+
+<a id="canonical-0123331033221220-3232022203232100-0321113103303120-0332231130132112-0002300101032023-0323031211112123-3112021120132232-3310322203123331"></a>
+
+## Direct properties — allow_additional_parameters / 220011001202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0320200320100111-0201220033101133-2202233211213321-1001113231100002-3103101322131123-3220122012302312-3211313102003232-1011302030031020"></a>
+
+## Next pages — allow_additional_parameters / 220011001202 / 4
+
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters](resources--cdn_loadbalancer--reference--group-006.md#canonical-1000200113012312-1213233230310003-3331010123211031-2312011301332111-3202110021022322-3133012130322101-1133001121322212-3123212230310110)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-0112231002011022-0230023311030233-3211330222331103-0323211212212012-2102000313122130-3032002320331300-3222020100121322-3132020120110133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0625c1cb9d36cd6e98d997916b55d5053c76c58400920a20d85b145551b60cb3"></a>
+<a id="canonical-2032320112222122-2232330310020333-2223310000032301-3323123112002012-3330021032121300-1322200322122331-2230101223121231-3200202101013102"></a>
 
-## blocked_clients.bot_skip_processing — blocked_clients.bot_skip_processing / 2d17ca707c9c / 2
+## api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters.disallow_additional_parameters — disallow_additional_parameters / 010321131021 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [api_specification](resources--cdn_loadbalancer--reference--group-005.md#canonical-3010132111313002-2022320021321211-2210100222202312-1123233131321130-0220000321012023-1012110310113330-2331213333023232-1123012202210312)
+- [api_specification.validation_custom_list](resources--cdn_loadbalancer--reference--group-006.md#canonical-0232212211000012-3311313113110113-2330211310230303-2211201320310023-2330131112201112-0122323101322112-0122213300313111-3222211223111133)
+- [api_specification.validation_custom_list.settings](resources--cdn_loadbalancer--reference--group-006.md#canonical-2320111231222321-2013310323203122-1210010313233001-1312322222323020-2111100203003203-0200223323302132-3320102112223211-0123310010313233)
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom](resources--cdn_loadbalancer--reference--group-006.md#canonical-3022031303303303-3010313201332222-1013011001111002-2111030012011001-0312312321003123-3110200101010203-2000131311323113-3331322012132322)
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters](resources--cdn_loadbalancer--reference--group-006.md#canonical-1000200113012312-1213233230310003-3331010123211031-2312011301332111-3202110021022322-3133012130322101-1133001121322212-3123212230310110)
+- api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters.disallow_additional_parameters
+
+<a id="canonical-3120103332100113-2232111232122232-3322013010030032-2321233111302333-3031302021201220-0211332202221303-3210121133102022-2030033021302010"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for disallow additional parameters.
+
+Terraform syntax:
+
+```terraform
+disallow_additional_parameters = {}
+```
+
+<a id="canonical-2001132020030030-1232103033330311-2033211030312321-1313201300122322-0220310332122012-2301123021222210-0313100230012101-0030232031333301"></a>
+
+## Direct properties — disallow_additional_parameters / 010321131021 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3212003103131033-2311020300130021-1212230301312032-3231000000323320-0230301101321311-3311223020323201-0000333020211020-3013331023100101"></a>
+
+## Next pages — disallow_additional_parameters / 010321131021 / 4
+
+- [api_specification.validation_custom_list.settings.property_validation_settings_custom.query_parameters](resources--cdn_loadbalancer--reference--group-006.md#canonical-1000200113012312-1213233230310003-3331010123211031-2312011301332111-3202110021022322-3133012130322101-1133001121322212-3123212230310110)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-0223110103210310-0130320302013122-2020111111213303-0013023302202000-2031301003230301-2200000202201320-0301110302102210-2210030303123032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2011020333200113-1220112122201230-1102000211121110-2222202201022021-3001202222233010-1232003002113231-3111121113232322-1133300210133333"></a>
+
+## api_specification.validation_custom_list.settings.property_validation_settings_default — property_validation_settings_default / 322210022120 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [api_specification](resources--cdn_loadbalancer--reference--group-005.md#canonical-3010132111313002-2022320021321211-2210100222202312-1123233131321130-0220000321012023-1012110310113330-2331213333023232-1123012202210312)
+- [api_specification.validation_custom_list](resources--cdn_loadbalancer--reference--group-006.md#canonical-0232212211000012-3311313113110113-2330211310230303-2211201320310023-2330131112201112-0122323101322112-0122213300313111-3222211223111133)
+- [api_specification.validation_custom_list.settings](resources--cdn_loadbalancer--reference--group-006.md#canonical-2320111231222321-2013310323203122-1210010313233001-1312322222323020-2111100203003203-0200223323302132-3320102112223211-0123310010313233)
+- api_specification.validation_custom_list.settings.property_validation_settings_default
+
+<a id="canonical-1102222321321323-0330322200202300-3200222012200211-2201230003010213-2113011113201302-0021103223121312-0333130203331312-0202221010002302"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for property validation settings default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+property_validation_settings_default = {}
+```
+
+<a id="canonical-1111020210310030-1002230113233030-1001310123111201-0002120332332213-1001201212202311-3320011123202331-0023221030222233-2212021211320300"></a>
+
+## Direct properties — property_validation_settings_default / 322210022120 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2103222000121100-2212133021010302-2102233102131330-3020310021201201-0021012000033010-3003211303312133-2202131220123322-1112030121131020"></a>
+
+## Next pages — property_validation_settings_default / 322210022120 / 4
+
+- [api_specification.validation_custom_list.settings](resources--cdn_loadbalancer--reference--group-006.md#canonical-2320111231222321-2013310323203122-1210010313233001-1312322222323020-2111100203003203-0200223323302132-3320102112223211-0123310010313233)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-3201130202332300-2123131032222110-0303233101102201-2330112312130010-0032100122031021-0111232221032121-0030201333002210-1203121111323232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0232020023123121-0111130333000020-3330331021011032-2210230033113333-1220132122313300-0331223031111111-3101321303210123-3303312133032000"></a>
+
+## api_specification.validation_disabled — validation_disabled / 112323101110 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [api_specification](resources--cdn_loadbalancer--reference--group-005.md#canonical-3010132111313002-2022320021321211-2210100222202312-1123233131321130-0220000321012023-1012110310113330-2331213333023232-1123012202210312)
+- api_specification.validation_disabled
+
+<a id="canonical-3131132030033121-2100010023021023-1230302323013333-0023230220231310-2132313112111331-2102110332213100-2313021330111100-1023122333131310"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+validation_disabled = {}
+```
+
+<a id="canonical-0002133112102032-3031312002312123-0123310121332332-2121302111200112-0313323310311312-2323233313030231-3100202330133313-1022030001333201"></a>
+
+## Direct properties — validation_disabled / 112323101110 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2120233031301013-1120233103012013-0103223233212301-3211102013333320-2321232202233223-1000112322331111-2120112130022121-0032330221120123"></a>
+
+## Next pages — validation_disabled / 112323101110 / 4
+
+- [api_specification](resources--cdn_loadbalancer--reference--group-005.md#canonical-3010132111313002-2022320021321211-2210100222202312-1123233131321130-0220000321012023-1012110310113330-2331213333023232-1123012202210312)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-0320211303002011-0303200110322030-3020012231113003-3312221223200013-2030312203122030-1312030231213021-0122121213001310-1020121102323120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3110302200021000-2331112212211200-1112131000322331-2102101001202332-3011330031301023-0202320333022121-0200331210321111-0212220031312033"></a>
+
+## app_firewall — app_firewall / 230301010101 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- app_firewall
+
+<a id="canonical-1331220121113202-3212233013121033-2001031102032201-0220032123121012-3130200201332011-0103210132120031-3303201013313103-3032033300231030"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+\[OneOf: app\_firewall, disable\_waf; Default: disable\_waf\] Type establishes a direct reference
+from one object(the referrer) to another(the referred). Such a reference is in form of
+tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [app_firewall](resources--cdn_loadbalancer--reference--group-007.md#canonical-1331220121113202-3212233013121033-2001031102032201-0220032123121012-3130200201332011-0103210132120031-3303201013313103-3032033300231030)
+- [disable_waf](resources--cdn_loadbalancer--reference--group-010.md#canonical-0330321120112012-0021333212231113-2232020002320311-0200223111331021-1210113213102002-2101003211223303-0223321332020310-1010211300000211)
+
+Select alternatives according to the provider validators above.
+
+Terraform syntax:
+
+```terraform
+app_firewall {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2113120222122220-2321331330213021-2111300330230200-2321333320311300-1110322201111112-3102033022232112-3130123210322020-3210302022000213"></a>
+
+## Direct properties — app_firewall / 230301010101 / 3
+
+<a id="canonical-3223010300031210-0121022000223221-0300320222003033-1033322100012000-0320000201130312-1222103223121303-1102130313200310-3212213000333302"></a>
+
+<a id="canonical-0310330321331231-0003122211212132-2301101311230122-2333123203010220-2211222000123120-1222230322123032-3301320200232300-0212103113331233"></a>
+
+## name property — app_firewall / 230301010101 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-3200023100203332-0111110133131320-0120131323021231-2021103100200320-0232011023231030-0121211102303101-1220310121120311-1310301013101303"></a>
+
+<a id="canonical-2222030022320221-1132231011201031-0210112110220210-3312002320011210-2131113030010032-1112201310130132-0233100200123202-0321112200022203"></a>
+
+## namespace property — app_firewall / 230301010101 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3120230023012102-3233010130212311-0021322313020213-2010211322230011-3202201103230211-3003233323032311-0121320021202312-1132022332121021"></a>
+
+<a id="canonical-2222120222301322-1231200202222313-0132303312011023-1223002123012030-1200302022001322-1213323012010230-0121221210202302-2020213312001103"></a>
+
+## tenant property — app_firewall / 230301010101 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-2112203002231031-0303320001013011-1103231130101023-1301010321323132-1123203231100230-2130321311210202-3023313122132132-2232231210221010"></a>
+
+## Next pages — app_firewall / 230301010101 / 7
+
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1121203012320212-3100310333213221-0031331232232133-1123301030212022-3310302332030210-3130121022213212-3131030110102320-1001121123201020"></a>
+
+## blocked_clients — blocked_clients / 012210303133 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- blocked_clients
+
+<a id="canonical-1123011321312302-2103310132112201-1202312233031220-1221322232321300-1102203201112233-2101000110010202-2133203310113200-2113332102312211"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Define rules to block IP Prefixes or AS numbers.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("actions"),
+  validators.ConflictingListObjectAttributes("as_number",
+    "http_header"),
+  validators.ConflictingListObjectAttributes("as_number",
+    "ip_prefix"),
+  validators.ConflictingListObjectAttributes("as_number",
+    "ipv6_prefix"),
+  validators.ConflictingListObjectAttributes("as_number",
+    "user_identifier"),
+  validators.ConflictingListObjectAttributes("bot_skip_processing",
+    "skip_processing"),
+  validators.ConflictingListObjectAttributes("bot_skip_processing",
+    "waf_skip_processing"),
+  validators.ConflictingListObjectAttributes("http_header",
+    "ip_prefix"),
+  validators.ConflictingListObjectAttributes("http_header",
+    "ipv6_prefix"),
+  validators.ConflictingListObjectAttributes("http_header",
+    "user_identifier"),
+  validators.ConflictingListObjectAttributes("ip_prefix",
+    "ipv6_prefix"),
+  validators.ConflictingListObjectAttributes("ip_prefix",
+    "user_identifier"),
+  validators.ConflictingListObjectAttributes("ipv6_prefix",
+    "user_identifier"),
+  validators.ConflictingListObjectAttributes("skip_processing",
+    "waf_skip_processing")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.unique_metadata_name": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.unique_metadata_name": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+blocked_clients {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1012320111201300-1002300103001212-3112201322321033-3211230123203213-2213221323300300-3333103302212122-2132213123321012-0213013220032200"></a>
+
+## Direct properties — blocked_clients / 012210303133 / 3
+
+<a id="canonical-3200300301020233-0200132111001300-1212103333033312-1123230013230003-3321001302202123-0301121313132203-3223231311231212-0223010120012312"></a>
+
+<a id="canonical-0010230023110301-3010010131130310-1012311330212203-3110001332300222-2133222303011223-3001310101320311-3032213121132113-2330012132301323"></a>
+
+## actions property — blocked_clients / 012210303133 / 4
+
+Type: `["list", "string"]`. Optional.
+
+\[Enum:
+SKIP\_PROCESSING\_WAF|SKIP\_PROCESSING\_BOT|SKIP\_PROCESSING\_MUM|SKIP\_PROCESSING\_IP\_REPUTATION|SKIP\_PROCESSING\_API\_PROTECTION|SKIP\_PROCESSING\_OAS\_VALIDATION|SKIP\_PROCESSING\_DDOS\_PROTECTION|SKIP\_PROCESSING\_THREAT\_MESH|SKIP\_PROCESSING\_MALWARE\_PROTECTION\]
+Actions that should be taken when client identifier matches the rule. Possible values are
+\`SKIP\_PROCESSING\_WAF\`, \`SKIP\_PROCESSING\_BOT\`, \`SKIP\_PROCESSING\_MUM\`,
+\`SKIP\_PROCESSING\_IP\_REPUTATION\`, \`SKIP\_PROCESSING\_API\_PROTECTION\`,
+\`SKIP\_PROCESSING\_OAS\_VALIDATION\`, \`SKIP\_PROCESSING\_DDOS\_PROTECTION\`,
+\`SKIP\_PROCESSING\_THREAT\_MESH\`, \`SKIP\_PROCESSING\_MALWARE\_PROTECTION\`. Defaults to
+\`SKIP\_PROCESSING\_WAF\`.
+
+Upstream description:
+
+Actions that should be taken when client identifier matches the rule.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeAtMost(10),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 10,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 10,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
+    "ves.io.schema.rules.repeated.max_items": "10",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
+    "ves.io.schema.rules.repeated.max_items": "10",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2002323300110310-1001302220212212-0212302032032313-2300202032112230-2300121231321133-1210112322013132-1201312101323122-3332030000111122"></a>
+
+<a id="canonical-2200103021120223-3031201302321303-2012033010103120-0200212031011023-0013313112120030-2003022102131003-1303120232021002-0330011011220102"></a>
+
+## as_number property — blocked_clients / 012210303133 / 5
+
+Type: `"number"`. Optional.
+
+Exclusive with \[http\_header ip\_prefix IPv6\_prefix user\_identifier\] RFC 6793 defined 4-byte AS
+number.
+
+Upstream description:
+
+Exclusive with \[http\_header ip\_prefix IPv6\_prefix user\_identifier\] RFC 6793 defined 4-byte AS
+number.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 401308),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 401308,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "401308"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "401308"
+  }
+}
+```
+
+- [bot_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-2211002221013310-2033110000213011-1333322000223330-2200022132321222-1233130322233302-1111312201230313-3300012022030101-1021123221203211): complete subsection reference.
+
+<a id="canonical-3302220131220122-0230031302003110-2202111231111132-1323333030010332-1201112130223103-3031010323100313-2003020013203122-2002301211223221"></a>
+
+<a id="canonical-3000321120300303-1021133321211132-2022210322113122-3112230100330001-2130310312013013-2100001233210022-2003100101301020-2310023233233013"></a>
+
+## expiration_timestamp property — blocked_clients / 012210303133 / 6
+
+Type: `"string"`. Optional.
+
+Specifies expiration\_timestamp the RFC 3339 format timestamp at which the containing rule is
+considered to be logically expired. The rule continues to exist in the configuration but is not
+applied anymore.
+
+Upstream description:
+
+The expiration\_timestamp is the RFC 3339 format timestamp at which the containing rule is
+considered to be logically expired. The rule continues to exist in the configuration but is not
+applied anymore.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "date-time",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.timestamp.within.seconds": "31536000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.timestamp.within.seconds": "31536000"
+  }
+}
+```
+
+- [http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-0001133200202201-0112321323013102-2223132032103103-3300233111313011-3331213132131322-0202013020301310-3320013131330120-0022033221232033): complete subsection reference.
+
+<a id="canonical-2111332213303312-1011312010230021-0321031133021320-2111203022120023-0131112333122033-1131233311032200-3212001112121032-1000300013321033"></a>
+
+<a id="canonical-3130201330230123-1103331021212023-1133121121310211-3003302201232222-1212310323100230-1222212200010100-0100213100311011-3212033032231023"></a>
+
+## ip_prefix property — blocked_clients / 012210303133 / 7
+
+Type: `"string"`. Optional.
+
+Exclusive with \[as\_number http\_header IPv6\_prefix user\_identifier\] IPv4 prefix string.
+
+Upstream description:
+
+Exclusive with \[as\_number http\_header IPv6\_prefix user\_identifier\] IPv4 prefix string.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-2121111133231221-1230112102232003-1102021212102331-3102330101223033-0010213202300101-3012331230332022-1320320113302200-1220303002331011"></a>
+
+<a id="canonical-1330202003002120-0000313021222123-3133312103213031-3312000223230122-3333223231131033-0131212133320203-0122102030001330-3303121123333101"></a>
+
+## ipv6_prefix property — blocked_clients / 012210303133 / 8
+
+Type: `"string"`. Optional.
+
+Exclusive with \[as\_number http\_header ip\_prefix user\_identifier\] IPv6 prefix string.
+
+Upstream description:
+
+Exclusive with \[as\_number http\_header ip\_prefix user\_identifier\] IPv6 prefix string.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  }
+}
+```
+
+- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-2200200000300132-1332301203032202-2100200211211313-3111120203213220-3330122020102220-1312102213133013-3200101022303223-1200011131230313): complete subsection reference.
+
+- [skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-2202101210222131-0232132212311320-2112012121130132-2133121132210112-1132033031020303-2231231321333131-0211031330112200-2221130212000313): complete subsection reference.
+
+<a id="canonical-1012323301131130-0112231011022021-1133020223220201-0023132133133003-1323321321112122-0231303302323331-1020123222312022-0202122030103001"></a>
+
+<a id="canonical-3200032211213220-3210313133213331-0211201033113221-3121202021320232-1110120123203201-0300221012331230-3120031101320302-3330211230232123"></a>
+
+## user_identifier property — blocked_clients / 012210303133 / 9
+
+Type: `"string"`. Optional.
+
+Exclusive with \[as\_number http\_header ip\_prefix IPv6\_prefix\] Identify user based on user
+identifier. User identifier value needs to be copied from security event.
+
+Upstream description:
+
+Exclusive with \[as\_number http\_header ip\_prefix IPv6\_prefix\] Identify user based on user
+identifier. User identifier value needs to be copied from security event.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [waf_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-1320031132031333-0322332200020113-1301203133232332-3232323223120032-1000133112100222-2233323333133332-1003310032331111-3012013120333133): complete subsection reference.
+
+<a id="canonical-2131310103130033-1222311002010100-2203111113301103-1232311103122001-1100300211220313-2213200331213100-0130032221333323-2232101321233110"></a>
+
+## Next pages — blocked_clients / 012210303133 / 10
+
+- [blocked_clients.bot_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-2211002221013310-2033110000213011-1333322000223330-2200022132321222-1233130322233302-1111312201230313-3300012022030101-1021123221203211)
+- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-0001133200202201-0112321323013102-2223132032103103-3300233111313011-3331213132131322-0202013020301310-3320013131330120-0022033221232033)
+- [blocked_clients.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-2200200000300132-1332301203032202-2100200211211313-3111120203213220-3330122020102220-1312102213133013-3200101022303223-1200011131230313)
+- [blocked_clients.skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-2202101210222131-0232132212311320-2112012121130132-2133121132210112-1132033031020303-2231231321333131-0211031330112200-2221130212000313)
+- [blocked_clients.waf_skip_processing](resources--cdn_loadbalancer--reference--group-007.md#canonical-1320031132031333-0322332200020113-1301203133232332-3232323223120032-1000133112100222-2233323333133332-1003310032331111-3012013120333133)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+
+<a id="canonical-2211002221013310-2033110000213011-1333322000223330-2200022132321222-1233130322233302-1111312201230313-3300012022030101-1021123221203211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0012021130013023-2131031230311232-2120312121132101-1223111131110011-0330131230112010-0000210200220200-3120112301101111-1101231200302303"></a>
+
+## blocked_clients.bot_skip_processing — bot_skip_processing / 130013302130 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
 - blocked_clients.bot_skip_processing
 
-<a id="canonical-f71055ec6a2d32cf9fdd6db27d2cbb82c9ff7d6d314917f4af2381bfcef690d1"></a>
+<a id="canonical-3313010011113230-1222023103023033-2133313112312302-1331023023232002-3021333313311231-0301102101133310-2233020320012333-3032331221003101"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -64,37 +961,37 @@ Terraform syntax:
 bot_skip_processing = {}
 ```
 
-<a id="canonical-990ffec36bd9992e42683c57a216ca9476789f4df1593efae4935207766c17ee"></a>
+<a id="canonical-2121003333323003-1223312121210232-1002122003301113-2202011230222110-1312132021331031-3301112103323322-3210210311020013-1312123001133232"></a>
 
-## Direct properties — blocked_clients.bot_skip_processing / 2d17ca707c9c / 3
+## Direct properties — bot_skip_processing / 130013302130 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-86dec98f51d257bb17fc119912391010a19b6908b1aab00369f1eebc1fc172fa"></a>
+<a id="canonical-2012313230212033-1101310211132323-0113333001012121-0102032101000100-2201212312210020-2301222223000003-1221330132322330-0133300113023322"></a>
 
-## Next pages — blocked_clients.bot_skip_processing / 2d17ca707c9c / 4
+## Next pages — bot_skip_processing / 130013302130 / 4
 
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-017e08a116e7b1d2ab78e4d3f0bd5dc5fd9de77a221c8c74f81ddf180a3e9b8f"></a>
+<a id="canonical-0001133200202201-0112321323013102-2223132032103103-3300233111313011-3331213132131322-0202013020301310-3320013131330120-0022033221232033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2495acf64d10d6ff789c1e682eaabb568640c47460dfd5f08dccf5dc4364b2ed"></a>
+<a id="canonical-0210211122303312-1031010031123333-1320213001321220-0232222223231112-2012100030101310-1200313331113300-2031303033113130-1003121023023231"></a>
 
-## blocked_clients.http_header — blocked_clients.http_header / c3c53619efe2 / 2
+## blocked_clients.http_header — http_header / 012132333202 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
 - blocked_clients.http_header
 
-<a id="canonical-d8b42ffcdc62de91006a486cd5a799abab100728d549df8d3e29f63608a8a271"></a>
+<a id="canonical-3120231002333330-3130120231322101-0000122210201230-3111221321212223-2223010000130220-3111102131332031-0332022133120312-0020222022021301"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -131,39 +1028,39 @@ http_header {
 }
 ```
 
-<a id="canonical-568a663c112f30653dc89f781008f13892b99faf9018fd8ef4103da0144cf2a6"></a>
+<a id="canonical-1112202212120330-0101023303001211-0331302021331320-0100002033010320-2102232121332233-2100012033312032-3310010003312200-0110103033022212"></a>
 
-## Direct properties — blocked_clients.http_header / c3c53619efe2 / 3
+## Direct properties — http_header / 012132333202 / 3
 
-- [headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-07d1d3e42cfa3040b7d5e4f9c3cbf9f2c40b94c933a9e107b5d05fb1426b7303): complete subsection reference.
+- [headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-0013310131033210-0230332203001000-2313311132103321-3003302333213302-3010002321103021-0303222132010013-2311310011332301-1002122313030003): complete subsection reference.
 
-<a id="canonical-0bb8b7488c6d22bd340b6993093edebbbc55cae2cd3d6817729371e924f6eb77"></a>
+<a id="canonical-0023232023131020-2030123102022331-0310002312212103-0021033231322323-2330111130223202-3031033112200113-1302210313013221-0210331232231313"></a>
 
-## Next pages — blocked_clients.http_header / c3c53619efe2 / 4
+## Next pages — http_header / 012132333202 / 4
 
-- [blocked_clients.http_header.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-07d1d3e42cfa3040b7d5e4f9c3cbf9f2c40b94c933a9e107b5d05fb1426b7303)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients.http_header.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-0013310131033210-0230332203001000-2313311132103321-3003302333213302-3010002321103021-0303222132010013-2311310011332301-1002122313030003)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-07d1d3e42cfa3040b7d5e4f9c3cbf9f2c40b94c933a9e107b5d05fb1426b7303"></a>
+<a id="canonical-0013310131033210-0230332203001000-2313311132103321-3003302333213302-3010002321103021-0303222132010013-2311310011332301-1002122313030003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1c5d9d1d0d2be32fd4f539a3aaa8954428ce924cd4126946831cd6a93869ea1c"></a>
+<a id="canonical-0130113121310131-0031022332030233-3110331103212203-2222222021111010-0220303221021030-3110010212211012-2003013031122221-0320122132220130"></a>
 
-## blocked_clients.http_header.headers — blocked_clients.http_header.headers / 6e4832723974 / 2
+## blocked_clients.http_header.headers — headers / 130203211310 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-017e08a116e7b1d2ab78e4d3f0bd5dc5fd9de77a221c8c74f81ddf180a3e9b8f)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-0001133200202201-0112321323013102-2223132032103103-3300233111313011-3331213132131322-0202013020301310-3320013131330120-0022033221232033)
 - blocked_clients.http_header.headers
 
-<a id="canonical-68b8d93cd929052092d7136dfc022606d1b172a6793ce763c86dce814a909cd4"></a>
+<a id="canonical-1220232031210330-3121022100110200-2102311301031231-3330000202120012-3101230113022212-1321033032131203-3020123130322001-1022210021303110"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -224,15 +1121,15 @@ headers {
 }
 ```
 
-<a id="canonical-dad94a96a497d81097d74cb597193321d2e9865827a912c43b45829b8aed8f56"></a>
+<a id="canonical-3122312110222112-2210211331200100-2113311310302311-2113012103030201-3102322120121120-0213222101023010-0323101120022123-2022323120331112"></a>
 
-## Direct properties — blocked_clients.http_header.headers / 6e4832723974 / 3
+## Direct properties — headers / 130203211310 / 3
 
-<a id="canonical-a99d4e1b9aeb34f80f470d2426f55b79263571771f2c5aa0181bc00679cde7cc"></a>
+<a id="canonical-2221213110320123-2122322303103320-0033101300310210-0212331111231321-0212031113011313-0133023011222200-0120012330000012-1321303132133030"></a>
 
-<a id="canonical-fb4df8c8252a3340d79c51f9c1d5131b9444b1b01f11a2d2fa820e01f4764eba"></a>
+<a id="canonical-3323103133203020-0211022203031000-3113213011013321-3001311101030123-2110101023012300-0133010122023102-3322200200320001-3310131210322322"></a>
 
-## exact property — blocked_clients.http_header.headers / 6e4832723974 / 4
+## exact property — headers / 130203211310 / 4
 
 Type: `"string"`. Optional.
 
@@ -286,11 +1183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cfef0ebd3ac0507f9cb14be41cca4eedc46fb3f9239101a8b34a0e2f4b21d677"></a>
+<a id="canonical-3033323300322331-0322300011001333-2130230110233210-0130302210323231-3010123323033321-0203210100012220-2303102200320233-1023020131121313"></a>
 
-<a id="canonical-4b0b850d6a083bce703a5b72c95378446255555a41956e15ed1b74cf65dc4a7b"></a>
+<a id="canonical-1023002320110031-1222002003233032-1300032211231302-3021110313201010-1202111111111122-1001211112320111-3231012313103033-1211313010221323"></a>
 
-## invert_match property — blocked_clients.http_header.headers / 6e4832723974 / 5
+## invert_match property — headers / 130203211310 / 5
 
 Type: `"bool"`. Optional.
 
@@ -309,11 +1206,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-afa09e29e9e0d3f562f803f4d04c8a3c53a3c3efd19e439e433bceb231afd118"></a>
+<a id="canonical-2233220021320221-3221320031033311-1202332000033310-3100103020220330-1103220330033233-3101213210032132-1003032330322302-0301223331010120"></a>
 
-<a id="canonical-b426559ad5f313da577b12c2a543b3eb4c6b980047f6d1a15c970f4e92ca1960"></a>
+<a id="canonical-2310021211112122-3111330301033122-1113132301023002-2211100323033223-1030122321200000-1013331231012201-1130211300331032-2102302201211200"></a>
 
-## name property — blocked_clients.http_header.headers / 6e4832723974 / 6
+## name property — headers / 130203211310 / 6
 
 Type: `"string"`. Optional.
 
@@ -387,11 +1284,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e98536e17d698035548fd7b6885acceb5ae3a84737be25807f8e9cd755c867c0"></a>
+<a id="canonical-3221201103123201-1331122120000311-1110203331132312-2020112230303223-1122320322201013-0313233202112000-1333203221303113-1111302012133000"></a>
 
-<a id="canonical-7171204e41df7afd55052995766d3cf86b2acb72b1eb13e499bd62bf54258d7d"></a>
+<a id="canonical-1301130102001032-1001313313223331-1111001102212111-1312123103303320-1223022230231302-2301322301033210-2121233112022333-1110021120311331"></a>
 
-## presence property — blocked_clients.http_header.headers / 6e4832723974 / 7
+## presence property — headers / 130203211310 / 7
 
 Type: `"bool"`. Optional.
 
@@ -414,11 +1311,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-054edc5ccf2bb2bc8c9acfc1ae99a48fef4a56fe72cabf8035b3233977e139be"></a>
+<a id="canonical-0011103231301130-3033022323022330-2030212230333001-2232212122102033-3233102211123332-1302302223332000-0311230302030321-1313320103212332"></a>
 
-<a id="canonical-e03eddfd76a146a2e6a3665c2f3c1200964fe57fd3bf72241c53691bd1c9c725"></a>
+<a id="canonical-3200033231313331-1312220110122202-3212220312121130-0233033001020000-2112103332111333-3103233313020210-0130110312210123-3101302130130211"></a>
 
-## regex property — blocked_clients.http_header.headers / 6e4832723974 / 8
+## regex property — headers / 130203211310 / 8
 
 Type: `"string"`. Optional.
 
@@ -473,31 +1370,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-035ad18d71ca4c63cc0b2a9402169ebf89f0855ba6e4cb977be22ee1c6f01400"></a>
+<a id="canonical-0003112231012031-1301302210301203-3030002302222110-0002011221322333-2021330020111123-2212321030232113-1323320202323201-3012330001100000"></a>
 
-## Next pages — blocked_clients.http_header.headers / 6e4832723974 / 9
+## Next pages — headers / 130203211310 / 9
 
-- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-017e08a116e7b1d2ab78e4d3f0bd5dc5fd9de77a221c8c74f81ddf180a3e9b8f)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients.http_header](resources--cdn_loadbalancer--reference--group-007.md#canonical-0001133200202201-0112321323013102-2223132032103103-3300233111313011-3331213132131322-0202013020301310-3320013131330120-0022033221232033)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-a0800c1e7ec633a290825977d56239e8fc6884a8764a77c7e044aceb6015db37"></a>
+<a id="canonical-2200200000300132-1332301203032202-2100200211211313-3111120203213220-3330122020102220-1312102213133013-3200101022303223-1200011131230313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5b2fec969b597c592a7861dbcb15aed038f37baea13d4ecf0e4386ebea8d63c9"></a>
+<a id="canonical-1123023332302112-2123112113301121-0222132012013123-3023011122323100-0320330313232232-2201033110323033-0032100320123223-3222203112033021"></a>
 
-## blocked_clients.metadata — blocked_clients.metadata / 0a2af2f4fe59 / 2
+## blocked_clients.metadata — metadata / 331033321121 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
 - blocked_clients.metadata
 
-<a id="canonical-ef6dc7180029461e75fac3c0d5a2d7db9ae2672bb157150e807d02905653c7e3"></a>
+<a id="canonical-3233123130130120-0000022110120132-1311332230033000-3111220231133123-2122320212130223-2301111301110032-2000133100022100-1112110330133203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -540,15 +1437,15 @@ metadata {
 }
 ```
 
-<a id="canonical-6be204a1c9cdf0e3a0f04063d5448f83daac2902227797d7af949723529e65e0"></a>
+<a id="canonical-1223320200102201-3021303133003203-2200330010001203-3111101020332003-3122223002210002-0202131321133113-2233211021130203-1102213212113200"></a>
 
-## Direct properties — blocked_clients.metadata / 0a2af2f4fe59 / 3
+## Direct properties — metadata / 331033321121 / 3
 
-<a id="canonical-278c4ddf4f10accddbcaa8ce5c1f4b7a07959cf3b4eeeb3a8bbac3c7bfe4bd8e"></a>
+<a id="canonical-0213203010313133-1033010022303031-3123302222203032-1130013310231322-0013211121303303-2310323232230322-2023232230033013-2333321023312032"></a>
 
-<a id="canonical-270bf365abed420323b53d5fafae49199e278e58100c334aeedfe9216e6de2ff"></a>
+<a id="canonical-0213002333031211-2223323110020003-0203231103311133-2233223210210121-2132021320321120-0100003003031022-3232313332210201-1232123132023333"></a>
 
-## description_spec property — blocked_clients.metadata / 0a2af2f4fe59 / 4
+## description_spec property — metadata / 331033321121 / 4
 
 Type: `"string"`. Optional.
 
@@ -562,11 +1459,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-9ee174cadf7b2d95cdd0a3ea8b536de65ce5bd732039ed58eeda50fe6f3a1c9e"></a>
+<a id="canonical-2132320113103022-3133132302312111-3031310022033222-2023110312313212-1130321123311303-0200032132311120-3232312211003332-1233032201302132"></a>
 
-<a id="canonical-fff04beea1e5e4dfd678c24066c2cc8ccd72aa036cee4eb41f7e119cc08a39dc"></a>
+<a id="canonical-3333330010233232-2201321132103133-3112132030021000-1212300230302030-3031130222220003-1230323210322310-0133133201012130-3000202203213130"></a>
 
-## name property — blocked_clients.metadata / 0a2af2f4fe59 / 5
+## name property — metadata / 331033321121 / 5
 
 Type: `"string"`. Optional.
 
@@ -633,31 +1530,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fcf07a4842d21822dee0124abca978b68721f2369194dce2651e26265b33fdcc"></a>
+<a id="canonical-3330330013221020-1002310201200202-3132320001021022-2330222113202312-2013020133020312-2101211031303202-1211013202120212-1123030333313030"></a>
 
-## Next pages — blocked_clients.metadata / 0a2af2f4fe59 / 6
+## Next pages — metadata / 331033321121 / 6
 
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-a2464a9d2e7a6d789619971e9f65e9165e3cd233adb79fdd2537c5a0a9726037"></a>
+<a id="canonical-2202101210222131-0232132212311320-2112012121130132-2133121132210112-1132033031020303-2231231321333131-0211031330112200-2221130212000313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-28b6c7ce1ee3f3d51a7555a2779e5da8172eeb4c0c249f8a7503fd935229ae95"></a>
+<a id="canonical-0220231230133032-0132320333033111-0122131111112202-1313213211312220-0113023232231030-0030021021332022-1311000333312103-1102022122322111"></a>
 
-## blocked_clients.skip_processing — blocked_clients.skip_processing / 5d14b0d337ad / 2
+## blocked_clients.skip_processing — skip_processing / 310303132231 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
 - blocked_clients.skip_processing
 
-<a id="canonical-f2801f9d50116ad29abf306aa335e9f8970da3363453e486f947b8155e8f6d33"></a>
+<a id="canonical-3302200001332131-1100010112223102-2122233303001222-2203031132213320-2113003122030312-0310110332102012-3321101323200111-1132203312310303"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -686,37 +1583,37 @@ Terraform syntax:
 skip_processing = {}
 ```
 
-<a id="canonical-72885c8ec9bb9e855e29e0fdf0cf8b8c6b9adde1d3fb624d73616df43ae35bd9"></a>
+<a id="canonical-1302202011302032-3021232321322011-1132022132003331-3300303320232030-1223212231313201-3103332312021031-1303120112313310-0322320311233121"></a>
 
-## Direct properties — blocked_clients.skip_processing / 5d14b0d337ad / 3
+## Direct properties — skip_processing / 310303132231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4ef6930fe47477c19765f75ff68f2b02bd40db156f0698334c523e85d022d8f0"></a>
+<a id="canonical-1032331221030033-3210131013133001-2113121133131133-3312203302230002-2331100031230111-1233001221200303-1030110203322011-3100020231203300"></a>
 
-## Next pages — blocked_clients.skip_processing / 5d14b0d337ad / 4
+## Next pages — skip_processing / 310303132231 / 4
 
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-7835e37f3afa0217718dfbbeeeeeb60e407d642aafeff7fe43d0ef55c61d8fdf"></a>
+<a id="canonical-1320031132031333-0322332200020113-1301203133232332-3232323223120032-1000133112100222-2233323333133332-1003310032331111-3012013120333133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-059a03e0ee4e237fd519847190c5a5e69ee25a97a8d865c96418fc37d44ed334"></a>
+<a id="canonical-0011212200033200-3232103202031333-3111012120101301-2100301122113212-2132320211222113-2220312012113021-1210012033300313-3110103231030310"></a>
 
-## blocked_clients.waf_skip_processing — blocked_clients.waf_skip_processing / 4130deb1f0de / 2
+## blocked_clients.waf_skip_processing — waf_skip_processing / 230133003132 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
 - blocked_clients.waf_skip_processing
 
-<a id="canonical-9b9a7d383f75746606b882b98d14be3202a20f99eb3f4aaf7818b384f0eca5c7"></a>
+<a id="canonical-2123212213310320-0333131113101212-0012232020022321-2031011023320302-0002220200332121-3223033310222233-1320012023032010-3300323022113013"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -745,36 +1642,36 @@ Terraform syntax:
 waf_skip_processing = {}
 ```
 
-<a id="canonical-cc90003d3f6b1ba7e0c95b1b0921364722d13cff82eb82af9052d1c27f85ec83"></a>
+<a id="canonical-3030210000000331-0333122301232213-3200302111230123-0021020103121013-0202310103303333-2002322320022233-2100110231013002-1333201132302003"></a>
 
-## Direct properties — blocked_clients.waf_skip_processing / 4130deb1f0de / 3
+## Direct properties — waf_skip_processing / 230133003132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d2bef791a94fa648c5c98427ca1b8550d2931cda6517e9b9a77259c16089f1e3"></a>
+<a id="canonical-3102233233132101-2221103322121020-3011302120100213-3022012320111100-3102210301303122-1211011332212321-2213130211213001-1200202133013203"></a>
 
-## Next pages — blocked_clients.waf_skip_processing / 4130deb1f0de / 4
+## Next pages — waf_skip_processing / 230133003132 / 4
 
-- [blocked_clients](resources--cdn_loadbalancer--reference--group-006.md#canonical-118168ffb743afdb5fc4125b1eb1ed93aa625aae7cdbf8c967248821b6a03d2e)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [blocked_clients](resources--cdn_loadbalancer--reference--group-007.md#canonical-0101200112203333-2313100322333123-1133301001021123-0132230132312103-2222120211222232-1330312333203021-1213021020200201-2312220003310232)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110"></a>
+<a id="canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-83806e1c291c5054ae8d2220bfcd963d401f8f7da032c154f1227f49aa11095c"></a>
+<a id="canonical-2003200012320130-0221013011001110-2232203102020200-2333303121120331-1000013320331331-2200030230011110-3301020213331021-2222010100211130"></a>
 
-## bot_defense — bot_defense / c36a1d658ec7 / 2
+## bot_defense — bot_defense / 121120323013 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
 - bot_defense
 
-<a id="canonical-80d5da23471d6d5a4df84470ea5f938d9637cb248fe75723fa650844e200d023"></a>
+<a id="canonical-2000311131220203-1013013112311122-1031332010101300-3222113321032031-2112031330230210-2033321311130203-3322121100201010-3202000031000203"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -813,21 +1710,21 @@ bot_defense {
 }
 ```
 
-<a id="canonical-bf208711d9c83dac87c5093e8049b8df3784981d9cb5d7022d616a56978d9cd9"></a>
+<a id="canonical-2333020020130101-3121302003312230-2013301100210332-2000102123203133-0313201021200131-2130231131130002-0231120112221112-2113203121303121"></a>
 
-## Direct properties — bot_defense / c36a1d658ec7 / 3
+## Direct properties — bot_defense / 121120323013 / 3
 
-- [disable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-94ee8a8a60207dec862437a362f5085256a940faa6fb59648c3f71db70083905): complete subsection reference.
+- [disable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-2110323220222022-1200020013313230-2012021003132203-1202331100201102-1112222110003322-2212332311211210-2030033313013123-1300002003210011): complete subsection reference.
 
-- [enable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-5c2ead318161388ec3e65edb5b5f74314ddcaf13b1bd2f56742119b59afa8c53): complete subsection reference.
+- [enable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-1130023222310301-2001120103202032-3003321211323123-1123113313100301-1031313022330103-2301233102331112-1310020101212311-2122332220301103): complete subsection reference.
 
-- [policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5): complete subsection reference.
+- [policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111): complete subsection reference.
 
-<a id="canonical-82b8821e3b3291eb221152fa98f751c1970e62f19afd445958805783d948e090"></a>
+<a id="canonical-2002232020020132-0323030221013223-0202010111023322-2120331311013001-2113003212023301-2122333110101121-1120200011132003-3121102032002100"></a>
 
-<a id="canonical-dcb52454ac9132c57c7989a3ad877fa9f675e5390fd92c1f70417dfb65414961"></a>
+<a id="canonical-3130231102101110-2230210103023011-1330132120212203-2231201313332221-3312131132110321-0033312102300133-1300100113313323-1211100110211201"></a>
 
-## regional_endpoint property — bot_defense / c36a1d658ec7 / 4
+## regional_endpoint property — bot_defense / 121120323013 / 4
 
 Type: `"string"`. Optional.
 
@@ -880,11 +1777,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80459b0d7e0cfdacfb4d1e917041c606a93a82cf33d8abebf2f89c65bf967844"></a>
+<a id="canonical-2000101121230031-1332003033312230-3323103101322101-1300100130120012-2221032220023033-0303312022233223-3302332021301211-2333211213201010"></a>
 
-<a id="canonical-6c1b7a9645ea1827030383a77037551d740a8ca3556c9d77f1fcab2a36be5771"></a>
+<a id="canonical-1230012313222112-1011322201200213-0003000320032213-1300031311110131-1310002220302203-1111123021311313-3301333022230222-0312233211131301"></a>
 
-## timeout property — bot_defense / c36a1d658ec7 / 5
+## timeout property — bot_defense / 121120323013 / 5
 
 Type: `"number"`. Optional.
 
@@ -932,34 +1829,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9f24a18861516e8cb3f48d75495e064b7725b4cee08007cc607015edeb20bcd7"></a>
+<a id="canonical-2133021022012020-1201110112322030-2303331020311311-1021113200121023-1313021123103032-3200200000133030-1200130001113231-3223020023303113"></a>
 
-## Next pages — bot_defense / c36a1d658ec7 / 6
+## Next pages — bot_defense / 121120323013 / 6
 
-- [bot_defense.disable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-94ee8a8a60207dec862437a362f5085256a940faa6fb59648c3f71db70083905)
-- [bot_defense.enable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-5c2ead318161388ec3e65edb5b5f74314ddcaf13b1bd2f56742119b59afa8c53)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.disable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-2110323220222022-1200020013313230-2012021003132203-1202331100201102-1112222110003322-2212332311211210-2030033313013123-1300002003210011)
+- [bot_defense.enable_cors_support](resources--cdn_loadbalancer--reference--group-007.md#canonical-1130023222310301-2001120103202032-3003321211323123-1123113313100301-1031313022330103-2301233102331112-1310020101212311-2122332220301103)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-94ee8a8a60207dec862437a362f5085256a940faa6fb59648c3f71db70083905"></a>
+<a id="canonical-2110323220222022-1200020013313230-2012021003132203-1202331100201102-1112222110003322-2212332311211210-2030033313013123-1300002003210011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e89240a576a544c4914c6cd61712ae8c53a66d96a095e0ade46bd9b485c62bb9"></a>
+<a id="canonical-3220210210002211-1312221110103010-2101103012303112-0113010222322030-1103221212312112-2200211132002231-3210122331212310-2011301202232321"></a>
 
-## bot_defense.disable_cors_support — bot_defense.disable_cors_support / 3aed5c136502 / 2
+## bot_defense.disable_cors_support — disable_cors_support / 010312110002 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
 - bot_defense.disable_cors_support
 
-<a id="canonical-405fe6ac29c84b004c068c8066be95a284453573d93340b2395b42fe2ceee36d"></a>
+<a id="canonical-1000113332122230-0221302010230000-1030001220302000-1212233221112202-2010101103111303-3121030310002302-0321112310023332-0230323232031231"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -988,37 +1885,37 @@ Terraform syntax:
 disable_cors_support = {}
 ```
 
-<a id="canonical-a000e2fd250b9a71dde21b86d8d46200b6442045de55f13c12df78205b4ac904"></a>
+<a id="canonical-2200000032023331-0211002321221301-3131320201232012-3120311012020000-2312101002001011-3132111133010330-0102313313200200-1123102230210010"></a>
 
-## Direct properties — bot_defense.disable_cors_support / 3aed5c136502 / 3
+## Direct properties — disable_cors_support / 010312110002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d832bb54c97ddd7558a732b8ea09e3b53b3db97fb18815f3fa209e11fdd471ad"></a>
+<a id="canonical-3120030223231110-3021133131311311-1120221303022320-3222002132032311-0323033123211333-2301202001113303-3322020021320101-3331311013012231"></a>
 
-## Next pages — bot_defense.disable_cors_support / 3aed5c136502 / 4
+## Next pages — disable_cors_support / 010312110002 / 4
 
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-5c2ead318161388ec3e65edb5b5f74314ddcaf13b1bd2f56742119b59afa8c53"></a>
+<a id="canonical-1130023222310301-2001120103202032-3003321211323123-1123113313100301-1031313022330103-2301233102331112-1310020101212311-2122332220301103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c0dc2c4d6f889931bc6ff8f08e3e4919fbcd37c2bb5b0ccbbbcbde803b5806a5"></a>
+<a id="canonical-3000313002301031-1233202021210301-2330123333203300-2032033210210121-3323303103133002-2323112300303023-2323302331322000-0323112000122211"></a>
 
-## bot_defense.enable_cors_support — bot_defense.enable_cors_support / 0878f01a9139 / 2
+## bot_defense.enable_cors_support — enable_cors_support / 012221010321 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
 - bot_defense.enable_cors_support
 
-<a id="canonical-2b06aae70683cbb6a53f10eabfccb2bbcef1b8dc9d7a6a7cc793b76d0f2f13ee"></a>
+<a id="canonical-0223001222223213-0012200330232312-2211033301003222-2333303023022323-3032330123203130-2131132212221330-3013210323131231-0033023301033232"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1047,37 +1944,37 @@ Terraform syntax:
 enable_cors_support = {}
 ```
 
-<a id="canonical-c6492943fcc160af57ad256d6e657bc15619776cd4525205e6dd4287236edb9d"></a>
+<a id="canonical-3012102102211003-3330300112002233-1113223102111231-1232121113233001-1112012113131230-3110110211020011-3212313110022013-0203123231232131"></a>
 
-## Direct properties — bot_defense.enable_cors_support / 0878f01a9139 / 3
+## Direct properties — enable_cors_support / 012221010321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-38cb588fe395bc1c5827da1ed931e04ce6a9334b9707cd1222d656883bf4208b"></a>
+<a id="canonical-0320302311202033-3203211123300130-1120021331220132-3121030132001030-3212222103031023-2113001330310102-0202311211122020-0323331002002023"></a>
 
-## Next pages — bot_defense.enable_cors_support / 0878f01a9139 / 4
+## Next pages — enable_cors_support / 012221010321 / 4
 
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5"></a>
+<a id="canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2e827e4cb78dbb566394cf28331388f6fe92d3bf74cf0a605c2ca2ad7a27c9de"></a>
+<a id="canonical-0232200213321030-2313203123231112-1203211030330220-0303010320203312-3332210231032333-1310303300221200-1130023022022231-1322021330213132"></a>
 
-## bot_defense.policy — bot_defense.policy / 4c2b1dd23709 / 2
+## bot_defense.policy — policy / 310203130021 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
 - bot_defense.policy
 
-<a id="canonical-9161384f78d2d1b845d28fc67c80754a56d78dbe88ad2f4cb7b0f5a310038064"></a>
+<a id="canonical-2101120103201033-1320310231012320-1011310220333012-1330200013111022-1112311320312332-2020223102331030-2313230033112203-0100000320001210"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1130,19 +2027,19 @@ policy {
 }
 ```
 
-<a id="canonical-9a83da7808fab318648dd4b413ef491ac359acc9e5403d2b2e226ff0eac54358"></a>
+<a id="canonical-2122200331221320-0020332223030120-1210203131102310-0103323310210122-3003112122303021-3211100003310223-0232020212333300-3222301110031120"></a>
 
-## Direct properties — bot_defense.policy / 4c2b1dd23709 / 3
+## Direct properties — policy / 310203130021 / 3
 
-- [disable_js_insert](resources--cdn_loadbalancer--reference--group-007.md#canonical-d739f66381ba43d2e36920608e1ae8a66cae979f938ab47a0742745bd985c4e0): complete subsection reference.
+- [disable_js_insert](resources--cdn_loadbalancer--reference--group-007.md#canonical-3113032133121203-2001232210033102-3203122102001200-2032012232202212-1230223221132133-2103202223101322-0013100213101123-3121201130103200): complete subsection reference.
 
-- [disable_mobile_sdk](resources--cdn_loadbalancer--reference--group-007.md#canonical-18e8ac26342b4983cedc899e497d4db7cd492459cd116d971f6d31a32dd00fa7): complete subsection reference.
+- [disable_mobile_sdk](resources--cdn_loadbalancer--reference--group-007.md#canonical-0120322022300212-0310022310212003-3032313020212132-1021133110312313-3031102102101121-3031010112312113-0133123103012203-0231310000332213): complete subsection reference.
 
-<a id="canonical-065ef172c2ab6433f7a24ceed98ca128ccd461465b2dcc714848591f3cb0b636"></a>
+<a id="canonical-0012113233011302-3002222312100303-3313220210303232-3121203022010220-3030311012011012-1123023130301301-1020102011210133-0330230023120312"></a>
 
-<a id="canonical-b162809c1f8654b63500701fc4867da995597cecc8b426a434fa6c2f498140bc"></a>
+<a id="canonical-2301120220002130-0133201211102312-0311000013000133-3010201213312221-2111112113303230-3020231002122210-0310332212300233-1021200110002330"></a>
 
-## javascript_mode property — bot_defense.policy / 4c2b1dd23709 / 4
+## javascript_mode property — policy / 310203130021 / 4
 
 Type: `"string"`. Optional.
 
@@ -1193,11 +2090,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-97b851b00e37cefa7e34ede7fe2a9a9b2cbaffa27193f72834c7e2facbe29236"></a>
+<a id="canonical-2113232011012300-0032031330323322-1332031032313213-3332022221222123-0230232233332202-1301210333130220-0310301332023322-3023320221020312"></a>
 
-<a id="canonical-7edf43db6d3bf575d7a291328faf16b0f9375e7a3d1d5c9f6278a83487920c7c"></a>
+<a id="canonical-1332313310033123-1231032333111311-3113220221010302-2033223301122300-3321031311321322-0331013111302133-1202132022200310-2013210200301330"></a>
 
-## js_download_path property — bot_defense.policy / 4c2b1dd23709 / 5
+## js_download_path property — policy / 310203130021 / 5
 
 Type: `"string"`. Optional.
 
@@ -1236,49 +2133,49 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [js_insert_all_pages](resources--cdn_loadbalancer--reference--group-007.md#canonical-256e64cdbef93f0087c399187cf9bb2fccebaa1c9b673a6b6588bce417e461b2): complete subsection reference.
+- [js_insert_all_pages](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211123212103031-2332332103330000-2013300321210120-1330332123230233-3030322322220130-2123121303221223-1211202023303210-0113321012012302): complete subsection reference.
 
-- [js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5): complete subsection reference.
+- [js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111): complete subsection reference.
 
-- [js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39): complete subsection reference.
+- [js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321): complete subsection reference.
 
-- [mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a): complete subsection reference.
+- [mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322): complete subsection reference.
 
-- [protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447): complete subsection reference.
+- [protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013): complete subsection reference.
 
-<a id="canonical-bf27ce49ea3251864c9f9ecda366c455af8ab988573d2ad1cc60f83ac7528a0a"></a>
+<a id="canonical-2333021330321021-3222030211012012-1030213321323031-2203121230101111-2233202223212020-1113033102223101-3030120033200322-3013110220220022"></a>
 
-## Next pages — bot_defense.policy / 4c2b1dd23709 / 6
+## Next pages — policy / 310203130021 / 6
 
-- [bot_defense.policy.disable_js_insert](resources--cdn_loadbalancer--reference--group-007.md#canonical-d739f66381ba43d2e36920608e1ae8a66cae979f938ab47a0742745bd985c4e0)
-- [bot_defense.policy.disable_mobile_sdk](resources--cdn_loadbalancer--reference--group-007.md#canonical-18e8ac26342b4983cedc899e497d4db7cd492459cd116d971f6d31a32dd00fa7)
-- [bot_defense.policy.js_insert_all_pages](resources--cdn_loadbalancer--reference--group-007.md#canonical-256e64cdbef93f0087c399187cf9bb2fccebaa1c9b673a6b6588bce417e461b2)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.disable_js_insert](resources--cdn_loadbalancer--reference--group-007.md#canonical-3113032133121203-2001232210033102-3203122102001200-2032012232202212-1230223221132133-2103202223101322-0013100213101123-3121201130103200)
+- [bot_defense.policy.disable_mobile_sdk](resources--cdn_loadbalancer--reference--group-007.md#canonical-0120322022300212-0310022310212003-3032313020212132-1021133110312313-3031102102101121-3031010112312113-0133123103012203-0231310000332213)
+- [bot_defense.policy.js_insert_all_pages](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211123212103031-2332332103330000-2013300321210120-1330332123230233-3030322322220130-2123121303221223-1211202023303210-0113321012012302)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-d739f66381ba43d2e36920608e1ae8a66cae979f938ab47a0742745bd985c4e0"></a>
+<a id="canonical-3113032133121203-2001232210033102-3203122102001200-2032012232202212-1230223221132133-2103202223101322-0013100213101123-3121201130103200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f250548c6ff15e7386ce276232716158eb979fb407135114b489aae65726395a"></a>
+<a id="canonical-3302110011102030-1233330111321303-2012303202131202-0302130112011120-3223211321332310-0013010311010110-2310202122223212-1113021203211122"></a>
 
-## bot_defense.policy.disable_js_insert — bot_defense.policy.disable_js_insert / 33ca9031e542 / 2
+## bot_defense.policy.disable_js_insert — disable_js_insert / 030132111002 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.disable_js_insert
 
-<a id="canonical-8d4480f5b7cce6c35a12669a851a2978740f0809ddffe857cc42f0e5aaf9d901"></a>
+<a id="canonical-2031101020003311-2313303032123003-1122010212122122-2011012202211320-1310003300200021-3131333332201113-3030100233003211-2222332131210001"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1307,38 +2204,38 @@ Terraform syntax:
 disable_js_insert = {}
 ```
 
-<a id="canonical-70366a70c21d2e92ae99db287e348d3e49bb145d5cfd8866820d1c0ccd61630f"></a>
+<a id="canonical-1300031212221300-3002013102322102-2232212131230220-1332031020310332-1021232301101131-1130333120201212-2002003101300030-3031120112030033"></a>
 
-## Direct properties — bot_defense.policy.disable_js_insert / 33ca9031e542 / 3
+## Direct properties — disable_js_insert / 030132111002 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9aee3a5d7aa9c3ccc7eba110c67a10bef4cca0cd78b9c6f98fbcdbf62ae25ac0"></a>
+<a id="canonical-2122323203221131-1322222130033030-3013322322010100-3012132201002332-3310303022003031-1320232130123321-2033233031233312-0222320211223000"></a>
 
-## Next pages — bot_defense.policy.disable_js_insert / 33ca9031e542 / 4
+## Next pages — disable_js_insert / 030132111002 / 4
 
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-18e8ac26342b4983cedc899e497d4db7cd492459cd116d971f6d31a32dd00fa7"></a>
+<a id="canonical-0120322022300212-0310022310212003-3032313020212132-1021133110312313-3031102102101121-3031010112312113-0133123103012203-0231310000332213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5b4ff7e4d8a23b7a91723c9eb3d38824184b5d6bb219975b1ed292065b082927"></a>
+<a id="canonical-1123103333133210-3120220203231322-2101130203302132-2303310320200210-0120102311311223-2302012121131123-0132310221020012-1123002002210213"></a>
 
-## bot_defense.policy.disable_mobile_sdk — bot_defense.policy.disable_mobile_sdk / 3a12a3445d2b / 2
+## bot_defense.policy.disable_mobile_sdk — disable_mobile_sdk / 101011310223 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.disable_mobile_sdk
 
-<a id="canonical-ab19b85ba50f623e3933611c4c2d2b8011f7d3f33af0849d2bece52328647e79"></a>
+<a id="canonical-2223012123201123-2211003312020332-0321030312010130-1030023102232000-0101331331033303-0322330020102131-0223323032110203-0220121013321321"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1367,38 +2264,38 @@ Terraform syntax:
 disable_mobile_sdk = {}
 ```
 
-<a id="canonical-36b9c34908ba345a409ca5ac6805b319ad2e515370cac4506bc58f078e60b104"></a>
+<a id="canonical-0312232130031021-0020232203101122-1000213022112230-1220001123030121-2231023211011103-1300302230101100-1223301120330013-2032120023010010"></a>
 
-## Direct properties — bot_defense.policy.disable_mobile_sdk / 3a12a3445d2b / 3
+## Direct properties — disable_mobile_sdk / 101011310223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-596157e1ad2676c29a84f368dd4f4b911beaeba58894291aed798b6b20526697"></a>
+<a id="canonical-1121120111133201-2231021213123002-2122201033031220-3131103310232101-0123322232232211-2020211002210122-3231132120231223-0200110212122113"></a>
 
-## Next pages — bot_defense.policy.disable_mobile_sdk / 3a12a3445d2b / 4
+## Next pages — disable_mobile_sdk / 101011310223 / 4
 
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-256e64cdbef93f0087c399187cf9bb2fccebaa1c9b673a6b6588bce417e461b2"></a>
+<a id="canonical-0211123212103031-2332332103330000-2013300321210120-1330332123230233-3030322322220130-2123121303221223-1211202023303210-0113321012012302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff99ec1a7c286f22225b7db09d490dee82b054dfdfb15e7ec73b217f377e88fa"></a>
+<a id="canonical-3333212132300122-1330022012330202-0202112313312300-2131102100313232-2002230011103133-3133230111321332-3013032302011333-0313133220203322"></a>
 
-## bot_defense.policy.js_insert_all_pages — bot_defense.policy.js_insert_all_pages / 048759813f71 / 2
+## bot_defense.policy.js_insert_all_pages — js_insert_all_pages / 200103331301 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.js_insert_all_pages
 
-<a id="canonical-9250befc839799031e29d19e0542296dc82511090543bd380d81b6fbe2c4a0f6"></a>
+<a id="canonical-2102110023323330-2003211321210003-0132022131012132-0011100202211231-3020021101010021-0011100323310320-0031200123123323-3202301022003312"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1425,15 +2322,15 @@ js_insert_all_pages {
 }
 ```
 
-<a id="canonical-6ce5ad108055eb19799e22b41d02be5b88f627a996f270a6c3f741ab7b3d639c"></a>
+<a id="canonical-1230321122310100-2000111132230121-1321213202022310-0131000223321123-2020331202132221-2112330213002212-3003331310012223-1323033112032130"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages / 048759813f71 / 3
+## Direct properties — js_insert_all_pages / 200103331301 / 3
 
-<a id="canonical-e6260c9290fe89164f549d6e07a1b531e81895d9b4cbde06641816dd68f3c197"></a>
+<a id="canonical-3212021200302102-2100333220210112-1033111021311232-0013220123110301-3220012021113121-2310302331320012-1210012001123131-1220330330012113"></a>
 
-<a id="canonical-e3dc8cceb81e8d606c29051e15bad45e6a0571015028fcc5f19062cf97dbca95"></a>
+<a id="canonical-3203313020303032-2320013220311200-1230022100110132-0111232231101132-1222001113010001-1100022033303011-3301210012023033-2113312330222111"></a>
 
-## javascript_location property — bot_defense.policy.js_insert_all_pages / 048759813f71 / 4
+## javascript_location property — js_insert_all_pages / 200103331301 / 4
 
 Type: `"string"`. Optional.
 
@@ -1478,32 +2375,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6ca9e97f607c80ba72f2e0a88400bc47bc43cf4864386c0ee5f88b43cf45a940"></a>
+<a id="canonical-1230222132211333-1200133020002322-1302330232002220-2010000023301013-2330100330331020-1210032012300032-3211332020231003-3033101122211000"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages / 048759813f71 / 5
+## Next pages — js_insert_all_pages / 200103331301 / 5
 
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5"></a>
+<a id="canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-84e6c25f862d2e9ed4512aa87024e42c7ac96556070b28f3e422e7295ae706d5"></a>
+<a id="canonical-2010321230021133-2012023102322132-3110110102222220-1300021032100230-1322302112111112-0013002302203303-3210020232130221-1122321300123111"></a>
 
-## bot_defense.policy.js_insert_all_pages_except — bot_defense.policy.js_insert_all_pages_except / 17c76afe8d1d / 2
+## bot_defense.policy.js_insert_all_pages_except — js_insert_all_pages_except / 333220310131 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.js_insert_all_pages_except
 
-<a id="canonical-625dec3d8bcc3d1dcf96e434b53d76bc5fecc5a0d1c1198ff2c4b1953554d837"></a>
+<a id="canonical-1202113132300331-2023303003310131-3033211232100310-2311033113122330-1133323030112200-3101300101212033-3302301023012111-0311111031200313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1530,17 +2427,17 @@ js_insert_all_pages_except {
 }
 ```
 
-<a id="canonical-7d827a9f46675bf1aba0d53f6985882d4deb84282f06a6a0a20ef53143ae32a6"></a>
+<a id="canonical-1331200213222133-1012121311233301-2223220031110333-1221201120200231-1031322320100220-0233001222122200-2202003233110301-1003223203022212"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except / 17c76afe8d1d / 3
+## Direct properties — js_insert_all_pages_except / 333220310131 / 3
 
-- [exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d): complete subsection reference.
+- [exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131): complete subsection reference.
 
-<a id="canonical-4cc5a4408df22cca5845407c6258d382381ebc422901c629be4b367915a431fe"></a>
+<a id="canonical-1030301122101000-2031330202303022-1120101110001330-1202112031032002-0320013223301002-0221000130120221-2332102303121321-0111221003013332"></a>
 
-<a id="canonical-72985942d903a7895b41e6b0cb75c4237b3b7e0ea4851ff9a6cd91331407b6af"></a>
+<a id="canonical-1302212011211002-3121000322132021-1123100132122300-3023131130100203-1323032313320032-2210201101333321-2212303121010303-0110001323122233"></a>
 
-## javascript_location property — bot_defense.policy.js_insert_all_pages_except / 17c76afe8d1d / 4
+## javascript_location property — js_insert_all_pages_except / 333220310131 / 4
 
 Type: `"string"`. Optional.
 
@@ -1585,34 +2482,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8753a964787114094b8ff16c77b86369b7dad8a1b07a53bf647c039a5bd6aac1"></a>
+<a id="canonical-2013110322211210-1320130101100021-1023203333011230-1313232012031221-2313312231202201-2300132211032333-1210133000032122-1123311222223001"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except / 17c76afe8d1d / 5
+## Next pages — js_insert_all_pages_except / 333220310131 / 5
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d"></a>
+<a id="canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ea06b58768e72153ea43717fd44bbed424c571e1f2a266226854184ea06cd377"></a>
+<a id="canonical-3222001223112013-1220321302011103-3222100313011333-3110102323323110-0210301113013201-3302220212120202-1220111001201032-2200123031031313"></a>
 
-## bot_defense.policy.js_insert_all_pages_except.exclude_list — bot_defense.policy.js_insert_all_pages_except.exclude_list / dfdba6ca35a7 / 2
+## bot_defense.policy.js_insert_all_pages_except.exclude_list — exclude_list / 302203112213 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
 - bot_defense.policy.js_insert_all_pages_except.exclude_list
 
-<a id="canonical-5986094cb2b1580f94d72d98f7dc6d71dcf78d8a11cd7abf3a396617b6eb9a36"></a>
+<a id="canonical-1121201200211030-2302230111200033-2110311302312120-3313313012311301-3130331320312022-0101303113222333-0322032112120113-2312322321220312"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1667,50 +2564,50 @@ exclude_list {
 }
 ```
 
-<a id="canonical-a1712d4aeca94d74c94f69ef14d66f7698d2838dc6a602905d27a83d43781098"></a>
+<a id="canonical-2201130102311022-3230222110311310-3021103312213233-0110311212331312-2120310220032031-3012221200022100-1131021322200331-1003132001002120"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except.exclude_list / dfdba6ca35a7 / 3
+## Direct properties — exclude_list / 302203112213 / 3
 
-- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-d3c376c0c116dbe78a4b911c8b8cad42ecdc4deda567e0b2d0f291825d4ea833): complete subsection reference.
+- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3103300313123000-3001011231233213-2022102321010130-2023203022311002-3230313010313231-2211121332002302-3100330221012002-1131103222200303): complete subsection reference.
 
-- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-446d04910e216f4ff721a1ed06133198cd3e5aed3b69461669fd482baead96aa): complete subsection reference.
+- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-1010123100102101-0032020112331033-3313020122013231-0012010303012120-3031033211223231-0323122110120112-1221333110200223-2232223121122222): complete subsection reference.
 
-- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-346280031e6d39b8ff124b2e71bbd56f7cf4f7a41e5832d67d8aff5ecbdd7b1c): complete subsection reference.
+- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-0310120220000003-0132123103212320-3333010210230232-1301232331111233-1330331033132210-0132112003023112-1331202233331132-3023313113230130): complete subsection reference.
 
-- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-935912c660343d0a77903d5426d8729816213f4e733214e311e192cb6c9812bf): complete subsection reference.
+- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-2103112101023012-1200031003310022-1313210003311110-0212312013022120-0112020103331032-1303030201103203-0101320121023023-1230212001022333): complete subsection reference.
 
-<a id="canonical-587f43a2d2cf8ed12729eb39ffaee25613350d3d598ca1672ae7d55d1236ab47"></a>
+<a id="canonical-1120133310032202-3102303320323101-0213022132230321-3333223232021112-0103031100310331-1121203022011213-0222321331111131-0102031222231013"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except.exclude_list / dfdba6ca35a7 / 4
+## Next pages — exclude_list / 302203112213 / 4
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-d3c376c0c116dbe78a4b911c8b8cad42ecdc4deda567e0b2d0f291825d4ea833)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-446d04910e216f4ff721a1ed06133198cd3e5aed3b69461669fd482baead96aa)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-346280031e6d39b8ff124b2e71bbd56f7cf4f7a41e5832d67d8aff5ecbdd7b1c)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-935912c660343d0a77903d5426d8729816213f4e733214e311e192cb6c9812bf)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3103300313123000-3001011231233213-2022102321010130-2023203022311002-3230313010313231-2211121332002302-3100330221012002-1131103222200303)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-1010123100102101-0032020112331033-3313020122013231-0012010303012120-3031033211223231-0323122110120112-1221333110200223-2232223121122222)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-0310120220000003-0132123103212320-3333010210230232-1301232331111233-1330331033132210-0132112003023112-1331202233331132-3023313113230130)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-2103112101023012-1200031003310022-1313210003311110-0212312013022120-0112020103331032-1303030201103203-0101320121023023-1230212001022333)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-d3c376c0c116dbe78a4b911c8b8cad42ecdc4deda567e0b2d0f291825d4ea833"></a>
+<a id="canonical-3103300313123000-3001011231233213-2022102321010130-2023203022311002-3230313010313231-2211121332002302-3100330221012002-1131103222200303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47ce597a38f9aaa9c7f44c74f6c27aa056b575f80119c1bf5aac3a15ad18e63b"></a>
+<a id="canonical-1013303211211322-0320332122222221-3013331010301310-3312300213222200-1112231113113320-0001012130012333-1122223003220111-2231012032120323"></a>
 
-## bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain — bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain / 7911211e30f9 / 2
+## bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain — any_domain / 013203003321 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
 - bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain
 
-<a id="canonical-fc072758ca7ceeccd99ffee3473036ee02c6a0350a6d067b7752f8705d4f9154"></a>
+<a id="canonical-3330001302131120-3022133032323030-3121213333323203-1013030003123232-0002301222000311-0022123100121323-1313110233201300-1131103321011110"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1739,40 +2636,40 @@ Terraform syntax:
 any_domain = {}
 ```
 
-<a id="canonical-c0b90232cc5f78552c5c53a04bb94552a8cc45f3a063441416e589ba2cc432b5"></a>
+<a id="canonical-3000232100020302-3030113313201111-0230113011032200-1023232110111102-2220303010113303-2200120310100110-0112321120212322-0230301003022311"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain / 7911211e30f9 / 3
+## Direct properties — any_domain / 013203003321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-1727ab45dc81a7ed535480b8551b5234e75fb527d56da0ee9e81faa4def6e3dd"></a>
+<a id="canonical-0113021322231011-3130200122133231-1103111020002320-1111012311020310-3213113323110213-3111123122003232-2132200133222210-3132331232033131"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except.exclude_list.any_domain / 7911211e30f9 / 4
+## Next pages — any_domain / 013203003321 / 4
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-446d04910e216f4ff721a1ed06133198cd3e5aed3b69461669fd482baead96aa"></a>
+<a id="canonical-1010123100102101-0032020112331033-3313020122013231-0012010303012120-3031033211223231-0323122110120112-1221333110200223-2232223121122222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-182cc89e408f04e6fa906e48fd17e6a18d76e5d4284c03732cb9bb9e881a794b"></a>
+<a id="canonical-0120023030202132-1000203300103212-3322210012321020-3331011332122201-2031131232113110-0220103000031303-0230232123232132-2020012213211023"></a>
 
-## bot_defense.policy.js_insert_all_pages_except.exclude_list.domain — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 2
+## bot_defense.policy.js_insert_all_pages_except.exclude_list.domain — domain / 313112031332 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
 - bot_defense.policy.js_insert_all_pages_except.exclude_list.domain
 
-<a id="canonical-98843e465b928a4b3d2b8ee430596a5b45360764f0d67418f72ee266237d90ee"></a>
+<a id="canonical-2120201003321012-1123210220221023-0331022320323210-0300112112221123-1011031200131210-3300311213100120-3313023232021212-0203133121003232"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1815,15 +2712,15 @@ domain {
 }
 ```
 
-<a id="canonical-fdbc8529f2191d8831d414e6d4ca198910365ff3211e3ee33f3dcab96fe92866"></a>
+<a id="canonical-3331233020110221-3302012101312020-0301311001103212-3110302201212021-0100031211333303-0201013203323203-0333033130222321-1233322102201212"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 3
+## Direct properties — domain / 313112031332 / 3
 
-<a id="canonical-f1905198a6048c34af2b941911934e4e797aeb2d859259f011125935157cfb57"></a>
+<a id="canonical-3301210011012120-2212001020300310-2233022321100121-0101210310321032-1321132232230231-2011210211213300-0101010211210311-0111133033231113"></a>
 
-<a id="canonical-ead5d5e659c1812c7d0b756d7bc6a2f2076c0e8c31e3e094de894b8dc6758944"></a>
+<a id="canonical-3222311131113212-1121300120010230-1331002313111231-1323301222023302-0013123000322030-0301320332002110-3132202110232031-3012131120211010"></a>
 
-## exact_value property — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 4
+## exact_value property — domain / 313112031332 / 4
 
 Type: `"string"`. Optional.
 
@@ -1879,11 +2776,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2476b0ddaa0c96238f6106d5771199fe60c1733e4bac056be12fb6c3c805fb4"></a>
+<a id="canonical-3302101312230031-3122220030211202-0320331201001231-1113130101212133-3212003001130303-3210232230001112-2332010233231230-0330200011332310"></a>
 
-<a id="canonical-462ffb6282054830e8b4b5ebf4222611845cd3f61008fa0fff4cbe3d07cb6458"></a>
+<a id="canonical-1012023333231202-2002001110200300-3220231023113223-3310020202120101-2010113031033312-0100002033220033-3333103023320331-0013302312101120"></a>
 
-## regex_value property — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 5
+## regex_value property — domain / 313112031332 / 5
 
 Type: `"string"`. Optional.
 
@@ -1938,11 +2835,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-af25ee1aea9724999fcea742c6c0332107d4f4eeac6b3882718361ec6268df6b"></a>
+<a id="canonical-2233021132320122-3222211302102121-2133303222131002-3012300003030201-0013311033103232-2230122303202002-1301200312013230-1202122031331223"></a>
 
-<a id="canonical-9b8ec0f7add01c0b45fe0a0b6307a891ed2a6c0dd820627623722dad92e4b339"></a>
+<a id="canonical-2123203230003313-2231310001300023-1011333200220023-1203001322202101-3231022212300031-3120020012021312-0203130202312231-2102321023030321"></a>
 
-## suffix_value property — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 6
+## suffix_value property — domain / 313112031332 / 6
 
 Type: `"string"`. Optional.
 
@@ -2000,34 +2897,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e5cb0a4247160167caee7892390d91e0d4d904b8fe324f7b94b70ea5a6471c1f"></a>
+<a id="canonical-3211302300221002-1013011200011213-3022323213202102-0321003121013200-3110312100102320-3332030210331323-2110231300322211-2212101301300133"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except.exclude_list.domain / 4231b4dd637e / 7
+## Next pages — domain / 313112031332 / 7
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-346280031e6d39b8ff124b2e71bbd56f7cf4f7a41e5832d67d8aff5ecbdd7b1c"></a>
+<a id="canonical-0310120220000003-0132123103212320-3333010210230232-1301232331111233-1330331033132210-0132112003023112-1331202233331132-3023313113230130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37d8ebb5b0aef8a7eb003cde87637f3a96c42c27c8c6fce19b3980df7ba8556a"></a>
+<a id="canonical-0313312032232311-2300223233202213-3223000003303132-2013120313330322-2112301002300213-3020301233303201-2123032120003133-1323222011111222"></a>
 
-## bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata — bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata / 0737a9bfb218 / 2
+## bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata — metadata / 233323020120 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
 - bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata
 
-<a id="canonical-111ea0455631630ddea6b683a8a5c75805264102cb238b5491052f825bcf3258"></a>
+<a id="canonical-0101013222001011-1112030112030031-3132221223122003-2220221130131120-0011021210010002-3023020320231110-2101001102332002-1123303303021120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2070,15 +2967,15 @@ metadata {
 }
 ```
 
-<a id="canonical-347eab205b9e210ce766c9fe296202d2c55ee8321c8ce097d555fb8ae3bb2f0b"></a>
+<a id="canonical-0310133222230200-1123213202010030-3213121230213332-0221120200023102-3011113232200302-0130203032002113-3111111133232022-3203232302330023"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata / 0737a9bfb218 / 3
+## Direct properties — metadata / 233323020120 / 3
 
-<a id="canonical-b6f79fa45b91d4c06d54a0ee17b6ee9eac1e82b909b1cc0f9fccbcc4b3000692"></a>
+<a id="canonical-2312331321332210-1123210131103000-1231111022003232-0113231232322132-2230013220022321-0021230130300033-2133303023303010-2303000000122102"></a>
 
-<a id="canonical-4813d2daebda182138a015599e6856de10427df078c88708ab355e5f16700ec5"></a>
+<a id="canonical-1020010331023122-3223312201200201-0320220001111121-2132122011123132-0100100213313300-1320302020130020-2223031111321133-0112130000323011"></a>
 
-## description_spec property — bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata / 0737a9bfb218 / 4
+## description_spec property — metadata / 233323020120 / 4
 
 Type: `"string"`. Optional.
 
@@ -2092,11 +2989,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-d710cf73c9915590623f9150c3e9909dd5a79df3b7a0ef7810a2b44e975ce55c"></a>
+<a id="canonical-3113010030331303-3021210111112100-1202033321011100-3003322121002131-3111221321313303-2313220032331320-0100220223101032-2113113032111130"></a>
 
-<a id="canonical-3bafb7a30a0b9bfcbcd9dcc5cbaf33b110f5a6a838b410e05555f654dbcca543"></a>
+<a id="canonical-0323223323132203-0022002321233330-2330312131303011-3023223303032301-0100331122122220-0320231001003200-1111111133121110-3123303022111003"></a>
 
-## name property — bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata / 0737a9bfb218 / 5
+## name property — metadata / 233323020120 / 5
 
 Type: `"string"`. Optional.
 
@@ -2163,34 +3060,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2383bbb1c6cde2d30dbf51122097c863cac2fb3aae5ea79395c142697569e9ef"></a>
+<a id="canonical-0203200323232301-3012303132023103-0031233311010102-0200211330201203-3022300233230322-2232113222132103-2111300110021221-1311122132213233"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except.exclude_list.metadata / 0737a9bfb218 / 6
+## Next pages — metadata / 233323020120 / 6
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-935912c660343d0a77903d5426d8729816213f4e733214e311e192cb6c9812bf"></a>
+<a id="canonical-2103112101023012-1200031003310022-1313210003311110-0212312013022120-0112020103331032-1303030201103203-0101320121023023-1230212001022333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-375891db9389c031b8734187d054bf7d4142c7d6b4a6499314868ba8a9d8f218"></a>
+<a id="canonical-0313112021013123-2103202130000301-2320130310012013-3100111023331331-1001100230133112-2310221210212103-0110201220232220-2221312033020120"></a>
 
-## bot_defense.policy.js_insert_all_pages_except.exclude_list.path — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 2
+## bot_defense.policy.js_insert_all_pages_except.exclude_list.path — path / 102132011112 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-8f6c68b96547529761095395e4284989f9d09877e224f20c5126ac0a547569d5)
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insert_all_pages_except](resources--cdn_loadbalancer--reference--group-007.md#canonical-2033123012202321-1211101311022113-1201002111032111-3210022010212021-3321310021201313-3202021033020030-1101021222300022-1110131112213111)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
 - bot_defense.policy.js_insert_all_pages_except.exclude_list.path
 
-<a id="canonical-10be119035013d098ff1d61a83d9c7078e722daf52f275db733cc7a9f4317e47"></a>
+<a id="canonical-0100233201012100-0311000103310021-2033330131120122-2003312130130013-2032130202312233-1102330213113123-1303033030132221-3310030113321013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2229,15 +3126,15 @@ path {
 }
 ```
 
-<a id="canonical-d76144327f75fbfbaaf67a3ac2b9ee20fb5699b917257f6e8fa6389321553cf1"></a>
+<a id="canonical-3113120110100302-1333131133233323-2222331213220322-3002232132320200-3323111221212321-0113021113331232-2033221203202103-0201111103303301"></a>
 
-## Direct properties — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 3
+## Direct properties — path / 102132011112 / 3
 
-<a id="canonical-3e2b2379fd905fe64866fefff673932801f4fc9ed261772328a3cdb41613aadb"></a>
+<a id="canonical-0332022302031321-3331210011333212-1020121233323333-3312130321030220-0001331033302132-3102120113130203-0220220330312310-0112010322223123"></a>
 
-<a id="canonical-0cd97e07ac23dcd0fa8de66f73956cb4bcea29f9d32a744493f1828100b1a0c9"></a>
+<a id="canonical-0030312113320013-2230020331303100-3322203132121233-1303211112302310-2330322202213321-3103022213101010-2103330120022001-0000230122003021"></a>
 
-## path property — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 4
+## path property — path / 102132011112 / 4
 
 Type: `"string"`. Optional.
 
@@ -2290,11 +3187,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67c686699af45e8b596654fbadfe3a805d9c3ca2f9e72e96e17e467aaaee32fe"></a>
+<a id="canonical-1213301220121221-2122331011322023-1121121211103323-2231333203222000-1131213003302202-3321321302322112-3201133210121322-2222323203023332"></a>
 
-<a id="canonical-d608a340b4580d4ef36e1e37e49d73c0933c0676f3b083b5e58607f5e4df7073"></a>
+<a id="canonical-3112002022031000-2310112000311032-3303123201320313-3210213113033000-2103033000121312-3303230020032311-3211201200133311-3210313313001303"></a>
 
-## prefix property — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 5
+## prefix property — path / 102132011112 / 5
 
 Type: `"string"`. Optional.
 
@@ -2345,11 +3242,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-37ab5ce6068dc8f882cfa621c8d6e92682fb40c2b027c094c663d11501ae57a5"></a>
+<a id="canonical-0313222311303212-0012203130203320-2002303322120201-3020311232210212-2002332310003002-2300021330002110-3012120331010111-0001223211132211"></a>
 
-<a id="canonical-49f085f2877959bfbc15853669f014fd81cb97ab4996eb8b90b36955ec7f5f62"></a>
+<a id="canonical-1021330020113302-2013132111212333-2330011120110312-1221330001103331-2001302321132223-1021211232232023-2100230312211111-3230133311331202"></a>
 
-## regex property — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 6
+## regex property — path / 102132011112 / 6
 
 Type: `"string"`. Optional.
 
@@ -2410,32 +3307,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-31a5ee4fb0e8a518114b12f4d6038d2d89fd7a1bba969eb3e18b445575056b11"></a>
+<a id="canonical-0301221132321033-2300322022110120-0101102301023310-3112000320310231-2021333113220123-2322211221322303-3201202310101111-1311001112230101"></a>
 
-## Next pages — bot_defense.policy.js_insert_all_pages_except.exclude_list.path / 02db0649e156 / 7
+## Next pages — path / 102132011112 / 7
 
-- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-f9b3f2e02b7ea491eb7367777c8b2a8cdf5870110ba9fb15f91eae4dd529139d)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insert_all_pages_except.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-3321230333023200-0223133222102101-3223130312131313-1330202302222030-3133112013000101-0023222133230111-3321013222321031-3111022101032131)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39"></a>
+<a id="canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b372e8f0e57795abd295190ac5932451a979c649ab88e1f39e40d417989d5610"></a>
+<a id="canonical-2303130232203300-3211131321112223-3102211101210022-3011210302101101-2221132130121021-2223202032013303-2132100031100113-2120213111120100"></a>
 
-## bot_defense.policy.js_insertion_rules — bot_defense.policy.js_insertion_rules / 7385c6707444 / 2
+## bot_defense.policy.js_insertion_rules — js_insertion_rules / 130013101010 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.js_insertion_rules
 
-<a id="canonical-38fdfef74b1e98f8374c0d2b99ddee9a04234f4c36ed6606dc9d5fec24e61c72"></a>
+<a id="canonical-0320333133323313-1023013221203320-0313103000310223-2121313132322122-0010020310331030-0312323112120012-3130213111333230-0210321201301302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2472,43 +3369,43 @@ js_insertion_rules {
 }
 ```
 
-<a id="canonical-af3f3308570318f4acdc5377df8b45009cca84aaa4afad5cf5bd691896982654"></a>
+<a id="canonical-2233033303030020-1113000301203310-2230313011031313-3133202310110000-2130302220102222-2210223322311130-3311233112210120-2112212002121110"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules / 7385c6707444 / 3
+## Direct properties — js_insertion_rules / 130013101010 / 3
 
-- [exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144): complete subsection reference.
+- [exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010): complete subsection reference.
 
-- [rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463): complete subsection reference.
+- [rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203): complete subsection reference.
 
-<a id="canonical-9ec104d61e26641945d9f377008fd0d21110b0e700dd20368ba233eeadec787c"></a>
+<a id="canonical-2132300100103112-0132021212100121-1011312133031313-0000203331003102-0101010023003213-0000313102000312-2023220203033232-2231323013201330"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules / 7385c6707444 / 4
+## Next pages — js_insertion_rules / 130013101010 / 4
 
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144"></a>
+<a id="canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b946e7c140807a8a0db137d6878ba599f0393c6d39668adb1cf3523f2e9f49c0"></a>
+<a id="canonical-2321101232133001-1000200013222022-0031230103133112-2013202322112121-3300032103301231-0321121220223123-0130330311020333-0232213310213000"></a>
 
-## bot_defense.policy.js_insertion_rules.exclude_list — bot_defense.policy.js_insertion_rules.exclude_list / 1f9c025aa089 / 2
+## bot_defense.policy.js_insertion_rules.exclude_list — exclude_list / 112222002021 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
 - bot_defense.policy.js_insertion_rules.exclude_list
 
-<a id="canonical-2d9a2ce8afe9afe1c7c6c572fac3a94e50b2598ea23b84beeb72e79dd2517f0a"></a>
+<a id="canonical-0231212202303220-2233322122333201-3013301230111302-3322300322211032-1100230211212032-2202032320102332-3223130232132131-3102110113330022"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2563,50 +3460,50 @@ exclude_list {
 }
 ```
 
-<a id="canonical-f908606e98dfe52a7a3954ea8217d34adbb988349686576783a580e6ee6feea5"></a>
+<a id="canonical-3321002012001232-2120313332110222-1322032111103222-2002011331031022-3123232120200310-2112201211131213-2003221120003212-3232123332322211"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.exclude_list / 1f9c025aa089 / 3
+## Direct properties — exclude_list / 112222002021 / 3
 
-- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0fdd944bf35108d2996c63930562c7d09c334b078930c48d5751619cd96ec9a8): complete subsection reference.
+- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0033313121101023-3303110100203102-2121123012032103-0011120230133100-2130030310230013-2021030030102031-1113110112012130-3121123230212220): complete subsection reference.
 
-- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-1b3f9e6e429a62d420ae6a64cbef1b59ac41f2231dae4d01ebfbfba871547350): complete subsection reference.
+- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0123033321321232-1002212212023110-0200223212221210-3023323301231121-2230100133020203-0131223210310001-3223332333232220-1301111013031100): complete subsection reference.
 
-- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-7843bcacb2af1c0c8ccc84916b46e3d850088485d391118063d347475a6c768f): complete subsection reference.
+- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-1320100323302230-2302223301300030-2030303020102101-1223101232033120-1100002020102011-3103210101012000-1203310310131013-1122123013122033): complete subsection reference.
 
-- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-f63b9a4fd53bf4e3df7788c5fe32b7de1a985adea703300f036c9684e7cc080c): complete subsection reference.
+- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-3312032321221033-3111032333103203-3133131320203011-3332030223133132-0122212011223132-2213000303000033-0003123021122010-3213303000200030): complete subsection reference.
 
-<a id="canonical-e8d37d777c6ff962e17086f1891c1be2a29ac282b5361547c0434cb6f95fecaf"></a>
+<a id="canonical-3220310313311313-1330123333211202-3201130020123301-2021013001233202-2202212230022002-2311031201111013-3000100310302312-3321113332302233"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.exclude_list / 1f9c025aa089 / 4
+## Next pages — exclude_list / 112222002021 / 4
 
-- [bot_defense.policy.js_insertion_rules.exclude_list.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0fdd944bf35108d2996c63930562c7d09c334b078930c48d5751619cd96ec9a8)
-- [bot_defense.policy.js_insertion_rules.exclude_list.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-1b3f9e6e429a62d420ae6a64cbef1b59ac41f2231dae4d01ebfbfba871547350)
-- [bot_defense.policy.js_insertion_rules.exclude_list.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-7843bcacb2af1c0c8ccc84916b46e3d850088485d391118063d347475a6c768f)
-- [bot_defense.policy.js_insertion_rules.exclude_list.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-f63b9a4fd53bf4e3df7788c5fe32b7de1a985adea703300f036c9684e7cc080c)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0033313121101023-3303110100203102-2121123012032103-0011120230133100-2130030310230013-2021030030102031-1113110112012130-3121123230212220)
+- [bot_defense.policy.js_insertion_rules.exclude_list.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0123033321321232-1002212212023110-0200223212221210-3023323301231121-2230100133020203-0131223210310001-3223332333232220-1301111013031100)
+- [bot_defense.policy.js_insertion_rules.exclude_list.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-1320100323302230-2302223301300030-2030303020102101-1223101232033120-1100002020102011-3103210101012000-1203310310131013-1122123013122033)
+- [bot_defense.policy.js_insertion_rules.exclude_list.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-3312032321221033-3111032333103203-3133131320203011-3332030223133132-0122212011223132-2213000303000033-0003123021122010-3213303000200030)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-0fdd944bf35108d2996c63930562c7d09c334b078930c48d5751619cd96ec9a8"></a>
+<a id="canonical-0033313121101023-3303110100203102-2121123012032103-0011120230133100-2130030310230013-2021030030102031-1113110112012130-3121123230212220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-68f0833992798acb543e008617bb382bfdbc422574b470219d32b2b18d5df3c0"></a>
+<a id="canonical-1220330020030321-2102132120223023-1110033200002012-0113232303200223-3331233010020211-1310231013000201-2131030223022301-2031113133033000"></a>
 
-## bot_defense.policy.js_insertion_rules.exclude_list.any_domain — bot_defense.policy.js_insertion_rules.exclude_list.any_domain / 82607cf10ad9 / 2
+## bot_defense.policy.js_insertion_rules.exclude_list.any_domain — any_domain / 330100223121 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
 - bot_defense.policy.js_insertion_rules.exclude_list.any_domain
 
-<a id="canonical-32ff84183f2108b2713b3c37fc9f2823090cc6df3557eb7d8b3ae44fda74682e"></a>
+<a id="canonical-0302333320100120-0333020100202302-1301032303300313-3330213302200203-0021003030123133-0311111332231331-2023032232101033-3122131012200232"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2635,40 +3532,40 @@ Terraform syntax:
 any_domain = {}
 ```
 
-<a id="canonical-7d1f5360a0a853219e8ca2d8a3a261714bda8309afc0ec59fb69ada7fcaa7cf2"></a>
+<a id="canonical-1331013311031200-2200222011030201-2132203022023120-2203220212011301-1023312220030021-2233300032301121-3323122122312213-3330222213303302"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.exclude_list.any_domain / 82607cf10ad9 / 3
+## Direct properties — any_domain / 330100223121 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-3512dfd7111a323a8e38500413a8670dd39f0f46cfe0bc8c596f675f1a469770"></a>
+<a id="canonical-0311010231333113-0101012203020322-2032032011000010-0103222012130031-3103213300331012-3033320023302030-1121123312131133-0122101221131300"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.exclude_list.any_domain / 82607cf10ad9 / 4
+## Next pages — any_domain / 330100223121 / 4
 
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-1b3f9e6e429a62d420ae6a64cbef1b59ac41f2231dae4d01ebfbfba871547350"></a>
+<a id="canonical-0123033321321232-1002212212023110-0200223212221210-3023323301231121-2230100133020203-0131223210310001-3223332333232220-1301111013031100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ba36756d88a3257279db954494c863fe802e0e85225a51071206c0f8c74c5efc"></a>
+<a id="canonical-2322031213111231-2020220302111302-1321312321111010-2110302012033332-2000023200322011-0202112211010013-0102001230003320-3013103011323330"></a>
 
-## bot_defense.policy.js_insertion_rules.exclude_list.domain — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 2
+## bot_defense.policy.js_insertion_rules.exclude_list.domain — domain / 333233222101 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
 - bot_defense.policy.js_insertion_rules.exclude_list.domain
 
-<a id="canonical-4a9550b44f26a94c61cd57e1b5a97276cb00ee16a0fa35a44e643a19b82c263a"></a>
+<a id="canonical-1022211111002310-1033021222211030-1201303111133201-2311222113021312-3023000032320112-2200332203112210-1032121003220121-2320023002120322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2711,15 +3608,15 @@ domain {
 }
 ```
 
-<a id="canonical-2558b8e92904c9bda5c7c95d2f3a071baaaa12f8ee4f07ae719cc6d7614c3c9e"></a>
+<a id="canonical-0211112023203221-0221001030212331-2211301330211131-0233032200130123-2222222201023320-3232103300132232-1301213030123113-1201103003302132"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 3
+## Direct properties — domain / 333233222101 / 3
 
-<a id="canonical-e9b873ce28d619bb45a40f7e01406f0b1298abc056b1000e40e3663c8077e397"></a>
+<a id="canonical-3221232013033032-0220311201212323-1011221000331332-0001100012330023-0102212022233000-1112230100000032-1000320312120330-2000131332032113"></a>
 
-<a id="canonical-18c2888af8d14495989c56aa813be42093aa72dda4c95649c6f395bf54736cd6"></a>
+<a id="canonical-0120300220202022-3320310110102111-2120213011122222-2001032332100200-2103222213023131-2210302111121021-3012330321112333-1110130312303112"></a>
 
-## exact_value property — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 4
+## exact_value property — domain / 333233222101 / 4
 
 Type: `"string"`. Optional.
 
@@ -2775,11 +3672,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-60d9bab04cfb329dd2c7482f98f3bd44044654412137bf02c7ba06ac7bb73cb6"></a>
+<a id="canonical-1200312123222300-1030332303022131-3102301310200233-2120330323311010-0010101211101001-0201031323330002-3013232200122230-1323231303302312"></a>
 
-<a id="canonical-a86a2d6f374642f1d264e7630c85d28bb87342cd4a2938cc127ee7aeb82e0af0"></a>
+<a id="canonical-2220122202311233-0313101210023301-3102121032131203-0030201131022023-2320130310023031-1022022103203030-0102133232132232-2320023200223300"></a>
 
-## regex_value property — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 5
+## regex_value property — domain / 333233222101 / 5
 
 Type: `"string"`. Optional.
 
@@ -2834,11 +3731,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-67d16337e0a3577420bac1812859d6bf7ef8ba5476f4ce1fcf2146b59b7fa6ef"></a>
+<a id="canonical-1213310112030313-3200220311131310-0200232230012001-0220112131122333-1332332023221110-1312331030320133-3033020110122311-2123133322123233"></a>
 
-<a id="canonical-0086fb9e8638dab3b5ba8cbd2fe0baca0eb3e91e5e622d840435e3d14571d675"></a>
+<a id="canonical-0000201233232132-2012032031222303-2311232220302331-0233320023223022-0032230332210132-1132120202312010-0010031132033101-1011130131121311"></a>
 
-## suffix_value property — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 6
+## suffix_value property — domain / 333233222101 / 6
 
 Type: `"string"`. Optional.
 
@@ -2896,34 +3793,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e1eb5aa04fcaaff3961098c1b347a5b5c55b0438a5d8020dece38df3249aabfa"></a>
+<a id="canonical-3201322311222200-1033302222333303-2112010021203001-2303101322112311-3011112300100320-2211312000020031-3230320320313303-0210212222233322"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.exclude_list.domain / b1c2a4fefa91 / 7
+## Next pages — domain / 333233222101 / 7
 
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-7843bcacb2af1c0c8ccc84916b46e3d850088485d391118063d347475a6c768f"></a>
+<a id="canonical-1320100323302230-2302223301300030-2030303020102101-1223101232033120-1100002020102011-3103210101012000-1203310310131013-1122123013122033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d0225dfe0df58d9d384cbde0ae70f4853df9a978c98ee34710bb8ad09c823f1a"></a>
+<a id="canonical-3100020211313332-0031331120312131-0320103023313200-2232130033102011-0331332122211320-3021203232031013-0100232320223100-2130200203330122"></a>
 
-## bot_defense.policy.js_insertion_rules.exclude_list.metadata — bot_defense.policy.js_insertion_rules.exclude_list.metadata / 701b511a74fe / 2
+## bot_defense.policy.js_insertion_rules.exclude_list.metadata — metadata / 012213103332 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
 - bot_defense.policy.js_insertion_rules.exclude_list.metadata
 
-<a id="canonical-3d7018c446cbb2a495ee71cffe850cd079c0e1dc71c8fb049f01cc68bf99c11c"></a>
+<a id="canonical-0331130001203010-1012302323022210-2111323213013033-3332201100303100-1321300032013130-1301302033230010-2133000130301220-2333212130010130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2966,15 +3863,15 @@ metadata {
 }
 ```
 
-<a id="canonical-f65b7969546b3d4cc75f07e8bb6bc28ac6825fbf384bbe203db5d1842c8f5651"></a>
+<a id="canonical-3312112313211221-1110122303311030-3013113300133220-2323122330022022-3012200211332333-0320102323320200-0331231131012010-0230203311121101"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.exclude_list.metadata / 701b511a74fe / 3
+## Direct properties — metadata / 012213103332 / 3
 
-<a id="canonical-116326de4bb0308a174fb383b506c69b0282e6c64e351073e3ef7843cf80f051"></a>
+<a id="canonical-0101120302123132-1023230003002022-0113103323032003-2311001230122123-0002200232123012-1032031101001303-3203323313201003-3033200033001101"></a>
 
-<a id="canonical-acd13acbb11e4cc59914ccda71bfde518e41f8eb5ebfd6887bc051281013ff15"></a>
+<a id="canonical-2230310103223023-2301013210303011-2121011030303122-1301233331321101-2032100133203223-1132233331122020-1323300011010220-0100010333330111"></a>
 
-## description_spec property — bot_defense.policy.js_insertion_rules.exclude_list.metadata / 701b511a74fe / 4
+## description_spec property — metadata / 012213103332 / 4
 
 Type: `"string"`. Optional.
 
@@ -2988,11 +3885,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-6923f1e73902dfd6ab520ff11f6e9b8302881fbc95e34a146837181d6f7627ca"></a>
+<a id="canonical-1221020333013213-0321000231333112-2223110200333301-0133123221232003-0002202001332330-2111320310220110-1220031301200131-1233131202133022"></a>
 
-<a id="canonical-b58e44bbb64b62574b0c381bf817adc792598da65a03a9440ef50efd51c0b1bf"></a>
+<a id="canonical-2311203210102323-2312102312021113-1023003003200123-3320011322313013-2102112120312212-1122000322211010-0032331100323331-1101300023012333"></a>
 
-## name property — bot_defense.policy.js_insertion_rules.exclude_list.metadata / 701b511a74fe / 5
+## name property — metadata / 012213103332 / 5
 
 Type: `"string"`. Optional.
 
@@ -3059,34 +3956,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-89b8fd53dc74fdafbb55aba8c0845bdf2024ba3f0572f5a66c4d5b3f5780d24e"></a>
+<a id="canonical-2021232033311103-3130131033312233-2323111122232220-3000201011233133-0200021023220333-0011130233112212-1230103111230333-1113200031021032"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.exclude_list.metadata / 701b511a74fe / 6
+## Next pages — metadata / 012213103332 / 6
 
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-f63b9a4fd53bf4e3df7788c5fe32b7de1a985adea703300f036c9684e7cc080c"></a>
+<a id="canonical-3312032321221033-3111032333103203-3133131320203011-3332030223133132-0122212011223132-2213000303000033-0003123021122010-3213303000200030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-13bc9de627c92386eb06b0823984ccbc141b3112387750fa2c14ab93fa986448"></a>
+<a id="canonical-0103233021313212-0213302102032012-3223001223002002-0321201030302330-0110012303010102-0320131311003322-0230011022232103-3322212012101020"></a>
 
-## bot_defense.policy.js_insertion_rules.exclude_list.path — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 2
+## bot_defense.policy.js_insertion_rules.exclude_list.path — path / 303133300321 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
 - bot_defense.policy.js_insertion_rules.exclude_list.path
 
-<a id="canonical-90397bdfaaca4f761a22c68e1aea38b78bbfe8ac842993743b743951dc915311"></a>
+<a id="canonical-2100032113233133-2222302210331312-0122020230122032-0122322203202313-2023233332202230-2010022121031310-0323131003211101-3130210111030101"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3125,15 +4022,15 @@ path {
 }
 ```
 
-<a id="canonical-76668228efc82b55ab4e24fd5b73c01f4ab8e8758d9789146fb52554ef272919"></a>
+<a id="canonical-1312121220020220-3233302002231111-2223103202103331-1123130330000133-1022232032201311-2031211320210110-1233231102111110-3233021302210121"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 3
+## Direct properties — path / 303133300321 / 3
 
-<a id="canonical-5a30f8e76d7f51dbcb9c491f1fa5f50d7e88d4d46e455720f0f43a55ceac4731"></a>
+<a id="canonical-1122030033203213-1231133311013123-3023213010210133-0133221133110031-1332202031103110-1232101111130200-3300331003221111-3032223010130301"></a>
 
-<a id="canonical-e00de8a6c28f8292cab97eea3a5ae3073616c4db9a676566effbdbd4471630b7"></a>
+<a id="canonical-3200003132202212-3002203320022102-3022232113323222-0322112232030013-0312011230103123-2122121312111212-3233332331233110-1013011203002313"></a>
 
-## path property — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 4
+## path property — path / 303133300321 / 4
 
 Type: `"string"`. Optional.
 
@@ -3186,11 +4083,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5e2dcdbc5ce39350896e995f780c8e733782244a276d9836da90db2a2e71d895"></a>
+<a id="canonical-1132023130312330-1130320321031100-2021123221211133-1320003020321303-0313200202101022-0213123121200312-3122210031230222-0232130131202111"></a>
 
-<a id="canonical-aabdcdd5c7cba53017cd327d70203562d8ef6343297fa62ad33ca0bd1d5feab8"></a>
+<a id="canonical-2222233130313111-3013302322110300-0113303103021331-1300020003111202-3120323312031003-0221133322120222-3103033022002331-0131113332222320"></a>
 
-## prefix property — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 5
+## prefix property — path / 303133300321 / 5
 
 Type: `"string"`. Optional.
 
@@ -3241,11 +4138,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1f6c9eb8d218027b72f9dea73ad34829baca0db132661518d113f3f969baa6e7"></a>
+<a id="canonical-0133123021322320-3102012000021323-1302332131322213-0322310310200221-2322302200312301-0302121201110120-3101010333033321-1221232222123213"></a>
 
-<a id="canonical-ed9426d1168c1dd56faeb5e3d3396991be875e9b9d78e2d4c1c2f72a2d93f77d"></a>
+<a id="canonical-3231211002123101-0112203001313111-1233223223113203-3103032112212101-2332201311322123-2131132032023110-3001300233130222-0231210333131331"></a>
 
-## regex property — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 6
+## regex property — path / 303133300321 / 6
 
 Type: `"string"`. Optional.
 
@@ -3306,33 +4203,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-86f33e789598ed9e1b3fa00364a3e319d1d303aad99563bf2af1f5e7120bda14"></a>
+<a id="canonical-2012330303321320-2111212032312132-0123033322000003-1210220332030121-3101310300032222-3121211112032333-0222330133113213-0102002331220110"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.exclude_list.path / cb6eaacdfc39 / 7
+## Next pages — path / 303133300321 / 7
 
-- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-2ed9f0f2ed6e93c6a8eae08414837b5091400eb7e11dc7cdbf4b8cc498c42144)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.exclude_list](resources--cdn_loadbalancer--reference--group-007.md#canonical-0232312133003302-3231123221033012-2220322232002010-0110200313231100-2101100000322313-3201013130133031-2333102320303010-2120301002011010)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463"></a>
+<a id="canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8fd512949a2e6e6790829a2174b803d3f3df1682c6e7f43d206746c81864d7e"></a>
+<a id="canonical-3020333111010221-1021220232123212-1321002002212202-0113102320000331-0333033133011220-0230123213331003-3102001213101230-2001201210311332"></a>
 
-## bot_defense.policy.js_insertion_rules.rules — bot_defense.policy.js_insertion_rules.rules / 72fd2138eef7 / 2
+## bot_defense.policy.js_insertion_rules.rules — rules / 032032323313 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
 - bot_defense.policy.js_insertion_rules.rules
 
-<a id="canonical-2a1c42f6ced782d2059002af425137c30509ac3adcc9306b62d33f63eb7e574e"></a>
+<a id="canonical-0222013010023312-3032311320023102-0011210000022233-1002110103133003-0011002122300322-3130302103001223-1202310303331203-3223133211131032"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -3393,19 +4290,19 @@ rules {
 }
 ```
 
-<a id="canonical-9c042f1de29da7b124ae0d9f74da6e9c243635a6b3784d4ce734a5347120658d"></a>
+<a id="canonical-2130001002330131-3202213122132301-0210223200312133-1310312212322130-0210031203112212-2303132010311030-3213031022110310-1301020012112031"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.rules / 72fd2138eef7 / 3
+## Direct properties — rules / 032032323313 / 3
 
-- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-92a67a61b013b1c6d73e62e3a7db3592edea6ef14730714ec2c9cc9726b9422a): complete subsection reference.
+- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-2102221213221201-2300010323013012-3113033212023203-2213312303112102-3231322212323301-1013030013011032-3002302130302113-0212232110020222): complete subsection reference.
 
-- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-00e2f5a19f4ebb77ede3096a873e948ff0ab32c874f5af6d2026e2982ae14a70): complete subsection reference.
+- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0000320233112201-2133103223231313-3231320300211222-2013033221102033-3300222303023020-1310331122331231-0200021232022120-0222320110221300): complete subsection reference.
 
-<a id="canonical-c6eb634e25e797e1b5a5135e728f13a2e18ca4de7302badbd2ce79715d12bab5"></a>
+<a id="canonical-3012322312031032-0211321321133201-2311221101031132-1302203301032202-3201203022103132-1303000223223123-3102303213211301-1131010223222311"></a>
 
-<a id="canonical-d1fa36c36e4469cf41b2f8d0800b89d122b5f61d4cae9154bf4e8efad71b4b66"></a>
+<a id="canonical-3101332203123003-1232101012213033-1001230233203100-2000002320213101-0202231133120131-1030223221011110-2333103220323322-3113012310231212"></a>
 
-## javascript_location property — bot_defense.policy.js_insertion_rules.rules / 72fd2138eef7 / 4
+## javascript_location property — rules / 032032323313 / 4
 
 Type: `"string"`. Optional.
 
@@ -3450,42 +4347,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-2df5ce039ee61d3853ff29f465b368ec2b4298d6acf90bd5738dbe7230399959): complete subsection reference.
+- [metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-0231331130320003-2132321201310320-1103333302213310-1211230312203230-0223100221203112-2230332100233111-1303203123321302-0300032121211121): complete subsection reference.
 
-- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-7c39d581dce7bfdf400fe0f7a1bab283efc2f3d864a8e45c54897d43a22ffc82): complete subsection reference.
+- [path](resources--cdn_loadbalancer--reference--group-007.md#canonical-1330032131112001-3130321323333133-1000003332003313-2201232223022003-3233300233033120-1210222032101130-1110202113311003-2202023333302002): complete subsection reference.
 
-<a id="canonical-6da23c3ed3aa2ea6dfd959d5af6f4c62418ead5813e01239760d54419a6c4e7b"></a>
+<a id="canonical-1231220203300332-3103222202322212-3133312111213111-2233123310301202-1001203222311120-0103320001020321-1312003111101001-2122123010321323"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.rules / 72fd2138eef7 / 5
+## Next pages — rules / 032032323313 / 5
 
-- [bot_defense.policy.js_insertion_rules.rules.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-92a67a61b013b1c6d73e62e3a7db3592edea6ef14730714ec2c9cc9726b9422a)
-- [bot_defense.policy.js_insertion_rules.rules.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-00e2f5a19f4ebb77ede3096a873e948ff0ab32c874f5af6d2026e2982ae14a70)
-- [bot_defense.policy.js_insertion_rules.rules.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-2df5ce039ee61d3853ff29f465b368ec2b4298d6acf90bd5738dbe7230399959)
-- [bot_defense.policy.js_insertion_rules.rules.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-7c39d581dce7bfdf400fe0f7a1bab283efc2f3d864a8e45c54897d43a22ffc82)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.rules.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-2102221213221201-2300010323013012-3113033212023203-2213312303112102-3231322212323301-1013030013011032-3002302130302113-0212232110020222)
+- [bot_defense.policy.js_insertion_rules.rules.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-0000320233112201-2133103223231313-3231320300211222-2013033221102033-3300222303023020-1310331122331231-0200021232022120-0222320110221300)
+- [bot_defense.policy.js_insertion_rules.rules.metadata](resources--cdn_loadbalancer--reference--group-007.md#canonical-0231331130320003-2132321201310320-1103333302213310-1211230312203230-0223100221203112-2230332100233111-1303203123321302-0300032121211121)
+- [bot_defense.policy.js_insertion_rules.rules.path](resources--cdn_loadbalancer--reference--group-007.md#canonical-1330032131112001-3130321323333133-1000003332003313-2201232223022003-3233300233033120-1210222032101130-1110202113311003-2202023333302002)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-92a67a61b013b1c6d73e62e3a7db3592edea6ef14730714ec2c9cc9726b9422a"></a>
+<a id="canonical-2102221213221201-2300010323013012-3113033212023203-2213312303112102-3231322212323301-1013030013011032-3002302130302113-0212232110020222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6804faedd37ec6ac0864bbccc5800bfa67fe1c3fd7a8f81468e7d5a84d2a6309"></a>
+<a id="canonical-1220001033223231-3103133230122230-0020121023233030-3011200000233322-1213333201300333-3113222033200110-1220321331112220-1031022212030021"></a>
 
-## bot_defense.policy.js_insertion_rules.rules.any_domain — bot_defense.policy.js_insertion_rules.rules.any_domain / e1733c4c0c69 / 2
+## bot_defense.policy.js_insertion_rules.rules.any_domain — any_domain / 103000301221 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
 - bot_defense.policy.js_insertion_rules.rules.any_domain
 
-<a id="canonical-77128001eda70f72f4a238fc4e496e013ab722463a3616b48aebc42a7eee39f6"></a>
+<a id="canonical-1313010220000001-3231221300331302-3310220203203330-1032102112320001-0322231302021012-0322031201122310-2022322330100222-1332323203213312"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -3514,40 +4411,40 @@ Terraform syntax:
 any_domain = {}
 ```
 
-<a id="canonical-546875830656811348f7ded68d0c6f0d6f79f054fb9001c9568bf5736e1d413e"></a>
+<a id="canonical-1110122013112003-0012111220010103-1020331331323112-2031003012330031-1233132133001110-3323210000013021-1112202333111303-1232013110010332"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.rules.any_domain / e1733c4c0c69 / 3
+## Direct properties — any_domain / 103000301221 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-eb9c2ddba446564d273296bd7a3aa60bf2275e453dfdc01f3a470cca75cbbf56"></a>
+<a id="canonical-3223213002313123-2210101211121031-0213030221122331-1322032222120023-3302021311321011-0331333130000133-0322101300303022-1311302323331112"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.rules.any_domain / e1733c4c0c69 / 4
+## Next pages — any_domain / 103000301221 / 4
 
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-00e2f5a19f4ebb77ede3096a873e948ff0ab32c874f5af6d2026e2982ae14a70"></a>
+<a id="canonical-0000320233112201-2133103223231313-3231320300211222-2013033221102033-3300222303023020-1310331122331231-0200021232022120-0222320110221300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-86b4309c7d3469bc438957721777ff55de74f4bd99a69f1630a4f96eaac078cb"></a>
+<a id="canonical-2012231003002130-1331031012212330-1003202111131302-0113131333331111-3132131033102331-2121221221330112-0300221033211232-2222300013203023"></a>
 
-## bot_defense.policy.js_insertion_rules.rules.domain — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 2
+## bot_defense.policy.js_insertion_rules.rules.domain — domain / 213000013022 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
 - bot_defense.policy.js_insertion_rules.rules.domain
 
-<a id="canonical-de674dd762b4230cc54a1067df1387a8e74e0096c384d84c0deeef6f04635887"></a>
+<a id="canonical-3132121310313113-1202231002030030-3011102201001213-3133010320132220-3213103200002112-3003201031201030-0031323232331233-0010120311202013"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3590,15 +4487,15 @@ domain {
 }
 ```
 
-<a id="canonical-da8422a5943a0a45fb9e695d5367ebcd4f727c5a34c4f3f4ec4ab8c4e4ad12ce"></a>
+<a id="canonical-3122201002022211-2110032200221011-3323213212211131-1103121332233031-1033130213301122-0310301033033310-3230102223203010-3210223101023032"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 3
+## Direct properties — domain / 213000013022 / 3
 
-<a id="canonical-8058214700c76972d89a27a2eae70b8f7ce3fec5ead70175a413c90d8964b9de"></a>
+<a id="canonical-2000112002011013-0000301312211302-3120212202132202-3222321300232033-1330320333323011-3222311300011311-2210010330210031-2021121023213132"></a>
 
-<a id="canonical-fa0b720a107b520be162ddf1599442e348bed64f4529a91c2d846bb9a3938df2"></a>
+<a id="canonical-3322002313020022-0100132311020023-3201120231313301-1121211010023203-1020233231121033-1011022122210130-0231201012232321-2203210320313302"></a>
 
-## exact_value property — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 4
+## exact_value property — domain / 213000013022 / 4
 
 Type: `"string"`. Optional.
 
@@ -3654,11 +4551,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a881bde309e54592c15c22be7f64a7102e6fceed6ad88df55aaaa7c1aa8d6723"></a>
+<a id="canonical-2220200123313203-0021321110112102-3001113002022332-1333121022130100-0232123330323231-1222312020313311-1122222222133001-2222203112130203"></a>
 
-<a id="canonical-64d1438fe998ddfd2fad17224ff8db4acb7cbca36276369d236548ff8019bed1"></a>
+<a id="canonical-1210310110032033-3221212031313331-0233223101130202-1033332031231022-3023133023302203-1202131203122131-0203121110203333-2000012123323101"></a>
 
-## regex_value property — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 5
+## regex_value property — domain / 213000013022 / 5
 
 Type: `"string"`. Optional.
 
@@ -3713,11 +4610,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b41cbc9fcde45772a4819057c57dd2093650acd0bc0eec19dae5caba7d04116c"></a>
+<a id="canonical-2310013023302133-3031321011131302-2210200121001113-3011133131020021-0312110022303100-2330003232300121-3122321130222322-1331001001011230"></a>
 
-<a id="canonical-33ffe62573e761142ee6e6c1cd7113829151fb2a2b983bdb3d1815a52cb11c6e"></a>
+<a id="canonical-0303333332120211-1303321312010110-0232321232123001-3031130101032002-2101110133230222-0223212003233123-0331012001112211-0230230101301232"></a>
 
-## suffix_value property — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 6
+## suffix_value property — domain / 213000013022 / 6
 
 Type: `"string"`. Optional.
 
@@ -3775,34 +4672,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5fd3339b8b0f87bf5643f4af80e9765b39c3b3fac0e3847a41c04fdcbdb12c7f"></a>
+<a id="canonical-1133310303032123-2023003320132333-1112100333102233-2000322113121123-0321300323033322-3000320320101322-1001300010333130-2331230102301333"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.rules.domain / 03b97a9c01ca / 7
+## Next pages — domain / 213000013022 / 7
 
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-2df5ce039ee61d3853ff29f465b368ec2b4298d6acf90bd5738dbe7230399959"></a>
+<a id="canonical-0231331130320003-2132321201310320-1103333302213310-1211230312203230-0223100221203112-2230332100233111-1303203123321302-0300032121211121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bff5a5b789952237ebb62cd1bc4c8f874006334feeb0e4423d9f85a36ea8acdf"></a>
+<a id="canonical-2333331122112313-2021211102020313-3223231202303101-2330103020332013-1000001203031033-3232230032101002-0331213320112203-1232222022303133"></a>
 
-## bot_defense.policy.js_insertion_rules.rules.metadata — bot_defense.policy.js_insertion_rules.rules.metadata / bdf0509d0f3e / 2
+## bot_defense.policy.js_insertion_rules.rules.metadata — metadata / 213100330332 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
 - bot_defense.policy.js_insertion_rules.rules.metadata
 
-<a id="canonical-a3d9d40a6f543aaffb730cec4ecdea868b6b17cf8cc8fbc206d6a0a8bea0acd0"></a>
+<a id="canonical-2203312131100022-1233111003222233-3323130300303230-1032303132222012-2023122301133033-2030302033233002-0012311222002220-2332220022303100"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -3845,15 +4742,15 @@ metadata {
 }
 ```
 
-<a id="canonical-01126ee1db47c01cd5d45ec97b484a9e975cf180dd68355915ab906051fc14f5"></a>
+<a id="canonical-0001010212323201-3123101330000130-3111311011323021-1323102010222132-2113113033012000-3131122003111121-0111222321001200-1101333001103311"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.rules.metadata / bdf0509d0f3e / 3
+## Direct properties — metadata / 213100330332 / 3
 
-<a id="canonical-ff2b688270c8e15c33f049b7aeaa5ea592c9f2cc4b54748fffa3b9c7fca02dfd"></a>
+<a id="canonical-3333022312202002-1300302032011130-0303330010212313-2232222211322211-2102302133023030-1023111013102033-3333220323213013-3330220002313331"></a>
 
-<a id="canonical-fed211c10032ee67b3d482eca464e3902d423b635462f0b865a316259c36553b"></a>
+<a id="canonical-3332310201013001-0000030232321213-2303311020023230-2210121032032100-0231100203231203-1110120233002320-1211220301120211-2130031211110323"></a>
 
-## description_spec property — bot_defense.policy.js_insertion_rules.rules.metadata / bdf0509d0f3e / 4
+## description_spec property — metadata / 213100330332 / 4
 
 Type: `"string"`. Optional.
 
@@ -3867,11 +4764,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-a05dfc2b6a156b9b4743c21b79d7c2743713d17f6ea4ee6a8a447eb1099c28d8"></a>
+<a id="canonical-2200113133300223-1222011112232123-1013100330020123-1321311330021310-0313010331011333-1232221032321222-2022101013322301-0021213002203120"></a>
 
-<a id="canonical-00069f8649e6a10bdb0a7b98463fb7bc6d038913669fd84e1cc509432364ff4f"></a>
+<a id="canonical-0000001221332012-1021321222010023-3123002213232120-1012033323132330-1231000320210103-1212213331201032-0130301100211003-0203121033331033"></a>
 
-## name property — bot_defense.policy.js_insertion_rules.rules.metadata / bdf0509d0f3e / 5
+## name property — metadata / 213100330332 / 5
 
 Type: `"string"`. Optional.
 
@@ -3938,34 +4835,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0146296ec890d7c96f23d7b1435547a827c8847f58e59bdb429a871cfe02fd33"></a>
+<a id="canonical-0001101202211232-3020210031133021-1233020331132301-1003111110132220-0213302020101333-1120321121233123-1002212220130130-3332000233310303"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.rules.metadata / bdf0509d0f3e / 6
+## Next pages — metadata / 213100330332 / 6
 
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-7c39d581dce7bfdf400fe0f7a1bab283efc2f3d864a8e45c54897d43a22ffc82"></a>
+<a id="canonical-1330032131112001-3130321323333133-1000003332003313-2201232223022003-3233300233033120-1210222032101130-1110202113311003-2202023333302002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4daa04a120ac58614e8b648b52a757eb209b88a9eeb50173ef0834dccecab537"></a>
+<a id="canonical-1031222200102201-0200223011201201-1032202312102023-1102221311133223-0200212320202221-3232231100011303-3233002003103130-3032302223110313"></a>
 
-## bot_defense.policy.js_insertion_rules.rules.path — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 2
+## bot_defense.policy.js_insertion_rules.rules.path — path / 200201313033 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-d1f84956cd3136f798d4c7175e06974f53d1278f274d5dbbc389976cfb98ef39)
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.js_insertion_rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-3101332010211112-3031030103123313-2120311030130113-1132001221131033-1103310102132033-0213103111312323-3003202121131230-3323212032330321)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
 - bot_defense.policy.js_insertion_rules.rules.path
 
-<a id="canonical-9b8b44f421c84553d8324f9a1cd2080243be3c5fae918537e6d82a26b668f922"></a>
+<a id="canonical-2123202310103310-0201302010111103-3120030210332122-0130310200200002-1003233203301133-2232210120110313-3212312002220212-2312122033210202"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4004,15 +4901,15 @@ path {
 }
 ```
 
-<a id="canonical-993f403a7aa82666c25103826bcf0b0df21807c3890234db292cd73aa9d9b0f8"></a>
+<a id="canonical-2121033310000322-1322222002121212-3002110100032002-1223303300230031-3302012000133003-2021000203103123-0221023031130322-2221312123003320"></a>
 
-## Direct properties — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 3
+## Direct properties — path / 200201313033 / 3
 
-<a id="canonical-28b5bacab3cf4294a70fd47ae4ffd65f0cd69a0380c5089a97d28f0c551ec683"></a>
+<a id="canonical-0220231123223022-2303303310022110-2213003331101322-3210333331121133-0030311221220003-2000301100202122-2113310220330030-1111013230122003"></a>
 
-<a id="canonical-2e94362c28de3d484576e98851a1fb7e60af36f611e113b3039fe361ac8e7e8b"></a>
+<a id="canonical-0232211003120230-0220313203311020-1011131232212020-1101220133231332-1200223303123312-0101320101032303-0003213332031201-2230203213322023"></a>
 
-## path property — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 4
+## path property — path / 200201313033 / 4
 
 Type: `"string"`. Optional.
 
@@ -4065,11 +4962,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9e31c68bc1c9f1e4c7921c58eb34bf1dcb02a4f951dc33f32ad74d1d2d52bf89"></a>
+<a id="canonical-2132030130122023-3001302133013210-3013210201301120-3223031023330131-3023000222103321-1101313003033303-0222311310310131-0231110223332021"></a>
 
-<a id="canonical-4f6e12914f75205deeba66396774d3efbd4006dd352067feb3e7f5e57986669e"></a>
+<a id="canonical-1033123201022101-1033131102001131-3232232212120321-1213131031033233-2331100000123131-0311020012133332-2303321333113211-1321201212122132"></a>
 
-## prefix property — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 5
+## prefix property — path / 200201313033 / 5
 
 Type: `"string"`. Optional.
 
@@ -4120,11 +5017,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-77520ba15fd69339608bd6b81831a7961e37471b6537f82ff8998868c3d0e39b"></a>
+<a id="canonical-1313110200232201-1133311221030321-1200202331122320-0120030122132112-0132031310130123-1211031333200233-3320212120201220-3003310032032123"></a>
 
-<a id="canonical-1bdad8941d3dd47e456bf938d85c9809a8a31be871e1a09526042e78ee5b20cf"></a>
+<a id="canonical-0123312231202110-0131033131101332-1011122333210320-3120113021200021-2220220301233220-1301320122002111-0212001002321320-3232112302003033"></a>
 
-## regex property — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 6
+## regex property — path / 200201313033 / 6
 
 Type: `"string"`. Optional.
 
@@ -4185,32 +5082,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-113ebb1493d32457cd920f6b4b67300615460707d1d0b906f72b2e40a7879d7b"></a>
+<a id="canonical-0101033223230110-2103310302101113-3031210200331223-1023121303000012-0111101200130013-3101310023210012-3313022302321000-2213201321311323"></a>
 
-## Next pages — bot_defense.policy.js_insertion_rules.rules.path / b4587d821dcf / 7
+## Next pages — path / 200201313033 / 7
 
-- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-8a9686742bf2d8e48d16f1a4ffe3a53bc0a71880a46cece6757f9cf3cb553463)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.js_insertion_rules.rules](resources--cdn_loadbalancer--reference--group-007.md#canonical-2022211220121310-0223330231203210-2031011233012210-3333320322110323-3000221301202000-2210123032303212-1311133321303303-3023111103101203)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a"></a>
+<a id="canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c77846a5f2363a42de4088087d010b691e7c98555b923a745537ce755e9989f2"></a>
+<a id="canonical-3013132010122211-3302031203221002-3132100020200020-1331000100231221-0132133021201111-1123210203221310-1111031330321311-1132212120213302"></a>
 
-## bot_defense.policy.mobile_sdk_config — bot_defense.policy.mobile_sdk_config / 9a9417abd23a / 2
+## bot_defense.policy.mobile_sdk_config — mobile_sdk_config / 222331020322 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.mobile_sdk_config
 
-<a id="canonical-ab0be0c2e67394b4dc1adc51000df63199d79c0165d82d7be0ae7db30554f528"></a>
+<a id="canonical-2223002332003002-3212130321102310-3130012231301101-0000003133120301-2121311321300001-1211312002311323-3200223213312303-0011111033110220"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4241,40 +5138,40 @@ mobile_sdk_config {
 }
 ```
 
-<a id="canonical-7b369075b13e3239f6fc02c757969626b14adc16d372250a35853932768fe10c"></a>
+<a id="canonical-1323031221001311-2301033203020321-3312333000023013-1113211221120212-2301102231300112-3103130202110022-0311201103210302-1312203332010030"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config / 9a9417abd23a / 3
+## Direct properties — mobile_sdk_config / 222331020322 / 3
 
-- [mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98): complete subsection reference.
+- [mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120): complete subsection reference.
 
-<a id="canonical-be2a3afae93116ad1219ca8a05ee679e3ff3c0c293aff423f36736cc751fbc4d"></a>
+<a id="canonical-2332022203223322-3221030101122231-0102012130222022-0011323212132132-0333330330003002-2103223333100203-3303121303123030-1311013323301031"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config / 9a9417abd23a / 4
+## Next pages — mobile_sdk_config / 222331020322 / 4
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98"></a>
+<a id="canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5543df71e0127c6fc7c932d9104cc64f6c7b524fcbe4115a4af9885fcf4d7415"></a>
+<a id="canonical-1111100331331301-3200010213301233-3013302103023121-0100103030121033-1230132311021033-3023321001011122-1022332120201133-3033103113100111"></a>
 
-## bot_defense.policy.mobile_sdk_config.mobile_identifier — bot_defense.policy.mobile_sdk_config.mobile_identifier / 66802ab4a91d / 2
+## bot_defense.policy.mobile_sdk_config.mobile_identifier — mobile_identifier / 231022210131 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
 - bot_defense.policy.mobile_sdk_config.mobile_identifier
 
-<a id="canonical-2525cba804b18b9f8bff26885f6d7b54d1eae19f89ca8d446a3479fbb81ed989"></a>
+<a id="canonical-0211021130232220-0010230120232133-2023333302122020-1133123113231110-3101322232012133-2021302220311010-1222031013213323-2320013231212021"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4305,41 +5202,41 @@ mobile_identifier {
 }
 ```
 
-<a id="canonical-2da63f19e5264b4e877780ccfbaaed4a73036006aa8043c9087c31be256e1562"></a>
+<a id="canonical-0231221203330121-3211021210231032-2013131320003030-3323222232311022-1303000312000012-2222200010033021-0020133003012332-0211123201111202"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config.mobile_identifier / 66802ab4a91d / 3
+## Direct properties — mobile_identifier / 231022210131 / 3
 
-- [headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb): complete subsection reference.
+- [headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323): complete subsection reference.
 
-<a id="canonical-bca52b0b449c22e448b68f49f65646f06694ab25c67f9b769d7fdd17f911ef4d"></a>
+<a id="canonical-2330221102230023-1010213002023210-1020231220331021-3312111210123300-1212211022230211-3012133321231312-2131133331310113-3321010132331031"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config.mobile_identifier / 66802ab4a91d / 4
+## Next pages — mobile_identifier / 231022210131 / 4
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb"></a>
+<a id="canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-839f29936f0179131a7a21d06900a509f455e63d96818b10248d2b460b50cc09"></a>
+<a id="canonical-2003213302212103-1233000113210103-0122132202013100-1221000022110021-3310111132120331-2112200120230100-0210203102231012-0023110030300021"></a>
 
-## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers / 7ed1040338dd / 2
+## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers — headers / 000303203131 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
 - bot_defense.policy.mobile_sdk_config.mobile_identifier.headers
 
-<a id="canonical-5a6fd02f2351707956577f28e4c2f8333bd060edbae6d8ee80c8e31ba838b482"></a>
+<a id="canonical-1122123331000233-0203110113001321-1112111313330220-3210300233200303-0323310012003231-2322321231203232-2000302032030123-2220032023102002"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4400,21 +5297,21 @@ headers {
 }
 ```
 
-<a id="canonical-d8cfb6bdfd85bbefaeb8434ca9d7c5e831b79200bbdca8f84b6226836d99ecd5"></a>
+<a id="canonical-3120303323122331-3331201123233233-2232232010031030-2221311330113220-0301231321020000-2323313022203320-1023120202122003-1231212132303111"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers / 7ed1040338dd / 3
+## Direct properties — headers / 000303203131 / 3
 
-- [check_not_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-8c97565e05335967e8cbbb93d9319bc92ae61f09f868886cfc8a5c9309bdddc5): complete subsection reference.
+- [check_not_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-2030211311121132-0011030311211213-3220302323232103-3121030121233021-0222321201330021-3320122020201230-3330202211302103-0021233131313011): complete subsection reference.
 
-- [check_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-922dbbf651b6402fc2ee71353eccc900e31dd47c81056b166933e2ee6d327ee2): complete subsection reference.
+- [check_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-2102023123233312-1101231210000233-3002323213010311-0332303030210000-3203013131101330-2001001112230112-1221030332023232-1231030213323202): complete subsection reference.
 
-- [item](resources--cdn_loadbalancer--reference--group-007.md#canonical-a0ace724fe533c4b69df83b3626a133cc9f7fcb1ab8a197636a6151174399ea4): complete subsection reference.
+- [item](resources--cdn_loadbalancer--reference--group-007.md#canonical-2200223032130210-3332110303301023-1221313320032303-1202122201030330-3021331333302301-2223202201211312-0312221201110101-1310032121322210): complete subsection reference.
 
-<a id="canonical-48b4026ea52fead03a084d7b1ea59844b787001e04d3465c927c2db17e8ae872"></a>
+<a id="canonical-1020231000021232-2211023332223100-0322002010311323-0132221121201010-2313201300000132-0010310310121130-2102133002312301-1332202232201302"></a>
 
-<a id="canonical-a628372a28bc9b5cbc5ef2a034e128277de0d4cf0866002ce992de4be4ca1aac"></a>
+<a id="canonical-2212022003130222-0220233021231130-2330113233022200-0310320102200213-1331320031103033-0020121200000230-3221210231321023-3210302201222230"></a>
 
-## name property — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers / 7ed1040338dd / 4
+## name property — headers / 000303203131 / 4
 
 Type: `"string"`. Optional.
 
@@ -4484,38 +5381,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b423c6b6983f0c74298ef27942b4dd5a83934b63a756b6cb2cd3615e35fd9823"></a>
+<a id="canonical-2310020330122312-2120033300301310-0221203233021321-1002231031311122-2003210310231203-2213111223123023-0230310312011132-0311333121200203"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers / 7ed1040338dd / 5
+## Next pages — headers / 000303203131 / 5
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-8c97565e05335967e8cbbb93d9319bc92ae61f09f868886cfc8a5c9309bdddc5)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-922dbbf651b6402fc2ee71353eccc900e31dd47c81056b166933e2ee6d327ee2)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item](resources--cdn_loadbalancer--reference--group-007.md#canonical-a0ace724fe533c4b69df83b3626a133cc9f7fcb1ab8a197636a6151174399ea4)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-2030211311121132-0011030311211213-3220302323232103-3121030121233021-0222321201330021-3320122020201230-3330202211302103-0021233131313011)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present](resources--cdn_loadbalancer--reference--group-007.md#canonical-2102023123233312-1101231210000233-3002323213010311-0332303030210000-3203013131101330-2001001112230112-1221030332023232-1231030213323202)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item](resources--cdn_loadbalancer--reference--group-007.md#canonical-2200223032130210-3332110303301023-1221313320032303-1202122201030330-3021331333302301-2223202201211312-0312221201110101-1310032121322210)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-8c97565e05335967e8cbbb93d9319bc92ae61f09f868886cfc8a5c9309bdddc5"></a>
+<a id="canonical-2030211311121132-0011030311211213-3220302323232103-3121030121233021-0222321201330021-3320122020201230-3330202211302103-0021233131313011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cf9dfbf380441eb26c26c28bac67696a66c1d310419188c81e31a0b9e5eb46e0"></a>
+<a id="canonical-3033213133233303-2000101001322302-1230021230022023-2230121312211222-1212300131030100-1001210120203020-0132030122002321-3211322310123200"></a>
 
-## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present / 654415fb0dab / 2
+## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present — check_not_present / 332300312223 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
 - bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present
 
-<a id="canonical-0945681754b1914060c93afa757711e03acd7502c672faa73905db37f90c4fbc"></a>
+<a id="canonical-0021101112200113-1110230121011000-1200302103223322-1311131301013200-0322303113110002-3012130233222213-0321001131230313-3321003010332330"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4544,41 +5441,41 @@ Terraform syntax:
 check_not_present = {}
 ```
 
-<a id="canonical-73b7e3a27f83308df4ea2e9b47752bb8933dd93a59e23ec27b9f659da093682b"></a>
+<a id="canonical-1303231332032202-1333200303002031-3310322202322123-1013131102232320-2103033131210322-1121320203323002-1323213312112131-2200210312200223"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present / 654415fb0dab / 3
+## Direct properties — check_not_present / 332300312223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-582780a72f7c48053565fc987b21ef686d498d0c5cc0da350170f4402a235658"></a>
+<a id="canonical-1120021320002213-0233133010200011-0311121133302120-1323020132331220-1231102120310030-1130300031220311-0001130033101000-0222020311121120"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_not_present / 654415fb0dab / 4
+## Next pages — check_not_present / 332300312223 / 4
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-922dbbf651b6402fc2ee71353eccc900e31dd47c81056b166933e2ee6d327ee2"></a>
+<a id="canonical-2102023123233312-1101231210000233-3002323213010311-0332303030210000-3203013131101330-2001001112230112-1221030332023232-1231030213323202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2d52604491c63aaeb9af96557f3394f91e49b50a794624180623b622bc253738"></a>
+<a id="canonical-0231110212001010-2101301203222232-2321223321121111-1333030321103321-0132102123110022-1321101202100120-0012020323120202-2330021103130320"></a>
 
-## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present / 148822a4a405 / 2
+## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present — check_present / 221022100011 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
 - bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present
 
-<a id="canonical-7a7aec443746546cbee79de49a8a487db2a7488d5c12afd93ac66132635d45f0"></a>
+<a id="canonical-1322132232301010-0313101211101230-2332321321313210-2122202210201331-2302221310202031-1130010222333121-0322301212010302-1203113110113300"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -4607,41 +5504,41 @@ Terraform syntax:
 check_present = {}
 ```
 
-<a id="canonical-c7de687927624f23b048a186054a34172e5d23190300db2d97644e5135ea8ebf"></a>
+<a id="canonical-3013313212201321-0213120210330203-2300102022012012-0011102203100113-0232113102030121-0003000031230231-2113121010321101-0311322220322333"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present / 148822a4a405 / 3
+## Direct properties — check_present / 221022100011 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f4b49432e5d3aa5256aab2323b934c9a8f8a592426d49e9901c65a453f60e64d"></a>
+<a id="canonical-3310231021100302-3211310322221102-1112222223020302-0323210310302122-2033202211210210-0212311021322121-0001301211221011-0333120032121031"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.check_present / 148822a4a405 / 4
+## Next pages — check_present / 221022100011 / 4
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-a0ace724fe533c4b69df83b3626a133cc9f7fcb1ab8a197636a6151174399ea4"></a>
+<a id="canonical-2200223032130210-3332110303301023-1221313320032303-1202122201030330-3021331333302301-2223202201211312-0312221201110101-1310032121322210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-751b8c3877cb4d96e1a5c9b2153e9644cc23835e4419ce215f64928751fdb61d"></a>
+<a id="canonical-1311012320300320-1313302310312112-3201221130212302-0111033221121010-3030020320031132-1010012130320201-1133121021022013-1101333123120131"></a>
 
-## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 2
+## bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item — item / 033302013300 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-2553e2626be82bec4464f495bf27aa0533ca244a88ab61527723e79eec52287a)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-e20c441928e8754de9d1687c61dfef0d44ed5cdad7833d5211cbedd10117ba98)
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.mobile_sdk_config](resources--cdn_loadbalancer--reference--group-007.md#canonical-0211110332021202-1223322002233230-1010121033102111-2333021322220011-0303302202101022-2020222312011102-1313020332132132-3230110202201322)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier](resources--cdn_loadbalancer--reference--group-007.md#canonical-3202003010100121-0220322013111031-3221310112201330-1201313332330031-1010323111303122-3113200303311102-0101302332313101-0001011323222120)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
 - bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item
 
-<a id="canonical-348360dc24e688cfdb1408f5e0adecdc24590c021c623a2308c3f27a38f92aba"></a>
+<a id="canonical-0310200312003130-0210321220203033-3123011000203311-3200223132303130-0210112100300002-0130120203220203-0020300333021322-0320332102222322"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -4676,15 +5573,15 @@ item {
 }
 ```
 
-<a id="canonical-c249a8baea3cefe1260c744a42197a5bff35abf82f209ec50bad93e0c8c3d9ff"></a>
+<a id="canonical-3002102122202322-3222033032333201-0212003013101022-1002012113221123-3333031122233320-0233020021323011-0023223121033200-3020300331213333"></a>
 
-## Direct properties — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 3
+## Direct properties — item / 033302013300 / 3
 
-<a id="canonical-d58ffbb676bc20a6717255fb96ca557826d1d9acda6e605086a8025f28bd4892"></a>
+<a id="canonical-3111203333232312-1312233002002212-1301130211113323-2112302211111320-0212310131212230-3122123212001100-2012222000021133-0220233110202102"></a>
 
-<a id="canonical-6631a122079d89f5cc6df1d61433a662d5dbfdf56b298021688a2bd973392c36"></a>
+<a id="canonical-1212030122010202-0013213120213311-3030123133013112-0110030322121202-3111312333313311-1223022120000201-1220202202233121-1303032102300312"></a>
 
-## exact_values property — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 4
+## exact_values property — item / 033302013300 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -4740,11 +5637,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f91448742376a2b2b0a6f53bd568d0627d9493e388bf29d3296464ed773afa4b"></a>
+<a id="canonical-3321011010201310-0203131222022302-2300221233110323-3111122031001202-1331211021033203-2020233302213103-0221121012103231-1313032233221023"></a>
 
-<a id="canonical-497bfe3330557fc5d56f4ea44909e05e5f6d6177a4a0555ab98f45549e9a489a"></a>
+<a id="canonical-1021132333320303-0300111113333011-3111123310322210-1021002132001132-1133123112011313-2210220011111122-2321203310111110-2132212210202122"></a>
 
-## regex_values property — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 5
+## regex_values property — item / 033302013300 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -4802,11 +5699,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6565deeb730a4ae7afc4c71e155af4b00c1455fb19900831ebe65e5f1f2b21cd"></a>
+<a id="canonical-1211121131323223-1303002210223213-2233301030130132-0111112233102300-0030011011113323-0121210000200301-3223321211321133-0133022302013031"></a>
 
-<a id="canonical-ad3c04fe0970a7542d55531eae0cec2fb34b3047f4f829bdc64b9ee3f978edce"></a>
+<a id="canonical-2231033000103332-0021130022131110-0231111111030132-2232003032300233-2303102303001013-3310332002212331-3012102321323203-3321132032313032"></a>
 
-## transformers property — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 6
+## transformers property — item / 033302013300 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -4862,32 +5759,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-05086e8bffb02f307f94ebb7d01592a04aff98d2789b0d31b3d67e90628c9e0e"></a>
+<a id="canonical-0011002012322023-3333230002330300-1333211032232313-3100011121022200-1022333321203102-1320212300310301-2303311213322100-1202203021320032"></a>
 
-## Next pages — bot_defense.policy.mobile_sdk_config.mobile_identifier.headers.item / 68d2843f21f0 / 7
+## Next pages — item / 033302013300 / 7
 
-- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-8380315f28b43d6fcb6aff6d109dc548e6a9f88157d411133f071c264b3822bb)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.mobile_sdk_config.mobile_identifier.headers](resources--cdn_loadbalancer--reference--group-007.md#canonical-2003200003011133-0220231003311233-3023122233331231-0100213130111020-3212222133202001-1113311001010103-0333001301300212-1023032002022323)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447"></a>
+<a id="canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-560127813ea36c7b279f8973d0d690ef7664ac6e21fdfa93c3718e659ca72099"></a>
+<a id="canonical-1112000102132001-0332220312301323-0213213320211303-3100311221003233-1312121022301232-0201333133222103-3003130120321211-2130221302002121"></a>
 
-## bot_defense.policy.protected_app_endpoints — bot_defense.policy.protected_app_endpoints / 0ef12a6642fa / 2
+## bot_defense.policy.protected_app_endpoints — protected_app_endpoints / 121210023322 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
 - bot_defense.policy.protected_app_endpoints
 
-<a id="canonical-c1665aa641aafe01bcbb4d7d2804a3793ab81257e567c7807d6e96a2a5267e88"></a>
+<a id="canonical-3001121211222212-1001222233320001-2330232310311331-0220001022031321-0322232001021113-3211121330132000-1331123221122202-2211021213322020"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -4960,25 +5857,25 @@ protected_app_endpoints {
 }
 ```
 
-<a id="canonical-8c6db76c79de204e6ffff431ec59602e2eeb200566d473eea994ac3bf040f2eb"></a>
+<a id="canonical-2030123123131230-1321313202001032-1233333333100301-3230112112000232-0232322302000011-1212311013033232-2221211022300323-3300100033023223"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints / 0ef12a6642fa / 3
+## Direct properties — protected_app_endpoints / 121210023322 / 3
 
-- [allow_good_bots](resources--cdn_loadbalancer--reference--group-007.md#canonical-87f7d154e834b655bb6041832df94d87878c78a941af67715a169928798fe8ed): complete subsection reference.
+- [allow_good_bots](resources--cdn_loadbalancer--reference--group-007.md#canonical-2013331331011110-3220031023121111-2323120010012003-0231332110312013-2013203013202221-1001223312131301-1122011221210220-1321203332203231): complete subsection reference.
 
-- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-ebc58ad7cc26596f71391343e598ee91d73355a5e6a86cc51a0b6a9784968faf): complete subsection reference.
+- [any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3223301120223113-3030021211211233-1301032101031003-3211212032322101-3113030311112211-3212222012303011-0122002312222113-2010211220332233): complete subsection reference.
 
-- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-c4ff27344b553683decdca6c18be063e421ba6d2392abf71b66957d988c2faa9): complete subsection reference.
+- [domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3010333302130310-1023111103122003-3132303130221230-0120233200120332-1002012322123102-0321022223331301-2312122111133121-2020300233222221): complete subsection reference.
 
-- [flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c): complete subsection reference.
+- [flow_label](resources--cdn_loadbalancer--reference--group-008.md#canonical-0313230121221201-3202111221220312-0132103303131201-1032023111333221-2110132301012100-1020311003222310-0212010312132322-1113102233330130): complete subsection reference.
 
-- [headers](resources--cdn_loadbalancer--reference--group-008.md#canonical-5050d23a49f2710337c38d68110ede2e89f95d017c27256ec8ac176a3456ceb2): complete subsection reference.
+- [headers](resources--cdn_loadbalancer--reference--group-008.md#canonical-1100110031020322-1021330213010003-0313300320311220-0101003231320232-2021332111310001-1330021302111232-3020223001131222-0310111230322302): complete subsection reference.
 
-<a id="canonical-c1d73382655cb6a4beae2c37e3023d892ccd38dd8a83c1ab46369e8f310a36dd"></a>
+<a id="canonical-3001311303032002-1211113023122210-2332223202300313-3203000203312021-0230303103203131-2022200330012223-1012031221322033-0301002203123131"></a>
 
-<a id="canonical-a36f52c5fc4689dd8c5204dd30d1d7501da69a29d9301e33565c0f4a648e5984"></a>
+<a id="canonical-2203123311023011-3330101220213131-2030110200103131-0300310131131100-0131221221220221-3121030001320303-1112113000331022-1210203211212010"></a>
 
-## http_methods property — bot_defense.policy.protected_app_endpoints / 0ef12a6642fa / 4
+## http_methods property — protected_app_endpoints / 121210023322 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -5044,21 +5941,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](resources--cdn_loadbalancer--reference--group-008.md#canonical-f471de63fd69f94c5921649127ee5d6712ee6ee4cab4f27c40db8f4ebc288d90): complete subsection reference.
+- [metadata](resources--cdn_loadbalancer--reference--group-009.md#canonical-3310130131321203-3331122133211030-1121020112102101-0213323211311213-0102323212323210-3022231033021330-1000312320331032-2330022020312100): complete subsection reference.
 
-- [mitigate_good_bots](resources--cdn_loadbalancer--reference--group-008.md#canonical-352c9c6b2777c8bfcd2d546c2c818a300e1a1337e2a59cbdcd5b026ea8da08ca): complete subsection reference.
+- [mitigate_good_bots](resources--cdn_loadbalancer--reference--group-009.md#canonical-0311023021301223-0213131330202333-3031023111101230-0230200120220300-0032012201030313-3202221121302331-3031112300021232-2220312200203022): complete subsection reference.
 
-- [mitigation](resources--cdn_loadbalancer--reference--group-008.md#canonical-f16163a87e781bdfadca2e4dbb0ad838c5a685bd6f14b94283036c08c9cca611): complete subsection reference.
+- [mitigation](resources--cdn_loadbalancer--reference--group-009.md#canonical-3301120112032220-1332132001233133-2231302202321031-2323002231200320-3011221220112331-1233011023211002-2003000312300020-3021303022120101): complete subsection reference.
 
-- [mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-b8b5785988c2538a52493ad8157015d8f1ba98bac382a915fd589b9380999a6d): complete subsection reference.
+- [mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-2320231113201121-2020300211032022-1102102103223120-0111130001113120-3301232221202322-3003200222210111-3331112021232103-2000212121221231): complete subsection reference.
 
-- [path](resources--cdn_loadbalancer--reference--group-009.md#canonical-abdeb6e2af99c135f6189ecbc2cbb3bddda5ff11a216c11dc75c9a3a6bc39bac): complete subsection reference.
+- [path](resources--cdn_loadbalancer--reference--group-009.md#canonical-2223313223123202-2233212130010311-3312012021323023-3002302323032331-3131221133330101-2202011230010131-3013113021220322-1223300321232230): complete subsection reference.
 
-<a id="canonical-c67f7889fb5f59d866b572a19264d46d6bb8ae93712bc4d853c701fcc9d622a8"></a>
+<a id="canonical-3012133313202021-3323113311213120-1212231113022201-2102121031101231-1223232022322103-1301022330103120-1103301300013330-3021311202022220"></a>
 
-<a id="canonical-d007a7d02e8c825c6312cbd15ba6316a9e294dcca8f0c607c711eb246331a3b7"></a>
+<a id="canonical-3100001322133100-0232203020021130-1203010230233101-1123221203011222-2132022110313030-2220330030120013-3013010132230210-1203030122032313"></a>
 
-## protocol property — bot_defense.policy.protected_app_endpoints / 0ef12a6642fa / 5
+## protocol property — protected_app_endpoints / 121210023322 / 5
 
 Type: `"string"`. Optional.
 
@@ -5107,55 +6004,55 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [query_params](resources--cdn_loadbalancer--reference--group-009.md#canonical-aa258c2188acb4b9e93bd90cf23364aef6cbcd679c3c7bd2d0dd58a22587455b): complete subsection reference.
+- [query_params](resources--cdn_loadbalancer--reference--group-009.md#canonical-2222021120300201-2020223023102321-3221032331210030-3302030312102232-3312302330311213-2130033013233102-3100313111202202-0211201310111123): complete subsection reference.
 
-- [undefined_flow_label](resources--cdn_loadbalancer--reference--group-009.md#canonical-536994a1b4b82c44b0a6cdce0bb07153922fd8b35f3f716b9800ddc3784246cc): complete subsection reference.
+- [undefined_flow_label](resources--cdn_loadbalancer--reference--group-009.md#canonical-1103122121102201-2310232002301010-2300221230313032-0023230013011103-2102023331202303-1133033313011223-2120000031313003-1320100210123030): complete subsection reference.
 
-- [web](resources--cdn_loadbalancer--reference--group-009.md#canonical-1783c8921d2e090218141c9bc3dc8b752ed8a54e2470ed1838c571db1c056084): complete subsection reference.
+- [web](resources--cdn_loadbalancer--reference--group-009.md#canonical-0113200330202102-0131023200210002-0120011001302123-3003313020231311-0232312022111032-0210130032310120-0320301113013123-0130001112002010): complete subsection reference.
 
-- [web_mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-4fcf4fe1ba8a4f2d73ee2ae019775f61bddbe047d0f65fd6e7f1652cece45590): complete subsection reference.
+- [web_mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-1033303310333201-2322202210330231-1303323202223200-0121131311331201-2331312332001013-3100331211333112-3213330112110230-3230321011112100): complete subsection reference.
 
-<a id="canonical-87856429e4317d647d1a506c4e08f681b33ee9711aeebf76f900f45789aa6bd1"></a>
+<a id="canonical-2013201112100221-3210030113311210-1331012211001230-1032002033122001-2303033232211301-0122323223331312-3321000033101113-2021222212233101"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints / 0ef12a6642fa / 6
+## Next pages — protected_app_endpoints / 121210023322 / 6
 
-- [bot_defense.policy.protected_app_endpoints.allow_good_bots](resources--cdn_loadbalancer--reference--group-007.md#canonical-87f7d154e834b655bb6041832df94d87878c78a941af67715a169928798fe8ed)
-- [bot_defense.policy.protected_app_endpoints.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-ebc58ad7cc26596f71391343e598ee91d73355a5e6a86cc51a0b6a9784968faf)
-- [bot_defense.policy.protected_app_endpoints.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-c4ff27344b553683decdca6c18be063e421ba6d2392abf71b66957d988c2faa9)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [bot_defense.policy.protected_app_endpoints.headers](resources--cdn_loadbalancer--reference--group-008.md#canonical-5050d23a49f2710337c38d68110ede2e89f95d017c27256ec8ac176a3456ceb2)
-- [bot_defense.policy.protected_app_endpoints.metadata](resources--cdn_loadbalancer--reference--group-008.md#canonical-f471de63fd69f94c5921649127ee5d6712ee6ee4cab4f27c40db8f4ebc288d90)
-- [bot_defense.policy.protected_app_endpoints.mitigate_good_bots](resources--cdn_loadbalancer--reference--group-008.md#canonical-352c9c6b2777c8bfcd2d546c2c818a300e1a1337e2a59cbdcd5b026ea8da08ca)
-- [bot_defense.policy.protected_app_endpoints.mitigation](resources--cdn_loadbalancer--reference--group-008.md#canonical-f16163a87e781bdfadca2e4dbb0ad838c5a685bd6f14b94283036c08c9cca611)
-- [bot_defense.policy.protected_app_endpoints.mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-b8b5785988c2538a52493ad8157015d8f1ba98bac382a915fd589b9380999a6d)
-- [bot_defense.policy.protected_app_endpoints.path](resources--cdn_loadbalancer--reference--group-009.md#canonical-abdeb6e2af99c135f6189ecbc2cbb3bddda5ff11a216c11dc75c9a3a6bc39bac)
-- [bot_defense.policy.protected_app_endpoints.query_params](resources--cdn_loadbalancer--reference--group-009.md#canonical-aa258c2188acb4b9e93bd90cf23364aef6cbcd679c3c7bd2d0dd58a22587455b)
-- [bot_defense.policy.protected_app_endpoints.undefined_flow_label](resources--cdn_loadbalancer--reference--group-009.md#canonical-536994a1b4b82c44b0a6cdce0bb07153922fd8b35f3f716b9800ddc3784246cc)
-- [bot_defense.policy.protected_app_endpoints.web](resources--cdn_loadbalancer--reference--group-009.md#canonical-1783c8921d2e090218141c9bc3dc8b752ed8a54e2470ed1838c571db1c056084)
-- [bot_defense.policy.protected_app_endpoints.web_mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-4fcf4fe1ba8a4f2d73ee2ae019775f61bddbe047d0f65fd6e7f1652cece45590)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.protected_app_endpoints.allow_good_bots](resources--cdn_loadbalancer--reference--group-007.md#canonical-2013331331011110-3220031023121111-2323120010012003-0231332110312013-2013203013202221-1001223312131301-1122011221210220-1321203332203231)
+- [bot_defense.policy.protected_app_endpoints.any_domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3223301120223113-3030021211211233-1301032101031003-3211212032322101-3113030311112211-3212222012303011-0122002312222113-2010211220332233)
+- [bot_defense.policy.protected_app_endpoints.domain](resources--cdn_loadbalancer--reference--group-007.md#canonical-3010333302130310-1023111103122003-3132303130221230-0120233200120332-1002012322123102-0321022223331301-2312122111133121-2020300233222221)
+- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-008.md#canonical-0313230121221201-3202111221220312-0132103303131201-1032023111333221-2110132301012100-1020311003222310-0212010312132322-1113102233330130)
+- [bot_defense.policy.protected_app_endpoints.headers](resources--cdn_loadbalancer--reference--group-008.md#canonical-1100110031020322-1021330213010003-0313300320311220-0101003231320232-2021332111310001-1330021302111232-3020223001131222-0310111230322302)
+- [bot_defense.policy.protected_app_endpoints.metadata](resources--cdn_loadbalancer--reference--group-009.md#canonical-3310130131321203-3331122133211030-1121020112102101-0213323211311213-0102323212323210-3022231033021330-1000312320331032-2330022020312100)
+- [bot_defense.policy.protected_app_endpoints.mitigate_good_bots](resources--cdn_loadbalancer--reference--group-009.md#canonical-0311023021301223-0213131330202333-3031023111101230-0230200120220300-0032012201030313-3202221121302331-3031112300021232-2220312200203022)
+- [bot_defense.policy.protected_app_endpoints.mitigation](resources--cdn_loadbalancer--reference--group-009.md#canonical-3301120112032220-1332132001233133-2231302202321031-2323002231200320-3011221220112331-1233011023211002-2003000312300020-3021303022120101)
+- [bot_defense.policy.protected_app_endpoints.mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-2320231113201121-2020300211032022-1102102103223120-0111130001113120-3301232221202322-3003200222210111-3331112021232103-2000212121221231)
+- [bot_defense.policy.protected_app_endpoints.path](resources--cdn_loadbalancer--reference--group-009.md#canonical-2223313223123202-2233212130010311-3312012021323023-3002302323032331-3131221133330101-2202011230010131-3013113021220322-1223300321232230)
+- [bot_defense.policy.protected_app_endpoints.query_params](resources--cdn_loadbalancer--reference--group-009.md#canonical-2222021120300201-2020223023102321-3221032331210030-3302030312102232-3312302330311213-2130033013233102-3100313111202202-0211201310111123)
+- [bot_defense.policy.protected_app_endpoints.undefined_flow_label](resources--cdn_loadbalancer--reference--group-009.md#canonical-1103122121102201-2310232002301010-2300221230313032-0023230013011103-2102023331202303-1133033313011223-2120000031313003-1320100210123030)
+- [bot_defense.policy.protected_app_endpoints.web](resources--cdn_loadbalancer--reference--group-009.md#canonical-0113200330202102-0131023200210002-0120011001302123-3003313020231311-0232312022111032-0210130032310120-0320301113013123-0130001112002010)
+- [bot_defense.policy.protected_app_endpoints.web_mobile](resources--cdn_loadbalancer--reference--group-009.md#canonical-1033303310333201-2322202210330231-1303323202223200-0121131311331201-2331312332001013-3100331211333112-3213330112110230-3230321011112100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-87f7d154e834b655bb6041832df94d87878c78a941af67715a169928798fe8ed"></a>
+<a id="canonical-2013331331011110-3220031023121111-2323120010012003-0231332110312013-2013203013202221-1001223312131301-1122011221210220-1321203332203231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ae59045472a178a716ac45ae4b93ca477acb0369f5ec67b1b2c440026914e0ad"></a>
+<a id="canonical-2232112100101110-1302220113202213-0112223010112232-1023210330221013-1322302300031221-3311323012132301-2302301010000002-1221011032002231"></a>
 
-## bot_defense.policy.protected_app_endpoints.allow_good_bots — bot_defense.policy.protected_app_endpoints.allow_good_bots / cf4f1c639e78 / 2
+## bot_defense.policy.protected_app_endpoints.allow_good_bots — allow_good_bots / 120321321320 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
 - bot_defense.policy.protected_app_endpoints.allow_good_bots
 
-<a id="canonical-a678a0d641a78a2b18cbc61a9cb9f592aeafbfcd4fd92640bda5e0b7e94987a0"></a>
+<a id="canonical-2212132022003112-1001221320220223-0120302330120122-2130232133112102-2232223323333031-1033312102121000-2331221132002313-3221102120132200"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5184,39 +6081,39 @@ Terraform syntax:
 allow_good_bots = {}
 ```
 
-<a id="canonical-21e7f83277fd27e37697292b08a152e6d42e1a7967edfbeaf0c86f4d370b5223"></a>
+<a id="canonical-0201321333200302-1313333102133203-1312211302210223-0020220111023212-3110023201221321-1213323133233222-3300302012331031-0313002311020203"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.allow_good_bots / cf4f1c639e78 / 3
+## Direct properties — allow_good_bots / 120321321320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-282860072a448e92c941adb06dd97a90b9cd5660315bdf2a017125f78d6d3636"></a>
+<a id="canonical-0220022012000013-0222101020322102-3021100122312300-1231312113222100-2321303111121200-0301112331330222-0001130102113313-2031123103120312"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.allow_good_bots / cf4f1c639e78 / 4
+## Next pages — allow_good_bots / 120321321320 / 4
 
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-ebc58ad7cc26596f71391343e598ee91d73355a5e6a86cc51a0b6a9784968faf"></a>
+<a id="canonical-3223301120223113-3030021211211233-1301032101031003-3211212032322101-3113030311112211-3212222012303011-0122002312222113-2010211220332233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c088f28dbfc3c9e04ad0c6e6958629b495f6253fec44cd985a01c6892d9e3049"></a>
+<a id="canonical-3000202033022031-2333300330213200-1022310030123212-2111201202212310-2111331202110333-3230101030312120-1122000130122021-0231213203001021"></a>
 
-## bot_defense.policy.protected_app_endpoints.any_domain — bot_defense.policy.protected_app_endpoints.any_domain / b01400d87fd4 / 2
+## bot_defense.policy.protected_app_endpoints.any_domain — any_domain / 312013333110 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
 - bot_defense.policy.protected_app_endpoints.any_domain
 
-<a id="canonical-8c6cfe912dbd83deeebfa90339b22425ec05800b68372650b47e91b965bdeef9"></a>
+<a id="canonical-2030123033322101-0231233120033132-3232233322210003-0321230202100211-3230001120000023-1220031302121100-2310133221012321-1211233132323321"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -5245,39 +6142,39 @@ Terraform syntax:
 any_domain = {}
 ```
 
-<a id="canonical-c4105b80bb9884f66b5e19d7ee5371d87a8752bbb73266691f38c57769243712"></a>
+<a id="canonical-3010010011232000-2323212020103312-1223113201213113-3232110313013120-1322201311022323-2313030212121221-0133032030111313-1221021003130102"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.any_domain / b01400d87fd4 / 3
+## Direct properties — any_domain / 312013333110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-d741b19fa0989721545c0f87248858fca8fc0f2bf6ca30cbe0c07489850dcef4"></a>
+<a id="canonical-3113100123012133-2200212021130201-1110113000332013-0210202011203330-2220333000330223-3312302203003023-3200300013102021-2011003130323310"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.any_domain / b01400d87fd4 / 4
+## Next pages — any_domain / 312013333110 / 4
 
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
 
-<a id="canonical-c4ff27344b553683decdca6c18be063e421ba6d2392abf71b66957d988c2faa9"></a>
+<a id="canonical-3010333302130310-1023111103122003-3132303130221230-0120233200120332-1002012322123102-0321022223331301-2312122111133121-2020300233222221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c8b98dd30afb7079c671f9957b277fb2a4aa7c9f2dd930a983671d6ca1ef571b"></a>
+<a id="canonical-3020232120313103-0022332313001321-3012130133212111-1323021313332302-2210222213302133-0231312103002221-2003121301311230-2201323311130123"></a>
 
-## bot_defense.policy.protected_app_endpoints.domain — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 2
+## bot_defense.policy.protected_app_endpoints.domain — domain / 133202123322 / 2
 
 Breadcrumbs:
 
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
+- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-0313012231313202-2332120333323111-0303222302313032-0220332322023120-0000220020202100-1331310201321110-1020312313103022-2113220113110323)
+- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-1012133122032113-1010211312001122-2210220230020233-3330322220122132-1302030221223031-1122222203331001-2113210011222311-0201322132233330)
+- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-1231232212013132-2130001032222220-0320033110013221-0131313023101120-1102230212130003-0122310320031322-3013233223020302-2211010022010100)
+- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-3233222220320220-2012123201001112-2001111122200333-3000232203203221-3010100330312230-1021020232003031-0231321333322111-1012011130013111)
+- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-3300001103213222-2032130220300122-0220101231033121-3323032100130212-2013030302131232-2300203120320330-3202133021002303-3000110003101013)
 - bot_defense.policy.protected_app_endpoints.domain
 
-<a id="canonical-e7f91ea6f6779b3927187756474dc192c4138fc9116e1945ea8747683b519edf"></a>
+<a id="canonical-3213332101322212-3312131321230321-0213012013131112-1013103130012102-3010010320333021-0101123201211011-3222201310131220-0323110121323133"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -5320,15 +6217,15 @@ domain {
 }
 ```
 
-<a id="canonical-c919e4c947a23bc704835a2b18cdec5f23a6251a024c72e8917f3ee9c4a2348f"></a>
+<a id="canonical-3021012132103021-1013220203233013-0010200311220223-0120303132301133-0203221202110122-0002103013023220-2101133303323221-3010220203102033"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 3
+## Direct properties — domain / 133202123322 / 3
 
-<a id="canonical-ef6466eb6562fb2641dd66c7ef7e7065f81dce74e3664f495b36f72d7466d6a4"></a>
+<a id="canonical-3233121012123223-1211120233230212-1001313112123013-3233133213001211-3320013130321310-3203121210331021-1123031233130231-1310121231122210"></a>
 
-<a id="canonical-81f206ffd1a8c3fe82e04228f0efee563db4cd19addbf39e92e680f820d1431e"></a>
+<a id="canonical-2001330200123333-3101222030033332-2002320010020220-3300323332321112-0331231030310121-2231312333032132-2102321220003320-0200310110030132"></a>
 
-## exact_value property — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 4
+## exact_value property — domain / 133202123322 / 4
 
 Type: `"string"`. Optional.
 
@@ -5384,621 +6281,4 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d643e06eae0faec56f4d14259d9eccba5420825fd5918a5fe5f5d779a0bafc11"></a>
-
-<a id="canonical-a11619f49bb21d59c01e53926ec52fe200eecfb548cbb64b5dbb77198282573f"></a>
-
-## regex_value property — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 5
-
-Type: `"string"`. Optional.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  }
-}
-```
-
-<a id="canonical-5792757f104d0fed5464b43b691679bf95793a1f84bfb70222288cd0d2d4a6af"></a>
-
-<a id="canonical-f627bbcc6b9ad63f49854f80cf8e1e4ae8eaf4f14b8ba1dfe762e1a2ff6d01e0"></a>
-
-## suffix_value property — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 6
-
-Type: `"string"`. Optional.
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
-'\*.xyz.com' and 'xyz.com'.
-
-Upstream description:
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
-"\*.xyz.com" and "xyz.com"
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-88058be1997665f6e00c2f5590b30e50db6af6670e469d13a1773dbc12b4dbc6"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.domain / 474aac7e26fa / 7
-
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-50421900bd93e01601be5cc5a0a52c4fc78e25851147a97e8df70c8052833042"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label — bot_defense.policy.protected_app_endpoints.flow_label / c97e729c12d0 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- bot_defense.policy.protected_app_endpoints.flow_label
-
-<a id="canonical-45da7bb6ceaeda23d30629741916ab31b19edcf713925abac9c0d8de3e12df25"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Bot Defense Flow Label Category allows to associate traffic with selected category.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("account_management",
-    "authentication"),
-  validators.ConflictingObjectAttributes("account_management",
-    "financial_services"),
-  validators.ConflictingObjectAttributes("account_management",
-    "flight"),
-  validators.ConflictingObjectAttributes("account_management",
-    "profile_management"),
-  validators.ConflictingObjectAttributes("account_management",
-    "search"),
-  validators.ConflictingObjectAttributes("account_management",
-    "shopping_gift_cards"),
-  validators.ConflictingObjectAttributes("authentication",
-    "financial_services"),
-  validators.ConflictingObjectAttributes("authentication",
-    "flight"),
-  validators.ConflictingObjectAttributes("authentication",
-    "profile_management"),
-  validators.ConflictingObjectAttributes("authentication",
-    "search"),
-  validators.ConflictingObjectAttributes("authentication",
-    "shopping_gift_cards"),
-  validators.ConflictingObjectAttributes("financial_services",
-    "flight"),
-  validators.ConflictingObjectAttributes("financial_services",
-    "profile_management"),
-  validators.ConflictingObjectAttributes("financial_services",
-    "search"),
-  validators.ConflictingObjectAttributes("financial_services",
-    "shopping_gift_cards"),
-  validators.ConflictingObjectAttributes("flight",
-    "profile_management"),
-  validators.ConflictingObjectAttributes("flight",
-    "search"),
-  validators.ConflictingObjectAttributes("flight",
-    "shopping_gift_cards"),
-  validators.ConflictingObjectAttributes("profile_management",
-    "search"),
-  validators.ConflictingObjectAttributes("profile_management",
-    "shopping_gift_cards"),
-  validators.ConflictingObjectAttributes("search",
-    "shopping_gift_cards")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-flow_label_choice": "[\"account_management\",\"authentication\",\"financial_services\",\"flight\",\"profile_management\",\"search\",\"shopping_gift_cards\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-flow_label {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-ad937372382117030f3959ad33a46d7afacaf03c63da82fe2e9d98238bc15c07"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label / c97e729c12d0 / 3
-
-- [account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8): complete subsection reference.
-
-- [authentication](resources--cdn_loadbalancer--reference--group-007.md#canonical-e3da21fa35aff647f5498fd4002e343e3ae15690009f0429982c82f5883f4182): complete subsection reference.
-
-- [financial_services](resources--cdn_loadbalancer--reference--group-008.md#canonical-799efabbb807d8ad48978f3be98efd52a8c4df2894e550288764a9c98e632cbe): complete subsection reference.
-
-- [flight](resources--cdn_loadbalancer--reference--group-008.md#canonical-3e30c85bd6294be6b35f63449d98dd89698e10d102a67a5d454518f839b75c6c): complete subsection reference.
-
-- [profile_management](resources--cdn_loadbalancer--reference--group-008.md#canonical-961cbba0ad5002592dff6e707fc03c92593d83085fc52e45c7d90a15e0d15b0e): complete subsection reference.
-
-- [search](resources--cdn_loadbalancer--reference--group-008.md#canonical-6a7c5814bbdf7279f8b54f02fc5cfd8e6746206b514d85841cb4a073b16a85c7): complete subsection reference.
-
-- [shopping_gift_cards](resources--cdn_loadbalancer--reference--group-008.md#canonical-9ab4070f1626a3cb981ec45cc65874aa24a2f8975b049ad54ea8efd8ca4be1d2): complete subsection reference.
-
-<a id="canonical-dab7ca515b83f35c6b2d1082ed63e04cf835bc97a05494f904566961a911894e"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label / c97e729c12d0 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication](resources--cdn_loadbalancer--reference--group-007.md#canonical-e3da21fa35aff647f5498fd4002e343e3ae15690009f0429982c82f5883f4182)
-- [bot_defense.policy.protected_app_endpoints.flow_label.financial_services](resources--cdn_loadbalancer--reference--group-008.md#canonical-799efabbb807d8ad48978f3be98efd52a8c4df2894e550288764a9c98e632cbe)
-- [bot_defense.policy.protected_app_endpoints.flow_label.flight](resources--cdn_loadbalancer--reference--group-008.md#canonical-3e30c85bd6294be6b35f63449d98dd89698e10d102a67a5d454518f839b75c6c)
-- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](resources--cdn_loadbalancer--reference--group-008.md#canonical-961cbba0ad5002592dff6e707fc03c92593d83085fc52e45c7d90a15e0d15b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label.search](resources--cdn_loadbalancer--reference--group-008.md#canonical-6a7c5814bbdf7279f8b54f02fc5cfd8e6746206b514d85841cb4a073b16a85c7)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](resources--cdn_loadbalancer--reference--group-008.md#canonical-9ab4070f1626a3cb981ec45cc65874aa24a2f8975b049ad54ea8efd8ca4be1d2)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f05703523da7c29c5c74babcfc56541e592e22c29849fcdd06711775d0150347"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.account_management — bot_defense.policy.protected_app_endpoints.flow_label.account_management / 715d66da0f28 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- bot_defense.policy.protected_app_endpoints.flow_label.account_management
-
-<a id="canonical-824140303fe34665756b18a891d52a12978edfb1ab67a674e0340f741652b784"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Bot Defense Flow Label Account Management Category.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("create",
-    "password_reset")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-label_choice": "[\"create\",\"password_reset\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-account_management {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-27ff9df460da89b1cebd6446c4723a5c7ac7dfd625f8372c842dd09f17359802"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.account_management / 715d66da0f28 / 3
-
-- [create](resources--cdn_loadbalancer--reference--group-007.md#canonical-7eb2ddcf12db27858331d7b9595b0faaeba0df5b6bed4cfe30a8ed3eebd9859d): complete subsection reference.
-
-- [password_reset](resources--cdn_loadbalancer--reference--group-007.md#canonical-92e24f0e1bd197bc65fc381183f004416f174ea76b355fbb71e7e8b6dca62b26): complete subsection reference.
-
-<a id="canonical-a1667e54cb973f5cb26449c2a668056c51ad0b31e8e868f0b5473fd33de4fcbd"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.account_management / 715d66da0f28 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management.create](resources--cdn_loadbalancer--reference--group-007.md#canonical-7eb2ddcf12db27858331d7b9595b0faaeba0df5b6bed4cfe30a8ed3eebd9859d)
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management.password_reset](resources--cdn_loadbalancer--reference--group-007.md#canonical-92e24f0e1bd197bc65fc381183f004416f174ea76b355fbb71e7e8b6dca62b26)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-7eb2ddcf12db27858331d7b9595b0faaeba0df5b6bed4cfe30a8ed3eebd9859d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-daa8f30662b63959277476b2b42ba35012b40b22828efb0e10365cc1a104438e"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.account_management.create — bot_defense.policy.protected_app_endpoints.flow_label.account_management.create / 1c2f182f61e8 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8)
-- bot_defense.policy.protected_app_endpoints.flow_label.account_management.create
-
-<a id="canonical-db0e42666a8961e312d994f632653c490b009d7fc0c9ce9d8baef5ce7a953a83"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-create = {}
-```
-
-<a id="canonical-127b550f4e9ed1639f5a1b0ba5d7592886b98a68f24711e1914e7194514da5f8"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.account_management.create / 1c2f182f61e8 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-dbee411be1a2685ee37051f6fcffc61b646a925b12805c6ebc6372169bd70634"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.account_management.create / 1c2f182f61e8 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-92e24f0e1bd197bc65fc381183f004416f174ea76b355fbb71e7e8b6dca62b26"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d6d162294dd19914c2c542ffd98de1444a47643ba530f305443fa9648499e83d"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.account_management.password_reset — bot_defense.policy.protected_app_endpoints.flow_label.account_management.passwor / da3023bb0fe1 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8)
-- bot_defense.policy.protected_app_endpoints.flow_label.account_management.password_reset
-
-<a id="canonical-fbb0ec93b562fb8c9bc4a798e7337797c16b5086a37a9982ebdc59706164fd2a"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for password reset.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-password_reset = {}
-```
-
-<a id="canonical-35ce6e08d9867cb9de5800661916a72db8bddeab57cf37b2bf4fc168123fbdf0"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.account_management.passwor / da3023bb0fe1 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-d6dd26132ca9723f114cc14cc5e2e727ee9db3eb262d05aa651df29d30d07b5e"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.account_management.passwor / da3023bb0fe1 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.account_management](resources--cdn_loadbalancer--reference--group-007.md#canonical-7172ca4b0f34588561644a1f559784a745c3a837771447da41a9260cbda75bc8)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-e3da21fa35aff647f5498fd4002e343e3ae15690009f0429982c82f5883f4182"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-63bb427dc7692c096972e4140d50d1dd2eae0d971228c1a86cbe45d398a6dec3"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.authentication — bot_defense.policy.protected_app_endpoints.flow_label.authentication / 87f66448856c / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- bot_defense.policy.protected_app_endpoints.flow_label.authentication
-
-<a id="canonical-483c4e96b25910bf456f807c35815029e101f291433e38f825d3bed752320b69"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Bot Defense Flow Label Authentication Category.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("login",
-    "login_mfa"),
-  validators.ConflictingObjectAttributes("login",
-    "login_partner"),
-  validators.ConflictingObjectAttributes("login",
-    "logout"),
-  validators.ConflictingObjectAttributes("login",
-    "token_refresh"),
-  validators.ConflictingObjectAttributes("login_mfa",
-    "login_partner"),
-  validators.ConflictingObjectAttributes("login_mfa",
-    "logout"),
-  validators.ConflictingObjectAttributes("login_mfa",
-    "token_refresh"),
-  validators.ConflictingObjectAttributes("login_partner",
-    "logout"),
-  validators.ConflictingObjectAttributes("login_partner",
-    "token_refresh"),
-  validators.ConflictingObjectAttributes("logout",
-    "token_refresh")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-label_choice": "[\"login\",\"login_mfa\",\"login_partner\",\"logout\",\"token_refresh\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-authentication {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-399444fbdd5ac1be992f3b6ecfbc4f4286b795926e235a83d36235781e295eed"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.authentication / 87f66448856c / 3
-
-- [login](resources--cdn_loadbalancer--reference--group-007.md#canonical-929922c0087873eb5da1d1c302701a9a71de653f87438ead65d89a96bb67f686): complete subsection reference.
-
-- [login_mfa](resources--cdn_loadbalancer--reference--group-008.md#canonical-0eed9c065aefcd47e754db763092784e1f86591b121dcaad759cb19ad1b4179f): complete subsection reference.
-
-- [login_partner](resources--cdn_loadbalancer--reference--group-008.md#canonical-db3f09f768ebb2392c30b3adc3fadfe6cf1c71503140181a5b73e882c4124b89): complete subsection reference.
-
-- [logout](resources--cdn_loadbalancer--reference--group-008.md#canonical-558c2b0505e4d02d4671d336a49d1e173195c02f7eb17ff78a08e7b4cb7885ef): complete subsection reference.
-
-- [token_refresh](resources--cdn_loadbalancer--reference--group-008.md#canonical-1f9a37f461385556f8f16ce053c744ae033714972f7ac04c1db02052c2f58c56): complete subsection reference.
-
-<a id="canonical-b83b73dfc7190b7d82ff13d761d746cbcd614ce594f695f5bec9c7e99a0766a1"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.authentication / 87f66448856c / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication.login](resources--cdn_loadbalancer--reference--group-007.md#canonical-929922c0087873eb5da1d1c302701a9a71de653f87438ead65d89a96bb67f686)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication.login_mfa](resources--cdn_loadbalancer--reference--group-008.md#canonical-0eed9c065aefcd47e754db763092784e1f86591b121dcaad759cb19ad1b4179f)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication.login_partner](resources--cdn_loadbalancer--reference--group-008.md#canonical-db3f09f768ebb2392c30b3adc3fadfe6cf1c71503140181a5b73e882c4124b89)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication.logout](resources--cdn_loadbalancer--reference--group-008.md#canonical-558c2b0505e4d02d4671d336a49d1e173195c02f7eb17ff78a08e7b4cb7885ef)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication.token_refresh](resources--cdn_loadbalancer--reference--group-008.md#canonical-1f9a37f461385556f8f16ce053c744ae033714972f7ac04c1db02052c2f58c56)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-
-<a id="canonical-929922c0087873eb5da1d1c302701a9a71de653f87438ead65d89a96bb67f686"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0527caa19b1c292265cf417f50682cac0184c6585e11ff18bff56ae1970b8987"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.authentication.login — bot_defense.policy.protected_app_endpoints.flow_label.authentication.login / 2344c075d639 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../resources/cdn_loadbalancer.md#canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b)
-- [Property reference](resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
-- [bot_defense](resources--cdn_loadbalancer--reference--group-007.md#canonical-6dba61de9c04eaa8383d41e91ddcb45852b267031ad3837ac7beb232a510a110)
-- [bot_defense.policy](resources--cdn_loadbalancer--reference--group-007.md#canonical-efaa8e28866e10568155a83fc0ba38e9c443cdac4922e0cd2de7fe954615c1d5)
-- [bot_defense.policy.protected_app_endpoints](resources--cdn_loadbalancer--reference--group-007.md#canonical-f00539ea8e728c1a2846d3d9fb3907268733276eb08d8e3ce27c90b3c0503447)
-- [bot_defense.policy.protected_app_endpoints.flow_label](resources--cdn_loadbalancer--reference--group-007.md#canonical-37b19a61e2569a361e4f37614e2d5fe9947b119048d43ab4261367ba574aff1c)
-- [bot_defense.policy.protected_app_endpoints.flow_label.authentication](resources--cdn_loadbalancer--reference--group-007.md#canonical-e3da21fa35aff647f5498fd4002e343e3ae15690009f0429982c82f5883f4182)
-- bot_defense.policy.protected_app_endpoints.flow_label.authentication.login
-
-<a id="canonical-69af84df30cec7d109a5ff4967e2fbf5c89511023ec5d5c82f5700790cb62869"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Bot Defense Transaction Result. Bot Defense Transaction Result.
-
-Upstream description:
-
-Bot Defense Transaction Result.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_transaction_result",
-    "transaction_result")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-transaction_result_choice": "[\"disable_transaction_result\",\"transaction_result\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-login {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-6ad42ed9575a7a56c41fbd77d98821d45d8f967543121d666a0521e12cad0985"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.authentication.login / 2344c075d639 / 3
-
-- [disable_transaction_result](resources--cdn_loadbalancer--reference--group-008.md#canonical-3e0cbe009a776d00ba05596e4067cc07db1c937cc19858463ee141febb6f6460): complete subsection reference.
-
-- [transaction_result](resources--cdn_loadbalancer--reference--group-008.md#canonical-8a7edf417e6ccace43eb9019134705415e90db9babd7e069ea45eb0b027aea2a): complete subsection reference.
+<a id="canonical-3112100332001232-2232003322323011-1233103101100211-2131213230302322-1110020020021133-3111210120221133-3211331131131321-2200232233300101"></a>

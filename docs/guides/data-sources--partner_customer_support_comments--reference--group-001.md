@@ -6,162 +6,162 @@ description: "Complete grouped canonical reference for xcsh_partner_customer_sup
 
 # xcsh_partner_customer_support_comments reference
 
-<a id="canonical-2fa65522231cce83a94be0e590bceafb5ed95373feffa05567d61dea8ccd6ef6"></a>
+<a id="canonical-0233221211110202-0203013030322003-2221102332003211-2100233032223323-1132312111031303-3332333322001111-1213311201313222-2030303112323312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4b8f389fa75cc3462764df1c880a5125aa913eac9b4907b10a36565296255e5c"></a>
+<a id="canonical-1023203303202133-2213113030031012-0213121031330130-2020002211010211-2222210103322230-2123102100132301-0022031211121102-2112021111321130"></a>
 
-## Property reference — Property reference / bcb8624f5f65 / 2
+## Property reference — Property reference / 103311331211 / 2
 
 Breadcrumbs:
 
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
 - Property reference
 
-<a id="canonical-28dfc41dd72c0cabede8025c68f41ed7ef9e6d7cc2a31743297f7c9875e3e602"></a>
+<a id="canonical-0220313330100131-3113023000302223-3231322000021130-1220331001323113-3233213212311330-3002220301131003-0221133313302120-1311320332120002"></a>
 
-## Direct properties — Property reference / bcb8624f5f65 / 3
+## Direct properties — Property reference / 103311331211 / 3
 
-<a id="canonical-5264179bf49a805475afa45c97eca5804dc82da5299bab5a9ef0c84411ab0d93"></a>
+<a id="canonical-1102121001132123-3310212220001110-1311223322101130-2113323022112000-1031302002312211-0221212322231122-2132330030201010-0101222300312103"></a>
 
-<a id="canonical-99e16b3ef146723c77f85be71c0f2b997c1956cb2de10521ed420ae7fc71ef46"></a>
+<a id="canonical-2121320112230332-3301101213020330-1313332011233213-0130003302232121-1330012111123023-0231320100110201-3231100200223213-3330130132331012"></a>
 
-## all_comments_returned property — Property reference / bcb8624f5f65 / 4
+## all_comments_returned property — Property reference / 103311331211 / 4
 
 Type: `"bool"`. Computed.
 
 Indicates if all comments for the issue have been returned.
 
-- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-45a804b5ab61ac58de3ae3e41e68cdfc76f6225d1be71225f143b55a597e0dbc): complete subsection reference.
+- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1011222000102311-2223120122301120-3132032232033210-0132122030313330-1312331202021131-0123321301020211-3301100323111122-1121133200312330): complete subsection reference.
 
-<a id="canonical-7c8464d473ceab2933b07984baf6070ee4930d43ae824d284020cd5cab673ec2"></a>
+<a id="canonical-1330201012103110-1303303222230221-0303230013212010-2322331200130032-3210210300311003-2232200210310220-1000020030311130-2223121303323002"></a>
 
-<a id="canonical-d542b513b9b7de838fb825e317eee63f835e9e73de1faed95ceea24abe397aef"></a>
+<a id="canonical-3111100223110103-2321231331322003-2033232002113203-0113323232120333-2003113221321303-3132013322323121-1130323222021022-2332032113223233"></a>
 
-## created_until_timestamp property — Property reference / bcb8624f5f65 / 5
+## created_until_timestamp property — Property reference / 103311331211 / 5
 
 Type: `"string"`. Optional.
 
 Filter to retrieve comments created up to the specified timestamp.
 
-<a id="canonical-ddfc0a765f6520695530f470afd6ee8262663fb1746be4cfaecfe96fe7ab8423"></a>
+<a id="canonical-3131333000221312-1133121102001221-1111030033101300-2233311232322002-1202121203332301-1310122332103033-2232303332211233-3213222320100203"></a>
 
-<a id="canonical-c7ff94d9b026c78864011416bb2387a4a3894395bdc3f2c69775ac7d90e6f545"></a>
+<a id="canonical-3013333321103121-2300021230132020-1210000101100112-2323020320132210-2203202110032111-2331300333023012-2113131122301331-2100321233111011"></a>
 
-## tp_id property — Property reference / bcb8624f5f65 / 6
+## tp_id property — Property reference / 103311331211 / 6
 
 Type: `"string"`. Required.
 
 Tpid ID assigned to this ticket by Third Party.
 
-<a id="canonical-5325686cf3e82e2eb47da82949949254481725c1c61e8d6fa29d088744194a04"></a>
+<a id="canonical-1103021112201230-3303322002320232-2310133122200221-1021211021021110-1020011302113001-3012013220311233-2202213100202013-1010012110220010"></a>
 
-## All schema paths — Property reference / bcb8624f5f65 / 7
+## All schema paths — Property reference / 103311331211 / 7
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `all_comments_returned` | [all_comments_returned](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-5264179bf49a805475afa45c97eca5804dc82da5299bab5a9ef0c84411ab0d93) |
-| `comments` | [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1eb0d3107ca7378c73800f9056faa4d0cc146605a70cf3240edc10cf961b0240) |
-| `comments.attachment_ids` | [comments.attachment_ids](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1cd704d90a0cec5f2b0853454a86a23680d7529f9370525e0d2936f88123ee39) |
-| `comments.attachments_info` | [comments.attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-7c7152c96970b2574cde226ff30c8742af809fb50af737d2eda0346351054933) |
-| `comments.attachments_info.attachment` | [comments.attachments_info.attachment](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-045f30cbca761578da69a7337727dfe9d7ae637f9799b63e6b795f901764df5f) |
-| `comments.attachments_info.content_type` | [comments.attachments_info.content_type](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-a2a3cb3e2b8d8afeb89fc8ba2721ed28dfc3ebce01b684f1c6387c2265f43fee) |
-| `comments.attachments_info.filename` | [comments.attachments_info.filename](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-fcb60e0351ff1ccc84043d9fe83c74e08ecba9bf91e6b8fd433f0ccc2c6dee34) |
-| `comments.attachments_info.tp_id` | [comments.attachments_info.tp_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-8dae543bcb202203517a3cb2fcaf9056b1eb69609ec7329b906ee25204a926e6) |
-| `comments.author_email` | [comments.author_email](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-4541e24f450e40da8c6b1bf0f94eec6ed170db0630fecdb4adcd5a1989d81584) |
-| `comments.author_name` | [comments.author_name](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-b82f3ae97479f6c588b7840d1e2ce92580efdb2edc716c131b3eecae9541ba43) |
-| `comments.comment_id` | [comments.comment_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-cb0f5aeac05d046fb9c89cacc79bcac1c58b2eea54e354869a3b6e49bf733457) |
-| `comments.created_at` | [comments.created_at](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-20e64ef954b17d86408da8ccc086c31b3417dc0517c2ad04a2ffa5528200e6d7) |
-| `comments.html` | [comments.html](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-511ab5b28c3d905881671585bd8b2698857e577f7455b8b0da341d874decf78e) |
-| `comments.plain_text` | [comments.plain_text](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-7eb13f18b4cd7cfe34ff3b7ec8734dc6f06f011a865b8b92f12d89773b76fe71) |
-| `created_until_timestamp` | [created_until_timestamp](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-7c8464d473ceab2933b07984baf6070ee4930d43ae824d284020cd5cab673ec2) |
-| `tp_id` | [tp_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-ddfc0a765f6520695530f470afd6ee8262663fb1746be4cfaecfe96fe7ab8423) |
+| `all_comments_returned` | [all_comments_returned](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1102121001132123-3310212220001110-1311223322101130-2113323022112000-1031302002312211-0221212322231122-2132330030201010-0101222300312103) |
+| `comments` | [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0132230031030100-1330221303132030-1303200000332100-1112332222103100-3030011012120011-2213003033030210-0032313001003033-2112012300021000) |
+| `comments.attachment_ids` | [comments.attachment_ids](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0130311300103121-0022003032301133-0223002011031011-1022201222020312-2000311311022133-2103130011021132-0031022103123320-2001020332320321) |
+| `comments.attachments_info` | [comments.attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1330130111023021-1221130023021113-1030313202021233-3303003020131002-2233200021332311-0022331303133102-3231220003101203-1101001110210303) |
+| `comments.attachments_info.attachment` | [comments.attachments_info.attachment](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0010113303003023-3022131201111320-3122122122130303-1313021331333221-3113223212031333-2113212123120332-1223132111332100-0113121031331133) |
+| `comments.attachments_info.content_type` | [comments.attachments_info.content_type](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2202220330230332-0223203120223332-2320213330202322-0213020132310220-3133300332233032-0001231220103301-3012032013300202-1211331003333232) |
+| `comments.attachments_info.filename` | [comments.attachments_info.filename](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-3330231200320003-1101333301303030-2010001003312133-3220033013103200-2032302322212333-2101321223203331-1003033300303030-0230123132320310) |
+| `comments.attachments_info.tp_id` | [comments.attachments_info.tp_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2031223211100323-3023020002020003-1101132203302302-3330223321001112-2301322312211200-2132301303022123-2100123232021102-0010222102123212) |
+| `comments.author_email` | [comments.author_email](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1011100132021033-1011003210003122-2030122301233300-3321103232301232-3101130031230012-0300333230312310-2231303111220121-2021312001112010) |
+| `comments.author_name` | [comments.author_name](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2320023303223221-1310132133123011-2020231320100031-0132023032210211-2000323331230232-3130130112300103-0123033232302232-2111100123221003) |
+| `comments.comment_id` | [comments.comment_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-3023003311223222-3000113100101233-2321302021302230-3013212330223001-3011202302323222-1110320311102012-2122032312321021-2333130303101113) |
+| `comments.created_at` | [comments.created_at](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0200321210323321-1110230113312012-1000203122203030-3000201230030123-0310011331300011-0113300222310010-2202333322111102-2002000032123113) |
+| `comments.html` | [comments.html](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1101012223112302-2030033121001120-2001121301112011-2331202302122120-2011133211131333-1310111123202300-3122031001312013-1031323033132032) |
+| `comments.plain_text` | [comments.plain_text](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1332230103330120-2310303113303332-0310333303231332-3020130310313012-3300123300010122-2012112320232102-3301023120211313-0323131233321301) |
+| `created_until_timestamp` | [created_until_timestamp](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1330201012103110-1303303222230221-0303230013212010-2322331200130032-3210210300311003-2232200210310220-1000020030311130-2223121303323002) |
+| `tp_id` | [tp_id](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-3131333000221312-1133121102001221-1111030033101300-2233311232322002-1202121203332301-1310122332103033-2232303332211233-3213222320100203) |
 
-<a id="canonical-55b2aa57bbce58287371bb38f3ae9b306606a2393eb8197eba5e49accabb353a"></a>
+<a id="canonical-1111230222221113-2323303211200220-1303130123230320-3303223221230300-1212001222020321-0332232001211332-2322113210212230-3022232303110322"></a>
 
-## Next pages — Property reference / bcb8624f5f65 / 8
+## Next pages — Property reference / 103311331211 / 8
 
-- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-45a804b5ab61ac58de3ae3e41e68cdfc76f6225d1be71225f143b55a597e0dbc)
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1011222000102311-2223120122301120-3132032232033210-0132122030313330-1312331202021131-0123321301020211-3301100323111122-1121133200312330)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
 
-<a id="canonical-45a804b5ab61ac58de3ae3e41e68cdfc76f6225d1be71225f143b55a597e0dbc"></a>
+<a id="canonical-1011222000102311-2223120122301120-3132032232033210-0132122030313330-1312331202021131-0123321301020211-3301100323111122-1121133200312330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-56c7d325cab6a678e04a92d31120add589b2821d3e910e5cfa2ddbaa47f9388a"></a>
+<a id="canonical-1112301331030211-3022231222121320-3200102221023103-0101020022313111-2021230220020131-0332210100321130-3322023131232222-1013332103202022"></a>
 
-## comments — comments / ea156e7364ee / 2
+## comments — comments / 130312103232 / 2
 
 Breadcrumbs:
 
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
-- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2fa65522231cce83a94be0e590bceafb5ed95373feffa05567d61dea8ccd6ef6)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
+- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0233221211110202-0203013030322003-2221102332003211-2100233032223323-1132312111031303-3332333322001111-1213311201313222-2030303112323312)
 - comments
 
-<a id="canonical-1eb0d3107ca7378c73800f9056faa4d0cc146605a70cf3240edc10cf961b0240"></a>
+<a id="canonical-0132230031030100-1330221303132030-1303200000332100-1112332222103100-3030011012120011-2213003033030210-0032313001003033-2112012300021000"></a>
 
 Type: `"list"`. Computed.
 
 List of comments on the customer support ticket.
 
-<a id="canonical-4e0445479e8569b4df6d6a816f081c6dd3dd7fa626a23de6e1ff7d4543dbe088"></a>
+<a id="canonical-1032001010111013-2132201112212310-3133123112222001-1233002001301231-3103313113332212-0212220203313212-3201333313311011-1003312332002020"></a>
 
-## Direct properties — comments / ea156e7364ee / 3
+## Direct properties — comments / 130312103232 / 3
 
-<a id="canonical-1cd704d90a0cec5f2b0853454a86a23680d7529f9370525e0d2936f88123ee39"></a>
+<a id="canonical-0130311300103121-0022003032301133-0223002011031011-1022201222020312-2000311311022133-2103130011021132-0031022103123320-2001020332320321"></a>
 
-<a id="canonical-bfd0dbb3b71643828e8c0b1ab3077ee19f62117262072a5c0f83fe8a39d1847c"></a>
+<a id="canonical-2333310031232303-2313011210032002-2032203000230122-2303001313323201-2133120201011302-1202001302221130-0033200333322022-0321310120101330"></a>
 
-## attachment_ids property — comments / ea156e7364ee / 4
+## attachment_ids property — comments / 130312103232 / 4
 
 Type: `["list", "string"]`. Computed.
 
 Third party ID of any attachment related to this ticket comment.
 
-- [attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-e3f78099782bf0498e9e4ad4359d35b7930b2a786fd7bcb1d8ba60dd848fe14f): complete subsection reference.
+- [attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-3203331320002121-1320022333001021-2032213210223110-0311213103112313-2103002302221320-1233311323302301-3120232212003131-2010203332011033): complete subsection reference.
 
-<a id="canonical-4541e24f450e40da8c6b1bf0f94eec6ed170db0630fecdb4adcd5a1989d81584"></a>
+<a id="canonical-1011100132021033-1011003210003122-2030122301233300-3321103232301232-3101130031230012-0300333230312310-2231303111220121-2021312001112010"></a>
 
-<a id="canonical-ca017c9b3a85ed67b33113c86ceef57cac9a2b60584a026f1d56377a2865dd7f"></a>
+<a id="canonical-3022000113302123-0322201132311213-2303030101033020-1230323233111330-2230212202231200-1120102200021233-0131111203131322-0220121131311333"></a>
 
-## author_email property — comments / ea156e7364ee / 5
+## author_email property — comments / 130312103232 / 5
 
 Type: `"string"`. Computed.
 
 Email. Email of the author of the comment.
 
-<a id="canonical-b82f3ae97479f6c588b7840d1e2ce92580efdb2edc716c131b3eecae9541ba43"></a>
+<a id="canonical-2320023303223221-1310132133123011-2020231320100031-0132023032210211-2000323331230232-3130130112300103-0123033232302232-2111100123221003"></a>
 
-<a id="canonical-5f864c92824b3a4aff03a58fd8f5d616b95985eb2dd88168b590cd0c57e8f575"></a>
+<a id="canonical-1133201210302102-2002102303221022-3333000322112033-3120331131120112-2321112120113223-0231312020011220-2311210030310030-1113322033111311"></a>
 
-## author_name property — comments / ea156e7364ee / 6
+## author_name property — comments / 130312103232 / 6
 
 Type: `"string"`. Computed.
 
 Author. Author of the comment (as a name)
 
-<a id="canonical-cb0f5aeac05d046fb9c89cacc79bcac1c58b2eea54e354869a3b6e49bf733457"></a>
+<a id="canonical-3023003311223222-3000113100101233-2321302021302230-3013212330223001-3011202302323222-1110320311102012-2122032312321021-2333130303101113"></a>
 
-<a id="canonical-776f7b4a02f9f3bb8b918f735fc6a9c24ab9a4ea54980f6baa4aac8939508928"></a>
+<a id="canonical-1313123313231022-0002332133032323-2023210120331303-1133301222213002-1022232122103222-1110212000331223-2222102222302021-0321110020210220"></a>
 
-## comment_id property — comments / ea156e7364ee / 7
+## comment_id property — comments / 130312103232 / 7
 
 Type: `"string"`. Computed.
 
 ID assigned to this comment by support provider.
 
-<a id="canonical-20e64ef954b17d86408da8ccc086c31b3417dc0517c2ad04a2ffa5528200e6d7"></a>
+<a id="canonical-0200321210323321-1110230113312012-1000203122203030-3000201230030123-0310011331300011-0113300222310010-2202333322111102-2002000032123113"></a>
 
-<a id="canonical-f413e4e1ecc32823931e6c8ab798e0d9f7b2fdccb6c20c9c190c7a34c77ca664"></a>
+<a id="canonical-3310010332103201-3230300302200203-2103013212302022-2313212032003121-3313230233313030-2312300200302130-0121003013220310-3013133022121210"></a>
 
-## created_at property — comments / ea156e7364ee / 8
+## created_at property — comments / 130312103232 / 8
 
 Type: `"string"`. Computed.
 
@@ -177,105 +177,105 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-511ab5b28c3d905881671585bd8b2698857e577f7455b8b0da341d874decf78e"></a>
+<a id="canonical-1101012223112302-2030033121001120-2001121301112011-2331202302122120-2011133211131333-1310111123202300-3122031001312013-1031323033132032"></a>
 
-<a id="canonical-46d74f2c0e4e2f220010eee1632e0c562e3b5c6ea68507342078e98ce6b61148"></a>
+<a id="canonical-1012311310330230-0032103202330202-0000010032323201-1203023200301112-0232032311301232-2212201100130310-0200132032212030-3212231201011020"></a>
 
-## html property — comments / ea156e7364ee / 9
+## html property — comments / 130312103232 / 9
 
 Type: `"string"`. Computed.
 
 Comment. Comment body as HTML.
 
-<a id="canonical-7eb13f18b4cd7cfe34ff3b7ec8734dc6f06f011a865b8b92f12d89773b76fe71"></a>
+<a id="canonical-1332230103330120-2310303113303332-0310333303231332-3020130310313012-3300123300010122-2012112320232102-3301023120211313-0323131233321301"></a>
 
-<a id="canonical-8d2872e28d120fbb11af89133f94d7b69e04abaf137b55da5e7c3d69b99de86e"></a>
+<a id="canonical-2031022013023202-2031010200332323-0101223320210103-0333211031132312-2132001022232233-0103132311113122-1132133003311221-2321213132201232"></a>
 
-## plain_text property — comments / ea156e7364ee / 10
+## plain_text property — comments / 130312103232 / 10
 
 Type: `"string"`. Computed.
 
 Comment. Comment body as plain text.
 
-<a id="canonical-2168857129cef63ab4565352c4597e6789d86e685f82884e27090242876ff85b"></a>
+<a id="canonical-0201122020111301-0221303233120322-2310111211031102-3010112113321213-2021312012321220-1133200220201032-0213002100021002-2013123333201123"></a>
 
-## Next pages — comments / ea156e7364ee / 11
+## Next pages — comments / 130312103232 / 11
 
-- [comments.attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-e3f78099782bf0498e9e4ad4359d35b7930b2a786fd7bcb1d8ba60dd848fe14f)
-- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2fa65522231cce83a94be0e590bceafb5ed95373feffa05567d61dea8ccd6ef6)
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [comments.attachments_info](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-3203331320002121-1320022333001021-2032213210223110-0311213103112313-2103002302221320-1233311323302301-3120232212003131-2010203332011033)
+- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0233221211110202-0203013030322003-2221102332003211-2100233032223323-1132312111031303-3332333322001111-1213311201313222-2030303112323312)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
 
-<a id="canonical-e3f78099782bf0498e9e4ad4359d35b7930b2a786fd7bcb1d8ba60dd848fe14f"></a>
+<a id="canonical-3203331320002121-1320022333001021-2032213210223110-0311213103112313-2103002302221320-1233311323302301-3120232212003131-2010203332011033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c3201f3c0553b25fda1de104951d9cc867183ab2bcc85dec8bd6e04e3db63f24"></a>
+<a id="canonical-3003020001330330-0011110323021133-3122013132010010-2111013121303020-1213012003222302-2330302011313230-2023311232001032-0331231203330210"></a>
 
-## comments.attachments_info — comments.attachments_info / 9e0d45048882 / 2
+## comments.attachments_info — attachments_info / 001020202002 / 2
 
 Breadcrumbs:
 
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
-- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-2fa65522231cce83a94be0e590bceafb5ed95373feffa05567d61dea8ccd6ef6)
-- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-45a804b5ab61ac58de3ae3e41e68cdfc76f6225d1be71225f143b55a597e0dbc)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)
+- [Property reference](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-0233221211110202-0203013030322003-2221102332003211-2100233032223323-1132312111031303-3332333322001111-1213311201313222-2030303112323312)
+- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1011222000102311-2223120122301120-3132032232033210-0132122030313330-1312331202021131-0123321301020211-3301100323111122-1121133200312330)
 - comments.attachments_info
 
-<a id="canonical-7c7152c96970b2574cde226ff30c8742af809fb50af737d2eda0346351054933"></a>
+<a id="canonical-1330130111023021-1221130023021113-1030313202021233-3303003020131002-2233200021332311-0022331303133102-3231220003101203-1101001110210303"></a>
 
 Type: `"list"`. Computed.
 
 Information about any attachments (such as screenshots, plain text files) the comment can have.
 
-<a id="canonical-5130db7f570f3797e376ab4ce6680cb69a495f51efbb7f36bb2f695de69772fb"></a>
+<a id="canonical-1101030031231333-1113003303132113-3203131222231030-3212122000302312-2122102111331101-3233232313330312-2323023312211131-3212211313023323"></a>
 
-## Direct properties — comments.attachments_info / 9e0d45048882 / 3
+## Direct properties — attachments_info / 001020202002 / 3
 
-<a id="canonical-045f30cbca761578da69a7337727dfe9d7ae637f9799b63e6b795f901764df5f"></a>
+<a id="canonical-0010113303003023-3022131201111320-3122122122130303-1313021331333221-3113223212031333-2113212123120332-1223132111332100-0113121031331133"></a>
 
-<a id="canonical-a8b8d3d6c1539cd7655d49a8dc58a6bc75115595437792d77174787a1ac7c5e7"></a>
+<a id="canonical-2220232031033112-3001110321303113-1211113110212220-3130112022122330-1311010111112111-1003131321023113-1301131013201322-0122301330113213"></a>
 
-## attachment property — comments.attachments_info / 9e0d45048882 / 4
+## attachment property — attachments_info / 001020202002 / 4
 
 Type: `"string"`. Computed.
 
 Any binary attachment (such as screenshots, plain text files, PDFs) encoded as base64 if used over
 HTTP.
 
-<a id="canonical-a2a3cb3e2b8d8afeb89fc8ba2721ed28dfc3ebce01b684f1c6387c2265f43fee"></a>
+<a id="canonical-2202220330230332-0223203120223332-2320213330202322-0213020132310220-3133300332233032-0001231220103301-3012032013300202-1211331003333232"></a>
 
-<a id="canonical-4115912a873113a6fb862b8c3f91e15c35321af487c582dc9503ac91a2951a0a"></a>
+<a id="canonical-1001011121010222-2013030101032212-3323201202232030-0333210132011130-0311030201223310-2013301120023130-2111000322302101-2202211101220022"></a>
 
-## content_type property — comments.attachments_info / 9e0d45048882 / 5
+## content_type property — attachments_info / 001020202002 / 5
 
 Type: `"string"`. Computed.
 
 MIME content type of the attachment. Helps the UI to properly display the data.
 
-<a id="canonical-fcb60e0351ff1ccc84043d9fe83c74e08ecba9bf91e6b8fd433f0ccc2c6dee34"></a>
+<a id="canonical-3330231200320003-1101333301303030-2010001003312133-3220033013103200-2032302322212333-2101321223203331-1003033300303030-0230123132320310"></a>
 
-<a id="canonical-a38a6d19fe3b7da64c3f5ede131d2928d4a4222ea1b1aee0002ae0069f189eed"></a>
+<a id="canonical-2203202212310121-3332032313312212-1030033311323132-0103013102210220-3110221002020232-2201230122323200-0000022232000012-2133012021323231"></a>
 
-## filename property — comments.attachments_info / 9e0d45048882 / 6
+## filename property — attachments_info / 001020202002 / 6
 
 Type: `"string"`. Computed.
 
 Filename of the attachment as provided by the caller.
 
-<a id="canonical-8dae543bcb202203517a3cb2fcaf9056b1eb69609ec7329b906ee25204a926e6"></a>
+<a id="canonical-2031223211100323-3023020002020003-1101132203302302-3330223321001112-2301322312211200-2132301303022123-2100123232021102-0010222102123212"></a>
 
-<a id="canonical-3a9c29e55773b34acaf91e42348a611da68460f29deb5192dc29b952504716a1"></a>
+<a id="canonical-0322213002213211-1113130323031022-3022332101321002-0310202212010131-2212201012003302-2131322311012102-3130022123211102-1100101301122201"></a>
 
-## tp_id property — comments.attachments_info / 9e0d45048882 / 7
+## tp_id property — attachments_info / 001020202002 / 7
 
 Type: `"string"`. Computed.
 
 Optional ID as assigned by the third-party actually storing the data.
 
-<a id="canonical-146635596bfd9c80eff8b5d032c334b2de4506e1a97ba1b8ddb664367f438393"></a>
+<a id="canonical-0110121203111121-1223333121302000-3233332023113100-0302300303102302-3132101100123201-2221132322012320-3131231212100312-1333100320032103"></a>
 
-## Next pages — comments.attachments_info / 9e0d45048882 / 8
+## Next pages — attachments_info / 001020202002 / 8
 
-- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-45a804b5ab61ac58de3ae3e41e68cdfc76f6225d1be71225f143b55a597e0dbc)
-- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-52b42c42fce1130da3cf709e8f2675524c57b5e1f9ab3841fffd8054af69f0a7)
+- [comments](data-sources--partner_customer_support_comments--reference--group-001.md#canonical-1011222000102311-2223120122301120-3132032232033210-0132122030313330-1312331202021131-0123321301020211-3301100323111122-1121133200312330)
+- [xcsh_partner_customer_support_comments](../data-sources/partner_customer_support_comments.md#canonical-1102231002301002-3330320101030031-2203303313002132-2033021213111102-1030111323113201-3321222303201001-3333333120001110-2233122133002213)

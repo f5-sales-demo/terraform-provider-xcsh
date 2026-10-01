@@ -6,47 +6,47 @@ description: "Complete grouped canonical reference for xcsh_waf_latest_signature
 
 # xcsh_waf_latest_signatures_version reference
 
-<a id="canonical-44a7577ee22cd73e61d1d8938343de86038f422d583f20ca2c2c2bb7c07b94d7"></a>
+<a id="canonical-1010221311131332-3202023031130332-1201310131202103-2003100331322012-0003203310020231-1120033302003022-0230023002232313-3000132321103113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5b1bc025efa77d937409c5679568960798fa65a5b7ea16d99d2a1fd9d433914"></a>
+<a id="canonical-3011230123300002-1132332213133121-0313100021301112-1321111220211200-1321203322121122-1123133222011231-2121310222013331-2131100303210110"></a>
 
-## Property reference — Property reference / d2a41edb58c0 / 2
+## Property reference — Property reference / 312311203000 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)
 - Property reference
 
-<a id="canonical-d37a8a06b6dfa7eae6f6d6d93100ccfb7074c4f07f0a98c4974396e17cda727d"></a>
+<a id="canonical-3103132220220012-2312313322133222-3212331231123121-0301000030303323-1300131030103300-1333002221203010-2113100321123201-1330312213021331"></a>
 
-## Direct properties — Property reference / d2a41edb58c0 / 3
+## Direct properties — Property reference / 312311203000 / 3
 
-<a id="canonical-469fac1599c0fa1ac766751a46905606bf4d75ab39018144e711835d12207873"></a>
+<a id="canonical-1012213322300111-2121300033220122-3013121213110122-1012210011120012-2333103113112223-0321000120011010-3213010120031131-0102020013201303"></a>
 
-<a id="canonical-f1122926ced8528940cde7d68d7833be4b5534def293e6868a4cc9ba4fbf9323"></a>
+<a id="canonical-3301010202210212-3032312011022021-1000303132133112-2031132003032332-1023111103103132-3302210332122012-2022103030212322-1033233321030203"></a>
 
-## version property — Property reference / d2a41edb58c0 / 4
+## version property — Property reference / 312311203000 / 4
 
 Type: `"string"`. Computed.
 
 The latest version of the WAF signatures.
 
-<a id="canonical-9139d6b227f545850a96f35f854ede2eabe1ba3e0604a8200cd4e4563894df1f"></a>
+<a id="canonical-2101032131122302-0213331110112011-0022211233031133-2011103231320232-2223320123220332-0012001022200200-0030311032101112-0320211031330133"></a>
 
-## All schema paths — Property reference / d2a41edb58c0 / 5
+## All schema paths — Property reference / 312311203000 / 5
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `version` | [version](data-sources--waf_latest_signatures_version--reference--group-001.md#canonical-469fac1599c0fa1ac766751a46905606bf4d75ab39018144e711835d12207873) |
+| `version` | [version](data-sources--waf_latest_signatures_version--reference--group-001.md#canonical-1012213322300111-2121300033220122-3013121213110122-1012210011120012-2333103113112223-0321000120011010-3213010120031131-0102020013201303) |
 
-<a id="canonical-2172b50e22a1f6894e80de7202896a0c818091505fdbef5f3a4963be5175b4ff"></a>
+<a id="canonical-0201130223110032-0202220133122021-1032200031321302-0002202112220030-2001200021011100-1133312332331133-0322102112032332-1101131123103333"></a>
 
-## Next pages — Property reference / d2a41edb58c0 / 6
+## Next pages — Property reference / 312311203000 / 6
 
-- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-e82588039d40a0bd7b98f558c6e993e8c040b7d365e0b5c93ac34a46905a3b8c)
+- [xcsh_waf_latest_signatures_version](../data-sources/waf_latest_signatures_version.md#canonical-3220021120200003-2131100022002331-1323212033111120-3012322121033220-3000100023133103-1211320023113021-0322300310221012-2100112203232030)

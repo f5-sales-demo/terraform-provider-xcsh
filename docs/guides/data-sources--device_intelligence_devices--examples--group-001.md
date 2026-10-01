@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_devices examples
 
-<a id="canonical-e29fe453efdf882c0fe3e41b13b48c36e410f492a713d71dc15c59df971c1c92"></a>
+<a id="canonical-3202213332101103-3233313320200230-0033320332100123-0103231020300312-3210010033102102-2213010331130131-3001113011213133-2113013001302102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2af2edd0d2ded59e49ccc22332dd4a2fdfc1cc79641f88b5fd51f903011250ec"></a>
+<a id="canonical-0222330232313100-3102313231112132-1021303030020203-0302313110220233-3133300130301321-1210013320202311-3331110133210003-0001010211003230"></a>
 
-## Examples — Examples / 58d22a918a1e / 2
+## Examples — Examples / 210120220132 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-7911c305a3aa551402a0597c54c40adaa717422bb3cfe729a620174f3c16433f)
+- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-1321010130030011-2203222211110110-0002220011211330-1110301000223122-2213011310020223-2303303332130221-2212020001131033-0330011210030333)
 - Examples
 
-<a id="canonical-c28ee7c9cbb83c4e4bd0dc97e820c244edb3c3218e1e533be3c506eea13ef6b4"></a>
+<a id="canonical-3002203232133021-3023232003301032-1023310031302113-3220020030021010-3231230330030201-2032013211030323-3203301100123232-2201033233122310"></a>
 
-## Complete configurations — Examples / 58d22a918a1e / 3
+## Complete configurations — Examples / 210120220132 / 3
 
-- [Data source](data-sources--device_intelligence_devices--examples--group-001.md#canonical-bba07230bdcac5cf9f95e5ce131f8b3e284cd452215a5fed4656caec64e00f2f): valid configuration.
+- [Data source](data-sources--device_intelligence_devices--examples--group-001.md#canonical-2323220013020300-2331302230113033-2133211132113032-0103013320230332-0220103031101102-0201112211333231-1012111230223230-1210320000330233): valid configuration.
 
-<a id="canonical-93f1939829929f040bd64c3e32add0ad21757b1519839c30e00dde7a5d2c0874"></a>
+<a id="canonical-2103330121032120-0221210221330010-0023311210300332-0302223131002231-0201131113230111-0121200321300300-3200003131321322-1131023000201310"></a>
 
-## Next pages — Examples / 58d22a918a1e / 4
+## Next pages — Examples / 210120220132 / 4
 
-- [Data source](data-sources--device_intelligence_devices--examples--group-001.md#canonical-bba07230bdcac5cf9f95e5ce131f8b3e284cd452215a5fed4656caec64e00f2f)
-- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-7911c305a3aa551402a0597c54c40adaa717422bb3cfe729a620174f3c16433f)
+- [Data source](data-sources--device_intelligence_devices--examples--group-001.md#canonical-2323220013020300-2331302230113033-2133211132113032-0103013320230332-0220103031101102-0201112211333231-1012111230223230-1210320000330233)
+- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-1321010130030011-2203222211110110-0002220011211330-1110301000223122-2213011310020223-2303303332130221-2212020001131033-0330011210030333)
 
-<a id="canonical-bba07230bdcac5cf9f95e5ce131f8b3e284cd452215a5fed4656caec64e00f2f"></a>
+<a id="canonical-2323220013020300-2331302230113033-2133211132113032-0103013320230332-0220103031101102-0201112211333231-1012111230223230-1210320000330233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7c46639778cd8297cd8a1ad87ddb42291437537df9680465595aebccf3158aeb"></a>
+<a id="canonical-1330101212032113-1320303120022113-3031202201223120-1331312310020221-0110031311031331-3321122000101211-1121112232233030-3303011120223223"></a>
 
-## Data source — Data source / f5ed97bd2e8d / 2
+## Data source — Data source / 233102322031 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-7911c305a3aa551402a0597c54c40adaa717422bb3cfe729a620174f3c16433f)
-- [Examples](data-sources--device_intelligence_devices--examples--group-001.md#canonical-e29fe453efdf882c0fe3e41b13b48c36e410f492a713d71dc15c59df971c1c92)
+- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-1321010130030011-2203222211110110-0002220011211330-1110301000223122-2213011310020223-2303303332130221-2212020001131033-0330011210030333)
+- [Examples](data-sources--device_intelligence_devices--examples--group-001.md#canonical-3202213332101103-3233313320200230-0033320332100123-0103231020300312-3210010033102102-2213010331130131-3001113011213133-2113013001302102)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "device_intelligence_devices_result" {
 }
 ```
 
-<a id="canonical-25bc7ee71185612a5fba288f2819d655bcb4f2978deaf2f35bafa61c3bf938ba"></a>
+<a id="canonical-0211233013323213-0101201112010222-1133232202202033-0220012131121111-2330231033022113-2031322233023303-1123223322120130-0323332103202322"></a>
 
-## Next pages — Data source / f5ed97bd2e8d / 3
+## Next pages — Data source / 233102322031 / 3
 
-- [Examples](data-sources--device_intelligence_devices--examples--group-001.md#canonical-e29fe453efdf882c0fe3e41b13b48c36e410f492a713d71dc15c59df971c1c92)
-- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-7911c305a3aa551402a0597c54c40adaa717422bb3cfe729a620174f3c16433f)
+- [Examples](data-sources--device_intelligence_devices--examples--group-001.md#canonical-3202213332101103-3233313320200230-0033320332100123-0103231020300312-3210010033102102-2213010331130131-3001113011213133-2113013001302102)
+- [xcsh_device_intelligence_devices](../data-sources/device_intelligence_devices.md#canonical-1321010130030011-2203222211110110-0002220011211330-1110301000223122-2213011310020223-2303303332130221-2212020001131033-0330011210030333)

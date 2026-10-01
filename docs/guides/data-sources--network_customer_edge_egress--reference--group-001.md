@@ -6,113 +6,113 @@ description: "Complete grouped canonical reference for xcsh_network_customer_edg
 
 # xcsh_network_customer_edge_egress reference
 
-<a id="canonical-fcf3f94ae406bb1faa761b4a9cdf3711b3d6f68f069675781ca1886e216a0b88"></a>
+<a id="canonical-3330330333211022-3210001223230133-2222131201231022-2130313303130101-2303311233122033-0012211213111320-0130220120201232-0201122200232020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5d2056cc32654bc8635caee40f8d99888f2ab6aefb0887286acab7130e96b080"></a>
+<a id="canonical-1131020011123030-0302121110233020-1203113022323210-0033203121212020-2033022223122232-3323002020130220-1222302223130103-0032211223002000"></a>
 
-## Property reference — Property reference / e81ae09f5be4 / 2
+## Property reference — Property reference / 213311233210 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_customer_edge_egress](../data-sources/network_customer_edge_egress.md#canonical-e8a53f08d4a40bf225466083460717f25dabd979bfa6a17a3cab3b3fbaa24138)
+- [xcsh_network_customer_edge_egress](../data-sources/network_customer_edge_egress.md#canonical-3220221103330020-3110221000233302-0211101212002003-1012001301133302-1131222331211321-2333221222011322-0330222303230333-2322220210010320)
 - Property reference
 
-<a id="canonical-9fdc950fd36e5fb01eac7be20850f38ec041900268594cd17531d55a9ffc5439"></a>
+<a id="canonical-2133313021110033-3103123211332300-0132223013233202-0020110033032032-3000100121000002-1220112110303101-1311030131111122-2133333011100321"></a>
 
-## Direct properties — Property reference / e81ae09f5be4 / 3
+## Direct properties — Property reference / 213311233210 / 3
 
-<a id="canonical-c2725712a306bbeb58f6ff08064913556023ed5fbee9c38bd4febd94b9987d57"></a>
+<a id="canonical-3002130211130102-2203001223233223-1120331233330020-0012102101031111-1200020332311133-2332322130032023-3110333223312110-2321212013311113"></a>
 
-<a id="canonical-06aa6ec5324776e8ee0f8f438c5007c6c29770cf288f47f6cb2e86ef0f1c9c0d"></a>
+<a id="canonical-0012222212323011-0302101313123220-3232003320331003-2030110000133012-3002211313003033-0220203310133312-3023023220123233-0033013021300031"></a>
 
-## api_release_tag property — Property reference / e81ae09f5be4 / 4
+## api_release_tag property — Property reference / 213311233210 / 4
 
 Type: `"string"`. Computed.
 
 Pinned api-specs-enriched release tag compiled into this provider.
 
-<a id="canonical-ffbd9f97910a464d655ab5fe3d114f2dd5894da97c8694bdc712da193bfabba5"></a>
+<a id="canonical-3333233121332113-2101002210121031-1211112223113332-0331010110330231-3111202110312221-1330201221102331-3013010231220121-0323332223232211"></a>
 
-<a id="canonical-bd8b8eb3f58ce18f4ad0c4def8b17287654795a1f704402a8ded527a91bcf00c"></a>
+<a id="canonical-2331202320322303-3311203032012033-1022310030103132-3320230113022013-1211101321112201-3313001010000222-2031323111021322-2101233033000030"></a>
 
-## domains property — Property reference / e81ae09f5be4 / 5
+## domains property — Property reference / 213311233210 / 5
 
 Type: `["list", "string"]`. Computed.
 
 Published Secure Mesh v2 egress domains in source order. Leading dots are preserved.
 
-<a id="canonical-74d3f8c7e0d39eac12fcaf21b8b076c5989cc08ceb997c6dfb397026898d2dc6"></a>
+<a id="canonical-1310310333203013-3200310321322230-0102333022330201-2320230013123011-2120213030002030-3223212113301231-3323032113000212-2021203102313012"></a>
 
-<a id="canonical-58151098251e69695d78ef42271817fe62e94cfed72baff1f93083ae36d5d3d7"></a>
+<a id="canonical-1120011101002120-0211013212211221-1131132032331002-0213012001133332-1202322110303332-3113022322333301-3321030020032232-0312311131033113"></a>
 
-## id property — Property reference / e81ae09f5be4 / 6
+## ID property — Property reference / 213311233210 / 6
 
 Type: `"string"`. Computed.
 
 Stable identifier derived from the pinned source digest, data-source group, and selected regions.
 
-<a id="canonical-1fde03a0e755589a4b452f98ff06f04c14b36dae1beb8e3ac41d1c9018e959ba"></a>
+<a id="canonical-0133313200032200-3213111111202122-1023101102332120-3333001233001030-0110230312312232-0123322320320322-3010013101302100-0120322111212322"></a>
 
-<a id="canonical-50271bdf90325574d8cb7ea3558b8951d510040c26bd6a0d6659d6d5eba91164"></a>
+<a id="canonical-1100021301233133-2100030211111310-3120302313322203-1111202320211101-3111010000100030-0212233112220031-1212112131123111-3223222101011210"></a>
 
-## manifest_generated_at property — Property reference / e81ae09f5be4 / 7
+## manifest_generated_at property — Property reference / 213311233210 / 7
 
 Type: `"string"`. Computed.
 
 Generation timestamp reported by the published network allowlist manifest.
 
-<a id="canonical-de45b5ec687237173165716ce1b112ec40ed9cd448eef86170df06686d51ae8a"></a>
+<a id="canonical-3132101123113230-1220130203130113-0301121113011230-3201230101023230-1000323121303110-1020323233201201-1300313300121220-1231110122322022"></a>
 
-<a id="canonical-0dc94817e5dbca38eae583d4355632ff7484b22184d2b2170c28f784c5ba5081"></a>
+<a id="canonical-0031302110200113-3211312330220320-3222321120033110-0311111203023333-1310201023020201-2010310223020113-0030022033132010-3011232211002001"></a>
 
-## registration_addresses property — Property reference / e81ae09f5be4 / 8
+## registration_addresses property — Property reference / 213311233210 / 8
 
 Type: `["list", "string"]`. Computed.
 
 Published Secure Mesh v2 registration and update IPv4 addresses.
 
-<a id="canonical-5d7d7816ff1845988d814a5e3c7a9368d879549ae7a2eebe27cd10fa7c712582"></a>
+<a id="canonical-1131133113200112-3333012010112120-2031200110221132-0330132221031220-3120132111102122-3213220232322332-0213303101003322-1330130102112002"></a>
 
-<a id="canonical-f798b90b7b3778d0d2698e90a2bdff750d3765743657a3ed58e893db7625476f"></a>
+<a id="canonical-3313212023210023-1323031313203100-3102122120322100-2202233133331311-0031031312111310-0312111322033231-1120322021033123-1312021110131233"></a>
 
-## source_sha256 property — Property reference / e81ae09f5be4 / 9
+## source_sha256 property — Property reference / 213311233210 / 9
 
 Type: `"string"`. Computed.
 
 SHA-256 digest of the canonical published network allowlist manifest.
 
-<a id="canonical-b829efaae9a7db01c53cda16cb58c498d5b789afdae8fcc12584b255b96c11c8"></a>
+<a id="canonical-2320022132332222-3221221331230001-3011033031220112-3023112030102120-3111231320212233-3122322033303001-0211201023021111-2321123001013020"></a>
 
-<a id="canonical-43911a3cf745f22eaa8b6781e586865a6e605c2c00a295ac79154d75e492e8f6"></a>
+<a id="canonical-1003210101220330-3313101133020232-2222202312132001-3211201220121122-1232120011300230-0000220221112230-1321011110311311-3210210232203312"></a>
 
-## source_url property — Property reference / e81ae09f5be4 / 10
+## source_url property — Property reference / 213311233210 / 10
 
 Type: `"string"`. Computed.
 
 Published F5 network allowlist source URL.
 
-<a id="canonical-17221bec42adc5ff96da531df8cfc944592145046d07804697baf71d9cabb938"></a>
+<a id="canonical-0113020201233230-1002223130113333-2112312211030131-3320303330211010-1121020110110010-1231001320001012-2113232233130131-2130222323210320"></a>
 
-## All schema paths — Property reference / e81ae09f5be4 / 11
+## All schema paths — Property reference / 213311233210 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `api_release_tag` | [api_release_tag](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-c2725712a306bbeb58f6ff08064913556023ed5fbee9c38bd4febd94b9987d57) |
-| `domains` | [domains](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-ffbd9f97910a464d655ab5fe3d114f2dd5894da97c8694bdc712da193bfabba5) |
-| `id` | [id](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-74d3f8c7e0d39eac12fcaf21b8b076c5989cc08ceb997c6dfb397026898d2dc6) |
-| `manifest_generated_at` | [manifest_generated_at](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-1fde03a0e755589a4b452f98ff06f04c14b36dae1beb8e3ac41d1c9018e959ba) |
-| `registration_addresses` | [registration_addresses](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-de45b5ec687237173165716ce1b112ec40ed9cd448eef86170df06686d51ae8a) |
-| `source_sha256` | [source_sha256](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-5d7d7816ff1845988d814a5e3c7a9368d879549ae7a2eebe27cd10fa7c712582) |
-| `source_url` | [source_url](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-b829efaae9a7db01c53cda16cb58c498d5b789afdae8fcc12584b255b96c11c8) |
+| `api_release_tag` | [api_release_tag](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-3002130211130102-2203001223233223-1120331233330020-0012102101031111-1200020332311133-2332322130032023-3110333223312110-2321212013311113) |
+| `domains` | [domains](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-3333233121332113-2101002210121031-1211112223113332-0331010110330231-3111202110312221-1330201221102331-3013010231220121-0323332223232211) |
+| `id` | [id](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-1310310333203013-3200310321322230-0102333022330201-2320230013123011-2120213030002030-3223212113301231-3323032113000212-2021203102313012) |
+| `manifest_generated_at` | [manifest_generated_at](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-0133313200032200-3213111111202122-1023101102332120-3333001233001030-0110230312312232-0123322320320322-3010013101302100-0120322111212322) |
+| `registration_addresses` | [registration_addresses](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-3132101123113230-1220130203130113-0301121113011230-3201230101023230-1000323121303110-1020323233201201-1300313300121220-1231110122322022) |
+| `source_sha256` | [source_sha256](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-1131133113200112-3333012010112120-2031200110221132-0330132221031220-3120132111102122-3213220232322332-0213303101003322-1330130102112002) |
+| `source_url` | [source_url](data-sources--network_customer_edge_egress--reference--group-001.md#canonical-2320022132332222-3221221331230001-3011033031220112-3023112030102120-3111231320212233-3122322033303001-0211201023021111-2321123001013020) |
 
-<a id="canonical-3f1b59037d8c5bc42a621dc01db7ef1cb3e4faeb69229b956532a57430ae4df3"></a>
+<a id="canonical-0333012311210003-1331203011233010-0222120201313000-0131231332330130-2303321033223223-1221020221232111-1211030222111310-0300223210313303"></a>
 
-## Next pages — Property reference / e81ae09f5be4 / 12
+## Next pages — Property reference / 213311233210 / 12
 
-- [xcsh_network_customer_edge_egress](../data-sources/network_customer_edge_egress.md#canonical-e8a53f08d4a40bf225466083460717f25dabd979bfa6a17a3cab3b3fbaa24138)
+- [xcsh_network_customer_edge_egress](../data-sources/network_customer_edge_egress.md#canonical-3220221103330020-3110221000233302-0211101212002003-1012001301133302-1131222331211321-2333221222011322-0330222303230333-2322220210010320)

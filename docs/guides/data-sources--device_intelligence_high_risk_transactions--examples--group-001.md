@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_high_risk_transactions examples
 
-<a id="canonical-d966d8a36af7cefa045e7fbb075fac0386a0f18bc0a3d6461456996da2f07cba"></a>
+<a id="canonical-3121121231202203-1222331330323322-0010113213332323-0013113322300003-2012220033012023-3000220331121012-0110111221211231-2202330013302322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-05e48d57340ef74c09e38d229a8c25bd588329cebca3816c7e13638e4f42b945"></a>
+<a id="canonical-0011321020311113-0310003233131030-0021320320310202-2122203002112331-1120200302213032-2330220320011230-1332010312032032-1033100223211011"></a>
 
-## Examples — Examples / 88d2ee994ce0 / 2
+## Examples — Examples / 212110303200 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 - Examples
 
-<a id="canonical-0ad5a2d9cc67871b4117f0e6568bb4107607f55a00945fba4126d09dddacb704"></a>
+<a id="canonical-0022311122023121-3030121320130123-1001011333003212-1112202323100100-1312001333111122-0000211011332322-1001021231002131-3131223023130010"></a>
 
-## Complete configurations — Examples / 88d2ee994ce0 / 3
+## Complete configurations — Examples / 212110303200 / 3
 
-- [Data source](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-90497bf0c99d7a5b121c15675fcb8c611377025cb460aa9b9536391aab89d33e): valid configuration.
+- [Data source](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-2100102113233300-3021213113221123-0102013001111213-1133302320301201-0103131300021130-2310120022222123-2111031203210122-2223202131030332): valid configuration.
 
-<a id="canonical-f039fc50969d3c6c23110a2f2c9a1c1d2c5fe93743319fd648a8c940eb5b31cc"></a>
+<a id="canonical-3300032133301100-2112213103301230-0203010100220233-0230212201300131-0230113332210313-1003030121333112-1020222030211000-3223112303013030"></a>
 
-## Next pages — Examples / 88d2ee994ce0 / 4
+## Next pages — Examples / 212110303200 / 4
 
-- [Data source](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-90497bf0c99d7a5b121c15675fcb8c611377025cb460aa9b9536391aab89d33e)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [Data source](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-2100102113233300-3021213113221123-0102013001111213-1133302320301201-0103131300021130-2310120022222123-2111031203210122-2223202131030332)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 
-<a id="canonical-90497bf0c99d7a5b121c15675fcb8c611377025cb460aa9b9536391aab89d33e"></a>
+<a id="canonical-2100102113233300-3021213113221123-0102013001111213-1133302320301201-0103131300021130-2310120022222123-2111031203210122-2223202131030332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-535762d03fe6d57739a2bfd9fffe47ba2811b78d768e5b4f2f368be6ce7e19c8"></a>
+<a id="canonical-1103111312023100-0333321231111313-0321220223333121-3333333210132322-0220010123132031-1312203211231033-0233031220233212-3032133201213020"></a>
 
-## Data source — Data source / a948430ced39 / 2
+## Data source — Data source / 003032310321 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
-- [Examples](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-d966d8a36af7cefa045e7fbb075fac0386a0f18bc0a3d6461456996da2f07cba)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Examples](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-3121121231202203-1222331330323322-0010113213332323-0013113322300003-2012220033012023-3000220331121012-0110111221211231-2202330013302322)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "device_intelligence_high_risk_transactions_result" {
 }
 ```
 
-<a id="canonical-09598a5f9ca016c9fb00048432169928d9bdcf383eee7890f0ea78e798babaa4"></a>
+<a id="canonical-0021112120221133-2130220001123021-3323000000102010-0302011221210220-3121233130330320-0332323213202100-3300322213203213-2120232223222210"></a>
 
-## Next pages — Data source / a948430ced39 / 3
+## Next pages — Data source / 003032310321 / 3
 
-- [Examples](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-d966d8a36af7cefa045e7fbb075fac0386a0f18bc0a3d6461456996da2f07cba)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [Examples](data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-3121121231202203-1222331330323322-0010113213332323-0013113322300003-2012220033012023-3000220331121012-0110111221211231-2202330013302322)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)

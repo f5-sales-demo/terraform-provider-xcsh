@@ -6,90 +6,34 @@ description: "Complete grouped canonical reference for xcsh_network_interface re
 
 # xcsh_network_interface reference
 
-<a id="canonical-8eb38d4feb4f316e45b3a232e7a4f121492116336ed8495d52ca86c1b08b11be"></a>
+<a id="canonical-0110323120031230-2330213111111320-3302231231202103-0231102030012332-2213223313330120-0213220301221032-1011101000012230-0223113220333300"></a>
 
-## Next pages — ethernet_interface.static_ip.node_static_ip / 380b2fecce0b / 7
+## Next pages — static_ip / 001303133230 / 4
 
-- [ethernet_interface.static_ip](data-sources--network_interface--reference--group-001.md#canonical-f6a7a273d85d7cfa1c8614e9eecb3589eb3848255af051b6a00adcd274fd76ed)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [ethernet_interface.static_ip.cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-0133120302310230-3112011022020110-2212301300100010-3200021301000220-0202020000132300-0023233133013112-2103031120130301-2233202332102013)
+- [ethernet_interface.static_ip.node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-3230031122333310-1130013023032301-3303011331212201-2231332320203231-3323013210221212-3302000020222320-0210111121010031-2312311202031102)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-9a76ad147e80b2c51535b56cd403c93b9e85bbc9aa57014fc100c9bb299ff1f4"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-41a3d8cbd1a15d4589459f67d25d0c8ca933058ebb7c1a06b275727621269d7e"></a>
-
-## ethernet_interface.static_ipv6_address — ethernet_interface.static_ipv6_address / ffc2a01bc05b / 2
-
-Breadcrumbs:
-
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- ethernet_interface.static_ipv6_address
-
-<a id="canonical-86190bd308c892284953123125e23154cf85a8118f24d845f5aec209bb3290dd"></a>
-
-Type: `"single"`. Computed.
-
-Static IP Parameters. Configure Static IP parameters.
-
-Upstream description:
-
-Configure Static IP parameters.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
-}
-```
-
-<a id="canonical-f8b4f8ec643e30cfe092b7342e65a383394f5ba2d29db9a95756409027ce601c"></a>
-
-## Direct properties — ethernet_interface.static_ipv6_address / ffc2a01bc05b / 3
-
-- [cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-80fce281fadfaae3477d0e38cfd22793a35fe66bba2033965d600d289e6161f6): complete subsection reference.
-
-- [node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-b28bb335f24385838fbace525157105468f2ca00ed9210593b4f6f7515218b46): complete subsection reference.
-
-<a id="canonical-7212381e685825599e4d5c5ea6751ef30111fc7ef4744132b61efe89a892e41c"></a>
-
-## Next pages — ethernet_interface.static_ipv6_address / ffc2a01bc05b / 4
-
-- [ethernet_interface.static_ipv6_address.cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-80fce281fadfaae3477d0e38cfd22793a35fe66bba2033965d600d289e6161f6)
-- [ethernet_interface.static_ipv6_address.node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-b28bb335f24385838fbace525157105468f2ca00ed9210593b4f6f7515218b46)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-
-<a id="canonical-80fce281fadfaae3477d0e38cfd22793a35fe66bba2033965d600d289e6161f6"></a>
+<a id="canonical-0133120302310230-3112011022020110-2212301300100010-3200021301000220-0202020000132300-0023233133013112-2103031120130301-2233202332102013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d8a39536a696e0c504a4be43cdef20ac58ac9c293831cb4d0ece6406ef9c492"></a>
+<a id="canonical-3023220223012300-0223330010333123-2213221001321310-2321031301302033-0330122032223122-1112333130103130-3121011013112201-3111001220211000"></a>
 
-## ethernet_interface.static_ipv6_address.cluster_static_ip — ethernet_interface.static_ipv6_address.cluster_static_ip / fd827ea9dac7 / 2
+## ethernet_interface.static_ip.cluster_static_ip — cluster_static_ip / 301030221222 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-9a76ad147e80b2c51535b56cd403c93b9e85bbc9aa57014fc100c9bb299ff1f4)
-- ethernet_interface.static_ipv6_address.cluster_static_ip
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [ethernet_interface.static_ip](data-sources--network_interface--reference--group-001.md#canonical-3312221322021303-3120113113303322-0130201201103221-3232302303112021-3223032010200211-1122330011012312-2200002231303102-1310333113123231)
+- ethernet_interface.static_ip.cluster_static_ip
 
-<a id="canonical-9d10e91331d1012afdd8e980d8eeb35801a48aa81a393d21d7f2aefaa314245d"></a>
+<a id="canonical-1031130201223312-1002010011231021-1023131120012231-3312313020123003-1013130302310212-2111103023022103-3302133032320000-1212322300221320"></a>
 
 Type: `"single"`. Computed.
 
@@ -108,15 +52,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cc84b5bdba41630999b8b5a2477bf9c71cb4f0f338152602fdf3556dac8a19e2"></a>
+<a id="canonical-1323333112301320-0330320332331200-2020110101102013-2130311332210310-0120120203313120-3212300320303310-3002133330101312-1223013120112202"></a>
 
-## Direct properties — ethernet_interface.static_ipv6_address.cluster_static_ip / fd827ea9dac7 / 3
+## Direct properties — cluster_static_ip / 301030221222 / 3
 
-<a id="canonical-a5308dbc5f6a7372182239dfeb7b4f362b6a5e1edc28cd2dfc4d765c23afae68"></a>
+<a id="canonical-3010023201022000-0002103200211213-1131101320013211-0230300231230300-1111111333312033-0002202002313212-1232103100112123-0320213033110323"></a>
 
-<a id="canonical-72c57ccf9767f9634c54a98e2307c3804cb4483145f6af5895817c5a83168b5f"></a>
+<a id="canonical-3121323320000311-0233023002321130-3130033032000022-2203211200201102-0011132303310131-1103122323203220-3232211101320000-2123330312330023"></a>
 
-## interface_ip_map property — ethernet_interface.static_ipv6_address.cluster_static_ip / fd827ea9dac7 / 4
+## interface_ip_map property — cluster_static_ip / 301030221222 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -145,32 +89,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c0165b0fd34d190271eacbc92db0b621dfe23c0fcd50398fd1fd79f1d5471ae8"></a>
+<a id="canonical-0112220330133033-3320320323020033-1232203233003033-0000233023032203-1102122200100133-2011010121000013-2320121133000311-1310302021223310"></a>
 
-## Next pages — ethernet_interface.static_ipv6_address.cluster_static_ip / fd827ea9dac7 / 5
+## Next pages — cluster_static_ip / 301030221222 / 5
 
-- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-9a76ad147e80b2c51535b56cd403c93b9e85bbc9aa57014fc100c9bb299ff1f4)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [ethernet_interface.static_ip](data-sources--network_interface--reference--group-001.md#canonical-3312221322021303-3120113113303322-0130201201103221-3232302303112021-3223032010200211-1122330011012312-2200002231303102-1310333113123231)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-b28bb335f24385838fbace525157105468f2ca00ed9210593b4f6f7515218b46"></a>
+<a id="canonical-3230031122333310-1130013023032301-3303011331212201-2231332320203231-3323013210221212-3302000020222320-0210111121010031-2312311202031102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a45466a292e0a650712467ef880cd757fd3006f3f01b9cef6063d061a95fcc4"></a>
+<a id="canonical-3203130001133021-0002120131333200-2111101013113010-1013212323210032-2321201221102213-2130133203020311-3212312003231332-1320100133310133"></a>
 
-## ethernet_interface.static_ipv6_address.node_static_ip — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 2
+## ethernet_interface.static_ip.node_static_ip — node_static_ip / 323030320023 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-9a76ad147e80b2c51535b56cd403c93b9e85bbc9aa57014fc100c9bb299ff1f4)
-- ethernet_interface.static_ipv6_address.node_static_ip
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [ethernet_interface.static_ip](data-sources--network_interface--reference--group-001.md#canonical-3312221322021303-3120113113303322-0130201201103221-3232302303112021-3223032010200211-1122330011012312-2200002231303102-1310333113123231)
+- ethernet_interface.static_ip.node_static_ip
 
-<a id="canonical-4e094e28389305c09b9ee16dd232f1089081aff3263b393d662c4ba4159518c8"></a>
+<a id="canonical-3220110030331230-1032002202032023-2333010201201130-3203233103311303-1132321012031032-0130311200010112-3311001102201303-0202012112021300"></a>
 
 Type: `"single"`. Computed.
 
@@ -189,15 +133,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a187d66d93191c442b7bf22b659f86d45b75bfe4272a348a5fbaf5456eafb59d"></a>
+<a id="canonical-0112323311130033-0012031313203133-1210333131130211-2332111320202021-3111210330032300-3222333011221322-2310021210301221-0200120221321023"></a>
 
-## Direct properties — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 3
+## Direct properties — node_static_ip / 323030320023 / 3
 
-<a id="canonical-809520a2997efbe19d87d992581ed570bee25918b8715d4492ddb8a9e20a5ef2"></a>
+<a id="canonical-3110022012211100-1000330221221332-2010203022002301-1112121212213000-1132203221022123-3303102022113022-0330020230001310-3230312302113303"></a>
 
-<a id="canonical-4619f4397606f00953143a89cc53a0cb38f12f8719dd0356a4fe7ffea8d1c21a"></a>
+<a id="canonical-3302220010003331-1011220101320022-0012031101300200-2331302321201032-3210320023103010-1231010332022331-2333131121200111-0011200033010111"></a>
 
-## default_gw property — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 4
+## default_gw property — node_static_ip / 323030320023 / 4
 
 Type: `"string"`. Computed.
 
@@ -238,21 +182,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-83ae3ccc28db1dc1749925a132188110d0b69120b67cef72df705e68e7a26c5f"></a>
+<a id="canonical-1130111221303111-0002310333300023-1331131011020111-3233233323100022-3310131131300331-2030130313023332-3320222132110323-3110030012310013"></a>
 
-<a id="canonical-29ef91a9dbc4d7e2a942ca099e93347806fecab01f12b7067a48439c297f1247"></a>
+<a id="canonical-0012101210321003-2030121133220001-2203110221030203-3202232233012131-2213122020212101-1100300022022312-0021303320203133-3313123111133231"></a>
 
-## dns_server property — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 5
+## dns_server property — node_static_ip / 323030320023 / 5
 
 Type: `"string"`. Computed.
 
 DNS server address for the static interface configuration.
 
-<a id="canonical-231c2ad72141a37118c291802237a8d4328303ad83f01537d7faab39b9a481e1"></a>
+<a id="canonical-2103113210201222-0011033303212021-2102120302002230-2131021130330311-2302320233322121-2203212323322031-1203033120323103-2300131000300201"></a>
 
-<a id="canonical-35f2600af1d44e68a31e2a7e964a5e6059c496bb949dad439a8a12e12bf8004b"></a>
+<a id="canonical-3322023311113301-2200022132113221-2002331313001220-3120202233101203-2010301323331321-3011121020211301-0023000133022001-0233003031200322"></a>
 
-## ip_address property — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 6
+## ip_address property — node_static_ip / 323030320023 / 6
 
 Type: `"string"`. Computed.
 
@@ -294,31 +238,319 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-90a707970e49346c76ca04d061c86c3a377d99ca68df7829b9b18bf023c07d43"></a>
+<a id="canonical-2032230320311033-3223103303011232-1011230322020302-3213221033010201-1021020101120303-1232312010211131-1102302220123001-2300202301012332"></a>
 
-## Next pages — ethernet_interface.static_ipv6_address.node_static_ip / 6b37be6e8d19 / 7
+## Next pages — node_static_ip / 323030320023 / 7
 
-- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-9a76ad147e80b2c51535b56cd403c93b9e85bbc9aa57014fc100c9bb299ff1f4)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [ethernet_interface.static_ip](data-sources--network_interface--reference--group-001.md#canonical-3312221322021303-3120113113303322-0130201201103221-3232302303112021-3223032010200211-1122330011012312-2200002231303102-1310333113123231)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-3f3e41399e956ac76c0e4c72fc7f2a6417f8c1cc7de2f968c11e0059a3d8411a"></a>
+<a id="canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4166ff528938b00b7330e0c2322f7e79e790babf65299c8117ec7e02f1032f3e"></a>
+<a id="canonical-1001220331203023-3101220111311011-2021101121331213-3102113100302030-2221030300112032-2323133001220012-2302131113021312-0201021221311332"></a>
 
-## ethernet_interface.storage_network — ethernet_interface.storage_network / 05a3dc8a4ed9 / 2
+## ethernet_interface.static_ipv6_address — static_ipv6_address / 012330001123 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- ethernet_interface.static_ipv6_address
+
+<a id="canonical-2012012100233103-0020302021020220-1021110301020301-0211320203011110-3033201122200101-2033021031201011-3311223230020021-2323030221003131"></a>
+
+Type: `"single"`. Computed.
+
+Static IP Parameters. Configure Static IP parameters.
+
+Upstream description:
+
+Configure Static IP parameters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
+}
+```
+
+<a id="canonical-3320231033203230-1210033203003033-3200210223130310-0232121122032003-0321103311232202-3102213123212221-1113111210002100-0213303212000130"></a>
+
+## Direct properties — static_ipv6_address / 012330001123 / 3
+
+- [cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-2000333032022001-3322313322223203-1013133100320320-3033310202132103-2203113332121223-2322020003032112-1131120000310220-2132120112013312): complete subsection reference.
+
+- [node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-2302202323030311-3302100320112003-2033232230321102-1101111301001110-1220330230220000-3231210201001121-0323103312331311-0111020120231012): complete subsection reference.
+
+<a id="canonical-1302010203200132-1220112002111121-2132103111301132-2212131101323303-0001010133301332-3310131010010302-2312013233322021-2220210232100130"></a>
+
+## Next pages — static_ipv6_address / 012330001123 / 4
+
+- [ethernet_interface.static_ipv6_address.cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-2000333032022001-3322313322223203-1013133100320320-3033310202132103-2203113332121223-2322020003032112-1131120000310220-2132120112013312)
+- [ethernet_interface.static_ipv6_address.node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-2302202323030311-3302100320112003-2033232230321102-1101111301001110-1220330230220000-3231210201001121-0323103312331311-0111020120231012)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+
+<a id="canonical-2000333032022001-3322313322223203-1013133100320320-3033310202132103-2203113332121223-2322020003032112-1131120000310220-2132120112013312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1031202203211103-1222122112320030-1100102210233210-0330313233020022-3011202230213002-2103200301302310-3100323032121000-1232332130102102"></a>
+
+## ethernet_interface.static_ipv6_address.cluster_static_ip — cluster_static_ip / 222131223013 / 2
+
+Breadcrumbs:
+
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310)
+- ethernet_interface.static_ipv6_address.cluster_static_ip
+
+<a id="canonical-2131010032210103-0301310100010222-3331312032212000-3120323223031120-0001221020222220-0122032103310201-3113330222323322-2203011002101131"></a>
+
+Type: `"single"`. Computed.
+
+Configure Static IP parameters for cluster.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3030201023112331-2322100112030021-2121232023112202-1013132333213013-0130231033003303-0320011102120002-3331330311111231-2230202201213202"></a>
+
+## Direct properties — cluster_static_ip / 222131223013 / 3
+
+<a id="canonical-2211030020312330-1133122213031302-0120020203213133-3223132310330312-0223122211320132-3130022030310231-3330103113121130-0203223322321220"></a>
+
+<a id="canonical-1302301113303033-2113121333211203-1030111022212032-0203001330032000-1030231010200301-1011331222331120-2111200113301122-2003011220231133"></a>
+
+## interface_ip_map property — cluster_static_ip / 222131223013 / 4
+
+Type: `["map", "string"]`. Computed.
+
+Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  }
+}
+```
+
+<a id="canonical-3000011211230033-3103103101210002-1301322230233021-0231230023120201-3133320203300033-3031110003212033-3101333113213301-3111101301223220"></a>
+
+## Next pages — cluster_static_ip / 222131223013 / 5
+
+- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+
+<a id="canonical-2302202323030311-3302100320112003-2033232230321102-1101111301001110-1220330230220000-3231210201001121-0323103312331311-0111020120231012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0322101110121222-0221023200221211-0013010210121332-3320200030311311-1333310300001233-0333000123213032-3312001203310012-0122211133303010"></a>
+
+## ethernet_interface.static_ipv6_address.node_static_ip — node_static_ip / 123220310121 / 2
+
+Breadcrumbs:
+
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310)
+- ethernet_interface.static_ipv6_address.node_static_ip
+
+<a id="canonical-1032002110320220-0320210300113000-2123213232011231-3102030233010020-2100200122333303-0212032303210331-1212023010232210-0111211101203020"></a>
+
+Type: `"single"`. Computed.
+
+Configure Static IP parameters for a node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2201201331121231-2103012101301010-0223132333020223-1211213320123110-1123131123333210-0213022203102022-1133232233111011-1232223323112131"></a>
+
+## Direct properties — node_static_ip / 123220310121 / 3
+
+<a id="canonical-2000211102002202-2121133233233201-2131201331212102-1120013231111300-2332320211210120-2320130111311010-2102313123202221-3202002211323302"></a>
+
+<a id="canonical-1012012133100321-1312001233000021-1103011003222021-3030110322003023-0320330102332013-0121313100031112-2210333213333332-2220310130020122"></a>
+
+## default_gw property — node_static_ip / 123220310121 / 4
+
+Type: `"string"`. Computed.
+
+Default Gateway. IP address of the default gateway.
+
+Upstream description:
+
+IP address of the default gateway.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ip",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  }
+}
+```
+
+<a id="canonical-2003223203303030-0220312301313001-1310212102112201-0302012020010100-3100231221010200-2312133032331302-3133130011321220-3213220212301133"></a>
+
+<a id="canonical-0221323321012221-3123301031133202-2221100230220021-2132210303101320-0012333230222300-0133010223130012-1322102010032130-0221133301021013"></a>
+
+## dns_server property — node_static_ip / 123220310121 / 5
+
+Type: `"string"`. Computed.
+
+DNS server address for the static interface configuration.
+
+<a id="canonical-0203013002223113-0201100122031301-0120300221012000-0202031322203110-0302200300032231-2003330001110313-3113332222230321-2321221020013201"></a>
+
+<a id="canonical-0311330212000022-3301311010321220-2203013202221332-2112102211321200-1121301021122323-2110213122311003-2122202201023201-0223332000001023"></a>
+
+## ip_address property — node_static_ip / 123220310121 / 6
+
+Type: `"string"`. Computed.
+
+IP address of the interface and prefix length.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "cidr",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-2100221300132113-0032102103101230-1312302200103100-1201302012300322-0313133121213022-1220313313200221-2321230120233300-0203300013311003"></a>
+
+## Next pages — node_static_ip / 123220310121 / 7
+
+- [ethernet_interface.static_ipv6_address](data-sources--network_interface--reference--group-002.md#canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+
+<a id="canonical-0333033210010321-2132211112223013-1230003210301302-3330133302221210-0113332030013030-1331320233211220-3001013200001121-2203312010010122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1001121233331102-2021032023000023-1303030032003002-0302023313321321-3213210023222333-1211022121302001-0113323013320002-3301000302330332"></a>
+
+## ethernet_interface.storage_network — storage_network / 202210323121 / 2
+
+Breadcrumbs:
+
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
 - ethernet_interface.storage_network
 
-<a id="canonical-aaa72a8a6c3e64516aefd2801c0e422a127e9315fdc0a5fc047c86fbf46edef4"></a>
+<a id="canonical-2222221302222022-1230033212101101-1222323331022000-0130003210020222-0102133221030111-3331300022113330-0010133020123323-3310123231323310"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -341,37 +573,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0e5ac3da72f070af1fe2463117daf72f404e7d460f1fa6ad7242bb9b3dfe6f43"></a>
+<a id="canonical-0032112230033122-1302330013002233-0133320210120301-0113312233130233-1000103213311012-0033013322122231-1302100223232123-0331333212331003"></a>
 
-## Direct properties — ethernet_interface.storage_network / 05a3dc8a4ed9 / 3
+## Direct properties — storage_network / 202210323121 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-26ebae5bfc1d01a7eb42e130e821053a7aa7fd1ac1baf75fa6a3e2df33bc3596"></a>
+<a id="canonical-0212322322321123-3330013100012213-3223100232010300-3220020100110322-1322221333310122-3001232233131133-2212220332023133-0303233003112112"></a>
 
-## Next pages — ethernet_interface.storage_network / 05a3dc8a4ed9 / 4
+## Next pages — storage_network / 202210323121 / 4
 
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-b3402af0a5d18205df42bc79bbeb04d66cf0db5fec4c9f1f4bea5d4601a46b76"></a>
+<a id="canonical-2303100002223300-2211310120020011-3133100223301321-2323322300103112-1230330031231133-3230103021330133-1023322211311012-0001221012231312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5de7c560e263f382e9f004d65d54d27322505eaa0cc690036598e9f17e4ee3ae"></a>
+<a id="canonical-1131321330111200-3202120333032002-3221330000103112-1131111031021303-0202110011322222-0030301221000003-1211212032213301-1332103232032232"></a>
 
-## ethernet_interface.untagged — ethernet_interface.untagged / 526b6ca98673 / 2
+## ethernet_interface.untagged — untagged / 222120121303 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
 - ethernet_interface.untagged
 
-<a id="canonical-fe8ae3fbcba88305ec8356fdc919a3be1d1283017e35bbc7d8ff2c8c5151c112"></a>
+<a id="canonical-3332202232033323-3023222020030011-3230200311123331-3021012122032332-0131010220030001-1332031123233013-3120333302302030-1101110130010102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -394,36 +626,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-45279d7aa3ba10f6e996b1644027fb0369102887a838c77c511cbc935cdb5298"></a>
+<a id="canonical-1011021321311322-2203232201003312-3221211223011210-1000021333230003-1221010002202013-2220032030131330-1101013023302103-1130312311022120"></a>
 
-## Direct properties — ethernet_interface.untagged / 526b6ca98673 / 3
+## Direct properties — untagged / 222120121303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-8b4eb2eb4ef1ca598a05fa0fa1e58b7cbdf80ee14b2d9a8a0a58e385a082bc3e"></a>
+<a id="canonical-2023103223023223-1032330130221121-2022001133220033-2201321120231330-2331332000323201-1023023121222022-0022112032032011-2200200223300332"></a>
 
-## Next pages — ethernet_interface.untagged / 526b6ca98673 / 4
+## Next pages — untagged / 222120121303 / 4
 
-- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-6da5e3e26326c09c2b17a5025193f1ac4df58638e4431ff4c3b6cfd13ebb42d6)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [ethernet_interface](data-sources--network_interface--reference--group-001.md#canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c"></a>
+<a id="canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dbede366373d537c961196620bdc695594e5a4a4167dd4e7fa65578943ad9ede"></a>
+<a id="canonical-3123323132031212-0313033111031330-2112010121121202-0023313012211111-2110321122102210-0112133131103213-3322121111132021-1003223121323132"></a>
 
-## layer2_interface — layer2_interface / 2c5754332ca9 / 2
+## layer2_interface — layer2_interface / 030302302221 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
 - layer2_interface
 
-<a id="canonical-e25c4b23e2e1ec1252a64394f70c4aac2e7034a01010527a43b3b66f0f420ceb"></a>
+<a id="canonical-3202113010230203-3202320132300102-1102221210032110-3313003010222230-0232130003102200-0100010011021322-1003230323121233-0033100200303223"></a>
 
 Type: `"single"`. Computed.
 
@@ -447,44 +679,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb8c9c4b627319f5b9daa4596d58e2738e79ef90eb20701c1817e3fe4ec14f43"></a>
+<a id="canonical-3023203021301023-1202130301213311-2321312222101121-1231112032021303-2032132132332100-3223020013000130-0120011332033332-1032300110331003"></a>
 
-## Direct properties — layer2_interface / 2c5754332ca9 / 3
+## Direct properties — layer2_interface / 030302302221 / 3
 
-- [l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-b9bccf49a78eb986b0afad4bdc7ffcea25cb9e58aee6d828b214cd30e9fccc49): complete subsection reference.
+- [l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021): complete subsection reference.
 
-- [l2vlan_interface](data-sources--network_interface--reference--group-002.md#canonical-3cf182136ac064cc6ebbd841b31abd806bc93c00695f769b47132c1e125f036e): complete subsection reference.
+- [l2vlan_interface](data-sources--network_interface--reference--group-002.md#canonical-0330330120020103-1222300012103030-1232232331201001-2303012223312000-1223302103300000-1221113313122123-1013010302300132-0102113300031232): complete subsection reference.
 
-- [l2vlan_slo_interface](data-sources--network_interface--reference--group-002.md#canonical-7420e477cd8597c56c13c9f8aa7dbde82a60cf7169a0289170a2ade7d1f98f8a): complete subsection reference.
+- [l2vlan_slo_interface](data-sources--network_interface--reference--group-002.md#canonical-1310020032101313-3031201121133011-1230010330213320-2222133123313220-0222120030331301-1221220002202101-1300220222313213-3101332120332022): complete subsection reference.
 
-<a id="canonical-e8f46f57044aef015bf3b23ac4484a8ae06ab6283c2769896ea7c89c8fdf273b"></a>
+<a id="canonical-3220331012331113-0010102232330001-1123330323020322-3010102010222022-3200122223120220-0330021312212021-1232221330202130-2033313302130323"></a>
 
-## Next pages — layer2_interface / 2c5754332ca9 / 4
+## Next pages — layer2_interface / 030302302221 / 4
 
-- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-b9bccf49a78eb986b0afad4bdc7ffcea25cb9e58aee6d828b214cd30e9fccc49)
-- [layer2_interface.l2vlan_interface](data-sources--network_interface--reference--group-002.md#canonical-3cf182136ac064cc6ebbd841b31abd806bc93c00695f769b47132c1e125f036e)
-- [layer2_interface.l2vlan_slo_interface](data-sources--network_interface--reference--group-002.md#canonical-7420e477cd8597c56c13c9f8aa7dbde82a60cf7169a0289170a2ade7d1f98f8a)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021)
+- [layer2_interface.l2vlan_interface](data-sources--network_interface--reference--group-002.md#canonical-0330330120020103-1222300012103030-1232232331201001-2303012223312000-1223302103300000-1221113313122123-1013010302300132-0102113300031232)
+- [layer2_interface.l2vlan_slo_interface](data-sources--network_interface--reference--group-002.md#canonical-1310020032101313-3031201121133011-1230010330213320-2222133123313220-0222120030331301-1221220002202101-1300220222313213-3101332120332022)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-b9bccf49a78eb986b0afad4bdc7ffcea25cb9e58aee6d828b214cd30e9fccc49"></a>
+<a id="canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5e6858fb066122576a7c4b09ae53ae6e032c723be36b18b32d662b79c3e3a69f"></a>
+<a id="canonical-1132122011203323-0012120102021113-1222133010230021-2232110322321232-0003023013020323-3203122301202303-0231121202231321-3003320322122133"></a>
 
-## layer2_interface.l2sriov_interface — layer2_interface.l2sriov_interface / 7fa72b774849 / 2
+## layer2_interface.l2sriov_interface — l2sriov_interface / 131310201021 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
 - layer2_interface.l2sriov_interface
 
-<a id="canonical-de8091034db81fd6f72be817732751028b91672188945e42bf9d4f12a32d5886"></a>
+<a id="canonical-3132200021010003-1031232001333112-3313022332200113-1303021311010002-2023210112130201-2020211011321002-2333213110330102-2203023111202012"></a>
 
 Type: `"single"`. Computed.
 
@@ -508,15 +740,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-646ee83c4e131dbece8ce84e8452cdd9f01081cdc0ee24d081f75dac02dcd552"></a>
+<a id="canonical-1210123232200330-1032010301312332-3032203032201032-2010110230313121-3300010020013031-3000323202103100-2001331311312230-0002313031111102"></a>
 
-## Direct properties — layer2_interface.l2sriov_interface / 7fa72b774849 / 3
+## Direct properties — l2sriov_interface / 131310201021 / 3
 
-<a id="canonical-563f58745d2099c61019eb401c116dfe0d497b6df9172f5cfcb1a5faf8eb3123"></a>
+<a id="canonical-1112033311201310-1131020021213012-0100012132231000-0130010112313332-0031102113231231-3321011302331130-3330230122113322-3320322303010203"></a>
 
-<a id="canonical-4fa8a264d37da7f5ccc71b7bbc59b149e4294e586b79b010f11e24774233cecb"></a>
+<a id="canonical-1033222022021210-3103133122133311-3030301301231323-2330112123011021-3210022110321120-1223132123000100-3301013202101313-1002030330323023"></a>
 
-## device property — layer2_interface.l2sriov_interface / 7fa72b774849 / 4
+## device property — l2sriov_interface / 131310201021 / 4
 
 Type: `"string"`. Computed.
 
@@ -563,13 +795,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [untagged](data-sources--network_interface--reference--group-002.md#canonical-932355f9cdc9584a69aa916b95ab543d0649196266c67001f1ed3d4424e54ba7): complete subsection reference.
+- [untagged](data-sources--network_interface--reference--group-002.md#canonical-2103020311113321-3031302111201022-1221222221011223-2111222311100331-0012102101211202-1212301213000001-3301323103311010-0210321110232213): complete subsection reference.
 
-<a id="canonical-7cff783164227e29be43971bd10b5bc399a9f605a966bc527b117df227fd5b90"></a>
+<a id="canonical-1330333313200301-1210020213320221-2332100321130123-3101002311233003-2121222133120011-2221121223301102-1323010113313302-0213333111232100"></a>
 
-<a id="canonical-835069997179d25e3436d1712eb28046cc0068d50246a2b769d7b8e131bbc485"></a>
+<a id="canonical-2003110012212121-1301132131021132-0310031231011301-0232230220001012-3030000012203111-0002101222022313-1221311323203201-0301232330102011"></a>
 
-## vlan_id property — layer2_interface.l2sriov_interface / 7fa72b774849 / 5
+## vlan_id property — l2sriov_interface / 131310201021 / 5
 
 Type: `"number"`. Computed.
 
@@ -613,33 +845,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-10e7aa1ce43e6d3b066b6634aefcbcae26f29a592e5bf1aa3fb6f5c8f20253a0"></a>
+<a id="canonical-0100321322220130-3210033212310323-0012122312120310-2232333023302232-0212330221221121-0232112333012222-0333231233113020-3302000211032200"></a>
 
-## Next pages — layer2_interface.l2sriov_interface / 7fa72b774849 / 6
+## Next pages — l2sriov_interface / 131310201021 / 6
 
-- [layer2_interface.l2sriov_interface.untagged](data-sources--network_interface--reference--group-002.md#canonical-932355f9cdc9584a69aa916b95ab543d0649196266c67001f1ed3d4424e54ba7)
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [layer2_interface.l2sriov_interface.untagged](data-sources--network_interface--reference--group-002.md#canonical-2103020311113321-3031302111201022-1221222221011223-2111222311100331-0012102101211202-1212301213000001-3301323103311010-0210321110232213)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-932355f9cdc9584a69aa916b95ab543d0649196266c67001f1ed3d4424e54ba7"></a>
+<a id="canonical-2103020311113321-3031302111201022-1221222221011223-2111222311100331-0012102101211202-1212301213000001-3301323103311010-0210321110232213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-45c2f65fc6ef70531777929db44cdf7a04f9dbb0da102d276a9c6d7a140bc16a"></a>
+<a id="canonical-1011300233121133-3012323313001103-0113131321022131-2310103031331322-0010332131232300-3122010002310213-1222213012311322-0110002330011222"></a>
 
-## layer2_interface.l2sriov_interface.untagged — layer2_interface.l2sriov_interface.untagged / aa1e159c95e5 / 2
+## layer2_interface.l2sriov_interface.untagged — untagged / 213021113211 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
-- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-b9bccf49a78eb986b0afad4bdc7ffcea25cb9e58aee6d828b214cd30e9fccc49)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
+- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021)
 - layer2_interface.l2sriov_interface.untagged
 
-<a id="canonical-85b06d296fc171d55fb3d610af76da9119fa7696e7398c4c526b35b20206d3ea"></a>
+<a id="canonical-2011230012310221-1233300113013111-1133230331120100-2233131231222101-0121332213122112-3213032120301030-1102122303112302-0002001231033222"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -662,37 +894,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ff63bf2484902e9cc3c3093e6b72b5a7edb4e7a9364d0f7786bd8f4761d358b6"></a>
+<a id="canonical-3333120323330210-2010210002322130-3003300300210332-1223130223112213-3231231032132221-0312103100331313-2012233120331013-1201310311202312"></a>
 
-## Direct properties — layer2_interface.l2sriov_interface.untagged / aa1e159c95e5 / 3
+## Direct properties — untagged / 213021113211 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-942f443a9c24232257aa8e5d2a36f92b3932d216d6fed2e5dd45f4bb6f88e221"></a>
+<a id="canonical-2110023310100322-2130021002030202-1113222220321131-0222031233210223-0321030231020112-3112333231023211-3131101133102323-1233202032020201"></a>
 
-## Next pages — layer2_interface.l2sriov_interface.untagged / aa1e159c95e5 / 4
+## Next pages — untagged / 213021113211 / 4
 
-- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-b9bccf49a78eb986b0afad4bdc7ffcea25cb9e58aee6d828b214cd30e9fccc49)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [layer2_interface.l2sriov_interface](data-sources--network_interface--reference--group-002.md#canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-3cf182136ac064cc6ebbd841b31abd806bc93c00695f769b47132c1e125f036e"></a>
+<a id="canonical-0330330120020103-1222300012103030-1232232331201001-2303012223312000-1223302103300000-1221113313122123-1013010302300132-0102113300031232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d2fdaf27bfbfe800efb80b53c197c623f06c1568da8992b6167b8bb8f0053523"></a>
+<a id="canonical-3102333122330213-2333233332200000-3233232000231103-3001211330120203-3300123001111220-3122202121022312-0112132320232320-3300001103110203"></a>
 
-## layer2_interface.l2vlan_interface — layer2_interface.l2vlan_interface / 041a9787ed00 / 2
+## layer2_interface.l2vlan_interface — l2vlan_interface / 201332310000 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
 - layer2_interface.l2vlan_interface
 
-<a id="canonical-2e684f5ff27b6ff85205c9274e35ea3fc52289b5fd480adf4968919f7e3cd424"></a>
+<a id="canonical-0232122010331133-3302132312333320-1102001130210213-1032031132220333-3011020220212311-3331102000223133-1021122021012133-1332033031100210"></a>
 
 Type: `"single"`. Computed.
 
@@ -715,15 +947,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1981a7fbd5c51149eb5f1c650a87e2e8feba05f53b1b149013ac8cd247483309"></a>
+<a id="canonical-0121200122133323-3111301101011021-3223113301301211-0022201332023220-3332232200113311-0323012301102100-0103223020303102-1013102003030021"></a>
 
-## Direct properties — layer2_interface.l2vlan_interface / 041a9787ed00 / 3
+## Direct properties — l2vlan_interface / 201332310000 / 3
 
-<a id="canonical-172f0c411c33895503d64a66e56d1132a4684337e357d3fac2821f6a6c6fb940"></a>
+<a id="canonical-0113023300301001-0130030320211111-0003311210221212-3211123101010302-2210122010030313-3203111331033322-3002200201331222-1230123323211000"></a>
 
-<a id="canonical-d82d98e281118b7913ab0cd92f0bd5ac688e89c97e145bd67491d142ed8e9cde"></a>
+<a id="canonical-3120023121203202-2001010120231321-0103222300303121-0233002331112230-1220203220213021-1332011011233112-1310210131011002-3231203221303132"></a>
 
-## device property — layer2_interface.l2vlan_interface / 041a9787ed00 / 4
+## device property — l2vlan_interface / 201332310000 / 4
 
 Type: `"string"`. Computed.
 
@@ -770,11 +1002,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0a29bba28098c7b2206fff78e66f9e082c978fd2b99393d67e990b0ad16eb13d"></a>
+<a id="canonical-0022022123232202-2000212030132302-0200123333331320-3212123321320020-0230211320333102-2321210321033112-1332212100230022-3101123223010331"></a>
 
-<a id="canonical-4acef8a1717b720abf829bef31ed641d7a1998c2c1267b8c08aa529fb000db15"></a>
+<a id="canonical-1022303233202201-1301132313020022-2333200221233233-0301323112100131-1322012121203002-3001021213232030-0020222211022133-2300000031230111"></a>
 
-## vlan_id property — layer2_interface.l2vlan_interface / 041a9787ed00 / 5
+## vlan_id property — l2vlan_interface / 201332310000 / 5
 
 Type: `"number"`. Computed.
 
@@ -820,31 +1052,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d2cc5c3b7fe273e8dea7b78044e8933c1163bc0b2dbfd539086e8713850d5cf4"></a>
+<a id="canonical-3102303011300323-1333320213033220-3132221323132000-1010322021030330-0101120323300023-0231233331110321-0020123220130103-2011003111303310"></a>
 
-## Next pages — layer2_interface.l2vlan_interface / 041a9787ed00 / 6
+## Next pages — l2vlan_interface / 201332310000 / 6
 
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-7420e477cd8597c56c13c9f8aa7dbde82a60cf7169a0289170a2ade7d1f98f8a"></a>
+<a id="canonical-1310020032101313-3031201121133011-1230010330213320-2222133123313220-0222120030331301-1221220002202101-1300220222313213-3101332120332022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2ab63c01664fe2c293824b7451f3eef076c173198969a5f385fd04d561edf50d"></a>
+<a id="canonical-0222231203300001-1212103332023002-2103200210231310-1101330332323300-1312300113030121-2021122122113303-2011333100103111-1201323133110031"></a>
 
-## layer2_interface.l2vlan_slo_interface — layer2_interface.l2vlan_slo_interface / b95dfaf3b934 / 2
+## layer2_interface.l2vlan_slo_interface — l2vlan_slo_interface / 330323210310 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
 - layer2_interface.l2vlan_slo_interface
 
-<a id="canonical-a76b9c4cb3f24fecfc400619b2fa619033228f6f8ed2047ac0e387fd3350225e"></a>
+<a id="canonical-2213122321301030-2303330210333230-3330100000120121-2302332212012100-0303020220331233-2032310200101322-3000320320133331-0303110002021132"></a>
 
 Type: `"single"`. Computed.
 
@@ -863,15 +1095,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ea2720cfbe8e08e0537bbe3c65f82fe624625d79c533dd153b7d1c58dd48f741"></a>
+<a id="canonical-3222021302003033-2332203200203200-1103132323320330-1211332002333212-0210120211311321-3011030331310111-0323133101301120-3131102033131001"></a>
 
-## Direct properties — layer2_interface.l2vlan_slo_interface / b95dfaf3b934 / 3
+## Direct properties — l2vlan_slo_interface / 330323210310 / 3
 
-<a id="canonical-975c0ff9b818e5b3dfb430cc3daeb9944a1aa8f0a86e2c212ae2a80a3ec85d55"></a>
+<a id="canonical-2113113000333321-2320012032112303-3133231003003030-0331223223212110-1022012222203300-2220123202300201-0222320222200022-0332302011311111"></a>
 
-<a id="canonical-b9f196a569b8f1f82e3dd7ac267880e65ec443961132df039bb3fe5667c14b88"></a>
+<a id="canonical-2321330121122211-1221232033013320-0232033131132230-0212132020003212-1132301010032112-0101030231330003-2123230333321112-1213300110232020"></a>
 
-## vlan_id property — layer2_interface.l2vlan_slo_interface / b95dfaf3b934 / 4
+## vlan_id property — l2vlan_slo_interface / 330323210310 / 4
 
 Type: `"number"`. Computed.
 
@@ -917,30 +1149,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ff982e3fbf7319fff6b5aadea737eb54c55de159517ca526f104c6d30520e56"></a>
+<a id="canonical-0233332120023203-3323331303012133-3333122311222231-3222130313322311-1030111131320111-2111011330221102-1233010010301231-0300110200321112"></a>
 
-## Next pages — layer2_interface.l2vlan_slo_interface / b95dfaf3b934 / 5
+## Next pages — l2vlan_slo_interface / 330323210310 / 5
 
-- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-23fb46783886bf9cc3aab8b71636b36b489f59cff700e25eee93f42b2c95b70c)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [layer2_interface](data-sources--network_interface--reference--group-002.md#canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7"></a>
+<a id="canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f1dcbd9ad550b47d24989242f5b6079c1933800f3d0737c283cd193c3f56b9e7"></a>
+<a id="canonical-3301313023312122-3111110023101331-0210212021021002-3311231200132130-0121030320000033-0331001303133002-2003303101210330-0333111223213213"></a>
 
-## tunnel_interface — tunnel_interface / 9d5f1ebf9092 / 2
+## tunnel_interface — tunnel_interface / 233321002102 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
 - tunnel_interface
 
-<a id="canonical-2269d485ee9d6abbab5bf7aa51105026e13fedb756d7e5e7f41e68c320cf0cef"></a>
+<a id="canonical-0202122131102011-3232213112222323-2223112333132222-1101010011000212-3201033332312313-1112311332113213-3310013212203003-0200303300303233"></a>
 
 Type: `"single"`. Computed.
 
@@ -965,15 +1197,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-828e2a8b5894a04e97cf566db332730dd89d46ab2f97e4e4d848f5bd9b89bd1d"></a>
+<a id="canonical-2002203202222023-1120211022001032-2113303311121231-2303030213030031-3120213110122223-0233211332103210-3120102033112331-2123202123310131"></a>
 
-## Direct properties — tunnel_interface / 9d5f1ebf9092 / 3
+## Direct properties — tunnel_interface / 233321002102 / 3
 
-<a id="canonical-b16af4d8d658af6a2d6ce94ed4d95227a38d37ef20053ddb91cc794880697d2e"></a>
+<a id="canonical-2301122233103120-3112112022331222-0231123032211032-3110312111020213-2203203103133233-0200001103313123-2101303013211020-2000122113310232"></a>
 
-<a id="canonical-abd8069543d7d2c532a76ac5f9d384c62b9cd34a6117311d9b554bf54f1a53d7"></a>
+<a id="canonical-2223312000122111-1003311331023011-0302221312223011-3321310320103012-0223213031031022-1201011303010131-2123111110233311-1033012211033113"></a>
 
-## mtu property — tunnel_interface / 9d5f1ebf9092 / 4
+## mtu property — tunnel_interface / 233321002102 / 4
 
 Type: `"number"`. Computed.
 
@@ -1015,11 +1247,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-affaa248268d9aa661fe2672faf0f9d1ab03a30897a5e02bb9c08cb6767f77e1"></a>
+<a id="canonical-2233332222021020-0212203121222212-1201333202121302-3322330033213101-2223000322030020-2113221132000223-2321300020302312-1312133313133201"></a>
 
-<a id="canonical-e8065f0c9e6dc8f88d8ed7e8cf96bc953d4a670a5a6b399976e9925f82fe3c5d"></a>
+<a id="canonical-3220001211330030-2132123130203320-2031203231133220-3033211223302111-0331102212130022-1122122303212121-1312322121021133-2002333203301131"></a>
 
-## node property — tunnel_interface / 9d5f1ebf9092 / 5
+## node property — tunnel_interface / 233321002102 / 5
 
 Type: `"string"`. Computed.
 
@@ -1064,11 +1296,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9a463d81bb6733b17adbaca9fad7dbbf2ce260e621600eb998569bfd370eafef"></a>
+<a id="canonical-2122101203312001-2323121303032301-1322312322302221-3322311331232333-0230320212003212-0201120000322321-2120111221233331-0313003222333233"></a>
 
-<a id="canonical-4bb1c7d7779128dcf9fd08192a411ef3f9f93be14c5f8eb4a71f1409166988d6"></a>
+<a id="canonical-1023230130133113-1313210102203130-3321333100200121-0222100101323303-3321332103233201-1030113320322310-2213013301100021-0112122120203112"></a>
 
-## priority property — tunnel_interface / 9d5f1ebf9092 / 6
+## priority property — tunnel_interface / 233321002102 / 6
 
 Type: `"number"`. Computed.
 
@@ -1114,43 +1346,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_local_inside_network](data-sources--network_interface--reference--group-002.md#canonical-e0f9d70ad880b1ff82963e5c7ad0ebf343cddc9811ce1a27aa054348a9cde3d0): complete subsection reference.
+- [site_local_inside_network](data-sources--network_interface--reference--group-002.md#canonical-3200332131130022-3120200023013333-2002211203321130-1322310032233303-1003303131302120-0101303201220213-2222001110031020-2221303132033100): complete subsection reference.
 
-- [site_local_network](data-sources--network_interface--reference--group-002.md#canonical-a9aaaa371339244aee6ee1cc4c8a2e6470fd704a00c8486474c9f1a74242acdc): complete subsection reference.
+- [site_local_network](data-sources--network_interface--reference--group-002.md#canonical-2221222222220313-0103032102101022-3232123232013030-1030202202321210-1300333113001022-0000302010201210-1310302133012213-1002100222303130): complete subsection reference.
 
-- [static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e): complete subsection reference.
+- [static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032): complete subsection reference.
 
-- [tunnel](data-sources--network_interface--reference--group-002.md#canonical-12c7607c94c58ba6117f1102dbdc4d43295086477c6c24a64a68207b6253cd2d): complete subsection reference.
+- [tunnel](data-sources--network_interface--reference--group-002.md#canonical-0102301312001330-2110301120232212-0101133301010002-3123313010311003-0221110020121013-1330123002102212-1022122002001323-1202110330310231): complete subsection reference.
 
-<a id="canonical-8c9ae70b538230ba7ba050b9977e420220d3eb6826952cfb7c3b33b7e52d7aa2"></a>
+<a id="canonical-2030212232130023-1103200203002322-1323220011002321-2113133210020002-0200310332231220-0212211102303323-1330032303032313-3211023113222202"></a>
 
-## Next pages — tunnel_interface / 9d5f1ebf9092 / 7
+## Next pages — tunnel_interface / 233321002102 / 7
 
-- [tunnel_interface.site_local_inside_network](data-sources--network_interface--reference--group-002.md#canonical-e0f9d70ad880b1ff82963e5c7ad0ebf343cddc9811ce1a27aa054348a9cde3d0)
-- [tunnel_interface.site_local_network](data-sources--network_interface--reference--group-002.md#canonical-a9aaaa371339244aee6ee1cc4c8a2e6470fd704a00c8486474c9f1a74242acdc)
-- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e)
-- [tunnel_interface.tunnel](data-sources--network_interface--reference--group-002.md#canonical-12c7607c94c58ba6117f1102dbdc4d43295086477c6c24a64a68207b6253cd2d)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface.site_local_inside_network](data-sources--network_interface--reference--group-002.md#canonical-3200332131130022-3120200023013333-2002211203321130-1322310032233303-1003303131302120-0101303201220213-2222001110031020-2221303132033100)
+- [tunnel_interface.site_local_network](data-sources--network_interface--reference--group-002.md#canonical-2221222222220313-0103032102101022-3232123232013030-1030202202321210-1300333113001022-0000302010201210-1310302133012213-1002100222303130)
+- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032)
+- [tunnel_interface.tunnel](data-sources--network_interface--reference--group-002.md#canonical-0102301312001330-2110301120232212-0101133301010002-3123313010311003-0221110020121013-1330123002102212-1022122002001323-1202110330310231)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-e0f9d70ad880b1ff82963e5c7ad0ebf343cddc9811ce1a27aa054348a9cde3d0"></a>
+<a id="canonical-3200332131130022-3120200023013333-2002211203321130-1322310032233303-1003303131302120-0101303201220213-2222001110031020-2221303132033100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6c6d706bd0b2960468d9c74867dc8531d60f816399fb582c2aea9d4f1c6f63dd"></a>
+<a id="canonical-1230123113001223-3100230221120010-1220312130131020-1213313020110301-3112003320011203-2121332311200230-0222322221311033-0130123312033131"></a>
 
-## tunnel_interface.site_local_inside_network — tunnel_interface.site_local_inside_network / 0baaefb1371a / 2
+## tunnel_interface.site_local_inside_network — site_local_inside_network / 230103130122 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
 - tunnel_interface.site_local_inside_network
 
-<a id="canonical-ddfce1eb4985dad3d94241abc3dbd44edb756ed2ea830471afab9bce2b48151b"></a>
+<a id="canonical-3131333032013223-1021201131223103-3121100210012223-3003312331101032-3123131112323102-3222200300101301-2233222321233032-0223102001110123"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1173,37 +1405,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c5ef03d9c1109e579461a38c71e112b1a575c6b29d526067e5732d3de15431b"></a>
+<a id="canonical-2130113233000331-2130010100213211-1321101201220320-3013013201010223-0122111311301223-0221311102120012-1332111303023103-3132011110030123"></a>
 
-## Direct properties — tunnel_interface.site_local_inside_network / 0baaefb1371a / 3
+## Direct properties — site_local_inside_network / 230103130122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5c202314496fd69ee5a61a7f295fe1866381c1e3c279c16edf2a0d56884e5808"></a>
+<a id="canonical-1130020002030110-1021123331122132-3211221201221333-0221113332012012-1203200130013203-3002132130011232-3133022200311112-2020103211200020"></a>
 
-## Next pages — tunnel_interface.site_local_inside_network / 0baaefb1371a / 4
+## Next pages — site_local_inside_network / 230103130122 / 4
 
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-a9aaaa371339244aee6ee1cc4c8a2e6470fd704a00c8486474c9f1a74242acdc"></a>
+<a id="canonical-2221222222220313-0103032102101022-3232123232013030-1030202202321210-1300333113001022-0000302010201210-1310302133012213-1002100222303130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f8de1d2542577de66d1490a972bc343077b04b7edb456a94e8a60dc26e8e27d2"></a>
+<a id="canonical-3320313201310211-1002111313313212-1231011021002221-1302233003100300-1313230010231332-3123101112222110-3220221200313002-1232203202133102"></a>
 
-## tunnel_interface.site_local_network — tunnel_interface.site_local_network / 98d1805a2ee3 / 2
+## tunnel_interface.site_local_network — site_local_network / 112202323203 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
 - tunnel_interface.site_local_network
 
-<a id="canonical-40da0852fce20e65a6795890ccf3851f55b9ea511f4eebe016f215074d076519"></a>
+<a id="canonical-1000312200201102-3330320200321211-2212132111202100-3030330320110133-1111232132221101-0133103232233200-0112330201110013-1031001312110121"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1226,37 +1458,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-277d984423a16f5190df4f5910a94fd4014e1ed47755dba7c67f9a85b13dcc02"></a>
+<a id="canonical-0213133121201010-0203220112331101-2100313310331121-0100222110333110-0001103201323110-1313111131232213-3012133321222011-2301033130300002"></a>
 
-## Direct properties — tunnel_interface.site_local_network / 98d1805a2ee3 / 3
+## Direct properties — site_local_network / 112202323203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b04bb14214c6a011a7819b2c6e46c4d0bf881b66552c8f473733355d2c66c702"></a>
+<a id="canonical-2300102323011002-0110301222000101-2213200121230230-1232101230103100-2333202001231212-1111023020331013-0313030303111131-0230121230130002"></a>
 
-## Next pages — tunnel_interface.site_local_network / 98d1805a2ee3 / 4
+## Next pages — site_local_network / 112202323203 / 4
 
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e"></a>
+<a id="canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3a69669d3e6b6b64e91fa343e7040788920b40d409de7684b898420ea4a9a6f4"></a>
+<a id="canonical-0322122112122131-0332122312231210-3221013322031003-3213001000132020-2102002310003110-0021313213122010-2320212010020032-2210222122123310"></a>
 
-## tunnel_interface.static_ip — tunnel_interface.static_ip / 76eaf389a3a6 / 2
+## tunnel_interface.static_ip — static_ip / 202122032212 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
 - tunnel_interface.static_ip
 
-<a id="canonical-d759e4dee3392c091389e994fa5b71251ac2d86bf489e5f5b1b782eebe1bfddc"></a>
+<a id="canonical-3113112132103132-3203032102300021-0103202132212110-3322112313010211-0122300231201223-3310202132113311-2301231320023232-2332012333313130"></a>
 
 Type: `"single"`. Computed.
 
@@ -1280,42 +1512,42 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2641d7b119979766656d8def7a2a85589d8a654c70e9b26cd8efb62a39d4d0e6"></a>
+<a id="canonical-0212100131132301-0121211321131212-1211123120313233-1322022220111120-2131202212111030-1300322123021230-3120323323120222-0321311031003212"></a>
 
-## Direct properties — tunnel_interface.static_ip / 76eaf389a3a6 / 3
+## Direct properties — static_ip / 202122032212 / 3
 
-- [cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-00c22acaf24362b322232a94f82acb3de41e34c96de6b57643be8504fe362d01): complete subsection reference.
+- [cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-0000300202223022-3302100312022303-0202020302222110-3320022230230331-3210013203103021-1231321223111312-1003233220110010-3332031202310001): complete subsection reference.
 
-- [node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-57b51e56f301bd1d80b0361f77124fc69daaf028c0b0a6f44e20f5882b8d9e8d): complete subsection reference.
+- [node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-1113231101321112-3303000123310131-2000230003120133-1313010210333012-2131222233000220-3000230022123310-1032020033112020-0223203121322031): complete subsection reference.
 
-<a id="canonical-ccfc399594ea79a17bd5e42a3e2e362dbb3df9b7cc82d615b81fda10ad5ca97a"></a>
+<a id="canonical-3030333003212111-2110322213212201-1323311132100222-0332023203120231-2323033133212313-3030200231120111-2320013331220100-2231113022211322"></a>
 
-## Next pages — tunnel_interface.static_ip / 76eaf389a3a6 / 4
+## Next pages — static_ip / 202122032212 / 4
 
-- [tunnel_interface.static_ip.cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-00c22acaf24362b322232a94f82acb3de41e34c96de6b57643be8504fe362d01)
-- [tunnel_interface.static_ip.node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-57b51e56f301bd1d80b0361f77124fc69daaf028c0b0a6f44e20f5882b8d9e8d)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface.static_ip.cluster_static_ip](data-sources--network_interface--reference--group-002.md#canonical-0000300202223022-3302100312022303-0202020302222110-3320022230230331-3210013203103021-1231321223111312-1003233220110010-3332031202310001)
+- [tunnel_interface.static_ip.node_static_ip](data-sources--network_interface--reference--group-002.md#canonical-1113231101321112-3303000123310131-2000230003120133-1313010210333012-2131222233000220-3000230022123310-1032020033112020-0223203121322031)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-00c22acaf24362b322232a94f82acb3de41e34c96de6b57643be8504fe362d01"></a>
+<a id="canonical-0000300202223022-3302100312022303-0202020302222110-3320022230230331-3210013203103021-1231321223111312-1003233220110010-3332031202310001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8b8058ac51f156b735f29db506d9dc751cb212cfcb6d49f5e5dad0847d8c9d1e"></a>
+<a id="canonical-2023200011202230-1101330111122313-0311330221312311-0012312131301311-0130230201023033-3023123110213311-3211312231002010-1331203021310132"></a>
 
-## tunnel_interface.static_ip.cluster_static_ip — tunnel_interface.static_ip.cluster_static_ip / 59d99160f569 / 2
+## tunnel_interface.static_ip.cluster_static_ip — cluster_static_ip / 120033111221 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032)
 - tunnel_interface.static_ip.cluster_static_ip
 
-<a id="canonical-3951090c5704fe4b24b3845979b1af9bc587e36046f2e9660a54a3d7c9858fa4"></a>
+<a id="canonical-0321110100210030-1113001033321023-0210230320101121-1321230122332123-3011201332031200-1012330232211212-0022111022033113-3021201120332210"></a>
 
 Type: `"single"`. Computed.
 
@@ -1334,15 +1566,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5bb498fd0694d36e3dafe0afb38863c3139b1ddad86d3b851f87888f14771992"></a>
+<a id="canonical-1123231021203331-0012211031031232-0331223332002233-2303202012033003-0103212301313122-3120123103232011-0133201320202033-0110131301212102"></a>
 
-## Direct properties — tunnel_interface.static_ip.cluster_static_ip / 59d99160f569 / 3
+## Direct properties — cluster_static_ip / 120033111221 / 3
 
-<a id="canonical-d17252b54bc679bb9c9fd0710f654221d0f17d369b1972f405a9d0bd5875239f"></a>
+<a id="canonical-3101130211022311-1023301213212323-2130213331001301-0033121110020201-3100330113310312-2123012113023310-0011222131002331-1120131102032133"></a>
 
-<a id="canonical-a7d0940a1404bd0c9f0f23b7b7f5880c817e8124ae0ca53eb35ba253538e108e"></a>
+<a id="canonical-2213310021100022-0110001023310030-2133003302032313-2313331120200030-2001133220010210-2232003022110332-2303112322021103-1103203201002032"></a>
 
-## interface_ip_map property — tunnel_interface.static_ip.cluster_static_ip / 59d99160f569 / 4
+## interface_ip_map property — cluster_static_ip / 120033111221 / 4
 
 Type: `["map", "string"]`. Computed.
 
@@ -1371,32 +1603,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e364d39299a7905fab25e22bfe6fc00f3a9c5bac1a2f3a1778d069a72980bc96"></a>
+<a id="canonical-3203121031032102-2121221321001133-2223021132020223-3332123330000033-0322213011232230-0122023303220113-1320310012212213-0221200023302112"></a>
 
-## Next pages — tunnel_interface.static_ip.cluster_static_ip / 59d99160f569 / 5
+## Next pages — cluster_static_ip / 120033111221 / 5
 
-- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-57b51e56f301bd1d80b0361f77124fc69daaf028c0b0a6f44e20f5882b8d9e8d"></a>
+<a id="canonical-1113231101321112-3303000123310131-2000230003120133-1313010210333012-2131222233000220-3000230022123310-1032020033112020-0223203121322031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7eedfb386b6ab9e35c18923aac544028c7ac7a5ec2e7200ad893375d67a9a260"></a>
+<a id="canonical-1332323133230320-1223122223213203-1130012021020322-2230111010000220-3013223013221132-3002321302000022-3120210303131131-1213222122021200"></a>
 
-## tunnel_interface.static_ip.node_static_ip — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 2
+## tunnel_interface.static_ip.node_static_ip — node_static_ip / 303131101311 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032)
 - tunnel_interface.static_ip.node_static_ip
 
-<a id="canonical-75fba8069b09750e46990355a84447034150dad44ad0c2c2d3aac0d9a244bc1f"></a>
+<a id="canonical-1311332322200012-2123002113110032-1012212100031111-2220101010130003-1001110031223110-1022310030023002-3103222230003121-2202101023300133"></a>
 
 Type: `"single"`. Computed.
 
@@ -1415,15 +1647,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-629abbd533cd2cf223a2a27676724d873d39283d188a96645e7450af7dbea533"></a>
+<a id="canonical-1202212223233111-0303303102303302-0203220222021312-1312130210312013-0331032102200331-0120202221121210-1132131011002233-1331233222110303"></a>
 
-## Direct properties — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 3
+## Direct properties — node_static_ip / 303131101311 / 3
 
-<a id="canonical-0c78a0677c44b526d506638e3630ef7ceeeea99eda1bdcd6ddc6572209f368c9"></a>
+<a id="canonical-0030132022001213-1330101023110212-3111001212032032-0312030032331330-3232323222212132-3122012331303112-3131301211130202-0021330312203021"></a>
 
-<a id="canonical-b88511a4c404c2f954ee70a54f4394fdfadd70ed24705b239101074e1f4eecff"></a>
+<a id="canonical-2320201101012210-3010001030023321-1110323213002211-1033100321103331-3322313113003231-0210130011230203-2101000100131032-0133103232303333"></a>
 
-## default_gw property — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 4
+## default_gw property — node_static_ip / 303131101311 / 4
 
 Type: `"string"`. Computed.
 
@@ -1464,21 +1696,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b365993c73b1fcce6c37f66fcba25f9334059b0ef3324ef83306a3198dde137b"></a>
+<a id="canonical-2303121121210330-1303230133303032-1230031333121233-3023220211332103-0310001121230032-3303030210323320-0303001222030121-2031313201031323"></a>
 
-<a id="canonical-08c8b196a1df870329393913118cb57f0cbb2662eb5a8a80259da2da685ce179"></a>
+<a id="canonical-0020302023012112-2201313320130003-0221032103210103-0101203023111333-0030232302121202-3223112220222000-0211213122023122-1220113032011321"></a>
 
-## dns_server property — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 5
+## dns_server property — node_static_ip / 303131101311 / 5
 
 Type: `"string"`. Computed.
 
 DNS server address for the static interface configuration.
 
-<a id="canonical-6b22ad6f23f80e4a5a4fb31288968511e7034e5ed3d7940915a1037cd63c8418"></a>
+<a id="canonical-1223020222311233-0203332000321022-1122103323030102-2020211220110101-3213000310321132-3103311321100021-0111220100031330-3112033020100120"></a>
 
-<a id="canonical-11c378ed6c83f45b4c6d5d550ea08ec92434c8b32b8a313223126deff507dc29"></a>
+<a id="canonical-0101300313203231-1230200333101123-1030123111311111-0032220020323021-0210031030202303-0223202203010302-0203010212313233-3311001331300221"></a>
 
-## ip_address property — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 6
+## ip_address property — node_static_ip / 303131101311 / 6
 
 Type: `"string"`. Computed.
 
@@ -1520,31 +1752,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec85e184c6634a3df73a64f69926b0b5f303a12f7d9bf4a0a98be4095b4ae49a"></a>
+<a id="canonical-3230201132012010-3012120310220331-3313032212103312-2121021223002311-3303000322010233-1331212333102200-2221202332100021-1123102232102122"></a>
 
-## Next pages — tunnel_interface.static_ip.node_static_ip / 20d7c7cdd475 / 7
+## Next pages — node_static_ip / 303131101311 / 7
 
-- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-d998f40f1e817bd55c5f36113ddced31b6809f8412fe5ed13f6d55cdb38d294e)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface.static_ip](data-sources--network_interface--reference--group-002.md#canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
 
-<a id="canonical-12c7607c94c58ba6117f1102dbdc4d43295086477c6c24a64a68207b6253cd2d"></a>
+<a id="canonical-0102301312001330-2110301120232212-0101133301010002-3123313010311003-0221110020121013-1330123002102212-1022122002001323-1202110330310231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-daf4df08f1529a303721001d27f18539de1f68de50af10655aa04198040b4997"></a>
+<a id="canonical-3122331031330020-3301110221220300-0313020100000131-0213330120110321-3132013312203132-1100223301001211-1122220010012120-0010002310212113"></a>
 
-## tunnel_interface.tunnel — tunnel_interface.tunnel / 277ecdc63a18 / 2
+## tunnel_interface.tunnel — tunnel / 301203220120 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
-- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)
+- [Property reference](data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
 - tunnel_interface.tunnel
 
-<a id="canonical-37d22a39d0a701213a15d6b37e005801363a06fb154abbc1c5d88afa0a13f6af"></a>
+<a id="canonical-0313310202220321-3100221300010201-0322011131122303-1332000011200001-0312032200123323-0111102223233001-3011312020223322-0022010333122233"></a>
 
 Type: `"single"`. Computed.
 
@@ -1569,15 +1801,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-944e104667868ba8a1ffd404fde37113e8bfc7b289111e60b2a05d8c5b901ccc"></a>
+<a id="canonical-2110103201001012-1213201220232220-2201333331100010-3331320313010103-3220233330132302-2021010101321200-2302220011312030-1123210001303030"></a>
 
-## Direct properties — tunnel_interface.tunnel / 277ecdc63a18 / 3
+## Direct properties — tunnel / 301203220120 / 3
 
-<a id="canonical-ad6cb919c8091cd74ee36c3b3661456de78020eb9a8a38dc8fa8cd87843d5055"></a>
+<a id="canonical-2231123023210121-3020002101303113-1032320312300323-0312120110111231-3213200002003223-2122202203203130-2033222030312013-2010033111001111"></a>
 
-<a id="canonical-f0290eb64e4be745f6987bc2a099de74e7c176529d71fc8b08370b070d6420ef"></a>
+<a id="canonical-3300022100322312-1032102332131011-3312212013233002-2200212131321310-3213300113121102-2131130133302023-0020031300230013-0031121002003233"></a>
 
-## name property — tunnel_interface.tunnel / 277ecdc63a18 / 4
+## name property — tunnel / 301203220120 / 4
 
 Type: `"string"`. Computed.
 
@@ -1630,11 +1862,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9ca364562be93c9d662267a70d9bdb137089324fd7b7590d98fa74430fcf48fc"></a>
+<a id="canonical-2130220312101112-0223322103302131-1212020212132213-0031212331230103-1300202103021033-3113231311210031-2120332213101003-0033303310203330"></a>
 
-<a id="canonical-6223da18632ae03481e3336526fcb8fe88f477d4e3b750247eef70f8869f3dcd"></a>
+<a id="canonical-1202020331220120-1203022232000310-2001320303031211-0212333023203332-2020331013133110-3203231311000210-1332323313003320-2012213303313031"></a>
 
-## namespace property — tunnel_interface.tunnel / 277ecdc63a18 / 5
+## namespace property — tunnel / 301203220120 / 5
 
 Type: `"string"`. Computed.
 
@@ -1694,11 +1926,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c5a4034dbd7582f802d4e530cb65507fd8d1368bd2745ef20e3a393799187e7d"></a>
+<a id="canonical-3011221000031031-2331131120023320-0002311032110300-3023121111001333-3120310103122023-3102131011323302-0032032203210313-2121012013321331"></a>
 
-<a id="canonical-518acd374aedf2b1bf6a34e32a46507b6181e9b90681e7aca508c9ec4fe2499a"></a>
+<a id="canonical-1101202230310313-1022323133022301-2333122203103203-0222101211001323-1201200132212321-0012200132132230-2211002030213230-1033320210212122"></a>
 
-## tenant property — tunnel_interface.tunnel / 277ecdc63a18 / 6
+## tenant property — tunnel / 301203220120 / 6
 
 Type: `"string"`. Computed.
 
@@ -1744,9 +1976,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8cc408bfc9c9116688f3f96a9bb9d9a5ab5f290375b138c1159d146ceb83f4e2"></a>
+<a id="canonical-2030301000202333-3021302101011212-2020330333211222-2123232131212211-2223113302210003-1311230103203001-0111213101101230-3223200333103202"></a>
 
-## Next pages — tunnel_interface.tunnel / 277ecdc63a18 / 7
+## Next pages — tunnel / 301203220120 / 7
 
-- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-4c4a8d0d91a091335e2c8a7c47c83f1fbdc5b32befca2a5bf820c8b278cccbb7)
-- [xcsh_network_interface](../data-sources/network_interface.md#canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e)
+- [tunnel_interface](data-sources--network_interface--reference--group-002.md#canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313)
+- [xcsh_network_interface](../data-sources/network_interface.md#canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132)

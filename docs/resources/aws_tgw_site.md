@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_aws_tgw_site landing
 
 # xcsh_aws_tgw_site landing
 
-<a id="canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116"></a>
+<a id="canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1653dee1a8e793e930c7b70a8fdae5d08097b3254866bbb55aa4147842b2709a"></a>
+<a id="canonical-0112110331323201-2220321321033221-0300301323130022-2033312232113100-2000211323030211-1020121223232311-1122221001101320-1002230213002122"></a>
 
-## xcsh_aws_tgw_site — xcsh_aws_tgw_site / f9cce303d3c3 / 2
+## xcsh_aws_tgw_site — xcsh_aws_tgw_site / 000331033003 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS
 Transit Gateway.
 
-<a id="canonical-33113d79e0291c271573dacd64c0e14022f6044c28ef95299ab2b926ca3bbfc1"></a>
+<a id="canonical-0303010103311321-3200022101300213-0111130331223031-1210300032011000-0202331200101030-0220323321110221-2122230223210212-3022032323333001"></a>
 
-## Prerequisites — xcsh_aws_tgw_site / f9cce303d3c3 / 3
+## Prerequisites — xcsh_aws_tgw_site / 000331033003 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-928c8e0a06e37eaee7da0380a0550717dab9361b53364953d23a46c4a3e1f232"></a>
+<a id="canonical-2102203020320022-0012320313322232-3213312200032000-2200111100130113-3122232103120123-1103031210211103-3102032210123010-2203320133020302"></a>
 
-## Minimal configuration — xcsh_aws_tgw_site / f9cce303d3c3 / 4
+## Minimal configuration — xcsh_aws_tgw_site / 000331033003 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_aws_tgw_site" "example" {
 }
 ```
 
-<a id="canonical-2823d4776de37ce82ab1a974f59f5cab980e77cf5dd1c881561d6bd29fe2c8f3"></a>
+<a id="canonical-0220020331101313-1231320313303220-0222230122211310-3311213311302223-2120003213133033-1131310130202001-1112013112233102-2133320230203303"></a>
 
-## Root configuration — xcsh_aws_tgw_site / f9cce303d3c3 / 5
+## Root configuration — xcsh_aws_tgw_site / 000331033003 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0319d613d013cff993dd2a919e28f1887c02c41a22d29b9f1237650751a38e66"></a>
+<a id="canonical-0003012131120103-3100010330333321-2103313102222101-2132022033012020-1330000230100122-0202310221232133-0102031312110013-1101220320321212"></a>
 
-## Next pages — xcsh_aws_tgw_site / f9cce303d3c3 / 6
+## Next pages — xcsh_aws_tgw_site / 000331033003 / 6
 
-- [Property reference](../guides/resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
-- [Examples](../guides/resources--aws_tgw_site--examples--group-001.md#canonical-42c06f13d48332ed5021e5a105e3d74e9187d47b541c18dbff2f2277fff7eadb)
-- [Import](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-076a116e8d168cba4a4cc59ed6f317f9fb7fb28e95b33ba227cb1d98a16cd004)
-- [Timeouts](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-3468a7efe44f9c635fa1b18471f8644156f31532d003999d1e3bb4f1b53ae64c)
+- [Property reference](../guides/resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [Examples](../guides/resources--aws_tgw_site--examples--group-001.md#canonical-1002300012330103-3110200303023231-1100020132112201-0011320331131032-2101201331101323-1110013001203123-3333023302021313-3333331332223123)
+- [Import](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-0013122201011232-2031011220302322-1022103030112132-3112330301133321-3323133323022032-2111230303232202-0213302301312120-2201123031000010)
+- [Timeouts](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-0310122022133233-3210103321301203-1133220123012010-1301332012101001-1112330301110302-3100000321212131-0132032323103301-2311032232121030)

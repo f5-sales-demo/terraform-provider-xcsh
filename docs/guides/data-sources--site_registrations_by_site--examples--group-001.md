@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_site examples
 
-<a id="canonical-9dfe40fa0db7c48dfa71d784e8447fe909be11dbb249be1956696f9f35cef12f"></a>
+<a id="canonical-2131333210003322-0031231330102031-3322130131132010-3220101013333221-0021233201013123-2302102123320121-1112122112332133-0311303233010233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-963606aede31a5d1122675b7d9c7be3cc3ab58b275759f8bedf3df3594080056"></a>
+<a id="canonical-2112031200122232-3132030122113101-0102021213112313-3121301323320330-3003222311202302-1311131121332023-3231330331330311-2110002000001112"></a>
 
-## Examples — Examples / 1ea01003edab / 2
+## Examples — Examples / 000332312223 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-95cd454cd721919b77ea1bb44756386a23a0984b0ff7c5cf33cfc0a9a37682f8)
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 - Examples
 
-<a id="canonical-0f7746016bcbf735ebf878310ada7abc6f95858b653bd35227efa0599c9cdfd4"></a>
+<a id="canonical-0033131310120001-1223302333130311-3223332013200301-0022312213222330-1233211120112023-1211032331031102-0213323322001121-2130213031333110"></a>
 
-## Complete configurations — Examples / 1ea01003edab / 3
+## Complete configurations — Examples / 000332312223 / 3
 
-- [Data source](data-sources--site_registrations_by_site--examples--group-001.md#canonical-fdf84bd88785e416e322b96555ffc9930eb6461c0f2ffa1be7ce6b1a1f43d5b5): valid configuration.
+- [Data source](data-sources--site_registrations_by_site--examples--group-001.md#canonical-3331332010233120-2013201132100112-3203020223211211-1111333330212103-0032231210120130-0033023333220123-3213303212230122-0133100331112311): valid configuration.
 
-<a id="canonical-17f16a01ff4ce83ee00cdeb209f9aba08d54cf90b57f790cf7786cd21c1f6015"></a>
+<a id="canonical-0113330112220001-3333103032200332-3200003031322302-0021332122232200-2031111030332100-2311133313210030-3313132012303102-0130013312000111"></a>
 
-## Next pages — Examples / 1ea01003edab / 4
+## Next pages — Examples / 000332312223 / 4
 
-- [Data source](data-sources--site_registrations_by_site--examples--group-001.md#canonical-fdf84bd88785e416e322b96555ffc9930eb6461c0f2ffa1be7ce6b1a1f43d5b5)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-95cd454cd721919b77ea1bb44756386a23a0984b0ff7c5cf33cfc0a9a37682f8)
+- [Data source](data-sources--site_registrations_by_site--examples--group-001.md#canonical-3331332010233120-2013201132100112-3203020223211211-1111333330212103-0032231210120130-0033023333220123-3213303212230122-0133100331112311)
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
-<a id="canonical-fdf84bd88785e416e322b96555ffc9930eb6461c0f2ffa1be7ce6b1a1f43d5b5"></a>
+<a id="canonical-3331332010233120-2013201132100112-3203020223211211-1111333330212103-0032231210120130-0033023333220123-3213303212230122-0133100331112311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2cdec3aba6bdaa7ae712d5e5353e1cb971847cf475481406a672c863240cad31"></a>
+<a id="canonical-0230313230032223-2212233122221322-3213010231113211-0311033201302321-1301201013303310-1311102001100012-2212130230201203-0210003022310301"></a>
 
-## Data source — Data source / 806645140358 / 2
+## Data source — Data source / 011000031120 / 2
 
 Breadcrumbs:
 
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-95cd454cd721919b77ea1bb44756386a23a0984b0ff7c5cf33cfc0a9a37682f8)
-- [Examples](data-sources--site_registrations_by_site--examples--group-001.md#canonical-9dfe40fa0db7c48dfa71d784e8447fe909be11dbb249be1956696f9f35cef12f)
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Examples](data-sources--site_registrations_by_site--examples--group-001.md#canonical-2131333210003322-0031231330102031-3322130131132010-3220101013333221-0021233201013123-2302102123320121-1112122112332133-0311303233010233)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -79,9 +79,9 @@ output "site_registrations_by_site_result" {
 }
 ```
 
-<a id="canonical-187a408fe680ec4ce3c7ba0ca892e39b42a62717bdc361917dd4b1d494690597"></a>
+<a id="canonical-0120132210002033-3212200032301030-3203301323220030-2220210232032123-1002221202130113-2331300312012101-1331311023013110-2110122100112113"></a>
 
-## Next pages — Data source / 806645140358 / 3
+## Next pages — Data source / 011000031120 / 3
 
-- [Examples](data-sources--site_registrations_by_site--examples--group-001.md#canonical-9dfe40fa0db7c48dfa71d784e8447fe909be11dbb249be1956696f9f35cef12f)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-95cd454cd721919b77ea1bb44756386a23a0984b0ff7c5cf33cfc0a9a37682f8)
+- [Examples](data-sources--site_registrations_by_site--examples--group-001.md#canonical-2131333210003322-0031231330102031-3322130131132010-3220101013333221-0021233201013123-2302102123320121-1112122112332133-0311303233010233)
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_malicious_user_mitig
 
 # xcsh_malicious_user_mitigation landing
 
-<a id="canonical-51762279e9e56351e964d117a51a3a003255979ed9c5abdf478c23f3f58615db"></a>
+<a id="canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-79e4581b82ba12dc491cd9eae1d772ae34eaf5b27c752696ae261270766a3606"></a>
+<a id="canonical-1321321011200123-2002232201023130-1021013031213222-3201311313022232-0310322233112302-1330131102122112-2232021201021300-1312122203120012"></a>
 
-## xcsh_malicious_user_mitigation — xcsh_malicious_user_mitigation / 83611296b153 / 2
+## xcsh_malicious_user_mitigation — xcsh_malicious_user_mitigation / 211223011103 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages malicious\_user\_mitigation creates a new object in the storage backend for
 metadata.namespace in F5 Distributed Cloud.
 
-<a id="canonical-71c7bb53ffc5655e27a153b3c0191301d3c9045a2064b904568a945325bc502c"></a>
+<a id="canonical-1301301323231103-3333301112111132-0213220111032303-3000012101030001-3103302100101122-0200121023210010-1112202221101103-0211233011000230"></a>
 
-## Prerequisites — xcsh_malicious_user_mitigation / 83611296b153 / 3
+## Prerequisites — xcsh_malicious_user_mitigation / 211223011103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3527b2b454e859bcc6529bd91bda983cba345a5af81d34ee652e09e89585d87d"></a>
+<a id="canonical-0311021323022310-1110322011212330-3012110221233121-0123312221200330-2322031011221122-3320013103103232-1211023200213220-2111201131201331"></a>
 
-## Minimal configuration — xcsh_malicious_user_mitigation / 83611296b153 / 4
+## Minimal configuration — xcsh_malicious_user_mitigation / 211223011103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,17 +57,17 @@ resource "xcsh_malicious_user_mitigation" "example" {
 }
 ```
 
-<a id="canonical-816180e19a368d5686905b85c3eff0ab0a681ad39c835553a8e88195913e7a6e"></a>
+<a id="canonical-2001120120003201-2122031220311112-2012210011232011-3003323333002223-0022122001223103-2130200311111103-2220322020012111-2101033213221232"></a>
 
-## Root configuration — xcsh_malicious_user_mitigation / 83611296b153 / 5
+## Root configuration — xcsh_malicious_user_mitigation / 211223011103 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-bb65cfaccbdc0071538dfc37766e6dc333aa72336ff501eeacb5c5654e9389d8"></a>
+<a id="canonical-2323121130332230-3023313000001301-1103203133300313-1312123212313003-0303222213020303-1233331100013232-2230231130111211-1032210320213120"></a>
 
-## Next pages — xcsh_malicious_user_mitigation / 83611296b153 / 6
+## Next pages — xcsh_malicious_user_mitigation / 211223011103 / 6
 
-- [Property reference](../guides/resources--malicious_user_mitigation--reference--group-001.md#canonical-54042ff2b05e427630a3f23dd4b8756d9fae52d749e9e4b2663ad76de59b89d1)
-- [Examples](../guides/resources--malicious_user_mitigation--examples--group-001.md#canonical-1afd96599fbc6ecd90e916f9d11197ea42dff6c59e02f3f73802395c5e6d414b)
-- [Import](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-21fed318093c3c1eb1dcd7993306fd0e3a121c917f35e5c2746620f3c7978e5a)
-- [Timeouts](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-83d7c70839b183e837aa51c48c849f7fe48882caebe1e1514739c814aacd3ad5)
+- [Property reference](../guides/resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [Examples](../guides/resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [Import](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-0201333231030120-0021033003300132-2301313031132121-0303001233310032-0322010201302101-1333031132113002-1310121202003303-3013211320321122)
+- [Timeouts](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-2003311330130020-0321230120033220-0313222211013010-2030201021331333-3210202020023022-3223320132011101-1013032130200110-2222303103223111)

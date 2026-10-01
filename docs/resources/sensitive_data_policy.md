@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_sensitive_data_polic
 
 # xcsh_sensitive_data_policy landing
 
-<a id="canonical-097e4ed086586b49bc303a1ea5095eb9ea6db5c59db3d4ba9f0f6b743c2b8d44"></a>
+<a id="canonical-0021133210323100-2012112012231021-2330030003220132-2211002111322321-3222123123113011-2131230331102322-2133003312231310-0330022320311010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b88c2478392d1cc308fffa7db46ad339a3bfadd17ee70c22ede5e78c3b14666"></a>
+<a id="canonical-0023202030021013-2003210231013030-0300203333332213-3123101222310303-2122032333223131-0113323213003002-0232313211321320-3003230110121212"></a>
 
-## xcsh_sensitive_data_policy — xcsh_sensitive_data_policy / e2152190c13e / 2
+## xcsh_sensitive_data_policy — xcsh_sensitive_data_policy / 210030010332 / 2
 
 Breadcrumbs:
 
@@ -23,17 +23,17 @@ Breadcrumbs:
 Manages sensitive\_data\_policy creates a new object in the storage backend for metadata.namespace
 in F5 Distributed Cloud.
 
-<a id="canonical-0159305efd45360324bd62f9f3409954275af2fe2d38b460becac900e1e41beb"></a>
+<a id="canonical-0001112103001132-3331101103120003-0210233112023321-3303100021211110-0213112233023332-0231032023101200-2332302230210000-3201321001233223"></a>
 
-## Prerequisites — xcsh_sensitive_data_policy / e2152190c13e / 3
+## Prerequisites — xcsh_sensitive_data_policy / 210030010332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-54f16b9504e719c3414317cacd874508afe8a3fa4b20e582f056d4625391c2ea"></a>
+<a id="canonical-1110330112232111-0010321301213003-1001100301133022-3031201310110020-2233322022033322-1023020032112002-3300111231101202-1103210130023222"></a>
 
-## Minimal configuration — xcsh_sensitive_data_policy / e2152190c13e / 4
+## Minimal configuration — xcsh_sensitive_data_policy / 210030010332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,17 +59,17 @@ resource "xcsh_sensitive_data_policy" "example" {
 }
 ```
 
-<a id="canonical-54b3f1b4ea96156536f485288fc3a5d644231902b802082fe25c558e38316f67"></a>
+<a id="canonical-1110230333012310-3222211201111211-0312331020110220-2033300322113112-1010020301210002-2320000200200233-3202113011112032-0320030112331213"></a>
 
-## Root configuration — xcsh_sensitive_data_policy / e2152190c13e / 5
+## Root configuration — xcsh_sensitive_data_policy / 210030010332 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-7be144d3558f1d13df7882ecc8444be4c181e6c2a8e872876b2e475063f3e480"></a>
+<a id="canonical-1323320110103103-1111203301310103-3133132020023230-3020101010233210-3001200132123002-2220322013022013-1223023210131100-1203330332102000"></a>
 
-## Next pages — xcsh_sensitive_data_policy / e2152190c13e / 6
+## Next pages — xcsh_sensitive_data_policy / 210030010332 / 6
 
-- [Property reference](../guides/resources--sensitive_data_policy--reference--group-001.md#canonical-237e6c635e5bbef2763802cde769bc7b230606d9ae2fd8af6641d74700f6ef41)
-- [Examples](../guides/resources--sensitive_data_policy--examples--group-001.md#canonical-9a55abc4607becc0302d726239e05592c1088a771f57f7445193af0f804f2f8b)
-- [Import](../guides/resources--sensitive_data_policy--lifecycle--group-001.md#canonical-4e0bc2c2901630fb7387023a2c9a4ea5f79de443965a790626d296ec8198f1c2)
-- [Timeouts](../guides/resources--sensitive_data_policy--lifecycle--group-001.md#canonical-7c18416fab5cab2cc5ef86360951b23d19f759ac0f14f0005bb75bb971763808)
+- [Property reference](../guides/resources--sensitive_data_policy--reference--group-001.md#canonical-0203133212301203-1132112323323302-1312032000023031-3213122123301323-0203001200123121-2232023331202233-1212100131131013-0000331232331001)
+- [Examples](../guides/resources--sensitive_data_policy--examples--group-001.md#canonical-2122111122233010-1200132332303000-0300023113021202-0321320011112102-3001002020221313-0133111333131010-1101210322330033-2000103302332023)
+- [Import](../guides/resources--sensitive_data_policy--lifecycle--group-001.md#canonical-1032002330023002-2100011203003323-1303201300020322-0230212210322211-3313213132101003-2112112213210012-0212310221123230-2001212033013002)
+- [Timeouts](../guides/resources--sensitive_data_policy--lifecycle--group-001.md#canonical-1330012010011233-2223113022230230-3011323320120312-0021110123020331-0121331311212230-0033011033000000-1123231311232321-1301131203200020)

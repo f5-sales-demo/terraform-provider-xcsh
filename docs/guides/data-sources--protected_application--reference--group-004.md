@@ -6,81 +6,21 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
-<a id="canonical-3df7ee4abf8e89b53bdc54645a15130fce2eaae668fd9f6dfd66c4082b8304f5"></a>
+<a id="canonical-3323001220221123-0231031320332001-2122002130330322-3103010131233320-2031332212021030-0012312220022312-2222312311020121-0032300322012101"></a>
 
-## cloudfront.protected_endpoints.web_client.continue — cloudfront.protected_endpoints.web_client.continue / cd445e3ebf35 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- cloudfront.protected_endpoints.web_client.continue
-
-<a id="canonical-ae481a813648f84eab2bd2ad9d14c5c3ff9451b148431c348a9bf585d19157ce"></a>
-
-Type: `"single"`. Computed.
-
-Select Continue Bot Mitigation Action. Continue mitigation action.
-
-Upstream description:
-
-Continue mitigation action.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-add_header_choice": "[\"add_header\",\"no_header\"]"
-}
-```
-
-<a id="canonical-5464d9b2052da3bb02efe9cd2690bd64c85c5c08bf5a62ea41bcefc9172d00e0"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_client.continue / cd445e3ebf35 / 3
-
-- [add_header](data-sources--protected_application--reference--group-004.md#canonical-8466e8e5a986b2a809c7c660a94c7cc2ff1faaffdcc1adcfb466ea841a2fe454): complete subsection reference.
-
-- [no_header](data-sources--protected_application--reference--group-004.md#canonical-d6c6b7dd165310e9ff2c9b20f9daeec4ea036437a7a8dd226ec70ac782e4ff6d): complete subsection reference.
-
-<a id="canonical-947a01de675fc44fcaeaabbc08cd817273b9b3452d02f5438355ff3e22b94d4f"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_client.continue / cd445e3ebf35 / 4
-
-- [cloudfront.protected_endpoints.web_client.continue.add_header](data-sources--protected_application--reference--group-004.md#canonical-8466e8e5a986b2a809c7c660a94c7cc2ff1faaffdcc1adcfb466ea841a2fe454)
-- [cloudfront.protected_endpoints.web_client.continue.no_header](data-sources--protected_application--reference--group-004.md#canonical-d6c6b7dd165310e9ff2c9b20f9daeec4ea036437a7a8dd226ec70ac782e4ff6d)
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-8466e8e5a986b2a809c7c660a94c7cc2ff1faaffdcc1adcfb466ea841a2fe454"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f6c7cccf2b4d6f5f0deab024929d577d59f5d1ac6bd42a2f8907f21b8fad5f7a"></a>
-
-## cloudfront.protected_endpoints.web_client.continue.add_header — cloudfront.protected_endpoints.web_client.continue.add_header / a5ed8beb2a13 / 2
+## cloudfront.protected_endpoints.mobile_client.continue.no_header — no_header / 222023013123 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-003.md#canonical-9c616aa10f7bfa031db985189a8e0015ee07a18ca77f5bc4ae09138108bca394)
-- cloudfront.protected_endpoints.web_client.continue.add_header
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-003.md#canonical-0300100133111022-1320133032023113-0200312122311310-2330312002011033-0123110113021233-1111122331121201-0322031011211223-1323112133031322)
+- [cloudfront.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-003.md#canonical-0023212102233030-1310113233310133-1001111232030332-0031222031303032-1012003301313330-3122230011323003-1120310200220230-0010330121001203)
+- cloudfront.protected_endpoints.mobile_client.continue.no_header
 
-<a id="canonical-f6bd119999a3d056c16452db0b6d54c8c85691cf630189e7728a38acaa93db4a"></a>
+<a id="canonical-3203232102103023-3003022312320232-0321030031012131-3323302230013213-2000330311023320-2133123321300331-2311012200112310-2200103210201102"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -103,40 +43,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b45336e393c26d7f6038dce5fcde17c313760793e900f4df26e834216ba49e30"></a>
+<a id="canonical-1203220002200221-0321121303313221-1223031003112011-3202031003020121-3112331111020022-2112320111213313-3221133320332310-3303133132123203"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_client.continue.add_header / a5ed8beb2a13 / 3
+## Direct properties — no_header / 222023013123 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-02470b190a5f98264b8cf8025e93872c65ff20c103b6d735e2577176820587e5"></a>
+<a id="canonical-0003030133012101-0112012122001101-3321200331022333-1033021132033332-3132321111321310-0331131301203030-2320102230013101-2311012313120333"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_client.continue.add_header / a5ed8beb2a13 / 4
+## Next pages — no_header / 222023013123 / 4
 
-- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-003.md#canonical-9c616aa10f7bfa031db985189a8e0015ee07a18ca77f5bc4ae09138108bca394)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-003.md#canonical-0023212102233030-1310113233310133-1001111232030332-0031222031303032-1012003301313330-3122230011323003-1120310200220230-0010330121001203)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-d6c6b7dd165310e9ff2c9b20f9daeec4ea036437a7a8dd226ec70ac782e4ff6d"></a>
+<a id="canonical-2130323322302022-0212320201322103-2202001122001133-3110232001330021-2300113223103221-0321313111323130-3330323312330233-3013133120303122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c67acd26231000068e08cae3b0e3147cd0f42843383847d40e5193d24fd1cc19"></a>
+<a id="canonical-1002031031201200-1202131103210233-3333313221202123-3211032210200211-0000012033132132-1110020121310123-3301103213131131-1301012201111102"></a>
 
-## cloudfront.protected_endpoints.web_client.continue.no_header — cloudfront.protected_endpoints.web_client.continue.no_header / bb59a2aa79b0 / 2
+## cloudfront.protected_endpoints.undefined_flow_label — undefined_flow_label / 000223203232 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-003.md#canonical-9c616aa10f7bfa031db985189a8e0015ee07a18ca77f5bc4ae09138108bca394)
-- cloudfront.protected_endpoints.web_client.continue.no_header
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- cloudfront.protected_endpoints.undefined_flow_label
 
-<a id="canonical-c2cb58a363e85f1c5df06b022e241bdda315e6bd740c17663e5d93dce1d540a3"></a>
+<a id="canonical-1131023123131210-3311232222313021-2103013003211112-1012331100003000-1032222020333332-2200301020001233-3311202020112330-3033101100313113"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -159,47 +97,46 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0001f2532359e35fff0d9863e87d63498d0023a43ec4c570238205ed1b9f24c1"></a>
+<a id="canonical-3130210300211022-0211002302301202-3033212313132002-0322221210201230-0010130131321332-1030033330321302-2332001003120203-2113000302311312"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_client.continue.no_header / bb59a2aa79b0 / 3
+## Direct properties — undefined_flow_label / 000223203232 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-6c3dbb2c6749cae08699dd08bbf428cd95234c27061d80a59f43848f7616dab0"></a>
+<a id="canonical-1010311323231003-2213320302330300-1111123111302013-2120201031123320-3310020313130133-2033321002130120-3311011110223211-3113003020313113"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_client.continue.no_header / bb59a2aa79b0 / 4
+## Next pages — undefined_flow_label / 000223203232 / 4
 
-- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-003.md#canonical-9c616aa10f7bfa031db985189a8e0015ee07a18ca77f5bc4ae09138108bca394)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-beba1139081b0aaa906fe01e4149d779136c0e8f496605f674da549f5d4eb50f"></a>
+<a id="canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-90e93f2635b0386e3e8719b1526c9da9c4906a3b5f9069f2d8ad663efcd34d2d"></a>
+<a id="canonical-2323130223303211-3132320300222312-2330001100033122-2212303320023321-0112213021320333-2201023110013232-1233130113121001-2211222321333121"></a>
 
-## cloudfront.protected_endpoints.web_client.redirect — cloudfront.protected_endpoints.web_client.redirect / 39777153b262 / 2
+## cloudfront.protected_endpoints.web_client — web_client / 012013210130 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- cloudfront.protected_endpoints.web_client.redirect
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- cloudfront.protected_endpoints.web_client
 
-<a id="canonical-b7edf2bbed4b9883a8bdec8b6932ce3dcf18a805e6c925d46727da82f38e3882"></a>
+<a id="canonical-0132013010120303-2103320113312212-2010213313032232-0113232232231121-3212013332200203-1010021321211110-1310000021233222-0100003121223331"></a>
 
 Type: `"single"`. Computed.
 
-Redirect. Redirect.
+Web Client. Web client configuration OPTIONS.
 
 Upstream description:
 
-Redirect.
+Web client configuration OPTIONS.
 
 Receipt-pinned upstream constraints:
 
@@ -210,543 +147,51 @@ Receipt-pinned upstream constraints:
     "minimum_config": false,
     "read": false,
     "update": false
-  }
+  },
+  "x-ves-oneof-field-mitigation": "[\"block\",\"continue\",\"redirect\"]"
 }
 ```
 
-<a id="canonical-9e071d65dd5b733c7bfc65a283b81fc650a215277d0838f83b68b62fefee6027"></a>
+<a id="canonical-1130010033213031-2012323012031102-0200012010232223-0211011331212023-1013211111103122-2223322232011003-2210330201303132-0110012213003301"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_client.redirect / 39777153b262 / 3
+## Direct properties — web_client / 012013210130 / 3
 
-<a id="canonical-fef0f40ea02542c50bc0b80408bcf0812f0e3c6fc81954a5873392e807a3b1b2"></a>
+- [block](data-sources--protected_application--reference--group-004.md#canonical-1013013021333230-0131330320032231-1203210130203103-1220202312111130-0031230110200000-3323001102122300-0021012102121131-1330330133031120): complete subsection reference.
 
-<a id="canonical-dcb52b5a3da63fb3d1a6d94b31f65757e297f1007fe7f8d0c25f56e993fba837"></a>
+- [continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110): complete subsection reference.
 
-## location property — cloudfront.protected_endpoints.web_client.redirect / 39777153b262 / 4
+- [redirect](data-sources--protected_application--reference--group-004.md#canonical-2332232201010321-0020012300222222-2100123332000132-1001102131131321-0103123000322033-1021121200113312-1310312211102133-1131103223110033): complete subsection reference.
 
-Type: `"string"`. Computed.
+<a id="canonical-1112202221322301-0310133013302100-2133132112102013-3220131120002002-0103011221010220-3131300123222003-0110331033002131-2122212223312112"></a>
 
-Location. URI location for redirect response.
+## Next pages — web_client / 012013210130 / 4
 
-Upstream description:
+- [cloudfront.protected_endpoints.web_client.block](data-sources--protected_application--reference--group-004.md#canonical-1013013021333230-0131330320032231-1203210130203103-1220202312111130-0031230110200000-3323001102122300-0021012102121131-1330330133031120)
+- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110)
+- [cloudfront.protected_endpoints.web_client.redirect](data-sources--protected_application--reference--group-004.md#canonical-2332232201010321-0020012300222222-2100123332000132-1001102131131321-0103123000322033-1021121200113312-1310312211102133-1131103223110033)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-URI location for redirect response.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 512,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 512
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 512,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "512",
-    "ves.io.schema.rules.string.url_or_uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "512",
-    "ves.io.schema.rules.string.url_or_uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-421cb19b920728600b829c76e7520bdf62a53c0a1d1f0665744dfc17af87a9a6"></a>
-
-<a id="canonical-4153d044e15362b667e46897bdf45842c208d7ca35c82b2dcc9aebcda7313a7f"></a>
-
-## status property — cloudfront.protected_endpoints.web_client.redirect / 39777153b262 / 5
-
-Type: `"string"`. Computed.
-
-\[Enum:
-EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
-HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
-code OK status code Created status code Accepted status code Non Authoritative Information status
-code No Content status code Reset Content status code Partial Content status code Multi Status..
-Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
-\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
-\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
-\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
-\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
-\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
-\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
-\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
-\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
-\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
-\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
-\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
-\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
-Defaults to \`EmptyStatusCode\`.
-
-Upstream description:
-
-HTTP response status codes
-
-EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
-status code Accepted status code Non Authoritative Information status code No Content status code
-Reset Content status code Partial Content status code Multi Status status code Already Reported
-status code Im Used status code Multiple Choices status code Moved Permanently status code Found
-status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
-status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
-Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
-Acceptable status code Proxy Authentication Required status code Request Timeout status code
-Conflict status code Gone status code Length Required status code Precondition Failed status code
-Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
-Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
-Entity status code Locked status code Failed Dependency status code Upgrade Required status code
-Precondition Required status code Too Many Requests status code Request Header Fields Too Large
-status code Internal Server Error status code Not Implemented status code Bad Gateway status code
-Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
-Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
-Extended status code Network Authentication Required status code.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "EmptyStatusCode",
-  "enum": [
-    "EmptyStatusCode",
-    "Continue",
-    "OK",
-    "Created",
-    "Accepted",
-    "NonAuthoritativeInformation",
-    "NoContent",
-    "ResetContent",
-    "PartialContent",
-    "MultiStatus",
-    "AlreadyReported",
-    "IMUsed",
-    "MultipleChoices",
-    "MovedPermanently",
-    "Found",
-    "SeeOther",
-    "NotModified",
-    "UseProxy",
-    "TemporaryRedirect",
-    "PermanentRedirect",
-    "BadRequest",
-    "Unauthorized",
-    "PaymentRequired",
-    "Forbidden",
-    "NotFound",
-    "MethodNotAllowed",
-    "NotAcceptable",
-    "ProxyAuthenticationRequired",
-    "RequestTimeout",
-    "Conflict",
-    "Gone",
-    "LengthRequired",
-    "PreconditionFailed",
-    "PayloadTooLarge",
-    "URITooLong",
-    "UnsupportedMediaType",
-    "RangeNotSatisfiable",
-    "ExpectationFailed",
-    "MisdirectedRequest",
-    "UnprocessableEntity",
-    "Locked",
-    "FailedDependency",
-    "UpgradeRequired",
-    "PreconditionRequired",
-    "TooManyRequests",
-    "RequestHeaderFieldsTooLarge",
-    "InternalServerError",
-    "NotImplemented",
-    "BadGateway",
-    "ServiceUnavailable",
-    "GatewayTimeout",
-    "HTTPVersionNotSupported",
-    "VariantAlsoNegotiates",
-    "InsufficientStorage",
-    "LoopDetected",
-    "NotExtended",
-    "NetworkAuthenticationRequired"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-59dcbebd5ab93f02ca091b841d5734fb01756fd4a476bb4fe4cbacfda18735ea"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_client.redirect / 39777153b262 / 6
-
-- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-003.md#canonical-09769448fb2289c7e9c1998fcacb5f88119778cb1f52a1322920154605743268)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98"></a>
+<a id="canonical-1013013021333230-0131330320032231-1203210130203103-1220202312111130-0031230110200000-3323001102122300-0021012102121131-1330330133031120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f6570c9d3b7de6a69872e8d180117d5f18fc5f4d6e2a8f210d3d183b1d841788"></a>
+<a id="canonical-2003022011003300-0230112012110121-3231322001113101-3331100333123300-1330102100313312-1023211013112100-3003133302113001-2022132033112013"></a>
 
-## cloudfront.protected_endpoints.web_mobile_client — cloudfront.protected_endpoints.web_mobile_client / 10cd8357984d / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- cloudfront.protected_endpoints.web_mobile_client
-
-<a id="canonical-2427779dd4ee05d2a9d4efc08ae5f98e1a08afcdf1dceaa1fce1f487ca4c3109"></a>
-
-Type: `"single"`. Computed.
-
-Web and Mobile client configuration OPTIONS.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-mobile_mitigation": "[\"block_mobile\",\"continue_mobile\"]",
-  "x-ves-oneof-field-web_mitigation": "[\"block_web\",\"continue_web\",\"redirect_web\"]"
-}
-```
-
-<a id="canonical-eb3f6268a006e0aac4acb1d6198f10b4f5e055d0e2beb5b20072bc1c67e010fa"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client / 10cd8357984d / 3
-
-- [block_mobile](data-sources--protected_application--reference--group-004.md#canonical-c9c7fafe4f24f27cd6d5bd33415f4b8e42e7943b25997b5b4534fd19e4deb9a7): complete subsection reference.
-
-- [block_web](data-sources--protected_application--reference--group-004.md#canonical-de2f1810bf7e2be010f48985e7558b2aef3ac693c56f4ad6298174a56fa58f7e): complete subsection reference.
-
-- [continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e): complete subsection reference.
-
-- [continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c): complete subsection reference.
-
-- [redirect_web](data-sources--protected_application--reference--group-004.md#canonical-c86a66ef5d77fce192ed350d60eb7da17fdd5b32dfea438d5016704d268206ec): complete subsection reference.
-
-<a id="canonical-2f8df6352824fa83efb5c3020e8c184f5bb07c84a40127a8dd92aa75483ed3b9"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_mobile_client / 10cd8357984d / 4
-
-- [cloudfront.protected_endpoints.web_mobile_client.block_mobile](data-sources--protected_application--reference--group-004.md#canonical-c9c7fafe4f24f27cd6d5bd33415f4b8e42e7943b25997b5b4534fd19e4deb9a7)
-- [cloudfront.protected_endpoints.web_mobile_client.block_web](data-sources--protected_application--reference--group-004.md#canonical-de2f1810bf7e2be010f48985e7558b2aef3ac693c56f4ad6298174a56fa58f7e)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c)
-- [cloudfront.protected_endpoints.web_mobile_client.redirect_web](data-sources--protected_application--reference--group-004.md#canonical-c86a66ef5d77fce192ed350d60eb7da17fdd5b32dfea438d5016704d268206ec)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-c9c7fafe4f24f27cd6d5bd33415f4b8e42e7943b25997b5b4534fd19e4deb9a7"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c3da77705ad7cbaffa740b9eb4d1877ee693e3fab33d9fc2a75623243c42e970"></a>
-
-## cloudfront.protected_endpoints.web_mobile_client.block_mobile — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 2
+## cloudfront.protected_endpoints.web_client.block — block / 032213322232 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- cloudfront.protected_endpoints.web_mobile_client.block_mobile
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- cloudfront.protected_endpoints.web_client.block
 
-<a id="canonical-c10c034301d531b424e06208b8c880ccd4b8a83d2a78d11e79bf2b69a43f103f"></a>
-
-Type: `"single"`. Computed.
-
-Block Response for Mobile. Block Response.
-
-Upstream description:
-
-Block Response.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-9145281d706e5e7add3edc7009d00c70b5cedc4407bd5abc9a992f3233aeabf7"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 3
-
-<a id="canonical-99106d13ebe432dbacfa11965754665aae1febbd15edc1f3099078d4b410be1d"></a>
-
-<a id="canonical-794a9f1a9003697e95056232ec16e5bae85aac9cb8fe8860ea4f451b51034c8e"></a>
-
-## body property — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 4
-
-Type: `"string"`. Computed.
-
-Body. Custom body message.
-
-Upstream description:
-
-Custom body message.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 4096,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 4096,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "4096"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "4096"
-  }
-}
-```
-
-<a id="canonical-dee064cd542bb2cf0b81087ad642545da8331192a2ab0643f5ace3181c081699"></a>
-
-<a id="canonical-1dd88c64a7d9004a5f5aba057b893987043fe9c9f4d24de9c601191757bd9c82"></a>
-
-## content_type property — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 5
-
-Type: `"string"`. Computed.
-
-Content type to use in a block response.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "128"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "128"
-  }
-}
-```
-
-<a id="canonical-d107ee8378ddb483c97c341c34d4c0b30d89e9e15917e51fb983186dc5ac8c08"></a>
-
-<a id="canonical-35b56ec04ac368d7a604f11508edc9a74521f0ef98eace7612387223327817d7"></a>
-
-## status property — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 6
-
-Type: `"string"`. Computed.
-
-\[Enum:
-EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
-HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
-code OK status code Created status code Accepted status code Non Authoritative Information status
-code No Content status code Reset Content status code Partial Content status code Multi Status..
-Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
-\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
-\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
-\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
-\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
-\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
-\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
-\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
-\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
-\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
-\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
-\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
-\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
-Defaults to \`EmptyStatusCode\`.
-
-Upstream description:
-
-HTTP response status codes
-
-EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
-status code Accepted status code Non Authoritative Information status code No Content status code
-Reset Content status code Partial Content status code Multi Status status code Already Reported
-status code Im Used status code Multiple Choices status code Moved Permanently status code Found
-status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
-status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
-Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
-Acceptable status code Proxy Authentication Required status code Request Timeout status code
-Conflict status code Gone status code Length Required status code Precondition Failed status code
-Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
-Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
-Entity status code Locked status code Failed Dependency status code Upgrade Required status code
-Precondition Required status code Too Many Requests status code Request Header Fields Too Large
-status code Internal Server Error status code Not Implemented status code Bad Gateway status code
-Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
-Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
-Extended status code Network Authentication Required status code.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "EmptyStatusCode",
-  "enum": [
-    "EmptyStatusCode",
-    "Continue",
-    "OK",
-    "Created",
-    "Accepted",
-    "NonAuthoritativeInformation",
-    "NoContent",
-    "ResetContent",
-    "PartialContent",
-    "MultiStatus",
-    "AlreadyReported",
-    "IMUsed",
-    "MultipleChoices",
-    "MovedPermanently",
-    "Found",
-    "SeeOther",
-    "NotModified",
-    "UseProxy",
-    "TemporaryRedirect",
-    "PermanentRedirect",
-    "BadRequest",
-    "Unauthorized",
-    "PaymentRequired",
-    "Forbidden",
-    "NotFound",
-    "MethodNotAllowed",
-    "NotAcceptable",
-    "ProxyAuthenticationRequired",
-    "RequestTimeout",
-    "Conflict",
-    "Gone",
-    "LengthRequired",
-    "PreconditionFailed",
-    "PayloadTooLarge",
-    "URITooLong",
-    "UnsupportedMediaType",
-    "RangeNotSatisfiable",
-    "ExpectationFailed",
-    "MisdirectedRequest",
-    "UnprocessableEntity",
-    "Locked",
-    "FailedDependency",
-    "UpgradeRequired",
-    "PreconditionRequired",
-    "TooManyRequests",
-    "RequestHeaderFieldsTooLarge",
-    "InternalServerError",
-    "NotImplemented",
-    "BadGateway",
-    "ServiceUnavailable",
-    "GatewayTimeout",
-    "HTTPVersionNotSupported",
-    "VariantAlsoNegotiates",
-    "InsufficientStorage",
-    "LoopDetected",
-    "NotExtended",
-    "NetworkAuthenticationRequired"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f9d5ba507a62e5d813d1377158276aaae336676b6bf5c3f1bc8c6021535148bc"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.block_mobile / de98fb323a22 / 7
-
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-de2f1810bf7e2be010f48985e7558b2aef3ac693c56f4ad6298174a56fa58f7e"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-f1e1d2897ba724e2730d462b29a3ec12a6097c9d80a0deb88481346bb3179faa"></a>
-
-## cloudfront.protected_endpoints.web_mobile_client.block_web — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- cloudfront.protected_endpoints.web_mobile_client.block_web
-
-<a id="canonical-1cccd90b5ef09d67f5e05e5b20e4cac17dfdfc74c726fbfed89955b509d5e0a2"></a>
+<a id="canonical-0021132222022303-1012311111331313-2102313210011220-2101313032131213-2202303003120320-3012203332330320-1003123011022202-3133213321112012"></a>
 
 Type: `"single"`. Computed.
 
@@ -769,15 +214,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cbbbe033916c8a2b84985769181a65edb2b353f7d69296e1f8a26a08ea2e6eff"></a>
+<a id="canonical-0110230010210323-0202121332100312-3121211102132131-2123000031032032-3331033103031011-0203101303003102-2323013313302231-1111022311011200"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 3
+## Direct properties — block / 032213322232 / 3
 
-<a id="canonical-7548f72cdbbb96c3978462f06e502b90cd8cbd30ac08c4ee948dff76052f30bb"></a>
+<a id="canonical-0313000223230310-3031123201230300-1012113001332011-2122032322001113-2022222232332322-0021322111101111-0233303030122113-2330223321230203"></a>
 
-<a id="canonical-098c83f0261d33ef082296bda2af1d23bbde8f9dc6a8d1987d54f262763b9731"></a>
+<a id="canonical-0211301031232003-3213201130231320-1310300031120331-2003031222132012-2020021113021202-3121103101103312-2102013101301110-1133130212023331"></a>
 
-## body property — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 4
+## body property — block / 032213322232 / 4
 
 Type: `"string"`. Computed.
 
@@ -818,11 +263,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ab50835175b821ba0c2b0d4762f1ac9f6470394bdd51df22b29d0e8f5ec34fce"></a>
+<a id="canonical-0312123330300313-3131313010103012-0020021223103230-0300030001300310-0031013121313122-3230310003112030-0021101231333210-1203312213010202"></a>
 
-<a id="canonical-ce174e92ca988e3616b29f97596213b2c6ee4f54ba8afddb90185c70f9433f23"></a>
+<a id="canonical-0213000321022323-1322212221102321-2000230010010122-1331300312203030-3001232012032202-0023111023010220-3330332222212010-2020102231213230"></a>
 
-## content_type property — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 5
+## content_type property — block / 032213322232 / 5
 
 Type: `"string"`. Computed.
 
@@ -859,11 +304,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e3c3197fcafe3d0bfbf076793d56d10ed07d63b2b08faa1434559ade5d930d17"></a>
+<a id="canonical-1121313033323211-2213210223022100-2031110323010223-0133202122203010-0310111221022010-3111223222001332-1203012033011211-1233101210132202"></a>
 
-<a id="canonical-1e4ef9e7727c62d47f0f291e06a24beaf6f79556f218ed5150a91d5ca2e1c401"></a>
+<a id="canonical-3311330221203012-3320021021121232-1030111030331210-0222031332300023-3213213211010103-1120022212321020-2111113121203233-3211003333321112"></a>
 
-## status property — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 6
+## status property — block / 032213322232 / 6
 
 Type: `"string"`. Computed.
 
@@ -982,33 +427,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c992c8061f30bffe0287dba3d06c476be130c0722854304dfe0ae1dc6b833be6"></a>
+<a id="canonical-3220003301231321-3111201021203212-3122313020310030-2332100112121030-0300130203230123-1001001311331020-3330133311021131-0012301010000331"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.block_web / 780d5af61cdf / 7
+## Next pages — block / 032213322232 / 7
 
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e"></a>
+<a id="canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-525651ac40d2c412b3d2bf37e94f91751a7eb585694ac9b83336bd8aefbbb231"></a>
+<a id="canonical-0331331332321022-2333203220212311-0323313011101210-1122011101030033-3032023222223212-1220333121331231-3331121230100020-0223200300103311"></a>
 
-## cloudfront.protected_endpoints.web_mobile_client.continue_mobile — cloudfront.protected_endpoints.web_mobile_client.continue_mobile / aedcf28f1a75 / 2
+## cloudfront.protected_endpoints.web_client.continue — continue / 033223330311 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- cloudfront.protected_endpoints.web_mobile_client.continue_mobile
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- cloudfront.protected_endpoints.web_client.continue
 
-<a id="canonical-f5d12eb2efb3fbb53ce5e775320341ac4b380aa30809c8f29553fc824b958b35"></a>
+<a id="canonical-2232102001222001-0312102033201032-2223022331022231-2131011030113003-3333211011012301-1020100301300310-2022212333112011-3101210111133032"></a>
 
 Type: `"single"`. Computed.
 
@@ -1032,44 +477,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7436458ae45f7a9eb1eff84058fd387cb64f6b2f77ab6421a7b8f53e35a47766"></a>
+<a id="canonical-1110121031212302-0011023122032323-0002323332213031-0212210023311210-3020113011300020-2333112212023222-1001233032333021-0113023100003200"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_mobile / aedcf28f1a75 / 3
+## Direct properties — continue / 033223330311 / 3
 
-- [add_header](data-sources--protected_application--reference--group-004.md#canonical-8dada8845188dcc3e5dc4432b41c640622144f1a901310ebcfe8f17f57c63c52): complete subsection reference.
+- [add_header](data-sources--protected_application--reference--group-004.md#canonical-2010121232203211-2221201223022220-0021301330121200-2221103013303002-3333013322223333-3130300122313033-2310121232222010-0122023332101110): complete subsection reference.
 
-- [no_header](data-sources--protected_application--reference--group-004.md#canonical-04fb997dcd54d1ea40a93e351efc1fac53f85f280014c6c80323ada40a87fc57): complete subsection reference.
+- [no_header](data-sources--protected_application--reference--group-004.md#canonical-3112301223133131-0112110301003221-3333023021230200-3321312232323010-3222000312100313-2213222031310202-1232301300223013-2002321033331231): complete subsection reference.
 
-<a id="canonical-0bcc0d2c8b486a094a262077fa8fbd14c56c52cb78f43cde3566330450978988"></a>
+<a id="canonical-2110132200013132-1213113330101033-3022322222232330-0020303120011302-1303232123031011-0231000233111003-2003111133330332-0202232110311033"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_mobile / aedcf28f1a75 / 4
+## Next pages — continue / 033223330311 / 4
 
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header](data-sources--protected_application--reference--group-004.md#canonical-8dada8845188dcc3e5dc4432b41c640622144f1a901310ebcfe8f17f57c63c52)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header](data-sources--protected_application--reference--group-004.md#canonical-04fb997dcd54d1ea40a93e351efc1fac53f85f280014c6c80323ada40a87fc57)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.web_client.continue.add_header](data-sources--protected_application--reference--group-004.md#canonical-2010121232203211-2221201223022220-0021301330121200-2221103013303002-3333013322223333-3130300122313033-2310121232222010-0122023332101110)
+- [cloudfront.protected_endpoints.web_client.continue.no_header](data-sources--protected_application--reference--group-004.md#canonical-3112301223133131-0112110301003221-3333023021230200-3321312232323010-3222000312100313-2213222031310202-1232301300223013-2002321033331231)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-8dada8845188dcc3e5dc4432b41c640622144f1a901310ebcfe8f17f57c63c52"></a>
+<a id="canonical-2010121232203211-2221201223022220-0021301330121200-2221103013303002-3333013322223333-3130300122313033-2310121232222010-0122023332101110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-795bb95be1e2a70c2ec156ba38cffa42dac5809a05b3dcfd56785bc59c002ac7"></a>
+<a id="canonical-3312301330303033-0223103112331133-0031322223000210-2102213111131331-1121331131012230-1223311002220233-2021001333020123-2033223111331322"></a>
 
-## cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header / 7804b563dccc / 2
+## cloudfront.protected_endpoints.web_client.continue.add_header — add_header / 322302220103 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e)
-- cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110)
+- cloudfront.protected_endpoints.web_client.continue.add_header
 
-<a id="canonical-3684d192b3724f6394369cd5a44adf917b8d2b390e8b6c39ce693ab39c8c6f58"></a>
+<a id="canonical-3312233101012121-2121220331001112-3001121011023123-0023123111103020-3020111221013033-1203000120213213-1302202203202230-2222210331231022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1092,40 +537,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0b72d7c4529390c384710ebaea761e8d7d02cf6eaaf5a45a0622f5e6c0f418a8"></a>
+<a id="canonical-2310110303123203-2103300212311333-1200032031303211-3330313201133003-0103131200132103-3221000033103133-0212322003100201-1223221021320300"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header / 7804b563dccc / 3
+## Direct properties — add_header / 322302220103 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4d910d11c05d53dd14f3636fb9597f9e7180d25fcbcb374d2a33b241d60bcad0"></a>
+<a id="canonical-0002101300230121-0022113321200212-1023203033200002-1132210320130230-1211333302003001-0003231231130311-3202111313011312-2002001120133211"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header / 7804b563dccc / 4
+## Next pages — add_header / 322302220103 / 4
 
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-04fb997dcd54d1ea40a93e351efc1fac53f85f280014c6c80323ada40a87fc57"></a>
+<a id="canonical-3112301223133131-0112110301003221-3333023021230200-3321312232323010-3222000312100313-2213222031310202-1232301300223013-2002321033331231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9b4d01e72a24b3511b9c57c6ce84555bf6394e5820bf8e4353378a8b5390d22"></a>
+<a id="canonical-3012132230310212-0203010000000012-2032002030223203-2300320301101330-3100331002201003-0320032010133110-0032110121033102-1033310130300121"></a>
 
-## cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header / 3020f42ce745 / 2
+## cloudfront.protected_endpoints.web_client.continue.no_header — no_header / 222213212300 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e)
-- cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110)
+- cloudfront.protected_endpoints.web_client.continue.no_header
 
-<a id="canonical-11d17202ec6412d80a005d9d1449267e3aa7631beb089c8512e7a86b63ded416"></a>
+<a id="canonical-3002302311202203-1203322011330130-1131330012230002-0232021001233131-2203011132122331-1310003001131212-0332113121033130-3201311110002203"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1148,211 +593,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-21f99473cdd51c853087f3f8ecfa8c277d32d7620fd7c82c55bcd6f1c9b4b44e"></a>
+<a id="canonical-0000000133021103-0203112132031133-3333003121201203-3220133112031021-2031000002032210-0332301030111300-0203200200113231-0123213302103001"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header / 3020f42ce745 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-5b7dd5c231cd950a37e2b7a07e65489ed5eeeba5c362c385c2a4a328bb41ac33"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header / 3020f42ce745 / 4
-
-- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-1f0f6b9082ee4a6494deee3b53f81e0938f7be7c783cbc8051c9c710e1ad474e)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-41dda18b5d674a08a928f4e7233dd7382834720635dcb8558ffa33928d2a32eb"></a>
-
-## cloudfront.protected_endpoints.web_mobile_client.continue_web — cloudfront.protected_endpoints.web_mobile_client.continue_web / 95ca334f3c67 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- cloudfront.protected_endpoints.web_mobile_client.continue_web
-
-<a id="canonical-bff03ffdd43a0c53bb01b314fa90106a723ce8bb7a0bfbe916d710e3334e3733"></a>
-
-Type: `"single"`. Computed.
-
-Select Continue Bot Mitigation Action. Continue mitigation action.
-
-Upstream description:
-
-Continue mitigation action.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-add_header_choice": "[\"add_header\",\"no_header\"]"
-}
-```
-
-<a id="canonical-d988f98d7e17b5efe76c6be73daf68ca24f68cb39f19240c1ab1295e086e05f3"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_web / 95ca334f3c67 / 3
-
-- [add_header](data-sources--protected_application--reference--group-004.md#canonical-f5727727a0f9979bc3f48075a4569e3768563b6be787bde07e6a5950fe1530e3): complete subsection reference.
-
-- [no_header](data-sources--protected_application--reference--group-004.md#canonical-3ea5f9666ff15644e3c4e2153615aab5ee92e1266d002afb308451a23ead37a3): complete subsection reference.
-
-<a id="canonical-05df64c58745a69533f24a1e3eba8a1399bfa93e953020317662f5862a78fb2f"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_web / 95ca334f3c67 / 4
-
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header](data-sources--protected_application--reference--group-004.md#canonical-f5727727a0f9979bc3f48075a4569e3768563b6be787bde07e6a5950fe1530e3)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header](data-sources--protected_application--reference--group-004.md#canonical-3ea5f9666ff15644e3c4e2153615aab5ee92e1266d002afb308451a23ead37a3)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-f5727727a0f9979bc3f48075a4569e3768563b6be787bde07e6a5950fe1530e3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3e4e4bd1cf13bf533a9b32c463e58785697cdd384f930e12d3d1c9bd9b14db8a"></a>
-
-## cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header — cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header / 186261c6510c / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c)
-- cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header
-
-<a id="canonical-6419619662bbc8e30fff1792a5e1bfe29c3219d31a92219ebd397383af2982c0"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-d3dcc9648f59ec69b6037d6bd7b8d29ea95f5731994f7a07d677275cb2994aef"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header / 186261c6510c / 3
+## Direct properties — no_header / 222213212300 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c9a7c9911f2ebcbe9770016abf1c2f8e384213939eab7d771f81957d91df8acc"></a>
+<a id="canonical-1230033123230230-1213102130223200-2012212131310020-2323331002203031-2111020310300213-0012013120002211-2133100320102033-1312011231222300"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header / 186261c6510c / 4
+## Next pages — no_header / 222213212300 / 4
 
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2130120112222201-0033132333220003-0131232120110120-2122203200000111-3232001322012030-2213133311233010-2232002101032001-0020233022032110)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-3ea5f9666ff15644e3c4e2153615aab5ee92e1266d002afb308451a23ead37a3"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-bf81a10b7144aa88437492fea1bf19be21eae8ab59b09ed03ea698f09876a293"></a>
-
-## cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header — cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header / 0133ca48ff22 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c)
-- cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header
-
-<a id="canonical-f9a308bc0c6014efa19144261d8267d22ca9c2da0aa47ed49ad7261936b72d05"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3ccab402258bb7cba69d3efa672a56f0e74486fc870f353f7f3349ce2f349efc"></a>
-
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header / 0133ca48ff22 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-b9db2a90a38063b7adc0c916e8122d5945fc804f082340a169982f6f00cc9b1c"></a>
-
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header / 0133ca48ff22 / 4
-
-- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-c3bedf5f2501052c23f2cb6ca0eeff1877aab9a00302190d4069c6cb7a1a494c)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-
-<a id="canonical-c86a66ef5d77fce192ed350d60eb7da17fdd5b32dfea438d5016704d268206ec"></a>
+<a id="canonical-2332232201010321-0020012300222222-2100123332000132-1001102131131321-0103123000322033-1021121200113312-1310312211102133-1131103223110033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9efb312e5679942795333bfbb8db8cff21208ccab60fdb03150a4022518e1993"></a>
+<a id="canonical-2100322103330212-0311230003201232-0332201301212301-1102123021312221-3010210012220323-1133210012213302-3120223112120332-3330310310310231"></a>
 
-## cloudfront.protected_endpoints.web_mobile_client.redirect_web — cloudfront.protected_endpoints.web_mobile_client.redirect_web / 38d929ed20ed / 2
+## cloudfront.protected_endpoints.web_client.redirect — redirect / 110323021202 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-63ccd5887227947c4027402da326499fc8dd87b5a738da40e7c7ef5f74e724a0)
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- cloudfront.protected_endpoints.web_mobile_client.redirect_web
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- cloudfront.protected_endpoints.web_client.redirect
 
-<a id="canonical-c9abae19a6ba156d9beec87e27349f3acc912efdaf82a8b186dc048545642992"></a>
+<a id="canonical-2313323133022323-3231102321202003-2220233132302023-1221030230320331-3033012022200011-3212302102113110-1213021331222002-3303203203202002"></a>
 
 Type: `"single"`. Computed.
 
@@ -1375,15 +648,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-04b00dadebdea8260bc5ade6573b3e4bfc8eeb0a19adc3f99003031ce1ca47a0"></a>
+<a id="canonical-2132001301311211-3131112313030330-1323333012112202-2003232001333012-1100220201110213-1331002003203320-0323122023120233-3233323212000213"></a>
 
-## Direct properties — cloudfront.protected_endpoints.web_mobile_client.redirect_web / 38d929ed20ed / 3
+## Direct properties — redirect / 110323021202 / 3
 
-<a id="canonical-d8c08ec64e206a70a62bead1d41e9789081a48d91be13d6bae2f31754ca0de07"></a>
+<a id="canonical-3332330033100032-2200021110023011-0023300023200010-0020233033002001-0233003203301233-3020012111102211-2013030321023220-0013220323012302"></a>
 
-<a id="canonical-66525401b0f76e932a46e865146b4b47d099ab85e2f326ab681b23fb8a7f1e1a"></a>
+<a id="canonical-3130231102231122-0331221203332303-3101221231211023-0301331211131113-3202211333010000-1333321333203100-3002113311123221-2103332322200313"></a>
 
-## location property — cloudfront.protected_endpoints.web_mobile_client.redirect_web / 38d929ed20ed / 4
+## location property — redirect / 110323021202 / 4
 
 Type: `"string"`. Computed.
 
@@ -1431,11 +704,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-715d47f2325005319f1bf3311c802fef8a721c569287998cdc59b362eebbd601"></a>
+<a id="canonical-1002013023012123-2102001302201200-0023200221301312-3213110200233133-1202221103300022-0131013300121211-1310103133300113-2233201322212212"></a>
 
-<a id="canonical-193c8fbe37a6677868b93e4b1aa4636a3301e8148cb1bea642618e8372a71437"></a>
+<a id="canonical-1001110331001010-3201110312022312-1213321012202113-2331331011201002-3002002031133022-0311302002230231-3030212232233031-2213030103221333"></a>
 
-## status property — cloudfront.protected_endpoints.web_mobile_client.redirect_web / 38d929ed20ed / 5
+## status property — redirect / 110323021202 / 5
 
 Type: `"string"`. Computed.
 
@@ -1554,31 +827,1192 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-46f57be20e483ed226a3aeeffe4db6f189ac8094d45a4d88a0d3373d00d1bb79"></a>
+<a id="canonical-1121313023322331-1122232103330002-3022002101232010-0131111303103323-0001131112333110-2210131223231033-3210302322303331-2201201303113222"></a>
 
-## Next pages — cloudfront.protected_endpoints.web_mobile_client.redirect_web / 38d929ed20ed / 6
+## Next pages — redirect / 110323021202 / 6
 
-- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-69aa4be319e7ca4fe944058eefbf39d0b7041554f72b2be6c3d7ade860486f98)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.protected_endpoints.web_client](data-sources--protected_application--reference--group-004.md#canonical-0021131221101020-3323020220213013-3221300121212033-3022302311332020-0101211313203023-0133110222010302-0221020001111012-0011131003021220)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca"></a>
+<a id="canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6025676ede42a2242428c7d40eb4c17a0daefb3906ec387633f48587afc2f592"></a>
+<a id="canonical-3312111300302131-0323133132122212-2120130232203101-2000010113311133-0120333011331031-1232022220330201-0031033101200323-0131201001132020"></a>
 
-## cloudfront.trusted_clients — cloudfront.trusted_clients / 105f8fc2276c / 2
+## cloudfront.protected_endpoints.web_mobile_client — web_mobile_client / 111321201031 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- cloudfront.protected_endpoints.web_mobile_client
+
+<a id="canonical-0210021313132131-3110323200113102-2221311032333000-2022321133212032-0122002022333031-3301313032222201-3330320133102013-3022103003010021"></a>
+
+Type: `"single"`. Computed.
+
+Web and Mobile client configuration OPTIONS.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-mobile_mitigation": "[\"block_mobile\",\"continue_mobile\"]",
+  "x-ves-oneof-field-web_mitigation": "[\"block_web\",\"continue_web\",\"redirect_web\"]"
+}
+```
+
+<a id="canonical-3223033312021220-2200001232002222-3010223023013112-0121203301002310-3311320011113100-3202233223112302-0000130223300130-1213320001003322"></a>
+
+## Direct properties — web_mobile_client / 111321201031 / 3
+
+- [block_mobile](data-sources--protected_application--reference--group-004.md#canonical-3021301333223332-1033021033021330-3112311123310303-1001113310232032-1002321321100323-0211212113231123-1011031033310121-3210313223212213): complete subsection reference.
+
+- [block_web](data-sources--protected_application--reference--group-004.md#canonical-3132023301200100-2333133202233200-0100331020212011-3213111120230222-3233032230122103-3011123310223112-0221200113102211-1233221120331332): complete subsection reference.
+
+- [continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032): complete subsection reference.
+
+- [continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030): complete subsection reference.
+
+- [redirect_web](data-sources--protected_application--reference--group-004.md#canonical-3020122212123233-1131131333303201-2102323103110031-1200322313312201-1333313111230302-3133322210032031-1100011213001031-0212200200123230): complete subsection reference.
+
+<a id="canonical-0233203133120311-0220021033222003-3233231130030002-0032203001201033-1123230013302010-2210000102132220-3131210222221311-1020033231032321"></a>
+
+## Next pages — web_mobile_client / 111321201031 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.block_mobile](data-sources--protected_application--reference--group-004.md#canonical-3021301333223332-1033021033021330-3112311123310303-1001113310232032-1002321321100323-0211212113231123-1011031033310121-3210313223212213)
+- [cloudfront.protected_endpoints.web_mobile_client.block_web](data-sources--protected_application--reference--group-004.md#canonical-3132023301200100-2333133202233200-0100331020212011-3213111120230222-3233032230122103-3011123310223112-0221200113102211-1233221120331332)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030)
+- [cloudfront.protected_endpoints.web_mobile_client.redirect_web](data-sources--protected_application--reference--group-004.md#canonical-3020122212123233-1131131333303201-2102323103110031-1200322313312201-1333313111230302-3133322210032031-1100011213001031-0212200200123230)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3021301333223332-1033021033021330-3112311123310303-1001113310232032-1002321321100323-0211212113231123-1011031033310121-3210313223212213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3003312213131300-1122311330232233-3322131000232132-2310310120131332-3212210332033322-2303033121333002-2213111202030210-0330100232211300"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.block_mobile — block_mobile / 030203220202 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- cloudfront.protected_endpoints.web_mobile_client.block_mobile
+
+<a id="canonical-3001003000031003-0001311103012310-0210320012020020-2320302020003030-3110232022200331-0222132031010132-1321233302231221-2210033301000333"></a>
+
+Type: `"single"`. Computed.
+
+Block Response for Mobile. Block Response.
+
+Upstream description:
+
+Block Response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2101101102200131-1300123211321322-3131033231301300-0021310000301300-2311303231301010-0013233111222330-2122212102330302-0303223222233313"></a>
+
+## Direct properties — block_mobile / 030203220202 / 3
+
+<a id="canonical-2121010012310103-3223321003023123-2230332201012112-1113111012121122-2232013332232331-0111323130013303-0021210013203110-2310010023320131"></a>
+
+<a id="canonical-1321102221330122-2100000312211332-2111001112020302-3230011232112322-3220112222302130-2320333220201200-3222103310110123-1101000310302032"></a>
+
+## body property — block_mobile / 030203220202 / 4
+
+Type: `"string"`. Computed.
+
+Body. Custom body message.
+
+Upstream description:
+
+Custom body message.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 4096,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 4096,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  }
+}
+```
+
+<a id="canonical-3132320012103031-1110022323023033-0023200100201322-3112100211101131-2220030301012102-2202222300121003-3311223032030120-0130002001122121"></a>
+
+<a id="canonical-0131312020301210-2213312100001022-1133112223220011-1323202103212013-0010033332213021-3310310210313221-3012000101210113-1113233121302002"></a>
+
+## content_type property — block_mobile / 030203220202 / 5
+
+Type: `"string"`. Computed.
+
+Content type to use in a block response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  }
+}
+```
+
+<a id="canonical-3101001332322003-1320313123102003-3021133003100130-0310311030002303-0031202132213201-1121011332110133-2321200301201231-3011223020300020"></a>
+
+<a id="canonical-0311231112323000-1022300312203113-2212001033010111-0020323130212213-1011020133003233-2120322230321312-0102032013020203-0302132001133113"></a>
+
+## status property — block_mobile / 030203220202 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
+code OK status code Created status code Accepted status code Non Authoritative Information status
+code No Content status code Reset Content status code Partial Content status code Multi Status..
+Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
+\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
+\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
+\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
+\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
+\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
+\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
+\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
+\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
+\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
+\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
+\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
+\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
+Defaults to \`EmptyStatusCode\`.
+
+Upstream description:
+
+HTTP response status codes
+
+EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
+status code Accepted status code Non Authoritative Information status code No Content status code
+Reset Content status code Partial Content status code Multi Status status code Already Reported
+status code Im Used status code Multiple Choices status code Moved Permanently status code Found
+status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
+status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
+Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
+Acceptable status code Proxy Authentication Required status code Request Timeout status code
+Conflict status code Gone status code Length Required status code Precondition Failed status code
+Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
+Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
+Entity status code Locked status code Failed Dependency status code Upgrade Required status code
+Precondition Required status code Too Many Requests status code Request Header Fields Too Large
+status code Internal Server Error status code Not Implemented status code Bad Gateway status code
+Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
+Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
+Extended status code Network Authentication Required status code.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "EmptyStatusCode",
+  "enum": [
+    "EmptyStatusCode",
+    "Continue",
+    "OK",
+    "Created",
+    "Accepted",
+    "NonAuthoritativeInformation",
+    "NoContent",
+    "ResetContent",
+    "PartialContent",
+    "MultiStatus",
+    "AlreadyReported",
+    "IMUsed",
+    "MultipleChoices",
+    "MovedPermanently",
+    "Found",
+    "SeeOther",
+    "NotModified",
+    "UseProxy",
+    "TemporaryRedirect",
+    "PermanentRedirect",
+    "BadRequest",
+    "Unauthorized",
+    "PaymentRequired",
+    "Forbidden",
+    "NotFound",
+    "MethodNotAllowed",
+    "NotAcceptable",
+    "ProxyAuthenticationRequired",
+    "RequestTimeout",
+    "Conflict",
+    "Gone",
+    "LengthRequired",
+    "PreconditionFailed",
+    "PayloadTooLarge",
+    "URITooLong",
+    "UnsupportedMediaType",
+    "RangeNotSatisfiable",
+    "ExpectationFailed",
+    "MisdirectedRequest",
+    "UnprocessableEntity",
+    "Locked",
+    "FailedDependency",
+    "UpgradeRequired",
+    "PreconditionRequired",
+    "TooManyRequests",
+    "RequestHeaderFieldsTooLarge",
+    "InternalServerError",
+    "NotImplemented",
+    "BadGateway",
+    "ServiceUnavailable",
+    "GatewayTimeout",
+    "HTTPVersionNotSupported",
+    "VariantAlsoNegotiates",
+    "InsufficientStorage",
+    "LoopDetected",
+    "NotExtended",
+    "NetworkAuthenticationRequired"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3321311123221100-1322120232113120-0103310103131301-1120021312222222-3203031212131223-1223331130033301-2330203012000201-1103110110202330"></a>
+
+## Next pages — block_mobile / 030203220202 / 7
+
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3132023301200100-2333133202233200-0100331020212011-3213111120230222-3233032230122103-3011123310223112-0221200113102211-1233221120331332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3301320131022021-1323221302103202-1303003110120223-0221220332300102-2212002113302131-2000220031322320-2010200103101223-2303011321332222"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.block_web — block_web / 331201303133 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- cloudfront.protected_endpoints.web_mobile_client.block_web
+
+<a id="canonical-0130303031210023-1132330021311213-3311320011321123-0200321030223001-1331333133301310-3013021233233332-3120212111112311-0021311132002202"></a>
+
+Type: `"single"`. Computed.
+
+Block Response. Block Response.
+
+Upstream description:
+
+Block Response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3023232332000303-2101123020220223-2010212011131221-0120012212113231-2302230311033313-3112210221123201-3320220212220020-3222023212323333"></a>
+
+## Direct properties — block_web / 331201303133 / 3
+
+<a id="canonical-1311102033130230-3123232321123003-2113201012023300-1232110002232100-3031203023310300-2230002030103232-2110203133331312-0011023303002323"></a>
+
+<a id="canonical-0021203020033300-0212013103033233-0020020221122331-2202223301310203-2323313220332131-3012222031012120-1331111033021202-1312032321130301"></a>
+
+## body property — block_web / 331201303133 / 4
+
+Type: `"string"`. Computed.
+
+Body. Custom body message.
+
+Upstream description:
+
+Custom body message.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 4096,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 4096,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  }
+}
+```
+
+<a id="canonical-2223110020031101-1311232002012322-0030022300311013-1202330122302133-1210130003211023-3131110131330202-2302213100322033-1132300310333032"></a>
+
+<a id="canonical-3032011310322102-3022212020320312-0112230221332113-1121120201032302-3012323210331110-2322202233313123-2100012011301300-3321100303330203"></a>
+
+## content_type property — block_web / 331201303133 / 5
+
+Type: `"string"`. Computed.
+
+Content type to use in a block response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  }
+}
+```
+
+<a id="canonical-3203300301211333-3022333203310023-3323330013121321-0331111231010032-3100133112032302-2300203322220110-0310111121223132-1131210300310113"></a>
+
+<a id="canonical-0132103233213213-1302133012023110-1333003302210132-0012220210233222-3312331321111112-3302012032311101-1100222101311130-2202320130100001"></a>
+
+## status property — block_web / 331201303133 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
+code OK status code Created status code Accepted status code Non Authoritative Information status
+code No Content status code Reset Content status code Partial Content status code Multi Status..
+Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
+\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
+\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
+\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
+\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
+\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
+\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
+\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
+\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
+\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
+\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
+\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
+\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
+Defaults to \`EmptyStatusCode\`.
+
+Upstream description:
+
+HTTP response status codes
+
+EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
+status code Accepted status code Non Authoritative Information status code No Content status code
+Reset Content status code Partial Content status code Multi Status status code Already Reported
+status code Im Used status code Multiple Choices status code Moved Permanently status code Found
+status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
+status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
+Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
+Acceptable status code Proxy Authentication Required status code Request Timeout status code
+Conflict status code Gone status code Length Required status code Precondition Failed status code
+Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
+Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
+Entity status code Locked status code Failed Dependency status code Upgrade Required status code
+Precondition Required status code Too Many Requests status code Request Header Fields Too Large
+status code Internal Server Error status code Not Implemented status code Bad Gateway status code
+Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
+Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
+Extended status code Network Authentication Required status code.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "EmptyStatusCode",
+  "enum": [
+    "EmptyStatusCode",
+    "Continue",
+    "OK",
+    "Created",
+    "Accepted",
+    "NonAuthoritativeInformation",
+    "NoContent",
+    "ResetContent",
+    "PartialContent",
+    "MultiStatus",
+    "AlreadyReported",
+    "IMUsed",
+    "MultipleChoices",
+    "MovedPermanently",
+    "Found",
+    "SeeOther",
+    "NotModified",
+    "UseProxy",
+    "TemporaryRedirect",
+    "PermanentRedirect",
+    "BadRequest",
+    "Unauthorized",
+    "PaymentRequired",
+    "Forbidden",
+    "NotFound",
+    "MethodNotAllowed",
+    "NotAcceptable",
+    "ProxyAuthenticationRequired",
+    "RequestTimeout",
+    "Conflict",
+    "Gone",
+    "LengthRequired",
+    "PreconditionFailed",
+    "PayloadTooLarge",
+    "URITooLong",
+    "UnsupportedMediaType",
+    "RangeNotSatisfiable",
+    "ExpectationFailed",
+    "MisdirectedRequest",
+    "UnprocessableEntity",
+    "Locked",
+    "FailedDependency",
+    "UpgradeRequired",
+    "PreconditionRequired",
+    "TooManyRequests",
+    "RequestHeaderFieldsTooLarge",
+    "InternalServerError",
+    "NotImplemented",
+    "BadGateway",
+    "ServiceUnavailable",
+    "GatewayTimeout",
+    "HTTPVersionNotSupported",
+    "VariantAlsoNegotiates",
+    "InsufficientStorage",
+    "LoopDetected",
+    "NotExtended",
+    "NetworkAuthenticationRequired"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3021210230200012-0133030023333332-0002201331232203-3100123010131223-3201030030001302-0220111003001031-3332002232013130-1223200303233212"></a>
+
+## Next pages — block_web / 331201303133 / 7
+
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1102111211012230-1000310230100102-2303310223330313-3221103321011311-0122133223112011-1221102230212320-0303031223312022-3233232323020301"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_mobile — continue_mobile / 203301221311 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- cloudfront.protected_endpoints.web_mobile_client.continue_mobile
+
+<a id="canonical-3311310102322302-3233230333232311-0330321132131311-0302000310012230-1023032000222203-0020002130203302-2111110333302002-1023211120230311"></a>
+
+Type: `"single"`. Computed.
+
+Select Continue Bot Mitigation Action. Continue mitigation action.
+
+Upstream description:
+
+Continue mitigation action.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-add_header_choice": "[\"add_header\",\"no_header\"]"
+}
+```
+
+<a id="canonical-1310031210112022-3210113313222132-2301323333201000-1120333103201330-2312103312230233-1313222312100201-2213232033110332-0311221013131212"></a>
+
+## Direct properties — continue_mobile / 203301221311 / 3
+
+- [add_header](data-sources--protected_application--reference--group-004.md#canonical-2031223122202010-1101202031303003-3211313010100302-2310013012100012-0202011010330122-2100010301003223-3033322033011333-1113301203301102): complete subsection reference.
+
+- [no_header](data-sources--protected_application--reference--group-004.md#canonical-0010332321211331-3031111031013222-1000222103320311-0132333001332230-1103332011330220-0000011030123020-0003020322312210-0022201333301113): complete subsection reference.
+
+<a id="canonical-0023303000310230-2023102012220021-1022021202001313-3322203323310110-3011123011023023-1320331003303132-0311121203030010-1100211320212020"></a>
+
+## Next pages — continue_mobile / 203301221311 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header](data-sources--protected_application--reference--group-004.md#canonical-2031223122202010-1101202031303003-3211313010100302-2310013012100012-0202011010330122-2100010301003223-3033322033011333-1113301203301102)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header](data-sources--protected_application--reference--group-004.md#canonical-0010332321211331-3031111031013222-1000222103320311-0132333001332230-1103332011330220-0000011030123020-0003020322312210-0022201333301113)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-2031223122202010-1101202031303003-3211313010100302-2310013012100012-0202011010330122-2100010301003223-3033322033011333-1113301203301102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1321112323211123-3201320222130030-0232300111122322-0320303333221002-3122301120002122-0011230331303331-1112132011233011-2130000002223013"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header — add_header / 120331303030 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032)
+- cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header
+
+<a id="canonical-0312201031012102-2303130210331203-2110031221303111-2210102231332101-1323203102230321-0032202312300321-3032122103222303-2130203012331120"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0023130231133010-1102210321003003-2010130100322322-3222131201322031-1331000230331232-2222331122101122-0012020233113212-3000331001202220"></a>
+
+## Direct properties — add_header / 120331303030 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1031210100310101-3000113111033131-0110330312031233-2321112113332132-1301200031021133-3023302303131031-0222030323021001-3112002330223100"></a>
+
+## Next pages — add_header / 120331303030 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-0010332321211331-3031111031013222-1000222103320311-0132333001332230-1103332011330220-0000011030123020-0003020322312210-0022201333301113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3121231031000132-1302220210230311-0101232130111330-1230322010111111-2333120321103211-2002002333203210-0311030313202220-2311032100310202"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header — no_header / 023032131011 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032)
+- cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header
+
+<a id="canonical-0101310113020002-3230121001023120-0022000011312131-0110102102121332-0322221312030123-3223002021302011-0102321322201223-1203313231100112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0201332121101303-3031311101302011-0300201333033320-3230332220300213-1331030231131202-0033311330200230-1111233031123301-3021231023101032"></a>
+
+## Direct properties — no_header / 023032131011 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1123133131113002-0301303121110022-0313320223132200-1332121110202132-3111323232232211-3003120230032011-3002221022030220-2323100122300303"></a>
+
+## Next pages — no_header / 023032131011 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_mobile](data-sources--protected_application--reference--group-004.md#canonical-0133003312232100-2002323210221210-2110313232320323-1103332001320021-0320331323321330-1320033023302000-1101302130130100-3201223110131032)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1001313122012023-1131121310220020-2221022033103213-0203033131130320-0220031013020012-0311313023201111-2033332203032102-2031022203023223"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_web — continue_web / 103303301213 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- cloudfront.protected_endpoints.web_mobile_client.continue_web
+
+<a id="canonical-2333330003333331-3110032200301103-2323000123030110-3322210001001222-1302033032202323-1322002333233221-0112311301003203-0303103203130303"></a>
+
+Type: `"single"`. Computed.
+
+Select Continue Bot Mitigation Action. Continue mitigation action.
+
+Upstream description:
+
+Continue mitigation action.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-add_header_choice": "[\"add_header\",\"no_header\"]"
+}
+```
+
+<a id="canonical-3121202033212031-1332011323113233-3213123012233213-0331223312203022-0210331220302303-2133012102100030-0122230102211132-0020123200113303"></a>
+
+## Direct properties — continue_web / 103303301213 / 3
+
+- [add_header](data-sources--protected_application--reference--group-004.md#canonical-3311130213130213-2200332121132123-3003331020001311-2210111221320313-1220111203231223-3213201323313200-1332122211211100-3332011103003203): complete subsection reference.
+
+- [no_header](data-sources--protected_application--reference--group-004.md#canonical-0332221133211212-1233330111121010-3203301032020111-0312011122222311-3232210232010212-1231000002223323-0300201011012202-0332223103132203): complete subsection reference.
+
+<a id="canonical-0011313312103011-2013101122122111-0303330210220132-0332232220220103-2121233322210332-2111030002000301-1312120233112012-0222132033230233"></a>
+
+## Next pages — continue_web / 103303301213 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header](data-sources--protected_application--reference--group-004.md#canonical-3311130213130213-2200332121132123-3003331020001311-2210111221320313-1220111203231223-3213201323313200-1332122211211100-3332011103003203)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header](data-sources--protected_application--reference--group-004.md#canonical-0332221133211212-1233330111121010-3203301032020111-0312011122222311-3232210232010212-1231000002223323-0300201011012202-0332223103132203)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3311130213130213-2200332121132123-3003331020001311-2210111221320313-1220111203231223-3213201323313200-1332122211211100-3332011103003203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0332103210233101-3033010323331103-0322212303023010-1203321120132011-1221133031310320-1033210300320102-3103310130212331-2123011031232022"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header — add_header / 301211010030 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030)
+- cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header
+
+<a id="canonical-1210012112012112-1202232330203203-0033333301132102-2211320123333202-2130030201213103-0122210202012132-2331032113032003-2233022120023000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3103313030211210-2033112132301221-2312000313311223-3113232031022132-2221113311130301-2121103313220013-3112131302131130-2302212110223233"></a>
+
+## Direct properties — add_header / 301211010030 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3021221330212101-0133023223302332-2113130000011222-2333013002332032-0320100201032103-2132222313311313-0133200121111331-2101313320223030"></a>
+
+## Next pages — add_header / 301211010030 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-0332221133211212-1233330111121010-3203301032020111-0312011122222311-3232210232010212-1231000002223323-0300201011012202-0332223103132203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2333200122010023-1301101022222020-1003131021023332-2201233301212332-0201322232202223-1121230021323100-0332221221203300-2120131222022103"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header — no_header / 102033330202 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030)
+- cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header
+
+<a id="canonical-3321220300202330-0030120001103233-2201210110100212-0131200212133102-0230222130023122-0022221013323110-2122311302120121-0312231302310011"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0330302223100002-0211202323133023-2212213103323322-1213022211123300-3213101020123330-2013003303110333-1333030310213032-0233031021323330"></a>
+
+## Direct properties — no_header / 102033330202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2321312302222100-2203200012032313-2231300030210112-3220010202311121-1011333020001033-0020020310002201-1221212002331233-0000303021230130"></a>
+
+## Next pages — no_header / 102033330202 / 4
+
+- [cloudfront.protected_endpoints.web_mobile_client.continue_web](data-sources--protected_application--reference--group-004.md#canonical-3003233231331133-0211000100110230-0203330230231230-2200323233330120-1313222223212200-0003000201210031-1000122130123023-1322012210211030)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3020122212123233-1131131333303201-2102323103110031-1200322313312201-1333313111230302-3133322210032031-1100011213001031-0212200200123230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2132332303010232-1112132121100213-2111030303233323-2320312320303333-0201020020303022-2312003331230003-0111002210000202-1101203201212103"></a>
+
+## cloudfront.protected_endpoints.web_mobile_client.redirect_web — redirect_web / 323102003231 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-1203303031112020-1302021321101330-1000021310000231-2203021210212133-3020313120132311-2213032031221000-3213301332331133-1310321302102200)
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- cloudfront.protected_endpoints.web_mobile_client.redirect_web
+
+<a id="canonical-3021222322320121-2212232201111231-2123323230201332-0213031021330322-3030210102323331-2233200222202301-2012313000102011-1011121002212102"></a>
+
+Type: `"single"`. Computed.
+
+Redirect. Redirect.
+
+Upstream description:
+
+Redirect.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0010230000312231-3223313222200212-0023301122313212-1113032303321023-3330203232230022-0121223130033321-2100000300030130-3201302210132200"></a>
+
+## Direct properties — redirect_web / 323102003231 / 3
+
+<a id="canonical-3120300020323012-1032020012221300-2212022332223101-3110013221132021-0020012210203121-0123320103311223-2232023303011311-1030220031320013"></a>
+
+<a id="canonical-1212110211100001-2300331312322103-0222101232201211-0110122310231013-3100212122232011-3202330302122223-1220012302033323-2022133301320122"></a>
+
+## location property — redirect_web / 323102003231 / 4
+
+Type: `"string"`. Computed.
+
+Location. URI location for redirect response.
+
+Upstream description:
+
+URI location for redirect response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 512
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "512",
+    "ves.io.schema.rules.string.url_or_uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "512",
+    "ves.io.schema.rules.string.url_or_uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-1301113110133302-0302110000110301-2133012333030301-0130200002333233-2022130201301112-2102201321212030-3130112123031202-3232232331120001"></a>
+
+<a id="canonical-0121033020332332-0313221212131320-1220232103321023-0122221012031222-0303000132200110-2030230123322212-1002120120322003-1302221301100313"></a>
+
+## status property — redirect_web / 323102003231 / 5
+
+Type: `"string"`. Computed.
+
+\[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
+code OK status code Created status code Accepted status code Non Authoritative Information status
+code No Content status code Reset Content status code Partial Content status code Multi Status..
+Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
+\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
+\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
+\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
+\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
+\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
+\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
+\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
+\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
+\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
+\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
+\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
+\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
+Defaults to \`EmptyStatusCode\`.
+
+Upstream description:
+
+HTTP response status codes
+
+EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
+status code Accepted status code Non Authoritative Information status code No Content status code
+Reset Content status code Partial Content status code Multi Status status code Already Reported
+status code Im Used status code Multiple Choices status code Moved Permanently status code Found
+status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
+status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
+Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
+Acceptable status code Proxy Authentication Required status code Request Timeout status code
+Conflict status code Gone status code Length Required status code Precondition Failed status code
+Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
+Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
+Entity status code Locked status code Failed Dependency status code Upgrade Required status code
+Precondition Required status code Too Many Requests status code Request Header Fields Too Large
+status code Internal Server Error status code Not Implemented status code Bad Gateway status code
+Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
+Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
+Extended status code Network Authentication Required status code.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "EmptyStatusCode",
+  "enum": [
+    "EmptyStatusCode",
+    "Continue",
+    "OK",
+    "Created",
+    "Accepted",
+    "NonAuthoritativeInformation",
+    "NoContent",
+    "ResetContent",
+    "PartialContent",
+    "MultiStatus",
+    "AlreadyReported",
+    "IMUsed",
+    "MultipleChoices",
+    "MovedPermanently",
+    "Found",
+    "SeeOther",
+    "NotModified",
+    "UseProxy",
+    "TemporaryRedirect",
+    "PermanentRedirect",
+    "BadRequest",
+    "Unauthorized",
+    "PaymentRequired",
+    "Forbidden",
+    "NotFound",
+    "MethodNotAllowed",
+    "NotAcceptable",
+    "ProxyAuthenticationRequired",
+    "RequestTimeout",
+    "Conflict",
+    "Gone",
+    "LengthRequired",
+    "PreconditionFailed",
+    "PayloadTooLarge",
+    "URITooLong",
+    "UnsupportedMediaType",
+    "RangeNotSatisfiable",
+    "ExpectationFailed",
+    "MisdirectedRequest",
+    "UnprocessableEntity",
+    "Locked",
+    "FailedDependency",
+    "UpgradeRequired",
+    "PreconditionRequired",
+    "TooManyRequests",
+    "RequestHeaderFieldsTooLarge",
+    "InternalServerError",
+    "NotImplemented",
+    "BadGateway",
+    "ServiceUnavailable",
+    "GatewayTimeout",
+    "HTTPVersionNotSupported",
+    "VariantAlsoNegotiates",
+    "InsufficientStorage",
+    "LoopDetected",
+    "NotExtended",
+    "NetworkAuthenticationRequired"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012331113233202-0032102003323102-0212220322323233-3332103123123301-2021223020002110-3110112210312020-2200310303130331-0000310123231321"></a>
+
+## Next pages — redirect_web / 323102003231 / 6
+
+- [cloudfront.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-004.md#canonical-1221222210233203-0121321330221033-3221101000112032-3233233303213100-2313001001111110-3313022302233212-3003311322313220-1200102012332120)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1200021112131232-3132100222020210-0210022030133110-0032231030011322-0031223233230321-0012323003201312-0303331020112013-2233300233112102"></a>
+
+## cloudfront.trusted_clients — trusted_clients / 300202131230 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
 - cloudfront.trusted_clients
 
-<a id="canonical-5c129facbbeecd766988282fcf68ef70958b4ff9525ff043fd4a8ff334f505f2"></a>
+<a id="canonical-1130010221332230-2323323230311312-1221202002200233-3033122032331300-2111202310333321-1102113333001003-3331102220333303-0310331100113302"></a>
 
 Type: `"list"`. Computed.
 
@@ -1617,17 +2051,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9c451b8dd9f4baef7548242bd8248776838f7b81774bf034cbae7a3d8129ee6b"></a>
+<a id="canonical-2130101101232031-3121331023223233-1311102002100223-3120021020131312-2003203313232001-1313102333000310-3023223213220331-2001022132321223"></a>
 
-## Direct properties — cloudfront.trusted_clients / 105f8fc2276c / 3
+## Direct properties — trusted_clients / 300202131230 / 3
 
-- [http_header](data-sources--protected_application--reference--group-004.md#canonical-4f2a4476c56f6b1e74d0809b816d7596dcb97b1970486e57fedf67665e6fbeb2): complete subsection reference.
+- [http_header](data-sources--protected_application--reference--group-004.md#canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302): complete subsection reference.
 
-<a id="canonical-2bca50f016e9cbaaa363526c15b3115eab71be31501268448afc7642c65c38f2"></a>
+<a id="canonical-0223302211003300-0112322130232222-2203120311021230-0111230301011132-2223130123320301-1100010212201010-2022333013121002-3012113003203302"></a>
 
-<a id="canonical-1904d18f286d26b30ca1e3c9e4030eeabc446b3ef1aa01859a9ee15d92e77431"></a>
+<a id="canonical-0121001031012033-0220123102122303-0030220132033021-3210000300323222-2330101012230332-3301222200012011-2122213232011131-2102321313100301"></a>
 
-## ip_prefix property — cloudfront.trusted_clients / 105f8fc2276c / 4
+## ip_prefix property — trusted_clients / 300202131230 / 4
 
 Type: `"string"`. Computed.
 
@@ -1668,36 +2102,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](data-sources--protected_application--reference--group-004.md#canonical-951ee3e8f7f74b0454bc2e734d4e3efacc477e48da15bb9f1bc1ef7a5d5bb414): complete subsection reference.
+- [metadata](data-sources--protected_application--reference--group-004.md#canonical-2111013232033220-3313331310230010-1110233002321303-1031103203323322-3030101313321020-3122011123232133-0123300132331322-1131112323100110): complete subsection reference.
 
-<a id="canonical-07cb9ce9965de55ce2b5c7b800ec27c2c7019878186ee3d786ba4f99e4b05ca0"></a>
+<a id="canonical-0013302321303221-2112113132111130-3202231130132320-0000323002133002-3013000121201320-0120123232033113-2012232210332121-3210230011302200"></a>
 
-## Next pages — cloudfront.trusted_clients / 105f8fc2276c / 5
+## Next pages — trusted_clients / 300202131230 / 5
 
-- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-4f2a4476c56f6b1e74d0809b816d7596dcb97b1970486e57fedf67665e6fbeb2)
-- [cloudfront.trusted_clients.metadata](data-sources--protected_application--reference--group-004.md#canonical-951ee3e8f7f74b0454bc2e734d4e3efacc477e48da15bb9f1bc1ef7a5d5bb414)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302)
+- [cloudfront.trusted_clients.metadata](data-sources--protected_application--reference--group-004.md#canonical-2111013232033220-3313331310230010-1110233002321303-1031103203323322-3030101313321020-3122011123232133-0123300132331322-1131112323100110)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-4f2a4476c56f6b1e74d0809b816d7596dcb97b1970486e57fedf67665e6fbeb2"></a>
+<a id="canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-21c34538ee9ea07c91a57ea7a97c9af7faa75da0fc5b6013343a2f3508a636ba"></a>
+<a id="canonical-0201300310110320-3232213222001330-2101221113322213-2221133021223313-3322221311312200-3330112312000103-0310032202330311-0020221203122322"></a>
 
-## cloudfront.trusted_clients.http_header — cloudfront.trusted_clients.http_header / 5e6cd90a0cb9 / 2
+## cloudfront.trusted_clients.http_header — http_header / 002200302321 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022)
 - cloudfront.trusted_clients.http_header
 
-<a id="canonical-044a8fa385607e81a2189f7b25fe1e52c369ce8af46e69fa222fdef96cc0cc79"></a>
+<a id="canonical-0010102220332203-2011120013322001-2202012021331323-0211333201321102-3003122130322022-3310123212213322-0202023331323321-1230300030301321"></a>
 
 Type: `"single"`. Computed.
 
@@ -1720,40 +2154,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1892943763305065db0989a20feeb8c11a748b8c723b47923058387812a5d6fd"></a>
+<a id="canonical-0120210221100313-1203030011001211-3123002120212202-0033323223203001-0122131020232030-1302032310132102-0300112003201320-0102221131123331"></a>
 
-## Direct properties — cloudfront.trusted_clients.http_header / 5e6cd90a0cb9 / 3
+## Direct properties — http_header / 002200302321 / 3
 
-- [headers](data-sources--protected_application--reference--group-004.md#canonical-782346045346466d7ce66de147274a4737008eaa7d08fb4f782eda68dc2ec86b): complete subsection reference.
+- [headers](data-sources--protected_application--reference--group-004.md#canonical-1320020310120010-1103101210121231-1330321212313201-1013021310221013-0313000020322222-1331002033231033-1320023231221220-3130023230201223): complete subsection reference.
 
-<a id="canonical-d5d4cb087dbc9456cfa0d22155cc0ff5e5311279ffbd4e5b72d445987af1616a"></a>
+<a id="canonical-3111311030230020-1331233021101112-3033220031020201-1111303000333311-3211030101021321-3333233110321123-1302311010112120-1322330112011222"></a>
 
-## Next pages — cloudfront.trusted_clients.http_header / 5e6cd90a0cb9 / 4
+## Next pages — http_header / 002200302321 / 4
 
-- [cloudfront.trusted_clients.http_header.headers](data-sources--protected_application--reference--group-004.md#canonical-782346045346466d7ce66de147274a4737008eaa7d08fb4f782eda68dc2ec86b)
-- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.trusted_clients.http_header.headers](data-sources--protected_application--reference--group-004.md#canonical-1320020310120010-1103101210121231-1330321212313201-1013021310221013-0313000020322222-1331002033231033-1320023231221220-3130023230201223)
+- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-782346045346466d7ce66de147274a4737008eaa7d08fb4f782eda68dc2ec86b"></a>
+<a id="canonical-1320020310120010-1103101210121231-1330321212313201-1013021310221013-0313000020322222-1331002033231033-1320023231221220-3130023230201223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-79473b45563bfcba895aabcbcb63c0023fa8c827e08723030260e822b45cc05f"></a>
+<a id="canonical-1321101303231011-1112032333302322-2021112222233023-3023120330000002-0333222030200213-3200201302030003-0002120032200202-2310113030001133"></a>
 
-## cloudfront.trusted_clients.http_header.headers — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 2
+## cloudfront.trusted_clients.http_header.headers — headers / 330022301103 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca)
-- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-4f2a4476c56f6b1e74d0809b816d7596dcb97b1970486e57fedf67665e6fbeb2)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022)
+- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302)
 - cloudfront.trusted_clients.http_header.headers
 
-<a id="canonical-2e4ed04dfec2931ccb2ce22bd781204277fe16ec1afdb88df83eec384681977b"></a>
+<a id="canonical-0232103231001031-3332300221030130-3023023032020223-3113200102001002-1313333201123230-0122333123202031-3320033232300320-1012200121131323"></a>
 
 Type: `"list"`. Computed.
 
@@ -1794,15 +2228,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9ec433171f19984c8faeb0fbaf2350dfd77a185225a4d4e7aa5100f940e6147c"></a>
+<a id="canonical-2132301003030113-0133012121201030-2033223223003323-2233020311003133-3113132201201102-0211221031103213-2222110100003321-1000321201101330"></a>
 
-## Direct properties — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 3
+## Direct properties — headers / 330022301103 / 3
 
-<a id="canonical-14facd3f1527189607a26194980cc1c4b19b67e7f2be18caa83ecd7179faef5e"></a>
+<a id="canonical-0110332230310333-0111021301202112-0013220212012110-2120003030013010-2301212312133213-3302233201203022-2220033230311301-1321332232331132"></a>
 
-<a id="canonical-632800dee2440d3882fdc8382fe977bc656f7449a49a25b5cadd567e83ff635b"></a>
+<a id="canonical-1203022000003132-3202101000310320-2002333130200320-0233322113132330-1211123313101021-2210212202112311-3022313111121332-2003333312031123"></a>
 
-## exact property — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 4
+## exact property — headers / 330022301103 / 4
 
 Type: `"string"`. Computed.
 
@@ -1848,11 +2282,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8e0120e129c106820aa91400a5f644a1179a2ff8fbcd7e8561f4e3b5a1b8a52c"></a>
+<a id="canonical-2032000102003201-0221300100122002-0022222101100000-2211331210102201-0113212202333320-3323303113322011-1201331032032311-2201232022110230"></a>
 
-<a id="canonical-566cad39bfa3b23b28e2be6f1efef4f675d09f5c2c4c12f213e802f5ea253f65"></a>
+<a id="canonical-1112123022310321-2333220323020323-0220320223321233-0132333233103312-1311310021331130-0230103001023302-0103322000023311-3222021103331211"></a>
 
-## name property — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 5
+## name property — headers / 330022301103 / 5
 
 Type: `"string"`. Computed.
 
@@ -1918,11 +2352,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ac1933faeac60116447ba6f4f93cfe165ef56a615d3bec3b4c3dc51117678353"></a>
+<a id="canonical-2230012103033322-3222301200010112-1010132322123310-3321033033320112-1132331112221201-1131032332300323-1030033130110101-0113121320031103"></a>
 
-<a id="canonical-4f43a581645ab91ced8fb1119cb043e780d91c3a7a193380ab502f77402f0efc"></a>
+<a id="canonical-1033100322112001-1210112223210130-3231203323010101-2130230010033213-2000312101300322-1322012103032000-2223110002331313-1000023300323330"></a>
 
-## regex property — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 6
+## regex property — headers / 330022301103 / 6
 
 Type: `"string"`. Computed.
 
@@ -1971,32 +2405,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a68fe0430cde8918d92e83db3924e04a5ab089284d34397c0f4ca2a276a5eca9"></a>
+<a id="canonical-2212203332001003-0030313220210120-3121023220033123-0321021032001022-1122230020210220-1031031003211330-0033103022022202-1312221132302221"></a>
 
-## Next pages — cloudfront.trusted_clients.http_header.headers / e00695f0ac53 / 7
+## Next pages — headers / 330022301103 / 7
 
-- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-4f2a4476c56f6b1e74d0809b816d7596dcb97b1970486e57fedf67665e6fbeb2)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.trusted_clients.http_header](data-sources--protected_application--reference--group-004.md#canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-951ee3e8f7f74b0454bc2e734d4e3efacc477e48da15bb9f1bc1ef7a5d5bb414"></a>
+<a id="canonical-2111013232033220-3313331310230010-1110233002321303-1031103203323322-3030101313321020-3122011123232133-0123300132331322-1131112323100110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-096633aa95c920c58a3363d775b263f678b9843d3da67e536e904a3a091a6abb"></a>
+<a id="canonical-0021121203032222-2111302102003011-2022030312033113-1311230212033312-1320232120100331-0331221213321103-1232210010220322-0021012212222323"></a>
 
-## cloudfront.trusted_clients.metadata — cloudfront.trusted_clients.metadata / 7b5f5d64f345 / 2
+## cloudfront.trusted_clients.metadata — metadata / 121033031011 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-5b21b41a1814c9565dadc62c0ab6a5ca595ed279fbcde9e9276830e2b5eea074)
-- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022)
 - cloudfront.trusted_clients.metadata
 
-<a id="canonical-0489e58841e00c392a9c519b7aecf6928a39f30154288b8279ba972f6f3eabfa"></a>
+<a id="canonical-0010202132112020-1001320000300321-0222213011012123-1322323033122102-2022032133030001-1110022020232002-1321232221130233-1233033222233322"></a>
 
 Type: `"single"`. Computed.
 
@@ -2025,25 +2459,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bd74980f8b69b6aa70f97389e5524064830e1a55892d56af095b03696257a435"></a>
+<a id="canonical-2331131021200033-2023122123122222-1300332113032021-3211110210001210-2003003201221111-2021023111122233-0021112300031221-1202111322100311"></a>
 
-## Direct properties — cloudfront.trusted_clients.metadata / 7b5f5d64f345 / 3
+## Direct properties — metadata / 121033031011 / 3
 
-<a id="canonical-edcb5632ce40c8dd4063270474d77d7a4e3fc23e7e753cd60fafd47986672271"></a>
+<a id="canonical-3231302311120302-3032100030203131-1000120302130010-1310311313311322-1032033330020332-1332131103303112-0033223331101321-2012121302021301"></a>
 
-<a id="canonical-5ecaa88110067bca4b57105dbdd74d1a79c1e22f2044f9996843b9179488c58b"></a>
+<a id="canonical-1132302222202001-0100001213233022-1023111301001131-2331311310310122-1321300132020233-0200101033212121-1220100323210113-2110202030112023"></a>
 
-## description_spec property — cloudfront.trusted_clients.metadata / 7b5f5d64f345 / 4
+## description_spec property — metadata / 121033031011 / 4
 
 Type: `"string"`. Computed.
 
 Description. Human readable description.
 
-<a id="canonical-276372877f37e101f0e4d4f644ae5b2f845690b5f6f379a25cdd1172e8a888bb"></a>
+<a id="canonical-0213120313022013-1333031332010001-3300321031103312-1010223211230233-2010111221002311-3312330313212202-1130313101011302-3220222020202323"></a>
 
-<a id="canonical-e7dfb02946633d6680b49237cbfcd23c72c00925c98094f9a4f464d2e5e29692"></a>
+<a id="canonical-3213313323000221-1012120303311212-2000231021020313-3023333031020330-1302300000210211-3021200021103321-2210331012103102-3211320221122102"></a>
 
-## name property — cloudfront.trusted_clients.metadata / 7b5f5d64f345 / 5
+## name property — metadata / 121033031011 / 5
 
 Type: `"string"`. Computed.
 
@@ -2102,30 +2536,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-32830453fd5c44f597e380cc23a1042b9e85b04ff2414554b0e2a89e276d9017"></a>
+<a id="canonical-0302200300101103-3331113010103311-2113320320003030-0203220100100223-2132201123001033-3302100110111110-2300320222202132-0213123121000113"></a>
 
-## Next pages — cloudfront.trusted_clients.metadata / 7b5f5d64f345 / 6
+## Next pages — metadata / 121033031011 / 6
 
-- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-dd0c1b728601671aee10a15c8aaaa84a60bbd5a8cab02d5dc4a3cec65ae4fcca)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [cloudfront.trusted_clients](data-sources--protected_application--reference--group-004.md#canonical-3131003001231302-2012000112130122-3232010022011130-2022222222201022-1200232331112220-3022230002311131-3010220330323012-1122321033303022)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-9d2981ecfbe9d0b8d6732e231eb0af76e2721080347b0d3c532913f663fd36da"></a>
+<a id="canonical-2131022120013230-3323322131002320-3112130302320203-0132230022331312-3202130201002000-0310132300310330-1103022101033312-1203333103123122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-80c5627d30bf54264460387faac94a821b32b3f836572c14b7278d93a4f7384b"></a>
+<a id="canonical-2000301112021331-0300233311100212-1010120003201333-2222302110222002-0123030223033320-0312111302300110-2313021320312103-2210331303201023"></a>
 
-## custom_connector — custom_connector / bfe6dca8e8b2 / 2
+## custom_connector — custom_connector / 222032202302 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
 - custom_connector
 
-<a id="canonical-92f3a3a5136fe39cb234315cd2391ba48d23c21e40cc2de12899c1146be4da19"></a>
+<a id="canonical-2102330322032211-0103123332032130-2302031003011130-3102032101232210-2031020330020132-1000303002313201-0220212130010110-1223321031220121"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2148,36 +2582,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1aba28cd67d9d5cbae6baba6c58dcaae3c66f79e6797bff7dcc53ce9032c7f28"></a>
+<a id="canonical-0122232202203031-1213312131113023-2232122322232212-3011203130222232-0330121233132132-1213211323333313-3130301103303221-0003023013330220"></a>
 
-## Direct properties — custom_connector / bfe6dca8e8b2 / 3
+## Direct properties — custom_connector / 222032202302 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-f61418740fde98fdfd15c5ca8eb3530a01bbba52d61706ffb7d0bd5c9d60a269"></a>
+<a id="canonical-3312011001201310-0033313221203331-3331011130113022-2032230311030022-0001232323221102-3112011300123333-2313310023311130-2131120022021221"></a>
 
-## Next pages — custom_connector / bfe6dca8e8b2 / 4
+## Next pages — custom_connector / 222032202302 / 4
 
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-a9e6f84ab6c0e0483f50d3fd1f9d0e2837df1e409dc26e4065cb0801b072cd71"></a>
+<a id="canonical-2221321233201022-2312300032001020-0333110031033331-0133213100320220-0313313301321000-2131300212321000-1211302300200001-2300130230311301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-23bf355f777cea4951982e2b25035a61e13424f049cd9d80ef9ce09713832c97"></a>
+<a id="canonical-0203233303111133-1313133032221021-1101212002320223-0211000311221201-3201031002103300-1021303121312000-3233213032002113-0103200302302113"></a>
 
-## f5_big_ip — f5_big_ip / 7c2f4f462a50 / 2
+## f5_big_ip — f5_big_ip / 101202221100 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
 - f5_big_ip
 
-<a id="canonical-3eca30b37bb1b70a27409289ace2c65b39eb6eccc7fa19a06bfedf577d9ca1b4"></a>
+<a id="canonical-0332302203002303-1323230123130022-0213100021022021-2230320230121123-0321322312323030-3013332201212200-1223333231331113-1331213022012310"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2200,36 +2634,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9918fb1bb11679a9e17cfc3905ab91cbc90a7179442128f55bccaa98e3b6f19b"></a>
+<a id="canonical-2121012033230123-2301011213212221-3201133033300321-0011222321013023-3021002213011321-1010020102203311-1123303022222120-3203231233012123"></a>
 
-## Direct properties — f5_big_ip / 7c2f4f462a50 / 3
+## Direct properties — f5_big_ip / 101202221100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9ce9ea3ec6542378e7091eab7aa514ad7e00fc20fb648528350196d23532b698"></a>
+<a id="canonical-2130322132220332-3012111002031320-3213002101322223-1322221101102231-1332000033300200-3323121020110220-0311000121123102-0311030223122120"></a>
 
-## Next pages — f5_big_ip / 7c2f4f462a50 / 4
+## Next pages — f5_big_ip / 101202221100 / 4
 
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
-<a id="canonical-f04c990851b7f2ef626b63087a3226d19a94d9cc23bebf2bfd39037ad13c276a"></a>
+<a id="canonical-3300103021210020-1101231333023233-1202122312030020-1322030202123101-2122211031213030-0203233223330223-3331032100031322-3101033002131222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e23f11ac450cbdba8461c914f38e95804505afad55e2e63223afdab96369ad63"></a>
+<a id="canonical-3202033301012230-1011003023312322-2010120130210110-3303203221112000-1011001122332231-1111320232120302-0203223331222321-1203122122311203"></a>
 
-## salesforce_commerce_connector — salesforce_commerce_connector / 6e44f6fd2cf3 / 2
+## salesforce_commerce_connector — salesforce_commerce_connector / 333102303303 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
 - salesforce_commerce_connector
 
-<a id="canonical-96d4494e546e5a8b45ea34e894ce261208b12830b63e726037b8cc904db6381d"></a>
+<a id="canonical-2112311010211032-1110123211222023-1011322203103220-2110303202120102-0020230102200300-2312033213021200-0313232030302100-1031231203200131"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2252,15 +2686,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e0fc7b4a225fcdca944cd4daf9e0bcfe6f635f074216c66057e1244fc4081be9"></a>
+<a id="canonical-3200333013231022-0202113330313022-2110103031103122-3321320023303332-1233120311330013-1002011230121200-1113320102101033-3010002001233221"></a>
 
-## Direct properties — salesforce_commerce_connector / 6e44f6fd2cf3 / 3
+## Direct properties — salesforce_commerce_connector / 333102303303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-abc90e1d5a47d7e48efeddebda73ca80d05eca78887ed544ba8856c0e6c01a4d"></a>
+<a id="canonical-2223302100320131-1122101331133210-2032333231313223-3122130330222000-3100113230221320-2020133231111010-2322202011123000-3212300001221031"></a>
 
-## Next pages — salesforce_commerce_connector / 6e44f6fd2cf3 / 4
+## Next pages — salesforce_commerce_connector / 333102303303 / 4
 
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)

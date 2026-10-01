@@ -56,10 +56,11 @@ class ProjectionTests(unittest.TestCase):
         records = manifest["sections"]
         assert len(records) == 2
         assert (
-            records[0]["anchor_map"]["section"] != records[1]["anchor_map"]["section"]
+            dict(records[0]["anchor_map"])["section"]
+            != dict(records[1]["anchor_map"])["section"]
         )
         text = next(iter(outputs.values()))
-        assert "#" + records[0]["anchor_map"]["section"] in text
+        assert "#" + dict(records[0]["anchor_map"])["section"] in text
         assert all(record["mode"] == "embedded" for record in records)
         assert (outputs, manifest) == projection.project(
             [first, second], {"fixture": ""}, "https://example.test"

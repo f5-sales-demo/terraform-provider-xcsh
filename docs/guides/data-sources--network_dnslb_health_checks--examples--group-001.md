@@ -6,48 +6,48 @@ description: "Complete grouped canonical reference for xcsh_network_dnslb_health
 
 # xcsh_network_dnslb_health_checks examples
 
-<a id="canonical-33d31580d0a9942499cdade7b7ab7db335b8c5e8687bfa6ff986ff99d6735606"></a>
+<a id="canonical-0303310301112000-3100222121100210-2121303122313213-2313222313312303-0311232030113220-1220132333221233-3321201233332121-3112130311120012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6d2f2ce70fb6a709fda0a07302c9bfb7848e89a9e052a5b1c6df6b32f090d588"></a>
+<a id="canonical-1231023302303213-0033231222130021-3331220022001303-0002302123332313-2010203220212221-3200110222112301-3012313312230302-3300210031112020"></a>
 
-## Examples — Examples / 2a20e35b493c / 2
+## Examples — Examples / 112310210330 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6)
+- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312)
 - Examples
 
-<a id="canonical-2ae56ce47bc779acc220fa0222992fa52a80513c41f44bd0a897afb3547acd74"></a>
+<a id="canonical-0222321112303210-1323301313212230-3002020033220002-0202212102332211-0222200011010330-1001331010233100-2220211322332303-1110132230311310"></a>
 
-## Complete configurations — Examples / 2a20e35b493c / 3
+## Complete configurations — Examples / 112310210330 / 3
 
-- [Data source](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-395781db2bfad350c0a2309baea4b9bfbde18c383acbd7494a74488655ebcd01): valid configuration.
+- [Data source](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0321111320013123-0223332231031100-3000220203002123-2232221023212333-2331320120300320-0322302331131021-1022131010202012-1111322330310001): valid configuration.
 
-<a id="canonical-4d13af750ff45887ec26a4030e3d101c8f69b2d36f59231296cab9496e68f985"></a>
+<a id="canonical-1031010322331311-0033331011202013-3230021222100003-0032033101000130-2033122123023103-1233112102030102-2112302223211021-1232122033212011"></a>
 
-## Next pages — Examples / 2a20e35b493c / 4
+## Next pages — Examples / 112310210330 / 4
 
-- [Data source](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-395781db2bfad350c0a2309baea4b9bfbde18c383acbd7494a74488655ebcd01)
-- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6)
+- [Data source](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0321111320013123-0223332231031100-3000220203002123-2232221023212333-2331320120300320-0322302331131021-1022131010202012-1111322330310001)
+- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312)
 
-<a id="canonical-395781db2bfad350c0a2309baea4b9bfbde18c383acbd7494a74488655ebcd01"></a>
+<a id="canonical-0321111320013123-0223332231031100-3000220203002123-2232221023212333-2331320120300320-0322302331131021-1022131010202012-1111322330310001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-9fccdf6e9467cde3636501792e5f491d72310993b3eabe2bc79faa5f7ae978b8"></a>
+<a id="canonical-2133303031331232-2110121330313203-1203121100011321-0232113310210131-1302030100212103-2303322223320223-3013213322221133-1322322113202320"></a>
 
-## Data source — Data source / 5c6f3e861a76 / 2
+## Data source — Data source / 201201221312 / 2
 
 Breadcrumbs:
 
-- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6)
-- [Examples](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-33d31580d0a9942499cdade7b7ab7db335b8c5e8687bfa6ff986ff99d6735606)
+- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312)
+- [Examples](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0303310301112000-3100222121100210-2121303122313213-2313222313312303-0311232030113220-1220132333221233-3321201233332121-3112130311120012)
 - Data source
 
 Schema-derived minimal configuration validated with the checked-out provider.
@@ -81,9 +81,9 @@ output "https_health_check_ingress" {
 }
 ```
 
-<a id="canonical-1472500c20c58aa7c0eac8e195b9cc0176e0f2d910988b706ad09f1119fe47b1"></a>
+<a id="canonical-0110130211000030-0200301120222213-3000322230203201-2111232130300001-1312320033023121-0100212020231300-1222310021330101-0121333210132301"></a>
 
-## Next pages — Data source / 5c6f3e861a76 / 3
+## Next pages — Data source / 201201221312 / 3
 
-- [Examples](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-33d31580d0a9942499cdade7b7ab7db335b8c5e8687bfa6ff986ff99d6735606)
-- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6)
+- [Examples](data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0303310301112000-3100222121100210-2121303122313213-2313222313312303-0311232030113220-1220132333221233-3321201233332121-3112130311120012)
+- [xcsh_network_dnslb_health_checks](../data-sources/network_dnslb_health_checks.md#canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312)

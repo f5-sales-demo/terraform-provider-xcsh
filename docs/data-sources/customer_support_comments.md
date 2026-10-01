@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_customer_support_com
 
 # xcsh_customer_support_comments landing
 
-<a id="canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5"></a>
+<a id="canonical-3233331010300203-0002001013222330-0201130211303202-2232020123310031-2211320023331130-0033233023122313-1203101322331330-3321120232032311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b9b4886599c21cb9f65348319d3508453cb4e80efff721f20e2b9b966614d9d2"></a>
+<a id="canonical-2321231020201211-2121300201302321-3312110310200301-2131031100201011-0330231032200032-3333331302013302-0032022321232112-1212011031213102"></a>
 
-## xcsh_customer_support_comments — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 2
+## xcsh_customer_support_comments — xcsh_customer_support_comments / 123130333011 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-<a id="canonical-a06a701c36bfe76d19c15d591f4abfb942a1a17e8da8c9beadf45b2b0be3107b"></a>
+<a id="canonical-2200122213000130-0312233332131231-0121300111311121-0133102223332321-1002220122011332-2031222030212332-2231331011230223-0023320301001323"></a>
 
-## Prerequisites — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 3
+## Prerequisites — xcsh_customer_support_comments / 123130333011 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-73cf6594abcba08031688de8a3f55d281cb61137857803dfd489aa18838b68dd"></a>
+<a id="canonical-1303303312112110-2223302322002000-0301122020313220-2203331111310220-0130231201010313-2011132000033133-3110202122220120-2003202312203131"></a>
 
-## Minimal configuration — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 4
+## Minimal configuration — xcsh_customer_support_comments / 123130333011 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-f2db09583475c9ec3cce71f6e634d352b0f191ab9770aeb8b86819b94f7f9086"></a>
+<a id="canonical-3302312300211120-0310131130213230-0330303213013312-3212031031031102-2300330121012223-2113130022322320-2320122001212321-1033133321002012"></a>
 
-## Root configuration — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 5
+## Root configuration — xcsh_customer_support_comments / 123130333011 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-867b6ca781e8e301da004506d3c13f08834cb5d2d41523afd10aec859df2bca2"></a>
+<a id="canonical-2012132312302213-2001322032030001-3122000010110012-3103300103330020-2003103023113102-3110011102032233-3101002232302011-2131330223302202"></a>
 
-## Next pages — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 6
+## Next pages — xcsh_customer_support_comments / 123130333011 / 6
 
-- [Property reference](../guides/data-sources--customer_support_comments--reference--group-001.md#canonical-12e9887903e3773a47890b40be28cd522622da1fd04215c1250c156eea0f4f47)
-- [Examples](../guides/data-sources--customer_support_comments--examples--group-001.md#canonical-1c092da3a2fc15c8a044fa74e96c07cccf0a472cacfd51c5a35a965d897c73bd)
+- [Property reference](../guides/data-sources--customer_support_comments--reference--group-001.md#canonical-0102322120201321-0003320313130322-1013202100231000-2332022030311102-0212020231220133-3100100201113001-0211003001111232-3222003310331013)
+- [Examples](../guides/data-sources--customer_support_comments--examples--group-001.md#canonical-0130002102312203-2202333001113020-2200101033221310-3221123000133030-3033002210130230-2230333111013011-2203112221121131-2021133013032331)

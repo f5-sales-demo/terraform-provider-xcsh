@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_app_firewall landing
 
 # xcsh_app_firewall landing
 
-<a id="canonical-382e1559c072471efc20c44b05ca9ec952e2d80c4bff0fa01ac43dc03116e4f6"></a>
+<a id="canonical-0320023201111121-3000130210130132-3330020030101023-0011302221323021-1102320231200030-1023333300332200-0122301003313000-0301011232103312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-81c5216e91bb5a0f7c70d3677b537bbfff582a3e4006c45646d5b621d4c95ae7"></a>
+<a id="canonical-2001301102011232-2101232311220033-1330130031031213-1323110313232333-3333112002220332-1000001230101112-1012311123120201-3110302111223213"></a>
 
-## xcsh_app_firewall — xcsh_app_firewall / 871bdc4291ce / 2
+## xcsh_app_firewall — xcsh_app_firewall / 100221013032 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages Application Firewall in F5 Distributed Cloud.
 
-<a id="canonical-41c70a36cb11f7f68b408c00367c9c83dbb2a578d00e11b5119f89cb720cb123"></a>
+<a id="canonical-1001301300220312-3023010133133312-2023100020300000-0312133021302003-3123230222111320-3100003201012311-0101213320213023-1302003023010203"></a>
 
-## Prerequisites — xcsh_app_firewall / 871bdc4291ce / 3
+## Prerequisites — xcsh_app_firewall / 100221013032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Optional integrations: `service_policy`.
 
 - service_policy: Fine-grained access control rules
 
-<a id="canonical-8ea2918f58cb54e1e33ed4bf31a2fc865ff820af38773b5e7c3e13665c5c1538"></a>
+<a id="canonical-2032220221012033-1120302311103201-3203033231102333-0301220233302012-1133332002002233-0320131303231132-1330033201031212-1130113001110320"></a>
 
-## Minimal configuration — xcsh_app_firewall / 871bdc4291ce / 4
+## Minimal configuration — xcsh_app_firewall / 100221013032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -65,15 +65,15 @@ output "app_firewall_id" {
 }
 ```
 
-<a id="canonical-7ac89bdf8efe9a12c89987e6af46a07c5cedaa060ce4c61faf13cd97a4d97975"></a>
+<a id="canonical-1322302021233133-2032333221220102-3020212120133212-2233101222001330-1130323122220012-0030321030120133-2233010330312113-2210312113211311"></a>
 
-## Root configuration — xcsh_app_firewall / 871bdc4291ce / 5
+## Root configuration — xcsh_app_firewall / 100221013032 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-488b83b0bad09a7b015a17f47cd91f1de0a7c0f3436dd545088dcba8274c54b6"></a>
+<a id="canonical-1020202320032300-2322310021221323-0001112201133310-1330312101330131-3200221330003303-1003123131111011-0020203130232220-0213103011102312"></a>
 
-## Next pages — xcsh_app_firewall / 871bdc4291ce / 6
+## Next pages — xcsh_app_firewall / 100221013032 / 6
 
-- [Property reference](../guides/data-sources--app_firewall--reference--group-001.md#canonical-eccb622733c64544d9dd1f7d76cd33f87ffce68fe0a448e2cdddeaebd2518395)
-- [Examples](../guides/data-sources--app_firewall--examples--group-001.md#canonical-dd79e5b08d935c0b78b3339f9166535800c9d5021a648923f2d47769f1d7a913)
+- [Property reference](../guides/data-sources--app_firewall--reference--group-001.md#canonical-3230302312020213-0303301210111010-3121313101331331-1312303103033320-1333333032122033-3200221010203202-3031313132223223-3102110120032111)
+- [Examples](../guides/data-sources--app_firewall--examples--group-001.md#canonical-3131132132112300-2031210311300023-1320230303032133-2101121211031120-0000302131110002-0122121020210203-3302311013131221-3301311322210103)

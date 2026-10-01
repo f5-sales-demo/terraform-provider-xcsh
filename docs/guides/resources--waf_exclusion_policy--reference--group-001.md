@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy
 
 # xcsh_waf_exclusion_policy reference
 
-<a id="canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5"></a>
+<a id="canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0d1500ebe6ea1688244d6762c9ec7dabfe79bbde99891b0797f59463f34e14be"></a>
+<a id="canonical-0031011100003223-3212322201122020-0210103112131202-3021323013312223-3332132123233132-2121202101230013-2113331121101203-3303103201102332"></a>
 
-## Property reference — Property reference / c13f0a4cc1a4 / 2
+## Property reference — Property reference / 103030012210 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 - Property reference
 
-<a id="canonical-b2ddaf45bbb30c2a658dd4b57bea7f673e31ce0f1305f05ebba646217ac2e1dc"></a>
+<a id="canonical-2302313122331011-2323230300300222-1211203131102311-1323322213331213-0332030130320033-0103001133001132-2323221210120201-1322300232013130"></a>
 
-## Direct properties — Property reference / c13f0a4cc1a4 / 3
+## Direct properties — Property reference / 103030012210 / 3
 
-<a id="canonical-95551cfe7885e9711531a799be43fdff2718ad9edaceafd635c40bd14bbd4fb1"></a>
+<a id="canonical-2111111101303332-1320201132211301-0111030122132121-2332100333313333-0213012022312132-3122303222333112-0311301000233101-1023233110332301"></a>
 
-<a id="canonical-a4c81e5dd42fbbf43088aad8743cdf85690f3e9fa27ca120fbd38fd98effa0f5"></a>
+<a id="canonical-2210302001321131-3110023323233310-0300202022223120-1310033031332011-1221003303322133-2202133022010200-3323310320333121-2032333322003311"></a>
 
-## annotations property — Property reference / c13f0a4cc1a4 / 4
+## annotations property — Property reference / 103030012210 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8bb6fa1d43235720eb725f3d8cba4097d71b3e4925301a23019e5d6cedbd40ae"></a>
+<a id="canonical-2023231233220131-1003020311130200-3223130211330331-2030232210002113-3113012303321021-0211030001220203-0001213211311230-3231233110002232"></a>
 
-<a id="canonical-2f5554c42e9a0577c57811a0bec347f16af49b10687a7c71b277fcb4dac58bff"></a>
+<a id="canonical-0233111111103010-0232212200111313-3011132001012200-2332300310133301-1222331021230100-1220132213301301-2302131333302310-3122301120233333"></a>
 
-## description property — Property reference / c13f0a4cc1a4 / 5
+## description property — Property reference / 103030012210 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-92400322daec0b3bf565d7896cff1dbb1d40bf4a0b2e5e8cea19313265116de3"></a>
+<a id="canonical-2102100000030202-3122323000230323-3311121131132021-1230333301312323-0131100023331022-0023023211322030-3222012103010302-1211010112313203"></a>
 
-<a id="canonical-84495b6aa889c5d30d45974486c38e45513d73b17cb5b5595d4678dd60c17e03"></a>
+<a id="canonical-2010102111231222-2220202130113103-0031101121131010-2012300320321011-1101033113032301-1330231123111121-1131101213203131-1200300113320003"></a>
 
-## disable property — Property reference / c13f0a4cc1a4 / 6
+## disable property — Property reference / 103030012210 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,25 +142,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1ad95fc5306d7b34c025bdd088c05de72bf2ee685a1bec6a12d901f2fd18c446"></a>
+<a id="canonical-0122312111333011-0300123113230310-3000021123313100-2020300011313213-0223330232321220-1122012332301222-0102312100013302-3331012030101012"></a>
 
-<a id="canonical-f79f8149145ad583c113b5595e3d31673117498dcb127643c50c637d3839a03a"></a>
+<a id="canonical-3313213320011021-0110112231112003-3001010323111121-1132033103011213-0301011310212031-3023010213121003-3011003012031331-0320032122000322"></a>
 
-## id property — Property reference / c13f0a4cc1a4 / 7
+## ID property — Property reference / 103030012210 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-eb604c14e2f60b9fb47e3c63e021658c285a3b7a962662bec6930e1cfb6e879e"></a>
+<a id="canonical-3223120010300110-3202331200232133-2310133203301203-3200020112112030-0220112203231322-2112021212022332-3012210300320130-3323123220132132"></a>
 
-<a id="canonical-bb243bc2f97cd4c91ad0bdbd370cadcaa33fc9ec6660704410aced13bb7e6bda"></a>
+<a id="canonical-2323021003233002-3321133031103021-0122310023312331-0313003022313022-2203033330213230-1212120013001010-0100223032310103-2323133212233122"></a>
 
-## labels property — Property reference / c13f0a4cc1a4 / 8
+## labels property — Property reference / 103030012210 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -181,11 +181,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-881ed1245a36a3272e61e10cad1ff6e9d90565e0522e886b14c29bc002d20425"></a>
+<a id="canonical-2020013231010210-1122031222030213-0232120132010030-2231013333123221-3121001112113200-1102023220201223-0110300221233000-0002310200100211"></a>
 
-<a id="canonical-9163554dd0179afb544f6d16e0802797994d52b3bb52064baa7c02cd498fc30c"></a>
+<a id="canonical-2101120311111031-3100011321223323-1110103312310112-3200200002132113-2121103111022303-2323110200121023-2222133000023031-1021203330030030"></a>
 
-## name property — Property reference / c13f0a4cc1a4 / 9
+## name property — Property reference / 103030012210 / 9
 
 Type: `"string"`. Required.
 
@@ -249,11 +249,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9a191c5426aa6aa1222f9b2e4a99208d22bb57d1fc42284f115cb2b06d375bc8"></a>
+<a id="canonical-2122012101301110-0212222212222201-0202023321230232-1022212102002031-0202232311133101-3330100202201033-0101113023022300-1231031311233020"></a>
 
-<a id="canonical-d2e305b8a944ba3fbdfac1292bdabf11b1993cf34a5d7bd166a5931300e0a785"></a>
+<a id="canonical-3102320300112320-2221101023220333-2331332230010221-0223312223330101-2301212103303303-1022113113233101-1212221121030103-0000320022132011"></a>
 
-## namespace property — Property reference / c13f0a4cc1a4 / 10
+## namespace property — Property reference / 103030012210 / 10
 
 Type: `"string"`. Required.
 
@@ -310,84 +310,84 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-e4a32f3dd7395885d1dfa832332805bcdd1089508d1dce7f4acdaca2d952881e): complete subsection reference.
+- [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-3210220302330331-3113032111202011-3101313322200302-0303022000112330-3131010020211100-2031013130321333-1022303122302202-3121110220200132): complete subsection reference.
 
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846): complete subsection reference.
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012): complete subsection reference.
 
-<a id="canonical-a0c1ed716bece68421395156363afd8fe525ba8137ff715a355fe69edec51314"></a>
+<a id="canonical-2200300132311301-1223323032122010-0201032111011112-0312032233312033-3211021123222001-0313333313011122-0311113332122132-3132301101030110"></a>
 
-## All schema paths — Property reference / c13f0a4cc1a4 / 11
+## All schema paths — Property reference / 103030012210 / 11
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--waf_exclusion_policy--reference--group-001.md#canonical-95551cfe7885e9711531a799be43fdff2718ad9edaceafd635c40bd14bbd4fb1) |
-| `description` | [description](resources--waf_exclusion_policy--reference--group-001.md#canonical-8bb6fa1d43235720eb725f3d8cba4097d71b3e4925301a23019e5d6cedbd40ae) |
-| `disable` | [disable](resources--waf_exclusion_policy--reference--group-001.md#canonical-92400322daec0b3bf565d7896cff1dbb1d40bf4a0b2e5e8cea19313265116de3) |
-| `id` | [id](resources--waf_exclusion_policy--reference--group-001.md#canonical-1ad95fc5306d7b34c025bdd088c05de72bf2ee685a1bec6a12d901f2fd18c446) |
-| `labels` | [labels](resources--waf_exclusion_policy--reference--group-001.md#canonical-eb604c14e2f60b9fb47e3c63e021658c285a3b7a962662bec6930e1cfb6e879e) |
-| `name` | [name](resources--waf_exclusion_policy--reference--group-001.md#canonical-881ed1245a36a3272e61e10cad1ff6e9d90565e0522e886b14c29bc002d20425) |
-| `namespace` | [namespace](resources--waf_exclusion_policy--reference--group-001.md#canonical-9a191c5426aa6aa1222f9b2e4a99208d22bb57d1fc42284f115cb2b06d375bc8) |
-| `timeouts` | [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-454c38af9b33eeff31f0122821267b692b44f3b626a344026fe30ba8e91bdac4) |
-| `timeouts.create` | [timeouts.create](resources--waf_exclusion_policy--reference--group-001.md#canonical-33746edf84d3bb64e9a771651f0c593b9f957f633fe1fb89b0aaed69c795b61a) |
-| `timeouts.delete` | [timeouts.delete](resources--waf_exclusion_policy--reference--group-001.md#canonical-7b50fe8103e3a1583c0d576ebc696ff44e941620b6a5b72eb4153495623b17ce) |
-| `timeouts.read` | [timeouts.read](resources--waf_exclusion_policy--reference--group-001.md#canonical-6021d152566b1a1030f4fffda13370a3f8ba4acce70241446d89cfdca7692e90) |
-| `timeouts.update` | [timeouts.update](resources--waf_exclusion_policy--reference--group-001.md#canonical-756bfb6788065d8f9a4d1e79e470d16d58a6a69e5d5932697d0ff499bbbd784e) |
-| `waf_exclusion_rules` | [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-fe5d396bb0f35c89fc9f1cf1dfac86b8ef3035c1db2d76902cf561d7aa30f2b9) |
-| `waf_exclusion_rules.any_domain` | [waf_exclusion_rules.any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-3c292af3b1a2f260a3a5e707f308ffe2dbebb04c876fd25e350b0471b288b427) |
-| `waf_exclusion_rules.any_path` | [waf_exclusion_rules.any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-c42dd49f1b538b645fb016447d8d0633b5ef5e426f6980fece19b9fba9ab8100) |
-| `waf_exclusion_rules.app_firewall_detection_control` | [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-44e317f3b39ea5168ea906b29b868e7c3c5d5564b6465ad68c2caaa0ca301cb3) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-6361f5f346fc96d8417c749d44244e789728973feed8d17e471bf88641afe417) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-1862c20c89b02255bc77cac72210923c574bba66383fff88ca478fca8ed33e46) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-f2b461b1fb989e7c1dda57370c9df8b30c2748919a6eaa63353632adde1ceec8) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type](resources--waf_exclusion_policy--reference--group-001.md#canonical-f8ca2dcd876cc2d6210852c06bf6f851362760325e98b1f1391728467d4d8d1a) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-ef1ed4f9b3b3fb644dd1f5788f0de159ed2eafbd19011095818bb685729d130a) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts.bot_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts.bot_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-210407145a427e372089122f3242c6f9344a371b693f361f246a1e0ed75c4f49) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-df5b236b4d132f9bfb5c62a334576557091e701520132de0bcb3622d3c492299) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-b8238de6db87b1a9aeeb32f3d98948ba4ab551950d95a8e36df77aada37fd37e) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-eebcf6a126181584bd03f024e0ece66a65033b6586a1a9496c2e1c23930cb257) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.signature_id` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.signature_id](resources--waf_exclusion_policy--reference--group-001.md#canonical-e1b2a9dcb8560b4e555d7f126b5f391dd18687b616fc83639660f21567885c74) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-09fec633db117d7ec5f45b7113f1d2827bded6c962cc49c6f6c7a719e5c40fc8) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-609d0d07ef13a20fdf1cf8d83a3c769eb7c397f4b92b55e1969ea7649308d794) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-1fd8facae94a069f40bfbefa232032a9084334fa4c1d6f7c68f3a5978853d473) |
-| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.exclude_violation` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.exclude_violation](resources--waf_exclusion_policy--reference--group-001.md#canonical-5bc81af04c06331e2c75c95d27df47feeaaebcab990bf2ac5aad9cb6d9f9e531) |
-| `waf_exclusion_rules.exact_value` | [waf_exclusion_rules.exact_value](resources--waf_exclusion_policy--reference--group-001.md#canonical-113e78e59aa065bbfc87391fa598b7ff324263df9e99fd0cddbdf5278461c920) |
-| `waf_exclusion_rules.expiration_timestamp` | [waf_exclusion_rules.expiration_timestamp](resources--waf_exclusion_policy--reference--group-001.md#canonical-e43770c4a3c6218a18e4ac1f414fe97ac193c5c9ce4bc4f98fef716e1faf228a) |
-| `waf_exclusion_rules.metadata` | [waf_exclusion_rules.metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-ead7f6e8bb7051ae4a1e100d6d687ea1e547e11e2652ef81e5564f3ddf021b16) |
-| `waf_exclusion_rules.metadata.description_spec` | [waf_exclusion_rules.metadata.description_spec](resources--waf_exclusion_policy--reference--group-001.md#canonical-b4bb6263a5e12542109221cb7bfd3d559a3c06bd11c4e1e087d4cb9c1f67858d) |
-| `waf_exclusion_rules.metadata.name` | [waf_exclusion_rules.metadata.name](resources--waf_exclusion_policy--reference--group-001.md#canonical-a011eef796ae9c89d48d59512dcaf1589758fad0172c896c82928dbdb66dbdd1) |
-| `waf_exclusion_rules.methods` | [waf_exclusion_rules.methods](resources--waf_exclusion_policy--reference--group-001.md#canonical-f3f44cabfdc2d0b21a4979cda5392df14b8fbdce3d3bd36ea8ac9976a4aec3b7) |
-| `waf_exclusion_rules.path_prefix` | [waf_exclusion_rules.path_prefix](resources--waf_exclusion_policy--reference--group-001.md#canonical-2969cc02ddde3268253c9479367e8a6cc97fc55f1e9dcb457a20829984821b2f) |
-| `waf_exclusion_rules.path_regex` | [waf_exclusion_rules.path_regex](resources--waf_exclusion_policy--reference--group-001.md#canonical-eaf8917613181a8fac0a0fb0c01324818be16438dffba45df8b406afc60d0bda) |
-| `waf_exclusion_rules.suffix_value` | [waf_exclusion_rules.suffix_value](resources--waf_exclusion_policy--reference--group-001.md#canonical-060931b47cba28715f76c3c80fb961a63d5c91492439be80388298ae6049f07e) |
-| `waf_exclusion_rules.waf_skip_processing` | [waf_exclusion_rules.waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-55ac36caede975a7391e3eabb8e8a0a5b1d36f09bf3b3e0fce1148e96b799e29) |
+| `annotations` | [annotations](resources--waf_exclusion_policy--reference--group-001.md#canonical-2111111101303332-1320201132211301-0111030122132121-2332100333313333-0213012022312132-3122303222333112-0311301000233101-1023233110332301) |
+| `description` | [description](resources--waf_exclusion_policy--reference--group-001.md#canonical-2023231233220131-1003020311130200-3223130211330331-2030232210002113-3113012303321021-0211030001220203-0001213211311230-3231233110002232) |
+| `disable` | [disable](resources--waf_exclusion_policy--reference--group-001.md#canonical-2102100000030202-3122323000230323-3311121131132021-1230333301312323-0131100023331022-0023023211322030-3222012103010302-1211010112313203) |
+| `id` | [id](resources--waf_exclusion_policy--reference--group-001.md#canonical-0122312111333011-0300123113230310-3000021123313100-2020300011313213-0223330232321220-1122012332301222-0102312100013302-3331012030101012) |
+| `labels` | [labels](resources--waf_exclusion_policy--reference--group-001.md#canonical-3223120010300110-3202331200232133-2310133203301203-3200020112112030-0220112203231322-2112021212022332-3012210300320130-3323123220132132) |
+| `name` | [name](resources--waf_exclusion_policy--reference--group-001.md#canonical-2020013231010210-1122031222030213-0232120132010030-2231013333123221-3121001112113200-1102023220201223-0110300221233000-0002310200100211) |
+| `namespace` | [namespace](resources--waf_exclusion_policy--reference--group-001.md#canonical-2122012101301110-0212222212222201-0202023321230232-1022212102002031-0202232311133101-3330100202201033-0101113023022300-1231031311233020) |
+| `timeouts` | [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1011103003202233-2123030332323333-0301330001020220-0201021213231221-0223101033032312-0212220310100002-1233320300232220-3221012331223010) |
+| `timeouts.create` | [timeouts.create](resources--waf_exclusion_policy--reference--group-001.md#canonical-0303131012323133-2010310323231210-3221221313011211-0133003011210323-2133211113331203-0333320133232021-2300222232311221-3013211123120122) |
+| `timeouts.delete` | [timeouts.delete](resources--waf_exclusion_policy--reference--group-001.md#canonical-1323110033322001-0003320322011120-0330003111131232-2330122112333310-1032211001120200-2312221123130232-2310011103102111-1202032301133032) |
+| `timeouts.read` | [timeouts.read](resources--waf_exclusion_policy--reference--group-001.md#canonical-1200020131011102-1112122301220100-0300331033333331-2201030313002203-3320232210223030-3213000210011010-1231202130333130-2213122102322100) |
+| `timeouts.update` | [timeouts.update](resources--waf_exclusion_policy--reference--group-001.md#canonical-1311122333231213-2020001211312033-2122103101321321-3210130031011231-1120221222122132-1131112103021221-1331003333102121-2323233113201032) |
+| `waf_exclusion_rules` | [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3332113103211223-2300330311302021-3330213301303301-3133223020122320-3233030003113001-3123023113122100-0230331112013113-2222030033022321) |
+| `waf_exclusion_rules.any_domain` | [waf_exclusion_rules.any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-0330022102223303-2301220233021200-2203221132130013-3303002033333202-3123322323001030-2013123331021132-0311002300101301-2302202023100213) |
+| `waf_exclusion_rules.any_path` | [waf_exclusion_rules.any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-3010023131102133-0123110320231210-1133230001121010-1331203100120303-2311323311321002-1233122120003332-3032012123213323-2221222320010000) |
+| `waf_exclusion_rules.app_firewall_detection_control` | [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-1010320301133303-2303213222110112-2032222100122302-2123201220321330-0330113111111210-2312101211223112-2030023022222200-3022030001302303) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1203120133113303-1012333021123120-1001133013102131-1010021010321320-2113022021130333-3232312031011332-1013012333202012-1001223332100113) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-0120120230020030-2021230002021111-2330131330223013-0202010021020330-1113102323221212-0320033333332020-3022101320333022-2032310303321012) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-3302231012012301-3323212021321330-0131312211130313-0030213133202303-0030021310202101-2122123222221203-0311031203022231-3132013032323020) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type` | [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type](resources--waf_exclusion_policy--reference--group-001.md#canonical-3320302202313031-2013123030023112-0201002011023000-1223331233201101-0312021312000302-1132212023013301-0321011302201012-1331103120310122) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-3233013231103321-2303230333231210-1031310133111320-2033003132011121-3231023222332331-0121000101002111-2001202323122011-1302213101030022) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts.bot_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts.bot_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-0201001000130110-1122100213320313-0200202101020233-0302100230123321-0310102203130123-1221033303120133-0210122201320032-3113113010331021) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-3133112302031223-1031010302332123-3323113012022203-0310111312111113-0021013213000111-0200010302313200-2330230312020231-0330102102022121) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-2320020320313212-3123201323012221-2232322303023303-3121202110202322-1022231111012111-0031211122203203-1231331313222231-2203133331031332) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-3232233033122201-0212012001112010-2331000333000210-3200323032121222-1211000303231211-2012220122211021-1230023201300203-2103003023021113) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.signature_id` | [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.signature_id](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201230222213130-2320111200231032-1111113113330102-1223113303210131-3101201220132312-0112333020031203-2112120033020111-1213202011301310) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-0021333230120303-3123010113311332-3011331011231301-0103330131022002-1323313231123021-1202303010213012-3312301322130121-3211301000333020) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context](resources--waf_exclusion_policy--reference--group-001.md#canonical-1200213100310013-3233010322020033-3133013033203120-0322033013122132-2313300321133310-2321022311113201-2112213222131210-2103002031132110) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context_name` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context_name](resources--waf_exclusion_policy--reference--group-001.md#canonical-0133312033223022-3221102200122133-1000233323323322-0203020003022221-0020100303103322-1030013112331330-1220330322112113-2020110331101303) |
+| `waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.exclude_violation` | [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.exclude_violation](resources--waf_exclusion_policy--reference--group-001.md#canonical-1123302001223300-1030001203030132-0230131130211131-0213313310133332-3222223223302223-2121002333022230-1122223121302312-3121332132110301) |
+| `waf_exclusion_rules.exact_value` | [waf_exclusion_rules.exact_value](resources--waf_exclusion_policy--reference--group-001.md#canonical-0101033213203211-2122220012112323-3330201303210133-2211212023133333-0302100212033133-2132212133310030-3131233133110213-2010120130210200) |
+| `waf_exclusion_rules.expiration_timestamp` | [waf_exclusion_rules.expiration_timestamp](resources--waf_exclusion_policy--reference--group-001.md#canonical-3210031313003010-2203301202012022-0120321022300133-1001103332211322-3001210330113021-3032102330103321-2033323313011232-0133223302022022) |
+| `waf_exclusion_rules.metadata` | [waf_exclusion_rules.metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-3222311333123220-2323130011012232-1022013201000031-1231122013322201-3211101332010132-0212110232332001-3211111210330331-3133000201230112) |
+| `waf_exclusion_rules.metadata.description_spec` | [waf_exclusion_rules.metadata.description_spec](resources--waf_exclusion_policy--reference--group-001.md#canonical-2310232312021203-2211320102111002-0100210202013023-1323333103311111-2122033000122331-0101301032013200-2013311030232130-0133121320112031) |
+| `waf_exclusion_rules.metadata.name` | [waf_exclusion_rules.metadata.name](resources--waf_exclusion_policy--reference--group-001.md#canonical-2200010132323313-2112223221302021-3110203111211101-0231302233011120-2113112033223100-0113023020211230-2002210220312331-2312123123313101) |
+| `waf_exclusion_rules.methods` | [waf_exclusion_rules.methods](resources--waf_exclusion_policy--reference--group-001.md#canonical-3303331010302223-3331300231002302-0122102113213031-2211032102313301-1023203323313032-0331032331031232-2220223021211312-2210223230032313) |
+| `waf_exclusion_rules.path_prefix` | [waf_exclusion_rules.path_prefix](resources--waf_exclusion_policy--reference--group-001.md#canonical-0221122130300002-3131313203021220-0211033021101321-0312133220221230-3021133330111133-0132213130231011-1322020020022121-2010200201230233) |
+| `waf_exclusion_rules.path_regex` | [waf_exclusion_rules.path_regex](resources--waf_exclusion_policy--reference--group-001.md#canonical-3222332021011312-0103012001222033-2230002200332300-3000010302102001-2023320112100320-3133332322101131-3320231000122233-3012003100233122) |
+| `waf_exclusion_rules.suffix_value` | [waf_exclusion_rules.suffix_value](resources--waf_exclusion_policy--reference--group-001.md#canonical-0012002103012310-1330232202201301-1133131230033020-0033232112012212-0331113021011021-0210032123322000-0320200221202232-1200102133001332) |
+| `waf_exclusion_rules.waf_skip_processing` | [waf_exclusion_rules.waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-1111223003123022-3231322113112213-0321013203322223-2320322022002211-2301310312330021-2333032303320033-3032010110203221-1223132121320221) |
 
-<a id="canonical-e6f3e6a1af693205528f7d8473f3679d050d3fb6012b741fbc60e39a391eb922"></a>
+<a id="canonical-3212330332122201-2233122103020011-1102203313312010-1303330312132131-0011003103332312-0001022313100133-2330120032032122-0321013223210202"></a>
 
-## Next pages — Property reference / c13f0a4cc1a4 / 12
+## Next pages — Property reference / 103030012210 / 12
 
-- [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-e4a32f3dd7395885d1dfa832332805bcdd1089508d1dce7f4acdaca2d952881e)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [timeouts](resources--waf_exclusion_policy--reference--group-001.md#canonical-3210220302330331-3113032111202011-3101313322200302-0303022000112330-3131010020211100-2031013130321333-1022303122302202-3121110220200132)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-e4a32f3dd7395885d1dfa832332805bcdd1089508d1dce7f4acdaca2d952881e"></a>
+<a id="canonical-3210220302330331-3113032111202011-3101313322200302-0303022000112330-3131010020211100-2031013130321333-1022303122302202-3121110220200132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c399b21f75de8ebc0ffb66584253137da30a7e41aefe615012568f5e2133993e"></a>
+<a id="canonical-3003212123020133-1311313220322330-0033332312121120-1002110301031331-2203002213321001-2232333212011100-0102111220331132-0201030321210332"></a>
 
-## timeouts — timeouts / 97a852d2c10f / 2
+## timeouts — timeouts / 310230010033 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
 - timeouts
 
-<a id="canonical-454c38af9b33eeff31f0122821267b692b44f3b626a344026fe30ba8e91bdac4"></a>
+<a id="canonical-1011103003202233-2123030332323333-0301330001020220-0201021213231221-0223101033032312-0212220310100002-1233320300232220-3221012331223010"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -399,15 +399,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-68013ba22e8fd7ab8450422a893a1917f2ab22d71ad23d0c9e859ad0cc23e9bc"></a>
+<a id="canonical-1220000103232202-0232203331132223-2010110010020222-2021032201210113-3302222302023113-0122310203310030-2132201121223100-3030020332212330"></a>
 
-## Direct properties — timeouts / 97a852d2c10f / 3
+## Direct properties — timeouts / 310230010033 / 3
 
-<a id="canonical-33746edf84d3bb64e9a771651f0c593b9f957f633fe1fb89b0aaed69c795b61a"></a>
+<a id="canonical-0303131012323133-2010310323231210-3221221313011211-0133003011210323-2133211113331203-0333320133232021-2300222232311221-3013211123120122"></a>
 
-<a id="canonical-e3d8b07f36e18909fe87473b904320fcde4f8e61707059d6ca9d343e5df3891b"></a>
+<a id="canonical-3203312023001333-0312320120210021-3332201310130323-2100100302003330-3132103320321201-1300130011213112-3022213103100332-1131330320210123"></a>
 
-## create property — timeouts / 97a852d2c10f / 4
+## create property — timeouts / 310230010033 / 4
 
 Type: `"string"`. Optional.
 
@@ -415,11 +415,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-7b50fe8103e3a1583c0d576ebc696ff44e941620b6a5b72eb4153495623b17ce"></a>
+<a id="canonical-1323110033322001-0003320322011120-0330003111131232-2330122112333310-1032211001120200-2312221123130232-2310011103102111-1202032301133032"></a>
 
-<a id="canonical-4541ca27db95fcc5df5f378fa69b3834afcdce118621764a4b443bbcd3160eaa"></a>
+<a id="canonical-1011100130220213-3123211133303011-3133113303132033-2212212303200310-2233303130320101-2012020113121022-1023101003232330-3103011200322222"></a>
 
-## delete property — timeouts / 97a852d2c10f / 5
+## delete property — timeouts / 310230010033 / 5
 
 Type: `"string"`. Optional.
 
@@ -428,11 +428,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-6021d152566b1a1030f4fffda13370a3f8ba4acce70241446d89cfdca7692e90"></a>
+<a id="canonical-1200020131011102-1112122301220100-0300331033333331-2201030313002203-3320232210223030-3213000210011010-1231202130333130-2213122102322100"></a>
 
-<a id="canonical-9cbce662ecb70432b2e1874057f5fa85f3fd77f0199c16a4f786b9820c89e29e"></a>
+<a id="canonical-2130233032121202-3230231300100302-2302320120131000-1113331133222011-3303333113133300-0121213001122210-3313201223212002-0030202132022132"></a>
 
-## read property — timeouts / 97a852d2c10f / 6
+## read property — timeouts / 310230010033 / 6
 
 Type: `"string"`. Optional.
 
@@ -441,11 +441,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-756bfb6788065d8f9a4d1e79e470d16d58a6a69e5d5932697d0ff499bbbd784e"></a>
+<a id="canonical-1311122333231213-2020001211312033-2122103101321321-3210130031011231-1120221222122132-1131112103021221-1331003333102121-2323233113201032"></a>
 
-<a id="canonical-f256f43906b87b2a4ae63d859e0954b51a6cabebf549050bf8c06d09587b80f1"></a>
+<a id="canonical-3302111233100321-0012232013230222-1022321203312011-2132002111102311-0122123022233223-3311102100110023-3320300012310021-1120132320003301"></a>
 
-## update property — timeouts / 97a852d2c10f / 7
+## update property — timeouts / 310230010033 / 7
 
 Type: `"string"`. Optional.
 
@@ -453,30 +453,30 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-b6d37064ac4ce26ccc72b7c8de53b5518bdc33c8bdfc36a80d1fa8e3d675d792"></a>
+<a id="canonical-2312310313001210-2230103032021230-3030130223133020-3132110323111101-2023313003033020-2331333003122220-0031013322203203-3112131131132102"></a>
 
-## Next pages — timeouts / 97a852d2c10f / 8
+## Next pages — timeouts / 310230010033 / 8
 
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846"></a>
+<a id="canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-05ca05997bad8919f962a90bd213f763605f2e8a384ddeb7d30b540f7292f388"></a>
+<a id="canonical-0011302200112121-1323223120210121-3321120222210023-3102010333131203-1200113302322022-0320103131322313-3103002311100033-1302210233032020"></a>
 
-## waf_exclusion_rules — waf_exclusion_rules / 2c7f289eddcc / 2
+## waf_exclusion_rules — waf_exclusion_rules / 213231313030 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
 - waf_exclusion_rules
 
-<a id="canonical-fe5d396bb0f35c89fc9f1cf1dfac86b8ef3035c1db2d76902cf561d7aa30f2b9"></a>
+<a id="canonical-3332113103211223-2300330311302021-3330213301303301-3133223020122320-3233030003113001-3123023113122100-0230331112013113-2222030033022321"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -548,21 +548,21 @@ waf_exclusion_rules {
 }
 ```
 
-<a id="canonical-44da0b106dddab1cfa0284ca9b3b52c5a99d7e925cef693c676f0124066991b9"></a>
+<a id="canonical-1010312200230100-1231313122230130-3322000220103022-2123032311023011-2221213113322102-1130323312210330-1213123300010210-0012122121012321"></a>
 
-## Direct properties — waf_exclusion_rules / 2c7f289eddcc / 3
+## Direct properties — waf_exclusion_rules / 213231313030 / 3
 
-- [any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-fc12426f1c87b467495932cd74dac2bc74e531d2b26c88e5b9532e4df8adf6b2): complete subsection reference.
+- [any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-3330010210021233-0130201323101213-1021112103023031-1310312230022330-1310321103013102-2302123020203211-2321110302321031-3320223133122302): complete subsection reference.
 
-- [any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-212c86177b01bd727f4074afc6560e2932a8ef1fc81f2bb5b4f7be6a307bb5bc): complete subsection reference.
+- [any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-0201023020120113-1323000123311302-1333100013102233-3012111200320221-0302222032330133-3020013302232311-2310331323321222-0300132323112330): complete subsection reference.
 
-- [app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7): complete subsection reference.
+- [app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313): complete subsection reference.
 
-<a id="canonical-113e78e59aa065bbfc87391fa598b7ff324263df9e99fd0cddbdf5278461c920"></a>
+<a id="canonical-0101033213203211-2122220012112323-3330201303210133-2211212023133333-0302100212033133-2132212133310030-3131233133110213-2010120130210200"></a>
 
-<a id="canonical-2ebb9bf759bce99a7caed805f82e1790f00198ea10a76276c7b40f0d9c7ce5e7"></a>
+<a id="canonical-0232232321233313-1121233032212122-1330223231200011-3320023201132100-3300000121203222-0100221312021312-3013231000330031-2130133032113213"></a>
 
-## exact_value property — waf_exclusion_rules / 2c7f289eddcc / 4
+## exact_value property — waf_exclusion_rules / 213231313030 / 4
 
 Type: `"string"`. Optional.
 
@@ -618,11 +618,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e43770c4a3c6218a18e4ac1f414fe97ac193c5c9ce4bc4f98fef716e1faf228a"></a>
+<a id="canonical-3210031313003010-2203301202012022-0120321022300133-1001103332211322-3001210330113021-3032102330103321-2033323313011232-0133223302022022"></a>
 
-<a id="canonical-d2bb325132cbbcea445cdc49f94e1020a2c25d21f900765655bf02d58062091b"></a>
+<a id="canonical-3102232303021101-0302302323303222-1010113031301021-3321103201000200-2202300211310201-3321000013121112-1111233300023111-2000120200210123"></a>
 
-## expiration_timestamp property — waf_exclusion_rules / 2c7f289eddcc / 5
+## expiration_timestamp property — waf_exclusion_rules / 213231313030 / 5
 
 Type: `"string"`. Optional.
 
@@ -660,13 +660,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-b5edcfead7f13076c8c45a56d3e8b246732f16e59de6d84d8c4e7a973206d453): complete subsection reference.
+- [metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-2311323130333222-3113330103001312-3020301011221112-3103322023021012-1303023301123211-2131321231201031-2030103213222113-0302001231101103): complete subsection reference.
 
-<a id="canonical-f3f44cabfdc2d0b21a4979cda5392df14b8fbdce3d3bd36ea8ac9976a4aec3b7"></a>
+<a id="canonical-3303331010302223-3331300231002302-0122102113213031-2211032102313301-1023203323313032-0331032331031232-2220223021211312-2210223230032313"></a>
 
-<a id="canonical-4a78d3ddbb7ed9870639a366e848bd13048e36f4a5502ba612553695e20ec208"></a>
+<a id="canonical-1022132031033131-2323133231212013-0012032122031212-3220102023310103-0010203203123310-2211110002232212-0102111103122111-3202003230020020"></a>
 
-## methods property — waf_exclusion_rules / 2c7f289eddcc / 6
+## methods property — waf_exclusion_rules / 213231313030 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -722,11 +722,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2969cc02ddde3268253c9479367e8a6cc97fc55f1e9dcb457a20829984821b2f"></a>
+<a id="canonical-0221122130300002-3131313203021220-0211033021101321-0312133220221230-3021133330111133-0132213130231011-1322020020022121-2010200201230233"></a>
 
-<a id="canonical-3cb0f566b970d631273589322061edf23bea8ed981d419cb15d03b5a92170a5d"></a>
+<a id="canonical-0330230033111212-2321130031120301-0213031120210302-0200120132313302-0323322220323121-2001311001213023-0111310003231122-2102011300221131"></a>
 
-## path_prefix property — waf_exclusion_rules / 2c7f289eddcc / 7
+## path_prefix property — waf_exclusion_rules / 213231313030 / 7
 
 Type: `"string"`. Optional.
 
@@ -779,11 +779,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eaf8917613181a8fac0a0fb0c01324818be16438dffba45df8b406afc60d0bda"></a>
+<a id="canonical-3222332021011312-0103012001222033-2230002200332300-3000010302102001-2023320112100320-3133332322101131-3320231000122233-3012003100233122"></a>
 
-<a id="canonical-efe3484dc9d7eea0ab49d349124b3776fef2e537ae7fa5ee4eef76635761b48f"></a>
+<a id="canonical-3233320310201031-3021311332322200-2223102131031021-0102102303131312-3332330232110313-2232133322113232-1032323313121203-1113120123102033"></a>
 
-## path_regex property — waf_exclusion_rules / 2c7f289eddcc / 8
+## path_regex property — waf_exclusion_rules / 213231313030 / 8
 
 Type: `"string"`. Optional.
 
@@ -839,11 +839,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-060931b47cba28715f76c3c80fb961a63d5c91492439be80388298ae6049f07e"></a>
+<a id="canonical-0012002103012310-1330232202201301-1133131230033020-0033232112012212-0331113021011021-0210032123322000-0320200221202232-1200102133001332"></a>
 
-<a id="canonical-cef04ed56a95be27e84daedc000daaafc5fb0f547b7fd648c9468a394bf59eca"></a>
+<a id="canonical-3032330010323111-1222211123320213-3220103122323130-0000003122222233-3011332300331110-1323133331121020-3021101220220321-1023331121323022"></a>
 
-## suffix_value property — waf_exclusion_rules / 2c7f289eddcc / 9
+## suffix_value property — waf_exclusion_rules / 213231313030 / 9
 
 Type: `"string"`. Optional.
 
@@ -901,38 +901,38 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-655b33145072d2fee1008461c7b96b3264f34bc42fffe456a77bf197a7a33a9b): complete subsection reference.
+- [waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-1211112303030110-1100130231023332-3201000020101201-3013232112230302-1210330310233010-0233333332101112-2213132333012113-2213220303222123): complete subsection reference.
 
-<a id="canonical-ea025e389f560f508b6daccdaef489742905c828b9f85b913c49c5c816a11dde"></a>
+<a id="canonical-3222000211320320-2133111200331100-2023123122303031-2232331020211310-0221001130200220-2321332011232101-0330102130113020-0112220101313132"></a>
 
-## Next pages — waf_exclusion_rules / 2c7f289eddcc / 10
+## Next pages — waf_exclusion_rules / 213231313030 / 10
 
-- [waf_exclusion_rules.any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-fc12426f1c87b467495932cd74dac2bc74e531d2b26c88e5b9532e4df8adf6b2)
-- [waf_exclusion_rules.any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-212c86177b01bd727f4074afc6560e2932a8ef1fc81f2bb5b4f7be6a307bb5bc)
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
-- [waf_exclusion_rules.metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-b5edcfead7f13076c8c45a56d3e8b246732f16e59de6d84d8c4e7a973206d453)
-- [waf_exclusion_rules.waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-655b33145072d2fee1008461c7b96b3264f34bc42fffe456a77bf197a7a33a9b)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.any_domain](resources--waf_exclusion_policy--reference--group-001.md#canonical-3330010210021233-0130201323101213-1021112103023031-1310312230022330-1310321103013102-2302123020203211-2321110302321031-3320223133122302)
+- [waf_exclusion_rules.any_path](resources--waf_exclusion_policy--reference--group-001.md#canonical-0201023020120113-1323000123311302-1333100013102233-3012111200320221-0302222032330133-3020013302232311-2310331323321222-0300132323112330)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
+- [waf_exclusion_rules.metadata](resources--waf_exclusion_policy--reference--group-001.md#canonical-2311323130333222-3113330103001312-3020301011221112-3103322023021012-1303023301123211-2131321231201031-2030103213222113-0302001231101103)
+- [waf_exclusion_rules.waf_skip_processing](resources--waf_exclusion_policy--reference--group-001.md#canonical-1211112303030110-1100130231023332-3201000020101201-3013232112230302-1210330310233010-0233333332101112-2213132333012113-2213220303222123)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-fc12426f1c87b467495932cd74dac2bc74e531d2b26c88e5b9532e4df8adf6b2"></a>
+<a id="canonical-3330010210021233-0130201323101213-1021112103023031-1310312230022330-1310321103013102-2302123020203211-2321110302321031-3320223133122302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f738e25392f2b46231e8797c3d7946808ade92687a6678100a4233714df5f68a"></a>
+<a id="canonical-3313032032021103-2102330223101202-0301322013211330-0331132110122000-2022313221021220-1322121213200100-0022100203031301-1031331133122022"></a>
 
-## waf_exclusion_rules.any_domain — waf_exclusion_rules.any_domain / 115038692d74 / 2
+## waf_exclusion_rules.any_domain — any_domain / 122102311310 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
 - waf_exclusion_rules.any_domain
 
-<a id="canonical-3c292af3b1a2f260a3a5e707f308ffe2dbebb04c876fd25e350b0471b288b427"></a>
+<a id="canonical-0330022102223303-2301220233021200-2203221132130013-3303002033333202-3123322323001030-2013123331021132-0311002300101301-2302202023100213"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -961,37 +961,37 @@ Terraform syntax:
 any_domain = {}
 ```
 
-<a id="canonical-268bad5d45fb87ab0302cf2bb8b1b06c6989a4a8296f865f7c1121ffb642d761"></a>
+<a id="canonical-0212202322311131-1011332320132223-0003000230330223-2320230123001230-1221202122102220-0221123320121133-1330010102013333-2312100231131201"></a>
 
-## Direct properties — waf_exclusion_rules.any_domain / 115038692d74 / 3
+## Direct properties — any_domain / 122102311310 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-a73bc25fe55d7ed82b58959d400cf1133b77f566e6189096d197500043cb1cdd"></a>
+<a id="canonical-2213032330021133-3211113113323120-0223112021112131-1000003033010103-0323131333111212-3212012021002112-3101211311000000-1003302301303131"></a>
 
-## Next pages — waf_exclusion_rules.any_domain / 115038692d74 / 4
+## Next pages — any_domain / 122102311310 / 4
 
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-212c86177b01bd727f4074afc6560e2932a8ef1fc81f2bb5b4f7be6a307bb5bc"></a>
+<a id="canonical-0201023020120113-1323000123311302-1333100013102233-3012111200320221-0302222032330133-3020013302232311-2310331323321222-0300132323112330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cad6c49697dfc0a8bf601905b62b9cfa6927327c7c34192946d8f0fe8446f158"></a>
+<a id="canonical-3022311230102112-2113313330002220-2333120001210011-2312022321303322-1221021303021330-1330031001210221-1012312033003332-2010101233011120"></a>
 
-## waf_exclusion_rules.any_path — waf_exclusion_rules.any_path / ed629652df39 / 2
+## waf_exclusion_rules.any_path — any_path / 110231330321 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
 - waf_exclusion_rules.any_path
 
-<a id="canonical-c42dd49f1b538b645fb016447d8d0633b5ef5e426f6980fece19b9fba9ab8100"></a>
+<a id="canonical-3010023131102133-0123110320231210-1133230001121010-1331203100120303-2311323311321002-1233122120003332-3032012123213323-2221222320010000"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -1020,37 +1020,37 @@ Terraform syntax:
 any_path = {}
 ```
 
-<a id="canonical-83a5d6fcdb6607f409d4ecb6a361d0265ff74bb5fd8880323c12d132b2475460"></a>
+<a id="canonical-2003221131123330-3123121200133310-0021311032302312-2203120131000212-1133331310232311-3331202020000302-0330010231010302-2302101311101200"></a>
 
-## Direct properties — waf_exclusion_rules.any_path / ed629652df39 / 3
+## Direct properties — any_path / 110231330321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-0f9cb9c756b2830505ecc44ce0144015edf9826ae8a16c3cb0971e89a8809451"></a>
+<a id="canonical-0033213023213013-1112230220030011-0011323030101030-3200011010000111-3231332120021222-3220220112300330-2300211301322021-2220200021101101"></a>
 
-## Next pages — waf_exclusion_rules.any_path / ed629652df39 / 4
+## Next pages — any_path / 110231330321 / 4
 
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7"></a>
+<a id="canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e92b0a6361dab4f85462bd17ceab8e8d7bf7df61e905b6e6e9feaf4605fa903e"></a>
+<a id="canonical-3221022300221203-1201312223103320-1110120223310113-3032222320322031-1323331331331201-3221001123123212-3221333222331012-0011332221000332"></a>
 
-## waf_exclusion_rules.app_firewall_detection_control — waf_exclusion_rules.app_firewall_detection_control / 39138a434fe8 / 2
+## waf_exclusion_rules.app_firewall_detection_control — app_firewall_detection_control / 100310333220 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
 - waf_exclusion_rules.app_firewall_detection_control
 
-<a id="canonical-44e317f3b39ea5168ea906b29b868e7c3c5d5564b6465ad68c2caaa0ca301cb3"></a>
+<a id="canonical-1010320301133303-2303213222110112-2032222100122302-2123201220321330-0330113111111210-2312101211223112-2030023022222200-3022030001302303"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1078,48 +1078,48 @@ app_firewall_detection_control {
 }
 ```
 
-<a id="canonical-c6da3948f38258cb28df068625bd3df6f8d18ab84b3f4a22a311d6f0a26aece1"></a>
+<a id="canonical-3012312203211020-3303200211203023-0220313300122012-0211233103313312-3320310120222320-1023033310220202-2203010131123300-2202122232303201"></a>
 
-## Direct properties — waf_exclusion_rules.app_firewall_detection_control / 39138a434fe8 / 3
+## Direct properties — app_firewall_detection_control / 100310333220 / 3
 
-- [exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-0e5ddad18eff2c365925e10bf87909a41e1ebe219cc4c21bced3fa5b7c586763): complete subsection reference.
+- [exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-0032113131223101-2032333302300312-1121021132010023-3320132100212210-0132013223320201-2130301030020123-3032310333221123-1330112012131203): complete subsection reference.
 
-- [exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-8bd88d072b0f86b1f22c232ae900b9f367be8015839650f12e8cfe2074a38b5e): complete subsection reference.
+- [exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-2023312020310013-0223003320122301-3302023002030222-3221000023213303-1213233220000111-2003211211003301-0232203033320200-1310220320231132): complete subsection reference.
 
-- [exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-6c3b3916ab591f2c011d2dfa2664c11a3e69ba9cb378bdbdf0e8540a90606978): complete subsection reference.
+- [exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1230032303210112-2223112101330230-0001013102313322-0212121030010122-0332122123222130-2303132023312331-3300322011100022-2100120012211320): complete subsection reference.
 
-- [exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-5f161400357222a21c70ccc7d27a637e1e2a37b595a97f2c9060e00e8795d35c): complete subsection reference.
+- [exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1133011201100000-0311130202022202-0130130030303013-3102132212031332-0132022203132311-2111222113330230-2100120032000032-2013211131031130): complete subsection reference.
 
-<a id="canonical-ab6ffdba345638e626346aabdccb13a40ff4898894da67b20e344436aa1a01f4"></a>
+<a id="canonical-2223123333312322-0310111203203212-0212031012222223-3130302301032210-0033331020212020-2110312212132302-0032031010100312-2222012200013310"></a>
 
-## Next pages — waf_exclusion_rules.app_firewall_detection_control / 39138a434fe8 / 4
+## Next pages — app_firewall_detection_control / 100310333220 / 4
 
-- [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-0e5ddad18eff2c365925e10bf87909a41e1ebe219cc4c21bced3fa5b7c586763)
-- [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-8bd88d072b0f86b1f22c232ae900b9f367be8015839650f12e8cfe2074a38b5e)
-- [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-6c3b3916ab591f2c011d2dfa2664c11a3e69ba9cb378bdbdf0e8540a90606978)
-- [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-5f161400357222a21c70ccc7d27a637e1e2a37b595a97f2c9060e00e8795d35c)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-0032113131223101-2032333302300312-1121021132010023-3320132100212210-0132013223320201-2130301030020123-3032310333221123-1330112012131203)
+- [waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-2023312020310013-0223003320122301-3302023002030222-3221000023213303-1213233220000111-2003211211003301-0232203033320200-1310220320231132)
+- [waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1230032303210112-2223112101330230-0001013102313322-0212121030010122-0332122123222130-2303132023312331-3300322011100022-2100120012211320)
+- [waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts](resources--waf_exclusion_policy--reference--group-001.md#canonical-1133011201100000-0311130202022202-0130130030303013-3102132212031332-0132022203132311-2111222113330230-2100120032000032-2013211131031130)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-0e5ddad18eff2c365925e10bf87909a41e1ebe219cc4c21bced3fa5b7c586763"></a>
+<a id="canonical-0032113131223101-2032333302300312-1121021132010023-3320132100212210-0132013223320201-2130301030020123-3032310333221123-1330112012131203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-00c34ef8c3586ae494926e0a96190bfaed385833c13dd6208364e2f3c4e20ddf"></a>
+<a id="canonical-0000300310323320-3003112012223210-2110210212320022-2112012100233322-3231032011200303-3001033131120200-2003121032023303-3010320200313133"></a>
 
-## waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 2
+## waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts — exclude_attack_type_contexts / 232300321130 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
 - waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts
 
-<a id="canonical-6361f5f346fc96d8417c749d44244e789728973feed8d17e471bf88641afe417"></a>
+<a id="canonical-1203120133113303-1012333021123120-1001133013102131-1010021010321320-2113022021130333-3232312031011332-1013012333202012-1001223332100113"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1165,15 +1165,15 @@ exclude_attack_type_contexts {
 }
 ```
 
-<a id="canonical-6ca2cffa891594a1b36f827e6701be1a7d9917122d861b429d7c92411c8a2cc8"></a>
+<a id="canonical-1230220230333322-2021011121102201-2303123320021332-1213000123320122-1331212101130102-0231201201231002-2131133021021001-0130202202303020"></a>
 
-## Direct properties — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 3
+## Direct properties — exclude_attack_type_contexts / 232300321130 / 3
 
-<a id="canonical-1862c20c89b02255bc77cac72210923c574bba66383fff88ca478fca8ed33e46"></a>
+<a id="canonical-0120120230020030-2021230002021111-2330131330223013-0202010021020330-1113102323221212-0320033333332020-3022101320333022-2032310303321012"></a>
 
-<a id="canonical-55c3c26c9ae21d566629af246890bddbfa9fc4283740762fb957894a6fe231da"></a>
+<a id="canonical-1111300330021230-2122320201311112-1212022122330210-1220210023313123-3322213330100220-0313100013120233-2321111320211022-1233320203013122"></a>
 
-## context property — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 4
+## context property — exclude_attack_type_contexts / 232300321130 / 4
 
 Type: `"string"`. Optional.
 
@@ -1232,11 +1232,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f2b461b1fb989e7c1dda57370c9df8b30c2748919a6eaa63353632adde1ceec8"></a>
+<a id="canonical-3302231012012301-3323212021321330-0131312211130313-0030213133202303-0030021310202101-2122123222221203-0311031203022231-3132013032323020"></a>
 
-<a id="canonical-5e580abfa43ae50431a1bc80483f0374ef8a39acecbe6ca96fc7abcff396566c"></a>
+<a id="canonical-1132112000222333-2210032232110010-0301220123302000-1020033300031310-3233202203212230-3230233212302221-1233301322233033-3303211211121230"></a>
 
-## context_name property — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 5
+## context_name property — exclude_attack_type_contexts / 232300321130 / 5
 
 Type: `"string"`. Optional.
 
@@ -1279,11 +1279,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f8ca2dcd876cc2d6210852c06bf6f851362760325e98b1f1391728467d4d8d1a"></a>
+<a id="canonical-3320302202313031-2013123030023112-0201002011023000-1223331233201101-0312021312000302-1132212023013301-0321011302201012-1331103120310122"></a>
 
-<a id="canonical-3952b987188b5d4b570bd858703e88b6d27257521c08181c0033377a91d0e696"></a>
+<a id="canonical-0321110223212013-0120202311311023-1113002331201120-1300033220202312-3102130211131102-0130002001200130-0000030303131322-2101310032122112"></a>
 
-## exclude_attack_type property — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 6
+## exclude_attack_type property — exclude_attack_type_contexts / 232300321130 / 6
 
 Type: `"string"`. Optional.
 
@@ -1391,32 +1391,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fc9643429fd87d97f85e1c5c9ac45ca202c30ad99c974555c99c0498d9756419"></a>
+<a id="canonical-3330211210031002-2133312013312113-3320113201301130-2122301011302202-0002300300223121-2130211310111111-3021213000102120-3121131112100121"></a>
 
-## Next pages — waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts / 39debfbb0e5c / 7
+## Next pages — exclude_attack_type_contexts / 232300321130 / 7
 
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-8bd88d072b0f86b1f22c232ae900b9f367be8015839650f12e8cfe2074a38b5e"></a>
+<a id="canonical-2023312020310013-0223003320122301-3302023002030222-3221000023213303-1213233220000111-2003211211003301-0232203033320200-1310220320231132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c590481bd3cc9fd95ba3747a92f1a0f803cd653909b0c229496967e30a669f78"></a>
+<a id="canonical-3011210010200123-3103303021333121-1123220313101322-2102330122003320-0003303112110321-0021230030020221-1021122112133203-0022121221331320"></a>
 
-## waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts — waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts / ed604e1c6d31 / 2
+## waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts — exclude_bot_name_contexts / 013012310301 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
 - waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts
 
-<a id="canonical-ef1ed4f9b3b3fb644dd1f5788f0de159ed2eafbd19011095818bb685729d130a"></a>
+<a id="canonical-3233013231103321-2303230333231210-1031310133111320-2033003132011121-3231023222332331-0121000101002111-2001202323122011-1302213101030022"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1470,15 +1470,15 @@ exclude_bot_name_contexts {
 }
 ```
 
-<a id="canonical-effa746a750d800cd16a0f3b52f9758fc254396e84c98b11ddd99243dcc11752"></a>
+<a id="canonical-3233332213101222-1311003120000030-3101122200330323-1102332113112033-3002111003211232-2010302120230101-3131312121021003-3130300101131102"></a>
 
-## Direct properties — waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts / ed604e1c6d31 / 3
+## Direct properties — exclude_bot_name_contexts / 013012310301 / 3
 
-<a id="canonical-210407145a427e372089122f3242c6f9344a371b693f361f246a1e0ed75c4f49"></a>
+<a id="canonical-0201001000130110-1122100213320313-0200202101020233-0302100230123321-0310102203130123-1221033303120133-0210122201320032-3113113010331021"></a>
 
-<a id="canonical-9815e387b15e6b6a1fb2e6225d5dc09c893739ec6f3779b116ee4eaa29061a63"></a>
+<a id="canonical-2120011132032013-2301113212231222-0133230232120202-1131113130002130-2021031303213230-1233031313212301-0112323210322222-0221001201221203"></a>
 
-## bot_name property — waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts / ed604e1c6d31 / 4
+## bot_name property — exclude_bot_name_contexts / 013012310301 / 4
 
 Type: `"string"`. Optional.
 
@@ -1517,32 +1517,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e4ee95158eb3e1dc10ef479eedacfaa65ca888ba4ec5e2286dae14e88fe027fd"></a>
+<a id="canonical-3210323221110111-2032230332013130-0100323310132132-3231223033222212-1130222020202322-1032301132020220-1231223201103220-2033320002133331"></a>
 
-## Next pages — waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts / ed604e1c6d31 / 5
+## Next pages — exclude_bot_name_contexts / 013012310301 / 5
 
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-6c3b3916ab591f2c011d2dfa2664c11a3e69ba9cb378bdbdf0e8540a90606978"></a>
+<a id="canonical-1230032303210112-2223112101330230-0001013102313322-0212121030010122-0332122123222130-2303132023312331-3300322011100022-2100120012211320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dfbd64107613321c45020eed36d7bcfc77883389ef8b12a1a481790c49990dbe"></a>
+<a id="canonical-3133233112100100-1312010303020130-1011000200323231-0312311323303330-1313202003032021-3233202301022201-2210200113210030-1021212100312332"></a>
 
-## waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 2
+## waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts — exclude_signature_contexts / 310331002331 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
 - waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts
 
-<a id="canonical-df5b236b4d132f9bfb5c62a334576557091e701520132de0bcb3622d3c492299"></a>
+<a id="canonical-3133112302031223-1031010302332123-3323113012022203-0310111312111113-0021013213000111-0200010302313200-2330230312020231-0330102102022121"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1596,15 +1596,15 @@ exclude_signature_contexts {
 }
 ```
 
-<a id="canonical-38d2e3e95cd95416ef334fcda749819987578d3ea026cf8b4cb2fb80a0576303"></a>
+<a id="canonical-0320310232033221-1130312111100112-3233030310333031-2213102120012121-2013111320310332-2200021230332023-1030230233232000-2200111312030003"></a>
 
-## Direct properties — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 3
+## Direct properties — exclude_signature_contexts / 310331002331 / 3
 
-<a id="canonical-b8238de6db87b1a9aeeb32f3d98948ba4ab551950d95a8e36df77aada37fd37e"></a>
+<a id="canonical-2320020320313212-3123201323012221-2232322303023303-3121202110202322-1022231111012111-0031211122203203-1231331313222231-2203133331031332"></a>
 
-<a id="canonical-b62af73d27e094f38cb5453e6988d38774876d36e644e84ba81805f72709cbbe"></a>
+<a id="canonical-2312022233130331-0213320021103303-2030231110110332-1221202031032013-1310201312310312-3212101032201023-2220012000113313-0213002130232332"></a>
 
-## context property — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 4
+## context property — exclude_signature_contexts / 310331002331 / 4
 
 Type: `"string"`. Optional.
 
@@ -1686,11 +1686,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eebcf6a126181584bd03f024e0ece66a65033b6586a1a9496c2e1c23930cb257"></a>
+<a id="canonical-3232233033122201-0212012001112010-2331000333000210-3200323032121222-1211000303231211-2012220122211021-1230023201300203-2103003023021113"></a>
 
-<a id="canonical-8f1c94e75f238d9a4d8ba0c1bd5dc758af5e6075a5ed5ffebb717b5b433082e0"></a>
+<a id="canonical-2033013021103213-1133020320312122-1031202322003001-2331113130131120-2233113212001311-2211323111333332-2323130113231123-1003030020023200"></a>
 
-## context_name property — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 5
+## context_name property — exclude_signature_contexts / 310331002331 / 5
 
 Type: `"string"`. Optional.
 
@@ -1743,11 +1743,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e1b2a9dcb8560b4e555d7f126b5f391dd18687b616fc83639660f21567885c74"></a>
+<a id="canonical-3201230222213130-2320111200231032-1111113113330102-1223113303210131-3101201220132312-0112333020031203-2112120033020111-1213202011301310"></a>
 
-<a id="canonical-8c2a3d0885de03ee44b6ebc061a3984376fa2d23071abf6e2a9b4b3cd22d59d7"></a>
+<a id="canonical-2030022203310020-2011313200033232-1010231232233000-1201220321201003-1312332202310203-0013012223331232-0222212310230330-3102023111213113"></a>
 
-## signature_id property — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 6
+## signature_id property — exclude_signature_contexts / 310331002331 / 6
 
 Type: `"number"`. Optional.
 
@@ -1802,32 +1802,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-19d145446376d55758637ceedaf5b54f6f8dc8febcd6683e1c0f623b78c0d7df"></a>
+<a id="canonical-0121310110111010-1203131231111113-1120120313303232-3122331123111033-1233203130203332-2330311212200332-0130003312020323-1320300031133133"></a>
 
-## Next pages — waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts / 67c259d3d0bd / 7
+## Next pages — exclude_signature_contexts / 310331002331 / 7
 
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-5f161400357222a21c70ccc7d27a637e1e2a37b595a97f2c9060e00e8795d35c"></a>
+<a id="canonical-1133011201100000-0311130202022202-0130130030303013-3102132212031332-0132022203132311-2111222113330230-2100120032000032-2013211131031130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7d0a155d394fe0bd429acf1390f7cbf3adb576f76d6f9b74423b38e337345cdc"></a>
+<a id="canonical-1331002201111131-0321103332002331-1002212230330103-2100331330233303-2231231113123313-1231123321231310-1002032303203203-0313031011303130"></a>
 
-## waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 2
+## waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts — exclude_violation_contexts / 230022111122 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
 - waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts
 
-<a id="canonical-09fec633db117d7ec5f45b7113f1d2827bded6c962cc49c6f6c7a719e5c40fc8"></a>
+<a id="canonical-0021333230120303-3123010113311332-3011331011231301-0103330131022002-1323313231123021-1202303010213012-3312301322130121-3211301000333020"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1875,15 +1875,15 @@ exclude_violation_contexts {
 }
 ```
 
-<a id="canonical-fafdff0be6c117d5ca39f60a443fe74ca6f31927388050fae836f421331c0fdd"></a>
+<a id="canonical-3322333133330023-3212300101133111-3022032133120022-1010033332131030-2212330301210213-0320200011003322-3220031233100201-0303013000333131"></a>
 
-## Direct properties — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 3
+## Direct properties — exclude_violation_contexts / 230022111122 / 3
 
-<a id="canonical-609d0d07ef13a20fdf1cf8d83a3c769eb7c397f4b92b55e1969ea7649308d794"></a>
+<a id="canonical-1200213100310013-3233010322020033-3133013033203120-0322033013122132-2313300321133310-2321022311113201-2112213222131210-2103002031132110"></a>
 
-<a id="canonical-98af13ee1c867cd68fc617cab1c6aece0c68b0d384a6dcfbe282c20826a707db"></a>
+<a id="canonical-2120223301033232-0130201213303112-2033301201133022-2301301222323032-0030122023003103-2010221231303323-3202200230020020-0212221300133123"></a>
 
-## context property — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 4
+## context property — exclude_violation_contexts / 230022111122 / 4
 
 Type: `"string"`. Optional.
 
@@ -1965,11 +1965,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1fd8facae94a069f40bfbefa232032a9084334fa4c1d6f7c68f3a5978853d473"></a>
+<a id="canonical-0133312033223022-3221102200122133-1000233323323322-0203020003022221-0020100303103322-1030013112331330-1220330322112113-2020110331101303"></a>
 
-<a id="canonical-2c770b0e26d9536f09ca98a0055a69c8dacea8d5228176ba520175b1886e60d1"></a>
+<a id="canonical-0230131300230032-0212312111031233-0021302221202200-0011112212213020-3122303222203111-0202200113122322-1102000113112301-2020123212003101"></a>
 
-## context_name property — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 5
+## context_name property — exclude_violation_contexts / 230022111122 / 5
 
 Type: `"string"`. Optional.
 
@@ -2022,11 +2022,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5bc81af04c06331e2c75c95d27df47feeaaebcab990bf2ac5aad9cb6d9f9e531"></a>
+<a id="canonical-1123302001223300-1030001203030132-0230131130211131-0213313310133332-3222223223302223-2121002333022230-1122223121302312-3121332132110301"></a>
 
-<a id="canonical-77d49d9bfba3bdb53929ca177dfb5e4567a947e3c4091cac89a5502cd1662b1c"></a>
+<a id="canonical-1313311021312123-3323220323312311-0321022130220113-1331332311321011-1213222110133203-3010002101302230-2021221111000230-3101121202230130"></a>
 
-## exclude_violation property — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 6
+## exclude_violation property — exclude_violation_contexts / 230022111122 / 6
 
 Type: `"string"`. Optional.
 
@@ -2173,31 +2173,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fabbf2f7fa4c488e8a9c6f3adb239de7a5b8c0d8a62f886319be35072f092766"></a>
+<a id="canonical-3322232333023313-3322103010202032-2022213012330322-3123020321313213-2211232030003120-2212023320201203-0121233203110013-0233002102131212"></a>
 
-## Next pages — waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts / 1e75fab0a55a / 7
+## Next pages — exclude_violation_contexts / 230022111122 / 7
 
-- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-cff60fc925822cffdf3ab6435ccc0c1daff22f6664b115f3256cfda9187ba2b7)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules.app_firewall_detection_control](resources--waf_exclusion_policy--reference--group-001.md#canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-b5edcfead7f13076c8c45a56d3e8b246732f16e59de6d84d8c4e7a973206d453"></a>
+<a id="canonical-2311323130333222-3113330103001312-3020301011221112-3103322023021012-1303023301123211-2131321231201031-2030103213222113-0302001231101103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-20c605cd0762540ef1834a7bef5e5e391b7e8bdb553715a69d6428fdd751b68b"></a>
+<a id="canonical-0200301200113031-0013120211100032-3301200310221323-3233113211320321-0123133220233123-1111031301112212-2131121002203331-3113110123122023"></a>
 
-## waf_exclusion_rules.metadata — waf_exclusion_rules.metadata / 75d35a57f476 / 2
+## waf_exclusion_rules.metadata — metadata / 111333101312 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
 - waf_exclusion_rules.metadata
 
-<a id="canonical-ead7f6e8bb7051ae4a1e100d6d687ea1e547e11e2652ef81e5564f3ddf021b16"></a>
+<a id="canonical-3222311333123220-2323130011012232-1022013201000031-1231122013322201-3211101332010132-0212110232332001-3211111210330331-3133000201230112"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2240,15 +2240,15 @@ metadata {
 }
 ```
 
-<a id="canonical-96b74b9067168033895f861576b83909d4167b72741327f06a4e16f9aca3fe43"></a>
+<a id="canonical-2112231310232100-1213011220000303-2021113320120111-1312232003210021-3110011213231302-1310010302133300-1222103201123321-2230220333321003"></a>
 
-## Direct properties — waf_exclusion_rules.metadata / 75d35a57f476 / 3
+## Direct properties — metadata / 111333101312 / 3
 
-<a id="canonical-b4bb6263a5e12542109221cb7bfd3d559a3c06bd11c4e1e087d4cb9c1f67858d"></a>
+<a id="canonical-2310232312021203-2211320102111002-0100210202013023-1323333103311111-2122033000122331-0101301032013200-2013311030232130-0133121320112031"></a>
 
-<a id="canonical-a12a1fa0227a24095cee1d686626dce3e0db5e6a43426551f9cdfe2f3cab444e"></a>
+<a id="canonical-2201022201332200-0202132202100021-1130323201311220-1212021231303203-3200312311321222-1003100212111101-3321303133320233-0330222310101032"></a>
 
-## description_spec property — waf_exclusion_rules.metadata / 75d35a57f476 / 4
+## description_spec property — metadata / 111333101312 / 4
 
 Type: `"string"`. Optional.
 
@@ -2262,11 +2262,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-a011eef796ae9c89d48d59512dcaf1589758fad0172c896c82928dbdb66dbdd1"></a>
+<a id="canonical-2200010132323313-2112223221302021-3110203111211101-0231302233011120-2113112033223100-0113023020211230-2002210220312331-2312123123313101"></a>
 
-<a id="canonical-c1979a181042e255e2cd825642ca4e062b0c6f8776d0c4665fb676afe9346d70"></a>
+<a id="canonical-3001211321220120-0100100232021111-3202303120021112-1002302210320012-0223003012332013-1312310030101212-1133231213122233-3221031012311300"></a>
 
-## name property — waf_exclusion_rules.metadata / 75d35a57f476 / 5
+## name property — metadata / 111333101312 / 5
 
 Type: `"string"`. Optional.
 
@@ -2333,31 +2333,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e55b8325aaa2404efb69bc27310578c572774c92e4888d36598615d52720a134"></a>
+<a id="canonical-3211112320030211-2222220210001032-3323122123300213-0301001113203011-1302131310302102-3210202020310312-1121201201113111-0213020022010310"></a>
 
-## Next pages — waf_exclusion_rules.metadata / 75d35a57f476 / 6
+## Next pages — metadata / 111333101312 / 6
 
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
 
-<a id="canonical-655b33145072d2fee1008461c7b96b3264f34bc42fffe456a77bf197a7a33a9b"></a>
+<a id="canonical-1211112303030110-1100130231023332-3201000020101201-3013232112230302-1210330310233010-0233333332101112-2213132333012113-2213220303222123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-40b9282f8ca8eff13ef79417b8434ed609b80ee96313b8f50059431ba85523af"></a>
+<a id="canonical-1000232102200233-2030222032333301-0332331321100113-2320100310323112-0021232000323221-1203010323203311-0000112110030123-2220111102032233"></a>
 
-## waf_exclusion_rules.waf_skip_processing — waf_exclusion_rules.waf_skip_processing / cb80400a2263 / 2
+## waf_exclusion_rules.waf_skip_processing — waf_skip_processing / 002202021203 / 2
 
 Breadcrumbs:
 
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
-- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)
+- [Property reference](resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
 - waf_exclusion_rules.waf_skip_processing
 
-<a id="canonical-55ac36caede975a7391e3eabb8e8a0a5b1d36f09bf3b3e0fce1148e96b799e29"></a>
+<a id="canonical-1111223003123022-3231322113112213-0321013203322223-2320322022002211-2301310312330021-2333032303320033-3032010110203221-1223132121320221"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2386,15 +2386,15 @@ Terraform syntax:
 waf_skip_processing = {}
 ```
 
-<a id="canonical-e8d62bae1ca6dee09233be1fe5744c2dc0b25afafbb8965d2173aff083a26be9"></a>
+<a id="canonical-3220311202232232-0130221231323200-2102030323320133-3211131010300231-3000230211223322-3323232021121131-0201130322333300-2003220212233221"></a>
 
-## Direct properties — waf_exclusion_rules.waf_skip_processing / cb80400a2263 / 3
+## Direct properties — waf_skip_processing / 002202021203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-61a924503e8472eb0ca1c9cee17623c37d31927bb45cdfba4616116f05680708"></a>
+<a id="canonical-1201222102101100-0332201013023223-0030220130213032-3201131202033003-1331030121021323-2310113031332322-1012011201011233-0011122000130020"></a>
 
-## Next pages — waf_exclusion_rules.waf_skip_processing / cb80400a2263 / 4
+## Next pages — waf_skip_processing / 002202021203 / 4
 
-- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-3ae118acad1f904d215e4591c24a5fa3078679efa5b9d86f5e4dc6ed9044e846)
-- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89)
+- [waf_exclusion_rules](resources--waf_exclusion_policy--reference--group-001.md#canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012)
+- [xcsh_waf_exclusion_policy](../resources/waf_exclusion_policy.md#canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021)

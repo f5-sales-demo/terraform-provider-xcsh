@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_alert_template landi
 
 # xcsh_alert_template landing
 
-<a id="canonical-43748ee092eb77be7c417e05e7d416bc1aead9dc6699db467e2027d12e27cf88"></a>
+<a id="canonical-1003131020323200-2102322313132332-1330100113320011-3213311001122330-0122322231213130-1212212131231012-1332020002133101-0232021330332020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-39682ebad3e1683cf7304d22f9efa64d295c9b8b931c6119b801ee776c6977a1"></a>
+<a id="canonical-0321122002322322-3103320112200330-3313030010310202-3321323322121031-0221113021232023-2103013012010121-2320000132321313-1230122113132201"></a>
 
-## xcsh_alert_template — xcsh_alert_template / f3d006fb9aad / 2
+## xcsh_alert_template — xcsh_alert_template / 332321222231 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-<a id="canonical-66b735a55a397eb507f6434f96a9865913dc46e71e2e45149026d4e75f7ae651"></a>
+<a id="canonical-1212231303112211-1122032113322311-0013331210031033-2112222120121121-0103313010123213-0132023210110110-2100021231103213-1133132232121101"></a>
 
-## Prerequisites — xcsh_alert_template / f3d006fb9aad / 3
+## Prerequisites — xcsh_alert_template / 332321222231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-d78d0d34826c9d859b9d09c8381cffc9b96235d5070e6ceb16e599d19fd5667c"></a>
+<a id="canonical-3113203100310310-2002123021312011-2123213100213020-0320013033333021-2321120203113111-0013003212303223-0112321121213101-2133311112121330"></a>
 
-## Minimal configuration — xcsh_alert_template / f3d006fb9aad / 4
+## Minimal configuration — xcsh_alert_template / 332321222231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +59,15 @@ output "alert_template_id" {
 }
 ```
 
-<a id="canonical-d566aca7ae185bb8b7c27a8c972474c1226239542589073a66a9f59446a2351b"></a>
+<a id="canonical-3111121222302213-2232012011232320-2313300213222030-2113021013103001-0202120203211110-0211202100130322-1212222133112110-1012220203110123"></a>
 
-## Root configuration — xcsh_alert_template / f3d006fb9aad / 5
+## Root configuration — xcsh_alert_template / 332321222231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-bd277cd842c23d37ae077ecb78b2080e1a0327c2fa8cd6d47702c6bdbd767cee"></a>
+<a id="canonical-2331021313303120-1002300203310313-2232001313323023-1320230200200032-0122000302133002-3322203031123110-1313000230122331-2331131213303232"></a>
 
-## Next pages — xcsh_alert_template / f3d006fb9aad / 6
+## Next pages — xcsh_alert_template / 332321222231 / 6
 
-- [Property reference](../guides/data-sources--alert_template--reference--group-001.md#canonical-e6acd3bb08b31083263c203b17dd9b602b533a79339a12f5c11f80d073103560)
-- [Examples](../guides/data-sources--alert_template--examples--group-001.md#canonical-e7c73e3ee522555b1d0dfc331cfd8a97f27c510ca20b448538b9f423afd2f12d)
+- [Property reference](../guides/data-sources--alert_template--reference--group-001.md#canonical-3212223031032323-0020230301002003-0212033002000323-0113313121231200-0223110303221321-0303212201023311-3001013320003100-1303010003111200)
+- [Examples](../guides/data-sources--alert_template--examples--group-001.md#canonical-3213301303320332-3211020211111123-0131003133300303-0130333120222113-3302133011010030-2202002310102011-0320232133100203-2233310233010231)

@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_nginx_service_discov
 
 # xcsh_nginx_service_discovery lifecycle
 
-<a id="canonical-e59531dcf659d7250fd99d0d8a49733700fce4acb7f11c2728fb5b386e15180c"></a>
+<a id="canonical-3211211103013130-3312112131130211-0033312121310031-2022102113030313-0000333032102230-2313330101300213-0220332311230320-1232011101200030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-62382c32849739778b867d6e7ebbade3bfc3af9ca50111e0a5a4e88672fa5883"></a>
+<a id="canonical-1202032002300302-2010211303211313-2023201213311232-1332232322313203-2333300322332130-2211000101013200-2211221032202012-1302332211202003"></a>
 
-## Import — Import / dfa5e6182aaf / 2
+## Import — Import / 012002222233 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_nginx_service_discovery.example system/example
 ```
 
-<a id="canonical-c37048afcede52d21da17dd4bebae6911080e02f943b30456e768f0b7b92d339"></a>
+<a id="canonical-3003130010202233-3032313211023102-0131220113313110-2332232232122101-0100200032000233-2110032303001011-1232131220330023-1323210231030321"></a>
 
-## Next pages — Import / dfa5e6182aaf / 3
+## Next pages — Import / 012002222233 / 3
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 
-<a id="canonical-b0e567bcc337829b40f3bb58c9f1012f3a2948dce57b31cfbd14620ee8ab8dd7"></a>
+<a id="canonical-2300321112132330-3003031320022123-1000330323231120-3021330100010233-0322022110203130-3211132303013033-2331011012020032-3220222320313113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ee9a20cbb428494d74b36450ab7994bb24d4835e8094bc03b876a37dec5a30b6"></a>
+<a id="canonical-3232212202003023-2310022010211031-1310230312101100-2223132121102323-0210311020031132-2000211023300003-2320131222031331-3230112203002312"></a>
 
-## Timeouts — Timeouts / d28407eae9e6 / 2
+## Timeouts — Timeouts / 322232213212 / 2
 
 Breadcrumbs:
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-fe720eb086b57545b2fb0f63f5461fc0b63c51e4b8e942105bd7f5b7cfd791f1). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--nginx_service_discovery--reference--group-001.md#canonical-3332130200322300-2012231113111011-2302332300331203-3311101201333000-2312033011013210-2320322110020100-1123311333112313-3033311321013301). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-27a03701e0b93a13b1e05b986428d552b05f39da77f54c4b74cca9aad1ea81af"></a>
+<a id="canonical-0213220003130001-3200232103220103-2301320011232120-1210022031111102-2300113303213122-1313331110301023-1310303022212222-3101322220012233"></a>
 
-## Next pages — Timeouts / d28407eae9e6 / 3
+## Next pages — Timeouts / 322232213212 / 3
 
-- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b)
+- [xcsh_nginx_service_discovery](../resources/nginx_service_discovery.md#canonical-2133010001131111-1103202000012230-1200101233222202-0010112120031023-2011010122321223-1011233232030201-3203200000233102-2110012102122023)

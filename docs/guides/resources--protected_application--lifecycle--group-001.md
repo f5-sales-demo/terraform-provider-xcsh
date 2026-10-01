@@ -6,19 +6,19 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application lifecycle
 
-<a id="canonical-16ca0f43bcb76b4e62a2f1418b1390f136abb11880a1006b2b2507e9bd0a9916"></a>
+<a id="canonical-0112302200331003-2330231312231032-1202220233011001-2023010321003301-0312222323010120-2000220100001223-0223021100133221-2331002221210112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7770fca7c9bc0568a457b3e4a3568adbe3bb4db52f2f5a6878e9c52d968b24c5"></a>
+<a id="canonical-1313130033302213-3021233000111220-2210111323033210-2203111220223123-3203232310312311-0233023311221220-1320322130110231-2112202302103011"></a>
 
-## Import — Import / 6059c0bb07c4 / 2
+## Import — Import / 232300133010 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../resources/protected_application.md#canonical-02eb6070b96ac03a5ec9e61db42ba499f057c1cceb1a2d74492268be0811fd42)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
 - Import
 
 Import using the `namespace/name` identifier format.
@@ -27,31 +27,31 @@ Import using the `namespace/name` identifier format.
 terraform import xcsh_protected_application.example system/example
 ```
 
-<a id="canonical-08675d58fb351f6e3cf21dc52b702b74d485a8ea3f0ae5fcbdb10d12769d6d0e"></a>
+<a id="canonical-0020121311311120-3323031101331232-0330330201313011-0223130002231310-3110201122203222-0333002232113330-2331230100310102-1312213112310032"></a>
 
-## Next pages — Import / 6059c0bb07c4 / 3
+## Next pages — Import / 232300133010 / 3
 
-- [xcsh_protected_application](../resources/protected_application.md#canonical-02eb6070b96ac03a5ec9e61db42ba499f057c1cceb1a2d74492268be0811fd42)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
 
-<a id="canonical-a09ee54b2d0374dc71e13d4ca7538454b00a50fadc1f1ee8db369abdbef361b5"></a>
+<a id="canonical-2200213232111023-0231000313103130-1301320103311030-2213110320101110-2300002211003322-3130013301323220-3123031221222331-2332330312012311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cfad9f6251c8ea86c441b1ebce715f346d4643051820ca71d69547d90deca036"></a>
+<a id="canonical-3033223121331202-1101302032222012-3010100123013223-3032130111330310-1231101210030011-0120020030221301-3112211110133121-0031323022000312"></a>
 
-## Timeouts — Timeouts / f5704b0af901 / 2
+## Timeouts — Timeouts / 002233210001 / 2
 
 Breadcrumbs:
 
-- [xcsh_protected_application](../resources/protected_application.md#canonical-02eb6070b96ac03a5ec9e61db42ba499f057c1cceb1a2d74492268be0811fd42)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
 - Timeouts
 
-Configure the supported operation timeouts in the [timeouts](resources--protected_application--reference--group-004.md#canonical-795c21823eea76f40b96ac6f5e098873ab1262b372f3bba87d702754c6a10784). Use Terraform duration strings such as `30m`.
+Configure the supported operation timeouts in the [timeouts](resources--protected_application--reference--group-004.md#canonical-1321113002012002-0332322213123310-0023211222301233-1132002120201303-2223010212022303-1302330323232220-1331130002131110-3012220100132010). Use Terraform duration strings such as `30m`.
 
-<a id="canonical-bb7f0dcf8876122cb6d27e9a561951d88340866532cf98c82c102bd54a227d96"></a>
+<a id="canonical-2323133300313033-2020131201020230-2312310213322122-1112012111013120-2003100020121211-0302303321203020-0230010002233111-1022020213312112"></a>
 
-## Next pages — Timeouts / f5704b0af901 / 3
+## Next pages — Timeouts / 002233210001 / 3
 
-- [xcsh_protected_application](../resources/protected_application.md#canonical-02eb6070b96ac03a5ec9e61db42ba499f057c1cceb1a2d74492268be0811fd42)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)

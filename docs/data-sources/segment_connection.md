@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_segment_connection l
 
 # xcsh_segment_connection landing
 
-<a id="canonical-0c16447dbb90eb025faf624280439f7e29eddfddfb4f25b086f9782baa1798bb"></a>
+<a id="canonical-0030011210101331-2323210032230002-1133223312021002-2000100321331332-0221323131333131-3323103302112300-2012332113200223-2222011321202323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a6da0fae50efbd2f57ad4dc447851fe15187a25b177a66d90c43f9389fb71213"></a>
+<a id="canonical-2212312200332232-1100323323310233-1113223110313010-1013201101333201-1101201322021123-0113132212123121-0030100333210320-2133231301020103"></a>
 
-## xcsh_segment_connection — xcsh_segment_connection / ab7c2a6a9503 / 2
+## xcsh_segment_connection — xcsh_segment_connection / 122221110003 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Segment Connection resource in F5 Distributed Cloud for segment connector specification.
 configuration. (read-only data source)
 
-<a id="canonical-1633da37043634c1656a397a0e7035cfe96b4c5bab70b2ce0ac8c3f28e713e3a"></a>
+<a id="canonical-0112030331220313-0010031203103001-1211122203211322-0032130003113033-3221122310301123-2223130023023032-0022302030033302-2032130103320322"></a>
 
-## Prerequisites — xcsh_segment_connection / ab7c2a6a9503 / 3
+## Prerequisites — xcsh_segment_connection / 122221110003 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-8ed8aa6ea6c5041713194d800620a54b446b15b9b0623f71ab4217d73c733187"></a>
+<a id="canonical-2032312022221232-2212301100100113-0103012110312000-0012020022111023-1010122301112321-2300120203331301-2223100201133113-0330130303012013"></a>
 
-## Minimal configuration — xcsh_segment_connection / ab7c2a6a9503 / 4
+## Minimal configuration — xcsh_segment_connection / 122221110003 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "segment_connection_id" {
 }
 ```
 
-<a id="canonical-1f33b2dd9dd344bbcf5e6ddd23f268232d474dd64f5be2bae9fe52a1889fc5af"></a>
+<a id="canonical-0133030323023131-2131310310102323-3033113212313131-0203330212200203-0231101310313112-1033112332022322-3221333211022201-2020213330112233"></a>
 
-## Root configuration — xcsh_segment_connection / ab7c2a6a9503 / 5
+## Root configuration — xcsh_segment_connection / 122221110003 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-cad4eaed6f92c9095265e90a2802d410578c3d8fe59f675a20869fad4236e4e3"></a>
+<a id="canonical-3022311032223231-1233210230210021-1102121132210022-0220000231100100-1113203003312033-3211213312131122-0200201221332231-1002031232103203"></a>
 
-## Next pages — xcsh_segment_connection / ab7c2a6a9503 / 6
+## Next pages — xcsh_segment_connection / 122221110003 / 6
 
-- [Property reference](../guides/data-sources--segment_connection--reference--group-001.md#canonical-039339d9bb77663d5c6ad587cbb365f2ec5c0bac87336e75f19b8d462289de67)
-- [Examples](../guides/data-sources--segment_connection--examples--group-001.md#canonical-24ec7a5c619a8fc6d498f9870b47000d9fb9103887ff32960750e2644c0b7bdf)
+- [Property reference](../guides/data-sources--segment_connection--reference--group-001.md#canonical-0003210303213121-2323131312120331-1130122231112013-3023230312113302-3230113000232230-2013030312321311-3301212320311012-0202202131321213)
+- [Examples](../guides/data-sources--segment_connection--examples--group-001.md#canonical-0210323013221130-1201212220333012-3110212033212013-0023101300000031-2133232101000320-2013333303022112-0013110032021210-1030002313233133)

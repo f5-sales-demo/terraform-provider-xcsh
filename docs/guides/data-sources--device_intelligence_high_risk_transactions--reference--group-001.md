@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_high_risk_transactions reference
 
-<a id="canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea"></a>
+<a id="canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-73265dfaf4d4e10431078e9a6442fc8f78fe6aa5db71bf37aac147c1045633a7"></a>
+<a id="canonical-1303021211313322-3310311032010010-0301001320322122-1210100233302033-1320333212222211-3123130123330313-2222300110133001-0010111203032213"></a>
 
-## Property reference — Property reference / 27c3316cd3c2 / 2
+## Property reference — Property reference / 123031033002 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 - Property reference
 
-<a id="canonical-2cc3df10fb0dd2cef74c16c464dff0c6a204e09e158391033a86c7f049cc181c"></a>
+<a id="canonical-0230300331330100-3323003131023032-3313103001123010-1210313333003012-2202001032002132-0111200321010003-0322201230133300-1021303001200130"></a>
 
-## Direct properties — Property reference / 27c3316cd3c2 / 3
+## Direct properties — Property reference / 123031033002 / 3
 
-<a id="canonical-5baf0cdb3f0960478dcb9260ec1808c0119383797fbca44a28d6f49cd75c9114"></a>
+<a id="canonical-1123223300303123-0333002112001013-2031302321021200-3230012000203000-0101210320031321-1333233022101022-0220311233102130-3113113021010110"></a>
 
-<a id="canonical-265ffa3984a167866d6e51c8487bfe15f7bbb99a45e92b35e4f741b030aa1cf7"></a>
+<a id="canonical-0212113333220321-2010220112132012-1231123211013020-1020132333320111-3313232323212122-1011322102230311-3210331310012300-0300222201303313"></a>
 
-## end_time property — Property reference / 27c3316cd3c2 / 4
+## end_time property — Property reference / 123031033002 / 4
 
 Type: `"string"`. Optional.
 
@@ -45,23 +45,23 @@ Validators: []validator.String{
 }
 ```
 
-- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-18d5387b9970901e50b9dc77f44f9cdc311f7cbfc6629564b84e6cecf8eadd05): complete subsection reference.
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011): complete subsection reference.
 
-<a id="canonical-d551c6918e4150df45a558f738eaa37291f83c60620b5f79157eac9db5646825"></a>
+<a id="canonical-3111110130122101-2032100111003133-1011221111203313-0320322222031302-2101332003301200-1202002311331321-0111133222302131-2311121012200211"></a>
 
-<a id="canonical-cc193b70e1d77047800c930144ab1c1fc527c2f992aaf81810a44f4d1e86c8fc"></a>
+<a id="canonical-3030012103231300-3201311313001013-2000003021030001-1010222301300133-3011021330023321-2102222233200120-0100221010331031-0132201230203330"></a>
 
-## namespace property — Property reference / 27c3316cd3c2 / 5
+## namespace property — Property reference / 123031033002 / 5
 
 Type: `"string"`. Required.
 
 Namespace. Namespace name.
 
-<a id="canonical-51a6ff7c888581a2982ec53dd80073267e6c8f63b79f6341de3be1d0a78ad441"></a>
+<a id="canonical-1101221233331330-2020201120012202-2120023230110331-3120000013030212-1332123020331203-2313213312031001-3132032332013100-2213202231101001"></a>
 
-<a id="canonical-328ec09dd0c47e17c867516f57a74a8ec5beef9186fb4fdc4d50605daf9a04ca"></a>
+<a id="canonical-0302203230002131-3100301013320113-3020121311011233-1113221310222032-3011233232332101-2012332310333130-1031110012001131-2233212200103022"></a>
 
-## start_time property — Property reference / 27c3316cd3c2 / 6
+## start_time property — Property reference / 123031033002 / 6
 
 Type: `"string"`. Optional.
 
@@ -77,72 +77,72 @@ Validators: []validator.String{
 }
 ```
 
-- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-72c335c60953232fff4a455e778bcd6ee8b31429dd91f6462bf4b96331cc3f01): complete subsection reference.
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001): complete subsection reference.
 
-<a id="canonical-06f7bc2e5d76ae00af517adf158e6c0a1fc8a7ee8b589375733883b3f40b480c"></a>
+<a id="canonical-0012331323300232-1131131222320000-2233110113223133-0111203212300022-0133302022133232-2023112021031311-1303032020032303-3310002310200030"></a>
 
-## All schema paths — Property reference / 27c3316cd3c2 / 7
+## All schema paths — Property reference / 123031033002 / 7
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `end_time` | [end_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-5baf0cdb3f0960478dcb9260ec1808c0119383797fbca44a28d6f49cd75c9114) |
-| `filters` | [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-cadb2717d25afbdf2960d536f329dd9b853e7cdf87a8873ee8e779067f6393c4) |
-| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-f0a83cb39fe1f58b449c8b87fea241a4bc4392da0019b999813596d36ff5f184) |
-| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-310dca1b07d275558afb2cee5ba81ab50e5a7148bb62056eb4165dd8c1171171) |
-| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-e0da3eaf33156a39a2b2c26214ab7a26a5ecdfff20338fad195c9e02df5c13a0) |
-| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-a99fac01173a8399c6a851f67720601f5641625a5980a2269ecc0c99501cb226) |
-| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-f9f0097967841823b8761a643f51824eac88f94f2aaf0149fcc9b51dab4530e4) |
-| `namespace` | [namespace](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-d551c6918e4150df45a558f738eaa37291f83c60620b5f79157eac9db5646825) |
-| `start_time` | [start_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-51a6ff7c888581a2982ec53dd80073267e6c8f63b79f6341de3be1d0a78ad441) |
-| `time_series_results` | [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8793aa9d5d8cce4e1290f5d6873c47a83ee19d9ff89445be543c4049cab0cf2a) |
-| `time_series_results.series_key` | [time_series_results.series_key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-a949781fd7e2f1f4d71d6d546d69b2c2a79d0770178d44bd9025961ba54a36bf) |
-| `time_series_results.time_series` | [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-9a6805a59decdf324418f98a7cf588d62700081557484ea4c9db97a4a7fef52a) |
-| `time_series_results.time_series.timestamp` | [time_series_results.time_series.timestamp](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-b5f00d3c5b10c7872fc57b828f7ce468bb86e3f69238e49b5ae0fb2f1e2bf1ca) |
-| `time_series_results.time_series.value` | [time_series_results.time_series.value](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-76dc60be9c9d66f39b3d20e0e2f41e025d50b994d68a61c55859bcf01d733589) |
+| `end_time` | [end_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1123223300303123-0333002112001013-2031302321021200-3230012000203000-0101210320031321-1333233022101022-0220311233102130-3113113021010110) |
+| `filters` | [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3022312302130113-3102112233233133-0221120031110312-3303022131312123-2011033213303133-2013222020130332-3220321313210012-1333120321033010) |
+| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3300222003302303-2133320133112023-1010213020232013-3332220210012210-2330100321023122-0000012123212121-2001031121123103-1233331133012010) |
+| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0301003130220123-0013310213111111-2022332302303232-1123222001222311-0032112213011020-2323120200111232-2310011211313120-3001011301011301) |
+| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3200312203322233-0303011112220321-2202230230021202-0110222313220212-2211323031333333-0200030320332231-0121113021320002-3133113001032200) |
+| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2221213322300001-0113032220032121-3012222011013312-1313020012000133-1112100112021122-1121200022020212-2132303000302121-1100013023020212) |
+| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3321330000211321-1213201001200203-2320131201221210-0333110120021032-2230202033211033-0222223300011021-3330302123110131-2223101103003210) |
+| `namespace` | [namespace](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3111110130122101-2032100111003133-1011221111203313-0320322222031302-2101332003301200-1202002311331321-0111133222302131-2311121012200211) |
+| `start_time` | [start_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1101221233331330-2020201120012202-2120023230110331-3120000013030212-1332123020331203-2313213312031001-3132032332013100-2213202231101001) |
+| `time_series_results` | [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2013210322222131-1131203030321032-0102210033113112-2013033010132220-0332320121312133-3320211010112332-1110033010001021-3022230030330222) |
+| `time_series_results.series_key` | [time_series_results.series_key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2221102113200133-3113320233013310-3113013112311110-1231122123023002-2213213100131300-0113203110102331-2100021121120123-2211102203122333) |
+| `time_series_results.time_series` | [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2122122000112211-2131323031330302-1010012033212022-1330331120203112-0213000000200111-1113102010322210-3021312321132210-2213333233110222) |
+| `time_series_results.time_series.timestamp` | [time_series_results.time_series.timestamp](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2311330000310330-1123010030132013-0233301113232002-2033133032101220-2323201232033312-2102032032102123-1122320033230233-0132022333013022) |
+| `time_series_results.time_series.value` | [time_series_results.time_series.value](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1312313012002332-2130213112123303-2123033102003200-3202331001320002-1131110023212110-3112202212013011-1120112123303300-0131130303112021) |
 
-<a id="canonical-f38d22f90f6817325259396e926eeb01f52578e00ff055d026209aa2603dd1f8"></a>
+<a id="canonical-3303203102023321-0033122001130302-1102112103211232-2102123232230001-3311021113203200-0033330011113100-0212020021222202-1200033131013320"></a>
 
-## Next pages — Property reference / 27c3316cd3c2 / 8
+## Next pages — Property reference / 123031033002 / 8
 
-- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-18d5387b9970901e50b9dc77f44f9cdc311f7cbfc6629564b84e6cecf8eadd05)
-- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-72c335c60953232fff4a455e778bcd6ee8b31429dd91f6462bf4b96331cc3f01)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 
-<a id="canonical-18d5387b9970901e50b9dc77f44f9cdc311f7cbfc6629564b84e6cecf8eadd05"></a>
+<a id="canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d496509dda84f6a3882b424760fa9733639b9eba9681b321439e2e14219c8853"></a>
+<a id="canonical-3110211211002131-3122201033122203-2020022310021013-1200332221130303-1203212321322322-2112200123030201-1003213202320110-0201213020201103"></a>
 
-## filters — filters / 0dd782519570 / 2
+## filters — filters / 110121111300 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
 - filters
 
-<a id="canonical-cadb2717d25afbdf2960d536f329dd9b853e7cdf87a8873ee8e779067f6393c4"></a>
+<a id="canonical-3022312302130113-3102112233233133-0221120031110312-3303022131312123-2011033213303133-2013222020130332-3220321313210012-1333120321033010"></a>
 
 Type: `"single"`. Optional.
 
 Global Filters. Query Global Filters.
 
-<a id="canonical-43125bb0f811fb42b40a4f6b059369ef2d3a77c9d059b0236493ff2319b0f853"></a>
+<a id="canonical-1003010211232300-3320010133231002-2310002210331223-0011210312213233-0231032213133021-3100112123000203-1210210333330203-0121230033201103"></a>
 
-## Direct properties — filters / 0dd782519570 / 3
+## Direct properties — filters / 110121111300 / 3
 
-- [global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-4d5284ba5e2bd010b945b1f9f09230a2cd3c40e0810002533b7004ab47f0f3af): complete subsection reference.
+- [global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233): complete subsection reference.
 
-<a id="canonical-f9f0097967841823b8761a643f51824eac88f94f2aaf0149fcc9b51dab4530e4"></a>
+<a id="canonical-3321330000211321-1213201001200203-2320131201221210-0333110120021032-2230202033211033-0222223300011021-3330302123110131-2223101103003210"></a>
 
-<a id="canonical-080e2f04c045352a2351984eed7dd9c930317b2ef18cf6c165c5c2a07e0036d1"></a>
+<a id="canonical-0020003202330010-3000101103110222-0203110121201032-3231133131213021-0300030113230232-3301203033123001-1211301130022200-1332000003123101"></a>
 
-## region_filter property — filters / 0dd782519570 / 4
+## region_filter property — filters / 110121111300 / 4
 
 Type: `"string"`. Optional.
 
@@ -161,46 +161,46 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-50df5f2e3e90370bae63712f3208feca0109183ab062b54da23c5a6126e3e83b"></a>
+<a id="canonical-1100313311330232-0332210003130023-2232120313010233-0302002033323022-0001002101200322-2300120223111031-2202033011221201-0212320332200323"></a>
 
-## Next pages — filters / 0dd782519570 / 5
+## Next pages — filters / 110121111300 / 5
 
-- [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-4d5284ba5e2bd010b945b1f9f09230a2cd3c40e0810002533b7004ab47f0f3af)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 
-<a id="canonical-4d5284ba5e2bd010b945b1f9f09230a2cd3c40e0810002533b7004ab47f0f3af"></a>
+<a id="canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47ead5c6cfe025b30f3b73e8318b42967eafe35152c065fcd70141c43d28a2a5"></a>
+<a id="canonical-1013322231113012-3033320002112303-0033032313033220-0301202310022112-1332223332031101-1102300012113330-3113000110013010-0331022022022211"></a>
 
-## filters.global_filters — filters.global_filters / 2d8a495a4bd4 / 2
+## filters.global_filters — global_filters / 112210233110 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
-- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-18d5387b9970901e50b9dc77f44f9cdc311f7cbfc6629564b84e6cecf8eadd05)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
 - filters.global_filters
 
-<a id="canonical-f0a83cb39fe1f58b449c8b87fea241a4bc4392da0019b999813596d36ff5f184"></a>
+<a id="canonical-3300222003302303-2133320133112023-1010213020232013-3332220210012210-2330100321023122-0000012123212121-2001031121123103-1233331133012010"></a>
 
 Type: `"list"`. Optional.
 
 Global Filters. List of global filters.
 
-<a id="canonical-324b8376cc775e4174a00a69ff2c3aa66401b3570432060acd4989badef5d100"></a>
+<a id="canonical-0302102320031312-3030131311321001-1310220000221221-3333023003222212-1210000123031113-0010030200120022-3031102120212322-3132331131010000"></a>
 
-## Direct properties — filters.global_filters / 2d8a495a4bd4 / 3
+## Direct properties — global_filters / 112210233110 / 3
 
-<a id="canonical-310dca1b07d275558afb2cee5ba81ab50e5a7148bb62056eb4165dd8c1171171"></a>
+<a id="canonical-0301003130220123-0013310213111111-2022332302303232-1123222001222311-0032112213011020-2323120200111232-2310011211313120-3001011301011301"></a>
 
-<a id="canonical-4bf000c0f4aca9e657e0d5518f28287243ab7e7ca9293fca32822b9ca968f740"></a>
+<a id="canonical-1023330000003000-3310223022213212-1113320031111101-2033022002201302-1003222313321330-2221022103333022-0302200202232130-2221122033131000"></a>
 
-## key property — filters.global_filters / 2d8a495a4bd4 / 4
+## key property — global_filters / 112210233110 / 4
 
 Type: `"string"`. Optional.
 
@@ -279,11 +279,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-e0da3eaf33156a39a2b2c26214ab7a26a5ecdfff20338fad195c9e02df5c13a0"></a>
+<a id="canonical-3200312203322233-0303011112220321-2202230230021202-0110222313220212-2211323031333333-0200030320332231-0121113021320002-3133113001032200"></a>
 
-<a id="canonical-f80787df5846831261f0e329acf2600bc00b8bd3245e2a91210b6cc78eb5ac9c"></a>
+<a id="canonical-3320001320133133-1120101220030102-1201330032030221-2230330212000023-3000002320233103-0210113202222101-0201002312303013-2032231122302130"></a>
 
-## op property — filters.global_filters / 2d8a495a4bd4 / 5
+## op property — global_filters / 112210233110 / 5
 
 Type: `"string"`. Optional.
 
@@ -310,11 +310,11 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-a99fac01173a8399c6a851f67720601f5641625a5980a2269ecc0c99501cb226"></a>
+<a id="canonical-2221213322300001-0113032220032121-3012222011013312-1313020012000133-1112100112021122-1121200022020212-2132303000302121-1100013023020212"></a>
 
-<a id="canonical-c039116a178a7309601c74aa782f3ea41765adb7fc176ab04baf681495f62430"></a>
+<a id="canonical-3000032101011222-0113202213030021-1200013013102222-1320023303322210-0113121122312313-3330011312222300-1023223312200110-2111331202100300"></a>
 
-## values property — filters.global_filters / 2d8a495a4bd4 / 6
+## values property — global_filters / 112210233110 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -328,91 +328,91 @@ Validators: []validator.List{
 }
 ```
 
-<a id="canonical-3021e01039d0824970c2dc5b3b9e84c4bbed44d6b1b6523c797b96e14f22d203"></a>
+<a id="canonical-0300020132000100-0321310020021021-1300300231301123-0323213220103010-2323323110103112-2301231211020330-1321132321123201-1033020231020003"></a>
 
-## Next pages — filters.global_filters / 2d8a495a4bd4 / 7
+## Next pages — global_filters / 112210233110 / 7
 
-- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-18d5387b9970901e50b9dc77f44f9cdc311f7cbfc6629564b84e6cecf8eadd05)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 
-<a id="canonical-72c335c60953232fff4a455e778bcd6ee8b31429dd91f6462bf4b96331cc3f01"></a>
+<a id="canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b4a0209b54558b303e2b5377fa40fb7fc0fe139dcbc07e21b47c570a7054bd2d"></a>
+<a id="canonical-2310220002002123-1110111120230300-0332022311031313-3322100033231333-3000333201032131-3023300013320201-2310133011130022-1300111023310231"></a>
 
-## time_series_results — time_series_results / 8e42f59820cf / 2
+## time_series_results — time_series_results / 212002003033 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
 - time_series_results
 
-<a id="canonical-8793aa9d5d8cce4e1290f5d6873c47a83ee19d9ff89445be543c4049cab0cf2a"></a>
+<a id="canonical-2013210322222131-1131203030321032-0102210033113112-2013033010132220-0332320121312133-3320211010112332-1110033010001021-3022230030330222"></a>
 
 Type: `"list"`. Computed.
 
 Collection of time series grouped by a series key.
 
-<a id="canonical-008f1fc05b550455adba453c1504379f364ec5315ecce55b221863fc55188b99"></a>
+<a id="canonical-0000203301333000-1123111100101111-2231232210110330-0111001003132133-0312103230110301-1132303032111123-0202012012033330-1111012020232121"></a>
 
-## Direct properties — time_series_results / 8e42f59820cf / 3
+## Direct properties — time_series_results / 212002003033 / 3
 
-<a id="canonical-a949781fd7e2f1f4d71d6d546d69b2c2a79d0770178d44bd9025961ba54a36bf"></a>
+<a id="canonical-2221102113200133-3113320233013310-3113013112311110-1231122123023002-2213213100131300-0113203110102331-2100021121120123-2211102203122333"></a>
 
-<a id="canonical-418cdc6ff198b61a866df76d785ec04bff53ccf82d3e891f4a9cfa7cfc043b58"></a>
+<a id="canonical-1001203031301233-3301212023120122-2012123133131231-1320113230001023-3333110330303320-0231033220210133-1022213033221330-3330001003231120"></a>
 
-## series_key property — time_series_results / 8e42f59820cf / 4
+## series_key property — time_series_results / 212002003033 / 4
 
 Type: `"string"`. Computed.
 
 Identifier for the time series (e.g., 'total', 'high\_risk').
 
-- [time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-53f3fa297cc65353b034604f7942e2f8d21211cef1b00e1b0739259f1d3fc3fd): complete subsection reference.
+- [time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331): complete subsection reference.
 
-<a id="canonical-d75ef562e3f3f9e6f6b49d5059454812e4d34ad129e0b6125d8cbe863c4a6625"></a>
+<a id="canonical-3113113233111202-3203330333213212-3312231021311100-1121101110200102-3210310310223101-0221320023120102-1131203023322012-0330102212120211"></a>
 
-## Next pages — time_series_results / 8e42f59820cf / 5
+## Next pages — time_series_results / 212002003033 / 5
 
-- [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-53f3fa297cc65353b034604f7942e2f8d21211cef1b00e1b0739259f1d3fc3fd)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
 
-<a id="canonical-53f3fa297cc65353b034604f7942e2f8d21211cef1b00e1b0739259f1d3fc3fd"></a>
+<a id="canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e732bb268e2c718013e3302b4d0111f3fcb042cda5156cc47dd78affd392d254"></a>
+<a id="canonical-3213030223230212-2032023013012000-0103320303000223-1031000101013303-3330230010023031-2211011112303010-1331311320223333-3103210231021110"></a>
 
-## time_series_results.time_series — time_series_results.time_series / b93a28a6ff3d / 2
+## time_series_results.time_series — time_series / 221233330331 / 2
 
 Breadcrumbs:
 
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
-- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
-- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-72c335c60953232fff4a455e778bcd6ee8b31429dd91f6462bf4b96331cc3f01)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
 - time_series_results.time_series
 
-<a id="canonical-9a6805a59decdf324418f98a7cf588d62700081557484ea4c9db97a4a7fef52a"></a>
+<a id="canonical-2122122000112211-2131323031330302-1010012033212022-1330331120203112-0213000000200111-1113102010322210-3021312321132210-2213333233110222"></a>
 
 Type: `"list"`. Computed.
 
 Sequence of timestamped values for this series.
 
-<a id="canonical-36723f295db84057dea66a998c6d8e97e2e8b2131a0570d65369fdbd97aa6e3c"></a>
+<a id="canonical-0312130203330221-1131232010001113-3132221212222121-2030123120322113-3202322023020103-0122001113003112-1103122133312331-2113222212320330"></a>
 
-## Direct properties — time_series_results.time_series / b93a28a6ff3d / 3
+## Direct properties — time_series / 221233330331 / 3
 
-<a id="canonical-b5f00d3c5b10c7872fc57b828f7ce468bb86e3f69238e49b5ae0fb2f1e2bf1ca"></a>
+<a id="canonical-2311330000310330-1123010030132013-0233301113232002-2033133032101220-2323201232033312-2102032032102123-1122320033230233-0132022333013022"></a>
 
-<a id="canonical-b4d4a4caa234eddec654f3f23d732323854fe39dc83d28602011410a7f72432d"></a>
+<a id="canonical-2310311022103022-2202031032313132-3012111033033302-0331130302030203-2011103332032131-3020033102201200-0200010110010022-1333130210030231"></a>
 
-## timestamp property — time_series_results.time_series / b93a28a6ff3d / 4
+## timestamp property — time_series / 221233330331 / 4
 
 Type: `"string"`. Computed.
 
@@ -428,19 +428,19 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-76dc60be9c9d66f39b3d20e0e2f41e025d50b994d68a61c55859bcf01d733589"></a>
+<a id="canonical-1312313012002332-2130213112123303-2123033102003200-3202331001320002-1131110023212110-3112202212013011-1120112123303300-0131130303112021"></a>
 
-<a id="canonical-273ffc412c04916ad3cfa70c53e460e4e03bcfaf7836196297a329a39f2938e0"></a>
+<a id="canonical-0213033333301001-0230001021011222-3103303322130030-1103321012003210-3200032330332233-1320031201211202-2113220302212203-2133022103203200"></a>
 
-## value property — time_series_results.time_series / b93a28a6ff3d / 5
+## value property — time_series / 221233330331 / 5
 
 Type: `"string"`. Computed.
 
 Value. Value observed at the given timestamp.
 
-<a id="canonical-7e5ba7ed3df557d6f61c7a13c5f07bf676e72701c27dd673223ab671e8b892f5"></a>
+<a id="canonical-1332112322133231-0331331111133112-3312013013220103-3011330013233312-1312321302130001-3002133131121303-0202032223121301-3220232021023311"></a>
 
-## Next pages — time_series_results.time_series / b93a28a6ff3d / 6
+## Next pages — time_series / 221233330331 / 6
 
-- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-72c335c60953232fff4a455e778bcd6ee8b31429dd91f6462bf4b96331cc3f01)
-- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53)
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)

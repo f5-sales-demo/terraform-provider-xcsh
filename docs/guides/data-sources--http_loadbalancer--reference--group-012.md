@@ -6,79 +6,39 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-0658e11ac189b3d6aa56c67147330f120c574fb9ef87ef8db6c3163966f61cc0"></a>
+<a id="canonical-1320220212202033-1231000232121310-3100133220211013-1112123133230031-0013202023203130-1013302330310322-0131102203133200-0022310322303131"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards / ea844e3fc195 / 3
+## Next pages — apply / 032330112100 / 4
 
-- [gift_card_make_purchase_with_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-32f8a8bc76bcbfe518556b30275db9972432d8292080e8de3527b56a0e099b49): complete subsection reference.
+- [bot_defense.policy.protected_app_endpoints.flow_label.financial_services](data-sources--http_loadbalancer--reference--group-011.md#canonical-1302200031100303-2002010011121010-1121011120131123-2313102202010222-1233121213022000-3230003011103203-0321300123220310-1133131311230332)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-- [gift_card_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-1aff868ef75bd330c847aaeb1104d429abde6f2b77859f5d74aa29d1aca2a68a): complete subsection reference.
-
-- [shop_add_to_cart](data-sources--http_loadbalancer--reference--group-012.md#canonical-3fd9b5f0d5b82a3d33fd8cd3887b4555d6882b2c1b28f0f3789ddea1fd5ab9ef): complete subsection reference.
-
-- [shop_checkout](data-sources--http_loadbalancer--reference--group-012.md#canonical-b9ee585a2866a770429a70bd77adc7c7c21053c8b594ef5ff5b72c8e3b0be266): complete subsection reference.
-
-- [shop_choose_seat](data-sources--http_loadbalancer--reference--group-012.md#canonical-803ce00694a75268b0031e3bdf5fa59711301bc9a6407a302a25c4039ee06eeb): complete subsection reference.
-
-- [shop_enter_drawing_submission](data-sources--http_loadbalancer--reference--group-012.md#canonical-b7dd54ed6acb33d13f1cfabc3dae103e20bdd1a1cc5f2090e5a9580a33a79bb4): complete subsection reference.
-
-- [shop_make_payment](data-sources--http_loadbalancer--reference--group-012.md#canonical-e8de90a6e5a2a2ba22467f559beba6824369b9ffb5711601914a9eb224c9eb42): complete subsection reference.
-
-- [shop_order](data-sources--http_loadbalancer--reference--group-012.md#canonical-1015a2aa595b6139714c7d0ba3256ff283611f7ed98a11db72401b6bc4fcd24a): complete subsection reference.
-
-- [shop_price_inquiry](data-sources--http_loadbalancer--reference--group-012.md#canonical-f9ab4175b4c8cad72b602e5a16a2eecb4745259b75af1ad52ab4a60aca864f4a): complete subsection reference.
-
-- [shop_promo_code_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-82681a47ef6e5220ce3cc6ae9c20ed47c25c14dfcf5d0315b46849e876e0aa14): complete subsection reference.
-
-- [shop_purchase_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-e7cfd8e1c681f8c5f3768126455ab5047f4939462436d2b7fe8e688654834e3d): complete subsection reference.
-
-- [shop_update_quantity](data-sources--http_loadbalancer--reference--group-012.md#canonical-ccfa34382f6dd3c37dd105bead504b1946cda9b4a1bcb36cf124f8e45c52e41b): complete subsection reference.
-
-<a id="canonical-ad7bcc200cdb469e47ab3b95b6aed6dce2bc65b8a9780c1bf78258b02502afda"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards / ea844e3fc195 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-32f8a8bc76bcbfe518556b30275db9972432d8292080e8de3527b56a0e099b49)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-1aff868ef75bd330c847aaeb1104d429abde6f2b77859f5d74aa29d1aca2a68a)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart](data-sources--http_loadbalancer--reference--group-012.md#canonical-3fd9b5f0d5b82a3d33fd8cd3887b4555d6882b2c1b28f0f3789ddea1fd5ab9ef)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout](data-sources--http_loadbalancer--reference--group-012.md#canonical-b9ee585a2866a770429a70bd77adc7c7c21053c8b594ef5ff5b72c8e3b0be266)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat](data-sources--http_loadbalancer--reference--group-012.md#canonical-803ce00694a75268b0031e3bdf5fa59711301bc9a6407a302a25c4039ee06eeb)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission](data-sources--http_loadbalancer--reference--group-012.md#canonical-b7dd54ed6acb33d13f1cfabc3dae103e20bdd1a1cc5f2090e5a9580a33a79bb4)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment](data-sources--http_loadbalancer--reference--group-012.md#canonical-e8de90a6e5a2a2ba22467f559beba6824369b9ffb5711601914a9eb224c9eb42)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order](data-sources--http_loadbalancer--reference--group-012.md#canonical-1015a2aa595b6139714c7d0ba3256ff283611f7ed98a11db72401b6bc4fcd24a)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](data-sources--http_loadbalancer--reference--group-012.md#canonical-f9ab4175b4c8cad72b602e5a16a2eecb4745259b75af1ad52ab4a60aca864f4a)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-82681a47ef6e5220ce3cc6ae9c20ed47c25c14dfcf5d0315b46849e876e0aa14)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-e7cfd8e1c681f8c5f3768126455ab5047f4939462436d2b7fe8e688654834e3d)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](data-sources--http_loadbalancer--reference--group-012.md#canonical-ccfa34382f6dd3c37dd105bead504b1946cda9b4a1bcb36cf124f8e45c52e41b)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-32f8a8bc76bcbfe518556b30275db9972432d8292080e8de3527b56a0e099b49"></a>
+<a id="canonical-3000230230333001-1322021011303221-0332010332002200-0020131333121232-2300221131213310-2312022011223231-0012211333300120-3112300021103310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f3fe0ddb7efbfa13b10ab80db812c4ec43b6fb855babd508546c29f21e4f58c"></a>
+<a id="canonical-0121123111110000-0330322210330331-2111233203100231-1301100001223331-1003311302222303-2011103312332100-1310312031020331-3230310210001313"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / aad1d07b2626 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.financial_services.money_transfer — money_transfer / 220101002121 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.financial_services](data-sources--http_loadbalancer--reference--group-011.md#canonical-1302200031100303-2002010011121010-1121011120131123-2313102202010222-1233121213022000-3230003011103203-0321300123220310-1133131311230332)
+- bot_defense.policy.protected_app_endpoints.flow_label.financial_services.money_transfer
 
-<a id="canonical-2032cb84d3de97b83caa2a9d264f19ea5d75750322cf41c6f0bb2d49eebdcc23"></a>
+<a id="canonical-3203021313333000-0230132032211320-2301002220203212-0023230131232201-3012233310003103-3230303322131332-1332231122320020-1000010200033032"></a>
 
 Type: `["object", {}]`. Computed.
 
-Configuration parameter for gift card make purchase with gift card.
+Configuration parameter for money transfer.
 
 Upstream description:
 
@@ -97,45 +57,103 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-a1afe349cf25afd57e98644ee2cada789d1d228810ff0da55af06587dd19b989"></a>
+<a id="canonical-2332130333102131-1123000220013211-1132211202202233-3021110313221332-2320333001300232-0312221322102201-3330003110001030-0132222120231023"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / aad1d07b2626 / 3
+## Direct properties — money_transfer / 220101002121 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-9730f00c6f5c951cdc7f9b07bf4715788e48466efbf0bde3e4e7dda542de8e44"></a>
+<a id="canonical-2102202120121103-1101313330230203-2133003010210212-3003033333323123-0212032130111131-3331020233323222-2020213131121310-3233301023202213"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / aad1d07b2626 / 4
+## Next pages — money_transfer / 220101002121 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.financial_services](data-sources--http_loadbalancer--reference--group-011.md#canonical-1302200031100303-2002010011121010-1121011120131123-2313102202010222-1233121213022000-3230003011103203-0321300123220310-1133131311230332)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-1aff868ef75bd330c847aaeb1104d429abde6f2b77859f5d74aa29d1aca2a68a"></a>
+<a id="canonical-1022111001302011-0121311202121023-1130000303031323-2312133133112133-1302012103321310-0320213322001312-2102333332111230-1223203113322111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b5e48683d3311e238be4e31cb0643b5be30b1f39381c337499704bea035ef261"></a>
+<a id="canonical-0122110313200212-1223311321201321-2311110130033203-1230101003012001-2033123223022132-0013000300203331-1332311310133321-2210230011211231"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / 9154d1d41b90 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.flight — flight / 120313203012 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- bot_defense.policy.protected_app_endpoints.flow_label.flight
 
-<a id="canonical-84f38b72bde853868e24b7b2e6a6844889af1dfe11f35cf5532d9ab2b9ad0b9e"></a>
+<a id="canonical-2203112320202032-0220211221133023-0113123013111223-3112312111003031-3312311102013102-2001032031013132-3332203133001333-2231322310321112"></a>
 
-Type: `["object", {}]`. Computed.
+Type: `"single"`. Computed.
 
-Configuration parameter for gift card validation.
+Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.
+
+Upstream description:
+
+Bot Defense Flow Label Flight Category.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-label_choice": "[\"checkin\"]"
+}
+```
+
+<a id="canonical-1221111230113203-2311111232002120-0312002022213323-0223332032313020-3210311012002331-0130210033200003-0131231223212202-3010010322031031"></a>
+
+## Direct properties — flight / 120313203012 / 3
+
+- [checkin](data-sources--http_loadbalancer--reference--group-012.md#canonical-1222323103223332-3021331231022133-1032121130213211-1321022200010321-1012211012030300-0333200111021023-0122210113021320-1013332203222111): complete subsection reference.
+
+<a id="canonical-2333120022332313-1320000332112333-1033130103002313-1032300232002303-3213100310230330-3203011130333112-2031201221003100-1210112033222320"></a>
+
+## Next pages — flight / 120313203012 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.flight.checkin](data-sources--http_loadbalancer--reference--group-012.md#canonical-1222323103223332-3021331231022133-1032121130213211-1321022200010321-1012211012030300-0333200111021023-0122210113021320-1013332203222111)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-1222323103223332-3021331231022133-1032121130213211-1321022200010321-1012211012030300-0333200111021023-0122210113021320-1013332203222111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2030321211022311-3210100031333111-1332111223202002-3020010222110112-1102221013201021-3023113003032310-0110221201313212-0320231100133320"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.flight.checkin — checkin / 001210213102 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.flight](data-sources--http_loadbalancer--reference--group-012.md#canonical-1022111001302011-0121311202121023-1130000303031323-2312133133112133-1302012103321310-0320213322001312-2102333332111230-1223203113322111)
+- bot_defense.policy.protected_app_endpoints.flow_label.flight.checkin
+
+<a id="canonical-2031200030121033-3113223332102320-2302303320002012-2323011222102230-0020200010003012-3030231032121101-0033331102213021-2221332113212011"></a>
+
+Type: `"single"`. Computed.
+
+Enable this option
 
 Upstream description:
 
@@ -154,49 +172,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-772ec2664236e87e4878454b5110c338b5fee8ea830c5f26132cc36dcf810813"></a>
+<a id="canonical-0111001302212033-2223021213210331-1210021321232221-2313330203101010-0101033321120011-3212001222333331-1303332210220302-1110000101302033"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / 9154d1d41b90 / 3
+## Direct properties — checkin / 001210213102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7d68b10b326c7ef8425c88f173d1f42a40417dec63cad0a9b18f6c804f3d4b73"></a>
+<a id="canonical-2023330322213103-2001101020001311-3010003311103320-2221223013301122-3232330132113133-3303121201022102-2303010110232231-2031033133323130"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_c / 9154d1d41b90 / 4
+## Next pages — checkin / 001210213102 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.flight](data-sources--http_loadbalancer--reference--group-012.md#canonical-1022111001302011-0121311202121023-1130000303031323-2312133133112133-1302012103321310-0320213322001312-2102333332111230-1223203113322111)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-3fd9b5f0d5b82a3d33fd8cd3887b4555d6882b2c1b28f0f3789ddea1fd5ab9ef"></a>
+<a id="canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-403d1d9ce6e34301e78848db9a3c5e918487ade4bec7319db4863a3df0e238e3"></a>
+<a id="canonical-0222333013330101-0000113321031322-2021212313233122-3032322133221303-2023203102030120-1202220200330032-0202130020120222-0110200121200301"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_a / 0db03b813a2c / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.profile_management — profile_management / 331132201113 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- bot_defense.policy.protected_app_endpoints.flow_label.profile_management
 
-<a id="canonical-24eb08e7960c39e8186f56387d5afecc80361b6291dd9afe0cf6ceda3680cbd2"></a>
+<a id="canonical-1213011310330120-2333111112010310-3333333331330220-1131012103022222-1212031030130212-2230130323110133-0102312002221310-3121102220202201"></a>
 
-Type: `["object", {}]`. Computed.
+Type: `"single"`. Computed.
 
-Configuration parameter for shop add to cart.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
+Bot Defense Flow Label Profile Management Category.
 
 Receipt-pinned upstream constraints:
 
@@ -207,273 +220,53 @@ Receipt-pinned upstream constraints:
     "minimum_config": false,
     "read": false,
     "update": false
-  }
+  },
+  "x-ves-oneof-field-label_choice": "[\"create\",\"update\",\"view\"]"
 }
 ```
 
-<a id="canonical-3c572d114cc45f5f300f069419f33f3b4288140d32071272753558f629be900a"></a>
+<a id="canonical-2322230231303121-3231030202322311-2130323123111111-2012002002020211-3301023002233320-1220230233033101-3002120003131322-1021330210330003"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_a / 0db03b813a2c / 3
+## Direct properties — profile_management / 331132201113 / 3
 
-This is an empty object or choice marker. It has no direct properties.
+- [create](data-sources--http_loadbalancer--reference--group-012.md#canonical-2000131103212102-2003232130320231-2213133211132332-2313201013020230-1323231000313102-1032030233301103-1132333223123131-0211100200033212): complete subsection reference.
 
-<a id="canonical-f78186321e5030a62724f65185be5f1ff8e34543bfd0335a73de349d792818f8"></a>
+- [update](data-sources--http_loadbalancer--reference--group-012.md#canonical-2230312010123022-3033333333010101-3001211030012113-2120121301023300-2013100231120033-2302111203211222-2303121030113303-2210303011330213): complete subsection reference.
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_a / 0db03b813a2c / 4
+- [view](data-sources--http_loadbalancer--reference--group-012.md#canonical-1112212002303123-3121202013103031-0303212203130311-1123333110222301-3313222022113011-0212210232322323-1102003132220320-3302121133232231): complete subsection reference.
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+<a id="canonical-2010132230302011-0313232131033202-2002300310111223-2121223010301331-2131031130003121-2011123001221122-0031023001202131-2101132021232020"></a>
 
-<a id="canonical-b9ee585a2866a770429a70bd77adc7c7c21053c8b594ef5ff5b72c8e3b0be266"></a>
+## Next pages — profile_management / 331132201113 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management.create](data-sources--http_loadbalancer--reference--group-012.md#canonical-2000131103212102-2003232130320231-2213133211132332-2313201013020230-1323231000313102-1032030233301103-1132333223123131-0211100200033212)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management.update](data-sources--http_loadbalancer--reference--group-012.md#canonical-2230312010123022-3033333333010101-3001211030012113-2120121301023300-2013100231120033-2302111203211222-2303121030113303-2210303011330213)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management.view](data-sources--http_loadbalancer--reference--group-012.md#canonical-1112212002303123-3121202013103031-0303212203130311-1123333110222301-3313222022113011-0212210232322323-1102003132220320-3302121133232231)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2000131103212102-2003232130320231-2213133211132332-2313201013020230-1323231000313102-1032030233301103-1132333223123131-0211100200033212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d3073cdf0cfbfc8e29a0ca9bb57704576ac31f94e75d87dd9cdcc0b898b43ef3"></a>
+<a id="canonical-0333310331201110-1230032233311232-2123321313132211-3213320133203002-2121122213122230-0033023121023331-1301301321000232-3021021112100230"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / f903d3235274 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout
-
-<a id="canonical-37bdaa4535ffd209cda1ea210963aab2354cffe1f750fb88b975bfdf32728a20"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop checkout.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-4039090afedbfe849e254d1dc4a543b0e8d0b92aae55d7cc61b34df16d488d61"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / f903d3235274 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-cbe4a43518a2c862dcc398c09505ad197f0b2411e84719e11c40334dd6c678c8"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / f903d3235274 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-803ce00694a75268b0031e3bdf5fa59711301bc9a6407a302a25c4039ee06eeb"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-fb93f77cb29a25ae7c913f3d6e04487ca11345482251b04ec0db0fd19903ed89"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / 27f60e01fcc1 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.profile_management.create — create / 302013000213 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- bot_defense.policy.protected_app_endpoints.flow_label.profile_management.create
 
-<a id="canonical-14a8c377fa77a23041399c2c69176755a41573eff47ce9c0bf6a095bf6ed0211"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop choose seat.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-c8f94c06fade0cfd3c38535213d24ee98248b39d70bc194758db4692d62b48f9"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / 27f60e01fcc1 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-4e2938555a2a0106c15e825114f4aa299543f69c04c4c89472d9cc176f281111"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_c / 27f60e01fcc1 / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-b7dd54ed6acb33d13f1cfabc3dae103e20bdd1a1cc5f2090e5a9580a33a79bb4"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-17fe6e46aaa6c8f2ffb99a18e86fed07fe5488f3ae0073dd855ac863f12593a5"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_e / f6260853d96e / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission
-
-<a id="canonical-cfe50f688b0ad2f869f4e04f8504c968ee2c2714e6a3e9ad53748ef7ae8685ab"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop enter drawing submission.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-a7114f6a6b64c5a399fc4eedb9fd44d0277c823482c516068ec4e000901eabf5"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_e / f6260853d96e / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-27a162db71c27f7f2cf5d701aed82c257945111d17ad1e7d6e54ce57eee1a818"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_e / f6260853d96e / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-e8de90a6e5a2a2ba22467f559beba6824369b9ffb5711601914a9eb224c9eb42"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1cdb89bb2c7ab615a25fd0423b85b9caa32a60e58b8fd0555e804abafed4d455"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_m / 1ffe3075d0fe / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment
-
-<a id="canonical-4787452186ed59902d6c19b00216c84e5b37b60eff37072800e179683c54da40"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for shop make payment.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-e397a00599b3d34d11e300e3dc6de568038ef865540f3c1cce12115f8e63e8fe"></a>
-
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_m / 1ffe3075d0fe / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-5e0bcaf8eabae445cf2135ea9551b5ebf144fd52b9867a46163528a24e08da34"></a>
-
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_m / 1ffe3075d0fe / 4
-
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-1015a2aa595b6139714c7d0ba3256ff283611f7ed98a11db72401b6bc4fcd24a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d108cba65e0317a37928554c66c6e3d04cd4cf5261d5ca7c0f2c8301d28ef359"></a>
-
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_o / bc7978a327c5 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order
-
-<a id="canonical-34353a54efdac3993faaabc94a2a863f1061057ab1b10b07592d2586b01646b3"></a>
+<a id="canonical-1320213012113330-1330331311032102-2101322233301212-0201310203002021-1213130202110032-0323201313222212-2331330303012301-0302301133001320"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -496,41 +289,993 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-326ec2969517f3f5c30b3f83eb5776226bc5927139c3040aa520d3dbbad69d34"></a>
+<a id="canonical-0121311223030130-0132113211103321-1222323022132210-1223013311201001-1311031302122212-1212010000130331-0023223321200120-0210120030332102"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_o / bc7978a327c5 / 3
+## Direct properties — create / 302013000213 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-e6d44e7f2aa7731afe83e963c17997b0c8fbe25c2b68fe40ed23fbf8dfc2644b"></a>
+<a id="canonical-1230232201102222-2023230011131200-0123233233331103-3000011232031033-0203233010010100-1032210223332113-3313323002101003-0122133021301323"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_o / bc7978a327c5 / 4
+## Next pages — create / 302013000213 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-f9ab4175b4c8cad72b602e5a16a2eecb4745259b75af1ad52ab4a60aca864f4a"></a>
+<a id="canonical-2230312010123022-3033333333010101-3001211030012113-2120121301023300-2013100231120033-2302111203211222-2303121030113303-2210303011330213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7304dba86d422a20fc7099504309ddde9391b74c138e73d2e6a8447886a2fc8c"></a>
+<a id="canonical-2323213003122201-3220103331131321-3301122030212031-0212320023012011-0113021323111002-2121030122313222-2311133012233202-0333021012210002"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / f3c9e706a939 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.profile_management.update — update / 331222303122 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- bot_defense.policy.protected_app_endpoints.flow_label.profile_management.update
+
+<a id="canonical-3221310121101322-2201312121201203-3311023210000120-0212000200100233-2130233322132130-3101200301131020-3120132220201220-1031203103303010"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1020221122300100-1033103011111233-0313202010323211-0310012001001002-0201033111231121-3303113203023032-1232310020033111-1102213003211023"></a>
+
+## Direct properties — update / 331222303122 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2132000230301331-3122210121020133-0320120111212310-0213111010323032-2132201222100211-3101201100103002-3011032010211320-3102302332132122"></a>
+
+## Next pages — update / 331222303122 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-1112212002303123-3121202013103031-0303212203130311-1123333110222301-3313222022113011-0212210232322323-1102003132220320-3302121133232231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2101112300112031-2212112110201310-0111221012003230-0110323303131110-1200022212112311-3333110300333023-0102013231200331-1300220331232323"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.profile_management.view — view / 310323033312 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- bot_defense.policy.protected_app_endpoints.flow_label.profile_management.view
+
+<a id="canonical-0212221002310222-1122010332322202-2223121112023333-0230230203201201-3231302312110221-0310230202313112-2032212322331011-0232013330321111"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1121022100310130-3223001201200102-3212001113130210-3111321211220210-1010133032312332-2030100202001210-3333302123002200-0031310312023130"></a>
+
+## Direct properties — view / 310323033312 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0222122122132303-3112101101203213-3002232201303320-0323202210220300-0333022221013201-0330012102020012-0120110031211310-3220031133012310"></a>
+
+## Next pages — view / 310323033312 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.profile_management](data-sources--http_loadbalancer--reference--group-012.md#canonical-3310221020203222-3010103000301002-3011303021002132-3212323101201031-0302022323211300-2333332003330033-2201133300123330-1113311213002131)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2320203133201110-0222310131201330-3200120133302123-0303323313021100-2230120300031200-1023013233331010-0212002302030121-0211202033111121"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.search — search / 112210002212 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- bot_defense.policy.protected_app_endpoints.flow_label.search
+
+<a id="canonical-0131230223323233-2120331112033321-0300022132123110-2100221331131302-1232010032321121-1113230213323031-3331020130203032-2120300312201100"></a>
+
+Type: `"single"`. Computed.
+
+Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category.
+
+Upstream description:
+
+Bot Defense Flow Label Search Category.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-label_choice": "[\"flight_search\",\"product_search\",\"reservation_search\",\"room_search\"]"
+}
+```
+
+<a id="canonical-0301323010102112-0112022102223233-2302021221313201-0002232330021010-3102000203030320-0121213210103220-2220310032130300-2221011030233303"></a>
+
+## Direct properties — search / 112210002212 / 3
+
+- [flight_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-1001010212331200-1011001332300322-1333322031131313-0322123032131203-2100312320113330-2030130021231130-0211013313013103-2220322231113202): complete subsection reference.
+
+- [product_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-1020223211113001-1012011020102213-0330012031013023-1032322030010321-0210212122021120-0001331331310002-0111101301310120-1000303323201220): complete subsection reference.
+
+- [reservation_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3100320102313221-0033033013223312-0132221323130002-3321220203212223-1021130310132201-0020013002223122-2112200212022301-3221210232311212): complete subsection reference.
+
+- [room_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3212313023200300-2320203003330023-2111013300012113-2210232132110220-1132202221330013-1201012021113001-1330213001212212-3123310010020102): complete subsection reference.
+
+<a id="canonical-2030200021231211-3100012300022111-2201310300210030-1022202233230200-3033221212200011-0323331132222231-2031031203313331-1312330312102130"></a>
+
+## Next pages — search / 112210002212 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.search.flight_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-1001010212331200-1011001332300322-1333322031131313-0322123032131203-2100312320113330-2030130021231130-0211013313013103-2220322231113202)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search.product_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-1020223211113001-1012011020102213-0330012031013023-1032322030010321-0210212122021120-0001331331310002-0111101301310120-1000303323201220)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search.reservation_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3100320102313221-0033033013223312-0132221323130002-3321220203212223-1021130310132201-0020013002223122-2112200212022301-3221210232311212)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search.room_search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3212313023200300-2320203003330023-2111013300012113-2210232132110220-1132202221330013-1201012021113001-1330213001212212-3123310010020102)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-1001010212331200-1011001332300322-1333322031131313-0322123032131203-2100312320113330-2030130021231130-0211013313013103-2220322231113202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0212101002203213-3222031002332132-2112211201122112-3303332010323023-0302130113113312-2321001101320200-3331300232320212-0131121300200300"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.search.flight_search — flight_search / 322113002211 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- bot_defense.policy.protected_app_endpoints.flow_label.search.flight_search
+
+<a id="canonical-3331231021021031-1130113213302022-2211202220320101-3213322012102132-0102311331002102-0131023313030100-2210132332202321-0331300231303000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for flight search.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3003112012200132-0202303033023100-1012313132313132-1023120203320020-0101312230103332-1010222121221031-1211133210323012-1321133310130333"></a>
+
+## Direct properties — flight_search / 322113002211 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2333131032312113-2332221323201230-0120030302013120-3130312313300000-0121012133230221-1120031033210020-3212011010333221-3023123321213112"></a>
+
+## Next pages — flight_search / 322113002211 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-1020223211113001-1012011020102213-0330012031013023-1032322030010321-0210212122021120-0001331331310002-0111101301310120-1000303323201220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2200023321010310-0033132310203122-0202110232113111-2122101300002301-2113322202013111-1123232230001202-1321322221212331-1021012320200013"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.search.product_search — product_search / 221011233000 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- bot_defense.policy.protected_app_endpoints.flow_label.search.product_search
+
+<a id="canonical-0021201223203222-2303002311100102-1313102220303230-1233300102332132-0210220012110012-0322200121130333-2223312102130030-1313333201110120"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for product search.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1132130223120312-2030021112011001-1030302211121312-1323022311121031-2321113311311302-3211211001312011-3132002202323303-3312301231111211"></a>
+
+## Direct properties — product_search / 221011233000 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2230031332033033-2102201220013013-3130322322213120-1112303233220130-3333131132313301-0303111310331110-1230033022220002-1030023230202032"></a>
+
+## Next pages — product_search / 221011233000 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3100320102313221-0033033013223312-0132221323130002-3321220203212223-1021130310132201-0020013002223122-2112200212022301-3221210232311212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3321322232110211-1033323113033021-3020021223003110-2230212203022302-2103232213332201-2322333300122002-0230032012311131-1131112332221111"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.search.reservation_search — reservation_search / 010012112230 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- bot_defense.policy.protected_app_endpoints.flow_label.search.reservation_search
+
+<a id="canonical-3230021020311320-2221001211323022-2211203123132301-3133131000013130-2233330212133221-1013013003002223-1231121000101102-2012231102000011"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for reservation search.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1232221023233232-0131203311333012-3013223223130312-2012201023301211-0333210133011321-2303211230320232-3010213200122212-1211103023121102"></a>
+
+## Direct properties — reservation_search / 010012112230 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3033201310100133-0313113031212212-2222023323133210-3002310200321203-3033323231132131-0232213200023031-0121210212003101-0232231303110311"></a>
+
+## Next pages — reservation_search / 010012112230 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3212313023200300-2320203003330023-2111013300012113-2210232132110220-1132202221330013-1201012021113001-1330213001212212-3123310010020102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0300120213130212-3222102332030312-2223021111231201-3012322000133311-2033300103300133-0012321302122232-2021311033231313-2113100032031212"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.search.room_search — room_search / 220201201321 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- bot_defense.policy.protected_app_endpoints.flow_label.search.room_search
+
+<a id="canonical-3101103121102330-3330201321112332-0101210010333302-1123101220311330-1310103113123102-2310023233311231-3132000113102111-0300333103312323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for room search.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3310221200102313-1233313020213200-3201221033133312-3330212330222321-0212120103121123-1330102003202102-2323030130310021-0103032133320321"></a>
+
+## Direct properties — room_search / 220201201321 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1232230110001121-2233022223300101-1303202210203000-0223313112203111-1211223321303001-0231033211133102-0331232020310302-0322122123131311"></a>
+
+## Next pages — room_search / 220201201321 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.search](data-sources--http_loadbalancer--reference--group-012.md#canonical-3112133023312102-1032003322110323-3131220313222003-3302313012123211-2102303331023320-2003223332333322-2123021130111101-2333021021212123)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3230103002000003-2023000321121223-2100323200331210-1231310101221013-0110010122330210-0210100112200333-1310302001103130-3130332332321332"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards — shopping_gift_cards / 033330012111 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards
+
+<a id="canonical-2133130313333322-2301110212202233-1111100101310201-1003130232210321-2320213322233221-2230310120313013-1333233202333130-0013022201231002"></a>
+
+Type: `"single"`. Computed.
+
+Bot Defense Flow Label Shopping &amp; Gift Cards Category.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-label_choice": "[\"gift_card_make_purchase_with_gift_card\",\"gift_card_validation\",\"shop_add_to_cart\",\"shop_checkout\",\"shop_choose_seat\",\"shop_enter_drawing_submission\",\"shop_make_payment\",\"shop_order\",\"shop_price_inquiry\",\"shop_promo_code_validation\",\"shop_purchase_gift_card\",\"shop_update_quantity\"]"
+}
+```
+
+<a id="canonical-0012112032010122-3001202123033112-2222111230121301-1013030300330102-0030111310332321-3233201332332031-2312300301120321-1212331201303000"></a>
+
+## Direct properties — shopping_gift_cards / 033330012111 / 3
+
+- [gift_card_make_purchase_with_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-0302332022202330-1312233023333211-0120111112230300-0213113123212113-0210030231200221-0200200032203132-0311021323111222-0032002121231021): complete subsection reference.
+
+- [gift_card_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-0122333320122032-3313112331030300-3020101322223223-0101001031100221-2223313212330223-1313201121331131-1310222202213101-2230220222122022): complete subsection reference.
+
+- [shop_add_to_cart](data-sources--http_loadbalancer--reference--group-012.md#canonical-0333312123113300-3111232002220331-0303333120303103-2020132310111111-3112202002230230-0123022033003303-1320213131322201-3331112223213233): complete subsection reference.
+
+- [shop_checkout](data-sources--http_loadbalancer--reference--group-012.md#canonical-2321323211201122-0220121222131300-1002212213002331-1313223130133013-3002010011033020-2311211032331133-3311231302302032-0323002332021212): complete subsection reference.
+
+- [shop_choose_seat](data-sources--http_loadbalancer--reference--group-012.md#canonical-2000033032000012-2110221311021220-2300000301320323-3133113322112113-0101030001233021-2212100013220300-0222021130100003-2132320012323223): complete subsection reference.
+
+- [shop_enter_drawing_submission](data-sources--http_loadbalancer--reference--group-012.md#canonical-2313313111103231-1222302303033101-0333013033222330-0331223201000332-0200233131012201-3030113302002100-3211222111200022-0303221321232310): complete subsection reference.
+
+- [shop_make_payment](data-sources--http_loadbalancer--reference--group-012.md#canonical-3220313221002212-3211220222022322-0202101213331111-2123322322122002-1003122123213333-2311130101120001-2101102221322302-0210302132231002): complete subsection reference.
+
+- [shop_order](data-sources--http_loadbalancer--reference--group-012.md#canonical-0100011122022222-1121112312010321-1301103013310023-2203021112333302-2003120101331332-3121202201013123-1302100001231223-3010333031021022): complete subsection reference.
+
+- [shop_price_inquiry](data-sources--http_loadbalancer--reference--group-012.md#canonical-3321222310011311-2310302030223113-0223120002321122-0112220232323023-1013101102112123-1311223301223111-0222231022120022-3022201210331022): complete subsection reference.
+
+- [shop_promo_code_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-2002122001221013-3233123211020200-3032033030122232-2130020032311013-3002113001103133-3033113100030111-2310122010213220-1312320022220110): complete subsection reference.
+
+- [shop_purchase_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-3213303331203201-3012200133203011-3303131220010212-1011112223110010-1333102103211012-0210031231022313-3332203212202012-1110200310320331): complete subsection reference.
+
+- [shop_update_quantity](data-sources--http_loadbalancer--reference--group-012.md#canonical-3030332203100320-0233123131033003-1331310100112332-2231110010230121-1012303122212310-2201233023031230-3301021033203210-1130110232100123): complete subsection reference.
+
+<a id="canonical-2231132330300200-0030312310122132-1013222303232111-2312223231123130-3202233012112320-2221132000300123-3313200211202300-0211000222333122"></a>
+
+## Next pages — shopping_gift_cards / 033330012111 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-0302332022202330-1312233023333211-0120111112230300-0213113123212113-0210030231200221-0200200032203132-0311021323111222-0032002121231021)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-0122333320122032-3313112331030300-3020101322223223-0101001031100221-2223313212330223-1313201121331131-1310222202213101-2230220222122022)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart](data-sources--http_loadbalancer--reference--group-012.md#canonical-0333312123113300-3111232002220331-0303333120303103-2020132310111111-3112202002230230-0123022033003303-1320213131322201-3331112223213233)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout](data-sources--http_loadbalancer--reference--group-012.md#canonical-2321323211201122-0220121222131300-1002212213002331-1313223130133013-3002010011033020-2311211032331133-3311231302302032-0323002332021212)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat](data-sources--http_loadbalancer--reference--group-012.md#canonical-2000033032000012-2110221311021220-2300000301320323-3133113322112113-0101030001233021-2212100013220300-0222021130100003-2132320012323223)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission](data-sources--http_loadbalancer--reference--group-012.md#canonical-2313313111103231-1222302303033101-0333013033222330-0331223201000332-0200233131012201-3030113302002100-3211222111200022-0303221321232310)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment](data-sources--http_loadbalancer--reference--group-012.md#canonical-3220313221002212-3211220222022322-0202101213331111-2123322322122002-1003122123213333-2311130101120001-2101102221322302-0210302132231002)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order](data-sources--http_loadbalancer--reference--group-012.md#canonical-0100011122022222-1121112312010321-1301103013310023-2203021112333302-2003120101331332-3121202201013123-1302100001231223-3010333031021022)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](data-sources--http_loadbalancer--reference--group-012.md#canonical-3321222310011311-2310302030223113-0223120002321122-0112220232323023-1013101102112123-1311223301223111-0222231022120022-3022201210331022)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](data-sources--http_loadbalancer--reference--group-012.md#canonical-2002122001221013-3233123211020200-3032033030122232-2130020032311013-3002113001103133-3033113100030111-2310122010213220-1312320022220110)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](data-sources--http_loadbalancer--reference--group-012.md#canonical-3213303331203201-3012200133203011-3303131220010212-1011112223110010-1333102103211012-0210031231022313-3332203212202012-1110200310320331)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](data-sources--http_loadbalancer--reference--group-012.md#canonical-3030332203100320-0233123131033003-1331310100112332-2231110010230121-1012303122212310-2201233023031230-3301021033203210-1130110232100123)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-0302332022202330-1312233023333211-0120111112230300-0213113123212113-0210030231200221-0200200032203132-0311021323111222-0032002121231021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0233033332003131-2313323323332201-0323010022232000-3123200102301032-3010032312332320-1111232223311100-2011101230022133-0201321033112030"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card — gift_card_make_purchase_with_gift_card / 132302120212 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card
+
+<a id="canonical-0200030230232010-3103313221132320-0330222202222131-0212103301213222-1131131113110003-0202303310013012-3300232302311021-3232233130300203"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for gift card make purchase with gift card.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2201223332031021-3033021122333111-1332212012101032-3202302231221320-2131013102022020-0100333300312211-1122330012112013-3131012123212021"></a>
+
+## Direct properties — gift_card_make_purchase_with_gift_card / 132302120212 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2113030033000030-1233113021110130-3130133321230013-2333101301111320-2032102010121232-3323330023313203-3210321331312211-1002313220321010"></a>
+
+## Next pages — gift_card_make_purchase_with_gift_card / 132302120212 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-0122333320122032-3313112331030300-3020101322223223-0101001031100221-2223313212330223-1313201121331131-1310222202213101-2230220222122022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2311321020122003-3103030101320203-2023321032030130-2300121003231123-3203002301330321-0320013003031310-2121130010233222-0003113233021201"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation — gift_card_validation / 311001232100 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.gift_card_validation
+
+<a id="canonical-2010330320231302-2331322011032012-2032021023132302-3212221220101020-2021223301313332-0101330311303311-1103023121222302-2321223100232132"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for gift card validation.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1313023230021212-1002031232201332-1020132010111023-1101010030030320-2311333232203222-2003003011330212-0103023030031231-3033200100200103"></a>
+
+## Direct properties — gift_card_validation / 311001232100 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1331122023010023-0302123013323320-1002113020203301-1303310133100222-1000100113313230-1203302231002221-2301203312302000-1033033110231303"></a>
+
+## Next pages — gift_card_validation / 311001232100 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-0333312123113300-3111232002220331-0303333120303103-2020132310111111-3112202002230230-0123022033003303-1320213131322201-3331112223213233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1000033101312130-3212320310030001-3213202010203123-2122033011322101-2010201322313210-2332301303012131-2310201203220331-3300320203203203"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart — shop_add_to_cart / 200103220230 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart
+
+<a id="canonical-0210322300203213-2112003003213220-0120123311120320-1331112233323030-2000031201231202-2101313121223332-0030331230323122-0312200030233102"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop add to cart.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0330111302310101-1030301011331133-0300003300122110-0121330303330323-1002202001100031-0302001301021302-1311031111203312-0221233221000022"></a>
+
+## Direct properties — shop_add_to_cart / 200103220230 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3313200120120302-0132110003002212-0213021033121101-2011233211330133-3320320310111003-2333310003031122-1303313203102131-1321022001203320"></a>
+
+## Next pages — shop_add_to_cart / 200103220230 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2321323211201122-0220121222131300-1002212213002331-1313223130133013-3002010011033020-2311211032331133-3311231302302032-0323002332021212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3103001303303133-0030332333302032-0221220030222123-2311131300101113-1222300301332110-3213113120133131-2130313030002320-2120231003323303"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout — shop_checkout / 020311021310 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_checkout
+
+<a id="canonical-0313233122221011-0311333331020021-3031220132220201-0021120322222302-0311103033333201-3313110033232020-2321131123333133-0302130220220200"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop checkout.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1000032100210022-3332312333322010-2132021110310131-3010221110032300-3220310023210222-2232111131133030-1201230310313301-1231102020311201"></a>
+
+## Direct properties — shop_checkout / 020311021310 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3023321022100311-0120220230201202-3130300321203000-2111001122310121-1333002302100101-3220101301213201-0130100003031031-3112301213203020"></a>
+
+## Next pages — shop_checkout / 020311021310 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2000033032000012-2110221311021220-2300000301320323-3133113322112113-0101030001233021-2212100013220300-0222021130100003-2132320012323223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3323210333131330-2302212202112232-1330210103330331-1232001010201330-2201010310111020-0202110123001032-3000312300333101-2121000332312021"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat — shop_choose_seat / 000133303001 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_choose_seat
+
+<a id="canonical-0110222030031313-3322131322020300-1001032121300230-1221011312131111-2210011113033233-3310133032213000-2333122200211123-3312323100020101"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop choose seat.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3020332110300012-3322313200303331-0330032011031102-0103310210323221-2002102023032131-1300233001211013-1120312310122102-3112022310203321"></a>
+
+## Direct properties — shop_choose_seat / 000133303001 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1032022103201111-1122022200010012-3001113220021101-0110331022220221-2111100333122130-0010301030202110-1302312130300113-1233022001010101"></a>
+
+## Next pages — shop_choose_seat / 000133303001 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2313313111103231-1222302303033101-0333013033222330-0331223201000332-0200233131012201-3030113302002100-3211222111200022-0303221321232310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0113333212321012-2222221230203302-3333232121220120-3220123332310013-3332111020203303-2232000013033131-2011112230201203-3301021121032211"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission — shop_enter_drawing_submission / 110331211232 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission
+
+<a id="canonical-3033321100331220-2023002231023320-1221331032001033-2011001030211220-3232023002130110-3212220332212231-1103131020323313-2232201220112223"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop enter drawing submission.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2213010110331222-1223121030112203-2121333010323231-2321333110103100-0213133020020310-2002301101120012-2032301032000000-2100013222233311"></a>
+
+## Direct properties — shop_enter_drawing_submission / 110331211232 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0213220112023123-1301300213331333-0230331131130001-2232312002300211-1321101101010131-0113223101321331-1232111030321113-3232320122200120"></a>
+
+## Next pages — shop_enter_drawing_submission / 110331211232 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3220313221002212-3211220222022322-0202101213331111-2123322322122002-1003122123213333-2311130101120001-2101102221322302-0210302132231002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0130312320212323-0230132223120111-2202113331001002-0323201123213022-2203022212003211-2023203331001111-1132200010222322-3332311031101111"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment — shop_make_payment / 131131003332 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_make_payment
+
+<a id="canonical-1013201310110201-2012323111212100-0231123001212300-0002011230201032-1123031323120032-3333031300130220-0000320113211220-0330111031221000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop make payment.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3203211322000011-2121230331031031-0101320300003203-3130123132111220-0003203233201211-1110003303300130-3032010201011133-2032120332203332"></a>
+
+## Direct properties — shop_make_payment / 131131003332 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1132002330223320-3222232232101011-3033020103113222-2111110123113223-3301101033311102-2321201213221012-0112031102202202-1032002031220310"></a>
+
+## Next pages — shop_make_payment / 131131003332 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-0100011122022222-1121112312010321-1301103013310023-2203021112333302-2003120101331332-3121202201013123-1302100001231223-3010333031021022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3101002030232212-1132000301132203-1321022011111030-1212301232033100-1030311030331102-1201311130221330-0033023020030001-3102203233031121"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order — shop_order / 220302133011 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_order
+
+<a id="canonical-0310031103221110-3233312230032121-0333222222233021-1022022220120333-0100120100111322-2301230100230013-1121023102112012-2300011210122303"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0302123230022112-2111011333033311-3003002303332003-3223111313120202-1223301121021301-0321300300100022-2211020031033123-2322311221310310"></a>
+
+## Direct properties — shop_order / 220302133011 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3212311010321333-0222221313030122-3332200332211203-3001132121132300-3020332332021130-0223122033321000-3231020333233320-3133300212101023"></a>
+
+## Next pages — shop_order / 220302133011 / 4
+
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3321222310011311-2310302030223113-0223120002321122-0112220232323023-1013101102112123-1311223301223111-0222231022120022-3022201210331022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1303001031232220-1231100202220200-3330130021211100-1003002131313132-2103210123131030-0103203213033102-3212222010101320-2012220233302030"></a>
+
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry — shop_price_inquiry / 001222210321 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
 - bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry
 
-<a id="canonical-d749eae5278404611e1dc40535a1183478216eaca634effb703c15b26035a5ac"></a>
+<a id="canonical-3113102132223211-0213201000101201-0132013130100011-0311220101200310-1320020112322230-2212031032333323-1300033001112302-1200031122112230"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -553,41 +1298,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-da2fe254a3e22f8b0a7c040247d56cf424471ed7a0242c9da6e7f8d9cf583872"></a>
+<a id="canonical-3122023332021110-2203320202332023-0022133000100002-1013311112303310-0210101301323113-2200021002302131-2212321333203121-3033112003201302"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / f3c9e706a939 / 3
+## Direct properties — shop_price_inquiry / 001222210321 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-82802708689b051e04d2848ca91f3457529d85dceed3a68f0174070d04b9ec40"></a>
+<a id="canonical-2002200002130020-1220212300110132-0010310220102030-2221013303101113-1102213120113130-3232310322122033-0001131000130031-0010232132301000"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / f3c9e706a939 / 4
+## Next pages — shop_price_inquiry / 001222210321 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-82681a47ef6e5220ce3cc6ae9c20ed47c25c14dfcf5d0315b46849e876e0aa14"></a>
+<a id="canonical-2002122001221013-3233123211020200-3032033030122232-2130020032311013-3002113001103133-3033113100030111-2310122010213220-1312320022220110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a674d5a7348bb5d9f3699d6ccd1841d8a442759c0dcd44b361a9029999061b65"></a>
+<a id="canonical-2212131031112213-0310202323113121-3303122121311230-3031012010013120-2210100213112130-0031303110102303-1201222100022121-2121001201231211"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / 65020ed1f823 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation — shop_promo_code_validation / 310133200203 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
 - bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation
 
-<a id="canonical-a8d84c8fe2f691f4e2dc2652a312c0c109fe86d5e86315d21b590a3fb5093a89"></a>
+<a id="canonical-2220312010302033-3202331221013310-3202313002121102-2203010230003001-0021333220123111-3220120301113102-0123112100220333-2311002103222021"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -610,41 +1355,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ce497711afd75867e5f47966f2ab07f20fd1efd5894a32420883f1523393c09"></a>
+<a id="canonical-0230321021131301-0122333113112012-1332113310132112-1233022223001333-0200333101323331-1120211022030210-0200202003330111-0203032103300021"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / 65020ed1f823 / 3
+## Direct properties — shop_promo_code_validation / 310133200203 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-4db0bf191d6a354e7a2df2072ff34db45ab80b0f5909c32bb0086063bf553ea2"></a>
+<a id="canonical-1031230023330121-0131122203111032-1322023133020013-0233330310312310-1122232000230033-1121002130030223-2300002012001203-2333111103322202"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / 65020ed1f823 / 4
+## Next pages — shop_promo_code_validation / 310133200203 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-e7cfd8e1c681f8c5f3768126455ab5047f4939462436d2b7fe8e688654834e3d"></a>
+<a id="canonical-3213303331203201-3012200133203011-3303131220010212-1011112223110010-1333102103211012-0210031231022313-3332203212202012-1110200310320331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-cd8eafd0d1975c772d7a0937ffa0065230c0a3e07b4ca009b3b912dff16fd6c0"></a>
+<a id="canonical-3031203222333100-3101211311301313-0231132200210313-3333220000121102-0300300022033200-1323103022000021-2303232101023133-3301123331123000"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / a48981f1cc08 / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card — shop_purchase_gift_card / 330130300020 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
 - bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card
 
-<a id="canonical-309be3ab1e0ff4677bd5876d2430be7285a6009e3bef17ecafd94634c030ec30"></a>
+<a id="canonical-0300212332032223-0132003333101213-1323311120131231-0210030023321302-2011221200002132-0323323301133230-2233312110120310-3000030032300300"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -667,41 +1412,41 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6bca4ad2ceaae07246ac86ddf80c69ca998d4763df4e7d80f8023c1f59816503"></a>
+<a id="canonical-1223302210223102-3032222232001302-1012223020123131-3320003012213022-2121203110131203-3133103213312000-3320000203300133-1121200112110003"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / a48981f1cc08 / 3
+## Direct properties — shop_purchase_gift_card / 330130300020 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-c25c5cde6275048ba6b4bf7ab31a3b5d5c9670dacec85134f90e928f4231b9c8"></a>
+<a id="canonical-3002113011303132-1202131100102023-2212231023331322-2303012203231131-1130211213003122-3032302011010310-3321003221022033-1002030123213020"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_p / a48981f1cc08 / 4
+## Next pages — shop_purchase_gift_card / 330130300020 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-ccfa34382f6dd3c37dd105bead504b1946cda9b4a1bcb36cf124f8e45c52e41b"></a>
+<a id="canonical-3030332203100320-0233123131033003-1331310100112332-2231110010230121-1012303122212310-2201233023031230-3301021033203210-1130110232100123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-685e5950b17deeb0472fb2da9470cb02154a9804350ffee629445f245dc8fe87"></a>
+<a id="canonical-1220113211211100-2301133132322300-1013023323023122-2110130030230002-0111102221200010-0311003333323212-0221101011330210-1131302033322013"></a>
 
-## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_update_quantity — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_u / b177b1d8855e / 2
+## bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_update_quantity — shop_update_quantity / 312020111132 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-d049e92c51cfc14dc82de70abe42704f404b9f738bd719ddcf1e02ee4c686896)
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.flow_label](data-sources--http_loadbalancer--reference--group-011.md#canonical-3100102132210230-1101303330011031-3020023132130022-2332100213001033-1000102321331303-2023311301213131-3033013200023232-1030122012202112)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
 - bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_update_quantity
 
-<a id="canonical-6997da091bb0ddae39f54b6665c87d01e0728eac3846c1e28226f05cb3e4d97c"></a>
+<a id="canonical-1221211331220021-0123230031312232-0321331110231212-1211302013310001-3200130220322230-0320101230013202-2002021233001130-2303321031211330"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -724,39 +1469,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6f0bf55b22d91ccecd3fbb2e28002a97f6d21c6c6f0963828606f05fd548f30d"></a>
+<a id="canonical-1233002333111123-0202312101303032-3031033323230232-0220000002222113-3312310201301230-1233002112032002-2012001233001133-3111102033030031"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_u / b177b1d8855e / 3
+## Direct properties — shop_update_quantity / 312020111132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-848e10e22477a33b06caadd429886f0eef7004c5e5f13c44c08729bdb0a75e38"></a>
+<a id="canonical-2010203201003202-0210131322030323-0012302222313110-0221202012330032-3233130000103011-3211330103301010-3000201302212331-2300221311320320"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards.shop_u / b177b1d8855e / 4
+## Next pages — shop_update_quantity / 312020111132 / 4
 
-- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-011.md#canonical-bca13a6c757bd474155422fd9d31efa518e780212f6ac3fb532fa794fb8dc2ab)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.flow_label.shopping_gift_cards](data-sources--http_loadbalancer--reference--group-012.md#canonical-2330220103221230-1311132331101310-0111111002023331-2131030132332211-0120321320000201-0233122230033323-1103023322132110-3323203130022223)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20"></a>
+<a id="canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e9bd5956388d48672d101537eb867dec30cf13484be5b3e0f23c5dfa498db486"></a>
+<a id="canonical-3221233111211112-0320203110201213-0231010001110313-3223201213313230-0300303301031020-1023321123033200-3302033011313322-1021203123102012"></a>
 
-## bot_defense.policy.protected_app_endpoints.headers — bot_defense.policy.protected_app_endpoints.headers / c5b2a6d58bfd / 2
+## bot_defense.policy.protected_app_endpoints.headers — headers / 311120233331 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.headers
 
-<a id="canonical-320fc7ad880ceeb225361f43d9ca1dbd98b8f6ae94edbcfccbeb953ae8bd9d52"></a>
+<a id="canonical-0302003330132231-2020003032322302-0211031201331003-3121302201312331-2120232033122232-2110323123303330-3023322321110322-3220233121311102"></a>
 
 Type: `"list"`. Computed.
 
@@ -804,19 +1549,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5e24fa0da56eaef1d250f41a612d7f088918032cbbb9fdeb5b66c91c29019cb4"></a>
+<a id="canonical-1132021033220031-2211123222323301-3102110033100122-1201023113330020-2021012000030230-2323232133313223-1123121230210130-0221000121302310"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.headers / c5b2a6d58bfd / 3
+## Direct properties — headers / 311120233331 / 3
 
-- [check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-1a2ee3e7a3f562d62a64b644994a7ae8f87c2939bb652f03d0d6c24889266ea1): complete subsection reference.
+- [check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-0122023232033213-2203331112023112-0222121023121010-2121102213223220-3320133002210321-2323121102330003-3100311230021020-2021021212322201): complete subsection reference.
 
-- [check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-a19efe60fa69c76f3d19b38d7d77300526b9840525a0955b3e9d8e9888017e5f): complete subsection reference.
+- [check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2201213233321200-3322122130131233-0331012123032031-1331131303000011-0212232120100011-0211220021111123-0332213120322120-2020000113321133): complete subsection reference.
 
-<a id="canonical-aa7b0e8e1e245eb05c080487de0056e53f5170e935cc3ec85e38748298d236b3"></a>
+<a id="canonical-2222132300322032-0132021011322300-1130002000102013-3132000011123211-0333110113003221-0311303003323020-1132032013102002-2120310203122303"></a>
 
-<a id="canonical-b4e951be0b4c982665dd9e359677eb1f3a7ab4cef53f240cab37199e8a0d56bb"></a>
+<a id="canonical-2310322111012332-0023103021200212-1211313121320311-2112131332230133-0322132223103032-3311033302100030-2223031301212132-2022003111122323"></a>
 
-## invert_matcher property — bot_defense.policy.protected_app_endpoints.headers / c5b2a6d58bfd / 4
+## invert_matcher property — headers / 311120233331 / 4
 
 Type: `"bool"`. Computed.
 
@@ -839,13 +1584,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [item](data-sources--http_loadbalancer--reference--group-012.md#canonical-2a30946ed451df13d89a913f0e6baa057f2304ce5b912f4e6ed99ebeaa0f1325): complete subsection reference.
+- [item](data-sources--http_loadbalancer--reference--group-012.md#canonical-0222030021101232-3110110131330103-3120212221010333-0032122322220011-1333020300103032-1123210102331032-1232312121322332-2222003301030211): complete subsection reference.
 
-<a id="canonical-f03e5b433e772b55f396560169a5486de5db1c3ee45e2a724fa37c36fda268c5"></a>
+<a id="canonical-3300033211231003-0332131302231111-3303211211120001-1221221110201231-3211312301300332-3210113202221302-1033220313300312-3331220212203011"></a>
 
-<a id="canonical-96f7e1bdf61d1c22bcb24d78e2dd0967aa180a2bdd1f89e2779163da3b74a4a5"></a>
+<a id="canonical-2112331332012331-3312013101300202-2330230210311320-3202313100211213-2222012000220223-3131013320213202-1313210112033122-0323131022102211"></a>
 
-## name property — bot_defense.policy.protected_app_endpoints.headers / c5b2a6d58bfd / 5
+## name property — headers / 311120233331 / 5
 
 Type: `"string"`. Computed.
 
@@ -907,37 +1652,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4c9e3e956872b54a075f8572c4a071ee0f2a3f3fd4cd81a64b33de6b06ed843f"></a>
+<a id="canonical-1030213203322111-1220130223111022-0013113320111302-3010220013013232-0033022203330333-3110303120012212-1023030331321223-0012323120100333"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.headers / c5b2a6d58bfd / 6
+## Next pages — headers / 311120233331 / 6
 
-- [bot_defense.policy.protected_app_endpoints.headers.check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-1a2ee3e7a3f562d62a64b644994a7ae8f87c2939bb652f03d0d6c24889266ea1)
-- [bot_defense.policy.protected_app_endpoints.headers.check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-a19efe60fa69c76f3d19b38d7d77300526b9840525a0955b3e9d8e9888017e5f)
-- [bot_defense.policy.protected_app_endpoints.headers.item](data-sources--http_loadbalancer--reference--group-012.md#canonical-2a30946ed451df13d89a913f0e6baa057f2304ce5b912f4e6ed99ebeaa0f1325)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.headers.check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-0122023232033213-2203331112023112-0222121023121010-2121102213223220-3320133002210321-2323121102330003-3100311230021020-2021021212322201)
+- [bot_defense.policy.protected_app_endpoints.headers.check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2201213233321200-3322122130131233-0331012123032031-1331131303000011-0212232120100011-0211220021111123-0332213120322120-2020000113321133)
+- [bot_defense.policy.protected_app_endpoints.headers.item](data-sources--http_loadbalancer--reference--group-012.md#canonical-0222030021101232-3110110131330103-3120212221010333-0032122322220011-1333020300103032-1123210102331032-1232312121322332-2222003301030211)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-1a2ee3e7a3f562d62a64b644994a7ae8f87c2939bb652f03d0d6c24889266ea1"></a>
+<a id="canonical-0122023232033213-2203331112023112-0222121023121010-2121102213223220-3320133002210321-2323121102330003-3100311230021020-2021021212322201"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e00850f406d39af24edc6aa73aef8c81f04b4749a590c22e44ac6ccdb7403272"></a>
+<a id="canonical-3200002011003310-0012310321223302-1032313012222213-0322323320302001-3300102310131021-2211210030020232-1010223012303031-2313100003021302"></a>
 
-## bot_defense.policy.protected_app_endpoints.headers.check_not_present — bot_defense.policy.protected_app_endpoints.headers.check_not_present / 9e78a8868a98 / 2
+## bot_defense.policy.protected_app_endpoints.headers.check_not_present — check_not_present / 201220222120 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
 - bot_defense.policy.protected_app_endpoints.headers.check_not_present
 
-<a id="canonical-b3e159c17eebc1832fd669dd626c941d67c76362241738f7fb90bbfd1007fd3a"></a>
+<a id="canonical-2303320111213001-1332322330012003-0233311212213131-1202123021100131-1213301312031202-0210011303203313-3323210023233331-0100001333310322"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -960,40 +1705,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-775b49c5c79306fe42e527d7fa700e0c448673510fa3c9783759e07aa51cddc7"></a>
+<a id="canonical-1313112310213011-3013210300123332-1002321102133113-3322130000320030-1010201213031101-0033220330211320-0313112132001322-2211013031313013"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.headers.check_not_present / 9e78a8868a98 / 3
+## Direct properties — check_not_present / 201220222120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b106b55b1f07044c86f0040353d6b56d412bad8c97b8ac5e84d5cfd6fe23fc49"></a>
+<a id="canonical-2301001223111123-0133001300101030-2012330000100003-1103311223111231-1001022322312030-2113232022301132-2010311130333112-3332020333301021"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.headers.check_not_present / 9e78a8868a98 / 4
+## Next pages — check_not_present / 201220222120 / 4
 
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-a19efe60fa69c76f3d19b38d7d77300526b9840525a0955b3e9d8e9888017e5f"></a>
+<a id="canonical-2201213233321200-3322122130131233-0331012123032031-1331131303000011-0212232120100011-0211220021111123-0332213120322120-2020000113321133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b688bfb91ce3fd6e0f15959ef8f1f2c774a697014b1a077d93b174e81d2bb181"></a>
+<a id="canonical-2312202023332321-0130320333311232-0033011121112132-3320330133023013-1310221221130001-1023012200131331-2103230113103220-0131022323012001"></a>
 
-## bot_defense.policy.protected_app_endpoints.headers.check_present — bot_defense.policy.protected_app_endpoints.headers.check_present / b3056c862440 / 2
+## bot_defense.policy.protected_app_endpoints.headers.check_present — check_present / 201202101000 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
 - bot_defense.policy.protected_app_endpoints.headers.check_present
 
-<a id="canonical-b21107910e6deb6a27e05feaaab18d2c01bf58fac640d74730a9675b92c8237c"></a>
+<a id="canonical-2302010100132101-0032123132231222-0213320011333222-2222230120310230-0001233311203322-3012100031131013-0300222112131123-2102302002031330"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1016,40 +1761,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c8c3532576b9749d286b933e0c1fb79f29a892160bb80e8261829f295229800b"></a>
+<a id="canonical-3020300311030211-1312232113102131-0220122321030332-0030013323132133-0221222021020112-0023232000322002-1201200221330221-1102022120000023"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.headers.check_present / b3056c862440 / 3
+## Direct properties — check_present / 201202101000 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-21ff17ae05da91f149100f668b6ee8678065139eaaa4ccf5ad14242cbe8b712e"></a>
+<a id="canonical-0201333301132232-0011312221013301-1021010000331212-2023123232201213-2000121101032132-2222221030303311-2231011002100230-2332202313010232"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.headers.check_present / b3056c862440 / 4
+## Next pages — check_present / 201202101000 / 4
 
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-2a30946ed451df13d89a913f0e6baa057f2304ce5b912f4e6ed99ebeaa0f1325"></a>
+<a id="canonical-0222030021101232-3110110131330103-3120212221010333-0032122322220011-1333020300103032-1123210102331032-1232312121322332-2222003301030211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-86e4f19bf8c7f58852fa04281696d95d806ee7bddb4680bc6cb582b636473fdd"></a>
+<a id="canonical-2012321033012123-3320301333112020-1102332200100220-0112211231211131-2000123232132331-3123101220002330-1230231120022312-0312101303333131"></a>
 
-## bot_defense.policy.protected_app_endpoints.headers.item — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 2
+## bot_defense.policy.protected_app_endpoints.headers.item — item / 300100132102 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
 - bot_defense.policy.protected_app_endpoints.headers.item
 
-<a id="canonical-fca765ebc6c82b42d89122f5650e3ed96fcf4e83c958fffe13f8b86c3007bb70"></a>
+<a id="canonical-3330221312113223-3012302002231002-3120210102023311-1211003203323121-1233303310322003-3021112033333332-0103332023201230-0300001323231300"></a>
 
 Type: `"single"`. Computed.
 
@@ -1076,15 +1821,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-01d1126b360f4f88829ba5bce69f80b323fae2b47b53e03d29764d9a11d1dabc"></a>
+<a id="canonical-0001310101021223-0312003310332020-2002212322112330-3212213320002303-0203332232022310-1323110332000331-0221131210312122-0101310131222330"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 3
+## Direct properties — item / 300100132102 / 3
 
-<a id="canonical-eee36fed6ac09c3a4cd5e5cf494d454fd9c33c2a3e593f4fd09ca5a349a374a5"></a>
+<a id="canonical-3232320312333231-1222300021300322-1030311132113033-1021103110111033-3121300303300222-0332112103331033-3100213022112203-1021220313102211"></a>
 
-<a id="canonical-eeead4424b4a6c546f957d55ac74ca3995282e45e88aa40a55a774e33b43366b"></a>
+<a id="canonical-3232322231101002-1023102212301110-1233211113311111-2230131030220321-2111022002321011-3220202222100022-1111221313103203-0323100303121223"></a>
 
-## exact_values property — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 4
+## exact_values property — item / 300100132102 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -1132,11 +1877,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-266d9b0e17be0eab9e10fed8bc28ce3337811f926a48f63b4d5a4e9011901d39"></a>
+<a id="canonical-0212123121230032-0113233200322223-2132010033323120-2330022030320303-0313200101332102-1222102033120323-1031112210322100-0101210001310321"></a>
 
-<a id="canonical-e52e9dd3c26f43315103e0ac6995e127577ee719d8802b94928796ad30042664"></a>
+<a id="canonical-3211023221313103-3002123310030301-1101000332002230-1221211132010213-1113133232130121-3120200002232110-2102201321122231-0300001002121210"></a>
 
-## regex_values property — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 5
+## regex_values property — item / 300100132102 / 5
 
 Type: `["list", "string"]`. Computed.
 
@@ -1186,11 +1931,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9a59fb7c0d8cc80f4274ae69221f8ccdce9eda9112b416062239e072b1c3f857"></a>
+<a id="canonical-2122112133231330-0031203030200033-1002131022321221-0202013320303031-3032213231222101-0102231001120012-0202032132001302-2301300333201113"></a>
 
-<a id="canonical-af416a07f3e3005190948ca892b00e489423ed0bcd8ebe2b80ba6843964ef832"></a>
+<a id="canonical-2233100112220013-3303320300001101-2100211020302220-2102230000321020-2110020332310023-3031203223320223-2000232212201003-2112103233200302"></a>
 
-## transformers property — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 6
+## transformers property — item / 300100132102 / 6
 
 Type: `["list", "string"]`. Computed.
 
@@ -1238,33 +1983,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-00ade0f4dc1ea1c33830a974564df4d5ebdbc75aaec52b8a2b202eee1c21aca1"></a>
+<a id="canonical-0000223132003310-3130013222013003-0320030022211310-1112103133103111-3223312330131122-2232301102232022-0223020002323232-0130020122302201"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.headers.item / 4d5f47c10792 / 7
+## Next pages — item / 300100132102 / 7
 
-- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-456066ae1ec37d2ff34d06c59f71438b3acfc00de7c67030d34d2a38469c7b20)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-1011120012122232-0132300313310233-3303103100123011-2133130110032023-0322303330000031-3213301213000300-3103103102220320-1012213013230200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-2d67645af0f8346adbd8fee782a2fa4ccfab5e057f484738345f25f6f1473bff"></a>
+<a id="canonical-0231121312101122-3300332003101222-3123312033323213-2002220233221030-3033222311320011-1333102010130320-0310113302113312-3301101303233333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-df8215819480682668808f4e16fed7431ca8d9c6e1c76212c8f0be838a75d9dc"></a>
+<a id="canonical-3133200201112001-2110200012200212-1220200020331032-0112333231131003-0130222031213012-3201301312020102-3020330023322003-2022131131213130"></a>
 
-## bot_defense.policy.protected_app_endpoints.metadata — bot_defense.policy.protected_app_endpoints.metadata / 88016a5191b6 / 2
+## bot_defense.policy.protected_app_endpoints.metadata — metadata / 110121012312 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.metadata
 
-<a id="canonical-3c98f026a4742f0af899f6ea732ada77fd0e832848204df0e2711021f1bf8f44"></a>
+<a id="canonical-0330212033000212-2210131002330022-3320212133123222-1303022231221313-3331003220030220-1020020010313300-3202130101000201-3301233320331010"></a>
 
 Type: `"single"`. Computed.
 
@@ -1293,25 +2038,25 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-128c5c48018a74aacc388a328f16d04e55b988a36c82dba552eaad941673f4b0"></a>
+<a id="canonical-0102203011301020-0001202213102222-3030032020220302-2033011231001032-1111232120202203-1230200231232211-1102322222312110-0112130333102300"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.metadata / 88016a5191b6 / 3
+## Direct properties — metadata / 110121012312 / 3
 
-<a id="canonical-f06ae29c143b0923f2f5327d495425f63abdd81114777d25f23176ab58f8084c"></a>
+<a id="canonical-3300122232022130-0110032300210203-3302331103021331-1021111002113312-0322233131200101-0110131313310211-3302030113122223-1120332000201030"></a>
 
-<a id="canonical-73e0b47576916f52ef85c4fc4874fc5a93870b41e89fe8696896d59598afcfd8"></a>
+<a id="canonical-1303320023101311-1312210112331102-3233201130103330-1020131033301122-2103201300231001-3220213332201221-1220211231112111-2120223330333120"></a>
 
-## description_spec property — bot_defense.policy.protected_app_endpoints.metadata / 88016a5191b6 / 4
+## description_spec property — metadata / 110121012312 / 4
 
 Type: `"string"`. Computed.
 
 Description. Human readable description.
 
-<a id="canonical-cfd84de559c2286b0c53d3aaaf313fed56af665b3aaf4cccafe163268743b202"></a>
+<a id="canonical-3033312010313211-1121300202201223-0030110331032222-2233030103333231-1112223312121123-0322223310303030-2233320112030212-2013100323020002"></a>
 
-<a id="canonical-7f2f4feeb33f2ce29a0c6ef659f06a249da60b2bd2562b480b15f45aefb30721"></a>
+<a id="canonical-1333023310333232-2303033302303202-2122003012323312-1121330012220210-2131221200230223-3102111202231020-0023011133101122-3233230300130201"></a>
 
-## name property — bot_defense.policy.protected_app_endpoints.metadata / 88016a5191b6 / 5
+## name property — metadata / 110121012312 / 5
 
 Type: `"string"`. Computed.
 
@@ -1370,33 +2115,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5c5266808d4f911bbc30ca4810c0df3c7aae2f7059aa99d5cd1d06d9c50f738f"></a>
+<a id="canonical-1130110212122000-2031103321010123-2330030030221020-0100300031330330-1322223202331300-1121222221213111-3031013100123121-3011003313032033"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.metadata / 88016a5191b6 / 6
+## Next pages — metadata / 110121012312 / 6
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-28c6b3cf79c8ca304614ab122ceb15fdfbc1558ad66d8feb13f708c1519c5429"></a>
+<a id="canonical-0220301223033033-1321302030220300-1012011022230102-0230322301113331-3323300111112022-3112123120333223-0103331300203001-1101213011100221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-272103dfd7d15190344513b9356d0558975fc02f2ac38d4fae82ce63084a8995"></a>
+<a id="canonical-0213020100033133-3113310111012100-0310101101032321-0311123100111120-2113113330000233-0222300320311033-2232200230321203-0020102220212111"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigate_good_bots — bot_defense.policy.protected_app_endpoints.mitigate_good_bots / f440543fc9b8 / 2
+## bot_defense.policy.protected_app_endpoints.mitigate_good_bots — mitigate_good_bots / 033330212320 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.mitigate_good_bots
 
-<a id="canonical-810cfb9ff832c05515d3196de5a165bdc2e04f3292f2427016a4cab2c1a5ef09"></a>
+<a id="canonical-2001003033232133-3320030230001111-0111310301211231-3211220112112331-3002320010330302-2102330210021300-0112221030222302-3001221132330021"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1419,39 +2164,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2770720251e29e68576efc4b0c0661bd5b3e093722c29f5860b0cad3174bf6f6"></a>
+<a id="canonical-0213130013020002-1101320221321220-1113123233301023-0030001212012331-1123033200210313-0202300221331120-1200230030223103-0113102333123312"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigate_good_bots / f440543fc9b8 / 3
+## Direct properties — mitigate_good_bots / 033330212320 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-97426af2647d4767477bf39e553954f111dbbd98f5daca54dfa3933b3235809b"></a>
+<a id="canonical-2113100212223302-1210133110131213-1013132333032132-1111032111103301-0101312323312120-3311312230221110-3133220321030323-0302031120002123"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigate_good_bots / f440543fc9b8 / 4
+## Next pages — mitigate_good_bots / 033330212320 / 4
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60"></a>
+<a id="canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8a6f431cc47303d45226ebab442825e33c21ab1d9dff98f1ba4d325b6028fe14"></a>
+<a id="canonical-2022123310030130-3010130300033110-1102021232232223-1010022002113203-0330020122230131-2131333321203301-2322103103021123-1200022033320110"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation — bot_defense.policy.protected_app_endpoints.mitigation / 0ad108d107a5 / 2
+## bot_defense.policy.protected_app_endpoints.mitigation — mitigation / 310100132211 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.mitigation
 
-<a id="canonical-9daa5eb71d05762753c64469f0cb5ec9fd000eeb9e823e4537ce28c26a255f94"></a>
+<a id="canonical-2131222211322313-0131001113120213-1103301210101221-3300302311323021-3331000000323223-2132200203321011-0313303202203002-1222021111332110"></a>
 
 Type: `"single"`. Computed.
 
@@ -1471,47 +2216,47 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3579e5d3c224711b5a640958edc3a07c4164b3dc9618d9cd4b2f7e935700b09a"></a>
+<a id="canonical-0311132132113103-3002021013010123-1122121000211120-3231300322001330-1001121023033130-2112012031213031-1023023313322103-1113000023002122"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation / 0ad108d107a5 / 3
+## Direct properties — mitigation / 310100132211 / 3
 
-- [block](data-sources--http_loadbalancer--reference--group-012.md#canonical-8d37298bdd9afebb9b9635901143ba26e016413b0a86fd26ec98e84d2bf09f40): complete subsection reference.
+- [block](data-sources--http_loadbalancer--reference--group-012.md#canonical-2031031302212023-3131212233322323-2123211203112100-0101100323220212-3200011210010323-0022201233310212-3230212032201031-0223330021331000): complete subsection reference.
 
-- [flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602): complete subsection reference.
+- [flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002): complete subsection reference.
 
-- [redirect](data-sources--http_loadbalancer--reference--group-012.md#canonical-b81897a617a0119d0d7cfbe80f33aab2a53ebec95f34a9ff03d31dbbca250731): complete subsection reference.
+- [redirect](data-sources--http_loadbalancer--reference--group-012.md#canonical-2320012021132212-0113220001012131-0031133033233220-0033030322222302-2211033223323021-1133031022213333-0003310301312323-3022021100130301): complete subsection reference.
 
-<a id="canonical-09e5e5d561a702a8d3c80da771674e57f65cab1a735e79f3ce6a2c54fcfe4c31"></a>
+<a id="canonical-0021321132113111-1201221300022220-3103302000312213-1301121310321113-3312113022230122-1303113213213303-3032122202301110-3330333210300301"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation / 0ad108d107a5 / 4
+## Next pages — mitigation / 310100132211 / 4
 
-- [bot_defense.policy.protected_app_endpoints.mitigation.block](data-sources--http_loadbalancer--reference--group-012.md#canonical-8d37298bdd9afebb9b9635901143ba26e016413b0a86fd26ec98e84d2bf09f40)
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602)
-- [bot_defense.policy.protected_app_endpoints.mitigation.redirect](data-sources--http_loadbalancer--reference--group-012.md#canonical-b81897a617a0119d0d7cfbe80f33aab2a53ebec95f34a9ff03d31dbbca250731)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation.block](data-sources--http_loadbalancer--reference--group-012.md#canonical-2031031302212023-3131212233322323-2123211203112100-0101100323220212-3200011210010323-0022201233310212-3230212032201031-0223330021331000)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002)
+- [bot_defense.policy.protected_app_endpoints.mitigation.redirect](data-sources--http_loadbalancer--reference--group-012.md#canonical-2320012021132212-0113220001012131-0031133033233220-0033030322222302-2211033223323021-1133031022213333-0003310301312323-3022021100130301)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-8d37298bdd9afebb9b9635901143ba26e016413b0a86fd26ec98e84d2bf09f40"></a>
+<a id="canonical-2031031302212023-3131212233322323-2123211203112100-0101100323220212-3200011210010323-0022201233310212-3230212032201031-0223330021331000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c1ffdbe2b89562a8ef0cb53aae34b4af6ce5032f343799709ec0c499cfc9a37f"></a>
+<a id="canonical-3001333331233202-2320211112022220-3233003023110322-2232031023102233-1230321100030233-0310031321211300-2132300030102121-3033302122031333"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation.block — bot_defense.policy.protected_app_endpoints.mitigation.block / b094af9d9485 / 2
+## bot_defense.policy.protected_app_endpoints.mitigation.block — block / 213121102011 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
 - bot_defense.policy.protected_app_endpoints.mitigation.block
 
-<a id="canonical-1cd80f1f82906c76db16b348ff8b4016767d3ac77c8d57fad3e0d45098bf5da6"></a>
+<a id="canonical-0130312000330133-2002210012301312-3123011223031020-3333202310000112-1312133103223013-1330203111133322-3103320031101100-2120233311312212"></a>
 
 Type: `"single"`. Computed.
 
@@ -1530,15 +2275,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-62fe6823cbef8e622129f117a9a2e78fab902e0f0323d672444214445b0738f7"></a>
+<a id="canonical-1202333212200203-3023323320321202-0201022133010113-2221220232132033-2223210002320033-0003020331121302-1010100201101010-1123001303203313"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation.block / b094af9d9485 / 3
+## Direct properties — block / 213121102011 / 3
 
-<a id="canonical-9c0f56559ef38ad67a203f250168f30a68840c2d7bf548c3d9728947832d54b5"></a>
+<a id="canonical-2130003311121111-2132330320223112-1322020003330211-0001122033030022-1220201000300231-1323331110203003-3121130220211013-2003023111102311"></a>
 
-<a id="canonical-64792fb1689e31028fe35e22a52b40dbb109b87bd8655462841170917d727416"></a>
+<a id="canonical-1210132102332301-1220213203010002-2033320311320202-2211022310003123-2301002123201323-3120121111101202-2010010113002101-1331130213100112"></a>
 
-## body property — bot_defense.policy.protected_app_endpoints.mitigation.block / b094af9d9485 / 4
+## body property — block / 213121102011 / 4
 
 Type: `"string"`. Computed.
 
@@ -1587,11 +2332,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f951a609b194c40c73f6fa3cd42d1be4e877e7b1c8ea906e655c0c15c83840bb"></a>
+<a id="canonical-3321110122120021-2301211030100030-1303331233220330-3110023101233210-3220131332132301-3020322221001232-1211113000300111-3020032010002323"></a>
 
-<a id="canonical-690c2a82b4a55e7355cee1c4e2f76ddaf82882cecc50c3d0357bef23d80f8291"></a>
+<a id="canonical-1221003002222002-2310221111321303-1111303232013010-3202331312313122-3320022020023032-3030110030033100-0311132332330203-3120003320022101"></a>
 
-## status property — bot_defense.policy.protected_app_endpoints.mitigation.block / b094af9d9485 / 5
+## status property — block / 213121102011 / 5
 
 Type: `"string"`. Computed.
 
@@ -1710,34 +2455,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1b94c2dc12accd4b204e0a6bf4bf63de7e140a7c636ce49ab7ee491276643fd4"></a>
+<a id="canonical-0123211030023130-0102223030311023-0200103200221223-3310233312033132-1332011000221330-1203123032102122-2313323210210102-1312121003333110"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation.block / b094af9d9485 / 6
+## Next pages — block / 213121102011 / 6
 
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602"></a>
+<a id="canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ff15fb83faacf14d44ef05c37166a4a69d08d37e16d7069258124a6396d6e1f9"></a>
+<a id="canonical-3333011133232003-3322223033011031-1010323300113003-1301121222102212-2131002031031332-0112311300122102-1120010210221203-2112311232013321"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation.flag — bot_defense.policy.protected_app_endpoints.mitigation.flag / 8b74ce6d90a4 / 2
+## bot_defense.policy.protected_app_endpoints.mitigation.flag — flag / 123121002210 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
 - bot_defense.policy.protected_app_endpoints.mitigation.flag
 
-<a id="canonical-fa4e4ab44fcbf347890be264755ef995ff9772aa92cd99f98afbfe34a563e086"></a>
+<a id="canonical-3322103210222310-1033302333031013-2021002332021210-1311113233212111-3333211313022222-2102303121213321-2022332333320310-2211120332002012"></a>
 
 Type: `"single"`. Computed.
 
@@ -1761,45 +2506,45 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4c300cc861be1c034521b72b71b935714bb167fd1c1e31bf0f0e27edeb46e1ea"></a>
+<a id="canonical-1030030000303020-1201233201300003-1011020123130223-1301232103111301-1023230112133331-0130013203012333-0033003202133231-3223101232013222"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation.flag / 8b74ce6d90a4 / 3
+## Direct properties — flag / 123121002210 / 3
 
-- [append_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-3cd2722b734c55f2f8147951d7accaffea22044f7a896344191fa41c2ee99752): complete subsection reference.
+- [append_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-0330310213020223-1303103011113302-3320011013211101-3113223030223333-3222020200101033-1322202112031010-0121013322100130-0232322121131102): complete subsection reference.
 
-- [no_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-c8b1d0d4aa1c6336a7564aedb3ba9104d14ad3bfc9836f52218b095fcb3578b7): complete subsection reference.
+- [no_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-3020230131003110-2222013012030312-2213111210223231-2303232221010010-3101102231032333-3021200312331102-0201202300211133-3023031113202313): complete subsection reference.
 
-<a id="canonical-d863955594d3fbce6f776915464ed251127e7bbb226a6b7ef1b017da0804437b"></a>
+<a id="canonical-3120120321111111-2110310333233032-1233131312210111-1012103231021101-0102133213232323-0202122212231332-3301230001133122-0020001010031323"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation.flag / 8b74ce6d90a4 / 4
+## Next pages — flag / 123121002210 / 4
 
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-3cd2722b734c55f2f8147951d7accaffea22044f7a896344191fa41c2ee99752)
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-c8b1d0d4aa1c6336a7564aedb3ba9104d14ad3bfc9836f52218b095fcb3578b7)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-0330310213020223-1303103011113302-3320011013211101-3113223030223333-3222020200101033-1322202112031010-0121013322100130-0232322121131102)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers](data-sources--http_loadbalancer--reference--group-012.md#canonical-3020230131003110-2222013012030312-2213111210223231-2303232221010010-3101102231032333-3021200312331102-0201202300211133-3023031113202313)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-3cd2722b734c55f2f8147951d7accaffea22044f7a896344191fa41c2ee99752"></a>
+<a id="canonical-0330310213020223-1303103011113302-3320011013211101-3113223030223333-3222020200101033-1322202112031010-0121013322100130-0232322121131102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e601d2e7c56ca65be964f335c188b7906b040df859b512322abe902ebf86b332"></a>
+<a id="canonical-3212000131023213-3011123022121123-3221121033030311-3001202023132100-1223001000313320-1121231101020302-0222233221000232-2333201223030302"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers — bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers / 4975dbc846fe / 2
+## bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers — append_headers / 302010123332 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002)
 - bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers
 
-<a id="canonical-2d80bb67e02885d9d1cad5af3f99a08905d0c2efa739cf1a836e022bb8e7d090"></a>
+<a id="canonical-0231200023231213-3200022020113121-3101302231112233-0333212122002021-0011310030023233-2213032130330122-2003123200020223-2320321331002100"></a>
 
 Type: `"single"`. Computed.
 
@@ -1818,15 +2563,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-76da6ccf8726e3b9a75d0127dd3c4f3bf49ad1dbb2b4741788255deb4f217232"></a>
+<a id="canonical-1312312212303033-2013021232032321-2213113100010213-3131033010330323-3310212231013123-2302231013100113-2020021111313223-1033020113020302"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers / 4975dbc846fe / 3
+## Direct properties — append_headers / 302010123332 / 3
 
-<a id="canonical-d3e774adc0fa81f079fa2373ed31777c6067bae000f79a0f05f86278219e8e14"></a>
+<a id="canonical-3103321313102231-3000332220013300-1321332202031303-3231030113131330-1200121323223200-0000331321220033-0011332012021320-0201213220320110"></a>
 
-<a id="canonical-4effc7efb26470ad3ba47239cca04af2531025a517abffacf6aa6a684db5494f"></a>
+<a id="canonical-1032333330133233-2302121013002231-0323221013020321-3030220010223302-1103010002112211-0113222333332230-3312222212221220-1031231110211033"></a>
 
-## auto_type_header_name property — bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers / 4975dbc846fe / 4
+## auto_type_header_name property — append_headers / 302010123332 / 4
 
 Type: `"string"`. Computed.
 
@@ -1874,11 +2619,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-24c68c3f0590d1e566b6029213e64367159dbbab95ab1a13ee72fce0a940bbb6"></a>
+<a id="canonical-0210301220300333-0011210031013211-1212231200022102-0103321210031213-0111213123232223-2111222301220103-3232130233303200-2221100023232312"></a>
 
-<a id="canonical-3dafa9ca87bd95c022b4278d14a0025d8f07bd4e65257ef70d89784360a9cc36"></a>
+<a id="canonical-0331223322213022-2013233121113000-0202231002132031-0110220000021131-2033001323311032-1211021113323313-0031202113201003-1200222130300312"></a>
 
-## inference_header_name property — bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers / 4975dbc846fe / 5
+## inference_header_name property — append_headers / 302010123332 / 5
 
 Type: `"string"`. Computed.
 
@@ -1926,35 +2671,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1bf6b5495d4442ee3873076919e19376b2d1e78d7c61d703fd0c0877b5766872"></a>
+<a id="canonical-0123331223111021-1131101010023232-0320130300131221-0121320121031312-2302310132132031-1330120131130003-3331003000201313-2311131212201302"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation.flag.append_headers / 4975dbc846fe / 6
+## Next pages — append_headers / 302010123332 / 6
 
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-c8b1d0d4aa1c6336a7564aedb3ba9104d14ad3bfc9836f52218b095fcb3578b7"></a>
+<a id="canonical-3020230131003110-2222013012030312-2213111210223231-2303232221010010-3101102231032333-3021200312331102-0201202300211133-3023031113202313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37fd8a2fb0c63c7d61497a3ca66734cf438a0152b055be1e5dc73c955aacb720"></a>
+<a id="canonical-0313333120220233-2300301203301331-1201102113220330-2212121303103033-1003202200011102-2300111123320132-1131301303302111-1122223023130200"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers — bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers / c03f4c93e69e / 2
+## bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers — no_headers / 210332122132 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002)
 - bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers
 
-<a id="canonical-c36178371d66835f6363650c59d06863a0840c219dab6f2edd24dcbffed899f2"></a>
+<a id="canonical-3003120113200313-0131121220031133-1203120312110030-1121310012201203-2200201000300201-2131222312330232-3131021031302333-3332312021213302"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -1977,40 +2722,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-55fa4635eb854b0d65d347644ec6b9d9828ee6b958b9a4d12367125ffdcff8fa"></a>
+<a id="canonical-1111332210120311-3223201110230031-1211310310131210-1032301223213121-2002203232122321-1120232122103101-0203121301021133-3331303333203322"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers / c03f4c93e69e / 3
+## Direct properties — no_headers / 210332122132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-537b86a4eaefe32499ac859d565d49d56353922e4e5d2635e9d5829407937780"></a>
+<a id="canonical-1103132320122210-3222323332030210-2121223020112131-1112113110213111-1203110321020232-1032113102120311-3221311120022110-0013210313132000"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation.flag.no_headers / c03f4c93e69e / 4
+## Next pages — no_headers / 210332122132 / 4
 
-- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-ab6c656f9908a387fd20a31e13ea249229c6f61ab9b547a7e86283e0ab605602)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation.flag](data-sources--http_loadbalancer--reference--group-012.md#canonical-2223123012111233-2121002022032013-3331020022030132-0103322202102102-0221301233120122-2321231110132213-3220120220033200-2223120011120002)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-b81897a617a0119d0d7cfbe80f33aab2a53ebec95f34a9ff03d31dbbca250731"></a>
+<a id="canonical-2320012021132212-0113220001012131-0031133033233220-0033030322222302-2211033223323021-1133031022213333-0003310301312323-3022021100130301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-31d8eda4e6002267e41e525f6b1cc69987a833e23f7274da2e265c2c3f0e2e5d"></a>
+<a id="canonical-0301312032312210-3212000002021213-3210013211021133-1223013030122121-2013222003033202-0333130213103122-0232021211300230-0333003202321131"></a>
 
-## bot_defense.policy.protected_app_endpoints.mitigation.redirect — bot_defense.policy.protected_app_endpoints.mitigation.redirect / 1aabea8c80c0 / 2
+## bot_defense.policy.protected_app_endpoints.mitigation.redirect — redirect / 203020003000 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
 - bot_defense.policy.protected_app_endpoints.mitigation.redirect
 
-<a id="canonical-047be6f6fec68c464d85d8923419e29122885a4aac040b58c2708c49c05ee5b6"></a>
+<a id="canonical-0010132332123312-3332301220301012-1031201131202102-0310012132022101-0202202011221022-2230001000231120-3002130020301021-3000113232112312"></a>
 
 Type: `"single"`. Computed.
 
@@ -2033,15 +2778,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-80afc983c56db2729bb281dd11a16cb7087191907dc3392dbace3795e2d56859"></a>
+<a id="canonical-2000223330212003-3011123123021302-2123230220013131-0101220112302313-0020130121012100-1331300303210231-2322303203132111-3202311112201121"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mitigation.redirect / 1aabea8c80c0 / 3
+## Direct properties — redirect / 203020003000 / 3
 
-<a id="canonical-d736195fb085ef73a880e292758dc9ae00724140c7b0300094b987c0c157b7c4"></a>
+<a id="canonical-3113031201211133-2300201132331303-2220200032022102-1311203130212232-0000130210011000-3013230003000000-2110232120133000-3001111323133010"></a>
 
-<a id="canonical-47745eb827e1604a3ed0258ae4d86686b90d86ebb7b724595a7c9b537f350ae7"></a>
+<a id="canonical-1013131011322320-0213320112001022-0332310002112022-3210312012122012-2321003120123223-2313231302101121-1122133021231103-1333031100223213"></a>
 
-## uri property — bot_defense.policy.protected_app_endpoints.mitigation.redirect / 1aabea8c80c0 / 4
+## uri property — redirect / 203020003000 / 4
 
 Type: `"string"`. Computed.
 
@@ -2078,33 +2823,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e49c12e5a4cf8ff55093b31fdbb62ca2a8e5a0a9db0a1664826ee59e031da23"></a>
+<a id="canonical-0232102130010232-1122103033203333-1111002103230301-3331232312023022-0222203211220022-2131230022011212-1020021232321121-3200030131220203"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mitigation.redirect / 1aabea8c80c0 / 5
+## Next pages — redirect / 203020003000 / 5
 
-- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-d7641e888b47263fb6e1f0cfdd38fa1e43d7f2024d548f8a116092fc4efc8a60)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.mitigation](data-sources--http_loadbalancer--reference--group-012.md#canonical-3113121001322020-2023101302120333-2312320133003033-3131032033220132-1003311333020002-1031111020332022-0101120021023330-1032333020221200)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-7c69c3a89c3972d763e6f5daba5dc8e4dfc782804050ee29cb8a708c7826e5da"></a>
+<a id="canonical-1330122130032220-2130032113023113-1203321233113122-2322113130203210-3133301320022000-1000110032320221-3023202213002030-1320021232113122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4222714cdde9551a452f4666baa1360231d4f95026488a651852237a8471112a"></a>
+<a id="canonical-1002020213011030-3131322111110122-1011023310121212-2322220103120002-0301311033211100-0212102020221211-0120110202031322-2010130101010222"></a>
 
-## bot_defense.policy.protected_app_endpoints.mobile — bot_defense.policy.protected_app_endpoints.mobile / cc0068a7e3da / 2
+## bot_defense.policy.protected_app_endpoints.mobile — mobile / 221332033122 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.mobile
 
-<a id="canonical-48fa044a902fde1692dff760291c655f862d8c259053f3031b6d0e7f87406a3a"></a>
+<a id="canonical-1020332200101022-2100023331320112-2102313333131200-0221013012111133-2012023120300211-2100110333030003-0123123100321333-2013100012220322"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2127,39 +2872,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c9f6d8a0be9385c8531c4ee06684a726fb359e777c71ee48b5cce811091cff57"></a>
+<a id="canonical-3021331231202200-2332210320113020-1103013010323200-1212201022130212-3323031121321313-1330130132321020-2311303032200101-0021013033331113"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.mobile / cc0068a7e3da / 3
+## Direct properties — mobile / 221332033122 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-fd780317aa8914f35672c398176cb00f89fd1f71e45283b38638a8c0b5bfb624"></a>
+<a id="canonical-3331132000030113-2222202101103303-1112130230032120-0113123023000033-2021333101331301-3210110220032303-2012032022203000-2311233323120210"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.mobile / cc0068a7e3da / 4
+## Next pages — mobile / 221332033122 / 4
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-bcab9662ee76b16e1ffc96170988b3218f721350f0ce386259b5a35471e4552e"></a>
+<a id="canonical-2330222321121202-3232131223011232-0133333021120113-0021202023030201-2033130201031100-3300303203201202-1121231122031110-1301321011110232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-bee8d93caeabc46400251f3678270e16422d11f130a288bc742c139542ca53c4"></a>
+<a id="canonical-2332322031210330-2232222330101210-0000021101330312-1320021300320112-1002023101013301-0300220220202330-1310023001032111-1002302211033010"></a>
 
-## bot_defense.policy.protected_app_endpoints.path — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 2
+## bot_defense.policy.protected_app_endpoints.path — path / 303020132030 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.path
 
-<a id="canonical-204ac3ec644b35befa7e7eeeb9798c287b4503d549aaba8e87422178f709580d"></a>
+<a id="canonical-0200102230033230-1210102303112332-3322133213323232-2321132120300220-1323101100033111-1021222223222032-2013100202011320-3313002111200031"></a>
 
 Type: `"single"`. Computed.
 
@@ -2179,15 +2924,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7670074b0cf9b531a9b7e17c4a49c661dceb582815b6cb91660d8652a2e7ada5"></a>
+<a id="canonical-1312130000131023-0030332123110301-2221231332011330-1022102130121201-3130322311200220-0111231230232101-1212003120121102-2202321322312211"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 3
+## Direct properties — path / 303020132030 / 3
 
-<a id="canonical-bf834029692d6d08221d936020db7b0749aed1b145cf9b9e524b431c02a0235a"></a>
+<a id="canonical-2333200310000221-1221023112310020-0202013121031200-0200312313230013-1021223231012301-1011303321232132-1102102310030130-0002220002031122"></a>
 
-<a id="canonical-33e7ae4a8e85845cd4bcb11d383de3fd0fc74447630e98fc0bd4a237c11c8566"></a>
+<a id="canonical-0303321322321022-2032201120101130-3110233023010131-0320033132033331-0033301310101013-1203003221203330-0023311022020313-3001013020111212"></a>
 
-## path property — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 4
+## path property — path / 303020132030 / 4
 
 Type: `"string"`. Computed.
 
@@ -2232,11 +2977,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1b5fd1d2650cd6a58150eee949cf1e067ea65c788be37e4cffafeb31062959b5"></a>
+<a id="canonical-0123113331013102-1211003031122211-2001110032323221-1021303301320012-1332221211301320-2023320313321030-3333223332230301-0012022111212311"></a>
 
-<a id="canonical-d532d3877667d416f9a54c085c55a0eee38a8d20507afe69096d93723a44bee5"></a>
+<a id="canonical-3111030231032013-1312121331100112-3321221110300020-1130111122003232-3203202220310200-1100132233321221-0021123121031302-0322101023323211"></a>
 
-## prefix property — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 5
+## prefix property — path / 303020132030 / 5
 
 Type: `"string"`. Computed.
 
@@ -2279,11 +3024,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cca336563659a69d2deabe114323c501de90131b3abcdf96a8a1bdf0a8dfe28c"></a>
+<a id="canonical-3030220303121112-0312112122122131-0231322223320101-1003020330110001-3132210001030123-0322233031332112-2220220123313300-2220313332022030"></a>
 
-<a id="canonical-acf22e0e5310aa5b7a4cb3cdb0bb272a0d5f2a670af10154dbdc63c4ee697d2b"></a>
+<a id="canonical-2230330202320032-1103010022221123-1322103023033031-2300232302130222-0031113302221213-0022330100011110-3123313012033010-3232122113310223"></a>
 
-## regex property — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 6
+## regex property — path / 303020132030 / 6
 
 Type: `"string"`. Computed.
 
@@ -2336,33 +3081,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bdf7bf790bc895f9244112e02ce30170651e3efca04bd3e405bfbdc38692c81b"></a>
+<a id="canonical-2331331323331321-0023302021113321-0210100101023200-0230320300011300-1211013203323330-2200102331033210-0011233323313003-2012210230200123"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.path / f562abcc878c / 7
+## Next pages — path / 303020132030 / 7
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937"></a>
+<a id="canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c83db400accb4e0a84c15a5d6febf808a84aa1c7c5514fe8e98b84415558478e"></a>
+<a id="canonical-3020033123100000-2230302310320022-2010300111221131-1233322333200020-2220102222013013-3011110110333220-3221202320101001-1111112010132032"></a>
 
-## bot_defense.policy.protected_app_endpoints.query_params — bot_defense.policy.protected_app_endpoints.query_params / 79f460d2722c / 2
+## bot_defense.policy.protected_app_endpoints.query_params — query_params / 310213020230 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.query_params
 
-<a id="canonical-9e1bbe849e74b9355273940704ccce7d297133b51dd69476bf5cd08e9e3d073a"></a>
+<a id="canonical-2132012323322010-2132131023210311-1102130321100013-0010303030321331-0221130103032311-0131311221101312-2333113031002032-2132033100130322"></a>
 
 Type: `"list"`. Computed.
 
@@ -2408,19 +3153,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b293d1c10f530dee249b751808ba427139d38f5e7ebcb37c1f3bf5541cabf7ea"></a>
+<a id="canonical-2302210331013001-0033110300313232-0210212313110120-0020232210021301-0321310320331132-1332233023031330-0133032333111110-0130222333133222"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.query_params / 79f460d2722c / 3
+## Direct properties — query_params / 310213020230 / 3
 
-- [check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-921a1ffebb921624813704bc8bfb5486baad2f488bfc5fc9319698785a28c786): complete subsection reference.
+- [check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2102012201333332-2323210201120210-2001031300102330-2023332311102012-2322223102331020-2023333011333021-0301211221201320-1122022030132012): complete subsection reference.
 
-- [check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-b520cce5de493b48e703d8011105a764b52675a7cb44dba6d2b1c10ea15edbda): complete subsection reference.
+- [check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2311020030303211-3132102103231020-3213000331200001-0101001122131210-2311021213112213-3023101031232212-3102230130010032-2201113231233122): complete subsection reference.
 
-<a id="canonical-4709733eb4139f5b922f90c9ee83090b72ec6e34dd65e4963e2d2ba2ab37a592"></a>
+<a id="canonical-1013002113030332-2310010321331123-2102023321003021-3232200300210023-1302323012320310-3131121132102112-0332023102232202-2223031322112102"></a>
 
-<a id="canonical-bbb9759ce55a6b39aca4f53c484e043fdad285b11c12aae35f037d92b67ebe4e"></a>
+<a id="canonical-2323232113112130-3211112212230321-2230221033110330-1020103200100333-3122310220112301-0130010222223203-1133000313312102-2312133223321032"></a>
 
-## invert_matcher property — bot_defense.policy.protected_app_endpoints.query_params / 79f460d2722c / 4
+## invert_matcher property — query_params / 310213020230 / 4
 
 Type: `"bool"`. Computed.
 
@@ -2443,13 +3188,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [item](data-sources--http_loadbalancer--reference--group-012.md#canonical-6ac508aa059854cbf8eca0389e08b4263989164440d85a7cccabda300590b4c1): complete subsection reference.
+- [item](data-sources--http_loadbalancer--reference--group-012.md#canonical-1222301100202222-0011212011103023-3320323022000320-2132002023100212-0321202101121010-1000312011221330-3030222331220300-0011210023103001): complete subsection reference.
 
-<a id="canonical-7fcd7ef8a436ad47df3b8956e6973967e79fcf2534180ac30ff8a713ae3a9b62"></a>
+<a id="canonical-1333303113323320-2210031222311013-3133032320211112-3212211303211213-3213213330330211-0310012000223003-0033332022130103-2232032221231202"></a>
 
-<a id="canonical-0d38919e9664a908f34c7e5ad07d69b17e2722fdd6b847039dab9329bd96c3a1"></a>
+<a id="canonical-0031032021012132-2112121022210020-3303103013321122-3100133112212301-1332021302023331-3112232010130003-2131222321030221-2331211230032201"></a>
 
-## key property — bot_defense.policy.protected_app_endpoints.query_params / 79f460d2722c / 5
+## key property — query_params / 310213020230 / 5
 
 Type: `"string"`. Computed.
 
@@ -2495,37 +3240,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-56b6c378be575ad8dee68bf41daf35b04354abb1dbf6e896a575f4cbbda5408e"></a>
+<a id="canonical-1112231230031320-2332111311223120-3132321220233310-0131223303112300-1003111022232301-3123331232202112-2211131133103023-2331221110002032"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.query_params / 79f460d2722c / 6
+## Next pages — query_params / 310213020230 / 6
 
-- [bot_defense.policy.protected_app_endpoints.query_params.check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-921a1ffebb921624813704bc8bfb5486baad2f488bfc5fc9319698785a28c786)
-- [bot_defense.policy.protected_app_endpoints.query_params.check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-b520cce5de493b48e703d8011105a764b52675a7cb44dba6d2b1c10ea15edbda)
-- [bot_defense.policy.protected_app_endpoints.query_params.item](data-sources--http_loadbalancer--reference--group-012.md#canonical-6ac508aa059854cbf8eca0389e08b4263989164440d85a7cccabda300590b4c1)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.query_params.check_not_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2102012201333332-2323210201120210-2001031300102330-2023332311102012-2322223102331020-2023333011333021-0301211221201320-1122022030132012)
+- [bot_defense.policy.protected_app_endpoints.query_params.check_present](data-sources--http_loadbalancer--reference--group-012.md#canonical-2311020030303211-3132102103231020-3213000331200001-0101001122131210-2311021213112213-3023101031232212-3102230130010032-2201113231233122)
+- [bot_defense.policy.protected_app_endpoints.query_params.item](data-sources--http_loadbalancer--reference--group-012.md#canonical-1222301100202222-0011212011103023-3320323022000320-2132002023100212-0321202101121010-1000312011221330-3030222331220300-0011210023103001)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-921a1ffebb921624813704bc8bfb5486baad2f488bfc5fc9319698785a28c786"></a>
+<a id="canonical-2102012201333332-2323210201120210-2001031300102330-2023332311102012-2322223102331020-2023333011333021-0301211221201320-1122022030132012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-24057ff3a461366224131f0e58a19e745f556f72e8ce829f0ddc25a2d31fa509"></a>
+<a id="canonical-0210001113333303-2210120103121202-0210010301330032-1120220121321310-1133111112331302-3220303220022133-0031313002112202-3103013322110021"></a>
 
-## bot_defense.policy.protected_app_endpoints.query_params.check_not_present — bot_defense.policy.protected_app_endpoints.query_params.check_not_present / 12148e8c9e9e / 2
+## bot_defense.policy.protected_app_endpoints.query_params.check_not_present — check_not_present / 203021322132 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
 - bot_defense.policy.protected_app_endpoints.query_params.check_not_present
 
-<a id="canonical-c595a0981c7c2e8a78b1f527369deaa4f882389916c6e22589ad58f4970d228a"></a>
+<a id="canonical-3011211122002120-0130133002322022-1320230133110213-0312213132222210-3320200203202121-0112301232020211-2021223111203310-2113003102022022"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2548,40 +3293,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-001bb12e09c0a644d20e9af4331616bad5fbb53faf422bc7f63a79b17821bbce"></a>
+<a id="canonical-0000012323010232-0021300022121010-3102003221223310-0303011201122322-3111332323110333-2233100202233013-3312032213212301-1320020123233032"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.query_params.check_not_present / 12148e8c9e9e / 3
+## Direct properties — check_not_present / 203021322132 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bcd19612b682fe33df76063c80cdafb2d9d1898cf66658ce8bdb368cd7cd6f04"></a>
+<a id="canonical-2330310121120102-2312200233320303-3133131200120330-2000303122332302-3121310120212030-3312121211203032-2023312303122030-3113303112330010"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.query_params.check_not_present / 12148e8c9e9e / 4
+## Next pages — check_not_present / 203021322132 / 4
 
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-b520cce5de493b48e703d8011105a764b52675a7cb44dba6d2b1c10ea15edbda"></a>
+<a id="canonical-2311020030303211-3132102103231020-3213000331200001-0101001122131210-2311021213112213-3023101031232212-3102230130010032-2201113231233122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c38f32629a1e09ddb8ecc9229a14f92dbb9cf3135036d31bf6d208ce0f676046"></a>
+<a id="canonical-3003203303021202-2122013200213131-2320323030210202-2122011033210231-2323213033030103-1100031231030123-3312310200203032-0033121312001012"></a>
 
-## bot_defense.policy.protected_app_endpoints.query_params.check_present — bot_defense.policy.protected_app_endpoints.query_params.check_present / 25af24be1198 / 2
+## bot_defense.policy.protected_app_endpoints.query_params.check_present — check_present / 233201012120 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
 - bot_defense.policy.protected_app_endpoints.query_params.check_present
 
-<a id="canonical-ee023f9db0997bded0e910d2f274f7962aa5387b08c5a0793e36504d55ce53b5"></a>
+<a id="canonical-3232000203332131-2300212113233132-3100322101003102-3302131033132112-0222221103201323-0020301122001321-0332031211001031-1111303211032311"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2604,40 +3349,40 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c91c872fd1db5fd8b7800eb912338f6ee0c6f9570c3db5735fa4b30fa44668af"></a>
+<a id="canonical-3021013020130233-3101312311333120-2313200000322321-0102030320331232-3200301233211113-0030033123111303-1133221023030033-2210101212202233"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.query_params.check_present / 25af24be1198 / 3
+## Direct properties — check_present / 233201012120 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2ae18a02e592f283605e56386dd3482d8fddc0a0d1257728f7cdf56792a1d0c4"></a>
+<a id="canonical-0222320120220002-3211210233022003-1200113211120320-1231310310200231-2033313130002200-3101021113130220-3313303133111213-2102220131003010"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.query_params.check_present / 25af24be1198 / 4
+## Next pages — check_present / 233201012120 / 4
 
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-6ac508aa059854cbf8eca0389e08b4263989164440d85a7cccabda300590b4c1"></a>
+<a id="canonical-1222301100202222-0011212011103023-3320323022000320-2132002023100212-0321202101121010-1000312011221330-3030222331220300-0011210023103001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-29f21ad8304a7caebdd6e959cd4fea3d5f8f0f2a6f602739f34f439b2f2d15b1"></a>
+<a id="canonical-0221330201223120-0300102213302232-2331311232211121-3031103332220331-1133203300330222-1233120002130321-3303103310032123-0233023101112301"></a>
 
-## bot_defense.policy.protected_app_endpoints.query_params.item — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 2
+## bot_defense.policy.protected_app_endpoints.query_params.item — item / 333223213311 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
 - bot_defense.policy.protected_app_endpoints.query_params.item
 
-<a id="canonical-a5edd6631be73f88df3f390a27dec908452bd76c09417e6ff07ef9f06c9f5fa5"></a>
+<a id="canonical-2211323131121203-0123321303332020-3133033303210022-0213313230210020-1011022331131230-0021100113321233-3300133233213300-1230213311332211"></a>
 
 Type: `"single"`. Computed.
 
@@ -2664,15 +3409,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-23ecefb54125537379a2bbdaac47fa3a7acf6a57bc564b9ed2c66e975a472c53"></a>
+<a id="canonical-0203323032332311-1001021111031303-1321220223233122-2230101333220322-1322303312221113-2330111210232132-3102301212322113-1122101302301103"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 3
+## Direct properties — item / 333223213311 / 3
 
-<a id="canonical-bd98da601be234747303de399d7e8c6176360309a6e9f9cc17f7cc393f0da211"></a>
+<a id="canonical-2331212031221200-0123320203101310-1303000331320321-2131133220301201-1312031200030021-2212322133213030-0113331330300321-0333003122020101"></a>
 
-<a id="canonical-31fb3a0dd0738fb734148ea7d9248036559c5268c71ea3f32a2ecfad4f6c6a93"></a>
+<a id="canonical-0301332303220031-3100130320332313-0310011020322213-3121021020000312-1111213011021220-3013013222033303-0222023230332231-1033123012222103"></a>
 
-## exact_values property — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 4
+## exact_values property — item / 333223213311 / 4
 
 Type: `["list", "string"]`. Computed.
 
@@ -2720,11 +3465,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-fe263f8c106a598e47c273ab5f4e0347963d670698960d3f7321e24e0a1f9957"></a>
+<a id="canonical-3332021203332030-0100122211212032-1013300213032223-1133103200031013-2112033112130012-2120211200310333-1303020132021032-0022013321211113"></a>
 
-<a id="canonical-9fbc5e7ba70e34a1def97a6d39af746b9f148e9f840d475fc25410316023f919"></a>
+<a id="canonical-2133233011321323-2213003203102201-3132332113221231-0321223313101223-2133011020322133-2010003110131133-3002111001000301-1200020333210121"></a>
 
-## regex_values property — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 5
+## regex_values property — item / 333223213311 / 5
 
 Type: `["list", "string"]`. Computed.
 
@@ -2774,11 +3519,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-241d35e710343eeede955f53345ec58e6847243ef270b9964fd1d48ec2db9028"></a>
+<a id="canonical-0210013103113213-0100031003323232-3132211111331103-0310113230112032-1220101302100332-3302130023212112-1033310131102032-3002312321000220"></a>
 
-<a id="canonical-06eb3415c3f0bbf2295bb44dc97400c0d252611a88ab3b1dadcf9135192e518b"></a>
+<a id="canonical-0012322303100111-3003330023233302-0221112323101031-3021131000003000-3102110212010122-2020222303230131-2231303321010311-0121023211012023"></a>
 
-## transformers property — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 6
+## transformers property — item / 333223213311 / 6
 
 Type: `["list", "string"]`. Computed.
 
@@ -2826,33 +3571,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-eb6f78979c35284d88bc8195328529d888ae50f3116a7a67f4c8b146c35dd93d"></a>
+<a id="canonical-3223123313202113-2130031102201031-2020233020012111-0302201102213120-2020223211003303-0101122213221213-3310302023011012-3003113131210331"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.query_params.item / bd4d1cfeb9f5 / 7
+## Next pages — item / 333223213311 / 7
 
-- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-1e7c9504396fb479a5e8e25024bd56636f014fba14e2613ffc3dad7edf11c937)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints.query_params](data-sources--http_loadbalancer--reference--group-012.md#canonical-0132133021110010-0321123323101321-2211322032021100-0210233111121203-1233000110332322-0110320212010333-3330033122311332-3133010130210313)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-06fd9f0f0798df46669ecc99fec4da356b6d23e56ecbc2b990e1712a47635ae0"></a>
+<a id="canonical-0012333121330033-0013212031331012-1212213230302121-3332301031220311-1223123102033211-1232302330022321-2100320113010222-1013120311223200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fcd2e81f0093a0f936ae17eb69de6982a8e06711590b97ab77f4781ec1bd9b9e"></a>
+<a id="canonical-3330310232200133-0000210322003321-0312223201133223-1221313212212002-2220320012130101-1121002321132223-1313331013200132-3001233121232132"></a>
 
-## bot_defense.policy.protected_app_endpoints.undefined_flow_label — bot_defense.policy.protected_app_endpoints.undefined_flow_label / cc0656b0cf04 / 2
+## bot_defense.policy.protected_app_endpoints.undefined_flow_label — undefined_flow_label / 230030330010 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.undefined_flow_label
 
-<a id="canonical-e29e4086707c9e4c7998e8b3ad7679ed8afce66692363baf1a0fc1242d7f8949"></a>
+<a id="canonical-3202213210002012-1300133021321030-1321212032202303-2231131213213231-2022333032121212-2102031203232233-0122003330010210-0231133320211021"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2875,39 +3620,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b403deac90ab7afb4a892bab62e8e47a7d9f68fd19948975521d429199ed82ac"></a>
+<a id="canonical-2310000331322230-2100222313223323-1022202102232223-1202322032101322-1331213312203331-0121211020211311-1102013110022101-2121323120022230"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.undefined_flow_label / cc0656b0cf04 / 3
+## Direct properties — undefined_flow_label / 230030330010 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-2b1aeb32527faa6dfea898815858f4c9271a92d5bc52684ebd7a6120134ad473"></a>
+<a id="canonical-0223012232230302-1102133322221231-3332222021202001-1120112033103021-0213012221023111-2330110212201032-2331132212010200-0103102231101303"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.undefined_flow_label / cc0656b0cf04 / 4
+## Next pages — undefined_flow_label / 230030330010 / 4
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-aec11cae23598ae8b46c6e38b65ffb3edaa113d25e6fbdcba2b5fc286ad9773c"></a>
+<a id="canonical-2232300101302232-0203112120223220-2310123012320320-2312113333230332-3122220101033102-1132123323313023-2202231133300220-1222312113130330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d4ea3f0988aab7fcd638f2463633400c1ec36ba9cd0795a4ec5768799ac0c9bb"></a>
+<a id="canonical-3110322203330021-2020222223133330-3112032033021012-0312030310000030-0132300312232221-3031001321112210-3230111312201321-2122300030212323"></a>
 
-## bot_defense.policy.protected_app_endpoints.web — bot_defense.policy.protected_app_endpoints.web / e2c07a401fb3 / 2
+## bot_defense.policy.protected_app_endpoints.web — web / 100001332303 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.web
 
-<a id="canonical-e3ba98b86465f117839c2cf2634581cbf82e4c21b8a71f40a0ab580252be7064"></a>
+<a id="canonical-3203232221202320-1210121133010113-2003213002303302-1203101120013023-3320023210300201-2320221301331000-2200222311200002-1102233213001210"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -2930,39 +3675,39 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6d5c39037d4da1a7bdf0259b5c3b983721d468da750f6df044c37ae9568db2a"></a>
+<a id="canonical-3012311130032100-0313311031220122-1323313300021121-2311300323212003-1302013110122031-2213110033123133-0010103003132232-2111122031230222"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.web / e2c07a401fb3 / 3
+## Direct properties — web / 100001332303 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-af37e32a03708a45098cef6f0f041836a5d78fbb5fa7e0951372eed44a0b5912"></a>
+<a id="canonical-2233031332030222-0003130020221011-0021203032331233-0033001001200312-2211311320332323-1133221332002111-0103130232323110-1022002311210102"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.web / e2c07a401fb3 / 4
+## Next pages — web / 100001332303 / 4
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-dbb528cb4cc1701263144ad68be9c472d2a2e3d53340731280615e7e06906063"></a>
+<a id="canonical-3123231102203023-1030300113000102-1203011010223112-2023322130101302-3102220232033111-0303100013030102-2000120111321332-0012210012001203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-55081abe75b988339639825d50a28d40db260abf0fe7736b487e27ac643bf42d"></a>
+<a id="canonical-1111002001222332-1311232120200303-2112032120021131-1100220220311000-3123021200222333-0033321313031223-1020133202132230-1210032333100231"></a>
 
-## bot_defense.policy.protected_app_endpoints.web_mobile — bot_defense.policy.protected_app_endpoints.web_mobile / 11e1ed22bb4a / 2
+## bot_defense.policy.protected_app_endpoints.web_mobile — web_mobile / 020223231022 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-99d3520c3439bc5ffc063e6729ac65ba2f27abf1fc5ec5792c7fbbf01c1cbc90)
-- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-4245edabcce8eb95c680417cae7324c32f35ad206f693b6686e51f0c66a7f87a)
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense](data-sources--http_loadbalancer--reference--group-010.md#canonical-2121310311020030-0310032123301133-3330001203321213-0221223012112322-0233021322233301-3330113230111321-0230133323233300-0130013023302100)
+- [bot_defense.policy](data-sources--http_loadbalancer--reference--group-010.md#canonical-1002101132312223-3030322032232111-3012200010011330-2232130302103003-0233031122310200-1233122103231212-2012321101330030-1212221333201322)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
 - bot_defense.policy.protected_app_endpoints.web_mobile
 
-<a id="canonical-7587ad22591dcad95f98e29d3440586bc65bef44d57789baa94719f1be9b31e6"></a>
+<a id="canonical-1311201322310202-1121013130223121-1133212032022131-0310100011201223-3012112332331010-3111131320212322-2221101301213301-2332212303013212"></a>
 
 Type: `"single"`. Computed.
 
@@ -2985,15 +3730,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4641449408361e57491acbfd9ada11f6af190d345fd095bb2e553f304445d703"></a>
+<a id="canonical-1012100110102110-0020031201321113-1021012230233331-2122312201013312-2233012100310310-1133310021112323-0232111103330300-1010101131130003"></a>
 
-## Direct properties — bot_defense.policy.protected_app_endpoints.web_mobile / 11e1ed22bb4a / 3
+## Direct properties — web_mobile / 020223231022 / 3
 
-<a id="canonical-c887c958171f72febfcaeaf8fd76243ab61edaad676c4154b95424611ac02ec5"></a>
+<a id="canonical-3020201330211120-0113013313023332-2333302232223320-3331131202100322-2312013231222231-1213123010011110-2321111002101201-0122300002323011"></a>
 
-<a id="canonical-93cb79f11d02e92f1a99b625a15e89cb5b5309a847fd1550b731601430b90e4b"></a>
+<a id="canonical-2103302313213301-0131000232210233-0122212123120211-2201113220213023-1123110300212220-1013333101111100-2313030112000110-0300232100321023"></a>
 
-## mobile_identifier property — bot_defense.policy.protected_app_endpoints.web_mobile / 11e1ed22bb4a / 4
+## mobile_identifier property — web_mobile / 020223231022 / 4
 
 Type: `"string"`. Computed.
 
@@ -3025,30 +3770,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2630c8525964e9dd751a022462a4dc14c0a45b695256428d606f7282ab315762"></a>
+<a id="canonical-0212030030201102-1121121032213131-1311012200020210-1202221031300110-3000221011231221-1102111210022031-1200123313022002-2223030111131202"></a>
 
-## Next pages — bot_defense.policy.protected_app_endpoints.web_mobile / 11e1ed22bb4a / 5
+## Next pages — web_mobile / 020223231022 / 5
 
-- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-2794a05289a537590b99a108f366aac84c4e0adfa5932eb3d357c45ad5031b0e)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense.policy.protected_app_endpoints](data-sources--http_loadbalancer--reference--group-011.md#canonical-0213211022001102-2021221103131121-0023212122010020-3303121222223020-1030103200223133-2211210302322303-3103111330101122-3111000301230032)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d"></a>
+<a id="canonical-3312111000032123-2113232132201102-2211030313120002-2330103303233223-2011200103223002-1133120323103103-3122020003302002-0023203221322131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-75b394a2f80afa73664dcb528204755e78b5d5dcb5b8150a602fdf14751f8433"></a>
+<a id="canonical-1311230321102202-3320002233221303-1212103130231102-2002001013111132-1320231131113130-2311232001110022-1200023331330110-1311013320100303"></a>
 
-## bot_defense_advanced_protection — bot_defense_advanced_protection / 2de79d5ce01a / 2
+## bot_defense_advanced_protection — bot_defense_advanced_protection / 113032000122 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
 - bot_defense_advanced_protection
 
-<a id="canonical-bebd7c928bc283be61d98e79034209eca0b599d7c29f0a2441423024c3414c13"></a>
+<a id="canonical-2332233113302102-2023300220032332-1201312120321321-0003100200213230-2200231121213113-3002213300220210-1001100203000210-3003100110300103"></a>
 
 Type: `"single"`. Computed.
 
@@ -3068,44 +3813,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8898cb8f201158a7bb4656d756038bc470f95f8fa9b6c5f1d39c13bc2197fee4"></a>
+<a id="canonical-2020212030232033-0200010111202213-2323101211123113-1112000320233010-1300332111332033-2221231230113301-3103213001032330-0201211333323210"></a>
 
-## Direct properties — bot_defense_advanced_protection / 2de79d5ce01a / 3
+## Direct properties — bot_defense_advanced_protection / 113032000122 / 3
 
-- [both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543): complete subsection reference.
+- [both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-0133220210311003-1333000131213213-3333222320020122-3333023220121330-3011013203031202-0001313011121300-2211011021121121-1221021231111003): complete subsection reference.
 
-- [mobile_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-3e3bc1b0e0d235c77c8799afc71255c645299d01286b9e95bc84bd8aa55d87be): complete subsection reference.
+- [mobile_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-0332032330012300-3200310203113013-1330201321212233-3013010211113012-1011022121310001-0220122321322111-2330201023312022-2211113120132332): complete subsection reference.
 
-- [web_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-de0cc0637252552be17522ae4281731c9fe06c40c73d8f2646853c19b563a483): complete subsection reference.
+- [web_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-3132003030001203-1302110211110223-3201131102022232-1002200113030130-2133320012301000-3013033120330212-1012201103300121-2311120322102003): complete subsection reference.
 
-<a id="canonical-dd9de5aa473975aef2677c762cd7f5614e545687cda4d3cc88e7969a47586527"></a>
+<a id="canonical-3131213132112222-1013032113112232-3302121313301312-0230311333111201-1032111011122013-3031221031033030-2020321321122122-1013112012110213"></a>
 
-## Next pages — bot_defense_advanced_protection / 2de79d5ce01a / 4
+## Next pages — bot_defense_advanced_protection / 113032000122 / 4
 
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.mobile_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-3e3bc1b0e0d235c77c8799afc71255c645299d01286b9e95bc84bd8aa55d87be)
-- [bot_defense_advanced_protection.web_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-de0cc0637252552be17522ae4281731c9fe06c40c73d8f2646853c19b563a483)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-0133220210311003-1333000131213213-3333222320020122-3333023220121330-3011013203031202-0001313011121300-2211011021121121-1221021231111003)
+- [bot_defense_advanced_protection.mobile_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-0332032330012300-3200310203113013-1330201321212233-3013010211113012-1011022121310001-0220122321322111-2330201023312022-2211113120132332)
+- [bot_defense_advanced_protection.web_only](data-sources--http_loadbalancer--reference--group-013.md#canonical-3132003030001203-1302110211110223-3201131102022232-1002200113030130-2133320012301000-3013033120330212-1012201103300121-2311120322102003)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543"></a>
+<a id="canonical-0133220210311003-1333000131213213-3333222320020122-3333023220121330-3011013203031202-0001313011121300-2211011021121121-1221021231111003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-145f97225a0d625051d2e6e416f49664bc917866117491047d839ce2bfcefeee"></a>
+<a id="canonical-0110113321130202-1122003112021100-1101310232123210-0112331021121210-2330210113201212-0101131021010010-1331200321303202-2333303233323232"></a>
 
-## bot_defense_advanced_protection.both_web_and_mobile — bot_defense_advanced_protection.both_web_and_mobile / 5def17712e36 / 2
+## bot_defense_advanced_protection.both_web_and_mobile — both_web_and_mobile / 130102320312 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-3312111000032123-2113232132201102-2211030313120002-2330103303233223-2011200103223002-1133120323103103-3122020003302002-0023203221322131)
 - bot_defense_advanced_protection.both_web_and_mobile
 
-<a id="canonical-8186b0aceff52409bf37ec1971dea41acd2699c24482c9b819a563621ef9c832"></a>
+<a id="canonical-2001201223002230-3233331102100021-2333031332300121-1301313222100122-3031021221213002-1010200230212320-0121221112031202-0132332130200302"></a>
 
 Type: `"single"`. Computed.
 
@@ -3130,60 +3875,60 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-357db9e5bfe583e91c6aaaa8eedce3fa94b8c5a52a1a1c9d0a3b88e2d5acdf1c"></a>
+<a id="canonical-0311133123213211-2333321120033221-0130122222222220-3232313032033322-2110232030112211-0222012201302131-0022032320203202-3111223031330130"></a>
 
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile / 5def17712e36 / 3
+## Direct properties — both_web_and_mobile / 130102320312 / 3
 
-- [disable_js_insert](data-sources--http_loadbalancer--reference--group-012.md#canonical-4f47434a8b6d128ffa3435647af7d5ecb236ed8275423b5d4f7752b05fdfdf76): complete subsection reference.
+- [disable_js_insert](data-sources--http_loadbalancer--reference--group-012.md#canonical-1033101310031022-2023123101022033-3322031003111210-1322331331113230-2302031232312002-1311100203231131-1033131311022300-1133313331331312): complete subsection reference.
 
-- [disable_mobile_sdk](data-sources--http_loadbalancer--reference--group-012.md#canonical-7965e9026d3f452f69f31963e60116f45c648e6ff8e2d66a2e0a131396279142): complete subsection reference.
+- [disable_mobile_sdk](data-sources--http_loadbalancer--reference--group-012.md#canonical-1321121132210002-1231033310110233-1221330301211203-3212000101123310-1130121020321233-3320320231121222-0232002201030103-2112021321011002): complete subsection reference.
 
-- [js_insert_all_pages](data-sources--http_loadbalancer--reference--group-012.md#canonical-6190ade493b1ed35635e8bbd859ea55b8d40c4ee7b92982ca74e60551341d53a): complete subsection reference.
+- [js_insert_all_pages](data-sources--http_loadbalancer--reference--group-013.md#canonical-1201210022313210-2103230132310311-1203113220232331-2011213222111123-2031100030103232-1323210221200230-2213103212001111-0103100131110322): complete subsection reference.
 
-- [js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217): complete subsection reference.
+- [js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-013.md#canonical-1002312032003332-0230012020321103-3232230121223202-1230021333101322-3200303022333131-1222333332110131-2130122030221110-3200022231020113): complete subsection reference.
 
-- [js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58): complete subsection reference.
+- [js_insertion_rules](data-sources--http_loadbalancer--reference--group-013.md#canonical-1211002210021201-2202322300130310-2023100220133211-1321333331210022-1231132311233203-2212123130220103-2311030203032003-1321023320321120): complete subsection reference.
 
-- [mobile](data-sources--http_loadbalancer--reference--group-013.md#canonical-8c014284d0fc758affbbd6b21b645311b1908ccf2b00227def32fc5d4dbf211e): complete subsection reference.
+- [mobile](data-sources--http_loadbalancer--reference--group-013.md#canonical-2030000110022010-3100333013112022-3333232331122302-0123121011030101-2301210020303033-0223000002021331-3233030233301131-1031233302010132): complete subsection reference.
 
-- [mobile_sdk_config](data-sources--http_loadbalancer--reference--group-013.md#canonical-9196a84c4b6a62f18458b9577ac32708c1ee61c8d748802fcdc651ec0c5aa971): complete subsection reference.
+- [mobile_sdk_config](data-sources--http_loadbalancer--reference--group-013.md#canonical-2101211222201030-1023122212023301-2010112023211113-1322300302130020-3001323212013020-3113102020000233-3031301211013230-0030112222211301): complete subsection reference.
 
-- [web](data-sources--http_loadbalancer--reference--group-013.md#canonical-23e613eea4e58145f953449c30e22b147de3622e4e088180e40dff09aa6f48d4): complete subsection reference.
+- [web](data-sources--http_loadbalancer--reference--group-013.md#canonical-0203321201033232-2210321120011011-3321110310102130-0300320202230110-1331320312020232-1032002020012000-3210003133330021-2222123310203110): complete subsection reference.
 
-<a id="canonical-6978ea0c80ae9036a7bc2842f135279025bbf20c16f1c38deb427b94ae69059d"></a>
+<a id="canonical-1221132032220030-2000223221000312-2213233002201002-3301031102132100-0211232333020030-0112330130032031-3223100213232110-2232122100112131"></a>
 
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile / 5def17712e36 / 4
+## Next pages — both_web_and_mobile / 130102320312 / 4
 
-- [bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert](data-sources--http_loadbalancer--reference--group-012.md#canonical-4f47434a8b6d128ffa3435647af7d5ecb236ed8275423b5d4f7752b05fdfdf76)
-- [bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk](data-sources--http_loadbalancer--reference--group-012.md#canonical-7965e9026d3f452f69f31963e60116f45c648e6ff8e2d66a2e0a131396279142)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages](data-sources--http_loadbalancer--reference--group-012.md#canonical-6190ade493b1ed35635e8bbd859ea55b8d40c4ee7b92982ca74e60551341d53a)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- [bot_defense_advanced_protection.both_web_and_mobile.mobile](data-sources--http_loadbalancer--reference--group-013.md#canonical-8c014284d0fc758affbbd6b21b645311b1908ccf2b00227def32fc5d4dbf211e)
-- [bot_defense_advanced_protection.both_web_and_mobile.mobile_sdk_config](data-sources--http_loadbalancer--reference--group-013.md#canonical-9196a84c4b6a62f18458b9577ac32708c1ee61c8d748802fcdc651ec0c5aa971)
-- [bot_defense_advanced_protection.both_web_and_mobile.web](data-sources--http_loadbalancer--reference--group-013.md#canonical-23e613eea4e58145f953449c30e22b147de3622e4e088180e40dff09aa6f48d4)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert](data-sources--http_loadbalancer--reference--group-012.md#canonical-1033101310031022-2023123101022033-3322031003111210-1322331331113230-2302031232312002-1311100203231131-1033131311022300-1133313331331312)
+- [bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk](data-sources--http_loadbalancer--reference--group-012.md#canonical-1321121132210002-1231033310110233-1221330301211203-3212000101123310-1130121020321233-3320320231121222-0232002201030103-2112021321011002)
+- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages](data-sources--http_loadbalancer--reference--group-013.md#canonical-1201210022313210-2103230132310311-1203113220232331-2011213222111123-2031100030103232-1323210221200230-2213103212001111-0103100131110322)
+- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-013.md#canonical-1002312032003332-0230012020321103-3232230121223202-1230021333101322-3200303022333131-1222333332110131-2130122030221110-3200022231020113)
+- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-013.md#canonical-1211002210021201-2202322300130310-2023100220133211-1321333331210022-1231132311233203-2212123130220103-2311030203032003-1321023320321120)
+- [bot_defense_advanced_protection.both_web_and_mobile.mobile](data-sources--http_loadbalancer--reference--group-013.md#canonical-2030000110022010-3100333013112022-3333232331122302-0123121011030101-2301210020303033-0223000002021331-3233030233301131-1031233302010132)
+- [bot_defense_advanced_protection.both_web_and_mobile.mobile_sdk_config](data-sources--http_loadbalancer--reference--group-013.md#canonical-2101211222201030-1023122212023301-2010112023211113-1322300302130020-3001323212013020-3113102020000233-3031301211013230-0030112222211301)
+- [bot_defense_advanced_protection.both_web_and_mobile.web](data-sources--http_loadbalancer--reference--group-013.md#canonical-0203321201033232-2210321120011011-3321110310102130-0300320202230110-1331320312020232-1032002020012000-3210003133330021-2222123310203110)
+- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-3312111000032123-2113232132201102-2211030313120002-2330103303233223-2011200103223002-1133120323103103-3122020003302002-0023203221322131)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-4f47434a8b6d128ffa3435647af7d5ecb236ed8275423b5d4f7752b05fdfdf76"></a>
+<a id="canonical-1033101310031022-2023123101022033-3322031003111210-1322331331113230-2302031232312002-1311100203231131-1033131311022300-1133313331331312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32b1ff66496159f23340222a19b8485b035026d6af69d7905c27ca927a34c792"></a>
+<a id="canonical-0302230133331212-1021120111213302-0303100002020222-0121232010201123-0003110002123112-2233122131132100-1130021330222102-1322031030132102"></a>
 
-## bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert — bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert / ee6a229f9921 / 2
+## bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert — disable_js_insert / 213321210201 / 2
 
 Breadcrumbs:
 
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-3312111000032123-2113232132201102-2211030313120002-2330103303233223-2011200103223002-1133120323103103-3122020003302002-0023203221322131)
+- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-0133220210311003-1333000131213213-3333222320020122-3333023220121330-3011013203031202-0001313011121300-2211011021121121-1221021231111003)
 - bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert
 
-<a id="canonical-63984634e0205cea365baf6dac0b87723136d1d9d6e798daf003f33c559f6760"></a>
+<a id="canonical-1203212010120310-3200020011303222-0312112322331231-2230002320131302-0301031231013121-3112321321203122-3300000333030330-1111213312131200"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3206,1406 +3951,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-08b601ad9d024f7e7c43ec48b02e42ab489ccd5662eda9119c2b666ca23fae4f"></a>
+<a id="canonical-0020231200012231-2131000210331332-1330100332301020-2300023210022223-1020213030311112-1202323122210101-2130022312121230-2202033322321033"></a>
 
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert / ee6a229f9921 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-907968d34622bcc22814c715900a51775c4da3c820f8a6fd08a609023ac8b663"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.disable_js_insert / ee6a229f9921 / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-7965e9026d3f452f69f31963e60116f45c648e6ff8e2d66a2e0a131396279142"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-421fb1dae9ead8d528ce7866d0ae0541b6d1c791805f27e4a647a2d00aa7036b"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk — bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk / d0188c27cec3 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk
-
-<a id="canonical-48ac927c3948c936e2c29bcfe370ff786194aae3b3524b1ef3503ca1da4274d5"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-bcbc75fdae587ba04b075a12445821c076007113a1ac9b3b1d6e2be7ae9824a7"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk / d0188c27cec3 / 3
+## Direct properties — disable_js_insert / 213321210201 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7ed94c4648f1ec4b025688a8a7f76cea1c104cafff6b23f61ef46e66a954949b"></a>
+<a id="canonical-2100132112203103-1012020223303002-0220011030130111-2100002211011313-1130103122033020-0200332022123331-0020221200210002-0322302023121203"></a>
 
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.disable_mobile_sdk / d0188c27cec3 / 4
+## Next pages — disable_js_insert / 213321210201 / 4
 
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
+- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-0133220210311003-1333000131213213-3333222320020122-3333023220121330-3011013203031202-0001313011121300-2211011021121121-1221021231111003)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
-<a id="canonical-6190ade493b1ed35635e8bbd859ea55b8d40c4ee7b92982ca74e60551341d53a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-e68eb5637d22201968a9df55a349cde52311215098d7cfd944c28717b37c57b6"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages / 043d6aa1ac4f / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages
-
-<a id="canonical-8147fb56643e9b3f6a0530fd8dae64f8ae3303bde9b7e4875e029721a257b31f"></a>
-
-Type: `"single"`. Computed.
-
-Insert Bot Defense JavaScript in all pages.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f4a89d3d42663e25146bc91f5843041eae70076ae8ad38009a6200775b5062e0"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages / 043d6aa1ac4f / 3
-
-<a id="canonical-7931721624ebf3667aa275796c9ebcb51c0c3c0355678c20651778639484600e"></a>
-
-<a id="canonical-2f43ac329549fec0b25e6e6c15836cf62a3777ce03c42f20ca67b768671f300c"></a>
-
-## javascript_location property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages / 043d6aa1ac4f / 4
-
-Type: `"string"`. Computed.
-
-\[Enum: AFTER\_HEAD|AFTER\_TITLE\_END|BEFORE\_SCRIPT\] All inside networks. Insert JavaScript after
-&lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert JavaScript before first tag.
-Possible values are \`AFTER\_HEAD\`, \`AFTER\_TITLE\_END\`, \`BEFORE\_SCRIPT\`. Defaults to
-\`AFTER\_HEAD\`.
-
-Upstream description:
-
-All inside networks.
-
-Insert JavaScript after &lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert
-JavaScript before first tag.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "AFTER_HEAD",
-  "enum": [
-    "AFTER_HEAD",
-    "AFTER_TITLE_END",
-    "BEFORE_SCRIPT"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1ea1035ab196485b4cb3704763440f3290a71f98a6bd1f1771723343bd292153"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages / 043d6aa1ac4f / 5
-
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217"></a>
+<a id="canonical-1321121132210002-1231033310110233-1221330301211203-3212000101123310-1130121020321233-3320320231121222-0232002201030103-2112021321011002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-40f7279da49c6787c8fb786e11192a7173989a17d4cb1fcde77ea9428d843873"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except / c20777bd9876 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except
-
-<a id="canonical-d8c726105704065977ed54cf0d0e407ebef582ad6adea0e15e3adb841121ddec"></a>
-
-Type: `"single"`. Computed.
-
-Insert Bot Defense JavaScript in all pages with the exceptions.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2622c452d7b6d1391bb8c98756b3223b179d8cfa73730a55de30b0d05252fc74"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except / c20777bd9876 / 3
-
-- [exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7): complete subsection reference.
-
-<a id="canonical-81bf6d274a69c827001452af1511ac446a801af28e4a1f94116bd11133a2063f"></a>
-
-<a id="canonical-d0eb4df32baa656ca64609a9ecd3ec7cf0272239d8a93f242c4ac89810c922e0"></a>
-
-## javascript_location property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except / c20777bd9876 / 4
-
-Type: `"string"`. Computed.
-
-\[Enum: AFTER\_HEAD|AFTER\_TITLE\_END|BEFORE\_SCRIPT\] All inside networks. Insert JavaScript after
-&lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert JavaScript before first tag.
-Possible values are \`AFTER\_HEAD\`, \`AFTER\_TITLE\_END\`, \`BEFORE\_SCRIPT\`. Defaults to
-\`AFTER\_HEAD\`.
-
-Upstream description:
-
-All inside networks.
-
-Insert JavaScript after &lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert
-JavaScript before first tag.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "AFTER_HEAD",
-  "enum": [
-    "AFTER_HEAD",
-    "AFTER_TITLE_END",
-    "BEFORE_SCRIPT"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-dbe6d0b9e86f94b63a490db2a6b53acbf448a013abd1250264cab7fba1422f01"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except / c20777bd9876 / 5
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0fb659b8ad0de526e43ddcdc47b87b984221fa2504a6f4572c91c5dd4654dd46"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / f01b61adf69d / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list
-
-<a id="canonical-a02908aec700e8820b9ed33cedc1d7cd659520a8c214eab8a4ca4fda49c918ab"></a>
-
-Type: `"list"`. Computed.
-
-Optional JavaScript insertions exclude list of domain and path matchers.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-07e39870fd4544a3e48394120fbf62969059eeb1cc946c6c00a03fde2a9dbefd"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / f01b61adf69d / 3
-
-- [any_domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-10634dacae21e1aae4077e999429d3051dd77bf8c99c6d33d78c7e2d77d4e177): complete subsection reference.
-
-- [domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-c5b3ce589cff8cad91ebdfbf1e20a2c9f0594ae9f84c4730d7fcea989c89149d): complete subsection reference.
-
-- [metadata](data-sources--http_loadbalancer--reference--group-012.md#canonical-a60b3ce4a3e38968d2d544eb3e5cf5a3c144fff99fb9e2baf0d2dc9a7cea702c): complete subsection reference.
-
-- [path](data-sources--http_loadbalancer--reference--group-012.md#canonical-20a619d86750032142858d1d0a3997c2f7305b00cbe95588d4dba4c0fb46673b): complete subsection reference.
-
-<a id="canonical-65692d614b3705944d8392cbbe0061b56be069e90839a56153333a55d92f30f2"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / f01b61adf69d / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.any_domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-10634dacae21e1aae4077e999429d3051dd77bf8c99c6d33d78c7e2d77d4e177)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-c5b3ce589cff8cad91ebdfbf1e20a2c9f0594ae9f84c4730d7fcea989c89149d)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.metadata](data-sources--http_loadbalancer--reference--group-012.md#canonical-a60b3ce4a3e38968d2d544eb3e5cf5a3c144fff99fb9e2baf0d2dc9a7cea702c)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.path](data-sources--http_loadbalancer--reference--group-012.md#canonical-20a619d86750032142858d1d0a3997c2f7305b00cbe95588d4dba4c0fb46673b)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-10634dacae21e1aae4077e999429d3051dd77bf8c99c6d33d78c7e2d77d4e177"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-5ed0556cd1a8c34b1cdd94cf3c549efee4437c68aca2dc36ac51c45b17dc64e2"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.any_domain — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 76f3a4251da4 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.any_domain
-
-<a id="canonical-287e6f9ccea32359357be04109973ed4636f7472973222fe16778ce06d52abea"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f24ccfa47b4127e839dbe0c15dbfef8d9158e4bbf3089c5cdd8faa3dd7f69c90"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 76f3a4251da4 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-a2bb7dce9aa8e97a6b5bbad6adcacdddf63bb2b1845ee46b4a4992300dde0b8b"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 76f3a4251da4 / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-c5b3ce589cff8cad91ebdfbf1e20a2c9f0594ae9f84c4730d7fcea989c89149d"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-451b22f78a4352740652c46f1687046d8cee068437a347e19b0dc043bd6038f1"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.domain — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.domain
-
-<a id="canonical-d7de3429b9da6ebf46343544977b77f66f0ef70ff5330ebf9659a5426f1feb16"></a>
-
-Type: `"single"`. Computed.
-
-Domain name for routing and identification.
-
-Upstream description:
-
-Domains names.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-domain_choice": "[\"exact_value\",\"regex_value\",\"suffix_value\"]"
-}
-```
-
-<a id="canonical-08a3b30b2c4625901390bfcc416c214224fa536d3569ef3b7ea4a4f08271f102"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 3
-
-<a id="canonical-93fbf5c725deea02ba6185ff1a450d16c7de72f69dc1dbca4f682f4710e9bdac"></a>
-
-<a id="canonical-7f7e4b5dc23d66612cfc89673cd23a3fde035a4a5c024fc710be1ba91f952857"></a>
-
-## exact_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Upstream description:
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-43bf3d02b7c98147fa73ff5ddffa50851dc339cbce6715c4a30c61945c51a5f3"></a>
-
-<a id="canonical-1a4d1206d6a632f2582853f4c1cd2c867bb4484ffb2ae380948e4f2f22b48eca"></a>
-
-## regex_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  }
-}
-```
-
-<a id="canonical-10a341dc53b3d34d81297b856bb39e0cb40bbed92548f2a280c3924c634dd2bb"></a>
-
-<a id="canonical-7155bab20b7b5c11211a0b2eaeed751e2a34eb31dffbfd4744e073d314ffdc54"></a>
-
-## suffix_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 6
-
-Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
-'\*.xyz.com' and 'xyz.com'.
-
-Upstream description:
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
-"\*.xyz.com" and "xyz.com"
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-2030dcf6628608b778e7e54a9a44ba00c445492a91ea627d1d05f32f37d064b4"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 4b7dce6b0257 / 7
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-a60b3ce4a3e38968d2d544eb3e5cf5a3c144fff99fb9e2baf0d2dc9a7cea702c"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-c471b4ddeedf8a5485d496ab574d7962b5ad3f85a725ccf05740d060900f3fa7"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.metadata — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 8500976372b9 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.metadata
-
-<a id="canonical-eb1d627febfae22a1893dc4b9dfb5b729c0fd797cf1ca4cafab029d305edb7f3"></a>
-
-Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during create
-and replace APIs.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-7c3707eac1e4f5a3c99d26fa62ed118ec38a13a4023690167262bf3e026d2433"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 8500976372b9 / 3
-
-<a id="canonical-21f5226566f6c8b8cf9ed5121f876f4ae0ec9f8aad02a5d9f15aa52f2ae9dd74"></a>
-
-<a id="canonical-82a9b20dff6f454942bb2434f407434646523fe95ea331787947a80202960940"></a>
-
-## description_spec property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 8500976372b9 / 4
-
-Type: `"string"`. Computed.
-
-Description. Human readable description.
-
-<a id="canonical-53cb816f4aece41ae4024ec3dd9ca68d7f39ee72e01758888bfc877bc431d9f8"></a>
-
-<a id="canonical-1b72b92ebaf333c6d6d798c660605e4a2be6ff24b0d79d93dc77fe00be3edd9b"></a>
-
-## name property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 8500976372b9 / 5
-
-Type: `"string"`. Computed.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
-
-This is the name of the message. The value of name has to follow DNS-1035 format.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.ves_object_name": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.ves_object_name": "true"
-  }
-}
-```
-
-<a id="canonical-9a1b79392a1b9dbab20d7bbb60d21b18ab50ae8fe3d62e010aea58123ef4912a"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 8500976372b9 / 6
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-20a619d86750032142858d1d0a3997c2f7305b00cbe95588d4dba4c0fb46673b"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6ae1247a5ba34071addf0b980ccb17b0ec528764f09fbc57d37eebf9eff85c60"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.path — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except](data-sources--http_loadbalancer--reference--group-012.md#canonical-42d8e0fe2c188e53eeb19ae26c27f47ae0ccafdd6affe51d9c68ca54e02ad217)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list.path
-
-<a id="canonical-9150521627f02b0e0dd8b691a16bcdaf1570756bc3d38c61ecd9f821aadf23ab"></a>
-
-Type: `"single"`. Computed.
-
-Path match of the URI can be either be, Prefix match or exact match or regular expression match.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-path_match": "[\"path\",\"prefix\",\"regex\"]"
-}
-```
-
-<a id="canonical-cf46e510464ab5807ef226bebf34820bc3db87bac2718936b95cce39307d56a3"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 3
-
-<a id="canonical-130ce40bd2842fff3eb84a9cdfe5243af87feccf063895f41d3d32fb0d922ab0"></a>
-
-<a id="canonical-2356c7c594466085def84c21ef355c2f6971effdd5ec7cf35faaa6d423d75400"></a>
-
-## path property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[prefix regex\] Exact path value to match.
-
-Upstream description:
-
-Exclusive with \[prefix regex\] Exact path value to match.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[/a-zA-Z0-9._-]+$"
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.http_path": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.http_path": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-a272c7735732a021c52b2f716cc429dd2dabc2e8b9aa660ababb705e2a005f74"></a>
-
-<a id="canonical-3b5de89c753925644b13d49e33a9f1ac1bead12dae54f5ccf2dbdc1b23843e9e"></a>
-
-## prefix property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
-
-Upstream description:
-
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.http_path": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.http_path": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-b7537002179db1829ac7b2411d2ebb60247bac4c24f7b47a8e134a0f3496c639"></a>
-
-<a id="canonical-ab79a3724ede107fcfc07222c420e49913f5462034c0003343d632f950642549"></a>
-
-## regex property — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 6
-
-Type: `"string"`. Computed.
-
-Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
-all paths).
-
-Upstream description:
-
-Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
-all paths)
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 256,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "256",
-    "ves.io.schema.rules.string.min_bytes": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "256",
-    "ves.io.schema.rules.string.min_bytes": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  }
-}
-```
-
-<a id="canonical-143dde1f9c97bd68440ecc4fffdc45b6fe208a5b8d765973302cb0dcf53ad48c"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.e / 1a645d9f85e0 / 7
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insert_all_pages_except.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-91d4edc9be721f092fc1f371ac916a46a8e484c10c2a3b547601181a2f13ecb7)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-7cab7342bbbbbdf71c609db38f87dfaed79157d6f949804c5dfbec93b0dc8bbc"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules / f25d32250802 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules
-
-<a id="canonical-4d8e773ea182e8c3a642bfa64b3fb354a03b43006de1965b7ba332056e826450"></a>
-
-Type: `"single"`. Computed.
-
-Defines custom JavaScript insertion rules for Bot Defense Policy.
-
-Upstream description:
-
-This defines custom JavaScript insertion rules for Bot Defense Policy.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-6f9b819c27d97853e89f5f4402128342cac3bb4c9e0be7a2825427a4ab12f7d2"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules / f25d32250802 / 3
-
-- [exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377): complete subsection reference.
-
-- [rules](data-sources--http_loadbalancer--reference--group-013.md#canonical-a0571087c2a049ebf2eee426cae76d45413f209c6d434181e11e5d7815e74adb): complete subsection reference.
-
-<a id="canonical-8c91696210e7a4d224bac7ad81baeeb102288ad75af4d2479bc9f67aafb3593e"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules / f25d32250802 / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.rules](data-sources--http_loadbalancer--reference--group-013.md#canonical-a0571087c2a049ebf2eee426cae76d45413f209c6d434181e11e5d7815e74adb)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-d93a062ae52412c3ad831703024e49f8329639c6578a37d5d8b0e2ec6bd7b312"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 075cdfd24a2b / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list
-
-<a id="canonical-5a155e93e9fbdb826efaabecc88a9f19ac4eed5a5acdf92d5b6622b119487e32"></a>
-
-Type: `"list"`. Computed.
-
-Optional JavaScript insertions exclude list of domain and path matchers.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-eae3bedda7ee63f9386591e76dc7c920ac0205d7829035cf449c25eb76b38714"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 075cdfd24a2b / 3
-
-- [any_domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-b75d7e5b87bfbb7ff78909eb0fd42524fbf9429383cd28d6a9a3967a89d4e18a): complete subsection reference.
-
-- [domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-af247ca5cc53a330a783b6b62a6e69d2ba1865b534a6e9580829212c1123c7c5): complete subsection reference.
-
-- [metadata](data-sources--http_loadbalancer--reference--group-012.md#canonical-553fe913ec0080cbc05b29eb3dd66473fd2e867a76f5f6dc7cdfe472e0ffc3bb): complete subsection reference.
-
-- [path](data-sources--http_loadbalancer--reference--group-013.md#canonical-4ebd2bdc216db4a1646a08b696c2beb3ef9d4393682471d1a5ca3ea299ff22d8): complete subsection reference.
-
-<a id="canonical-8b3674b1811c2ce1e7956c5f495aa3cacdd655d24175beeff19c512499b7b6d3"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 075cdfd24a2b / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.any_domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-b75d7e5b87bfbb7ff78909eb0fd42524fbf9429383cd28d6a9a3967a89d4e18a)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.domain](data-sources--http_loadbalancer--reference--group-012.md#canonical-af247ca5cc53a330a783b6b62a6e69d2ba1865b534a6e9580829212c1123c7c5)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.metadata](data-sources--http_loadbalancer--reference--group-012.md#canonical-553fe913ec0080cbc05b29eb3dd66473fd2e867a76f5f6dc7cdfe472e0ffc3bb)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.path](data-sources--http_loadbalancer--reference--group-013.md#canonical-4ebd2bdc216db4a1646a08b696c2beb3ef9d4393682471d1a5ca3ea299ff22d8)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-b75d7e5b87bfbb7ff78909eb0fd42524fbf9429383cd28d6a9a3967a89d4e18a"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-4fd6dea13c52f34de2de0b38fc192ee3961b4894f1ae6faa6c13c19d00747948"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.any_domain — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 8852160455f3 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.any_domain
-
-<a id="canonical-c77ab1828b0571ce9e08474b2f6ce3bfc92a5d12982a294d4b32dd345cf71b16"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-f4df10e354eddcfea2f0ea2fb802bffcd23b2715e91db4e4b708a37b63f9fab0"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 8852160455f3 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-4a62948fdf2f7d594679ef60934e9a483d01b94eb4e752b79c7a314065871ab4"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 8852160455f3 / 4
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-af247ca5cc53a330a783b6b62a6e69d2ba1865b534a6e9580829212c1123c7c5"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-12475e6c17dabaf15c43879c9b78195b62327d00677e8f13f90f6a65b86d3bff"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.domain — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.domain
-
-<a id="canonical-e0c707b0e45039e85d8e53ea60304725d4362b620d8cef58e7836b28c25c2d2e"></a>
-
-Type: `"single"`. Computed.
-
-Domain name for routing and identification.
-
-Upstream description:
-
-Domains names.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-domain_choice": "[\"exact_value\",\"regex_value\",\"suffix_value\"]"
-}
-```
-
-<a id="canonical-19f4ac54d5446769e55e2f6fef31933f5a30d2787802bd6667ca6292ec016b36"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 3
-
-<a id="canonical-3c70cb5437d2a01ab480ffc08dd8d9ca8b168e1bcc657d5c3be2c77115b647d3"></a>
-
-<a id="canonical-8e23b6861ee671e794e6fbe5b7acd7d00b86be7f875ecbeb41a200b238c81983"></a>
-
-## exact_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Upstream description:
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-ae0370fcac2fe4d0d89455b0a3ee8c60b8e1476442d5d9f9bd523a64a0de08f4"></a>
-
-<a id="canonical-47e4bdc48ce4deb11525dda9fefa6dcaa8f33e3167cff19596c73f9e1767dfa8"></a>
-
-## regex_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 5
-
-Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  }
-}
-```
-
-<a id="canonical-e8908eff50fa58b191c70379c692d124467c6abc299ee60406565ed2206df5bd"></a>
-
-<a id="canonical-03119da05f88a34f3b88105cd2e104afdafd99c67ecc9aa5f3ce12b7503a45a7"></a>
-
-## suffix_value property — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 6
-
-Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
-'\*.xyz.com' and 'xyz.com'.
-
-Upstream description:
-
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
-"\*.xyz.com" and "xyz.com"
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-2feeb27a990ca9d0f184f4b137b394f7daf948da82c467c3d916bc5d06f705d7"></a>
-
-## Next pages — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 24f31f7d69f2 / 7
-
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-
-<a id="canonical-553fe913ec0080cbc05b29eb3dd66473fd2e867a76f5f6dc7cdfe472e0ffc3bb"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-6433374b976af39155fe5ced2a043cd04161d9da38a2df8faa9baba8e6f969db"></a>
-
-## bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.metadata — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 01fb2ff637e3 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
-- [bot_defense_advanced_protection](data-sources--http_loadbalancer--reference--group-012.md#canonical-f654039b97b9e852a5337602bc4f3beb85813ac25f63b4d3da203c820b8e9e9d)
-- [bot_defense_advanced_protection.both_web_and_mobile](data-sources--http_loadbalancer--reference--group-012.md#canonical-1fa24d437f01d9e7ffab821aff2e867cc51e336201dc5670a51496596926d543)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules](data-sources--http_loadbalancer--reference--group-012.md#canonical-650a4261a2eb07348b4287e579ffd90a6d7b5be3a66dca13b5323383792f8e58)
-- [bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list](data-sources--http_loadbalancer--reference--group-012.md#canonical-f2dae3ad02022938cdde6747f41ee3930084d66fd26e741799c1376beffd7377)
-- bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_list.metadata
-
-<a id="canonical-5690c6ff0d762199179238e925c97234237b6a4333283faa1e6fe59604b09261"></a>
-
-Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during create
-and replace APIs.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-8c64c99726a620577c57c58aeecc4e67b3443c6e403b86e6932e4e438b69aaf9"></a>
-
-## Direct properties — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 01fb2ff637e3 / 3
-
-<a id="canonical-14a792c3d1a984447b98a9446ee0305d103b471403c5b0979c940efaf6a0e8dc"></a>
-
-<a id="canonical-bd9df573687d88153a1513828c90225778b788afd9862b429abf6d32976f8971"></a>
-
-## description_spec property — bot_defense_advanced_protection.both_web_and_mobile.js_insertion_rules.exclude_l / 01fb2ff637e3 / 4
-
-Type: `"string"`. Computed.
-
-Description. Human readable description.
-
-<a id="canonical-da4388ad545b2fe1579d15c3e361368203c5abb3bb12cd9d7240bbf3323d0a26"></a>

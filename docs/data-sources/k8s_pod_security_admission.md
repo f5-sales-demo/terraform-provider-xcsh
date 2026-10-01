@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_k8s_pod_security_adm
 
 # xcsh_k8s_pod_security_admission landing
 
-<a id="canonical-88ae5d168b412044bc8417c7ce5983a32c7859a06953fb6b8556ed0a1d095187"></a>
+<a id="canonical-2020223211310112-2023100102001010-2330201001133013-3032112120032203-0230132011212200-1221110333231223-2011111232310022-0131002111012013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-06a1dc0e03bfa920db6b33abcf53ee76bf6584a4623372f5e14949e1d55c0f03"></a>
+<a id="canonical-0012220131300032-0003233322210200-3123122303032223-3033110332321312-2333121120102210-1202030313023311-3201102110213201-3111113000330003"></a>
 
-## xcsh_k8s_pod_security_admission — xcsh_k8s_pod_security_admission / da950a4438f4 / 2
+## xcsh_k8s_pod_security_admission — xcsh_k8s_pod_security_admission / 101003203310 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_admission will create the object in the storage backend in F5
 Distributed Cloud.
 
-<a id="canonical-160b785f2aca27f72e3332d2e87f526fa341089da4c7bd3d5b1ad5137450b057"></a>
+<a id="canonical-0112002313201133-0222302202133313-0232030303023102-3220133311021233-2203100100202131-2210301323310331-1123012231110103-1310110023001113"></a>
 
-## Prerequisites — xcsh_k8s_pod_security_admission / da950a4438f4 / 3
+## Prerequisites — xcsh_k8s_pod_security_admission / 101003203310 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-fed4bdc8ebc2d4e10e79a47c6a910a25df0aa03bce3c6d85e94391ca58b2a311"></a>
+<a id="canonical-3332311023313020-3223300231103201-0032132122101330-1222210100220211-3133002222000323-3032033012312011-3221100321013022-1120230222030101"></a>
 
-## Minimal configuration — xcsh_k8s_pod_security_admission / da950a4438f4 / 4
+## Minimal configuration — xcsh_k8s_pod_security_admission / 101003203310 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "k8s_pod_security_admission_id" {
 }
 ```
 
-<a id="canonical-d12882eaaec18a47f0f01180cdf65493b6d91b3e534b0a038cc1a681f59ac516"></a>
+<a id="canonical-3101022020023222-2232300120221013-3300330001012000-3031331211102103-2312312101230332-1103102300220003-2030300122122001-3311212230110112"></a>
 
-## Root configuration — xcsh_k8s_pod_security_admission / da950a4438f4 / 5
+## Root configuration — xcsh_k8s_pod_security_admission / 101003203310 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-df9466e905367202e675b0e91c9bb527550464fa6173887455be912b731b31af"></a>
+<a id="canonical-3133211012123221-0011031213020002-3212131123003221-0130212323110213-1111001012103322-1201130320201310-1111233221010223-1303012303012233"></a>
 
-## Next pages — xcsh_k8s_pod_security_admission / da950a4438f4 / 6
+## Next pages — xcsh_k8s_pod_security_admission / 101003203310 / 6
 
-- [Property reference](../guides/data-sources--k8s_pod_security_admission--reference--group-001.md#canonical-5fd005062b9320a2068df985e51783fcea0f0a0befdb9d79d80f0e2c81436219)
-- [Examples](../guides/data-sources--k8s_pod_security_admission--examples--group-001.md#canonical-5a85d8d1b4c7cefa592434cedd4b2c9208658b616ce6e1b1a3785f38c70c6370)
+- [Property reference](../guides/data-sources--k8s_pod_security_admission--reference--group-001.md#canonical-1133310000110012-0223210302002202-0012203133212011-3211011320033330-3222003300220023-3233312321311321-3120003300320230-2001100312020121)
+- [Examples](../guides/data-sources--k8s_pod_security_admission--examples--group-001.md#canonical-1122201131203101-2310301330323322-1121021003103032-3131102302302102-0020121120231201-1230321232012301-2203132011330320-3013003012031300)

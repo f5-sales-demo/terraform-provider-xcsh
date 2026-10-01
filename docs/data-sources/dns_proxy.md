@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_proxy landing."
 
 # xcsh_dns_proxy landing
 
-<a id="canonical-5a1e27cfe185ad04f3b462669b6039f0dc05fd23851daabf1cdff6983bd6f1d6"></a>
+<a id="canonical-1122013202133033-3201201122310010-3303231012021212-2123120003213300-3130001133310203-2011013122222333-0130313333122120-0323311233013112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b9f1d2d2431591adacaaf1ab7ab10116848e55a601813add65eb8cd323bff8d9"></a>
+<a id="canonical-2321330131023102-1003011121012231-2230222233012223-1322230100010112-2010203211112212-0001200103223131-1211322320303103-0203233333203121"></a>
 
-## xcsh_dns_proxy — xcsh_dns_proxy / be8b851e479e / 2
+## xcsh_dns_proxy — xcsh_dns_proxy / 013210132132 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-<a id="canonical-4d6a74336fa3ffd12a9783c7610906eb49fae7bf69afe15cbf4a78a473999b0f"></a>
+<a id="canonical-1031122213100303-1233220333333101-0222211320033013-1201002100123223-1021332232132333-1221223332011130-2333102213202210-1303212121230033"></a>
 
-## Prerequisites — xcsh_dns_proxy / be8b851e479e / 3
+## Prerequisites — xcsh_dns_proxy / 013210132132 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-10f97d29bb82504ed45092aaf4b0a9b2ee5489439e474099264e69b94512e4b8"></a>
+<a id="canonical-0100332113310221-2323200211001032-3110110021022222-3310230022212302-3232111020211003-2132101310002121-0212103212212321-1011010232102320"></a>
 
-## Minimal configuration — xcsh_dns_proxy / be8b851e479e / 4
+## Minimal configuration — xcsh_dns_proxy / 013210132132 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "dns_proxy_id" {
 }
 ```
 
-<a id="canonical-be56d19d4301360ad772ae7cc5afc0cd7129558869ea3e1971bc72162c5a22f3"></a>
+<a id="canonical-2332111231012131-1003000103120022-3113130222321330-3011223330003031-1301022111112020-1221322203320121-1301233013020112-0230112202023303"></a>
 
-## Root configuration — xcsh_dns_proxy / be8b851e479e / 5
+## Root configuration — xcsh_dns_proxy / 013210132132 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-51a62addf2240134bc3c1518ff298dd158e529d579a3377628f7d09dc7ad699c"></a>
+<a id="canonical-1101221202223131-3302021000010310-2330033001110120-3333022120313101-1120321102213111-1321220303131312-0220331331002131-3013223112212130"></a>
 
-## Next pages — xcsh_dns_proxy / be8b851e479e / 6
+## Next pages — xcsh_dns_proxy / 013210132132 / 6
 
-- [Property reference](../guides/data-sources--dns_proxy--reference--group-001.md#canonical-5ff17290d4fe5259d5b90400f5bb92f8e2a7d71f076a1cbc5303680963556408)
-- [Examples](../guides/data-sources--dns_proxy--examples--group-001.md#canonical-d78830af6a6ac5d2c3f1d06ae4583b8e36443c2efd4148677695d0e063893f86)
+- [Property reference](../guides/data-sources--dns_proxy--reference--group-001.md#canonical-1133330113022100-3110333211021121-3111232100100000-3311232321023320-3202221331130133-0013122201302330-1103000312200021-1203111112100020)
+- [Examples](../guides/data-sources--dns_proxy--examples--group-001.md#canonical-3113202003002233-1222122230113102-3003330131001222-3210112003232032-0312101003300232-3331100110201213-1312211131003200-1203202103332012)

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 # xcsh_device_intelligence_high_risk_transactions landing
 
-<a id="canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53"></a>
+<a id="canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f9426558c8363eebed0fd2ea99d85818d513e96fc5e24ea9ffa5af2e7755807e"></a>
+<a id="canonical-3321100212111120-3020031203323223-3231003331023222-2121312011200120-3111010332211233-3011320210322221-3333221122330232-1313111120001332"></a>
 
-## xcsh_device_intelligence_high_risk_transactions — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 2
+## xcsh_device_intelligence_high_risk_transactions — xcsh_device_intelligence_high_risk_transactions / 121322003313 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-<a id="canonical-a2a931497a93aca0b468039f2931a38096ec0b1aa6c98f46f6e4d7189cc7fc56"></a>
+<a id="canonical-2202222103011021-1322210322302200-2310122000032133-0221030122032000-2112323000230122-2212302120331012-3312321031130120-2130301333301112"></a>
 
-## Prerequisites — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 3
+## Prerequisites — xcsh_device_intelligence_high_risk_transactions / 121322003313 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-f98a8000b0b5724c75f982b2ee69c55c4e7091486be0f947baa242af5a2eb831"></a>
+<a id="canonical-3321202220000000-2300231113021030-1311332120022302-3232122130111130-1032130021011020-1223320033211013-2322220210022233-1122023223200301"></a>
 
-## Minimal configuration — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 4
+## Minimal configuration — xcsh_device_intelligence_high_risk_transactions / 121322003313 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "device_intelligence_high_risk_transactions_result" {
 }
 ```
 
-<a id="canonical-e786bd7a42f882c6b93690bd48dbac29daabffdc6b58ea6e53eb66a92d5932f8"></a>
+<a id="canonical-3213201223311322-1002332020023012-2321031221002331-1020312322300221-3122222333333130-1223112032221232-1103322312122221-0231112103023320"></a>
 
-## Root configuration — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 5
+## Root configuration — xcsh_device_intelligence_high_risk_transactions / 121322003313 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-8cba23b3979461c18b43ecef0046fe754beffd7e89f506021d1d6caa4fe03401"></a>
+<a id="canonical-2030232202032303-2113211012013001-2023100332303233-0000101233321311-1023323333311332-2021331100120002-0131013112302222-1033320003100001"></a>
 
-## Next pages — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 6
+## Next pages — xcsh_device_intelligence_high_risk_transactions / 121322003313 / 6
 
-- [Property reference](../guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
-- [Examples](../guides/data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-d966d8a36af7cefa045e7fbb075fac0386a0f18bc0a3d6461456996da2f07cba)
+- [Property reference](../guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [Examples](../guides/data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-3121121231202203-1222331330323322-0010113213332323-0013113322300003-2012220033012023-3000220331121012-0110111221211231-2202330013302322)

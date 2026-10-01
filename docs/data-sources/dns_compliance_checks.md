@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_dns_compliance_check
 
 # xcsh_dns_compliance_checks landing
 
-<a id="canonical-0df8fdb3734c554a4a4bef589f19acd0c3a88fa45c35acb7d5923f8e5221913a"></a>
+<a id="canonical-0031332033312303-1303103011111022-1022102332331120-2133012122303100-3003222020332210-1130031122302313-3111210203332032-1102020121010322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-944f4c14f076c05f5bbade701280c0d0ac4a2e1755b22670ea449e835e86a522"></a>
+<a id="canonical-2110103310300110-3300131230001133-1123232231321300-0102200030003100-2230102202320113-1111230202121300-3222101021322003-1132201222110202"></a>
 
-## xcsh_dns_compliance_checks — xcsh_dns_compliance_checks / b96ebfdb45d1 / 2
+## xcsh_dns_compliance_checks — xcsh_dns_compliance_checks / 312310113101 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-<a id="canonical-bda72e591d82b8f20c1866bd8ad84c42d029922b294fe088dac54f45171c63ee"></a>
+<a id="canonical-2331221302321121-0131200223203302-0030012012122331-2022312010301002-3100022121020223-0221103332002020-3122301110331011-0113013012033232"></a>
 
-## Prerequisites — xcsh_dns_compliance_checks / b96ebfdb45d1 / 3
+## Prerequisites — xcsh_dns_compliance_checks / 312310113101 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-6438411de113570233f7719c8c32064aa0b204c820b51d12fc0ae7ef4c4807c5"></a>
+<a id="canonical-1210032010010131-3201010311130002-0303331313012130-2030030200121022-2200230200103020-0200231101310102-3330002232133233-1030102000133011"></a>
 
-## Minimal configuration — xcsh_dns_compliance_checks / b96ebfdb45d1 / 4
+## Minimal configuration — xcsh_dns_compliance_checks / 312310113101 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "dns_compliance_checks_id" {
 }
 ```
 
-<a id="canonical-76944ea472dadf13248ba14c9dd9d37d8ecc92926f13e039e3fcf131beedd866"></a>
+<a id="canonical-1312211010322210-1302312231330103-0210202322011030-2131312131031331-2032303021022102-1233010332000321-3203333033010301-2332323131201212"></a>
 
-## Root configuration — xcsh_dns_compliance_checks / b96ebfdb45d1 / 5
+## Root configuration — xcsh_dns_compliance_checks / 312310113101 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-827bc211d853b3902048e713f098569a6b99a9d1c1298d5401fe718da108d89d"></a>
+<a id="canonical-2002132330020101-3120110323032100-0200102032130103-3300212011122122-1223212122213101-3001022120311110-0001333213012031-2201002031202131"></a>
 
-## Next pages — xcsh_dns_compliance_checks / b96ebfdb45d1 / 6
+## Next pages — xcsh_dns_compliance_checks / 312310113101 / 6
 
-- [Property reference](../guides/data-sources--dns_compliance_checks--reference--group-001.md#canonical-3c742fd4796a81209dac248974569ee528b2f8284b59ae8fbf6e8838bda5854f)
-- [Examples](../guides/data-sources--dns_compliance_checks--examples--group-001.md#canonical-4d7fc5bbbfd3c706332c0069b37f53e2833a6ae6f0cfc87068d5fd48be9cbaab)
+- [Property reference](../guides/data-sources--dns_compliance_checks--reference--group-001.md#canonical-0330131002333110-1321122220010200-2131223002102021-1310111221323211-0220230233200220-1023112122322033-2333123220200320-2331221120111033)
+- [Examples](../guides/data-sources--dns_compliance_checks--examples--group-001.md#canonical-1031133330112323-2333310330130012-0303023000001221-2303133311033202-2003032212223212-3300303330201300-1220311133311020-2332213023222223)

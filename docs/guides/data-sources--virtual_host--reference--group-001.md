@@ -6,30 +6,30 @@ description: "Complete grouped canonical reference for xcsh_virtual_host referen
 
 # xcsh_virtual_host reference
 
-<a id="canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d"></a>
+<a id="canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f4a11f5d7e44f89caa74a09328bc67e10a1193ca5348f707f412a2615f8a3ea2"></a>
+<a id="canonical-3310220101331131-1332101033202130-2222131022002103-0220233012133201-0022010121033022-1103102033130013-3310010222021201-1133202203322202"></a>
 
-## Property reference — Property reference / 4ebaf40b9c3f / 2
+## Property reference — Property reference / 002321300333 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 - Property reference
 
-<a id="canonical-9da0e4e0bfb7dcf5075575bb4aea5866b0f4d3e9fa56d6aa56a8e7ab3da8145e"></a>
+<a id="canonical-2131220032103200-2333231331303311-0013111113112323-1022322211201212-2300331031033221-3322111231122222-1112222032132223-0331222001101132"></a>
 
-## Direct properties — Property reference / 4ebaf40b9c3f / 3
+## Direct properties — Property reference / 002321300333 / 3
 
-<a id="canonical-4c76d0e23eac1ec0f39f17987a8c2ce6ca00f963a1f58d4726b7e56003a45e56"></a>
+<a id="canonical-1030131231003202-0332223001323000-3303213301132120-1322203002303212-3022000033211203-2201331120311013-0212231332111200-0003221011321112"></a>
 
-<a id="canonical-91dca04137d2f9b417e6cfd22065041426ae4129e99e7c19500c106a974ef799"></a>
+<a id="canonical-2101313022001001-0313310233212310-0113321230333102-0200121100100110-0212223210010221-3221213213300121-1100003001001222-2113103233132121"></a>
 
-## add_location property — Property reference / 4ebaf40b9c3f / 4
+## add_location property — Property reference / 002321300333 / 4
 
 Type: `"bool"`. Computed.
 
@@ -54,13 +54,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-1021cfe9bb5566ddd87b255a7eccf4493464e67a5a1f176e3667d41f4f67d516): complete subsection reference.
+- [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-0100020130333221-2323111112123131-3120132302111122-1332303033101021-0310121032121322-1122013301131232-0312121331100133-1033121331110112): complete subsection reference.
 
-<a id="canonical-a4e2ec726d8c0568aaa80e5e912e98f1d2914fd2aec364168e7f101dc9d8b82f"></a>
+<a id="canonical-2210320232301302-1231203000111220-2222222000321132-2101023221203301-3102210110333102-2232300312100112-2032133301000131-3021312023200233"></a>
 
-<a id="canonical-285d93fa1693206db0c098c2a79ebb18c12128a6e78be1d9dff0af08ea8f911b"></a>
+<a id="canonical-0220113121033322-0112210302001231-2300300021203002-2213213223230120-3001020102202212-3213202332013121-3133330022330020-3222203321010123"></a>
 
-## annotations property — Property reference / 4ebaf40b9c3f / 5
+## annotations property — Property reference / 002321300333 / 5
 
 Type: `["map", "string"]`. Computed.
 
@@ -68,7 +68,7 @@ Annotations applied to this resource.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -97,11 +97,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3b5e1c2baafdbb27b339acc6521212d06ff95a39c4cd403097fcc2395aaa73e3"></a>
+<a id="canonical-0323113201300223-2222333123230213-2303032122303012-1102010201023100-1233332111220321-3010303110000300-2113333030020321-1122222213033203"></a>
 
-<a id="canonical-103207491a0ac639d6fbd2e0c1cf39ec1b070a5bdbdf4e7f073f0fba1ff00adf"></a>
+<a id="canonical-0100030200131021-0122002230120321-3112332331023200-3001303303213230-0123001300221123-3123313310321333-0013033300332322-0133330000223133"></a>
 
-## append_server_name property — Property reference / 4ebaf40b9c3f / 6
+## append_server_name property — Property reference / 002321300333 / 6
 
 Type: `"string"`. Computed.
 
@@ -149,28 +149,28 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [append_server_name](data-sources--virtual_host--reference--group-001.md#canonical-3b5e1c2baafdbb27b339acc6521212d06ff95a39c4cd403097fcc2395aaa73e3)
-- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-1db43c5339da33f1c2a8f4536a86d2286e9309f41d9b07058244c35b01325b12)
-- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-85b1046ead71ab45112df5f0a65c1bb1a1473365aa0626737f0354f3b3cc8339)
-- [server_name](data-sources--virtual_host--reference--group-001.md#canonical-807e60475c19e2d90c79afea33ef50293340f687899143ddbdfe578428d0af2b)
+- [append_server_name](data-sources--virtual_host--reference--group-001.md#canonical-0323113201300223-2222333123230213-2303032122303012-1102010201023100-1233332111220321-3010303110000300-2113333030020321-1122222213033203)
+- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-0131231003301103-0321312203033301-3002222033101103-1222201231020220-1232210300213310-0131212300130011-2002101030031123-0001030211230102)
+- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-2011230100101232-2231130122231011-0101023133113300-2212113001232301-2201101303031211-2222001202121303-1333000311103303-2303303020030321)
+- [server_name](data-sources--virtual_host--reference--group-001.md#canonical-2000133212001013-1130012132023121-0030132122333222-0303323311000221-0303100033122013-2021210110033131-2331333211132010-0220310022330223)
 
 Select alternatives according to the provider validators above.
 
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660): complete subsection reference.
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200): complete subsection reference.
 
-- [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-67c6bb4057c626103a8169b0ef713a2bdb3c67563949f25de13828f8d848654f): complete subsection reference.
+- [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-1213301223231000-1113301202120100-0322200112212300-3233130103220223-3123033012131112-0321102133021131-3201032002203320-3120102012111033): complete subsection reference.
 
-- [captcha_challenge](data-sources--virtual_host--reference--group-001.md#canonical-cce1978f17446fe7bf3d9c0dd2a62ce4ea2a4f0e13f8fd7f2ffff4c33710c445): complete subsection reference.
+- [captcha_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3030320121132033-0113101012333213-2333033121300031-3102221202303210-3222022210330032-0103332033311333-0233333333103003-0313010030101011): complete subsection reference.
 
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705): complete subsection reference.
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011): complete subsection reference.
 
-- [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-175e663c8201caf980e21bdc50984a06a8b563d7d07c88dfceb91ced493567cd): complete subsection reference.
+- [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-0113113212120330-2002000130223321-2000320201233130-1100212010220012-2220231112033113-3100133020203133-3032232101303231-1021031112133031): complete subsection reference.
 
-<a id="canonical-5d032c217cda296ab82cdb0ed7f1575bcf1d816f114761007ec8b424ee561cc6"></a>
+<a id="canonical-1131000302300201-1330312202211222-2320023031230032-3113330111131123-3033013120011233-0101101312010000-1332302023100210-3232111201303012"></a>
 
-<a id="canonical-bef653d47fca40a8211b6e9f099927a563470cb6ec413c7fa999e4ba2449c35e"></a>
+<a id="canonical-2332331211033110-1333302210002220-0201012312322133-0021212102132211-1203101300302312-3230100103301333-2221212132102322-0210102130031132"></a>
 
-## connection_idle_timeout property — Property reference / 4ebaf40b9c3f / 7
+## connection_idle_timeout property — Property reference / 002321300333 / 7
 
 Type: `"number"`. Computed.
 
@@ -214,15 +214,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-a4ecd779378b174be7fa310c13ecda6cf2402208e2a96236ae26a14b61393c5b): complete subsection reference.
+- [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-2210323031131321-0313202301131023-3213332203010030-0103323031221230-3302100002020020-3202222112020312-2232021222011023-1201032103301123): complete subsection reference.
 
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6): complete subsection reference.
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012): complete subsection reference.
 
-<a id="canonical-35fd48a5e8c713e17130bbfddbf55b4d16fb23b4406be1c67fe7c6728afa2069"></a>
+<a id="canonical-0311333110202211-3220301301033201-1301030023233331-3123331111231031-0112332302032310-1000122332013012-1333321330121302-2022332202001221"></a>
 
-<a id="canonical-785624200382a742fd1c8acafcf5412fb0da29fb1259a00d311598d4d022ea20"></a>
+<a id="canonical-1320111202100200-0003200222131002-3331013020223022-3330331110010233-2300312202213323-0102112122000031-0301011121203110-3100020232220200"></a>
 
-## custom_errors property — Property reference / 4ebaf40b9c3f / 8
+## custom_errors property — Property reference / 002321300333 / 8
 
 Type: `["map", "string"]`. Computed.
 
@@ -275,15 +275,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-2ba5db0f8ddd27b58c29095c0986c994d4d2c03100a06100429e44c738a20fe4): complete subsection reference.
+- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-0223221131230033-2031313102132311-2030022100211130-0021201230212110-3110310230000301-0000220012010000-1002213210103013-0320220200333210): complete subsection reference.
 
-- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-be86a1bd888037fdc3242c0d59516ab12221888e99a192b774b252f4409bcb2d): complete subsection reference.
+- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2332201222012331-2020200003133331-3003021002300031-1121110112222301-0202020120202032-2121220121022313-1310230211023310-1000212330230231): complete subsection reference.
 
-<a id="canonical-46948f8280ae95e32d371a1172e2c9d9acd18c6e01002a4cbb3efb752518b30b"></a>
+<a id="canonical-1012211020332002-2000223221113203-0231031301220101-1302320230213121-2230310120301232-0001000002221030-2323033233231311-0211012023030023"></a>
 
-<a id="canonical-443e64d2ff2b226a1bd36de03ac54d06c504674afede9598d701c5886ca41b84"></a>
+<a id="canonical-1010033212103102-3333022302021222-0123310312313200-0322301110310012-3011001012131022-3332313221112120-3113000130112020-1230221001232010"></a>
 
-## description property — Property reference / 4ebaf40b9c3f / 9
+## description property — Property reference / 002321300333 / 9
 
 Type: `"string"`. Computed.
 
@@ -331,11 +331,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f16c72ae3bcc3d8cac5f7843160cdc623973296cb1b09a90a138d19ec34d17f2"></a>
+<a id="canonical-3301123013022232-0323303003312030-2230113313201003-0112003031301202-0321130302211230-2301230021222100-2201032031012132-3003103101133302"></a>
 
-<a id="canonical-3326c12877f1aaf7e2cd135457bafbe99049b7fc38aead0e51f9fbd9763f2ae1"></a>
+<a id="canonical-0303021230010220-1313330122223313-3202303101031110-1113232233233221-2100102123133330-0320223222310032-1101332133233121-1312033302223201"></a>
 
-## disable_default_error_pages property — Property reference / 4ebaf40b9c3f / 10
+## disable_default_error_pages property — Property reference / 002321300333 / 10
 
 Type: `"bool"`. Computed.
 
@@ -358,11 +358,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-99a1e2187f0839f820e3f970b5b1f890ac850359518999444e89fca7d1478ae7"></a>
+<a id="canonical-2121220132020120-1333002003213320-0200320333211300-2311230133202100-2230201100031121-1101202121211010-1032202133302213-3101101320223213"></a>
 
-<a id="canonical-0efc1fa1cf2a17cae0bf236f093eacd379834e0296f39eb83c7927bd72ebb3af"></a>
+<a id="canonical-0032333001332201-3033022201133022-3200233302031233-0021033222303103-1321200310320002-2112330321322320-0330132102132331-1302322323032233"></a>
 
-## disable_dns_resolve property — Property reference / 4ebaf40b9c3f / 11
+## disable_dns_resolve property — Property reference / 002321300333 / 11
 
 Type: `"bool"`. Computed.
 
@@ -390,13 +390,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-fbdf7fd14ab032fa59e6f0edf908260deddc86d23ea5ac6cb183d78a9e97ca96): complete subsection reference.
+- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-3323313313333101-1022230003023322-1121321233003231-3321002002120031-3231313020123102-0332221122301230-2301200331132022-2132211330222112): complete subsection reference.
 
-<a id="canonical-814abfd8d9cf74c76f884a731cfe874889873929cba0b6326d61bd8ee6593631"></a>
+<a id="canonical-2001102223333120-3121303313103013-1233202010221303-0130333220131020-2021201303210221-3023220023120302-1231120123312032-3212112103120301"></a>
 
-<a id="canonical-9c59d87b3b672c46a402c86c4b5580292c852d162d2345eba16ca75bcc3295ce"></a>
+<a id="canonical-2130112131201323-0323121302301012-2210000230201230-1023111120000221-0230201102310112-0231020310113223-2201123022131123-3030030221113032"></a>
 
-## domains property — Property reference / 4ebaf40b9c3f / 12
+## domains property — Property reference / 002321300333 / 12
 
 Type: `["list", "string"]`. Computed.
 
@@ -462,27 +462,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-b8e8c7fcb7321f9bdf837de330392a7f4162a7567cf7f68cb61c12c9040bbf3e): complete subsection reference.
+- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-2320322030133330-2313030201332123-3133200313313203-0300032102221333-1001120222131112-1330331333122030-2312013001023021-0010002323330332): complete subsection reference.
 
-- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-1171379e2864a9edbff9631c19170289cd393aea92e23cbd8fbf34b9e78ce7e2): complete subsection reference.
+- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-0101130103132132-0220121022213231-2333332112030130-0121011300022021-3031032103223222-2102320203302331-2033233303102321-3213203032133202): complete subsection reference.
 
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a): complete subsection reference.
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022): complete subsection reference.
 
-<a id="canonical-1b808917fd4454059d2eda60727a70b2399a47a295ba874467131f5bf7a0ab73"></a>
+<a id="canonical-0123200020210113-3331101011100011-2131023231221200-1302132213002302-0321212210132202-2111232220131010-1213010301331123-3313220022231303"></a>
 
-<a id="canonical-081ff71b08c61fefb1562756a643692e81a279fcb9fcf7f381f8234264f4874c"></a>
+<a id="canonical-0020013333130123-0020301201333233-2301111202131112-2212100312210232-2001220213213330-2321333033133303-2001332002031002-1210331020131030"></a>
 
-## id property — Property reference / 4ebaf40b9c3f / 13
+## ID property — Property reference / 002321300333 / 13
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-<a id="canonical-8e2b523893827a3093e3ebadae8845b18aaaba93d9c3f8dd8f0ee8da00e7ceeb"></a>
+<a id="canonical-2032022311020320-2103200213220300-2103320332232231-2232202010112301-2022222223222103-3121300333203131-2033003232203122-0000321330323223"></a>
 
-<a id="canonical-13d9b2ff82d7dd5d2bb4fd705be0dd08411ca480147475b0215c82c648cdcf25"></a>
+<a id="canonical-0103312123023333-2002311331311131-0223231033311300-1123320031310020-1001013022102000-0110131013112300-0201113020023012-1020303130330211"></a>
 
-## idle_timeout property — Property reference / 4ebaf40b9c3f / 14
+## idle_timeout property — Property reference / 002321300333 / 14
 
 Type: `"number"`. Computed.
 
@@ -523,13 +523,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-35d4e92967faff2a93e6f02288638f65dd0c817f65630593c95b78f48dc76894): complete subsection reference.
+- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0311311032210221-1213332233330222-2103321233000202-2020120320331211-3131003020011333-1211120300112103-3021112313203310-2031301312202110): complete subsection reference.
 
-<a id="canonical-b943740f4c151f3ba4125e1dd5c831b0abad9648e22dd96639ab1184d184afc5"></a>
+<a id="canonical-2321100313100033-1030011101330323-2210010211320131-3111302003012300-2223223121121020-3202023131211212-0321222301012010-3101201022333011"></a>
 
-<a id="canonical-4bb9cb1c266782f739a11c74d73c158d03a2d730e74d5acdfe1713c8c83c6411"></a>
+<a id="canonical-1023232130230130-0212121320023313-0321220101301310-3113033001112031-0003220231130300-3213103111223031-3332011301033020-3020033012100101"></a>
 
-## labels property — Property reference / 4ebaf40b9c3f / 15
+## labels property — Property reference / 002321300333 / 15
 
 Type: `["map", "string"]`. Computed.
 
@@ -553,11 +553,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-56c468ea0fe91490925c5123a2e75de8db686219727436d2e739f60f938bc28f"></a>
+<a id="canonical-1112301012203222-0033322101102100-2102113011010203-2202321311313220-3123122012020121-1302131003123102-3213032133120033-2103202330022033"></a>
 
-<a id="canonical-04055a1aaa1fed27be907fc6be11831e030a72b06f1f00b5ad2704414eeac340"></a>
+<a id="canonical-0010001111220122-2222013332310213-2332210013333012-2332010120030132-0003002213022300-1233013300002311-2231021300101001-1032322230031000"></a>
 
-## max_request_header_size property — Property reference / 4ebaf40b9c3f / 16
+## max_request_header_size property — Property reference / 002321300333 / 16
 
 Type: `"number"`. Computed.
 
@@ -608,11 +608,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9836c09b914be170027f862463b99a79363a3720c3f2586e1632509bf7d3658f"></a>
+<a id="canonical-2120031230002123-2101102332011300-0002133320120210-1203232121221321-0312032203130200-3003330211201232-0112030211002123-3313310312112033"></a>
 
-<a id="canonical-375be9842cf7562dd1f5fa8d14d0eb5694d009615293b74bfd794217ed6e77d3"></a>
+<a id="canonical-0313112332212010-0230331311120231-3101331133222031-0110310032231112-2110310000211201-1102210323131023-3331132110020113-3231123213133103"></a>
 
-## max_requests_per_connection property — Property reference / 4ebaf40b9c3f / 17
+## max_requests_per_connection property — Property reference / 002321300333 / 17
 
 Type: `"number"`. Computed.
 
@@ -659,16 +659,16 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [max_requests_per_connection](data-sources--virtual_host--reference--group-001.md#canonical-9836c09b914be170027f862463b99a79363a3720c3f2586e1632509bf7d3658f)
-- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-aab4430cdc26268dd04c870fd9a8040e5206acac957535669f5b3b0ec91639e3)
+- [max_requests_per_connection](data-sources--virtual_host--reference--group-001.md#canonical-2120031230002123-2101102332011300-0002133320120210-1203232121221321-0312032203130200-3003330211201232-0112030211002123-3313310312112033)
+- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-2222231010030030-3130021202122031-3100103020130033-3121222000100032-1102001222302230-2111131103111212-2133112303230032-3021011203213203)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-1f10a3621eb1c513986c298ddb6f85bff8d360d5130151826fe97cd8fee8ce11"></a>
+<a id="canonical-0133010022031202-0132230130110103-2120123002212031-3123123320112333-3320310312003111-0103000111012002-1233322113303120-3332322030320101"></a>
 
-<a id="canonical-d95d1462494eb38ae9698ebee05450f12e443eda500bf27f514daeee580b3882"></a>
+<a id="canonical-3121113101101202-1021103223032022-3221122120322332-3200111011003301-0232101003323122-1100002333021333-1101103122323232-1120002303202002"></a>
 
-## name property — Property reference / 4ebaf40b9c3f / 18
+## name property — Property reference / 002321300333 / 18
 
 Type: `"string"`. Required.
 
@@ -724,11 +724,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-53a039a7b5c06f6febd76ca4ccc5eb4ad29f8d07e4645ce10e2c4df03f967767"></a>
+<a id="canonical-1103220003212213-2311300012331233-3223311312302210-3030301132231022-3102213320310013-3210121011303201-0032023010313300-0333211213131213"></a>
 
-<a id="canonical-0ff8af1fdd3edead943c3ded79624b85abc227415b582bb5312bc4c945dfe92b"></a>
+<a id="canonical-0033332022330133-3131033231322231-2110033003313231-1321120210232011-2223300202131001-1123112002232311-0301022330103021-1011313332210223"></a>
 
-## namespace property — Property reference / 4ebaf40b9c3f / 19
+## namespace property — Property reference / 002321300333 / 19
 
 Type: `"string"`. Required.
 
@@ -777,21 +777,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-6fd9adf9858ac044d27f69605c0da0afab5ae1521dd18568d820e2c4370a249b): complete subsection reference.
+- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-1233312122313321-2011202230001010-3102133312211200-1130003122002233-2223112232011102-0131310120111220-3120020032023010-0313002202102123): complete subsection reference.
 
-- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-d44525cc14415a80f6e329d02112bdf067ba82809fab4500bda9866ea672ad6f): complete subsection reference.
+- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3110101102113030-0110100111222000-3312320302213100-0201010223313300-1213232220022000-2133222310110000-2331222120121232-2212130222311233): complete subsection reference.
 
-- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-545aca29b311fea151c0f133136e8abac4d81e741b6298394ac83aad08e117f3): complete subsection reference.
+- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-1110112230220221-2303010133322201-1101300033010303-0103123220222322-3010312001321310-0123120221200321-1022302003222231-0020320101133303): complete subsection reference.
 
-- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-8b5b859bf066db8c50680f61439eb6236af261b0f24ab581d2fa842959be914d): complete subsection reference.
+- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2023112320112123-3300121231232030-1100122000331201-1003213223120203-1222330212012300-3302102223112001-3102332220100221-1121233221011031): complete subsection reference.
 
-- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-62dbd01f9aad94f490c77cc7b4d61c54a4fe212c25d4796a116058d8f3256475): complete subsection reference.
+- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-1202312331000133-2122223121103310-2100301313303013-2310311201301110-2210333202010230-0211311013211222-0101120011203120-3303021112101311): complete subsection reference.
 
-<a id="canonical-8f57e684607e734a5ccff4418e117cdd235cf71faacf03b03f00cf4b88c86e7d"></a>
+<a id="canonical-2033111332122010-1200133213031022-1130303333101001-2032010113303131-0203113033130133-2222303300032300-0333000030331023-2020302012321331"></a>
 
-<a id="canonical-e1ff0d2f56ef04c6b28168ba3035b88fdb4fe837cb52c0dd2288023944eea218"></a>
+<a id="canonical-3201333300310233-1112323300103012-2302200112202322-0300031123202033-3123103332200313-3023110230003131-0202202000020321-1010323222020120"></a>
 
-## proxy property — Property reference / 4ebaf40b9c3f / 20
+## proxy property — Property reference / 002321300333 / 20
 
 Type: `"string"`. Computed.
 
@@ -881,15 +881,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-5fd02a3e53a4014bceaf5d9ab95dd66a94fd084b4552ea6670553171736272ca): complete subsection reference.
+- [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-1133310002220332-1103221000011023-3032223311312122-2321113131121222-2110333100201023-1011110232221212-1300111103011301-1303120213023022): complete subsection reference.
 
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a): complete subsection reference.
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022): complete subsection reference.
 
-<a id="canonical-d9f8c7954f38a11d2d16afcf05ffcc400572468f198e1e960443db5efd45fe32"></a>
+<a id="canonical-3121332030132111-1033032022010131-0231011222333033-0011333330301000-0011130210122033-0121203201322112-0010100331231132-3331101133320302"></a>
 
-<a id="canonical-d05e1e1cd438c609b3430c94fe2b46479226f2fd8782c123e868fefa3c6700a8"></a>
+<a id="canonical-3100113201320130-3110032030120021-2303100300302110-3332022310121013-2102021233023331-2013200230010203-3220122033323322-0330121300002220"></a>
 
-## request_cookies_to_remove property — Property reference / 4ebaf40b9c3f / 21
+## request_cookies_to_remove property — Property reference / 002321300333 / 21
 
 Type: `["list", "string"]`. Computed.
 
@@ -933,13 +933,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17): complete subsection reference.
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113): complete subsection reference.
 
-<a id="canonical-1eb0b6363b51fa35a0417472f20cc4ad60afc1c6c6e3d301423ce48a993582d4"></a>
+<a id="canonical-0132230023120312-0323110133220311-2200100113101302-3302003030102231-1200223330013012-3012320331030001-1002033032102022-2121031120023110"></a>
 
-<a id="canonical-38018ad4f3b117374162a68a57af126200b15594218e58c066e7953f6e3d9d05"></a>
+<a id="canonical-0320000120223110-3303230101130313-1001120222122022-1113223301021202-0000230111112110-0201203211203000-1212321321110333-1232033121310011"></a>
 
-## request_headers_to_remove property — Property reference / 4ebaf40b9c3f / 22
+## request_headers_to_remove property — Property reference / 002321300333 / 22
 
 Type: `["list", "string"]`. Computed.
 
@@ -979,13 +979,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca): complete subsection reference.
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022): complete subsection reference.
 
-<a id="canonical-8617633d0f2d1ae4771d64a479397b4a8363a20e7ed095581c299971fae384c0"></a>
+<a id="canonical-2012011312030331-0033023101223210-1313013112102210-1321032113231022-2003120322020032-1332310021111120-0130022121211301-3322320320103000"></a>
 
-<a id="canonical-1b3e80c73348da6af4440db196f38c608df5ea5ec1cfc17fc6e9327122d9d395"></a>
+<a id="canonical-0123033220003013-0303102031221222-3310101000312301-2112330320301200-2031331132221132-3001303330011333-3012322103021301-0202312131032111"></a>
 
-## response_cookies_to_remove property — Property reference / 4ebaf40b9c3f / 23
+## response_cookies_to_remove property — Property reference / 002321300333 / 23
 
 Type: `["list", "string"]`. Computed.
 
@@ -1030,13 +1030,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597): complete subsection reference.
+- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113): complete subsection reference.
 
-<a id="canonical-0ffb469e9294b334fdde156a38b7328d2ea14f3faf5649fe75b0e54f4cd541e0"></a>
+<a id="canonical-0033332310122132-2102211023030310-3331313201111222-0320231303022031-0232220110330333-2233111210213332-1311230032111033-1030311110013200"></a>
 
-<a id="canonical-d9e1031baf28b8898fac729f491fe7605487c2854c433b72d5f134cbccaa1289"></a>
+<a id="canonical-3121320100030123-2233022023202021-2033223013022133-1021013332131200-1110201330022011-1030100303231302-3111330103103023-3030222201022021"></a>
 
-## response_headers_to_remove property — Property reference / 4ebaf40b9c3f / 24
+## response_headers_to_remove property — Property reference / 002321300333 / 24
 
 Type: `["list", "string"]`. Computed.
 
@@ -1076,17 +1076,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [retry_policy](data-sources--virtual_host--reference--group-002.md#canonical-4934cf1290ecb6b5c3257959b6affcf382a8a9611d4070478d2b7a96a328bd49): complete subsection reference.
+- [retry_policy](data-sources--virtual_host--reference--group-003.md#canonical-1021031030330102-2100323023122311-3003021113211121-2312223333303303-2002222022211201-0131100013001013-2031022313222112-2203022023311021): complete subsection reference.
 
-- [routes](data-sources--virtual_host--reference--group-002.md#canonical-e51606ec3c960457562b22f8d862e9f0eb68742c034a1b4373e9a7b926a9d694): complete subsection reference.
+- [routes](data-sources--virtual_host--reference--group-003.md#canonical-3211011200123230-0330211200101113-1112022302023320-3120120232213300-3223122013100230-0003102201231003-1303322122132321-0212222131122110): complete subsection reference.
 
-- [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-5570059452e7a42407d2b110e7733a91dd1e1471402407dd0b9bd2b2184c3e65): complete subsection reference.
+- [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-1111130000112110-1102321322100210-0013310223010100-3213130303222101-3131013201101301-1000021000133131-0023212331022302-0120103003321211): complete subsection reference.
 
-<a id="canonical-807e60475c19e2d90c79afea33ef50293340f687899143ddbdfe578428d0af2b"></a>
+<a id="canonical-2000133212001013-1130012132023121-0030132122333222-0303323311000221-0303100033122013-2021210110033131-2331333211132010-0220310022330223"></a>
 
-<a id="canonical-b6c1ef74f77740c34b6f2195e9a066e4e112bbf1637511ed760790a4eaad5d1e"></a>
+<a id="canonical-2312300132331310-3313131310003003-1023123302012111-3221220012123210-3201010223233301-1203131101013231-1312001321002210-3222223111310132"></a>
 
-## server_name property — Property reference / 4ebaf40b9c3f / 25
+## server_name property — Property reference / 002321300333 / 25
 
 Type: `"string"`. Computed.
 
@@ -1131,375 +1131,375 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-88cb41571444c3a26fbfd8e039fa894468f209f6f9fb8b8397263ebd3c25f6e5): complete subsection reference.
+- [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-2020302310011113-0110101030032202-1233233331203200-0321332220211010-1220330200213312-3321332320232003-2113021203322331-0330021133123211): complete subsection reference.
 
-- [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-b9382842870e321acdf7016c1135e4f94dee90a091f8f06bcfcf3b5ed7401575): complete subsection reference.
+- [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-2321032002201002-2013003203020122-3031331300011230-0101031132103321-1031323221002200-2101332033001223-3033303303231132-3113100001111311): complete subsection reference.
 
-- [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-59249dd40b384286e5ea9bb6fe59217d37819dc7d52c503f41d2d418369ea741): complete subsection reference.
+- [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-1121021021313110-0023032010022012-3211322221232312-3332112102011331-0313200121313013-3111023011000333-1001310231100120-0312213222131001): complete subsection reference.
 
-- [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-42caf6807b285559de11020a7412783936bce26b48dc1c3b083cd332528d2cb1): complete subsection reference.
+- [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-1002302233122000-1323022011111121-3132010100020022-1310010213200321-0312233032021223-1020313001300323-0020033031030302-1102203102302301): complete subsection reference.
 
-- [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-f7cff9cfeb2dd8157227422588b288998707fc74cf1aa6fbdb624a059e568bc1): complete subsection reference.
+- [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-3313303333213033-3223023131200111-1302021310020211-2020230220202121-2013001333301310-3033012222123323-3123120210220011-2132111220233001): complete subsection reference.
 
-<a id="canonical-4fba7ae8f957ce10eb12c44c40c0dfbad122b193552681519eebb439aa51d039"></a>
+<a id="canonical-1033232213223220-3321111330320100-3223010230101030-1000300031332322-3101020223012103-1111021220011101-2132322323100321-2222110131000321"></a>
 
-## All schema paths — Property reference / 4ebaf40b9c3f / 26
+## All schema paths — Property reference / 002321300333 / 26
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `add_location` | [add_location](data-sources--virtual_host--reference--group-001.md#canonical-4c76d0e23eac1ec0f39f17987a8c2ce6ca00f963a1f58d4726b7e56003a45e56) |
-| `advertise_policies` | [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-05494ad126ed1d3d8ba1432041ec4189d78e08a936c599cded20b69ba316aa25) |
-| `advertise_policies.kind` | [advertise_policies.kind](data-sources--virtual_host--reference--group-001.md#canonical-c7b24cfc89036f33952d2fd6110ca9692c01fba3b742a6a66bad6b7fe9759928) |
-| `advertise_policies.name` | [advertise_policies.name](data-sources--virtual_host--reference--group-001.md#canonical-c2ccbc9a8a9e9ba0c51d2d9c344fd40c818dba19fbedc83d5c7e5dda5402e09e) |
-| `advertise_policies.namespace` | [advertise_policies.namespace](data-sources--virtual_host--reference--group-001.md#canonical-d9eb86e615062680ce1019603c57547768149d62cb983cdfdc0cb423040af98f) |
-| `advertise_policies.tenant` | [advertise_policies.tenant](data-sources--virtual_host--reference--group-001.md#canonical-f7223ce543c2df2c1540a8e008b1e6acde62ab3d3c49c63effcbe42fffbe8005) |
-| `advertise_policies.uid` | [advertise_policies.uid](data-sources--virtual_host--reference--group-001.md#canonical-c96b2044c69182ac5db579740ac35f3ed0dc7b7a06d6f9d6c68aaf4c58fafa2b) |
-| `annotations` | [annotations](data-sources--virtual_host--reference--group-001.md#canonical-a4e2ec726d8c0568aaa80e5e912e98f1d2914fd2aec364168e7f101dc9d8b82f) |
-| `append_server_name` | [append_server_name](data-sources--virtual_host--reference--group-001.md#canonical-3b5e1c2baafdbb27b339acc6521212d06ff95a39c4cd403097fcc2395aaa73e3) |
-| `authentication` | [authentication](data-sources--virtual_host--reference--group-001.md#canonical-545d089bac57d022dd93f2f3a9229a961d1ed6d51b8979e737d8f6507e2aa40e) |
-| `authentication.auth_config` | [authentication.auth_config](data-sources--virtual_host--reference--group-001.md#canonical-432e29e671ba2a926c08990f17d6508c1241450e6e6b14a0682008e22d75d3c9) |
-| `authentication.auth_config.kind` | [authentication.auth_config.kind](data-sources--virtual_host--reference--group-001.md#canonical-2b283c1a1d34b26c560827e967be9b9d7427d7b6cbb1a2548e9fd5daf1e87e78) |
-| `authentication.auth_config.name` | [authentication.auth_config.name](data-sources--virtual_host--reference--group-001.md#canonical-93216c981497701474c8bb072c2e7d2d840b948c81d14b9502535ced6ce18b1d) |
-| `authentication.auth_config.namespace` | [authentication.auth_config.namespace](data-sources--virtual_host--reference--group-001.md#canonical-ebf7f8d4f9606c5a964019f9b31958b4b94af96ae491d855775592378db883ed) |
-| `authentication.auth_config.tenant` | [authentication.auth_config.tenant](data-sources--virtual_host--reference--group-001.md#canonical-f7831c240b154a2a979c7e4b426e09e32b9beb61d27086d011855baad5d048df) |
-| `authentication.auth_config.uid` | [authentication.auth_config.uid](data-sources--virtual_host--reference--group-001.md#canonical-7340a4ba0928ae551f1808689d2893076110559fbf13b564a5afdf087b1412d7) |
-| `authentication.cookie_params` | [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-3f8c10ebccfe81c63b92370a682e1acc15a154076d82be89c809465b66f4fb6f) |
-| `authentication.cookie_params.auth_hmac` | [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-aef7595d637d8c179f4df76f8bdea5911b7189356015cd5feef2a633b30ec7ef) |
-| `authentication.cookie_params.auth_hmac.prim_key` | [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-7bddd40bc4d2064bef3369cd7299ca145681cf66e50eea985f2870fb0661f4e4) |
-| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-c0341d65c47e460f596a8091270d8400c47ae79bf344553fcf337852cfc5007c) |
-| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-001.md#canonical-4c5f77d1a5dbd3b7c97d8ffa77201c71efdc5e953b5f03f78fffea3065503bd0) |
-| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.location` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-001.md#canonical-0188008038a59052d496e926585d0c6ce6461346ececa785c4643d4e74cb1431) |
-| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-001.md#canonical-ca9343ebb91dbb37a78509a4b79b83270cea1648be48656d5de5b16f6c1c5ad8) |
-| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-09355611c22c3b0f9ae0e9772b3994622e8db963d66e7a9b530ba5823f3497e5) |
-| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-001.md#canonical-3544944703b5e2476d775b2431e4c242c0f892bf95dd62cb1df8fc5eebae309b) |
-| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.url` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.url](data-sources--virtual_host--reference--group-001.md#canonical-c4236e2869ef013afb8a35f5ef58a0d1b371aae075ed16a82bf2a56643725288) |
-| `authentication.cookie_params.auth_hmac.prim_key_expiry` | [authentication.cookie_params.auth_hmac.prim_key_expiry](data-sources--virtual_host--reference--group-001.md#canonical-f11adc1269cc8a3196f37f64f73aad6c6d3e58b7e903187ca59dee2ef73a2c54) |
-| `authentication.cookie_params.auth_hmac.sec_key` | [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a992fac48d63bcf50835428af8cc39e519ab2ea96e2a6e10c5fed98d015092f7) |
-| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-0ca8b20ed853e4aaa551092427fd6dd3f3aaceaa5201dcff7be414c15bd785d3) |
-| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-001.md#canonical-21ad37a05736aeb27698a9e5937fccf037e0e9beddbadfecda8b5cce2e5557a7) |
-| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.location` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-001.md#canonical-c791032b62709107e5e5022a153d5e282e44f6d0b23e41e945bc803d58c3dab1) |
-| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-001.md#canonical-b2b7869e53882c67bf684e140ba6a2e4c3fa2764cc7349f3b9a95b6c54d70a9a) |
-| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-7d85ecda68dbb92d34f1a32fc48486b062ed2410061dd28f04a57bdbbb4b2742) |
-| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-001.md#canonical-f4c899bdcd373efcc298575bb1247eb7606b139157da8a4a321178d74c2cc779) |
-| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.url` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.url](data-sources--virtual_host--reference--group-001.md#canonical-38bfcbee7fc3b6a2e43a666f44f4d250aec9343b5c40b2e9ada4137bf50515f1) |
-| `authentication.cookie_params.auth_hmac.sec_key_expiry` | [authentication.cookie_params.auth_hmac.sec_key_expiry](data-sources--virtual_host--reference--group-001.md#canonical-d573333500f65ae28a46a28eb4613068fc9474d56542f5087e48db6c71c67d6b) |
-| `authentication.cookie_params.cookie_expiry` | [authentication.cookie_params.cookie_expiry](data-sources--virtual_host--reference--group-001.md#canonical-034b5f1e3779a60c7bc855c5470479941faf8df4dca3e3c48ccbc43283878f7b) |
-| `authentication.cookie_params.cookie_refresh_interval` | [authentication.cookie_params.cookie_refresh_interval](data-sources--virtual_host--reference--group-001.md#canonical-0660651eedcf79a126ac2ab14aa6c68c010766b222fa49ee182c580ef4b1127b) |
-| `authentication.cookie_params.kms_key_hmac` | [authentication.cookie_params.kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-0bf2c24828e319c09f6253cc7cc80a51008086f3085993f4365caed4edf773e1) |
-| `authentication.cookie_params.session_expiry` | [authentication.cookie_params.session_expiry](data-sources--virtual_host--reference--group-001.md#canonical-fb85439fef7c781a9158124c8819940106ffb7351b41919ce09f759b3664577b) |
-| `authentication.redirect_dynamic` | [authentication.redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-2355951834bb37b5c69f3115561b18f77c431cb74e70a148410180684b3358e1) |
-| `authentication.redirect_url` | [authentication.redirect_url](data-sources--virtual_host--reference--group-001.md#canonical-09f89f9369443451dc474e3f055fa399b3dbf6e24b754f3aeefb127b5d3cc6b7) |
-| `authentication.use_auth_object_config` | [authentication.use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-e435948b4c0aa0bf6868c064699abbad12773800cf5acccab7a1a5403bc7b4e5) |
-| `buffer_policy` | [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-571f6f41d81c6e65e1d841cceb9d5ecdc4ec0e5603c345cbadcdf3ca663f1e90) |
-| `buffer_policy.disabled` | [buffer_policy.disabled](data-sources--virtual_host--reference--group-001.md#canonical-accdec73b60de3448f2e425634ac3f50af8bbd97b3c198235a0f274d7f81a096) |
-| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](data-sources--virtual_host--reference--group-001.md#canonical-ae0dc59b0331ea3e2799c396aa7f986ca394b3e4272cfc0e8ec7f26134e4e437) |
-| `captcha_challenge` | [captcha_challenge](data-sources--virtual_host--reference--group-001.md#canonical-3bff95472b997489389cf2f7c2c5183a9a42f9ac1cdcfee69125a1f00eae7087) |
-| `captcha_challenge.cookie_expiry` | [captcha_challenge.cookie_expiry](data-sources--virtual_host--reference--group-001.md#canonical-b738d882bb776eb6864073de272b09b745e5bfc608c0c9dbd1d771508d5f6d19) |
-| `captcha_challenge.custom_page` | [captcha_challenge.custom_page](data-sources--virtual_host--reference--group-001.md#canonical-4bcc08a2b4476c9745ad1f75c41a0270c7b6dbb917dd7b7706f7c943a3762939) |
-| `coalescing_options` | [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-c32e9c2c91a02111b18820cf076c03b93d03a47dbb3f60320151bbfd9fa07fe1) |
-| `coalescing_options.default_coalescing` | [coalescing_options.default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-3e141c92a8b3542f5a934497060e5c156eaade44f25b9aa40b5917412391d941) |
-| `coalescing_options.strict_coalescing` | [coalescing_options.strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-f93a8970153609fab7ae74d14e444c62c2a215e08b02f13b3247f25e29f30bee) |
-| `compression_params` | [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-371420dea8f387a112f8045b268676bd8537814a14e5c594eab27903140dce19) |
-| `compression_params.content_length` | [compression_params.content_length](data-sources--virtual_host--reference--group-002.md#canonical-6290ae6c6709f11f19438b38fd66d40436b1fb2937cbf04c3dfbf2a9ea373223) |
-| `compression_params.content_type` | [compression_params.content_type](data-sources--virtual_host--reference--group-002.md#canonical-d977c3567a3a070c269757e513b5ef7c90a7d747129ab0b47bb62f1b208a3e11) |
-| `compression_params.disable_on_etag_header` | [compression_params.disable_on_etag_header](data-sources--virtual_host--reference--group-002.md#canonical-8d823396df1bc90ad06f0272c574aae4e320929beba249e756b5e16967f61f94) |
-| `compression_params.remove_accept_encoding_header` | [compression_params.remove_accept_encoding_header](data-sources--virtual_host--reference--group-002.md#canonical-7842ee8f6db8a9c5d3337853b35502a1bf9fa5a401bebfe132db88bad7801677) |
-| `connection_idle_timeout` | [connection_idle_timeout](data-sources--virtual_host--reference--group-001.md#canonical-5d032c217cda296ab82cdb0ed7f1575bcf1d816f114761007ec8b424ee561cc6) |
-| `cors_policy` | [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-8029f76942051a56649d4af7cfb097baa2d2b95163103c177bf9ac7bdcabc600) |
-| `cors_policy.allow_credentials` | [cors_policy.allow_credentials](data-sources--virtual_host--reference--group-002.md#canonical-84829179233191f2cb737ea0aeb5f0c87ec1be9a5f6f913b93011f1f735f7e8e) |
-| `cors_policy.allow_headers` | [cors_policy.allow_headers](data-sources--virtual_host--reference--group-002.md#canonical-ff53a860e055ee96273bae6bb4c34cc5cb8d29f141e34129ca0aea3ecca00dd4) |
-| `cors_policy.allow_methods` | [cors_policy.allow_methods](data-sources--virtual_host--reference--group-002.md#canonical-c50f9fbf03cc3fe20f50d762d93d29fd19a737f48cb5f7b28ead3ecc4552c43b) |
-| `cors_policy.allow_origin` | [cors_policy.allow_origin](data-sources--virtual_host--reference--group-002.md#canonical-4bb5aea485eb7effdff0031033a673dbc0262b899a4e4e49b8011b3a05111834) |
-| `cors_policy.allow_origin_regex` | [cors_policy.allow_origin_regex](data-sources--virtual_host--reference--group-002.md#canonical-4cb72b296e1985049897043ce56a3d24cabb822e6739537cd7c2c2aa05b0654e) |
-| `cors_policy.disabled` | [cors_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-e4797bd6b552dfa313b4d5eb82d6f3614f420cfa148a0bab291de8026a8a9415) |
-| `cors_policy.expose_headers` | [cors_policy.expose_headers](data-sources--virtual_host--reference--group-002.md#canonical-bc1a8a5df6d1f0a3ec1f313d07c52ed36e25f2754d563fa1e412df3a52975e54) |
-| `cors_policy.maximum_age` | [cors_policy.maximum_age](data-sources--virtual_host--reference--group-002.md#canonical-fa2a338e7cd18a2e1dfc2979f53a7626d2ef38b97a5e57f48485b1e2f78c9998) |
-| `csrf_policy` | [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-cdadf81518d323a24c95b4a540fcc368734f947f5e5277f695854487b8b7b400) |
-| `csrf_policy.all_load_balancer_domains` | [csrf_policy.all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-5ac40d12ac1fe90bcc33d902c65d860f2fc9abffd31636611b3fa5bb80f57249) |
-| `csrf_policy.custom_domain_list` | [csrf_policy.custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-778a7081ef1667154c4681cb407fd72b0276d3ec3293af36f7baca1494ec9b19) |
-| `csrf_policy.custom_domain_list.domains` | [csrf_policy.custom_domain_list.domains](data-sources--virtual_host--reference--group-002.md#canonical-17c09f70e87d350f220aef66cca398ca17a6a17d797ec069d5560c8c36c58a9e) |
-| `csrf_policy.disabled` | [csrf_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-3b3eb6a71fc1dbaba2504303bef46edf3f7dbb756b68df9ecac48b74387c31fe) |
-| `custom_errors` | [custom_errors](data-sources--virtual_host--reference--group-001.md#canonical-35fd48a5e8c713e17130bbfddbf55b4d16fb23b4406be1c67fe7c6728afa2069) |
-| `default_header` | [default_header](data-sources--virtual_host--reference--group-002.md#canonical-1db43c5339da33f1c2a8f4536a86d2286e9309f41d9b07058244c35b01325b12) |
-| `default_loadbalancer` | [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2393bca9603456e5118af941fbb8a44800e59cf3bfa0ba99f0e7fed04e27f438) |
-| `description` | [description](data-sources--virtual_host--reference--group-001.md#canonical-46948f8280ae95e32d371a1172e2c9d9acd18c6e01002a4cbb3efb752518b30b) |
-| `disable_default_error_pages` | [disable_default_error_pages](data-sources--virtual_host--reference--group-001.md#canonical-f16c72ae3bcc3d8cac5f7843160cdc623973296cb1b09a90a138d19ec34d17f2) |
-| `disable_dns_resolve` | [disable_dns_resolve](data-sources--virtual_host--reference--group-001.md#canonical-99a1e2187f0839f820e3f970b5b1f890ac850359518999444e89fca7d1478ae7) |
-| `disable_path_normalize` | [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-f1495d990daaf02cc2afa0a7d57e14e4e49d847696ade3fe5b735d2a24114f2c) |
-| `domains` | [domains](data-sources--virtual_host--reference--group-001.md#canonical-814abfd8d9cf74c76f884a731cfe874889873929cba0b6326d61bd8ee6593631) |
-| `dynamic_reverse_proxy` | [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-f6043a214957e33bb842cdc42d48bdeced74065fac3db0a95d4b8b7525ac0d2e) |
-| `dynamic_reverse_proxy.connection_timeout` | [dynamic_reverse_proxy.connection_timeout](data-sources--virtual_host--reference--group-002.md#canonical-e5a1e7b3d67d861fe2d459e042014203b8b0925e74099b4b5e7858883db3e19c) |
-| `dynamic_reverse_proxy.resolution_network` | [dynamic_reverse_proxy.resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-cf1d00a7a61beb8a113ba4d1e32f7bb283d45cd78545778b536153cd25931693) |
-| `dynamic_reverse_proxy.resolution_network.kind` | [dynamic_reverse_proxy.resolution_network.kind](data-sources--virtual_host--reference--group-002.md#canonical-f07149fa8f2d9cdd3a298e448d433bdc0f751f56d0f725911b39005d53a4f784) |
-| `dynamic_reverse_proxy.resolution_network.name` | [dynamic_reverse_proxy.resolution_network.name](data-sources--virtual_host--reference--group-002.md#canonical-3ec1ac8ea14ff42ee1e21e69cf21b5b0129c5e2188f5cedcbd040fbef5b2f3a9) |
-| `dynamic_reverse_proxy.resolution_network.namespace` | [dynamic_reverse_proxy.resolution_network.namespace](data-sources--virtual_host--reference--group-002.md#canonical-cc347ae2de0c9ba2ce2089216708fa54aa46aa705a0aab508c052a82d25e998c) |
-| `dynamic_reverse_proxy.resolution_network.tenant` | [dynamic_reverse_proxy.resolution_network.tenant](data-sources--virtual_host--reference--group-002.md#canonical-a967b1bf8cd5e74019bab82995c55b7862ee2e0dc55b165079c7d4a0b3df56f3) |
-| `dynamic_reverse_proxy.resolution_network.uid` | [dynamic_reverse_proxy.resolution_network.uid](data-sources--virtual_host--reference--group-002.md#canonical-5e2dd412116bff9bb84497ecac6c8abc4aa9ddfec2054a6ad5f1af68da403e58) |
-| `dynamic_reverse_proxy.resolution_network_type` | [dynamic_reverse_proxy.resolution_network_type](data-sources--virtual_host--reference--group-002.md#canonical-c47035729c92719f9f6b7f688971663d09b481dbd9155844a3157c983fe93717) |
-| `dynamic_reverse_proxy.resolve_endpoint_dynamically` | [dynamic_reverse_proxy.resolve_endpoint_dynamically](data-sources--virtual_host--reference--group-002.md#canonical-950fdfc61208072977d6af5de3fdbaf966ce149ba87804eadc5f3a4e60882029) |
-| `enable_path_normalize` | [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-212b027873cc3a831d39cc1391c20838522a550bc2066de82e60509f37e8dd36) |
-| `http_protocol_options` | [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-b45f4704e2098f4f35efec5d0287a0adbcf1b6ca5844e04cb7e65a575ff1f297) |
-| `http_protocol_options.http_protocol_enable_v1_only` | [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-9833a9ba874394cd9e5a7523b486c7b43695475ffa606ec8c3e547d734d06aa1) |
-| `http_protocol_options.http_protocol_enable_v1_only.header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-18fadd1917758db465a449070d23ff247f1c36cb5795e9aa020f738bb4d29fed) |
-| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0c6687e127d595e890513e3869fd455127341febe2cfffb2c49d783d250f5773) |
-| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-aff6b9d1cb32a877251a31259db00b624d56832f65fadfd9446c1d766ad9190b) |
-| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-6c82bf72820a713ac74edbccd8cea0198b52713a73de406a11fb5dddf2c6061b) |
-| `http_protocol_options.http_protocol_enable_v1_v2` | [http_protocol_options.http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-f3864f1653d1cbfa6f9f59ddef8d0f91c7b05dc135119d8066c8cee45587be64) |
-| `http_protocol_options.http_protocol_enable_v2_only` | [http_protocol_options.http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-a540c67759efc43fe558b6900c86cf50d3322032559d16284126f2258ae6a92b) |
-| `id` | [id](data-sources--virtual_host--reference--group-001.md#canonical-1b808917fd4454059d2eda60727a70b2399a47a295ba874467131f5bf7a0ab73) |
-| `idle_timeout` | [idle_timeout](data-sources--virtual_host--reference--group-001.md#canonical-8e2b523893827a3093e3ebadae8845b18aaaba93d9c3f8dd8f0ee8da00e7ceeb) |
-| `js_challenge` | [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-6fead0d412383114980e7657466e05e6825f8ea21f77f0cfff01ac7f11f7cf40) |
-| `js_challenge.cookie_expiry` | [js_challenge.cookie_expiry](data-sources--virtual_host--reference--group-002.md#canonical-b75ff2bc483ebbc39c86f7c34209b74f2722de6a8f099e345f6e5b3b45c4b421) |
-| `js_challenge.custom_page` | [js_challenge.custom_page](data-sources--virtual_host--reference--group-002.md#canonical-72b10fbea2de566816df88f765778ed2f47b9a6374dc48679741c29304d5eee5) |
-| `js_challenge.js_script_delay` | [js_challenge.js_script_delay](data-sources--virtual_host--reference--group-002.md#canonical-13628b4d5e0b945a16120939f3d9f9e772006c9b0439ff155a3b3cb356efabac) |
-| `labels` | [labels](data-sources--virtual_host--reference--group-001.md#canonical-b943740f4c151f3ba4125e1dd5c831b0abad9648e22dd96639ab1184d184afc5) |
-| `max_request_header_size` | [max_request_header_size](data-sources--virtual_host--reference--group-001.md#canonical-56c468ea0fe91490925c5123a2e75de8db686219727436d2e739f60f938bc28f) |
-| `max_requests_per_connection` | [max_requests_per_connection](data-sources--virtual_host--reference--group-001.md#canonical-9836c09b914be170027f862463b99a79363a3720c3f2586e1632509bf7d3658f) |
-| `name` | [name](data-sources--virtual_host--reference--group-001.md#canonical-1f10a3621eb1c513986c298ddb6f85bff8d360d5130151826fe97cd8fee8ce11) |
-| `namespace` | [namespace](data-sources--virtual_host--reference--group-001.md#canonical-53a039a7b5c06f6febd76ca4ccc5eb4ad29f8d07e4645ce10e2c4df03f967767) |
-| `no_authentication` | [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-524320b0777e1f50d78a30949d30b94597acbf8a2389b0c8271854f1eef75fd4) |
-| `no_challenge` | [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3f0bdb5749658baa498a33d910c44024358aa16e77e1a62fe2a2b49bfe09053c) |
-| `no_request_limit_per_connection` | [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-aab4430cdc26268dd04c870fd9a8040e5206acac957535669f5b3b0ec91639e3) |
-| `non_default_loadbalancer` | [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-4c2f3a3c6f3ec034edc006c8cbff7413f0ac22898e8d8ea3779a2d86f956d9c3) |
-| `pass_through` | [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-85b1046ead71ab45112df5f0a65c1bb1a1473365aa0626737f0354f3b3cc8339) |
-| `proxy` | [proxy](data-sources--virtual_host--reference--group-001.md#canonical-8f57e684607e734a5ccff4418e117cdd235cf71faacf03b03f00cf4b88c86e7d) |
-| `rate_limiter_allowed_prefixes` | [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-3df10ea042418c3f98638797c2a3b88c40e51e055f8603cc7a55497bc592e0d4) |
-| `rate_limiter_allowed_prefixes.kind` | [rate_limiter_allowed_prefixes.kind](data-sources--virtual_host--reference--group-002.md#canonical-c32a11b6486b38446933a6e0cee529eb85881650a40dbb74c17caccbccbd1bcd) |
-| `rate_limiter_allowed_prefixes.name` | [rate_limiter_allowed_prefixes.name](data-sources--virtual_host--reference--group-002.md#canonical-b031c297824dadaf3e516dd6e2ddbe026cd7a1c24de5502b90a06fe0c32f16f3) |
-| `rate_limiter_allowed_prefixes.namespace` | [rate_limiter_allowed_prefixes.namespace](data-sources--virtual_host--reference--group-002.md#canonical-1bfb76bfafe95aa8ae00f1e222a4b40c38f1b93219ec9ce365095142c488984b) |
-| `rate_limiter_allowed_prefixes.tenant` | [rate_limiter_allowed_prefixes.tenant](data-sources--virtual_host--reference--group-002.md#canonical-3e7b9f690462aeb52e5e7ace32ee8a75e3249673b13336a421cbde62b57cf228) |
-| `rate_limiter_allowed_prefixes.uid` | [rate_limiter_allowed_prefixes.uid](data-sources--virtual_host--reference--group-002.md#canonical-83723f6796b6275b05d97800db3fe6b8204312861395c8453e4b6c113a37263b) |
-| `request_cookies_to_add` | [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-776363ebebcb6241a454d9d20e337a98552f267a3928361042306ab6e36a8d62) |
-| `request_cookies_to_add.name` | [request_cookies_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-e45782640e78e648f2df05a60e62701df398125c24406ef4a1833b98fc219d60) |
-| `request_cookies_to_add.overwrite` | [request_cookies_to_add.overwrite](data-sources--virtual_host--reference--group-002.md#canonical-db16ce1f8cb2e7429ec56120c0a6bb4fb75baa8a4892dac0b05d43f9e7445a25) |
-| `request_cookies_to_add.secret_value` | [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3ace17affd7cf4b8d293f5a6990cd1108ac8924d2361f5293ad4dbc71bbec36a) |
-| `request_cookies_to_add.secret_value.blindfold_secret_info` | [request_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-52f95755b6912b1e92c4e0d76abeb5a1133956a8c87efcda1b23cbbf5a73a8c1) |
-| `request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-05581b4822299bb277086ad9fe01b41d47c077324caf2195d0f31508f9392c63) |
-| `request_cookies_to_add.secret_value.blindfold_secret_info.location` | [request_cookies_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-e381fb78cd600e45a9715ff4208ec325ad9208dc008782e0860c23a0668a09ef) |
-| `request_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [request_cookies_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-3df4cef01ebaa6c38fc3863a4ee397bd40adc35a695c4a8fdf0a67de20b31920) |
-| `request_cookies_to_add.secret_value.clear_secret_info` | [request_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-c8da37600829c08f39ee7d0ab75668cd8c969595274f315c7b0875bef889f4a8) |
-| `request_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [request_cookies_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-ee9c03b5f191210deab87d5a2f5b939c98eb689e3c03bb63a2b674684349d07c) |
-| `request_cookies_to_add.secret_value.clear_secret_info.url` | [request_cookies_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-30e6d50dbd1aeb401bf4a9ceccca5e3f17b0c7166168d3ce25ee05acef773de5) |
-| `request_cookies_to_add.value` | [request_cookies_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-ca57d9fe157c450b5949a03bf5077280f9394dc61b739388b856ecf32d670b43) |
-| `request_cookies_to_remove` | [request_cookies_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-d9f8c7954f38a11d2d16afcf05ffcc400572468f198e1e960443db5efd45fe32) |
-| `request_headers_to_add` | [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-26f55a0b540c1767ac9b07c40e8f4d69de61898fa7f681101abb116b5799e1be) |
-| `request_headers_to_add.append` | [request_headers_to_add.append](data-sources--virtual_host--reference--group-002.md#canonical-150fa57524d7a8ed0fb6638718868e11fac55a371cdad49f444470143b1ec33b) |
-| `request_headers_to_add.name` | [request_headers_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-8713a7dbf6b637110187b3da378c7c2a820ad1793813663875a19162c9f91a20) |
-| `request_headers_to_add.secret_value` | [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-5740343d46afc111b586fdf4a27bb2d742613296ba2a753a429a2cb20a2d184e) |
-| `request_headers_to_add.secret_value.blindfold_secret_info` | [request_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-54225ff1210bf59e5bee19125a3975bc0f933b09f5994560ba87649a13132fa4) |
-| `request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-e9c01de1a21d6586e4061e0525a4a9164a9ae4d77405ae6fe4b1ba58fbdb3114) |
-| `request_headers_to_add.secret_value.blindfold_secret_info.location` | [request_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-5c114e6cd26190fa44a798355e58f43301c62dc7dc9ac76974b0fa34e0aa7276) |
-| `request_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [request_headers_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-f349c5437f0c0da90b078d429fe8e4bc6cb2a0c910fa462ab930f9e91c6af3c9) |
-| `request_headers_to_add.secret_value.clear_secret_info` | [request_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-d95670bb6d4565add1fce8be201c50beab20bb7f5f3e2e7b8d0cb20a534595f1) |
-| `request_headers_to_add.secret_value.clear_secret_info.provider_ref` | [request_headers_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-60e847c190b9013c5fcb1e18e177d86929a2a95f18e11cfce57f110bacf6e198) |
-| `request_headers_to_add.secret_value.clear_secret_info.url` | [request_headers_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-bc2757555e16a04d04a9c067567a0c9e3a6fc6a6685fc5a364d1c0a0a5961a21) |
-| `request_headers_to_add.value` | [request_headers_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-02a786784f681246896724d233dbb7d4ad6a8af1d80faca325b6b737a3161557) |
-| `request_headers_to_remove` | [request_headers_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-1eb0b6363b51fa35a0417472f20cc4ad60afc1c6c6e3d301423ce48a993582d4) |
-| `response_cookies_to_add` | [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-17981b85dfe84272d2b1d9bc88eacf351c9df395da7ca5a8e0ba26aef6c236ec) |
-| `response_cookies_to_add.add_domain` | [response_cookies_to_add.add_domain](data-sources--virtual_host--reference--group-002.md#canonical-011487866e5765de3cc2bc6d450b7b0deea30f43b0534d45d91c55e00726a158) |
-| `response_cookies_to_add.add_expiry` | [response_cookies_to_add.add_expiry](data-sources--virtual_host--reference--group-002.md#canonical-3bf67dabc90db0a5629e82dec41e68054af9f24bfbc7b6a73318e698a19b4a42) |
-| `response_cookies_to_add.add_httponly` | [response_cookies_to_add.add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-fd83576e95d9adfcf52962b924aae8efba61eaa93cc123ef02a56646ad0eae1b) |
-| `response_cookies_to_add.add_partitioned` | [response_cookies_to_add.add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-8cd7289149232ac0bc0c748d4dbce4eee4c86b46e6720c2540aaff0e22ef8360) |
-| `response_cookies_to_add.add_path` | [response_cookies_to_add.add_path](data-sources--virtual_host--reference--group-002.md#canonical-2536a2a964bafba71b5445f16485b16af98f557e08d7576da5bee42e0a52138c) |
-| `response_cookies_to_add.add_secure` | [response_cookies_to_add.add_secure](data-sources--virtual_host--reference--group-002.md#canonical-c3930e9d64b1409e15f88f20a6d5cbf23c146efa5e95e788e8477b564b719404) |
-| `response_cookies_to_add.ignore_domain` | [response_cookies_to_add.ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-b066e999199324b697316b24e7884e28c05f2cab883479d3c00dd2cef2677dd6) |
-| `response_cookies_to_add.ignore_expiry` | [response_cookies_to_add.ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-1dc8ff42b29f50cf3871db46b643f8920b41ba8d67b1ae77d92e59b9d1bc7b91) |
-| `response_cookies_to_add.ignore_httponly` | [response_cookies_to_add.ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-3132e64a1698f2d98eac60ebac4bd742fc48de7affaa7d8ed8d33d963c57e7b6) |
-| `response_cookies_to_add.ignore_max_age` | [response_cookies_to_add.ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-76ffce866c875853bf94bf4fa1a3c66a79f771b474cb2f443f6450745934362c) |
-| `response_cookies_to_add.ignore_partitioned` | [response_cookies_to_add.ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-d48dd46198ec4b23225c1b7cc7c746d6827e9ca9113da41d7d706e9fb1ab6eae) |
-| `response_cookies_to_add.ignore_path` | [response_cookies_to_add.ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-9ce19d337e3b49d0aa5d71e7b32ea5e176d2c3601a2cf7dd6cbfeb63ec7462fe) |
-| `response_cookies_to_add.ignore_samesite` | [response_cookies_to_add.ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-c9e199a0e79fdfc4d4d76c5e2da178ea9d4909db78064b7fdd838aeb56eb9741) |
-| `response_cookies_to_add.ignore_secure` | [response_cookies_to_add.ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-b20668cc5c116e9a8f819f6ee02c8f3f52a5556e29778696858fa93a4c8a994e) |
-| `response_cookies_to_add.ignore_value` | [response_cookies_to_add.ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-eadc1c8a157361ab2d134135565ab4f9a1cf303efaa0fa4f711d092c089d2c3d) |
-| `response_cookies_to_add.max_age_value` | [response_cookies_to_add.max_age_value](data-sources--virtual_host--reference--group-002.md#canonical-6bfac342c9a702da62e016157179940809832e204d8d3b1b6641f2024b7c4a0c) |
-| `response_cookies_to_add.name` | [response_cookies_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-0f93d81a288807991fbff83e22dfafaadecc8e404c08f1c090aac28b45789ec7) |
-| `response_cookies_to_add.overwrite` | [response_cookies_to_add.overwrite](data-sources--virtual_host--reference--group-002.md#canonical-1d53b0e3f0d5cdba0424ecd2cf062970df72e7a2e374fefbb49aee2e3a41ee14) |
-| `response_cookies_to_add.samesite_lax` | [response_cookies_to_add.samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-8f6665d32428f36ebf9519e3b83ff2250dc648a553546931270f3d4539fc8072) |
-| `response_cookies_to_add.samesite_none` | [response_cookies_to_add.samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-e8e123bb1258d25d91711149df2d072d31fa7cfd2e20b0ca2098dc20e25442c0) |
-| `response_cookies_to_add.samesite_strict` | [response_cookies_to_add.samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-087a07a0b62cc9931167e5e530af13abddd1b61e4c8a1975cfafc4f04112d7ed) |
-| `response_cookies_to_add.secret_value` | [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-2ca057e45985a0698098d6f385c06b7a2aad949748ba83aea794394def5630a6) |
-| `response_cookies_to_add.secret_value.blindfold_secret_info` | [response_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-19093bc3844ce31e8a3ab853fa57c213aa26ed286bbf25692ca2885a4a0bd762) |
-| `response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-065db219601c23acfcea759748e9ec121416bcfe971d30d6b0dbd67cefadf4c2) |
-| `response_cookies_to_add.secret_value.blindfold_secret_info.location` | [response_cookies_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-326a745d61583c35108a2badf56536c6bbb59656902ec89c3f359b407eebc247) |
-| `response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-48da01f788c114232ee5bf78d95c6d206dd0234b3e633443165636811b0bb6a1) |
-| `response_cookies_to_add.secret_value.clear_secret_info` | [response_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-f7a61bad0e5adc48004bd76fac09c27970f693dabd18642affd7d98567a441f2) |
-| `response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [response_cookies_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-9c410b6c15fe7c5aab1e431b24ad655e7e1ff17a3cac42a311e1eb0acf60bbbd) |
-| `response_cookies_to_add.secret_value.clear_secret_info.url` | [response_cookies_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-bac287308f8c015a9581a10cbd104827ab61ebfad306700be94aabbf26b644a2) |
-| `response_cookies_to_add.value` | [response_cookies_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-1e9a9fa0163187ad338fe527297e6786d6aabe1cf5159f7ab0cf1f392e18e517) |
-| `response_cookies_to_remove` | [response_cookies_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-8617633d0f2d1ae4771d64a479397b4a8363a20e7ed095581c299971fae384c0) |
-| `response_headers_to_add` | [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-11881322be9bcd571d044f37f73bc11d8882cbc7f5d8624d981b5ed46b1ca462) |
-| `response_headers_to_add.append` | [response_headers_to_add.append](data-sources--virtual_host--reference--group-002.md#canonical-f30f676fcc8389dbd06d4858dde7008bafd2e05784b5969af8f0bce5cc37a7a3) |
-| `response_headers_to_add.name` | [response_headers_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-835c0dc5e4dfd8f6a6ef3faedd57e29f6d0988f388033bc8a44c1facfed9cbf4) |
-| `response_headers_to_add.secret_value` | [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-d03a128181625d7bb378cd4b6bfda94f95fde6b90e53990e73477f7128ec1552) |
-| `response_headers_to_add.secret_value.blindfold_secret_info` | [response_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-386b75b7fd8f7280081c41be1fcdb60631afb5c37b8a2d5713592c88d5da4d6f) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-b9a23ffd647f88ae03e760dcc8452bd7bc8ac42d931e6b8fa803233c6f16b0fd) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-c0fa0232605aeb5695b7eefd27ad0834230706328e89c335614947964e6cbeb4) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-52d08406d242b8f5d41b8c841b40a8a60f3957da13de6c32e24386f391f502d0) |
-| `response_headers_to_add.secret_value.clear_secret_info` | [response_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-dc289188951f310f7fe23d2757c0cc29c4c73dce1d00bd497516d40a0fa1cf6f) |
-| `response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [response_headers_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-dcd6c6b972da1cf0a1ffb013a98e77b069e2f82e223d3d215c3ee6e548da1287) |
-| `response_headers_to_add.secret_value.clear_secret_info.url` | [response_headers_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-c94c007a7e846c42bbfaf244eb21ea7af9fc29b60259362c0269258c805939fa) |
-| `response_headers_to_add.value` | [response_headers_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-fadbfd5f0d1ea02eaf762a6750864c3df116f170c5744c17604f3edc245c39f3) |
-| `response_headers_to_remove` | [response_headers_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-0ffb469e9294b334fdde156a38b7328d2ea14f3faf5649fe75b0e54f4cd541e0) |
-| `retry_policy` | [retry_policy](data-sources--virtual_host--reference--group-002.md#canonical-d9c0aee6ce40c260e86d51530ab8d2bba6f46075b3bf88617d4fa05b846d9051) |
-| `retry_policy.back_off` | [retry_policy.back_off](data-sources--virtual_host--reference--group-002.md#canonical-90137b1f1dd9c158c985781b156e4912b77324a7f9b5cd9c9c92e0651e9f5b6f) |
-| `retry_policy.back_off.base_interval` | [retry_policy.back_off.base_interval](data-sources--virtual_host--reference--group-002.md#canonical-a378be87197252a3eecd1438eec0aac7d9f5ba3889c3e863e1088f675c0cbd61) |
-| `retry_policy.back_off.max_interval` | [retry_policy.back_off.max_interval](data-sources--virtual_host--reference--group-002.md#canonical-ac68f6a4f19a9e0e9129e1b937d73e308c1f52ad45dfc34b1ad23da891c32052) |
-| `retry_policy.num_retries` | [retry_policy.num_retries](data-sources--virtual_host--reference--group-002.md#canonical-68daadb14e4d16961d60a4e2f7e551d42a5f58561c959fe0549a1f0d524f13de) |
-| `retry_policy.per_try_timeout` | [retry_policy.per_try_timeout](data-sources--virtual_host--reference--group-002.md#canonical-3894889d54a7b1b23f4013773a2f2f1821abd0328c35a5017c0df1a2d9900cbb) |
-| `retry_policy.retriable_status_codes` | [retry_policy.retriable_status_codes](data-sources--virtual_host--reference--group-002.md#canonical-9928b281c0798e6c8b32d624cb409569496fb93c8293b1f1d4c47acb1f2b6d50) |
-| `retry_policy.retry_condition` | [retry_policy.retry_condition](data-sources--virtual_host--reference--group-002.md#canonical-7c75f6412705bde23f13c3b0a02dd161cebf3e523ad6ab8fc58a90bb55abd7b6) |
-| `routes` | [routes](data-sources--virtual_host--reference--group-002.md#canonical-825bb61962da8698fa4c81ae326a69be2af94e3f6712315b000abdfd2fd05dbe) |
-| `routes.kind` | [routes.kind](data-sources--virtual_host--reference--group-002.md#canonical-6b232fa48bd96afb2945ddf3cb824d058d3c9ba6462543821c3a6b08eaa2c083) |
-| `routes.name` | [routes.name](data-sources--virtual_host--reference--group-002.md#canonical-a2c384541714a0ae946ef06a5d333077eec8a1c5ebbd45e48625f62f552ce378) |
-| `routes.namespace` | [routes.namespace](data-sources--virtual_host--reference--group-002.md#canonical-245a46803a727013bfb5d6cc8cd5d667cdab7d6fdbea2ab4a55c6b945b327cda) |
-| `routes.tenant` | [routes.tenant](data-sources--virtual_host--reference--group-002.md#canonical-f8ce44d497bbb69aacec032256df3fe040ad350767792a4d9f4bc73a4d58f3e6) |
-| `routes.uid` | [routes.uid](data-sources--virtual_host--reference--group-002.md#canonical-dbf4e4162c3876182e186c9ad869252efecf79988a20498f7aeb3b029b3ba2e8) |
-| `sensitive_data_policy` | [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-971a796701c3056e00203ca23b35d9ea84378d278b5024c02f0bf4a704cd4840) |
-| `sensitive_data_policy.kind` | [sensitive_data_policy.kind](data-sources--virtual_host--reference--group-003.md#canonical-5dbf72f59420fe0008d6be9d25abfeec0c60af0a64e7cce4ba2f579b49f0ad40) |
-| `sensitive_data_policy.name` | [sensitive_data_policy.name](data-sources--virtual_host--reference--group-003.md#canonical-fb7b80c2084e04296b9476031b45d45d1257016e48038fe83a2956ee2ff70edd) |
-| `sensitive_data_policy.namespace` | [sensitive_data_policy.namespace](data-sources--virtual_host--reference--group-003.md#canonical-6c45eff92d531b61f5edb5fa2df448def4235449878c4d8f30a163fa8025bc70) |
-| `sensitive_data_policy.tenant` | [sensitive_data_policy.tenant](data-sources--virtual_host--reference--group-003.md#canonical-4b9a7fffafdd83bab5b7a77a97494f05785d7480cdcc6222aea2f49d5d33f6e5) |
-| `sensitive_data_policy.uid` | [sensitive_data_policy.uid](data-sources--virtual_host--reference--group-003.md#canonical-a688442abdee1715b7c57af8bbc89022588f56d7fcb64f984b7448c83cdbb706) |
-| `server_name` | [server_name](data-sources--virtual_host--reference--group-001.md#canonical-807e60475c19e2d90c79afea33ef50293340f687899143ddbdfe578428d0af2b) |
-| `slow_ddos_mitigation` | [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-68f153655816b3c39b8aa77961cbd8d47fbeac2360184d417bbcdbbd10f9b2d0) |
-| `slow_ddos_mitigation.disable_request_timeout` | [slow_ddos_mitigation.disable_request_timeout](data-sources--virtual_host--reference--group-003.md#canonical-e25bd100b78830900ed44406d8e365fa994d0bb74482f537f6ec2f77bb1ef8da) |
-| `slow_ddos_mitigation.request_headers_timeout` | [slow_ddos_mitigation.request_headers_timeout](data-sources--virtual_host--reference--group-003.md#canonical-a1280aa5af5593f1bd6d811e3b1e3b56922ba5d4b750cff40542466b24e0cbad) |
-| `slow_ddos_mitigation.request_timeout` | [slow_ddos_mitigation.request_timeout](data-sources--virtual_host--reference--group-003.md#canonical-ecca1f5ac11fccb4eb6c52c6d18aceccd93f4783c179fbffc56453c135e70776) |
-| `tls_cert_params` | [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-ce341a9fe12b157fbb01cf6ce4594fc747e96462f75c5bc8f2287a8680c7daa4) |
-| `tls_cert_params.certificates` | [tls_cert_params.certificates](data-sources--virtual_host--reference--group-003.md#canonical-e9bced0e6666f9101a112e5d0f573ce569b961b131447e930552ca5527efdf1e) |
-| `tls_cert_params.certificates.kind` | [tls_cert_params.certificates.kind](data-sources--virtual_host--reference--group-003.md#canonical-bddbabc1d90178c5af129f75ba0a98699412ee43afc3b279f2657e4e7f9c5770) |
-| `tls_cert_params.certificates.name` | [tls_cert_params.certificates.name](data-sources--virtual_host--reference--group-003.md#canonical-057e6ec799c269b85c842358b178bde456d97e5c5ef0efb747aabed5dbe2d5ab) |
-| `tls_cert_params.certificates.namespace` | [tls_cert_params.certificates.namespace](data-sources--virtual_host--reference--group-003.md#canonical-84df9e8497e0537f22b3ee7036f1a7db43893f33c8d658274c736486cc5f38fb) |
-| `tls_cert_params.certificates.tenant` | [tls_cert_params.certificates.tenant](data-sources--virtual_host--reference--group-003.md#canonical-b2ee7bda0217ee35c0ed7371decbc76ab5be4d187fecc593d70464bfc30e247e) |
-| `tls_cert_params.certificates.uid` | [tls_cert_params.certificates.uid](data-sources--virtual_host--reference--group-003.md#canonical-f567841f5d2cbf50768f705ed18625cadbb1beeac5d71827632a5964c39de1ab) |
-| `tls_cert_params.cipher_suites` | [tls_cert_params.cipher_suites](data-sources--virtual_host--reference--group-003.md#canonical-f01eb6c194893e186067c2c7fe05e275286ea79ea3ced0473d41eef07de3a08f) |
-| `tls_cert_params.client_certificate_optional` | [tls_cert_params.client_certificate_optional](data-sources--virtual_host--reference--group-003.md#canonical-09220efd5109ca70e867a121cbbf3c0a07ae02dd29409e854f07d2b99d550fca) |
-| `tls_cert_params.client_certificate_required` | [tls_cert_params.client_certificate_required](data-sources--virtual_host--reference--group-003.md#canonical-74f54396c29bfa3e059f074e601cb1e8e626bdf1326ad1517921371987b972ef) |
-| `tls_cert_params.maximum_protocol_version` | [tls_cert_params.maximum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-5d53c1bda99569b9d4df1a6dbc8e27b0fbc08dbf9a3c4ac3d6a7849cbb35ca25) |
-| `tls_cert_params.minimum_protocol_version` | [tls_cert_params.minimum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-11303134574ecc97ec5cd0995012082e83206e722b9466e24199120ee1a920c1) |
-| `tls_cert_params.no_client_certificate` | [tls_cert_params.no_client_certificate](data-sources--virtual_host--reference--group-003.md#canonical-24556e8bb2bfac0fa5850456f26f05a60ad35a525662b21f6eaac9db86589fdf) |
-| `tls_cert_params.validation_params` | [tls_cert_params.validation_params](data-sources--virtual_host--reference--group-003.md#canonical-b0caac7847a38a1a85587cbb0319f454a5aa20fac3b51ff179a6ebbc7c73545b) |
-| `tls_cert_params.validation_params.skip_hostname_verification` | [tls_cert_params.validation_params.skip_hostname_verification](data-sources--virtual_host--reference--group-003.md#canonical-f86d8236bcb22b09ea359ad60fb742c61947f15deb97deb7c3fe9c18688a9476) |
-| `tls_cert_params.validation_params.trusted_ca` | [tls_cert_params.validation_params.trusted_ca](data-sources--virtual_host--reference--group-003.md#canonical-98d9f9782710c8dba62e79fef1708cbeb04118ce820579e058be56441a5bb196) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list](data-sources--virtual_host--reference--group-003.md#canonical-ba86bf454a89d1f506dccf57615105110045d5ccbf5a8d09c499a26800c29c71) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind](data-sources--virtual_host--reference--group-003.md#canonical-ba7e1ae225c0883fd61397314bce4f8ddc8dd2a5df6e0ee2710ed0e593517e30) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name](data-sources--virtual_host--reference--group-003.md#canonical-2355f29906826f79ff26c65b860c4c7e4f1f192722f21c0a2dc93d29686124a8) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace](data-sources--virtual_host--reference--group-003.md#canonical-0843e82997e48b07187255008aacdfa0d37ad74fb1f1b95f44c7e13048df583e) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant](data-sources--virtual_host--reference--group-003.md#canonical-e4369d49371818866851a9d1b94abb972b38025f42c460c8f5b934330a12cf90) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid](data-sources--virtual_host--reference--group-003.md#canonical-f1215088f8189e7d1d1c5d9042a28ea72675b40f3807cae56c0ac85360bc4c10) |
-| `tls_cert_params.validation_params.trusted_ca_url` | [tls_cert_params.validation_params.trusted_ca_url](data-sources--virtual_host--reference--group-003.md#canonical-d9563e38fceedcc5cd63427e960825ad0c365799f62e18e62f077d5d05d744c6) |
-| `tls_cert_params.validation_params.verify_subject_alt_names` | [tls_cert_params.validation_params.verify_subject_alt_names](data-sources--virtual_host--reference--group-003.md#canonical-22140d719d51b247de5b0fb3999008a269de993beb6c00379a1b97e1cce5cde6) |
-| `tls_cert_params.xfcc_header_elements` | [tls_cert_params.xfcc_header_elements](data-sources--virtual_host--reference--group-003.md#canonical-f4c81200f6e84bf480e43b51fa87012ab0e583a6c6ce8949372a3ffb0126426d) |
-| `tls_parameters` | [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-0732653dbaddc2627d7093bf3f40a2dab1f66fb00e4e404d4c12f855ad744991) |
-| `tls_parameters.client_certificate_optional` | [tls_parameters.client_certificate_optional](data-sources--virtual_host--reference--group-003.md#canonical-e999250ea6fc4e9c54c4d9562fc16d0e685f91c0ebe654c249b098e5d0d45994) |
-| `tls_parameters.client_certificate_required` | [tls_parameters.client_certificate_required](data-sources--virtual_host--reference--group-003.md#canonical-7a64a241651dd0dfaf6aef17a3667c03defafc35a50df93736203606880b338f) |
-| `tls_parameters.common_params` | [tls_parameters.common_params](data-sources--virtual_host--reference--group-003.md#canonical-5abc749c896aca2bc2343b0cc8e7002a7a1225039ab72ee0a3a32dddbbd4180e) |
-| `tls_parameters.common_params.cipher_suites` | [tls_parameters.common_params.cipher_suites](data-sources--virtual_host--reference--group-003.md#canonical-244de8fa402dab3c63864993b1419b1729ca0a57a6990fb3095bd059f4c79ce5) |
-| `tls_parameters.common_params.maximum_protocol_version` | [tls_parameters.common_params.maximum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-f50844da477b463c357255916fffb2e78bc30a539b92fc387d950ecb1be64526) |
-| `tls_parameters.common_params.minimum_protocol_version` | [tls_parameters.common_params.minimum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-845e8423da4825cf72c81ccc638fd6af5ad5f01f4fd40401321595c03afc31ac) |
-| `tls_parameters.common_params.tls_certificates` | [tls_parameters.common_params.tls_certificates](data-sources--virtual_host--reference--group-003.md#canonical-da96377d543ffd34477bb3798b91b095b9eb8017f9eb7b01ba2499b2390097c1) |
-| `tls_parameters.common_params.tls_certificates.certificate_url` | [tls_parameters.common_params.tls_certificates.certificate_url](data-sources--virtual_host--reference--group-003.md#canonical-1c760bddd207ebd1d5d41d9709fffbfbe17f13a8ddc6c80667c44949f06e5b64) |
-| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms](data-sources--virtual_host--reference--group-003.md#canonical-47435d5adffad679050ca1070a72037a479d4f50728ce7e39e0c8283a3a98ae5) |
-| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](data-sources--virtual_host--reference--group-003.md#canonical-3fef8b5dd6b64e4d518e814e4c5e43df0e2972e5f251f8734dfb008169c030b0) |
-| `tls_parameters.common_params.tls_certificates.description_spec` | [tls_parameters.common_params.tls_certificates.description_spec](data-sources--virtual_host--reference--group-003.md#canonical-569e9f474f7c9152ec16013f5ca1c06161cff65d143891569e59f048296e4318) |
-| `tls_parameters.common_params.tls_certificates.disable_ocsp_stapling` | [tls_parameters.common_params.tls_certificates.disable_ocsp_stapling](data-sources--virtual_host--reference--group-003.md#canonical-4e008c4e680a333ac574d1ad89fc42ce7f86908298613b2aca2e1ea3a2a690b4) |
-| `tls_parameters.common_params.tls_certificates.private_key` | [tls_parameters.common_params.tls_certificates.private_key](data-sources--virtual_host--reference--group-003.md#canonical-1e9fe1f0fc7938955b696183a8c9e1918ed5a6a5a62e0e8eb42e7dfff8c3af34) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-5aa778016f56a7bb92a2a3c9f1a175eeab16884c0849063a3d075af3f3892b9f) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-003.md#canonical-bc193035f1e242174c71222d70e893084312e98342fed174b5b47e857a13d6b4) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-003.md#canonical-1bce9aec142dcb9f5adca8b979b33b5f9d1cf90e50c71a5957c05ea75d2f629b) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-003.md#canonical-ad935fb7562b59702096e1d4773be02965f6c50af6d62614ca8b443af787226c) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-12b21048f3cba1abea5ec4182bb46b60338d94455dd3b24ecc3ff150ff00e002) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-003.md#canonical-fe6becafb08a33b7176b9a069a60ea36939a6aa1816d0bcd6ea88e1e3dc13991) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url](data-sources--virtual_host--reference--group-003.md#canonical-3bc9433f4766825b7165736fdd227b89d2d6f95cb596181e50378085e9fa2847) |
-| `tls_parameters.common_params.tls_certificates.use_system_defaults` | [tls_parameters.common_params.tls_certificates.use_system_defaults](data-sources--virtual_host--reference--group-003.md#canonical-94cf26757c1211fd5fe547448f667a26c6089f3e1fd46b4aaf89dba4e3b3e9ba) |
-| `tls_parameters.common_params.validation_params` | [tls_parameters.common_params.validation_params](data-sources--virtual_host--reference--group-003.md#canonical-a61a6478d604eedb8f8444249f4c3cf7cf283966277563a3aff654948e3d80f4) |
-| `tls_parameters.common_params.validation_params.skip_hostname_verification` | [tls_parameters.common_params.validation_params.skip_hostname_verification](data-sources--virtual_host--reference--group-003.md#canonical-8c5f8be7287f0945daa7d32d468870a460ac9cd2d39d96503b6e7f71226e0e54) |
-| `tls_parameters.common_params.validation_params.trusted_ca` | [tls_parameters.common_params.validation_params.trusted_ca](data-sources--virtual_host--reference--group-003.md#canonical-14abafaaf994cf232a1e931cadbb6ed2633b74e233a3653c3c6ac8322c3d6a9a) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list](data-sources--virtual_host--reference--group-003.md#canonical-4f008fa20b87948309e8790c19d1485520a1e1d7e500fe18541d8ab07942bb47) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.kind](data-sources--virtual_host--reference--group-003.md#canonical-e74a68c645ec9ef69fee63a65468b890e275661be8b31f39cfd9eb33df0a6078) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.name](data-sources--virtual_host--reference--group-003.md#canonical-f9334ddc1b34097cc5748915163ac21c179b00ef6320935a518b3569ca6bad79) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.namespace](data-sources--virtual_host--reference--group-003.md#canonical-fd6f36998d075f73ae18de5b4645ed02e182216f61553c6a0958cce07fe341e6) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.tenant](data-sources--virtual_host--reference--group-003.md#canonical-986ba2b6bc1abba4391175b663f694aa293880f11e31fe816e00be1aa2d81702) |
-| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.uid](data-sources--virtual_host--reference--group-003.md#canonical-7a717aafe94881c2b5c5dbaaad166d169f2939c80aadc63948ac4d38273ff81b) |
-| `tls_parameters.common_params.validation_params.trusted_ca_url` | [tls_parameters.common_params.validation_params.trusted_ca_url](data-sources--virtual_host--reference--group-003.md#canonical-a989b1cf31aa6aac024fa1a56b910f1afe94b77430aee89c74d63b70b185eae4) |
-| `tls_parameters.common_params.validation_params.verify_subject_alt_names` | [tls_parameters.common_params.validation_params.verify_subject_alt_names](data-sources--virtual_host--reference--group-003.md#canonical-8cf871809f50f833b3396fa80d2eb7b18df4781ed9d5701cd77c2ec2ec1e88a0) |
-| `tls_parameters.no_client_certificate` | [tls_parameters.no_client_certificate](data-sources--virtual_host--reference--group-003.md#canonical-8367fcf195d958ca78e1cbf5cf0281bf212b1d0f766f063ce1b6d564e7181160) |
-| `tls_parameters.xfcc_header_elements` | [tls_parameters.xfcc_header_elements](data-sources--virtual_host--reference--group-003.md#canonical-e0f94dab45d6986874c32e92e76bdfbc7cb82cff042f5a54e90c98d14cf3311a) |
-| `user_identification` | [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-fed06eb3b1e4290fe0d4c0a7d0f9d0b0c96a25617fadf6321587fcb3903c8054) |
-| `user_identification.kind` | [user_identification.kind](data-sources--virtual_host--reference--group-003.md#canonical-653bfa9c573b55bd7a58b82fa9912c8e157a2b2f37d515d9ad591507946273b0) |
-| `user_identification.name` | [user_identification.name](data-sources--virtual_host--reference--group-003.md#canonical-722c06a06f8279863408879de60e03f5538c29a906b28e77114a0bab9547b473) |
-| `user_identification.namespace` | [user_identification.namespace](data-sources--virtual_host--reference--group-003.md#canonical-6adfb7d5868d541895c97a73dca6d9c60f0067483160410479f0cb1f28ff825a) |
-| `user_identification.tenant` | [user_identification.tenant](data-sources--virtual_host--reference--group-003.md#canonical-5d35978ae0af9718d1ec5e98682cffefcc75397501b163072365cd49b5c32948) |
-| `user_identification.uid` | [user_identification.uid](data-sources--virtual_host--reference--group-003.md#canonical-2fd2dccda99d135b0fd73c524bf0ceec86dc7725ba1ccd25be6823c8a809f05d) |
-| `waf_type` | [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-267765b8c41d2fdf4390bb490a14e7eb3457f4303e4a407fd7b594c3070758f3) |
-| `waf_type.app_firewall` | [waf_type.app_firewall](data-sources--virtual_host--reference--group-003.md#canonical-c0aa95543043bb54e77148cad240e23472fa45b6cd36dabf241432591dde6aa3) |
-| `waf_type.app_firewall.app_firewall` | [waf_type.app_firewall.app_firewall](data-sources--virtual_host--reference--group-003.md#canonical-cde32b93374d2c59f4d3a3287daaff7afbd96c181ef33ad0ec3d34d97271f010) |
-| `waf_type.app_firewall.app_firewall.kind` | [waf_type.app_firewall.app_firewall.kind](data-sources--virtual_host--reference--group-003.md#canonical-9ac7701ae769e8bd33e3767447bfab5a8f18a07446d6bb455ae1c0a50b1978f0) |
-| `waf_type.app_firewall.app_firewall.name` | [waf_type.app_firewall.app_firewall.name](data-sources--virtual_host--reference--group-003.md#canonical-a424a221510dd1334f1750cff75b57c8a6059949509c13b5ef17131856de9d57) |
-| `waf_type.app_firewall.app_firewall.namespace` | [waf_type.app_firewall.app_firewall.namespace](data-sources--virtual_host--reference--group-003.md#canonical-cf0b77a9ae94dcc6d45f2cffc9589b14f9ed79132ba6507b3241f9e649da68df) |
-| `waf_type.app_firewall.app_firewall.tenant` | [waf_type.app_firewall.app_firewall.tenant](data-sources--virtual_host--reference--group-003.md#canonical-fd74eca47b642fe16cd45ad3197deaeb1cd55f21313b2f5df3e135e0357a95df) |
-| `waf_type.app_firewall.app_firewall.uid` | [waf_type.app_firewall.app_firewall.uid](data-sources--virtual_host--reference--group-003.md#canonical-479481c905e506fa2daa7dfd8961cfd5e5cd29b99fb0519e2218a4d046d30118) |
-| `waf_type.disable_waf` | [waf_type.disable_waf](data-sources--virtual_host--reference--group-003.md#canonical-0761c85d42142623abe0fe0be2662756e0a9533ddd0030a1bf5db82bb9c58375) |
-| `waf_type.inherit_waf` | [waf_type.inherit_waf](data-sources--virtual_host--reference--group-003.md#canonical-c4c69772973a07336ba269301194566088878696c7e14de3a7a67fcf98280702) |
+| `add_location` | [add_location](data-sources--virtual_host--reference--group-001.md#canonical-1030131231003202-0332223001323000-3303213301132120-1322203002303212-3022000033211203-2201331120311013-0212231332111200-0003221011321112) |
+| `advertise_policies` | [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-0011102110223101-0212323101310331-2023220110030200-1001323010012021-3113203200202221-0312301121213031-3231020023122123-2203011222220211) |
+| `advertise_policies.kind` | [advertise_policies.kind](data-sources--virtual_host--reference--group-001.md#canonical-3013230210303330-2021000312330303-2111023102333112-0101003022211221-0230000133232203-2313100222122212-1223223112231333-3221131121210220) |
+| `advertise_policies.name` | [advertise_policies.name](data-sources--virtual_host--reference--group-001.md#canonical-3002303023302122-2022213221232200-3011013102312130-0310103331100030-2001203123220121-3323323130200331-1130133211313122-1110000232002132) |
+| `advertise_policies.namespace` | [advertise_policies.namespace](data-sources--virtual_host--reference--group-001.md#canonical-3121322320123212-0111001202122000-3032010001211200-0330111311101313-1220011021311202-3023212003303133-3130003023100203-0010002233212033) |
+| `advertise_policies.tenant` | [advertise_policies.tenant](data-sources--virtual_host--reference--group-001.md#canonical-3313020203303211-1003300231330230-0111100022203200-0020230132122230-3132120222230331-0330102130120332-3333302332100233-3333233220000011) |
+| `advertise_policies.uid` | [advertise_policies.uid](data-sources--virtual_host--reference--group-001.md#canonical-3021122302001010-3012210120022230-1131231113211310-0022300311330332-3100313013231322-0012311233213112-3012202222331030-1120332233220223) |
+| `annotations` | [annotations](data-sources--virtual_host--reference--group-001.md#canonical-2210320232301302-1231203000111220-2222222000321132-2101023221203301-3102210110333102-2232300312100112-2032133301000131-3021312023200233) |
+| `append_server_name` | [append_server_name](data-sources--virtual_host--reference--group-001.md#canonical-0323113201300223-2222333123230213-2303032122303012-1102010201023100-1233332111220321-3010303110000300-2113333030020321-1122222213033203) |
+| `authentication` | [authentication](data-sources--virtual_host--reference--group-001.md#canonical-1110113100202123-2230111331000202-3131210333023303-2221020221222112-0131013231123111-0123202113213213-0313312033121100-1332022222100032) |
+| `authentication.auth_config` | [authentication.auth_config](data-sources--virtual_host--reference--group-001.md#canonical-1003023202213212-1301232202222102-1230002021210033-0113311211002030-0102100110110032-1232122301102200-1220020000203202-0231131131033021) |
+| `authentication.auth_config.kind` | [authentication.auth_config.kind](data-sources--virtual_host--reference--group-001.md#canonical-0223022003300122-0131031023021230-1112002002133221-1213233221232131-1310021331132312-3023230122021110-2032213331113122-3301322013321320) |
+| `authentication.auth_config.name` | [authentication.auth_config.name](data-sources--virtual_host--reference--group-001.md#canonical-2103020112302120-0110211313000110-1310302023230013-0230023213310231-2010002321102030-2001310110232111-0002110311303231-1230320120230131) |
+| `authentication.auth_config.namespace` | [authentication.auth_config.namespace](data-sources--virtual_host--reference--group-001.md#canonical-3223331333203110-3321120012301122-2112100001213321-2303012111202310-2321102233211222-3210210131201111-1313111121020313-2031232020033231) |
+| `authentication.auth_config.tenant` | [authentication.auth_config.tenant](data-sources--virtual_host--reference--group-001.md#canonical-3313200301300210-0023011110220222-2113213013321023-1002123200213203-0223212332231201-3102130020123100-0101201111232222-3111310010203133) |
+| `authentication.auth_config.uid` | [authentication.auth_config.uid](data-sources--virtual_host--reference--group-001.md#canonical-1303100022102322-0021022022321111-0133012000201220-2131022021030013-1201010011112133-2333010323111210-2211223331330020-1323011001023113) |
+| `authentication.cookie_params` | [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-0333203001003223-3030333220013012-0323210203130022-1220023201223030-0111220111100013-1231200223322021-3020002110121123-1212331033231233) |
+| `authentication.cookie_params.auth_hmac` | [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-2232331311211131-1203133120300113-2133103133131233-2023313222112101-0123130120210311-1200011130311133-3232330222120303-2303003230133233) |
+| `authentication.cookie_params.auth_hmac.prim_key` | [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-1323313131100023-3010310200121023-3233030312213031-1302212130220110-1112200130331212-3211003232222120-1133022013003323-0012120133103210) |
+| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-3000031001311211-3010133210120033-1121122220002101-0213003120100000-3010132232132123-3303101011110333-3033030313201102-3033301100001330) |
+| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-001.md#canonical-1030113313133101-2211312331032313-3021133120333322-1313020001301301-3233313011322111-0323113300033313-2033333332220300-1211110003233100) |
+| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.location` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-001.md#canonical-0001202000002000-0320221121001102-3110211232210212-1120113100301230-3212101201031012-3230323022132011-3010121003311032-1310302301100301) |
+| `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider` | [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-001.md#canonical-3022210310033223-2321013123230313-2213201100212210-2313212320030213-0030322201121020-2332102012111231-1131321123011233-1230013011223120) |
+| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-0021031111120101-3002023003230033-2122320032211313-0223032121101202-0232203123211203-3112123213222123-1103002322112002-0333031021133211) |
+| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-001.md#canonical-0311101021101013-0003231132021013-1231131311230210-0301321030021002-3000332021022333-2111313112023023-0131332033301132-3223223203002123) |
+| `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.url` | [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.url](data-sources--virtual_host--reference--group-001.md#canonical-3010020312320220-1221323300010322-3323202203113311-3233112022003101-2303130122223200-1311323101122220-0223330222111212-1003130211022020) |
+| `authentication.cookie_params.auth_hmac.prim_key_expiry` | [authentication.cookie_params.auth_hmac.prim_key_expiry](data-sources--virtual_host--reference--group-001.md#canonical-3301012231300102-1221303020220301-2112330313331210-3313032222311230-1231033211202313-3221000301201330-2211213132320232-3313032202301110) |
+| `authentication.cookie_params.auth_hmac.sec_key` | [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221210233223010-2031120323303311-0020031110022022-3320303003213211-0121222302322221-1232022212320100-3011333231212031-0001110021023313) |
+| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-0030222023020032-3120110332102222-2211110100210210-0213333112313103-3303222230322222-1102000131303333-1323321001103001-1123311320113103) |
+| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-001.md#canonical-0201223103132200-1113031222322302-1312212022213211-2103133330303300-0313320032212332-3131232231333230-3122202311303032-0232111111132213) |
+| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.location` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-001.md#canonical-3013210100030223-1202130021010013-3211321100020222-0111033111320220-0232101033123100-2302033210013221-1011233020000331-1120300331222301) |
+| `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider` | [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-001.md#canonical-2302231320122132-1103202002301213-2333122010320110-0023221222023210-3003332202131210-3030130310213303-2321222111231230-1110311300222122) |
+| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1331201132303122-1220312323210231-0310330122030233-3010201020122300-1202323102100100-0012013131022033-0010221113233123-2323102302131002) |
+| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-001.md#canonical-3310302021212331-3031031303323330-3002212011131123-2301021013322313-1200122301032101-1113312220221022-0302010113203113-1030023030131321) |
+| `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.url` | [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.url](data-sources--virtual_host--reference--group-001.md#canonical-0320233330233232-1333300323122202-3210032212121233-1010331031021100-2232302103100323-1130100023023221-2231221001031323-3311001101113301) |
+| `authentication.cookie_params.auth_hmac.sec_key_expiry` | [authentication.cookie_params.auth_hmac.sec_key_expiry](data-sources--virtual_host--reference--group-001.md#canonical-3111130303030311-0000331211223202-2022101222022032-2310120103001220-3330211013103111-1211100233110020-1332102031231230-1301301213311223) |
+| `authentication.cookie_params.cookie_expiry` | [authentication.cookie_params.cookie_expiry](data-sources--virtual_host--reference--group-001.md#canonical-0003102311330132-0313132122120030-1323302011113011-1013001013212110-0133223320313310-3130220332033010-2030302330100302-2003201320331323) |
+| `authentication.cookie_params.cookie_refresh_interval` | [authentication.cookie_params.cookie_refresh_interval](data-sources--virtual_host--reference--group-001.md#canonical-0012120012110132-3231303313212201-0212223002222301-1022221230122030-0001001312122302-0202332210213232-0120023011200032-3310230101021323) |
+| `authentication.cookie_params.kms_key_hmac` | [authentication.cookie_params.kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-0023330230021020-0220320301213000-2133120211033030-1330302000221101-0000200020123303-0020112121033310-0312113022323110-3231331313033201) |
+| `authentication.cookie_params.session_expiry` | [authentication.cookie_params.session_expiry](data-sources--virtual_host--reference--group-001.md#canonical-3323201110032133-3233133013200122-2101112001021030-2020012121100001-0012333323130311-0123100121012130-3200213313112123-0312121011131323) |
+| `authentication.redirect_dynamic` | [authentication.redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-0203111121110120-0310232303132311-3012213303010111-1112012301203313-1330100301302313-1032130022011020-1001000120001220-1023030311203201) |
+| `authentication.redirect_url` | [authentication.redirect_url](data-sources--virtual_host--reference--group-001.md#canonical-0021332021332103-1221101003101101-3130101310320333-0011113322032121-2303312333123202-1023131110330322-3232332301021323-1131033030122313) |
+| `authentication.use_auth_object_config` | [authentication.use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-3210031121102023-1030002222002333-1220122030001210-1221212223232231-0102131303200000-3033112230303022-2313220122111000-0323301323103211) |
+| `buffer_policy` | [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-1113013312331001-3120013012321211-3201312010013030-3223213111323031-3010323000321112-0003300310113023-2231303133033022-1212033301322100) |
+| `buffer_policy.disabled` | [buffer_policy.disabled](data-sources--virtual_host--reference--group-001.md#canonical-2230303132301303-2312003132031010-2033023210021112-0310223003331100-2233202323312113-2303300121200203-1122003302131031-1333200122002112) |
+| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](data-sources--virtual_host--reference--group-001.md#canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313) |
+| `captcha_challenge` | [captcha_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0323333321111013-0223212113102021-0320213033023313-3002301101200322-2122100233212230-0130313033323212-2101021122013300-0032223213002013) |
+| `captcha_challenge.cookie_expiry` | [captcha_challenge.cookie_expiry](data-sources--virtual_host--reference--group-002.md#canonical-2313032031202002-2323131312322312-2012100013033132-0213022300212313-1011321123333012-0020300030213123-3101311313011100-2031113312310121) |
+| `captcha_challenge.custom_page` | [captcha_challenge.custom_page](data-sources--virtual_host--reference--group-002.md#canonical-1023303000202202-2310101312302113-1011223101331311-3010012200021300-3013231231232321-0113313113231313-0012331330211003-2203131202210321) |
+| `coalescing_options` | [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-3003023221300230-2101220002010101-2301202002003033-0013123000032321-0331000322101331-2323033312000302-0001110123233331-2133220013333201) |
+| `coalescing_options.default_coalescing` | [coalescing_options.default_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-0332011001302102-2220230311100233-1122210310102113-0012003211300111-1232222231321010-3302112321222210-0023112101131001-0203210131211001) |
+| `coalescing_options.strict_coalescing` | [coalescing_options.strict_coalescing](data-sources--virtual_host--reference--group-002.md#canonical-3321032220211300-0111031200213322-2313223213103101-1032101010301202-3002220201113200-2023000233010323-0302101333021132-0221330300233232) |
+| `compression_params` | [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-0313011002003132-2220330320132201-0102332000101123-0212201213122331-2011031320011022-0110321130112110-3222230213210003-0110003130320121) |
+| `compression_params.content_length` | [compression_params.content_length](data-sources--virtual_host--reference--group-002.md#canonical-1202210022321230-1213002133010133-0121100320230320-3331121231100010-0312230133230221-0313302333001030-0331332333022221-3222031303020203) |
+| `compression_params.content_type` | [compression_params.content_type](data-sources--virtual_host--reference--group-002.md#canonical-3121131330031112-1322032200130030-0212211311133211-0103231132331330-2100221331131013-0102212223002310-1323231202330123-0200202203320101) |
+| `compression_params.disable_on_etag_header` | [compression_params.disable_on_etag_header](data-sources--virtual_host--reference--group-002.md#canonical-2031200203032112-3133012330210022-3100123300021302-3011131022223210-3203020021022123-3223220210213213-1112231132011221-1213331201332110) |
+| `compression_params.remove_accept_encoding_header` | [compression_params.remove_accept_encoding_header](data-sources--virtual_host--reference--group-002.md#canonical-1320100232322033-1231232022213011-3103030313201103-2303111100022201-2333213322112210-0001233223333201-0302312320202322-3113200001121313) |
+| `connection_idle_timeout` | [connection_idle_timeout](data-sources--virtual_host--reference--group-001.md#canonical-1131000302300201-1330312202211222-2320023031230032-3113330111131123-3033013120011233-0101101312010000-1332302023100210-3232111201303012) |
+| `cors_policy` | [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-2000022133131221-1002001101221112-1210213110223313-3033230021132322-2202310223211101-1203010003300113-1323332122301323-3130222330120000) |
+| `cors_policy.allow_credentials` | [cors_policy.allow_credentials](data-sources--virtual_host--reference--group-002.md#canonical-2010200221011321-0203030121013302-3023130313322200-2232231133003020-1332300123322122-1133123321010323-2103000101330133-1303113313322032) |
+| `cors_policy.allow_headers` | [cors_policy.allow_headers](data-sources--virtual_host--reference--group-002.md#canonical-3333110322201200-3200111132322112-0213032322321223-2310300310303011-3023203102213301-1001320310010221-3022002232220332-3030220000313110) |
+| `cors_policy.allow_methods` | [cors_policy.allow_methods](data-sources--virtual_host--reference--group-002.md#canonical-3011003321332333-0003303003333202-0033110031131202-3121033102213331-0121221303133310-2030231133132302-2032223103323030-1011110230100323) |
+| `cors_policy.allow_origin` | [cors_policy.allow_origin](data-sources--virtual_host--reference--group-002.md#canonical-1023231122322210-2011322313323333-3133330000030100-0303221213033123-3000021202232021-2122103210321021-2320000101230322-0011010101200310) |
+| `cors_policy.allow_origin_regex` | [cors_policy.allow_origin_regex](data-sources--virtual_host--reference--group-002.md#canonical-1030231302230221-1232012120110010-2120211300100330-3211122203310210-3022232320020232-1213032111031330-3113300230022222-0011230012111032) |
+| `cors_policy.disabled` | [cors_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-3210132113233112-2311110231332203-0103231031113223-2002311233031201-1033100200303322-0110202200232223-0221013132200002-1222202221100111) |
+| `cors_policy.expose_headers` | [cors_policy.expose_headers](data-sources--virtual_host--reference--group-002.md#canonical-2330012220221131-3312310133002203-3230013303010331-0013301102323103-1232021133021311-1031111203332201-3210010231330322-1102211311321110) |
+| `cors_policy.maximum_age` | [cors_policy.maximum_age](data-sources--virtual_host--reference--group-002.md#canonical-3322022203032032-1330310120220232-0131333002211321-3311032213120212-3102323303202321-1322113211133310-2010201123013202-3313203021212120) |
+| `csrf_policy` | [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-3031223133200111-0120310302032202-1030211123102211-1000333030031220-1303103321101333-1132110213133312-2111201110102013-2320231323100000) |
+| `csrf_policy.all_load_balancer_domains` | [csrf_policy.all_load_balancer_domains](data-sources--virtual_host--reference--group-002.md#canonical-1122301000310102-2230013332210023-3030030331210002-3012113120120033-0233302122233333-3103011203121201-0123033322112323-2000331113021021) |
+| `csrf_policy.custom_domain_list` | [csrf_policy.custom_domain_list](data-sources--virtual_host--reference--group-002.md#canonical-1313202213002001-3233011212130111-1030101220013023-1000133331130223-0002131231033230-0302210322330312-3313232230220110-2110323021230121) |
+| `csrf_policy.custom_domain_list.domains` | [csrf_policy.custom_domain_list.domains](data-sources--virtual_host--reference--group-002.md#canonical-0113300021331300-3220133103110033-0202002232331212-3030220321203022-0113221222011331-1321133230001221-3111111200302030-0312301120222132) |
+| `csrf_policy.disabled` | [csrf_policy.disabled](data-sources--virtual_host--reference--group-002.md#canonical-0323033223122213-0133300131232223-2202110010030003-2332331012323133-0333133123231311-1223122031332132-3022301020231310-0320133003013332) |
+| `custom_errors` | [custom_errors](data-sources--virtual_host--reference--group-001.md#canonical-0311333110202211-3220301301033201-1301030023233331-3123331111231031-0112332302032310-1000122332013012-1333321330121302-2022332202001221) |
+| `default_header` | [default_header](data-sources--virtual_host--reference--group-002.md#canonical-0131231003301103-0321312203033301-3002222033101103-1222201231020220-1232210300213310-0131212300130011-2002101030031123-0001030211230102) |
+| `default_loadbalancer` | [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-0203210323302221-1200031011123211-0101202233211001-3323232022101020-0000321121303303-2333220023222121-3300321333323100-1032021333100320) |
+| `description` | [description](data-sources--virtual_host--reference--group-001.md#canonical-1012211020332002-2000223221113203-0231031301220101-1302320230213121-2230310120301232-0001000002221030-2323033233231311-0211012023030023) |
+| `disable_default_error_pages` | [disable_default_error_pages](data-sources--virtual_host--reference--group-001.md#canonical-3301123013022232-0323303003312030-2230113313201003-0112003031301202-0321130302211230-2301230021222100-2201032031012132-3003103101133302) |
+| `disable_dns_resolve` | [disable_dns_resolve](data-sources--virtual_host--reference--group-001.md#canonical-2121220132020120-1333002003213320-0200320333211300-2311230133202100-2230201100031121-1101202121211010-1032202133302213-3101101320223213) |
+| `disable_path_normalize` | [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-3301102111312121-0031222233000230-3002223322002213-3111133201103210-3210213120101312-2112223132033332-1123130311310222-0210010110330230) |
+| `domains` | [domains](data-sources--virtual_host--reference--group-001.md#canonical-2001102223333120-3121303313103013-1233202010221303-0130333220131020-2021201303210221-3023220023120302-1231120123312032-3212112103120301) |
+| `dynamic_reverse_proxy` | [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-3312001003220201-1021111332030323-2320100230313010-0231102023313230-3231131000121133-2230033123002221-1131102320231311-0211223000310232) |
+| `dynamic_reverse_proxy.connection_timeout` | [dynamic_reverse_proxy.connection_timeout](data-sources--virtual_host--reference--group-002.md#canonical-3211220132132303-3112133120120133-3202311011213200-1002000110020003-2320230021021132-1310002121231023-1132132011202020-0331230332012130) |
+| `dynamic_reverse_proxy.resolution_network` | [dynamic_reverse_proxy.resolution_network](data-sources--virtual_host--reference--group-002.md#canonical-3033013100002213-2212012332232022-0101032322103101-3203023313232302-2003311011303113-2011101113132023-1103120111033031-0211210301122103) |
+| `dynamic_reverse_proxy.resolution_network.kind` | [dynamic_reverse_proxy.resolution_network.kind](data-sources--virtual_host--reference--group-002.md#canonical-3300130110213322-2033023121303131-0322022120321010-2031100303233130-0033131101331112-3100331302112101-0123032100001131-1103221033132010) |
+| `dynamic_reverse_proxy.resolution_network.name` | [dynamic_reverse_proxy.resolution_network.name](data-sources--virtual_host--reference--group-002.md#canonical-0332300122302032-2201103333100232-3201320201321221-3033020123112300-0102213011320201-2020331130323130-2331001000332332-3311230233032221) |
+| `dynamic_reverse_proxy.resolution_network.namespace` | [dynamic_reverse_proxy.resolution_network.namespace](data-sources--virtual_host--reference--group-002.md#canonical-3030031013223202-3132003021232202-3032020020210201-1213002033221110-2222101222221300-1122002222231100-2030001102222002-3102113221212030) |
+| `dynamic_reverse_proxy.resolution_network.tenant` | [dynamic_reverse_proxy.resolution_network.tenant](data-sources--virtual_host--reference--group-002.md#canonical-2221121323012333-2030311132131000-0121232223200221-2111301111231320-1202323202320031-3011112301121100-1321301331102200-2303313311123303) |
+| `dynamic_reverse_proxy.resolution_network.uid` | [dynamic_reverse_proxy.resolution_network.uid](data-sources--virtual_host--reference--group-002.md#canonical-1132023131100102-0101122333332123-2320101021133230-2230123020222330-1022222131313332-3002001110221222-3111330122331220-3122100003321120) |
+| `dynamic_reverse_proxy.resolution_network_type` | [dynamic_reverse_proxy.resolution_network_type](data-sources--virtual_host--reference--group-002.md#canonical-3010130003111302-2130210213012133-2133122313331220-2021130112120331-0021231020013123-3121011111201010-2203011113302120-0333322103130113) |
+| `dynamic_reverse_proxy.resolve_endpoint_dynamically` | [dynamic_reverse_proxy.resolve_endpoint_dynamically](data-sources--virtual_host--reference--group-002.md#canonical-2111003331333012-0102002000130221-1313311222331131-3203333123223321-1212303201102123-2220132000103222-3130113303221032-1200202002000221) |
+| `enable_path_normalize` | [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-0201022300021320-1303303003222003-0131032130300103-2101300200200320-1102022211110023-3002001212313220-0232120011002133-0313322031310312) |
+| `http_protocol_options` | [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-2310113310130010-3202002120331033-0311323332301131-0002201322002231-2330330123123022-1120101032001030-2313321211221113-1133330133022113) |
+| `http_protocol_options.http_protocol_enable_v1_only` | [http_protocol_options.http_protocol_enable_v1_only](data-sources--virtual_host--reference--group-002.md#canonical-2120030322212322-2013100321103031-2132112213110203-2310201230132310-0312211110131133-3322120012323020-3003321110133113-0310310012222201) |
+| `http_protocol_options.http_protocol_enable_v1_only.header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0120332231310121-0113131120312310-1211221010210013-0031020333330210-1333013003123023-1113211132212222-0002003313032023-2310310221333231) |
+| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-0030121220133201-0213311121113220-2100110103320320-1221333110111101-0213031001333223-3202303333332302-3010213113200331-0211003311131303) |
+| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-2233331223213101-3023030222201313-0211012203010211-2131230000231202-1031111220030233-1211332231333121-1010123001311312-1222312101210023) |
+| `http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation` | [http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation](data-sources--virtual_host--reference--group-002.md#canonical-1230200223331302-2002002213010322-3013103231233030-3120303222000121-2023110213010322-1303313210001222-0101332311313131-3302301200120123) |
+| `http_protocol_options.http_protocol_enable_v1_v2` | [http_protocol_options.http_protocol_enable_v1_v2](data-sources--virtual_host--reference--group-002.md#canonical-3303201210330112-1103310130233322-1233213311213131-3233203100332101-3013230011313001-0311010121312000-1212302030323210-1111201323321210) |
+| `http_protocol_options.http_protocol_enable_v2_only` | [http_protocol_options.http_protocol_enable_v2_only](data-sources--virtual_host--reference--group-002.md#canonical-2211100030121313-1121323330100333-3211112023122100-0030201230331100-3103030202000302-1111213101120220-1001021233020211-2022321222210223) |
+| `id` | [id](data-sources--virtual_host--reference--group-001.md#canonical-0123200020210113-3331101011100011-2131023231221200-1302132213002302-0321212210132202-2111232220131010-1213010301331123-3313220022231303) |
+| `idle_timeout` | [idle_timeout](data-sources--virtual_host--reference--group-001.md#canonical-2032022311020320-2103200213220300-2103320332232231-2232202010112301-2022222223222103-3121300333203131-2033003232203122-0000321330323223) |
+| `js_challenge` | [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-1233322231003110-0102032003010110-2120003213121113-1012123200113212-2002113320322202-0133131333003033-3333000122301333-0101331330331000) |
+| `js_challenge.cookie_expiry` | [js_challenge.cookie_expiry](data-sources--virtual_host--reference--group-002.md#canonical-2313113333022330-1020033223233003-2130201233133003-1002002123131033-0213020231321222-2033002121320310-1133123211230323-1011301023100201) |
+| `js_challenge.custom_page` | [js_challenge.custom_page](data-sources--virtual_host--reference--group-002.md#canonical-1302230100332332-2202313211121220-0112313320203313-1211131320323102-3310132321221203-1310313010201213-2113100130022103-0010311132323211) |
+| `js_challenge.js_script_delay` | [js_challenge.js_script_delay](data-sources--virtual_host--reference--group-002.md#canonical-0103120220231031-1132002321101122-0112010200210321-3303312133213213-1302000012302123-0010032133330111-1122032303302303-1112323322232230) |
+| `labels` | [labels](data-sources--virtual_host--reference--group-001.md#canonical-2321100313100033-1030011101330323-2210010211320131-3111302003012300-2223223121121020-3202023131211212-0321222301012010-3101201022333011) |
+| `max_request_header_size` | [max_request_header_size](data-sources--virtual_host--reference--group-001.md#canonical-1112301012203222-0033322101102100-2102113011010203-2202321311313220-3123122012020121-1302131003123102-3213032133120033-2103202330022033) |
+| `max_requests_per_connection` | [max_requests_per_connection](data-sources--virtual_host--reference--group-001.md#canonical-2120031230002123-2101102332011300-0002133320120210-1203232121221321-0312032203130200-3003330211201232-0112030211002123-3313310312112033) |
+| `name` | [name](data-sources--virtual_host--reference--group-001.md#canonical-0133010022031202-0132230130110103-2120123002212031-3123123320112333-3320310312003111-0103000111012002-1233322113303120-3332322030320101) |
+| `namespace` | [namespace](data-sources--virtual_host--reference--group-001.md#canonical-1103220003212213-2311300012331233-3223311312302210-3030301132231022-3102213320310013-3210121011303201-0032023010313300-0333211213131213) |
+| `no_authentication` | [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-1102100302002300-1313133201331100-3113202203002110-2131030023211011-2113223023332022-0203202123003020-0213012011103301-3232331311333110) |
+| `no_challenge` | [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0333002331231113-1021121120232222-1021202203033121-0100301010000210-0311202222011232-1313320122120233-3202220223102123-3332002100110330) |
+| `no_request_limit_per_connection` | [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-2222231010030030-3130021202122031-3100103020130033-3121222000100032-1102001222302230-2111131103111212-2133112303230032-3021011203213203) |
+| `non_default_loadbalancer` | [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-1030023303220330-1233033230000310-3231300000123020-3023333313100103-3300223002022021-2032203120322203-1313212202312012-3321111231213003) |
+| `pass_through` | [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-2011230100101232-2231130122231011-0101023133113300-2212113001232301-2201101303031211-2222001202121303-1333000311103303-2303303020030321) |
+| `proxy` | [proxy](data-sources--virtual_host--reference--group-001.md#canonical-2033111332122010-1200133213031022-1130303333101001-2032010113303131-0203113033130133-2222303300032300-0333000030331023-2020302012321331) |
+| `rate_limiter_allowed_prefixes` | [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-0331330100322200-1002100120300333-2120120320132113-3002220323202030-1000321101320011-1133201200033030-1322111110211323-3011210232003110) |
+| `rate_limiter_allowed_prefixes.kind` | [rate_limiter_allowed_prefixes.kind](data-sources--virtual_host--reference--group-002.md#canonical-3003022201012312-1020122303201010-1221030322123200-3032321102213223-2011202001121100-2210003123231310-3001133022303023-3030233101233031) |
+| `rate_limiter_allowed_prefixes.name` | [rate_limiter_allowed_prefixes.name](data-sources--virtual_host--reference--group-002.md#canonical-2300030130022113-2002103122312233-0332110112313112-3202313123320002-1230311322013002-1031321111000223-2100220012333200-3003023301123303) |
+| `rate_limiter_allowed_prefixes.namespace` | [rate_limiter_allowed_prefixes.namespace](data-sources--virtual_host--reference--group-002.md#canonical-0123332313122333-2233322111222220-2232000033013202-0202221023100030-0320330123210302-0121323021303203-1211002111011002-3010202021201023) |
+| `rate_limiter_allowed_prefixes.tenant` | [rate_limiter_allowed_prefixes.tenant](data-sources--virtual_host--reference--group-002.md#canonical-0332132321331221-0010120222322311-0232113213223032-0302323220221311-3203021021121303-2301030303122210-0201302331321202-2311133033020220) |
+| `rate_limiter_allowed_prefixes.uid` | [rate_limiter_allowed_prefixes.uid](data-sources--virtual_host--reference--group-002.md#canonical-2003130203331213-2112231202131123-0011312113200000-3123033332122320-0200100301022012-0103211130201011-0332102312300101-0322031302120323) |
+| `request_cookies_to_add` | [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1313120312033223-3223302312021001-2210111031213102-0032030313222120-1111023302121322-0321022003120100-1002030012222312-3203122220311202) |
+| `request_cookies_to_add.name` | [request_cookies_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-3210111320021210-0032132032121020-3302313300112212-0032120213000131-3303212001021130-0210100012323310-2201200303232120-3330020121311200) |
+| `request_cookies_to_add.overwrite` | [request_cookies_to_add.overwrite](data-sources--virtual_host--reference--group-002.md#canonical-3123011230320133-2030230232131002-2132301112010200-3000221223231033-2313112322222022-1020210231223000-2300113110033321-3213101011220211) |
+| `request_cookies_to_add.secret_value` | [request_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-0322303201132233-3331133033102320-3102210333112212-2121003031010100-2022302021021031-0203120133110221-0322311031233013-0123233230031222) |
+| `request_cookies_to_add.secret_value.blindfold_secret_info` | [request_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-1102332111131111-2312210102230132-2102301032003113-1222233223112201-0103032111122220-3020133233303122-0123020330232333-1122130322203001) |
+| `request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-0011112001231020-0202022121232302-1313002012223121-3332000123100131-1013300013130302-1030223302012111-3100330301110020-3321032102301203) |
+| `request_cookies_to_add.secret_value.blindfold_secret_info.location` | [request_cookies_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-3203200133231320-3031120000321011-2221130111333310-0200203230030211-2231210200203130-0000201320023200-2012003002032200-1212202200213233) |
+| `request_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [request_cookies_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-0331331030323300-0132232222123003-2033300320120322-1032320321132331-1000223130031122-1221113010222033-3133002212133132-0200230301210200) |
+| `request_cookies_to_add.secret_value.clear_secret_info` | [request_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3020312203131200-0020022130002033-0321323213310022-2313111212203031-2030211221112111-0213103303011130-1323002013112332-3320202133102220) |
+| `request_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [request_cookies_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-3232213000032311-3301210102010031-3222232013311122-0233112321032130-2120322312202132-0330000323231203-2202231213101220-1003102131001330) |
+| `request_cookies_to_add.secret_value.clear_secret_info.url` | [request_cookies_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-0300321231110031-2331012232231000-0123331022213032-3030302211320333-0113230030130112-1201122031033032-0211323200112230-3233131303313211) |
+| `request_cookies_to_add.value` | [request_cookies_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-3022111331213332-0111133010110023-1121102122000323-3311001313022000-3321032110313012-0123130321032020-2320111232303303-0231121300231003) |
+| `request_cookies_to_remove` | [request_cookies_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-3121332030132111-1033032022010131-0231011222333033-0011333330301000-0011130210122033-0121203201322112-0010100331231132-3331101133320302) |
+| `request_headers_to_add` | [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-0212331111220023-1110003001131213-2230212300133010-0032203310311221-3132120120212033-2213331220010100-0122232301011223-1113212132012332) |
+| `request_headers_to_add.append` | [request_headers_to_add.append](data-sources--virtual_host--reference--group-002.md#canonical-0111003322111311-0210311322203231-0033231212032013-0120201220320101-3322301111220313-0130312231102133-1010101013000110-0323013230030323) |
+| `request_headers_to_add.name` | [request_headers_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-2013010322133123-3312231203130101-0001201323033122-0313203013300222-2002002231011321-0320010312120320-1311220121011202-3021332101220200) |
+| `request_headers_to_add.secret_value` | [request_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-1113100003100331-1012223330010101-2311201233313310-2202132323023113-1002120103022112-2322022213110322-1002212202302302-0022023101201032) |
+| `request_headers_to_add.secret_value.blindfold_secret_info` | [request_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-1110020211333301-0201002333112132-1123323201210102-1122032113112330-0033210303230021-3311212110111200-2322201312102122-0103010302332210) |
+| `request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-3221300001313201-2202013112112012-3210001201320011-0211221022210112-1022212232103113-1310001122321233-3210230123221120-3323312303010110) |
+| `request_headers_to_add.secret_value.blindfold_secret_info.location` | [request_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-1130010110321230-3102120121003322-1010221321200311-1132112033100303-0001301202313013-3130212230131221-1310230033220310-3200222213021312) |
+| `request_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [request_headers_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-3303102130111003-1333003000312221-0023001320311002-2133322032102330-1230230222003021-0100332210120222-2321030033213221-0130122233033021) |
+| `request_headers_to_add.secret_value.clear_secret_info` | [request_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3121111213002323-1231101112112231-3101333032202332-0200013011002332-2223020023231333-1133033202321323-2031003023020022-1103101121113301) |
+| `request_headers_to_add.secret_value.clear_secret_info.provider_ref` | [request_headers_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-1200322010133001-2100232100010330-1133302301320120-3201131331201221-0221220222211133-0120320101303330-3211133301010023-2230331232012120) |
+| `request_headers_to_add.secret_value.clear_secret_info.url` | [request_headers_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-2330021311131111-1132011222001031-0010222130001213-1112132200302132-0322123330122212-1220113330112203-1210310130002200-2211211201220201) |
+| `request_headers_to_add.value` | [request_headers_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-0002221320121320-1033122001021012-2021121302103102-0303312323133110-2231122220223301-3120003322302203-0211231223130313-2203011201111113) |
+| `request_headers_to_remove` | [request_headers_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-0132230023120312-0323110133220311-2200100113101302-3302003030102231-1200223330013012-3012320331030001-1002033032102022-2121031120023110) |
+| `response_cookies_to_add` | [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-0113212001232011-3133322010021302-3102230131212330-2020322230330311-0130213133032111-3122133022112220-3200232202122232-3312300203123230) |
+| `response_cookies_to_add.add_domain` | [response_cookies_to_add.add_domain](data-sources--virtual_host--reference--group-002.md#canonical-0001011020132012-1232111312113132-0330300223301231-1011002313230031-3232220300331003-2300110310311011-3121013011113200-0013021222011120) |
+| `response_cookies_to_add.add_expiry` | [response_cookies_to_add.add_expiry](data-sources--virtual_host--reference--group-002.md#canonical-0323331213312223-3021003123002211-1202213220023132-3010013212200011-1022332133021023-3323301323122213-0303012032122120-2201212310221002) |
+| `response_cookies_to_add.add_httponly` | [response_cookies_to_add.add_httponly](data-sources--virtual_host--reference--group-002.md#canonical-3331200311131232-2111312122313330-3311022112022321-0210222232203233-2322120132222221-0330300102033233-0002221112121012-2231003222320123) |
+| `response_cookies_to_add.add_partitioned` | [response_cookies_to_add.add_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-2030311302202101-1021020302223000-2330003013102031-1031233032103232-3210302012231012-3212130200300211-1000222233330032-0202323320031200) |
+| `response_cookies_to_add.add_path` | [response_cookies_to_add.add_path](data-sources--virtual_host--reference--group-002.md#canonical-0211031222022221-1210232233232213-0123111010113301-1210201123011222-3321203311111332-0020311311131231-2211233232100232-0022110201032030) |
+| `response_cookies_to_add.add_secure` | [response_cookies_to_add.add_secure](data-sources--virtual_host--reference--group-002.md#canonical-3003210300322131-1210230110002132-0111332020330200-2212311130233302-0330011012323322-1132211132132020-3220101313231112-1023130121100010) |
+| `response_cookies_to_add.ignore_domain` | [response_cookies_to_add.ignore_domain](data-sources--virtual_host--reference--group-002.md#canonical-2300121232212121-0121210302102312-2113030112230210-3213202010320220-3000113302302223-2020031013213103-3000003131023032-3302121313313112) |
+| `response_cookies_to_add.ignore_expiry` | [response_cookies_to_add.ignore_expiry](data-sources--virtual_host--reference--group-002.md#canonical-0131302033331002-2302213311003033-0320130131231012-2312100333202102-0023100123222031-1213230122321313-3121023211212321-3101233013232101) |
+| `response_cookies_to_add.ignore_httponly` | [response_cookies_to_add.ignore_httponly](data-sources--virtual_host--reference--group-002.md#canonical-0301030232121022-0112212033023121-2032223012003223-2230102331131002-3330102031321322-3333222213312032-3120310303312112-0330111332132312) |
+| `response_cookies_to_add.ignore_max_age` | [response_cookies_to_add.ignore_max_age](data-sources--virtual_host--reference--group-002.md#canonical-1312333330322012-1230201311201103-2333211023331033-2201220330121222-1321331313012310-1310302302331010-0333121011001310-1121031003120230) |
+| `response_cookies_to_add.ignore_partitioned` | [response_cookies_to_add.ignore_partitioned](data-sources--virtual_host--reference--group-002.md#canonical-3110203131101201-2120323010230203-0202113001231330-3013301310123112-2002133221302221-0101033122100131-1331130012322133-2301222312322232) |
+| `response_cookies_to_add.ignore_path` | [response_cookies_to_add.ignore_path](data-sources--virtual_host--reference--group-002.md#canonical-2130320121310303-1332032310213100-2222113113013213-2303023222113201-1312310230031200-0122023033133131-1230233332231203-3230131012023332) |
+| `response_cookies_to_add.ignore_samesite` | [response_cookies_to_add.ignore_samesite](data-sources--virtual_host--reference--group-002.md#canonical-3021320121212200-3213213331333010-3110311312301132-0231220113203222-2131102100213123-1320001210231333-3131200320223223-1112322321131001) |
+| `response_cookies_to_add.ignore_secure` | [response_cookies_to_add.ignore_secure](data-sources--virtual_host--reference--group-002.md#canonical-2302001212203030-1130010112322122-2033200121331232-3200023020330333-1102221111111232-0221131320122112-2011203322210322-1030202221211032) |
+| `response_cookies_to_add.ignore_value` | [response_cookies_to_add.ignore_value](data-sources--virtual_host--reference--group-002.md#canonical-3222313001302022-0111130312012223-0231010310010311-1112112223103321-2201303303000332-3322220033221033-1301013100210230-0020213102300331) |
+| `response_cookies_to_add.max_age_value` | [response_cookies_to_add.max_age_value](data-sources--virtual_host--reference--group-002.md#canonical-1223332230031002-3021221300023122-1202320001120111-1301132121100020-0021200302320200-1031203103230123-1212100133020002-1023133010220030) |
+| `response_cookies_to_add.name` | [response_cookies_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-0033210331200122-0220202000132121-0133233333200332-0202313322332222-3132303020321000-1030002033013000-2100222230022023-1011132021323013) |
+| `response_cookies_to_add.overwrite` | [response_cookies_to_add.overwrite](data-sources--virtual_host--reference--group-002.md#canonical-0131110323003203-3300311130312322-0010021032303102-3033001202211300-3133130232132202-3203131033323323-2310212232320232-0322100132320110) |
+| `response_cookies_to_add.samesite_lax` | [response_cookies_to_add.samesite_lax](data-sources--virtual_host--reference--group-002.md#canonical-2033121212113103-0210022033031232-2333211101213203-2320033333020211-0031301210202211-1103111012210301-0213003303311011-0321333020001302) |
+| `response_cookies_to_add.samesite_none` | [response_cookies_to_add.samesite_none](data-sources--virtual_host--reference--group-002.md#canonical-3220320102032323-0102112031021131-2101130101011021-3133023100130231-0301332213303331-0232020023003022-0200212031300200-3202111010023000) |
+| `response_cookies_to_add.samesite_strict` | [response_cookies_to_add.samesite_strict](data-sources--virtual_host--reference--group-002.md#canonical-0020132200132200-2312023030212103-0101121332113211-0300223301032223-3131310123120132-1030202201211311-3033223330103300-1001010231133231) |
+| `response_cookies_to_add.secret_value` | [response_cookies_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-0230220011133210-1121201122001221-2000212031123303-2011300012231322-0222223121102113-1020232220032232-2213211003211031-3233111203002212) |
+| `response_cookies_to_add.secret_value.blindfold_secret_info` | [response_cookies_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-0121002103233003-2010103032030132-2022032223201103-3322111330020103-2222021232310220-1223233302111221-0230220220201122-1022002331131202) |
+| `response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-0012113123020121-1200013002032230-3330322213112113-1020322132300102-0110011223303332-2113013103003112-2300312331121330-3233223133103002) |
+| `response_cookies_to_add.secret_value.blindfold_secret_info.location` | [response_cookies_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-0302122213101131-1201112003300311-0100202202232231-3311121103123012-2323231121121112-2100023230202130-0333031121231000-1332322330021013) |
+| `response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-002.md#canonical-1020312200013313-2020300101100203-0232321123331320-3121113012310200-1231310002031023-0332120303101003-0112111203122001-0123002323122201) |
+| `response_cookies_to_add.secret_value.clear_secret_info` | [response_cookies_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-3313221201232231-0032112231301020-0000102331131233-2230002130021321-1300331221033122-2331012012100222-3333311331212011-1213221010013302) |
+| `response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [response_cookies_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-002.md#canonical-2130100100231230-0111333213301122-2223013210030123-0210223112111132-1332013333011322-0330223010022203-0101320132230022-3033120023232331) |
+| `response_cookies_to_add.secret_value.clear_secret_info.url` | [response_cookies_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-002.md#canonical-2322300220130300-2033203000011122-2111200122010030-2331010010200213-2223120132233322-3103001213000023-3221102222232333-0212231210102202) |
+| `response_cookies_to_add.value` | [response_cookies_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-0132212221332200-0112030120132231-0303203332110213-0221133212132012-3112222223320130-3311011121331322-2300303301330321-0232012032110113) |
+| `response_cookies_to_remove` | [response_cookies_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-2012011312030331-0033023101223210-1313013112102210-1321032113231022-2003120322020032-1332310021111120-0130022121211301-3322320320103000) |
+| `response_headers_to_add` | [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-0101202001030202-2332212330311113-0131001010330313-3313032330010131-2020200230233013-3311312012021031-2120012311323110-1223013022101202) |
+| `response_headers_to_add.append` | [response_headers_to_add.append](data-sources--virtual_host--reference--group-002.md#canonical-3303003312131233-3030200320213123-3100123110201120-3131321300002023-2233310232001113-2010231121122122-3320330023303211-3030031322132203) |
+| `response_headers_to_add.name` | [response_headers_to_add.name](data-sources--virtual_host--reference--group-002.md#canonical-2003113000313011-3210313331203312-2212323303332232-3131111332022133-1231002120203303-2020000303233020-2210103001332230-3332312130233310) |
+| `response_headers_to_add.secret_value` | [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3100032201022001-2001120211311323-2303132030311023-1223333122211033-2111333132122321-0032110321210032-1303101313331301-0220323001111102) |
+| `response_headers_to_add.secret_value.blindfold_secret_info` | [response_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-0320122313112313-3331203313022000-0020013010012332-0133303123120012-0301223323113003-1323202202311113-0103112102302020-3111312210311233) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-2321220203333331-1210133320202232-0003321312003130-3020101102233113-2330202230100231-2103013212232033-2220000302030330-1233011223003331) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-003.md#canonical-1102310020100012-3102100223203311-3110012320302010-0123100022202212-0033032111133122-0103313212300302-3202100320123303-2101331100023100) |
+| `response_headers_to_add.secret_value.clear_secret_info` | [response_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-3130022021012020-2111013303010033-1333320203310213-1113300030300221-3010301303313032-0131000023311021-1311011231100022-0033220130331233) |
+| `response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [response_headers_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-003.md#canonical-3130311230122321-1302312201303300-2201333323000103-2221203213132300-1221320233200232-0202033103310201-1130033232123211-1020312201022013) |
+| `response_headers_to_add.secret_value.clear_secret_info.url` | [response_headers_to_add.secret_value.clear_secret_info.url](data-sources--virtual_host--reference--group-003.md#canonical-3021103000001322-1332201012301002-2323332233021010-3223020132221322-3321333002212312-0002112103120230-0002122102112030-2000112103213322) |
+| `response_headers_to_add.value` | [response_headers_to_add.value](data-sources--virtual_host--reference--group-002.md#canonical-3322312333311133-0031013222000232-2233131202221213-1100201210300331-3301011233011300-3011131010300113-1200103303323130-0210113003213303) |
+| `response_headers_to_remove` | [response_headers_to_remove](data-sources--virtual_host--reference--group-001.md#canonical-0033332310122132-2102211023030310-3331313201111222-0320231303022031-0232220110330333-2233111210213332-1311230032111033-1030311110013200) |
+| `retry_policy` | [retry_policy](data-sources--virtual_host--reference--group-003.md#canonical-3121300022323212-3032100030021200-3220123111011103-0022232031022323-2212331012001311-2303233320201201-1331103322001123-2010123121001101) |
+| `retry_policy.back_off` | [retry_policy.back_off](data-sources--virtual_host--reference--group-003.md#canonical-2100010313230133-0131312130011120-3021201113200123-0111123210210102-2313130302102213-3321231130312130-2130210232001211-0132213311231233) |
+| `retry_policy.back_off.base_interval` | [retry_policy.back_off.base_interval](data-sources--virtual_host--reference--group-003.md#canonical-2203132023322013-0121130211022203-3232303101100320-3232300022223013-3121331123220320-2021300332201203-3201002020331213-1130003023311201) |
+| `retry_policy.back_off.max_interval` | [retry_policy.back_off.max_interval](data-sources--virtual_host--reference--group-003.md#canonical-2230122033122210-3301212221320032-2101022132012321-0313311303320300-2030013311022231-1011313330031023-0122310203312220-2101300302001102) |
+| `retry_policy.num_retries` | [retry_policy.num_retries](data-sources--virtual_host--reference--group-003.md#canonical-1220312222312301-1032103101122112-0131120022103202-3313321111013110-0222113311201112-0130211121333200-1110212201330031-1102103301033132) |
+| `retry_policy.per_try_timeout` | [retry_policy.per_try_timeout](data-sources--virtual_host--reference--group-003.md#canonical-0320211020202131-1110221323012302-0333100001031313-0322023302330120-0201222331000302-2030031122110001-1330003133012202-3121210000302323) |
+| `retry_policy.retriable_status_codes` | [retry_policy.retriable_status_codes](data-sources--virtual_host--reference--group-003.md#canonical-2121022023022001-3000132120321230-2023030231120210-3023100021111221-1021123323210330-2002210323013301-3110301013223023-0133022312311100) |
+| `retry_policy.retry_condition` | [retry_policy.retry_condition](data-sources--virtual_host--reference--group-003.md#canonical-1330131133121001-0213001123313202-0333010330032300-2200023131011201-3032233303321102-0322311222232033-3011202221002323-1111222331132312) |
+| `routes` | [routes](data-sources--virtual_host--reference--group-003.md#canonical-2002112323120121-1202312220122120-3322103020012232-0302122212212332-0222332110320333-1213010203011123-0000002223313331-0233310011312332) |
+| `routes.kind` | [routes.kind](data-sources--virtual_host--reference--group-003.md#canonical-1223020302332210-2023312112223323-0221101131313303-3023200210310011-2031033021232212-1012021110032002-0130032212230020-3222220230002003) |
+| `routes.name` | [routes.name](data-sources--virtual_host--reference--group-003.md#canonical-2202300320101110-0113011022002232-2110123233001222-1131030303001313-3232302022013011-3223233110113210-2012021133120233-1111023032031320) |
+| `routes.namespace` | [routes.namespace](data-sources--virtual_host--reference--group-003.md#canonical-0210112210122000-0322130213000103-2333231131123030-2030311131121213-3031222313311233-3123322202222310-2211113012232110-1123030213303122) |
+| `routes.tenant` | [routes.tenant](data-sources--virtual_host--reference--group-003.md#canonical-3320303210103110-2113232323122122-2230323000030202-1112313303333200-1000223103110013-1213132102221031-2133102330130322-1031112033033212) |
+| `routes.uid` | [routes.uid](data-sources--virtual_host--reference--group-003.md#canonical-3123331032100112-0230032013120120-0232012012302122-3120122102110232-3332303313212120-2022020010212033-1322322303230002-2123032322023220) |
+| `sensitive_data_policy` | [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-2113012213211213-0001300300111232-0000020003302202-0323031131213222-2010031320310213-2023110002103000-0233002333102213-0010303110201000) |
+| `sensitive_data_policy.kind` | [sensitive_data_policy.kind](data-sources--virtual_host--reference--group-003.md#canonical-1131233313023311-2110020033320000-0020311223322131-0211222333323230-0030120022330022-1210321330303210-2322023311132123-1021330022311000) |
+| `sensitive_data_policy.name` | [sensitive_data_policy.name](data-sources--virtual_host--reference--group-003.md#canonical-3323132320003002-0020103200100221-1223211013120003-0123101131101131-0102111300011232-1020000320333220-0322022111123232-0233331300323131) |
+| `sensitive_data_policy.namespace` | [sensitive_data_policy.namespace](data-sources--virtual_host--reference--group-003.md#canonical-1230101132333321-0231110301231201-3311323123113322-0231331010203132-3310020311101021-2013203010312033-0300220112033322-2000021123301300) |
+| `sensitive_data_policy.tenant` | [sensitive_data_policy.tenant](data-sources--virtual_host--reference--group-003.md#canonical-1023212213333333-2233313120032322-2311231322131322-2113102110330011-1320113113102000-3031303012020202-2232220233102131-1131030333123211) |
+| `sensitive_data_policy.uid` | [sensitive_data_policy.uid](data-sources--virtual_host--reference--group-003.md#canonical-2212202010100222-2331323201130111-2313301113223320-2323302021000202-1120203311123113-3330231210332120-1023131010203020-0330312323130012) |
+| `server_name` | [server_name](data-sources--virtual_host--reference--group-001.md#canonical-2000133212001013-1130012132023121-0030132122333222-0303323311000221-0303100033122013-2021210110033131-2331333211132010-0220310022330223) |
+| `slow_ddos_mitigation` | [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-1220330111031211-1120011223033003-2123202222131321-1201302331203110-1333233222300203-1200012010311001-1323233031232331-0100332123023100) |
+| `slow_ddos_mitigation.disable_request_timeout` | [slow_ddos_mitigation.disable_request_timeout](data-sources--virtual_host--reference--group-003.md#canonical-3202112331010000-2313202003002100-0032311010100012-3120320312113322-2121103100232313-1010200233110313-3312323002331313-2323013233203122) |
+| `slow_ddos_mitigation.request_headers_timeout` | [slow_ddos_mitigation.request_headers_timeout](data-sources--virtual_host--reference--group-003.md#canonical-2201022000222211-2233111121033301-2331123120010132-0323013203231112-2102022322113110-2313110030333310-0011100210121223-0210320030232231) |
+| `slow_ddos_mitigation.request_timeout` | [slow_ddos_mitigation.request_timeout](data-sources--virtual_host--reference--group-003.md#canonical-3230302201331122-3001013330302310-3223123011023012-3101202230323030-3121033310132003-3001132133233333-3011121011033001-0311321300131312) |
+| `tls_cert_params` | [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-3032031001222133-3201022301111333-2323000130331230-3210112110333013-1013322112101202-3313113011233020-3302022013222012-2000301331222210) |
+| `tls_cert_params.certificates` | [tls_cert_params.certificates](data-sources--virtual_host--reference--group-003.md#canonical-3221233032310032-1212121233210100-0122010102321131-0033111303303211-1221232112012301-0301101013322103-0011110230221111-0213323331330132) |
+| `tls_cert_params.certificates.kind` | [tls_cert_params.certificates.kind](data-sources--virtual_host--reference--group-003.md#canonical-2331312322233001-3121000113203011-2233010221331311-2322002221201221-2110010232321003-2233300323021321-3302121113321032-1333213011131300) |
+| `tls_cert_params.certificates.name` | [tls_cert_params.certificates.name](data-sources--virtual_host--reference--group-003.md#canonical-0011133212323013-2121300212212320-1130201002031120-2301132023313210-1112312113321130-1132330032332313-1013222223323111-3123320231112223) |
+| `tls_cert_params.certificates.namespace` | [tls_cert_params.certificates.namespace](data-sources--virtual_host--reference--group-003.md#canonical-2010313321322010-2113320011031333-0202230332321300-0312330122133123-1003202103330303-3020311211200213-1030130312102012-3030113303203323) |
+| `tls_cert_params.certificates.tenant` | [tls_cert_params.certificates.tenant](data-sources--virtual_host--reference--group-003.md#canonical-2302323213233122-0002011332320311-3000323113031301-3132302330131222-2311233210310120-1333323030112103-3113001012102333-3003003202101332) |
+| `tls_cert_params.certificates.uid` | [tls_cert_params.certificates.uid](data-sources--virtual_host--reference--group-003.md#canonical-3311121320100133-1131023023331100-1312203313001132-3101201202113022-3123230123323222-3011311301200213-1203022211211210-3003213132012223) |
+| `tls_cert_params.cipher_suites` | [tls_cert_params.cipher_suites](data-sources--virtual_host--reference--group-003.md#canonical-3300013223123001-2110202103320120-1200121330023013-3332001132021311-0220123222132132-2203303231001013-0331100132323300-1331320322002033) |
+| `tls_cert_params.client_certificate_optional` | [tls_cert_params.client_certificate_optional](data-sources--virtual_host--reference--group-003.md#canonical-0021020200323331-1101002130221300-3220121322010201-3023233303300022-0013223200023131-0221100021322011-1033001331022321-2131111100333022) |
+| `tls_cert_params.client_certificate_required` | [tls_cert_params.client_certificate_required](data-sources--virtual_host--reference--group-003.md#canonical-1310331110032112-3002212333220332-0011213300131032-1200013023013220-3212021223313301-0302122231011101-1321020103130121-2013232113023233) |
+| `tls_cert_params.maximum_protocol_version` | [tls_cert_params.maximum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-1131110330012331-2221211112212321-3110313301221231-2330203202132300-3323300020312333-2122033010223003-3112221320102130-2323031130220211) |
+| `tls_cert_params.minimum_protocol_version` | [tls_cert_params.minimum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-0101030003010310-1113103230302113-3230113031002121-1100010200200232-2003020012321302-0223211012123202-1001212101020032-3201222102003001) |
+| `tls_cert_params.no_client_certificate` | [tls_cert_params.no_client_certificate](data-sources--virtual_host--reference--group-003.md#canonical-0210111112322023-2302233322300033-2211201100101112-3302123300112212-0022310311221102-1112120223020133-1232222230213123-2012112021333133) |
+| `tls_cert_params.validation_params` | [tls_cert_params.validation_params](data-sources--virtual_host--reference--group-003.md#canonical-2300302222301320-1013220320220122-2011112013302323-0003012133101110-2211222202003322-3003231101333301-1321221232232330-1330130311101123) |
+| `tls_cert_params.validation_params.skip_hostname_verification` | [tls_cert_params.validation_params.skip_hostname_verification](data-sources--virtual_host--reference--group-003.md#canonical-3320123120020312-2330230202230021-3222031121223112-0033231310023012-0121101333011131-3223211331322313-3003333221300120-1220202221101312) |
+| `tls_cert_params.validation_params.trusted_ca` | [tls_cert_params.validation_params.trusted_ca](data-sources--virtual_host--reference--group-003.md#canonical-2120312133211320-0213010030203123-2212023213213332-3301130020302332-2300100101203032-2002001113213200-1120233211121010-0122112323012112) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list](data-sources--virtual_host--reference--group-003.md#canonical-2322201223331011-1022202131013311-0012313030331113-1201110100110101-0000101131113030-2333112220310021-3010212122021220-0000300221301301) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind](data-sources--virtual_host--reference--group-003.md#canonical-2322133201223202-0211300020200333-3112010321130301-1023303210332031-3130203131022211-3133123200323202-1301003231003211-2103110113320300) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name](data-sources--virtual_host--reference--group-003.md#canonical-0203111133022121-0012200212331321-3333021230121123-2012003010301332-1033013301210213-0202330201300022-0231302103310221-1220120102102220) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace](data-sources--virtual_host--reference--group-003.md#canonical-0020100332200221-2113321020230013-0120130211110000-2022223031332200-3103132231131033-2301330123211133-1010301332010300-1020313311200332) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant](data-sources--virtual_host--reference--group-003.md#canonical-3210031221311021-0313012001202012-1220110122213101-2321102223232113-0223032000021133-1002301012003020-3311232103100303-0022010230332100) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid](data-sources--virtual_host--reference--group-003.md#canonical-3301020111002020-3320012021321331-0131013011312100-1002220220322213-0212131123100033-0320001330223211-1230002230201103-1200233010300100) |
+| `tls_cert_params.validation_params.trusted_ca_url` | [tls_cert_params.validation_params.trusted_ca_url](data-sources--virtual_host--reference--group-003.md#canonical-3121111203320320-3330323231303011-3031120310021332-2112002002112231-0030031211132121-3312023201203212-0233001313311131-0011311310103012) |
+| `tls_cert_params.validation_params.verify_subject_alt_names` | [tls_cert_params.validation_params.verify_subject_alt_names](data-sources--virtual_host--reference--group-003.md#canonical-0202011000311301-2131110123021013-3132112300332303-2121210000202202-1221313221210323-3223123000000313-2122012321133201-3030321130313212) |
+| `tls_cert_params.xfcc_header_elements` | [tls_cert_params.xfcc_header_elements](data-sources--virtual_host--reference--group-003.md#canonical-3310302001020000-3312322010233310-2000321003231101-3322201300010222-2300321120032212-3012303220211021-0313022203333323-0001021210021231) |
+| `tls_parameters` | [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-0013030212110331-2322313130021202-1331130021032333-0333100022023122-2301331212332300-0032103210001031-1030010233201111-2231131010212101) |
+| `tls_parameters.client_certificate_optional` | [tls_parameters.client_certificate_optional](data-sources--virtual_host--reference--group-003.md#canonical-3221212102110032-2212333010322130-1110301031211112-0233300112310032-1220113321013000-3223321211103002-1021230021203211-3100311011212110) |
+| `tls_parameters.client_certificate_required` | [tls_parameters.client_certificate_required](data-sources--virtual_host--reference--group-003.md#canonical-1322121022021001-1211013131003133-2233122232330113-2203121213300003-3132332233300311-2211003133210313-0312020003120012-2020002303032033) |
+| `tls_parameters.common_params` | [tls_parameters.common_params](data-sources--virtual_host--reference--group-003.md#canonical-1122233013102130-2021122230220223-3002031003230030-3020321300000222-1322010202110003-2122231302323200-2203220302313131-2323311001200032) |
+| `tls_parameters.common_params.cipher_suites` | [tls_parameters.common_params.cipher_suites](data-sources--virtual_host--reference--group-003.md#canonical-0210103132203322-1000023122230330-1203201210212103-2301100121230113-0221302200221113-2212212100332303-0021112331001121-3310301321303211) |
+| `tls_parameters.common_params.maximum_protocol_version` | [tls_parameters.common_params.maximum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-3311002010103122-1013132310120330-0311130211112101-1233333323023213-2023300300221103-2123210233300320-1331211100323023-0123321210110212) |
+| `tls_parameters.common_params.minimum_protocol_version` | [tls_parameters.common_params.minimum_protocol_version](data-sources--virtual_host--reference--group-003.md#canonical-2010113220100203-3122102002113033-1302302001303030-1203203331122233-1122311133000133-1033311000100001-0302011121113000-0322333003012230) |
+| `tls_parameters.common_params.tls_certificates` | [tls_parameters.common_params.tls_certificates](data-sources--virtual_host--reference--group-003.md#canonical-3122211203131331-1110033333310310-1013132323031321-2023210123002111-2321322320000113-3321322313230001-2322021021212302-0321000021133001) |
+| `tls_parameters.common_params.tls_certificates.certificate_url` | [tls_parameters.common_params.tls_certificates.certificate_url](data-sources--virtual_host--reference--group-003.md#canonical-0130131200233131-3102001332233101-3111311001312113-0021333333233323-3201133301032220-3131301230200012-1213301010211021-3300123211231210) |
+| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms](data-sources--virtual_host--reference--group-003.md#canonical-1013100311311122-3133332231121321-0011003022010013-0022130200031322-1013213110331100-1302203032133203-2132003020022003-2203222120223211) |
+| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](data-sources--virtual_host--reference--group-003.md#canonical-0333323320231131-3112231210321031-1101203220011032-1030113210033133-0032022113023211-3302110133201303-1031332300002001-1221300003002300) |
+| `tls_parameters.common_params.tls_certificates.description_spec` | [tls_parameters.common_params.tls_certificates.description_spec](data-sources--virtual_host--reference--group-003.md#canonical-1112213221331013-1033133021011102-3230011200010333-1130220130001201-1201303333121131-0110032021011112-2132112133001020-0221123210030120) |
+| `tls_parameters.common_params.tls_certificates.disable_ocsp_stapling` | [tls_parameters.common_params.tls_certificates.disable_ocsp_stapling](data-sources--virtual_host--reference--group-003.md#canonical-1032000020301032-1220002203030322-3011131031012231-2021333010023032-1333201221002002-2120120103230222-3022023201322203-2202221221002310) |
+| `tls_parameters.common_params.tls_certificates.private_key` | [tls_parameters.common_params.tls_certificates.private_key](data-sources--virtual_host--reference--group-003.md#canonical-0132213332013300-3330132103202111-1123122112012003-2220302132012101-2032311122122211-2212023200322032-2310023213313333-3320300322330310) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-1122221313200001-1233111222132323-2102220222033021-3301220113113232-2223011220201030-0020102100120322-0331001311223303-3303202102232133) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-003.md#canonical-2330012103000311-3301320210020113-1030130102020231-1300322021030020-1003010232212003-1002333231011310-2311231013322011-1322010331122310) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location](data-sources--virtual_host--reference--group-003.md#canonical-0123303221223230-0110023130232133-1122313022202321-1321230303231133-2131013033210032-1100301301221121-1113300011322213-1131023312022123) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-003.md#canonical-2231210311332313-1112022311211300-0200211232013110-1313032332000221-1211331230110022-3312311202120110-3022202310100322-3313201302021230) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-0102230201001020-3303302322012223-3222113230100120-0223231012231200-0303203121101011-1131310323021032-3030033333011100-3333000032000002) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-003.md#canonical-3332122332302233-2300202203032313-0113122321220012-2122120032220312-2103212212222201-2001123100233031-1232222020320132-0331300103212101) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url](data-sources--virtual_host--reference--group-003.md#canonical-0323302110030333-1013121220021123-1301121113031233-3131020213232021-3102311233211130-2311211201200132-1100031320002011-3221332202201013) |
+| `tls_parameters.common_params.tls_certificates.use_system_defaults` | [tls_parameters.common_params.tls_certificates.use_system_defaults](data-sources--virtual_host--reference--group-003.md#canonical-2110303302121311-1330010201013331-1133321110131010-2033121213220212-3012002021330332-0133311012231022-2233202131232210-3203230332212322) |
+| `tls_parameters.common_params.validation_params` | [tls_parameters.common_params.validation_params](data-sources--virtual_host--reference--group-003.md#canonical-2212012212101320-3112001032323123-2033201010100210-2133103003303313-3033022003211212-0213131112032203-2233331211102110-2032033120003310) |
+| `tls_parameters.common_params.validation_params.skip_hostname_verification` | [tls_parameters.common_params.validation_params.skip_hostname_verification](data-sources--virtual_host--reference--group-003.md#canonical-2030113320233213-0220133300211011-3122221331030231-1012202013002210-1200223021303102-3103213121121100-0323123213331301-0202123200321110) |
+| `tls_parameters.common_params.validation_params.trusted_ca` | [tls_parameters.common_params.validation_params.trusted_ca](data-sources--virtual_host--reference--group-003.md#canonical-0110222322332222-3321211030330203-0222013221030130-2231232312323102-1203032313103202-0303220312110330-0330122230200302-0230033112222122) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list](data-sources--virtual_host--reference--group-003.md#canonical-1033000020332202-0023201321102003-0021322013210030-0121310110201111-0200220132013113-3211000033320120-1110013120222300-1321100223231013) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.kind](data-sources--virtual_host--reference--group-003.md#canonical-3213102212203012-1011323021323312-2133323212032212-1110122023202100-3202131112120123-3220230301330321-3033312132230303-3133002212001320) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.name](data-sources--virtual_host--reference--group-003.md#canonical-3321030310313130-0123031000211330-3011131020210111-0112032230020130-0113212300003233-1203020021031122-1101202303111221-3022122322311321) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.namespace](data-sources--virtual_host--reference--group-003.md#canonical-3331123303122121-2031001311331303-2232012031321123-1012101132310002-3201200202011233-1201111103301222-0021112030303200-1333320310013212) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.tenant](data-sources--virtual_host--reference--group-003.md#canonical-2120122322022312-2330012223232210-0321010113112312-1203331221102222-0221032020003301-0132030133322001-1232000023320122-2202312001130002) |
+| `tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.uid](data-sources--virtual_host--reference--group-003.md#canonical-1322130113222233-3221102020013002-2311301131232222-2231011212310112-2133022103213020-0022223130120321-1020223010310320-0213033333200123) |
+| `tls_parameters.common_params.validation_params.trusted_ca_url` | [tls_parameters.common_params.validation_params.trusted_ca_url](data-sources--virtual_host--reference--group-003.md#canonical-2221202123013033-0301222212222230-0002103322012211-1223210100330122-3332211023131310-0300223232202130-1310311203231300-2301201132223210) |
+| `tls_parameters.common_params.validation_params.verify_subject_alt_names` | [tls_parameters.common_params.validation_params.verify_subject_alt_names](data-sources--virtual_host--reference--group-003.md#canonical-2030332013012000-2133110033200303-2303032112332220-0031023223132301-2031331013200132-3121311113000130-3113133002323002-3230013220202200) |
+| `tls_parameters.no_client_certificate` | [tls_parameters.no_client_certificate](data-sources--virtual_host--reference--group-003.md#canonical-2003121333303301-2111312111203022-1320320130233311-3033000220012333-0201022301310033-1312123300120330-3201231231111210-3213012001011200) |
+| `tls_parameters.xfcc_header_elements` | [tls_parameters.xfcc_header_elements](data-sources--virtual_host--reference--group-003.md#canonical-3200332110312223-1011311221201220-1310300302322102-3213122331332330-1330232002303333-0010023311221110-3221003021203101-1030330303010122) |
+| `user_identification` | [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-3332310012322303-2301321002210033-3200311030002213-3100332131002300-3021122202111201-1333223133120302-0111201333302303-2100033020001110) |
+| `user_identification.kind` | [user_identification.kind](data-sources--virtual_host--reference--group-003.md#canonical-1211032333222130-1113032311112331-1322112023200233-2221210102302032-0111132202230233-0313311101113121-2231112101110013-2110120213032300) |
+| `user_identification.name` | [user_identification.name](data-sources--virtual_host--reference--group-003.md#canonical-1302023000122200-1233200213212012-0310002020132131-3212003200033311-1103203002212221-0012230220321313-0101102200232223-2111101323101303) |
+| `user_identification.namespace` | [user_identification.namespace](data-sources--virtual_host--reference--group-003.md#canonical-1222313323133111-2012203111100120-2111302113221303-3130221231213012-0033000012131020-0301120010010010-1321330030230133-0220333320021122) |
+| `user_identification.tenant` | [user_identification.tenant](data-sources--virtual_host--reference--group-003.md#canonical-1131031121132022-3200223321130120-3101323011322120-1220023033333233-3030131103211311-0001230112030013-0203121130311021-2311300302211020) |
+| `user_identification.uid` | [user_identification.uid](data-sources--virtual_host--reference--group-003.md#canonical-0233310231303031-2221213101031123-0033311303301102-1023330030323230-2012313013130211-2322013030310211-2332122002033020-2220002133001131) |
+| `waf_type` | [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-0212131312112320-3010013102333133-1003210023231021-0022011032133223-0310111333100300-0332102210001333-3113231121103003-0013001311203303) |
+| `waf_type.app_firewall` | [waf_type.app_firewall](data-sources--virtual_host--reference--group-003.md#canonical-3000222221111110-0300100323231110-3213130110203022-3102100032020310-1302332210112312-3031031231222333-0210011003021121-0131313212222203) |
+| `waf_type.app_firewall.app_firewall` | [waf_type.app_firewall.app_firewall](data-sources--virtual_host--reference--group-003.md#canonical-3031320302232103-0313103102301121-3310310322030220-1331222233331322-3323312112300120-0132330303223100-3230033103103121-1302130133000100) |
+| `waf_type.app_firewall.app_firewall.kind` | [waf_type.app_firewall.app_firewall.kind](data-sources--virtual_host--reference--group-003.md#canonical-2122301313000122-3213122132202331-0303320313121310-1013233322231122-2033012022001310-1012311223231011-1122320130002211-0023012113203300) |
+| `waf_type.app_firewall.app_firewall.name` | [waf_type.app_firewall.app_firewall.name](data-sources--virtual_host--reference--group-003.md#canonical-2210021022020201-1101003131010303-1033011311003033-3313112311133020-2212001121211021-1100213001032311-3233011301030120-1112313221311113) |
+| `waf_type.app_firewall.app_firewall.namespace` | [waf_type.app_firewall.app_firewall.namespace](data-sources--virtual_host--reference--group-003.md#canonical-3033002313132221-2232211031303012-3110113302303333-3021112021230110-3321323113210103-0223221211001323-0302100133213212-1021312212203133) |
+| `waf_type.app_firewall.app_firewall.tenant` | [waf_type.app_firewall.app_firewall.tenant](data-sources--virtual_host--reference--group-003.md#canonical-3331131032302210-1323121002333201-1230311011223103-0121133132223223-0130311111330201-0301032302331131-3303320103113200-0311132221113133) |
+| `waf_type.app_firewall.app_firewall.uid` | [waf_type.app_firewall.app_firewall.uid](data-sources--virtual_host--reference--group-003.md#canonical-1013211020013021-0011321100123322-0231222213313331-2021120130333111-3211303102212321-2133230011012132-0202012022103100-1012310300010120) |
+| `waf_type.disable_waf` | [waf_type.disable_waf](data-sources--virtual_host--reference--group-003.md#canonical-0013120130201131-1002011002120203-2223320033320023-3202121202131112-3200222111030331-3131000003002201-2333113123200223-2321301120031311) |
+| `waf_type.inherit_waf` | [waf_type.inherit_waf](data-sources--virtual_host--reference--group-003.md#canonical-3010301221131302-2113032200130303-1223220212210300-0101211011121200-2020201320122112-3013320110313203-2213221213333033-2120022000130002) |
 
-<a id="canonical-696858006792b4e79a0a875452f6440024957f4824e62c4075cf61dfde57988d"></a>
+<a id="canonical-1221122011200000-1213210223103213-2122002220131110-1102331210100000-0210211113331020-0210321202301000-1311303312013133-3132111321202031"></a>
 
-## Next pages — Property reference / 4ebaf40b9c3f / 27
+## Next pages — Property reference / 002321300333 / 27
 
-- [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-1021cfe9bb5566ddd87b255a7eccf4493464e67a5a1f176e3667d41f4f67d516)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-67c6bb4057c626103a8169b0ef713a2bdb3c67563949f25de13828f8d848654f)
-- [captcha_challenge](data-sources--virtual_host--reference--group-001.md#canonical-cce1978f17446fe7bf3d9c0dd2a62ce4ea2a4f0e13f8fd7f2ffff4c33710c445)
-- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-75fd922d8b2a0030acf5ff4db0e633324030eaf21e03d907149614a4050d5705)
-- [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-175e663c8201caf980e21bdc50984a06a8b563d7d07c88dfceb91ced493567cd)
-- [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-a4ecd779378b174be7fa310c13ecda6cf2402208e2a96236ae26a14b61393c5b)
-- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-4ee7bac88ab5ea17c5299f4f1d7b2559166a21de99f33fd89fcfb5ddd96c3cc6)
-- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-2ba5db0f8ddd27b58c29095c0986c994d4d2c03100a06100429e44c738a20fe4)
-- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-be86a1bd888037fdc3242c0d59516ab12221888e99a192b774b252f4409bcb2d)
-- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-fbdf7fd14ab032fa59e6f0edf908260deddc86d23ea5ac6cb183d78a9e97ca96)
-- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-b8e8c7fcb7321f9bdf837de330392a7f4162a7567cf7f68cb61c12c9040bbf3e)
-- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-1171379e2864a9edbff9631c19170289cd393aea92e23cbd8fbf34b9e78ce7e2)
-- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-4aabb4290babb3f663ded1911fa1af29fbe8c0f2babc078ecc811d26b751f04a)
-- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-35d4e92967faff2a93e6f02288638f65dd0c817f65630593c95b78f48dc76894)
-- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-6fd9adf9858ac044d27f69605c0da0afab5ae1521dd18568d820e2c4370a249b)
-- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-d44525cc14415a80f6e329d02112bdf067ba82809fab4500bda9866ea672ad6f)
-- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-545aca29b311fea151c0f133136e8abac4d81e741b6298394ac83aad08e117f3)
-- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-8b5b859bf066db8c50680f61439eb6236af261b0f24ab581d2fa842959be914d)
-- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-62dbd01f9aad94f490c77cc7b4d61c54a4fe212c25d4796a116058d8f3256475)
-- [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-5fd02a3e53a4014bceaf5d9ab95dd66a94fd084b4552ea6670553171736272ca)
-- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-c607794e1950663e659931bd4c846516c6d6cb4b36d3764bdaaf2c464573208a)
-- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-f39c7adb3f264ebfc0320b7642ce2fe8977c6b9d0ce455f5c6130b30dd0f9a17)
-- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-b2eab755b936b68b42c7358fbe998033541c0bb72b8037e7642c6abed92cbbca)
-- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-5ac4cc3e0fb3d2c552bd80fbd0e1e0fa0c015a37f28e884f2a9f6e809b842597)
-- [retry_policy](data-sources--virtual_host--reference--group-002.md#canonical-4934cf1290ecb6b5c3257959b6affcf382a8a9611d4070478d2b7a96a328bd49)
-- [routes](data-sources--virtual_host--reference--group-002.md#canonical-e51606ec3c960457562b22f8d862e9f0eb68742c034a1b4373e9a7b926a9d694)
-- [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-5570059452e7a42407d2b110e7733a91dd1e1471402407dd0b9bd2b2184c3e65)
-- [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-88cb41571444c3a26fbfd8e039fa894468f209f6f9fb8b8397263ebd3c25f6e5)
-- [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-b9382842870e321acdf7016c1135e4f94dee90a091f8f06bcfcf3b5ed7401575)
-- [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-59249dd40b384286e5ea9bb6fe59217d37819dc7d52c503f41d2d418369ea741)
-- [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-42caf6807b285559de11020a7412783936bce26b48dc1c3b083cd332528d2cb1)
-- [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-f7cff9cfeb2dd8157227422588b288998707fc74cf1aa6fbdb624a059e568bc1)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [advertise_policies](data-sources--virtual_host--reference--group-001.md#canonical-0100020130333221-2323111112123131-3120132302111122-1332303033101021-0310121032121322-1122013301131232-0312121331100133-1033121331110112)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-1213301223231000-1113301202120100-0322200112212300-3233130103220223-3123033012131112-0321102133021131-3201032002203320-3120102012111033)
+- [captcha_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3030320121132033-0113101012333213-2333033121300031-3102221202303210-3222022210330032-0103332033311333-0233333333103003-0313010030101011)
+- [coalescing_options](data-sources--virtual_host--reference--group-002.md#canonical-1311333121020231-2023022200000300-2230331133331031-2300321203030302-1000030032223302-0132000331210013-0110211201102210-0011003111130011)
+- [compression_params](data-sources--virtual_host--reference--group-002.md#canonical-0113113212120330-2002000130223321-2000320201233130-1100212010220012-2220231112033113-3100133020203133-3032232101303231-1021031112133031)
+- [cors_policy](data-sources--virtual_host--reference--group-002.md#canonical-2210323031131321-0313202301131023-3213332203010030-0103323031221230-3302100002020020-3202222112020312-2232021222011023-1201032103301123)
+- [csrf_policy](data-sources--virtual_host--reference--group-002.md#canonical-1032321323223020-2022231132220113-3011022121331033-0131132302111121-0112122202013132-2121330303333120-2133303323113131-3121123003303012)
+- [default_header](data-sources--virtual_host--reference--group-002.md#canonical-0223221131230033-2031313102132311-2030022100211130-0021201230212110-3110310230000301-0000220012010000-1002213210103013-0320220200333210)
+- [default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2332201222012331-2020200003133331-3003021002300031-1121110112222301-0202020120202032-2121220121022313-1310230211023310-1000212330230231)
+- [disable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-3323313313333101-1022230003023322-1121321233003231-3321002002120031-3231313020123102-0332221122301230-2301200331132022-2132211330222112)
+- [dynamic_reverse_proxy](data-sources--virtual_host--reference--group-002.md#canonical-2320322030133330-2313030201332123-3133200313313203-0300032102221333-1001120222131112-1330331333122030-2312013001023021-0010002323330332)
+- [enable_path_normalize](data-sources--virtual_host--reference--group-002.md#canonical-0101130103132132-0220121022213231-2333332112030130-0121011300022021-3031032103223222-2102320203302331-2033233303102321-3213203032133202)
+- [http_protocol_options](data-sources--virtual_host--reference--group-002.md#canonical-1022222323100221-0023222323033312-1203313231012101-0133220122330221-3323322030003302-2322233000132032-3030200101310212-2313110133001022)
+- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0311311032210221-1213332233330222-2103321233000202-2020120320331211-3131003020011333-1211120300112103-3021112313203310-2031301312202110)
+- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-1233312122313321-2011202230001010-3102133312211200-1130003122002233-2223112232011102-0131310120111220-3120020032023010-0313002202102123)
+- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3110101102113030-0110100111222000-3312320302213100-0201010223313300-1213232220022000-2133222310110000-2331222120121232-2212130222311233)
+- [no_request_limit_per_connection](data-sources--virtual_host--reference--group-002.md#canonical-1110112230220221-2303010133322201-1101300033010303-0103123220222322-3010312001321310-0123120221200321-1022302003222231-0020320101133303)
+- [non_default_loadbalancer](data-sources--virtual_host--reference--group-002.md#canonical-2023112320112123-3300121231232030-1100122000331201-1003213223120203-1222330212012300-3302102223112001-3102332220100221-1121233221011031)
+- [pass_through](data-sources--virtual_host--reference--group-002.md#canonical-1202312331000133-2122223121103310-2100301313303013-2310311201301110-2210333202010230-0211311013211222-0101120011203120-3303021112101311)
+- [rate_limiter_allowed_prefixes](data-sources--virtual_host--reference--group-002.md#canonical-1133310002220332-1103221000011023-3032223311312122-2321113131121222-2110333100201023-1011110232221212-1300111103011301-1303120213023022)
+- [request_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3012001313211032-0121110012120332-1211212103012331-1030201012110112-3012311230231023-0312310313121023-3122223302301012-1011130302002022)
+- [request_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-3303213013223123-0333021210322333-3000030200231312-1002303202333220-2113133012232131-0030321011113311-3012010300230300-3131003321220113)
+- [response_cookies_to_add](data-sources--virtual_host--reference--group-002.md#canonical-2302322223131111-2321031223122023-1002301303112033-2332212120000303-1110013000232313-0223200003133213-1210023012222332-3121023023233022)
+- [response_headers_to_add](data-sources--virtual_host--reference--group-002.md#canonical-1122301030300332-0033230331023011-1102233120003323-3100320132003322-0030000111220313-3302203220201033-0222213312322000-2123201002112113)
+- [retry_policy](data-sources--virtual_host--reference--group-003.md#canonical-1021031030330102-2100323023122311-3003021113211121-2312223333303303-2002222022211201-0131100013001013-2031022313222112-2203022023311021)
+- [routes](data-sources--virtual_host--reference--group-003.md#canonical-3211011200123230-0330211200101113-1112022302023320-3120120232213300-3223122013100230-0003102201231003-1303322122132321-0212222131122110)
+- [sensitive_data_policy](data-sources--virtual_host--reference--group-003.md#canonical-1111130000112110-1102321322100210-0013310223010100-3213130303222101-3131013201101301-1000021000133131-0023212331022302-0120103003321211)
+- [slow_ddos_mitigation](data-sources--virtual_host--reference--group-003.md#canonical-2020302310011113-0110101030032202-1233233331203200-0321332220211010-1220330200213312-3321332320232003-2113021203322331-0330021133123211)
+- [tls_cert_params](data-sources--virtual_host--reference--group-003.md#canonical-2321032002201002-2013003203020122-3031331300011230-0101031132103321-1031323221002200-2101332033001223-3033303303231132-3113100001111311)
+- [tls_parameters](data-sources--virtual_host--reference--group-003.md#canonical-1121021021313110-0023032010022012-3211322221232312-3332112102011331-0313200121313013-3111023011000333-1001310231100120-0312213222131001)
+- [user_identification](data-sources--virtual_host--reference--group-003.md#canonical-1002302233122000-1323022011111121-3132010100020022-1310010213200321-0312233032021223-1020313001300323-0020033031030302-1102203102302301)
+- [waf_type](data-sources--virtual_host--reference--group-003.md#canonical-3313303333213033-3223023131200111-1302021310020211-2020230220202121-2013001333301310-3033012222123323-3123120210220011-2132111220233001)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-1021cfe9bb5566ddd87b255a7eccf4493464e67a5a1f176e3667d41f4f67d516"></a>
+<a id="canonical-0100020130333221-2323111112123131-3120132302111122-1332303033101021-0310121032121322-1122013301131232-0312121331100133-1033121331110112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3c1a3edb54d89d59d5c2893ac5142439aa98200d50ecffc30c278f9444a2655a"></a>
+<a id="canonical-0330012203323123-1110312021311121-3111300220210322-3011011002100321-2222212002000031-1100323033333003-0030021320332110-1010220212111122"></a>
 
-## advertise_policies — advertise_policies / 1cba8960753f / 2
+## advertise_policies — advertise_policies / 120013110333 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - advertise_policies
 
-<a id="canonical-05494ad126ed1d3d8ba1432041ec4189d78e08a936c599cded20b69ba316aa25"></a>
+<a id="canonical-0011102110223101-0212323101310331-2023220110030200-1001323010012021-3113203200202221-0312301121213031-3231020023122123-2203011222220211"></a>
 
 Type: `"list"`. Computed.
 
@@ -1527,15 +1527,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-44bcc430853d108fd939726b75697d1589bd4ef39684c37550cb3b90ac673857"></a>
+<a id="canonical-1010233030100300-2011033101002033-3121032113021223-1311122113310111-2021233110323303-2112201030031311-1100302303232100-2230121303201113"></a>
 
-## Direct properties — advertise_policies / 1cba8960753f / 3
+## Direct properties — advertise_policies / 120013110333 / 3
 
-<a id="canonical-c7b24cfc89036f33952d2fd6110ca9692c01fba3b742a6a66bad6b7fe9759928"></a>
+<a id="canonical-3013230210303330-2021000312330303-2111023102333112-0101003022211221-0230000133232203-2313100222122212-1223223112231333-3221131121210220"></a>
 
-<a id="canonical-8f01f57abff0b13bfd18f56fe28c7d3e2f62b2483e97cc347de7ecb468b737d3"></a>
+<a id="canonical-2033000133111322-2333330023010323-3331012033111233-3202203013310332-0233120223021020-0332211330300310-1331321332302310-1220231303133103"></a>
 
-## kind property — advertise_policies / 1cba8960753f / 4
+## kind property — advertise_policies / 120013110333 / 4
 
 Type: `"string"`. Computed.
 
@@ -1570,11 +1570,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c2ccbc9a8a9e9ba0c51d2d9c344fd40c818dba19fbedc83d5c7e5dda5402e09e"></a>
+<a id="canonical-3002303023302122-2022213221232200-3011013102312130-0310103331100030-2001203123220121-3323323130200331-1130133211313122-1110000232002132"></a>
 
-<a id="canonical-287766bbf51e5fd45ea1356397c62323c2d101ceb12af244b9f78c4103bc9c21"></a>
+<a id="canonical-0220131312122323-3311013211333110-1132220103111203-2113301202030203-3002310100013032-2301022233021010-2321331320301001-0003233021300201"></a>
 
-## name property — advertise_policies / 1cba8960753f / 5
+## name property — advertise_policies / 120013110333 / 5
 
 Type: `"string"`. Computed.
 
@@ -1609,11 +1609,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d9eb86e615062680ce1019603c57547768149d62cb983cdfdc0cb423040af98f"></a>
+<a id="canonical-3121322320123212-0111001202122000-3032010001211200-0330111311101313-1220011021311202-3023212003303133-3130003023100203-0010002233212033"></a>
 
-<a id="canonical-db94bb8e8c92a8187483094a58fb1bd6dcae0e5fdcef340fc486963fd3158c17"></a>
+<a id="canonical-3123211023232032-2030210222200120-1310200300211022-1120332301233112-3130223200321133-3130323303100033-3010201221120333-3103011120300113"></a>
 
-## namespace property — advertise_policies / 1cba8960753f / 6
+## namespace property — advertise_policies / 120013110333 / 6
 
 Type: `"string"`. Computed.
 
@@ -1663,11 +1663,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f7223ce543c2df2c1540a8e008b1e6acde62ab3d3c49c63effcbe42fffbe8005"></a>
+<a id="canonical-3313020203303211-1003300231330230-0111100022203200-0020230132122230-3132120222230331-0330102130120332-3333302332100233-3333233220000011"></a>
 
-<a id="canonical-0fef7be371a1650252b7f00338bc047e32420330d697dd9425aff748a5e12f5f"></a>
+<a id="canonical-0033323313233203-1301220112110002-1102231333000003-0320233000101332-0302100200030300-3112211331312110-0211223333131020-2211320102331133"></a>
 
-## tenant property — advertise_policies / 1cba8960753f / 7
+## tenant property — advertise_policies / 120013110333 / 7
 
 Type: `"string"`. Computed.
 
@@ -1702,11 +1702,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c96b2044c69182ac5db579740ac35f3ed0dc7b7a06d6f9d6c68aaf4c58fafa2b"></a>
+<a id="canonical-3021122302001010-3012210120022230-1131231113211310-0022300311330332-3100313013231322-0012311233213112-3012202222331030-1120332233220223"></a>
 
-<a id="canonical-86f1c00e066f62de43d8773fac7465b33be7881aeefd2a7509a122cfde0978ff"></a>
+<a id="canonical-2012330130000032-0012123312023132-1003312013130333-2230131012112303-0323321320200122-3232333102221311-0021220102023033-3132002113203333"></a>
 
-## uid property — advertise_policies / 1cba8960753f / 8
+## uid property — advertise_policies / 120013110333 / 8
 
 Type: `"string"`. Computed.
 
@@ -1741,30 +1741,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-74f8baa25ab1c70644707abce95836883116522b0f339bfa48d5e32cc360e5a9"></a>
+<a id="canonical-1310332023222202-1122230130130012-1010130013222330-3221112003122020-0301011211020223-0033030321233322-1020311132030230-3003120032112221"></a>
 
-## Next pages — advertise_policies / 1cba8960753f / 9
+## Next pages — advertise_policies / 120013110333 / 9
 
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660"></a>
+<a id="canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a3465097e7a2d44e465b69946926917152e22282f101cdbbc733cd1b6d750c16"></a>
+<a id="canonical-2203101211002113-3213220231101032-1012112312212110-1221021221011301-1102320202022002-3301000130312323-3013030330310123-1231131100300112"></a>
 
-## authentication — authentication / 620cc112c0d9 / 2
+## authentication — authentication / 010230003121 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - authentication
 
-<a id="canonical-545d089bac57d022dd93f2f3a9229a961d1ed6d51b8979e737d8f6507e2aa40e"></a>
+<a id="canonical-1110113100202123-2230111331000202-3131210333023303-2221020221222112-0131013231123111-0123202113213213-0313312033121100-1332022222100032"></a>
 
 Type: `"single"`. Computed.
 
@@ -1794,26 +1794,26 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-545d089bac57d022dd93f2f3a9229a961d1ed6d51b8979e737d8f6507e2aa40e)
-- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-524320b0777e1f50d78a30949d30b94597acbf8a2389b0c8271854f1eef75fd4)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-1110113100202123-2230111331000202-3131210333023303-2221020221222112-0131013231123111-0123202113213213-0313312033121100-1332022222100032)
+- [no_authentication](data-sources--virtual_host--reference--group-002.md#canonical-1102100302002300-1313133201331100-3113202203002110-2131030023211011-2113223023332022-0203202123003020-0213012011103301-3232331311333110)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-32bf07c0069c94d030d8cd198a3d8b5074f1acce37918a3af31aa68673bf5754"></a>
+<a id="canonical-0302233300133000-0012213021103100-0300312030310121-2022033120231100-1310330122303032-0313210120220322-3303012222122012-1303233311131110"></a>
 
-## Direct properties — authentication / 620cc112c0d9 / 3
+## Direct properties — authentication / 010230003121 / 3
 
-- [auth_config](data-sources--virtual_host--reference--group-001.md#canonical-5b58e434648d227b0a63d957dd1de7176ad07e2d7541d734f7b8e1ab42c2276a): complete subsection reference.
+- [auth_config](data-sources--virtual_host--reference--group-001.md#canonical-1123112032100310-1210203102021323-0022120331211113-3131013132130113-1222310013320231-1311100131130310-3313232032012223-1002300202131222): complete subsection reference.
 
-- [cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc): complete subsection reference.
+- [cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330): complete subsection reference.
 
-- [redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-57b2f3389add8acf9fb9d3e81b7bbd989667b811052db1c73b8e54fdd71547b6): complete subsection reference.
+- [redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-1113230233030320-2122313120223033-2133232131033220-0123132323312120-2112121323200101-0011023123013013-0323203211103331-3113011110132312): complete subsection reference.
 
-<a id="canonical-09f89f9369443451dc474e3f055fa399b3dbf6e24b754f3aeefb127b5d3cc6b7"></a>
+<a id="canonical-0021332021332103-1221101003101101-3130101310320333-0011113322032121-2303312333123202-1023131110330322-3232332301021323-1131033030122313"></a>
 
-<a id="canonical-991f1a93f6b2a9ffb8709afb2e554a9250cccc548eaf6b264d80a501f01f7c2e"></a>
+<a id="canonical-2121013301222103-3312230222213333-2320130021223323-0232111110222102-1100303030301110-2032223312230212-1031200022110001-3300013313300232"></a>
 
-## redirect_url property — authentication / 620cc112c0d9 / 4
+## redirect_url property — authentication / 010230003121 / 4
 
 Type: `"string"`. Computed.
 
@@ -1866,37 +1866,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-29c07ee4e405fecf854bf57f6d3797440042eb6dac65df7d70403ab75fa12c51): complete subsection reference.
+- [use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-0221300013323210-3210001133323033-2011102333111333-1231031321131010-0000100232231231-2230121131331331-1300100003222313-1133220102301101): complete subsection reference.
 
-<a id="canonical-1bb4940e49a9e9193c7195da62f654da286e44b6f03003125ec426501d3a2a37"></a>
+<a id="canonical-0123231021100032-1021222132210121-0330130121113122-1202331211103122-0220123210102312-3300030000030102-1132301002121100-0131032202220313"></a>
 
-## Next pages — authentication / 620cc112c0d9 / 5
+## Next pages — authentication / 010230003121 / 5
 
-- [authentication.auth_config](data-sources--virtual_host--reference--group-001.md#canonical-5b58e434648d227b0a63d957dd1de7176ad07e2d7541d734f7b8e1ab42c2276a)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-57b2f3389add8acf9fb9d3e81b7bbd989667b811052db1c73b8e54fdd71547b6)
-- [authentication.use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-29c07ee4e405fecf854bf57f6d3797440042eb6dac65df7d70403ab75fa12c51)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.auth_config](data-sources--virtual_host--reference--group-001.md#canonical-1123112032100310-1210203102021323-0022120331211113-3131013132130113-1222310013320231-1311100131130310-3313232032012223-1002300202131222)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.redirect_dynamic](data-sources--virtual_host--reference--group-001.md#canonical-1113230233030320-2122313120223033-2133232131033220-0123132323312120-2112121323200101-0011023123013013-0323203211103331-3113011110132312)
+- [authentication.use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-0221300013323210-3210001133323033-2011102333111333-1231031321131010-0000100232231231-2230121131331331-1300100003222313-1133220102301101)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-5b58e434648d227b0a63d957dd1de7176ad07e2d7541d734f7b8e1ab42c2276a"></a>
+<a id="canonical-1123112032100310-1210203102021323-0022120331211113-3131013132130113-1222310013320231-1311100131130310-3313232032012223-1002300202131222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-27b2b6d0396c6052d61a10e8121c05a33d62560efb3fd621207022a3f41fb6e8"></a>
+<a id="canonical-0213230223123100-0321123012001102-3112012201003220-0102013000112203-0331120211120032-3323033331120201-0200130002022203-3310013323123220"></a>
 
-## authentication.auth_config — authentication.auth_config / 7c6ff81e9156 / 2
+## authentication.auth_config — auth_config / 013221011112 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
 - authentication.auth_config
 
-<a id="canonical-432e29e671ba2a926c08990f17d6508c1241450e6e6b14a0682008e22d75d3c9"></a>
+<a id="canonical-1003023202213212-1301232202222102-1230002021210033-0113311211002030-0102100110110032-1232122301102200-1220020000203202-0231131131033021"></a>
 
 Type: `"list"`. Computed.
 
@@ -1935,15 +1935,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f252c7368859e5d99e58140c7e0e6f8f4cbce4faaa63518a182a485fe38ab354"></a>
+<a id="canonical-3302110230130312-2020112132113121-2132112001100030-1332003212332033-1030233032103322-2222120311012022-0120022210201133-3203202223031110"></a>
 
-## Direct properties — authentication.auth_config / 7c6ff81e9156 / 3
+## Direct properties — auth_config / 013221011112 / 3
 
-<a id="canonical-2b283c1a1d34b26c560827e967be9b9d7427d7b6cbb1a2548e9fd5daf1e87e78"></a>
+<a id="canonical-0223022003300122-0131031023021230-1112002002133221-1213233221232131-1310021331132312-3023230122021110-2032213331113122-3301322013321320"></a>
 
-<a id="canonical-1d970d5142862babeed2f720761bb702c05d2ed01c9703ec74d2392310120f8c"></a>
+<a id="canonical-0131211300311101-1002201202232223-3232310233130200-1312012323130002-3000113102323100-0130211300033230-1310310203210203-0100010200332030"></a>
 
-## kind property — authentication.auth_config / 7c6ff81e9156 / 4
+## kind property — auth_config / 013221011112 / 4
 
 Type: `"string"`. Computed.
 
@@ -1978,11 +1978,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93216c981497701474c8bb072c2e7d2d840b948c81d14b9502535ced6ce18b1d"></a>
+<a id="canonical-2103020112302120-0110211313000110-1310302023230013-0230023213310231-2010002321102030-2001310110232111-0002110311303231-1230320120230131"></a>
 
-<a id="canonical-6f4210b0bb4ac725b9ed7d7a54e9aabfe646da757fb9416a58238c8e3450bf59"></a>
+<a id="canonical-1233100201002300-2323102230130211-2321323113311322-1110322122222333-3212101231221311-1333232110011222-1120020320302032-0310110023331121"></a>
 
-## name property — authentication.auth_config / 7c6ff81e9156 / 5
+## name property — auth_config / 013221011112 / 5
 
 Type: `"string"`. Computed.
 
@@ -2017,11 +2017,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ebf7f8d4f9606c5a964019f9b31958b4b94af96ae491d855775592378db883ed"></a>
+<a id="canonical-3223331333203110-3321120012301122-2112100001213321-2303012111202310-2321102233211222-3210210131201111-1313111121020313-2031232020033231"></a>
 
-<a id="canonical-c03fb500bb36100ef417206cea9167076bc354198db2b78b9af69a8c1e0688b4"></a>
+<a id="canonical-3000033323110000-2323031201000032-3310011302001230-3222210112130013-1223300311100121-2031230223132023-2122331221222030-0132001220202310"></a>
 
-## namespace property — authentication.auth_config / 7c6ff81e9156 / 6
+## namespace property — auth_config / 013221011112 / 6
 
 Type: `"string"`. Computed.
 
@@ -2071,11 +2071,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f7831c240b154a2a979c7e4b426e09e32b9beb61d27086d011855baad5d048df"></a>
+<a id="canonical-3313200301300210-0023011110220222-2113213013321023-1002123200213203-0223212332231201-3102130020123100-0101201111232222-3111310010203133"></a>
 
-<a id="canonical-477be2af5b436f29be2ce36b3099a2141726375deef53792471e16f8320a56e9"></a>
+<a id="canonical-1013132332022233-1123100312330221-2332023032031223-0300212122020110-0113021203131131-3232331103132102-1013013201123320-0302002211123221"></a>
 
-## tenant property — authentication.auth_config / 7c6ff81e9156 / 7
+## tenant property — auth_config / 013221011112 / 7
 
 Type: `"string"`. Computed.
 
@@ -2110,11 +2110,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7340a4ba0928ae551f1808689d2893076110559fbf13b564a5afdf087b1412d7"></a>
+<a id="canonical-1303100022102322-0021022022321111-0133012000201220-2131022021030013-1201010011112133-2333010323111210-2211223331330020-1323011001023113"></a>
 
-<a id="canonical-75a4cec5b7c78b4827ea6174726cd04505ecd8f77c28c2a47b782b81cb0c14b8"></a>
+<a id="canonical-1311221030323011-2313301320231020-0213322212011310-1302123031001011-0011323031203313-1330022030022210-1323132002232001-3023003001102320"></a>
 
-## uid property — authentication.auth_config / 7c6ff81e9156 / 8
+## uid property — auth_config / 013221011112 / 8
 
 Type: `"string"`. Computed.
 
@@ -2149,31 +2149,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c6de63fb5b074ffed06391ad4e45360c852b0ce2dd2372e53dd3fe120cfa8cd6"></a>
+<a id="canonical-3012313212033323-1123001310333332-3100120321012231-1032101103120030-2011022300303202-3131020313023211-0331310333320102-0030332220303112"></a>
 
-## Next pages — authentication.auth_config / 7c6ff81e9156 / 9
+## Next pages — auth_config / 013221011112 / 9
 
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc"></a>
+<a id="canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f373ca2ad46a7d8322d37f3d8ff5c17b0f3e93ba1d6a47ce576755a48dd48281"></a>
+<a id="canonical-3303130330220222-3110122213312003-0202310313330331-2033331130011323-0033033221032322-0131122210133032-1113121311112210-2031311020022001"></a>
 
-## authentication.cookie_params — authentication.cookie_params / 716df73e8960 / 2
+## authentication.cookie_params — cookie_params / 033220211200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
 - authentication.cookie_params
 
-<a id="canonical-3f8c10ebccfe81c63b92370a682e1acc15a154076d82be89c809465b66f4fb6f"></a>
+<a id="canonical-0333203001003223-3030333220013012-0323210203130022-1220023201223030-0111220111100013-1231200223322021-3020002110121123-1212331033231233"></a>
 
 Type: `"single"`. Computed.
 
@@ -2193,17 +2193,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-5f14a638a05cd57519293fdba4d8e1a6667f5a492c1289a2f72d795a4845c99d"></a>
+<a id="canonical-1133011022120320-2200113031111311-0121022103333123-2210312032012212-1212133311221021-0230010220212202-3313023113211122-1020101130212131"></a>
 
-## Direct properties — authentication.cookie_params / 716df73e8960 / 3
+## Direct properties — cookie_params / 033220211200 / 3
 
-- [auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a): complete subsection reference.
+- [auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122): complete subsection reference.
 
-<a id="canonical-034b5f1e3779a60c7bc855c5470479941faf8df4dca3e3c48ccbc43283878f7b"></a>
+<a id="canonical-0003102311330132-0313132122120030-1323302011113011-1013001013212110-0133223320313310-3130220332033010-2030302330100302-2003201320331323"></a>
 
-<a id="canonical-1c7b242f12a561178cae1a4c62ae3cdf854b521e086a43b38a581410b230d033"></a>
+<a id="canonical-0130132302100233-0102221112010113-2030223201221030-1202223203303133-2011102311020132-0020122210032303-2022112001100100-2302030031000303"></a>
 
-## cookie_expiry property — authentication.cookie_params / 716df73e8960 / 4
+## cookie_expiry property — cookie_params / 033220211200 / 4
 
 Type: `"number"`. Computed.
 
@@ -2247,11 +2247,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0660651eedcf79a126ac2ab14aa6c68c010766b222fa49ee182c580ef4b1127b"></a>
+<a id="canonical-0012120012110132-3231303313212201-0212223002222301-1022221230122030-0001001312122302-0202332210213232-0120023011200032-3310230101021323"></a>
 
-<a id="canonical-c2c9a6cf9d665dfb2e6e9c70af432bc222abfffabcb998076f4b8295230f39ea"></a>
+<a id="canonical-3002302122123033-2131121211313323-0232123221301300-2233100302233002-0202222333333322-2330232121200013-1233102320022111-0203003303213222"></a>
 
-## cookie_refresh_interval property — authentication.cookie_params / 716df73e8960 / 5
+## cookie_refresh_interval property — cookie_params / 033220211200 / 5
 
 Type: `"number"`. Computed.
 
@@ -2297,13 +2297,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-f42563210d7658ba9f7670114469f1729e981cc5275f4be7ba185cc2d8e499cf): complete subsection reference.
+- [kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-3310021112030201-0031131211202322-2133131213000101-1010122133011302-2132212001303011-0213113310233213-2322012011303002-3120321021213033): complete subsection reference.
 
-<a id="canonical-fb85439fef7c781a9158124c8819940106ffb7351b41919ce09f759b3664577b"></a>
+<a id="canonical-3323201110032133-3233133013200122-2101112001021030-2020012121100001-0012333323130311-0123100121012130-3200213313112123-0312121011131323"></a>
 
-<a id="canonical-8b5e64eb872f25d0c8323f71e0f9351e0387cd0dd11a5a5a248703a49e73de8e"></a>
+<a id="canonical-2023113212103223-2013023302113100-3020030203331301-3200332103110132-0003201330310031-3101012211221122-0210201300032210-2132130331322032"></a>
 
-## session_expiry property — authentication.cookie_params / 716df73e8960 / 6
+## session_expiry property — cookie_params / 033220211200 / 6
 
 Type: `"number"`. Computed.
 
@@ -2345,34 +2345,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8a20b6b39162f23ee8a680ab2fc96d3c43b54a85841208ac4e7c6e31bdd9bb27"></a>
+<a id="canonical-2022020023122303-2101120233020332-3220221220002223-0233302112310330-1003231110222011-2010010200202230-1032133012320301-2331312123230213"></a>
 
-## Next pages — authentication.cookie_params / 716df73e8960 / 7
+## Next pages — cookie_params / 033220211200 / 7
 
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [authentication.cookie_params.kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-f42563210d7658ba9f7670114469f1729e981cc5275f4be7ba185cc2d8e499cf)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [authentication.cookie_params.kms_key_hmac](data-sources--virtual_host--reference--group-001.md#canonical-3310021112030201-0031131211202322-2133131213000101-1010122133011302-2132212001303011-0213113310233213-2322012011303002-3120321021213033)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a"></a>
+<a id="canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1d559dc79837dcf82d59772696eedc8cff0937d5e1ae34f2a0c3770948a92ec3"></a>
+<a id="canonical-0131111121313013-2120031331303320-0231112113130212-2112323231302030-3333002103133111-3201223203103302-2200300313130021-1020222102323003"></a>
 
-## authentication.cookie_params.auth_hmac — authentication.cookie_params.auth_hmac / 4e0e65f580fd / 2
+## authentication.cookie_params.auth_hmac — auth_hmac / 331120003331 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
 - authentication.cookie_params.auth_hmac
 
-<a id="canonical-aef7595d637d8c179f4df76f8bdea5911b7189356015cd5feef2a633b30ec7ef"></a>
+<a id="canonical-2232331311211131-1203133120300113-2133103133131233-2023313222112101-0123130120210311-1200011130311133-3232330222120303-2303003230133233"></a>
 
 Type: `"single"`. Computed.
 
@@ -2397,17 +2397,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0e3b6732c3aa25b1c3dcab30748895b4f7b04cbe2f0c2964128afb20d17dc8fb"></a>
+<a id="canonical-0032032312130302-3003222202112301-3003313022230300-1310202021112310-3313230010302332-0233003002211210-0102202233230200-3101133130203323"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac / 4e0e65f580fd / 3
+## Direct properties — auth_hmac / 331120003331 / 3
 
-- [prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455): complete subsection reference.
+- [prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111): complete subsection reference.
 
-<a id="canonical-f11adc1269cc8a3196f37f64f73aad6c6d3e58b7e903187ca59dee2ef73a2c54"></a>
+<a id="canonical-3301012231300102-1221303020220301-2112330313331210-3313032222311230-1231033211202313-3221000301201330-2211213132320232-3313032202301110"></a>
 
-<a id="canonical-6b8ba43153fe899845126feff80ad46b653173bc440c60747a0d0e71716624a4"></a>
+<a id="canonical-1223202322100301-1103333220212120-1011010212333233-3320002231101223-1211030113032330-1010003012001310-1322003100321301-1301121202102210"></a>
 
-## prim_key_expiry property — authentication.cookie_params.auth_hmac / 4e0e65f580fd / 4
+## prim_key_expiry property — auth_hmac / 331120003331 / 4
 
 Type: `"string"`. Computed.
 
@@ -2447,13 +2447,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5): complete subsection reference.
+- [sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311): complete subsection reference.
 
-<a id="canonical-d573333500f65ae28a46a28eb4613068fc9474d56542f5087e48db6c71c67d6b"></a>
+<a id="canonical-3111130303030311-0000331211223202-2022101222022032-2310120103001220-3330211013103111-1211100233110020-1332102031231230-1301301213311223"></a>
 
-<a id="canonical-029c3192950fdacdb4582dcde4215f79ee96e67f131372235bef97cbcd002133"></a>
+<a id="canonical-0002213003012102-2111003331223031-2310112002313031-3210020111331321-3232211232121333-0103010313020203-1123323321133023-3031000002010303"></a>
 
-## sec_key_expiry property — authentication.cookie_params.auth_hmac / 4e0e65f580fd / 5
+## sec_key_expiry property — auth_hmac / 331120003331 / 5
 
 Type: `"string"`. Computed.
 
@@ -2493,35 +2493,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6a796abdd443898d86ad4773208f402c0007f0cb6aa0acf6a9e8aaeff1b020d5"></a>
+<a id="canonical-1222132112222331-3110100320212031-2012223110131303-0200203310000230-0000001333003023-1222220022303312-2221322022223233-3301230002003111"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac / 4e0e65f580fd / 6
+## Next pages — auth_hmac / 331120003331 / 6
 
-- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455)
-- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111)
+- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455"></a>
+<a id="canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-37d7e05c771896134df45bf1830cb409cef8cacc3d58b996dd3a88cf6df826d4"></a>
+<a id="canonical-0313311332001130-1313012021120103-1031331011233301-2003003023100021-3032332030223030-0331112023212112-3131032220203033-1231332002123110"></a>
 
-## authentication.cookie_params.auth_hmac.prim_key — authentication.cookie_params.auth_hmac.prim_key / bc63b0fc002c / 2
+## authentication.cookie_params.auth_hmac.prim_key — prim_key / 333000000230 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
 - authentication.cookie_params.auth_hmac.prim_key
 
-<a id="canonical-7bddd40bc4d2064bef3369cd7299ca145681cf66e50eea985f2870fb0661f4e4"></a>
+<a id="canonical-1323313131100023-3010310200121023-3233030312213031-1302212130220110-1112200130331212-3211003232222120-1133022013003323-0012120133103210"></a>
 
 Type: `"single"`. Computed.
 
@@ -2541,44 +2541,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2af4ee5da35ce3319e4d6060d531f1e6549316b70497bf617edcbc159b6b2c00"></a>
+<a id="canonical-0222331032321131-2203113032030301-2132103112001200-3111030133013212-1110210301122313-0010211323331201-1332313023300111-2123122302300000"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.prim_key / bc63b0fc002c / 3
+## Direct properties — prim_key / 333000000230 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-65188cca755d37cc85bfcf877741ebfc8b4a66c3c9e5fd96812fe8097bf584f8): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1211012020303022-1311113103133030-2011233330332013-1313100132233330-2023102212123003-3021321133312112-2001023332200021-1323331120103320): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-637df4183bb59e8688ee9282c5ec06b7b47fc362e95fea6112126e1fb781153b): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1203133133100120-0323231121322012-2020323221022002-3011323000122313-2310133330031202-3221113332221201-0102010212320133-2313200101110323): complete subsection reference.
 
-<a id="canonical-f023218be33086c522153c145be5b735f7fc2f653b283b360b03bf135f69e13a"></a>
+<a id="canonical-3300020302012023-3203030020123011-0202011103300110-1123321123130311-3313333002331211-0323022003230312-0023000323330103-1133122132010322"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.prim_key / bc63b0fc002c / 4
+## Next pages — prim_key / 333000000230 / 4
 
-- [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-65188cca755d37cc85bfcf877741ebfc8b4a66c3c9e5fd96812fe8097bf584f8)
-- [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-637df4183bb59e8688ee9282c5ec06b7b47fc362e95fea6112126e1fb781153b)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1211012020303022-1311113103133030-2011233330332013-1313100132233330-2023102212123003-3021321133312112-2001023332200021-1323331120103320)
+- [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1203133133100120-0323231121322012-2020323221022002-3011323000122313-2310133330031202-3221113332221201-0102010212320133-2313200101110323)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-65188cca755d37cc85bfcf877741ebfc8b4a66c3c9e5fd96812fe8097bf584f8"></a>
+<a id="canonical-1211012020303022-1311113103133030-2011233330332013-1313100132233330-2023102212123003-3021321133312112-2001023332200021-1323331120103320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a7364009b683a3885a3d839b7d230ce745eae2bbeee7b8ec57b20941af97a6ca"></a>
+<a id="canonical-2213031210000021-2312200322032020-1122033120032123-1331020300303213-1011322232022323-3232321323203230-1113230200211001-2233211322123022"></a>
 
-## authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 2
+## authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info — blindfold_secret_info / 333310312200 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111)
 - authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info
 
-<a id="canonical-c0341d65c47e460f596a8091270d8400c47ae79bf344553fcf337852cfc5007c"></a>
+<a id="canonical-3000031001311211-3010133210120033-1121122220002101-0213003120100000-3010132232132123-3303101011110333-3033030313201102-3033301100001330"></a>
 
 Type: `"single"`. Computed.
 
@@ -2597,15 +2597,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-91496a515ef45c2a25d3faa99093dff9b500012b0df1f4d52556a2f5f5845378"></a>
+<a id="canonical-2101102112221101-1132331011300222-0211310333222221-2100210331333321-2311000000010223-0031330133103111-0211111222023311-3311201011031320"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 3
+## Direct properties — blindfold_secret_info / 333310312200 / 3
 
-<a id="canonical-4c5f77d1a5dbd3b7c97d8ffa77201c71efdc5e953b5f03f78fffea3065503bd0"></a>
+<a id="canonical-1030113313133101-2211312331032313-3021133120333322-1313020001301301-3233313011322111-0323113300033313-2033333332220300-1211110003233100"></a>
 
-<a id="canonical-99c3f26248cc2612d26cb646fb62b51778ccaa8a9caf08c207d5d1c0018dda89"></a>
+<a id="canonical-2121300333021202-1020303002120102-3102123023121012-3323120223110113-1320303022222022-2130223300203002-0013311131013000-0001203131222021"></a>
 
-## decryption_provider property — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 4
+## decryption_provider property — blindfold_secret_info / 333310312200 / 4
 
 Type: `"string"`. Computed.
 
@@ -2635,11 +2635,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0188008038a59052d496e926585d0c6ce6461346ececa785c4643d4e74cb1431"></a>
+<a id="canonical-0001202000002000-0320221121001102-3110211232210212-1120113100301230-3212101201031012-3230323022132011-3010121003311032-1310302301100301"></a>
 
-<a id="canonical-74fbf90b9f46b667c09e2efb07caf4ee6e29b1dc959bf6822794baf2b0509a8c"></a>
+<a id="canonical-1310332333210023-2133101223121213-3000213202323323-0013302233103232-1232022123013130-2111212333122002-0213211023223302-2300110021222030"></a>
 
-## location property — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 5
+## location property — blindfold_secret_info / 333310312200 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -2688,11 +2688,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ca9343ebb91dbb37a78509a4b79b83270cea1648be48656d5de5b16f6c1c5ad8"></a>
+<a id="canonical-3022210310033223-2321013123230313-2213201100212210-2313212320030213-0030322201121020-2332102012111231-1131321123011233-1230013011223120"></a>
 
-<a id="canonical-6482224a1823e3b7a821c6bf59f17b8a53048aef60ac67cf30be7f403db73fae"></a>
+<a id="canonical-1210200202021022-0120020332032313-2220020130122333-1121330113232022-1103001020223233-1200223012133033-0300233213331000-0331231303332232"></a>
 
-## store_provider property — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 6
+## store_provider property — blindfold_secret_info / 333310312200 / 6
 
 Type: `"string"`. Computed.
 
@@ -2727,34 +2727,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-358b6f40c1ec59afb98263ae70be7dcb5f8c04363aa79b968edba3ce1d4916ed"></a>
+<a id="canonical-0311202312331000-3001323011212233-2321200212032232-1300233213313023-1133203000100312-0322221321232112-2032312322033032-0131102101123231"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info / 93f806ff4da0 / 7
+## Next pages — blindfold_secret_info / 333310312200 / 7
 
-- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-637df4183bb59e8688ee9282c5ec06b7b47fc362e95fea6112126e1fb781153b"></a>
+<a id="canonical-1203133133100120-0323231121322012-2020323221022002-3011323000122313-2310133330031202-3221113332221201-0102010212320133-2313200101110323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a3907db176996887087d2f639915afa00ff73e4b97bebbaa0003ddd6485ba822"></a>
+<a id="canonical-2203210013312301-1312212112202013-0020133102331203-2121011122332200-0033331303321023-2113233223232222-0000000331313112-1020112322200202"></a>
 
-## authentication.cookie_params.auth_hmac.prim_key.clear_secret_info — authentication.cookie_params.auth_hmac.prim_key.clear_secret_info / add3f8923ad2 / 2
+## authentication.cookie_params.auth_hmac.prim_key.clear_secret_info — clear_secret_info / 210203223102 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111)
 - authentication.cookie_params.auth_hmac.prim_key.clear_secret_info
 
-<a id="canonical-09355611c22c3b0f9ae0e9772b3994622e8db963d66e7a9b530ba5823f3497e5"></a>
+<a id="canonical-0021031111120101-3002023003230033-2122320032211313-0223032121101202-0232203123211203-3112123213222123-1103002322112002-0333031021133211"></a>
 
 Type: `"single"`. Computed.
 
@@ -2773,26 +2773,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2ff028252df5104e1324b6adb349b8e22342c9b69aace3ddb0383c3619d969b3"></a>
+<a id="canonical-0233330002200211-0231331101001032-0103021023122231-2303102123203202-0203100230212312-2122223032033131-2300032003300312-0121312112212303"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.prim_key.clear_secret_info / add3f8923ad2 / 3
+## Direct properties — clear_secret_info / 210203223102 / 3
 
-<a id="canonical-3544944703b5e2476d775b2431e4c242c0f892bf95dd62cb1df8fc5eebae309b"></a>
+<a id="canonical-0311101021101013-0003231132021013-1231131311230210-0301321030021002-3000332021022333-2111313112023023-0131332033301132-3223223203002123"></a>
 
-<a id="canonical-ef462a072ece264d5c662e48d3b2d3a235acfb6600fa9baf2ab24231393804b1"></a>
+<a id="canonical-3233101202220013-0232303202121031-1130121202321020-3103230231032202-0311223033231212-0000332221232233-0222230210020301-0321032000102301"></a>
 
-## provider_ref property — authentication.cookie_params.auth_hmac.prim_key.clear_secret_info / add3f8923ad2 / 4
+## provider_ref property — clear_secret_info / 210203223102 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-c4236e2869ef013afb8a35f5ef58a0d1b371aae075ed16a82bf2a56643725288"></a>
+<a id="canonical-3010020312320220-1221323300010322-3323202203113311-3233112022003101-2303130122223200-1311323101122220-0223330222111212-1003130211022020"></a>
 
-<a id="canonical-ad234961972ed29222cc7f78203f447cf2792b320dd92fab72401c743893ae35"></a>
+<a id="canonical-2231020310211201-2113023231022102-0202303013331320-0200033310101330-3302132102230302-0031312102332223-1302100001301310-0320210322320311"></a>
 
-## url property — authentication.cookie_params.auth_hmac.prim_key.clear_secret_info / add3f8923ad2 / 5
+## URL property — clear_secret_info / 210203223102 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -2852,33 +2852,33 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-603cca01d1ea5a4962eca5b9f5c1757e989f416a796b919d218e82861a8893b8"></a>
+<a id="canonical-1200033030220001-3101322211221021-1202323022112321-3311300113111332-2120213310011222-1321122321012131-0201203220022012-0122202021032320"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.prim_key.clear_secret_info / add3f8923ad2 / 6
+## Next pages — clear_secret_info / 210203223102 / 6
 
-- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-9670ae74a92e2f20295477469450dce0aced7459a39b3c12ca5b850983247455)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.prim_key](data-sources--virtual_host--reference--group-001.md#canonical-2112130022321310-2221023202330200-0221111013131012-2110110031303200-2230323113101121-2203212303300102-3022112320110021-2003021013101111)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5"></a>
+<a id="canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-a27668233683954523960e84175970ccbc7ea656d16eef1ce68de33b93fd3619"></a>
+<a id="canonical-2202131212200203-0312200321111011-0203211200322010-0113112113003030-2330133222121112-3101123232330130-3212203132030323-2103333103120121"></a>
 
-## authentication.cookie_params.auth_hmac.sec_key — authentication.cookie_params.auth_hmac.sec_key / 1d278aa5e1a4 / 2
+## authentication.cookie_params.auth_hmac.sec_key — sec_key / 221132012210 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
 - authentication.cookie_params.auth_hmac.sec_key
 
-<a id="canonical-a992fac48d63bcf50835428af8cc39e519ab2ea96e2a6e10c5fed98d015092f7"></a>
+<a id="canonical-2221210233223010-2031120323303311-0020031110022022-3320303003213211-0121222302322221-1232022212320100-3011333231212031-0001110021023313"></a>
 
 Type: `"single"`. Computed.
 
@@ -2898,44 +2898,44 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-53ca72427c1960d3fcb43cbb9f834d94e9f1b586d34122c429ec83dac5775b73"></a>
+<a id="canonical-1103302213021002-1330012112003103-3330231003302323-2133200310312110-3221330123112012-3103100102023010-0221323020033122-3011131311231303"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.sec_key / 1d278aa5e1a4 / 3
+## Direct properties — sec_key / 221132012210 / 3
 
-- [blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-53e75377d5e1b1b1974e520236515fdc51945e7e8051b170a935574857b54c6e): complete subsection reference.
+- [blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1103321311031313-3111320123012301-2113103211020002-0312110111333130-1101211011321332-2000110123011300-2221031111131020-1113231110301232): complete subsection reference.
 
-- [clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-45fab0a63ff9a712ea355cc4f9aa8b88dd70d6ea15133eb9a434aa1e5b541c69): complete subsection reference.
+- [clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1011332223002212-0333332122130102-3222031111303010-3321222220232020-3131130031123222-0111010303322321-2210031022220132-1123111001301221): complete subsection reference.
 
-<a id="canonical-db6bf1fe020da8e8061790e5a296af48deee4ef5e8045182c4c2861408bfc831"></a>
+<a id="canonical-3123122333013332-0002003122203220-0012011321003211-2202211222331020-3132323210323311-3220001011012002-3010300220120110-0020233330200301"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.sec_key / 1d278aa5e1a4 / 4
+## Next pages — sec_key / 221132012210 / 4
 
-- [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-53e75377d5e1b1b1974e520236515fdc51945e7e8051b170a935574857b54c6e)
-- [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-45fab0a63ff9a712ea355cc4f9aa8b88dd70d6ea15133eb9a434aa1e5b541c69)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1103321311031313-3111320123012301-2113103211020002-0312110111333130-1101211011321332-2000110123011300-2221031111131020-1113231110301232)
+- [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info](data-sources--virtual_host--reference--group-001.md#canonical-1011332223002212-0333332122130102-3222031111303010-3321222220232020-3131130031123222-0111010303322321-2210031022220132-1123111001301221)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-53e75377d5e1b1b1974e520236515fdc51945e7e8051b170a935574857b54c6e"></a>
+<a id="canonical-1103321311031313-3111320123012301-2113103211020002-0312110111333130-1101211011321332-2000110123011300-2221031111131020-1113231110301232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8ecf6f75ba0448356e6ef7dd6d78d0f67e4ffc98eee3f8ce7aea5fe9845a8f0e"></a>
+<a id="canonical-2032303312331311-2322001010200311-1232123233133131-1231132031003312-1332103333302120-3232320333203032-1322322211333221-2010112220330032"></a>
 
-## authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 2
+## authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info — blindfold_secret_info / 302013000031 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311)
 - authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info
 
-<a id="canonical-0ca8b20ed853e4aaa551092427fd6dd3f3aaceaa5201dcff7be414c15bd785d3"></a>
+<a id="canonical-0030222023020032-3120110332102222-2211110100210210-0213333112313103-3303222230322222-1102000131303333-1323321001103001-1123311320113103"></a>
 
 Type: `"single"`. Computed.
 
@@ -2954,15 +2954,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3aafa804efb84e1def70c73836093e031101ec5ac647ff7c59f8f001b337f1e6"></a>
+<a id="canonical-0322223322200010-3233232010320131-3233130030130320-0312002103320003-0101000132301122-3012101333331330-1121332033000001-2303031333013212"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 3
+## Direct properties — blindfold_secret_info / 302013000031 / 3
 
-<a id="canonical-21ad37a05736aeb27698a9e5937fccf037e0e9beddbadfecda8b5cce2e5557a7"></a>
+<a id="canonical-0201223103132200-1113031222322302-1312212022213211-2103133330303300-0313320032212332-3131232231333230-3122202311303032-0232111111132213"></a>
 
-<a id="canonical-de2fbeca7e74a8e48e3614b554f3f1b6b1cafe992d55da4817646222827f1fd9"></a>
+<a id="canonical-3132023323323022-1332131022203210-2032031201102311-1110330333012312-2301302233322121-0231111131221020-0113121012020202-2002133301333121"></a>
 
-## decryption_provider property — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 4
+## decryption_provider property — blindfold_secret_info / 302013000031 / 4
 
 Type: `"string"`. Computed.
 
@@ -2992,11 +2992,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c791032b62709107e5e5022a153d5e282e44f6d0b23e41e945bc803d58c3dab1"></a>
+<a id="canonical-3013210100030223-1202130021010013-3211321100020222-0111033111320220-0232101033123100-2302033210013221-1011233020000331-1120300331222301"></a>
 
-<a id="canonical-097c40568d42fd2f22a6d84a85c52d205b3b857c23a3046dddd0cdbf5137d257"></a>
+<a id="canonical-0021133010001112-2031100233310233-0202221231201022-2011301102310200-1123032320111330-0203220300101231-3131310030312333-1101031331021113"></a>
 
-## location property — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 5
+## location property — blindfold_secret_info / 302013000031 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -3045,11 +3045,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b2b7869e53882c67bf684e140ba6a2e4c3fa2764cc7349f3b9a95b6c54d70a9a"></a>
+<a id="canonical-2302231320122132-1103202002301213-2333122010320110-0023221222023210-3003332202131210-3030130310213303-2321222111231230-1110311300222122"></a>
 
-<a id="canonical-960bca5577814c00840844e2178b6d77936d54b9fc513000c0cd5529c22175cb"></a>
+<a id="canonical-2112002330221111-1313200110300000-2010002010103202-0113202312311313-2103123111102321-3330110103000000-3000303111110221-3002020113113023"></a>
 
-## store_provider property — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 6
+## store_provider property — blindfold_secret_info / 302013000031 / 6
 
 Type: `"string"`. Computed.
 
@@ -3084,34 +3084,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ffb150690a3f5aee8a7de0cb69dc480b07d3884bad75d2eaf5ed3e00f857e77e"></a>
+<a id="canonical-3333230111001221-0022033311223232-2022133132003023-1221313010200023-0013310320201023-2231131131023222-3311323103320000-3320111332131332"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info / 52c436c8700d / 7
+## Next pages — blindfold_secret_info / 302013000031 / 7
 
-- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-45fab0a63ff9a712ea355cc4f9aa8b88dd70d6ea15133eb9a434aa1e5b541c69"></a>
+<a id="canonical-1011332223002212-0333332122130102-3222031111303010-3321222220232020-3131130031123222-0111010303322321-2210031022220132-1123111001301221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b1c18396622574ffe8feedadeb8fc47a310332a178db3a4933c93e83d058a1c1"></a>
+<a id="canonical-2301300120032112-1202021113103333-3220333232312231-3223203330101322-0301000303022201-1320312303221021-0303302103322003-3100112022013001"></a>
 
-## authentication.cookie_params.auth_hmac.sec_key.clear_secret_info — authentication.cookie_params.auth_hmac.sec_key.clear_secret_info / f73733acea9b / 2
+## authentication.cookie_params.auth_hmac.sec_key.clear_secret_info — clear_secret_info / 223032222123 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-7b5992f323c105bb33e7da94791585e13bf471f314445823393dfe343000771a)
-- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [authentication.cookie_params.auth_hmac](data-sources--virtual_host--reference--group-001.md#canonical-1323112121023303-0203300100112323-0303321331222110-1321011120113201-0323331013013303-0110101011200203-0321033133320310-0300000013130122)
+- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311)
 - authentication.cookie_params.auth_hmac.sec_key.clear_secret_info
 
-<a id="canonical-7d85ecda68dbb92d34f1a32fc48486b062ed2410061dd28f04a57bdbbb4b2742"></a>
+<a id="canonical-1331201132303122-1220312323210231-0310330122030233-3010201020122300-1202323102100100-0012013131022033-0010221113233123-2323102302131002"></a>
 
 Type: `"single"`. Computed.
 
@@ -3130,26 +3130,26 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b221090296f3c7a3d081903ab84e209d3f8b16f51d29a73c894a0c9bf63b75a2"></a>
+<a id="canonical-2302020100210002-2112330330132203-3100200121000322-2320103202002131-0333202301123311-0131022122130330-2021102200302123-3312032313112202"></a>
 
-## Direct properties — authentication.cookie_params.auth_hmac.sec_key.clear_secret_info / f73733acea9b / 3
+## Direct properties — clear_secret_info / 223032222123 / 3
 
-<a id="canonical-f4c899bdcd373efcc298575bb1247eb7606b139157da8a4a321178d74c2cc779"></a>
+<a id="canonical-3310302021212331-3031031303323330-3002212011131123-2301021013322313-1200122301032101-1113312220221022-0302010113203113-1030023030131321"></a>
 
-<a id="canonical-d68f99b1d3ceff2696cc0e2998de7539edc4d133e10b000c868deef0b00c9059"></a>
+<a id="canonical-3112203321212301-3103303233330212-2112303000320221-2120313213110321-3231301031010303-3201002300000030-2012203132323300-2300003021001121"></a>
 
-## provider_ref property — authentication.cookie_params.auth_hmac.sec_key.clear_secret_info / f73733acea9b / 4
+## provider_ref property — clear_secret_info / 223032222123 / 4
 
 Type: `"string"`. Computed.
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
 
-<a id="canonical-38bfcbee7fc3b6a2e43a666f44f4d250aec9343b5c40b2e9ada4137bf50515f1"></a>
+<a id="canonical-0320233330233232-1333300323122202-3210032212121233-1010331031021100-2232302103100323-1130100023023221-2231221001031323-3311001101113301"></a>
 
-<a id="canonical-628c00fbb612a226ca284fa2c779ba17aec3d7d2adfc6cf136bc30ceff8b23f1"></a>
+<a id="canonical-1202203000003323-2312010222020212-3022022010332202-3013132123220113-2232300331133102-2231333012303301-0312233003003032-3333202302033301"></a>
 
-## url property — authentication.cookie_params.auth_hmac.sec_key.clear_secret_info / f73733acea9b / 5
+## URL property — clear_secret_info / 223032222123 / 5
 
 Type: `"string"`. Computed, Sensitive.
 
@@ -3209,32 +3209,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b80f374ec07c13bdd7f1d7efb2cbedffc0d58ee82b08d45fdfb672a9b34a0f49"></a>
+<a id="canonical-2320003303131032-3000133001032331-3113330131133233-2302302332313333-3000311120323220-0223002031101133-3133231213022221-2303102200331021"></a>
 
-## Next pages — authentication.cookie_params.auth_hmac.sec_key.clear_secret_info / f73733acea9b / 6
+## Next pages — clear_secret_info / 223032222123 / 6
 
-- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-a95d490bec55138c8d669bfe9f7924deade651c18883d3a22821ad6a6c9adcb5)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params.auth_hmac.sec_key](data-sources--virtual_host--reference--group-001.md#canonical-2221113110210023-3230111101032030-2031121221233332-2133132102103132-2231321211013001-2020200331032202-0220020122311222-1230212231302311)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-f42563210d7658ba9f7670114469f1729e981cc5275f4be7ba185cc2d8e499cf"></a>
+<a id="canonical-3310021112030201-0031131211202322-2133131213000101-1010122133011302-2132212001303011-0213113310233213-2322012011303002-3120321021213033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f9374ba287cbfcc2710588cd6d204b11171faafb8f0b417f9964cbe93029bf80"></a>
+<a id="canonical-3321031310232202-2013302333303002-1301001120203031-1231020010230101-0113013322223323-2033002310011333-2121121030233221-0300022123332000"></a>
 
-## authentication.cookie_params.kms_key_hmac — authentication.cookie_params.kms_key_hmac / 9dbbccce7630 / 2
+## authentication.cookie_params.kms_key_hmac — kms_key_hmac / 303213120300 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
 - authentication.cookie_params.kms_key_hmac
 
-<a id="canonical-0bf2c24828e319c09f6253cc7cc80a51008086f3085993f4365caed4edf773e1"></a>
+<a id="canonical-0023330230021020-0220320301213000-2133120211033030-1330302000221101-0000200020123303-0020112121033310-0312113022323110-3231331313033201"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3257,37 +3257,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-75d46ab5a51bcc9314b8487eea7880be91982d71bd63525ce90f2c5a9938eac2"></a>
+<a id="canonical-1311311012222311-2211012330302103-0110232010201332-3222132020002332-2101212002311301-2331120311021130-3221003302301122-2121032032223002"></a>
 
-## Direct properties — authentication.cookie_params.kms_key_hmac / 9dbbccce7630 / 3
+## Direct properties — kms_key_hmac / 303213120300 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-bdb244636a2a4cb1a69af9b0304f69f085a9d376c3a41fdf05036b6e6ed23902"></a>
+<a id="canonical-2331230210101203-1222022210302301-2212212233212300-0300103312213300-2011222131031312-3003221001333133-0011000312231232-1232310203210002"></a>
 
-## Next pages — authentication.cookie_params.kms_key_hmac / 9dbbccce7630 / 4
+## Next pages — kms_key_hmac / 303213120300 / 4
 
-- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-b30c0c69d5135acb5537cf079df5ea35a4bc20131c6054a5f335e8184bbb20bc)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication.cookie_params](data-sources--virtual_host--reference--group-001.md#canonical-2303003000301221-3111010311223023-1111031330330013-2131331132220311-2210233002000103-0130120011102211-3303031132200120-1023232302002330)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-57b2f3389add8acf9fb9d3e81b7bbd989667b811052db1c73b8e54fdd71547b6"></a>
+<a id="canonical-1113230233030320-2122313120223033-2133232131033220-0123132323312120-2112121323200101-0011023123013013-0323203211103331-3113011110132312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-12d7f97e3ac3e5d8cac2d5d14e3744629b4d23c7fa49eec41ba35ea003b813c4"></a>
+<a id="canonical-0102311333211332-0322300332113120-3022300231113101-1032031310101202-2123103102033013-3322102132323010-0123220311322200-0003232001033010"></a>
 
-## authentication.redirect_dynamic — authentication.redirect_dynamic / d517029ff771 / 2
+## authentication.redirect_dynamic — redirect_dynamic / 213333131301 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
 - authentication.redirect_dynamic
 
-<a id="canonical-2355951834bb37b5c69f3115561b18f77c431cb74e70a148410180684b3358e1"></a>
+<a id="canonical-0203111121110120-0310232303132311-3012213303010111-1112012301203313-1330100301302313-1032130022011020-1001000120001220-1023030311203201"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3310,37 +3310,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-8fb8852c5afe062ad2ac245cdbdcd2abe335abcc5b860691fc88ffa5b9dbc149"></a>
+<a id="canonical-2033232020110230-1122333200120222-3102223002101130-3123313031022223-3203031122233030-1123201200122101-3330202033332211-2321312330011021"></a>
 
-## Direct properties — authentication.redirect_dynamic / d517029ff771 / 3
+## Direct properties — redirect_dynamic / 213333131301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-7a5a5281bede34edc62a0262468947c658c4619b863699e88384e4f5f1e8a48c"></a>
+<a id="canonical-1322112211022001-2332313203103231-3012022200021202-1012202110133012-1120301012012123-2012031221213220-2003201032103311-3301322022102030"></a>
 
-## Next pages — authentication.redirect_dynamic / d517029ff771 / 4
+## Next pages — redirect_dynamic / 213333131301 / 4
 
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-29c07ee4e405fecf854bf57f6d3797440042eb6dac65df7d70403ab75fa12c51"></a>
+<a id="canonical-0221300013323210-3210001133323033-2011102333111333-1231031321131010-0000100232231231-2230121131331331-1300100003222313-1133220102301101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2f6ede201884a1efee29879af9f49ac1b0c7d1325d6ba7730a15f4a363706df2"></a>
+<a id="canonical-0233123231320200-0120201022013233-3232022120132122-3321331021223001-2300301331010302-1131122322131303-0022011133102203-1203130012313302"></a>
 
-## authentication.use_auth_object_config — authentication.use_auth_object_config / fa4afbb1c8ad / 2
+## authentication.use_auth_object_config — use_auth_object_config / 230130202231 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
 - authentication.use_auth_object_config
 
-<a id="canonical-e435948b4c0aa0bf6868c064699abbad12773800cf5acccab7a1a5403bc7b4e5"></a>
+<a id="canonical-3210031121102023-1030002222002333-1220122030001210-1221212223232231-0102131303200000-3033112230303022-2313220122111000-0323301323103211"></a>
 
 Type: `["object", {}]`. Computed.
 
@@ -3363,36 +3363,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7bb1329933320f77b20c3f229d44fa8342e6b9a33b4cd1b9cd30eb18b011f6f3"></a>
+<a id="canonical-1323230103022121-0303030200331313-2302003003330202-2131101033222003-1002321223212203-0323103031012321-3031030032230120-2300010133123303"></a>
 
-## Direct properties — authentication.use_auth_object_config / fa4afbb1c8ad / 3
+## Direct properties — use_auth_object_config / 230130202231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-66c640065890cd2f1d3e987d8b138070ed72bf6327f27ba103977dc0b12dbeed"></a>
+<a id="canonical-1212301210000012-1120210030310233-0131033221201331-2023010320001300-3231130223331203-0213330213232201-0003211313313000-2301023123323231"></a>
 
-## Next pages — authentication.use_auth_object_config / fa4afbb1c8ad / 4
+## Next pages — use_auth_object_config / 230130202231 / 4
 
-- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-15987fed2fcc063c79e277fbf6c52578580c27be2b1ae0d023263fc385c26660)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
+- [authentication](data-sources--virtual_host--reference--group-001.md#canonical-0111212013333231-0233303000120330-1321320213133323-3312301102111320-1120003002132332-0223012232003100-0203021203333003-2011300212121200)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
 
-<a id="canonical-67c6bb4057c626103a8169b0ef713a2bdb3c67563949f25de13828f8d848654f"></a>
+<a id="canonical-1213301223231000-1113301202120100-0322200112212300-3233130103220223-3123033012131112-0321102133021131-3201032002203320-3120102012111033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fa406910fefb4febd8fc02d89257a75bd1afbe2b8c20b9c192f252946fbb9112"></a>
+<a id="canonical-3322100012210100-3332332310333223-3120333000023120-2102111322131123-3101223323320223-2030020023213001-2102330211022110-1233232321010102"></a>
 
-## buffer_policy — buffer_policy / 0cf3ebc277d9 / 2
+## buffer_policy — buffer_policy / 300213133121 / 2
 
 Breadcrumbs:
 
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220)
+- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
 - buffer_policy
 
-<a id="canonical-571f6f41d81c6e65e1d841cceb9d5ecdc4ec0e5603c345cbadcdf3ca663f1e90"></a>
+<a id="canonical-1113013312331001-3120013012321211-3201312010013030-3223213111323031-3010323000321112-0003300310113023-2231303133033022-1212033301322100"></a>
 
 Type: `"single"`. Computed.
 
@@ -3422,15 +3422,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c92731f3b3b5df3d27a879c5a3fbb5019bcd76f1bce6063218adeddbe7b97e7e"></a>
+<a id="canonical-3021021303013303-2303231131330331-0213222013213011-2203332323110001-2123303113123301-2330321200120302-0120223132313123-3213232113321332"></a>
 
-## Direct properties — buffer_policy / 0cf3ebc277d9 / 3
+## Direct properties — buffer_policy / 300213133121 / 3
 
-<a id="canonical-accdec73b60de3448f2e425634ac3f50af8bbd97b3c198235a0f274d7f81a096"></a>
+<a id="canonical-2230303132301303-2312003132031010-2033023210021112-0310223003331100-2233202323312113-2303300121200203-1122003302131031-1333200122002112"></a>
 
-<a id="canonical-6fc596d6a0935e8bff6025302a9967dd4f7c58b576030e52d801cb0a298bf02f"></a>
+<a id="canonical-1233301121123112-2200210311322023-3333120002110300-0222212112133131-1033133011202311-1312000300321102-3120000130230022-0221202333000233"></a>
 
-## disabled property — buffer_policy / 0cf3ebc277d9 / 4
+## disabled property — buffer_policy / 300213133121 / 4
 
 Type: `"bool"`. Computed.
 
@@ -3455,11 +3455,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ae0dc59b0331ea3e2799c396aa7f986ca394b3e4272cfc0e8ec7f26134e4e437"></a>
+<a id="canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313"></a>
 
-<a id="canonical-49218be744b80aedaa13f4ed149b031a7bcdf77a714d46400cb3700a870c7e60"></a>
+<a id="canonical-1021020120233213-1010232000223231-2222010333103231-0110212300030122-1323303133131322-1301103110121000-0030230313000022-2013003013321200"></a>
 
-## max_request_bytes property — buffer_policy / 0cf3ebc277d9 / 5
+## max_request_bytes property — buffer_policy / 300213133121 / 5
 
 Type: `"number"`. Computed.
 
@@ -3497,184 +3497,6 @@ Receipt-pinned upstream constraints:
   },
   "x-ves-validation-rules": {
     "ves.io.schema.rules.uint32.lte": "10485760"
-  }
-}
-```
-
-<a id="canonical-baeea205218eb540071415818789c496086b95003ab2244afb35e5d97eb7c60e"></a>
-
-## Next pages — buffer_policy / 0cf3ebc277d9 / 6
-
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-
-<a id="canonical-cce1978f17446fe7bf3d9c0dd2a62ce4ea2a4f0e13f8fd7f2ffff4c33710c445"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-e06db092117f39f124c889fad017da2841130ef6b914495e1866ff95fbd3678a"></a>
-
-## captcha_challenge — captcha_challenge / 4bbc8cbfcf5d / 2
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../data-sources/virtual_host.md#canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8)
-- [Property reference](data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
-- captcha_challenge
-
-<a id="canonical-3bff95472b997489389cf2f7c2c5183a9a42f9ac1cdcfee69125a1f00eae7087"></a>
-
-Type: `"single"`. Computed.
-
-\[OneOf: captcha\_challenge, js\_challenge, no\_challenge; Default: no\_challenge\] Enables
-loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With
-this feature enabled, only clients that pass the captcha challenge will be allowed to complete the
-HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect..
-
-Upstream description:
-
-Enables loadbalancer to perform captcha challenge
-
-Captcha challenge will be based on Google Recaptcha.
-
-With this feature enabled, only clients that pass the captcha challenge will be allowed to complete
-the HTTP request.
-
-When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML
-page on every new HTTP request. This HTML page will have captcha challenge embedded in it. Client
-will be allowed to make the request only if the captcha challenge is successful. Loadbalancer will
-tag response header with a cookie to avoid Captcha challenge for subsequent requests.
-
-CAPTCHA is mainly used as a security check to ensure only human users can pass through. Generally,
-computers or bots are not capable of solving a captcha.
-
-You can enable either Javascript challenge or Captcha challenge on a virtual host.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-OneOf alternatives in this subsection:
-
-- [captcha_challenge](data-sources--virtual_host--reference--group-001.md#canonical-3bff95472b997489389cf2f7c2c5183a9a42f9ac1cdcfee69125a1f00eae7087)
-- [js_challenge](data-sources--virtual_host--reference--group-002.md#canonical-6fead0d412383114980e7657466e05e6825f8ea21f77f0cfff01ac7f11f7cf40)
-- [no_challenge](data-sources--virtual_host--reference--group-002.md#canonical-3f0bdb5749658baa498a33d910c44024358aa16e77e1a62fe2a2b49bfe09053c)
-
-Select alternatives according to the provider validators above.
-
-<a id="canonical-ff11df76d38dddafd2c3f51a971e88e62b8ebd1451b75f6f2cb5ee7eb27e0d54"></a>
-
-## Direct properties — captcha_challenge / 4bbc8cbfcf5d / 3
-
-<a id="canonical-b738d882bb776eb6864073de272b09b745e5bfc608c0c9dbd1d771508d5f6d19"></a>
-
-<a id="canonical-479318266bade4165b308a3cbde61f22bf3b079c66ad3004fab31f9b476de7d4"></a>
-
-## cookie_expiry property — captcha_challenge / 4bbc8cbfcf5d / 4
-
-Type: `"number"`. Computed.
-
-Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
-challenge.
-
-Upstream description:
-
-Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
-challenge.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 86400,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "86400"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "86400"
-  }
-}
-```
-
-<a id="canonical-4bcc08a2b4476c9745ad1f75c41a0270c7b6dbb917dd7b7706f7c943a3762939"></a>
-
-<a id="canonical-f3b2dbb99eba8221e1be15fb15e22020082cbf9e28d8da218ade2b259f647558"></a>
-
-## custom_page property — captcha_challenge / 4bbc8cbfcf5d / 5
-
-Type: `"string"`. Computed.
-
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
-
-Upstream description:
-
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
-plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
-"PHA+IFBsZWFzZSBXYWl0IDwvcD4="
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 65536,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 65536,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "65536",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "65536",
-    "ves.io.schema.rules.string.uri_ref": "true"
   }
 }
 ```

@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_third_party_applicat
 
 # xcsh_third_party_application landing
 
-<a id="canonical-b8aad6ca3bfaa99ef05f861b2a172f6bea0697789bde7db18a81450cf6385d78"></a>
+<a id="canonical-2320222231123022-0323332222212132-3300113320120123-0222011302331223-3222001221131320-2123313213312301-2022200110110030-3312032011311320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0ebdf7f5a2e3429f2d8aebec4311d82ff34aacb4bb2ba2e2d656bf98c4c8c7d8"></a>
+<a id="canonical-0032233133133311-2202320310022133-0231202232233230-1003010131200233-3303102222302310-2323022322023202-3112111223332120-3010302030133120"></a>
 
-## xcsh_third_party_application — xcsh_third_party_application / 1ce731cb7475 / 2
+## xcsh_third_party_application — xcsh_third_party_application / 302313101311 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Third Party Application resource in F5 Distributed Cloud for third party application
 specification. configuration. (read-only data source)
 
-<a id="canonical-81b648de8fb00490b2a0fa52852f7acb2037b0704eb8ae56dd991ca21ca2ce75"></a>
+<a id="canonical-2001231210203132-2033230000102100-2302220033221102-2011023313223023-0200031323001300-1032232022321112-3131212101302202-0130220230321311"></a>
 
-## Prerequisites — xcsh_third_party_application / 1ce731cb7475 / 3
+## Prerequisites — xcsh_third_party_application / 302313101311 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-4d3af696b6a098f34a08627d5096d5cd114f5e9e3d5e3b1c6d2d6ffaec0ab4f3"></a>
+<a id="canonical-1031032233122112-2312220021203303-1022002012021331-1100211231113031-0101103311322132-0331113203230130-1231023112333322-3230002223103303"></a>
 
-## Minimal configuration — xcsh_third_party_application / 1ce731cb7475 / 4
+## Minimal configuration — xcsh_third_party_application / 302313101311 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "third_party_application_id" {
 }
 ```
 
-<a id="canonical-34398933213bde003d56dd1ce02ff27ae96fc4d0178a5638914ae83490b3cd41"></a>
+<a id="canonical-0310032120210303-0201032331320000-0331111231310130-3200023333021322-3221123330103100-0113202211120320-2101102232200310-2100230330311001"></a>
 
-## Root configuration — xcsh_third_party_application / 1ce731cb7475 / 5
+## Root configuration — xcsh_third_party_application / 302313101311 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-ccf1f0cdfbdcbba6c84f3a03bddce476a9626b5baebe6c735a2be67b45bf537b"></a>
+<a id="canonical-3030330133003031-3323313023232212-3020103303220003-2331313032101312-2221120212231123-2232233212301303-1122022332121323-1011233311031323"></a>
 
-## Next pages — xcsh_third_party_application / 1ce731cb7475 / 6
+## Next pages — xcsh_third_party_application / 302313101311 / 6
 
-- [Property reference](../guides/data-sources--third_party_application--reference--group-001.md#canonical-b1ce831f083af8a3890d676267b14b10ee7b704cd2afe7eba3c1f8a503cdc8df)
-- [Examples](../guides/data-sources--third_party_application--examples--group-001.md#canonical-1846a0b2efe35f7b3461c3775766d5787e6856ac42d7df49b74a9afbde5e3993)
+- [Property reference](../guides/data-sources--third_party_application--reference--group-001.md#canonical-2301303220030133-0020032233202203-2021003112131202-1213230110230100-3232132313001030-3102223332133223-2203300133202211-0003303130203133)
+- [Examples](../guides/data-sources--third_party_application--examples--group-001.md#canonical-0120101222002302-3233320311331323-0310120130031313-1113121231111320-1332122011122230-1002311331331021-2313102221223323-3132113203212103)

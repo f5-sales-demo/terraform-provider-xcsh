@@ -6,43 +6,1676 @@ description: "Complete grouped canonical reference for xcsh_azure_vnet_site refe
 
 # xcsh_azure_vnet_site reference
 
-<a id="canonical-89709196c8a09ca4309404b6e97f29315f4dd7c5276013bfe765efc09f88ad65"></a>
+<a id="canonical-0133223003221300-0313023113323130-3102030321120203-2100103231331211-0202000110322133-1310223110201033-2220331332330322-1112112203032020"></a>
 
-## Direct properties — voltstack_cluster_ar.node.local_subnet / 731b3af91b0e / 3
+## Direct properties — global_network_list / 231303301210 / 3
 
-- [subnet](resources--azure_vnet_site--reference--group-010.md#canonical-ae36652e2229b303d12b07d552eb5e0f7036410132bacb28d2b479ea4458876d): complete subsection reference.
+- [global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312): complete subsection reference.
 
-- [subnet_param](resources--azure_vnet_site--reference--group-010.md#canonical-1d1fa22656f9654a8f0dbfecdb0cb26bfe7373d55a7257788da5f48a7fff9df2): complete subsection reference.
+<a id="canonical-3001002103032303-2233131221030203-3202311132221023-2021112303001123-1013100233123131-0101123022021121-2010200001011213-0101301121113310"></a>
 
-<a id="canonical-f72047055100d4c7a9723c7296a774636cd0f194eeaa6125773b81b457920464"></a>
+## Next pages — global_network_list / 231303301210 / 4
 
-## Next pages — voltstack_cluster_ar.node.local_subnet / 731b3af91b0e / 4
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-ae36652e2229b303d12b07d552eb5e0f7036410132bacb28d2b479ea4458876d)
-- [voltstack_cluster_ar.node.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-010.md#canonical-1d1fa22656f9654a8f0dbfecdb0cb26bfe7373d55a7257788da5f48a7fff9df2)
-- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-009.md#canonical-fb7ee52f5f58686836f1724c5f129953df3fd12bcd2f2bcbc459c1d30ea4c086)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-
-<a id="canonical-ae36652e2229b303d12b07d552eb5e0f7036410132bacb28d2b479ea4458876d"></a>
+<a id="canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-c5d9447e0020c540ae8483dfee805aab1f6dd3c5e04fdf39fc41d0a090adfb91"></a>
+<a id="canonical-3021201000331013-0113110121303213-0131123003300100-1100231133332333-1130132023121003-3122201010111112-3331011221220323-3322103201202301"></a>
 
-## voltstack_cluster_ar.node.local_subnet.subnet — voltstack_cluster_ar.node.local_subnet.subnet / 0dabc17abb47 / 2
+## voltstack_cluster_ar.global_network_list.global_network_connections — global_network_connections / 330332330332 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-009.md#canonical-fb7ee52f5f58686836f1724c5f129953df3fd12bcd2f2bcbc459c1d30ea4c086)
-- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-009.md#canonical-bef5d1ec441f891737be5a113eb09bf7ef6dbfab5b5c84741f15bc0cc96227ab)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- voltstack_cluster_ar.global_network_list.global_network_connections
+
+<a id="canonical-1003231031220301-1210131223023230-2321022303320003-2001320001202311-0321022332131331-0321013120032102-3223013211300020-1101323313322020"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Global Network Connections. Global network connections.
+
+Upstream description:
+
+Global network connections.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr",
+    "slo_to_global_dr")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+global_network_connections {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1133123030332022-3111321022001220-2310033032132211-3112310312012213-3002100331121210-3022023012232102-3303321331122302-3333113222232012"></a>
+
+## Direct properties — global_network_connections / 330332330332 / 3
+
+- [sli_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-1010222223030313-2003012033230120-3110333333001030-1021023123122131-1212001310320322-2331030201233123-0221320013020223-1021333010000321): complete subsection reference.
+
+- [slo_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-2130022003231131-2220112201210232-3303113132120110-0013022132310131-0000330100023211-0333110310003311-1031302221011330-2322220330022330): complete subsection reference.
+
+<a id="canonical-2003211200003322-3032110023002132-0232211110111310-1113320222001130-1121333333232031-2022022312021101-0010313211000123-0031211102220011"></a>
+
+## Next pages — global_network_connections / 330332330332 / 4
+
+- [voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-1010222223030313-2003012033230120-3110333333001030-1021023123122131-1212001310320322-2331030201233123-0221320013020223-1021333010000321)
+- [voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-2130022003231131-2220112201210232-3303113132120110-0013022132310131-0000330100023211-0333110310003311-1031302221011330-2322220330022330)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-1010222223030313-2003012033230120-3110333333001030-1021023123122131-1212001310320322-2331030201233123-0221320013020223-1021333010000321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0023000101200103-0311002133122323-2102331102000131-0012010233113223-2002033112332111-1301120302330200-0303313102333222-1000301213233113"></a>
+
+## voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr — sli_to_global_dr / 311202110021 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr
+
+<a id="canonical-3210021323333303-3312312211121323-3221230221032102-1213101311300112-3003332320021012-2022103200002103-1132111000032230-0300103130023012"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Global network reference for direct connection.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+sli_to_global_dr {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1232213203202113-3122313131301112-2123332000103132-1310020210032310-2300311100003033-3322030101131111-2021312000121230-1211321313010131"></a>
+
+## Direct properties — sli_to_global_dr / 311202110021 / 3
+
+- [global_vn](resources--azure_vnet_site--reference--group-010.md#canonical-0200111220020201-1022203231230030-2031030001031311-0231212321300102-3021031230120132-2320311302032130-1133120302201210-2020313322210102): complete subsection reference.
+
+<a id="canonical-0232101102220303-2022333102013310-0023301121021102-1002010023131230-1102323033032203-0111022002200331-3312222131213123-1221030213123222"></a>
+
+## Next pages — sli_to_global_dr / 311202110021 / 4
+
+- [voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--azure_vnet_site--reference--group-010.md#canonical-0200111220020201-1022203231230030-2031030001031311-0231212321300102-3021031230120132-2320311302032130-1133120302201210-2020313322210102)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-0200111220020201-1022203231230030-2031030001031311-0231212321300102-3021031230120132-2320311302032130-1133120302201210-2020313322210102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3033321231223030-2321232220111320-1122110312200010-0233122033122321-0113000332301021-3221121031231313-1332213323112213-2303222300301123"></a>
+
+## voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr.global_vn — global_vn / 132113133032 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-1010222223030313-2003012033230120-3110333333001030-1021023123122131-1212001310320322-2331030201233123-0221320013020223-1021333010000321)
+- voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr.global_vn
+
+<a id="canonical-0030330033013113-2103101102103210-2212001320313032-2301330032022103-0222121210313022-1310030103000211-0100230002112032-0000121331112202"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+global_vn {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1220121230323001-3031303222220133-3211320012213310-0113201131201031-3221003033101230-1021312002200210-3023223012321121-0032312222202021"></a>
+
+## Direct properties — global_vn / 132113133032 / 3
+
+<a id="canonical-3032020333002213-3012023230131210-0321122102302003-2021013222132322-2202130313131001-2312223330112021-3103233221113013-2200022301212131"></a>
+
+<a id="canonical-2322123030023330-1200221101122330-0333001203203000-1033332032223313-3130123112131230-3011100001013233-3133131321130120-0001211100210220"></a>
+
+## name property — global_vn / 132113133032 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-2312113112100202-0231222122220021-1102002221113220-0220132231131010-2021002001321301-1113320000111330-2301330023012101-3321332213203210"></a>
+
+<a id="canonical-3331000012301212-0103211211303020-1020102222002002-1100303000100030-0322303313320120-3021013213320220-0322331330232103-1210321130300333"></a>
+
+## namespace property — global_vn / 132113133032 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3132110031312221-1130210222212102-2031112003101223-1322220210012211-2123113110221220-3010213312120303-3120233312310031-2012003131331001"></a>
+
+<a id="canonical-2230032320233121-2010203212032222-3003233103313132-0210320203101103-2102221312012131-1230323000310300-1231001013032301-2233023232333110"></a>
+
+## tenant property — global_vn / 132113133032 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1312331301112133-1031000200123030-2021102011331112-0022223110333032-2000131022323103-1330032213131322-3133321010030200-1310210112232213"></a>
+
+## Next pages — global_vn / 132113133032 / 7
+
+- [voltstack_cluster_ar.global_network_list.global_network_connections.sli_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-1010222223030313-2003012033230120-3110333333001030-1021023123122131-1212001310320322-2331030201233123-0221320013020223-1021333010000321)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2130022003231131-2220112201210232-3303113132120110-0013022132310131-0000330100023211-0333110310003311-1031302221011330-2322220330022330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2330333312313021-1031003201230302-3110230222103121-3200121222010021-1333132102203121-1001331103103130-0212201132022210-0101003202201020"></a>
+
+## voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr — slo_to_global_dr / 211000013121 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr
+
+<a id="canonical-3103231222031303-0321021211122102-1323212120102202-3203301303330031-3122020132113231-0032001222333130-1323110003233103-2113320110332100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Global network reference for direct connection.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+slo_to_global_dr {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1103032010031033-3031303132110021-3233301310313323-0013333021322300-3300220122132000-2221000131312123-2131030223301301-2300321122021000"></a>
+
+## Direct properties — slo_to_global_dr / 211000013121 / 3
+
+- [global_vn](resources--azure_vnet_site--reference--group-010.md#canonical-0031230023300323-0122211030012203-2002003222301311-3230013231112032-0003003000022320-2022131013323130-2200000033110203-3332022130201202): complete subsection reference.
+
+<a id="canonical-3030123201303331-2031323123123213-2012023033100031-1013321120310320-2122100220100033-3103011230320331-3021112211120311-0121003202122311"></a>
+
+## Next pages — slo_to_global_dr / 211000013121 / 4
+
+- [voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--azure_vnet_site--reference--group-010.md#canonical-0031230023300323-0122211030012203-2002003222301311-3230013231112032-0003003000022320-2022131013323130-2200000033110203-3332022130201202)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-0031230023300323-0122211030012203-2002003222301311-3230013231112032-0003003000022320-2022131013323130-2200000033110203-3332022130201202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3323312131030032-0121122020123112-2020231130003233-0012213210131323-1231111133032320-2233332102331200-3100111303000123-1000232330013021"></a>
+
+## voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr.global_vn — global_vn / 011301203203 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.global_network_list](resources--azure_vnet_site--reference--group-009.md#canonical-0302133020210101-2221032211110211-1032111131302013-3223120131021120-3213310203101213-1110303313200321-2030023121010000-1210111333331312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections](resources--azure_vnet_site--reference--group-010.md#canonical-3331000333223303-3111011120323011-1321313302331202-3303320321023332-2201100123013303-0011031313121111-1332023122323130-3123301313002312)
+- [voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-2130022003231131-2220112201210232-3303113132120110-0013022132310131-0000330100023211-0333110310003311-1031302221011330-2322220330022330)
+- voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr.global_vn
+
+<a id="canonical-3033321231330100-0221311223321222-3332030012230310-3023132120212001-3011332110123022-3030322033211130-0311211130203101-0000302033201232"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+global_vn {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2223221321010210-1213202200233022-1221302101130101-3330023132233132-2230200322201033-1013200131232203-0121323013203333-2133312022320213"></a>
+
+## Direct properties — global_vn / 011301203203 / 3
+
+<a id="canonical-0322211333020123-3203220213233230-2313312103021130-2011013122112200-2313120231231330-3322110201112223-3031313230032230-3202233320200123"></a>
+
+<a id="canonical-2222221231131300-0012203230122002-3330200200311331-0131212322120233-3103033010201233-3330021330001130-0330220020312310-0330123031031200"></a>
+
+## name property — global_vn / 011301203203 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-1331211200022302-3203320230021010-1230232211201002-1330223302311111-2011312112300213-0300133222233113-2021212211200232-1012320203031102"></a>
+
+<a id="canonical-3310201330231103-2030031012000021-2123312300032011-0312112232133130-2000320302331323-1112001033311101-1122031111202311-2110010331030200"></a>
+
+## namespace property — global_vn / 011301203203 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3021303033102010-3322030203020232-2133120111121011-1213330003320302-0230100030300012-3012120321310223-1303201221102020-1100231121212233"></a>
+
+<a id="canonical-2113322013301231-1221321001322212-3030002120332022-2011110031113232-1302020230322010-1231003122322300-3300101231313201-3321103003022221"></a>
+
+## tenant property — global_vn / 011301203203 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1012131310023210-2223030323321111-2103203032311301-0201131130311102-1021213331323123-1103332132220313-0003202033031112-0020112222121110"></a>
+
+## Next pages — global_vn / 011301203203 / 7
+
+- [voltstack_cluster_ar.global_network_list.global_network_connections.slo_to_global_dr](resources--azure_vnet_site--reference--group-010.md#canonical-2130022003231131-2220112201210232-3303113132120110-0013022132310131-0000330100023211-0333110310003311-1031302221011330-2322220330022330)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-0110300210201321-2233321233202030-0203210323012120-2311222321101002-0110210121020330-0320321103302133-0021332210302312-1100012010211331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0112333311210012-1300330232310011-0130331003103010-2213312121302200-2220031103332223-3320113110102131-2203221231312201-2302131322100022"></a>
+
+## voltstack_cluster_ar.k8s_cluster — k8s_cluster / 300201232303 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.k8s_cluster
+
+<a id="canonical-3031031302201212-3323331213000103-3013020333030111-1031003122320231-3303213223020021-0330301223322221-0331030012323121-2000211222023102"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+k8s_cluster {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3201033011213021-2131003103110101-2030112002200102-1111301320113231-3003323033320221-2130022012312303-0211200033220112-3000312220232132"></a>
+
+## Direct properties — k8s_cluster / 300201232303 / 3
+
+<a id="canonical-3011103220000323-1211032300332233-0220222320302130-0110020202032110-1220221031102300-3301023201211221-1110321303301001-1223212300123132"></a>
+
+<a id="canonical-3312101131203211-2002113021221221-0222032300003221-2022330120012322-0010120133023102-3311011232033011-1322202120321131-3211223101323311"></a>
+
+## name property — k8s_cluster / 300201232303 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-2321312002333221-1010230200323133-2320211112122332-2232200302012103-2000113103123133-3232212300001300-3312032123333212-1132313323310000"></a>
+
+<a id="canonical-0321122020320102-0332100222221203-3001010100333032-3100012322000213-3102022200100113-3332020033300201-1101300233312013-0003212011023211"></a>
+
+## namespace property — k8s_cluster / 300201232303 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0220332003333332-2022222033310120-3032300331220101-2300112032112001-0230331123220312-2312012310313322-0232231231322202-1311313301212222"></a>
+
+<a id="canonical-2311320213130203-0301033222112233-0211223312220220-2132311113302130-3330002203121222-2202333212333000-1132302300312220-1120301012033000"></a>
+
+## tenant property — k8s_cluster / 300201232303 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-2333323031110313-0321102013203003-0132331302102020-0010021221100021-3233101323131031-0332332313202211-0010312221201201-2203210013020020"></a>
+
+## Next pages — k8s_cluster / 300201232303 / 7
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-1312111013220222-1211300132311131-3210122100203322-3220302230110020-0303331211110022-3331201313233122-1030212312123333-2033112102210032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0031211231303100-1312101020321100-3331022203303112-3033102311321100-0203032302331302-3230232233332203-0001123113001022-1002031321012212"></a>
+
+## voltstack_cluster_ar.no_dc_cluster_group — no_dc_cluster_group / 100321012323 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_dc_cluster_group
+
+<a id="canonical-0031220013332021-3103313110022200-3031101011121011-1312132300322203-0110002013110103-2220223303101102-2220331221111130-2100323120230131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_dc_cluster_group = {}
+```
+
+<a id="canonical-0023310033220301-1110033223100230-3331300003321331-0220030202132020-0130202030202212-2102210313103113-2100211022011000-2111133230131321"></a>
+
+## Direct properties — no_dc_cluster_group / 100321012323 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3022123223311232-3331131332101311-3201032123122230-1021103000213230-2321311111203201-2020002012110001-1113112013200202-3130110303012130"></a>
+
+## Next pages — no_dc_cluster_group / 100321012323 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3003200021130023-1233323111132230-1011120203303301-0230303301011312-0211003011133211-1000331102100331-3221202211111312-1222010233330313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2033333001032112-1311303203112322-3311121100032003-1123102322131003-2122100223312012-0212312310232020-3322021210022113-1103231112111332"></a>
+
+## voltstack_cluster_ar.no_forward_proxy — no_forward_proxy / 033100213200 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_forward_proxy
+
+<a id="canonical-1222310233033022-1122012212020201-3101033110001212-0002103130211021-3220103220032011-3320023132110213-3220331030223333-1033311222003122"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no forward proxy.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_forward_proxy = {}
+```
+
+<a id="canonical-1210032002003132-3101221112033012-1323223003123213-1011112330111132-0331023211100121-3031203111233113-1130211022333023-1102120123131212"></a>
+
+## Direct properties — no_forward_proxy / 033100213200 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0322122120211333-3111020023022100-1303112100333032-3232212303200323-0021311201201123-1032111201013013-3132023301022102-1020130222012020"></a>
+
+## Next pages — no_forward_proxy / 033100213200 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3303132032223003-0010031311031112-3312103133303103-0222233230331001-3103303201211301-3313021100103310-0030313021132011-0120112203023332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3013100223123312-2212113230312312-0020000210313100-1320300310022222-0222201103030002-3031323101010232-1001220013002032-0121103300302032"></a>
+
+## voltstack_cluster_ar.no_global_network — no_global_network / 012132112110 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_global_network
+
+<a id="canonical-2121003232211123-2202000132301003-2331102220103000-2023213222122122-2031131110033022-3130111202222323-1011311000210021-1331310121100331"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no global network.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_global_network = {}
+```
+
+<a id="canonical-1322323003033313-2303120000011103-3101302321113222-0100301013111033-0132031211222100-1033232210033201-1030021210300303-3223220103002233"></a>
+
+## Direct properties — no_global_network / 012132112110 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3333010231211121-0133212333302021-1321012300220310-0131003232003020-3301110331103312-3212300130022110-0212132110133302-1001201212111313"></a>
+
+## Next pages — no_global_network / 012132112110 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3013312222012123-1001012001300003-1303113001030332-2212223031300022-0012022323110023-1102301123102303-0101303233100120-1213220011032303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1220101320330222-2300313111200323-3320302011200232-2302022003110011-3313033030223003-3331000020111010-0132221132313001-0323123031000201"></a>
+
+## voltstack_cluster_ar.no_k8s_cluster — no_k8s_cluster / 300102112313 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_k8s_cluster
+
+<a id="canonical-0212323132213332-1113130301103213-3313022113131223-1202032213333121-2030003001333121-3121200233111113-0331021312020000-0230132210201300"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_k8s_cluster = {}
+```
+
+<a id="canonical-0211223203222303-1301203312331323-1233333110232233-1033220103301311-1232013303031301-1311223220033131-0023202222330012-1200130211211323"></a>
+
+## Direct properties — no_k8s_cluster / 300102112313 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1000313010223301-1212210333331100-2303021121201223-2112123202121031-0231213233301321-3010033011223130-1222102101110302-1013332022130131"></a>
+
+## Next pages — no_k8s_cluster / 300102112313 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3210030201312131-2301022101213032-3120333110130331-3221302301101010-1233123102210000-3222133213211020-0222302332321320-0330301231133113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0202123110001313-0111231030221001-2122332121322023-1131300000333021-3002322013100122-2230113111232300-3303021312233203-3313213123011130"></a>
+
+## voltstack_cluster_ar.no_network_policy — no_network_policy / 313100110302 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_network_policy
+
+<a id="canonical-0322323012021302-2223222201200213-3312021230030022-1303210101233210-1221333030331333-0232323022010103-1210313202123010-1033032002200012"></a>
+
+Type: `["object", {}]`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_network_policy = {}
+```
+
+<a id="canonical-0012003133312003-1111121112121132-0321233233211311-2331122131321011-3130110000101112-0133101200212302-3010200030323010-3231311232123131"></a>
+
+## Direct properties — no_network_policy / 313100110302 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0223330132021220-1133013221300211-2122320312122220-2021230132232110-1132102103211301-1300230230322113-3323021031112110-1132223220123030"></a>
+
+## Next pages — no_network_policy / 313100110302 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2113103013030123-3333113313303300-3313310320000031-1220022002113312-0332300321010030-2330010210211013-3310103010231303-3022211021103012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1231200101311313-3330120110100110-2131002001210220-1221100113132232-3132230122031310-3103003233330322-2223303023123110-3033120100121203"></a>
+
+## voltstack_cluster_ar.no_outside_static_routes — no_outside_static_routes / 203030102031 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.no_outside_static_routes
+
+<a id="canonical-0223203301211023-1310101130113222-2120232103003031-0030211111001122-0100323221300310-3103201332013323-3220010132200331-1220130130313231"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no outside static routes.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_outside_static_routes = {}
+```
+
+<a id="canonical-1020211332200131-0000132303310201-2013233202300300-1230003312310032-1002301302123222-2120210122312001-0321000303302300-0102222010313113"></a>
+
+## Direct properties — no_outside_static_routes / 203030102031 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0112012020120030-1111302132103201-1013010130302201-0132000131311301-1001323033100122-1201221033320101-0020103221031303-0132330200001021"></a>
+
+## Next pages — no_outside_static_routes / 203030102031 / 4
+
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2112303011210202-2212312012213211-3231220330313303-2000120312223120-2303333200023122-2322111332223102-1100131202102100-1033132132232011"></a>
+
+## voltstack_cluster_ar.node — node / 132100120013 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- voltstack_cluster_ar.node
+
+<a id="canonical-1112203012030321-0020331313331033-0203323121013003-1211221323202320-3122330013330100-0012213323312110-1323023232122131-3311320131121020"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Parameters for creating Single interface Node for Alternate Region.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("fault_domain",
+    "node_number",
+    "update_domain")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3302221303031001-2000133212213232-2013111032013112-3032011210311321-0333020331100313-2201101001201032-2102202011001331-3111330303211221"></a>
+
+## Direct properties — node / 132100120013 / 3
+
+<a id="canonical-0221301223222300-1120230223223003-3200222231111032-2232112220323103-1030302220132121-3220302333100302-3300303121313211-3100120200033101"></a>
+
+<a id="canonical-1030100233000010-2010022112122101-1233002203201101-2102110300020101-2103113011323313-3311121123132333-1312022230323333-1222202222012120"></a>
+
+## fault_domain property — node / 132100120013 / 4
+
+Type: `"number"`. Optional.
+
+Namuber of fault domains to be used while creating the availability set.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 3),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 3,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "3"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "3"
+  }
+}
+```
+
+- [local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223): complete subsection reference.
+
+<a id="canonical-0331110000121221-1212320321012303-0010003122112212-3132012003213302-0132303110230310-1111103311131330-3232200133323130-2103302032332033"></a>
+
+<a id="canonical-2002321131233322-0223003032001303-1000313022003021-2003330233022232-2312122211332330-1120213120320110-1303320321302221-2320231213113322"></a>
+
+## node_number property — node / 132100120013 / 5
+
+Type: `"number"`. Optional.
+
+Number of main nodes to create, either 1 or 3.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.in": "[1,3]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.in": "[1,3]"
+  }
+}
+```
+
+<a id="canonical-0122331212031111-2022021132103111-1221212100003111-0011133303003303-1130132022333132-1133020131030121-3211020001110303-3203012022201213"></a>
+
+<a id="canonical-1201202120022101-1111301111012020-3211321110221303-1101200023030021-3022133310302212-1302130133120103-1320010012101033-1123100233123112"></a>
+
+## update_domain property — node / 132100120013 / 6
+
+Type: `"number"`. Optional.
+
+Namuber of update domains to be used while creating the availability set.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 20),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 20,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "20"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "20"
+  }
+}
+```
+
+<a id="canonical-3112123002310013-3321102103323312-0031000300232113-2020322110320202-2231222012002333-2301023333103131-1201002332313113-1212122211211000"></a>
+
+## Next pages — node / 132100120013 / 7
+
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3331332310100030-2033033310020102-1230021001103112-3032301020201211-1113332333130121-1010103220010321-2113203101030202-0211212133321113"></a>
+
+## voltstack_cluster_ar.node.local_subnet — local_subnet / 332101230032 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-010.md#canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012)
+- voltstack_cluster_ar.node.local_subnet
+
+<a id="canonical-3321331211133322-0032310022012110-1101333301101123-1320303121001231-3130221212332200-0031100011233023-3302032131210021-0311313020220211"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for local subnet.
+
+Upstream description:
+
+Parameters for Azure subnet.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("subnet",
+    "subnet_param")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"subnet\",\"subnet_param\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+local_subnet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2021130021012112-3020220021302210-0300211000102312-3221133302210301-1133103131133011-0213120001032333-3213121132333000-2133202022311211"></a>
+
+## Direct properties — local_subnet / 332101230032 / 3
+
+- [subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2232031212110232-0202022123030003-3101022300133111-1102322311320033-1300031210010001-0302232230230220-3102231013213222-1010112020131231): complete subsection reference.
+
+- [subnet_param](resources--azure_vnet_site--reference--group-010.md#canonical-0131013322020212-1112332112111022-2033003123333230-3123003023021223-3332130313033111-1122130211131320-2031221133102022-1333333321313302): complete subsection reference.
+
+<a id="canonical-3313020010130011-1101000031103013-2221130203301302-2112221313101203-1230310033012110-3232222212010211-1313032320012310-1113210200101210"></a>
+
+## Next pages — local_subnet / 332101230032 / 4
+
+- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2232031212110232-0202022123030003-3101022300133111-1102322311320033-1300031210010001-0302232230230220-3102231013213222-1010112020131231)
+- [voltstack_cluster_ar.node.local_subnet.subnet_param](resources--azure_vnet_site--reference--group-010.md#canonical-0131013322020212-1112332112111022-2033003123333230-3123003023021223-3332130313033111-1122130211131320-2031221133102022-1333333321313302)
+- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-010.md#canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+
+<a id="canonical-2232031212110232-0202022123030003-3101022300133111-1102322311320033-1300031210010001-0302232230230220-3102231013213222-1010112020131231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3011312110101332-0000020030111000-2232201020033133-3232200011222223-0133123131033011-3200103331330321-3330100131002200-2100223133232101"></a>
+
+## voltstack_cluster_ar.node.local_subnet.subnet — subnet / 132223231013 / 2
+
+Breadcrumbs:
+
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-010.md#canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012)
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
 - voltstack_cluster_ar.node.local_subnet.subnet
 
-<a id="canonical-43b24388389fa38be00c39474a21236281c9fdc639b8aa90c007aa3bddd75ae0"></a>
+<a id="canonical-1003230210032020-0320213322032023-3200003003211013-1022020102031202-2001302133313012-0321232022222100-3000001322220323-3131311311223200"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -82,15 +1715,15 @@ subnet {
 }
 ```
 
-<a id="canonical-acd317dfb7976f7eafc9cd34a8273611ca34547f998487279532077a56ebc9c7"></a>
+<a id="canonical-2230310301133133-2313211312331332-2233302130310310-2220021303120101-3022031011101333-2121201020130213-2111030200131322-1112322330213013"></a>
 
-## Direct properties — voltstack_cluster_ar.node.local_subnet.subnet / 0dabc17abb47 / 3
+## Direct properties — subnet / 132223231013 / 3
 
-<a id="canonical-fb725d4905559bac2c50b0ab9c4fef29c1de0362172932ec83aa31e88287906b"></a>
+<a id="canonical-3323130211311021-0011111121232230-0230110023002223-2130103332330221-3001313200031202-0113022103023230-2003222203013220-2002201321001223"></a>
 
-<a id="canonical-a1cfa3d4d5e2bc9267b5fe809799ffe1a7efeb8e8ca125bee7e084bac7105977"></a>
+<a id="canonical-2201303322033110-3111320223302102-1213231133322000-2113212133333201-2213323332232032-2030220102112332-3213320020102322-3013010011211313"></a>
 
-## subnet_name property — voltstack_cluster_ar.node.local_subnet.subnet / 0dabc17abb47 / 4
+## subnet_name property — subnet / 132223231013 / 4
 
 Type: `"string"`. Optional.
 
@@ -141,11 +1774,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-cb4c42739e1a11fa23b7b92dbe8e7c88d97e372a0bab63d03693bd8b76c7a128"></a>
+<a id="canonical-3023103010021303-2132012201013322-0203231323210231-2332203213302020-3121133203130222-0023222312033100-0312210323312023-1312301322010220"></a>
 
-<a id="canonical-ee6b26748746dea263bfda399ad035bd6e9e07ce2dd049f835c7566c265ec47b"></a>
+<a id="canonical-3232122302121310-2013101231322202-1203233331220321-2122310003112331-1232213200133032-0231310010213320-0311301311121230-0212113230101323"></a>
 
-## subnet_resource_grp property — voltstack_cluster_ar.node.local_subnet.subnet / 0dabc17abb47 / 5
+## subnet_resource_grp property — subnet / 132223231013 / 5
 
 Type: `"string"`. Optional.
 
@@ -194,37 +1827,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [vnet_resource_group](resources--azure_vnet_site--reference--group-010.md#canonical-4f593e0f8c071bbe8acdebfb7b4e199034c7a11da2e6de50a7bbd9b7e42d2a5e): complete subsection reference.
+- [vnet_resource_group](resources--azure_vnet_site--reference--group-010.md#canonical-1033112103320033-2030001301232332-2022303132233323-1323103201212100-0310301322010131-2202321231321100-2213232331212313-3210023102221132): complete subsection reference.
 
-<a id="canonical-fe7a7cd95dfd2396a249de74bdae21eec6a25f2641222f22c35e2254acb8822f"></a>
+<a id="canonical-3332132213303121-1131333102032112-2202102131321310-2331223202013232-3012220211330212-1001020202330202-3003113202021110-2230232020020233"></a>
 
-## Next pages — voltstack_cluster_ar.node.local_subnet.subnet / 0dabc17abb47 / 6
+## Next pages — subnet / 132223231013 / 6
 
-- [voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-010.md#canonical-4f593e0f8c071bbe8acdebfb7b4e199034c7a11da2e6de50a7bbd9b7e42d2a5e)
-- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-009.md#canonical-bef5d1ec441f891737be5a113eb09bf7ef6dbfab5b5c84741f15bc0cc96227ab)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group](resources--azure_vnet_site--reference--group-010.md#canonical-1033112103320033-2030001301232332-2022303132233323-1323103201212100-0310301322010131-2202321231321100-2213232331212313-3210023102221132)
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-4f593e0f8c071bbe8acdebfb7b4e199034c7a11da2e6de50a7bbd9b7e42d2a5e"></a>
+<a id="canonical-1033112103320033-2030001301232332-2022303132233323-1323103201212100-0310301322010131-2202321231321100-2213232331212313-3210023102221132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5471ce6f698bb05105163aea3f57c12da1b74e5850c61d032d8c6013a947dc5b"></a>
+<a id="canonical-1110130130321233-1221202323001101-0011011203223222-0333111330010231-2201231310321120-1100301201310003-0231203012000103-2221101331301123"></a>
 
-## voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group — voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group / 0513c6d5019d / 2
+## voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group — vnet_resource_group / 311100012131 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-009.md#canonical-fb7ee52f5f58686836f1724c5f129953df3fd12bcd2f2bcbc459c1d30ea4c086)
-- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-009.md#canonical-bef5d1ec441f891737be5a113eb09bf7ef6dbfab5b5c84741f15bc0cc96227ab)
-- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-ae36652e2229b303d12b07d552eb5e0f7036410132bacb28d2b479ea4458876d)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-010.md#canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012)
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
+- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2232031212110232-0202022123030003-3101022300133111-1102322311320033-1300031210010001-0302232230230220-3102231013213222-1010112020131231)
 - voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group
 
-<a id="canonical-7d92977f6ccc05b5edbf5bc055a9a40e63e65b928bbb6507131553c9019dc1bd"></a>
+<a id="canonical-1331210221131333-1230303000112311-3231233311233000-1111222122100032-1203321211232102-2023232312110013-0103011111033021-0001213130012331"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -253,39 +1886,39 @@ Terraform syntax:
 vnet_resource_group = {}
 ```
 
-<a id="canonical-42eeb390ac324884dcc190f3521b58ea9f803d1f3f60629136054fe81a425f6f"></a>
+<a id="canonical-1002323223032100-2230030210202010-3130300121003303-1102012311203222-2133200003310133-0333120012022101-0312001110333220-0122100211331233"></a>
 
-## Direct properties — voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group / 0513c6d5019d / 3
+## Direct properties — vnet_resource_group / 311100012131 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b51cc436b0d1e1d8e6c40c584821199afa56ab0d9e8793761a1cf9787bd9efbf"></a>
+<a id="canonical-2311013030100312-2300310132013120-3212301000301120-1020020101212122-3322111222230031-2132201321031312-0122013033211320-1323312132332333"></a>
 
-## Next pages — voltstack_cluster_ar.node.local_subnet.subnet.vnet_resource_group / 0513c6d5019d / 4
+## Next pages — vnet_resource_group / 311100012131 / 4
 
-- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-ae36652e2229b303d12b07d552eb5e0f7036410132bacb28d2b479ea4458876d)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.node.local_subnet.subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2232031212110232-0202022123030003-3101022300133111-1102322311320033-1300031210010001-0302232230230220-3102231013213222-1010112020131231)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-1d1fa22656f9654a8f0dbfecdb0cb26bfe7373d55a7257788da5f48a7fff9df2"></a>
+<a id="canonical-0131013322020212-1112332112111022-2033003123333230-3123003023021223-3332130313033111-1122130211131320-2031221133102022-1333333321313302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7f70e6753f5e9e7c82e08e7fdae73383506c7cf7699d4edf6901b4b5f1f9acb4"></a>
+<a id="canonical-1333130032121311-0333113221321330-2002320020321333-3122321303032003-1100123013303313-1221213110323133-1221000123102311-3301332122302310"></a>
 
-## voltstack_cluster_ar.node.local_subnet.subnet_param — voltstack_cluster_ar.node.local_subnet.subnet_param / 58edb0a5e5d0 / 2
+## voltstack_cluster_ar.node.local_subnet.subnet_param — subnet_param / 221132113100 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-009.md#canonical-fb7ee52f5f58686836f1724c5f129953df3fd12bcd2f2bcbc459c1d30ea4c086)
-- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-009.md#canonical-bef5d1ec441f891737be5a113eb09bf7ef6dbfab5b5c84741f15bc0cc96227ab)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.node](resources--azure_vnet_site--reference--group-010.md#canonical-3323133232110233-1133112012201220-0312330113021030-1133010221211103-3133033331010223-3031023302233023-3010112130013103-0032221030002012)
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
 - voltstack_cluster_ar.node.local_subnet.subnet_param
 
-<a id="canonical-5e8136d81fc39a0cd88907d1760a2f4e9d54fe177290b0484faffcb91bdf55b2"></a>
+<a id="canonical-1132200103123120-0133300321220030-3120202100133101-1312002202331032-2131111033320113-1302210023001020-1033223333302321-0123313311112302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -318,15 +1951,15 @@ subnet_param {
 }
 ```
 
-<a id="canonical-0d08e02bfc0bdfd234a625625bc0c87041738f9bd42966e7e628431fd46a337c"></a>
+<a id="canonical-0031002032000223-3330002331333102-0310221202111202-1123300030201300-1001130320332123-3110022112123213-3212022010030133-3110122203031330"></a>
 
-## Direct properties — voltstack_cluster_ar.node.local_subnet.subnet_param / 58edb0a5e5d0 / 3
+## Direct properties — subnet_param / 221132113100 / 3
 
-<a id="canonical-5909500fc884b3442cc04fa92dc46ae414298059620337b8124c78d2c3a788cb"></a>
+<a id="canonical-1121002111000033-3020201023031010-0230300010332221-0231301012223210-0110022120001121-1202000303132320-0102103013203102-3003221320203023"></a>
 
-<a id="canonical-8dac14c586c1d81e3e28be045abc5215c5cd760120464ec0db15609a81d2c3ad"></a>
+<a id="canonical-2031223001103011-2012300131200132-0332022023320010-1122233011020111-3011303113120001-0200101210323000-3123011112002122-2001310230032231"></a>
 
-## ipv4 property — voltstack_cluster_ar.node.local_subnet.subnet_param / 58edb0a5e5d0 / 4
+## IPv4 property — subnet_param / 221132113100 / 4
 
 Type: `"string"`. Optional.
 
@@ -370,31 +2003,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-78f4c2055eaaa2868a9fe47aa62c4f24436cb760a29d280a7830c66807744022"></a>
+<a id="canonical-1320331030020011-1132222222022012-2022213332101322-2212023010330210-1003123023131200-2202213102200022-1320030030121220-0013131010000202"></a>
 
-## Next pages — voltstack_cluster_ar.node.local_subnet.subnet_param / 58edb0a5e5d0 / 5
+## Next pages — subnet_param / 221132113100 / 5
 
-- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-009.md#canonical-bef5d1ec441f891737be5a113eb09bf7ef6dbfab5b5c84741f15bc0cc96227ab)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.node.local_subnet](resources--azure_vnet_site--reference--group-010.md#canonical-2332331131013230-1010013320210113-0313233211220101-0332230021233313-3233123123332223-1123113020101310-0133011123300030-3021120202132223)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5"></a>
+<a id="canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0c7cfca1d2d823e1d834a0c55f66bb98ce3e604c0fc3f4e7628ab50bbfb70ed3"></a>
+<a id="canonical-0030133033302201-3102312002033201-3120031022003011-1133121223232120-3032033212001030-0033300333103213-1202202223110023-2333231300323103"></a>
 
-## voltstack_cluster_ar.outside_static_routes — voltstack_cluster_ar.outside_static_routes / 482e37a53df5 / 2
+## voltstack_cluster_ar.outside_static_routes — outside_static_routes / 221103313311 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
 - voltstack_cluster_ar.outside_static_routes
 
-<a id="canonical-47c9d100a62d8bc72b6de46972982bc828582ea7f294eeb46fcdb62a0c722ee6"></a>
+<a id="canonical-1013302131010000-2212023120233013-0223123132101221-1302212002233020-0220112002322213-3302211032322310-1233303123120222-0030130202323212"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -431,39 +2064,39 @@ outside_static_routes {
 }
 ```
 
-<a id="canonical-0700ac3e54f2a0d6ba819b6c2ce309c74f17d1cd326a26e825c0124ca15dd2d7"></a>
+<a id="canonical-0013000022300332-1110330222003112-2322200121231230-0230320300213013-1033011331013031-0302122202123220-0211300001021030-2201113131023113"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes / 482e37a53df5 / 3
+## Direct properties — outside_static_routes / 221103313311 / 3
 
-- [static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e): complete subsection reference.
+- [static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132): complete subsection reference.
 
-<a id="canonical-9454fab27a4ee0a1798d0de7d45a5c02d79dc7e25c5f7aa336c80b8e81982b56"></a>
+<a id="canonical-2110111033222302-1322103232002201-1321203100313213-3110112211300002-3113213130133202-1130113313222203-0312302000232032-2001212002231112"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes / 482e37a53df5 / 4
+## Next pages — outside_static_routes / 221103313311 / 4
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e"></a>
+<a id="canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8f59c79c6c4c05ad817b9e0b8ae67e8a7a3b0a04d1972f8ddc303851ac3c67e1"></a>
+<a id="canonical-2033112130132130-1230103000112231-2001132321320023-2022321213322022-1322032300220010-3101211302332031-3130030003201101-2230033012133201"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list — voltstack_cluster_ar.outside_static_routes.static_route_list / 002f3cf2aa16 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list — static_route_list / 330222220112 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
 - voltstack_cluster_ar.outside_static_routes.static_route_list
 
-<a id="canonical-da3a244f84f8c4e24ff206a3710445fc60793a2ef8b49602d569e916f20d242c"></a>
+<a id="canonical-3122032202101033-2010332030103202-1033330200122203-1301001010113330-1200132103220232-3320231021120002-3111122132210112-3302003102100230"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -525,17 +2158,17 @@ static_route_list {
 }
 ```
 
-<a id="canonical-dad3d30ef4122de8e8f526e8ef305f7fb22744684ec70ddada7802049d9a21eb"></a>
+<a id="canonical-3122310331030032-3310010202313220-3220331102123220-3233030011331333-2302021310101220-1032301300313122-3122132000020010-2131212202013223"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list / 002f3cf2aa16 / 3
+## Direct properties — static_route_list / 330222220112 / 3
 
-- [custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590): complete subsection reference.
+- [custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100): complete subsection reference.
 
-<a id="canonical-ea6c9f8879907963d2911a2d152bed7cbdc7fcecccde2e5c1c62ef484002ecf5"></a>
+<a id="canonical-3222123021332020-1321210013211203-3102210101220231-0111022332311330-2331301333303230-3030313202321130-0130120232331020-1000000232303311"></a>
 
-<a id="canonical-ff0183a4fe25cb52e21da7b1f9a238b4f13afdfe3f5f58d3003b84cd316abd2d"></a>
+<a id="canonical-3333000120032210-3332021130231102-3202013122132301-3321220203202310-3301032233313332-0333113311203103-0000032320103031-0301122223310231"></a>
 
-## simple_static_route property — voltstack_cluster_ar.outside_static_routes.static_route_list / 002f3cf2aa16 / 4
+## simple_static_route property — static_route_list / 330222220112 / 4
 
 Type: `"string"`. Optional.
 
@@ -576,34 +2209,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f971d700e0bebb8773e6705e432dfb80c85f0c65f4243c349de74408b832361a"></a>
+<a id="canonical-3321130131130000-3200233223232013-1303321213001132-1003023133232000-3020113300301211-3310021003300310-2131321310100020-2320030203120122"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list / 002f3cf2aa16 / 5
+## Next pages — static_route_list / 330222220112 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590"></a>
+<a id="canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5dd63a967b7bb473e86aaf16b29a7327b41554a32eddd4621ffe89e19d61ac22"></a>
+<a id="canonical-1131311203222112-1323132323101303-3220122222330112-2302212213030213-2310011111102203-0232313131101202-0133333220213201-2131120122300202"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / a7c8e064f8ac / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 121033202230 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route
 
-<a id="canonical-6f43ffb1afdeb513d7f1198e8a2294c72ee01afa6175cfa6745ec66474f75518"></a>
+<a id="canonical-1233100333332301-2233313223110103-3113330101212032-2022020221103013-0232320001223322-1201131130332212-1310113230121210-1310331311110120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -636,15 +2269,15 @@ custom_static_route {
 }
 ```
 
-<a id="canonical-12593e047be31cc32a4d7a0b371840ba393c37fa429a9826e113af13b20a39a2"></a>
+<a id="canonical-0102112103320010-1323320301303003-0222103113220023-0313012010002322-0321033003133322-1002212221200212-3201010322330103-2302002203212202"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / a7c8e064f8ac / 3
+## Direct properties — custom_static_route / 121033202230 / 3
 
-<a id="canonical-f207773167b2bae13e5496f3450cf8ffa967544c1aebcfc110ae47ea56c700a5"></a>
+<a id="canonical-3302001313130301-1213230223223201-0332111021123303-1011003033203333-2221121311101030-0122322330333001-0100223210133222-1112301300002211"></a>
 
-<a id="canonical-14eb6c7063cf9b821e5bc2ac2d86dd9c691b3bf7ff0ae2e5aed375791697da4a"></a>
+<a id="canonical-0110322312301300-1203303321232002-0132112330022230-0231201231312130-1221012303233313-3333002232023211-2232310313111321-0112211331221022"></a>
 
-## attrs property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / a7c8e064f8ac / 4
+## attrs property — custom_static_route / 121033202230 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -698,43 +2331,43 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [labels](resources--azure_vnet_site--reference--group-010.md#canonical-73f272679556b12b31fbce637c1dd37273bcd8e55d85cafce0a016d79cae761e): complete subsection reference.
+- [labels](resources--azure_vnet_site--reference--group-010.md#canonical-1303330213021213-2111111223010223-0301332330321203-1330013131031302-1303233031203211-1131201130223330-3200220001123113-2130223213120132): complete subsection reference.
 
-- [nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e): complete subsection reference.
+- [nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132): complete subsection reference.
 
-- [subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697): complete subsection reference.
+- [subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113): complete subsection reference.
 
-<a id="canonical-becf6b887dced77d89404d0909d6b6ffa45a0c4332970f590e479ccdbb465e58"></a>
+<a id="canonical-2332303312232020-1331303231131331-2021100010310021-0021311223123333-2210112200301003-0302211300331121-0032101321303031-2323101211321120"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / a7c8e064f8ac / 5
+## Next pages — custom_static_route / 121033202230 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.labels](resources--azure_vnet_site--reference--group-010.md#canonical-73f272679556b12b31fbce637c1dd37273bcd8e55d85cafce0a016d79cae761e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.labels](resources--azure_vnet_site--reference--group-010.md#canonical-1303330213021213-2111111223010223-0301332330321203-1330013131031302-1303233031203211-1131201130223330-3200220001123113-2130223213120132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-73f272679556b12b31fbce637c1dd37273bcd8e55d85cafce0a016d79cae761e"></a>
+<a id="canonical-1303330213021213-2111111223010223-0301332330321203-1330013131031302-1303233031203211-1131201130223330-3200220001123113-2130223213120132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-559ded0f7288efdbb438ed21d5c964223dc5c5f3e462000e17624d2789abd0a8"></a>
+<a id="canonical-1111213132310033-1302202032333123-2310032032310201-3111302112100202-0331301130113303-3210120200000032-0113120210310213-2021222331002220"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.labels — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 69cd5d5d0f36 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.labels — labels / 113100330312 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.labels
 
-<a id="canonical-2ef20272faee1e871f47f60caadfee7324fb57e8eddb76aba776bc30ab830b5e"></a>
+<a id="canonical-0232330200021302-3322323201322013-0133101333120030-2222313332321303-0210332311133220-3231312313122223-2213131223300300-2223200300231132"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -759,40 +2392,40 @@ Terraform syntax:
 labels {}
 ```
 
-<a id="canonical-dd6bbafd9421239bf27f5525ec2efd8cef8c17d59c67b1e4fe44c2c86d398ca6"></a>
+<a id="canonical-3131122323223331-2110020102032123-3302133311110211-3230023233312030-3233203001133111-2130121323013210-3332101030023020-1231032120302212"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 69cd5d5d0f36 / 3
+## Direct properties — labels / 113100330312 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-599023e55cffd8e4195ef2d2f91af4a5881d75499d9b73aecfadbe0223abf6dd"></a>
+<a id="canonical-1121210002033211-1130333331203210-0121113233023102-3321012233102211-2020013113111021-2131212313032232-3033223123320002-0203222333123131"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 69cd5d5d0f36 / 4
+## Next pages — labels / 113100330312 / 4
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e"></a>
+<a id="canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8d1d703f2669575a308b9ff88f1b80ab3732fa1a7bc063b1fa984f22dc61402e"></a>
+<a id="canonical-2031013113000333-0212122111131122-0300202321333320-2033012320002223-0313030233220122-1323300012032301-3322212010330202-3130120110000232"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6d089e73dadd / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 130331223131 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop
 
-<a id="canonical-7afe6c90e225840c005860e75156f9f14e44bddbca05bb9b2f6cbd5e7f2ba274"></a>
+<a id="canonical-1322333212302100-3202021120100030-0000112012003213-1101111233213301-1032101023313123-3022001123232123-0233123023311132-1333022322021310"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -823,19 +2456,19 @@ nexthop {
 }
 ```
 
-<a id="canonical-b460f0575cb14ff8b982d27b2f82bc1f765f8706b97a94b570f904f76cb22eb3"></a>
+<a id="canonical-2310120033001113-1130230110333320-2321200231021323-0233200223300133-1312113320130012-2321132221102311-1300332100103313-1230230202322303"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6d089e73dadd / 3
+## Direct properties — nexthop / 130331223131 / 3
 
-- [interface](resources--azure_vnet_site--reference--group-010.md#canonical-870ed4afdb910b95621bd94c0fdb8cc14ec182342df4462690929e3f066d6bea): complete subsection reference.
+- [interface](resources--azure_vnet_site--reference--group-010.md#canonical-2013003231102233-3123210100232111-1202012331211030-0033312320303001-1032300120020310-0231331010120212-2100210221320333-0012123112233222): complete subsection reference.
 
-- [nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054): complete subsection reference.
+- [nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110): complete subsection reference.
 
-<a id="canonical-87610a039f6b292218c065843712e6ada76bac80016c9bbe19064b3d3d6d0e7a"></a>
+<a id="canonical-2013120100220003-2133122302210202-0120300012112010-0313010232122231-2213122322302000-0001123021232332-0121001210230331-0331123100321322"></a>
 
-<a id="canonical-64314d017580df87ab871dc1aad5af352f158390ca8e273a1073605e535d9bb3"></a>
+<a id="canonical-1210030110310001-1311200031332013-2223201301313001-2222311122330311-0233011120032100-3022203202130322-0100130312001132-1103113121232303"></a>
 
-## type property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6d089e73dadd / 4
+## type property — nexthop / 130331223131 / 4
 
 Type: `"string"`. Optional.
 
@@ -883,37 +2516,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-d84ba00cfcbeba11adc1e5dd93371ed3f8999d18c19c55bec416c562a18195fd"></a>
+<a id="canonical-3120102322000030-3330233223220101-2231300132113131-2103031301323103-3320212121310120-3001213011112332-3010011230111202-2201200121113331"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6d089e73dadd / 5
+## Next pages — nexthop / 130331223131 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--azure_vnet_site--reference--group-010.md#canonical-870ed4afdb910b95621bd94c0fdb8cc14ec182342df4462690929e3f066d6bea)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--azure_vnet_site--reference--group-010.md#canonical-2013003231102233-3123210100232111-1202012331211030-0033312320303001-1032300120020310-0231331010120212-2100210221320333-0012123112233222)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-870ed4afdb910b95621bd94c0fdb8cc14ec182342df4462690929e3f066d6bea"></a>
+<a id="canonical-2013003231102233-3123210100232111-1202012331211030-0033312320303001-1032300120020310-0231331010120212-2100210221320333-0012123112233222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4ddaca520e1d8764e8153140ff00fe5a126c1312cda89b4383c7124732838160"></a>
+<a id="canonical-1031312230221102-0032013120131210-3220011103011000-3333000033321122-0102123001030102-3031222021231003-2003301301021013-0302200320011200"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 012230100021 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.interface
 
-<a id="canonical-4d26b2b768b7928744f518c3197686636bcc15b3072627ba3a64f8c5330ed770"></a>
+<a id="canonical-1031021223022313-1220231321022013-1010331101203003-0121131220121203-1223303001112303-0013021202132322-0322121033203011-0303003231131300"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -962,15 +2595,15 @@ interface {
 }
 ```
 
-<a id="canonical-14970eb0f18c6581386c69986a172dfb649a6c894d3f88cb1241d9010e9cae39"></a>
+<a id="canonical-0110211300322300-3301203012112001-0320123012212120-1222011302313323-1210212212302021-1031033320203023-0102100131210001-0032213022320321"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 3
+## Direct properties — interface / 012230100021 / 3
 
-<a id="canonical-aab9224698206516494608e24562418207bb4cded6f3106c557c1b2377076089"></a>
+<a id="canonical-2222232102021012-2120020012110112-1021101200203202-1011120210012002-0013232310303132-3112330301001230-1111133001230203-1313001312002021"></a>
 
-<a id="canonical-2e7183e1cd24b34899b7b3937e56b1a86b347c2138e84370db69efc74c2ce68e"></a>
+<a id="canonical-0232130120033201-3031021023031020-2121231323032103-1332111223012220-1223031013300201-0320322010031300-3123122132333013-1030023032122032"></a>
 
-## kind property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 4
+## kind property — interface / 012230100021 / 4
 
 Type: `"string"`. Computed.
 
@@ -1005,11 +2638,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-69e81f08a75f5f4ceb1eefae58a1afa65e14663c06ae02a65fa30616d34958fe"></a>
+<a id="canonical-1221322001330020-2213113311331030-3223013232332232-1120220122332212-1132011012120330-0012223200022212-1133220300120112-3103102111203332"></a>
 
-<a id="canonical-ed89a73cb6e00c00fb67d8b4b1f2996c5d0efb832d0171965c1e17dc2e18cd2e"></a>
+<a id="canonical-3231202122130330-2312320000300000-3323121331202310-2301330221211230-1131003233232003-0231000113012112-1130013201133130-0232012030310232"></a>
 
-## name property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 5
+## name property — interface / 012230100021 / 5
 
 Type: `"string"`. Optional.
 
@@ -1044,11 +2677,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-47d63ec73663f2edb5614269ff4675e182dd9793730d8b1b265c3322753ccd48"></a>
+<a id="canonical-1013311203323013-0312120333023231-2311120110021221-3333101213113201-2002313121132103-1303003120230123-0212113003030202-1311033030311020"></a>
 
-<a id="canonical-9b5b8e004d421b676fb5ac1b3f8fef1bd177bff444381225bbc736f4fa1d31f6"></a>
+<a id="canonical-2123112320320000-1031100201231213-1233231122300123-0333203332330123-3101131323333310-1010032001020211-2323301303123310-3322013103013312"></a>
 
-## namespace property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 6
+## namespace property — interface / 012230100021 / 6
 
 Type: `"string"`. Optional, Computed.
 
@@ -1108,11 +2741,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b5c56e52626031ae111d8d165dadb0386c59166a49afa959c7ad6146aaa4e2d"></a>
+<a id="canonical-0223113011123211-0212021200030122-3201010131203101-1211312231230003-2012301121011212-2210212233222111-2130132231120110-1222222210320231"></a>
 
-<a id="canonical-9a719719838aae6ecfbdf01caef00ed9e102f2b81fe5f34e73063c1ab6a0cbb7"></a>
+<a id="canonical-2122130121130121-2003202222321232-3033233133000130-2232330000323121-3201000233022320-0133321133031032-1303001203300122-2312220030232313"></a>
 
-## tenant property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 7
+## tenant property — interface / 012230100021 / 7
 
 Type: `"string"`. Computed.
 
@@ -1147,11 +2780,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7a4c799c50247b7eea7c885bf8a74e1fdb19a31c34e3ddb504524bb47650ff5f"></a>
+<a id="canonical-1322103013212130-1100021013231332-3222133020201123-3320221310320133-3123012122030130-0310320331312311-0010110210232310-1312110033331133"></a>
 
-<a id="canonical-0d8fa3ce5c93a97ee7a02632cdd2bfa981c209062bbea1ac844d56ca166219e5"></a>
+<a id="canonical-0031203322033032-1130210322211332-3213220002120302-3031310223332221-2001300200210012-0223233222012230-2010103111123022-0112120201213211"></a>
 
-## uid property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 8
+## uid property — interface / 012230100021 / 8
 
 Type: `"string"`. Computed.
 
@@ -1186,35 +2819,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-259a59f5cb9b4f62b52e55e2c4142e38453147a777a8ab0359135712ce91edff"></a>
+<a id="canonical-0211212211213311-3023212310331202-2311023211113202-3010011002320320-1011030110132213-1313222022230003-1121010311130102-3032210132313333"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c708521ac409 / 9
+## Next pages — interface / 012230100021 / 9
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054"></a>
+<a id="canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-51138cf44c949eaa4bf08bdcf72e9c23ee71ffcf79cdf723b64753600b6b4aae"></a>
+<a id="canonical-1101010320303310-1030211021322222-1023330020233130-3313023221300203-3232130133333033-1321303133130203-2312101311031200-0023122310222232"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6961a20611cf / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 001201013033 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
 
-<a id="canonical-9f798f4db9b90802220ff24595d06e3a0763b4c437fda441aaf08ff68e425238"></a>
+<a id="canonical-2133132120331031-2321232100200002-0202003333021011-2111310012320322-0013120323103010-0313333122101001-2222330020333312-2032100211020320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1253,49 +2886,49 @@ nexthop_address {
 }
 ```
 
-<a id="canonical-28686d251e917e45c076842fbdf38824b1f5c19f405685c235510fe139cba2d6"></a>
+<a id="canonical-0220122012310211-0132210113321011-3000131220100233-2331330320200210-2301331130012133-1000111220113002-0311110100333201-0321302322023112"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6961a20611cf / 3
+## Direct properties — nexthop_address / 001201013033 / 3
 
-- [dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846): complete subsection reference.
+- [dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012): complete subsection reference.
 
-- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-15d9a4b97e96a000f239b3a3c5b3fc07016809e026458b8e5bdc4eb3800c3806): complete subsection reference.
+- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-0111312122102321-1332211222000000-3302032123032203-3011230333300013-0001122000213200-0212101120232032-1123313010322303-2000003003200012): complete subsection reference.
 
-- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-657102146c349593437c7478571e1d997e1b838d067b9a66cc411b09e67ef6ba): complete subsection reference.
+- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-1211130100020110-1230031021112103-1003133013101320-1113013201312121-1332012320032031-0012132321221212-3030100101230021-3212133233122322): complete subsection reference.
 
-<a id="canonical-3c0479cfd9aac677fe7ee4690a7eddbac102b8009daa9312ea0ce39eb51fb53e"></a>
+<a id="canonical-0330001013213033-3121222230121313-3332133232101221-0022133231312322-3001000223200000-2131222221030102-3222003032032132-2311013323110332"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6961a20611cf / 4
+## Next pages — nexthop_address / 001201013033 / 4
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-15d9a4b97e96a000f239b3a3c5b3fc07016809e026458b8e5bdc4eb3800c3806)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-657102146c349593437c7478571e1d997e1b838d067b9a66cc411b09e67ef6ba)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-0111312122102321-1332211222000000-3302032123032203-3011230333300013-0001122000213200-0212101120232032-1123313010322303-2000003003200012)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-1211130100020110-1230031021112103-1003133013101320-1113013201312121-1332012320032031-0012132321221212-3030100101230021-3212133233122322)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846"></a>
+<a id="canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-4d7c3534c2876978ea9262efde7afafb46f3e14459ae5c5a5a72d68bc0e0b7f9"></a>
+<a id="canonical-1031133003110310-3002201312211320-3222210212023233-3132132233223323-1012330332011010-1121223211301122-1122130231122023-3000320023133321"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 1ffa6c3ff480 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 033333102000 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack
 
-<a id="canonical-09b202c126a22b74a2e9c336691654533482673b48249cf6cc460df5eea8ecc3"></a>
+<a id="canonical-0021230200023001-0212220202231310-2202322130030312-1221011211101103-0310200212130323-1020021021303312-3030101200313311-3232222032303003"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1322,47 +2955,47 @@ dual_stack {
 }
 ```
 
-<a id="canonical-32a697ccdc7eaa9a11b273790ef538b5d31c500c70e2cbec3b4469adcf87f241"></a>
+<a id="canonical-0302221221133030-3130133222222122-0101230213031321-0032331103202311-3103013011000030-1300320230233230-0323101012212231-3033201333021001"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 1ffa6c3ff480 / 3
+## Direct properties — dual_stack / 033333102000 / 3
 
-- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-6272557a673c4ea0e0e400d9e05ca12cdab9b810675f26afcabc5ec6b7e81d5c): complete subsection reference.
+- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-1202130211111322-1213033010322200-3200321000003121-3200113022010230-3122232123200100-1213113302122233-3022233011323012-2313322001311130): complete subsection reference.
 
-- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-8fcde7ccd26ccb33008b452f94dab713c7e5b70d939d16eb5e731bcdc117ddd5): complete subsection reference.
+- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-2033303132133030-3102123030230303-0000202310110233-2110312223130103-3013321123130031-2103213101123223-1132130301233031-3001011331313111): complete subsection reference.
 
-<a id="canonical-2b5c06cb8bd4ea6914f36c445f9cb1d4e2ccd2883542345462ea6a7a6b1f7d60"></a>
+<a id="canonical-0223113000123023-2023311032221221-0110330312301010-1133213023013110-3202303031022020-0311100203101110-1202322212221322-1223013313311200"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 1ffa6c3ff480 / 4
+## Next pages — dual_stack / 033333102000 / 4
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-6272557a673c4ea0e0e400d9e05ca12cdab9b810675f26afcabc5ec6b7e81d5c)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-8fcde7ccd26ccb33008b452f94dab713c7e5b70d939d16eb5e731bcdc117ddd5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-1202130211111322-1213033010322200-3200321000003121-3200113022010230-3122232123200100-1213113302122233-3022233011323012-2313322001311130)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-2033303132133030-3102123030230303-0000202310110233-2110312223130103-3013321123130031-2103213101123223-1132130301233031-3001011331313111)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-6272557a673c4ea0e0e400d9e05ca12cdab9b810675f26afcabc5ec6b7e81d5c"></a>
+<a id="canonical-1202130211111322-1213033010322200-3200321000003121-3200113022010230-3122232123200100-1213113302122233-3022233011323012-2313322001311130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ad6a7b4f58084e20fc54a0c4e435bfba2176afc2f31cfbf3bb1ba7fddaf15862"></a>
+<a id="canonical-2231122213231033-1120002010320200-3330111022003010-3210031123332322-0201131222333002-3303013033233303-2323012322133331-3122330111201202"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 87388237f639 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 031333120321 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4
 
-<a id="canonical-fae966df4204b22ae3e5f644afd9050b993091c5c026824f25f96b7fc99bfb6d"></a>
+<a id="canonical-3322322112123133-1002001023020222-3203321133121010-2233312100110023-2121030021013011-3000021220021033-0211332112231333-3021212333231231"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1393,15 +3026,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-29049ec2a74a2bdadcf695a86e349dea90442d8dde58f19dd4885bdc5a266286"></a>
+<a id="canonical-0221001021323002-2213102202233122-3130331221112220-1232031021313222-2100101002312031-3132112033012131-3110202011233130-1122021212022012"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 87388237f639 / 3
+## Direct properties — IPv4 / 031333120321 / 3
 
-<a id="canonical-9def7b4bcae1a7fd0779c6eb6e60caa7150debbb317b220159881182b006760d"></a>
+<a id="canonical-2131323313231023-3022320122133331-0013132130123223-1232120030222213-0111003132232323-0301132302020001-1121202001012002-2300001213120031"></a>
 
-<a id="canonical-a25a7533fa205d957ed66582acd55943e79ab22a1cab5336e6bd982b881eb9f2"></a>
+<a id="canonical-2202112213110303-3322020011312111-1332311212112002-2230311111211003-3213212223020222-0130222311030312-3212233121200223-2020013223213302"></a>
 
-## addr property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 87388237f639 / 4
+## addr property — IPv4 / 031333120321 / 4
 
 Type: `"string"`. Optional.
 
@@ -1447,37 +3080,37 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b74679004885636bdf3d973f4a937c6511b01a9bceb667f082d6de4868f074b1"></a>
+<a id="canonical-2313101213210000-1020201112031223-3133033121130333-1022210313301211-0101230001222123-3032231212133300-2002311231321020-1220330013102301"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 87388237f639 / 5
+## Next pages — IPv4 / 031333120321 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-8fcde7ccd26ccb33008b452f94dab713c7e5b70d939d16eb5e731bcdc117ddd5"></a>
+<a id="canonical-2033303132133030-3102123030230303-0000202310110233-2110312223130103-3013321123130031-2103213101123223-1132130301233031-3001011331313111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7bf62d0679a330f72bfb8a2f265dcd9cf2d011cfeefec67e355f08d91ae7e37b"></a>
+<a id="canonical-1323331202310012-1321220303003313-0223332320220233-0212113130312130-3302310001013033-3232333230121332-0311113300203121-0122321332031323"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b0d34eecef42 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 323032331002 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6
 
-<a id="canonical-554b2fa5bb589afbcac9de7d2638323b9629712a4bc7ad153ad2810f3056d93f"></a>
+<a id="canonical-1111102302332211-2323112021223323-3022302131321331-0212032003020323-2112022113010222-1023301322310111-0322310220010033-0300111231210333"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1508,15 +3141,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-bcc37834055808587d1bf36e83aeceda16dccd0363e0eabbbf5909c1de9ea17f"></a>
+<a id="canonical-2330300313200310-0011112000201120-1331012333031232-2003223230323122-0112313030310003-1203320032222323-2333112100213001-3132213222011333"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b0d34eecef42 / 3
+## Direct properties — IPv6 / 323032331002 / 3
 
-<a id="canonical-26eb222d9acbf8c0ef01b808ce084470b7219c7bd923d906f88223ac7a20e40e"></a>
+<a id="canonical-0212322302020231-2122302333203000-3233000123200020-3032002010101300-2313020121301323-3121020331210012-3320200202032230-1322020032100032"></a>
 
-<a id="canonical-5cf61d80c6674e6a643372b73dfccc5ef972ea07f1090a95b414e16d227faf20"></a>
+<a id="canonical-1130331201312000-3012121310321222-1210030313022313-0331333030301132-3321130232220013-3301002100222111-2310011032011231-0202133322330200"></a>
 
-## addr property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b0d34eecef42 / 4
+## addr property — IPv6 / 323032331002 / 4
 
 Type: `"string"`. Optional.
 
@@ -1570,36 +3203,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b3435b4a632a8387fe0ff9e2190fdff7e4e597597b7ca37485e9cdcc14b81b6"></a>
+<a id="canonical-0223031003112310-2212030222200320-1333320033332132-0201210033313333-1332103211211311-2113231330220313-1020113221303130-3001102320012312"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b0d34eecef42 / 5
+## Next pages — IPv6 / 323032331002 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-bf88caf1fea253093024a3d8c5f979b9ecd82e182b06b1410fe16e1a4787b846)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--azure_vnet_site--reference--group-010.md#canonical-2333202030223301-3332220211030021-0300021022033120-3011332113212321-3230312002320120-0223001223011001-0033320112320122-1013201323201012)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-15d9a4b97e96a000f239b3a3c5b3fc07016809e026458b8e5bdc4eb3800c3806"></a>
+<a id="canonical-0111312122102321-1332211222000000-3302032123032203-3011230333300013-0001122000213200-0212101120232032-1123313010322303-2000003003200012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-6adf667e20bd5ba6f7462dc3192e90a27b25241a4cdca8adcab43fdfc200ed66"></a>
+<a id="canonical-1222313312121332-0200233111232212-3313101202313003-0121023221002202-1323021102100122-1030313022202231-3022231003333133-3002000032311212"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 602e590b8858 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 002320201120 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
 
-<a id="canonical-9077c7914e0ce2368d32ade97b8d9147272d7b63aae5047eed5f6a7b3d3c5090"></a>
+<a id="canonical-2100131330132101-1032003032020312-2031030222313221-1323203121011013-0213023113231203-2222321100101332-3231113312221323-0331033011002100"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1630,15 +3263,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-0c950f27fbb2c627aa5f2aa5d83d16ebd56c20f970886da680f7f2b8f4e332ec"></a>
+<a id="canonical-0030211100330213-3323230230120213-2222113302222211-3120033101123223-3111123002003321-1300202012312212-2000331333022320-3310320303023230"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 602e590b8858 / 3
+## Direct properties — IPv4 / 002320201120 / 3
 
-<a id="canonical-16531960689a59d4ff15b77fd56e496fafeaa6e8eb10fec70d78a8e2cd1e729b"></a>
+<a id="canonical-0112110301211200-1220212211213110-3333011123131333-3111123210211233-2233322222123220-3223010033323013-0031132022203202-3031013213022123"></a>
 
-<a id="canonical-af57637f87d435fdbc92a4a92295918116958632feba074d0ba4dddec5473ad6"></a>
+<a id="canonical-2233111312031333-2013311003113331-2330210222102221-0202211121012001-0112211120120302-3332232200131031-0023221031313132-3011101303223112"></a>
 
-## addr property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 602e590b8858 / 4
+## addr property — IPv4 / 002320201120 / 4
 
 Type: `"string"`. Optional.
 
@@ -1684,36 +3317,36 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-73dfb32ac54cde117ed43446e944163e0c3c3d2817e75ce5b72ff06e685d4ba2"></a>
+<a id="canonical-1303313323030222-3011103031320101-1332311003101012-3221101001120332-0030033003310220-0113321311303211-2313023333001232-1220113110232202"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 602e590b8858 / 5
+## Next pages — IPv4 / 002320201120 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-657102146c349593437c7478571e1d997e1b838d067b9a66cc411b09e67ef6ba"></a>
+<a id="canonical-1211130100020110-1230031021112103-1003133013101320-1113013201312121-1332012320032031-0012132321221212-3030100101230021-3212133233122322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5a5e9d88d4118a19a12c956f463268dc239bf9242bce56002c8defc9ddb2fe58"></a>
+<a id="canonical-1122113221312020-3110010120220121-2201023021111233-1012030212203130-0203212333210210-0223303211120000-0230203132333021-3131230233321120"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b998f7e47143 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 321013011003 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-19f2297c48f84e991ae690cf1d00f8b389a48af4dd383e9fbcf80861f0e4881e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--azure_vnet_site--reference--group-010.md#canonical-0121330202211330-1020332010322121-0122321221003033-0131000033202303-2021221020223310-3131032003322133-2330332000201201-3300321020200132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
 
-<a id="canonical-75756782155bdf0bf1e152810dc63516bc23bc3798154298716642cd15dfebd2"></a>
+<a id="canonical-1311131112132002-0111112331330023-3301320111022001-0031301203110112-2330020323300313-2120011110022120-1301121210023031-0111313332233102"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1744,15 +3377,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-8a48ae0de3b9e3e7ca946204f4d8268b5474ae23bb47593f8b3026670ddb782e"></a>
+<a id="canonical-2022102022320031-3203232132033213-3022211012020010-3310312002122023-1110131022320203-2323101311210333-2023030002121213-0031312313200232"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b998f7e47143 / 3
+## Direct properties — IPv6 / 321013011003 / 3
 
-<a id="canonical-b1f90cef50fcab551d34a7c5ad78b6928af7e50b2a7fbd5bac90df73f6610674"></a>
+<a id="canonical-2301332100303233-1100333022231111-0131031022133011-2231132023122102-2022331332110023-0222133323311123-2230210031331303-3312120100121310"></a>
 
-<a id="canonical-fdc952f2ef2a2adaef0eac786284ca2f6fa6c9ba95c884bdd5c670172f6a2d0a"></a>
+<a id="canonical-3331302111023302-3233022202223122-3233003222301320-1202201030220233-1233221230212322-2111302020102331-3111301213000113-0233122202310022"></a>
 
-## addr property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b998f7e47143 / 4
+## addr property — IPv6 / 321013011003 / 4
 
 Type: `"string"`. Optional.
 
@@ -1806,34 +3439,34 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-f590141779f321e4612af5b8d1b5feeada8b550cd69155e27f8f2bce12a991d5"></a>
+<a id="canonical-3311210001100113-1321330302013210-1201022233112320-3101231133323222-3122202311110030-3112210111113202-1333203302233032-0102222121013111"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / b998f7e47143 / 5
+## Next pages — IPv6 / 321013011003 / 5
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-bede02a6f568a837ddd1f02d7859f3de9c0c5439a55f941edbaaa6f045cf8054)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--azure_vnet_site--reference--group-010.md#canonical-2332313200022212-3311122022200313-3131310133000231-1320112133033132-2130003011100321-2211113321100132-3123222222123300-1011303320001110)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697"></a>
+<a id="canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-dbe5cc2d3dd85980cdc44feaeff92072961b50969cb73c4822ebe274dbfff407"></a>
+<a id="canonical-3123321130300231-0331312011212000-3031301010333222-3233332102001302-2112012311002112-2130231303301020-0202322332021310-3123333333100013"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6aa88d66bcf4 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets — subnets / 121223303310 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
 - voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets
 
-<a id="canonical-e5df575b573d085a90f8a8e51003e5543088fd2560f205dfda22a4376420983e"></a>
+<a id="canonical-3211313311131123-1113033100201122-2100332022203211-0100000332111110-0300202033310211-1200330200113133-3122020222100313-1210020021200332"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -1891,45 +3524,45 @@ subnets {
 }
 ```
 
-<a id="canonical-3e21c173546c88021160310bc1d62fed54f29004c44a8b1e2dbb5c3354d3e4b2"></a>
+<a id="canonical-0332020130011303-1110123020200002-0101120003010023-3001311202333231-1110330221000010-3010102220230132-0231232311300303-1110310332102302"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6aa88d66bcf4 / 3
+## Direct properties — subnets / 121223303310 / 3
 
-- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-e2882af9be7ecdfe0c624af2e45694da795591db10fca6a8b3d61f038fe83d74): complete subsection reference.
+- [ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-3202202002223321-2332133230313332-0030120210223302-3210111221103122-1321111121013123-0100333022122220-2303311201330003-2033322003311310): complete subsection reference.
 
-- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-44338f3afdf6a0d4f7fcbd1beb9ef1b836b228982341175ea1370210b04eff23): complete subsection reference.
+- [ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-1010030320330322-3331331222003110-3313333023310123-3223213233012320-0312230202202120-0203100101131132-2201031300020100-2300103233330203): complete subsection reference.
 
-<a id="canonical-d947d51073f16c6e5b83bc464d0d2476042e233ef0c8add52887419220224f8f"></a>
+<a id="canonical-3121101331110100-1303330112301232-1123200323301012-1031003102101312-0010023202030332-3300302022313111-0220201310012102-0200020210332033"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 6aa88d66bcf4 / 4
+## Next pages — subnets / 121223303310 / 4
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-e2882af9be7ecdfe0c624af2e45694da795591db10fca6a8b3d61f038fe83d74)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-44338f3afdf6a0d4f7fcbd1beb9ef1b836b228982341175ea1370210b04eff23)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--azure_vnet_site--reference--group-010.md#canonical-3202202002223321-2332133230313332-0030120210223302-3210111221103122-1321111121013123-0100333022122220-2303311201330003-2033322003311310)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--azure_vnet_site--reference--group-010.md#canonical-1010030320330322-3331331222003110-3313333023310123-3223213233012320-0312230202202120-0203100101131132-2201031300020100-2300103233330203)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-e2882af9be7ecdfe0c624af2e45694da795591db10fca6a8b3d61f038fe83d74"></a>
+<a id="canonical-3202202002223321-2332133230313332-0030120210223302-3210111221103122-1321111121013123-0100333022122220-2303311201330003-2033322003311310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fbe806f52ccfc0f53ae867836792ccad0eeea9b1457c9f55a2384d9ff2338dc8"></a>
+<a id="canonical-3323322000123311-0230303330003311-0322322012132003-1213210230302231-0032323222212301-1011133021331111-2202032010312133-3302030320313020"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c77c07c1dca6 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 300131302212 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv4
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.IPv4
 
-<a id="canonical-b6b81ea2c5f56a6634f1fe6113a18d6792f22b3c19782b94404660a5af90fcc0"></a>
+<a id="canonical-2312232001322202-3011331112221212-0310330133321201-0103220120311213-2102330202230330-0121132002232110-1000101212002211-2233210033303000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1956,15 +3589,15 @@ ipv4 {
 }
 ```
 
-<a id="canonical-3430ae9b3c21ed5523307aa29818ffef8fdef72a82cb048d03bd58a582495804"></a>
+<a id="canonical-0310030022322123-0330020132311111-0203030013222202-2120012033333233-2033313233130222-2002302300102031-0003233111202211-2002102111200010"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c77c07c1dca6 / 3
+## Direct properties — IPv4 / 300131302212 / 3
 
-<a id="canonical-1ec5924c42631d9e748918fc6e18e58eb0fddbcf11c4440a0502b5cf6d82dce6"></a>
+<a id="canonical-0132301121021030-1002120301312132-1310202101203330-1232012032112032-2300333131233033-0101301010100022-0011000223113033-1231200231303212"></a>
 
-<a id="canonical-390145c0026a7d3128d61199bc1a19e7b1db1bea84f908ac9e95afd42b29e5dd"></a>
+<a id="canonical-0321000110113000-0002122213310301-0220311201012121-2330012201213213-2301312301233222-2010332100202230-2132211122333110-0223022132113131"></a>
 
-## plen property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c77c07c1dca6 / 4
+## plen property — IPv4 / 300131302212 / 4
 
 Type: `"number"`. Optional.
 
@@ -2008,11 +3641,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-bdb258dd645c93debd837a62d2cbe7748766bac270511d6e52c2b808475f85ba"></a>
+<a id="canonical-2331230211203131-1210113021033132-2331200313221202-3102302332131310-2013121223223002-1300110101311232-1102300223200020-1013113320112322"></a>
 
-<a id="canonical-cea36317662b079cadcad3f85d3fab163932a1a90572ec41665b6189ec872712"></a>
+<a id="canonical-3032220312030113-1212022300132130-2231302231033320-1131033322230112-0321030222012221-0011130232301001-1212112312012021-3230201302130102"></a>
 
-## prefix property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c77c07c1dca6 / 5
+## prefix property — IPv4 / 300131302212 / 5
 
 Type: `"string"`. Optional.
 
@@ -2058,35 +3691,35 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-93cde0931c6595f7c3fa3d3ea2a10597fb932dce726a91b265a54baef1d1213a"></a>
+<a id="canonical-2103303132002103-0130121121113313-3003332203310332-2202220100112113-3323210302313032-1302122221012302-1211221110232232-3301310102010322"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / c77c07c1dca6 / 6
+## Next pages — IPv4 / 300131302212 / 6
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-44338f3afdf6a0d4f7fcbd1beb9ef1b836b228982341175ea1370210b04eff23"></a>
+<a id="canonical-1010030320330322-3331331222003110-3313333023310123-3223213233012320-0312230202202120-0203100101131132-2201031300020100-2300103233330203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ddd3a22fa92bce346535b7a10c0037594cea74d9e9d2a353ebb10c99213a2317"></a>
+<a id="canonical-3131310322020233-2221022330320310-1211031123132201-0030000003131121-1030322213103121-3221310222031103-3223230100302121-0201032202030113"></a>
 
-## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6 — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 3c4f0586c527 / 2
+## voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 201230110213 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-54afc8939b459e6c0b165e942cf8556519aa686845ea392710b921fd5ef5fae5)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-66f9656f292e5273eeab63243dc2fec34d06a87a00ffb8661f5f03c0e3b7df9e)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-daf8a44d705b696e79071d6a873e7c943955b8d423d392471200b07c4875e590)
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697)
-- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.ipv6
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.outside_static_routes](resources--azure_vnet_site--reference--group-010.md#canonical-1110223330202103-2123101121321230-0023011211322110-0230332011111211-0121222212201220-1011322203210213-0100232102013331-1132331133223211)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list](resources--azure_vnet_site--reference--group-010.md#canonical-1212332112111233-0221023211021303-3232222312030210-0331300233323003-1031001222201322-0000333323201212-0133113300033000-3203231331332132)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route](resources--azure_vnet_site--reference--group-010.md#canonical-3122332022101031-1300112312211232-1321001301311222-2013033213302110-0321111123203110-0203310321021013-0102000023001330-1020131132112100)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113)
+- voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets.IPv6
 
-<a id="canonical-b82b5a4338c7272387c26a3cf814bd96cf55c88d20932479cd4f534327664a18"></a>
+<a id="canonical-2320022311221003-0320301302130203-2013300212220330-3320011023312112-3033111130202031-0200210302101321-3031103311031003-0213121210220120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2113,15 +3746,15 @@ ipv6 {
 }
 ```
 
-<a id="canonical-ab3daeebeb03e7018ef7ba7f02969e212c5f4dfae0bc662480b47341871a94a4"></a>
+<a id="canonical-2223033122323223-3223000332130001-2032331323221333-0002211221320201-0230113310313322-3200233012120210-2000231013031001-2013012221102210"></a>
 
-## Direct properties — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 3c4f0586c527 / 3
+## Direct properties — IPv6 / 201230110213 / 3
 
-<a id="canonical-d8ff1928e7419749034a038bf59ae65e886a280524049aae0d2a64938c604a6f"></a>
+<a id="canonical-3120333301210220-3213100121131021-0003102200032023-3311212232121132-2020122202200011-0210001021222232-0031022212102103-2030120010221233"></a>
 
-<a id="canonical-9593c8e2593ce5ec01801d3b505a54d5d5608c5a1ea8a47409c9fca7339371cd"></a>
+<a id="canonical-2111210330203202-1121033032113230-0001200001310323-1100112211103111-3111120020301122-0132222022101310-0021302133302213-0303210313013031"></a>
 
-## plen property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 3c4f0586c527 / 4
+## plen property — IPv6 / 201230110213 / 4
 
 Type: `"number"`. Optional.
 
@@ -2165,11 +3798,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-dfcbd61d67e6300b5d9c537e7a62200f436f0d6d645a555f58a62b7f2d495aa1"></a>
+<a id="canonical-3133302331120131-1213321203000023-1131213011031332-1322120202000033-1003123300311231-1210112211111133-1120221202231333-0231102111222201"></a>
 
-<a id="canonical-f024a59cd8148d9b4c0af1fbb5783f9b31c24c38f470cd0e8aa309434a401eeb"></a>
+<a id="canonical-3300021022112130-3120011020312123-1030002233013323-2311132003332123-0301300210300320-3310130030310032-2022220300211003-1022100001323223"></a>
 
-## prefix property — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 3c4f0586c527 / 5
+## prefix property — IPv6 / 201230110213 / 5
 
 Type: `"string"`. Optional.
 
@@ -2223,31 +3856,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-6375a6b44c6a4396e7902dcac34d1fb755034199bceff8d4e82077ff1e663738"></a>
+<a id="canonical-1203131122122310-1030122210032112-3213210002313022-3003103101332313-1111000310012121-2330323333203110-3220020013133333-0132121203130320"></a>
 
-## Next pages — voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route / 3c4f0586c527 / 6
+## Next pages — IPv6 / 201230110213 / 6
 
-- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-843d0f085759619b1e8725ef41476a4a7bc50283fca119b6737e5c162eeab697)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.outside_static_routes.static_route_list.custom_static_route.subnets](resources--azure_vnet_site--reference--group-010.md#canonical-2010033100330020-1113112112012123-0132201302113233-1001101312221022-1323301100022003-3330220101212312-1303133211300112-0232322223122113)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-21e611a5dd41974704b93d19fc05194f6d2a79ef96057b3871f374955c652813"></a>
+<a id="canonical-0201321201012211-3131100121131013-0010232103310121-3330001101211033-1231022213213233-2112001113230320-1301330313102111-1130121102200103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-b58ca487115eeb4da8fe89589164fc64e4e13174e3b702c22f126cb4999340ff"></a>
+<a id="canonical-2311203022102013-0101113232231031-2220333220211120-2101121033301210-3210320103011310-3203231300023002-0233010212302310-2121210310003333"></a>
 
-## voltstack_cluster_ar.sm_connection_public_ip — voltstack_cluster_ar.sm_connection_public_ip / fdee452f67cd / 2
+## voltstack_cluster_ar.sm_connection_public_ip — sm_connection_public_ip / 023312133031 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
 - voltstack_cluster_ar.sm_connection_public_ip
 
-<a id="canonical-6dd1ced6e81e0d63235edf91af074aa977bec9238a935bff52a522fcd0229c7b"></a>
+<a id="canonical-1231310130323112-3220013200311203-0203113231332101-2233001310222221-1313233230210203-2022210311233333-1102221102023330-3100020221301323"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2276,37 +3909,37 @@ Terraform syntax:
 sm_connection_public_ip = {}
 ```
 
-<a id="canonical-53f9ba83abde576d43cc6389d88562677136e3afb9b2d7fa8c3f038d3e237e28"></a>
+<a id="canonical-1103332123222003-2223313211131231-1003303012032021-3120201112021213-1301031232032233-2321230231133322-2030033300032031-0332020313320220"></a>
 
-## Direct properties — voltstack_cluster_ar.sm_connection_public_ip / fdee452f67cd / 3
+## Direct properties — sm_connection_public_ip / 023312133031 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-5e6867a1d6c296e7cb15ea24dcaeafcf49a089cf69a6619d850a09dd6beedb5e"></a>
+<a id="canonical-1132122012132201-3112300221123213-3023011132220210-3130223222333033-1021220020213033-1221221212012131-2011002200213131-1223323231231132"></a>
 
-## Next pages — voltstack_cluster_ar.sm_connection_public_ip / fdee452f67cd / 4
+## Next pages — sm_connection_public_ip / 023312133031 / 4
 
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-4040feef611420346b88754f0042d4c28a7a7349ecea3da7822f3c67e787f512"></a>
+<a id="canonical-1000100033323233-1201011002000310-1223202013111033-0000100231103002-2022132213031021-3230322203312213-2002023303301213-3213201333110102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-ec1412b207ae512242ebc8e4aad106b0237e9d934579b96f613bbba0e10c2913"></a>
+<a id="canonical-3230011001022302-0013223211010202-1002322330203210-2222310100122300-0203133221312103-1011132123211233-1201032323232200-3201003002210103"></a>
 
-## voltstack_cluster_ar.sm_connection_pvt_ip — voltstack_cluster_ar.sm_connection_pvt_ip / 8ed91e3ef8a6 / 2
+## voltstack_cluster_ar.sm_connection_pvt_ip — sm_connection_pvt_ip / 033233202212 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
 - voltstack_cluster_ar.sm_connection_pvt_ip
 
-<a id="canonical-7f0e26df1f8d8a2b79ea66c1917dc65ec75d19b04991e41b9d3ca9875b913d43"></a>
+<a id="canonical-1333003202123133-0133203120220223-1321322212123001-2101133130121132-3013113101212300-1021210132100123-2131033022212013-1123210103311003"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2335,37 +3968,37 @@ Terraform syntax:
 sm_connection_pvt_ip = {}
 ```
 
-<a id="canonical-0f3093f275447006f1f74a1f55485fdce035147d93f0f56a495449f858643466"></a>
+<a id="canonical-0033030021033302-1311101013000012-3301331310220133-1111102011333130-3200031101101331-2103330033111222-1021111010213320-1120121003101212"></a>
 
-## Direct properties — voltstack_cluster_ar.sm_connection_pvt_ip / 8ed91e3ef8a6 / 3
+## Direct properties — sm_connection_pvt_ip / 033233202212 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-cceb94a9786702807b0034f5307e4d01bb3b7bd928dd3728c8a2a108adbdcb93"></a>
+<a id="canonical-3030322321102221-1320121300022000-1323000003103311-0300133210310001-2323032313233121-0220313103130220-3020220222010020-2231233130232103"></a>
 
-## Next pages — voltstack_cluster_ar.sm_connection_pvt_ip / 8ed91e3ef8a6 / 4
+## Next pages — sm_connection_pvt_ip / 033233202212 / 4
 
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-ffa39091461c785dd6e267139ed919d5c5313c0a21b41f9fab97d36976d6e5d1"></a>
+<a id="canonical-3333220321002101-1012013013201131-3112320212130103-2132312101213111-3011030103300022-0201231001332133-2223211331031221-1312311232113101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-5321004cd7ee7c8d655ac2cb58d22f75e68236f3e8cb474ed34a9a28bac787fb"></a>
+<a id="canonical-1103020100001030-3113323213302031-1211112230023023-1120310202331311-3212200203123303-3220302310131032-3103102221220220-2322301320133323"></a>
 
-## voltstack_cluster_ar.storage_class_list — voltstack_cluster_ar.storage_class_list / 7616498c3643 / 2
+## voltstack_cluster_ar.storage_class_list — storage_class_list / 203003121003 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
 - voltstack_cluster_ar.storage_class_list
 
-<a id="canonical-575cd879cc87b95aa326f1bc4a84363191913c5769377df1306c853eae207639"></a>
+<a id="canonical-1113113031201321-3030201323211122-2203021233012330-1022201003120301-2101210103301113-1221031313313301-0300123020110332-2232020013120321"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2392,39 +4025,39 @@ storage_class_list {
 }
 ```
 
-<a id="canonical-988444433762addd2b4be3b41fcb90de77fed85da1515dc0343d9e7d3f1338a9"></a>
+<a id="canonical-2120201010101003-0313120222313131-0223102332032310-0133302321003132-1313333231201131-2201110111313000-0310033121321331-0333010303202221"></a>
 
-## Direct properties — voltstack_cluster_ar.storage_class_list / 7616498c3643 / 3
+## Direct properties — storage_class_list / 203003121003 / 3
 
-- [storage_classes](resources--azure_vnet_site--reference--group-010.md#canonical-a2d23cbfaed909eddedb4d1c0baf90ba3ecedd8511226795fb9a11a1074940d7): complete subsection reference.
+- [storage_classes](resources--azure_vnet_site--reference--group-010.md#canonical-2202310203302333-2232312100213231-3132312310310130-0023223321002322-0332303231312011-0101020212132111-3323212201012201-0013102110003113): complete subsection reference.
 
-<a id="canonical-01aa052ffa77656e6fbfe8985759c1b99324d2277a455d0d9e066ce790ee529e"></a>
+<a id="canonical-0001222200110233-3322131312111232-1233233332202120-1113112130012321-2103021031020213-1322101111310031-2132001212303213-2100323211022132"></a>
 
-## Next pages — voltstack_cluster_ar.storage_class_list / 7616498c3643 / 4
+## Next pages — storage_class_list / 203003121003 / 4
 
-- [voltstack_cluster_ar.storage_class_list.storage_classes](resources--azure_vnet_site--reference--group-010.md#canonical-a2d23cbfaed909eddedb4d1c0baf90ba3ecedd8511226795fb9a11a1074940d7)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.storage_class_list.storage_classes](resources--azure_vnet_site--reference--group-010.md#canonical-2202310203302333-2232312100213231-3132312310310130-0023223321002322-0332303231312011-0101020212132111-3323212201012201-0013102110003113)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-a2d23cbfaed909eddedb4d1c0baf90ba3ecedd8511226795fb9a11a1074940d7"></a>
+<a id="canonical-2202310203302333-2232312100213231-3132312310310130-0023223321002322-0332303231312011-0101020212132111-3323212201012201-0013102110003113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-8dcb8483df1cc731e75f8bd77e7efb2decb917df1fbbebba9fb7775cbf5a5002"></a>
+<a id="canonical-2031302320102003-3133013030130301-3213113320233113-1332133233230231-3230232101133133-0133232332232322-2133231313131130-2333112211000002"></a>
 
-## voltstack_cluster_ar.storage_class_list.storage_classes — voltstack_cluster_ar.storage_class_list.storage_classes / f01559f272ef / 2
+## voltstack_cluster_ar.storage_class_list.storage_classes — storage_classes / 330213023233 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-6f580cdc3a5e6e671545173fe56a2ea390872b3a8bffd392b4590dabc956995f)
-- [voltstack_cluster_ar.storage_class_list](resources--azure_vnet_site--reference--group-010.md#canonical-ffa39091461c785dd6e267139ed919d5c5313c0a21b41f9fab97d36976d6e5d1)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [voltstack_cluster_ar](resources--azure_vnet_site--reference--group-009.md#canonical-1233112000303130-0322113212321213-0111101101130333-3211122202322203-2100201302230322-2023333331032102-2310112100312223-3021111221211133)
+- [voltstack_cluster_ar.storage_class_list](resources--azure_vnet_site--reference--group-010.md#canonical-3333220321002101-1012013013201131-3112320212130103-2132312101213111-3011030103300022-0201231001332133-2223211331031221-1312311232113101)
 - voltstack_cluster_ar.storage_class_list.storage_classes
 
-<a id="canonical-98d0ae5ab126e19e371b33676711b7ba3cd559707949e9c7632b534f4b5a5c57"></a>
+<a id="canonical-2120310022321122-2301021232012132-0313012303031213-1213010123132322-0330311111211300-1321102132213013-1203022311031033-1023112211301113"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -2482,15 +4115,15 @@ storage_classes {
 }
 ```
 
-<a id="canonical-eafbebb3bf3e8b4aa5d03afa0a6ea0c3967a95de258fda634025297fd1500636"></a>
+<a id="canonical-3222332332232303-2333033220231022-2211310003223322-0022123222003003-2112132221113132-0211203331221203-1000021102211333-3101110000120312"></a>
 
-## Direct properties — voltstack_cluster_ar.storage_class_list.storage_classes / f01559f272ef / 3
+## Direct properties — storage_classes / 330213023233 / 3
 
-<a id="canonical-e551d197a52e452be8092f457e47d27343c69ae87d7d9beac032318c0eff62f8"></a>
+<a id="canonical-3211110131012113-2211023210110223-3220002102331011-1332101331021303-1003301221223220-1331133121233222-3000030203012030-0032333312023320"></a>
 
-<a id="canonical-ee252d1ac703828f2d4417232467496c85d4ab5aa42a161125d791071ec73199"></a>
+<a id="canonical-3232021102310122-3013000320022033-0231101001130203-0210121310211230-2011311022231122-2210022201120101-0211311321010013-0132301303012121"></a>
 
-## default_storage_class property — voltstack_cluster_ar.storage_class_list.storage_classes / f01559f272ef / 4
+## default_storage_class property — storage_classes / 330213023233 / 4
 
 Type: `"bool"`. Optional.
 
@@ -2509,11 +4142,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-b73d5777c62095ee3ad9725682d7bbaaf01858c90ae54253d7ba217b1fd44670"></a>
+<a id="canonical-2313033111131313-3012020021113232-0322312113021112-2002311323232222-3300012011203021-0022321110021103-3113232202011323-0133311010121300"></a>
 
-<a id="canonical-6a9b407fae4d664f797db9be283fc651268d95df3a007cc04ab65c3a69fc74bc"></a>
+<a id="canonical-1222212310001333-2232103112121033-1321133123212332-0220033330121101-0212203121113133-0322000013303000-1022231211300322-1221333013102330"></a>
 
-## storage_class_name property — voltstack_cluster_ar.storage_class_list.storage_classes / f01559f272ef / 5
+## storage_class_name property — storage_classes / 330213023233 / 5
 
 Type: `"string"`. Optional.
 
@@ -2561,30 +4194,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-84b10474de157a6ef47820a2c3019d0ad74a2463656281f1616b6a67536ae0e3"></a>
+<a id="canonical-2010230100101310-3132011113221232-3310132002002202-3003000121310022-3113102202101203-1211120220013301-1201122312221213-1103122232003203"></a>
 
-## Next pages — voltstack_cluster_ar.storage_class_list.storage_classes / f01559f272ef / 6
+## Next pages — storage_classes / 330213023233 / 6
 
-- [voltstack_cluster_ar.storage_class_list](resources--azure_vnet_site--reference--group-010.md#canonical-ffa39091461c785dd6e267139ed919d5c5313c0a21b41f9fab97d36976d6e5d1)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [voltstack_cluster_ar.storage_class_list](resources--azure_vnet_site--reference--group-010.md#canonical-3333220321002101-1012013013201131-3112320212130103-2132312101213111-3011030103300022-0201231001332133-2223211331031221-1312311232113101)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-804652d0f312cb6f1ffe64d05165eea1d9bb3254ff3dad87b3c1cdd5febb0bdb"></a>
+<a id="canonical-2000101211023100-3303010230231233-0133333212103100-1101121132322201-3121232303021110-3333033122312013-2303300130313111-3332232300233123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-47b12e78269c6a552b9e5a3003b6b80390905ca24e285d63f6d61525369d35a3"></a>
+<a id="canonical-1013230102321320-0212213012221111-0223213211220300-0003231223200003-2100210011302202-1032022011311203-3312311201110211-0312213103112203"></a>
 
-## waf_signatures — waf_signatures / 9fd03d3572dc / 2
+## waf_signatures — waf_signatures / 031113023130 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - waf_signatures
 
-<a id="canonical-3c7dc0804428602d425da6ea51e7581db67bdbcba25c29e6107ef53235192178"></a>
+<a id="canonical-0330133130002000-1010022012000231-1002113122123222-1101321311200131-2312132331233023-2202113002213212-0100133233110302-0311012102011320"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -2625,41 +4258,41 @@ waf_signatures {
 }
 ```
 
-<a id="canonical-f08f6ed7672713b2aa0f6c380c2c90da32c0a6b6d2234d456268a7e3cdfd37dd"></a>
+<a id="canonical-3300203312323113-1213021301032302-2222003312300320-0030023021003122-0302300022122312-3102020310311011-1202122022133203-3031333103133131"></a>
 
-## Direct properties — waf_signatures / 9fd03d3572dc / 3
+## Direct properties — waf_signatures / 031113023130 / 3
 
-- [automatic](resources--azure_vnet_site--reference--group-010.md#canonical-0bb5716f6ef80a3a9e98978f737de6b7d470a5dd9f0e3136fddb3a6d15b860a3): complete subsection reference.
+- [automatic](resources--azure_vnet_site--reference--group-010.md#canonical-0023231113011233-1232332000220322-2132212021132033-1303133132122313-3110130022113131-2133003203010312-3331312303221231-0111232012002203): complete subsection reference.
 
-- [manual](resources--azure_vnet_site--reference--group-010.md#canonical-9ab0b1fa9d04a381e76fd800fa8ac4a878fddfef57bea30156112a16d30f7b98): complete subsection reference.
+- [manual](resources--azure_vnet_site--reference--group-010.md#canonical-2122230023013322-2131001022032001-3213123331200000-3322202230102220-1320333131333233-1113233222030001-1112010102220112-3103003313232120): complete subsection reference.
 
-<a id="canonical-1277778f41f21f5f7c7ec7f33a022c0493f73503d015303ec39ae24e32a5298a"></a>
+<a id="canonical-0102131313132033-1001330201331133-1330133230133303-0322000202300010-2103331303110003-3100011103000332-3003212232021032-0302221102212022"></a>
 
-## Next pages — waf_signatures / 9fd03d3572dc / 4
+## Next pages — waf_signatures / 031113023130 / 4
 
-- [waf_signatures.automatic](resources--azure_vnet_site--reference--group-010.md#canonical-0bb5716f6ef80a3a9e98978f737de6b7d470a5dd9f0e3136fddb3a6d15b860a3)
-- [waf_signatures.manual](resources--azure_vnet_site--reference--group-010.md#canonical-9ab0b1fa9d04a381e76fd800fa8ac4a878fddfef57bea30156112a16d30f7b98)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [waf_signatures.automatic](resources--azure_vnet_site--reference--group-010.md#canonical-0023231113011233-1232332000220322-2132212021132033-1303133132122313-3110130022113131-2133003203010312-3331312303221231-0111232012002203)
+- [waf_signatures.manual](resources--azure_vnet_site--reference--group-010.md#canonical-2122230023013322-2131001022032001-3213123331200000-3322202230102220-1320333131333233-1113233222030001-1112010102220112-3103003313232120)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-0bb5716f6ef80a3a9e98978f737de6b7d470a5dd9f0e3136fddb3a6d15b860a3"></a>
+<a id="canonical-0023231113011233-1232332000220322-2132212021132033-1303133132122313-3110130022113131-2133003203010312-3331312303221231-0111232012002203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2c5f97f9e41d117b25a7e5c2b138dca7c95a2b3d1268483be4b960c9bbe3ef8f"></a>
+<a id="canonical-0230113321133321-3210013101011323-0211221332113002-2301032031302213-3021112202230331-0102122010200323-3210232112003021-2323320332332033"></a>
 
-## waf_signatures.automatic — waf_signatures.automatic / c707b40b5d01 / 2
+## waf_signatures.automatic — automatic / 002311310001 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-804652d0f312cb6f1ffe64d05165eea1d9bb3254ff3dad87b3c1cdd5febb0bdb)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-2000101211023100-3303010230231233-0133333212103100-1101121132322201-3121232303021110-3333033122312013-2303300130313111-3332232300233123)
 - waf_signatures.automatic
 
-<a id="canonical-66b84f9e4b150adf73f1e667091c7291d3b3c81df5594139f03732e2d83ab9a4"></a>
+<a id="canonical-1212232010332132-1023011100223133-1303330132121213-0021013013022101-3103230330200131-3311112110010321-3300031303023202-3120032223212210"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2688,37 +4321,37 @@ Terraform syntax:
 automatic = {}
 ```
 
-<a id="canonical-44fb9227326b5c87a982b8664f7d4a8d0346773cf6c960444db34d927171b1a7"></a>
+<a id="canonical-1010332321020213-0302122311302013-2221200223201212-1033133110222031-0003101213130330-3312302112001010-1031230310312102-1301130123012213"></a>
 
-## Direct properties — waf_signatures.automatic / c707b40b5d01 / 3
+## Direct properties — automatic / 002311310001 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b2e78a5dbd3abc9b7454a009d31c65246428c76b24cc119244f6cf1e5c0a07d0"></a>
+<a id="canonical-2302321320221131-2331032223302123-1310111022000021-3103013012110210-1210022030131223-0210303001012102-1010331230330132-1130002200133100"></a>
 
-## Next pages — waf_signatures.automatic / c707b40b5d01 / 4
+## Next pages — automatic / 002311310001 / 4
 
-- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-804652d0f312cb6f1ffe64d05165eea1d9bb3254ff3dad87b3c1cdd5febb0bdb)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-2000101211023100-3303010230231233-0133333212103100-1101121132322201-3121232303021110-3333033122312013-2303300130313111-3332232300233123)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
 
-<a id="canonical-9ab0b1fa9d04a381e76fd800fa8ac4a878fddfef57bea30156112a16d30f7b98"></a>
+<a id="canonical-2122230023013322-2131001022032001-3213123331200000-3322202230102220-1320333131333233-1113233222030001-1112010102220112-3103003313232120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-e3db2f4b43ed4f1a37139abc6f8e2df1d867ededf6db8f762da0c8609811d46d"></a>
+<a id="canonical-3203312302331023-1003323110330122-0313010321222330-1233203202313301-3120121332313231-3312312320331312-0231220030201200-2120010131101231"></a>
 
-## waf_signatures.manual — waf_signatures.manual / 2d36ca3589d4 / 2
+## waf_signatures.manual — manual / 031120213110 / 2
 
 Breadcrumbs:
 
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
-- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
-- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-804652d0f312cb6f1ffe64d05165eea1d9bb3254ff3dad87b3c1cdd5febb0bdb)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)
+- [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
+- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-2000101211023100-3303010230231233-0133333212103100-1101121132322201-3121232303021110-3333033122312013-2303300130313111-3332232300233123)
 - waf_signatures.manual
 
-<a id="canonical-241e43bb21a584352c7d9b6b2ffad38b2bc239b97e5ecd564a737acd483c5275"></a>
+<a id="canonical-0210013210032323-0201221120100311-0230133121231223-0233332231032023-0223300203212321-1332113230311112-1022130313223031-1020033011021311"></a>
 
 Type: `["object", {}]`. Optional.
 
@@ -2747,15 +4380,15 @@ Terraform syntax:
 manual = {}
 ```
 
-<a id="canonical-cef8eb1005ee0e4880fbcfd7dc1d0680703aa7bc3b797a854920e783ebc4b402"></a>
+<a id="canonical-3032332032230100-0011323200321020-2000332330333113-3130013100122000-1300032222132330-0323132113222011-1021020032132003-3223301023100002"></a>
 
-## Direct properties — waf_signatures.manual / 2d36ca3589d4 / 3
+## Direct properties — manual / 031120213110 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
-<a id="canonical-b3da84bdbd4324f29ba389e9046d0bf502ca74ecf769b72a885e723e26c5c6f4"></a>
+<a id="canonical-2303312220102331-2331100302103302-2123220320213221-0010123100233311-0002302213103230-3313122123130222-2020113213020332-0212301130123310"></a>
 
-## Next pages — waf_signatures.manual / 2d36ca3589d4 / 4
+## Next pages — manual / 031120213110 / 4
 
-- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-804652d0f312cb6f1ffe64d05165eea1d9bb3254ff3dad87b3c1cdd5febb0bdb)
-- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7)
+- [waf_signatures](resources--azure_vnet_site--reference--group-010.md#canonical-2000101211023100-3303010230231233-0133333212103100-1101121132322201-3121232303021110-3333033122312013-2303300130313111-3332232300233123)
+- [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)

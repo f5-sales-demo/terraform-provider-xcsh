@@ -328,7 +328,7 @@ class CollectionTests(unittest.TestCase):
             for shard in projection["section_manifests"]
             for section in json.loads((ROOT / shard["path"]).read_text())["sections"]
         ]
-        section_by_page = {}
+        section_by_page: dict[str, list[dict]] = {}
         for section in sections:
             section_by_page.setdefault(section["canonical_id"], []).append(section)
             page = pages[section["canonical_id"]]
@@ -349,12 +349,12 @@ class CollectionTests(unittest.TestCase):
                 anchors = [
                     section
                     for section in section_by_page[target["document_id"]]
-                    if target["anchor"] in section["anchor_map"]
+                    if target["anchor"] in dict(section["anchor_map"])
                 ]
                 self.assertTrue(anchors, target)
                 for section in anchors:
                     self.assertIn(
-                        'id="' + section["anchor_map"][target["anchor"]] + '"',
+                        'id="' + dict(section["anchor_map"])[target["anchor"]] + '"',
                         texts[section["registry_path"]],
                     )
 

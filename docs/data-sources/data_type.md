@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_data_type landing."
 
 # xcsh_data_type landing
 
-<a id="canonical-82775399919a9b1c71c7b859aa40315ad8471412265f9074c4f55f8a02f8001f"></a>
+<a id="canonical-2002131311032121-2101212221230130-1301301323201121-2222100003011122-3120101301100102-0212113321001310-3010331111332022-0002332000000133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-32568c73a612f34822551ce34560450e0449bc1b7ded062a0d61c0b206f9fde0"></a>
+<a id="canonical-0302111220301303-2212010233031020-0202111101303203-1011120010110032-0010102123300123-1331323100120222-0031120130002302-0012332133313200"></a>
 
-## xcsh_data_type — xcsh_data_type / b2a9f6f97a41 / 2
+## xcsh_data_type — xcsh_data_type / 332113221001 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages data\_type creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-5a829cb2884a5e94368d52ac0998a48cc80714844c756203419c292653c950ee"></a>
+<a id="canonical-1122200221302302-2020102211322110-0312203111022230-0021212022102030-3020001301102010-1030131112020003-1001213002210212-1103302111003232"></a>
 
-## Prerequisites — xcsh_data_type / b2a9f6f97a41 / 3
+## Prerequisites — xcsh_data_type / 332113221001 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-54f972c8b1b42694215b9f6e648ea60ff4e69a01c06247ca1f690032302c02ea"></a>
+<a id="canonical-1110332113023020-2301231002122110-0201112321331232-1210203222120033-3310321221220001-3000120210133022-0133122100000302-0300023000023222"></a>
 
-## Minimal configuration — xcsh_data_type / b2a9f6f97a41 / 4
+## Minimal configuration — xcsh_data_type / 332113221001 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "data_type_id" {
 }
 ```
 
-<a id="canonical-6e302cab0df169b6a15b4b86554049cc0d9b86a6287b6daae9ee19e9698a2437"></a>
+<a id="canonical-1232030002302223-0031330112212312-2201112310232012-1111100010213030-0031212320122212-0220132312312222-3221323201213221-1221202202100313"></a>
 
-## Root configuration — xcsh_data_type / b2a9f6f97a41 / 5
+## Root configuration — xcsh_data_type / 332113221001 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-87bfb320d4770651c13b0e1d05bebc3b285c29e8a0c26934e40caf24b597d63b"></a>
+<a id="canonical-2013233323030200-3110131300121101-3001032300320131-0011233223300323-0220113002213220-2200300212210310-3210003022330210-2311211331120323"></a>
 
-## Next pages — xcsh_data_type / b2a9f6f97a41 / 6
+## Next pages — xcsh_data_type / 332113221001 / 6
 
-- [Property reference](../guides/data-sources--data_type--reference--group-001.md#canonical-11669e6830386716c752f054614619da6e1647de8f830f8c42b779b52e4ed646)
-- [Examples](../guides/data-sources--data_type--examples--group-001.md#canonical-165dbfcb731f3d0db618fbe9d30ce1e3d10aad80ef7d2255d69f075394000722)
+- [Property reference](../guides/data-sources--data_type--reference--group-001.md#canonical-0101121221321220-0300032012130112-3013110233001110-1201101201213122-1232011210133132-2033200300332030-1002231313212311-0232103231121012)
+- [Examples](../guides/data-sources--data_type--examples--group-001.md#canonical-0112113123333023-1303013303310031-2312012033233221-3103003032013203-3101002222312000-3233133102021111-3112213300131103-2110000000130202)

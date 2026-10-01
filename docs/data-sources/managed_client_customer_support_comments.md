@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_managed_client_custo
 
 # xcsh_managed_client_customer_support_comments landing
 
-<a id="canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab"></a>
+<a id="canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-fedec397fbfd87818cb1ec3f13325a6015e8af11587d6baeb06219efbf8a45c3"></a>
+<a id="canonical-3332313230032113-3323333120132001-2030230132300333-0103030211221200-0111322022330101-1120133112232232-2300120201213233-2333202210113003"></a>
 
-## xcsh_managed_client_customer_support_comments — xcsh_managed_client_customer_support_comments / a202023adcd6 / 2
+## xcsh_managed_client_customer_support_comments — xcsh_managed_client_customer_support_comments / 032231303112 / 2
 
 Breadcrumbs:
 
@@ -22,15 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-<a id="canonical-ae7b842607eba8619d60c2c718fd362eaa744036a9c806382c445b6c6fc6e148"></a>
+<a id="canonical-2232132320100212-0013322322201201-2131120030023013-0120333103120232-2222131010000312-2221302000120320-0230101011231230-1233301232011020"></a>
 
-## Prerequisites — xcsh_managed_client_customer_support_comments / a202023adcd6 / 3
+## Prerequisites — xcsh_managed_client_customer_support_comments / 032231303112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3e0bc956bdcf2f08033c1a000fe694f5e28e2af6a5c6dfaa4c5b33ac13488b50"></a>
+<a id="canonical-0332002330211112-2331303302330020-0003033001220000-0033321221103311-3202203202223312-2211301231332222-1030112303032230-0103102020231100"></a>
 
-## Minimal configuration — xcsh_managed_client_customer_support_comments / a202023adcd6 / 4
+## Minimal configuration — xcsh_managed_client_customer_support_comments / 032231303112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +57,15 @@ output "managed_client_customer_support_comments_result" {
 }
 ```
 
-<a id="canonical-df89fafbd03aab44b5f80c06bf0167f355b592ca18711c7efe2084601a03a954"></a>
+<a id="canonical-3133202133223323-3100032222231010-2311332000300012-2333000112133303-1111231121023022-0120130101301332-3332020020101200-0122000322211110"></a>
 
-## Root configuration — xcsh_managed_client_customer_support_comments / a202023adcd6 / 5
+## Root configuration — xcsh_managed_client_customer_support_comments / 032231303112 / 5
 
 Required root properties: `tp_id`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-cc40831c231177811b7293fea179210a970ce78987efaa61e235d0ef01f638f0"></a>
+<a id="canonical-3030100020030130-0203010113132001-0123130221033332-2201132102010022-2113003032132021-2013323322221201-3202031131003233-0001331203203300"></a>
 
-## Next pages — xcsh_managed_client_customer_support_comments / a202023adcd6 / 6
+## Next pages — xcsh_managed_client_customer_support_comments / 032231303112 / 6
 
-- [Property reference](../guides/data-sources--managed_client_customer_support_comments--reference--group-001.md#canonical-002a4575b61eb4ad6cacc307c2f712501721ed41a3e99b73773ff4b3e8095b91)
-- [Examples](../guides/data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-cc0ea23565c192a388b604de1b0ea61a22dc512875758e6628c231e975bf2815)
+- [Property reference](../guides/data-sources--managed_client_customer_support_comments--reference--group-001.md#canonical-0000022210111311-2312013223102231-1230223030030013-3002331301021100-0113020132311001-2203322121231303-1313033333102303-3220002111232101)
+- [Examples](../guides/data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-3030003222020311-1211300121022203-2020231200103132-0123003222120122-0202313011010220-1311131120321212-0220300203013221-1311233302200111)

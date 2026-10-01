@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_service_policy_set l
 
 # xcsh_service_policy_set landing
 
-<a id="canonical-52eaa9a13b0184a72441569b070040914137b030f2dff5fcdbb25301ba8d99b6"></a>
+<a id="canonical-1102322222212201-0323000120102213-0210100111122123-0013000010002101-1001031323000300-3302313333113330-3123230211030001-2322203121212312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-f6f6095be66cff84e31a2718330511fed6a8a1c3cff920aaed7b7001563376e9"></a>
+<a id="canonical-3312331200211123-3212123033332010-3203012202130120-0303001101013332-3112222022013003-3033332102002222-3231132313000001-1112030313123221"></a>
 
-## xcsh_service_policy_set — xcsh_service_policy_set / 798ccf734010 / 2
+## xcsh_service_policy_set — xcsh_service_policy_set / 130310000100 / 2
 
 Breadcrumbs:
 
@@ -23,15 +23,15 @@ Breadcrumbs:
 Manages a Service Policy Set resource in F5 Distributed Cloud for get service\_policy\_set reads a
 given object from storage backend for metadata.namespace. configuration. (read-only data source)
 
-<a id="canonical-db72365b066949e95c5998b8e95262361a43b6b4d0695fa5f859481b9f10600e"></a>
+<a id="canonical-3123130203121123-0012122110213221-1130112121202320-3221110212020312-0122100323122310-3100122111332211-3320112110200123-2133010012000032"></a>
 
-## Prerequisites — xcsh_service_policy_set / 798ccf734010 / 3
+## Prerequisites — xcsh_service_policy_set / 130310000100 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-e4e10a708192c49808c4fb6df2315ff7afee780224247607ef95cade792cacd9"></a>
+<a id="canonical-3210320100221300-2001210230102120-0020301033231231-3302030111333313-2233323213200002-0210021013120013-3233211130223132-1321023022303121"></a>
 
-## Minimal configuration — xcsh_service_policy_set / 798ccf734010 / 4
+## Minimal configuration — xcsh_service_policy_set / 130310000100 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +60,15 @@ output "service_policy_set_id" {
 }
 ```
 
-<a id="canonical-53ae71654bb7dfddb41c27e536923e0c3a92fa5487d4b8e52dbcd7c3ce8d9273"></a>
+<a id="canonical-1103223213011211-1023231331333131-2310013002133211-0312210203320030-0322210233221110-2013311023203211-0231233031133003-3032203121021303"></a>
 
-## Root configuration — xcsh_service_policy_set / 798ccf734010 / 5
+## Root configuration — xcsh_service_policy_set / 130310000100 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-54bab6e7644442c751f3990c4c745ba0fbb126a519e84016f403df71d602d5f0"></a>
+<a id="canonical-1110232223123213-1210101010023013-1101330321210030-1030131011232200-3323230102122211-0121322010000112-3310000331331301-3112000231113300"></a>
 
-## Next pages — xcsh_service_policy_set / 798ccf734010 / 6
+## Next pages — xcsh_service_policy_set / 130310000100 / 6
 
-- [Property reference](../guides/data-sources--service_policy_set--reference--group-001.md#canonical-d53562a654aeea2fda5c0f68cc93c43674dbd4ca72481940eaa91fb9ed762863)
-- [Examples](../guides/data-sources--service_policy_set--examples--group-001.md#canonical-64a0cc77566504934e629646dfc340565e8343844ecc4a17ecf571158b2ff726)
+- [Property reference](../guides/data-sources--service_policy_set--reference--group-001.md#canonical-3111031112022212-1110223232220233-3122113000331220-3030210330100312-1310312331103022-1302102001211000-3222222101332321-3231131202201203)
+- [Examples](../guides/data-sources--service_policy_set--examples--group-001.md#canonical-1210220030301313-1112121100102103-1032120221121012-3133300310001112-1132200310032010-1032303010220113-3230331113010111-2023023333130212)

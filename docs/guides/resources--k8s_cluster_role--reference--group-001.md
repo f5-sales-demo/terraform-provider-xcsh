@@ -6,39 +6,39 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster_role ref
 
 # xcsh_k8s_cluster_role reference
 
-<a id="canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c"></a>
+<a id="canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0b431ee8cb39ffadc5b8b8956c45afac939832c48509b65bf3f1a72b1fe5f975"></a>
+<a id="canonical-0023100301323220-3023032133332231-3011232023202111-1230101122332230-2103212003023010-2011002123121123-3303330122130223-0133321133211311"></a>
 
-## Property reference — Property reference / e837342496de / 2
+## Property reference — Property reference / 021021123132 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 - Property reference
 
-<a id="canonical-0923356d8d35d25551fea99ff63fdee0c47cba14e70a428474d063e2a49f9599"></a>
+<a id="canonical-0021020303111231-2031031131021111-1101333222212133-3312033331323200-3010133023220110-3213002210022010-1310310012033202-2210213321112121"></a>
 
-## Direct properties — Property reference / e837342496de / 3
+## Direct properties — Property reference / 021021123132 / 3
 
-<a id="canonical-e1534ea43c51ebd7b454629abdb9315e32dccd425d11f6ffeecb76628857744f"></a>
+<a id="canonical-3201110310322210-0330110132233113-2310111012022122-2331232103011132-0302313030311002-1131010133123333-3232302313121202-2020111313101033"></a>
 
-<a id="canonical-4b4d3320c46846629dba4ad4d78285863912e2b41f2a3d7d5aca955d5be12d1c"></a>
+<a id="canonical-1023103103030200-3010122010121202-2131232210223110-3113200220112012-0321010232022310-0133022203311331-1122302221111131-1123320102310130"></a>
 
-## annotations property — Property reference / e837342496de / 4
+## annotations property — Property reference / 021021123132 / 4
 
 Type: `["map", "string"]`. Optional.
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata.
 
 Upstream description:
 
-Annotations is an unstructured key value map stored with a resource that may be set by external
+Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
 modifying objects.
 
@@ -67,11 +67,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2b0ddb3da500bcf37547afd006e1830d01545e78c84507147a933c2603ae8e10"></a>
+<a id="canonical-0223003131230331-2211000023303303-1311101322333100-0012320120030031-0001111011321320-3020101100130110-1322210303300212-0003223220320100"></a>
 
-<a id="canonical-b8589ce9cfa2b436ce8a7c93bd3094e06cea25c62fb8cac10424ee77f2c03802"></a>
+<a id="canonical-2320112021303221-3033220223100312-3032202213302103-2331030021103200-1230322202113012-0233232030223001-0010021032321313-3302300003200002"></a>
 
-## description property — Property reference / e837342496de / 5
+## description property — Property reference / 021021123132 / 5
 
 Type: `"string"`. Optional.
 
@@ -115,11 +115,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-90faba22d30c6415303f944ed12c511661908847f6130c1a077817aafcdcfd2f"></a>
+<a id="canonical-2100332223220202-3103003012100111-0300033321101032-3101023011010112-1201210020201013-3312010300300122-0013132001132222-3330313033310233"></a>
 
-<a id="canonical-7c86a8cb8999958481d729da13c0b99db628ed9eef8f6708aa9923a3ef533e47"></a>
+<a id="canonical-1330201222203023-2021212121112010-2001311302213122-0103300023212131-2312022032312132-3233203312130020-2222212102032203-3233110303321013"></a>
 
-## disable property — Property reference / e837342496de / 6
+## disable property — Property reference / 021021123132 / 6
 
 Type: `"bool"`. Optional.
 
@@ -142,27 +142,27 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-e7946d451a3ee126082c60c0792402be8afac69c67092929b18b5777cb528554"></a>
+<a id="canonical-3213211012311011-0122033232010212-0020023012003000-1321021000022332-2022332230122130-1213002102210221-2301202311131313-3023110220111110"></a>
 
-<a id="canonical-dd4bd4a04ba0f49e02a553ce8fbdb3774f3ef64c9b80dd60f56786336cef7aa5"></a>
+<a id="canonical-3131102331102200-1023220033102132-0002221111033032-2033233123031313-1033033233121030-2123200031311200-3311121320120303-1230323313222211"></a>
 
-## id property — Property reference / e837342496de / 7
+## ID property — Property reference / 021021123132 / 7
 
 Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-86716aeca906f17ac7b87f08c3cdc49a540e1fd3ee9f0061418d6f1076636b0d): complete subsection reference.
+- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-2012130112223230-2221001233011322-3013232013330020-3003303130102122-1110003201333103-3232213300001201-1001203112330100-1312120312230031): complete subsection reference.
 
-<a id="canonical-67eff2edc73d152d42ccb9247dc767bf7e76ebe5fd5eec4e9ba65e5267d35605"></a>
+<a id="canonical-1213323333023231-3013033101110231-1002303023210210-1331301312132333-1332131232233211-3331113232301032-2123221211321102-1213310311120011"></a>
 
-<a id="canonical-3ef8756ac251fca871a2f28783630fe285a8efd8dfa7b6b6bf9c422eec828d54"></a>
+<a id="canonical-0332332013111222-3002110133302220-1301220233022013-2003120300333202-2011222032333120-3133221323122312-2333213010020232-3230200220311110"></a>
 
-## labels property — Property reference / e837342496de / 8
+## labels property — Property reference / 021021123132 / 8
 
 Type: `["map", "string"]`. Optional.
 
-Labels is a user defined key value map that can be attached to resources for organization and
+Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
 Upstream description:
@@ -183,11 +183,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2e4c44bae68c45d5d175c236bd6755b01cfc87283bf861436cd72549caac3d6a"></a>
+<a id="canonical-0232103010102322-3212203010113111-3101131130020312-2331121311112300-0130333020130220-0323332012011003-1230311302111021-3022223003311222"></a>
 
-<a id="canonical-77c6021713e0936e65df761df44df966438c91a0c402550349c20c56aa7a9dd8"></a>
+<a id="canonical-1313301200020113-0103320021031232-1211313313120131-3310103133211212-1003203021012200-3010000211110003-1021300200301112-2222132221313120"></a>
 
-## name property — Property reference / e837342496de / 9
+## name property — Property reference / 021021123132 / 9
 
 Type: `"string"`. Required.
 
@@ -251,11 +251,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-77c169b77ae20ab3f6e20d4a151f8330f955f7bf12a8585c6990671a1b76e4ef"></a>
+<a id="canonical-1313300112212313-1322320200222303-3312320200311022-0111013320030300-3321111133132333-0102222011201130-1221210012130122-0123131232103233"></a>
 
-<a id="canonical-125a30b1c6677fc0835aacde3d05b631ec6859dadc901fcb33acf8984d88f2d1"></a>
+<a id="canonical-0102112203002301-3012121313333000-2003112222303132-0331001123120301-3230122011213122-3130210001333023-0303223033202120-1031202033023101"></a>
 
-## namespace property — Property reference / e837342496de / 10
+## namespace property — Property reference / 021021123132 / 10
 
 Type: `"string"`. Optional, Computed.
 
@@ -315,15 +315,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d): complete subsection reference.
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031): complete subsection reference.
 
-- [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-c2f94201abee4b34a4e313fc47fda030e04828ac4432528e707f9c6a44aac733): complete subsection reference.
+- [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-3002332110020001-2223323210230310-2210320301033330-1013333122000300-3200102002202230-1010030211022032-1300133321301222-1010222230130303): complete subsection reference.
 
-<a id="canonical-6876b6a0223bbefa14cc098a7207564aaa40c52a1eeb903dcc6cc786324ea593"></a>
+<a id="canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103"></a>
 
-<a id="canonical-d58f4fd2a6bdc84cdb13776aa1529d8ba7ea63eae5a779f17097cf30196b5cfb"></a>
+<a id="canonical-3111203310333102-2212233130201030-3123010313131222-2201110221312023-2213322212033222-3211221313213301-1300211330330300-0121122311303323"></a>
 
-## yaml property — Property reference / e837342496de / 11
+## yaml property — Property reference / 021021123132 / 11
 
 Type: `"string"`. Optional, Computed.
 
@@ -380,66 +380,66 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4f07c55ce1c034905e171bcbcf5ae55d15d814538531a935c1998071eec4b0c2"></a>
+<a id="canonical-1033001330111130-3201300003102100-1132011301233023-3033112232111131-0111312001101103-2011030122210311-3001212120001301-3232301023003002"></a>
 
-## All schema paths — Property reference / e837342496de / 12
+## All schema paths — Property reference / 021021123132 / 12
 
-Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
 | Schema path | Complete reference |
 | --- | --- |
-| `annotations` | [annotations](resources--k8s_cluster_role--reference--group-001.md#canonical-e1534ea43c51ebd7b454629abdb9315e32dccd425d11f6ffeecb76628857744f) |
-| `description` | [description](resources--k8s_cluster_role--reference--group-001.md#canonical-2b0ddb3da500bcf37547afd006e1830d01545e78c84507147a933c2603ae8e10) |
-| `disable` | [disable](resources--k8s_cluster_role--reference--group-001.md#canonical-90faba22d30c6415303f944ed12c511661908847f6130c1a077817aafcdcfd2f) |
-| `id` | [id](resources--k8s_cluster_role--reference--group-001.md#canonical-e7946d451a3ee126082c60c0792402be8afac69c67092929b18b5777cb528554) |
-| `k8s_cluster_role_selector` | [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-5bda4c64a03ed6a00c641327263d78afc94bf76add8e6f54fb3e38c9250c52b7) |
-| `k8s_cluster_role_selector.expressions` | [k8s_cluster_role_selector.expressions](resources--k8s_cluster_role--reference--group-001.md#canonical-fa152c86c0feccdb9242798d0f7acce636921db0ac33dc684c49691de26a0550) |
-| `labels` | [labels](resources--k8s_cluster_role--reference--group-001.md#canonical-67eff2edc73d152d42ccb9247dc767bf7e76ebe5fd5eec4e9ba65e5267d35605) |
-| `name` | [name](resources--k8s_cluster_role--reference--group-001.md#canonical-2e4c44bae68c45d5d175c236bd6755b01cfc87283bf861436cd72549caac3d6a) |
-| `namespace` | [namespace](resources--k8s_cluster_role--reference--group-001.md#canonical-77c169b77ae20ab3f6e20d4a151f8330f955f7bf12a8585c6990671a1b76e4ef) |
-| `policy_rule_list` | [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-ac6c2d7298e0057995737877d3a0ad2e5777f4ca478404046fefecc0dc9a498e) |
-| `policy_rule_list.policy_rule` | [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-7847493dc9d02c51bff79154288d1fc021fd9d7906a7f55598a0d0a926e20884) |
-| `policy_rule_list.policy_rule.non_resource_url_list` | [policy_rule_list.policy_rule.non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-f57d2c5dc8ea854778d340f4542ac0bdb9d6861abba29238944e3ddcda7da480) |
-| `policy_rule_list.policy_rule.non_resource_url_list.urls` | [policy_rule_list.policy_rule.non_resource_url_list.urls](resources--k8s_cluster_role--reference--group-001.md#canonical-3ee6dc9bb7d095ade75a2e94924c55bfd3420df85554694e9dff5f28892a3ad4) |
-| `policy_rule_list.policy_rule.non_resource_url_list.verbs` | [policy_rule_list.policy_rule.non_resource_url_list.verbs](resources--k8s_cluster_role--reference--group-001.md#canonical-4ca955a5420a890f0c6844b43f9f7959855c178fbdb416110b4d93ee4958ca14) |
-| `policy_rule_list.policy_rule.resource_list` | [policy_rule_list.policy_rule.resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-7939e27916f197258017bdf057926256ad5dfba23e3535e7f95cbdb667431e72) |
-| `policy_rule_list.policy_rule.resource_list.api_groups` | [policy_rule_list.policy_rule.resource_list.api_groups](resources--k8s_cluster_role--reference--group-001.md#canonical-4098a95d6dc4300a69d50f4ebd3867f35c0d2bf264fe39115cb91280597f218f) |
-| `policy_rule_list.policy_rule.resource_list.resource_instances` | [policy_rule_list.policy_rule.resource_list.resource_instances](resources--k8s_cluster_role--reference--group-001.md#canonical-03f9d4b092209a1f26180afbb7d1dfaf44df76b52a44a8f2bcf464873b30c5a9) |
-| `policy_rule_list.policy_rule.resource_list.resource_types` | [policy_rule_list.policy_rule.resource_list.resource_types](resources--k8s_cluster_role--reference--group-001.md#canonical-7f4904fa26254b8373f394d3e7d2b1972554b3c69725437643b76b9c24a5c260) |
-| `policy_rule_list.policy_rule.resource_list.verbs` | [policy_rule_list.policy_rule.resource_list.verbs](resources--k8s_cluster_role--reference--group-001.md#canonical-339e3e9e2a4172d2a4202da8e0dff7442873db4996f81f36e98296034a420007) |
-| `timeouts` | [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-71cec3491158c11cf3830a42bbb1940b98c6a56ef6b0def1c4b3a6e52d55ba9c) |
-| `timeouts.create` | [timeouts.create](resources--k8s_cluster_role--reference--group-001.md#canonical-2e287eab5780808ae83bc325b112cf9fd1909a2c9e3793ef0b9da83a5d40cf48) |
-| `timeouts.delete` | [timeouts.delete](resources--k8s_cluster_role--reference--group-001.md#canonical-0dcf6e92e020271beac3c6b0835212d87b67787bb707ffe1b13ef4e7b84db993) |
-| `timeouts.read` | [timeouts.read](resources--k8s_cluster_role--reference--group-001.md#canonical-8e1b6698b40941f6731029509475b63ce379613e9de22544ba8e699286af3e7c) |
-| `timeouts.update` | [timeouts.update](resources--k8s_cluster_role--reference--group-001.md#canonical-06926dfdfd1fdf684b2fbbd06b1bbd7f4efceb74c2a985246a6616370bd43514) |
-| `yaml` | [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-6876b6a0223bbefa14cc098a7207564aaa40c52a1eeb903dcc6cc786324ea593) |
+| `annotations` | [annotations](resources--k8s_cluster_role--reference--group-001.md#canonical-3201110310322210-0330110132233113-2310111012022122-2331232103011132-0302313030311002-1131010133123333-3232302313121202-2020111313101033) |
+| `description` | [description](resources--k8s_cluster_role--reference--group-001.md#canonical-0223003131230331-2211000023303303-1311101322333100-0012320120030031-0001111011321320-3020101100130110-1322210303300212-0003223220320100) |
+| `disable` | [disable](resources--k8s_cluster_role--reference--group-001.md#canonical-2100332223220202-3103003012100111-0300033321101032-3101023011010112-1201210020201013-3312010300300122-0013132001132222-3330313033310233) |
+| `id` | [id](resources--k8s_cluster_role--reference--group-001.md#canonical-3213211012311011-0122033232010212-0020023012003000-1321021000022332-2022332230122130-1213002102210221-2301202311131313-3023110220111110) |
+| `k8s_cluster_role_selector` | [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-1123312210301210-2200033231122200-0030121001030213-0212033113202233-3021102333131222-3131203212331110-3323033203203021-0211003011022313) |
+| `k8s_cluster_role_selector.expressions` | [k8s_cluster_role_selector.expressions](resources--k8s_cluster_role--reference--group-001.md#canonical-3322011102302012-3000333230303123-2102100213212031-0033132230303212-0312210201312300-2230030331301220-1030102112210131-3202122200111100) |
+| `labels` | [labels](resources--k8s_cluster_role--reference--group-001.md#canonical-1213323333023231-3013033101110231-1002303023210210-1331301312132333-1332131232233211-3331113232301032-2123221211321102-1213310311120011) |
+| `name` | [name](resources--k8s_cluster_role--reference--group-001.md#canonical-0232103010102322-3212203010113111-3101131130020312-2331121311112300-0130333020130220-0323332012011003-1230311302111021-3022223003311222) |
+| `namespace` | [namespace](resources--k8s_cluster_role--reference--group-001.md#canonical-1313300112212313-1322320200222303-3312320200311022-0111013320030300-3321111133132333-0102222011201130-1221210012130122-0123131232103233) |
+| `policy_rule_list` | [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-2230123002311302-2120320000111321-2111130313201313-3103220022310232-1113131333103022-1013201000100010-1233323332303000-3130212210212032) |
+| `policy_rule_list.policy_rule` | [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-1320101310210331-3021310002301101-2333331321011110-0220203101333000-0201333121311321-0012221333111111-2120220031002221-0212320200202010) |
+| `policy_rule_list.policy_rule.non_resource_url_list` | [policy_rule_list.policy_rule.non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-3311133102301131-3020322220111013-1320310310003310-1110022230002331-2321311220120122-2323220221020320-2110103203313130-3122133122102000) |
+| `policy_rule_list.policy_rule.non_resource_url_list.urls` | [policy_rule_list.policy_rule.non_resource_url_list.urls](resources--k8s_cluster_role--reference--group-001.md#canonical-0332321231302123-2313310021112231-3213112202322110-2102103011112333-3103100200313320-1111111012211032-2131333311330220-2021022203223110) |
+| `policy_rule_list.policy_rule.non_resource_url_list.verbs` | [policy_rule_list.policy_rule.non_resource_url_list.verbs](resources--k8s_cluster_role--reference--group-001.md#canonical-1030222111112211-1002002220210033-0030122010102310-0333213313211121-2011113001132033-2331231001120101-0023103121033232-1021112030220110) |
+| `policy_rule_list.policy_rule.resource_list` | [policy_rule_list.policy_rule.resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1321032132021321-0112330121130211-2000011323313300-1113210212021112-2231113133232202-0332031103113213-3321113023312312-1213100301321302) |
+| `policy_rule_list.policy_rule.resource_list.api_groups` | [policy_rule_list.policy_rule.resource_list.api_groups](resources--k8s_cluster_role--reference--group-001.md#canonical-1000212022211131-1231301003000022-1221311100331032-2331032012133303-1130003102233302-1210333203210101-1130232101022000-1121133302012033) |
+| `policy_rule_list.policy_rule.resource_list.resource_instances` | [policy_rule_list.policy_rule.resource_list.resource_instances](resources--k8s_cluster_role--reference--group-001.md#canonical-0003332131102300-2102020021220133-0212012000223323-2313310131332233-1010313313122311-0222101022203302-2330331012102013-0323030030112221) |
+| `policy_rule_list.policy_rule.resource_list.resource_types` | [policy_rule_list.policy_rule.resource_list.resource_types](resources--k8s_cluster_role--reference--group-001.md#canonical-1333102100103322-0212021110232003-1303330321103103-3213310223012113-0211111023033012-2113021110031312-1003231312232130-0210221130021200) |
+| `policy_rule_list.policy_rule.resource_list.verbs` | [policy_rule_list.policy_rule.resource_list.verbs](resources--k8s_cluster_role--reference--group-001.md#canonical-0303213203322132-0222100113023102-2210020002312220-3200313333131010-0220130331231021-2112332001330312-3221200221120003-1022100200000013) |
+| `timeouts` | [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-1301303230031021-0101112030010130-3303200300221002-2323230121100023-2120301222111232-3312230031323301-3010230322123211-0231111123222130) |
+| `timeouts.create` | [timeouts.create](resources--k8s_cluster_role--reference--group-001.md#canonical-0232022013322223-1113200020002022-3220032330030211-2301010230332133-3101210021220230-2132031321033233-0023213122200322-1131100030331020) |
+| `timeouts.delete` | [timeouts.delete](resources--k8s_cluster_role--reference--group-001.md#canonical-0031303312322102-3200020002130123-3222300330122300-2003110201023120-1323121313201323-2313001333333201-2301033233103213-2320103123212103) |
+| `timeouts.read` | [timeouts.read](resources--k8s_cluster_role--reference--group-001.md#canonical-2032012312122120-2310002110013312-1303010002211100-2110131123120330-3203132112010332-2131320202111010-2322203212212102-2012223303321330) |
+| `timeouts.update` | [timeouts.update](resources--k8s_cluster_role--reference--group-001.md#canonical-0012210212313331-3331013331331220-1023023323233100-1223012323311333-1032333032231310-3002222120110210-1222121201120313-0023311003110110) |
+| `yaml` | [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103) |
 
-<a id="canonical-0f97013e82b82532874b631f7d5cbd2171a811e9418f0a0e0e7361228522ae25"></a>
+<a id="canonical-0033211300010332-2002232002110302-2013102312030133-1331113023310201-1301222001013221-1001203300220032-0032130312010202-2011020222320211"></a>
 
-## Next pages — Property reference / e837342496de / 13
+## Next pages — Property reference / 021021123132 / 13
 
-- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-86716aeca906f17ac7b87f08c3cdc49a540e1fd3ee9f0061418d6f1076636b0d)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d)
-- [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-c2f94201abee4b34a4e313fc47fda030e04828ac4432528e707f9c6a44aac733)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-2012130112223230-2221001233011322-3013232013330020-3003303130102122-1110003201333103-3232213300001201-1001203112330100-1312120312230031)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031)
+- [timeouts](resources--k8s_cluster_role--reference--group-001.md#canonical-3002332110020001-2223323210230310-2210320301033330-1013333122000300-3200102002202230-1010030211022032-1300133321301222-1010222230130303)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-86716aeca906f17ac7b87f08c3cdc49a540e1fd3ee9f0061418d6f1076636b0d"></a>
+<a id="canonical-2012130112223230-2221001233011322-3013232013330020-3003303130102122-1110003201333103-3232213300001201-1001203112330100-1312120312230031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-d9d204b105fa7b771e8f24017032bd2f3cecfab6090969814647f5edb8cc2024"></a>
+<a id="canonical-3121310200102301-0011332213231313-0132203302100001-1300030223310233-0330323033222312-0021002112212001-1012101333113231-2320303002000210"></a>
 
-## k8s_cluster_role_selector — k8s_cluster_role_selector / 203be40e877d / 2
+## k8s_cluster_role_selector — k8s_cluster_role_selector / 003220131331 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
 - k8s_cluster_role_selector
 
-<a id="canonical-5bda4c64a03ed6a00c641327263d78afc94bf76add8e6f54fb3e38c9250c52b7"></a>
+<a id="canonical-1123312210301210-2200033231122200-0030121001030213-0212033113202233-3021102333131222-3131203212331110-3323033203203021-0211003011022313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -484,9 +484,9 @@ Receipt-pinned upstream constraints:
 
 OneOf alternatives in this subsection:
 
-- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-5bda4c64a03ed6a00c641327263d78afc94bf76add8e6f54fb3e38c9250c52b7)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-ac6c2d7298e0057995737877d3a0ad2e5777f4ca478404046fefecc0dc9a498e)
-- [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-6876b6a0223bbefa14cc098a7207564aaa40c52a1eeb903dcc6cc786324ea593)
+- [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-1123312210301210-2200033231122200-0030121001030213-0212033113202233-3021102333131222-3131203212331110-3323033203203021-0211003011022313)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-2230123002311302-2120320000111321-2111130313201313-3103220022310232-1113131333103022-1013201000100010-1233323332303000-3130212210212032)
+- [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103)
 
 Select alternatives according to the provider validators above.
 
@@ -498,15 +498,15 @@ k8s_cluster_role_selector {
 }
 ```
 
-<a id="canonical-7b140ac2cb377bd339a01574eadf7e8fa2d8d7e90343d972a88da3fd75244f36"></a>
+<a id="canonical-1323011000223002-3023031313233103-0321220001111310-3222313313322033-2202312031133221-0003100331211302-2220203122033331-1311021010330312"></a>
 
-## Direct properties — k8s_cluster_role_selector / 203be40e877d / 3
+## Direct properties — k8s_cluster_role_selector / 003220131331 / 3
 
-<a id="canonical-fa152c86c0feccdb9242798d0f7acce636921db0ac33dc684c49691de26a0550"></a>
+<a id="canonical-3322011102302012-3000333230303123-2102100213212031-0033132230303212-0312210201312300-2230030331301220-1030102112210131-3202122200111100"></a>
 
-<a id="canonical-17c7487792e0d8dc7747fece7ac1b39d6e4918db44c281025d8ae5c7b814aa66"></a>
+<a id="canonical-0113301310201313-2102320031203130-1313101333323032-1322300123032131-1232102101203123-1010300220010002-1131202232113013-2320011022221212"></a>
 
-## expressions property — k8s_cluster_role_selector / 203be40e877d / 4
+## expressions property — k8s_cluster_role_selector / 003220131331 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -559,30 +559,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-c214f83cfb910d4c3b91d4e5974e5871e04a0940faf501e16426f5f24576c3e6"></a>
+<a id="canonical-3002011033200330-3323210100311030-0323210131103211-2113103211201301-3200102200211000-3322331100013201-1210021233113302-1011131230033212"></a>
 
-## Next pages — k8s_cluster_role_selector / 203be40e877d / 5
+## Next pages — k8s_cluster_role_selector / 003220131331 / 5
 
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d"></a>
+<a id="canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-049789bf92152e7a53f627372894ee4abfb2f5dad1fa26301ec1fb58f14c2150"></a>
+<a id="canonical-0010211320212333-2102011102321322-1103331202130313-0220211032321022-2333230233113122-3101332202120300-0132300133231120-3301103002011100"></a>
 
-## policy_rule_list — policy_rule_list / 0d5975676f22 / 2
+## policy_rule_list — policy_rule_list / 121312330202 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
 - policy_rule_list
 
-<a id="canonical-ac6c2d7298e0057995737877d3a0ad2e5777f4ca478404046fefecc0dc9a498e"></a>
+<a id="canonical-2230123002311302-2120320000111321-2111130313201313-3103220022310232-1113131333103022-1013201000100010-1233323332303000-3130212210212032"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -619,38 +619,38 @@ policy_rule_list {
 }
 ```
 
-<a id="canonical-20f7489d4ebc674bd4c1990a80220a19a728e3b5e82e7d78e4d80c996046fca1"></a>
+<a id="canonical-0200331310202131-1032233012131023-3110300121210022-2000020200220121-2213022032032311-3220023213311320-3210312000302121-1200101233302201"></a>
 
-## Direct properties — policy_rule_list / 0d5975676f22 / 3
+## Direct properties — policy_rule_list / 121312330202 / 3
 
-- [policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd): complete subsection reference.
+- [policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331): complete subsection reference.
 
-<a id="canonical-6e95b93c67eaf79cb35c4256e81dac237d344c850971e3f5b198bde0055988d8"></a>
+<a id="canonical-1232211123210330-1213322233132130-2303113010021112-3220013122300203-1331031010302011-0021130132033311-2301212023313200-0011112120203120"></a>
 
-## Next pages — policy_rule_list / 0d5975676f22 / 4
+## Next pages — policy_rule_list / 121312330202 / 4
 
-- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd"></a>
+<a id="canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-7a9d4cebe026a506b4ea16f6428d5f6916dc259a02f985e94658ea5fa895fccd"></a>
+<a id="canonical-1322213110303223-3200021222110012-2310322201123312-1002203111331221-0112313002112122-0002332120113221-1012112032221133-2220211133303031"></a>
 
-## policy_rule_list.policy_rule — policy_rule_list.policy_rule / 986a25e9e725 / 2
+## policy_rule_list.policy_rule — policy_rule / 322132130211 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031)
 - policy_rule_list.policy_rule
 
-<a id="canonical-7847493dc9d02c51bff79154288d1fc021fd9d7906a7f55598a0d0a926e20884"></a>
+<a id="canonical-1320101310210331-3021310002301101-2333331321011110-0220203101333000-0201333121311321-0012221333111111-2120220031002221-0212320200202010"></a>
 
 Type: `"object"`. list nested block, Optional.
 
@@ -715,42 +715,42 @@ policy_rule {
 }
 ```
 
-<a id="canonical-9f08933c207fafcf7a831ae7bea1a7dc02efb191f68d1f6e374335117f066a56"></a>
+<a id="canonical-2133002021030330-0200133322333033-1322200301223213-2332220122133130-0002323323012101-3312203101331232-0313100303110101-1333001212221112"></a>
 
-## Direct properties — policy_rule_list.policy_rule / 986a25e9e725 / 3
+## Direct properties — policy_rule / 322132130211 / 3
 
-- [non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-29442944be64f3cbc939cf9c6f206049b9490bf4e2afdfe68da60927b52a9e8b): complete subsection reference.
+- [non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-0221101002211010-2332121033033023-3021032130332130-1233020012001021-2321102100233310-3202223331333212-2031221200210213-2311022221322023): complete subsection reference.
 
-- [resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-67f82d5ced6a31c0bac4f76d05282aebbce894ee36c26274b09acf6e439324e5): complete subsection reference.
+- [resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1213332002311130-3231122203013000-2322301033131231-0011022002223223-2330322021103232-0312300212021310-2300212230331232-1003210302103211): complete subsection reference.
 
-<a id="canonical-d6eeaf615162804ab58318333c69ac628173482ac019d4b9a66e3c39a3ea7235"></a>
+<a id="canonical-3112323222331201-1101120220001022-2311200301200303-0330122122301202-2001130310200222-3000012131102321-2212123203300321-2203322213020311"></a>
 
-## Next pages — policy_rule_list.policy_rule / 986a25e9e725 / 4
+## Next pages — policy_rule / 322132130211 / 4
 
-- [policy_rule_list.policy_rule.non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-29442944be64f3cbc939cf9c6f206049b9490bf4e2afdfe68da60927b52a9e8b)
-- [policy_rule_list.policy_rule.resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-67f82d5ced6a31c0bac4f76d05282aebbce894ee36c26274b09acf6e439324e5)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [policy_rule_list.policy_rule.non_resource_url_list](resources--k8s_cluster_role--reference--group-001.md#canonical-0221101002211010-2332121033033023-3021032130332130-1233020012001021-2321102100233310-3202223331333212-2031221200210213-2311022221322023)
+- [policy_rule_list.policy_rule.resource_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1213332002311130-3231122203013000-2322301033131231-0011022002223223-2330322021103232-0312300212021310-2300212230331232-1003210302103211)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-29442944be64f3cbc939cf9c6f206049b9490bf4e2afdfe68da60927b52a9e8b"></a>
+<a id="canonical-0221101002211010-2332121033033023-3021032130332130-1233020012001021-2321102100233310-3202223331333212-2031221200210213-2311022221322023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-28bc66f00b950de811ef686a69b6072232afe29f354a63455585a1f0c61fe613"></a>
+<a id="canonical-0220233012123300-0023211100313220-0101323312201222-1221231200130202-0302223332022133-0311102212031011-1111201122013300-3012013332120103"></a>
 
-## policy_rule_list.policy_rule.non_resource_url_list — policy_rule_list.policy_rule.non_resource_url_list / a6697eb37139 / 2
+## policy_rule_list.policy_rule.non_resource_url_list — non_resource_url_list / 230313010321 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d)
-- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031)
+- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331)
 - policy_rule_list.policy_rule.non_resource_url_list
 
-<a id="canonical-f57d2c5dc8ea854778d340f4542ac0bdb9d6861abba29238944e3ddcda7da480"></a>
+<a id="canonical-3311133102301131-3020322220111013-1320310310003310-1110022230002331-2321311220120122-2323220221020320-2110103203313130-3122133122102000"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -784,15 +784,15 @@ non_resource_url_list {
 }
 ```
 
-<a id="canonical-e37a37e6febfa2c403a25527f6c00b65466c2da30a41b337f967584cb47bae4e"></a>
+<a id="canonical-3203132203133212-3332233322023010-0003220211110213-3312300000231211-1012123002312203-0022100123030313-3321121311201030-2310132322321032"></a>
 
-## Direct properties — policy_rule_list.policy_rule.non_resource_url_list / a6697eb37139 / 3
+## Direct properties — non_resource_url_list / 230313010321 / 3
 
-<a id="canonical-3ee6dc9bb7d095ade75a2e94924c55bfd3420df85554694e9dff5f28892a3ad4"></a>
+<a id="canonical-0332321231302123-2313310021112231-3213112202322110-2102103011112333-3103100200313320-1111111012211032-2131333311330220-2021022203223110"></a>
 
-<a id="canonical-c3bb60c2fd05b7629621d339877c0ab8d227d3aaae3e1db860d415609fa79ff8"></a>
+<a id="canonical-3003232312003002-3331001123131202-2112020131030321-2013133000222320-3102021331032222-2232033201312320-1200311001111200-2133221321333320"></a>
 
-## urls property — policy_rule_list.policy_rule.non_resource_url_list / a6697eb37139 / 4
+## urls property — non_resource_url_list / 230313010321 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -848,11 +848,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-4ca955a5420a890f0c6844b43f9f7959855c178fbdb416110b4d93ee4958ca14"></a>
+<a id="canonical-1030222111112211-1002002220210033-0030122010102310-0333213313211121-2011113001132033-2331231001120101-0023103121033232-1021112030220110"></a>
 
-<a id="canonical-05b0e1ba77b1c4d9e5ad0f3bc77e806bd88a8f05d1754150078a14d9adda1fd1"></a>
+<a id="canonical-0011230032012322-1313230130103121-3211223100330323-3013133220001223-3120202220330011-3101131110011100-0013202201103121-2231312201333101"></a>
 
-## verbs property — policy_rule_list.policy_rule.non_resource_url_list / a6697eb37139 / 5
+## verbs property — non_resource_url_list / 230313010321 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -908,32 +908,32 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-ec3afccc90b13eb85e19632a990b3f4103f9d020d2d80c1aaf21ebc472ad2aa3"></a>
+<a id="canonical-3230032233303030-2100230103322320-1132012112030222-2121002303331001-0003332131000200-3102312000300122-2233020132233010-1302223102222203"></a>
 
-## Next pages — policy_rule_list.policy_rule.non_resource_url_list / a6697eb37139 / 6
+## Next pages — non_resource_url_list / 230313010321 / 6
 
-- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-67f82d5ced6a31c0bac4f76d05282aebbce894ee36c26274b09acf6e439324e5"></a>
+<a id="canonical-1213332002311130-3231122203013000-2322301033131231-0011022002223223-2330322021103232-0312300212021310-2300212230331232-1003210302103211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-249a14cafc6ff870e5b1e39faa6ae34742691088a0d02bf939b42bb36b5e6d54"></a>
+<a id="canonical-0210212201103022-3330123333201300-3211230132032133-2222122232031013-1002122101002020-2200310002233321-0321231002232303-1223113212311110"></a>
 
-## policy_rule_list.policy_rule.resource_list — policy_rule_list.policy_rule.resource_list / 770464acba69 / 2
+## policy_rule_list.policy_rule.resource_list — resource_list / 223023221221 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-4b5e46defe4cf2d8d155d2d68ea150bdabcc2287e8f9579afb1d938b4ecf7d0d)
-- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031)
+- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331)
 - policy_rule_list.policy_rule.resource_list
 
-<a id="canonical-7939e27916f197258017bdf057926256ad5dfba23e3535e7f95cbdb667431e72"></a>
+<a id="canonical-1321032132021321-0112330121130211-2000011323313300-1113210212021112-2231113133232202-0332031103113213-3321113023312312-1213100301321302"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -968,15 +968,15 @@ resource_list {
 }
 ```
 
-<a id="canonical-1fb2c47b6548fba4bb9cbe388b03f05d985a786d0a7e91dafe4aea648951257c"></a>
+<a id="canonical-0133230230101323-1211102033232210-2323213023320320-2023000333001131-2120112213201231-0022133221013122-3332102232221210-2021110102111330"></a>
 
-## Direct properties — policy_rule_list.policy_rule.resource_list / 770464acba69 / 3
+## Direct properties — resource_list / 223023221221 / 3
 
-<a id="canonical-4098a95d6dc4300a69d50f4ebd3867f35c0d2bf264fe39115cb91280597f218f"></a>
+<a id="canonical-1000212022211131-1231301003000022-1221311100331032-2331032012133303-1130003102233302-1210333203210101-1130232101022000-1121133302012033"></a>
 
-<a id="canonical-54e4cfd4b7ce5d2b9640ae1c0af219752434b8dda2e7a0c939e2c6ff552efd33"></a>
+<a id="canonical-1110321030333110-2313303211310223-2112100022320130-0022330201211311-0210031023203131-2202321322003021-0321320230123333-1111023233310303"></a>
 
-## api_groups property — policy_rule_list.policy_rule.resource_list / 770464acba69 / 4
+## api_groups property — resource_list / 223023221221 / 4
 
 Type: `["list", "string"]`. Optional.
 
@@ -1032,11 +1032,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-03f9d4b092209a1f26180afbb7d1dfaf44df76b52a44a8f2bcf464873b30c5a9"></a>
+<a id="canonical-0003332131102300-2102020021220133-0212012000223323-2313310131332233-1010313313122311-0222101022203302-2330331012102013-0323030030112221"></a>
 
-<a id="canonical-712542694321cb1380547f85dd31ad931e591c211f9d2c14fbfb89028b599a2b"></a>
+<a id="canonical-1301021110021221-1003020130230103-2000111013332011-3131030122312103-0132112101300201-0133213102300110-3323332320210002-2023112121220223"></a>
 
-## resource_instances property — policy_rule_list.policy_rule.resource_list / 770464acba69 / 5
+## resource_instances property — resource_list / 223023221221 / 5
 
 Type: `["list", "string"]`. Optional.
 
@@ -1086,11 +1086,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-7f4904fa26254b8373f394d3e7d2b1972554b3c69725437643b76b9c24a5c260"></a>
+<a id="canonical-1333102100103322-0212021110232003-1303330321103103-3213310223012113-0211111023033012-2113021110031312-1003231312232130-0210221130021200"></a>
 
-<a id="canonical-20b2a7e527617a22efdace985ab01c05ffcc4ec91a68af4d476754293141e3c6"></a>
+<a id="canonical-0200230222133211-0213120113220202-3233312230322120-1122230001300011-3333303010323021-0122122022331031-1013121311100221-0301100132033012"></a>
 
-## resource_types property — policy_rule_list.policy_rule.resource_list / 770464acba69 / 6
+## resource_types property — resource_list / 223023221221 / 6
 
 Type: `["list", "string"]`. Optional.
 
@@ -1146,11 +1146,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-339e3e9e2a4172d2a4202da8e0dff7442873db4996f81f36e98296034a420007"></a>
+<a id="canonical-0303213203322132-0222100113023102-2210020002312220-3200313333131010-0220130331231021-2112332001330312-3221200221120003-1022100200000013"></a>
 
-<a id="canonical-53c871f651c96de753520e900a0a3b859c3f344adce91d0a3743ae78e328ac99"></a>
+<a id="canonical-1103302013013312-1101302112313213-1103110200322100-0022002203232011-2130033303101022-3130322101310022-0313100322321320-3203022022302121"></a>
 
-## verbs property — policy_rule_list.policy_rule.resource_list / 770464acba69 / 7
+## verbs property — resource_list / 223023221221 / 7
 
 Type: `["list", "string"]`. Optional.
 
@@ -1206,30 +1206,30 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-9cec599bf335153b448999682773b8bfc904731538ca5dad1ae5de186e5d0e62"></a>
+<a id="canonical-2130323011212123-3303031101110323-1010202121211220-0213130323202333-3021001013030111-0320302211312231-0122321131320120-1232113100321202"></a>
 
-## Next pages — policy_rule_list.policy_rule.resource_list / 770464acba69 / 8
+## Next pages — resource_list / 223023221221 / 8
 
-- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-cdb9108e75620baabe77f2aeba33f40b4a10fd427f43961a3127c5f58c343efd)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [policy_rule_list.policy_rule](resources--k8s_cluster_role--reference--group-001.md#canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
 
-<a id="canonical-c2f94201abee4b34a4e313fc47fda030e04828ac4432528e707f9c6a44aac733"></a>
+<a id="canonical-3002332110020001-2223323210230310-2210320301033330-1013333122000300-3200102002202230-1010030211022032-1300133321301222-1010222230130303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-39909164f103806f955a3f93bda4635d3e9a0560601ad9b6ca34a12a763ee40d"></a>
+<a id="canonical-0321210021011210-3301000320001233-2111112203332103-2331221012031131-0332212200111200-1200012231212312-3022031022010222-1312033232100031"></a>
 
-## timeouts — timeouts / 4421e6a5a438 / 2
+## timeouts — timeouts / 221122100320 / 2
 
 Breadcrumbs:
 
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
 - timeouts
 
-<a id="canonical-71cec3491158c11cf3830a42bbb1940b98c6a56ef6b0def1c4b3a6e52d55ba9c"></a>
+<a id="canonical-1301303230031021-0101112030010130-3303200300221002-2323230121100023-2120301222111232-3312230031323301-3010230322123211-0231111123222130"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -1241,15 +1241,15 @@ timeouts {
 }
 ```
 
-<a id="canonical-1dd205d8e915651572e49e141588ff3de70bc50f5605a92adf0ff48a4ba57030"></a>
+<a id="canonical-0131310200113120-3221011112110111-1302321021320110-0111202033330331-3213002330110033-1112001122210222-3133003333102022-1023221113000300"></a>
 
-## Direct properties — timeouts / 4421e6a5a438 / 3
+## Direct properties — timeouts / 221122100320 / 3
 
-<a id="canonical-2e287eab5780808ae83bc325b112cf9fd1909a2c9e3793ef0b9da83a5d40cf48"></a>
+<a id="canonical-0232022013322223-1113200020002022-3220032330030211-2301010230332133-3101210021220230-2132031321033233-0023213122200322-1131100030331020"></a>
 
-<a id="canonical-00d95a3a31111567f995862f187aade274fba7c6d46ed421f487af609599e72d"></a>
+<a id="canonical-0000312111220322-0301010101111213-3321211120120233-0120132222313202-1310332322133012-3110123231100201-3310201322331200-2111212132130231"></a>
 
-## create property — timeouts / 4421e6a5a438 / 4
+## create property — timeouts / 221122100320 / 4
 
 Type: `"string"`. Optional.
 
@@ -1257,11 +1257,11 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-0dcf6e92e020271beac3c6b0835212d87b67787bb707ffe1b13ef4e7b84db993"></a>
+<a id="canonical-0031303312322102-3200020002130123-3222300330122300-2003110201023120-1323121313201323-2313001333333201-2301033233103213-2320103123212103"></a>
 
-<a id="canonical-05d70d4809dd0957051cbfcf714496997f177357238f67bb6083b60661b010c0"></a>
+<a id="canonical-0011311300311020-0021313100211113-0011013023333033-1301101021122121-1333011313031113-0203203312132323-1200200323120012-1201230001003000"></a>
 
-## delete property — timeouts / 4421e6a5a438 / 5
+## delete property — timeouts / 221122100320 / 5
 
 Type: `"string"`. Optional.
 
@@ -1270,11 +1270,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
 saved into state before the destroy operation occurs.
 
-<a id="canonical-8e1b6698b40941f6731029509475b63ce379613e9de22544ba8e699286af3e7c"></a>
+<a id="canonical-2032012312122120-2310002110013312-1303010002211100-2110131123120330-3203132112010332-2131320202111010-2322203212212102-2012223303321330"></a>
 
-<a id="canonical-4321b7fb714eb1e96d9f662394e127a66b5e2a143c57c5a4bd50d90579261c50"></a>
+<a id="canonical-1003020123133323-1301103223013221-1231213312120203-2110320102132212-1223113202220110-0330111330112210-2331110031210011-1321021201301100"></a>
 
-## read property — timeouts / 4421e6a5a438 / 6
+## read property — timeouts / 221122100320 / 6
 
 Type: `"string"`. Optional.
 
@@ -1283,11 +1283,11 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
 is enabled.
 
-<a id="canonical-06926dfdfd1fdf684b2fbbd06b1bbd7f4efceb74c2a985246a6616370bd43514"></a>
+<a id="canonical-0012210212313331-3331013331331220-1023023323233100-1223012323311333-1032333032231310-3002222120110210-1222121201120313-0023311003110110"></a>
 
-<a id="canonical-23ff9faf38a39dd42c44275228f45563d9eb99ac1b632abe69fad3e8d807a76c"></a>
+<a id="canonical-0203333321332233-0320220321313110-0230101002131102-0220331011111203-3121322321212230-0123120302222332-1221332231033220-3120001322131230"></a>
 
-## update property — timeouts / 4421e6a5a438 / 7
+## update property — timeouts / 221122100320 / 7
 
 Type: `"string"`. Optional.
 
@@ -1295,9 +1295,9 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-07a263b4d98771032431be6b5ba7a8eea599ef0ad4e2747551c48dbde91a5646"></a>
+<a id="canonical-0013220212032310-3121201313010003-0210030123321223-1123221322203232-2211212132330022-3110320213101311-1101301020312331-3221012211121012"></a>
 
-## Next pages — timeouts / 4421e6a5a438 / 8
+## Next pages — timeouts / 221122100320 / 8
 
-- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-9f8cba3c529fa9bc1e4ba8c8f635e5cd17a64356b4e2c0920e65d8384a68de2c)
-- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-4e8d2df4747cdd8e8e9686cbca47d61ff08b2031a918d8da2f09af43bd55e66b)
+- [Property reference](resources--k8s_cluster_role--reference--group-001.md#canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230)
+- [xcsh_k8s_cluster_role](../resources/k8s_cluster_role.md#canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223)

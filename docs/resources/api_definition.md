@@ -6,15 +6,15 @@ description: "Complete grouped canonical reference for xcsh_api_definition landi
 
 # xcsh_api_definition landing
 
-<a id="canonical-1a9d8086edc81a3081bdb5af5cf08e65d779e0999f32054324107309653381b0"></a>
+<a id="canonical-0122213120002012-3231302001220300-2001233123112233-1130330020321211-3113132132002121-2133030200111003-0210010013030021-1211030320012300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-acf4768e382d861d58fb20413eb63e8781bcbd17bf3b338fde2f5ade02264635"></a>
+<a id="canonical-2230331013122032-0320023120120131-1120332302001001-0332231203322013-2001233023310113-2333032303032033-3132023311223132-0002021210120311"></a>
 
-## xcsh_api_definition — xcsh_api_definition / d98cc36bb275 / 2
+## xcsh_api_definition — xcsh_api_definition / 122323021311 / 2
 
 Breadcrumbs:
 
@@ -22,9 +22,9 @@ Breadcrumbs:
 
 Manages API Definition in F5 Distributed Cloud.
 
-<a id="canonical-cb965aaf8f958c82b30eb8c1900d01c2c033f0720025a4439c82187005a15ab4"></a>
+<a id="canonical-3023211211222233-2033211120302002-2303003223203001-2100003100013002-3000030333001302-0000021122101003-2130200201201300-0011220111222310"></a>
 
-## Prerequisites — xcsh_api_definition / d98cc36bb275 / 3
+## Prerequisites — xcsh_api_definition / 122323021311 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -34,9 +34,9 @@ Optional integrations: `api_endpoint`.
 
 - api_endpoint: Endpoints defined by this API
 
-<a id="canonical-79d8321092d7748cfa3fd62a701cb14327b308a7f5934f11ccfdb2beea324eeb"></a>
+<a id="canonical-1321312003020100-2102311313102030-3322033331120222-1300013023011003-0213230300202213-3311210310330101-3030333123022332-3222030210323223"></a>
 
-## Minimal configuration — xcsh_api_definition / d98cc36bb275 / 4
+## Minimal configuration — xcsh_api_definition / 122323021311 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,17 +62,17 @@ resource "xcsh_api_definition" "example" {
 }
 ```
 
-<a id="canonical-e4c020c202cd96c51d32fe66de763239062988f7d1af8f279652509475eebb3d"></a>
+<a id="canonical-3210300002003002-0002303121123011-0131030233321212-3132131203020321-0012022120203313-3101223320330213-2112110211002110-1311323223230331"></a>
 
-## Root configuration — xcsh_api_definition / d98cc36bb275 / 5
+## Root configuration — xcsh_api_definition / 122323021311 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-aa2aa18b51903af7b4926d3b592d437a58a815fb4dae04172c93b227c2e46616"></a>
+<a id="canonical-2222022222012023-1101210003223313-2310210212310323-1121023110031322-1120222001113323-1031223200100113-0230210323020213-3002321012120112"></a>
 
-## Next pages — xcsh_api_definition / d98cc36bb275 / 6
+## Next pages — xcsh_api_definition / 122323021311 / 6
 
-- [Property reference](../guides/resources--api_definition--reference--group-001.md#canonical-471f59a89019910686397873c505f66f07862a821758d35780a19c9fb9b7aaa5)
-- [Examples](../guides/resources--api_definition--examples--group-001.md#canonical-49827350fd565d874def3c4d3aa62c89a8251685c5428c58bd74db2481e14124)
-- [Import](../guides/resources--api_definition--lifecycle--group-001.md#canonical-ae277c6718304bfe1bb57336cf31a097e904a3b6e05b0b20ca377e419b52ebd5)
-- [Timeouts](../guides/resources--api_definition--lifecycle--group-001.md#canonical-822ab293f2b144b60c5180d97984312d4742952db3f9bab0eb305380ea90867c)
+- [Property reference](../guides/resources--api_definition--reference--group-001.md#canonical-1013013311212220-2100012121010012-2012032113201303-3011001133121233-0013201202222002-0113112031031113-2000220121302133-2321231322222211)
+- [Examples](../guides/resources--api_definition--examples--group-001.md#canonical-1021200213031100-3331111211312013-1031323303301031-0322221202302021-2220021101122011-3011100220301120-2331131031230210-2001320110010210)
+- [Import](../guides/resources--api_definition--lifecycle--group-001.md#canonical-2232021313301213-0120030010233332-0123231113030312-3033030122002113-3221001022032312-3200112300230200-3022031313321001-2123110232233111)
+- [Timeouts](../guides/resources--api_definition--lifecycle--group-001.md#canonical-2002022223022103-3302230110102312-0030110120003121-1321201003010231-1013100221110231-2303332123222300-3223030011032000-3222210020121330)
